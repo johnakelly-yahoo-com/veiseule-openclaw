@@ -1,4 +1,8 @@
 ---
+summary: "Tawagin ang isang solong tool nang direkta sa pamamagitan ng Gateway HTTP endpoint"
+read_when:
+  - Pagtawag ng mga tool nang hindi nagpapatakbo ng buong agent turn
+  - Pagbuo ng mga automation na nangangailangan ng pagpapatupad ng tool policy
 title: "API ng Pag-invoke ng mga Tool"
 ---
 
@@ -21,6 +25,7 @@ Mga tala:
 
 - Kapag `gateway.auth.mode="token"`, gamitin ang `gateway.auth.token` (o `OPENCLAW_GATEWAY_TOKEN`).
 - Kapag `gateway.auth.mode="password"`, gamitin ang `gateway.auth.password` (o `OPENCLAW_GATEWAY_PASSWORD`).
+- Kung naka-configure ang `gateway.auth.rateLimit` at masyadong maraming auth failures ang naganap, magbabalik ang endpoint ng `429` kasama ang `Retry-After`.
 
 ## Request body
 
@@ -58,14 +63,38 @@ Para matulungan ang mga group policy na maresolba ang context, maaari mong opsyo
 
 - `x-openclaw-message-channel: <channel>` (halimbawa: `slack`, `telegram`)
 - `x-openclaw-account-id: <accountId>` (kapag mayroong maraming account)
+- `gateway`
+- `whatsapp_login`
+
+Maaari mong i-customize ang deny list na ito sa pamamagitan ng `gateway.tools`:
+
+```json5
+{
+  gateway: {
+    tools: {
+      // Karagdagang tools na iba-block sa HTTP /tools/invoke
+      deny: ["browser"],
+      // Alisin ang mga tools mula sa default deny list
+      allow: ["gateway"],
+    },
+  },
+}
+```
+
+Para matulungan ang mga group policy na maresolba ang context, maaari mong opsyonal na itakda ang:
+
+- `x-openclaw-message-channel: <channel>` (halimbawa: `slack`, `telegram`)
+- `x-openclaw-account-id: <accountId>` (kapag mayroong maraming account)
 
 ## Responses
 
 - `200` → `{ ok: true, result }`
-- `400` → `{ ok: false, error: { type, message } }` (invalid na request o error sa tool)
+- `400` → `{ ok: false, error: { type, message } }` (invalid na request o error sa input ng tool)
 - `401` → unauthorized
+- `429` → na-rate limit ang auth (`Retry-After` naka-set)
 - `404` → tool not available (hindi nahanap o hindi naka-allowlist)
 - `405` → method not allowed
+- `500` → `{ ok: false, error: { type, message } }` (hindi inaasahang error sa pagpapatupad ng tool; nilinis na mensahe)
 
 ## Example
 
@@ -79,5 +108,3 @@ curl -sS http://127.0.0.1:18789/tools/invoke \
     "args": {}
   }'
 ```
-
-

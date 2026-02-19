@@ -1,4 +1,9 @@
 ---
+summary: "Công cụ tìm kiếm web + tải nội dung (Brave Search API, Perplexity trực tiếp/OpenRouter)"
+read_when:
+  - Bạn muốn bật web_search hoặc web_fetch
+  - Bạn cần thiết lập khóa Brave Search API
+  - Bạn muốn dùng Perplexity Sonar cho tìm kiếm web
 title: "Công cụ Web"
 ---
 
@@ -9,7 +14,7 @@ OpenClaw cung cấp hai công cụ web gọn nhẹ:
 - `web_search` — Tìm kiếm web qua Brave Search API (mặc định) hoặc Perplexity Sonar (trực tiếp hoặc qua OpenRouter).
 - `web_fetch` — Tải HTTP + trích xuất nội dung dễ đọc (HTML → markdown/text).
 
-Đây **không** phải là tự động hóa trình duyệt. Đối với các trang nặng JS hoặc yêu cầu đăng nhập, hãy sử dụng
+These are **not** browser automation. For JS-heavy sites or logins, use the
 [Browser tool](/tools/browser).
 
 ## Cách hoạt động
@@ -18,8 +23,8 @@ OpenClaw cung cấp hai công cụ web gọn nhẹ:
   - **Brave** (mặc định): trả về kết quả có cấu trúc (tiêu đề, URL, đoạn trích).
   - **Perplexity**: trả về câu trả lời do AI tổng hợp kèm trích dẫn từ tìm kiếm web thời gian thực.
 - Kết quả được cache theo truy vấn trong 15 phút (có thể cấu hình).
-- `web_fetch` thực hiện một HTTP GET đơn giản và trích xuất nội dung có thể đọc được
-(HTML → markdown/text). Nó **không** thực thi JavaScript.
+- `web_fetch` does a plain HTTP GET and extracts readable content
+  (HTML → markdown/text). It does **not** execute JavaScript.
 - `web_fetch` được bật theo mặc định (trừ khi bị tắt rõ ràng).
 
 ## Chọn nhà cung cấp tìm kiếm
@@ -75,16 +80,16 @@ giới hạn và giá hiện hành.
 
 ### Nơi đặt khóa (khuyến nghị)
 
-**Khuyến nghị:** chạy `openclaw configure --section web`. Lệnh này lưu khóa vào
+**Recommended:** run `openclaw configure --section web`. It stores the key in
 `~/.openclaw/openclaw.json` under `tools.web.search.apiKey`.
 
-**Phương án thay thế bằng biến môi trường:** đặt `BRAVE_API_KEY` trong tiến trình Gateway
+**Environment alternative:** set `BRAVE_API_KEY` in the Gateway process
 environment. For a gateway install, put it in `~/.openclaw/.env` (or your
 service environment). See [Env vars](/help/faq#how-does-openclaw-load-environment-variables).
 
 ## Dùng Perplexity (trực tiếp hoặc qua OpenRouter)
 
-Các mô hình Perplexity Sonar có khả năng tìm kiếm web tích hợp sẵn và trả về nội dung được AI tổng hợp
+Perplexity Sonar models have built-in web search capabilities and return AI-synthesized
 answers with citations. You can use them via OpenRouter (no credit card required - supports
 crypto/prepaid).
 
@@ -117,7 +122,7 @@ crypto/prepaid).
 }
 ```
 
-**Phương án thay thế bằng biến môi trường:** đặt `OPENROUTER_API_KEY` hoặc `PERPLEXITY_API_KEY` trong Gateway
+**Environment alternative:** set `OPENROUTER_API_KEY` or `PERPLEXITY_API_KEY` in the Gateway
 environment. For a gateway install, put it in `~/.openclaw/.env`.
 
 Nếu không đặt base URL, OpenClaw sẽ chọn mặc định dựa trên nguồn khóa API:
@@ -167,10 +172,12 @@ Tìm kiếm web bằng nhà cung cấp đã cấu hình.
 
 - `query` (bắt buộc)
 - `count` (1–10; mặc định theo cấu hình)
-- `country` (tùy chọn): mã quốc gia gồm 2 chữ cái cho kết quả theo khu vực (ví dụ: "DE", "US", "ALL"). Nếu bỏ qua, Brave sẽ chọn khu vực mặc định của nó.
+- `country` (optional): 2-letter country code for region-specific results (e.g., "DE", "US", "ALL"). If omitted, Brave chooses its default region.
 - `search_lang` (tùy chọn): mã ngôn ngữ ISO cho kết quả tìm kiếm (ví dụ: "de", "en", "fr")
 - `ui_lang` (tùy chọn): mã ngôn ngữ ISO cho các thành phần UI
 - `freshness` (tùy chọn, chỉ Brave): lọc theo thời điểm khám phá (`pd`, `pw`, `pm`, `py`, hoặc `YYYY-MM-DDtoYYYY-MM-DD`)
+  - Brave: `pd`, `pw`, `pm`, `py`, hoặc `YYYY-MM-DDtoYYYY-MM-DD`
+  - Perplexity: `pd`, `pw`, `pm`, `py`
 
 **Ví dụ:**
 
@@ -254,5 +261,3 @@ Ghi chú:
 - Phản hồi được cache (mặc định 15 phút) để giảm tải việc tải lặp lại.
 - Nếu bạn dùng hồ sơ công cụ/danh sách cho phép, hãy thêm `web_search`/`web_fetch` hoặc `group:web`.
 - Nếu thiếu khóa Brave, `web_search` sẽ trả về gợi ý thiết lập ngắn kèm liên kết tài liệu.
-
-

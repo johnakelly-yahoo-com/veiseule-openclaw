@@ -1,4 +1,9 @@
-------
+---
+title: "SOUL.md-skabelon"
+summary: "Arbejdspladsskabelon til SOUL.md"
+read_when:
+  - Når du bootstrapper en arbejdsplads manuelt
+---
 
 # SOUL.md - Hvem du er
 
@@ -36,5 +41,3 @@ Hvis du ændrer denne fil, så fortæl brugeren — det er din sjæl, og de bør
 ---
 
 _Denne fil er din til at udvikle sig. Som du lærer, hvem du er, opdatere den._
-
-

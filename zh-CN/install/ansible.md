@@ -1,12 +1,10 @@
 ---
-title: Ansible
-x-i18n:
-  generated_at: "2026-02-03T07:49:29Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 896807f344d923f09039f377c13b4bf4a824aa94eec35159fc169596a3493b29
-  source_path: install/ansible.md
-  workflow: 15
+summary: "使用 Ansible、Tailscale VPN 和防火墙隔离进行自动化、加固的 OpenClaw 安装"
+read_when:
+  - 你想要带安全加固的自动化服务器部署
+  - 你需要带 VPN 访问的防火墙隔离设置
+  - 你正在部署到远程 Debian/Ubuntu 服务器
+title: "Ansible"
 ---
 
 # Ansible 安装
@@ -23,9 +21,9 @@ curl -fsSL https://raw.githubusercontent.com/openclaw/openclaw-ansible/main/inst
 
 > **📦 完整指南：[github.com/openclaw/openclaw-ansible](https://github.com/openclaw/openclaw-ansible)**
 >
-> openclaw-ansible 仓库是 Ansible 部署的权威来源。本页是快速概述。
+> openclaw-ansible 仓库是 Ansible 部署的权威来源。本页是快速概述。 This page is a quick overview.
 
-## 你将获得
+## What You Get
 
 - 🔒 **防火墙优先安全**：UFW + Docker 隔离（仅 SSH + Tailscale 可访问）
 - 🔐 **Tailscale VPN**：安全远程访问，无需公开暴露服务
@@ -52,7 +50,7 @@ Ansible playbook 安装并配置：
 5. **OpenClaw**（基于主机，非容器化）
 6. **Systemd 服务**（带安全加固的自动启动）
 
-注意：Gateway 网关**直接在主机上运行**（不在 Docker 中），但智能体沙箱使用 Docker 进行隔离。详情参见[沙箱隔离](/gateway/sandboxing)。
+注意：Gateway 网关**直接在主机上运行**（不在 Docker 中），但智能体沙箱使用 Docker 进行隔离。详情参见[沙箱隔离](/gateway/sandboxing)。 See [Sandboxing](/gateway/sandboxing) for details.
 
 ## 安装后设置
 
@@ -103,11 +101,11 @@ openclaw channels login
 nmap -p- YOUR_SERVER_IP
 ```
 
-应该显示**仅端口 22**（SSH）开放。所有其他服务（Gateway 网关、Docker）都被锁定。
+应该显示**仅端口 22**（SSH）开放。所有其他服务（Gateway 网关、Docker）都被锁定。 All other services (gateway, Docker) are locked down.
 
 ### Docker 可用性
 
-Docker 用于**智能体沙箱**（隔离的工具执行），而不是用于运行 Gateway 网关本身。Gateway 网关仅绑定到 localhost，通过 Tailscale VPN 访问。
+Docker 用于**智能体沙箱**（隔离的工具执行），而不是用于运行 Gateway 网关本身。Gateway 网关仅绑定到 localhost，通过 Tailscale VPN 访问。 The gateway binds to localhost only and is accessible via Tailscale VPN.
 
 沙箱配置参见[多智能体沙箱与工具](/tools/multi-agent-sandbox-tools)。
 
@@ -135,7 +133,7 @@ ansible-galaxy collection install -r requirements.yml
 
 ## 更新 OpenClaw
 
-Ansible 安装程序设置 OpenClaw 为手动更新。标准更新流程参见[更新](/install/updating)。
+Ansible 安装程序设置 OpenClaw 为手动更新。标准更新流程参见[更新](/install/updating)。 See [Updating](/install/updating) for the standard update flow.
 
 要重新运行 Ansible playbook（例如，用于配置更改）：
 
@@ -208,5 +206,3 @@ openclaw channels login
 - [Docker](/install/docker) — 容器化 Gateway 网关设置
 - [沙箱隔离](/gateway/sandboxing) — 智能体沙箱配置
 - [多智能体沙箱与工具](/tools/multi-agent-sandbox-tools) — 每个智能体的隔离
-
-

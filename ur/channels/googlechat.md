@@ -1,4 +1,7 @@
 ---
+summary: "Google Chat ایپ کی سپورٹ اسٹیٹس، صلاحیتیں، اور کنفیگریشن"
+read_when:
+  - Google Chat چینل کی خصوصیات پر کام کرتے وقت
 title: "Google Chat"
 ---
 
@@ -53,14 +56,14 @@ title: "Google Chat"
 1. [Google Chat](https://chat.google.com/) پر جائیں۔
 2. **Direct Messages** کے ساتھ موجود **+** (پلس) آئیکن پر کلک کریں۔
 3. سرچ بار میں (جہاں آپ عام طور پر لوگوں کو شامل کرتے ہیں) وہ **App name** ٹائپ کریں جو آپ نے Google Cloud Console میں کنفیگر کیا تھا۔
-   - **نوٹ**: بوٹ "Marketplace" کی براؤز فہرست میں _نظر نہیں آئے گا_ کیونکہ یہ ایک نجی ایپ ہے۔ آپ کو اسے نام کے ذریعے تلاش کرنا ہوگا۔
+   - **Note**: The bot will _not_ appear in the "Marketplace" browse list because it is a private app. You must search for it by name.
 4. نتائج میں سے اپنے بوٹ کو منتخب کریں۔
 5. 1:1 گفتگو شروع کرنے کے لیے **Add** یا **Chat** پر کلک کریں۔
 6. اسسٹنٹ کو متحرک کرنے کے لیے "Hello" بھیجیں!
 
 ## عوامی URL (صرف ویب ہُک)
 
-Google Chat ویب ہُکس کے لیے ایک عوامی HTTPS اینڈ پوائنٹ درکار ہوتا ہے۔ سیکیورٹی کے لیے، **صرف `/googlechat` راستہ** انٹرنیٹ پر ظاہر کریں۔ OpenClaw ڈیش بورڈ اور دیگر حساس اینڈ پوائنٹس کو اپنے نجی نیٹ ورک پر رکھیں۔
+Google Chat webhooks require a public HTTPS endpoint. For security, **only expose the `/googlechat` path** to the internet. Keep the OpenClaw dashboard and other sensitive endpoints on your private network.
 
 ### آپشن A: Tailscale Funnel (سفارش کردہ)
 
@@ -104,15 +107,15 @@ Use Tailscale Serve for the private dashboard and Funnel for the public webhook 
    tailscale funnel status
    ```
 
-آپ کا عوامی ویب ہُک URL یہ ہوگا:
+Your public webhook URL will be:
 `https://<node-name>.<tailnet>.ts.net/googlechat`
 
-آپ کا نجی ڈیش بورڈ صرف tailnet تک محدود رہے گا:
+Your private dashboard stays tailnet-only:
 `https://<node-name>.<tailnet>.ts.net:8443/`
 
 Google Chat ایپ کنفیگ میں عوامی URL استعمال کریں (`:8443` کے بغیر)۔
 
-> > نوٹ: یہ کنفیگریشن ری بوٹ کے بعد بھی برقرار رہتی ہے۔ اسے بعد میں ہٹانے کے لیے، `tailscale funnel reset` اور `tailscale serve reset` چلائیں۔
+> Note: This configuration persists across reboots. To remove it later, run `tailscale funnel reset` and `tailscale serve reset`.
 
 ### آپشن B: ریورس پراکسی (Caddy)
 
@@ -151,6 +154,7 @@ your-domain.com {
 ترسیل اور اجازت فہرستوں کے لیے یہ شناخت کنندگان استعمال کریں:
 
 - براہِ راست پیغامات: `users/<userId>` یا `users/<email>` (ای میل ایڈریس قبول کیے جاتے ہیں)۔
+- Spaces: `spaces/<spaceId>`۔
 - Spaces: `spaces/<spaceId>`۔
 
 ## کنفیگ نمایاں نکات
@@ -247,5 +251,3 @@ openclaw channels status
 - [Gateway configuration](/gateway/configuration)
 - [Security](/gateway/security)
 - [Reactions](/tools/reactions)
-
-

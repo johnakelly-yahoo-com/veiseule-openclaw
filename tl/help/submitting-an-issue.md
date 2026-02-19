@@ -1,10 +1,11 @@
 ---
+summary: "Pagsusumite ng mga isyung may mataas na signal at bug report"
 title: "Pagsusumite ng Isyu"
 ---
 
 ## Pagsusumite ng Isyu
 
-Ang malinaw at maigsi na mga isyu ay nagpapabilis ng pag-diagnose at pag-aayos. Isama ang mga sumusunod para sa mga bug, regression, o kakulangan sa feature:
+Clear, concise issues speed up diagnosis and fixes. Include the following for bugs, regressions, or feature gaps:
 
 ### Ano ang isasama
 
@@ -20,7 +21,7 @@ Ang malinaw at maigsi na mga isyu ay nagpapabilis ng pag-diagnose at pag-aayos. 
 - [ ] Nakumpirmang hindi pa kamakailan naayos/natugunan (lalo na seguridad)
 - [ ] Mga pahayag na suportado ng ebidensya o repro
 
-Maging maikli. Mas mahalaga ang pagiging maikli kaysa perpektong gramatika.
+Be brief. Terseness > perfect grammar.
 
 Validation (patakbuhin/ayusin bago PR):
 
@@ -149,5 +150,3 @@ Para sa mga sensitibong isyu, bawasan ang detalye at humiling ng pribadong pagsi
 ### Pagsusumite ng fix PR
 
 Mistral: `mistral/`… Include details in PR if skipping. Keep the PR focused, note issue number, add tests or explain absence, document behavior changes/risks, include redacted logs/screenshots as proof, and run proper validation before submitting.
-
-

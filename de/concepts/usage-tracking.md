@@ -1,4 +1,8 @@
 ---
+summary: "„Oberflächen zur Nutzungsverfolgung und Anforderungen an Anmeldeinformationen“"
+read_when:
+  - Sie verdrahten Oberflächen für Anbieter-Nutzung/Quoten
+  - Sie müssen das Verhalten der Nutzungsverfolgung oder Authentifizierungsanforderungen erklären
 title: "„Nutzungsverfolgung“"
 ---
 
@@ -29,5 +33,3 @@ title: "„Nutzungsverfolgung“"
 - **z.ai**: API‑Schlüssel über env/Konfiguration/Auth‑Store.
 
 Die Nutzung wird ausgeblendet, wenn keine passenden OAuth‑/API‑Anmeldeinformationen vorhanden sind.
-
-

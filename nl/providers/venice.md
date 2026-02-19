@@ -1,4 +1,8 @@
 ---
+summary: "Gebruik privacygerichte modellen van Venice AI in OpenClaw"
+read_when:
+  - Je wilt privacygerichte inferentie in OpenClaw
+  - Je wilt begeleide installatie van Venice AI
 title: "Venice AI"
 ---
 
@@ -43,7 +47,7 @@ Venice biedt twee privacyniveaus — dit begrijpen is essentieel voor het kiezen
 2. Ga naar **Settings → API Keys → Create new key**
 3. Kopieer je API-sleutel (indeling: `vapi_xxxxxxxxxxxx`)
 
-### 2) OpenClaw configureren
+### 3) Installatie verifiëren
 
 **Optie A: Omgevingsvariabele**
 
@@ -261,5 +265,3 @@ De Venice API bevindt zich op `https://api.venice.ai/api/v1`. Zorg ervoor dat je
 - [API-documentatie](https://docs.venice.ai)
 - [Prijzen](https://venice.ai/pricing)
 - [Status](https://status.venice.ai)
-
-

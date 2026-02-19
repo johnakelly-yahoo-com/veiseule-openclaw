@@ -1,4 +1,8 @@
 ---
+summary: "Tái cấu trúc Clawnet: hợp nhất giao thức mạng, vai trò, xác thực, phê duyệt, định danh"
+read_when:
+  - Lập kế hoạch một giao thức mạng thống nhất cho các node + client của operator
+  - Làm lại phê duyệt, ghép cặp, TLS và hiện diện trên các thiết bị
 title: "Tái cấu trúc Clawnet"
 ---
 
@@ -411,5 +415,3 @@ Chọn một trước khi triển khai để tránh lệch hướng.
 - Điểm đau: phê duyệt + trùng lặp + hai ngăn xếp.
 - Đề xuất: một giao thức WS với vai trò + phạm vi rõ ràng, ghép cặp hợp nhất + ghim TLS, phê duyệt do gateway lưu trữ, ID thiết bị ổn định + slug dễ thương.
 - Kết quả: UX đơn giản hơn, bảo mật mạnh hơn, ít trùng lặp, định tuyến di động tốt hơn.
-
-

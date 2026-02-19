@@ -1,4 +1,8 @@
 ---
+summary: "Справочник CLI для `openclaw skills` (list/info/check) и допустимости Skills"
+read_when:
+  - Вы хотите увидеть, какие Skills доступны и готовы к запуску
+  - Вы хотите отладить отсутствующие бинарники/переменные окружения/конфиг для Skills
 title: "skills"
 ---
 
@@ -20,5 +24,3 @@ openclaw skills list --eligible
 openclaw skills info <name>
 openclaw skills check
 ```
-
-

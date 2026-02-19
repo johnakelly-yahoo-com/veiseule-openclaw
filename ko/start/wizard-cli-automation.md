@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw CLI를 위한 스크립트 기반 온보딩 및 에이전트 설정"
+read_when:
+  - 스크립트 또는 CI에서 온보딩을 자동화할 때
+  - 특정 프로바이더에 대한 비대화형 예제가 필요할 때
 title: "CLI 자동화"
 sidebarTitle: "CLI 자동화"
 ---
@@ -109,6 +113,26 @@ openclaw onboard --non-interactive \
     ```
   
 </Accordion>
+  <Accordion title="Custom provider example">
+    ```bash
+    openclaw onboard --non-interactive \
+      --mode local \
+      --auth-choice custom-api-key \
+      --custom-base-url "https://llm.example.com/v1" \
+      --custom-model-id "foo-large" \
+      --custom-api-key "$CUSTOM_API_KEY" \
+      --custom-provider-id "my-custom" \
+      --custom-compatibility anthropic \
+      --gateway-port 18789 \
+      --gateway-bind loopback
+    ```
+
+    ```
+    `--custom-api-key`는 선택 사항입니다. 생략하면 온보딩 과정에서 `CUSTOM_API_KEY`를 확인합니다.
+    ```
+
+  
+</Accordion>
 </AccordionGroup>
 
 ## 다른 에이전트 추가
@@ -141,5 +165,3 @@ openclaw agents add work \
 - 온보딩 허브: [온보딩 마법사 (CLI)](/start/wizard)
 - 전체 참조: [CLI 온보딩 참조](/start/wizard-cli-reference)
 - 명령 참조: [`openclaw onboard`](/cli/onboard)
-
-

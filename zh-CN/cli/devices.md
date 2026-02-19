@@ -1,12 +1,9 @@
 ---
-title: devices
-x-i18n:
-  generated_at: "2026-02-03T07:44:52Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 52f903817d2886c1dc29b85d30168d1edff7944bd120a1e139159c9d99a1f517
-  source_path: cli/devices.md
-  workflow: 15
+summary: "`openclaw devices` 的 CLI 参考（设备配对 + token 轮换/撤销）"
+read_when:
+  - 你正在批准设备配对请求
+  - 你需要轮换或撤销设备 token
+title: "devices"
 ---
 
 # `openclaw devices`
@@ -64,9 +61,10 @@ openclaw devices revoke --device <deviceId> --role node
 - `--timeout <ms>`：RPC 超时。
 - `--json`：JSON 输出（推荐用于脚本）。
 
+Note: when you set `--url`, the CLI does not fall back to config or environment credentials.
+Pass `--token` or `--password` explicitly. Missing explicit credentials is an error.
+
 ## 注意事项
 
-- Token 轮换会返回新 token（敏感信息）。请像对待密钥一样对待它。
+- Token 轮换会返回新 token（敏感信息）。请像对待密钥一样对待它。 Treat it like a secret.
 - 这些命令需要 `operator.pairing`（或 `operator.admin`）scope。
-
-

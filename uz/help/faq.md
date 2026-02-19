@@ -1,4 +1,5 @@
 ---
+summary: "OpenClaw sozlash, konfiguratsiya va foydalanish bo‘yicha tez-tez beriladigan savollar"
 title: "FAQ"
 ---
 
@@ -523,10 +524,10 @@ Rough guide:
 
 6. Bu `main` branchga o‘tadi va manbadan yangilaydi.
 
-2. 7. **Hackable o‘rnatish (installer saytidan):**
+2. Bu sizga tahrirlash mumkin bo‘lgan lokal repo beradi, keyin git orqali yangilaysiz.
 
 ```bash
-8. curl -fsSL https://openclaw.ai/install.sh | bash -s -- --install-method git
+curl -fsSL https://openclaw.ai/install.sh | bash -s -- --install-method git
 ```
 
 9. Bu sizga tahrirlash mumkin bo‘lgan lokal repo beradi, keyin git orqali yangilaysiz.
@@ -563,6 +564,15 @@ pnpm build
 19. curl -fsSL https://openclaw.ai/install.sh | bash -s -- --install-method git --verbose
 ```
 
+Windows (PowerShell) ekvivalenti:
+
+```powershell
+# install.ps1 has no dedicated -Verbose flag yet.
+Set-PSDebug -Trace 1
+& ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -NoOnboard
+Set-PSDebug -Trace 0
+```
+
 20. Ko‘proq variantlar: [Installer flags](/install/installer).
 
 ### 21. Windows o‘rnatishda git topilmadi yoki openclaw tanilmadi
@@ -597,7 +607,7 @@ pnpm build
     botingizdan (yoki Claude/Codex’dan) _shu papkadan_ so‘rang — u repo’ni o‘qib, aniq javob bera oladi.
 
 ```bash
-36. curl -fsSL https://openclaw.ai/install.sh | bash -s -- --install-method git
+curl -fsSL https://openclaw.ai/install.sh | bash -s -- --install-method git
 ```
 
 37. Batafsil: [Install](/install) va [Installer flags](/install/installer).
@@ -634,7 +644,7 @@ Siz **node**larni (Mac/iOS/Android/headless) shu bulut Gateway’iga ulab, mahal
 Hub: [Platforms](/platforms). 24. Masofaviy kirish: [Gateway remote](/gateway/remote).
 Node’lar: [Nodes](/nodes), [Nodes CLI](/cli/nodes).
 
-### OpenClaw’dan o‘zini yangilashni so‘rashim mumkinmi
+### Onboarding ustasi aslida nima qiladi
 
 Qisqa javob: **mumkin, lekin tavsiya etilmaydi**. Yangilash jarayoni
 Gateway’ni qayta ishga tushirishi (bu faol sessiyani uzadi), toza git checkout talab qilishi va tasdiqlashni so‘rashi mumkin. Xavfsizroq yo‘l: yangilashlarni operator sifatida shell’dan ishga tushiring.
@@ -656,9 +666,10 @@ openclaw update --yes --no-restart
 openclaw gateway restart
 ```
 
-Hujjatlar: [Update](/cli/update), [Updating](/install/updating).
+Hujjatlar: [Anthropic](/providers/anthropic), [OpenAI](/providers/openai),
+[Local models](/gateway/local-models), [Models](/concepts/models).
 
-### Onboarding ustasi aslida nima qiladi
+### API kalitisiz Claude Max obunasidan foydalansam bo‘ladimi
 
 `openclaw onboard` — tavsiya etilgan sozlash yo‘li. **Local mode**da u sizni quyidagilar bo‘yicha bosqichma-bosqich olib boradi:
 
@@ -796,7 +807,9 @@ without WhatsApp/Telegram.
 
 ### Telegram what goes in allowFrom
 
-`channels.telegram.allowFrom` is **the human sender's Telegram user ID** (numeric, recommended) or `@username`. It is not the bot username.
+`channels.telegram.allowFrom` — bu **inson yuboruvchining Telegram user ID’si** (raqamli). It is not the bot username.
+
+Onboarding ustasi `@username` kiritishni qabul qiladi va uni raqamli ID’ga aylantiradi, ammo OpenClaw avtorizatsiyasi faqat raqamli ID’lardan foydalanadi.
 
 Safer (no third-party bot):
 
@@ -882,7 +895,7 @@ openclaw gateway restart
 - 26. **Afzalliklar:** server xarajati yo‘q, lokal fayllarga to‘g‘ridan-to‘g‘ri kirish, jonli brauzer oynasi.
 - 27. **Kamchiliklar:** uyqu/tarmoq uzilishlari = uzilishlar, OS yangilanishlari/qayta yuklashlar to‘xtatadi, doim uyg‘oq turishi kerak.
 
-28. **VPS / bulut**
+Hujjatlar: [Linux](/platforms/linux), [VPS hosting](/vps).
 
 - 29. **Afzalliklar:** doim yoqilgan, barqaror tarmoq, noutbuk uyqu muammolari yo‘q, ishlatib turish oson.
 - 30. **Kamchiliklar:** ko‘pincha headless (skrinshotlardan foydalaniladi), faqat masofaviy faylga kirish, yangilash uchun SSH kerak.
@@ -916,22 +929,22 @@ Hujjatlar: [Linux](/platforms/linux), [VPS hosting](/vps).
 
 Ha. VM’ni VPS kabi ko‘ring: u doim yoqilgan bo‘lishi, tarmoq orqali mavjud bo‘lishi va Gateway hamda yoqadigan barcha kanallar uchun yetarli RAM’ga ega bo‘lishi kerak.
 
-Boshlang‘ich tavsiyalar:
+Yaxshi boshlang‘ich loyihalar:
 
-- **Mutlaq minimum:** 1 vCPU, 1GB RAM.
-- **Tavsiya etiladi:** bir nechta kanal, brauzer avtomatlashtiruvi yoki media vositalarini ishlatsangiz 2GB RAM yoki undan ko‘p.
-- **OS:** Ubuntu LTS yoki boshqa zamonaviy Debian/Ubuntu.
+- Veb-sayt yarating (WordPress, Shopify yoki oddiy statik sayt).
+- Mobil ilova prototipini yarating (kontur, ekranlar, API reja).
+- Fayl va papkalarni tartibga soling (tozalash, nomlash, teglar).
 
 Agar Windows’da bo‘lsangiz, **WSL2 eng oson VM uslubidagi sozlama** va eng yaxshi vositalar mosligiga ega. Qarang: [Windows](/platforms/windows), [VPS hosting](/vps).
 Agar macOS’ni VM’da ishga tushirayotgan bo‘lsangiz, [macOS VM](/install/macos-vm) sahifasiga qarang.
 
-## OpenClaw nima?
+## OpenClaw’ning kundalik eng yaxshi besh qo‘llanilish holati qaysilar?
 
 ### OpenClaw haqida bir paragrafda
 
 OpenClaw — bu o‘zingizga tegishli qurilmalarda ishga tushiradigan shaxsiy AI yordamchi. U siz allaqachon ishlatadigan xabar almashish platformalarida (WhatsApp, Telegram, Slack, Mattermost (plugin), Discord, Google Chat, Signal, iMessage, WebChat) javob beradi va qo‘llab-quvvatlanadigan platformalarda ovoz hamda jonli Canvas’ni ham taqdim etadi. **Gateway** — doim yoqilgan boshqaruv qatlami; yordamchining o‘zi esa mahsulotdir.
 
-### Qiymat taklifi nimada?
+### OpenClaw SaaS uchun lead gen, outreach, reklama va bloglarda yordam bera oladimi?
 
 OpenClaw "shunchaki Claude o‘rami" emas. Bu **local-first boshqaruv qatlami** bo‘lib, **o‘zingizga tegishli apparatda** kuchli yordamchini ishga tushirish imkonini beradi; siz allaqachon ishlatadigan chat ilovalari orqali ulanadi, holatli sessiyalar, xotira va vositalarga ega — ish jarayonlaringiz nazoratini hosted SaaS’ga topshirmasdan.
 
@@ -983,10 +996,10 @@ OpenClaw — bu **shaxsiy yordamchi** va muvofiqlashtirish qatlami, IDE o‘rnin
 3. Afzalliklar:
 
 - 4. Sessiyalar davomida **doimiy xotira + ish maydoni**
-- 5. **Ko‘p platformali kirish** (WhatsApp, Telegram, TUI, WebChat)
-- 29. **Asboblarni orkestratsiya qilish** (brauzer, fayllar, rejalashtirish, hook’lar)
+- Bot’ingizdan "bu vazifa uchun sub-agent yarat" deb so‘rang yoki `/subagents` dan foydalaning.
+- Chat’da `/status` dan foydalanib Gateway hozir nima qilayotganini (va band yoki yo‘qligini) ko‘ring.
 - 7. **Doimiy ishlaydigan Gateway** (VPS’da ishga tushiring, istalgan joydan muloqot qiling)
-- 8. Mahalliy brauzer/ekran/kamera/exec uchun **Node’lar**
+- Hujjatlar: [Sub-agents](/tools/subagents).
 
 9. Namoyish: [https://openclaw.ai/showcase](https://openclaw.ai/showcase)
 
@@ -1114,7 +1127,7 @@ Options:
 
 If you want to keep context per client (agency workflows), a simple pattern is:
 
-- 34. Har bir mijoz uchun bitta Notion sahifasi (kontekst + afzalliklar + faol ish).
+- Hujjatlar: [Docker](/install/docker), [Browser](/tools/browser).
 - Ask the agent to fetch that page at the start of a session.
 
 If you want a native integration, open a feature request or build a skill
@@ -1152,7 +1165,7 @@ You still need to click the extension button on the tab you want to control (it 
 
 3. Ha. 4. [Sandboxing](/gateway/sandboxing) sahifasiga qarang. 5. Docker’ga xos sozlamalar uchun (Docker’da to‘liq gateway yoki sandbox imijlar), [Docker](/install/docker) sahifasiga qarang.
 
-### 6. Docker cheklangandek tuyuladi. To‘liq funksiyalarni qanday yoqaman
+### Ma’lumotlar diskda qayerda joylashadi
 
 7. Standart imij xavfsizlikni birinchi o‘ringa qo‘yadi va `node` foydalanuvchisi sifatida ishlaydi, shuning uchun unda tizim paketlari, Homebrew yoki biriktirilgan brauzerlar mavjud emas. 35. To‘liqroq sozlama uchun:
 
@@ -1164,7 +1177,7 @@ You still need to click the extension button on the tab you want to control (it 
 
 13. Hujjatlar: [Docker](/install/docker), [Browser](/tools/browser).
 
-14. **DM’larni shaxsiy qoldirib, guruhlarni bitta agent bilan ommaviy sandboxlangan qilishim mumkinmi**
+Bog‘liq: [Agent workspace](/concepts/agent-workspace), [Memory](/concepts/memory).
 
 15. Ha — agar shaxsiy trafik **DM’lar**, ommaviy trafik esa **guruhlar** bo‘lsa.
 
@@ -1172,7 +1185,7 @@ You still need to click the extension button on the tab you want to control (it 
 
 18. Sozlash bo‘yicha qo‘llanma + misol konfiguratsiya: [Groups: personal DMs + public groups](/channels/groups#pattern-personal-dms-public-groups-single-agent)
 
-19. Asosiy konfiguratsiya havolasi: [Gateway configuration](/gateway/configuration#agentsdefaultssandbox)
+Eski bitta-agent yo‘li: `~/.openclaw/agent/*` (`openclaw doctor` tomonidan migratsiya qilinadi).
 
 ### 36. Xost papkasini sandbox’ga qanday bog‘layman
 
@@ -1231,12 +1244,12 @@ Hammasi `$OPENCLAW_STATE_DIR` ostida joylashgan (standart: `~/.openclaw`):
 | --------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | `$OPENCLAW_STATE_DIR/openclaw.json`                             | Asosiy konfiguratsiya (JSON5)                                             |
 | `$OPENCLAW_STATE_DIR/credentials/oauth.json`                    | Eski OAuth importi (birinchi foydalanishda auth profillarga ko‘chiriladi) |
-| `$OPENCLAW_STATE_DIR/agents/<agentId>/agent/auth-profiles.json` | Auth profillar (OAuth + API kalitlar)                                     |
-| `$OPENCLAW_STATE_DIR/agents/<agentId>/agent/auth.json`          | Ish vaqtidagi auth kesh (avtomatik boshqariladi)                          |
+| `$OPENCLAW_STATE_DIR/agents/&lt;agentId&gt;/agent/auth-profiles.json` | Auth profillar (OAuth + API kalitlar)                                     |
+| `$OPENCLAW_STATE_DIR/agents/&lt;agentId&gt;/agent/auth.json`          | Ish vaqtidagi auth kesh (avtomatik boshqariladi)                          |
 | `$OPENCLAW_STATE_DIR/credentials/`                              | Provayder holati (masalan `whatsapp/<accountId>/creds.json`)              |
 | `$OPENCLAW_STATE_DIR/agents/`                                   | Har bir agent uchun holat (agentDir + sessiyalar)                         |
-| `$OPENCLAW_STATE_DIR/agents/<agentId>/sessions/`                | Suhbat tarixi va holati (har bir agent uchun)                             |
-| `$OPENCLAW_STATE_DIR/agents/<agentId>/sessions/sessions.json`   | Sessiya metama’lumotlari (har bir agent uchun)                            |
+| `$OPENCLAW_STATE_DIR/agents/&lt;agentId&gt;/sessions/`                | Suhbat tarixi va holati (har bir agent uchun)                             |
+| `$OPENCLAW_STATE_DIR/agents/&lt;agentId&gt;/sessions/sessions.json`   | Sessiya metama’lumotlari (har bir agent uchun)                            |
 
 Eski bitta-agent yo‘li: `~/.openclaw/agent/*` (`openclaw doctor` tomonidan migratsiya qilinadi).
 
@@ -1276,9 +1289,9 @@ Maslahat: agar uzoq muddatli xulq-atvor yoki afzallikni xohlasangiz, chat tarixi
 
 ### 3. OpenClaw’ni qanday qilib to‘liq o‘chirib tashlayman
 
-4. Maxsus qo‘llanmaga qarang: [Uninstall](/install/uninstall).
+Hujjatlar: [Web tools](/tools/web).
 
-### 5. Agentlar ish maydonidan tashqarida ishlay oladimi
+### Qanday qilib markaziy Gateway’ni turli qurilmalardagi ixtisoslashgan ishchilar bilan ishga tushiraman
 
 6. Ha. 7. Ish maydoni — bu **standart cwd** va xotira tayanchi, qat’iy sandbox emas.
 7. Nisbiy yo‘llar ish maydoni ichida aniqlanadi, ammo mutlaq yo‘llar sandbox yoqilmagan bo‘lsa, boshqa xost joylariga kira oladi. 9. Agar izolyatsiya kerak bo‘lsa,
@@ -1297,7 +1310,7 @@ Maslahat: agar uzoq muddatli xulq-atvor yoki afzallikni xohlasangiz, chat tarixi
 }
 ```
 
-### 14. Men remote rejimdaman, sessiya ombori qayerda
+### OpenClaw brauzeri headless rejimda ishlay oladimi
 
 15. Sessiya holati **gateway xosti**ga tegishli. 16. Agar siz remote rejimda bo‘lsangiz, siz uchun muhim sessiya ombori lokal noutbukingizda emas, balki masofaviy mashinada joylashgan. 17. [Session management](/concepts/session) ga qarang.
 
@@ -1329,7 +1342,7 @@ Maslahat: agar uzoq muddatli xulq-atvor yoki afzallikni xohlasangiz, chat tarixi
 }
 ```
 
-27. Eslatmalar:
+Notes:
 
 - 28. `gateway.remote.token` faqat **remote CLI chaqiruvlari** uchun; u lokal gateway autentifikatsiyasini yoqmaydi.
 - 29. Control UI `connect.params.auth.token` orqali autentifikatsiya qiladi (ilova/UI sozlamalarida saqlanadi). 30. Tokenlarni URL ichiga qo‘ymaslikka harakat qiling.
@@ -1368,13 +1381,13 @@ Maslahat: agar uzoq muddatli xulq-atvor yoki afzallikni xohlasangiz, chat tarixi
 }
 ```
 
-47. Eslatmalar:
+Notes:
 
-- 48. Agar allowlist’lardan foydalansangiz, `web_search`/`web_fetch` yoki `group:web` ni qo‘shing.
-- 49. `web_fetch` standart holatda yoqilgan (agar aniq o‘chirib qo‘yilmagan bo‘lsa).
-- 50. Demonlar env o‘zgaruvchilarini `~/.openclaw/.env` dan (yoki servis muhiti) o‘qiydi.
+- Gateway ishlayapti: `openclaw gateway status`
+- Gateway holati: `openclaw status`
+- Kanal holati: `openclaw channels status`
 
-Hujjatlar: [Web tools](/tools/web).
+So‘ng autentifikatsiya va marshrutlashni tekshiring:
 
 ### Qanday qilib markaziy Gateway’ni turli qurilmalardagi ixtisoslashgan ishchilar bilan ishga tushiraman
 
@@ -2368,10 +2381,10 @@ Fix:
 
 6. `tailnet` bind tarmoq interfeyslaringizdan Tailscale IP ni tanlaydi (100.64.0.0/10). 7. Agar mashina Tailscale’da bo‘lmasa (yoki interfeys o‘chiq bo‘lsa), bog‘lanish uchun hech narsa yo‘q.
 
-8. Tuzatish:
+Fix:
 
-- 9. O‘sha xostda Tailscale’ni ishga tushiring (shunda u 100.x manzilga ega bo‘ladi), yoki
-- 10. `gateway.bind: "loopback"` / `"lan"` ga o‘ting.
+- **Windows’da ikki xil o‘rnatish rejimi mavjud**:
+- **1) WSL2 (tavsiya etiladi):** Gateway Linux ichida ishlaydi.
 
 11. Eslatma: `tailnet` aniq ko‘rsatilgan. 12. `auto` loopback’ni afzal ko‘radi; faqat tailnet uchun bind kerak bo‘lsa `gateway.bind: "tailnet"` dan foydalaning.
 
@@ -2392,7 +2405,7 @@ Fix:
 - 23. Har bir profil konfiguratsiyasida noyob `gateway.port` ni belgilang (yoki qo‘lda ishga tushirish uchun `--port` ni bering).
 - 24. Har bir profil uchun servis o‘rnating: `openclaw --profile <name> gateway install`.
 
-25. Profil nomlari servis nomlariga ham qo‘shimcha sifatida qo‘shiladi (`bot.molt.<profile>`26. `; legacy `com.openclaw.\*`, `openclaw-gateway-&lt;profile&gt;.service`, `OpenClaw Gateway (&lt;profile&gt;)\`).
+25. Profil nomlari servis nomlariga ham qo‘shimcha sifatida qo‘shiladi (`bot.molt.<profile>`26. `; legacy `com.openclaw.\*`, `openclaw-gateway-<profile>.service`, `OpenClaw Gateway (<profile>)\`).
 26. To‘liq qo‘llanma: [Multiple gateways](/gateway/multiple-gateways).
 
 ### 28. invalid handshake code 1008 nimani anglatadi
@@ -2401,14 +2414,14 @@ Fix:
 
 31. Agar u boshqa biror narsa olsa, ulanishni
 
-- 42. Siz WS klienti o‘rniga brauzerda **HTTP** URL’ni (`http://...`) ochgansiz.
+- Keng tarqalgan sabablar:
 - 33. Keng tarqalgan sabablar:
 - 34. Siz WS mijoz o‘rniga brauzerda **HTTP** URL’ni (`http://...`) ochgansiz.
 
 35. Noto‘g‘ri port yoki yo‘ldan foydalangansiz.
 
-1. 36. Proksi yoki tunnel avtorizatsiya sarlavhalarini olib tashlagan yoki Gateway’ga aloqasi bo‘lmagan so‘rov yuborgan.
-2. 37. Tezkor yechimlar:
+1. Agar masofadan ulangan bo‘lsangiz, tunnel/Tailscale ulanishi faol ekanini va Gateway WebSocket’iga ulanib bo‘lishini tasdiqlang.
+2. Hujjatlar: [Channels](/channels), [Troubleshooting](/gateway/troubleshooting), [Remote access](/gateway/remote).
 3. 43. Agar autentifikatsiya yoqilgan bo‘lsa, `connect` freymiga token/parolni kiriting.
 
 39) WS portini oddiy brauzer yorlig‘ida ochmang.
@@ -2419,7 +2432,7 @@ Fix:
 
 41. Agar CLI yoki TUI’dan foydalansangiz, URL quyidagicha bo‘lishi kerak:
 
-## 42. openclaw tui --url ws://&lt;host&gt;:18789 --token &lt;token&gt;
+## 42. openclaw tui --url ws://<host>:18789 --token <token>
 
 ### 43. Protokol tafsilotlari: [Gateway protocol](/gateway/protocol).
 
@@ -2434,20 +2447,20 @@ Fix:
 49. Fayl log darajasi `logging.level` bilan boshqariladi.
 
 ```bash
-50. Konsol tafsilot darajasi `--verbose` va `logging.consoleLevel` bilan boshqariladi.
+openclaw logs --follow
 ```
 
 1. Xizmat/supervisor loglari (gateway launchd/systemd orqali ishga tushganda):
 
 - 2. macOS: `$OPENCLAW_STATE_DIR/logs/gateway.log` va `gateway.err.log` (standart: `~/.openclaw/logs/...`; profillar `~/.openclaw-<profile>/logs/...` dan foydalanadi)
-- 3. Linux: `journalctl --user -u openclaw-gateway[-<profile>].service -n 200 --no-pager`
-- 4. Windows: `schtasks /Query /TN "OpenClaw Gateway (<profile>)" /V /FO LIST`
+- Linux: `journalctl --user -u openclaw-gateway[-<profile>].service -n 200 --no-pager`
+- Windows: `schtasks /Query /TN "OpenClaw Gateway (<profile>)" /V /FO LIST`
 
 5. Batafsil maʼlumot uchun [Troubleshooting](/gateway/troubleshooting#log-locations) bo‘limiga qarang.
 
 ### 6. Gateway xizmatini qanday start/stop/restart qilaman
 
-7. Gateway yordamchi buyruqlaridan foydalaning:
+Hujjatlar: [TUI](/web/tui), [Slash buyruqlar](/tools/slash-commands).
 
 ```bash
 openclaw gateway status
@@ -2460,7 +2473,7 @@ openclaw gateway restart
 
 12. **Windows’da ikki xil o‘rnatish rejimi mavjud**:
 
-13. **1) WSL2 (tavsiya etiladi):** Gateway Linux ichida ishlaydi.
+Agar oldingi rejimda ishlayotgan bo‘lsangiz, Ctrl-C bilan to‘xtating, so‘ng:
 
 14. PowerShell’ni oching, WSL’ga kiring, so‘ng qayta ishga tushiring:
 
@@ -2533,7 +2546,7 @@ openclaw logs --follow
 
 ### 46. Telegram setMyCommands tarmoq xatolari bilan ishlamayapti. Nimani tekshirishim kerak
 
-47. Loglar va kanal holatidan boshlang:
+Tafsilotlar: [Security](/gateway/security).
 
 ```bash
 openclaw channels status
@@ -2559,7 +2572,7 @@ TUI’da joriy holatni ko‘rish uchun `/status` dan foydalaning. Agar chat kana
 
 Hujjatlar: [TUI](/web/tui), [Slash buyruqlar](/tools/slash-commands).
 
-### Gateway’ni to‘liq to‘xtatib, keyin qayta ishga tushirishning yo‘li qanday?
+### Shaxsiy yordamchi vazifalar uchun arzonroq modellardan foydalansam bo‘ladimi
 
 Agar xizmatni o‘rnatgan bo‘lsangiz:
 
@@ -2571,13 +2584,14 @@ openclaw gateway start
 Bu **nazorat qilinadigan xizmat**ni to‘xtatadi/ishga tushiradi (macOS’da launchd, Linux’da systemd).
 48. Gateway fon rejimida daemon sifatida ishlaganda buni qo‘llang.
 
-Agar oldingi rejimda ishlayotgan bo‘lsangiz, Ctrl-C bilan to‘xtating, so‘ng:
+Kutilayotgan so‘rovlarni tekshiring:
 
 ```bash
 openclaw gateway run
 ```
 
-Hujjatlar: [Gateway service runbook](/gateway).
+Agar darhol kirish kerak bo‘lsa, yuboruvchi IDingizni allowlistga qo‘shing yoki
+shu akkaunt uchun `dmPolicy: "open"`ni o‘rnating.
 
 ### ELI5: openclaw gateway restart va openclaw gateway o‘rtasidagi farq
 
@@ -2602,7 +2616,7 @@ Agentdan yuboriladigan tashqi biriktirmalar albatta `MEDIA:<path-or-url>` qatori
 openclaw message send --target +15555550123 --message "Here you go" --media /path/to/file.png
 ```
 
-50. Shuningdek tekshiring:
+U ko‘rinayotgan chatning o‘zida tuzating:
 
 - Maqsad kanal chiqish media-ni qo‘llab-quvvatlaydi va ruxsat ro‘yxatlari (allowlist) tomonidan bloklanmagan.
 - Fayl provayderning hajm cheklovlari doirasida ekanligini (rasmlar maksimal 2048px gacha o‘lchami o‘zgartiriladi).
@@ -2611,7 +2625,7 @@ openclaw message send --target +15555550123 --message "Here you go" --media /pat
 
 ## Xavfsizlik va kirish nazorati
 
-### OpenClaw’ni kiruvchi DM’larga ochish xavfsizmi
+### Qanday qilib ishlayotgan vazifani to‘xtatishbekor qilish mumkin
 
 Kiruvchi DM’larni ishonchsiz kiritma sifatida ko‘ring. Standart sozlamalar xavfni kamaytirish uchun mo‘ljallangan:
 
@@ -2621,7 +2635,7 @@ Kiruvchi DM’larni ishonchsiz kiritma sifatida ko‘ring. Standart sozlamalar x
   - Kutilayotgan so‘rovlar **har bir kanal uchun 3 ta** bilan cheklangan; agar kod kelmagan bo‘lsa `openclaw pairing list <channel>` ni tekshiring.
 - DM’larni ommaviy ochish aniq rozilikni talab qiladi (`dmPolicy: "open"` va allowlist `"*"`).
 
-Xavfli DM siyosatlarini aniqlash uchun `openclaw doctor` ni ishga tushiring.
+Bular bekor qilish triggerlari (slash buyruqlar emas).
 
 ### Prompt injection faqat ommaviy botlar uchun muammomi?
 
@@ -2648,18 +2662,18 @@ keyinroq kengaytiring.
 
 Hujjatlar: [Security](/gateway/security), [Pairing](/channels/pairing).
 
-### Matnli xabarlarim ustidan unga avtonomiya bera olamanmi va bu xavfsizmi
+### Nega bot tez-tez yuborilgan xabarlarni e’tiborsiz qoldirgandek tuyuladi
 
 Biz shaxsiy xabarlaringiz ustidan to‘liq avtonomiyani **tavsiya etmaymiz**. Eng xavfsiz andoza:
 
-- DMlarni **pairing mode**da yoki qat’iy ruxsat ro‘yxati bilan saqlang.
-- Agar u siz nomingizdan xabar yuborishini xohlasangiz, **alohida raqam yoki akkaunt**dan foydalaning.
-- Unga qoralama yozdiring, so‘ng **yuborishdan oldin tasdiqlang**.
+- `steer` - yangi xabarlar joriy vazifani yo‘naltiradi
+- `followup` - xabarlarni birma-bir bajaradi
+- `collect` - xabarlarni to‘plab, bir marta javob beradi (standart)
 
 Agar tajriba qilmoqchi bo‘lsangiz, buni maxsus akkauntda qiling va uni izolyatsiyada saqlang. Qarang
 [Security](/gateway/security).
 
-### Shaxsiy yordamchi vazifalar uchun arzonroq modellardan foydalansam bo‘ladimi
+### Skrinshot/chat jurnalidagi aniq savolga javob bering
 
 Ha, **agar** agent faqat chat uchun bo‘lsa va kirish ma’lumotlari ishonchli bo‘lsa. Kichikroq darajalar
 ko‘rsatmalarni egallab olishga ko‘proq moyil, shuning uchun ularni vositalari yoqilgan agentlar uchun
@@ -2787,5 +2801,3 @@ Followup rejimlari uchun `debounce:2s cap:25 drop:summarize` kabi opsiyalarni qo
 ---
 
 Hali ham qotib qoldingizmi? [Discord](https://discord.com/invite/clawd) da so‘rang yoki [GitHub discussion](https://github.com/openclaw/openclaw/discussions) oching.
-
-

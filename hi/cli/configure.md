@@ -1,4 +1,7 @@
 ---
+summary: "`openclaw configure` के लिए CLI संदर्भ (इंटरैक्टिव विन्यास प्रॉम्प्ट)"
+read_when:
+  - आप क्रेडेंशियल्स, डिवाइस, या एजेंट डिफ़ॉल्ट्स को इंटरैक्टिव रूप से समायोजित करना चाहते हैं
 title: "configure"
 ---
 
@@ -8,18 +11,18 @@ title: "configure"
 
 टिप्पणी: **Model** अनुभाग में अब `agents.defaults.models` allowlist के लिए एक मल्टी-सेलेक्ट शामिल है (जो `/model` और मॉडल पिकर में दिखाई देता है)।
 
-टिप: `openclaw config` बिना किसी subcommand के वही wizard खोलता है। उपयोग करें
+Tip: `openclaw config` without a subcommand opens the same wizard. Use
 `openclaw config get|set|unset` for non-interactive edits.
 
 संबंधित:
 
 - Gateway विन्यास संदर्भ: [Configuration](/gateway/configuration)
-- Config CLI: [कॉन्फ़िग](/cli/config)
+- Config CLI: [Config](/cli/config)
 
 टिप्पणियाँ:
 
-- Gateway कहाँ चलता है, यह चुनने से हमेशा `gateway.mode` अपडेट होता है। यदि आपको केवल यही चाहिए, तो आप अन्य सेक्शनों के बिना "Continue" चुन सकते हैं।
-- Channel-उन्मुख सेवाएँ (Slack/Discord/Matrix/Microsoft Teams) सेटअप के दौरान channel/room allowlists के लिए संकेत देती हैं। आप नाम या IDs दर्ज कर सकते हैं; जहाँ संभव हो, wizard नामों को IDs में बदल देता है।
+- Choosing where the Gateway runs always updates `gateway.mode`. You can select "Continue" without other sections if that is all you need.
+- Channel-oriented services (Slack/Discord/Matrix/Microsoft Teams) prompt for channel/room allowlists during setup. You can enter names or IDs; the wizard resolves names to IDs when possible.
 
 ## उदाहरण
 
@@ -27,5 +30,3 @@ title: "configure"
 openclaw configure
 openclaw configure --section models --section channels
 ```
-
-

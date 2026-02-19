@@ -1,4 +1,9 @@
 ---
+summary: "Android ऐप (नोड): कनेक्शन रनबुक + Canvas/Chat/Camera"
+read_when:
+  - Android नोड का पेयरिंग या पुनः कनेक्शन
+  - Android Gateway डिस्कवरी या प्रमाणीकरण का डिबगिंग
+  - क्लाइंट्स के बीच चैट इतिहास समानता का सत्यापन
 title: "Android ऐप"
 ---
 
@@ -14,7 +19,7 @@ title: "Android ऐप"
 
 ## सिस्टम नियंत्रण
 
-सिस्टम नियंत्रण (launchd/systemd) Gateway होस्ट पर होता है। देखें [Gateway](/gateway)।
+System control (launchd/systemd) lives on the Gateway host. See [Gateway](/gateway).
 
 ## कनेक्शन रनबुक
 
@@ -58,7 +63,7 @@ dns-sd -B _openclaw-gw._tcp local.
 
 #### unicast DNS-SD के माध्यम से Tailnet (Vienna ⇄ London) डिस्कवरी
 
-Android NSD/mDNS डिस्कवरी नेटवर्क के बीच काम नहीं करती। यदि आपका Android नोड और Gateway अलग-अलग नेटवर्क पर हैं लेकिन Tailscale के माध्यम से जुड़े हैं, तो इसके बजाय Wide-Area Bonjour / unicast DNS-SD का उपयोग करें:
+Android NSD/mDNS discovery won’t cross networks. If your Android node and the gateway are on different networks but connected via Tailscale, use Wide-Area Bonjour / unicast DNS-SD instead:
 
 1. Gateway होस्ट पर एक DNS-SD ज़ोन (उदाहरण `openclaw.internal.`) सेट करें और `_openclaw-gw._tcp` रिकॉर्ड प्रकाशित करें।
 2. अपने चुने हुए डोमेन के लिए उस DNS सर्वर की ओर इंगित करते हुए Tailscale split DNS कॉन्फ़िगर करें।
@@ -131,7 +136,7 @@ openclaw nodes invoke --node "<Android Node>" --command canvas.navigate --params
 Tailnet (वैकल्पिक): यदि दोनों डिवाइस Tailscale पर हैं, तो `.local` के बजाय MagicDNS नाम या tailnet IP का उपयोग करें, उदाहरण के लिए `http://<gateway-magicdns>:18793/__openclaw__/canvas/`।
 
 This server injects a live-reload client into HTML and reloads on file changes.
-The A2UI host lives at `http://<gateway-host>:18793/__openclaw__/a2ui/`.
+A2UI होस्ट `http://<gateway-host>:18789/__openclaw__/a2ui/` पर उपलब्ध है।
 
 Canvas कमांड्स (केवल foreground):
 
@@ -144,5 +149,3 @@ Canvas कमांड्स (केवल foreground):
 - `camera.clip` (mp4)
 
 पैरामीटर और CLI हेल्पर्स के लिए देखें: [Camera node](/nodes/camera)।
-
-

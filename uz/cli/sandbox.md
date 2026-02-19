@@ -1,5 +1,7 @@
 ---
-title: "Sandbox CLI"
+title: Sandbox CLI
+summary: "Sandbox konteynerlarini boshqarish va amaldagi sandbox siyosatini tekshirish"
+read_when: "Siz sandbox konteynerlarini boshqaryapsiz yoki sandbox/asbob-siyosati xatti-harakatlarini nosozlikdan chiqarayapsiz."
 status: faol
 ---
 
@@ -9,7 +11,7 @@ Ajratilgan agent bajarilishi uchun Docker-ga asoslangan sandbox konteynerlarini 
 
 ## Umumiy ko‘rinish
 
-OpenClaw agentlarni xavfsizlik maqsadida izolyatsiyalangan Docker konteynerlarida ishga tushirishi mumkin. `sandbox` buyruqlari ushbu konteynerlarni, ayniqsa yangilanishlar yoki konfiguratsiya o‘zgarishlaridan so‘ng, boshqarishga yordam beradi.
+OpenClaw can run agents in isolated Docker containers for security. The `sandbox` commands help you manage these containers, especially after updates or configuration changes.
 
 ## Buyruqlar
 
@@ -148,5 +150,3 @@ Sandbox settings live in `~/.openclaw/openclaw.json` under `agents.defaults.sand
 - [Sandbox Documentation](/gateway/sandboxing)
 - [Agent Configuration](/concepts/agent-workspace)
 - [Doctor Command](/gateway/doctor) - Check sandbox setup
-
-

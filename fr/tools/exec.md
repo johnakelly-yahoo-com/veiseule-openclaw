@@ -1,4 +1,8 @@
 ---
+summary: "Utilisation de l’outil Exec, modes stdin et prise en charge du TTY"
+read_when:
+  - Utilisation ou modification de l’outil exec
+  - Debogage du comportement stdin ou TTY
 title: "Outil Exec"
 ---
 
@@ -70,9 +74,9 @@ Exemple :
 - `host=sandbox` : execute `sh -lc` (shell de connexion) a l’interieur du conteneur, de sorte que `/etc/profile` peut reinitialiser `PATH`.
   OpenClaw prefixe `env.PATH` apres le sourcage des profils via une variable d’environnement interne (sans interpolation du shell) ;
   `tools.exec.pathPrepend` s’applique ici aussi.
-- `host=node` : seules les surcharges d’environnement non bloquees que vous passez sont envoyees au nœud. Les surcharges `env.PATH` sont
-  rejetees pour l’execution sur l’hote. Les hôtes de nœud headless acceptent `PATH` uniquement lorsqu’il prefixe le PATH de l’hote
-  du nœud (pas de remplacement). Les nœuds macOS abandonnent entierement les surcharges `PATH`.
+- `host=node` : seules les surcharges d’environnement non bloquees que vous passez sont envoyees au nœud. Les remplacements de `env.PATH` sont
+  rejetés pour l’exécution sur l’hôte et ignorés par les hôtes node. Si vous avez besoin d’entrées PATH supplémentaires sur un node,
+  configurez l’environnement du service hôte node (systemd/launchd) ou installez les outils dans des emplacements standards.
 
 Liaison de nœud par agent (utilisez l’index de la liste d’agents dans la configuration) :
 
@@ -115,8 +119,9 @@ en cours d’execution apres `tools.exec.approvalRunningNoticeMs`, un unique avi
 
 L’application de la liste d’autorisation correspond **uniquement aux chemins de binaires resolus** (pas de correspondance par nom de base). Lorsque
 `security=allowlist`, les commandes shell sont auto-autorisees uniquement si chaque segment du pipeline est
-autorise par la liste ou est un binaire sur. Le chainage (`;`, `&&`, `||`) et les redirections sont rejetes en
-mode liste d’autorisation.
+autorise par la liste ou est un binaire sur. L’enchaînement (`;`, `&&`, `||`) et les redirections sont rejetés en
+mode allowlist sauf si chaque segment de premier niveau respecte l’allowlist (y compris les safe bins).
+Les redirections ne sont toujours pas prises en charge.
 
 ## Exemples
 
@@ -173,5 +178,4 @@ Notes :
 - Disponible uniquement pour les modeles OpenAI/OpenAI Codex.
 - La politique d’outil s’applique toujours ; `allow: ["exec"]` autorise implicitement `apply_patch`.
 - La configuration se trouve sous `tools.exec.applyPatch`.
-
-
+- `tools.exec.applyPatch.workspaceOnly` est défini par défaut sur `true` (limité à l’espace de travail). Définissez-le sur `false` uniquement si vous souhaitez intentionnellement que `apply_patch` écrive/supprime en dehors du répertoire de l’espace de travail.

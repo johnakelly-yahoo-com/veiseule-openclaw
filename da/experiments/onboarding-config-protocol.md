@@ -1,4 +1,6 @@
 ---
+summary: "RPC-protokolnoter for introduktionsguide og konfigurationsskema"
+read_when: "Ændring af trin i introduktionsguiden eller endpoints for konfigurationsskema"
 title: "Introduktion og konfigurationsprotokol"
 ---
 
@@ -36,5 +38,3 @@ Svar (form)
 ## Noter
 
 - Dette dokument er det eneste sted at følge protokolrefaktoreringer for introduktion/konfiguration.
-
-

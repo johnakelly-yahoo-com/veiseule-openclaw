@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw macOS-ledsagerapp (menulinje + gateway-broker)"
+read_when:
+  - Implementering af macOS-appfunktioner
+  - Ændring af gateway-livscyklus eller node-bridging på macOS
 title: "macOS-app"
 ---
 
@@ -38,7 +42,7 @@ launchctl kickstart -k gui/$UID/bot.molt.gateway
 launchctl bootout gui/$UID/bot.molt.gateway
 ```
 
-Erstat etiketten med bot.molt.&lt;profile&gt;\` når du kører en navngiven profil.
+Erstat etiketten med bot.molt.<profile>\` når du kører en navngiven profil.
 
 Hvis LaunchAgent ikke er installeret, kan du aktivere den fra appen eller køre
 `openclaw gateway install`.
@@ -102,7 +106,7 @@ Noter:
 - Valg af “Always Allow” i prompten tilføjer den kommando til tilladelseslisten.
 - `system.run` miljøoverstyringer filtreres (fjerner `PATH`, `DYLD_*`, `LD_*`, `NODE_OPTIONS`, `PYTHON*`, `PERL*`, `RUBYOPT`) og flettes derefter med appens miljø.
 
-## Dybe links
+## Deep links
 
 Appen registrerer URL-skemaet `openclaw://` til lokale handlinger.
 
@@ -126,6 +130,7 @@ Forespørgselsparametre:
 Sikkerhed:
 
 - Uden `key` beder appen om bekræftelse.
+- Med en gyldig `key` er kørslen unattended (beregnet til personlige automatiseringer).
 - Med en gyldig `key` er kørslen unattended (beregnet til personlige automatiseringer).
 
 ## Introduktionsflow (typisk)
@@ -197,5 +202,3 @@ For opsætningstrin, se [macOS fjernadgang](/platforms/mac/remote). For detaljer
 - [Gateway (macOS)](/platforms/mac/bundled-gateway)
 - [macOS-tilladelser](/platforms/mac/permissions)
 - [Canvas](/platforms/mac/canvas)
-
-

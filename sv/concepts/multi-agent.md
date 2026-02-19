@@ -1,5 +1,7 @@
 ---
+summary: "Multi-agent-routning: isolerade agenter, kanalkonton och bindningar"
 title: Multi-Agent-routning
+read_when: "Du vill ha flera isolerade agenter (arbetsytor + autentisering) i en gateway-process."
 status: active
 ---
 
@@ -123,11 +125,15 @@ Noteringar:
 Bindningar är **deterministiska** och **mest specifika vinner**:
 
 1. `peer`-matchning (exakt DM-/grupp-/kanal-id)
-2. `guildId` (Discord)
-3. `teamId` (Slack)
-4. `accountId`-matchning för en kanal
-5. matchning på kanalnivå (`accountId: "*"`)
+2. `parentPeer`‑matchning (trådärvning)
+3. `guildId + roles` (Discord roll‑routing)
+4. `guildId` (Discord)
+5. `teamId` (Slack)
 6. fallback till standardagent (`agents.list[].default`, annars första listelementet, standard: `main`)
+7. matchning på kanalnivå (`accountId: "*"`)
+8. fallback till standardagent (`agents.list[].default`, annars första listelementet, standard: `main`)
+
+Om en bindning anger flera matchningsfält (till exempel `peer` + `guildId`) krävs alla angivna fält (`AND`‑semantik).
 
 ## Flera konton / telefonnummer
 
@@ -381,5 +387,3 @@ Om du behöver gränser per agent, använd `agents.list[].tools` för att neka `
 För gruppinriktning, använd `agents.list[].groupChat.mentionPatterns` så @nämner karta rent till den avsedda agenten.
 
 Se [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) för detaljerade exempel.
-
-

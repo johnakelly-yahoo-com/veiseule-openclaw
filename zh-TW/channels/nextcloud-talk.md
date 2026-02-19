@@ -1,4 +1,7 @@
 ---
+summary: "Nextcloud Talk 的支援狀態、功能與設定"
+read_when:
+  - 進行 Nextcloud Talk 頻道功能開發時
 title: "Nextcloud Talk"
 ---
 
@@ -97,7 +100,7 @@ OpenClaw 會自動提供本地安裝路徑。
 
 ## 功能
 
-| 功能                            | 狀態 |
+| 功能                            | Status |
 | ----------------------------- | ------ |
 | 30. 私訊 | 支援     |
 | 房間                            | 支援     |
@@ -136,5 +139,3 @@ OpenClaw 會自動提供本地安裝路徑。
 - `channels.nextcloud-talk.blockStreaming`：停用此頻道的區塊串流。
 - `channels.nextcloud-talk.blockStreamingCoalesce`：區塊串流合併調校。
 - `channels.nextcloud-talk.mediaMaxMb`：進站媒體上限（MB）。
-
-

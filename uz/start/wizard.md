@@ -1,9 +1,13 @@
 ---
-title: "Boshlang‘ich sozlash ustasi (CLI)"
-sidebarTitle: "Boshlang‘ich sozlash: CLI"
+summary: "CLI onboarding wizard: gateway, workspace, kanallar va ko‘nikmalar uchun yo‘naltirilgan sozlash"
+read_when:
+  - Onboarding wizardni ishga tushirish yoki sozlash
+  - Yangi mashinani sozlash
+title: "Onboarding Wizard (CLI)"
+sidebarTitle: "Onboarding: CLI"
 ---
 
-# Boshlang‘ich sozlash ustasi (CLI)
+# Onboarding Wizard (CLI)
 
 Onboarding wizard — macOS, Linux yoki Windows (WSL2 orqali; qat’iy tavsiya etiladi) da OpenClaw’ni sozlashning **tavsiya etilgan** usuli.
 U bitta yo‘naltirilgan oqimda lokal Gateway yoki masofaviy Gateway ulanishini, shuningdek kanallar, ko‘nikmalar va workspace standartlarini sozlaydi.
@@ -57,7 +61,8 @@ Wizard **QuickStart** (standartlar) yoki **Advanced** (to‘liq nazorat) bilan b
 
 **Lokal rejim (standart)** sizni quyidagi qadamlar orqali olib boradi:
 
-1. **Model/Auth** — Anthropic API kaliti (tavsiya etiladi), OAuth, OpenAI yoki boshqa provayderlar. Standart modelni tanlang.
+1. **Model/Auth** — Anthropic API kaliti (tavsiya etiladi), OpenAI yoki Custom Provider
+   (OpenAI-mos, Anthropic-mos yoki Noma’lum avtomatik aniqlash). Standart modelni tanlang.
 2. **Workspace** — agent fayllari uchun joy (standart `~/.openclaw/workspace`). Boshlang‘ich (bootstrap) fayllarni yaratadi.
 3. **Gateway** — port, bog‘lanish manzili, autentifikatsiya rejimi, Tailscale orqali ochish.
 4. **Kanallar** — WhatsApp, Telegram, Discord, Google Chat, Mattermost, Signal, BlueBubbles yoki iMessage.
@@ -99,7 +104,6 @@ RPC API, and a full list of config fields the wizard writes, see the
 ## Related docs
 
 - CLI command reference: [`openclaw onboard`](/cli/onboard)
+- Onboarding haqida umumiy ma’lumot: [Onboarding Overview](/start/onboarding-overview)
 - macOS app onboarding: [Onboarding](/start/onboarding)
 - Agent first-run ritual: [Agent Bootstrapping](/start/bootstrapping)
-
-

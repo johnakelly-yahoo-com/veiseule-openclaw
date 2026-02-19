@@ -1,4 +1,8 @@
 ---
+summary: "Uruchamianie wielu Gateway OpenClaw na jednym hoście (izolacja, porty i profile)"
+read_when:
+  - Uruchamianie więcej niż jednego Gateway na tej samej maszynie
+  - Potrzebujesz izolowanych konfiguracji/stanu/portów dla każdego Gateway
 title: "Wiele Gateway"
 ---
 
@@ -75,7 +79,7 @@ openclaw --profile rescue gateway install
 Port bazowy = `gateway.port` (lub `OPENCLAW_GATEWAY_PORT` / `--port`).
 
 - port usługi sterowania przeglądarką = baza + 2 (tylko local loopback)
-- `canvasHost.port = base + 4`
+- host canvas jest udostępniany przez serwer HTTP Gateway (ten sam port co `gateway.port`)
 - Porty CDP profilu przeglądarki są automatycznie alokowane z `browser.controlPort + 9 .. + 108`
 
 Jeśli nadpiszesz którykolwiek z nich w konfiguracji lub zmiennych środowiskowych, musisz zachować ich unikalność dla każdej instancji.
@@ -106,5 +110,3 @@ openclaw --profile main status
 openclaw --profile rescue status
 openclaw --profile rescue browser status
 ```
-
-

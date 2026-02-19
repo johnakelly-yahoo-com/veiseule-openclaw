@@ -1,4 +1,8 @@
 ---
+summary: "Справочник CLI для `openclaw voicecall` (поверхность команд плагина voice-call)"
+read_when:
+  - Вы используете плагин voice-call и хотите точки входа CLI
+  - Вам нужны быстрые примеры для `voicecall call|continue|status|tail|expose`
 title: "voicecall"
 ---
 
@@ -28,5 +32,3 @@ openclaw voicecall unexpose
 ```
 
 Примечание по безопасности: публикуйте конечную точку вебхука только в сетях, которым вы доверяете. По возможности предпочитайте Tailscale Serve вместо Funnel.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "CLI-reference for `openclaw setup` (initialiser konfiguration + arbejdsområde)"
+read_when:
+  - Du laver førstegangsopsætning uden den fulde introduktionsguide
+  - Du vil indstille standardstien til arbejdsområdet
 title: "setup"
 ---
 
@@ -23,5 +27,3 @@ For at køre opsætningsguiden via setup:
 ```bash
 openclaw setup --wizard
 ```
-
-

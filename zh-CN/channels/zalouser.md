@@ -1,19 +1,16 @@
 ---
-title: Zalo Personal
-x-i18n:
-  generated_at: "2026-02-03T07:44:34Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 2a249728d556e5cc52274627bdaf390fa10e815afa04f4497feb57a2a0cb9261
-  source_path: channels/zalouser.md
-  workflow: 15
+summary: "通过 zca-cli（QR 登录）支持 Zalo 个人账户、功能和配置"
+read_when:
+  - 为 OpenClaw 设置 Zalo Personal
+  - 调试 Zalo Personal 登录或消息流程
+title: "Zalo Personal"
 ---
 
 # Zalo Personal（非官方）
 
-状态：实验性。此集成通过 `zca-cli` 自动化**个人 Zalo 账户**。
+状态：实验性。 状态：实验性。此集成通过 `zca-cli` 自动化**个人 Zalo 账户**。
 
-> **警告：**这是一个非官方集成，可能导致账户被暂停/封禁。使用风险自负。
+> \*\*警告：\*\*这是一个非官方集成，可能导致账户被暂停/封禁。使用风险自负。 使用风险自负。
 
 ## 需要插件
 
@@ -60,7 +57,7 @@ Gateway 网关机器必须在 `PATH` 中有可用的 `zca` 二进制文件。
 
 ## 命名
 
-渠道 ID 为 `zalouser`，以明确表示这是自动化**个人 Zalo 用户账户**（非官方）。我们保留 `zalo` 用于未来可能的官方 Zalo API 集成。
+渠道 ID 为 `zalouser`，以明确表示这是自动化**个人 Zalo 用户账户**（非官方）。我们保留 `zalo` 用于未来可能的官方 Zalo API 集成。 我们保留 `zalo` 以备将来可能的官方 Zalo API 集成。
 
 ## 查找 ID（目录）
 
@@ -81,6 +78,7 @@ openclaw directory groups list --channel zalouser --query "work"
 
 `channels.zalouser.dmPolicy` 支持：`pairing | allowlist | open | disabled`（默认：`pairing`）。
 `channels.zalouser.allowFrom` 接受用户 ID 或名称。向导会在可用时通过 `zca friend find` 将名称解析为 ID。
+`channels.zalouser.allowFrom` 接受用户 ID 或名称。 向导在可用时会通过 `zca friend find` 将名称解析为 ID。
 
 通过以下方式批准：
 
@@ -89,7 +87,7 @@ openclaw directory groups list --channel zalouser --query "work"
 
 ## 群组访问（可选）
 
-- 默认：`channels.zalouser.groupPolicy = "open"`（允许群组）。使用 `channels.defaults.groupPolicy` 在未设置时覆盖默认值。
+- 默认：`channels.zalouser.groupPolicy = "open"`（允许群组）。使用 `channels.defaults.groupPolicy` 在未设置时覆盖默认值。 在未设置时，使用 `channels.defaults.groupPolicy` 覆盖默认值。
 - 通过以下方式限制为允许列表：
   - `channels.zalouser.groupPolicy = "allowlist"`
   - `channels.zalouser.groups`（键为群组 ID 或名称）
@@ -115,7 +113,7 @@ openclaw directory groups list --channel zalouser --query "work"
 
 ## 多账户
 
-账户映射到 zca 配置文件。示例：
+账户映射到 zca 配置文件。示例： 45. 示例：
 
 ```json5
 {
@@ -141,5 +139,3 @@ openclaw directory groups list --channel zalouser --query "work"
 
 - `openclaw channels status --probe`
 - 重新登录：`openclaw channels logout --channel zalouser && openclaw channels login --channel zalouser`
-
-

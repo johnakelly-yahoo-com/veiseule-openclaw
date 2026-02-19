@@ -1,4 +1,7 @@
 ---
+summary: "各サーフェス（WhatsApp / Telegram / Discord / Slack / Signal / iMessage / Microsoft Teams）におけるグループチャットの挙動"
+read_when:
+  - グループチャットの挙動やメンションゲーティングを変更する場合
 title: "グループ"
 ---
 
@@ -9,6 +12,7 @@ OpenClaw は、WhatsApp、Telegram、Discord、Slack、Signal、iMessage、Micro
 ## 初心者向けイントロ（2 分）
 
 あなた自身のメッセージングアカウントでOpenClawの「ライブ」。 別のWhatsAppボットユーザーはありません。
+あなた自身のメッセージングアカウントでOpenClawの「ライブ」。 別のWhatsAppボットユーザーはありません。
 **あなた**がグループにいる場合、OpenClawはそのグループを見ることができ、そこで応答します。
 
 デフォルトの挙動：
@@ -18,7 +22,7 @@ OpenClaw は、WhatsApp、Telegram、Discord、Slack、Signal、iMessage、Micro
 
 要するに：許可リストに登録された送信者が、OpenClaw にメンションすることでトリガーできます。
 
-> 要約
+> TL;DR
 >
 > - **DM アクセス**は `*.allowFrom` により制御されます。
 > - **グループアクセス**は `*.groupPolicy` と許可リスト（`*.groups`、`*.groupAllowFrom`）により制御されます。
@@ -55,14 +59,14 @@ otherwise -> reply
 
 はい。これは「個人的」なトラフィックが **DM**、「公開」トラフィックが **グループ**である場合に非常によく機能します。
 
-理由：単一エージェントモードでは、DM は通常 **メイン** セッションキー（`agent:main:main`）に入り、グループは常に **非メイン** セッションキー（`agent:main:<channel>:group:<id>`）を使用します。`mode: "non-main"` でサンドボックス化を有効にすると、グループセッションは Docker 上で実行され、メインの DM セッションはホスト上に残ります。 `mode: "non-main"`でサンドボックス化を有効にした場合、メインDMセッションがホスト上にとどまりながら、Dockerで実行されます。
+理由：単一エージェントモードでは、DM は通常 **メイン** セッションキー（`agent:main:main`）に入り、グループは常に **非メイン** セッションキー（`agent:main:<channel>:group:<id>`）を使用します。`mode: "non-main"` でサンドボックス化を有効にすると、グループセッションは Docker 上で実行され、メインの DM セッションはホスト上に残ります。 `mode: "non-main"`でサンドボックス化を有効にした場合、メインDMセッションがホスト上にとどまりながら、Dockerで実行されます。 `mode: "non-main"`でサンドボックス化を有効にした場合、メインDMセッションがホスト上にとどまりながら、Dockerで実行されます。
 
 これにより、1 つのエージェントの「頭脳」（共有ワークスペース + メモリ）を保ちつつ、2 種類の実行形態を持てます。
 
 - **DM**：フルツール（ホスト）
 - **グループ**：サンドボックス + 制限付きツール（Docker）
 
-> 「個人」と「公開」を完全に分離したワークスペース / ペルソナ（決して混在させない）が必要な場合は、2 つ目のエージェントとバインディングを使用してください。[マルチエージェントルーティング](/concepts/multi-agent) を参照してください。 [マルチエージェントルーティング](/concepts/multi-agent)を参照。
+> 「個人」と「公開」を完全に分離したワークスペース / ペルソナ（決して混在させない）が必要な場合は、2 つ目のエージェントとバインディングを使用してください。[マルチエージェントルーティング](/concepts/multi-agent) を参照してください。 [マルチエージェントルーティング](/concepts/multi-agent)を参照。 [マルチエージェントルーティング](/concepts/multi-agent)を参照。
 
 例（DM はホスト、グループはサンドボックス化 + メッセージング専用ツール）：
 
@@ -89,7 +93,7 @@ otherwise -> reply
 }
 ```
 
-「ホストへのアクセスなし」ではなく「グループからはフォルダ X のみ参照可能」にしたい場合は、`workspaceAccess: "none"` を維持し、許可リストにあるパスのみをサンドボックスにマウントしてください。 \`workspaceAccess: "none"を保持し、許可されているパスのみサンドボックスにマウントします。
+「ホストへのアクセスなし」ではなく「グループからはフォルダ X のみ参照可能」にしたい場合は、`workspaceAccess: "none"` を維持し、許可リストにあるパスのみをサンドボックスにマウントしてください。 「ホストへのアクセスなし」ではなく「グループからはフォルダ X のみ参照可能」にしたい場合は、`workspaceAccess: "none"` を維持し、許可リストにあるパスのみをサンドボックスにマウントしてください。 \\`workspaceAccess: "none"を保持し、許可されているパスのみサンドボックスにマウントします。
 
 ```json5
 {
@@ -183,7 +187,7 @@ otherwise -> reply
 - WhatsApp / Telegram / Signal / iMessage / Microsoft Teams：`groupAllowFrom` を使用します（フォールバック：明示的な `allowFrom`）。
 - Discord：許可リストは `channels.discord.guilds.<id>.channels` を使用します。
 - Slack：許可リストは `channels.slack.channels` を使用します。
-- Matrix: allowlist は `channels.matrix.groups` (ルーム ID、エイリアス、または名前) を使用します。 Matrix：許可リストは `channels.matrix.groups`（ルーム ID、エイリアス、または名前）を使用します。送信者を制限するには `channels.matrix.groupAllowFrom` を使用してください。ルーム単位の `users` 許可リストもサポートされています。
+- Matrix: allowlist は `channels.matrix.groups` (ルーム ID、エイリアス、または名前) を使用します。 Matrix：許可リストは `channels.matrix.groups`（ルーム ID、エイリアス、または名前）を使用します。送信者を制限するには `channels.matrix.groupAllowFrom` を使用してください。ルーム単位の `users` 許可リストもサポートされています。 Matrix：許可リストは `channels.matrix.groups`（ルーム ID、エイリアス、または名前）を使用します。送信者を制限するには `channels.matrix.groupAllowFrom` を使用してください。ルーム単位の `users` 許可リストもサポートされています。
 - グループ DM は別途制御されます（`channels.discord.dm.*`、`channels.slack.dm.*`）。
 - Telegram の許可リストは、ユーザー ID（`"123456789"`、`"telegram:123456789"`、`"tg:123456789"`）またはユーザー名（`"@alice"` または `"alice"`）に一致させられます。プレフィックスは大文字小文字を区別しません。
 - デフォルトは `groupPolicy: "allowlist"` です。グループ許可リストが空の場合、グループメッセージはブロックされます。
@@ -196,7 +200,7 @@ otherwise -> reply
 
 ## メンションゲーティング（デフォルト）
 
-グループメッセージは、グループごとに上書きされない限り、メンションが必要です。デフォルト設定は `*.groups."*"` 配下の各サブシステムに存在します。 デフォルトは `*.groups."*"`のサブシステム毎に動作します。
+グループメッセージは、グループごとに上書きされない限り、メンションが必要です。デフォルト設定は `*.groups."*"` 配下の各サブシステムに存在します。 グループメッセージは、グループごとに上書きされない限り、メンションが必要です。デフォルト設定は `*.groups."*"` 配下の各サブシステムに存在します。 デフォルトは `*.groups."*"`のサブシステム毎に動作します。
 
 ボットのメッセージに返信する行為は、暗黙のメンションとして扱われます（チャンネルが返信メタデータをサポートしている場合）。これは Telegram、WhatsApp、Slack、Discord、Microsoft Teams に適用されます。 Telegram、WhatsApp、Slack、Discord、Microsoft Teamsに適用されます。
 
@@ -243,14 +247,14 @@ otherwise -> reply
 - エージェント単位の上書き：`agents.list[].groupChat.mentionPatterns`（複数エージェントが同じグループを共有する場合に有用）。
 - メンションゲーティングは、メンション検出が可能な場合（ネイティブメンション、または `mentionPatterns` が設定されている場合）にのみ適用されます。
 - Discord のデフォルトは `channels.discord.guilds."*"` にあります（ギルド / チャンネル単位で上書き可能）。
-- グループ履歴コンテキストはチャンネル間で均一にラップされ、**保留のみ** (gatingへの言及により飛ばされたメッセージ); `messagesを使用します。 グローバルデフォルトの roupChat.historyLimit` および `channel.<channel>.historyLimit`（または `channels.<channel>.accounts.*.historyLimit`）を使用します。無効化するには `0` を設定してください。 `0` を無効にします。
+- グループ履歴コンテキストはチャンネル間で均一にラップされ、**保留のみ** (gatingへの言及により飛ばされたメッセージ); `messagesを使用します。 グローバルデフォルトの roupChat.historyLimit` および `channel.<channel>.historyLimit`（または `channels.<channel>.accounts.*.historyLimit`）を使用します。無効化するには `0` を設定してください。 `0` を無効にします。 `0` を無効にします。
 
 ## グループ / チャンネルのツール制限（任意）
 
 一部のチャンネル設定では、**特定のグループ / ルーム / チャンネル内**で利用可能なツールを制限できます。
 
 - `tools`：グループ全体に対するツールの許可 / 拒否。
-- `toolsBySender`：グループ内での送信者単位の上書き（キーはチャンネルに応じて送信者 ID / ユーザー名 / メール / 電話番号）。ワイルドカードには `"*"` を使用します。 ワイルドカードとして `"*"` を使用します。
+- `toolsBySender`：グループ内での送信者単位の上書き（キーはチャンネルに応じて送信者 ID / ユーザー名 / メール / 電話番号）。ワイルドカードには `"*"` を使用します。 ワイルドカードとして `"*"` を使用します。 ワイルドカードとして `"*"` を使用します。
 
 解決順（最も具体的なものが優先）：
 
@@ -286,7 +290,7 @@ otherwise -> reply
 
 ## グループ許可リスト
 
-`channels.whatsapp.groups`、`channels.telegram.groups`、または `channels.imessage.groups` が設定されている場合、これらのキーはグループ許可リストとして機能します。すべてのグループを許可しつつ、デフォルトのメンション挙動を設定したい場合は `"*"` を使用してください。 デフォルトのメンション動作を設定しながら、すべてのグループを許可するには、`"*"` を使用します。
+`channels.whatsapp.groups`、`channels.telegram.groups`、または `channels.imessage.groups` が設定されている場合、これらのキーはグループ許可リストとして機能します。すべてのグループを許可しつつ、デフォルトのメンション挙動を設定したい場合は `"*"` を使用してください。 デフォルトのメンション動作を設定しながら、すべてのグループを許可するには、`"*"` を使用します。 デフォルトのメンション動作を設定しながら、すべてのグループを許可するには、`"*"` を使用します。
 
 よくある意図（コピー & ペースト）：
 
@@ -369,5 +373,3 @@ otherwise -> reply
 ## WhatsApp 固有の注意点
 
 WhatsApp 専用の挙動（履歴注入、メンション処理の詳細）については、[グループメッセージ](/channels/group-messages) を参照してください。
-
-

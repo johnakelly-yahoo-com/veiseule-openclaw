@@ -1,4 +1,6 @@
 ---
+summary: "Opsætning af SSH-tunnel for OpenClaw.app, der forbinder til en fjern gateway"
+read_when: "Tilslutning af macOS-appen til en fjern gateway via SSH"
 title: "Opsætning af fjern Gateway"
 ---
 
@@ -170,5 +172,3 @@ launchctl bootout gui/$UID/bot.molt.ssh-tunnel
 | `RunAtLoad`                          | Starter tunnelen, når agenten indlæses                                      |
 
 OpenClaw.app forbinder til `ws://127.0.0.1:18789` på din klientmaskine. SSH-tunnelen videresender denne forbindelse til port 18789 på fjernmaskinen, hvor Gateway kører.
-
-

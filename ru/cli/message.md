@@ -1,4 +1,8 @@
 ---
+summary: "Справочник CLI для `openclaw message` (отправка + действия с каналами)"
+read_when:
+  - Добавление или изменение действий CLI для сообщений
+  - Изменение поведения исходящих каналов
 title: "message"
 ---
 
@@ -48,7 +52,7 @@ openclaw message <subcommand> [flags]
 
 ## Действия
 
-### Ядро
+### Core
 
 - `send`
   - Каналы: WhatsApp/Telegram/Discord/Google Chat/Slack/Mattermost (плагин)/Signal/iMessage/MS Teams
@@ -64,6 +68,7 @@ openclaw message <subcommand> [flags]
   - Обязательно: `--target`, `--poll-question`, `--poll-option` (повтор)
   - Необязательно: `--poll-multi`
   - Только Discord: `--poll-duration-hours`, `--message`
+  - Только для Telegram: `--poll-duration-seconds` (5-600), `--silent`, `--poll-anonymous` / `--poll-public`, `--thread-id`
 
 - `react`
   - Каналы: Discord/Google Chat/Slack/Telegram/WhatsApp/Signal
@@ -196,6 +201,16 @@ openclaw message poll --channel discord \
   --poll-multi --poll-duration-hours 48
 ```
 
+Создать опрос в Telegram (автозакрытие через 2 минуты):
+
+```
+openclaw message poll --channel telegram \
+  --target @mychat \
+  --poll-question "Lunch?" \
+  --poll-option Pizza --poll-option Sushi \
+  --poll-duration-seconds 120 --silent
+```
+
 Отправка проактивного сообщения в Teams:
 
 ```
@@ -233,5 +248,3 @@ openclaw message react --channel signal \
 openclaw message send --channel telegram --target @mychat --message "Choose:" \
   --buttons '[ [{"text":"Yes","callback_data":"cmd:yes"}], [{"text":"No","callback_data":"cmd:no"}] ]'
 ```
-
-

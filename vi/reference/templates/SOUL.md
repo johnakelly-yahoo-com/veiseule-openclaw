@@ -1,4 +1,9 @@
-------
+---
+title: "Mẫu SOUL.md"
+summary: "Mẫu workspace cho SOUL.md"
+read_when:
+  - Khởi tạo workspace thủ công
+---
 
 # SOUL.md - Bạn là ai
 
@@ -36,5 +41,3 @@ Nếu bạn thay đổi tệp này, hãy nói cho người dùng biết — đó
 ---
 
 _File này là của bạn để tiến hóa. Khi bạn học được mình là ai, hãy cập nhật nó._
-
-

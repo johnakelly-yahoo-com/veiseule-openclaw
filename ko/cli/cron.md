@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw cron` 에 대한 CLI 참조 (백그라운드 작업을 예약하고 실행)"
+read_when:
+  - 예약된 작업과 깨우기(wakeups)가 필요함
+  - cron 실행 및 로그를 디버깅할 때
 title: "cron"
 ---
 
@@ -37,5 +41,3 @@ openclaw cron edit <job-id> --no-deliver
 ```bash
 openclaw cron edit <job-id> --announce --channel slack --to "channel:C1234567890"
 ```
-
-

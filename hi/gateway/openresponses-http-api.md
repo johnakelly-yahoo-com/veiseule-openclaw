@@ -1,4 +1,8 @@
 ---
+summary: "Gateway से OpenResponses-संगत /v1/responses HTTP एंडपॉइंट को उजागर करें"
+read_when:
+  - OpenResponses API बोलने वाले क्लाइंट्स का एकीकरण करते समय
+  - जब आपको आइटम-आधारित इनपुट, क्लाइंट टूल कॉल्स, या SSE इवेंट्स चाहिए हों
 title: "OpenResponses API"
 ---
 
@@ -24,6 +28,7 @@ Gateway auth configuration का उपयोग करता है। एक 
 
 - जब `gateway.auth.mode="token"` हो, तो `gateway.auth.token` (या `OPENCLAW_GATEWAY_TOKEN`) का उपयोग करें।
 - जब `gateway.auth.mode="password"` हो, तो `gateway.auth.password` (या `OPENCLAW_GATEWAY_PASSWORD`) का उपयोग करें।
+- यदि `gateway.auth.rateLimit` कॉन्फ़िगर है और बहुत अधिक auth विफलताएँ होती हैं, तो endpoint `Retry-After` के साथ `429` लौटाता है।
 
 ## एजेंट का चयन
 
@@ -183,6 +188,10 @@ URL फ़ेच डिफ़ॉल्ट्स:
 - `files.allowUrl`: `true`
 - `images.allowUrl`: `true`
 - अनुरोध संरक्षित होते हैं (DNS रेज़ोल्यूशन, निजी IP ब्लॉकिंग, रीडायरेक्ट सीमाएँ, टाइमआउट्स)।
+- अनुरोध संरक्षित होते हैं (DNS रेज़ोल्यूशन, निजी IP ब्लॉकिंग, रीडायरेक्ट सीमाएँ, टाइमआउट्स)।
+- प्रत्येक इनपुट प्रकार के लिए वैकल्पिक hostname allowlists समर्थित हैं (`files.urlAllowlist`, `images.urlAllowlist`)।
+  - सटीक होस्ट: `"cdn.example.com"`
+  - वाइल्डकार्ड सबडोमेन: `"*.assets.example.com"` (apex से मेल नहीं खाता)
 
 ## फ़ाइल + छवि सीमाएँ (विन्यास)
 
@@ -233,6 +242,7 @@ URL फ़ेच डिफ़ॉल्ट्स:
 जब छोड़ा जाए तो डिफ़ॉल्ट्स:
 
 - `maxBodyBytes`: 20MB
+- `maxUrlParts`: 8
 - `files.maxBytes`: 5MB
 - `files.maxChars`: 200k
 - `files.maxRedirects`: 3
@@ -244,9 +254,16 @@ URL फ़ेच डिफ़ॉल्ट्स:
 - `images.maxRedirects`: 3
 - `images.timeoutMs`: 10s
 
+सुरक्षा नोट:
+
+- URL allowlists को fetch से पहले और redirect hops के दौरान लागू किया जाता है।
+- किसी hostname को allowlist में शामिल करने से private/internal IP ब्लॉकिंग बायपास नहीं होती।
+- इंटरनेट-एक्सपोज़्ड gateways के लिए, ऐप-लेवल सुरक्षा उपायों के साथ नेटवर्क egress नियंत्रण भी लागू करें।
+  [Security](/gateway/security) देखें।
+
 ## स्ट्रीमिंग (SSE)
 
-Server-Sent Events (SSE) प्राप्त करने के लिए `stream: true` सेट करें:
+वर्तमान में उत्सर्जित इवेंट प्रकार:
 
 - `Content-Type: text/event-stream`
 - प्रत्येक इवेंट लाइन `event: <type>` और `data: <json>` होती है
@@ -265,13 +282,13 @@ Server-Sent Events (SSE) प्राप्त करने के लिए `st
 - `response.completed`
 - `response.failed` (त्रुटि पर)
 
-## उपयोग
-
-`usage` तब भरा जाता है जब अंतर्निहित प्रदाता टोकन गणनाएँ रिपोर्ट करता है।
-
 ## त्रुटियाँ
 
 त्रुटियाँ इस प्रकार के JSON ऑब्जेक्ट का उपयोग करती हैं:
+
+## त्रुटियाँ
+
+सामान्य मामले:
 
 ```json
 { "error": { "message": "...", "type": "invalid_request_error" } }
@@ -285,7 +302,7 @@ Server-Sent Events (SSE) प्राप्त करने के लिए `st
 
 ## उदाहरण
 
-नॉन-स्ट्रीमिंग:
+स्ट्रीमिंग:
 
 ```bash
 curl -sS http://127.0.0.1:18789/v1/responses \
@@ -311,5 +328,3 @@ curl -N http://127.0.0.1:18789/v1/responses \
     "input": "hi"
   }'
 ```
-
-

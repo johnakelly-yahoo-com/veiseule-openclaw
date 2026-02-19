@@ -1,4 +1,9 @@
 ---
+summary: "„Cron-Jobs + Wakeups für den Gateway-Scheduler“"
+read_when:
+  - Planen von Hintergrundjobs oder Wakeups
+  - Verdrahten von Automatisierungen, die mit oder neben Heartbeats laufen sollen
+  - Entscheidung zwischen Heartbeat und Cron für geplante Aufgaben
 title: "„Cron Jobs“"
 ---
 
@@ -14,7 +19,7 @@ ist Cron der passende Mechanismus.
 
 Fehlerbehebung: [/automation/troubleshooting](/automation/troubleshooting)
 
-## Kurzfassung
+## TL;DR
 
 - Cron läuft **innerhalb des Gateways** (nicht innerhalb des Modells).
 - Jobs werden unter `~/.openclaw/cron/` persistiert, sodass Neustarts keine Zeitpläne verlieren.
@@ -469,5 +474,3 @@ openclaw system event --mode now --text "Next heartbeat: check battery."
 - Verwenden Sie für Forenthemen `-100…:topic:<id>`, damit es explizit und eindeutig ist.
 - Wenn Sie in Logs oder gespeicherten „last route“-Zielen Präfixe wie `telegram:...` sehen, ist das normal;
   die Cron-Zustellung akzeptiert sie und parst Themen-IDs weiterhin korrekt.
-
-

@@ -1,4 +1,6 @@
 ---
+summary: "Åtgärda CDP-startproblem för Chrome/Brave/Edge/Chromium för OpenClaw webbläsarkontroll på Linux"
+read_when: "Webbläsarkontroll misslyckas på Linux, särskilt med snap Chromium"
 title: "Felsökning av webbläsare"
 ---
 
@@ -135,5 +137,3 @@ Noteringar:
 
 - Profilen `chrome` använder din **systemets standard-Chromium-webbläsare** när det är möjligt.
 - Lokala `openclaw`-profiler tilldelar automatiskt `cdpPort`/`cdpUrl`; ange dem endast för fjärr-CDP.
-
-

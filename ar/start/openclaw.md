@@ -1,4 +1,8 @@
 ---
+summary: "دليل شامل من البداية إلى النهاية لتشغيل OpenClaw كمساعد شخصي مع تنبيهات السلامة"
+read_when:
+  - تهيئة مثيل مساعد جديد
+  - مراجعة تبعات السلامة والأذونات
 title: "إعداد المساعد الشخصي"
 ---
 
@@ -30,25 +34,9 @@ OpenClaw هو Gateway لـ WhatsApp + Telegram + Discord + iMessage لوكلاء
 هذا ما تريده:
 
 ```mermaid
-%%{init: {
-  'theme': 'base',
-  'themeVariables': {
-    'primaryColor': '#ffffff',
-    'primaryTextColor': '#000000',
-    'primaryBorderColor': '#000000',
-    'lineColor': '#000000',
-    'secondaryColor': '#f9f9fb',
-    'tertiaryColor': '#ffffff',
-    'clusterBkg': '#f9f9fb',
-    'clusterBorder': '#000000',
-    'nodeBorder': '#000000',
-    'mainBkg': '#ffffff',
-    'edgeLabelBackground': '#ffffff'
-  }
-}}%%
 flowchart TB
-    A["<b>هاتفك (شخصي)<br></b><br>واتسابك<br>+1-555-YOU"] -- رسالة --> B["<b>هاتف ثانٍ (مساعد)<br></b><br>واتساب المساعد<br>+1-555-ASSIST"]
-    B -- مرتبط عبر QR --> C["<b>جهاز Mac الخاص بك (openclaw)<br></b><br>وكيل Pi"]
+    A["<b>هاتفك (شخصي)<br></b><br>واتساب الخاص بك<br>+1-555-YOU"] -- message --> B["<b>الهاتف الثاني (المساعد)<br></b><br>واتساب المساعد<br>+1-555-ASSIST"]
+    B -- linked via QR --> C["<b>جهاز Mac الخاص بك (openclaw)<br></b><br>وكيل Pi"]
 ```
 
 إذا ربطت WhatsApp الشخصي بـ OpenClaw، فكل رسالة تصلك تصبح «مدخلات للوكيل». نادرًا ما يكون هذا ما تريده.
@@ -225,5 +213,3 @@ openclaw health --json   # gateway health snapshot (WS)
 - حالة Windows: [Windows (WSL2)](/platforms/windows)
 - حالة Linux: [تطبيق Linux](/platforms/linux)
 - الأمان: [الأمان](/gateway/security)
-
-

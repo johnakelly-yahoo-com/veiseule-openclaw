@@ -1,5 +1,9 @@
 ---
-title: "Compactie"
+summary: "Contextvenster + compaction: hoe OpenClaw sessies binnen modelgrenzen houdt"
+read_when:
+  - Je wilt auto-compaction en /compact begrijpen
+  - Je debugt lange sessies die contextlimieten bereiken
+title: "Compaction"
 ---
 
 # Contextvenster & Compaction
@@ -17,7 +21,7 @@ Compaction **blijft behouden** in de JSONL-geschiedenis van de sessie.
 
 ## Configuratie
 
-Zie [Compaction config & modes](/concepts/compaction) voor de `agents.defaults.compaction`-instellingen.
+Gebruik de instelling `agents.defaults.compaction` in je `openclaw.json` om het compactiegedrag te configureren (modus, doeltokens, enz.).
 
 ## Auto-compaction (standaard aan)
 
@@ -55,5 +59,3 @@ Zie [/concepts/session-pruning](/concepts/session-pruning) voor details over pru
 - Gebruik `/compact` wanneer sessies muf aanvoelen of de context opgeblazen is.
 - Grote tooluitvoer wordt al afgekapt; pruning kan de opstapeling van toolresultaten verder verminderen.
 - Als je een schone lei nodig hebt, starten `/new` of `/reset` een nieuwe sessie-id.
-
-

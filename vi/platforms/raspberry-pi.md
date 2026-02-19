@@ -1,4 +1,9 @@
 ---
+summary: "OpenClaw trên Raspberry Pi (thiết lập tự host tiết kiệm)"
+read_when:
+  - Thiết lập OpenClaw trên Raspberry Pi
+  - Chạy OpenClaw trên thiết bị ARM
+  - Xây dựng AI cá nhân luôn bật với chi phí thấp
 title: "Raspberry Pi"
 ---
 
@@ -351,5 +356,3 @@ echo 'wireless-power off' | sudo tee -a /etc/network/interfaces
 - [Hetzner guide](/install/hetzner) — thiết lập Docker
 - [Tailscale](/gateway/tailscale) — truy cập từ xa
 - [Nodes](/nodes) — ghép laptop/điện thoại của bạn với gateway Pi
-
-

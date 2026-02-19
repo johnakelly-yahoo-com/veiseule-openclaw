@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw 를 위한 고급 설정 및 개발 워크플로"
+read_when:
+  - 새 머신을 설정할 때
+  - 개인 설정을 깨뜨리지 않으면서 '최신 + 최고의 기능'을 원할 때
 title: "설정"
 ---
 
@@ -153,5 +157,3 @@ sudo loginctl enable-linger $USER
 - [Discord](/channels/discord) 및 [Telegram](/channels/telegram) (답장 태그 + replyToMode 설정)
 - [OpenClaw 어시스턴트 설정](/start/openclaw)
 - [macOS 앱](/platforms/macos) (gateway 라이프사이클)
-
-

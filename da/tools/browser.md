@@ -1,4 +1,9 @@
 ---
+summary: "Integreret browserkontroltjeneste + handlingskommandoer"
+read_when:
+  - Tilføjelse af agentstyret browserautomatisering
+  - Fejlsøgning af hvorfor openclaw interfererer med din egen Chrome
+  - Implementering af browserindstillinger + livscyklus i macOS-appen
 title: "Browser (OpenClaw-administreret)"
 ---
 
@@ -189,6 +194,7 @@ Kerneidéer:
 - Browserkontrol er kun loopback; adgang går via Gateway’ens autentificering eller node-parring.
 - Hold Gateway og eventuelle node-værter på et privat netværk (Tailscale); undgå offentlig eksponering.
 - Behandl fjerne CDP-URL’er/tokens som hemmeligheder; foretræk miljøvariabler eller en secrets manager.
+- Behandl fjerne CDP-URL’er/tokens som hemmeligheder; foretræk miljøvariabler eller en secrets manager.
 
 Tips til fjern CDP:
 
@@ -311,6 +317,11 @@ Kun til lokale integrationer eksponerer Gateway et lille loopback HTTP-API:
 
 Alle endepunkter accepterer `?profile=<name>`.
 
+Hvis gateway-godkendelse er konfigureret, kræver browserens HTTP-ruter også godkendelse:
+
+- `Authorization: Bearer <gateway token>`
+- `x-openclaw-password: <gateway password>` eller HTTP Basic-godkendelse med denne adgangskode
+
 ### Playwright-krav
 
 Nogle funktioner (navigér/act/AI snapshot/role snapshot, element screenshots, PDF) kræver
@@ -338,7 +349,8 @@ For at fortsætte browserdownloads, angiv `PLAYWRIGHT_BROWSERS_PATH` (for eksemp
 
 ## Sådan virker det (internt)
 
-Overordnet flow:
+Dette design holder agenten på en stabil, deterministisk grænseflade, mens du kan
+skifte lokale/fjerne browsere og profiler.
 
 - En lille **kontrolserver** accepterer HTTP-forespørgsler.
 - Den forbinder til Chromium-baserede browsere (Chrome/Brave/Edge/Chromium) via **CDP**.
@@ -354,7 +366,7 @@ skifte lokale/fjerne browsere og profiler.
 Alle kommandoer accepterer `--browser-profil <name>` for at målrette en bestemt profil.
 Alle kommandoer accepterer også `--json` for maskinlæsbar output (stabil nyttelast).
 
-Grundlæggende:
+Inspektion:
 
 - `openclaw browser status`
 - `openclaw browser start`
@@ -368,7 +380,7 @@ Grundlæggende:
 - `openclaw browser focus abcd1234`
 - `openclaw browser close abcd1234`
 
-Inspektion:
+Handlinger:
 
 - `openclaw browser screenshot`
 - `openclaw browser screenshot --full-page`
@@ -387,7 +399,7 @@ Inspektion:
 - `openclaw browser pdf`
 - `openclaw browser responsebody "**/api" --max-chars 5000`
 
-Handlinger:
+Tilstand:
 
 - `openclaw browser navigate https://example.com`
 - `openclaw browser resize 1280 720`
@@ -399,9 +411,9 @@ Handlinger:
 - `openclaw browser scrollintoview e12`
 - `openclaw browser drag 10 11`
 - `openclaw browser select 9 OptionA OptionB`
-- `openclaw browser download e12 /tmp/report.pdf`
-- `openclaw browser waitfordownload /tmp/report.pdf`
-- `openclaw browser upload /tmp/file.pdf`
+- `openclaw browser download e12 report.pdf`
+- `openclaw browser waitfordownload report.pdf`
+- `openclaw browser upload /tmp/openclaw/uploads/file.pdf`
 - `openclaw browser fill --fields '[{"ref":"1","type":"text","value":"Ada"}]'`
 - `openclaw browser dialog --accept`
 - `openclaw browser wait --text "Done"`
@@ -411,7 +423,7 @@ Handlinger:
 - `openclaw browser trace start`
 - `openclaw browser trace stop`
 
-Tilstand:
+Noter:
 
 - `openclaw browser cookies`
 - `openclaw browser cookies set session abc123 --url "https://example.com"`
@@ -434,6 +446,11 @@ Noter:
 
 - `upload` og `dialog` er **armeringskald**; kør dem før klik/tryk,
   der udløser vælgeren/dialogen.
+- Download- og trace-outputstier er begrænset til OpenClaw temp-rodmapper:
+  - traces: `/tmp/openclaw` (fallback: `${os.tmpdir()}/openclaw`)
+  - downloads: `/tmp/openclaw/downloads` (fallback: `${os.tmpdir()}/openclaw/downloads`)
+- Upload-stier er begrænset til en OpenClaw temp upload-rodmappe:
+  - uploads: `/tmp/openclaw/uploads` (fallback: `${os.tmpdir()}/openclaw/uploads`)
 - `upload` kan også sætte fil-inputs direkte via `--input-ref` eller `--element`.
 - `snapshot`:
   - `--format ai` (standard når Playwright er installeret): returnerer et AI-snapshot med numeriske referencer (`aria-ref="<n>"`).
@@ -449,14 +466,14 @@ Noter:
 
 ## Snapshots og referencer
 
-OpenClaw understøtter to “snapshot”-stile:
+Ref-adfærd:
 
-- **AI-snapshot (numeriske referencer)**: `openclaw browser snapshot` (standard; `--format ai`)
+- Referencer er **ikke stabile på tværs af navigationer**; hvis noget fejler, så kør `snapshot` igen og brug en frisk reference.
   - Output: et tekst-snapshot, der inkluderer numeriske referencer.
   - Handlinger: `openclaw browser click 12`, `openclaw browser type 23 "hello"`.
   - Internt løses referencen via Playwrights `aria-ref`.
 
-- **Rolle-snapshot (rolreferencer som `e12`)**: `openclaw browser snapshot --interactive` (eller `--compact`, `--depth`, `--selector`, `--frame`)
+- Hvis rolle-snapshot blev taget med `--frame`, er rolreferencer afgrænset til den iframe indtil næste rolle-snapshot.
   - Output: en rollebaseret liste/træ med `[ref=e12]` (og valgfrit `[nth=1]`).
   - Handlinger: `openclaw browser click e12`, `openclaw browser highlight e12`.
   - Internt løses referencen via `getByRole(...)` (plus `nth()` for dubletter).
@@ -469,7 +486,7 @@ Ref-adfærd:
 
 ## Vent-forstærkninger
 
-Du kan vente på mere end bare tid/tekst:
+Disse kan kombineres:
 
 - Vent på URL (globs understøttet af Playwright):
   - `openclaw browser wait --url "**/dash"`
@@ -509,7 +526,7 @@ Hvis en handling mislykkes (f.eks. »ikke synlig«, »streng tilstand overtræde
 
 `--json` er til scripting og strukturerede værktøjer.
 
-Eksempler:
+Rolle-snapshots i JSON inkluderer `refs` plus en lille `stats`-blok (linjer/tegn/referencer/interaktiv), så værktøjer kan ræsonnere om payload-størrelse og -tæthed.
 
 ```bash
 openclaw browser status --json
@@ -518,7 +535,7 @@ openclaw browser requests --filter api --json
 openclaw browser cookies --json
 ```
 
-Rolle-snapshots i JSON inkluderer `refs` plus en lille `stats`-blok (linjer/tegn/referencer/interaktiv), så værktøjer kan ræsonnere om payload-størrelse og -tæthed.
+Disse er nyttige til “få sitet til at opføre sig som X”-workflows:
 
 ## Tilstands- og miljøknapper
 
@@ -527,8 +544,8 @@ Disse er nyttige til “få sitet til at opføre sig som X”-workflows:
 - Cookies: `cookies`, `cookies set`, `cookies clear`
 - Lager: `storage local|session get|set|clear`
 - Offline: `set offline on|off`
-- Headere: `set headers --json '{"X-Debug":"1"}'` (eller `--clear`)
-- HTTP basic auth: `set credentials user pass` (eller `--clear`)
+- Hold Gateway/node-værten privat (loopback eller kun tailnet).
+- Fjerne CDP-endepunkter er kraftfulde; tunnelér og beskyt dem.
 - Geolokation: `set geo <lat> <lon> --origin "https://example.com"` (eller `--clear`)
 - Medier: `set media dark|light|no-preference|none`
 - Tidszone / locale: `set timezone ...`, `set locale ...`
@@ -536,7 +553,7 @@ Disse er nyttige til “få sitet til at opføre sig som X”-workflows:
   - `set device "iPhone 14"` (Playwright-enhedsforudindstillinger)
   - `set viewport 1280 720`
 
-## Sikkerhed & privatliv
+## Fejlfinding
 
 - openclaw-browserprofilen kan indeholde indloggede sessioner; behandl den som følsom.
 - `browser act kind=evaluate` / `openclaw browser evaluate` and `wait --fn`
@@ -546,18 +563,17 @@ Disse er nyttige til “få sitet til at opføre sig som X”-workflows:
 - Hold Gateway/node-værten privat (loopback eller kun tailnet).
 - Fjerne CDP-endepunkter er kraftfulde; tunnelér og beskyt dem.
 
-## Fejlfinding
-
-For Linux-specifikke problemer (især snap Chromium), se
-[Browser troubleshooting](/tools/browser-linux-troubleshooting).
-
 ## Agentværktøjer + hvordan kontrol virker
 
 Agenten får **ét værktøj** til browserautomatisering:
 
-- `browser` — status/start/stop/faner/åbn/fokusér/luk/snapshot/skærmbillede/navigér/handl
+## Agentværktøjer + hvordan kontrol virker
 
 Sådan kortlægges det:
+
+- `browser snapshot` returnerer et stabilt UI-træ (AI eller ARIA).
+
+Dette holder agenten deterministisk og undgår skrøbelige selektorer.
 
 - `browser snapshot` returnerer et stabilt UI-træ (AI eller ARIA).
 - `browser act` bruger snapshot `ref`-ID’er til at klikke/skrive/trække/vælge.
@@ -570,5 +586,3 @@ Sådan kortlægges det:
   - Hvis en browser-kompatibel node er forbundet, kan værktøjet automatisk route til den, medmindre du fastlåser `target="host"` eller `target="node"`.
 
 Dette holder agenten deterministisk og undgår skrøbelige selektorer.
-
-

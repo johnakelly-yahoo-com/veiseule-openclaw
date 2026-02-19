@@ -1,4 +1,8 @@
 ---
+summary: "Prise en main scriptée et configuration d’agent pour la CLI OpenClaw"
+read_when:
+  - Vous automatisez la prise en main dans des scripts ou en CI
+  - Vous avez besoin d’exemples non interactifs pour des fournisseurs spécifiques
 title: "Automatisation CLI"
 sidebarTitle: "Automatisation CLI"
 ---
@@ -109,6 +113,25 @@ Ajoutez `--json` pour un récapitulatif lisible par machine.
     ```
   
 </Accordion>
+  <Accordion title="Custom provider example">```bash
+openclaw onboard --non-interactive \
+  --mode local \
+  --auth-choice custom-api-key \
+  --custom-base-url "https://llm.example.com/v1" \
+  --custom-model-id "foo-large" \
+  --custom-api-key "$CUSTOM_API_KEY" \
+  --custom-provider-id "my-custom" \
+  --custom-compatibility anthropic \
+  --gateway-port 18789 \
+  --gateway-bind loopback
+```
+
+    ```
+    `--custom-api-key` est facultatif. S’il est omis, la configuration vérifie `CUSTOM_API_KEY`.
+    ```
+
+  
+</Accordion>
 </AccordionGroup>
 
 ## Ajouter un autre agent
@@ -142,5 +165,3 @@ Remarques :
 - Hub de prise en main : [Assistant de prise en main (CLI)](/start/wizard)
 - Référence complète : [Référence de la prise en main CLI](/start/wizard-cli-reference)
 - Référence des commandes : [`openclaw onboard`](/cli/onboard)
-
-

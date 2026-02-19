@@ -1,4 +1,9 @@
 ---
+summary: "Çalışma alanını ve kimlik dosyalarını tohumlayan ajan başlatma ritüeli"
+read_when:
+  - İlk ajan çalıştırmasında ne olduğunu anlamak
+  - Başlatma dosyalarının nerede bulunduğunu açıklamak
+  - Katılım kimliği kurulumunda hata ayıklamak
 title: "Ajan Önyüklemesi"
 sidebarTitle: "Önyükleme"
 ---
@@ -32,5 +37,3 @@ makinesinde düzenleyin (örneğin, `user@gateway-host:~/.openclaw/workspace`).
 
 - macOS uygulaması katılımı: [Onboarding](/start/onboarding)
 - Çalışma alanı düzeni: [Ajan çalışma alanı](/concepts/agent-workspace)
-
-

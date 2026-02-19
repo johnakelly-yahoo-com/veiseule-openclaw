@@ -516,7 +516,7 @@ import { ... } from "@mariozechner/pi-tui";
 | Invocation      | `pi` command / RPC                  | `createAgentSession()` မှတစ်ဆင့် SDK                                                                                     |
 | Tools           | Default coding tools                | OpenClaw ၏ custom tool suite                                                                                             |
 | System prompt   | AGENTS.md + prompts | channel/context အလိုက် dynamic                                                                                           |
-| Session storage | `~/.pi/agent/sessions/`             | `~/.openclaw/agents/<agentId>/sessions/` (သို့မဟုတ် `$OPENCLAW_STATE_DIR/agents/<agentId>/sessions/`) |
+| Session storage | `~/.pi/agent/sessions/`             | `~/.openclaw/agents/&lt;agentId&gt;/sessions/` (သို့မဟုတ် `$OPENCLAW_STATE_DIR/agents/&lt;agentId&gt;/sessions/`) |
 | Auth            | အထောက်အထားတစ်ခုတည်း                 | လှည့်လည်အသုံးပြုနိုင်သော multi-profile                                                                                   |
 | Extensions      | disk မှ load လုပ်သည်                | Programmatic + disk paths                                                                                                |
 | Event handling  | TUI rendering                       | Callback အခြေပြု (onBlockReply စသည်)                                                                  |
@@ -610,5 +610,3 @@ pi ပေါင်းစည်းမှုနှင့် ၎င်း၏ extens
 - `src/agents/pi-tools.policy.test.ts`
 - `src/agents/pi-tools.safe-bins.test.ts`
 - `src/agents/pi-tools.workspace-paths.test.ts`
-
-

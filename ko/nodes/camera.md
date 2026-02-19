@@ -1,4 +1,8 @@
 ---
+summary: "에이전트 사용을 위한 카메라 캡처(iOS 노드 + macOS 앱): 사진(jpg) 및 짧은 동영상 클립(mp4)"
+read_when:
+  - iOS 노드 또는 macOS에서 카메라 캡처를 추가하거나 수정할 때
+  - 에이전트가 접근 가능한 MEDIA 임시 파일 워크플로를 확장할 때
 title: "카메라 캡처"
 ---
 
@@ -150,5 +154,3 @@ openclaw nodes screen record --node <id> --duration 10s --fps 15   # prints MEDI
 참고:
 
 - macOS **Screen Recording** 권한(TCC)이 필요합니다.
-
-

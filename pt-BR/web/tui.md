@@ -1,4 +1,8 @@
 ---
+summary: "Interface de Terminal (TUI): conecte-se ao Gateway a partir de qualquer máquina"
+read_when:
+  - Você quer um passo a passo amigável para iniciantes do TUI
+  - Você precisa da lista completa de recursos, comandos e atalhos do TUI
 title: "TUI"
 ---
 
@@ -156,5 +160,3 @@ Sem saída após enviar uma mensagem:
 - `disconnected`: garanta que o Gateway esteja em execução e que seus `--url/--token/--password` estejam corretos.
 - Nenhum agente no seletor: verifique `openclaw agents list` e sua configuração de roteamento.
 - Seletor de sessão vazio: você pode estar no escopo global ou ainda não ter sessões.
-
-

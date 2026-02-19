@@ -1,4 +1,8 @@
 ---
+summary: "Gateway web yüzeyleri: Kontrol UI, bağlama modları ve güvenlik"
+read_when:
+  - Gateway’e Tailscale üzerinden erişmek istiyorsunuz
+  - Tarayıcı Kontrol UI ve yapılandırma düzenlemeyi istiyorsunuz
 title: "Web"
 ---
 
@@ -17,7 +21,7 @@ Bu sayfa bağlama modları, güvenlik ve web’e açık yüzeylere odaklanır.
 `hooks.enabled=true` olduğunda, Gateway aynı HTTP sunucusunda küçük bir webhook uç noktası da sunar.
 Kimlik doğrulama ve yükler için [Gateway yapılandırması](/gateway/configuration) → `hooks` bölümüne bakın.
 
-## Yapılandırma (varsayılan olarak açık)
+## Config (default-on)
 
 Varlıklar mevcut olduğunda (`dist/control-ui`) Kontrol UI **varsayılan olarak etkindir**.
 Yapılandırma ile denetleyebilirsiniz:
@@ -109,5 +113,3 @@ Gateway, statik dosyaları `dist/control-ui` konumundan sunar. Şu komutla derle
 ```bash
 pnpm ui:build # auto-installs UI deps on first run
 ```
-
-

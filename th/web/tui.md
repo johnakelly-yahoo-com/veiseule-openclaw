@@ -1,4 +1,8 @@
 ---
+summary: "Terminal UI (TUI): เชื่อมต่อกับGatewayจากเครื่องใดก็ได้"
+read_when:
+  - คุณต้องการคู่มือแบบเป็นมิตรกับผู้เริ่มต้นสำหรับTUI
+  - คุณต้องการรายการฟีเจอร์ คำสั่ง และคีย์ลัดของTUIทั้งหมด
 title: "TUI"
 ---
 
@@ -102,7 +106,7 @@ openclaw tui --url ws://<host>:<port> --token <gateway-token>
 - `/settings`
 - `/exit`
 
-คำสั่งสแลชอื่นของGateway (เช่น `/context`) จะถูกส่งต่อไปยังGatewayและแสดงเป็นเอาต์พุตระบบ ดู [Slash commands](/tools/slash-commands) ดู [Slash commands](/tools/slash-commands)
+คำสั่งสแลชอื่นของGateway (เช่น `/context`) จะถูกส่งต่อไปยังGatewayและแสดงเป็นเอาต์พุตระบบ ดู [Slash commands](/tools/slash-commands) ดู [Slash commands](/tools/slash-commands) ดู [Slash commands](/tools/slash-commands)
 
 ## คำสั่งเชลล์ภายในเครื่อง
 
@@ -141,6 +145,7 @@ openclaw tui --url ws://<host>:<port> --token <gateway-token>
 หมายเหตุ: เมื่อคุณตั้งค่า `--url` แล้ว TUIจะไม่ถอยกลับไปใช้คอนฟิกหรือข้อมูลรับรองจากตัวแปรสภาพแวดล้อม
 ให้ส่ง `--token` หรือ `--password` อย่างชัดเจน การขาดข้อมูลรับรองที่ระบุอย่างชัดเจนถือเป็นข้อผิดพลาด
 ส่ง `--token` หรือ `--password` อย่างชัดเจน การไม่มีข้อมูลรับรองที่ระบุชัดเจนถือเป็นข้อผิดพลาด
+ส่ง `--token` หรือ `--password` อย่างชัดเจน การไม่มีข้อมูลรับรองที่ระบุชัดเจนถือเป็นข้อผิดพลาด
 
 ## การแก้ไขปัญหา
 
@@ -157,5 +162,3 @@ openclaw tui --url ws://<host>:<port> --token <gateway-token>
 - `disconnected`: ตรวจสอบให้แน่ใจว่าGatewayกำลังทำงานและ `--url/--token/--password` ของคุณถูกต้อง
 - ไม่มีเอเจนต์ในตัวเลือก: ตรวจสอบ `openclaw agents list` และคอนฟิกรูตติ้งของคุณ
 - ตัวเลือกเซสชันว่าง: คุณอาจอยู่ในขอบเขต global หรือยังไม่มีเซสชัน
-
-

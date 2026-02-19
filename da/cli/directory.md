@@ -1,4 +1,8 @@
 ---
+summary: "CLI-reference til `openclaw directory` (self, peers, grupper)"
+read_when:
+  - Du vil slå kontakt-/gruppe-/self-id’er op for en kanal
+  - Du udvikler en kanal-directory-adapter
 title: "directory"
 ---
 
@@ -57,5 +61,3 @@ openclaw directory groups list --channel zalouser
 openclaw directory groups list --channel zalouser --query "work"
 openclaw directory groups members --channel zalouser --group-id <id>
 ```
-
-

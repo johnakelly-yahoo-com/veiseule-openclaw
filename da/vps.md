@@ -1,4 +1,8 @@
 ---
+summary: "VPS-hostinghub til OpenClaw (Oracle/Fly/Hetzner/GCP/exe.dev)"
+read_when:
+  - Du vil køre Gateway i skyen
+  - Du har brug for et hurtigt overblik over VPS-/hostingguider
 title: "VPS-hosting"
 ---
 
@@ -37,5 +41,3 @@ Du kan holde porten i skyen og parre **noder** på dine lokale enheder
 kapaciteter, mens Gateway forbliver i skyen.
 
 Dokumentation: [Nodes](/nodes), [Nodes CLI](/cli/nodes)
-
-

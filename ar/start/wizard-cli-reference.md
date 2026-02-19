@@ -1,4 +1,8 @@
 ---
+summary: "مرجع كامل لتدفق التهيئة الأولية عبر CLI، وإعداد المصادقة/النموذج، والمخرجات، والجوانب الداخلية"
+read_when:
+  - تحتاج إلى سلوك تفصيلي لعملية تهيئة OpenClaw
+  - تقوم بتصحيح نتائج التهيئة الأولية أو دمج عملاء التهيئة
 title: "مرجع التهيئة الأولية عبر CLI"
 sidebarTitle: "مرجع CLI"
 ---
@@ -33,8 +37,7 @@ sidebarTitle: "مرجع CLI"
     - تستخدم إعادة الضبط `trash` وتعرض نطاقات:
       - التهيئة فقط
       - التهيئة + بيانات الاعتماد + الجلسات
-      - إعادة ضبط كاملة (تزيل مساحة العمل أيضًا)
-  
+      - إعادة ضبط كاملة (تزيل مساحة العمل أيضًا)  
 </Step>
   <Step title="Model and auth">
     - مصفوفة الخيارات الكاملة موجودة في [خيارات المصادقة والنموذج](#auth-and-model-options).
@@ -63,10 +66,12 @@ sidebarTitle: "مرجع CLI"
     - [BlueBubbles](/channels/bluebubbles): مُوصى به لـ iMessage؛ عنوان خادم + كلمة مرور + webhook
     - [iMessage](/channels/imessage): مسار CLI قديم لـ `imsg` + وصول إلى قاعدة البيانات
     - أمان الرسائل الخاصة: الافتراضي هو الإقران. أول رسالة خاصة ترسل رمزًا؛ وافق عبر
-      `openclaw pairing approve <channel> <code>` أو استخدم قوائم السماح.
+      `openclaw pairing approve <channel><code>` أو استخدم قوائم السماح.
+  
+</Step><code>` أو استخدم قوائم السماح.
   
 </Step>
-  <Step title="Daemon install">
+  <Step title="تثبيت الخدمة الخلفية">
     - macOS: LaunchAgent
       - يتطلب جلسة مستخدم مسجّل الدخول؛ للوضع بدون واجهة، استخدم LaunchDaemon مخصصًا (غير مشحون).
     - Linux وWindows عبر WSL2: وحدة systemd للمستخدم
@@ -75,7 +80,7 @@ sidebarTitle: "مرجع CLI"
     - اختيار بيئة التشغيل: Node (مُوصى به؛ مطلوب لـ WhatsApp وTelegram). لا يُنصح بـ Bun.
   
 </Step>
-  <Step title="Health check">
+  <Step title="فحص السلامة">
     - يبدأ Gateway (إن لزم) ويشغّل `openclaw health`.
     - يضيف `openclaw status --deep` مجسّات سلامة Gateway إلى مخرجات الحالة.
   
@@ -86,7 +91,7 @@ sidebarTitle: "مرجع CLI"
     - يثبّت التبعيات الاختيارية (بعضها يستخدم Homebrew على macOS).
   
 </Step>
-  <Step title="Finish">
+  <Step title="الإنهاء">
     - ملخص وخطوات تالية، بما في ذلك خيارات تطبيقات iOS وAndroid وmacOS.
   
 </Step>
@@ -128,7 +133,12 @@ sidebarTitle: "مرجع CLI"
     - macOS: يتحقق من عنصر Keychain باسم "Claude Code-credentials"
     - Linux وWindows: يعيد استخدام `~/.claude/.credentials.json` إن وُجد
 
-    على macOS، اختر "Always Allow" حتى لا تمنع عمليات بدء launchd.
+    ````
+    ```
+    على macOS، اختر «Always Allow» حتى لا تمنع عمليات بدء launchd.
+    ```
+    ````
+
   
 </Accordion>
   <Accordion title="Anthropic token (setup-token paste)">
@@ -143,14 +153,24 @@ sidebarTitle: "مرجع CLI"
   <Accordion title="OpenAI Code subscription (OAuth)">
     تدفّق عبر المتصفح؛ الصق `code#state`.
 
+    ````
+    ```
     يضبط `agents.defaults.model` على `openai-codex/gpt-5.3-codex` عندما يكون النموذج غير مضبوط أو `openai/*`.
+    ```
+    ````
+
   
 </Accordion>
   <Accordion title="OpenAI API key">
     يستخدم `OPENAI_API_KEY` إن وُجد أو يطالب بمفتاح، ثم يحفظه في
     `~/.openclaw/.env` حتى يتمكن launchd من قراءته.
 
+    ````
+    ```
     يضبط `agents.defaults.model` على `openai/gpt-5.1-codex` عندما يكون النموذج غير مضبوط، `openai/*`، أو `openai-codex/*`.
+    ```
+    ````
+
   
 </Accordion>
   <Accordion title="xAI (Grok) API key">
@@ -191,16 +211,18 @@ sidebarTitle: "مرجع CLI"
     مزيد من التفاصيل: [Moonshot AI (Kimi + Kimi Coding)](/providers/moonshot).
   
 </Accordion>
-  <Accordion title="Custom provider">
-    يعمل مع نقاط نهاية متوافقة مع OpenAI ومتوافقة مع Anthropic.
+  <Accordion title="Custom provider">    يعمل مع نقاط النهاية المتوافقة مع OpenAI والمتوافقة مع Anthropic.
 
-    أعلام التشغيل غير التفاعلية:
+    ```
+    علامات الوضع غير التفاعلي:
     - `--auth-choice custom-api-key`
     - `--custom-base-url`
     - `--custom-model-id`
-    - `--custom-api-key` (اختياري؛ يعود إلى `CUSTOM_API_KEY`)
+    - `--custom-api-key` (اختياري؛ يستخدم `CUSTOM_API_KEY` كخيار احتياطي)
     - `--custom-provider-id` (اختياري)
-    - `--custom-compatibility <openai|anthropic>` (اختياري؛ الافتراضي `openai`)
+    - `--custom-compatibility <openai|anthropic>` (اختياري؛ القيمة الافتراضية `openai`)
+    ```
+
   
 </Accordion>
   <Accordion title="Skip">
@@ -232,8 +254,8 @@ sidebarTitle: "مرجع CLI"
 - `agents.defaults.workspace`
 - `agents.defaults.model` / `models.providers` (إذا تم اختيار Minimax)
 - `gateway.*` (الوضع، الربط، المصادقة، Tailscale)
-- `channels.telegram.botToken`, `channels.discord.token`, `channels.signal.*`, `channels.imessage.*`
-- قوائم السماح للقنوات (Slack, Discord, Matrix, Microsoft Teams) عند الاشتراك أثناء المطالبات (تُحلّ الأسماء إلى معرّفات عند الإمكان)
+- `channels.telegram.botToken`، `channels.discord.token`، `channels.signal.*`، `channels.imessage.*`
+- قوائم السماح للقنوات (Slack وDiscord وMatrix وMicrosoft Teams) عند الاشتراك أثناء المطالبات (تُحلّ الأسماء إلى معرّفات عند الإمكان)
 - `skills.install.nodeManager`
 - `wizard.lastRunAt`
 - `wizard.lastRunVersion`
@@ -274,4 +296,3 @@ sidebarTitle: "مرجع CLI"
 - مركز التهيئة الأولية: [معالج التهيئة الأولية (CLI)](/start/wizard)
 - الأتمتة والبرامج النصية: [أتمتة CLI](/start/wizard-cli-automation)
 - مرجع الأوامر: [`openclaw onboard`](/cli/onboard)
-

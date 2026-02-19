@@ -1,4 +1,7 @@
 ---
+summary: "Schematy TypeBox jako pojedyncze źródło prawdy dla protokołu Gateway"
+read_when:
+  - Aktualizacja schematów protokołu lub codegen
 title: "TypeBox"
 ---
 
@@ -36,14 +39,14 @@ Client                    Gateway
 
 Typowe metody i zdarzenia:
 
-| Kategoria | Przykłady                                                 | Uwagi                                    |
-| --------- | --------------------------------------------------------- | ---------------------------------------- |
-| Rdzeń      | `connect`, `health`, `status`                             | `connect` musi być pierwsze              |
+| Kategoria   | Przykłady                                                 | Uwagi                                    |
+| ----------- | --------------------------------------------------------- | ---------------------------------------- |
+| Core        | `connect`, `health`, `status`                             | `connect` musi być pierwsze              |
 | Komunikacja | `send`, `poll`, `agent`, `agent.wait`                     | efekty uboczne wymagają `idempotencyKey` |
-| Czat      | `chat.history`, `chat.send`, `chat.abort`, `chat.inject`  | WebChat korzysta z nich                  |
-| Sessions  | `sessions.list`, `sessions.patch`, `sessions.delete`      | administracja sesjami                    |
-| Nodes     | `node.list`, `node.invoke`, `node.pair.*`                 | WS Gateway + akcje węzłów                |
-| Events    | `tick`, `presence`, `agent`, `chat`, `health`, `shutdown` | push serwera                             |
+| Czat        | `chat.history`, `chat.send`, `chat.abort`, `chat.inject`  | WebChat korzysta z nich                  |
+| Sessions    | `sessions.list`, `sessions.patch`, `sessions.delete`      | administracja sesjami                    |
+| Nodes       | `node.list`, `node.invoke`, `node.pair.*`                 | WS Gateway + akcje węzłów                |
+| Events      | `tick`, `presence`, `agent`, `chat`, `health`, `shutdown` | push serwera                             |
 
 Autorytatywna lista znajduje się w `src/gateway/server.ts` (`METHODS`, `EVENTS`).
 
@@ -281,5 +284,3 @@ surowy plik jest zazwyczaj dostępny pod:
 1. Zaktualizuj schematy TypeBox.
 2. Uruchom `pnpm protocol:check`.
 3. Zatwierdź zregenerowany schemat oraz modele Swift.
-
-

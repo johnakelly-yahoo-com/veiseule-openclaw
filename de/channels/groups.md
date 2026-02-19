@@ -1,4 +1,7 @@
 ---
+summary: "„Verhalten von Gruppenchats über Oberflächen hinweg (WhatsApp/Telegram/Discord/Slack/Signal/iMessage/Microsoft Teams)“"
+read_when:
+  - Ändern des Verhaltens von Gruppenchats oder der Mention-Gating-Regeln
 title: "„Gruppen“"
 ---
 
@@ -369,5 +372,3 @@ Der System-Prompt des Agenten enthält beim ersten Zug einer neuen Gruppensitzun
 ## WhatsApp-Besonderheiten
 
 Siehe [Gruppennachrichten](/channels/group-messages) für WhatsApp-spezifisches Verhalten (History-Injection, Details zur Erwähnungshandhabung).
-
-

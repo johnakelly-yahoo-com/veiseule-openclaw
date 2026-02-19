@@ -1,10 +1,14 @@
 ---
+summary: "OpenClaw ulanishi mumkin bo‘lgan xabar almashish platformalari"
+read_when:
+  - You want to choose a chat channel for OpenClaw
+  - You need a quick overview of supported messaging platforms
 title: "Chat kanallari"
 ---
 
 # Chat kanallari
 
-OpenClaw siz allaqachon foydalanayotgan istalgan chat ilovasi orqali siz bilan muloqot qila oladi. Har bir kanal Gateway orqali ulanadi.
+OpenClaw can talk to you on any chat app you already use. Each channel connects via the Gateway.
 Text is supported everywhere; media and reactions vary by channel.
 
 ## Qo‘llab-quvvatlanadigan kanallar
@@ -12,6 +16,7 @@ Text is supported everywhere; media and reactions vary by channel.
 - [WhatsApp](/channels/whatsapp) — Eng ommabop; Baileys’dan foydalanadi va QR orqali juftlashni talab qiladi.
 - [Telegram](/channels/telegram) — Bot API orqali grammY; guruhlarni qo‘llab-quvvatlaydi.
 - [Discord](/channels/discord) — Discord Bot API + Gateway; serverlar, kanallar va DMs’ni qo‘llab-quvvatlaydi.
+- [IRC](/channels/irc) — Klassik IRC serverlari; juftlash/allowlist nazorati bilan kanallar + DMlar.
 - [Slack](/channels/slack) — Bolt SDK; workspace apps.
 - [Feishu](/channels/feishu) — Feishu/Lark bot via WebSocket (plugin, installed separately).
 - [Google Chat](/channels/googlechat) — Google Chat API app via HTTP webhook.
@@ -40,5 +45,3 @@ Text is supported everywhere; media and reactions vary by channel.
 - 16. Telegram ichki mexanizmlari: [grammY notes](/channels/grammy).
 - 17. Nosozliklarni bartaraf etish: [Channel troubleshooting](/channels/troubleshooting).
 - 18. Model provayderlari alohida hujjatlashtirilgan; [Model Providers](/providers/models) bo‘limiga qarang.
-
-

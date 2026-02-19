@@ -1,12 +1,10 @@
 ---
-title: Chrome 扩展
-x-i18n:
-  generated_at: "2026-02-03T07:55:32Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 3b77bdad7d3dab6adb76ff25b144412d6b54b915993b1c1f057f36dea149938b
-  source_path: tools/chrome-extension.md
-  workflow: 15
+summary: "Chrome 扩展：让 OpenClaw 驱动你现有的 Chrome 标签页"
+read_when:
+  - 你希望智能体驱动现有的 Chrome 标签页（工具栏按钮）
+  - 你需要通过 Tailscale 实现远程 Gateway 网关 + 本地浏览器自动化
+  - 你想了解浏览器接管的安全影响
+title: "Chrome 扩展"
 ---
 
 # Chrome 扩展（浏览器中继）
@@ -48,7 +46,7 @@ openclaw browser extension path
 
 ## 更新（无构建步骤）
 
-扩展作为静态文件包含在 OpenClaw 发布版（npm 包）中。没有单独的"构建"步骤。
+扩展作为静态文件包含在 OpenClaw 发布版（npm 包）中。没有单独的"构建"步骤。 There is no separate “build” step.
 
 升级 OpenClaw 后：
 
@@ -102,11 +100,12 @@ openclaw browser create-profile \
 
 ### 本地 Gateway 网关（与 Chrome 在同一台机器上）——通常**无需额外步骤**
 
-如果 Gateway 网关运行在与 Chrome 相同的机器上，它会在 loopback 上启动浏览器控制服务并自动启动中继服务器。扩展与本地中继通信；CLI/工具调用发送到 Gateway 网关。
+如果 Gateway 网关运行在与 Chrome 相同的机器上，它会在 loopback 上启动浏览器控制服务并自动启动中继服务器。扩展与本地中继通信；CLI/工具调用发送到 Gateway 网关。 17. 扩展与本地中继通信；CLI/工具调用会发送到 Gateway。
 
 ### 远程 Gateway 网关（Gateway 网关运行在其他地方）——**运行节点主机**
 
 如果你的 Gateway 网关运行在另一台机器上，在运行 Chrome 的机器上启动一个节点主机。Gateway 网关将把浏览器操作代理到该节点；扩展 + 中继保持在浏览器机器本地。
+20. Gateway 会将浏览器操作代理到该节点；扩展和中继仍然保持在浏览器所在的本地机器上。
 
 如果连接了多个节点，使用 `gateway.nodes.browser.node` 固定一个或设置 `gateway.nodes.browser.mode`。
 
@@ -119,7 +118,7 @@ openclaw browser create-profile \
 
 选项：
 
-- 最简单：从**非沙箱隔离**的会话/智能体使用扩展。
+- 27. 最简单：在**非沙箱化**的会话/代理中使用该扩展。
 - 或者为沙箱隔离的会话允许主机浏览器控制：
 
 ```json5
@@ -149,15 +148,15 @@ openclaw browser create-profile \
 
 `openclaw browser extension path` 打印包含扩展文件的**已安装**磁盘目录。
 
-CLI 有意**不**打印 `node_modules` 路径。始终先运行 `openclaw browser extension install` 将扩展复制到 OpenClaw 状态目录下的稳定位置。
+37. CLI 有意**不会**打印 `node_modules` 路径。 38. 始终先运行 `openclaw browser extension install`，以将扩展复制到 OpenClaw 状态目录下的稳定位置。
 
 如果你移动或删除该安装目录，Chrome 将把扩展标记为损坏，直到你从有效路径重新加载它。
 
 ## 安全影响（请阅读此内容）
 
-这是强大且有风险的。将其视为给模型"在你的浏览器上动手"。
+41. 这很强大，也很有风险。 这是强大且有风险的。将其视为给模型"在你的浏览器上动手"。
 
-- 扩展使用 Chrome 的调试器 API（`chrome.debugger`）。附加时，模型可以：
+- 扩展使用 Chrome 的调试器 API（`chrome.debugger`）。附加时，模型可以： 44. 附加后，模型可以：
   - 在该标签页中点击/输入/导航
   - 读取页面内容
   - 访问标签页已登录会话可以访问的任何内容
@@ -176,5 +175,3 @@ CLI 有意**不**打印 `node_modules` 路径。始终先运行 `openclaw browse
 - 浏览器工具概述：[浏览器](/tools/browser)
 - 安全审计：[安全](/gateway/security)
 - Tailscale 设置：[Tailscale](/gateway/tailscale)
-
-

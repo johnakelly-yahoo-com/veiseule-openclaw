@@ -1,4 +1,8 @@
 ---
+summary: "การยืนยันตัวตนของโมเดล: OAuth, คีย์API และ setup-token"
+read_when:
+  - การดีบักการยืนยันตัวตนของโมเดลหรือการหมดอายุ OAuth
+  - การจัดทำเอกสารเกี่ยวกับการยืนยันตัวตนหรือการจัดเก็บข้อมูลรับรอง
 title: "การยืนยันตัวตน"
 ---
 
@@ -45,7 +49,7 @@ openclaw doctor
 
 ## Anthropic: setup-token (การยืนยันตัวตนแบบสมัครสมาชิก)
 
-สำหรับ Anthropic เส้นทางที่แนะนำคือการใช้ **API key** หากคุณกำลังใช้งาน Claude
+For Anthropic, the recommended path is an **API key**. สำหรับ Anthropic เส้นทางที่แนะนำคือการใช้ **API key** หากคุณกำลังใช้งาน Claude
 subscription, the setup-token flow is also supported. Run it on the **gateway host**:
 
 ```bash
@@ -128,14 +132,12 @@ openclaw models auth order clear --provider anthropic
 openclaw models status
 ```
 
-### โทเค็นกำลังจะหมดอายุ/หมดอายุแล้ว
+### Token expiring/expired
 
-รัน `openclaw models status` เพื่อยืนยันว่าโปรไฟล์ใดกำลังหมดอายุ หากโปรไฟล์หายไป ให้รัน `claude setup-token` อีกครั้งและวางโทเคนใหม่ If the profile
+รัน `openclaw models status` เพื่อยืนยันว่าโปรไฟล์ใดกำลังหมดอายุ หากโปรไฟล์หายไป ให้รัน `claude setup-token` อีกครั้งและวางโทเคนใหม่ รัน `openclaw models status` เพื่อยืนยันว่าโปรไฟล์ใดกำลังหมดอายุ หากโปรไฟล์หายไป ให้รัน `claude setup-token` อีกครั้งและวางโทเคนใหม่ If the profile
 is missing, rerun `claude setup-token` and paste the token again.
 
 ## ข้อกำหนด
 
 - การสมัครสมาชิก Claude Max หรือ Pro (สำหรับ `claude setup-token`)
 - ติดตั้ง Claude Code CLI แล้ว (มีคำสั่ง `claude` ให้ใช้งาน)
-
-

@@ -1,4 +1,5 @@
 ---
+summary: "Plan: Dodanie punktu końcowego OpenResponses /v1/responses i czyste wycofanie chat completions"
 owner: "openclaw"
 status: "draft"
 last_updated: "2026-01-19"
@@ -120,5 +121,3 @@ Wyodrębniono kluczowe punkty:
 
 - Dodać nową stronę dokumentacji dla użycia i przykładów `/v1/responses`.
 - Zaktualizować `/gateway/openai-http-api` o adnotację legacy i odnośnik do `/v1/responses`.
-
-

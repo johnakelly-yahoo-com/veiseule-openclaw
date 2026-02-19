@@ -1,4 +1,8 @@
 ---
+summary: "Xử lý ngày và giờ trên các envelope, prompt, công cụ và connector"
+read_when:
+  - Bạn đang thay đổi cách hiển thị dấu thời gian cho mô hình hoặc người dùng
+  - Bạn đang gỡ lỗi định dạng thời gian trong tin nhắn hoặc đầu ra system prompt
 title: "Ngày và Giờ"
 ---
 
@@ -124,5 +128,3 @@ Nếu bạn cần thời gian local, hãy chuyển đổi ở bước downstream
 - [System Prompt](/concepts/system-prompt)
 - [Timezones](/concepts/timezone)
 - [Tin nhắn](/concepts/messages)
-
-

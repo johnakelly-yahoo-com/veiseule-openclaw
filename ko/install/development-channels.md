@@ -1,4 +1,8 @@
 ---
+summary: "안정판, 베타, 개발 채널: 의미, 전환, 태깅"
+read_when:
+  - You want to switch between stable/beta/dev
+  - 사전 릴리스를 태깅하거나 게시하는 경우
 title: "개발 채널"
 ---
 
@@ -52,7 +56,7 @@ openclaw update --channel dev
 - `dev` 는 git 체크아웃에 포함된 번들 플러그인을 우선합니다.
 - `stable` 및 `beta` 는 npm 으로 설치된 플러그인 패키지를 복원합니다.
 
-## 태깅 모범 사례
+## Tagging best practices
 
 - git 체크아웃이 도달하길 원하는 릴리스를 태깅하십시오 (`vYYYY.M.D` 또는 `vYYYY.M.D-<patch>`).
 - 태그는 불변으로 유지하십시오: 태그를 이동하거나 재사용하지 마십시오.
@@ -67,5 +71,3 @@ openclaw update --channel dev
 
 - git 태그와 npm dist-tag 는 여전히 게시할 수 있습니다.
 - 릴리스 노트 또는 변경 로그에 '이 베타에는 macOS 빌드가 없음' 을 명시하십시오.
-
-

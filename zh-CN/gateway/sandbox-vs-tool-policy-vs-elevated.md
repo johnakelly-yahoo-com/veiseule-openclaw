@@ -1,13 +1,8 @@
 ---
-status: active
 title: 沙箱 vs 工具策略 vs 提权
-x-i18n:
-  generated_at: "2026-02-03T07:48:55Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 863ea5e6d137dfb61f12bd686b9557d6df1fd0c13ba5f15861bf72248bc975f1
-  source_path: gateway/sandbox-vs-tool-policy-vs-elevated.md
-  workflow: 15
+summary: "工具被阻止的原因：沙箱运行时、工具允许/拒绝策略和提权 exec 限制"
+read_when: "You hit 'sandbox jail' or see a tool/elevated refusal and want the exact config key to change."
+status: active
 ---
 
 # 沙箱 vs 工具策略 vs 提权
@@ -20,7 +15,7 @@ OpenClaw 有三个相关（但不同）的控制：
 
 ## 快速调试
 
-使用检查器查看 OpenClaw *实际*在做什么：
+使用检查器查看 OpenClaw _实际_在做什么：
 
 ```bash
 openclaw sandbox explain
@@ -34,7 +29,7 @@ openclaw sandbox explain --json
 - 生效的沙箱模式/范围/工作区访问
 - 会话当前是否被沙箱隔离（主 vs 非主）
 - 生效的沙箱工具允许/拒绝（以及它来自智能体/全局/默认哪里）
-- 提权限制和修复键路径
+- 提权关卡以及对应的修复配置键路径
 
 ## 沙箱：工具在哪里运行
 
@@ -48,7 +43,7 @@ openclaw sandbox explain --json
 
 ### 绑定挂载（安全快速检查）
 
-- `docker.binds` *穿透*沙箱文件系统：你挂载的任何内容在容器内以你设置的模式（`:ro` 或 `:rw`）可见。
+- `docker.binds` _穿透_沙箱文件系统：你挂载的任何内容在容器内以你设置的模式（`:ro` 或 `:rw`）可见。
 - 如果省略模式，默认为读写；对于源代码/密钥优先使用 `:ro`。
 - `scope: "shared"` 忽略每个智能体的绑定（仅全局绑定适用）。
 - 绑定 `/var/run/docker.sock` 实际上将主机控制权交给沙箱；只有在有意为之时才这样做。
@@ -71,6 +66,7 @@ openclaw sandbox explain --json
 - 工具策略是硬性停止：`/exec` 无法覆盖被拒绝的 `exec` 工具。
 - `/exec` 仅为授权发送者更改会话默认值；它不授予工具访问权限。
   提供商工具键接受 `provider`（例如 `google-antigravity`）或 `provider/model`（例如 `openai/gpt-5.2`）。
+  Provider tool keys accept either `provider` (e.g. `google-antigravity`) or `provider/model` (e.g. `openai/gpt-5.2`).
 
 ### 工具组（简写）
 
@@ -106,11 +102,11 @@ openclaw sandbox explain --json
 
 - 如果你被沙箱隔离，`/elevated on`（或带 `elevated: true` 的 `exec`）在主机上运行（审批可能仍然适用）。
 - 使用 `/elevated full` 跳过该会话的 exec 审批。
-- 如果你已经直接运行，提权实际上是空操作（仍然受限）。
-- 提权**不是** skill 范围的，**不会**覆盖工具允许/拒绝。
-- `/exec` 与提权是分开的。它仅为授权发送者调整每个会话的 exec 默认值。
+- If you’re already running direct, elevated is effectively a no-op (still gated).
+- Elevated is **not** skill-scoped and does **not** override tool allow/deny.
+- `/exec` is separate from elevated. It only adjusts per-session exec defaults for authorized senders.
 
-限制：
+Gates:
 
 - 启用：`tools.elevated.enabled`（以及可选的 `agents.list[].tools.elevated.enabled`）
 - 发送者允许列表：`tools.elevated.allowFrom.<provider>`（以及可选的 `agents.list[].tools.elevated.allowFrom.<provider>`）
@@ -130,6 +126,4 @@ openclaw sandbox explain --json
 
 ### "我以为这是主会话，为什么被沙箱隔离了？"
 
-在 `"non-main"` 模式下，群组/渠道键*不是*主会话。使用主会话键（由 `sandbox explain` 显示）或将模式切换为 `"off"`。
-
-
+In `"non-main"` mode, group/channel keys are _not_ main. Use the main session key (shown by `sandbox explain`) or switch mode to `"off"`.

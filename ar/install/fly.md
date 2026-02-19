@@ -109,7 +109,7 @@ fly secrets set DISCORD_BOT_TOKEN=MTQ...
 - تعامل مع هذه الرموز ككلمات مرور.
 - **فضّل متغيرات البيئة على ملف التهيئة** لجميع مفاتيح API والرموز. هذا يُبقي الأسرار خارج `openclaw.json` حيث قد تُكشف أو تُسجَّل عن غير قصد.
 
-## 4. النشر
+## 4.
 
 ```bash
 fly deploy
@@ -430,7 +430,7 @@ fly ssh console -a my-openclaw
 
 ### Webhooks مع النشر الخاص
 
-إذا احتجت إلى ردود webhook (Twilio، Telnyx، إلخ) دون تعرّض عام: دون التعرض العلني:
+إذا احتجت إلى ردود webhook (Twilio، Telnyx، إلخ) دون تعرّض عام: دون التعرض العلني: دون التعرض العلني:
 
 1. **نفق ngrok** — شغّل ngrok داخل الحاوية أو كحاوية جانبية
 2. **Tailscale Funnel** — اكشف مسارات محددة عبر Tailscale
@@ -484,5 +484,3 @@ fly ssh console -a my-openclaw
 - تتضمن الطبقة المجانية بعض المخصصات
 
 راجع [تسعير Fly.io](https://fly.io/docs/about/pricing/) للتفاصيل.
-
-

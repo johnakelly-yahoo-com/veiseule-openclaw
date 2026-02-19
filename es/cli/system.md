@@ -1,4 +1,9 @@
 ---
+summary: "Referencia de la CLI para `openclaw system` (eventos del sistema, latido, presencia)"
+read_when:
+  - Quiere encolar un evento del sistema sin crear un trabajo cron
+  - Necesita habilitar o deshabilitar latidos
+  - Quiere inspeccionar las entradas de presencia del sistema
 title: "system"
 ---
 
@@ -22,7 +27,7 @@ Encola un evento del sistema en la sesión **principal**. El siguiente latido lo
 como una línea `System:` en el prompt. Use `--mode now` para activar el latido
 inmediatamente; `next-heartbeat` espera al siguiente tick programado.
 
-Opciones:
+Flags:
 
 - `--text <text>`: texto del evento del sistema requerido.
 - `--mode <mode>`: `now` o `next-heartbeat` (predeterminado).
@@ -36,7 +41,7 @@ Controles de latido:
 - `enable`: volver a activar los latidos (úselo si estaban deshabilitados).
 - `disable`: pausar los latidos.
 
-Opciones:
+Flags:
 
 - `--json`: salida legible por máquina.
 
@@ -45,7 +50,7 @@ Opciones:
 Enumera las entradas actuales de presencia del sistema que el Gateway conoce (nodos,
 instancias y líneas de estado similares).
 
-Opciones:
+Flags:
 
 - `--json`: salida legible por máquina.
 
@@ -53,5 +58,3 @@ Opciones:
 
 - Requiere un Gateway en ejecución accesible mediante su configuración actual (local o remota).
 - Los eventos del sistema son efímeros y no se conservan entre reinicios.
-
-

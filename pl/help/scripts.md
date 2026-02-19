@@ -1,4 +1,8 @@
 ---
+summary: "Skrypty repozytorium: cel, zakres i uwagi dotyczące bezpieczeństwa"
+read_when:
+  - Uruchamianie skryptów z repozytorium
+  - Dodawanie lub zmienianie skryptów w katalogu ./scripts
 title: "Skrypty"
 ---
 
@@ -22,5 +26,3 @@ Skrypty monitorowania uwierzytelniania są opisane tutaj:
 
 - Utrzymuj skrypty w wąskim zakresie i dokumentuj je.
 - Dodaj krótki wpis w odpowiedniej dokumentacji (lub utwórz ją, jeśli jej brakuje).
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw macOS Companion-app (menubalk + gateway-broker)"
+read_when:
+  - Implementatie van macOS-appfuncties
+  - Wijzigingen aan de levenscyclus van de Gateway of node-bridging op macOS
 title: "macOS-app"
 ---
 
@@ -125,6 +129,7 @@ Queryparameters:
 Veiligheid:
 
 - Zonder `key` vraagt de app om bevestiging.
+- Zonder `key` hanteert de app een korte berichtlimiet voor de bevestigingsprompt en negeert `deliver` / `to` / `channel`.
 - Met een geldige `key` is de uitvoering onbeheerd (bedoeld voor persoonlijke automatiseringen).
 
 ## Onboardingflow (typisch)
@@ -194,5 +199,3 @@ Voor installatiestappen, zie [macOS remote access](/platforms/mac/remote). Voor 
 - [Gateway (macOS)](/platforms/mac/bundled-gateway)
 - [macOS-rechten](/platforms/mac/permissions)
 - [Canvas](/platforms/mac/canvas)
-
-

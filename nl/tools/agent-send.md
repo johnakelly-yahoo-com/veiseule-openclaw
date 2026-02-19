@@ -1,4 +1,7 @@
 ---
+summary: "Directe `openclaw agent` CLI-uitvoeringen (met optionele aflevering)"
+read_when:
+  - Toevoegen of wijzigen van het agent-CLI-entrypoint
 title: "Agent verzenden"
 ---
 
@@ -48,5 +51,3 @@ openclaw agent --agent ops --message "Generate report" --deliver --reply-channel
 - `--verbose <on|full|off>`: verbose-niveau persistent maken
 - `--timeout <seconds>`: agent-time-out overschrijven
 - `--json`: gestructureerde JSON-uitvoer
-
-

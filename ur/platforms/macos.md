@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw macOS معاون ایپ (مینو بار + گیٹ وے بروکر)"
+read_when:
+  - macOS ایپ کی خصوصیات نافذ کرتے وقت
+  - macOS پر گیٹ وے لائف سائیکل یا نوڈ برِجنگ تبدیل کرتے وقت
 title: "macOS ایپ"
 ---
 
@@ -128,6 +132,7 @@ Safety:
 
 - `key` کے بغیر، ایپ تصدیق کے لیے پرامپٹ دکھاتی ہے۔
 - درست `key` کے ساتھ، رَن unattended ہوتا ہے (ذاتی آٹومیشنز کے لیے مقصود)۔
+- درست `key` کے ساتھ، رَن unattended ہوتا ہے (ذاتی آٹومیشنز کے لیے مقصود)۔
 
 ## Onboarding flow (typical)
 
@@ -196,5 +201,3 @@ macOS ایپ کی ڈسکوری پائپ لائن (NWBrowser + tailnet DNS‑SD f
 - [Gateway (macOS)](/platforms/mac/bundled-gateway)
 - [macOS اجازتیں](/platforms/mac/permissions)
 - [Canvas](/platforms/mac/canvas)
-
-

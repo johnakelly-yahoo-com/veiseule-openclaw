@@ -1,5 +1,7 @@
 ---
-title: "Sandboxing"
+summary: "Hoe OpenClaw-sandboxing werkt: modi, scopes, werkruimte-toegang en images"
+title: Sandboxing
+read_when: "Je wilt een toegewijde uitleg van sandboxing of moet agents.defaults.sandbox afstemmen."
 status: active
 ---
 
@@ -40,7 +42,7 @@ Niet gesandboxed:
   Let op: `"non-main"` is gebaseerd op `session.mainKey` (standaard `"main"`), niet op agent-id.
   Groep-/kanaalsessies gebruiken hun eigen sleutels, tellen dus als niet-hoofd en worden gesandboxed.
 
-## Reikwijdte
+## Scope
 
 `agents.defaults.sandbox.scope` bepaalt **hoeveel containers** worden aangemaakt:
 
@@ -68,6 +70,11 @@ ze gelezen kunnen worden. Met `"rw"` zijn werkruimte-skills leesbaar vanaf
 Formaat: `host:container:mode` (bijv. `"/home/user/source:/source:rw"`).
 
 Globale en per-agent binds worden **samengevoegd** (niet vervangen). Onder `scope: "shared"` worden per-agent binds genegeerd.
+
+`agents.defaults.sandbox.browser.binds` mount aanvullende hostmappen alleen in de **sandbox browser**-container.
+
+- Indien ingesteld (inclusief `[]`), vervangt het `agents.defaults.sandbox.docker.binds` voor de browsercontainer.
+- Indien niet opgegeven, valt de browsercontainer terug op `agents.defaults.sandbox.docker.binds` (achterwaarts compatibel).
 
 Voorbeeld (alleen-lezen bron + docker-socket):
 
@@ -189,5 +196,3 @@ Zie [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) voor priorit
 - [Sandbox Configuration](/gateway/configuration#agentsdefaults-sandbox)
 - [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools)
 - [Security](/gateway/security)
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "Overblik over logging: fillogs, konsoloutput, CLI-tail og Control UI"
+read_when:
+  - Du har brug for et begyndervenligt overblik over logging
+  - Du vil konfigurere logniveauer eller -formater
+  - Du fejlsøger og har brug for hurtigt at finde logs
 title: "Logning"
 ---
 
@@ -344,5 +349,3 @@ Køer + sessioner:
 - **Logs er tomme?** Tjek at Gateway kører og skriver til filstien
   i `logging.file`.
 - **Brug for flere detaljer?** Sæt `logging.level` til `debug` eller `trace` og prøv igen.
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "Elevated exec موڈ اور /elevated ہدایات"
+read_when:
+  - Elevated موڈ کی ڈیفالٹس، اجازت فہرستوں، یا سلیش کمانڈ کے رویّے میں تبدیلی کرتے وقت
 title: "Elevated موڈ"
 ---
 
@@ -16,10 +19,10 @@ title: "Elevated موڈ"
 
 ## یہ کنٹرول کیا کرتا ہے (اور کیا نہیں)
 
-- **دستیابی کی حدود**: `tools.elevated` عالمی بنیادی معیار ہے۔ `agents.list[].tools.elevated` ہر ایجنٹ کے لیے elevated کو مزید محدود کر سکتا ہے (دونوں کی اجازت ضروری ہے).
+- **Availability gates**: `tools.elevated` is the global baseline. `agents.list[].tools.elevated` can further restrict elevated per agent (both must allow).
 - **فی سیشن حالت**: `/elevated on|off|ask|full` موجودہ سیشن کلید کے لیے elevated سطح مقرر کرتا ہے۔
 - **ان لائن ہدایت**: پیغام کے اندر `/elevated on|ask|full` صرف اسی پیغام پر لاگو ہوتا ہے۔
-- **گروپس**: گروپ چیٹس میں، elevated ہدایات صرف اسی وقت قبول کی جاتی ہیں جب ایجنٹ کا ذکر کیا گیا ہو۔ وہ پیغامات جو صرف کمانڈ پر مشتمل ہوں اور ذکر کی شرط کو بائی پاس کریں، انہیں ذکر شدہ تصور کیا جاتا ہے.
+- **Groups**: In group chats, elevated directives are only honored when the agent is mentioned. Command-only messages that bypass mention requirements are treated as mentioned.
 - **ہوسٹ پر اجرا**: elevated، `exec` کو گیٹ وے ہوسٹ پر نافذ کرتا ہے؛ `full` بھی `security=full` سیٹ کرتا ہے۔
 - **منظوریات**: `full` exec منظوریات کو چھوڑ دیتا ہے؛ `on`/`ask` انہیں تب مانتے ہیں جب allowlist/ask قواعد تقاضا کریں۔
 - **غیر sandboxed ایجنٹس**: مقام کے لحاظ سے no-op؛ صرف gating، لاگنگ، اور اسٹیٹس کو متاثر کرتا ہے۔
@@ -45,12 +48,10 @@ title: "Elevated موڈ"
 - ارسال کنندہ اجازت فہرست: `tools.elevated.allowFrom` مع فی فراہم کنندہ اجازت فہرستیں (مثلاً `discord`، `whatsapp`)۔
 - فی ایجنٹ گیٹ: `agents.list[].tools.elevated.enabled` (اختیاری؛ صرف مزید پابندی لگا سکتا ہے)۔
 - فی ایجنٹ اجازت فہرست: `agents.list[].tools.elevated.allowFrom` (اختیاری؛ سیٹ ہونے پر ارسال کنندہ کو **عالمی + فی ایجنٹ** دونوں اجازت فہرستوں سے میل کھانا لازم ہے)۔
-- Discord fallback: if `tools.elevated.allowFrom.discord` is omitted, the `channels.discord.dm.allowFrom` list is used as a fallback. Set `tools.elevated.allowFrom.discord` (even `[]`) to override. Per-agent allowlists do **not** use the fallback.
+- Discord fallback: اگر `tools.elevated.allowFrom.discord` شامل نہ ہو تو `channels.discord.allowFrom` کی فہرست بطور fallback استعمال کی جاتی ہے (legacy: `channels.discord.dm.allowFrom`)۔ Set `tools.elevated.allowFrom.discord` (even `[]`) to override. Per-agent allowlists do **not** use the fallback.
 - تمام گیٹس کا پاس ہونا ضروری ہے؛ بصورتِ دیگر elevated کو غیر دستیاب سمجھا جاتا ہے۔
 
 ## لاگنگ + اسٹیٹس
 
 - Elevated exec کالز info لیول پر لاگ کی جاتی ہیں۔
 - سیشن اسٹیٹس میں elevated موڈ شامل ہوتا ہے (مثلاً `elevated=ask`، `elevated=full`)۔
-
-

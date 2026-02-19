@@ -1,4 +1,9 @@
 ---
+summary: "Översikt över loggning: filloggar, konsolutdata, CLI‑tailing och Control UI"
+read_when:
+  - Du behöver en nybörjarvänlig översikt över loggning
+  - Du vill konfigurera loggnivåer eller format
+  - Du felsöker och behöver hitta loggar snabbt
 title: "Loggning"
 ---
 
@@ -349,5 +354,3 @@ Köer + sessioner:
   `logging.file`.
 - **Behöver du mer detalj?** Sätt `logging.level` till `debug` eller
   `trace` och försök igen.
-
-

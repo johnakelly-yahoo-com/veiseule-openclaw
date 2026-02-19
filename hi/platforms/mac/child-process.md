@@ -1,4 +1,7 @@
 ---
+summary: "macOS पर Gateway जीवनचक्र (launchd)"
+read_when:
+  - Gateway जीवनचक्र के साथ mac ऐप का एकीकरण
 title: "Gateway जीवनचक्र"
 ---
 
@@ -9,12 +12,12 @@ Gateway on the configured port; if none is reachable, it enables the launchd
 service via the external `openclaw` CLI (no embedded runtime). This gives you
 reliable auto‑start at login and restart on crashes.
 
-Child‑process मोड (Gateway को सीधे ऐप द्वारा शुरू किया जाना) आज **उपयोग में नहीं है**।
+Child‑process mode (Gateway spawned directly by the app) is **not in use** today.
 If you need tighter coupling to the UI, run the Gateway manually in a terminal.
 
 ## डिफ़ॉल्ट व्यवहार (launchd)
 
-- ऐप प्रति‑उपयोगकर्ता LaunchAgent इंस्टॉल करता है, जिसका लेबल `bot.molt.gateway` होता है
+- The app installs a per‑user LaunchAgent labeled `bot.molt.gateway`
   (or `bot.molt.<profile>` when using `--profile`/`OPENCLAW_PROFILE`; legacy `com.openclaw.*` is supported).
 - जब Local मोड सक्षम होता है, ऐप सुनिश्चित करता है कि LaunchAgent लोड हो और
   आवश्यकता होने पर Gateway शुरू करता है।
@@ -27,16 +30,16 @@ launchctl kickstart -k gui/$UID/bot.molt.gateway
 launchctl bootout gui/$UID/bot.molt.gateway
 ```
 
-किसी नामित प्रोफ़ाइल को चलाते समय लेबल को `bot.molt.<profile>` से बदलें।
+Replace the label with `bot.molt.<profile>` when running a named profile.
 
 ## Unsigned डेवलपर बिल्ड्स
 
-`scripts/restart-mac.sh --no-sign` तेज़ लोकल बिल्ड्स के लिए है, जब आपके पास नहीं होता है
+`scripts/restart-mac.sh --no-sign` is for fast local builds when you don’t have
 signing keys. To prevent launchd from pointing at an unsigned relay binary, it:
 
 - `~/.openclaw/disable-launchagent` लिखता है।
 
-`scripts/restart-mac.sh` के साइन किए गए रन इस ओवरराइड को हटा देते हैं यदि मार्कर है
+Signed runs of `scripts/restart-mac.sh` clear this override if the marker is
 present. To reset manually:
 
 ```bash
@@ -45,14 +48,14 @@ rm ~/.openclaw/disable-launchagent
 
 ## Attach-only मोड
 
-macOS ऐप को **कभी भी launchd को इंस्टॉल या प्रबंधित न करने** के लिए मजबूर करने हेतु, इसे इस प्रकार लॉन्च करें
+To force the macOS app to **never install or manage launchd**, launch it with
 `--attach-only` (or `--no-launchd`). This sets `~/.openclaw/disable-launchagent`,
 so the app only attaches to an already running Gateway. You can toggle the same
 behavior in Debug Settings.
 
 ## Remote मोड
 
-Remote मोड कभी भी लोकल Gateway शुरू नहीं करता। ऐप SSH टनल का उपयोग करता है ताकि
+Remote mode never starts a local Gateway. The app uses an SSH tunnel to the
 remote host and connects over that tunnel.
 
 ## हम launchd को क्यों प्राथमिकता देते हैं
@@ -63,5 +66,3 @@ remote host and connects over that tunnel.
 
 यदि भविष्य में फिर से किसी वास्तविक child‑process मोड की आवश्यकता होती है, तो
 इसे एक अलग, स्पष्ट केवल‑डेव मोड के रूप में प्रलेखित किया जाना चाहिए।
-
-

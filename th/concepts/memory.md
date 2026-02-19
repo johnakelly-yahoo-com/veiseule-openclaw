@@ -1,4 +1,10 @@
-------
+---
+title: "หน่วยความจำ"
+summary: "หน่วยความจำของOpenClawทำงานอย่างไร(ไฟล์เวิร์กสเปซ+การล้างหน่วยความจำอัตโนมัติ)"
+read_when:
+  - คุณต้องการโครงร่างไฟล์หน่วยความจำและเวิร์กโฟลว์
+  - คุณต้องการปรับแต่งการล้างหน่วยความจำอัตโนมัติก่อนการคอมแพ็กชัน
+---
 
 # หน่วยความจำ
 
@@ -17,7 +23,7 @@ OpenClaw memory is **plain Markdown in the agent workspace**. หน่วยค
   - หน่วยความจำระยะยาวที่คัดสรรแล้ว
   - **โหลดเฉพาะในเซสชันหลักแบบส่วนตัวเท่านั้น**(ไม่โหลดในบริบทกลุ่ม)
 
-ไฟล์เหล่านี้อยู่ใต้เวิร์กสเปซ(`agents.defaults.workspace`, ค่าเริ่มต้น`~/.openclaw/workspace`)ดู[Agent workspace](/concepts/agent-workspace)สำหรับโครงร่างทั้งหมด See [Agent workspace](/concepts/agent-workspace) for the full layout.
+ไฟล์เหล่านี้อยู่ใต้เวิร์กสเปซ(`agents.defaults.workspace`, ค่าเริ่มต้น`~/.openclaw/workspace`)ดู[Agent workspace](/concepts/agent-workspace)สำหรับโครงร่างทั้งหมด See [Agent workspace](/concepts/agent-workspace) for the full layout. See [Agent workspace](/concepts/agent-workspace) for the full layout.
 
 ## ควรเขียนหน่วยความจำเมื่อใด
 
@@ -30,6 +36,7 @@ OpenClaw memory is **plain Markdown in the agent workspace**. หน่วยค
 ## การล้างหน่วยความจำอัตโนมัติ(pre-compaction ping)
 
 เมื่อเซสชัน**ใกล้ถึงการคอมแพ็กชันอัตโนมัติ**OpenClawจะทริกเกอร์**รอบการทำงานเงียบแบบเอเจนต์**เพื่อเตือนโมเดลให้เขียนหน่วยความจำที่คงทน**ก่อน**ที่บริบทจะถูกคอมแพ็กต์พรอมป์ต์ค่าเริ่มต้นระบุชัดว่าโมเดล_อาจตอบกลับ_แต่โดยทั่วไป`NO_REPLY`คือคำตอบที่ถูกต้องเพื่อไม่ให้ผู้ใช้เห็นรอบนี้ The default prompts explicitly say the model _may reply_,
+but usually `NO_REPLY` is the correct response so the user never sees this turn. The default prompts explicitly say the model _may reply_,
 but usually `NO_REPLY` is the correct response so the user never sees this turn.
 
 การควบคุมทำผ่าน`agents.defaults.compaction.memoryFlush`:
@@ -71,6 +78,8 @@ OpenClawสามารถสร้างดัชนีเวกเตอร์
 
 - เปิดใช้งานเป็นค่าเริ่มต้น
 - เฝ้าดูไฟล์หน่วยความจำเพื่อการเปลี่ยนแปลง(debounced)
+- กำหนดค่าการค้นหาหน่วยความจำภายใต้ `agents.defaults.memorySearch` (ไม่ใช่ระดับบนสุด
+  `memorySearch`)
 - Uses remote embeddings by default. ใช้การฝังแบบรีโมตเป็นค่าเริ่มต้นหากไม่ตั้งค่า`memorySearch.provider`OpenClawจะเลือกอัตโนมัติ:
   1. `local`หากมีการตั้งค่า`memorySearch.local.modelPath`และไฟล์มีอยู่
   2. `openai`หากสามารถแก้ไขคีย์OpenAIได้
@@ -92,6 +101,7 @@ set `memorySearch.remote.apiKey` (and optional `memorySearch.remote.headers`).
 
 ตั้งค่า`memory.backend = "qmd"`เพื่อสลับตัวทำดัชนีSQLiteในตัวเป็น
 [QMD](https://github.com/tobi/qmd):ไซด์คาร์ค้นหาแบบโลคัลเฟิร์สต์ที่ผสานBM25+เวกเตอร์+การจัดอันดับซ้ำMarkdownยังคงเป็นแหล่งอ้างอิงความจริงOpenClawจะเรียกใช้QMDเพื่อการดึงข้อมูลประเด็นสำคัญ: Markdown stays the source of truth; OpenClaw shells
+out to QMD for retrieval. Markdown stays the source of truth; OpenClaw shells
 out to QMD for retrieval. Key points:
 
 **ข้อกำหนดก่อนเริ่มต้น**
@@ -101,14 +111,17 @@ out to QMD for retrieval. Key points:
 - QMDต้องการบิลด์SQLiteที่อนุญาตส่วนขยาย(`brew install sqlite`บนmacOS)
 - QMDรันแบบโลคัลทั้งหมดผ่านBun+`node-llama-cpp`และดาวน์โหลดโมเดลGGUFจากHuggingFaceอัตโนมัติเมื่อใช้งานครั้งแรก(ไม่ต้องมีดีมอนOllamaแยก)
 - เกตเวย์รันQMDในXDG homeแบบแยกส่วนภายใต้`~/.openclaw/agents/<agentId>/qmd/`โดยตั้งค่า`XDG_CONFIG_HOME`และ`XDG_CACHE_HOME`.
-- รองรับระบบปฏิบัติการ: macOSและLinuxใช้งานได้ทันทีเมื่อมีBun+SQLiteติดตั้งWindowsแนะนำผ่านWSL2 Windows is best supported via WSL2.
+- รองรับระบบปฏิบัติการ: macOSและLinuxใช้งานได้ทันทีเมื่อมีBun+SQLiteติดตั้งWindowsแนะนำผ่านWSL2 รองรับระบบปฏิบัติการ: macOSและLinuxใช้งานได้ทันทีเมื่อมีBun+SQLiteติดตั้งWindowsแนะนำผ่านWSL2 Windows is best supported via WSL2.
 
 **วิธีการรันไซด์คาร์**
 
 - เกตเวย์เขียนQMD homeแบบแยกส่วนภายใต้`~/.openclaw/agents/<agentId>/qmd/`(คอนฟิก+แคช+sqlite DB)
 - คอลเลกชันถูกสร้างผ่าน`qmd collection add`จาก`memory.qmd.paths`(รวมไฟล์หน่วยความจำเวิร์กสเปซค่าเริ่มต้น)จากนั้น`qmd update`+`qmd embed`จะรันตอนบูตและตามช่วงเวลาที่กำหนดได้(`memory.qmd.update.interval`, ค่าเริ่มต้น5 นาที)
+- gateway จะเริ่มต้น QMD manager ระหว่างการสตาร์ทระบบ ดังนั้นตัวจับเวลาอัปเดตตามรอบ
+  จะถูกเปิดใช้งานแม้ก่อนการเรียก `memory_search` ครั้งแรก
 - การรีเฟรชตอนบูตจะรันเบื้องหลังเป็นค่าเริ่มต้นเพื่อไม่ให้การเริ่มแชตถูกบล็อกตั้งค่า`memory.qmd.update.waitForBootSync = true`เพื่อคงพฤติกรรมบล็อกเดิม
-- Searches run via `qmd query --json`. การค้นหารันผ่าน`qmd query --json`หากQMDล้มเหลวหรือไม่มีไบนารีOpenClawจะถอยกลับไปใช้ตัวจัดการSQLiteในตัวโดยอัตโนมัติเพื่อให้เครื่องมือหน่วยความจำยังทำงาน
+- Searches run via `qmd query --json`. หากโหมดที่เลือกปฏิเสธแฟลกบน
+  QMD build ของคุณ OpenClaw จะลองใหม่ด้วย `qmd query` การค้นหารันผ่าน`qmd query --json`หากQMDล้มเหลวหรือไม่มีไบนารีOpenClawจะถอยกลับไปใช้ตัวจัดการSQLiteในตัวโดยอัตโนมัติเพื่อให้เครื่องมือหน่วยความจำยังทำงาน
 - OpenClawยังไม่เปิดเผยการปรับbatch-sizeของการฝังQMDวันนี้พฤติกรรมแบตช์ถูกควบคุมโดยQMDเอง
 - **การค้นหาครั้งแรกอาจช้า**:QMDอาจดาวน์โหลดโมเดลGGUFแบบโลคัล(การจัดอันดับซ้ำ/การขยายคำค้น)ในการรัน`qmd query`ครั้งแรก
   - OpenClawตั้งค่า`XDG_CONFIG_HOME`/`XDG_CACHE_HOME`อัตโนมัติเมื่อรันQMD
@@ -139,6 +152,8 @@ out to QMD for retrieval. Key points:
 **พื้นผิวคอนฟิก(`memory.qmd.*`)**
 
 - `command`(ค่าเริ่มต้น`qmd`):แทนที่พาธไฟล์ปฏิบัติการ
+- `searchMode` (ค่าเริ่มต้น `search`): เลือกคำสั่ง QMD ที่ใช้เบื้องหลัง
+  `memory_search` (`search`, `vsearch`, `query`)
 - `includeDefaultMemory`(ค่าเริ่มต้น`true`):ทำดัชนีอัตโนมัติ`MEMORY.md`+`memory/**/*.md`
 - `paths[]`:เพิ่มไดเรกทอรี/ไฟล์เพิ่มเติม(`path`, ไม่บังคับ`pattern`, ไม่บังคับ
   stable `name`)
@@ -152,6 +167,12 @@ out to QMD for retrieval. Key points:
 - `scope`: same schema as [`session.sendPolicy`](/gateway/configuration#session).
   `scope`:สคีมาเดียวกับ[`session.sendPolicy`](/gateway/configuration#session)
   ค่าเริ่มต้นคือDMเท่านั้น(`deny`ทั้งหมด,`allow`แชตตรง)ผ่อนคลายเพื่อแสดงผลQMDในกลุ่ม/ช่องทาง
+  - `match.keyPrefix` จะจับคู่กับ session key ที่ถูก **normalized** (แปลงเป็นตัวพิมพ์เล็ก และลบ
+    คำนำหน้า `agent:<id>:` หากมี) ตัวอย่าง: `discord:channel:`
+  - `match.rawKeyPrefix` จะจับคู่กับ session key แบบ **raw** (ตัวพิมพ์เล็ก) รวมถึง
+    `agent:<id>:` ตัวอย่าง: `agent:main:discord:`
+  - แบบเดิม (Legacy): `match.keyPrefix: "agent:..."` ยังถูกตีความเป็น raw-key prefix,
+    แต่แนะนำให้ใช้ `rawKeyPrefix` เพื่อความชัดเจน
 - เมื่อ `scope` ปฏิเสธการค้นหา OpenClaw จะบันทึกคำเตือนพร้อมค่า `channel`/`chatType` ที่คำนวณได้ เพื่อให้การดีบักผลลัพธ์ว่างทำได้ง่ายขึ้น
 - สแนิปเพ็ตที่มาจากนอกเวิร์กสเปซจะแสดงเป็น`qmd/<collection>/<relative-path>`ในผลลัพธ์`memory_search`;`memory_get`เข้าใจพรีฟิกซ์นั้นและอ่านจากรูทคอลเลกชันQMDที่ตั้งค่าไว้
 - เมื่อ`memory.qmd.sessions.enabled = true`,OpenClawจะส่งออกทรานสคริปต์เซสชันที่ผ่านการทำความสะอาด(รอบผู้ใช้/ผู้ช่วย)ไปยังคอลเลกชันQMDเฉพาะภายใต้`~/.openclaw/agents/<id>/qmd/sessions/`,เพื่อให้`memory_search`สามารถเรียกคืนบทสนทนาล่าสุดได้โดยไม่แตะดัชนีSQLiteในตัว
@@ -303,7 +324,7 @@ agents: {
 ### เครื่องมือหน่วยความจำทำงานอย่างไร
 
 - `memory_search` semantically searches Markdown chunks (~400 token target, 80-token overlap) from `MEMORY.md` + `memory/**/*.md`. It returns snippet text (capped ~700 chars), file path, line range, score, provider/model, and whether we fell back from local → remote embeddings. No full file payload is returned.
-- `memory_get`อ่านไฟล์Markdownหน่วยความจำเฉพาะ(สัมพันธ์กับเวิร์กสเปซ)เลือกได้จากบรรทัดเริ่มต้นและจำนวนบรรทัดNพาธนอก`MEMORY.md`/`memory/`จะถูกปฏิเสธ Paths outside `MEMORY.md` / `memory/` are rejected.
+- `memory_get`อ่านไฟล์Markdownหน่วยความจำเฉพาะ(สัมพันธ์กับเวิร์กสเปซ)เลือกได้จากบรรทัดเริ่มต้นและจำนวนบรรทัดNพาธนอก`MEMORY.md`/`memory/`จะถูกปฏิเสธ Paths outside `MEMORY.md` / `memory/` are rejected. Paths outside `MEMORY.md` / `memory/` are rejected.
 - เครื่องมือทั้งสองเปิดใช้งานเฉพาะเมื่อ`memorySearch.enabled`ประเมินเป็นจริงสำหรับเอเจนต์
 
 ### สิ่งที่ถูกทำดัชนี(และเมื่อใด)
@@ -311,7 +332,7 @@ agents: {
 - ประเภทไฟล์:เฉพาะMarkdown(`MEMORY.md`,`memory/**/*.md`)
 - ที่เก็บดัชนี:SQLiteต่อเอเจนต์ที่`~/.openclaw/memory/<agentId>.sqlite`(ตั้งค่าได้ผ่าน`agents.defaults.memorySearch.store.path`,รองรับโทเคน`{agentId}`)
 - Freshness: watcher on `MEMORY.md` + `memory/` marks the index dirty (debounce 1.5s). Sync is scheduled on session start, on search, or on an interval and runs asynchronously. Session transcripts use delta thresholds to trigger background sync.
-- ทริกเกอร์การทำดัชนีใหม่:ดัชนีเก็บลายนิ้วมือของ**ผู้ให้บริการ/โมเดลการฝัง+เอนด์พอยต์+พารามิเตอร์การตัดชิ้น**หากสิ่งใดเปลี่ยนOpenClawจะรีเซ็ตและทำดัชนีใหม่ทั้งหมดโดยอัตโนมัติ If any of those change, OpenClaw automatically resets and reindexes the entire store.
+- ทริกเกอร์การทำดัชนีใหม่:ดัชนีเก็บลายนิ้วมือของ**ผู้ให้บริการ/โมเดลการฝัง+เอนด์พอยต์+พารามิเตอร์การตัดชิ้น**หากสิ่งใดเปลี่ยนOpenClawจะรีเซ็ตและทำดัชนีใหม่ทั้งหมดโดยอัตโนมัติ ทริกเกอร์การทำดัชนีใหม่:ดัชนีเก็บลายนิ้วมือของ**ผู้ให้บริการ/โมเดลการฝัง+เอนด์พอยต์+พารามิเตอร์การตัดชิ้น**หากสิ่งใดเปลี่ยนOpenClawจะรีเซ็ตและทำดัชนีใหม่ทั้งหมดโดยอัตโนมัติ If any of those change, OpenClaw automatically resets and reindexes the entire store.
 
 ### การค้นหาไฮบริด(BM25+เวกเตอร์)
 
@@ -410,6 +431,7 @@ agents: {
 คุณสามารถเลือกทำดัชนี**ทรานสคริปต์เซสชัน**และแสดงผ่าน`memory_search`ได้
 ฟีเจอร์นี้ถูกกั้นด้วยแฟล็กทดลอง
 This is gated behind an experimental flag.
+This is gated behind an experimental flag.
 
 ```json5
 agents: {
@@ -429,7 +451,7 @@ agents: {
 - `memory_search`ไม่บล็อกการทำดัชนีผลลัพธ์อาจล้าหลังเล็กน้อยจนกว่าการซิงก์เบื้องหลังจะเสร็จ
 - ผลลัพธ์ยังคงเป็นสแนิปเพ็ตเท่านั้น;`memory_get`ยังคงจำกัดที่ไฟล์หน่วยความจำ
 - การทำดัชนีเซสชันแยกต่อเอเจนต์(ทำดัชนีเฉพาะบันทึกเซสชันของเอเจนต์นั้น)
-- Session logs live on disk (`~/.openclaw/agents/<agentId>/sessions/*.jsonl`). บันทึกเซสชันอยู่บนดิสก์(`~/.openclaw/agents/<agentId>/sessions/*.jsonl`)กระบวนการ/ผู้ใช้ใดที่เข้าถึงไฟล์ระบบได้สามารถอ่านได้ดังนั้นให้ถือว่าการเข้าถึงดิสก์คือขอบเขตความเชื่อถือเพื่อการแยกที่เข้มงวดขึ้นให้รันเอเจนต์ภายใต้ผู้ใช้OSหรือโฮสต์แยกกัน For stricter isolation, run agents under separate OS users or hosts.
+- Session logs live on disk (`~/.openclaw/agents/<agentId>/sessions/*.jsonl`). บันทึกเซสชันอยู่บนดิสก์(`~/.openclaw/agents/<agentId>/sessions/*.jsonl`)กระบวนการ/ผู้ใช้ใดที่เข้าถึงไฟล์ระบบได้สามารถอ่านได้ดังนั้นให้ถือว่าการเข้าถึงดิสก์คือขอบเขตความเชื่อถือเพื่อการแยกที่เข้มงวดขึ้นให้รันเอเจนต์ภายใต้ผู้ใช้OSหรือโฮสต์แยกกัน For stricter isolation, run agents under separate OS users or hosts. For stricter isolation, run agents under separate OS users or hosts.
 
 เกณฑ์เดลต้า(ค่าเริ่มต้นแสดง):
 
@@ -450,7 +472,7 @@ agents: {
 
 ### การเร่งเวกเตอร์SQLite(sqlite-vec)
 
-เมื่อมีส่วนขยายsqlite-vecOpenClawจะเก็บการฝังในตารางเสมือนSQLite(`vec0`)และทำคิวรีระยะเวกเตอร์ในฐานข้อมูลช่วยให้การค้นหาเร็วโดยไม่ต้องโหลดการฝังทั้งหมดเข้าJS This keeps search fast without loading every embedding into JS.
+เมื่อมีส่วนขยายsqlite-vecOpenClawจะเก็บการฝังในตารางเสมือนSQLite(`vec0`)และทำคิวรีระยะเวกเตอร์ในฐานข้อมูลช่วยให้การค้นหาเร็วโดยไม่ต้องโหลดการฝังทั้งหมดเข้าJS This keeps search fast without loading every embedding into JS. This keeps search fast without loading every embedding into JS.
 
 การกำหนดค่า(ไม่บังคับ):
 
@@ -478,7 +500,7 @@ agents: {
 ### การดาวน์โหลดการฝังโลคัลอัตโนมัติ
 
 - โมเดลการฝังโลคัลค่าเริ่มต้น:`hf:ggml-org/embeddinggemma-300M-GGUF/embeddinggemma-300M-Q8_0.gguf`(~0.6GB)
-- เมื่อ`memorySearch.provider = "local"`,`node-llama-cpp`แก้ไขเป็น`modelPath`;หากไม่มีGGUFจะ**ดาวน์โหลดอัตโนมัติ**ไปยังแคช(หรือ`local.modelCacheDir`หากตั้งค่า)จากนั้นโหลดการดาวน์โหลดจะต่อเมื่อพยายามใหม่ Downloads resume on retry.
+- เมื่อ`memorySearch.provider = "local"`,`node-llama-cpp`แก้ไขเป็น`modelPath`;หากไม่มีGGUFจะ**ดาวน์โหลดอัตโนมัติ**ไปยังแคช(หรือ`local.modelCacheDir`หากตั้งค่า)จากนั้นโหลดการดาวน์โหลดจะต่อเมื่อพยายามใหม่ Downloads resume on retry. Downloads resume on retry.
 - ข้อกำหนดบิลด์เนทีฟ:รัน`pnpm approve-builds`,เลือก`node-llama-cpp`,จากนั้น`pnpm rebuild node-llama-cpp`
 - การถอยกลับ:หากการตั้งค่าโลคัลล้มเหลวและ`memorySearch.fallback = "openai"`เราจะสลับไปใช้การฝังแบบรีโมตโดยอัตโนมัติ(`openai/text-embedding-3-small`เว้นแต่มีการแทนที่)และบันทึกเหตุผล
 
@@ -506,6 +528,4 @@ agents: {
 หมายเหตุ:
 
 - `remote.*`มีลำดับความสำคัญเหนือ`models.providers.openai.*`
-- `remote.headers`ผสานกับเฮดเดอร์OpenAI;ฝั่งรีโมตชนะเมื่อคีย์ชนกันละ`remote.headers`ออกเพื่อใช้ค่าเริ่มต้นของOpenAI Omit `remote.headers` to use the OpenAI defaults.
-
-
+- `remote.headers`ผสานกับเฮดเดอร์OpenAI;ฝั่งรีโมตชนะเมื่อคีย์ชนกันละ`remote.headers`ออกเพื่อใช้ค่าเริ่มต้นของOpenAI `remote.headers`ผสานกับเฮดเดอร์OpenAI;ฝั่งรีโมตชนะเมื่อคีย์ชนกันละ`remote.headers`ออกเพื่อใช้ค่าเริ่มต้นของOpenAI Omit `remote.headers` to use the OpenAI defaults.

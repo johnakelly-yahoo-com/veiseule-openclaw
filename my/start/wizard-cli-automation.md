@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw CLI အတွက် စာရင်းသွင်းခြင်းနှင့် အေးဂျင့် တပ်ဆင်ခြင်းကို စကရစ်ဖြင့် အလိုအလျောက်လုပ်ဆောင်ရန်"
+read_when:
+  - စကရစ်များ သို့မဟုတ် CI တွင် စာရင်းသွင်းခြင်းကို အလိုအလျောက်လုပ်ဆောင်နေသောအခါ
+  - သတ်မှတ်ထားသော provider များအတွက် အပြန်အလှန်မရှိသော ဥပမာများလိုအပ်သောအခါ
 title: "CLI အလိုအလျောက်လုပ်ဆောင်မှု"
 sidebarTitle: "CLI အလိုအလျောက်လုပ်ဆောင်ခြင်း"
 ---
@@ -109,6 +113,25 @@ openclaw onboard --non-interactive \
     ```
   
 </Accordion>
+  <Accordion title="Custom provider example">```bash
+openclaw onboard --non-interactive \
+  --mode local \
+  --auth-choice custom-api-key \
+  --custom-base-url "https://llm.example.com/v1" \
+  --custom-model-id "foo-large" \
+  --custom-api-key "$CUSTOM_API_KEY" \
+  --custom-provider-id "my-custom" \
+  --custom-compatibility anthropic \
+  --gateway-port 18789 \
+  --gateway-bind loopback
+```
+
+    ```
+    `--custom-api-key` သည် မဖြစ်မနေ မလိုအပ်ပါ။ မထည့်သွင်းပါက onboarding သည် `CUSTOM_API_KEY` ကို စစ်ဆေးပါမည်။
+    ```
+
+  
+</Accordion>
 </AccordionGroup>
 
 ## အေးဂျင့်တစ်ခု ထပ်ထည့်ခြင်း
@@ -124,7 +147,7 @@ openclaw agents add work \
   --json
 ```
 
-သတ်မှတ်ပေးသည်များ—
+မှတ်ချက်များ—
 
 - `agents.list[].name`
 - `agents.list[].workspace`
@@ -132,14 +155,12 @@ openclaw agents add work \
 
 မှတ်ချက်များ—
 
-- မူလ workspace များသည် `~/.openclaw/workspace-<agentId>` ကို လိုက်နာပါသည်။
-- အဝင်မက်ဆေ့ချ်များကို လမ်းကြောင်းချရန် `bindings` ကို ထည့်ပါ (wizard မှလည်း လုပ်ဆောင်နိုင်သည်)။
-- အပြန်အလှန်မရှိသော flags များ— `--model`, `--agent-dir`, `--bind`, `--non-interactive`။
+- စာရင်းသွင်းခြင်း ဗဟို: [Onboarding Wizard (CLI)](/start/wizard)
+- အပြည့်အစုံ ရည်ညွှန်းချက်: [CLI Onboarding Reference](/start/wizard-cli-reference)
+- အမိန့် ရည်ညွှန်းချက်: [`openclaw onboard`](/cli/onboard)
 
 ## ဆက်စပ် စာတမ်းများ
 
 - စာရင်းသွင်းခြင်း ဗဟို: [Onboarding Wizard (CLI)](/start/wizard)
 - အပြည့်အစုံ ရည်ညွှန်းချက်: [CLI Onboarding Reference](/start/wizard-cli-reference)
 - အမိန့် ရည်ညွှန်းချက်: [`openclaw onboard`](/cli/onboard)
-
-

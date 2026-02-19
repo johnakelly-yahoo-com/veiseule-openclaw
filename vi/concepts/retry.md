@@ -1,4 +1,8 @@
 ---
+summary: "Chính sách retry cho các cuộc gọi nhà cung cấp outbound"
+read_when:
+  - Cập nhật hành vi hoặc mặc định retry của nhà cung cấp
+  - Gỡ lỗi lỗi gửi hoặc giới hạn tốc độ của nhà cung cấp
 title: "Chính sách Retry"
 ---
 
@@ -63,5 +67,3 @@ Thiết lập chính sách retry theo từng nhà cung cấp trong `~/.openclaw/
 
 - Retry áp dụng theo từng yêu cầu (gửi tin nhắn, tải lên media, reaction, poll, sticker).
 - Các luồng tổng hợp sẽ không retry những bước đã hoàn thành.
-
-

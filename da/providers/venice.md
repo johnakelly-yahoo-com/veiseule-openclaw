@@ -1,4 +1,8 @@
 ---
+summary: "Brug Venice AI’s privatlivsfokuserede modeller i OpenClaw"
+read_when:
+  - Du vil have privatlivsfokuseret inferens i OpenClaw
+  - Du vil have vejledning til opsætning af Venice AI
 title: "Venice AI"
 ---
 
@@ -37,7 +41,7 @@ Venice tilbyder to privatlivsniveauer — det er afgørende at forstå dem for a
 
 ## Opsætning
 
-### 1. Få en API-nøgle
+### 1. Get API Key
 
 1. Tilmeld dig på [venice.ai](https://venice.ai)
 2. Gå til **Settings → API Keys → Create new key**
@@ -261,5 +265,3 @@ Venice API er på `https://api.venice.ai/api/v1`. Sørg for, at dit netværk til
 - [API-dokumentation](https://docs.venice.ai)
 - [Priser](https://venice.ai/pricing)
 - [Status](https://status.venice.ai)
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Mabilis na pag-troubleshoot sa antas ng channel na may mga signature ng failure bawat channel at mga ayos"
+read_when:
+  - Sinasabi ng transport ng channel na connected ngunit pumapalya ang mga reply
+  - Kailangan mo ng mga check na partikular sa channel bago sumabak sa mas malalim na docs ng provider
 title: "Pag-troubleshoot ng Channel"
 ---
 
@@ -40,11 +44,12 @@ Buong pag-troubleshoot: [/channels/whatsapp#troubleshooting-quick](/channels/wha
 
 ### Mga signature ng failure sa Telegram
 
-| Sintomas                                           | Pinakamabilis na check                                         | Ayos                                                                                        |
-| -------------------------------------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| `/start` ngunit walang magagamit na daloy ng reply | `openclaw pairing list telegram`                               | Aprubahan ang pairing o baguhin ang DM policy.                              |
-| Online ang bot pero tahimik ang grupo              | I-verify ang requirement ng pag-mention at privacy mode ng bot | I-disable ang privacy mode para sa visibility ng grupo o i-mention ang bot. |
-| Mga send failure na may network errors             | Suriin ang logs para sa mga failure ng Telegram API call       | Ayusin ang DNS/IPv6/proxy routing papunta sa `api.telegram.org`.            |
+| Sintomas                                           | Pinakamabilis na check                                         | Ayos                                                                                                    |
+| -------------------------------------------------- | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `/start` ngunit walang magagamit na daloy ng reply | `openclaw pairing list telegram`                               | Aprubahan ang pairing o baguhin ang DM policy.                                          |
+| Online ang bot pero tahimik ang grupo              | I-verify ang requirement ng pag-mention at privacy mode ng bot | I-disable ang privacy mode para sa visibility ng grupo o i-mention ang bot.             |
+| Mga send failure na may network errors             | Suriin ang logs para sa mga failure ng Telegram API call       | Ayusin ang DNS/IPv6/proxy routing papunta sa `api.telegram.org`.                        |
+| Nag-upgrade at bina-block ka ng allowlist          | `openclaw security audit` at mga config allowlist              | Patakbuhin ang `openclaw doctor --fix` o palitan ang `@username` ng numeric sender IDs. |
 
 Buong pag-troubleshoot: [/channels/telegram#troubleshooting](/channels/telegram#troubleshooting)
 
@@ -110,5 +115,3 @@ Buong pag-troubleshoot: [/channels/signal#troubleshooting](/channels/signal#trou
 | Pumapalya ang mga encrypted room                      | I-verify ang crypto module at mga setting ng encryption | I-enable ang suporta sa encryption at muling sumali/mag-sync sa room. |
 
 Buong pag-troubleshoot: [/channels/matrix#troubleshooting](/channels/matrix#troubleshooting)
-
-

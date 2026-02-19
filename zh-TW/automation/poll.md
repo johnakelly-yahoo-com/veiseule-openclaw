@@ -1,4 +1,8 @@
 ---
+summary: "透過 Gateway 閘道器 + CLI 傳送投票"
+read_when:
+  - 新增或修改投票支援時
+  - 從 CLI 或 Gateway 閘道器 偵錯投票傳送時
 title: "投票"
 ---
 
@@ -40,7 +44,7 @@ openclaw message poll --channel msteams --target conversation:19:abc@thread.tacv
 
 方法：`poll`
 
-參數：
+Params:
 
 - `to`（string，必填）
 - `question`（string，必填）
@@ -53,8 +57,8 @@ openclaw message poll --channel msteams --target conversation:19:abc@thread.tacv
 ## 頻道差異
 
 - WhatsApp：2–12 個選項，`maxSelections` 必須在選項數量範圍內，忽略 `durationHours`。
-- Discord：2–10 個選項，`durationHours` 會限制在 1–768 小時（預設 24）。`maxSelections > 1` 啟用多選；Discord 不支援嚴格的選擇數量限制。 `maxSelections > 1` enables multi-select; Discord does not support a strict selection count.
-- MS Teams：Adaptive Card 投票（由 OpenClaw 管理）。沒有原生投票 API；`durationHours` 會被忽略。 No native poll API; `durationHours` is ignored.
+- Discord：2–10 個選項，`durationHours` 會限制在 1–768 小時（預設 24）。`maxSelections > 1` 啟用多選；Discord 不支援嚴格的選擇數量限制。 Discord：2–10 個選項，`durationHours` 會限制在 1–768 小時（預設 24）。`maxSelections > 1` 啟用多選；Discord 不支援嚴格的選擇數量限制。 `maxSelections > 1` enables multi-select; Discord does not support a strict selection count.
+- MS Teams：Adaptive Card 投票（由 OpenClaw 管理）。沒有原生投票 API；`durationHours` 會被忽略。 MS Teams：Adaptive Card 投票（由 OpenClaw 管理）。沒有原生投票 API；`durationHours` 會被忽略。 No native poll API; `durationHours` is ignored.
 
 ## 代理程式工具（訊息）
 
@@ -63,5 +67,3 @@ openclaw message poll --channel msteams --target conversation:19:abc@thread.tacv
 Note: Discord has no “pick exactly N” mode; `pollMulti` maps to multi-select.
 注意：Discord 沒有「必須選擇恰好 N 個」的模式；`pollMulti` 會對應為多選。
 Teams 的投票會以 Adaptive Cards 呈現，且需要 Gateway 閘道器 持續在線，才能在 `~/.openclaw/msteams-polls.json` 中記錄投票結果。
-
-

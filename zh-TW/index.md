@@ -1,6 +1,8 @@
 ---
+summary: "OpenClaw 是一個可在任何 OS 上執行的 AI 代理程式多通道 Gateway 閘道器。"
+read_when:
+  - 向新手介紹 OpenClaw
 title: "OpenClaw"
-sidebarTitle: "OpenClaw"
 ---
 
 # OpenClaw 🦞
@@ -20,10 +22,10 @@ sidebarTitle: "OpenClaw"
 
 > _「EXFOLIATE! EXFOLIATE!」_ — 可能是一隻太空龍蝦
 
-<p align="center">
-  <strong>跨 WhatsApp、Telegram、Discord、iMessage 等的任何 OS AI 代理程式 Gateway 閘道器。</strong><br />
+<p align="center"><strong>跨 WhatsApp、Telegram、Discord、iMessage 等的任何 OS AI 代理程式 Gateway 閘道器。</strong><br />
   傳送一則訊息，從口袋裡就能取得代理程式回應。外掛可加入 Mattermost 等更多通道。
 <br />
+  Send a message, get an agent response from your pocket.<br />
   Send a message, get an agent response from your pocket. Plugins add Mattermost and more.
 </p>
 
@@ -44,7 +46,7 @@ sidebarTitle: "OpenClaw"
 
 ## What is OpenClaw?
 
-OpenClaw 是一個 **自架的 Gateway 閘道器**，可將你喜愛的聊天應用程式——WhatsApp、Telegram、Discord、iMessage 等——連接到像 Pi 這樣的 AI 程式設計代理程式。你只需在自己的機器（或伺服器）上執行單一 Gateway 閘道器程序，它就會成為你的訊息應用程式與隨時可用的 AI 助手之間的橋樑。 You run a single Gateway process on your own machine (or a server), and it becomes the bridge between your messaging apps and an always-available AI assistant.
+OpenClaw 是一個 **自架的 Gateway 閘道器**，可將你喜愛的聊天應用程式——WhatsApp、Telegram、Discord、iMessage 等——連接到像 Pi 這樣的 AI 程式設計代理程式。你只需在自己的機器（或伺服器）上執行單一 Gateway 閘道器程序，它就會成為你的訊息應用程式與隨時可用的 AI 助手之間的橋樑。 You run a single Gateway process on your own machine (or a server), and it becomes the bridge between your messaging apps and an always-available AI assistant. You run a single Gateway process on your own machine (or a server), and it becomes the bridge between your messaging apps and an always-available AI assistant.
 
 **Who is it for?** Developers and power users who want a personal AI assistant they can message from anywhere — without giving up control of their data or relying on a hosted service.
 
@@ -124,7 +126,7 @@ The Gateway is the single source of truth for sessions, routing, and channel con
 </Step>
 </Steps>
 
-需要完整安裝與開發設定嗎？請參閱 [Quick start](/start/quickstart)。 See [Quick start](/start/quickstart).
+需要完整安裝與開發設定嗎？請參閱 [Quick start](/start/quickstart)。 需要完整安裝與開發設定嗎？請參閱 [Quick start](/start/quickstart)。 See [Quick start](/start/quickstart).
 
 ## Dashboard
 
@@ -207,9 +209,7 @@ Gateway 閘道器啟動後，開啟瀏覽器 Control UI。
   
 </Card>
   <Card title="About and credits" href="/reference/credits" icon="info">
-專案起源、貢獻者與授權條款。
+    Project origins, contributors, and license.
   
 </Card>
 </Columns>
-
-

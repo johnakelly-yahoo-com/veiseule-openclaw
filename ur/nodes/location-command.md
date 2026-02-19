@@ -1,4 +1,8 @@
 ---
+summary: "نوڈز کے لیے لوکیشن کمانڈ (location.get)، اجازت کے موڈز، اور بیک گراؤنڈ رویّہ"
+read_when:
+  - لوکیشن نوڈ سپورٹ یا اجازتوں کی UI شامل کرتے وقت
+  - بیک گراؤنڈ لوکیشن + پُش فلو ڈیزائن کرتے وقت
 title: "لوکیشن کمانڈ"
 ---
 
@@ -13,9 +17,9 @@ title: "لوکیشن کمانڈ"
 
 ## سلیکٹر کیوں (صرف سوئچ کیوں نہیں)
 
-OS کی اجازتیں کئی سطحوں پر مشتمل ہوتی ہیں۔ ہم ایپ کے اندر ایک سلیکٹر دکھا سکتے ہیں، لیکن اصل منظوری کا فیصلہ پھر بھی OS ہی کرتا ہے۔
+OS permissions are multi-level. We can expose a selector in-app, but the OS still decides the actual grant.
 
-- iOS/macOS: صارف سسٹم پرامپٹس/Settings میں **While Using** یا **Always** کا انتخاب کر سکتا ہے۔ ایپ اپگریڈ کی درخواست کر سکتی ہے، لیکن OS کے لیے Settings درکار ہو سکتی ہیں۔
+- iOS/macOS: user can choose **While Using** or **Always** in system prompts/Settings. App can request upgrade, but OS may require Settings.
 - Android: بیک گراؤنڈ لوکیشن ایک الگ اجازت ہے؛ Android 10+ پر عموماً سیٹنگز فلو درکار ہوتا ہے۔
 - Precise location ایک علیحدہ منظوری ہے (iOS 14+ “Precise”، Android میں “fine” بمقابلہ “coarse”)۔
 
@@ -36,7 +40,7 @@ UI رویّہ:
 
 ## اجازتوں کی میپنگ (node.permissions)
 
-اختیاری۔ macOS نوڈ اجازتوں کے نقشے کے ذریعے `location` رپورٹ کرتا ہے؛ iOS/Android اسے شامل نہ بھی کریں۔
+Optional. macOS node reports `location` via the permissions map; iOS/Android may omit it.
 
 ## کمانڈ: `location.get`
 
@@ -92,7 +96,7 @@ Errors (مستحکم کوڈز):
 
 نوٹس:
 
-- iOS: Always اجازت + بیک گراؤنڈ لوکیشن موڈ درکار ہے۔ سائلنٹ پش محدود (throttled) ہو سکتا ہے؛ وقفے وقفے سے ناکامی کی توقع رکھیں۔
+- iOS: Always permission + background location mode required. Silent push may be throttled; expect intermittent failures.
 - Android: بیک گراؤنڈ لوکیشن کے لیے فورگراؤنڈ سروس درکار ہو سکتی ہے؛ بصورتِ دیگر انکار متوقع ہے۔
 
 ## ماڈل/ٹولنگ انضمام
@@ -105,7 +109,5 @@ Errors (مستحکم کوڈز):
 
 - بند: “لوکیشن شیئرنگ غیر فعال ہے۔”
 - While Using: “صرف جب OpenClaw کھلا ہو۔”
-- Always: "بیک گراؤنڈ لوکیشن کی اجازت دیں۔ سسٹم اجازت درکار ہے۔"
-- Precise: "درست GPS لوکیشن استعمال کریں۔ اندازاً لوکیشن شیئر کرنے کے لیے ٹوگل بند کریں۔"
-
-
+- Always: “Allow background location. Requires system permission.”
+- Precise: “Use precise GPS location. Toggle off to share approximate location.”

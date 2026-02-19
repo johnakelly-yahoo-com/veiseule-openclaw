@@ -1,4 +1,8 @@
 ---
+summary: "Compatibilidad con Linux + estado de la aplicación complementaria"
+read_when:
+  - Buscar el estado de la aplicación complementaria para Linux
+  - Planificar la cobertura de plataformas o contribuciones
 title: "Aplicación Linux"
 ---
 
@@ -88,5 +92,3 @@ Habilitarlo:
 ```
 systemctl --user enable --now openclaw-gateway[-<profile>].service
 ```
-
-

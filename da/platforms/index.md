@@ -1,4 +1,8 @@
 ---
+summary: "Overblik over platformsupport (Gateway + Companion-apps)"
+read_when:
+  - Leder efter OS-support eller installationsveje
+  - Overvejer hvor Gateway skal køre
 title: "Platforme"
 ---
 
@@ -47,5 +51,3 @@ Tjenestemålet afhænger af OS:
 
 - macOS: LaunchAgent (`bot.molt.gateway` eller `bot.molt.<profile>`; arv `com.openclaw.*`)
 - Linux/WSL2: systemd-brugertjeneste (`openclaw-gateway[-<profile>].service`)
-
-

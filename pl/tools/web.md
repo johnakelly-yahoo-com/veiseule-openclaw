@@ -1,4 +1,9 @@
 ---
+summary: "Narzędzia wyszukiwania i pobierania z sieci (Brave Search API, Perplexity direct/OpenRouter)"
+read_when:
+  - Chcesz włączyć web_search lub web_fetch
+  - Potrzebujesz konfiguracji klucza API Brave Search
+  - Chcesz używać Perplexity Sonar do wyszukiwania w sieci
 title: "Narzędzia webowe"
 ---
 
@@ -168,6 +173,8 @@ Wyszukuj w sieci przy użyciu skonfigurowanego dostawcy.
 - `search_lang` (opcjonalne): kod języka ISO dla wyników wyszukiwania (np. „de”, „en”, „fr”)
 - `ui_lang` (opcjonalne): kod języka ISO dla elementów interfejsu
 - `freshness` (opcjonalne, tylko Brave): filtr według czasu wykrycia (`pd`, `pw`, `pm`, `py` lub `YYYY-MM-DDtoYYYY-MM-DD`)
+  - Brave: `pd`, `pw`, `pm`, `py` lub `YYYY-MM-DDtoYYYY-MM-DD`
+  - Perplexity: `pd`, `pw`, `pm`, `py`
 
 **Przykłady:**
 
@@ -251,5 +258,3 @@ Uwagi:
 - Odpowiedzi są buforowane (domyślnie 15 minut), aby ograniczyć powtarzane pobrania.
 - Jeśli używasz profili narzędzi/list dozwolonych, dodaj `web_search`/`web_fetch` lub `group:web`.
 - Jeśli brakuje klucza Brave, `web_search` zwraca krótką wskazówkę konfiguracji z linkiem do dokumentacji.
-
-

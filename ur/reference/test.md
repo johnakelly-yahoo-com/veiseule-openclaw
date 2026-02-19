@@ -1,4 +1,7 @@
 ---
+summary: "ٹیسٹس کو مقامی طور پر (Vitest) کیسے چلایا جائے اور force/coverage موڈز کب استعمال کیے جائیں"
+read_when:
+  - ٹیسٹس چلانے یا درست کرنے کے دوران
 title: "ٹیسٹس"
 ---
 
@@ -8,9 +11,11 @@ title: "ٹیسٹس"
 
 - 12. `pnpm test:force`: کسی بھی باقی رہ جانے والے گیٹ وے پروسس کو ختم کرتا ہے جو ڈیفالٹ کنٹرول پورٹ کو تھامے ہوئے ہو، پھر ایک الگ تھلگ گیٹ وے پورٹ کے ساتھ مکمل Vitest سوئٹ چلاتا ہے تاکہ سرور ٹیسٹ کسی چلتی ہوئی انسٹینس سے ٹکرا نہ جائیں۔ 13. اسے اس وقت استعمال کریں جب پچھلے گیٹ وے رن نے پورٹ 18789 کو مصروف چھوڑ دیا ہو۔
 
-- 14. `pnpm test:coverage`: V8 کوریج کے ساتھ Vitest چلاتا ہے۔ 15. عالمی تھریش ہولڈز لائنز/برانچز/فنکشنز/اسٹیٹمنٹس کے لیے 70% ہیں۔ Coverage excludes integration-heavy entrypoints (CLI wiring, gateway/telegram bridges, webchat static server) to keep the target focused on unit-testable logic.
+- `pnpm test:coverage`: یونٹ سوٹ کو V8 کوریج کے ساتھ چلاتا ہے (بذریعہ `vitest.unit.config.ts`). 15. عالمی تھریش ہولڈز لائنز/برانچز/فنکشنز/اسٹیٹمنٹس کے لیے 70% ہیں۔ Coverage excludes integration-heavy entrypoints (CLI wiring, gateway/telegram bridges, webchat static server) to keep the target focused on unit-testable logic.
 
-- `pnpm test:e2e`: gateway اینڈ ٹو اینڈ اسموک ٹیسٹس چلاتا ہے (ملٹی انسٹینس WS/HTTP/node جوڑی بنانا)۔
+- Node 24+ پر `pnpm test`: OpenClaw خودکار طور پر Vitest کے `vmForks` کو غیر فعال کرتا ہے اور `ERR_VM_MODULE_LINK_FAILURE` / `module is already linked` سے بچنے کے لیے `forks` استعمال کرتا ہے۔ آپ `OPENCLAW_TEST_VM_FORKS=0|1` کے ذریعے رویہ زبردستی سیٹ کر سکتے ہیں۔
+
+- `pnpm test:e2e`: gateway اینڈ ٹو اینڈ اسموک ٹیسٹس چلاتا ہے (ملٹی انسٹینس WS/HTTP/node جوڑی بنانا)۔ `vitest.e2e.config.ts` میں بطور ڈیفالٹ `vmForks` + adaptive workers استعمال ہوتے ہیں؛ انہیں `OPENCLAW_E2E_WORKERS=<n>` سے ایڈجسٹ کریں اور تفصیلی لاگز کے لیے `OPENCLAW_E2E_VERBOSE=1` سیٹ کریں۔
 
 - `pnpm test:live`: Runs provider live tests (minimax/zai). 18. ان اسکیپ کرنے کے لیے API کیز اور `LIVE=1` (یا فراہم کنندہ کے مخصوص `*_LIVE_TEST=1`) درکار ہیں۔
 
@@ -48,5 +53,3 @@ scripts/e2e/onboard-docker.sh
 ```bash
 pnpm test:docker:qr
 ```
-
-

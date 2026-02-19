@@ -1,4 +1,9 @@
 ---
+summary: "Ứng dụng Android (node): runbook kết nối + Canvas/Chat/Camera"
+read_when:
+  - Ghép cặp hoặc kết nối lại node Android
+  - Gỡ lỗi khám phá gateway Android hoặc xác thực
+  - Xác minh tính đồng bộ lịch sử chat giữa các client
 title: "Ứng dụng Android"
 ---
 
@@ -112,26 +117,26 @@ Trang Chat của node Android dùng **primary session key** của gateway (`main
 - Gửi: `chat.send`
 - Cập nhật đẩy (best-effort): `chat.subscribe` → `event:"chat"`
 
-### 7. Canvas + camera
+### Gateway Canvas Host (khuyến nghị cho nội dung web)
 
 #### Gateway Canvas Host (khuyến nghị cho nội dung web)
 
-Nếu bạn muốn node hiển thị HTML/CSS/JS thực mà tác tử có thể chỉnh sửa trên đĩa, hãy trỏ node tới canvas host của Gateway.
-
 Lưu ý: node dùng canvas host độc lập tại `canvasHost.port` (mặc định `18793`).
+
+Lưu ý: các node tải canvas từ máy chủ Gateway HTTP (cùng cổng với `gateway.port`, mặc định `18789`).
 
 1. Tạo `~/.openclaw/workspace/canvas/index.html` trên máy chủ gateway.
 
 2. Điều hướng node tới đó (LAN):
 
 ```bash
-openclaw nodes invoke --node "<Android Node>" --command canvas.navigate --params '{"url":"http://<gateway-hostname>.local:18793/__openclaw__/canvas/"}'
+openclaw nodes invoke --node "<Android Node>" --command canvas.navigate --params '{"url":"http://<gateway-hostname>.local:18789/__openclaw__/canvas/"}'
 ```
 
-Tailnet (tùy chọn): nếu cả hai thiết bị đều trên Tailscale, dùng tên MagicDNS hoặc IP tailnet thay cho `.local`, ví dụ `http://<gateway-magicdns>:18793/__openclaw__/canvas/`.
+Tailnet (tùy chọn): nếu cả hai thiết bị đều sử dụng Tailscale, hãy dùng tên MagicDNS hoặc IP tailnet thay cho `.local`, ví dụ: `http://<gateway-magicdns>:18789/__openclaw__/canvas/`.
 
 35. Server này chèn một client live-reload vào HTML và reload khi file thay đổi.
-36. Host A2UI nằm tại `http://<gateway-host>:18793/__openclaw__/a2ui/`.
+    Máy chủ A2UI nằm tại `http://<gateway-host>:18789/__openclaw__/a2ui/`.
 
 Lệnh Canvas (chỉ foreground):
 
@@ -144,5 +149,3 @@ Lệnh camera (chỉ foreground; yêu cầu quyền):
 - `camera.clip` (mp4)
 
 Xem [Camera node](/nodes/camera) để biết tham số và công cụ CLI hỗ trợ.
-
-

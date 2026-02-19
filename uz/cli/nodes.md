@@ -1,8 +1,12 @@
 ---
+summary: "Siz juftlangan tugunlarni (kameralar, ekran, canvas) boshqaryapsiz"
+read_when:
+  - So‘rovlarni tasdiqlashingiz yoki tugun buyruqlarini chaqirishingiz kerak
+  - tugunlar
 title: "`openclaw nodes`"
 ---
 
-# Juftlangan tugunlarni (qurilmalarni) boshqarish va tugun imkoniyatlarini chaqirish.
+# `openclaw nodes`
 
 Bog‘liq:
 
@@ -29,7 +33,7 @@ openclaw nodes status --connected
 openclaw nodes status --last-connected 24h
 ```
 
-`nodes list` kutilayotgan/juftlangan jadvallarni chiqaradi. Juftlangan qatorlar eng so‘nggi ulanish vaqtini (Last Connect) o‘z ichiga oladi.
+`nodes list` prints pending/paired tables. Paired rows include the most recent connect age (Last Connect).
 Use `--connected` to only show currently-connected nodes. Use `--last-connected <duration>` to
 filter to nodes that connected within a duration (e.g. `24h`, `7d`).
 
@@ -60,12 +64,10 @@ Chaqirish bayroqlari:
 Flags:
 
 - `--cwd <path>`: working directory.
-- `--env <key=val>`: env override (repeatable).
+- `--env <key=val>`: muhit o‘zgaruvchisini almashtirish (takrorlash mumkin). Eslatma: node hostlari `PATH` o‘zgarishlarini e’tiborga olmaydi (va `tools.exec.pathPrepend` node hostlariga qo‘llanilmaydi).
 - `--command-timeout <ms>`: command timeout.
 - `--invoke-timeout <ms>`: node invoke timeout (default `30000`).
 - `--needs-screen-recording`: require screen recording permission.
 - `--raw <command>`: run a shell string (`/bin/sh -lc` or `cmd.exe /c`).
 - `--agent <id>`: agent-scoped approvals/allowlists (defaults to configured agent).
 - `--ask <off|on-miss|always>`, `--security <deny|allowlist|full>`: overrides.
-
-

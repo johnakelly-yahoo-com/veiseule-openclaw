@@ -1,17 +1,13 @@
 ---
-title: 输入指示器
-x-i18n:
-  generated_at: "2026-02-01T20:24:47Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 8ee82d02829c4ff58462be8bf5bb52f23f519aeda816c2fd8a583e7a317a2e98
-  source_path: concepts/typing-indicators.md
-  workflow: 14
+summary: "OpenClaw 何时显示输入指示器以及如何调整它们"
+read_when:
+  - 更改输入指示器的行为或默认设置
+title: "输入指示器"
 ---
 
 # 输入指示器
 
-在运行活跃期间，输入指示器会发送到聊天渠道。使用
+Typing indicators are sent to the chat channel while a run is active. 在运行活跃期间，输入指示器会发送到聊天渠道。使用
 `agents.defaults.typingMode` 控制输入指示器**何时**开始显示，使用 `typingIntervalSeconds`
 控制**刷新频率**。
 
@@ -66,8 +62,8 @@ x-i18n:
   令牌）。
 - `thinking` 仅在运行流式传输推理时触发（`reasoningLevel: "stream"`）。
   如果模型未产生推理增量，则不会显示输入指示器。
+  如果模型没有输出推理增量，输入指示将不会开始。
 - 无论使用何种模式，心跳运行都不会显示输入指示器。
 - `typingIntervalSeconds` 控制的是**刷新频率**，而非开始时间。
   默认值为 6 秒。
-
-
+  默认值为 6 秒。

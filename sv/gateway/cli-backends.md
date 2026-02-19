@@ -1,4 +1,9 @@
 ---
+summary: "CLI-backends: textbaserad reservlösning via lokala AI-CLI:er"
+read_when:
+  - Du vill ha en pålitlig reservlösning när API-leverantörer fallerar
+  - Du kör Claude Code CLI eller andra lokala AI-CLI:er och vill återanvända dem
+  - Du behöver en textbaserad, verktygsfri väg som ändå stöder sessioner och bilder
 title: "CLI-backends"
 ---
 
@@ -218,5 +223,3 @@ OpenClaw levereras också med ett standardval för `codex-cli`:
 - **Ingen sessionskontinuitet**: säkerställ att `sessionArg` är satt och att `sessionMode` inte är
   `none` (Codex CLI kan för närvarande inte återuppta med JSON-utdata).
 - **Bilder ignoreras**: sätt `imageArg` (och verifiera att CLI:t stöder filsökvägar).
-
-

@@ -1,4 +1,6 @@
 ---
+summary: "အဝေးမှ Gateway သို့ ချိတ်ဆက်ရန် OpenClaw.app အတွက် SSH တန်နယ် တပ်ဆင်ခြင်း"
+read_when: "SSH ဖြင့် macOS အက်ပ်ကို အဝေးမှ Gateway သို့ ချိတ်ဆက်ရာတွင်"
 title: "အဝေးမှ Gateway တပ်ဆင်ခြင်း"
 ---
 
@@ -170,5 +172,3 @@ launchctl bootout gui/$UID/bot.molt.ssh-tunnel
 | `RunAtLoad`                          | Agent တင်သွင်းချိန်တွင် တန်နယ်ကို စတင်ပေးသည်                                             |
 
 ဒီ guide က ဘယ်လို setup လုပ်ရမလဲဆိုတာကို ပြသပေးပါတယ်။ OpenClaw.app က သင့် client machine ပေါ်မှာ `ws://127.0.0.1:18789` ကို ချိတ်ဆက်ပါတယ်။
-
-

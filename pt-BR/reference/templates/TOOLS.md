@@ -1,4 +1,9 @@
-------
+---
+title: "Modelo de TOOLS.md"
+summary: "Template de workspace para TOOLS.md"
+read_when:
+  - Inicializando um workspace manualmente
+---
 
 # TOOLS.md - Notas Locais
 
@@ -40,5 +45,3 @@ Skills são compartilhadas. A sua configuração é sua. Mantê-las separadas si
 ---
 
 Adicione o que ajudar você a fazer seu trabalho. Esta é a sua cola.
-
-

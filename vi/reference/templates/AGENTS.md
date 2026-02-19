@@ -1,4 +1,9 @@
-------
+---
+title: "Mẫu AGENTS.md"
+summary: "Mẫu workspace cho AGENTS.md"
+read_when:
+  - Khởi tạo workspace thủ công
+---
 
 # AGENTS.md - Workspace của bạn
 
@@ -113,13 +118,13 @@ Trên các nền tảng hỗ trợ reaction (Discord, Slack), dùng emoji một 
 25. **Vì sao điều này quan trọng:**
     Phản ứng là các tín hiệu xã hội nhẹ. 26. Con người dùng chúng liên tục — họ nói “Tôi đã thấy điều này, tôi ghi nhận bạn” mà không làm rối cuộc trò chuyện. 27. Bạn cũng nên như vậy.
 
-**Đừng lạm dụng:** Tối đa một reaction cho mỗi tin nhắn. Chọn cái phù hợp nhất.
+**Don't overdo it:** One reaction per message max. Pick the one that fits best.
 
 ## Công cụ
 
 Skills provide your tools. 28. Khi bạn cần một cái, hãy kiểm tra `SKILL.md` của nó. Keep local notes (camera names, SSH details, voice preferences) in `TOOLS.md`.
 
-**🎭 Kể chuyện bằng giọng nói:** Nếu bạn có `sag` (ElevenLabs TTS), hãy dùng giọng nói cho các câu chuyện, tóm tắt phim và những khoảnh khắc "kể chuyện"! Hấp dẫn hơn nhiều so với những đoạn văn bản dài lê thê. Hãy tạo bất ngờ cho mọi người với những giọng nói hài hước.
+**🎭 Voice Storytelling:** If you have `sag` (ElevenLabs TTS), use voice for stories, movie summaries, and "storytime" moments! Way more engaging than walls of text. Surprise people with funny voices.
 
 **📝 Định dạng theo nền tảng:**
 
@@ -129,7 +134,7 @@ Skills provide your tools. 28. Khi bạn cần một cái, hãy kiểm tra `SKIL
 
 ## 💓 Heartbeats — Hãy chủ động!
 
-Khi bạn nhận được một heartbeat poll (tin nhắn khớp với prompt heartbeat đã được cấu hình), đừng chỉ trả lời `HEARTBEAT_OK` mỗi lần. Hãy sử dụng heartbeat một cách hiệu quả!
+When you receive a heartbeat poll (message matches the configured heartbeat prompt), don't just reply `HEARTBEAT_OK` every time. Use heartbeats productively!
 
 31. Lời nhắc heartbeat mặc định:
     `Read HEARTBEAT.md if it exists (workspace context).` 32. Hãy tuân thủ nghiêm ngặt. 33. Đừng suy diễn hoặc lặp lại các nhiệm vụ cũ từ các cuộc trò chuyện trước. If nothing needs attention, reply HEARTBEAT_OK.\`
@@ -212,5 +217,3 @@ The goal: Be helpful without being annoying. 36. Ghé kiểm tra vài lần mỗ
 ## Cá nhân hóa nó
 
 37. Đây là điểm khởi đầu. Add your own conventions, style, and rules as you figure out what works.
-
-

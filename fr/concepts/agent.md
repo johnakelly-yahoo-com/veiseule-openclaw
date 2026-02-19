@@ -1,4 +1,7 @@
 ---
+summary: "Runtime de l’agent (pi-mono embarqué), contrat d’espace de travail et amorçage de session"
+read_when:
+  - Modification du runtime de l’agent, de l’amorçage de l’espace de travail ou du comportement de session
 title: "Runtime de l’agent"
 ---
 
@@ -48,7 +51,7 @@ Les outils de base (lecture/exécution/édition/écriture et outils système ass
 `tools.exec.applyPatch`. `TOOLS.md` ne contrôle **pas** quels outils existent ; il sert de
 guide sur la manière dont _vous_ souhaitez qu’ils soient utilisés.
 
-## Compétences
+## Skills
 
 OpenClaw charge les Skills depuis trois emplacements (l’espace de travail l’emporte en cas de conflit de nom) :
 
@@ -113,5 +116,3 @@ Au minimum, définissez :
 ---
 
 _Suivant : [Conversations de groupe](/channels/group-messages)_ 🦞
-
-

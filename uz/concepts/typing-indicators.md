@@ -1,4 +1,7 @@
 ---
+summary: "OpenClaw typing indikatorlarini qachon ko‘rsatadi va ularni qanday sozlash mumkin"
+read_when:
+  - Typing indikatorlari xatti-harakatini yoki sukut bo‘yicha sozlamalarni o‘zgartirish
 title: "Typing indikatorlari"
 ---
 
@@ -60,5 +63,3 @@ Har bir sessiya uchun rejim yoki chastotani alohida o‘zgartirishingiz mumkin:
 - Heartbeats rejimdan qat’i nazar, hech qachon yozishni ko‘rsatmaydi.
 - `typingIntervalSeconds` boshlanish vaqtini emas, **yangilanish tezligini** boshqaradi.
   Standart qiymat — 6 soniya.
-
-

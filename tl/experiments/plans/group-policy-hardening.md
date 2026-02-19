@@ -1,4 +1,7 @@
 ---
+summary: "Pagpapatibay ng Telegram allowlist: prefix + normalisasyon ng whitespace"
+read_when:
+  - Pagsusuri ng mga historikal na pagbabago sa Telegram allowlist
 title: "Pagpapatibay ng Telegram Allowlist"
 ---
 
@@ -10,7 +13,7 @@ title: "Pagpapatibay ng Telegram Allowlist"
 
 ## Buod
 
-Ang mga allowlist ng Telegram ay tumatanggap na ngayon ng mga prefix na `telegram:` at `tg:` nang hindi sensitibo sa laki ng titik, at pinahihintulutan ang
+Telegram allowlists now accept `telegram:` and `tg:` prefixes case-insensitively, and tolerate
 accidental whitespace. This aligns inbound allowlist checks with outbound send normalization.
 
 ## Ano ang nagbago
@@ -36,5 +39,3 @@ false negatives when deciding whether to respond in DMs or groups.
 
 - [Mga Group Chat](/channels/groups)
 - [Provider ng Telegram](/channels/telegram)
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Открыть HTTP-эндпоинт /v1/responses, совместимый с OpenResponses, из Gateway"
+read_when:
+  - Интеграция клиентов, которые говорят по API OpenResponses
+  - Вам нужны входы на основе items, клиентские вызовы инструментов или события SSE
 title: "API OpenResponses"
 ---
 
@@ -24,6 +28,7 @@ Gateway (шлюз) OpenClaw может обслуживать совместим
 
 - Когда `gateway.auth.mode="token"`, используйте `gateway.auth.token` (или `OPENCLAW_GATEWAY_TOKEN`).
 - Когда `gateway.auth.mode="password"`, используйте `gateway.auth.password` (или `OPENCLAW_GATEWAY_PASSWORD`).
+- Если настроен `gateway.auth.rateLimit` и происходит слишком много неудачных попыток аутентификации, эндпоинт возвращает `429` с `Retry-After`.
 
 ## Выбор агента
 
@@ -182,7 +187,11 @@ Gateway (шлюз) OpenClaw может обслуживать совместим
 
 - `files.allowUrl`: `true`
 - `images.allowUrl`: `true`
+- `maxUrlParts`: `8` (общее количество частей `input_file` + `input_image` на основе URL в одном запросе)
 - Запросы защищены (разрешение DNS, блокировка приватных IP, ограничения на редиректы, тайм-ауты).
+- Поддерживаются необязательные списки разрешённых хостов для каждого типа ввода (`files.urlAllowlist`, `images.urlAllowlist`).
+  - Точное совпадение хоста: `"cdn.example.com"`
+  - Поддомены с подстановкой: `"*.assets.example.com"` (не включает корневой домен)
 
 ## Лимиты файлов и изображений (конфиг)
 
@@ -233,6 +242,7 @@ Gateway (шлюз) OpenClaw может обслуживать совместим
 Значения по умолчанию при отсутствии указания:
 
 - `maxBodyBytes`: 20MB
+- `maxUrlParts`: 8
 - `files.maxBytes`: 5MB
 - `files.maxChars`: 200k
 - `files.maxRedirects`: 3
@@ -243,6 +253,13 @@ Gateway (шлюз) OpenClaw может обслуживать совместим
 - `images.maxBytes`: 10MB
 - `images.maxRedirects`: 3
 - `images.timeoutMs`: 10s
+
+Примечание по безопасности:
+
+- Списки разрешённых URL проверяются до выполнения запроса и при переходах по редиректам.
+- Добавление хоста в список разрешённых не отключает блокировку приватных/внутренних IP‑адресов.
+- Для Gateway, доступных из интернета, применяйте сетевые ограничения исходящего трафика в дополнение к защитным механизмам на уровне приложения.
+  См. [Security](/gateway/security).
 
 ## Потоковая передача (SSE)
 
@@ -311,5 +328,3 @@ curl -N http://127.0.0.1:18789/v1/responses \
     "input": "hi"
   }'
 ```
-
-

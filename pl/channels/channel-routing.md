@@ -1,4 +1,7 @@
 ---
+summary: "Reguły routingu per kanał (WhatsApp, Telegram, Discord, Slack) oraz współdzielony kontekst"
+read_when:
+  - Zmiana routingu kanałów lub zachowania skrzynki odbiorczej
 title: "Routing kanałów"
 ---
 
@@ -39,11 +42,15 @@ Przykłady:
 Routing wybiera **jednego agenta** dla każdej wiadomości przychodzącej:
 
 1. **Dokładne dopasowanie rozmówcy** (`bindings` z `peer.kind` + `peer.id`).
-2. **Dopasowanie gildii** (Discord) przez `guildId`.
-3. **Dopasowanie zespołu** (Slack) przez `teamId`.
-4. **Dopasowanie konta** (`accountId` na kanale).
-5. **Dopasowanie kanału** (dowolne konto na tym kanale).
-6. **Agent domyślny** (`agents.list[].default`, w przeciwnym razie pierwsza pozycja listy, awaryjnie `main`).
+2. **Dopasowanie nadrzędnego peera** (dziedziczenie wątku).
+3. Wątki:
+4. **Dopasowanie gildii** (Discord) przez `guildId`.
+5. **Dopasowanie zespołu** (Slack) przez `teamId`.
+6. **Dopasowanie konta** (`accountId` na kanale).
+7. **Dopasowanie kanału** (dowolne konto na tym kanale).
+8. **Agent domyślny** (`agents.list[].default`, w przeciwnym razie pierwsza pozycja listy, awaryjnie `main`).
+
+Gdy powiązanie zawiera wiele pól dopasowania (`peer`, `guildId`, `teamId`, `roles`), **wszystkie podane pola muszą się zgadzać**, aby to powiązanie miało zastosowanie.
 
 Dopasowany agent determinuje, który obszar roboczy i magazyn sesji są używane.
 
@@ -105,5 +112,3 @@ Odpowiedzi przychodzące zawierają:
 - Cytowany kontekst jest dołączany do `Body` jako blok `[Replying to ...]`.
 
 Jest to spójne we wszystkich kanałach.
-
-

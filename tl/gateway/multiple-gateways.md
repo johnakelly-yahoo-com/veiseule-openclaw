@@ -1,4 +1,8 @@
 ---
+summary: "Patakbuhin ang maraming OpenClaw Gateway sa iisang host (isolation, ports, at mga profile)"
+read_when:
+  - Tumatakbo ng higit sa isang Gateway sa parehong makina
+  - Kailangan mo ng hiwalay na config/state/ports bawat Gateway
 title: "Maramihang Gateway"
 ---
 
@@ -85,7 +89,7 @@ Kung io-override mo ang alinman sa mga ito sa config o env, kailangan mong panat
 - **Huwag** i-pin ang `browser.cdpUrl` sa parehong mga value sa maraming instance.
 - Kailangan ng bawat instance ang sarili nitong browser control port at CDP range (na hinango mula sa gateway port nito).
 - 48. Ang mga Browser profile CDP port ay awtomatikong ina-allocate mula sa `browser.controlPort + 9 ...cdpPort` per instance.
-- 49. Kung kailangan mo ng tahasang CDP ports, itakda ang `browser.profiles.<name>50. Remote Chrome: gamitin ang `browser.profiles.&lt;name&gt;
+- 49. Kung kailangan mo ng tahasang CDP ports, itakda ang `browser.profiles.<name>50. Remote Chrome: gamitin ang `browser.profiles.<name>
 
 ## Halimbawa ng manual env
 
@@ -106,5 +110,3 @@ openclaw --profile main status
 openclaw --profile rescue status
 openclaw --profile rescue browser status
 ```
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "macOS-appflöde för att styra en fjärransluten OpenClaw-gateway över SSH"
+read_when:
+  - Vid konfigurering eller felsökning av fjärrstyrning av Mac
 title: "Fjärrstyrning"
 ---
 
@@ -78,5 +81,3 @@ openclaw nodes notify --node <id> --title "Ping" --body "Remote gateway ready" -
 ```
 
 Det finns inte längre någon global växling för ”standardljud” i appen; anropare väljer ett ljud (eller inget) per begäran.
-
-

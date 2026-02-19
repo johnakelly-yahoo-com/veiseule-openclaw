@@ -1,4 +1,9 @@
 ---
+summary: "Mesaj akışı, oturumlar, kuyruklama ve muhakeme görünürlüğü"
+read_when:
+  - Gelen mesajların nasıl yanıt hâline geldiğini açıklarken
+  - Oturumları, kuyruklama modlarını veya akış davranışını netleştirirken
+  - Muhakeme görünürlüğünü ve kullanım etkilerini belgelendirirken
 title: "Mesajlar"
 ---
 
@@ -17,7 +22,7 @@ Inbound message
   -> outbound replies (channel limits + chunking)
 ```
 
-Temel ayarlar yapılandırmada yer alır:
+Key knobs live in configuration:
 
 - Önekler, kuyruklama ve grup davranışı için `messages.*`.
 - Blok halinde akış ve parçalama varsayılanları için `agents.defaults.*`.
@@ -25,7 +30,7 @@ Temel ayarlar yapılandırmada yer alır:
 
 Tam şema için [Yapılandırma](/gateway/configuration) bölümüne bakın.
 
-## Gelen tekilleştirme
+## Inbound dedupe
 
 Kanallar, yeniden bağlanmalardan sonra aynı mesajı yeniden teslim edebilir. OpenClaw,
 kanal/hesap/karşı taraf/oturum/mesaj kimliğine göre anahtarlanmış kısa ömürlü bir önbellek tutar;
@@ -65,7 +70,7 @@ Oturumlar istemcilere değil, gateway’e aittir.
 
 - Doğrudan sohbetler ajan ana oturum anahtarına daraltılır.
 - Gruplar/kanallar kendi oturum anahtarlarını alır.
-- Oturum deposu ve transkriptler gateway ana makinesinde bulunur.
+- The session store and transcripts live on the gateway host.
 
 Birden çok cihaz/kanal aynı oturuma eşlenebilir; ancak geçmiş her istemciye tam olarak
 geri senkronize edilmez. Öneri: bağlamın ayrışmasını önlemek için uzun konuşmalarda
@@ -74,7 +79,7 @@ oturum transkriptini gösterir; dolayısıyla doğruluk kaynağı onlardır.
 
 Ayrıntılar: [Oturum yönetimi](/concepts/session).
 
-## Gelen gövdeler ve geçmiş bağlamı
+## Inbound bodies and history context
 
 OpenClaw, **istem gövdesini** **komut gövdesinden** ayırır:
 
@@ -148,5 +153,3 @@ Giden mesaj biçimlendirmesi `messages` içinde merkezileştirilmiştir:
 - `replyToMode` ve kanal başına varsayılanlar aracılığıyla yanıt dizileme
 
 Ayrıntılar: [Yapılandırma](/gateway/configuration#messages) ve kanal belgeleri.
-
-

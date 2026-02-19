@@ -1,17 +1,14 @@
 ---
-title: Perplexity Sonar
-x-i18n:
-  generated_at: "2026-02-01T21:19:10Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 264d08e62e3bec854e378dad345ca209d139cd19b0469f3b25f88bb63b73ba00
-  source_path: perplexity.md
-  workflow: 15
+summary: "Perplexity Sonar 的 web_search 设置"
+read_when:
+  - 你想使用 Perplexity Sonar 进行网络搜索
+  - 你需要设置 PERPLEXITY_API_KEY 或 OpenRouter
+title: "Perplexity Sonar"
 ---
 
 # Perplexity Sonar
 
-OpenClaw 可以使用 Perplexity Sonar 作为 `web_search` 工具。你可以通过 Perplexity 的直连 API 或通过 OpenRouter 连接。
+OpenClaw 可以使用 Perplexity Sonar 作为 `web_search` 工具。你可以通过 Perplexity 的直连 API 或通过 OpenRouter 连接。 24. 你可以通过 Perplexity 的直连 API 或通过 OpenRouter 进行连接。
 
 ## API 选项
 
@@ -78,5 +75,3 @@ OpenClaw 可以使用 Perplexity Sonar 作为 `web_search` 工具。你可以通
 - `perplexity/sonar-reasoning-pro` — 深度研究
 
 请参阅 [Web 工具](/tools/web) 了解 web_search 配置详情。
-
-

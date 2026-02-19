@@ -1,135 +1,136 @@
 ---
-title: "Streaming and Chunking"
+summary: "Streaming + chunking xatti-harakati (blok javoblar, Telegram preview streaming, limitlar)"
+read_when:
+  - 23. Kanallarda streaming yoki bo‘laklash qanday ishlashini tushuntirish
+  - 24. Blok streaming yoki kanal bo‘laklash xatti-harakatini o‘zgartirish
+  - Takroriy/erta blok javoblar yoki Telegram preview streaming’ni diagnostika qilish
+title: "26. Streaming va Bo‘laklash"
 ---
 
-# Streaming + chunking
+# 27. Streaming + bo‘laklash
 
-OpenClaw has two separate “streaming” layers:
+28. OpenClaw da ikkita alohida “streaming” qatlami mavjud:
 
-- **Block streaming (channels):** emit completed **blocks** as the assistant writes. These are normal channel messages (not token deltas).
-- **Token-ish streaming (Telegram only):** update a temporary **preview message** with partial text while generating.
+- 29. **Blok streaming (kanallar):** yordamchi yozayotgan sari yakunlangan **bloklar**ni chiqaradi. 30. Bular oddiy kanal xabarlari (token deltalar emas).
+- **Token-ish streaming (faqat Telegram):** generatsiya vaqtida qisman matn bilan vaqtinchalik **preview message** yangilanadi.
 
-There is **no true token-delta streaming** to channel messages today. Telegram preview streaming is the only partial-stream surface.
+Hozircha kanal xabarlariga **haqiqiy token-delta streaming** mavjud emas. Telegram preview streaming — yagona qisman streaming yuzasi.
 
-## Block streaming (channel messages)
+## 34. Blok streaming (kanal xabarlari)
 
-Block streaming sends assistant output in coarse chunks as it becomes available.
+35. Blok streaming yordamchi chiqishini mavjud bo‘lishi bilan yirik bo‘laklarda yuboradi.
 
 ```
-Model output
+36. Model chiqishi
   └─ text_delta/events
        ├─ (blockStreamingBreak=text_end)
-       │    └─ chunker emits blocks as buffer grows
+       │    └─ bufer o‘sgan sari chunker bloklarni chiqaradi
        └─ (blockStreamingBreak=message_end)
-            └─ chunker flushes at message_end
-                   └─ channel send (block replies)
+            └─ message_end da chunker tozalaydi
+                   └─ kanalga yuborish (blok javoblar)
 ```
 
-Legend:
+37. Afsona:
 
-- `text_delta/events`: model stream events (may be sparse for non-streaming models).
-- `chunker`: `EmbeddedBlockChunker` applying min/max bounds + break preference.
-- `channel send`: actual outbound messages (block replies).
+- 38. `text_delta/events`: model streaming hodisalari (streaming bo‘lmagan modellar uchun siyrak bo‘lishi mumkin).
+- 39. `chunker`: `EmbeddedBlockChunker` min/maks chegaralarni va uzilish afzalligini qo‘llaydi.
+- 40. `channel send`: haqiqiy chiqish xabarlari (blok javoblar).
 
-**Controls:**
+41. **Boshqaruvlar:**
 
-- `agents.defaults.blockStreamingDefault`: `"on"`/`"off"` (default off).
-- Channel overrides: `*.blockStreaming` (and per-account variants) to force `"on"`/`"off"` per channel.
-- `agents.defaults.blockStreamingBreak`: `"text_end"` or `"message_end"`.
-- `agents.defaults.blockStreamingChunk`: `{ minChars, maxChars, breakPreference? }`.
-- `agents.defaults.blockStreamingCoalesce`: `{ minChars?, maxChars?, idleMs? }` (merge streamed blocks before send).
+- 42. `agents.defaults.blockStreamingDefault`: `"on"`/`"off"` (standart: off).
+- 43. Kanal bo‘yicha bekor qilishlar: `*.blockStreaming` (va hisob bo‘yicha variantlar) har bir kanal uchun `"on"`/`"off"` ni majburlash uchun.
+- 44. `agents.defaults.blockStreamingBreak`: `"text_end"` yoki `"message_end"`.
+- 45. `agents.defaults.blockStreamingChunk`: \`{ minChars, maxChars, breakPreference?
+  46. }`. 47. `agents.defaults.blockStreamingCoalesce`: `{ minChars?, maxChars?, idleMs?
+  47. }\` (yuborishdan oldin stream qilingan bloklarni birlashtirish).
+- 49. Kanalning qat’iy chegarasi: `*.textChunkLimit` (masalan, `channels.whatsapp.textChunkLimit`). 50. Kanal bo‘laklash rejimi: `*.chunkMode` (`length` — standart, `newline` — uzunlik bo‘yicha bo‘laklashdan oldin bo‘sh qatorlar (paragraf chegaralari) bo‘yicha ajratadi).
 - Channel hard cap: `*.textChunkLimit` (e.g., `channels.whatsapp.textChunkLimit`).
 - Channel chunk mode: `*.chunkMode` (`length` default, `newline` splits on blank lines (paragraph boundaries) before length chunking).
-- Discord soft cap: `channels.discord.maxLinesPerMessage` (default 17) splits tall replies to avoid UI clipping.
+- Discord soft cap: `channels.discord.maxLinesPerMessage` (standart 17) baland javoblarni UI kesilib qolishining oldini olish uchun bo‘lib yuboradi.
 
-**Boundary semantics:**
+**Chegara semantikasi:**
 
-- `text_end`: stream blocks as soon as chunker emits; flush on each `text_end`.
-- `message_end`: wait until assistant message finishes, then flush buffered output.
+- `text_end`: chunker chiqarishi bilanoq oqim bloklari; har bir `text_end` da flush qilinadi.
+- `message_end`: assistent xabari tugaguncha kutadi, so‘ng buferlangan chiqishni flush qiladi.
 
-`message_end` still uses the chunker if the buffered text exceeds `maxChars`, so it can emit multiple chunks at the end.
+`message_end` buferlangan matn `maxChars` dan oshsa ham chunker’dan foydalanadi, shuning uchun oxirida bir nechta chunk chiqarilishi mumkin.
 
-## Chunking algorithm (low/high bounds)
+## Chunklash algoritmi (past/yuqori chegaralar)
 
-Block chunking is implemented by `EmbeddedBlockChunker`:
+Blok bo‘yicha chunklash `EmbeddedBlockChunker` tomonidan amalga oshiriladi:
 
-- **Low bound:** don’t emit until buffer >= `minChars` (unless forced).
-- **High bound:** prefer splits before `maxChars`; if forced, split at `maxChars`.
-- **Break preference:** `paragraph` → `newline` → `sentence` → `whitespace` → hard break.
-- **Code fences:** never split inside fences; when forced at `maxChars`, close + reopen the fence to keep Markdown valid.
+- **Past chegara:** bufer >= `minChars` bo‘lmaguncha chiqarma (majburiy holatlardan tashqari).
+- **Yuqori chegara:** `maxChars` dan oldin bo‘linishni afzal ko‘r; majbur bo‘lsa, `maxChars` da bo‘l.
+- **Uzilish ustuvorligi:** `paragraph` → `newline` → `sentence` → `whitespace` → qattiq uzilish.
+- **Kod panjaralari:** panjaralar ichida hech qachon bo‘linmaydi; `maxChars` da majbur bo‘linganda, Markdown to‘g‘ri bo‘lishi uchun panjarani yopib + qayta ochadi.
 
-`maxChars` is clamped to the channel `textChunkLimit`, so you can’t exceed per-channel caps.
+`maxChars` kanalning `textChunkLimit` ga qisiladi, shuning uchun har bir kanal limitidan oshib bo‘lmaydi.
 
-## Coalescing (merge streamed blocks)
+## Birlashtirish (oqimdagi bloklarni qo‘shish)
 
-When block streaming is enabled, OpenClaw can **merge consecutive block chunks**
-before sending them out. This reduces “single-line spam” while still providing
-progressive output.
+Blok oqimi yoqilganida, OpenClaw jo‘natishdan oldin **ketma-ket blok chunklarni birlashtirishi** mumkin. Bu progressiv chiqishni saqlagan holda “bir qatorli spam”ni kamaytiradi.
 
-- Coalescing waits for **idle gaps** (`idleMs`) before flushing.
-- Buffers are capped by `maxChars` and will flush if they exceed it.
-- `minChars` prevents tiny fragments from sending until enough text accumulates
-  (final flush always sends remaining text).
-- Joiner is derived from `blockStreamingChunk.breakPreference`
-  (`paragraph` → `\n\n`, `newline` → `\n`, `sentence` → space).
-- Channel overrides are available via `*.blockStreamingCoalesce` (including per-account configs).
-- Default coalesce `minChars` is bumped to 1500 for Signal/Slack/Discord unless overridden.
+- Birlashtirish flush qilishdan oldin **bo‘sh (idle) tanaffuslar**ni (`idleMs`) kutadi.
+- Buferlar `maxChars` bilan cheklanadi va undan oshsa flush qilinadi.
+- `minChars` yetarli matn to‘planguncha juda kichik bo‘laklar jo‘natilishini oldini oladi
+  (yakuniy flush har doim qolgan matnni yuboradi).
+- Birlashtirgich `blockStreamingChunk.breakPreference` dan olinadi
+  (`paragraph` → `\n\n`, `newline` → `\n`, `sentence` → bo‘sh joy).
+- Kanal bo‘yicha override’lar `*.blockStreamingCoalesce` orqali mavjud (hisob bo‘yicha sozlamalarni ham o‘z ichiga oladi).
+- Standart coalesce `minChars` Signal/Slack/Discord uchun override qilinmasa 1500 ga oshiriladi.
 
-## Human-like pacing between blocks
+## Bloklar orasida odamga o‘xshash tempo
 
-When block streaming is enabled, you can add a **randomized pause** between
-block replies (after the first block). This makes multi-bubble responses feel
-more natural.
+Blok oqimi yoqilganda, birinchi blokdan keyin
+blok javoblari orasiga **tasodifiy pauza** qo‘shishingiz mumkin. Bu ko‘p-pufakli javoblarni
+yanada tabiiy his qildiradi.
 
-- Config: `agents.defaults.humanDelay` (override per agent via `agents.list[].humanDelay`).
-- Modes: `off` (default), `natural` (800–2500ms), `custom` (`minMs`/`maxMs`).
-- Applies only to **block replies**, not final replies or tool summaries.
+- Sozlama: `agents.defaults.humanDelay` (har bir agent uchun `agents.list[].humanDelay` orqali override qilinadi).
+- Rejimlar: `off` (standart), `natural` (800–2500ms), `custom` (`minMs`/`maxMs`).
+- Faqat **blok javoblari**ga tatbiq etiladi, yakuniy javoblar yoki vosita xulosalariga emas.
 
-## “Stream chunks or everything”
+## “Chunklarni oqimda yuborish yoki hammasini biryo‘la”
 
-This maps to:
+Bu quyidagiga mos keladi:
 
-- **Stream chunks:** `blockStreamingDefault: "on"` + `blockStreamingBreak: "text_end"` (emit as you go). Non-Telegram channels also need `*.blockStreaming: true`.
-- **Stream everything at end:** `blockStreamingBreak: "message_end"` (flush once, possibly multiple chunks if very long).
-- **No block streaming:** `blockStreamingDefault: "off"` (only final reply).
+- **Chunklarni oqimda yuborish:** `blockStreamingDefault: "on"` + `blockStreamingBreak: "text_end"` (jarayon davomida chiqaradi). Telegram bo‘lmagan kanallar ham `*.blockStreaming: true` ni talab qiladi.
+- **Hammasini oxirida yuborish:** `blockStreamingBreak: "message_end"` (bir marta flush, juda uzun bo‘lsa bir nechta chunk bo‘lishi mumkin).
+- **Blok oqimi yo‘q:** `blockStreamingDefault: "off"` (faqat yakuniy javob).
 
-**Channel note:** For non-Telegram channels, block streaming is **off unless**
-`*.blockStreaming` is explicitly set to `true`. Telegram can stream a live preview
-(`channels.telegram.streamMode`) without block replies.
+**Kanal eslatmasi:** Telegram bo‘lmagan kanallarda blok oqimi **o‘chiq**, agar
+`*.blockStreaming` aniq `true` qilib qo‘yilmagan bo‘lsa. Telegram jonli preview’ni
+(`channels.telegram.streamMode`) blok javoblarsiz stream qila oladi.
 
-Config location reminder: the `blockStreaming*` defaults live under
-`agents.defaults`, not the root config.
+Sozlama joylashuvi eslatmasi: `blockStreaming*` standartlari
+ildiz konfiguratsiyada emas, `agents.defaults` ostida joylashgan.
 
-## Telegram preview streaming (token-ish)
+## Telegram qoralama oqimi (token’ga o‘xshash)
 
-Telegram is the only channel with live preview streaming:
+Telegram qoralama oqimiga ega yagona kanal:
 
-- Uses Bot API `sendMessage` (first update) + `editMessageText` (subsequent updates).
+- Bot API `sendMessageDraft` dan **mavzulari bor shaxsiy chatlar**da foydalanadi.
 - `channels.telegram.streamMode: "partial" | "block" | "off"`.
-  - `partial`: preview updates with latest stream text.
-  - `block`: preview updates in chunked blocks (same chunker rules).
-  - `off`: no preview streaming.
-- Preview chunk config (only for `streamMode: "block"`): `channels.telegram.draftChunk` (defaults: `minChars: 200`, `maxChars: 800`).
-- Preview streaming is separate from block streaming.
-- When Telegram block streaming is explicitly enabled, preview streaming is skipped to avoid double-streaming.
-- Text-only finals are applied by editing the preview message in place.
-- Non-text/complex finals fall back to normal final message delivery.
-- `/reasoning stream` writes reasoning into the live preview (Telegram only).
+  - `partial`: so‘nggi oqim matni bilan qoralama yangilanadi.
+  - `block`: qoralama bo‘laklangan bloklarda yangilanadi (xuddi shu chunker qoidalari).
+  - `off`: qoralama oqimi yo‘q.
+- Qoralama chunk sozlamasi (faqat `streamMode: "block"` uchun): `channels.telegram.draftChunk` (standartlar: `minChars: 200`, `maxChars: 800`).
+- Qoralama oqimi blok oqimidan alohida; blok javoblari standart bo‘yicha o‘chiq va Telegram bo‘lmagan kanallarda faqat `*.blockStreaming: true` bilan yoqiladi.
+- Yakuniy javob baribir oddiy xabar bo‘ladi.
+- `/reasoning stream` mantiqni qoralama pufagiga yozadi (faqat Telegram).
+- Matn bo‘lmagan/murakkab yakunlar odatiy final xabar yetkazib berishga qaytadi.
+- `/reasoning stream` reasoning’ni jonli preview’ga yozadi (faqat Telegram).
 
 ```
 Telegram
-  └─ sendMessage (temporary preview message)
-       ├─ streamMode=partial → edit latest text
-       └─ streamMode=block   → chunker + edit updates
-  └─ final text-only reply → final edit on same message
-  └─ fallback: cleanup preview + normal final delivery (media/complex)
+  └─ sendMessage (vaqtinchalik preview message)
+       ├─ streamMode=partial → oxirgi matnni tahrirlash
+       └─ streamMode=block   → chunker + tahrir yangilanishlari
+  └─ yakuniy faqat-matn javobi → o‘sha xabarda final tahrir
+  └─ fallback: preview’ni tozalash + odatiy final yetkazib berish (media/murakkab)
 ```
 
-Legend:
+Afsona:
 
-- `preview message`: temporary Telegram message updated during generation.
-- `final edit`: in-place edit on the same preview message (text-only).
-
-
-
-{/* v2 */}
+- `preview message`: generatsiya davomida yangilanadigan vaqtinchalik Telegram xabari.
+- `final edit`: o‘sha preview xabarida joyida tahrirlash (faqat matn).

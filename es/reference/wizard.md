@@ -1,4 +1,9 @@
 ---
+summary: "Referencia completa del asistente de incorporación de la CLI: cada paso, bandera y campo de configuración"
+read_when:
+  - Consultar un paso o una bandera específica del asistente
+  - Automatizar la incorporación con el modo no interactivo
+  - Depurar el comportamiento del asistente
 title: "Referencia del asistente de incorporación"
 sidebarTitle: "Referencia del Asistente"
 ---
@@ -20,8 +25,7 @@ Para una visión general de alto nivel, consulte [Asistente de incorporación](/
     - El restablecimiento usa `trash` (nunca `rm`) y ofrece alcances:
       - Solo configuración
       - Configuración + credenciales + sesiones
-      - Restablecimiento completo (también elimina el espacio de trabajo)
-  
+      - Restablecimiento completo (también elimina el espacio de trabajo)  
 </Step>
   <Step title="Model/Auth">
     - **Clave de API de Anthropic (recomendada)**: usa `ANTHROPIC_API_KEY` si está presente o solicita una clave, luego la guarda para uso del daemon.
@@ -49,8 +53,8 @@ Para una visión general de alto nivel, consulte [Asistente de incorporación](/
     - Elija un modelo predeterminado entre las opciones detectadas (o ingrese proveedor/modelo manualmente).
     - El asistente ejecuta una verificación del modelo y advierte si el modelo configurado es desconocido o falta autenticación.
     - Las credenciales OAuth viven en `~/.openclaw/credentials/oauth.json`; los perfiles de autenticación viven en `~/.openclaw/agents/<agentId>/agent/auth-profiles.json` (claves de API + OAuth).
-    - Más detalles: [/concepts/oauth](/concepts/oauth)
-    <Note>
+    - Más detalles: [/concepts/oauth](/concepts/oauth)    
+<Note>
     Consejo para entornos sin interfaz gráfica/servidores: complete OAuth en una máquina con navegador y luego copie
     `~/.openclaw/credentials/oauth.json` (o `$OPENCLAW_STATE_DIR/credentials/oauth.json`) al
     host del Gateway.
@@ -61,8 +65,7 @@ Para una visión general de alto nivel, consulte [Asistente de incorporación](/
   <Step title="Workspace">
     - `~/.openclaw/workspace` predeterminado (configurable).
     - Inicializa los archivos del espacio de trabajo necesarios para el ritual de arranque del agente.
-    - Diseño completo del espacio de trabajo + guía de respaldo: [Espacio de trabajo del agente](/concepts/agent-workspace)
-  
+    - Diseño completo del espacio de trabajo + guía de respaldo: [Espacio de trabajo del agente](/concepts/agent-workspace)  
 </Step>
   <Step title="Gateway">
     - Puerto, enlace, modo de autenticación, exposición por Tailscale.
@@ -80,10 +83,12 @@ Para una visión general de alto nivel, consulte [Asistente de incorporación](/
     - [Signal](/channels/signal): instalación opcional de `signal-cli` + configuración de la cuenta.
     - [BlueBubbles](/channels/bluebubbles): **recomendado para iMessage**; URL del servidor + contraseña + webhook.
     - [iMessage](/channels/imessage): ruta heredada de la CLI `imsg` + acceso a la base de datos.
-    - Seguridad de mensajes directos: el valor predeterminado es el emparejamiento. El primer mensaje directo envía un código; apruébelo mediante `openclaw pairing approve <channel> <code>` o use listas de permitidos.
+    - Seguridad de mensajes directos: el valor predeterminado es el emparejamiento. El primer mensaje directo envía un código; apruébelo mediante `openclaw pairing approve <channel><code>` o use listas de permitidos.
+  
+</Step><code>` o use listas de permitidos.
   
 </Step>
-  <Step title="Daemon install">
+  <Step title="Instalación del daemon">
     - macOS: Agente de lanzamiento
       - Requiere una sesión de usuario iniciada; para entornos sin interfaz, use un LaunchDaemon personalizado (no incluido).
     - Linux (y Windows vía WSL2): unidad de usuario systemd
@@ -92,18 +97,18 @@ Para una visión general de alto nivel, consulte [Asistente de incorporación](/
     - **Selección de runtime:** Node (recomendado; requerido para WhatsApp/Telegram). Bun **no** es recomendado.
   
 </Step>
-  <Step title="Health check">
+  <Step title="Comprobación de estado">
     - Inicia el Gateway (si es necesario) y ejecuta `openclaw health`.
     - Consejo: `openclaw status --deep` agrega sondeos de estado del gateway a la salida de estado (requiere un gateway accesible).
   
 </Step>
-  <Step title="Skills (recommended)">
+  <Step title="Skills (recomendado)">
     - Lee las Skills disponibles y verifica los requisitos.
     - Le permite elegir un gestor de Node: **npm / pnpm** (bun no recomendado).
     - Instala dependencias opcionales (algunas usan Homebrew en macOS).
   
 </Step>
-  <Step title="Finish">
+  <Step title="Finalizar">
     - Resumen y siguientes pasos, incluidas aplicaciones para iOS/Android/macOS para funciones adicionales.
   
 </Step>
@@ -279,4 +284,3 @@ le pedirá instalarlo (npm o una ruta local) antes de poder configurarlo.
 - Referencia de configuración: [Configuración del Gateway](/gateway/configuration)
 - Proveedores: [WhatsApp](/channels/whatsapp), [Telegram](/channels/telegram), [Discord](/channels/discord), [Google Chat](/channels/googlechat), [Signal](/channels/signal), [BlueBubbles](/channels/bluebubbles) (iMessage), [iMessage](/channels/imessage) (heredado)
 - Skills: [Skills](/tools/skills), [Configuración de Skills](/tools/skills-config)
-

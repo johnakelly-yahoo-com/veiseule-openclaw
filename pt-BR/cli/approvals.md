@@ -1,4 +1,8 @@
 ---
+summary: "Referência da CLI para `openclaw approvals` (aprovações de execução para hosts do gateway ou de nó)"
+read_when:
+  - Você quer editar aprovações de execução pela CLI
+  - Você precisa gerenciar listas de permissões em hosts do gateway ou de nó
 title: "aprovações"
 ---
 
@@ -44,5 +48,3 @@ openclaw approvals allowlist remove "~/Projects/**/bin/rg"
 - `--agent` tem como padrão `"*"`, que se aplica a todos os agentes.
 - O host de nó deve anunciar `system.execApprovals.get/set` (aplicativo macOS ou host de nó headless).
 - Os arquivos de aprovações são armazenados por host em `~/.openclaw/exec-approvals.json`.
-
-

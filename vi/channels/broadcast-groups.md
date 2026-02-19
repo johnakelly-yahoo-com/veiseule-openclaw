@@ -1,4 +1,8 @@
 ---
+summary: "Phát sóng một tin nhắn WhatsApp tới nhiều tác tử"
+read_when:
+  - Cấu hình broadcast groups
+  - Gỡ lỗi phản hồi đa tác tử trong WhatsApp
 status: experimental
 title: "Nhóm Phát Sóng"
 ---
@@ -10,15 +14,15 @@ title: "Nhóm Phát Sóng"
 
 ## Tổng quan
 
-Nhóm Phát Sóng cho phép nhiều tác nhân xử lý và phản hồi cùng một tin nhắn đồng thời. Điều này giúp bạn tạo các nhóm tác nhân chuyên biệt làm việc cùng nhau trong một nhóm WhatsApp hoặc DM — tất cả chỉ với một số điện thoại.
+Broadcast Groups enable multiple agents to process and respond to the same message simultaneously. This allows you to create specialized agent teams that work together in a single WhatsApp group or DM — all using one phone number.
 
 Phạm vi hiện tại: **Chỉ WhatsApp** (kênh web).
 
-Nhóm phát sóng được đánh giá sau danh sách cho phép kênh (channel allowlists) và các quy tắc kích hoạt nhóm. Trong các nhóm WhatsApp, điều này có nghĩa là phát sóng sẽ diễn ra khi OpenClaw thường phản hồi (ví dụ: khi được nhắc đến, tùy thuộc vào cài đặt nhóm của bạn).
+Broadcast groups are evaluated after channel allowlists and group activation rules. In WhatsApp groups, this means broadcasts happen when OpenClaw would normally reply (for example: on mention, depending on your group settings).
 
 ## Trường hợp sử dụng
 
-### 1. Nhóm Tác Nhân Chuyên Biệt
+### 1. Specialized Agent Teams
 
 Triển khai nhiều tác tử với trách nhiệm nguyên tử, tập trung:
 
@@ -33,7 +37,7 @@ Agents:
 
 Mỗi tác tử xử lý cùng một tin nhắn và cung cấp góc nhìn chuyên môn riêng của mình.
 
-### 2. Hỗ Trợ Đa Ngôn Ngữ
+### 2. Multi-Language Support
 
 ```
 Group: "International Support"
@@ -43,7 +47,7 @@ Agents:
   - Agent_ES (responds in Spanish)
 ```
 
-### 3. Quy Trình Đảm Bảo Chất Lượng
+### 3. Quality Assurance Workflows
 
 ```
 Group: "Customer Support"
@@ -52,7 +56,7 @@ Agents:
   - QAAgent (reviews quality, only responds if issues found)
 ```
 
-### 4. Tự Động Hóa Tác Vụ
+### 4. Task Automation
 
 ```
 Group: "Project Management"
@@ -159,7 +163,7 @@ Các tác tử xử lý theo thứ tự (tác tử sau chờ tác tử trước 
 4. **Nếu không nằm trong danh sách broadcast**:
    - Áp dụng định tuyến thông thường (binding khớp đầu tiên)
 
-Lưu ý: nhóm phát sóng không bỏ qua danh sách cho phép kênh hoặc các quy tắc kích hoạt nhóm (nhắc đến/lệnh/v.v.). Chúng chỉ thay đổi _những tác nhân nào sẽ chạy_ khi một tin nhắn đủ điều kiện để được xử lý.
+Note: broadcast groups do not bypass channel allowlists or group activation rules (mentions/commands/etc). They only change _which agents run_ when a message is eligible for processing.
 
 ### Cách ly phiên
 
@@ -436,5 +440,3 @@ Các tính năng dự kiến:
 - [Cấu Hình Đa Tác Nhân](/tools/multi-agent-sandbox-tools)
 - [Routing Configuration](/channels/channel-routing)
 - [Session Management](/concepts/sessions)
-
-

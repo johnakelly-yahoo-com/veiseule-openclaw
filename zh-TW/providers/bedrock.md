@@ -1,10 +1,15 @@
 ---
+summary: "使用 Amazon Bedrock（Converse API）模型搭配 OpenClaw"
+read_when:
+  - 你想要使用 Amazon Bedrock 模型搭配 OpenClaw
+  - 你需要為模型呼叫設定 AWS 憑證／區域
 title: "Amazon Bedrock"
 ---
 
 # Amazon Bedrock
 
 OpenClaw 可透過 pi‑ai 的 **Bedrock Converse** 串流提供者使用 **Amazon Bedrock** 模型。Bedrock 的身分驗證使用 **AWS SDK 預設憑證鏈**，而非 API 金鑰。 Bedrock auth uses the **AWS SDK default credential chain**,
+not an API key. Bedrock auth uses the **AWS SDK default credential chain**,
 not an API key.
 
 ## pi‑ai 支援項目
@@ -16,7 +21,7 @@ not an API key.
 
 ## 自動模型探索
 
-若偵測到 AWS 憑證，OpenClaw 可自動探索支援 **串流** 與 **文字輸出** 的 Bedrock 模型。探索使用 `bedrock:ListFoundationModels`，並會快取（預設：1 小時）。 Discovery uses
+若偵測到 AWS 憑證，OpenClaw 可自動探索支援 **串流** 與 **文字輸出** 的 Bedrock 模型。探索使用 `bedrock:ListFoundationModels`，並會快取（預設：1 小時）。 若偵測到 AWS 憑證，OpenClaw 可自動探索支援 **串流** 與 **文字輸出** 的 Bedrock 模型。探索使用 `bedrock:ListFoundationModels`，並會快取（預設：1 小時）。 Discovery uses
 `bedrock:ListFoundationModels` and is cached (default: 1 hour).
 
 設定選項位於 `models.bedrockDiscovery` 之下：
@@ -97,8 +102,10 @@ export AWS_BEARER_TOKEN_BEDROCK="..."
 當 OpenClaw 執行於已附加 IAM 角色的 EC2 執行個體上時，AWS SDK 會自動使用執行個體中繼資料服務（IMDS）進行身分驗證。然而，OpenClaw 目前的憑證偵測僅檢查環境變數，未檢查 IMDS 憑證。
 However, OpenClaw's credential detection currently only checks for environment
 variables, not IMDS credentials.
+However, OpenClaw's credential detection currently only checks for environment
+variables, not IMDS credentials.
 
-**因應方式：** 設定 `AWS_PROFILE=default` 以表示 AWS 憑證可用。實際的身分驗證仍會透過 IMDS 使用執行個體角色。 The actual authentication still uses the instance role via IMDS.
+**因應方式：** 設定 `AWS_PROFILE=default` 以表示 AWS 憑證可用。實際的身分驗證仍會透過 IMDS 使用執行個體角色。 The actual authentication still uses the instance role via IMDS. The actual authentication still uses the instance role via IMDS.
 
 ```bash
 # Add to ~/.bashrc or your shell profile
@@ -164,5 +171,3 @@ openclaw models list
   AWS SDK 的預設憑證鏈。
 - 推理支援取決於模型；請查閱 Bedrock 模型卡以取得最新能力資訊。
 - 若你偏好受管金鑰流程，也可在 Bedrock 前方放置相容 OpenAI 的代理，並將其設定為 OpenAI 提供者。
-
-

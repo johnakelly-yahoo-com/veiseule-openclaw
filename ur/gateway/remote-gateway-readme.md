@@ -1,4 +1,6 @@
 ---
+summary: "ریموٹ گیٹ وے سے کنکشن کے لیے OpenClaw.app کی SSH سرنگ سیٹ اپ"
+read_when: "SSH کے ذریعے macOS ایپ کو ریموٹ گیٹ وے سے جوڑتے وقت"
 title: "ریموٹ Gateway سیٹ اپ"
 ---
 
@@ -170,5 +172,3 @@ launchctl bootout gui/$UID/bot.molt.ssh-tunnel
 | `RunAtLoad`                          | ایجنٹ لوڈ ہونے پر سرنگ شروع کرتا ہے                                |
 
 OpenClaw.app connects to `ws://127.0.0.1:18789` on your client machine. 25. SSH ٹنل اس کنیکشن کو ریموٹ مشین پر پورٹ 18789 کی طرف فارورڈ کرتا ہے جہاں گیٹ وے چل رہا ہوتا ہے۔
-
-

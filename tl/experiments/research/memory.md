@@ -1,4 +1,9 @@
 ---
+summary: "Mga tala sa pananaliksik: offline na sistema ng memorya para sa mga workspace ng Clawd (Markdown bilang source-of-truth + derived index)"
+read_when:
+  - Pagdidisenyo ng workspace memory (~/.openclaw/workspace) lampas sa pang-araw-araw na Markdown logs
+  - Deciding: mga limitasyon sa oras (“ano ang totoo noong Nob 2025?”)
+  - Pagdaragdag ng offline recall + reflection (retain/recall/reflect)
 title: "Pananaliksik sa Workspace Memory"
 ---
 
@@ -221,5 +226,3 @@ Kung gusto mo ng minimal pero kapaki-pakinabang na bersyon:
 - Mga konsepto ng Letta / MemGPT: “core memory blocks” + “archival memory” + tool-driven na self-editing memory.
 - Hindsight Technical Report: “retain / recall / reflect”, four-network memory, narrative fact extraction, opinion confidence evolution.
 - SuCo: arXiv 2411.14754 (2024): “Subspace Collision” approximate nearest neighbor retrieval.
-
-

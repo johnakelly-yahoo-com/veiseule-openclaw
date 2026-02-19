@@ -1,4 +1,9 @@
 ---
+summary: "Protocolo Bridge (nodos heredados): TCP JSONL, emparejamiento, RPC con alcance"
+read_when:
+  - Creación o depuración de clientes de nodo (modo nodo iOS/Android/macOS)
+  - Investigación de fallos de emparejamiento o autenticación del bridge
+  - Auditoría de la superficie de nodo expuesta por el Gateway
 title: "Protocolo Bridge"
 ---
 
@@ -30,7 +35,9 @@ Las claves de configuración heredadas `bridge.*` ya no forman parte del esquema
 - El puerto de escucha predeterminado heredado era `18790` (las compilaciones actuales no inician un bridge TCP).
 
 Cuando TLS está habilitado, los registros TXT de descubrimiento incluyen `bridgeTls=1` más
-`bridgeTlsSha256` para que los nodos puedan fijar el certificado.
+`bridgeTlsSha256` para que los nodos puedan fijar el certificado. Ten en cuenta que los registros TXT de Bonjour/mDNS son
+no autenticados; los clientes no deben tratar la huella digital anunciada como un
+pin autorizado sin la intención explícita del usuario u otra verificación fuera de banda.
 
 ## Handshake + emparejamiento
 
@@ -41,7 +48,7 @@ Cuando TLS está habilitado, los registros TXT de descubrimiento incluyen `bridg
 
 `hello-ok` devuelve `serverName` y puede incluir `canvasHostUrl`.
 
-## Tramas
+## Frames
 
 Cliente → Gateway:
 
@@ -81,5 +88,3 @@ Campos del payload (todos opcionales salvo que se indique lo contrario):
 ## Versionado
 
 El Bridge es actualmente **v1 implícita** (sin negociación de mínimo/máximo). Se espera compatibilidad hacia atrás; agregue un campo de versión del protocolo Bridge antes de cualquier cambio incompatible.
-
-

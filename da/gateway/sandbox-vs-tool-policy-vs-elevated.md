@@ -1,5 +1,7 @@
 ---
-title: "Sandbox vs Værktøjspolitik vs Forhøjede rettigheder"
+title: Sandbox vs Værktøjspolitik vs Forhøjede rettigheder
+summary: "Hvorfor et værktøj er blokeret: sandbox-runtime, værktøjs tillad/afvis-politik og elevated exec-gates"
+read_when: "Du rammer 'sandbox jail' eller ser et værktøjs-/elevated-afslag og vil have den præcise konfigurationsnøgle, der skal ændres."
 status: active
 ---
 
@@ -124,5 +126,3 @@ Fix-it-nøgler (vælg én):
 ### “Jeg troede, dette var main, hvorfor er det sandboxed?”
 
 I `"ikke-main"` tilstand, gruppe / kanal nøgler er _not_ main. Brug hovedsessionsnøglen (vist ved `sandbox explain`) eller skift tilstand til `"off"`.
-
-

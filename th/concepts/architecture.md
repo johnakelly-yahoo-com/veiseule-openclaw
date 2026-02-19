@@ -1,4 +1,7 @@
 ---
+summary: "สถาปัตยกรรมGatewayผ่านWebSocket องค์ประกอบ และโฟลว์ของไคลเอนต์"
+read_when:
+  - กำลังทำงานกับโปรโตคอลGateway ไคลเอนต์ หรือทรานสปอร์ต
 title: "สถาปัตยกรรมGateway"
 ---
 
@@ -15,7 +18,10 @@ title: "สถาปัตยกรรมGateway"
   `127.0.0.1:18789`)
 - **โหนด** (macOS/iOS/Android/headless) ก็เชื่อมต่อผ่าน **WebSocket** เช่นกัน แต่จะประกาศ `role: node` พร้อมความสามารถ/คำสั่งที่ระบุชัดเจน
 - หนึ่งGatewayต่อหนึ่งโฮสต์; เป็นที่เดียวที่เปิดเซสชัน WhatsApp
-- **โฮสต์แคนวาส** (ค่าเริ่มต้น `18793`) ให้บริการ HTML ที่เอเจนต์แก้ไขได้และ A2UI
+- **canvas host** ให้บริการโดย Gateway HTTP server ภายใต้:
+  - `/__openclaw__/canvas/` (HTML/CSS/JS ที่เอเจนต์แก้ไขได้)
+  - `/__openclaw__/a2ui/` (A2UI host)
+    ใช้พอร์ตเดียวกับ Gateway (ค่าเริ่มต้น `18789`)
 
 ## องค์ประกอบและโฟลว์
 
@@ -51,22 +57,6 @@ title: "สถาปัตยกรรมGateway"
 ## วงจรชีวิตการเชื่อมต่อ (ไคลเอนต์เดียว)
 
 ```mermaid
-%%{init: {
-  'theme': 'base',
-  'themeVariables': {
-    'primaryColor': '#ffffff',
-    'primaryTextColor': '#000000',
-    'primaryBorderColor': '#000000',
-    'lineColor': '#000000',
-    'secondaryColor': '#f9f9fb',
-    'tertiaryColor': '#ffffff',
-    'clusterBkg': '#f9f9fb',
-    'clusterBorder': '#000000',
-    'nodeBorder': '#000000',
-    'mainBkg': '#ffffff',
-    'edgeLabelBackground': '#ffffff'
-  }
-}}%%
 sequenceDiagram
     participant Client
     participant Gateway
@@ -143,5 +133,3 @@ sequenceDiagram
 - มี Gateway เพียงหนึ่งเดียวที่ควบคุมเซสชัน Baileys หนึ่งเซสชันต่อโฮสต์
 - แฮนด์เชคเป็นสิ่งจำเป็น; เฟรมแรกที่ไม่ใช่ JSON หรือไม่ใช่ connect จะถูกปิดการเชื่อมต่อทันที
 - อีเวนต์จะไม่ถูกรีเพลย์; ไคลเอนต์ต้องรีเฟรชเมื่อเกิดช่องว่าง
-
-

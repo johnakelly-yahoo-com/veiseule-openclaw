@@ -1,16 +1,21 @@
 ---
+summary: "Giao thức Bridge (các node kế thừa): TCP JSONL, ghép cặp, RPC theo phạm vi"
+read_when:
+  - Xây dựng hoặc gỡ lỗi client node (chế độ node iOS/Android/macOS)
+  - Điều tra lỗi ghép cặp hoặc xác thực bridge
+  - Kiểm toán bề mặt node được gateway phơi bày
 title: "Giao thức Bridge"
 ---
 
 # Giao thức Bridge (vận chuyển node kế thừa)
 
-Giao thức Bridge là cơ chế truyền tải node **legacy** (TCP JSONL). Các node client mới
+The Bridge protocol is a **legacy** node transport (TCP JSONL). New node clients
 should use the unified Gateway WebSocket protocol instead.
 
 Nếu bạn đang xây dựng một operator hoặc client node, hãy dùng
 [Giao thức Gateway](/gateway/protocol).
 
-**Lưu ý:** Các bản dựng OpenClaw hiện tại không còn bao gồm trình lắng nghe TCP bridge; tài liệu này được giữ lại cho mục đích tham khảo lịch sử.
+**Note:** Current OpenClaw builds no longer ship the TCP bridge listener; this document is kept for historical reference.
 Legacy `bridge.*` config keys are no longer part of the config schema.
 
 ## Vì sao chúng tôi có cả hai
@@ -29,8 +34,10 @@ Legacy `bridge.*` config keys are no longer part of the config schema.
 - TLS tùy chọn (khi `bridge.tls.enabled` là true).
 - Cổng listener mặc định kế thừa là `18790` (các bản dựng hiện tại không khởi động TCP bridge).
 
-Khi bật TLS, các bản ghi TXT cho discovery bao gồm `bridgeTls=1` cộng với
-`bridgeTlsSha256` để node có thể ghim chứng chỉ.
+Khi TLS được bật, bản ghi TXT discovery bao gồm `bridgeTls=1` cùng với
+`bridgeTlsSha256` như một gợi ý không bí mật. Lưu ý rằng bản ghi TXT của Bonjour/mDNS là
+không được xác thực; client không được coi fingerprint được quảng bá là
+pin có thẩm quyền nếu không có chủ đích rõ ràng từ người dùng hoặc xác minh ngoài băng tần khác.
 
 ## Bắt tay + ghép cặp
 
@@ -80,7 +87,5 @@ Các trường payload (tất cả đều tùy chọn trừ khi có ghi chú):
 
 ## Phiên bản hóa
 
-Bridge hiện tại là **implicit v1** (không có cơ chế thương lượng phiên bản tối thiểu/tối đa). Tương thích ngược
+Bridge is currently **implicit v1** (no min/max negotiation). Backward‑compat
 is expected; add a bridge protocol version field before any breaking changes.
-
-

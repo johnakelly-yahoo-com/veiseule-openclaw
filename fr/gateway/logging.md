@@ -1,4 +1,8 @@
 ---
+summary: "Surfaces de journalisation, journaux de fichiers, styles de journaux WS et formatage de la console"
+read_when:
+  - Modification de la sortie ou des formats de journalisation
+  - Depannage de la sortie du CLI ou de la passerelle
 title: "Journalisation"
 ---
 
@@ -107,5 +111,3 @@ Comportement :
 - **Les corps de messages WhatsApp** sont journalises au niveau `debug` (utilisez `--verbose` pour les voir)
 
 Cela permet de conserver des journaux de fichiers stables tout en rendant la sortie interactive facilement analysable.
-
-

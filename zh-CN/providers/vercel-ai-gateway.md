@@ -1,12 +1,9 @@
 ---
-title: Vercel AI Gateway
-x-i18n:
-  generated_at: "2026-02-03T07:53:39Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: c6482f047a31b09c7a691d40babbd1f9fb3aa2042b61cc42956ad9b791da8285
-  source_path: providers/vercel-ai-gateway.md
-  workflow: 15
+title: "Vercel AI Gateway"
+summary: "Vercel AI Gateway 设置（认证 + 模型选择）"
+read_when:
+  - 你想将 Vercel AI Gateway 与 OpenClaw 配合使用
+  - 你需要 API 密钥环境变量或 CLI 认证选择
 ---
 
 # Vercel AI Gateway
@@ -46,10 +43,8 @@ openclaw onboard --non-interactive \
   --ai-gateway-api-key "$AI_GATEWAY_API_KEY"
 ```
 
-## 环境变量说明
+## Environment note
 
 如果 Gateway 网关作为守护进程运行（launchd/systemd），请确保 `AI_GATEWAY_API_KEY`
 对该进程可用（例如，在 `~/.openclaw/.env` 中或通过
 `env.shellEnv`）。
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "„Wann OpenClaw Tippindikatoren anzeigt und wie Sie sie anpassen“"
+read_when:
+  - „Ändern des Verhaltens oder der Standardwerte von Tippindikatoren“
 title: "„Tippindikatoren“"
 ---
 
@@ -63,5 +66,3 @@ Sie können Modus oder Taktung pro Sitzung überschreiben:
 - Heartbeats zeigen niemals Tippen an, unabhängig vom Modus.
 - `typingIntervalSeconds` steuert die **Aktualisierungstaktung**, nicht den Startzeitpunkt.
   Der Standardwert beträgt 6 Sekunden.
-
-

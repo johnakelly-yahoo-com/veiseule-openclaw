@@ -1,4 +1,9 @@
 ---
+summary: "Context: မော်ဒယ်က ဘာတွေကို မြင်နေလဲ၊ ဘယ်လို တည်ဆောက်ထားလဲ၊ ဘယ်လို စစ်ဆေးနိုင်လဲ"
+read_when:
+  - OpenClaw မှာ “context” ဆိုတာ ဘာကို ဆိုလိုသလဲ နားလည်ချင်တဲ့အခါ
+  - မော်ဒယ်က ဘာကြောင့် အချက်အလက်တစ်ခုကို “သိနေ” သို့မဟုတ် “မေ့သွား” သလဲ ဆိုတာ စစ်ဆေးနေတဲ့အခါ
+  - context အလွန်အကျွံ သုံးစွဲမှုကို လျှော့ချချင်တဲ့အခါ (/context, /status, /compact)
 title: "အကြောင်းအရာ"
 ---
 
@@ -107,7 +112,7 @@ Top tools (schema size):
 - `HEARTBEAT.md`
 - `BOOTSTRAP.md` (ပထမဆုံး run တွင်သာ)
 
-10. Large files များကို file တစ်ခုချင်းစီအလိုက် `agents.defaults.bootstrapMaxChars` (default `20000` chars) ဖြင့် truncate လုပ်ပါသည်။ 11. `/context` သည် **raw vs injected** size များနှင့် truncation ဖြစ်ပေါ်ခဲ့သလား ဆိုသည်ကို ပြသပါသည်။
+10. Large files များကို file တစ်ခုချင်းစီအလိုက် `agents.defaults.bootstrapMaxChars` (default `20000` chars) ဖြင့် truncate လုပ်ပါသည်။ OpenClaw သည် ဖိုင်များအနှံ့ bootstrap injection စုစုပေါင်းအတွက် `agents.defaults.bootstrapTotalMaxChars` (မူလ `24000` chars) ဖြင့် ကန့်သတ်ထားသည်။ 11. `/context` သည် **raw vs injected** size များနှင့် truncation ဖြစ်ပေါ်ခဲ့သလား ဆိုသည်ကို ပြသပါသည်။
 
 ## Skills: inject လုပ်ထားတာ vs လိုအပ်မှ load လုပ်တာ
 
@@ -154,5 +159,3 @@ Tools တွေက context ကို နည်းလမ်း နှစ်မျ
 - `System prompt (estimate)` = run report မရှိတဲ့အခါ (သို့) report မထုတ်ပေးတဲ့ CLI backend ဖြင့် run လုပ်တဲ့အခါ အချိန်နှင့်တပြေးညီ တွက်ချက်ထားသော အချက်အလက်။
 
 ဘယ်လိုပဲဖြစ်ဖြစ်၊ အရွယ်အစားများနဲ့ အဓိက ပါဝင်သူများကိုသာ အစီရင်ခံပြီး system prompt အပြည့်အစုံ သို့မဟုတ် tool schemas ကိုတော့ မဖော်ပြပါဘူး။
-
-

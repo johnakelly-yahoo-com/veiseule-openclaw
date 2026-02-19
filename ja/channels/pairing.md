@@ -1,8 +1,13 @@
 ---
-title: "ペアリング"
+summary: "ペアリングの概要：誰があなたに DM を送信できるか、どのノードが参加できるかを承認します"
+read_when:
+  - DM アクセス制御の設定
+  - 新しい iOS／Android ノードのペアリング
+  - OpenClaw のセキュリティ体制の確認
+title: "Pairing"
 ---
 
-# ペアリング
+# Pairing
 
 「ペアリング」は、OpenClaw における明示的な **オーナー承認** の手順です。
 次の 2 つの場面で使用されます。
@@ -46,6 +51,7 @@ openclaw pairing approve telegram <CODE>
 ## 2. ノード デバイスのペアリング（iOS／Android／macOS／ヘッドレス ノード）
 
 ノードは、`role: node` を用いた **デバイス** として Gateway（ゲートウェイ）に接続します。Gateway（ゲートウェイ）は、承認が必要なデバイス ペアリング リクエストを作成します。 ゲートウェイ
+は、承認が必要なデバイスペアリングリクエストを作成します。 ゲートウェイ
 は、承認が必要なデバイスペアリングリクエストを作成します。
 
 ### Telegram 経由でペアリング（iOS では推奨）
@@ -82,7 +88,7 @@ openclaw devices reject <requestId>
 
 ### 注記
 
-- レガシーの `node.pair.*` API（CLI： `openclaw nodes pending/approve`）は、ゲートウェイ所有の別個のペアリング ストアです。WS ノードでは、引き続きデバイス ペアリングが必要です。 WSノードでは、デバイスのペアリングが必要です。
+- レガシーの `node.pair.*` API（CLI： `openclaw nodes pending/approve`）は、ゲートウェイ所有の別個のペアリング ストアです。WS ノードでは、引き続きデバイス ペアリングが必要です。 WSノードでは、デバイスのペアリングが必要です。 WSノードでは、デバイスのペアリングが必要です。
 
 ## 関連ドキュメント
 
@@ -96,5 +102,3 @@ openclaw devices reject <requestId>
   - iMessage（レガシー）： [iMessage](/channels/imessage)
   - Discord： [Discord](/channels/discord)
   - Slack： [Slack](/channels/slack)
-
-

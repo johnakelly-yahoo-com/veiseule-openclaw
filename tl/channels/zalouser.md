@@ -1,4 +1,8 @@
 ---
+summary: "Suporta para sa personal na Zalo account sa pamamagitan ng zca-cli (QR login), mga kakayahan, at konpigurasyon"
+read_when:
+  - Pagse-setup ng Zalo Personal para sa OpenClaw
+  - Pag-debug ng Zalo Personal login o daloy ng mensahe
 title: "Zalo Personal"
 ---
 
@@ -134,5 +138,3 @@ Halimbawa:
 
 - `openclaw channels status --probe`
 - Mag-login muli: `openclaw channels logout --channel zalouser && openclaw channels login --channel zalouser`
-
-

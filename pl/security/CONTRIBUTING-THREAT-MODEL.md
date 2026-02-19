@@ -2,7 +2,7 @@
 
 Dziękujemy za pomoc w zwiększaniu bezpieczeństwa OpenClaw. Ten model zagrożeń jest żywym dokumentem i zapraszamy do współtworzenia każdego — nie musisz być ekspertem ds. bezpieczeństwa.
 
-## Sposoby współtworzenia
+## Ways to Contribute
 
 ### Dodaj zagrożenie
 
@@ -31,62 +31,60 @@ Attack chains show how multiple threats combine into a realistic attack scenario
 
 Typos, clarifications, outdated info, better examples - PRs welcome, no issue needed.
 
-## 1. Czego używamy
+## Czego używamy
 
-### 2. MITRE ATLAS
+### MITRE ATLAS
 
-Ten model zagrożeń opiera się na [MITRE ATLAS](https://atlas.mitre.org/) (Adversarial Threat Landscape for AI Systems), ramach zaprojektowanych specjalnie dla zagrożeń AI/ML, takich jak wstrzykiwanie promptów, niewłaściwe użycie narzędzi i wykorzystywanie agentów. 4. Nie musisz znać ATLAS, aby wnieść wkład — mapujemy zgłoszenia do frameworku podczas przeglądu.
+Ten model zagrożeń opiera się na [MITRE ATLAS](https://atlas.mitre.org/) (Adversarial Threat Landscape for AI Systems), ramach zaprojektowanych specjalnie dla zagrożeń AI/ML, takich jak wstrzykiwanie promptów, niewłaściwe użycie narzędzi i wykorzystywanie agentów. Nie musisz znać ATLAS, aby wnieść wkład — mapujemy zgłoszenia do frameworku podczas przeglądu.
 
-### 5. Identyfikatory zagrożeń
+### Identyfikatory zagrożeń
 
-6. Każde zagrożenie otrzymuje identyfikator, taki jak `T-EXEC-003`. 7. Kategorie to:
+Każde zagrożenie otrzymuje identyfikator, taki jak `T-EXEC-003`. Kategorie to:
 
-| Kod                                | Kategoria                                                              |
-| ---------------------------------- | ---------------------------------------------------------------------- |
-| 8. RECON    | 9. Rozpoznanie — zbieranie informacji           |
-| 10. ACCESS  | 11. Dostęp początkowy — uzyskanie wejścia       |
-| 12. EXEC    | 13. Wykonanie — uruchamianie złośliwych działań |
-| 14. PERSIST | 15. Trwałość — utrzymywanie dostępu             |
-| 16. EVADE   | 17. Unikanie obrony — unikanie wykrycia         |
-| 18. DISC    | 19. Odkrywanie — poznawanie środowiska          |
-| 20. EXFIL   | 21. Eksfiltracja — kradzież danych              |
-| 22. IMPACT  | 23. Wpływ — szkody lub zakłócenia               |
+| Kod     | Kategoria                                   |
+| ------- | ------------------------------------------- |
+| RECON   | Rozpoznanie — zbieranie informacji          |
+| ACCESS  | Dostęp początkowy — uzyskanie wejścia       |
+| EXEC    | Wykonanie — uruchamianie złośliwych działań |
+| PERSIST | Trwałość — utrzymywanie dostępu             |
+| EVADE   | Unikanie obrony — unikanie wykrycia         |
+| DISC    | Odkrywanie — poznawanie środowiska          |
+| EXFIL   | Eksfiltracja — kradzież danych              |
+| IMPACT  | Wpływ — szkody lub zakłócenia               |
 
-24. Identyfikatory są przypisywane przez opiekunów podczas przeglądu. 25. Nie musisz wybierać jednego.
+Identyfikatory są przypisywane przez opiekunów podczas przeglądu. Nie musisz wybierać jednego.
 
-### 26. Poziomy ryzyka
+### Poziomy ryzyka
 
-| 27. Poziom        | 28. Znaczenie                                                                     |
-| ---------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| 29. **Krytyczny** | 30. Pełne przejęcie systemu lub wysokie prawdopodobieństwo + krytyczny wpływ      |
-| 31. **Wysoki**    | 32. Znaczne szkody prawdopodobne lub średnie prawdopodobieństwo + krytyczny wpływ |
-| 33. **Średni**    | 34. Umiarkowane ryzyko lub niskie prawdopodobieństwo + wysoki wpływ               |
-| 35. **Niski**     | 36. Mało prawdopodobne i o ograniczonym wpływie                                   |
+| Poziom                                | 28. Znaczenie                                          |
+| ------------------------------------- | ----------------------------------------------------------------------------- |
+| **Krytyczny**                         | Pełne przejęcie systemu lub wysokie prawdopodobieństwo + krytyczny wpływ      |
+| 31. **Wysoki** | Znaczne szkody prawdopodobne lub średnie prawdopodobieństwo + krytyczny wpływ |
+| **Średni**                            | Umiarkowane ryzyko lub niskie prawdopodobieństwo + wysoki wpływ               |
+| 35. **Niski**  | Mało prawdopodobne i o ograniczonym wpływie                                   |
 
-37. Jeśli nie masz pewności co do poziomu ryzyka, po prostu opisz wpływ, a my go ocenimy.
+Jeśli nie masz pewności co do poziomu ryzyka, po prostu opisz wpływ, a my go ocenimy.
 
-## 38. Proces przeglądu
+## Proces przeglądu
 
-1. 39. **Triaging** — Przeglądamy nowe zgłoszenia w ciągu 48 godzin
-2. 40. **Ocena** — Weryfikujemy wykonalność, przypisujemy mapowanie ATLAS i identyfikator zagrożenia, weryfikujemy poziom ryzyka
-3. 41. **Dokumentacja** — Zapewniamy, że wszystko jest sformatowane i kompletne
-4. 42. **Scalenie** — Dodanie do modelu zagrożeń i wizualizacji
+1. **Triaging** — Przeglądamy nowe zgłoszenia w ciągu 48 godzin
+2. **Ocena** — Weryfikujemy wykonalność, przypisujemy mapowanie ATLAS i identyfikator zagrożenia, weryfikujemy poziom ryzyka
+3. **Dokumentacja** — Zapewniamy, że wszystko jest sformatowane i kompletne
+4. **Scalenie** — Dodanie do modelu zagrożeń i wizualizacji
 
 ## 43) Zasoby
 
-- 44. [Strona ATLAS](https://atlas.mitre.org/)
-- 45. [Techniki ATLAS](https://atlas.mitre.org/techniques/)
-- 46. [Studia przypadków ATLAS](https://atlas.mitre.org/studies/)
-- 47. [Model zagrożeń OpenClaw](./THREAT-MODEL-ATLAS.md)
+- [Strona ATLAS](https://atlas.mitre.org/)
+- [Techniki ATLAS](https://atlas.mitre.org/techniques/)
+- [Studia przypadków ATLAS](https://atlas.mitre.org/studies/)
+- [Model zagrożeń OpenClaw](./THREAT-MODEL-ATLAS.md)
 
-## 48. Kontakt
+## Kontakt
 
-- 49. **Luki bezpieczeństwa:** Zobacz naszą [stronę Zaufanie](https://trust.openclaw.ai), aby uzyskać instrukcje zgłaszania
-- 50. **Pytania dotyczące modelu zagrożeń:** Otwórz zgłoszenie w [openclaw/trust](https://github.com/openclaw/trust/issues)
+- **Luki bezpieczeństwa:** Zobacz naszą [stronę Zaufanie](https://trust.openclaw.ai), aby uzyskać instrukcje zgłaszania
+- **Pytania dotyczące modelu zagrożeń:** Otwórz zgłoszenie w [openclaw/trust](https://github.com/openclaw/trust/issues)
 - **General chat:** Discord #security channel
 
 ## Recognition
 
 Contributors to the threat model are recognized in the threat model acknowledgments, release notes, and the OpenClaw security hall of fame for significant contributions.
-
-

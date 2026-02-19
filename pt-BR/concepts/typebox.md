@@ -1,4 +1,7 @@
 ---
+summary: "Esquemas TypeBox como a única fonte de verdade para o protocolo do gateway"
+read_when:
+  - Atualizar esquemas de protocolo ou codegen
 title: "TypeBox"
 ---
 
@@ -38,7 +41,7 @@ Métodos + eventos comuns:
 
 | Categoria | Exemplos                                                  | Notas                                      |
 | --------- | --------------------------------------------------------- | ------------------------------------------ |
-| Núcleo      | `connect`, `health`, `status`                             | `connect` deve ser o primeiro              |
+| Núcleo    | `connect`, `health`, `status`                             | `connect` deve ser o primeiro              |
 | Mensagens | `send`, `poll`, `agent`, `agent.wait`                     | efeitos colaterais exigem `idempotencyKey` |
 | Chat      | `chat.history`, `chat.send`, `chat.abort`, `chat.inject`  | O WebChat usa estes                        |
 | Sessions  | `sessions.list`, `sessions.patch`, `sessions.delete`      | administração de sessão                    |
@@ -281,5 +284,3 @@ arquivo bruto publicado normalmente está disponível em:
 1. Atualize os esquemas TypeBox.
 2. Execute `pnpm protocol:check`.
 3. Faça commit do esquema regenerado + modelos Swift.
-
-

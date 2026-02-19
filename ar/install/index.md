@@ -1,10 +1,15 @@
 ---
+summary: "تثبيت OpenClaw — برنامج التثبيت النصي، npm/pnpm، من المصدر، Docker، والمزيد"
+read_when:
+  - تحتاج إلى طريقة تثبيت غير البدء السريع ضمن «بدء الاستخدام»
+  - ترغب في النشر على منصة سحابية
+  - تحتاج إلى التحديث أو الترحيل أو إلغاء التثبيت
 title: "التثبيت"
 ---
 
 # التثبيت
 
-هل تابعت بالفعل [بدء الاستخدام](/start/getting-started)؟ أنت جاهز — هذه الصفحة مخصّصة لطرق التثبيت البديلة، والتعليمات الخاصة بالمنصّات، وأعمال الصيانة.
+هل تابعت بالفعل [بدء](/start/getting-started)؟ هل اتبعت بالفعل [بدء الاستخدام](/start/getting-started)؟ أنت جاهز — هذه الصفحة مخصّصة لطرق التثبيت البديلة، والتعليمات الخاصة بالمنصّات، وأعمال الصيانة.
 
 ## متطلبات النظام
 
@@ -26,6 +31,8 @@ title: "التثبيت"
   <Accordion title="Installer script" icon="rocket" defaultOpen>
     يقوم بتنزيل CLI وتثبيته بشكل عام عبر npm، ثم تشغيل معالج التهيئة الأولية.
 
+    ````
+    ```
     <Tabs>
       <Tab title="macOS / Linux / WSL2">
         ```bash
@@ -41,11 +48,11 @@ title: "التثبيت"
 </Tab>
     
 </Tabs>
-
+    
     هذا كل شيء — يتكفّل البرنامج باكتشاف Node وتثبيته والتهيئة الأولية.
-
+    
     لتجاوز التهيئة الأولية والاكتفاء بتثبيت الملف التنفيذي:
-
+    
     <Tabs>
       <Tab title="macOS / Linux / WSL2">
         ```bash
@@ -61,8 +68,10 @@ title: "التثبيت"
 </Tab>
     
 </Tabs>
-
+    
     للاطلاع على جميع الأعلام ومتغيرات البيئة وخيارات CI/الأتمتة، راجع [Installer internals](/install/installer).
+    ```
+    ````
 
   
 </Accordion>
@@ -70,20 +79,22 @@ title: "التثبيت"
   <Accordion title="npm / pnpm" icon="package">
     إذا كان لديك بالفعل Node 22+ وتفضّل إدارة التثبيت بنفسك:
 
+    ````
+    ```
     <Tabs>
       <Tab title="npm">
         ```bash
         npm install -g openclaw@latest
         openclaw onboard --install-daemon
         ```
-
+    
         <Accordion title="أخطاء بناء sharp؟">
-          إذا كان لديك libvips مثبتًا بشكل عام (شائع على macOS عبر Homebrew) وفشل `sharp`، فقم بفرض استخدام الثنائيات مُسبقة البناء:
-
+          إذا كان لديك libvips مثبتًا بشكل عام (شائع على macOS عبر Homebrew) وفشل `sharp`، فقم بفرض استخدام الثنائيات المُسبقة البناء:
+    
           ```bash
           SHARP_IGNORE_GLOBAL_LIBVIPS=1 npm install -g openclaw@latest
           ```
-
+    
           إذا رأيت `sharp: Please add node-gyp to your dependencies`، فإمّا أن تثبّت أدوات البناء (macOS: Xcode CLT + `npm install -g node-gyp`) أو استخدم متغير البيئة أعلاه.
         
 </Accordion>
@@ -95,15 +106,17 @@ title: "التثبيت"
         pnpm approve-builds -g        # approve openclaw, node-llama-cpp, sharp, etc.
         openclaw onboard --install-daemon
         ```
-
+    
         <Note>
-        يتطلّب pnpm موافقة صريحة للحِزم التي تحتوي على نصوص بناء. بعد أن يُظهر التثبيت الأول تحذير "Ignored build scripts"، شغّل `pnpm approve-builds -g` واختر الحِزم المدرجة.
+        يتطلّب pnpm موافقة صريحة للحِزم التي تحتوي على نصوص بناء. بعد أن يُظهر التثبيت الأول تحذير «Ignored build scripts»، شغّل `pnpm approve-builds -g` واختر الحِزم المدرجة.
         
 </Note>
       
 </Tab>
     
 </Tabs>
+    ```
+    ````
 
   
 </Accordion>
@@ -111,10 +124,12 @@ title: "التثبيت"
   <Accordion title="From source" icon="github">
     للمساهمين أو لأي شخص يرغب في التشغيل من نسخة محلية.
 
+    ````
+    ```
     <Steps>
       <Step title="الاستنساخ والبناء">
         استنسخ [مستودع OpenClaw](https://github.com/openclaw/openclaw) ثم ابنِ المشروع:
-
+    
         ```bash
         git clone https://github.com/openclaw/openclaw.git
         cd openclaw
@@ -126,11 +141,11 @@ title: "التثبيت"
 </Step>
       <Step title="ربط CLI">
         اجعل الأمر `openclaw` متاحًا بشكل عام:
-
+    
         ```bash
         pnpm link --global
         ```
-
+    
         بديلًا عن ذلك، يمكنك تجاوز الربط وتشغيل الأوامر عبر `pnpm openclaw ...` من داخل المستودع.
       
 </Step>
@@ -142,8 +157,10 @@ title: "التثبيت"
 </Step>
     
 </Steps>
-
+    
     لمزيد من مسارات العمل التطويرية المتقدمة، راجع [الإعداد](/start/setup).
+    ```
+    ````
 
   
 </Accordion>
@@ -157,7 +174,7 @@ title: "التثبيت"
   
 </Card>
   <Card title="Podman" href="/install/podman" icon="container">
-    حاوية بدون صلاحيات root: شغّل `setup-podman.sh` مرة واحدة، ثم شغّل سكربت الإطلاق.
+    حاوية Rootless: شغّل `setup-podman.sh` مرة واحدة، ثم نصّ الإطلاق.
   
 </Card>
   <Card title="Nix" href="/install/nix" icon="snowflake">
@@ -214,7 +231,7 @@ export PATH="$(npm prefix -g)/bin:$PATH"
 
 على Windows، أضِف ناتج `npm prefix -g` إلى PATH.
 
-ثم افتح طرفية جديدة (أو `rehash` في zsh / `hash -r` في bash).
+ثم افتح طرفية جديدة (أو `rehash` في zsh / `hash -r` في bash). 
 </Accordion>
 
 ## التحديث / إلغاء التثبيت
@@ -233,4 +250,3 @@ export PATH="$(npm prefix -g)/bin:$PATH"
   
 </Card>
 </CardGroup>
-

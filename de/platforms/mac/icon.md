@@ -1,4 +1,7 @@
 ---
+summary: "„Status der Menüleisten‑Symbole und Animationen für OpenClaw unter macOS“"
+read_when:
+  - Ändern des Verhaltens des Menüleisten‑Symbols
 title: "„Menüleisten‑Symbol“"
 ---
 
@@ -26,5 +29,3 @@ Verhaltenshinweise
 
 - Kein externer CLI/Broker‑Schalter für Ohren/Arbeiten; halten Sie dies intern an die eigenen App‑Signale gebunden, um unbeabsichtigtes Flattern zu vermeiden.
 - Halten Sie TTLs kurz (&lt;10 s), damit das Symbol schnell zur Basislinie zurückkehrt, falls ein Auftrag hängt.
-
-

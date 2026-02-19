@@ -1,4 +1,8 @@
 ---
+summary: "Tillämpa flerfils-patchar med verktyget apply_patch"
+read_when:
+  - Du behöver strukturerade filändringar över flera filer
+  - Du vill dokumentera eller felsöka patch-baserade ändringar
 title: "apply_patch-verktyget"
 ---
 
@@ -29,7 +33,8 @@ Verktyget accepterar en enda `input`-sträng som omsluter en eller flera filoper
 ## Noteringar
 
 - Sökvägar löses relativt arbetsytans rot.
-- Använd `*** Move to:` inom en `*** Update File:`-hunk för att byta namn på filer.
+- `tools.exec.applyPatch.workspaceOnly` är som standard `true` (begränsad till arbetsytan). Sätt den till `false` endast om du avsiktligt vill att `apply_patch` ska skriva/radera utanför arbetsytekatalogen.
+- `*** End of File` markerar en enbart EOF-infogning när det behövs.
 - `*** End of File` markerar en enbart EOF-infogning när det behövs.
 - Experimentell och inaktiverad som standard. Aktivera med `tools.exec.applyPatch.enabled`.
 - OpenAI-endast (inklusive OpenAI Codex). Valfritt gate av modell via
@@ -44,5 +49,3 @@ Verktyget accepterar en enda `input`-sträng som omsluter en eller flera filoper
   "input": "*** Begin Patch\n*** Update File: src/index.ts\n@@\n-const foo = 1\n+const foo = 2\n*** End Patch"
 }
 ```
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "Konpigurasyon at setup ng Twitch chat bot"
+read_when:
+  - Pagse-set up ng Twitch chat integration para sa OpenClaw
 title: "Twitch"
 ---
 
@@ -114,7 +117,7 @@ Kung parehong naka-set ang env at config, uunahin ang config.
 }
 ```
 
-Mas piliin ang `allowFrom` para sa mahigpit na allowlist. Gamitin ang `allowedRoles` kung gusto mo ng role-based na access.
+Prefer `allowFrom` for a hard allowlist. Use `allowedRoles` instead if you want role-based access.
 
 **Mga available na role:** `"moderator"`, `"owner"`, `"vip"`, `"subscriber"`, `"all"`.
 
@@ -143,7 +146,7 @@ Awtomatikong nire-refresh ng bot ang mga token bago mag-expire at nagla-log ng m
 
 ## Suporta sa maraming account
 
-Gamitin ang `channels.twitch.accounts` na may hiwa-hiwalay na token bawat account. Tingnan ang [`gateway/configuration`](/gateway/configuration) para sa karaniwang pattern.
+Use `channels.twitch.accounts` with per-account tokens. See [`gateway/configuration`](/gateway/configuration) for the shared pattern.
 
 Halimbawa (isang bot account sa dalawang channel):
 
@@ -208,7 +211,7 @@ Halimbawa (isang bot account sa dalawang channel):
 
 ### Role-based access (alternatibo)
 
-Ang `allowFrom` ay isang mahigpit na allowlist. Kapag nakatakda, tanging ang mga user ID na iyon lamang ang pinapayagan.
+`allowFrom` is a hard allowlist. When set, only those user IDs are allowed.
 If you want role-based access, leave `allowFrom` unset and configure `allowedRoles` instead:
 
 ```json5
@@ -227,7 +230,7 @@ If you want role-based access, leave `allowFrom` unset and configure `allowedRol
 
 ### I-disable ang @mention requirement
 
-Bilang default, ang `requireMention` ay `true`. Upang i-disable at tumugon sa lahat ng mensahe:
+By default, `requireMention` is `true`. To disable and respond to all messages:
 
 ```json5
 {
@@ -374,5 +377,3 @@ Halimbawa:
 - **500 karakter** bawat mensahe (awtomatikong hina-hati sa word boundaries)
 - Tinatanggal ang Markdown bago ang chunking
 - Walang rate limiting (ginagamit ang built-in na rate limits ng Twitch)
-
-

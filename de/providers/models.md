@@ -1,4 +1,8 @@
 ---
+summary: "Von OpenClaw unterstützte Modellanbieter (LLMs)"
+read_when:
+  - Sie möchten einen Modellanbieter auswählen
+  - Sie möchten schnelle Einrichtungsbeispiele für LLM-Authentifizierung und Modellauswahl
 title: "Schnellstart für Modellanbieter"
 ---
 
@@ -44,5 +48,3 @@ Siehe [Venice AI](/providers/venice).
 - [Qianfan](/providers/qianfan)
 
 Den vollständigen Anbieterkatalog (xAI, Groq, Mistral usw.) sowie erweiterte Konfigurationen finden Sie unter [Modellanbieter](/concepts/model-providers).
-
-

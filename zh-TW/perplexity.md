@@ -1,10 +1,15 @@
 ---
+summary: "用於 web_search 的 Perplexity Sonar 設定"
+read_when:
+  - 你想要使用 Perplexity Sonar 進行網頁搜尋
+  - 你需要 PERPLEXITY_API_KEY 或 OpenRouter 設定
 title: "Perplexity Sonar"
 ---
 
 # Perplexity Sonar
 
 OpenClaw 可將 Perplexity Sonar 用於 `web_search` 工具。你可以透過 Perplexity 的直接 API 連線，或經由 OpenRouter。 You can connect
+through Perplexity’s direct API or via OpenRouter. You can connect
 through Perplexity’s direct API or via OpenRouter.
 
 ## API 選項
@@ -74,5 +79,3 @@ through Perplexity’s direct API or via OpenRouter.
 - `perplexity/sonar-reasoning-pro` — 深度研究
 
 請參閱 [Web tools](/tools/web) 以取得完整的 web_search 設定。
-
-

@@ -1,13 +1,8 @@
 ---
-status: active
+summary: "按智能体的沙箱 + 工具限制、优先级和示例"
 title: 多智能体沙箱与工具
-x-i18n:
-  generated_at: "2026-02-03T07:50:39Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: f602cb6192b84b404cd7b6336562888a239d0fe79514edd51bd73c5b090131ef
-  source_path: tools/multi-agent-sandbox-tools.md
-  workflow: 15
+read_when: "You want per-agent sandboxing or per-agent tool allow/deny policies in a multi-agent gateway."
+status: active
 ---
 
 # 多智能体沙箱与工具配置
@@ -33,9 +28,11 @@ x-i18n:
 ~/.openclaw/agents/<agentId>/agent/auth-profiles.json
 ```
 
+凭据**不会**在代理之间共享。 Never reuse `agentDir` across agents.
 凭证**不会**在智能体之间共享。切勿在智能体之间重用 `agentDir`。
 如果你想共享凭证，请将 `auth-profiles.json` 复制到其他智能体的 `agentDir` 中。
 
+有关沙箱在运行时的行为，请参见 [Sandboxing](/gateway/sandboxing)。
 有关沙箱隔离在运行时的行为，请参见[沙箱隔离](/gateway/sandboxing)。
 有关调试"为什么这被阻止了？"，请参见[沙箱 vs 工具策略 vs 提权](/gateway/sandbox-vs-tool-policy-vs-elevated) 和 `openclaw sandbox explain`。
 
@@ -192,7 +189,7 @@ x-i18n:
 
 ### 沙箱配置
 
-智能体特定设置覆盖全局：
+代理特定设置会覆盖全局设置：
 
 ```
 agents.list[].sandbox.mode > agents.defaults.sandbox.mode
@@ -221,10 +218,10 @@ agents.list[].sandbox.prune.* > agents.defaults.sandbox.prune.*
 7. **沙箱工具策略**（`tools.sandbox.tools` 或 `agents.list[].tools.sandbox.tools`）
 8. **子智能体工具策略**（`tools.subagents.tools`，如适用）
 
-每个级别可以进一步限制工具，但不能恢复之前级别拒绝的工具。
-如果设置了 `agents.list[].tools.sandbox.tools`，它将替换该智能体的 `tools.sandbox.tools`。
-如果设置了 `agents.list[].tools.profile`，它将覆盖该智能体的 `tools.profile`。
-提供商工具键接受 `provider`（例如 `google-antigravity`）或 `provider/model`（例如 `openai/gpt-5.2`）。
+5) 每一层级都可以进一步限制工具，但不能重新授予在更早层级中已被拒绝的工具。
+6) 如果设置了 `agents.list[].tools.sandbox.tools`，则会替换该代理的 `tools.sandbox.tools`。
+7) 如果设置了 `agents.list[].tools.profile`，则会覆盖该代理的 `tools.profile`。
+   Provider tool keys accept either `provider` (e.g. `google-antigravity`) or `provider/model` (e.g. `openai/gpt-5.2`).
 
 ### 工具组（简写）
 
@@ -242,7 +239,7 @@ agents.list[].sandbox.prune.* > agents.defaults.sandbox.prune.*
 
 ### 提权模式
 
-`tools.elevated` 是全局基线（基于发送者的允许列表）。`agents.list[].tools.elevated` 可以为特定智能体进一步限制提权（两者都必须允许）。
+21. `tools.elevated` 是全局基线（基于发送方的允许列表）。 22. `agents.list[].tools.elevated` 可以针对特定代理进一步限制提升权限（两者都必须允许）。
 
 缓解模式：
 
@@ -301,7 +298,7 @@ agents.list[].sandbox.prune.* > agents.defaults.sandbox.prune.*
 
 ## 工具限制示例
 
-### 只读智能体
+### 35. 只读代理
 
 ```json
 {
@@ -341,7 +338,9 @@ agents.list[].sandbox.prune.* > agents.defaults.sandbox.prune.*
 `agents.defaults.sandbox.mode: "non-main"` 基于 `session.mainKey`（默认 `"main"`），
 而不是智能体 id。群组/渠道会话始终获得自己的键，因此它们
 被视为非 main 并将被沙箱隔离。如果你希望智能体永不
-沙箱隔离，请设置 `agents.list[].sandbox.mode: "off"`。
+沙箱隔离，请设置 `agents.list[].sandbox.mode: "off"`。 43. 群组/频道会话始终会获得各自的 key，因此
+会被视为非 main 并被沙箱化。 44. 如果你希望某个代理永不
+使用沙箱，请设置 `agents.list[].sandbox.mode: "off"`。
 
 ---
 
@@ -366,6 +365,7 @@ agents.list[].sandbox.prune.* > agents.defaults.sandbox.prune.*
    - 验证智能体无法使用被拒绝的工具
 
 4. **监控日志：**
+
    ```exec
    tail -f "${OPENCLAW_STATE_DIR:-$HOME/.openclaw}/logs/gateway.log" | grep -E "routing|sandbox|tools"
    ```
@@ -397,5 +397,3 @@ agents.list[].sandbox.prune.* > agents.defaults.sandbox.prune.*
 - [多智能体路由](/concepts/multi-agent)
 - [沙箱配置](/gateway/configuration#agentsdefaults-sandbox)
 - [会话管理](/concepts/session)
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "Streng konfigurationsvalidering + doctor-kun-migreringer"
+read_when:
+  - Design eller implementering af adfærd for konfigurationsvalidering
+  - Arbejde med konfigurationsmigreringer eller doctor-workflows
+  - Håndtering af plugin-konfigurationsskemaer eller gating af plugin-indlæsning
 title: "Streng konfigurationsvalidering"
 ---
 
@@ -86,5 +91,3 @@ Alt andet skal fejle hårdnakket med: “Config ugyldig. Kør `openclaw læge --
 - Plugin mangler skema → plugin-indlæsning blokeres med klar fejl.
 - Ugyldig konfiguration → gateway-opstart blokeres undtagen diagnostiske kommandoer.
 - Doctor dry-run automatisk; `doctor --fix` skriver korrigeret konfiguration.
-
-

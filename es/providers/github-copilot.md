@@ -1,4 +1,8 @@
 ---
+summary: "Inicie sesión en GitHub Copilot desde OpenClaw usando el flujo de dispositivo"
+read_when:
+  - Desea usar GitHub Copilot como proveedor de modelos
+  - Necesita el flujo `openclaw models auth login-github-copilot`
 title: "GitHub Copilot"
 ---
 
@@ -70,5 +74,3 @@ openclaw models set github-copilot/gpt-4o
 - El inicio de sesión almacena un token de GitHub en el almacén de perfiles de
   autenticación y lo intercambia por un token de la API de Copilot cuando se ejecuta
   OpenClaw.
-
-

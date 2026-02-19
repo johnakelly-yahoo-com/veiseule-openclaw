@@ -1,4 +1,8 @@
 ---
+summary: "Dybtgående fejlfinding-runbook for gateway, kanaler, automatisering, noder og browser"
+read_when:
+  - Fejlfindingshubben har henvist dig hertil for dybere diagnose
+  - Du har brug for stabile, symptombaserede runbook-sektioner med præcise kommandoer
 title: "Fejlfinding"
 ---
 
@@ -105,7 +109,7 @@ Se efter:
 
 Almindelige signaturer:
 
-- `Gateway start blocked: set gateway.mode=local` → lokal gateway-tilstand er ikke aktiveret.
+- `Gateway start blocked: set gateway.mode=local` → lokal gateway-tilstand er ikke aktiveret. Ret: sæt `gateway.mode="local"` i din konfiguration (eller kør `openclaw configure`). Hvis du kører OpenClaw via Podman med den dedikerede `openclaw`-bruger, findes konfigurationen på `~openclaw/.openclaw/openclaw.json`.
 - `nægter at binde gateway... uden auth` → ikke-loopback bind uden token/password.
 - `another gateway instance is already listening` / `EADDRINUSE` → portkonflikt.
 
@@ -312,5 +316,3 @@ Relateret:
 - [/gateway/pairing](/gateway/pairing)
 - [/gateway/authentication](/gateway/authentication)
 - [/gateway/background-process](/gateway/background-process)
-
-

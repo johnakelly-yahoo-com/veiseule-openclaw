@@ -1,4 +1,8 @@
 ---
+summary: "تشغيل جسر ACP لتكاملات بيئات التطوير المتكاملة (IDE)"
+read_when:
+  - إعداد تكاملات IDE المستندة إلى ACP
+  - تصحيح توجيه جلسات ACP إلى Gateway
 title: "acp"
 ---
 
@@ -161,5 +165,3 @@ openclaw acp --session agent:qa:bug-123
 - `--server-args <args...>`: وسيطات إضافية تُمرَّر إلى خادم ACP.
 - `--server-verbose`: تمكين التسجيل المُفصّل على خادم ACP.
 - `--verbose, -v`: تسجيل مُفصّل للعميل.
-
-

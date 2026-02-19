@@ -1,4 +1,8 @@
 ---
+summary: "Справка по CLI для `openclaw dashboard` (открытие интерфейса управления)"
+read_when:
+  - Вы хотите открыть интерфейс управления с вашим текущим токеном
+  - Вы хотите вывести URL без запуска браузера
 title: "панель"
 ---
 
@@ -10,5 +14,3 @@ title: "панель"
 openclaw dashboard
 openclaw dashboard --no-open
 ```
-
-

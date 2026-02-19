@@ -1,4 +1,7 @@
 ---
+summary: "Sådan indlejrer mac-appen gatewayens WebChat, og hvordan du debugger den"
+read_when:
+  - Fejlfinding af mac WebChat-visning eller loopback-port
 title: "WebChat"
 ---
 
@@ -28,7 +31,7 @@ agent (med en session switcher for andre sessioner).
 
 - Dataplan: Gateway WS-metoder `chat.history`, `chat.send`, `chat.abort`,
   `chat.inject` samt events `chat`, `agent`, `presence`, `tick`, `health`.
-- Session: standard er den primære session (`main`, eller `global` når omfanget er
+- Session: defaults to the primary session (`main`, or `global` when scope is
   global). Brugergrænsefladen kan skifte mellem sessioner.
 - Introduktion bruger en dedikeret session for at holde førstegangsopsætning adskilt.
 
@@ -39,5 +42,3 @@ agent (med en session switcher for andre sessioner).
 ## Kendte begrænsninger
 
 - UI’et er optimeret til chatsessioner (ikke en fuld browser-sandbox).
-
-

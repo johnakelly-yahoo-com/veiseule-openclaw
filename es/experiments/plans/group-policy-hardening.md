@@ -1,4 +1,7 @@
 ---
+summary: "Endurecimiento de la lista de permitidos de Telegram: prefijo + normalización de espacios en blanco"
+read_when:
+  - Revisión de cambios históricos de la lista de permitidos de Telegram
 title: "Endurecimiento de la lista de permitidos de Telegram"
 ---
 
@@ -35,5 +38,3 @@ falsos negativos al decidir si responder en mensajes directos o grupos.
 
 - [Chats de grupo](/channels/groups)
 - [Proveedor de Telegram](/channels/telegram)
-
-

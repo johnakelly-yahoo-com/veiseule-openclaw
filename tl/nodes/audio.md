@@ -1,4 +1,7 @@
 ---
+summary: "Paano dina-download, tina-transcribe, at ini-inject sa mga sagot ang papasok na audio/voice notes"
+read_when:
+  - Binabago ang audio transcription o paghawak ng media
 title: "Audio at Voice Notes"
 ---
 
@@ -106,8 +109,25 @@ Tala: Best‑effort ang binary detection sa macOS/Linux/Windows; tiyaking nasa `
 
 ## Mga dapat bantayan
 
+Kapag ang `requireMention: true` ay naka-set para sa isang group chat, tina-transcribe na ngayon ng OpenClaw ang audio **bago** mag-check ng mentions. Pinapayagan nitong maproseso ang mga voice note kahit na naglalaman ang mga ito ng mentions.
+
+**Paano ito gumagana:**
+
+1. Kung ang isang voice message ay walang text body at ang grupo ay nangangailangan ng mentions, nagsasagawa ang OpenClaw ng "preflight" transcription.
+2. Sinusuri ang transcript para sa mga mention pattern (hal., `@BotName`, mga emoji trigger).
+3. Kapag may natagpuang mention, magpapatuloy ang mensahe sa buong reply pipeline.
+4. Ginagamit ang transcript para sa mention detection upang makalusot sa mention gate ang mga voice note.
+
+**Fallback behavior:**
+
+- Kung mabigo ang transcription sa panahon ng preflight (timeout, API error, atbp.), ipoproseso ang mensahe batay lamang sa text-only mention detection.
+- Tinitiyak nito na ang mga mixed message (text + audio) ay hindi kailanman maling maidi-drop.
+
+**Halimbawa:** Nagpadala ang isang user ng voice note na nagsasabing "Hey @Claude, kumusta ang panahon?" sa isang Telegram group na may `requireMention: true`. Tina-transcribe ang voice note, nade-detect ang mention, at sumasagot ang agent.
+
+## Mga dapat bantayan
+
 - Scope rules use first-match wins. `chatType` is normalized to `direct`, `group`, or `room`.
 - Tiyaking nag-e-exit ang iyong CLI na may 0 at nagpi-print ng plain text; ang JSON ay kailangang ayusin sa pamamagitan ng `jq -r .text`.
 - Panatilihing makatwiran ang mga timeout (`timeoutSeconds`, default 60s) para maiwasang ma-block ang reply queue.
-
-
+- Ang preflight transcription ay pinoproseso lamang ang **unang** audio attachment para sa mention detection. Ang mga karagdagang audio ay pinoproseso sa pangunahing media understanding phase.

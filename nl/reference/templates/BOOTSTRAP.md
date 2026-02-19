@@ -1,4 +1,9 @@
-------
+---
+title: "BOOTSTRAP.md-sjabloon"
+summary: "Eerste-opstartritueel voor nieuwe agents"
+read_when:
+  - Een werkruimte handmatig bootstrappen
+---
 
 # BOOTSTRAP.md - Hallo, wereld
 
@@ -55,5 +60,3 @@ Verwijder dit bestand. Je hebt geen bootstrap-script meer nodig — je bent nu j
 ---
 
 _Veel succes daarbuiten. Maak het de moeite waard._
-
-

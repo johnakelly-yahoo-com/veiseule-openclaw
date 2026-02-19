@@ -1,4 +1,8 @@
 ---
+summary: "Comando de ubicación para nodos (location.get), modos de permisos y comportamiento en segundo plano"
+read_when:
+  - Agregar soporte de nodo de ubicación o UI de permisos
+  - Diseñar flujos de ubicación en segundo plano + push
 title: "Comando de ubicación"
 ---
 
@@ -107,5 +111,3 @@ Notas:
 - Mientras se usa: “Solo cuando OpenClaw está abierto.”
 - Siempre: “Permitir ubicación en segundo plano. Requiere permiso del sistema.”
 - Precisa: “Usar ubicación GPS precisa. Desactive para compartir ubicación aproximada.”
-
-

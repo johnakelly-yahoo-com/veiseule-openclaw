@@ -1,4 +1,7 @@
 ---
+summary: "Bezpośrednie uruchomienia CLI `openclaw agent` (z opcjonalnym dostarczaniem)"
+read_when:
+  - Dodawanie lub modyfikowanie punktu wejścia CLI agenta
 title: "Wysyłanie agenta"
 ---
 
@@ -48,5 +51,3 @@ openclaw agent --agent ops --message "Generate report" --deliver --reply-channel
 - `--verbose <on|full|off>`: utrwal poziom trybu gadatliwego
 - `--timeout <seconds>`: nadpisanie limitu czasu agenta
 - `--json`: wyjście w ustrukturyzowanym JSON
-
-

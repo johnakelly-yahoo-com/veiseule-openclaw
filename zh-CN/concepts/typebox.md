@@ -1,19 +1,17 @@
 ---
-title: TypeBox
-x-i18n:
-  generated_at: "2026-02-03T07:47:23Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 233800f4f5fabe8ed0e1b3d8aded2eca27252e08c9b0b24ea9c6293e9282c918
-  source_path: concepts/typebox.md
-  workflow: 15
+summary: "TypeBox 模式作为 Gateway 网关协议的唯一事实来源"
+read_when:
+  - 更新协议模式或代码生成
+title: "TypeBox"
 ---
 
 # TypeBox 作为协议的事实来源
 
 最后更新：2026-01-10
 
-TypeBox 是一个 TypeScript 优先的模式库。我们用它来定义 **Gateway 网关 WebSocket 协议**（握手、请求/响应、服务器事件）。这些模式驱动**运行时验证**、**JSON Schema 导出**和 macOS 应用的 **Swift 代码生成**。一个事实来源；其他一切都是生成的。
+TypeBox 是一个 TypeScript 优先的模式库。我们用它来定义 **Gateway 网关 WebSocket 协议**（握手、请求/响应、服务器事件）。这些模式驱动**运行时验证**、**JSON Schema 导出**和 macOS 应用的 **Swift 代码生成**。一个事实来源；其他一切都是生成的。 15. 我们使用它来定义 **Gateway
+WebSocket 协议**（握手、请求/响应、服务器事件）。 16. 这些 schemas
+驱动 **运行时校验**、**JSON Schema 导出** 以及 macOS 应用的 **Swift 代码生成**。 17. 单一事实来源；其余一切均由此生成。
 
 如果你想了解更高层次的协议上下文，请从 [Gateway 网关架构](/concepts/architecture)开始。
 
@@ -25,7 +23,9 @@ TypeBox 是一个 TypeScript 优先的模式库。我们用它来定义 **Gatewa
 - **Response**：`{ type: "res", id, ok, payload | error }`
 - **Event**：`{ type: "event", event, payload, seq?, stateVersion? }`
 
-第一个帧**必须**是 `connect` 请求。之后，客户端可以调用方法（例如 `health`、`send`、`chat.send`）并订阅事件（例如 `presence`、`tick`、`agent`）。
+26. 之后，客户端可以调用
+    方法（例如 `health`、`send`、`chat.send`）并订阅事件（例如
+    `presence`、`tick`、`agent`）。 第一个帧**必须**是 `connect` 请求。之后，客户端可以调用方法（例如 `health`、`send`、`chat.send`）并订阅事件（例如 `presence`、`tick`、`agent`）。
 
 连接流程（最小）：
 
@@ -40,18 +40,18 @@ Client                    Gateway
 
 常用方法 + 事件：
 
-| 类别 | 示例                                                      | 说明                            |
-| ---- | --------------------------------------------------------- | ------------------------------- |
-| 核心 | `connect`、`health`、`status`                             | `connect` 必须是第一个          |
-| 消息 | `send`、`poll`、`agent`、`agent.wait`                     | 有副作用的需要 `idempotencyKey` |
-| 聊天 | `chat.history`、`chat.send`、`chat.abort`、`chat.inject`  | WebChat 使用这些                |
-| 会话 | `sessions.list`、`sessions.patch`、`sessions.delete`      | 会话管理                        |
-| 节点 | `node.list`、`node.invoke`、`node.pair.*`                 | Gateway 网关 WS + 节点操作      |
-| 事件 | `tick`、`presence`、`agent`、`chat`、`health`、`shutdown` | 服务器推送                      |
+| 类别                                                                 | 示例                                                    | 说明                       |
+| ------------------------------------------------------------------ | ----------------------------------------------------- | ------------------------ |
+| 核心                                                                 | `connect`、`health`、`status`                           | `connect` 必须是第一个         |
+| 消息                                                                 | `send`、`poll`、`agent`、`agent.wait`                    | 有副作用的需要 `idempotencyKey` |
+| 聊天                                                                 | `chat.history`、`chat.send`、`chat.abort`、`chat.inject` | WebChat 使用这些             |
+| 会话                                                                 | `sessions.list`、`sessions.patch`、`sessions.delete`    | 会话管理                     |
+| 46. `node.list`、`node.invoke`、`node.pair.*` | `node.list`、`node.invoke`、`node.pair.*`               | Gateway 网关 WS + 节点操作     |
+| 事件                                                                 | `tick`、`presence`、`agent`、`chat`、`health`、`shutdown`  | 服务器推送                    |
 
 权威列表在 `src/gateway/server.ts`（`METHODS`、`EVENTS`）中。
 
-## 模式所在位置
+## 模式所在的位置
 
 - 源码：`src/gateway/protocol/schema.ts`
 - 运行时验证器（AJV）：`src/gateway/protocol/index.ts`
@@ -71,7 +71,7 @@ Client                    Gateway
 
 ## 模式在运行时的使用方式
 
-- **服务器端**：每个入站帧都用 AJV 验证。握手仅接受参数匹配 `ConnectParams` 的 `connect` 请求。
+- **服务器端**：每个入站帧都会使用 AJV 进行校验。 **服务器端**：每个入站帧都用 AJV 验证。握手仅接受参数匹配 `ConnectParams` 的 `connect` 请求。
 - **客户端**：JS 客户端在使用之前验证事件和响应帧。
 - **方法表面**：Gateway 网关在 `hello-ok` 中公布支持的 `methods` 和 `events`。
 
@@ -270,7 +270,8 @@ Swift 生成器输出：
 
 ## 实时 schema JSON
 
-生成的 JSON Schema 在仓库的 `dist/protocol.schema.json` 中。发布的原始文件通常可在以下位置获取：
+生成的 JSON Schema 在仓库的 `dist/protocol.schema.json` 中。发布的原始文件通常可在以下位置获取： The
+published raw file is typically available at:
 
 - https://raw.githubusercontent.com/openclaw/openclaw/main/dist/protocol.schema.json
 
@@ -279,5 +280,3 @@ Swift 生成器输出：
 1. 更新 TypeBox 模式。
 2. 运行 `pnpm protocol:check`。
 3. 提交重新生成的 schema + Swift 模型。
-
-

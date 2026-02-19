@@ -1,4 +1,7 @@
 ---
+summary: "Chat UI uchun Loopback WebChat statik xosti va Gateway WS’dan foydalanish"
+read_when:
+  - WebChat kirishini sozlash yoki nosozliklarni bartaraf etishda
 title: "WebChat"
 ---
 
@@ -36,7 +39,7 @@ To‘liq konfiguratsiya: [Configuration](/gateway/configuration)
 
 Kanal opsiyalari:
 
-- Alohida `webchat.*` bo‘limi yo‘q. WebChat quyidagi gateway endpoint + auth sozlamalaridan foydalanadi.
+- 3. WebChat quyidagi gateway endpointi + autentifikatsiya sozlamalaridan foydalanadi. 4. Tegishli global sozlamalar:
 
 Tegishli global opsiyalar:
 
@@ -45,5 +48,3 @@ Tegishli global opsiyalar:
 - `gateway.auth.mode: "trusted-proxy"`: brauzer mijozlari uchun reverse-proxy autentifikatsiyasi (qarang [Trusted Proxy Auth](/gateway/trusted-proxy-auth)).
 - `gateway.remote.url`, `gateway.remote.token`, `gateway.remote.password`: masofaviy gateway manzili.
 - `session.*`: sessiya saqlash va asosiy kalit (main key) uchun sukut bo‘yicha sozlamalar.
-
-

@@ -1,15 +1,18 @@
 ---
+summary: "Matrix समर्थन स्थिति, क्षमताएँ, और विन्यास"
+read_when:
+  - Matrix चैनल सुविधाओं पर कार्य करते समय
 title: "Matrix"
 ---
 
 # Matrix (प्लगइन)
 
-Matrix एक खुला, विकेंद्रीकृत मैसेजिंग प्रोटोकॉल है। OpenClaw एक Matrix **उपयोगकर्ता** के रूप में कनेक्ट होता है।
+Matrix is an open, decentralized messaging protocol. OpenClaw connects as a Matrix **user**
 on any homeserver, so you need a Matrix account for the bot. Once it is logged in, you can DM
 the bot directly or invite it to rooms (Matrix "groups"). Beeper is a valid client option too,
 but it requires E2EE to be enabled.
 
-स्थिति: प्लगइन (@vector-im/matrix-bot-sdk) के माध्यम से समर्थित। डायरेक्ट संदेश, रूम, थ्रेड्स, मीडिया, रिएक्शन्स,
+Status: supported via plugin (@vector-im/matrix-bot-sdk). Direct messages, rooms, threads, media, reactions,
 polls (send + poll-start as text), location, and E2EE (with crypto support).
 
 ## प्लगइन आवश्यक
@@ -75,7 +78,7 @@ openclaw plugins install ./extensions/matrix
 
 5. Gateway को पुनः प्रारंभ करें (या onboarding पूरा करें)।
 
-6. किसी भी Matrix क्लाइंट से बॉट के साथ DM शुरू करें या उसे किसी रूम में आमंत्रित करें।
+6. Start a DM with the bot or invite it to a room from any Matrix client
    (Element, Beeper, etc.; see [https://matrix.org/ecosystem/clients/](https://matrix.org/ecosystem/clients/)). Beeper requires E2EE,
    so set `channels.matrix.encryption: true` and verify the device.
 
@@ -119,7 +122,7 @@ E2EE config (एंड-टू-एंड एन्क्रिप्शन सक
 - यदि क्रिप्टो मॉड्यूल लोड हो जाता है, तो एन्क्रिप्टेड कमरे स्वचालित रूप से डिक्रिप्ट हो जाते हैं।
 - एन्क्रिप्टेड कमरों में भेजते समय आउटबाउंड मीडिया एन्क्रिप्ट किया जाता है।
 - पहली कनेक्शन पर, OpenClaw आपकी अन्य सत्रों से डिवाइस सत्यापन का अनुरोध करता है।
-- कुंजी साझा करने को सक्षम करने के लिए किसी अन्य Matrix क्लाइंट (Element आदि) में डिवाइस को सत्यापित करें।
+- Verify the device in another Matrix client (Element, etc.) to enable key sharing.
 - यदि क्रिप्टो मॉड्यूल लोड नहीं हो पाता, तो E2EE अक्षम हो जाता है और एन्क्रिप्टेड कमरे डिक्रिप्ट नहीं होंगे;
   OpenClaw एक चेतावनी लॉग करता है।
 - यदि आपको क्रिप्टो मॉड्यूल से संबंधित त्रुटियाँ दिखें (उदाहरण के लिए, `@matrix-org/matrix-sdk-crypto-nodejs-*`),
@@ -127,32 +130,74 @@ E2EE config (एंड-टू-एंड एन्क्रिप्शन सक
   `pnpm rebuild @matrix-org/matrix-sdk-crypto-nodejs` चलाएँ या बाइनरी को
   `node node_modules/@matrix-org/matrix-sdk-crypto-nodejs/download-lib.js` से प्राप्त करें।
 
-क्रिप्टो स्टेट प्रत्येक खाते + एक्सेस टोकन के अनुसार संग्रहीत किया जाता है।
+Crypto state is stored per account + access token in
 `~/.openclaw/matrix/accounts/<account>/<homeserver>__<user>/<token-hash>/crypto/`
-(SQLite डेटाबेस)। सिंक स्टेट इसके साथ `bot-storage.json` में रहता है।
+(SQLite database). Sync state lives alongside it in `bot-storage.json`.
 If the access token (device) changes, a new store is created and the bot must be
 re-verified for encrypted rooms.
 
-**डिवाइस सत्यापन:**
+**Device verification:**
 When E2EE is enabled, the bot will request verification from your other sessions on startup.
 Open Element (or another client) and approve the verification request to establish trust.
 Once verified, the bot can decrypt messages in encrypted rooms.
 
 ## रूटिंग मॉडल
 
-- उत्तर हमेशा Matrix पर वापस जाते हैं।
-- DMs एजेंट के मुख्य सत्र को साझा करते हैं; कमरे समूह सत्रों से मैप होते हैं।
+Multi-account समर्थन: प्रति-खाता credentials और वैकल्पिक `name` के साथ `channels.matrix.accounts` का उपयोग करें। साझा पैटर्न के लिए [`gateway/configuration`](/gateway/configuration#telegramaccounts--discordaccounts--slackaccounts--signalaccounts--imessageaccounts) देखें।
+
+प्रत्येक खाता किसी भी homeserver पर एक अलग Matrix user के रूप में चलता है। Per-account config
+top-level `channels.matrix` settings से inherit करता है और किसी भी option को override कर सकता है
+(DM policy, groups, encryption, आदि)।
+
+```json5
+{
+  channels: {
+    matrix: {
+      enabled: true,
+      dm: { policy: "pairing" },
+      accounts: {
+        assistant: {
+          name: "Main assistant",
+          homeserver: "https://matrix.example.org",
+          accessToken: "syt_assistant_***",
+          encryption: true,
+        },
+        alerts: {
+          name: "Alerts bot",
+          homeserver: "https://matrix.example.org",
+          accessToken: "syt_alerts_***",
+          dm: { policy: "allowlist", allowFrom: ["@admin:example.org"] },
+        },
+      },
+    },
+  },
+}
+```
+
+नोट्स:
+
+- डिफ़ॉल्ट: `channels.matrix.groupPolicy = "allowlist"` (mention-आधारित)। Use `channels.defaults.groupPolicy` to override the default when unset.
+- Env variables (`MATRIX_HOMESERVER`, `MATRIX_ACCESS_TOKEN`, आदि) केवल **default** खाते पर लागू होते हैं।
+- Base channel settings (DM policy, group policy, mention gating, आदि) सभी खातों पर लागू होते हैं जब तक कि प्रति-खाता override न किया गया हो।
+- प्रत्येक खाते को अलग agent से route करने के लिए `bindings[].match.accountId` का उपयोग करें।
+- Crypto state प्रति खाता + access token के अनुसार संग्रहीत होता है (प्रति खाते अलग key stores)।
+
+## रूटिंग मॉडल
+
+- `requireMention: false` उस कमरे में ऑटो-रिप्लाई सक्षम करता है।
+- `groups."*"` कमरों में मेंशन गेटिंग के लिए डिफ़ॉल्ट सेट कर सकता है।
 
 ## प्रवेश नियंत्रण (DMs)
 
 - डिफ़ॉल्ट: `channels.matrix.dm.policy = "pairing"`। Unknown senders get a pairing code.
-- स्वीकृति दें:
+- `channels.matrix.threadReplies` नियंत्रित करता है कि उत्तर थ्रेड्स में ही रहें या नहीं:
   - `openclaw pairing list matrix`
   - `openclaw pairing approve matrix <CODE>`
-- सार्वजनिक DMs: `channels.matrix.dm.policy="open"` तथा `channels.matrix.dm.allowFrom=["*"]`।
+- `channels.matrix.replyToMode` नियंत्रित करता है कि थ्रेड में उत्तर न देने पर reply-to मेटाडेटा कैसे हो:
 - `channels.matrix.dm.allowFrom` accepts full Matrix user IDs (example: `@user:server`). The wizard resolves display names to user IDs when directory search finds a single exact match.
+- Display names या केवल localparts (उदाहरण: `"Alice"` या `"alice"`) का उपयोग न करें। ये अस्पष्ट होते हैं और allowlist matching के लिए अनदेखा किए जाते हैं। पूर्ण `@user:server` IDs का उपयोग करें।
 
-## कमरे (समूह)
+## क्षमताएँ
 
 - डिफ़ॉल्ट: `channels.matrix.groupPolicy = "allowlist"` (mention-आधारित)। Use `channels.defaults.groupPolicy` to override the default when unset.
 - `channels.matrix.groups` के साथ कमरों को allowlist करें (रूम IDs या उपनाम; जब डायरेक्टरी खोज में एकल सटीक मिलान मिलता है तो नाम IDs में बदले जाते हैं):
@@ -206,7 +251,7 @@ Once verified, the bot can decrypt messages in encrypted rooms.
 
 ## समस्या-निवारण
 
-सबसे पहले यह लैडर चलाएँ:
+ट्रायेज फ़्लो के लिए: [/channels/troubleshooting](/channels/troubleshooting)।
 
 ```bash
 openclaw status
@@ -216,7 +261,7 @@ openclaw doctor
 openclaw channels status --probe
 ```
 
-फिर आवश्यकता होने पर DM पेयरिंग स्थिति की पुष्टि करें:
+पूर्ण विन्यास: [Configuration](/gateway/configuration)
 
 ```bash
 openclaw pairing list matrix
@@ -258,6 +303,5 @@ openclaw pairing list matrix
 - `channels.matrix.mediaMaxMb`: इनबाउंड/आउटबाउंड मीडिया सीमा (MB)।
 - `channels.matrix.autoJoin`: आमंत्रण हैंडलिंग (`always | allowlist | off`, डिफ़ॉल्ट: always)।
 - `channels.matrix.autoJoinAllowlist`: ऑटो-जॉइन के लिए अनुमत रूम IDs/उपनाम।
+- `channels.matrix.accounts`: account ID के आधार पर multi-account configuration (प्रत्येक खाता top-level settings inherit करता है)।
 - `channels.matrix.actions`: प्रति-एक्शन टूल गेटिंग (reactions/messages/pins/memberInfo/channelInfo)।
-
-

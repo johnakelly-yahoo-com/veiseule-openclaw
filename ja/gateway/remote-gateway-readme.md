@@ -1,30 +1,16 @@
 ---
+summary: "OpenClaw.app がリモートゲートウェイに接続するための SSH トンネル設定"
+read_when: "macOS アプリを SSH 経由でリモートゲートウェイに接続する場合"
 title: "リモートゲートウェイのセットアップ"
 ---
 
 # リモートゲートウェイで OpenClaw.app を実行する
 
-OpenClaw.app は、クライアントマシン上の `ws://127.0.0.1:18789` に接続します。SSH トンネルは、その接続をリモートマシン上で Gateway（ゲートウェイ）が実行されているポート 18789 に転送します。 このガイドでは、設定方法を説明します。
+OpenClaw.app はクライアントマシンで `ws://127.0.0.1:18789` に接続します。 SSHトンネルは、ゲートウェイが稼働しているリモートマシンの18789ポートへの接続を転送します。 このガイドでは、設定方法を説明します。
 
 ## 概要
 
 ```mermaid
-%%{init: {
-  'theme': 'base',
-  'themeVariables': {
-    'primaryColor': '#ffffff',
-    'primaryTextColor': '#000000',
-    'primaryBorderColor': '#000000',
-    'lineColor': '#000000',
-    'secondaryColor': '#f9f9fb',
-    'tertiaryColor': '#ffffff',
-    'clusterBkg': '#f9f9fb',
-    'clusterBorder': '#000000',
-    'nodeBorder': '#000000',
-    'mainBkg': '#ffffff',
-    'edgeLabelBackground': '#ffffff'
-  }
-}}%%
 flowchart TB
     subgraph Client["Client Machine"]
         direction TB
@@ -170,5 +156,3 @@ launchctl bootout gui/$UID/bot.molt.ssh-tunnel
 | `RunAtLoad`                          | エージェントの読み込み時にトンネルを起動             |
 
 OpenClaw.app はクライアントマシンで `ws://127.0.0.1:18789` に接続します。 SSHトンネルは、ゲートウェイが稼働しているリモートマシンの18789ポートへの接続を転送します。
-
-

@@ -1,4 +1,10 @@
 ---
+summary: "Chạy OpenClaw trong một VM macOS dạng sandbox (cục bộ hoặc được host) khi bạn cần cách ly hoặc iMessage"
+read_when:
+  - Bạn muốn OpenClaw được cách ly khỏi môi trường macOS chính
+  - Bạn muốn tích hợp iMessage (BlueBubbles) trong một sandbox
+  - Bạn muốn một môi trường macOS có thể đặt lại và sao chép
+  - Bạn muốn so sánh các lựa chọn VM macOS cục bộ và được host
 title: "VM macOS"
 ---
 
@@ -6,9 +12,9 @@ title: "VM macOS"
 
 ## Mặc định được khuyến nghị (đa số người dùng)
 
-- **VPS Linux nhỏ** cho Gateway luôn hoạt động với chi phí thấp. Xem [lưu trữ VPS](/vps).
+- **Small Linux VPS** for an always-on Gateway and low cost. See [VPS hosting](/vps).
 - **Phần cứng chuyên dụng** (Mac mini hoặc máy Linux) nếu bạn muốn toàn quyền kiểm soát và một **IP dân dụng** cho tự động hóa trình duyệt. Nhiều trang web chặn IP trung tâm dữ liệu, vì vậy duyệt web từ máy cục bộ thường hoạt động tốt hơn.
-- **Hybrid:** giữ Gateway trên một VPS giá rẻ và kết nối Mac của bạn như một **node** khi bạn cần tự động hóa trình duyệt/UI. Xem [Nút](/nodes) và [Gateway từ xa](/gateway/remote).
+- **Hybrid:** keep the Gateway on a cheap VPS, and connect your Mac as a **node** when you need browser/UI automation. See [Nodes](/nodes) and [Gateway remote](/gateway/remote).
 
 Chỉ dùng VM macOS khi bạn thực sự cần các khả năng chỉ có trên macOS (iMessage/BlueBubbles) hoặc muốn cách ly nghiêm ngặt khỏi chiếc Mac dùng hằng ngày.
 
@@ -273,5 +279,3 @@ Giữ VM chạy bằng cách:
 - [Lume CLI Reference](https://cua.ai/docs/lume/reference/cli-reference)
 - [Unattended VM Setup](https://cua.ai/docs/lume/guide/fundamentals/unattended-setup) (nâng cao)
 - [Docker Sandboxing](/install/docker) (cách cách ly thay thế)
-
-

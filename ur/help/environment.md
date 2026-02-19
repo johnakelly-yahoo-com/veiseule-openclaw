@@ -1,10 +1,15 @@
 ---
+summary: "OpenClaw ماحولاتی متغیرات کہاں سے لوڈ کرتا ہے اور ترجیحی ترتیب"
+read_when:
+  - آپ کو یہ جاننے کی ضرورت ہو کہ کون سے env vars لوڈ ہوتے ہیں اور کس ترتیب میں
+  - آپ Gateway میں گمشدہ API کلیدوں کی خرابی تلاش کر رہے ہوں
+  - آپ فراہم کنندہ کی تصدیق یا ڈپلائمنٹ ماحول کی دستاویز بنا رہے ہوں
 title: "ماحولاتی متغیرات"
 ---
 
 # ماحولاتی متغیرات
 
-OpenClaw متعدد ذرائع سے environment variables حاصل کرتا ہے۔ اصول یہ ہے کہ **موجودہ اقدار کو کبھی override نہ کریں**۔
+OpenClaw pulls environment variables from multiple sources. The rule is **never override existing values**.
 
 ## ترجیحی ترتیب (اعلیٰ → ادنیٰ)
 
@@ -69,21 +74,21 @@ Env var کے مساویات:
 
 تفصیلات کے لیے [Configuration: Env var substitution](/gateway/configuration#env-var-substitution-in-config) دیکھیں۔
 
-## Path سے متعلق env vars
+## Path-related env vars
 
-| متغیر                  | مقصد                                                                                                                                                                                                                             |
+| متغیر                  | Purpose                                                                                                                                                                                                                             |
 | ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `OPENCLAW_HOME`        | تمام اندرونی path resolution کے لیے استعمال ہونے والی home directory کو override کریں (`~/.openclaw/`, agent dirs, sessions, credentials)۔ Useful when running OpenClaw as a dedicated service user. |
-| `OPENCLAW_STATE_DIR`   | state directory کو override کریں (ڈیفالٹ `~/.openclaw`)۔                                                                                                                                            |
-| `OPENCLAW_CONFIG_PATH` | config file کے path کو override کریں (ڈیفالٹ `~/.openclaw/openclaw.json`)۔                                                                                                                             |
+| `OPENCLAW_HOME`        | Override the home directory used for all internal path resolution (`~/.openclaw/`, agent dirs, sessions, credentials). Useful when running OpenClaw as a dedicated service user. |
+| `OPENCLAW_STATE_DIR`   | Override the state directory (default `~/.openclaw`).                                                                                                                                            |
+| `OPENCLAW_CONFIG_PATH` | Override the config file path (default `~/.openclaw/openclaw.json`).                                                                                                                             |
 
 ### `OPENCLAW_HOME`
 
-جب سیٹ کیا جائے تو، `OPENCLAW_HOME` تمام اندرونی path resolution کے لیے سسٹم home directory (`$HOME` / `os.homedir()`) کو تبدیل کر دیتا ہے۔ یہ headless service accounts کے لیے مکمل filesystem تنہائی کو ممکن بناتا ہے۔
+When set, `OPENCLAW_HOME` replaces the system home directory (`$HOME` / `os.homedir()`) for all internal path resolution. This enables full filesystem isolation for headless service accounts.
 
 **Precedence:** `OPENCLAW_HOME` > `$HOME` > `USERPROFILE` > `os.homedir()`
 
-**مثال** (macOS LaunchDaemon):
+**Example** (macOS LaunchDaemon):
 
 ```xml
 <key>EnvironmentVariables</key>
@@ -93,12 +98,10 @@ Env var کے مساویات:
 </dict>
 ```
 
-`OPENCLAW_HOME` کو tilde path (مثلاً `~/svc`) پر بھی سیٹ کیا جا سکتا ہے، جسے استعمال سے پہلے `$HOME` کے ذریعے expand کیا جاتا ہے۔
+`OPENCLAW_HOME` can also be set to a tilde path (e.g. `~/svc`), which gets expanded using `$HOME` before use.
 
 ## متعلقہ
 
 - [Gateway configuration](/gateway/configuration)
 - [FAQ: env vars and .env loading](/help/faq#env-vars-and-env-loading)
 - [Models overview](/concepts/models)
-
-

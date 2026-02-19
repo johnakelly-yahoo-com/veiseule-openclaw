@@ -1,4 +1,8 @@
 ---
+summary: "ပလက်ဖောင်း ပံ့ပိုးမှု အကျဉ်းချုပ် (Gateway + အတူတကွ အသုံးပြုသော အက်ပ်များ)"
+read_when:
+  - OS ပံ့ပိုးမှု သို့မဟုတ် ထည့်သွင်းတပ်ဆင်ရာ လမ်းကြောင်းများကို ရှာဖွေနေသောအခါ
+  - Gateway ကို မည်သည့်နေရာတွင် လည်ပတ်စေမည်ကို ဆုံးဖြတ်နေသောအခါ
 title: "ပလက်ဖောင်းများ"
 ---
 
@@ -47,5 +51,3 @@ title: "ပလက်ဖောင်းများ"
 
 - 49. macOS: LaunchAgent (`bot.molt.gateway` သို့မဟုတ် `bot.molt.<profile>`50. `; legacy `com.openclaw.\*\`)
 - Linux/WSL2: systemd user service (`openclaw-gateway[-<profile>].service`)
-
-

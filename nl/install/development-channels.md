@@ -1,4 +1,8 @@
 ---
+summary: "Stable, beta- en dev-kanalen: semantiek, wisselen en taggen"
+read_when:
+  - Je wilt wisselen tussen stable/beta/dev
+  - Je bent prereleases aan het taggen of publiceren
 title: "Ontwikkelkanalen"
 ---
 
@@ -69,5 +73,3 @@ Beta- en dev-builds bevatten mogelijk **geen** macOS-apprelease. Dat is oké:
 
 - De git-tag en npm dist-tag kunnen nog steeds worden gepubliceerd.
 - Vermeld “geen macOS-build voor deze beta” in release-opmerkingen of de changelog.
-
-

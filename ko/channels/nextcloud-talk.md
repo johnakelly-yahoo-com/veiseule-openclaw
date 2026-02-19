@@ -1,4 +1,7 @@
 ---
+summary: "Nextcloud Talk 지원 상태, 기능, 및 구성"
+read_when:
+  - Nextcloud Talk 채널 기능 작업 중
 title: "Nextcloud Talk"
 ---
 
@@ -136,5 +139,3 @@ OpenClaw 는 로컬 설치 경로를 자동으로 제안합니다.
 - `channels.nextcloud-talk.blockStreaming`: 이 채널에 대해 블록 스트리밍 비활성화.
 - `channels.nextcloud-talk.blockStreamingCoalesce`: 블록 스트리밍 병합 튜닝.
 - `channels.nextcloud-talk.mediaMaxMb`: 수신 미디어 상한 (MB).
-
-

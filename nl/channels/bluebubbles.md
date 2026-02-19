@@ -1,4 +1,9 @@
 ---
+summary: "iMessage via BlueBubbles macOS-server (REST verzenden/ontvangen, typen, reacties, koppelen, geavanceerde acties)."
+read_when:
+  - BlueBubbles-kanaal instellen
+  - Problemen oplossen met webhook-koppeling
+  - iMessage configureren op macOS
 title: "BlueBubbles"
 ---
 
@@ -41,6 +46,10 @@ Status: gebundelde plugin die via HTTP met de BlueBubbles macOS-server praat. **
 4. Richt BlueBubbles-webhooks naar je Gateway (voorbeeld: `https://your-gateway-host:3000/bluebubbles-webhook?password=<password>`).
 
 5. Start de Gateway; deze registreert de webhook-handler en start het koppelen.
+
+Beveiligingsopmerking:
+
+- Stel altijd een webhook-wachtwoord in. Als je de gateway via een reverse proxy (Tailscale Serve/Funnel, nginx, Cloudflare Tunnel, ngrok) beschikbaar maakt, kan de proxy via loopback verbinding maken met de gateway. De BlueBubbles-webhookhandler beschouwt verzoeken met forwarding-headers als geproxied en accepteert geen webhooks zonder wachtwoord.
 
 ## Messages.app actief houden (VM / headless setups)
 
@@ -247,14 +256,14 @@ Beschikbare acties:
 OpenClaw kan _korte_ bericht-ID’s tonen (bijv. `1`, `2`) om tokens te besparen.
 
 - `MessageSid` / `ReplyToId` kunnen korte ID’s zijn.
-- `MessageSidFull` / `ReplyToIdFull` bevatten de volledige provider-ID’s.
+- Context: `MessageSidFull` / `ReplyToIdFull` in inkomende payloads
 - Korte ID’s zijn in-memory; ze kunnen verlopen bij herstart of cache-opschoning.
 - Acties accepteren korte of volledige `messageId`, maar korte ID’s geven een fout als ze niet langer beschikbaar zijn.
 
 Gebruik volledige ID’s voor duurzame automatiseringen en opslag:
 
 - Sjablonen: `{{MessageSidFull}}`, `{{ReplyToIdFull}}`
-- Context: `MessageSidFull` / `ReplyToIdFull` in inkomende payloads
+- `MessageSidFull` / `ReplyToIdFull` bevatten de volledige provider-ID’s.
 
 Zie [Configuratie](/gateway/configuration) voor sjabloonvariabelen.
 
@@ -298,6 +307,7 @@ Provider-opties:
 - `channels.bluebubbles.textChunkLimit`: Uitgaande chunkgrootte in tekens (standaard: 4000).
 - `channels.bluebubbles.chunkMode`: `length` (standaard) splitst alleen bij overschrijden van `textChunkLimit`; `newline` splitst op lege regels (paragraafgrenzen) vóór lengte-opknippen.
 - `channels.bluebubbles.mediaMaxMb`: Inkomende medialimiet in MB (standaard: 8).
+- `channels.bluebubbles.mediaLocalRoots`: Expliciete allowlist van absolute lokale mappen die zijn toegestaan voor uitgaande lokale mediapaden. Het verzenden van lokale paden wordt standaard geweigerd tenzij dit is geconfigureerd. Per-accountoverride: `channels.bluebubbles.accounts.<accountId> .mediaLocalRoots`.
 - `channels.bluebubbles.historyLimit`: Max. aantal groepsberichten voor context (0 schakelt uit).
 - `channels.bluebubbles.dmHistoryLimit`: DM-geschiedenisl limiet.
 - `channels.bluebubbles.actions`: Specifieke acties in-/uitschakelen.
@@ -336,5 +346,3 @@ Geef de voorkeur aan `chat_guid` voor stabiele routering:
 - Voor status-/gezondheidsinfo: `openclaw status --all` of `openclaw status --deep`.
 
 Voor algemene referentie over kanaalworkflows, zie [Kanalen](/channels) en de handleiding [Plugins](/tools/plugin).
-
-

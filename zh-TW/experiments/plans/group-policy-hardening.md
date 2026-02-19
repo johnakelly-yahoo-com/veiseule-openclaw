@@ -1,4 +1,7 @@
 ---
+summary: "Telegram 允許清單強化：前綴＋空白正規化"
+read_when:
+  - 檢視歷史 Telegram 允許清單變更時
 title: "Telegram 允許清單強化"
 ---
 
@@ -28,12 +31,10 @@ Telegram 允許清單現在可不分大小寫地接受 `telegram:` 與 `tg:` 前
 
 ## 為何重要
 
-27. 從日誌或聊天 ID 複製／貼上時，常會包含前綴與空白字元。 28. 正規化可避免
-    在判斷是否要於私訊或群組中回應時出現誤判（false negatives）。
+從日誌或聊天 ID 複製／貼上時，常會包含前綴與空白字元。 28. 正規化可避免
+在判斷是否要於私訊或群組中回應時出現誤判（false negatives）。
 
 ## 29. 相關文件
 
 - [Group Chats](/channels/groups)
 - [Telegram 提供者](/channels/telegram)
-
-

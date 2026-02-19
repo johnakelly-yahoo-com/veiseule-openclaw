@@ -1,4 +1,7 @@
 ---
+summary: "Kurerade länkar till de mest använda OpenClaw-dokumenten."
+read_when:
+  - Du vill ha snabb åtkomst till centrala dokumentsidor
 title: "Dokumentkatalog"
 ---
 
@@ -59,5 +62,3 @@ För en komplett karta över dokumenten, se [Docs hubs](/start/hubs).
 - [Gmail-hooks (Pub/Sub)](/automation/gmail-pubsub)
 - [Säkerhet](/gateway/security)
 - [Felsökning](/gateway/troubleshooting)
-
-

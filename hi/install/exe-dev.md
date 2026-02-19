@@ -1,4 +1,8 @@
 ---
+summary: "दूरस्थ पहुँच के लिए exe.dev (VM + HTTPS प्रॉक्सी) पर OpenClaw Gateway चलाएँ"
+read_when:
+  - आपको Gateway के लिए एक सस्ता, हमेशा चालू रहने वाला Linux होस्ट चाहिए
+  - आप अपना स्वयं का VPS चलाए बिना दूरस्थ Control UI एक्सेस चाहते हैं
 title: "exe.dev"
 ---
 
@@ -6,7 +10,7 @@ title: "exe.dev"
 
 लक्ष्य: exe.dev VM पर चल रहा OpenClaw Gateway, जो आपके लैपटॉप से निम्न माध्यम से पहुँचा जा सके: `https://<vm-name>.exe.xyz`
 
-यह पेज exe.dev की डिफ़ॉल्ट **exeuntu** इमेज को मानकर चलता है। यदि आपने कोई अलग distro चुना है, तो पैकेजों को उसी अनुसार मैप करें।
+This page assumes exe.dev's default **exeuntu** image. If you picked a different distro, map packages accordingly.
 
 ## शुरुआती त्वरित मार्ग
 
@@ -23,7 +27,7 @@ title: "exe.dev"
 
 ## Shelley के साथ स्वचालित इंस्टॉल
 
-Shelley, [exe.dev](https://exe.dev) का एजेंट, हमारे साथ OpenClaw को तुरंत इंस्टॉल कर सकता है
+Shelley, [exe.dev](https://exe.dev)'s agent, can install OpenClaw instantly with our
 prompt. The prompt used is as below:
 
 ```
@@ -46,7 +50,7 @@ ssh exe.dev new
 ssh <vm-name>.exe.xyz
 ```
 
-सुझाव: इस VM को **stateful** रखें। OpenClaw अपना state `~/.openclaw/` और `~/.openclaw/workspace/` में संग्रहीत करता है।
+Tip: keep this VM **stateful**. OpenClaw stores state under `~/.openclaw/` and `~/.openclaw/workspace/`.
 
 ## 2. पूर्वापेक्षाएँ इंस्टॉल करें (VM पर)
 
@@ -118,5 +122,3 @@ openclaw health
 ```
 
 गाइड: [Updating](/install/updating)
-
-

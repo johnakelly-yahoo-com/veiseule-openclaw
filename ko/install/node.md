@@ -1,5 +1,10 @@
 ---
 title: "Node.js"
+summary: "OpenClaw 를 위한 Node.js 설치 및 구성 — 버전 요구 사항, 설치 옵션, PATH 문제 해결"
+read_when:
+  - "OpenClaw 를 설치하기 전에 Node.js 를 설치해야 할 때"
+  - "OpenClaw 를 설치했지만 `openclaw` 명령을 찾을 수 없을 때"
+  - "npm install -g 가 권한 또는 PATH 문제로 실패할 때"
 ---
 
 # Node.js
@@ -20,46 +25,58 @@ node -v
   <Tab title="macOS">
     **Homebrew** (권장):
 
+    `````
+    ````
     ```bash
     brew install node
     ```
-
+    
     또는 [nodejs.org](https://nodejs.org/) 에서 macOS 설치 프로그램을 다운로드하십시오.
+    ````
+    `````
 
   
 </Tab>
   <Tab title="Linux">
     **Ubuntu / Debian:**
 
+    `````
+    ````
     ```bash
     curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
     sudo apt-get install -y nodejs
     ```
-
+    
     **Fedora / RHEL:**
-
+    
     ```bash
     sudo dnf install nodejs
     ```
-
+    
     또는 버전 매니저를 사용할 수 있습니다(아래 참조).
+    ````
+    `````
 
   
 </Tab>
   <Tab title="Windows">
     **winget** (권장):
 
+    `````
+    ````
     ```powershell
     winget install OpenJS.NodeJS.LTS
     ```
-
+    
     **Chocolatey:**
-
+    
     ```powershell
     choco install nodejs-lts
     ```
-
+    
     또는 [nodejs.org](https://nodejs.org/) 에서 Windows 설치 프로그램을 다운로드하십시오.
+    ````
+    `````
 
   
 </Tab>
@@ -103,7 +120,11 @@ fnm use 22
     echo "$PATH"
     ```
 
-    출력에서 `<npm-prefix>/bin` (macOS/Linux) 또는 `<npm-prefix>` (Windows) 를 확인하십시오.
+    ````
+    ```
+    출력에서 `<npm-prefix>/bin` (macOS / Linux) 또는 `<npm-prefix>` (Windows) 를 확인하십시오.
+    ```
+    ````
 
   
 </Step>
@@ -112,19 +133,23 @@ fnm use 22
       <Tab title="macOS / Linux">
         `~/.zshrc` 또는 `~/.bashrc` 에 추가하십시오:
 
-        ```bash
-        export PATH="$(npm prefix -g)/bin:$PATH"
         ```
-
-        그런 다음 새 터미널을 열거나(zsh 에서는 `rehash`, bash 에서는 `hash -r` 실행) 변경 사항을 적용하십시오.
-      
+            ```
+                ```bash
+                export PATH="$(npm prefix -g)/bin:$PATH"
+                ```
+            
+                그런 다음 새 터미널을 열거나(zsh 에서는 `rehash`, bash 에서는 `hash -r` 실행) 변경 사항을 적용하십시오.
+              
 </Tab>
-      <Tab title="Windows">
-        `npm prefix -g` 의 출력 값을 설정 → 시스템 → 환경 변수에서 시스템 PATH 에 추가하십시오.
-      
+              <Tab title="Windows">
+                `npm prefix -g` 의 출력 값을 설정 → 시스템 → 환경 변수에서 시스템 PATH 에 추가하십시오.
+              
 </Tab>
-    
+            
 </Tabs>
+            ```
+        ```
 
   
 </Step>
@@ -141,4 +166,3 @@ export PATH="$HOME/.npm-global/bin:$PATH"
 ```
 
 영구적으로 적용하려면 `export PATH=...` 줄을 `~/.bashrc` 또는 `~/.zshrc` 에 추가하십시오.
-

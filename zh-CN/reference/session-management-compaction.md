@@ -1,12 +1,10 @@
 ---
-title: 会话管理深入了解
-x-i18n:
-  generated_at: "2026-02-03T07:54:38Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: bf3715770ba634363933f6038117b6a91af11c62f5191aaaf97e6bce099bc120
-  source_path: reference/session-management-compaction.md
-  workflow: 15
+summary: "深入了解：会话存储 + 记录、生命周期和（自动）压缩内部机制"
+read_when:
+  - 你需要调试会话 ID、记录 JSONL 或 sessions.json 字段
+  - 你正在更改自动压缩行为或添加"压缩前"内务处理
+  - 你想实现记忆刷新或静默系统回合
+title: "14. 会话管理深度解析"
 ---
 
 # 会话管理与压缩（深入了解）
@@ -57,7 +55,7 @@ OpenClaw 在两个层中持久化会话：
 
 ## 磁盘上的位置
 
-在 Gateway 网关主机上，每个智能体：
+44. 在 Gateway 主机上，按代理划分：
 
 - 存储：`~/.openclaw/agents/<agentId>/sessions/sessions.json`
 - 记录：`~/.openclaw/agents/<agentId>/sessions/<sessionId>.jsonl`
@@ -69,7 +67,7 @@ OpenClaw 通过 `src/config/sessions.ts` 解析这些位置。
 
 ## 会话键（`sessionKey`）
 
-`sessionKey` 标识你所在的*哪个对话桶*（路由 + 隔离）。
+`sessionKey` 标识你所在的_哪个对话桶_（路由 + 隔离）。
 
 常见模式：
 
@@ -91,7 +89,7 @@ OpenClaw 通过 `src/config/sessions.ts` 解析这些位置。
 
 - **重置**（`/new`、`/reset`）为该 `sessionKey` 创建一个新的 `sessionId`。
 - **每日重置**（默认 Gateway 网关主机本地时间凌晨 4:00）在重置边界后的下一条消息时创建一个新的 `sessionId`。
-- **空闲过期**（`session.reset.idleMinutes` 或旧版 `session.idleMinutes`）当消息在空闲窗口后到达时创建一个新的 `sessionId`。当同时配置了每日和空闲时，以先过期者为准。
+- **空闲过期**（`session.reset.idleMinutes` 或旧版 `session.idleMinutes`）当消息在空闲窗口后到达时创建一个新的 `sessionId`。当同时配置了每日和空闲时，以先过期者为准。 When daily + idle are both configured, whichever expires first wins.
 
 实现细节：决策发生在 `src/auto-reply/reply/session.ts` 的 `initSessionState()` 中。
 
@@ -135,8 +133,8 @@ OpenClaw 通过 `src/config/sessions.ts` 解析这些位置。
 值得注意的条目类型：
 
 - `message`：用户/助手/工具结果消息
-- `custom_message`：扩展注入的消息，*确实*进入模型上下文（可以从 UI 隐藏）
-- `custom`：*不*进入模型上下文的扩展状态
+- `custom_message`：扩展注入的消息，_确实_进入模型上下文（可以从 UI 隐藏）
+- `custom`：_不_进入模型上下文的扩展状态
 - `compaction`：持久化的压缩摘要，带有 `firstKeptEntryId` 和 `tokensBefore`
 - `branch_summary`：导航树分支时的持久化摘要
 
@@ -169,7 +167,7 @@ OpenClaw 有意**不**"修复"记录；Gateway 网关使用 `SessionManager` 来
 - 压缩摘要
 - `firstKeptEntryId` 之后的消息
 
-压缩是**持久化的**（与会话修剪不同）。参见 [/concepts/session-pruning](/concepts/session-pruning)。
+Compaction is **persistent** (unlike session pruning). See [/concepts/session-pruning](/concepts/session-pruning).
 
 ---
 
@@ -182,7 +180,7 @@ OpenClaw 有意**不**"修复"记录；Gateway 网关使用 `SessionManager` 来
 
 `contextTokens > contextWindow - reserveTokens`
 
-其中：
+Where:
 
 - `contextWindow` 是模型的上下文窗口
 - `reserveTokens` 是为提示 + 下一个模型输出保留的空间
@@ -212,7 +210,7 @@ OpenClaw 还为嵌入式运行强制执行安全下限：
 - 设置 `agents.defaults.compaction.reserveTokensFloor: 0` 以禁用下限。
 - 如果它已经更高，OpenClaw 不会改变它。
 
-原因：为压缩变得不可避免之前的多回合"内务处理"（如记忆写入）留出足够的空间。
+Why: leave enough headroom for multi-turn “housekeeping” (like memory writes) before compaction becomes unavoidable.
 
 实现：`src/agents/pi-settings.ts` 中的 `ensurePiCompactionReserveTokens()`（从 `src/agents/pi-embedded-runner.ts` 调用）。
 
@@ -262,7 +260,7 @@ OpenClaw 使用**预阈值刷新**方法：
 说明：
 
 - 默认的提示/系统提示包含 `NO_REPLY` 提示以抑制投递。
-- 刷新每个压缩周期运行一次（在 `sessions.json` 中跟踪）。
+- flush 在每个压缩周期中运行一次（在 `sessions.json` 中跟踪）。
 - 刷新仅对嵌入式 Pi 会话运行（CLI 后端跳过它）。
 - 当会话工作空间是只读时（`workspaceAccess: "ro"` 或 `"none"`），刷新会被跳过。
 - 参见[记忆](/concepts/memory)了解工作空间文件布局和写入模式。
@@ -273,12 +271,10 @@ Pi 还在扩展 API 中公开了 `session_before_compact` 钩子，但 OpenClaw 
 
 ## 故障排除检查清单
 
-- 会话键错误？从 [/concepts/session](/concepts/session) 开始，并在 `/status` 中确认 `sessionKey`。
-- 存储 vs 记录不匹配？从 `openclaw status` 确认 Gateway 网关主机和存储路径。
-- 压缩过于频繁？检查：
+- 会话键错误？ 会话键错误？从 [/concepts/session](/concepts/session) 开始，并在 `/status` 中确认 `sessionKey`。
+- 存储与转录不匹配？ 存储 vs 记录不匹配？从 `openclaw status` 确认 Gateway 网关主机和存储路径。
+- Compaction spam? 检查：
   - 模型上下文窗口（太小）
   - 压缩设置（`reserveTokens` 对于模型窗口来说太高会导致更早的压缩）
   - 工具结果膨胀：启用/调整会话修剪
-- 静默回合泄漏？确认回复以 `NO_REPLY`（精确 token）开头，并且你使用的构建版本包含流式输出抑制修复。
-
-
+- 静默轮次泄漏？ 静默回合泄漏？确认回复以 `NO_REPLY`（精确 token）开头，并且你使用的构建版本包含流式输出抑制修复。

@@ -62,11 +62,9 @@ scripts/pi/run-tests.sh --live
 - यदि लेगेसी पथ मौजूद हों तो `sessions/`
 - यदि आप एक खाली वर्कस्पेस चाहते हैं तो `workspace/`
 
-यदि आप केवल सत्रों को रीसेट करना चाहते हैं, तो उस एजेंट के लिए `agents/<agentId>/sessions/` और `agents/<agentId>/sessions.json` को हटा दें। यदि आप दोबारा प्रमाणीकरण नहीं करना चाहते हैं, तो `credentials/` को सुरक्षित रखें।
+If you only want to reset sessions, delete `agents/<agentId>/sessions/` and `agents/<agentId>/sessions.json` for that agent. Keep `credentials/` if you do not want to reauthenticate.
 
 ## संदर्भ
 
 - [https://docs.openclaw.ai/testing](https://docs.openclaw.ai/testing)
 - [https://docs.openclaw.ai/start/getting-started](https://docs.openclaw.ai/start/getting-started)
-
-

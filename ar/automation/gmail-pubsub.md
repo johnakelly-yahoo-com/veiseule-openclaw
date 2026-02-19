@@ -1,4 +1,8 @@
 ---
+summary: "دفع Gmail عبر Pub/Sub موصول بـ Webhooks الخاصة بـ OpenClaw باستخدام gogcli"
+read_when:
+  - توصيل مُحفِّزات صندوق وارد Gmail بـ OpenClaw
+  - إعداد دفع Pub/Sub لإيقاظ الوكيل
 title: "Gmail PubSub"
 ---
 
@@ -109,7 +113,7 @@ openclaw webhooks gmail setup \
 `hooks.gmail.tailscale.target` (أو `--tailscale-target`) إلى عنوان URL كامل مثل
 `http://127.0.0.1:8788/gmail-pubsub` وطابق `hooks.gmail.serve.path`.
 
-هل تريد نقطة نهاية مخصصة؟ هل تريد نقطة نهاية مخصّصة؟ استخدم `--push-endpoint <url>` أو `--tailscale off`.
+هل تريد نقطة نهاية مخصصة؟ هل تريد نقطة نهاية مخصصة؟ هل تريد نقطة نهاية مخصّصة؟ استخدم `--push-endpoint <url>` أو `--tailscale off`.
 
 ملاحظة المنصّة: على macOS يقوم المعالج بتثبيت `gcloud` و`gogcli` و`tailscale`
 عبر Homebrew؛ وعلى Linux قم بتثبيتها يدويًا أولًا.
@@ -250,5 +254,3 @@ gog gmail watch stop --account openclaw@gmail.com
 gcloud pubsub subscriptions delete gog-gmail-watch-push
 gcloud pubsub topics delete gog-gmail-watch
 ```
-
-

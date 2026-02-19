@@ -1,4 +1,9 @@
 ---
+summary: "Instalação automatizada e reforçada do OpenClaw com Ansible, VPN Tailscale e isolamento por firewall"
+read_when:
+  - Você quer implantação automatizada de servidores com reforço de segurança
+  - Você precisa de uma configuração isolada por firewall com acesso via VPN
+  - Você está implantando em servidores remotos Debian/Ubuntu
 title: "Ansible"
 ---
 
@@ -201,5 +206,3 @@ Para arquitetura de segurança detalhada e solução de problemas:
 - [Docker](/install/docker) — configuração de gateway containerizado
 - [Sandboxing](/gateway/sandboxing) — configuração de sandbox de agentes
 - [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) — isolamento por agente
-
-

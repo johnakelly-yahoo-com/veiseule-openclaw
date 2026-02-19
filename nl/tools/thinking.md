@@ -1,4 +1,7 @@
 ---
+summary: "Richtlijnsyntax voor /think + /verbose en hoe deze de redenering van het model beïnvloeden"
+read_when:
+  - Het aanpassen van parsing of standaardwaarden voor thinking- of verbose-richtlijnen
 title: "Thinking-niveaus"
 ---
 
@@ -59,7 +62,7 @@ title: "Thinking-niveaus"
 
 - Documentatie voor Elevated mode staat in [Elevated mode](/tools/elevated).
 
-## Hartslagen
+## Heartbeats
 
 - De heartbeat-probebody is de geconfigureerde heartbeat-prompt (standaard: `Read HEARTBEAT.md if it exists (workspace context). Follow it strictly. Do not infer or repeat old tasks from prior chats. If nothing needs attention, reply HEARTBEAT_OK.`). Inline-richtlijnen in een heartbeat-bericht gelden zoals gebruikelijk (maar vermijd het wijzigen van sessiestandaarden via heartbeats).
 - Heartbeat-levering verzendt standaard alleen de eindpayload. Om ook het aparte `Reasoning:`-bericht te verzenden (wanneer beschikbaar), stel `agents.defaults.heartbeat.includeReasoning: true` in of per agent `agents.list[].heartbeat.includeReasoning: true`.
@@ -69,5 +72,3 @@ title: "Thinking-niveaus"
 - De thinking-selector in de webchat weerspiegelt bij het laden van de pagina het in de sessie opgeslagen niveau uit de inkomende session store/config.
 - Een ander niveau kiezen geldt alleen voor het volgende bericht (`thinkingOnce`); na verzenden springt de selector terug naar het opgeslagen sessieniveau.
 - Om de sessiestandaard te wijzigen, stuur een `/think:<level>`-richtlijn (zoals hiervoor); de selector zal dit na de volgende herlaadbeurt weergeven.
-
-

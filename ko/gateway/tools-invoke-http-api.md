@@ -1,4 +1,8 @@
 ---
+summary: "Gateway HTTP 엔드포인트를 통해 단일 도구를 직접 호출합니다"
+read_when:
+  - 전체 에이전트 턴을 실행하지 않고 도구를 호출할 때
+  - 도구 정책 적용이 필요한 자동화를 구축할 때
 title: "도구 호출 API"
 ---
 
@@ -21,6 +25,7 @@ Gateway 인증 구성을 사용합니다. Bearer 토큰을 전송하십시오:
 
 - `gateway.auth.mode="token"` 인 경우, `gateway.auth.token` (또는 `OPENCLAW_GATEWAY_TOKEN`)을 사용하십시오.
 - `gateway.auth.mode="password"` 인 경우, `gateway.auth.password` (또는 `OPENCLAW_GATEWAY_PASSWORD`)을 사용하십시오.
+- `gateway.auth.rateLimit`이 구성되어 있고 인증 실패가 너무 많이 발생하면, 해당 엔드포인트는 `Retry-After`와 함께 `429`를 반환합니다.
 
 ## 요청 본문
 
@@ -54,6 +59,28 @@ Gateway 인증 구성을 사용합니다. Bearer 토큰을 전송하십시오:
 
 정책에 의해 도구가 허용되지 않는 경우, 엔드포인트는 **404** 를 반환합니다.
 
+Gateway HTTP는 기본적으로 하드 거부 목록도 적용합니다(세션 정책이 해당 도구를 허용하더라도):
+
+- `sessions_spawn`
+- `sessions_send`
+- `gateway`
+- `whatsapp_login`
+
+`gateway.tools`를 통해 이 거부 목록을 사용자 지정할 수 있습니다:
+
+```json5
+{
+  gateway: {
+    tools: {
+      // HTTP /tools/invoke를 통해 추가로 차단할 도구
+      deny: ["browser"],
+      // 기본 거부 목록에서 제거할 도구
+      allow: ["gateway"],
+    },
+  },
+}
+```
+
 그룹 정책이 컨텍스트를 해석하는 데 도움이 되도록, 선택적으로 다음을 설정할 수 있습니다:
 
 - `x-openclaw-message-channel: <channel>` (예: `slack`, `telegram`)
@@ -64,8 +91,10 @@ Gateway 인증 구성을 사용합니다. Bearer 토큰을 전송하십시오:
 - `200` → `{ ok: true, result }`
 - `400` → `{ ok: false, error: { type, message } }` (잘못된 요청 또는 도구 오류)
 - `401` → unauthorized
+- `429` → 인증 속도 제한됨 (`Retry-After` 설정됨)
 - `404` → 도구를 사용할 수 없음 (찾을 수 없거나 허용 목록에 없음)
 - `405` → 허용되지 않은 메서드
+- `500` → `{ ok: false, error: { type, message } }` (예기치 않은 도구 실행 오류; 정제된 메시지)
 
 ## 예제
 
@@ -79,5 +108,3 @@ curl -sS http://127.0.0.1:18789/tools/invoke \
     "args": {}
   }'
 ```
-
-

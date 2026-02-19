@@ -1,4 +1,8 @@
 ---
+summary: "Gỡ cài đặt OpenClaw hoàn toàn (CLI, dịch vụ, trạng thái, workspace)"
+read_when:
+  - Bạn muốn gỡ OpenClaw khỏi một máy
+  - Dịch vụ Gateway vẫn chạy sau khi gỡ cài đặt
 title: "Gỡ cài đặt"
 ---
 
@@ -77,7 +81,7 @@ Dùng cách này nếu dịch vụ Gateway vẫn chạy nhưng `openclaw` không
 
 ### macOS (launchd)
 
-Default label is `bot.molt.gateway` (or `bot.molt.<profile>Nếu bạn đã dùng profile, hãy thay thế nhãn và tên plist bằng `bot.molt.&lt;profile&gt;
+Default label is `bot.molt.gateway` (or `bot.molt.<profile>Nếu bạn đã dùng profile, hãy thay thế nhãn và tên plist bằng `bot.molt.<profile>
 \`.
 
 ```bash
@@ -85,7 +89,7 @@ launchctl bootout gui/$UID/bot.molt.gateway
 rm -f ~/Library/LaunchAgents/bot.molt.gateway.plist
 ```
 
-Nếu bạn đã sử dụng một profile, hãy thay thế nhãn (label) và tên plist bằng `bot.molt.<profile>`. Xóa mọi plist `com.openclaw.*` cũ nếu có.
+If you used a profile, replace the label and plist name with `bot.molt.<profile>`. Remove any legacy `com.openclaw.*` plists if present.
 
 ### Linux (systemd user unit)
 
@@ -99,7 +103,7 @@ systemctl --user daemon-reload
 
 ### Windows (Scheduled Task)
 
-Tên tác vụ mặc định là `OpenClaw Gateway` (hoặc `OpenClaw Gateway (<profile>)`).
+Default task name is `OpenClaw Gateway` (or `OpenClaw Gateway (<profile>)`).
 The task script lives under your state dir.
 
 ```powershell
@@ -113,7 +117,7 @@ Nếu bạn dùng profile, hãy xóa tên tác vụ tương ứng và `~\.opencl
 
 ### Cài đặt thông thường (install.sh / npm / pnpm / bun)
 
-Nếu bạn đã sử dụng `https://openclaw.ai/install.sh` hoặc `install.ps1`, CLI đã được cài đặt bằng `npm install -g openclaw@latest`.
+If you used `https://openclaw.ai/install.sh` or `install.ps1`, the CLI was installed with `npm install -g openclaw@latest`.
 Remove it with `npm rm -g openclaw` (or `pnpm remove -g` / `bun remove -g` if you installed that way).
 
 ### Checkout từ nguồn (git clone)
@@ -123,5 +127,3 @@ Nếu bạn chạy từ một bản checkout của repo (`git clone` + `openclaw
 1. Gỡ dịch vụ Gateway **trước khi** xóa repo (dùng cách dễ ở trên hoặc gỡ dịch vụ thủ công).
 2. Xóa thư mục repo.
 3. Xóa trạng thái + workspace như đã nêu ở trên.
-
-

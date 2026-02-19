@@ -1,4 +1,7 @@
 ---
+summary: "Nextcloud Talk समर्थन की स्थिति, क्षमताएँ, और विन्यास"
+read_when:
+  - Nextcloud Talk चैनल की विशेषताओं पर काम करते समय
 title: "Nextcloud Talk"
 ---
 
@@ -136,5 +139,3 @@ openclaw plugins install ./extensions/nextcloud-talk
 - `channels.nextcloud-talk.blockStreaming`: इस चैनल के लिए ब्लॉक स्ट्रीमिंग अक्षम करें।
 - `channels.nextcloud-talk.blockStreamingCoalesce`: ब्लॉक स्ट्रीमिंग कोएलैस ट्यूनिंग।
 - `channels.nextcloud-talk.mediaMaxMb`: इनबाउंड मीडिया सीमा (MB)।
-
-

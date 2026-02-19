@@ -1,10 +1,14 @@
 ---
+summary: "Hvad OpenClaw-systemprompten indeholder, og hvordan den sammensættes"
+read_when:
+  - Redigering af systemprompt-tekst, værktøjsliste eller tids-/heartbeat-sektioner
+  - Ændring af workspace-bootstrap eller adfærd for Skills-injektion
 title: "Systemprompt"
 ---
 
 # Systemprompt
 
-OpenClaw opbygger en brugerdefineret systemprompt for hver agent kører. Opfordringen er **OpenClaw-owned** og bruger ikke p-coding-agent standardprompten.
+OpenClaw opbygger en brugerdefineret systemprompt for hver agent kører. Prompten ejes af **OpenClaw** og bruger ikke standardprompten fra pi-coding-agent.
 
 Prompten sammensættes af OpenClaw og injiceres i hver agentkørsel.
 
@@ -55,10 +59,24 @@ Bootstrap-filer trimmes og tilføjes under **Project Context**, så modellen ser
 - `USER.md`
 - `HEARTBEAT.md`
 - `BOOTSTRAP.md` (kun på helt nye workspaces)
+- `MEMORY.md` og/eller `memory.md` (når de findes i workspace; en eller begge kan injiceres)
+
+Alle disse filer bliver **injiceret i kontekstvinduet** ved hver tur, hvilket
+betyder, at de forbruger tokens. Hold dem korte — især `MEMORY.md`, som kan
+vokse over tid og føre til uventet højt kontekstforbrug og hyppigere
+komprimering.
+
+> **Bemærk:** `memory/*.md` daglige filer bliver **ikke** injiceret automatisk. De
+> tilgås efter behov via `memory_search`- og `memory_get`-værktøjerne, så de
+> tæller ikke med i kontekstvinduet, medmindre modellen eksplicit læser dem.
 
 Store filer afkortes med en markør. Den maksimale per fil størrelse styres af
-`agents.defaults.bootstrapMaxChars` (standard: 20000). Manglende filer injicerer en
-kort mangler filmarkør.
+`agents.defaults.bootstrapMaxChars` (standard: 20000). Samlet injiceret bootstrap-
+indhold på tværs af filer er begrænset af `agents.defaults.bootstrapTotalMaxChars`
+(standard: 24000). Manglende filer injicerer en kort manglende-fil-markør.
+
+Sub-agent-sessioner injicerer kun `AGENTS.md` og `TOOLS.md` (andre bootstrap-filer
+filtreres fra for at holde sub-agent-konteksten lille).
 
 Interne hooks kan afbryde dette trin via `agent:bootstrap` for at mutere eller erstatte
 de injicerede bootstrap-filer (for eksempel ved at bytte `SOUL.md` ud med en alternativ persona).
@@ -71,8 +89,7 @@ Systemprompten inkluderer en dedikeret **Nuværende dato og tid** sektion når
 brugertidszone er kendt. For at holde den prompte cache-stabil, omfatter den nu kun
 \*\*tidszonen \*\* (intet dynamisk ur eller tidsformat).
 
-Brug `session_status`, når agenten har brug for den aktuelle tid; statuskortet
-indeholder en tidsstempellinje.
+Se [Date & Time](/date-time) for fulde adfærdsdetaljer.
 
 Konfigurér med:
 
@@ -109,5 +126,3 @@ pakkedokument) og også noterer det offentlige filspejl, source repo, community 
 ClawHub ([https://clawhub.com](https://clawhub. om)) for færdigheder opdagelse. Opfordringen instruerer modellen til at konsultere lokale docs første
 for OpenClaw adfærd, kommandoer, konfiguration, eller arkitektur, og at køre
 'openclaw status' selv, når det er muligt (spørger kun brugeren når det mangler adgang).
-
-

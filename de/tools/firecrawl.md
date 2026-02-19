@@ -1,4 +1,9 @@
 ---
+summary: "Firecrawl-Fallback für web_fetch (Anti-Bot + zwischengespeicherte Extraktion)"
+read_when:
+  - Sie möchten eine Firecrawl-gestützte Web-Extraktion
+  - Sie benötigen einen Firecrawl-API-Schlüssel
+  - Sie möchten eine Anti-Bot-Extraktion für web_fetch
 title: "Firecrawl"
 ---
 
@@ -54,5 +59,3 @@ mehr Credits verbrauchen kann als reines Basic-Scraping.
 3. Grundlegende HTML-Bereinigung (letzter Fallback)
 
 Siehe [Web tools](/tools/web) für die vollständige Einrichtung der Web-Tools.
-
-

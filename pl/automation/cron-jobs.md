@@ -1,4 +1,9 @@
 ---
+summary: "Zadania cron + wybudzenia dla harmonogramu Gateway"
+read_when:
+  - Planowanie zadań w tle lub wybudzeń
+  - Łączenie automatyzacji, które powinny działać z heartbeatami lub obok nich
+  - Wybór między heartbeat a cron dla zadań harmonogramowanych
 title: "Zadania Cron"
 ---
 
@@ -471,5 +476,3 @@ openclaw system event --mode now --text "Next heartbeat: check battery."
 - Dla tematów forum użyj `-100…:topic:<id>`, aby było to jawne i jednoznaczne.
 - Jeśli w logach lub zapisanych celach „ostatniej trasy” widzisz prefiksy `telegram:...`, to normalne;
   dostarczanie cron je akceptuje i nadal poprawnie parsuje identyfikatory tematów.
-
-

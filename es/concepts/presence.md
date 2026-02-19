@@ -1,4 +1,9 @@
 ---
+summary: "Cómo se producen, combinan y muestran las entradas de presencia de OpenClaw"
+read_when:
+  - Depuración de la pestaña Instances
+  - Investigación de filas de instancias duplicadas u obsoletas
+  - Cambio de la conexión WS del Gateway o de los beacons de eventos del sistema
 title: "Presencia"
 ---
 
@@ -95,5 +100,3 @@ La app de macOS renderiza la salida de `system-presence` y aplica un pequeño in
   - confirme que los clientes envían un `client.instanceId` estable en el handshake
   - confirme que los beacons periódicos usan el mismo `instanceId`
   - verifique si a la entrada derivada de la conexión le falta `instanceId` (los duplicados son esperables)
-
-

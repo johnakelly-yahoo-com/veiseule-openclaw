@@ -1,4 +1,9 @@
 ---
+summary: "Exec tasdiqlari, ruxsat roʻyxatlari va sandboxdan chiqish promptlari"
+read_when:
+  - Exec tasdiqlari yoki ruxsat roʻyxatlarini sozlash
+  - macOS ilovasida exec tasdiqlari UX’ini joriy etish
+  - Sandboxdan chiqish promptlarini va ularning oqibatlarini ko‘rib chiqish
 title: "Exec tasdiqlari"
 ---
 
@@ -112,6 +117,9 @@ Har bir ruxsat ro‘yxati yozuvi quyidagilarni kuzatadi:
 ## Xavfsiz binlar (faqat stdin)
 
 `tools.exec.safeBins` **faqat stdin** bilan ishlaydigan kichik binarlar ro‘yxatini belgilaydi (masalan `jq`), ular **aniq ruxsat ro‘yxati yozuvlarisiz** ruxsat rejimida ishlashi mumkin. Xavfsiz binlar pozitsion fayl argumentlari va yo‘lga o‘xshash tokenlarni rad etadi, shuning uchun ular faqat kiruvchi oqim bilan ishlaydi.
+Safe binlar bajarish vaqtida argv tokenlarini **literal matn** sifatida majburan talqin qiladi (globbing yo‘q
+va `$VARS` kengaytirilmaydi) stdin-only segmentlar uchun, shuning uchun `*` yoki `$HOME/...` kabi
+andozalar fayl o‘qishni yashirincha amalga oshirish uchun ishlatilmaydi.
 Ruxsat ro‘yxati rejimida shell zanjirlash va yo‘naltirishlar avtomatik ruxsat etilmaydi.
 
 Shell zanjirlash (`&&`, `||`, `;`) har bir yuqori darajadagi segment ruxsat ro‘yxati talablariga javob berganda (jumladan xavfsiz binlar yoki skill avtomatik ruxsati) ruxsat etiladi. Ruxsat ro‘yxati rejimida yo‘naltirishlar hanuz qo‘llab-quvvatlanmaydi.
@@ -221,5 +229,3 @@ Related:
 - [Exec tool](/tools/exec)
 - [Elevated mode](/tools/elevated)
 - [Skills](/tools/skills)
-
-

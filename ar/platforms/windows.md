@@ -1,4 +1,8 @@
 ---
+summary: "دعم Windows (WSL2) + حالة التطبيق المُرافِق"
+read_when:
+  - تثبيت OpenClaw على Windows
+  - البحث عن حالة تطبيق Windows المُرافِق
 title: "Windows (WSL2)"
 ---
 
@@ -151,5 +155,3 @@ openclaw onboard
 
 لا يتوفر لدينا تطبيق مُرافِق لـ Windows بعد. نرحّب بالمساهمات إذا رغبت
 في المساعدة على تحقيق ذلك.
-
-

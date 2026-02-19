@@ -1,4 +1,8 @@
 ---
+summary: "Skills کنفیگ اسکیما اور مثالیں"
+read_when:
+  - Skills کنفیگ شامل یا ترمیم کرتے وقت
+  - بنڈلڈ allowlist یا انسٹال رویّے میں ردوبدل کرتے وقت
 title: "Skills کنفیگ"
 ---
 
@@ -70,5 +74,3 @@ Skills سے متعلق تمام کنفیگریشن `skills` کے تحت `~/.open
 - env کو اپنی کسٹم sandbox امیج میں بیک کریں
 
 گلوبل `env` اور `skills.entries.<skill>``.env/apiKey` صرف **ہوسٹ** رنز پر لاگو ہوتے ہیں۔
-
-

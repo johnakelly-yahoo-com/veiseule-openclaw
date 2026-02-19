@@ -1,4 +1,10 @@
 ---
+summary: "OAuth trong OpenClaw: trao đổi token, lưu trữ và các mô hình nhiều tài khoản"
+read_when:
+  - Bạn muốn hiểu OAuth trong OpenClaw từ đầu đến cuối
+  - Bạn gặp vấn đề vô hiệu hóa token / đăng xuất
+  - Bạn muốn các luồng xác thực setup-token hoặc OAuth
+  - Bạn muốn nhiều tài khoản hoặc định tuyến theo hồ sơ
 title: "OAuth"
 ---
 
@@ -137,5 +143,3 @@ Tài liệu liên quan:
 
 - [/concepts/model-failover](/concepts/model-failover) (quy tắc luân phiên + cooldown)
 - [/tools/slash-commands](/tools/slash-commands) (bề mặt lệnh)
-
-

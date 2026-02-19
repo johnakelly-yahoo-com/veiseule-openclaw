@@ -1,4 +1,8 @@
 ---
+summary: "حفاظتی احتیاطوں کے ساتھ OpenClaw کو ذاتی معاون کے طور پر چلانے کی مکمل رہنمائی"
+read_when:
+  - نئے معاون انسٹینس کی آن بورڈنگ کے وقت
+  - سکیورٹی/اجازتوں کے اثرات کا جائزہ لیتے وقت
 title: "ذاتی معاون سیٹ اپ"
 ---
 
@@ -224,5 +228,3 @@ openclaw health --json   # gateway health snapshot (WS)
 - Windows اسٹیٹس: [Windows (WSL2)](/platforms/windows)
 - Linux اسٹیٹس: [Linux app](/platforms/linux)
 - سکیورٹی: [Security](/gateway/security)
-
-

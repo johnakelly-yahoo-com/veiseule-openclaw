@@ -1,4 +1,9 @@
 ---
+summary: "Use a assinatura Claude Max/Pro como um endpoint de API compatível com OpenAI"
+read_when:
+  - Você quer usar a assinatura Claude Max com ferramentas compatíveis com OpenAI
+  - Você quer um servidor de API local que encapsule a Claude Code CLI
+  - Você quer economizar usando assinatura em vez de chaves de API
 title: "Proxy de API Claude Max"
 ---
 
@@ -141,5 +146,3 @@ launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.claude-max-api.plist
 
 - [Provedor Anthropic](/providers/anthropic) - Integração nativa do OpenClaw com Claude usando setup-token ou chaves de API
 - [Provedor OpenAI](/providers/openai) - Para assinaturas OpenAI/Codex
-
-

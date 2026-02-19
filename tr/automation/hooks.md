@@ -1,4 +1,8 @@
 ---
+summary: "Hooks: komutlar ve yaşam döngüsü olayları için olay güdümlü otomasyon"
+read_when:
+  - /new, /reset, /stop ve ajan yaşam döngüsü olayları için olay güdümlü otomasyon istiyorsunuz
+  - Hook’ları oluşturmak, yüklemek veya hata ayıklamak istiyorsunuz
 title: "Kancalar"
 ---
 
@@ -40,9 +44,9 @@ Hooks sistemi şunları yapmanıza olanak tanır:
 OpenClaw, otomatik olarak keşfedilen dört paketli hook ile gelir:
 
 - **💾 session-memory**: `/new` verdiğinizde, oturum bağlamını ajan çalışma alanınıza (varsayılan `~/.openclaw/workspace/memory/`) kaydeder
+- **😈 soul-evil**: Bir temizleme penceresinde veya rastgele bir olasılıkla enjekte edilen `SOUL.md` içeriğini `SOUL_EVIL.md` ile değiştirir
 - **📝 command-logger**: Tüm komut olaylarını `~/.openclaw/logs/commands.log` dosyasına kaydeder
 - **🚀 boot-md**: Gateway başladığında `BOOT.md` çalıştırır (dahili hooks etkin olmalıdır)
-- **😈 soul-evil**: Bir temizleme penceresinde veya rastgele bir olasılıkla enjekte edilen `SOUL.md` içeriğini `SOUL_EVIL.md` ile değiştirir
 
 Mevcut hook’ları listeleme:
 
@@ -68,7 +72,7 @@ Ayrıntılı bilgi alma:
 openclaw hooks info session-memory
 ```
 
-### Oryantasyon
+### Onboarding
 
 Onboarding sırasında (`openclaw onboard`), önerilen hook’ları etkinleştirmeniz istenir. Sihirbaz, uygun hook’ları otomatik olarak keşfeder ve seçim için sunar.
 
@@ -99,6 +103,8 @@ Hook paketleri, `package.json` içindeki
 openclaw hooks install <path-or-spec>
 ```
 
+Npm tanımları yalnızca registry tabanlıdır (paket adı + isteğe bağlı sürüm/etiket). Git/URL/dosya tanımları reddedilir.
+
 Örnek `package.json`:
 
 ```json
@@ -113,6 +119,9 @@ openclaw hooks install <path-or-spec>
 
 Her giriş, `HOOK.md` ve `handler.ts` (veya `index.ts`) içeren bir hook dizinine işaret eder.
 Hook paketleri bağımlılıklarıyla birlikte gelebilir; bunlar `~/.openclaw/hooks/<id>` altında yüklenecektir.
+
+Güvenlik notu: `openclaw hooks install`, bağımlılıkları `npm install --ignore-scripts` ile kurar
+(yaşam döngüsü betikleri olmadan). Hook paket bağımlılık ağaçlarını "pure JS/TS" olarak tutun ve `postinstall` derlemelerine dayanan paketlerden kaçının.
 
 ## Hook Yapısı
 
@@ -390,6 +399,8 @@ Geriye dönük uyumluluk için eski yapılandırma biçimi hâlâ çalışır:
 }
 ```
 
+Not: `module`, workspace’e göreli bir yol olmalıdır. Mutlak yollar ve workspace dışına geçişler reddedilir.
+
 **Geçiş**: Yeni hook’lar için keşfe dayalı yeni sistemi kullanın. Eski işleyiciler, dizin tabanlı hook’lardan sonra yüklenir.
 
 ## CLI Komutları
@@ -481,6 +492,49 @@ openclaw hooks disable command-logger
 openclaw hooks enable session-memory
 ```
 
+### bootstrap-extra-files
+
+Bir temizleme penceresinde veya rastgele bir olasılıkla enjekte edilen `SOUL.md` içeriğini `SOUL_EVIL.md` ile değiştirir.
+
+**Olaylar**: `agent:bootstrap`
+
+Hata ayıklama
+
+**Çıktı**: Dosya yazılmaz; değişimler yalnızca bellek içinde gerçekleşir.
+
+**Yapılandırma**:
+
+```json
+{
+  "hooks": {
+    "internal": {
+      "enabled": true,
+      "entries": {
+        "soul-evil": {
+          "enabled": true,
+          "file": "SOUL_EVIL.md",
+          "chance": 0.1,
+          "purge": { "at": "21:00", "duration": "15m" }
+        }
+      }
+    }
+  }
+}
+```
+
+**Dokümanlar**: [SOUL Evil Hook](/hooks/soul-evil)
+
+- Yollar workspace’e göreli olarak çözülür.
+- Dosyalar workspace içinde kalmalıdır (realpath kontrolü yapılır).
+- Yalnızca tanınan bootstrap temel adları yüklenir.
+- Subagent allowlist korunur (yalnızca `AGENTS.md` ve `TOOLS.md`).
+
+**Etkinleştir**:
+
+```bash
+openclaw hooks enable bootstrap-extra-files
+```
+
 ### command-logger
 
 Tüm komut olaylarını merkezi bir denetim dosyasına kaydeder.
@@ -521,42 +575,6 @@ grep '"action":"new"' ~/.openclaw/logs/commands.log | jq .
 
 ```bash
 openclaw hooks enable command-logger
-```
-
-### soul-evil
-
-Bir temizleme penceresinde veya rastgele bir olasılıkla enjekte edilen `SOUL.md` içeriğini `SOUL_EVIL.md` ile değiştirir.
-
-**Olaylar**: `agent:bootstrap`
-
-**Dokümanlar**: [SOUL Evil Hook](/hooks/soul-evil)
-
-**Çıktı**: Dosya yazılmaz; değişimler yalnızca bellek içinde gerçekleşir.
-
-**Etkinleştir**:
-
-```bash
-openclaw hooks enable soul-evil
-```
-
-**Yapılandırma**:
-
-```json
-{
-  "hooks": {
-    "internal": {
-      "enabled": true,
-      "entries": {
-        "soul-evil": {
-          "enabled": true,
-          "file": "SOUL_EVIL.md",
-          "chance": 0.1,
-          "purge": { "at": "21:00", "duration": "15m" }
-        }
-      }
-    }
-  }
-}
 ```
 
 ### boot-md
@@ -788,7 +806,7 @@ Session reset
    openclaw hooks list
    ```
 
-### Hook Uygun Değil
+### Hook Çalışmıyor
 
 Gereksinimleri kontrol edin:
 
@@ -803,7 +821,7 @@ Eksik olanları arayın:
 - Yapılandırma değerleri
 - İşletim sistemi uyumluluğu
 
-### Hook Çalışmıyor
+### Hook Uygun Değil
 
 1. Hook’un etkin olduğunu doğrulayın:
 
@@ -910,5 +928,3 @@ node -e "import('./path/to/handler.ts').then(console.log)"
 - [Bundled Hooks README](https://github.com/openclaw/openclaw/tree/main/src/hooks/bundled)
 - [Webhook Hooks](/automation/webhook)
 - [Configuration](/gateway/configuration#hooks)
-
-

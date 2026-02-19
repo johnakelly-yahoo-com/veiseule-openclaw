@@ -1,5 +1,7 @@
 ---
+summary: "Ajan başına sandbox ve araç kısıtlamaları, öncelik ve örnekler"
 title: Çok Ajanlı Sandbox ve Araçlar
+read_when: "Çok ajanlı bir Gateway’de ajan başına sandboxing veya ajan başına araç izin/verme ya da engelleme politikaları istiyorsanız."
 status: active
 ---
 
@@ -138,7 +140,7 @@ Sandboxing’in çalışma zamanındaki davranışı için [Sandboxing](/gateway
 
 **Sonuç:**
 
-- 33. varsayılan ajanlar kodlama araçlarına sahiptir
+- varsayılan ajanlar kodlama araçlarına sahiptir
 - `support` ajanı yalnızca mesajlaşma içindir (+ Slack aracı)
 
 ---
@@ -392,5 +394,3 @@ ele alınır ve sandbox içine alınır. Bir ajanın asla sandbox’a girmemesin
 - [Çok Ajanlı Yönlendirme](/concepts/multi-agent)
 - [Sandbox Yapılandırması](/gateway/configuration#agentsdefaults-sandbox)
 - [Oturum Yönetimi](/concepts/session)
-
-

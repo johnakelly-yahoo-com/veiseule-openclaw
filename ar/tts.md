@@ -1,4 +1,9 @@
 ---
+summary: "تحويل النص إلى كلام (TTS) للردود الصادرة"
+read_when:
+  - تمكين تحويل النص إلى كلام للردود
+  - تهيئة موفّري TTS أو الحدود
+  - استخدام أوامر /tts
 title: "النص إلى الكلام"
 ---
 
@@ -386,5 +391,3 @@ Reply -> TTS enabled?
 - `tts.convert`
 - `tts.setProvider`
 - `tts.providers`
-
-

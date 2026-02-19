@@ -1,4 +1,9 @@
 ---
+summary: "Tham chiếu CLI cho `openclaw system` (sự kiện hệ thống, heartbeat, presence)"
+read_when:
+  - Bạn muốn đưa một sự kiện hệ thống vào hàng đợi mà không cần tạo cron job
+  - Bạn cần bật hoặc tắt heartbeat
+  - Bạn muốn kiểm tra các mục presence của hệ thống
 title: "system"
 ---
 
@@ -54,5 +59,3 @@ Các cờ:
 
 - Yêu cầu Gateway đang chạy và có thể truy cập được bằng cấu hình hiện tại của bạn (cục bộ hoặc từ xa).
 - Các sự kiện hệ thống là tạm thời và không được lưu lại qua các lần khởi động lại.
-
-

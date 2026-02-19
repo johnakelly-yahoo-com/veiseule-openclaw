@@ -1,4 +1,8 @@
 ---
+summary: "Referencia de la CLI para `openclaw logs` (seguir los registros del Gateway vía RPC)"
+read_when:
+  - Necesita seguir los registros del Gateway de forma remota (sin SSH)
+  - Quiere líneas de registro en JSON para herramientas
 title: "registros"
 ---
 
@@ -19,4 +23,4 @@ openclaw logs --json
 openclaw logs --limit 500
 ```
 
-
+Usa `--local-time` para mostrar las marcas de tiempo en tu zona horaria local.

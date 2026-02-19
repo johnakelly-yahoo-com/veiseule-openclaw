@@ -1,4 +1,8 @@
 ---
+summary: "Plugins/extensions OpenClaw : découverte, configuration et sécurité"
+read_when:
+  - Ajout ou modification de plugins/extensions
+  - Documentation des règles d’installation ou de chargement des plugins
 title: "Plugins"
 ---
 
@@ -26,6 +30,9 @@ openclaw plugins list
 ```bash
 openclaw plugins install @openclaw/voice-call
 ```
+
+Les spécifications npm sont **uniquement issues du registre** (nom du package + version/tag optionnel). Les spécifications Git/URL/fichier
+sont rejetées.
 
 3. Redémarrez la Gateway (passerelle), puis configurez sous `plugins.entries.<id>.config`.
 
@@ -131,6 +138,10 @@ devient `name/<fileBase>`.
 
 Si votre plugin importe des dépendances npm, installez-les dans ce répertoire afin que
 `node_modules` soit disponible (`npm install` / `pnpm install`).
+
+Note de sécurité : `openclaw plugins install` installe les dépendances des plugins avec
+`npm install --ignore-scripts` (aucun script de cycle de vie). Conservez les arbres de dépendances des plugins
+« pure JS/TS » et évitez les packages nécessitant des builds `postinstall`.
 
 ### Métadonnées du catalogue de canaux
 
@@ -432,13 +443,13 @@ La documentation des fournisseurs de modèle se trouve sous `/providers/*`.
 - `meta.preferOver` permet à un plugin de remplacer un autre canal (l’activation automatique le privilégie).
 - `meta.detailLabel` et `meta.systemImage` sont utilisés par les interfaces pour le texte/icônes de détail.
 
-3. Implémenter les adaptateurs requis
+3. Ajouter des adaptateurs optionnels selon les besoins
 
 - `config.listAccountIds` + `config.resolveAccount`
 - `capabilities` (types de chat, médias, fils, etc.)
 - `outbound.deliveryMode` + `outbound.sendText` (pour l’envoi de base)
 
-4. Ajouter des adaptateurs optionnels selon les besoins
+4. Implémenter les adaptateurs requis
 
 - `setup` (assistant), `security` (politique de message privé), `status` (santé/diagnostics)
 - `gateway` (démarrer/arrêter/connexion), `mentions`, `threading`, `streaming`
@@ -653,5 +664,3 @@ Les plugins peuvent (et doivent) fournir des tests :
 
 - Les plugins dans le dépôt peuvent conserver des tests Vitest sous `src/**` (exemple : `src/plugins/voice-call.plugin.test.ts`).
 - Les plugins publiés séparément doivent exécuter leur propre CI (lint/build/test) et valider que `openclaw.extensions` pointe vers le point d’entrée compilé (`dist/index.js`).
-
-

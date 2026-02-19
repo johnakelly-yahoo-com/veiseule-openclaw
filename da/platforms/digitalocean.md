@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw på DigitalOcean (simpel betalt VPS-mulighed)"
+read_when:
+  - Opsætning af OpenClaw på DigitalOcean
+  - Leder efter billig VPS-hosting til OpenClaw
 title: "DigitalOcean"
 ---
 
@@ -256,5 +260,3 @@ free -h
 - [Docker-installation](/install/docker) — containeriseret opsætning
 - [Tailscale](/gateway/tailscale) — sikker fjernadgang
 - [Konfiguration](/gateway/configuration) — fuld konfigurationsreference
-
-

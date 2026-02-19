@@ -1,11 +1,16 @@
 ---
+summary: "Nghi thức khởi tạo tác tử gieo mầm không gian làm việc và các tệp danh tính"
+read_when:
+  - Hiểu điều gì xảy ra ở lần chạy tác tử đầu tiên
+  - Giải thích nơi các tệp khởi tạo nằm ở đâu
+  - Gỡ lỗi thiết lập danh tính trong quá trình hướng dẫn ban đầu
 title: "Khởi tạo tác tử"
 sidebarTitle: "Khởi tạo ban đầu"
 ---
 
 # Khởi tạo tác tử
 
-Khởi tạo ban đầu là nghi thức **chạy lần đầu** để chuẩn bị không gian làm việc của một tác nhân và
+Bootstrapping is the **first‑run** ritual that prepares an agent workspace and
 collects identity details. It happens after onboarding, when the agent starts
 for the first time.
 
@@ -21,7 +26,7 @@ for the first time.
 
 ## Nơi nó chạy
 
-Khởi tạo ban đầu luôn chạy trên **gateway host**. Nếu ứng dụng macOS kết nối đến
+Bootstrapping always runs on the **gateway host**. If the macOS app connects to
 a remote Gateway, the workspace and bootstrapping files live on that remote
 machine.
 
@@ -34,5 +39,3 @@ máy chủ gateway (ví dụ: `user@gateway-host:~/.openclaw/workspace`).
 
 - Onboarding ứng dụng macOS: [Onboarding](/start/onboarding)
 - Bố cục không gian làm việc: [Agent workspace](/concepts/agent-workspace)
-
-

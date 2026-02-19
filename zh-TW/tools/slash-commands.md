@@ -1,11 +1,16 @@
 ---
+summary: "斜線指令：文字 vs 原生、設定與支援的指令"
+read_when:
+  - 使用或設定聊天指令時
+  - 偵錯指令路由或權限時
 title: "斜線指令"
 ---
 
 # 斜線指令
 
-29. 指令由 Gateway 處理。 30. 大多數指令必須作為**獨立**訊息傳送，且以 `/` 開頭。
-    The host-only bash chat command uses `! <cmd>`（`/bash <cmd>` 為別名）。
+指令由 Gateway 處理。 30. 30. 大多數指令必須作為**獨立**訊息傳送，且以 `/` 開頭。
+大多數指令必須作為**獨立**訊息傳送，且以 `/` 開頭。
+The host-only bash chat command uses `! <cmd>`（`/bash <cmd>` 為別名）。
 
 有兩個相關的系統：
 
@@ -14,9 +19,9 @@ title: "斜線指令"
   - Directives 會在模型看到訊息之前被移除。
   - 在一般聊天訊息（非僅含 directive）中，它們會被視為「內嵌提示」，且**不會**持久化工作階段設定。
   - 在僅含 directive 的訊息（訊息只包含 directives）中，它們會持久化到工作階段，並回覆確認。
-  - Directives 僅會套用於**已授權的寄件者**（頻道允許清單／配對，加上 `commands.useAccessGroups`）。
-    未授權的寄件者會看到 directives 被當作一般文字處理。
-    32. 未授權的傳送者會看到指示被當作純文字處理。
+  - 指令僅會套用於**已授權的發送者**。 若已設定 `commands.allowFrom`，它將成為唯一
+    使用的 allowlist；否則授權來源為通道 allowlist／配對機制加上 `commands.useAccessGroups`。
+    未授權的傳送者會看到指示被當作純文字處理。
 
 另有一些**內嵌捷徑**（僅限允許清單／已授權寄件者）：`/help`、`/commands`、`/status`、`/whoami`（`/id`）。
 它們會立即執行，並在模型看到訊息前被移除，其餘文字會依正常流程繼續處理。
@@ -53,6 +58,9 @@ They run immediately, are stripped before the model sees the message, and the re
 - `commands.bashForegroundMs`（預設 `2000`）控制 bash 在切換到背景模式前等待的時間（`0` 會立即背景化）。
 - `commands.config`（預設 `false`）啟用 `/config`（讀取／寫入 `openclaw.json`）。
 - `commands.debug`（預設 `false`）啟用 `/debug`（僅執行期覆寫）。
+- `commands.allowFrom`（選填）會為指令授權設定每個提供者的 allowlist。 一旦設定後，它將成為
+  指令與指示的唯一授權來源（通道 allowlist／配對機制與 `commands.useAccessGroups`
+  將被忽略）。 使用 `"*"` 作為全域預設；特定提供者的鍵值會覆蓋它。
 - `commands.useAccessGroups`（預設 `true`）對指令強制套用允許清單／政策。
 
 ## 指令清單
@@ -68,6 +76,9 @@ They run immediately, are stripped before the model sees the message, and the re
 - `/context [list|detail|json]`（解釋「context」；`detail` 會顯示每個檔案 + 每個工具 + 每個 skill + 系統提示的大小）
 - `/whoami`（顯示你的寄件者 id；別名：`/id`）
 - `/subagents list|stop|log|info|send`（檢視、停止、記錄或傳訊目前工作階段的子代理執行）
+- `/kill <id|#|all>`（立即中止此工作階段中一個或所有正在執行的子代理；不會顯示確認訊息）
+- `/steer <id|#> <message>`（立即引導正在執行的子代理：若可行則於執行中處理，否則中止目前工作並以該引導訊息重新啟動）
+- `/tell <id|#> <message>`（`/steer` 的別名）
 - `/config show|get|set|unset`（將設定持久化到磁碟，僅限擁有者；需要 `commands.config: true`）
 - `/debug show|set|unset|reset`（執行期覆寫，僅限擁有者；需要 `commands.debug: true`）
 - `/usage off|tokens|full|cost`（每次回應的使用量頁尾或本地成本摘要）
@@ -106,14 +117,14 @@ They run immediately, are stripped before the model sees the message, and the re
 - `/usage` 控制每次回應的使用量頁尾；`/usage cost` 會從 OpenClaw 工作階段記錄列印本地成本摘要。
 - `/restart` 預設停用；設定 `commands.restart: true` 以啟用。
 - `/verbose` 用於偵錯與額外可見性；一般使用時請保持**關閉**。
-- `/reasoning`（以及 `/verbose`）在群組情境中具風險：可能揭露你不打算公開的內部推理或工具輸出。建議保持關閉，尤其是在群聊中。 Prefer leaving them off, especially in group chats.
+- `/reasoning`（以及 `/verbose`）在群組情境中具風險：可能揭露你不打算公開的內部推理或工具輸出。建議保持關閉，尤其是在群聊中。 Prefer leaving them off, especially in group chats. Prefer leaving them off, especially in group chats.
 - **快速路徑：** 來自允許清單寄件者的僅指令訊息會立即處理（略過佇列 + 模型）。
 - **群組提及閘控：** 來自允許清單寄件者的僅指令訊息會略過提及需求。
 - **內嵌捷徑（僅限允許清單寄件者）：** 某些指令也可內嵌在一般訊息中，並在模型看到剩餘文字前被移除。
   - 範例：`hey /status` 會觸發狀態回覆，其餘文字會依正常流程繼續。
 - 目前支援：`/help`、`/commands`、`/status`、`/whoami`（`/id`）。
 - 未授權的僅指令訊息會被靜默忽略，而內嵌的 `/...` token 會被視為一般文字。
-- **Skill 指令：** `user-invocable` skills 會以斜線指令形式公開。名稱會被清理為 `a-z0-9_`（最長 32 字元）；發生衝突時會加上數字尾碼（例如：`_2`）。 Names are sanitized to `a-z0-9_` (max 32 chars); collisions get numeric suffixes (e.g. `_2`).
+- **Skill 指令：** `user-invocable` skills 會以斜線指令形式公開。名稱會被清理為 `a-z0-9_`（最長 32 字元）；發生衝突時會加上數字尾碼（例如：`_2`）。 **Skill 指令：** `user-invocable` skills 會以斜線指令形式公開。名稱會被清理為 `a-z0-9_`（最長 32 字元）；發生衝突時會加上數字尾碼（例如：`_2`）。 Names are sanitized to `a-z0-9_` (max 32 chars); collisions get numeric suffixes (e.g. `_2`).
   - `/skill <name> [input]` 依名稱執行 skill（當原生指令限制無法為每個 skill 建立指令時很有用）。
   - By default, skill commands are forwarded to the model as a normal request.
   - Skills 可選擇宣告 `command-dispatch: tool`，以將指令直接路由到工具（具決定性，不經模型）。
@@ -168,7 +179,7 @@ They run immediately, are stripped before the model sees the message, and the re
 
 ## 設定更新
 
-`/config` 會寫入磁碟上的設定（`openclaw.json`）。僅限擁有者。預設停用；使用 `commands.config: true` 啟用。 Owner-only. Disabled by default; enable with `commands.config: true`.
+`/config` 會寫入磁碟上的設定（`openclaw.json`）。僅限擁有者。預設停用；使用 `commands.config: true` 啟用。 Owner-only. Owner-only. Disabled by default; enable with `commands.config: true`.
 
 範例：
 
@@ -193,6 +204,4 @@ They run immediately, are stripped before the model sees the message, and the re
   - Slack：`agent:<agentId>:slack:slash:<userId>`（前綴可透過 `channels.slack.slashCommand.sessionPrefix` 設定）
   - Telegram：`telegram:slash:<userId>`（透過 `CommandTargetSessionKey` 指向聊天工作階段）
 - **`/stop`** 會指向目前的聊天工作階段，以便中止目前的執行。
-- **Slack：** 仍支援單一 `/openclaw` 風格指令的 `channels.slack.slashCommand`。若啟用 `commands.native`，你必須為每個內建指令建立一個 Slack 斜線指令（名稱與 `/help` 相同）。Slack 的指令參數選單會以暫時性的 Block Kit 按鈕提供。 47. 若你啟用 `commands.native`，必須為每個內建指令建立一個 Slack 斜線指令（名稱與 `/help` 相同）。 Command argument menus for Slack are delivered as ephemeral Block Kit buttons.
-
-
+- **Slack：** 仍支援單一 `/openclaw` 風格指令的 `channels.slack.slashCommand`。若啟用 `commands.native`，你必須為每個內建指令建立一個 Slack 斜線指令（名稱與 `/help` 相同）。Slack 的指令參數選單會以暫時性的 Block Kit 按鈕提供。 47. 47. 若你啟用 `commands.native`，必須為每個內建指令建立一個 Slack 斜線指令（名稱與 `/help` 相同）。 若你啟用 `commands.native`，必須為每個內建指令建立一個 Slack 斜線指令（名稱與 `/help` 相同）。 Command argument menus for Slack are delivered as ephemeral Block Kit buttons.

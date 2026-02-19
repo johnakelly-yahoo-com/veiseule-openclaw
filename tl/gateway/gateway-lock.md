@@ -1,4 +1,8 @@
 ---
+summary: "Singleton guard ng Gateway gamit ang pag-bind ng WebSocket listener"
+read_when:
+  - Kapag nagpapatakbo o nagde-debug ng proseso ng gateway
+  - Kapag iniimbestigahan ang pagpapatupad ng single-instance
 title: "Kandado ng Gateway"
 ---
 
@@ -28,5 +32,3 @@ Huling na-update: 2025-12-11
 
 - Kung ang port ay okupado ng _ibang_ proseso, pareho ang error; palayain ang port o pumili ng iba gamit ang `openclaw gateway --port <port>`.
 - Ang macOS app ay nagpapanatili pa rin ng sarili nitong magaan na PID guard bago i-spawn ang gateway; ang runtime lock ay ipinapatupad ng WebSocket bind.
-
-

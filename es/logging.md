@@ -1,4 +1,9 @@
 ---
+summary: "Resumen de logging: registros en archivo, salida de consola, tail desde la CLI y la UI de Control"
+read_when:
+  - Necesita una visión general de logging apta para principiantes
+  - Quiere configurar niveles o formatos de logs
+  - Está solucionando problemas y necesita encontrar logs rápidamente
 title: "Registro"
 ---
 
@@ -343,5 +348,3 @@ Colas + sesiones:
 - **¿Logs vacíos?** Verifique que el Gateway esté en ejecución y escribiendo en la ruta de archivo
   indicada en `logging.file`.
 - **¿Necesita más detalle?** Establezca `logging.level` en `debug` o `trace` y vuelva a intentar.
-
-

@@ -1,8 +1,11 @@
 ---
+summary: "„OpenClaw‑Funktionen über Kanäle, Routing, Medien und UX hinweg.“"
+read_when:
+  - Sie möchten eine vollständige Liste dessen, was OpenClaw unterstützt
 title: "Funktionen"
 ---
 
-## Höhepunkte
+## Highlights
 
 <Columns>
   <Card title="Channels" icon="message-square">
@@ -54,5 +57,3 @@ title: "Funktionen"
 Legacy‑Pfade für Claude, Codex, Gemini und Opencode wurden entfernt. Pi ist der einzige
 Coding‑Agent‑Pfad.
 </Note>
-
-

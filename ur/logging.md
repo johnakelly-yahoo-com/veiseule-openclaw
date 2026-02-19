@@ -1,4 +1,9 @@
 ---
+summary: "لاگنگ کا جائزہ: فائل لاگز، کنسول آؤٹ پٹ، CLI ٹیلنگ، اور کنٹرول UI"
+read_when:
+  - آپ کو لاگنگ کا مبتدی دوست جائزہ درکار ہو
+  - آپ لاگ لیولز یا فارمیٹس کنفیگر کرنا چاہتے ہوں
+  - آپ خرابیوں کا ازالہ کر رہے ہوں اور لاگز تیزی سے تلاش کرنا چاہتے ہوں
 title: "لاگنگ"
 ---
 
@@ -134,7 +139,7 @@ entries to render structured output (time, level, subsystem, message).
 
 ## تشخیصی معلومات + OpenTelemetry
 
-Diagnostics ماڈل رنز کے لیے ساختہ، مشین کے ذریعے پڑھے جانے والے ایونٹس ہیں **اور**
+Diagnostics are structured, machine-readable events for model runs **and**
 message-flow telemetry (webhooks, queueing, session state). They do **not**
 replace logs; they exist to feed metrics, traces, and other exporters.
 
@@ -151,8 +156,8 @@ replace logs; they exist to feed metrics, traces, and other exporters.
 
 - **میٹرکس**: کاؤنٹرز + ہسٹوگرامز (ٹوکن استعمال، پیغام فلو، کیوئنگ)۔
 - **ٹریسز**: ماڈل استعمال + ویب ہُک/پیغام پروسیسنگ کے لیے اسپینز۔
-- **Logs**: جب `diagnostics.otel.logs` فعال ہو تو OTLP کے ذریعے ایکسپورٹ کیے جاتے ہیں۔ لاگ
-حجم زیادہ ہو سکتا ہے؛ `logging.level` اور ایکسپورٹر فلٹرز کو مدِنظر رکھیں۔
+- **Logs**: exported over OTLP when `diagnostics.otel.logs` is enabled. Log
+  volume can be high; keep `logging.level` and exporter filters in mind.
 
 ### تشخیصی ایونٹ کیٹلاگ
 
@@ -191,7 +196,7 @@ replace logs; they exist to feed metrics, traces, and other exporters.
 
 ### تشخیصی فلیگز (ہدفی لاگز)
 
-`logging.level` بڑھائے بغیر اضافی، ہدفی ڈیبگ لاگز فعال کرنے کے لیے فلیگز استعمال کریں۔
+Use flags to turn on extra, targeted debug logs without raising `logging.level`.
 Flags are case-insensitive and support wildcards (e.g. `telegram.*` or `*`).
 
 ```json
@@ -216,7 +221,7 @@ OPENCLAW_DIAGNOSTICS=telegram.http,telegram.payload
 
 ### OpenTelemetry میں ایکسپورٹ کریں
 
-Diagnostics کو `diagnostics-otel` پلگ اِن (OTLP/HTTP) کے ذریعے ایکسپورٹ کیا جا سکتا ہے۔ یہ
+Diagnostics can be exported via the `diagnostics-otel` plugin (OTLP/HTTP). This
 works with any OpenTelemetry collector/backend that accepts OTLP/HTTP.
 
 ```json
@@ -249,11 +254,11 @@ works with any OpenTelemetry collector/backend that accepts OTLP/HTTP.
 نوٹس:
 
 - آپ پلگ اِن کو `openclaw plugins enable diagnostics-otel` کے ساتھ بھی فعال کر سکتے ہیں۔
-- `protocol` فی الحال صرف `http/protobuf` کو سپورٹ کرتا ہے۔ `grpc` کو نظر انداز کیا جاتا ہے۔
+- `protocol` currently supports `http/protobuf` only. `grpc` is ignored.
 - میٹرکس میں ٹوکن استعمال، لاگت، سیاق سائز، رن دورانیہ، اور پیغام-فلو
   کاؤنٹرز/ہسٹوگرامز (ویب ہُکس، کیوئنگ، سیشن اسٹیٹ، کیو کی گہرائی/انتظار) شامل ہیں۔
-- Traces/metrics کو `traces` / `metrics` (ڈیفالٹ: آن) کے ذریعے ٹوگل کیا جا سکتا ہے۔ Traces
-فعال ہونے پر ماڈل کے استعمال کے spans کے ساتھ ساتھ webhook/message پراسیسنگ کے spans بھی شامل ہوتے ہیں۔
+- Traces/metrics can be toggled with `traces` / `metrics` (default: on). Traces
+  include model usage spans plus webhook/message processing spans when enabled.
 - جب آپ کے کلیکٹر کو تصدیق درکار ہو تو `headers` سیٹ کریں۔
 - معاون ماحولیاتی متغیرات: `OTEL_EXPORTER_OTLP_ENDPOINT`,
   `OTEL_SERVICE_NAME`, `OTEL_EXPORTER_OTLP_PROTOCOL`۔
@@ -343,5 +348,3 @@ works with any OpenTelemetry collector/backend that accepts OTLP/HTTP.
 - **لاگز خالی ہیں؟** چیک کریں کہ Gateway چل رہا ہے اور
   `logging.file` میں دیے گئے فائل راستے پر لکھ رہا ہے۔
 - **مزید تفصیل درکار ہے؟** `logging.level` کو `debug` یا `trace` پر سیٹ کریں اور دوبارہ کوشش کریں۔
-
-

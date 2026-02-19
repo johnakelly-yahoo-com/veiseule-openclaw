@@ -1,4 +1,7 @@
 ---
+summary: "Accès à distance via des tunnels SSH (Gateway WS) et des tailnets"
+read_when:
+  - Exécution ou dépannage de configurations de passerelle distante
 title: "Accès à distance"
 ---
 
@@ -124,5 +127,3 @@ Version courte : **conservez la Gateway en loopback uniquement** sauf si vous ê
 - Traitez le contrôle navigateur comme un accès opérateur : tailnet uniquement + appairage de nœuds délibéré.
 
 Analyse approfondie : [Sécurité](/gateway/security).
-
-

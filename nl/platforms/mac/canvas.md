@@ -1,4 +1,9 @@
 ---
+summary: "Door agent aangestuurd Canvas-paneel ingebed via WKWebView + aangepast URL-schema"
+read_when:
+  - Implementatie van het macOS Canvas-paneel
+  - Agentbediening toevoegen voor een visuele werkruimte
+  - Debuggen van WKWebView Canvas-ladingen
 title: "Canvas"
 ---
 
@@ -118,5 +123,3 @@ De app vraagt om bevestiging tenzij een geldige sleutel wordt meegegeven.
 - Het Canvas-schema blokkeert directory traversal; bestanden moeten onder de sessieroot staan.
 - Lokale Canvas-inhoud gebruikt een aangepast schema (geen local loopback-server vereist).
 - Externe `http(s)`-URL's zijn alleen toegestaan wanneer er expliciet naartoe wordt genavigeerd.
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "macOS پر Gateway رَن ٹائم (بیرونی launchd سروس)"
+read_when:
+  - OpenClaw.app کی پیکیجنگ
+  - macOS Gateway launchd سروس کی ڈیبگنگ
+  - macOS کے لیے gateway CLI کی تنصیب
 title: "macOS پر Gateway"
 ---
 
@@ -66,5 +71,3 @@ openclaw gateway --port 18999 --bind loopback
 ```bash
 openclaw gateway call health --url ws://127.0.0.1:18999 --timeout 3000
 ```
-
-

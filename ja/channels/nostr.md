@@ -1,4 +1,8 @@
 ---
+summary: "NIP-04 で暗号化されたメッセージによる Nostr の DM チャンネル"
+read_when:
+  - Nostr 経由で OpenClaw が DM を受信できるようにしたい場合
+  - 分散型メッセージングを設定しています
 title: "Nostr"
 ---
 
@@ -69,7 +73,7 @@ export NOSTR_PRIVATE_KEY="nsec1..."
 
 | キー           | 型                                                            | デフォルト                                       | 説明                    |
 | ------------ | ------------------------------------------------------------ | ------------------------------------------- | --------------------- |
-| `privateKey` | string                                                       | 必須                                    | `nsec` または hex 形式の秘密鍵 |
+| `privateKey` | string                                                       | 必須                                          | `nsec` または hex 形式の秘密鍵 |
 | `relays`     | string[] | `['wss://relay.damus.io', 'wss://nos.lol']` | リレー URL（WebSocket）    |
 | `dmPolicy`   | string                                                       | `pairing`                                   | DM アクセス ポリシー          |
 | `allowFrom`  | string[] | `[]`                                        | 許可された送信者の pubkey      |
@@ -79,7 +83,7 @@ export NOSTR_PRIVATE_KEY="nsec1..."
 
 ## プロフィール メタデータ
 
-プロフィール データは、NIP-01 の `kind:0` イベントとして公開されます。Control UI（Channels -> Nostr -> Profile）から管理するか、設定で直接指定できます。 コントロールUI(Channels -> Nostr -> Profile)から管理することも、configで直接設定することもできます。
+プロフィール データは、NIP-01 の `kind:0` イベントとして公開されます。Control UI（Channels -> Nostr -> Profile）から管理するか、設定で直接指定できます。 プロフィール データは、NIP-01 の `kind:0` イベントとして公開されます。Control UI（Channels -> Nostr -> Profile）から管理するか、設定で直接指定できます。 コントロールUI(Channels -> Nostr -> Profile)から管理することも、configで直接設定することもできます。
 
 例:
 
@@ -227,5 +231,3 @@ docker run -p 7777:7777 ghcr.io/hoytech/strfry
 - ダイレクトメッセージのみ（グループ チャットは非対応）。
 - メディア添付は非対応。
 - NIP-04 のみ対応（NIP-17 のギフトラップは今後対応予定）。
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "Regras de tratamento de imagens e mídia para envios, gateway e respostas de agentes"
+read_when:
+  - Modificando o pipeline de mídia ou anexos
 title: "Suporte a Imagens e Mídia"
 ---
 
@@ -67,5 +70,3 @@ O canal WhatsApp funciona via **Baileys Web**. Este documento registra as regras
 - Cobrir fluxos de envio + resposta para casos de imagem/áudio/documento.
 - Validar recompressão para imagens (limite de tamanho) e a flag de nota de voz para áudio.
 - Garantir que respostas com múltiplas mídias sejam distribuídas como envios sequenciais.
-
-

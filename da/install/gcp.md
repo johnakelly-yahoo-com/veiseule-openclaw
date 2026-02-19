@@ -1,4 +1,9 @@
 ---
+summary: "Kør OpenClaw Gateway 24/7 på en GCP Compute Engine VM (Docker) med vedvarende tilstand"
+read_when:
+  - Du vil have OpenClaw kørende 24/7 på GCP
+  - Du vil have en produktionsklar, altid-aktiv Gateway på din egen VM
+  - Du vil have fuld kontrol over persistens, binære filer og genstartsadfærd
 title: "GCP"
 ---
 
@@ -497,5 +502,3 @@ Se [https://cloud.google.com/iam/docs/understanding-roles](https://cloud.google.
 - Opsæt beskedkanaler: [Channels](/channels)
 - Par lokale enheder som noder: [Nodes](/nodes)
 - Konfigurér Gateway: [Gateway configuration](/gateway/configuration)
-
-

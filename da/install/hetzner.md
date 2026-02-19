@@ -1,4 +1,10 @@
 ---
+summary: "Kør OpenClaw Gateway 24/7 på en billig Hetzner VPS (Docker) med vedvarende tilstand og indbyggede binære filer"
+read_when:
+  - Du vil have OpenClaw kørende 24/7 på en cloud-VPS (ikke din laptop)
+  - Du vil have en produktionsklar, altid-aktiv Gateway på din egen VPS
+  - Du vil have fuld kontrol over persistens, binære filer og genstartsadfærd
+  - Du kører OpenClaw i Docker på Hetzner eller en tilsvarende udbyder
 title: "Hetzner"
 ---
 
@@ -324,4 +330,23 @@ Alle langlivede stater skal overleve genstarter, genopbygger og genstarter.
 | OS-pakker                      | Container-filsystem               | Docker-image               | Installer ikke ved runtime         |
 | Docker-container               | Flygtig                           | Genstartbar                | Sikker at slette                   |
 
+---
 
+## Infrastructure as Code (Terraform)
+
+For teams, der foretrækker infrastructure-as-code-workflows, tilbyder et community-vedligeholdt Terraform-setup:
+
+- Modulær Terraform-konfiguration med håndtering af remote state
+- Automatiseret provisionering via cloud-init
+- Deploymentscripts (bootstrap, deploy, backup/restore)
+- Sikkerhedshærdning (firewall, UFW, kun SSH-adgang)
+- SSH-tunnelkonfiguration til gateway-adgang
+
+**Repositories:**
+
+- Infrastructure: [openclaw-terraform-hetzner](https://github.com/andreesg/openclaw-terraform-hetzner)
+- Docker-konfiguration: [openclaw-docker-config](https://github.com/andreesg/openclaw-docker-config)
+
+Denne tilgang supplerer Docker-opsætningen ovenfor med reproducerbare deployments, versionsstyret infrastruktur og automatiseret disaster recovery.
+
+> **Bemærk:** Vedligeholdes af communityet. For problemer eller bidrag, se repository-linksene ovenfor.

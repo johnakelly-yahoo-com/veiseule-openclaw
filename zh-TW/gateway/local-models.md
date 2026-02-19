@@ -1,10 +1,15 @@
 ---
+summary: "在本機 LLM（LM Studio、vLLM、LiteLLM、自訂 OpenAI 端點）上執行 OpenClaw"
+read_when:
+  - 您想從自己的 GPU 主機提供模型服務
+  - 您正在串接 LM Studio 或 OpenAI 相容的代理
+  - 您需要最安全的本機模型指引
 title: "本機模型"
 ---
 
 # 本機模型
 
-本機部署可行，但 OpenClaw 需要大型上下文 + 強大的提示詞注入防禦。小顯卡會截斷上下文並削弱安全性。建議拉高規格：**≥2 台滿配 Mac Studios 或同等 GPU 主機（約 ~$30k+）**。單張 **24 GB** GPU 僅適用於較輕量的提示，且延遲較高。請使用**你能運行的最大／完整尺寸模型變體**；過度量化或「小型」檢查點會提高提示詞注入風險（請參見 [Security](/gateway/security)）。
+Local is doable, but OpenClaw expects large context + strong defenses against prompt injection. Small cards truncate context and leak safety. Aim high: **≥2 maxed-out Mac Studios or equivalent GPU rig (~$30k+)**. A single **24 GB** GPU works only for lighter prompts with higher latency. Use the **largest / full-size model variant you can run**; aggressively quantized or “small” checkpoints raise prompt-injection risk (see [Security](/gateway/security)).
 
 ## 建議：LM Studio + MiniMax M2.1（Responses API，完整尺寸）
 
@@ -47,7 +52,7 @@ Best current local stack. 目前最佳的本機組合。在 LM Studio 中載入 
 
 **設定檢查清單**
 
-- 安裝 LM Studio：&lt;https://lmstudio.ai&gt;
+- 安裝 LM Studio：<https://lmstudio.ai>
 - 在 LM Studio 中下載**可取得的最大 MiniMax M2.1 版本**（避免「small」／高度量化變體），啟動伺服器，並確認 `http://127.0.0.1:1234/v1/models` 有列出該模型。
 - 保持模型常駐載入；冷啟動會增加啟動延遲。
 - 若你的 LM Studio 版本不同，請調整 `contextWindow`/`maxTokens`。
@@ -55,7 +60,7 @@ Best current local stack. 目前最佳的本機組合。在 LM Studio 中載入 
 
 即使執行本機模型，也請保留託管模型設定；使用 `models.mode: "merge"` 以確保仍可回退。
 
-### 混合配置：以託管為主，本機為備援
+### Hybrid config: hosted primary, local fallback
 
 ```json5
 {
@@ -96,18 +101,18 @@ Best current local stack. 目前最佳的本機組合。在 LM Studio 中載入 
 }
 ```
 
-### 本機優先，託管作為安全備援
+### Local-first with hosted safety net
 
 對調主要與回退的順序；保留相同的 providers 區塊與 `models.mode: "merge"`，以便在本機主機停機時回退到 Sonnet 或 Opus。
 
 ### 區域託管／資料路由
 
-- 託管的 MiniMax/Kimi/GLM 變體也可在 OpenRouter 上取得，並提供區域鎖定端點（例如美國託管）。請在該平台選擇區域變體，以便將流量限制在你選定的司法管轄區內，同時仍使用 `models.mode: "merge"` 作為 Anthropic/OpenAI 的備援。
+- Hosted MiniMax/Kimi/GLM variants also exist on OpenRouter with region-pinned endpoints (e.g., US-hosted). Pick the regional variant there to keep traffic in your chosen jurisdiction while still using `models.mode: "merge"` for Anthropic/OpenAI fallbacks.
 - 僅本機仍是最強的隱私路徑；當你需要提供者功能但又想控制資料流向時，託管的區域路由是折衷方案。
 
 ## 其他 OpenAI 相容的本機代理
 
-只要能提供 OpenAI 風格的 `/v1` 端點，vLLM、LiteLLM、OAI-proxy 或自訂閘道都可使用。請將上方的 provider 區塊替換為你的端點與模型 ID：
+vLLM, LiteLLM, OAI-proxy, or custom gateways work if they expose an OpenAI-style `/v1` endpoint. Replace the provider block above with your endpoint and model ID:
 
 ```json5
 {
@@ -141,7 +146,5 @@ Best current local stack. 目前最佳的本機組合。在 LM Studio 中載入 
 
 - Gateway can reach the proxy? Gateway 能連到代理嗎？`curl http://127.0.0.1:1234/v1/models`。
 - LM Studio 模型被卸載？重新載入；冷啟動是常見的「卡住」原因。 Reload; cold start is a common “hanging” cause.
-- 上下文錯誤？ 上下文錯誤？降低 `contextWindow` 或提高你的伺服器限制。
+- 上下文錯誤？ 上下文錯誤？ 上下文錯誤？降低 `contextWindow` 或提高你的伺服器限制。
 - 安全性：本機模型會略過提供者端的過濾；請保持代理程式範圍精簡並開啟壓縮，以限制提示注入的影響半徑。
-
-

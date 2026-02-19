@@ -1,4 +1,9 @@
 ---
+summary: "รันOpenClaw Gatewayตลอด24/7บนVMของGCP Compute Engine(Docker)พร้อมสถานะถาวร"
+read_when:
+  - คุณต้องการให้OpenClawทำงานตลอด24/7บนGCP
+  - คุณต้องการGatewayระดับโปรดักชันที่เปิดตลอดเวลาบนVMของคุณเอง
+  - คุณต้องการควบคุมการคงอยู่ของข้อมูล ไบนารี และพฤติกรรมการรีสตาร์ตอย่างเต็มที่
 title: "GCP"
 ---
 
@@ -8,6 +13,8 @@ title: "GCP"
 
 รันOpenClaw Gatewayแบบคงอยู่บนVMของGCP Compute Engineโดยใช้Dockerพร้อมสถานะถาวร ไบนารีที่ฝังไว้ในอิมเมจ และพฤติกรรมการรีสตาร์ตที่ปลอดภัย
 
+หากคุณต้องการ“OpenClawตลอด24/7ในงบประมาณประมาณ$5-12/เดือน”นี่คือการตั้งค่าที่เชื่อถือได้บนGoogle Cloud
+ราคาขึ้นอยู่กับประเภทเครื่องและภูมิภาคเลือกVMที่เล็กที่สุดที่รองรับภาระงานของคุณและขยายเมื่อพบปัญหาOOM
 หากคุณต้องการ“OpenClawตลอด24/7ในงบประมาณประมาณ$5-12/เดือน”นี่คือการตั้งค่าที่เชื่อถือได้บนGoogle Cloud
 ราคาขึ้นอยู่กับประเภทเครื่องและภูมิภาคเลือกVMที่เล็กที่สุดที่รองรับภาระงานของคุณและขยายเมื่อพบปัญหาOOM
 Pricing varies by machine type and region; pick the smallest VM that fits your workload and scale up if you hit OOMs.
@@ -30,6 +37,7 @@ Pricing varies by machine type and region; pick the smallest VM that fits your w
 Ubuntuก็ใช้ได้เช่นกันให้แมปแพ็กเกจให้เหมาะสม
 สำหรับโฟลว์Dockerทั่วไปดูที่[Docker](/install/docker)
 Ubuntu also works; map packages accordingly.
+Ubuntu also works; map packages accordingly.
 For the generic Docker flow, see [Docker](/install/docker).
 
 ---
@@ -43,7 +51,7 @@ For the generic Docker flow, see [Docker](/install/docker).
 5. โคลนรีโพซิทอรีOpenClaw
 6. สร้างไดเรกทอรีถาวรบนโฮสต์
 7. กำหนดค่า`.env`และ`docker-compose.yml`
-8. รวมไบนารีที่จำเป็น สร้าง และรัน
+8. Bake required binaries, build, and launch
 
 ---
 
@@ -56,7 +64,7 @@ For the generic Docker flow, see [Docker](/install/docker).
 - เวลาประมาณ20-30นาที
 - DockerและDocker Compose
 - ข้อมูลยืนยันตัวตนของโมเดล
-- ข้อมูลรับรองของผู้ให้บริการ (ไม่บังคับ)
+- Optional provider credentials
   - QRของWhatsApp
   - โทเคนบอต Telegram
   - Gmail OAuth
@@ -442,7 +450,7 @@ docker compose up -d
 
 **SSHเชื่อมต่อไม่ได้**
 
-การกระจายคีย์SSHอาจใช้เวลา1-2นาทีหลังสร้างVM รอแล้วลองใหม่ Wait and retry.
+การกระจายคีย์SSHอาจใช้เวลา1-2นาทีหลังสร้างVM รอแล้วลองใหม่ Wait and retry. Wait and retry.
 
 **ปัญหาOS Login**
 
@@ -505,5 +513,3 @@ gcloud compute instances start openclaw-gateway --zone=us-central1-a
 - ตั้งค่าช่องทางการส่งข้อความ: [Channels](/channels)
 - จับคู่อุปกรณ์ภายในเครื่องเป็นโหนด: [Nodes](/nodes)
 - กำหนดค่าGateway: [Gateway configuration](/gateway/configuration)
-
-

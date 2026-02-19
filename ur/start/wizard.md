@@ -1,11 +1,15 @@
 ---
+summary: "CLI آن بورڈنگ وزارڈ: گیٹ وے، ورک اسپیس، چینلز، اور Skills کے لیے رہنمائی کے ساتھ سیٹ اپ"
+read_when:
+  - آن بورڈنگ وزارڈ چلانا یا کنفیگر کرنا
+  - نئی مشین سیٹ اپ کرنا
 title: "آن بورڈنگ وزارڈ (CLI)"
 sidebarTitle: "آن بورڈنگ: CLI"
 ---
 
 # آن بورڈنگ وزارڈ (CLI)
 
-آن بورڈنگ وزرڈ macOS پر OpenClaw سیٹ اپ کرنے کا **تجویز کردہ** طریقہ ہے،
+The onboarding wizard is the **recommended** way to set up OpenClaw on macOS,
 Linux, or Windows (via WSL2; strongly recommended).
 It configures a local Gateway or a remote Gateway connection, plus channels, skills,
 and workspace defaults in one guided flow.
@@ -15,7 +19,7 @@ openclaw onboard
 ```
 
 <Info>
-تیز ترین پہلی چیٹ: Control UI کھولیں (چینل سیٹ اپ کی ضرورت نہیں)۔ چلائیں
+Fastest first chat: open the Control UI (no channel setup needed). Run
 `openclaw dashboard` and chat in the browser. Docs: [Dashboard](/web/dashboard).
 </Info>
 
@@ -27,11 +31,11 @@ openclaw agents add <name>
 ```
 
 <Note>
-`--json` نان اِنٹرایکٹو موڈ کی نشاندہی نہیں کرتا۔ اسکرپٹس کے لیے `--non-interactive` استعمال کریں۔
+`--json` does not imply non-interactive mode. For scripts, use `--non-interactive`.
 </Note>
 
 <Tip>
-تجویز کردہ: ایک Brave Search API key سیٹ اپ کریں تاکہ ایجنٹ `web_search` استعمال کر سکے۔
+Recommended: set up a Brave Search API key so the agent can use `web_search`
 (`web_fetch` works without a key). Easiest path: `openclaw configure --section web`
 which stores `tools.web.search.apiKey`. Docs: [Web tools](/tools/web).
 </Tip>
@@ -60,7 +64,8 @@ which stores `tools.web.search.apiKey`. Docs: [Web tools](/tools/web).
 
 **Local mode (default)** آپ کو ان مراحل سے گزارتا ہے:
 
-1. **Model/Auth** — Anthropic API key (recommended), OAuth, OpenAI, or other providers. Pick a default model.
+1. **Model/Auth** — Anthropic API key (تجویز کردہ)، OpenAI، یا Custom Provider
+   (OpenAI-compatible، Anthropic-compatible، یا Unknown auto-detect). Pick a default model.
 2. **Workspace** — Location for agent files (default `~/.openclaw/workspace`). Seeds bootstrap files.
 3. **Gateway** — پورٹ، بائنڈ ایڈریس، تصدیقی موڈ، Tailscale ایکسپوژر۔
 4. **Channels** — WhatsApp، Telegram، Discord، Google Chat، Mattermost، Signal، BlueBubbles، یا iMessage۔
@@ -104,5 +109,4 @@ RPC API، اور ان تمام کنفیگ فیلڈز کی مکمل فہرست ک
 - CLI کمانڈ حوالہ: [`openclaw onboard`](/cli/onboard)
 - macOS ایپ آن بورڈنگ: [Onboarding](/start/onboarding)
 - ایجنٹ فرسٹ رن رسم: [Agent Bootstrapping](/start/bootstrapping)
-
-
+- ایجنٹ فرسٹ رن رسم: [Agent Bootstrapping](/start/bootstrapping)

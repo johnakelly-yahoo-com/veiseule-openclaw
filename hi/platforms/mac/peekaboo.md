@@ -1,4 +1,9 @@
 ---
+summary: "macOS UI स्वचालन के लिए PeekabooBridge एकीकरण"
+read_when:
+  - OpenClaw.app में PeekabooBridge होस्ट करना
+  - Swift Package Manager के माध्यम से Peekaboo का एकीकरण
+  - PeekabooBridge प्रोटोकॉल/पाथ बदलना
 title: "Peekaboo ब्रिज"
 ---
 
@@ -16,7 +21,7 @@ title: "Peekaboo ब्रिज"
 
 macOS ऐप में:
 
-- सेटिंग्स → **Peekaboo Bridge सक्षम करें**
+- Settings → **Enable Peekaboo Bridge**
 
 28. सक्षम होने पर, OpenClaw एक लोकल UNIX सॉकेट सर्वर शुरू करता है। 29. यदि अक्षम है, तो होस्ट बंद कर दिया जाता है और `peekaboo` अन्य उपलब्ध होस्ट्स पर फ़ॉलबैक करेगा।
 
@@ -54,5 +59,3 @@ export PEEKABOO_BRIDGE_SOCKET=/path/to/bridge.sock
   `PEEKABOO_ALLOW_UNSIGNED_SOCKET_CLIENTS=1` के साथ होस्ट चलाएँ।
 - यदि कोई होस्ट नहीं मिलता है, तो होस्ट ऐप्स में से किसी एक (Peekaboo.app या OpenClaw.app)
   को खोलें और पुष्टि करें कि अनुमतियाँ प्रदान की गई हैं।
-
-

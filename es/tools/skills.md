@@ -1,4 +1,8 @@
 ---
+summary: "Skills: gestionadas vs del espacio de trabajo, reglas de control y cableado de config/env"
+read_when:
+  - Agregar o modificar skills
+  - Cambiar el control o las reglas de carga de skills
 title: "Habilidades"
 ---
 
@@ -324,5 +328,3 @@ Vea [Skills config](/tools/skills-config) para el esquema completo de configurac
 Explore [https://clawhub.com](https://clawhub.com).
 
 ---
-
-

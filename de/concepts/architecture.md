@@ -1,4 +1,7 @@
 ---
+summary: "„WebSocket-Gateway-Architektur, Komponenten und Client-Flows“"
+read_when:
+  - Arbeit am Gateway-Protokoll, an Clients oder Transporten
 title: "„Gateway-Architektur“"
 ---
 
@@ -16,7 +19,10 @@ Zuletzt aktualisiert: 2026-01-22
 - **Nodes** (macOS/iOS/Android/headless) verbinden sich ebenfalls über **WebSocket**, deklarieren jedoch
   `role: node` mit expliziten Caps/Commands.
 - Ein Gateway pro Host; es ist der einzige Ort, der eine WhatsApp-Sitzung öffnet.
-- Ein **Canvas-Host** (Standard `18793`) stellt agentenbearbeitbares HTML und A2UI bereit.
+- Der **Canvas-Host** wird vom Gateway-HTTP-Server bereitgestellt unter:
+  - `/__openclaw__/canvas/` (vom Agenten bearbeitbares HTML/CSS/JS)
+  - `/__openclaw__/a2ui/` (A2UI-Host)
+    Er verwendet denselben Port wie das Gateway (Standard `18789`).
 
 ## Komponenten und Flows
 
@@ -53,22 +59,6 @@ Protokolldetails:
 ## Verbindungslebenszyklus (einzelner Client)
 
 ```mermaid
-%%{init: {
-  'theme': 'base',
-  'themeVariables': {
-    'primaryColor': '#ffffff',
-    'primaryTextColor': '#000000',
-    'primaryBorderColor': '#000000',
-    'lineColor': '#000000',
-    'secondaryColor': '#f9f9fb',
-    'tertiaryColor': '#ffffff',
-    'clusterBkg': '#f9f9fb',
-    'clusterBorder': '#000000',
-    'nodeBorder': '#000000',
-    'mainBkg': '#ffffff',
-    'edgeLabelBackground': '#ffffff'
-  }
-}}%%
 sequenceDiagram
     participant Client
     participant Gateway
@@ -146,5 +136,3 @@ Details: [Gateway-Protokoll](/gateway/protocol), [Pairing](/channels/pairing),
 - Genau ein Gateway steuert eine einzelne Baileys-Sitzung pro Host.
 - Der Handshake ist verpflichtend; jeder nicht-JSON- oder nicht-Connect-Erstframe führt zu einem harten Close.
 - Events werden nicht erneut abgespielt; Clients müssen bei Lücken aktualisieren.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "„Deepgram-Transkription für eingehende Sprachnachrichten“"
+read_when:
+  - Sie möchten Deepgram Speech-to-Text für Audioanhänge verwenden
+  - Sie benötigen ein schnelles Deepgram-Konfigurationsbeispiel
 title: "„Deepgram“"
 ---
 
@@ -84,5 +88,3 @@ Beispiel mit Deepgram-Optionen:
 - Die Authentifizierung folgt der standardmäßigen Anbieter-Reihenfolge; `DEEPGRAM_API_KEY` ist der einfachste Weg.
 - Überschreiben Sie Endpunkte oder Header mit `tools.media.audio.baseUrl` und `tools.media.audio.headers`, wenn Sie einen Proxy verwenden.
 - Die Ausgabe folgt denselben Audioregeln wie bei anderen Anbietern (Größenbeschränkungen, Timeouts, Einspeisung des Transkripts).
-
-

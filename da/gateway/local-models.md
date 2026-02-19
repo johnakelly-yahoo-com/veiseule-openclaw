@@ -1,4 +1,9 @@
 ---
+summary: "Kør OpenClaw på lokale LLM’er (LM Studio, vLLM, LiteLLM, brugerdefinerede OpenAI-endpoints)"
+read_when:
+  - Du vil servere modeller fra din egen GPU-boks
+  - Du kobler LM Studio eller en OpenAI-kompatibel proxy
+  - Du har brug for den sikreste vejledning til lokale modeller
 title: "Lokale modeller"
 ---
 
@@ -143,5 +148,3 @@ Behold `models.mode: "merge"`, så hosted-modeller forbliver tilgængelige som f
 - LM Studio model ulæst? Genindlæsning; kold start er en almindelig ”hængende årsag”.
 - Fejl i kontekst? Lavere `contextWindow` eller hæve din servergrænse.
 - Sikkerhed: lokale modeller springer udbyderfiltre over; hold agenter snævre og kompaktering slået til for at begrænse blast radius for prompt injection.
-
-

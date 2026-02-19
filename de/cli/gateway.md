@@ -1,4 +1,9 @@
 ---
+summary: "OpenClaw Gateway CLI (`openclaw gateway`) — Gateways ausführen, abfragen und entdecken"
+read_when:
+  - Ausführen des Gateway über die CLI (Entwicklung oder Server)
+  - Debugging von Gateway-Authentifizierung, Bind-Modi und Konnektivität
+  - Entdecken von Gateways via Bonjour (LAN + Tailnet)
 title: "Gateway"
 ---
 
@@ -195,5 +200,3 @@ Beispiele:
 openclaw gateway discover --timeout 4000
 openclaw gateway discover --json | jq '.beacons[].wsUrl'
 ```
-
-

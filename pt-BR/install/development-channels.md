@@ -1,4 +1,8 @@
 ---
+summary: "Canais estável, beta e dev: semântica, troca e marcação"
+read_when:
+  - Você quer alternar entre estável/beta/dev
+  - Você está marcando ou publicando pré-lançamentos
 title: "Canais de desenvolvimento"
 ---
 
@@ -69,5 +73,3 @@ Builds beta e dev podem **não** incluir um app para macOS. Tudo bem:
 
 - A tag do git e o dist-tag do npm ainda podem ser publicados.
 - Destaque “sem build para macOS neste beta” nas notas de release ou no changelog.
-
-

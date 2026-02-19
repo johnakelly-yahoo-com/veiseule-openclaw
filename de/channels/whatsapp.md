@@ -1,4 +1,7 @@
 ---
+summary: "WhatsApp-Channel-Unterstützung, Zugriffskontrollen, Zustellverhalten und Betrieb"
+read_when:
+  - Arbeit am Verhalten des WhatsApp/Web-Kanals oder an der Inbox-Routinglogik
 title: "WhatsApp"
 ---
 
@@ -6,61 +9,25 @@ title: "WhatsApp"
 
 Status: Nur WhatsApp Web über Baileys. Das Gateway besitzt die Sitzung(en).
 
-## Schnellstart (Anfänger)
+<CardGroup cols={3}>
+  <Card title="Pairing" icon="link" href="/channels/pairing">
+    Standardmäßige DM-Richtlinie ist Kopplung für unbekannte Absender.
+  
+</Card>
+  <Card title="Channel troubleshooting" icon="wrench" href="/channels/troubleshooting">
+    Kanalübergreifende Diagnosen und Reparaturleitfäden.
+  
+</Card>
+  <Card title="Gateway configuration" icon="settings" href="/gateway/configuration">
+    Vollständige Channel-Config-Muster und Beispiele.
+  
+</Card>
+</CardGroup>
 
-1. Verwenden Sie nach Möglichkeit eine **separate Telefonnummer** (empfohlen).
-2. Konfigurieren Sie WhatsApp in `~/.openclaw/openclaw.json`.
-3. Führen Sie `openclaw channels login` aus, um den QR-Code zu scannen (Verknüpfte Geräte).
-4. Starten Sie das Gateway.
+## Schnellstart
 
-Minimale Konfiguration:
-
-```json5
-{
-  channels: {
-    whatsapp: {
-      dmPolicy: "allowlist",
-      allowFrom: ["+15551234567"],
-    },
-  },
-}
-```
-
-## Ziele
-
-- Mehrere WhatsApp-Konten (Multi-Account) in einem Gateway-Prozess.
-- Deterministisches Routing: Antworten gehen zurück zu WhatsApp, kein Modell-Routing.
-- Das Modell sieht ausreichend Kontext, um zitierte Antworten zu verstehen.
-
-## Konfigurationsschreibzugriffe
-
-Standardmäßig darf WhatsApp Konfigurationsupdates schreiben, die durch `/config set|unset` ausgelöst werden (erfordert `commands.config: true`).
-
-Deaktivieren mit:
-
-```json5
-{
-  channels: { whatsapp: { configWrites: false } },
-}
-```
-
-## Architektur (wer besitzt was)
-
-- **Gateway** besitzt den Baileys-Socket und die Inbox-Schleife.
-- **CLI / macOS-App** kommunizieren mit dem Gateway; keine direkte Baileys-Nutzung.
-- **Aktiver Listener** ist für ausgehende Sendungen erforderlich; andernfalls schlägt das Senden sofort fehl.
-
-## Eine Telefonnummer erhalten (zwei Modi)
-
-WhatsApp erfordert eine echte Mobilnummer zur Verifizierung. VoIP- und virtuelle Nummern werden meist blockiert. Es gibt zwei unterstützte Wege, OpenClaw mit WhatsApp zu betreiben:
-
-### Dedizierte Nummer (empfohlen)
-
-Verwenden Sie eine **separate Telefonnummer** für OpenClaw. Beste UX, sauberes Routing, keine Self-Chat-Eigenheiten. Ideales Setup: **Ersatz-/altes Android-Telefon + eSIM**. Lassen Sie es mit WLAN und Strom verbunden und verknüpfen Sie es per QR.
-
-**WhatsApp Business:** Sie können WhatsApp Business auf demselben Gerät mit einer anderen Nummer verwenden. Ideal, um Ihr persönliches WhatsApp getrennt zu halten — installieren Sie WhatsApp Business und registrieren Sie dort die OpenClaw-Nummer.
-
-**Beispielkonfiguration (dedizierte Nummer, Single-User-Allowlist):**
+<Steps>
+  <Step title="Configure WhatsApp access policy">
 
 ```json5
 {
@@ -73,180 +40,257 @@ Verwenden Sie eine **separate Telefonnummer** für OpenClaw. Beste UX, sauberes 
 }
 ```
 
-**Pairing-Modus (optional):**  
-Wenn Sie Pairing statt Allowlist möchten, setzen Sie `channels.whatsapp.dmPolicy` auf `pairing`. Unbekannte Absender erhalten einen Pairing-Code; genehmigen Sie mit:
-`openclaw pairing approve whatsapp <code>`
+  
+</Step>
 
-### Persönliche Nummer (Fallback)
+  <Step title="Link WhatsApp (QR)">
 
-Schneller Fallback: Betreiben Sie OpenClaw mit **Ihrer eigenen Nummer**. Schreiben Sie sich selbst (WhatsApp „Nachricht an mich“) zum Testen, damit Sie keine Kontakte spammen. Rechnen Sie damit, während Setup und Experimenten Verifizierungscodes auf Ihrem Haupttelefon zu lesen. **Self-Chat-Modus muss aktiviert sein.**  
-Wenn der Assistent nach Ihrer persönlichen WhatsApp-Nummer fragt, geben Sie das Telefon ein, von dem Sie schreiben werden (Eigentümer/Absender), nicht die Assistenten-Nummer.
-
-**Beispielkonfiguration (persönliche Nummer, Self-Chat):**
-
-```json
-{
-  "whatsapp": {
-    "selfChatMode": true,
-    "dmPolicy": "allowlist",
-    "allowFrom": ["+15551234567"]
-  }
-}
+```bash
+openclaw channels login --channel whatsapp
 ```
 
-Self-Chat-Antworten verwenden standardmäßig `[{identity.name}]`, wenn gesetzt (ansonsten `[openclaw]`),  
-falls `messages.responsePrefix` nicht gesetzt ist. Setzen Sie es explizit, um das Präfix anzupassen oder zu deaktivieren  
-(verwenden Sie `""`, um es zu entfernen).
+    ```
+    Für ein bestimmtes Konto:
+    ```
 
-### Tipps zur Nummernbeschaffung
-
-- **Lokale eSIM** Ihres Mobilfunkanbieters (am zuverlässigsten)
-  - Österreich: [hot.at](https://www.hot.at)
-  - UK: [giffgaff](https://www.giffgaff.com) — kostenlose SIM, kein Vertrag
-- **Prepaid-SIM** — günstig, muss nur eine SMS zur Verifizierung empfangen
-
-**Vermeiden:** TextNow, Google Voice, die meisten „kostenlosen SMS“-Dienste — WhatsApp blockiert diese aggressiv.
-
-**Tipp:** Die Nummer muss nur eine Verifizierungs-SMS empfangen. Danach bleiben WhatsApp-Web-Sitzungen über `creds.json` bestehen.
-
-## Warum nicht Twilio?
-
-- Frühe OpenClaw-Builds unterstützten Twilios WhatsApp-Business-Integration.
-- WhatsApp-Business-Nummern sind für einen persönlichen Assistenten ungeeignet.
-- Meta erzwingt ein 24‑Stunden-Antwortfenster; wenn Sie in den letzten 24 Stunden nicht geantwortet haben, kann die Business-Nummer keine neuen Nachrichten initiieren.
-- Hohe Volumina oder „chatty“ Nutzung führen zu aggressiven Sperren, da Business-Konten nicht für dutzende persönliche Assistenten-Nachrichten gedacht sind.
-- Ergebnis: Unzuverlässige Zustellung und häufige Sperren, daher wurde der Support entfernt.
-
-## Login + Anmeldedaten
-
-- Login-Befehl: `openclaw channels login` (QR über Verknüpfte Geräte).
-- Multi-Account-Login: `openclaw channels login --account <id>` (`<id>` = `accountId`).
-- Standardkonto (wenn `--account` weggelassen wird): `default`, falls vorhanden, sonst die erste konfigurierte Konto-ID (sortiert).
-- Anmeldedaten gespeichert in `~/.openclaw/credentials/whatsapp/<accountId>/creds.json`.
-- Sicherungskopie unter `creds.json.bak` (wird bei Beschädigung wiederhergestellt).
-- Legacy-Kompatibilität: Ältere Installationen speicherten Baileys-Dateien direkt in `~/.openclaw/credentials/`.
-- Logout: `openclaw channels logout` (oder `--account <id>`) löscht den WhatsApp-Auth-Status (behält jedoch gemeinsame `oauth.json`).
-- Abgemeldeter Socket ⇒ Fehler weist auf erneutes Verknüpfen hin.
-
-## Eingehender Fluss (DM + Gruppe)
-
-- WhatsApp-Ereignisse kommen von `messages.upsert` (Baileys).
-- Inbox-Listener werden beim Shutdown getrennt, um das Ansammeln von Event-Handlern bei Tests/Neustarts zu vermeiden.
-- Status-/Broadcast-Chats werden ignoriert.
-- Direktchats verwenden E.164; Gruppen verwenden Group-JID.
-- **DM-Richtlinie**: `channels.whatsapp.dmPolicy` steuert den Zugriff auf Direktchats (Standard: `pairing`).
-  - Pairing: Unbekannte Absender erhalten einen Pairing-Code (Genehmigung über `openclaw pairing approve whatsapp <code>`; Codes laufen nach 1 Stunde ab).
-  - Offen: erfordert, dass `channels.whatsapp.allowFrom` `"*"` enthält.
-  - Ihre verknüpfte WhatsApp-Nummer ist implizit vertrauenswürdig, daher überspringen Selbstnachrichten die Prüfungen `channels.whatsapp.dmPolicy` und `channels.whatsapp.allowFrom`.
-
-### Persönliche-Nummer-Modus (Fallback)
-
-Wenn Sie OpenClaw mit **Ihrer persönlichen WhatsApp-Nummer** betreiben, aktivieren Sie `channels.whatsapp.selfChatMode` (siehe Beispiel oben).
-
-Verhalten:
-
-- Ausgehende DMs lösen niemals Pairing-Antworten aus (verhindert das Spammen von Kontakten).
-- Eingehende unbekannte Absender folgen weiterhin `channels.whatsapp.dmPolicy`.
-- Self-Chat-Modus (allowFrom enthält Ihre Nummer) vermeidet automatische Lesebestätigungen und ignoriert Mention-JIDs.
-- Lesebestätigungen werden für Nicht-Self-Chat-DMs gesendet.
-
-## Lesebestätigungen
-
-Standardmäßig markiert das Gateway eingehende WhatsApp-Nachrichten als gelesen (blaue Häkchen), sobald sie akzeptiert werden.
-
-Global deaktivieren:
-
-```json5
-{
-  channels: { whatsapp: { sendReadReceipts: false } },
-}
+```bash
+openclaw channels login --channel whatsapp --account work
 ```
 
-Pro Konto deaktivieren:
+  
+</Step>
 
-```json5
-{
-  channels: {
-    whatsapp: {
-      accounts: {
-        personal: { sendReadReceipts: false },
+  <Step title="Start the gateway">
+
+```bash
+openclaw gateway
+```
+
+  
+</Step>
+
+  <Step title="Approve first pairing request (if using pairing mode)">
+
+```bash
+Genehmigen mit: `openclaw pairing approve whatsapp <code>` (Liste mit `openclaw pairing list whatsapp`).
+```
+
+    ```
+    Codes laufen nach 1 Stunde ab; ausstehende Anfragen sind auf 3 pro Kanal begrenzt.
+    ```
+
+  
+</Step>
+</Steps>
+
+<Note>
+Ideal, um Ihr persönliches WhatsApp getrennt zu halten — installieren Sie WhatsApp Business und registrieren Sie dort die OpenClaw-Nummer. (Die Channel-Metadaten und der Onboarding-Ablauf sind für dieses Setup optimiert, aber Setups mit persönlicher Nummer werden ebenfalls unterstützt.)
+</Note>
+
+## Bereitstellungsmuster
+
+<AccordionGroup>
+  <Accordion title="Dedicated number (recommended)">
+    Dies ist der sauberste Betriebsmodus:
+
+
+    ```
+    {
+      channels: {
+        whatsapp: {
+          dmPolicy: "allowlist",
+          allowFrom: ["+15551234567"],
+        },
       },
-    },
-  },
-}
-```
+    }
+    ```
 
-Hinweise:
+  
+</Accordion>
 
-- Im Self-Chat-Modus werden Lesebestätigungen immer übersprungen.
+  <Accordion title="Personal-number fallback">
+    Das Onboarding unterstützt den Modus mit persönlicher Nummer und schreibt eine selbstchat-freundliche Baseline:
 
-## WhatsApp-FAQ: Nachrichten senden + Pairing
 
-**Wird OpenClaw zufällige Kontakte anschreiben, wenn ich WhatsApp verknüpfe?**  
-Nein. Die Standard-DM-Richtlinie ist **Pairing**, daher erhalten unbekannte Absender nur einen Pairing-Code und ihre Nachricht wird **nicht verarbeitet**. OpenClaw antwortet nur auf Chats, die es erhält, oder auf Sendungen, die Sie explizit auslösen (Agent/CLI).
+    ```
+    {
+      "whatsapp": {
+        "selfChatMode": true,
+        "dmPolicy": "allowlist",
+        "allowFrom": ["+15551234567"]
+      }
+    }
+    ```
 
-**Wie funktioniert Pairing bei WhatsApp?**  
-Pairing ist ein DM-Gate für unbekannte Absender:
+  
+</Accordion>
 
-- Erste DM eines neuen Absenders gibt einen kurzen Code zurück (Nachricht wird nicht verarbeitet).
-- Genehmigen mit: `openclaw pairing approve whatsapp <code>` (Liste mit `openclaw pairing list whatsapp`).
-- Codes laufen nach 1 Stunde ab; ausstehende Anfragen sind auf 3 pro Kanal begrenzt.
+  <Accordion title="WhatsApp Web-only channel scope">Der Messaging-Plattform-Channel ist WhatsApp-Web-basiert (`Baileys`) in der aktuellen OpenClaw-Channel-Architektur.
 
-**Can multiple people use different OpenClaw instances on one WhatsApp number?**  
-Yes, by routing each sender to a different agent via `bindings` (peer `kind: "direct"`, sender E.164 like `+15551234567`). Replies still come from the **same WhatsApp account**, and direct chats collapse to each agent's main session, so use **one agent per person**. Die DM-Zugriffskontrolle (`dmPolicy`/`allowFrom`) ist global pro WhatsApp-Konto. Siehe [Multi-Agent Routing](/concepts/multi-agent).
+    ```
+    Es gibt keinen separaten Twilio-WhatsApp-Messaging-Channel im integrierten Chat-Channel-Register.
+    ```
 
-**Warum fragt der Assistent nach meiner Telefonnummer?**  
-Der Assistent verwendet sie, um Ihre **Allowlist/Eigentümer** zu setzen, damit Ihre eigenen DMs erlaubt sind. Sie wird nicht für automatisches Senden verwendet. Wenn Sie mit Ihrer persönlichen WhatsApp-Nummer arbeiten, verwenden Sie dieselbe Nummer und aktivieren Sie `channels.whatsapp.selfChatMode`.
+  
+</Accordion>
+</AccordionGroup>
 
-## Nachrichten-Normalisierung (was das Modell sieht)
+## Laufzeitmodell
 
-- `Body` ist der aktuelle Nachrichtenkörper mit Umschlag.
-
-- Kontext zitierter Antworten wird **immer angehängt**:
-
-  ```
-  [Replying to +1555 id:ABC123]
-  <quoted text or <media:...>>
-  [/Replying]
-  ```
-
-- Antwort-Metadaten werden ebenfalls gesetzt:
-  - `ReplyToId` = stanzaId
-  - `ReplyToBody` = zitierter Textkörper oder Medien-Platzhalter
-  - `ReplyToSender` = E.164, wenn bekannt
-
-- Eingehende Nachrichten nur mit Medien verwenden Platzhalter:
-  - `<media:image|video|audio|document|sticker>`
-
-## Gruppen
-
+- Gateway besitzt den WhatsApp-Socket und die Reconnect-Schleife.
+- Ausgehende Nachrichten erfordern einen aktiven WhatsApp-Listener für das Zielkonto.
+- Status-/Broadcast-Chats werden ignoriert.
+- Direktchats verwenden DM-Sitzungsregeln (`session.dmScope`; Standard `main` fasst DMs in der Hauptsitzung des Agenten zusammen).
 - Gruppen werden auf `agent:<agentId>:whatsapp:group:<jid>`-Sitzungen abgebildet.
-- Gruppenrichtlinie: `channels.whatsapp.groupPolicy = open|disabled|allowlist` (Standard `allowlist`).
-- Aktivierungsmodi:
-  - `mention` (Standard): erfordert @Erwähnung oder Regex-Treffer.
-  - `always`: löst immer aus.
-- `/activation mention|always` ist nur für Eigentümer und muss als eigenständige Nachricht gesendet werden.
-- Eigentümer = `channels.whatsapp.allowFrom` (oder Self E.164, wenn nicht gesetzt).
-- **History Injection** (nur ausstehend):
-  - Aktuelle _unverarbeitete_ Nachrichten (Standard 50) werden eingefügt unter:
+
+## Zugriffskontrolle und Aktivierung
+
+<Tabs>
+  <Tab title="DM policy">**DM-Richtlinie**: `channels.whatsapp.dmPolicy` steuert den Zugriff auf Direktchats (Standard: `pairing`).
+
+    ```
+    Offen: erfordert, dass `channels.whatsapp.allowFrom` `"*"` enthält.
+    ```
+
+  
+</Tab>
+
+  <Tab title="Group policy + allowlists">
+    Der Gruppenzugriff hat zwei Ebenen:
+
+    ```
+    `channels.whatsapp.groups` (Gruppen-Allowlist + Mention-Gating-Defaults; verwenden Sie `"*"`, um alle zu erlauben)
+    ```
+
+  
+</Tab>
+
+  <Tab title="Mentions + /activation">
+    Gruppenantworten erfordern standardmäßig eine Erwähnung.
+
+    ```
+    Erwähnungserkennung umfasst:
+    
+    - explizite WhatsApp-Erwähnungen der Bot-Identität
+    - konfigurierte Mention-Regex-Muster (`agents.list[].groupChat.mentionPatterns`, Fallback `messages.groupChat.mentionPatterns`)
+    - implizite Antwort-an-Bot-Erkennung (Antwortsender entspricht der Bot-Identität)
+    
+    Aktivierungsbefehl auf Sitzungsebene:
+    
+    - `/activation mention`
+    - `/activation always`
+    
+    `activation` aktualisiert den Sitzungsstatus (keine globale Konfiguration). Es ist auf den Owner beschränkt.
+    ```
+
+  
+</Tab>
+</Tabs>
+
+## Verhalten bei persönlicher Nummer und Selbst-Chat
+
+Wenn die verknüpfte eigene Nummer auch in `allowFrom` enthalten ist, werden WhatsApp-Schutzmechanismen für Selbst-Chats aktiviert:
+
+- Lesebestätigungen für Selbst-Chat-Nachrichten überspringen
+- Automatisches Auslösen durch Mention-JID ignorieren, das dich sonst selbst anpingen würde
+- Self-Chat-Antworten verwenden standardmäßig `[{identity.name}]`, wenn gesetzt (ansonsten `[openclaw]`),  
+  falls `messages.responsePrefix` nicht gesetzt ist.
+
+## Nachrichtennormalisierung und Kontext
+
+<AccordionGroup>
+  <Accordion title="Inbound envelope + reply context">
+    Eingehende WhatsApp-Nachrichten werden in das gemeinsame Inbound-Envelope-Format verpackt.
+
+    ````
+    Wenn eine zitierte Antwort vorhanden ist, wird der Kontext in folgender Form angehängt:
+    
+    ```text
+    [Replying to <sender> id:<stanzaId>]
+    <quoted body or media placeholder>
+    [/Replying]
+    ```
+    
+    Metadatenfelder für Antworten werden ebenfalls gesetzt, sofern verfügbar (`ReplyToId`, `ReplyToBody`, `ReplyToSender`, Sender-JID/E.164).
+    ````
+
+  
+</Accordion>
+
+  <Accordion title="Media placeholders and location/contact extraction">Eingehende Nachrichten nur mit Medien verwenden Platzhalter:
+
+    ```
+    - `<media:image>`
+    - `<media:video>`
+    - `<media:audio>`
+    - `<media:document>`
+    - `<media:sticker>`
+    
+    Standort- und Kontakt-Payloads werden vor dem Routing in textuellen Kontext normalisiert.
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Pending group history injection">
+    Bei Gruppen können unverarbeitete Nachrichten gepuffert und als Kontext eingefügt werden, wenn der Bot schließlich ausgelöst wird.
+
+    ```
+    Aktuelle _unverarbeitete_ Nachrichten (Standard 50) werden eingefügt unter:
     `[Chat messages since your last reply - for context]` (Nachrichten, die bereits in der Sitzung sind, werden nicht erneut injiziert)
-  - Aktuelle Nachricht unter:
-    `[Current message - respond to this]`
-  - Absender-Suffix angehängt: `[from: Name (+E164)]`
-- Gruppenmetadaten werden 5 Minuten gecacht (Thema + Teilnehmer).
+    ```
 
-## Antwortzustellung (Threading)
+  
+</Accordion>
 
-- WhatsApp Web sendet Standardnachrichten (kein Zitier-Threading im aktuellen Gateway).
-- Antwort-Tags werden in diesem Kanal ignoriert.
+  <Accordion title="Read receipts">
+    Lesebestätigungen sind standardmäßig für akzeptierte eingehende WhatsApp-Nachrichten aktiviert.
 
-## Bestätigungsreaktionen (Auto-Reaktion beim Empfang)
+    ```
+    {
+      channels: {
+        whatsapp: {
+          accounts: {
+            personal: { sendReadReceipts: false },
+          },
+        },
+      },
+    }
+    ```
 
-WhatsApp kann automatisch Emoji-Reaktionen auf eingehende Nachrichten senden, unmittelbar nach dem Empfang, bevor der Bot eine Antwort generiert. Dies gibt Nutzern sofortiges Feedback, dass ihre Nachricht eingegangen ist.
+  
+</Accordion>
+</AccordionGroup>
 
-**Konfiguration:**
+## Zustellung, Chunking und Medien
 
-```json
+<AccordionGroup>
+  <Accordion title="Text chunking">Optionale Newline-Chunking: Setzen Sie `channels.whatsapp.chunkMode="newline"`, um vor dem Längen-Chunking an Leerzeilen (Absatzgrenzen) zu trennen.
+</Accordion>
+
+  <Accordion title="Outbound media behavior">
+    - unterstützt Bild-, Video-, Audio- (PTT-Sprachnotiz) und Dokument-Payloads
+    - `audio/ogg` wird zu `audio/ogg; codecs=opus` umgeschrieben für Sprachnotiz-Kompatibilität
+    - animierte GIF-Wiedergabe wird über `gifPlayback: true` beim Senden von Videos unterstützt
+    - Bildunterschriften werden auf das erste Medienelement angewendet, wenn Multi-Media-Antworten gesendet werden
+    - Medienquelle kann HTTP(S), `file://` oder ein lokaler Pfad sein
+  
+</Accordion>
+
+  <Accordion title="Media size limits and fallback behavior">
+    - Speicherlimit für eingehende Medien: `channels.whatsapp.mediaMaxMb` (Standard `50`)
+    - Medienlimit für ausgehende Auto-Antworten: `agents.defaults.mediaMaxMb` (Standard `5MB`)
+    - Bilder werden automatisch optimiert (Größen-/Qualitätsanpassung), um die Limits einzuhalten
+    - bei Fehlern beim Medienversand wird für das erste Element ersatzweise eine Textwarnung gesendet, anstatt die Antwort stillschweigend zu verwerfen
+  
+</Accordion>
+</AccordionGroup>
+
+## Bestätigungsreaktionen
+
+`channels.whatsapp.ackReaction` (Auto-Reaktion beim Nachrichteneingang: `{emoji, direct, group}`).
+
+```json5
 {
   "whatsapp": {
     "ackReaction": {
@@ -258,150 +302,109 @@ WhatsApp kann automatisch Emoji-Reaktionen auf eingehende Nachrichten senden, un
 }
 ```
 
-**Optionen:**
+Verhalten:
 
-- `emoji` (String): Emoji für die Bestätigung (z. B. „👀“, „✅“, „📨“). Leer oder nicht gesetzt = Funktion deaktiviert.
-- `direct` (Boolean, Standard: `true`): Reaktionen in Direkt-/DM-Chats senden.
-- `group` (String, Standard: `"mentions"`): Verhalten in Gruppenchats:
-  - `"always"`: Auf alle Gruppennachrichten reagieren (auch ohne @Erwähnung)
-  - `"mentions"`: Nur reagieren, wenn der Bot @erwähnt wird
-  - `"never"`: Niemals in Gruppen reagieren
-
-**Pro-Konto-Override:**
-
-```json
-{
-  "whatsapp": {
-    "accounts": {
-      "work": {
-        "ackReaction": {
-          "emoji": "✅",
-          "direct": false,
-          "group": "always"
-        }
-      }
-    }
-  }
-}
-```
-
-**Verhaltenshinweise:**
-
-- Reaktionen werden **sofort** beim Nachrichteneingang gesendet, vor Tippindikatoren oder Bot-Antworten.
-- In Gruppen mit `requireMention: false` (Aktivierung: immer) reagiert `group: "mentions"` auf alle Nachrichten (nicht nur @Erwähnungen).
-- Fire-and-forget: Fehler bei Reaktionen werden protokolliert, verhindern aber keine Bot-Antwort.
-- Teilnehmer-JID wird für Gruppenreaktionen automatisch eingeschlossen.
+- werden unmittelbar nach Annahme des Eingangs gesendet (vor der Antwort)
+- Fehler werden protokolliert, blockieren jedoch nicht die normale Antwortzustellung
+- Im Gruppenmodus `mentions` wird bei durch Erwähnung ausgelösten Nachrichten reagiert; Gruppenaktivierung `always` dient als Umgehung dieser Prüfung
 - WhatsApp ignoriert `messages.ackReaction`; verwenden Sie stattdessen `channels.whatsapp.ackReaction`.
 
-## Agent-Werkzeug (Reaktionen)
+## Multi-Account und Anmeldedaten
+
+<AccordionGroup>
+  <Accordion title="Account selection and defaults">Standardkonto (wenn `--account` weggelassen wird): `default`, falls vorhanden, sonst die erste konfigurierte Konto-ID (sortiert).
+</Accordion>
+
+  <Accordion title="Credential paths and legacy compatibility">Anmeldedaten gespeichert in `~/.openclaw/credentials/whatsapp/<accountId>/creds.json`.<accountId> /creds.json`
+    - Backup-Datei: `creds.json.bak`
+    - Legacy-Standardauthentifizierung in `~/.openclaw/credentials/` wird für Default-Account-Flows weiterhin erkannt/migriert
+  
+</Accordion>
+
+  <Accordion title="Logout behavior">Multi-Account-Login: `openclaw channels login --account <id>` (`<id>` = `accountId`).<id>]` löscht den WhatsApp-Authentifizierungsstatus für dieses Konto.
+
+    ```
+    In Legacy-Authentifizierungsverzeichnissen bleibt `oauth.json` erhalten, während Baileys-Auth-Dateien entfernt werden.
+    ```
+
+  
+</Accordion>
+</AccordionGroup>
+
+## Tools, Aktionen und Konfigurationsschreibvorgänge
 
 - Werkzeug: `whatsapp` mit Aktion `react` (`chatJid`, `messageId`, `emoji`, optional `remove`).
-- Optional: `participant` (Gruppenabsender), `fromMe` (Reaktion auf eigene Nachricht), `accountId` (Multi-Account).
-- Semantik zum Entfernen von Reaktionen: siehe [/tools/reactions](/tools/reactions).
-- Werkzeug-Gating: `channels.whatsapp.actions.reactions` (Standard: aktiviert).
+- Aktions-Gates:
+  - `channels.whatsapp.actions.reactions` (Gating für WhatsApp-Werkzeugreaktionen).
+  - \`channels.whatsapp.accounts.<accountId>
+- {
+  channels: { whatsapp: { configWrites: false } },
+  }
 
-## Limits
+## Fehlerbehebung
 
-- Ausgehender Text wird in `channels.whatsapp.textChunkLimit` gechunked (Standard 4000).
-- Optionale Newline-Chunking: Setzen Sie `channels.whatsapp.chunkMode="newline"`, um vor dem Längen-Chunking an Leerzeilen (Absatzgrenzen) zu trennen.
-- Eingehende Medienspeicher sind durch `channels.whatsapp.mediaMaxMb` begrenzt (Standard 50 MB).
-- Ausgehende Medien sind durch `agents.defaults.mediaMaxMb` begrenzt (Standard 5 MB).
+<AccordionGroup>
+  <Accordion title="Not linked (QR required)">Symptom: `channels status` zeigt `linked: false` oder warnt „Not linked“.
 
-## Ausgehendes Senden (Text + Medien)
+    ```
+    Logout: `openclaw channels logout` (oder `--account <id>`) löscht den WhatsApp-Auth-Status (behält jedoch gemeinsame `oauth.json`).
+    ```
 
-- Verwendet aktiven Web-Listener; Fehler, wenn das Gateway nicht läuft.
-- Text-Chunking: max. 4k pro Nachricht (konfigurierbar über `channels.whatsapp.textChunkLimit`, optional `channels.whatsapp.chunkMode`).
-- Medien:
-  - Bild/Video/Audio/Dokument unterstützt.
-  - Audio wird als PTT gesendet; `audio/ogg` ⇒ `audio/ogg; codecs=opus`.
-  - Beschriftung nur beim ersten Medienelement.
-  - Medienabruf unterstützt HTTP(S) und lokale Pfade.
-  - Animierte GIFs: WhatsApp erwartet MP4 mit `gifPlayback: true` für Inline-Looping.
-    - CLI: `openclaw message send --media <mp4> --gif-playback`
-    - Gateway: `send`-Parameter enthalten `gifPlayback: true`
+  
+</Accordion>
 
-## Sprachnachrichten (PTT-Audio)
+  <Accordion title="Linked but disconnected / reconnect loop">
+    Symptom: verknüpftes Konto mit wiederholten Verbindungsabbrüchen oder erneuten Verbindungsversuchen.
 
-WhatsApp sendet Audio als **Sprachnachrichten** (PTT-Blase).
+    ```
+    Lösung: `openclaw doctor` (oder Gateway neu starten). Wenn es anhält, erneut verknüpfen über `channels login` und `openclaw logs --follow` prüfen.
+    ```
 
-- Beste Ergebnisse: OGG/Opus. OpenClaw schreibt `audio/ogg` zu `audio/ogg; codecs=opus` um.
-- `[[audio_as_voice]]` wird für WhatsApp ignoriert (Audio wird bereits als Sprachnachricht geliefert).
+  
+</Accordion>
 
-## Medienlimits + Optimierung
+  <Accordion title="No active listener when sending">
+    Ausgehende Sendungen schlagen sofort fehl, wenn kein aktiver Gateway-Listener für das Zielkonto existiert.
 
-- Standard-Limit ausgehend: 5 MB (pro Medienelement).
-- Override: `agents.defaults.mediaMaxMb`.
-- Bilder werden automatisch zu JPEG unter das Limit optimiert (Resize + Qualitäts-Sweep).
-- Übergroße Medien ⇒ Fehler; Medienantwort fällt auf Textwarnung zurück.
+    ```
+    Stelle sicher, dass das Gateway läuft und das Konto verknüpft ist.
+    ```
 
-## Heartbeats
+  
+</Accordion>
 
-- **Gateway-Heartbeat** protokolliert den Verbindungszustand (`web.heartbeatSeconds`, Standard 60 s).
-- **Agent-Heartbeat** kann pro Agent (`agents.list[].heartbeat`) oder global  
-  über `agents.defaults.heartbeat` konfiguriert werden (Fallback, wenn keine Pro-Agent-Einträge gesetzt sind).
-  - Verwendet den konfigurierten Heartbeat-Prompt (Standard: `Read HEARTBEAT.md if it exists (workspace context). Follow it strictly. Do not infer or repeat old tasks from prior chats. If nothing needs attention, reply HEARTBEAT_OK.`) + `HEARTBEAT_OK`-Skip-Verhalten.
-  - Zustellung standardmäßig über den zuletzt verwendeten Kanal (oder konfiguriertes Ziel).
+  <Accordion title="Group messages unexpectedly ignored">
+    Prüfe in dieser Reihenfolge:
 
-## Wiederverbindungsverhalten
+    ```
+    Gruppenrichtlinie: `channels.whatsapp.groupPolicy = open|disabled|allowlist` (Standard `allowlist`).
+    ```
 
-- Backoff-Richtlinie: `web.reconnect`:
-  - `initialMs`, `maxMs`, `factor`, `jitter`, `maxAttempts`.
-- Wenn maxAttempts erreicht ist, stoppt das Web-Monitoring (degradiert).
-- Abgemeldet ⇒ stoppen und erneutes Verknüpfen erforderlich.
+  
+</Accordion>
 
-## Konfigurations-Schnellübersicht
+  <Accordion title="Bun runtime warning">
+    Die WhatsApp-Gateway-Laufzeit sollte Node verwenden. WhatsApp (Baileys) und Telegram sind unter Bun unzuverlässig. Führen Sie das Gateway mit **Node** aus.
+  
+</Accordion>
+</AccordionGroup>
 
-- `channels.whatsapp.dmPolicy` (DM-Richtlinie: pairing/allowlist/open/disabled).
-- `channels.whatsapp.selfChatMode` (Same-Phone-Setup; Bot verwendet Ihre persönliche WhatsApp-Nummer).
-- `channels.whatsapp.allowFrom` (DM-Allowlist). WhatsApp verwendet E.164-Telefonnummern (keine Benutzernamen).
-- `channels.whatsapp.mediaMaxMb` (Limit für eingehende Medienspeicherung).
-- `channels.whatsapp.ackReaction` (Auto-Reaktion beim Nachrichteneingang: `{emoji, direct, group}`).
-- `channels.whatsapp.accounts.<accountId>.*` (Pro-Konto-Einstellungen + optional `authDir`).
-- `channels.whatsapp.accounts.<accountId>.mediaMaxMb` (Pro-Konto-Limit für eingehende Medien).
-- `channels.whatsapp.accounts.<accountId>.ackReaction` (Pro-Konto-Override für Bestätigungsreaktionen).
-- `channels.whatsapp.groupAllowFrom` (Allowlist für Gruppenabsender).
-- `channels.whatsapp.groupPolicy` (Gruppenrichtlinie).
-- `channels.whatsapp.historyLimit` / `channels.whatsapp.accounts.<accountId>.historyLimit` (Gruppen-History-Kontext; `0` deaktiviert).
-- `channels.whatsapp.dmHistoryLimit` (DM-History-Limit in Benutzer-Turns). Pro-Benutzer-Overrides: `channels.whatsapp.dms["<phone>"].historyLimit`.
-- `channels.whatsapp.groups` (Gruppen-Allowlist + Mention-Gating-Defaults; verwenden Sie `"*"`, um alle zu erlauben)
-- `channels.whatsapp.actions.reactions` (Gating für WhatsApp-Werkzeugreaktionen).
-- `agents.list[].groupChat.mentionPatterns` (oder `messages.groupChat.mentionPatterns`)
-- `messages.groupChat.historyLimit`
-- `channels.whatsapp.messagePrefix` (eingehendes Präfix; pro Konto: `channels.whatsapp.accounts.<accountId>.messagePrefix`; veraltet: `messages.messagePrefix`)
-- `messages.responsePrefix` (ausgehendes Präfix)
-- `agents.defaults.mediaMaxMb`
-- `agents.defaults.heartbeat.every`
-- `agents.defaults.heartbeat.model` (optional Override)
-- `agents.defaults.heartbeat.target`
-- `agents.defaults.heartbeat.to`
-- `agents.defaults.heartbeat.session`
-- `agents.list[].heartbeat.*` (Pro-Agent-Overrides)
-- `session.*` (Scope, Idle, Store, mainKey)
-- `web.enabled` (deaktiviert den Kanalstart, wenn false)
-- `web.heartbeatSeconds`
-- `web.reconnect.*`
+## Konfigurationsreferenzen
 
-## Logs + Fehlerbehebung
+Primäre Referenz:
 
-- Subsysteme: `whatsapp/inbound`, `whatsapp/outbound`, `web-heartbeat`, `web-reconnect`.
-- Logdatei: `/tmp/openclaw/openclaw-YYYY-MM-DD.log` (konfigurierbar).
+- Standardmäßig darf WhatsApp Konfigurationsupdates schreiben, die durch `/config set|unset` ausgelöst werden (erfordert `commands.config: true`).
+
+WhatsApp-Felder mit hoher Relevanz:
+
+- Zugriff: `dmPolicy`, `allowFrom`, `groupPolicy`, `groupAllowFrom`, `groups`
+- Zustellung: `textChunkLimit`, `chunkMode`, `mediaMaxMb`, `sendReadReceipts`, `ackReaction`
+- Multi-Account: `accounts.<id>``.enabled`, `accounts.<id>``.authDir`, Überschreibungen auf Kontoebene
+- Betrieb: `configWrites`, `debounceMs`, `web.enabled`, `web.heartbeatSeconds`, `web.reconnect.*`
+- Sitzungsverhalten: `session.dmScope`, `historyLimit`, `dmHistoryLimit`, `dms.<id>``messages.groupChat.historyLimit`
+
+## Verwandt
+
+- [Pairing](/channels/pairing)
+- [Channel routing](/channels/channel-routing)
 - Leitfaden zur Fehlerbehebung: [Gateway troubleshooting](/gateway/troubleshooting).
-
-## Fehlerbehebung (kurz)
-
-**Nicht verknüpft / QR-Login erforderlich**
-
-- Symptom: `channels status` zeigt `linked: false` oder warnt „Not linked“.
-- Lösung: Führen Sie `openclaw channels login` auf dem Gateway-Host aus und scannen Sie den QR (WhatsApp → Einstellungen → Verknüpfte Geräte).
-
-**Verknüpft, aber getrennt / Wiederverbindungs-Loop**
-
-- Symptom: `channels status` zeigt `running, disconnected` oder warnt „Linked but disconnected“.
-- Lösung: `openclaw doctor` (oder Gateway neu starten). Wenn es anhält, erneut verknüpfen über `channels login` und `openclaw logs --follow` prüfen.
-
-**Bun-Runtime**
-
-- Bun wird **nicht empfohlen**. WhatsApp (Baileys) und Telegram sind unter Bun unzuverlässig.
-  Führen Sie das Gateway mit **Node** aus. (Siehe Hinweis zur Runtime in Erste Schritte.)
-
-

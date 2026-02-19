@@ -1,4 +1,8 @@
 ---
+summary: "„OpenClaw sicher aktualisieren (globale Installation oder aus dem Quellcode) sowie Rollback-Strategie“"
+read_when:
+  - OpenClaw aktualisieren
+  - Nach einem Update funktioniert etwas nicht mehr
 title: "Aktualisieren"
 ---
 
@@ -226,5 +230,3 @@ git pull
 - Führen Sie `openclaw doctor` erneut aus und lesen Sie die Ausgabe sorgfältig (sie nennt oft die Lösung).
 - Prüfen Sie: [Fehlerbehebung](/gateway/troubleshooting)
 - Fragen Sie in Discord: [https://discord.gg/clawd](https://discord.gg/clawd)
-
-

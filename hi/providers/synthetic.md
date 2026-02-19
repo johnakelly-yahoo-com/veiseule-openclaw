@@ -1,10 +1,14 @@
 ---
+summary: "OpenClaw में Synthetic के Anthropic-संगत API का उपयोग करें"
+read_when:
+  - आप Synthetic को मॉडल प्रदाता के रूप में उपयोग करना चाहते हैं
+  - आपको Synthetic API कुंजी या बेस URL सेटअप की आवश्यकता है
 title: "Synthetic"
 ---
 
 # Synthetic
 
-Synthetic, Anthropic-संगत एंडपॉइंट्स उपलब्ध कराता है। OpenClaw इसे इस रूप में रजिस्टर करता है
+Synthetic exposes Anthropic-compatible endpoints. OpenClaw registers it as the
 `synthetic` provider and uses the Anthropic Messages API.
 
 ## त्वरित सेटअप
@@ -57,7 +61,7 @@ synthetic/hf:MiniMaxAI/MiniMax-M2.1
 }
 ```
 
-नोट: OpenClaw का Anthropic क्लाइंट बेस URL में `/v1` जोड़ता है, इसलिए उपयोग करें
+Note: OpenClaw's Anthropic client appends `/v1` to the base URL, so use
 `https://api.synthetic.new/anthropic` (not `/anthropic/v1`). If Synthetic changes
 its base URL, override `models.providers.synthetic.baseUrl`.
 
@@ -93,5 +97,3 @@ its base URL, override `models.providers.synthetic.baseUrl`.
 - यदि आप मॉडल allowlist (`agents.defaults.models`) सक्षम करते हैं, तो जिन सभी मॉडलों का
   आप उपयोग करने की योजना बनाते हैं, उन्हें जोड़ें।
 - प्रदाता नियमों के लिए [Model providers](/concepts/model-providers) देखें।
-
-

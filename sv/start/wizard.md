@@ -1,4 +1,8 @@
 ---
+summary: "CLI‑introduktionsguide: guidad konfigurering av gateway, arbetsyta, kanaler och Skills"
+read_when:
+  - När du kör eller konfigurerar introduktionsguiden
+  - När du sätter upp en ny maskin
 title: "Introduktionsguide (CLI)"
 sidebarTitle: "Introduktion: CLI"
 ---
@@ -60,7 +64,8 @@ Guiden börjar med **Snabbstart** (standard) vs **Avancerat** (full kontroll).
 
 **Lokalt läge (standard)** leder dig genom följande steg:
 
-1. **Modell/Auth** — Antropisk API-nyckel (rekommenderas), OAuth, OpenAI eller andra leverantörer. Välj en standardmodell.
+1. **Model/Auth** — Anthropic API-nyckel (rekommenderas), OpenAI eller Custom Provider
+   (OpenAI-kompatibel, Anthropic-kompatibel eller Unknown automatisk identifiering). Välj en standardmodell.
 2. **Arbetsyta** — Plats för agentfiler (standard `~/.openclaw/workspace`). Seeds bootstrap-filer.
 3. **Gateway** — Port, bind‑adress, autentiseringsläge, Tailscale‑exponering.
 4. **Kanaler** — WhatsApp, Telegram, Discord, Google Chat, Mattermost, Signal, BlueBubbles eller iMessage.
@@ -104,5 +109,4 @@ RPC‑API och en fullständig lista över konfigfält som guiden skriver, se
 - Referens för CLI‑kommandon: [`openclaw onboard`](/cli/onboard)
 - Introduktion för macOS‑appen: [Onboarding](/start/onboarding)
 - Agentens första körning: [Agent Bootstrapping](/start/bootstrapping)
-
-
+- Agentens första körning: [Agent Bootstrapping](/start/bootstrapping)

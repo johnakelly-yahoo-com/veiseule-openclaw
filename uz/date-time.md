@@ -1,4 +1,8 @@
 ---
+summary: "Envelope, prompt, tool va connectorlar bo‘ylab sana va vaqtni qayta ishlash"
+read_when:
+  - Siz model yoki foydalanuvchilarga ko‘rsatiladigan timestamp’lar qanday chiqishini o‘zgartiryapsiz
+  - Xabarlar yoki system prompt chiqishidagi vaqt formatlashini tuzatyapsiz
 title: "Sana va vaqt"
 ---
 
@@ -49,7 +53,7 @@ Siz bu xatti-harakatni bekor qilishingiz mumkin:
 **Foydalanuvchi vaqt zonasi:**
 
 ```
-Swift generatori quyidagini hosil qiladi:
+[WhatsApp +1555 2026-01-18 00:19 CST] hello
 ```
 
 **O‘tgan vaqt yoqilgan:**
@@ -116,5 +120,3 @@ Agar sizga mahalliy vaqt kerak bo‘lsa, ma’lum vaqt zonasidan foydalanib, uni
 - [System Prompt](/concepts/system-prompt)
 - [Timezones](/concepts/timezone)
 - [Messages](/concepts/messages)
-
-

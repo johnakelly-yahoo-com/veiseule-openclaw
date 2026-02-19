@@ -1,4 +1,8 @@
 ---
+summary: "Отправка опросов через Gateway (шлюз) и CLI"
+read_when:
+  - Добавление или изменение поддержки опросов
+  - Отладка отправки опросов из CLI или через Gateway (шлюз)
 title: "Опросы"
 ---
 
@@ -40,7 +44,7 @@ openclaw message poll --channel msteams --target conversation:19:abc@thread.tacv
 
 Метод: `poll`
 
-Параметры:
+Params:
 
 - `to` (string, обязательно)
 - `question` (string, обязательно)
@@ -63,5 +67,3 @@ openclaw message poll --channel msteams --target conversation:19:abc@thread.tacv
 Примечание: в Discord отсутствует режим «выбрать ровно N»; `pollMulti` сопоставляется с множественным выбором.
 Опросы в Teams отображаются как Adaptive Cards и требуют, чтобы Gateway (шлюз) оставался онлайн
 для записи голосов в `~/.openclaw/msteams-polls.json`.
-
-

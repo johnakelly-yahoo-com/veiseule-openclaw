@@ -1,13 +1,17 @@
 ---
+summary: "इनबाउंड वॉइस नोट्स के लिए Deepgram ट्रांसक्रिप्शन"
+read_when:
+  - आप ऑडियो अटैचमेंट्स के लिए Deepgram स्पीच-टू-टेक्स्ट चाहते हैं
+  - आपको Deepgram का एक त्वरित विन्यास उदाहरण चाहिए
 title: "Deepgram"
 ---
 
 # Deepgram (ऑडियो ट्रांसक्रिप्शन)
 
-Deepgram एक speech-to-text API है। OpenClaw में इसका उपयोग **इनबाउंड ऑडियो/वॉइस नोट
+Deepgram is a speech-to-text API. In OpenClaw it is used for **inbound audio/voice note
 transcription** via `tools.media.audio`.
 
-जब सक्षम किया जाता है, OpenClaw ऑडियो फ़ाइल को Deepgram पर अपलोड करता है और ट्रांसक्रिप्ट को इंजेक्ट करता है
+When enabled, OpenClaw uploads the audio file to Deepgram and injects the transcript
 into the reply pipeline (`{{Transcript}}` + `[Audio]` block). This is **not streaming**;
 it uses the pre-recorded transcription endpoint.
 
@@ -87,5 +91,3 @@ Deepgram विकल्पों के साथ उदाहरण:
 - प्रमाणीकरण मानक प्रदाता प्रमाणीकरण क्रम का पालन करता है; `DEEPGRAM_API_KEY` सबसे सरल मार्ग है।
 - प्रॉक्सी का उपयोग करते समय `tools.media.audio.baseUrl` और `tools.media.audio.headers` के साथ एंडपॉइंट्स या हेडर्स को ओवरराइड करें।
 - आउटपुट अन्य प्रदाताओं के समान ऑडियो नियमों का पालन करता है (आकार सीमाएँ, टाइमआउट्स, ट्रांसक्रिप्ट इंजेक्शन)।
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "معمارية Gateway عبر WebSocket، المكوّنات، وتدفّقات العملاء"
+read_when:
+  - عند العمل على بروتوكول Gateway أو العملاء أو وسائل النقل
 title: "معمارية Gateway"
 ---
 
@@ -16,7 +19,10 @@ title: "معمارية Gateway"
 - تتصل **العُقد** (macOS/iOS/Android/بدون واجهة) أيضًا عبر **WebSocket**، لكنها
   تعلن `role: node` مع إمكانات/أوامر صريحة.
 - Gateway واحد لكل مضيف؛ وهو المكان الوحيد الذي يفتح جلسة WhatsApp.
-- يخدم **مضيف اللوحة** (الافتراضي `18793`) ملفات HTML القابلة للتحرير من قِبل الوكيل وواجهة A2UI.
+- يتم تقديم **canvas host** بواسطة خادم Gateway HTTP ضمن:
+  - `/__openclaw__/canvas/` (HTML/CSS/JS قابل للتعديل من قبل الوكيل)
+  - `/__openclaw__/a2ui/` (مضيف A2UI)
+    يستخدم نفس منفذ Gateway (الافتراضي `18789`).
 
 ## المكونات والتدفقات
 
@@ -51,8 +57,22 @@ title: "معمارية Gateway"
 ## دورة حياة الاتصال (عميل واحد)
 
 ```mermaid
-عندما يمنع `scope` عملية بحث، يقوم OpenClaw بتسجيل تحذير يتضمن
-`channel`/`chatType` المشتقين، مما يجعل نتائج الفراغ أسهل في التصحيح.
+sequenceDiagram
+    participant Client
+    participant Gateway
+
+    Client->>Gateway: req:connect
+    Gateway-->>Client: res (ok)
+    Note right of Gateway: أو res error + close
+    Note left of Client: payload=hello-ok<br>snapshot: presence + health
+
+    Gateway-->>Client: event:presence
+    Gateway-->>Client: event:tick
+
+    Client->>Gateway: req:agent
+    Gateway-->>Client: res:agent<br>ack {runId, status:"accepted"}
+    Gateway-->>Client: event:agent<br>(بث متدفق)
+    Gateway-->>Client: res:agent<br>final {runId, status, summary}
 ```
 
 ## بروتوكول الأسلاك (ملخّص)
@@ -114,5 +134,3 @@ title: "معمارية Gateway"
 - يتحكّم Gateway واحد فقط بجلسة Baileys واحدة لكل مضيف.
 - المصافحة إلزامية؛ أي إطار أول غير JSON أو غير connect يُغلِق الاتصال فورًا.
 - لا تُعاد الأحداث؛ يجب على العملاء التحديث عند حدوث فجوات.
-
-

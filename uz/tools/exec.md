@@ -1,51 +1,59 @@
 ---
-title: "Exec vositasi"
+summary: "Exec tool usage, stdin modes, and TTY support"
+read_when:
+  - Using or modifying the exec tool
+  - Debugging stdin or TTY behavior
+title: "Exec Tool"
 ---
 
-# Exec vositasi
+# Exec tool
 
-Ish maydonida shell buyruqlarini ishga tushiring. `process` orqali foreground + background bajarilishini qo‘llab-quvvatlaydi.  
-Agar `process` ruxsat etilmagan bo‘lsa, `exec` sinxron ishlaydi va `yieldMs`/`background` ni e’tiborsiz qoldiradi.  
-Background sessiyalar har bir agent doirasida cheklangan; `process` faqat shu agentga tegishli sessiyalarni ko‘ra oladi.
+Run shell commands in the workspace. Supports foreground + background execution via `process`.
+If `process` is disallowed, `exec` runs synchronously and ignores `yieldMs`/`background`.
+Background sessions are scoped per agent; `process` only sees sessions from the same agent.
 
-## Parametrlar
+## Parameters
 
-- `command` (majburiy)
-- `workdir` (standart: cwd)
-- `env` (kalit/qiymat o‘zgartirishlari)
-- `yieldMs` (standart 10000): kechikishdan so‘ng avtomatik background
-- `background` (bool): darhol background
-- `timeout` (sekund, standart 1800): muddati tugaganda to‘xtatadi
-- `pty` (bool): mavjud bo‘lsa, pseudo-terminalda ishga tushiradi (faqat TTY CLI’lar, kodlash agentlari, terminal UI’lar)
-- `host` (`sandbox | gateway | node`): qayerda bajariladi
-- `security` (`deny | allowlist | full`): `gateway`/`node` uchun majburiy nazorat rejimi
-- `ask` (`off | on-miss | always`): `gateway`/`node` uchun tasdiqlash so‘rovlari
-- `node` (string): `host=node` uchun node identifikatori/nomi
-- `elevated` (bool): yuqori rejimni so‘rash (`gateway` host); `security=full` faqat elevated `full` ga o‘tganda majburan qo‘llanadi
+- `command` (required)
+- `workdir` (defaults to cwd)
+- `env` (key/value overrides)
+- `yieldMs` (default 10000): auto-background after delay
+- `background` (bool): background immediately
+- `timeout` (seconds, default 1800): kill on expiry
+- `pty` (bool): run in a pseudo-terminal when available (TTY-only CLIs, coding agents, terminal UIs)
+- `host` (`sandbox | gateway | node`): where to execute
+- `security` (`deny | allowlist | full`): enforcement mode for `gateway`/`node`
+- `ask` (`off | on-miss | always`): approval prompts for `gateway`/`node`
+- `node` (string): node id/name for `host=node`
+- `elevated` (bool): request elevated mode (gateway host); `security=full` is only forced when elevated resolves to `full`
 
-Izohlar:
+Notes:
 
-- `host` standart bo‘yicha `sandbox`.
-- Agar sandboxing o‘chiq bo‘lsa, `elevated` e’tiborga olinmaydi (`exec` allaqachon hostda ishlaydi).
-- `gateway`/`node` tasdiqlashlari `~/.openclaw/exec-approvals.json` orqali boshqariladi.
-- `node` juftlangan node’ni talab qiladi (companion ilova yoki headless node host).
-- Agar bir nechta node mavjud bo‘lsa, bittasini tanlash uchun `exec.node` yoki `tools.exec.node` ni sozlang.
-- Windows bo‘lmagan hostlarda, agar `SHELL` o‘rnatilgan bo‘lsa, exec undan foydalanadi; agar `SHELL` `fish` bo‘lsa, fish bilan mos kelmaydigan skriptlardan qochish uchun `PATH` dan `bash` (yoki `sh`) ni afzal ko‘radi, agar ikkalasi ham bo‘lmasa `SHELL` ga qaytadi.
-- Hostda bajarish (`gateway`/`node`) `env.PATH` va loader override’larni (`LD_*`/`DYLD_*`) rad etadi — bu binary hijacking yoki kod kiritilishini oldini olish uchun.
-- Muhim: sandboxing **standart bo‘yicha o‘chiq**. Agar sandboxing o‘chiq bo‘lsa, `host=sandbox` buyruqni to‘g‘ridan-to‘g‘ri gateway hostda (konteynersiz) bajaradi va **tasdiqlash talab qilinmaydi**. Tasdiqlashni majburiy qilish uchun `host=gateway` bilan ishga tushiring va exec tasdiqlarini sozlang (yoki sandboxing’ni yoqing).
+- `host` defaults to `sandbox`.
+- `elevated` is ignored when sandboxing is off (exec already runs on the host).
+- `gateway`/`node` approvals are controlled by `~/.openclaw/exec-approvals.json`.
+- `node` requires a paired node (companion app or headless node host).
+- If multiple nodes are available, set `exec.node` or `tools.exec.node` to select one.
+- On non-Windows hosts, exec uses `SHELL` when set; if `SHELL` is `fish`, it prefers `bash` (or `sh`)
+  from `PATH` to avoid fish-incompatible scripts, then falls back to `SHELL` if neither exists.
+- Host execution (`gateway`/`node`) rejects `env.PATH` and loader overrides (`LD_*`/`DYLD_*`) to
+  prevent binary hijacking or injected code.
+- Important: sandboxing is **off by default**. If sandboxing is off, `host=sandbox` runs directly on
+  the gateway host (no container) and **does not require approvals**. To require approvals, run with
+  `host=gateway` and configure exec approvals (or enable sandboxing).
 
-## Sozlama
+## Config
 
-- `tools.exec.notifyOnExit` (standart: true): true bo‘lsa, background qilingan exec sessiyalari yakunlanganda tizim hodisasini navbatga qo‘yadi va heartbeat so‘raydi.
-- `tools.exec.approvalRunningNoticeMs` (standart: 10000): tasdiqlash talab qiladigan exec shu vaqtdan ko‘proq ishlasa, bitta “running” bildirishnoma yuboradi (0 — o‘chiradi).
-- `tools.exec.host` (standart: `sandbox`)
-- `tools.exec.security` (standart: sandbox uchun `deny`, gateway + node uchun (agar belgilanmagan bo‘lsa) `allowlist`)
-- `tools.exec.ask` (standart: `on-miss`)
-- `tools.exec.node` (standart: o‘rnatilmagan)
-- `tools.exec.pathPrepend`: exec ishga tushirilganda `PATH` boshiga qo‘shiladigan kataloglar ro‘yxati (faqat gateway + sandbox).
-- `tools.exec.safeBins`: explicit allowlist yozuvlarisiz ishlashi mumkin bo‘lgan, faqat stdin xavfsiz binary’lar.
+- `tools.exec.notifyOnExit` (default: true): when true, backgrounded exec sessions enqueue a system event and request a heartbeat on exit.
+- `tools.exec.approvalRunningNoticeMs` (default: 10000): emit a single “running” notice when an approval-gated exec runs longer than this (0 disables).
+- `tools.exec.host` (default: `sandbox`)
+- `tools.exec.security` (default: `deny` for sandbox, `allowlist` for gateway + node when unset)
+- `tools.exec.ask` (default: `on-miss`)
+- `tools.exec.node` (default: unset)
+- `tools.exec.pathPrepend`: list of directories to prepend to `PATH` for exec runs.
+- `tools.exec.safeBins`: stdin-only safe binaries that can run without explicit allowlist entries.
 
-Misol:
+Example:
 
 ```json5
 {
@@ -57,54 +65,64 @@ Misol:
 }
 ```
 
-### PATH ishlov berilishi
+### PATH handling
 
-- `host=gateway`: login-shell’dagi `PATH` ni exec muhiti bilan birlashtiradi. Hostda bajarishda `env.PATH` o‘zgartirishlari rad etiladi. Deymonning o‘zi esa minimal `PATH` bilan ishlaydi:
+- `host=gateway`: merges your login-shell `PATH` into the exec environment. `env.PATH` overrides are
+  rejected for host execution. The daemon itself still runs with a minimal `PATH`:
   - macOS: `/opt/homebrew/bin`, `/usr/local/bin`, `/usr/bin`, `/bin`
   - Linux: `/usr/local/bin`, `/usr/bin`, `/bin`
-- `host=sandbox`: konteyner ichida `sh -lc` (login shell) ni ishga tushiradi, shuning uchun `/etc/profile` `PATH` ni qayta o‘rnatishi mumkin. OpenClaw `env.PATH` ni profil yuklangandan so‘ng ichki env o‘zgaruvchi orqali (shell interpolatsiyasiz) boshiga qo‘shadi; `tools.exec.pathPrepend` ham shu yerda qo‘llanadi.
-- `host=node`: siz uzatgan, bloklanmagan env o‘zgartirishlargina node’ga yuboriladi. `env.PATH` o‘zgartirishlari hostda bajarish uchun rad etiladi va node hostlar tomonidan e’tiborsiz qoldiriladi. Agar node’da qo‘shimcha PATH yozuvlari kerak bo‘lsa, node host xizmati muhitini (systemd/launchd) sozlang yoki vositalarni standart joylarga o‘rnating.
+- `host=sandbox`: runs `sh -lc` (login shell) inside the container, so `/etc/profile` may reset `PATH`.
+  OpenClaw prepends `env.PATH` after profile sourcing via an internal env var (no shell interpolation);
+  `tools.exec.pathPrepend` applies here too.
+- `host=node`: only non-blocked env overrides you pass are sent to the node. `env.PATH` override’lari hostda bajarish uchun rad etiladi va node hostlar tomonidan e’tiborsiz qoldiriladi. Agar node’da qo‘shimcha PATH yozuvlari kerak bo‘lsa,
+  node host xizmati muhitini (systemd/launchd) sozlang yoki vositalarni standart joylarga o‘rnating.
 
-Har bir agent uchun node bog‘lash (config’da agent ro‘yxati indeksidan foydalaning):
+Per-agent node binding (use the agent list index in config):
 
 ```bash
 openclaw config get agents.list
 openclaw config set agents.list[0].tools.exec.node "node-id-or-name"
 ```
 
-Boshqaruv UI: Nodes yorlig‘ida shu sozlamalar uchun kichik “Exec node binding” paneli mavjud.
+Control UI: the Nodes tab includes a small “Exec node binding” panel for the same settings.
 
-## Sessiya bo‘yicha o‘zgartirishlar (`/exec`)
+## Session overrides (`/exec`)
 
-`/exec` yordamida sessiya darajasida `host`, `security`, `ask` va `node` uchun standart qiymatlarni belgilang.  
-Joriy qiymatlarni ko‘rish uchun argumentlarsiz `/exec` yuboring.
+Use `/exec` to set **per-session** defaults for `host`, `security`, `ask`, and `node`.
+Send `/exec` with no arguments to show the current values.
 
-Misol:
+Example:
 
 ```
 /exec host=gateway security=allowlist ask=on-miss node=mac-1
 ```
 
-## Avtorizatsiya modeli
+## Authorization model
 
-`/exec` faqat **ruxsat etilgan yuboruvchilar** uchun amal qiladi (kanal allowlist/pairing va `commands.useAccessGroups`).  
-U faqat **sessiya holatini** yangilaydi va konfiguratsiyani yozmaydi. Exec’ni to‘liq o‘chirish uchun uni tool siyosati orqali rad eting (`tools.deny: ["exec"]` yoki agent bo‘yicha). Agar aniq `security=full` va `ask=off` o‘rnatilmagan bo‘lsa, host tasdiqlashlari baribir qo‘llanadi.
+`/exec` is only honored for **authorized senders** (channel allowlists/pairing plus `commands.useAccessGroups`).
+It updates **session state only** and does not write config. To hard-disable exec, deny it via tool
+policy (`tools.deny: ["exec"]` or per-agent). Host approvals still apply unless you explicitly set
+`security=full` and `ask=off`.
 
-## Exec tasdiqlashlari (companion ilova / node host)
+## Exec approvals (companion app / node host)
 
-Sandbox qilingan agentlar gateway yoki node hostda `exec` bajarilishidan oldin har bir so‘rov uchun tasdiqlash talab qilishi mumkin.  
-Siyosat, allowlist va UI jarayoni haqida [Exec approvals](/tools/exec-approvals) sahifasiga qarang.
+Sandboxed agents can require per-request approval before `exec` runs on the gateway or node host.
+See [Exec approvals](/tools/exec-approvals) for the policy, allowlist, and UI flow.
 
-Tasdiqlash talab qilinganda, exec vositasi darhol `status: "approval-pending"` va tasdiqlash identifikatori bilan qaytadi. Tasdiqlangach (yoki rad etilgach / vaqti tugagach), Gateway tizim hodisalarini yuboradi (`Exec finished` / `Exec denied`). Agar buyruq `tools.exec.approvalRunningNoticeMs` dan ko‘proq ishlasa, bitta `Exec running` bildirishnomasi yuboriladi.
+When approvals are required, the exec tool returns immediately with
+`status: "approval-pending"` and an approval id. Once approved (or denied / timed out),
+the Gateway emits system events (`Exec finished` / `Exec denied`). If the command is still
+running after `tools.exec.approvalRunningNoticeMs`, a single `Exec running` notice is emitted.
 
 ## Allowlist + safe bins
 
-Allowlist nazorati faqat **resolved binary path** bo‘yicha moslikni tekshiradi (basename bo‘yicha emas).  
-`security=allowlist` bo‘lganda, shell buyruqlari faqat pipeline’dagi har bir segment allowlist’da yoki safe bin bo‘lsa avtomatik ruxsat etiladi.  
-Zanjirlash (`;`, `&&`, `||`) va yo‘naltirishlar allowlist rejimida rad etiladi, agar har bir yuqori darajadagi segment allowlist (shu jumladan safe bins) talablariga javob bermasa.  
+Allowlist enforcement matches **resolved binary paths only** (no basename matches). When
+`security=allowlist`, shell commands are auto-allowed only if every pipeline segment is
+allowlisted or a safe bin. Zanjirlash (`;`, `&&`, `||`) va yo‘naltirishlar allowlist rejimida
+allowlist (shu jumladan safe binlar) talablariga javob bermaydigan har qanday yuqori darajadagi segment mavjud bo‘lsa rad etiladi.
 Yo‘naltirishlar hali ham qo‘llab-quvvatlanmaydi.
 
-## Misollar
+## Examples
 
 Foreground:
 
@@ -119,7 +137,7 @@ Background + poll:
 {"tool":"process","action":"poll","sessionId":"<id>"}
 ```
 
-Tugmalar yuborish (tmux uslubida):
+Send keys (tmux-style):
 
 ```json
 {"tool":"process","action":"send-keys","sessionId":"<id>","keys":["Enter"]}
@@ -127,37 +145,36 @@ Tugmalar yuborish (tmux uslubida):
 {"tool":"process","action":"send-keys","sessionId":"<id>","keys":["Up","Up","Enter"]}
 ```
 
-Yuborish (faqat CR yuborish):
+Submit (send CR only):
 
 ```json
 { "tool": "process", "action": "submit", "sessionId": "<id>" }
 ```
 
-Qo‘yish (standart bo‘yicha bracketed):
+Paste (bracketed by default):
 
 ```json
 { "tool": "process", "action": "paste", "sessionId": "<id>", "text": "line1\nline2\n" }
 ```
 
-## apply_patch (eksperimental)
+## apply_patch (experimental)
 
-`apply_patch` — bu strukturalangan ko‘p faylli tahrirlar uchun `exec` ning subtool’i.  
-Uni alohida yoqing:
+`apply_patch` is a subtool of `exec` for structured multi-file edits.
+Enable it explicitly:
 
 ```json5
 {
   tools: {
     exec: {
-      applyPatch: { enabled: true, workspaceOnly: true, allowModels: ["gpt-5.2"] },
+      applyPatch: { enabled: true, allowModels: ["gpt-5.2"] },
     },
   },
 }
 ```
 
-Izohlar:
+Notes:
 
-- Faqat OpenAI/OpenAI Codex modellari uchun mavjud.
-- Tool siyosati baribir qo‘llanadi; `allow: ["exec"]` avtomatik ravishda `apply_patch` ga ham ruxsat beradi.
-- Konfiguratsiya `tools.exec.applyPatch` ostida joylashgan.
-- `tools.exec.applyPatch.workspaceOnly` standart bo‘yicha `true` (faqat workspace ichida). Agar `apply_patch` workspace katalogidan tashqariga yozishi/o‘chirishi kerak bo‘lsa, uni ataylab `false` ga o‘rnating.
-
+- Only available for OpenAI/OpenAI Codex models.
+- Tool policy still applies; `allow: ["exec"]` implicitly allows `apply_patch`.
+- Config lives under `tools.exec.applyPatch`.
+- `tools.exec.applyPatch.workspaceOnly` standart bo‘yicha `true` (faqat workspace ichida). Uni `false` ga faqat `apply_patch` workspace katalogidan tashqariga yozishi/o‘chirishi kerak bo‘lsa, ataylab o‘rnating.

@@ -1,18 +1,14 @@
 ---
-title: "智能体发送"
-x-i18n:
-  generated_at: "2026-02-03T07:54:52Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: a84d6a304333eebe155da2bf24cf5fc0482022a0a48ab34aa1465cd6e667022d
-  source_path: tools/agent-send.md
-  workflow: 15
+summary: "直接 `openclaw agent` CLI 运行（带可选投递）"
+read_when:
+  - 添加或修改智能体 CLI 入口点
+title: "Agent Send"
 ---
 
 # `openclaw agent`（直接智能体运行）
 
-`openclaw agent` 运行单个智能体回合，无需入站聊天消息。
-默认情况下它**通过 Gateway 网关**运行；添加 `--local` 以强制在当前机器上使用嵌入式运行时。
+28. `openclaw agent` 运行单个代理回合，无需入站聊天消息。
+29. 默认情况下它**通过 Gateway** 运行；添加 `--local` 以强制使用当前机器上的嵌入式运行时。
 
 ## 行为
 
@@ -22,7 +18,7 @@ x-i18n:
   - `--session-id <id>` 通过 ID 重用现有会话，**或**
   - `--agent <id>` 直接定位已配置的智能体（使用该智能体的 `main` 会话键）
 - 运行与正常入站回复相同的嵌入式智能体运行时。
-- 思考/详细标志持久化到会话存储中。
+- 37. 思考/详细标志会持久化到会话存储中。
 - 输出：
   - 默认：打印回复文本（加上 `MEDIA:<url>` 行）
   - `--json`：打印结构化负载 + 元数据
@@ -54,5 +50,3 @@ openclaw agent --agent ops --message "Generate report" --deliver --reply-channel
 - `--verbose <on|full|off>`：持久化详细级别
 - `--timeout <seconds>`：覆盖智能体超时
 - `--json`：输出结构化 JSON
-
-

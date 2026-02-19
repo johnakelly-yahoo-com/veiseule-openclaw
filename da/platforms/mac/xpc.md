@@ -1,4 +1,7 @@
 ---
+summary: "macOS IPC-arkitektur for OpenClaw-appen, gateway-node-transport og PeekabooBridge"
+read_when:
+  - Redigering af IPC-kontrakter eller menulinje-appens IPC
 title: "macOS IPC"
 ---
 
@@ -56,5 +59,3 @@ Agent -> Gateway -> Node Service (WS)
 - Al kommunikation forbliver lokal; ingen netværkssockets eksponeres.
 - TCC-prompter stammer kun fra GUI-appens bundle; hold det signerede bundle ID stabilt på tværs af genopbygninger.
 - IPC-hærdning: socket-tilstand `0600`, token, peer-UID-tjek, HMAC challenge/response, kort TTL.
-
-

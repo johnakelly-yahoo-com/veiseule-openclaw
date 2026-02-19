@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw’un istem bağlamını nasıl oluşturduğunu ve belirteç kullanımını + maliyetleri nasıl raporladığını açıklar"
+read_when:
+  - Belirteç kullanımını, maliyetleri veya bağlam pencerelerini açıklarken
+  - Bağlam büyümesini veya sıkıştırma davranışını hata ayıklarken
 title: "Belirteç Kullanımı ve Maliyetler"
 ---
 
@@ -14,7 +18,7 @@ OpenClaw her çalıştırmada kendi sistem istemini oluşturur. Şunları içeri
 - Araç listesi + kısa açıklamalar
 - Skills listesi (yalnızca meta veriler; talimatlar `read` ile talep üzerine yüklenir)
 - Kendi kendini güncelleme talimatları
-- Çalışma alanı + önyükleme dosyaları (yeniyse `AGENTS.md`, `SOUL.md`, `TOOLS.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md`, `BOOTSTRAP.md`). Büyük dosyalar `agents.defaults.bootstrapMaxChars` tarafından kısaltılır (varsayılan: 20000).
+- Çalışma alanı + önyükleme dosyaları (yeniyse `AGENTS.md`, `SOUL.md`, `TOOLS.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md`, `BOOTSTRAP.md`). Büyük dosyalar `agents.defaults.bootstrapMaxChars` tarafından kısaltılır (varsayılan: 20000). `memory/*.md` dosyaları bellek araçları aracılığıyla isteğe bağlı olarak yüklenir ve otomatik olarak eklenmez.
 - Zaman (UTC + kullanıcı saat dilimi)
 - Yanıt etiketleri + heartbeat davranışı
 - Çalışma zamanı meta verileri (ana makine/OS/model/düşünme)
@@ -110,5 +114,3 @@ agents:
 - Ayrıntılı, keşif amaçlı çalışmalar için daha küçük modelleri tercih edin.
 
 Tam skill listesi ek yükü formülü için [Skills](/tools/skills) bölümüne bakın.
-
-

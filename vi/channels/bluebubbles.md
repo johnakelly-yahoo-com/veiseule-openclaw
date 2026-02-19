@@ -1,4 +1,9 @@
 ---
+summary: "iMessage qua máy chủ BlueBubbles macOS (gửi/nhận REST, trạng thái gõ, phản ứng, ghép cặp, hành động nâng cao)."
+read_when:
+  - Thiết lập kênh BlueBubbles
+  - Xử lý sự cố ghép cặp webhook
+  - Cấu hình iMessage trên macOS
 title: "BlueBubbles"
 ---
 
@@ -42,13 +47,17 @@ title: "BlueBubbles"
 
 5. Khởi động gateway; nó sẽ đăng ký trình xử lý webhook và bắt đầu ghép cặp.
 
+Lưu ý bảo mật:
+
+- Luôn đặt mật khẩu webhook. Nếu bạn expose gateway thông qua reverse proxy (Tailscale Serve/Funnel, nginx, Cloudflare Tunnel, ngrok), proxy có thể kết nối đến gateway qua loopback. Trình xử lý webhook BlueBubbles coi các request có forwarding headers là được proxy và sẽ không chấp nhận webhook không có mật khẩu.
+
 ## Giữ Messages.app hoạt động (VM / thiết lập headless)
 
 27. Một số thiết lập macOS VM / always-on có thể khiến Messages.app rơi vào trạng thái “idle” (sự kiện đến bị dừng cho đến khi app được mở/đưa ra foreground). 28. Một cách khắc phục đơn giản là **chọc Messages mỗi 5 phút** bằng AppleScript + LaunchAgent.
 
 ### 1. Lưu AppleScript
 
-Lưu với tên:
+Script ví dụ (không tương tác; không giành focus):
 
 - `~/Scripts/poke-messages.scpt`
 
@@ -104,7 +113,7 @@ Lưu với tên:
 </plist>
 ```
 
-Ghi chú:
+Nạp:
 
 - Chạy **mỗi 300 giây** và **khi đăng nhập**.
 - The first run may trigger macOS **Automation** prompts (`osascript` → Messages). 29. Phê duyệt chúng trong cùng phiên người dùng đang chạy LaunchAgent.
@@ -118,13 +127,13 @@ launchctl load ~/Library/LaunchAgents/com.user.poke-messages.plist
 
 ## Hướng dẫn ban đầu
 
-BlueBubbles có sẵn trong trình hướng dẫn thiết lập tương tác:
+Trình hướng dẫn sẽ yêu cầu:
 
 ```
 openclaw onboard
 ```
 
-Trình hướng dẫn sẽ yêu cầu:
+Bạn cũng có thể thêm BlueBubbles qua CLI:
 
 - **Server URL** (bắt buộc): địa chỉ máy chủ BlueBubbles (ví dụ: `http://192.168.1.100:1234`)
 - **Password** (bắt buộc): mật khẩu API từ cài đặt BlueBubbles Server
@@ -142,8 +151,8 @@ openclaw channels add bluebubbles --http-url http://192.168.1.100:1234 --passwor
 
 DMs:
 
-- Mặc định: `channels.bluebubbles.dmPolicy = "pairing"`.
-- Người gửi chưa biết sẽ nhận mã ghép cặp; tin nhắn bị bỏ qua cho đến khi được phê duyệt (mã hết hạn sau 1 giờ).
+- `channels.bluebubbles.groupPolicy = open | allowlist | disabled` (mặc định: `allowlist`).
+- `channels.bluebubbles.groupAllowFrom` kiểm soát ai có thể kích hoạt trong nhóm khi `allowlist` được đặt.
 - Phê duyệt qua:
   - `openclaw pairing list bluebubbles`
   - `openclaw pairing approve bluebubbles <CODE>`
@@ -156,7 +165,7 @@ Nhóm:
 
 ### Chặn theo mention (nhóm)
 
-BlueBubbles hỗ trợ chặn theo mention cho chat nhóm, phù hợp hành vi iMessage/WhatsApp:
+Cấu hình theo nhóm:
 
 - Dùng `agents.list[].groupChat.mentionPatterns` (hoặc `messages.groupChat.mentionPatterns`) để phát hiện mention.
 - Khi `requireMention` được bật cho một nhóm, tác tử chỉ phản hồi khi được mention.
@@ -179,11 +188,11 @@ Cấu hình theo nhóm:
 }
 ```
 
-### Chặn lệnh
+### Trạng thái gõ + xác nhận đã đọc
 
-- Lệnh điều khiển (ví dụ: `/config`, `/model`) yêu cầu ủy quyền.
-- Dùng `allowFrom` và `groupAllowFrom` để xác định quyền lệnh.
-- Người gửi được ủy quyền có thể chạy lệnh điều khiển ngay cả khi không mention trong nhóm.
+- **Trạng thái gõ**: gửi tự động trước và trong quá trình tạo phản hồi.
+- **Xác nhận đã đọc**: được điều khiển bởi `channels.bluebubbles.sendReadReceipts` (mặc định: `true`).
+- **Trạng thái gõ**: OpenClaw gửi sự kiện bắt đầu gõ; BlueBubbles tự xóa trạng thái gõ khi gửi hoặc khi timeout (dừng thủ công qua DELETE không đáng tin cậy).
 
 ## Trạng thái gõ + xác nhận đã đọc
 
@@ -203,7 +212,7 @@ Cấu hình theo nhóm:
 
 ## Hành động nâng cao
 
-BlueBubbles hỗ trợ các hành động nâng cao khi được bật trong cấu hình:
+Các hành động khả dụng:
 
 ```json5
 {
@@ -244,19 +253,19 @@ Các hành động khả dụng:
 
 ### ID tin nhắn (ngắn vs đầy đủ)
 
-OpenClaw có thể hiển thị ID tin nhắn _ngắn_ (ví dụ: `1`, `2`) để tiết kiệm token.
-
-- `MessageSid` / `ReplyToId` có thể là ID ngắn.
-- `MessageSidFull` / `ReplyToIdFull` chứa ID đầy đủ của nhà cung cấp.
-- ID ngắn nằm trong bộ nhớ; có thể hết hạn khi khởi động lại hoặc bị loại khỏi cache.
-- Các hành động chấp nhận `messageId` ngắn hoặc đầy đủ, nhưng ID ngắn sẽ lỗi nếu không còn khả dụng.
-
 Dùng ID đầy đủ cho tự động hóa và lưu trữ lâu dài:
 
 - Mẫu: `{{MessageSidFull}}`, `{{ReplyToIdFull}}`
 - Ngữ cảnh: `MessageSidFull` / `ReplyToIdFull` trong payload đến
+- ID ngắn nằm trong bộ nhớ; có thể hết hạn khi khởi động lại hoặc bị loại khỏi cache.
+- Các hành động chấp nhận `messageId` ngắn hoặc đầy đủ, nhưng ID ngắn sẽ lỗi nếu không còn khả dụng.
 
 Xem [Configuration](/gateway/configuration) để biết biến mẫu.
+
+- Mẫu: `{{MessageSidFull}}`, `{{ReplyToIdFull}}`
+- Ngữ cảnh: `MessageSidFull` / `ReplyToIdFull` trong payload đến
+
+Kiểm soát việc phản hồi được gửi thành một tin nhắn hay stream theo khối:
 
 ## Chặn streaming
 
@@ -272,7 +281,7 @@ Kiểm soát việc phản hồi được gửi thành một tin nhắn hay stre
 }
 ```
 
-## Media + giới hạn
+## Tham chiếu cấu hình
 
 - Tệp đính kèm đến được tải xuống và lưu trong cache media.
 - Giới hạn media qua `channels.bluebubbles.mediaMaxMb` (mặc định: 8 MB).
@@ -282,9 +291,9 @@ Kiểm soát việc phản hồi được gửi thành một tin nhắn hay stre
 
 Cấu hình đầy đủ: [Configuration](/gateway/configuration)
 
-Tùy chọn nhà cung cấp:
+Tùy chọn toàn cục liên quan:
 
-- `channels.bluebubbles.enabled`: Bật/tắt kênh.
+- `agents.list[].groupChat.mentionPatterns` (hoặc `messages.groupChat.mentionPatterns`).
 - `channels.bluebubbles.serverUrl`: URL gốc REST API của BlueBubbles.
 - `channels.bluebubbles.password`: Mật khẩu API.
 - `channels.bluebubbles.webhookPath`: Đường dẫn endpoint webhook (mặc định: `/bluebubbles-webhook`).
@@ -298,6 +307,8 @@ Tùy chọn nhà cung cấp:
 - `channels.bluebubbles.textChunkLimit`: Kích thước khối gửi đi theo ký tự (mặc định: 4000).
 - `channels.bluebubbles.chunkMode`: `length` (mặc định) chỉ tách khi vượt `textChunkLimit`; `newline` tách theo dòng trống (ranh giới đoạn) trước khi tách theo độ dài.
 - `channels.bluebubbles.mediaMaxMb`: Giới hạn media đến tính bằng MB (mặc định: 8).
+- `channels.bluebubbles.mediaLocalRoots`: Danh sách allowlist tường minh các thư mục cục bộ tuyệt đối được phép cho đường dẫn media cục bộ gửi ra ngoài. Việc gửi bằng đường dẫn cục bộ sẽ bị từ chối theo mặc định trừ khi mục này được cấu hình. Ghi đè theo từng tài khoản: `channels.bluebubbles.accounts.<accountId>
+  .mediaLocalRoots`.**Khớp kênh** (bất kỳ tài khoản nào trên kênh đó, `accountId: "*"`).
 - `channels.bluebubbles.historyLimit`: Số tin nhắn nhóm tối đa cho ngữ cảnh (0 để tắt).
 - `channels.bluebubbles.dmHistoryLimit`: Giới hạn lịch sử DM.
 - `channels.bluebubbles.actions`: Bật/tắt các hành động cụ thể.
@@ -315,13 +326,13 @@ Tùy chọn toàn cục liên quan:
 - `chat_guid:iMessage;-;+15555550123` (ưu tiên cho nhóm)
 - `chat_id:123`
 - `chat_identifier:...`
-- Handle trực tiếp: `+15555550123`, `user@example.com`
+- Bật HTTPS + quy tắc tường lửa trên máy chủ BlueBubbles nếu mở ra ngoài LAN.
   - If a direct handle does not have an existing DM chat, OpenClaw will create one via `POST /api/v1/chat/new`. This requires the BlueBubbles Private API to be enabled.
 
-## Bảo mật
+## Xử lý sự cố
 
 - 33. Các yêu cầu webhook được xác thực bằng cách so sánh tham số truy vấn hoặc header `guid`/`password` với `channels.bluebubbles.password`. 34. Các yêu cầu từ `localhost` cũng được chấp nhận.
-- Giữ bí mật mật khẩu API và endpoint webhook (coi như thông tin xác thực).
+- Mã ghép cặp hết hạn sau một giờ; dùng `openclaw pairing list bluebubbles` và `openclaw pairing approve bluebubbles <code>`.
 - 35. Việc tin cậy localhost có nghĩa là một reverse proxy cùng máy có thể vô tình vượt qua mật khẩu. 36. Nếu bạn proxy gateway, hãy yêu cầu xác thực tại proxy và cấu hình `gateway.trustedProxies`. See [Gateway security](/gateway/security#reverse-proxy-configuration).
 - Bật HTTPS + quy tắc tường lửa trên máy chủ BlueBubbles nếu mở ra ngoài LAN.
 
@@ -336,5 +347,3 @@ Tùy chọn toàn cục liên quan:
 - Thông tin trạng thái/sức khỏe: `openclaw status --all` hoặc `openclaw status --deep`.
 
 Để tham khảo quy trình kênh nói chung, xem [Channels](/channels) và hướng dẫn [Plugins](/tools/plugin).
-
-

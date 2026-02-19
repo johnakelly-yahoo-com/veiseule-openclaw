@@ -1,4 +1,7 @@
 ---
+summary: "ฮับที่เชื่อมโยงไปยังเอกสาร OpenClaw ทุกหน้า"
+read_when:
+  - คุณต้องการแผนผังเอกสารทั้งหมด
 title: "ฮับเอกสาร"
 ---
 
@@ -192,5 +195,3 @@ title: "ฮับเอกสาร"
 - [Testing](/reference/test)
 - [Release checklist](/reference/RELEASING)
 - [Device models](/reference/device-models)
-
-

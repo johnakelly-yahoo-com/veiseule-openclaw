@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw 를 위한 선택적 Docker 기반 설정 및 온보딩"
+read_when:
+  - 로컬 설치 대신 컨테이너화된 게이트웨이를 원할 때
+  - Docker 플로우를 검증하고 있을 때
 title: "Docker"
 ---
 
@@ -42,7 +46,7 @@ Docker 는 **선택 사항**입니다. 컨테이너화된 게이트웨이가 필
 - Docker Compose 를 통해 게이트웨이 시작
 - 게이트웨이 토큰을 생성하고 `.env` 에 기록
 
-선택적 환경 변수:
+Optional env vars:
 
 - `OPENCLAW_DOCKER_APT_PACKAGES` — 빌드 중 추가 apt 패키지 설치
 - `OPENCLAW_EXTRA_MOUNTS` — 추가 호스트 바인드 마운트 추가
@@ -60,6 +64,24 @@ Docker 는 **선택 사항**입니다. 컨테이너화된 게이트웨이가 필
 - `~/.openclaw/workspace`
 
 VPS 에서 실행 중이신가요? [Hetzner (Docker VPS)](/install/hetzner)를 참고하십시오.
+
+### Shell 도우미 (선택 사항)
+
+일상적인 Docker 관리를 더 쉽게 하려면 `ClawDock`을 설치하세요:
+
+```bash
+mkdir -p ~/.clawdock && curl -sL https://raw.githubusercontent.com/openclaw/openclaw/main/scripts/shell-helpers/clawdock-helpers.sh -o ~/.clawdock/clawdock-helpers.sh
+```
+
+**셸 설정에 추가 (zsh):**
+
+```bash
+echo 'source ~/.clawdock/clawdock-helpers.sh' >> ~/.zshrc && source ~/.zshrc
+```
+
+그런 다음 `clawdock-start`, `clawdock-stop`, `clawdock-dashboard` 등을 사용하세요. 모든 명령어를 보려면 `clawdock-help`를 실행하세요.
+
+자세한 내용은 [`ClawDock` Helper README](https://github.com/openclaw/openclaw/blob/main/scripts/shell-helpers/README.md)를 참고하세요.
 
 ### 수동 플로우 (compose)
 
@@ -561,5 +583,3 @@ docker build -t my-openclaw-sbx -f Dockerfile.sandbox .
 - 커스텀 도구를 찾을 수 없음: OpenClaw 는 `sh -lc` (로그인 셸)로 명령을 실행하며,
   이는 `/etc/profile` 을 소스하고 PATH 를 재설정할 수 있습니다. `docker.env.PATH` 를 설정하여 커스텀 도구 경로(예: `/custom/bin:/usr/local/share/npm-global/bin`)를
   앞에 추가하거나, Dockerfile 에서 `/etc/profile.d/` 아래에 스크립트를 추가하십시오.
-
-

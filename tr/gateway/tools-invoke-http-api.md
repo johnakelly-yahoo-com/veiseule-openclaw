@@ -1,4 +1,8 @@
 ---
+summary: "Gateway HTTP uç noktası üzerinden tek bir aracı doğrudan çağırma"
+read_when:
+  - Tam bir ajan turu çalıştırmadan araçları çağırma
+  - Araç politika zorunluluğu gerektiren otomasyonlar oluşturma
 title: "Araçları Çağırma API'si"
 ---
 
@@ -21,6 +25,7 @@ Notlar:
 
 - `gateway.auth.mode="token"` olduğunda `gateway.auth.token` (veya `OPENCLAW_GATEWAY_TOKEN`) kullanın.
 - `gateway.auth.mode="password"` olduğunda `gateway.auth.password` (veya `OPENCLAW_GATEWAY_PASSWORD`) kullanın.
+- `gateway.auth.rateLimit` yapılandırılmışsa ve çok fazla kimlik doğrulama hatası oluşursa, uç nokta `Retry-After` ile birlikte `429` döndürür.
 
 ## İstek gövdesi
 
@@ -54,6 +59,28 @@ Araç kullanılabilirliği, Gateway ajanları tarafından kullanılan aynı poli
 
 Bir araç politika tarafından izinli değilse, uç nokta **404** döndürür.
 
+Gateway HTTP, varsayılan olarak (oturum politikası araca izin verse bile) katı bir engelleme listesi uygular:
+
+- `sessions_spawn`
+- `sessions_send`
+- `gateway`
+- `whatsapp_login`
+
+Bu engelleme listesini `gateway.tools` aracılığıyla özelleştirebilirsiniz:
+
+```json5
+{
+  gateway: {
+    tools: {
+      // HTTP /tools/invoke üzerinden engellenecek ek araçlar
+      deny: ["browser"],
+      // Varsayılan engelleme listesinden araçları kaldır
+      allow: ["gateway"],
+    },
+  },
+}
+```
+
 Grup politikalarının bağlamı çözmesine yardımcı olmak için isteğe bağlı olarak şunları ayarlayabilirsiniz:
 
 - `x-openclaw-message-channel: <channel>` (örnek: `slack`, `telegram`)
@@ -64,8 +91,10 @@ Grup politikalarının bağlamı çözmesine yardımcı olmak için isteğe bağ
 - `200` → `{ ok: true, result }`
 - `400` → `{ ok: false, error: { type, message } }` (geçersiz istek veya araç hatası)
 - `401` → yetkisiz
+- `429` → kimlik doğrulama hız sınırına takıldı (`Retry-After` ayarlı)
 - `404` → araç kullanılamıyor (bulunamadı veya izin listesinde değil)
 - `405` → yöntem izinli değil
+- Alt ajan politikası (bir alt ajan oturum anahtarıyla çağırırken)
 
 ## Örnek
 
@@ -79,5 +108,3 @@ curl -sS http://127.0.0.1:18789/tools/invoke \
     "args": {}
   }'
 ```
-
-

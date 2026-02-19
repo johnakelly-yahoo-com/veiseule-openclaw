@@ -1,4 +1,8 @@
 ---
+summary: "Mga messaging platform na maaaring kumonekta ang OpenClaw"
+read_when:
+  - Gusto mong pumili ng chat channel para sa OpenClaw
+  - Kailangan mo ng mabilis na pangkalahatang-ideya ng mga sinusuportahang messaging platform
 title: "Mga Chat Channel"
 ---
 
@@ -29,6 +33,7 @@ Sinusuportahan ang text sa lahat ng dako; nag-iiba ang media at reactions ayon s
 - [Zalo](/channels/zalo) — Zalo Bot API; sikat na messenger sa Vietnam (plugin, hiwalay na ini-install).
 - [Zalo Personal](/channels/zalouser) — Zalo personal account sa pamamagitan ng QR login (plugin, hiwalay na ini-install).
 - [WebChat](/web/webchat) — Gateway WebChat UI sa ibabaw ng WebSocket.
+- [WebChat](/web/webchat) — Gateway WebChat UI sa ibabaw ng WebSocket.
 
 ## Mga tala
 
@@ -40,5 +45,3 @@ Sinusuportahan ang text sa lahat ng dako; nag-iiba ang media at reactions ayon s
 - Mga internal ng Telegram: [mga tala ng grammY](/channels/grammy).
 - Pag-troubleshoot: [Pag-troubleshoot ng channel](/channels/troubleshooting).
 - Hiwalay na dinodokumento ang mga model provider; tingnan ang [Model Providers](/providers/models).
-
-

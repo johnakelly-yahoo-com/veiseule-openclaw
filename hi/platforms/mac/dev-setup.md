@@ -1,4 +1,7 @@
 ---
+summary: "OpenClaw macOS ऐप पर काम करने वाले डेवलपर्स के लिए सेटअप गाइड"
+read_when:
+  - macOS डेवलपमेंट परिवेश सेटअप करते समय
 title: "macOS डेवलपर सेटअप"
 ---
 
@@ -21,7 +24,7 @@ title: "macOS डेवलपर सेटअप"
 pnpm install
 ```
 
-## 2. ऐप को बिल्ड और पैकेज करें
+## 2. Build and Package the App
 
 macOS ऐप को बिल्ड करने और उसे `dist/OpenClaw.app` में पैकेज करने के लिए, चलाएँ:
 
@@ -34,7 +37,7 @@ macOS ऐप को बिल्ड करने और उसे `dist/OpenClaw
 डेव रन मोड्स, साइनिंग फ़्लैग्स, और Team ID समस्या-निवारण के लिए, macOS ऐप README देखें:
 [https://github.com/openclaw/openclaw/blob/main/apps/macos/README.md](https://github.com/openclaw/openclaw/blob/main/apps/macos/README.md)
 
-> > **नोट**: Ad-hoc साइन किए गए ऐप्स सुरक्षा प्रॉम्प्ट दिखा सकते हैं। यदि ऐप तुरंत "Abort trap 6" त्रुटि के साथ क्रैश हो जाता है, तो [Troubleshooting](#troubleshooting) अनुभाग देखें।
+> **Note**: Ad-hoc signed apps may trigger security prompts. If the app crashes immediately with "Abort trap 6", see the [Troubleshooting](#troubleshooting) section.
 
 ## 3. CLI इंस्टॉल करें
 
@@ -99,5 +102,3 @@ lsof -nP -iTCP:18789 -sTCP:LISTEN
 ```
 
 3. यदि कोई मैनुअल रन पोर्ट को होल्ड कर रहा है, तो उस प्रोसेस को रोकें (Ctrl+C)। 4. अंतिम उपाय के रूप में, ऊपर पाए गए PID को kill करें।
-
-

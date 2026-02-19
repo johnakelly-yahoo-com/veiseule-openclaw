@@ -1,5 +1,9 @@
 ---
 title: "Cloudflare AI Gateway"
+summary: "Cloudflare AI Gateway سیٹ اپ (تصدیق + ماڈل کا انتخاب)"
+read_when:
+  - آپ OpenClaw کے ساتھ Cloudflare AI Gateway استعمال کرنا چاہتے ہیں
+  - آپ کو اکاؤنٹ ID، گیٹ وے ID، یا API کلید کے ماحولیاتی متغیر کی ضرورت ہے
 ---
 
 # Cloudflare AI Gateway
@@ -65,5 +69,3 @@ openclaw onboard --non-interactive \
 ## ماحول سے متعلق نوٹ
 
 اگر Gateway بطور ڈیمَن چل رہا ہو (launchd/systemd)، تو یقینی بنائیں کہ `CLOUDFLARE_AI_GATEWAY_API_KEY` اس عمل کے لیے دستیاب ہو (مثال کے طور پر `~/.openclaw/.env` میں یا `env.shellEnv` کے ذریعے)۔
-
-

@@ -1,11 +1,16 @@
 ---
+summary: "ایجنٹ بوٹ اسٹرَیپنگ کا عمل جو ورک اسپیس اور شناختی فائلوں کی بنیاد رکھتا ہے"
+read_when:
+  - پہلی بار ایجنٹ چلنے پر کیا ہوتا ہے، اس کی سمجھ بوجھ
+  - یہ وضاحت کہ بوٹ اسٹرَیپنگ فائلیں کہاں موجود ہوتی ہیں
+  - آن بورڈنگ کے دوران شناختی سیٹ اپ کی خرابیوں کی جانچ
 title: "ایجنٹ بوٹ اسٹرَیپنگ"
 sidebarTitle: "ابتدائی ترتیب (Bootstrapping)"
 ---
 
 # ایجنٹ بوٹ اسٹرَیپنگ
 
-Bootstrapping ایک **پہلی بار چلنے** کی رسم ہے جو ایجنٹ کے ورک اسپیس کو تیار کرتی ہے اور
+Bootstrapping is the **first‑run** ritual that prepares an agent workspace and
 collects identity details. It happens after onboarding, when the agent starts
 for the first time.
 
@@ -21,7 +26,7 @@ for the first time.
 
 ## یہ کہاں چلتا ہے
 
-Bootstrapping ہمیشہ **gateway host** پر چلتا ہے۔ اگر macOS ایپ کنیکٹ ہوتی ہے تو
+Bootstrapping always runs on the **gateway host**. If the macOS app connects to
 a remote Gateway, the workspace and bootstrapping files live on that remote
 machine.
 
@@ -34,5 +39,3 @@ machine.
 
 - macOS ایپ آن بورڈنگ: [Onboarding](/start/onboarding)
 - ورک اسپیس لے آؤٹ: [Agent workspace](/concepts/agent-workspace)
-
-

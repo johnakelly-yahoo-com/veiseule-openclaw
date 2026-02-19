@@ -1,4 +1,8 @@
 ---
+summary: "Invocar uma única ferramenta diretamente pelo endpoint HTTP do Gateway"
+read_when:
+  - Chamar ferramentas sem executar um turno completo do agente
+  - Criar automações que precisam de aplicação de políticas de ferramentas
 title: "API de Invocação de Ferramentas"
 ---
 
@@ -21,6 +25,7 @@ Notas:
 
 - Quando `gateway.auth.mode="token"`, use `gateway.auth.token` (ou `OPENCLAW_GATEWAY_TOKEN`).
 - Quando `gateway.auth.mode="password"`, use `gateway.auth.password` (ou `OPENCLAW_GATEWAY_PASSWORD`).
+- Se `gateway.auth.rateLimit` estiver configurado e ocorrerem muitas falhas de autenticação, o endpoint retorna `429` com `Retry-After`.
 
 ## Corpo da requisição
 
@@ -54,6 +59,28 @@ A disponibilidade das ferramentas é filtrada pela mesma cadeia de políticas us
 
 Se uma ferramenta não for permitida pela política, o endpoint retorna **404**.
 
+O Gateway HTTP também aplica uma lista de negação rígida por padrão (mesmo que a política de sessão permita a ferramenta):
+
+- `sessions_spawn`
+- `sessions_send`
+- `gateway`
+- `whatsapp_login`
+
+Você pode personalizar esta lista de negação via `gateway.tools`:
+
+```json5
+{
+  gateway: {
+    tools: {
+      // Ferramentas adicionais para bloquear via HTTP /tools/invoke
+      deny: ["browser"],
+      // Remover ferramentas da lista de negação padrão
+      allow: ["gateway"],
+    },
+  },
+}
+```
+
 Para ajudar as políticas de grupo a resolver o contexto, você pode opcionalmente definir:
 
 - `x-openclaw-message-channel: <channel>` (exemplo: `slack`, `telegram`)
@@ -64,8 +91,10 @@ Para ajudar as políticas de grupo a resolver o contexto, você pode opcionalmen
 - `200` → `{ ok: true, result }`
 - `400` → `{ ok: false, error: { type, message } }` (requisição inválida ou erro da ferramenta)
 - `401` → não autorizado
+- `429` → autenticação limitada por taxa (`Retry-After` definido)
 - `404` → ferramenta não disponível (não encontrada ou não permitida pela lista de permissões)
 - `405` → método não permitido
+- `500` → `{ ok: false, error: { type, message } }` (erro inesperado na execução da ferramenta; mensagem sanitizada)
 
 ## Exemplo
 
@@ -79,5 +108,3 @@ curl -sS http://127.0.0.1:18789/tools/invoke \
     "args": {}
   }'
 ```
-
-

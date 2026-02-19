@@ -1,4 +1,7 @@
 ---
+summary: "모든 OpenClaw 문서로 연결되는 허브"
+read_when:
+  - 문서 전체의 완전한 지도가 필요할 때
 title: "문서 허브"
 ---
 
@@ -192,5 +195,3 @@ OpenClaw 가 처음이라면 [시작하기](/start/getting-started)부터 시작
 - [테스트](/reference/test)
 - [릴리스 체크리스트](/reference/RELEASING)
 - [디바이스 모델](/reference/device-models)
-
-

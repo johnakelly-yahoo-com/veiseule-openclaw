@@ -1,8 +1,12 @@
 ---
+summary: "Manifest ng plugin + mga kinakailangan sa JSON schema (mahigpit na pag-validate ng config)"
+read_when:
+  - Gumagawa ka ng OpenClaw plugin
+  - Kailangan mong mag-ship ng plugin config schema o mag-debug ng mga error sa pag-validate ng plugin
 title: "Manifest ng Plugin"
 ---
 
-# Manifest ng Plugin (openclaw.plugin.json)
+# Plugin manifest (openclaw.plugin.json)
 
 Bawat plugin **ay dapat** maglaman ng isang `openclaw.plugin.json` file sa **plugin root**.
 OpenClaw uses this manifest to validate configuration **without executing plugin
@@ -63,5 +67,3 @@ Mga opsyonal na key:
 - Kung ang plugin mo ay umaasa sa mga native module, idokumento ang mga hakbang sa build at anumang
   allowlist na kinakailangan ng package-manager (halimbawa, pnpm `allow-build-scripts`
   - `pnpm rebuild <package>`).
-
-

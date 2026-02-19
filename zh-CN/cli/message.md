@@ -1,12 +1,9 @@
 ---
-title: message
-x-i18n:
-  generated_at: "2026-02-01T20:21:30Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 35159baf1ef7136252e3ab1e5e03881ebc4196dd43425e2319a39306ced7f48c
-  source_path: cli/message.md
-  workflow: 14
+summary: "`openclaw message`（发送 + 渠道操作）的 CLI 参考"
+read_when:
+  - 添加或修改消息 CLI 操作
+  - 更改出站渠道行为
+title: "message"
 ---
 
 # `openclaw message`
@@ -71,6 +68,7 @@ openclaw message <subcommand> [flags]
   - 必需：`--target`、`--poll-question`、`--poll-option`（可重复）
   - 可选：`--poll-multi`
   - 仅限 Discord：`--poll-duration-hours`、`--message`
+  - 仅 Telegram：`--poll-duration-seconds`（5-600）、`--silent`、`--poll-anonymous` / `--poll-public`、`--thread-id`
 
 - `react`
   - 渠道：Discord/Google Chat/Slack/Telegram/WhatsApp/Signal
@@ -203,6 +201,16 @@ openclaw message poll --channel discord \
   --poll-multi --poll-duration-hours 48
 ```
 
+创建一个 Telegram 投票（2 分钟后自动关闭）：
+
+```
+openclaw message poll --channel telegram \
+  --target @mychat \
+  --poll-question "Lunch?" \
+  --poll-option Pizza --poll-option Sushi \
+  --poll-duration-seconds 120 --silent
+```
+
 发送 Teams 主动消息：
 
 ```
@@ -240,5 +248,3 @@ openclaw message react --channel signal \
 openclaw message send --channel telegram --target @mychat --message "Choose:" \
   --buttons '[ [{"text":"Yes","callback_data":"cmd:yes"}], [{"text":"No","callback_data":"cmd:no"}] ]'
 ```
-
-

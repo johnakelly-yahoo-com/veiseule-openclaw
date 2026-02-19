@@ -1,4 +1,8 @@
 ---
+summary: "Brug OpenCode Zen (kuraterede modeller) med OpenClaw"
+read_when:
+  - Du vil have OpenCode Zen til modeladgang
+  - Du vil have en kurateret liste over kodevenlige modeller
 title: "OpenCode Zen"
 ---
 
@@ -30,5 +34,3 @@ openclaw onboard --opencode-zen-api-key "$OPENCODE_API_KEY"
 - `OPENCODE_ZEN_API_KEY` understøttes også.
 - Du logger ind på Zen, tilføjer betalingsoplysninger og kopierer din API-nøgle.
 - OpenCode Zen fakturerer pr. anmodning; se OpenCode-dashboardet for detaljer.
-
-

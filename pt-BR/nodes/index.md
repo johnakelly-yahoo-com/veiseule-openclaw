@@ -1,8 +1,13 @@
 ---
-title: "Nós"
+summary: "Nós: pareamento, capacidades, permissões e auxiliares de CLI para canvas/câmera/tela/sistema"
+read_when:
+  - Pareamento de nós iOS/Android a um gateway
+  - Uso de canvas/câmera do nó para contexto do agente
+  - Adição de novos comandos de nó ou auxiliares de CLI
+title: "Nodes"
 ---
 
-# Nós
+# Nodes
 
 Um **nó** é um dispositivo complementar (macOS/iOS/Android/headless) que se conecta ao **WebSocket** do Gateway (mesma porta dos operadores) com `role: "node"` e expõe uma superfície de comandos (por exemplo, `canvas.*`, `camera.*`, `system.*`) via `node.invoke`. Detalhes do protocolo: [Gateway protocol](/gateway/protocol).
 
@@ -272,7 +277,7 @@ Notas:
 - `system.notify` respeita o estado de permissão de notificações no app macOS.
 - `system.run` suporta `--cwd`, `--env KEY=VAL`, `--command-timeout` e `--needs-screen-recording`.
 - `system.notify` suporta `--priority <passive|active|timeSensitive>` e `--delivery <system|overlay|auto>`.
-- Nós macOS descartam sobrescritas de `PATH`; hosts de nó headless só aceitam `PATH` quando ele prefixa o PATH do host de nó.
+- Hosts Node ignoram substituições de `PATH`. Se você precisar de entradas adicionais no PATH, configure o ambiente do serviço do host Node (ou instale as ferramentas em locais padrão) em vez de passar `PATH` via `--env`.
 - No modo nó do macOS, `system.run` é controlado por aprovações de exec no app macOS (Configurações → Exec approvals).
   Ask/allowlist/full se comportam da mesma forma que no host de nó headless; prompts negados retornam `SYSTEM_RUN_DENIED`.
 - No host de nó headless, `system.run` é controlado por aprovações de exec (`~/.openclaw/exec-approvals.json`).
@@ -333,5 +338,3 @@ Notas:
 
 - O app da barra de menus do macOS conecta-se ao servidor WS do Gateway como um nó (assim `openclaw nodes …` funciona neste Mac).
 - Em modo remoto, o app abre um túnel SSH para a porta do Gateway e conecta-se a `localhost`.
-
-

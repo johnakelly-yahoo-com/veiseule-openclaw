@@ -1,4 +1,8 @@
 ---
+summary: "Zarflar, istemler, araçlar ve bağlayıcılar genelinde tarih ve saat işlemleri"
+read_when:
+  - Model veya kullanıcılara zaman damgalarının nasıl gösterildiğini değiştiriyorsanız
+  - Mesajlarda veya sistem istemi çıktısında zaman biçimlendirmesini hata ayıklıyorsanız
 title: "Tarih ve Saat"
 ---
 
@@ -40,7 +44,7 @@ Bu davranışı geçersiz kılabilirsiniz:
 
 ### Örnekler
 
-**Yerel (varsayılan):**
+**Local (default):**
 
 ```
 [WhatsApp +1555 2026-01-18 00:19 PST] hello
@@ -122,5 +126,3 @@ Yerel zamana ihtiyacınız varsa, bilinen saat dilimini kullanarak bunu aşağı
 - [Sistem İstemi](/concepts/system-prompt)
 - [Saat Dilimleri](/concepts/timezone)
 - [Mesajlar](/concepts/messages)
-
-

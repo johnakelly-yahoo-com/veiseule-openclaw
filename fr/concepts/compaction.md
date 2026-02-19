@@ -1,5 +1,9 @@
 ---
-title: "Compactage"
+summary: "Fenêtre de contexte + compaction : comment OpenClaw maintient les sessions sous les limites du modèle"
+read_when:
+  - Vous voulez comprendre l’auto-compaction et /compact
+  - Vous deboguez des sessions longues qui atteignent les limites de contexte
+title: "Compaction"
 ---
 
 # Fenêtre de contexte & compaction
@@ -17,7 +21,7 @@ La compaction **persiste** dans l’historique JSONL de la session.
 
 ## Configuration
 
-Voir [Configuration et modes de compaction](/concepts/compaction) pour les paramètres `agents.defaults.compaction`.
+Utilisez le paramètre `agents.defaults.compaction` dans votre fichier `openclaw.json` pour configurer le comportement de la compaction (mode, nombre de tokens cible, etc.).
 
 ## Auto-compaction (activée par défaut)
 
@@ -54,5 +58,3 @@ Voir [/concepts/session-pruning](/concepts/session-pruning) pour les détails su
 - Utilisez `/compact` lorsque les sessions semblent obsolètes ou que le contexte est encombré.
 - Les sorties d’outils volumineuses sont déjà tronquées ; l’élagage peut réduire davantage l’accumulation des résultats d’outils.
 - Si vous avez besoin d’une page blanche, `/new` ou `/reset` démarre un nouvel identifiant de session.
-
-

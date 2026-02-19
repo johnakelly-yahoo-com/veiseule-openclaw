@@ -1,4 +1,8 @@
 ---
+summary: "Tham chiếu CLI cho `openclaw directory` (self, peers, groups)"
+read_when:
+  - Bạn muốn tra cứu ID liên hệ/nhóm/self cho một kênh
+  - Bạn đang phát triển bộ điều hợp danh bạ kênh
 title: "directory"
 ---
 
@@ -57,5 +61,3 @@ openclaw directory groups list --channel zalouser
 openclaw directory groups list --channel zalouser --query "work"
 openclaw directory groups members --channel zalouser --group-id <id>
 ```
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw နှင့်အတူ Amazon Bedrock (Converse API) မော်ဒယ်များကို အသုံးပြုပါ"
+read_when:
+  - OpenClaw နှင့်အတူ Amazon Bedrock မော်ဒယ်များကို အသုံးပြုလိုသောအခါ
+  - မော်ဒယ်ခေါ်ယူမှုများအတွက် AWS အထောက်အထား/ဒေသ သတ်မှတ်မှု လိုအပ်သောအခါ
 title: "Amazon Bedrock"
 ---
 
@@ -161,5 +165,3 @@ openclaw models list
   default AWS SDK chain ဖြစ်သည်။
 - Reasoning ပံ့ပိုးမှုသည် မော်ဒယ်ပေါ်မူတည်ပါသည်; လက်ရှိ စွမ်းဆောင်ရည်များအတွက် Bedrock မော်ဒယ်ကတ်ကို စစ်ဆေးပါ။
 - Managed key flow ကို နှစ်သက်ပါက Bedrock ရှေ့တွင် OpenAI‑compatible proxy တစ်ခုကို ထားရှိပြီး OpenAI provider အဖြစ် configure လုပ်၍လည်း အသုံးပြုနိုင်ပါသည်။
-
-

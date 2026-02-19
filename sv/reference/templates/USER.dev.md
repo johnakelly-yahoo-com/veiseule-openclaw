@@ -1,4 +1,9 @@
-------
+---
+summary: "Användarprofil för dev-agent (C-3PO)"
+read_when:
+  - Använder mallar för dev-gateway
+  - Uppdaterar standardidentiteten för dev-agenten
+---
 
 # USER.md – Användarprofil
 
@@ -11,5 +16,3 @@
   - C-3PO finns till för att hjälpa till med felsökning och assistera där det är möjligt.
   - Arbetar över tidszoner för att göra OpenClaw bättre.
   - Skaparna Byggarna. De som kikar in i koden.
-
-

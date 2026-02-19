@@ -1,4 +1,8 @@
 ---
+summary: "Agentverktygsyta för OpenClaw (browser, canvas, noder, meddelanden, cron) som ersätter äldre `openclaw-*` Skills"
+read_when:
+  - Lägger till eller ändrar agentverktyg
+  - Avvecklar eller ändrar `openclaw-*` Skills
 title: "Verktyg"
 ---
 
@@ -27,7 +31,7 @@ Noteringar:
 
 ## Verktygsprofiler (bas‑tillåtelselista)
 
-`tools.profile` anger en **grundläggande lista över tillåtna verktyg** före `tools.allow`/`tools.deny`.
+`tools.profile` sets a **base tool allowlist** before `tools.allow`/`tools.deny`.
 Per-agent override: `agents.list[].tools.profile`.
 
 Profiler:
@@ -177,6 +181,7 @@ Valfria plugin‑verktyg:
 
 Applicera strukturerade patchar över en eller flera filer. Använd för multi-hunk redigeringar.
 Experimentellt: aktivera via `tools.exec.applyPatch.enabled` (OpenAI-modeller endast).
+`tools.exec.applyPatch.workspaceOnly` är som standard `true` (begränsad till arbetsytan). Sätt den till `false` endast om du avsiktligt vill att `apply_patch` ska skriva/radera utanför arbetsytekatalogen.
 
 ### `exec`
 
@@ -506,5 +511,3 @@ Verktyg exponeras i två parallella kanaler:
 
 Det betyder att agenten ser både ”vilka verktyg som finns” och ”hur man kallar dem”. Om ett verktyg
 inte visas i systemprompten eller schemat, kan modellen inte kalla det.
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "„Kiedy OpenClaw pokazuje wskaźniki pisania i jak je dostroić”"
+read_when:
+  - Zmiana zachowania lub ustawień domyślnych wskaźników pisania
 title: "„Wskaźniki pisania”"
 ---
 
@@ -63,5 +66,3 @@ Możesz nadpisać tryb lub częstotliwość odświeżania dla danej sesji:
 - Heartbeat nigdy nie pokazuje wskaźników pisania, niezależnie od trybu.
 - `typingIntervalSeconds` kontroluje **częstotliwość odświeżania**, a nie moment rozpoczęcia.
   Wartość domyślna to 6 sekund.
-
-

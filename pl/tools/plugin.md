@@ -1,4 +1,8 @@
 ---
+summary: "„Wtyczki/rozszerzenia OpenClaw: wykrywanie, konfiguracja i bezpieczeństwo”"
+read_when:
+  - Dodawanie lub modyfikowanie wtyczek/rozszerzeń
+  - Dokumentowanie zasad instalacji lub ładowania wtyczek
 title: "„Wtyczki”"
 ---
 
@@ -26,6 +30,9 @@ openclaw plugins list
 ```bash
 openclaw plugins install @openclaw/voice-call
 ```
+
+Specyfikacje npm są **wyłącznie z rejestru** (nazwa pakietu + opcjonalna wersja/tag). Specyfikacje Git/URL/file
+są odrzucane.
 
 3. Zrestartuj Gateway, a następnie skonfiguruj w `plugins.entries.<id>.config`.
 
@@ -132,6 +139,10 @@ wtyczki przyjmuje postać `name/<fileBase>`.
 
 Jeśli wtyczka importuje zależności npm, zainstaluj je w tym katalogu, aby
 `node_modules` było dostępne (`npm install` / `pnpm install`).
+
+Uwaga dotycząca bezpieczeństwa: `openclaw plugins install` instaluje zależności wtyczek za pomocą
+`npm install --ignore-scripts` (bez skryptów cyklu życia). Utrzymuj drzewa zależności wtyczek
+"czyste JS/TS" i unikaj pakietów wymagających kompilacji w `postinstall`.
 
 ### Metadane katalogu kanałów
 
@@ -444,13 +455,13 @@ Dokumentacja dostawców modeli znajduje się pod
 - `meta.detailLabel` i `meta.systemImage` są używane przez interfejsy do tekstów
   szczegółowych/ikon.
 
-3. Zaimplementuj wymagane adaptery
+3. Dodaj opcjonalne adaptery według potrzeb
 
 - `config.listAccountIds` + `config.resolveAccount`
 - `capabilities` (typy czatu, media, wątki itd.)
 - `outbound.deliveryMode` + `outbound.sendText` (dla podstawowego wysyłania)
 
-4. Dodaj opcjonalne adaptery według potrzeb
+4. Zaimplementuj wymagane adaptery
 
 - `setup` (kreator), `security` (polityka DM), `status` (zdrowie/diagnostyka)
 - `gateway` (start/stop/login), `mentions`, `threading`, `streaming`
@@ -667,5 +678,3 @@ Wtyczki mogą (i powinny) dostarczać testy:
 
 - Wtyczki w repozytorium mogą trzymać testy Vitest pod `src/**` (przykład: `src/plugins/voice-call.plugin.test.ts`).
 - Wtyczki publikowane osobno powinny uruchamiać własne CI (lint/build/test) i weryfikować, że `openclaw.extensions` wskazuje na zbudowany punkt wejścia (`dist/index.js`).
-
-

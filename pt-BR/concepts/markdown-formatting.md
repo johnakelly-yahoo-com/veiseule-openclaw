@@ -1,4 +1,9 @@
 ---
+summary: "Pipeline de formatação Markdown para canais de saída"
+read_when:
+  - Você está alterando a formatação Markdown ou o chunking para canais de saída
+  - Você está adicionando um novo formatador de canal ou mapeamento de estilo
+  - Você está depurando regressões de formatação entre canais
 title: "Formatação Markdown"
 ---
 
@@ -17,7 +22,7 @@ renderização permaneçam consistentes entre canais.
 - **Adequação ao canal:** mapear a mesma IR para mrkdwn do Slack, HTML do Telegram e
   intervalos de estilo do Signal sem reanalisar o Markdown.
 
-## Fluxo
+## Pipeline
 
 1. **Analisar Markdown -> IR**
    - A IR é texto simples mais spans de estilo (negrito/itálico/tachado/código/spoiler) e spans de link.
@@ -123,5 +128,3 @@ intervalos de estilo SPOILER. Outros canais os tratam como texto simples.
 - Os intervalos de estilo do Signal dependem de offsets UTF-16; não use offsets por ponto de código.
 - Preserve novas linhas finais para blocos de código cercados para que os marcadores de fechamento
   caiam em sua própria linha.
-
-

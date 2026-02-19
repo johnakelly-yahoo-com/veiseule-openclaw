@@ -1,4 +1,7 @@
 ---
+summary: "Consideraciones de seguridad y modelo de amenazas para ejecutar un gateway de IA con acceso al shell"
+read_when:
+  - Al agregar funciones que amplían el acceso o la automatización
 title: "Seguridad"
 ---
 
@@ -42,6 +45,32 @@ Empiece con el acceso más pequeño que aún funcione y luego amplíelo a medida
 - **Exposición del control del navegador** (nodos remotos, puertos de relé, endpoints CDP remotos).
 - **Higiene del disco local** (permisos, symlinks, inclusiones de configuración, rutas de “carpetas sincronizadas”).
 - **Plugins** (existen extensiones sin una lista de permitidos explícita).
+- %%{init: {
+  'theme': 'base',
+  'themeVariables': {
+  'primaryColor': '#ffffff',
+  'primaryTextColor': '#000000',
+  'primaryBorderColor': '#000000',
+  'lineColor': '#000000',
+  'secondaryColor': '#f9f9fb',
+  'tertiaryColor': '#ffffff',
+  'clusterBkg': '#f9f9fb',
+  'clusterBorder': '#000000',
+  'nodeBorder': '#000000',
+  'mainBkg': '#ffffff',
+  'edgeLabelBackground': '#ffffff'
+  }
+  }}%%
+  flowchart TB
+  A["Owner (Peter)"] -- Full trust --> B["AI (Clawd)"]
+  B -- Trust but verify --> C["Friends in allowlist"]
+  C -- Limited trust --> D["Strangers"]
+  D -- No trust --> E["Mario asking for find ~"]
+  E -- Definitely no trust 😏 --> F[" "]```
+   %% The transparent box is needed to show the bottom-most label correctly
+   F:::Class_transparent_box
+  classDef Class_transparent_box fill:transparent, stroke:transparent
+  ```
 - **Higiene del modelo** (avisa cuando los modelos configurados parecen heredados; no es un bloqueo duro).
 
 Si ejecuta `--deep`, OpenClaw también intenta un sondeo en vivo del Gateway con el mejor esfuerzo.
@@ -245,6 +274,9 @@ Cuando las herramientas están habilitadas, el riesgo típico es exfiltrar conte
 
 - Usar un **agente lector** de solo lectura o sin herramientas para resumir contenido no confiable, y luego pasar el resumen a su agente principal.
 - Mantener `web_search` / `web_fetch` / `browser` desactivados para agentes con herramientas salvo que sea necesario.
+- Para entradas de URL de OpenResponses (`input_file` / `input_image`), configure de forma estricta
+  `gateway.http.endpoints.responses.files.urlAllowlist` y
+  `gateway.http.endpoints.responses.images.urlAllowlist`, y mantenga `maxUrlParts` bajo.
 - Habilitar sandboxing y listas de permitidos estrictas de herramientas para cualquier agente que toque entradas no confiables.
 - Mantener secretos fuera de los prompts; páselos vía env/config en el host del Gateway en su lugar.
 
@@ -320,6 +352,16 @@ El Gateway multiplexa **WebSocket + HTTP** en un solo puerto:
 
 - Predeterminado: `18789`
 - Config/flags/env: `gateway.port`, `--port`, `OPENCLAW_GATEWAY_PORT`
+
+Esta superficie HTTP incluye la Control UI y el host del canvas:
+
+- Control UI (recursos SPA) (ruta base predeterminada `/`)
+- Host del canvas: `/__openclaw__/canvas/` y `/__openclaw__/a2ui/` (HTML/JS arbitrario; trátelo como contenido no confiable)
+
+Si carga contenido del canvas en un navegador normal, trátelo como cualquier otra página web no confiable:
+
+- No exponga el host del canvas a redes/usuarios no confiables.
+- No haga que el contenido del canvas comparta el mismo origen que superficies web con privilegios a menos que comprenda completamente las implicaciones.
 
 El modo de bind controla dónde escucha el Gateway:
 
@@ -408,6 +450,7 @@ Modos de autenticación:
 
 - `gateway.auth.mode: "token"`: token bearer compartido (recomendado para la mayoría de configuraciones).
 - `gateway.auth.mode: "password"`: autenticación por contraseña (prefiera establecerla vía env: `OPENCLAW_GATEWAY_PASSWORD`).
+- `gateway.auth.mode: "trusted-proxy"`: confíe en un proxy inverso con reconocimiento de identidad para autenticar a los usuarios y pasar la identidad mediante encabezados (consulte [Trusted Proxy Auth](/gateway/trusted-proxy-auth)).
 
 Lista de verificación de rotación (token/contraseña):
 
@@ -525,6 +568,11 @@ Ya puede construir un perfil de solo lectura combinando:
 - listas de permitir/denegar herramientas que bloqueen `write`, `edit`, `apply_patch`, `exec`, `process`, etc.
 
 Podríamos agregar un único flag `readOnlyMode` más adelante para simplificar esta configuración.
+
+Opciones adicionales de refuerzo:
+
+- `tools.exec.applyPatch.workspaceOnly: true` (predeterminado): garantiza que `apply_patch` no pueda escribir/eliminar fuera del directorio de trabajo incluso cuando el sandboxing está desactivado. Establézcalo en `false` solo si desea intencionadamente que `apply_patch` modifique archivos fuera del directorio de trabajo.
+- `tools.fs.workspaceOnly: true` (opcional): restringe las rutas de `read`/`write`/`edit`/`apply_patch` al directorio de trabajo (útil si actualmente permite rutas absolutas y desea una única medida de protección).
 
 ### 5. Línea base segura (copiar/pegar)
 
@@ -759,28 +807,12 @@ Confirme la `.secrets.baseline` actualizada una vez que refleje el estado previs
 ## La jerarquía de confianza
 
 ```mermaid
-%%{init: {
-  'theme': 'base',
-  'themeVariables': {
-    'primaryColor': '#ffffff',
-    'primaryTextColor': '#000000',
-    'primaryBorderColor': '#000000',
-    'lineColor': '#000000',
-    'secondaryColor': '#f9f9fb',
-    'tertiaryColor': '#ffffff',
-    'clusterBkg': '#f9f9fb',
-    'clusterBorder': '#000000',
-    'nodeBorder': '#000000',
-    'mainBkg': '#ffffff',
-    'edgeLabelBackground': '#ffffff'
-  }
-}}%%
 flowchart TB
-    A["Owner (Peter)"] -- Full trust --> B["AI (Clawd)"]
-    B -- Trust but verify --> C["Friends in allowlist"]
-    C -- Limited trust --> D["Strangers"]
-    D -- No trust --> E["Mario asking for find ~"]
-    E -- Definitely no trust 😏 --> F[" "]
+    A["Propietario (Peter)"] -- Confianza total --> B["AI (Clawd)"]
+    B -- Confiar pero verificar --> C["Amigos en la allowlist"]
+    C -- Confianza limitada --> D["Desconocidos"]
+    D -- Sin confianza --> E["Mario pidiendo find ~"]
+    E -- Definitivamente sin confianza 😏 --> F[" "]
 
      %% The transparent box is needed to show the bottom-most label correctly
      F:::Class_transparent_box
@@ -800,5 +832,3 @@ flowchart TB
 _“La seguridad es un proceso, no un producto. Además, no confíe en langostas con acceso al shell.”_ — Alguien sabio, probablemente
 
 🦞🔐
-
-

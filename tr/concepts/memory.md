@@ -1,4 +1,10 @@
-------
+---
+title: "Bellek"
+summary: "OpenClaw belleğinin nasıl çalıştığı (çalışma alanı dosyaları + otomatik bellek boşaltma)"
+read_when:
+  - Bellek dosyası düzenini ve iş akışını istiyorsanız
+  - Otomatik ön-sıkıştırma bellek boşaltmasını ayarlamak istiyorsanız
+---
 
 # Bellek
 
@@ -79,6 +85,8 @@ Varsayılanlar:
 
 - Varsayılan olarak etkindir.
 - Bellek dosyalarındaki değişiklikleri izler (debounce’lu).
+- Bellek aramasını `agents.defaults.memorySearch` altında yapılandırın (üst seviye
+  `memorySearch` değil).
 - Varsayılan olarak uzak embedding’ler kullanır. `memorySearch.provider` ayarlı değilse OpenClaw otomatik olarak seçer:
   1. `local` (bir `memorySearch.local.modelPath` yapılandırılmışsa ve dosya varsa).
   2. Bir OpenAI anahtarı çözümlenebiliyorsa `openai`.
@@ -123,9 +131,10 @@ eder; OpenClaw getirim için QMD’yi çağırır. Öne çıkan noktalar:
   (varsayılan çalışma alanı bellek dosyaları dâhil); ardından `qmd update` +
   `qmd embed` açılışta ve yapılandırılabilir bir aralıkta
   (`memory.qmd.update.interval`, varsayılan 5 dk) çalışır.
+- Gateway artık QMD yöneticisini başlangıçta başlatır, böylece ilk `memory_search` çağrısından önce bile periyodik güncelleme zamanlayıcıları etkinleştirilmiş olur.
 - Açılış yenilemesi artık varsayılan olarak arka planda çalışır; sohbet başlatma
   engellenmez. Önceki engelleyici davranışı korumak için `memory.qmd.update.waitForBootSync = true`’ı ayarlayın.
-- Aramalar `qmd query --json` üzerinden çalışır. QMD başarısız olursa veya ikili yoksa,
+- Aramalar `qmd query --json` üzerinden çalışır. Seçilen mod QMD derlemenizde bayrakları reddederse, OpenClaw `qmd query` ile yeniden dener. QMD başarısız olursa veya ikili yoksa,
   OpenClaw otomatik olarak yerleşik SQLite yöneticisine geri döner; böylece bellek
   araçları çalışmaya devam eder.
 - OpenClaw bugün QMD embed batch-size ayarını sunmaz; batch davranışı QMD’nin
@@ -163,6 +172,7 @@ eder; OpenClaw getirim için QMD’yi çağırır. Öne çıkan noktalar:
 **Yapılandırma yüzeyi (`memory.qmd.*`)**
 
 - `command` (varsayılan `qmd`): çalıştırılabilir dosya yolunu geçersiz kılar.
+- `searchMode` (varsayılan `search`): `memory_search` için hangi QMD komutunun kullanılacağını seçin (`search`, `vsearch`, `query`).
 - `includeDefaultMemory` (varsayılan `true`): `MEMORY.md` + `memory/**/*.md`’ü otomatik indeksler.
 - `paths[]`: ek dizin/dosyalar ekler (`path`, isteğe bağlı `pattern`, isteğe bağlı
   kararlı `name`).
@@ -176,6 +186,9 @@ eder; OpenClaw getirim için QMD’yi çağırır. Öne çıkan noktalar:
 - `scope`: [`session.sendPolicy`](/gateway/configuration#session) ile aynı şema.
   Varsayılan DM-only’dir (`deny` tümü, `allow` doğrudan sohbetler);
   grup/kanallarda QMD sonuçlarını göstermek için gevşetin.
+  - `match.keyPrefix`, **normalize edilmiş** oturum anahtarıyla eşleşir (küçük harfe dönüştürülmüş ve baştaki `agent:<id>:` kaldırılmış). Örnek: `discord:channel:`.
+  - `match.rawKeyPrefix`, `agent:<id>:` dahil olmak üzere **ham** oturum anahtarıyla (küçük harfe dönüştürülmüş) eşleşir. Örnek: `agent:main:discord:`.
+  - Eski kullanım: `match.keyPrefix: "agent:..."` hâlâ ham anahtar öneki olarak değerlendirilir, ancak açıklık için `rawKeyPrefix` tercih edilmelidir.
 - `scope` bir aramayı reddettiğinde, OpenClaw türetilmiş `channel`/`chatType` ile bir uyarı kaydeder; böylece boş sonuçların hata ayıklaması kolaylaşır.
 - Çalışma alanı dışından kaynaklanan parçalar, `memory_search` sonuçlarında
   `qmd/<collection>/<relative-path>` olarak görünür; `memory_get` bu öneki anlar ve yapılandırılmış
@@ -595,5 +608,3 @@ Notlar:
 - `remote.headers`, OpenAI başlıklarıyla birleştirilir; anahtar çakışmalarında
   uzak taraf kazanır. OpenAI varsayılanlarını kullanmak için `remote.headers`’i
   atlayın.
-
-

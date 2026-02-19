@@ -1,4 +1,8 @@
 ---
+summary: "CLI-reference for `openclaw devices` (enhedsparring + tokenrotation/tilbagekaldelse)"
+read_when:
+  - Du godkender anmodninger om enhedsparring
+  - Du skal rotere eller tilbagekalde enhedstokens
 title: "enheder"
 ---
 
@@ -64,5 +68,3 @@ Pass `--token` eller `--password` eksplicitt. Manglende eksplicitte legitimation
 
 - Token rotation giver en ny token (følsom). Behandl det som en hemmelighed.
 - Disse kommandoer kræver `operator.pairing`- (eller `operator.admin`-) scope.
-
-

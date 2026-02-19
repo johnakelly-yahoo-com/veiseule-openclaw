@@ -1,4 +1,8 @@
 ---
+summary: "नोड्स के लिए Location कमांड (location.get), अनुमति मोड, और बैकग्राउंड व्यवहार"
+read_when:
+  - Location नोड सपोर्ट या अनुमति UI जोड़ते समय
+  - बैकग्राउंड Location + पुश फ्लो डिज़ाइन करते समय
 title: "Location कमांड"
 ---
 
@@ -107,5 +111,3 @@ Errors (स्थिर कोड):
 - While Using: “केवल तब जब OpenClaw खुला हो।”
 - Requires system permission.” Precise: “Use precise GPS location.
 - Toggle off to share approximate location.” OpenClaw reply pipeline चलने से पहले **inbound media** (image/audio/video) का **सारांश** बना सकता है।
-
-

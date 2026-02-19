@@ -1,4 +1,8 @@
 ---
+summary: "Gatewayns webbgränssnitt: kontroll-UI, bindningslägen och säkerhet"
+read_when:
+  - Du vill komma åt Gateway via Tailscale
+  - Du vill använda webbläsarens kontroll-UI och redigera konfiguration
 title: "Webb"
 ---
 
@@ -110,5 +114,3 @@ Gateway serverar statiska filer från `dist/control-ui`. Bygg dem med:
 ```bash
 pnpm ui:build # auto-installs UI deps on first run
 ```
-
-

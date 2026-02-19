@@ -1,4 +1,7 @@
 ---
+summary: "Telegram-tilladelsesliste-hærdning: præfiks + normalisering af mellemrum"
+read_when:
+  - Gennemgang af historiske ændringer i Telegram-tilladelseslisten
 title: "Telegram-tilladelsesliste-hærdning"
 ---
 
@@ -35,5 +38,3 @@ falske negativer, når de beslutter, om de skal reagere i DMs eller grupper.
 
 - [Gruppechats](/channels/groups)
 - [Telegram-udbyder](/channels/telegram)
-
-

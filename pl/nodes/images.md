@@ -1,4 +1,7 @@
 ---
+summary: "„Zasady obsługi obrazów i multimediów dla wysyłania, Gateway oraz odpowiedzi agentów”"
+read_when:
+  - Modyfikowanie potoku multimediów lub załączników
 title: "Obraz i obsługa mediów"
 ---
 
@@ -67,5 +70,3 @@ Kanał WhatsApp działa przez **Baileys Web**. Ten dokument opisuje aktualne zas
 - Pokryć przepływy wysyłania i odpowiedzi dla przypadków obraz/audio/dokument.
 - Zweryfikować ponowną kompresję obrazów (limit rozmiaru) oraz flagę notatki głosowej dla audio.
 - Upewnić się, że odpowiedzi z wieloma multimediami są rozbijane na sekwencyjne wysyłki.
-
-

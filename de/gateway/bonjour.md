@@ -1,4 +1,8 @@
 ---
+summary: "Bonjour/mDNS-Erkennung + Debugging (Gateway-Beacons, Clients und häufige Fehlermodi)"
+read_when:
+  - Debugging von Bonjour-Erkennungsproblemen unter macOS/iOS
+  - Ändern von mDNS-Servicetypen, TXT-Records oder der Discovery-UX
 title: "Bonjour-Erkennung"
 ---
 
@@ -97,6 +101,13 @@ Der Gateway annonciert kleine, nicht‑geheime Hinweise, um UI‑Abläufe zu ver
 - `cliPath=<path>` (optional; absoluter Pfad zu einem ausführbaren `openclaw`‑Entrypoint)
 - `tailnetDns=<magicdns>` (optionaler Hinweis, wenn Tailnet verfügbar ist)
 
+Sicherheitshinweise:
+
+- Bonjour/mDNS-TXT-Records sind **nicht authentifiziert**. Clients dürfen TXT nicht als maßgebliches Routing behandeln.
+- Clients sollten über den aufgelösten Service-Endpunkt (SRV + A/AAAA) routen. `lanHost`, `tailnetDns`, `gatewayPort` und `gatewayTlsSha256` nur als Hinweise behandeln.
+- TLS-Pinning darf niemals zulassen, dass ein beworbenes `gatewayTlsSha256` einen zuvor gespeicherten Pin überschreibt.
+- iOS/Android-Knoten sollten discovery-basierte Direktverbindungen ausschließlich als **TLS-only** behandeln und vor dem Vertrauen eines erstmaligen Fingerabdrucks eine ausdrückliche Benutzerbestätigung verlangen.
+
 ## Debugging unter macOS
 
 Nützliche integrierte Werkzeuge:
@@ -165,5 +176,3 @@ Bonjour/DNS‑SD escaped häufig Bytes in Service‑Instanznamen als dezimale
 
 - Discovery‑Richtlinie und Transportauswahl: [Discovery](/gateway/discovery)
 - Node‑Pairing + Genehmigungen: [Gateway pairing](/gateway/pairing)
-
-

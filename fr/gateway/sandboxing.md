@@ -1,5 +1,7 @@
 ---
-title: "Exécution en bac à sable"
+summary: "Fonctionnement du sandboxing d’OpenClaw : modes, portées, accès à l’espace de travail et images"
+title: Exécution en bac à sable
+read_when: "Vous voulez une explication dédiée du sandboxing ou devez ajuster agents.defaults.sandbox."
 status: active
 ---
 
@@ -68,6 +70,11 @@ qu’ils puissent être lus. Avec `"rw"`, les skills de l’espace de travail so
 Format : `host:container:mode` (p. ex., `"/home/user/source:/source:rw"`).
 
 Les montages globaux et par agent sont **fusionnés** (non remplacés). Sous `scope: "shared"`, les montages par agent sont ignorés.
+
+`agents.defaults.sandbox.browser.binds` monte des répertoires hôtes supplémentaires uniquement dans le conteneur du **navigateur sandbox**.
+
+- Lorsqu’il est défini (y compris `[]`), il remplace `agents.defaults.sandbox.docker.binds` pour le conteneur du navigateur.
+- Lorsqu’il est omis, le conteneur du navigateur utilise par défaut `agents.defaults.sandbox.docker.binds` (rétrocompatible).
 
 Exemple (source en lecture seule + socket Docker) :
 
@@ -189,5 +196,3 @@ Voir [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) pour la pri
 - [Sandbox Configuration](/gateway/configuration#agentsdefaults-sandbox)
 - [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools)
 - [Security](/gateway/security)
-
-

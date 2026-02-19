@@ -1,4 +1,8 @@
 ---
+summary: "Superficie de herramientas del agente para OpenClaw (browser, canvas, nodes, message, cron) que reemplaza las skills heredadas `openclaw-*`"
+read_when:
+  - Agregar o modificar herramientas del agente
+  - Retirar o cambiar skills `openclaw-*`
 title: "Herramientas"
 ---
 
@@ -177,6 +181,7 @@ Herramientas opcionales de plugins:
 
 Aplique parches estructurados en uno o más archivos. Úselo para ediciones con múltiples hunks.
 Experimental: habilítelo mediante `tools.exec.applyPatch.enabled` (solo modelos de OpenAI).
+`tools.exec.applyPatch.workspaceOnly` tiene como valor predeterminado `true` (limitado al workspace). Establécelo en `false` solo si realmente quieres que `apply_patch` escriba o elimine fuera del directorio de workspace.
 
 ### `exec`
 
@@ -506,5 +511,3 @@ Las herramientas se exponen en dos canales paralelos:
 
 Esto significa que el agente ve tanto “qué herramientas existen” como “cómo llamarlas”. Si una herramienta
 no aparece en el prompt del sistema ni en el esquema, el modelo no puede llamarla.
-
-

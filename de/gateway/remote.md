@@ -1,4 +1,7 @@
 ---
+summary: "„Remote-Zugriff über SSH-Tunnel (Gateway WS) und Tailnets“"
+read_when:
+  - Beim Betrieb oder bei der Fehlerbehebung von Remote-Gateway-Setups
 title: "„Remote-Zugriff“"
 ---
 
@@ -36,7 +39,7 @@ Der Laptop führt den Agenten **nicht** aus. Er verbindet sich remote:
 - Nutzen Sie den **Remote over SSH**-Modus der macOS-App (Einstellungen → Allgemein → „OpenClaw runs“).
 - Die App öffnet und verwaltet den Tunnel, sodass WebChat + Health-Checks „einfach funktionieren“.
 
-Runbook: [macOS-Fernzugriff](/platforms/mac/remote).
+Runbook: [macOS remote access](/platforms/mac/remote).
 
 ### 3. Laptop betreibt das Gateway, Remote-Zugriff von anderen Maschinen
 
@@ -109,7 +112,7 @@ WebChat verwendet keinen separaten HTTP-Port mehr. Die SwiftUI-Chat-UI verbindet
 
 Die macOS-Menüleisten-App kann dasselbe Setup Ende-zu-Ende steuern (Remote-Statusprüfungen, WebChat und Voice-Wake-Weiterleitung).
 
-Runbook: [macOS-Fernzugriff](/platforms/mac/remote).
+Runbook: [macOS remote access](/platforms/mac/remote).
 
 ## Sicherheitsregeln (Remote/VPN)
 
@@ -124,5 +127,3 @@ Kurzfassung: **Halten Sie das Gateway loopback-only**, sofern Sie nicht sicher s
 - Behandeln Sie Browser-Steuerung wie Operator-Zugriff: nur Tailnet + bewusstes Node-Pairing.
 
 Deep Dive: [Security](/gateway/security).
-
-

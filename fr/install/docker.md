@@ -1,4 +1,8 @@
 ---
+summary: "Configuration et prise en main facultatives d’OpenClaw basées sur Docker"
+read_when:
+  - Vous voulez une passerelle conteneurisée plutôt que des installations locales
+  - Vous validez le flux Docker
 title: "Docker"
 ---
 
@@ -60,6 +64,24 @@ Il écrit la configuration et l’espace de travail sur l’hôte :
 - `~/.openclaw/workspace`
 
 Vous tournez sur un VPS ? Voir [Hetzner (Docker VPS)](/install/hetzner).
+
+### Helpers Shell (optionnel)
+
+Pour simplifier la gestion quotidienne de Docker, installez `ClawDock` :
+
+```bash
+mkdir -p ~/.clawdock && curl -sL https://raw.githubusercontent.com/openclaw/openclaw/main/scripts/shell-helpers/clawdock-helpers.sh -o ~/.clawdock/clawdock-helpers.sh
+```
+
+**Ajoutez à votre configuration shell (zsh) :**
+
+```bash
+echo 'source ~/.clawdock/clawdock-helpers.sh' >> ~/.zshrc && source ~/.zshrc
+```
+
+Utilisez ensuite `clawdock-start`, `clawdock-stop`, `clawdock-dashboard`, etc. Exécutez `clawdock-help` pour voir toutes les commandes.
+
+Consultez le [`ClawDock` Helper README](https://github.com/openclaw/openclaw/blob/main/scripts/shell-helpers/README.md) pour plus de détails.
 
 ### Flux manuel (compose)
 
@@ -584,5 +606,3 @@ Exemple :
   (login shell), qui source `/etc/profile` et peut réinitialiser PATH. Définissez
   `docker.env.PATH` pour préfixer vos chemins d’outils personnalisés (par exemple,
   `/custom/bin:/usr/local/share/npm-global/bin`), ou ajoutez un script sous `/etc/profile.d/` dans votre Dockerfile.
-
-

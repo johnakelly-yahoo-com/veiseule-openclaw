@@ -1,4 +1,7 @@
 ---
+summary: "Zasady zarządzania sesjami, klucze i trwałość dla czatów"
+read_when:
+  - Modyfikowanie obsługi sesji lub przechowywania
 title: "Zarządzanie sesjami"
 ---
 
@@ -199,5 +202,3 @@ Każdy wpis sesji rejestruje (w miarę możliwości) swoje pochodzenie w `origin
   `GroupSubject`, `GroupChannel`, `GroupSpace` i `SenderName` w kontekście
   przychodzącym oraz wywołując `recordSessionMetaFromInbound` (lub przekazując ten sam kontekst
   do `updateLastRoute`).
-
-

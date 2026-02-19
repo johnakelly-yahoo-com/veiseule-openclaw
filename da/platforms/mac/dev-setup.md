@@ -1,4 +1,7 @@
 ---
+summary: "Opsætningsguide for udviklere, der arbejder på OpenClaw macOS-appen"
+read_when:
+  - Opsætning af macOS-udviklingsmiljøet
 title: "macOS Udvikleropsætning"
 ---
 
@@ -99,5 +102,3 @@ lsof -nP -iTCP:18789 -sTCP:LISTEN
 ```
 
 Hvis en manuel kørsel holder porten, skal du stoppe denne proces (Ctrl+C). Som en sidste udvej, dræbe den PID du fandt ovenfor.
-
-

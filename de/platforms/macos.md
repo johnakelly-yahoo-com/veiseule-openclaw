@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw macOS‑Companion‑App (Menüleiste + Gateway‑Broker)"
+read_when:
+  - Implementierung von macOS‑App‑Funktionen
+  - Änderung des Gateway‑Lebenszyklus oder der Node‑Bridging‑Logik unter macOS
 title: "macOS‑App"
 ---
 
@@ -125,6 +129,7 @@ Query‑Parameter:
 Sicherheit:
 
 - Ohne `key` fordert die App eine Bestätigung an.
+- Ohne `key` erzwingt die App eine kurze Nachrichtenbegrenzung für die Bestätigungsaufforderung und ignoriert `deliver` / `to` / `channel`.
 - Mit einem gültigen `key` läuft der Vorgang unbeaufsichtigt (gedacht für persönliche Automatisierungen).
 
 ## Onboarding‑Ablauf (typisch)
@@ -194,5 +199,3 @@ Für Einrichtungsschritte siehe [macOS‑Remotezugriff](/platforms/mac/remote). 
 - [Gateway (macOS)](/platforms/mac/bundled-gateway)
 - [macOS‑Berechtigungen](/platforms/mac/permissions)
 - [Canvas](/platforms/mac/canvas)
-
-

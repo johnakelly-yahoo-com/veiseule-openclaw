@@ -1,4 +1,8 @@
 ---
+summary: "Ce que contient le prompt systeme OpenClaw et comment il est assemble"
+read_when:
+  - Modification du texte du prompt systeme, de la liste d’outils ou des sections temps/heartbeat
+  - Changement du bootstrap de l’espace de travail ou du comportement d’injection des Skills
 title: "Prompt systeme"
 ---
 
@@ -55,10 +59,25 @@ Les fichiers de bootstrap sont tronques et ajoutes sous **Project Context** afin
 - `USER.md`
 - `HEARTBEAT.md`
 - `BOOTSTRAP.md` (uniquement sur les espaces de travail tout neufs)
+- `MEMORY.md` et/ou `memory.md` (lorsqu’ils sont présents dans l’espace de travail ; l’un ou les deux peuvent être injectés)
+
+Tous ces fichiers sont **injectés dans la fenêtre de contexte** à chaque tour, ce qui
+signifie qu’ils consomment des tokens. Gardez-les concis — en particulier `MEMORY.md`, qui peut
+augmenter au fil du temps et entraîner une utilisation du contexte plus élevée que prévu et une
+compaction plus fréquente.
+
+> **Remarque :** les fichiers quotidiens `memory/*.md` ne sont **pas** injectés automatiquement. Ils
+> sont consultés à la demande via les outils `memory_search` et `memory_get`, et ne
+> comptent donc pas dans la fenêtre de contexte sauf si le modèle les lit explicitement.
 
 Les fichiers volumineux sont tronques avec un marqueur. La taille maximale par fichier est controlee par
-`agents.defaults.bootstrapMaxChars` (par defaut : 20000). Les fichiers manquants injectent un
+`agents.defaults.bootstrapMaxChars` (par defaut : 20000). Le contenu bootstrap total injecté
+à travers les fichiers est limité par `agents.defaults.bootstrapTotalMaxChars`
+(valeur par défaut : 24000). Les fichiers manquants injectent un
 court marqueur de fichier manquant.
+
+Les sessions de sous-agent injectent uniquement `AGENTS.md` et `TOOLS.md` (les autres fichiers bootstrap
+sont filtrés afin de garder un contexte de sous-agent réduit).
 
 Des hooks internes peuvent intercepter cette etape via `agent:bootstrap` pour modifier ou remplacer
 les fichiers de bootstrap injectes (par exemple en remplaçant `SOUL.md` par une persona alternative).
@@ -109,5 +128,3 @@ integree) et mentionne egalement le miroir public, le depot source, le Discord c
 ClawHub (https://clawhub.com) pour la decouverte de skills. Le prompt indique au modele de consulter en priorite la documentation locale
 pour le comportement, les commandes, la configuration ou l’architecture d’OpenClaw, et d’executer
 `openclaw status` lui-meme lorsque possible (en demandant a l’utilisateur uniquement lorsqu’il n’y a pas acces).
-
-

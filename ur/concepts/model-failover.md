@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw کس طرح auth پروفائلز کو گھماتا ہے اور ماڈلز کے درمیان فال بیک کرتا ہے"
+read_when:
+  - auth پروفائل روٹیشن، کول ڈاؤنز، یا ماڈل فال بیک رویّے کی تشخیص کرتے وقت
+  - auth پروفائلز یا ماڈلز کے لیے فال بیک قواعد کو اپ ڈیٹ کرتے وقت
 title: "ماڈل فال بیک"
 ---
 
@@ -143,5 +147,3 @@ Billing/credit failures (for example “insufficient credits” / “credit bala
 - `agents.defaults.imageModel` روٹنگ
 
 وسیع تر ماڈل انتخاب اور فال بیک کے جائزے کے لیے [Models](/concepts/models) دیکھیں۔
-
-

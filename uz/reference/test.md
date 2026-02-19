@@ -1,4 +1,7 @@
 ---
+summary: "Testlarni lokal ishga tushirish (vitest) va qachon force/coverage rejimlaridan foydalanish kerak"
+read_when:
+  - Running or fixing tests
 title: "Testlar"
 ---
 
@@ -6,11 +9,13 @@ title: "Testlar"
 
 - To‘liq test to‘plami (suitelar, live, Docker): [Testlash](/help/testing)
 
-- `pnpm test:force`: Standart boshqaruv portini band qilib turgan har qanday qolib ketgan Gateway jarayonini to‘xtatadi, so‘ng server testlari ishga tushirilgan instansiya bilan to‘qnashmasligi uchun alohida Gateway portida to‘liq Vitest suite’ini ishga tushiradi. Oldingi Gateway ishga tushirilishi 18789-portni band qilib qo‘ygan bo‘lsa, shundan foydalaning.
+- `pnpm test:force`: Kills any lingering gateway process holding the default control port, then runs the full Vitest suite with an isolated gateway port so server tests don’t collide with a running instance. Use this when a prior gateway run left port 18789 occupied.
 
-- `pnpm test:coverage`: Runs Vitest with V8 coverage. Global thresholds are 70% lines/branches/functions/statements. Coverage excludes integration-heavy entrypoints (CLI wiring, gateway/telegram bridges, webchat static server) to keep the target focused on unit-testable logic.
+- `pnpm test:coverage`: V8 coverage bilan ( `vitest.unit.config.ts` orqali) unit test to‘plamini ishga tushiradi. Global thresholds are 70% lines/branches/functions/statements. Coverage excludes integration-heavy entrypoints (CLI wiring, gateway/telegram bridges, webchat static server) to keep the target focused on unit-testable logic.
 
-- `pnpm test:e2e`: Runs gateway end-to-end smoke tests (multi-instance WS/HTTP/node pairing).
+- Node 24+ da `pnpm test`: OpenClaw `ERR_VM_MODULE_LINK_FAILURE` / `module is already linked` xatolarini oldini olish uchun Vitest `vmForks` ni avtomatik o‘chiradi va `forks` dan foydalanadi. Xatti-harakatni `OPENCLAW_TEST_VM_FORKS=0|1` orqali majburan belgilashingiz mumkin.
+
+- `pnpm test:e2e`: Runs gateway end-to-end smoke tests (multi-instance WS/HTTP/node pairing). `vitest.e2e.config.ts` da standart ravishda `vmForks` + moslashuvchan workerlar ishlatiladi; `OPENCLAW_E2E_WORKERS=<n>` bilan sozlang va batafsil loglar uchun `OPENCLAW_E2E_VERBOSE=1` ni o‘rnating.
 
 - `pnpm test:live`: Runs provider live tests (minimax/zai). Requires API keys and `LIVE=1` (or provider-specific `*_LIVE_TEST=1`) to unskip.
 
@@ -48,5 +53,3 @@ Ensures `qrcode-terminal` loads under Node 22+ in Docker:
 ```bash
 pnpm test:docker:qr
 ```
-
-

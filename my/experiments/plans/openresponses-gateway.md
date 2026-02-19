@@ -1,4 +1,5 @@
 ---
+summary: "အစီအစဉ်: OpenResponses /v1/responses endpoint ကို ထည့်သွင်းပြီး chat completions ကို သန့်ရှင်းစွာ အဆင့်ချင်း ဖယ်ရှားရန်"
 owner: "openclaw"
 status: "draft"
 last_updated: "2026-01-19"
@@ -117,5 +118,3 @@ OpenClaw Gateway သည် လက်ရှိတွင် OpenAI နှင့်
 
 - `/v1/responses` အသုံးပြုပုံနှင့် ဥပမာများအတွက် docs စာမျက်နှာအသစ် တစ်ခု ထည့်သွင်းရန်။
 - `/gateway/openai-http-api` ကို legacy မှတ်ချက်နှင့် `/v1/responses` သို့ လမ်းညွှန်ချက်ဖြင့် အပ်ဒိတ်လုပ်ရန်။
-
-

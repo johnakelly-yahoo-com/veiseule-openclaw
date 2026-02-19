@@ -1,4 +1,9 @@
 ---
+summary: "Trung tâm mạng: các bề mặt gateway, ghép cặp, khám phá và bảo mật"
+read_when:
+  - Bạn cần tổng quan về kiến trúc mạng và bảo mật
+  - Bạn đang gỡ lỗi truy cập local so với tailnet hoặc ghép cặp
+  - Bạn muốn danh sách tài liệu mạng chuẩn
 title: "Mạng"
 ---
 
@@ -47,5 +52,3 @@ Tin cậy cục bộ:
 - [Tham chiếu cấu hình Gateway](/gateway/configuration)
 - [Xử lý sự cố](/gateway/troubleshooting)
 - [Doctor](/gateway/doctor)
-
-

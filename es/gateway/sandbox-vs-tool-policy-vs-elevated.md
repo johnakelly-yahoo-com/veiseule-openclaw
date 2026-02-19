@@ -1,5 +1,7 @@
 ---
 title: Sandbox vs Política de herramientas vs Elevado
+summary: "Por qué una herramienta está bloqueada: runtime del sandbox, política de permitir/denegar herramientas y compuertas de ejecución elevada"
+read_when: "Cuando aparece 'sandbox jail' o ve un rechazo de herramienta/elevado y quiere la clave de configuración exacta que debe cambiar."
 status: active
 ---
 
@@ -124,5 +126,3 @@ Claves para corregir (elija una):
 ### “Pensé que esto era principal, ¿por qué está en sandbox?”
 
 En el modo `"non-main"`, las claves de grupo/canal _no_ son principales. Use la clave de sesión principal (mostrada por `sandbox explain`) o cambie el modo a `"off"`.
-
-

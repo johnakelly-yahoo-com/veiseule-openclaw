@@ -1,4 +1,7 @@
 ---
+summary: "Direkte `openclaw agent`-CLI-Ausführungen (mit optionaler Zustellung)"
+read_when:
+  - Hinzufügen oder Ändern des Agent-CLI-Einstiegspunkts
 title: "Agent senden"
 ---
 
@@ -36,7 +39,7 @@ openclaw agent --to +15555550123 --message "Summon reply" --deliver
 openclaw agent --agent ops --message "Generate report" --deliver --reply-channel slack --reply-to "#reports"
 ```
 
-## Optionen
+## Flags
 
 - `--local`: lokal ausführen (erfordert API-Schlüssel des Modellanbieters in Ihrer Shell)
 - `--deliver`: sendet die Antwort an den gewählten Kanal
@@ -48,5 +51,3 @@ openclaw agent --agent ops --message "Generate report" --deliver --reply-channel
 - `--verbose <on|full|off>`: Verbose-Level persistieren
 - `--timeout <seconds>`: Agent-Timeout überschreiben
 - `--json`: strukturierte JSON-Ausgabe
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Agent-Werkzeuge in einem Plugin schreiben (Schemas, optionale Werkzeuge, Allowlists)"
+read_when:
+  - Sie möchten in einem Plugin ein neues Agent-Werkzeug hinzufügen
+  - Sie müssen ein Werkzeug per Allowlist optional machen
 title: "Plugin-Agent-Werkzeuge"
 ---
 
@@ -86,5 +90,3 @@ Weitere Konfigurationsoptionen, die die Verfügbarkeit von Werkzeugen beeinfluss
 - Werkzeugnamen dürfen **nicht** mit Namen von Kernwerkzeugen kollidieren; kollidierende Werkzeuge werden übersprungen.
 - In Allowlists verwendete Plugin-IDs dürfen nicht mit Namen von Kernwerkzeugen kollidieren.
 - Bevorzugen Sie `optional: true` für Werkzeuge, die Nebenwirkungen auslösen oder zusätzliche Binärdateien/Anmeldedaten erfordern.
-
-

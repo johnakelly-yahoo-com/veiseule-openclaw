@@ -1,4 +1,8 @@
 ---
+summary: "CLI-reference for `openclaw node` (headless node-vært)"
+read_when:
+  - Når du kører den headless node-vært
+  - Paring af en ikke-macOS-node til system.run
 title: "node"
 ---
 
@@ -106,5 +110,3 @@ Node-værten gemmer sit node-id, token, visningsnavn og gateway-forbindelsesinfo
 - `~/.openclaw/exec-approvals.json`
 - [Exec-godkendelser](/tools/exec-approvals)
 - `openclaw approvals --node <id|name|ip>` (redigér fra Gatewayen)
-
-

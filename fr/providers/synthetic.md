@@ -1,4 +1,8 @@
 ---
+summary: "Utiliser l’API compatible Anthropic de Synthetic dans OpenClaw"
+read_when:
+  - Vous souhaitez utiliser Synthetic comme fournisseur de modele
+  - Vous avez besoin d’une cle API Synthetic ou d’une configuration d’URL de base
 title: "Synthetic"
 ---
 
@@ -65,7 +69,7 @@ son URL de base, remplacez `models.providers.synthetic.baseUrl`.
 
 Tous les modeles ci-dessous utilisent le cout `0` (entree/sortie/cache).
 
-| ID du modèle                                               | Fenetre de contexte | Tokens max | Raisonnement | Entree       |
+| ID du modèle                                           | Fenetre de contexte | Tokens max | Raisonnement | Entree       |
 | ------------------------------------------------------ | ------------------- | ---------- | ------------ | ------------ |
 | `hf:MiniMaxAI/MiniMax-M2.1`                            | 192000              | 65536      | false        | text         |
 | `hf:moonshotai/Kimi-K2-Thinking`                       | 256000              | 8192       | true         | text         |
@@ -93,5 +97,3 @@ Tous les modeles ci-dessous utilisent le cout `0` (entree/sortie/cache).
 - Si vous activez une liste d’autorisation de modeles (`agents.defaults.models`), ajoutez chaque modele que
   vous prevoyez d’utiliser.
 - Voir [Model providers](/concepts/model-providers) pour les regles des fournisseurs.
-
-

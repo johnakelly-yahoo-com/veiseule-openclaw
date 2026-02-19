@@ -1,4 +1,6 @@
 ---
+summary: "Solucione problemas de inicio de CDP de Chrome/Brave/Edge/Chromium para el control del navegador de OpenClaw en Linux"
+read_when: "El control del navegador falla en Linux, especialmente con Chromium instalado mediante snap"
 title: "Solución de problemas del navegador"
 ---
 
@@ -133,5 +135,3 @@ Notas:
 
 - El perfil `chrome` usa su **navegador Chromium predeterminado del sistema** cuando es posible.
 - Los perfiles locales `openclaw` asignan automáticamente `cdpPort`/`cdpUrl`; solo configure esos para CDP remoto.
-
-

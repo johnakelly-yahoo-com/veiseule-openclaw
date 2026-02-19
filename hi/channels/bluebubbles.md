@@ -1,4 +1,9 @@
 ---
+summary: "BlueBubbles macOS सर्वर के माध्यम से iMessage (REST भेजना/प्राप्त करना, टाइपिंग, रिएक्शन, पेयरिंग, उन्नत क्रियाएँ)।"
+read_when:
+  - BlueBubbles चैनल सेटअप करना
+  - वेबहुक पेयरिंग का समस्या-निवारण
+  - macOS पर iMessage का विन्यास
 title: "BlueBubbles"
 ---
 
@@ -42,13 +47,17 @@ title: "BlueBubbles"
 
 5. Gateway प्रारंभ करें; यह वेबहुक हैंडलर पंजीकृत करेगा और पेयरिंग शुरू करेगा।
 
+सुरक्षा नोट:
+
+- हमेशा एक webhook पासवर्ड सेट करें। यदि आप Gateway को reverse proxy (Tailscale Serve/Funnel, nginx, Cloudflare Tunnel, ngrok) के माध्यम से एक्सपोज़ करते हैं, तो proxy loopback के ज़रिए Gateway से कनेक्ट हो सकता है। BlueBubbles webhook हैंडलर forwarding headers वाले अनुरोधों को proxied मानता है और बिना पासवर्ड वाले webhooks स्वीकार नहीं करेगा।
+
 ## Messages.app को सक्रिय रखना (VM / हेडलेस सेटअप)
 
 Some macOS VM / always-on setups can end up with Messages.app going “idle” (incoming events stop until the app is opened/foregrounded). एक सरल workaround है AppleScript + LaunchAgent का उपयोग करके **हर 5 मिनट में Messages को poke करना**।
 
 ### 1. AppleScript सहेजें
 
-इसे इस नाम से सहेजें:
+उदाहरण स्क्रिप्ट (non-interactive; फोकस नहीं चुराती):
 
 - `~/Scripts/poke-messages.scpt`
 
@@ -104,7 +113,7 @@ end try
 </plist>
 ```
 
-नोट्स:
+इसे लोड करें:
 
 - यह **हर 300 सेकंड** और **लॉगिन पर** चलता है।
 - पहली बार चलाने पर macOS **Automation** प्रॉम्प्ट्स ट्रिगर हो सकते हैं (`osascript` → Messages)। उन्हें उसी user session में स्वीकृत करें जो LaunchAgent चलाता है।
@@ -118,13 +127,13 @@ launchctl load ~/Library/LaunchAgents/com.user.poke-messages.plist
 
 ## ऑनबोर्डिंग
 
-BlueBubbles इंटरैक्टिव सेटअप विज़ार्ड में उपलब्ध है:
+विज़ार्ड इनकी मांग करता है:
 
 ```
 openclaw onboard
 ```
 
-विज़ार्ड इनकी मांग करता है:
+आप CLI के माध्यम से भी BlueBubbles जोड़ सकते हैं:
 
 - **Server URL** (आवश्यक): BlueBubbles सर्वर पता (उदा., `http://192.168.1.100:1234`)
 - **Password** (आवश्यक): BlueBubbles Server सेटिंग्स से API पासवर्ड
@@ -142,8 +151,8 @@ openclaw channels add bluebubbles --http-url http://192.168.1.100:1234 --passwor
 
 DMs:
 
-- डिफ़ॉल्ट: `channels.bluebubbles.dmPolicy = "pairing"`।
-- अज्ञात प्रेषकों को पेयरिंग कोड मिलता है; अनुमोदन तक संदेश अनदेखे रहते हैं (कोड 1 घंटे बाद समाप्त होते हैं)।
+- `channels.bluebubbles.groupPolicy = open | allowlist | disabled` (डिफ़ॉल्ट: `allowlist`)।
+- `channels.bluebubbles.groupAllowFrom` यह नियंत्रित करता है कि समूहों में कौन ट्रिगर कर सकता है जब `allowlist` सेट हो।
 - अनुमोदन करें:
   - `openclaw pairing list bluebubbles`
   - `openclaw pairing approve bluebubbles <CODE>`
@@ -156,7 +165,7 @@ DMs:
 
 ### Mention gating (समूह)
 
-BlueBubbles समूह चैट्स के लिए mention gating का समर्थन करता है, जो iMessage/WhatsApp व्यवहार से मेल खाता है:
+प्रति-समूह विन्यास:
 
 - मेंशन पहचानने के लिए `agents.list[].groupChat.mentionPatterns` (या `messages.groupChat.mentionPatterns`) का उपयोग करता है।
 - जब किसी समूह के लिए `requireMention` सक्षम हो, एजेंट केवल मेंशन होने पर उत्तर देता है।
@@ -181,9 +190,9 @@ BlueBubbles समूह चैट्स के लिए mention gating का 
 
 ### Command gating
 
-- कंट्रोल कमांड (जैसे, `/config`, `/model`) के लिए प्रमाणीकरण आवश्यक है।
-- कमांड प्रमाणीकरण निर्धारित करने के लिए `allowFrom` और `groupAllowFrom` का उपयोग होता है।
-- अधिकृत प्रेषक समूहों में बिना मेंशन किए भी कंट्रोल कमांड चला सकते हैं।
+- **Typing indicators**: उत्तर निर्माण से पहले और दौरान स्वचालित रूप से भेजे जाते हैं।
+- **Read receipts**: `channels.bluebubbles.sendReadReceipts` द्वारा नियंत्रित (डिफ़ॉल्ट: `true`)।
+- **Typing indicators**: OpenClaw typing start इवेंट भेजता है; BlueBubbles भेजने पर या टाइमआउट पर typing स्वतः साफ़ करता है (DELETE द्वारा मैन्युअल stop अविश्वसनीय है)।
 
 ## टाइपिंग + read receipts
 
@@ -203,7 +212,7 @@ BlueBubbles समूह चैट्स के लिए mention gating का 
 
 ## उन्नत क्रियाएँ
 
-विन्यास में सक्षम होने पर BlueBubbles उन्नत संदेश क्रियाओं का समर्थन करता है:
+उपलब्ध क्रियाएँ:
 
 ```json5
 {
@@ -244,19 +253,19 @@ BlueBubbles समूह चैट्स के लिए mention gating का 
 
 ### Message IDs (short बनाम full)
 
-OpenClaw टोकन बचाने के लिए _short_ message IDs (उदा., `1`, `2`) दिखा सकता है।
+स्थायी ऑटोमेशन और स्टोरेज के लिए full IDs का उपयोग करें:
 
 - `MessageSid` / `ReplyToId` short IDs हो सकते हैं।
-- `MessageSidFull` / `ReplyToIdFull` में प्रदाता के full IDs होते हैं।
+- Context: इनबाउंड payloads में `MessageSidFull` / `ReplyToIdFull`
 - Short IDs मेमोरी में होते हैं; रीस्टार्ट या कैश eviction पर समाप्त हो सकते हैं।
 - क्रियाएँ short या full `messageId` स्वीकार करती हैं, लेकिन उपलब्ध न रहने पर short IDs त्रुटि देंगी।
 
-स्थायी ऑटोमेशन और स्टोरेज के लिए full IDs का उपयोग करें:
+Template वेरिएबल्स के लिए [Configuration](/gateway/configuration) देखें।
 
 - Templates: `{{MessageSidFull}}`, `{{ReplyToIdFull}}`
 - Context: इनबाउंड payloads में `MessageSidFull` / `ReplyToIdFull`
 
-Template वेरिएबल्स के लिए [Configuration](/gateway/configuration) देखें।
+उत्तर एकल संदेश के रूप में भेजे जाएँ या ब्लॉक्स में स्ट्रीम हों, इसे नियंत्रित करें:
 
 ## ब्लॉक स्ट्रीमिंग
 
@@ -272,7 +281,7 @@ Template वेरिएबल्स के लिए [Configuration](/gateway/c
 }
 ```
 
-## मीडिया + सीमाएँ
+## विन्यास संदर्भ
 
 - इनबाउंड अटैचमेंट डाउनलोड होकर मीडिया कैश में संग्रहीत होते हैं।
 - मीडिया सीमा `channels.bluebubbles.mediaMaxMb` के माध्यम से (डिफ़ॉल्ट: 8 MB)।
@@ -282,10 +291,10 @@ Template वेरिएबल्स के लिए [Configuration](/gateway/c
 
 पूर्ण विन्यास: [Configuration](/gateway/configuration)
 
-Provider विकल्प:
+संबंधित वैश्विक विकल्प:
 
-- `channels.bluebubbles.enabled`: चैनल सक्षम/अक्षम करें।
-- `channels.bluebubbles.serverUrl`: BlueBubbles REST API base URL।
+- `agents.list[].groupChat.mentionPatterns` (या `messages.groupChat.mentionPatterns`)।
+- `messages.responsePrefix`।
 - `channels.bluebubbles.password`: API पासवर्ड।
 - `channels.bluebubbles.webhookPath`: Webhook endpoint path (डिफ़ॉल्ट: `/bluebubbles-webhook`)।
 - `channels.bluebubbles.dmPolicy`: `pairing | allowlist | open | disabled` (डिफ़ॉल्ट: `pairing`)।
@@ -298,6 +307,7 @@ Provider विकल्प:
 - `channels.bluebubbles.textChunkLimit`: आउटबाउंड चंक आकार (अक्षरों में) (डिफ़ॉल्ट: 4000)।
 - `channels.bluebubbles.chunkMode`: `length` (डिफ़ॉल्ट) केवल `textChunkLimit` से अधिक होने पर विभाजित करता है; `newline` लंबाई चंकिंग से पहले खाली पंक्तियों (पैराग्राफ सीमाएँ) पर विभाजित करता है।
 - `channels.bluebubbles.mediaMaxMb`: इनबाउंड मीडिया सीमा MB में (डिफ़ॉल्ट: 8)।
+- `channels.bluebubbles.mediaLocalRoots`: आउटबाउंड लोकल मीडिया पाथ के लिए अनुमत पूर्ण स्थानीय डायरेक्टरियों की स्पष्ट allowlist। जब तक यह कॉन्फ़िगर न किया जाए, लोकल पाथ भेजना डिफ़ॉल्ट रूप से अस्वीकृत होता है। प्रति-खाता ओवरराइड: `channels.bluebubbles.accounts.<accountId> .mediaLocalRoots`.
 - `channels.bluebubbles.historyLimit`: कॉन्टेक्स्ट के लिए अधिकतम समूह संदेश (0 अक्षम करता है)।
 - `channels.bluebubbles.dmHistoryLimit`: DM इतिहास सीमा।
 - `channels.bluebubbles.actions`: विशिष्ट क्रियाएँ सक्षम/अक्षम करें।
@@ -312,18 +322,18 @@ Provider विकल्प:
 
 स्थिर रूटिंग के लिए `chat_guid` को प्राथमिकता दें:
 
-- `chat_guid:iMessage;-;+15555550123` (समूहों के लिए प्राथमिक)
+- Webhook अनुरोधों को `guid`/`password` query params या headers की तुलना `channels.bluebubbles.password` से करके प्रमाणित किया जाता है। `localhost` से आने वाले अनुरोध भी स्वीकार किए जाते हैं।
 - `chat_id:123`
 - `chat_identifier:...`
 - Direct handles: `+15555550123`, `user@example.com`
   - यदि किसी direct handle में मौजूदा DM चैट नहीं है, तो OpenClaw `POST /api/v1/chat/new` के माध्यम से एक बनाएगा। इसके लिए BlueBubbles Private API का सक्षम होना आवश्यक है।
 
-## सुरक्षा
+## समस्या-निवारण
 
 - Webhook अनुरोधों को `guid`/`password` query params या headers की तुलना `channels.bluebubbles.password` से करके प्रमाणित किया जाता है। `localhost` से आने वाले अनुरोध भी स्वीकार किए जाते हैं।
-- API पासवर्ड और वेबहुक endpoint को गोपनीय रखें (इन्हें क्रेडेंशियल्स की तरह मानें)।
+- पेयरिंग कोड एक घंटे बाद समाप्त हो जाते हैं; `openclaw pairing list bluebubbles` और `openclaw pairing approve bluebubbles <code>` का उपयोग करें।
 - Localhost trust का मतलब है कि same-host reverse proxy अनजाने में पासवर्ड को बायपास कर सकता है। यदि आप gateway को proxy करते हैं, तो proxy पर auth अनिवार्य करें और `gateway.trustedProxies` कॉन्फ़िगर करें। [Gateway security](/gateway/security#reverse-proxy-configuration) देखें।
-- यदि BlueBubbles सर्वर को अपने LAN के बाहर एक्सपोज़ करते हैं, तो HTTPS + फ़ायरवॉल नियम सक्षम करें।
+- Edit/unsend के लिए macOS 13+ और एक संगत BlueBubbles server संस्करण आवश्यक है। macOS 26 (Tahoe) पर private API परिवर्तनों के कारण edit वर्तमान में टूटा हुआ है।
 
 ## समस्या-निवारण
 
@@ -336,5 +346,3 @@ Provider विकल्प:
 - स्थिति/स्वास्थ्य जानकारी के लिए: `openclaw status --all` या `openclaw status --deep`।
 
 सामान्य चैनल वर्कफ़्लो संदर्भ के लिए [Channels](/channels) और [Plugins](/tools/plugin) गाइड देखें।
-
-

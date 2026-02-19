@@ -1,4 +1,9 @@
 ---
+summary: "Persistente macOS-machtigingen (TCC) en vereisten voor ondertekening"
+read_when:
+  - Foutopsporing bij ontbrekende of vastgelopen macOS-machtigingsprompts
+  - Het verpakken of ondertekenen van de macOS-app
+  - Het wijzigen van bundle-ID's of app-installatiepaden
 title: "macOS-machtigingen"
 ---
 
@@ -44,5 +49,3 @@ Workaround: verplaats bestanden naar de OpenClaw-werkruimte (`~/.openclaw/worksp
 
 Als je machtigingen test, onderteken altijd met een echt certificaat. Ad-hoc
 builds zijn alleen acceptabel voor snelle lokale runs waarbij machtigingen niet van belang zijn.
-
-

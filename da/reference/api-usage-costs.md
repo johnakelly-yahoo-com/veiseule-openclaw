@@ -1,4 +1,9 @@
 ---
+summary: "Revidér hvad der kan bruge penge, hvilke nøgler der anvendes, og hvordan du ser forbrug"
+read_when:
+  - Du vil forstå hvilke funktioner der kan kalde betalte API’er
+  - Du skal revidere nøgler, omkostninger og synlighed af forbrug
+  - Du forklarer /status eller /usage-omkostningsrapportering
 title: "API-brug og omkostninger"
 ---
 
@@ -131,5 +136,3 @@ Færdigheder kan gemme `apiKey` i `skills.entries.<name>.apiKey`. Hvis en færdi
 API'er, kan det pådrage sig omkostninger i henhold til færdighedens udbyder.
 
 Se [Skills](/tools/skills).
-
-

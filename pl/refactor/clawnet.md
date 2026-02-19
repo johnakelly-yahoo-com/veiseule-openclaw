@@ -1,4 +1,8 @@
 ---
+summary: "Refaktoryzacja Clawnet: ujednolicenie protokołu sieciowego, ról, uwierzytelniania, zatwierdzeń i tożsamości"
+read_when:
+  - Planowanie ujednoliconego protokołu sieciowego dla węzłów + klientów operatora
+  - Przebudowa zatwierdzeń, parowania, TLS i obecności między urządzeniami
 title: "Refaktoryzacja Clawnet"
 ---
 
@@ -411,5 +415,3 @@ Wybrać jedną opcję przed implementacją, aby uniknąć dryfu.
 - Problemy: zatwierdzenia + duplikacja + dwa stosy.
 - Propozycja: jeden protokół WS z jawnymi rolami + zakresami, ujednolicone parowanie + pinning TLS, zatwierdzenia hostowane w gateway, stabilne identyfikatory urządzeń + „urocze” slugy.
 - Rezultat: prostszy UX, silniejsze bezpieczeństwo, mniej duplikacji, lepsze routowanie mobilne.
-
-

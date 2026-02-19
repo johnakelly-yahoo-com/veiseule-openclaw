@@ -1,4 +1,8 @@
 ---
+summary: "Berichtplatforms waarmee OpenClaw kan verbinden"
+read_when:
+  - Je wilt een chatkanaal voor OpenClaw kiezen
+  - Je hebt een snel overzicht nodig van ondersteunde berichtplatforms
 title: "Chatkanalen"
 ---
 
@@ -12,6 +16,7 @@ Tekst wordt overal ondersteund; media en reacties verschillen per kanaal.
 - [WhatsApp](/channels/whatsapp) — Meest populair; gebruikt Baileys en vereist QR-koppeling.
 - [Telegram](/channels/telegram) — Bot API via grammY; ondersteunt groepen.
 - [Discord](/channels/discord) — Discord Bot API + Gateway; ondersteunt servers, kanalen en DM's.
+- [IRC](/channels/irc) — Klassieke IRC-servers; kanalen + DM’s met pairing-/allowlistbeheer.
 - [Slack](/channels/slack) — Bolt SDK; werkruimte-apps.
 - [Feishu](/channels/feishu) — Feishu/Lark-bot via WebSocket (plugin, afzonderlijk geïnstalleerd).
 - [Google Chat](/channels/googlechat) — Google Chat API-app via HTTP-webhook.
@@ -24,10 +29,10 @@ Tekst wordt overal ondersteund; media en reacties verschillen per kanaal.
 - [Nextcloud Talk](/channels/nextcloud-talk) — Zelfgehoste chat via Nextcloud Talk (plugin, afzonderlijk geïnstalleerd).
 - [Matrix](/channels/matrix) — Matrix-protocol (plugin, afzonderlijk geïnstalleerd).
 - [Nostr](/channels/nostr) — Gedecentraliseerde DM's via NIP-04 (plugin, afzonderlijk geïnstalleerd).
-- [Tlon](/channels/tlon) — Urbit-gebaseerde messenger (plugin, afzonderlijk geïnstalleerd).
 - [Twitch](/channels/twitch) — Twitch-chat via IRC-verbinding (plugin, afzonderlijk geïnstalleerd).
 - [Zalo](/channels/zalo) — Zalo Bot API; populaire messenger in Vietnam (plugin, afzonderlijk geïnstalleerd).
 - [Zalo Personal](/channels/zalouser) — Persoonlijk Zalo-account via QR-login (plugin, afzonderlijk geïnstalleerd).
+- [Tlon](/channels/tlon) — Urbit-gebaseerde messenger (plugin, afzonderlijk geïnstalleerd).
 - [WebChat](/web/webchat) — Gateway WebChat-UI via WebSocket.
 
 ## Notities
@@ -40,5 +45,3 @@ Tekst wordt overal ondersteund; media en reacties verschillen per kanaal.
 - Telegram-internals: [grammY-notities](/channels/grammy).
 - Problemen oplossen: [Problemen met kanalen](/channels/troubleshooting).
 - Modelproviders worden afzonderlijk gedocumenteerd; zie [Modelproviders](/providers/models).
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "Trạng thái hỗ trợ bot Discord, khả năng và cấu hình"
+read_when:
+  - Làm việc trên các tính năng kênh Discord
 title: "Discord"
 ---
 
@@ -6,19 +9,35 @@ title: "Discord"
 
 Trạng thái: sẵn sàng cho DM và kênh văn bản guild thông qua gateway bot Discord chính thức.
 
-## Thiết lập nhanh (cho người mới)
+<CardGroup cols={3}>
+  <Card title="Pairing" icon="link" href="/channels/pairing">
+    Hành vi lệnh native và danh mục lệnh.
+  
+</Card>
+  <Card title="Slash commands" icon="terminal" href="/tools/slash-commands">
+    Chẩn đoán và quy trình sửa lỗi liên kênh.
+  
+</Card>
+  <Card title="Channel troubleshooting" icon="wrench" href="/channels/troubleshooting">Thiết lập nhanh
+</Card>
+</CardGroup>
 
-1. Tạo một bot Discord và sao chép bot token.
-2. Trong phần cài đặt ứng dụng Discord, bật **Message Content Intent** (và **Server Members Intent** nếu bạn dự định dùng allowlist hoặc tra cứu tên).
-3. Đặt token cho OpenClaw:
-   - Env: `DISCORD_BOT_TOKEN=...`
-   - Hoặc config: `channels.discord.token: "..."`.
-   - Nếu cả hai đều được đặt, config sẽ được ưu tiên (env fallback chỉ áp dụng cho tài khoản mặc định).
-4. Mời bot vào server của bạn với quyền gửi tin nhắn (tạo server riêng nếu bạn chỉ muốn dùng DM).
-5. Khởi động gateway.
-6. Truy cập DM mặc định là ghép cặp; phê duyệt mã ghép cặp khi liên hệ lần đầu.
+## ```
+Tạo một ứng dụng trong Discord Developer Portal, thêm bot, sau đó bật:
+```
 
-Cấu hình tối thiểu:
+<Steps>
+  <Step title="Create a Discord bot and enable intents">- **Message Content Intent**
+- **Server Members Intent** (bắt buộc cho allowlist vai trò và định tuyến dựa trên vai trò; khuyến nghị cho việc khớp allowlist tên-sang-ID)
+
+    ```
+    Biến môi trường dự phòng cho tài khoản mặc định:
+    ```
+
+  
+</Step>
+
+  <Step title="Configure token">
 
 ```json5
 {
@@ -31,278 +50,380 @@ Cấu hình tối thiểu:
 }
 ```
 
-## Mục tiêu
+    ```
+    DISCORD_BOT_TOKEN=...
+    ```
 
-- Trò chuyện với OpenClaw qua Discord DM hoặc kênh guild.
-- Chat trực tiếp sẽ gộp vào phiên chính của tác tử (mặc định `agent:main:main`); các kênh guild được tách biệt thành `agent:<agentId>:discord:channel:<channelId>` (tên hiển thị dùng `discord:<guildSlug>#<channelSlug>`).
-- Group DM bị bỏ qua theo mặc định; bật bằng `channels.discord.dm.groupEnabled` và có thể giới hạn bằng `channels.discord.dm.groupChannels`.
-- Giữ định tuyến mang tính quyết định: phản hồi luôn quay lại đúng kênh đã nhận.
+```bash
 
-## Cách hoạt động
-
-1. Tạo một ứng dụng Discord → Bot, bật các intent cần thiết (DM + tin nhắn guild + nội dung tin nhắn), và lấy bot token.
-2. Mời bot vào server với các quyền cần thiết để đọc/gửi tin nhắn tại nơi bạn muốn sử dụng.
-3. Cấu hình OpenClaw với `channels.discord.token` (hoặc `DISCORD_BOT_TOKEN` làm phương án dự phòng).
-4. Chạy gateway; nó tự động khởi động kênh Discord khi có token (ưu tiên config, env là fallback) và `channels.discord.enabled` không phải là `false`.
-   - Nếu bạn thích dùng biến môi trường, đặt `DISCORD_BOT_TOKEN` (khối config là tùy chọn).
-5. Chat trực tiếp: sử dụng `user:<id>` (hoặc đề cập `<@id>`) khi gửi; tất cả các lượt đều nằm trong phiên chung `main`. 46. ID thuần số là mơ hồ và bị từ chối.
-6. 47. Kênh guild: sử dụng `channel:<channelId>` để gửi. 48. Mặc định yêu cầu mention và có thể cấu hình theo từng guild hoặc từng kênh.
-7. Direct chats: secure by default via `channels.discord.dm.policy` (default: `"pairing"`). Unknown senders get a pairing code (expires after 1 hour); approve via `openclaw pairing approve discord <code>`.
-   - Để giữ hành vi cũ “mở cho mọi người”: đặt `channels.discord.dm.policy="open"` và `channels.discord.dm.allowFrom=["*"]`.
-   - Để áp dụng allowlist chặt chẽ: đặt `channels.discord.dm.policy="allowlist"` và liệt kê người gửi trong `channels.discord.dm.allowFrom`.
-   - Để bỏ qua toàn bộ DM: đặt `channels.discord.dm.enabled=false` hoặc `channels.discord.dm.policy="disabled"`.
-8. Group DM bị bỏ qua theo mặc định; bật bằng `channels.discord.dm.groupEnabled` và có thể giới hạn bằng `channels.discord.dm.groupChannels`.
-9. Quy tắc guild tùy chọn: đặt `channels.discord.guilds` theo guild id (khuyến nghị) hoặc slug, với quy tắc theo kênh.
-10. 49. Lệnh native tùy chọn: `commands.native` mặc định là `"auto"` (bật cho Discord/Telegram, tắt cho Slack). Ghi đè bằng `channels.discord.commands.native: true|false|"auto"`; `false` sẽ xóa các lệnh đã đăng ký trước đó. Text commands are controlled by `commands.text` and must be sent as standalone `/...` messages. 50. Sử dụng `commands.useAccessGroups: false` để bỏ qua kiểm tra access-group cho lệnh.
-    - Danh sách lệnh đầy đủ + cấu hình: [Slash commands](/tools/slash-commands)
-11. Optional guild context history: set `channels.discord.historyLimit` (default 20, falls back to `messages.groupChat.historyLimit`) to include the last N guild messages as context when replying to a mention. Set `0` to disable.
-12. Phản ứng: tác tử có thể kích hoạt phản ứng thông qua công cụ `discord` (được kiểm soát bởi `channels.discord.actions.*`).
-    - Ngữ nghĩa gỡ phản ứng: xem [/tools/reactions](/tools/reactions).
-    - Công cụ `discord` chỉ được hiển thị khi kênh hiện tại là Discord.
-13. Lệnh gốc dùng khóa phiên tách biệt (`agent:<agentId>:discord:slash:<userId>`) thay vì phiên dùng chung `main`.
-
-Lưu ý: Phân giải Tên → id sử dụng tìm kiếm thành viên guild và yêu cầu Server Members Intent; nếu bot không thể tìm kiếm thành viên, hãy dùng id hoặc đề cập `<@id>`.
-Note: Slugs are lowercase with spaces replaced by `-`. Channel names are slugged without the leading `#`.
-Note: Guild context `[from:]` lines include `author.tag` + `id` to make ping-ready replies easy.
-
-## Ghi cấu hình
-
-Theo mặc định, Discord được phép ghi các cập nhật cấu hình được kích hoạt bởi `/config set|unset` (yêu cầu `commands.config: true`).
-
-Tắt bằng:
-
-```json5
-{
-  channels: { discord: { configWrites: false } },
-}
+    Mời bot vào server của bạn với quyền gửi tin nhắn.
 ```
 
-## Cách tạo bot của riêng bạn
+  
+</Step>
 
-Đây là thiết lập “Discord Developer Portal” để chạy OpenClaw trong một kênh server (guild) như `#help`.
+  <Step title="Invite the bot and start gateway">
+    Invite the bot to your server with message permissions.
 
-### 1. Tạo ứng dụng Discord + người dùng bot
+```bash
+openclaw gateway
+```
 
-1. Discord Developer Portal → **Applications** → **New Application**
-2. Trong ứng dụng của bạn:
-   - **Bot** → **Add Bot**
-   - Sao chép **Bot Token** (đây là thứ bạn đặt vào `DISCORD_BOT_TOKEN`)
+  
+</Step>
 
-### 2) Bật các gateway intent mà OpenClaw cần
+  <Step title="Approve first DM pairing">
 
-Discord chặn “privileged intents” trừ khi bạn bật rõ ràng.
+```bash
+openclaw pairing list discord
+openclaw pairing approve discord <CODE>
+```
 
-Trong **Bot** → **Privileged Gateway Intents**, bật:
+    ```
+    Mã ghép nối sẽ hết hạn sau 1 giờ.
+    ```
 
-- **Message Content Intent** (bắt buộc để đọc nội dung tin nhắn ở hầu hết guild; nếu không bạn sẽ thấy “Used disallowed intents” hoặc bot kết nối nhưng không phản hồi tin nhắn)
-- **Server Members Intent** (khuyến nghị; bắt buộc cho một số tra cứu thành viên/người dùng và khớp allowlist trong guild)
+  
+</Step>
+</Steps>
 
-You usually do **not** need **Presence Intent**. Việc đặt trạng thái hiện diện của chính bot (hành động `setPresence`) sử dụng gateway OP3 và không yêu cầu intent này; intent chỉ cần nếu bạn muốn nhận cập nhật hiện diện về các thành viên guild khác.
+<Note>
+Phân giải token theo từng tài khoản. Giá trị token trong config sẽ được ưu tiên hơn biến môi trường dự phòng. `DISCORD_BOT_TOKEN` chỉ được sử dụng cho tài khoản mặc định.
+</Note>
 
-### 3. Tạo URL mời (OAuth2 URL Generator)
+## Mô hình runtime
 
-Trong ứng dụng của bạn: **OAuth2** → **URL Generator**
+- Gateway quản lý kết nối Discord.
+- Định tuyến phản hồi có tính xác định: tin nhắn đến từ Discord sẽ được trả lời lại trên Discord.
+- Theo mặc định (`session.dmScope=main`), các cuộc trò chuyện trực tiếp sẽ dùng chung phiên chính của agent (`agent:main:main`).
+- Các kênh Guild được tách biệt bằng khóa phiên riêng (`agent:<agentId>:discord:channel:<channelId>`).
+- Group DM bị bỏ qua theo mặc định (`channels.discord.dm.groupEnabled=false`).
+- Các slash command gốc chạy trong các phiên lệnh tách biệt (`agent:<agentId>:discord:slash:<userId>`), đồng thời vẫn mang theo `CommandTargetSessionKey` tới phiên hội thoại được định tuyến.
 
-**Scopes**
+## Kiểm soát truy cập và định tuyến
 
-- ✅ `bot`
-- ✅ `applications.commands` (bắt buộc cho lệnh gốc)
+<Tabs>
+  <Tab title="DM policy">
+    `channels.discord.dmPolicy` kiểm soát quyền truy cập DM (legacy: `channels.discord.dm.policy`):
 
-**Bot Permissions** (tối thiểu)
+    ```
+    - `pairing` (mặc định)
+    - `allowlist`
+    - `open` (yêu cầu `channels.discord.allowFrom` bao gồm `"*"`; legacy: `channels.discord.dm.allowFrom`)
+    - `disabled`
+    
+    Nếu DM policy không phải `open`, người dùng chưa xác định sẽ bị chặn (hoặc được nhắc ghép nối trong chế độ `pairing`).
+    
+    Định dạng DM target để gửi:
+    
+    - `user:<id>`
+    - đề cập `<@id>`
+    
+    ID số thuần túy là không rõ ràng và sẽ bị từ chối trừ khi cung cấp rõ loại target là user/channel.
+    ```
 
-- ✅ View Channels
-- ✅ Send Messages
-- ✅ Read Message History
-- ✅ Embed Links
-- ✅ Attach Files
-- ✅ Add Reactions (tùy chọn nhưng khuyến nghị)
-- ✅ Use External Emojis / Stickers (tùy chọn; chỉ khi bạn muốn dùng)
+  
+</Tab>
 
-Tránh **Administrator** trừ khi bạn đang gỡ lỗi và hoàn toàn tin tưởng bot.
+  <Tab title="Guild policy">
+    Xử lý Guild được kiểm soát bởi `channels.discord.groupPolicy`:
 
-Sao chép URL đã tạo, mở nó, chọn server của bạn và cài đặt bot.
-
-### 4. Lấy các id (guild/user/channel)
-
-Discord dùng id số ở mọi nơi; cấu hình OpenClaw ưu tiên id.
-
-1. Discord (desktop/web) → **User Settings** → **Advanced** → bật **Developer Mode**
-2. Nhấp chuột phải:
-   - Tên server → **Copy Server ID** (guild id)
-   - Kênh (ví dụ `#help`) → **Copy Channel ID**
-   - Người dùng của bạn → **Copy User ID**
-
-### 5) Cấu hình OpenClaw
-
-#### Token
-
-Đặt bot token qua biến môi trường (khuyến nghị trên server):
-
-- `DISCORD_BOT_TOKEN=...`
-
-Hoặc qua config:
+    ```
+    - `open`
+    - `allowlist`
+    - `disabled`
+    
+    Thiết lập bảo mật cơ bản khi tồn tại `channels.discord` là `allowlist`.
+    
+    Hành vi của `allowlist`:
+    
+    - guild phải khớp với `channels.discord.guilds` (ưu tiên `id`, chấp nhận slug)
+    - danh sách cho phép người gửi tùy chọn: `users` (ID hoặc tên) và `roles` (chỉ ID role); nếu cấu hình một trong hai, người gửi được chấp nhận khi khớp `users` HOẶC `roles`
+    - nếu một guild có cấu hình `channels`, các kênh không được liệt kê sẽ bị từ chối
+    - nếu một guild không có khối `channels`, tất cả kênh trong guild được allowlist sẽ được phép
+    
+    Ví dụ:
+    ```
 
 ```json5
 {
   channels: {
     discord: {
-      enabled: true,
-      token: "YOUR_BOT_TOKEN",
-    },
-  },
-}
-```
-
-Hỗ trợ nhiều tài khoản: dùng `channels.discord.accounts` với token theo từng tài khoản và `name` tùy chọn. See [`gateway/configuration`](/gateway/configuration#telegramaccounts--discordaccounts--slackaccounts--signalaccounts--imessageaccounts) for the shared pattern.
-
-#### Allowlist + định tuyến kênh
-
-Ví dụ “một server, chỉ cho phép tôi, chỉ cho phép #help”:
-
-```json5
-{
-  channels: {
-    discord: {
-      enabled: true,
-      dm: { enabled: false },
+      groupPolicy: "allowlist",
       guilds: {
-        YOUR_GUILD_ID: {
-          users: ["YOUR_USER_ID"],
+        "123456789012345678": {
           requireMention: true,
+          users: ["987654321098765432"],
+          roles: ["123456789012345678"],
           channels: {
+            general: { allow: true },
             help: { allow: true, requireMention: true },
           },
         },
       },
-      retry: {
-        attempts: 3,
-        minDelayMs: 500,
-        maxDelayMs: 30000,
-        jitter: 0.1,
-      },
     },
   },
 }
 ```
 
-Ghi chú:
+    ```
+    Nếu bạn chỉ thiết lập `DISCORD_BOT_TOKEN` và không tạo khối `channels.discord`, cơ chế fallback runtime sẽ là `groupPolicy="open"` (kèm cảnh báo trong log).
+    ```
 
-- `requireMention: true` nghĩa là bot chỉ trả lời khi được mention (khuyến nghị cho kênh dùng chung).
-- `agents.list[].groupChat.mentionPatterns` (hoặc `messages.groupChat.mentionPatterns`) cũng được tính là mention cho tin nhắn guild.
-- Ghi đè đa tác tử: đặt mẫu theo từng tác tử tại `agents.list[].groupChat.mentionPatterns`.
-- Nếu có `channels`, mọi kênh không được liệt kê sẽ bị từ chối theo mặc định.
-- Dùng mục kênh `"*"` để áp dụng mặc định cho tất cả kênh; mục kênh cụ thể sẽ ghi đè wildcard.
-- Threads inherit parent channel config (allowlist, `requireMention`, skills, prompts, etc.) trừ khi bạn thêm id kênh thread một cách tường minh.
-- Gợi ý cho owner: khi allowlist `users` theo guild hoặc theo kênh khớp với người gửi, OpenClaw coi người gửi đó là owner trong system prompt. Để có owner toàn cục trên các kênh, hãy đặt `commands.ownerAllowFrom`.
-- Tin nhắn do bot tạo bị bỏ qua theo mặc định; đặt `channels.discord.allowBots=true` để cho phép (tin nhắn của chính bot vẫn bị lọc).
-- Warning: If you allow replies to other bots (`channels.discord.allowBots=true`), prevent bot-to-bot reply loops with `requireMention`, `channels.discord.guilds.*.channels.<id>.users` allowlists, and/or clear guardrails in `AGENTS.md` and `SOUL.md`.
+  
+</Tab>
 
-### 6. Xác minh hoạt động
+  <Tab title="Mentions and group DMs">
+    Tin nhắn Guild mặc định yêu cầu phải có mention.
 
-1. Khởi động gateway.
-2. Trong kênh server của bạn, gửi: `@Krill hello` (hoặc tên bot của bạn).
-3. Nếu không có gì xảy ra: xem **Xử lý sự cố** bên dưới.
+    ```
+    Phát hiện mention bao gồm:
+    
+    - mention bot tường minh
+    - các mẫu mention đã cấu hình (`agents.list[].groupChat.mentionPatterns`, fallback `messages.groupChat.mentionPatterns`)
+    - hành vi trả lời bot ngầm định trong các trường hợp được hỗ trợ
+    
+    `requireMention` được cấu hình theo từng guild/kênh (`channels.discord.guilds...`).
+    
+    Group DM:
+    
+    - mặc định: bị bỏ qua (`dm.groupEnabled=false`)
+    - tùy chọn allowlist qua `dm.groupChannels` (ID hoặc slug của kênh)
+    ```
 
-### Xử lý sự cố
+  
+</Tab>
+</Tabs>
 
-- Đầu tiên: chạy `openclaw doctor` và `openclaw channels status --probe` (cảnh báo có thể hành động + kiểm tra nhanh).
-- **“Used disallowed intents”**: bật **Message Content Intent** (và có thể **Server Members Intent**) trong Developer Portal, sau đó khởi động lại gateway.
-- **Bot kết nối nhưng không bao giờ trả lời trong kênh guild**:
-  - Thiếu **Message Content Intent**, hoặc
-  - Bot thiếu quyền kênh (View/Send/Read History), hoặc
-  - Cấu hình yêu cầu mention và bạn không mention, hoặc
-  - Allowlist guild/kênh từ chối kênh/người dùng.
-- **`requireMention: false` nhưng vẫn không có phản hồi**:
-- Nếu bạn chỉ đặt `DISCORD_BOT_TOKEN` và không bao giờ tạo phần `channels.discord`, runtime sẽ mặc định `groupPolicy` là `open`..channels\` to restrict).
-  - If you only set `DISCORD_BOT_TOKEN` and never create a `channels.discord` section, the runtime
-    defaults `groupPolicy` to `open`. Add `channels.discord.groupPolicy`,
-    `channels.defaults.groupPolicy`, or a guild/channel allowlist to lock it down.
-- `requireMention` must live under `channels.discord.guilds` (or a specific channel). `channels.discord.requireMention` at the top level is ignored.
-- **Permission audits** (`channels status --probe`) only check numeric channel IDs. If you use slugs/names as `channels.discord.guilds.*.channels` keys, the audit can’t verify permissions.
-- **DM không hoạt động**: `channels.discord.dm.enabled=false`, `channels.discord.dm.policy="disabled"`, hoặc bạn chưa được phê duyệt (`channels.discord.dm.policy="pairing"`).
-- **Exec approvals in Discord**: Discord supports a **button UI** for exec approvals in DMs (Allow once / Always allow / Deny). `/approve <id> ...` is only for forwarded approvals and won’t resolve Discord’s button prompts. If you see `❌ Failed to submit approval: Error: unknown approval id` or the UI never shows up, check:
-  - `channels.discord.execApprovals.enabled: true` trong config của bạn.
-  - User ID Discord của bạn có nằm trong `channels.discord.execApprovals.approvers` (UI chỉ gửi cho người phê duyệt).
-  - Dùng các nút trong DM (**Allow once**, **Always allow**, **Deny**).
-  - Xem [Exec approvals](/tools/exec-approvals) và [Slash commands](/tools/slash-commands) để hiểu luồng phê duyệt và lệnh tổng thể.
+### Định tuyến agent dựa trên role
 
-## Khả năng & giới hạn
+Sử dụng `bindings[].match.roles` để định tuyến thành viên Discord guild tới các agent khác nhau theo ID role. Binding dựa trên role chỉ chấp nhận ID role và được đánh giá sau binding peer hoặc parent-peer và trước binding chỉ theo guild. Nếu một binding cũng thiết lập các trường match khác (ví dụ `peer` + `guildId` + `roles`), tất cả các trường đã cấu hình phải khớp.
 
-- DM và kênh văn bản guild (thread được xem là kênh riêng; không hỗ trợ voice).
-- Chỉ báo đang gõ được gửi theo best-effort; chia nhỏ tin nhắn dùng `channels.discord.textChunkLimit` (mặc định 2000) và tách phản hồi dài theo số dòng (`channels.discord.maxLinesPerMessage`, mặc định 17).
-- Chia nhỏ theo dòng trống tùy chọn: đặt `channels.discord.chunkMode="newline"` để tách theo dòng trống (ranh giới đoạn) trước khi chia theo độ dài.
-- Hỗ trợ tải tệp lên đến `channels.discord.mediaMaxMb` đã cấu hình (mặc định 8 MB).
-- Trả lời trong guild được chặn bằng mention theo mặc định để tránh bot ồn ào.
-- Ngữ cảnh trả lời được chèn khi một tin nhắn tham chiếu tin nhắn khác (nội dung trích dẫn + id).
-- Thread trả lời gốc **tắt theo mặc định**; bật bằng `channels.discord.replyToMode` và thẻ reply.
+```json5
+{
+  bindings: [
+    {
+      agentId: "opus",
+      match: {
+        channel: "discord",
+        guildId: "123456789012345678",
+        roles: ["111111111111111111"],
+      },
+    },
+    {
+      agentId: "sonnet",
+      match: {
+        channel: "discord",
+        guildId: "123456789012345678",
+      },
+    },
+  ],
+}
+```
+
+## Thiết lập Developer Portal
+
+<AccordionGroup>
+  <Accordion title="Create app and bot">
+
+    ```
+    1. Discord Developer Portal -> **Applications** -> **New Application**
+    2. **Bot** -> **Add Bot**
+    3. Sao chép bot token
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Privileged intents">
+    Trong **Bot -> Privileged Gateway Intents**, bật:
+
+    ```
+    - Message Content Intent
+    - Server Members Intent (khuyến nghị)
+    
+    Presence intent là tùy chọn và chỉ cần nếu bạn muốn nhận cập nhật trạng thái hiện diện. Việc thiết lập trạng thái bot (`setPresence`) không yêu cầu bật cập nhật presence cho thành viên.
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="OAuth scopes and baseline permissions">
+    Trình tạo URL OAuth:
+
+    ```
+    - scopes: `bot`, `applications.commands`
+    
+    Quyền cơ bản thường dùng:
+    
+    - View Channels
+    - Send Messages
+    - Read Message History
+    - Embed Links
+    - Attach Files
+    - Add Reactions (tùy chọn)
+    
+    Tránh quyền `Administrator` trừ khi thực sự cần thiết.
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Copy IDs">
+    Bật Discord Developer Mode, sau đó sao chép:
+
+    ```
+    - server ID
+    - channel ID
+    - user ID
+    
+    Ưu tiên sử dụng ID số trong cấu hình OpenClaw để đảm bảo kiểm tra và dò tìm đáng tin cậy.
+    ```
+
+  
+</Accordion>
+</AccordionGroup>
+
+## Lệnh gốc và xác thực lệnh
+
+- `commands.native` mặc định là `"auto"` và được bật cho Discord.
+- Ghi đè theo từng kênh: `channels.discord.commands.native`.
+- `commands.native=false` sẽ xóa rõ ràng các lệnh Discord native đã được đăng ký trước đó.
+- Xác thực lệnh native sử dụng cùng allowlist/chính sách Discord như xử lý tin nhắn thông thường.
+- Các lệnh vẫn có thể hiển thị trong giao diện Discord cho người dùng không được ủy quyền; tuy nhiên khi thực thi vẫn áp dụng xác thực OpenClaw và trả về "not authorized".
+
+Xem [Slash commands](/tools/slash-commands) để biết danh mục và hành vi của lệnh.
 
 ## Chính sách retry
 
-Outbound Discord API calls retry on rate limits (429) using Discord `retry_after` when available, with exponential backoff and jitter. Configure via `channels.discord.retry`. See [Retry policy](/concepts/retry).
+<AccordionGroup>
+  <Accordion title="Reply tags and native replies">
+    Discord hỗ trợ thẻ phản hồi trong đầu ra của agent:
 
-## Cấu hình
+    ```
+    - `[[reply_to_current]]`
+    - `[[reply_to:<id>]]`
+    
+    Được kiểm soát bởi `channels.discord.replyToMode`:
+    
+    - `off` (mặc định)
+    - `first`
+    - `all`
+    
+    Lưu ý: `off` sẽ vô hiệu hóa luồng phản hồi ngầm định. Các thẻ `[[reply_to_*]]` tường minh vẫn được tôn trọng.
+    
+    ID tin nhắn được đưa vào context/history để agent có thể nhắm mục tiêu các tin nhắn cụ thể.
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="History, context, and thread behavior">
+    Ngữ cảnh lịch sử Guild:
+
+    ```
+    - `channels.discord.historyLimit` mặc định `20`
+    - dự phòng: `messages.groupChat.historyLimit`
+    - `0` để vô hiệu hóa
+    
+    Điều khiển lịch sử DM:
+    
+    - `channels.discord.dmHistoryLimit`
+    - `channels.discord.dms["<user_id>"].historyLimit`
+    
+    Hành vi thread:
+    
+    - Thread Discord được định tuyến như các phiên theo kênh
+    - metadata của thread cha có thể được dùng để liên kết phiên cha
+    - cấu hình thread kế thừa cấu hình kênh cha trừ khi có cấu hình riêng cho thread
+    
+    Chủ đề kênh được đưa vào dưới dạng ngữ cảnh **không đáng tin cậy** (không phải system prompt).
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Reaction notifications">
+    Chế độ thông báo reaction theo từng guild:
+
+    ```
+    - `off`
+    - `own` (mặc định)
+    - `all`
+    - `allowlist` (sử dụng `guilds.<id>.users`)
+    
+    Các sự kiện reaction được chuyển thành sự kiện hệ thống và gắn vào phiên Discord đã được định tuyến.
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Ack reactions">
+    `ackReaction` gửi một emoji xác nhận trong khi OpenClaw đang xử lý tin nhắn đến.
+
+    ```
+    Thứ tự phân giải:
+    
+    - `channels.discord.accounts.<accountId>.ackReaction`
+    - `channels.discord.ackReaction`
+    - `messages.ackReaction`
+    - emoji định danh agent dự phòng (`agents.list[].identity.emoji`, nếu không có thì dùng "👀")
+    
+    Lưu ý:
+    
+    - Discord chấp nhận emoji unicode hoặc tên emoji tùy chỉnh.
+    - Dùng `""` để vô hiệu hóa reaction cho một kênh hoặc tài khoản.
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Config writes">
+    Ghi cấu hình được khởi tạo từ kênh được bật theo mặc định.
+
+    ```
+    Điều này ảnh hưởng đến luồng `/config set|unset` (khi các tính năng lệnh được bật).
+    
+    Vô hiệu hóa:
+    ```
 
 ```json5
 {
   channels: {
     discord: {
-      enabled: true,
-      token: "abc.123",
-      groupPolicy: "allowlist",
-      guilds: {
-        "*": {
-          channels: {
-            general: { allow: true },
-          },
-        },
-      },
-      mediaMaxMb: 8,
-      actions: {
-        reactions: true,
-        stickers: true,
-        emojiUploads: true,
-        stickerUploads: true,
-        polls: true,
-        permissions: true,
-        messages: true,
-        threads: true,
-        pins: true,
-        search: true,
-        memberInfo: true,
-        roleInfo: true,
-        roles: false,
-        channelInfo: true,
-        channels: true,
-        voiceStatus: true,
-        events: true,
-        moderation: false,
-        presence: false,
-      },
-      replyToMode: "off",
-      dm: {
-        enabled: true,
-        policy: "pairing", // pairing | allowlist | open | disabled
-        allowFrom: ["123456789012345678", "steipete"],
-        groupEnabled: false,
-        groupChannels: ["openclaw-dm"],
-      },
-      guilds: {
-        "*": { requireMention: true },
-        "123456789012345678": {
-          slug: "friends-of-openclaw",
-          requireMention: false,
-          reactionNotifications: "own",
-          users: ["987654321098765432", "steipete"],
-          channels: {
-            general: { allow: true },
-            help: {
-              allow: true,
-              requireMention: true,
-              users: ["987654321098765432"],
-              skills: ["search", "docs"],
-              systemPrompt: "Keep answers short.",
-            },
-          },
+      configWrites: false,
+    },
+  },
+}
+```
+
+  
+</Accordion>
+
+  <Accordion title="Gateway proxy">
+    Định tuyến lưu lượng WebSocket của Discord gateway qua proxy HTTP(S) với `channels.discord.proxy`.
+
+```json5
+{
+  channels: {
+    discord: {
+      proxy: "http://proxy.example:8080",
+    },
+  },
+}
+```
+
+    ```
+    Ghi đè theo từng tài khoản:
+    ```
+
+```json5
+{
+  channels: {
+    discord: {
+      accounts: {
+        primary: {
+          proxy: "http://proxy.example:8080",
         },
       },
     },
@@ -310,62 +431,11 @@ Outbound Discord API calls retry on rate limits (429) using Discord `retry_after
 }
 ```
 
-Ack reactions are controlled globally via `messages.ackReaction` +
-`messages.ackReactionScope`. Use `messages.removeAckAfterReply` to clear the
-ack reaction after the bot replies.
+  
+</Accordion>
 
-- `dm.enabled`: đặt `false` để bỏ qua tất cả DM (mặc định `true`).
-- `dm.policy`: DM access control (`pairing` recommended). `"open"` requires `dm.allowFrom=["*"]`.
-- `dm.allowFrom`: DM allowlist (user ids or names). Used by `dm.policy="allowlist"` and for `dm.policy="open"` validation. The wizard accepts usernames and resolves them to ids when the bot can search members.
-- `dm.groupEnabled`: bật group DM (mặc định `false`).
-- `dm.groupChannels`: allowlist tùy chọn cho id hoặc slug kênh group DM.
-- `groupPolicy`: kiểm soát xử lý kênh guild (`open|disabled|allowlist`); `allowlist` yêu cầu allowlist kênh.
-- `guilds`: quy tắc theo guild, khóa bằng guild id (khuyến nghị) hoặc slug.
-- `guilds."*"`: thiết lập mặc định theo guild áp dụng khi không có mục cụ thể.
-- `guilds.<id>.slug`: optional friendly slug used for display names.
-- `guilds.<id>.users`: optional per-guild user allowlist (ids or names).
-- `guilds.<id>.tools`: optional per-guild tool policy overrides (`allow`/`deny`/`alsoAllow`) used when the channel override is missing.
-- `guilds.<id>.toolsBySender`: optional per-sender tool policy overrides at the guild level (applies when the channel override is missing; `"*"` wildcard supported).
-- `guilds.<id>.channels.<channel>.allow`: cho phép/từ chối kênh khi `groupPolicy="allowlist"`.
-- `guilds.<id>.channels.<channel>.requireMention`: kiểm soát nhắc tên cho kênh.
-- `guilds.<id>.channels.<channel>.tools`: ghi đè chính sách công cụ theo kênh (tùy chọn) (`allow`/`deny`/`alsoAllow`).
-- `guilds.<id>.channels.<channel>.toolsBySender`: optional per-sender tool policy overrides within the channel (`"*"` wildcard supported).
-- `guilds.<id>.channels.<channel>.users`: optional per-channel user allowlist.
-- `guilds.<id>`.channels.&lt;channel&gt;.skills\`: bộ lọc skill (bỏ qua = tất cả skills, rỗng = không skill nào).
-- `guilds.<id>.channels.<channel>.systemPrompt`: extra system prompt for the channel. Discord channel topics are injected as **untrusted** context (not system prompt).
-- `guilds.<id>.channels.<channel>.enabled`: đặt `false` để tắt kênh.
-- `guilds.<id>`.channels\`: channel rules (keys are channel slugs or ids).
-- `guilds.<id>.requireMention`: per-guild mention requirement (overridable per channel).
-- `guilds.<id>.reactionNotifications`: reaction system event mode (`off`, `own`, `all`, `allowlist`).
-- `textChunkLimit`: outbound text chunk size (chars). Default: 2000.
-- `chunkMode`: `length` (mặc định) chỉ tách khi vượt `textChunkLimit`; `newline` tách theo dòng trống (ranh giới đoạn) trước khi tách theo độ dài.
-- `maxLinesPerMessage`: soft max line count per message. Default: 17.
-- `mediaMaxMb`: giới hạn phương tiện vào được lưu xuống đĩa.
-- `historyLimit`: số tin nhắn guild gần đây đưa vào ngữ cảnh khi trả lời mention (mặc định 20; fallback về `messages.groupChat.historyLimit`; `0` tắt).
-- `dmHistoryLimit`: Giới hạn lịch sử DM theo số lượt của người dùng. Ghi đè theo từng người dùng: `dms["<user_id>"].historyLimit`.
-- `retry`: chính sách retry cho các lệnh gọi Discord API đi ra (attempts, minDelayMs, maxDelayMs, jitter).
-- `pluralkit`: phân giải tin nhắn proxy PluralKit để các thành viên hệ thống xuất hiện như người gửi riêng biệt.
-- `actions`: chặn công cụ theo hành động; bỏ qua để cho phép tất cả (đặt `false` để tắt).
-  - `reactions` (bao gồm react + đọc phản ứng)
-  - `stickers`, `emojiUploads`, `stickerUploads`, `polls`, `permissions`, `messages`, `threads`, `pins`, `search`
-  - `memberInfo`, `roleInfo`, `channelInfo`, `voiceStatus`, `events`
-  - `channels` (tạo/sửa/xóa kênh + danh mục + quyền)
-  - `roles` (thêm/xóa vai trò, mặc định `false`)
-  - `moderation` (timeout/kick/ban, mặc định `false`)
-  - `presence` (trạng thái/hoạt động bot, mặc định `false`)
-- `execApprovals`: DM phê duyệt thực thi chỉ dành cho Discord (giao diện nút). Hỗ trợ `enabled`, `approvers`, `agentFilter`, `sessionFilter`.
-
-Thông báo phản ứng sử dụng `guilds.<id>`.reactionNotifications\`:
-
-- `off`: không có sự kiện phản ứng.
-- `own`: phản ứng trên tin nhắn của chính bot (mặc định).
-- `all`: mọi phản ứng trên mọi tin nhắn.
-- `allowlist`: phản ứng từ `guilds.<id>`.users\` trên tất cả tin nhắn (danh sách rỗng sẽ vô hiệu hóa).
-
-### Hỗ trợ PluralKit (PK)
-
-Bật tra cứu PK để các tin nhắn được proxy có thể phân giải về hệ thống + thành viên bên dưới.
-Khi được bật, OpenClaw sử dụng danh tính thành viên cho allowlist và gắn nhãn người gửi là `Member (PK:System)` để tránh ping Discord ngoài ý muốn.
+  <Accordion title="PluralKit support">
+    Bật phân giải PluralKit để ánh xạ các tin nhắn được proxy tới danh tính thành viên hệ thống:
 
 ```json5
 {
@@ -373,101 +443,277 @@ Khi được bật, OpenClaw sử dụng danh tính thành viên cho allowlist v
     discord: {
       pluralkit: {
         enabled: true,
-        token: "pk_live_...", // optional; required for private systems
+        token: "pk_live_...", // tùy chọn; cần cho hệ thống riêng tư
       },
     },
   },
 }
 ```
 
-Ghi chú allowlist (khi bật PK):
+    ```
+    Lưu ý:
+    
+    - allowlist có thể sử dụng `pk:<memberId>`
+    - tên hiển thị của thành viên được khớp theo name/slug
+    - tra cứu sử dụng ID tin nhắn gốc và bị giới hạn trong một khoảng thời gian
+    - nếu tra cứu thất bại, tin nhắn proxy sẽ được xem là tin nhắn bot và bị loại bỏ trừ khi `allowBots=true`
+    ```
 
-- Sử dụng `pk:<memberId>` trong `dm.allowFrom`, `guilds.<id>`.users`, hoặc `users\` theo từng kênh.
-- Tên hiển thị thành viên cũng được khớp theo tên/slug.
-- Tra cứu dùng **ID tin nhắn Discord gốc** (trước proxy), nên API PK chỉ phân giải trong cửa sổ 30 phút.
-- Nếu tra cứu PK thất bại (ví dụ hệ thống riêng tư không có token), tin nhắn proxy
-  được coi là tin nhắn bot và sẽ bị loại trừ trừ khi `channels.discord.allowBots=true`.
+  
+</Accordion>
 
-### Mặc định hành động công cụ
+  <Accordion title="Presence configuration">
+    Cập nhật trạng thái hiện diện chỉ được áp dụng khi bạn đặt trường status hoặc activity.
 
-| Nhóm hành động | Mặc định | Ghi chú                                                     |
-| -------------- | -------- | ----------------------------------------------------------- |
-| reactions      | enabled  | React + liệt kê phản ứng + emojiList                        |
-| stickers       | enabled  | Gửi sticker                                                 |
-| emojiUploads   | enabled  | Tải emoji lên                                               |
-| stickerUploads | enabled  | Tải sticker lên                                             |
-| polls          | enabled  | Tạo poll                                                    |
-| permissions    | enabled  | Ảnh chụp quyền kênh                                         |
-| messages       | enabled  | Đọc/gửi/sửa/xóa                                             |
-| threads        | enabled  | Tạo/liệt kê/trả lời                                         |
-| pins           | enabled  | Ghim/bỏ ghim/liệt kê                                        |
-| search         | enabled  | Tìm kiếm tin nhắn (tính năng thử nghiệm) |
-| memberInfo     | enabled  | Thông tin thành viên                                        |
-| roleInfo       | enabled  | Danh sách vai trò                                           |
-| channelInfo    | enabled  | Thông tin kênh + liệt kê                                    |
-| channels       | đã bật  | Quản lý kênh/danh mục                                       |
-| voiceStatus    | đã bật  | Tra cứu trạng thái voice                                    |
-| events         | đã bật  | Liệt kê/tạo sự kiện đã lên lịch                             |
-| vai trò          | đã tắt | Thêm/xóa vai trò                                            |
-| kiểm duyệt     | đã tắt | Timeout/kick/ban                                            |
-| trạng thái hiện diện       | đã tắt | Trạng thái/hoạt động bot (setPresence)   |
+    ```
+    Ví dụ chỉ đặt trạng thái:
+    ```
 
-- `replyToMode`: `off` (mặc định), `first`, hoặc `all`. Chỉ áp dụng khi mô hình bao gồm thẻ reply.
+```json5
+{
+  channels: {
+    discord: {
+      status: "idle",
+    },
+  },
+}
+```
 
-## Thẻ trả lời
+    ```
+    Ví dụ activity (custom status là loại activity mặc định):
+    ```
 
-Để yêu cầu trả lời theo thread, mô hình có thể bao gồm một thẻ trong đầu ra:
+```json5
+{
+  channels: {
+    discord: {
+      activity: "Focus time",
+      activityType: 4,
+    },
+  },
+}
+```
 
-- `[[reply_to_current]]` — trả lời tin nhắn Discord đã kích hoạt.
-- `[[reply_to:<id>]]` — trả lời một id tin nhắn cụ thể từ ngữ cảnh/lịch sử.
-  ID tin nhắn hiện tại được thêm vào prompt dưới dạng `[message_id: …]`; các mục lịch sử đã bao gồm id.
+    ```
+    Ví dụ Streaming:
+    ```
 
-Hành vi được điều khiển bởi `channels.discord.replyToMode`:
+```json5
+{
+  channels: {
+    discord: {
+      activity: "Live coding",
+      activityType: 1,
+      activityUrl: "https://twitch.tv/openclaw",
+    },
+  },
+}
+```
 
-- `off`: bỏ qua thẻ.
-- `first`: chỉ chunk/đính kèm gửi ra đầu tiên là trả lời.
-- `all`: mọi chunk/đính kèm gửi ra đều là trả lời.
+    ```
+    Bảng ánh xạ loại activity:
+    
+    - 0: Playing
+    - 1: Streaming (yêu cầu `activityUrl`)
+    - 2: Listening
+    - 3: Watching
+    - 4: Custom (sử dụng văn bản activity làm trạng thái; emoji là tùy chọn)
+    - 5: Competing
+    ```
 
-Ghi chú khớp allowlist:
+  
+</Accordion>
 
-- `allowFrom`/`users`/`groupChannels` chấp nhận id, tên, thẻ, hoặc mention như `<@id>`.
-- Hỗ trợ tiền tố như `discord:`/`user:` (người dùng) và `channel:` (group DM).
-- Dùng `*` để cho phép bất kỳ người gửi/kênh nào.
-- Khi `guilds.<id>`.channels\` tồn tại, các kênh không được liệt kê sẽ bị từ chối theo mặc định.
-- Khi `guilds.<id>`.channels\` bị bỏ qua, tất cả các kênh trong guild được allowlist đều được phép.
-- Để cho phép **không kênh nào**, đặt `channels.discord.groupPolicy: "disabled"` (hoặc giữ allowlist rỗng).
-- Trình hướng dẫn cấu hình chấp nhận tên `Guild/Channel` (công khai + riêng tư) và phân giải sang ID khi có thể.
-- Khi khởi động, OpenClaw phân giải tên kênh/người dùng trong allowlist sang ID (khi bot có thể tìm kiếm thành viên)
-  và ghi log ánh xạ; các mục không phân giải được sẽ được giữ nguyên như đã nhập.
+  <Accordion title="Exec approvals in Discord">
+    Discord hỗ trợ phê duyệt thực thi dựa trên nút trong DM và có thể tùy chọn đăng lời nhắc phê duyệt trong kênh gốc.
 
-Ghi chú lệnh gốc:
+    ```
+    Đường dẫn cấu hình:
+    
+    - `channels.discord.execApprovals.enabled`
+    - `channels.discord.execApprovals.approvers`
+    - `channels.discord.execApprovals.target` (`dm` | `channel` | `both`, mặc định: `dm`)
+    - `agentFilter`, `sessionFilter`, `cleanupAfterResolve`
+    
+    Khi `target` là `channel` hoặc `both`, lời nhắc phê duyệt sẽ hiển thị trong kênh. Chỉ những approver được cấu hình mới có thể sử dụng các nút; người dùng khác sẽ nhận thông báo từ chối dạng ephemeral. Lời nhắc phê duyệt bao gồm nội dung lệnh, vì vậy chỉ nên bật gửi trong kênh ở các kênh đáng tin cậy. Nếu không thể suy ra ID kênh từ khóa phiên, OpenClaw sẽ quay về gửi qua DM.
+    
+    Nếu phê duyệt thất bại với ID phê duyệt không xác định, hãy kiểm tra danh sách approver và việc bật tính năng.
+    
+    Tài liệu liên quan: [Exec approvals](/tools/exec-approvals)
+    ```
 
-- Các lệnh đã đăng ký phản chiếu các lệnh chat của OpenClaw.
-- Lệnh gốc tuân thủ cùng allowlist như DM/tin nhắn guild (`channels.discord.dm.allowFrom`, `channels.discord.guilds`, quy tắc theo kênh).
-- Slash command vẫn có thể hiển thị trong UI Discord cho người dùng không nằm trong allowlist; OpenClaw sẽ thực thi kiểm soát và trả lời “not authorized”.
+  
+</Accordion>
+</AccordionGroup>
 
-## Hành động công cụ
+## Công cụ và action gate
 
-Tác tử có thể gọi `discord` với các hành động như:
+Các hành động tin nhắn Discord bao gồm nhắn tin, quản trị kênh, kiểm duyệt, hiện diện và các hành động metadata.
 
-- `react` / `reactions` (thêm hoặc liệt kê phản ứng)
-- `sticker`, `poll`, `permissions`
-- `readMessages`, `sendMessage`, `editMessage`, `deleteMessage`
-- Payload công cụ đọc/tìm kiếm/ghim bao gồm `timestampMs` đã chuẩn hóa (UTC epoch ms) và `timestampUtc` cùng với `timestamp` Discord thô.
-- `threadCreate`, `threadList`, `threadReply`
-- `pinMessage`, `unpinMessage`, `listPins`
-- `searchMessages`, `memberInfo`, `roleInfo`, `roleAdd`, `roleRemove`, `emojiList`
-- `channelInfo`, `channelList`, `voiceStatus`, `eventList`, `eventCreate`
-- `timeout`, `kick`, `ban`
-- `setPresence` (hoạt động bot và trạng thái trực tuyến)
+Ví dụ cốt lõi:
 
-ID tin nhắn Discord được hiển thị trong ngữ cảnh được chèn (`[discord message id: …]` và các dòng lịch sử) để agent có thể nhắm mục tiêu.
-Emoji có thể là unicode (ví dụ: `✅`) hoặc cú pháp emoji tùy chỉnh như `<:party_blob:1234567890>`.
+- messaging: `sendMessage`, `readMessages`, `editMessage`, `deleteMessage`, `threadReply`
+- reactions: `react`, `reactions`, `emojiList`
+- moderation: `timeout`, `kick`, `ban`
+- presence: `setPresence`
 
-## An toàn & vận hành
+Các action gate nằm dưới `channels.discord.actions.*`.
 
-- Hãy coi bot token như mật khẩu; ưu tiên biến môi trường `DISCORD_BOT_TOKEN` trên các máy chủ được giám sát hoặc khóa chặt quyền của tệp cấu hình.
-- Chỉ cấp cho bot các quyền cần thiết (thường là Read/Send Messages).
-- Nếu bot bị kẹt hoặc bị giới hạn tốc độ, hãy khởi động lại gateway (`openclaw gateway --force`) sau khi xác nhận không có tiến trình nào khác đang sở hữu phiên Discord.
+Hành vi gate mặc định:
 
+| Nhóm hành động                                                                                                                                                           | Mặc định |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- |
+| reactions, messages, threads, pins, polls, search, memberInfo, roleInfo, channelInfo, channels, voiceStatus, events, stickers, emojiUploads, stickerUploads, permissions | enabled  |
+| roles                                                                                                                                                                    | disabled |
+| moderation                                                                                                                                                               | disabled |
+| presence                                                                                                                                                                 | disabled |
 
+## UI Components v2
+
+OpenClaw sử dụng Discord components v2 cho phê duyệt exec và các dấu đánh dấu đa ngữ cảnh. Các action tin nhắn Discord cũng có thể nhận `components` cho UI tùy chỉnh (nâng cao; yêu cầu các instance component của Carbon), trong khi `embeds` legacy vẫn khả dụng nhưng không được khuyến nghị.
+
+- `channels.discord.ui.components.accentColor` thiết lập màu nhấn được sử dụng bởi các container component của Discord (hex).
+- Thiết lập theo từng tài khoản với `channels.discord.accounts.<id>.ui.components.accentColor`.
+- `embeds` sẽ bị bỏ qua khi có components v2.
+
+Ví dụ:
+
+```json5
+{
+  channels: {
+    discord: {
+      ui: {
+        components: {
+          accentColor: "#5865F2",
+        },
+      },
+    },
+  },
+}
+```
+
+## Tin nhắn thoại
+
+Tin nhắn thoại Discord hiển thị bản xem trước dạng sóng và yêu cầu âm thanh OGG/Opus kèm metadata. OpenClaw tự động tạo dạng sóng, nhưng cần `ffmpeg` và `ffprobe` có sẵn trên gateway host để phân tích và chuyển đổi tệp âm thanh.
+
+Yêu cầu và ràng buộc:
+
+- Cung cấp **đường dẫn tệp cục bộ** (URL sẽ bị từ chối).
+- Không kèm nội dung văn bản (Discord không cho phép văn bản + tin nhắn thoại trong cùng một payload).
+- Chấp nhận mọi định dạng âm thanh; OpenClaw sẽ chuyển đổi sang OGG/Opus khi cần.
+
+Ví dụ:
+
+```bash
+message(action="send", channel="discord", target="channel:123", path="/path/to/audio.mp3", asVoice=true)
+```
+
+## Xử lý sự cố
+
+<AccordionGroup>
+  <Accordion title="Used disallowed intents or bot sees no guild messages">
+
+    ```
+    - bật Message Content Intent
+    - bật Server Members Intent khi bạn phụ thuộc vào phân giải user/member
+    - khởi động lại gateway sau khi thay đổi intents
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Guild messages blocked unexpectedly">
+
+    ```
+    - xác minh `groupPolicy`
+    - xác minh danh sách cho phép guild dưới `channels.discord.guilds`
+    - nếu tồn tại map `channels` của guild, chỉ các channel được liệt kê mới được phép
+    - xác minh hành vi `requireMention` và các mẫu mention
+    
+    Useful checks:
+    ```
+
+```bash
+openclaw doctor
+openclaw channels status --probe
+openclaw logs --follow
+```
+
+  
+</Accordion>
+
+  <Accordion title="Require mention false but still blocked">
+    Nguyên nhân phổ biến:
+
+    ```
+    - `groupPolicy="allowlist"` nhưng không có guild/channel tương ứng trong allowlist
+    - cấu hình `requireMention` sai vị trí (phải nằm dưới `channels.discord.guilds` hoặc mục channel)
+    - người gửi bị chặn bởi allowlist `users` của guild/channel
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Permissions audit mismatches">
+    Kiểm tra quyền bằng `channels status --probe` chỉ hoạt động với channel ID dạng số.
+
+    ```
+    Nếu bạn sử dụng khóa slug, việc khớp khi runtime vẫn có thể hoạt động, nhưng probe không thể xác minh đầy đủ quyền.
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="DM and pairing issues">
+
+    ```
+    - DM bị tắt: `channels.discord.dm.enabled=false`
+    - chính sách DM bị tắt: `channels.discord.dmPolicy="disabled"` (legacy: `channels.discord.dm.policy`)
+    - đang chờ phê duyệt ghép nối trong chế độ `pairing`
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Bot to bot loops">
+    Theo mặc định, các tin nhắn do bot tạo sẽ bị bỏ qua.
+
+    ```
+    Nếu bạn đặt `channels.discord.allowBots=true`, hãy sử dụng quy tắc mention và allowlist nghiêm ngặt để tránh hành vi lặp vô hạn.
+    ```
+
+  
+</Accordion>
+</AccordionGroup>
+
+## Tham chiếu cấu hình
+
+Tham chiếu chính:
+
+- [Configuration reference - Discord](/gateway/configuration-reference#discord)
+
+Các trường Discord quan trọng:
+
+- startup/auth: `enabled`, `token`, `accounts.*`, `allowBots`
+- policy: `groupPolicy`, `dm.*`, `guilds.*`, `guilds.*.channels.*`
+- command: `commands.native`, `commands.useAccessGroups`, `configWrites`
+- reply/history: `replyToMode`, `historyLimit`, `dmHistoryLimit`, `dms.*.historyLimit`
+- delivery: `textChunkLimit`, `chunkMode`, `maxLinesPerMessage`
+- media/retry: `mediaMaxMb`, `retry`
+- actions: `actions.*`
+- presence: `activity`, `status`, `activityType`, `activityUrl`
+- UI: `ui.components.accentColor`
+- features: `pluralkit`, `execApprovals`, `intents`, `agentComponents`, `heartbeat`, `responsePrefix`
+
+## An toàn và vận hành
+
+- Xem token bot như thông tin bí mật (`DISCORD_BOT_TOKEN` được ưu tiên trong môi trường được giám sát).
+- Chỉ cấp quyền Discord ở mức tối thiểu cần thiết.
+- Nếu trạng thái deploy/lệnh bị lỗi thời, hãy khởi động lại gateway và kiểm tra lại bằng `openclaw channels status --probe`.
+
+## Liên quan
+
+- [Ghép nối](/channels/pairing)
+- [Định tuyến kênh](/channels/channel-routing)
+- [Khắc phục sự cố](/channels/troubleshooting)
+- [Lệnh slash](/tools/slash-commands)

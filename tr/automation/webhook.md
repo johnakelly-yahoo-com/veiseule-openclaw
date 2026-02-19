@@ -1,4 +1,8 @@
 ---
+summary: "Uyandırma ve izole ajan çalıştırmaları için webhook girişi"
+read_when:
+  - Webhook uç noktaları eklerken veya değiştirirken
+  - Harici sistemleri OpenClaw’a bağlarken
 title: "Webhook'lar"
 ---
 
@@ -29,7 +33,7 @@ Her isteğin hook belirtecini içermesi gerekir. Tercihen başlıkları kullanı
 
 - `Authorization: Bearer <token>` (önerilir)
 - `x-openclaw-token: <token>`
-- `?token=<token>` (kullanımdan kaldırıldı; bir uyarı kaydeder ve gelecekteki büyük bir sürümde kaldırılacaktır)
+- Sorgu dizesi belirteçleri reddedilir (`?token=...` `400` döndürür).
 
 ## Uç Noktalar
 
@@ -70,7 +74,8 @@ Yük (payload):
 
 - `message` **gerekli** (string): Ajanın işlemesi için istem veya mesaj.
 - `name` isteğe bağlı (string): Hook için insan tarafından okunabilir ad (örn. "GitHub"); oturum özetlerinde önek olarak kullanılır.
-- `sessionKey` isteğe bağlı (string): Ajanın oturumunu tanımlamak için kullanılan anahtar. Varsayılan olarak rastgele bir `hook:<uuid>`. Tutarlı bir anahtar kullanmak, hook bağlamında çok turlu bir konuşmaya olanak tanır.
+- `agentId` isteğe bağlıdır (string): Bu hook’u belirli bir agente yönlendirir. Bilinmeyen kimlikler varsayılan agente geri döner. Ayarlandığında, hook çözümlenen agent’in workspace’i ve yapılandırması kullanılarak çalışır.
+- `sessionKey` isteğe bağlı (string): Ajanın oturumunu tanımlamak için kullanılan anahtar. Varsayılan olarak bu alan, `hooks.allowRequestSessionKey=true` olmadıkça reddedilir.
 - `wakeMode` isteğe bağlı (`now` | `next-heartbeat`): Anında bir heartbeat tetiklenip tetiklenmeyeceği (varsayılan `now`) ya da bir sonraki periyodik kontrolün beklenmesi.
 - `deliver` isteğe bağlı (boolean): `true` ise, ajanın yanıtı mesajlaşma kanalına gönderilir. Varsayılan `true`. Yalnızca heartbeat onayları olan yanıtlar otomatik olarak atlanır.
 - `channel` isteğe bağlı (string): Teslimat için mesajlaşma kanalı. Şunlardan biri: `last`, `whatsapp`, `telegram`, `discord`, `slack`, `mattermost` (eklenti), `signal`, `imessage`, `msteams`. Varsayılan `last`.
@@ -85,6 +90,40 @@ Etkisi:
 - Her zaman **ana** oturuma bir özet gönderir
 - `wakeMode=now` ise, anında bir heartbeat tetiklenir
 
+## Oturum anahtarı politikası (geriye dönük uyumsuz değişiklik)
+
+`/hooks/agent` yükündeki `sessionKey` geçersiz kılmaları varsayılan olarak devre dışıdır.
+
+- Önerilen: sabit bir `hooks.defaultSessionKey` ayarlayın ve istek bazlı geçersiz kılmaları kapalı tutun.
+- İsteğe bağlı: yalnızca gerektiğinde istek geçersiz kılmalarına izin verin ve önekleri kısıtlayın.
+
+Önerilen yapılandırma:
+
+```json5
+{
+  hooks: {
+    enabled: true,
+    token: "${OPENCLAW_HOOKS_TOKEN}",
+    defaultSessionKey: "hook:ingress",
+    allowRequestSessionKey: false,
+    allowedSessionKeyPrefixes: ["hook:"],
+  },
+}
+```
+
+Uyumluluk yapılandırması (eski davranış):
+
+```json5
+{
+  hooks: {
+    enabled: true,
+    token: "${OPENCLAW_HOOKS_TOKEN}",
+    allowRequestSessionKey: true,
+    allowedSessionKeyPrefixes: ["hook:"], // şiddetle tavsiye edilir
+  },
+}
+```
+
 ### `POST /hooks/<name>` (eşlenmiş)
 
 Özel hook adları `hooks.mappings` üzerinden çözülür (yapılandırmaya bakın). Bir eşleme,
@@ -95,10 +134,17 @@ Eşleme seçenekleri (özet):
 - `hooks.presets: ["gmail"]` yerleşik Gmail eşlemesini etkinleştirir.
 - `hooks.mappings`, yapılandırmada `match`, `action` ve şablonları tanımlamanıza olanak tanır.
 - `hooks.transformsDir` + `transform.module`, özel mantık için bir JS/TS modülü yükler.
+  - `hooks.transformsDir` (ayarlanmışsa) OpenClaw yapılandırma dizininiz altındaki transforms kök dizini içinde kalmalıdır (genellikle `~/.openclaw/hooks/transforms`).
+  - `transform.module`, etkin transforms dizini içinde çözümlenmelidir (dizin geçişi/kaçış yolları reddedilir).
 - Genel bir ingest uç noktasını (yük güdümlü yönlendirme) korumak için `match.source` kullanın.
 - TS dönüşümleri, çalışma zamanında bir TS yükleyici (örn. `bun` veya `tsx`) ya da önceden derlenmiş `.js` gerektirir.
 - Yanıtları bir sohbet yüzeyine yönlendirmek için eşlemelerde `deliver: true` + `channel`/`to` ayarlayın
   (`channel` varsayılan olarak `last`’dir ve WhatsApp’a geri düşer).
+- `agentId`, hook’u belirli bir agente yönlendirir; bilinmeyen kimlikler varsayılan agente geri döner.
+- `hooks.allowedAgentIds`, açık `agentId` yönlendirmesini kısıtlar. Herhangi bir agente izin vermek için bunu boş bırakın (veya `*` ekleyin). Açık `agentId` yönlendirmesini reddetmek için `[]` ayarlayın.
+- `hooks.defaultSessionKey`, açık bir anahtar sağlanmadığında hook agent çalıştırmaları için varsayılan oturumu belirler.
+- `hooks.allowRequestSessionKey`, `/hooks/agent` yüklerinin `sessionKey` ayarlayıp ayarlayamayacağını kontrol eder (varsayılan: `false`).
+- `hooks.allowedSessionKeyPrefixes`, istek yüklerinden ve eşlemelerden gelen açık `sessionKey` değerlerini isteğe bağlı olarak kısıtlar.
 - `allowUnsafeExternalContent: true`, bu hook için harici içerik güvenliği sarmalayıcısını devre dışı bırakır
   (tehlikelidir; yalnızca güvenilir dahili kaynaklar için).
 - `openclaw webhooks gmail setup`, `openclaw webhooks gmail run` için `hooks.gmail` yapılandırmasını yazar.
@@ -109,6 +155,7 @@ Eşleme seçenekleri (özet):
 - `/hooks/wake` için `200`
 - `/hooks/agent` için `202` (eşzamansız çalıştırma başlatıldı)
 - Kimlik doğrulama hatasında `401`
+- Aynı istemciden tekrarlanan kimlik doğrulama hatalarından sonra `429` (bkz. `Retry-After`)
 - Geçersiz yükte `400`
 - Aşırı büyük yüklerde `413`
 
@@ -152,9 +199,11 @@ curl -X POST http://127.0.0.1:18789/hooks/gmail \
 
 - Hook uç noktalarını local loopback, tailnet veya güvenilir bir ters proxy arkasında tutun.
 - Ayrı bir hook belirteci kullanın; gateway kimlik doğrulama belirteçlerini yeniden kullanmayın.
+- Tekrarlanan kimlik doğrulama hataları, kaba kuvvet denemelerini yavaşlatmak için istemci adresi başına hız sınırlamasına tabi tutulur.
+- Çoklu agent yönlendirmesi kullanıyorsanız, açık `agentId` seçimini sınırlamak için `hooks.allowedAgentIds` ayarlayın.
+- Çağıran tarafından seçilen oturumlara ihtiyaç duymadığınız sürece `hooks.allowRequestSessionKey=false` olarak bırakın.
+- İstek `sessionKey` özelliğini etkinleştirirseniz, `hooks.allowedSessionKeyPrefixes` değerini kısıtlayın (örneğin, `["hook:"]`).
 - Webhook günlüklerine hassas ham yükleri dahil etmekten kaçının.
 - Hook yükleri varsayılan olarak güvenilmeyen kabul edilir ve güvenlik sınırlarıyla sarılır.
   Belirli bir hook için bunu devre dışı bırakmanız gerekiyorsa, o hook’un eşlemesinde `allowUnsafeExternalContent: true` ayarlayın
   (tehlikelidir).
-
-

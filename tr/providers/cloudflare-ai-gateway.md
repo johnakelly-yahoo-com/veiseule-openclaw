@@ -1,5 +1,9 @@
 ---
 title: "Cloudflare AI Gateway"
+summary: "Cloudflare AI Gateway kurulumu (kimlik doğrulama + model seçimi)"
+read_when:
+  - OpenClaw ile Cloudflare AI Gateway kullanmak istiyorsunuz
+  - Hesap kimliği, gateway kimliği veya API anahtarı ortam değişkenine ihtiyacınız var
 ---
 
 # Cloudflare AI Gateway
@@ -65,5 +69,3 @@ Cloudflare’da Gateway kimlik doğrulamasını etkinleştirdiyseniz, `cf-aig-au
 ## Ortam notu
 
 Gateway bir daemon (launchd/systemd) olarak çalışıyorsa, `CLOUDFLARE_AI_GATEWAY_API_KEY`’un bu süreç tarafından erişilebilir olduğundan emin olun (örneğin, `~/.openclaw/.env` içinde veya `env.shellEnv` aracılığıyla).
-
-

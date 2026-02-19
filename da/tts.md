@@ -1,4 +1,9 @@
 ---
+summary: "Tekst-til-tale (TTS) til udgående svar"
+read_when:
+  - Aktivering af tekst-til-tale for svar
+  - Konfiguration af TTS-udbydere eller grænser
+  - Brug af /tts-kommandoer
 title: "Tekst-til-tale"
 ---
 
@@ -387,5 +392,3 @@ Gateway-metoder:
 - `tts.convert`
 - `tts.setProvider`
 - `tts.providers`
-
-

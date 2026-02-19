@@ -1,12 +1,10 @@
 ---
-title: 严格配置验证
-x-i18n:
-  generated_at: "2026-02-03T10:08:51Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 5bc7174a67d2234e763f21330d8fe3afebc23b2e5c728a04abcc648b453a91cc
-  source_path: refactor/strict-config.md
-  workflow: 15
+summary: "严格配置验证 + 仅通过 doctor 进行迁移"
+read_when:
+  - 设计或实现配置验证行为
+  - 处理配置迁移或 doctor 工作流
+  - 处理插件配置 schema 或插件加载门控
+title: "严格配置验证"
 ---
 
 # 严格配置验证（仅通过 doctor 进行迁移）
@@ -26,7 +24,7 @@ x-i18n:
 ## 严格验证规则
 
 - 配置必须在每个层级精确匹配 schema。
-- 未知键是验证错误（根级或嵌套都不允许透传）。
+- 未知键将被视为验证错误（根级或嵌套级均不允许透传），但当根级 `$schema` 为字符串时除外。
 - `plugins.entries.<id>.config` 必须由插件的 schema 验证。
   - 如果插件缺少 schema，**拒绝插件加载**并显示清晰的错误。
 - 未知的 `channels.<id>` 键是错误，除非插件清单声明了该渠道 id。
@@ -69,7 +67,7 @@ x-i18n:
 
 其他所有命令必须硬失败并显示："Config invalid. Run `openclaw doctor --fix`."
 
-## 错误用户体验格式
+## Error UX format
 
 - 单个摘要标题。
 - 分组部分：
@@ -93,5 +91,3 @@ x-i18n:
 - 插件缺少 schema → 插件加载被阻止并显示清晰错误。
 - 无效配置 → Gateway 网关启动被阻止，诊断命令除外。
 - Doctor dry-run 自动运行；`doctor --fix` 写入修正后的配置。
-
-

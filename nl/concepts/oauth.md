@@ -1,4 +1,10 @@
 ---
+summary: "OAuth in OpenClaw: tokenuitwisseling, opslag en patronen voor meerdere accounts"
+read_when:
+  - Je wilt OAuth in OpenClaw van begin tot eind begrijpen
+  - Je loopt tegen problemen aan met token-invalidatie / uitloggen
+  - Je wilt setup-token- of OAuth-authenticatiestromen
+  - Je wilt meerdere accounts of profilerouting
 title: "OAuth"
 ---
 
@@ -137,5 +143,3 @@ Gerelateerde documentatie:
 
 - [/concepts/model-failover](/concepts/model-failover) (rotatie + cooldown-regels)
 - [/tools/slash-commands](/tools/slash-commands) (opdrachtinterface)
-
-

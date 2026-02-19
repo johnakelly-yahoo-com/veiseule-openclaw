@@ -1,4 +1,9 @@
 ---
+summary: "Comportement de streaming et de découpage (réponses par blocs, streaming de brouillon, limites)"
+read_when:
+  - Expliquer comment le streaming ou le découpage fonctionne sur les canaux
+  - Modifier le streaming par blocs ou le comportement de découpage par canal
+  - Déboguer les réponses par blocs dupliquées/prématurées ou le streaming de brouillon
 title: "Streaming et découpage"
 ---
 
@@ -104,17 +109,17 @@ Rappel d’emplacement de configuration : les valeurs par défaut `blockStreamin
 
 Telegram est le seul canal avec streaming de brouillon :
 
-- Utilise l’API Bot `sendMessageDraft` dans les **chats privés avec sujets**.
+- Utilise l’API Bot `sendMessage` (première mise à jour) + `editMessageText` (mises à jour suivantes).
 - `channels.telegram.streamMode: "partial" | "block" | "off"`.
   - `partial` : mises à jour du brouillon avec le dernier texte streamé.
   - `block` : mises à jour du brouillon par blocs découpés (mêmes règles de découpage).
   - `off` : pas de streaming de brouillon.
 - Configuration du découpage du brouillon (uniquement pour `streamMode: "block"`) : `channels.telegram.draftChunk` (valeurs par défaut : `minChars: 200`, `maxChars: 800`).
-- Le streaming de brouillon est distinct du streaming par blocs ; les réponses par blocs sont désactivées par défaut et ne sont activées par `*.blockStreaming: true` que sur les canaux non Telegram.
-- La réponse finale reste un message normal.
+- Le streaming d’aperçu est distinct du streaming par blocs.
+- Lorsque le streaming de brouillon est actif, OpenClaw désactive le streaming par blocs pour cette réponse afin d’éviter un double streaming.
+- Les messages finaux contenant uniquement du texte sont appliqués en modifiant le message d’aperçu sur place.
+- Les messages finaux non textuels ou complexes reviennent à un envoi de message final normal.
 - `/reasoning stream` écrit le raisonnement dans la bulle de brouillon (Telegram uniquement).
-
-Lorsque le streaming de brouillon est actif, OpenClaw désactive le streaming par blocs pour cette réponse afin d’éviter un double streaming.
 
 ```
 Telegram (private + topics)
@@ -126,7 +131,5 @@ Telegram (private + topics)
 
 Légende :
 
-- `sendMessageDraft` : bulle de brouillon Telegram (pas un vrai message).
-- `final reply` : envoi de message Telegram normal.
-
-
+- `preview message` : message Telegram temporaire mis à jour pendant la génération.
+- `final edit` : modification sur place du même message d’aperçu (texte uniquement).

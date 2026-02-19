@@ -1,8 +1,11 @@
 ---
+summary: "Capacités d’OpenClaw à travers les canaux, le routage, les médias et l’UX."
+read_when:
+  - Vous voulez une liste complete de ce que prend en charge OpenClaw
 title: "Fonctionnalites"
 ---
 
-## Points forts
+## Highlights
 
 <Columns>
   <Card title="Channels" icon="message-square">
@@ -54,5 +57,3 @@ title: "Fonctionnalites"
 Les chemins herites Claude, Codex, Gemini et Opencode ont ete supprimes. Pi est le seul
 chemin d’agent de codage.
 </Note>
-
-

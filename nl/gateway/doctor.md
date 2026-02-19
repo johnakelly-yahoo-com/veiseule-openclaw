@@ -1,4 +1,8 @@
 ---
+summary: "Doctor-opdracht: healthchecks, config-migraties en reparatiestappen"
+read_when:
+  - Het toevoegen of wijzigen van doctor-migraties
+  - Het introduceren van ingrijpende configwijzigingen
 title: "Dokter"
 ---
 
@@ -275,5 +279,3 @@ als de werkruimte nog niet onder git staat.
 
 Zie [/concepts/agent-workspace](/concepts/agent-workspace) voor een volledige gids over
 werkruimtestructuur en git-back-up (aanbevolen: privé GitHub of GitLab).
-
-

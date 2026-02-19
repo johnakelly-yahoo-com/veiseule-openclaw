@@ -1,12 +1,15 @@
 ---
+summary: "Tlon／Urbit 的支援狀態、功能與設定"
+read_when:
+  - 進行 Tlon／Urbit 頻道功能開發時
 title: "Tlon"
 ---
 
 # Tlon（外掛）
 
-6. Tlon 是一個建立在 Urbit 上的去中心化即時通訊軟體。 7. OpenClaw 會連接到你的 Urbit ship，並且可以
-   回應私訊與群組聊天訊息。 8. 群組回覆預設需要 @ 提及，且可以
-   透過允許清單進一步限制。
+Tlon 是一個建立在 Urbit 上的去中心化即時通訊軟體。 7. OpenClaw 會連接到你的 Urbit ship，並且可以
+回應私訊與群組聊天訊息。 8. 群組回覆預設需要 @ 提及，且可以
+透過允許清單進一步限制。
 
 9. 狀態：透過外掛支援。 10. 私訊、群組提及、串內回覆，以及僅文字的媒體備援
    （URL 會附加在說明文字後）。 11. 不支援表情反應、投票與原生媒體上傳。
@@ -52,9 +55,25 @@ openclaw plugins install ./extensions/tlon
 }
 ```
 
+私有／LAN ship URL（進階）：
+
+預設情況下，OpenClaw 會封鎖此 plugin 的私人／內部主機名稱與 IP 範圍（SSRF 強化）。
+若你的 ship URL 位於私人網路（例如 `http://192.168.1.50:8080` 或 `http://localhost:8080`），
+你必須明確啟用：
+
+```json5
+{
+  channels: {
+    tlon: {
+      allowPrivateNetwork: true,
+    },
+  },
+}
+```
+
 ## 群組頻道
 
-15. 自動探索預設為啟用。 16. 你也可以手動釘選頻道：
+自動探索預設為啟用。 16. 你也可以手動釘選頻道：
 
 ```json5
 {
@@ -127,5 +146,3 @@ openclaw plugins install ./extensions/tlon
 - 群組回覆需要提及（例如 `~your-bot-ship`）才會回應。
 - 串內回覆：若傳入訊息位於討論串中，OpenClaw 會在串內回覆。
 - 媒體：`sendMedia` 會退回為文字＋URL（不支援原生上傳）。
-
-

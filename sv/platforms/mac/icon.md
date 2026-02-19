@@ -1,4 +1,7 @@
 ---
+summary: "Menyradsikonens tillstånd och animationer för OpenClaw på macOS"
+read_when:
+  - Ändra beteende för menyradsikonen
 title: "Menyradsikon"
 ---
 
@@ -26,5 +29,3 @@ Beteendenoteringar
 
 - Ingen extern CLI-/broker‑växling för öron/arbete; håll det internt till appens egna signaler för att undvika oavsiktligt flaxande.
 - Håll TTL:er korta (&lt;10 s) så att ikonen snabbt återgår till basläget om ett jobb hänger sig.
-
-

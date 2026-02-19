@@ -1,10 +1,15 @@
 ---
+summary: "web_fetch کے لیے Firecrawl فال بیک (اینٹی بوٹ + کیشڈ استخراج)"
+read_when:
+  - آپ Firecrawl پر مبنی ویب استخراج چاہتے ہیں
+  - آپ کو Firecrawl API کلید درکار ہے
+  - آپ web_fetch کے لیے اینٹی بوٹ استخراج چاہتے ہیں
 title: "Firecrawl"
 ---
 
 # Firecrawl
 
-OpenClaw **Firecrawl** کو `web_fetch` کے لیے بطور fallback extractor استعمال کر سکتا ہے۔ یہ ایک ہوسٹڈ
+OpenClaw can use **Firecrawl** as a fallback extractor for `web_fetch`. It is a hosted
 content extraction service that supports bot circumvention and caching, which helps
 with JS-heavy sites or pages that block plain HTTP fetches.
 
@@ -36,11 +41,11 @@ with JS-heavy sites or pages that block plain HTTP fetches.
 نوٹس:
 
 - جب API کلید موجود ہو تو `firecrawl.enabled` بطورِ طے شدہ true ہوتا ہے۔
-- `maxAgeMs` کنٹرول کرتا ہے کہ cached نتائج کتنے پرانے ہو سکتے ہیں (ms)۔ ڈیفالٹ 2 دن ہے۔
+- `maxAgeMs` controls how old cached results can be (ms). Default is 2 days.
 
 ## اسٹیلتھ / بوٹ سے بچاؤ
 
-Firecrawl ایک **proxy mode** پیرامیٹر فراہم کرتا ہے جو بوٹس سے بچاؤ کے لیے ہے (`basic`, `stealth`, یا `auto`)۔
+Firecrawl exposes a **proxy mode** parameter for bot circumvention (`basic`, `stealth`, or `auto`).
 OpenClaw always uses `proxy: "auto"` plus `storeInCache: true` for Firecrawl requests.
 If proxy is omitted, Firecrawl defaults to `auto`. `auto` retries with stealth proxies if a basic attempt fails, which may use more credits
 than basic-only scraping.
@@ -54,5 +59,3 @@ than basic-only scraping.
 3. بنیادی HTML صفائی (آخری فال بیک)
 
 مکمل ویب ٹول سیٹ اپ کے لیے [Web tools](/tools/web) دیکھیں۔
-
-

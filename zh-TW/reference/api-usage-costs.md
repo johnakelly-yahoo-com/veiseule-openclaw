@@ -1,17 +1,23 @@
 ---
+summary: "稽核哪些項目可能花費金錢、使用了哪些金鑰，以及如何檢視用量"
+read_when:
+  - 你想了解哪些功能可能會呼叫付費 API
+  - 你需要稽核金鑰、成本與用量可視性
+  - 你正在說明 /status 或 /usage 的成本回報
 title: "API 使用與成本"
 ---
 
 # API 使用與成本
 
 本文件列出**可能會呼叫 API keys 的功能**以及其費用顯示的位置。重點在於
+OpenClaw features that can generate provider usage or paid API calls. It focuses on
 OpenClaw features that can generate provider usage or paid API calls.
 
 ## 成本顯示位置（聊天 + CLI）
 
 **每個工作階段的成本快照**
 
-- `/status` 會顯示目前的工作階段模型、上下文使用量，以及最近一次回應的 token 數。
+- `/status` shows the current session model, context usage, and last response tokens.
 - 若模型使用 **API-key 身分驗證**，`/status` 也會顯示最後一則回覆的**預估成本**。
 
 **每則訊息的成本頁尾**
@@ -42,13 +48,14 @@ OpenClaw 可以從以下來源取得認證：
 
 每次回覆或工具呼叫都會使用**目前的模型提供者**（OpenAI、Anthropic 等）。這是
 用量與成本的主要來源。 This is the
+primary source of usage and cost. This is the
 primary source of usage and cost.
 
 價格設定請參閱 [Models](/providers/models)，顯示方式請參閱 [Token use & costs](/reference/token-use)。
 
 ### 2. 媒體理解（音訊 / 影像 / 影片）
 
-在回覆執行之前，傳入的媒體可以先進行摘要／轉錄。這會使用模型／供應商的 API。
+Inbound media can be summarized/transcribed before the reply runs. This uses model/provider APIs.
 
 - 音訊：OpenAI / Groq / Deepgram（現在在存在金鑰時**自動啟用**）。
 - 影像：OpenAI / Anthropic / Google。
@@ -96,6 +103,7 @@ primary source of usage and cost.
 
 ### 6. 提供者用量快照（status / health）
 
+Some status commands call **provider usage endpoints** to display quota windows or auth health.
 某些狀態指令會呼叫**供應商使用量端點**，以顯示配額視窗或驗證狀態。
 These are typically low-volume calls but still hit provider APIs:
 
@@ -127,9 +135,7 @@ invokes provider APIs when it runs.
 
 ### 10. Skills（第三方 API）
 
-Skills 可以將 `apiKey` 儲存在 `skills.entries.<name>.apiKey` 關聯的環境變數名稱。 If a skill uses that key for external
+Skills 可以將 `apiKey` 儲存在 `skills.entries.<name>.apiKey` 關聯的環境變數名稱。 .apiKey\` 關聯的環境變數名稱。 If a skill uses that key for external
 APIs, it can incur costs according to the skill’s provider.
 
 請參閱 [Skills](/tools/skills)。
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "통합 브라우저 제어 서비스 + 액션 명령"
+read_when:
+  - 에이전트 제어 브라우저 자동화를 추가할 때
+  - openclaw 가 자신의 Chrome 에 간섭하는 이유를 디버깅할 때
+  - macOS 앱에서 브라우저 설정 + 라이프사이클을 구현할 때
 title: "Browser (OpenClaw 관리)"
 ---
 
@@ -185,6 +190,7 @@ API 키로 인증할 수 있습니다.
 핵심 개념:
 
 - 브라우저 제어는 루프백 전용이며, 접근은 Gateway 인증 또는 노드 페어링을 통해 흐릅니다.
+- 브라우저 제어가 활성화되어 있고 인증이 구성되지 않은 경우, OpenClaw는 시작 시 `gateway.auth.token`을 자동 생성하여 config에 저장합니다.
 - Gateway 와 모든 노드 호스트는 사설 네트워크(Tailscale)에 유지하고, 공개 노출을 피하십시오.
 - 원격 CDP URL/토큰은 비밀로 취급하세요; 환경 변수나 시크릿 매니저 사용을 권장합니다.
 
@@ -316,6 +322,11 @@ openclaw browser create-profile \
 
 모든 엔드포인트는 `?profile=<name>` 을 허용합니다.
 
+gateway 인증이 구성된 경우, 브라우저 HTTP 경로에도 인증이 필요합니다:
+
+- `Authorization: Bearer <gateway token>`
+- 샌드박스 세션
+
 ### Playwright 요구 사항
 
 일부 기능(navigate/act/AI 스냅샷/role 스냅샷, 요소 스크린샷, PDF)은
@@ -439,6 +450,11 @@ docker compose run --rm openclaw-cli \
 참고 사항:
 
 - `upload` 및 `dialog` 는 **무장(arming)** 호출입니다. 파일 선택기/다이얼로그를 트리거하는 클릭/프레스 전에 실행하십시오.
+- 다운로드 및 trace 출력 경로는 OpenClaw 임시 루트로 제한됩니다:
+  - traces: `/tmp/openclaw` (대체 경로: `${os.tmpdir()}/openclaw`)
+  - downloads: `/tmp/openclaw/downloads` (대체 경로: `${os.tmpdir()}/openclaw/downloads`)
+- 업로드 경로는 OpenClaw 임시 업로드 루트로 제한됩니다:
+  - 스냅샷과 참조
 - `upload` 는 `--input-ref` 또는 `--element` 를 통해
   파일 입력을 직접 설정할 수도 있습니다.
 - `snapshot`:
@@ -596,5 +612,3 @@ Linux 관련 문제(특히 snap Chromium)의 경우,
 
 이를 통해 에이전트는 결정론성을 유지하고,
 취약한 선택자를 피할 수 있습니다.
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "Ciclo de vida do agent loop, streams e semântica de espera"
+read_when:
+  - Você precisa de um passo a passo exato do agent loop ou dos eventos do ciclo de vida
 title: "Loop do Agente"
 ---
 
@@ -141,5 +144,3 @@ Veja [Plugins](/tools/plugin#plugin-hooks) para a API de hooks e detalhes de reg
 - AbortSignal (cancelamento)
 - Desconexão do Gateway ou timeout de RPC
 - Timeout de `agent.wait` (apenas espera, não interrompe o agente)
-
-

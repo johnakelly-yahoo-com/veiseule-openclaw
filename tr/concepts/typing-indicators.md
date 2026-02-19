@@ -1,4 +1,7 @@
 ---
+summary: "OpenClaw'ın yazma göstergelerini ne zaman gösterdiği ve bunların nasıl ayarlanacağı"
+read_when:
+  - Yazma göstergesi davranışını veya varsayılanlarını değiştirirken
 title: "Yazma Göstergeleri"
 ---
 
@@ -63,5 +66,3 @@ Oturum bazında modu veya aralığı geçersiz kılabilirsiniz:
 - Heartbeat’ler, moddan bağımsız olarak asla yazma göstermez.
 - `typingIntervalSeconds`, **yenileme aralığını** kontrol eder, başlangıç zamanını değil.
   Varsayılan 6 saniyedir.
-
-

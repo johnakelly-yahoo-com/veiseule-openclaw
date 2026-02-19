@@ -1,4 +1,8 @@
 ---
+summary: "Dépannage rapide du niveau du canal avec les signatures d'échec par canal et corrections"
+read_when:
+  - Un canal se connecte mais les messages ne circulent pas
+  - Vous avez besoin de vérifications spécifiques au canal avant la documentation du fournisseur profond
 title: "Depannage des canaux"
 ---
 
@@ -37,11 +41,12 @@ WhatsApp : [/channels/whatsapp#troubleshooting-quick](/channels/whatsapp#trouble
 
 ### Signatures d'échec de Telegram
 
-| Symptôme                                       | Contrôle le plus rapide                                             | Correctif                                                                                                                                                                                                                                |
-| ---------------------------------------------- | ------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `/start` mais aucun flux de réponse utilisable | `openclaw pairing list telegram`                                    | Approuver l'appairage ou la modification de la politique de DM.                                                                                                                                                          |
-| Bot en ligne mais le groupe reste silencieux   | Vérifier l'exigence de mention et le mode de confidentialité du bot | Désactiver le mode confidentialité pour la visibilité des groupes ou le bot de mention                                                                                                                                                   |
-| Échecs d'envoi avec erreurs de réseau          | Inspecter les logs pour les échecs d'appel de l'API Telegram        | Si `api.telegram.org` se resout d’abord en IPv6 et que l’hote ne dispose pas de sortie IPv6, forcez IPv4 ou activez IPv6. Voir [/channels/telegram#troubleshooting](/channels/telegram#troubleshooting). |
+| Symptôme                                                       | Contrôle le plus rapide                                                 | Correctif                                                                                                                                                                                                                                |
+| -------------------------------------------------------------- | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `/start` mais aucun flux de réponse utilisable                 | `openclaw pairing list telegram`                                        | Approuver l'appairage ou la modification de la politique de DM.                                                                                                                                                          |
+| Bot en ligne mais le groupe reste silencieux                   | Vérifier l'exigence de mention et le mode de confidentialité du bot     | Désactiver le mode confidentialité pour la visibilité des groupes ou le bot de mention                                                                                                                                                   |
+| Échecs d'envoi avec erreurs de réseau                          | Inspecter les logs pour les échecs d'appel de l'API Telegram            | Si `api.telegram.org` se resout d’abord en IPv6 et que l’hote ne dispose pas de sortie IPv6, forcez IPv4 ou activez IPv6. Voir [/channels/telegram#troubleshooting](/channels/telegram#troubleshooting). |
+| Mise à niveau effectuée et la liste d’autorisation vous bloque | `openclaw security audit` et les listes d’autorisation de configuration | Exécutez `openclaw doctor --fix` ou remplacez `@username` par des IDs d’expéditeur numériques.                                                                                                                           |
 
 Telegram : [/channels/telegram#troubleshooting](/channels/telegram#troubleshooting)
 
@@ -94,7 +99,7 @@ Dépannage complet :
 | DM bloqués                                     | `openclaw pairing list signal`                                          | Approuver l'expéditeur ou ajuster la politique de DM.               |
 | Les réponses de groupe ne sont pas déclenchées | Vérifier les listes d'autorisations du groupe et les modèles de mention | Ajouter l'expéditeur/groupe ou la porte en douceur.                 |
 
-Raccourcis de depannage specifiques aux canaux (Discord/Telegram/WhatsApp)
+channels/troubleshooting.md
 
 ## Matrix
 
@@ -107,5 +112,3 @@ Raccourcis de depannage specifiques aux canaux (Discord/Telegram/WhatsApp)
 | Échec du chiffrement des salles               | Vérifier les paramètres de cryptage et de cryptage                                                                                                                                                                                                            | Activer la prise en charge du chiffrement et la salle de rejointure/synchronisation. |
 
 Dépannage complet : [/channels/matrix#troubleshooting](/channels/matrix#troubleshooting)
-
-

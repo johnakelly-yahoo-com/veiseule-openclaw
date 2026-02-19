@@ -1,10 +1,15 @@
 ---
+summary: "ตำแหน่งที่OpenClawโหลดตัวแปรสภาพแวดล้อมและลำดับความสำคัญ"
+read_when:
+  - คุณต้องการทราบว่ามีการโหลดenv varsใดบ้างและตามลำดับใด
+  - คุณกำลังแก้ไขปัญหาคีย์APIหายไปในGateway
+  - คุณกำลังจัดทำเอกสารการยืนยันตัวตนของผู้ให้บริการหรือสภาพแวดล้อมการปรับใช้
 title: "ตัวแปรสภาพแวดล้อม"
 ---
 
 # ตัวแปรสภาพแวดล้อม
 
-OpenClawดึงตัวแปรสภาพแวดล้อมจากหลายแหล่ง กฎคือ **ไม่เขียนทับค่าที่มีอยู่แล้ว** เด็ดขาด The rule is **never override existing values**.
+OpenClawดึงตัวแปรสภาพแวดล้อมจากหลายแหล่ง กฎคือ **ไม่เขียนทับค่าที่มีอยู่แล้ว** เด็ดขาด OpenClawดึงตัวแปรสภาพแวดล้อมจากหลายแหล่ง กฎคือ **ไม่เขียนทับค่าที่มีอยู่แล้ว** เด็ดขาด The rule is **never override existing values**.
 
 ## ลำดับความสำคัญ(สูงสุด→ต่ำสุด)
 
@@ -71,19 +76,19 @@ OpenClawดึงตัวแปรสภาพแวดล้อมจากห
 
 ## ตัวแปรสภาพแวดล้อมที่เกี่ยวข้องกับพาธ
 
-| ตัวแปร                 | วัตถุประสงค์                                                                                                                                                                             |
-| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `OPENCLAW_HOME`        | กำหนดทับไดเรกทอรี home ที่ใช้สำหรับการแก้พาธภายในทั้งหมด (`~/.openclaw/`, ไดเรกทอรีเอเจนต์, เซสชัน, ข้อมูลรับรอง) มีประโยชน์เมื่อรัน OpenClaw ในฐานะผู้ใช้บริการเฉพาะ |
-| `OPENCLAW_STATE_DIR`   | กำหนดทับไดเรกทอรีสถานะ (ค่าเริ่มต้น `~/.openclaw`)                                                                                                                    |
-| `OPENCLAW_CONFIG_PATH` | กำหนดพาธไฟล์คอนฟิกเอง (ค่าเริ่มต้นคือ `~/.openclaw/openclaw.json`)。                                                                                  |
+| ตัวแปร                 | วัตถุประสงค์                                                                                                                                                                                                                                 |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `OPENCLAW_HOME`        | กำหนดทับไดเรกทอรี home ที่ใช้สำหรับการแก้พาธภายในทั้งหมด (`~/.openclaw/`, ไดเรกทอรีเอเจนต์, เซสชัน, ข้อมูลรับรอง) มีประโยชน์เมื่อรัน OpenClaw ในฐานะผู้ใช้บริการเฉพาะ มีประโยชน์เมื่อรัน OpenClaw ในฐานะผู้ใช้บริการเฉพาะ |
+| `OPENCLAW_STATE_DIR`   | กำหนดทับไดเรกทอรีสถานะ (ค่าเริ่มต้น `~/.openclaw`)                                                                                                                                                                        |
+| `OPENCLAW_CONFIG_PATH` | Override the config file path (default `~/.openclaw/openclaw.json`).                                                                                                                                      |
 
 ### `OPENCLAW_HOME`
 
-เมื่อกำหนดค่าแล้ว `OPENCLAW_HOME` จะถูกใช้แทนไดเรกทอรีโฮมของระบบ (`$HOME` / `os.homedir()`) สำหรับการจัดการพาธภายในทั้งหมด ช่วยให้สามารถแยกระบบไฟล์ได้อย่างสมบูรณ์สำหรับบัญชีบริการแบบ headless.
+When set, `OPENCLAW_HOME` replaces the system home directory (`$HOME` / `os.homedir()`) for all internal path resolution. This enables full filesystem isolation for headless service accounts.
 
-**ลำดับความสำคัญ:** `OPENCLAW_HOME` > `$HOME` > `USERPROFILE` > `os.homedir()`
+**Precedence:** `OPENCLAW_HOME` > `$HOME` > `USERPROFILE` > `os.homedir()`
 
-**ตัวอย่าง** (macOS LaunchDaemon):
+**Example** (macOS LaunchDaemon):
 
 ```xml
 <key>EnvironmentVariables</key>
@@ -93,12 +98,10 @@ OpenClawดึงตัวแปรสภาพแวดล้อมจากห
 </dict>
 ```
 
-สามารถตั้งค่า `OPENCLAW_HOME` ให้เป็นพาธที่ใช้เครื่องหมายทิลดาได้ (เช่น `~/svc`) ซึ่งจะถูกขยายโดยใช้ `$HOME` ก่อนนำไปใช้งาน.
+`OPENCLAW_HOME` can also be set to a tilde path (e.g. `~/svc`), which gets expanded using `$HOME` before use.
 
 ## เกี่ยวข้อง
 
-- [การกำหนดค่า Gateway](/gateway/configuration)
-- [คำถามที่พบบ่อย: ตัวแปรสภาพแวดล้อมและการโหลด .env](/help/faq#env-vars-and-env-loading)
-- [ภาพรวมโมเดล](/concepts/models)
-
-
+- [Gateway configuration](/gateway/configuration)
+- [FAQ: env vars and .env loading](/help/faq#env-vars-and-env-loading)
+- [Models overview](/concepts/models)

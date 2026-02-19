@@ -1,4 +1,8 @@
 ---
+summary: "Zintegrowany Tailscale Serve/Funnel dla panelu Gateway"
+read_when:
+  - Udostępnianie interfejsu sterowania Gateway poza localhost
+  - Automatyzacja dostępu do panelu w tailnecie lub publicznie
 title: "Tailscale"
 ---
 
@@ -120,5 +124,3 @@ Unikaj Funnel do sterowania przeglądarką; traktuj parowanie węzłów jak dost
 - Polecenie `tailscale serve`: [https://tailscale.com/kb/1242/tailscale-serve](https://tailscale.com/kb/1242/tailscale-serve)
 - Przegląd Tailscale Funnel: [https://tailscale.com/kb/1223/tailscale-funnel](https://tailscale.com/kb/1223/tailscale-funnel)
 - Polecenie `tailscale funnel`: [https://tailscale.com/kb/1311/tailscale-funnel](https://tailscale.com/kb/1311/tailscale-funnel)
-
-

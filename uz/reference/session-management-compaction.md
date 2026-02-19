@@ -1,4 +1,9 @@
 ---
+summary: "Chuqur tahlil: sessiya ombori + transkriptlar, hayotiy sikl va (avto)kompaktatsiya ichki mexanizmlari"
+read_when:
+  - Sessiya identifikatorlari, transcript JSONL yoki sessions.json maydonlarini nosozlikdan chiqarishingiz kerak bo‘lsa
+  - Avto-kompaktatsiya xatti-harakatini o‘zgartirayotgan bo‘lsangiz yoki “pre-compaction” xizmat ishlarini qo‘shayotgan bo‘lsangiz
+  - Xotira flush’larini yoki jim system turn’larni joriy qilmoqchi bo‘lsangiz
 title: "Sessiyalarni Boshqarish: Chuqur Tahlil"
 ---
 
@@ -84,7 +89,7 @@ Asosiy qoidalar:
 
 - **Reset** (`/new`, `/reset`) ushbu `sessionKey` uchun yangi `sessionId` yaratadi.
 - **Kundalik reset** (standart: Gateway xostining lokal vaqti bilan 4:00) reset chegarasidan keyingi birinchi xabarda yangi `sessionId` yaratadi.
-- **Idle muddati tugashi** (`session.reset.idleMinutes` yoki eski `session.idleMinutes`) idle oynasidan keyin xabar kelganda yangi `sessionId` yaratadi. Agar kundalik + idle ikkalasi ham sozlangan bo‘lsa, birinchi tugagan ustun bo‘ladi.
+- **Idle expiry** (`session.reset.idleMinutes` or legacy `session.idleMinutes`) creates a new `sessionId` when a message arrives after the idle window. When daily + idle are both configured, whichever expires first wins.
 
 Implementatsiya tafsiloti: qaror `src/auto-reply/reply/session.ts` ichidagi `initSessionState()` da qabul qilinadi.
 
@@ -162,7 +167,7 @@ Kompaktatsiyadan keyin, keyingi turn’lar quyidagilarni ko‘radi:
 - Kompaktatsiya xulosasi
 - `firstKeptEntryId` dan keyingi xabarlar
 
-Kompaktatsiya **doimiy** (sessiya pruning’dan farqli). Qarang: [/concepts/session-pruning](/concepts/session-pruning).
+Kompaktsiya **doimiy** (sessiya pruningidan farqli o‘laroq). Qarang: [/concepts/session-pruning](/concepts/session-pruning).
 
 ---
 
@@ -270,12 +275,10 @@ flush logikasi hozircha Gateway tomonida joylashgan.
 
 ## Muammolarni bartaraf etish ro‘yxati
 
-- Sessiya kaliti noto‘g‘rimi? [/concepts/session](/concepts/session) dan boshlang va `/status` dagi `sessionKey` ni tekshiring.
-- Ombor va transkript mos kelmayaptimi? Gateway xostini va `openclaw status` dagi ombor yo‘lini tekshiring.
-- Kompaktatsiya juda tez-tezmi? Tekshiring:
+- Sessiya kaliti noto‘g‘rimi? [/concepts/session](/concepts/session) dan boshlang va `/status` dagi `sessionKey` ni tasdiqlang.
+- Saqlash (store) va transkript mos kelmayaptimi? `openclaw status` dan Gateway xosti va saqlash yo‘lini tasdiqlang.
+- Siqish (compaction) haddan tashqari ko‘pmi? Tekshiring:
   - model kontekst oynasi (juda kichik emasmi)
   - kompaktatsiya sozlamalari (`reserveTokens` model oynasiga nisbatan juda yuqori bo‘lsa, erta kompaktatsiya bo‘lishi mumkin)
   - tool-result hajmi: session pruning’ni yoqing/moslang
-- Jim turn’lar chiqib ketayaptimi? Javob aynan `NO_REPLY` bilan boshlanishini va streaming bostirish tuzatmasi mavjud build’dan foydalanayotganingizni tekshiring.
-
-
+- Jim navbatlar sizib chiqyaptimi? Javob `NO_REPLY` (aniq token) bilan boshlanishini va siz streaming bostirish tuzatishi kiritilgan buildda ekaningizni tasdiqlang.

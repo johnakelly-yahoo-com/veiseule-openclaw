@@ -1,4 +1,7 @@
 ---
+summary: "Katayuan ng suporta ng Google Chat app, mga kakayahan, at konpigurasyon"
+read_when:
+  - Gumagawa sa mga feature ng Google Chat channel
 title: "Google Chat"
 ---
 
@@ -149,6 +152,7 @@ I-configure ang ingress rules ng iyong tunnel upang iruta lamang ang webhook pat
 Gamitin ang mga identifier na ito para sa delivery at allowlists:
 
 - Direct messages: `users/<userId>` o `users/<email>` (tinatanggap ang mga email address).
+- Hindi na ginagamit: ang `users/<email>` ay itinuturing na user id, hindi bilang email allowlist.
 - Spaces: `spaces/<spaceId>`.
 
 ## Mga highlight ng config
@@ -245,5 +249,3 @@ Kaugnay na docs:
 - [Gateway configuration](/gateway/configuration)
 - [Security](/gateway/security)
 - [Reactions](/tools/reactions)
-
-

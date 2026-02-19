@@ -1,4 +1,8 @@
 ---
+summary: "Feishu botuna genel bakış, özellikler ve yapılandırma"
+read_when:
+  - Bir Feishu/Lark botu bağlamak istiyorsunuz
+  - Feishu kanalını yapılandırıyorsunuz
 title: Feishu
 ---
 
@@ -86,7 +90,7 @@ Lark (küresel) kiracıları [https://open.larksuite.com/app](https://open.larks
 **Credentials & Basic Info** bölümünden şunları kopyalayın:
 
 - **Uygulama Kimliği** (biçim: `cli_xxx`)
-- **Uygulama Gizli Anahtarı**
+- **App Secret**
 
 ❗ **Önemli:** App Secret’ı gizli tutun.
 
@@ -528,9 +532,9 @@ Temel seçenekler:
 | ------------------------------------------------- | ------------------------------------------------------------------------- | ---------- |
 | `channels.feishu.enabled`                         | Kanalı etkinleştir/devre dışı bırak                                       | `true`     |
 | `channels.feishu.domain`                          | API alan adı (`feishu` veya `lark`)                    | `feishu`   |
-| `channels.feishu.accounts.<id>.appId`             | App ID                                                                    | -          |
-| `channels.feishu.accounts.<id>.appSecret`         | App Secret                                                                | -          |
-| `channels.feishu.accounts.<id>.domain`            | Per-account API domain override                                           | `feishu`   |
+| `channels.feishu.accounts.&lt;id&gt;.appId`             | App ID                                                                    | -          |
+| `channels.feishu.accounts.&lt;id&gt;.appSecret`         | App Secret                                                                | -          |
+| `channels.feishu.accounts.&lt;id&gt;.domain`            | Per-account API domain override                                           | `feishu`   |
 | `channels.feishu.dmPolicy`                        | DM politikası                                                             | `pairing`  |
 | `channels.feishu.allowFrom`                       | DM izin listesi (open_id listesi) | -          |
 | `channels.feishu.groupPolicy`                     | Grup politikası                                                           | `open`     |
@@ -574,5 +578,3 @@ Temel seçenekler:
 - ✅ Dosyalar
 - ✅ Ses
 - ⚠️ Zengin metin (kısmi destek)
-
-

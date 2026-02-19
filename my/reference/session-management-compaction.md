@@ -1,4 +1,9 @@
 ---
+summary: "နက်ရှိုင်းစွာရှင်းလင်းချက်: session store + transcript များ၊ lifecycle နှင့် (auto)compaction အတွင်းပိုင်းလုပ်ဆောင်ပုံ"
+read_when:
+  - Session id များ၊ transcript JSONL သို့မဟုတ် sessions.json fields များကို debug လုပ်ရန် လိုအပ်သောအခါ
+  - Auto-compaction အပြုအမူကို ပြောင်းလဲနေစဉ် သို့မဟုတ် “pre-compaction” housekeeping ကို ထည့်သွင်းနေစဉ်
+  - Memory flush များ သို့မဟုတ် silent system turns များကို အကောင်အထည်ဖော်လိုသည့်အခါ
 title: "Session Management နက်ရှိုင်းစွာရှင်းလင်းချက်"
 ---
 
@@ -277,5 +282,3 @@ flush logic lives on the Gateway side today.
   - compaction settings (`reserveTokens` too high for the model window can cause earlier compaction)
   - tool-result bloat: enable/tune session pruning
 - Silent turns leaking? Confirm the reply starts with `NO_REPLY` (exact token) and you’re on a build that includes the streaming suppression fix.
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "Supportstatus, Fähigkeiten und Konfiguration für Nextcloud Talk"
+read_when:
+  - Arbeiten an Funktionen des Nextcloud-Talk-Kanals
 title: "Nextcloud Talk"
 ---
 
@@ -136,5 +139,3 @@ Anbieteroptionen:
 - `channels.nextcloud-talk.blockStreaming`: Block-Streaming für diesen Kanal deaktivieren.
 - `channels.nextcloud-talk.blockStreamingCoalesce`: Tuning für das Zusammenführen von Block-Streaming.
 - `channels.nextcloud-talk.mediaMaxMb`: Limit für eingehende Medien (MB).
-
-

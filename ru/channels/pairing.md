@@ -1,8 +1,13 @@
 ---
-title: "Сопряжение"
+summary: "Обзор парсинга: подтвердите, кто может ТМ + какие узлы могут присоединиться"
+read_when:
+  - Настройка контроля доступа к личным сообщениям
+  - Сопряжение нового узла iOS/Android
+  - Проверка уровня безопасности OpenClaw
+title: "Pairing"
 ---
 
-# Сопряжение
+# Pairing
 
 «Сопряжение» — это явный шаг **подтверждения владельцем** в OpenClaw.
 Он используется в двух местах:
@@ -96,5 +101,3 @@ openclaw devices reject <requestId>
   - iMessage (legacy): [iMessage](/channels/imessage)
   - Discord: [Discord](/channels/discord)
   - Slack: [Slack](/channels/slack)
-
-

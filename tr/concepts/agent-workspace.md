@@ -1,4 +1,8 @@
 ---
+summary: "Ajan çalışma alanı: konum, düzen ve yedekleme stratejisi"
+read_when:
+  - Ajan çalışma alanını veya dosya düzenini açıklamanız gerektiğinde
+  - Bir ajan çalışma alanını yedeklemek veya taşımak istediğinizde
 title: "Ajan çalışma alanı"
 ---
 
@@ -79,7 +83,7 @@ Bunlar OpenClaw’ın çalışma alanı içinde beklediği standart dosyalardır
   - Bootstrap ritüeli sırasında oluşturulur/güncellenir.
 
 - `TOOLS.md`
-  - Yerel araçlarınız ve çalışma kurallarınız hakkında notlar.
+  - Notes about your local tools and conventions.
   - Araç kullanılabilirliğini kontrol etmez; yalnızca rehberliktir.
 
 - `HEARTBEAT.md`
@@ -118,7 +122,7 @@ kısaltılır; sınırı `agents.defaults.bootstrapMaxChars` ile ayarlayın (var
 `openclaw setup`, mevcut dosyaların üzerine yazmadan eksik varsayılanları
 yeniden oluşturabilir.
 
-## Çalışma alanında OLMAYANLAR
+## What is NOT in the workspace
 
 Bunlar `~/.openclaw/` altında bulunur ve çalışma alanı deposuna
 kesinlikle commit edilmemelidir:
@@ -230,5 +234,3 @@ sırrı başka bir yerde tutun (parola yöneticisi, ortam değişkenleri veya
   [Kanal yönlendirme](/channels/channel-routing) bölümüne bakın.
 - `agents.defaults.sandbox` etkinse, ana olmayan oturumlar `agents.defaults.sandbox.workspaceRoot` altında
   oturum başına sandbox çalışma alanlarını kullanabilir.
-
-

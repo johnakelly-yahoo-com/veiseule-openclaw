@@ -1,4 +1,8 @@
 ---
+summary: "web_search için Perplexity Sonar kurulumu"
+read_when:
+  - Web araması için Perplexity Sonar kullanmak istiyorsunuz
+  - PERPLEXITY_API_KEY veya OpenRouter kurulumu yapmanız gerekiyor
 title: "Perplexity Sonar"
 ---
 
@@ -72,5 +76,3 @@ Herhangi bir temel URL ayarlanmamışsa, OpenClaw API anahtarının kaynağına 
 - `perplexity/sonar-reasoning-pro` — derin araştırma
 
 Tam web_search yapılandırması için [Web araçları](/tools/web) bölümüne bakın.
-
-

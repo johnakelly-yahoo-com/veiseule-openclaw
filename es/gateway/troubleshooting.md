@@ -1,4 +1,8 @@
 ---
+summary: "Runbook de solución de problemas en profundidad para gateway, canales, automatización, nodos y navegador"
+read_when:
+  - El hub de solución de problemas lo dirigió aquí para un diagnóstico más profundo
+  - Necesita secciones estables del runbook basadas en síntomas con comandos exactos
 title: "Solución de problemas"
 ---
 
@@ -105,7 +109,7 @@ Busque:
 
 Firmas comunes:
 
-- `Gateway start blocked: set gateway.mode=local` → el modo de gateway local no está habilitado.
+- `Gateway start blocked: set gateway.mode=local` → el modo de gateway local no está habilitado. Solución: establece `gateway.mode="local"` en tu configuración (o ejecuta `openclaw configure`). Si estás ejecutando OpenClaw mediante Podman usando el usuario dedicado `openclaw`, la configuración se encuentra en `~openclaw/.openclaw/openclaw.json`.
 - `refusing to bind gateway ... without auth` → enlace no loopback sin token/contraseña.
 - `another gateway instance is already listening` / `EADDRINUSE` → conflicto de puertos.
 
@@ -312,5 +316,3 @@ Relacionado:
 - [/gateway/pairing](/gateway/pairing)
 - [/gateway/authentication](/gateway/authentication)
 - [/gateway/background-process](/gateway/background-process)
-
-

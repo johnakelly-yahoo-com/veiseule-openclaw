@@ -1,10 +1,14 @@
 ---
+summary: "میسجنگ پلیٹ فارمز جن سے OpenClaw منسلک ہو سکتا ہے"
+read_when:
+  - آپ OpenClaw کے لیے چیٹ چینل منتخب کرنا چاہتے ہوں
+  - آپ کو معاون میسجنگ پلیٹ فارمز کا فوری جائزہ درکار ہو
 title: "چیٹ چینلز"
 ---
 
 # چیٹ چینلز
 
-OpenClaw آپ سے کسی بھی چیٹ ایپ پر بات کر سکتا ہے جسے آپ پہلے سے استعمال کرتے ہیں۔ ہر چینل Gateway کے ذریعے منسلک ہوتا ہے۔
+OpenClaw can talk to you on any chat app you already use. Each channel connects via the Gateway.
 Text is supported everywhere; media and reactions vary by channel.
 
 ## معاون چینلز
@@ -29,6 +33,7 @@ Text is supported everywhere; media and reactions vary by channel.
 - [Zalo](/channels/zalo) — Zalo Bot API؛ ویتنام کا مقبول میسنجر (پلگ اِن، الگ سے انسٹال کیا جاتا ہے)۔
 - [Zalo Personal](/channels/zalouser) — QR لاگ اِن کے ذریعے Zalo ذاتی اکاؤنٹ (پلگ اِن، الگ سے انسٹال کیا جاتا ہے)۔
 - [WebChat](/web/webchat) — WebSocket کے ذریعے Gateway WebChat UI۔
+- [WebChat](/web/webchat) — WebSocket کے ذریعے Gateway WebChat UI۔
 
 ## نوٹس
 
@@ -40,5 +45,3 @@ Text is supported everywhere; media and reactions vary by channel.
 - Telegram کے اندرونی نکات: [grammY notes](/channels/grammy)۔
 - خرابیوں کا ازالہ: [Channel troubleshooting](/channels/troubleshooting)۔
 - ماڈل فراہم کنندگان کی دستاویزات الگ ہیں؛ دیکھیں [Model Providers](/providers/models)۔
-
-

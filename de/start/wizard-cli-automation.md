@@ -1,4 +1,8 @@
 ---
+summary: "„Skriptgesteuertes Onboarding und Agent-Einrichtung für die OpenClaw CLI“"
+read_when:
+  - Sie automatisieren das Onboarding in Skripten oder CI
+  - Sie benötigen nicht‑interaktive Beispiele für bestimmte Anbieter
 title: "„CLI‑Automatisierung“"
 sidebarTitle: "„CLI‑Automatisierung“"
 ---
@@ -109,6 +113,26 @@ Fügen Sie `--json` für eine maschinenlesbare Zusammenfassung hinzu.
     ```
   
 </Accordion>
+  <Accordion title="Custom provider example">
+    ```bash
+    openclaw onboard --non-interactive \
+      --mode local \
+      --auth-choice custom-api-key \
+      --custom-base-url "https://llm.example.com/v1" \
+      --custom-model-id "foo-large" \
+      --custom-api-key "$CUSTOM_API_KEY" \
+      --custom-provider-id "my-custom" \
+      --custom-compatibility anthropic \
+      --gateway-port 18789 \
+      --gateway-bind loopback
+    ```
+
+    ```
+    `--custom-api-key` ist optional. Wenn nicht angegeben, prüft das Onboarding `CUSTOM_API_KEY`.
+    ```
+
+  
+</Accordion>
 </AccordionGroup>
 
 ## Weiteren Agent hinzufügen
@@ -142,5 +166,3 @@ Hinweise:
 - Onboarding‑Hub: [Onboarding Wizard (CLI)](/start/wizard)
 - Vollständige Referenz: [CLI‑Onboarding‑Referenz](/start/wizard-cli-reference)
 - Befehlsreferenz: [`openclaw onboard`](/cli/onboard)
-
-

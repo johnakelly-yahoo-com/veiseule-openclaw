@@ -1,5 +1,7 @@
 ---
 title: Sandbox CLI
+summary: "سینڈباکس کنٹینرز کا انتظام کریں اور مؤثر سینڈباکس پالیسی کا معائنہ کریں"
+read_when: "جب آپ سینڈباکس کنٹینرز کا انتظام کر رہے ہوں یا سینڈباکس/ٹول پالیسی کے رویّے کی ڈیبگنگ کر رہے ہوں۔"
 status: active
 ---
 
@@ -112,9 +114,9 @@ openclaw sandbox recreate --agent alfred
 - کنٹینرز صرف 24 گھنٹے غیر فعالی کے بعد prune ہوتے ہیں
 - باقاعدہ استعمال ہونے والے ایجنٹس پرانے کنٹینرز کو غیر معینہ مدت تک چلاتے رہتے ہیں
 
-**حل:** پرانے کنٹینرز کو زبردستی ہٹانے کے لیے `openclaw sandbox recreate` استعمال کریں۔ اگلی بار ضرورت پڑنے پر وہ موجودہ ترتیبات کے ساتھ خود بخود دوبارہ بنا دیے جائیں گے۔
+**Solution:** Use `openclaw sandbox recreate` to force removal of old containers. They'll be recreated automatically with current settings when next needed.
 
-مشورہ: دستی `docker rm` پر `openclaw sandbox recreate` کو ترجیح دیں۔ یہ استعمال کرتا ہے
+Tip: prefer `openclaw sandbox recreate` over manual `docker rm`. It uses the
 Gateway’s container naming and avoids mismatches when scope/session keys change.
 
 ## Configuration
@@ -148,5 +150,3 @@ Gateway’s container naming and avoids mismatches when scope/session keys chang
 - [Sandbox Documentation](/gateway/sandboxing)
 - [Agent Configuration](/concepts/agent-workspace)
 - [Doctor Command](/gateway/doctor) - سینڈباکس سیٹ اپ کی جانچ کریں
-
-

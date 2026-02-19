@@ -1,6 +1,8 @@
 ---
+summary: "OpenClaw एआई एजेंटों के लिए एक मल्टी-चैनल Gateway है जो किसी भी OS पर चलता है।"
+read_when:
+  - नए उपयोगकर्ताओं को OpenClaw का परिचय देते समय
 title: "OpenClaw"
-sidebarTitle: "OpenClaw"
 ---
 
 # OpenClaw 🦞
@@ -209,5 +211,3 @@ Gateway शुरू होने के बाद ब्राउज़र Cont
   
 </Card>
 </Columns>
-
-

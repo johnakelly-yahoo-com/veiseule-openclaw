@@ -1,12 +1,8 @@
 ---
-title: 健康检查
-x-i18n:
-  generated_at: "2026-02-03T07:52:40Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 0560e96501ddf53a499f8960cfcf11c2622fcb9056bfd1bcc57876e955cab03d
-  source_path: platforms/mac/health.md
-  workflow: 15
+summary: "macOS 应用如何报告 Gateway 网关/Baileys 健康状态"
+read_when:
+  - 调试 Mac 应用健康指示器
+title: "健康检查"
 ---
 
 # macOS 上的健康检查
@@ -28,13 +24,11 @@ x-i18n:
 - 使用缓存快照，因此 UI 立即加载，离线时优雅降级。
 - **渠道选项卡**显示渠道状态 + WhatsApp/Telegram 的控制（登录二维码、登出、探测、上次断开/错误）。
 
-## 探测工作原理
+## 探测的工作原理
 
-- 应用每约 60 秒和按需时通过 `ShellExecutor` 运行 `openclaw health --json`。探测加载凭证并报告状态，不发送消息。
+- 应用每约 60 秒和按需时通过 `ShellExecutor` 运行 `openclaw health --json`。探测加载凭证并报告状态，不发送消息。 The probe loads creds and reports status without sending messages.
 - 分别缓存上次成功的快照和上次错误以避免闪烁；显示每个的时间戳。
 
 ## 有疑问时
 
 - 你仍然可以使用 [Gateway 网关健康](/gateway/health) 中的 CLI 流程（`openclaw status`、`openclaw status --deep`、`openclaw health --json`），并在 `/tmp/openclaw/openclaw-*.log` 中跟踪 `web-heartbeat` / `web-reconnect`。
-
-

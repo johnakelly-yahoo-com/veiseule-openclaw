@@ -1,4 +1,8 @@
 ---
+summary: "مرجع CLI لأمر `openclaw devices` (إقران الأجهزة + تدوير/إلغاء رموز الأجهزة)"
+read_when:
+  - أنت توافق على طلبات إقران الأجهزة
+  - تحتاج إلى تدوير رموز الأجهزة أو إلغائها
 title: "الأجهزة"
 ---
 
@@ -64,5 +68,3 @@ openclaw devices revoke --device <deviceId> --role node
 
 - يعيد تدوير الرمز رمزًا جديدًا (حسّاسًا). معاملته كسرا.
 - تتطلب هذه الأوامر نطاق `operator.pairing` (أو `operator.admin`).
-
-

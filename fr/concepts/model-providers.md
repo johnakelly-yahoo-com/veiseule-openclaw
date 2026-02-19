@@ -1,4 +1,8 @@
 ---
+summary: "Vue d’ensemble des fournisseurs de modèles avec des exemples de configurations + des flux CLI"
+read_when:
+  - Vous avez besoin d’une reference de configuration des modeles, fournisseur par fournisseur
+  - Vous voulez des exemples de configurations ou des commandes CLI de prise en main pour les fournisseurs de modeles
 title: "Fournisseurs de modeles"
 ---
 
@@ -116,6 +120,7 @@ configuration `models.providers` ; il suffit de definir l’authentification et 
   - URL de base compatible OpenAI : `https://api.cerebras.ai/v1`.
 - Mistral : `mistral` (`MISTRAL_API_KEY`)
 - GitHub Copilot : `github-copilot` (`COPILOT_GITHUB_TOKEN` / `GH_TOKEN` / `GITHUB_TOKEN`)
+- Hugging Face Inference : `huggingface` (`HUGGINGFACE_HUB_TOKEN` ou `HF_TOKEN`) — routeur compatible OpenAI ; exemple de modèle : `huggingface/deepseek-ai/DeepSeek-R1` ; CLI : `openclaw onboard --auth-choice huggingface-api-key`. Voir [Hugging Face (Inference)](/providers/huggingface).
 
 ## Fournisseurs via `models.providers` (URL personnalisee/de base)
 
@@ -255,6 +260,32 @@ ollama pull llama3.3
 
 Ollama est detecte automatiquement lorsqu’il s’execute localement a `http://127.0.0.1:11434/v1`. Voir [/providers/ollama](/providers/ollama) pour des recommandations de modeles et une configuration personnalisee.
 
+### vLLM
+
+vLLM est un serveur local (ou auto-hébergé) compatible OpenAI :
+
+- Fournisseur : `vllm`
+- Auth : Optionnelle (selon votre serveur)
+- URL de base par défaut : `http://127.0.0.1:8000/v1`
+
+Pour activer l’auto-découverte en local (n’importe quelle valeur fonctionne si votre serveur n’impose pas d’authentification) :
+
+```bash
+export VLLM_API_KEY="vllm-local"
+```
+
+Ensuite, définissez un modèle (remplacez par l’un des identifiants renvoyés par `/v1/models`) :
+
+```json5
+{
+  agents: {
+    defaults: { model: { primary: "vllm/your-model-id" } },
+  },
+}
+```
+
+Voir [/providers/vllm](/providers/vllm) pour plus de détails.
+
 ### Proxys locaux (LM Studio, vLLM, LiteLLM, etc.)
 
 Exemple (compatible OpenAI) :
@@ -310,5 +341,3 @@ openclaw models list
 ```
 
 Voir aussi : [/gateway/configuration](/gateway/configuration) pour des exemples de configuration complets.
-
-

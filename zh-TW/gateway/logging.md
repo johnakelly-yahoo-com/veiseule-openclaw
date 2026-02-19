@@ -1,14 +1,18 @@
 ---
-title: "日誌記錄"
+summary: "記錄輸出介面、檔案日誌、WS 日誌樣式與主控台格式"
+read_when:
+  - 變更記錄輸出或格式時
+  - 偵錯 CLI 或 Gateway 閘道器輸出時
+title: "Logging"
 ---
 
-# 日誌記錄
+# Logging
 
 如需以使用者為導向的概覽（CLI + Control UI + 設定），請參閱 [/logging](/logging)。
 
 OpenClaw 有兩個記錄「介面」：
 
-- **主控台輸出**（你在終端機 / Debug UI 中看到的內容）。
+- **Console output** (what you see in the terminal / Debug UI).
 - **檔案記錄**（JSON lines），由 Gateway 閘道器記錄器寫入。
 
 ## 基於檔案的日誌記錄器
@@ -24,6 +28,7 @@ OpenClaw 有兩個記錄「介面」：
 Control UI 的 Logs 分頁會透過 Gateway 閘道器尾隨（tail）此檔案（`logs.tail`）。
 CLI 也可以執行相同操作：
 CLI can do the same:
+CLI can do the same:
 
 ```bash
 openclaw logs --follow
@@ -37,12 +42,12 @@ openclaw logs --follow
 - 若要在檔案記錄中擷取僅限 verbose 的細節，請將 `logging.level` 設為 `debug` 或
   `trace`。
 
-## 主控台擷取
+## Console capture
 
 CLI 會擷取 `console.log/info/warn/error/debug/trace` 並將其寫入檔案記錄，
 同時仍然輸出至 stdout／stderr。
 
-你可以透過以下方式獨立調整主控台的詳細程度：
+You can tune console verbosity independently via:
 
 - `logging.consoleLevel`（預設 `info`）
 - `logging.consoleStyle`（`pretty` | `compact` | `json`）
@@ -56,7 +61,7 @@ console stream. This is **tools-only** and does not alter file logs.
 - `logging.redactPatterns`：正則表達式字串的陣列（會覆蓋預設值）
   - 使用原始正則字串（自動 `gi`），或在需要自訂旗標時使用 `/pattern/flags`。
   - 比對項會保留前 6 + 後 4 個字元（長度 >= 18）進行遮蔽，否則為 `***`。
-  - 預設涵蓋常見的金鑰指派、CLI 旗標、JSON 欄位、bearer 標頭、PEM 區塊，以及常見的權杖前綴。
+  - Defaults cover common key assignments, CLI flags, JSON fields, bearer headers, PEM blocks, and popular token prefixes.
 
 ## Gateway WebSocket 記錄
 
@@ -94,6 +99,7 @@ openclaw gateway --verbose --ws-log full
 
 主控台格式化器具備 **TTY-aware** 功能，並會輸出一致且帶有前綴的行。
 Subsystem loggers keep output grouped and scannable.
+Subsystem loggers keep output grouped and scannable.
 
 行為：
 
@@ -108,5 +114,3 @@ Subsystem loggers keep output grouped and scannable.
 - **WhatsApp 訊息本文** 會以 `debug` 記錄（使用 `--verbose` 來查看）
 
 這在維持既有檔案日誌穩定的同時，讓互動式輸出更易讀。
-
-

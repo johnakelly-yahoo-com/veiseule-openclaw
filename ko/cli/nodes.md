@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw nodes`에 대한 CLI 참조 (목록/상태/승인/호출, 카메라/캔버스/화면)"
+read_when:
+  - 페어링된 노드 (카메라, 화면, 캔버스)를 관리할 때
+  - 요청을 승인하거나 노드 명령을 호출해야 할 때
 title: "nodes"
 ---
 
@@ -60,12 +64,10 @@ Invoke 플래그:
 플래그:
 
 - `--cwd <path>`: 작업 디렉토리.
-- `--env <key=val>`: env 오버라이드 (반복 가능).
+- `--env <key=val>`: env 오버라이드 (반복 가능). 참고: node 호스트는 `PATH` 재정의를 무시합니다 (`tools.exec.pathPrepend`도 node 호스트에는 적용되지 않음).
 - `--command-timeout <ms>`: 명령 타임아웃.
 - `--invoke-timeout <ms>`: 노드 호출 타임아웃 (기본값 `30000`).
 - `--needs-screen-recording`: 화면 녹화 권한 필요.
 - `--raw <command>`: 셸 문자열 실행 (`/bin/sh -lc` 또는 `cmd.exe /c`).
 - `--agent <id>`: 에이전트 범위 승인/허용 목록 (구성된 에이전트가 기본값).
 - `--ask <off|on-miss|always>`, `--security <deny|allowlist|full>`: 오버라이드.
-
-

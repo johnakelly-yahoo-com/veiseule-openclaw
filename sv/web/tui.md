@@ -1,4 +1,8 @@
 ---
+summary: "Terminal-UI (TUI): anslut till Gateway från vilken maskin som helst"
+read_when:
+  - Du vill ha en nybörjarvänlig genomgång av TUI
+  - Du behöver den kompletta listan över TUI-funktioner, kommandon och genvägar
 title: "TUI"
 ---
 
@@ -156,5 +160,3 @@ Ingen utdata efter att ha skickat ett meddelande:
 - `disconnected`: säkerställ att Gateway körs och att dina `--url/--token/--password` är korrekta.
 - Inga agenter i väljaren: kontrollera `openclaw agents list` och din routningskonfig.
 - Tom sessionsväljare: du kan vara i globalt omfång eller sakna sessioner ännu.
-
-

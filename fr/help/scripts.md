@@ -1,4 +1,8 @@
 ---
+summary: "Scripts du dépôt : objectif, périmètre et notes de sécurité"
+read_when:
+  - Exécuter des scripts depuis le dépôt
+  - Ajouter ou modifier des scripts sous ./scripts
 title: "Scripts"
 ---
 
@@ -22,5 +26,3 @@ Les scripts de surveillance de l’authentification sont documentés ici :
 
 - Gardez les scripts ciblés et documentés.
 - Ajoutez une courte entrée dans la documentation pertinente (ou créez‑en une si elle manque).
-
-

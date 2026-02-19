@@ -1,4 +1,8 @@
 ---
+summary: "Gmail Pub/Sub-push kopplad till OpenClaw-webhooks via gogcli"
+read_when:
+  - Koppla Gmail-inkorgstriggers till OpenClaw
+  - Konfigurera Pub/Sub-push för agentväckning
 title: "Gmail PubSub"
 ---
 
@@ -250,5 +254,3 @@ gog gmail watch stop --account openclaw@gmail.com
 gcloud pubsub subscriptions delete gog-gmail-watch-push
 gcloud pubsub topics delete gog-gmail-watch
 ```
-
-

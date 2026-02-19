@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw o‘rnatilmasini bir mashinadan boshqasiga ko‘chirish (migratsiya)"
+read_when:
+  - Siz OpenClaw’ni yangi noutbuk/serverga ko‘chiryapsiz
+  - Siz sessiyalarni, autentifikatsiyani va kanal loginlarini (WhatsApp va boshqalar) saqlab qolmoqchisiz
 title: "Migratsiya qo‘llanmasi"
 ---
 
@@ -32,7 +36,7 @@ Agar ishonchingiz komil bo‘lmasa, **eski** kompyuterda quyidagini ishga tushir
 openclaw status
 ```
 
-Chiqishda `OPENCLAW_STATE_DIR` / profil tilga olingan joylarni qidiring. Agar bir nechta Gateway ishga tushirgan bo‘lsangiz, har bir profil uchun takrorlang.
+Look for mentions of `OPENCLAW_STATE_DIR` / profile in the output. If you run multiple gateways, repeat for each profile.
 
 ### 2. Identify your workspace
 
@@ -132,7 +136,7 @@ openclaw status
 
 10. Agar eski gateway’ni profil (yoki `OPENCLAW_STATE_DIR`) bilan ishga tushirgan bo‘lsangiz va yangi gateway boshqasidan foydalansa, quyidagi alomatlarni ko‘rasiz:
 
-- 11. konfiguratsiya o‘zgarishlari kuchga kirmaydi
+- Yechim: migratsiya qilingan **xuddi shu** profil/state dir’dan foydalanib gateway/xizmatni ishga tushiring, so‘ng yana ishga tushiring:
 - 12. kanallar yo‘qolgan / tizimdan chiqib ketgan
 - 13. bo‘sh sessiya tarixi
 
@@ -146,8 +150,8 @@ openclaw status
 
 17. `openclaw.json` yetarli emas. 18. Ko‘plab provayderlar holatni quyida saqlaydi:
 
-- 19. `$OPENCLAW_STATE_DIR/credentials/`
-- 20. `$OPENCLAW_STATE_DIR/agents/<agentId>/...`
+- `$OPENCLAW_STATE_DIR/credentials/`
+- `$OPENCLAW_STATE_DIR/agents/<agentId>/...`
 
 21. Har doim butun `$OPENCLAW_STATE_DIR` papkasini migratsiya qiling.
 
@@ -168,7 +172,7 @@ openclaw status
 
 30. `$OPENCLAW_STATE_DIR` ichida sirlar mavjud (API kalitlari, OAuth tokenlari, WhatsApp credential’lari). 31. Zaxira nusxalarini ishlab chiqarish sirlaridek ko‘ring:
 
-- 32. shifrlangan holda saqlang
+- Yangi mashinada quyidagilarni tasdiqlang:
 - 33. xavfsiz bo‘lmagan kanallar orqali ulashishdan saqlaning
 - 34. oshkor bo‘lganidan shubhalansangiz, kalitlarni aylantiring
 
@@ -183,8 +187,6 @@ openclaw status
 
 ## 41. Bog‘liq
 
-- 42. [Doctor](/gateway/doctor)
+- [Doctor](/gateway/doctor)
 - 43. [Gateway nosozliklarini bartaraf etish](/gateway/troubleshooting)
 - 44. [OpenClaw ma’lumotlarini qayerda saqlaydi?](/help/faq#where-does-openclaw-store-its-data)
-
-

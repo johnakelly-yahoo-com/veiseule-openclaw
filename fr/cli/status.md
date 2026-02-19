@@ -1,4 +1,8 @@
 ---
+summary: "Reference CLI pour `openclaw status` (diagnostics, sondes, instantanes d'utilisation)"
+read_when:
+  - Vous voulez un diagnostic rapide de l'etat des canaux et des destinataires de sessions recentes
+  - Vous voulez un statut "tout" pour le débogage
 title: "statut"
 ---
 
@@ -20,5 +24,3 @@ Notes :
 - La vue d'ensemble inclut l'etat d'installation et d'execution du service hote du nœud et du Gateway (passerelle) lorsque disponible.
 - La vue d'ensemble inclut le canal de mise a jour + le SHA git (pour les installations depuis les sources).
 - Les informations de mise a jour apparaissent dans la vue d'ensemble ; si une mise a jour est disponible, le statut affiche un indice pour executer `openclaw update` (voir [Updating](/install/updating)).
-
-

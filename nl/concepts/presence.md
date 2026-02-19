@@ -1,4 +1,9 @@
 ---
+summary: "Hoe OpenClaw-presencevermeldingen worden geproduceerd, samengevoegd en weergegeven"
+read_when:
+  - Debuggen van het tabblad Instances
+  - Onderzoeken van dubbele of verouderde instancerijen
+  - Wijzigen van gateway WS-connectie of systeemgebeurtenis-beacons
 title: "Aanwezigheid"
 ---
 
@@ -85,5 +90,3 @@ De macOS‑app rendert de uitvoer van `system-presence` en past een kleine statu
   - bevestig dat clients een stabiele `client.instanceId` in de handshake sturen
   - bevestig dat periodieke beacons dezelfde `instanceId` gebruiken
   - controleer of de van de verbinding afgeleide vermelding `instanceId` mist (duplicaten zijn dan te verwachten)
-
-

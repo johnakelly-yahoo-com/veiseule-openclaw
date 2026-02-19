@@ -1,4 +1,8 @@
 ---
+summary: "Kør OpenClaw Gateway på exe.dev (VM + HTTPS-proxy) for fjernadgang"
+read_when:
+  - Du vil have en billig Linux-vært, der altid er tændt, til Gateway
+  - Du vil have fjernadgang til Control UI uden at køre din egen VPS
 title: "exe.dev"
 ---
 
@@ -102,7 +106,7 @@ server {
 Adgang `https://<vm-name>.exe.xyz/` (se UI-udgang fra onboarding). Hvis det beder om auth, indsæt
 token fra `gateway.auth.token` på VM (hente med `openclaw config få gateway. uth.token`, eller generere en
 med `openclaw læge --generate-gateway-token`). Godkend enheder med 'openclaw enheder list' og
-'openclaw enheder godkende &lt;requestId&gt;\`. Når i tvivl, brug Shelley fra din browser!
+'openclaw enheder godkende <requestId>\`. Når i tvivl, brug Shelley fra din browser!
 
 ## Fjernadgang
 
@@ -120,5 +124,3 @@ openclaw health
 ```
 
 Guide: [Opdatering](/install/updating)
-
-

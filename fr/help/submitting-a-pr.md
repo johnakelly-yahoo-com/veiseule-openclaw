@@ -1,4 +1,5 @@
 ---
+summary: "Comment soumettre une PR à fort signal"
 title: "Soumettre une PR"
 ---
 
@@ -272,7 +273,7 @@ pnpm format
 - Agent notes:
 ```
 
-### Performance
+### Perf
 
 ```md
 #### Summary
@@ -395,5 +396,3 @@ pnpm format
 - Submitter effort:
 - Agent notes:
 ```
-
-

@@ -1,4 +1,8 @@
 ---
+summary: Node + tsx "__name is not a function" ပျက်ကွက်မှုဆိုင်ရာ မှတ်စုများနှင့် ဖြေရှင်းနည်းများ
+read_when:
+  - Node-only dev စကရစ်များ သို့မဟုတ် watch mode ပျက်ကွက်မှုများကို Debug လုပ်နေချိန်
+  - OpenClaw တွင် tsx/esbuild loader ပျက်ကွက်မှုများကို စုံစမ်းစစ်ဆေးနေချိန်
 title: "Node + tsx ပျက်ကွက်မှု"
 ---
 
@@ -82,5 +86,3 @@ node --import tsx scripts/repro/tsx-name-repro.ts
 - Node 25 regression ကို အတည်ပြုရန် Node 22/24 တွင် Repro လုပ်ပါ။
 - သိရှိပြီးသား regression ရှိပါက `tsx` nightly ကို စမ်းသပ်ပါ သို့မဟုတ် အရင်ဗားရှင်းသို့ pin လုပ်ပါ။
 - Node LTS တွင်ပါ ပြန်လည်ဖြစ်ပေါ်ပါက `__name` stack trace ဖြင့် upstream သို့ minimal repro တစ်ခု တင်သွင်းပါ။
-
-

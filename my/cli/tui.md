@@ -1,4 +1,8 @@
 ---
+summary: "Gateway နှင့် ချိတ်ဆက်ထားသော `openclaw tui` (terminal UI) အတွက် CLI ကိုးကားချက်"
+read_when:
+  - Gateway အတွက် terminal UI (အဝေးမှ အသုံးပြုရန် အဆင်ပြေ)
+  - script များမှ url/token/session ကို ပို့ချင်သောအခါ
 title: "tui"
 ---
 
@@ -17,5 +21,3 @@ openclaw tui
 openclaw tui --url ws://127.0.0.1:18789 --token <token>
 openclaw tui --session main --deliver
 ```
-
-

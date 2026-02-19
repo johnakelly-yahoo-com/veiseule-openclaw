@@ -1,4 +1,8 @@
 ---
+summary: "เวิร์กโฟลว์ Bun(ทดลอง): การติดตั้งและข้อควรระวังเมื่อเทียบกับ pnpm"
+read_when:
+  - คุณต้องการลูปการพัฒนาในเครื่องที่เร็วที่สุด(bun + watch)
+  - คุณพบปัญหา Bun ในขั้นตอนติดตั้ง/แพตช์/สคริปต์ lifecycle
 title: "Bun(ทดลอง)"
 ---
 
@@ -7,7 +11,7 @@ title: "Bun(ทดลอง)"
 เป้าหมาย: รันรีโปนี้ด้วย **Bun** (ไม่บังคับ และไม่แนะนำสำหรับ WhatsApp/Telegram)
 โดยไม่แยกออกจากเวิร์กโฟลว์ pnpm
 
-⚠️ **ไม่แนะนำสำหรับ Gateway runtime** (มีบั๊กกับ WhatsApp/Telegram) ให้ใช้ Node สำหรับโปรดักชัน Use Node for production.
+⚠️ **ไม่แนะนำสำหรับ Gateway runtime** (มีบั๊กกับ WhatsApp/Telegram) ให้ใช้ Node สำหรับโปรดักชัน Use Node for production. Use Node for production.
 
 ## สถานะ
 
@@ -23,7 +27,7 @@ title: "Bun(ทดลอง)"
 bun install
 ```
 
-หมายเหตุ: `bun.lock`/`bun.lockb` ถูก gitignore ดังนั้นจะไม่ทำให้รีโปมีการเปลี่ยนแปลงไม่ว่าทางไหน หากต้องการ _ไม่ให้มีการเขียน lockfile_: If you want _no lockfile writes_:
+หมายเหตุ: `bun.lock`/`bun.lockb` ถูก gitignore ดังนั้นจะไม่ทำให้รีโปมีการเปลี่ยนแปลงไม่ว่าทางไหน หากต้องการ _ไม่ให้มีการเขียน lockfile_: If you want _no lockfile writes_: If you want _no lockfile writes_:
 
 ```sh
 bun install --no-save
@@ -50,8 +54,6 @@ Bun อาจบล็อกสคริปต์ lifecycle ของ dependency
 bun pm trust @whiskeysockets/baileys protobufjs
 ```
 
-## ข้อควรระวัง
+## Caveats
 
 - สคริปต์บางส่วนยังฮาร์ดโค้ด pnpm อยู่ (เช่น `docs:build`, `ui:*`, `protocol:check`). ให้รันสคริปต์เหล่านั้นผ่าน pnpm ไปก่อน
-
-

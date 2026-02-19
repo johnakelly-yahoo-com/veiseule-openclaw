@@ -1,4 +1,8 @@
 ---
+summary: "براؤزر آٹومیشن کے لیے دستی لاگ اِن + X/Twitter پر پوسٹنگ"
+read_when:
+  - آپ کو براؤزر آٹومیشن کے لیے سائٹس میں لاگ اِن کرنے کی ضرورت ہو
+  - آپ X/Twitter پر اپڈیٹس پوسٹ کرنا چاہتے ہوں
 title: "براؤزر لاگ اِن"
 ---
 
@@ -8,13 +12,13 @@ title: "براؤزر لاگ اِن"
 
 جب کسی سائٹ پر لاگ اِن درکار ہو تو **ہوسٹ** براؤزر پروفائل (openclaw براؤزر) میں **خود دستی طور پر سائن اِن کریں**۔
 
-ماڈل کو اپنے اسناد (credentials) ہرگز **نہ** دیں۔ خودکار لاگ اِن اکثر اینٹی بوٹ دفاعی نظام کو متحرک کر دیتے ہیں اور اکاؤنٹ لاک ہو سکتا ہے۔
+Do **not** give the model your credentials. Automated logins often trigger anti‑bot defenses and can lock the account.
 
 مرکزی براؤزر دستاویزات پر واپس جائیں: [Browser](/tools/browser)۔
 
 ## کون سا Chrome پروفائل استعمال ہوتا ہے؟
 
-OpenClaw ایک **مخصوص Chrome پروفائل** (جس کا نام `openclaw` ہے، نارنجی رنگت والا UI) کو کنٹرول کرتا ہے۔ یہ آپ کے روزمرہ براؤزر پروفائل سے الگ ہے۔
+OpenClaw controls a **dedicated Chrome profile** (named `openclaw`, orange‑tinted UI). This is separate from your daily browser profile.
 
 اس تک رسائی کے دو آسان طریقے:
 
@@ -35,9 +39,9 @@ openclaw browser open https://x.com
 
 ## Sandboxing + ہوسٹ براؤزر رسائی
 
-سینڈ باکسڈ براؤزر سیشنز میں بوٹ ڈیٹیکشن فعال ہونے کا امکان **زیادہ** ہوتا ہے۔ X/Twitter (اور دیگر سخت سائٹس) کے لیے **host** براؤزر کو ترجیح دیں۔
+Sandboxed browser sessions are **more likely** to trigger bot detection. For X/Twitter (and other strict sites), prefer the **host** browser.
 
-اگر ایجنٹ سینڈ باکسڈ ہو تو براؤزر ٹول بطورِ ڈیفالٹ سینڈ باکس استعمال کرتا ہے۔ ہوسٹ کنٹرول کی اجازت دینے کے لیے:
+If the agent is sandboxed, the browser tool defaults to the sandbox. To allow host control:
 
 ```json5
 {
@@ -61,5 +65,3 @@ openclaw browser open https://x.com --browser-profile openclaw --target host
 ```
 
 یا اپڈیٹس پوسٹ کرنے والے ایجنٹ کے لیے sandboxing غیر فعال کر دیں۔
-
-

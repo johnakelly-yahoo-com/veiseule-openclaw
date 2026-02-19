@@ -1,4 +1,8 @@
 ---
+summary: "Invocar una sola herramienta directamente a través del endpoint HTTP del Gateway"
+read_when:
+  - Llamar herramientas sin ejecutar un turno completo del agente
+  - Crear automatizaciones que necesiten la aplicación de políticas de herramientas
 title: "API de Invocación de Herramientas"
 ---
 
@@ -21,6 +25,7 @@ Notas:
 
 - Cuando `gateway.auth.mode="token"`, use `gateway.auth.token` (o `OPENCLAW_GATEWAY_TOKEN`).
 - Cuando `gateway.auth.mode="password"`, use `gateway.auth.password` (o `OPENCLAW_GATEWAY_PASSWORD`).
+- Si `gateway.auth.rateLimit` está configurado y se producen demasiados fallos de autenticación, el endpoint devuelve `429` con `Retry-After`.
 
 ## Cuerpo de la solicitud
 
@@ -54,6 +59,28 @@ La disponibilidad de herramientas se filtra mediante la misma cadena de polític
 
 Si una herramienta no está permitida por la política, el endpoint devuelve **404**.
 
+Gateway HTTP también aplica una lista de denegación estricta por defecto (incluso si la política de sesión permite la herramienta):
+
+- `sessions_spawn`
+- `sessions_send`
+- `gateway`
+- `whatsapp_login`
+
+Puede personalizar esta lista de denegación mediante `gateway.tools`:
+
+```json5
+{
+  gateway: {
+    tools: {
+      // Herramientas adicionales para bloquear a través de HTTP /tools/invoke
+      deny: ["browser"],
+      // Eliminar herramientas de la lista de denegación predeterminada
+      allow: ["gateway"],
+    },
+  },
+}
+```
+
 Para ayudar a que las políticas de grupo resuelvan el contexto, puede establecer opcionalmente:
 
 - `x-openclaw-message-channel: <channel>` (ejemplo: `slack`, `telegram`)
@@ -64,8 +91,10 @@ Para ayudar a que las políticas de grupo resuelvan el contexto, puede establece
 - `200` → `{ ok: true, result }`
 - `400` → `{ ok: false, error: { type, message } }` (solicitud inválida o error de la herramienta)
 - `401` → no autorizado
+- `429` → autenticación limitada por tasa (`Retry-After` establecido)
 - `404` → herramienta no disponible (no encontrada o no en la lista de permitidos)
 - `405` → método no permitido
+- `500` → `{ ok: false, error: { type, message } }` (error inesperado en la ejecución de la herramienta; mensaje saneado)
 
 ## Ejemplo
 
@@ -79,5 +108,3 @@ curl -sS http://127.0.0.1:18789/tools/invoke \
     "args": {}
   }'
 ```
-
-

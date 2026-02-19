@@ -1,4 +1,7 @@
 ---
+summary: "Nav som länkar till varje OpenClaw-dokument"
+read_when:
+  - Du vill ha en komplett karta över dokumentationen
 title: "Dokumentnav"
 ---
 
@@ -192,5 +195,3 @@ Använd dessa nav för att upptäcka varje sida, inklusive djupdykningar och ref
 - [Testning](/reference/test)
 - [Checklista för release](/reference/RELEASING)
 - [Enhetsmodeller](/reference/device-models)
-
-

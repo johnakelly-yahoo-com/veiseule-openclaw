@@ -1,4 +1,5 @@
 ---
+summary: "Jak przesłać PR o wysokiej wartości informacyjnej"
 title: "Przesyłanie PR"
 ---
 
@@ -272,7 +273,7 @@ pnpm format
 - Agent notes:
 ```
 
-### Wydajność
+### Perf
 
 ```md
 #### Summary
@@ -395,5 +396,3 @@ pnpm format
 - Submitter effort:
 - Agent notes:
 ```
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Mga JSON-only na LLM task para sa workflows (opsyonal na plugin tool)"
+read_when:
+  - Gusto mo ng JSON-only na LLM step sa loob ng workflows
+  - Kailangan mo ng schema-validated na LLM output para sa automation
 title: "LLM Task"
 ---
 
@@ -109,5 +113,3 @@ openclaw.invoke --tool llm-task --action json --args-json '{
 - Walang mga tool na inilalantad sa model para sa run na ito.
 - Ituring ang output bilang hindi pinagkakatiwalaan maliban kung i-validate mo gamit ang `schema`.
 - Ilagay ang mga approval bago ang anumang step na may side effect (send, post, exec).
-
-

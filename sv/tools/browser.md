@@ -1,4 +1,9 @@
 ---
+summary: "Integrerad webbläsarkontrolltjänst + åtgärdskommandon"
+read_when:
+  - Lägga till agentstyrd webbläsarautomation
+  - Felsöka varför openclaw stör din egen Chrome
+  - Implementera webbläsarinställningar + livscykel i macOS-appen
 title: "Webbläsare (OpenClaw-hanterad)"
 ---
 
@@ -189,6 +194,7 @@ Grundidéer:
 - Webbläsarkontroll är endast loopback; åtkomst går via Gatewayns autentisering eller node‑parning.
 - Håll Gateway och eventuella node‑värdar på ett privat nätverk (Tailscale); undvik publik exponering.
 - Behandla fjärr‑CDP‑URL:er/tokens som hemligheter; föredra miljövariabler eller en hemlighetshanterare.
+- Behandla fjärr‑CDP‑URL:er/tokens som hemligheter; föredra miljövariabler eller en hemlighetshanterare.
 
 Tips för fjärr‑CDP:
 
@@ -310,6 +316,11 @@ Endast för lokala integrationer exponerar Gateway ett litet loopback‑HTTP‑A
 
 Alla endpoints accepterar `?profile=<name>`.
 
+Om gateway-autentisering är konfigurerad kräver webbläsarens HTTP-rutter också autentisering:
+
+- `Authorization: Bearer <gateway token>`
+- `x-openclaw-password: <gateway password>` eller HTTP Basic-autentisering med det lösenordet
+
 ### Playwright‑krav
 
 Vissa funktioner (navigera/agera/AI-ögonblicksbilder/rollbilder, elementskärmdumpar, PDF) kräver
@@ -337,7 +348,8 @@ För att hålla fast vid webbläsarhämtningar, sätt `PLAYWRIGHT_BROWSERS_PATH`
 
 ## Hur det fungerar (internt)
 
-Övergripande flöde:
+Denna design håller agenten på ett stabilt, deterministiskt gränssnitt samtidigt som
+du kan byta lokala/fjärrwebbläsare och profiler.
 
 - En liten **kontrollserver** tar emot HTTP‑förfrågningar.
 - Den ansluter till Chromium‑baserade webbläsare (Chrome/Brave/Edge/Chromium) via **CDP**.
@@ -353,7 +365,7 @@ du kan byta lokala/fjärrwebbläsare och profiler.
 Alla kommandon accepterar `--browser-profile <name>` för att rikta en specifik profil.
 Alla kommandon accepterar också `--json` för maskinläsbar utdata (stabila nyttolaster).
 
-Grunder:
+Inspektion:
 
 - `openclaw browser status`
 - `openclaw browser start`
@@ -367,7 +379,7 @@ Grunder:
 - `openclaw browser focus abcd1234`
 - `openclaw browser close abcd1234`
 
-Inspektion:
+Åtgärder:
 
 - `openclaw browser screenshot`
 - `openclaw browser screenshot --full-page`
@@ -386,7 +398,7 @@ Inspektion:
 - `openclaw browser pdf`
 - `openclaw browser responsebody "**/api" --max-chars 5000`
 
-Åtgärder:
+Tillstånd:
 
 - `openclaw browser navigate https://example.com`
 - `openclaw browser resize 1280 720`
@@ -398,9 +410,9 @@ Inspektion:
 - `openclaw browser scrollintoview e12`
 - `openclaw browser drag 10 11`
 - `openclaw browser select 9 OptionA OptionB`
-- `openclaw browser download e12 /tmp/report.pdf`
-- `openclaw browser waitfordownload /tmp/report.pdf`
-- `openclaw browser upload /tmp/file.pdf`
+- `openclaw browser download e12 report.pdf`
+- `openclaw browser waitfordownload report.pdf`
+- `openclaw browser upload /tmp/openclaw/uploads/file.pdf`
 - `openclaw browser fill --fields '[{"ref":"1","type":"text","value":"Ada"}]'`
 - `openclaw browser dialog --accept`
 - `openclaw browser wait --text "Done"`
@@ -410,7 +422,7 @@ Inspektion:
 - `openclaw browser trace start`
 - `openclaw browser trace stop`
 
-Tillstånd:
+Noteringar:
 
 - `openclaw browser cookies`
 - `openclaw browser cookies set session abc123 --url "https://example.com"`
@@ -433,6 +445,11 @@ Noteringar:
 
 - `upload` och `dialog` är **armerings**‑anrop; kör dem före klick/tryck
   som utlöser väljaren/dialogen.
+- Nedladdnings- och trace-utdatavägar är begränsade till OpenClaw temp-rötter:
+  - traces: `/tmp/openclaw` (reserv: `${os.tmpdir()}/openclaw`)
+  - downloads: `/tmp/openclaw/downloads` (reserv: `${os.tmpdir()}/openclaw/downloads`)
+- Uppladdningsvägar är begränsade till en temp-rot för uppladdningar i OpenClaw:
+  - uploads: `/tmp/openclaw/uploads` (reserv: `${os.tmpdir()}/openclaw/uploads`)
 - `upload` kan också sätta filinmatningar direkt via `--input-ref` eller `--element`.
 - `snapshot`:
   - `--format ai` (standard när Playwright är installerat): returnerar en AI‑ögonblicksbild med numeriska refar (`aria-ref="<n>"`).
@@ -448,14 +465,14 @@ Noteringar:
 
 ## Ögonblicksbilder och refar
 
-OpenClaw stöder två ”ögonblicksbild”‑stilar:
+Ref‑beteende:
 
-- **AI‑ögonblicksbild (numeriska refar)**: `openclaw browser snapshot` (standard; `--format ai`)
+- Refar är **inte stabila över navigeringar**; om något misslyckas, kör `snapshot` igen och använd en ny ref.
   - Utdata: en textögonblicksbild som inkluderar numeriska refar.
   - Åtgärder: `openclaw browser click 12`, `openclaw browser type 23 "hello"`.
   - Internt löses refen via Playwrights `aria-ref`.
 
-- **Roll‑ögonblicksbild (rollrefar som `e12`)**: `openclaw browser snapshot --interactive` (eller `--compact`, `--depth`, `--selector`, `--frame`)
+- Om roll‑ögonblicksbilden togs med `--frame` är rollrefar begränsade till den iframen tills nästa roll‑ögonblicksbild.
   - Utdata: en rollbaserad lista/träd med `[ref=e12]` (och valfri `[nth=1]`).
   - Åtgärder: `openclaw browser click e12`, `openclaw browser highlight e12`.
   - Internt löses refen via `getByRole(...)` (plus `nth()` för dubbletter).
@@ -468,7 +485,7 @@ Ref‑beteende:
 
 ## Vänt‑power‑ups
 
-Du kan vänta på mer än bara tid/text:
+Dessa kan kombineras:
 
 - Vänta på URL (globs stöds av Playwright):
   - `openclaw browser wait --url "**/dash"`
@@ -508,7 +525,7 @@ När en åtgärd misslyckas (t.ex. “inte synligt”, “strikt läge kränknin
 
 `--json` är för skriptning och strukturerade verktyg.
 
-Exempel:
+Roll‑ögonblicksbilder i JSON inkluderar `refs` plus ett litet `stats`‑block (rader/tecken/refar/interaktivt) så att verktyg kan resonera om payload‑storlek och täthet.
 
 ```bash
 openclaw browser status --json
@@ -517,7 +534,7 @@ openclaw browser requests --filter api --json
 openclaw browser cookies --json
 ```
 
-Roll‑ögonblicksbilder i JSON inkluderar `refs` plus ett litet `stats`‑block (rader/tecken/refar/interaktivt) så att verktyg kan resonera om payload‑storlek och täthet.
+Dessa är användbara för arbetsflöden av typen ”få webbplatsen att bete sig som X”:
 
 ## Tillstånds‑ och miljöreglage
 
@@ -526,8 +543,8 @@ Dessa är användbara för arbetsflöden av typen ”få webbplatsen att bete si
 - Cookies: `cookies`, `cookies set`, `cookies clear`
 - Lagring: `storage local|session get|set|clear`
 - Offline: `set offline on|off`
-- Headers: `set headers --json '{"X-Debug":"1"}'` (eller `--clear`)
-- HTTP basic‑auth: `set credentials user pass` (eller `--clear`)
+- Håll Gateway/node‑värd privat (loopback eller endast tailnet).
+- Fjärr‑CDP‑endpoints är kraftfulla; tunnla och skydda dem.
 - Geolokalisering: `set geo <lat> <lon> --origin "https://example.com"` (eller `--clear`)
 - Media: `set media dark|light|no-preference|none`
 - Tidszon / språk: `set timezone ...`, `set locale ...`
@@ -535,7 +552,7 @@ Dessa är användbara för arbetsflöden av typen ”få webbplatsen att bete si
   - `set device "iPhone 14"` (Playwright‑enhetsförinställningar)
   - `set viewport 1280 720`
 
-## Säkerhet & integritet
+## Felsökning
 
 - Webbläsarprofilen openclaw kan innehålla inloggade sessioner; behandla den som känslig.
 - `browser act kind=evaluate` / `openclaw browser evaluate` och `wait --fn`
@@ -545,18 +562,17 @@ Dessa är användbara för arbetsflöden av typen ”få webbplatsen att bete si
 - Håll Gateway/node‑värd privat (loopback eller endast tailnet).
 - Fjärr‑CDP‑endpoints är kraftfulla; tunnla och skydda dem.
 
-## Felsökning
-
-För Linux‑specifika problem (särskilt snap‑Chromium), se
-[Webbläsarfelsökning](/tools/browser-linux-troubleshooting).
-
 ## Agentverktyg + hur kontroll fungerar
 
 Agenten får **ett verktyg** för webbläsarautomation:
 
-- `browser` — status/start/stop/flikar/öppna/fokusera/stäng/ögonblicksbild/skärmdump/navigera/agera
+## Agentverktyg + hur kontroll fungerar
 
 Hur det mappas:
+
+- `browser snapshot` returnerar ett stabilt UI‑träd (AI eller ARIA).
+
+Detta håller agenten deterministisk och undviker sköra selektorer.
 
 - `browser snapshot` returnerar ett stabilt UI‑träd (AI eller ARIA).
 - `browser act` använder ögonblicksbildens `ref`‑ID:n för att klicka/skriva/dra/välja.
@@ -569,5 +585,3 @@ Hur det mappas:
   - Om en webbläsarkapabel nod är ansluten kan verktyget autorouta till den om du inte fäster `target="host"` eller `target="node"`.
 
 Detta håller agenten deterministisk och undviker sköra selektorer.
-
-

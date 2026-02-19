@@ -1,4 +1,9 @@
 ---
+summary: "تحقیقی نوٹس: Clawd ورک اسپیسز کے لیے آف لائن میموری سسٹم (Markdown بطور ماخذِ حقیقت + اخذ کردہ اشاریہ)"
+read_when:
+  - روزانہ Markdown لاگز سے آگے ورک اسپیس میموری (~/.openclaw/workspace) ڈیزائن کرتے وقت
+  - Deciding: standalone CLI بمقابلہ گہرا OpenClaw انٹیگریشن
+  - آف لائن یادداشت + عکاسی شامل کرتے وقت (retain/recall/reflect)
 title: "ورک اسپیس میموری تحقیق"
 ---
 
@@ -221,5 +226,3 @@ Reflection ایک شیڈول شدہ جاب ہے (روزانہ یا ہارٹ بی
 - Letta / MemGPT تصورات: “core memory blocks” + “archival memory” + ٹول پر مبنی خود ترمیمی میموری۔
 - Hindsight ٹیکنیکل رپورٹ: “retain / recall / reflect”، چار-نیٹ ورک میموری، بیانیہ حقیقت اخذ کرنا، رائے کے اعتماد کا ارتقا۔
 - SuCo: arXiv 2411.14754 (2024): “Subspace Collision” approximate nearest neighbor retrieval۔
-
-

@@ -516,7 +516,7 @@ import { ... } from "@mariozechner/pi-tui";
 | Вызов             | команда `pi` / RPC                  | SDK через `createAgentSession()`                                                                                   |
 | Инструменты       | Инструменты кодинга по умолчанию    | Пользовательский набор инструментов OpenClaw                                                                       |
 | Системный промпт  | AGENTS.md + промпты | Динамический для каждого канала/контекста                                                                          |
-| Хранилище сеансов | `~/.pi/agent/sessions/`             | `~/.openclaw/agents/<agentId>/sessions/` (или `$OPENCLAW_STATE_DIR/agents/<agentId>/sessions/`) |
+| Хранилище сеансов | `~/.pi/agent/sessions/`             | `~/.openclaw/agents/&lt;agentId&gt;/sessions/` (или `$OPENCLAW_STATE_DIR/agents/&lt;agentId&gt;/sessions/`) |
 | Аутентификация    | Одна учётная запись                 | Мультипрофильная с ротацией                                                                                        |
 | Расширения        | Загружаются с диска                 | Программные + пути на диске                                                                                        |
 | Обработка событий | Рендеринг TUI                       | На основе колбэков (onBlockReply и т. п.)                       |
@@ -610,5 +610,3 @@ import { ... } from "@mariozechner/pi-tui";
 - `src/agents/pi-tools.policy.test.ts`
 - `src/agents/pi-tools.safe-bins.test.ts`
 - `src/agents/pi-tools.workspace-paths.test.ts`
-
-

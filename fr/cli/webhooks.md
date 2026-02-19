@@ -1,4 +1,8 @@
 ---
+summary: "Reference CLI pour `openclaw webhooks` (assistants de webhooks + Gmail Pub/Sub)"
+read_when:
+  - Vous souhaitez connecter des evenements Gmail Pub/Sub a OpenClaw
+  - Vous souhaitez des commandes d'assistance pour les webhooks
 title: "webhooks"
 ---
 
@@ -19,5 +23,3 @@ openclaw webhooks gmail run
 ```
 
 Voir la [documentation Gmail Pub/Sub](/automation/gmail-pubsub) pour plus de details.
-
-

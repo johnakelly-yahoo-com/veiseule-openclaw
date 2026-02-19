@@ -1,10 +1,15 @@
 ---
+summary: "OpenClaw पर्यावरण चर कहाँ से लोड करता है और प्राथमिकता का क्रम"
+read_when:
+  - आपको यह जानना हो कि कौन से env vars लोड होते हैं, और किस क्रम में
+  - आप Gateway में गायब API कुंजियों का डीबग कर रहे हों
+  - आप प्रदाता प्रमाणीकरण या परिनियोजन परिवेशों का दस्तावेज़ीकरण कर रहे हों
 title: "पर्यावरण चर"
 ---
 
 # पर्यावरण चर
 
-OpenClaw कई स्रोतों से environment variables प्राप्त करता है। नियम है **मौजूदा मानों को कभी भी override न करें**।
+OpenClaw pulls environment variables from multiple sources. The rule is **never override existing values**.
 
 ## प्राथमिकता (उच्चतम → न्यूनतम)
 
@@ -71,15 +76,15 @@ Env var समतुल्य:
 
 ## Path-संबंधित env vars
 
-| वेरिएबल               | उद्देश्य                                                                                                                                                                                                                            |
+| वेरिएबल                | उद्देश्य                                                                                                                                                                                                                            |
 | ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `OPENCLAW_HOME`        | सभी आंतरिक path resolution (`~/.openclaw/`, agent dirs, sessions, credentials) के लिए उपयोग की जाने वाली home directory को override करें। Useful when running OpenClaw as a dedicated service user. |
-| `OPENCLAW_STATE_DIR`   | state directory को override करें (डिफ़ॉल्ट `~/.openclaw`)।                                                                                                                                            |
-| `OPENCLAW_CONFIG_PATH` | config file path को override करें (डिफ़ॉल्ट `~/.openclaw/openclaw.json`)।                                                                                                                             |
+| `OPENCLAW_HOME`        | Override the home directory used for all internal path resolution (`~/.openclaw/`, agent dirs, sessions, credentials). Useful when running OpenClaw as a dedicated service user. |
+| `OPENCLAW_STATE_DIR`   | state directory को override करें (डिफ़ॉल्ट `~/.openclaw`)।                                                                                                                                                       |
+| `OPENCLAW_CONFIG_PATH` | config file path को override करें (डिफ़ॉल्ट `~/.openclaw/openclaw.json`)।                                                                                                                                        |
 
 ### `OPENCLAW_HOME`
 
-जब सेट किया जाता है, तो `OPENCLAW_HOME` सभी आंतरिक path resolution के लिए system home directory (`$HOME` / `os.homedir()`) को प्रतिस्थापित करता है। यह headless service accounts के लिए पूर्ण filesystem isolation सक्षम करता है।
+When set, `OPENCLAW_HOME` replaces the system home directory (`$HOME` / `os.homedir()`) for all internal path resolution. This enables full filesystem isolation for headless service accounts.
 
 **Precedence:** `OPENCLAW_HOME` > `$HOME` > `USERPROFILE` > `os.homedir()`
 
@@ -100,5 +105,3 @@ Env var समतुल्य:
 - [Gateway configuration](/gateway/configuration)
 - [FAQ: env vars and .env loading](/help/faq#env-vars-and-env-loading)
 - [Models overview](/concepts/models)
-
-

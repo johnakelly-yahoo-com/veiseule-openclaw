@@ -1,4 +1,8 @@
 ---
+summary: "브라우저 자동화를 위한 수동 로그인 + X/Twitter 게시"
+read_when:
+  - 브라우저 자동화를 위해 사이트에 로그인해야 할 때
+  - X/Twitter에 업데이트를 게시하려는 경우
 title: "브라우저 로그인"
 ---
 
@@ -61,5 +65,3 @@ openclaw browser open https://x.com --browser-profile openclaw --target host
 ```
 
 또는 업데이트를 게시하는 에이전트에 대해 샌드박스화를 비활성화하십시오.
-
-

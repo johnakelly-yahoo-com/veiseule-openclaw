@@ -1,4 +1,7 @@
 ---
+summary: "/think + /verbose için direktif söz dizimi ve bunların model akıl yürütmesini nasıl etkilediği"
+read_when:
+  - Thinking veya verbose direktif ayrıştırmasını ya da varsayılanlarını ayarlarken
 title: "Thinking Düzeyleri"
 ---
 
@@ -8,7 +11,7 @@ title: "Thinking Düzeyleri"
 
 - Herhangi bir gelen içerikte satır içi direktif: `/t <level>`, `/think:<level>` veya `/thinking <level>`.
 - Düzeyler (takma adlar): `off | minimal | low | medium | high | xhigh` (yalnızca GPT-5.2 + Codex modelleri)
-  - asgari → “düşün”
+  - minimal → “think”
   - düşük → “iyice düşün”
   - orta → “daha da düşün”
   - high → “ultrathink” (maksimum bütçe)
@@ -32,7 +35,7 @@ title: "Thinking Düzeyleri"
 - Bir onay yanıtı gönderilir (`Thinking level set to high.` / `Thinking disabled.`). Düzey geçersizse (örn. `/thinking big`), komut bir ipucuyla reddedilir ve oturum durumu değiştirilmez.
 - Mevcut thinking düzeyini görmek için `/think` (veya `/think:`)’yi argümansız gönderin.
 
-## Aracıya göre uygulama
+## Application by agent
 
 - **Gömülü Pi**: çözümlenen düzey, süreç içi Pi ajan çalışma zamanına iletilir.
 
@@ -69,5 +72,3 @@ title: "Thinking Düzeyleri"
 - Web sohbet thinking seçici, sayfa yüklendiğinde gelen oturum deposu/yapılandırmasından saklanan oturum düzeyini yansıtır.
 - Başka bir düzey seçmek yalnızca bir sonraki mesaja uygulanır (`thinkingOnce`); gönderimden sonra seçici, saklanan oturum düzeyine geri döner.
 - Oturum varsayılanını değiştirmek için daha önce olduğu gibi bir `/think:<level>` direktifi gönderin; seçici bir sonraki yeniden yüklemeden sonra bunu yansıtacaktır.
-
-

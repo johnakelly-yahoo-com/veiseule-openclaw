@@ -1,4 +1,8 @@
 ---
+summary: "Setup ng Perplexity Sonar para sa web_search"
+read_when:
+  - Gusto mong gamitin ang Perplexity Sonar para sa web search
+  - Kailangan mo ng PERPLEXITY_API_KEY o setup ng OpenRouter
 title: "Perplexity Sonar"
 ---
 
@@ -74,5 +78,3 @@ Kung walang naka-set na base URL, pumipili ang OpenClaw ng default batay sa pina
 - `perplexity/sonar-reasoning-pro` — malalim na pananaliksik
 
 Tingnan ang [Web tools](/tools/web) para sa kumpletong konpigurasyon ng web_search.
-
-

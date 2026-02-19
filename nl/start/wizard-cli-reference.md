@@ -1,4 +1,8 @@
 ---
+summary: "Volledige referentie voor de CLI-onboardingflow, auth-/modelconfiguratie, uitvoer en interne werking"
+read_when:
+  - Je hebt gedetailleerd gedrag nodig voor openclaw onboard
+  - Je debugt onboardingresultaten of integreert onboardingclients
 title: "CLI Onboarding-referentie"
 sidebarTitle: "CLI-referentie"
 ---
@@ -33,8 +37,7 @@ Er wordt niets geïnstalleerd of gewijzigd op de remote host.
     - Reset gebruikt `trash` en biedt scopes:
       - Alleen config
       - Config + credentials + sessies
-      - Volledige reset (verwijdert ook de werkruimte)
-  
+      - Volledige reset (verwijdert ook de werkruimte)  
 </Step>
   <Step title="Model and auth">
     - De volledige optiematrix staat in [Auth- en modelopties](#auth-and-model-options).
@@ -58,35 +61,37 @@ Er wordt niets geïnstalleerd of gewijzigd op de remote host.
     - [Telegram](/channels/telegram): bot-token
     - [Discord](/channels/discord): bot-token
     - [Google Chat](/channels/googlechat): serviceaccount-JSON + webhook-audience
-    - [Mattermost](/channels/mattermost) plugin: bot-token + basis-URL
+    - [Mattermost](/channels/mattermost)-plugin: bot-token + basis-URL
     - [Signal](/channels/signal): optionele installatie van `signal-cli` + accountconfiguratie
     - [BlueBubbles](/channels/bluebubbles): aanbevolen voor iMessage; server-URL + wachtwoord + webhook
     - [iMessage](/channels/imessage): legacy `imsg` CLI-pad + DB-toegang
     - DM-beveiliging: standaard is koppelen. De eerste DM stuurt een code; goedkeuren via
-      `openclaw pairing approve <channel> <code>` of gebruik toegestane lijsten.
+      `openclaw pairing approve <channel><code>` of gebruik toegestane lijsten.
+  
+</Step><code>` of gebruik toegestane lijsten.
   
 </Step>
-  <Step title="Daemon install">
+  <Step title="Daemon-installatie">
     - macOS: LaunchAgent
       - Vereist een ingelogde gebruikerssessie; voor headless gebruik een aangepaste LaunchDaemon (niet meegeleverd).
     - Linux en Windows via WSL2: systemd user unit
-      - De wizard probeert `loginctl enable-linger <user>` zodat de gateway actief blijft na uitloggen.
+      - De wizard probeert `loginctl enable-linger <user>` zodat de Gateway actief blijft na uitloggen.
       - Kan om sudo vragen (schrijft `/var/lib/systemd/linger`); hij probeert eerst zonder sudo.
-    - Runtimeselectie: Node (aanbevolen; vereist voor WhatsApp en Telegram). Bun wordt niet aanbevolen.
+    - Runtimekeuze: Node (aanbevolen; vereist voor WhatsApp en Telegram). Bun wordt niet aanbevolen.
   
 </Step>
-  <Step title="Health check">
-    - Start de gateway (indien nodig) en voert `openclaw health` uit.
-    - `openclaw status --deep` voegt gateway-gezondheidsprobes toe aan de statusuitvoer.
+  <Step title="Gezondheidscontrole">
+    - Start de Gateway (indien nodig) en voert `openclaw health` uit.
+    - `openclaw status --deep` voegt Gateway-gezondheidsprobes toe aan de statusuitvoer.
   
 </Step>
   <Step title="Skills">
-    - Leest beschikbare skills en controleert vereisten.
+    - Leest beschikbare Skills en controleert vereisten.
     - Laat je een node manager kiezen: npm of pnpm (bun niet aanbevolen).
     - Installeert optionele afhankelijkheden (sommige gebruiken Homebrew op macOS).
   
 </Step>
-  <Step title="Finish">
+  <Step title="Afronden">
     - Samenvatting en volgende stappen, inclusief iOS-, Android- en macOS-appopties.
   
 </Step>
@@ -107,11 +112,11 @@ Remote modus installeert of wijzigt niets op de remote host.
 
 Wat je instelt:
 
-- Remote gateway-URL (`ws://...`)
-- Token als auth voor de remote gateway vereist is (aanbevolen)
+- Remote Gateway-URL (`ws://...`)
+- Token als auth voor de remote Gateway vereist is (aanbevolen)
 
 <Note>
-- Als de gateway alleen loopback is, gebruik SSH-tunneling of een tailnet.
+- Als de Gateway alleen loopback is, gebruik SSH-tunneling of een tailnet.
 - Discovery-hints:
   - macOS: Bonjour (`dns-sd`)
   - Linux: Avahi (`avahi-browse`)
@@ -128,7 +133,11 @@ Wat je instelt:
     - macOS: controleert Keychain-item "Claude Code-credentials"
     - Linux en Windows: hergebruikt `~/.claude/.credentials.json` indien aanwezig
 
-    Op macOS, kies "Always Allow" zodat launchd-starts niet blokkeren.
+    ````
+    ```
+    Kies op macOS "Always Allow" zodat launchd-starts niet blokkeren.
+    ```
+    ````
 
   
 </Accordion>
@@ -144,7 +153,11 @@ Wat je instelt:
   <Accordion title="OpenAI Code subscription (OAuth)">
     Browserflow; plak `code#state`.
 
+    ````
+    ```
     Stelt `agents.defaults.model` in op `openai-codex/gpt-5.3-codex` wanneer het model niet is ingesteld of `openai/*`.
+    ```
+    ````
 
   
 </Accordion>
@@ -152,7 +165,11 @@ Wat je instelt:
     Gebruikt `OPENAI_API_KEY` indien aanwezig of vraagt om een sleutel, en slaat deze vervolgens op in
     `~/.openclaw/.env` zodat launchd deze kan lezen.
 
+    ````
+    ```
     Stelt `agents.defaults.model` in op `openai/gpt-5.1-codex` wanneer het model niet is ingesteld, `openai/*` of `openai-codex/*`.
+    ```
+    ````
 
   
 </Accordion>
@@ -171,39 +188,40 @@ Wat je instelt:
 </Accordion>
   <Accordion title="Vercel AI Gateway">
     Vraagt om `AI_GATEWAY_API_KEY`.
-    Meer detail: [Vercel AI Gateway](/providers/vercel-ai-gateway).
+    Meer details: [Vercel AI Gateway](/providers/vercel-ai-gateway).
   
 </Accordion>
   <Accordion title="Cloudflare AI Gateway">
-    Vraagt om account-ID, gateway-ID en `CLOUDFLARE_AI_GATEWAY_API_KEY`.
-    Meer detail: [Cloudflare AI Gateway](/providers/cloudflare-ai-gateway).
+    Vraagt om account-ID, Gateway-ID en `CLOUDFLARE_AI_GATEWAY_API_KEY`.
+    Meer details: [Cloudflare AI Gateway](/providers/cloudflare-ai-gateway).
   
 </Accordion>
   <Accordion title="MiniMax M2.1">
     Config wordt automatisch weggeschreven.
-    Meer detail: [MiniMax](/providers/minimax).
+    Meer details: [MiniMax](/providers/minimax).
   
 </Accordion>
   <Accordion title="Synthetic (Anthropic-compatible)">
     Vraagt om `SYNTHETIC_API_KEY`.
-    Meer detail: [Synthetic](/providers/synthetic).
+    Meer details: [Synthetic](/providers/synthetic).
   
 </Accordion>
   <Accordion title="Moonshot and Kimi Coding">
     Moonshot (Kimi K2) en Kimi Coding-configs worden automatisch weggeschreven.
-    Meer detail: [Moonshot AI (Kimi + Kimi Coding)](/providers/moonshot).
+    Meer details: [Moonshot AI (Kimi + Kimi Coding)](/providers/moonshot).
   
 </Accordion>
-  <Accordion title="Custom provider">
-    Werkt met OpenAI-compatibele en Anthropic-compatibele endpoints.
+  <Accordion title="Custom provider">Werkt met OpenAI-compatibele en Anthropic-compatibele endpoints.
 
-    Non-interactive flags:
+    ```
+    Niet-interactieve flags:
     - `--auth-choice custom-api-key`
     - `--custom-base-url`
     - `--custom-model-id`
     - `--custom-api-key` (optioneel; valt terug op `CUSTOM_API_KEY`)
     - `--custom-provider-id` (optioneel)
     - `--custom-compatibility <openai|anthropic>` (optioneel; standaard `openai`)
+    ```
 
   
 </Accordion>
@@ -226,7 +244,7 @@ Credential- en profielpaden:
 <Note>
 Tip voor headless en servers: voltooi OAuth op een machine met een browser en kopieer daarna
 `~/.openclaw/credentials/oauth.json` (of `$OPENCLAW_STATE_DIR/credentials/oauth.json`)
-naar de gateway-host.
+naar de Gateway-host.
 </Note>
 
 ## Uitvoer en interne werking
@@ -278,4 +296,3 @@ Signal-installatiegedrag:
 - Onboarding-hub: [Onboarding Wizard (CLI)](/start/wizard)
 - Automatisering en scripts: [CLI Automation](/start/wizard-cli-automation)
 - Opdrachtreferentie: [`openclaw onboard`](/cli/onboard)
-

@@ -1,4 +1,8 @@
 ---
+summary: "वॉइस कॉल प्लगइन: Twilio/Telnyx/Plivo के माध्यम से आउटबाउंड + इनबाउंड कॉल (प्लगइन इंस्टॉल + विन्यास + CLI)"
+read_when:
+  - आप OpenClaw से आउटबाउंड वॉइस कॉल करना चाहते हैं
+  - आप voice-call प्लगइन को विन्यस्त या विकसित कर रहे हैं
 title: "वॉइस कॉल प्लगइन"
 ---
 
@@ -109,6 +113,7 @@ cd ./extensions/voice-call && pnpm install
 - `mock` एक स्थानीय dev प्रदाता है (कोई नेटवर्क कॉल नहीं)।
 - `skipSignatureVerification` केवल स्थानीय परीक्षण के लिए है।
 - यदि आप ngrok फ्री टियर का उपयोग करते हैं, तो `publicUrl` को सटीक ngrok URL पर सेट करें; सिग्नेचर सत्यापन हमेशा लागू रहता है।
+- `tunnel.allowNgrokFreeTierLoopbackBypass: true` Twilio वेबहुक्स को अमान्य सिग्नेचर्स के साथ **केवल** तब अनुमति देता है जब `tunnel.provider="ngrok"` हो और `serve.bind` लूपबैक हो (ngrok लोकल एजेंट)। केवल लोकल डेवलपमेंट के लिए उपयोग करें।
 - `tunnel.allowNgrokFreeTierLoopbackBypass: true` Twilio वेबहुक्स को अमान्य सिग्नेचर्स के साथ **केवल** तब अनुमति देता है जब `tunnel.provider="ngrok"` हो और `serve.bind` लूपबैक हो (ngrok लोकल एजेंट)। केवल लोकल डेवलपमेंट के लिए उपयोग करें।
 - Ngrok फ्री टियर URLs बदल सकते हैं या इंटरस्टिशियल व्यवहार जोड़ सकते हैं; यदि `publicUrl` बदल जाता है, तो Twilio सिग्नेचर विफल हो जाएँगे। प्रोडक्शन के लिए, एक स्थिर डोमेन या Tailscale funnel को प्राथमिकता दें।
 
@@ -276,5 +281,3 @@ openclaw voicecall expose --mode funnel
 - `voicecall.speak` (`callId`, `message`)
 - `voicecall.end` (`callId`)
 - `voicecall.status` (`callId`)
-
-

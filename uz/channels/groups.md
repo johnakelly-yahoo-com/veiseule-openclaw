@@ -1,4 +1,7 @@
 ---
+summary: "Turli platformalarda (WhatsApp/Telegram/Discord/Slack/Signal/iMessage/Microsoft Teams) guruh chat xatti-harakati"
+read_when:
+  - Changing group chat behavior or mention gating
 title: "Guruhlar"
 ---
 
@@ -8,7 +11,7 @@ OpenClaw guruh chatlarini barcha platformalarda bir xil tarzda boshqaradi: Whats
 
 ## Boshlang‘ich kirish (2 daqiqa)
 
-OpenClaw sizning shaxsiy xabar almashish akkauntlaringizda “yashaydi”. Alohida WhatsApp bot foydalanuvchisi mavjud emas.
+OpenClaw “lives” on your own messaging accounts. There is no separate WhatsApp bot user.
 If **you** are in a group, OpenClaw can see that group and respond there.
 
 Standart xatti-harakat:
@@ -59,7 +62,7 @@ If you want...
 
 13. Bu sizga bitta agent “miyasi”ni (umumiy ish maydoni + xotira), ammo ikki xil bajarilish holatini beradi:
 
-- 14. **DMlar**: toʻliq vositalar (xost)
+- Misol (DMlar xostda, guruhlar sandboxlangan + faqat xabar almashish vositalari):
 - 15. **Guruhlar**: sandbox + cheklangan vositalar (Docker)
 
 > 16. Agar haqiqatan ham alohida ish maydonlari/personalar kerak boʻlsa (“shaxsiy” va “ommaviy” hech qachon aralashmasligi kerak), ikkinchi agent + bogʻlashlardan foydalaning. 17. Qarang: [Multi-Agent Routing](/concepts/multi-agent).
@@ -67,22 +70,19 @@ If you want...
 18. Misol (DMlar xostda, guruhlar sandboxlangan + faqat xabar almashish vositalari):
 
 ```json5
-19. {
+22. {
   agents: {
     defaults: {
       sandbox: {
-        mode: "non-main", // groups/channels are non-main -> sandboxed
-        scope: "session", // strongest isolation (one container per group/channel)
+        mode: "non-main",
+        scope: "session",
         workspaceAccess: "none",
-      },
-    },
-  },
-  tools: {
-    sandbox: {
-      tools: {
-        // If allow is non-empty, everything else is blocked (deny still wins).
-        allow: ["group:messaging", "group:sessions"],
-        deny: ["group:runtime", "group:fs", "group:ui", "nodes", "cron", "gateway"],
+        docker: {
+          binds: [
+            // hostPath:containerPath:mode
+            "~/FriendsShared:/data:ro",
+          ],
+        },
       },
     },
   },
@@ -119,7 +119,7 @@ If you want...
 
 ## 27. Koʻrsatish yorliqlari
 
-- 28. UI yorliqlari mavjud boʻlsa `displayName` dan foydalanadi, `<channel>:<token>` formatida.
+- Har bir kanal boʻyicha guruh/xona xabarlari qanday qayta ishlanishini boshqaring:
 - 29. `#room` xonalar/kanallar uchun band qilingan; guruh chatlari `g-<slug>` dan foydalanadi (kichik harflar, bo‘shliqlar -> `-`, `#@+._-` saqlanadi).
 
 ## 30. Guruh siyosati
@@ -127,7 +127,7 @@ If you want...
 31. Har bir kanal boʻyicha guruh/xona xabarlari qanday qayta ishlanishini boshqaring:
 
 ```json5
-32. {
+{
   channels: {
     whatsapp: {
       groupPolicy: "disabled", // "open" | "disabled" | "allowlist"
@@ -135,7 +135,7 @@ If you want...
     },
     telegram: {
       groupPolicy: "disabled",
-      groupAllowFrom: ["123456789", "@username"],
+      groupAllowFrom: ["123456789"], // numeric Telegram user id (wizard can resolve @username)
     },
     signal: {
       groupPolicy: "disabled",
@@ -177,10 +177,10 @@ If you want...
 | 37. `"disabled"`  | 38. Barcha guruh xabarlarini butunlay bloklash.                                                                      |
 | 39. `"allowlist"` | 40. Faqat sozlangan allowlistga mos keladigan guruh/xonalarga ruxsat berish.                                         |
 
-41. Eslatmalar:
+Tezkor mental model (guruh xabarlari uchun baholash tartibi):
 
 - 42. `groupPolicy` eslatma-cheklashdan alohida (u @eslatmalarni talab qiladi).
-- 43. WhatsApp/Telegram/Signal/iMessage/Microsoft Teams: `groupAllowFrom` dan foydalaning (zaxira: aniq `allowFrom`).
+- guruh allowlistlari (`*.groups`, `*.groupAllowFrom`, kanalga xos allowlist)
 - 44. Discord: allowlist `channels.discord.guilds.<id>` dan foydalanadi45. `.channels`.
 - 46. Slack: allowlist `channels.slack.channels` dan foydalanadi.
 - 47. Matrix: allowlist `channels.matrix.groups` dan foydalanadi (xona IDlari, aliaslar yoki nomlar). 48. Joʻnatuvchilarni cheklash uchun `channels.matrix.groupAllowFrom` dan foydalaning; xonaga xos `users` allowlistlari ham qoʻllab-quvvatlanadi.
@@ -243,23 +243,23 @@ Eslatmalar:
 - Agent bo‘yicha override: `agents.list[].groupChat.mentionPatterns` (bir nechta agentlar bitta guruhni bo‘lishganda foydali).
 - Mention gating is only enforced when mention detection is possible (native mentions or `mentionPatterns` are configured).
 - Discord standartlari `channels.discord.guilds."*"` da joylashgan (guild/kanal bo‘yicha o‘zgartirilishi mumkin).
-- Guruh tarix konteksti barcha kanallarda bir xil tarzda o‘raladi va **faqat pending** (mention gating sababli o‘tkazib yuborilgan xabarlar); global standart uchun `messages.groupChat.historyLimit` dan foydalaning va override uchun `channels.<channel>`.historyLimit`(yoki`channels.&lt;channel&gt;`.accounts.*.historyLimit`) dan foydalaning. O‘chirish uchun `0` ni o‘rnating.
+- Guruh tarix konteksti barcha kanallarda bir xil tarzda o‘raladi va **faqat pending** (mention gating sababli o‘tkazib yuborilgan xabarlar); global standart uchun `messages.groupChat.historyLimit` dan foydalaning va override uchun `channels.<channel>`.historyLimit`(yoki`channels.<channel>`.accounts.*.historyLimit`) dan foydalaning. O‘chirish uchun `0` ni o‘rnating.
 
 ## Guruh/kanal asbob cheklovlari (ixtiyoriy)
 
-Baʼzi kanal sozlamalari **muayyan guruh/xona/kanal ichida** qaysi asboblar mavjudligini cheklashni qo‘llab-quvvatlaydi.
+Qaror chiqarish tartibi (eng aniq ustun):
 
-- `tools`: butun guruh uchun asboblarni allow/deny qilish.
+- guruh/kanal `toolsBySender` mos kelishi
 - `toolsBySender`: guruh ichida jo‘natuvchi bo‘yicha override (kalitlar kanalga qarab jo‘natuvchi IDlari/foydalanuvchi nomlari/email/telefon raqamlari bo‘lishi mumkin). Wildcard sifatida `"*"` dan foydalaning.
 
-Qaror chiqarish tartibi (eng aniq ustun):
+Misol (Telegram):
 
 1. guruh/kanal `toolsBySender` mos kelishi
 2. guruh/kanal `tools`
 3. standart (`"*"`) `toolsBySender` mos kelishi
 4. standart (`"*"`) `tools`
 
-Misol (Telegram):
+Eslatmalar:
 
 ```json5
 {
@@ -290,7 +290,7 @@ Eslatmalar:
 
 Keng tarqalgan intentlar (copy/paste):
 
-1. Barcha guruh javoblarini o‘chirish
+1. Disable all group replies
 
 ```json5
 {
@@ -298,7 +298,7 @@ Keng tarqalgan intentlar (copy/paste):
 }
 ```
 
-2. Faqat muayyan guruhlarga ruxsat berish (WhatsApp)
+2. Barcha guruhlarga ruxsat berish, lekin mention talab qilish (aniq)
 
 ```json5
 {
@@ -313,7 +313,7 @@ Keng tarqalgan intentlar (copy/paste):
 }
 ```
 
-3. Barcha guruhlarga ruxsat berish, lekin mention talab qilish (aniq)
+3. Guruhlarda faqat egasi trigger qila oladi (WhatsApp)
 
 ```json5
 {
@@ -360,7 +360,7 @@ Guruhdan keluvchi payloadlar quyidagilarni o‘rnatadi:
 
 Agent tizim prompti yangi guruh sessiyasining birinchi navbatida guruh tanishtiruvini o‘z ichiga oladi. U modelga inson kabi javob berishni, Markdown jadvallaridan qochishni va literal `\n` ketma-ketliklarini yozmaslikni eslatadi.
 
-## iMessage ga xos jihatlar
+## WhatsApp ga xos jihatlar
 
 - Yo‘naltirish yoki ruxsat ro‘yxatiga olishda `chat_id:<id>` ni afzal ko‘ring.
 - Chatlarni ro‘yxatlash: `imsg chats --limit 20`.
@@ -369,5 +369,3 @@ Agent tizim prompti yangi guruh sessiyasining birinchi navbatida guruh tanishtir
 ## WhatsApp ga xos jihatlar
 
 WhatsApp-only xatti-harakatlar (tarixni kiritish, mentionlarni qayta ishlash tafsilotlari) uchun [Group messages](/channels/group-messages) ga qarang.
-
-

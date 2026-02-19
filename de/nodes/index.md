@@ -1,4 +1,9 @@
 ---
+summary: "Nodes: Kopplung, Fähigkeiten, Berechtigungen und CLI-Hilfsprogramme für Canvas/Kamera/Bildschirm/System"
+read_when:
+  - Koppeln von iOS/Android-Nodes mit einem Gateway
+  - Verwendung von Node-Canvas/Kamera für Agenten-Kontext
+  - Hinzufügen neuer Node-Befehle oder CLI-Hilfsprogramme
 title: "Knoten"
 ---
 
@@ -274,7 +279,7 @@ Hinweise:
 - `system.notify` berücksichtigt den Benachrichtigungs-Berechtigungsstatus der macOS-App.
 - `system.run` unterstützt `--cwd`, `--env KEY=VAL`, `--command-timeout` und `--needs-screen-recording`.
 - `system.notify` unterstützt `--priority <passive|active|timeSensitive>` und `--delivery <system|overlay|auto>`.
-- macOS-Nodes verwerfen `PATH`-Overrides; headless Node-Hosts akzeptieren `PATH` nur, wenn es dem Node-Host-PATH vorangestellt ist.
+- macOS-Nodes verwerfen `PATH`-Overrides; headless Node-Hosts akzeptieren `PATH` nur, wenn es dem Node-Host-PATH vorangestellt ist. Wenn Sie zusätzliche PATH-Einträge benötigen, konfigurieren Sie die Umgebung des Node-Host-Dienstes (oder installieren Sie Tools an Standardorten), anstatt `PATH` über `--env` zu übergeben.
 - Im macOS-Node-Modus ist `system.run` durch Exec-Genehmigungen in der macOS-App geschützt (Einstellungen → Exec-Genehmigungen).
   Ask/Allowlist/Full verhalten sich wie beim headless Node-Host; abgelehnte Aufforderungen geben `SYSTEM_RUN_DENIED` zurück.
 - Beim headless Node-Host ist `system.run` durch Exec-Genehmigungen geschützt (`~/.openclaw/exec-approvals.json`).
@@ -335,5 +340,3 @@ Hinweise:
 
 - Die macOS-Menüleisten-App verbindet sich als Node mit dem Gateway-WS-Server (sodass `openclaw nodes …` auf diesem Mac funktioniert).
 - Im Remote-Modus öffnet die App einen SSH-Tunnel für den Gateway-Port und verbindet sich mit `localhost`.
-
-

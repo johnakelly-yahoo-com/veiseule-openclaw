@@ -1,4 +1,8 @@
 ---
+summary: "Aplicativo complementar OpenClaw para macOS (barra de menus + corretor do gateway)"
+read_when:
+  - Implementando recursos do app macOS
+  - Alterando o ciclo de vida do gateway ou a ponte de nós no macOS
 title: "App macOS"
 ---
 
@@ -126,6 +130,7 @@ Parâmetros de consulta:
 Segurança:
 
 - Sem `key`, o app solicita confirmação.
+- Sem `key`, o app aplica um limite curto de mensagem para o prompt de confirmação e ignora `deliver` / `to` / `channel`.
 - Com um `key` válido, a execução é não assistida (destinada a automações pessoais).
 
 ## Fluxo de onboarding (típico)
@@ -194,5 +199,3 @@ veja [protocolo do Gateway](/gateway/protocol).
 - [Gateway (macOS)](/platforms/mac/bundled-gateway)
 - [Permissões do macOS](/platforms/mac/permissions)
 - [Canvas](/platforms/mac/canvas)
-
-

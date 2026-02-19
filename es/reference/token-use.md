@@ -1,4 +1,8 @@
 ---
+summary: "Cómo OpenClaw construye el contexto del prompt y reporta el uso de tokens y los costos"
+read_when:
+  - Al explicar el uso de tokens, costos o ventanas de contexto
+  - Al depurar el crecimiento del contexto o el comportamiento de compactación
 title: "Uso de tokens y costos"
 ---
 
@@ -13,7 +17,7 @@ OpenClaw ensambla su propio prompt del sistema en cada ejecución. Incluye:
 - Lista de herramientas + descripciones breves
 - Lista de Skills (solo metadatos; las instrucciones se cargan bajo demanda con `read`)
 - Instrucciones de autoactualización
-- Espacio de trabajo + archivos de arranque (`AGENTS.md`, `SOUL.md`, `TOOLS.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md`, `BOOTSTRAP.md` cuando son nuevos). Los archivos grandes se truncan mediante `agents.defaults.bootstrapMaxChars` (predeterminado: 20000).
+- Espacio de trabajo + archivos de arranque (`AGENTS.md`, `SOUL.md`, `TOOLS.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md`, `BOOTSTRAP.md` cuando son nuevos). Los archivos grandes se truncan mediante `agents.defaults.bootstrapMaxChars` (predeterminado: 20000). Los archivos `memory/*.md` están disponibles bajo demanda mediante herramientas de memoria y no se inyectan automáticamente.
 - Hora (UTC + zona horaria del usuario)
 - Etiquetas de respuesta + comportamiento de heartbeat
 - Metadatos de tiempo de ejecución (host/OS/model/thinking)
@@ -104,5 +108,3 @@ agents:
 - Prefiera modelos más pequeños para trabajo exploratorio y verboso.
 
 Consulte [Skills](/tools/skills) para conocer la fórmula exacta de sobrecarga de la lista de skills.
-
-

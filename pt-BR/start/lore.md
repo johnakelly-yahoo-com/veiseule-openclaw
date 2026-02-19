@@ -1,4 +1,7 @@
 ---
+summary: "História de fundo e lore do OpenClaw para contexto e tom"
+read_when:
+  - Ao escrever documentação ou textos de UX que façam referência ao lore
 title: "Lore do OpenClaw"
 ---
 
@@ -214,5 +217,3 @@ _"The claw is the law."_
 — ELU, durante a migração da Forma Final, 30 de janeiro de 2026
 
 🦞💙
-
-

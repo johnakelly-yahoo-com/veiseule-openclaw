@@ -1,4 +1,7 @@
 ---
+summary: "Sikkerhedsovervejelser og trusselsmodel for at køre en AI-gateway med shell-adgang"
+read_when:
+  - Når du tilføjer funktioner, der udvider adgang eller automatisering
 title: "Sikkerhed"
 ---
 
@@ -42,6 +45,7 @@ Start med den mindste adgang, der stadig virker, og udvid den derefter, når du 
 - **Eksponering af browserkontrol** (fjernnoder, relay-porte, eksterne CDP-endpoints).
 - **Lokal diskhygiejne** (tilladelser, symlinks, konfigurations-inkluderinger, “synkroniserede mappe”-stier).
 - **Plugins** (udvidelser findes uden en eksplicit tilladelsesliste).
+- **Modelhygiejne** (advarsel når konfigurerede modeller ser forældede ud; ikke en hård blok).
 - **Modelhygiejne** (advarsel når konfigurerede modeller ser forældede ud; ikke en hård blok).
 
 Hvis du kører `--deep`, forsøger OpenClaw også en best-effort live Gateway-probe.
@@ -264,6 +268,7 @@ værktøjskald. Reducér blastradius ved:
 - Holde `web_search` / `web_fetch` / `browser` slået fra for værktøjsaktiverede agenter, medmindre det er nødvendigt.
 - Aktivere sandboxing og stramme værktøjs-tilladelseslister for enhver agent, der rører utroværdigt input.
 - Holde hemmeligheder ude af prompts; giv dem via env/config på gateway-værten i stedet.
+- Holde hemmeligheder ude af prompts; giv dem via env/config på gateway-værten i stedet.
 
 ### Modelstyrke (sikkerhedsnote)
 
@@ -343,6 +348,16 @@ Gateway’en multiplex’er **WebSocket + HTTP** på én port:
 Bind-tilstand styrer, hvor Gateway’en lytter:
 
 - `gateway.bind: "loopback"` (standard): kun lokale klienter kan forbinde.
+- Canvas host: `/__openclaw__/canvas/` og `/__openclaw__/a2ui/` (vilkårlig HTML/JS; behandl som ikke-betroet indhold)
+
+Tommelfingerregler:
+
+- Foretræk Tailscale Serve frem for LAN-binds (Serve holder Gateway’en på loopback, og Tailscale håndterer adgang).
+- Hvis du skal binde til LAN, så firewall porten til en stram tilladelsesliste af kilde-IP’er; videresend den ikke bredt.
+
+Bind-tilstand styrer, hvor Gateway’en lytter:
+
+- `gateway.bind: "loopback"` (standard): kun lokale klienter kan forbinde.
 - Non-loopback binder (`"lan"`, `"tailnet"`, `"custom"`) udvide angrebsoverfladen. Brug dem kun med en delt token / adgangskode og en rigtig firewall.
 
 Tommelfingerregler:
@@ -404,7 +419,7 @@ Gateway WebSocket forbindelser (fejl-lukket).
 
 Onboarding-guiden genererer som standard et token (selv for loopback), så lokale klienter skal autentificere.
 
-Sæt et token, så **alle** WS-klienter skal autentificere:
+Lokal enhedsparring:
 
 ```json5
 {
@@ -414,20 +429,21 @@ Sæt et token, så **alle** WS-klienter skal autentificere:
 }
 ```
 
-Doctor kan generere et for dig: `openclaw doctor --generate-gateway-token`.
+Auth-tilstande:
 
 Bemærk: `gateway.remote.token` er **kun** til eksterne CLI-kald; det beskytter ikke lokal WS-adgang.
 Valgfri: pin fjernbetjening TLS med `gateway.remote.tlsFingerprint` når du bruger `wss://`.
 
-Lokal enhedsparring:
+Rotations-tjekliste (token/adgangskode):
 
-- Enhedsparring auto-godkendes for **lokale** forbindelser (loopback eller gateway-værtens egen tailnet-adresse) for at gøre same-host-klienter gnidningsløse.
-- Andre tailnet-peers behandles **ikke** som lokale; de kræver stadig parringsgodkendelse.
+- Generér/sæt en ny hemmelighed (`gateway.auth.token` eller `OPENCLAW_GATEWAY_PASSWORD`).
+- Genstart Gateway’en (eller genstart macOS-appen, hvis den superviserer Gateway’en).
 
 Auth-tilstande:
 
 - `gateway.auth.mode: "token"`: delt bearer-token (anbefalet for de fleste opsætninger).
 - `gateway.auth.mode: "password"`: adgangskode-auth (foretræk at sætte via env: `OPENCLAW_GATEWAY_PASSWORD`).
+- `gateway.auth.mode: "trusted-proxy"`: stol på en identitetsbevidst reverse proxy til at autentificere brugere og videregive identitet via headers (se [Trusted Proxy Auth](/gateway/trusted-proxy-auth)).
 
 Rotations-tjekliste (token/adgangskode):
 
@@ -447,8 +463,8 @@ og inkluderer 'x-forwarded-for', 'x-forwarded-proto', og 'x-forwarded-host' som
 injiceret af Tailscale.
 
 **Sikkerhedsreglen:** Videresend ikke disse overskrifter fra din egen omvendte proxy. Hvis
-du afslutter TLS eller proxy foran gatewayen, skal du deaktivere
-`gateway.auth.allowTailscale` og bruge token/password auth i stedet.
+du terminerer TLS eller proxier foran gatewayen, skal du deaktivere
+`gateway.auth.allowTailscale` og i stedet bruge token-/password-auth (eller [Trusted Proxy Auth](/gateway/trusted-proxy-auth)).
 
 Betroede proxies:
 
@@ -493,7 +509,7 @@ Hærdningstips:
 
 ### 0.8) Logs + transkripter (redigering + retention)
 
-Logs og transkripter kan lække følsomme oplysninger, selv når adgangskontroller er korrekte:
+Detaljer: [Logging](/gateway/logging)
 
 - Gateway-logs kan indeholde værktøjsopsummeringer, fejl og URL’er.
 - Sessionstranskripter kan indeholde indsatte hemmeligheder, filindhold, kommandooutput og links.
@@ -548,12 +564,17 @@ Overvej at køre din AI på et separat telefonnummer fra dit personlige:
 
 ### 4. Skrivebeskyttet tilstand (i dag via sandkasse + værktøjer)
 
-Du kan allerede opbygge en skrivebeskyttet profil ved at kombinere:
+En “sikker standard”-konfiguration, der holder Gateway’en privat, kræver DM-parring og undgår altid-tændte gruppebots:
 
 - `agents.defaults.sandbox.workspaceAccess: "ro"` (eller `"none"` for ingen workspace-adgang)
 - værktøjs-tillad/afvis-lister, der blokerer `write`, `edit`, `apply_patch`, `exec`, `process` osv.
 
-Vi kan senere tilføje et enkelt `readOnlyMode`-flag for at forenkle denne konfiguration.
+Hvis du også vil have “sikrere som standard” værktøjsudførelse, så tilføj en sandbox + afvis farlige værktøjer for enhver ikke-ejer-agent (eksempel nedenfor under “Adgangsprofiler pr. agent”).
+
+Yderligere hardening-muligheder:
+
+- `tools.exec.applyPatch.workspaceOnly: true` (standard): sikrer, at `apply_patch` ikke kan skrive/slette uden for workspace-mappen, selv når sandboxing er slået fra. Sæt til `false` kun hvis du bevidst ønsker, at `apply_patch` må berøre filer uden for workspace.
+- `tools.fs.workspaceOnly: true` (valgfri): begrænser `read`/`write`/`edit`/`apply_patch`-stier til workspace-mappen (nyttigt hvis du i dag tillader absolutte stier og ønsker ét samlet værn).
 
 ### 5. Sikker baseline (kopiér/indsæt)
 
@@ -576,7 +597,7 @@ En “sikker standard”-konfiguration, der holder Gateway’en privat, kræver 
 }
 ```
 
-Hvis du også vil have “sikrere som standard” værktøjsudførelse, så tilføj en sandbox + afvis farlige værktøjer for enhver ikke-ejer-agent (eksempel nedenfor under “Adgangsprofiler pr. agent”).
+Overvej også agent-workspace-adgang inde i sandboxen:
 
 ## Sandboxing (anbefalet)
 
@@ -616,7 +637,7 @@ få adgang til disse konti og data. Behandl browserprofiler som **følsom tilsta
 - Deaktivér browser-proxy-routing, når du ikke har brug for det (`gateway.nodes.browser.mode="off"`).
 - Chrome-udvidelsesrelætilstand er **ikke** “sikrere”; den kan overtage dine eksisterende Chrome-faner. Antag, at det kan virke som du i uanset hvilken fane/profil kan nå.
 
-## Adgangsprofiler pr. agent (multi-agent)
+## Eksempel: skrivebeskyttede værktøjer + skrivebeskyttet workspace
 
 Med multi-agent routing, kan hver agent have sin egen sandkasse + værktøjspolitik:
 bruge dette til at give **fuld adgang**, **skrivebeskyttet**, eller **ingen adgang** pr. agent.
@@ -629,7 +650,7 @@ Almindelige brugsscenarier:
 - Familie/arbejdsagent: sandboxed + skrivebeskyttede værktøjer
 - Offentlig agent: sandboxed + ingen filsystem-/shell-værktøjer
 
-### Eksempel: fuld adgang (ingen sandbox)
+### Hvad du skal sige til din AI
 
 ```json5
 {
@@ -733,13 +754,13 @@ Inkludér sikkerhedsretningslinjer i din agents systemprompt:
 
 Hvis din AI gør noget skidt:
 
-### Inddæm
+### Indsaml til en rapport
 
-1. **Stop det:** stop macOS-appen (hvis den superviserer Gateway’en) eller terminér din `openclaw gateway`-proces.
-2. **Luk eksponering:** sæt `gateway.bind: "loopback"` (eller deaktivér Tailscale Funnel/Serve), indtil du forstår, hvad der skete.
-3. **Frys adgang:** skift risikable DMs/grupper til `dmPolicy: "disabled"` / kræv mentions, og fjern `"*"` tillad-alle-poster, hvis du havde dem.
+1. Tidsstempel, gateway-vært OS + OpenClaw-version
+2. Sessionstranskript(er) + en kort log-tail (efter redigering)
+3. Hvad angriberen sendte + hvad agenten gjorde
 
-### Rotér (antag kompromittering, hvis hemmeligheder lækkede)
+### Hemmelighedsscanning (detect-secrets)
 
 1. Rotér Gateway-auth (`gateway.auth.token` / `OPENCLAW_GATEWAY_PASSWORD`) og genstart.
 2. Rotér fjernklient-hemmeligheder (`gateway.remote.token` / `.password`) på enhver maskine, der kan kalde Gateway’en.
@@ -747,9 +768,9 @@ Hvis din AI gør noget skidt:
 
 ### Audit
 
-1. Tjek Gateway-logs: `/tmp/openclaw/openclaw-YYYY-MM-DD.log` (eller `logging.file`).
-2. Gennemse de relevante transkripter: `~/.openclaw/agents/<agentId>/sessions/*.jsonl`.
-3. Gennemse nylige konfigurationsændringer (alt, der kunne have udvidet adgang: `gateway.bind`, `gateway.auth`, DM-/gruppepolitikker, `tools.elevated`, plugin-ændringer).
+1. Reproducer lokalt:
+2. Forstå værktøjerne:
+3. For ægte hemmeligheder: rotér/fjern dem, og genkør scanningen for at opdatere baseline.
 
 ### Indsaml til en rapport
 
@@ -771,11 +792,11 @@ Hvis det mislykkes, er der nye kandidater endnu ikke i basislinjen.
    detect-secrets scan --baseline .secrets.baseline
    ```
 
-2. Forstå værktøjerne:
+2. Post ikke offentligt, før det er rettet
    - `detect-secrets scan` finder kandidater og sammenligner dem med baseline.
    - `detect-secrets audit` åbner en interaktiv gennemgang for at markere hvert baseline-element som ægte eller falsk positiv.
 
-3. For ægte hemmeligheder: rotér/fjern dem, og genkør scanningen for at opdatere baseline.
+3. Vi krediterer dig (medmindre du foretrækker anonymitet)
 
 4. For falske positiver: kør den interaktive audit og markér dem som falske:
 
@@ -790,30 +811,14 @@ Commit den opdaterede `.secrets.baseline`, når den afspejler den tilsigtede til
 ## Tillidshierarkiet
 
 ```mermaid
-%%{init: {
-  'theme': 'base',
-  'themeVariables': {
-    'primaryColor': '#ffffff',
-    'primaryTextColor': '#000000',
-    'primaryBorderColor': '#000000',
-    'lineColor': '#000000',
-    'secondaryColor': '#f9f9fb',
-    'tertiaryColor': '#ffffff',
-    'clusterBkg': '#f9f9fb',
-    'clusterBorder': '#000000',
-    'nodeBorder': '#000000',
-    'mainBkg': '#ffffff',
-    'edgeLabelBackground': '#ffffff'
-  }
-}}%%
 flowchart TB
-    A["Owner (Peter)"] -- Full trust --> B["AI (Clawd)"]
-    B -- Trust but verify --> C["Friends in allowlist"]
-    C -- Limited trust --> D["Strangers"]
-    D -- No trust --> E["Mario asking for find ~"]
-    E -- Definitely no trust 😏 --> F[" "]
+    A["Owner (Peter)"] -- Fuld tillid --> B["AI (Clawd)"]
+    B -- Stol på, men verificér --> C["Venner i allowlist"]
+    C -- Begrænset tillid --> D["Fremmede"]
+    D -- Ingen tillid --> E["Mario der spørger om find ~"]
+    E -- Helt sikkert ingen tillid 😏 --> F[" "]
 
-     %% The transparent box is needed to show the bottom-most label correctly
+     %% Den gennemsigtige boks er nødvendig for at vise den nederste label korrekt
      F:::Class_transparent_box
     classDef Class_transparent_box fill:transparent, stroke:transparent
 ```
@@ -831,5 +836,3 @@ Fundet en sårbarhed i OpenClaw? Rapporter venligst ansvarligt:
 _"Sikkerhed er en proces, ikke et produkt. Også, ikke stole hummere med shell adgang."_ - Nogen klog, sandsynligvis
 
 🦞🔐
-
-

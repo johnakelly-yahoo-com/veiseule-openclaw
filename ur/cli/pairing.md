@@ -1,4 +1,7 @@
 ---
+summary: "CLI حوالہ برائے `openclaw pairing` (پیئرنگ درخواستوں کی منظوری/فہرست)"
+read_when:
+  - آپ pairing-mode DMs استعمال کر رہے ہوں اور بھیجنے والوں کی منظوری درکار ہو
 title: "جوڑی بنانا"
 ---
 
@@ -16,5 +19,3 @@ title: "جوڑی بنانا"
 openclaw pairing list whatsapp
 openclaw pairing approve whatsapp <code> --notify
 ```
-
-

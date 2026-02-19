@@ -1,4 +1,8 @@
 ---
+summary: "Agent-workspace: placering, layout og backupstrategi"
+read_when:
+  - Du skal forklare agent-workspacet eller dets fillayout
+  - Du vil sikkerhedskopiere eller migrere et agent-workspace
 title: "Agentarbejdsområde"
 ---
 
@@ -227,5 +231,3 @@ Foreslået `.gitignore`-starter:
   [Kanal routing](/channels/channel-routing) for routing konfiguration.
 - Hvis `agents.defaults.sandbox` er aktiveret, kan ikke-hovedsessioner bruge
   sandbox-workspaces pr. session under `agents.defaults.sandbox.workspaceRoot`.
-
-

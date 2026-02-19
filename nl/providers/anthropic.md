@@ -1,4 +1,8 @@
 ---
+summary: "Gebruik Anthropic Claude via API-sleutels of setup-token in OpenClaw"
+read_when:
+  - Je wilt Anthropic-modellen gebruiken in OpenClaw
+  - Je wilt een setup-token gebruiken in plaats van API-sleutels
 title: "Anthropic"
 ---
 
@@ -31,7 +35,7 @@ openclaw onboard --anthropic-api-key "$ANTHROPIC_API_KEY"
 }
 ```
 
-## Promptcaching (Anthropic API)
+## Prompt caching (Anthropic API)
 
 OpenClaw ondersteunt de prompt-cachingfunctie van Anthropic. Dit is **alleen API**; abonnementsauthenticatie respecteert cache-instellingen niet.
 
@@ -146,5 +150,3 @@ openclaw onboard --auth-choice setup-token
 - Voeg een ander Anthropic-profiel toe of wacht tot de cooldown voorbij is.
 
 Meer: [/gateway/troubleshooting](/gateway/troubleshooting) en [/help/faq](/help/faq).
-
-

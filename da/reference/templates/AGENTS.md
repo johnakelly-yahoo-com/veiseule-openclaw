@@ -1,4 +1,9 @@
-------
+---
+title: "AGENTS.md-skabelon"
+summary: "Workspace-skabelon til AGENTS.md"
+read_when:
+  - Manuel opstart af et workspace
+---
 
 # AGENTS.md - Dit workspace
 
@@ -212,5 +217,3 @@ Målet: Vær hjælpsom uden at være irriterende. Check ind på et par gange om 
 ## Gør det til dit eget
 
 Det er et udgangspunkt. Tilføj dine egne konventioner, stil og regler, som du finde ud af, hvad der virker.
-
-

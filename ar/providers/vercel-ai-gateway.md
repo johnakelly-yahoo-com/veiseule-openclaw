@@ -1,5 +1,9 @@
 ---
 title: "بوابة Vercel AI"
+summary: "إعداد بوابة Vercel AI (المصادقة + اختيار النموذج)"
+read_when:
+  - تريد استخدام بوابة Vercel AI مع OpenClaw
+  - تحتاج إلى متغير بيئة مفتاح واجهة برمجة التطبيقات أو خيار المصادقة عبر CLI
 ---
 
 # بوابة Vercel AI
@@ -44,5 +48,3 @@ openclaw onboard --non-interactive \
 إذا كانت Gateway تعمل كخدمة (launchd/systemd)، فتأكد من أن `AI_GATEWAY_API_KEY`
 متاح لتلك العملية (على سبيل المثال، في `~/.openclaw/.env` أو عبر
 `env.shellEnv`).
-
-

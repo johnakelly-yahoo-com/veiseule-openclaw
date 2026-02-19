@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw sa DigitalOcean (simpleng bayad na opsyon ng VPS)"
+read_when:
+  - Pagse-setup ng OpenClaw sa DigitalOcean
+  - Naghahanap ng murang VPS hosting para sa OpenClaw
 title: "DigitalOcean"
 ---
 
@@ -12,7 +16,7 @@ Kung gusto mo ng $0/buwan na opsyon at ayos lang sa iyo ang ARM + provider-speci
 
 ## Paghahambing ng Gastos (2026)
 
-| Tagapagbigay     | Plano            | Mga Detalye                     | Presyo/buwan                                                   | Mga tala                                    |
+| Tagapagbigay | Plano           | Mga Detalye               | Presyo/buwan                                                   | Mga tala                                    |
 | ------------ | --------------- | ------------------------- | -------------------------------------------------------------- | ------------------------------------------- |
 | Oracle Cloud | Always Free ARM | hanggang 4 OCPU, 24GB RAM | $0                                                             | ARM, limitadong capacity / quirks sa signup |
 | Hetzner      | CX22            | 2 vCPU, 4GB RAM           | €3.79 (~$4) | Pinakamurang bayad na opsyon                |
@@ -205,7 +209,7 @@ tar -czvf openclaw-backup.tar.gz ~/.openclaw ~/.openclaw/workspace
 
 Nag-aalok ang Oracle Cloud ng **Always Free** ARM instances na mas makapangyarihan nang malaki kaysa sa alinmang bayad na opsyon dito — sa halagang $0/buwan.
 
-| Ano ang makukuha mo | Mga Detalye                        |
+| Ano ang makukuha mo | Mga Detalye                  |
 | ------------------- | ---------------------------- |
 | **4 OCPUs**         | ARM Ampere A1                |
 | **24GB RAM**        | Higit pa sa sapat            |
@@ -256,5 +260,3 @@ free -h
 - [Docker install](/install/docker) — containerized na setup
 - [Tailscale](/gateway/tailscale) — secure na remote access
 - [Configuration](/gateway/configuration) — kumpletong reference ng config
-
-

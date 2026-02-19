@@ -1,4 +1,9 @@
 ---
+summary: "वेब खोज + फ़ेच टूल्स (Brave Search API, Perplexity direct/OpenRouter)"
+read_when:
+  - आप web_search या web_fetch सक्षम करना चाहते हैं
+  - आपको Brave Search API कुंजी सेटअप की आवश्यकता है
+  - आप वेब खोज के लिए Perplexity Sonar का उपयोग करना चाहते हैं
 title: "वेब टूल्स"
 ---
 
@@ -9,7 +14,7 @@ OpenClaw दो हल्के वेब टूल्स प्रदान क
 - `web_search` — Brave Search API (डिफ़ॉल्ट) या Perplexity Sonar (direct या OpenRouter के माध्यम से) के जरिए वेब खोज।
 - `web_fetch` — HTTP फ़ेच + पठनीय निष्कर्षण (HTML → markdown/text)।
 
-ये **browser automation** नहीं हैं। JS-heavy साइट्स या लॉगिन के लिए, उपयोग करें
+These are **not** browser automation. For JS-heavy sites or logins, use the
 [Browser tool](/tools/browser).
 
 ## यह कैसे काम करता है
@@ -18,8 +23,8 @@ OpenClaw दो हल्के वेब टूल्स प्रदान क
   - **Brave** (डिफ़ॉल्ट): संरचित परिणाम लौटाता है (शीर्षक, URL, स्निपेट)।
   - **Perplexity**: रियल-टाइम वेब खोज से उद्धरणों सहित AI-संश्लेषित उत्तर लौटाता है।
 - परिणाम 15 मिनट के लिए क्वेरी के आधार पर कैश किए जाते हैं (कॉन्फ़िगर करने योग्य)।
-- `web_fetch` एक साधारण HTTP GET करता है और पढ़ने योग्य सामग्री निकालता है
-(HTML → markdown/text)। यह **JavaScript** को execute नहीं करता।
+- `web_fetch` does a plain HTTP GET and extracts readable content
+  (HTML → markdown/text). It does **not** execute JavaScript.
 - `web_fetch` डिफ़ॉल्ट रूप से सक्षम है (जब तक स्पष्ट रूप से अक्षम न किया जाए)।
 
 ## खोज प्रदाता चुनना
@@ -74,10 +79,10 @@ Brave मुफ़्त टियर और सशुल्क प्लान 
 
 ### कुंजी कहाँ सेट करें (अनुशंसित)
 
-**अनुशंसित:** `openclaw configure --section web` चलाएँ। यह key को इसमें संग्रहीत करता है
+**Recommended:** run `openclaw configure --section web`. It stores the key in
 `~/.openclaw/openclaw.json` under `tools.web.search.apiKey`.
 
-**Environment alternative:** Gateway process में `BRAVE_API_KEY` सेट करें
+**Environment alternative:** set `BRAVE_API_KEY` in the Gateway process
 environment. For a gateway install, put it in `~/.openclaw/.env` (or your
 service environment). See [Env vars](/help/faq#how-does-openclaw-load-environment-variables).
 
@@ -168,6 +173,8 @@ answers with citations. 1. आप इन्हें OpenRouter के माध
 - `search_lang` (वैकल्पिक): खोज परिणामों के लिए ISO भाषा कोड (जैसे, "de", "en", "fr")
 - `ui_lang` (वैकल्पिक): UI तत्वों के लिए ISO भाषा कोड
 - `freshness` (वैकल्पिक, केवल Brave): खोज समय के आधार पर फ़िल्टर (`pd`, `pw`, `pm`, `py`, या `YYYY-MM-DDtoYYYY-MM-DD`)
+  - Brave: `pd`, `pw`, `pm`, `py`, or `YYYY-MM-DDtoYYYY-MM-DD`
+  - Perplexity: `pd`, `pw`, `pm`, `py`
 
 **उदाहरण:**
 
@@ -251,5 +258,3 @@ await web_search({
 - दोहराए गए फ़ेच को कम करने के लिए प्रतिक्रियाएँ कैश की जाती हैं (डिफ़ॉल्ट 15 मिनट)।
 - यदि आप टूल प्रोफ़ाइल/allowlists का उपयोग करते हैं, तो `web_search`/`web_fetch` या `group:web` जोड़ें।
 - यदि Brave कुंजी अनुपलब्ध है, तो `web_search` दस्तावेज़ लिंक के साथ एक संक्षिप्त सेटअप संकेत लौटाता है।
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "موفّرو النماذج (LLMs) المدعومون من OpenClaw"
+read_when:
+  - تريد اختيار موفّر نموذج
+  - تحتاج إلى نظرة عامة سريعة على واجهات LLM الخلفية المدعومة
 title: "موفّرو النماذج"
 ---
 
@@ -35,7 +39,9 @@ title: "موفّرو النماذج"
 - [Anthropic (API + Claude Code CLI)](/providers/anthropic)
 - [Qwen (OAuth)](/providers/qwen)
 - [OpenRouter](/providers/openrouter)
+- [LiteLLM (بوابة موحّدة)](/providers/litellm)
 - [Vercel AI Gateway](/providers/vercel-ai-gateway)
+- [Together AI](/providers/together)
 - [Cloudflare AI Gateway](/providers/cloudflare-ai-gateway)
 - [Moonshot AI (Kimi + Kimi Coding)](/providers/moonshot)
 - [OpenCode Zen](/providers/opencode)
@@ -45,8 +51,11 @@ title: "موفّرو النماذج"
 - [GLM models](/providers/glm)
 - [MiniMax](/providers/minimax)
 - [Venice (Venice AI، يركّز على الخصوصية)](/providers/venice)
+- [Hugging Face (Inference)](/providers/huggingface)
 - [Ollama (نماذج محلية)](/providers/ollama)
+- موفري خدمات الترجمة
 - [Qianfan](/providers/qianfan)
+- [NVIDIA](/providers/nvidia)
 
 ## موفري خدمات الترجمة
 
@@ -59,5 +68,3 @@ title: "موفّرو النماذج"
 للاطلاع على كتالوج الموفّرين الكامل (xAI، Groq، Mistral، إلخ) والتهيئة المتقدمة،
 راجع [موفّري النماذج](/concepts/model-providers). للاطلاع على كتالوج الموفّرين الكامل (xAI وGroq وMistral وغيرها) والإعدادات المتقدمة،
 انظر [موفّرو النماذج](/concepts/model-providers).
-
-

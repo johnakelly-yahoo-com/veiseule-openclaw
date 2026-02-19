@@ -1,4 +1,8 @@
 ---
+summary: "Onboardingstroom bij eerste start voor OpenClaw (macOS‑app)"
+read_when:
+  - Ontwerpen van de macOS-onboardingassistent
+  - Implementeren van authenticatie- of identiteitsinstellingen
 title: "Onboarding (macOS‑app)"
 sidebarTitle: "Introductie: macOS-app"
 ---
@@ -8,6 +12,7 @@ sidebarTitle: "Introductie: macOS-app"
 Dit document beschrijft de **huidige** onboardingstroom bij de eerste start. Het doel is een
 soepele “dag 0”-ervaring: kies waar de Gateway draait, verbind authenticatie, doorloop de
 wizard en laat de agent zichzelf bootstrapen.
+Voor een algemeen overzicht van onboardingtrajecten, zie [Onboarding Overview](/start/onboarding-overview).
 
 <Steps>
 <Step title="Approve macOS warning">
@@ -76,5 +81,3 @@ Deze stap is optioneel
   wat er gebeurt op de Gateway-host tijdens de eerste agentrun.
 </Step>
 </Steps>
-
-

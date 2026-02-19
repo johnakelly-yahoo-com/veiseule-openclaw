@@ -1,5 +1,8 @@
 ---
-title: "အေးဂျင့် ပို့ခြင်း"
+summary: "တိုက်ရိုက် `openclaw agent` CLI ကို လုပ်ဆောင်ခြင်း (ပို့ဆောင်မှုကို ရွေးချယ်နိုင်သည်)"
+read_when:
+  - အေးဂျင့် CLI entrypoint ကို ထည့်သွင်းခြင်း သို့မဟုတ် ပြင်ဆင်ခြင်း ပြုလုပ်နေချိန်
+title: "Agent Send"
 ---
 
 # `openclaw agent` (တိုက်ရိုက် အေးဂျင့် လုပ်ဆောင်မှုများ)
@@ -7,7 +10,7 @@ title: "အေးဂျင့် ပို့ခြင်း"
 `openclaw agent` သည် inbound chat message မလိုအပ်ဘဲ agent turn တစ်ကြိမ်ကို အလုပ်လုပ်စေပါသည်။
 ပုံမှန်အားဖြင့် **Gateway မှတစ်ဆင့်** လုပ်ဆောင်သည်; လက်ရှိစက်ပေါ်ရှိ embedded runtime ကို အတင်းအသုံးပြုလိုပါက `--local` ကို ထည့်ပါ။
 
-## အပြုအမူ
+## Behavior
 
 - လိုအပ်ချက်: `--message <text>`
 - Session ရွေးချယ်မှု:
@@ -16,7 +19,7 @@ title: "အေးဂျင့် ပို့ခြင်း"
   - `--agent <id>` သည် ပြင်ဆင်ထားသော အေးဂျင့် တစ်ခုကို တိုက်ရိုက် ရည်မှန်းသည် (အဲဒီ အေးဂျင့်၏ `main` session key ကို အသုံးပြုသည်)
 - ပုံမှန် ဝင်ရောက်လာသော အဖြေများကဲ့သို့ တူညီသော embedded အေးဂျင့် runtime ကို လည်ပတ်သည်။
 - Thinking/verbose flags များကို session store အတွင်း ဆက်လက် ထိန်းသိမ်းထားသည်။
-- အထွက်:
+- Output:
   - ပုံမှန်: အဖြေစာသားကို ပုံနှိပ်ပြသသည် (`MEDIA:<url>` လိုင်းများ ပါဝင်)
   - `--json`: ဖွဲ့စည်းထားသော payload + metadata ကို ပုံနှိပ်ပြသသည်
 - `--deliver` + `--channel` ဖြင့် ချန်နယ်သို့ ပြန်လည်ပို့ဆောင်နိုင်သည် (target ဖော်မတ်များသည် `openclaw message --target` နှင့် ကိုက်ညီသည်)။
@@ -24,7 +27,7 @@ title: "အေးဂျင့် ပို့ခြင်း"
 
 Gateway（ဂိတ်ဝေး） ကို မရောက်နိုင်ပါက CLI သည် embedded local run သို့ **ပြန်လည်လှည့်သွား** ပါသည်။
 
-## ဥပမာများ
+## Examples
 
 ```bash
 openclaw agent --to +15555550123 --message "status update"
@@ -35,7 +38,7 @@ openclaw agent --to +15555550123 --message "Summon reply" --deliver
 openclaw agent --agent ops --message "Generate report" --deliver --reply-channel slack --reply-to "#reports"
 ```
 
-## အလံများ
+## Flags
 
 - `--local`: local အဖြစ် လည်ပတ်ပါ (သင့် shell အတွင်း model provider API keys လိုအပ်သည်)
 - `--deliver`: ရွေးချယ်ထားသော ချန်နယ်သို့ အဖြေကို ပို့ပါ
@@ -47,5 +50,3 @@ openclaw agent --agent ops --message "Generate report" --deliver --reply-channel
 - `--verbose <on|full|off>`: verbose အဆင့်ကို ဆက်လက်သိမ်းဆည်းရန်
 - `--timeout <seconds>`: အေးဂျင့် timeout ကို အစားထိုးသတ်မှတ်ရန်
 - `--json`: ဖွဲ့စည်းထားသော JSON ကို ထုတ်ပေးရန်
-
-

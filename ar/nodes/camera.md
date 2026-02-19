@@ -1,4 +1,8 @@
 ---
+summary: "التقاط الكاميرا (عُقدة iOS + تطبيق macOS) لاستخدام الوكيل: صور (jpg) ومقاطع فيديو قصيرة (mp4)"
+read_when:
+  - عند إضافة أو تعديل التقاط الكاميرا على عُقد iOS أو macOS
+  - عند توسيع سير عمل ملفات MEDIA المؤقتة المتاحة للوكيل
 title: "التقاط الكاميرا"
 ---
 
@@ -27,7 +31,7 @@ title: "التقاط الكاميرا"
     - `devices`: مصفوفة من `{ id, name, position, deviceType }`
 
 - `camera.snap`
-  - المعاملات:
+  - Params:
     - `facing`: `front|back` (الافتراضي: `front`)
     - `maxWidth`: رقم (اختياري؛ الافتراضي `1600` على عُقدة iOS)
     - `quality`: `0..1` (اختياري؛ الافتراضي `0.9`)
@@ -41,7 +45,7 @@ title: "التقاط الكاميرا"
   - حارس الحمولة: تُعاد ضغط الصور للحفاظ على حمولة base64 دون 5 ميغابايت.
 
 - `camera.clip`
-  - المعاملات:
+  - Params:
     - `facing`: `front|back` (الافتراضي: `front`)
     - `durationMs`: رقم (الافتراضي `3000`، ومقيد بحد أقصى `60000`)
     - `includeAudio`: قيمة منطقية (الافتراضي `true`)
@@ -150,5 +154,3 @@ openclaw nodes screen record --node <id> --duration 10s --fps 15   # prints MEDI
 ملاحظات:
 
 - يتطلب إذن **Screen Recording** في macOS (TCC).
-
-

@@ -1,15 +1,18 @@
 ---
+summary: "การตั้งค่าขั้นสูงและเวิร์กโฟลว์การพัฒนาสำหรับ OpenClaw"
+read_when:
+  - การตั้งค่าเครื่องใหม่
+  - คุณต้องการ “ล่าสุดและดีที่สุด” โดยไม่กระทบการตั้งค่าส่วนตัว
 title: "การตั้งค่า"
 ---
 
 # การตั้งค่า
 
 <Note>
-หากคุณกำลังตั้งค่าเป็นครั้งแรก ให้เริ่มที่ [Getting Started](/start/getting-started)
 
+หากคุณกำลังตั้งค่าเป็นครั้งแรก ให้เริ่มที่ [Getting Started](/start/getting-started)
 หากเป็นการตั้งค่าครั้งแรก ให้เริ่มจาก [เริ่มต้นใช้งาน](/start/getting-started)
 สำหรับรายละเอียดของวิซาร์ด ดูที่ [Onboarding Wizard](/start/wizard)
-
 </Note>
 
 อัปเดตล่าสุด: 2026-01-01
@@ -160,5 +163,3 @@ user service (ไม่ต้องใช้ lingering) ดูหมายเห
 - [Discord](/channels/discord) และ [Telegram](/channels/telegram) (แท็กการตอบกลับ + การตั้งค่า replyToMode)
 - [OpenClaw assistant setup](/start/openclaw)
 - [macOS app](/platforms/macos) (วงจรชีวิต gateway)
-
-

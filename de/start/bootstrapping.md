@@ -1,4 +1,9 @@
 ---
+summary: "„Agent-Bootstrapping-Ritual, das den Workspace und die Identitätsdateien initialisiert“"
+read_when:
+  - „Verstehen, was beim ersten Agentenlauf passiert“
+  - „Erklären, wo Bootstrapping-Dateien abgelegt sind“
+  - „Debugging der Onboarding-Identitätseinrichtung“
 title: "„Agent-Bootstrapping“"
 sidebarTitle: "„Bootstrapping“"
 ---
@@ -34,5 +39,3 @@ Dateien auf dem Gateway-Host (zum Beispiel `user@gateway-host:~/.openclaw/worksp
 
 - macOS‑App‑Onboarding: [Onboarding](/start/onboarding)
 - Workspace‑Layout: [Agent-Workspace](/concepts/agent-workspace)
-
-

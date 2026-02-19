@@ -1,4 +1,8 @@
 ---
+summary: "Repository-scripts: formål, omfang og sikkerhedsnoter"
+read_when:
+  - Kørsel af scripts fra repoet
+  - Tilføjelse eller ændring af scripts under ./scripts
 title: "Skripter"
 ---
 
@@ -22,5 +26,3 @@ Scripts til overvågning af autentificering er dokumenteret her:
 
 - Hold scripts fokuserede og dokumenterede.
 - Tilføj en kort indgang i den relevante dokumentation (eller opret en, hvis den mangler).
-
-

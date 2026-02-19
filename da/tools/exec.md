@@ -1,4 +1,8 @@
 ---
+summary: "Brug af Exec-værktøjet, stdin-tilstande og TTY-understøttelse"
+read_when:
+  - Brug eller ændring af exec-værktøjet
+  - Fejlfinding af stdin- eller TTY-adfærd
 title: "Exec-værktøj"
 ---
 
@@ -70,9 +74,9 @@ Eksempel:
 - `host=sandbox`: kører `sh -lc` (login shell) inde i beholderen, så `/etc/profile` kan nulstille `PATH`.
   OpenClaw forbereder `env.PATH` efter profil sourcing via en intern env var (ingen shell interpolation);
   `tools.exec.pathPrepend` gælder også her.
-- `host=node`: kun ikke-blokerede env tilsidesætter du passerer er sendt til noden. `env.PATH` tilsidesættelser er
-  afvist for udførelse af værten. Hovedløse node værter accepterer kun `PATH` når det forbereder node vært
-  PATH (ingen erstatning). macOS noder drop `PATH` tilsidesætter helt.
+- `host=node`: kun ikke-blokerede env tilsidesætter du passerer er sendt til noden. `env.PATH`-overskrivninger bliver
+  afvist for host-eksekvering og ignoreret af node-hosts. Hvis du har brug for yderligere PATH-indgange på en node,
+  skal du konfigurere node host-servicens miljø (systemd/launchd) eller installere værktøjer på standardplaceringer.
 
 Per-agent node-binding (brug agentlisteindekset i konfigurationen):
 
@@ -115,8 +119,9 @@ Gateway udsender systembegivenheder (`Exec færdiggjort` / `Exec nægtet`). Hvis
 
 Tillads håndhævelse matcher kun **løst binære stier** (ingen basename matches). Når
 `security=allowlist`, er skalkommandoer kun automatisk tilladt, hvis hvert pipeline-segment er
-tilladt, eller en sikker bin. Kædemål (`;`, `&`, `~~`) og omdirigeringer afvises i tilstanden
-tilladsliste.
+tilladt, eller en sikker bin. Kædning (`;`, `&&`, `||`) og omdirigeringer afvises i
+tilladelseslistetilstand, medmindre hvert topniveau-segment opfylder tilladelseslisten (inklusive sikre bins).
+Omdirigeringer understøttes fortsat ikke.
 
 ## Eksempler
 
@@ -173,5 +178,4 @@ Noter:
 - Kun tilgængelig for OpenAI/OpenAI Codex-modeller.
 - Værktøjspolitik gælder stadig; `allow: ["exec"]` tillader implicit `apply_patch`.
 - Konfigurationen ligger under `tools.exec.applyPatch`.
-
-
+- `tools.exec.applyPatch.workspaceOnly` er som standard sat til `true` (begrænset til workspace). Sæt den kun til `false`, hvis du bevidst ønsker, at `apply_patch` skal skrive/slette uden for workspace-mappen.

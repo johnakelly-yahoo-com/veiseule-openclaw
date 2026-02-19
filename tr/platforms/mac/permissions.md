@@ -1,4 +1,9 @@
 ---
+summary: "macOS izinlerinin kalıcılığı (TCC) ve imzalama gereksinimleri"
+read_when:
+  - Eksik veya takılı kalan macOS izin istemlerini ayıklarken
+  - macOS uygulamasını paketlerken veya imzalarken
+  - Paket kimliklerini (bundle ID) veya uygulama kurulum yollarını değiştirirken
 title: "macOS İzinleri"
 ---
 
@@ -43,5 +48,3 @@ Geçici çözüm: klasör bazlı izinlerden kaçınmak istiyorsanız dosyaları 
 
 İzinleri test ederken her zaman gerçek bir sertifika ile imzalayın. Ad-hoc
 derlemeler, izinlerin önemli olmadığı hızlı yerel çalıştırmalar için kabul edilebilir.
-
-

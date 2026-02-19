@@ -1,4 +1,8 @@
 ---
+summary: "نقل (ترحيل) تثبيت OpenClaw من جهاز إلى آخر"
+read_when:
+  - أنت تنقل OpenClaw إلى حاسوب محمول أو خادم جديد
+  - تريد الحفاظ على الجلسات والمصادقة وتسجيلات الدخول إلى القنوات (WhatsApp وغيرها)
 title: "دليل الترحيل"
 ---
 
@@ -186,5 +190,3 @@ openclaw doctor
 - [Doctor](/gateway/doctor)
 - [استكشاف أخطاء Gateway وإصلاحها](/gateway/troubleshooting)
 - [أين يخزّن OpenClaw بياناته؟](/help/faq#where-does-openclaw-store-its-data)
-
-

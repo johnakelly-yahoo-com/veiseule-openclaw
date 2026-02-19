@@ -1,4 +1,8 @@
 ---
+summary: "Een WhatsApp-bericht uitzenden naar meerdere agents"
+read_when:
+  - Broadcastgroepen configureren
+  - Multi-agentreacties in WhatsApp debuggen
 status: experimental
 title: "Broadcastgroepen"
 ---
@@ -436,5 +440,3 @@ Geplande functies:
 - [Multi-agentconfiguratie](/tools/multi-agent-sandbox-tools)
 - [Routeringsconfiguratie](/channels/channel-routing)
 - [Sessiebeheer](/concepts/sessions)
-
-

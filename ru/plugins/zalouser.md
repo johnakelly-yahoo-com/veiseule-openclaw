@@ -1,4 +1,8 @@
 ---
+summary: "Плагин Zalo Personal: вход по QR + обмен сообщениями через zca-cli (установка плагина + конфигурация канала + CLI + инструмент)"
+read_when:
+  - Вам нужна поддержка Zalo Personal (неофициальная) в OpenClaw
+  - Вы настраиваете или разрабатываете плагин zalouser
 title: "Плагин Zalo Personal"
 ---
 
@@ -75,5 +79,3 @@ openclaw directory peers list --channel zalouser --query "name"
 Имя инструмента: `zalouser`
 
 Действия: `send`, `image`, `link`, `friends`, `groups`, `me`, `status`
-
-

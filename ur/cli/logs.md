@@ -1,4 +1,8 @@
 ---
+summary: "CLI حوالہ برائے `openclaw logs` (RPC کے ذریعے Gateway لاگز کی ٹیلنگ)"
+read_when:
+  - آپ کو Gateway لاگز کو ریموٹ طور پر ٹیل کرنا ہو (SSH کے بغیر)
+  - آپ ٹولنگ کے لیے JSON لاگ لائنیں چاہتے ہوں
 title: "لاگز"
 ---
 
@@ -19,4 +23,4 @@ openclaw logs --json
 openclaw logs --limit 500
 ```
 
-
+اپنے مقامی ٹائم زون میں ٹائم اسٹیمپس دکھانے کے لیے `--local-time` استعمال کریں۔

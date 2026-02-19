@@ -1,4 +1,9 @@
 ---
+summary: "Настройка Moonshot K2 vs Kimi Coding (отдельные провайдеры и ключи)"
+read_when:
+  - Вам нужна настройка Moonshot K2 (Moonshot Open Platform) vs Kimi Coding
+  - Вам нужно понять различия отдельных эндпоинтов, ключей и ссылок на модели
+  - Вам нужен конфиг для копирования/вставки для любого провайдера
 title: "Moonshot AI"
 ---
 
@@ -135,5 +140,3 @@ openclaw onboard --auth-choice kimi-code-api-key
 - Если Moonshot публикует иные ограничения контекста для модели, скорректируйте
   `contextWindow` соответствующим образом.
 - Используйте `https://api.moonshot.ai/v1` для международного эндпоинта и `https://api.moonshot.cn/v1` для эндпоинта в Китае.
-
-

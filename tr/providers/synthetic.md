@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw’da Synthetic’in Anthropic uyumlu API’sini kullanın"
+read_when:
+  - Synthetic’i bir model sağlayıcısı olarak kullanmak istiyorsunuz
+  - Bir Synthetic API anahtarına veya temel URL kurulumuna ihtiyacınız var
 title: "Synthetic"
 ---
 
@@ -65,7 +69,7 @@ temel URL’sini değiştirirse, `models.providers.synthetic.baseUrl` değerini 
 
 Aşağıdaki tüm modeller `0` maliyetini kullanır (girdi/çıktı/önbellek).
 
-| Model Kimliği                                               | Bağlam penceresi | Maks. token | Gerekçe | Girdi        |
+| Model Kimliği                                          | Bağlam penceresi | Maks. token | Reasoning | Girdi        |
 | ------------------------------------------------------ | ---------------- | --------------------------- | --------- | ------------ |
 | `hf:MiniMaxAI/MiniMax-M2.1`                            | 192000           | 65536                       | false     | text         |
 | `hf:moonshotai/Kimi-K2-Thinking`                       | 256000           | 8192                        | true      | text         |
@@ -93,5 +97,3 @@ Aşağıdaki tüm modeller `0` maliyetini kullanır (girdi/çıktı/önbellek).
 - Bir model izin listesi (`agents.defaults.models`) etkinleştirirseniz, kullanmayı
   planladığınız her modeli ekleyin.
 - Sağlayıcı kuralları için [Model sağlayıcıları](/concepts/model-providers) bölümüne bakın.
-
-

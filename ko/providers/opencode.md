@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw 에서 OpenCode Zen (큐레이션된 모델) 사용"
+read_when:
+  - 모델 접근을 위해 OpenCode Zen 이 필요할 때
+  - 코딩에 친화적인 모델의 큐레이션된 목록이 필요할 때
 title: "OpenCode Zen"
 ---
 
@@ -30,5 +34,3 @@ openclaw onboard --opencode-zen-api-key "$OPENCODE_API_KEY"
 - `OPENCODE_ZEN_API_KEY` 또한 지원됩니다.
 - Zen 에 로그인하여 결제 정보를 추가한 다음 API 키를 복사합니다.
 - OpenCode Zen 은 요청당 과금합니다. 자세한 내용은 OpenCode 대시보드를 확인하십시오.
-
-

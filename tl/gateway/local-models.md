@@ -1,4 +1,9 @@
 ---
+summary: "Patakbuhin ang OpenClaw sa mga lokal na LLM (LM Studio, vLLM, LiteLLM, custom OpenAI endpoints)"
+read_when:
+  - Gusto mong mag-serve ng mga model mula sa sarili mong GPU box
+  - Ikino-konekta mo ang LM Studio o isang OpenAI-compatible proxy
+  - Kailangan mo ng pinakaligtas na gabay para sa lokal na model
 title: "Mga Lokal na Model"
 ---
 
@@ -142,7 +147,5 @@ Panatilihin ang `models.mode: "merge"` para manatiling available ang hosted mode
 
 - 40. Palitan ang provider block sa itaas ng iyong endpoint at model ID: `curl http://127.0.0.1:1234/v1/models`.
 - 41. Naabot ba ng Gateway ang proxy? 42. Na-unload ba ang LM Studio model?
-- May context errors? Ibaba ang `contextWindow` o taasan ang limit ng iyong server.
+- Context errors? Lower `contextWindow` or raise your server limit.
 - Safety: nilalaktawan ng local models ang provider-side filters; panatilihing makitid ang agents at naka-on ang compaction para limitahan ang blast radius ng prompt injection.
-
-

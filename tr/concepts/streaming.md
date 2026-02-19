@@ -1,4 +1,9 @@
 ---
+summary: "Streaming + parçalama davranışı (blok yanıtlar, taslak streaming, sınırlar)"
+read_when:
+  - Kanallarda streaming veya parçalamanın nasıl çalıştığını açıklarken
+  - Blok streaming veya kanal parçalama davranışını değiştirirken
+  - Yinelenen/erken blok yanıtları ya da taslak streaming’i hata ayıklarken
 title: "Streaming ve Parçalama"
 ---
 
@@ -25,7 +30,7 @@ Model output
                    └─ channel send (block replies)
 ```
 
-Açıklama:
+Legend:
 
 - `text_delta/events`: model stream olayları (streaming olmayan modellerde seyrek olabilir).
 - `chunker`: min/max sınırları + bölme tercihini uygulayan `EmbeddedBlockChunker`.
@@ -83,7 +88,7 @@ Blok streaming etkin olduğunda, blok yanıtları arasında (**ilk bloktan sonra
 
 ## “Parçaları stream et veya her şeyi gönder”
 
-Bu şuna karşılık gelir:
+This maps to:
 
 - **Parçaları stream et:** `blockStreamingDefault: "on"` + `blockStreamingBreak: "text_end"` (ilerledikçe gönder). Telegram dışı kanallar ayrıca `*.blockStreaming: true` gerektirir.
 - **Her şeyi sonda stream et:** `blockStreamingBreak: "message_end"` (bir kez flush et; çok uzunsa birden fazla parça olabilir).
@@ -99,17 +104,17 @@ kök yapılandırmada değil, `agents.defaults` altında bulunur.
 
 Telegram, taslak streaming’e sahip tek kanaldır:
 
-- **Konulu özel sohbetlerde** Bot API `sendMessageDraft`’u kullanır.
+- Bot API `sendMessage` (ilk güncelleme) + `editMessageText` (sonraki güncellemeler) kullanır.
 - `channels.telegram.streamMode: "partial" | "block" | "off"`.
   - `partial`: en son stream metniyle taslak güncellemeleri.
   - `block`: parçalı bloklar halinde taslak güncellemeleri (aynı parçalayıcı kuralları).
   - `off`: taslak streaming yok.
 - Taslak parça yapılandırması (yalnızca `streamMode: "block"` için): `channels.telegram.draftChunk` (varsayılanlar: `minChars: 200`, `maxChars: 800`).
-- Taslak streaming, blok streaming’den ayrıdır; blok yanıtlar varsayılan olarak kapalıdır ve Telegram dışı kanallarda yalnızca `*.blockStreaming: true` ile etkinleştirilir.
-- Final yanıt yine normal bir mesajdır.
-- `/reasoning stream`, akıl yürütmeyi taslak baloncuğuna yazar (yalnızca Telegram).
-
-Taslak streaming etkin olduğunda, OpenClaw çift streaming’i önlemek için o yanıt için blok streaming’i devre dışı bırakır.
+- Önizleme akışı, blok akışından ayrıdır.
+- Taslak streaming etkin olduğunda, OpenClaw çift streaming’i önlemek için o yanıt için blok streaming’i devre dışı bırakır.
+- Yalnızca metin içeren nihai yanıtlar, önizleme mesajı yerinde düzenlenerek uygulanır.
+- Metin dışı/karmaşık nihai yanıtlar normal nihai mesaj gönderimine geri döner.
+- `/reasoning stream`, akıl yürütmeyi canlı önizlemeye yazar (yalnızca Telegram).
 
 ```
 Telegram (private + topics)
@@ -121,7 +126,5 @@ Telegram (private + topics)
 
 Legend:
 
-- `sendMessageDraft`: Telegram taslak baloncuğu (gerçek bir mesaj değildir).
-- `final reply`: normal Telegram mesaj gönderimi.
-
-
+- `preview message`: üretim sırasında güncellenen geçici Telegram mesajı.
+- `final edit`: aynı önizleme mesajı üzerinde yerinde düzenleme (yalnızca metin).

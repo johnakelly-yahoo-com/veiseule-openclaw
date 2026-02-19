@@ -1,4 +1,7 @@
 ---
+summary: "`openclaw agent` uchun CLI ma’lumotnomasi (Gateway orqali bitta agent navbatini yuborish)"
+read_when:
+  - Skriptlardan bitta agent navbatini ishga tushirmoqchisiz (ixtiyoriy ravishda javobni yetkazish)
 title: "agent"
 ---
 
@@ -19,5 +22,3 @@ openclaw agent --agent ops --message "Summarize logs"
 openclaw agent --session-id 1234 --message "Summarize inbox" --thinking medium
 openclaw agent --agent ops --message "Generate report" --deliver --reply-channel slack --reply-to "#reports"
 ```
-
-

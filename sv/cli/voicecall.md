@@ -1,4 +1,8 @@
 ---
+summary: "CLI-referens för `openclaw voicecall` (kommandoyta för voice-call-pluginen)"
+read_when:
+  - Du använder voice-call-pluginen och vill ha CLI-ingångarna
+  - Du vill ha snabba exempel för `voicecall call|continue|status|tail|expose`
 title: "voicecall"
 ---
 
@@ -28,5 +32,3 @@ openclaw voicecall unexpose
 ```
 
 Säkerhetsanteckning: exponera endast webhook slutpunkt för nätverk du litar på. Föredra Tailscale Servera över tratt när det är möjligt.
-
-

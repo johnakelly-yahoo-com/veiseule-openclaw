@@ -1,4 +1,7 @@
 ---
+summary: "„Wie die mac‑App das Gateway‑WebChat einbettet und wie Sie es debuggen“"
+read_when:
+  - Debugging der mac‑WebChat‑Ansicht oder des Loopback‑Ports
 title: "„WebChat“"
 ---
 
@@ -39,5 +42,3 @@ für den ausgewählten Agenten (mit einem Sitzungsumschalter für weitere Sitzun
 ## Bekannte Einschränkungen
 
 - Die UI ist für Chat‑Sitzungen optimiert (keine vollständige Browser‑Sandbox).
-
-

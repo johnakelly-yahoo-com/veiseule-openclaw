@@ -1,4 +1,9 @@
 ---
+summary: "Fejlsøgningsværktøjer: watch-tilstand, rå modelstreams og sporing af lækage af ræsonnement"
+read_when:
+  - Du skal inspicere rå modeloutput for lækage af ræsonnement
+  - Du vil køre Gateway i watch-tilstand under iteration
+  - Du har brug for en gentagelig fejlsøgningsworkflow
 title: "Fejlsøgning"
 ---
 
@@ -155,5 +160,3 @@ Standardfil:
 - Rå stream-logs kan indeholde fulde prompts, værktøjsoutput og brugerdata.
 - Bevar logs lokalt, og slet dem efter fejlsøgning.
 - Hvis du deler logs, så fjern først hemmeligheder og PII.
-
-

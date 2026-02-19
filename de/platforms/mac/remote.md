@@ -1,4 +1,7 @@
 ---
+summary: "„macOS-App-Ablauf zur Steuerung eines entfernten OpenClaw Gateway über SSH“"
+read_when:
+  - Beim Einrichten oder Debuggen der entfernten macOS-Steuerung
 title: "Fernbedienung"
 ---
 
@@ -78,5 +81,3 @@ openclaw nodes notify --node <id> --title "Ping" --body "Remote gateway ready" -
 ```
 
 Es gibt in der App keinen globalen Schalter „Standardton“ mehr; Aufrufer wählen pro Anfrage einen Ton (oder keinen).
-
-

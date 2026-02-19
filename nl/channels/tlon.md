@@ -1,4 +1,7 @@
 ---
+summary: "Ondersteuningsstatus, mogelijkheden en configuratie voor Tlon/Urbit"
+read_when:
+  - Werken aan Tlon/Urbit-kanaalfunctionaliteit
 title: "Tlon"
 ---
 
@@ -47,6 +50,22 @@ Minimale config (één account):
       ship: "~sampel-palnet",
       url: "https://your-ship-host",
       code: "lidlut-tabwed-pillex-ridrup",
+    },
+  },
+}
+```
+
+Private/LAN ship-URL's (geavanceerd):
+
+Standaard blokkeert OpenClaw private/interne hostnamen en IP-bereiken voor deze plugin (SSRF-verharding).
+Als je ship-URL zich op een privénetwerk bevindt (bijvoorbeeld `http://192.168.1.50:8080` of `http://localhost:8080`),
+moet je dit expliciet inschakelen:
+
+```json5
+{
+  channels: {
+    tlon: {
+      allowPrivateNetwork: true,
     },
   },
 }
@@ -127,5 +146,3 @@ Gebruik deze met `openclaw message send` of cron-aflevering:
 - Groepsantwoorden vereisen een vermelding (bijv. `~your-bot-ship`) om te reageren.
 - Thread-antwoorden: als het binnenkomende bericht in een thread staat, antwoordt OpenClaw in de thread.
 - Media: `sendMedia` valt terug op tekst + URL (geen native upload).
-
-

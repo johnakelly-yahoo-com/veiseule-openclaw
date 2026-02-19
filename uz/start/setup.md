@@ -1,12 +1,16 @@
 ---
+summary: "OpenClaw uchun ilg‘or o‘rnatish va ishlab chiqish ish jarayonlari"
+read_when:
+  - Yangi mashina sozlayotganda
+  - Shaxsiy sozlamalaringizni buzmasdan “eng so‘nggi va eng zo‘r” versiyani xohlasangiz
 title: "O‘rnatish"
 ---
 
 # O‘rnatish
 
 <Note>
-Agar birinchi marta o‘rnatayotgan bo‘lsangiz, [Getting Started](/start/getting-started) sahifasidan boshlang.
-Wizard tafsilotlari uchun [Onboarding Wizard](/start/wizard) ga qarang.
+If you are setting up for the first time, start with [Getting Started](/start/getting-started).
+For wizard details, see [Onboarding Wizard](/start/wizard).
 </Note>
 
 Oxirgi yangilanish: 2026-01-01
@@ -77,7 +81,7 @@ Agar onboarding sizning build versiyangizda mavjud bo‘lmasa:
 
 Maqsad: TypeScript Gateway ustida ishlash, hot reload olish va macOS ilovasi UI’sini ulangan holda saqlash.
 
-### 0) (Ixtiyoriy) macOS ilovasini ham manbadan ishga tushirish
+### 0. (Ixtiyoriy) macOS ilovasini ham manbadan ishga tushirish
 
 Agar macOS ilovasini ham eng so‘nggi versiyada ishlatmoqchi bo‘lsangiz:
 
@@ -85,7 +89,7 @@ Agar macOS ilovasini ham eng so‘nggi versiyada ishlatmoqchi bo‘lsangiz:
 ./scripts/restart-mac.sh
 ```
 
-### 1) Dev Gateway’ni ishga tushiring
+### 1. Dev Gateway’ni ishga tushiring
 
 ```bash
 pnpm install
@@ -94,14 +98,14 @@ pnpm gateway:watch
 
 `gateway:watch` gateway’ni watch rejimida ishga tushiradi va TypeScript o‘zgarishlarida qayta yuklaydi.
 
-### 2) macOS ilovasini ishlayotgan Gateway’ga yo‘naltiring
+### 2. macOS ilovasini ishlayotgan Gateway’ga yo‘naltiring
 
 **OpenClaw.app** ichida:
 
 - Ulanish rejimi: **Mahalliy**
   Ilova sozlangan port orqali ishlayotgan gateway’ga ulanadi.
 
-### 3) Tekshirish
+### 3. Tekshirish
 
 - Ilova ichida Gateway holati **“Using existing gateway …”** deb ko‘rsatilishi kerak.
 - Yoki CLI orqali:
@@ -138,13 +142,13 @@ Autentifikatsiya muammolarini tekshirish yoki nimani zaxiralash kerakligini aniq
 
 ## Linux (systemd user xizmati)
 
-Linux o‘rnatishlari systemd **user** xizmatidan foydalanadi. Odatda, systemd logout/idle vaqtida user xizmatlarini to‘xtatadi, bu esa Gateway’ni o‘chiradi. Onboarding siz uchun lingering’ni yoqishga harakat qiladi (sudo so‘rashi mumkin). Agar hali ham o‘chiq bo‘lsa, quyidagini bajaring:
+Linux o‘rnatmalari systemd **user** xizmatidan foydalanadi. Sukut bo‘yicha systemd foydalanuvchi xizmatlarini logout/idle’da to‘xtatadi, bu esa Gateway’ni o‘chiradi. Onboarding siz uchun lingering’ni yoqishga harakat qiladi (sudo so‘rashi mumkin). Agar hali ham o‘chiq bo‘lsa, ishga tushiring:
 
 ```bash
 sudo loginctl enable-linger $USER
 ```
 
-Doimiy ishlash yoki ko‘p foydalanuvchili serverlar uchun **system** xizmati user xizmatidan ko‘ra ma’qul (lingering talab qilinmaydi). systemd bo‘yicha eslatmalar uchun [Gateway runbook](/gateway) ga qarang.
+Doimiy ishlash yoki ko‘p foydalanuvchili serverlar uchun **system** xizmatini **user** xizmati o‘rniga ko‘rib chiqing (lingering kerak bo‘lmaydi). systemd bo‘yicha eslatmalar uchun [Gateway runbook](/gateway) ga qarang.
 
 ## Bog‘liq hujjatlar
 
@@ -153,5 +157,3 @@ Doimiy ishlash yoki ko‘p foydalanuvchili serverlar uchun **system** xizmati us
 - [Discord](/channels/discord) va [Telegram](/channels/telegram) (reply teglari + replyToMode sozlamalari)
 - [OpenClaw assistantini sozlash](/start/openclaw)
 - [macOS app](/platforms/macos) (gateway hayotiy sikli)
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Espacio de trabajo del agente: ubicación, diseño y estrategia de respaldo"
+read_when:
+  - Necesita explicar el espacio de trabajo del agente o su diseño de archivos
+  - Quiere respaldar o migrar un espacio de trabajo del agente
 title: "Espacio de trabajo del agente"
 ---
 
@@ -226,5 +230,3 @@ Inicio sugerido de `.gitignore`:
   [Channel routing](/channels/channel-routing) para la configuración de enrutamiento.
 - Si `agents.defaults.sandbox` está habilitado, las sesiones que no son principales pueden usar espacios de trabajo
   en sandbox por sesión bajo `agents.defaults.sandbox.workspaceRoot`.
-
-

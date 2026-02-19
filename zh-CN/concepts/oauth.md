@@ -1,31 +1,30 @@
 ---
-title: OAuth
-x-i18n:
-  generated_at: "2026-02-01T20:23:29Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: af714bdadc4a89295a18da1eba5f5b857c8d533ebabe9b0758b722fe60c36124
-  source_path: concepts/oauth.md
-  workflow: 14
+summary: "OpenClaw 中的 OAuth：令牌交换、存储和多账户模式"
+read_when:
+  - 你想全面了解 OpenClaw 的 OAuth 流程
+  - 你遇到了令牌失效/登出问题
+  - 你想了解 setup-token 或 OAuth 认证流程
+  - 你想使用多账户或配置文件路由
+title: "OAuth"
 ---
 
 # OAuth
 
-OpenClaw 支持通过 OAuth 进行"订阅认证"，适用于提供此功能的提供商（特别是 **OpenAI Codex（ChatGPT OAuth）**）。对于 Anthropic 订阅，请使用 **setup-token** 流程。本页说明：
+OpenClaw 支持通过 OAuth 进行"订阅认证"，适用于提供此功能的提供商（特别是 **OpenAI Codex（ChatGPT OAuth）**）。对于 Anthropic 订阅，请使用 **setup-token** 流程。本页说明： For Anthropic subscriptions, use the **setup-token** flow. 9. 本页面说明：
 
 - OAuth **令牌交换**的工作原理（PKCE）
 - 令牌**存储**在哪里（以及原因）
 - 如何处理**多账户**（配置文件 + 按会话覆盖）
 
-OpenClaw 还支持**提供商插件**，它们自带 OAuth 或 API 密钥流程。通过以下命令运行：
+OpenClaw 还支持**提供商插件**，它们自带 OAuth 或 API 密钥流程。通过以下命令运行： 11. 通过以下方式运行：
 
 ```bash
 openclaw models auth login --provider <id>
 ```
 
-## 令牌汇聚点（为什么需要它）
+## The token sink (why it exists)
 
-OAuth 提供商通常在登录/刷新流程中发放**新的刷新令牌**。某些提供商（或 OAuth 客户端）在为同一用户/应用发放新令牌时，可能会使旧的刷新令牌失效。
+OAuth providers commonly mint a **new refresh token** during login/refresh flows. Some providers (or OAuth clients) can invalidate older refresh tokens when a new one is issued for the same user/app.
 
 实际症状：
 
@@ -38,7 +37,7 @@ OAuth 提供商通常在登录/刷新流程中发放**新的刷新令牌**。某
 
 ## 存储（令牌存放位置）
 
-密钥按**智能体**存储：
+13. 密钥按**每个代理**存储：
 
 - 认证配置文件（OAuth + API 密钥）：`~/.openclaw/agents/<agentId>/agent/auth-profiles.json`
 - 运行时缓存（自动管理；请勿编辑）：`~/.openclaw/agents/<agentId>/agent/auth.json`
@@ -47,7 +46,7 @@ OAuth 提供商通常在登录/刷新流程中发放**新的刷新令牌**。某
 
 - `~/.openclaw/credentials/oauth.json`（首次使用时导入到 `auth-profiles.json`）
 
-以上所有路径也遵循 `$OPENCLAW_STATE_DIR`（状态目录覆盖）。完整参考：[/gateway/configuration](/gateway/configuration#auth-storage-oauth--api-keys)
+All of the above also respect `$OPENCLAW_STATE_DIR` (state dir override). 以上所有路径也遵循 `$OPENCLAW_STATE_DIR`（状态目录覆盖）。完整参考：[/gateway/configuration](/gateway/configuration#auth-storage-oauth--api-keys)
 
 ## Anthropic setup-token（订阅认证）
 
@@ -75,7 +74,7 @@ OpenClaw 的交互式登录流程在 `@mariozechner/pi-ai` 中实现，并集成
 
 ### Anthropic（Claude Pro/Max）setup-token
 
-流程概要：
+Flow shape:
 
 1. 运行 `claude setup-token`
 2. 将令牌粘贴到 OpenClaw
@@ -120,7 +119,7 @@ openclaw agents add work
 openclaw agents add personal
 ```
 
-然后按智能体配置认证（向导），并将聊天路由到正确的智能体。
+Then configure auth per-agent (wizard) and route chats to the right agent.
 
 ### 2）高级：单个智能体中的多个配置文件
 
@@ -143,5 +142,3 @@ openclaw agents add personal
 
 - [/concepts/model-failover](/concepts/model-failover)（轮换 + 冷却规则）
 - [/tools/slash-commands](/tools/slash-commands)（命令界面）
-
-

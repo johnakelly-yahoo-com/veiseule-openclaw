@@ -1,4 +1,8 @@
 ---
+summary: "مرجع CLI لأمر `openclaw hooks` (خطافات الوكيل)"
+read_when:
+  - تريد إدارة خطافات الوكيل
+  - تريد تثبيت الخطافات أو تحديثها
 title: "hooks"
 ---
 
@@ -187,6 +191,8 @@ openclaw hooks install <path-or-spec>
 
 تثبيت حزمة خطافات من مجلد/أرشيف محلي أو من npm.
 
+مواصفات Npm هي **registry-only** (اسم الحزمة + إصدار/وسم اختياري). يتم رفض مواصفات Git/URL/file. تُنفَّذ عمليات تثبيت الاعتماديات باستخدام `--ignore-scripts` لأسباب تتعلق بالأمان.
+
 **ما الذي يفعله:**
 
 - ينسخ حزمة الخطافات إلى `~/.openclaw/hooks/<id>`
@@ -245,6 +251,18 @@ openclaw hooks enable session-memory
 
 **انظر:** [توثيق session-memory](/automation/hooks#session-memory)
 
+### bootstrap-extra-files
+
+يحقن ملفات bootstrap إضافية (على سبيل المثال ملفات `AGENTS.md` / `TOOLS.md` المحلية ضمن monorepo) أثناء `agent:bootstrap`.
+
+**التمكين:**
+
+```bash
+تُمكّن openclaw hooks ميزة bootstrap-extra-files
+```
+
+**انظر:** [SOUL Evil Hook](/hooks/soul-evil)
+
 ### command-logger
 
 يسجّل جميع أحداث الأوامر في ملف تدقيق مركزي.
@@ -272,30 +290,16 @@ grep '"action":"new"' ~/.openclaw/logs/commands.log | jq .
 
 **انظر:** [توثيق command-logger](/automation/hooks#command-logger)
 
-### soul-evil
-
-يستبدل محتوى `SOUL.md` المُحقَن بمحتوى `SOUL_EVIL.md` أثناء نافذة تطهير أو باحتمال عشوائي.
-
-**التمكين:**
-
-```bash
-openclaw hooks enable soul-evil
-```
-
-**انظر:** [SOUL Evil Hook](/hooks/soul-evil)
-
 ### boot-md
 
 يشغّل `BOOT.md` عند بدء تشغيل الـ Gateway (بعد بدء القنوات).
 
-**الأحداث**: `gateway:startup`
-
 **التمكين**:
+
+**الأحداث**: `gateway:startup`
 
 ```bash
 openclaw hooks enable boot-md
 ```
 
 **انظر:** [توثيق boot-md](/automation/hooks#boot-md)
-
-

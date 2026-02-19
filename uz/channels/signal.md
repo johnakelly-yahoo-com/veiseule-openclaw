@@ -1,18 +1,31 @@
 ---
+summary: "Signal support via signal-cli (JSON-RPC + SSE), setup, and number model"
+read_when:
+  - Setting up Signal support
+  - Debugging Signal send/receive
 title: "Signal"
 ---
 
 # Signal (signal-cli)
 
-Holat: tashqi CLI integratsiyasi. Gateway `signal-cli` bilan HTTP JSON-RPC + SSE orqali muloqot qiladi.
+Status: external CLI integration. Gateway talks to `signal-cli` over HTTP JSON-RPC + SSE.
+
+## Talablar
+
+- Serveringizda OpenClaw o‘rnatilgan (quyidagi Linux jarayoni Ubuntu 24 da sinovdan o‘tkazilgan).
+- Install `signal-cli` (Java required).
+- Link the bot device and start the daemon:
+- Configure OpenClaw and start the gateway.
 
 ## Quick setup (beginner)
 
 1. Use a **separate Signal number** for the bot (recommended).
-2. Install `signal-cli` (Java required).
-3. Link the bot device and start the daemon:
-   - `signal-cli link -n "OpenClaw"`
-4. Configure OpenClaw and start the gateway.
+2. Agar JVM build’dan foydalansangiz, `signal-cli` ni o‘rnating (Java talab qilinadi).
+3. O‘rnatish yo‘llaridan birini tanlang:
+   - **A yo‘l (QR havola):** `signal-cli link -n "OpenClaw"` va Signal orqali skaner qiling.
+   - **B yo‘l (SMS ro‘yxatdan o‘tish):** captcha + SMS tasdiqlash bilan alohida raqamni ro‘yxatdan o‘tkazing.
+4. OpenClaw’ni sozlang va gateway’ni qayta ishga tushiring.
+5. Birinchi DM yuboring va juftlashni tasdiqlang (`openclaw pairing approve signal <CODE>`).
 
 Minimal config:
 
@@ -29,6 +42,15 @@ Minimal config:
   },
 }
 ```
+
+Maydonlar bo‘yicha ma’lumot:
+
+| Maydon      | Tavsif                                                                                 |
+| ----------- | -------------------------------------------------------------------------------------- |
+| `account`   | Bot telefon raqami E.164 formatida (`+15551234567`) |
+| `cliPath`   | `signal-cli` ga yo‘l (`PATH` da bo‘lsa `signal-cli`)                |
+| `dmPolicy`  | DM kirish siyosati (`pairing` tavsiya etiladi)                      |
+| `allowFrom` | DM yuborishga ruxsat berilgan telefon raqamlari yoki `uuid:&lt;id&gt;` qiymatlari            |
 
 ## What it is
 
@@ -54,9 +76,9 @@ Disable with:
 - If you run the bot on **your personal Signal account**, it will ignore your own messages (loop protection).
 - For "I text the bot and it replies," use a **separate bot number**.
 
-## Setup (fast path)
+## A yo‘lni sozlash: mavjud Signal akkauntini ulash (QR)
 
-1. Install `signal-cli` (Java required).
+1. `signal-cli` ni o‘rnating (JVM yoki native build).
 2. Link a bot account:
    - `signal-cli link -n "OpenClaw"` then scan the QR in Signal.
 3. Configure Signal and start the gateway.
@@ -78,6 +100,67 @@ Example:
 ```
 
 Multi-account support: use `channels.signal.accounts` with per-account config and optional `name`. See [`gateway/configuration`](/gateway/configuration#telegramaccounts--discordaccounts--slackaccounts--signalaccounts--imessageaccounts) for the shared pattern.
+
+## B yo‘lni sozlash: alohida bot raqamini ro‘yxatdan o‘tkazish (SMS, Linux)
+
+Mavjud Signal ilova akkauntini ulash o‘rniga alohida bot raqamidan foydalanmoqchi bo‘lsangiz, shundan foydalaning.
+
+1. SMS qabul qila oladigan raqam oling (yoki statsionar telefonlar uchun ovozli tasdiqlash).
+   - Akkaunt/sessiya ziddiyatlarining oldini olish uchun alohida bot raqamidan foydalaning.
+2. Gateway hostida `signal-cli` ni o‘rnating:
+
+```bash
+VERSION=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/AsamK/signal-cli/releases/latest | sed -e 's/^.*\/v//')
+curl -L -O "https://github.com/AsamK/signal-cli/releases/download/v${VERSION}/signal-cli-${VERSION}-Linux-native.tar.gz"
+sudo tar xf "signal-cli-${VERSION}-Linux-native.tar.gz" -C /opt
+sudo ln -sf /opt/signal-cli /usr/local/bin/
+signal-cli --version
+```
+
+Agar JVM build’dan (`signal-cli-${VERSION}.tar.gz`) foydalansangiz, avval JRE 25+ ni o‘rnating.
+`signal-cli` ni yangilab turing; upstream ma’lumotiga ko‘ra, Signal server API’lari o‘zgarganda eski relizlar ishlamay qolishi mumkin.
+
+3. Raqamni ro‘yxatdan o‘tkazing va tasdiqlang:
+
+```bash
+signal-cli -a +<BOT_PHONE_NUMBER> register
+```
+
+Agar captcha talab qilinsa:
+
+1. `https://signalcaptchas.org/registration/generate.html` ni oching.
+2. Captcha’ni yakunlang, "Open Signal" dan `signalcaptcha://...` havola manzilini nusxa ko‘chiring.
+3. Imkon qadar brauzer sessiyasi bilan bir xil tashqi IP manzildan ishga tushiring.
+4. Ro‘yxatdan o‘tishni darhol yana ishga tushiring (captcha tokenlari tezda muddati tugaydi):
+
+```bash
+signal-cli -a +<BOT_PHONE_NUMBER> register --captcha '<SIGNALCAPTCHA_URL>'
+signal-cli -a +<BOT_PHONE_NUMBER> verify <VERIFICATION_CODE>
+```
+
+4. OpenClaw’ni sozlang, gateway’ni qayta ishga tushiring, kanalni tekshiring:
+
+```bash
+# Agar gateway’ni user systemd xizmati sifatida ishga tushirsangiz:
+systemctl --user restart openclaw-gateway
+
+# So‘ng tekshiring:
+openclaw doctor
+openclaw channels status --probe
+```
+
+5. DM yuboruvchingizni juftlang:
+   - Bot raqamiga istalgan xabarni yuboring.
+   - Serverda kodni tasdiqlang: `openclaw pairing approve signal <PAIRING_CODE>`.
+   - "Unknown contact" chiqmasligi uchun bot raqamini telefoningizda kontakt sifatida saqlang.
+
+Muhim: `signal-cli` bilan telefon raqamini ro‘yxatdan o‘tkazish ushbu raqam uchun asosiy Signal ilovasi sessiyasini de-autentifikatsiya qilishi mumkin. Alohida bot raqamini afzal ko‘ring yoki mavjud telefon ilovasi sozlamalarini saqlab qolish kerak bo‘lsa, QR link rejimidan foydalaning.
+
+Asosiy manbalar:
+
+- `signal-cli` README: `https://github.com/AsamK/signal-cli`
+- Captcha jarayoni: `https://github.com/AsamK/signal-cli/wiki/Registration-with-captcha`
+- Ulash jarayoni: `https://github.com/AsamK/signal-cli/wiki/Linking-other-devices-(Provisioning)`
 
 ## External daemon mode (httpUrl)
 
@@ -187,8 +270,25 @@ Common failures:
 - Daemon reachable but no replies: verify account/daemon settings (`httpUrl`, `account`) and receive mode.
 - DMs ignored: sender is pending pairing approval.
 - Group messages ignored: group sender/mention gating blocks delivery.
+- Tahrirlardan keyin konfiguratsiya tekshiruvi xatolari: `openclaw doctor --fix` ni ishga tushiring.
+- Diagnostikada Signal ko‘rinmasa: `channels.signal.enabled: true` ni tasdiqlang.
+
+Qo‘shimcha tekshiruvlar:openclaw pairing list signal
+pgrep -af signal-cli
+grep -i "signal" "/tmp/openclaw/openclaw-$(date +%Y-%m-%d).log" | tail -20
+
+```bash
+Xavfsizlik eslatmalari
+```
 
 For triage flow: [/channels/troubleshooting](/channels/troubleshooting).
+
+## `signal-cli` hisob kalitlarini lokal saqlaydi (odatda `~/.local/share/signal-cli/data/`).
+
+- Serverni migratsiya qilish yoki qayta yig‘ishdan oldin Signal hisob holatini zaxiralang.
+- Kengroq DM kirishini aniq xohlamasangiz, `channels.signal.dmPolicy: "pairing"` ni saqlang.
+- SMS tasdiqlash faqat ro‘yxatdan o‘tish yoki tiklash jarayonlari uchun kerak, ammo raqam/hisob ustidan nazoratni yo‘qotish qayta ro‘yxatdan o‘tishni murakkablashtirishi mumkin.
+- Slack’ni sozlash yoki Slack socket/HTTP rejimini nosozliklarini tuzatish
 
 ## Configuration reference (Signal)
 
@@ -222,5 +322,3 @@ Bog‘liq global sozlamalar:
 - `agents.list[].groupChat.mentionPatterns` (Signal mahalliy mentionlarni qo‘llab-quvvatlamaydi).
 - `messages.groupChat.mentionPatterns` (global zaxira variant).
 - `messages.responsePrefix`.
-
-

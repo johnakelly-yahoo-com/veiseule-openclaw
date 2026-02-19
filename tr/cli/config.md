@@ -1,4 +1,7 @@
 ---
+summary: "`openclaw config` için CLI başvurusu (yapılandırma değerlerini al/ayarla/kaldır)"
+read_when:
+  - Yapılandırmayı etkileşimli olmadan okumak veya düzenlemek istediğinizde
 title: "config"
 ---
 
@@ -45,5 +48,3 @@ openclaw config set channels.whatsapp.groups '["*"]' --json
 ```
 
 Düzenlemelerden sonra gateway (ağ geçidi) yeniden başlatın.
-
-

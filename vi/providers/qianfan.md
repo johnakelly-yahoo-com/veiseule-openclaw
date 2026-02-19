@@ -1,4 +1,8 @@
 ---
+summary: "Dùng API hợp nhất của Qianfan để truy cập nhiều mô hình trong OpenClaw"
+read_when:
+  - Bạn muốn một khóa API duy nhất cho nhiều LLM
+  - Bạn cần hướng dẫn thiết lập Baidu Qianfan
 title: "Qianfan"
 ---
 
@@ -31,5 +35,3 @@ openclaw onboard --auth-choice qianfan-api-key
 - [Nhà cung cấp mô hình](/concepts/model-providers)
 - [Thiết lập tác tử](/concepts/agent)
 - [Tài liệu API Qianfan](https://cloud.baidu.com/doc/qianfan-api/s/3m7of64lb)
-
-

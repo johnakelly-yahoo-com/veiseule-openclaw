@@ -1,4 +1,8 @@
 ---
+summary: "Mattermost-botinstallatie en OpenClaw-configuratie"
+read_when:
+  - Mattermost instellen
+  - Mattermost-routering debuggen
 title: "Mattermost"
 ---
 
@@ -132,5 +136,3 @@ Mattermost ondersteunt meerdere accounts onder `channels.mattermost.accounts`:
 - Geen reacties in kanalen: zorg dat de bot in het kanaal zit en vermeld hem (oncall), gebruik een triggerprefix (onchar), of stel `chatmode: "onmessage"` in.
 - Auth-fouten: controleer de bot-token, basis-URL en of het account is ingeschakeld.
 - Problemen met meerdere accounts: env vars zijn alleen van toepassing op het `default` account.
-
-

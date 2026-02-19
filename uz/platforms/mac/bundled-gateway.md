@@ -1,4 +1,9 @@
 ---
+summary: "macOS’dagi Gateway ish vaqti (tashqi launchd xizmati)"
+read_when:
+  - OpenClaw.app’ni paketlash
+  - macOS Gateway launchd xizmatini sozlash (debug)
+  - macOS uchun Gateway CLI’ni o‘rnatish
 title: "macOS’da Gateway"
 ---
 
@@ -61,5 +66,3 @@ So‘ng:
 ```bash
 openclaw gateway call health --url ws://127.0.0.1:18999 --timeout 3000
 ```
-
-

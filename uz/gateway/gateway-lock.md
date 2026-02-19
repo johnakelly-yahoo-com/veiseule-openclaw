@@ -1,31 +1,34 @@
 ---
-title: "Gateway qulfi"
+summary: "Gateway singleton guard using the WebSocket listener bind"
+read_when:
+  - Running or debugging the gateway process
+  - Investigating single-instance enforcement
+title: "Gateway Lock"
 ---
 
-# Gateway qulfi
+# Gateway lock
 
-Oxirgi yangilanish: 2025-12-11
+Last updated: 2025-12-11
 
-## Nima uchun
+## Why
 
-- Bir xil xostda har bir asosiy port uchun faqat bitta gateway instansiyasi ishlashini ta’minlash; qo‘shimcha gateway’lar alohida profil va noyob portlardan foydalanishi kerak.
-- Avariya yoki SIGKILL holatlarida eskirgan lock fayllar qolib ketmasligini ta’minlash.
-- Boshqaruv porti allaqachon band bo‘lsa, aniq xato bilan tezda to‘xtash.
+- Ensure only one gateway instance runs per base port on the same host; additional gateways must use isolated profiles and unique ports.
+- Survive crashes/SIGKILL without leaving stale lock files.
+- Fail fast with a clear error when the control port is already occupied.
 
-## Mexanizm
+## Mechanism
 
-- Gateway ishga tushishi bilan darhol WebSocket tinglovchini (standart `ws://127.0.0.1:18789`) eksklyuziv TCP tinglovchi orqali bind qiladi.
-- Agar bind `EADDRINUSE` bilan muvaffaqiyatsiz tugasa, ishga tushirish `GatewayLockError("another gateway instance is already listening on ws://127.0.0.1:<port>")` xatosini chiqaradi.
-- Har qanday jarayon yakunlanganda, jumladan avariya va SIGKILL holatlarida ham, OT tinglovchini avtomatik ravishda bo‘shatadi — alohida lock fayl yoki tozalash bosqichi talab qilinmaydi.
-- O‘chirish vaqtida gateway portni tezda bo‘shatish uchun WebSocket server va uning ostidagi HTTP serverni yopadi.
+- The gateway binds the WebSocket listener (default `ws://127.0.0.1:18789`) immediately on startup using an exclusive TCP listener.
+- If the bind fails with `EADDRINUSE`, startup throws `GatewayLockError("another gateway instance is already listening on ws://127.0.0.1:<port>")`.
+- The OS releases the listener automatically on any process exit, including crashes and SIGKILL—no separate lock file or cleanup step is needed.
+- On shutdown the gateway closes the WebSocket server and underlying HTTP server to free the port promptly.
 
-## Xatolik yuzasi
+## Error surface
 
-- Agar portni boshqa jarayon egallagan bo‘lsa, ishga tushirish `GatewayLockError("another gateway instance is already listening on ws://127.0.0.1:<port>")` xatosini chiqaradi.
-- Boshqa bind xatolari `GatewayLockError("failed to bind gateway socket on ws://127.0.0.1:<port>: …")` sifatida ko‘rinadi.
+- If another process holds the port, startup throws `GatewayLockError("another gateway instance is already listening on ws://127.0.0.1:<port>")`.
+- Other bind failures surface as `GatewayLockError("failed to bind gateway socket on ws://127.0.0.1:<port>: …")`.
 
-## Operatsion eslatmalar
+## Operational notes
 
-- Agar portni _boshqa_ jarayon egallagan bo‘lsa, xato bir xil bo‘ladi; portni bo‘shating yoki `openclaw gateway --port <port>` orqali boshqasini tanlang.
-- macOS ilovasi gateway’ni ishga tushirishdan oldin hali ham o‘zining yengil PID himoyasini saqlab qoladi; ammo ish vaqtidagi qulf WebSocket bind orqali ta’minlanadi.
-
+- If the port is occupied by _another_ process, the error is the same; free the port or choose another with `openclaw gateway --port <port>`.
+- The macOS app still maintains its own lightweight PID guard before spawning the gateway; the runtime lock is enforced by the WebSocket bind.

@@ -1,4 +1,9 @@
 ---
+summary: "Bảng Canvas do tác tử điều khiển được nhúng qua WKWebView + cơ chế URL tùy chỉnh"
+read_when:
+  - Triển khai bảng Canvas trên macOS
+  - Thêm điều khiển tác tử cho không gian làm việc trực quan
+  - Gỡ lỗi việc tải Canvas trong WKWebView
 title: "Canvas"
 ---
 
@@ -61,7 +66,7 @@ Ghi chú:
 
 ## A2UI trong Canvas
 
-A2UI được lưu trữ bởi Gateway canvas host và được hiển thị bên trong bảng Canvas.
+A2UI is hosted by the Gateway canvas host and rendered inside the Canvas panel.
 When the Gateway advertises a Canvas host, the macOS app auto‑navigates to the
 A2UI host page on first open.
 
@@ -118,5 +123,3 @@ window.location.href = "openclaw://agent?message=Review%20this%20design";
 - Cơ chế Canvas chặn truy cập vượt thư mục; tệp phải nằm dưới thư mục gốc của phiên.
 - Nội dung Canvas cục bộ dùng cơ chế tùy chỉnh (không cần máy chủ loopback).
 - Các URL `http(s)` bên ngoài chỉ được cho phép khi được điều hướng một cách rõ ràng.
-
-

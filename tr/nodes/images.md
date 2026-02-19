@@ -1,4 +1,7 @@
 ---
+summary: "Gönderim, gateway ve ajan yanıtları için görsel ve medya işleme kuralları"
+read_when:
+  - Medya hattı veya ekler değiştirildiğinde
 title: "Görsel ve Medya Desteği"
 ---
 
@@ -67,5 +70,3 @@ WhatsApp kanalı **Baileys Web** üzerinden çalışır. Bu belge, gönderim, ga
 - Görsel/ses/belge durumları için gönderim + yanıt akışlarını kapsayın.
 - Görseller için yeniden sıkıştırmayı (boyut sınırı) ve ses için sesli not bayrağını doğrulayın.
 - Çoklu medya yanıtlarının ardışık gönderimler olarak yayılmasını sağlayın.
-
-

@@ -1,10 +1,14 @@
 ---
+summary: "CLI حوالہ برائے `openclaw dns` (وسیع علاقائی ڈسکوری معاونین)"
+read_when:
+  - آپ Tailscale + CoreDNS کے ذریعے وسیع علاقائی ڈسکوری (DNS-SD) چاہتے ہیں
+  - You’re setting up split DNS for a custom discovery domain (example: openclaw.internal)
 title: "dns"
 ---
 
 # `openclaw dns`
 
-وسیع علاقے کی دریافت کے لیے DNS معاون ٹولز (Tailscale + CoreDNS)۔ فی الحال macOS + Homebrew CoreDNS پر مرکوز ہے۔
+DNS helpers for wide-area discovery (Tailscale + CoreDNS). Currently focused on macOS + Homebrew CoreDNS.
 
 متعلقہ:
 
@@ -17,5 +21,3 @@ title: "dns"
 openclaw dns setup
 openclaw dns setup --apply
 ```
-
-

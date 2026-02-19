@@ -1,4 +1,7 @@
 ---
+summary: "Tham chiếu CLI cho `openclaw agents` (liệt kê/thêm/xóa/đặt danh tính)"
+read_when:
+  - Bạn muốn nhiều tác tử cô lập (không gian làm việc + định tuyến + xác thực)
 title: "agents"
 ---
 
@@ -70,5 +73,3 @@ Mẫu cấu hình:
   },
 }
 ```
-
-

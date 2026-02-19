@@ -1,10 +1,14 @@
 ---
+summary: "स्लैश कमांड्स: टेक्स्ट बनाम नेटिव, विन्यास, और समर्थित कमांड"
+read_when:
+  - चैट कमांड का उपयोग या विन्यास करते समय
+  - कमांड रूटिंग या अनुमतियों का डीबग करते समय
 title: "स्लैश कमांड्स"
 ---
 
 # स्लैश कमांड्स
 
-कमांड्स को Gateway द्वारा संभाला जाता है। अधिकांश कमांड्स को एक **standalone** संदेश के रूप में भेजा जाना चाहिए, जो `/` से शुरू होता हो।
+Commands are handled by the Gateway. Most commands must be sent as a **standalone** message that starts with `/`.
 The host-only bash chat command uses `! <cmd>` (with `/bash <cmd>` as an alias).
 
 दो संबंधित प्रणालियाँ हैं:
@@ -14,10 +18,10 @@ The host-only bash chat command uses `! <cmd>` (with `/bash <cmd>` as an alias).
   - मॉडल के संदेश देखने से पहले directives को संदेश से हटा दिया जाता है।
   - सामान्य चैट संदेशों में (directive-only नहीं), इन्हें “inline hints” के रूप में माना जाता है और ये सत्र सेटिंग्स को **स्थायी** नहीं करतीं।
   - directive-only संदेशों में (संदेश में केवल directives हों), ये सत्र में स्थायी होती हैं और एक acknowledgement के साथ उत्तर देती हैं।
-  - Directives are only applied for **authorized senders** (channel allowlists/pairing plus `commands.useAccessGroups`).
+  - Directives केवल **authorized senders** के लिए लागू किए जाते हैं। यदि `commands.allowFrom` सेट है, तो वही एकमात्र allowlist उपयोग की जाती है; अन्यथा प्राधिकरण channel allowlists/pairing और `commands.useAccessGroups` से आता है।
     Unauthorized senders see directives treated as plain text.
 
-कुछ **inline shortcuts** भी उपलब्ध हैं (केवल allowlisted/authorized प्रेषकों के लिए): `/help`, `/commands`, `/status`, `/whoami` (`/id`)।
+There are also a few **inline shortcuts** (allowlisted/authorized senders only): `/help`, `/commands`, `/status`, `/whoami` (`/id`).
 They run immediately, are stripped before the model sees the message, and the remaining text continues through the normal flow.
 
 ## कॉन्फ़िगरेशन
@@ -43,15 +47,18 @@ They run immediately, are stripped before the model sees the message, and the re
 - `commands.native` (डिफ़ॉल्ट `"auto"`) नेटिव कमांड पंजीकृत करता है।
   - Auto: Discord/Telegram के लिए चालू; Slack के लिए बंद (जब तक आप स्लैश कमांड नहीं जोड़ते); जिन प्रदाताओं में नेटिव सपोर्ट नहीं है, उनके लिए अनदेखा।
   - प्रति-प्रदाता ओवरराइड करने के लिए `channels.discord.commands.native`, `channels.telegram.commands.native`, या `channels.slack.commands.native` सेट करें (bool या `"auto"`)।
-  - `false` स्टार्टअप के समय Discord/Telegram पर पहले से पंजीकृत कमांड्स को हटा देता है। Slack कमांड्स का प्रबंधन Slack ऐप में किया जाता है और उन्हें स्वचालित रूप से हटाया नहीं जाता।
+  - `false` clears previously registered commands on Discord/Telegram at startup. Slack commands are managed in the Slack app and are not removed automatically.
 - `commands.nativeSkills` (डिफ़ॉल्ट `"auto"`) समर्थित होने पर **skill** कमांड को नेटिव रूप से पंजीकृत करता है।
   - Auto: Discord/Telegram के लिए चालू; Slack के लिए बंद (Slack में प्रति-skill एक स्लैश कमांड बनाना आवश्यक है)।
   - प्रति-प्रदाता ओवरराइड के लिए `channels.discord.commands.nativeSkills`, `channels.telegram.commands.nativeSkills`, या `channels.slack.commands.nativeSkills` सेट करें (bool या `"auto"`)।
-- `commands.bash` (डिफ़ॉल्ट `false`) `! <cmd>` के माध्यम से होस्ट शेल कमांड्स चलाने को सक्षम करता है (`/bash <cmd>` इसका एक वैकल्पिक नाम है; इसके लिए `tools.elevated` allowlists आवश्यक हैं)।
+- `commands.bash` (default `false`) enables `! <cmd>` to run host shell commands (`/bash <cmd>` is an alias; requires `tools.elevated` allowlists).
 - `commands.bashForegroundMs` (डिफ़ॉल्ट `2000`) यह नियंत्रित करता है कि बैकग्राउंड मोड में स्विच करने से पहले bash कितनी देर प्रतीक्षा करे (`0` तुरंत बैकग्राउंड करता है)।
 - `commands.config` (डिफ़ॉल्ट `false`) `/config` को सक्षम करता है (`openclaw.json` पढ़ता/लिखता है)।
 - `commands.debug` (डिफ़ॉल्ट `false`) `/debug` को सक्षम करता है (केवल रनटाइम ओवरराइड)।
-- `commands.useAccessGroups` (डिफ़ॉल्ट `true`) कमांड के लिए allowlists/नीतियों को लागू करता है।
+- `commands.allowFrom` (वैकल्पिक) कमांड प्राधिकरण के लिए प्रति-प्रदाता allowlist सेट करता है। जब कॉन्फ़िगर किया जाता है, तो यह कमांड और निर्देशों के लिए
+  एकमात्र प्राधिकरण स्रोत होता है (channel allowlists/pairing और `commands.useAccessGroups`
+  को अनदेखा किया जाता है)। वैश्विक डिफ़ॉल्ट के लिए `"*"` का उपयोग करें; प्रदाता-विशिष्ट कुंजियाँ इसे ओवरराइड करती हैं।
+- `commands.useAccessGroups` (डिफ़ॉल्ट `true`) तब कमांड के लिए allowlists/policies लागू करता है जब `commands.allowFrom` सेट नहीं होता।
 
 ## Command list
 
@@ -70,19 +77,22 @@ They run immediately, are stripped before the model sees the message, and the re
 - `/debug show|set|unset|reset` (रनटाइम ओवरराइड, owner-only; `commands.debug: true` आवश्यक)
 - `/usage off|tokens|full|cost` (प्रति-उत्तर उपयोग फ़ुटर या स्थानीय लागत सारांश)
 - `/tts off|always|inbound|tagged|status|provider|limit|summary|audio` (TTS नियंत्रित करें; देखें [/tts](/tts))
+- `/debug show|set|unset|reset` (रनटाइम ओवरराइड, owner-only; `commands.debug: true` आवश्यक)
+- `/usage off|tokens|full|cost` (प्रति-उत्तर उपयोग फ़ुटर या स्थानीय लागत सारांश)
+- `/dock-telegram` (उपनाम: `/dock_telegram`) (उत्तर Telegram पर स्विच करें)
   - Discord: नेटिव कमांड `/voice` है (Discord `/tts` आरक्षित करता है); टेक्स्ट `/tts` अब भी काम करता है।
 - `/stop`
 - `/restart`
-- `/dock-telegram` (उपनाम: `/dock_telegram`) (उत्तर Telegram पर स्विच करें)
-- `/dock-discord` (उपनाम: `/dock_discord`) (उत्तर Discord पर स्विच करें)
-- `/dock-slack` (उपनाम: `/dock_slack`) (उत्तर Slack पर स्विच करें)
 - `/activation mention|always` (केवल समूह)
-- `/send on|off|inherit` (owner-only)
+- `/dock-discord` (उपनाम: `/dock_discord`) (उत्तर Discord पर स्विच करें)
 - `/reset` या `/new [model]` (वैकल्पिक मॉडल संकेत; शेष पाठ आगे भेजा जाता है)
 - `/think <off|minimal|low|medium|high|xhigh>` (मॉडल/प्रदाता के अनुसार डायनेमिक विकल्प; उपनाम: `/thinking`, `/t`)
-- `/verbose on|full|off` (उपनाम: `/v`)
+- `/send on|off|inherit` (owner-only)
 - `/reasoning on|off|stream` (उपनाम: `/reason`; चालू होने पर `Reasoning:` से प्रीफ़िक्स किया हुआ अलग संदेश भेजता है; `stream` = केवल Telegram ड्राफ्ट)
 - `/elevated on|off|ask|full` (उपनाम: `/elev`; `full` exec अनुमोदन छोड़ देता है)
+- `/exec host=<sandbox|gateway|node> security=<deny|allowlist|full> ask=<off|on-miss|always> node=<id>` (वर्तमान दिखाने के लिए `/exec` भेजें)
+- `/model <name>` (उपनाम: `/models`; या `agents.defaults.models.*.alias` से `/<alias>`)
+- `/queue <mode>` (जैसे `debounce:2s cap:25 drop:summarize` जैसे विकल्प; वर्तमान सेटिंग देखने के लिए `/queue` भेजें)
 - `/exec host=<sandbox|gateway|node> security=<deny|allowlist|full> ask=<off|on-miss|always> node=<id>` (वर्तमान दिखाने के लिए `/exec` भेजें)
 - `/model <name>` (उपनाम: `/models`; या `agents.defaults.models.*.alias` से `/<alias>`)
 - `/queue <mode>` (जैसे `debounce:2s cap:25 drop:summarize` जैसे विकल्प; वर्तमान सेटिंग देखने के लिए `/queue` भेजें)
@@ -192,5 +202,3 @@ Notes:
   - Telegram: `telegram:slash:<userId>` (`CommandTargetSessionKey` के माध्यम से चैट सत्र को लक्षित करता है)
 - **`/stop`** सक्रिय चैट सत्र को लक्षित करता है ताकि वर्तमान रन को abort किया जा सके।
 - **Slack:** `channels.slack.slashCommand` is still supported for a single `/openclaw`-style command. If you enable `commands.native`, you must create one Slack slash command per built-in command (same names as `/help`). Command argument menus for Slack are delivered as ephemeral Block Kit buttons.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Tham chiếu CLI cho `openclaw status` (chẩn đoán, thăm dò, ảnh chụp nhanh cách dùng)"
+read_when:
+  - Bạn muốn chẩn đoán nhanh tình trạng kênh + người nhận phiên gần đây
+  - Bạn muốn một trạng thái “all” có thể dán để gỡ lỗi
 title: "status"
 ---
 
@@ -20,5 +24,3 @@ Ghi chú:
 - Tổng quan bao gồm trạng thái cài đặt/chạy của Gateway + dịch vụ máy chủ node khi khả dụng.
 - Tổng quan bao gồm kênh cập nhật + git SHA (đối với bản checkout từ mã nguồn).
 - Thông tin cập nhật xuất hiện trong phần Tổng quan; nếu có bản cập nhật, trạng thái sẽ in gợi ý chạy `openclaw update` (xem [Updating](/install/updating)).
-
-

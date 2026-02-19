@@ -1,6 +1,6 @@
 ---
 title: "Refactor ng Outbound Session Mirroring (Isyu #1520)" #1520)
-description: "Subaybayan ang mga tala, desisyon, pagsusuri, at mga bukas na usapin sa refactor ng outbound session mirroring."
+description: Subaybayan ang mga tala, desisyon, pagsusuri, at mga bukas na usapin sa refactor ng outbound session mirroring.
 ---
 
 # Refactor ng Outbound Session Mirroring (Isyu #1520)
@@ -83,5 +83,3 @@ description: "Subaybayan ang mga tala, desisyon, pagsusuri, at mga bukas na usap
   - `src/infra/outbound/outbound-session.test.ts`
   - `src/agents/tools/message-tool.test.ts`
   - `src/gateway/server-methods/send.test.ts`
-
-

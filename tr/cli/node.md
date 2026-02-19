@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw node` için CLI başvurusu (başsız node ana makinesi)"
+read_when:
+  - Başsız node ana makinesini çalıştırırken
+  - system.run için macOS olmayan bir node’u eşleştirirken
 title: "node"
 ---
 
@@ -82,7 +86,7 @@ openclaw node uninstall
 
 Servis komutları, makine tarafından okunabilir çıktı için `--json` kabul eder.
 
-## Eşleştirme
+## Pairing
 
 İlk bağlantı, Gateway üzerinde beklemede olan bir node eşleştirme isteği oluşturur.
 Şuradan onaylayın:
@@ -102,5 +106,3 @@ Node ana makinesi, node kimliğini, belirtecini, görünen adını ve gateway ba
 - `~/.openclaw/exec-approvals.json`
 - [Exec onayları](/tools/exec-approvals)
 - `openclaw approvals --node <id|name|ip>` (Gateway’den düzenleyin)
-
-

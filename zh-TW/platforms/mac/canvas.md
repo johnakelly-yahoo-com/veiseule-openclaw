@@ -1,10 +1,16 @@
 ---
+summary: "透過 WKWebView 與自訂 URL scheme 內嵌的代理程式控制 Canvas 面板"
+read_when:
+  - 實作 macOS Canvas 面板
+  - 為視覺化工作空間加入代理程式控制
+  - 偵錯 WKWebView Canvas 載入問題
 title: "Canvas"
 ---
 
 # Canvas（macOS 應用程式）
 
 macOS 應用程式使用 `WKWebView` 內嵌一個由代理程式控制的 **Canvas 面板**。它是一個輕量級的視覺化工作空間，適用於 HTML/CSS/JS、A2UI，以及小型互動式 UI 介面。 它是一個輕量化的視覺化工作空間，用於 HTML/CSS/JS、A2UI，以及小型互動式
+UI 介面。 它是一個輕量化的視覺化工作空間，用於 HTML/CSS/JS、A2UI，以及小型互動式
 UI 介面。
 
 ## Canvas 的位置
@@ -61,6 +67,7 @@ openclaw nodes canvas snapshot --node <id>
 ## Canvas 中的 A2UI
 
 A2UI 由 Gateway 閘道器的 canvas 主機託管，並在 Canvas 面板內渲染。當 Gateway 閘道器宣告可用的 Canvas 主機時，macOS 應用程式會在首次開啟時自動導向至 A2UI 主機頁面。
+A2UI 由 Gateway 閘道器的 canvas 主機託管，並在 Canvas 面板內渲染。當 Gateway 閘道器宣告可用的 Canvas 主機時，macOS 應用程式會在首次開啟時自動導向至 A2UI 主機頁面。
 When the Gateway advertises a Canvas host, the macOS app auto‑navigates to the
 A2UI host page on first open.
 
@@ -115,7 +122,5 @@ window.location.href = "openclaw://agent?message=Review%20this%20design";
 ## 安全性注意事項
 
 - Canvas 配置會阻擋目錄穿越；檔案必須位於工作階段根目錄之下。
-- 本機 Canvas 內容使用自訂通訊協定（不需要迴路伺服器）。
+- Local Canvas content uses a custom scheme (no loopback server required).
 - 外部 `http(s)` URL 僅在明確導向時才允許。
-
-

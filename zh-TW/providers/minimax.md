@@ -1,10 +1,16 @@
 ---
+summary: "在 OpenClaw 中使用 MiniMax M2.1"
+read_when:
+  - 你想在 OpenClaw 中使用 MiniMax 模型
+  - 你需要 MiniMax 的設定指引
 title: "MiniMax"
 ---
 
 # MiniMax
 
 MiniMax 是一家打造 **M2/M2.1** 模型系列的 AI 公司。目前以程式設計為重點的版本是 **MiniMax M2.1**（2025 年 12 月 23 日），專為真實世界的複雜任務而建。 The current
+coding-focused release is **MiniMax M2.1** (December 23, 2025), built for
+real-world complex tasks. The current
 coding-focused release is **MiniMax M2.1** (December 23, 2025), built for
 real-world complex tasks.
 
@@ -25,7 +31,7 @@ MiniMax 強調 M2.1 的以下改進：
 
 - **速度：** Lightning 是 MiniMax 定價文件中的「快速」變體。
 - **成本：** 定價顯示輸入成本相同，但 Lightning 的輸出成本較高。
-- **程式設計方案路由：** Lightning 後端無法直接用於 MiniMax 程式設計方案。MiniMax 會自動將大多數請求路由至 Lightning，但在流量尖峰時會回退到一般的 M2.1 後端。 MiniMax auto-routes most requests to Lightning, but falls back to the
+- **程式設計方案路由：** Lightning 後端無法直接用於 MiniMax 程式設計方案。MiniMax 會自動將大多數請求路由至 Lightning，但在流量尖峰時會回退到一般的 M2.1 後端。 **程式設計方案路由：** Lightning 後端無法直接用於 MiniMax 程式設計方案。MiniMax 會自動將大多數請求路由至 Lightning，但在流量尖峰時會回退到一般的 M2.1 後端。 MiniMax auto-routes most requests to Lightning, but falls back to the
   regular M2.1 back-end during traffic spikes.
 
 ## 選擇設定方式
@@ -113,6 +119,7 @@ openclaw onboard --auth-choice minimax-portal
 
 24. **最適合：** 使用 LM Studio 進行本地推論。
     **最適合：** 使用 LM Studio 進行本地推論。
+    **最適合：** 使用 LM Studio 進行本地推論。
     我們在強大硬體（例如桌機／伺服器）上，透過 LM Studio 的本地伺服器使用 MiniMax M2.1，觀察到相當不錯的效果。
 
 透過 `openclaw.json` 手動設定：
@@ -183,7 +190,7 @@ openclaw onboard --auth-choice minimax-portal
 這通常表示 **MiniMax 提供者尚未設定**（沒有提供者項目，且找不到 MiniMax 的驗證設定檔或環境變數金鑰）。此偵測問題的修正將包含在 **2026.1.12**（撰寫時尚未發布）。解決方式如下： 26. 此偵測問題的修正在
 **2026.1.12** 中（撰寫時尚未發布）。 27. 修正方式：
 
-- 28. 升級至 **2026.1.12**（或從原始碼 `main` 執行），然後重新啟動 gateway。
+- 升級至 **2026.1.12**（或從原始碼 `main` 執行），然後重新啟動 gateway。
 - 執行 `openclaw configure` 並選擇 **MiniMax M2.1**，或
 - 手動新增 `models.providers.minimax` 區塊，或
 - 設定 `MINIMAX_API_KEY`（或 MiniMax 驗證設定檔），以便注入提供者。
@@ -198,5 +205,3 @@ openclaw onboard --auth-choice minimax-portal
 ```bash
 openclaw models list
 ```
-
-

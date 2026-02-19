@@ -1,4 +1,8 @@
 ---
+summary: "Przeniesienie (migracja) instalacji OpenClaw z jednej maszyny na inną"
+read_when:
+  - Przenosisz OpenClaw na nowy laptop/serwer
+  - Chcesz zachować sesje, uwierzytelnianie i logowania do kanałów (WhatsApp itp.)
 title: "Przewodnik migracji"
 ---
 
@@ -55,7 +59,7 @@ Jeśli skopiujesz **zarówno** katalog stanu, jak i obszar roboczy, zachowasz:
 
 Jeśli skopiujesz **tylko** obszar roboczy (np. przez Git), **nie** zachowasz:
 
-- sesje
+- sessions
 - poświadczeń
 - logowań do kanałów
 
@@ -186,5 +190,3 @@ Na nowej maszynie potwierdź, że:
 - [Doctor](/gateway/doctor)
 - [Rozwiązywanie problemów z Gateway](/gateway/troubleshooting)
 - [Gdzie OpenClaw przechowuje swoje dane?](/help/faq#where-does-openclaw-store-its-data)
-
-

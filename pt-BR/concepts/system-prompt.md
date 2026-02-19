@@ -1,4 +1,8 @@
 ---
+summary: "O que o system prompt do OpenClaw contém e como ele é montado"
+read_when:
+  - Ao editar o texto do system prompt, a lista de ferramentas ou as seções de tempo/heartbeat
+  - Ao alterar o bootstrap do workspace ou o comportamento de injeção de skills
 title: "Prompt do Sistema"
 ---
 
@@ -55,10 +59,24 @@ Arquivos de bootstrap são aparados e anexados em **Project Context** para que o
 - `USER.md`
 - `HEARTBEAT.md`
 - `BOOTSTRAP.md` (apenas em workspaces totalmente novos)
+- `MEMORY.md` e/ou `memory.md` (quando presentes no workspace; um ou ambos podem ser injetados)
+
+Todos esses arquivos são **injetados na janela de contexto** a cada turno, o que
+significa que consomem tokens. Mantenha-os concisos — especialmente `MEMORY.md`, que pode
+crescer ao longo do tempo e levar a um uso de contexto inesperadamente alto e a compactações mais frequentes.
+
+> **Observação:** arquivos diários `memory/*.md` **não** são injetados automaticamente. Eles
+> são acessados sob demanda por meio das ferramentas `memory_search` e `memory_get`, portanto
+> não contam para a janela de contexto a menos que o modelo os leia explicitamente.
 
 Arquivos grandes são truncados com um marcador. O tamanho máximo por arquivo é controlado por
-`agents.defaults.bootstrapMaxChars` (padrão: 20000). Arquivos ausentes injetam um
+`agents.defaults.bootstrapMaxChars` (padrão: 20000). O conteúdo total de bootstrap
+injetado entre os arquivos é limitado por `agents.defaults.bootstrapTotalMaxChars`
+(padrão: 24000). Arquivos ausentes injetam um
 marcador curto de arquivo ausente.
+
+Sessões de subagente injetam apenas `AGENTS.md` e `TOOLS.md` (outros arquivos de bootstrap
+são filtrados para manter o contexto do subagente pequeno).
 
 Hooks internos podem interceptar esta etapa via `agent:bootstrap` para mutar ou substituir
 os arquivos de bootstrap injetados (por exemplo, trocando `SOUL.md` por uma persona alternativa).
@@ -109,5 +127,3 @@ empacotada do npm) e também observa o espelho público, o repo de origem, o Dis
 ClawHub ([https://clawhub.com](https://clawhub.com)) para descoberta de skills. O prompt instrui o modelo a consultar primeiro a documentação local
 para comportamento, comandos, configuração ou arquitetura do OpenClaw, e a executar
 `openclaw status` por conta própria quando possível (pedindo ao usuário apenas quando não tiver acesso).
-
-

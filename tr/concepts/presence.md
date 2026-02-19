@@ -1,8 +1,13 @@
 ---
-title: "Varlık"
+summary: "OpenClaw presence kayıtlarının nasıl üretildiği, birleştirildiği ve görüntülendiği"
+read_when:
+  - Debugging the Instances tab
+  - Yinelenen veya bayat instance satırlarını araştırma
+  - Gateway WS bağlantısını veya sistem-olayı beacon'larını değiştirme
+title: "Presence"
 ---
 
-# Varlık
+# Presence
 
 OpenClaw “presence”, aşağıdakilerin hafif ve en iyi çaba esaslı bir görünümüdür:
 
@@ -95,5 +100,3 @@ küçük bir durum göstergesi (Active/Idle/Stale) uygular.
   - istemcilerin el sıkışmada kararlı bir `client.instanceId` gönderdiğini doğrulayın
   - periyodik beacon’ların aynı `instanceId`’yı kullandığını doğrulayın
   - bağlantıdan türetilen girdide `instanceId`’nin eksik olup olmadığını kontrol edin (bu durumda yinelenenler beklenir)
-
-

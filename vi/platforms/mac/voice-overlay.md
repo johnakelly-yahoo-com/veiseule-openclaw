@@ -1,20 +1,23 @@
 ---
+summary: "Vòng đời lớp phủ giọng nói khi từ đánh thức và nhấn‑để‑nói chồng lấp"
+read_when:
+  - Điều chỉnh hành vi lớp phủ giọng nói
 title: "Lớp phủ giọng nói"
 ---
 
 # Vòng đời Lớp phủ Giọng nói (macOS)
 
-Đối tượng: các cộng tác viên ứng dụng macOS. Mục tiêu: giữ cho lớp phủ giọng nói hoạt động ổn định khi wake-word và push-to-talk chồng lấn.
+Audience: macOS app contributors. Goal: keep the voice overlay predictable when wake-word and push-to-talk overlap.
 
 ## Ý định hiện tại
 
-- Nếu lớp phủ đã hiển thị do wake-word và người dùng nhấn phím nóng, phiên phím nóng sẽ _adopts_ (tiếp nhận) nội dung văn bản hiện có thay vì đặt lại. Lớp phủ vẫn hiển thị trong khi phím nóng được giữ. Khi người dùng thả phím: gửi nếu có văn bản sau khi đã loại bỏ khoảng trắng thừa, nếu không thì đóng lớp phủ.
+- If the overlay is already visible from wake-word and the user presses the hotkey, the hotkey session _adopts_ the existing text instead of resetting it. The overlay stays up while the hotkey is held. When the user releases: send if there is trimmed text, otherwise dismiss.
 - Chỉ dùng từ đánh thức vẫn tự động gửi khi im lặng; nhấn‑để‑nói gửi ngay khi thả.
 
 ## Đã triển khai (9 Thg 12, 2025)
 
-- Các phiên lớp phủ giờ đây mang theo một token cho mỗi lần ghi âm (wake-word hoặc push-to-talk). Các cập nhật partial/final/send/dismiss/level sẽ bị loại bỏ nếu token không khớp, nhằm tránh các callback cũ không còn hợp lệ.
-- Push-to-talk sẽ sử dụng mọi văn bản đang hiển thị trên lớp phủ làm tiền tố (vì vậy khi nhấn phím nóng trong lúc lớp phủ wake đang mở, văn bản hiện có sẽ được giữ lại và nối thêm lời nói mới). Hệ thống chờ tối đa 1,5 giây để nhận bản ghi cuối cùng trước khi quay về sử dụng văn bản hiện tại.
+- Overlay sessions now carry a token per capture (wake-word or push-to-talk). Partial/final/send/dismiss/level updates are dropped when the token doesn’t match, avoiding stale callbacks.
+- Push-to-talk adopts any visible overlay text as a prefix (so pressing the hotkey while the wake overlay is up keeps the text and appends new speech). It waits up to 1.5s for a final transcript before falling back to the current text.
 - Ghi log chuông/lớp phủ được phát tại `info` trong các danh mục `voicewake.overlay`, `voicewake.ptt` và `voicewake.chime` (bắt đầu phiên, partial, final, send, dismiss, lý do chuông).
 
 ## Bước tiếp theo
@@ -56,5 +59,3 @@ title: "Lớp phủ giọng nói"
 3. Tái cấu trúc `VoicePushToTalk` để kế thừa các phiên hiện có và gọi `endCapture` khi thả; áp dụng cooldown runtime.
 4. Kết nối `VoiceWakeOverlayController` với publisher; loại bỏ các lời gọi trực tiếp từ runtime/PTT.
 5. Thêm các bài kiểm thử tích hợp cho việc kế thừa phiên, cooldown và đóng khi văn bản rỗng.
-
-

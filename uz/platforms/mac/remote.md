@@ -1,4 +1,7 @@
 ---
+summary: "SSH orqali masofadagi OpenClaw gateway’ni boshqarish uchun macOS ilova oqimi"
+read_when:
+  - Masofaviy mac boshqaruvini sozlash yoki nosozliklarni tuzatish
 title: "Masofadan boshqarish"
 ---
 
@@ -36,7 +39,7 @@ Masofaviy rejim ikki xil transportni qo‘llab-quvvatlaydi:
    - **Identity file** (kengaytirilgan): kalitingizga yo‘l.
    - **Project root** (kengaytirilgan): buyruqlar uchun ishlatiladigan masofaviy checkout yo‘li.
    - **CLI path** (kengaytirilgan): ishga tushiriladigan `openclaw` kirish nuqtasi/binar fayliga ixtiyoriy yo‘l (e’lon qilinganda avtomatik to‘ldiriladi).
-3. **Test remote** tugmasini bosing. Muvaffaqiyat masofadagi `openclaw status --json` to‘g‘ri ishlayotganini bildiradi. Xatolar odatda PATH/CLI muammolarini anglatadi; 127 chiqish kodi CLI masofada topilmaganini bildiradi.
+3. Hit **Test remote**. Success indicates the remote `openclaw status --json` runs correctly. Failures usually mean PATH/CLI issues; exit 127 means the CLI isn’t found remotely.
 4. Health checks and Web Chat will now run through this SSH tunnel automatically.
 
 ## Web Chat
@@ -78,5 +81,3 @@ openclaw nodes notify --node <id> --title "Ping" --body "Remote gateway ready" -
 ```
 
 There is no global “default sound” toggle in the app anymore; callers choose a sound (or none) per request.
-
-

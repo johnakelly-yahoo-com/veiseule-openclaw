@@ -1,4 +1,8 @@
 ---
+summary: "Repo skriptlari: maqsad, qamrov va xavfsizlik eslatmalari"
+read_when:
+  - Repodan skriptlarni ishga tushirish
+  - ./scripts ostida skriptlarni qo‘shish yoki o‘zgartirish
 title: "Skriptlar"
 ---
 
@@ -22,5 +26,3 @@ Autentifikatsiya monitoringi skriptlari bu yerda hujjatlashtirilgan:
 
 - Skriptlarni aniq maqsadga yo‘naltirilgan va hujjatlashtirilgan holda saqlang.
 - Tegishli hujjatga qisqa yozuv qo‘shing (yoki mavjud bo‘lmasa, yangisini yarating).
-
-

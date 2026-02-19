@@ -1,4 +1,10 @@
-------
+---
+title: "डिफ़ॉल्ट AGENTS.md"
+summary: "व्यक्तिगत सहायक सेटअप के लिए डिफ़ॉल्ट OpenClaw एजेंट निर्देश और Skills सूची"
+read_when:
+  - नए OpenClaw एजेंट सत्र की शुरुआत करते समय
+  - डिफ़ॉल्ट Skills को सक्षम या ऑडिट करते समय
+---
 
 # AGENTS.md — OpenClaw व्यक्तिगत सहायक (डिफ़ॉल्ट)
 
@@ -116,5 +122,3 @@ git commit -m "Add Clawd workspace"
 - ब्राउज़र-आधारित सत्यापन के लिए, OpenClaw-प्रबंधित Chrome प्रोफ़ाइल के साथ `openclaw browser` (टैब/स्थिति/स्क्रीनशॉट) उपयोग करें।
 - DOM निरीक्षण के लिए, `openclaw browser eval|query|dom|snapshot` का उपयोग करें (और मशीन आउटपुट की आवश्यकता होने पर `--json`/`--out`)।
 - इंटरैक्शन के लिए, `openclaw browser click|type|hover|drag|select|upload|press|wait|navigate|back|evaluate|run` का उपयोग करें (क्लिक/टाइप के लिए स्नैपशॉट संदर्भ आवश्यक हैं; CSS सेलेक्टर्स के लिए `evaluate` उपयोग करें)।
-
-

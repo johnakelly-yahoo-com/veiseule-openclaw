@@ -1,4 +1,8 @@
 ---
+summary: "Örnek yapılandırmalar + CLI akışlarıyla model sağlayıcılarına genel bakış"
+read_when:
+  - Sağlayıcı bazında model kurulum başvurusuna ihtiyaç duyduğunuzda
+  - Model sağlayıcıları için örnek yapılandırmalar veya CLI ile başlangıç komutları istediğinizde
 title: "Model Sağlayıcıları"
 ---
 
@@ -116,6 +120,7 @@ OpenClaw, pi‑ai kataloğu ile birlikte gelir. Bu sağlayıcılar **herhangi bi
   - OpenAI‑uyumlu temel URL: `https://api.cerebras.ai/v1`.
 - Mistral: `mistral` (`MISTRAL_API_KEY`)
 - GitHub Copilot: `github-copilot` (`COPILOT_GITHUB_TOKEN` / `GH_TOKEN` / `GITHUB_TOKEN`)
+- Hugging Face Inference: `huggingface` (`HUGGINGFACE_HUB_TOKEN` veya `HF_TOKEN`) — OpenAI uyumlu yönlendirici; örnek model: `huggingface/deepseek-ai/DeepSeek-R1`; CLI: `openclaw onboard --auth-choice huggingface-api-key`. [Hugging Face (Inference)](/providers/huggingface) sayfasına bakın.
 
 ## `models.providers` üzerinden sağlayıcılar (özel/temel URL)
 
@@ -255,6 +260,32 @@ ollama pull llama3.3
 
 Ollama, `http://127.0.0.1:11434/v1` adresinde yerel olarak çalışırken otomatik olarak algılanır. Model önerileri ve özel yapılandırma için bkz. [/providers/ollama](/providers/ollama).
 
+### vLLM
+
+vLLM, yerel (veya self-hosted) OpenAI uyumlu bir sunucudur:
+
+- Sağlayıcı: `vllm`
+- Kimlik Doğrulama: İsteğe bağlı (sunucunuza bağlıdır)
+- Varsayılan temel URL: `http://127.0.0.1:8000/v1`
+
+Yerel olarak otomatik keşfi etkinleştirmek için (sunucunuz kimlik doğrulama zorunlu kılmıyorsa herhangi bir değer çalışır):
+
+```bash
+export VLLM_API_KEY="vllm-local"
+```
+
+Ardından bir model ayarlayın (`/v1/models` tarafından döndürülen kimliklerden biriyle değiştirin):
+
+```json5
+{
+  agents: {
+    defaults: { model: { primary: "vllm/your-model-id" } },
+  },
+}
+```
+
+Ayrıntılar için [/providers/vllm](/providers/vllm) sayfasına bakın.
+
 ### Yerel proxy’ler (LM Studio, vLLM, LiteLLM, vb.)
 
 Örnek (OpenAI‑uyumlu):
@@ -310,5 +341,3 @@ openclaw models list
 ```
 
 Ayrıca bkz.: Tam yapılandırma örnekleri için [/gateway/configuration](/gateway/configuration).
-
-

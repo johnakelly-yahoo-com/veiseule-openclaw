@@ -1,5 +1,10 @@
 ---
 title: "Node.js"
+summary: "OpenClaw के लिए Node.js स्थापित और विन्यस्त करें — संस्करण आवश्यकताएँ, इंस्टॉल विकल्प, और PATH समस्या-निवारण"
+read_when:
+  - "OpenClaw स्थापित करने से पहले आपको Node.js स्थापित करना है"
+  - "आपने OpenClaw स्थापित किया है लेकिन `openclaw` कमांड नहीं मिला"
+  - "`npm install -g` अनुमतियों या PATH संबंधी समस्याओं के साथ विफल हो रहा है"
 ---
 
 # Node.js
@@ -20,44 +25,59 @@ node -v
   <Tab title="macOS">
     **Homebrew** (अनुशंसित):
 
+    `````
+    ````
     ```bash
     brew install node
     ```
-
+    
     या [nodejs.org](https://nodejs.org/) से macOS इंस्टॉलर डाउनलोड करें।
+    ````
+    `````
+
   
 </Tab>
   <Tab title="Linux">
     **Ubuntu / Debian:**
 
+    `````
+    ````
     ```bash
     curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
     sudo apt-get install -y nodejs
     ```
-
+    
     **Fedora / RHEL:**
-
+    
     ```bash
     sudo dnf install nodejs
     ```
-
+    
     या किसी संस्करण प्रबंधक का उपयोग करें (नीचे देखें)।
+    ````
+    `````
+
   
 </Tab>
   <Tab title="Windows">
     **winget** (अनुशंसित):
 
+    `````
+    ````
     ```powershell
     winget install OpenJS.NodeJS.LTS
     ```
-
+    
     **Chocolatey:**
-
+    
     ```powershell
     choco install nodejs-lts
     ```
-
+    
     या [nodejs.org](https://nodejs.org/) से Windows इंस्टॉलर डाउनलोड करें।
+    ````
+    `````
+
   
 </Tab>
 </Tabs>
@@ -100,7 +120,12 @@ fnm use 22
     echo "$PATH"
     ```
 
+    ````
+    ```
     आउटपुट में `<npm-prefix>/bin` (macOS/Linux) या `<npm-prefix>` (Windows) खोजें।
+    ```
+    ````
+
   
 </Step>
   <Step title="Add it to your shell startup file">
@@ -108,19 +133,24 @@ fnm use 22
       <Tab title="macOS / Linux">
         `~/.zshrc` या `~/.bashrc` में जोड़ें:
 
-        ```bash
-        export PATH="$(npm prefix -g)/bin:$PATH"
+        ```
+            ```
+                ```bash
+                export PATH="$(npm prefix -g)/bin:$PATH"
+                ```
+            
+                फिर नया टर्मिनल खोलें (या zsh में `rehash` / bash में `hash -r` चलाएँ)।
+              
+</Tab>
+              <Tab title="Windows">
+                Settings → System → Environment Variables के माध्यम से `npm prefix -g` के आउटपुट को अपने सिस्टम PATH में जोड़ें।
+              
+</Tab>
+            
+</Tabs>
+            ```
         ```
 
-        फिर नया टर्मिनल खोलें (या zsh में `rehash` / bash में `hash -r` चलाएँ)।
-      
-</Tab>
-      <Tab title="Windows">
-        Settings → System → Environment Variables के माध्यम से `npm prefix -g` के आउटपुट को अपने सिस्टम PATH में जोड़ें।
-      
-</Tab>
-    
-</Tabs>
   
 </Step>
 </Steps>
@@ -136,4 +166,3 @@ export PATH="$HOME/.npm-global/bin:$PATH"
 ```
 
 इसे स्थायी बनाने के लिए `export PATH=...` पंक्ति को अपनी `~/.bashrc` या `~/.zshrc` में जोड़ें।
-

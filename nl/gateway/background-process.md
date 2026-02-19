@@ -1,4 +1,8 @@
 ---
+summary: "Uitvoering van achtergrond-exec en procesbeheer"
+read_when:
+  - Achtergrond-exec-gedrag toevoegen of wijzigen
+  - Debuggen van langlopende exec-taken
 title: "Achtergrond Exec en Proces-tool"
 ---
 
@@ -42,6 +46,7 @@ Config (aanbevolen):
 - `tools.exec.timeoutSec` (standaard 1800)
 - `tools.exec.cleanupMs` (standaard 1800000)
 - `tools.exec.notifyOnExit` (standaard true): plaats een systeemevent in de wachtrij + vraag een heartbeat aan wanneer een naar de achtergrond verplaatste exec eindigt.
+- `tools.exec.notifyOnExitEmptySuccess` (standaard false): wanneer true, worden ook voltooiingsevents in de wachtrij geplaatst voor succesvolle achtergrondruns die geen output hebben geproduceerd.
 
 ## process-tool
 
@@ -63,6 +68,8 @@ Notities:
 - `process` is per agent gescopeerd; het ziet alleen sessies die door die agent zijn gestart.
 - `process list` bevat een afgeleide `name` (commandowerkwoord + doel) voor snelle scans.
 - `process log` gebruikt regelgebaseerde `offset`/`limit` (laat `offset` weg om de laatste N regels te pakken).
+- Wanneer zowel `offset` als `limit` zijn weggelaten, worden de laatste 200 regels geretourneerd en wordt een paging-hint meegegeven.
+- Wanneer `offset` is opgegeven en `limit` is weggelaten, wordt geretourneerd van `offset` tot het einde (niet beperkt tot 200).
 
 ## Voorbeelden
 
@@ -87,5 +94,3 @@ Stdin verzenden:
 ```json
 { "tool": "process", "action": "write", "sessionId": "<id>", "data": "y\n" }
 ```
-
-

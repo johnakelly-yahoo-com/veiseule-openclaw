@@ -1,4 +1,8 @@
 ---
+summary: "Använd Venice AI:s integritetsfokuserade modeller i OpenClaw"
+read_when:
+  - Du vill ha integritetsfokuserad inferens i OpenClaw
+  - Du vill ha vägledning för konfiguration av Venice AI
 title: "Venice AI"
 ---
 
@@ -37,7 +41,7 @@ Venice erbjuder två integritetsnivåer – att förstå dessa är avgörande f�
 
 ## Konfigurering
 
-### 1. Skaffa API-nyckel
+### 1. Get API Key
 
 1. Registrera dig på [venice.ai](https://venice.ai)
 2. Gå till **Settings → API Keys → Create new key**
@@ -261,5 +265,3 @@ Venedig API är på `https://api.venice.ai/api/v1`. Se till att ditt nätverk ti
 - [API-dokumentation](https://docs.venice.ai)
 - [Prissättning](https://venice.ai/pricing)
 - [Status](https://status.venice.ai)
-
-

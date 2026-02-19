@@ -1,4 +1,9 @@
 ---
+summary: "26. CLI backendlar: mahalliy AI CLI’lar orqali faqat matnli zaxira yo‘li"
+read_when:
+  - 27. API provayderlari ishdan chiqqanda ishonchli zaxira yo‘lini xohlaysiz
+  - 28. Siz Claude Code CLI yoki boshqa mahalliy AI CLI’larni ishga tushiryapsiz va ularni qayta ishlatmoqchisiz
+  - 29. Sessiyalar va rasmlarni qo‘llab-quvvatlaydigan, lekin faqat matnli, vositalarsiz yo‘l kerak
 title: "30. CLI Backendlar"
 ---
 
@@ -71,7 +76,7 @@ Eslatmalar:
 
 - Agar siz `agents.defaults.models` (allowlist) dan foydalansangiz, `claude-cli/...` ni kiritishingiz shart.
 - Agar asosiy provayder ishlamasa (auth, rate limitlar, timeouts), OpenClaw
-keyingi navbatda CLI backend’ni sinab ko‘radi.
+  keyingi navbatda CLI backend’ni sinab ko‘radi.
 
 ## Konfiguratsiya haqida umumiy ma’lumot
 
@@ -81,7 +86,7 @@ Barcha CLI backend’lar quyida joylashgan:
 agents.defaults.cliBackends
 ```
 
-Har bir yozuv **provider id** (masalan, `claude-cli`, `my-cli`) orqali belgilanadi.
+Each entry is keyed by a **provider id** (e.g. `claude-cli`, `my-cli`).
 The provider id becomes the left side of your model ref:
 
 ```
@@ -215,5 +220,3 @@ Override only if needed (common: absolute `command` path).
 - **No session continuity**: ensure `sessionArg` is set and `sessionMode` is not
   `none` (Codex CLI currently cannot resume with JSON output).
 - **Images ignored**: set `imageArg` (and verify CLI supports file paths).
-
-

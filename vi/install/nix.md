@@ -1,4 +1,9 @@
 ---
+summary: "Cài đặt OpenClaw theo cách khai báo với Nix"
+read_when:
+  - Bạn muốn cài đặt có thể tái tạo và quay lui
+  - Bạn đã sử dụng Nix/NixOS/Home Manager
+  - Bạn muốn mọi thứ được ghim phiên bản và quản lý theo cách khai báo
 title: "Nix"
 ---
 
@@ -42,14 +47,14 @@ Reference the nix-openclaw README for module options.
 
 Khi `OPENCLAW_NIX_MODE=1` được thiết lập (tự động với nix-openclaw):
 
-OpenClaw hỗ trợ **chế độ Nix** giúp cấu hình có tính xác định và vô hiệu hóa các quy trình tự động cài đặt.
+OpenClaw supports a **Nix mode** that makes configuration deterministic and disables auto-install flows.
 Enable it by exporting:
 
 ```bash
 OPENCLAW_NIX_MODE=1
 ```
 
-Trên macOS, ứng dụng GUI không tự động kế thừa các biến môi trường của shell. Bạn có thể
+On macOS, the GUI app does not automatically inherit shell env vars. You can
 also enable Nix mode via defaults:
 
 ```bash
@@ -91,5 +96,3 @@ và các bản build Nix (không phụ thuộc vào đầy đủ toolchain Xcode
 - [nix-openclaw](https://github.com/openclaw/nix-openclaw) — hướng dẫn thiết lập đầy đủ
 - [Wizard](/start/wizard) — thiết lập CLI không dùng Nix
 - [Docker](/install/docker) — thiết lập dạng container
-
-

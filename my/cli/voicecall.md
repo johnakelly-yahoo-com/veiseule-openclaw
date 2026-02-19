@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw voicecall` အတွက် CLI ကိုးကားချက် (voice-call plugin ၏ အမိန့်မျက်နှာပြင်)"
+read_when:
+  - voice-call plugin ကို အသုံးပြုနေပြီး CLI ဝင်ပေါက်များကို သိလိုသောအခါ
+  - "`voicecall call|continue|status|tail|expose` အတွက် အမြန်နမူနာများကို လိုချင်သောအခါ"
 title: "voicecall"
 ---
 
@@ -28,5 +32,3 @@ openclaw voicecall unexpose
 ```
 
 Security မှတ်ချက်: webhook endpoint ကို ယုံကြည်ရသော network များသို့သာ ဖွင့်ပါ။ ဖြစ်နိုင်ပါက Funnel ထက် Tailscale Serve ကို ဦးစားပေးပါ။
-
-

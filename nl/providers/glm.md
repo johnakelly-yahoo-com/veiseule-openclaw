@@ -1,4 +1,8 @@
 ---
+summary: "Overzicht van de GLM-modelfamilie + hoe je deze gebruikt in OpenClaw"
+read_when:
+  - Je wilt GLM-modellen in OpenClaw gebruiken
+  - Je hebt de modelnaamgevingsconventie en installatie nodig
 title: "GLM-modellen"
 ---
 
@@ -27,5 +31,3 @@ openclaw onboard --auth-choice zai-api-key
 - GLM-versies en beschikbaarheid kunnen veranderen; raadpleeg de documentatie van Z.AI voor de nieuwste informatie.
 - Voorbeeld-model-ID's zijn onder andere `glm-4.7` en `glm-4.6`.
 - Voor provider-details, zie [/providers/zai](/providers/zai).
-
-

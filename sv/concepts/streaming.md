@@ -1,4 +1,9 @@
 ---
+summary: "Streaming- och chunkingbeteende (blockrepliker, utkaststreaming, gränser)"
+read_when:
+  - Förklara hur streaming eller chunking fungerar på kanaler
+  - Ändra blockstreaming eller kanalens chunkingbeteende
+  - Felsöka dubbla/tidiga blockrepliker eller utkaststreaming
 title: "Streaming och Chunking"
 ---
 
@@ -9,7 +14,7 @@ OpenClaw har två separata ”streaming”-lager:
 - **Blockera strömning (kanaler):** avger **block** som assistenten skriver. Dessa är normala kanalmeddelanden (inte token deltas).
 - **Token‑lik streaming (endast Telegram):** uppdaterar en **utkastbubbla** med partiell text under generering; slutligt meddelande skickas i slutet.
 
-Det finns **ingen riktig token streaming** till externa kanalmeddelanden idag. Telegram utkast streaming är den enda delströmsytan.
+Det finns **ingen äkta token‑delta‑streaming** till kanalmeddelanden i dagsläget. Telegram förhandsvisnings‑streaming är den enda ytan med partiell streaming.
 
 ## Blockstreaming (kanalmeddelanden)
 
@@ -25,7 +30,7 @@ Model output
                    └─ channel send (block replies)
 ```
 
-Teckenförklaring:
+Legend:
 
 - `text_delta/events`: modellens streamevent (kan vara glesa för icke‑streamande modeller).
 - `chunker`: `EmbeddedBlockChunker` som tillämpar min-/maxgränser + brytpreferens.
@@ -94,8 +99,7 @@ Detta motsvarar:
 - **Ingen blockstreaming:** `blockStreamingDefault: "off"` (endast slutligt svar).
 
 **Kanalnotera:** För icke-Telegram kanaler är blockströmning **av olösa**
-`*.blockStreaming` är explicit satt till `true`. Telegram kan strömma utkast
-(`channels.telegram.streamMode`) utan blocksvar.
+`*.blockStreaming` är explicit satt till `true`. Telegram kan streama en liveförhandsvisning (`channels.telegram.streamMode`) utan block‑svar.
 
 Påminnelse om konfigplats: standardvärdena för `blockStreaming*` finns under
 `agents.defaults`, inte i rotkonfigen.
@@ -113,20 +117,19 @@ Telegram är den enda kanalen med utkaststreaming:
 - Utkaststreaming är separat från blockstreaming; blockrepliker är av som standard och aktiveras endast av `*.blockStreaming: true` på icke‑Telegram‑kanaler.
 - Slutligt svar är fortfarande ett normalt meddelande.
 - `/reasoning stream` skriver resonemang i utkastbubblan (endast Telegram).
-
-När utkaststreaming är aktiv inaktiverar OpenClaw blockstreaming för det svaret för att undvika dubbel streaming.
+- Icke‑text/komplexa slutresultat faller tillbaka till normal leverans av slutmeddelande.
+- `/reasoning stream` skriver resonemang i liveförhandsvisningen (endast Telegram).
 
 ```
-Telegram (private + topics)
-  └─ sendMessageDraft (draft bubble)
-       ├─ streamMode=partial → update latest text
-       └─ streamMode=block   → chunker updates draft
-  └─ final reply → normal message
+Telegram
+  └─ sendMessage (tillfälligt förhandsvisningsmeddelande)
+       ├─ streamMode=partial → redigera senaste text
+       └─ streamMode=block   → chunker + redigeringsuppdateringar
+  └─ slutligt text‑endast svar → slutlig redigering av samma meddelande
+  └─ fallback: rensa förhandsvisning + normal slutleverans (media/komplex)
 ```
 
 Legend:
 
-- `sendMessageDraft`: Telegram‑utkastbubbla (inte ett riktigt meddelande).
-- `final reply`: normalt Telegram‑meddelande.
-
-
+- `preview message`: tillfälligt Telegram‑meddelande som uppdateras under generering.
+- `final edit`: redigering på plats av samma förhandsvisningsmeddelande (endast text).

@@ -1,4 +1,8 @@
 ---
+summary: "WebSocket listener bind ကို အသုံးပြုသော Gateway singleton ကာကွယ်မှု"
+read_when:
+  - Gateway လုပ်ငန်းစဉ်ကို လည်ပတ်နေစဉ် သို့မဟုတ် debug လုပ်နေစဉ်
+  - တစ်ခုတည်းသာ လည်ပတ်နိုင်ရေးကို စစ်ဆေးလေ့လာနေစဉ်
 title: "Gateway လော့ခ်"
 ---
 
@@ -28,5 +32,3 @@ title: "Gateway လော့ခ်"
 
 - port ကို _အခြား_ process တစ်ခုက အသုံးပြုနေပါက အမှားသည် တူညီနေမည်ဖြစ်သည်; port ကို လွှတ်ပေးရန် သို့မဟုတ် `openclaw gateway --port <port>` ဖြင့် အခြား port ကို ရွေးချယ်ပါ။
 - macOS app သည် Gateway ကို စတင်ဖွင့်မီ ကိုယ်ပိုင် လွယ်ကူသော PID guard ကို ထိန်းသိမ်းထားသော်လည်း runtime lock ကို WebSocket bind ဖြင့်သာ အတည်ပြုအကောင်အထည်ဖော်ထားသည်။
-
-

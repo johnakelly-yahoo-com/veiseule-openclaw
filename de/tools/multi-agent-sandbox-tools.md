@@ -1,5 +1,7 @@
 ---
+summary: "Sandbox pro Agent + Werkzeugeinschränkungen, Priorität und Beispiele"
 title: Multi-Agent-Sandbox & Werkzeuge
+read_when: "Sie möchten Sandboxing pro Agent oder pro Agent Tool-Allow-/Deny-Richtlinien in einem Multi-Agent-Gateway."
 status: active
 ---
 
@@ -392,5 +394,3 @@ Nach der Konfiguration von Multi-Agent-Sandbox und Werkzeugen:
 - [Multi-Agent-Routing](/concepts/multi-agent)
 - [Sandbox-Konfiguration](/gateway/configuration#agentsdefaults-sandbox)
 - [Sitzungsverwaltung](/concepts/session)
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "透過 NIP-04 加密訊息的 Nostr 私訊頻道"
+read_when:
+  - 當你希望 OpenClaw 透過 Nostr 接收私訊
+  - 你正在設定去中心化的訊息傳遞
 title: "Nostr"
 ---
 
@@ -6,7 +10,7 @@ title: "Nostr"
 
 33. **狀態：** 選用外掛（預設停用）。
 
-34. Nostr 是一種用於社交網路的去中心化通訊協定。 35. 此頻道可讓 OpenClaw 透過 NIP-04 接收並回應加密的私訊（DM）。
+Nostr 是一種用於社交網路的去中心化通訊協定。 35. 此頻道可讓 OpenClaw 透過 NIP-04 接收並回應加密的私訊（DM）。
 
 ## 安裝（依需求）
 
@@ -67,9 +71,9 @@ export NOSTR_PRIVATE_KEY="nsec1..."
 
 ## 設定參考
 
-| 鍵          | 類型                                                         | 預設值                                     | 說明                       |
+| 鍵            | 類型                                                           | Default                                     | Description                       |
 | ------------ | ------------------------------------------------------------ | ------------------------------------------- | --------------------------------- |
-| `privateKey` | string                                                       | 必填                                    | 私鑰（`nsec` 或十六進位格式）                |
+| `privateKey` | string                                                       | 必填                                          | 私鑰（`nsec` 或十六進位格式）                |
 | `relays`     | string[] | `['wss://relay.damus.io', 'wss://nos.lol']` | 中繼站 URL（WebSocket）                |
 | `dmPolicy`   | string                                                       | `pairing`                                   | 40. 私訊存取政策 |
 | `allowFrom`  | string[] | `[]`                                        | 允許的寄件者公鑰                          |
@@ -162,7 +166,7 @@ Profile data is published as a NIP-01 `kind:0` event. You can manage it from the
 
 ## 協定支援
 
-| NIP    | Status | 說明                                 |
+| NIP    | Status | Description                                 |
 | ------ | ------ | ------------------------------------------- |
 | NIP-01 | 已支援    | 基本事件格式 + 個人資料中繼資料                           |
 | NIP-04 | 已支援    | Encrypted DMs (`kind:4`) |
@@ -227,5 +231,3 @@ docker run -p 7777:7777 ghcr.io/hoytech/strfry
 - Direct messages only (no group chats).
 - 不支援媒體附件。
 - 僅支援 NIP-04（規劃支援 NIP-17 禮物封裝）。
-
-

@@ -1,13 +1,10 @@
 ---
+summary: "向多个智能体广播 WhatsApp 消息"
+read_when:
+  - 配置广播群组
+  - 调试 WhatsApp 中的多智能体回复
 status: experimental
-title: 广播群组
-x-i18n:
-  generated_at: "2026-02-03T07:43:43Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: eaeb4035912c49413e012177cf0bd28b348130d30d3317674418dca728229b70
-  source_path: channels/broadcast-groups.md
-  workflow: 15
+title: "广播群组"
 ---
 
 # 广播群组
@@ -17,11 +14,11 @@ x-i18n:
 
 ## 概述
 
-广播群组允许多个智能体同时处理并响应同一条消息。这使你能够在单个 WhatsApp 群组或私信中创建协同工作的专业智能体团队——全部使用同一个手机号码。
+Broadcast Groups enable multiple agents to process and respond to the same message simultaneously. This allows you to create specialized agent teams that work together in a single WhatsApp group or DM — all using one phone number.
 
 当前范围：**仅限 WhatsApp**（web 渠道）。
 
-广播群组在渠道白名单和群组激活规则之后进行评估。在 WhatsApp 群组中，这意味着广播会在 OpenClaw 正常回复时发生（例如：被提及时，具体取决于你的群组设置）。
+Broadcast groups are evaluated after channel allowlists and group activation rules. 广播群组在渠道白名单和群组激活规则之后进行评估。在 WhatsApp 群组中，这意味着广播会在 OpenClaw 正常回复时发生（例如：被提及时，具体取决于你的群组设置）。
 
 ## 使用场景
 
@@ -73,10 +70,10 @@ Agents:
 
 ### 基本设置
 
-添加一个顶层 `broadcast` 部分（与 `bindings` 同级）。键为 WhatsApp peer id：
+18. 添加一个顶层 `broadcast` 区段（与 `bindings` 同级）。 19. 键为 WhatsApp 对等 ID：
 
 - 群聊：群组 JID（例如 `120363403215116621@g.us`）
-- 私信：E.164 格式的电话号码（例如 `+15551234567`）
+- 21. 私聊：E.164 电话号码（例如 `+15551234567`）
 
 ```json
 {
@@ -153,7 +150,7 @@ Agents:
 }
 ```
 
-## 工作原理
+## 34. 工作原理
 
 ### 消息流程
 
@@ -161,12 +158,12 @@ Agents:
 2. **广播检查**：系统检查 peer ID 是否在 `broadcast` 中
 3. **如果在广播列表中**：
    - 所有列出的智能体处理该消息
-   - 每个智能体有自己的会话键和隔离的上下文
+   - 40. 每个代理都有自己的会话键和隔离的上下文
    - 智能体并行处理（默认）或顺序处理
 4. **如果不在广播列表中**：
    - 应用正常路由（第一个匹配的绑定）
 
-注意：广播群组不会绕过渠道白名单或群组激活规则（提及/命令等）。它们只改变消息符合处理条件时*运行哪些智能体*。
+注意：广播群组不会绕过渠道白名单或群组激活规则（提及/命令等）。它们只改变消息符合处理条件时_运行哪些智能体_。 45. 它们只会改变在消息符合处理条件时 _运行哪些代理_。
 
 ### 会话隔离
 
@@ -222,12 +219,12 @@ Tools: read only
 }
 ```
 
-✅ **好的做法：** 每个智能体只有一个任务  
-❌ **不好的做法：** 一个通用的"dev-helper"智能体
+✅ **Good:** Each agent has one job  
+❌ **Bad:** One generic "dev-helper" agent
 
 ### 2. 使用描述性名称
 
-明确每个智能体的功能：
+Make it clear what each agent does:
 
 ```json
 {
@@ -258,7 +255,7 @@ Tools: read only
 
 ### 4. 监控性能
 
-当有多个智能体时，请考虑：
+With many agents, consider:
 
 - 使用 `"strategy": "parallel"`（默认）以提高速度
 - 将广播群组限制在 5-10 个智能体
@@ -266,7 +263,7 @@ Tools: read only
 
 ### 5. 优雅地处理失败
 
-智能体独立失败。一个智能体的错误不会阻塞其他智能体：
+Agents fail independently. One agent's error doesn't block others:
 
 ```
 Message → [Agent A ✓, Agent B ✗ error, Agent C ✓]
@@ -309,13 +306,13 @@ Result: Agent A and C respond, Agent B logs error
 
 ## 故障排除
 
-### 智能体不响应
+### 代理未响应
 
 **检查：**
 
 1. 智能体 ID 存在于 `agents.list` 中
 2. Peer ID 格式正确（例如 `120363403215116621@g.us`）
-3. 智能体不在拒绝列表中
+3. 代理不在拒绝列表中
 
 **调试：**
 
@@ -434,14 +431,12 @@ interface OpenClawConfig {
 计划中的功能：
 
 - [ ] 共享上下文模式（智能体可以看到彼此的响应）
-- [ ] 智能体协调（智能体可以相互发信号）
+- [ ] 代理协作（代理可以相互发送信号）
 - [ ] 动态智能体选择（根据消息内容选择智能体）
-- [ ] 智能体优先级（某些智能体先于其他智能体响应）
+- [ ] 代理优先级（某些代理先于其他代理响应）
 
 ## 另请参阅
 
 - [多智能体配置](/tools/multi-agent-sandbox-tools)
 - [路由配置](/channels/channel-routing)
 - [会话管理](/concepts/sessions)
-
-

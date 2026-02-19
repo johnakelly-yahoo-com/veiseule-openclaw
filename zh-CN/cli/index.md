@@ -1,17 +1,14 @@
 ---
-title: CLI 参考
-x-i18n:
-  generated_at: "2026-02-03T07:47:54Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: a73923763d7b89d4b183f569d543927ffbfd1f3e02f9e66639913f6daf226850
-  source_path: cli/index.md
-  workflow: 15
+summary: "OpenClaw `openclaw` 命令、子命令和选项的 CLI 参考"
+read_when:
+  - 添加或修改 CLI 命令或选项
+  - 为新命令界面编写文档
+title: "CLI 参考"
 ---
 
 # CLI 参考
 
-本页描述当前的 CLI 行为。如果命令发生变化，请更新此文档。
+本页描述当前的 CLI 行为。如果命令发生变化，请更新此文档。 14. 如果命令发生变化，请更新此文档。
 
 ## 命令页面
 
@@ -55,7 +52,7 @@ x-i18n:
 - [`skills`](/cli/skills)
 - [`voicecall`](/cli/voicecall)（插件；如已安装）
 
-## 全局标志
+## Global flags
 
 - `--dev`：将状态隔离到 `~/.openclaw-dev` 下并调整默认端口。
 - `--profile <name>`：将状态隔离到 `~/.openclaw-<name>` 下。
@@ -258,7 +255,7 @@ openclaw [--dev] [--profile <name>] <command>
 - `openclaw plugins enable <id>` / `disable <id>` — 切换 `plugins.entries.<id>.enabled`。
 - `openclaw plugins doctor` — 报告插件加载错误。
 
-大多数插件更改需要重启 Gateway 网关。参见 [/plugin](/tools/plugin)。
+大多数插件更改需要重启 Gateway 网关。参见 [/plugin](/tools/plugin)。 See [/plugin](/tools/plugin).
 
 ## 记忆
 
@@ -270,7 +267,7 @@ openclaw [--dev] [--profile <name>] <command>
 
 ## 聊天斜杠命令
 
-聊天消息支持 `/...` 命令（文本和原生）。参见 [/tools/slash-commands](/tools/slash-commands)。
+聊天消息支持 `/...` 命令（文本和原生）。参见 [/tools/slash-commands](/tools/slash-commands)。 2. 参见 [/tools/slash-commands](/tools/slash-commands)。
 
 亮点：
 
@@ -321,6 +318,11 @@ openclaw [--dev] [--profile <name>] <command>
 - `--zai-api-key <key>`
 - `--minimax-api-key <key>`
 - `--opencode-zen-api-key <key>`
+- `--custom-base-url <url>`（非交互式；与 `--auth-choice custom-api-key` 一起使用）
+- `--custom-model-id <id>`（非交互式；与 `--auth-choice custom-api-key` 一起使用）
+- `--custom-api-key <key>`（非交互式；可选；与 `--auth-choice custom-api-key` 一起使用；未提供时回退到 `CUSTOM_API_KEY`）
+- `--custom-provider-id <id>`（非交互式；可选的自定义 provider id）
+- `--custom-compatibility <openai|anthropic>`（非交互式；可选；默认 `openai`）
 - `--gateway-port <port>`
 - `--gateway-bind <loopback|lan|tailnet|auto|custom>`
 - `--gateway-auth <token|password>`
@@ -346,7 +348,7 @@ openclaw [--dev] [--profile <name>] <command>
 
 ### `config`
 
-非交互式配置辅助工具（get/set/unset）。不带子命令运行 `openclaw config` 会启动向导。
+Non-interactive config helpers (get/set/unset). 非交互式配置辅助工具（get/set/unset）。不带子命令运行 `openclaw config` 会启动向导。
 
 子命令：
 
@@ -451,7 +453,7 @@ openclaw status --deep
 
 ### `webhooks gmail`
 
-Gmail Pub/Sub 钩子设置 + 运行器。参见 [/automation/gmail-pubsub](/automation/gmail-pubsub)。
+Gmail Pub/Sub 钩子设置与运行器。 Gmail Pub/Sub 钩子设置 + 运行器。参见 [/automation/gmail-pubsub](/automation/gmail-pubsub)。
 
 子命令：
 
@@ -460,7 +462,7 @@ Gmail Pub/Sub 钩子设置 + 运行器。参见 [/automation/gmail-pubsub](/auto
 
 ### `dns setup`
 
-广域发现 DNS 辅助工具（CoreDNS + Tailscale）。参见 [/gateway/discovery](/gateway/discovery)。
+广域发现 DNS 辅助工具（CoreDNS + Tailscale）。参见 [/gateway/discovery](/gateway/discovery)。 参见 [/gateway/discovery](/gateway/discovery)。
 
 选项：
 
@@ -493,7 +495,7 @@ Gmail Pub/Sub 钩子设置 + 运行器。参见 [/automation/gmail-pubsub](/auto
 
 ### `agent`
 
-通过 Gateway 网关运行一个智能体回合（或使用 `--local` 嵌入式运行）。
+通过网关运行一次 agent 轮次（或使用 `--local` 内嵌）。
 
 必需：
 
@@ -517,7 +519,7 @@ Gmail Pub/Sub 钩子设置 + 运行器。参见 [/automation/gmail-pubsub](/auto
 
 #### `agents list`
 
-列出已配置的智能体。
+列出已配置的 agents。
 
 选项：
 
@@ -526,7 +528,7 @@ Gmail Pub/Sub 钩子设置 + 运行器。参见 [/automation/gmail-pubsub](/auto
 
 #### `agents add [name]`
 
-添加新的隔离智能体。除非传入标志（或 `--non-interactive`），否则运行引导向导；非交互模式下 `--workspace` 是必需的。
+添加一个新的隔离 agent。 添加新的隔离智能体。除非传入标志（或 `--non-interactive`），否则运行引导向导；非交互模式下 `--workspace` 是必需的。
 
 选项：
 
@@ -537,7 +539,7 @@ Gmail Pub/Sub 钩子设置 + 运行器。参见 [/automation/gmail-pubsub](/auto
 - `--non-interactive`
 - `--json`
 
-绑定规范使用 `channel[:accountId]`。对于 WhatsApp，省略 `accountId` 时使用默认账户 id。
+绑定规范使用 `channel[:accountId]`。 绑定规范使用 `channel[:accountId]`。对于 WhatsApp，省略 `accountId` 时使用默认账户 id。
 
 #### `agents delete <id>`
 
@@ -576,7 +578,7 @@ Gmail Pub/Sub 钩子设置 + 运行器。参见 [/automation/gmail-pubsub](/auto
 
 当 OAuth/API 凭证可用时，OpenClaw 可以显示提供商用量/配额。
 
-显示位置：
+8. 展示位置：
 
 - `/status`（可用时添加简短的提供商用量行）
 - `openclaw status --usage`（打印完整的提供商明细）
@@ -629,7 +631,7 @@ Gmail Pub/Sub 钩子设置 + 运行器。参见 [/automation/gmail-pubsub](/auto
 
 ### `uninstall`
 
-卸载 Gateway 网关服务 + 本地数据（CLI 保留）。
+41. 卸载网关服务和本地数据（CLI 仍然保留）。
 
 选项：
 
@@ -689,7 +691,7 @@ Gmail Pub/Sub 钩子设置 + 运行器。参见 [/automation/gmail-pubsub](/auto
 
 - `gateway status` 默认使用服务解析的端口/配置探测 Gateway 网关 RPC（使用 `--url/--token/--password` 覆盖）。
 - `gateway status` 支持 `--no-probe`、`--deep` 和 `--json` 用于脚本化。
-- `gateway status` 在检测到旧版或额外的 Gateway 网关服务时也会显示（`--deep` 添加系统级扫描）。配置文件命名的 OpenClaw 服务被视为一等公民，不会被标记为"额外"。
+- `gateway status` 在检测到旧版或额外的 Gateway 网关服务时也会显示（`--deep` 添加系统级扫描）。配置文件命名的 OpenClaw 服务被视为一等公民，不会被标记为"额外"。 Profile-named OpenClaw services are treated as first-class and aren't flagged as "extra".
 - `gateway status` 打印 CLI 使用的配置路径与服务可能使用的配置（服务环境），以及解析的探测目标 URL。
 - `gateway install|uninstall|start|stop|restart` 支持 `--json` 用于脚本化（默认输出保持人类友好）。
 - `gateway install` 默认使用 Node 运行时；**不建议**使用 bun（WhatsApp/Telegram bug）。
@@ -717,6 +719,8 @@ openclaw logs --no-color
 ### `gateway <subcommand>`
 
 Gateway 网关 CLI 辅助工具（RPC 子命令使用 `--url`、`--token`、`--password`、`--timeout`、`--expect-final`）。
+当你传入 `--url` 时，CLI 不会自动应用配置或环境凭据。
+请显式包含 `--token` 或 `--password`。 缺少显式凭据将被视为错误。
 
 子命令：
 
@@ -781,7 +785,8 @@ openclaw models status
 - `--probe-concurrency <n>`
 - `--probe-max-tokens <n>`
 
-始终包含认证概览和认证存储中配置文件的 OAuth 过期状态。`--probe` 运行实时请求（可能消耗令牌并触发速率限制）。
+始终包含认证概览以及认证存储中各配置文件的 OAuth 过期状态。
+`--probe` 会运行实时请求（可能消耗令牌并触发速率限制）。
 
 ### `models set <model>`
 
@@ -884,9 +889,9 @@ openclaw models status
 - `--json`
 - `--url`、`--token`、`--timeout`、`--expect-final`
 
-## 定时任务
+## 10. Cron
 
-管理计划任务（Gateway 网关 RPC）。参见 [/automation/cron-jobs](/automation/cron-jobs)。
+管理计划任务（Gateway 网关 RPC）。参见 [/automation/cron-jobs](/automation/cron-jobs)。 12. 参见 [/automation/cron-jobs](/automation/cron-jobs)。
 
 子命令：
 
@@ -902,9 +907,10 @@ openclaw models status
 
 所有 `cron` 命令接受 `--url`、`--token`、`--timeout`、`--expect-final`。
 
-## 节点主机
+## 24. Node 主机
 
-`node` 运行**无头节点主机**或将其作为后台服务管理。参见 [`openclaw node`](/cli/node)。
+`node` 运行**无头节点主机**或将其作为后台服务管理。参见 [`openclaw node`](/cli/node)。 参见
+[`openclaw node`](/cli/node)。
 
 子命令：
 
@@ -917,7 +923,7 @@ openclaw models status
 
 ## 节点
 
-`nodes` 与 Gateway 网关通信并针对已配对的节点。参见 [/nodes](/nodes)。
+`nodes` 与 Gateway 网关通信并针对已配对的节点。参见 [/nodes](/nodes)。 36. 参见 [/nodes](/nodes)。
 
 通用选项：
 
@@ -959,7 +965,7 @@ openclaw models status
 
 ## 浏览器
 
-浏览器控制 CLI（专用 Chrome/Brave/Edge/Chromium）。参见 [`openclaw browser`](/cli/browser) 和[浏览器工具](/tools/browser)。
+Browser control CLI (dedicated Chrome/Brave/Edge/Chromium). 浏览器控制 CLI（专用 Chrome/Brave/Edge/Chromium）。参见 [`openclaw browser`](/cli/browser) 和[浏览器工具](/tools/browser)。
 
 通用选项：
 
@@ -1026,5 +1032,3 @@ openclaw models status
 - `--message <text>`
 - `--timeout-ms <ms>`（默认为 `agents.defaults.timeoutSeconds`）
 - `--history-limit <n>`
-
-

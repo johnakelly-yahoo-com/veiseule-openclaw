@@ -1,4 +1,8 @@
 ---
+summary: "Logningsflader, fillogs, WS-logstile og konsolformatering"
+read_when:
+  - Ændring af logningsoutput eller -formater
+  - Fejlfinding af CLI- eller gateway-output
 title: "Logning"
 ---
 
@@ -107,5 +111,3 @@ Adfærd:
 - **WhatsApp-meddelelsesindhold** logges ved `debug` (brug `--verbose` for at se dem)
 
 Dette holder eksisterende fillogs stabile, mens interaktivt output bliver let at skimme.
-
-

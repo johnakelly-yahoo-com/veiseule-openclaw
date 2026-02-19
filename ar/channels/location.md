@@ -1,4 +1,8 @@
 ---
+summary: "تحليل موقع القنوات الواردة (Telegram وWhatsApp) وحقول السياق"
+read_when:
+  - إضافة أو تعديل تحليل موقع القنوات
+  - استخدام حقول سياق الموقع في مطالبات الوكيل أو الأدوات
 title: "تحليل موقع القنوات"
 ---
 
@@ -50,5 +54,3 @@ Meet here
 - **Telegram**: تُطابِق الأماكن `LocationName/LocationAddress`؛ وتستخدم المواقع المباشرة `live_period`.
 - **WhatsApp**: يُضاف `locationMessage.comment` و`liveLocationMessage.caption` كسطر التسمية التوضيحية.
 - **Matrix**: يُحلَّل `geo_uri` كموقع دبوس؛ يتم تجاهل الارتفاع ويكون `LocationIsLive` دائمًا false.
-
-

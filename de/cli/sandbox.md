@@ -1,5 +1,7 @@
 ---
 title: Sandbox-CLI
+summary: "„Sandbox-Container verwalten und die effektive Sandbox-Richtlinie prüfen“"
+read_when: "„Sie verwalten Sandbox-Container oder debuggen das Verhalten von Sandbox-/Tool-Richtlinien.“"
 status: active
 ---
 
@@ -147,5 +149,3 @@ Sandbox-Einstellungen befinden sich in `~/.openclaw/openclaw.json` unter `agents
 - [Sandbox-Dokumentation](/gateway/sandboxing)
 - [Agenten-Konfiguration](/concepts/agent-workspace)
 - [Doctor-Befehl](/gateway/doctor) – Sandbox-Setup prüfen
-
-

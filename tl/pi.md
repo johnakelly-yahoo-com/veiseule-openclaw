@@ -28,7 +28,7 @@ Gumagamit ang OpenClaw ng pi SDK upang i‑embed ang isang AI coding agent sa ar
 }
 ```
 
-| Pakete           | Layunin                                                                                                                      |
+| Pakete            | Layunin                                                                                                                      |
 | ----------------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | `pi-ai`           | Mga core na abstraction ng LLM: `Model`, `streamSimple`, mga uri ng mensahe, provider APIs                   |
 | `pi-agent-core`   | Agent loop, pagpapatupad ng tool, mga uri ng `AgentMessage`                                                                  |
@@ -154,7 +154,7 @@ const result = await runEmbeddedPiAgent({
 });
 ```
 
-### 2. Paglikha ng Session
+### 2. Session Creation
 
 Sa loob ng `runEmbeddedAttempt()` (tinatawag ng `runEmbeddedPiAgent()`), ginagamit ang pi SDK:
 
@@ -191,7 +191,7 @@ const { session } = await createAgentSession({
 applySystemPromptOverrideToSession(session, systemPromptOverride);
 ```
 
-### 3. Pagsu-subscribe sa Event
+### 3. Event Subscription
 
 Nag-susubscribe ang `subscribeEmbeddedPiSession()` sa mga event ng `AgentSession` ng pi:
 
@@ -218,7 +218,7 @@ Kasama sa mga hinahawakang event ang:
 - `agent_start` / `agent_end`
 - `auto_compaction_start` / `auto_compaction_end`
 
-### 4. Pagbibigay ng Prompt
+### 4. Prompting
 
 Pagkatapos ng setup, bina-prompt ang session:
 
@@ -289,7 +289,7 @@ applySystemPromptOverrideToSession(session, systemPromptOverride);
 
 ### Mga File ng Session
 
-Ang mga session ay mga JSONL file na may estrukturang puno (pag-uugnay ng id/parentId). Pinangangasiwaan ng `SessionManager` ng Pi ang pagpapanatili nito:
+Sessions are JSONL files with tree structure (id/parentId linking). Pi's `SessionManager` handles persistence:
 
 ```typescript
 const sessionManager = SessionManager.open(params.sessionFile);
@@ -516,7 +516,7 @@ Nagbibigay ito ng interactive na karanasan sa terminal na katulad ng native mode
 | Invocation      | `pi` command / RPC                     | SDK sa pamamagitan ng `createAgentSession()`                                                                     |
 | Mga Tool        | Default na coding tools                | Custom na tool suite ng OpenClaw                                                                                 |
 | System prompt   | AGENTS.md + mga prompt | Dynamic kada channel/konteksto                                                                                   |
-| Session storage | `~/.pi/agent/sessions/`                | `~/.openclaw/agents/<agentId>/sessions/` (o `$OPENCLAW_STATE_DIR/agents/<agentId>/sessions/`) |
+| Session storage | `~/.pi/agent/sessions/`                | `~/.openclaw/agents/&lt;agentId&gt;/sessions/` (o `$OPENCLAW_STATE_DIR/agents/&lt;agentId&gt;/sessions/`) |
 | Auth            | Isang credential                       | Multi-profile na may rotation                                                                                    |
 | Mga Extension   | Niloload mula sa disk                  | Programmatic + mga disk path                                                                                     |
 | Event handling  | TUI rendering                          | Callback-based (onBlockReply, atbp.)                                          |
@@ -610,5 +610,3 @@ Lahat ng umiiral na test na sumasaklaw sa pi integration at mga extension nito:
 - `src/agents/pi-tools.policy.test.ts`
 - `src/agents/pi-tools.safe-bins.test.ts`
 - `src/agents/pi-tools.workspace-paths.test.ts`
-
-

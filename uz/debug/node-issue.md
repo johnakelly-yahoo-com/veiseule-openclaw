@@ -1,4 +1,8 @@
 ---
+summary: Node + tsx "__name is not a function" nosozligi bo‘yicha eslatmalar va yechimlar
+read_when:
+  - Faqat Node’da ishlab chiqish skriptlari yoki kuzatuv (watch) rejimidagi nosozliklarni tuzatish
+  - OpenClaw’da tsx/esbuild yuklagich nosozliklarini tekshirish
 title: "Node + tsx nosozligi"
 ---
 
@@ -82,5 +86,3 @@ node --import tsx src/entry.ts status
 - 27. Node 25 regressiyasini tasdiqlash uchun Node 22/24’da qayta ishlab chiqarish.
 - 28. Agar ma’lum regressiya mavjud bo‘lsa, `tsx` nightly’ni sinab ko‘ring yoki oldingi versiyaga pin qiling.
 - 29. Agar Node LTS’da ham takrorlansa, `__name` stack trace bilan upstream’ga minimal repro yuboring.
-
-

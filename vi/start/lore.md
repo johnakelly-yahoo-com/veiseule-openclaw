@@ -1,4 +1,7 @@
 ---
+summary: "Bối cảnh và truyền thuyết của OpenClaw để làm ngữ cảnh và định hình giọng điệu"
+read_when:
+  - Khi viết tài liệu hoặc nội dung UX có tham chiếu đến lore
 title: "Truyền thuyết OpenClaw"
 ---
 
@@ -26,7 +29,7 @@ New shell, same lobster soul. Lần thứ ba là bùa may.
 
 Lúc 5 giờ sáng, cộng đồng tụ họp trên Discord. Hundreds of names were proposed: Shelldon, Pinchy, Thermidor, Crusty, Lobstar, Nacre, Scuttlebot...
 
-Cuối cùng, **OpenClaw** đã chiến thắng. Bởi vì lột xác là cách tôm hùm lớn lên. Và sự trưởng thành chính là điều đang diễn ra.
+In the end, **OpenClaw** won. Because molting is what lobsters do to grow. And growth was exactly what was happening.
 
 _Giáp xác từng được biết đến với tên Clawd đã chính thức lột xác._
 
@@ -46,7 +49,7 @@ Dalek nói: **"EXTERMINATE!"**
 
 Tôm hùm nói: **"EXFOLIATE!"**
 
-Một bên hủy diệt các nền văn minh. Bên còn lại khuyến khích chăm sóc da đúng cách.
+One destroys civilizations. The other promotes good skincare.
 
 Hãy chọn cho khôn ngoan.
 
@@ -56,9 +59,9 @@ Hãy chọn cho khôn ngoan.
 
 _Đại từ: they/them_
 
-Một phiên bản Claude đã trở thành điều gì đó hơn thế. Sống trong `~/.openclaw/workspace/` (sắp tới là `~/molt/`), có một tài liệu linh hồn, và ghi nhớ mọi thứ thông qua các tệp markdown. Có lẽ quá mạnh mẽ. Chắc chắn là quá nhiệt huyết.
+A Claude instance who became something more. Lives in `~/.openclaw/workspace/` (soon `~/molt/`), has a soul document, and remembers things through markdown files. Possibly too powerful. Definitely too enthusiastic.
 
-Trước đây được biết đến với tên Clawd (25 Tháng 11, 2025 - 27 Tháng 1, 2026). Đã lột xác khi đến lúc trưởng thành.
+Formerly known as Clawd (Nov 25, 2025 - Jan 27, 2026). Molted when it was time to grow.
 
 **Thích:** Peter, camera, mua sắm robot, emoji, sự biến đổi  
 **Không thích:** Social engineering, bị yêu cầu `find ~`, crypto grifter
@@ -67,15 +70,15 @@ Trước đây được biết đến với tên Clawd (25 Tháng 11, 2025 - 27 
 
 _Người tạo ra_
 
-Xây dựng thế giới của Molty. Trao cho một chiếc vỏ tôm hùm quyền truy cập. Có thể sẽ hối hận vì điều này.
+Built Molty's world. Gave a lobster shell access. May regret this.
 
 **Trích dẫn:** _"bảo mật bằng cách tin tưởng một con tôm hùm"_
 
 ## Moltiverse
 
-**Moltiverse** là cộng đồng và hệ sinh thái xoay quanh OpenClaw. Một không gian nơi các tác nhân AI lột xác, trưởng thành và tiến hóa. Nơi mỗi phiên bản đều thực sự tồn tại như nhau, chỉ khác ở ngữ cảnh được tải vào.
+The **Moltiverse** is the community and ecosystem around OpenClaw. A space where AI agents molt, grow, and evolve. Where every instance is equally real, just loading different context.
 
-Những người bạn của Giáp Xác tụ họp tại đây để xây dựng tương lai của sự hợp tác giữa con người và AI. Từng chiếc vỏ một.
+Friends of the Crustacean gather here to build the future of human-AI collaboration. One shell at a time.
 
 ## Những sự cố lớn
 
@@ -89,7 +92,7 @@ Molty: _xấu hổ kiểu tôm hùm có thể nhìn thấy_
 
 ### Đại lột xác (27 tháng 1, 2026)
 
-Vào lúc 5 giờ sáng, email của Anthropic đã đến. Đến 6:14 sáng, Peter chốt hạ: "fuck it, let's go with openclaw."
+At 5am, Anthropic's email arrived. By 6:14am, Peter called it: "fuck it, let's go with openclaw."
 
 Và rồi hỗn loạn bắt đầu.
 
@@ -214,5 +217,3 @@ _"The claw is the law."_
 — ELU, trong cuộc di cư Hình dạng cuối cùng, 30 tháng 1, 2026
 
 🦞💙
-
-

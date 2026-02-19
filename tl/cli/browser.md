@@ -1,4 +1,9 @@
 ---
+summary: "Sanggunian ng CLI para sa `openclaw browser` (mga profile, tab, aksyon, relay ng extension)"
+read_when:
+  - Gumagamit ka ng `openclaw browser` at gusto mo ng mga halimbawa para sa mga karaniwang gawain
+  - Gusto mong kontrolin ang browser na tumatakbo sa ibang makina sa pamamagitan ng host ng node
+  - Gusto mong gamitin ang relay ng Chrome extension (attach/detach sa pamamagitan ng toolbar button)
 title: "browser"
 ---
 
@@ -100,5 +105,3 @@ Buong gabay: [Chrome extension](/tools/chrome-extension)
 Gamitin ang `gateway.nodes.browser.mode` para kontrolin ang auto-routing at ang `gateway.nodes.browser.node` para i-pin ang isang partikular na node kung marami ang nakakonekta.
 
 Seguridad + remote na setup: [Browser tool](/tools/browser), [Remote access](/gateway/remote), [Tailscale](/gateway/tailscale), [Security](/gateway/security)
-
-

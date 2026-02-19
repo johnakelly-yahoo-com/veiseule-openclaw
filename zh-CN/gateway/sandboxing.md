@@ -1,20 +1,17 @@
 ---
-status: active
+summary: "OpenClaw 沙箱隔离的工作原理：模式、作用域、工作区访问和镜像"
 title: 沙箱隔离
-x-i18n:
-  generated_at: "2026-02-03T07:49:29Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 184fc53001fc6b2847bbb1963cc9c54475d62f74555a581a262a448a0333a209
-  source_path: gateway/sandboxing.md
-  workflow: 15
+read_when: "You want a dedicated explanation of sandboxing or need to tune agents.defaults.sandbox."
+status: active
 ---
 
 # 沙箱隔离
 
-OpenClaw 可以**在 Docker 容器内运行工具**以减少影响范围。
-这是**可选的**，由配置控制（`agents.defaults.sandbox` 或 `agents.list[].sandbox`）。如果沙箱隔离关闭，工具在主机上运行。
-Gateway 网关保留在主机上；启用时工具执行在隔离的沙箱中运行。
+OpenClaw can run **tools inside Docker containers** to reduce blast radius.
+This is **optional** and controlled by configuration (`agents.defaults.sandbox` or
+`agents.list[].sandbox`). If sandboxing is off, tools run on the host.
+The Gateway stays on the host; tool execution runs in an isolated sandbox
+when enabled.
 
 这不是完美的安全边界，但当模型做出愚蠢行为时，它实质性地限制了文件系统和进程访问。
 
@@ -22,7 +19,8 @@ Gateway 网关保留在主机上；启用时工具执行在隔离的沙箱中运
 
 - 工具执行（`exec`、`read`、`write`、`edit`、`apply_patch`、`process` 等）。
 - 可选的沙箱浏览器（`agents.defaults.sandbox.browser`）。
-  - 默认情况下，当浏览器工具需要时，沙箱浏览器会自动启动（确保 CDP 可达）。
+  - By default, the sandbox browser auto-starts (ensures CDP is reachable) when the browser tool needs it.
+    默认情况下，当浏览器工具需要时，沙箱浏览器会自动启动（确保 CDP 可达）。
     通过 `agents.defaults.sandbox.browser.autoStart` 和 `agents.defaults.sandbox.browser.autoStartTimeoutMs` 配置。
   - `agents.defaults.sandbox.browser.allowHostControl` 允许沙箱会话显式定位主机浏览器。
   - 可选的允许列表限制 `target: "custom"`：`allowedControlUrls`、`allowedControlHosts`、`allowedControlPorts`。
@@ -32,7 +30,7 @@ Gateway 网关保留在主机上；启用时工具执行在隔离的沙箱中运
 - Gateway 网关进程本身。
 - 任何明确允许在主机上运行的工具（例如 `tools.elevated`）。
   - **提权 exec 在主机上运行并绕过沙箱隔离。**
-  - 如果沙箱隔离关闭，`tools.elevated` 不会改变执行（已经在主机上）。参见[提权模式](/tools/elevated)。
+  - 如果沙箱隔离关闭，`tools.elevated` 不会改变执行（已经在主机上）。参见[提权模式](/tools/elevated)。 See [Elevated Mode](/tools/elevated).
 
 ## 模式
 
@@ -43,6 +41,8 @@ Gateway 网关保留在主机上；启用时工具执行在隔离的沙箱中运
 - `"all"`：每个会话都在沙箱中运行。
   注意：`"non-main"` 基于 `session.mainKey`（默认 `"main"`），而不是智能体 ID。
   群组/频道会话使用它们自己的键，因此它们算作非主会话并将被沙箱隔离。
+  Note: `"non-main"` is based on `session.mainKey` (default `"main"`), not agent id.
+  Group/channel sessions use their own keys, so they count as non-main and will be sandboxed.
 
 ## 作用域
 
@@ -60,15 +60,24 @@ Gateway 网关保留在主机上；启用时工具执行在隔离的沙箱中运
 - `"ro"`：以只读方式在 `/agent` 挂载智能体工作区（禁用 `write`/`edit`/`apply_patch`）。
 - `"rw"`：以读写方式在 `/workspace` 挂载智能体工作区。
 
-入站媒体被复制到活动沙箱工作区（`media/inbound/*`）。
-Skills 注意事项：`read` 工具以沙箱为根。使用 `workspaceAccess: "none"` 时，OpenClaw 将符合条件的 Skills 镜像到沙箱工作区（`.../skills`）以便可以读取。使用 `"rw"` 时，工作区 Skills 可从 `/workspace/skills` 读取。
+Inbound media is copied into the active sandbox workspace (`media/inbound/*`).
+Skills note: the `read` tool is sandbox-rooted. 入站媒体被复制到活动沙箱工作区（`media/inbound/*`）。
+Skills 注意事项：`read` 工具以沙箱为根。使用 `workspaceAccess: "none"` 时，OpenClaw 将符合条件的 Skills 镜像到沙箱工作区（`.../skills`）以便可以读取。使用 `"rw"` 时，工作区 Skills 可从 `/workspace/skills` 读取。 With `"rw"`, workspace skills are readable from
+`/workspace/skills`.
 
 ## 自定义绑定挂载
+
+`agents.defaults.sandbox.docker.binds` mounts additional host directories into the container.
+Format: `host:container:mode` (e.g., `"/home/user/source:/source:rw"`).
+
+Global and per-agent binds are **merged** (not replaced). Under `scope: "shared"`, per-agent binds are ignored.
 
 `agents.defaults.sandbox.docker.binds` 将额外的主机目录挂载到容器中。
 格式：`host:container:mode`（例如 `"/home/user/source:/source:rw"`）。
 
-全局和每智能体的绑定是**合并**的（不是替换）。在 `scope: "shared"` 下，每智能体的绑定被忽略。
+- 沙箱 exec **不**继承主机 `process.env`。使用 `agents.defaults.sandbox.docker.env`（或自定义镜像）设置 Skills API 密钥。
+- 默认情况下，沙箱容器运行时**没有网络**。
+  通过 `agents.defaults.sandbox.docker.network` 覆盖。
 
 示例（只读源码 + docker 套接字）：
 
@@ -113,7 +122,7 @@ Skills 注意事项：`read` 工具以沙箱为根。使用 `workspaceAccess: "n
 scripts/sandbox-setup.sh
 ```
 
-注意：默认镜像**不**包含 Node。如果 Skills 需要 Node（或其他运行时），要么构建自定义镜像，要么通过 `sandbox.docker.setupCommand` 安装（需要网络出口 + 可写根 + root 用户）。
+10. 注意：默认镜像**不**包含 Node。 注意：默认镜像**不**包含 Node。如果 Skills 需要 Node（或其他运行时），要么构建自定义镜像，要么通过 `sandbox.docker.setupCommand` 安装（需要网络出口 + 可写根 + root 用户）。
 
 沙箱浏览器镜像：
 
@@ -121,8 +130,8 @@ scripts/sandbox-setup.sh
 scripts/sandbox-browser-setup.sh
 ```
 
-默认情况下，沙箱容器运行时**没有网络**。
-通过 `agents.defaults.sandbox.docker.network` 覆盖。
+14. 默认情况下，沙箱容器**没有网络**。
+15. 可通过 `agents.defaults.sandbox.docker.network` 覆盖。
 
 Docker 安装和容器化 Gateway 网关在此：
 [Docker](/install/docker)
@@ -131,6 +140,7 @@ Docker 安装和容器化 Gateway 网关在此：
 
 `setupCommand` 在沙箱容器创建后**运行一次**（不是每次运行）。
 它通过 `sh -lc` 在容器内执行。
+It executes inside the container via `sh -lc`.
 
 路径：
 
@@ -142,26 +152,31 @@ Docker 安装和容器化 Gateway 网关在此：
 - 默认 `docker.network` 是 `"none"`（无出口），因此包安装会失败。
 - `readOnlyRoot: true` 阻止写入；设置 `readOnlyRoot: false` 或构建自定义镜像。
 - `user` 必须是 root 才能安装包（省略 `user` 或设置 `user: "0:0"`）。
-- 沙箱 exec **不**继承主机 `process.env`。使用 `agents.defaults.sandbox.docker.env`（或自定义镜像）设置 Skills API 密钥。
+- Sandbox exec does **not** inherit host `process.env`. 28. 使用
+  `agents.defaults.sandbox.docker.env`（或自定义镜像）来提供技能的 API 密钥。
 
 ## 工具策略 + 逃逸通道
 
-工具允许/拒绝策略仍在沙箱规则之前应用。如果工具在全局或每智能体被拒绝，沙箱隔离不会恢复它。
+30. 在沙箱规则之前，工具的允许/拒绝策略仍然适用。 If a tool is denied
+    globally or per-agent, sandboxing doesn’t bring it back.
 
-`tools.elevated` 是一个显式的逃逸通道，在主机上运行 `exec`。
-`/exec` 指令仅适用于授权发送者并按会话持久化；要硬禁用 `exec`，使用工具策略拒绝（参见[沙箱 vs 工具策略 vs 提权](/gateway/sandbox-vs-tool-policy-vs-elevated)）。
+32. `tools.elevated` 是一个显式的逃生舱，会在宿主机上运行 `exec`。
+    `tools.elevated` 是一个显式的逃逸通道，在主机上运行 `exec`。
+    `/exec` 指令仅适用于授权发送者并按会话持久化；要硬禁用 `exec`，使用工具策略拒绝（参见[沙箱 vs 工具策略 vs 提权](/gateway/sandbox-vs-tool-policy-vs-elevated)）。
 
 调试：
 
 - 使用 `openclaw sandbox explain` 检查生效的沙箱模式、工具策略和修复配置键。
 - 参见[沙箱 vs 工具策略 vs 提权](/gateway/sandbox-vs-tool-policy-vs-elevated)了解"为什么被阻止？"的心智模型。
   保持锁定。
+  37. 保持严格锁定。
 
-## 多智能体覆盖
+## 38. 多代理覆盖
 
 每个智能体可以覆盖沙箱 + 工具：
 `agents.list[].sandbox` 和 `agents.list[].tools`（加上 `agents.list[].tools.sandbox.tools` 用于沙箱工具策略）。
 参见[多智能体沙箱与工具](/tools/multi-agent-sandbox-tools)了解优先级。
+40. 参见 [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) 了解优先级。
 
 ## 最小启用示例
 
@@ -184,5 +199,3 @@ Docker 安装和容器化 Gateway 网关在此：
 - [沙箱配置](/gateway/configuration#agentsdefaults-sandbox)
 - [多智能体沙箱与工具](/tools/multi-agent-sandbox-tools)
 - [安全](/gateway/security)
-
-

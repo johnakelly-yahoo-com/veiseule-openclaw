@@ -1,4 +1,10 @@
 ---
+summary: "အထီးကျန်ခွဲခြားထားသော macOS VM (local သို့မဟုတ် hosted) အတွင်း OpenClaw ကို လည်ပတ်စေပြီး isolation သို့မဟုတ် iMessage လိုအပ်သည့်အခါ အသုံးပြုရန်"
+read_when:
+  - သင့်အဓိက macOS ပတ်ဝန်းကျင်မှ OpenClaw ကို ခွဲခြားထားလိုသည့်အခါ
+  - sandbox အတွင်း iMessage ပေါင်းစည်းမှု (BlueBubbles) လိုအပ်သည့်အခါ
+  - clone လုပ်နိုင်ပြီး reset ပြန်လုပ်နိုင်သော macOS ပတ်ဝန်းကျင်လိုအပ်သည့်အခါ
+  - local နှင့် hosted macOS VM ရွေးချယ်စရာများကို နှိုင်းယှဉ်လိုသည့်အခါ
 title: "macOS VM များ"
 ---
 
@@ -6,9 +12,9 @@ title: "macOS VM များ"
 
 ## အကြံပြုထားသော မူလရွေးချယ်မှု (အသုံးပြုသူအများစုအတွက်)
 
-- အမြဲဖွင့်ထားနိုင်သော Gateway နှင့် ကုန်ကျစရိတ်နည်းစေရန် **အသေးစား Linux VPS** ကို အသုံးပြုပါ။ [VPS hosting](/vps) ကို ကြည့်ပါ။
+- **Small Linux VPS** for an always-on Gateway and low cost. See [VPS hosting](/vps).
 - **Dedicated hardware** (Mac mini or Linux box) if you want full control and a **residential IP** for browser automation. site အများအပြားက data center IPs ကို ပိတ်ထားတဲ့အတွက် local browsing က ပိုကောင်းတတ်ပါတယ်။
-- **Hybrid:** Gateway ကို စျေးသက်သာသော VPS ပေါ်တွင်ထားပြီး browser/UI automation လိုအပ်သည့်အချိန်တွင် သင့် Mac ကို **node** အဖြစ် ချိတ်ဆက်ပါ။ [Nodes](/nodes) နှင့် [Gateway remote](/gateway/remote) ကို ကြည့်ပါ။
+- **Hybrid:** keep the Gateway on a cheap VPS, and connect your Mac as a **node** when you need browser/UI automation. See [Nodes](/nodes) and [Gateway remote](/gateway/remote).
 
 macOS သာလျှင်ရနိုင်သော စွမ်းရည်များ (iMessage/BlueBubbles) လိုအပ်သည့်အခါ သို့မဟုတ် နေ့စဉ်အသုံးပြုနေသော Mac မှ တင်းကျပ်စွာ ခွဲခြားထားလိုသည့်အခါ macOS VM ကို အသုံးပြုပါ။
 
@@ -273,5 +279,3 @@ For true always-on, consider a dedicated Mac mini or a small VPS. See [VPS hosti
 - [Lume CLI Reference](https://cua.ai/docs/lume/reference/cli-reference)
 - [Unattended VM Setup](https://cua.ai/docs/lume/guide/fundamentals/unattended-setup) (အဆင့်မြင့်)
 - [Docker Sandboxing](/install/docker) (အခြား isolation နည်းလမ်း)
-
-

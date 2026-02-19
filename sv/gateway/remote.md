@@ -1,4 +1,7 @@
 ---
+summary: "Fjärråtkomst med SSH-tunnlar (Gateway WS) och tailnets"
+read_when:
+  - Körning eller felsökning av fjärrgateway-konfigurationer
 title: "Fjärråtkomst"
 ---
 
@@ -124,5 +127,3 @@ Kort version: **håll Gateway loopback-only** om du inte är säker på att du b
 - Behandla webbläsarkontroll som operatörsåtkomst: endast tailnet + avsiktlig nodparning.
 
 Fördjupning: [Security](/gateway/security).
-
-

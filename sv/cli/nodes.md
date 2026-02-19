@@ -1,4 +1,8 @@
 ---
+summary: "CLI-referens för `openclaw nodes` (list/status/approve/invoke, kamera/canvas/skärm)"
+read_when:
+  - Du hanterar parade noder (kameror, skärm, canvas)
+  - Du behöver godkänna förfrågningar eller anropa nodkommandon
 title: "nodes"
 ---
 
@@ -60,12 +64,10 @@ Anropsflaggor:
 Flaggor:
 
 - `--cwd <path>`: arbetskatalog.
-- `--env <key=val>`: miljövariabelåsidosättning (kan upprepas).
+- `--env <key=val>`: åsidosätt miljövariabel (kan upprepas). Obs: node-värdar ignorerar `PATH`-åsidosättningar (och `tools.exec.pathPrepend` tillämpas inte på node-värdar).
 - `--command-timeout <ms>`: timeout för kommando.
 - `--invoke-timeout <ms>`: timeout för nodanrop (standard `30000`).
 - `--needs-screen-recording`: kräv tillstånd för skärminspelning.
 - `--raw <command>`: kör en shell-sträng (`/bin/sh -lc` eller `cmd.exe /c`).
 - `--agent <id>`: agentomfångade godkännanden/tillåtelselistor (standard är konfigurerad agent).
 - `--ask <off|on-miss|always>`, `--security <deny|allowlist|full>`: åsidosättningar.
-
-

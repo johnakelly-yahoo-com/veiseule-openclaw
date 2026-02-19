@@ -1,4 +1,9 @@
 ---
+summary: "iMessage через сервер BlueBubbles для macOS (REST-отправка/приём, набор текста, реакции, сопряжение, расширенные действия)."
+read_when:
+  - Настройка канала BlueBubbles
+  - Устранение неполадок сопряжения вебхуков
+  - Настройка iMessage на macOS
 title: "BlueBubbles"
 ---
 
@@ -41,6 +46,10 @@ title: "BlueBubbles"
 4. Укажите вебхуки BlueBubbles на ваш Gateway (шлюз) (пример: `https://your-gateway-host:3000/bluebubbles-webhook?password=<password>`).
 
 5. Запустите Gateway (шлюз); он зарегистрирует обработчик вебхука и начнёт сопряжение.
+
+Набирать и читать квитанции
+
+- Всегда задавайте пароль для webhook. Если вы публикуете gateway через обратный прокси (Tailscale Serve/Funnel, nginx, Cloudflare Tunnel, ngrok), прокси может подключаться к gateway через loopback. Обработчик webhook BlueBubbles рассматривает запросы с заголовками перенаправления как проксированные и не принимает webhook без пароля.
 
 ## Поддержание активности Messages.app (VM / headless‑настройки)
 
@@ -247,14 +256,14 @@ BlueBubbles поддерживает расширенные действия с 
 OpenClaw может возвращать _короткие_ идентификаторы сообщений (например, `1`, `2`) для экономии токенов.
 
 - `MessageSid` / `ReplyToId` могут быть короткими ID.
-- `MessageSidFull` / `ReplyToIdFull` содержат полные ID провайдера.
+- Контекст: `MessageSidFull` / `ReplyToIdFull` во входящих полезных нагрузках
 - Короткие ID хранятся в памяти; они могут истечь при перезапуске или вытеснении кэша.
 - Действия принимают короткие или полные `messageId`, но короткие ID вызовут ошибку, если они больше недоступны.
 
 Для долговечных автоматизаций и хранения используйте полные ID:
 
 - Шаблоны: `{{MessageSidFull}}`, `{{ReplyToIdFull}}`
-- Контекст: `MessageSidFull` / `ReplyToIdFull` во входящих полезных нагрузках
+- `MessageSidFull` / `ReplyToIdFull` содержат полные ID провайдера.
 
 См. [Configuration](/gateway/configuration) для переменных шаблонов.
 
@@ -298,6 +307,7 @@ OpenClaw может возвращать _короткие_ идентифика
 - `channels.bluebubbles.textChunkLimit`: размер исходящих блоков в символах (по умолчанию: 4000).
 - `channels.bluebubbles.chunkMode`: `length` (по умолчанию) разбивает только при превышении `textChunkLimit`; `newline` разбивает по пустым строкам (границы абзацев) перед нарезкой по длине.
 - `channels.bluebubbles.mediaMaxMb`: лимит входящих медиа в МБ (по умолчанию: 8).
+- `channels.bluebubbles.mediaLocalRoots`: Явный список разрешённых абсолютных локальных директорий для исходящих локальных путей к медиафайлам. Отправка по локальным путям по умолчанию запрещена, если это не настроено. Переопределение для конкретной учётной записи: `channels.bluebubbles.accounts.<accountId> .mediaLocalRoots`.
 - `channels.bluebubbles.historyLimit`: максимум сообщений группы для контекста (0 — отключено).
 - `channels.bluebubbles.dmHistoryLimit`: лимит истории DM.
 - `channels.bluebubbles.actions`: включение/отключение отдельных действий.
@@ -336,5 +346,3 @@ OpenClaw может возвращать _короткие_ идентифика
 - Для информации о статусе/здоровье: `openclaw status --all` или `openclaw status --deep`.
 
 Для общего обзора рабочего процесса каналов см. [Channels](/channels) и руководство [Plugins](/tools/plugin).
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "CLI-Backends: textbasierter Fallback über lokale KI-CLIs"
+read_when:
+  - Sie möchten einen zuverlässigen Fallback, wenn API-Anbieter ausfallen
+  - Sie betreiben Claude Code CLI oder andere lokale KI-CLIs und möchten diese wiederverwenden
+  - Sie benötigen einen rein textbasierten, werkzeugfreien Pfad, der dennoch Sitzungen und Bilder unterstützt
 title: "CLI-Backends"
 ---
 
@@ -218,5 +223,3 @@ OpenClaw liefert außerdem einen Standard für `codex-cli`:
 - **Keine Sitzungs-Kontinuität**: stellen Sie sicher, dass `sessionArg` gesetzt ist und `sessionMode` nicht
   `none` ist (Codex CLI kann derzeit nicht mit JSON-Ausgabe fortsetzen).
 - **Bilder werden ignoriert**: setzen Sie `imageArg` (und verifizieren Sie, dass die CLI Dateipfade unterstützt).
-
-

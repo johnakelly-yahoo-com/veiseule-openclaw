@@ -1,6 +1,12 @@
-------
+---
+title: "工作階段修剪"
+summary: "工作階段修剪：修剪工具結果以減少上下文膨脹"
+read_when:
+  - 你想要降低工具輸出導致的 LLM 內容成長
+  - 你正在調校 agents.defaults.contextPruning
+---
 
-# 工作階段修剪
+# Session 清理
 
 工作階段修剪會在每次 LLM 呼叫前，從記憶體中的上下文修剪 **較舊的工具結果**。 它**不會**重寫磁碟上的工作階段歷史記錄（`*.jsonl`）。
 
@@ -115,5 +121,3 @@
 ```
 
 請參閱設定參考：[Gateway Configuration](/gateway/configuration)
-
-

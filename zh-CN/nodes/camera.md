@@ -1,12 +1,9 @@
 ---
-title: 相机捕获
-x-i18n:
-  generated_at: "2026-02-03T07:50:55Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: b4d5f5ecbab6f70597cf1e1f9cc5f7f54681253bd747442db16cc681203b5813
-  source_path: nodes/camera.md
-  workflow: 15
+summary: "用于智能体的相机捕获（iOS 节点 + macOS 应用）：照片（jpg）和短视频片段（mp4）"
+read_when:
+  - 在 iOS 节点或 macOS 上添加或修改相机捕获
+  - 扩展智能体可访问的 MEDIA 临时文件工作流
+title: "相机捕获"
 ---
 
 # 相机捕获（智能体）
@@ -34,7 +31,7 @@ OpenClaw 支持用于智能体工作流的**相机捕获**：
     - `devices`：`{ id, name, position, deviceType }` 数组
 
 - `camera.snap`
-  - 参数：
+  - 26. 参数：
     - `facing`：`front|back`（默认：`front`）
     - `maxWidth`：数字（可选；iOS 节点默认 `1600`）
     - `quality`：`0..1`（可选；默认 `0.9`）
@@ -48,7 +45,7 @@ OpenClaw 支持用于智能体工作流的**相机捕获**：
   - 载荷保护：照片会重新压缩以保持 base64 载荷小于 5 MB。
 
 - `camera.clip`
-  - 参数：
+  - 39. 参数：
     - `facing`：`front|back`（默认：`front`）
     - `durationMs`：数字（默认 `3000`，上限 `60000`）
     - `includeAudio`：布尔值（默认 `true`）
@@ -62,7 +59,7 @@ OpenClaw 支持用于智能体工作流的**相机捕获**：
 
 ### 前台要求
 
-与 `canvas.*` 类似，iOS 节点仅允许在**前台**执行 `camera.*` 命令。后台调用返回 `NODE_BACKGROUND_UNAVAILABLE`。
+与 `canvas.*` 类似，iOS 节点仅允许在**前台**执行 `camera.*` 命令。后台调用返回 `NODE_BACKGROUND_UNAVAILABLE`。 Background invocations return `NODE_BACKGROUND_UNAVAILABLE`.
 
 ### CLI 辅助工具（临时文件 + MEDIA）
 
@@ -98,9 +95,9 @@ openclaw nodes camera clip --node <id> --no-audio
 
 如果缺少权限，应用会在可能时提示；如果被拒绝，`camera.*` 请求会失败并返回 `*_PERMISSION_REQUIRED` 错误。
 
-### 前台要求
+### Android foreground requirement
 
-与 `canvas.*` 类似，Android 节点仅允许在**前台**执行 `camera.*` 命令。后台调用返回 `NODE_BACKGROUND_UNAVAILABLE`。
+与 `canvas.*` 类似，Android 节点仅允许在**前台**执行 `camera.*` 命令。后台调用返回 `NODE_BACKGROUND_UNAVAILABLE`。 Background invocations return `NODE_BACKGROUND_UNAVAILABLE`.
 
 ### 载荷保护
 
@@ -147,7 +144,7 @@ openclaw nodes camera clip --node <id> --no-audio
 
 ## macOS 屏幕视频（操作系统级别）
 
-对于*屏幕*视频（非相机），使用 macOS 配套应用：
+对于_屏幕_视频（非相机），使用 macOS 配套应用：
 
 ```bash
 openclaw nodes screen record --node <id> --duration 10s --fps 15   # prints MEDIA:<path>
@@ -156,5 +153,3 @@ openclaw nodes screen record --node <id> --duration 10s --fps 15   # prints MEDI
 注意事项：
 
 - 需要 macOS **屏幕录制**权限（TCC）。
-
-

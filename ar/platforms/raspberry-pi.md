@@ -1,4 +1,9 @@
 ---
+summary: "تشغيل OpenClaw على Raspberry Pi (إعداد ذاتي منخفض التكلفة)"
+read_when:
+  - إعداد OpenClaw على Raspberry Pi
+  - تشغيل OpenClaw على أجهزة ARM
+  - بناء ذكاء اصطناعي شخصي دائم التشغيل وبتكلفة منخفضة
 title: "Raspberry Pi"
 ---
 
@@ -351,5 +356,3 @@ echo 'wireless-power off' | sudo tee -a /etc/network/interfaces
 - [دليل Hetzner](/install/hetzner) — إعداد Docker
 - [Tailscale](/gateway/tailscale) — وصول عن بُعد
 - [Nodes](/nodes) — إقران الحاسوب المحمول/الهاتف مع Gateway الخاص بـ Pi
-
-

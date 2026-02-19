@@ -1,4 +1,8 @@
 ---
+summary: "用於工作流程的僅 JSON LLM 任務（可選外掛工具）"
+read_when:
+  - 你想在工作流程中加入僅 JSON 的 LLM 步驟
+  - 你需要可進行結構描述驗證的 LLM 輸出以利自動化
 title: "LLM 任務"
 ---
 
@@ -8,9 +12,9 @@ title: "LLM 任務"
 
 這非常適合像 Lobster 這類的工作流程引擎：你可以加入單一的 LLM 步驟，而不必為每個工作流程撰寫自訂的 OpenClaw 程式碼。
 
-## 啟用外掛
+## Enable the plugin
 
-1. 啟用外掛：
+1. Enable the plugin:
 
 ```json
 {
@@ -60,6 +64,7 @@ title: "LLM 任務"
 ```
 
 `allowedModels` 是 `provider/model` 字串的允許清單。若已設定，任何請求
+outside the list is rejected. If set, any request
 outside the list is rejected.
 
 ## 工具參數
@@ -74,7 +79,7 @@ outside the list is rejected.
 - `maxTokens`（number，選填）
 - `timeoutMs`（number，選填）
 
-## 輸出
+## Output
 
 回傳 `details.json`，其中包含已解析的 JSON（若提供 `schema`，則會進行驗證）。
 
@@ -105,5 +110,3 @@ openclaw.invoke --tool llm-task --action json --args-json '{
 - 本次執行不會向模型暴露任何工具。
 - 除非你使用 `schema` 進行驗證，否則請將輸出視為不可信。
 - Put approvals before any side-effecting step (send, post, exec).
-
-

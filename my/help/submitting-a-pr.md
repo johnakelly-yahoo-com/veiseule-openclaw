@@ -1,4 +1,5 @@
 ---
+summary: "အချက်အလက်တိကျပြီး အရေးပါသော PR ကို ဘယ်လို တင်သွင်းရမလဲ"
 title: "PR တင်သွင်းခြင်း"
 ---
 
@@ -395,5 +396,3 @@ pnpm format
 - Submitter effort:
 - Agent notes:
 ```
-
-

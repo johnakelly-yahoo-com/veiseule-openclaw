@@ -1,4 +1,7 @@
 ---
+summary: "Har bir kanal uchun yo‘naltirish qoidalari (WhatsApp, Telegram, Discord, Slack) va umumiy kontekst"
+read_when:
+  - Kanal yo‘naltirishini yoki inbox xatti-harakatini o‘zgartirish
 title: "Kanal yo‘naltirishi"
 ---
 
@@ -44,12 +47,16 @@ Yo‘naltirish har bir kiruvchi xabar uchun **bitta agentni** tanlaydi:
 4. **Account mosligi** (kanaldagi `accountId`).
 5. **Kanal mosligi** (ushbu kanaldagi istalgan akkaunt).
 6. **Standart agent** (`agents.list[].default`, aks holda ro‘yxatdagi birinchi element, zaxira sifatida `main`).
+7. **Channel mosligi** (ushbu kanaldagi istalgan akkaunt, `accountId: "*"`).
+8. **Standart agent** (`agents.list[].default`, aks holda ro‘yxatdagi birinchi element, zaxira sifatida `main`).
+
+Mos kelgan agent qaysi ish maydoni va sessiya ombori ishlatilishini belgilaydi.
 
 Mos kelgan agent qaysi ish maydoni va sessiya ombori ishlatilishini belgilaydi.
 
 ## Broadcast guruhlar (bir nechta agentlarni ishga tushirish)
 
-Broadcast guruhlar OpenClaw odatda javob beradigan holatlarda **bir xil peer uchun bir nechta agentlarni** ishga tushirishga imkon beradi (masalan: WhatsApp guruhlarida, eslatma/faollashtirishdan keyin).
+Konfiguratsiya:
 
 Konfiguratsiya:
 
@@ -107,5 +114,3 @@ Inbound replies include:
 - Quoted context is appended to `Body` as a `[Replying to ...]` block.
 
 This is consistent across channels.
-
-

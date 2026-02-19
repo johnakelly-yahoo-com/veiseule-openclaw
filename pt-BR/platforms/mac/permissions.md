@@ -1,4 +1,9 @@
 ---
+summary: "persistência de permissões no macOS (TCC) e requisitos de assinatura"
+read_when:
+  - Depuração de prompts de permissão do macOS ausentes ou travados
+  - Empacotamento ou assinatura do app para macOS
+  - Alteração de IDs de bundle ou caminhos de instalação do app
 title: "Permissões do macOS"
 ---
 
@@ -44,5 +49,3 @@ Solução alternativa: mova os arquivos para o workspace do OpenClaw (`~/.opencl
 
 Se você estiver testando permissões, sempre assine com um certificado real. Builds ad-hoc
 são aceitáveis apenas para execuções locais rápidas em que permissões não importam.
-
-

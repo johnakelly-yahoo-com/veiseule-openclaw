@@ -1,4 +1,9 @@
 ---
+summary: "Moonshot K2 va Kimi Coding’ni sozlash (alohida provayderlar + kalitlar)"
+read_when:
+  - Sizga Moonshot K2 (Moonshot Open Platform) va Kimi Coding sozlamalarini taqqoslash kerak
+  - Alohida endpointlar, kalitlar va model havolalarini tushunishingiz kerak
+  - Har ikkala provayder uchun copy/paste konfiguratsiya kerak
 title: "Moonshot AI"
 ---
 
@@ -134,5 +139,3 @@ Eslatma: Moonshot va Kimi Coding — alohida provayderlar. Kalitlar o‘zaro alm
 - Agar Moonshot model uchun boshqa kontekst limitlarini e’lon qilsa,
   `contextWindow` qiymatini mos ravishda sozlang.
 - Xalqaro endpoint uchun `https://api.moonshot.ai/v1`, Xitoy endpointi uchun esa `https://api.moonshot.cn/v1` dan foydalaning.
-
-

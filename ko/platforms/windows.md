@@ -1,4 +1,8 @@
 ---
+summary: "Windows (WSL2) 지원 + 컴패니언 앱 상태"
+read_when:
+  - Windows 에 OpenClaw 를 설치하는 경우
+  - Windows 컴패니언 앱 상태를 확인하는 경우
 title: "Windows (WSL2)"
 ---
 
@@ -144,5 +148,3 @@ openclaw onboard
 ## Windows 컴패니언 앱
 
 현재 Windows 컴패니언 앱은 제공되지 않습니다. 이를 실현하는 데 기여하고자 한다면, 기여를 환영합니다.
-
-

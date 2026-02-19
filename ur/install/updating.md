@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw کو محفوظ طریقے سے اپ ڈیٹ کرنا (گلوبل انسٹال یا سورس)، نیز رول بیک کی حکمتِ عملی"
+read_when:
+  - OpenClaw کو اپ ڈیٹ کرنا
+  - اپ ڈیٹ کے بعد کچھ خراب ہو جائے
 title: "اپ ڈیٹنگ"
 ---
 
@@ -101,7 +105,7 @@ openclaw update
 
 ## اپ ڈیٹ (Control UI / RPC)
 
-کنٹرول UI میں **اپ ڈیٹ اور ری اسٹارٹ** (RPC: `update.run`) موجود ہے۔ یہ:
+The Control UI has **Update & Restart** (RPC: `update.run`). It:
 
 1. `openclaw update` جیسا ہی سورس-اپ ڈیٹ فلو چلاتا ہے (صرف git checkout)۔
 2. ایک اسٹرکچرڈ رپورٹ (stdout/stderr ٹیل) کے ساتھ ری اسٹارٹ سینٹینل لکھتا ہے۔
@@ -226,5 +230,3 @@ git pull
 - `openclaw doctor` دوبارہ چلائیں اور آؤٹ پٹ غور سے پڑھیں (اکثر یہ حل بتا دیتا ہے)۔
 - دیکھیں: [خرابیوں کا ازالہ](/gateway/troubleshooting)
 - Discord میں پوچھیں: [https://discord.gg/clawd](https://discord.gg/clawd)
-
-

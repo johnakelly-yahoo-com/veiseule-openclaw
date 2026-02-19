@@ -1,4 +1,8 @@
 ---
+summary: "Referencia de la CLI para `openclaw node` (host de nodo sin interfaz)"
+read_when:
+  - Ejecución del host de nodo sin interfaz
+  - Emparejamiento de un nodo que no sea macOS para system.run
 title: "node"
 ---
 
@@ -106,5 +110,3 @@ Gateway en `~/.openclaw/node.json`.
 - `~/.openclaw/exec-approvals.json`
 - [Aprobaciones de exec](/tools/exec-approvals)
 - `openclaw approvals --node <id|name|ip>` (editar desde el Gateway)
-
-

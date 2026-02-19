@@ -1,4 +1,9 @@
 ---
+summary: "Patakbuhin ang OpenClaw Gateway 24/7 sa isang GCP Compute Engine VM (Docker) na may matibay na state"
+read_when:
+  - Gusto mong tumatakbo ang OpenClaw 24/7 sa GCP
+  - Gusto mo ng production-grade, laging-on na Gateway sa sarili mong VM
+  - Gusto mo ng ganap na kontrol sa persistence, mga binary, at asal ng restart
 title: "GCP"
 ---
 
@@ -404,14 +409,14 @@ Lahat ng pangmatagalang state ay dapat makaligtas sa mga restart, rebuild, at re
 
 | Component                 | Lokasyon                          | Mekanismo ng persistence | Mga tala                                  |
 | ------------------------- | --------------------------------- | ------------------------ | ----------------------------------------- |
-| Gateway config            | `/home/node/.openclaw/`           | Pag-mount ng volume ng host        | Kasama ang `openclaw.json`, mga token     |
-| Mga profile ng model auth | `/home/node/.openclaw/`           | Pag-mount ng volume ng host        | Mga OAuth token, API key                  |
-| Mga config ng Skill       | `/home/node/.openclaw/skills/`    | Pag-mount ng volume ng host        | State sa antas ng Skill                   |
-| Workspace ng agent        | `/home/node/.openclaw/workspace/` | Pag-mount ng volume ng host        | Code at mga artifact ng agent             |
+| Gateway config            | `/home/node/.openclaw/`           | Host volume mount        | Kasama ang `openclaw.json`, mga token     |
+| Mga profile ng model auth | `/home/node/.openclaw/`           | Host volume mount        | Mga OAuth token, API key                  |
+| Mga config ng Skill       | `/home/node/.openclaw/skills/`    | Host volume mount        | State sa antas ng Skill                   |
+| Workspace ng agent        | `/home/node/.openclaw/workspace/` | Host volume mount        | Code at mga artifact ng agent             |
 | WhatsApp session          | `/home/node/.openclaw/`           | Host volume mount        | Pinapanatili ang QR login                 |
 | Gmail keyring             | `/home/node/.openclaw/`           | Host volume + password   | Nangangailangan ng `GOG_KEYRING_PASSWORD` |
-| External na mga binary    | `/usr/local/bin/`                 | Imahe ng Docker             | Dapat i-bake sa oras ng build             |
-| Node runtime              | Filesystem ng container           | Imahe ng Docker             | Nire-rebuild sa bawat image build         |
+| External na mga binary    | `/usr/local/bin/`                 | Docker image             | Dapat i-bake sa oras ng build             |
+| Node runtime              | Filesystem ng container           | Docker image             | Nire-rebuild sa bawat image build         |
 | Mga OS package            | Filesystem ng container           | Docker image             | Huwag i-install sa runtime                |
 | Docker container          | Ephemeral                         | Restartable              | Ligtas sirain                             |
 
@@ -497,5 +502,3 @@ Tingnan ang [https://cloud.google.com/iam/docs/understanding-roles](https://clou
 - I-set up ang mga messaging channel: [Channels](/channels)
 - I-pair ang mga lokal na device bilang mga node: [Nodes](/nodes)
 - I-configure ang Gateway: [Gateway configuration](/gateway/configuration)
-
-

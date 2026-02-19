@@ -1,4 +1,9 @@
 ---
+summary: "Trwałość uprawnień macOS (TCC) oraz wymagania dotyczące podpisywania"
+read_when:
+  - Debugowanie brakujących lub zablokowanych monitów uprawnień macOS
+  - Pakietowanie lub podpisywanie aplikacji macOS
+  - Zmiana identyfikatorów pakietu lub ścieżek instalacji aplikacji
 title: "Uprawnienia macOS"
 ---
 
@@ -43,5 +48,3 @@ Obejście: przenieś pliki do obszaru roboczego OpenClaw (`~/.openclaw/workspace
 
 Jeśli testujesz uprawnienia, zawsze podpisuj aplikację prawdziwym certyfikatem. Kompilacje
 ad-hoc są akceptowalne wyłącznie do szybkich lokalnych uruchomień, w których uprawnienia nie mają znaczenia.
-
-

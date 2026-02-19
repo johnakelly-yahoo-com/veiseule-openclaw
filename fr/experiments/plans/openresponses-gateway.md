@@ -1,4 +1,5 @@
 ---
+summary: "Plan : ajouter le point de terminaison OpenResponses /v1/responses et déprécier proprement les complétions de chat"
 owner: "openclaw"
 status: "draft"
 last_updated: "2026-01-19"
@@ -118,5 +119,3 @@ Points clés extraits :
 
 - Ajouter une nouvelle page de documentation pour l’utilisation et les exemples de `/v1/responses`.
 - Mettre à jour `/gateway/openai-http-api` avec une note « hérité » et un pointeur vers `/v1/responses`.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "دليل تشخيص متعمّق لـ Gateway والقنوات والأتمتة والعُقد والمتصفح"
+read_when:
+  - أحالك مركز استكشاف الأخطاء وإصلاحها إلى هنا لإجراء تشخيص أعمق
+  - تحتاج إلى أقسام دليل قائمة على الأعراض وبأوامر دقيقة
 title: "استكشاف الأخطاء وإصلاحها"
 ---
 
@@ -105,7 +109,7 @@ openclaw gateway status --deep
 
 التوقيعات المشتركة:
 
-- `Gateway start blocked: set gateway.mode=local` → لم يتم تمكين وضع Gateway المحلي.
+- `Gateway start blocked: set gateway.mode=local` → لم يتم تمكين وضع Gateway المحلي. الإصلاح: عيّن `gateway.mode="local"` في ملف الإعدادات (أو شغّل `openclaw configure`). إذا كنت تشغّل OpenClaw عبر Podman باستخدام المستخدم المخصص `openclaw`، فسيكون ملف الإعدادات في `~openclaw/.openclaw/openclaw.json`.
 - `refusing to bind gateway ... without auth` → ربط غير loopback بدون رمز/كلمة مرور.
 - `another gateway instance is already listening` / `EADDRINUSE` → تعارض منفذ.
 
@@ -312,5 +316,3 @@ openclaw gateway restart
 - [/gateway/pairing](/gateway/pairing)
 - [/gateway/authentication](/gateway/authentication)
 - [/gateway/background-process](/gateway/background-process)
-
-

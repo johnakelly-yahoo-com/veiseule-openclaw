@@ -1,17 +1,15 @@
 ---
-title: 配置示例
-x-i18n:
-  generated_at: "2026-02-03T07:48:39Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 00e9286722653f2748137d5bc641d528b160de16a58015ca7674a3a302f4b2c3
-  source_path: gateway/configuration-examples.md
-  workflow: 15
+summary: "符合模式的常见 OpenClaw 设置配置示例"
+read_when:
+  - 学习如何配置 OpenClaw
+  - 寻找配置示例
+  - 首次设置 OpenClaw
+title: "配置示例"
 ---
 
 # 配置示例
 
-以下示例与当前配置模式一致。有关详尽的参考和每个字段的说明，请参阅[配置](/gateway/configuration)。
+下面的示例与当前配置模式保持一致。 如需完整参考和逐字段说明，请参见 [Configuration](/gateway/configuration)。
 
 ## 快速开始
 
@@ -26,7 +24,7 @@ x-i18n:
 
 保存到 `~/.openclaw/openclaw.json`，你就可以从该号码私信机器人了。
 
-### 推荐的入门配置
+### 推荐起步配置
 
 ```json5
 {
@@ -50,7 +48,7 @@ x-i18n:
 
 ## 扩展示例（主要选项）
 
-> JSON5 允许你使用注释和尾随逗号。普通 JSON 也可以使用。
+> JSON5 允许你使用注释和尾随逗号。普通 JSON 也可以使用。 Regular JSON works too.
 
 ```json5
 {
@@ -448,6 +446,32 @@ x-i18n:
 }
 ```
 
+### 安全私信模式（共享收件箱 / 多用户私信）
+
+如果有不止一个人可以给你的机器人发私信（`allowFrom` 中有多个条目、为多个人进行配对审批，或使用 `dmPolicy: "open"`），请启用 **安全私信模式**，以避免来自不同发送者的私信默认共享同一上下文：
+
+```json5
+{
+  // Secure DM mode (recommended for multi-user or sensitive DM agents)
+  session: { dmScope: "per-channel-peer" },
+
+  channels: {
+    // Example: WhatsApp multi-user inbox
+    whatsapp: {
+      dmPolicy: "allowlist",
+      allowFrom: ["+15555550123", "+15555550124"],
+    },
+
+    // Example: Discord multi-user inbox
+    discord: {
+      enabled: true,
+      token: "YOUR_DISCORD_BOT_TOKEN",
+      dm: { enabled: true, allowFrom: ["alice", "bob"] },
+    },
+  },
+}
+```
+
 ### OAuth 带 API 密钥回退
 
 ```json5
@@ -577,8 +601,6 @@ x-i18n:
 ## 提示
 
 - 如果你设置 `dmPolicy: "open"`，匹配的 `allowFrom` 列表必须包含 `"*"`。
-- 提供商 ID 各不相同（电话号码、用户 ID、频道 ID）。使用提供商文档确认格式。
+- 提供商 ID 各不相同（电话号码、用户 ID、频道 ID）。使用提供商文档确认格式。 Use the provider docs to confirm the format.
 - 稍后添加的可选部分：`web`、`browser`、`ui`、`discovery`、`canvasHost`、`talk`、`signal`、`imessage`。
 - 参阅[提供商](/channels/whatsapp)和[故障排除](/gateway/troubleshooting)了解更深入的设置说明。
-
-

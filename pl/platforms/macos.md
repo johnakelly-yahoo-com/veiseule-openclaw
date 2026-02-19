@@ -1,4 +1,8 @@
 ---
+summary: "Aplikacja towarzysząca OpenClaw na macOS (pasek menu + broker gateway)"
+read_when:
+  - Implementowanie funkcji aplikacji macOS
+  - Zmiany cyklu życia gateway lub mostkowania węzłów na macOS
 title: "Aplikacja macOS"
 ---
 
@@ -126,6 +130,7 @@ Parametry zapytania:
 Bezpieczeństwo:
 
 - Bez `key` aplikacja prosi o potwierdzenie.
+- Bez `key` aplikacja wymusza krótki limit wiadomości dla monitu potwierdzenia i ignoruje `deliver` / `to` / `channel`.
 - Z prawidłowym `key` uruchomienie jest bezobsługowe (przeznaczone do osobistych automatyzacji).
 
 ## Przepływ onboardingu (typowy)
@@ -197,5 +202,3 @@ protokołu: [Gateway protocol](/gateway/protocol).
 - [Gateway (macOS)](/platforms/mac/bundled-gateway)
 - [Uprawnienia macOS](/platforms/mac/permissions)
 - [Canvas](/platforms/mac/canvas)
-
-

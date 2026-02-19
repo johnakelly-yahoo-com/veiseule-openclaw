@@ -1,4 +1,8 @@
 ---
+summary: "Tham chiếu CLI cho `openclaw devices` (ghép cặp thiết bị + xoay vòng/thu hồi token)"
+read_when:
+  - Bạn đang phê duyệt yêu cầu ghép cặp thiết bị
+  - Bạn cần xoay vòng hoặc thu hồi token thiết bị
 title: "devices"
 ---
 
@@ -64,5 +68,3 @@ Hãy truyền `--token` hoặc `--password` một cách tường minh. Thiếu t
 
 - Xoay vòng token trả về một token mới (nhạy cảm). Hãy coi nó như một bí mật.
 - Các lệnh này yêu cầu phạm vi `operator.pairing` (hoặc `operator.admin`).
-
-

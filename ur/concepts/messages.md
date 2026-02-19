@@ -1,4 +1,9 @@
 ---
+summary: "پیغام کے بہاؤ، سیشنز، قطار بندی، اور استدلال کی مرئیت"
+read_when:
+  - وضاحت کرتے وقت کہ اندر آنے والے پیغامات کیسے جوابات بنتے ہیں
+  - سیشنز، قطار بندی کے موڈز، یا اسٹریمنگ کے رویّے کی وضاحت کرتے ہوئے
+  - استدلال کی مرئیت اور استعمال کے مضمرات کی دستاویز بندی کرتے ہوئے
 title: "پیغامات"
 ---
 
@@ -21,19 +26,19 @@ Inbound message
 
 - `messages.*` سابقات، قطار بندی، اور گروپ رویّے کے لیے۔
 - `agents.defaults.*` بلاک اسٹریمنگ اور چنکنگ کی طے شدہ ترتیبات کے لیے۔
-- چینل اووررائیڈز (`channels.whatsapp.*`, `channels.telegram.*` وغیرہ) کیپس اور اسٹریمنگ ٹوگلز کے لیے۔
+- Channel overrides (`channels.whatsapp.*`, `channels.telegram.*`, etc.) for caps and streaming toggles.
 
 مکمل اسکیما کے لیے [Configuration](/gateway/configuration) دیکھیں۔
 
 ## اندر آنے والی ڈپلی کیشن کی روک تھام
 
-چینلز دوبارہ کنیکٹ ہونے کے بعد وہی پیغام دوبارہ بھیج سکتے ہیں۔ OpenClaw ایک برقرار رکھتا ہے
+Channels can redeliver the same message after reconnects. OpenClaw keeps a
 short-lived cache keyed by channel/account/peer/session/message id so duplicate
 deliveries do not trigger another agent run.
 
 ## اندر آنے والی ڈی باؤنسنگ
 
-**ایک ہی بھیجنے والے** کی جانب سے تیزی سے لگاتار آنے والے پیغامات کو ایک واحد
+Rapid consecutive messages from the **same sender** can be batched into a single
 agent turn via `messages.inbound`. Debouncing is scoped per channel + conversation
 and uses the most recent message for reply threading/IDs.
 
@@ -67,7 +72,7 @@ and uses the most recent message for reply threading/IDs.
 - گروپس/چینلز کو اپنی الگ سیشن کلیدیں ملتی ہیں۔
 - سیشن اسٹور اور ٹرانسکرپٹس گیٹ وے ہوسٹ پر موجود ہوتے ہیں۔
 
-متعدد ڈیوائسز/چینلز کو ایک ہی سیشن سے میپ کیا جا سکتا ہے، لیکن ہسٹری مکمل طور پر
+Multiple devices/channels can map to the same session, but history is not fully
 synced back to every client. Recommendation: use one primary device for long
 conversations to avoid divergent context. The Control UI and TUI always show the
 gateway-backed session transcript, so they are the source of truth.
@@ -78,8 +83,8 @@ gateway-backed session transcript, so they are the source of truth.
 
 OpenClaw **پرومپٹ باڈی** کو **کمانڈ باڈی** سے الگ کرتا ہے:
 
-- `Body`: ایجنٹ کو بھیجا جانے والا پرامپٹ ٹیکسٹ۔ اس میں چینل اینویلپس اور شامل ہو سکتے ہیں
-اختیاری ہسٹری ریپرز۔
+- `Body`: prompt text sent to the agent. This may include channel envelopes and
+  optional history wrappers.
 - `CommandBody`: ہدایات/کمانڈ پارسنگ کے لیے خام صارف متن۔
 - `RawBody`: `CommandBody` کے لیے لیگیسی عرف (مطابقت کے لیے برقرار)۔
 
@@ -88,7 +93,7 @@ OpenClaw **پرومپٹ باڈی** کو **کمانڈ باڈی** سے الگ کر
 - `[Chat messages since your last reply - for context]`
 - `[Current message - respond to this]`
 
-**نان ڈائریکٹ چیٹس** (گروپس/چینلز/رومز) کے لیے، **موجودہ پیغام کا متن** کو اس کے ساتھ بطور سابقہ شامل کیا جاتا ہے
+For **non-direct chats** (groups/channels/rooms), the **current message body** is prefixed with the
 sender label (same style used for history entries). This keeps real-time and queued/history
 messages consistent in the agent prompt.
 
@@ -96,7 +101,7 @@ messages consistent in the agent prompt.
 رَن کو متحرک نہیں کیا (مثلاً، مینشن-گیٹڈ پیغامات) اور وہ پیغامات **خارج** ہوتے ہیں
 جو پہلے ہی سیشن ٹرانسکرپٹ میں موجود ہوں۔
 
-ڈائریکٹو اسٹرپنگ صرف **موجودہ پیغام** کے حصے پر لاگو ہوتی ہے تاکہ ہسٹری
+Directive stripping only applies to the **current message** section so history
 remains intact. Channels that wrap history should set `CommandBody` (or
 `RawBody`) to the original message text and keep `Body` as the combined prompt.
 History buffers are configurable via `messages.groupChat.historyLimit` (global
@@ -147,5 +152,3 @@ OpenClaw ماڈل کے استدلال کو ظاہر یا مخفی کر سکتا 
 - `replyToMode` اور فی چینل طے شدہ اقدار کے ذریعے جواب کی تھریڈنگ
 
 تفصیل: [Configuration](/gateway/configuration#messages) اور چینل دستاویزات۔
-
-

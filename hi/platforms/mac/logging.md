@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw लॉगिंग: रोलिंग डायग्नोस्टिक्स फ़ाइल लॉग + यूनिफ़ाइड लॉग गोपनीयता फ़्लैग"
+read_when:
+  - macOS लॉग कैप्चर करते समय या निजी डेटा लॉगिंग की जाँच करते समय
+  - वॉइस वेक/सत्र लाइफ़साइकिल समस्याओं का डिबग करते समय
 title: "macOS लॉगिंग"
 ---
 
@@ -51,5 +55,3 @@ sudo install -m 644 -o root -g wheel /tmp/bot.molt.plist /Library/Preferences/Lo
 - ओवरराइड हटाएँ: `sudo rm /Library/Preferences/Logging/Subsystems/bot.molt.plist`।
 - वैकल्पिक रूप से, ओवरराइड को तुरंत हटाने के लिए logd को बाध्य करने हेतु `sudo log config --reload` चलाएँ।
 - याद रखें कि इस सतह में फ़ोन नंबर और संदेश बॉडी शामिल हो सकती हैं; अतिरिक्त विवरण की सक्रिय आवश्यकता होने पर ही plist को स्थान पर रखें।
-
-

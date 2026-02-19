@@ -1,4 +1,8 @@
 ---
+summary: "CLI के लिए `openclaw approvals` का संदर्भ (Gateway या नोड होस्ट के लिए exec अनुमोदन)"
+read_when:
+  - आप CLI से exec अनुमोदनों को संपादित करना चाहते हैं
+  - आपको Gateway या नोड होस्ट पर अनुमति सूचियों का प्रबंधन करना है
 title: "अनुमोदन"
 ---
 
@@ -44,5 +48,3 @@ openclaw approvals allowlist remove "~/Projects/**/bin/rg"
 - `--agent` का डिफ़ॉल्ट मान `"*"` है, जो सभी एजेंटों पर लागू होता है।
 - नोड होस्ट को `system.execApprovals.get/set` का विज्ञापन करना आवश्यक है (macOS ऐप या हेडलेस नोड होस्ट)।
 - अनुमोदन फ़ाइलें प्रत्येक होस्ट के लिए `~/.openclaw/exec-approvals.json` पर संग्रहीत होती हैं।
-
-

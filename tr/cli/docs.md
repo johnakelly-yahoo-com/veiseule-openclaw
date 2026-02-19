@@ -1,4 +1,7 @@
 ---
+summary: "`openclaw docs` için CLI başvurusu (canlı OpenClaw doküman dizininde arama)"
+read_when:
+  - Terminalden canlı OpenClaw dokümanlarında arama yapmak istiyorsanız
 title: "dokümanlar"
 ---
 
@@ -10,5 +13,3 @@ Canlı doküman dizininde arama yapın.
 openclaw docs browser extension
 openclaw docs sandbox allowHostControl
 ```
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "Logique de statut de la barre de menus et ce qui est présenté aux utilisateurs"
+read_when:
+  - Ajustement de l’interface de menu mac ou de la logique de statut
 title: "Barre de menus"
 ---
 
@@ -60,7 +63,7 @@ title: "Barre de menus"
   - `edit` : chemin plus type de modification déduit de `meta`/comptes de diff.
   - repli : nom de l’outil.
 
-## Forçage du mode débogage
+## Debug override
 
 - Réglages ▸ Debug ▸ sélecteur « Icon override » :
   - `System (auto)` (par défaut)
@@ -76,5 +79,3 @@ title: "Barre de menus"
 - Démarrer la principale alors qu’une autre est active : l’icône bascule instantanément vers la principale.
 - Rafales rapides d’outils : s’assurer que le badge ne scintille pas (délai de grâce TTL sur les résultats d’outils).
 - La ligne de santé réapparaît une fois toutes les sessions inactives.
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "`openclaw browser` के लिए CLI संदर्भ (प्रोफ़ाइल, टैब, क्रियाएँ, एक्सटेंशन रिले)"
+read_when:
+  - आप `openclaw browser` का उपयोग करते हैं और सामान्य कार्यों के उदाहरण चाहते हैं
+  - आप किसी नोड होस्ट के माध्यम से दूसरी मशीन पर चल रहे ब्राउज़र को नियंत्रित करना चाहते हैं
+  - आप Chrome एक्सटेंशन रिले का उपयोग करना चाहते हैं (टूलबार बटन के माध्यम से attach/detach)
 title: "ब्राउज़र"
 ---
 
@@ -100,5 +105,3 @@ openclaw browser extension path
 स्वचालित रूटिंग को नियंत्रित करने के लिए `gateway.nodes.browser.mode` का उपयोग करें और यदि कई नोड जुड़े हों तो किसी विशिष्ट नोड को पिन करने के लिए `gateway.nodes.browser.node` का उपयोग करें।
 
 सुरक्षा + रिमोट सेटअप: [Browser tool](/tools/browser), [Remote access](/gateway/remote), [Tailscale](/gateway/tailscale), [Security](/gateway/security)
-
-

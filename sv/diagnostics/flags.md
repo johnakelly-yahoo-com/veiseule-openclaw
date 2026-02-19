@@ -1,4 +1,8 @@
 ---
+summary: "Diagnostikflaggor för riktade felsökningsloggar"
+read_when:
+  - Du behöver riktade felsökningsloggar utan att höja globala loggnivåer
+  - Du behöver samla in undersystems­specifika loggar för support
 title: "Diagnostikflaggor"
 ---
 
@@ -85,5 +89,3 @@ För fjärr-gateways kan du även använda `openclaw logs --follow` (se [/cli/lo
 - Om `logging.level` är satt högre än `warn`, kan dessa loggar undertryckas. Standard `info` är bra.
 - Flaggor är säkra att lämna aktiverade; de påverkar endast loggvolymen för det specifika undersystemet.
 - Använd [/logging](/logging) för att ändra loggdestinationer, nivåer och maskning.
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "تشغيلات مباشرة لأمر `openclaw agent` عبر CLI (مع تسليم اختياري)"
+read_when:
+  - إضافة أو تعديل نقطة دخول CLI للوكيل
 title: "إرسال الوكيل"
 ---
 
@@ -48,5 +51,3 @@ openclaw agent --agent ops --message "Generate report" --deliver --reply-channel
 - `--verbose <on|full|off>`: تثبيت مستوى التفصيل
 - `--timeout <seconds>`: تجاوز مهلة الوكيل
 - `--json`: إخراج JSON مُهيكل
-
-

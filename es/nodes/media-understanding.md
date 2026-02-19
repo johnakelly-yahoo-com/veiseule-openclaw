@@ -1,4 +1,8 @@
 ---
+summary: "Comprensión entrante de imágenes/audio/video (opcional) con proveedor + alternativas por CLI"
+read_when:
+  - Diseñar o refactorizar la comprensión de medios
+  - Ajustar el preprocesamiento entrante de audio/video/imagen
 title: "Comprensión de medios"
 ---
 
@@ -372,5 +376,3 @@ Esto muestra los resultados por capacidad y el proveedor/modelo elegido cuando c
 
 - [Configuración](/gateway/configuration)
 - [Compatibilidad de imágenes y medios](/nodes/images)
-
-

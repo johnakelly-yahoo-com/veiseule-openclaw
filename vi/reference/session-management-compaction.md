@@ -1,4 +1,9 @@
 ---
+summary: "Chuyên sâu: kho phiên + bản ghi hội thoại, vòng đời và nội bộ (tự động) nén"
+read_when:
+  - Bạn cần gỡ lỗi session id, JSONL bản ghi hội thoại, hoặc các trường trong sessions.json
+  - Bạn đang thay đổi hành vi tự động nén hoặc thêm công việc dọn dẹp “trước khi nén”
+  - Bạn muốn triển khai xả bộ nhớ hoặc các lượt hệ thống im lặng
 title: "Chuyên sâu quản lý phiên"
 ---
 
@@ -162,7 +167,7 @@ Sau khi nén, các lượt sau sẽ thấy:
 - Tóm tắt nén
 - Các thông điệp sau `firstKeptEntryId`
 
-32. Khóa phiên sai? 33. Bắt đầu với [/concepts/session](/concepts/session-pruning) và xác nhận `sessionKey` trong `/status`.
+32. Khóa phiên sai? 33. Bắt đầu với [/concepts/session](/concepts/session) và xác nhận `sessionKey` trong `/status`.
 
 ---
 
@@ -277,5 +282,3 @@ Pi cũng cung cấp hook `session_before_compact` trong extension API, nhưng lo
   - thiết lập nén (`reserveTokens` quá cao so với cửa sổ mô hình có thể gây nén sớm)
   - phình to tool-result: bật/điều chỉnh cắt tỉa phiên
 - 40. "Xin chào, C-3PO! Xác nhận phản hồi bắt đầu bằng `NO_REPLY` (token chính xác) và bạn đang ở bản build bao gồm bản sửa lỗi chặn streaming.
-
-

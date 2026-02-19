@@ -1,4 +1,5 @@
 ---
+summary: "Yüksek sinyalli bir PR nasıl gönderilir"
 title: "PR Gönderme"
 ---
 
@@ -90,7 +91,7 @@ title: "PR Gönderme"
 
 ## PR Türü şablonları (türünüzle değiştirin)
 
-### Hata Düzeltme
+### Fix
 
 ```md
 #### Summary
@@ -123,7 +124,7 @@ title: "PR Gönderme"
 - Agent notes:
 ```
 
-### Özellik
+### Feature
 
 ```md
 #### Summary
@@ -161,7 +162,7 @@ title: "PR Gönderme"
 - Agent notes:
 ```
 
-### Yeniden Düzenleme
+### Refactor
 
 ```md
 #### Summary
@@ -192,7 +193,7 @@ title: "PR Gönderme"
 - Agent notes:
 ```
 
-### Bakım/Genel İşler
+### Chore/Maintenance
 
 ```md
 #### Summary
@@ -221,7 +222,7 @@ title: "PR Gönderme"
 - Agent notes:
 ```
 
-### Dokümantasyon
+### Docs
 
 ```md
 #### Summary
@@ -272,7 +273,7 @@ pnpm format
 - Agent notes:
 ```
 
-### Performans
+### Perf
 
 ```md
 #### Summary
@@ -332,7 +333,7 @@ pnpm format
 - Agent notes:
 ```
 
-### Altyapı/Derleme
+### Infra/Build
 
 ```md
 #### Summary
@@ -361,7 +362,7 @@ pnpm format
 - Agent notes:
 ```
 
-### Güvenlik
+### Security
 
 ```md
 #### Summary
@@ -395,5 +396,3 @@ pnpm format
 - Submitter effort:
 - Agent notes:
 ```
-
-

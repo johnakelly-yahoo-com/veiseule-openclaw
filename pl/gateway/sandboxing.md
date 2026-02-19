@@ -1,9 +1,11 @@
 ---
-title: "Izolacja w piaskownicy"
+summary: "Jak działa sandboxing w OpenClaw: tryby, zakresy, dostęp do obszaru roboczego i obrazy"
+title: Sandboxing
+read_when: "Chcesz uzyskać dedykowane wyjaśnienie sandboxingu lub musisz dostroić agents.defaults.sandbox."
 status: active
 ---
 
-# Izolacja w piaskownicy
+# Sandboxing
 
 OpenClaw może uruchamiać **narzędzia wewnątrz kontenerów Docker**, aby zmniejszyć promień rażenia.
 Jest to **opcjonalne** i kontrolowane przez konfigurację (`agents.defaults.sandbox` lub
@@ -68,6 +70,11 @@ aby mogły być odczytywane. Przy `"rw"` skills obszaru roboczego są czytelne z
 Format: `host:container:mode` (np. `"/home/user/source:/source:rw"`).
 
 Powiązania globalne i per-agent są **łączone** (nie zastępowane). Przy `scope: "shared"` powiązania per-agent są ignorowane.
+
+`agents.defaults.sandbox.browser.binds` montuje dodatkowe katalogi hosta wyłącznie do kontenera **sandbox browser**.
+
+- Po ustawieniu (w tym `[]`) zastępuje `agents.defaults.sandbox.docker.binds` dla kontenera przeglądarki.
+- Jeśli pominięte, kontener przeglądarki korzysta z `agents.defaults.sandbox.docker.binds` (wsteczna kompatybilność).
 
 Przykład (źródło tylko do odczytu + gniazdo Dockera):
 
@@ -189,5 +196,3 @@ Zobacz [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) w kwestii
 - [Sandbox Configuration](/gateway/configuration#agentsdefaults-sandbox)
 - [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools)
 - [Security](/gateway/security)
-
-

@@ -1,4 +1,6 @@
 ---
+summary: "RPC-protocolnotities voor onboardingwizard en config-schema"
+read_when: "Wijzigen van stappen in de onboardingwizard of config-schema-eindpunten"
 title: "Onboarding- en Config-protocol"
 ---
 
@@ -36,5 +38,3 @@ Antwoorden (structuur)
 ## Notities
 
 - Dit document is de enige plek om protocolrefactors voor onboarding/config bij te houden.
-
-

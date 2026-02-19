@@ -1,6 +1,8 @@
 ---
+summary: "OpenClaw là một gateway đa kênh cho các tác tử AI, chạy trên mọi hệ điều hành."
+read_when:
+  - Giới thiệu OpenClaw cho người mới
 title: "OpenClaw"
-sidebarTitle: "OpenClaw"
 ---
 
 # OpenClaw 🦞
@@ -18,10 +20,9 @@ sidebarTitle: "OpenClaw"
         class="hidden dark:block"></img>
 </p>
 
-> _"TẨY TẾ BÀO CHẾT! TẨY TẾ BÀO CHẾT!"_ — Có lẽ là một con tôm hùm ngoài không gian
+> _"EXFOLIATE! EXFOLIATE!"_ — A space lobster, probably
 
-<p align="center">
-  <strong>Any OS gateway for AI agents across WhatsApp, Telegram, Discord, iMessage, and more.</strong><br />
+<p align="center"><strong>Any OS gateway for AI agents across WhatsApp, Telegram, Discord, iMessage, and more.</strong><br />
   Send a message, get an agent response from your pocket. EXFOLIATE!"_ — Có lẽ là một con tôm hùm ngoài không gian
 </p>
 
@@ -209,5 +210,3 @@ Ví dụ:
   
 </Card>
 </Columns>
-
-

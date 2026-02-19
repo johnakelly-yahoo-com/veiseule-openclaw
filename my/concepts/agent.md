@@ -1,4 +1,7 @@
 ---
+summary: "Agent runtime (embedded pi-mono), workspace စာချုပ်နှင့် session bootstrap"
+read_when:
+  - Agent runtime၊ workspace bootstrap သို့မဟုတ် session အပြုအမူကို ပြောင်းလဲသောအခါ
 title: "အေးဂျင့် Runtime"
 ---
 
@@ -104,5 +107,3 @@ Config အတွင်းရှိ model refs များ (ဥပမာ `agents
 ---
 
 _နောက်တစ်ခု — [Group Chats](/channels/group-messages)_ 🦞
-
-

@@ -4,7 +4,7 @@ title: "Paglikha ng Skills"
 
 # Paglikha ng Mga Custom na Skills 🛠
 
-Ang OpenClaw ay dinisenyo upang madaling mapalawak. Ang "Skills" ang pangunahing paraan upang magdagdag ng mga bagong kakayahan sa iyong assistant.
+OpenClaw is designed to be easily extensible. "Skills" are the primary way to add new capabilities to your assistant.
 
 ## Ano ang isang Skill?
 
@@ -20,7 +20,7 @@ Ang skill ay isang direktoryo na naglalaman ng isang `SKILL.md` file (na nagbibi
 mkdir -p ~/.openclaw/workspace/skills/hello-world
 ```
 
-### 2. Tukuyin ang `SKILL.md`
+### 2. Define the `SKILL.md`
 
 41. Gumawa ng `SKILL.md` file sa direktoryong iyon. This file uses YAML frontmatter for metadata and Markdown for instructions.
 
@@ -35,7 +35,7 @@ description: A simple skill that says hello.
 When the user asks for a greeting, use the `echo` tool to say "Hello from your custom skill!".
 ```
 
-### 3. Magdagdag ng mga Tool (Opsyonal)
+### 3. Add Tools (Optional)
 
 Maaari kang mag-define ng mga custom na tool sa frontmatter o utusan ang agent na gumamit ng mga umiiral na system tool (gaya ng `bash` o `browser`).
 
@@ -52,5 +52,3 @@ Maaari kang mag-define ng mga custom na tool sa frontmatter o utusan ang agent n
 ## Mga Shared na Skill
 
 Maaari ka ring mag-browse at mag-ambag ng mga skill sa [ClawHub](https://clawhub.com).
-
-

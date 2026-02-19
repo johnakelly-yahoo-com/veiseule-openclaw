@@ -1,4 +1,9 @@
 ---
+summary: "إرشادات لاختيار بين heartbeat ووظائف cron للأتمتة"
+read_when:
+  - اتخاذ قرار حول كيفية جدولة المهام المتكررة
+  - إعداد المراقبة أو الإشعارات في الخلفية
+  - تحسين استخدام الرموز للفحوصات الدورية
 title: "Cron مقابل Heartbeat"
 ---
 
@@ -275,5 +280,3 @@ openclaw cron add \
 - [Heartbeat](/gateway/heartbeat) - التهيئة الكاملة لـ heartbeat
 - [Cron jobs](/automation/cron-jobs) - مرجع CLI وواجهة برمجة cron الكامل
 - [System](/cli/system) - أحداث النظام + عناصر تحكم heartbeat
-
-

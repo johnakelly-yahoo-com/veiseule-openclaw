@@ -1,4 +1,8 @@
 ---
+summary: "在幾分鐘內安裝 OpenClaw 並執行你的第一個聊天。"
+read_when:
+  - 從零開始的首次設定
+  - 你想要最快速地完成可用聊天
 title: "入門指南"
 ---
 
@@ -13,13 +17,11 @@ title: "入門指南"
  Run `openclaw dashboard`
 and chat in the browser, or open `http://127.0.0.1:18789/` on the
 <Tooltip headline="Gateway host" tip="The machine running the OpenClaw gateway service.">gateway 主機</Tooltip>.
-
 上開啟 `http://127.0.0.1:18789/`。
 文件： [Dashboard](/web/dashboard) 與 [Control UI](/web/control-ui)。
-
 </Info>
 
-## 先決條件
+## Prereqs
 
 - Node 22 或更新版本
 
@@ -36,6 +38,10 @@ and chat in the browser, or open `http://127.0.0.1:18789/` on the
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash
         ```
+      <img
+  src="/assets/install-script.svg"
+  alt="Install Script Process"
+  className="rounded-lg"></img>
       
 </Tab>
       <Tab title="Windows (PowerShell)">
@@ -47,12 +53,14 @@ and chat in the browser, or open `http://127.0.0.1:18789/` on the
     
 </Tabs>
 
+    ````
     ```
     <Note>
     其他安裝方式與需求請參考： [Install](/install)。
     
 </Note>
     ```
+    ````
 
   
 </Step>
@@ -70,11 +78,13 @@ and chat in the browser, or open `http://127.0.0.1:18789/` on the
   <Step title="Check the Gateway">
     如果你已安裝服務，它應該已經在執行中：
 
+    `````
     ````
     ```bash
     openclaw gateway status
     ```
     ````
+    `````
 
   
 </Step>
@@ -96,42 +106,46 @@ and chat in the browser, or open `http://127.0.0.1:18789/` on the
   <Accordion title="Run the Gateway in the foreground">
     適合快速測試或疑難排解。
 
+    `````
     ````
     ```bash
     openclaw gateway --port 18789
     ```
     ````
+    `````
 
   
 </Accordion>
   <Accordion title="Send a test message">
     需要已設定的頻道。
 
+    `````
     ````
     ```bash
     openclaw message send --target +15555550123 --message "Hello from OpenClaw"
     ```
     ````
+    `````
 
   
 </Accordion>
 </AccordionGroup>
 
-## 33. 有用的環境變數
+## 有用的環境變數
 
-34. 如果你以服務帳戶執行 OpenClaw，或需要自訂設定／狀態位置：
+如果你以服務帳戶執行 OpenClaw，或需要自訂設定／狀態位置：
 
-- 35. `OPENCLAW_HOME` 設定用於內部路徑解析的主目錄。
+- `OPENCLAW_HOME` 設定用於內部路徑解析的主目錄。
 - 36. `OPENCLAW_STATE_DIR` 覆寫狀態目錄。
-- 37. `OPENCLAW_CONFIG_PATH` 覆寫設定檔路徑。
+- `OPENCLAW_CONFIG_PATH` 覆寫設定檔路徑。
 
-38. 完整的環境變數參考：[Environment vars](/help/environment)。
+完整的環境變數參考：[Environment vars](/help/environment)。
 
 ## 深入了解
 
 <Columns>
   <Card title="Onboarding Wizard (details)" href="/start/wizard">
-完整的 CLI 精靈參考與進階選項。
+    Full CLI wizard reference and advanced options.
   
 </Card>
   <Card title="macOS app onboarding" href="/start/onboarding">
@@ -140,7 +154,7 @@ and chat in the browser, or open `http://127.0.0.1:18789/` on the
 </Card>
 </Columns>
 
-## 您將擁有的內容
+## What you will have
 
 - 一個正在執行的 Gateway 閘道器
 - 18. 已設定完成的驗證
@@ -151,5 +165,3 @@ and chat in the browser, or open `http://127.0.0.1:18789/` on the
 - 私訊安全與核准： [Pairing](/channels/pairing)
 - 連接更多頻道： [Channels](/channels)
 - 進階工作流程與從原始碼開始： [Setup](/start/setup)
-
-

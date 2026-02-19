@@ -1,10 +1,16 @@
-------
+---
+title: "預設 AGENTS.md"
+summary: "個人助理設定的預設 OpenClaw 代理程式指示與 Skills 名冊"
+read_when:
+  - 開始新的 OpenClaw 代理程式工作階段
+  - 啟用或稽核預設 Skills
+---
 
 # AGENTS.md — OpenClaw 個人助理（預設）
 
 ## 首次執行（建議）
 
-將預設工作區範本複製到工作區： OpenClaw 會為代理程式使用專用的工作區目錄。預設值：`~/.openclaw/workspace`（可透過 `agents.defaults.workspace` 設定）。
+將預設工作區範本複製到工作區： 將預設工作區範本複製到工作區： OpenClaw 會為代理程式使用專用的工作區目錄。預設值：`~/.openclaw/workspace`（可透過 `agents.defaults.workspace` 設定）。
 
 1. 建立工作區（若尚未存在）：
 
@@ -116,5 +122,3 @@ git commit -m "Add Clawd workspace"
 - 需要以瀏覽器驅動的驗證時，請使用 `openclaw browser`（分頁／狀態／螢幕截圖）並搭配 OpenClaw 管理的 Chrome 設定檔。
 - 進行 DOM 檢視時，請使用 `openclaw browser eval|query|dom|snapshot`（需要機器輸出時使用 `--json`／`--out`）。
 - 互動操作請使用 `openclaw browser click|type|hover|drag|select|upload|press|wait|navigate|back|evaluate|run`（點擊／輸入需要快照參考；CSS 選擇器請使用 `evaluate`）。
-
-

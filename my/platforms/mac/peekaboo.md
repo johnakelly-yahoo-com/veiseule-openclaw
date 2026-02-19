@@ -1,4 +1,9 @@
 ---
+summary: "macOS UI အလိုအလျောက်လုပ်ဆောင်မှုအတွက် PeekabooBridge ပေါင်းစည်းမှု"
+read_when:
+  - OpenClaw.app အတွင်း PeekabooBridge ကို ဟို့စ်တင်ခြင်း
+  - Swift Package Manager ဖြင့် Peekaboo ကို ပေါင်းစည်းခြင်း
+  - PeekabooBridge ပရိုတိုကော/လမ်းကြောင်းများ ပြောင်းလဲခြင်း
 title: "Peekaboo Bridge"
 ---
 
@@ -49,5 +54,3 @@ export PEEKABOO_BRIDGE_SOCKET=/path/to/bridge.sock
 
 - `peekaboo` တွင် “bridge client is not authorized” ဟု ဖော်ပြပါက client ကို မှန်ကန်စွာ signed လုပ်ထားကြောင်း သေချာစစ်ဆေးပါ သို့မဟုတ် **debug** mode တွင်သာ `PEEKABOO_ALLOW_UNSIGNED_SOCKET_CLIENTS=1` ဖြင့် ဟို့စ်ကို လည်ပတ်ပါ။
 - ဟို့စ်များ မတွေ့ပါက ဟို့စ်အက်ပ်များထဲမှ တစ်ခုခု (Peekaboo.app သို့မဟုတ် OpenClaw.app) ကို ဖွင့်ပြီး ခွင့်ပြုချက်များ ပေးထားကြောင်း အတည်ပြုပါ။
-
-

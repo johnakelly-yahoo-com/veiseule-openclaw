@@ -1,4 +1,9 @@
 ---
+summary: "Nix を使用して OpenClaw を宣言的にインストールします"
+read_when:
+  - 再現可能でロールバック可能なインストールを行いたい場合
+  - すでに Nix / NixOS / Home Manager を使用している場合
+  - すべてをピン留めし、宣言的に管理したい場合
 title: "Nix"
 ---
 
@@ -27,7 +32,7 @@ Reference the nix-openclaw README for module options.
 
 > **📦 完全ガイド: [github.com/openclaw/nix-openclaw](https://github.com/openclaw/nix-openclaw)**
 >
-> nix-openclaw リポジトリは、Nix インストールに関する単一の正確な情報源です。このページは簡単な概要にすぎません。 このページは簡単な概要です。
+> nix-openclaw リポジトリは、Nix インストールに関する単一の正確な情報源です。このページは簡単な概要にすぎません。 このページは簡単な概要です。 このページは簡単な概要です。
 
 ## あなたが得るもの
 
@@ -45,6 +50,7 @@ Reference the nix-openclaw README for module options.
 OpenClaw は、設定を決定論的にし、自動インストールフローを無効化する **Nix モード** をサポートします。
 以下をエクスポートすることで有効化できます。
 エクスポートして有効にします:
+エクスポートして有効にします:
 
 ```bash
 OPENCLAW_NIX_MODE=1
@@ -60,6 +66,7 @@ defaults write bot.molt.mac openclaw.nixMode -bool true
 ### 設定 + 状態パス
 
 OpenClaw は `OPENCLAW_CONFIG_PATH` から JSON5 設定を読み込み、可変データを `OPENCLAW_STATE_DIR` に保存します。
+必要に応じて、内部パス解決に使用されるベースのホームディレクトリを制御するために `OPENCLAW_HOME` を設定することもできます。
 必要に応じて、内部パス解決に使用されるベースのホームディレクトリを制御するために `OPENCLAW_HOME` を設定することもできます。
 
 - `OPENCLAW_HOME`（デフォルトの優先順位: `HOME` / `USERPROFILE` / `os.homedir()`）
@@ -87,6 +94,7 @@ apps/macos/Sources/OpenClaw/Resources/Info.plist
 動的フィールド（バンドル ID、バージョン / ビルド、Git SHA、Sparkle キー）をパッチします。
 これにより、SwiftPM パッケージングおよび Nix ビルド（完全な Xcode ツールチェーンに依存しない）において、
 plist の決定論性が維持されます。 これにより、SwiftPM
+パッケージングとNixビルド(完全なXcodeツールチェーンに依存しない)のリスト決定性が維持されます。 これにより、SwiftPM
 パッケージングとNixビルド(完全なXcodeツールチェーンに依存しない)のリスト決定性が維持されます。
 
 ## 関連
@@ -94,5 +102,3 @@ plist の決定論性が維持されます。 これにより、SwiftPM
 - [nix-openclaw](https://github.com/openclaw/nix-openclaw) — 完全なセットアップガイド
 - [ウィザード](/start/wizard) — 非 Nix の CLI セットアップ
 - [Docker](/install/docker) — コンテナ化されたセットアップ
-
-

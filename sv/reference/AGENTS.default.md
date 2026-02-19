@@ -1,4 +1,10 @@
-------
+---
+title: "Standard AGENTS.md"
+summary: "Standardinstruktioner för OpenClaw-agenten och färdighetslista för konfiguration av personlig assistent"
+read_when:
+  - Startar en ny OpenClaw-agent-session
+  - Aktiverar eller granskar standard-Skills
+---
 
 # AGENTS.md — OpenClaw personlig assistent (standard)
 
@@ -116,5 +122,3 @@ git commit -m "Add Clawd workspace"
 - För webbläsardriven verifiering, använd `openclaw browser` (flikar/status/skärmdump) med OpenClaw-hanterad Chrome-profil.
 - För DOM-inspektion, använd `openclaw browser eval|query|dom|snapshot` (och `--json`/`--out` när du behöver maskinutdata).
 - För interaktioner, använd `openclaw browser click|type|hover|drag|select|upload|press|wait|navigate|back|evaluate|run` (klick/skriv kräver snapshot-referenser; använd `evaluate` för CSS-selektorer).
-
-

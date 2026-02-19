@@ -484,5 +484,3 @@ fly ssh console -a my-openclaw
 - Бесплатный тариф включает некоторый лимит
 
 Подробности см. в [ценах Fly.io](https://fly.io/docs/about/pricing/).
-
-

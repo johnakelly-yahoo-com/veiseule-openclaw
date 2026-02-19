@@ -1,4 +1,9 @@
 ---
+summary: "Nix ဖြင့် OpenClaw ကို ကြေညာပုံစံ (declarative) အတိုင်း ထည့်သွင်းတပ်ဆင်ခြင်း"
+read_when:
+  - ပြန်လည်ထုတ်ပြန်နိုင်ပြီး rollback လုပ်နိုင်သော ထည့်သွင်းတပ်ဆင်မှုများ လိုအပ်သောအခါ
+  - Nix/NixOS/Home Manager ကို အစရှိနေပြီး အသုံးပြုနေသူများအတွက်
+  - အရာအားလုံးကို pin လုပ်ပြီး declarative အနေဖြင့် စီမံခန့်ခွဲလိုသောအခါ
 title: "Nix"
 ---
 
@@ -27,7 +32,7 @@ Reference the nix-openclaw README for module options.
 
 > **📦 လမ်းညွှန်အပြည့်အစုံ: [github.com/openclaw/nix-openclaw](https://github.com/openclaw/nix-openclaw)**
 >
-> The nix-openclaw repo သည် Nix တပ်ဆင်ခြင်းအတွက် အတည်ပြုရမည့် မူရင်းရင်းမြစ် ဖြစ်သည်။ ဤစာမျက်နှာမှာ အကျဉ်းချုပ် အနှစ်ချုပ်သာ ဖြစ်သည်။
+> The nix-openclaw repo is the source of truth for Nix installation. This page is just a quick overview.
 
 ## သင်ရရှိမည့်အရာများ
 
@@ -42,14 +47,14 @@ Reference the nix-openclaw README for module options.
 
 `OPENCLAW_NIX_MODE=1` ကို သတ်မှတ်ထားသောအခါ (nix-openclaw ဖြင့် အလိုအလျောက် သတ်မှတ်သည်):
 
-OpenClaw သည် **Nix mode** ကို ပံ့ပိုးပြီး configuration ကို တိကျခိုင်မာစေကာ auto-install flows ကို ပိတ်ထားသည်။
+OpenClaw supports a **Nix mode** that makes configuration deterministic and disables auto-install flows.
 Enable it by exporting:
 
 ```bash
 OPENCLAW_NIX_MODE=1
 ```
 
-macOS တွင် GUI app သည် shell env vars ကို အလိုအလျောက် ဆက်ခံမထားပါ။ သင်သည်
+On macOS, the GUI app does not automatically inherit shell env vars. You can
 also enable Nix mode via defaults:
 
 ```bash
@@ -90,5 +95,3 @@ packaging and Nix builds (which do not rely on a full Xcode toolchain).
 - [nix-openclaw](https://github.com/openclaw/nix-openclaw) — setup လမ်းညွှန်အပြည့်အစုံ
 - [Wizard](/start/wizard) — Nix မဟုတ်သော CLI setup
 - [Docker](/install/docker) — ကွန်တိန်နာအခြေပြု တပ်ဆင်မှု
-
-

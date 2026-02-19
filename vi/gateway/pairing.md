@@ -1,4 +1,9 @@
 ---
+summary: "Ghép cặp nút do Gateway sở hữu (Tùy chọn B) cho iOS và các nút từ xa khác"
+read_when:
+  - Triển khai phê duyệt ghép cặp nút không có UI macOS
+  - Thêm luồng CLI để phê duyệt các nút từ xa
+  - Mở rộng giao thức gateway với quản lý nút
 title: "Ghép cặp do Gateway sở hữu"
 ---
 
@@ -92,5 +97,3 @@ Ghi chú bảo mật:
 - Lớp vận chuyển là **không trạng thái**; nó không lưu trữ tư cách thành viên.
 - Nếu Gateway ngoại tuyến hoặc ghép cặp bị vô hiệu hóa, các nút không thể ghép cặp.
 - Nếu Gateway ở chế độ từ xa, việc ghép cặp vẫn diễn ra với kho lưu trữ của Gateway từ xa.
-
-

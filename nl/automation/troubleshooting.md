@@ -1,4 +1,9 @@
 ---
+summary: "Problemen oplossen met cron- en heartbeatplanning en -bezorging"
+read_when:
+  - Cron is niet uitgevoerd
+  - Cron is uitgevoerd maar er is geen bericht afgeleverd
+  - Heartbeat lijkt stil of overgeslagen
 title: "Problemen oplossen bij automatisering"
 ---
 
@@ -115,5 +120,3 @@ Gerelateerd:
 - [/gateway/heartbeat](/gateway/heartbeat)
 - [/automation/cron-vs-heartbeat](/automation/cron-vs-heartbeat)
 - [/concepts/timezone](/concepts/timezone)
-
-

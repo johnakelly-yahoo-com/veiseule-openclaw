@@ -1,4 +1,8 @@
 ---
+summary: "하나의 호스트에서 여러 OpenClaw Gateway(게이트웨이)를 실행합니다(격리, 포트, 프로파일)"
+read_when:
+  - 동일한 머신에서 둘 이상의 Gateway(게이트웨이)를 실행하는 경우
+  - Gateway(게이트웨이)별로 격리된 구성/상태/포트가 필요한 경우
 title: "다중 Gateway(게이트웨이)"
 ---
 
@@ -12,7 +16,7 @@ title: "다중 Gateway(게이트웨이)"
 - `OPENCLAW_STATE_DIR` — 인스턴스별 세션, 자격 증명, 캐시
 - `agents.defaults.workspace` — 인스턴스별 작업 공간 루트
 - `gateway.port` (또는 `--port`) — 인스턴스별로 고유해야 함
-- 파생 포트(브라우저/캔버스)는 서로 겹치지 않아야 합니다
+- Derived ports (browser/canvas) must not overlap
 
 이 항목들이 공유되면 구성 경합과 포트 충돌이 발생합니다.
 
@@ -42,7 +46,7 @@ openclaw --profile rescue gateway install
 동일한 호스트에서 다음 항목을 각각 분리하여 두 번째 Gateway(게이트웨이)를 실행하십시오.
 
 - 프로파일/구성
-- 상태 디렉터리
+- state dir
 - 작업 공간
 - 기본 포트(및 파생 포트)
 
@@ -75,7 +79,7 @@ openclaw --profile rescue gateway install
 기본 포트 = `gateway.port` (또는 `OPENCLAW_GATEWAY_PORT` / `--port`).
 
 - 브라우저 제어 서비스 포트 = 기본 + 2 (local loopback 전용)
-- `canvasHost.port = base + 4`
+- canvas 호스트는 Gateway HTTP 서버(`gateway.port`와 동일한 포트)에서 제공됩니다.
 - 브라우저 프로파일 CDP 포트는 `browser.controlPort + 9 .. + 108` 에서 자동 할당됨
 
 구성 또는 환경 변수에서 이들 중 어떤 항목이든 재정의하는 경우, 인스턴스별로 고유성을 유지해야 합니다.
@@ -106,5 +110,3 @@ openclaw --profile main status
 openclaw --profile rescue status
 openclaw --profile rescue browser status
 ```
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "Ansible, Tailscale VPN va firewall izolyatsiyasi bilan avtomatlashtirilgan, mustahkamlangan OpenClaw o‘rnatilishi"
+read_when:
+  - Siz xavfsizlikni kuchaytirgan holda serverni avtomatik joylashtirmoqchisiz
+  - Sizga VPN orqali kirish imkoniga ega, firewall bilan izolyatsiyalangan sozlama kerak
+  - Siz masofaviy Debian/Ubuntu serverlariga joylashtiryapsiz
 title: "Ansible"
 ---
 
@@ -16,7 +21,7 @@ curl -fsSL https://raw.githubusercontent.com/openclaw/openclaw-ansible/main/inst
 
 > **📦 To‘liq qo‘llanma: [github.com/openclaw/openclaw-ansible](https://github.com/openclaw/openclaw-ansible)**
 >
-> openclaw-ansible repozitoriyasi Ansible orqali joylashtirish uchun asosiy manba hisoblanadi. Ushbu sahifa esa qisqacha sharhdir.
+> The openclaw-ansible repo is the source of truth for Ansible deployment. This page is a quick overview.
 
 ## Siz nimalarga ega bo‘lasiz
 
@@ -45,7 +50,7 @@ Ansible playbook quyidagilarni o‘rnatadi va sozlaydi:
 5. **OpenClaw** (host’da ishlaydi, konteyner ichida emas)
 6. **Systemd xizmati** (xavfsizlik bilan mustahkamlangan avtomatik ishga tushish)
 
-Eslatma: Gateway **to‘g‘ridan-to‘g‘ri host’da ishlaydi** (Docker ichida emas), ammo agent sandboxlari izolyatsiya uchun Docker’dan foydalanadi. Batafsil ma’lumot uchun [Sandboxing](/gateway/sandboxing) sahifasiga qarang.
+Note: The gateway runs **directly on the host** (not in Docker), but agent sandboxes use Docker for isolation. See [Sandboxing](/gateway/sandboxing) for details.
 
 ## O‘rnatishdan keyingi sozlash
 
@@ -96,11 +101,11 @@ Tashqi hujum yuzasini sinab ko‘ring:
 nmap -p- YOUR_SERVER_IP
 ```
 
-Natijada **faqat 22-port** (SSH) ochiq bo‘lishi kerak. Boshqa barcha xizmatlar (gateway, Docker) yopiq bo‘ladi.
+Should show **only port 22** (SSH) open. All other services (gateway, Docker) are locked down.
 
 ### Docker mavjudligi
 
-Docker **agent sandboxlari** (izolyatsiyalangan vosita bajarilishi) uchun o‘rnatiladi, gateway’ning o‘zi uchun emas. Gateway faqat localhost’ga ulanadi va Tailscale VPN orqali kirish mumkin.
+Docker is installed for **agent sandboxes** (isolated tool execution), not for running the gateway itself. The gateway binds to localhost only and is accessible via Tailscale VPN.
 
 Sandbox sozlamalari haqida batafsil: [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools).
 
@@ -128,7 +133,7 @@ ansible-galaxy collection install -r requirements.yml
 
 ## OpenClaw’ni yangilash
 
-Ansible o‘rnatuvchisi OpenClaw’ni qo‘lda yangilash uchun sozlaydi. Standart yangilash jarayoni uchun [Updating](/install/updating) sahifasiga qarang.
+The Ansible installer sets up OpenClaw for manual updates. See [Updating](/install/updating) for the standard update flow.
 
 Ansible playbook’ni qayta ishga tushirish (masalan, konfiguratsiya o‘zgarishlari uchun):
 
@@ -201,5 +206,3 @@ Xavfsizlik arxitekturasi va muammolarni bartaraf etish bo‘yicha batafsil ma’
 - [Docker](/install/docker) — konteyner asosidagi gateway sozlamasi
 - [Sandboxing](/gateway/sandboxing) — agent sandbox sozlamalari
 - [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) — har bir agent uchun izolyatsiya
-
-

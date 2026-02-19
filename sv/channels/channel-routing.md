@@ -1,4 +1,7 @@
 ---
+summary: "Routningsregler per kanal (WhatsApp, Telegram, Discord, Slack) och delad kontext"
+read_when:
+  - Ändrar kanalroutning eller inkorgsbeteende
 title: "Kanalroutning"
 ---
 
@@ -46,12 +49,16 @@ Routning väljer **en agent** för varje inkommande meddelande:
 4. **Kontomatch** (`accountId` på kanalen).
 5. **Kanal‑match** (valfritt konto på den kanalen).
 6. **Standardagent** (`agents.list[].default`, annars första listposten, fallback till `main`).
+7. **Kanalmatchning** (valfritt konto på den kanalen, `accountId: "*"`).
+8. **Standardagent** (`agents.list[].default`, annars första listposten, fallback till `main`).
+
+Den matchade agenten avgör vilken arbetsyta och vilket sessionslager som används.
 
 Den matchade agenten avgör vilken arbetsyta och vilket sessionslager som används.
 
 ## Broadcast‑grupper (kör flera agenter)
 
-Broadcast‑grupper låter dig köra **flera agenter** för samma peer **när OpenClaw normalt skulle svara** (till exempel: i WhatsApp‑grupper, efter omnämnande/aktiverings‑gating).
+Konfig:
 
 Konfig:
 
@@ -109,5 +116,3 @@ Inkommande svar inkluderar:
 - Citerad kontext läggs till i `Body` som ett `[Replying to ...]`‑block.
 
 Detta är konsekvent över kanaler.
-
-

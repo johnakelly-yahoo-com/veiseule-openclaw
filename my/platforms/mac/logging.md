@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw လော့ဂ်မှတ်တမ်းများ: လှည့်ပတ်သည့် ဒိုင်ယာဂနော့စတစ် ဖိုင်လော့ဂ် + unified log ကိုယ်ရေးလုံခြုံရေး အလံများ"
+read_when:
+  - macOS လော့ဂ်များကို ဖမ်းယူနေစဉ် သို့မဟုတ် ကိုယ်ရေးလုံခြုံရေး ဒေတာ လော့ဂ်တင်ခြင်းကို စုံစမ်းစစ်ဆေးနေစဉ်
+  - အသံ wake/ဆက်ရှင် အသက်ဝင်မှု စက်ဝိုင်း ပြဿနာများကို ဒီဘတ်လုပ်နေစဉ်
 title: "macOS လော့ဂ်မှတ်တမ်းများ"
 ---
 
@@ -10,7 +14,7 @@ OpenClaw သည် macOS အက်ပ် လော့ဂ်များကို
 
 - အသေးစိတ်အဆင့်: **Debug pane → Logs → App logging → Verbosity**
 - ဖွင့်ရန်: **Debug pane → Logs → App logging → “Write rolling diagnostics log (JSONL)”**
-- တည်နေရာ - `~/Library/Logs/OpenClaw/diagnostics.jsonl` (အလိုအလျောက် လှည့်ပြောင်းသိမ်းဆည်းသည်; ဖိုင်ဟောင်းများကို `.1`, `.2`, … ဟု နောက်ဆက်တွဲ အမည်တပ်ထားသည်)
+- Location: `~/Library/Logs/OpenClaw/diagnostics.jsonl` (rotates automatically; old files are suffixed with `.1`, `.2`, …)
 - ရှင်းလင်းရန်: **Debug pane → Logs → App logging → “Clear”**
 
 မှတ်ချက်များ:
@@ -51,5 +55,3 @@ sudo install -m 644 -o root -g wheel /tmp/bot.molt.plist /Library/Preferences/Lo
 - override ကို ဖယ်ရှားပါ: `sudo rm /Library/Preferences/Logging/Subsystems/bot.molt.plist`။
 - လိုအပ်ပါက logd ကို ချက်ချင်း override ကို ဖယ်ရှားစေရန် `sudo log config --reload` ကို လည်ပတ်နိုင်သည်။
 - ဤမျက်နှာပြင်တွင် ဖုန်းနံပါတ်များနှင့် မက်ဆေ့ချ် ကိုယ်ထည်များ ပါဝင်နိုင်သည်ကို သတိရပါ; ထပ်ဆောင်း အသေးစိတ်လိုအပ်သည့်အချိန်တွင်သာ plist ကို ထားရှိပါ။
-
-

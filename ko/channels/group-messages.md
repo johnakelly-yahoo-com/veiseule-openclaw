@@ -1,4 +1,7 @@
 ---
+summary: "WhatsApp 그룹 메시지 처리에 대한 동작과 구성 (mentionPatterns 는 모든 표면에서 공유됨)"
+read_when:
+  - 그룹 메시지 규칙 또는 멘션 변경 시
 title: "그룹 메시지"
 ---
 
@@ -68,7 +71,7 @@ WhatsApp 이 텍스트 본문에서 시각적 `@` 를 제거하더라도 표시 
 
 ## 테스트 / 검증
 
-- 수동 스모크 테스트:
+- Manual smoke:
   - 그룹에서 `@openclaw` 핑을 보내고 발신자 이름을 참조하는 응답이 오는지 확인합니다.
   - 두 번째 핑을 보내고, 히스토리 블록이 포함된 후 다음 턴에서 초기화되는지 확인합니다.
 - Gateway 로그를 확인합니다(`--verbose` 로 실행). `from: <groupJid>` 와 `[from: …]` 접미사를 보여주는 `inbound web message` 항목을 확인하십시오.
@@ -79,5 +82,3 @@ WhatsApp 이 텍스트 본문에서 시각적 `@` 를 제거하더라도 표시 
 - 에코 억제는 결합된 배치 문자열을 사용합니다. 멘션 없이 동일한 텍스트를 두 번 보내면 첫 번째만 응답을 받습니다.
 - 세션 저장소 항목은 세션 저장소에 `agent:<agentId>:whatsapp:group:<jid>` 형태로 나타납니다(기본값: `~/.openclaw/agents/<agentId>/sessions/sessions.json`). 항목이 없다는 것은 해당 그룹이 아직 실행을 트리거하지 않았음을 의미합니다.
 - 그룹의 타이핑 표시기는 `agents.defaults.typingMode` 를 따릅니다(기본값: 멘션되지 않았을 때 `message`).
-
-

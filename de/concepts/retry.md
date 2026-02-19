@@ -1,4 +1,8 @@
 ---
+summary: "Richtlinien für ausgehende Provideranrufe wiederholen"
+read_when:
+  - „Beim Aktualisieren des Wiederholungsverhaltens oder der Standardwerte von Anbietern“
+  - „Beim Debuggen von Sende-Fehlern oder Ratenbegrenzungen von Anbietern“
 title: "Richtlinie wiederholen"
 ---
 
@@ -63,5 +67,3 @@ Legen Sie die Wiederholungsrichtlinie pro Anbieter in `~/.openclaw/openclaw.json
 
 - Wiederholungen gelten pro Anfrage (Nachrichtenversand, Medien-Upload, Reaktion, Umfrage, Sticker).
 - Zusammengesetzte Abläufe wiederholen keine bereits abgeschlossenen Schritte.
-
-

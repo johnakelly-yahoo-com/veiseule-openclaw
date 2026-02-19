@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw’un bağlanabildiği mesajlaşma platformları"
+read_when:
+  - OpenClaw için bir sohbet kanalı seçmek istiyorsunuz
+  - Desteklenen mesajlaşma platformlarına hızlı bir genel bakışa ihtiyacınız var
 title: "Sohbet Kanalları"
 ---
 
@@ -12,6 +16,7 @@ Metin her yerde desteklenir; medya ve tepkiler kanala göre değişir.
 - [WhatsApp](/channels/whatsapp) — En popüler; Baileys kullanır ve QR eşleştirmesi gerektirir.
 - [Telegram](/channels/telegram) — grammY üzerinden Bot API; grupları destekler.
 - [Discord](/channels/discord) — Discord Bot API + Gateway; sunucuları, kanalları ve DM'leri destekler.
+- [IRC](/channels/irc) — Klasik IRC sunucuları; eşleştirme/izin listesi kontrolleriyle kanallar + DM’ler.
 - [Slack](/channels/slack) — Bolt SDK; çalışma alanı uygulamaları.
 - [Feishu](/channels/feishu) — WebSocket üzerinden Feishu/Lark botu (eklenti, ayrı olarak kurulur).
 - [Google Chat](/channels/googlechat) — HTTP webhook üzerinden Google Chat API uygulaması.
@@ -24,8 +29,8 @@ Metin her yerde desteklenir; medya ve tepkiler kanala göre değişir.
 - [Nextcloud Talk](/channels/nextcloud-talk) — Nextcloud Talk üzerinden self-hosted sohbet (eklenti, ayrı olarak kurulur).
 - [Matrix](/channels/matrix) — Matrix protokolü (eklenti, ayrı olarak kurulur).
 - [Nostr](/channels/nostr) — NIP-04 üzerinden merkeziyetsiz DM'ler (eklenti, ayrı olarak kurulur).
-- [Tlon](/channels/tlon) — Urbit tabanlı mesajlaşma uygulaması (eklenti, ayrı olarak kurulur).
 - [Twitch](/channels/twitch) — IRC bağlantısı üzerinden Twitch sohbeti (eklenti, ayrı olarak kurulur).
+- [Tlon](/channels/tlon) — Urbit tabanlı mesajlaşma uygulaması (eklenti, ayrı olarak kurulur).
 - [Zalo](/channels/zalo) — Zalo Bot API; Vietnam’ın popüler mesajlaşma uygulaması (eklenti, ayrı olarak kurulur).
 - [Zalo Personal](/channels/zalouser) — QR oturum açma ile Zalo kişisel hesabı (eklenti, ayrı olarak kurulur).
 - [WebChat](/web/webchat) — WebSocket üzerinden Gateway WebChat arayüzü.
@@ -40,5 +45,3 @@ Metin her yerde desteklenir; medya ve tepkiler kanala göre değişir.
 - Telegram iç detayları: [grammY notları](/channels/grammy).
 - Sorun giderme: [Kanal sorun giderme](/channels/troubleshooting).
 - Model sağlayıcıları ayrı olarak belgelenmiştir; bkz. [Model Sağlayıcıları](/providers/models).
-
-

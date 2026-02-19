@@ -1,14 +1,17 @@
 ---
+summary: "Trạng thái hỗ trợ, khả năng và cấu hình cho Tlon/Urbit"
+read_when:
+  - Làm việc trên các tính năng kênh Tlon/Urbit
 title: "Tlon"
 ---
 
 # Tlon (plugin)
 
-Tlon là một trình nhắn tin phi tập trung được xây dựng trên Urbit. OpenClaw kết nối với tàu Urbit của bạn và có thể
+Tlon is a decentralized messenger built on Urbit. OpenClaw connects to your Urbit ship and can
 respond to DMs and group chat messages. Group replies require an @ mention by default and can
 be further restricted via allowlists.
 
-Trạng thái: được hỗ trợ thông qua plugin. DM, đề cập trong nhóm, trả lời theo chuỗi và cơ chế dự phòng chỉ văn bản cho nội dung đa phương tiện
+Status: supported via plugin. DMs, group mentions, thread replies, and text-only media fallback
 (URL appended to caption). Reactions, polls, and native media uploads are not supported.
 
 ## Cần plugin
@@ -52,6 +55,22 @@ Cấu hình tối thiểu (một tài khoản):
 }
 ```
 
+URL ship riêng tư/LAN (nâng cao):
+
+Theo mặc định, OpenClaw chặn các hostname và dải IP nội bộ/riêng tư cho plugin này (tăng cường bảo mật SSRF).
+Nếu URL ship của bạn nằm trên mạng riêng (ví dụ `http://192.168.1.50:8080` hoặc `http://localhost:8080`),
+bạn phải chủ động cho phép:
+
+```json5
+{
+  channels: {
+    tlon: {
+      allowPrivateNetwork: true,
+    },
+  },
+}
+```
+
 ## Kênh nhóm
 
 Auto-discovery is enabled by default. You can also pin channels manually:
@@ -66,7 +85,7 @@ Auto-discovery is enabled by default. You can also pin channels manually:
 }
 ```
 
-Tắt tự động khám phá:
+Danh sách cho phép DM (rỗng = cho phép tất cả):
 
 ```json5
 {
@@ -92,7 +111,7 @@ Danh sách cho phép DM (rỗng = cho phép tất cả):
 }
 ```
 
-Ủy quyền nhóm (mặc định bị hạn chế):
+Sử dụng các đích này với `openclaw message send` hoặc gửi qua cron:
 
 ```json5
 {
@@ -115,7 +134,7 @@ Danh sách cho phép DM (rỗng = cho phép tất cả):
 }
 ```
 
-## Đích gửi (CLI/cron)
+## Ghi chú
 
 Sử dụng các đích này với `openclaw message send` hoặc gửi qua cron:
 
@@ -127,5 +146,3 @@ Sử dụng các đích này với `openclaw message send` hoặc gửi qua cron
 - Phản hồi trong nhóm yêu cầu mention (ví dụ: `~your-bot-ship`) để trả lời.
 - Trả lời theo luồng: nếu tin nhắn đến nằm trong một luồng, OpenClaw sẽ trả lời trong luồng đó.
 - Media: `sendMedia` sẽ chuyển sang dự phòng văn bản + URL (không tải lên gốc).
-
-

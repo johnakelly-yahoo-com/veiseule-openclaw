@@ -1,4 +1,8 @@
 ---
+summary: "WebSocket 리스너 바인드를 사용하는 Gateway(게이트웨이) 싱글톤 가드"
+read_when:
+  - Gateway(게이트웨이) 프로세스를 실행하거나 디버깅할 때
+  - 단일 인스턴스 강제를 조사할 때
 title: "Gateway(게이트웨이) 잠금"
 ---
 
@@ -9,7 +13,7 @@ title: "Gateway(게이트웨이) 잠금"
 ## 이유
 
 - 동일한 호스트에서 기본 포트당 하나의 Gateway(게이트웨이) 인스턴스만 실행되도록 보장합니다. 추가 Gateway(게이트웨이)는 격리된 프로필과 고유한 포트를 사용해야 합니다.
-- 충돌 또는 SIGKILL 발생 시에도 오래된 잠금 파일이 남지 않도록 합니다.
+- Survive crashes/SIGKILL without leaving stale lock files.
 - 제어 포트가 이미 점유된 경우 명확한 오류와 함께 빠르게 실패합니다.
 
 ## 메커니즘
@@ -28,5 +32,3 @@ title: "Gateway(게이트웨이) 잠금"
 
 - 포트가 _다른_ 프로세스에 의해 점유된 경우에도 오류는 동일합니다. 포트를 해제하거나 `openclaw gateway --port <port>`로 다른 포트를 선택하십시오.
 - macOS 앱은 Gateway(게이트웨이)를 스폰하기 전에 자체적인 경량 PID 가드를 여전히 유지합니다. 런타임 잠금은 WebSocket 바인드에 의해 강제됩니다.
-
-

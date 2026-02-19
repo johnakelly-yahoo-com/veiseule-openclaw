@@ -1,4 +1,7 @@
 ---
+summary: " /think + /verbose에 대한 지시자 구문과 모델 추론에 미치는 영향"
+read_when:
+  - 사고 방식 또는 장황한 지시문 파싱이나 기본값 조정
 title: "사고 수준"
 ---
 
@@ -8,9 +11,9 @@ title: "사고 수준"
 
 - 모든 인바운드 본문에 포함될 수 있는 인라인 지시자: `/t <level>`, `/think:<level>`, 또는 `/thinking <level>`.
 - 수준 (별칭): `off | minimal | low | medium | high | xhigh` (GPT-5.2 + Codex 모델 전용)
-  - minimal → “생각”
-  - low → “깊이 생각”
-  - medium → “더 깊이 생각”
+  - minimal → “think”
+  - low → “think hard”
+  - medium → “think harder”
   - high → “ultrathink” (최대 예산)
   - xhigh → “ultrathink+” (GPT-5.2 + Codex 모델 전용)
   - `x-high`, `x_high`, `extra-high`, `extra high`, 및 `extra_high`는 `xhigh`에 매핑됩니다.
@@ -69,5 +72,3 @@ title: "사고 수준"
 - 웹 채팅 사고 선택기는 페이지 로드 시 인바운드 세션 저장소/구성에 저장된 세션 수준을 반영합니다.
 - 다른 수준을 선택하면 다음 메시지에만 적용됩니다(`thinkingOnce`). 전송 후 선택기는 저장된 세션 수준으로 되돌아갑니다.
 - 세션 기본값을 변경하려면 이전과 같이 `/think:<level>` 지시자를 전송하십시오. 다음 새로고침 이후 선택기에 반영됩니다.
-
-

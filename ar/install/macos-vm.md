@@ -1,4 +1,10 @@
 ---
+summary: "تشغيل OpenClaw داخل VM macOS معزول (محلي أو مُستضاف) عندما تحتاج إلى العزل أو iMessage"
+read_when:
+  - تريد عزل OpenClaw عن بيئة macOS الأساسية لديك
+  - تريد تكامل iMessage ‏(BlueBubbles) داخل sandbox
+  - تريد بيئة macOS قابلة لإعادة الضبط ويمكن استنساخها
+  - تريد مقارنة خيارات VM macOS المحلية مقابل المُستضافة
 title: "VMs macOS"
 ---
 
@@ -273,5 +279,3 @@ lume run openclaw --no-display
 - [Lume CLI Reference](https://cua.ai/docs/lume/reference/cli-reference)
 - [Unattended VM Setup](https://cua.ai/docs/lume/guide/fundamentals/unattended-setup) (متقدم)
 - [Docker Sandboxing](/install/docker) (نهج بديل للعزل)
-
-

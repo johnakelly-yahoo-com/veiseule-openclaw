@@ -1,4 +1,7 @@
 ---
+summary: "Enlaces seleccionados a los documentos de OpenClaw más utilizados."
+read_when:
+  - Quiere acceso rápido a las páginas clave de la documentación
 title: "Directorio de documentos"
 ---
 
@@ -59,5 +62,3 @@ Para un mapa completo de la documentación, consulte [Hubs de documentos](/start
 - [Hooks de Gmail (Pub/Sub)](/automation/gmail-pubsub)
 - [Seguridad](/gateway/security)
 - [Solución de problemas](/gateway/troubleshooting)
-
-

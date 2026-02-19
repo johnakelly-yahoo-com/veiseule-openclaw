@@ -1,8 +1,15 @@
-------
+---
+title: "เช็กลิสต์ก่อนการเผยแพร่"
+summary: "เช็กลิสต์การรีลีสแบบทีละขั้นตอนสำหรับ npm + แอปmacOS"
+read_when:
+  - การตัดรีลีส npm ใหม่
+  - การตัดรีลีสแอปmacOS ใหม่
+  - การตรวจสอบเมทาดาทาก่อนเผยแพร่
+---
 
 # เช็กลิสต์การรีลีส (npm + macOS)
 
-ใช้ `pnpm` (Node 22+) จากรากของรีโป ใช้ `pnpm` (Node 22+) จากรากของรีโป ตรวจสอบให้แน่ใจว่า working tree สะอาดก่อนการแท็ก/เผยแพร่
+ใช้ `pnpm` (Node 22+) จากรากของรีโป ใช้ `pnpm` (Node 22+) จากรากของรีโป ตรวจสอบให้แน่ใจว่า working tree สะอาดก่อนการแท็ก/เผยแพร่ ใช้ `pnpm` (Node 22+) จากรากของรีโป ตรวจสอบให้แน่ใจว่า working tree สะอาดก่อนการแท็ก/เผยแพร่
 
 ## ทริกเกอร์ของผู้ปฏิบัติการ
 
@@ -66,7 +73,7 @@
 
 ### การแก้ไขปัญหา (บันทึกจากรีลีส 2.0.0-beta2)
 
-- **npm pack/publish ค้างหรือสร้าง tarball ขนาดใหญ่มาก**: บันเดิลแอปmacOS ใน `dist/OpenClaw.app` (และไฟล์ zip ของรีลีส) ถูกดึงเข้าแพ็กเกจ แก้ไขโดย whitelist เนื้อหาที่เผยแพร่ผ่าน `package.json` `files` (รวม dist subdirs, docs, skills; ตัด app bundles ออก) ตรวจสอบด้วย `npm pack --dry-run` ว่าไม่มี `dist/OpenClaw.app` แสดงอยู่ แก้ไขโดยการ whitelist เนื้อหาที่เผยแพร่ผ่าน `package.json` `files` (รวมไดเรกทอรี dist, docs, skills; ไม่รวม app bundles) ยืนยันด้วย `npm pack --dry-run` ว่า `dist/OpenClaw.app` ไม่ถูกแสดงรายการ
+- **npm pack/publish ค้างหรือสร้าง tarball ขนาดใหญ่มาก**: บันเดิลแอปmacOS ใน `dist/OpenClaw.app` (และไฟล์ zip ของรีลีส) ถูกดึงเข้าแพ็กเกจ แก้ไขโดย whitelist เนื้อหาที่เผยแพร่ผ่าน `package.json` `files` (รวม dist subdirs, docs, skills; ตัด app bundles ออก) ตรวจสอบด้วย `npm pack --dry-run` ว่าไม่มี `dist/OpenClaw.app` แสดงอยู่ แก้ไขโดยการ whitelist เนื้อหาที่เผยแพร่ผ่าน `package.json` `files` (รวมไดเรกทอรี dist, docs, skills; ไม่รวม app bundles) ยืนยันด้วย `npm pack --dry-run` ว่า `dist/OpenClaw.app` ไม่ถูกแสดงรายการ แก้ไขโดยการ whitelist เนื้อหาที่เผยแพร่ผ่าน `package.json` `files` (รวมไดเรกทอรี dist, docs, skills; ไม่รวม app bundles) ยืนยันด้วย `npm pack --dry-run` ว่า `dist/OpenClaw.app` ไม่ถูกแสดงรายการ
 - **npm auth web วนลูปสำหรับ dist-tags**: ใช้ legacy auth เพื่อให้มีการขอ OTP:
   - `NPM_CONFIG_AUTH_TYPE=legacy npm dist-tag add openclaw@X.Y.Z latest`
 - **การยืนยัน `npx` ล้มเหลวด้วย `ECOMPROMISED: Lock compromised`**: ลองใหม่ด้วยแคชใหม่:
@@ -85,7 +92,7 @@
 
 ## ขอบเขตการเผยแพร่ปลั๊กอิน (npm)
 
-เราจะเผยแพร่เฉพาะ **ปลั๊กอิน npm ที่มีอยู่แล้ว** ภายใต้สโคป `@openclaw/*` เราจะเผยแพร่เฉพาะ **ปลั๊กอิน npm ที่มีอยู่แล้ว** ภายใต้สโคป `@openclaw/*` เท่านั้น ปลั๊กอินที่บันเดิลมาแต่ไม่ได้อยู่บน npm จะคงเป็น **disk-tree only** (ยังคงถูกส่งมอบใน `extensions/**`).
+เราจะเผยแพร่เฉพาะ **ปลั๊กอิน npm ที่มีอยู่แล้ว** ภายใต้สโคป `@openclaw/*` เราจะเผยแพร่เฉพาะ **ปลั๊กอิน npm ที่มีอยู่แล้ว** ภายใต้สโคป `@openclaw/*` เท่านั้น ปลั๊กอินที่บันเดิลมาแต่ไม่ได้อยู่บน npm จะคงเป็น **disk-tree only** (ยังคงถูกส่งมอบใน `extensions/**`). เราจะเผยแพร่เฉพาะ **ปลั๊กอิน npm ที่มีอยู่แล้ว** ภายใต้สโคป `@openclaw/*` เท่านั้น ปลั๊กอินที่บันเดิลมาแต่ไม่ได้อยู่บน npm จะคงเป็น **disk-tree only** (ยังคงถูกส่งมอบใน `extensions/**`).
 
 กระบวนการเพื่อหาไลสต์:
 
@@ -109,5 +116,3 @@
 - @openclaw/zalouser
 
 โน้ตรีลีสต้องระบุ **ปลั๊กอินบันเดิลแบบเลือกใช้ใหม่** ที่ **ไม่เปิดใช้งานโดยค่าเริ่มต้น** ด้วย (ตัวอย่าง: `tlon`).
-
-

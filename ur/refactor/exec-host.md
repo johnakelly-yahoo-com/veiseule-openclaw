@@ -1,4 +1,9 @@
 ---
+summary: "ریفیکٹر منصوبہ: exec ہوسٹ روٹنگ، نوڈ منظوریات، اور ہیڈلیس رنر"
+read_when:
+  - exec ہوسٹ روٹنگ یا exec منظوریات ڈیزائن کرتے وقت
+  - نوڈ رنر + UI IPC نافذ کرتے وقت
+  - exec ہوسٹ سکیورٹی موڈز اور سلیش کمانڈز شامل کرتے وقت
 title: "Exec Host ریفیکٹر"
 ---
 
@@ -309,5 +314,3 @@ Agent -> Gateway -> Bridge -> Node Service (TS)
 - [Exec منظوریوں](/tools/exec-approvals)
 - [نوڈز](/nodes)
 - [بلند اختیاراتی موڈ](/tools/elevated)
-
-

@@ -1,10 +1,14 @@
 ---
+summary: "ใช้ API แบบรวมศูนย์ของ Qianfan เพื่อเข้าถึงโมเดลจำนวนมากใน OpenClaw"
+read_when:
+  - คุณต้องการคีย์APIเพียงชุดเดียวสำหรับLLMหลายตัว
+  - คุณต้องการคำแนะนำการตั้งค่า Baidu Qianfan
 title: "Qianfan"
 ---
 
 # คู่มือผู้ให้บริการ Qianfan
 
-Qianfan เป็นแพลตฟอร์ม MaaS ของ Baidu ที่ให้ **API แบบรวมศูนย์** ซึ่งกำหนดเส้นทางคำขอไปยังโมเดลจำนวนมากผ่านเอ็นด์พอยต์และคีย์APIเพียงชุดเดียว รองรับความเข้ากันได้กับ OpenAI ดังนั้น SDK ของ OpenAI ส่วนใหญ่สามารถใช้งานได้เพียงสลับ base URL มันเข้ากันได้กับ OpenAI ดังนั้น SDK ของ OpenAI ส่วนใหญ่จึงใช้งานได้โดยการสลับ base URL
+Qianfan เป็นแพลตฟอร์ม MaaS ของ Baidu ที่ให้ **API แบบรวมศูนย์** ซึ่งกำหนดเส้นทางคำขอไปยังโมเดลจำนวนมากผ่านเอ็นด์พอยต์และคีย์APIเพียงชุดเดียว รองรับความเข้ากันได้กับ OpenAI ดังนั้น SDK ของ OpenAI ส่วนใหญ่สามารถใช้งานได้เพียงสลับ base URL มันเข้ากันได้กับ OpenAI ดังนั้น SDK ของ OpenAI ส่วนใหญ่จึงใช้งานได้โดยการสลับ base URL มันเข้ากันได้กับ OpenAI ดังนั้น SDK ของ OpenAI ส่วนใหญ่จึงใช้งานได้โดยการสลับ base URL
 
 ## ข้อกำหนดก่อนเริ่มต้น
 
@@ -31,5 +35,3 @@ openclaw onboard --auth-choice qianfan-api-key
 - [ผู้ให้บริการโมเดล](/concepts/model-providers)
 - [การตั้งค่าเอเจนต์](/concepts/agent)
 - [เอกสาร Qianfan API](https://cloud.baidu.com/doc/qianfan-api/s/3m7of64lb)
-
-

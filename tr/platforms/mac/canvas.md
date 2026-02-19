@@ -1,4 +1,9 @@
 ---
+summary: "WKWebView + özel URL şeması ile gömülü, ajan tarafından kontrol edilen Canvas paneli"
+read_when:
+  - macOS Canvas panelinin uygulanması
+  - Görsel çalışma alanı için ajan denetimlerinin eklenmesi
+  - WKWebView Canvas yüklemelerinin hata ayıklanması
 title: "Canvas"
 ---
 
@@ -118,5 +123,3 @@ Geçerli bir anahtar sağlanmadıkça uygulama onay ister.
 - Canvas şeması dizin geçişini engeller; dosyalar oturum kökü altında bulunmalıdır.
 - Yerel Canvas içeriği özel bir şema kullanır (local loopback sunucusu gerekmez).
 - Harici `http(s)` URL’lerine yalnızca açıkça gezildiğinde izin verilir.
-
-

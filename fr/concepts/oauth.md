@@ -1,4 +1,10 @@
 ---
+summary: "OAuth dans OpenClaw : échange de jetons, stockage et modèles multi-comptes"
+read_when:
+  - Vous souhaitez comprendre OAuth de bout en bout dans OpenClaw
+  - Vous rencontrez des problèmes d'invalidation de jetons / de déconnexion
+  - Vous souhaitez des flux d’authentification setup-token ou OAuth
+  - Vous souhaitez plusieurs comptes ou un routage par profil
 title: "OAuth"
 ---
 
@@ -136,5 +142,3 @@ Documentation connexe :
 
 - [/concepts/model-failover](/concepts/model-failover) (règles de rotation + temporisation)
 - [/tools/slash-commands](/tools/slash-commands) (surface des commandes)
-
-

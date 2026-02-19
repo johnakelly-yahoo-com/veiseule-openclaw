@@ -1,4 +1,10 @@
-------
+---
+title: "Memória"
+summary: "Como funciona a memória do OpenClaw (arquivos do workspace + limpeza automática de memória)"
+read_when:
+  - Você quer o layout e o fluxo de trabalho dos arquivos de memória
+  - Você quer ajustar a limpeza automática de memória antes da compactação
+---
 
 # Memória
 
@@ -79,6 +85,8 @@ Padrões:
 
 - Ativado por padrão.
 - Observa arquivos de memória para mudanças (com debounce).
+- Configure a busca de memória em `agents.defaults.memorySearch` (não no nível superior
+  `memorySearch`).
 - Usa embeddings remotos por padrão. Se `memorySearch.provider` não estiver definido, o OpenClaw seleciona automaticamente:
   1. `local` se um `memorySearch.local.modelPath` estiver configurado e o arquivo existir.
   2. `openai` se uma chave da OpenAI puder ser resolvida.
@@ -125,10 +133,13 @@ chama o QMD para recuperação. Pontos-chave:
   (mais os arquivos de memória padrão do workspace), depois `qmd update` + `qmd embed` rodam
   no boot e em um intervalo configurável (`memory.qmd.update.interval`,
   padrão 5 m).
+- O gateway agora inicializa o gerenciador QMD na inicialização, para que os temporizadores de atualização periódica
+  sejam ativados mesmo antes da primeira chamada `memory_search`.
 - A atualização no boot agora roda em segundo plano por padrão para não bloquear
   o início do chat; defina `memory.qmd.update.waitForBootSync = true` para manter o comportamento
   bloqueante anterior.
-- As buscas rodam via `qmd query --json`. Se o QMD falhar ou o binário estiver ausente,
+- As buscas rodam via `qmd query --json`. Se o modo selecionado rejeitar flags na sua
+  build do QMD, o OpenClaw tenta novamente com `qmd query`. Se o QMD falhar ou o binário estiver ausente,
   o OpenClaw retorna automaticamente ao gerenciador SQLite embutido para que as ferramentas
   de memória continuem funcionando.
 - O OpenClaw não expõe ajuste de batch-size de embeddings do QMD hoje; o comportamento de batch
@@ -166,6 +177,7 @@ chama o QMD para recuperação. Pontos-chave:
 
 - `command` (padrão `qmd`): sobrescreve o caminho do executável.
 - `includeDefaultMemory` (padrão `true`): indexa automaticamente `MEMORY.md` + `memory/**/*.md`.
+- `includeDefaultMemory` (padrão `true`): indexa automaticamente `MEMORY.md` + `memory/**/*.md`.
 - `paths[]`: adiciona diretórios/arquivos extras (`path`, opcional `pattern`, opcional
   estável `name`).
 - `sessions`: opta por indexação de JSONL de sessão (`enabled`, `retentionDays`,
@@ -178,6 +190,12 @@ chama o QMD para recuperação. Pontos-chave:
 - `scope`: mesmo esquema de [`session.sendPolicy`](/gateway/configuration#session).
   O padrão é apenas DM (`deny` todos, `allow` chats diretos); afrouxe para expor
   resultados do QMD em grupos/canais.
+  - `match.keyPrefix` corresponde à chave de sessão **normalizada** (em minúsculas, com qualquer
+    prefixo `agent:<id>:` removido). Exemplo: `discord:channel:`.
+  - `match.rawKeyPrefix` corresponde à chave de sessão **bruta** (em minúsculas), incluindo
+    `agent:<id>:`. Exemplo: `agent:main:discord:`.
+  - Legado: `match.keyPrefix: "agent:..."` ainda é tratado como um prefixo de chave bruta,
+    mas prefira `rawKeyPrefix` para maior clareza.
 - When `scope` denies a search, OpenClaw logs a warning with the derived
   `channel`/`chatType` so empty results are easier to debug.
 - Trechos originados fora do workspace aparecem como
@@ -550,5 +568,3 @@ Notas:
 
 - `remote.*` tem precedência sobre `models.providers.openai.*`.
 - `remote.headers` se mescla com os headers da OpenAI; o remoto vence em conflitos de chave. Omita `remote.headers` para usar os padrões da OpenAI.
-
-

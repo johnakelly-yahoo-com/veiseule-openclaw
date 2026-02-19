@@ -1,4 +1,5 @@
 ---
+summary: "Plan: OpenResponses /v1/responses-endpoint toevoegen en chatcompleties netjes uitfaseren"
 owner: "openclaw"
 status: "draft"
 last_updated: "2026-01-19"
@@ -120,5 +121,3 @@ Belangrijkste punten:
 
 - Voeg een nieuwe documentatiepagina toe voor `/v1/responses`-gebruik en voorbeelden.
 - Werk `/gateway/openai-http-api` bij met een legacy-opmerking en een verwijzing naar `/v1/responses`.
-
-

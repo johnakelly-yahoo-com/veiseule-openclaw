@@ -1,4 +1,8 @@
 ---
+summary: "Workspace do agente: localização, layout e estratégia de backup"
+read_when:
+  - Você precisa explicar o workspace do agente ou seu layout de arquivos
+  - Você quer fazer backup ou migrar um workspace de agente
 title: "Workspace do Agente"
 ---
 
@@ -235,5 +239,3 @@ Starter sugerido para `.gitignore`:
   [Channel routing](/channels/channel-routing) para a configuração de roteamento.
 - Se `agents.defaults.sandbox` estiver habilitado, sessões que não são a principal podem
   usar workspaces em sandbox por sessão sob `agents.defaults.sandbox.workspaceRoot`.
-
-

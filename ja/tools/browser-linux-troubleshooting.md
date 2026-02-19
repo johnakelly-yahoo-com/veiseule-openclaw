@@ -1,4 +1,6 @@
 ---
+summary: "Linux 上で OpenClaw のブラウザー制御を使用する際の Chrome/Brave/Edge/Chromium CDP 起動問題を修正します"
+read_when: "特に snap 版 Chromium を使用している場合に、Linux 上でブラウザー制御が失敗するとき"
 title: "ブラウザーのトラブルシューティング"
 ---
 
@@ -14,7 +16,7 @@ OpenClaw のブラウザー制御サーバーが、次のエラーとともに C
 
 ### 原因
 
-Ubuntu（および多くの Linux ディストリビューション）では、既定の Chromium インストールは **snap パッケージ** です。Snap の AppArmor による制限が、OpenClaw によるブラウザープロセスの起動および監視の方法と干渉します。 SnapのAppArmorの監禁は、OpenClawがブラウザプロセスをどのように生成し監視するかを妨げます。
+Ubuntu（および多くの Linux ディストリビューション）では、既定の Chromium インストールは **snap パッケージ** です。Snap の AppArmor による制限が、OpenClaw によるブラウザープロセスの起動および監視の方法と干渉します。 Ubuntu（および多くの Linux ディストリビューション）では、既定の Chromium インストールは **snap パッケージ** です。Snap の AppArmor による制限が、OpenClaw によるブラウザープロセスの起動および監視の方法と干渉します。 SnapのAppArmorの監禁は、OpenClawがブラウザプロセスをどのように生成し監視するかを妨げます。
 
 `apt install chromium` コマンドは、snap にリダイレクトするスタブパッケージをインストールします。
 
@@ -121,7 +123,7 @@ curl -s http://127.0.0.1:18791/tabs
 
 ### 問題: 「Chrome extension relay is running, but no tab is connected」
 
-`chrome` プロファイル（拡張機能リレー）を使用しています。これは、OpenClaw のブラウザー拡張機能がアクティブなタブに接続されていることを前提としています。 OpenClaw
+`chrome` プロファイル（拡張機能リレー）を使用しています。これは、OpenClaw のブラウザー拡張機能がアクティブなタブに接続されていることを前提としています。 `chrome` プロファイル（拡張機能リレー）を使用しています。これは、OpenClaw のブラウザー拡張機能がアクティブなタブに接続されていることを前提としています。 OpenClaw
 ブラウザ拡張機能がライブタブに追加されることを期待します。
 
 修正方法:
@@ -134,5 +136,3 @@ curl -s http://127.0.0.1:18791/tabs
 
 - `chrome` プロファイルは、可能な場合に **システム既定の Chromium ブラウザー** を使用します。
 - ローカルの `openclaw` プロファイルでは `cdpPort`/`cdpUrl` が自動的に割り当てられます。これらはリモート CDP の場合のみ設定してください。
-
-

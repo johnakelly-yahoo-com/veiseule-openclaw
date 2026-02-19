@@ -1,4 +1,7 @@
 ---
+summary: "Pag-uugali ng group chat sa iba’t ibang surface (WhatsApp/Telegram/Discord/Slack/Signal/iMessage/Microsoft Teams)"
+read_when:
+  - Kapag binabago ang pag-uugali ng group chat o mention gating
 title: "Mga Grupo"
 ---
 
@@ -171,7 +174,7 @@ Kontrolin kung paano hinahawakan ang mga mensahe sa grupo/room kada channel:
 }
 ```
 
-| Patakaran        | Pag-uugali                                                                                   |
+| Patakaran     | Pag-uugali                                                                                   |
 | ------------- | -------------------------------------------------------------------------------------------- |
 | `"open"`      | Nilalampasan ng mga grupo ang mga allowlist; nananatili ang mention-gating.  |
 | `"disabled"`  | I-block ang lahat ng mensahe sa grupo nang buo.                              |
@@ -243,7 +246,7 @@ Mga tala:
 - Per-agent override: `agents.list[].groupChat.mentionPatterns` (kapaki-pakinabang kapag maraming agent ang nagbabahagi ng isang grupo).
 - Ipinapatupad lang ang mention gating kapag posible ang mention detection (native mentions o naka-configure ang `mentionPatterns`).
 - Ang mga default ng Discord ay nasa `channels.discord.guilds."*"` (maaaring i-override kada guild/channel).
-- Ang group history context ay binabalot nang pare-pareho sa lahat ng channel at **pending-only** (mga mensaheng nilaktawan dahil sa mention gating); gamitin ang `messages.groupChat.historyLimit` para sa global default at `channels.<channel>34. `.historyLimit`(o`channels.&lt;channel&gt;`35. `.accounts.\*.historyLimit`) para sa mga override. 36. Itakda sa `0\` para i-disable.
+- Ang group history context ay binabalot nang pare-pareho sa lahat ng channel at **pending-only** (mga mensaheng nilaktawan dahil sa mention gating); gamitin ang `messages.groupChat.historyLimit` para sa global default at `channels.<channel>34. `.historyLimit`(o`channels.<channel>`35. `.accounts.\*.historyLimit`) para sa mga override. 36. Itakda sa `0\` para i-disable.
 
 ## Mga restriksiyon sa tool ng grupo/channel (opsyonal)
 
@@ -369,5 +372,3 @@ Itinatakda ng mga inbound payload ng grupo ang:
 ## Mga detalye para sa WhatsApp
 
 Tingnan ang [Group messages](/channels/group-messages) para sa behavior na WhatsApp-only (history injection, mga detalye ng paghawak ng mention).
-
-

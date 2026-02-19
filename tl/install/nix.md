@@ -1,4 +1,9 @@
 ---
+summary: "I-install ang OpenClaw nang deklaratibo gamit ang Nix"
+read_when:
+  - Gusto mo ng reproducible at may rollback na mga install
+  - Gumagamit ka na ng Nix/NixOS/Home Manager
+  - Gusto mo na naka-pin at pinamamahalaan nang deklaratibo ang lahat
 title: "Nix"
 ---
 
@@ -91,5 +96,3 @@ packaging at mga Nix build (na hindi umaasa sa isang buong Xcode toolchain).
 - [nix-openclaw](https://github.com/openclaw/nix-openclaw) — buong gabay sa setup
 - [Wizard](/start/wizard) — setup ng CLI na hindi Nix
 - [Docker](/install/docker) — setup na naka-container
-
-

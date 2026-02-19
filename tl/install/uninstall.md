@@ -1,4 +1,8 @@
 ---
+summary: "Ganap na i-uninstall ang OpenClaw (CLI, service, state, workspace)"
+read_when:
+  - Gusto mong alisin ang OpenClaw mula sa isang makina
+  - Patuloy na tumatakbo ang gateway service kahit pagkatapos ng uninstall
 title: "I-uninstall"
 ---
 
@@ -84,7 +88,7 @@ launchctl bootout gui/$UID/bot.molt.gateway
 rm -f ~/Library/LaunchAgents/bot.molt.gateway.plist
 ```
 
-Kung gumamit ka ng profile, palitan ang label at plist name ng `bot.molt.<profile>`. Alisin ang anumang lumang `com.openclaw.*` plists kung mayroon.
+If you used a profile, replace the label and plist name with `bot.molt.<profile>`. Remove any legacy `com.openclaw.*` plists if present.
 
 ### Linux (systemd user unit)
 
@@ -98,7 +102,7 @@ systemctl --user daemon-reload
 
 ### Windows (Scheduled Task)
 
-Ang default na pangalan ng task ay `OpenClaw Gateway` (o `OpenClaw Gateway (<profile>)`).
+Default task name is `OpenClaw Gateway` (or `OpenClaw Gateway (<profile>)`).
 The task script lives under your state dir.
 
 ```powershell
@@ -112,7 +116,7 @@ Kung gumamit ka ng profile, burahin ang katugmang task name at `~\.openclaw-<pro
 
 ### Normal na install (install.sh / npm / pnpm / bun)
 
-Kung ginamit mo ang `https://openclaw.ai/install.sh` o `install.ps1`, na-install ang CLI gamit ang `npm install -g openclaw@latest`.
+If you used `https://openclaw.ai/install.sh` or `install.ps1`, the CLI was installed with `npm install -g openclaw@latest`.
 Remove it with `npm rm -g openclaw` (or `pnpm remove -g` / `bun remove -g` if you installed that way).
 
 ### Source checkout (git clone)
@@ -122,5 +126,3 @@ Kung tumatakbo ka mula sa repo checkout (`git clone` + `openclaw ...` / `bun run
 1. I-uninstall ang gateway service **bago** burahin ang repo (gamitin ang madaling ruta sa itaas o manwal na pag-alis ng service).
 2. Burahin ang repo directory.
 3. Alisin ang state + workspace gaya ng ipinakita sa itaas.
-
-

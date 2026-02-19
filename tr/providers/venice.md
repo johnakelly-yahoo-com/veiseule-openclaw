@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw içinde Venice AI gizlilik odaklı modellerini kullanın"
+read_when:
+  - OpenClaw içinde gizlilik odaklı çıkarım istiyorsunuz
+  - Venice AI kurulum rehberine ihtiyacınız var
 title: "Venice AI"
 ---
 
@@ -43,7 +47,7 @@ Venice iki gizlilik seviyesi sunar — doğru modeli seçmek için bunu anlamak 
 2. **Settings → API Keys → Create new key** yolunu izleyin
 3. API anahtarınızı kopyalayın (format: `vapi_xxxxxxxxxxxx`)
 
-### 2) OpenClaw’ı Yapılandırın
+### 3) Kurulumu Doğrulayın
 
 **Seçenek A: Ortam Değişkeni**
 
@@ -123,11 +127,11 @@ openclaw models list | grep venice
 
 ### Özel Modeller (15) — Tamamen Özel, Kayıt Yok
 
-| Model Kimliği                    | Adı                                        | Bağlam (token) | Özellikler              |
+| Model Kimliği                    | Adı                                        | Context (tokens) | Özellikler              |
 | -------------------------------- | ------------------------------------------ | ----------------------------------- | ----------------------- |
 | `llama-3.3-70b`                  | Llama 3.3 70B              | 131k                                | Genel                   |
 | `llama-3.2-3b`                   | Llama 3.2 3B               | 131k                                | Hızlı, hafif            |
-| `hermes-3-llama-3.1-405b`        | Hermes 3 Llama 3.1 405B    | 131k                                | Karmaşık görevler           |
+| `hermes-3-llama-3.1-405b`        | Hermes 3 Llama 3.1 405B    | 131k                                | Complex tasks           |
 | `qwen3-235b-a22b-thinking-2507`  | Qwen3 235B Thinking                        | 131k                                | Reasoning               |
 | `qwen3-235b-a22b-instruct-2507`  | Qwen3 235B Instruct                        | 131k                                | Genel                   |
 | `qwen3-coder-480b-a35b-instruct` | Qwen3 Coder 480B                           | 262k                                | Kod                     |
@@ -143,7 +147,7 @@ openclaw models list | grep venice
 
 ### Anonimleştirilmiş Modeller (10) — Venice Proxy Üzerinden
 
-| Model Kimliği            | Orijinal                          | Bağlam (token) | Özellikler           |
+| Model Kimliği            | Orijinal                          | Context (tokens) | Özellikler           |
 | ------------------------ | --------------------------------- | ----------------------------------- | -------------------- |
 | `claude-opus-45`         | Claude Opus 4.5   | 202k                                | Akıl yürütme, görsel |
 | `claude-sonnet-45`       | Claude Sonnet 4.5 | 202k                                | Akıl yürütme, görsel |
@@ -261,5 +265,3 @@ Venice API adresi `https://api.venice.ai/api/v1`’dir. Ağınızın HTTPS bağl
 - [API Dokümantasyonu](https://docs.venice.ai)
 - [Fiyatlandırma](https://venice.ai/pricing)
 - [Durum](https://status.venice.ai)
-
-

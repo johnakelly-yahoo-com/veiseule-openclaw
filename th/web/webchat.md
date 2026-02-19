@@ -1,4 +1,7 @@
 ---
+summary: "โฮสต์สแตติกของLoopback WebChatและการใช้งานGateway WebSocketสำหรับUIแชต"
+read_when:
+  - การดีบักหรือการกำหนดค่าการเข้าถึงWebChat
 title: "WebChat"
 ---
 
@@ -36,13 +39,12 @@ title: "WebChat"
 
 ตัวเลือกของช่องทาง:
 
-- ไม่มีบล็อก `webchat.*` เฉพาะ WebChat ใช้เอ็นด์พอยต์ของเกตเวย์ + การตั้งค่าการยืนยันตัวตนด้านล่าง
+- ไม่มีบล็อก `webchat.*` เฉพาะ ไม่มีบล็อก `webchat.*` เฉพาะ WebChat ใช้เอ็นด์พอยต์ของเกตเวย์ + การตั้งค่าการยืนยันตัวตนด้านล่าง
 
 ตัวเลือกส่วนกลางที่เกี่ยวข้อง:
 
 - `gateway.port`, `gateway.bind`: โฮสต์/พอร์ตของWebSocket
 - `gateway.auth.mode`, `gateway.auth.token`, `gateway.auth.password`: การยืนยันตัวตนของWebSocket
+- `gateway.auth.mode: "trusted-proxy"`: การยืนยันตัวตนผ่าน reverse-proxy สำหรับไคลเอนต์เบราว์เซอร์ (ดู [Trusted Proxy Auth](/gateway/trusted-proxy-auth)).
 - `gateway.remote.url`, `gateway.remote.token`, `gateway.remote.password`: เป้าหมายGatewayระยะไกล
 - `session.*`: ที่เก็บเซสชันและค่าเริ่มต้นของคีย์หลัก
-
-

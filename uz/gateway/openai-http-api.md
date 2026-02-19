@@ -1,4 +1,7 @@
 ---
+summary: "Gateway’dan OpenAI-compatible /v1/chat/completions HTTP endpointini taqdim etish"
+read_when:
+  - Integrating tools that expect OpenAI Chat Completions
 title: "OpenAI Chat Completions"
 ---
 
@@ -6,7 +9,7 @@ title: "OpenAI Chat Completions"
 
 OpenClaw’ning Gateway’i kichik OpenAI-compatible Chat Completions endpointini taqdim eta oladi.
 
-Bu endpoint **standart bo‘yicha o‘chirilgan**. Avval uni konfiguratsiyada yoqing.
+This endpoint is **disabled by default**. Enable it in config first.
 
 - `POST /v1/chat/completions`
 - Gateway bilan bir xil port (WS + HTTP multiplex): `http://<gateway-host>:<port>/v1/chat/completions`
@@ -15,7 +18,7 @@ Ichki tomonda so‘rovlar odatiy Gateway agent ishga tushirilishi sifatida bajar
 
 ## Autentifikatsiya
 
-Gateway auth konfiguratsiyasidan foydalanadi. Bearer token yuboring:
+Uses the Gateway auth configuration. Send a bearer token:
 
 - `Authorization: Bearer <token>`
 
@@ -23,6 +26,7 @@ Eslatmalar:
 
 - When `gateway.auth.mode="token"`, use `gateway.auth.token` (or `OPENCLAW_GATEWAY_TOKEN`).
 - When `gateway.auth.mode="password"`, use `gateway.auth.password` (or `OPENCLAW_GATEWAY_PASSWORD`).
+- Agar `gateway.auth.rateLimit` sozlangan bo‘lsa va juda ko‘p autentifikatsiya xatolari yuz bersa, endpoint `429` ni `Retry-After` bilan qaytaradi.
 
 ## Choosing an agent
 
@@ -113,5 +117,3 @@ curl -N http://127.0.0.1:18789/v1/chat/completions \
     "messages": [{"role":"user","content":"hi"}]
   }'
 ```
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "تكامل Tailscale Serve/Funnel للوحة تحكّم Gateway"
+read_when:
+  - تعريض واجهة تحكّم Gateway خارج localhost
+  - أتمتة الوصول إلى لوحة التحكّم عبر tailnet أو بشكل عام
 title: "Tailscale"
 ---
 
@@ -120,5 +124,3 @@ openclaw gateway --tailscale funnel --auth password
 - أمر `tailscale serve`: [https://tailscale.com/kb/1242/tailscale-serve](https://tailscale.com/kb/1242/tailscale-serve)
 - نظرة عامة على Tailscale Funnel: [https://tailscale.com/kb/1223/tailscale-funnel](https://tailscale.com/kb/1223/tailscale-funnel)
 - أمر `tailscale funnel`: [https://tailscale.com/kb/1311/tailscale-funnel](https://tailscale.com/kb/1311/tailscale-funnel)
-
-

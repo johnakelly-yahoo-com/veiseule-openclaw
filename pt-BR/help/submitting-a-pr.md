@@ -1,4 +1,5 @@
 ---
+summary: "Como enviar um PR de alto sinal"
 title: "Envio de um PR"
 ---
 
@@ -272,7 +273,7 @@ pnpm format
 - Agent notes:
 ```
 
-### Desempenho
+### Perf
 
 ```md
 #### Summary
@@ -395,5 +396,3 @@ pnpm format
 - Submitter effort:
 - Agent notes:
 ```
-
-

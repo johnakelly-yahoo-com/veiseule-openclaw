@@ -1,4 +1,8 @@
 ---
+summary: "Gateway ویب سطحیں: کنٹرول UI، بائنڈ موڈز، اور سکیورٹی"
+read_when:
+  - آپ Tailscale کے ذریعے Gateway تک رسائی چاہتے ہیں
+  - آپ براؤزر کنٹرول UI اور کنفیگ ایڈیٹنگ چاہتے ہیں
 title: "ویب"
 ---
 
@@ -107,5 +111,3 @@ Gateway جامد فائلیں `dist/control-ui` سے فراہم کرتا ہے۔ 
 ```bash
 pnpm ui:build # auto-installs UI deps on first run
 ```
-
-

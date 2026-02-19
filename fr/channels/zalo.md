@@ -1,4 +1,7 @@
 ---
+summary: "Statut de prise en charge du bot Zalo, capacites et configuration"
+read_when:
+  - Travail sur les fonctionnalites Zalo ou les webhooks
 title: "Zalo"
 ---
 
@@ -133,7 +136,7 @@ Prise en charge multi-comptes : utilisez `channels.zalo.accounts` avec des jeto
 | Fil de discussion                  | ❌ Non pris en charge                                  |
 | Sondages                           | ❌ Non pris en charge                                  |
 | Commandes natives                  | ❌ Non pris en charge                                  |
-| Diffusion en continu                          | ⚠️ Bloque (limite 2000 caracteres) |
+| Streaming                          | ⚠️ Bloque (limite 2000 caracteres) |
 
 ## Cibles de livraison (CLI/cron)
 
@@ -184,5 +187,3 @@ Options multi-comptes :
 - `channels.zalo.accounts.<id>.webhookSecret` : secret de webhook par compte.
 - `channels.zalo.accounts.<id>.webhookPath` : chemin de webhook par compte.
 - `channels.zalo.accounts.<id>.proxy` : URL de proxy par compte.
-
-

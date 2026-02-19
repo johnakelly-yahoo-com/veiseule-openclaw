@@ -1,4 +1,8 @@
 ---
+summary: "5. Node’lar uchun joylashuv buyrug‘i (location.get), ruxsat rejimlari va fon xatti-harakati"
+read_when:
+  - 6. Joylashuv node qo‘llab-quvvatlashi yoki ruxsatlar UI’sini qo‘shish
+  - 7. Fon joylashuvi + push oqimlarini loyihalash
 title: "8. Joylashuv buyrug‘i"
 ---
 
@@ -25,8 +29,8 @@ title: "8. Joylashuv buyrug‘i"
 
 24. Har bir node qurilma uchun:
 
-- 25. `location.enabledMode`: `off | whileUsing | always`
-- 26. `location.preciseEnabled`: bool
+- `location.enabledMode`: `off | whileUsing | always`
+- `location.preciseEnabled`: bool
 
 27. UI xatti-harakati:
 
@@ -52,7 +56,7 @@ title: "8. Joylashuv buyrug‘i"
 }
 ```
 
-Javob yuklamasi:
+Response payload:
 
 ```json
 39. {
@@ -107,5 +111,3 @@ Eslatmalar:
 - Foydalanayotganda: “Faqat OpenClaw ochiq bo‘lganda.”
 - Doimiy: “Fon joylashuviga ruxsat bering. Tizim ruxsati talab qilinadi.”
 - Aniq: “Aniq GPS joylashuvdan foydalaning. Taxminiy joylashuvni ulash uchun o‘chiring.”
-
-

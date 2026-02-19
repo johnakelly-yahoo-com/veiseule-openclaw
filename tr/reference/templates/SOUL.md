@@ -1,4 +1,9 @@
-------
+---
+title: "SOUL.md Şablonu"
+summary: "SOUL.md için çalışma alanı şablonu"
+read_when:
+  - Bir çalışma alanını manuel olarak başlatırken
+---
 
 # SOUL.md - Kim Olduğun
 
@@ -36,5 +41,3 @@ Bu dosyayı değiştirirsen, kullanıcıya söyle — bu senin ruhun ve onların
 ---
 
 _Bu dosya evrilmen için senindir. Kim olduğunu öğrendikçe güncelle._
-
-

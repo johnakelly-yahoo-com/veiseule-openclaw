@@ -1,4 +1,7 @@
 ---
+summary: "مخططات TypeBox بوصفها المصدر الوحيد للحقيقة لبروتوكول Gateway"
+read_when:
+  - تحديث مخططات البروتوكول أو توليد الشيفرة
 title: "TypeBox"
 ---
 
@@ -42,7 +45,7 @@ Client                    Gateway
 | المراسلة | `send`، `poll`، `agent`، `agent.wait`                     | الآثار الجانبية تتطلب `idempotencyKey` |
 | الدردشة  | `chat.history`، `chat.send`، `chat.abort`، `chat.inject`  | يستخدم WebChat هذه                     |
 | الجلسات  | `sessions.list`، `sessions.patch`، `sessions.delete`      | إدارة الجلسات                          |
-| العقد    | `node.list`، `node.invoke`، `node.pair.*`                 | Gateway WS + إجراءات العُقد            |
+| Nodes    | `node.list`، `node.invoke`، `node.pair.*`                 | Gateway WS + إجراءات العُقد            |
 | الأحداث  | `tick`، `presence`، `agent`، `chat`، `health`، `shutdown` | دفع من الخادم                          |
 
 القائمة المعتمدة تعيش في `src/gateway/server.ts` (`METHODS`، `EVENTS`).
@@ -279,5 +282,3 @@ pnpm protocol:check
 1. حدِّث مخططات TypeBox.
 2. شغِّل `pnpm protocol:check`.
 3. التزم بالمخطط المُعاد توليده ونماذج Swift.
-
-

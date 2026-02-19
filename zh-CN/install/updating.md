@@ -1,21 +1,20 @@
 ---
-title: 更新
-x-i18n:
-  generated_at: "2026-02-03T07:50:25Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 38cccac0839f0f22403b6508cd94ba1b401133ffc1d92d4f7640b8d04e082317
-  source_path: install/updating.md
-  workflow: 15
+summary: "安全更新 OpenClaw（全局安装或源码），以及回滚策略"
+read_when:
+  - 更新 OpenClaw
+  - 更新后出现问题
+title: "更新"
 ---
 
 # 更新
 
-OpenClaw 发展迅速（尚未到"1.0"）。将更新视为发布基础设施：更新 → 运行检查 → 重启（或使用会重启的 `openclaw update`）→ 验证。
+OpenClaw 正在快速迭代（尚未到 “1.0”）。 Treat updates like shipping infra: update → run checks → restart (or use `openclaw update`, which restarts) → verify.
 
 ## 推荐：重新运行网站安装程序（原地升级）
 
-**首选**的更新路径是重新运行网站上的安装程序。它会检测现有安装、原地升级，并在需要时运行 `openclaw doctor`。
+The **preferred** update path is to re-run the installer from the website. It
+detects existing installs, upgrades in place, and runs `openclaw doctor` when
+needed.
 
 ```bash
 curl -fsSL https://openclaw.ai/install.sh | bash
@@ -24,12 +23,17 @@ curl -fsSL https://openclaw.ai/install.sh | bash
 说明：
 
 - 如果你不想再次运行新手引导向导，添加 `--no-onboard`。
+
 - 对于**源码安装**，使用：
+
   ```bash
   curl -fsSL https://openclaw.ai/install.sh | bash -s -- --install-method git --no-onboard
   ```
+
   安装程序**仅**在仓库干净时才会执行 `git pull --rebase`。
+
 - 对于**全局安装**，脚本底层使用 `npm install -g openclaw@latest`。
+
 - 旧版说明：`clawdbot` 仍可作为兼容性垫片使用。
 
 ## 更新之前
@@ -67,7 +71,7 @@ openclaw update --channel stable
 
 渠道语义和发布说明参见[开发渠道](/install/development-channels)。
 
-注意：在 npm 安装上，Gateway 网关在启动时会记录更新提示（检查当前渠道标签）。通过 `update.checkOnStart: false` 禁用。
+注意：在 npm 安装上，Gateway 网关在启动时会记录更新提示（检查当前渠道标签）。通过 `update.checkOnStart: false` 禁用。 Disable via `update.checkOnStart: false`.
 
 然后：
 
@@ -94,15 +98,15 @@ openclaw update
 
 - 需要干净的工作树。
 - 切换到选定的渠道（标签或分支）。
-- 获取并 rebase 到配置的上游（dev 渠道）。
+- Fetches + rebases against the configured upstream (dev channel).
 - 安装依赖、构建、构建控制 UI，并运行 `openclaw doctor`。
-- 默认重启 Gateway 网关（使用 `--no-restart` 跳过）。
+- Restarts the gateway by default (use `--no-restart` to skip).
 
-如果你通过 **npm/pnpm** 安装（没有 git 元数据），`openclaw update` 将尝试通过你的包管理器更新。如果无法检测到安装，请改用"更新（全局安装）"。
+如果你通过 **npm/pnpm** 安装（没有 git 元数据），`openclaw update` 将尝试通过你的包管理器更新。如果无法检测到安装，请改用"更新（全局安装）"。 If it can’t detect the install, use “Update (global install)” instead.
 
 ## 更新（控制 UI / RPC）
 
-控制 UI 有**更新并重启**（RPC：`update.run`）。它：
+控制 UI 有**更新并重启**（RPC：`update.run`）。它： It:
 
 1. 运行与 `openclaw update` 相同的源码更新流程（仅限 git checkout）。
 2. 写入带有结构化报告（stdout/stderr 尾部）的重启哨兵。
@@ -140,7 +144,7 @@ openclaw health
 
 ## 始终运行：`openclaw doctor`
 
-Doctor 是"安全更新"命令。它故意很无聊：修复 + 迁移 + 警告。
+Doctor 是"安全更新"命令。它故意很无聊：修复 + 迁移 + 警告。 It’s intentionally boring: repair + migrate + warn.
 
 注意：如果你是**源码安装**（git checkout），`openclaw doctor` 会提供先运行 `openclaw update`。
 
@@ -227,5 +231,3 @@ git pull
 - 再次运行 `openclaw doctor` 并仔细阅读输出（它通常会告诉你修复方法）。
 - 查看：[故障排除](/gateway/troubleshooting)
 - 在 Discord 上提问：https://discord.gg/clawd
-
-

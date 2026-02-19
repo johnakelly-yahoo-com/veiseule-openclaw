@@ -1,4 +1,9 @@
 ---
+summary: "تطبيق Android (عُقدة): دليل تشغيل الاتصال + Canvas/الدردشة/الكاميرا"
+read_when:
+  - إقران عُقدة Android أو إعادة الاتصال بها
+  - تصحيح اكتشاف Gateway أو المصادقة على Android
+  - التحقق من تطابق سجل الدردشة عبر العملاء
 title: "تطبيق Android"
 ---
 
@@ -118,7 +123,7 @@ openclaw nodes approve <requestId>
 
 إذا أردت أن تعرض العُقدة HTML/CSS/JS حقيقيًا يمكن للوكيل تعديله على القرص، فوجّه العُقدة إلى مضيف Canvas في Gateway.
 
-ملاحظة: تستخدم العُقد مضيف Canvas المستقل على `canvasHost.port` (الافتراضي `18793`).
+ملاحظة: تقوم العقد بتحميل اللوحة من خادم Gateway عبر HTTP (نفس المنفذ `gateway.port`، الافتراضي `18789`).
 
 1. أنشئ `~/.openclaw/workspace/canvas/index.html` على مضيف Gateway.
 
@@ -144,5 +149,3 @@ Tailnet (اختياري): إذا كان الجهازان على Tailscale، اس
 - `camera.clip` (mp4)
 
 راجع [عُقدة الكاميرا](/nodes/camera) للاطلاع على المعلمات ومساعدات CLI.
-
-

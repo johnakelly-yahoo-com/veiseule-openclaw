@@ -1,4 +1,9 @@
 ---
+summary: "Руководство по ClawHub: публичный реестр Skills + рабочие процессы CLI"
+read_when:
+  - Представление ClawHub новым пользователям
+  - Установка, поиск или публикация Skills
+  - Объяснение флагов CLI ClawHub и поведения синхронизации
 title: "ClawHub"
 ---
 
@@ -243,5 +248,3 @@ export CLAWHUB_DISABLE_TELEMETRY=1
 - `CLAWHUB_CONFIG_PATH`: Переопределить место хранения токена/конфига CLI.
 - `CLAWHUB_WORKDIR`: Переопределить рабочий каталог по умолчанию.
 - `CLAWHUB_DISABLE_TELEMETRY=1`: Отключить телеметрию для `sync`.
-
-

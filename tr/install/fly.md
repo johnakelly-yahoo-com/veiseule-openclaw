@@ -107,7 +107,7 @@ fly secrets set DISCORD_BOT_TOKEN=MTQ...
 
 - Loopback olmayan bağlamalar (`--bind lan`) güvenlik için `OPENCLAW_GATEWAY_TOKEN` gerektirir.
 - Bu belirteçleri parola gibi ele alın.
-- Bu, sırların kazara açığa çıkabileceği veya günlüklere yazılabileceği `openclaw.json` dosyasından uzak tutulmasını sağlar. Günlükler
+- **Tüm API anahtarları ve token’lar için yapılandırma dosyası yerine ortam değişkenlerini tercih edin.** Bu, sırların kazara açığa çıkabileceği veya günlüklere yazılabileceği `openclaw.json` dosyasından uzak tutulmasını sağlar. Günlükler
 
 ## 4. Dağıtım
 
@@ -430,7 +430,7 @@ fly ssh console -a my-openclaw
 
 ### Özel dağıtımda webhooks
 
-Genel erişim olmadan webhook geri çağrıları (Twilio, Telnyx vb.) gerekiyorsa: Kalıcı veriler `/data` konumundaki hacimde bulunur
+Genel erişim olmadan webhook geri çağrıları (Twilio, Telnyx vb.) herkese açık maruz kalma olmadan:
 
 1. **ngrok tüneli** – ngrok’u konteyner içinde veya yan bileşen olarak çalıştırın
 2. **Tailscale Funnel** – Belirli yolları Tailscale üzerinden açığa çıkarın
@@ -461,19 +461,19 @@ ngrok tüneli konteyner içinde çalışır ve Fly uygulamasını açığa çık
 
 ### Güvenlik avantajları
 
-| Özellik            | Genel       | Özel    |
-| ----------------- | ------------ | ---------- |
-| İnternet tarama botları | Keşfedilebilir | Gizli     |
-| Doğrudan saldırılar    | Mümkün     | Blocked    |
-| Control UI access | Browser      | Proxy/VPN  |
-| Webhook delivery  | Direct       | Via tunnel |
+| Aspect              | Genel          | Özel       |
+| ------------------- | -------------- | ---------- |
+| Internet scanners   | Keşfedilebilir | Gizli      |
+| Doğrudan saldırılar | Mümkün         | Blocked    |
+| Control UI access   | Browser        | Proxy/VPN  |
+| Webhook delivery    | Direct         | Via tunnel |
 
 ## Notlar
 
 - Fly.io **x86 mimarisi** kullanır (ARM değil)
 - Dockerfile her iki mimariyle de uyumludur
 - WhatsApp/Telegram başlangıcı için `fly ssh console` kullanın
-- Tür
+- gerekiyorsa: Kalıcı veriler `/data` konumundaki hacimde bulunur
 - Signal, Java + signal-cli gerektirir; özel bir imaj kullanın ve belleği 2GB+ tutun.
 
 ## Maliyet
@@ -484,5 +484,3 @@ ngrok tüneli konteyner içinde çalışır ve Fly uygulamasını açığa çık
 - Ücretsiz katman belirli bir kullanım hakkı içerir
 
 Ayrıntılar için [Fly.io fiyatlandırması](https://fly.io/docs/about/pricing/) sayfasına bakın.
-
-

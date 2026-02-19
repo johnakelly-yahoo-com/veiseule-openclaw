@@ -1,4 +1,8 @@
 ---
+summary: "CLI 온보딩 마법사: 게이트웨이, 워크스페이스, 채널, Skills 를 위한 가이드 설정"
+read_when:
+  - 온보딩 마법사를 실행하거나 구성할 때
+  - 새 머신을 설정할 때
 title: "온보딩 마법사 (CLI)"
 sidebarTitle: "온보딩: CLI"
 ---
@@ -99,6 +103,5 @@ RPC API, 그리고 마법사가 작성하는 구성 필드의 전체 목록은
 
 - CLI 명령 참조: [`openclaw onboard`](/cli/onboard)
 - macOS 앱 온보딩: [Onboarding](/start/onboarding)
+- macOS 앱 온보딩: [Onboarding](/start/onboarding)
 - 에이전트 최초 실행 절차: [Agent Bootstrapping](/start/bootstrapping)
-
-

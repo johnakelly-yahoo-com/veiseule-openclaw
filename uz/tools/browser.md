@@ -1,4 +1,9 @@
 ---
+summary: "Integratsiyalashgan brauzer boshqaruv xizmati + action buyruqlari"
+read_when:
+  - Agent tomonidan boshqariladigan brauzer avtomatlashtirishini qo‘shish
+  - Nega openclaw sizning Chrome’ingizga xalaqit berayotganini diagnostika qilish
+  - macOS ilovasida brauzer sozlamalari va hayot siklini amalga oshirish
 title: "Brauzer (OpenClaw tomonidan boshqariladi)"
 ---
 
@@ -182,6 +187,7 @@ Notes:
 Key ideas:
 
 - Browser control is loopback-only; access flows through the Gateway’s auth or node pairing.
+- Agar brauzer boshqaruvi yoqilgan bo‘lsa va auth sozlanmagan bo‘lsa, OpenClaw ishga tushganda `gateway.auth.token` ni avtomatik yaratadi va uni konfiguratsiyaga saqlaydi.
 - Keep the Gateway and any node hosts on a private network (Tailscale); avoid public exposure.
 - Treat remote CDP URLs/tokens as secrets; prefer env vars or a secrets manager.
 
@@ -305,6 +311,11 @@ For local integrations only, the Gateway exposes a small loopback HTTP API:
 
 All endpoints accept `?profile=<name>`.
 
+Agar gateway auth sozlangan bo‘lsa, brauzer HTTP marshrutlari ham auth talab qiladi:
+
+- `Authorization: Bearer <gateway token>`
+- `x-openclaw-password: <gateway password>` yoki shu parol bilan HTTP Basic auth
+
 ### Playwright requirement
 
 Some features (navigate/act/AI snapshot/role snapshot, element screenshots, PDF) require
@@ -351,23 +362,23 @@ All commands also accept `--json` for machine-readable output (stable payloads).
 Basics:
 
 - `openclaw browser status`
-- 14. `openclaw browser start`
+- `openclaw browser start`
 - `openclaw browser stop`
 - `openclaw browser tabs`
-- 15. `openclaw browser tab`
-- 16. `openclaw browser tab new`
-- 17. `openclaw browser tab select 2`
+- `openclaw browser tab`
+- `openclaw browser tab new`
+- `openclaw browser tab select 2`
 - `openclaw browser tab close 2`
-- 18. `openclaw browser open https://example.com`
+- `openclaw browser open https://example.com`
 - `openclaw browser focus abcd1234`
 - `openclaw browser close abcd1234`
 
 Inspection:
 
 - `openclaw browser screenshot`
-- 19. `openclaw browser screenshot --full-page`
+- `openclaw browser screenshot --full-page`
 - `openclaw browser screenshot --ref 12`
-- 20. `openclaw browser screenshot --ref e12`
+- `openclaw browser screenshot --ref e12`
 - `openclaw browser snapshot`
 - `openclaw browser snapshot --format aria --limit 200`
 - `openclaw browser snapshot --interactive --compact --depth 6`
@@ -393,9 +404,9 @@ Actions:
 - `openclaw browser scrollintoview e12`
 - `openclaw browser drag 10 11`
 - `openclaw browser select 9 OptionA OptionB`
-- `openclaw browser download e12 /tmp/report.pdf`
-- `openclaw browser waitfordownload /tmp/report.pdf`
-- `openclaw browser upload /tmp/file.pdf`
+- `openclaw browser download e12 report.pdf`
+- `openclaw browser waitfordownload report.pdf`
+- `openclaw browser upload /tmp/openclaw/uploads/file.pdf`
 - `openclaw browser fill --fields '[{"ref":"1","type":"text","value":"Ada"}]'`
 - `openclaw browser dialog --accept`
 - `openclaw browser wait --text "Done"`
@@ -405,7 +416,7 @@ Actions:
 - `openclaw browser trace start`
 - `openclaw browser trace stop`
 
-21. Holat:
+Eslatmalar:
 
 - `openclaw browser cookies`
 - `openclaw browser cookies set session abc123 --url "https://example.com"`
@@ -420,13 +431,18 @@ Actions:
 - `openclaw browser set geo 37.7749 -122.4194 --origin "https://example.com"`
 - `openclaw browser set geo --clear`
 - `openclaw browser set media dark`
-- 22. `openclaw browser set timezone America/New_York`
+- `openclaw browser set timezone America/New_York`
 - `openclaw browser set locale en-US`
 - `openclaw browser set device "iPhone 14"`
 
-Eslatmalar:
+Notes:
 
 - `upload` va `dialog` **qurollantiruvchi** chaqiruvlar; tanlovchi/dialogni ishga tushiradigan bosish/pressdan oldin ularni ishga tushiring.
+- Yuklab olish va trace chiqish yo‘llari OpenClaw vaqtinchalik ildiz kataloglari bilan cheklangan:
+  - traces: `/tmp/openclaw` (zaxira: `${os.tmpdir()}/openclaw`)
+  - downloads: `/tmp/openclaw/downloads` (zaxira: `${os.tmpdir()}/openclaw/downloads`)
+- Upload yo‘llari OpenClaw vaqtinchalik uploads ildiz katalogi bilan cheklangan:
+  - uploads: `/tmp/openclaw/uploads` (zaxira: `${os.tmpdir()}/openclaw/uploads`)
 - `upload` fayl kiritish maydonlarini `--input-ref` yoki `--element` orqali to‘g‘ridan-to‘g‘ri ham sozlashi mumkin.
 - `snapshot`:
   - `--format ai` (Playwright o‘rnatilganida standart): raqamli referenslar (`aria-ref="<n>"`) bilan AI snapshotni qaytaradi.
@@ -442,14 +458,14 @@ Eslatmalar:
 
 ## Snapshotlar va referenslar
 
-OpenClaw ikki xil “snapshot” uslubini qo‘llab-quvvatlaydi:
+Referenslar xatti-harakati:
 
-- **AI snapshot (raqamli referenslar)**: `openclaw browser snapshot` (standart; `--format ai`)
+- Referenslar **navigatsiyalar orasida barqaror emas**; agar biror narsa ishlamasa, `snapshot` ni qayta ishga tushiring va yangi referensdan foydalaning.
   - Chiqish: raqamli referenslarni o‘z ichiga olgan matnli snapshot.
   - Harakatlar: `openclaw browser click 12`, `openclaw browser type 23 "hello"`.
   - Ichki tomondan, referens Playwright’ning `aria-ref` orqali aniqlanadi.
 
-- **Rol snapshot ( `e12` kabi rol referenslari)**: `openclaw browser snapshot --interactive` (yoki `--compact`, `--depth`, `--selector`, `--frame`)
+- Agar rol snapshot `--frame` bilan olingan bo‘lsa, keyingi rol snapshotigacha rol referenslari o‘sha iframe doirasida qoladi.
   - Chiqish: `[ref=e12]` (va ixtiyoriy `[nth=1]`) bilan rolga asoslangan ro‘yxat/daraxt.
   - Harakatlar: `openclaw browser click e12`, `openclaw browser highlight e12`.
   - Ichki tomondan, referens `getByRole(...)` orqali aniqlanadi (takrorlar uchun `nth()` bilan).
@@ -467,11 +483,11 @@ Faqat vaqt/matn emas, ko‘proq narsalarni ham kutishingiz mumkin:
 - URLni kutish (Playwright tomonidan qo‘llab-quvvatlanadigan globlar):
   - `openclaw browser wait --url "**/dash"`
 - Yuklanish holatini kutish:
-  - 1. `openclaw browser wait --load networkidle`
+  - `openclaw browser wait --load networkidle`
 - 2. JS predikati bajarilishini kuting:
-  - 3. `openclaw browser wait --fn "window.ready===true"`
+  - `openclaw browser wait --fn "window.ready===true"`
 - 4. Selektor ko‘rinadigan bo‘lishini kuting:
-  - 5. `openclaw browser wait "#main"`
+  - `openclaw browser wait "#main"`
 
 6. Bularni birlashtirish mumkin:
 
@@ -483,18 +499,18 @@ Faqat vaqt/matn emas, ko‘proq narsalarni ham kutishingiz mumkin:
   --timeout-ms 15000
 ```
 
-## 8. Ish jarayonlarini nosozlikdan o‘tkazish
+## 20. JSON chiqishi
 
 9. Harakat muvaffaqiyatsiz bo‘lganda (masalan, “ko‘rinmaydi”, “qat’iy rejim buzilishi”, “ustini yopib qo‘yilgan”):
 
-1. 10. `openclaw browser snapshot --interactive`
+1. `openclaw browser snapshot --interactive`
 2. 11. `click <ref>` / `type <ref>` dan foydalaning (interaktiv rejimda rolga asoslangan ref’larni afzal ko‘ring)
 3. 12. Agar baribir ishlamasa: Playwright nimani nishonga olayotganini ko‘rish uchun `openclaw browser highlight <ref>`
 4. 13. Agar sahifa g‘alati tutsa:
-   - 14. `openclaw browser errors --clear`
-   - 15. `openclaw browser requests --filter api --clear`
+   - `openclaw browser errors --clear`
+   - `openclaw browser requests --filter api --clear`
 5. 16. Chuqur nosozliklarni aniqlash uchun: treys yozib oling:
-   - 17. `openclaw browser trace start`
+   - `openclaw browser trace start`
    - 18. muammoni qayta yuzaga keltiring
    - 19. `openclaw browser trace stop` ( `TRACE:<path>` ni chiqaradi)
 
@@ -517,21 +533,22 @@ openclaw browser cookies --json
 
 26. Bular “saytni X kabi tutishga majbur qilish” ish jarayonlari uchun foydali:
 
-- 27. Cookie’lar: `cookies`, `cookies set`, `cookies clear`
+- Linux’ga xos muammolar (ayniqsa snap Chromium) uchun
+  [Browser troubleshooting](/tools/browser-linux-troubleshooting) ga qarang.
 - 28. Saqlash: `storage local|session get|set|clear`
 - 29. Oflayn: `set offline on|off`
 - 30. Sarlavhalar: `set headers --json '{"X-Debug":"1"}'` (yoki `--clear`)
 - 31. HTTP basic autentifikatsiya: `set credentials user pass` (yoki `--clear`)
 - 32. Geolokatsiya: `set geo <lat> <lon> --origin "https://example.com"` (yoki `--clear`)
-- 33. Media: `set media dark|light|no-preference|none`
+- Media: `set media dark|light|no-preference|none`
 - 34. Vaqt zonasi / til sozlamasi: `set timezone ...`, `set locale ...`
 - 35. Qurilma / viewport:
   - 36. `set device "iPhone 14"` (Playwright qurilma presetlari)
-  - 37. `set viewport 1280 720`
+  - `set viewport 1280 720`
 
 ## 38. Xavfsizlik va maxfiylik
 
-- 39. openclaw brauzer profili tizimga kirilgan sessiyalarni o‘z ichiga olishi mumkin; uni maxfiy deb hisoblang.
+- Agent brauzer avtomatlashtirish uchun **bitta vosita** oladi:
 - 40. `browser act kind=evaluate` / `openclaw browser evaluate` va `wait --fn`
       sahifa kontekstida ixtiyoriy JavaScript’ni bajaradi. 41. Prompt injection buni boshqarishi mumkin. 42. Agar kerak bo‘lmasa, `browser.evaluateEnabled=false` bilan o‘chirib qo‘ying.
 - 43. Login va anti-bot eslatmalari (X/Twitter va boshqalar) uchun [Browser login + X/Twitter posting](/tools/browser-login) ga qarang.
@@ -547,7 +564,7 @@ openclaw browser cookies --json
 
 49. Agent brauzer avtomatlashtirish uchun **bitta vosita** oladi:
 
-- 50. `browser` — status/start/stop/tabs/open/focus/close/snapshot/screenshot/navigate/act
+- `browser` — status/start/stop/tabs/open/focus/close/snapshot/screenshot/navigate/act
 
 1. Qanday xaritalanadi:
 
@@ -562,5 +579,3 @@ openclaw browser cookies --json
   - 10. Agar brauzerga qodir node ulangan bo‘lsa, asbob avtomatik ravishda unga yo‘naltirishi mumkin, agar siz `target="host"` yoki `target="node"` ni qat’iy belgilamasangiz.
 
 11. Bu agentni deterministik qiladi va mo‘rt selektorlarning oldini oladi.
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "Google Chat ilovasi qo‘llab-quvvatlash holati, imkoniyatlari va sozlanishi"
+read_when:
+  - Google Chat kanali funksiyalari ustida ishlayotganda
 title: "Google Chat"
 ---
 
@@ -44,7 +47,7 @@ Holati: Google Chat API webhooklari (faqat HTTP) orqali DM va space’lar uchun 
    - Muhit o‘zgaruvchisi: `GOOGLE_CHAT_SERVICE_ACCOUNT_FILE=/path/to/service-account.json`
    - Yoki konfiguratsiyada: `channels.googlechat.serviceAccountFile: "/path/to/service-account.json"`.
 8. Webhook audience turini va qiymatini belgilang (Chat ilovasi sozlamalariga mos bo‘lishi kerak).
-9. Gateway’ni ishga tushiring. Google Chat webhook manzilingizga POST so‘rov yuboradi.
+9. Start the gateway. Google Chat will POST to your webhook path.
 
 ## Google Chat’ga qo‘shish
 
@@ -53,18 +56,18 @@ Gateway ishga tushgan va emailingiz visibility ro‘yxatiga qo‘shilgan bo‘ls
 1. [Google Chat](https://chat.google.com/) ga o‘ting.
 2. **Direct Messages** yonidagi **+** (plus) belgisini bosing.
 3. Qidiruv satriga (odatda odam qo‘shadigan joy) Google Cloud Console’da sozlagan **App name** ni kiriting.
-   - **Eslatma**: Bot "Marketplace" ro‘yxatida ko‘rinmaydi, chunki u xususiy ilova. Uni nomi bo‘yicha qidirishingiz kerak.
+   - 4. **Eslatma**: Bot "Marketplace" ko‘rish ro‘yxatida _ko‘rinmaydi_, chunki u xususiy ilova. 5. Uni nomi bo‘yicha qidirishingiz kerak.
 4. Natijalardan botingizni tanlang.
 5. 1:1 suhbatni boshlash uchun **Add** yoki **Chat** ni bosing.
 6. Assistentni ishga tushirish uchun "Hello" deb yozing!
 
 ## Ommaviy URL (faqat Webhook)
 
-Google Chat webhooklari ommaviy HTTPS endpoint talab qiladi. Xavfsizlik uchun **faqat `/googlechat` yo‘lini internetga oching**. OpenClaw dashboard va boshqa sezgir endpointlarni xususiy tarmog‘ingizda qoldiring.
+10. Google Chat webhook’lari ommaviy HTTPS endpoint’ni talab qiladi. 11. Xavfsizlik uchun, **faqat `/googlechat` yo‘lini internetga oching**. 12. OpenClaw boshqaruv paneli va boshqa maxfiy endpoint’larni xususiy tarmog‘ingizda saqlang.
 
 ### Variant A: Tailscale Funnel (Tavsiya etiladi)
 
-Xususiy dashboard uchun Tailscale Serve, ommaviy webhook yo‘li uchun esa Funnel’dan foydalaning. Bu `/` ni xususiy saqlab, faqat `/googlechat` ni ochadi.
+14. Xususiy boshqaruv paneli uchun Tailscale Serve’dan, ommaviy webhook yo‘li uchun esa Funnel’dan foydalaning. 15. Bu `/` yo‘lini xususiy holda qoldirib, faqat `/googlechat` ni ochadi.
 
 1. **Gateway qaysi manzilga bog‘langanini tekshiring:**
 
@@ -104,15 +107,15 @@ Xususiy dashboard uchun Tailscale Serve, ommaviy webhook yo‘li uchun esa Funne
    tailscale funnel status
    ```
 
-Sizning ommaviy webhook URL manzilingiz:
-`https://<node-name>.<tailnet>.ts.net/googlechat`
+26) Ommaviy webhook URL’ingiz quyidagicha bo‘ladi:
+    `https://<node-name>.<tailnet>`27. `.ts.net/googlechat`
 
-Xususiy dashboard faqat tailnet ichida qoladi:
-`https://<node-name>.<tailnet>.ts.net:8443/`
+28. Xususiy boshqaruv paneli faqat tailnet ichida qoladi:
+    `https://<node-name>.<tailnet>`29. `.ts.net:8443/`
 
 Google Chat ilovasi sozlamasida ommaviy URL’ni (`:8443`siz) ishlating.
 
-> Eslatma: Ushbu sozlama qayta yuklashlardan keyin ham saqlanadi. Keyinroq olib tashlash uchun `tailscale funnel reset` va `tailscale serve reset` ni ishga tushiring.
+> 31. Eslatma: Ushbu sozlama qayta yuklashlardan keyin ham saqlanib qoladi. 32. Keyinroq olib tashlash uchun `tailscale funnel reset` va `tailscale serve reset` buyruqlarini bajaring.
 
 ### Variant B: Reverse Proxy (Caddy)
 
@@ -135,16 +138,16 @@ Tunnel ingress qoidalarini faqat webhook yo‘lini yo‘naltiradigan qilib sozla
 
 ## Qanday ishlaydi
 
-1. Google Chat gateway’ga webhook POST so‘rovlarini yuboradi. Har bir so‘rov `Authorization: Bearer <token>` sarlavhasini o‘z ichiga oladi.
+1. 42. Google Chat gateway’ga webhook POST’larini yuboradi. 43. Har bir so‘rov `Authorization: Bearer <token>` sarlavhasini o‘z ichiga oladi.
 2. OpenClaw tokenni sozlangan `audienceType` va `audience` bilan tekshiradi:
    - `audienceType: "app-url"` → audience — sizning HTTPS webhook URL manzilingiz.
    - `audienceType: "project-number"` → audience — Cloud loyiha raqami.
 3. Xabarlar space bo‘yicha marshrutlanadi:
    - DM’lar uchun sessiya kaliti `agent:<agentId>:googlechat:dm:<spaceId>`.
    - Space’lar uchun sessiya kaliti `agent:<agentId>:googlechat:group:<spaceId>`.
-4. DM kirishi odatda pairing orqali amalga oshadi. Noma’lum jo‘natuvchilar pairing kodi oladi; tasdiqlash:
+4. 50. DM’ga kirish sukut bo‘yicha pairing orqali amalga oshiriladi. Noma’lum jo‘natuvchilar juftlash kodi oladi; quyidagicha tasdiqlang:
    - `openclaw pairing approve googlechat <code>`
-5. Guruh space’larda odatda @-mention talab qilinadi. Agar mention aniqlash uchun ilova foydalanuvchi nomi kerak bo‘lsa, `botUser` dan foydalaning.
+5. Guruh bo‘shliqlari sukut bo‘yicha @-eslatmani talab qiladi. Agar eslatmani aniqlash uchun ilovaning foydalanuvchi nomi kerak bo‘lsa, `botUser` dan foydalaning.
 
 ## Manzillar (Targets)
 
@@ -205,9 +208,9 @@ Agar Google Cloud Logs Explorer’da quyidagi xatolar ko‘rinsa:
 status code: 405, reason phrase: HTTP error response: HTTP/1.1 405 Method Not Allowed
 ```
 
-Bu webhook handler ro‘yxatdan o‘tmaganini bildiradi. Odatdagi sabablar:
+Bu webhook ishlovchisi ro‘yxatdan o‘tkazilmaganini anglatadi. Keng tarqalgan sabablar:
 
-1. **Kanal sozlanmagan**: Konfiguratsiyada `channels.googlechat` bo‘limi yo‘q. Tekshiring:
+1. **Kanal sozlanmagan**: konfiguratsiyangizda `channels.googlechat` bo‘limi yo‘q. Quyidagicha tekshiring:
 
    ```bash
    openclaw config get channels.googlechat
@@ -248,5 +251,3 @@ Tegishli hujjatlar:
 - [Gateway konfiguratsiyasi](/gateway/configuration)
 - [Xavfsizlik](/gateway/security)
 - [Reaksiyalar](/tools/reactions)
-
-

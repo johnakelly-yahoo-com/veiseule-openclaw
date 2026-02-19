@@ -1,4 +1,8 @@
 ---
+summary: "Aplique patches de vários arquivos com a ferramenta apply_patch"
+read_when:
+  - Voce precisa de edições estruturadas de arquivos em vários arquivos
+  - Voce quer documentar ou depurar edições baseadas em patch
 title: "Ferramenta apply_patch"
 ---
 
@@ -29,6 +33,7 @@ A ferramenta aceita uma única string `input` que encapsula uma ou mais operaç�
 ## Notas
 
 - Os caminhos são resolvidos em relação à raiz do workspace.
+- `tools.exec.applyPatch.workspaceOnly` é definido como `true` por padrão (contido no workspace). Defina como `false` apenas se você intencionalmente quiser que `apply_patch` grave/exclua fora do diretório do workspace.
 - Use `*** Move to:` dentro de um hunk `*** Update File:` para renomear arquivos.
 - `*** End of File` marca uma inserção apenas no EOF quando necessário.
 - Experimental e desativado por padrão. Habilite com `tools.exec.applyPatch.enabled`.
@@ -44,5 +49,3 @@ A ferramenta aceita uma única string `input` que encapsula uma ou mais operaç�
   "input": "*** Begin Patch\n*** Update File: src/index.ts\n@@\n-const foo = 1\n+const foo = 2\n*** End Patch"
 }
 ```
-
-

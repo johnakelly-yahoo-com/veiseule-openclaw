@@ -1,4 +1,7 @@
 ---
+summary: "Nextcloud Talk destek durumu, yetenekler ve yapılandırma"
+read_when:
+  - Nextcloud Talk kanal özellikleri üzerinde çalışırken
 title: "Nextcloud Talk"
 ---
 
@@ -95,16 +98,16 @@ Minimal yapılandırma:
 
 - Hiç oda izin vermemek için izin listesini boş bırakın veya `channels.nextcloud-talk.groupPolicy="disabled"` ayarlayın.
 
-## Yetenekler
+## Capabilities
 
-| Özellik           | Durum        |
+| Özellik           | Status        |
 | ----------------- | ------------- |
 | Doğrudan mesajlar | Destekleniyor |
 | Odalar            | Destekleniyor |
 | Konular           | Desteklenmez  |
 | Medya             | Yalnızca URL  |
 | Tepkiler          | Destekleniyor |
-| Yerel komutlar   | Desteklenmez  |
+| Native commands   | Desteklenmez  |
 
 ## Yapılandırma referansı (Nextcloud Talk)
 
@@ -136,5 +139,3 @@ Sağlayıcı seçenekleri:
 - `channels.nextcloud-talk.blockStreaming`: bu kanal için blok halinde akışı devre dışı bırak.
 - `channels.nextcloud-talk.blockStreamingCoalesce`: blok halinde akış birleştirme ayarı.
 - `channels.nextcloud-talk.mediaMaxMb`: gelen medya üst sınırı (MB).
-
-

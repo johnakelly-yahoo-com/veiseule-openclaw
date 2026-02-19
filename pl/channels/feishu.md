@@ -1,4 +1,8 @@
 ---
+summary: "Przegląd bota Feishu, funkcje i konfiguracja"
+read_when:
+  - Chcesz podłączyć bota Feishu/Lark
+  - Konfigurujesz kanał Feishu
 title: Feishu
 ---
 
@@ -528,9 +532,9 @@ Kluczowe opcje:
 | ------------------------------------------------- | ---------------------------------------------------------------------------- | --------- |
 | `channels.feishu.enabled`                         | Włącz/wyłącz kanał                                                           | `true`    |
 | `channels.feishu.domain`                          | Domena API (`feishu` lub `lark`)                          | `feishu`  |
-| `channels.feishu.accounts.<id>.appId`             | App ID                                                                       | -         |
-| `channels.feishu.accounts.<id>.appSecret`         | App Secret                                                                   | -         |
-| `channels.feishu.accounts.<id>.domain`            | Nadpisanie domeny API per konto                                              | `feishu`  |
+| `channels.feishu.accounts.&lt;id&gt;.appId`             | App ID                                                                       | -         |
+| `channels.feishu.accounts.&lt;id&gt;.appSecret`         | App Secret                                                                   | -         |
+| `channels.feishu.accounts.&lt;id&gt;.domain`            | Nadpisanie domeny API per konto                                              | `feishu`  |
 | `channels.feishu.dmPolicy`                        | Polityka DM                                                                  | `pairing` |
 | `channels.feishu.allowFrom`                       | Lista dozwolonych DM (lista open_id) | -         |
 | `channels.feishu.groupPolicy`                     | Polityka grup                                                                | `open`    |
@@ -574,5 +578,3 @@ Kluczowe opcje:
 - ✅ Pliki
 - ✅ Audio
 - ⚠️ Tekst sformatowany (częściowe wsparcie)
-
-

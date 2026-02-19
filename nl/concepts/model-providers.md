@@ -1,4 +1,8 @@
 ---
+summary: "Overzicht van modelproviders met voorbeeldconfiguraties + CLI-flows"
+read_when:
+  - Je hebt een provider-voor-provider referentie voor modelinstallatie nodig
+  - Je wilt voorbeeldconfiguraties of CLI-onboardingopdrachten voor modelproviders
 title: "Modelproviders"
 ---
 
@@ -116,6 +120,7 @@ OpenClaw wordt geleverd met de pi‑ai-catalogus. Deze providers vereisen **geen
   - OpenAI-compatibele basis-URL: `https://api.cerebras.ai/v1`.
 - Mistral: `mistral` (`MISTRAL_API_KEY`)
 - GitHub Copilot: `github-copilot` (`COPILOT_GITHUB_TOKEN` / `GH_TOKEN` / `GITHUB_TOKEN`)
+- Hugging Face Inference: `huggingface` (`HUGGINGFACE_HUB_TOKEN` of `HF_TOKEN`) — OpenAI-compatibele router; voorbeeldmodel: `huggingface/deepseek-ai/DeepSeek-R1`; CLI: `openclaw onboard --auth-choice huggingface-api-key`. Zie [Hugging Face (Inference)](/providers/huggingface).
 
 ## Providers via `models.providers` (aangepaste/basis-URL)
 
@@ -255,6 +260,32 @@ ollama pull llama3.3
 
 Ollama wordt automatisch gedetecteerd wanneer lokaal wordt uitgevoerd op `http://127.0.0.1:11434/v1`. Zie [/providers/ollama](/providers/ollama) voor modelaanbevelingen en aangepaste configuratie.
 
+### vLLM
+
+vLLM is een lokale (of self-hosted) OpenAI-compatibele server:
+
+- Provider: `vllm`
+- Auth: Optioneel (afhankelijk van je server)
+- Standaard basis-URL: `http://127.0.0.1:8000/v1`
+
+Om lokaal auto-discovery in te schakelen (elke waarde werkt als je server geen auth afdwingt):
+
+```bash
+export VLLM_API_KEY="vllm-local"
+```
+
+Stel vervolgens een model in (vervang door een van de ID’s die door `/v1/models` worden geretourneerd):
+
+```json5
+{
+  agents: {
+    defaults: { model: { primary: "vllm/your-model-id" } },
+  },
+}
+```
+
+Zie [/providers/vllm](/providers/vllm) voor details.
+
 ### Lokale proxies (LM Studio, vLLM, LiteLLM, enz.)
 
 Voorbeeld (OpenAI-compatibel):
@@ -310,5 +341,3 @@ openclaw models list
 ```
 
 Zie ook: [/gateway/configuration](/gateway/configuration) voor volledige configuratievoorbeelden.
-
-

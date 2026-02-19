@@ -1,4 +1,9 @@
 ---
+summary: "Pareamento de nós de propriedade do Gateway (Opção B) para iOS e outros nós remotos"
+read_when:
+  - Implementando aprovações de pareamento de nós sem UI do macOS
+  - Adicionando fluxos de CLI para aprovar nós remotos
+  - Estendendo o protocolo do gateway com gerenciamento de nós
 title: "Pareamento Gateway-Owned"
 ---
 
@@ -92,5 +97,3 @@ Notas de segurança:
 - O transporte é **sem estado**; ele não armazena associação.
 - Se o Gateway estiver offline ou o pareamento estiver desativado, os nós não conseguem parear.
 - Se o Gateway estiver em modo remoto, o pareamento ainda ocorre contra o armazenamento do Gateway remoto.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Справочник CLI для `openclaw memory` (status/index/search)"
+read_when:
+  - Вам нужно индексировать или искать семантическую память
+  - Вы отлаживаете доступность памяти или индексацию
 title: "memory"
 ---
 
@@ -39,5 +43,3 @@ openclaw memory index --agent main --verbose
 - `memory status --deep --index` выполняет переиндексацию, если хранилище помечено как «грязное».
 - `memory index --verbose` выводит детали по каждому этапу (провайдер, модель, источники, активность батчей).
 - `memory status` включает любые дополнительные пути, настроенные через `memorySearch.extraPaths`.
-
-

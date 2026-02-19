@@ -1,4 +1,7 @@
 ---
+summary: "Công cụ phiên tác tử để liệt kê phiên, lấy lịch sử và gửi tin nhắn giữa các phiên"
+read_when:
+  - Thêm hoặc chỉnh sửa công cụ phiên
 title: "Công cụ Phiên"
 ---
 
@@ -92,9 +95,10 @@ Hành vi:
 - Chờ thông qua `agent.wait` của gateway (phía server) để việc reconnect không làm rơi quá trình chờ.
 - Ngữ cảnh tin nhắn tác tử‑tác tử được chèn cho lần chạy chính.
 - Sau khi lần chạy chính hoàn tất, OpenClaw chạy **vòng lặp reply-back**:
-  - Vòng 2+ luân phiên giữa tác tử yêu cầu và tác tử đích.
-  - Trả lời chính xác `REPLY_SKIP` để dừng ping‑pong.
-  - Số lượt tối đa là `session.agentToAgent.maxPingPongTurns` (0–5, mặc định 5).
+- Khi vòng lặp kết thúc, OpenClaw chạy **bước announce tác tử‑tác tử** (chỉ tác tử đích):
+  - Trả lời chính xác `ANNOUNCE_SKIP` để giữ im lặng.
+  - Bất kỳ phản hồi nào khác sẽ được gửi tới kênh đích.
+  - Bước announce bao gồm yêu cầu ban đầu + phản hồi vòng 1 + phản hồi ping‑pong mới nhất.
 - Khi vòng lặp kết thúc, OpenClaw chạy **bước announce tác tử‑tác tử** (chỉ tác tử đích):
   - Trả lời chính xác `ANNOUNCE_SKIP` để giữ im lặng.
   - Bất kỳ phản hồi nào khác sẽ được gửi tới kênh đích.
@@ -188,5 +192,3 @@ Cấu hình:
   },
 }
 ```
-
-

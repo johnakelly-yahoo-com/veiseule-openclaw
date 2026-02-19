@@ -1,5 +1,7 @@
 ---
+summary: "Multi-agent-routing: isolerede agenter, kanalkonti og bindinger"
 title: Multi-Agent-routing
+read_when: "Du vil have flere isolerede agenter (workspaces + auth) i én gateway-proces."
 status: active
 ---
 
@@ -123,11 +125,15 @@ Noter:
 Bindinger er **deterministiske**, og **mest specifik vinder**:
 
 1. `peer`-match (præcis DM/gruppe/kanal-id)
-2. `guildId` (Discord)
-3. `teamId` (Slack)
-4. `accountId`-match for en kanal
-5. match på kanalniveau (`accountId: "*"`)
+2. `parentPeer`-match (tråd-arv)
+3. `guildId + roles` (Discord-rolle-routing)
+4. `guildId` (Discord)
+5. `teamId` (Slack)
 6. fallback til standardagent (`agents.list[].default`, ellers første listeindgang, standard: `main`)
+7. match på kanalniveau (`accountId: "*"`)
+8. fallback til standardagent (`agents.list[].default`, ellers første listeindgang, standard: `main`)
+
+Hvis en binding angiver flere match-felter (for eksempel `peer` + `guildId`), er alle angivne felter påkrævet (`AND`-semantik).
 
 ## Flere konti / telefonnumre
 
@@ -381,5 +387,3 @@ Hvis du har brug for per-agent grænser, brug `agents.list[].tools` at benægte 
 For gruppemål, brug `agents.list[].groupChat.mentionPatterns` så @nævner kort rent til den tilsigtede agent.
 
 Se [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) for detaljerede eksempler.
-
-

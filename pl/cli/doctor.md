@@ -1,4 +1,8 @@
 ---
+summary: "Referencja CLI dla `openclaw doctor` (kontrole stanu + prowadzone naprawy)"
+read_when:
+  - Masz problemy z łącznością lub uwierzytelnianiem i chcesz skorzystać z prowadzonego rozwiązywania problemów
+  - Zaktualizowałeś system i chcesz wykonać kontrolę poprawności
 title: "doctor"
 ---
 
@@ -35,5 +39,3 @@ launchctl getenv OPENCLAW_GATEWAY_PASSWORD
 launchctl unsetenv OPENCLAW_GATEWAY_TOKEN
 launchctl unsetenv OPENCLAW_GATEWAY_PASSWORD
 ```
-
-

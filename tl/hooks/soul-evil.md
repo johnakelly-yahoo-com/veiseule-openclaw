@@ -1,15 +1,19 @@
 ---
+summary: "SOUL Evil hook (ipalit ang SOUL.md sa SOUL_EVIL.md)"
+read_when:
+  - Gusto mong paganahin o i-tune ang SOUL Evil hook
+  - Gusto mo ng purge window o random-chance na pagpapalit ng persona
 title: "SOUL Evil Hook"
 ---
 
 # SOUL Evil Hook
 
-Pinapalitan ng SOUL Evil hook ang **ini-inject** na nilalaman ng `SOUL.md` ng `SOUL_EVIL.md` habang
+The SOUL Evil hook swaps the **injected** `SOUL.md` content with `SOUL_EVIL.md` during
 a purge window or by random chance. It does **not** modify files on disk.
 
 ## Paano Ito Gumagana
 
-Kapag tumatakbo ang `agent:bootstrap`, maaaring palitan ng hook ang nilalaman ng `SOUL.md` sa memorya
+When `agent:bootstrap` runs, the hook can replace the `SOUL.md` content in memory
 before the system prompt is assembled. If `SOUL_EVIL.md` is missing or empty,
 OpenClaw logs a warning and keeps the normal `SOUL.md`.
 
@@ -63,5 +67,3 @@ Likhain ang `SOUL_EVIL.md` sa root ng agent workspace (katabi ng `SOUL.md`).
 ## Tingnan Din
 
 - [Hooks](/automation/hooks)
-
-

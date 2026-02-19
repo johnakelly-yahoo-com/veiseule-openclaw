@@ -1,4 +1,8 @@
 ---
+summary: "Mag-apply ng mga multi-file patch gamit ang apply_patch tool"
+read_when:
+  - Kailangan mo ng structured na pag-edit ng file sa maraming file
+  - Gusto mong idokumento o i-debug ang mga edit na nakabatay sa patch
 title: "apply_patch Tool"
 ---
 
@@ -28,7 +32,8 @@ Tumatanggap ang tool ng isang `input` na string na bumabalot sa isa o higit pang
 ## Mga Tala
 
 - Ang mga path ay nireresolba nang relative sa workspace root.
-- Gamitin ang `*** Move to:` sa loob ng isang `*** Update File:` hunk para mag-rename ng mga file.
+- Ang `tools.exec.applyPatch.workspaceOnly` ay naka-default sa `true` (nasa loob lamang ng workspace). Itakda ito sa `false` lamang kung sadyang nais mong pahintulutan ang `apply_patch` na magsulat/magbura sa labas ng workspace directory.
+- Minamarkahan ng `*** End of File` ang isang EOF-only insert kapag kinakailangan.
 - Minamarkahan ng `*** End of File` ang isang EOF-only insert kapag kinakailangan.
 - 17. Eksperimental at naka-disable bilang default. 18. I-enable gamit ang `tools.exec.applyPatch.enabled`.
 - 19. OpenAI-only (kasama ang OpenAI Codex). 16. Opsyonal na i-gate ayon sa modelo gamit ang
@@ -43,5 +48,3 @@ Tumatanggap ang tool ng isang `input` na string na bumabalot sa isa o higit pang
   "input": "*** Begin Patch\n*** Update File: src/index.ts\n@@\n-const foo = 1\n+const foo = 2\n*** End Patch"
 }
 ```
-
-

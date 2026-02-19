@@ -1,4 +1,8 @@
 ---
+summary: "Gmail Pub/Sub push gogcli orqali OpenClaw webhook’lariga ulandi"
+read_when:
+  - Wiring Gmail inbox triggers to OpenClaw
+  - Setting up Pub/Sub push for agent wake
 title: "Gmail PubSub"
 ---
 
@@ -11,7 +15,7 @@ Maqsad: Gmail watch -> Pub/Sub push -> `gog gmail watch serve` -> OpenClaw webho
 - `gcloud` o‘rnatilgan va tizimga kirilgan ([install guide](https://docs.cloud.google.com/sdk/docs/install-sdk)).
 - `gog` (gogcli) o‘rnatilgan va Gmail akkaunti uchun ruxsat berilgan ([gogcli.sh](https://gogcli.sh/)).
 - OpenClaw hook’lari yoqilgan (qarang: [Webhooks](/automation/webhook)).
-- `tailscale` tizimga kirilgan ([tailscale.com](https://tailscale.com/)). Qo‘llab-quvvatlanadigan sozlama ommaviy HTTPS endpoint uchun Tailscale Funnel’dan foydalanadi.
+- `tailscale` logged in ([tailscale.com](https://tailscale.com/)). Supported setup uses Tailscale Funnel for the public HTTPS endpoint.
   Other tunnel services can work, but are DIY/unsupported and require manual wiring.
   Hozirda biz qo‘llab-quvvatlaydigan narsa — Tailscale.
 
@@ -183,7 +187,7 @@ Chiqarishdagi `history_id` ni saqlab qo‘ying (debug uchun).
 - \--port 8788 \
 - \--path /gmail-pubsub \
 
-\--token &lt;shared&gt; \
+\--token <shared> \
 
 ## --hook-url http://127.0.0.1:18789/hooks/gmail \
 
@@ -223,12 +227,10 @@ Chiqarishdagi `history_id` ni saqlab qo‘ying (debug uchun).
 
 - 12. gcloud pubsub subscriptions create gog-gmail-watch-push \
 - \--topic gog-gmail-watch \
-- \--push-endpoint "https://&lt;public-url&gt;/gmail-pubsub?token=&lt;shared&gt;"
+- \--push-endpoint "https://<public-url>/gmail-pubsub?token=<shared>"
 
 ## 13. Prodakshen: barqaror HTTPS endpointdan foydalaning va Pub/Sub OIDC JWT’ni sozlang, so‘ng ishga tushiring:
 
 ```bash
 14. gog gmail watch serve --verify-oidc --oidc-email <svc@...>
 ```
-
-

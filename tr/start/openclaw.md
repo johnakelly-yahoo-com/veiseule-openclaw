@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw’ı güvenlik uyarılarıyla birlikte kişisel asistan olarak çalıştırmak için uçtan uca rehber"
+read_when:
+  - Yeni bir asistan örneğinin sisteme alınması
+  - Güvenlik/izin etkileri gözden geçirilirken
 title: "Kişisel Asistan Kurulumu"
 ---
 
@@ -30,25 +34,9 @@ Temkinli başlayın:
 İstediğiniz şey şu:
 
 ```mermaid
-%%{init: {
-  'theme': 'base',
-  'themeVariables': {
-    'primaryColor': '#ffffff',
-    'primaryTextColor': '#000000',
-    'primaryBorderColor': '#000000',
-    'lineColor': '#000000',
-    'secondaryColor': '#f9f9fb',
-    'tertiaryColor': '#ffffff',
-    'clusterBkg': '#f9f9fb',
-    'clusterBorder': '#000000',
-    'nodeBorder': '#000000',
-    'mainBkg': '#ffffff',
-    'edgeLabelBackground': '#ffffff'
-  }
-}}%%
 flowchart TB
-    A["<b>Your Phone (personal)<br></b><br>Your WhatsApp<br>+1-555-YOU"] -- message --> B["<b>Second Phone (assistant)<br></b><br>Assistant WA<br>+1-555-ASSIST"]
-    B -- linked via QR --> C["<b>Your Mac (openclaw)<br></b><br>Pi agent"]
+    A["<b>Telefonunuz (kişisel)<br></b><br>WhatsApp’ınız<br>+1-555-YOU"] -- message --> B["<b>İkinci Telefon (asistan)<br></b><br>Asistan WA<br>+1-555-ASSIST"]
+    B -- linked via QR --> C["<b>Mac’iniz (openclaw)<br></b><br>Pi agent"]
 ```
 
 Kişisel WhatsApp’ınızı OpenClaw’a bağlarsanız, size gelen her mesaj “ajan girdisi” olur. Bu nadiren istenen bir durumdur.
@@ -225,5 +213,3 @@ Günlükler `/tmp/openclaw/` altında bulunur (varsayılan: `openclaw-YYYY-MM-DD
 - Windows durumu: [Windows (WSL2)](/platforms/windows)
 - Linux durumu: [Linux app](/platforms/linux)
 - Güvenlik: [Security](/gateway/security)
-
-

@@ -1,4 +1,10 @@
-------
+---
+title: "Default AGENTS.md"
+summary: "Mga default na tagubilin ng OpenClaw agent at talaan ng Skills para sa setup ng personal assistant"
+read_when:
+  - Pagsisimula ng bagong OpenClaw agent session
+  - Pag-enable o pag-audit ng mga default na Skills
+---
 
 # AGENTS.md — OpenClaw Personal Assistant (default)
 
@@ -116,5 +122,3 @@ git commit -m "Add Clawd workspace"
 - Para sa browser-driven na verification, gamitin ang `openclaw browser` (tabs/status/screenshot) gamit ang OpenClaw-managed Chrome profile.
 - Para sa DOM inspection, gamitin ang `openclaw browser eval|query|dom|snapshot` (at `--json`/`--out` kapag kailangan mo ng machine output).
 - Para sa mga interaction, gamitin ang `openclaw browser click|type|hover|drag|select|upload|press|wait|navigate|back|evaluate|run` (ang click/type ay nangangailangan ng snapshot refs; gamitin ang `evaluate` para sa mga CSS selector).
-
-

@@ -1,44 +1,48 @@
 ---
+summary: "Configuration 概覽：常見任務、快速設定與完整參考文件連結"
+read_when:
+  - 首次設定 OpenClaw
+  - 尋找常見的設定模式
+  - 導覽至特定設定區段
 title: "設定"
 ---
 
-# Configuration
+# Configuration 🔧
 
-OpenClaw 會從 `~/.openclaw/openclaw.json` 讀取一個可選的 <Tooltip tip="JSON5 支援註解與尾隨逗號">**JSON5**</Tooltip> 設定檔。
+OpenClaw reads an optional **JSON5** config from `~/.openclaw/openclaw.json` (comments + trailing commas allowed).
 
-如果檔案不存在，OpenClaw 會使用安全的預設值。常見需要新增設定檔的原因：
+If the file is missing, OpenClaw uses safe-ish defaults (embedded Pi agent + per-sender sessions + workspace `~/.openclaw/workspace`). You usually only need a config to:
 
-- 連接各種通道並控制誰可以傳訊給機器人
-- 設定模型、工具、沙箱或自動化（cron、hooks）
-- 調整工作階段、媒體、網路或 UI 行為
+- 連接各種管道並控制誰可以向機器人傳送訊息
+- 設定模型、工具、沙箱機制或自動化（cron、hooks）
+- 調整工作階段、媒體、網路或 UI
 
 請參閱 [完整參考](/gateway/configuration-reference) 以查看所有可用欄位。
 
 <Tip>
-**第一次設定？** 建議從 `openclaw onboard` 的互動式精靈開始，或查看 [Configuration Examples](/gateway/configuration-examples) 指南以取得可直接複製貼上的完整範例設定。
+**New to configuration?** Check out the [Configuration Examples](/gateway/configuration-examples) guide for complete examples with detailed explanations!
 </Tip>
 
-## Minimal config
+## Minimal config (recommended starting point)
 
 ```json5
-// ~/.openclaw/openclaw.json
 {
   agents: { defaults: { workspace: "~/.openclaw/workspace" } },
   channels: { whatsapp: { allowFrom: ["+15555550123"] } },
 }
 ```
 
-## Editing config
+## Configuration 🔧
 
 <Tabs>
-  <Tab title="互動式精靈">
+  <Tab title="Interactive wizard">
     ```bash
     openclaw onboard       # 完整設定精靈
     openclaw configure     # 設定精靈
     ```
   
 </Tab>
-  <Tab title="CLI（單行指令）">
+  <Tab title="CLI (one-liners)">
     ```bash
     openclaw config get agents.defaults.workspace
     openclaw config set agents.defaults.heartbeat.every "2h"
@@ -47,182 +51,174 @@ OpenClaw 會從 `~/.openclaw/openclaw.json` 讀取一個可選的 <Tooltip tip="
   
 </Tab>
   <Tab title="Control UI">
-    開啟 [http://127.0.0.1:18789](http://127.0.0.1:18789) 並使用 **Config** 分頁。
-    Control UI 會根據設定的 schema 產生表單，並提供 **Raw JSON** 編輯器作為進階選項。
+    The Gateway exposes a JSON Schema representation of the config via `config.schema` for UI editors.
+    The Control UI renders a form from this schema, with a **Raw JSON** editor as an escape hatch.
   
 </Tab>
-  <Tab title="直接編輯">
-    直接編輯 `~/.openclaw/openclaw.json`。Gateway 會監看檔案並自動套用變更（請參閱 [hot reload](#config-hot-reload)）。
+  <Tab title="Direct edit">
+    `~/.openclaw/openclaw.json`（或 `OPENCLAW_CONFIG_PATH`） Gateway 會監看該檔案並自動套用變更（請參閱 [hot reload](#config-hot-reload)）。
   
 </Tab>
 </Tabs>
 
-## Strict validation
+## Strict config validation
 
 <Warning>
-OpenClaw 僅接受完全符合 schema 的設定。未知的鍵、型別錯誤或無效值都會導致 Gateway **拒絕啟動**。唯一允許的根層例外是 `$schema`（字串），方便編輯器附加 JSON Schema 中繼資料。
+OpenClaw only accepts configurations that fully match the schema. Unknown keys, malformed types, or invalid values cause the Gateway to **refuse to start** for safety. 唯一允許的根層級例外是 `$schema`（字串），讓編輯器可附加 JSON Schema 中繼資料。
 </Warning>
 
-當驗證失敗時：
+When validation fails:
 
-- Gateway 不會啟動
-- 僅能使用診斷指令（`openclaw doctor`、`openclaw logs`、`openclaw health`、`openclaw status`）
-- 執行 `openclaw doctor` 查看具體問題
-- 執行 `openclaw doctor --fix`（或 `--yes`）自動修復
+- The Gateway does not boot.
+- Only diagnostic commands are allowed (for example: `openclaw doctor`, `openclaw logs`, `openclaw health`, `openclaw status`, `openclaw service`, `openclaw help`).
+- Run `openclaw doctor` to see the exact issues.
+- Run `openclaw doctor --fix` (or `--yes`) to apply migrations/repairs.
 
-## Common tasks
+## 常見任務
 
 <AccordionGroup>
-  <Accordion title="設定通道（WhatsApp、Telegram、Discord 等）">
-    每個通道都有自己在 `channels.<provider>` 底下的設定區塊。請參閱各通道頁面以了解詳細設定步驟：
+  <Accordion title="Set up a channel (WhatsApp, Telegram, Discord, etc.)">
+    每個 channel 都在 `channels. 下擁有各自的設定區段。<provider>` 下。 請參閱各 channel 的專屬頁面以取得設定步驟：
 
-    - [WhatsApp](/channels/whatsapp) — `channels.whatsapp`
-    - [Telegram](/channels/telegram) — `channels.telegram`
-    - [Discord](/channels/discord) — `channels.discord`
-    - [Slack](/channels/slack) — `channels.slack`
-    - [Signal](/channels/signal) — `channels.signal`
-    - [iMessage](/channels/imessage) — `channels.imessage`
-    - [Google Chat](/channels/googlechat) — `channels.googlechat`
-    - [Mattermost](/channels/mattermost) — `channels.mattermost`
-    - [MS Teams](/channels/msteams) — `channels.msteams`
-
-    所有通道都共用相同的 DM 政策模式：
-
-    ```json5
-    {
+    ```
+    25. {
       channels: {
+        whatsapp: {
+          groupPolicy: "allowlist",
+          groupAllowFrom: ["+15551234567"],
+        },
         telegram: {
-          enabled: true,
-          botToken: "123:abc",
-          dmPolicy: "pairing",   // pairing | allowlist | open | disabled
-          allowFrom: ["tg:123"], // only for allowlist/open
+          groupPolicy: "allowlist",
+          groupAllowFrom: ["tg:123456789", "@alice"],
+        },
+        signal: {
+          groupPolicy: "allowlist",
+          groupAllowFrom: ["+15551234567"],
+        },
+        imessage: {
+          groupPolicy: "allowlist",
+          groupAllowFrom: ["chat_id:123"],
+        },
+        msteams: {
+          groupPolicy: "allowlist",
+          groupAllowFrom: ["user@org.com"],
+        },
+        discord: {
+          groupPolicy: "allowlist",
+          guilds: {
+            GUILD_ID: {
+              channels: { help: { allow: true } },
+            },
+          },
+        },
+        slack: {
+          groupPolicy: "allowlist",
+          channels: { "#general": { allow: true } },
         },
       },
     }
     ```
+
   
 </Accordion>
 
-  <Accordion title="選擇並設定模型">
-    設定主要模型與可選備援：
+  <Accordion title="Choose and configure models">
+    設定主要模型及可選的備援模型：
 
-    ```json5
+    ```
     {
       agents: {
         defaults: {
-          model: {
-            primary: "anthropic/claude-sonnet-4-5",
-            fallbacks: ["openai/gpt-5.2"],
-          },
-          models: {
-            "anthropic/claude-sonnet-4-5": { alias: "Sonnet" },
-            "openai/gpt-5.2": { alias: "GPT" },
+          cliBackends: {
+            "claude-cli": {
+              command: "/opt/homebrew/bin/claude",
+            },
+            "my-cli": {
+              command: "my-cli",
+              args: ["--json"],
+              output: "json",
+              modelArg: "--model",
+              sessionArg: "--session",
+              sessionMode: "existing",
+              systemPromptArg: "--system",
+              systemPromptWhen: "first",
+              imageArg: "--image",
+              imageMode: "repeat",
+            },
           },
         },
       },
     }
     ```
 
-    - `agents.defaults.models` 定義模型目錄，並同時作為 `/model` 的允許清單。
-    - 模型參考格式為 `provider/model`（例如 `anthropic/claude-opus-4-6`）。
-    - 請參閱 [Models CLI](/concepts/models) 了解聊天中切換模型，及 [Model Failover](/concepts/model-failover) 了解備援與驗證輪替。
-    - 自訂／自架提供者請參閱參考文件中的 [Custom providers](/gateway/configuration-reference#custom-providers-and-base-urls)。
+  
+</Accordion>
+
+  <Accordion title="Control who can message the bot">
+    透過 `dmPolicy` 於各 channel 中控制 DM 存取：
+
+```json5
+{
+  session: {
+    dmScope: "per-channel-peer",  // 建議用於多使用者
+    reset: {
+      mode: "daily",
+      atHour: 4,
+      idleMinutes: 120,
+    },
+  },
+}
+```
+
+- `dmScope`：`main`（共用） | `per-peer` | `per-channel-peer` | `per-account-channel-peer`
+- 有關範圍設定、身分連結與傳送政策，請參閱 [Session Management](/concepts/session)。
+- 所有欄位請參閱 [完整參考](/gateway/configuration-reference#session)。
+
+    ```
+    預設為 `groupPolicy: "allowlist"`（除非被 `channels.defaults.groupPolicy` 覆寫）；若未設定任何允許清單，群組訊息會被封鎖。
+    ```
 
   
 </Accordion>
 
-  <Accordion title="控制誰可以傳訊給機器人">
-    每個通道透過 `dmPolicy` 控制私訊存取：
+  <Accordion title="Set up group chat mention gating">
+    Group messages default to **require mention** (either metadata mention or regex patterns). `agents.defaults.subagents` 設定子代理的預設值：
 
-    - `"pairing"`（預設）：未知寄件者會收到一次性配對碼
-    - `"allowlist"`：僅允許 `allowFrom`（或已配對儲存）中的寄件者
-    - `"open"`：允許所有私訊（需要 `allowFrom: ["*"]`）
-    - `"disabled"`：忽略所有私訊
-
-    群組請使用 `groupPolicy` + `groupAllowFrom` 或各通道特定的允許清單。
-
-    詳細請參閱 [完整參考](/gateway/configuration-reference#dm-and-group-access)。
-
-  
-</Accordion>
-
-  <Accordion title="設定群組提及門控">
-    群組訊息預設為 **需要提及**。可為每個 agent 設定：
-
-    ```json5
+    ```
     {
       agents: {
+        defaults: { workspace: "~/.openclaw/workspace" },
         list: [
           {
             id: "main",
-            groupChat: {
-              mentionPatterns: ["@openclaw", "openclaw"],
-            },
+            groupChat: { mentionPatterns: ["@openclaw", "reisponde"] },
           },
         ],
       },
       channels: {
         whatsapp: {
+          // Allowlist is DMs only; including your own number enables self-chat mode.
+          allowFrom: ["+15555550123"],
           groups: { "*": { requireMention: true } },
         },
       },
     }
     ```
 
-    - **Metadata mentions**：平台原生 @ 提及
-    - **Text patterns**：`mentionPatterns` 中的正則模式
-    - 請參閱 [完整參考](/gateway/configuration-reference#group-chat-mention-gating)
-
   
 </Accordion>
 
-  <Accordion title="設定工作階段與重置">
-    工作階段控制對話連續性與隔離：
+  <Accordion title="Configure sessions and resets">Thread session isolation:
 
-    ```json5
-    {
-      session: {
-        dmScope: "per-channel-peer",
-        reset: {
-          mode: "daily",
-          atHour: 4,
-          idleMinutes: 120,
-        },
-      },
-    }
+    ```
+    
+        在隔離的 Docker 容器中執行 agent 工作階段：
     ```
 
-    - `dmScope`: `main` | `per-peer` | `per-channel-peer` | `per-account-channel-peer`
-    - 請參閱 [Session Management](/concepts/session)
-    - 完整欄位請參閱 [完整參考](/gateway/configuration-reference#session)
-
   
 </Accordion>
 
-  <Accordion title="啟用沙箱">
-    在隔離的 Docker 容器中執行 agent：
-
-    ```json5
-    {
-      agents: {
-        defaults: {
-          sandbox: {
-            mode: "non-main",
-            scope: "agent",
-          },
-        },
-      },
-    }
-    ```
-
-    先建置映像：`scripts/sandbox-setup.sh`
-
-    請參閱 [Sandboxing](/gateway/sandboxing)。
-
-  
-</Accordion>
-
-  <Accordion title="設定心跳（定期檢查）">
+  <Accordion title="Enable sandboxing">
     ```json5
     {
       agents: {
@@ -236,62 +232,79 @@ OpenClaw 僅接受完全符合 schema 的設定。未知的鍵、型別錯誤或
     }
     ```
 
-    - `every`: 時間字串（`30m`、`2h`），`0m` 代表停用
-    - `target`: `last` | `whatsapp` | `telegram` | `discord` | `none`
-    - 請參閱 [Heartbeat](/gateway/heartbeat)
 
-  
-</Accordion>
-
-  <Accordion title="設定 cron 任務">
-    ```json5
+    ```
+    // ~/.openclaw/agents.json5
     {
-      cron: {
-        enabled: true,
-        maxConcurrentRuns: 2,
-        sessionRetention: "24h",
-      },
+      defaults: { sandbox: { mode: "all", scope: "session" } },
+      list: [{ id: "main", workspace: "~/.openclaw/workspace" }],
     }
     ```
 
-    請參閱 [Cron jobs](/automation/cron-jobs)。
+  
+</Accordion>
+
+  <Accordion title="Set up heartbeat (periodic check-ins)">- `every`：時間長度字串（`30m`、`2h`）。設為 `0m` 可停用。
+- `target`：`last` | `whatsapp` | `telegram` | `discord` | `none`
+- 完整指南請參閱 [Heartbeat](/gateway/heartbeat)。
+
+    ```
+    
+        執行多個彼此隔離、擁有獨立工作區與工作階段的 agents：
+    ```
 
   
 </Accordion>
 
-  <Accordion title="設定 Webhooks（hooks）">
-    啟用 Gateway 上的 HTTP webhook：
+  <Accordion title="Configure cron jobs">{
+  cron: {
+    enabled: true,
+    maxConcurrentRuns: 2,
+  },
+}
 
-    ```json5
+    ```
+    功能概覽與 CLI 範例請參閱 [Cron jobs](/automation/cron-jobs)。
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Set up webhooks (hooks)">在 Gateway HTTP 伺服器上啟用一個簡單的 HTTP Webhook 端點。
+
+    ```
     {
       hooks: {
         enabled: true,
         token: "shared-secret",
         path: "/hooks",
-        defaultSessionKey: "hook:ingress",
-        allowRequestSessionKey: false,
-        allowedSessionKeyPrefixes: ["hook:"],
+        presets: ["gmail"],
+        transformsDir: "~/.openclaw/hooks",
         mappings: [
           {
             match: { path: "gmail" },
             action: "agent",
-            agentId: "main",
+            wakeMode: "now",
+            name: "Gmail",
+            sessionKey: "hook:gmail:{{messages[0].id}}",
+            messageTemplate: "From: {{messages[0].from}}\nSubject: {{messages[0].subject}}\n{{messages[0].snippet}}",
             deliver: true,
+            channel: "last",
+            model: "openai/gpt-5.2-mini",
           },
         ],
       },
     }
     ```
 
-    請參閱 [完整參考](/gateway/configuration-reference#hooks)。
-
   
 </Accordion>
 
-  <Accordion title="多代理路由設定">
-    在同一 Gateway 中執行多個隔離的 agent：
+  <Accordion title="Configure multi-agent routing">  
+</Accordion>
 
-    ```json5
+
+    ```
     {
       agents: {
         list: [
@@ -303,105 +316,200 @@ OpenClaw 僅接受完全符合 schema 的設定。未知的鍵、型別錯誤或
         { agentId: "home", match: { channel: "whatsapp", accountId: "personal" } },
         { agentId: "work", match: { channel: "whatsapp", accountId: "biz" } },
       ],
-    }
-    ```
-
-    請參閱 [Multi-Agent](/concepts/multi-agent)。
-
-  
-</Accordion>
-
-  <Accordion title="將設定拆分為多個檔案（$include）">
-    使用 `$include` 組織大型設定：
-
-    ```json5
-    // ~/.openclaw/openclaw.json
-    {
-      gateway: { port: 18789 },
-      agents: { $include: "./agents.json5" },
-      broadcast: {
-        $include: ["./clients/a.json5", "./clients/b.json5"],
+      channels: {
+        whatsapp: {
+          accounts: {
+            personal: {},
+            biz: {},
+          },
+        },
       },
     }
     ```
 
-    - **單一檔案**：取代該物件
-    - **檔案陣列**：依序深度合併（後者覆蓋前者）
-    - **同層鍵**：在 include 之後合併（可覆蓋）
-    - **巢狀 include**：最多 10 層
-    - **相對路徑**：相對於包含它的檔案
-    - **錯誤處理**：缺檔、解析錯誤、循環 include 都會明確報錯
+  
+</Accordion>
+
+  <Accordion title="Split config into multiple files ($include)">Split your config into multiple files using the `$include` directive. This is useful for:
+
+    ```
+    // ~/.openclaw/openclaw.json
+    {
+      gateway: { port: 18789 },
+    
+      // Include a single file (replaces the key's value)
+      agents: { $include: "./agents.json5" },
+    
+      // Include multiple files (deep-merged in order)
+      broadcast: {
+        $include: ["./clients/mueller.json5", "./clients/schmidt.json5"],
+      },
+    }
+    ```
 
   
 </Accordion>
 </AccordionGroup>
 
-## Config hot reload
+## `gateway.reload`（設定熱重載）
 
-Gateway 會監看 `~/.openclaw/openclaw.json` 並自動套用變更——大多數設定不需要手動重新啟動。
+重新載入模式
 
-### Reload modes
+### **`hybrid`**（預設）
 
-| Mode                   | Behavior                                                                                |
-| ---------------------- | --------------------------------------------------------------------------------------- |
-| **`hybrid`** (default) | 即時套用安全變更；關鍵變更時自動重新啟動。                                             |
-| **`hot`**              | 僅熱套用安全變更；需要重啟時會記錄警告。                                               |
-| **`restart`**          | 任何設定變更都會重新啟動 Gateway。                                                     |
-| **`off`**              | 停用檔案監看；需手動重新啟動才會生效。                                                 |
+| Modes:                   | Merge behavior                                                          |
+| ---------------------------------------- | ----------------------------------------------------------------------- |
+| 即時套用安全的變更。                               | 對於關鍵變更會自動重新啟動。 **`hot`**                                                |
+| 僅即時套用安全的變更。                              | 當需要重新啟動時會記錄警告——由你自行處理。 **`restart`**                                    |
+| 任何設定變更（無論是否安全）都會重新啟動 Gateway。            | Restarts the Gateway on any config change, safe or not. |
+| **Inline substitution:** | 停用檔案監看。 變更將在下次手動重新啟動時生效。                                                |
 
 ```json5
 {
   gateway: {
-    reload: { mode: "hybrid", debounceMs: 300 },
+    reload: {
+      mode: "hybrid",
+      debounceMs: 300,
+    },
   },
 }
 ```
 
-## Environment variables
+### 哪些可熱套用，哪些需要重新啟動
 
-OpenClaw 會讀取父行程的環境變數，另外還會讀取：
+大多數欄位可在不中斷服務的情況下熱套用。 在 `hybrid` 模式下，需要重新啟動的變更會自動處理。
 
-- 目前工作目錄下的 `.env`（若存在）
-- `~/.openclaw/.env`（全域備援）
+| 類別                                   | 欄位                                             | 需要重新啟動？                            |
+| ------------------------------------ | ---------------------------------------------- | ---------------------------------- |
+| \`channels.<channel> | `channels.*`, `web`（WhatsApp）— 所有內建與擴充通道       | 否                                  |
+| 代理與模型                                | `agent`, `agents`, `models`, `routing`         | 否                                  |
+| 自動化                                  | `hooks`, `cron`, `agent.heartbeat`             | 否                                  |
+| messages                             | `messages.queue`                               | 否                                  |
+| 工具與媒體                                | `tools`, `browser`, `skills`, `audio`, `talk`  | 否                                  |
+| UI 與其他                               | `ui`, `logging`, `identity`, `bindings`        | 否                                  |
+| Gateway 伺服器                          | `gateway.*`（port、bind、auth、tailscale、TLS、HTTP） | **Rules:**         |
+| 基礎設施                                 | `discovery`, `canvasHost`, `plugins`           | **Mention types:** |
 
-兩者都不會覆蓋已存在的環境變數。也可在設定檔中內嵌：
+<Note>
+`gateway.reload` 和 `gateway.remote` 為例外——變更它們**不會**觸發重新啟動。
+</Note>
+
+## Partial updates (RPC)
+
+<AccordionGroup>
+  <Accordion title="config.apply (full replace)">Use `config.apply` to validate + write the full config and restart the Gateway in one step.
+
+    ```
+    openclaw gateway call config.get --params '{}' # capture payload.hash
+    openclaw gateway call config.apply --params '{
+      "raw": "{\\n  agents: { defaults: { workspace: \\"~/.openclaw/workspace\\" } }\\n}\\n",
+      "baseHash": "<hash-from-config.get>",
+      "sessionKey": "agent:main:whatsapp:dm:+15555550123",
+      "restartDelayMs": 1000
+    }'
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="config.patch (partial update)">Use `config.patch` to merge a partial update into the existing config without clobbering
+unrelated keys. It applies JSON merge patch semantics:
+
+    ````
+    - 物件會遞迴合併
+    - `null` 會刪除鍵
+    - 陣列會直接取代
+    
+    參數：
+    
+    - `raw`（string）— 僅包含要變更鍵的 JSON5
+    - `baseHash`（必填）— 來自 `config.get` 的設定雜湊
+    - `sessionKey`、`note`、`restartDelayMs` — 與 `config.apply` 相同
+    
+    ```bash
+    openclaw gateway call config.patch --params '{
+      "raw": "{ channels: { telegram: { groups: { \"*\": { requireMention: false } } } } }",
+      "baseHash": "<hash>"
+    }'
+    ```
+    
+    ````
+
+  
+</Accordion>
+</AccordionGroup>
+
+## 環境變數
+
+OpenClaw reads env vars from the parent process (shell, launchd/systemd, CI, etc.).
+
+- `.env` from the current working directory (if present)
+- a global fallback `.env` from `~/.openclaw/.env` (aka `$OPENCLAW_STATE_DIR/.env`)
+
+Neither `.env` file overrides existing env vars. You can also provide inline env vars in config.
 
 ```json5
 {
   env: {
     OPENROUTER_API_KEY: "sk-or-...",
-    vars: { GROQ_API_KEY: "gsk-..." },
+    vars: {
+      GROQ_API_KEY: "gsk-...",
+    },
   },
 }
 ```
 
-<Accordion title="在設定值中使用環境變數替換">
-  可在任何字串設定中使用 `${VAR_NAME}`：
+<Accordion title="Shell env import (optional)">Opt-in convenience: if enabled and none of the expected keys are set yet, OpenClaw runs your login shell and imports only the missing expected keys (never overrides).
 
 ```json5
 {
-  gateway: { auth: { token: "${OPENCLAW_GATEWAY_TOKEN}" } },
-  models: { providers: { custom: { apiKey: "${CUSTOM_API_KEY}" } } },
+  env: {
+    shellEnv: {
+      enabled: true,
+      timeoutMs: 15000,
+    },
+  },
 }
 ```
 
-規則：
+`OPENCLAW_LOAD_SHELL_ENV=1`
 
-- 僅匹配大寫名稱 `[A-Z_][A-Z0-9_]*`
-- 缺失或空值會在載入時報錯
-- 使用 `$${VAR}` 輸出字面值
-- 適用於 `$include` 檔案
-- 例如 `"${BASE}/v1"` → `"https://api.example.com/v1"`
+<Accordion title="Env var substitution in config values">You can reference environment variables directly in any config string value using
+`${VAR_NAME}` syntax.
+
+```json5
+{
+  models: {
+    providers: {
+      "vercel-gateway": {
+        apiKey: "${VERCEL_GATEWAY_API_KEY}",
+      },
+    },
+  },
+  gateway: {
+    auth: {
+      token: "${OPENCLAW_GATEWAY_TOKEN}",
+    },
+  },
+}
+```
+
+Defaults:
+
+- Only uppercase env var names are matched: `[A-Z_][A-Z0-9_]*`
+- Missing or empty env vars throw an error at config load
+- Escape with `$${VAR}` to output a literal `${VAR}`
+- Works with `$include` (included files also get substitution)
+- 內嵌替換：`"${BASE}/v1"` → `"https://api.example.com/v1"`
 
 </Accordion>
 
-完整優先順序請參閱 [Environment](/help/environment)。
+See [/environment](/help/environment) for full precedence and sources.
 
-## Full reference
+## 完整參考
 
-完整逐欄位說明請參閱 **[Configuration Reference](/gateway/configuration-reference)**。
+Config Includes (`$include`)
 
 ---
 
-_相關： [Configuration Examples](/gateway/configuration-examples) · [Configuration Reference](/gateway/configuration-reference) · [Doctor](/gateway/doctor)_
-
+Example (provider/model-specific allowlist):

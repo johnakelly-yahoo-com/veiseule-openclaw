@@ -1,5 +1,9 @@
 ---
-title: "Deepgram (Audio transkripsiya)"
+summary: "Siz audio biriktirmalar uchun Deepgram speech-to-text’dan foydalanmoqchisiz"
+read_when:
+  - Sizga Deepgram konfiguratsiyasining tezkor namunasi kerak
+  - Deepgram
+title: "Deepgram"
 ---
 
 # Deepgram — bu speech-to-text API.
@@ -19,7 +23,7 @@ Tezkor boshlash
 1. DEEPGRAM_API_KEY=dg_...
 
 ```
-Provider’ni yoqing:
+DEEPGRAM_API_KEY=dg_...
 ```
 
 2. {
@@ -96,5 +100,3 @@ models: [{ provider: "deepgram", model: "nova-3", language: "en" }],
 - Autentifikatsiya provayderning standart tartibiga amal qiladi; `DEEPGRAM_API_KEY` eng sodda yo‘ldir.
 - 5. Proksi ishlatilganda `tools.media.audio.baseUrl` va `tools.media.audio.headers` orqali endpointlar yoki sarlavhalarni almashtiring.
 - Chiqish boshqa provayderlardagi audio qoidalariga (hajm cheklovlari, vaqt tugashlari, transkript qo‘shilishi) muvofiq amalga oshiriladi.
-
-

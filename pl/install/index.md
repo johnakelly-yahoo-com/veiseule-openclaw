@@ -1,4 +1,9 @@
 ---
+summary: "Zainstaluj OpenClaw — skrypt instalatora, npm/pnpm, ze źródeł, Docker i inne"
+read_when:
+  - Potrzebujesz metody instalacji innej niż Szybki start w Pierwszych krokach
+  - Chcesz wdrożyć na platformie chmurowej
+  - Musisz zaktualizować, zmigrować lub odinstalować
 title: "Instalacja"
 ---
 
@@ -8,7 +13,7 @@ Masz już za sobą [Pierwsze kroki](/start/getting-started)? Świetnie — ta st
 
 ## Wymagania systemowe
 
-- **[Node 22+](/install/node)** ([skrypt instalatora](#install-methods) zainstaluje go, jeśli go brakuje)
+- **[Node 22+](/install/node)** ( [skrypt instalatora](#install-methods) zainstaluje go, jeśli go brakuje)
 - macOS, Linux lub Windows
 - `pnpm` tylko jeśli budujesz ze źródeł
 
@@ -26,6 +31,8 @@ W systemie Windows zdecydowanie zalecamy uruchamianie OpenClaw w [WSL2](https://
   <Accordion title="Installer script" icon="rocket" defaultOpen>
     Pobiera CLI, instaluje je globalnie przez npm i uruchamia kreator onboardingu.
 
+    ````
+    ```
     <Tabs>
       <Tab title="macOS / Linux / WSL2">
         ```bash
@@ -41,11 +48,11 @@ W systemie Windows zdecydowanie zalecamy uruchamianie OpenClaw w [WSL2](https://
 </Tab>
     
 </Tabs>
-
+    
     To wszystko — skrypt zajmuje się wykrywaniem Node, instalacją i onboardingiem.
-
+    
     Aby pominąć onboarding i tylko zainstalować binarkę:
-
+    
     <Tabs>
       <Tab title="macOS / Linux / WSL2">
         ```bash
@@ -61,8 +68,10 @@ W systemie Windows zdecydowanie zalecamy uruchamianie OpenClaw w [WSL2](https://
 </Tab>
     
 </Tabs>
-
+    
     Wszystkie flagi, zmienne środowiskowe oraz opcje CI/automatyzacji znajdziesz w [Wnętrzu instalatora](/install/installer).
+    ```
+    ````
 
   
 </Accordion>
@@ -70,20 +79,22 @@ W systemie Windows zdecydowanie zalecamy uruchamianie OpenClaw w [WSL2](https://
   <Accordion title="npm / pnpm" icon="package">
     Jeśli masz już Node 22+ i wolisz samodzielnie zarządzać instalacją:
 
+    ````
+    ```
     <Tabs>
       <Tab title="npm">
         ```bash
         npm install -g openclaw@latest
         openclaw onboard --install-daemon
         ```
-
+    
         <Accordion title="błędy budowania sharp?">
           Jeśli masz globalnie zainstalowane libvips (częste na macOS przez Homebrew) i `sharp` kończy się niepowodzeniem, wymuś prekompilowane binaria:
-
+    
           ```bash
           SHARP_IGNORE_GLOBAL_LIBVIPS=1 npm install -g openclaw@latest
           ```
-
+    
           Jeśli zobaczysz `sharp: Please add node-gyp to your dependencies`, zainstaluj narzędzia do budowania (macOS: Xcode CLT + `npm install -g node-gyp`) albo użyj powyższej zmiennej środowiskowej.
         
 </Accordion>
@@ -95,7 +106,7 @@ W systemie Windows zdecydowanie zalecamy uruchamianie OpenClaw w [WSL2](https://
         pnpm approve-builds -g        # approve openclaw, node-llama-cpp, sharp, etc.
         openclaw onboard --install-daemon
         ```
-
+    
         <Note>
         pnpm wymaga jawnej zgody dla pakietów ze skryptami budowania. Po pierwszej instalacji, gdy pojawi się ostrzeżenie „Ignored build scripts”, uruchom `pnpm approve-builds -g` i wybierz wymienione pakiety.
         
@@ -104,6 +115,8 @@ W systemie Windows zdecydowanie zalecamy uruchamianie OpenClaw w [WSL2](https://
 </Tab>
     
 </Tabs>
+    ```
+    ````
 
   
 </Accordion>
@@ -111,10 +124,12 @@ W systemie Windows zdecydowanie zalecamy uruchamianie OpenClaw w [WSL2](https://
   <Accordion title="From source" icon="github">
     Dla współtwórców lub każdego, kto chce uruchamiać z lokalnego checkoutu.
 
+    ````
+    ```
     <Steps>
       <Step title="Klonowanie i budowanie">
         Sklonuj [repozytorium OpenClaw](https://github.com/openclaw/openclaw) i zbuduj:
-
+    
         ```bash
         git clone https://github.com/openclaw/openclaw.git
         cd openclaw
@@ -126,11 +141,11 @@ W systemie Windows zdecydowanie zalecamy uruchamianie OpenClaw w [WSL2](https://
 </Step>
       <Step title="Podlinkowanie CLI">
         Udostępnij polecenie `openclaw` globalnie:
-
+    
         ```bash
         pnpm link --global
         ```
-
+    
         Alternatywnie pomiń linkowanie i uruchamiaj polecenia przez `pnpm openclaw ...` z poziomu repozytorium.
       
 </Step>
@@ -142,8 +157,10 @@ W systemie Windows zdecydowanie zalecamy uruchamianie OpenClaw w [WSL2](https://
 </Step>
     
 </Steps>
-
+    
     Bardziej zaawansowane przepływy deweloperskie znajdziesz w [Konfiguracji](/start/setup).
+    ```
+    ````
 
   
 </Accordion>
@@ -156,8 +173,7 @@ W systemie Windows zdecydowanie zalecamy uruchamianie OpenClaw w [WSL2](https://
     Wdrożenia kontenerowe lub bez interfejsu.
   
 </Card>
-  <Card title="Podman" href="/install/podman" icon="container">
-    Rootless container: run `setup-podman.sh` once, then the launch script.
+  <Card title="Podman" href="/install/podman" icon="container">    Kontener rootless: uruchom `setup-podman.sh` jeden raz, a następnie skrypt startowy.
   
 </Card>
   <Card title="Nix" href="/install/nix" icon="snowflake">
@@ -184,13 +200,13 @@ openclaw status         # gateway status
 openclaw dashboard      # open the browser UI
 ```
 
-Jeśli potrzebujesz niestandardowych ścieżek środowiska uruchomieniowego, użyj:
+If you need custom runtime paths, use:
 
-- `OPENCLAW_HOME` dla wewnętrznych ścieżek opartych na katalogu domowym
-- `OPENCLAW_STATE_DIR` dla lokalizacji zapisywalnego stanu
-- `OPENCLAW_CONFIG_PATH` dla lokalizacji pliku konfiguracyjnego
+- `OPENCLAW_HOME` for home-directory based internal paths
+- `OPENCLAW_STATE_DIR` for mutable state location
+- `OPENCLAW_CONFIG_PATH` for config file location
 
-Zobacz [Environment vars](/help/environment), aby poznać kolejność priorytetów i pełne szczegóły.
+See [Environment vars](/help/environment) for precedence and full details.
 
 ## Rozwiązywanie problemów: nie znaleziono `openclaw`
 
@@ -214,7 +230,7 @@ export PATH="$(npm prefix -g)/bin:$PATH"
 
 W systemie Windows dodaj wynik polecenia `npm prefix -g` do PATH.
 
-Następnie otwórz nowy terminal (lub `rehash` w zsh / `hash -r` w bash).
+Następnie otwórz nowy terminal (lub `rehash` w zsh / `hash -r` w bash). 
 </Accordion>
 
 ## Aktualizacja / odinstalowanie
@@ -233,4 +249,3 @@ Następnie otwórz nowy terminal (lub `rehash` w zsh / `hash -r` w bash).
   
 </Card>
 </CardGroup>
-

@@ -1,4 +1,8 @@
 ---
+summary: "Plataformas de mensajería a las que OpenClaw puede conectarse"
+read_when:
+  - Quiere elegir un canal de chat para OpenClaw
+  - Necesita una vista rápida de las plataformas de mensajería compatibles
 title: "Canales de chat"
 ---
 
@@ -12,6 +16,7 @@ El texto es compatible en todos; los medios y las reacciones varían según el c
 - [WhatsApp](/channels/whatsapp) — El más popular; usa Baileys y requiere emparejamiento por QR.
 - [Telegram](/channels/telegram) — API de bots vía grammY; admite grupos.
 - [Discord](/channels/discord) — API de bots de Discord + Gateway; admite servidores, canales y mensajes directos.
+- [IRC](/channels/irc) — Servidores IRC clásicos; canales + MD con controles de emparejamiento/lista de permitidos.
 - [Slack](/channels/slack) — SDK Bolt; apps de espacio de trabajo.
 - [Feishu](/channels/feishu) — Bot de Feishu/Lark vía WebSocket (plugin, instalado por separado).
 - [Google Chat](/channels/googlechat) — App de Google Chat API vía webhook HTTP.
@@ -24,9 +29,9 @@ El texto es compatible en todos; los medios y las reacciones varían según el c
 - [Nextcloud Talk](/channels/nextcloud-talk) — Chat autoalojado vía Nextcloud Talk (plugin, instalado por separado).
 - [Matrix](/channels/matrix) — Protocolo Matrix (plugin, instalado por separado).
 - [Nostr](/channels/nostr) — Mensajes directos descentralizados vía NIP-04 (plugin, instalado por separado).
-- [Tlon](/channels/tlon) — Mensajero basado en Urbit (plugin, instalado por separado).
 - [Twitch](/channels/twitch) — Chat de Twitch vía conexión IRC (plugin, instalado por separado).
 - [Zalo](/channels/zalo) — API de bots de Zalo; el mensajero popular de Vietnam (plugin, instalado por separado).
+- [Tlon](/channels/tlon) — Mensajero basado en Urbit (plugin, instalado por separado).
 - [Zalo Personal](/channels/zalouser) — Cuenta personal de Zalo vía inicio de sesión por QR (plugin, instalado por separado).
 - [WebChat](/web/webchat) — Interfaz WebChat del Gateway sobre WebSocket.
 
@@ -40,5 +45,3 @@ El texto es compatible en todos; los medios y las reacciones varían según el c
 - Detalles internos de Telegram: [notas de grammY](/channels/grammy).
 - Solución de problemas: [Solución de problemas de canales](/channels/troubleshooting).
 - Los proveedores de modelos se documentan por separado; vea [Proveedores de modelos](/providers/models).
-
-

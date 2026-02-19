@@ -1,19 +1,16 @@
 ---
-title: directory
-x-i18n:
-  generated_at: "2026-02-01T19:58:58Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 7c878d9013aeaa22c8a21563fac30b465a86be85d8c917c5d4591b5c3d4b2025
-  source_path: cli/directory.md
-  workflow: 14
+summary: "`openclaw directory` 的 CLI 参考（self、peers、groups）"
+read_when:
+  - 你想查找某个渠道的联系人/群组/自身 ID
+  - 你正在开发渠道目录适配器
+title: "directory"
 ---
 
 # `openclaw directory`
 
 对支持目录功能的渠道进行查找（联系人/对等方、群组和"我"）。
 
-## 通用参数
+## 常用参数
 
 - `--channel <name>`：渠道 ID/别名（配置了多个渠道时为必填；仅配置一个渠道时自动选择）
 - `--account <id>`：账号 ID（默认：渠道默认账号）
@@ -64,5 +61,3 @@ openclaw directory groups list --channel zalouser
 openclaw directory groups list --channel zalouser --query "work"
 openclaw directory groups members --channel zalouser --group-id <id>
 ```
-
-

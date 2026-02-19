@@ -1,4 +1,7 @@
 ---
+summary: "Matrix-supportstatus, funktioner og konfiguration"
+read_when:
+  - Arbejder med Matrix-kanalfunktioner
 title: "Matrix"
 ---
 
@@ -140,19 +143,61 @@ Når den er verificeret, kan botten dekryptere beskeder i krypterede rum.
 
 ## Routingmodel
 
-- Svar går altid tilbage til Matrix.
-- DM’er deler agentens hovedsession; rum mappes til gruppesessioner.
+Multi-konto-support: brug `channels.matrix.accounts` med konto-specifikke legitimationsoplysninger og valgfrit `name`. Se [`gateway/configuration`](/gateway/configuration#telegramaccounts--discordaccounts--slackaccounts--signalaccounts--imessageaccounts) for det delte mønster.
 
-## Adgangskontrol (DM’er)
+Hver konto kører som en separat Matrix-bruger på en vilkårlig homeserver. Konto-specifik konfiguration
+arver fra de overordnede `channels.matrix`-indstillinger og kan tilsidesætte enhver indstilling
+(DM-politik, grupper, kryptering osv.).
+
+```json5
+{
+  channels: {
+    matrix: {
+      enabled: true,
+      dm: { policy: "pairing" },
+      accounts: {
+        assistant: {
+          name: "Main assistant",
+          homeserver: "https://matrix.example.org",
+          accessToken: "syt_assistant_***",
+          encryption: true,
+        },
+        alerts: {
+          name: "Alerts bot",
+          homeserver: "https://matrix.example.org",
+          accessToken: "syt_alerts_***",
+          dm: { policy: "allowlist", allowFrom: ["@admin:example.org"] },
+        },
+      },
+    },
+  },
+}
+```
+
+Bemærk:
+
+- Kontoopstart serialiseres for at undgå race conditions ved samtidige modulimports.
+- Miljøvariabler (`MATRIX_HOMESERVER`, `MATRIX_ACCESS_TOKEN` osv.) gælder kun for **standardkontoen**.
+- Grundlæggende kanalindstillinger (DM-politik, gruppepolitik, mention-gating osv.) gælder for alle konti, medmindre de tilsidesættes pr. konto.
+- Brug `bindings[].match.accountId` til at rute hver konto til en anden agent.
+- Crypto-tilstand gemmes pr. konto + access token (separate key stores pr. konto).
+
+## Routingmodel
+
+- `requireMention: false` aktiverer autosvar i det rum.
+- `groups."*"` kan sætte standarder for mention-gating på tværs af rum.
+
+## Tråde
 
 - Standard: `channels.matrix.dm.policy = "pairing"`. Ukendt afsendere får en parringskode.
-- Godkend via:
+- `channels.matrix.threadReplies` styrer, om svar forbliver i tråde:
   - `openclaw pairing list matrix`
   - `openclaw pairing approve matrix <CODE>`
-- Offentlige DM’er: `channels.matrix.dm.policy="open"` plus `channels.matrix.dm.allowFrom=["*"]`.
+- `channels.matrix.replyToMode` styrer svar-til-metadata, når der ikke svares i en tråd:
 - `channels.matrix.dm.allowFrom` accepterer fulde Matrix bruger-id'er (eksempel: `@user:server`). Guiden løser visningsnavne til brugernavne, når mappesøgning finder en enkelt nøjagtig match.
+- Brug ikke visningsnavne eller blot lokale dele (eksempel: `"Alice"` eller `"alice"`). De er tvetydige og ignoreres ved allowlist-matchning. Brug fulde `@user:server`-ID’er.
 
-## Rum (grupper)
+## Funktioner
 
 - Standard: `channels.matrix.groupPolicy = "allowlist"` (mention-begrænset). Brug `channels.defaults.groupPolicy` for at tilsidesætte standarden, når den ikke er angivet.
 - Tilladelseslist rum med `channels.matrix.groups` (rum-id’er eller aliaser; navne resolveres til id’er, når katalogsøgningen finder et enkelt, præcist match):
@@ -206,7 +251,7 @@ Når den er verificeret, kan botten dekryptere beskeder i krypterede rum.
 
 ## Fejlfinding
 
-Kør denne trappe først:
+For triage-flow: [/channels/troubleshooting](/channels/troubleshooting).
 
 ```bash
 openclaw status
@@ -216,7 +261,7 @@ openclaw doctor
 openclaw channels status --probe
 ```
 
-Bekræft derefter DM-parringstilstand om nødvendigt:
+Fuld konfiguration: [Konfiguration](/gateway/configuration)
 
 ```bash
 openclaw pairing list matrix
@@ -258,6 +303,5 @@ Udbyderindstillinger:
 - `channels.matrix.mediaMaxMb`: ind-/udgående mediebegrænsning (MB).
 - `channels.matrix.autoJoin`: invitationshåndtering (`always | allowlist | off`, standard: altid).
 - `channels.matrix.autoJoinAllowlist`: tilladte rum-id’er/aliaser for auto-tilslutning.
+- `channels.matrix.accounts`: multi-konto-konfiguration indekseret efter konto-ID (hver konto arver overordnede indstillinger).
 - `channels.matrix.actions`: per-handling værktøjs-gating (reaktioner/beskeder/pins/memberInfo/channelInfo).
-
-

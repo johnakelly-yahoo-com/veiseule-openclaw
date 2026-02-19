@@ -1,5 +1,9 @@
 ---
 title: "بوابة Cloudflare للذكاء الاصطناعي"
+summary: "إعداد بوابة Cloudflare للذكاء الاصطناعي (المصادقة + اختيار النموذج)"
+read_when:
+  - تريد استخدام بوابة Cloudflare للذكاء الاصطناعي مع OpenClaw
+  - تحتاج إلى معرف الحساب، معرف البوابة، أو مفتاح API var
 ---
 
 # بوابة Cloudflare للذكاء الاصطناعي
@@ -65,5 +69,3 @@ openclaw onboard --non-interactive \
 ## ملاحظة حول البيئة
 
 إذا كانت البوابة تعمل كخدمة خلفية (launchd/systemd)، فتأكد من أن `CLOUDFLARE_AI_GATEWAY_API_KEY` متاح لتلك العملية (على سبيل المثال، في `~/.openclaw/.env` أو عبر `env.shellEnv`).
-
-

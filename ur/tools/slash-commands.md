@@ -1,11 +1,15 @@
 ---
+summary: "سلैش کمانڈز: متن بمقابلہ نیٹو، کنفیگ، اور معاون کمانڈز"
+read_when:
+  - چیٹ کمانڈز کا استعمال یا کنفیگریشن کرتے وقت
+  - کمانڈ روٹنگ یا اجازتوں کی خرابیوں کا ازالہ کرتے وقت
 title: "سلैش کمانڈز"
 ---
 
 # سلैش کمانڈز
 
 کمانڈز کو Gateway کے ذریعے ہینڈل کیا جاتا ہے۔ زیادہ تر کمانڈز کو **standalone** پیغام کے طور پر بھیجنا ضروری ہے جو `/` سے شروع ہو۔
-صرف ہوسٹ کے لیے bash چیٹ کمانڈ `!` استعمال کرتی ہے۔ &lt;cmd&gt;`(`/bash &lt;cmd&gt;\` بطور عرف)۔
+صرف ہوسٹ کے لیے bash چیٹ کمانڈ `!` استعمال کرتی ہے۔ <cmd>`(`/bash <cmd>\` بطور عرف)۔
 
 دو باہم متعلقہ نظام ہیں:
 
@@ -14,7 +18,8 @@ title: "سلैش کمانڈز"
   - ماڈل کے دیکھنے سے پہلے دایرکٹیوز پیغام سے ہٹا دیے جاتے ہیں۔
   - عام چیٹ پیغامات میں (صرف دایرکٹیو نہ ہوں)، انہیں “ان لائن اشارے” سمجھا جاتا ہے اور یہ سیشن کی ترتیبات کو **محفوظ** نہیں کرتے۔
   - صرف دایرکٹیو والے پیغامات میں (پیغام میں صرف دایرکٹیوز ہوں)، یہ سیشن میں محفوظ ہو جاتے ہیں اور ایک توثیقی جواب دیتے ہیں۔
-  - ہدایات (Directives) صرف **authorized senders** کے لیے لاگو ہوتی ہیں (چینل allowlists/پیئرنگ کے ساتھ `commands.useAccessGroups`)۔
+  - دایریکٹیوز صرف **مجاز بھیجنے والوں** پر لاگو ہوتے ہیں۔ اگر `commands.allowFrom` سیٹ ہو تو یہی واحد
+    allowlist استعمال ہوتی ہے؛ بصورت دیگر اجازت چینل allowlists/pairing اور `commands.useAccessGroups` سے حاصل ہوتی ہے۔
     غیر مجاز بھیجنے والوں کو ہدایات سادہ متن کے طور پر نظر آتی ہیں۔
 
 کچھ **inline shortcuts** بھی ہیں (صرف allowlisted/authorized senders کے لیے): `/help`, `/commands`, `/status`, `/whoami` (`/id`)۔
@@ -47,11 +52,14 @@ title: "سلैش کمانڈز"
 - `commands.nativeSkills` (بطورِ طے شدہ `"auto"`) جہاں معاونت ہو وہاں **Skill** کمانڈز کو نیٹو طور پر رجسٹر کرتا ہے۔
   - Auto: Discord/Telegram کے لیے آن؛ Slack کے لیے آف (Slack میں ہر Skill کے لیے علیحدہ سلैش کمانڈ بنانا لازم ہے)۔
   - ہر فراہم کنندہ کے لیے اووررائیڈ کرنے کو `channels.discord.commands.nativeSkills`, `channels.telegram.commands.nativeSkills`, یا `channels.slack.commands.nativeSkills` سیٹ کریں (bool یا `"auto"`)۔
-- `commands.bash` (ڈیفالٹ `false`) `!` کو فعال کرتا ہے۔ &lt;cmd&gt;` کے ذریعے ہوسٹ شیل کمانڈز چلانے کے لیے (`/bash &lt;cmd&gt;`بطور عرف؛`tools.elevated\` allowlists درکار ہیں)۔
+- `commands.bash` (ڈیفالٹ `false`) `!` کو فعال کرتا ہے۔ <cmd>` کے ذریعے ہوسٹ شیل کمانڈز چلانے کے لیے (`/bash <cmd>`بطور عرف؛`tools.elevated\` allowlists درکار ہیں)۔
 - `commands.bashForegroundMs` (بطورِ طے شدہ `2000`) یہ کنٹرول کرتا ہے کہ bash پس منظر موڈ میں کب سوئچ کرے (`0` فوراً پس منظر میں بھیج دیتا ہے)۔
 - `commands.config` (بطورِ طے شدہ `false`) `/config` کو فعال کرتا ہے (`openclaw.json` پڑھتا/لکھتا ہے)۔
 - `commands.debug` (بطورِ طے شدہ `false`) `/debug` کو فعال کرتا ہے (صرف رن ٹائم اووررائیڈز)۔
-- `commands.useAccessGroups` (بطورِ طے شدہ `true`) کمانڈز کے لیے اجازت فہرستیں/پالیسیاں نافذ کرتا ہے۔
+- `commands.allowFrom` (اختیاری) کمانڈ کی اجازت کے لیے فی پرووائیڈر allowlist سیٹ کرتا ہے۔ جب یہ کنفیگر ہو تو یہی کمانڈز اور دایریکٹیوز کے لیے
+  واحد اجازت کا ذریعہ ہوتا ہے (چینل allowlists/pairing اور `commands.useAccessGroups`
+  کو نظر انداز کر دیا جاتا ہے)۔ عالمی ڈیفالٹ کے لیے `"*"` استعمال کریں؛ پرووائیڈر کے مخصوص keys اسے اووررائیڈ کر دیتے ہیں۔
+- `commands.useAccessGroups` (ڈیفالٹ `true`) کمانڈز کے لیے allowlists/policies نافذ کرتا ہے جب `commands.allowFrom` سیٹ نہ ہو۔
 
 ## کمانڈ فہرست
 
@@ -70,12 +78,12 @@ title: "سلैش کمانڈز"
 - `/debug show|set|unset|reset` (رن ٹائم اووررائیڈز، صرف مالک؛ `commands.debug: true` درکار)
 - `/usage off|tokens|full|cost` (فی جواب استعمال فوٹر یا مقامی لاگت خلاصہ)
 - `/tts off|always|inbound|tagged|status|provider|limit|summary|audio` (TTS کنٹرول؛ دیکھیں [/tts](/tts))
+- `/debug show|set|unset|reset` (رن ٹائم اووررائیڈز، صرف مالک؛ `commands.debug: true` درکار)
+- `/usage off|tokens|full|cost` (فی جواب استعمال فوٹر یا مقامی لاگت خلاصہ)
+- `/dock-telegram` (عرف: `/dock_telegram`) (جوابات Telegram پر منتقل کریں)
   - Discord: نیٹو کمانڈ `/voice` ہے (Discord `/tts` محفوظ رکھتا ہے)؛ متن `/tts` اب بھی کام کرتا ہے۔
 - `/stop`
 - `/restart`
-- `/dock-telegram` (عرف: `/dock_telegram`) (جوابات Telegram پر منتقل کریں)
-- `/dock-discord` (عرف: `/dock_discord`) (جوابات Discord پر منتقل کریں)
-- `/dock-slack` (عرف: `/dock_slack`) (جوابات Slack پر منتقل کریں)
 - `/activation mention|always` (صرف گروپس)
 - `/send on|off|inherit` (صرف مالک)
 - `/reset` یا `/new [model]` (اختیاری ماڈل اشارہ؛ باقی متن جوں کا توں آگے بھیجا جاتا ہے)
@@ -86,12 +94,15 @@ title: "سلैش کمانڈز"
 - `/exec host=<sandbox|gateway|node> security=<deny|allowlist|full> ask=<off|on-miss|always> node=<id>` (موجودہ دکھانے کے لیے `/exec` بھیجیں)
 - `/model <name>` (عرف: `/models`; یا `/<alias>` بذریعہ `agents.defaults.models.*.alias`)
 - `/queue <mode>` (مزید اختیارات جیسے `debounce:2s cap:25 drop:summarize`; موجودہ ترتیبات دیکھنے کے لیے `/queue` بھیجیں)
-- `/bash <command>` (صرف ہوسٹ؛ `!` کا عرف)۔ &lt;command&gt;`؛ `commands.bash: true`+`tools.elevated\` allowlists درکار ہیں)
+- `/bash <command>` (صرف ہوسٹ؛ `!` کا عرف)۔ <command>`؛ `commands.bash: true`+`tools.elevated\\` allowlists درکار ہیں)
+- `/model <name>` (عرف: `/models`; یا `/<alias>` بذریعہ `agents.defaults.models.*.alias`)
+- `/queue <mode>` (مزید اختیارات جیسے `debounce:2s cap:25 drop:summarize`; موجودہ ترتیبات دیکھنے کے لیے `/queue` بھیجیں)
+- `/bash <command>` (صرف ہوسٹ؛ `!` کا عرف)۔ <command>`؛ `commands.bash: true`+`tools.elevated\` allowlists درکار ہیں)
 
 صرف متن:
 
 - `/compact [instructions]` (دیکھیں [/concepts/compaction](/concepts/compaction))
-- `!` &lt;command&gt;`(صرف ہوسٹ؛ ایک وقت میں ایک؛ طویل چلنے والے کاموں کے لیے`!poll`+`!stop\` استعمال کریں)
+- `!` <command>`(صرف ہوسٹ؛ ایک وقت میں ایک؛ طویل چلنے والے کاموں کے لیے`!poll`+`!stop\` استعمال کریں)
 - `!poll` (آؤٹ پٹ/اسٹیٹس چیک کریں؛ اختیاری `sessionId` قبول کرتا ہے؛ `/bash poll` بھی کام کرتا ہے)
 - `!stop` (چلتی ہوئی bash جاب روکیں؛ اختیاری `sessionId` قبول کرتا ہے؛ `/bash stop` بھی کام کرتا ہے)
 
@@ -192,5 +203,3 @@ title: "سلैش کمانڈز"
   - Telegram: `telegram:slash:<userId>` (`CommandTargetSessionKey` کے ذریعے چیٹ سیشن کو ہدف بناتا ہے)
 - **`/stop`** فعال چیٹ سیشن کو ہدف بناتا ہے تاکہ موجودہ رن کو منسوخ کیا جا سکے۔
 - **Slack:** `channels.slack.slashCommand` اب بھی ایک واحد `/openclaw` طرز کی کمانڈ کے لیے سپورٹڈ ہے۔ اگر آپ `commands.native` فعال کرتے ہیں، تو آپ کو ہر built-in کمانڈ کے لیے ایک Slack سلیش کمانڈ بنانی ہوگی (وہی نام جیسے `/help`)۔ Slack کے لیے کمانڈ آرگومنٹ مینیو ephemeral Block Kit بٹنوں کے طور پر فراہم کیے جاتے ہیں۔
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Resumen de proveedores de modelos con configuraciones de ejemplo y flujos de la CLI"
+read_when:
+  - Necesita una referencia de configuración de modelos por proveedor
+  - Quiere configuraciones de ejemplo o comandos de incorporación por CLI para proveedores de modelos
 title: "Proveedores de modelos"
 ---
 
@@ -116,6 +120,7 @@ configuración de `models.providers`; solo establezca la autenticación y elija 
   - URL base compatible con OpenAI: `https://api.cerebras.ai/v1`.
 - Mistral: `mistral` (`MISTRAL_API_KEY`)
 - GitHub Copilot: `github-copilot` (`COPILOT_GITHUB_TOKEN` / `GH_TOKEN` / `GITHUB_TOKEN`)
+- Hugging Face Inference: `huggingface` (`HUGGINGFACE_HUB_TOKEN` o `HF_TOKEN`) — enrutador compatible con OpenAI; modelo de ejemplo: `huggingface/deepseek-ai/DeepSeek-R1`; CLI: `openclaw onboard --auth-choice huggingface-api-key`. Consulta [Hugging Face (Inference)](/providers/huggingface).
 
 ## Proveedores vía `models.providers` (URL personalizada/base)
 
@@ -255,6 +260,32 @@ ollama pull llama3.3
 
 Ollama se detecta automáticamente cuando se ejecuta localmente en `http://127.0.0.1:11434/v1`. Consulte [/providers/ollama](/providers/ollama) para recomendaciones de modelos y configuración personalizada.
 
+### vLLM
+
+vLLM es un servidor local (o autoalojado) compatible con OpenAI:
+
+- Proveedor: `vllm`
+- Auth: Opcional (depende de tu servidor)
+- URL base predeterminada: `http://127.0.0.1:8000/v1`
+
+Para habilitar la autodetección localmente (cualquier valor funciona si tu servidor no exige autenticación):
+
+```bash
+export VLLM_API_KEY="vllm-local"
+```
+
+Luego configura un modelo (sustituye por uno de los IDs devueltos por `/v1/models`):
+
+```json5
+{
+  agents: {
+    defaults: { model: { primary: "vllm/your-model-id" } },
+  },
+}
+```
+
+Consulta [/providers/vllm](/providers/vllm) para más detalles.
+
 ### Proxies locales (LM Studio, vLLM, LiteLLM, etc.)
 
 Ejemplo (compatible con OpenAI):
@@ -310,5 +341,3 @@ openclaw models list
 ```
 
 Vea también: [/gateway/configuration](/gateway/configuration) para ejemplos completos de configuración.
-
-

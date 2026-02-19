@@ -1,4 +1,9 @@
 ---
+summary: "Konfiguration, inställningar och användning av LINE Messaging API-plugin"
+read_when:
+  - Du vill ansluta OpenClaw till LINE
+  - Du behöver konfigurera LINE-webhook + autentiseringsuppgifter
+  - Du vill använda LINE-specifika meddelandealternativ
 title: LINE
 ---
 
@@ -180,5 +185,3 @@ förinställningar av Flex‑meddelanden:
   `channels.line.webhookPath` och att gatewayen är nåbar från LINE.
 - **Fel vid nedladdning av media:** höj `channels.line.mediaMaxMb` om media överskrider
   standardgränsen.
-
-

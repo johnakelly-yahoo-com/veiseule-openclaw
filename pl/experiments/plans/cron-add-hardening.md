@@ -1,4 +1,5 @@
 ---
+summary: "Utwierdzenie obsługi danych wejściowych cron.add, wyrównanie schematów oraz usprawnienie narzędzi UI/agenta dla crona"
 owner: "openclaw"
 status: "complete"
 last_updated: "2026-01-05"
@@ -60,5 +61,3 @@ Zobacz [Zadania cron](/automation/cron-jobs), aby poznać znormalizowany kształ
 
 - Czy `cron.add` powinno akceptować jawne `state` od klientów (obecnie zabronione przez schemat)?
 - Czy powinniśmy dopuścić `webchat` jako jawnego dostawcę dostarczania (obecnie filtrowany w rozstrzyganiu dostarczania)?
-
-

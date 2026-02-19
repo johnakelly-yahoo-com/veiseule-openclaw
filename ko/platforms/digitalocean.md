@@ -1,4 +1,8 @@
 ---
+summary: "DigitalOcean 에서의 OpenClaw (간단한 유료 VPS 옵션)"
+read_when:
+  - DigitalOcean 에서 OpenClaw 설정 중
+  - OpenClaw 를 위한 저렴한 VPS 호스팅을 찾는 경우
 title: "DigitalOcean"
 ---
 
@@ -188,7 +192,7 @@ htop
 
 ## 지속성
 
-22. 모든 상태는 다음에 저장됩니다:
+모든 상태는 다음에 저장됩니다:
 
 - `~/.openclaw/` — 설정, 자격 증명, 세션 데이터
 - `~/.openclaw/workspace/` — 워크스페이스 (SOUL.md, 메모리 등)
@@ -256,5 +260,3 @@ free -h
 - [Docker 설치](/install/docker) — 컨테이너 기반 설정
 - [Tailscale](/gateway/tailscale) — 안전한 원격 접근
 - [구성](/gateway/configuration) — 전체 설정 레퍼런스
-
-

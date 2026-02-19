@@ -1,4 +1,7 @@
 ---
+summary: "لوپ بیک WebChat اسٹیٹک ہوسٹ اور چیٹ UI کے لیے Gateway WS کا استعمال"
+read_when:
+  - WebChat رسائی کی خرابیوں کا ازالہ یا کنفیگریشن کرتے وقت
 title: "WebChat"
 ---
 
@@ -44,5 +47,4 @@ title: "WebChat"
 - `gateway.auth.mode`، `gateway.auth.token`، `gateway.auth.password`: WebSocket تصدیق۔
 - `gateway.remote.url`، `gateway.remote.token`، `gateway.remote.password`: ریموٹ gateway ہدف۔
 - `session.*`: سیشن اسٹوریج اور مرکزی کلید کے طے شدہ اقدار۔
-
-
+- `session.*`: سیشن اسٹوریج اور مرکزی کلید کے طے شدہ اقدار۔

@@ -1,12 +1,10 @@
 ---
-title: 调试
-x-i18n:
-  generated_at: "2026-02-03T07:47:23Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 504c824bff4790006c8b73600daca66b919e049178e9711e6e65b6254731911a
-  source_path: help/debugging.md
-  workflow: 15
+summary: "调试工具：监视模式、原始模型流和追踪推理泄漏"
+read_when:
+  - 你需要检查原始模型输出以查找推理泄漏
+  - 你想在迭代时以监视模式运行 Gateway 网关
+  - 你需要可重复的调试工作流
+title: "调试"
 ---
 
 # 调试
@@ -15,9 +13,9 @@ x-i18n:
 
 ## 运行时调试覆盖
 
-在聊天中使用 `/debug` 设置**仅运行时**配置覆盖（内存中，不写入磁盘）。
+Use `/debug` in chat to set **runtime-only** config overrides (memory, not disk).
 `/debug` 默认禁用；通过 `commands.debug: true` 启用。
-当你需要切换不常用的设置而不编辑 `openclaw.json` 时，这非常方便。
+当你需要切换一些不常见的设置而不必编辑 `openclaw.json` 时，这会很方便。
 
 示例：
 
@@ -48,7 +46,7 @@ tsx watch src/entry.ts gateway --force
 
 ## Dev 配置文件 + dev Gateway 网关（--dev）
 
-使用 dev 配置文件来隔离状态，并启动一个安全、可丢弃的调试设置。有**两个** `--dev` 标志：
+使用 dev 配置文件来隔离状态，并启动一个安全、可丢弃的调试设置。有**两个** `--dev` 标志： 有 **两个** `--dev` 标志：
 
 - **全局 `--dev`（配置文件）：** 将状态隔离到 `~/.openclaw-dev` 下，并将 Gateway 网关端口默认为 `19001`（派生端口随之移动）。
 - **`gateway --dev`：告诉 Gateway 网关在缺失时自动创建默认配置 + 工作区**（并跳过 BOOTSTRAP.md）。
@@ -85,8 +83,8 @@ OPENCLAW_PROFILE=dev openclaw tui
 pnpm gateway:dev:reset
 ```
 
-注意：`--dev` 是**全局**配置文件标志，会被某些运行器吞掉。
-如果你需要明确拼写，请使用环境变量形式：
+注意：`--dev` 是一个**全局**配置文件标志，某些运行器会将其吞掉。
+If you need to spell it out, use the env var form:
 
 ```bash
 OPENCLAW_PROFILE=dev openclaw gateway --dev --reset
@@ -102,8 +100,8 @@ openclaw gateway stop
 
 ## 原始流日志（OpenClaw）
 
-OpenClaw 可以在任何过滤/格式化之前记录**原始助手流**。
-这是查看推理是否作为纯文本增量到达（或作为单独的思考块）的最佳方式。
+OpenClaw 可以在任何过滤/格式化之前记录 **原始助手流**。
+这是查看推理是以纯文本增量到达，还是作为独立思考块到达的最佳方式。
 
 通过 CLI 启用：
 
@@ -117,7 +115,7 @@ pnpm gateway:watch --force --raw-stream
 pnpm gateway:watch --force --raw-stream --raw-stream-path ~/.openclaw/logs/raw-stream.jsonl
 ```
 
-等效环境变量：
+等效的环境变量：
 
 ```bash
 OPENCLAW_RAW_STREAM=1
@@ -152,6 +150,4 @@ PI_RAW_STREAM_PATH=~/.pi-mono/logs/raw-openai-completions.jsonl
 
 - 原始流日志可能包含完整提示、工具输出和用户数据。
 - 保持日志在本地并在调试后删除它们。
-- 如果你分享日志，请先清除密钥和个人身份信息。
-
-
+- If you share logs, scrub secrets and PII first.

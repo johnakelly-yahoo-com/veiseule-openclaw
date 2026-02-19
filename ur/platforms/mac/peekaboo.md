@@ -1,4 +1,9 @@
 ---
+summary: "macOS UI آٹومیشن کے لیے PeekabooBridge کا انضمام"
+read_when:
+  - OpenClaw.app میں PeekabooBridge کی میزبانی
+  - Swift Package Manager کے ذریعے Peekaboo کا انضمام
+  - PeekabooBridge کے پروٹوکول/راستوں میں تبدیلی
 title: "Peekaboo Bridge"
 ---
 
@@ -50,5 +55,3 @@ export PEEKABOO_BRIDGE_SOCKET=/path/to/bridge.sock
 
 - اگر `peekaboo` “bridge client is not authorized” رپورٹ کرے، تو یقینی بنائیں کہ کلائنٹ درست طور پر سائن کیا گیا ہے یا ہوسٹ کو `PEEKABOO_ALLOW_UNSIGNED_SOCKET_CLIENTS=1` کے ساتھ صرف **debug** موڈ میں چلائیں۔
 - اگر کوئی ہوسٹس نہ ملیں، تو ہوسٹ ایپس میں سے کسی ایک (Peekaboo.app یا OpenClaw.app) کو کھولیں اور تصدیق کریں کہ اجازتیں دی گئی ہیں۔
-
-

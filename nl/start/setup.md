@@ -1,4 +1,8 @@
 ---
+summary: "Geavanceerde installatie- en ontwikkelworkflows voor OpenClaw"
+read_when:
+  - Een nieuwe machine instellen
+  - Je wilt “latest + greatest” zonder je persoonlijke setup te breken
 title: "Installatie"
 ---
 
@@ -156,5 +160,3 @@ user service (geen lingering nodig). Zie het [Gateway-runbook](/gateway) voor de
 - [Discord](/channels/discord) en [Telegram](/channels/telegram) (reply-tags + replyToMode-instellingen)
 - [OpenClaw-assistent installatie](/start/openclaw)
 - [macOS-app](/platforms/macos) (gateway-levenscyclus)
-
-

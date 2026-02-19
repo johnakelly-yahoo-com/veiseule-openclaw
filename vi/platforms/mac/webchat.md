@@ -1,10 +1,13 @@
 ---
+summary: "Cách ứng dụng mac nhúng WebChat của Gateway và cách gỡ lỗi"
+read_when:
+  - Gỡ lỗi chế độ xem WebChat trên mac hoặc cổng loopback
 title: "WebChat"
 ---
 
 # WebChat (ứng dụng macOS)
 
-Ứng dụng trên thanh menu macOS nhúng giao diện WebChat như một chế độ xem SwiftUI gốc. Nó
+The macOS menu bar app embeds the WebChat UI as a native SwiftUI view. It
 connects to the Gateway and defaults to the **main session** for the selected
 agent (with a session switcher for other sessions).
 
@@ -28,8 +31,8 @@ agent (with a session switcher for other sessions).
 
 - Mặt phẳng dữ liệu: các phương thức WS của Gateway `chat.history`, `chat.send`, `chat.abort`,
   `chat.inject` và các sự kiện `chat`, `agent`, `presence`, `tick`, `health`.
-- Session: mặc định là phiên chính (`main`, hoặc `global` khi phạm vi là
-global). Giao diện có thể chuyển đổi giữa các phiên.
+- Session: defaults to the primary session (`main`, or `global` when scope is
+  global). The UI can switch between sessions.
 - Hướng dẫn ban đầu dùng một phiên riêng để tách thiết lập lần chạy đầu tiên.
 
 ## Bề mặt bảo mật
@@ -39,5 +42,3 @@ global). Giao diện có thể chuyển đổi giữa các phiên.
 ## Hạn chế đã biết
 
 - Giao diện được tối ưu cho các phiên trò chuyện (không phải sandbox trình duyệt đầy đủ).
-
-

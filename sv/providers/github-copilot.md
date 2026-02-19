@@ -1,4 +1,8 @@
 ---
+summary: "Logga in på GitHub Copilot från OpenClaw med hjälp av enhetsflödet"
+read_when:
+  - Du vill använda GitHub Copilot som modellleverantör
+  - Du behöver flödet `openclaw models auth login-github-copilot`
 title: "GitHub Copilot"
 ---
 
@@ -66,5 +70,3 @@ openclaw models set github-copilot/gpt-4o
   prova ett annat ID (till exempel `github-copilot/gpt-4.1`).
 - Inloggningen lagrar en GitHub‑token i autentiseringsprofilens lagring och byter
   ut den mot en Copilot API‑token när OpenClaw körs.
-
-

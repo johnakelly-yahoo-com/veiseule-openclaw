@@ -1,4 +1,9 @@
 ---
+summary: "Service de contrôle de navigateur intégré + commandes d’action"
+read_when:
+  - Ajout d’une automatisation de navigateur contrôlée par un agent
+  - Débogage des interférences d’openclaw avec votre propre Chrome
+  - Implémentation des paramètres et du cycle de vie du navigateur dans l’application macOS
 title: "Navigateur (géré par OpenClaw)"
 ---
 
@@ -186,6 +191,7 @@ Remarques :
 Idées clés :
 
 - Le contrôle du navigateur est limité au loopback ; l’accès passe par l’authentification de la Gateway (passerelle) ou l’appairage de nœuds.
+- Si le contrôle du navigateur est activé et qu’aucune authentification n’est configurée, OpenClaw génère automatiquement `gateway.auth.token` au démarrage et l’enregistre dans la configuration.
 - Conservez la Gateway (passerelle) et tout hôte de nœud sur un réseau privé (Tailscale) ; évitez toute exposition publique.
 - Traitez les URL/jetons CDP distants comme des secrets ; préférez les variables d’environnement ou un gestionnaire de secrets.
 
@@ -309,6 +315,11 @@ Pour les intégrations locales uniquement, la Gateway (passerelle) expose une pe
 
 Tous les points de terminaison acceptent `?profile=<name>`.
 
+Si l’authentification du gateway est configurée, les routes HTTP du navigateur nécessitent également une authentification :
+
+- `Authorization: Bearer <gateway token>`
+- `x-openclaw-password: <gateway password>` ou authentification HTTP Basic avec ce mot de passe
+
 ### Exigence Playwright
 
 Certaines fonctionnalités (navigation/action/instantané IA/instantané de rôle, captures d’éléments, PDF) nécessitent
@@ -430,6 +441,11 @@ Remarques :
 
 - `upload` et `dialog` sont des appels **d’armement** ; exécutez-les avant le clic/la touche
   qui déclenche le sélecteur/la boîte de dialogue.
+- Les chemins de téléchargement et de sortie des traces sont limités aux répertoires temporaires d’OpenClaw :
+  - traces : `/tmp/openclaw` (repli : `${os.tmpdir()}/openclaw`)
+  - downloads : `/tmp/openclaw/downloads` (repli : `${os.tmpdir()}/openclaw/downloads`)
+- Les chemins d’upload sont limités à un répertoire temporaire d’uploads OpenClaw :
+  - uploads : `/tmp/openclaw/uploads` (repli : `${os.tmpdir()}/openclaw/uploads`)
 - `upload` peut également définir directement des entrées de fichiers via `--input-ref` ou `--element`.
 - `snapshot` :
   - `--format ai` (par défaut lorsque Playwright est installé) : renvoie un instantané IA avec des références numériques (`aria-ref="<n>"`).
@@ -566,5 +582,3 @@ Comment elle mappe:
   - Si un nœud capable de navigateur est connecté, l’outil peut s’y acheminer automatiquement à moins que vous ne fixiez `target="host"` ou `target="node"`.
 
 Cela maintient l’agent déterministe et évite les sélecteurs fragiles.
-
-

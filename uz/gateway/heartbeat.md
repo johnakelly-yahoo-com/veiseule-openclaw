@@ -1,4 +1,8 @@
 ---
+summary: "Heartbeat polling xabarlari va bildirishnoma qoidalari"
+read_when:
+  - Heartbeat intervali yoki xabar matnini sozlayotganda
+  - Rejalashtirilgan vazifalar uchun heartbeat va cron o‘rtasida tanlov qilayotganda
 title: "Heartbeat"
 ---
 
@@ -37,12 +41,13 @@ Misol konfiguratsiya:
 
 ## Standart sozlamalar
 
-- Interval: `30m` (yoki aniqlangan autentifikatsiya rejimi Anthropic OAuth/setup-token bo‘lsa `1h`). `agents.defaults.heartbeat.every` yoki har bir agent uchun `agents.list[].heartbeat.every` orqali sozlanadi; o‘chirish uchun `0m` qo‘ying.
-- Prompt matni ( `agents.defaults.heartbeat.prompt` orqali sozlanadi):
+- Interval: `30m` (or `1h` when Anthropic OAuth/setup-token is the detected auth mode). Set `agents.defaults.heartbeat.every` or per-agent `agents.list[].heartbeat.every`; use `0m` to disable.
+- Prompt body (configurable via `agents.defaults.heartbeat.prompt`):
   `Read HEARTBEAT.md if it exists (workspace context). Follow it strictly. Do not infer or repeat old tasks from prior chats. If nothing needs attention, reply HEARTBEAT_OK.`
-- Heartbeat prompti **o‘zgarishsiz (verbatim)** foydalanuvchi xabari sifatida yuboriladi. System prompt ichida “Heartbeat” bo‘limi mavjud va ishga tushirish ichki tarzda belgilab qo‘yiladi.
-- Faol soatlar (`heartbeat.activeHours`) belgilangan vaqt zonasiga ko‘ra tekshiriladi.
-  Oyna tashqarisida heartbeat’lar keyingi oynadagi tick’gacha o‘tkazib yuboriladi.
+- The heartbeat prompt is sent **verbatim** as the user message. The system
+  prompt includes a “Heartbeat” section and the run is flagged internally.
+- Active hours (`heartbeat.activeHours`) are checked in the configured timezone.
+  Outside the window, heartbeats are skipped until the next tick inside the window.
 
 ## Heartbeat prompti nima uchun kerak
 
@@ -56,7 +61,9 @@ Agar heartbeat juda aniq bir ishni bajarishi kerak bo‘lsa (masalan, “Gmail P
 ## Javob shartnomasi
 
 - Agar e’tibor talab qiladigan narsa bo‘lmasa, **`HEARTBEAT_OK`** bilan javob bering.
-- Heartbeat ishga tushirilganda, agar `HEARTBEAT_OK` javobning **boshida yoki oxirida** bo‘lsa, OpenClaw uni tasdiq (ack) sifatida qabul qiladi. Token olib tashlanadi va agar qolgan matn **≤ `ackMaxChars`** (standart: 300) bo‘lsa, javob yuborilmaydi.
+- During heartbeat runs, OpenClaw treats `HEARTBEAT_OK` as an ack when it appears
+  at the **start or end** of the reply. The token is stripped and the reply is
+  dropped if the remaining content is **≤ `ackMaxChars`** (default: 300).
 - Agar `HEARTBEAT_OK` javobning **o‘rtasida** bo‘lsa, u maxsus talqin qilinmaydi.
 - Ogohlantirishlar uchun **`HEARTBEAT_OK` ni qo‘shmang**; faqat ogohlantirish matnini qaytaring.
 
@@ -88,12 +95,14 @@ Heartbeat’dan tashqarida, xabar boshida/oxirida tasodifan kelgan `HEARTBEAT_OK
 - `agents.defaults.heartbeat` global heartbeat xatti-harakatini belgilaydi.
 - `agents.list[].heartbeat` ustiga qo‘shiladi; agar biror agentda `heartbeat` bloki bo‘lsa, **faqat o‘sha agentlar** heartbeat ishga tushiradi.
 - `channels.defaults.heartbeat` barcha kanallar uchun ko‘rinish standartlarini belgilaydi.
-- `channels.<channel>.heartbeat` kanal standartlarini bekor qiladi.
-- `channels.<channel>.accounts.<id>.heartbeat` (multi-account kanallar) kanal sozlamalarini bekor qiladi.
+- `channels.<channel>.heartbeat` overrides channel defaults.
+- `channels.<channel>.accounts.<id>.heartbeat` (multi-account channels) overrides per-channel settings.
 
 ### Har bir agent uchun heartbeat
 
-Agar `agents.list[]` ichida biror element `heartbeat` blokiga ega bo‘lsa, **faqat o‘sha agentlar** heartbeat ishga tushiradi. Per-agent blok `agents.defaults.heartbeat` ustiga qo‘shiladi (umumiy standartlarni bir marta belgilab, agent bo‘yicha o‘zgartirishingiz mumkin).
+If any `agents.list[]` entry includes a `heartbeat` block, **only those agents**
+run heartbeats. The per-agent block merges on top of `agents.defaults.heartbeat`
+(so you can set shared defaults once and override per agent).
 
 Misol: ikki agent, faqat ikkinchi agent heartbeat ishga tushiradi.
 
@@ -144,7 +153,7 @@ Heartbeat’ni ma’lum vaqt zonasidagi ish soatlari bilan cheklash:
 }
 ```
 
-Bu oraliqdan tashqarida (Sharqiy vaqt bilan 9:00 dan oldin yoki 22:00 dan keyin) heartbeat’lar o‘tkazib yuboriladi. Oyna ichidagi keyingi rejalashtirilgan tick odatdagidek ishlaydi.
+Outside this window (before 9am or after 10pm Eastern), heartbeats are skipped. The next scheduled tick inside the window will run normally.
 
 ### Multi account misoli
 
@@ -189,10 +198,10 @@ Telegram kabi multi-account kanallarda ma’lum akkauntni tanlash uchun `account
   - aniq kanal: `whatsapp` / `telegram` / `discord` / `googlechat` / `slack` / `msteams` / `signal` / `imessage`.
   - `none`: heartbeat ishga tushadi, lekin **tashqariga yuborilmaydi**.
 - `to`: ixtiyoriy qabul qiluvchi override (kanalga xos id, masalan WhatsApp uchun E.164 yoki Telegram chat id).
-- `accountId`: multi-account kanallar uchun ixtiyoriy akkaunt id. `target: "last"` bo‘lsa, agar oxirgi kanal akkauntlarni qo‘llab-quvvatlasa qo‘llanadi; aks holda e’tiborga olinmaydi. Agar akkaunt id mos kelmasa, yuborish o‘tkazib yuboriladi.
+- `accountId`: optional account id for multi-account channels. When `target: "last"`, the account id applies to the resolved last channel if it supports accounts; otherwise it is ignored. If the account id does not match a configured account for the resolved channel, delivery is skipped.
 - `prompt`: standart prompt matnini to‘liq almashtiradi (merge qilinmaydi).
 - `ackMaxChars`: `HEARTBEAT_OK` dan keyin yuborishga ruxsat etilgan maksimal belgilar soni.
-- `activeHours`: heartbeat ishga tushirishlarini vaqt oynasi bilan cheklaydi. `start` (HH:MM, inclusive), `end` (HH:MM exclusive; `24:00` ruxsat etiladi) va ixtiyoriy `timezone`.
+- `activeHours`: restricts heartbeat runs to a time window. Object with `start` (HH:MM, inclusive), `end` (HH:MM exclusive; `24:00` allowed for end-of-day), and optional `timezone`.
   - Kiritilmagan yoki `"user"`: agar mavjud bo‘lsa `agents.defaults.userTimezone`, aks holda host tizim vaqt zonasi.
   - `"local"`: har doim host tizim vaqt zonasi.
   - Har qanday IANA identifikatori (masalan `America/New_York`): bevosita ishlatiladi; noto‘g‘ri bo‘lsa `"user"` xatti-harakatiga qaytadi.
@@ -200,18 +209,20 @@ Telegram kabi multi-account kanallarda ma’lum akkauntni tanlash uchun `account
 
 ## Yetkazish xatti-harakati
 
-- Heartbeat odatda agentning asosiy sessiyasida ishlaydi (`agent:<id>:<mainKey>`),
-  yoki `session.scope = "global"` bo‘lsa `global`. Ma’lum kanal sessiyasiga o‘tkazish uchun `session` ni sozlang (Discord/WhatsApp va hokazo).
+- Heartbeats run in the agent’s main session by default (`agent:<id>:<mainKey>`),
+  or `global` when `session.scope = "global"`. Set `session` to override to a
+  specific channel session (Discord/WhatsApp/etc.).
 - `session` faqat ishga tushirish kontekstiga ta’sir qiladi; yuborish `target` va `to` orqali boshqariladi.
-- Ma’lum kanal/qabul qiluvchiga yuborish uchun `target` + `to` ni sozlang.  
-  `target: "last"` bo‘lsa, yuborish o‘sha sessiyaning oxirgi tashqi kanalidan foydalanadi.
+- To deliver to a specific channel/recipient, set `target` + `to`. With
+  `target: "last"`, delivery uses the last external channel for that session.
 - Agar asosiy navbat band bo‘lsa, heartbeat o‘tkazib yuboriladi va keyinroq qayta urinadi.
 - Agar `target` tashqi manzilga mos kelmasa, ishga tushirish amalga oshadi, lekin tashqi xabar yuborilmaydi.
 - Faqat heartbeat javoblari sessiyani faol saqlab turmaydi; oxirgi `updatedAt` tiklanadi, shunda idle muddati odatdagidek ishlaydi.
 
 ## Ko‘rinish boshqaruvlari
 
-Standart bo‘yicha, `HEARTBEAT_OK` tasdiqlari yashiriladi, ogohlantirish mazmuni esa yuboriladi. Buni kanal yoki akkaunt bo‘yicha sozlashingiz mumkin:
+By default, `HEARTBEAT_OK` acknowledgments are suppressed while alert content is
+delivered. You can adjust this per channel or per account:
 
 ```yaml
 channels:
@@ -263,19 +274,22 @@ channels:
 
 ### Keng tarqalgan andozalar
 
-| Maqsad                                  | Config                                                                                   |
-| --------------------------------------- | ---------------------------------------------------------------------------------------- |
-| Standart xatti-harakat (OK yashirin, ogohlantirishlar yoqilgan) | _(config talab qilinmaydi)_                                                              |
-| To‘liq jim (xabar yo‘q, indikator yo‘q) | `channels.defaults.heartbeat: { showOk: false, showAlerts: false, useIndicator: false }` |
-| Faqat indikator (xabar yo‘q)            | `channels.defaults.heartbeat: { showOk: false, showAlerts: false, useIndicator: true }`  |
-| Faqat bitta kanalda OK ko‘rsatish       | `channels.telegram.heartbeat: { showOk: true }`                                          |
+| Maqsad                                                                             | Config                                                                                   |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| Standart xatti-harakat (OK yashirin, ogohlantirishlar yoqilgan) | _(config talab qilinmaydi)_                                           |
+| To‘liq jim (xabar yo‘q, indikator yo‘q)                         | `channels.defaults.heartbeat: { showOk: false, showAlerts: false, useIndicator: false }` |
+| Faqat indikator (xabar yo‘q)                                    | `channels.defaults.heartbeat: { showOk: false, showAlerts: false, useIndicator: true }`  |
+| Faqat bitta kanalda OK ko‘rsatish                                                  | `channels.telegram.heartbeat: { showOk: true }`                                          |
 
 ## HEARTBEAT.md (ixtiyoriy)
 
-Agar ish maydonida `HEARTBEAT.md` fayli mavjud bo‘lsa, standart prompt agentga uni o‘qishni aytadi. Uni o‘zingizning “heartbeat cheklist”ingiz deb tasavvur qiling: kichik, barqaror va har 30 daqiqada qo‘shishga xavfsiz.
+If a `HEARTBEAT.md` file exists in the workspace, the default prompt tells the
+agent to read it. Think of it as your “heartbeat checklist”: small, stable, and
+safe to include every 30 minutes.
 
-Agar `HEARTBEAT.md` mavjud bo‘lsa, lekin amalda bo‘sh bo‘lsa (faqat bo‘sh qatorlar va `# Heading` kabi markdown sarlavhalari), OpenClaw API chaqiruvlarini tejash uchun heartbeat’ni o‘tkazib yuboradi.  
-Agar fayl mavjud bo‘lmasa, heartbeat baribir ishlaydi va model nima qilishni o‘zi hal qiladi.
+If `HEARTBEAT.md` exists but is effectively empty (only blank lines and markdown
+headers like `# Heading`), OpenClaw skips the heartbeat run to save API calls.
+If the file is missing, the heartbeat still runs and the model decides what to do.
 
 Prompt hajmi oshib ketmasligi uchun uni kichik saqlang (qisqa cheklist yoki eslatmalar).
 
@@ -322,11 +336,14 @@ Shaffoflik kerak bo‘lsa, quyidagini yoqing:
 
 - `agents.defaults.heartbeat.includeReasoning: true`
 
-Yoqilganda, heartbeat alohida `Reasoning:` prefiksli xabarni ham yuboradi (`/reasoning on` bilan bir xil format). Bu agent bir nechta sessiya/codex bilan ishlayotganda nega sizni ping qilganini ko‘rish uchun foydali bo‘lishi mumkin — lekin keragidan ortiq ichki tafsilotlarni ham oshkor qilishi mumkin. Guruh chatlarida o‘chiq holda qoldirish tavsiya etiladi.
+When enabled, heartbeats will also deliver a separate message prefixed
+`Reasoning:` (same shape as `/reasoning on`). This can be useful when the agent
+is managing multiple sessions/codexes and you want to see why it decided to ping
+you — but it can also leak more internal detail than you want. Prefer keeping it
+off in group chats.
 
 ## Xarajatni hisobga olish
 
-Heartbeat to‘liq agent yurishlarini bajaradi. Qisqaroq interval ko‘proq token sarflaydi.  
-`HEARTBEAT.md` ni kichik saqlang va agar faqat ichki holat yangilanishi kerak bo‘lsa, arzonroq `model` yoki `target: "none"` dan foydalanishni ko‘rib chiqing.
-
-
+Heartbeats run full agent turns. Shorter intervals burn more tokens. Keep
+`HEARTBEAT.md` small and consider a cheaper `model` or `target: "none"` if you
+only want internal state updates.

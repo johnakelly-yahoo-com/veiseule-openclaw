@@ -1,4 +1,8 @@
 ---
+summary: "Compréhension entrante des images/audio/vidéos (optionnelle) avec fournisseur + solutions de repli CLI"
+read_when:
+  - Conception ou refactorisation de la compréhension des médias
+  - Réglage du prétraitement entrant audio/vidéo/image
 title: "Compréhension des médias"
 ---
 
@@ -372,5 +376,3 @@ Cela affiche les résultats par capacité et le fournisseur/modèle choisi le ca
 
 - [Configuration](/gateway/configuration)
 - [Prise en charge des images et des médias](/nodes/images)
-
-

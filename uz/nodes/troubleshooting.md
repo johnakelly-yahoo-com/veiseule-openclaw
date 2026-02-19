@@ -1,4 +1,8 @@
 ---
+summary: "Node juftlashuvi, foreground talablari, ruxsatlar va asboblar nosozliklarini bartaraf etish"
+read_when:
+  - Node is connected but camera/canvas/screen/exec tools fail
+  - You need the node pairing versus approvals mental model
 title: "Node nosozliklarini bartaraf etish"
 ---
 
@@ -106,5 +110,3 @@ Related:
 - [/nodes/location-command](/nodes/location-command)
 - [/tools/exec-approvals](/tools/exec-approvals)
 - [/gateway/pairing](/gateway/pairing)
-
-

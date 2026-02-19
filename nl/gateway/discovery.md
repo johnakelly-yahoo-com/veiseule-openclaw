@@ -1,4 +1,9 @@
 ---
+summary: "Node-discovery en transports (Bonjour, Tailscale, SSH) voor het vinden van de gateway"
+read_when:
+  - Implementeren of wijzigen van Bonjour-discovery/-advertising
+  - Aanpassen van externe verbindingsmodi (direct vs SSH)
+  - Ontwerpen van node-discovery + pairing voor externe nodes
 title: "Discovery en Transports"
 ---
 
@@ -63,6 +68,13 @@ Problemen oplossen en beacon-details: [Bonjour](/gateway/bonjour).
   - `cliPath=<path>` (optioneel; absoluut pad naar een uitvoerbaar `openclaw`-entrypoint of binaire)
   - `tailnetDns=<magicdns>` (optionele hint; automatisch gedetecteerd wanneer Tailscale beschikbaar is)
 
+Beveiligingsopmerkingen:
+
+- Bonjour/mDNS TXT-records zijn **niet-geauthenticeerd**. Clients moeten TXT-waarden uitsluitend als UX-hints behandelen.
+- Routing (host/poort) moet de voorkeur geven aan het **opgeloste service-endpoint** (SRV + A/AAAA) boven via TXT opgegeven `lanHost`, `tailnetDns` of `gatewayPort`.
+- TLS-pinning mag nooit toestaan dat een geadverteerde `gatewayTlsSha256` een eerder opgeslagen pin overschrijft.
+- iOS/Android-nodes moeten discovery-gebaseerde directe verbindingen behandelen als **alleen-TLS** en een expliciete “vertrouw deze fingerprint”-bevestiging vereisen voordat een eerste pin wordt opgeslagen (out-of-band verificatie).
+
 Uitschakelen/overschrijven:
 
 - `OPENCLAW_DISABLE_BONJOUR=1` schakelt adverteren uit.
@@ -109,5 +121,3 @@ De Gateway is de bron van waarheid voor toelating van nodes/clients.
 - **Gateway**: adverteert discovery-beacons, beheert pairing-beslissingen en host het WS-eindpunt.
 - **macOS-app**: helpt je een Gateway te kiezen, toont pairing-prompts en gebruikt SSH alleen als fallback.
 - **iOS/Android-nodes**: browsen Bonjour als gemak en verbinden met de gepairde Gateway WS.
-
-

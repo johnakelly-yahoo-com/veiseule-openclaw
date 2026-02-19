@@ -1,4 +1,8 @@
 ---
+summary: "Bir OpenClaw kurulumunu bir makineden diğerine taşıyın (migrate edin)"
+read_when:
+  - OpenClaw’ı yeni bir dizüstü bilgisayara/sunucuya taşıyorsunuz
+  - Oturumları, kimlik doğrulamayı ve kanal girişlerini (WhatsApp vb.) korumak istiyorsunuz
 title: "Geçiş Kılavuzu"
 ---
 
@@ -102,7 +106,7 @@ Yaygın yaklaşımlar:
 
 - tarball’ları `scp` ve çıkarmak
 - SSH üzerinden `rsync -a`
-- harici sürücü
+- external drive
 
 Kopyaladıktan sonra şunları doğrulayın:
 
@@ -126,7 +130,7 @@ openclaw gateway restart
 openclaw status
 ```
 
-## Yaygın hatalar (ve bunlardan nasıl kaçınılır)
+## Common footguns (and how to avoid them)
 
 ### Tuzak: profil / state-dizin uyumsuzluğu
 
@@ -186,5 +190,3 @@ Yeni makinede şunları doğrulayın:
 - [Doctor](/gateway/doctor)
 - [Gateway sorun giderme](/gateway/troubleshooting)
 - [OpenClaw verilerini nerede saklar?](/help/faq#where-does-openclaw-store-its-data)
-
-

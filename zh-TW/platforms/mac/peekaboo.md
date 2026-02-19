@@ -1,4 +1,9 @@
 ---
+summary: "PeekabooBridge 與 macOS UI 自動化的整合"
+read_when:
+  - 在 OpenClaw.app 中託管 PeekabooBridge
+  - 透過 Swift Package Manager 整合 Peekaboo
+  - 變更 PeekabooBridge 通訊協定／路徑
 title: "Peekaboo Bridge"
 ---
 
@@ -21,7 +26,7 @@ macOS 應用程式的 TCC 權限。
 
 - 設定 → **啟用 Peekaboo Bridge**
 
-啟用時，OpenClaw 會啟動本機的 UNIX socket 伺服器。若停用，主機
+When enabled, OpenClaw starts a local UNIX socket server. 啟用時，OpenClaw 會啟動本機的 UNIX socket 伺服器。若停用，主機
 is stopped and `peekaboo` will fall back to other available hosts.
 
 ## Client 探索順序
@@ -33,7 +38,7 @@ Peekaboo Client 通常依下列順序嘗試 Host：
 3. OpenClaw.app（精簡代理）
 
 使用 `peekaboo bridge status --verbose` 檢視目前啟用的 Host 以及
-正在使用的 socket 路徑。你也可以覆寫為： You can override with:
+正在使用的 socket 路徑。你也可以覆寫為： You can override with: You can override with:
 
 ```bash
 export PEEKABOO_BRIDGE_SOCKET=/path/to/bridge.sock
@@ -57,5 +62,3 @@ If you need longer retention, re‑capture from the client.
   已正確簽署，或僅在 **debug** 模式下使用 `PEEKABOO_ALLOW_UNSIGNED_SOCKET_CLIENTS=1` 來執行 Host。
 - 若找不到任何 Host，請開啟其中一個 Host 應用程式（Peekaboo.app 或 OpenClaw.app）
   並確認已授予權限。
-
-

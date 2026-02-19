@@ -1,4 +1,8 @@
 ---
+summary: "Ghi log OpenClaw: tệp chẩn đoán xoay vòng + cờ quyền riêng tư của unified log"
+read_when:
+  - Thu thập log macOS hoặc điều tra việc ghi log dữ liệu riêng tư
+  - Gỡ lỗi các vấn đề về vòng đời đánh thức/phiên giọng nói
 title: "Ghi log macOS"
 ---
 
@@ -51,5 +55,3 @@ sudo install -m 644 -o root -g wheel /tmp/bot.molt.plist /Library/Preferences/Lo
 - Gỡ bỏ ghi đè: `sudo rm /Library/Preferences/Logging/Subsystems/bot.molt.plist`.
 - Tùy chọn chạy `sudo log config --reload` để buộc logd bỏ ghi đè ngay lập tức.
 - Hãy nhớ bề mặt này có thể bao gồm số điện thoại và nội dung tin nhắn; chỉ giữ plist trong thời gian bạn thực sự cần thêm chi tiết.
-
-

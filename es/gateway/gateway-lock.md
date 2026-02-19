@@ -1,4 +1,8 @@
 ---
+summary: "Protección de singleton del Gateway mediante el enlace del listener WebSocket"
+read_when:
+  - Al ejecutar o depurar el proceso del gateway
+  - Al investigar la aplicación de instancia única
 title: "Bloqueo del Gateway"
 ---
 
@@ -28,5 +32,3 @@ title: "Bloqueo del Gateway"
 
 - Si el puerto está ocupado por _otro_ proceso, el error es el mismo; libere el puerto o elija otro con `openclaw gateway --port <port>`.
 - La aplicación de macOS aún mantiene su propia protección ligera de PID antes de iniciar el gateway; el bloqueo en tiempo de ejecución se aplica mediante el enlace WebSocket.
-
-

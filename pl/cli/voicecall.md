@@ -1,4 +1,8 @@
 ---
+summary: "Referencja CLI dla `openclaw voicecall` (powierzchnia poleceń wtyczki voice-call)"
+read_when:
+  - Używasz wtyczki voice-call i potrzebujesz punktów wejścia CLI
+  - Chcesz szybkich przykładów dla `voicecall call|continue|status|tail|expose`
 title: "voicecall"
 ---
 
@@ -28,5 +32,3 @@ openclaw voicecall unexpose
 ```
 
 Uwaga dotycząca bezpieczeństwa: wystawiaj punkt końcowy webhooka wyłącznie do sieci, którym ufasz. Gdy to możliwe, preferuj Tailscale Serve zamiast Funnel.
-
-

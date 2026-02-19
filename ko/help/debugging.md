@@ -1,4 +1,9 @@
 ---
+summary: "디버깅 도구: 감시 모드, 원시 모델 스트림, 그리고 추론 누출 추적"
+read_when:
+  - 원시 모델 출력을 검사하여 추론 누출을 확인해야 할 때
+  - 반복 작업 중 Gateway(게이트웨이)를 감시 모드로 실행하고 싶을 때
+  - 반복 가능한 디버깅 워크플로가 필요할 때
 title: "디버깅"
 ---
 
@@ -117,7 +122,7 @@ pnpm gateway:watch --force --raw-stream
 pnpm gateway:watch --force --raw-stream --raw-stream-path ~/.openclaw/logs/raw-stream.jsonl
 ```
 
-동등한 환경 변수:
+Equivalent env vars:
 
 ```bash
 OPENCLAW_RAW_STREAM=1
@@ -155,5 +160,3 @@ PI_RAW_STREAM_PATH=~/.pi-mono/logs/raw-openai-completions.jsonl
 - 원시 스트림 로그에는 전체 프롬프트, 도구 출력, 사용자 데이터가 포함될 수 있습니다.
 - 로그는 로컬에 보관하고 디버깅 후 삭제하십시오.
 - 로그를 공유할 경우, 먼저 비밀 정보와 PII 를 제거하십시오.
-
-

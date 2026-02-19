@@ -1,24 +1,52 @@
 ---
-title: iMessage
+summary: "Legacy iMessage support via imsg (JSON-RPC over stdio). New setups should use BlueBubbles."
+read_when:
+  - Thiết lập hỗ trợ iMessage
+  - Gỡ lỗi gửi/nhận iMessage
+title: "iMessage"
 ---
 
 # iMessage (legacy: imsg)
 
-> **Khuyến nghị:** Dùng [BlueBubbles](/channels/bluebubbles) cho các thiết lập iMessage mới.
->
-> Kênh `imsg` là tích hợp CLI bên ngoài dạng legacy và có thể bị loại bỏ trong một bản phát hành tương lai.
+<Warning>
+Đối với triển khai iMessage mới, hãy sử dụng <a href="/channels/bluebubbles">BlueBubbles</a>.
 
-Trạng thái: tích hợp CLI bên ngoài dạng legacy. Gateway spawns `imsg rpc` (JSON-RPC over stdio).
+Tích hợp `imsg` là phiên bản cũ và có thể bị loại bỏ trong bản phát hành tương lai. 
+</Warning>
 
-## Khởi động nhanh (cho người mới)
+Trạng thái: tích hợp CLI bên ngoài dạng legacy. Gateway khởi chạy `imsg rpc` và giao tiếp qua JSON-RPC trên stdio (không có daemon/cổng riêng).
 
-1. Đảm bảo Messages đã đăng nhập trên máy Mac này.
-2. Cài đặt `imsg`:
-   - `brew install steipete/tap/imsg`
-3. Cấu hình OpenClaw với `channels.imessage.cliPath` và `channels.imessage.dbPath`.
-4. Khởi động gateway và phê duyệt mọi lời nhắc của macOS (Automation + Full Disk Access).
+<CardGroup cols={3}>
+  <Card title="BlueBubbles (recommended)" icon="message-circle" href="/channels/bluebubbles">
+    Đường dẫn iMessage được khuyến nghị cho thiết lập mới.
+  
+</Card>
+  <Card title="Pairing" icon="link" href="/channels/pairing">
+    Tin nhắn trực tiếp iMessage mặc định ở chế độ ghép nối.
+  
+</Card>
+  <Card title="Configuration reference" icon="settings" href="/gateway/configuration-reference#imessage">
+    Tham chiếu đầy đủ các trường iMessage.
+  
+</Card>
+</CardGroup>
 
-Cấu hình tối thiểu:
+## Thiết lập nhanh
+
+<Tabs>
+  <Tab title="Local Mac (fast path)">
+    <Steps>
+      <Step title="Install and verify imsg">
+
+```bash
+brew install steipete/tap/imsg
+imsg rpc --help
+```
+
+        
+</Step>
+      
+        <Step title="Cấu hình OpenClaw">
 
 ```json5
 {
@@ -32,45 +60,76 @@ Cấu hình tối thiểu:
 }
 ```
 
-## Nó là gì
+        
+</Step>
+      
+        <Step title="Khởi động gateway">
 
-- Kênh iMessage được hỗ trợ bởi `imsg` trên macOS.
-- Định tuyến xác định: phản hồi luôn quay lại iMessage.
-- DM dùng chung phiên chính của tác tử; nhóm được cô lập (`agent:<agentId>:imessage:group:<chat_id>`).
-- Nếu một luồng nhiều người tham gia đến với `is_group=false`, bạn vẫn có thể cô lập nó bằng `chat_id` sử dụng `channels.imessage.groups` (xem “Group-ish threads” bên dưới).
+```bash
+openclaw gateway
+```
 
-## Ghi cấu hình
+      {
+        channels: { imessage: { configWrites: false } },
+      }
 
-Theo mặc định, iMessage được phép ghi các cập nhật cấu hình kích hoạt bởi `/config set|unset` (yêu cầu `commands.config: true`).
+```bash
+openclaw pairing list imessage
+openclaw pairing approve imessage <CODE>
+```
 
-Tắt bằng:
+        ```
+            Yêu cầu ghép nối sẽ hết hạn sau 1 giờ.
+          
+</Step>
+        
+</Steps>
+        ```
+
+  
+</Tab>
+
+  <Tab title="Remote Mac over SSH">
+    OpenClaw chỉ yêu cầu `cliPath` tương thích stdio, vì vậy bạn có thể trỏ `cliPath` đến một script wrapper SSH vào máy Mac từ xa và chạy `imsg`.
+
+```bash
+#!/usr/bin/env bash
+exec ssh -T gateway-host imsg "$@"
+```
+
+    ```
+    Cấu hình được khuyến nghị khi bật tệp đính kèm:
+    ```
 
 ```json5
 {
-  channels: { imessage: { configWrites: false } },
+  channels: {
+    imessage: {
+      enabled: true,
+      cliPath: "~/.openclaw/scripts/imsg-ssh",
+      remoteHost: "user@gateway-host", // dùng cho việc lấy tệp đính kèm qua SCP
+      includeAttachments: true,
+    },
+  },
 }
 ```
 
-## Yêu cầu
+    ```
+    Nếu không đặt `remoteHost`, OpenClaw sẽ cố gắng tự động phát hiện bằng cách phân tích script wrapper SSH.
+    ```
 
-- macOS với Messages đã đăng nhập.
-- Full Disk Access cho OpenClaw + `imsg` (truy cập DB Messages).
-- Quyền Automation khi gửi.
-- `channels.imessage.cliPath` có thể trỏ tới bất kỳ lệnh nào proxy stdin/stdout (ví dụ: script bọc SSH sang Mac khác và chạy `imsg rpc`).
+  
+</Tab>
+</Tabs>
 
-## Xử lý sự cố macOS Privacy and Security TCC
+## Yêu cầu và quyền (macOS)
 
-Nếu gửi/nhận thất bại (ví dụ, `imsg rpc` thoát với mã khác 0, hết thời gian chờ, hoặc gateway có vẻ bị treo), nguyên nhân phổ biến là lời nhắc quyền macOS chưa từng được phê duyệt.
+- Messages phải được đăng nhập trên máy Mac đang chạy `imsg`.
+- Cần cấp Full Disk Access cho ngữ cảnh tiến trình đang chạy OpenClaw/`imsg` (truy cập cơ sở dữ liệu Messages).
+- Cần có quyền Automation để gửi tin nhắn qua Messages.app.
 
-macOS cấp quyền TCC theo từng ứng dụng/ngữ cảnh tiến trình. Approve prompts in the same context that runs `imsg` (for example, Terminal/iTerm, a LaunchAgent session, or an SSH-launched process).
-
-Danh sách kiểm tra:
-
-- **Quyền truy cập toàn bộ ổ đĩa**: cho phép truy cập cho tiến trình đang chạy OpenClaw (và bất kỳ wrapper shell/SSH nào thực thi `imsg`). Điều này là bắt buộc để đọc cơ sở dữ liệu Messages (`chat.db`).
-- **Automation → Messages**: cho phép tiến trình chạy OpenClaw (và/hoặc terminal của bạn) điều khiển **Messages.app** cho việc gửi ra ngoài.
-- **Tình trạng CLI `imsg`**: xác minh `imsg` đã được cài và hỗ trợ RPC (`imsg rpc --help`).
-
-Mẹo: Nếu OpenClaw chạy ở chế độ headless (LaunchAgent/systemd/SSH) thì lời nhắc của macOS có thể rất dễ bị bỏ lỡ. Run a one-time interactive command in a GUI terminal to force the prompt, then retry:
+<Tip>
+Quyền được cấp theo từng ngữ cảnh tiến trình. Nếu gateway chạy ở chế độ headless (LaunchAgent/SSH), hãy chạy một lệnh tương tác một lần trong cùng ngữ cảnh đó để kích hoạt các hộp thoại yêu cầu quyền:
 
 ```bash
 imsg chats --limit 1
@@ -78,128 +137,101 @@ imsg chats --limit 1
 imsg send <handle> "test"
 ```
 
-Quyền thư mục macOS liên quan (Desktop/Documents/Downloads): [/platforms/mac/permissions](/platforms/mac/permissions).
+</Tip>
 
-## Thiết lập (nhanh)
+## Kiểm soát truy cập và định tuyến
 
-1. Đảm bảo Messages đã đăng nhập trên máy Mac này.
-2. Cấu hình iMessage và khởi động gateway.
+<Tabs>
+  <Tab title="DM policy">
+    `channels.imessage.dmPolicy` kiểm soát tin nhắn trực tiếp (DM):
 
-### Người dùng macOS dành riêng cho bot (để cô lập danh tính)
+    ```
+    - `pairing` (mặc định)
+    - `allowlist`
+    - `open` (yêu cầu `allowFrom` bao gồm `"*"`)
+    - `disabled`
+    
+    Trường allowlist: `channels.imessage.allowFrom`.
+    
+    Các mục trong allowlist có thể là handle hoặc mục tiêu chat (`chat_id:*`, `chat_guid:*`, `chat_identifier:*`).
+    ```
 
-Nếu bạn muốn bot gửi từ **một danh tính iMessage riêng** (và giữ Messages cá nhân sạch sẽ), hãy dùng một Apple ID riêng + một người dùng macOS riêng.
+  
+</Tab>
 
-1. Tạo một Apple ID dành riêng (ví dụ: `my-cool-bot@icloud.com`).
-   - Apple có thể yêu cầu số điện thoại để xác minh / 2FA.
-2. Tạo một người dùng macOS (ví dụ: `openclawhome`) và đăng nhập vào đó.
-3. Mở Messages trong người dùng macOS đó và đăng nhập iMessage bằng Apple ID của bot.
-4. Bật Remote Login (System Settings → General → Sharing → Remote Login).
-5. Cài đặt `imsg`:
-   - `brew install steipete/tap/imsg`
-6. Thiết lập SSH để `ssh <bot-macos-user>@localhost true` hoạt động không cần mật khẩu.
-7. Trỏ `channels.imessage.accounts.bot.cliPath` tới một wrapper SSH chạy `imsg` dưới người dùng bot.
+  <Tab title="Group policy + mentions">
+    `channels.imessage.groupPolicy` kiểm soát xử lý nhóm:
 
-Lưu ý lần chạy đầu: việc gửi/nhận có thể yêu cầu phê duyệt GUI (Automation + Full Disk Access) trong _tài khoản người dùng macOS của bot_. Nếu `imsg rpc` có vẻ bị treo hoặc thoát, hãy đăng nhập vào người dùng đó (Screen Sharing rất hữu ích), chạy một lần `imsg chats --limit 1` / `imsg send ...`, chấp thuận các lời nhắc, rồi thử lại. Xem [Khắc phục sự cố Quyền riêng tư và Bảo mật TCC trên macOS](#troubleshooting-macos-privacy-and-security-tcc).
-
-1. Ví dụ wrapper (`chmod +x`). 2. Thay `<bot-macos-user>` bằng tên người dùng macOS thực tế của bạn:
-
-```bash
-#!/usr/bin/env bash
-set -euo pipefail
-
-# Run an interactive SSH once first to accept host keys:
-#   ssh <bot-macos-user>@localhost true
-exec /usr/bin/ssh -o BatchMode=yes -o ConnectTimeout=5 -T <bot-macos-user>@localhost \
-  "/usr/local/bin/imsg" "$@"
-```
-
-Ví dụ cấu hình:
-
-```json5
-{
-  channels: {
-    imessage: {
-      enabled: true,
-      accounts: {
-        bot: {
-          name: "Bot",
+    ```
+    {
+      channels: {
+        imessage: {
           enabled: true,
-          cliPath: "/path/to/imsg-bot",
-          dbPath: "/Users/<bot-macos-user>/Library/Messages/chat.db",
+          accounts: {
+            bot: {
+              name: "Bot",
+              enabled: true,
+              cliPath: "/path/to/imsg-bot",
+              dbPath: "/Users/<bot-macos-user>/Library/Messages/chat.db",
+            },
+          },
         },
       },
-    },
-  },
-}
-```
+    }
+    ```
 
-Với thiết lập một tài khoản, dùng các tùy chọn phẳng (`channels.imessage.cliPath`, `channels.imessage.dbPath`) thay vì map `accounts`.
+  
+</Tab>
 
-### Biến thể remote/SSH (tùy chọn)
+  <Tab title="Sessions and deterministic replies">
+    - DM sử dụng định tuyến trực tiếp; nhóm sử dụng định tuyến nhóm.
+    - Với mặc định `session.dmScope=main`, iMessage DM sẽ gộp vào phiên chính của agent.
+    - Phiên nhóm được tách biệt (`agent:<agentId>:imessage:group:<chat_id>`).
+    - Phản hồi sẽ được định tuyến lại về iMessage bằng metadata kênh/mục tiêu ban đầu.
 
-3. Nếu bạn muốn iMessage trên một máy Mac khác, hãy đặt `channels.imessage.cliPath` thành một wrapper chạy `imsg` trên máy macOS từ xa qua SSH. 4. OpenClaw chỉ cần stdio.
+    ```
+    Hành vi luồng giống nhóm:
+    
+    Một số luồng iMessage có nhiều người tham gia có thể đến với `is_group=false`.
+    Nếu `chat_id` đó được cấu hình rõ ràng trong `channels.imessage.groups`, OpenClaw sẽ xử lý như lưu lượng nhóm (áp dụng kiểm soát nhóm + tách biệt phiên nhóm).
+    ```
 
-Ví dụ wrapper:
+  
+</Tab>
+</Tabs>
 
-```bash
-#!/usr/bin/env bash
-exec ssh -T gateway-host imsg "$@"
-```
+## Mô hình triển khai
 
-5. **Tệp đính kèm từ xa:** Khi `cliPath` trỏ tới một máy từ xa qua SSH, đường dẫn tệp đính kèm trong cơ sở dữ liệu Messages sẽ tham chiếu tới các tệp trên máy từ xa. 6. OpenClaw có thể tự động tải các tệp này qua SCP bằng cách đặt `channels.imessage.remoteHost`:
+<AccordionGroup>
+  <Accordion title="Dedicated bot macOS user (separate iMessage identity)">
+    Sử dụng một Apple ID và người dùng macOS riêng để lưu lượng bot được tách biệt khỏi hồ sơ Messages cá nhân của bạn.
 
-```json5
-{
-  channels: {
-    imessage: {
-      cliPath: "~/imsg-ssh", // SSH wrapper to remote Mac
-      remoteHost: "user@gateway-host", // for SCP file transfer
-      includeAttachments: true,
-    },
-  },
-}
-```
+    ```
+    {
+      channels: {
+        imessage: {
+          cliPath: "~/imsg-ssh", // SSH wrapper to remote Mac
+          remoteHost: "user@gateway-host", // for SCP file transfer
+          includeAttachments: true,
+        },
+      },
+    }
+    ```
 
-7. Nếu `remoteHost` không được đặt, OpenClaw sẽ cố gắng tự động phát hiện bằng cách phân tích lệnh SSH trong script wrapper của bạn. 8. Khuyến nghị cấu hình tường minh để đảm bảo độ tin cậy.
+  
+</Accordion>
 
-#### Mac từ xa qua Tailscale (ví dụ)
+  <Accordion title="Remote Mac over Tailscale (example)">
+    Mô hình phổ biến:
 
-Nếu Gateway chạy trên host/VM Linux nhưng iMessage phải chạy trên Mac, Tailscale là cầu nối đơn giản nhất: Gateway nói chuyện với Mac qua tailnet, chạy `imsg` qua SSH, và SCP đính kèm về.
-
-Kiến trúc:
-
-```mermaid
-%%{init: {
-  'theme': 'base',
-  'themeVariables': {
-    'primaryColor': '#ffffff',
-    'primaryTextColor': '#000000',
-    'primaryBorderColor': '#000000',
-    'lineColor': '#000000',
-    'secondaryColor': '#f9f9fb',
-    'tertiaryColor': '#ffffff',
-    'clusterBkg': '#f9f9fb',
-    'clusterBorder': '#000000',
-    'nodeBorder': '#000000',
-    'mainBkg': '#ffffff',
-    'edgeLabelBackground': '#ffffff'
-  }
-}}%%
-flowchart TB
- subgraph T[" "]
- subgraph Tailscale[" "]
-    direction LR
-      Gateway["<b>Gateway host (Linux/VM)<br></b><br>openclaw gateway<br>channels.imessage.cliPath"]
-      Mac["<b>Mac with Messages + imsg<br></b><br>Messages signed in<br>Remote Login enabled"]
-  end
-    Gateway -- SSH (imsg rpc) --> Mac
-    Mac -- SCP (attachments) --> Gateway
-    direction BT
-    User["user@gateway-host"] -- "Tailscale tailnet (hostname or 100.x.y.z)" --> Gateway
-end
-```
-
-Ví dụ cấu hình cụ thể (hostname Tailscale):
+    ```
+    - gateway chạy trên Linux/VM
+    - iMessage + `imsg` chạy trên máy Mac trong tailnet của bạn
+    - wrapper `cliPath` sử dụng SSH để chạy `imsg`
+    - `remoteHost` cho phép lấy tệp đính kèm qua SCP
+    
+    Ví dụ:
+    ```
 
 ```json5
 {
@@ -215,124 +247,169 @@ Ví dụ cấu hình cụ thể (hostname Tailscale):
 }
 ```
 
-Ví dụ wrapper (`~/.openclaw/scripts/imsg-ssh`):
-
 ```bash
 #!/usr/bin/env bash
 exec ssh -T bot@mac-mini.tailnet-1234.ts.net imsg "$@"
 ```
 
-Ghi chú:
+    ```
+    Sử dụng SSH keys để cả SSH và SCP đều không cần tương tác.
+    ```
 
-- Đảm bảo Mac đã đăng nhập Messages và bật Remote Login.
-- Dùng khóa SSH để `ssh bot@mac-mini.tailnet-1234.ts.net` hoạt động không cần lời nhắc.
-- `remoteHost` nên khớp với đích SSH để SCP có thể tải đính kèm.
+  
+</Accordion>
 
-9. Hỗ trợ nhiều tài khoản: sử dụng `channels.imessage.accounts` với cấu hình cho từng tài khoản và `name` tùy chọn. 10. Xem [`gateway/configuration`](/gateway/configuration#telegramaccounts--discordaccounts--slackaccounts--signalaccounts--imessageaccounts) để biết mẫu dùng chung. 11. Đừng commit `~/.openclaw/openclaw.json` (thường chứa token).
+  <Accordion title="Multi-account pattern">
+    iMessage hỗ trợ cấu hình theo từng tài khoản trong `channels.imessage.accounts`.
 
-## Kiểm soát truy cập (DM + nhóm)
+    ```
+    Mỗi tài khoản có thể ghi đè các trường như `cliPath`, `dbPath`, `allowFrom`, `groupPolicy`, `mediaMaxMb` và các thiết lập lịch sử.
+    ```
 
-DM:
+  
+</Accordion>
+</AccordionGroup>
 
-- Mặc định: `channels.imessage.dmPolicy = "pairing"`.
-- Người gửi chưa biết sẽ nhận mã ghép cặp; tin nhắn bị bỏ qua cho đến khi được phê duyệt (mã hết hạn sau 1 giờ).
-- Phê duyệt qua:
-  - `openclaw pairing list imessage`
-  - `openclaw pairing approve imessage <CODE>`
-- Pairing is the default token exchange for iMessage DMs. 12. Chi tiết: [Pairing](/channels/pairing)
+## Media, chia nhỏ và mục tiêu gửi
 
-Nhóm:
+<AccordionGroup>
+  <Accordion title="Attachments and media">
+    - việc nhận tệp đính kèm đầu vào là tùy chọn: `channels.imessage.includeAttachments`
+    - đường dẫn tệp đính kèm từ xa có thể được tải qua SCP khi thiết lập `remoteHost`
+    - kích thước media gửi đi sử dụng `channels.imessage.mediaMaxMb` (mặc định 16 MB)
+  
+</Accordion>
 
-- `channels.imessage.groupPolicy = open | allowlist | disabled`.
-- `channels.imessage.groupAllowFrom` kiểm soát ai có thể kích hoạt trong nhóm khi `allowlist` được đặt.
-- Chặn theo nhắc tên dùng `agents.list[].groupChat.mentionPatterns` (hoặc `messages.groupChat.mentionPatterns`) vì iMessage không có metadata nhắc tên gốc.
-- Ghi đè đa tác tử: đặt pattern theo từng tác tử trên `agents.list[].groupChat.mentionPatterns`.
+  <Accordion title="Outbound chunking">
+    - giới hạn độ dài văn bản: `channels.imessage.textChunkLimit` (mặc định 4000)
+    - chế độ chia nhỏ: `channels.imessage.chunkMode`
+      - `length` (mặc định)
+      - `newline` (ưu tiên tách theo đoạn)
+  
+</Accordion>
+
+  <Accordion title="Addressing formats">
+    Mục tiêu tường minh được ưu tiên:
+
+    ```
+    - `chat_id:123` (khuyến nghị để định tuyến ổn định)
+    - `chat_guid:...`
+    - `chat_identifier:...`
+    
+    Mục tiêu theo handle cũng được hỗ trợ:
+    
+    - `imessage:+1555...`
+    - `sms:+1555...`
+    - `user@example.com`
+    ```
+
+```bash
+imsg chats --limit 20
+```
+
+  
+</Accordion>
+</AccordionGroup>
 
 ## Cách hoạt động (hành vi)
 
-- `imsg` stream các sự kiện tin nhắn; gateway chuẩn hóa chúng vào phong bì kênh dùng chung.
-- Phản hồi luôn định tuyến về cùng chat id hoặc handle.
+iMessage mặc định cho phép ghi cấu hình do kênh khởi tạo (cho `/config set|unset` khi `commands.config: true`).
 
-## Group-ish threads (`is_group=false`)
-
-Một số luồng iMessage có thể có nhiều người tham gia nhưng vẫn đến với `is_group=false` tùy theo cách Messages lưu định danh chat.
-
-Nếu bạn cấu hình tường minh một `chat_id` dưới `channels.imessage.groups`, OpenClaw coi luồng đó là “nhóm” cho:
-
-- cô lập phiên (khóa phiên `agent:<agentId>:imessage:group:<chat_id>` riêng)
-- hành vi danh sách cho phép nhóm / chặn theo nhắc tên
-
-Ví dụ:
+Vô hiệu hóa:
 
 ```json5
 {
   channels: {
     imessage: {
-      groupPolicy: "allowlist",
-      groupAllowFrom: ["+15555550123"],
-      groups: {
-        "42": { requireMention: false },
-      },
+      configWrites: false,
     },
   },
 }
 ```
 
-This is useful when you want an isolated personality/model for a specific thread (see [Multi-agent routing](/concepts/multi-agent)). 13. Để cô lập hệ thống tệp, xem [Sandboxing](/gateway/sandboxing).
+## Khắc phục sự cố
 
-## Media + giới hạn
+<AccordionGroup>
+  <Accordion title="imsg not found or RPC unsupported">
+    Xác thực binary và hỗ trợ RPC:
 
-- Nạp đính kèm tùy chọn qua `channels.imessage.includeAttachments`.
-- Giới hạn media qua `channels.imessage.mediaMaxMb`.
-
-## Giới hạn
-
-- Văn bản gửi ra được chia khối tới `channels.imessage.textChunkLimit` (mặc định 4000).
-- Chia khối theo dòng mới tùy chọn: đặt `channels.imessage.chunkMode="newline"` để tách theo dòng trống (ranh giới đoạn) trước khi chia theo độ dài.
-- Tải media bị giới hạn bởi `channels.imessage.mediaMaxMb` (mặc định 16).
-
-## Địa chỉ / đích gửi
-
-Ưu tiên `chat_id` để định tuyến ổn định:
-
-- `chat_id:123` (ưu tiên)
-- `chat_guid:...`
-- `chat_identifier:...`
-- handle trực tiếp: `imessage:+1555` / `sms:+1555` / `user@example.com`
-
-Liệt kê chat:
-
-```
-imsg chats --limit 20
+```bash
+imsg rpc --help
+openclaw channels status --probe
 ```
 
-## Tham chiếu cấu hình (iMessage)
+    ```
+    {
+      channels: {
+        imessage: {
+          groupPolicy: "allowlist",
+          groupAllowFrom: ["+15555550123"],
+          groups: {
+            "42": { requireMention: false },
+          },
+        },
+      },
+    }
+    ```
 
-Cấu hình đầy đủ: [Cấu hình](/gateway/configuration)
+  
+</Accordion>
 
-Tùy chọn nhà cung cấp:
+  <Accordion title="DMs are ignored">
+    Kiểm tra:
 
-- `channels.imessage.enabled`: bật/tắt khởi động kênh.
-- `channels.imessage.cliPath`: đường dẫn tới `imsg`.
-- `channels.imessage.dbPath`: đường dẫn DB Messages.
-- `channels.imessage.remoteHost`: SSH host for SCP attachment transfer when `cliPath` points to a remote Mac (e.g., `user@gateway-host`). Auto-detected from SSH wrapper if not set.
-- `channels.imessage.service`: `imessage | sms | auto`.
-- `channels.imessage.region`: vùng SMS.
-- `channels.imessage.dmPolicy`: `pairing | allowlist | open | disabled` (mặc định: pairing).
-- `channels.imessage.allowFrom`: DM allowlist (handles, emails, E.164 numbers, or `chat_id:*`). 14. `open` yêu cầu `"*"`. iMessage has no usernames; use handles or chat targets.
-- `channels.imessage.groupPolicy`: `open | allowlist | disabled` (mặc định: allowlist).
-- `channels.imessage.groupAllowFrom`: danh sách cho phép người gửi trong nhóm.
-- `channels.imessage.historyLimit` / `channels.imessage.accounts.*.historyLimit`: số tin nhắn nhóm tối đa đưa vào ngữ cảnh (0 là tắt).
-- 15. `channels.imessage.dmHistoryLimit`: giới hạn lịch sử DM theo số lượt của người dùng. 16. Ghi đè theo người dùng: `channels.imessage.dms["<handle>"].historyLimit`.
-- `channels.imessage.groups`: mặc định theo nhóm + danh sách cho phép (dùng `"*"` cho mặc định toàn cục).
-- `channels.imessage.includeAttachments`: nạp đính kèm vào ngữ cảnh.
-- `channels.imessage.mediaMaxMb`: giới hạn media vào/ra (MB).
-- `channels.imessage.textChunkLimit`: kích thước chia khối gửi ra (ký tự).
-- `channels.imessage.chunkMode`: `length` (mặc định) hoặc `newline` để tách theo dòng trống (ranh giới đoạn) trước khi chia theo độ dài.
+    ```
+    - `channels.imessage.dmPolicy`
+    - `channels.imessage.allowFrom`
+    - phê duyệt pairing (`openclaw pairing list imessage`)
+    ```
 
-Tùy chọn toàn cục liên quan:
+  
+</Accordion>
+
+  <Accordion title="Group messages are ignored">
+    Kiểm tra:
+
+    ```
+    - `channels.imessage.groupPolicy`
+    - `channels.imessage.groupAllowFrom`
+    - hành vi allowlist của `channels.imessage.groups`
+    - cấu hình mẫu mention (`agents.list[].groupChat.mentionPatterns`)
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Remote attachments fail">
+    Kiểm tra:
+
+    ```
+    - `channels.imessage.remoteHost`
+    - Xác thực khóa SSH/SCP từ máy chủ gateway
+    - Đảm bảo đường dẫn từ xa có thể đọc được trên máy Mac chạy Messages
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="macOS permission prompts were missed">    Chạy lại trong một terminal GUI tương tác trong cùng ngữ cảnh người dùng/phiên và chấp thuận các yêu cầu:
+
+```bash
+imsg chats --limit 1
+imsg send <handle> "test"
+```
+
+    ```
+    Xác nhận rằng Full Disk Access + Automation đã được cấp cho ngữ cảnh tiến trình đang chạy OpenClaw/`imsg`.
+    ```
+
+  
+</Accordion>
+</AccordionGroup>
+
+## Các tham chiếu cấu hình
 
 - `agents.list[].groupChat.mentionPatterns` (hoặc `messages.groupChat.mentionPatterns`).
 - `messages.responsePrefix`.
-
-
+- [Pairing](/channels/pairing)
+- [BlueBubbles](/channels/bluebubbles)

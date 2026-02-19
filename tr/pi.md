@@ -230,7 +230,7 @@ SDK, tam ajan döngüsünü yönetir: LLM’e gönderme, araç çağrılarını 
 
 ## Araç Mimarisi
 
-### Araç İş Hattı
+### Tool Pipeline
 
 1. **Temel Araçlar**: pi’nin `codingTools` (read, bash, edit, write)
 2. **Özel Değiştirmeler**: OpenClaw, bash’i `exec`/`process` ile değiştirir, read/edit/write’ı sandbox için özelleştirir
@@ -259,7 +259,7 @@ export function toToolDefinitions(tools: AnyAgentTool[]): ToolDefinition[] {
 }
 ```
 
-### Araç Bölme Stratejisi
+### Tool Split Strategy
 
 `splitSdkTools()`, tüm araçları `customTools` üzerinden geçirir:
 
@@ -287,7 +287,7 @@ applySystemPromptOverrideToSession(session, systemPromptOverride);
 
 ## Oturum Yönetimi
 
-### Oturum Dosyaları
+### Session Files
 
 Oturumlar, ağaç yapısına sahip (id/parentId bağlantılı) JSONL dosyalarıdır. Kalıcılığı pi’nin `SessionManager` bileşeni yönetir:
 
@@ -297,7 +297,7 @@ const sessionManager = SessionManager.open(params.sessionFile);
 
 OpenClaw bunu, araç sonucu güvenliği için `guardSessionManager()` ile sarar.
 
-### Oturum Önbellekleme
+### Session Caching
 
 `session-manager-cache.ts`, tekrarlanan dosya ayrıştırmalarını önlemek için SessionManager örneklerini önbelleğe alır:
 
@@ -355,7 +355,7 @@ const { model, error, authStorage, modelRegistry } = resolveModel(
 authStorage.setRuntimeApiKey(model.provider, apiKeyInfo.apiKey);
 ```
 
-### Yedek Devreye Alma
+### Failover
 
 Yapılandırıldığında, `FailoverError` model geri dönüşünü tetikler:
 
@@ -386,7 +386,7 @@ if (resolveCompactionMode(params.cfg) === "safeguard") {
 }
 ```
 
-### Bağlam Budama
+### Context Pruning
 
 `pi-extensions/context-pruning.ts`, önbellek TTL tabanlı bağlam budamayı uygular:
 
@@ -516,7 +516,7 @@ Bu, pi’nin yerel moduna benzer etkileşimli terminal deneyimini sağlar.
 | Uzantılar        | `pi` komutu / RPC                      | `createAgentSession()` üzerinden SDK                                                                                |
 | Araçlar          | Varsayılan kodlama araçları            | Özel OpenClaw araç seti                                                                                             |
 | Sistem prompt’u  | AGENTS.md + prompt’lar | Kanal/bağlama göre dinamik                                                                                          |
-| Oturum depolama  | `~/.pi/agent/sessions/`                | `~/.openclaw/agents/<agentId>/sessions/` (veya `$OPENCLAW_STATE_DIR/agents/<agentId>/sessions/`) |
+| Oturum depolama  | `~/.pi/agent/sessions/`                | `~/.openclaw/agents/&lt;agentId&gt;/sessions/` (veya `$OPENCLAW_STATE_DIR/agents/&lt;agentId&gt;/sessions/`) |
 | Kimlik doğrulama | Tek kimlik bilgisi                     | Rotasyonlu çoklu profil                                                                                             |
 | Extensions       | Diskten yüklenir                       | Programatik + disk yolları                                                                                          |
 | Olay işleme      | TUI çizimi                             | Geri çağrı tabanlı (onBlockReply vb.)                                            |
@@ -610,5 +610,3 @@ Pi entegrasyonunu ve uzantılarını kapsayan mevcut tüm testler:
 - `src/agents/pi-tools.policy.test.ts`
 - `src/agents/pi-tools.safe-bins.test.ts`
 - `src/agents/pi-tools.workspace-paths.test.ts`
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw cron` uchun CLI ma’lumotnomasi (fon vazifalarini rejalashtirish va ishga tushirish)"
+read_when:
+  - Rejalashtirilgan vazifalar va uyg‘otishlar kerak
+  - Cron bajarilishi va loglarini nosozlikdan o‘tkazyapsiz
 title: "cron"
 ---
 
@@ -37,5 +41,3 @@ Muayyan kanalga e’lon qilish:
 ```bash
 openclaw cron edit <job-id> --announce --channel slack --to "channel:C1234567890"
 ```
-
-

@@ -1,17 +1,13 @@
 ---
-title: 图像和媒体支持
-x-i18n:
-  generated_at: "2026-02-03T07:50:42Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 971aed398ea01078efbad7a8a4bca17f2a975222a2c4db557565e4334c9450e0
-  source_path: nodes/images.md
-  workflow: 15
+summary: "发送、Gateway 网关和智能体回复的图像和媒体处理规则"
+read_when:
+  - 修改媒体管道或附件
+title: "图像和媒体支持"
 ---
 
 # 图像与媒体支持 — 2025-12-05
 
-WhatsApp 渠道通过 **Baileys Web** 运行。本文档记录了发送、Gateway 网关和智能体回复的当前媒体处理规则。
+WhatsApp 渠道通过 **Baileys Web** 运行。本文档记录了发送、Gateway 网关和智能体回复的当前媒体处理规则。 This document captures the current media handling rules for send, gateway, and agent replies.
 
 ## 目标
 
@@ -67,12 +63,10 @@ WhatsApp 渠道通过 **Baileys Web** 运行。本文档记录了发送、Gatewa
 - 图像默认：10 MB（`tools.media.image.maxBytes`）。
 - 音频默认：20 MB（`tools.media.audio.maxBytes`）。
 - 视频默认：50 MB（`tools.media.video.maxBytes`）。
-- 超大媒体跳过理解，但回复仍然使用原始正文通过。
+- Oversize media skips understanding, but replies still go through with the original body.
 
 ## 测试说明
 
 - 覆盖图像/音频/文档情况的发送 + 回复流程。
 - 验证图像的重新压缩（大小限制）和音频的语音消息标志。
 - 确保多媒体回复作为顺序发送扇出。
-
-

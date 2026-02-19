@@ -1,20 +1,26 @@
 ---
+summary: "適用於 iOS 與其他遠端節點的 Gateway 擁有節點配對（選項 B）"
+read_when:
+  - Implementing node pairing approvals without macOS UI
+  - 新增用於核准遠端節點的 CLI 流程
+  - 以節點管理擴充 Gateway 通訊協定
 title: "Gateway 擁有的配對"
 ---
 
 # Gateway 擁有的配對（選項 B）
 
 In Gateway-owned pairing, the **Gateway** is the source of truth for which nodes
-are allowed to join. 9. UI（macOS 應用程式、未來的客戶端）僅是前端，用來核准或拒絕待處理的請求。
+are allowed to join. UI（macOS 應用程式、未來的客戶端）僅是前端，用來核准或拒絕待處理的請求。
 
 **重要：** WS 節點在 `connect` 期間使用 **device pairing**（角色 `node`）。`node.pair.*` 是獨立的配對儲存區，且**不會**限制 WS 握手。只有明確呼叫 `node.pair.*` 的客戶端才會使用此流程。
+`node.pair.*` is a separate pairing store and does **not** gate the WS handshake.
 `node.pair.*` is a separate pairing store and does **not** gate the WS handshake.
 Only clients that explicitly call `node.pair.*` use this flow.
 
 ## 概念
 
 - 12. **待處理請求**：節點請求加入；需要核准。
-- **已配對的節點**：已核准並已發行驗證權杖的節點。
+- **Paired node**: approved node with an issued auth token.
 - 14. **傳輸層**：Gateway 的 WS 端點會轉送請求，但不決定成員資格。 (Legacy TCP bridge support is deprecated/removed.)
 
 ## 配對運作方式
@@ -89,5 +95,3 @@ openclaw nodes rename --node <id|name|ip> --name "Living Room iPad"
 - The transport is **stateless**; it does not store membership.
 - 若 Gateway 離線或停用配對，節點將無法配對。
 - 若 Gateway 處於遠端模式，配對仍會針對遠端 Gateway 的儲存區進行。
-
-

@@ -1,30 +1,35 @@
 ---
+summary: "在自動化中選擇 heartbeat 與 cron 工作的指引"
+read_when:
+  - 決定如何排程重複性任務
+  - 設定背景監控或通知
+  - 為定期檢查最佳化權杖使用量
 title: "Cron 與 Heartbeat"
 ---
 
 # Cron 與 Heartbeat：何時使用各自的機制
 
-Heartbeat 與 cron 工作都能讓你依排程執行任務。本指南協助你為你的使用情境選擇合適的機制。 This guide helps you choose the right mechanism for your use case.
+Heartbeat 與 cron 工作都能讓你依排程執行任務。本指南協助你為你的使用情境選擇合適的機制。 Heartbeat 與 cron 工作都能讓你依排程執行任務。本指南協助你為你的使用情境選擇合適的機制。 This guide helps you choose the right mechanism for your use case.
 
 ## 快速決策指南
 
 | 使用情境           | 建議             | 原因                                       |
 | -------------- | -------------- | ---------------------------------------- |
-| 每 30 分鐘檢查收件匣   | Heartbeat      | 與其他檢查批次處理，具備情境感知能力 |
+| 每 30 分鐘檢查收件匣   | Heartbeat      | Batches with other checks, context-aware |
 | 每天上午 9 點準時寄送報告 | Cron（隔離）       | 需要精準時間                                   |
 | 監控行事曆的即將到來事件   | Heartbeat      | 天然適合週期性察覺                                |
 | 每週執行深度分析       | Cron（隔離）       | 獨立任務，可使用不同模型                             |
-| 20 分鐘後提醒我      | Cron（主，`--at`） | 具備精確時序的一次性執行             |
-| 背景專案健康檢查       | Heartbeat      | 搭載於現有週期執行             |
+| 20 分鐘後提醒我      | Cron（主，`--at`） | One-shot with precise timing             |
+| 背景專案健康檢查       | Heartbeat      | Piggybacks on existing cycle             |
 
 ## Heartbeat：週期性察覺
 
-Heartbeats 會在**主工作階段**中以固定間隔執行（預設：30 分鐘）。其設計目的是讓代理檢查相關事項，並呈現任何重要資訊。
+Heartbeats run in the **main session** at a regular interval (default: 30 min). They're designed for the agent to check on things and surface anything important.
 
 ### 何時使用 heartbeat
 
 - **多項週期性檢查**：與其使用 5 個獨立的 cron 工作分別檢查收件匣、行事曆、天氣、通知與專案狀態，不如用單一 heartbeat 將這些批次處理。
-- **情境感知決策**：代理擁有完整的主工作階段情境，因此能夠明智地判斷哪些事項緊急、哪些可以稍後處理。
+- **Context-aware decisions**: The agent has full main-session context, so it can make smart decisions about what's urgent vs. what can wait.
 - **對話連續性**：Heartbeat 執行共用同一工作階段，代理程式能記住近期對話並自然跟進。
 - **低負擔監控**：一個 heartbeat 取代多個小型輪詢任務。
 
@@ -276,5 +281,3 @@ openclaw cron add \
 - [Heartbeat](/gateway/heartbeat)－完整的 heartbeat 設定
 - [Cron jobs](/automation/cron-jobs)－完整的 cron CLI 與 API 參考
 - [System](/cli/system)－系統事件與 heartbeat 控制
-
-

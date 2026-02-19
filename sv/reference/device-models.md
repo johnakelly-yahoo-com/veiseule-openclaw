@@ -1,4 +1,8 @@
 ---
+summary: "Hur OpenClaw levererar Apple-enhetsmodellidentifierare som lättlästa namn i macOS-appen."
+read_when:
+  - Uppdaterar mappningar för enhetsmodellidentifierare eller NOTICE/licensfiler
+  - Ändrar hur Instances-gränssnittet visar enhetsnamn
 title: "Databas för enhetsmodeller"
 ---
 
@@ -41,5 +45,3 @@ curl -fsSL "https://raw.githubusercontent.com/kyle-seongwoo-jun/apple-device-ide
 ```bash
 swift build --package-path apps/macos
 ```
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Khắc phục sự cố ghép cặp node, yêu cầu chạy nền trước, quyền truy cập và lỗi công cụ"
+read_when:
+  - Node đã kết nối nhưng các công cụ camera/canvas/screen/exec không hoạt động
+  - Bạn cần hiểu mô hình ghép cặp node so với phê duyệt
 title: "Xử lý sự cố Node"
 ---
 
@@ -105,5 +109,3 @@ Liên quan:
 - [/nodes/location-command](/nodes/location-command)
 - [/tools/exec-approvals](/tools/exec-approvals)
 - [/gateway/pairing](/gateway/pairing)
-
-

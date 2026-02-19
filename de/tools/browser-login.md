@@ -1,4 +1,8 @@
 ---
+summary: "„Manuelle Logins für Browser-Automatisierung + Posten auf X/Twitter“"
+read_when:
+  - Sie müssen sich für Browser-Automatisierung bei Websites anmelden
+  - Sie möchten Updates auf X/Twitter posten
 title: "„Browser-Login“"
 ---
 
@@ -61,5 +65,3 @@ openclaw browser open https://x.com --browser-profile openclaw --target host
 ```
 
 Oder deaktivieren Sie Sandboxing für den Agenten, der Updates postet.
-
-

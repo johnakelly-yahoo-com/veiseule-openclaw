@@ -1,4 +1,8 @@
 ---
+summary: "Zalo Personal प्लगइन: zca-cli के माध्यम से QR लॉगिन + मैसेजिंग (प्लगइन इंस्टॉल + चैनल विन्यास + CLI + टूल)"
+read_when:
+  - आप OpenClaw में Zalo Personal (अनौपचारिक) समर्थन चाहते हैं
+  - आप zalouser प्लगइन को विन्यस्त या विकसित कर रहे हैं
 title: "Zalo Personal प्लगइन"
 ---
 
@@ -6,11 +10,11 @@ title: "Zalo Personal प्लगइन"
 
 `zca-cli` का उपयोग करते हुए, एक सामान्य Zalo उपयोगकर्ता खाते को स्वचालित करने के लिए प्लगइन के माध्यम से OpenClaw के लिए Zalo Personal समर्थन।
 
-> **चेतावनी:** अनौपचारिक ऑटोमेशन के कारण खाता निलंबित/प्रतिबंधित किया जा सकता है। अपने जोखिम पर उपयोग करें।
+> **Warning:** Unofficial automation may lead to account suspension/ban. Use at your own risk.
 
 ## नामकरण
 
-Channel id `zalouser` है ताकि यह स्पष्ट हो कि यह एक **व्यक्तिगत Zalo उपयोगकर्ता खाते** (अनौपचारिक) को स्वचालित करता है। संभावित भविष्य के आधिकारिक Zalo API इंटीग्रेशन के लिए हम `zalo` को सुरक्षित रखते हैं।
+Channel id is `zalouser` to make it explicit this automates a **personal Zalo user account** (unofficial). We keep `zalo` reserved for a potential future official Zalo API integration.
 
 ## यह कहाँ चलता है
 
@@ -75,5 +79,3 @@ openclaw directory peers list --channel zalouser --query "name"
 टूल नाम: `zalouser`
 
 क्रियाएँ: `send`, `image`, `link`, `friends`, `groups`, `me`, `status`
-
-

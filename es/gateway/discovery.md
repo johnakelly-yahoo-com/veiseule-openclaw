@@ -1,4 +1,9 @@
 ---
+summary: "Descubrimiento de nodos y transportes (Bonjour, Tailscale, SSH) para encontrar el Gateway"
+read_when:
+  - Implementar o cambiar el descubrimiento/anuncio por Bonjour
+  - Ajustar los modos de conexión remota (directo vs SSH)
+  - Diseñar el descubrimiento de nodos y el emparejamiento para nodos remotos
 title: "Descubrimiento y transportes"
 ---
 
@@ -63,6 +68,13 @@ Solución de problemas y detalles de beacons: [Bonjour](/gateway/bonjour).
   - `cliPath=<path>` (opcional; ruta absoluta a un entrypoint o binario ejecutable `openclaw`)
   - `tailnetDns=<magicdns>` (sugerencia opcional; se detecta automáticamente cuando Tailscale está disponible)
 
+Notas de seguridad:
+
+- Los registros TXT de Bonjour/mDNS son **no autenticados**. Los clientes deben tratar los valores TXT solo como pistas de UX.
+- El enrutamiento (host/puerto) debe preferir el **endpoint de servicio resuelto** (SRV + A/AAAA) en lugar de `lanHost`, `tailnetDns` o `gatewayPort` proporcionados por TXT.
+- La fijación de TLS nunca debe permitir que un `gatewayTlsSha256` anunciado sobrescriba un pin almacenado previamente.
+- Los nodos iOS/Android deben tratar las conexiones directas basadas en descubrimiento como **solo TLS** y requerir una confirmación explícita de «confiar en esta huella» antes de almacenar un pin por primera vez (verificación fuera de banda).
+
 Deshabilitar/sobrescribir:
 
 - `OPENCLAW_DISABLE_BONJOUR=1` deshabilita el anuncio.
@@ -109,5 +121,3 @@ El Gateway es la fuente de la verdad para la admisión de nodos/clientes.
 - **Gateway**: anuncia beacons de descubrimiento, toma decisiones de emparejamiento y aloja el endpoint WS.
 - **app de macOS**: le ayuda a elegir un Gateway, muestra solicitudes de emparejamiento y usa SSH solo como alternativa.
 - **nodos iOS/Android**: exploran Bonjour como conveniencia y se conectan al Gateway WS emparejado.
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "Forschungsnotizen: Offline-Memory-System für Clawd-Workspaces (Markdown als Source of Truth + abgeleiteter Index)"
+read_when:
+  - Entwurf von Workspace-Memory (~/.openclaw/workspace) über tägliche Markdown-Logs hinaus
+  - Deciding: "Entscheidung: eigenständige CLI vs. tiefe OpenClaw-Integration"
+  - Hinzufügen von Offline-Recall + Reflexion (retain/recall/reflect)
 title: "Workspace-Memory-Forschung"
 ---
 
@@ -22,7 +27,7 @@ Es ist schwach bei:
 - Retrieval mit hoher Trefferquote („Was haben wir zu X entschieden?“, „Wann haben wir Y zuletzt ausprobiert?“)
 - entitätszentrierten Antworten („Erzähl mir etwas über Alice / The Castle / warelay“) ohne viele Dateien erneut zu lesen
 - Stabilität von Meinungen/Präferenzen (und Nachweise bei Änderungen)
-- Zeitbezug („Was galt im Nov 2025?“) und Konfliktauflösung und Konfliktlösung
+- Zeitbezug („Was galt im Nov 2025?“) und Konfliktauflösung und Konfliktlösung und Konfliktlösung
 
 ## Designziele
 
@@ -132,7 +137,7 @@ Recall sollte unterstützen:
 - **lexikalisch**: „exakte Begriffe / Namen / Commands finden“ (FTS5)
 - **entitätsbezogen**: „Erzähl mir etwas über X“ (Entitätsseiten + entitätsverknüpfte Fakten)
 - **zeitlich**: „Was geschah um den 27. Nov“ / „seit letzter Woche“
-- **meinungsbezogen**: „Was bevorzugt Peter?“ (mit Konfidenz + Evidenz) (mit Vertrauen + Beweis)
+- **meinungsbezogen**: „Was bevorzugt Peter?“ (mit Konfidenz + Evidenz) (mit Vertrauen + Beweis) (mit Vertrauen + Beweis)
 
 Das Rückgabeformat sollte agentenfreundlich sein und Quellen zitieren:
 
@@ -221,5 +226,3 @@ Wenn Sie eine minimale, dennoch nützliche Version möchten:
 - Letta-/MemGPT-Konzepte: „core memory blocks“ + „archival memory“ + toolgesteuerte, selbsteditierende Memory.
 - Hindsight Technical Report: „retain / recall / reflect“, Vier-Netzwerk-Memory, narrative Faktenextraktion, Konfidenzentwicklung von Meinungen.
 - SuCo: arXiv 2411.14754 (2024): „Subspace Collision“ Approximate-Nearest-Neighbor-Retrieval.
-
-

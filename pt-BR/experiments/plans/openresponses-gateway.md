@@ -1,4 +1,5 @@
 ---
+summary: "Plano: adicionar o endpoint OpenResponses /v1/responses e descontinuar chat completions de forma limpa"
 owner: "openclaw"
 status: "draft"
 last_updated: "2026-01-19"
@@ -119,5 +120,3 @@ Principais pontos extraídos:
 
 - Adicionar uma nova página de docs para uso e exemplos de `/v1/responses`.
 - Atualizar `/gateway/openai-http-api` com uma nota de legado e um apontamento para `/v1/responses`.
-
-

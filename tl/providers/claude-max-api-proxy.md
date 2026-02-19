@@ -1,10 +1,15 @@
 ---
+summary: "Gamitin ang Claude Max/Pro subscription bilang isang OpenAI-compatible na API endpoint"
+read_when:
+  - Gusto mong gamitin ang Claude Max subscription kasama ng mga OpenAI-compatible na tool
+  - Gusto mo ng lokal na API server na bumabalot sa Claude Code CLI
+  - Gusto mong makatipid sa pamamagitan ng paggamit ng subscription sa halip na mga API key
 title: "Claude Max API Proxy"
 ---
 
 # Claude Max API Proxy
 
-**claude-max-api-proxy** ay isang community tool na naglalantad ng iyong Claude Max/Pro subscription bilang isang OpenAI-compatible API endpoint. Pinapayagan ka nitong gamitin ang iyong subscription sa anumang tool na sumusuporta sa OpenAI API format.
+**claude-max-api-proxy** is a community tool that exposes your Claude Max/Pro subscription as an OpenAI-compatible API endpoint. This allows you to use your subscription with any tool that supports the OpenAI API format.
 
 ## Bakit Ito Gagamitin?
 
@@ -141,5 +146,3 @@ launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.claude-max-api.plist
 
 - [Anthropic provider](/providers/anthropic) - Native na OpenClaw integration gamit ang Claude setup-token o mga API key
 - [OpenAI provider](/providers/openai) - Para sa mga OpenAI/Codex subscription
-
-

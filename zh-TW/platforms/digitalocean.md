@@ -1,4 +1,8 @@
 ---
+summary: "在 DigitalOcean 上執行 OpenClaw（簡單的付費 VPS 選項）"
+read_when:
+  - 在 DigitalOcean 上設定 OpenClaw
+  - 尋找便宜的 OpenClaw VPS 主機
 title: "DigitalOcean"
 ---
 
@@ -12,11 +16,11 @@ title: "DigitalOcean"
 
 ## 費用比較（2026）
 
-| 提供者          | 方案              | 規格                 | 每月價格                        | 備註            |
+| 提供者          | 方案              | 規格                 | 每月價格                        | Notes            |
 | ------------ | --------------- | ------------------ | --------------------------- | ---------------- |
 | Oracle Cloud | Always Free ARM | 最多 4 OCPU、24GB RAM | $0                          | ARM、容量有限／註冊流程較繁瑣 |
 | Hetzner      | CX22            | 2 vCPU、4GB RAM     | €3.79（約 $4） | 最便宜的付費選項         |
-| DigitalOcean | 基本           | 1 vCPU、1GB RAM     | $6                          | UI 簡單、文件完善       |
+| DigitalOcean | 基本              | 1 vCPU、1GB RAM     | $6                          | UI 簡單、文件完善       |
 | Vultr        | Cloud Compute   | 1 vCPU、1GB RAM     | $6                          | Many locations   |
 | Linode       | Nanode          | 1 vCPU、1GB RAM     | $5                          | 現已隸屬於 Akamai     |
 
@@ -158,7 +162,7 @@ openclaw channels login whatsapp
 
 ## 針對 1GB RAM 的最佳化
 
-$6 的 Droplet 僅有 1GB RAM。為了讓系統穩定運作： To keep things running smoothly:
+$6 的 Droplet 僅有 1GB RAM。為了讓系統穩定運作： To keep things running smoothly: To keep things running smoothly:
 
 ### 新增 swap（建議）
 
@@ -256,5 +260,3 @@ free -h
 - [Docker 安裝](/install/docker) — 容器化設定
 - [Tailscale](/gateway/tailscale) — 安全的遠端存取
 - [Configuration](/gateway/configuration) — 完整設定參考
-
-

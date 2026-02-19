@@ -1,4 +1,8 @@
 ---
+summary: "Bun iş akışı (deneysel): pnpm’e kıyasla kurulum ve dikkat edilmesi gerekenler"
+read_when:
+  - En hızlı yerel geliştirme döngüsünü istiyorsunuz (bun + watch)
+  - Bun kurulum/yama/yaşam döngüsü betiği sorunlarıyla karşılaşıyorsunuz
 title: "Bun (Deneysel)"
 ---
 
@@ -8,7 +12,7 @@ Amaç: pnpm iş akışlarından sapmadan bu depoyu **Bun** ile çalıştırmak (
 
 ⚠️ **Gateway çalışma zamanı için önerilmez** (WhatsApp/Telegram hataları). Üretimde Node kullanın.
 
-## Durum
+## Status
 
 - Bun, TypeScript’i doğrudan çalıştırmak için isteğe bağlı bir yerel çalışma zamanıdır (`bun run …`, `bun --watch …`).
 - `pnpm` derlemeler için varsayılandır ve tamamen desteklenmeye devam eder (ve bazı dokümantasyon araçları tarafından kullanılır).
@@ -52,5 +56,3 @@ bun pm trust @whiskeysockets/baileys protobufjs
 ## İsteğe bağlı ortam değişkenleri:
 
 - Bazı betikler hâlâ pnpm’i sabit kodlar (ör. `docs:build`, `ui:*`, `protocol:check`). Şimdilik bunları pnpm ile çalıştırın.
-
-

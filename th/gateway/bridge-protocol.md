@@ -1,10 +1,16 @@
 ---
+summary: "โปรโตคอลBridge(โหนดแบบดั้งเดิม): TCP JSONL, การจับคู่, RPCแบบมีขอบเขต"
+read_when:
+  - สร้างหรือดีบักไคลเอนต์โหนด(โหมดโหนด iOS/Android/macOS)
+  - ตรวจสอบปัญหาการจับคู่หรือความล้มเหลวของการยืนยันตัวตนBridge
+  - ตรวจสอบพื้นผิวโหนดที่Gatewayเปิดให้ใช้งาน
 title: "โปรโตคอลBridge"
 ---
 
 # โปรโตคอลBridge(ทรานสปอร์ตโหนดแบบดั้งเดิม)
 
 โปรโตคอลBridgeเป็นทรานสปอร์ตโหนดแบบ**ดั้งเดิม**(TCP JSONL) ไคลเอนต์โหนดรุ่นใหม่
+ควรใช้โปรโตคอลGateway WebSocketแบบรวมศูนย์แทน โปรโตคอลBridgeเป็นทรานสปอร์ตโหนดแบบ**ดั้งเดิม**(TCP JSONL) ไคลเอนต์โหนดรุ่นใหม่
 ควรใช้โปรโตคอลGateway WebSocketแบบรวมศูนย์แทน New node clients
 should use the unified Gateway WebSocket protocol instead.
 
@@ -13,6 +19,7 @@ should use the unified Gateway WebSocket protocol instead.
 
 **หมายเหตุ:** บิลด์ OpenClaw ปัจจุบันไม่ได้รวมตัวรับฟัง TCP bridge แล้ว เอกสารนี้เก็บไว้เพื่อการอ้างอิงทางประวัติศาสตร์
 คีย์คอนฟิกแบบดั้งเดิม `bridge.*` ไม่ได้เป็นส่วนหนึ่งของสคีมาคอนฟิกอีกต่อไป
+Legacy `bridge.*` config keys are no longer part of the config schema.
 Legacy `bridge.*` config keys are no longer part of the config schema.
 
 ## ทำไมเราจึงมีทั้งสองแบบ
@@ -29,7 +36,9 @@ Legacy `bridge.*` config keys are no longer part of the config schema.
 - พอร์ตตัวรับฟังเริ่มต้นแบบดั้งเดิมคือ `18790` (บิลด์ปัจจุบันไม่เริ่ม TCP bridge)
 
 เมื่อเปิดใช้ TLS ระเบียน TXT ของDiscoveryจะรวม `bridgeTls=1` พร้อมกับ
-`bridgeTlsSha256` เพื่อให้โหนดสามารถทำการ pin ใบรับรองได้
+`bridgeTlsSha256` เพื่อให้โหนดสามารถทำการ pin ใบรับรองได้ โปรดทราบว่า ระเบียน TXT ของ Bonjour/mDNS เป็น
+unauthenticated; ไคลเอนต์ต้องไม่ถือว่า fingerprint ที่โฆษณาไว้เป็น
+authoritative pin โดยไม่มีเจตนาชัดเจนจากผู้ใช้หรือการยืนยันผ่านช่องทางอื่น
 
 ## แฮนด์เชค+การจับคู่
 
@@ -60,6 +69,8 @@ Gateway → ไคลเอนต์:
 
 โหนดสามารถส่งอีเวนต์ `exec.finished` หรือ `exec.denied` เพื่อแสดงกิจกรรม system.run
 อีเวนต์เหล่านี้จะถูกแมปเป็นอีเวนต์ของระบบในGateway (โหนดแบบดั้งเดิมอาจยังส่ง `exec.started`)
+โหนดสามารถส่งอีเวนต์ `exec.finished` หรือ `exec.denied` เพื่อแสดงกิจกรรม system.run
+อีเวนต์เหล่านี้จะถูกแมปเป็นอีเวนต์ของระบบในGateway (โหนดแบบดั้งเดิมอาจยังส่ง `exec.started`)
 These are mapped to system events in the gateway. (Legacy nodes may still emit `exec.started`.)
 
 ฟิลด์ของเพย์โหลด(ทั้งหมดเป็นตัวเลือกเว้นแต่ระบุไว้):
@@ -80,7 +91,6 @@ These are mapped to system events in the gateway. (Legacy nodes may still emit `
 ## การกำหนดเวอร์ชัน
 
 Bridgeปัจจุบันเป็น**v1โดยนัย**(ไม่มีการเจรจา min/max) คาดว่าจะคงความเข้ากันได้ย้อนหลัง
+ควรเพิ่มฟิลด์เวอร์ชันโปรโตคอลBridgeก่อนการเปลี่ยนแปลงที่ทำให้เข้ากันไม่ได้ Bridgeปัจจุบันเป็น**v1โดยนัย**(ไม่มีการเจรจา min/max) คาดว่าจะคงความเข้ากันได้ย้อนหลัง
 ควรเพิ่มฟิลด์เวอร์ชันโปรโตคอลBridgeก่อนการเปลี่ยนแปลงที่ทำให้เข้ากันไม่ได้ Backward‑compat
 is expected; add a bridge protocol version field before any breaking changes.
-
-

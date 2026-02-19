@@ -4,7 +4,7 @@ title: "Ko‘nikmalarni yaratish"
 
 # Maxsus Ko‘nikmalarni Yaratish 🛠
 
-OpenClaw oson kengaytiriladigan qilib ishlab chiqilgan. "Ko‘nikmalar" yordamchingizga yangi imkoniyatlar qo‘shishning asosiy usulidir.
+OpenClaw is designed to be easily extensible. "Skills" are the primary way to add new capabilities to your assistant.
 
 ## Ko‘nikma nima?
 
@@ -12,17 +12,17 @@ Ko‘nikma — bu `SKILL.md` faylini (u LLM uchun ko‘rsatmalar va vosita ta’
 
 ## Bosqichma-bosqich: Birinchi Ko‘nikmangiz
 
-### 1. Katalog yarating
+### 1. Create the Directory
 
-Ko‘nikmalar ishchi muhitingizda, odatda `~/.openclaw/workspace/skills/` ichida joylashadi. Ko‘nikmangiz uchun yangi papka yarating:
+Skills live in your workspace, usually `~/.openclaw/workspace/skills/`. Create a new folder for your skill:
 
 ```bash
 mkdir -p ~/.openclaw/workspace/skills/hello-world
 ```
 
-### 2. `SKILL.md` faylini belgilang
+### 2. Define the `SKILL.md`
 
-Ushbu katalog ichida `SKILL.md` faylini yarating. Bu fayl metama’lumotlar uchun YAML frontmatter va ko‘rsatmalar uchun Markdown’dan foydalanadi.
+Create a `SKILL.md` file in that directory. This file uses YAML frontmatter for metadata and Markdown for instructions.
 
 ```markdown
 ---
@@ -52,5 +52,3 @@ Ask your agent to "refresh skills" or restart the gateway. OpenClaw will discove
 ## 4. Umumiy ko‘nikmalar
 
 5. Shuningdek, siz [ClawHub](https://clawhub.com) orqali ko‘nikmalarni ko‘rib chiqishingiz va ularga hissa qo‘shishingiz mumkin.
-
-

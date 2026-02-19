@@ -1,4 +1,9 @@
 ---
+summary: "Köprü protokolü (eski düğümler): TCP JSONL, eşleştirme, kapsamlı RPC"
+read_when:
+  - Düğüm istemcileri (iOS/Android/macOS düğüm modu) geliştirirken veya hata ayıklarken
+  - Eşleştirme veya köprü kimlik doğrulama hatalarını incelerken
+  - Gateway tarafından açığa çıkarılan düğüm yüzeyini denetlerken
 title: "Köprü Protokolü"
 ---
 
@@ -27,7 +32,9 @@ Eski `bridge.*` yapılandırma anahtarları artık yapılandırma şemasının p
 - Eski varsayılan dinleyici portu `18790` idi (güncel sürümler TCP köprüsü başlatmaz).
 
 TLS etkinleştirildiğinde, keşif TXT kayıtları `bridgeTls=1` ile birlikte
-`bridgeTlsSha256` içerir; böylece düğümler sertifikayı sabitleyebilir.
+`bridgeTlsSha256` içerir; böylece düğümler sertifikayı sabitleyebilir. Bonjour/mDNS TXT kayıtlarının
+kimliği doğrulanmamıştır; istemciler, açık kullanıcı niyeti veya bant dışı başka bir doğrulama olmadan
+ilan edilen parmak izini yetkili bir pin olarak değerlendirmemelidir.
 
 ## El sıkışma + eşleştirme
 
@@ -77,5 +84,3 @@ Yük alanı alanları (belirtilmedikçe tümü isteğe bağlıdır):
 ## Versioning
 
 Köprü şu anda **örtük v1**'dir (min/maks müzakere yok). Geriye dönük uyumluluk beklenir; herhangi bir kırıcı değişiklikten önce bir köprü protokolü sürüm alanı ekleyin.
-
-

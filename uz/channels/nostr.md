@@ -1,4 +1,8 @@
 ---
+summary: "NIP-04 shifrlangan xabarlar orqali Nostr DM kanali"
+read_when:
+  - Siz OpenClaw’ning Nostr orqali DMlarni qabul qilishini xohlaysiz
+  - Siz markazlashmagan xabar almashishni sozlayapsiz
 title: "Nostr"
 ---
 
@@ -227,5 +231,3 @@ docker run -p 7777:7777 ghcr.io/hoytech/strfry
 - 27. Faqat to‘g‘ridan-to‘g‘ri xabarlar (guruh chatlari yo‘q).
 - 28. Media biriktirmalari yo‘q.
 - 29. Faqat NIP-04 (NIP-17 gift-wrap rejalashtirilgan).
-
-

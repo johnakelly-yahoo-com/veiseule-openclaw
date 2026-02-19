@@ -1,4 +1,8 @@
 ---
+summary: "Tác vụ LLM chỉ JSON cho workflow (công cụ plugin tùy chọn)"
+read_when:
+  - Bạn muốn một bước LLM chỉ JSON bên trong workflow
+  - Bạn cần đầu ra LLM được xác thực theo schema để tự động hóa
 title: "Tác vụ LLM"
 ---
 
@@ -61,7 +65,7 @@ mà không cần viết mã OpenClaw tùy chỉnh cho từng workflow.
 }
 ```
 
-`allowedModels` là danh sách cho phép các chuỗi `provider/model`. Nếu được thiết lập, mọi yêu cầu
+`allowedModels` is an allowlist of `provider/model` strings. If set, any request
 outside the list is rejected.
 
 ## Tham số công cụ
@@ -109,5 +113,3 @@ openclaw.invoke --tool llm-task --action json --args-json '{
 - Không có công cụ nào được cung cấp cho mô hình trong lần chạy này.
 - Hãy coi đầu ra là không đáng tin cậy trừ khi bạn xác thực bằng `schema`.
 - Đặt các bước phê duyệt trước bất kỳ bước nào gây tác dụng phụ (send, post, exec).
-
-

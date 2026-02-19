@@ -1,4 +1,8 @@
 ---
+summary: "مرجع CLI للأمر `openclaw cron` (جدولة وتشغيل المهام في الخلفية)"
+read_when:
+  - تريد مهام مجدولة وإيقاظات
+  - تقوم بتصحيح تنفيذ cron والسجلات
 title: "cron"
 ---
 
@@ -38,5 +42,3 @@ openclaw cron edit <job-id> --no-deliver
 ```bash
 openclaw cron edit <job-id> --announce --channel slack --to "channel:C1234567890"
 ```
-
-

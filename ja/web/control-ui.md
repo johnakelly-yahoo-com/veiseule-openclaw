@@ -1,4 +1,8 @@
 ---
+summary: "Gateway（ゲートウェイ）向けのブラウザベース制御 UI（チャット、ノード、設定）"
+read_when:
+  - ブラウザから Gateway を操作したい場合
+  - SSH トンネルなしで Tailnet アクセスを利用したい場合
 title: "コントロールUI"
 ---
 
@@ -30,6 +34,7 @@ Gateway が同じコンピュータで実行されている場合、次を開き
 ## デバイスのペアリング（初回接続）
 
 新しいブラウザやデバイスから Control UI に接続すると、Gateway は **一度限りのペアリング承認** を要求します。`gateway.auth.allowTailscale: true` と同じ Tailnet 上にいる場合でも必要です。これは不正アクセスを防ぐためのセキュリティ対策です。 これは、
+不正アクセスを防ぐためのセキュリティ対策です。 これは、
 不正アクセスを防ぐためのセキュリティ対策です。
 
 **表示される内容:** 「disconnected (1008): pairing required」
@@ -45,19 +50,20 @@ openclaw devices approve <requestId>
 ```
 
 承認されると、そのデバイスは記憶され、`openclaw devices revoke --device <id> --role <role>` で失効させない限り再承認は不要です。トークンのローテーションと失効については [Devices CLI](/cli/devices) を参照してください。 トークンの回転と失効については、
+[デバイス CLI](/cli/devices)を参照してください。 トークンの回転と失効については、
 [デバイス CLI](/cli/devices)を参照してください。
 
 **注記:**
 
 - ローカル接続（`127.0.0.1`）は自動承認されます。
-- リモート接続 (LAN, Tailnet, etc) 明示的な承認が必要です
+- リモート接続 (LAN, Tailnet, etc) 明示的な承認が必要です 明示的な承認が必要です
 - 各ブラウザプロファイルは一意のデバイス ID を生成するため、ブラウザの切り替えやブラウザデータの消去を行うと再ペアリングが必要になります。
 
 ## できること（現時点）
 
 - Gateway WS を介したモデルとのチャット（`chat.history`、`chat.send`、`chat.abort`、`chat.inject`）
 - チャット内でのツール呼び出しのストリーミングとライブツール出力カード（エージェントイベント）
-- チャンネル: WhatsApp/Telegram/Discord/Slack + プラグインチャンネル（Mattermost など）のステータス、QR ログイン、チャンネルごとの設定（`channels.status`、`web.login.*`、`config.patch`） status + QR ログイン + チャネルごとの設定 (`channels.status`, `web.login.*`, `config.patch`)
+- チャンネル: WhatsApp/Telegram/Discord/Slack + プラグインチャンネル（Mattermost など）のステータス、QR ログイン、チャンネルごとの設定（`channels.status`、`web.login.*`、`config.patch`） チャンネル: WhatsApp/Telegram/Discord/Slack + プラグインチャンネル（Mattermost など）のステータス、QR ログイン、チャンネルごとの設定（`channels.status`、`web.login.*`、`config.patch`） status + QR ログイン + チャネルごとの設定 (`channels.status`, `web.login.*`, `config.patch`)
 - インスタンス: プレゼンス一覧 + 更新（`system-presence`）
 - セッション: 一覧 + セッションごとの thinking/verbose 上書き（`sessions.list`、`sessions.patch`）
 - Cron ジョブ: 一覧/追加/実行/有効化/無効化 + 実行履歴（`cron.*`）
@@ -107,6 +113,8 @@ openclaw gateway --tailscale serve
 これらを受け入れます。
 `gateway.auth.allowTailscale: false` (または `gateway.auth.mode: "password"`)
 Serve トラフィックであってもトークン/パスワードが必要な場合。
+`gateway.auth.allowTailscale: false` (または `gateway.auth.mode: "password"`)
+Serve トラフィックであってもトークン/パスワードが必要な場合。
 
 ### tailnet にバインド + トークン
 
@@ -123,6 +131,7 @@ UI 設定にトークンを貼り付けてください（`connect.params.auth.to
 ## 非セキュア HTTP
 
 プレーン HTTP（`http://<lan-ip>` または `http://<tailscale-ip>`）でダッシュボードを開くと、ブラウザは **非セキュアコンテキスト** で実行され、WebCrypto がブロックされます。デフォルトでは、OpenClaw はデバイス ID なしの Control UI 接続を **ブロック** します。 デフォルトでは、
+OpenClawの**blocks** デバイスIDなしでUI接続を制御します。 デフォルトでは、
 OpenClawの**blocks** デバイスIDなしでUI接続を制御します。
 
 **推奨される対処:** HTTPS（Tailscale Serve）を使用するか、UI をローカルで開いてください。
@@ -148,7 +157,7 @@ HTTPS のセットアップ手順については [Tailscale](/gateway/tailscale)
 
 ## UI のビルド
 
-Gateway は `dist/control-ui` から静的ファイルを提供します。次でビルドしてください。 以下でビルドします。
+Gateway は `dist/control-ui` から静的ファイルを提供します。次でビルドしてください。 以下でビルドします。 以下でビルドします。
 
 ```bash
 pnpm ui:build # auto-installs UI deps on first run
@@ -209,5 +218,3 @@ http://localhost:5173/?gatewayUrl=wss://<gateway-host>:18789&token=<gateway-toke
 ```
 
 リモートアクセスの設定詳細: [Remote access](/gateway/remote)。
-
-

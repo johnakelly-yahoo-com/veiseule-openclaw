@@ -1,4 +1,7 @@
 ---
+summary: "`openclaw configure` uchun CLI ma’lumotnomasi (interaktiv konfiguratsiya so‘rovlari)"
+read_when:
+  - Hisob ma’lumotlari, qurilmalar yoki agent standartlarini interaktiv tarzda sozlashni xohlaysiz
 title: "configure"
 ---
 
@@ -27,5 +30,3 @@ Eslatmalar:
 openclaw configure
 openclaw configure --section models --section channels
 ```
-
-

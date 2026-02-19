@@ -1,4 +1,9 @@
 ---
+summary: "Pangkalahatang-ideya ng pairing: aprubahan kung sino ang puwedeng mag-DM sa iyo + kung aling mga node ang puwedeng sumali"
+read_when:
+  - Pagse-setup ng kontrol sa access ng DM
+  - Pag-pair ng bagong iOS/Android node
+  - Pagrerepaso ng security posture ng OpenClaw
 title: "Pairing"
 ---
 
@@ -14,9 +19,9 @@ Konteksto ng seguridad: [Security](/gateway/security)
 
 ## 1. DM pairing (inbound chat access)
 
-Kapag ang isang channel ay naka-configure gamit ang DM policy na `pairing`, ang mga hindi kilalang sender ay makakatanggap ng maikling code at ang kanilang mensahe ay **hindi ipo-process** hangga’t hindi mo inaaprubahan.
-
 Ang mga default na DM policy ay naka-dokumento sa: [Security](/gateway/security)
+
+Mga pairing code:
 
 Mga pairing code:
 
@@ -31,7 +36,7 @@ openclaw pairing list telegram
 openclaw pairing approve telegram <CODE>
 ```
 
-Mga suportadong channel: `telegram`, `whatsapp`, `signal`, `imessage`, `discord`, `slack`.
+Mga suportadong channel: `telegram`, `whatsapp`, `signal`, `imessage`, `discord`, `slack`, `feishu`.
 
 ### Saan nakaimbak ang estado
 
@@ -96,5 +101,3 @@ Naka-store sa ilalim ng `~/.openclaw/devices/`:
   - iMessage (legacy): [iMessage](/channels/imessage)
   - Discord: [Discord](/channels/discord)
   - Slack: [Slack](/channels/slack)
-
-

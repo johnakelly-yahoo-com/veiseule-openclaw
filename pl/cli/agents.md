@@ -1,4 +1,7 @@
 ---
+summary: "Dokumentacja referencyjna CLI dla `openclaw agents` (list/add/delete/set identity)"
+read_when:
+  - Chcesz mieć wiele odizolowanych agentów (obszary robocze + routing + uwierzytelnianie)
 title: "cli/agents.md"
 ---
 
@@ -70,5 +73,3 @@ Przykładowa konfiguracja:
   },
 }
 ```
-
-

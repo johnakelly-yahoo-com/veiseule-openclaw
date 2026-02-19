@@ -1,4 +1,5 @@
 ---
+summary: "高いシグナルを持つ PR を提出する方法"
 title: "PR の提出"
 ---
 
@@ -272,7 +273,7 @@ pnpm format
 - Agent notes:
 ```
 
-### パフォーマンス
+### Perf
 
 ```md
 #### Summary
@@ -395,5 +396,3 @@ pnpm format
 - Submitter effort:
 - Agent notes:
 ```
-
-

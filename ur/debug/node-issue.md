@@ -1,4 +1,8 @@
 ---
+summary: Node + tsx میں "__name is not a function" کریش کے نوٹس اور عارضی حل
+read_when:
+  - صرف Node پر مبنی ڈویلپمنٹ اسکرپٹس یا واچ موڈ کی ناکامیوں کی ڈی بگنگ
+  - OpenClaw میں tsx/esbuild لوڈر کریشز کی تفتیش
 title: "Node + tsx کریش"
 ---
 
@@ -82,5 +86,3 @@ node --import tsx scripts/repro/tsx-name-repro.ts
 - Node 22/24 پر repro کر کے Node 25 کی رجریشن کی تصدیق کریں۔
 - `tsx` نائٹلی آزمائیں یا اگر کوئی معلوم رجریشن موجود ہو تو پہلے کے ورژن پر پن کریں۔
 - اگر Node LTS پر بھی مسئلہ دہرایا جائے تو `__name` اسٹیک ٹریس کے ساتھ اپ اسٹریم کم از کم repro فائل کریں۔
-
-

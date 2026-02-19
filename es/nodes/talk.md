@@ -1,4 +1,8 @@
 ---
+summary: "Modo Talk: conversaciones de voz continuas con TTS de ElevenLabs"
+read_when:
+  - Implementación del modo Talk en macOS/iOS/Android
+  - Cambio del comportamiento de voz/TTS/interrupción
 title: "Modo Talk"
 ---
 
@@ -84,5 +88,3 @@ Valores predeterminados:
 - `stability` para `eleven_v3` se valida a `0.0`, `0.5` o `1.0`; otros modelos aceptan `0..1`.
 - `latency_tier` se valida a `0..4` cuando se establece.
 - Android admite los formatos de salida `pcm_16000`, `pcm_22050`, `pcm_24000` y `pcm_44100` para streaming AudioTrack de baja latencia.
-
-

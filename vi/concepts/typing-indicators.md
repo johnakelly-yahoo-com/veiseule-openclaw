@@ -1,4 +1,7 @@
 ---
+summary: "Khi nào OpenClaw hiển thị chỉ báo đang gõ và cách tinh chỉnh chúng"
+read_when:
+  - Thay đổi hành vi hoặc giá trị mặc định của chỉ báo đang gõ
 title: "Chỉ báo đang gõ"
 ---
 
@@ -63,5 +66,3 @@ Bạn có thể ghi đè chế độ hoặc nhịp làm mới theo từng phiên
 - Heartbeat không bao giờ hiển thị đang gõ, bất kể chế độ nào.
 - Mặc định là 6 giây.
   `/status` trong chat: thẻ trạng thái giàu emoji với token phiên + chi phí ước tính (chỉ API key).
-
-

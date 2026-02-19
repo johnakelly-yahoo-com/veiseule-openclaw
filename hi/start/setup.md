@@ -1,11 +1,15 @@
 ---
+summary: "OpenClaw के लिए उन्नत सेटअप और विकास वर्कफ़्लो"
+read_when:
+  - नई मशीन सेट कर रहे हों
+  - आप अपने व्यक्तिगत सेटअप को प्रभावित किए बिना “latest + greatest” चाहते हों
 title: "सेटअप"
 ---
 
 # सेटअप
 
 <Note>
-यदि आप पहली बार सेटअप कर रहे हैं, तो [शुरुआत करना](/start/getting-started) से शुरू करें।
+If you are setting up for the first time, start with [Getting Started](/start/getting-started).
 For wizard details, see [Onboarding Wizard](/start/wizard).
 </Note>
 
@@ -156,5 +160,3 @@ user service (no lingering needed). See [Gateway runbook](/gateway) for the syst
 - [Discord](/channels/discord) और [Telegram](/channels/telegram) (reply tags + replyToMode सेटिंग्स)
 - [OpenClaw assistant setup](/start/openclaw)
 - [macOS app](/platforms/macos) (gateway lifecycle)
-
-

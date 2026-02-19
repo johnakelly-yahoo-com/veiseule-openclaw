@@ -1,4 +1,9 @@
 ---
+summary: "تثبيت OpenClaw مؤتمت ومُحصَّن باستخدام Ansible وVPN ‏Tailscale وعزل الجدار الناري"
+read_when:
+  - تريد نشر خوادم مؤتمتًا مع تعزيز الأمان
+  - تحتاج إلى إعداد معزول بجدار ناري مع وصول عبر VPN
+  - تقوم بالنشر على خوادم Debian/Ubuntu بعيدة
 title: "Ansible"
 ---
 
@@ -201,5 +206,3 @@ openclaw channels login
 - [Docker](/install/docker) — إعداد Gateway مُحَوْسَب
 - [Sandboxing](/gateway/sandboxing) — تهيئة sandbox للوكلاء
 - [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) — عزل لكل وكيل
-
-

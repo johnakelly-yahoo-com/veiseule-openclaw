@@ -1,24 +1,29 @@
 ---
-title: "Configuration"
+summary: "All configuration options for ~/.openclaw/openclaw.json with examples"
+read_when:
+  - Adding or modifying config fields
+  - Tìm các mẫu cấu hình phổ biến
+  - Điều hướng đến các phần cấu hình cụ thể
+title: "Cấu hình"
 ---
 
-# Configuration
+# Configuration 🔧
 
-OpenClaw reads an optional <Tooltip tip="JSON5 supports comments and trailing commas">**JSON5**</Tooltip> config from `~/.openclaw/openclaw.json`.
+OpenClaw reads an optional **JSON5** config from `~/.openclaw/openclaw.json` (comments + trailing commas allowed).
 
-If the file is missing, OpenClaw uses safe defaults. Common reasons to add a config:
+Nếu tệp bị thiếu, OpenClaw sẽ sử dụng các giá trị mặc định an toàn. Các lý do phổ biến để thêm cấu hình:
 
-- Connect channels and control who can message the bot
-- Set models, tools, sandboxing, or automation (cron, hooks)
-- Tune sessions, media, networking, or UI
+- restrict who can trigger the bot (`channels.whatsapp.allowFrom`, `channels.telegram.allowFrom`, etc.)
+- control group allowlists + mention behavior (`channels.whatsapp.groups`, `channels.telegram.groups`, `channels.discord.guilds`, `agents.list[].groupChat`)
+- customize message prefixes (`messages`)
 
-See the [full reference](/gateway/configuration-reference) for every available field.
+Xem [tài liệu tham chiếu đầy đủ](/gateway/configuration-reference) để biết tất cả các trường khả dụng.
 
 <Tip>
-**New to configuration?** Start with `openclaw onboard` for interactive setup, or check out the [Configuration Examples](/gateway/configuration-examples) guide for complete copy-paste configs.
+**Bạn mới làm quen với cấu hình?** Hãy bắt đầu với `openclaw onboard` để thiết lập tương tác, hoặc xem hướng dẫn [Configuration Examples](/gateway/configuration-examples) để có các cấu hình hoàn chỉnh có thể sao chép và dán.
 </Tip>
 
-## Minimal config
+## Cấu hình tối thiểu
 
 ```json5
 // ~/.openclaw/openclaw.json
@@ -28,13 +33,13 @@ See the [full reference](/gateway/configuration-reference) for every available f
 }
 ```
 
-## Editing config
+## Chỉnh sửa cấu hình
 
 <Tabs>
   <Tab title="Interactive wizard">
     ```bash
-    openclaw onboard       # full setup wizard
-    openclaw configure     # config wizard
+    openclaw onboard       # trình hướng dẫn thiết lập đầy đủ
+    openclaw configure     # trình hướng dẫn cấu hình
     ```
   
 </Tab>
@@ -47,35 +52,36 @@ See the [full reference](/gateway/configuration-reference) for every available f
   
 </Tab>
   <Tab title="Control UI">
-    Open [http://127.0.0.1:18789](http://127.0.0.1:18789) and use the **Config** tab.
-    The Control UI renders a form from the config schema, with a **Raw JSON** editor as an escape hatch.
+    Mở [http://127.0.0.1:18789](http://127.0.0.1:18789) và sử dụng tab **Config**.
+    Control UI hiển thị một biểu mẫu dựa trên schema cấu hình, với trình chỉnh sửa **Raw JSON** để can thiệp trực tiếp khi cần.
   
 </Tab>
   <Tab title="Direct edit">
-    Edit `~/.openclaw/openclaw.json` directly. The Gateway watches the file and applies changes automatically (see [hot reload](#config-hot-reload)).
+    Chỉnh sửa trực tiếp `~/.openclaw/openclaw.json`. Gateway theo dõi tệp và tự động áp dụng các thay đổi (xem [hot reload](#config-hot-reload)).
   
 </Tab>
 </Tabs>
 
-## Strict validation
+## Schema + UI hints
 
 <Warning>
-OpenClaw only accepts configurations that fully match the schema. Unknown keys, malformed types, or invalid values cause the Gateway to **refuse to start**. The only root-level exception is `$schema` (string), so editors can attach JSON Schema metadata.
+OpenClaw only accepts configurations that fully match the schema. Các khóa không xác định, sai kiểu dữ liệu hoặc giá trị không hợp lệ sẽ khiến Gateway **từ chối khởi động**. Ngoại lệ duy nhất ở cấp gốc là `$schema` (chuỗi), để các trình soạn thảo có thể đính kèm metadata JSON Schema.
 </Warning>
 
 When validation fails:
 
-- The Gateway does not boot
-- Only diagnostic commands work (`openclaw doctor`, `openclaw logs`, `openclaw health`, `openclaw status`)
-- Run `openclaw doctor` to see exact issues
-- Run `openclaw doctor --fix` (or `--yes`) to apply repairs
+- Gateway không khởi động
+- Chỉ các lệnh chẩn đoán hoạt động (`openclaw doctor`, `openclaw logs`, `openclaw health`, `openclaw status`)
+- Chạy `openclaw doctor` để xem chính xác các vấn đề
+- Chạy `openclaw doctor --fix` (hoặc `--yes`) để áp dụng sửa lỗi
 
-## Common tasks
+## Apply + restart (RPC)
 
 <AccordionGroup>
   <Accordion title="Set up a channel (WhatsApp, Telegram, Discord, etc.)">
-    Each channel has its own config section under `channels.<provider>`. See the dedicated channel page for setup steps:
+    Mỗi kênh có phần cấu hình riêng dưới `channels.<provider>`. Xem trang kênh tương ứng để biết các bước thiết lập:
 
+    ````
     - [WhatsApp](/channels/whatsapp) — `channels.whatsapp`
     - [Telegram](/channels/telegram) — `channels.telegram`
     - [Discord](/channels/discord) — `channels.discord`
@@ -85,9 +91,9 @@ When validation fails:
     - [Google Chat](/channels/googlechat) — `channels.googlechat`
     - [Mattermost](/channels/mattermost) — `channels.mattermost`
     - [MS Teams](/channels/msteams) — `channels.msteams`
-
-    All channels share the same DM policy pattern:
-
+    
+    Tất cả các kênh đều chia sẻ cùng một mẫu chính sách DM:
+    
     ```json5
     {
       channels: {
@@ -100,13 +106,15 @@ When validation fails:
       },
     }
     ```
+    ````
 
   
 </Accordion>
 
   <Accordion title="Choose and configure models">
-    Set the primary model and optional fallbacks:
+    Thiết lập model chính và các model dự phòng (nếu có):
 
+    ````
     ```json5
     {
       agents: {
@@ -123,33 +131,37 @@ When validation fails:
       },
     }
     ```
-
-    - `agents.defaults.models` defines the model catalog and acts as the allowlist for `/model`.
-    - Model refs use `provider/model` format (e.g. `anthropic/claude-opus-4-6`).
-    - See [Models CLI](/concepts/models) for switching models in chat and [Model Failover](/concepts/model-failover) for auth rotation and fallback behavior.
-    - For custom/self-hosted providers, see [Custom providers](/gateway/configuration-reference#custom-providers-and-base-urls) in the reference.
+    
+    - `agents.defaults.models` xác định danh mục model và đóng vai trò là allowlist cho `/model`.
+    - Tham chiếu model sử dụng định dạng `provider/model` (ví dụ: `anthropic/claude-opus-4-6`).
+    - Xem [Models CLI](/concepts/models) để chuyển model trong chat và [Model Failover](/concepts/model-failover) để biết về luân phiên xác thực và hành vi dự phòng.
+    - Đối với provider tùy chỉnh/tự lưu trữ, xem [Custom providers](/gateway/configuration-reference#custom-providers-and-base-urls) trong tài liệu tham chiếu.
+    ````
 
   
 </Accordion>
 
   <Accordion title="Control who can message the bot">
-    DM access is controlled per channel via `dmPolicy`:
+    Quyền truy cập DM được kiểm soát theo từng kênh qua `dmPolicy`:
 
-    - `"pairing"` (default): unknown senders get a one-time pairing code to approve
-    - `"allowlist"`: only senders in `allowFrom` (or the paired allow store)
-    - `"open"`: allow all inbound DMs (requires `allowFrom: ["*"]`)
-    - `"disabled"`: ignore all DMs
-
-    For groups, use `groupPolicy` + `groupAllowFrom` or channel-specific allowlists.
-
-    See the [full reference](/gateway/configuration-reference#dm-and-group-access) for per-channel details.
+    ```
+    - `"pairing"` (mặc định): người gửi chưa xác định sẽ nhận mã ghép đôi dùng một lần để phê duyệt
+    - `"allowlist"`: chỉ những người gửi trong `allowFrom` (hoặc trong danh sách đã ghép đôi)
+    - `"open"`: cho phép tất cả DM đến (yêu cầu `allowFrom: ["*"]`)
+    - `"disabled"`: bỏ qua tất cả DM
+    
+    Đối với nhóm, sử dụng `groupPolicy` + `groupAllowFrom` hoặc allowlist riêng của từng kênh.
+    
+    Xem [tài liệu tham chiếu đầy đủ](/gateway/configuration-reference#dm-and-group-access) để biết chi tiết theo từng kênh.
+    ```
 
   
 </Accordion>
 
   <Accordion title="Set up group chat mention gating">
-    Group messages default to **require mention**. Configure patterns per agent:
+    Tin nhắn nhóm mặc định là **yêu cầu đề cập (mention)**. Cấu hình các mẫu cho từng agent:
 
+    ````
     ```json5
     {
       agents: {
@@ -169,21 +181,23 @@ When validation fails:
       },
     }
     ```
-
-    - **Metadata mentions**: native @-mentions (WhatsApp tap-to-mention, Telegram @bot, etc.)
-    - **Text patterns**: regex patterns in `mentionPatterns`
-    - See [full reference](/gateway/configuration-reference#group-chat-mention-gating) for per-channel overrides and self-chat mode.
+    
+    - **Đề cập qua metadata**: @-mention gốc của nền tảng (WhatsApp chạm để mention, Telegram @bot, v.v.)
+    - **Mẫu văn bản**: các biểu thức regex trong `mentionPatterns`
+    - Xem [tài liệu tham chiếu đầy đủ](/gateway/configuration-reference#group-chat-mention-gating) để biết ghi đè theo từng kênh và chế độ self-chat.
+    ````
 
   
 </Accordion>
 
   <Accordion title="Configure sessions and resets">
-    Sessions control conversation continuity and isolation:
+    Sessions kiểm soát tính liên tục và sự tách biệt của cuộc trò chuyện:
 
+    ````
     ```json5
     {
       session: {
-        dmScope: "per-channel-peer",  // recommended for multi-user
+        dmScope: "per-channel-peer",  // khuyến nghị cho môi trường nhiều người dùng
         reset: {
           mode: "daily",
           atHour: 4,
@@ -192,39 +206,25 @@ When validation fails:
       },
     }
     ```
-
-    - `dmScope`: `main` (shared) | `per-peer` | `per-channel-peer` | `per-account-channel-peer`
-    - See [Session Management](/concepts/session) for scoping, identity links, and send policy.
-    - See [full reference](/gateway/configuration-reference#session) for all fields.
+    
+    - `dmScope`: `main` (chia sẻ) | `per-peer` | `per-channel-peer` | `per-account-channel-peer`
+    - Xem [Session Management](/concepts/session) để biết về phạm vi, liên kết định danh và chính sách gửi.
+    - Xem [tài liệu tham khảo đầy đủ](/gateway/configuration-reference#session) để biết tất cả các trường.
+    ````
 
   
 </Accordion>
 
-  <Accordion title="Enable sandboxing">
-    Run agent sessions in isolated Docker containers:
+  <Accordion title="Enable sandboxing">    Chạy các phiên agent trong các container Docker cách ly:
 
-    ```json5
-    {
-      agents: {
-        defaults: {
-          sandbox: {
-            mode: "non-main",  // off | non-main | all
-            scope: "agent",    // session | agent | shared
-          },
-        },
-      },
-    }
+    ```
+    scripts/sandbox-setup.sh
     ```
 
-    Build the image first: `scripts/sandbox-setup.sh`
-
-    See [Sandboxing](/gateway/sandboxing) for the full guide and [full reference](/gateway/configuration-reference#sandbox) for all options.
-
   
 </Accordion>
 
-  <Accordion title="Set up heartbeat (periodic check-ins)">
-    ```json5
+  <Accordion title="Set up heartbeat (periodic check-ins)">    ```json5
     {
       agents: {
         defaults: {
@@ -237,15 +237,31 @@ When validation fails:
     }
     ```
 
-    - `every`: duration string (`30m`, `2h`). Set `0m` to disable.
-    - `target`: `last` | `whatsapp` | `telegram` | `discord` | `none`
-    - See [Heartbeat](/gateway/heartbeat) for the full guide.
+    ```
+    {
+      agents: {
+        defaults: { workspace: "~/.openclaw/workspace" },
+        list: [
+          {
+            id: "main",
+            groupChat: { mentionPatterns: ["@openclaw", "reisponde"] },
+          },
+        ],
+      },
+      channels: {
+        whatsapp: {
+          // Allowlist is DMs only; including your own number enables self-chat mode.
+          allowFrom: ["+15555550123"],
+          groups: { "*": { requireMention: true } },
+        },
+      },
+    }
+    ```
 
   
 </Accordion>
 
-  <Accordion title="Configure cron jobs">
-    ```json5
+  <Accordion title="Configure cron jobs">    ```json5
     {
       cron: {
         enabled: true,
@@ -255,100 +271,65 @@ When validation fails:
     }
     ```
 
-    See [Cron jobs](/automation/cron-jobs) for the feature overview and CLI examples.
+    ```
+    **Gateway**: một tiến trình gateway chạy dài hạn duy nhất, sở hữu trạng thái (phiên, ghép cặp, sổ đăng ký node) và chạy các kênh.
+    ```
 
   
 </Accordion>
 
-  <Accordion title="Set up webhooks (hooks)">
-    Enable HTTP webhook endpoints on the Gateway:
+  <Accordion title="Set up webhooks (hooks)">    Bật các endpoint webhook HTTP trên Gateway:
 
-    ```json5
+    ```
+    // ~/.openclaw/agents.json5
     {
-      hooks: {
-        enabled: true,
-        token: "shared-secret",
-        path: "/hooks",
-        defaultSessionKey: "hook:ingress",
-        allowRequestSessionKey: false,
-        allowedSessionKeyPrefixes: ["hook:"],
-        mappings: [
-          {
-            match: { path: "gmail" },
-            action: "agent",
-            agentId: "main",
-            deliver: true,
-          },
-        ],
-      },
+      defaults: { sandbox: { mode: "all", scope: "session" } },
+      list: [{ id: "main", workspace: "~/.openclaw/workspace" }],
     }
     ```
-
-    See [full reference](/gateway/configuration-reference#hooks) for all mapping options and Gmail integration.
 
   
 </Accordion>
 
-  <Accordion title="Configure multi-agent routing">
-    Run multiple isolated agents with separate workspaces and sessions:
+  <Accordion title="Configure multi-agent routing">    Chạy nhiều agent cách ly với workspace và phiên riêng biệt:
 
-    ```json5
+    ```
+    // Sibling keys override included values
     {
-      agents: {
-        list: [
-          { id: "home", default: true, workspace: "~/.openclaw/workspace-home" },
-          { id: "work", workspace: "~/.openclaw/workspace-work" },
-        ],
-      },
-      bindings: [
-        { agentId: "home", match: { channel: "whatsapp", accountId: "personal" } },
-        { agentId: "work", match: { channel: "whatsapp", accountId: "biz" } },
-      ],
+      $include: "./base.json5", // { a: 1, b: 2 }
+      b: 99, // Result: { a: 1, b: 99 }
     }
     ```
-
-    See [Multi-Agent](/concepts/multi-agent) and [full reference](/gateway/configuration-reference#multi-agent-routing) for binding rules and per-agent access profiles.
 
   
 </Accordion>
 
-  <Accordion title="Split config into multiple files ($include)">
-    Use `$include` to organize large configs:
+  <Accordion title="Split config into multiple files ($include)">    Sử dụng `$include` để tổ chức các cấu hình lớn:
 
-    ```json5
-    // ~/.openclaw/openclaw.json
+    ```
+    // clients/mueller.json5
     {
-      gateway: { port: 18789 },
-      agents: { $include: "./agents.json5" },
-      broadcast: {
-        $include: ["./clients/a.json5", "./clients/b.json5"],
-      },
+      agents: { $include: "./mueller/agents.json5" },
+      broadcast: { $include: "./mueller/broadcast.json5" },
     }
     ```
-
-    - **Single file**: replaces the containing object
-    - **Array of files**: deep-merged in order (later wins)
-    - **Sibling keys**: merged after includes (override included values)
-    - **Nested includes**: supported up to 10 levels deep
-    - **Relative paths**: resolved relative to the including file
-    - **Error handling**: clear errors for missing files, parse errors, and circular includes
 
   
 </Accordion>
 </AccordionGroup>
 
-## Config hot reload
+## Tải lại cấu hình nóng
 
-The Gateway watches `~/.openclaw/openclaw.json` and applies changes automatically — no manual restart needed for most settings.
+Gateway theo dõi `~/.openclaw/openclaw.json` và tự động áp dụng thay đổi — không cần khởi động lại thủ công cho hầu hết các thiết lập.
 
-### Reload modes
+### Error handling
 
-| Mode                   | Behavior                                                                                |
-| ---------------------- | --------------------------------------------------------------------------------------- |
-| **`hybrid`** (default) | Hot-applies safe changes instantly. Automatically restarts for critical ones.           |
-| **`hot`**              | Hot-applies safe changes only. Logs a warning when a restart is needed — you handle it. |
-| **`restart`**          | Restarts the Gateway on any config change, safe or not.                                 |
-| **`off`**              | Disables file watching. Changes take effect on the next manual restart.                 |
+| Chế độ                                     | Hành vi                                                                                                                           |
+| ------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------- |
+| **`hybrid`** (mặc định) | Áp dụng ngay lập tức các thay đổi an toàn. Tự động khởi động lại đối với các thay đổi quan trọng. |
+| **`hot`**                                  | Chỉ áp dụng nóng các thay đổi an toàn. Ghi log cảnh báo khi cần khởi động lại — bạn tự xử lý.     |
+| **`restart`**                              | Khởi động lại Gateway khi có bất kỳ thay đổi cấu hình nào, dù an toàn hay không.                                  |
+| **`off`**                                  | Tắt theo dõi tệp. Các thay đổi sẽ có hiệu lực ở lần khởi động lại thủ công tiếp theo.             |
 
 ```json5
 {
@@ -358,88 +339,94 @@ The Gateway watches `~/.openclaw/openclaw.json` and applies changes automaticall
 }
 ```
 
-### What hot-applies vs what needs a restart
+### Những gì được áp dụng nóng và những gì cần khởi động lại
 
-Most fields hot-apply without downtime. In `hybrid` mode, restart-required changes are handled automatically.
+Hầu hết các trường được áp dụng nóng mà không gây gián đoạn. Trong chế độ `hybrid`, các thay đổi yêu cầu khởi động lại sẽ được xử lý tự động.
 
-| Category            | Fields                                                               | Restart needed? |
-| ------------------- | -------------------------------------------------------------------- | --------------- |
-| Channels            | `channels.*`, `web` (WhatsApp) — all built-in and extension channels | No              |
-| Agent & models      | `agent`, `agents`, `models`, `routing`                               | No              |
-| Automation          | `hooks`, `cron`, `agent.heartbeat`                                   | No              |
-| Sessions & messages | `session`, `messages`                                                | No              |
-| Tools & media       | `tools`, `browser`, `skills`, `audio`, `talk`                        | No              |
-| UI & misc           | `ui`, `logging`, `identity`, `bindings`                              | No              |
-| Gateway server      | `gateway.*` (port, bind, auth, tailscale, TLS, HTTP)                 | **Yes**         |
-| Infrastructure      | `discovery`, `canvasHost`, `plugins`                                 | **Yes**         |
+| Danh mục                                  | Trường                                                                                           | Cần khởi động lại? |
+| ----------------------------------------- | ------------------------------------------------------------------------------------------------ | ------------------ |
+| Kênh                                      | `channels.*`, `web` (WhatsApp) — tất cả các kênh tích hợp sẵn và kênh mở rộng | Không              |
+| Agent & mô hình       | `agent`, `agents`, `models`, `routing`                                                           | Không              |
+| Tự động hóa                               | `hooks`, `cron`, `agent.heartbeat`                                                               | Không              |
+| Phiên & tin nhắn      | `session`, `messages`                                                                            | Không              |
+| Công cụ & phương tiện | `tools`, `browser`, `skills`, `audio`, `talk`                                                    | Không              |
+| UI & linh tinh        | `ui`, `logging`, `identity`, `bindings`                                                          | Không              |
+| Máy chủ Gateway                           | `gateway.*` (port, bind, auth, tailscale, TLS, HTTP)                          | **Có**             |
+| Hạ tầng                                   | `discovery`, `canvasHost`, `plugins`                                                             | **Có**             |
 
 <Note>
-`gateway.reload` and `gateway.remote` are exceptions — changing them does **not** trigger a restart.
+`gateway.reload` và `gateway.remote` là các ngoại lệ — thay đổi chúng **không** kích hoạt khởi động lại.
 </Note>
 
-## Config RPC (programmatic updates)
+## Env vars + `.env`
 
 <AccordionGroup>
   <Accordion title="config.apply (full replace)">
-    Validates + writes the full config and restarts the Gateway in one step.
+    Xác thực + ghi toàn bộ cấu hình và khởi động lại Gateway trong một bước.
 
+
+    ````
     <Warning>
-    `config.apply` replaces the **entire config**. Use `config.patch` for partial updates, or `openclaw config set` for single keys.
+    `config.apply` thay thế **toàn bộ config**. Sử dụng `config.patch` để cập nhật một phần, hoặc `openclaw config set` cho từng khóa riêng lẻ.
     
 </Warning>
-
+    
     Params:
-
-    - `raw` (string) — JSON5 payload for the entire config
-    - `baseHash` (optional) — config hash from `config.get` (required when config exists)
-    - `sessionKey` (optional) — session key for the post-restart wake-up ping
-    - `note` (optional) — note for the restart sentinel
-    - `restartDelayMs` (optional) — delay before restart (default 2000)
-
+    
+    - `raw` (string) — payload JSON5 cho toàn bộ config
+    - `baseHash` (tùy chọn) — hash config từ `config.get` (bắt buộc khi config đã tồn tại)
+    - `sessionKey` (tùy chọn) — khóa phiên cho ping đánh thức sau khi khởi động lại
+    - `note` (tùy chọn) — ghi chú cho restart sentinel
+    - `restartDelayMs` (tùy chọn) — độ trễ trước khi khởi động lại (mặc định 2000)
+    
     ```bash
-    openclaw gateway call config.get --params '{}'  # capture payload.hash
+    openclaw gateway call config.get --params '{}'  # lấy payload.hash
     openclaw gateway call config.apply --params '{
       "raw": "{ agents: { defaults: { workspace: \"~/.openclaw/workspace\" } } }",
       "baseHash": "<hash>",
       "sessionKey": "agent:main:whatsapp:dm:+15555550123"
     }'
     ```
+    ````
 
   
 </Accordion>
 
   <Accordion title="config.patch (partial update)">
-    Merges a partial update into the existing config (JSON merge patch semantics):
+    Hợp nhất bản cập nhật một phần vào config hiện có (theo ngữ nghĩa JSON merge patch):
 
-    - Objects merge recursively
-    - `null` deletes a key
-    - Arrays replace
 
+    ````
+    - Các object được hợp nhất đệ quy
+    - `null` xóa một khóa
+    - Các mảng sẽ bị thay thế
+    
     Params:
-
-    - `raw` (string) — JSON5 with just the keys to change
-    - `baseHash` (required) — config hash from `config.get`
-    - `sessionKey`, `note`, `restartDelayMs` — same as `config.apply`
-
+    
+    - `raw` (string) — JSON5 chỉ chứa các khóa cần thay đổi
+    - `baseHash` (bắt buộc) — hash config từ `config.get`
+    - `sessionKey`, `note`, `restartDelayMs` — giống như `config.apply`
+    
     ```bash
     openclaw gateway call config.patch --params '{
       "raw": "{ channels: { telegram: { groups: { \"*\": { requireMention: false } } } } }",
       "baseHash": "<hash>"
     }'
     ```
+    ````
 
   
 </Accordion>
 </AccordionGroup>
 
-## Environment variables
+## Biến môi trường
 
-OpenClaw reads env vars from the parent process plus:
+OpenClaw đọc các biến môi trường từ tiến trình cha và thêm từ:
 
 - `.env` from the current working directory (if present)
-- `~/.openclaw/.env` (global fallback)
+- `~/.openclaw/.env` (mặc định toàn cục)
 
-Neither file overrides existing env vars. You can also set inline env vars in config:
+Cả hai tệp đều không ghi đè các biến môi trường đã tồn tại. Bạn cũng có thể đặt biến môi trường nội tuyến trong config:
 
 ```json5
 {
@@ -451,7 +438,8 @@ Neither file overrides existing env vars. You can also set inline env vars in co
 ```
 
 <Accordion title="Shell env import (optional)">
-  If enabled and expected keys aren't set, OpenClaw runs your login shell and imports only the missing keys:
+  Nếu được bật và các khóa dự kiến chưa được thiết lập, OpenClaw sẽ chạy login shell của bạn và chỉ nhập các khóa còn thiếu:
+
 
 ```json5
 {
@@ -461,11 +449,11 @@ Neither file overrides existing env vars. You can also set inline env vars in co
 }
 ```
 
-Env var equivalent: `OPENCLAW_LOAD_SHELL_ENV=1`
+Biến môi trường tương đương: `OPENCLAW_LOAD_SHELL_ENV=1` 
 </Accordion>
 
 <Accordion title="Env var substitution in config values">
-  Reference env vars in any config string value with `${VAR_NAME}`:
+  Tham chiếu biến môi trường trong bất kỳ giá trị chuỗi nào của config bằng `${VAR_NAME}`:
 
 ```json5
 {
@@ -474,24 +462,22 @@ Env var equivalent: `OPENCLAW_LOAD_SHELL_ENV=1`
 }
 ```
 
-Rules:
+Quy tắc:
 
-- Only uppercase names matched: `[A-Z_][A-Z0-9_]*`
-- Missing/empty vars throw an error at load time
-- Escape with `$${VAR}` for literal output
-- Works inside `$include` files
-- Inline substitution: `"${BASE}/v1"` → `"https://api.example.com/v1"`
+- Chỉ khớp các tên viết hoa: `[A-Z_][A-Z0-9_]*`
+- Biến thiếu/rỗng sẽ gây lỗi khi tải
+- Thoát bằng `$${VAR}` để xuất ra giá trị nguyên văn
+- Hoạt động bên trong các tệp `$include`
+- Thay thế nội tuyến: `"${BASE}/v1"` → `"https://api.example.com/v1"`
 
 </Accordion>
 
-See [Environment](/help/environment) for full precedence and sources.
+Xem [Environment](/help/environment) để biết đầy đủ về thứ tự ưu tiên và các nguồn.
 
-## Full reference
+## Tham chiếu đầy đủ
 
-For the complete field-by-field reference, see **[Configuration Reference](/gateway/configuration-reference)**.
+Để xem tài liệu tham chiếu đầy đủ theo từng trường, xem **[Configuration Reference](/gateway/configuration-reference)**.
 
 ---
 
-_Related: [Configuration Examples](/gateway/configuration-examples) · [Configuration Reference](/gateway/configuration-reference) · [Doctor](/gateway/doctor)_
-
-
+Legacy OAuth imports:

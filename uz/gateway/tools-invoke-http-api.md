@@ -1,4 +1,8 @@
 ---
+summary: "Gateway HTTP endpoint’i orqali bitta asbobni to‘g‘ridan-to‘g‘ri chaqirish"
+read_when:
+  - To‘liq agent aylanishini ishga tushirmasdan asboblarni chaqirish
+  - Asbob siyosati nazoratini talab qiladigan avtomatlasiyalarni yaratish
 title: "Asboblarni chaqirish API"
 ---
 
@@ -21,6 +25,7 @@ Eslatmalar:
 
 - `gateway.auth.mode="token"` bo‘lsa, `gateway.auth.token` (yoki `OPENCLAW_GATEWAY_TOKEN`) dan foydalaning.
 - `gateway.auth.mode="password"` bo‘lsa, `gateway.auth.password` (yoki `OPENCLAW_GATEWAY_PASSWORD`) dan foydalaning.
+- Agar `gateway.auth.rateLimit` sozlangan bo‘lsa va autentifikatsiya xatolari juda ko‘p yuz bersa, endpoint `429` va `Retry-After` bilan javob qaytaradi.
 
 ## 11. So‘rov tanasi
 
@@ -54,6 +59,28 @@ Fields:
 
 If a tool is not allowed by policy, the endpoint returns **404**.
 
+Gateway HTTP ham standart tarzda qat’iy deny ro‘yxatini qo‘llaydi (hatto session policy ushbu vositaga ruxsat bergan bo‘lsa ham):
+
+- `sessions_spawn`
+- `sessions_send`
+- `gateway`
+- `whatsapp_login`
+
+Ushbu deny ro‘yxatini `gateway.tools` orqali moslashtirishingiz mumkin:
+
+```json5
+{
+  gateway: {
+    tools: {
+      // HTTP /tools/invoke orqali bloklanadigan qo‘shimcha vositalar
+      deny: ["browser"],
+      // Standart deny ro‘yxatidan vositalarni olib tashlash
+      allow: ["gateway"],
+    },
+  },
+}
+```
+
 To help group policies resolve context, you can optionally set:
 
 - `x-openclaw-message-channel: <channel>` (example: `slack`, `telegram`)
@@ -62,10 +89,12 @@ To help group policies resolve context, you can optionally set:
 ## 14. Javoblar
 
 - `200` → `{ ok: true, result }`
-- `400` → `{ ok: false, error: { type, message } }` (invalid request or tool error)
+- `400` → `{ ok: false, error: { type, message } }` (noto‘g‘ri so‘rov yoki vosita kiritish xatosi)
 - `401` → unauthorized
+- `429` → autentifikatsiya rate-limit’ga uchradi (`Retry-After` o‘rnatilgan)
 - `404` → tool not available (not found or not allowlisted)
 - `405` → method not allowed
+- `500` → `{ ok: false, error: { type, message } }` (kutilmagan vosita bajarilish xatosi; tozalangan xabar)
 
 ## Example
 
@@ -79,5 +108,3 @@ curl -sS http://127.0.0.1:18789/tools/invoke \
     "args": {}
   }'
 ```
-
-

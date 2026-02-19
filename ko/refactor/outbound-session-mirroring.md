@@ -1,6 +1,6 @@
 ---
 title: "아웃바운드 세션 미러링 리팩터링 (이슈 #1520)" #1520)
-description: "아웃바운드 세션 미러링 리팩터링과 관련된 노트, 결정 사항, 테스트 및 미해결 항목을 추적합니다."
+description: 아웃바운드 세션 미러링 리팩터링과 관련된 노트, 결정 사항, 테스트 및 미해결 항목을 추적합니다.
 ---
 
 # 아웃바운드 세션 미러링 리팩터링 (이슈 #1520)
@@ -83,5 +83,3 @@ description: "아웃바운드 세션 미러링 리팩터링과 관련된 노트,
   - `src/infra/outbound/outbound-session.test.ts`
   - `src/agents/tools/message-tool.test.ts`
   - `src/gateway/server-methods/send.test.ts`
-
-

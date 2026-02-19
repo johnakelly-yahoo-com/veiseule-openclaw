@@ -1,4 +1,9 @@
 ---
+summary: "Automated at pinatibay na pag-install ng OpenClaw gamit ang Ansible, Tailscale VPN, at firewall isolation"
+read_when:
+  - Gusto mo ng automated na server deployment na may security hardening
+  - Kailangan mo ng setup na may firewall isolation at VPN access
+  - Nagde-deploy ka sa mga remote na Debian/Ubuntu server
 title: "Ansible"
 ---
 
@@ -16,7 +21,7 @@ curl -fsSL https://raw.githubusercontent.com/openclaw/openclaw-ansible/main/inst
 
 > **📦 Buong gabay: [github.com/openclaw/openclaw-ansible](https://github.com/openclaw/openclaw-ansible)**
 >
-> Ang openclaw-ansible repo ang pangunahing batayan para sa Ansible deployment. Ang pahinang ito ay isang mabilis na pangkalahatang-ideya.
+> The openclaw-ansible repo is the source of truth for Ansible deployment. This page is a quick overview.
 
 ## Ano ang Makukuha Mo
 
@@ -45,7 +50,7 @@ Ini-install at kino-configure ng Ansible playbook ang:
 5. **OpenClaw** (host-based, hindi containerized)
 6. **Systemd service** (auto-start na may security hardening)
 
-Tandaan: Ang gateway ay tumatakbo **direkta sa host** (hindi sa Docker), ngunit ang mga agent sandbox ay gumagamit ng Docker para sa isolation. Tingnan ang [Sandboxing](/gateway/sandboxing) para sa mga detalye.
+Note: The gateway runs **directly on the host** (not in Docker), but agent sandboxes use Docker for isolation. See [Sandboxing](/gateway/sandboxing) for details.
 
 ## Pag-setup Pagkatapos ng Pag-install
 
@@ -100,7 +105,7 @@ Itinatakda ng Ansible installer ang OpenClaw para sa manual na mga update. All o
 
 ### Availability ng Docker
 
-Ini-install ang Docker para sa **agent sandboxes** (nakahiwalay na pagpapatakbo ng tool), hindi para patakbuhin ang gateway mismo. Ang gateway ay naka-bind lamang sa localhost at maa-access sa pamamagitan ng Tailscale VPN.
+Docker is installed for **agent sandboxes** (isolated tool execution), not for running the gateway itself. The gateway binds to localhost only and is accessible via Tailscale VPN.
 
 Tingnan ang [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) para sa konpigurasyon ng sandbox.
 
@@ -201,5 +206,3 @@ Para sa detalyadong arkitekturang pang-seguridad at pag-troubleshoot:
 - [Docker](/install/docker) — containerized na setup ng Gateway
 - [Sandboxing](/gateway/sandboxing) — konpigurasyon ng agent sandbox
 - [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) — per-agent isolation
-
-

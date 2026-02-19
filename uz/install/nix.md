@@ -1,4 +1,9 @@
 ---
+summary: "45. OpenClaw’ni Nix yordamida deklarativ tarzda o‘rnating"
+read_when:
+  - 46. Siz qayta ishlab chiqariladigan, orqaga qaytariladigan o‘rnatishlarni xohlaysiz
+  - 47. Siz allaqachon Nix/NixOS/Home Manager’dan foydalanmoqdasiz
+  - 48. Siz hammasi pinlangan va deklarativ boshqarilishini xohlaysiz
 title: "49. Nix"
 ---
 
@@ -27,7 +32,7 @@ Reference the nix-openclaw README for module options.
 
 > **📦 Full guide: [github.com/openclaw/nix-openclaw](https://github.com/openclaw/nix-openclaw)**
 >
-> nix-openclaw repozitoriyasi Nix o‘rnatish uchun yagona ishonchli manba hisoblanadi. Ushbu sahifa esa shunchaki qisqacha ko‘rinishdir.
+> The nix-openclaw repo is the source of truth for Nix installation. This page is just a quick overview.
 
 ## Nimalarga ega bo‘lasiz
 
@@ -91,5 +96,3 @@ packaging and Nix builds (which do not rely on a full Xcode toolchain).
 - [nix-openclaw](https://github.com/openclaw/nix-openclaw) — full setup guide
 - [Wizard](/start/wizard) — non-Nix CLI setup
 - [Docker](/install/docker) — containerized setup
-
-

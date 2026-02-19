@@ -1,4 +1,8 @@
 ---
+summary: "Hướng dẫn đầu-cuối để chạy OpenClaw như một trợ lý cá nhân kèm các lưu ý an toàn"
+read_when:
+  - Hướng dẫn ban đầu cho một phiên bản trợ lý mới
+  - Xem xét các tác động về an toàn/quyền hạn
 title: "Thiết lập Trợ lý Cá nhân"
 ---
 
@@ -85,7 +89,7 @@ OpenClaw đọc chỉ dẫn vận hành và “bộ nhớ” từ thư mục wor
 
 Theo mặc định, OpenClaw sử dụng `~/.openclaw/workspace` làm workspace cho agent và sẽ tự động tạo nó (cùng với các tệp khởi đầu `AGENTS.md`, `SOUL.md`, `TOOLS.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md`) trong quá trình thiết lập/lần chạy agent đầu tiên. `BOOTSTRAP.md` chỉ được tạo khi workspace hoàn toàn mới (nó không nên xuất hiện lại sau khi bạn xóa). `MEMORY.md` is optional (not auto-created); when present, it is loaded for normal sessions. Subagent sessions only inject `AGENTS.md` and `TOOLS.md`.
 
-Mẹo: hãy xem thư mục này như “bộ nhớ” của OpenClaw và biến nó thành một kho git (lý tưởng là riêng tư) để các tệp `AGENTS.md` + bộ nhớ của bạn được sao lưu. Nếu đã cài đặt git, các workspace hoàn toàn mới sẽ được tự động khởi tạo.
+Tip: treat this folder like OpenClaw’s “memory” and make it a git repo (ideally private) so your `AGENTS.md` + memory files are backed up. If git is installed, brand-new workspaces are auto-initialized.
 
 ```bash
 openclaw setup
@@ -226,5 +230,3 @@ Log nằm tại `/tmp/openclaw/` (mặc định: `openclaw-YYYY-MM-DD.log`).
 - Trạng thái Windows: [Windows (WSL2)](/platforms/windows)
 - Trạng thái Linux: [Linux app](/platforms/linux)
 - Bảo mật: [Security](/gateway/security)
-
-

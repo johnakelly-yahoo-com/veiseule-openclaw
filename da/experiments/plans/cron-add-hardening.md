@@ -1,4 +1,5 @@
 ---
+summary: "Hærdning af cron.add-inputhåndtering, tilpasning af skemaer og forbedring af cron UI/agent-værktøjer"
 owner: "openclaw"
 status: "complete"
 last_updated: "2026-01-05"
@@ -60,5 +61,3 @@ Se [Cron jobs](/automation/cron-jobs) for den normaliserede form og eksempler.
 
 - Bør `cron.add` acceptere eksplicit `state` fra klienter (i øjeblikket ikke tilladt af skemaet)?
 - Bør vi tillade `webchat` som en eksplicit leveringsudbyder (i øjeblikket filtreret i leveringsopløsningen)?
-
-

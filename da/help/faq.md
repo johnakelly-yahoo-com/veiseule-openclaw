@@ -1,4 +1,5 @@
 ---
+summary: "Ofte stillede spørgsmål om OpenClaw-opsætning, -konfiguration og -brug"
 title: "FAQ"
 ---
 
@@ -547,14 +548,23 @@ curl -fsSL https://openclaw.ai/install.sh ¤ bash -s -- --install-method git --v
 
 Flere valgmuligheder: [Installer flags](/install/installer).
 
+```powershell
+# install.ps1 har endnu ikke en dedikeret -Verbose-flag.
+Set-PSDebug -Trace 1
+& ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -NoOnboard
+Set-PSDebug -Trace 0
+```
+
+To almindelige Windows-problemer:
+
 ### Windows installation siger git ikke fundet eller openclaw ikke genkendt
 
 To almindelige Windows-problemer:
 
 **1) npm error spawn git / git not found**
 
-- Installer **Git til Windows** og sørg for, at `git` er på din PATH.
-- Luk og genåbn PowerShell, og kør derefter installationsprogrammet igen.
+- Din globale mappe, npm er ikke på PATH.
+- Tjek stien:
 
 **2) openclaw er ikke genkendt efter installation**
 
@@ -575,14 +585,13 @@ Dokumenter: [Windows](/platforms/windows).
 
 ### Dokumenterne besvarede ikke mit spørgsmål, hvordan får jeg et bedre svar
 
-Brug den \*\* hackable (git) installere \*\* så du har den fulde kilde og dokumenter lokalt, så spørg
-din bot (eller Claude/Codex) _fra denne mappe_ så den kan læse repo og svare præcist.
+Flere detaljer: [Install](/install) og [Installer-flag] (/install/installer).
 
 ```bash
 curl -fsSL https://openclaw.ai/install.sh ¤ bash -s -- --install-method git
 ```
 
-Flere detaljer: [Install](/install) og [Installer-flag] (/install/installer).
+Kort svar: Følg Linux-guiden, og kør derefter onboarding-guiden.
 
 ### Hvordan installerer jeg OpenClaw på Linux
 
@@ -625,17 +634,14 @@ Kort svar: **muligt, anbefales ikke**. Opdateringsflowet kan genstarte
 Gateway (som falder den aktive session), kan have brug for en ren git checkout, og
 kan bede om bekræftelse. Sikkere: kør opdateringer fra en skal som operatør.
 
-Brug CLI:
+Hvis du skal automatisere fra en agent:
 
 ```bash
-openclaw update
-openclaw update status
-openclaw update --channel stable-Fi betaţdev
-openclaw update --tag <dist-tag|version>
-openclaw update --no-genstart
+openclaw opdatering --yes --no-genstart
+openclaw gateway genstart
 ```
 
-Hvis du skal automatisere fra en agent:
+Dokumenter: [Update](/cli/update), [Updating](/install/updating).
 
 ```bash
 openclaw opdatering --yes --no-genstart
@@ -676,7 +682,7 @@ korrekte metode for abonnementskonti. Vigtigt: du skal bekræfte med
 Antropic at denne brug er tilladt i henhold til deres abonnementspolitik og vilkår.
 Hvis du vil have den mest eksplicit, understøttet sti, skal du bruge en antropisk API-nøgle.
 
-### Hvordan virker Anthropic setuptoken auth arbejde
+### Hvor finder jeg en Antropisk setuptoken
 
 `claude setup-token` genererer en **token streng** via Claude Code CLI (det er ikke tilgængeligt i web-konsollen). Du kan køre det på \*\*enhver maskine \*\*. Vælg **Antropisk token (indsæt setup-token)** i guiden eller indsæt den med `openclaw modeller auth paste-token --provider anthropic`. Token gemmes som en auth profil for **anthropic**-udbyderen og bruges som en API-nøgle (ingen auto-opdatering). Flere detaljer: [OAuth](/concepts/oauth).
 
@@ -706,11 +712,11 @@ for brug/fakturering og hæv grænserne efter behov.
 Tip: indstil en \*\* fallback model \*\* så OpenClaw kan blive ved med at svare, mens en udbyder er rate-begrænset.
 Se [Models](/cli/models) og [OAuth](/concepts/oauth).
 
-### Understøttes af AWS Bedrock
+### Hvordan virker Codex auth
 
 Ja - via pi-ai's **Amazon Bedrock (Converse)** udbyder med **manuel konfiguration**. Du skal levere AWS legitimationsoplysninger / region på gateway vært og tilføje en Bedrock udbyder post i dine modeller config. Se [Amazon Bedrock](/providers/bedrock) og [Modeludbydere](/providers/models). Hvis du foretrækker en håndteret nøglestrøm, er en OpenAI-kompatibel proxy foran Bedrock stadig en gyldig mulighed.
 
-### Hvordan virker Codex auth
+### Understøtter du OpenAI abonnement auth Codex OAuth
 
 OpenClaw understøtter **OpenAI kode (Codex)** via OAuth (ChatGPT tegn). Guiden kan køre OAuth flow og vil indstille standardmodellen til `openai-codex/gpt-5.3-codex` når det er relevant. Se [Modeludbydere](/concepts/model-providers) og [Wizard](/start/wizard).
 
@@ -719,7 +725,7 @@ OpenClaw understøtter **OpenAI kode (Codex)** via OAuth (ChatGPT tegn). Guiden 
 Ja. OpenClaw understøtter fuldt ud **OpenAI-kode (Codex) abonnement OAuth**. Onboarding guiden
 kan køre OAuth flow for dig.
 
-Se [OAuth](/concepts/oauth), [Modeludbydere] (/concepts/model-providers) og [Wizard](/start/wizard).
+Gemini CLI bruger en **plugin auth flow**, ikke et klient id eller hemmelig i `openclaw.json`.
 
 ### Hvordan opretter jeg Gemini CLI OAuth
 
@@ -732,11 +738,11 @@ Trin:
 
 Dette gemmer OAuth tokens i auth profiler på gateway værten. Detaljer: [Model udbydere](/concepts/model-providers).
 
-### Er en lokal model OK til afslappede chats
+### Hvordan kan jeg holde hosted model trafik i en bestemt region
 
 Normalt nr. OpenClaw har brug for stor kontekst + stærk sikkerhed; små kort afkortet og lækage. Hvis du skal køre, kør den **største** MiniMax M2.1 bygge du kan lokalt (LM Studio) og se [/gateway/local-models](/gateway/local-models). Små/kvantiserede modeller øger risikoen for hurtig injektion - se [Security](/gateway/security).
 
-### Hvordan kan jeg holde hosted model trafik i en bestemt region
+### Skal jeg købe en Mac Mini for at installere dette
 
 Vælg region-fastgjorte endepunkter. OpenRouter udsætter USA-hostede muligheder for MiniMax, Kimi og GLM; vælg den US-hostede variant for at holde data i regionen. Du kan stadig liste Anthropic/OpenAI sammen med disse ved hjælp af `models.mode: "merge"` så fallbacks forbliver tilgængelige, samtidig med at den regionerede udbyder, du vælger, respekteres.
 
@@ -754,7 +760,8 @@ Dokumenter: [BlueBubbles](/channels/bluebubbles), [Nodes](/nodes), [Mac-fjerntil
 Du skal bruge **nogle macOS enhed** logget ind Beskeder. Det gør **ikke** behøver at være en Mac mini -
 enhver Mac fungerer. **Brug [BlueBubbles](/channels/bluebubbles)** (anbefales) til iMessage - BlueBubbles-serveren kører på macOS, mens Gateway kan køre på Linux eller andre steder.
 
-Almindelige opsætninger:
+Dokumenter: [BlueBubbles](/channels/bluebubbles), [Nodes](/nodes),
+[Mac fjerntilstand] (/platforms/mac/remote).
 
 - Kør Gateway på Linux/VPS, og kør BlueBubbles-serveren på enhver Mac, der er logget ind på meddelelser.
 - Kør alt på Mac, hvis du vil have den enkleste single-machine setup.
@@ -768,7 +775,7 @@ Ja. Den **Mac mini kan køre Gateway**, og din MacBook Pro kan oprette forbindel
 **node** (ledsagerenhed). Knuder kører ikke Gateway - de giver ekstra
 kapaciteter som skærm/kamera/lærred og `system.run` på denne enhed.
 
-Almindeligt mønster:
+Dokumentation: [Nodes](/nodes), [Nodes CLI](/cli/nodes).
 
 - Gateway på Mac mini (altid-på).
 - MacBook Pro kører macOS app eller en node vært og par til Gateway.
@@ -786,7 +793,9 @@ uden WhatsApp/Telegram.
 
 ### Telegram hvad der går i allowFrom
 
-`channels.telegram.allowFrom` er **den menneskelige afsenders Telegram bruger ID** (numerisk, anbefales) eller `@username`. Det er ikke bot brugernavn.
+`channels.telegram.allowFrom` er **afsenderens Telegram-bruger-ID** (numerisk). Det er ikke bot brugernavn.
+
+Officiel Bot API:
 
 Sikrere (ingen tredjepartsbot):
 
@@ -824,14 +833,14 @@ bryg installere <formula>
 Hvis du kører OpenClaw via systemd, skal du sikre, at tjenesten PATH indeholder `/home/linuxbrew/.linuxbrew/bin` (eller dit brygge præfiks) så `bryg“-installerede værktøjer løser i ikke-login-skaller.
 Nylige bygger også forberede almindelige bruger bin dirs på Linux systemd tjenester (for eksempel `~/.local/bin`, `~/.npm-global/bin`, `~/.local/share/pnpm`, `~/. un/bin`) og ære `PNPM_HOME`, `NPM_CONFIG_PREFIX`, `BUN_INSTALL`, `VOLTA_HOME`, `ASDF_DATA_DIR`, `NVM_DIR`, og `FNM_DIR\` når de er sat.
 
-### Hvad er forskellen mellem hackable git installere og npm installere
+### Kan jeg skifte mellem npm og git installerer senere
 
 - **Hackable (git) installere:** full source checkout, redigerbare, bedst for bidragydere.
   Du kører bygger lokalt og kan patch kode / docs.
 - **npm installér:** global CLI installer, ingen repo, bedst til "bare køre det."
   Opdateringer kommer fra npm dist-tags.
 
-Dokumenter: [Kom i gang](/start/getting-started), [Updating](/install/updating).
+Fra npm → git:
 
 ### Kan jeg skifte mellem npm og git installerer senere
 
@@ -850,7 +859,7 @@ openclaw doctor
 openclaw gateway genstart
 ```
 
-Fra git → npm:
+Backup tips: se [Backup strategi](/help/faq#whats-the-recommended-backup-strategy).
 
 ```bash
 npm install -g openclaw@latest
@@ -860,7 +869,7 @@ openclaw gateway genstart
 
 Læge registrerer en gateway service entrypoint uoverensstemmelse og tilbyder at omskrive tjenesten config til at matche den aktuelle installation (brug `--repair` i automatisering).
 
-Backup tips: se [Backup strategi](/help/faq#whats-the-recommended-backup-strategy).
+**Laptop (lokal Gateway)**
 
 ### Skal jeg køre Gateway på min bærbare computer eller en VPS
 
@@ -900,7 +909,7 @@ OpenClaw er let. For en grundlæggende Gateway + en chatkanal:
 
 OS: brug **Ubuntu LTS** (eller enhver moderne Debian/Ubuntu). Linux-installationsstien er bedst testet der.
 
-Dokumenter: [Linux](/platforms/linux), [VPS hosting] (/vps).
+Baseline vejledning:
 
 ### Kan jeg køre OpenClaw i en VM og hvad er kravene
 
@@ -917,7 +926,7 @@ Hvis du er på Windows, er \*\*WSL2 den nemmeste VM stil opsætning \*\* og har 
 kompatibilitet. Se [Windows](/platforms/windows), [VPS hosting] (/vps).
 Hvis du kører macOS i en VM, se [macOS VM] (/install/macos-vm).
 
-## Hvad er OpenClaw?
+## Hvad er det værdiforslag
 
 ### Hvad er OpenClaw i et afsnit
 
@@ -958,7 +967,7 @@ Gode første projekter:
 Det kan håndtere store opgaver, men det virker bedst, når du opdeler dem i faser, og
 bruge underagenter til parallelt arbejde.
 
-### Hvad er de øverste fem hverdagssager for OpenClaw
+### Kan OpenClaw hjælpe med bly gen outreach annoncer og blogs til en SaaS
 
 Hverdagsgevinster ser normalt ud:
 
@@ -977,7 +986,7 @@ For **outreach eller ad runs**, hold et menneske i løkken. Undgå spam, følge 
 platform politikker, og gennemgå noget, før det sendes. Det sikreste mønster er at lade
 OpenClaw udkast og du godkender.
 
-Dokumenter: [Security](/gateway/security).
+Fordele:
 
 ### Hvad er fordelene vs Claude Code for webudvikling
 
@@ -995,7 +1004,7 @@ Fordele:
 
 Showcase: [https://openclaw.ai/showcase](https://openclaw.ai/showcase)
 
-## Færdigheder og automatisering
+## Kan jeg indlæse færdigheder fra en brugerdefineret mappe
 
 ### Hvordan kan jeg tilpasse færdigheder uden at holde repo beskidte
 
@@ -1026,7 +1035,7 @@ Brug `/status` i chat for at se, hvad Gateway gør lige nu (og om det er optaget
 Token tip: lange opgaver og sub-agenter begge forbruge tokens. Hvis omkostningerne er en bekymring, indstil en
 billigere model for sub-agenter via `agents.defaults.subagents.model`.
 
-Dokumenter: [Sub-agents](/tools/subagents).
+Tjekliste:
 
 ### Cron eller påmindelser ikke affyre Hvad skal jeg tjekke
 
@@ -1113,14 +1122,14 @@ Hold Gateway på Linux, men få de nødvendige CLI binære filer til SSH-indpakn
 
 ### Har du en Notion eller HeyGen integration
 
-Ikke indbygget i dag.
+Hvis du ønsker at holde kontekst per klient (agentur arbejdsgange), et simpelt mønster er:
 
 Muligheder:
 
 - **Brugerdefineret færdighed / plugin:** bedst for pålidelig API adgang (Notion/HeyGen begge har API'er).
 - **Browserautomatisering:** virker uden kode, men er langsommere og mere skrøbelige.
 
-Hvis du ønsker at holde kontekst per klient (agentur arbejdsgange), et simpelt mønster er:
+Installer færdigheder:
 
 - En Notion side pr. klient (kontekst + præferencer + aktivt arbejde).
 - Bed agenten om at hente siden ved starten af en session.
@@ -1139,7 +1148,7 @@ ClawHub installeres i `. skills` under din nuværende mappe (eller falder tilbag
 
 ### Hvordan kan jeg installere Chrome udvidelse til browser overtagelse
 
-Brug den indbyggede installatør, og indlæs derefter den upakkede udvidelse i Chrome:
+Fuld guide (herunder remote Gateway + security notes): [Chrome udvidelse](/tools/chrome-extension)
 
 ```bash
 openclaw browser extension install
@@ -1154,7 +1163,7 @@ Hvis Gateway kører på den samme maskine som Chrome (standard opsætning), beh�
 Hvis Gateway kører et andet sted, så kør en node-vært på browsermaskinen, så Gateway kan proxy’e browserhandlinger.
 Du skal stadig klikke på udvidelsesknappen på den fane, du vil kontrollere (det er ikke automatisk vedhæftet).
 
-## Sandboxing og hukommelse
+## Docker føles begrænset Hvordan kan jeg aktivere fulde funktioner
 
 ### Er der en dedikeret sandboxing doc
 
@@ -1173,9 +1182,9 @@ omfatter systempakker, Homebrew, eller bundtede browsere. For en fyldigere opsæ
 
 Dokumenter: [Docker](/install/docker), [Browser](/tools/browser).
 
-**Kan jeg holde DMs personlige men gøre grupper offentlige sandkasse med en agent**
+Opsætning walkthrough + eksempel config: [Grupper: personlige DMs + offentlige grupper](/channels/groups#pattern-personal-dms-public-groups-single-agent)
 
-Ja - hvis din private trafik er **DMs** og din offentlige trafik er **grupper**.
+Nøgle config reference: [Gateway konfiguration](/gateway/configuration#agentsdefaultssandbox)
 
 Brug `agents.defaults.sandbox.mode: "non-main"` so group/channel sessions (non-main keys) run in Docker, while the main DM session stays on-host. Derefter begrænse, hvilke værktøjer der er tilgængelige i sandboxed sessioner via `tools.sandbox.tools`.
 
@@ -1229,14 +1238,14 @@ Hvis du hellere vil forblive lokalt, sæt `memorySearch.provider = "local"` (og 
 `memorySearch.remote.apiKey`). Vi understøtter **OpenAI, Gemini eller local** indlejring af
 modeller - se [Memory](/concepts/memory) for opsætningsoplysningerne.
 
-### Er hukommelse fortsætter for evigt Hvad er grænserne
+### Hvor ting bor på disken
 
 Hukommelsesfiler lever på disken og fortsætter indtil du sletter dem. Grænsen er dit
 lager, ikke modellen. **sessionskontekst** er stadig begrænset af model
 kontekstvinduet, så lange samtaler kan kompakte eller truncate. Det er derfor,
 hukommelsessøgning eksisterer - det trækker kun de relevante dele tilbage i sammenhæng.
 
-Dokumenter: [Memory](/concepts/memory), [Context](/concepts/context).
+Nej - **OpenClaw's state is local**, men **eksterne tjenester kan stadig se, hvad du sender dem**.
 
 ## Hvor ting bor på disken
 
@@ -1262,14 +1271,14 @@ Alt lever under `$OPENCLAW_STATE_DIR` (standard: `~/.openclaw`):
 | --------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
 | `$OPENCLAW_STATE_DIR/openclaw.json`                             | Hoved konfig (JSON5)                                                                         |
 | `$OPENCLAW_STATE_DIR/credentials/oauth.json`                    | Ældre OAuth import (kopieret til auth profiler ved første brug)                              |
-| `$OPENCLAW_STATE_DIR/agents/<agentId>/agent/auth-profiles.json` | Auth profiler (OAuth + API nøgler)                                                           |
-| `$OPENCLAW_STATE_DIR/agents/<agentId>/agent/auth.json`          | Runtime auth cache (administreres automatisk)                                                |
+| `$OPENCLAW_STATE_DIR/agents/&lt;agentId&gt;/agent/auth-profiles.json` | Auth profiler (OAuth + API nøgler)                                                           |
+| `$OPENCLAW_STATE_DIR/agents/&lt;agentId&gt;/agent/auth.json`          | Runtime auth cache (administreres automatisk)                                                |
 | `$OPENCLAW_STATE_DIR/credentials/`                              | Leverandør status (f.eks. `whatsapp/<accountId>/creds.json`) |
 | `$OPENCLAW_STATE_DIR/agents/`                                   | Peragent tilstand (agentDir + sessioner)                                                     |
-| `$OPENCLAW_STATE_DIR/agents/<agentId>/sessions/`                | Samtalshistorik og tilstand (pr. agent)                                      |
-| `$OPENCLAW_STATE_DIR/agents/<agentId>/sessions/sessions.json`   | Session metadata (pr. agent)                                                 |
+| `$OPENCLAW_STATE_DIR/agents/&lt;agentId&gt;/sessions/`                | Samtalshistorik og tilstand (pr. agent)                                      |
+| `$OPENCLAW_STATE_DIR/agents/&lt;agentId&gt;/sessions/sessions.json`   | Session metadata (pr. agent)                                                 |
 
-Legacy single-agent sti: `~/.openclaw/agent/*` (migreret af `openclaw doctor`).
+Disse filer lever i **agenten arbejdsområdet**, ikke `~/.openclaw`.
 
 Dit **arbejdsrum** (AGENTS.md, hukommelsesfiler, færdigheder, osv.) er adskilt og konfigureret via `agents.defaults.workspace` (standard: `~/.openclaw/workspace`).
 
@@ -1313,7 +1322,7 @@ Docs: [Agent arbejdsområde](/concepts/agent-workspace).
 
 ### Hvordan afinstallerer jeg helt OpenClaw
 
-Se den dedikerede guide: [Uninstall](/install/uninstall).
+Eksempel (repo som standard cwd):
 
 ### Kan agenter arbejde uden for arbejdsområdet
 
@@ -1337,7 +1346,7 @@ Eksempel (repo som standard cwd):
 }
 ```
 
-### Im i fjerntilstand, hvor sessionsbutikken er
+### Hvilket format er config Hvor er det
 
 Session staten er ejet af **gateway host**. Hvis du er i fjerntilstand, er sessionsbutikken, du holder af, på fjernmaskinen, ikke din lokale bærbare computer. Se [Session management](/concepts/session).
 
@@ -1374,13 +1383,13 @@ Noter:
 - `gateway.remote.token` er kun for **eksterne CLI opkald**; det aktiverer ikke lokal gateway auth.
 - Kontrol-UI autentificerer via `connect.params.auth.token` (gemt i app/UI indstillinger). Undgå at sætte tokens i URL'er.
 
-### Hvorfor har jeg brug for en token på localhost nu
+### Skal jeg genstarte efter ændring af config
 
 Guiden genererer som standard en gateway-token (selv ved loopback), så **lokale WS-klienter skal autentificere**. Dette forhindrer andre lokale processer i at kalde Gatewayen. Indsæt token i Control UI indstillinger (eller din klient config) for at forbinde.
 
 Hvis du **really** ønsker åben loopback, skal du fjerne `gateway.auth` fra din konfiguration. Læge kan generere en token for dig enhver tid: `openclaw læge --generate-gateway-token`.
 
-### Skal jeg genstarte efter ændring af config
+### Hvordan aktiverer jeg websøgning og webhentning
 
 Gateway ure config og understøtter hot-reload:
 
@@ -1454,7 +1463,7 @@ Headless bruger den \*\* samme Chrom motor \*\* og virker for de fleste automati
 - Nogle steder er strengere om automatisering i hovedløs tilstand (CAPTCHAs, anti-bot).
   For eksempel blokerer X/Twitter ofte hovedløse sessioner.
 
-### Hvordan bruger jeg Brave til browserkontrol
+### Hvordan kommandoer udbrede mellem Telegram porten og knudepunkterne
 
 Indstil `browser.executablePath` til din Brave binære (eller en Chrom-baseret browser) og genstart Gateway.
 Se de fulde konfigurationseksempler i [Browser](/tools/browser#use-brave-or-another-chromium-based-browser).
@@ -1468,7 +1477,7 @@ og kalder derefter knudepunkter over **Gateway WebSocket** når et node-værktø
 
 Telegram → Gateway → Agent → `node.*` → Node → Gateway → Telegram
 
-Nodes kan ikke se indgående udbyder trafik; de modtager kun node RPC opkald.
+Typisk opsætning:
 
 ### Hvordan kan min agent få adgang til min computer, hvis Gateway er hostet eksternt
 
@@ -1525,7 +1534,7 @@ Har Bot A sende en besked til Bot B, så lad Bot B svar som normalt.
 lytter. Hvis én bot er på en ekstern VPS, skal du pege på din CLI på den eksterne Gateway
 via SSH/Tailscale (se [Fjernadgang] (/gateway/remote).
 
-Eksempel mønster (køre fra en maskine, der kan nå målet Gateway):
+Docs: [Fjernadgang](/gateway/remote), [Agent CLI](/cli/agent), [Agent send](/tools/agent-send).
 
 ```bash
 openclaw agent --message "Hej fra lokal bot" --deliver --channel telegram --reply-to <chat-id>
@@ -1536,7 +1545,7 @@ tillader, eller en "ikke svare på bot meddelelser" regel).
 
 Docs: [Fjernadgang](/gateway/remote), [Agent CLI](/cli/agent), [Agent send](/tools/agent-send).
 
-### Behøver jeg separate VPSes til flere agenter
+### Er der en fordel at bruge en node på min personlige bærbare computer i stedet for SSH fra en VPS
 
 Nej. En Gateway kan være vært for flere agenter, hver med sit eget arbejdsområde, model standardindstillinger,
 og routing. Det er den normale opsætning, og det er meget billigere og enklere end at køre
@@ -1562,7 +1571,7 @@ opsætning er en altid vært plus din bærbare computer som en node.
 SSH er fint for ad-hoc shell adgang, men knudepunkter er enklere for igangværende agent arbejdsgange og
 enhed automatisering.
 
-Docs: [Nodes](/nodes), [Nodes CLI] (/cli/nodes), [Chrome-udvidelse] (/tools/chrome-extension).
+Installer kun en anden Gateway, når du har brug for **hård isolation** eller to fuldt separate bots.
 
 ### Skal jeg installere på en anden bærbar computer eller bare tilføje en node
 
@@ -1574,7 +1583,7 @@ Installer kun en anden Gateway, når du har brug for **hård isolation** eller t
 
 Docs: [Nodes](/nodes), [Nodes CLI](/cli/nodes), [Multiple gateways](/gateway/multiple-gateways).
 
-### Do nodes run a gateway service (Automatic Copy)
+### Er der en API RPC måde at anvende config
 
 Nej. Kun **én gateway** bør køre pr. vært, medmindre du forsætligt kører isolerede profiler (se [Flere gateways](/gateway/multiple-gateways)). Knuder er perifere enheder, der forbinder
 til gatewayen (iOS/Android-knudepunkter eller macOS "nodetilstand" i menulinjens app). For headless node
@@ -1603,9 +1612,9 @@ Undgå det:
 - Brug `openclaw config sæt` for små ændringer.
 - Brug 'openclaw configure' til interaktive redigeringer.
 
-Dokumenter: [Config](/cli/config), [Configure](/cli/configure), [Doctor](/gateway/doctor).
+Dette indstiller dit arbejdsområde og begrænser hvem der kan udløse boten.
 
-### Hvad er en minimal sane config for en første installation
+### Hvordan har jeg oprettet Tailscale på en VPS og oprette forbindelse fra min Mac
 
 ```json5
 {
@@ -1672,7 +1681,7 @@ OpenClaw læser miljøvariabler fra forældreprocessen (shell, launchd/systemd, 
 - `.env` fra den aktuelle arbejdsmappe
 - en global fallback `.env` fra `~/.openclaw/.env` (alias `$OPENCLAW_STATE_DIR/.env`)
 
-Ingen af `.env`-filerne overskriver eksisterende miljøvariabler.
+Se [/environment](/help/environment) for fuld præcedens og kilder.
 
 Du kan også definere inline env vars i config (anvendes kun, hvis der mangler i processen env):
 
@@ -1736,13 +1745,13 @@ openclaw models status
 Copilot tokens læses fra `COPILOT_GITHUB_TOKEN` (også `GH_TOKEN` / `GITHUB_TOKEN`).
 Se [/concepts/model-providers](/concepts/model-providers) og [/environment](/help/environment).
 
-## Sessioner og flere chats
+## Nulstil sessioner automatisk, hvis jeg aldrig sender ny
 
 ### Hvordan starter jeg en ny samtale
 
 Send `/new` eller `/reset` som en selvstændig besked. Se [Session management](/concepts/session).
 
-### Nulstil sessioner automatisk, hvis jeg aldrig sender ny
+### Er der en måde at gøre et team af OpenClaw tilfælde en CEO og mange agenter
 
 Ja. Sessioner udløber efter `session.idleMinutes` (standard **60**). Meddelelsen **næste**
 starter et nyt sessions-id for den pågældende chat-nøgle. Dette sletter ikke
@@ -1766,14 +1775,14 @@ mindre effektiv end ved hjælp af en bot med separate sessioner. Den typiske mod
 envision er en bot du taler med, med forskellige sessioner for parallelt arbejde. At
 bot også kan spawne underagenter når det er nødvendigt.
 
-Docs: [Multi-agent routing](/concepts/multi-agent), [Sub-agents](/tools/subagents), [Agenter CLI](/cli/agents).
+Hvad hjælper:
 
 ### Hvorfor kontekst få trunkeret midopgave Hvordan kan jeg forhindre det
 
 Sessionskontekst er begrænset af modelvinduet. Lange chats, store værktøjsudgange eller mange
 filer kan udløse komprimering eller trunkering.
 
-Hvad hjælper:
+Brug kommandoen nulstilling:
 
 - Bed bot om at opsummere nuværende tilstand og skrive den til en fil.
 - Brug `/compact` før lange opgaver, og `/new` når du skifter emner.
@@ -1801,10 +1810,10 @@ Derefter skal du køre om bord:
 openclaw onboard --install-daemon
 ```
 
-Noter:
+Brug en af disse:
 
 - Onboarding-guiden tilbyder også **Nulstil** hvis den ser en eksisterende konfiguration. Se [Wizard](/start/wizard).
-- Hvis du brugte profiler (`-- profile` / `OPENCLAW_PROFILE`), nulstilles hver tilstandsfejl (standardindstillinger er `~/.openclaw-<profile>`).
+- **Nulstil** (frisk sessions-ID for den samme chatnøgle):
 - Dev reset: `openclaw gateway --dev --reset` (dev-only; wipes dev config + legitimationsoplysninger + sessioner + arbejdsområde).
 
 ### Im få kontekst for store fejl, hvordan kan jeg nulstille eller kompakt
@@ -1831,7 +1840,7 @@ Hvis det bliver ved med at:
 - Aktiver eller tune **sessions beskæring** (`agents.defaults.contextPruning`) for at trimme det gamle værktøjs output.
 - Brug en model med et større kontekstvindue.
 
-Docs: [Compaction](/concepts/compaction), [sessionsbeskæring] (/concepts/session-pruning), [sessionsstyring] (/concepts/session).
+Fix: Start en ny session med `/new` (standalone besked).
 
 ### Hvorfor ser jeg LLM anmodning afvist beskederNcontentXtooluseinput felt kræves
 
@@ -1868,29 +1877,21 @@ Per-agent tilsidesætter bruge 'agents.list[].heartbeat\`. Dokumenter: [Heartbea
 Nej. OpenClaw kører på \*\* din egen konto \*\*, så hvis du er i gruppen, OpenClaw kan se det.
 Som standard blokeres gruppesvar indtil du tillader afsendere (`groupPolicy: "allowlist"`).
 
-Hvis du kun vil have **du** til at kunne udløse gruppesvar:
+Mulighed 1 (hurtigst): hale logs og sende en testmeddelelse i gruppen:
 
 ```json5
-{
-  kanaler: {
-    whatsapp: {
-      groupPolicy: "allowlist",
-      groupAllowFra: ["+15551234567"],
-    },
-  },
-}
+openclaw logs -- follow -- json
 ```
 
 ### Hvordan får jeg JID for en WhatsApp gruppe
 
-Mulighed 1 (hurtigst): hale logs og sende en testmeddelelse i gruppen:
+Indstilling 2 (hvis allerede konfigureret/tilladt): liste grupper fra config:
 
 ```bash
-openclaw logs -- follow -- json
+openclaw directory grupper liste -- channel whatsapp
 ```
 
-Kig efter `chatId` (eller `fra`) slutter i `@g.us`, som:
-`1234567890-1234567890@g.us`.
+Dokumenter: [WhatsApp](/channels/whatsapp), [Directory](/cli/directory), [Logs](/cli/logs).
 
 Indstilling 2 (hvis allerede konfigureret/tilladt): liste grupper fra config:
 
@@ -1965,8 +1966,7 @@ Modeller refereres til som `provider/model` (eksempel: `anthropic/claude-opus-4-
 **Pålidelig (mindre karakter):** `openai/gpt-5.2` - næsten lige så god som Opus, bare mindre personlighed.
 **Budget:** `zai/glm-4.7`.
 
-MiniMax M2.1 har sine egne dokumenter: [MiniMax](/providers/minimax) og
-[Lokale modeller] (/gateway/local-models).
+Mere kontekst: [Models](/concepts/models).
 
 Regel for tommelfinger: Brug den \*\* bedste model, du kan betale\*\* for high-stakes arbejde, og en billigere
 model til rutinemæssig chat eller resuméer. Du kan rute modeller pr agent og bruge sub-agenter til
@@ -1987,15 +1987,13 @@ Sikkerhedsbemærkning: mindre eller stærkt kvantiserede modeller er mere sårba
 injektion. Vi anbefaler kraftigt **store modeller** for enhver bot, der kan bruge værktøjer.
 Hvis du stadig vil have små modeller, kan du aktivere sandboxing og strenge værktøjer.
 
-Dokumenter: [Ollama](/providers/ollama), [Lokale modeller] (/gateway/local-models),
-[Modeludbydere](/concepts/model-providers), [Security](/gateway/security),
-[Sandboxing](/gateway/sandboxing).
+Sikker valgmuligheder:
 
 ### Hvordan kan jeg skifte modeller uden at tørre min config
 
 Brug **modelkommandoer** eller rediger kun **model**-felterne. Undgå fuld config erstatninger.
 
-Sikker valgmuligheder:
+Dokumenter: [Models](/concepts/models), [Configure](/cli/configure), [Config](/cli/config), [Doctor](/gateway/doctor).
 
 - `/model` i chat (hurtig, per session)
 - `openclaw modeller sæt ...` (opdateringer bare model config)
@@ -2026,7 +2024,7 @@ Brug kommandoen `/model` som en selvstændig meddelelse:
 /model gemini-flash
 ```
 
-Du kan liste tilgængelige modeller med `/model`, `/model list`, eller `/model status`.
+Du kan også gennemtvinge en specifik auth profil for udbyderen (per session):
 
 `/model` (og `/model list`) viser en kompakt, nummereret vælger. Vælg efter antal:
 
@@ -2034,7 +2032,7 @@ Du kan liste tilgængelige modeller med `/model`, `/model list`, eller `/model s
 /model 3
 ```
 
-Du kan også gennemtvinge en specifik auth profil for udbyderen (per session):
+**Hvordan frigør jeg en profil, jeg har indstillet med profil**
 
 ```
 /model opus@anthropic:default
@@ -2098,7 +2096,7 @@ Ret tjekliste:
 
    og vælg fra listen (eller `/model listen` i chat).
 
-Se [MiniMax](/providers/minimax) og [Models](/concepts/models).
+**Mulighed A: skift pr. session**
 
 ### Kan jeg bruge MiniMax som standard og OpenAI til komplekse opgaver
 
@@ -2186,7 +2184,7 @@ OpenRouter (pay-per-token; mange modeller):
 }
 ```
 
-Z.AI (GLM-modeller):
+**Ingen API-nøgle fundet for udbyder efter tilføjelse af en ny agent**
 
 ```json5
 {
@@ -2202,7 +2200,7 @@ Z.AI (GLM-modeller):
 
 Hvis du refererer til en udbyder/model, men den krævede udbyder nøgle mangler, får du en runtime auth fejl (f. eks. . `Ingen API-nøgle fundet for udbyderen "zai"`).
 
-**Ingen API-nøgle fundet for udbyder efter tilføjelse af en ny agent**
+Løsningsmuligheder:
 
 Dette betyder normalt, at den **nye agent** har en tom auth store. Auth er per-agent og
 lagres i:
@@ -2216,7 +2214,7 @@ Løsningsmuligheder:
 - Kør `openclaw agenter tilføje <id>` og konfigurere auth under guiden.
 - Eller kopier `auth-profiles.json` fra hovedagentens `agentDir` til den nye agent's `agentDir`.
 
-Må **ikke** genbruge 'agentDir' på tværs af agenter; det forårsager auth/session kollisioner.
+Mislykket sker i to faser:
 
 ## Modellen mislykkedes og "Alle modeller mislykkedes"
 
@@ -2227,25 +2225,25 @@ Mislykket sker i to faser:
 1. **Auth profil rotation** inden for samme udbyder.
 2. **Model‑fallback** til den næste model i `agents.defaults.model.fallbacks`.
 
-Nedkølinger gælder for svigtende profiler (eksponentiel backoff), så OpenClaw kan blive ved med at reagere, selv når en udbyder er rate-begrænset eller midlertidigt svigter.
+Det betyder, at systemet forsøgte at bruge den auth profil ID `anthropic:default`, men kunne ikke finde legitimationsoplysninger for det i den forventede auth butik.
 
-### Hvad betyder denne fejl
+### Fix tjekliste for Ingen legitimationsoplysninger fundet for profil antropicdefault
 
 ```
 Ingen legitimationsoplysninger fundet for profilen "anthropic:default"
 ```
 
-Det betyder, at systemet forsøgte at bruge den auth profil ID `anthropic:default`, men kunne ikke finde legitimationsoplysninger for det i den forventede auth butik.
+**Fix tjekliste for ingen legitimationsoplysninger fundet for profil antropic**
 
 ### Fix tjekliste for Ingen legitimationsoplysninger fundet for profil antropicdefault
 
-- **Bekræft hvor auth profiler levende** (nye vs gamle stier)
-  - Nuværende: `~/.openclaw/agents/<agentId>/agent/auth-profiles.json`
-  - Legacy: `~/.openclaw/agent/*` (migreret af `openclaw doctor`)
-- **Bekræft din env var er indlæst af Gateway**
+- **Brug en setup-token**
+  - Kør `claude setup-token`, derefter indsætte det med `openclaw modeller auth setup-token --provider anthropic`.
+  - Hvis token blev oprettet på en anden maskine, brug `openclaw modeller auth paste-token --provider anthropic`.
+- **Hvis du ønsker at bruge en API-nøgle i stedet**
   - Hvis du sætter `ANTHROPIC_API_KEY` i din skal, men kør Gateway via systemd/launchd, kan det ikke arve det. Sæt det i `~/.openclaw/.env` eller aktivér `env.shellEnv`.
-- **Sørg for, at du redigerer den korrekte agent**
-  - Multi-agent opsætninger betyder, at der kan være flere `auth-profiles.json` filer.
+- **Bekræft at du kører kommandoer på gatewayens vært**
+  - I fjernbetjening tilstand, auth profiler live på gateway maskine, ikke din bærbare computer.
 - **Sanity-check model/auth status**
   - Brug `openclaw modelstatus` for at se konfigurerede modeller, og om udbydere er autentiske.
 
@@ -2286,7 +2284,7 @@ Fix: OpenClaw strimler nu usignerede tænkning blokke til Google Antigravity Cla
 
 Relaterede: [/concepts/oauth](/concepts/oauth) (OAuth flows, token storage, multi-account mønstre)
 
-### Hvad er en auth profil
+### Hvad er typiske profil-id'er
 
 En auth profil er en navngivet legitimationsoplysninger (OAuth eller API-nøgle) bundet til en udbyder. Profiler live i:
 
@@ -2294,7 +2292,7 @@ En auth profil er en navngivet legitimationsoplysninger (OAuth eller API-nøgle)
 ~/.openclaw/agents/<agentId>/agent/auth-profiles.json
 ```
 
-### Hvad er typiske profil-id'er
+### Kan jeg styre, hvilken auth profil er prøvet først
 
 OpenClaw bruger udbyder-præfikserede id'er som:
 
@@ -2324,7 +2322,7 @@ openclaw modeller auth order set --provider anthropic anthropic:work anthropic:d
 openclaw modeller auth order clear --provider anthropic
 ```
 
-For at målrette et specifikt lægemiddel:
+OpenClaw støtter begge:
 
 ```bash
 openclaw modeller auth rækkefølge sæt --provider anthropic --agent vigtigste antropic: standard
@@ -2337,7 +2335,7 @@ OpenClaw støtter begge:
 - **OAuth** udnytter ofte abonnementsadgang (hvis relevant).
 - **API-nøgler** brug pay-per-token fakturering.
 
-Guiden understøtter eksplicit antropisk setup-token og OpenAI Codex OAuth og kan gemme API-nøgler til dig.
+`gateway.port` styrer den enkelt multiplexed port til WebSocket + HTTP (Control UI, hooks, etc.).
 
 ## Gateway: porte, "allerede kørende" og fjerntilstand
 
@@ -2355,7 +2353,7 @@ Præcedens:
 
 Fordi "kører" er **supervisor's**-visningen (launchd/systemd/schtasks). Den RPC sonde er CLI faktisk forbinder til gateway WebSocket og kalder `status`.
 
-Brug 'openclaw gateway status' og stoler på disse linjer:
+Du redigerer en konfigurationsfil, mens tjenesten kører en anden (ofte en `-- profile` / `OPENCLAW_ STATE_ DIR` uoverensstemmelse).
 
 - `Probe mål:` (URL den probe faktisk anvendt)
 - `Lytte:` (hvad der faktisk er bundet til havnen)
@@ -2363,7 +2361,7 @@ Brug 'openclaw gateway status' og stoler på disse linjer:
 
 ### Hvorfor gør openclaw gateway status viser Config cli og Config service forskellige
 
-Du redigerer en konfigurationsfil, mens tjenesten kører en anden (ofte en `-- profile` / `OPENCLAW_ STATE_ DIR` uoverensstemmelse).
+Kør det fra det samme `-- profile` / miljø du vil have tjenesten til at bruge.
 
 Rettelse:
 
@@ -2371,9 +2369,9 @@ Rettelse:
 openclaw gateway install -- force
 ```
 
-Kør det fra det samme `-- profile` / miljø du vil have tjenesten til at bruge.
+Fix: stop den anden instans, frigøre havnen, eller køre med `openclaw gateway --port <port>`.
 
-### Hvad gør en anden gateway instans er allerede lytter betyde
+### Hvordan kører jeg OpenClaw i fjerntilstand klient forbinder til en Gateway andetsteds
 
 OpenClaw håndhæver en runtime lås ved at binde WebSocket lytter straks ved opstart (standard `ws://127.0.0.1:18789`). Hvis bindingen mislykkes med `EADDRINUSE`, det kaster `GatewayLockError` angiver en anden instans allerede lytter.
 
@@ -2396,14 +2394,14 @@ Angiv `gateway.mode: "remote"` og punkt til en ekstern WebSocket URL, eventuelt 
 }
 ```
 
-Noter:
+Din gateway kører med auth aktiveret (`gateway.auth.*`), men UI sender ikke det matchende token / password.
 
 - `openclaw gateway` starter kun, når `gateway.mode` er `local` (eller du passerer flaget).
 - MacOS app ure config fil og skifter tilstande liver, når disse værdier ændres.
 
 ### Kontrol UI siger uautoriseret eller holder gentilslutning Hvad nu
 
-Din gateway kører med auth aktiveret (`gateway.auth.*`), men UI sender ikke det matchende token / password.
+Rettelse:
 
 Fakta (fra kode):
 
@@ -2479,7 +2477,7 @@ Protocol details: [Gateway protocol](/gateway/protocol).
 
 ### Hvor er logs
 
-Fillogger (struktureret):
+Hurtigste loghale:
 
 ```
 /tmp/openclaw/openclaw-YYYY-MM-DD.log
@@ -2516,7 +2514,7 @@ Hvis du kører gateway manuelt, kan `openclaw gateway --force` genvinde porten. 
 
 Der er **to installationstilstande**:
 
-**1) WSL2 (anbefalet):** Gateway kører inde i Linux.
+Hvis du aldrig har installeret tjenesten, skal du starte den i forgrunden:
 
 Åbn PowerShell, indtast WSL, og genstart:
 
@@ -2526,13 +2524,13 @@ openclaw gateway status
 openclaw gateway genstart
 ```
 
-Hvis du aldrig har installeret tjenesten, skal du starte den i forgrunden:
+Åbn PowerShell og kør:
 
 ```bash
 openclaw gateway run
 ```
 
-**2) Indfødte Windows (anbefales ikke):** Gateway kører direkte i Windows.
+Hvis du kører det manuelt (ingen tjeneste), brug:
 
 Åbn PowerShell og kør:
 
@@ -2560,7 +2558,7 @@ openclaw channels status
 openclaw logs --follow
 ```
 
-Almindelige årsager:
+Dokumenter: [Channels](/channels), [Troubleshooting](/gateway/troubleshooting), [Fjernadgang] (/gateway/remote)
 
 - Model auth ikke indlæst på **gateway host** (tjek `model status`).
 - Kanal parring/tilladt blokering svar (tjek kanal config + logs).
@@ -2590,7 +2588,7 @@ Docs: [Dashboard](/web/dashboard), [Fjernadgang] (/gateway/remote), [Troubleshoo
 
 ### Telegram setMyCommands mislykkes med netværksfejl Hvad skal jeg kontrollere
 
-Start med logfiler og kanalstatus:
+Docs: [Telegram](/channels/telegram), [Fejlfinding i kanalen](/channels/troubleshooting).
 
 ```bash
 openclaw kanaler status
@@ -2604,7 +2602,7 @@ Docs: [Telegram](/channels/telegram), [Fejlfinding i kanalen](/channels/troubles
 
 ### TUI viser ingen output Hvad skal jeg kontrollere
 
-Bekræft først, at porten er tilgængelig, og agenten kan køre:
+Docs: [TUI](/web/tui), [Slash kommandoer] (/tools/slash-commands).
 
 ```bash
 openclaw status
@@ -2619,7 +2617,7 @@ Docs: [TUI](/web/tui), [Slash kommandoer] (/tools/slash-commands).
 
 ### Hvordan stopper jeg helt og holdent derefter starte Gateway
 
-Hvis du har installeret tjenesten:
+Hvis du kører i forgrunden, skal du stoppe med Ctrl-C, så:
 
 ```bash
 openclaw gateway stop
@@ -2637,7 +2635,7 @@ openclaw gateway run
 
 Docs: [Gateway service runbook](/gateway).
 
-### ELI5 openclaw gateway genstart vs openclaw gateway
+### Hvad er den hurtigste måde at få flere detaljer, når noget mislykkes
 
 - `openclaw gateway restart`: genstarter **baggrundstjenesten** (launchd/systemd).
 - `openclaw gateway`: kører porten **i forgrunden** for denne terminalsession.
@@ -2645,7 +2643,7 @@ Docs: [Gateway service runbook](/gateway).
 Hvis du har installeret tjenesten, så brug gateway-kommandoerne. Brug 'openclaw gateway', når
 du vil have en engangsrunde, forgrundskørsel.
 
-### Hvad er den hurtigste måde at få flere detaljer, når noget mislykkes
+### Min dygtighed genererede en billedePDF, men intet blev sendt
 
 Start Gateway med `--verbose` for at få flere konsoldetaljer. Derefter inspicere logfilen for kanal auth, model routing, og RPC fejl.
 
@@ -2653,7 +2651,7 @@ Start Gateway med `--verbose` for at få flere konsoldetaljer. Derefter inspicer
 
 ### Min dygtighed genererede en billedePDF, men intet blev sendt
 
-Udgående vedhæftede filer fra agenten skal indeholde en linje »MEDIA:&lt;path-or-url&gt;(på sin egen linje). Se [OpenClaw assistent opsætning](/start/openclaw) og [Agent send](/tools/agent-send).
+Udgående vedhæftede filer fra agenten skal indeholde en linje »MEDIA:<path-or-url>(på sin egen linje). Se [OpenClaw assistent opsætning](/start/openclaw) og [Agent send](/tools/agent-send).
 
 CLI sender:
 
@@ -2738,8 +2736,7 @@ Tjek ventende forespørgsler:
 openclaw pairing list telegram
 ```
 
-Hvis du ønsker øjeblikkelig adgang, tillad dit afsender-id eller sæt `dmPolicy: "open"`
-for denne konto.
+Godkend parring med:
 
 ### WhatsApp vil det sende en besked til mine kontakter Hvordan parring fungerer
 
@@ -2781,19 +2778,6 @@ Docs: [Thinking and verbose](/tools/thinking), [Security](/gateway/security#reas
 
 ### Hvordan stopper jeg en kørende opgave
 
-Send en af disse **som en standalone besked** (ingen skråstreg):
-
-```
-stop
-abort
-esc
-vent
-exit
-interrupt
-```
-
-Disse er abort udløsere (ikke skråstreg kommandoer).
-
 For baggrundsprocesser (fra exec værktøjet), kan du bede agenten om at køre:
 
 ```
@@ -2803,6 +2787,14 @@ proces handling:kill sessionId:XXX
 Slash kommandoer overblik: se [Slash kommandoer](/tools/slash-commands).
 
 De fleste kommandoer skal sendes som en **standalone**-besked, der starter med `/`, men nogle få genveje (såsom `/status`) virker også inline for tilladte afsendere.
+
+```
+proces handling:kill sessionId:XXX
+```
+
+Slash kommandoer overblik: se [Slash kommandoer](/tools/slash-commands).
+
+Aktiver meddelelse på tværs af udbydere for agenten:
 
 ### Hvordan sender jeg en Discord besked fra Telegram Crosscontext besked nægtet
 
@@ -2852,5 +2844,3 @@ Du kan tilføje indstillinger som `debounce:2s cap:25 drop:summarize` for opføl
 ---
 
 Stadig fast? Spørg i [Discord](https://discord.com/invite/clawd) eller åbn en [GitHub diskussion](https://github.com/openclaw/openclaw/discussions).
-
-

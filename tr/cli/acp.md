@@ -1,4 +1,8 @@
 ---
+summary: "IDE entegrasyonları için ACP köprüsünü çalıştırın"
+read_when:
+  - ACP tabanlı IDE entegrasyonlarını kurarken
+  - ACP oturum yönlendirmesini Gateway’e hata ayıklarken
 title: "acp"
 ---
 
@@ -122,7 +126,7 @@ Belirli bir Gateway veya ajanı hedeflemek için:
 
 Zed’de Ajan panelini açın ve bir iş parçacığı başlatmak için “OpenClaw ACP”yi seçin.
 
-## Oturum eşlemesi
+## Session mapping
 
 Varsayılan olarak, ACP oturumları `acp:` önekiyle izole bir Gateway oturum anahtarı alır.
 Bilinen bir oturumu yeniden kullanmak için bir oturum anahtarı veya etiket geçin:
@@ -164,5 +168,3 @@ Oturum anahtarları hakkında daha fazla bilgi için [/concepts/session](/concep
 - `--server-args <args...>`: ACP sunucusuna iletilen ek argümanlar.
 - `--server-verbose`: ACP sunucusunda ayrıntılı günlüklemeyi etkinleştir.
 - `--verbose, -v`: ayrıntılı istemci günlüklemesi.
-
-

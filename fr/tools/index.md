@@ -1,4 +1,8 @@
 ---
+summary: "Surface des outils d’agent pour OpenClaw (navigateur, canvas, nœuds, messages, cron) remplaçant les anciens Skills `openclaw-*`"
+read_when:
+  - Ajout ou modification d’outils d’agent
+  - Retrait ou modification des Skills `openclaw-*`
 title: "Outils"
 ---
 
@@ -177,6 +181,7 @@ Outils de plugins optionnels :
 
 Appliquer des correctifs structurés sur un ou plusieurs fichiers. À utiliser pour des modifications multi-hunks.
 Expérimental : activer via `tools.exec.applyPatch.enabled` (modèles OpenAI uniquement).
+`tools.exec.applyPatch.workspaceOnly` est défini par défaut sur `true` (limité à l’espace de travail). Définissez-le sur `false` uniquement si vous souhaitez intentionnellement que `apply_patch` écrive/supprime en dehors du répertoire de l’espace de travail.
 
 ### `exec`
 
@@ -506,5 +511,3 @@ Les outils sont exposés dans deux canaux parallèles :
 
 Cela signifie que l’agent voit à la fois « quels outils existent » et « comment les appeler ». Si un outil
 n’apparaît pas dans le prompt système ou dans le schéma, le modèle ne peut pas l’appeler.
-
-

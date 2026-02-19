@@ -1,4 +1,8 @@
 ---
+summary: "Überblick über Modellanbieter mit Beispielkonfigurationen + CLI-Flows"
+read_when:
+  - Sie benötigen eine anbieterweise Referenz zur Modelleinstellung
+  - Sie möchten Beispielkonfigurationen oder CLI-Onboarding-Befehle für Modellanbieter
 title: "Modellanbieter"
 ---
 
@@ -116,6 +120,7 @@ OpenClaw wird mit dem pi‑ai-Katalog ausgeliefert. Diese Anbieter erfordern **k
   - OpenAI-kompatible Basis-URL: `https://api.cerebras.ai/v1`.
 - Mistral: `mistral` (`MISTRAL_API_KEY`)
 - GitHub Copilot: `github-copilot` (`COPILOT_GITHUB_TOKEN` / `GH_TOKEN` / `GITHUB_TOKEN`)
+- Hugging Face Inference: `huggingface` (`HUGGINGFACE_HUB_TOKEN` oder `HF_TOKEN`) — OpenAI-kompatibler Router; Beispielmodell: `huggingface/deepseek-ai/DeepSeek-R1`; CLI: `openclaw onboard --auth-choice huggingface-api-key`. Siehe [Hugging Face (Inference)](/providers/huggingface).
 
 ## Anbieter über `models.providers` (benutzerdefinierte/Basis-URL)
 
@@ -255,6 +260,32 @@ ollama pull llama3.3
 
 Ollama wird automatisch erkannt, wenn es lokal unter `http://127.0.0.1:11434/v1` ausgeführt wird. Siehe [/providers/ollama](/providers/ollama) für Modell-Empfehlungen und benutzerdefinierte Konfiguration.
 
+### vLLM
+
+vLLM ist ein lokaler (oder selbstgehosteter) OpenAI-kompatibler Server:
+
+- Provider: `vllm`
+- Auth: Optional (abhängig von Ihrem Server)
+- Standard-Base-URL: `http://127.0.0.1:8000/v1`
+
+Um lokal Auto-Discovery zu aktivieren (jeder Wert funktioniert, wenn Ihr Server keine Authentifizierung erzwingt):
+
+```bash
+export VLLM_API_KEY="vllm-local"
+```
+
+Legen Sie dann ein Modell fest (ersetzen Sie es durch eine der IDs, die von `/v1/models` zurückgegeben werden):
+
+```json5
+{
+  agents: {
+    defaults: { model: { primary: "vllm/your-model-id" } },
+  },
+}
+```
+
+Siehe [/providers/vllm](/providers/vllm) für Details.
+
 ### Lokale Proxys (LM Studio, vLLM, LiteLLM usw.)
 
 Beispiel (OpenAI‑kompatibel):
@@ -310,5 +341,3 @@ openclaw models list
 ```
 
 Siehe auch: [/gateway/configuration](/gateway/configuration) für vollständige Konfigurationsbeispiele.
-
-

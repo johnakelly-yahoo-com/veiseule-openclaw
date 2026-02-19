@@ -1,4 +1,9 @@
 ---
+summary: "Raspberry Pi üzerinde OpenClaw (bütçe dostu, kendi kendine barındırılan kurulum)"
+read_when:
+  - Raspberry Pi üzerinde OpenClaw kurulumu
+  - ARM cihazlarda OpenClaw çalıştırma
+  - Ucuz, her zaman açık kişisel bir yapay zekâ oluşturma
 title: "Raspberry Pi"
 ---
 
@@ -351,5 +356,3 @@ echo 'wireless-power off' | sudo tee -a /etc/network/interfaces
 - [Hetzner kılavuzu](/install/hetzner) — Docker kurulumu
 - [Tailscale](/gateway/tailscale) — uzaktan erişim
 - [Nodes](/nodes) — dizüstü bilgisayarınızı/telefonunuzu Pi gateway’i ile eşleştirin
-
-

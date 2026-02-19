@@ -1,8 +1,12 @@
 ---
-title: "แบบสำรวจ"
+summary: "การส่งโพลผ่าน Gateway（เกตเวย์） + CLI"
+read_when:
+  - การเพิ่มหรือแก้ไขการรองรับโพล
+  - การดีบักการส่งโพลจาก CLI หรือ Gateway（เกตเวย์）
+title: "Polls"
 ---
 
-# แบบสำรวจ
+# Polls
 
 ## ช่องทางที่รองรับ
 
@@ -63,5 +67,3 @@ openclaw message poll --channel msteams --target conversation:19:abc@thread.tacv
 หมายเหตุ: Discord ไม่มีโหมด “เลือกได้พอดี N”; `pollMulti` จะถูกแมปเป็นการเลือกหลายตัวเลือก.
 โพลของ Teams จะแสดงผลเป็น Adaptive Cards และต้องให้ Gateway（เกตเวย์）ออนไลน์ต่อเนื่อง
 เพื่อบันทึกคะแนนโหวตใน `~/.openclaw/msteams-polls.json`.
-
-

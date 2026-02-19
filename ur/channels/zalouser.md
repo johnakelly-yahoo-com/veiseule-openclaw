@@ -1,4 +1,8 @@
 ---
+summary: "zca-cli (QR لاگ اِن) کے ذریعے Zalo ذاتی اکاؤنٹ کی معاونت، صلاحیتیں، اور کنفیگریشن"
+read_when:
+  - OpenClaw کے لیے Zalo Personal سیٹ اپ کرنا
+  - Zalo Personal لاگ اِن یا پیغام کے بہاؤ کی ڈیبگنگ
 title: "Zalo Personal"
 ---
 
@@ -134,5 +138,3 @@ openclaw directory groups list --channel zalouser --query "work"
 
 - `openclaw channels status --probe`
 - دوبارہ لاگ اِن کریں: `openclaw channels logout --channel zalouser && openclaw channels login --channel zalouser`
-
-

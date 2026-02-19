@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw nodes` အတွက် CLI ကိုးကားချက် (list/status/approve/invoke၊ camera/canvas/screen)"
+read_when:
+  - တွဲဖက်ထားသော နိုဒ်များ (ကင်မရာ၊ စခရင်၊ ကန်ဗတ်စ်) ကို စီမံခန့်ခွဲနေသောအခါ
+  - တောင်းဆိုချက်များကို အတည်ပြုရန် သို့မဟုတ် နိုဒ် အမိန့်များကို invoke လုပ်ရန် လိုအပ်သောအခါ
 title: "နိုဒ်များ"
 ---
 
@@ -59,12 +63,10 @@ Invoke အလံများ—
 အလံများ—
 
 - `--cwd <path>`: အလုပ်လုပ်မည့် လမ်းကြောင်း။
-- `--env <key=val>`: env အစားထိုး (ထပ်ခါတလဲလဲ သုံးနိုင်သည်)။
+- `--env <key=val>`: env override (ထပ်ခါထပ်ခါ သတ်မှတ်နိုင်သည်)။ မှတ်ချက် - node hosts များသည် `PATH` override များကို လက်မခံပါ (`tools.exec.pathPrepend` ကိုလည်း node hosts တွင် မသုံးပါ)။
 - `--command-timeout <ms>`: အမိန့် အချိန်ကန့်သတ်ချက်။
 - `--invoke-timeout <ms>`: နိုဒ် invoke အချိန်ကန့်သတ်ချက် (မူလတန်ဖိုး `30000`)။
 - `--needs-screen-recording`: စခရင် မှတ်တမ်းတင်ခွင့် လိုအပ်စေရန်။
 - `--raw <command>`: shell စာကြောင်းတစ်ခုကို လုပ်ဆောင်ပါ (`/bin/sh -lc` သို့မဟုတ် `cmd.exe /c`)။
 - `--agent <id>`: agent အလိုက် သတ်မှတ်ထားသော approvals/allowlists (စနစ်သတ်မှတ်ထားသော agent ကို မူလအဖြစ် အသုံးပြုသည်)။
 - `--ask <off|on-miss|always>`, `--security <deny|allowlist|full>`: အစားထိုးသတ်မှတ်ချက်များ။
-
-

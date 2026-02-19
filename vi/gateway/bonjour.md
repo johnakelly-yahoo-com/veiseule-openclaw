@@ -1,16 +1,20 @@
 ---
+summary: "Khám phá Bonjour/mDNS + gỡ lỗi (beacon của Gateway, máy khách và các chế độ lỗi phổ biến)"
+read_when:
+  - Gỡ lỗi các sự cố khám phá Bonjour trên macOS/iOS
+  - Thay đổi loại dịch vụ mDNS, bản ghi TXT hoặc UX khám phá
 title: "Khám phá Bonjour"
 ---
 
 # Khám phá Bonjour / mDNS
 
-OpenClaw sử dụng Bonjour (mDNS / DNS‑SD) như một **tiện ích chỉ dùng trong LAN** để khám phá
+OpenClaw uses Bonjour (mDNS / DNS‑SD) as a **LAN‑only convenience** to discover
 an active Gateway (WebSocket endpoint). It is best‑effort and does **not** replace SSH or
 Tailnet-based connectivity.
 
 ## Bonjour phạm vi rộng (Unicast DNS‑SD) qua Tailscale
 
-Nếu node và gateway nằm trên các mạng khác nhau, mDNS multicast sẽ không vượt qua được
+If the node and gateway are on different networks, multicast mDNS won’t cross the
 boundary. You can keep the same discovery UX by switching to **unicast DNS‑SD**
 ("Wide‑Area Bonjour") over Tailscale.
 
@@ -22,7 +26,7 @@ Các bước tổng quát:
 3. Cấu hình **split DNS** của Tailscale để domain đã chọn được phân giải qua
    máy chủ DNS đó cho các máy khách (bao gồm iOS).
 
-OpenClaw hỗ trợ bất kỳ domain khám phá nào; `openclaw.internal.` chỉ là một ví dụ.
+OpenClaw supports any discovery domain; `openclaw.internal.` is just an example.
 iOS/Android nodes browse both `local.` and your configured wide‑area domain.
 
 ### Cấu hình Gateway (khuyến nghị)
@@ -64,7 +68,7 @@ Khi máy khách chấp nhận DNS tailnet, các node iOS có thể duyệt
 
 ### Bảo mật listener của Gateway (khuyến nghị)
 
-Cổng Gateway WS (mặc định `18789`) mặc định chỉ bind với loopback. Đối với LAN/tailnet
+The Gateway WS port (default `18789`) binds to loopback by default. For LAN/tailnet
 access, bind explicitly and keep auth enabled.
 
 Đối với thiết lập chỉ tailnet:
@@ -96,9 +100,17 @@ Gateway quảng bá các gợi ý nhỏ không bí mật để giúp luồng UI 
 - `cliPath=<path>` (tùy chọn; đường dẫn tuyệt đối tới một entrypoint `openclaw` có thể chạy)
 - `tailnetDns=<magicdns>` (gợi ý tùy chọn khi Tailnet khả dụng)
 
+Lưu ý bảo mật:
+
+- Bản ghi TXT của Bonjour/mDNS là **không được xác thực**. Client không được coi TXT là định tuyến có thẩm quyền.
+- Client nên định tuyến bằng endpoint dịch vụ đã được phân giải (SRV + A/AAAA). Chỉ xem `lanHost`, `tailnetDns`, `gatewayPort` và `gatewayTlsSha256` là các gợi ý.
+- TLS pinning tuyệt đối không được cho phép `gatewayTlsSha256` được quảng bá ghi đè lên pin đã lưu trước đó.
+- Các node iOS/Android nên coi các kết nối trực tiếp dựa trên discovery là **chỉ TLS** và yêu cầu người dùng xác nhận rõ ràng trước khi tin cậy fingerprint lần đầu.
+
 ## Gỡ lỗi trên macOS
 
-Các công cụ tích hợp hữu ích:
+Nếu duyệt hoạt động nhưng phân giải thất bại, thường là do chính sách LAN hoặc
+vấn đề với trình phân giải mDNS.
 
 - Duyệt các instance:
 
@@ -128,14 +140,14 @@ The Gateway writes a rolling log file (printed on startup as
 
 Node iOS sử dụng `NWBrowser` để khám phá `_openclaw-gw._tcp`.
 
-Để thu thập log:
+Log bao gồm các chuyển trạng thái của trình duyệt và thay đổi tập kết quả.
 
 - Settings → Gateway → Advanced → **Discovery Debug Logs**
 - Settings → Gateway → Advanced → **Discovery Logs** → tái hiện → **Copy**
 
 Log bao gồm các chuyển trạng thái của trình duyệt và thay đổi tập kết quả.
 
-## Các chế độ lỗi phổ biến
+## Tên instance đã escape (`\032`)
 
 - **Bonjour không vượt qua mạng**: dùng Tailnet hoặc SSH.
 - **Multicast bị chặn**: một số mạng Wi‑Fi vô hiệu hóa mDNS.
@@ -149,13 +161,13 @@ Log bao gồm các chuyển trạng thái của trình duyệt và thay đổi t
 Bonjour/DNS‑SD thường escape các byte trong tên instance dịch vụ thành các chuỗi
 `\DDD` dạng thập phân (ví dụ: dấu cách trở thành `\032`).
 
-- Đây là hành vi bình thường ở mức giao thức.
-- UI nên giải mã để hiển thị (iOS dùng `BonjourEscapes.decode`).
-
-## Vô hiệu hóa / cấu hình
-
 - `OPENCLAW_DISABLE_BONJOUR=1` vô hiệu hóa quảng bá (legacy: `OPENCLAW_DISABLE_BONJOUR`).
 - `gateway.bind` trong `~/.openclaw/openclaw.json` điều khiển chế độ bind của Gateway.
+
+## Tài liệu liên quan
+
+- Chính sách khám phá và lựa chọn truyền tải: [Discovery](/gateway/discovery)
+- Ghép cặp node + phê duyệt: [Gateway pairing](/gateway/pairing)
 - `OPENCLAW_SSH_PORT` ghi đè cổng SSH được quảng bá trong TXT (legacy: `OPENCLAW_SSH_PORT`).
 - `OPENCLAW_TAILNET_DNS` công bố gợi ý MagicDNS trong TXT (legacy: `OPENCLAW_TAILNET_DNS`).
 - `OPENCLAW_CLI_PATH` ghi đè đường dẫn CLI được quảng bá (legacy: `OPENCLAW_CLI_PATH`).
@@ -164,5 +176,3 @@ Bonjour/DNS‑SD thường escape các byte trong tên instance dịch vụ thà
 
 - Chính sách khám phá và lựa chọn truyền tải: [Discovery](/gateway/discovery)
 - Ghép cặp node + phê duyệt: [Gateway pairing](/gateway/pairing)
-
-

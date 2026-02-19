@@ -1,5 +1,7 @@
 ---
 title: 沙箱 CLI
+summary: "管理沙箱容器並檢視有效的沙箱政策"
+read_when: "當你正在管理沙箱容器或除錯沙箱／工具政策行為時。"
 status: active
 ---
 
@@ -38,7 +40,7 @@ openclaw sandbox list --json     # JSON output
 
 - 容器名稱與狀態（執行中／已停止）
 - Docker 映像與是否符合設定
-- 14. 年齡（自建立以來的時間）
+- 年齡（自建立以來的時間）
 - 閒置時間（自上次使用以來的時間）
 - 15. 關聯的工作階段／代理
 
@@ -97,7 +99,7 @@ openclaw sandbox recreate --all
 openclaw sandbox recreate --agent family
 ```
 
-### 16. 僅針對特定代理
+### 僅針對特定代理
 
 ```bash
 # Update only one agent's containers
@@ -144,8 +146,6 @@ openclaw sandbox recreate --agent alfred
 
 ## 19. 另請參閱
 
-- [沙箱文件](/gateway/sandboxing)
-- [代理設定](/concepts/agent-workspace)
+- [Sandbox Documentation](/gateway/sandboxing)
+- [Agent Configuration](/concepts/agent-workspace)
 - [Doctor Command](/gateway/doctor) - 檢查沙箱設定
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Kamerainspelning (iOS-nod + macOS-app) för agentanvändning: foton (jpg) och korta videoklipp (mp4)"
+read_when:
+  - Lägger till eller ändrar kamerainspelning på iOS-noder eller macOS
+  - Utökar agentåtkomliga MEDIA-arbetsflöden med temporära filer
 title: "Kamerainspelning"
 ---
 
@@ -150,5 +154,3 @@ openclaw nodes screen record --node <id> --duration 10s --fps 15   # prints MEDI
 Noteringar:
 
 - Kräver macOS-behörigheten **Skärminspelning** (TCC).
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Sử dụng MiniMax M2.1 trong OpenClaw"
+read_when:
+  - Bạn muốn dùng các mô hình MiniMax trong OpenClaw
+  - Bạn cần hướng dẫn thiết lập MiniMax
 title: "MiniMax"
 ---
 
@@ -195,5 +199,3 @@ Sau đó kiểm tra lại với:
 ```bash
 openclaw models list
 ```
-
-

@@ -1,4 +1,6 @@
 ---
+summary: "Los CDP-opstartproblemen van Chrome/Brave/Edge/Chromium op voor OpenClaw-browserbesturing op Linux"
+read_when: "Browserbesturing faalt op Linux, vooral met snap Chromium"
 title: "Problemen oplossen voor de browser"
 ---
 
@@ -135,5 +137,3 @@ Notities:
 
 - Het profiel `chrome` gebruikt waar mogelijk je **standaard Chromium-systeembrowser**.
 - Lokale profielen `openclaw` wijzen automatisch `cdpPort`/`cdpUrl` toe; stel die alleen in voor externe CDP.
-
-

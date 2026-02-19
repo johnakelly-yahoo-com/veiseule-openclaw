@@ -1,4 +1,9 @@
 ---
+summary: "OpenClaw presence yozuvlari qanday yaratiladi, birlashtiriladi va ko‘rsatiladi"
+read_when:
+  - Instances tab’ini debug qilish
+  - Takroriy yoki eskirgan instance qatorlarini tekshirish
+  - Gateway WS ulanishi yoki system-event beacon’larini o‘zgartirish
 title: "Mavjudlik"
 ---
 
@@ -85,5 +90,3 @@ Har bir WS klient `connect` so‘rovi bilan boshlaydi. Handshake muvaffaqiyatli 
   - 29. mijozlar handshake paytida barqaror `client.instanceId` yuborayotganini tasdiqlang
   - 30. davriy mayoqchalar xuddi shu `instanceId` dan foydalanayotganini tasdiqlang
   - 31. ulanishdan kelib chiqqan yozuvda `instanceId` yo‘qligini tekshiring (bunday holatda dublikatlar kutiladi)
-
-

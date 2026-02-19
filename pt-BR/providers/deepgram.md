@@ -1,4 +1,8 @@
 ---
+summary: "Transcrição do Deepgram para notas de voz de entrada"
+read_when:
+  - Você quer speech-to-text do Deepgram para anexos de áudio
+  - Você precisa de um exemplo rápido de configuração do Deepgram
 title: "Deepgram"
 ---
 
@@ -87,5 +91,3 @@ Exemplo com opções do Deepgram:
 - A autenticação segue a ordem padrão de autenticação de provedores; `DEEPGRAM_API_KEY` é o caminho mais simples.
 - Substitua endpoints ou cabeçalhos com `tools.media.audio.baseUrl` e `tools.media.audio.headers` ao usar um proxy.
 - A saída segue as mesmas regras de áudio que outros provedores (limites de tamanho, timeouts, injeção da transcrição).
-
-

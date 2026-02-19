@@ -1,5 +1,9 @@
 ---
 title: "Vercel AI Gateway"
+summary: "Vercel AI Gateway တပ်ဆင်ခြင်း (auth + မော်ဒယ်ရွေးချယ်မှု)"
+read_when:
+  - OpenClaw နှင့် Vercel AI Gateway ကို အသုံးပြုလိုပါက
+  - API key အတွက် env var သို့မဟုတ် CLI auth ရွေးချယ်မှုကို လိုအပ်ပါက
 ---
 
 # Vercel AI Gateway
@@ -44,5 +48,3 @@ openclaw onboard --non-interactive \
 Gateway ကို daemon (launchd/systemd) အဖြစ် လည်ပတ်ပါက `AI_GATEWAY_API_KEY`
 ကို ထို process မှ ဝင်ရောက်အသုံးပြုနိုင်စေရန် သေချာစေပါ (ဥပမာအားဖြင့် `~/.openclaw/.env` တွင် သို့မဟုတ်
 `env.shellEnv` မှတဆင့်)။
-
-

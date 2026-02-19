@@ -1,4 +1,8 @@
 ---
+summary: "„Linux-Unterstützung + Status der Companion-App“"
+read_when:
+  - Status der Linux-Companion-App gesucht wird
+  - Plattformabdeckung oder Beiträge geplant werden
 title: "„Linux-App“"
 ---
 
@@ -86,5 +90,3 @@ Aktivieren Sie ihn:
 ```
 systemctl --user enable --now openclaw-gateway[-<profile>].service
 ```
-
-

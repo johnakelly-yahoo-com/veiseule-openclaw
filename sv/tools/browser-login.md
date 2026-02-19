@@ -1,4 +1,8 @@
 ---
+summary: "Manuella inloggningar för webbläsarautomatisering + publicering på X/Twitter"
+read_when:
+  - Du behöver logga in på webbplatser för webbläsarautomatisering
+  - Du vill publicera uppdateringar på X/Twitter
 title: "Webbläsarinloggning"
 ---
 
@@ -61,5 +65,3 @@ openclaw browser open https://x.com --browser-profile openclaw --target host
 ```
 
 Eller inaktivera sandboxing för den agent som publicerar uppdateringar.
-
-

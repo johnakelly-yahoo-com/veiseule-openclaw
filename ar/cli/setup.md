@@ -1,4 +1,8 @@
 ---
+summary: "مرجع CLI للأمر `openclaw setup` (تهيئة الإعداد + مساحة عمل الوكيل)"
+read_when:
+  - تقوم بإعداد التشغيل الأول دون استخدام معالج التهيئة الأولية الكامل
+  - ترغب في تعيين المسار الافتراضي لمساحة العمل
 title: "الإعداد"
 ---
 
@@ -23,5 +27,3 @@ openclaw setup --workspace ~/.openclaw/workspace
 ```bash
 openclaw setup --wizard
 ```
-
-

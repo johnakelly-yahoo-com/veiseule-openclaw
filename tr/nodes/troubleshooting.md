@@ -1,4 +1,8 @@
 ---
+summary: "Düğüm eşleştirme, ön planda olma gereksinimleri, izinler ve araç hatalarını giderme"
+read_when:
+  - Düğüm bağlı görünüyor ancak kamera/tuval/ekran/exec araçları başarısız oluyor
+  - Düğüm eşleştirme ile onaylar arasındaki zihinsel modele ihtiyaç duyuyorsunuz
 title: "Düğüm Sorun Giderme"
 ---
 
@@ -53,7 +57,7 @@ openclaw logs --follow
 | `location.get`               | Kullanım Sırasında veya Her Zaman (mode bağlı) | Moda bağlı olarak Ön Plan/Arka Plan konumu                         | Konum izni                                            | `LOCATION_PERMISSION_REQUIRED` |
 | `system.run`                 | n/a (düğüm ana makinesi yolu)                  | n/a (düğüm ana makinesi yolu)                   | Exec onayları gerekli                                 | `SYSTEM_RUN_DENIED`            |
 
-## Eşleştirme ve onaylar
+## Pairing versus approvals
 
 Bunlar farklı geçitlerdir:
 
@@ -106,5 +110,3 @@ Hâlâ takılıysanız:
 - [/nodes/location-command](/nodes/location-command)
 - [/tools/exec-approvals](/tools/exec-approvals)
 - [/gateway/pairing](/gateway/pairing)
-
-

@@ -1,38 +1,34 @@
 ---
-title: 远程 Gateway 网关设置
-x-i18n:
-  generated_at: "2026-02-03T07:48:37Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: b1ae266a7cb4911b82ae3ec6cb98b1b57aca592aeb1dc8b74bbce9b0ea9dd1d1
-  source_path: gateway/remote-gateway-readme.md
-  workflow: 15
+summary: "OpenClaw.app 连接远程 Gateway 网关的 SSH 隧道设置"
+read_when: "Connecting the macOS app to a remote gateway over SSH"
+title: "远程 Gateway 网关设置"
 ---
 
 # 使用远程 Gateway 网关运行 OpenClaw.app
 
-OpenClaw.app 使用 SSH 隧道连接到远程 Gateway 网关。本指南向你展示如何设置。
+OpenClaw.app 使用 SSH 隧道连接到远程 Gateway 网关。本指南向你展示如何设置。 本指南将向你展示如何进行设置。
 
 ## 概述
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                        Client Machine                          │
-│                                                              │
-│  OpenClaw.app ──► ws://127.0.0.1:18789 (local port)           │
-│                     │                                        │
-│                     ▼                                        │
-│  SSH Tunnel ────────────────────────────────────────────────│
-│                     │                                        │
-└─────────────────────┼──────────────────────────────────────┘
-                      │
-                      ▼
-┌─────────────────────────────────────────────────────────────┐
-│                         Remote Machine                        │
-│                                                              │
-│  Gateway WebSocket ──► ws://127.0.0.1:18789 ──►              │
-│                                                              │
-└─────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TB
+    subgraph Client["Client Machine"]
+        direction TB
+        A["OpenClaw.app"]
+        B["ws://127.0.0.1:18789\n(local port)"]
+        T["SSH Tunnel"]
+
+        A --> B
+        B --> T
+    end
+    subgraph Remote["Remote Machine"]
+        direction TB
+        C["Gateway WebSocket"]
+        D["ws://127.0.0.1:18789"]
+
+        C --> D
+    end
+    T --> C
 ```
 
 ## 快速设置
@@ -150,15 +146,13 @@ launchctl bootout gui/$UID/bot.molt.ssh-tunnel
 
 ---
 
-## 工作原理
+## How It Works
 
-| 组件                                 | 功能                                  |
-| ------------------------------------ | ------------------------------------- |
+| 组件                                   | What It Does              |
+| ------------------------------------ | ------------------------- |
 | `LocalForward 18789 127.0.0.1:18789` | 将本地端口 18789 转发到远程端口 18789 |
-| `ssh -N`                             | SSH 不执行远程命令（仅端口转发）      |
-| `KeepAlive`                          | 隧道崩溃时自动重启                    |
-| `RunAtLoad`                          | 代理加载时启动隧道                    |
+| `ssh -N`                             | SSH 不执行远程命令（仅端口转发）        |
+| `KeepAlive`                          | 隧道崩溃时自动重启                 |
+| `RunAtLoad`                          | 代理加载时启动隧道                 |
 
-OpenClaw.app 连接到你的客户端机器上的 `ws://127.0.0.1:18789`。SSH 隧道将该连接转发到运行 Gateway 网关的远程机器的端口 18789。
-
-
+OpenClaw.app 连接到你的客户端机器上的 `ws://127.0.0.1:18789`。SSH 隧道将该连接转发到运行 Gateway 网关的远程机器的端口 18789。 The SSH tunnel forwards that connection to port 18789 on the remote machine where the Gateway is running.

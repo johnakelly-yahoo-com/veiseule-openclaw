@@ -1,4 +1,7 @@
 ---
+summary: "„Agenten‑Sitzungswerkzeuge zum Auflisten von Sitzungen, Abrufen der Historie und Senden sitzungsübergreifender Nachrichten“"
+read_when:
+  - Hinzufügen oder Ändern von Sitzungswerkzeugen
 title: "Sitzungswerkzeuge"
 ---
 
@@ -91,11 +94,12 @@ Verhalten:
 - Zustellungs‑Ankündigungsläufe erfolgen nach Abschluss des Primärlaufs und sind Best‑Effort; `status: "ok"` garantiert nicht, dass die Ankündigung zugestellt wurde.
 - Wartet über Gateway `agent.wait` (serverseitig), sodass Reconnects das Warten nicht abbrechen.
 - Agent‑zu‑Agent‑Nachrichtenkontext wird für den Primärlauf injiziert.
-- Nach Abschluss des Primärlaufs führt OpenClaw eine **Reply‑Back‑Schleife** aus:
+- Inter-Session-Nachrichten werden mit `message.provenance.kind = "inter_session"` persistiert, sodass Leser des Transkripts weitergeleitete Agentenanweisungen von externer Benutzereingabe unterscheiden können.
+- Sobald die Schleife endet, führt OpenClaw den **Agent‑zu‑Agent‑Ankündigungsschritt** aus (nur Ziel‑Agent):
   - Runde 2+ alterniert zwischen anforderndem und Ziel‑Agenten.
   - Antworten Sie exakt `REPLY_SKIP`, um das Ping‑Pong zu stoppen.
   - Maximale Züge: `session.agentToAgent.maxPingPongTurns` (0–5, Standard 5).
-- Sobald die Schleife endet, führt OpenClaw den **Agent‑zu‑Agent‑Ankündigungsschritt** aus (nur Ziel‑Agent):
+- Nach Abschluss des Primärlaufs führt OpenClaw eine **Reply‑Back‑Schleife** aus:
   - Antworten Sie exakt `ANNOUNCE_SKIP`, um stumm zu bleiben.
   - Jede andere Antwort wird an den Zielkanal gesendet.
   - Der Ankündigungsschritt enthält die ursprüngliche Anfrage + Antwort aus Runde 1 + die letzte Ping‑Pong‑Antwort.
@@ -188,5 +192,3 @@ Konfiguration:
   },
 }
 ```
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "Status, funktioner och konfiguration för stöd av Zalo-bot"
+read_when:
+  - Arbetar med Zalo-funktioner eller webhooks
 title: "Zalo"
 ---
 
@@ -184,5 +187,3 @@ Alternativ för flera konton:
 - `channels.zalo.accounts.<id>.webhookSecret`: hemlighet per konto.
 - `channels.zalo.accounts.<id>.webhookPath`: sökväg per konto
 - `channels.zalo.accounts.<id>.proxy`: proxy per konto
-
-

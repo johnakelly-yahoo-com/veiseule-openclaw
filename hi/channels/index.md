@@ -1,4 +1,8 @@
 ---
+summary: "वे मैसेजिंग प्लेटफ़ॉर्म जिनसे OpenClaw जुड़ सकता है"
+read_when:
+  - आप OpenClaw के लिए एक चैट चैनल चुनना चाहते हैं
+  - आपको समर्थित मैसेजिंग प्लेटफ़ॉर्म का त्वरित अवलोकन चाहिए
 title: "चैट चैनल"
 ---
 
@@ -29,6 +33,7 @@ title: "चैट चैनल"
 - [Zalo](/channels/zalo) — Zalo Bot API; वियतनाम का लोकप्रिय मैसेंजर (प्लगइन, अलग से इंस्टॉल)।
 - [Zalo Personal](/channels/zalouser) — QR लॉगिन के माध्यम से Zalo व्यक्तिगत खाता (प्लगइन, अलग से इंस्टॉल)।
 - [WebChat](/web/webchat) — WebSocket के ऊपर Gateway WebChat UI।
+- [WebChat](/web/webchat) — WebSocket के ऊपर Gateway WebChat UI।
 
 ## टिप्पणियाँ
 
@@ -40,5 +45,3 @@ title: "चैट चैनल"
 - Telegram आंतरिक विवरण: [grammY notes](/channels/grammy)।
 - समस्या-निवारण: [Channel troubleshooting](/channels/troubleshooting)।
 - मॉडल प्रदाताओं का दस्तावेज़ीकरण अलग से किया गया है; देखें [Model Providers](/providers/models)।
-
-

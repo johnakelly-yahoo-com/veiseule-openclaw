@@ -1,4 +1,9 @@
 ---
+summary: "Tâches cron + réveils pour le planificateur du Gateway"
+read_when:
+  - Planifier des tâches d’arrière-plan ou des réveils
+  - Câbler des automatisations qui doivent s’exécuter avec ou en parallèle des heartbeats
+  - Choisir entre heartbeat et cron pour les tâches planifiées
 title: "Tâches Cron"
 ---
 
@@ -470,5 +475,3 @@ openclaw system event --mode now --text "Next heartbeat: check battery."
 - Pour les sujets de forum, utilisez `-100…:topic:<id>` afin que ce soit explicite et sans ambiguïté.
 - Si vous voyez des préfixes `telegram:...` dans les journaux ou dans les cibles « dernière route » stockées, c’est normal ;
   la livraison cron les accepte et analyse toujours correctement les ID de sujet.
-
-

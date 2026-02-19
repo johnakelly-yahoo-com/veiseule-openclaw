@@ -1,4 +1,7 @@
 ---
+summary: "„Telegram-Allowlist-Härtung: Präfix- und Whitespace-Normalisierung“"
+read_when:
+  - Überprüfung historischer Änderungen an der Telegram-Allowlist
 title: "Telegram-Allowlist-Härtung"
 ---
 
@@ -35,5 +38,3 @@ False Negatives bei der Entscheidung, ob in Direktnachrichten oder Gruppen geant
 
 - [Gruppenchats](/channels/groups)
 - [Telegram-Anbieter](/channels/telegram)
-
-

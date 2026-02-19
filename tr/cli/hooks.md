@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw hooks` için CLI başvuru dokümantasyonu (ajan hooks)"
+read_when:
+  - You want to manage agent hooks
+  - Hooks’ları yüklemek veya güncellemek istediğinizde
 title: "hooks"
 ---
 
@@ -8,7 +12,7 @@ Ajan hooks’larını yönetin ( `/new`, `/reset` gibi komutlar ve gateway başl
 
 İlgili:
 
-- Kancalar: [Kancalar](/automation/hooks)
+- Hooks: [Hooks](/automation/hooks)
 - Eklenti hooks’ları: [Plugins](/tools/plugin#plugin-hooks)
 
 ## Tüm Hooks’ları Listeleme
@@ -75,7 +79,7 @@ Belirli bir hook hakkında ayrıntılı bilgi gösterir.
 openclaw hooks info session-memory
 ```
 
-**Çıktı:**
+**Output:**
 
 ```
 💾 session-memory ✓ Ready
@@ -136,7 +140,7 @@ buradan etkinleştirilemez/devre dışı bırakılamaz. Bunun yerine eklentiyi e
 openclaw hooks enable session-memory
 ```
 
-**Çıktı:**
+**Output:**
 
 ```
 ✓ Enabled hook: 💾 session-memory
@@ -152,7 +156,7 @@ openclaw hooks enable session-memory
 
 - Hooks’ların yeniden yüklenmesi için gateway’i yeniden başlatın (macOS’ta menü çubuğu uygulamasını yeniden başlatın veya geliştirme ortamında gateway sürecini yeniden başlatın).
 
-## Bir Kancayı Devre Dışı Bırak
+## Disable a Hook
 
 ```bash
 openclaw hooks disable <name>
@@ -170,7 +174,7 @@ Yapılandırmanızı güncelleyerek belirli bir hook’u devre dışı bırakır
 openclaw hooks disable command-logger
 ```
 
-**Çıktı:**
+**Output:**
 
 ```
 ⏸ Disabled hook: 📝 command-logger
@@ -187,6 +191,9 @@ openclaw hooks install <path-or-spec>
 ```
 
 Yerel bir klasörden/arşivden veya npm’den bir hook paketi yükler.
+
+Npm özellikleri **yalnızca registry** (paket adı + isteğe bağlı sürüm/etiket) içindir. Git/URL/file
+özellikleri reddedilir. Bağımlılık kurulumları güvenlik için `--ignore-scripts` ile çalıştırılır.
 
 **Ne yapar:**
 
@@ -246,6 +253,18 @@ openclaw hooks enable session-memory
 
 **Bkz.:** [session-memory dokümantasyonu](/automation/hooks#session-memory)
 
+### bootstrap-extra-files
+
+`agent:bootstrap` sırasında ek bootstrap dosyaları (örneğin monorepo-yerel `AGENTS.md` / `TOOLS.md`) ekler.
+
+**Etkinleştir:**
+
+```bash
+openclaw kancaları bootstrap-extra-files özelliğini etkinleştirir
+```
+
+**Bkz.:** [bootstrap-extra-files dokümantasyonu](/automation/hooks#bootstrap-extra-files)
+
 ### command-logger
 
 Tüm komut olaylarını merkezi bir denetim dosyasına kaydeder.
@@ -273,30 +292,16 @@ grep '"action":"new"' ~/.openclaw/logs/commands.log | jq .
 
 **Bkz.:** [command-logger dokümantasyonu](/automation/hooks#command-logger)
 
-### soul-evil
-
-Bir temizleme penceresi sırasında veya rastgele bir olasılıkla enjekte edilen `SOUL.md` içeriğini `SOUL_EVIL.md` ile değiştirir.
-
-**Etkinleştir:**
-
-```bash
-openclaw hooks enable soul-evil
-```
-
-**Bkz.:** [SOUL Evil Hook](/hooks/soul-evil)
-
 ### boot-md
 
 Gateway başlatıldığında (kanallar başladıktan sonra) `BOOT.md` çalıştırır.
 
-**Olaylar**: `gateway:startup`
-
 **Etkinleştir**:
+
+**Olaylar**: `gateway:startup`
 
 ```bash
 openclaw hooks enable boot-md
 ```
 
 **Bkz.:** [boot-md dokümantasyonu](/automation/hooks#boot-md)
-
-

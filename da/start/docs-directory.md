@@ -1,4 +1,7 @@
 ---
+summary: "Kuraterede links til de mest brugte OpenClaw-dokumenter."
+read_when:
+  - Du vil have hurtig adgang til centrale dokumentsider
 title: "Dokumentoversigt"
 ---
 
@@ -59,5 +62,3 @@ For et komplet kort over dokumenterne, se [Docs hubs] (/start/hubs).
 - [Gmail-hooks (Pub/Sub)](/automation/gmail-pubsub)
 - [Sikkerhed](/gateway/security)
 - [Fejlfinding](/gateway/troubleshooting)
-
-

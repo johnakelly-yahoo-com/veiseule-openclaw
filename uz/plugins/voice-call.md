@@ -1,54 +1,58 @@
 ---
-title: "Voice Call Plagini"
+summary: "Voice Call plugin: outbound + inbound calls via Twilio/Telnyx/Plivo (plugin install + config + CLI)"
+read_when:
+  - You want to place an outbound voice call from OpenClaw
+  - You are configuring or developing the voice-call plugin
+title: "Voice Call Plugin"
 ---
 
-# Voice Call (plagin)
+# Voice Call (plugin)
 
-OpenClaw uchun plagin orqali ovozli qo‘ng‘iroqlar. Chiqish bildirishnomalari va
-kirish siyosatlari bilan ko‘p bosqichli (multi-turn) suhbatlarni qo‘llab-quvvatlaydi.
+Voice calls for OpenClaw via a plugin. Supports outbound notifications and
+multi-turn conversations with inbound policies.
 
-Hozirgi provayderlar:
+Current providers:
 
 - `twilio` (Programmable Voice + Media Streams)
 - `telnyx` (Call Control v2)
 - `plivo` (Voice API + XML transfer + GetInput speech)
-- `mock` (dev/tarmoqsiz)
+- `mock` (dev/no network)
 
-Qisqa tushuncha:
+Quick mental model:
 
-- Plaginni o‘rnating
-- Gateway’ni qayta ishga tushiring
-- `plugins.entries.voice-call.config` ostida sozlang
-- `openclaw voicecall ...` yoki `voice_call` vositasidan foydalaning
+- Install plugin
+- Restart Gateway
+- Configure under `plugins.entries.voice-call.config`
+- Use `openclaw voicecall ...` or the `voice_call` tool
 
-## Qayerda ishlaydi (lokal yoki masofaviy)
+## Where it runs (local vs remote)
 
-Voice Call plagini **Gateway jarayoni ichida** ishlaydi.
+The Voice Call plugin runs **inside the Gateway process**.
 
-Agar siz masofaviy Gateway’dan foydalansangiz, plaginni **Gateway ishlayotgan mashinaga** o‘rnating/sozlang, so‘ng uni yuklash uchun Gateway’ni qayta ishga tushiring.
+If you use a remote Gateway, install/configure the plugin on the **machine running the Gateway**, then restart the Gateway to load it.
 
-## O‘rnatish
+## Install
 
-### Variant A: npm’dan o‘rnatish (tavsiya etiladi)
+### Option A: install from npm (recommended)
 
 ```bash
 openclaw plugins install @openclaw/voice-call
 ```
 
-Shundan so‘ng Gateway’ni qayta ishga tushiring.
+Restart the Gateway afterwards.
 
-### Variant B: lokal papkadan o‘rnatish (dev, nusxalashsiz)
+### Option B: install from a local folder (dev, no copying)
 
 ```bash
 openclaw plugins install ./extensions/voice-call
 cd ./extensions/voice-call && pnpm install
 ```
 
-Shundan so‘ng Gateway’ni qayta ishga tushiring.
+Restart the Gateway afterwards.
 
-## Sozlash
+## Config
 
-Sozlamalarni `plugins.entries.voice-call.config` ostida belgilang:
+Set config under `plugins.entries.voice-call.config`:
 
 ```json5
 {
@@ -57,7 +61,7 @@ Sozlamalarni `plugins.entries.voice-call.config` ostida belgilang:
       "voice-call": {
         enabled: true,
         config: {
-          provider: "twilio", // yoki "telnyx" | "plivo" | "mock"
+          provider: "twilio", // or "telnyx" | "plivo" | "mock"
           fromNumber: "+15550001234",
           toNumber: "+15550005678",
 
@@ -66,32 +70,24 @@ Sozlamalarni `plugins.entries.voice-call.config` ostida belgilang:
             authToken: "...",
           },
 
-          telnyx: {
-            apiKey: "...",
-            connectionId: "...",
-            // Telnyx Mission Control Portal’dan olingan Telnyx webhook public key
-            // (Base64 satr; TELNYX_PUBLIC_KEY orqali ham berish mumkin).
-            publicKey: "...",
-          },
-
           plivo: {
             authId: "MAxxxxxxxxxxxxxxxxxxxx",
             authToken: "...",
           },
 
-          // Webhook serveri
+          // Webhook server
           serve: {
             port: 3334,
             path: "/voice/webhook",
           },
 
-          // Webhook xavfsizligi (tunnel/proxy uchun tavsiya etiladi)
+          // Webhook security (recommended for tunnels/proxies)
           webhookSecurity: {
             allowedHosts: ["voice.example.com"],
             trustedProxyIPs: ["100.64.0.1"],
           },
 
-          // Ommaviy ochish (bittasini tanlang)
+          // Public exposure (pick one)
           // publicUrl: "https://example.ngrok.app/voice/webhook",
           // tunnel: { provider: "ngrok" },
           // tailscale: { mode: "funnel", path: "/voice/webhook" }
@@ -111,30 +107,31 @@ Sozlamalarni `plugins.entries.voice-call.config` ostida belgilang:
 }
 ```
 
-Eslatmalar:
+Notes:
 
-- Twilio/Telnyx uchun **ommaviy kirish mumkin bo‘lgan** webhook URL talab qilinadi.
-- Plivo uchun ham **ommaviy kirish mumkin bo‘lgan** webhook URL talab qilinadi.
-- `mock` — lokal dev provayder (tarmoq chaqiruvlarisiz).
-- Telnyx uchun `telnyx.publicKey` (yoki `TELNYX_PUBLIC_KEY`) talab qilinadi, agar `skipSignatureVerification` true bo‘lmasa.
-- `skipSignatureVerification` faqat lokal test uchun.
-- Agar ngrok’ning bepul tarifidan foydalansangiz, `publicUrl` ni aniq ngrok URL’ga o‘rnating; imzo tekshiruvi har doim majburiy.
-- `tunnel.allowNgrokFreeTierLoopbackBypass: true` Twilio webhook’lariga noto‘g‘ri imzo bilan **faqat** `tunnel.provider="ngrok"` va `serve.bind` loopback (ngrok lokal agenti) bo‘lganda ruxsat beradi. Faqat lokal dev uchun.
-- Ngrok bepul URL’lari o‘zgarishi yoki qo‘shimcha oraliq sahifa (interstitial) qo‘shishi mumkin; agar `publicUrl` o‘zgarsa, Twilio imzolari muvaffaqiyatsiz bo‘ladi. Production uchun barqaror domen yoki Tailscale funnel tavsiya etiladi.
+- Twilio/Telnyx require a **publicly reachable** webhook URL.
+- Plivo requires a **publicly reachable** webhook URL.
+- `mock` is a local dev provider (no network calls).
+- Telnyx `skipSignatureVerification` true bo‘lmaguncha `telnyx.publicKey` (yoki `TELNYX_PUBLIC_KEY`) ni talab qiladi.
+- `skipSignatureVerification` is for local testing only.
+- If you use ngrok free tier, set `publicUrl` to the exact ngrok URL; signature verification is always enforced.
+- `tunnel.allowNgrokFreeTierLoopbackBypass: true` allows Twilio webhooks with invalid signatures **only** when `tunnel.provider="ngrok"` and `serve.bind` is loopback (ngrok local agent). Use for local dev only.
+- Ngrok free tier URLs can change or add interstitial behavior; if `publicUrl` drifts, Twilio signatures will fail. For production, prefer a stable domain or Tailscale funnel.
 
-## Webhook xavfsizligi
+## Webhook Security
 
-Gateway oldida proxy yoki tunnel turganda, plagin imzo tekshiruvi uchun
-ommaviy URL’ni qayta tiklaydi. Quyidagi opsiyalar qaysi forwarded
-sarlavhalarga ishonilishini boshqaradi.
+When a proxy or tunnel sits in front of the Gateway, the plugin reconstructs the
+public URL for signature verification. These options control which forwarded
+headers are trusted.
 
-`webhookSecurity.allowedHosts` forwarded sarlavhalardagi host’larni allowlist qiladi.
+`webhookSecurity.allowedHosts` allowlists hosts from forwarding headers.
 
-`webhookSecurity.trustForwardingHeaders` allowlist’siz forwarded sarlavhalarga ishonadi.
+`webhookSecurity.trustForwardingHeaders` trusts forwarded headers without an allowlist.
 
-`webhookSecurity.trustedProxyIPs` faqat so‘rovning remote IP manzili ro‘yxatga mos kelsa forwarded sarlavhalarga ishonadi.
+`webhookSecurity.trustedProxyIPs` only trusts forwarded headers when the request
+remote IP matches the list.
 
-Barqaror ommaviy host bilan misol:
+Example with a stable public host:
 
 ```json5
 {
@@ -153,11 +150,11 @@ Barqaror ommaviy host bilan misol:
 }
 ```
 
-## Qo‘ng‘iroqlar uchun TTS
+## TTS for calls
 
-Voice Call qo‘ng‘iroqlarda oqimli nutq (streaming speech) uchun asosiy `messages.tts`
-sozlamasidan (OpenAI yoki ElevenLabs) foydalanadi. Uni plagin sozlamasi ostida
-**xuddi shu shaklda** qayta belgilashingiz mumkin — u `messages.tts` bilan deep‑merge qilinadi.
+Voice Call uses the core `messages.tts` configuration (OpenAI or ElevenLabs) for
+streaming speech on calls. You can override it under the plugin config with the
+**same shape** — it deep‑merges with `messages.tts`.
 
 ```json5
 {
@@ -171,14 +168,14 @@ sozlamasidan (OpenAI yoki ElevenLabs) foydalanadi. Uni plagin sozlamasi ostida
 }
 ```
 
-Eslatmalar:
+Notes:
 
-- **Edge TTS ovozli qo‘ng‘iroqlar uchun e’tiborga olinmaydi** (telefon audio PCM talab qiladi; Edge chiqishi ishonchsiz).
-- Agar Twilio media streaming yoqilgan bo‘lsa, asosiy TTS ishlatiladi; aks holda qo‘ng‘iroqlar provayderning o‘z ovozlariga o‘tadi.
+- **Edge TTS is ignored for voice calls** (telephony audio needs PCM; Edge output is unreliable).
+- Core TTS is used when Twilio media streaming is enabled; otherwise calls fall back to provider native voices.
 
-### Qo‘shimcha misollar
+### More examples
 
-Faqat asosiy TTS’dan foydalanish (override’siz):
+Use core TTS only (no override):
 
 ```json5
 {
@@ -191,7 +188,7 @@ Faqat asosiy TTS’dan foydalanish (override’siz):
 }
 ```
 
-Faqat qo‘ng‘iroqlar uchun ElevenLabs’ga override qilish (boshqa joyda asosiy sozlama saqlanadi):
+Override to ElevenLabs just for calls (keep core default elsewhere):
 
 ```json5
 {
@@ -214,7 +211,7 @@ Faqat qo‘ng‘iroqlar uchun ElevenLabs’ga override qilish (boshqa joyda asos
 }
 ```
 
-Faqat qo‘ng‘iroqlar uchun OpenAI modelini override qilish (deep‑merge misoli):
+Override only the OpenAI model for calls (deep‑merge example):
 
 ```json5
 {
@@ -235,25 +232,25 @@ Faqat qo‘ng‘iroqlar uchun OpenAI modelini override qilish (deep‑merge miso
 }
 ```
 
-## Kirish qo‘ng‘iroqlari
+## Inbound calls
 
-Kirish siyosati sukut bo‘yicha `disabled`. Kirish qo‘ng‘iroqlarini yoqish uchun:
+1. Kiruvchi siyosat sukut bo‘yicha `disabled` holatida. 2. Kiruvchi qo‘ng‘iroqlarni yoqish uchun quyidagini sozlang:
 
 ```json5
-{
+3. {
   inboundPolicy: "allowlist",
   allowFrom: ["+15550001234"],
-  inboundGreeting: "Salom! Qanday yordam bera olaman?",
+  inboundGreeting: "Hello! How can I help?",
 }
 ```
 
-Avtomatik javoblar agent tizimi orqali ishlaydi. Quyidagilar bilan sozlang:
+4. Avto-javoblar agent tizimidan foydalanadi. 5. Quyidagilar bilan sozlang:
 
 - `responseModel`
 - `responseSystemPrompt`
 - `responseTimeoutMs`
 
-## CLI
+## 9. CLI
 
 ```bash
 openclaw voicecall call --to "+15555550123" --message "Hello from OpenClaw"
@@ -265,11 +262,11 @@ openclaw voicecall tail
 openclaw voicecall expose --mode funnel
 ```
 
-## Agent vositasi
+## 11. Agent vositasi
 
-Vositа nomi: `voice_call`
+12. Vositа nomi: `voice_call`
 
-Harakatlar:
+13. Amallar:
 
 - `initiate_call` (message, to?, mode?)
 - `continue_call` (callId, message)
@@ -277,13 +274,12 @@ Harakatlar:
 - `end_call` (callId)
 - `get_status` (callId)
 
-Ushbu repo’da mos skill hujjati mavjud: `skills/voice-call/SKILL.md`.
+19. Ushbu repo `skills/voice-call/SKILL.md` da mos skill hujjatini taqdim etadi.
 
-## Gateway RPC
+## 20. Gateway RPC
 
 - `voicecall.initiate` (`to?`, `message`, `mode?`)
 - `voicecall.continue` (`callId`, `message`)
 - `voicecall.speak` (`callId`, `message`)
 - `voicecall.end` (`callId`)
 - `voicecall.status` (`callId`)
-

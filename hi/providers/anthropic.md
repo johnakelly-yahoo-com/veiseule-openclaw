@@ -1,15 +1,19 @@
 ---
+summary: "OpenClaw में API कुंजियों या setup-token के माध्यम से Anthropic Claude का उपयोग करें"
+read_when:
+  - आप OpenClaw में Anthropic मॉडल का उपयोग करना चाहते हैं
+  - आप API कुंजियों के बजाय setup-token चाहते हैं
 title: "Anthropic"
 ---
 
 # Anthropic (Claude)
 
-Anthropic **Claude** मॉडल परिवार बनाता है और API के माध्यम से एक्सेस प्रदान करता है।
+Anthropic builds the **Claude** model family and provides access via an API.
 In OpenClaw you can authenticate with an API key or a **setup-token**.
 
 ## विकल्प A: Anthropic API कुंजी
 
-**सर्वोत्तम उपयोग:** मानक API एक्सेस और उपयोग-आधारित बिलिंग।
+**Best for:** standard API access and usage-based billing.
 Create your API key in the Anthropic Console.
 
 ### CLI सेटअप
@@ -33,17 +37,17 @@ openclaw onboard --anthropic-api-key "$ANTHROPIC_API_KEY"
 
 ## प्रॉम्प्ट कैशिंग (Anthropic API)
 
-OpenClaw, Anthropic की प्रॉम्प्ट कैशिंग सुविधा का समर्थन करता है। यह केवल **API-only** है; सब्सक्रिप्शन ऑथेंटिकेशन कैश सेटिंग्स का पालन नहीं करता।
+OpenClaw supports Anthropic's prompt caching feature. This is **API-only**; subscription auth does not honor cache settings.
 
 ### कॉन्फ़िगरेशन
 
 अपने मॉडल विन्यास में `cacheRetention` पैरामीटर का उपयोग करें:
 
-| मान   | कैश अवधि | Description                                           |
-| ------- | -------------- | ----------------------------------------------------- |
-| `none`  | No caching     | Prompt caching अक्षम करें                             |
-| `short` | 5 minutes      | API Key प्रमाणीकरण के लिए डिफ़ॉल्ट                    |
-| `long`  | 1 hour         | विस्तारित कैश (beta फ़्लैग आवश्यक) |
+| मान     | कैश अवधि   | Description                                           |
+| ------- | ---------- | ----------------------------------------------------- |
+| `none`  | No caching | Prompt caching अक्षम करें                             |
+| `short` | 5 minutes  | API Key प्रमाणीकरण के लिए डिफ़ॉल्ट                    |
+| `long`  | 1 hour     | विस्तारित कैश (beta फ़्लैग आवश्यक) |
 
 ```json5
 {
@@ -145,5 +149,3 @@ openclaw onboard --auth-choice setup-token
 - कोई अन्य Anthropic प्रोफ़ाइल जोड़ें या cooldown समाप्त होने की प्रतीक्षा करें।
 
 और अधिक: [/gateway/troubleshooting](/gateway/troubleshooting) और [/help/faq](/help/faq)।
-
-

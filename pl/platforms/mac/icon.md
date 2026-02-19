@@ -1,4 +1,7 @@
 ---
+summary: "Stany i animacje ikony paska menu dla OpenClaw na macOS"
+read_when:
+  - Zmienianie zachowania ikony paska menu
 title: "Ikona paska menu"
 ---
 
@@ -26,5 +29,3 @@ Uwagi dotyczące zachowania
 
 - Brak zewnętrznego przełącznika CLI/brokera dla uszu/pracy; pozostaw to wewnętrznym sygnałom aplikacji, aby uniknąć przypadkowego „trzepotania”.
 - Utrzymuj krótkie TTL (&lt;10 s), aby ikona szybko wracała do stanu bazowego, jeśli zadanie się zawiesi.
-
-

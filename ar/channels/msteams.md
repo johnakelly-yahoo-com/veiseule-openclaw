@@ -1,4 +1,7 @@
 ---
+summary: "حالة دعم روبوت Microsoft Teams، والإمكانات، والتهيئة"
+read_when:
+  - العمل على ميزات قناة MS Teams
 title: "Microsoft Teams"
 ---
 
@@ -152,14 +155,14 @@ openclaw plugins install ./extensions/msteams
 1. انتقل إلى [Create Azure Bot](https://portal.azure.com/#create/Microsoft.AzureBot)
 2. املأ تبويب **Basics**:
 
-   | الحقل              | القيمة                                                                      |
-   | ------------------ | --------------------------------------------------------------------------- |
-   | **اسم المعرّف الخاص بالبوت**     | اسم الروبوت، مثل `openclaw-msteams` (يجب أن يكون فريدًا) |
-   | **الاشتراك**   | اختر اشتراك Azure الخاص بك                                                  |
-   | **مجموعة الموارد** | أنشئ جديدًا أو استخدم موجودًا                                               |
-   | **فئة التسعير**   | **Free** للتطوير/الاختبار                                                   |
-   | **نوع التطبيق**    | **Single Tenant** (موصى به – انظر الملاحظة أدناه)        |
-   | **نوع الإنشاء**  | **إنشاء معرف تطبيق Microsoft جديد**                                             |
+   | الحقل                        | القيمة                                                                      |
+   | ---------------------------- | --------------------------------------------------------------------------- |
+   | **اسم المعرّف الخاص بالبوت** | اسم الروبوت، مثل `openclaw-msteams` (يجب أن يكون فريدًا) |
+   | **الاشتراك**                 | اختر اشتراك Azure الخاص بك                                                  |
+   | **مجموعة الموارد**           | أنشئ جديدًا أو استخدم موجودًا                                               |
+   | **فئة التسعير**              | **Free** للتطوير/الاختبار                                                   |
+   | **نوع التطبيق**              | **Single Tenant** (موصى به – انظر الملاحظة أدناه)        |
+   | **نوع الإنشاء**              | **إنشاء معرف تطبيق Microsoft جديد**                                         |
 
 > **إشعار إيقاف:** تم إيقاف إنشاء روبوتات متعددة المستأجرين الجديدة بعد 2025-07-31. استخدم **Single Tenant** للروبوتات الجديدة.
 
@@ -420,6 +423,8 @@ tailscale funnel 3978
 2. **امنح موافقة المسؤول** للمستأجر.
 3. ارفع رقم إصدار **manifest** لتطبيق Teams، أعد الرفع، و**أعد تثبيت التطبيق في Teams**.
 4. **أغلق Teams تمامًا وأعد تشغيله** لمسح البيانات المخزنة مؤقتًا.
+
+**إذن إضافي لإشارات المستخدمين:** تعمل إشارات @mention للمستخدمين مباشرةً للمستخدمين الموجودين في المحادثة. ومع ذلك، إذا كنت ترغب في البحث ديناميكيًا عن مستخدمين والإشارة إليهم وهم **غير موجودين في المحادثة الحالية**، فأضف إذن `User.Read.All` (Application) وامنح موافقة المسؤول.
 
 ## القيود المعروفة
 
@@ -733,7 +738,7 @@ https://teams.microsoft.com/l/channel/19%3A15bc...%40thread.tacv2/ChannelName?gr
 2. استخدام الرسائل المباشرة — يمكن للمستخدمين دائمًا مراسلة الروبوت مباشرة
 3. استخدام Graph API للوصول التاريخي (يتطلب `ChannelMessage.Read.All`)
 
-## استكشاف الأخطاء وإصلاحها
+## مشكلات شائعة
 
 ### مشكلات شائعة
 
@@ -765,5 +770,3 @@ https://teams.microsoft.com/l/channel/19%3A15bc...%40thread.tacv2/ChannelName?gr
 - [RSC permissions reference](https://learn.microsoft.com/en-us/microsoftteams/platform/graph-api/rsc/resource-specific-consent)
 - [Teams bot file handling](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/bots-filesv4) (القنوات/المجموعات تتطلب Graph)
 - [Proactive messaging](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/conversations/send-proactive-messages)
-
-

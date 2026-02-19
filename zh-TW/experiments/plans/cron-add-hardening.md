@@ -1,4 +1,5 @@
 ---
+summary: "強化 cron.add 的輸入處理、對齊結構定義，並改善 cron UI／代理程式工具"
 owner: "openclaw"
 status: "complete"
 last_updated: "2026-01-05"
@@ -7,9 +8,9 @@ title: "Cron Add 強化"
 
 # Cron Add 強化與結構定義對齊
 
-## 背景
+## Context
 
-18. 近期的閘道日誌顯示重複的 `cron.add` 失敗，原因是參數無效（缺少 `sessionTarget`、`wakeMode`、`payload`，以及格式錯誤的 `schedule`）。 19. 這表示至少有一個客戶端（很可能是代理工具呼叫路徑）正在送出被包裝或僅部分指定的工作負載。 20. 另外，TypeScript 中的 cron 提供者列舉、閘道結構、CLI 旗標與 UI 表單型別之間存在漂移，且 `cron.status` 在 UI 上也有不一致（UI 期望 `jobCount`，而閘道回傳 `jobs`）。
+近期的閘道日誌顯示重複的 `cron.add` 失敗，原因是參數無效（缺少 `sessionTarget`、`wakeMode`、`payload`，以及格式錯誤的 `schedule`）。 19. 這表示至少有一個客戶端（很可能是代理工具呼叫路徑）正在送出被包裝或僅部分指定的工作負載。 20. 另外，TypeScript 中的 cron 提供者列舉、閘道結構、CLI 旗標與 UI 表單型別之間存在漂移，且 `cron.status` 在 UI 上也有不一致（UI 期望 `jobCount`，而閘道回傳 `jobs`）。
 
 ## 目標
 
@@ -56,9 +57,7 @@ title: "Cron Add 強化"
 
 - Control UI 手動冒煙測試：為每個 provider 新增一個 cron 工作，並驗證狀態中的工作數量。
 
-## 24. 開放問題
+## 開放問題
 
 - `cron.add` 是否應接受用戶端明確提供的 `state`（目前在結構定義中被禁止）？
 - 是否應允許 `webchat` 作為明確的傳遞 provider（目前在傳遞解析中被過濾）？
-
-

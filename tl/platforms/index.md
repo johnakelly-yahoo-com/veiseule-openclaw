@@ -1,4 +1,8 @@
 ---
+summary: "Pangkalahatang-ideya ng suporta sa platform (Gateway + companion apps)"
+read_when:
+  - Naghahanap ng suporta sa OS o mga path ng pag-install
+  - Nagpapasya kung saan patakbuhin ang Gateway
 title: "Mga Platform"
 ---
 
@@ -47,5 +51,3 @@ Nakadepende sa OS ang service target:
 
 - macOS: LaunchAgent (`bot.molt.gateway` o `bot.molt.<profile>``; legacy `com.openclaw.\*\`)
 - Linux/WSL2: systemd user service (`openclaw-gateway[-<profile>].service`)
-
-

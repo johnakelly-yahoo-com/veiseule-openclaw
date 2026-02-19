@@ -1,4 +1,7 @@
 ---
+summary: "Origen del proyecto, colaboradores y licencia."
+read_when:
+  - Quiere conocer la historia del proyecto o los créditos de los colaboradores
 title: "Créditos"
 ---
 
@@ -22,5 +25,3 @@ OpenClaw = CLAW + TARDIS, porque toda langosta espacial necesita una máquina de
 MIT - Libre como una langosta en el océano.
 
 > "Todos solo estamos jugando con nuestros propios prompts." (Una IA, probablemente colocada de tokens)
-
-

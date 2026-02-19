@@ -1,4 +1,7 @@
 ---
+summary: "Direktivsyntaks for /think + /verbose og hvordan de påvirker modellens ræsonnering"
+read_when:
+  - Justering af parsing eller standarder for thinking- eller verbose-direktiver
 title: "Thinking-niveauer"
 ---
 
@@ -69,5 +72,3 @@ title: "Thinking-niveauer"
 - Webchat-tænkevælgeren afspejler sessionens gemte niveau fra den indgående session store/konfiguration, når siden indlæses.
 - Valg af et andet niveau gælder kun for den næste besked (`thinkingOnce`); efter afsendelse springer vælgeren tilbage til det gemte sessionsniveau.
 - For at ændre sessionsstandarden skal du sende et `/think:<level>`-direktiv (som før); vælgeren vil afspejle det efter næste genindlæsning.
-
-

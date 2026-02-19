@@ -1,6 +1,11 @@
 ---
+summary: "طقس تهيئة الوكيل الذي يزرع مساحة العمل وملفات الهوية"
+read_when:
+  - فهم ما يحدث عند التشغيل الأول للوكيل
+  - شرح مكان وجود ملفات التهيئة
+  - تصحيح أخطاء إعداد هوية أونبواردينغ
 title: "تهيئة الوكيل"
-sidebarTitle: "التهيئة الأولية"
+sidebarTitle: "Bootstrapping"
 ---
 
 # تهيئة الوكيل
@@ -32,5 +37,3 @@ sidebarTitle: "التهيئة الأولية"
 
 - تهيئة تطبيق macOS: [Onboarding](/start/onboarding)
 - تخطيط مساحة العمل: [Agent workspace](/concepts/agent-workspace)
-
-

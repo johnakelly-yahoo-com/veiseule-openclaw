@@ -1,4 +1,7 @@
 ---
+summary: "CLI リファレンス：`openclaw agents`（一覧／追加／削除／ID 設定）"
+read_when:
+  - 複数の分離されたエージェント（ワークスペース＋ルーティング＋認証）が必要な場合
 title: "エージェント"
 ---
 
@@ -70,5 +73,3 @@ openclaw agents set-identity --agent main --name "OpenClaw" --emoji "🦞" --ava
   },
 }
 ```
-
-

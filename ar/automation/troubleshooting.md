@@ -1,4 +1,9 @@
 ---
+summary: "استكشاف أخطاء جدولة cron ونبضات Heartbeat وتسليمها وإصلاحها"
+read_when:
+  - لم يعمل Cron
+  - تم تشغيل Cron ولكن لم يتم تسليم أي رسالة
+  - يبدو أن Heartbeat صامت أو تم تخطيه
 title: "استكشاف أخطاء الأتمتة وإصلاحها"
 ---
 
@@ -115,5 +120,3 @@ openclaw logs --follow
 - [/gateway/heartbeat](/gateway/heartbeat)
 - [/automation/cron-vs-heartbeat](/automation/cron-vs-heartbeat)
 - [/concepts/timezone](/concepts/timezone)
-
-

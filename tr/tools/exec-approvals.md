@@ -1,4 +1,9 @@
 ---
+summary: "Exec onayları, izin listeleri ve sandbox kaçış istemleri"
+read_when:
+  - Exec onaylarını veya izin listelerini yapılandırırken
+  - macOS uygulamasında exec onay UX’ini uygularken
+  - Sandbox kaçış istemlerini ve etkilerini incelerken
 title: "Exec Onayları"
 ---
 
@@ -66,7 +71,7 @@ Onaylar, yürütme ana makinesinde yerel bir JSON dosyasında tutulur:
 }
 ```
 
-## 23. Politika ayar düğmeleri
+## Politika ayar düğmeleri
 
 ### Güvenlik (`exec.security`)
 
@@ -118,6 +123,9 @@ Gateway RPC üzerinden `skills.bins` kullanarak skill bin listesini getirir. Sı
 
 `tools.exec.safeBins`, **stdin-only** ikili dosyaların küçük bir listesini (örneğin `jq`)
 tanımlar; bunlar açık izin listesi girdileri **olmadan** izin listesi modunda çalışabilir. Güvenli bin’ler konumsal dosya argümanlarını ve yol benzeri belirteçleri reddeder; böylece yalnızca gelen akış üzerinde çalışabilirler.
+Safe bin’ler ayrıca argv belirteçlerinin çalışma zamanında **literal metin** olarak ele alınmasını zorunlu kılar (globbing yok
+ve `$VARS` genişletmesi yok) stdin-only segmentler için; böylece `*` veya `$HOME/...` gibi desenler
+dosya okuma sızdırmak için kullanılamaz.
 Shell zincirleme ve yönlendirmeler izin listesi modunda otomatik olarak izinli değildir.
 
 Shell zincirleme (`&&`, `||`, `;`), her üst düzey bölüm izin listesini sağladığında
@@ -237,5 +245,3 @@ Onay kapılı exec’ler, kolay ilişkilendirme için bu mesajlarda `runId` olar
 - [Exec tool](/tools/exec)
 - [Elevated mode](/tools/elevated)
 - [Skills](/tools/skills)
-
-

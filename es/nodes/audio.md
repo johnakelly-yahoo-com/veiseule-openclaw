@@ -1,4 +1,7 @@
 ---
+summary: "Cómo se descargan, transcriben y se inyectan en las respuestas los audios/notas de voz entrantes"
+read_when:
+  - Cambio de la transcripción de audio o del manejo de medios
 title: "Audio y notas de voz"
 ---
 
@@ -104,10 +107,27 @@ Nota: La detección de binarios es de mejor esfuerzo en macOS/Linux/Windows; ase
 - La transcripción está disponible para las plantillas como `{{Transcript}}`.
 - La salida stdout de la CLI está limitada (5MB); mantenga la salida de la CLI concisa.
 
+## Detección de menciones en grupos
+
+Cuando se establece `requireMention: true` para un chat grupal, OpenClaw ahora transcribe el audio **antes** de comprobar las menciones. Esto permite procesar las notas de voz incluso cuando contienen menciones.
+
+**Cómo funciona:**
+
+1. Si un mensaje de voz no tiene texto y el grupo requiere menciones, OpenClaw realiza una transcripción "preflight".
+2. La transcripción se revisa en busca de patrones de mención (p. ej., `@BotName`, disparadores con emoji).
+3. Si se encuentra una mención, el mensaje continúa por el flujo completo de respuesta.
+4. La transcripción se utiliza para detectar menciones, permitiendo que las notas de voz superen el filtro de menciones.
+
+**Comportamiento alternativo:**
+
+- Si la transcripción falla durante el preflight (tiempo de espera, error de API, etc.), el mensaje se procesa basándose únicamente en la detección de menciones en el texto.
+- Esto garantiza que los mensajes mixtos (texto + audio) nunca se descarten incorrectamente.
+
+**Ejemplo:** Un usuario envía una nota de voz diciendo "Hey @Claude, what's the weather?" en un grupo de Telegram con `requireMention: true`. La nota de voz se transcribe, se detecta la mención y el agente responde.
+
 ## Gotchas
 
 - Las reglas de alcance usan “primera coincidencia gana”. `chatType` se normaliza a `direct`, `group` o `room`.
 - Asegúrese de que su CLI termine con código 0 e imprima texto plano; el JSON debe ajustarse mediante `jq -r .text`.
 - Mantenga tiempos de espera razonables (`timeoutSeconds`, predeterminado 60s) para evitar bloquear la cola de respuestas.
-
-
+- La transcripción preflight solo procesa el **primer** archivo de audio adjunto para la detección de menciones. El audio adicional se procesa durante la fase principal de comprensión de medios.

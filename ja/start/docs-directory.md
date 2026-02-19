@@ -1,10 +1,14 @@
 ---
+summary: "最もよく使用される OpenClaw ドキュメントへの厳選リンク集です。"
+read_when:
+  - 主要なドキュメントページへ素早くアクセスしたいとき
 title: "ドキュメントディレクトリ"
 ---
 
 <Note>
 このページはキュレートされた索引です。 9. 初めての方は、[Getting Started](/start/getting-started) から始めてください。
-10. ドキュメント全体のマップについては、[Docs hubs](/start/hubs) を参照してください。
+10.
+ドキュメント全体のマップについては、[Docs hubs](/start/hubs) を参照してください。
 </Note>
 
 ## ここから始める
@@ -59,5 +63,3 @@ title: "ドキュメントディレクトリ"
 - [Gmail フック（Pub/Sub）](/automation/gmail-pubsub)
 - [セキュリティ](/gateway/security)
 - [トラブルシューティング](/gateway/troubleshooting)
-
-

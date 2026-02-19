@@ -1,4 +1,8 @@
 ---
+summary: "نوڈ پیئرنگ، foreground تقاضوں، اجازتوں، اور ٹول کی ناکامیوں کا ازالہ کریں"
+read_when:
+  - نوڈ منسلک ہے لیکن camera/canvas/screen/exec ٹولز ناکام ہو رہے ہیں
+  - آپ کو نوڈ پیئرنگ بمقابلہ منظوریوں کے ذہنی ماڈل کی ضرورت ہے
 title: "نوڈ خرابیوں کا ازالہ"
 ---
 
@@ -69,7 +73,7 @@ openclaw approvals get --node <idOrNameOrIp>
 openclaw approvals allowlist add --node <idOrNameOrIp> "/usr/bin/uname"
 ```
 
-اگر جوڑی بنانا موجود نہیں ہے، تو پہلے نوڈ ڈیوائس کی منظوری دیں۔
+If pairing is missing, approve the node device first.
 If pairing is fine but `system.run` fails, fix exec approvals/allowlist.
 
 ## عام نوڈ ایرر کوڈز
@@ -106,5 +110,3 @@ openclaw logs --follow
 - [/nodes/location-command](/nodes/location-command)
 - [/tools/exec-approvals](/tools/exec-approvals)
 - [/gateway/pairing](/gateway/pairing)
-
-

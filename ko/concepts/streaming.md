@@ -1,4 +1,9 @@
 ---
+summary: "스트리밍 + 청킹 동작 (블록 응답, 초안 스트리밍, 제한)"
+read_when:
+  - 채널에서 스트리밍 또는 청킹이 어떻게 작동하는지 설명할 때
+  - 블록 스트리밍 또는 채널 청킹 동작을 변경할 때
+  - 중복되거나 너무 이른 블록 응답 또는 초안 스트리밍을 디버깅할 때
 title: "스트리밍과 청킹"
 ---
 
@@ -25,7 +30,7 @@ Model output
                    └─ channel send (block replies)
 ```
 
-범례:
+Legend:
 
 - `text_delta/events`: 모델 스트림 이벤트 (스트리밍을 지원하지 않는 모델의 경우 드물 수 있음).
 - `chunker`: `EmbeddedBlockChunker` 가 최소/최대 경계와 분할 선호도를 적용합니다.
@@ -99,17 +104,17 @@ Model output
 
 Telegram 은 초안 스트리밍을 지원하는 유일한 채널입니다:
 
-- **주제가 있는 개인 채팅**에서 Bot API `sendMessageDraft` 를 사용합니다.
+- Bot API `sendMessage`(첫 업데이트) + `editMessageText`(이후 업데이트)를 사용합니다.
 - `channels.telegram.streamMode: "partial" | "block" | "off"`.
   - `partial`: 최신 스트림 텍스트로 초안을 업데이트합니다.
   - `block`: 청킹된 블록으로 초안을 업데이트합니다 (동일한 청커 규칙).
   - `off`: 초안 스트리밍 없음.
 - 초안 청크 설정 (`streamMode: "block"` 전용): `channels.telegram.draftChunk` (기본값: `minChars: 200`, `maxChars: 800`).
-- 초안 스트리밍은 블록 스트리밍과 분리되어 있으며, 블록 응답은 기본적으로 꺼져 있고 Telegram 이 아닌 채널에서는 `*.blockStreaming: true` 로만 활성화됩니다.
-- 최종 응답은 여전히 일반 메시지입니다.
+- 미리보기 스트리밍은 블록 스트리밍과 별개입니다.
+- 초안 스트리밍이 활성화되면, OpenClaw 는 이중 스트리밍을 피하기 위해 해당 응답에 대해 블록 스트리밍을 비활성화합니다.
+- 텍스트 전용 final은 미리보기 메시지를 해당 위치에서 직접 수정하여 적용됩니다.
+- 텍스트가 아니거나 복잡한 final은 일반적인 최종 메시지 전송 방식으로 대체됩니다.
 - `/reasoning stream` 는 추론을 초안 버블에 기록합니다 (Telegram 전용).
-
-초안 스트리밍이 활성화되면, OpenClaw 는 이중 스트리밍을 피하기 위해 해당 응답에 대해 블록 스트리밍을 비활성화합니다.
 
 ```
 Telegram (private + topics)
@@ -121,7 +126,5 @@ Telegram (private + topics)
 
 Legend:
 
-- `sendMessageDraft`: Telegram 초안 버블 (실제 메시지가 아님).
-- `final reply`: 일반 Telegram 메시지 전송.
-
-
+- `preview message`: 생성 중에 업데이트되는 임시 Telegram 메시지.
+- `final edit`: 동일한 미리보기 메시지에서 수행되는 직접 수정(텍스트 전용).

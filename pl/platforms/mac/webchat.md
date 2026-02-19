@@ -1,4 +1,7 @@
 ---
+summary: "Jak aplikacja na macOS osadza WebChat Gateway i jak go debugować"
+read_when:
+  - Debugowanie widoku WebChat na macOS lub portu loopback
 title: "WebChat"
 ---
 
@@ -37,5 +40,3 @@ Aplikacja na macOS w pasku menu osadza interfejs WebChat jako natywny widok Swif
 ## Znane ograniczenia
 
 - Interfejs użytkownika jest zoptymalizowany pod sesje czatu (nie jest to pełny sandbox przeglądarki).
-
-

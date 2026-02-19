@@ -1,4 +1,10 @@
-------
+---
+title: "Standart AGENTS.md"
+summary: "Shaxsiy yordamchi sozlamasi uchun standart OpenClaw agent ko‘rsatmalari va ko‘nikmalar ro‘yxati"
+read_when:
+  - Yangi OpenClaw agent sessiyasini boshlash
+  - Standart ko‘nikmalarni yoqish yoki audit qilish
+---
 
 # AGENTS.md — OpenClaw Shaxsiy Yordamchisi (standart)
 
@@ -116,5 +122,3 @@ git commit -m "Add Clawd workspace"
 - For browser-driven verification, use `openclaw browser` (tabs/status/screenshot) with the OpenClaw-managed Chrome profile.
 - For DOM inspection, use `openclaw browser eval|query|dom|snapshot` (and `--json`/`--out` when you need machine output).
 - For interactions, use `openclaw browser click|type|hover|drag|select|upload|press|wait|navigate|back|evaluate|run` (click/type require snapshot refs; use `evaluate` for CSS selectors).
-
-

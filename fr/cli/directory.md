@@ -1,4 +1,8 @@
 ---
+summary: "Reference CLI pour `openclaw directory` (soi, pairs, groupes)"
+read_when:
+  - Vous souhaitez rechercher des identifiants de contacts/groupes/soi pour un canal
+  - Vous developpez un adaptateur d'annuaire de canal
 title: "directory"
 ---
 
@@ -57,5 +61,3 @@ openclaw directory groups list --channel zalouser
 openclaw directory groups list --channel zalouser --query "work"
 openclaw directory groups members --channel zalouser --group-id <id>
 ```
-
-

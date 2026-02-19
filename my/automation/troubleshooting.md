@@ -1,4 +1,9 @@
 ---
+summary: "cron နှင့် heartbeat အချိန်ဇယားသတ်မှတ်ခြင်းနှင့် ပို့ဆောင်မှုဆိုင်ရာ ပြဿနာများကို ဖြေရှင်းခြင်း"
+read_when:
+  - Cron မလုပ်ဆောင်ခဲ့ပါက
+  - Cron လုပ်ဆောင်ခဲ့သော်လည်း မက်ဆေ့ချ် မပို့ဆောင်နိုင်ပါက
+  - Heartbeat သည် တိတ်ဆိတ်နေသည် သို့မဟုတ် ကျော်သွားသည်ဟု ထင်ရပါက
 title: "Automation ပြဿနာဖြေရှင်းခြင်း"
 ---
 
@@ -115,5 +120,3 @@ openclaw logs --follow
 - [/gateway/heartbeat](/gateway/heartbeat)
 - [/automation/cron-vs-heartbeat](/automation/cron-vs-heartbeat)
 - [/concepts/timezone](/concepts/timezone)
-
-

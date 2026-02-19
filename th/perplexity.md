@@ -1,10 +1,14 @@
 ---
+summary: "การตั้งค่า Perplexity Sonar สำหรับ web_search"
+read_when:
+  - คุณต้องการใช้ Perplexity Sonar สำหรับการค้นหาเว็บ
+  - คุณต้องการ PERPLEXITY_API_KEY หรือการตั้งค่า OpenRouter
 title: "Perplexity Sonar"
 ---
 
 # Perplexity Sonar
 
-45. OpenClaw สามารถใช้ Perplexity Sonar สำหรับเครื่องมือ `web_search` OpenClaw สามารถใช้ Perplexity Sonar สำหรับเครื่องมือ `web_search` ได้ คุณสามารถเชื่อมต่อ
+45. OpenClaw สามารถใช้ Perplexity Sonar สำหรับเครื่องมือ `web_search` OpenClaw สามารถใช้ Perplexity Sonar สำหรับเครื่องมือ `web_search` OpenClaw สามารถใช้ Perplexity Sonar สำหรับเครื่องมือ `web_search` ได้ คุณสามารถเชื่อมต่อ
     ผ่าน API โดยตรงของ Perplexity หรือผ่าน OpenRouter
 
 ## ตัวเลือก API
@@ -74,5 +78,3 @@ title: "Perplexity Sonar"
 - `perplexity/sonar-reasoning-pro` — การวิจัยเชิงลึก
 
 ดู [Web tools](/tools/web) สำหรับการกำหนดค่า web_search แบบเต็ม
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Плагин Voice Call: исходящие и входящие звонки через Twilio/Telnyx/Plivo (установка плагина + конфигурация + CLI)"
+read_when:
+  - Вы хотите совершить исходящий голосовой звонок из OpenClaw
+  - Вы настраиваете или разрабатываете плагин voice-call
 title: "Плагин Voice Call"
 ---
 
@@ -9,9 +13,9 @@ title: "Плагин Voice Call"
 
 Текущие провайдеры:
 
-- `twilio` (программируемая голосовая связь + медиапотоки)
-- `telnyx` (управление вызовами v2)
-- `plivo` (Voice API + передача XML + распознавание речи GetInput)
+- `twilio` (Programmable Voice + Media Streams)
+- `telnyx` (Call Control v2)
+- `plivo` (Voice API + XML transfer + GetInput speech)
 - `mock` (dev/без сети)
 
 Быстрая ментальная модель:
@@ -108,6 +112,7 @@ cd ./extensions/voice-call && pnpm install
 - Twilio/Telnyx требуют **публично доступный** URL вебхука.
 - Plivo требует **публично доступный** URL вебхука.
 - `mock` — локальный dev‑провайдер (без сетевых вызовов).
+- Telnyx требует `telnyx.publicKey` (или `TELNYX_PUBLIC_KEY`), если только `skipSignatureVerification` не установлено в true.
 - `skipSignatureVerification` — только для локального тестирования.
 - Если вы используете бесплатный тариф ngrok, установите `publicUrl` в точный URL ngrok; проверка подписи выполняется всегда.
 - `tunnel.allowNgrokFreeTierLoopbackBypass: true` разрешает вебхуки Twilio с недействительными подписями **только** когда `tunnel.provider="ngrok"` и `serve.bind` — loopback (локальный агент ngrok). Используйте только для локальной разработки.
@@ -278,5 +283,3 @@ openclaw voicecall expose --mode funnel
 - `voicecall.speak` (`callId`, `message`)
 - `voicecall.end` (`callId`)
 - `voicecall.status` (`callId`)
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "pagpapatuloy ng mga permiso ng macOS (TCC) at mga kinakailangan sa pag-sign"
+read_when:
+  - Pag-debug ng nawawala o na-stuck na mga prompt ng permiso ng macOS
+  - Pag-package o pag-sign ng macOS app
+  - Pagbabago ng mga bundle ID o mga path ng pag-install ng app
 title: "Mga Permiso ng macOS"
 ---
 
@@ -41,7 +46,5 @@ macOS may also gate Desktop, Documents, and Downloads for terminal/background pr
 
 Workaround: ilipat ang mga file sa OpenClaw workspace (`~/.openclaw/workspace`) kung nais mong iwasan ang per-folder na mga grant.
 
-Kung sinusubukan mo ang mga pahintulot, palaging pumirma gamit ang isang tunay na sertipiko. Ad-hoc
+If you are testing permissions, always sign with a real certificate. Ad-hoc
 builds are only acceptable for quick local runs where permissions do not matter.
-
-

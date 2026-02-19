@@ -1,4 +1,7 @@
 ---
+summary: "Mở một endpoint HTTP /v1/chat/completions tương thích OpenAI từ Gateway"
+read_when:
+  - Tích hợp các công cụ mong đợi OpenAI Chat Completions
 title: "OpenAI Chat Completions"
 ---
 
@@ -23,6 +26,7 @@ Ghi chú:
 
 - Khi `gateway.auth.mode="token"`, dùng `gateway.auth.token` (hoặc `OPENCLAW_GATEWAY_TOKEN`).
 - Khi `gateway.auth.mode="password"`, dùng `gateway.auth.password` (hoặc `OPENCLAW_GATEWAY_PASSWORD`).
+- Nếu `gateway.auth.rateLimit` được cấu hình và xảy ra quá nhiều lần xác thực thất bại, endpoint sẽ trả về `429` kèm `Retry-After`.
 
 ## Chọn tác tử
 
@@ -113,5 +117,3 @@ curl -N http://127.0.0.1:18789/v1/chat/completions \
     "messages": [{"role":"user","content":"hi"}]
   }'
 ```
-
-

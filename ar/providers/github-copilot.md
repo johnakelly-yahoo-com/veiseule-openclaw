@@ -1,4 +1,8 @@
 ---
+summary: "تسجيل الدخول إلى GitHub Copilot من OpenClaw باستخدام تدفّق الجهاز"
+read_when:
+  - تريد استخدام GitHub Copilot كمزوّد نموذج
+  - تحتاج إلى تدفّق `openclaw models auth login-github-copilot`
 title: "GitHub Copilot"
 ---
 
@@ -65,5 +69,3 @@ openclaw models set github-copilot/gpt-4o
   (على سبيل المثال `github-copilot/gpt-4.1`).
 - يخزّن تسجيل الدخول رمز GitHub في مخزن ملفات تعريف المصادقة ويستبدله برمز واجهة
   برمجة تطبيقات Copilot عند تشغيل OpenClaw.
-
-

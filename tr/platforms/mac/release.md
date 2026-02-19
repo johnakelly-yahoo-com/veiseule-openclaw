@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw macOS sürüm kontrol listesi (Sparkle feed, paketleme, imzalama)"
+read_when:
+  - Bir OpenClaw macOS sürümünü keserken veya doğrularken
+  - Sparkle appcast’ini veya feed varlıklarını güncellerken
 title: "macOS Sürümü"
 ---
 
@@ -79,5 +83,3 @@ Yayımlarken güncellenmiş `appcast.xml` dosyasını sürüm varlıklarıyla (z
   - Önceki bir herkese açık derlemede, Hakkında sekmesinden “Güncellemeleri Denetle…”yi çalıştırın ve Sparkle’ın yeni derlemeyi sorunsuz kurduğunu doğrulayın.
 
 Tamamlanma tanımı: imzalı uygulama + appcast yayımlanmıştır, güncelleme akışı daha eski yüklü bir sürümden çalışır ve sürüm varlıkları GitHub sürümüne eklenmiştir.
-
-

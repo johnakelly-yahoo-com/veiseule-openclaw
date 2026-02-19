@@ -1,4 +1,9 @@
 ---
+summary: "डिबगिंग टूल्स: वॉच मोड, कच्चे मॉडल स्ट्रीम, और तर्क-रिसाव का ट्रेसिंग"
+read_when:
+  - आपको तर्क-रिसाव के लिए कच्चा मॉडल आउटपुट जाँचना हो
+  - आप दोहराव के दौरान Gateway को वॉच मोड में चलाना चाहते हों
+  - आपको एक दोहराने योग्य डिबगिंग वर्कफ़्लो चाहिए
 title: "डिबगिंग"
 ---
 
@@ -9,7 +14,7 @@ title: "डिबगिंग"
 
 ## रनटाइम डिबग ओवरराइड्स
 
-**केवल-रनटाइम** कॉन्फ़िग ओवरराइड (मेमोरी में, डिस्क पर नहीं) सेट करने के लिए चैट में `/debug` का उपयोग करें।
+Use `/debug` in chat to set **runtime-only** config overrides (memory, not disk).
 `/debug` is disabled by default; enable with `commands.debug: true`.
 This is handy when you need to toggle obscure settings without editing `openclaw.json`.
 
@@ -43,7 +48,7 @@ tsx watch src/entry.ts gateway --force
 
 ## डेव प्रोफ़ाइल + डेव Gateway (--dev)
 
-स्टेट को अलग रखने और एक सुरक्षित, अस्थायी सेटअप शुरू करने के लिए dev प्रोफ़ाइल का उपयोग करें।
+Use the dev profile to isolate state and spin up a safe, disposable setup for
 debugging. There are **two** `--dev` flags:
 
 - **ग्लोबल `--dev` (प्रोफ़ाइल):** स्थिति को **`~/.openclaw-dev`** के अंतर्गत अलग करता है और
@@ -83,7 +88,7 @@ OPENCLAW_PROFILE=dev openclaw tui
 pnpm gateway:dev:reset
 ```
 
-नोट: `--dev` एक **ग्लोबल** प्रोफ़ाइल फ़्लैग है और कुछ रनर्स द्वारा अनदेखा कर दिया जाता है।
+Note: `--dev` is a **global** profile flag and gets eaten by some runners.
 If you need to spell it out, use the env var form:
 
 ```bash
@@ -101,7 +106,7 @@ openclaw gateway stop
 
 ## रॉ स्ट्रीम लॉगिंग (OpenClaw)
 
-OpenClaw किसी भी फ़िल्टरिंग/फ़ॉर्मेटिंग से पहले **रॉ असिस्टेंट स्ट्रीम** को लॉग कर सकता है।
+OpenClaw can log the **raw assistant stream** before any filtering/formatting.
 This is the best way to see whether reasoning is arriving as plain text deltas
 (or as separate thinking blocks).
 
@@ -155,5 +160,3 @@ PI_RAW_STREAM_PATH=~/.pi-mono/logs/raw-openai-completions.jsonl
 - रॉ स्ट्रीम लॉग्स में पूर्ण प्रॉम्प्ट्स, टूल आउटपुट और उपयोगकर्ता डेटा शामिल हो सकता है।
 - लॉग्स को स्थानीय रखें और डिबगिंग के बाद उन्हें हटा दें।
 - यदि आप लॉग्स साझा करते हैं, तो पहले सीक्रेट्स और PII को स्क्रब करें।
-
-

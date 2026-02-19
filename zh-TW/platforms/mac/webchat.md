@@ -1,4 +1,7 @@
 ---
+summary: "mac 應用程式如何內嵌 Gateway WebChat 以及如何進行除錯"
+read_when:
+  - 除錯 mac WebChat 檢視或 loopback 連接埠
 title: "WebChat"
 ---
 
@@ -37,5 +40,3 @@ macOS 選單列應用程式將 WebChat UI 以原生 SwiftUI 檢視嵌入。 它
 ## 已知限制
 
 - UI 針對聊天工作階段最佳化（並非完整的瀏覽器沙箱）。
-
-

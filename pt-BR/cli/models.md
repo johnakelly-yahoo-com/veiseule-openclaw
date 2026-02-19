@@ -1,4 +1,8 @@
 ---
+summary: "Referência da CLI para `openclaw models` (status/list/set/scan, aliases, fallbacks, autenticação)"
+read_when:
+  - Você quer alterar os modelos padrão ou ver o status de autenticação do provedor
+  - Você quer escanear modelos/provedores disponíveis e depurar perfis de autenticação
 title: "modelos"
 ---
 
@@ -73,5 +77,3 @@ Notas:
 
 - `setup-token` solicita um valor de setup-token (gere-o com `claude setup-token` em qualquer máquina).
 - `paste-token` aceita uma string de token gerada em outro lugar ou a partir de automação.
-
-

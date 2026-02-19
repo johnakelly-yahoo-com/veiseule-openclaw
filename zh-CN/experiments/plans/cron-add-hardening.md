@@ -1,22 +1,16 @@
 ---
+summary: "加固 cron.add 输入处理，对齐 schema，改进 cron UI/智能体工具"
+owner: "openclaw"
+status: "complete"
 last_updated: "2026-01-05"
-owner: openclaw
-status: complete
-title: Cron Add 加固
-x-i18n:
-  generated_at: "2026-02-03T07:47:26Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: d7e469674bd9435b846757ea0d5dc8f174eaa8533917fc013b1ef4f82859496d
-  source_path: experiments/plans/cron-add-hardening.md
-  workflow: 15
+title: "Cron Add 加固"
 ---
 
 # Cron Add 加固 & Schema 对齐
 
 ## 背景
 
-最近的 Gateway 网关日志显示重复的 `cron.add` 失败，参数无效（缺少 `sessionTarget`、`wakeMode`、`payload`，以及格式错误的 `schedule`）。这表明至少有一个客户端（可能是智能体工具调用路径）正在发送包装的或部分指定的任务负载。另外，TypeScript 中的 cron 提供商枚举、Gateway 网关 schema、CLI 标志和 UI 表单类型之间存在漂移，加上 `cron.status` 的 UI 不匹配（期望 `jobCount` 而 Gateway 网关返回 `jobs`）。
+最近的网关日志显示多次 `cron.add` 失败，原因是参数无效（缺少 `sessionTarget`、`wakeMode`、`payload`，以及格式错误的 `schedule`）。 这表明至少有一个客户端（很可能是代理工具调用路径）正在发送被包装或部分指定的作业负载。 另外，TypeScript 中的 cron 提供方枚举、网关架构、CLI 标志以及 UI 表单类型之间存在漂移；同时 `cron.status` 在 UI 中也存在不匹配（期望 `jobCount`，而网关返回 `jobs`）。
 
 ## 目标
 
@@ -48,9 +42,9 @@ x-i18n:
 
 ## 当前行为
 
-- **规范化：**包装的 `data`/`job` 负载被解包；`schedule.kind` 和 `payload.kind` 在安全时被推断。
-- **默认值：**当缺失时，为 `wakeMode` 和 `sessionTarget` 应用安全默认值。
-- **提供商：**Discord/Slack/Signal/iMessage 现在在 CLI/UI 中一致显示。
+- \*\*规范化：\*\*包装的 `data`/`job` 负载被解包；`schedule.kind` 和 `payload.kind` 在安全时被推断。
+- \*\*默认值：\*\*当缺失时，为 `wakeMode` 和 `sessionTarget` 应用安全默认值。
+- \*\*提供商：\*\*Discord/Slack/Signal/iMessage 现在在 CLI/UI 中一致显示。
 
 参见 [Cron 任务](/automation/cron-jobs) 了解规范化的形式和示例。
 
@@ -59,7 +53,7 @@ x-i18n:
 - 观察 Gateway 网关日志中 `cron.add` INVALID_REQUEST 错误是否减少。
 - 确认 Control UI cron 状态在刷新后显示任务计数。
 
-## 可选后续工作
+## 可选后续
 
 - 手动 Control UI 冒烟测试：为每个提供商添加一个 cron 任务 + 验证状态任务计数。
 
@@ -67,5 +61,3 @@ x-i18n:
 
 - `cron.add` 是否应该接受来自客户端的显式 `state`（当前被 schema 禁止）？
 - 我们是否应该允许 `webchat` 作为显式投递提供商（当前在投递解析中被过滤）？
-
-

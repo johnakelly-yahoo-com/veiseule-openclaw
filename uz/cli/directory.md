@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw directory` uchun CLI ma’lumotnomasi (self, peers, groups)"
+read_when:
+  - You want to look up contacts/groups/self ids for a channel
+  - You are developing a channel directory adapter
 title: "directory"
 ---
 
@@ -57,5 +61,3 @@ openclaw directory groups list --channel zalouser
 openclaw directory groups list --channel zalouser --query "work"
 openclaw directory groups members --channel zalouser --group-id <id>
 ```
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Patakaran sa retry para sa mga outbound na tawag sa provider"
+read_when:
+  - Ina-update ang retry behavior o mga default ng provider
+  - Nagde-debug ng mga error sa pagpapadala ng provider o mga rate limit
 title: "Patakaran sa Retry"
 ---
 
@@ -63,5 +67,3 @@ Itakda ang patakaran sa retry kada provider sa `~/.openclaw/openclaw.json`:
 
 - Nalalapat ang mga retry kada request (pagpapadala ng mensahe, pag-upload ng media, reaction, poll, sticker).
 - Ang mga composite na flow ay hindi nagre-retry ng mga natapos nang hakbang.
-
-

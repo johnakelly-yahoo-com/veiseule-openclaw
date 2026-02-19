@@ -1,4 +1,8 @@
 ---
+summary: "Webbläsarbaserat kontrollgränssnitt för Gateway (chatt, noder, konfig)"
+read_when:
+  - Du vill styra Gateway från en webbläsare
+  - Du vill ha Tailnet-åtkomst utan SSH-tunnlar
 title: "Kontroll-UI"
 ---
 
@@ -217,5 +221,3 @@ Exempel:
 ```
 
 Detaljer för fjärråtkomst: [Remote access](/gateway/remote).
-
-

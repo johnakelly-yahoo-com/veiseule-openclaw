@@ -1,4 +1,9 @@
 ---
+summary: "Hvordan OpenClaw presence-poster produceres, flettes og vises"
+read_when:
+  - Fejlfinding af fanen Instances
+  - Undersøgelse af dublerede eller forældede instansrækker
+  - Ændring af gateway WS-forbindelse eller system-event-beacons
 title: "Tilstedeværelse"
 ---
 
@@ -95,5 +100,3 @@ MacOS-appen gengiver outputtet af `system-presence` og anvender en lille statusi
   - bekræft, at klienter sender en stabil `client.instanceId` i handshake
   - bekræft, at periodiske beacons bruger den samme `instanceId`
   - tjek om den forbindelsesafledte post mangler `instanceId` (dubletter er forventede)
-
-

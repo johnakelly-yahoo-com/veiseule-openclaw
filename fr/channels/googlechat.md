@@ -1,4 +1,7 @@
 ---
+summary: "Statut de prise en charge de l’application Google Chat, capacites et configuration"
+read_when:
+  - Travail sur les fonctionnalites du canal Google Chat
 title: "Google Chat"
 ---
 
@@ -151,6 +154,7 @@ Configurez les regles d’entree de votre tunnel pour n’acheminer que le chemi
 Utilisez ces identifiants pour la livraison et les listes d’autorisation :
 
 - Messages prives : `users/<userId>` ou `users/<email>` (les adresses e-mail sont acceptees).
+- Obsolète : `users/<email>` est traité comme un identifiant utilisateur, et non comme une liste d’autorisation d’emails.
 - Espaces : `spaces/<spaceId>`.
 
 ## Points forts de configuration
@@ -247,5 +251,3 @@ Documents connexes :
 - [Configuration de la Gateway (passerelle)](/gateway/configuration)
 - [Securite](/gateway/security)
 - [Reactions](/tools/reactions)
-
-

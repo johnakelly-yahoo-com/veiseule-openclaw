@@ -1,5 +1,7 @@
 ---
+summary: "Sandbox par agent + restrictions d’outils, précédence et exemples"
 title: Sandbox multi-agents et outils
+read_when: "Vous souhaitez un sandboxing par agent ou des politiques d’autorisation/refus d’outils par agent dans une Gateway (passerelle) multi-agents."
 status: active
 ---
 
@@ -392,5 +394,3 @@ Après avoir configuré le sandbox et les outils multi-agents :
 - [Routage multi-agents](/concepts/multi-agent)
 - [Configuration du sandbox](/gateway/configuration#agentsdefaults-sandbox)
 - [Gestion des sessions](/concepts/session)
-
-

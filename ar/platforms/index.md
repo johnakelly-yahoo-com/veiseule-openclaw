@@ -1,4 +1,8 @@
 ---
+summary: "نظرة عامة على دعم المنصات (Gateway + التطبيقات المُرافِقة)"
+read_when:
+  - البحث عن دعم أنظمة التشغيل أو مسارات التثبيت
+  - اتخاذ قرار بشأن مكان تشغيل Gateway
 title: "المنصات"
 ---
 
@@ -46,5 +50,3 @@ title: "المنصات"
 
 - macOS: LaunchAgent (`bot.molt.gateway` أو `bot.molt.<profile>`؛ القديم `com.openclaw.*`)
 - Linux/WSL2: خدمة مستخدم systemd (`openclaw-gateway[-<profile>].service`)
-
-

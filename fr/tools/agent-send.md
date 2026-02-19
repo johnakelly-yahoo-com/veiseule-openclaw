@@ -1,4 +1,7 @@
 ---
+summary: "Executions directes du CLI `openclaw agent` (avec livraison optionnelle)"
+read_when:
+  - Ajout ou modification du point d’entree du CLI de l’agent
 title: "Envoi d’agent"
 ---
 
@@ -48,5 +51,3 @@ openclaw agent --agent ops --message "Generate report" --deliver --reply-channel
 - `--verbose <on|full|off>` : persister le niveau verbeux
 - `--timeout <seconds>` : remplacer le delai d’expiration de l’agent
 - `--json` : sortie JSON structuree
-
-

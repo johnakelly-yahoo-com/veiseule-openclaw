@@ -1,4 +1,8 @@
 ---
+summary: "Exec aracının kullanımı, stdin modları ve TTY desteği"
+read_when:
+  - Exec aracını kullanırken veya değiştirirken
+  - Stdin veya TTY davranışını hata ayıklarken
 title: "Exec Aracı"
 ---
 
@@ -71,9 +75,9 @@ Notlar:
 - `host=sandbox`: konteyner içinde `sh -lc` (giriş kabuğu) çalıştırır; bu nedenle `/etc/profile`, `PATH`'yi sıfırlayabilir.
   OpenClaw, profil kaynaklamasından sonra dahili bir ortam değişkeni aracılığıyla `env.PATH`'i başa ekler (kabuk enterpolasyonu yok);
   `tools.exec.pathPrepend` burada da geçerlidir.
-- `host=node`: yalnızca ilettiğiniz engellenmemiş ortam geçersiz kılmaları düğüme gönderilir. Ana makinede yürütme için
-  `env.PATH` geçersiz kılmaları reddedilir. Başsız düğüm ana makineleri `PATH`'yi yalnızca
-  düğüm ana makinesi PATH'inin başına eklediğinde kabul eder (değiştirme yok). macOS düğümleri `PATH` geçersiz kılmalarını tamamen düşürür.
+- `host=node`: yalnızca ilettiğiniz engellenmemiş ortam geçersiz kılmaları düğüme gönderilir. `env.PATH` geçersiz kılmaları
+  host yürütmesi için reddedilir ve node host’ları tarafından yok sayılır. Bir node üzerinde ek PATH girdilerine ihtiyacınız varsa,
+  node host hizmeti ortamını (systemd/launchd) yapılandırın veya araçları standart konumlara yükleyin.
 
 Ajan başına düğüm bağlama (yapılandırmada ajan liste indeksini kullanın):
 
@@ -118,6 +122,7 @@ tek bir `Exec running` bildirimi yayılır.
 İzin listesi zorlaması **yalnızca çözümlenmiş ikili yollarını** eşleştirir (basename eşleşmesi yok). `security=allowlist` durumunda, kabuk komutları yalnızca her bir boru hattı parçası izin listesinde veya bir güvenli ikili ise
 otomatik olarak izinli sayılır. Zincirleme (`;`, `&&`, `||`) ve yönlendirmeler,
 izin listesi modunda reddedilir.
+Yönlendirmeler (redirection) desteklenmez.
 
 ## Örnekler
 
@@ -174,5 +179,4 @@ Notlar:
 - Yalnızca OpenAI/OpenAI Codex modelleri için kullanılabilir.
 - Araç politikası hâlâ geçerlidir; `allow: ["exec"]`, `apply_patch`'a örtük olarak izin verir.
 - Yapılandırma `tools.exec.applyPatch` altında bulunur.
-
-
+- `tools.exec.applyPatch.workspaceOnly` varsayılan olarak `true` (workspace ile sınırlı) değerine ayarlıdır. `apply_patch` komutunun workspace dizini dışına yazmasını/silmesini bilinçli olarak istiyorsanız yalnızca o zaman `false` olarak ayarlayın.

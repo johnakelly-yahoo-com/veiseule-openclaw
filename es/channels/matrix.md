@@ -1,4 +1,7 @@
 ---
+summary: "Estado de soporte de Matrix, capacidades y configuración"
+read_when:
+  - Al trabajar en funciones del canal Matrix
 title: "Matrix"
 ---
 
@@ -138,6 +141,47 @@ Cuando E2EE está habilitado, el bot solicitará verificación desde sus otras s
 Abra Element (u otro cliente) y apruebe la solicitud de verificación para establecer confianza.
 Una vez verificado, el bot puede descifrar mensajes en salas cifradas.
 
+## Multi-cuenta
+
+Compatibilidad multi-cuenta: usa `channels.matrix.accounts` con credenciales por cuenta y `name` opcional. Consulta [`gateway/configuration`](/gateway/configuration#telegramaccounts--discordaccounts--slackaccounts--signalaccounts--imessageaccounts) para el patrón compartido.
+
+Cada cuenta se ejecuta como un usuario de Matrix independiente en cualquier homeserver. Configuración por cuenta
+hereda de los ajustes de nivel superior `channels.matrix` y puede sobrescribir cualquier opción
+(política de MD, grupos, cifrado, etc.).
+
+```json5
+{
+  channels: {
+    matrix: {
+      enabled: true,
+      dm: { policy: "pairing" },
+      accounts: {
+        assistant: {
+          name: "Main assistant",
+          homeserver: "https://matrix.example.org",
+          accessToken: "syt_assistant_***",
+          encryption: true,
+        },
+        alerts: {
+          name: "Alerts bot",
+          homeserver: "https://matrix.example.org",
+          accessToken: "syt_alerts_***",
+          dm: { policy: "allowlist", allowFrom: ["@admin:example.org"] },
+        },
+      },
+    },
+  },
+}
+```
+
+Notas:
+
+- El inicio de las cuentas se serializa para evitar condiciones de carrera con importaciones de módulos concurrentes.
+- Las variables de entorno (`MATRIX_HOMESERVER`, `MATRIX_ACCESS_TOKEN`, etc.) solo se aplican a la **cuenta predeterminada**.
+- Los ajustes base del canal (política de MD, política de grupo, control por menciones, etc.) se aplican a todas las cuentas salvo que se sobrescriban por cuenta.
+- Usa `bindings[].match.accountId` para enrutar cada cuenta a un agente diferente.
+- El estado criptográfico se almacena por cuenta + token de acceso (almacenes de claves separados por cuenta).
+
 ## Modelo de enrutamiento
 
 - Las respuestas siempre regresan a Matrix.
@@ -151,6 +195,7 @@ Una vez verificado, el bot puede descifrar mensajes en salas cifradas.
   - `openclaw pairing approve matrix <CODE>`
 - DMs públicos: `channels.matrix.dm.policy="open"` más `channels.matrix.dm.allowFrom=["*"]`.
 - `channels.matrix.dm.allowFrom` acepta IDs completos de usuario de Matrix (ejemplo: `@user:server`). El asistente resuelve nombres visibles a IDs cuando la búsqueda en el directorio encuentra una coincidencia exacta única.
+- No uses nombres para mostrar ni localparts simples (ejemplo: `"Alice"` o `"alice"`). Son ambiguos y se ignoran para la coincidencia con la lista de permitidos. Usa identificadores completos `@user:server`.
 
 ## Salas (grupos)
 
@@ -258,6 +303,5 @@ Opciones del proveedor:
 - `channels.matrix.mediaMaxMb`: límite de medios entrantes/salientes (MB).
 - `channels.matrix.autoJoin`: manejo de invitaciones (`always | allowlist | off`, predeterminado: siempre).
 - `channels.matrix.autoJoinAllowlist`: IDs/alias de salas permitidas para unión automática.
+- `channels.matrix.accounts`: configuración multi-cuenta indexada por ID de cuenta (cada cuenta hereda los ajustes de nivel superior).
 - `channels.matrix.actions`: control de herramientas por acción (reacciones/mensajes/pines/memberInfo/channelInfo).
-
-

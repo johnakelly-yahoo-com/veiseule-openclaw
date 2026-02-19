@@ -1,4 +1,8 @@
 ---
+summary: "在 OpenClaw 中使用注重隱私的 Venice AI 模型"
+read_when:
+  - 你希望在 OpenClaw 中進行注重隱私的推論
+  - 你需要 Venice AI 的設定指引
 title: "Venice AI"
 ---
 
@@ -6,7 +10,7 @@ title: "Venice AI"
 
 **Venice** 是我們精選的 Venice 設定，提供以隱私為優先的推論，並可選擇透過匿名方式存取專有模型。
 
-Venice AI 提供注重隱私的 AI 推論，支援無審查模型，並可透過其匿名代理存取主要的專有模型。所有推論預設皆為私密——不使用你的資料進行訓練，也不會記錄。 All inference is private by default—no training on your data, no logging.
+Venice AI 提供注重隱私的 AI 推論，支援無審查模型，並可透過其匿名代理存取主要的專有模型。所有推論預設皆為私密——不使用你的資料進行訓練，也不會記錄。 All inference is private by default—no training on your data, no logging. All inference is private by default—no training on your data, no logging.
 
 ## 為什麼在 OpenClaw 中選擇 Venice
 
@@ -19,10 +23,10 @@ Venice AI 提供注重隱私的 AI 推論，支援無審查模型，並可透過
 
 Venice 提供兩種隱私等級——了解這一點是選擇模型的關鍵：
 
-| 模式             | 說明                                                                                                                                                             | 模型                                      |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
-| **私人**    | 完全私有。 Prompts/responses are **never stored or logged**. Ephemeral.                                                                      | Llama、Qwen、DeepSeek、Venice Uncensored 等 |
-| **匿名化** | 透過 Venice 代理並移除中繼資料。底層供應商（OpenAI、Anthropic）僅會看到經匿名化處理的請求。 | Claude、GPT、Gemini、Grok、Kimi、MiniMax     |
+| 模式      | Description                                                                                                                                                             | 模型                                      |
+| ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
+| **私人**  | 完全私有。 完全私有。 Prompts/responses are **never stored or logged**. Ephemeral.                                                                | Llama、Qwen、DeepSeek、Venice Uncensored 等 |
+| **匿名化** | Proxied through Venice with metadata stripped. The underlying provider (OpenAI, Anthropic) sees anonymized requests. | Claude、GPT、Gemini、Grok、Kimi、MiniMax     |
 
 ## 功能
 
@@ -43,7 +47,7 @@ Venice 提供兩種隱私等級——了解這一點是選擇模型的關鍵：
 2. 前往 **Settings → API Keys → Create new key**
 3. 複製你的 API 金鑰（格式：`vapi_xxxxxxxxxxxx`）
 
-### 2) 設定 OpenClaw
+### 3) 驗證設定
 
 **選項 A：環境變數**
 
@@ -80,7 +84,7 @@ openclaw chat --model venice/llama-3.3-70b "Hello, are you working?"
 
 ## 模型選擇
 
-完成設定後，OpenClaw 會顯示所有可用的 Venice 模型。請依需求選擇： Pick based on your needs:
+完成設定後，OpenClaw 會顯示所有可用的 Venice 模型。請依需求選擇： Pick based on your needs: Pick based on your needs:
 
 - **預設（我們的選擇）**：`venice/llama-3.3-70b`，提供私密且均衡的效能。
 - **整體最佳品質**：`venice/claude-opus-45`，適合高難度任務（Opus 仍然最強）。
@@ -123,7 +127,7 @@ openclaw models list | grep venice
 
 ### Private 模型（15）— 完全私密，不記錄
 
-| 模型 ID                         | 名稱                                      | 上下文（tokens） | 功能         |
+| 模型 ID                            | 名稱                                      | 上下文（tokens） | 功能         |
 | -------------------------------- | --------------------------------------- | ----------- | ---------- |
 | `llama-3.3-70b`                  | Llama 3.3 70B           | 131k        | 一般用途       |
 | `llama-3.2-3b`                   | Llama 3.2 3B            | 131k        | 快速、輕量      |
@@ -143,7 +147,7 @@ openclaw models list | grep venice
 
 ### Anonymized 模型（10）— 透過 Venice 代理
 
-| 模型 ID                 | 原始模型                              | 上下文（tokens） | 功能     |
+| 模型 ID                    | 原始模型                              | 上下文（tokens） | 功能     |
 | ------------------------ | --------------------------------- | ----------- | ------ |
 | `claude-opus-45`         | Claude Opus 4.5   | 202k        | 推理、視覺  |
 | `claude-sonnet-45`       | Claude Sonnet 4.5 | 202k        | 推理、視覺  |
@@ -158,7 +162,7 @@ openclaw models list | grep venice
 
 ## 模型探索
 
-當設定 `VENICE_API_KEY` 時，OpenClaw 會自動從 Venice API 探索模型。若 API 無法連線，則會回退至靜態目錄。 If the API is unreachable, it falls back to a static catalog.
+當設定 `VENICE_API_KEY` 時，OpenClaw 會自動從 Venice API 探索模型。若 API 無法連線，則會回退至靜態目錄。 If the API is unreachable, it falls back to a static catalog. If the API is unreachable, it falls back to a static catalog.
 
 `/models` 端點為公開端點（列出模型不需要驗證），但進行推論需要有效的 API 金鑰。
 
@@ -173,7 +177,7 @@ openclaw models list | grep venice
 
 ## 定價
 
-Venice 採用點數制系統。 Venice 採用以點數為基礎的系統。請至 [venice.ai/pricing](https://venice.ai/pricing) 查看最新費率：
+Venice 採用點數制系統。 Venice 採用點數制系統。 Venice 採用以點數為基礎的系統。請至 [venice.ai/pricing](https://venice.ai/pricing) 查看最新費率：
 
 - **Private 模型**：通常成本較低
 - **Anonymized 模型**：與直接 API 定價相近，另加少量 Venice 費用
@@ -219,11 +223,11 @@ openclaw models list | grep venice
 
 ### 模型無法使用
 
-The Venice model catalog updates dynamically. Venice 的模型目錄會動態更新。請執行 `openclaw models list` 查看目前可用的模型。部分模型可能暫時離線。 Some models may be temporarily offline.
+The Venice model catalog updates dynamically. Venice 的模型目錄會動態更新。請執行 `openclaw models list` 查看目前可用的模型。部分模型可能暫時離線。 Some models may be temporarily offline. Some models may be temporarily offline.
 
 ### 連線問題
 
-Venice API 位於 `https://api.venice.ai/api/v1`。請確認你的網路允許 HTTPS 連線。 Ensure your network allows HTTPS connections.
+Venice API 位於 `https://api.venice.ai/api/v1`。請確認你的網路允許 HTTPS 連線。 Ensure your network allows HTTPS connections. Ensure your network allows HTTPS connections.
 
 ## 設定檔範例
 
@@ -261,5 +265,3 @@ Venice API 位於 `https://api.venice.ai/api/v1`。請確認你的網路允許 H
 - [API 文件](https://docs.venice.ai)
 - [定價](https://venice.ai/pricing)
 - [狀態](https://status.venice.ai)
-
-

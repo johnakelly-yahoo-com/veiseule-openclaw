@@ -1,4 +1,8 @@
 ---
+summary: "Pag-troubleshoot ng pagpapares ng node, mga kinakailangan sa foreground, mga pahintulot, at mga pagkabigo ng tool"
+read_when:
+  - Nakakonekta ang node pero pumapalya ang camera/canvas/screen/exec tools
+  - Kailangan mo ang mental model ng pagpapares ng node kumpara sa mga approval
 title: "Pag-troubleshoot ng Node"
 ---
 
@@ -46,12 +50,12 @@ Kung makita mo ang `NODE_BACKGROUND_UNAVAILABLE`, dalhin ang node app sa foregro
 
 ## Matrix ng mga pahintulot
 
-| Kakayahan                   | iOS                                                       | Android                                                   | macOS node app                                          | Karaniwang failure code        |
-| ---------------------------- | --------------------------------------------------------- | --------------------------------------------------------- | ------------------------------------------------------- | ------------------------------ |
-| `camera.snap`, `camera.clip` | Camera (+ mic para sa audio ng clip)   | Camera (+ mic para sa audio ng clip)   | Camera (+ mic para sa audio ng clip) | `*_PERMISSION_REQUIRED`        |
-| `screen.record`              | Pagre-record ng Screen (+ opsyonal na mic)      | Prompt ng pagkuha ng screen (+ opsyonal na mic) | Pagre-record ng Screen                                        | `*_PERMISSION_REQUIRED`        |
-| `location.get`               | While Using o Always (depende sa mode) | Foreground/Background na lokasyon batay sa mode           | Pahintulot sa lokasyon                                  | `LOCATION_PERMISSION_REQUIRED` |
-| `system.run`                 | n/a (path ng host ng node)             | n/a (path ng host ng node)             | Kinakailangan ang exec approvals                        | `SYSTEM_RUN_DENIED`            |
+| Kakayahan                    | iOS                                                           | Android                                                            | macOS node app                                          | Karaniwang failure code        |
+| ---------------------------- | ------------------------------------------------------------- | ------------------------------------------------------------------ | ------------------------------------------------------- | ------------------------------ |
+| `camera.snap`, `camera.clip` | Camera (+ mic para sa audio ng clip)       | Camera (+ mic para sa audio ng clip)            | Camera (+ mic para sa audio ng clip) | `*_PERMISSION_REQUIRED`        |
+| `screen.record`              | Pagre-record ng Screen (+ opsyonal na mic) | Prompt ng pagkuha ng screen (+ opsyonal na mic) | Pagre-record ng Screen                                  | `*_PERMISSION_REQUIRED`        |
+| `location.get`               | While Using o Always (depende sa mode)     | Foreground/Background na lokasyon batay sa mode                    | Pahintulot sa lokasyon                                  | `LOCATION_PERMISSION_REQUIRED` |
+| `system.run`                 | n/a (path ng host ng node)                 | n/a (path ng host ng node)                      | Kinakailangan ang exec approvals                        | `SYSTEM_RUN_DENIED`            |
 
 ## Pagpapares kumpara sa mga approval
 
@@ -106,5 +110,3 @@ Kaugnay:
 - [/nodes/location-command](/nodes/location-command)
 - [/tools/exec-approvals](/tools/exec-approvals)
 - [/gateway/pairing](/gateway/pairing)
-
-

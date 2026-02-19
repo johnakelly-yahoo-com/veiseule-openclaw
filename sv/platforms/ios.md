@@ -1,4 +1,9 @@
 ---
+summary: "iOS-nodapp: anslutning till Gateway, parkoppling, canvas och felsökning"
+read_when:
+  - Parkoppling eller återanslutning av iOS-noden
+  - Köra iOS-appen från källkod
+  - Felsökning av gateway-upptäckt eller canvas-kommandon
 title: "iOS-app"
 ---
 
@@ -72,6 +77,7 @@ Noteringar:
 - Gatewayns canvas-värd serverar `/__openclaw__/canvas/` och `/__openclaw__/a2ui/`.
 - iOS-noden navigerar automatiskt till A2UI vid anslutning när en canvas-värd-URL annonseras.
 - Återgå till den inbyggda stommen med `canvas.navigate` och `{"url":""}`.
+- Återgå till den inbyggda stommen med `canvas.navigate` och `{"url":""}`.
 
 ### Canvas eval / ögonblicksbild
 
@@ -100,5 +106,3 @@ openclaw nodes invoke --node "iOS Node" --command canvas.snapshot --params '{"ma
 - [Parkoppling](/gateway/pairing)
 - [Discovery](/gateway/discovery)
 - [Bonjour](/gateway/bonjour)
-
-

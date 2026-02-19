@@ -1,4 +1,9 @@
 ---
+summary: "Gateway’ni topish uchun tugunlarni aniqlash va transportlar (Bonjour, Tailscale, SSH)"
+read_when:
+  - Bonjour orqali aniqlash/e’lon qilishni joriy etayotganda yoki o‘zgartirganda
+  - Masofaviy ulanish rejimlarini (to‘g‘ridan-to‘g‘ri vs SSH) moslashtirganda
+  - Masofaviy tugunlar uchun aniqlash + juftlash jarayonini loyihalashda
 title: "Aniqlash va transportlar"
 ---
 
@@ -13,7 +18,7 @@ Dizayn maqsadi — barcha tarmoq aniqlash/e’lon qilish ishlarini **Node Gatewa
 
 ## Atamalar
 
-- **Gateway**: holatni (sessiyalar, juftlash, tugunlar reyestri) boshqaradigan va kanallarni ishga tushiradigan yagona uzoq ishlovchi gateway jarayoni. Odatda har bir host uchun bittadan bo‘ladi; ajratilgan ko‘p-gateway sozlamalari ham mumkin.
+- **Gateway**: a single long-running gateway process that owns state (sessions, pairing, node registry) and runs channels. Most setups use one per host; isolated multi-gateway setups are possible.
 - **Gateway WS (control plane)**: odatda `127.0.0.1:18789` dagi WebSocket endpoint; `gateway.bind` orqali LAN/tailnet’ga bog‘lanishi mumkin.
 - **Direct WS transport**: LAN/tailnet’ga ochiq Gateway WS endpoint (SSH’siz).
 - **SSH transport (fallback)**: `127.0.0.1:18789` ni SSH orqali forward qilib masofadan boshqarish.
@@ -37,9 +42,9 @@ Protokol tafsilotlari:
 
 ## Aniqlash manbalari (mijozlar gateway’ni qanday topadi)
 
-### 1) Bonjour / mDNS (faqat LAN)
+### 1. Bonjour / mDNS (faqat LAN)
 
-Bonjour best-effort asosida ishlaydi va tarmoqlar orasidan o‘tmaydi. U faqat “bir xil LAN” qulayligi uchun ishlatiladi.
+Bonjour is best-effort and does not cross networks. It is only used for “same LAN” convenience.
 
 Maqsad yo‘nalishi:
 
@@ -65,7 +70,7 @@ Nosozliklarni aniqlash va beacon tafsilotlari: [Bonjour](/gateway/bonjour).
 
 Xavfsizlik eslatmalari:
 
-- Bonjour/mDNS TXT yozuvlari **autentifikatsiyalanmagan**. Mijozlar TXT qiymatlarini faqat UX uchun ishora sifatida qabul qilishi kerak.
+- Bonjour/mDNS TXT yozuvlari **autentifikatsiyalanmagan**. Mijozlar TXT qiymatlarini faqat UX ishoralari sifatida qabul qilishi kerak.
 - Marshrutlash (host/port) TXT’dagi `lanHost`, `tailnetDns` yoki `gatewayPort` o‘rniga **aniqlangan service endpoint** (SRV + A/AAAA) ni afzal ko‘rishi kerak.
 - TLS pinlash avval saqlangan pin’ni reklama qilingan `gatewayTlsSha256` bilan hech qachon almashtirishga yo‘l qo‘ymasligi kerak.
 - iOS/Android tugunlari aniqlash asosidagi direct ulanishlarni **faqat TLS orqali** amalga oshirishi va birinchi marta pin saqlashdan oldin aniq “ushbu fingerprint’ga ishonish” tasdig‘ini (out-of-band tekshiruv) talab qilishi kerak.
@@ -78,15 +83,15 @@ O‘chirish/override:
 - `OPENCLAW_TAILNET_DNS` `tailnetDns` ishorasini (MagicDNS) e’lon qiladi.
 - `OPENCLAW_CLI_PATH` e’lon qilinadigan CLI yo‘lini o‘zgartiradi.
 
-### 2) Tailnet (tarmoqlararo)
+### 2. Tailnet (tarmoqlararo)
 
-London/Vienna uslubidagi sozlamalarda Bonjour yordam bermaydi. Tavsiya etilgan “direct” manzil:
+For London/Vienna style setups, Bonjour won’t help. The recommended “direct” target is:
 
 - Tailscale MagicDNS nomi (afzal) yoki barqaror tailnet IP.
 
 Agar gateway Tailscale ostida ishlayotganini aniqlay olsa, mijozlar uchun (shu jumladan keng hududli beacon’lar uchun) ixtiyoriy ishora sifatida `tailnetDns` ni e’lon qiladi.
 
-### 3) Qo‘lda / SSH manzil
+### 3. Qo‘lda / SSH manzil
 
 To‘g‘ridan-to‘g‘ri yo‘l bo‘lmaganda (yoki direct o‘chirilgan bo‘lsa), mijozlar har doim loopback gateway portini SSH orqali forward qilib ulanishi mumkin.
 
@@ -116,5 +121,3 @@ Gateway — tugun/mijoz qabul qilish bo‘yicha yagona haqiqat manbai.
 - **Gateway**: aniqlash beacon’larini e’lon qiladi, juftlash qarorlarini boshqaradi va WS endpoint’ni host qiladi.
 - **macOS ilovasi**: gateway tanlashda yordam beradi, juftlash so‘rovlarini ko‘rsatadi va faqat fallback sifatida SSH’dan foydalanadi.
 - **iOS/Android tugunlari**: qulaylik uchun Bonjour orqali ko‘rib chiqadi va juftlangan Gateway WS’ga ulanadi.
-
-

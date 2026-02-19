@@ -1,4 +1,9 @@
 ---
+summary: "CLI ‏OpenClaw Gateway‏ (`openclaw gateway`) — تشغيل البوابات والاستعلام عنها واكتشافها"
+read_when:
+  - تشغيل Gateway من خلال CLI (للتطوير أو الخوادم)
+  - استكشاف أخطاء مصادقة Gateway وأوضاع الربط والاتصال وإصلاحها
+  - اكتشاف البوابات عبر Bonjour (شبكة محلية + tailnet)
 title: "gateway"
 ---
 
@@ -195,5 +200,3 @@ openclaw gateway discover
 openclaw gateway discover --timeout 4000
 openclaw gateway discover --json | jq '.beacons[].wsUrl'
 ```
-
-

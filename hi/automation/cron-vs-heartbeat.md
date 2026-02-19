@@ -1,4 +1,9 @@
 ---
+summary: "स्वचालन के लिए heartbeat और cron जॉब्स के बीच चयन करने हेतु मार्गदर्शन"
+read_when:
+  - आवर्ती कार्यों को कैसे शेड्यूल करें, यह तय करते समय
+  - पृष्ठभूमि मॉनिटरिंग या सूचनाएँ सेट करते समय
+  - आवधिक जाँच के लिए टोकन उपयोग का अनुकूलन करते समय
 title: "Cron बनाम Heartbeat"
 ---
 
@@ -275,5 +280,3 @@ openclaw cron add \
 - [Heartbeat](/gateway/heartbeat) - पूर्ण heartbeat विन्यास
 - [Cron jobs](/automation/cron-jobs) - पूर्ण cron CLI और API संदर्भ
 - [System](/cli/system) - system events + heartbeat नियंत्रण
-
-

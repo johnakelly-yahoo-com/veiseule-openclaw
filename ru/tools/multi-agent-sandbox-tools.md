@@ -1,5 +1,7 @@
 ---
+summary: "Песочница и ограничения инструментов для каждого агента, приоритеты и примеры"
 title: Песочница и инструменты для нескольких агентов
+read_when: "Когда требуется песочница для каждого агента или политики разрешения/запрета инструментов для каждого агента в многоагентном шлюзе."
 status: active
 ---
 
@@ -392,5 +394,3 @@ agents.list[].sandbox.prune.* > agents.defaults.sandbox.prune.*
 - [Multi-Agent Routing](/concepts/multi-agent)
 - [Sandbox Configuration](/gateway/configuration#agentsdefaults-sandbox)
 - [Session Management](/concepts/session)
-
-

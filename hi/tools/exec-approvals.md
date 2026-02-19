@@ -1,4 +1,9 @@
 ---
+summary: "Exec अनुमोदन, allowlist, और sandbox से बाहर निकलने के प्रॉम्प्ट"
+read_when:
+  - Exec अनुमोदन या allowlist का विन्यास करते समय
+  - macOS ऐप में exec अनुमोदन UX लागू करते समय
+  - sandbox से बाहर निकलने के प्रॉम्प्ट और उनके प्रभावों की समीक्षा करते समय
 title: "Exec अनुमोदन"
 ---
 
@@ -114,6 +119,9 @@ Legacy `agents.default` entries को load पर `agents.main` में migra
 
 `tools.exec.safeBins` **stdin-only** binaries (उदाहरण के लिए `jq`) की एक छोटी सूची परिभाषित करता है
 जो explicit allowlist entries के **बिना** allowlist mode में चल सकते हैं। Safe bins positional file args और path-like tokens को reject करते हैं, इसलिए वे केवल incoming stream पर ही operate कर सकते हैं।
+Safe bins execution के समय argv tokens को **literal text** के रूप में मानने के लिए बाध्य करते हैं (कोई globbing नहीं
+और कोई `$VARS` expansion नहीं) केवल stdin-only segments के लिए, ताकि `*` या `$HOME/...` जैसे patterns
+का उपयोग file reads छिपाकर करने के लिए न किया जा सके।
 Allowlist mode में shell chaining और redirections auto-allowed नहीं होते।
 
 Shell chaining (`&&`, `||`, `;`) तब allowed होती है जब हर top-level segment allowlist को संतुष्ट करता हो
@@ -228,5 +236,3 @@ Approval-gated execs आसान सहसंबंध के लिए इन 
 - [Exec टूल](/tools/exec)
 - [उन्नत मोड](/tools/elevated)
 - [Skills](/tools/skills)
-
-

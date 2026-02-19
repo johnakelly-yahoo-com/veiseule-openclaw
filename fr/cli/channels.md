@@ -1,4 +1,8 @@
 ---
+summary: "Reference CLI pour `openclaw channels` (comptes, statut, connexion/deconnexion, journaux)"
+read_when:
+  - Vous souhaitez ajouter/supprimer des comptes de canal (WhatsApp/Telegram/Discord/Google Chat/Slack/Mattermost (plugin)/Signal/iMessage)
+  - Vous souhaitez verifier le statut d'un canal ou suivre les journaux d'un canal
 title: "canaux"
 ---
 
@@ -73,5 +77,3 @@ Notes :
 
 - Utilisez `--kind user|group|auto` pour forcer le type de cible.
 - La resolution privilegie les correspondances actives lorsque plusieurs entrees partagent le meme nom.
-
-

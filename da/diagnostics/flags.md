@@ -1,4 +1,8 @@
 ---
+summary: "Diagnoseflag til målrettede debuglogs"
+read_when:
+  - Du har brug for målrettede debuglogs uden at hæve de globale logningsniveauer
+  - Du har brug for at indsamle subsystem-specifikke logs til support
 title: "Diagnoseflag"
 ---
 
@@ -85,5 +89,3 @@ For fjern-gateways kan du også bruge `openclaw logs --follow` (se [/cli/logs](/
 - Hvis `logging.level` er sat højere end `warn`, kan disse logs undertrykkes. Standard `info` er fint.
 - Flag er sikre at lade være aktiveret; de påvirker kun logmængden for det specifikke subsystem.
 - Brug [/logging](/logging) til at ændre logdestinationer, niveauer og redigering.
-
-

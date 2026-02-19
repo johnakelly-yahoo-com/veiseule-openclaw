@@ -1,4 +1,8 @@
 ---
+summary: "„Hub hostingu VPS dla OpenClaw (Oracle/Fly/Hetzner/GCP/exe.dev)”"
+read_when:
+  - Chcesz uruchomić Gateway w chmurze
+  - Potrzebujesz szybkiej mapy przewodników VPS/hosting
 title: "„Hosting VPS”"
 ---
 
@@ -37,5 +41,3 @@ Możesz utrzymywać Gateway w chmurze i parować **węzły** na lokalnych urząd
 podczas gdy Gateway pozostaje w chmurze.
 
 Dokumentacja: [Nodes](/nodes), [Nodes CLI](/cli/nodes)
-
-

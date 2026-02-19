@@ -1,4 +1,9 @@
 ---
+summary: "Gateway-ägd nodparning (Alternativ B) för iOS och andra fjärrnoder"
+read_when:
+  - Implementerar godkännanden för nodparning utan macOS‑UI
+  - Lägger till CLI‑flöden för att godkänna fjärrnoder
+  - Utökar gateway‑protokollet med nodhantering
 title: "Gateway‑ägd parning"
 ---
 
@@ -92,5 +97,3 @@ Säkerhetsnoteringar:
 - Transporten är **tillståndslös**; den lagrar inte medlemskap.
 - Om Gateway är offline eller parning är inaktiverad kan noder inte paras.
 - Om Gateway är i fjärrläge sker parning fortfarande mot den fjärranslutna Gatewayns lagring.
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "OpenClaw Gateway CLI (`openclaw gateway`) — gateway’leri çalıştırma, sorgulama ve keşfetme"
+read_when:
+  - Gateway’i CLI üzerinden çalıştırırken (geliştirme veya sunucular)
+  - Gateway kimlik doğrulaması, bağlanma modları ve bağlantıyı hata ayıklarken
+  - Bonjour aracılığıyla gateway’leri keşfederken (LAN + tailnet)
 title: "gateway"
 ---
 
@@ -195,5 +200,3 @@ Seçenekler:
 openclaw gateway discover --timeout 4000
 openclaw gateway discover --json | jq '.beacons[].wsUrl'
 ```
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Platskommando för noder (location.get), behörighetslägen och bakgrundsbeteende"
+read_when:
+  - Lägger till stöd för platsnoder eller behörighets-UI
+  - Utformar flöden för bakgrundsplats + push
 title: "Platskommando"
 ---
 
@@ -107,5 +111,3 @@ Noteringar:
 - Vid användning: ”Endast när OpenClaw är öppet.”
 - Alltid: “Tillåt bakgrundsplats. Kräver systembehörighet.”
 - Precise: ”Använd exakt GPS-position. Växla av för att dela ungefärlig plats. "
-
-

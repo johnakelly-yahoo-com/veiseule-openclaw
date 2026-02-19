@@ -1,24 +1,22 @@
 ---
-title: CLI 后端
-x-i18n:
-  generated_at: "2026-02-03T07:47:52Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 56a96e83b16a4f6443cbf4a9da7a660c41a5b178af5e13f35352c9d72e1b08dd
-  source_path: gateway/cli-backends.md
-  workflow: 15
+summary: "CLI 后端：通过本地 AI CLI 实现纯文本回退"
+read_when:
+  - 你想要一个在 API 提供商失败时的可靠回退
+  - 你正在运行 Claude Code CLI 或其他本地 AI CLI 并想要复用它们
+  - 你需要一个纯文本、无工具的路径，但仍支持会话和图像
+title: "CLI 后端"
 ---
 
 # CLI 后端（回退运行时）
 
-当 API 提供商宕机、被限流或暂时异常时，OpenClaw 可以运行**本地 AI CLI** 作为**纯文本回退**。这是有意保守的设计：
+当 API 提供商宕机、被限流或暂时异常时，OpenClaw 可以运行**本地 AI CLI** 作为**纯文本回退**。这是有意保守的设计： This is intentionally conservative:
 
 - **工具被禁用**（无工具调用）。
 - **文本输入 → 文本输出**（可靠）。
 - **支持会话**（因此后续轮次保持连贯）。
 - 如果 CLI 接受图像路径，**图像可以传递**。
 
-这被设计为**安全网**而非主要路径。当你想要"始终有效"的文本响应而不依赖外部 API 时使用它。
+This is designed as a **safety net** rather than a primary path. 这被设计为**安全网**而非主要路径。当你想要"始终有效"的文本响应而不依赖外部 API 时使用它。
 
 ## 新手友好快速开始
 
@@ -50,7 +48,7 @@ openclaw agent --message "hi" --model codex-cli/gpt-5.2-codex
 }
 ```
 
-就这样。除了 CLI 本身外，不需要密钥，不需要额外的认证配置。
+That’s it. 就这样。除了 CLI 本身外，不需要密钥，不需要额外的认证配置。
 
 ## 作为回退使用
 
@@ -87,6 +85,7 @@ agents.defaults.cliBackends
 ```
 
 每个条目以**提供商 ID**（例如 `claude-cli`、`my-cli`）为键。提供商 ID 成为你的模型引用的左侧部分：
+The provider id becomes the left side of your model ref:
 
 ```
 <provider>/<model>
@@ -127,7 +126,7 @@ agents.defaults.cliBackends
 }
 ```
 
-## 工作原理
+## How it works
 
 1. **选择后端**基于提供商前缀（`claude-cli/...`）。
 2. **构建系统提示**使用相同的 OpenClaw 提示 + 工作区上下文。
@@ -153,7 +152,8 @@ imageArg: "--image",
 imageMode: "repeat"
 ```
 
-OpenClaw 会将 base64 图像写入临时文件。如果设置了 `imageArg`，这些路径作为 CLI 参数传递。如果缺少 `imageArg`，OpenClaw 会将文件路径附加到提示中（路径注入），这对于从纯路径自动加载本地文件的 CLI 来说已经足够（Claude Code CLI 行为）。
+OpenClaw will write base64 images to temp files. If `imageArg` is set, those
+paths are passed as CLI args. OpenClaw 会将 base64 图像写入临时文件。如果设置了 `imageArg`，这些路径作为 CLI 参数传递。如果缺少 `imageArg`，OpenClaw 会将文件路径附加到提示中（路径注入），这对于从纯路径自动加载本地文件的 CLI 来说已经足够（Claude Code CLI 行为）。
 
 ## 输入 / 输出
 
@@ -195,10 +195,12 @@ OpenClaw 也自带 `codex-cli` 的默认值：
 
 ## 限制
 
-- **无 OpenClaw 工具**（CLI 后端永远不会收到工具调用）。某些 CLI 可能仍会运行它们自己的智能体工具。
+- **无 OpenClaw 工具**（CLI 后端永远不会收到工具调用）。某些 CLI 可能仍会运行它们自己的智能体工具。 某些 CLI
+  仍可能运行其自有的代理工具。
 - **无流式传输**（CLI 输出被收集后返回）。
 - **结构化输出**取决于 CLI 的 JSON 格式。
-- **Codex CLI 会话**通过文本输出恢复（无 JSONL），这比初始的 `--json` 运行结构化程度低。OpenClaw 会话仍然正常工作。
+- **Codex CLI 会话**通过文本输出恢复（无 JSONL），这比初始的 `--json` 运行结构化程度低。OpenClaw 会话仍然正常工作。 OpenClaw 会话仍然
+  正常工作。
 
 ## 故障排除
 
@@ -206,5 +208,3 @@ OpenClaw 也自带 `codex-cli` 的默认值：
 - **模型名称错误**：使用 `modelAliases` 将 `provider/model` 映射到 CLI 模型。
 - **无会话连续性**：确保设置了 `sessionArg` 且 `sessionMode` 不是 `none`（Codex CLI 目前无法使用 JSON 输出恢复）。
 - **图像被忽略**：设置 `imageArg`（并验证 CLI 支持文件路径）。
-
-

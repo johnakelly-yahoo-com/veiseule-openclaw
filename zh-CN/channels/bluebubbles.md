@@ -1,22 +1,20 @@
 ---
-title: BlueBubbles
-x-i18n:
-  generated_at: "2026-02-03T10:04:52Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 3aae277a8bec479800a7f6268bfbca912c65a4aadc6e513694057fb873597b69
-  source_path: channels/bluebubbles.md
-  workflow: 15
+summary: "通过 BlueBubbles macOS 服务器使用 iMessage（REST 发送/接收、输入状态、回应、配对、高级操作）。"
+read_when:
+  - 设置 BlueBubbles 渠道
+  - 排查 webhook 配对问题
+  - 在 macOS 上配置 iMessage
+title: "BlueBubbles"
 ---
 
 # BlueBubbles（macOS REST）
 
-状态：内置插件，通过 HTTP 与 BlueBubbles macOS 服务器通信。由于其更丰富的 API 和更简便的设置，**推荐用于 iMessage 集成**，优于旧版 imsg 渠道。
+状态：内置插件，通过 HTTP 与 BlueBubbles macOS 服务器通信。由于其更丰富的 API 和更简便的设置，**推荐用于 iMessage 集成**，优于旧版 imsg 渠道。 **Recommended for iMessage integration** due to its richer API and easier setup compared to the legacy imsg channel.
 
 ## 概述
 
 - 通过 BlueBubbles 辅助应用在 macOS 上运行（[bluebubbles.app](https://bluebubbles.app)）。
-- 推荐/已测试版本：macOS Sequoia (15)。macOS Tahoe (26) 可用；但在 Tahoe 上编辑功能目前不可用，群组图标更新可能显示成功但实际未同步。
+- Recommended/tested: macOS Sequoia (15). 推荐/已测试版本：macOS Sequoia (15)。macOS Tahoe (26) 可用；但在 Tahoe 上编辑功能目前不可用，群组图标更新可能显示成功但实际未同步。
 - OpenClaw 通过其 REST API 与之通信（`GET /api/v1/ping`、`POST /message/text`、`POST /chat/:id/*`）。
 - 传入消息通过 webhook 到达；发出的回复、输入指示器、已读回执和 tapback 均为 REST 调用。
 - 附件和贴纸作为入站媒体被接收（并在可能时呈现给智能体）。
@@ -27,8 +25,11 @@ x-i18n:
 ## 快速开始
 
 1. 在你的 Mac 上安装 BlueBubbles 服务器（按照 [bluebubbles.app/install](https://bluebubbles.app/install) 的说明操作）。
+
 2. 在 BlueBubbles 配置中，启用 web API 并设置密码。
+
 3. 运行 `openclaw onboard` 并选择 BlueBubbles，或手动配置：
+
    ```json5
    {
      channels: {
@@ -41,8 +42,88 @@ x-i18n:
      },
    }
    ```
+
 4. 将 BlueBubbles webhook 指向你的 Gateway 网关（示例：`https://your-gateway-host:3000/bluebubbles-webhook?password=<password>`）。
+
 5. 启动 Gateway 网关；它将注册 webhook 处理程序并开始配对。
+
+私信：
+
+- 始终设置 webhook 密码。 如果通过反向代理（Tailscale Serve/Funnel、nginx、Cloudflare Tunnel、ngrok）公开 gateway，代理可能通过回环地址连接到 gateway。 BlueBubbles webhook 处理程序会将带有转发头的请求视为经代理转发，并且不会接受无密码的 webhook。
+
+## Keeping Messages.app alive (VM / headless setups)
+
+Some macOS VM / always-on setups can end up with Messages.app going “idle” (incoming events stop until the app is opened/foregrounded). A simple workaround is to **poke Messages every 5 minutes** using an AppleScript + LaunchAgent.
+
+### 1. Save the AppleScript
+
+Save this as:
+
+- `~/Scripts/poke-messages.scpt`
+
+Example script (non-interactive; does not steal focus):
+
+```applescript
+try
+  tell application "Messages"
+    if not running then
+      launch
+    end if
+
+    -- Touch the scripting interface to keep the process responsive.
+    set _chatCount to (count of chats)
+  end tell
+on error
+  -- Ignore transient failures (first-run prompts, locked session, etc).
+end try
+```
+
+### 2. Install a LaunchAgent
+
+Save this as:
+
+- `~/Library/LaunchAgents/com.user.poke-messages.plist`
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>Label</key>
+    <string>com.user.poke-messages</string>
+
+    <key>ProgramArguments</key>
+    <array>
+      <string>/bin/bash</string>
+      <string>-lc</string>
+      <string>/usr/bin/osascript &quot;$HOME/Scripts/poke-messages.scpt&quot;</string>
+    </array>
+
+    <key>RunAtLoad</key>
+    <true/>
+
+    <key>StartInterval</key>
+    <integer>300</integer>
+
+    <key>StandardOutPath</key>
+    <string>/tmp/poke-messages.log</string>
+    <key>StandardErrorPath</key>
+    <string>/tmp/poke-messages.err</string>
+  </dict>
+</plist>
+```
+
+Notes:
+
+- 该任务 **每 300 秒** 运行一次，并且 **在登录时** 运行。
+- The first run may trigger macOS **Automation** prompts (`osascript` → Messages). 请在运行 LaunchAgent 的同一用户会话中批准它们。
+
+Load it:
+
+```bash
+launchctl unload ~/Library/LaunchAgents/com.user.poke-messages.plist 2>/dev/null || true
+launchctl load ~/Library/LaunchAgents/com.user.poke-messages.plist
+```
 
 ## 新手引导
 
@@ -52,7 +133,7 @@ BlueBubbles 可在交互式设置向导中使用：
 openclaw onboard
 ```
 
-向导会提示输入：
+The wizard prompts for:
 
 - **服务器 URL**（必填）：BlueBubbles 服务器地址（例如 `http://192.168.1.100:1234`）
 - **密码**（必填）：来自 BlueBubbles 服务器设置的 API 密码
@@ -68,14 +149,14 @@ openclaw channels add bluebubbles --http-url http://192.168.1.100:1234 --passwor
 
 ## 访问控制（私信 + 群组）
 
-私信：
+DMs:
 
 - 默认：`channels.bluebubbles.dmPolicy = "pairing"`。
 - 未知发送者会收到配对码；在批准之前消息会被忽略（配对码 1 小时后过期）。
 - 批准方式：
   - `openclaw pairing list bluebubbles`
   - `openclaw pairing approve bluebubbles <CODE>`
-- 配对是默认的令牌交换方式。详情：[配对](/channels/pairing)
+- Pairing is the default token exchange. Details: [Pairing](/channels/pairing)
 
 群组：
 
@@ -168,11 +249,11 @@ BlueBubbles 在配置中启用时支持高级消息操作：
 - **removeParticipant**：将某人从群组移除（`chatGuid`、`address`）
 - **leaveGroup**：离开群聊（`chatGuid`）
 - **sendAttachment**：发送媒体/文件（`to`、`buffer`、`filename`、`asVoice`）
-  - 语音备忘录：将 `asVoice: true` 与 **MP3** 或 **CAF** 音频一起设置，以 iMessage 语音消息形式发送。BlueBubbles 在发送语音备忘录时会将 MP3 转换为 CAF。
+  - 语音备忘录：将 `asVoice: true` 与 **MP3** 或 **CAF** 音频一起设置，以 iMessage 语音消息形式发送。BlueBubbles 在发送语音备忘录时会将 MP3 转换为 CAF。 BlueBubbles converts MP3 → CAF when sending voice memos.
 
 ### 消息 ID（短格式 vs 完整格式）
 
-OpenClaw 可能会显示*短*消息 ID（例如 `1`、`2`）以节省 token。
+OpenClaw 可能会显示_短_消息 ID（例如 `1`、`2`）以节省 token。
 
 - `MessageSid` / `ReplyToId` 可以是短 ID。
 - `MessageSidFull` / `ReplyToIdFull` 包含提供商的完整 ID。
@@ -226,6 +307,7 @@ OpenClaw 可能会显示*短*消息 ID（例如 `1`、`2`）以节省 token。
 - `channels.bluebubbles.textChunkLimit`：出站分块大小（字符）（默认：4000）。
 - `channels.bluebubbles.chunkMode`：`length`（默认）仅在超过 `textChunkLimit` 时分割；`newline` 在长度分块前先按空行（段落边界）分割。
 - `channels.bluebubbles.mediaMaxMb`：入站媒体上限（MB）（默认：8）。
+- `channels.bluebubbles.mediaLocalRoots`：允许用于出站本地媒体路径的绝对本地目录的显式白名单。 默认情况下，除非进行此配置，否则会拒绝发送本地路径。 按账户覆盖：`channels.bluebubbles.accounts.<accountId>`.mediaLocalRoots\`。
 - `channels.bluebubbles.historyLimit`：上下文的最大群组消息数（0 表示禁用）。
 - `channels.bluebubbles.dmHistoryLimit`：私信历史限制。
 - `channels.bluebubbles.actions`：启用/禁用特定操作。
@@ -244,13 +326,13 @@ OpenClaw 可能会显示*短*消息 ID（例如 `1`、`2`）以节省 token。
 - `chat_id:123`
 - `chat_identifier:...`
 - 直接句柄：`+15555550123`、`user@example.com`
-  - 如果直接句柄没有现有的私信聊天，OpenClaw 将通过 `POST /api/v1/chat/new` 创建一个。这需要启用 BlueBubbles Private API。
+  - 如果直接句柄没有现有的私信聊天，OpenClaw 将通过 `POST /api/v1/chat/new` 创建一个。这需要启用 BlueBubbles Private API。 This requires the BlueBubbles Private API to be enabled.
 
 ## 安全性
 
-- Webhook 请求通过比较 `guid`/`password` 查询参数或头部与 `channels.bluebubbles.password` 进行身份验证。来自 `localhost` 的请求也会被接受。
+- Webhook 请求通过比较 `guid`/`password` 查询参数或头部与 `channels.bluebubbles.password` 进行身份验证。来自 `localhost` 的请求也会被接受。 Requests from `localhost` are also accepted.
 - 保持 API 密码和 webhook 端点的机密性（将它们视为凭证）。
-- localhost 信任意味着同主机的反向代理可能无意中绕过密码验证。如果你使用代理 Gateway 网关，请在代理处要求身份验证并配置 `gateway.trustedProxies`。参见 [Gateway 网关安全性](/gateway/security#reverse-proxy-configuration)。
+- localhost 信任意味着同主机的反向代理可能无意中绕过密码验证。如果你使用代理 Gateway 网关，请在代理处要求身份验证并配置 `gateway.trustedProxies`。参见 [Gateway 网关安全性](/gateway/security#reverse-proxy-configuration)。 If you proxy the gateway, require auth at the proxy and configure `gateway.trustedProxies`. See [Gateway security](/gateway/security#reverse-proxy-configuration).
 - 如果将 BlueBubbles 服务器暴露在局域网之外，请启用 HTTPS + 防火墙规则。
 
 ## 故障排除
@@ -258,11 +340,9 @@ OpenClaw 可能会显示*短*消息 ID（例如 `1`、`2`）以节省 token。
 - 如果输入/已读事件停止工作，请检查 BlueBubbles webhook 日志并验证 Gateway 网关路径是否与 `channels.bluebubbles.webhookPath` 匹配。
 - 配对码在一小时后过期；使用 `openclaw pairing list bluebubbles` 和 `openclaw pairing approve bluebubbles <code>`。
 - 回应需要 BlueBubbles private API（`POST /api/v1/message/react`）；确保服务器版本支持它。
-- 编辑/撤回需要 macOS 13+ 和兼容的 BlueBubbles 服务器版本。在 macOS 26（Tahoe）上，由于 private API 变更，编辑功能目前不可用。
+- 编辑/撤回需要 macOS 13+ 和兼容的 BlueBubbles 服务器版本。在 macOS 26（Tahoe）上，由于 private API 变更，编辑功能目前不可用。 On macOS 26 (Tahoe), edit is currently broken due to private API changes.
 - 在 macOS 26（Tahoe）上群组图标更新可能不稳定：API 可能返回成功但新图标未同步。
-- OpenClaw 会根据 BlueBubbles 服务器的 macOS 版本自动隐藏已知不可用的操作。如果在 macOS 26（Tahoe）上编辑仍然显示，请使用 `channels.bluebubbles.actions.edit=false` 手动禁用。
+- OpenClaw auto-hides known-broken actions based on the BlueBubbles server's macOS version. OpenClaw 会根据 BlueBubbles 服务器的 macOS 版本自动隐藏已知不可用的操作。如果在 macOS 26（Tahoe）上编辑仍然显示，请使用 `channels.bluebubbles.actions.edit=false` 手动禁用。
 - 查看状态/健康信息：`openclaw status --all` 或 `openclaw status --deep`。
 
 有关通用渠道工作流参考，请参阅[渠道](/channels)和[插件](/tools/plugin)指南。
-
-

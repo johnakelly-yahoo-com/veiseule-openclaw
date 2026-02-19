@@ -1,4 +1,9 @@
 ---
+summary: "iOS va boshqa masofaviy tugunlar uchun shlyuzga tegishli tugun juftlashuvi (Variant B)"
+read_when:
+  - macOS UI bo‘lmasdan tugun juftlashuvini tasdiqlashni amalga oshirish
+  - Masofaviy tugunlarni tasdiqlash uchun CLI oqimlarini qo‘shish
+  - Tugunlarni boshqarish bilan shlyuz protokolini kengaytirish
 title: "Shlyuzga tegishli juftlashuv"
 ---
 
@@ -72,8 +77,8 @@ macOS ilovasi quyidagi hollarda ixtiyoriy ravishda **jim tasdiqlash**ga urinishi
 
 4. Juftlash holati Gateway holat katalogida saqlanadi (standart `~/.openclaw`):
 
-- 5. `~/.openclaw/nodes/paired.json`
-- 6. `~/.openclaw/nodes/pending.json`
+- `~/.openclaw/nodes/paired.json`
+- `~/.openclaw/nodes/pending.json`
 
 7. Agar `OPENCLAW_STATE_DIR` ni qayta belgilasangiz, `nodes/` papkasi ham u bilan birga ko‘chadi.
 
@@ -87,5 +92,3 @@ macOS ilovasi quyidagi hollarda ixtiyoriy ravishda **jim tasdiqlash**ga urinishi
 - 12. Transport **holatsiz**; u a’zolikni saqlamaydi.
 - 13. Agar Gateway oflayn bo‘lsa yoki juftlash o‘chirilgan bo‘lsa, tugunlar juftlasha olmaydi.
 - 14. Agar Gateway masofaviy rejimda bo‘lsa, juftlash baribir masofaviy Gateway omboriga qarshi amalga oshiriladi.
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "Supportstatus, funktioner och konfiguration för Nextcloud Talk"
+read_when:
+  - Arbetar med kanalfunktioner för Nextcloud Talk
 title: "Nextcloud Talk"
 ---
 
@@ -136,5 +139,3 @@ Leverantörsalternativ:
 - `channels.nextcloud-talk.blockStreaming`: inaktivera blockstreaming för denna kanal.
 - `channels.nextcloud-talk.blockStreamingCoalesce`: sammanslagningsjustering för blockstreaming.
 - `channels.nextcloud-talk.mediaMaxMb`: inkommande medietak (MB).
-
-

@@ -1,10 +1,14 @@
 ---
+summary: "直接執行 `openclaw agent` CLI（可選擇是否傳送）"
+read_when:
+  - 新增或修改 agent CLI 進入點
 title: "Agent 傳送"
 ---
 
 # `openclaw agent`（直接執行 agent）
 
 10. `openclaw agent` 可在不需要傳入聊天訊息的情況下執行單次代理回合。
+    `openclaw agent` 可在不需要傳入聊天訊息的情況下執行單次代理回合。
     By default it goes **through the Gateway**; add `--local` to force the embedded
     runtime on the current machine.
 
@@ -48,5 +52,3 @@ openclaw agent --agent ops --message "Generate report" --deliver --reply-channel
 - `--verbose <on|full|off>`：持久化 verbose 等級
 - `--timeout <seconds>`：覆寫 agent 逾時
 - `--json`：輸出結構化 JSON
-
-

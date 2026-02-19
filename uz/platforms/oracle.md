@@ -1,37 +1,42 @@
 ---
-title: "Oracle Cloud"
+summary: "8. Oracle Cloud’da OpenClaw (Always Free ARM)"
+read_when:
+  - 9. Oracle Cloud’da OpenClaw’ni sozlash
+  - Looking for low-cost VPS hosting for OpenClaw
+  - 11. Kichik serverda 24/7 OpenClaw xohlaysizmi
+title: "12. Oracle Cloud"
 ---
 
-# OpenClaw on Oracle Cloud (OCI)
+# 13. Oracle Cloud’da OpenClaw (OCI)
 
-## Goal
+## 14. Maqsad
 
-Run a persistent OpenClaw Gateway on Oracle Cloud's **Always Free** ARM tier.
+15. Oracle Cloud’ning **Always Free** ARM qatlamida doimiy OpenClaw Gateway’ni ishga tushirish.
 
-Oracle’s free tier can be a great fit for OpenClaw (especially if you already have an OCI account), but it comes with tradeoffs:
+16. Oracle’ning bepul qatlamı OpenClaw uchun juda mos bo‘lishi mumkin (ayniqsa sizda allaqachon OCI hisobi bo‘lsa), ammo u ayrim murosalar bilan keladi:
 
-- ARM architecture (most things work, but some binaries may be x86-only)
-- Capacity and signup can be finicky
+- 17. ARM arxitekturasi (ko‘p narsa ishlaydi, ammo ayrim binarlar faqat x86 bo‘lishi mumkin)
+- 18. Sig‘im va ro‘yxatdan o‘tish ba’zan muammoli bo‘lishi mumkin
 
-## Cost Comparison (2026)
+## 19. Xarajatlar taqqoslanishi (2026)
 
-| Provider     | Plan            | Specs                  | Price/mo | Notes                 |
-| ------------ | --------------- | ---------------------- | -------- | --------------------- |
-| Oracle Cloud | Always Free ARM | up to 4 OCPU, 24GB RAM | $0       | ARM, limited capacity |
-| Hetzner      | CX22            | 2 vCPU, 4GB RAM        | ~ $4     | Cheapest paid option  |
-| DigitalOcean | Basic           | 1 vCPU, 1GB RAM        | $6       | Easy UI, good docs    |
-| Vultr        | Cloud Compute   | 1 vCPU, 1GB RAM        | $6       | Many locations        |
-| Linode       | Nanode          | 1 vCPU, 1GB RAM        | $5       | Now part of Akamai    |
+| 20. Provayder    | 21. Reja            | 22. Xususiyatlar           | 23. Narx/oy              | 24. Izohlar                           |
+| --------------------------------------- | ------------------------------------------ | ------------------------------------------------- | ----------------------------------------------- | ------------------------------------------------------------ |
+| 25. Oracle Cloud | 26. Always Free ARM | 27. 4 OCPU gacha, 24GB RAM | 28. $0                   | 29. ARM, cheklangan sig‘im            |
+| 30. Hetzner      | 31. CX22            | 32. 2 vCPU, 4GB RAM        | 33. ~ $4 | 34. Eng arzon pullik variant          |
+| 35. DigitalOcean | 36. Basic           | 37. 1 vCPU, 1GB RAM        | 38. $6                   | 39. Qulay interfeys, yaxshi hujjatlar |
+| 40. Vultr        | 41. Cloud Compute   | 42. 1 vCPU, 1GB RAM        | 43. $6                   | 44. Ko‘plab joylashuvlar              |
+| 45. Linode       | 46. Nanode          | 47. 1 vCPU, 1GB RAM        | 48. $5                   | 49. Endi Akamai tarkibida             |
 
 ---
 
-## Prerequisites
+## 50. Talablar
 
 - Oracle Cloud account ([signup](https://www.oracle.com/cloud/free/)) — see [community signup guide](https://gist.github.com/rssnyder/51e3cfedd730e7dd5f4a816143b25dbd) if you hit issues
 - Tailscale account (free at [tailscale.com](https://tailscale.com))
 - ~30 minutes
 
-## 1) Create an OCI Instance
+## 1. Create an OCI Instance
 
 1. Log into [Oracle Cloud Console](https://cloud.oracle.com/)
 2. Navigate to **Compute → Instances → Create Instance**
@@ -48,7 +53,7 @@ Oracle’s free tier can be a great fit for OpenClaw (especially if you already 
 
 **Tip:** If instance creation fails with "Out of capacity", try a different availability domain or retry later. Free tier capacity is limited.
 
-## 2) Connect and Update
+## 2. Connect and Update
 
 ```bash
 # Connect via public IP
@@ -61,7 +66,7 @@ sudo apt install -y build-essential
 
 **Note:** `build-essential` is required for ARM compilation of some dependencies.
 
-## 3) Configure User and Hostname
+## 3. Configure User and Hostname
 
 ```bash
 # Set hostname
@@ -74,7 +79,7 @@ sudo passwd ubuntu
 sudo loginctl enable-linger ubuntu
 ```
 
-## 4) Install Tailscale
+## 4. Install Tailscale
 
 ```bash
 curl -fsSL https://tailscale.com/install.sh | sh
@@ -91,7 +96,7 @@ tailscale status
 
 **From now on, connect via Tailscale:** `ssh ubuntu@openclaw` (or use the Tailscale IP).
 
-## 5) Install OpenClaw
+## 5. Install OpenClaw
 
 ```bash
 curl -fsSL https://openclaw.ai/install.sh | bash
@@ -102,7 +107,7 @@ When prompted "How do you want to hatch your bot?", select **"Do this later"**.
 
 > Note: If you hit ARM-native build issues, start with system packages (e.g. `sudo apt install -y build-essential`) before reaching for Homebrew.
 
-## 6) Configure Gateway (loopback + token auth) and enable Tailscale Serve
+## 6. Configure Gateway (loopback + token auth) and enable Tailscale Serve
 
 Use token auth as the default. It’s predictable and avoids needing any “insecure auth” Control UI flags.
 
@@ -121,7 +126,7 @@ openclaw config set gateway.trustedProxies '["127.0.0.1"]'
 systemctl --user restart openclaw-gateway
 ```
 
-## 7) Verify
+## 7. Verify
 
 ```bash
 # Check version
@@ -137,7 +142,7 @@ tailscale serve status
 curl http://localhost:18789
 ```
 
-## 8) Lock Down VCN Security
+## 8. Lock Down VCN Security
 
 Now that everything is working, lock down the VCN to block all traffic except Tailscale. OCI's Virtual Cloud Network acts as a firewall at the network edge — traffic is blocked before it reaches your instance.
 
@@ -197,7 +202,7 @@ This setup often removes the _need_ for extra host-based firewall rules purely t
 
 ```bash
 # Confirm no public ports listening
-sudo ss -tlnp | grep -v '127.0.0.1\|::1'
+sudo ss -tlnp | grep -v '127.0.0.1|::1'
 
 # Verify Tailscale SSH is active
 tailscale status | grep -q 'offers: ssh' && echo "Tailscale SSH active"
@@ -241,7 +246,7 @@ sudo tailscale status
 sudo tailscale up --ssh --hostname=openclaw --reset
 ```
 
-### Gateway won't start
+### Gateway ishga tushmayapti
 
 ```bash
 openclaw gateway status
@@ -249,39 +254,39 @@ openclaw doctor --non-interactive
 journalctl --user -u openclaw-gateway -n 50
 ```
 
-### Can't reach Control UI
+### Control UI ga kira olmayapman
 
 ```bash
-# Verify Tailscale Serve is running
+# Tailscale Serve ishlayotganini tekshiring
 tailscale serve status
 
-# Check gateway is listening
+# Gateway tinglayotganini tekshiring
 curl http://localhost:18789
 
-# Restart if needed
+# Kerak bo‘lsa qayta ishga tushiring
 systemctl --user restart openclaw-gateway
 ```
 
-### ARM binary issues
+### ARM binar muammolari
 
-Some tools may not have ARM builds. Check:
+Ba’zi vositalarda ARM buildlari bo‘lmasligi mumkin. Tekshiring:
 
 ```bash
 uname -m  # Should show aarch64
 ```
 
-Most npm packages work fine. For binaries, look for `linux-arm64` or `aarch64` releases.
+Ko‘pchilik npm paketlari muammosiz ishlaydi. Binarlar uchun `linux-arm64` yoki `aarch64` relizlarini qidiring.
 
 ---
 
-## Persistence
+## Saqlanish (Persistence)
 
-All state lives in:
+Barcha holat ma’lumotlari shu yerda saqlanadi:
 
 - `~/.openclaw/` — config, credentials, session data
-- `~/.openclaw/workspace/` — workspace (SOUL.md, memory, artifacts)
+- `~/.openclaw/workspace/` — ish maydoni (SOUL.md, xotira, artefaktlar)
 
-Back up periodically:
+Vaqti-vaqti bilan zaxira nusxa oling:
 
 ```bash
 tar -czvf openclaw-backup.tar.gz ~/.openclaw ~/.openclaw/workspace
@@ -289,12 +294,10 @@ tar -czvf openclaw-backup.tar.gz ~/.openclaw ~/.openclaw/workspace
 
 ---
 
-## See Also
+## Shuningdek qarang
 
-- [Gateway remote access](/gateway/remote) — other remote access patterns
-- [Tailscale integration](/gateway/tailscale) — full Tailscale docs
-- [Gateway configuration](/gateway/configuration) — all config options
-- [DigitalOcean guide](/platforms/digitalocean) — if you want paid + easier signup
-- [Hetzner guide](/install/hetzner) — Docker-based alternative
-
-
+- [Gateway remote access](/gateway/remote) — masofaviy kirishning boshqa usullari
+- [Tailscale integration](/gateway/tailscale) — Tailscale bo‘yicha to‘liq hujjatlar
+- [Gateway configuration](/gateway/configuration) — barcha konfiguratsiya variantlari
+- [DigitalOcean guide](/platforms/digitalocean) — pullik + osonroq ro‘yxatdan o‘tish istasangiz
+- [Hetzner guide](/install/hetzner) — Docker asosidagi muqobil yechim

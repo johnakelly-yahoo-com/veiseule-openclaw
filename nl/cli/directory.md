@@ -1,4 +1,8 @@
 ---
+summary: "CLI-referentie voor `openclaw directory` (zelf, peers, groepen)"
+read_when:
+  - Je wilt contact-/groep-/zelf-id’s opzoeken voor een kanaal
+  - Je ontwikkelt een kanaaldirectory-adapter
 title: "directory"
 ---
 
@@ -57,5 +61,3 @@ openclaw directory groups list --channel zalouser
 openclaw directory groups list --channel zalouser --query "work"
 openclaw directory groups members --channel zalouser --group-id <id>
 ```
-
-

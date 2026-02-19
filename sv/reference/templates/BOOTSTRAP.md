@@ -1,4 +1,9 @@
-------
+---
+title: "BOOTSTRAP.md-mall"
+summary: "Första körningens ritual för nya agenter"
+read_when:
+  - Manuell bootstrap av en arbetsyta
+---
 
 # BOOTSTRAP.md – Hej, världen
 
@@ -55,5 +60,3 @@ Ta bort denna fil. Du behöver inte längre ett bootstrap-skript — du är nu d
 ---
 
 _Lycka till där ute. Få det att räknas._
-
-

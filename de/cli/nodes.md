@@ -1,4 +1,8 @@
 ---
+summary: "CLI-Referenz für `openclaw nodes` (list/status/approve/invoke, camera/canvas/screen)"
+read_when:
+  - Sie verwalten gekoppelte Nodes (Kameras, Bildschirm, Canvas)
+  - Sie müssen Anfragen genehmigen oder Node-Befehle ausführen
 title: "Nodes"
 ---
 
@@ -57,15 +61,13 @@ Invoke-Flags:
 - `--node` kann weggelassen werden, wenn `tools.exec.node` gesetzt ist.
 - Erfordert einen Node, der `system.run` bewirbt (macOS-Companion-App oder headless Node-Host).
 
-Optionen:
+Flags:
 
 - `--cwd <path>`: Arbeitsverzeichnis.
-- `--env <key=val>`: Env-Override (wiederholbar).
+- `--env <key=val>`: Env-Override (wiederholbar). Hinweis: Node-Hosts ignorieren `PATH`-Überschreibungen (und `tools.exec.pathPrepend` wird auf Node-Hosts nicht angewendet).
 - `--command-timeout <ms>`: Befehls-Timeout.
 - `--invoke-timeout <ms>`: Node-Invoke-Timeout (Standard `30000`).
 - `--needs-screen-recording`: Bildschirmaufnahmeberechtigung erforderlich.
 - `--raw <command>`: eine Shell-Zeichenkette ausführen (`/bin/sh -lc` oder `cmd.exe /c`).
 - `--agent <id>`: agentenbezogene Genehmigungen/Allowlists (Standard: konfigurierter Agent).
 - `--ask <off|on-miss|always>`, `--security <deny|allowlist|full>`: Überschreibungen.
-
-

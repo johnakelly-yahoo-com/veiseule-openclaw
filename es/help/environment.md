@@ -1,4 +1,9 @@
 ---
+summary: "Dónde OpenClaw carga las variables de entorno y el orden de precedencia"
+read_when:
+  - Necesitas saber qué vars env están cargados, y en qué orden
+  - Está depurando claves de API faltantes en el Gateway
+  - Está documentando la autenticación de proveedores o los entornos de despliegue
 title: "Variables de entorno"
 ---
 
@@ -69,13 +74,13 @@ Puede referenciar variables de entorno directamente en valores de cadena de la c
 
 Consulte [Configuración: Sustitución de variables de entorno](/gateway/configuration#env-var-substitution-in-config) para conocer todos los detalles.
 
-## Variables de entorno relacionadas con rutas
+## Path-related env vars
 
-| Variable               | Propósito                                                                                                                                                                                                                           |
-| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Variable               | Propósito                                                                                                                                                                                                                                          |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `OPENCLAW_HOME`        | Anula el directorio principal utilizado para toda la resolución interna de rutas (`~/.openclaw/`, agent dirs, sessions, credentials). Useful when running OpenClaw as a dedicated service user. |
-| `OPENCLAW_STATE_DIR`   | Anula el directorio de estado (predeterminado `~/.openclaw`).                                                                                                                                            |
-| `OPENCLAW_CONFIG_PATH` | Anula la ruta del archivo de configuración (por defecto `~/.openclaw/openclaw.json`).                                                                                                            |
+| `OPENCLAW_STATE_DIR`   | Anula el directorio de estado (predeterminado `~/.openclaw`).                                                                                                                                                   |
+| `OPENCLAW_CONFIG_PATH` | Anula la ruta del archivo de configuración (por defecto `~/.openclaw/openclaw.json`).                                                                                                                           |
 
 ### `OPENCLAW_HOME`
 
@@ -100,5 +105,3 @@ Cuando se establece, `OPENCLAW_HOME` reemplaza el directorio home del sistema (`
 - [Configuración del Gateway](/gateway/configuration)
 - [Preguntas frecuentes: variables de entorno y carga de .env](/help/faq#env-vars-and-env-loading)
 - [Descripción general de modelos](/concepts/models)
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Các nền tảng nhắn tin mà OpenClaw có thể kết nối"
+read_when:
+  - Bạn muốn chọn một kênh trò chuyện cho OpenClaw
+  - Bạn cần tổng quan nhanh về các nền tảng nhắn tin được hỗ trợ
 title: "Kênh trò chuyện"
 ---
 
@@ -29,6 +33,7 @@ title: "Kênh trò chuyện"
 - [Zalo](/channels/zalo) — Zalo Bot API; ứng dụng nhắn tin phổ biến tại Việt Nam (plugin, cài đặt riêng).
 - [Zalo Personal](/channels/zalouser) — Tài khoản Zalo cá nhân qua đăng nhập QR (plugin, cài đặt riêng).
 - [WebChat](/web/webchat) — Giao diện WebChat của Gateway qua WebSocket.
+- [WebChat](/web/webchat) — Giao diện WebChat của Gateway qua WebSocket.
 
 ## Ghi chú
 
@@ -40,5 +45,3 @@ title: "Kênh trò chuyện"
 - Nội bộ Telegram: [ghi chú grammY](/channels/grammy).
 - Xử lý sự cố: [Xử lý sự cố kênh](/channels/troubleshooting).
 - Nhà cung cấp mô hình được tài liệu hóa riêng; xem [Model Providers](/providers/models).
-
-

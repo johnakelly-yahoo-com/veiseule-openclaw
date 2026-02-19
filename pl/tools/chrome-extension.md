@@ -1,4 +1,9 @@
 ---
+summary: "Rozszerzenie Chrome: pozwól OpenClaw sterować Twoją istniejącą kartą Chrome"
+read_when:
+  - Chcesz, aby agent sterował istniejącą kartą Chrome (przycisk na pasku narzędzi)
+  - Potrzebujesz zdalnego Gateway + lokalnej automatyzacji przeglądarki przez Tailscale
+  - Chcesz zrozumieć implikacje bezpieczeństwa przejęcia przeglądarki
 title: "Rozszerzenie Chrome"
 ---
 
@@ -171,5 +176,3 @@ Powiązane:
 - Przegląd narzędzia przeglądarki: [Browser](/tools/browser)
 - Audyt bezpieczeństwa: [Security](/gateway/security)
 - Konfiguracja Tailscale: [Tailscale](/gateway/tailscale)
-
-

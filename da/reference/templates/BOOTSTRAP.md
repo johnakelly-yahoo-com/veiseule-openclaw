@@ -1,4 +1,9 @@
-------
+---
+title: "BOOTSTRAP.md-skabelon"
+summary: "Førstegangsritual for nye agenter"
+read_when:
+  - Manuel bootstrap af et workspace
+---
 
 # BOOTSTRAP.md - Hej, verden
 
@@ -55,5 +60,3 @@ Slet denne fil. Du behøver ikke et bootstrap script længere - du er nu.
 ---
 
 _Held og lykke derude. Gør det tæller._
-
-

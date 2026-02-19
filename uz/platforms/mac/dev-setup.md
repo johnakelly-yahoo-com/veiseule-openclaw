@@ -1,4 +1,7 @@
 ---
+summary: "38. OpenClaw macOS ilovasi ustida ishlayotgan dasturchilar uchun sozlash qo‘llanmasi"
+read_when:
+  - 39. macOS ishlab chiqish muhitini sozlash
 title: "40. macOS Dev Setup"
 ---
 
@@ -21,29 +24,30 @@ title: "40. macOS Dev Setup"
 50. pnpm install
 ```
 
-## 2. Ilovani yig‘ish va paketlash
+## 2. Build and Package the App
 
-macOS ilovasini yig‘ish va uni `dist/OpenClaw.app` ichiga paketlash uchun quyidagini ishga tushiring:
+To build the macOS app and package it into `dist/OpenClaw.app`, run:
 
 ```bash
 ./scripts/package-mac-app.sh
 ```
 
-Agar sizda Apple Developer ID sertifikati bo‘lmasa, skript avtomatik ravishda **ad-hoc signing** (`-`) dan foydalanadi.
-
 Dev ishga tushirish rejimlari, imzolash flaglari va Team ID bilan bog‘liq muammolarni hal qilish uchun macOS app README ga qarang:
 [https://github.com/openclaw/openclaw/blob/main/apps/macos/README.md](https://github.com/openclaw/openclaw/blob/main/apps/macos/README.md)
 
-> **Eslatma**: Ad-hoc imzolangan ilovalar xavfsizlik ogohlantirishlarini chiqarishi mumkin. Agar ilova darhol "Abort trap 6" xatosi bilan yopilsa, [Troubleshooting](#troubleshooting) bo‘limiga qarang.
+For dev run modes, signing flags, and Team ID troubleshooting, see the macOS app README:
+[https://github.com/openclaw/openclaw/blob/main/apps/macos/README.md](https://github.com/openclaw/openclaw/blob/main/apps/macos/README.md)
 
-## 3. CLI ni o‘rnatish
+> **Note**: Ad-hoc signed apps may trigger security prompts. If the app crashes immediately with "Abort trap 6", see the [Troubleshooting](#troubleshooting) section.
 
-macOS ilovasi fon vazifalarini boshqarish uchun global `openclaw` CLI o‘rnatilgan bo‘lishini talab qiladi.
+## 3. Install the CLI
 
 **Uni o‘rnatish uchun (tavsiya etiladi):**
 
+**To install it (recommended):**
+
 1. Open the OpenClaw app.
-2. **General** sozlamalar yorlig‘iga o‘ting.
+2. Go to the **General** settings tab.
 3. Click **"Install CLI"**.
 
 Alternatively, install it manually:
@@ -99,5 +103,3 @@ lsof -nP -iTCP:18789 -sTCP:LISTEN
 ```
 
 If a manual run is holding the port, stop that process (Ctrl+C). As a last resort, kill the PID you found above.
-
-

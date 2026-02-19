@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw CLI के लिए स्क्रिप्टेड ऑनबोर्डिंग और एजेंट सेटअप"
+read_when:
+  - आप स्क्रिप्ट या CI में ऑनबोर्डिंग को स्वचालित कर रहे हों
+  - आपको विशिष्ट प्रदाताओं के लिए गैर-इंटरैक्टिव उदाहरणों की आवश्यकता हो
 title: "CLI स्वचालन"
 sidebarTitle: "CLI स्वचालन"
 ---
@@ -109,6 +113,25 @@ openclaw onboard --non-interactive \
     ```
   
 </Accordion>
+  <Accordion title="Custom provider example">```bash
+openclaw onboard --non-interactive \
+  --mode local \
+  --auth-choice custom-api-key \
+  --custom-base-url "https://llm.example.com/v1" \
+  --custom-model-id "foo-large" \
+  --custom-api-key "$CUSTOM_API_KEY" \
+  --custom-provider-id "my-custom" \
+  --custom-compatibility anthropic \
+  --gateway-port 18789 \
+  --gateway-bind loopback
+```
+
+    ```
+    `--custom-api-key` वैकल्पिक है। यदि इसे छोड़ा जाता है, तो onboarding `CUSTOM_API_KEY` की जाँच करता है।
+    ```
+
+  
+</Accordion>
 </AccordionGroup>
 
 ## एक और एजेंट जोड़ें
@@ -124,7 +147,7 @@ openclaw agents add work \
   --json
 ```
 
-यह क्या सेट करता है:
+नोट्स:
 
 - `agents.list[].name`
 - `agents.list[].workspace`
@@ -132,14 +155,12 @@ openclaw agents add work \
 
 नोट्स:
 
-- डिफ़ॉल्ट वर्कस्पेस `~/.openclaw/workspace-<agentId>` का पालन करते हैं।
-- इनबाउंड संदेशों को रूट करने के लिए `bindings` जोड़ें (विज़ार्ड यह कर सकता है)।
-- गैर-इंटरैक्टिव फ़्लैग्स: `--model`, `--agent-dir`, `--bind`, `--non-interactive`।
+- ऑनबोर्डिंग हब: [Onboarding Wizard (CLI)](/start/wizard)
+- पूर्ण संदर्भ: [CLI Onboarding Reference](/start/wizard-cli-reference)
+- कमांड संदर्भ: [`openclaw onboard`](/cli/onboard)
 
 ## संबंधित दस्तावेज़
 
 - ऑनबोर्डिंग हब: [Onboarding Wizard (CLI)](/start/wizard)
 - पूर्ण संदर्भ: [CLI Onboarding Reference](/start/wizard-cli-reference)
 - कमांड संदर्भ: [`openclaw onboard`](/cli/onboard)
-
-

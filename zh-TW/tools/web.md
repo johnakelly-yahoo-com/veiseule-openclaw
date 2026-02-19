@@ -1,4 +1,9 @@
 ---
+summary: "網頁搜尋＋擷取工具（Brave Search API、Perplexity 直接／OpenRouter）"
+read_when:
+  - 你想要啟用 web_search 或 web_fetch
+  - 你需要設定 Brave Search API 金鑰
+  - 你想要使用 Perplexity Sonar 進行網頁搜尋
 title: "Web 工具"
 ---
 
@@ -12,19 +17,19 @@ OpenClaw 隨附兩個輕量級的 Web 工具：
 These are **not** browser automation. 對於 JS 密集型網站或登入，請使用
 [Browser tool](/tools/browser)。
 
-## 運作方式
+## How it works
 
 - `web_search` 會呼叫你設定的提供者並回傳結果。
-  - **Brave**（預設）：回傳結構化結果（標題、URL、摘要）。
+  - **Brave** (default): returns structured results (title, URL, snippet).
   - **Perplexity**：回傳含引用的 AI 綜合答案，來源為即時網頁搜尋。
 - 結果會依查詢快取 15 分鐘（可設定）。
 - `web_fetch` 會執行單純的 HTTP GET，並抽取可讀內容
-  （HTML → markdown／文字）。它**不會**執行 JavaScript。 It does **not** execute JavaScript.
+  （HTML → markdown／文字）。它**不會**執行 JavaScript。 It does **not** execute JavaScript. It does **not** execute JavaScript.
 - `web_fetch` 預設為啟用（除非明確停用）。
 
 ## 選擇搜尋提供者
 
-| 提供者            | 優點          | 缺點                          | API 金鑰                                      |
+| 提供者            | Pros          | Cons                          | API 金鑰                                      |
 | -------------- | ------------- | ----------------------------- | ------------------------------------------- |
 | **Brave**（預設）  | 快速、結構化結果、免費方案 | 傳統搜尋結果                        | `BRAVE_API_KEY`                             |
 | **Perplexity** | AI 綜合答案、引用、即時 | 需要 Perplexity 或 OpenRouter 存取 | `OPENROUTER_API_KEY` 或 `PERPLEXITY_API_KEY` |
@@ -75,7 +80,7 @@ Brave 提供免費方案與付費方案；請查看 Brave API 入口網站以了
 
 ### 在哪裡設定金鑰（建議）
 
-**建議：** 執行 `openclaw configure --section web`。 **建議：** 執行 `openclaw configure --section web`。它會將金鑰儲存在
+**建議：** 執行 `openclaw configure --section web`。 **建議：** 執行 `openclaw configure --section web`。 **建議：** 執行 `openclaw configure --section web`。它會將金鑰儲存在
 `~/.openclaw/openclaw.json` 的 `tools.web.search.apiKey` 之下。
 
 **Environment alternative:** set `BRAVE_API_KEY` in the Gateway process
@@ -84,7 +89,7 @@ environment. 對於 Gateway 安裝，請將其放在 `~/.openclaw/.env`（或你
 
 ## 使用 Perplexity（直接或經由 OpenRouter）
 
-Perplexity Sonar 模型具備內建的網頁搜尋能力，並回傳含引用的 AI 綜合答案。 You can use them via OpenRouter (no credit card required - supports
+Perplexity Sonar 模型具備內建的網頁搜尋能力，並回傳含引用的 AI 綜合答案。 Perplexity Sonar 模型具備內建的網頁搜尋能力，並回傳含引用的 AI 綜合答案。 You can use them via OpenRouter (no credit card required - supports
 crypto/prepaid).
 
 ### 取得 OpenRouter API 金鑰
@@ -116,8 +121,9 @@ crypto/prepaid).
 }
 ```
 
-**環境變數替代方案：** 在 Gateway
-環境中設定 `OPENROUTER_API_KEY` 或 `PERPLEXITY_API_KEY`。對於 Gateway 安裝，請將它放在 `~/.openclaw/.env`。 對於 Gateway 安裝，請將其放在 `~/.openclaw/.env`。
+**Environment alternative:** set `BRAVE_API_KEY` in the Gateway process
+environment. 對於 Gateway 安裝，請將其放在 `~/.openclaw/.env`（或你的
+服務環境）。 See [Env vars](/help/faq#how-does-openclaw-load-environment-variables).
 
 如果未設定 base URL，OpenClaw 會根據 API 金鑰來源選擇預設值：
 
@@ -127,7 +133,7 @@ crypto/prepaid).
 
 ### 可用的 Perplexity 模型
 
-| 模型                               | 說明 | 最適合  |
+| 模型                               | Description | 最適合  |
 | -------------------------------- | ----------- | ---- |
 | `perplexity/sonar`               | 具網頁搜尋的快速問答  | 快速查詢 |
 | `perplexity/sonar-pro`（預設）       | 具網頁搜尋的多步推理  | 複雜問題 |
@@ -169,7 +175,9 @@ crypto/prepaid).
 - `country`（選填）：用於地區限定結果的 2 碼國家代碼（例如「DE」、「US」、「ALL」）。若省略，Brave 會選擇其預設地區。 若省略，Brave 會選擇其預設地區。
 - `search_lang`（選填）：搜尋結果的 ISO 語言代碼（例如「de」、「en」、「fr」）
 - `ui_lang`（選填）：UI 元素的 ISO 語言代碼
-- `freshness`（選填，僅 Brave）：依探索時間篩選（`pd`、`pw`、`pm`、`py` 或 `YYYY-MM-DDtoYYYY-MM-DD`）
+- `freshness`（選用）：依發現時間篩選
+  - Brave：`pd`、`pw`、`pm`、`py` 或 `YYYY-MM-DDtoYYYY-MM-DD`
+  - Perplexity：`pd`、`pw`、`pm`、`py`
 
 **範例：**
 
@@ -243,7 +251,7 @@ await web_search({
 
 注意事項：
 
-- `web_fetch` 會先使用 Readability（主內容抽取），再使用 Firecrawl（若已設定）。若兩者皆失敗，工具會回傳錯誤。 如果兩者都失敗，工具會回傳錯誤。
+- `web_fetch` 會先使用 Readability（主內容抽取），再使用 Firecrawl（若已設定）。若兩者皆失敗，工具會回傳錯誤。 如果兩者都失敗，工具會回傳錯誤。 如果兩者都失敗，工具會回傳錯誤。
 - Firecrawl 請求預設使用規避機器人模式並快取結果。
 - `web_fetch` 預設送出類 Chrome 的 User-Agent 與 `Accept-Language`；必要時可覆寫 `userAgent`。
 - `web_fetch` 會封鎖私人／內部主機名稱並重新檢查重新導向（可用 `maxRedirects` 限制）。
@@ -253,5 +261,3 @@ await web_search({
 - 回應會被快取（預設 15 分鐘）以減少重複擷取。
 - 若你使用工具設定檔／允許清單，請加入 `web_search`/`web_fetch` 或 `group:web`。
 - 若缺少 Brave 金鑰，`web_search` 會回傳簡短的設定提示並附上文件連結。
-
-

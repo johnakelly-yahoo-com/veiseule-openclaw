@@ -1,4 +1,8 @@
 ---
+summary: "Trung tâm lưu trữ VPS cho OpenClaw (Oracle/Fly/Hetzner/GCP/exe.dev)"
+read_when:
+  - Bạn muốn chạy Gateway trên đám mây
+  - Bạn cần bản đồ nhanh các hướng dẫn VPS/lưu trữ
 title: "Lưu trữ VPS"
 ---
 
@@ -35,5 +39,3 @@ Trung tâm nền tảng: [Platforms](/platforms)
 Bạn có thể giữ Gateway trên đám mây và ghép cặp **nodes** trên các thiết bị cục bộ của bạn (Mac/iOS/Android/headless). Nodes cung cấp màn hình/camera/canvas cục bộ và khả năng `system.run` trong khi Gateway vẫn ở trên đám mây.
 
 Tài liệu: [Nodes](/nodes), [Nodes CLI](/cli/nodes)
-
-

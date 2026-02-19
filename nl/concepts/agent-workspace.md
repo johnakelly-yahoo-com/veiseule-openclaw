@@ -1,4 +1,8 @@
 ---
+summary: "Agent-werkruimte: locatie, indeling en back-upstrategie"
+read_when:
+  - Je moet de agent-werkruimte of de bestandsindeling uitleggen
+  - Je wilt een agent-werkruimte back-uppen of migreren
 title: "Agent-werkruimte"
 ---
 
@@ -233,5 +237,3 @@ Voorgestelde `.gitignore`-starter:
   [Channel routing](/channels/channel-routing) voor routeringsconfiguratie.
 - Als `agents.defaults.sandbox` is ingeschakeld, kunnen niet-hoofdsessies per-sessie
   sandbox-werkruimtes gebruiken onder `agents.defaults.sandbox.workspaceRoot`.
-
-

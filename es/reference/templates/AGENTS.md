@@ -1,4 +1,9 @@
-------
+---
+title: "Plantilla de AGENTS.md"
+summary: "Plantilla de espacio de trabajo para AGENTS.md"
+read_when:
+  - Inicialización manual de un espacio de trabajo
+---
 
 # AGENTS.md - Su espacio de trabajo
 
@@ -212,5 +217,3 @@ El objetivo: Ser útil sin ser molesto. Revise algunas veces al día, haga traba
 ## Hágalo suyo
 
 Este es un punto de partida. Agregue sus propias convenciones, estilo y reglas a medida que descubra qué funciona.
-
-

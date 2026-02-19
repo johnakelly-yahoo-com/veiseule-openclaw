@@ -1,18 +1,31 @@
 ---
+summary: "signal-cli (JSON-RPC + SSE) کے ذریعے Signal سپورٹ، سیٹ اپ، اور نمبر ماڈل"
+read_when:
+  - Signal سپورٹ سیٹ اپ کرنا
+  - Signal بھیجنے/موصول کرنے کی خرابیوں کی جانچ
 title: "Signal"
 ---
 
 # Signal (signal-cli)
 
-حیثیت: بیرونی CLI انٹیگریشن۔ Gateway `signal-cli` سے HTTP JSON-RPC + SSE کے ذریعے بات چیت کرتا ہے۔
+Status: external CLI integration. Gateway talks to `signal-cli` over HTTP JSON-RPC + SSE.
+
+## فوری سیٹ اپ (مبتدی)
+
+- بوٹ کے لیے **علیحدہ Signal نمبر** استعمال کریں (سفارش کردہ)۔
+- `signal-cli` انسٹال کریں (Java درکار ہے)۔
+- بوٹ ڈیوائس کو لنک کریں اور ڈیمَن شروع کریں:
+- OpenClaw کنفیگر کریں اور گیٹ وے شروع کریں۔
 
 ## فوری سیٹ اپ (مبتدی)
 
 1. بوٹ کے لیے **علیحدہ Signal نمبر** استعمال کریں (سفارش کردہ)۔
-2. `signal-cli` انسٹال کریں (Java درکار ہے)۔
-3. بوٹ ڈیوائس کو لنک کریں اور ڈیمَن شروع کریں:
-   - `signal-cli link -n "OpenClaw"`
-4. OpenClaw کنفیگر کریں اور گیٹ وے شروع کریں۔
+2. `signal-cli` انسٹال کریں (اگر آپ JVM build استعمال کرتے ہیں تو Java درکار ہے)۔
+3. ایک setup راستہ منتخب کریں:
+   - **Path A (QR link):** `signal-cli link -n "OpenClaw"` چلائیں اور Signal سے scan کریں۔
+   - **Path B (SMS register):** captcha + SMS verification کے ساتھ ایک مخصوص نمبر رجسٹر کریں۔
+4. OpenClaw کو configure کریں اور gateway کو دوبارہ شروع کریں۔
+5. پہلا DM بھیجیں اور pairing منظور کریں (`openclaw pairing approve signal <CODE>`)۔
 
 کم از کم کنفیگ:
 
@@ -30,13 +43,22 @@ title: "Signal"
 }
 ```
 
+فیلڈ حوالہ:
+
+| فیلڈ        | وضاحت                                                                                |
+| ----------- | ------------------------------------------------------------------------------------ |
+| `account`   | E.164 فارمیٹ میں بوٹ کا فون نمبر (`+15551234567`) |
+| `cliPath`   | `signal-cli` کا راستہ (`PATH` میں ہو تو `signal-cli`)             |
+| `dmPolicy`  | DM رسائی پالیسی (`pairing` تجویز کردہ)                            |
+| `allowFrom` | وہ فون نمبرز یا `uuid:&lt;id&gt;` ویلیوز جنہیں DM کی اجازت ہے                              |
+
 ## یہ کیا ہے
 
 - `signal-cli` کے ذریعے Signal چینل (ایمبیڈڈ libsignal نہیں)۔
 - متعین روٹنگ: جوابات ہمیشہ Signal پر ہی واپس جاتے ہیں۔
 - DMs ایجنٹ کے مرکزی سیشن کو شیئر کرتے ہیں؛ گروپس الگ تھلگ ہوتے ہیں (`agent:<agentId>:signal:group:<groupId>`)۔
 
-## کنفیگ لکھائی
+## نمبر ماڈل (اہم)
 
 بطورِ طے شدہ، Signal کو `/config set|unset` کے ذریعے متحرک ہونے والی کنفیگ اپڈیٹس لکھنے کی اجازت ہے ( `commands.config: true` درکار ہے)۔
 
@@ -54,14 +76,14 @@ title: "Signal"
 - اگر آپ بوٹ کو **اپنے ذاتی Signal اکاؤنٹ** پر چلاتے ہیں تو یہ آپ کے اپنے پیغامات کو نظرانداز کرے گا (لوپ پروٹیکشن)۔
 - “میں بوٹ کو میسج کروں اور وہ جواب دے” کے لیے **علیحدہ بوٹ نمبر** استعمال کریں۔
 
-## سیٹ اپ (تیز راستہ)
+## سیٹ اپ راستہ A: موجودہ Signal اکاؤنٹ لنک کریں (QR)
 
-1. `signal-cli` انسٹال کریں (Java درکار ہے)۔
+1. `signal-cli` انسٹال کریں (JVM یا native build).
 2. بوٹ اکاؤنٹ لنک کریں:
    - `signal-cli link -n "OpenClaw"` پھر Signal میں QR اسکین کریں۔
 3. Signal کنفیگر کریں اور گیٹ وے شروع کریں۔
 
-مثال:
+اگر آپ `signal-cli` کو خود منیج کرنا چاہتے ہیں (سست JVM کولڈ اسٹارٹس، کنٹینر انِٹ، یا مشترکہ CPUs)، تو ڈیمَن الگ سے چلائیں اور OpenClaw کو اس کی طرف پوائنٹ کریں:
 
 ```json5
 {
@@ -78,6 +100,67 @@ title: "Signal"
 ```
 
 Multi-account support: use `channels.signal.accounts` with per-account config and optional `name`. See [`gateway/configuration`](/gateway/configuration#telegramaccounts--discordaccounts--slackaccounts--signalaccounts--imessageaccounts) for the shared pattern.
+
+## رسائی کا کنٹرول (DMs + گروپس)
+
+یہ اس وقت استعمال کریں جب آپ موجودہ Signal ایپ اکاؤنٹ لنک کرنے کے بجائے ایک مخصوص بوٹ نمبر چاہتے ہوں۔
+
+1. بطورِ طے شدہ: `channels.signal.dmPolicy = "pairing"`۔
+   - اکاؤنٹ/سیشن تنازعات سے بچنے کے لیے ایک مخصوص بوٹ نمبر استعمال کریں۔
+2. نامعلوم ارسال کنندگان کو ایک پیئرنگ کوڈ ملتا ہے؛ منظوری تک پیغامات نظرانداز کیے جاتے ہیں (کوڈز 1 گھنٹے بعد ختم ہو جاتے ہیں)۔
+
+```bash
+VERSION=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/AsamK/signal-cli/releases/latest | sed -e 's/^.*\/v//')
+curl -L -O "https://github.com/AsamK/signal-cli/releases/download/v${VERSION}/signal-cli-${VERSION}-Linux-native.tar.gz"
+sudo tar xf "signal-cli-${VERSION}-Linux-native.tar.gz" -C /opt
+sudo ln -sf /opt/signal-cli /usr/local/bin/
+signal-cli --version
+```
+
+اگر آپ JVM build (`signal-cli-${VERSION}.tar.gz`) استعمال کرتے ہیں تو پہلے JRE 25+ انسٹال کریں۔
+`signal-cli` کو اپڈیٹ رکھیں؛ upstream کے مطابق پرانے ریلیزز Signal سرور API میں تبدیلیوں کے باعث کام کرنا بند کر سکتے ہیں۔
+
+3. نمبر رجسٹر اور ویریفائی کریں:
+
+```bash
+signal-cli -a +<BOT_PHONE_NUMBER> register
+```
+
+اگر captcha درکار ہو:
+
+1. آؤٹ باؤنڈ متن کو `channels.signal.textChunkLimit` تک حصوں میں توڑا جاتا ہے (ڈیفالٹ 4000)۔
+2. اختیاری نئی لائن چنکنگ: خالی لائنوں (پیراگراف کی حدیں) پر تقسیم کے لیے `channels.signal.chunkMode="newline"` سیٹ کریں، پھر لمبائی کے مطابق چنکنگ ہوگی۔
+3. اٹیچمنٹس سپورٹڈ ہیں (base64، `signal-cli` سے حاصل شدہ)۔
+4. ڈیفالٹ میڈیا حد: `channels.signal.mediaMaxMb` (ڈیفالٹ 8)۔
+
+```bash
+signal-cli -a +<BOT_PHONE_NUMBER> register --captcha '<SIGNALCAPTCHA_URL>'
+signal-cli -a +<BOT_PHONE_NUMBER> verify <VERIFICATION_CODE>
+```
+
+4. **ٹائپنگ اشارے**: OpenClaw `signal-cli sendTyping` کے ذریعے ٹائپنگ سگنلز بھیجتا ہے اور جواب کے دوران انہیں ریفریش کرتا ہے۔
+
+```bash
+# اگر آپ gateway کو user systemd سروس کے طور پر چلا رہے ہیں:
+systemctl --user restart openclaw-gateway
+
+# پھر تصدیق کریں:
+openclaw doctor
+openclaw channels status --probe
+```
+
+5. `channel=signal` کے ساتھ `message action=react` استعمال کریں۔
+   - بوٹ نمبر پر کوئی بھی پیغام بھیجیں۔
+   - سرور پر کوڈ کی منظوری دیں: `openclaw pairing approve signal <PAIRING_CODE>`.
+   - "Unknown contact" سے بچنے کے لیے اپنے فون میں بوٹ نمبر کو بطور کانٹیکٹ محفوظ کریں۔
+
+اہم: `signal-cli` کے ساتھ فون نمبر اکاؤنٹ رجسٹر کرنے سے اس نمبر کے لیے مرکزی Signal ایپ سیشن ڈی آتھنٹیکیٹ ہو سکتا ہے۔ ایک مخصوص بوٹ نمبر کو ترجیح دیں، یا اگر آپ اپنی موجودہ فون ایپ سیٹ اپ برقرار رکھنا چاہتے ہیں تو QR لنک موڈ استعمال کریں۔
+
+Upstream حوالہ جات:
+
+- `signal-cli` README: `https://github.com/AsamK/signal-cli`
+- Captcha فلو: `https://github.com/AsamK/signal-cli/wiki/Registration-with-captcha`
+- Linking فلو: `https://github.com/AsamK/signal-cli/wiki/Linking-other-devices-(Provisioning)`
 
 ## بیرونی ڈیمَن موڈ (httpUrl)
 
@@ -119,7 +202,7 @@ DMs:
 - آنے والے پیغامات کو مشترکہ چینل لفافے میں نارملائز کیا جاتا ہے۔
 - جوابات ہمیشہ اسی نمبر یا گروپ کی طرف روٹ ہوتے ہیں۔
 
-## میڈیا + حدود
+## کنفیگریشن حوالہ (Signal)
 
 - آؤٹ باؤنڈ متن کو `channels.signal.textChunkLimit` تک حصوں میں توڑا جاتا ہے (ڈیفالٹ 4000)۔
 - اختیاری نئی لائن چنکنگ: خالی لائنوں (پیراگراف کی حدیں) پر تقسیم کے لیے `channels.signal.chunkMode="newline"` سیٹ کریں، پھر لمبائی کے مطابق چنکنگ ہوگی۔
@@ -130,15 +213,15 @@ DMs:
 
 ## ٹائپنگ + ریڈ رسیدیں
 
-- **ٹائپنگ اشارے**: OpenClaw `signal-cli sendTyping` کے ذریعے ٹائپنگ سگنلز بھیجتا ہے اور جواب کے دوران انہیں ریفریش کرتا ہے۔
-- **ریڈ رسیدیں**: جب `channels.signal.sendReadReceipts` true ہو، OpenClaw مجاز DMs کے لیے ریڈ رسیدیں فارورڈ کرتا ہے۔
-- signal-cli گروپس کے لیے ریڈ رسیدیں فراہم نہیں کرتا۔
+- `channels.signal.enabled`: چینل اسٹارٹ اپ فعال/غیرفعال کریں۔
+- `channels.signal.account`: بوٹ اکاؤنٹ کے لیے E.164۔
+- `channels.signal.cliPath`: `signal-cli` کا راستہ۔
 
 ## ری ایکشنز (میسج ٹول)
 
-- `channel=signal` کے ساتھ `message action=react` استعمال کریں۔
-- اہداف: ارسال کنندہ E.164 یا UUID (پیئرنگ آؤٹ پٹ سے `uuid:<id>` استعمال کریں؛ سادہ UUID بھی کام کرتا ہے)۔
-- `messageId` اس پیغام کے لیے Signal ٹائم اسٹیمپ ہے جس پر آپ ردِعمل دے رہے ہیں۔
+- `agents.list[].groupChat.mentionPatterns` (Signal مقامی مینشنز سپورٹ نہیں کرتا)۔
+- `messages.groupChat.mentionPatterns` (عالمی فال بیک)۔
+- `messages.responsePrefix`۔
 - گروپ ری ایکشنز کے لیے `targetAuthor` یا `targetAuthorUuid` درکار ہے۔
 
 مثالیں:
@@ -187,8 +270,25 @@ openclaw pairing list signal
 - ڈیمَن قابلِ رسائی ہے مگر جوابات نہیں: اکاؤنٹ/ڈیمَن سیٹنگز (`httpUrl`, `account`) اور رِسیو موڈ کی تصدیق کریں۔
 - DMs نظرانداز: ارسال کنندہ پیئرنگ منظوری کا منتظر ہے۔
 - گروپ پیغامات نظرانداز: گروپ بھیجنے والے/مینشن گیٹنگ ڈیلیوری روکتی ہے۔
+- ترمیم کے بعد config ویلیڈیشن کی غلطیاں: `openclaw doctor --fix` چلائیں۔
+- اگر diagnostics میں Signal نظر نہیں آ رہا: تصدیق کریں `channels.signal.enabled: true`.
+
+اضافی جانچیں:
+
+```bash
+openclaw pairing list signal
+pgrep -af signal-cli
+grep -i "signal" "/tmp/openclaw/openclaw-$(date +%Y-%m-%d).log" | tail -20
+```
 
 ٹریاج فلو کے لیے: [/channels/troubleshooting](/channels/troubleshooting)۔
+
+## سیکیورٹی نوٹس
+
+- `signal-cli` اکاؤنٹ کیز مقامی طور پر محفوظ کرتا ہے (عام طور پر `~/.local/share/signal-cli/data/`).
+- سرور مائیگریشن یا دوبارہ تعمیر سے پہلے Signal اکاؤنٹ کی حالت کا بیک اپ لیں۔
+- جب تک آپ واضح طور پر وسیع DM رسائی نہیں چاہتے، `channels.signal.dmPolicy: "pairing"` برقرار رکھیں۔
+- SMS کی تصدیق صرف رجسٹریشن یا ریکوری کے عمل کے لیے درکار ہوتی ہے، لیکن نمبر/اکاؤنٹ پر کنٹرول کھو دینے سے دوبارہ رجسٹریشن پیچیدہ ہو سکتی ہے۔
 
 ## کنفیگریشن حوالہ (Signal)
 
@@ -222,5 +322,3 @@ openclaw pairing list signal
 - `agents.list[].groupChat.mentionPatterns` (Signal مقامی مینشنز سپورٹ نہیں کرتا)۔
 - `messages.groupChat.mentionPatterns` (عالمی فال بیک)۔
 - `messages.responsePrefix`۔
-
-

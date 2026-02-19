@@ -1,20 +1,24 @@
 ---
+summary: "OpenClaw prompt kontekstini qanday tuzadi va tokenlar sarfi hamda xarajatlarni qanday hisobot qiladi"
+read_when:
+  - Explaining token usage, costs, or context windows
+  - Debugging context growth or compaction behavior
 title: "Tokenlar sarfi va xarajatlar"
 ---
 
 # Tokenlar sarfi va xarajatlar
 
-OpenClaw belgilarni emas, **tokenlar**ni kuzatadi. Tokenlar modelga xos bo‘ladi, ammo aksariyat
+OpenClaw tracks **tokens**, not characters. Tokens are model-specific, but most
 OpenAI-style models average ~4 characters per token for English text.
 
 ## Tizim prompti qanday tuziladi
 
-OpenClaw har bir ishga tushirilganda o‘z tizim promptini yig‘adi. U quyidagilarni o‘z ichiga oladi:
+OpenClaw assembles its own system prompt on every run. It includes:
 
 - Asboblar roʻyxati + qisqa tavsiflar
 - Ko‘nikmalar ro‘yxati (faqat metadata; ko‘rsatmalar `read` yordamida talab bo‘yicha yuklanadi)
 - Oʻzini-oʻzi yangilash boʻyicha koʻrsatmalar
-- Workspace + bootstrap fayllari (`AGENTS.md`, `SOUL.md`, `TOOLS.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md`, yangi boʻlsa `BOOTSTRAP.md`). Katta fayllar `agents.defaults.bootstrapMaxChars` (standart: 20000) orqali qisqartiriladi.
+- Workspace + bootstrap fayllar (`AGENTS.md`, `SOUL.md`, `TOOLS.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md`, `BOOTSTRAP.md` yangi bo‘lsa, shuningdek `MEMORY.md` va/yoki `memory.md` mavjud bo‘lsa). Katta fayllar `agents.defaults.bootstrapMaxChars` (standart: 20000) orqali qisqartiriladi va umumiy bootstrap qo‘shilishi `agents.defaults.bootstrapTotalMaxChars` (standart: 24000) bilan cheklanadi. `memory/*.md` fayllari memory vositalari orqali talab bo‘yicha yuklanadi va avtomatik qo‘shilmaydi.
 - Vaqt (UTC + foydalanuvchi vaqt zonasi)
 - Javob teglar + heartbeat xatti-harakati
 - Runtime metamaʼlumotlari (host/OS/model/thinking)
@@ -93,5 +97,3 @@ agents:
 - Keng qamrovli, izlanishli ishlar uchun kichikroq modellarni afzal ko‘ring.
 
 Aniq skill roʻyxati ustama formulasi uchun [Skills](/tools/skills) ni koʻring.
-
-

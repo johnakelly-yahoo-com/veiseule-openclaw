@@ -1,4 +1,8 @@
 ---
+summary: "„OpenClaw na DigitalOcean (prosta płatna opcja VPS)”"
+read_when:
+  - Konfigurowanie OpenClaw na DigitalOcean
+  - Szukanie taniego hostingu VPS dla OpenClaw
 title: "DigitalOcean"
 ---
 
@@ -16,7 +20,7 @@ Jeśli chcesz opcję za 0 USD/mies. i nie przeszkadza Ci ARM oraz konfiguracja s
 | ------------ | --------------- | -------------------- | -------------------------------------------------- | ------------------------------------------------- |
 | Oracle Cloud | Always Free ARM | do 4 OCPU, 24 GB RAM | 0 USD                                              | ARM, ograniczona dostępność / niuanse rejestracji |
 | Hetzner      | CX22            | 2 vCPU, 4 GB RAM     | 3,79 € (~4 USD) | Najtańsza płatna opcja                            |
-| DigitalOcean | Podstawowy           | 1 vCPU, 1 GB RAM     | 6 USD                                              | Prosty interfejs, dobra dokumentacja              |
+| DigitalOcean | Podstawowy      | 1 vCPU, 1 GB RAM     | 6 USD                                              | Prosty interfejs, dobra dokumentacja              |
 | Vultr        | Cloud Compute   | 1 vCPU, 1 GB RAM     | 6 USD                                              | Wiele lokalizacji                                 |
 | Linode       | Nanode          | 1 vCPU, 1 GB RAM     | 5 USD                                              | Obecnie część Akamai                              |
 
@@ -256,5 +260,3 @@ free -h
 - [Instalacja Docker](/install/docker) — konfiguracja konteneryzowana
 - [Tailscale](/gateway/tailscale) — bezpieczny dostęp zdalny
 - [Konfiguracja](/gateway/configuration) — pełne referencje konfiguracji
-
-

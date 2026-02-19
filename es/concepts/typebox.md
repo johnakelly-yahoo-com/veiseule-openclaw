@@ -1,4 +1,7 @@
 ---
+summary: "Esquemas TypeBox como la única fuente de verdad para el protocolo del Gateway"
+read_when:
+  - Actualización de esquemas de protocolo o generación de código
 title: "TypeBox"
 ---
 
@@ -36,14 +39,14 @@ Client                    Gateway
 
 Métodos y eventos comunes:
 
-| Categoría | Ejemplos                                                  | Notas                                              |
-| --------- | --------------------------------------------------------- | -------------------------------------------------- |
-| Núcleo      | `connect`, `health`, `status`                             | `connect` debe ser primero                         |
+| Categoría  | Ejemplos                                                  | Notas                                              |
+| ---------- | --------------------------------------------------------- | -------------------------------------------------- |
+| Núcleo     | `connect`, `health`, `status`                             | `connect` debe ser primero                         |
 | Mensajería | `send`, `poll`, `agent`, `agent.wait`                     | los efectos secundarios requieren `idempotencyKey` |
-| Chat      | `chat.history`, `chat.send`, `chat.abort`, `chat.inject`  | WebChat usa estos                                  |
-| Sesiones  | `sessions.list`, `sessions.patch`, `sessions.delete`      | administración de sesiones                         |
-| Nodos     | `node.list`, `node.invoke`, `node.pair.*`                 | WS del Gateway + acciones de nodos                 |
-| Events    | `tick`, `presence`, `agent`, `chat`, `health`, `shutdown` | push del servidor                                  |
+| Chat       | `chat.history`, `chat.send`, `chat.abort`, `chat.inject`  | WebChat usa estos                                  |
+| Sesiones   | `sessions.list`, `sessions.patch`, `sessions.delete`      | administración de sesiones                         |
+| Nodos      | `node.list`, `node.invoke`, `node.pair.*`                 | WS del Gateway + acciones de nodos                 |
+| Events     | `tick`, `presence`, `agent`, `chat`, `health`, `shutdown` | push del servidor                                  |
 
 La lista autoritativa vive en `src/gateway/server.ts` (`METHODS`, `EVENTS`).
 
@@ -281,5 +284,3 @@ archivo raw publicado suele estar disponible en:
 1. Actualice los esquemas TypeBox.
 2. Ejecute `pnpm protocol:check`.
 3. Confirme el esquema regenerado + los modelos Swift.
-
-

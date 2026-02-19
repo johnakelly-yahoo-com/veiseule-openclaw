@@ -1,10 +1,12 @@
 ---
+summary: "Setup ng SSH tunnel para sa OpenClaw.app na kumokonekta sa isang remote gateway"
+read_when: "Pagkonekta ng macOS app sa isang remote gateway sa pamamagitan ng SSH"
 title: "Setup ng Remote Gateway"
 ---
 
 # Pagpapatakbo ng OpenClaw.app gamit ang Remote Gateway
 
-Gumagamit ang OpenClaw.app ng SSH tunneling upang kumonekta sa isang remote na Gateway. Ipinapakita ng gabay na ito kung paano ito i-set up.
+OpenClaw.app uses SSH tunneling to connect to a remote gateway. This guide shows you how to set it up.
 
 ## Pangkalahatang-ideya
 
@@ -162,13 +164,11 @@ launchctl bootout gui/$UID/bot.molt.ssh-tunnel
 
 ## Paano Ito Gumagana
 
-| Bahagi                            | Ano ang Ginagawa                                                                        |
+| Bahagi                               | Ano ang Ginagawa                                                                        |
 | ------------------------------------ | --------------------------------------------------------------------------------------- |
 | `LocalForward 18789 127.0.0.1:18789` | Ipinapasa ang lokal na port 18789 papunta sa remote port 18789                          |
 | `ssh -N`                             | SSH nang hindi nagsasagawa ng remote commands (port forwarding lang) |
 | `KeepAlive`                          | Awtomatikong nire-restart ang tunnel kung mag-crash                                     |
 | `RunAtLoad`                          | Sinisimulan ang tunnel kapag nag-load ang agent                                         |
 
-Kumokonekta ang OpenClaw.app sa `ws://127.0.0.1:18789` sa iyong client machine. Ipinapasa ng SSH tunnel ang koneksyong iyon sa port 18789 sa remote machine kung saan tumatakbo ang Gateway.
-
-
+OpenClaw.app connects to `ws://127.0.0.1:18789` on your client machine. The SSH tunnel forwards that connection to port 18789 on the remote machine where the Gateway is running.

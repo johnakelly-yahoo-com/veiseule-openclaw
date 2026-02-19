@@ -1,4 +1,11 @@
-------
+---
+title: "Lista kontrolna wydania"
+summary: "Lista kontrolna wydania krok po kroku dla npm + aplikacji macOS"
+read_when:
+  - Przygotowywanie nowego wydania npm
+  - Przygotowywanie nowego wydania aplikacji macOS
+  - Weryfikacja metadanych przed publikacją
+---
 
 # Lista kontrolna wydania (npm + macOS)
 
@@ -112,5 +119,3 @@ Aktualna lista wtyczek npm (aktualizuj w razie potrzeby):
 
 Informacje o wydaniu muszą również wskazywać **nowe opcjonalne dołączone wtyczki**, które **nie są
 włączone domyślnie** (przykład: `tlon`).
-
-

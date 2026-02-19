@@ -1,8 +1,13 @@
 ---
-title: "CLI cho mô hình"
+summary: "Models CLI: liệt kê, đặt, bí danh, dự phòng, quét, trạng thái"
+read_when:
+  - Thêm hoặc chỉnh sửa Models CLI (models list/set/scan/aliases/fallbacks)
+  - Thay đổi hành vi dự phòng mô hình hoặc UX chọn mô hình
+  - Cập nhật các probe quét mô hình (tools/images)
+title: "Models CLI"
 ---
 
-# CLI cho mô hình
+# Models CLI
 
 See [/concepts/model-failover](/concepts/model-failover) for auth profile
 rotation, cooldowns, and how that interacts with fallbacks.
@@ -189,5 +194,3 @@ Khi chạy trong TTY, bạn có thể chọn các fallback một cách tương t
 ## Registry mô hình (`models.json`)
 
 Các provider tùy chỉnh trong `models.providers` được ghi vào `models.json` dưới thư mục agent (mặc định `~/.openclaw/agents/<agentId>/models.json`). Tệp này được hợp nhất theo mặc định trừ khi `models.mode` được đặt thành `replace`.
-
-

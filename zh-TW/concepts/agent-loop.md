@@ -1,4 +1,7 @@
 ---
+summary: "Agent loop 的生命週期、串流與等待語義"
+read_when:
+  - 當你需要對 agent loop 或生命週期事件有精確的逐步說明
 title: "代理迴圈"
 ---
 
@@ -6,12 +9,14 @@ title: "代理迴圈"
 
 Agentic loop 是代理程式一次完整且「真實」的執行流程：輸入接收 → 情境組裝 → 模型推論 →
 工具執行 → 串流回覆 → 持久化。這是一條權威路徑，將一則訊息轉化為行動與最終回覆，同時維持工作階段狀態的一致性。 It’s the authoritative path that turns a message
+into actions and a final reply, while keeping session state consistent. It’s the authoritative path that turns a message
 into actions and a final reply, while keeping session state consistent.
 
 在 OpenClaw 中，一個 loop 是每個工作階段一次、序列化的執行，會在模型思考、呼叫工具與串流輸出時發出生命週期與串流事件。本文件說明這個真實 loop 如何端到端地連接運作。 This doc explains how that authentic loop is
+wired end-to-end. This doc explains how that authentic loop is
 wired end-to-end.
 
-## 進入點
+## Entry points
 
 - Gateway RPC：`agent` 與 `agent.wait`。
 - CLI：`agent` 指令。
@@ -25,11 +30,11 @@ wired end-to-end.
    - 呼叫 `runEmbeddedPiAgent`（pi-agent-core runtime）
    - 若內嵌 loop 未發出事件，則送出 **lifecycle end/error**
 3. `runEmbeddedPiAgent`：
-   - 透過每個工作階段與全域佇列將執行序列化
-   - 解析模型與驗證設定檔，並建立 Pi 工作階段
+   - serializes runs via per-session + global queues
+   - resolves model + auth profile and builds the pi session
    - 訂閱 pi 事件並串流 assistant/tool 的增量
-   - 強制執行逾時機制 → 若超過時限則中止執行
-   - 回傳負載資料與使用量中繼資料
+   - enforces timeout -> aborts run if exceeded
+   - returns payloads + usage metadata
 4. `subscribeEmbeddedPiSession` 將 pi-agent-core 事件橋接到 OpenClaw 的 `agent` 串流：
    - 工具事件 ⇒ `stream: "tool"`
    - assistant 增量 ⇒ `stream: "assistant"`
@@ -38,12 +43,13 @@ wired end-to-end.
    - 等待 **lifecycle end/error** 以取得 `runId`
    - 回傳 `{ status: ok|error|timeout, startedAt, endedAt, error? }`
 
-## 佇列與並行處理
+## Queueing + concurrency
 
 - 每個工作階段鍵（session lane）的執行會被序列化，並可選擇性地透過全域 lane 進行序列化。
-- 這可防止工具或工作階段發生競爭狀況，並維持工作階段歷史的一致性。
+- This prevents tool/session races and keeps session history consistent.
 - 訊息頻道可選擇佇列模式（collect/steer/followup）以餵入此 lane 系統。
   請參見 [Command Queue](/concepts/queue)。
+  See [Command Queue](/concepts/queue).
   See [Command Queue](/concepts/queue).
 
 ## 工作階段與工作空間準備
@@ -70,6 +76,7 @@ OpenClaw 有兩套掛鉤系統：
 
 - **`agent:bootstrap`**：在系統提示詞最終確定前、建立啟動檔案期間執行。
   可用於新增／移除啟動情境檔案。
+  Use this to add/remove bootstrap context files.
   Use this to add/remove bootstrap context files.
 - **Command 掛鉤**：`/new`、`/reset`、`/stop`，以及其他指令事件（見 Hooks 文件）。
 
@@ -142,5 +149,3 @@ OpenClaw 有兩套掛鉤系統：
 - AbortSignal（取消）
 - Gateway 斷線或 RPC 逾時
 - `agent.wait` 逾時（僅等待，不會停止 agent）
-
-

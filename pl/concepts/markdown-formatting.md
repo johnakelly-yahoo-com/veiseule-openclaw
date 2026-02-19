@@ -1,4 +1,9 @@
 ---
+summary: "Potok formatowania Markdown dla kanałów wychodzących"
+read_when:
+  - Zmieniasz formatowanie Markdown lub chunking dla kanałów wychodzących
+  - Dodajesz nowy formatter kanału lub mapowanie stylów
+  - Debugujesz regresje formatowania między kanałami
 title: "Formatowanie Markdown"
 ---
 
@@ -124,5 +129,3 @@ na zakresy stylu SPOILER. Inne kanały traktują je jako zwykły tekst.
 - Zakresy stylów Signal zależą od offsetów UTF-16; nie używaj offsetów punktów kodowych.
 - Zachowuj końcowe znaki nowej linii dla bloków kodu w ogrodzeniach, aby znaczniki
   zamykające lądowały w osobnej linii.
-
-

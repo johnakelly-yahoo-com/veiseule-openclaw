@@ -1,4 +1,8 @@
 ---
+summary: "Actualización segura de OpenClaw (instalación global o desde código fuente), además de estrategia de reversión"
+read_when:
+  - Actualización de OpenClaw
+  - Algo se rompe después de una actualización
 title: "Actualización"
 ---
 
@@ -225,5 +229,3 @@ git pull
 - Ejecute `openclaw doctor` nuevamente y lea la salida con atención (a menudo indica la solución).
 - Consulte: [Solución de problemas](/gateway/troubleshooting)
 - Pregunte en Discord: [https://discord.gg/clawd](https://discord.gg/clawd)
-
-

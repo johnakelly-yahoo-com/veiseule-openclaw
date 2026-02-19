@@ -1,4 +1,8 @@
 ---
+summary: "Ajan kullanımı için kamera yakalama (iOS düğümü + macOS uygulaması): fotoğraflar (jpg) ve kısa video klipler (mp4)"
+read_when:
+  - iOS düğümlerinde veya macOS’te kamera yakalamayı eklerken ya da değiştirirken
+  - Ajanın erişebildiği MEDIA geçici dosya iş akışlarını genişletirken
 title: "Kamera Yakalama"
 ---
 
@@ -83,7 +87,7 @@ Notlar:
   - Varsayılan: **açık** (anahtar yoksa etkin kabul edilir).
   - Kapalıyken: `camera.*` komutları `CAMERA_DISABLED` döndürür.
 
-### İzinler
+### Permissions
 
 - Android çalışma zamanı izinleri gerektirir:
   - Hem `camera.snap` hem de `camera.clip` için `CAMERA`.
@@ -150,5 +154,3 @@ openclaw nodes screen record --node <id> --duration 10s --fps 15   # prints MEDI
 Notlar:
 
 - macOS **Screen Recording** izni (TCC) gerektirir.
-
-

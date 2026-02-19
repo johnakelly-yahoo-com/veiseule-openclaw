@@ -1,4 +1,9 @@
 ---
+summary: "36. Xabarlar oqimi, sessiyalar, navbatga qo‘yish va mulohaza (reasoning) ko‘rinishi"
+read_when:
+  - 37. Kiruvchi xabarlar qanday qilib javoblarga aylanishini tushuntirish
+  - 38. Sessiyalar, navbatga qo‘yish rejimlari yoki streaming xatti-harakatlarini aniqlashtirish
+  - 39. Mulohaza (reasoning) ko‘rinishi va undan foydalanish oqibatlarini hujjatlashtirish
 title: "40. Xabarlar"
 ---
 
@@ -60,7 +65,7 @@ title: "40. Xabarlar"
 13. Sessiyalar mijozlar tomonidan emas, balki shlyuz tomonidan boshqariladi.
 
 - 14. To‘g‘ridan-to‘g‘ri chatlar agentning asosiy sessiya kalitiga birlashtiriladi.
-- 15. Guruhlar/kanallar o‘z sessiya kalitlariga ega bo‘ladi.
+- Tafsilotlar: [Session management](/concepts/session).
 - 16. Sessiya ombori va transkriptlar shlyuz xostida joylashadi.
 
 17. Bir nechta qurilmalar/kanallar bir xil sessiyaga mos kelishi mumkin, ammo tarix har bir mijozga to‘liq sinxronlanmaydi. 18. Tavsiya: kontekstning ajralib ketishidan qochish uchun uzoq suhbatlarda bitta asosiy qurilmadan foydalaning. 19. Control UI va TUI har doim shlyuzga tayangan sessiya transkriptini ko‘rsatadi, shuning uchun ular haqiqat manbai hisoblanadi.
@@ -77,8 +82,8 @@ title: "40. Xabarlar"
 
 27. Kanal tarixni taqdim etsa, u umumiy o‘ramdan foydalanadi:
 
-- 28. `[Chat messages since your last reply - for context]`
-- 29. `[Current message - respond to this]`
+- `[Chat messages since your last reply - for context]`
+- `[Current message - respond to this]`
 
 30. **To‘g‘ridan-to‘g‘ri bo‘lmagan chatlar** (guruhlar/kanallar/xonalar) uchun **joriy xabar body** yuboruvchi yorlig‘i bilan prefiks qilinadi (tarix yozuvlari uchun ishlatiladigan uslub bilan bir xil). 31. Bu real vaqt va navbatdagi/tarixiy xabarlarni agent promptida izchil saqlaydi.
 
@@ -104,8 +109,8 @@ title: "40. Xabarlar"
 45. Asosiy sozlamalar:
 
 - 46. `agents.defaults.blockStreamingDefault` (`on|off`, sukut bo‘yicha off)
-- 47. `agents.defaults.blockStreamingBreak` (`text_end|message_end`)
-- 48. `agents.defaults.blockStreamingChunk` (`minChars|maxChars|breakPreference`)
+- `agents.defaults.blockStreamingBreak` (`text_end|message_end`)
+- `agents.defaults.blockStreamingChunk` (`minChars|maxChars|breakPreference`)
 - 49. `agents.defaults.blockStreamingCoalesce` (bo‘sh turishga asoslangan batchlash)
 - 50. `agents.defaults.humanDelay` (blok javoblar orasidagi insoniyga o‘xshash tanaffus)
 - Channel overrides: `*.blockStreaming` and `*.blockStreamingCoalesce` (non-Telegram channels require explicit `*.blockStreaming: true`)
@@ -127,8 +132,6 @@ Details: [Thinking + reasoning directives](/tools/thinking) and [Token use](/ref
 Outbound message formatting is centralized in `messages`:
 
 - `messages.responsePrefix`, `channels.<channel>.responsePrefix`, and `channels.<channel>.accounts.<id>.responsePrefix` (outbound prefix cascade), plus `channels.whatsapp.messagePrefix` (WhatsApp inbound prefix)
-- `replyToMode` orqali javoblarni ipga bog‘lash va har bir kanal uchun sukut bo‘yicha sozlamalar
+- Reply threading via `replyToMode` and per-channel defaults
 
-Batafsil: [Konfiguratsiya](/gateway/configuration#messages) va kanal hujjatlari.
-
-
+Details: [Configuration](/gateway/configuration#messages) and channel docs.

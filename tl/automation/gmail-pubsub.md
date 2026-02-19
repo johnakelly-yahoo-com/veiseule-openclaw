@@ -1,4 +1,8 @@
 ---
+summary: "Gmail Pub/Sub push na naka-wire sa OpenClaw webhooks gamit ang gogcli"
+read_when:
+  - Pag-wire ng Gmail inbox triggers sa OpenClaw
+  - Pag-setup ng Pub/Sub push para sa agent wake
 title: "Gmail PubSub"
 ---
 
@@ -11,8 +15,8 @@ Layunin: Gmail watch -> Pub/Sub push -> `gog gmail watch serve` -> OpenClaw webh
 - `gcloud` naka-install at naka-log in ([install guide](https://docs.cloud.google.com/sdk/docs/install-sdk)).
 - `gog` (gogcli) naka-install at may awtorisasyon para sa Gmail account ([gogcli.sh](https://gogcli.sh/)).
 - Naka-enable ang OpenClaw hooks (tingnan ang [Webhooks](/automation/webhook)).
-- `tailscale` na naka-log in ([tailscale.com](https://tailscale.com/)). Ang sinusuportahang setup ay gumagamit ng Tailscale Funnel para sa pampublikong HTTPS endpoint.
-Maaaring gumana ang ibang tunnel services, ngunit DIY/hindi suportado at nangangailangan ng manu-manong pag-configure.
+- `tailscale` logged in ([tailscale.com](https://tailscale.com/)). Supported setup uses Tailscale Funnel for the public HTTPS endpoint.
+  Other tunnel services can work, but are DIY/unsupported and require manual wiring.
   Right now, Tailscale is what we support.
 
 Halimbawang hook config (i-enable ang Gmail preset mapping):
@@ -55,10 +59,10 @@ na nagse-set ng `deliver` + opsyonal na `channel`/`to`:
 }
 ```
 
-Kung gusto mo ng nakapirming channel, itakda ang `channel` + `to`. Kung hindi, `channel: "last"`
+If you want a fixed channel, set `channel` + `to`. Otherwise `channel: "last"`
 uses the last delivery route (falls back to WhatsApp).
 
-Upang pilitin ang paggamit ng mas murang model para sa mga Gmail run, itakda ang `model` sa mapping
+To force a cheaper model for Gmail runs, set `model` in the mapping
 (`provider/model` or alias). If you enforce `agents.defaults.models`, include it there.
 
 Para magtakda ng default na model at thinking level na partikular para sa Gmail hooks, idagdag
@@ -80,8 +84,8 @@ Mga tala:
 - Ang per-hook `model`/`thinking` sa mapping ay nag-o-override pa rin sa mga default na ito.
 - Fallback order: `hooks.gmail.model` → `agents.defaults.model.fallbacks` → primary (auth/rate-limit/timeouts).
 - Kung naka-set ang `agents.defaults.models`, dapat nasa allowlist ang Gmail model.
-- Ang nilalaman ng Gmail hook ay nakabalot sa external-content safety boundaries bilang default.
-Upang i-disable (mapanganib), itakda ang `hooks.gmail.allowUnsafeExternalContent: true`.
+- Gmail hook content is wrapped with external-content safety boundaries by default.
+  To disable (dangerous), set `hooks.gmail.allowUnsafeExternalContent: true`.
 
 Para mas i-customize pa ang payload handling, idagdag ang `hooks.mappings` o isang JS/TS transform module
 sa ilalim ng `hooks.transformsDir` (tingnan ang [Webhooks](/automation/webhook)).
@@ -250,5 +254,3 @@ gog gmail watch stop --account openclaw@gmail.com
 gcloud pubsub subscriptions delete gog-gmail-watch-push
 gcloud pubsub topics delete gog-gmail-watch
 ```
-
-

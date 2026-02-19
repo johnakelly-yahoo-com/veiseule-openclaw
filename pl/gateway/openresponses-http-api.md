@@ -1,4 +1,8 @@
 ---
+summary: "Udostępnij zgodny z OpenResponses punkt końcowy HTTP /v1/responses z Gateway"
+read_when:
+  - Integrujesz klientów mówiących w API OpenResponses
+  - Chcesz używać wejść opartych na elementach, wywołań narzędzi po stronie klienta lub zdarzeń SSE
 title: "API OpenResponses"
 ---
 
@@ -24,6 +28,7 @@ Uwagi:
 
 - Gdy `gateway.auth.mode="token"`, użyj `gateway.auth.token` (lub `OPENCLAW_GATEWAY_TOKEN`).
 - Gdy `gateway.auth.mode="password"`, użyj `gateway.auth.password` (lub `OPENCLAW_GATEWAY_PASSWORD`).
+- Jeśli skonfigurowano `gateway.auth.rateLimit` i wystąpi zbyt wiele błędów uwierzytelniania, endpoint zwraca `429` z nagłówkiem `Retry-After`.
 
 ## Wybór agenta
 
@@ -182,7 +187,11 @@ Domyślne ustawienia pobierania URL:
 
 - `files.allowUrl`: `true`
 - `images.allowUrl`: `true`
+- `maxUrlParts`: `8` (łączna liczba części opartych na URL `input_file` + `input_image` na żądanie)
 - Żądania są chronione (rozwiązywanie DNS, blokowanie prywatnych IP, limity przekierowań, timeouty).
+- Opcjonalne listy dozwolonych nazw hostów są obsługiwane dla każdego typu wejścia (`files.urlAllowlist`, `images.urlAllowlist`).
+  - Dokładna nazwa hosta: `"cdn.example.com"`
+  - Subdomeny wieloznaczne: `"*.assets.example.com"` (nie obejmuje domeny głównej)
 
 ## Limity plików i obrazów (konfiguracja)
 
@@ -233,6 +242,7 @@ Ustawienia domyślne można dostroić w `gateway.http.endpoints.responses`:
 Domyślne wartości, gdy pominięte:
 
 - `maxBodyBytes`: 20MB
+- `maxUrlParts`: 8
 - `files.maxBytes`: 5MB
 - `files.maxChars`: 200k
 - `files.maxRedirects`: 3
@@ -243,6 +253,13 @@ Domyślne wartości, gdy pominięte:
 - `images.maxBytes`: 10MB
 - `images.maxRedirects`: 3
 - `images.timeoutMs`: 10s
+
+Uwaga dotycząca bezpieczeństwa:
+
+- Listy dozwolonych URL są egzekwowane przed pobraniem oraz przy przekierowaniach.
+- Dodanie nazwy hosta do listy dozwolonych nie omija blokady prywatnych/wewnętrznych adresów IP.
+- W przypadku bram dostępnych z internetu zastosuj kontrolę ruchu wychodzącego na poziomie sieci oprócz zabezpieczeń na poziomie aplikacji.
+  Zobacz [Security](/gateway/security).
 
 ## Strumieniowanie (SSE)
 
@@ -311,5 +328,3 @@ curl -N http://127.0.0.1:18789/v1/responses \
     "input": "hi"
   }'
 ```
-
-

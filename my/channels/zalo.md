@@ -1,10 +1,13 @@
 ---
+summary: "Zalo ဘော့ ထောက်ပံ့မှုအခြေအနေ၊ စွမ်းရည်များနှင့် ဖွဲ့စည်းပြင်ဆင်မှု"
+read_when:
+  - Zalo အင်္ဂါရပ်များ သို့မဟုတ် webhook များအပေါ် အလုပ်လုပ်နေစဉ်
 title: "Zalo"
 ---
 
 # Zalo (Bot API)
 
-အခြေအနေ: စမ်းသပ်ဆဲ။ တိုက်ရိုက်စာပို့မှုများသာ လက်ရှိအသုံးပြုနိုင်ပြီး၊ အုပ်စုများကို Zalo docs အရ မကြာမီ ထည့်သွင်းပေးမည်။
+Status: experimental. Direct messages only; groups coming soon per Zalo docs.
 
 ## Plugin လိုအပ်သည်
 
@@ -14,14 +17,14 @@ Zalo ကို plugin အဖြစ် ပို့ဆောင်ပေးပြ
 - သို့မဟုတ် onboarding အတွင်း **Zalo** ကို ရွေးချယ်ပြီး install prompt ကို အတည်ပြုပါ
 - အသေးစိတ်: [Plugins](/tools/plugin)
 
-## အမြန် စတင်ခြင်း (အစပြုသူများအတွက်)
+## Quick setup (beginner)
 
 1. Zalo plugin ကို ထည့်သွင်းပါ:
    - Source checkout မှ: `openclaw plugins install ./extensions/zalo`
    - npm မှ (ထုတ်ဝေပြီးပါက): `openclaw plugins install @openclaw/zalo`
    - သို့မဟုတ် onboarding တွင် **Zalo** ကို ရွေးပြီး install prompt ကို အတည်ပြုပါ
 2. Token ကို သတ်မှတ်ပါ:
-   - ပတ်ဝန်းကျင်: `ZALO_BOT_TOKEN=...`
+   - Env: `ZALO_BOT_TOKEN=...`
    - သို့မဟုတ် config: `channels.zalo.botToken: "..."`။
 3. Gateway ကို ပြန်လည်စတင်ပါ (သို့မဟုတ် onboarding ကို ပြီးဆုံးပါ)။
 4. DM ဝင်ရောက်ခွင့်သည် ပုံမှန်အားဖြင့် pairing ဖြစ်ပါသည်; ပထမဆုံး ဆက်သွယ်ချိန်တွင် pairing code ကို အတည်ပြုပါ။
@@ -40,9 +43,9 @@ Zalo ကို plugin အဖြစ် ပို့ဆောင်ပေးပြ
 }
 ```
 
-## ဘာလဲဆိုတာ
+## What it is
 
-Zalo သည် ဗီယက်နမ်ကို အဓိကထားသော စာပို့အက်ပ်တစ်ခုဖြစ်ပြီး၊ ၎င်း၏ Bot API က Gateway ကို ၁:၁ စကားပြောမှုများအတွက် ဘော့တ်တစ်ခု လည်ပတ်နိုင်စေသည်။
+Zalo is a Vietnam-focused messaging app; its Bot API lets the Gateway run a bot for 1:1 conversations.
 It is a good fit for support or notifications where you want deterministic routing back to Zalo.
 
 - Gateway ပိုင် Zalo Bot API ချန်နယ်။
@@ -50,7 +53,7 @@ It is a good fit for support or notifications where you want deterministic routi
 - DM များသည် agent ၏ အဓိက session ကို မျှဝေပါသည်။
 - အုပ်စုများကို ယခုအချိန်တွင် မပံ့ပိုးသေးပါ (Zalo docs တွင် “coming soon” ဟု ဖော်ပြထားသည်)။
 
-## စတင်ခြင်း (အမြန်လမ်းကြောင်း)
+## Setup (fast path)
 
 ### 1. Bot token တစ်ခု ဖန်တီးပါ (Zalo Bot Platform)
 
@@ -79,9 +82,9 @@ Env ရွေးချယ်မှု: `ZALO_BOT_TOKEN=...` (default account အ
 Multi-account ပံ့ပိုးမှု: per-account token များနှင့် optional `name` ကို အသုံးပြု၍ `channels.zalo.accounts` ကို အသုံးပြုပါ။
 
 3. Gateway（ဂိတ်ဝေး） ကို ပြန်လည်စတင်ပါ။ Zalo starts when a token is resolved (env or config).
-4. DM ဝင်ရောက်ခွင့်သည် ပုံမှန်အားဖြင့် pairing ဖြင့် သတ်မှတ်ထားသည်။ ဘော့တ်ကို ပထမဆုံး ဆက်သွယ်သောအခါ ကုဒ်ကို အတည်ပြုပါ။
+4. DM access defaults to pairing. Approve the code when the bot is first contacted.
 
-## အလုပ်လုပ်ပုံ (အပြုအမူ)
+## How it works (behavior)
 
 - ဝင်လာသော မက်ဆေ့ချ်များကို media placeholder များပါဝင်သည့် shared channel envelope အဖြစ် normalize လုပ်ပါသည်။
 - အဖြေများသည် အမြဲတမ်း အတူတူ Zalo chat သို့ ပြန်လည်လမ်းကြောင်းချပါသည်။
@@ -184,5 +187,3 @@ Multi-account options:
 - `channels.zalo.accounts.<id>.webhookSecret`: per-account webhook secret.
 - `channels.zalo.accounts.<id>.webhookPath`: per-account webhook path.
 - `channels.zalo.accounts.<id>.proxy`: per-account proxy URL.
-
-

@@ -1,8 +1,12 @@
 ---
-title: "Signal de vie"
+summary: "Messages de sondage Heartbeat et règles de notification"
+read_when:
+  - Ajuster la cadence ou la messagerie du heartbeat
+  - Choisir entre heartbeat et cron pour les tâches planifiées
+title: "Heartbeat"
 ---
 
-# Signal de vie (Gateway)
+# Heartbeat (Gateway)
 
 > **Heartbeat ou Cron ?** Voir [Cron vs Heartbeat](/automation/cron-vs-heartbeat) pour savoir quand utiliser chacun.
 
@@ -356,5 +360,3 @@ le laisser désactivé dans les discussions de groupe.
 
 Les heartbeats exécutent des tours d’agent complets. Des intervalles plus courts consomment plus de tokens. Gardez `HEARTBEAT.md` modéré et envisagez un `model` ou `target: "none"` moins coûteux si vous
 ne souhaitez que des mises à jour d’état internes.
-
-

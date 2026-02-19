@@ -1,4 +1,9 @@
-------
+---
+title: "TOOLS.md टेम्पलेट"
+summary: "TOOLS.md के लिए वर्कस्पेस टेम्पलेट"
+read_when:
+  - वर्कस्पेस को मैन्युअल रूप से बूटस्ट्रैप करते समय
+---
 
 # TOOLS.md - स्थानीय नोट्स
 
@@ -40,5 +45,3 @@ Skills are shared. Your setup is yours. Keeping them apart means you can update 
 ---
 
 Add whatever helps you do your job. This is your cheat sheet.
-
-

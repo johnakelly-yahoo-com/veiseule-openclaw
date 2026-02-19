@@ -1,4 +1,8 @@
 ---
+summary: "Tratamento de data e hora em envelopes, prompts, ferramentas e conectores"
+read_when:
+  - Você está alterando como os timestamps são mostrados ao modelo ou aos usuários
+  - Você está depurando a formatação de horário em mensagens ou na saída do prompt do sistema
 title: "Data e Hora"
 ---
 
@@ -122,5 +126,3 @@ Se você precisar de hora local, converta-a posteriormente usando o fuso horári
 - [Prompt do sistema](/concepts/system-prompt)
 - [Fusos horários](/concepts/timezone)
 - [Mensagens](/concepts/messages)
-
-

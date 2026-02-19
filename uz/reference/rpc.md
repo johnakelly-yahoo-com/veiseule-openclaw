@@ -1,4 +1,8 @@
 ---
+summary: "Tashqi CLI’lar (signal-cli, legacy imsg) uchun RPC adapterlar va gateway naqshlari"
+read_when:
+  - Tashqi CLI integratsiyalarini qo‘shish yoki o‘zgartirish
+  - RPC adapterlarini sozlash (signal-cli, imsg)
 title: "RPC Adapterlar"
 ---
 
@@ -37,5 +41,3 @@ Legacy sozlash va manzillash (`chat_id` afzal) uchun [iMessage](/channels/imessa
 - Gateway jarayonga egalik qiladi (ishga tushirish/to‘xtatish provayder hayotiy sikliga bog‘langan).
 - RPC mijozlarini barqaror qiling: vaqt cheklovlari, chiqishda qayta ishga tushirish.
 - Ko‘rsatish satrlaridan ko‘ra barqaror IDlarni (masalan, `chat_id`) afzal ko‘ring.
-
-

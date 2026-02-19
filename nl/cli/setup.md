@@ -1,4 +1,8 @@
 ---
+summary: "CLI-referentie voor `openclaw setup` (config initialiseren + werkruimte)"
+read_when:
+  - Je doet een eerste installatie zonder de volledige onboardingwizard
+  - Je wilt het standaardpad voor de werkruimte instellen
 title: "Installatie"
 ---
 
@@ -23,5 +27,3 @@ Om de wizard via setup te starten:
 ```bash
 openclaw setup --wizard
 ```
-
-

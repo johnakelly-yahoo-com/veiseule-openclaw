@@ -1,4 +1,8 @@
 ---
+summary: "Центр устранения неполадок OpenClaw с фокусом на симптомы"
+read_when:
+  - OpenClaw не работает, и вам нужен самый быстрый путь к исправлению
+  - Вам нужен поток первичной диагностики перед погружением в подробные runbook’и
 title: "Устранение неполадок"
 ---
 
@@ -62,6 +66,7 @@ flowchart TD
     openclaw logs --follow
     ```
 
+    ````
     ```
     Хороший результат выглядит так:
     
@@ -82,6 +87,7 @@ flowchart TD
     - [/channels/troubleshooting](/channels/troubleshooting)
     - [/channels/pairing](/channels/pairing)
     ```
+    ````
 
   
 </Accordion>
@@ -95,6 +101,7 @@ flowchart TD
     openclaw channels status --probe
     ```
 
+    ````
     ```
     Хороший результат выглядит так:
     
@@ -114,6 +121,7 @@ flowchart TD
     - [/web/control-ui](/web/control-ui)
     - [/gateway/authentication](/gateway/authentication)
     ```
+    ````
 
   
 </Accordion>
@@ -127,6 +135,7 @@ flowchart TD
     openclaw channels status --probe
     ```
 
+    ````
     ```
     Хороший результат выглядит так:
     
@@ -146,6 +155,7 @@ flowchart TD
     - [/gateway/background-process](/gateway/background-process)
     - [/gateway/configuration](/gateway/configuration)
     ```
+    ````
 
   
 </Accordion>
@@ -159,6 +169,7 @@ flowchart TD
     openclaw channels status --probe
     ```
 
+    ````
     ```
     Хороший результат выглядит так:
     
@@ -177,6 +188,7 @@ flowchart TD
     - [/gateway/troubleshooting#channel-connected-messages-not-flowing](/gateway/troubleshooting#channel-connected-messages-not-flowing)
     - [/channels/troubleshooting](/channels/troubleshooting)
     ```
+    ````
 
   
 </Accordion>
@@ -191,6 +203,7 @@ flowchart TD
     openclaw logs --follow
     ```
 
+    ````
     ```
     Хороший результат выглядит так:
     
@@ -211,6 +224,7 @@ flowchart TD
     - [/automation/troubleshooting](/automation/troubleshooting)
     - [/gateway/heartbeat](/gateway/heartbeat)
     ```
+    ````
 
   
 </Accordion>
@@ -224,6 +238,7 @@ flowchart TD
     openclaw logs --follow
     ```
 
+    ````
     ```
     Хороший результат выглядит так:
     
@@ -244,6 +259,7 @@ flowchart TD
     - [/nodes/troubleshooting](/nodes/troubleshooting)
     - [/tools/exec-approvals](/tools/exec-approvals)
     ```
+    ````
 
   
 </Accordion>
@@ -257,6 +273,7 @@ flowchart TD
     openclaw doctor
     ```
 
+    ````
     ```
     Хороший результат выглядит так:
     
@@ -276,9 +293,8 @@ flowchart TD
     - [/tools/browser-linux-troubleshooting](/tools/browser-linux-troubleshooting)
     - [/tools/chrome-extension](/tools/chrome-extension)
     ```
+    ````
 
   
 </Accordion>
 </AccordionGroup>
-
-

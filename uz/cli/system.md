@@ -1,5 +1,10 @@
 ---
-title: "**main** sessiyada tizim hodisasini navbatga qo‘shish."
+summary: "system"
+read_when:
+  - Siz cron job yaratmasdan tizim hodisasini navbatga qo‘ymoqchisiz
+  - Siz heartbeat’larni yoqish yoki o‘chirishni xohlaysiz
+  - Siz tizim presence yozuvlarini ko‘zdan kechirmoqchisiz
+title: "system"
 ---
 
 # `openclaw system`
@@ -51,5 +56,3 @@ Bayroqlar:
 
 - Tizim hodisalari vaqtinchalik va qayta ishga tushirishlar orasida saqlanmaydi.
 - update
-
-

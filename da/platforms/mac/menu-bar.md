@@ -1,4 +1,7 @@
 ---
+summary: "Statuslogik for menulinjen og hvad der vises for brugere"
+read_when:
+  - Justering af mac-menulinjens UI eller statuslogik
 title: "Menulinje"
 ---
 
@@ -76,5 +79,3 @@ title: "Menulinje"
 - Start primær, mens andre er aktive: ikonet skifter straks til primær.
 - Hurtige værktøjsudbrud: sikr, at badgen ikke flimrer (TTL‑henstand på værktøjsresultater).
 - Sundhedsrækken dukker op igen, når alle sessioner er inaktive.
-
-

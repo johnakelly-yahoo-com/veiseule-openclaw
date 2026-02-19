@@ -1,40 +1,39 @@
 ---
-title: "Troubleshooting"
+summary: "面向 gateway、频道、自动化、节点和浏览器的深度故障排查运行手册"
+read_when:
+  - 故障排查中心将你指引到这里以进行更深入的诊断
+  - 你需要基于稳定症状的运行手册章节，并包含精确的命令
+title: "故障排除"
 ---
 
-# Gateway troubleshooting
+# gateway/troubleshooting.md
 
-This page is the deep runbook.
-Start at [/help/troubleshooting](/help/troubleshooting) if you want the fast triage flow first.
+本页面是深度运行手册。
+如果你想先走快速分诊流程，请从 [/help/troubleshooting](/help/troubleshooting) 开始。
 
-## Command ladder
+## 命令阶梯
 
-Run these first, in this order:
+按以下顺序首先运行这些命令：
 
 ```bash
-openclaw status
 openclaw gateway status
-openclaw logs --follow
 openclaw doctor
-openclaw channels status --probe
 ```
 
-Expected healthy signals:
+预期的健康信号：
 
-- `openclaw gateway status` shows `Runtime: running` and `RPC probe: ok`.
-- `openclaw doctor` reports no blocking config/service issues.
-- `openclaw channels status --probe` shows connected/ready channels.
+- `openclaw gateway status` 显示 `Runtime: running` 且 `RPC probe: ok`。
+- `openclaw doctor` 报告没有阻塞性的配置/服务问题。
+- `openclaw channels status --probe`
 
-## No replies
+## 消息未触发
 
-If channels are up but nothing answers, check routing and policy before reconnecting anything.
+如果频道已启动但没有任何响应，在重新连接任何内容之前，请先检查路由和策略。
 
 ```bash
-openclaw status
-openclaw channels status --probe
-openclaw pairing list <channel>
-openclaw config get channels
-openclaw logs --follow
+openclaw channels logout
+trash "${OPENCLAW_STATE_DIR:-$HOME/.openclaw}/credentials" # 如果 logout 无法完全清除所有内容
+openclaw channels login --verbose       # 重新扫描二维码
 ```
 
 Look for:
@@ -51,7 +50,7 @@ Common signatures:
 
 Related:
 
-- [/channels/troubleshooting](/channels/troubleshooting)
+- 文档：[Discord](/channels/discord)、[渠道故障排除](/channels/troubleshooting)。
 - [/channels/pairing](/channels/pairing)
 - [/channels/groups](/channels/groups)
 
@@ -60,11 +59,7 @@ Related:
 When dashboard/control UI will not connect, validate URL, auth mode, and secure context assumptions.
 
 ```bash
-openclaw gateway status
-openclaw status
-openclaw logs --follow
-openclaw doctor
-openclaw gateway status --json
+`openclaw gateway status` 和 `openclaw doctor` 在服务看起来正在运行但端口关闭时会显示日志中的**最后 Gateway 网关错误**。
 ```
 
 Look for:
@@ -85,28 +80,24 @@ Related:
 - [/gateway/authentication](/gateway/authentication)
 - [/gateway/remote](/gateway/remote)
 
-## Gateway service not running
+## 服务运行但端口未监听
 
-Use this when service is installed but process does not stay up.
+服务已安装但没有运行
 
 ```bash
 openclaw gateway status
-openclaw status
-openclaw logs --follow
-openclaw doctor
-openclaw gateway status --deep
 ```
 
 Look for:
 
 - `Runtime: stopped` with exit hints.
-- Service config mismatch (`Config (cli)` vs `Config (service)`).
+- `Config (cli): ...` 和 `Config (service): ...` 通常应该匹配。
 - Port/listener conflicts.
 
 Common signatures:
 
-- `Gateway start blocked: set gateway.mode=local` → local gateway mode is not enabled. Fix: set `gateway.mode="local"` in your config (or run `openclaw configure`). If you are running OpenClaw via Podman using the dedicated `openclaw` user, the config lives at `~openclaw/.openclaw/openclaw.json`.
-- `refusing to bind gateway ... without auth` → non-loopback bind without token/password.
+- "Gateway start blocked: set gateway.mode=local" openclaw config set gateway.mode local 如果你使用专用的 `openclaw` 用户通过 Podman 运行 OpenClaw，配置文件位于 `~openclaw/.openclaw/openclaw.json`。
+- **如果 `Last gateway error:` 提到"refusing to bind … without auth"**
 - `another gateway instance is already listening` / `EADDRINUSE` → port conflict.
 
 Related:
@@ -120,11 +111,7 @@ Related:
 If channel state is connected but message flow is dead, focus on policy, permissions, and channel specific delivery rules.
 
 ```bash
-openclaw channels status --probe
-openclaw pairing list <channel>
-openclaw status --deep
-openclaw logs --follow
-openclaw config get channels
+运行 `openclaw channels status --probe` 获取审计提示。
 ```
 
 Look for:
@@ -141,10 +128,10 @@ Common signatures:
 
 Related:
 
-- [/channels/troubleshooting](/channels/troubleshooting)
-- [/channels/whatsapp](/channels/whatsapp)
+- 特定提供商的快捷方式：[/channels/troubleshooting](/channels/troubleshooting)
+- 参见 [WhatsApp 设置](/channels/whatsapp)。
 - [/channels/telegram](/channels/telegram)
-- [/channels/discord](/channels/discord)
+- 参见 [流式传输](/concepts/streaming)。
 
 ## Cron and heartbeat delivery
 
@@ -213,11 +200,8 @@ Related:
 Use this when browser tool actions fail even though the gateway itself is healthy.
 
 ```bash
-openclaw browser status
-openclaw browser start --browser-profile openclaw
-openclaw browser profiles
-openclaw logs --follow
 openclaw doctor
+openclaw doctor --fix
 ```
 
 Look for:
@@ -228,82 +212,76 @@ Look for:
 
 Common signatures:
 
-- `Failed to start Chrome CDP on port` → browser process failed to launch.
+- 如果你看到 `"Failed to start Chrome CDP on port 18800"`：
 - `browser.executablePath not found` → configured path is invalid.
-- `Chrome extension relay is running, but no tab is connected` → extension relay not attached.
-- `Browser attachOnly is enabled ... not reachable` → attach-only profile has no reachable target.
+- `Chrome extension relay is running, but no tab is connected` → 扩展中继未附加。
+- `Browser attachOnly is enabled ... not reachable` → 仅附加配置没有可达目标。
 
 Related:
 
-- [/tools/browser-linux-troubleshooting](/tools/browser-linux-troubleshooting)
+- **完整指南：** 参见 [browser-linux-troubleshooting](/tools/browser-linux-troubleshooting)
 - [/tools/chrome-extension](/tools/chrome-extension)
 - [/tools/browser](/tools/browser)
 
-## If you upgraded and something suddenly broke
+## 如果你升级后突然出现故障
 
-Most post-upgrade breakage is config drift or stricter defaults now being enforced.
+大多数升级后的故障是由于配置漂移或现在开始强制执行更严格的默认值。
 
-### 1) Auth and URL override behavior changed
+### 1. 认证和 URL 覆盖行为已更改
 
 ```bash
-openclaw gateway status
-openclaw config get gateway.mode
-openclaw config get gateway.remote.url
-openclaw config get gateway.auth.mode
+openclaw config set gateway.mode remote
+openclaw config set gateway.remote.url "wss://gateway.example.com"
 ```
 
-What to check:
+需要检查的内容：
 
-- If `gateway.mode=remote`, CLI calls may be targeting remote while your local service is fine.
+- 如果你设置了 `gateway.mode=remote`，**CLI 默认**使用远程 URL。服务可能仍在本地运行，但你的 CLI 可能在探测错误的位置。使用 `openclaw gateway status` 查看服务解析的端口 + 探测目标（或传递 `--url`）。
 - Explicit `--url` calls do not fall back to stored credentials.
 
 Common signatures:
 
-- `gateway connect failed:` → wrong URL target.
-- `unauthorized` → endpoint reachable but wrong auth.
+- `gateway connect failed:` → URL 目标错误。
+- `unauthorized` → 端点可达，但认证错误。
 
-### 2) Bind and auth guardrails are stricter
+### 2. 绑定和认证防护更严格了
 
 ```bash
-openclaw config get gateway.bind
-openclaw config get gateway.auth.token
-openclaw gateway status
-openclaw logs --follow
+# 在 Gateway 网关主机上运行（粘贴 setup-token）
+openclaw models auth setup-token --provider anthropic
+openclaw models status
 ```
 
-What to check:
+需要检查的内容：
 
 - Non-loopback binds (`lan`, `tailnet`, `custom`) need auth configured.
-- Old keys like `gateway.token` do not replace `gateway.auth.token`.
+- `gateway.token` 被忽略；使用 `gateway.auth.token`。
 
 Common signatures:
 
-- `refusing to bind gateway ... without auth` → bind+auth mismatch.
-- `RPC probe: failed` while runtime is running → gateway alive but inaccessible with current auth/url.
+- Gateway 网关卡在"Starting..." without auth\` → 绑定与认证不匹配。
+- `RPC probe: failed` 且运行时仍在运行 → 网关存活，但以当前认证/URL 无法访问。
 
-### 3) Pairing and device identity state changed
+### 3. 配对和设备身份状态已更改
 
 ```bash
-openclaw devices list
 openclaw pairing list <channel>
-openclaw logs --follow
-openclaw doctor
 ```
 
-What to check:
+需要检查的内容：
 
-- Pending device approvals for dashboard/nodes.
-- Pending DM pairing approvals after policy or identity changes.
+- 仪表板/节点存在待批准的设备。
+- 策略或身份更改后，存在待批准的 DM 配对。
 
 Common signatures:
 
-- `device identity required` → device auth not satisfied.
-- `pairing required` → sender/device must be approved.
+- `device identity required` → 设备认证未满足。
+- `pairing required` → 发送方/设备必须获批。
 
-If the service config and runtime still disagree after checks, reinstall service metadata from the same profile/state directory:
+如果在检查后服务配置与运行时仍不一致，请从同一配置文件/状态目录重新安装服务元数据：
 
 ```bash
-openclaw gateway install --force
+openclaw doctor
 openclaw gateway restart
 ```
 
@@ -312,5 +290,3 @@ Related:
 - [/gateway/pairing](/gateway/pairing)
 - [/gateway/authentication](/gateway/authentication)
 - [/gateway/background-process](/gateway/background-process)
-
-

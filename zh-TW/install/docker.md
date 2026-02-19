@@ -1,16 +1,20 @@
 ---
+summary: "OpenClaw 的可選 Docker 型設定與入門引導"
+read_when:
+  - 你想要使用容器化的 Gateway 閘道器，而非本機安裝
+  - 你正在驗證 Docker 流程
 title: "Docker"
 ---
 
 # Docker（可選）
 
-只有在你想要容器化的 gateway，或驗證 Docker 流程時才使用。 否則請使用一般的安裝流程。
+只有在你想要容器化的 gateway，或驗證 Docker 流程時才使用。 只有在你想要容器化的 gateway，或驗證 Docker 流程時才使用。 否則請使用一般的安裝流程。
 
 ## Docker 適合我嗎？
 
 - **是**：你想要一個隔離、可丟棄的 Gateway 閘道器環境，或在沒有本機安裝的主機上執行 OpenClaw。
 - **否**：你是在自己的機器上執行，只想要最快的開發迴圈。請改用一般安裝流程。 請參閱 [Sandboxing](/gateway/sandboxing)。
-- **沙箱隔離注意事項**：代理程式沙箱隔離也會使用 Docker，但**不**需要整個 Gateway 閘道器都在 Docker 中執行。請參閱 [Sandboxing](/gateway/sandboxing)。 在 repo 根目錄執行：
+- **沙箱隔離注意事項**：代理程式沙箱隔離也會使用 Docker，但**不**需要整個 Gateway 閘道器都在 Docker 中執行。請參閱 [Sandboxing](/gateway/sandboxing)。 在 repo 根目錄執行： 在 repo 根目錄執行：
 
 本指南涵蓋：
 
@@ -36,7 +40,7 @@ title: "Docker"
 
 建置 gateway 映像
 
-- 執行上線精靈
+- 建置 gateway 映像
 - 執行 onboarding 精靈
 - 印出可選的提供者設定提示
 - 透過 Docker Compose 啟動 Gateway 閘道器
@@ -51,15 +55,33 @@ title: "Docker"
 完成後：
 
 - 在瀏覽器中開啟 `http://127.0.0.1:18789/`。
-- 需要再次取得 URL？
-- 在 VPS 上執行？ 需要再次取得 URL？請執行 `docker compose run --rm openclaw-cli dashboard --no-open`。
+- 將 token 貼到 Control UI（Settings → token）。
+- 需要再次取得 URL？ 在 VPS 上執行？ 需要再次取得 URL？請執行 `docker compose run --rm openclaw-cli dashboard --no-open`。
 
 它會在主機上寫入設定／工作區：
 
 - `~/.openclaw/`
 - `~/.openclaw/workspace`
 
-在 VPS 上執行？ 在 VPS 上執行？請參閱 [Hetzner（Docker VPS）](/install/hetzner)。
+在 VPS 上執行？ 在 VPS 上執行？請參閱 [Hetzner（Docker VPS）](/install/hetzner)。 在 VPS 上執行？請參閱 [Hetzner（Docker VPS）](/install/hetzner)。
+
+### Shell 輔助工具（選用）
+
+為了更輕鬆地進行日常 Docker 管理，請安裝 `ClawDock`：
+
+```bash
+mkdir -p ~/.clawdock && curl -sL https://raw.githubusercontent.com/openclaw/openclaw/main/scripts/shell-helpers/clawdock-helpers.sh -o ~/.clawdock/clawdock-helpers.sh
+```
+
+**加入到你的 shell 設定（zsh）：**
+
+```bash
+echo 'source ~/.clawdock/clawdock-helpers.sh' >> ~/.zshrc && source ~/.zshrc
+```
+
+接著即可使用 `clawdock-start`、`clawdock-stop`、`clawdock-dashboard` 等指令。 執行 `clawdock-help` 以查看所有指令。
+
+詳細資訊請參閱 [`ClawDock` Helper README](https://github.com/openclaw/openclaw/blob/main/scripts/shell-helpers/README.md)。
 
 ### 手動流程（compose）
 
@@ -69,7 +91,7 @@ docker compose run --rm openclaw-cli onboard
 docker compose up -d openclaw-gateway
 ```
 
-額外掛載（選用） 注意：請在儲存庫根目錄執行 `docker compose ...`。如果你啟用了
+額外掛載（選用） 額外掛載（選用） 注意：請在儲存庫根目錄執行 `docker compose ...`。如果你啟用了
 `OPENCLAW_EXTRA_MOUNTS` 或 `OPENCLAW_HOME_VOLUME`，設定腳本會寫入
 `docker-compose.extra.yml`；在其他地方執行 Compose 時請一併包含：
 
@@ -93,7 +115,7 @@ docker compose run --rm openclaw-cli devices approve <requestId>
 
 如果你想要將額外的主機目錄掛載到容器中，請在執行
 `docker-setup.sh` 之前設定 `OPENCLAW_EXTRA_MOUNTS`。它接受以逗號分隔的 Docker 綁定掛載清單，並透過產生 `docker-compose.extra.yml`，將其套用到
-`openclaw-gateway` 與 `openclaw-cli`。 請勿手動編輯它。
+`openclaw-gateway` 與 `openclaw-cli`。 請勿手動編輯它。 請勿手動編輯它。
 
 範例：
 
@@ -106,13 +128,14 @@ export OPENCLAW_EXTRA_MOUNTS="$HOME/.codex:/home/node/.codex:ro,$HOME/github:/ho
 
 - 在 macOS／Windows 上，路徑必須已與 Docker Desktop 共用。
 - 如果你編輯了 `OPENCLAW_EXTRA_MOUNTS`，請重新執行 `docker-setup.sh` 以重新產生額外的 compose 檔案。
-- `docker-compose.extra.yml` 是自動產生的。請勿手動編輯。 Don’t hand-edit it.
+- `docker-compose.extra.yml` 是自動產生的。請勿手動編輯。 Don’t hand-edit it. Don’t hand-edit it.
 
 ### 保存整個容器 home（可選）
 
 這會建立一個 Docker volume 並掛載到
+`/home/node`，同時保留標準的設定／工作區 bind mounts。 這會建立一個 Docker volume 並掛載到
 `/home/node`，同時保留標準的設定／工作區 bind mounts。 這會建立一個 Docker volume 並將其掛載到
-`/home/node`，同時保留標準的設定／工作區 bind mount。 你可以將此與額外掛載一起使用：
+`/home/node`，同時保留標準的設定／工作區 bind mount。 你可以將此與額外掛載一起使用： 你可以將此與額外掛載一起使用：
 
 範例：
 
@@ -156,7 +179,7 @@ export OPENCLAW_DOCKER_APT_PACKAGES="ffmpeg build-essential"
 ### 進階使用者／完整功能容器（選用）
 
 預設的 Docker 映像檔以**安全性優先**，並以非 root 的 `node`
-使用者身分執行。這能縮小攻擊面，但也代表： 無法在執行時安裝系統套件
+使用者身分執行。這能縮小攻擊面，但也代表： 無法在執行時安裝系統套件 無法在執行時安裝系統套件
 
 - 執行期間無法安裝系統套件
 - 預設沒有 Homebrew
@@ -268,6 +291,7 @@ docker compose run --rm openclaw-cli channels add --channel discord --token "<to
 
 如果你在精靈中選擇 OpenAI Codex OAuth，它會開啟一個瀏覽器 URL，並嘗試在
 `http://127.0.0.1:1455/auth/callback` 上接收回呼。在 Docker 或無頭環境中，該回呼可能會顯示瀏覽器錯誤。請複製你最終到達的完整重新導向 URL，並貼回精靈以完成身分驗證。 In Docker or
+headless setups that callback can show a browser error. In Docker or
 headless setups that callback can show a browser error. Copy the full redirect
 URL you land on and paste it back into the wizard to finish auth.
 
@@ -292,7 +316,7 @@ pnpm test:docker:qr
 ### 注意事項
 
 - Gateway 閘道器綁定預設為 `lan`，以供容器使用。
-- Dockerfile 的 CMD 使用 `--allow-unconfigured`；使用 `gateway.mode` 而非 `local` 掛載的設定仍可啟動。若要強制檢查，請覆寫 CMD。 Override CMD to enforce the guard.
+- Dockerfile 的 CMD 使用 `--allow-unconfigured`；使用 `gateway.mode` 而非 `local` 掛載的設定仍可啟動。若要強制檢查，請覆寫 CMD。 Override CMD to enforce the guard. Override CMD to enforce the guard.
 - Gateway 閘道器容器是工作階段（`~/.openclaw/agents/<agentId>/sessions/`）的事實來源。
 
 ## 代理程式沙箱（主機 Gateway 閘道器 + Docker 工具）
@@ -302,7 +326,7 @@ pnpm test:docker:qr
 ### What it does
 
 當啟用 `agents.defaults.sandbox` 時，**非主要工作階段** 會在 Docker
-容器中執行工具。Gateway 閘道器仍留在你的主機上，但工具執行會被隔離： The gateway stays on your host, but the tool execution is isolated:
+容器中執行工具。Gateway 閘道器仍留在你的主機上，但工具執行會被隔離： The gateway stays on your host, but the tool execution is isolated: The gateway stays on your host, but the tool execution is isolated:
 
 - 範圍：預設為 `"agent"`（每個代理程式一個容器 + 工作區）
 - 範圍：`"session"` 用於每個工作階段的隔離
@@ -318,6 +342,7 @@ one container and one workspace.
 
 如果你使用多代理程式路由，每個代理程式都可以覆寫沙箱與工具設定：
 `agents.list[].sandbox` 與 `agents.list[].tools`（以及 `agents.list[].tools.sandbox.tools`）。這讓你能在同一個 Gateway 閘道器中執行混合存取等級： This lets you run
+mixed access levels in one gateway: This lets you run
 mixed access levels in one gateway:
 
 - 完整存取（個人代理程式）
@@ -433,7 +458,7 @@ scripts/sandbox-setup.sh
 scripts/sandbox-common-setup.sh
 ```
 
-這會建置 `openclaw-sandbox-common:bookworm-slim`。要使用它： To use it:
+這會建置 `openclaw-sandbox-common:bookworm-slim`。要使用它： To use it: To use it:
 
 ```json5
 {
@@ -549,5 +574,3 @@ docker build -t my-openclaw-sbx -f Dockerfile.sandbox .
 - 沙箱中的權限錯誤：將 `docker.user` 設為符合你掛載之工作區擁有權的 UID:GID（或對工作區資料夾執行 chown）。
 - Custom tools not found: OpenClaw runs commands with `sh -lc` (login shell), which
   sources `/etc/profile` and may reset PATH. 找不到自訂工具：OpenClaw 以 `sh -lc`（登入殼層）執行命令，會載入 `/etc/profile` 並可能重設 PATH。請設定 `docker.env.PATH` 以在前置加入你的自訂工具路徑（例如 `/custom/bin:/usr/local/share/npm-global/bin`），或在 Dockerfile 中於 `/etc/profile.d/` 下新增腳本。
-
-

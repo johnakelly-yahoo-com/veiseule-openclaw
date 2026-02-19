@@ -1,4 +1,9 @@
 ---
+summary: "リファクタリング計画：exec ホストのルーティング、ノード承認、ヘッドレスランナー"
+read_when:
+  - exec ホストのルーティングまたは exec 承認を設計しているとき
+  - ノードランナー + UI IPC を実装するとき
+  - exec ホストのセキュリティモードおよびスラッシュコマンドを追加するとき
 title: "Exec ホストのリファクタリング"
 ---
 
@@ -309,5 +314,3 @@ Agent -> Gateway -> Bridge -> Node Service (TS)
 - [Exec 承認](/tools/exec-approvals)
 - [ノード](/nodes)
 - [昇格モード](/tools/elevated)
-
-

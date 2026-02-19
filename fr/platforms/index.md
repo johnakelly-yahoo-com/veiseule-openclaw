@@ -1,4 +1,8 @@
 ---
+summary: "Vue d’ensemble de la prise en charge des plateformes (Gateway + applications compagnon)"
+read_when:
+  - Recherche de la prise en charge des OS ou des chemins d’installation
+  - Choix de l’emplacement d’exécution du Gateway
 title: "Plateformes"
 ---
 
@@ -47,5 +51,3 @@ La cible du service dépend de l’OS :
 
 - macOS : LaunchAgent (`bot.molt.gateway` ou `bot.molt.<profile>` ; legacy `com.openclaw.*`)
 - Linux/WSL2 : service utilisateur systemd (`openclaw-gateway[-<profile>].service`)
-
-

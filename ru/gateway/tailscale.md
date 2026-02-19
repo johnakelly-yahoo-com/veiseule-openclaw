@@ -1,4 +1,8 @@
 ---
+summary: "Интегрированный Tailscale Serve/Funnel для панели Gateway (шлюз)"
+read_when:
+  - Публикация панели управления Gateway (шлюз) вне localhost
+  - Автоматизация доступа к tailnet или публичной панели
 title: "Tailscale"
 ---
 
@@ -120,5 +124,3 @@ Gateway будет проксировать действия браузера к
 - Команда `tailscale serve`: [https://tailscale.com/kb/1242/tailscale-serve](https://tailscale.com/kb/1242/tailscale-serve)
 - Обзор Tailscale Funnel: [https://tailscale.com/kb/1223/tailscale-funnel](https://tailscale.com/kb/1223/tailscale-funnel)
 - Команда `tailscale funnel`: [https://tailscale.com/kb/1311/tailscale-funnel](https://tailscale.com/kb/1311/tailscale-funnel)
-
-

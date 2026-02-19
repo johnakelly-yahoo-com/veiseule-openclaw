@@ -1,10 +1,13 @@
 ---
+summary: "CLI 參考文件：`openclaw config`（以 get/set/unset 取得／設定／取消設定值）"
+read_when:
+  - 你想要以非互動方式讀取或編輯設定
 title: "config"
 ---
 
 # `openclaw config`
 
-設定輔助工具：依路徑取得／設定／取消設定值。若未帶子指令執行，則會開啟介面。
+Config helpers: get/set/unset values by path. 設定輔助工具：依路徑取得／設定／取消設定值。若未帶子指令執行，則會開啟介面。
 the configure wizard (same as `openclaw configure`).
 
 ## 範例
@@ -36,6 +39,7 @@ openclaw config set agents.list[1].tools.exec.node "node-id-or-name"
 ## 值
 
 在可行時，值會以 JSON5 解析；否則視為字串。使用 `--json` 以要求進行 JSON5 解析。
+在可行時，值會以 JSON5 解析；否則視為字串。使用 `--json` 以要求進行 JSON5 解析。
 Use `--json` to require JSON5 parsing.
 
 ```bash
@@ -44,6 +48,4 @@ openclaw config set gateway.port 19001 --json
 openclaw config set channels.whatsapp.groups '["*"]' --json
 ```
 
-編輯後請重新啟動 gateway。
-
-
+Restart the gateway after edits.

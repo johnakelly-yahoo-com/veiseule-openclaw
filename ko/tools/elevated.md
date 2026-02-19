@@ -1,4 +1,7 @@
 ---
+summary: "Elevated exec 모드와 /elevated 지시문"
+read_when:
+  - Elevated 모드 기본값, 허용 목록, 또는 슬래시 명령 동작을 조정할 때
 title: "Elevated 모드"
 ---
 
@@ -52,5 +55,3 @@ title: "Elevated 모드"
 
 - Elevated exec 호출은 info 레벨로 로깅됩니다.
 - 세션 상태에는 elevated 모드가 포함됩니다(예: `elevated=ask`, `elevated=full`).
-
-

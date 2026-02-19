@@ -1,4 +1,8 @@
 ---
+summary: "Aplicar parches de múltiples archivos con la herramienta apply_patch"
+read_when:
+  - Necesita ediciones estructuradas de archivos en múltiples archivos
+  - Desea documentar o depurar ediciones basadas en parches
 title: "Herramienta apply_patch"
 ---
 
@@ -28,7 +32,8 @@ La herramienta acepta una sola cadena `input` que envuelve una o más operacione
 
 ## Notas
 
-- Las rutas se resuelven de forma relativa a la raíz del espacio de trabajo.
+- Las rutas de parche admiten rutas relativas (desde el directorio de workspace) y rutas absolutas.
+- `tools.exec.applyPatch.workspaceOnly` tiene como valor predeterminado `true` (limitado al workspace). Establécelo en `false` solo si realmente quieres que `apply_patch` escriba o elimine fuera del directorio de workspace.
 - Use `*** Move to:` dentro de un _hunk_ `*** Update File:` para renombrar archivos.
 - `*** End of File` marca una inserción solo al final del archivo (EOF) cuando es necesario.
 - Experimental y deshabilitado de forma predeterminada. Habilítelo con `tools.exec.applyPatch.enabled`.
@@ -44,5 +49,3 @@ La herramienta acepta una sola cadena `input` que envuelve una o más operacione
   "input": "*** Begin Patch\n*** Update File: src/index.ts\n@@\n-const foo = 1\n+const foo = 2\n*** End Patch"
 }
 ```
-
-

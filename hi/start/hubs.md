@@ -1,4 +1,7 @@
 ---
+summary: "हर OpenClaw दस्तावेज़ से लिंक करने वाले हब्स"
+read_when:
+  - आप दस्तावेज़ों का एक पूर्ण मानचित्र चाहते हैं
 title: "डॉक्स हब्स"
 ---
 
@@ -192,5 +195,3 @@ title: "डॉक्स हब्स"
 - [Testing](/reference/test)
 - [Release checklist](/reference/RELEASING)
 - [Device models](/reference/device-models)
-
-

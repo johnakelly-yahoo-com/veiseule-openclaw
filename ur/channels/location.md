@@ -1,4 +1,8 @@
 ---
+summary: "ان باؤنڈ چینلز سے لوکیشن کی پارسنگ (Telegram + WhatsApp) اور سیاق کے فیلڈز"
+read_when:
+  - چینل لوکیشن پارسنگ شامل یا ترمیم کرتے وقت
+  - ایجنٹ پرامپٹس یا اوزاروں میں لوکیشن سیاق کے فیلڈز استعمال کرتے وقت
 title: "چینل لوکیشن پارسنگ"
 ---
 
@@ -50,5 +54,3 @@ Meet here
 - **Telegram**: وینیوز `LocationName/LocationAddress` سے میپ ہوتے ہیں؛ لائیو لوکیشنز `live_period` استعمال کرتی ہیں۔
 - **WhatsApp**: `locationMessage.comment` اور `liveLocationMessage.caption` کیپشن سطر کے طور پر شامل کیے جاتے ہیں۔
 - **Matrix**: `geo_uri` کو پن لوکیشن کے طور پر پارس کیا جاتا ہے؛ الٹی ٹیوڈ کو نظر انداز کیا جاتا ہے اور `LocationIsLive` ہمیشہ false ہوتا ہے۔
-
-

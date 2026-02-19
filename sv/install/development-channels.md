@@ -1,4 +1,8 @@
 ---
+summary: "Stabila, beta- och dev-kanaler: semantik, växling och taggning"
+read_when:
+  - Du vill växla mellan stable/beta/dev
+  - Du taggar eller publicerar prereleaser
 title: "Utvecklingskanaler"
 ---
 
@@ -69,5 +73,3 @@ Beta- och dev-versioner får **inte** innehålla en macOS-app-utgåva. Det är o
 
 - Git-taggen och npm dist-taggen kan fortfarande publiceras.
 - Ange “ingen macOS-version för denna beta” i release notes eller changelog.
-
-

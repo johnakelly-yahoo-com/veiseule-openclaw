@@ -1,4 +1,8 @@
 ---
+summary: "Soporte de Windows (WSL2) + estado de la aplicación complementaria"
+read_when:
+  - Instalación de OpenClaw en Windows
+  - Búsqueda del estado de la aplicación complementaria de Windows
 title: "Windows (WSL2)"
 ---
 
@@ -152,5 +156,3 @@ Guía completa: [Primeros pasos](/start/getting-started)
 
 Aún no tenemos una aplicación complementaria para Windows. Las contribuciones son bienvenidas si desea
 ayudar a que esto suceda.
-
-

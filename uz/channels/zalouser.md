@@ -1,4 +1,8 @@
 ---
+summary: "zca-cli (QR orqali kirish), imkoniyatlar va konfiguratsiya orqali Zalo shaxsiy akkauntini qo‘llab-quvvatlash"
+read_when:
+  - OpenClaw uchun Zalo Personal’ni sozlash
+  - Zalo Personal’ga kirish yoki xabar oqimini nosozliklarni aniqlash
 title: "Zalo Shaxsiy"
 ---
 
@@ -27,7 +31,7 @@ Gateway mashinasida `PATH` ichida `zca` binari mavjud bo‘lishi kerak.
 
 1. Plaginni o‘rnating (yuqorida ko‘rsatilgan).
 2. 1. Kirish (QR, Gateway mashinasida):
-   - 2. `openclaw channels login --channel zalouser`
+   - `openclaw channels login --channel zalouser`
    - 3. Terminaldagi QR-kodni Zalo mobil ilovasi bilan skaner qiling.
 3. 4. Kanalni yoqing:
 
@@ -77,14 +81,14 @@ openclaw directory groups list --channel zalouser --query "work"
 
 25. Tasdiqlash:
 
-- 26. `openclaw pairing list zalouser`
-- 27. `openclaw pairing approve zalouser <code>`
+- `openclaw pairing list zalouser`
+- `openclaw pairing approve zalouser <code>`
 
 ## 28. Guruhga kirish (ixtiyoriy)
 
 - 29. Sukut bo‘yicha: `channels.zalouser.groupPolicy = "open"` (guruhlar ruxsat etilgan). 30. Belgilanmagan bo‘lsa, sukutni bekor qilish uchun `channels.defaults.groupPolicy` dan foydalaning.
 - 31. Allowlist bilan cheklash:
-  - 32. `channels.zalouser.groupPolicy = "allowlist"`
+  - `channels.zalouser.groupPolicy = "allowlist"`
   - 33. `channels.zalouser.groups` (kalitlar — guruh ID’lari yoki nomlari)
 - 34. Barcha guruhlarni bloklash: `channels.zalouser.groupPolicy = "disabled"`.
 - 35. Sozlash ustasi guruh allowlist’lari uchun so‘rov berishi mumkin.
@@ -128,11 +132,9 @@ openclaw directory groups list --channel zalouser --query "work"
 
 44. **`zca` topilmadi:**
 
-- 45. zca-cli’ni o‘rnating va Gateway jarayoni uchun u `PATH`da ekanini ta’minlang.
+- **Kirish saqlanmayapti:**
 
 46. **Kirish saqlanmayapti:**
 
-- 47. `openclaw channels status --probe`
+- `openclaw channels status --probe`
 - 48. Qayta kirish: `openclaw channels logout --channel zalouser && openclaw channels login --channel zalouser`
-
-

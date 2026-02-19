@@ -1,10 +1,15 @@
 ---
+summary: "Keng tarqalgan OpenClaw sozlamalari uchun sxemaga mos konfiguratsiya misollari"
+read_when:
+  - Learning how to configure OpenClaw
+  - Looking for configuration examples
+  - Setting up OpenClaw for the first time
 title: "Konfiguratsiya misollari"
 ---
 
 # Konfiguratsiya misollari
 
-Quyidagi misollar joriy konfiguratsiya sxemasiga moslashtirilgan. To‘liq ma’lumot va har bir maydon bo‘yicha izohlar uchun [Konfiguratsiya](/gateway/configuration) sahifasiga qarang.
+Examples below are aligned with the current config schema. For the exhaustive reference and per-field notes, see [Configuration](/gateway/configuration).
 
 ## Tezkor boshlash
 
@@ -43,7 +48,7 @@ Quyidagi misollar joriy konfiguratsiya sxemasiga moslashtirilgan. To‘liq ma’
 
 ## Kengaytirilgan misol (asosiy variantlar)
 
-> JSON5 izohlar va oxirgi vergullardan foydalanishga imkon beradi. Oddiy JSON ham ishlaydi.
+> JSON5 lets you use comments and trailing commas. Regular JSON works too.
 
 ```json5
 {
@@ -599,5 +604,3 @@ If more than one person can DM your bot (multiple entries in `allowFrom`, pairin
 - Provayder IDlari farq qiladi (telefon raqamlari, foydalanuvchi IDlari, kanal IDlari). Formatni tasdiqlash uchun provayder hujjatlaridan foydalaning.
 - Keyinroq qo‘shish mumkin bo‘lgan ixtiyoriy bo‘limlar: `web`, `browser`, `ui`, `discovery`, `canvasHost`, `talk`, `signal`, `imessage`.
 - Batafsil sozlash eslatmalari uchun [Providers](/channels/whatsapp) va [Troubleshooting](/gateway/troubleshooting) bo‘limlariga qarang.
-
-

@@ -1,17 +1,17 @@
 ---
 title: refactor/outbound-session-mirroring.md #1520)
-description: "Giden oturum yansıtma yeniden düzenlemesine ilişkin notları, kararları, testleri ve açık maddeleri takip edin."
+description: Giden oturum yansıtma yeniden düzenlemesine ilişkin notları, kararları, testleri ve açık maddeleri takip edin.
 ---
 
 # Giden Oturum Yansıtma Yeniden Düzenlemesi (Issue #1520)
 
-## Durum
+## Status
 
-- Devam ediyor.
+- In progress.
 - Çekirdek + eklenti kanal yönlendirmesi giden yansıtma için güncellendi.
 - Gateway send artık sessionKey atlandığında hedef oturumu türetiyor.
 
-## Bağlam
+## Context
 
 Giden gönderimler, hedef kanal oturumu yerine _mevcut_ ajan oturumuna (araç oturum anahtarı) yansıtılıyordu. Gelen yönlendirme kanal/eş oturum anahtarlarını kullandığından, giden yanıtlar yanlış oturuma düşüyor ve ilk temas hedeflerinde çoğu zaman oturum girdileri bulunmuyordu.
 
@@ -33,7 +33,7 @@ Giden gönderimler, hedef kanal oturumu yerine _mevcut_ ajan oturumuna (araç ot
 - Eklenti gönderim yolu, türetilmiş sessionKey’i kullanarak `appendAssistantMessageToSessionTranscript` üzerinden yansıtır.
 - Gateway send, sağlanmadığında bir hedef oturum anahtarı türetir (varsayılan ajan) ve bir oturum girdisi oluşturulduğundan emin olur.
 
-## İş Parçacığı/Konu İşleme
+## Thread/Topic Handling
 
 - Slack: replyTo/threadId -> `resolveThreadSessionKeys` (sonek).
 - Discord: threadId/replyTo -> `resolveThreadSessionKeys`, gelenle eşleşmesi için `useSuffix=false` ile (iş parçacığı kanal kimliği zaten oturumu kapsamlar).
@@ -49,7 +49,7 @@ Giden gönderimler, hedef kanal oturumu yerine _mevcut_ ajan oturumuna (araç ot
   - Slack otomatik iş parçacığı yansıtma, kanal kimliklerini büyük/küçük harfe duyarsız şekilde eşleştirir.
   - Gateway send, yansıtmadan önce sağlanan oturum anahtarlarını küçük harfe çevirir.
 
-## Kararlar
+## Decisions
 
 - **Gateway send oturum türetimi**: `sessionKey` sağlanmışsa kullanılır. Atlanmışsa, hedef + varsayılan ajan üzerinden bir sessionKey türetilir ve oraya yansıtılır.
 - **Oturum girdisi oluşturma**: her zaman, gelen biçimlerle hizalı `Provider/From/To/ChatType/AccountId/Originating*` ile `recordSessionMetaFromInbound` kullanılır.
@@ -83,5 +83,3 @@ Giden gönderimler, hedef kanal oturumu yerine _mevcut_ ajan oturumuna (araç ot
   - `src/infra/outbound/outbound-session.test.ts`
   - `src/agents/tools/message-tool.test.ts`
   - `src/gateway/server-methods/send.test.ts`
-
-

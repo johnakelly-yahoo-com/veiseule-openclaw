@@ -1,4 +1,9 @@
 ---
+summary: "iOS နိုဒ် အက်ပ်—Gateway သို့ ချိတ်ဆက်ခြင်း၊ pairing၊ canvas နှင့် ပြဿနာဖြေရှင်းခြင်း"
+read_when:
+  - iOS နိုဒ်ကို pairing ပြန်လုပ်ရန် သို့မဟုတ် ပြန်လည်ချိတ်ဆက်ရန်
+  - iOS အက်ပ်ကို source မှ chạy/run လုပ်ရန်
+  - gateway discovery သို့မဟုတ် canvas commands များကို debug လုပ်ရန်
 title: "iOS အက်ပ်"
 ---
 
@@ -72,6 +77,7 @@ openclaw nodes invoke --node "iOS Node" --command canvas.navigate --params '{"ur
 - Gateway canvas host သည် `/__openclaw__/canvas/` နှင့် `/__openclaw__/a2ui/` ကို serve လုပ်ပါသည်။
 - canvas host URL ကို ကြော်ငြာထားပါက ချိတ်ဆက်ချိန်တွင် iOS နိုဒ်သည် A2UI သို့ အလိုအလျောက် သွားရောက်ပါသည်။
 - built-in scaffold သို့ ပြန်ရန် `canvas.navigate` နှင့် `{"url":""}` ကို အသုံးပြုပါ။
+- built-in scaffold သို့ ပြန်ရန် `canvas.navigate` နှင့် `{"url":""}` ကို အသုံးပြုပါ။
 
 ### Canvas အကဲဖြတ် / ရုပ်ပုံဖမ်းယူ
 
@@ -100,5 +106,3 @@ openclaw nodes invoke --node "iOS Node" --command canvas.snapshot --params '{"ma
 - [ချိတ်ဆက်တွဲဖက်ခြင်း](/gateway/pairing)
 - [Discovery](/gateway/discovery)
 - [Bonjour](/gateway/bonjour)
-
-

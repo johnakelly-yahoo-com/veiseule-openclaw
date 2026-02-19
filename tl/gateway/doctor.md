@@ -1,10 +1,14 @@
 ---
+summary: "Doctor command: mga health check, config migration, at mga hakbang sa pag-aayos"
+read_when:
+  - Pagdaragdag o pagbabago ng mga doctor migration
+  - Pagpapakilala ng mga breaking na pagbabago sa config
 title: "Doktor"
 ---
 
 # Doktor
 
-`openclaw doctor` ay ang tool sa pag-aayos + paglipat para sa OpenClaw. Inaayos nito ang mga luma
+`openclaw doctor` is the repair + migration tool for OpenClaw. It fixes stale
 config/state, checks health, and provides actionable repair steps.
 
 ## Mabilis na pagsisimula
@@ -273,5 +277,3 @@ kung ang workspace ay wala pa sa git.
 
 Tingnan ang [/concepts/agent-workspace](/concepts/agent-workspace) para sa kumpletong gabay sa
 istruktura ng workspace at git backup (inirerekomenda ang pribadong GitHub o GitLab).
-
-

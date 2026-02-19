@@ -1,5 +1,8 @@
 ---
-title: "Zustandsprüfungen"
+summary: "Wie die macOS-App Gesundheitszustände von Gateway/Baileys meldet"
+read_when:
+  - Debugging von Gesundheitsanzeigen der macOS-App
+title: "Health Checks"
 ---
 
 # Health Checks unter macOS
@@ -29,5 +32,3 @@ So sehen Sie in der Menüleisten‑App, ob der verknüpfte Kanal gesund ist.
 ## Im Zweifelsfall
 
 - Sie können weiterhin den CLI‑Ablauf in [Gateway health](/gateway/health) (`openclaw status`, `openclaw status --deep`, `openclaw health --json`) verwenden und `/tmp/openclaw/openclaw-*.log` für `web-heartbeat` / `web-reconnect` verfolgen.
-
-

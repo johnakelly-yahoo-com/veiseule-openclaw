@@ -1,10 +1,15 @@
 ---
+summary: "macOS पर Gateway रनटाइम (बाहरी launchd सेवा)"
+read_when:
+  - OpenClaw.app पैकेज करना
+  - macOS Gateway launchd सेवा का डिबग करना
+  - macOS के लिए Gateway CLI स्थापित करना
 title: "macOS पर Gateway"
 ---
 
 # macOS पर Gateway (बाहरी launchd)
 
-OpenClaw.app अब Node/Bun या Gateway runtime को साथ में शामिल नहीं करता है। macOS ऐप
+OpenClaw.app no longer bundles Node/Bun or the Gateway runtime. The macOS app
 expects an **external** `openclaw` CLI install, does not spawn the Gateway as a
 child process, and manages a per‑user launchd service to keep the Gateway
 running (or attaches to an existing local Gateway if one is already running).
@@ -65,5 +70,3 @@ openclaw gateway --port 18999 --bind loopback
 ```bash
 openclaw gateway call health --url ws://127.0.0.1:18999 --timeout 3000
 ```
-
-

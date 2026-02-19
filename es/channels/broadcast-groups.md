@@ -1,4 +1,8 @@
 ---
+summary: "Difunda un mensaje de WhatsApp a múltiples agentes"
+read_when:
+  - Configuración de grupos de difusión
+  - Depuración de respuestas de múltiples agentes en WhatsApp
 status: experimental
 title: "Grupos de difusión"
 ---
@@ -436,5 +440,3 @@ Funciones planificadas:
 - [Configuración multiagente](/tools/multi-agent-sandbox-tools)
 - [Configuración de enrutamiento](/channels/channel-routing)
 - [Gestión de sesiones](/concepts/sessions)
-
-

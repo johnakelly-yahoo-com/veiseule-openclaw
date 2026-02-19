@@ -1,5 +1,7 @@
 ---
 title: Sandbox बनाम Tool Policy बनाम Elevated
+summary: "किस कारण कोई टूल ब्लॉक होता है: sandbox runtime, टूल allow/deny नीति, और elevated exec गेट्स"
+read_when: "जब आप 'sandbox jail' में फँसें या किसी tool/elevated अस्वीकृति को देखें और बदलने के लिए सटीक config key जानना चाहें।"
 status: active
 ---
 
@@ -106,7 +108,7 @@ Elevated अतिरिक्त टूल्स प्रदान **नही
 गेट्स:
 
 - Enablement: `tools.elevated.enabled` (और वैकल्पिक रूप से `agents.list[].tools.elevated.enabled`)
-- Sender allowlists: `tools.elevated.allowFrom.<provider>`` (और वैकल्पिक रूप से `agents.list[].tools.elevated.allowFrom.&lt;provider&gt;\`\`)\`
+- Sender allowlists: `tools.elevated.allowFrom.<provider>`` (और वैकल्पिक रूप से `agents.list[].tools.elevated.allowFrom.<provider>\`\`)\`
 
 देखें [Elevated Mode](/tools/elevated)।
 
@@ -124,5 +126,3 @@ Fix-it कुंजियाँ (एक चुनें):
 ### “मुझे लगा यह main है, फिर यह sandboxed क्यों है?”
 
 `"non-main"` मोड में, group/channel keys _main_ नहीं होते। मुख्य session key का उपयोग करें (`sandbox explain` द्वारा दिखाया गया) या मोड को `"off"` पर स्विच करें।
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "Gateway-levenscyclus op macOS (launchd)"
+read_when:
+  - Integratie van de mac-app met de Gateway-levenscyclus
 title: "Gateway-levenscyclus"
 ---
 
@@ -67,5 +70,3 @@ de externe host en verbindt via die tunnel.
 
 Als een echte child-process-modus ooit weer nodig is, moet die worden gedocumenteerd
 als een aparte, expliciete dev-only modus.
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "Nodos: emparejamiento, capacidades, permisos y ayudas de CLI para canvas/cámara/pantalla/sistema"
+read_when:
+  - Emparejamiento de nodos iOS/Android con un Gateway
+  - Uso del canvas/cámara del nodo para el contexto del agente
+  - Agregar nuevos comandos de nodo o ayudas de CLI
 title: "Nodos"
 ---
 
@@ -272,7 +277,7 @@ Notas:
 - `system.notify` respeta el estado de permisos de notificaciones en la app macOS.
 - `system.run` admite `--cwd`, `--env KEY=VAL`, `--command-timeout` y `--needs-screen-recording`.
 - `system.notify` admite `--priority <passive|active|timeSensitive>` y `--delivery <system|overlay|auto>`.
-- Los nodos macOS descartan las anulaciones `PATH`; los hosts de nodo headless solo aceptan `PATH` cuando antepone el PATH del host de nodo.
+- Los nodos macOS descartan las anulaciones `PATH`; los hosts de nodo headless solo aceptan `PATH` cuando antepone el PATH del host de nodo. Si necesitas entradas adicionales en PATH, configura el entorno del servicio host del nodo (o instala las herramientas en ubicaciones estándar) en lugar de pasar `PATH` mediante `--env`.
 - En modo nodo de macOS, `system.run` está controlado por aprobaciones de exec en la app macOS (Configuración → Aprobaciones de exec).
   Ask/allowlist/full se comportan igual que el host de nodo headless; las solicitudes denegadas devuelven `SYSTEM_RUN_DENIED`.
 - En el host de nodo headless, `system.run` está controlado por aprobaciones de exec (`~/.openclaw/exec-approvals.json`).
@@ -333,5 +338,3 @@ Notas:
 
 - La app de la barra de menús de macOS se conecta al servidor WS del Gateway como un nodo (para que `openclaw nodes …` funcione contra esta Mac).
 - En modo remoto, la app abre un túnel SSH para el puerto del Gateway y se conecta a `localhost`.
-
-

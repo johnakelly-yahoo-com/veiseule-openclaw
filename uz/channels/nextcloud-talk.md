@@ -1,4 +1,7 @@
 ---
+summary: "Nextcloud Talk qo‘llab-quvvatlash holati, imkoniyatlari va sozlamalari"
+read_when:
+  - Nextcloud Talk kanal funksiyalari ustida ishlash
 title: "Nextcloud Talk"
 ---
 
@@ -100,7 +103,7 @@ Minimal konfiguratsiya:
 | Xususiyat                   | Holat                  |
 | --------------------------- | ---------------------- |
 | To‘g‘ridan-to‘g‘ri xabarlar | Qo‘llab-quvvatlanadi   |
-| Xonalar                     | Qo‘llab-quvvatlanadi              |
+| Xonalar                     | Qo‘llab-quvvatlanadi   |
 | Mavzular                    | Qo‘llab-quvvatlanmaydi |
 | Media                       | Faqat URL              |
 | Reaksiyalar                 | Qo‘llab-quvvatlanadi   |
@@ -136,5 +139,3 @@ Provayder parametrlari:
 - `channels.nextcloud-talk.blockStreaming`: ushbu kanal uchun blokli strimingni o‘chirish.
 - `channels.nextcloud-talk.blockStreamingCoalesce`: blokli strimingni birlashtirishni sozlash.
 - `channels.nextcloud-talk.mediaMaxMb`: kiruvchi media uchun maksimal hajm (MB).
-
-

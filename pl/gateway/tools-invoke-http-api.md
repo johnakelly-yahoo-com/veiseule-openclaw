@@ -1,4 +1,8 @@
 ---
+summary: "Wywołaj pojedyncze narzędzie bezpośrednio przez punkt końcowy HTTP Gateway"
+read_when:
+  - Wywoływanie narzędzi bez uruchamiania pełnego przebiegu agenta
+  - Budowanie automatyzacji wymagających egzekwowania polityk narzędzi
 title: "API wywoływania narzędzi"
 ---
 
@@ -21,6 +25,7 @@ Uwagi:
 
 - Gdy `gateway.auth.mode="token"`, użyj `gateway.auth.token` (lub `OPENCLAW_GATEWAY_TOKEN`).
 - Gdy `gateway.auth.mode="password"`, użyj `gateway.auth.password` (lub `OPENCLAW_GATEWAY_PASSWORD`).
+- Jeśli skonfigurowano `gateway.auth.rateLimit` i wystąpi zbyt wiele nieudanych prób uwierzytelnienia, endpoint zwróci `429` z nagłówkiem `Retry-After`.
 
 ## Treść żądania
 
@@ -54,6 +59,28 @@ Dostępność narzędzi jest filtrowana przez ten sam łańcuch polityk, któreg
 
 Jeśli narzędzie nie jest dozwolone przez politykę, punkt końcowy zwraca **404**.
 
+Gateway HTTP domyślnie stosuje również twardą listę odmowy (nawet jeśli polityka sesji zezwala na dane narzędzie):
+
+- `sessions_spawn`
+- `sessions_send`
+- `gateway`
+- `whatsapp_login`
+
+Możesz dostosować tę listę odmowy poprzez `gateway.tools`:
+
+```json5
+{
+  gateway: {
+    tools: {
+      // Dodatkowe narzędzia do zablokowania przez HTTP /tools/invoke
+      deny: ["browser"],
+      // Usuń narzędzia z domyślnej listy odmowy
+      allow: ["gateway"],
+    },
+  },
+}
+```
+
 Aby pomóc politykom grup w rozwiązywaniu kontekstu, możesz opcjonalnie ustawić:
 
 - `x-openclaw-message-channel: <channel>` (przykład: `slack`, `telegram`)
@@ -64,8 +91,10 @@ Aby pomóc politykom grup w rozwiązywaniu kontekstu, możesz opcjonalnie ustawi
 - `200` → `{ ok: true, result }`
 - `400` → `{ ok: false, error: { type, message } }` (nieprawidłowe żądanie lub błąd narzędzia)
 - `401` → nieautoryzowane
+- `429` → uwierzytelnianie ograniczone przez rate limit (`Retry-After` ustawiony)
 - `404` → narzędzie niedostępne (nie znaleziono lub nie znajduje się na liście dozwolonych)
 - `405` → metoda niedozwolona
+- `500` → `{ ok: false, error: { type, message } }` (nieoczekiwany błąd wykonania narzędzia; komunikat zanonimizowany)
 
 ## Przykład
 
@@ -79,5 +108,3 @@ curl -sS http://127.0.0.1:18789/tools/invoke \
     "args": {}
   }'
 ```
-
-

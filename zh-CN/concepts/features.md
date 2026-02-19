@@ -1,38 +1,32 @@
 ---
-title: 功能
-x-i18n:
-  generated_at: "2026-02-04T17:53:22Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 1b6aee0bfda751824cb6b3a99080b4c80c00ffb355a96f9cff1b596d55d15ed4
-  source_path: concepts/features.md
-  workflow: 15
+summary: "OpenClaw 在渠道、路由、媒体和用户体验方面的功能。"
+read_when:
+  - 你想了解 OpenClaw 支持的完整功能列表
+title: "功能"
 ---
 
 ## 亮点
 
 <Columns>
-  <Card title="渠道" icon="message-square">
+  <Card title="Channels" icon="message-square">
     通过单个 Gateway 网关支持 WhatsApp、Telegram、Discord 和 iMessage。
   
 </Card>
-  <Card title="插件" icon="plug">
+  <Card title="Plugins" icon="plug">
     通过扩展添加 Mattermost 等更多平台。
   
 </Card>
-  <Card title="路由" icon="route">
-    多智能体路由，支持隔离会话。
-  
+  <Card title="Routing" icon="route">17. 
+    具有隔离会话的多智能体路由。
 </Card>
-  <Card title="媒体" icon="image">
-    支持图片、音频和文档的收发。
-  
+  <Card title="Media" icon="image">18. 
+    图像、音频和文档的输入与输出。
 </Card>
-  <Card title="应用与界面" icon="monitor">
+  <Card title="Apps and UI" icon="monitor">
     Web 控制界面和 macOS 配套应用。
   
 </Card>
-  <Card title="移动节点" icon="smartphone">
+  <Card title="Mobile nodes" icon="smartphone">
     iOS 和 Android 节点，支持 Canvas。
   
 </Card>
@@ -58,7 +52,5 @@ x-i18n:
 - Android 节点，支持配对、Canvas、聊天和相机
 
 <Note>
-旧版 Claude、Codex、Gemini 和 Opencode 路径已被移除。Pi 是唯一的编程智能体路径。
+38. 已移除旧版 Claude、Codex、Gemini 和 Opencode 路径。 39. Pi 是唯一的
 </Note>
-
-

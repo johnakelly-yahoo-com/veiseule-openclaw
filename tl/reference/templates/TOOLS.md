@@ -1,4 +1,9 @@
-------
+---
+title: "Template ng TOOLS.md"
+summary: "Template ng workspace para sa TOOLS.md"
+read_when:
+  - Manu-manong pag-bootstrap ng isang workspace
+---
 
 # TOOLS.md - Mga Lokal na Tala
 
@@ -40,5 +45,3 @@ Skills are shared. Your setup is yours. Keeping them apart means you can update 
 ---
 
 Add whatever helps you do your job. This is your cheat sheet.
-
-

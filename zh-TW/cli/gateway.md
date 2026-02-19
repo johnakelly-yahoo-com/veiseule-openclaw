@@ -1,4 +1,9 @@
 ---
+summary: "OpenClaw Gateway CLI（`openclaw gateway`）— 執行、查詢與探索 Gateway 閘道器"
+read_when:
+  - 從 CLI 執行 Gateway 閘道器（開發或伺服器）
+  - Debugging Gateway auth, bind modes, and connectivity
+  - 透過 Bonjour 探索 Gateway 閘道器（LAN + tailnet）
 title: "Gateway"
 ---
 
@@ -8,7 +13,7 @@ Gateway 閘道器是 OpenClaw 的 WebSocket 伺服器（頻道、節點、工作
 
 本頁面的子命令位於 `openclaw gateway …` 之下。
 
-相關文件：
+Related docs:
 
 - [/gateway/bonjour](/gateway/bonjour)
 - [/gateway/discovery](/gateway/discovery)
@@ -30,10 +35,10 @@ openclaw gateway run
 
 注意事項：
 
-- 預設情況下，除非在 `~/.openclaw/openclaw.json` 中設定 `gateway.mode=local`，否則 Gateway 閘道器會拒絕啟動。臨時／開發用途請使用 `--allow-unconfigured`。 Use `--allow-unconfigured` for ad-hoc/dev runs.
-- 在未啟用驗證的情況下綁定至 loopback 以外的位址會被阻擋（安全防護機制）。
+- 預設情況下，除非在 `~/.openclaw/openclaw.json` 中設定 `gateway.mode=local`，否則 Gateway 閘道器會拒絕啟動。臨時／開發用途請使用 `--allow-unconfigured`。 Use `--allow-unconfigured` for ad-hoc/dev runs. Use `--allow-unconfigured` for ad-hoc/dev runs.
+- Binding beyond loopback without auth is blocked (safety guardrail).
 - 當獲得授權時，`SIGUSR1` 會觸發程序內重新啟動（啟用 `commands.restart`，或使用 gateway tool/config apply/update）。
-- `SIGINT`/`SIGTERM` 處理器會停止 gateway 程序，但不會還原任何自訂的終端機狀態。若你以 TUI 或 raw-mode 輸入包裝 CLI，請在結束前還原終端機。 If you wrap the CLI with a TUI or raw-mode input, restore the terminal before exit.
+- `SIGINT`/`SIGTERM` 處理器會停止 gateway 程序，但不會還原任何自訂的終端機狀態。若你以 TUI 或 raw-mode 輸入包裝 CLI，請在結束前還原終端機。 If you wrap the CLI with a TUI or raw-mode input, restore the terminal before exit. If you wrap the CLI with a TUI or raw-mode input, restore the terminal before exit.
 
 ### 選項
 
@@ -75,6 +80,7 @@ openclaw gateway run
 
 注意：當你設定 `--url` 時，CLI 不會回退到設定或環境中的憑證。
 請明確傳入 `--token` 或 `--password`。缺少明確憑證會視為錯誤。
+Pass `--token` or `--password` explicitly.
 Pass `--token` or `--password` explicitly. Missing explicit credentials is an error.
 
 ### `gateway health`
@@ -103,12 +109,12 @@ openclaw gateway status --json
 
 ### `gateway probe`
 
-`gateway probe` 是「全面偵錯」命令。它一定會探測： It always probes:
+`gateway probe` 是「全面偵錯」命令。它一定會探測： It always probes: It always probes:
 
 - 你設定的遠端 gateway（若有設定），以及
 - localhost（loopback），**即使已設定遠端**。
 
-如果偵測到多個可連線的 gateways，將會全部列出。當您使用隔離的設定檔／連接埠（例如救援機器人）時支援多個 gateways，但大多數安裝情境仍然只會執行單一 gateway。
+If multiple gateways are reachable, it prints all of them. Multiple gateways are supported when you use isolated profiles/ports (e.g., a rescue bot), but most installs still run a single gateway.
 
 ```bash
 openclaw gateway probe
@@ -196,5 +202,3 @@ openclaw gateway discover
 openclaw gateway discover --timeout 4000
 openclaw gateway discover --json | jq '.beacons[].wsUrl'
 ```
-
-

@@ -1,59 +1,51 @@
 ---
-title: "Onboarding (macOS App)"
-sidebarTitle: "Onboarding: macOS App"
+summary: "25. OpenClaw (macOS ilovasi) uchun birinchi ishga tushirishdagi onboarding oqimi"
+read_when:
+  - 26. macOS onboarding yordamchisini loyihalash
+  - 27. Auth yoki identifikatsiya sozlamalarini amalga oshirish
+title: "28. Onboarding (macOS ilovasi)"
+sidebarTitle: "29. Onboarding: macOS ilovasi"
 ---
 
-# Onboarding (macOS App)
+# 30. Onboarding (macOS ilovasi)
 
-This doc describes the **current** first‑run onboarding flow. The goal is a
-smooth “day 0” experience: pick where the Gateway runs, connect auth, run the
-wizard, and let the agent bootstrap itself.
-For a general overview of onboarding paths, see [Onboarding Overview](/start/onboarding-overview).
+31. Ushbu hujjat **joriy** birinchi ishga tushirishdagi onboarding oqimini tasvirlaydi. 32. Maqsad — silliq “day 0” tajribasi: Gateway qayerda ishlashini tanlash, auth ulash, ustani ishga tushirish va agentning o‘zini o‘zi boshlashiga imkon berish.
+    Onboarding yo‘llari haqida umumiy ma’lumot uchun [Onboarding Overview](/start/onboarding-overview) sahifasiga qarang.
 
 <Steps>
-<Step title="Approve macOS warning">
-<Frame>
-<img src="/assets/macos-onboarding/01-macos-warning.jpeg" alt=""></img>
-</Frame>
+<Step title="Approve macOS warning">33. 
+<img src="/assets/macos-onboarding/01-macos-warning.jpeg" alt=""></img>34. 
 </Step>
-<Step title="Approve find local networks">
-<Frame>
-<img src="/assets/macos-onboarding/02-local-networks.jpeg" alt=""></img>
-</Frame>
+<Step title="Approve find local networks">35. 
+<img src="/assets/macos-onboarding/02-local-networks.jpeg" alt=""></img>36. 
 </Step>
-<Step title="Welcome and security notice">
-<Frame caption="Read the security notice displayed and decide accordingly">
-<img src="/assets/macos-onboarding/03-security-notice.png" alt=""></img>
-</Frame>
+<Step title="Welcome and security notice">37. 
+<img src="/assets/macos-onboarding/03-security-notice.png" alt=""></img>38. 
 </Step>
-<Step title="Local vs Remote">
-<Frame>
+<Step title="Local vs Remote">39. 
 <img src="/assets/macos-onboarding/04-choose-gateway.png" alt=""></img>
 </Frame>
 
-Where does the **Gateway** run?
+40. **Gateway** qayerda ishlaydi?
 
-- **This Mac (Local only):** onboarding can run OAuth flows and write credentials
-  locally.
-- **Remote (over SSH/Tailnet):** onboarding does **not** run OAuth locally;
-  credentials must exist on the gateway host.
-- **Configure later:** skip setup and leave the app unconfigured.
+- 41. **Ushbu Mac (faqat lokal):** onboarding OAuth oqimlarini ishga tushirishi va hisob maʼlumotlarini lokal ravishda yozishi mumkin.
+- 42. **Masofaviy (SSH/Tailnet orqali):** onboarding OAuthʼni lokal ravishda ishga tushirmaydi; hisob maʼlumotlari gateway xostida mavjud bo‘lishi kerak.
+- 43. **Keyinroq sozlash:** sozlashni o‘tkazib yuborish va ilovani sozlanmagan holda qoldirish.
 
 <Tip>
-**Gateway auth tip:**
-- The wizard now generates a **token** even for loopback, so local WS clients must authenticate.
-- If you disable auth, any local process can connect; use that only on fully trusted machines.
-- Use a **token** for multi‑machine access or non‑loopback binds.
+44. **Gateway auth bo‘yicha maslahat:**
+- Endi usta loopback uchun ham **token** yaratadi, shuning uchun lokal WS mijozlari autentifikatsiyadan o‘tishi kerak.
+45. - Agar auth’ni o‘chirsangiz, istalgan lokal jarayon ulanadi; buni faqat to‘liq ishonchli mashinalarda ishlating.
+46. - Ko‘p mashinali kirish yoki loopback bo‘lmagan bog‘lanishlar uchun **token**dan foydalaning.
 </Tip>
 </Step>
-<Step title="Permissions">
-<Frame caption="Choose what permissions do you want to give OpenClaw">
+<Step title="Permissions">48. 
 <img src="/assets/macos-onboarding/05-permissions.png" alt=""></img>
 </Frame>
 
-Onboarding requests TCC permissions needed for:
+49. Onboarding quyidagilar uchun zarur bo‘lgan TCC ruxsatlarini so‘raydi:
 
-- Automation (AppleScript)
+- 50. Avtomatlashtirish (AppleScript)
 - Notifications
 - Accessibility
 - Screen Recording
@@ -77,5 +69,3 @@ This step is optional
   what happens on the gateway host during the first agent run.
 </Step>
 </Steps>
-
-

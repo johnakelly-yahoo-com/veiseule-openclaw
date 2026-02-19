@@ -1,10 +1,14 @@
 ---
+summary: "Windows (WSL2) سپورٹ + معاون ایپ کی حیثیت"
+read_when:
+  - Windows پر OpenClaw انسٹال کرتے وقت
+  - Windows معاون ایپ کی حیثیت تلاش کرتے وقت
 title: "Windows (WSL2)"
 ---
 
 # Windows (WSL2)
 
-Windows پر OpenClaw استعمال کرنے کے لیے **WSL2** (Ubuntu تجویز کردہ) کے ذریعے انسٹالیشن کی سفارش کی جاتی ہے۔ The
+OpenClaw on Windows is recommended **via WSL2** (Ubuntu recommended). The
 CLI + Gateway run inside Linux, which keeps the runtime consistent and makes
 tooling far more compatible (Node/Bun/pnpm, Linux binaries, skills). Native
 Windows might be trickier. WSL2 gives you the full Linux experience — one command
@@ -12,16 +16,16 @@ to install: `wsl --install`.
 
 Native Windows معاون ایپس منصوبہ بندی میں ہیں۔
 
-## انسٹال کریں (WSL2)
+## Install (WSL2)
 
 - [Getting Started](/start/getting-started) (WSL کے اندر استعمال کریں)
-- [انسٹالیشن اور اپ ڈیٹس](/install/updating)
+- [Install & updates](/install/updating)
 - سرکاری WSL2 گائیڈ (Microsoft): [https://learn.microsoft.com/windows/wsl/install](https://learn.microsoft.com/windows/wsl/install)
 
 ## Gateway
 
-- [Gateway رن بک](/gateway)
-- [کنفیگریشن](/gateway/configuration)
+- [Gateway runbook](/gateway)
+- [Configuration](/gateway/configuration)
 
 ## Gateway سروس انسٹال (CLI)
 
@@ -53,7 +57,7 @@ openclaw doctor
 
 ## Advanced: WSL سروسز کو LAN پر ایکسپوز کریں (portproxy)
 
-WSL کا اپنا ایک ورچوئل نیٹ ورک ہوتا ہے۔ اگر کسی دوسری مشین کو کسی سروس تک رسائی درکار ہو
+WSL has its own virtual network. If another machine needs to reach a service
 running **inside WSL** (SSH, a local TTS server, or the Gateway), you must
 forward a Windows port to the current WSL IP. The WSL IP changes after restarts,
 so you may need to refresh the forwarding rule.
@@ -152,5 +156,3 @@ openclaw onboard
 
 We do not have a Windows companion app yet. Contributions are welcome if you want
 contributions to make it happen.
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "Exec-godkendelser, tilladelseslister og prompts for sandbox-udbrud"
+read_when:
+  - Konfiguration af exec-godkendelser eller tilladelseslister
+  - Implementering af exec-godkendelses-UX i macOS-appen
+  - Gennemgang af prompts for sandbox-udbrud og konsekvenser
 title: "Exec-godkendelser"
 ---
 
@@ -118,6 +123,9 @@ som tilladt på noder (macOS node eller headless node host). Dette bruger
 `tools.exec.safeBins` definerer en lille liste af **stdin-only** binære filer (for eksempel `jq`)
 , der kan køre i tilladtlistetilstand **uden** eksplicitte tilladte poster. Sikker bins afviser
 positionelle fil args og sti-lignende tokens, så de kun kan operere på den indgående strøm.
+Sikre bins tvinger også argv-tokens til at blive behandlet som **bogstavelig tekst** ved eksekvering (ingen globbing
+og ingen `$VARS`-udvidelse) for stdin-only-segmenter, så mønstre som `*` eller `$HOME/...` ikke kan
+bruges til at smugle fillæsninger.
 Shell kædning og omdirigeringer er ikke automatisk tilladt i tilladte tilstand.
 
 Skalkædning (`&`, `~`, `;`) er tilladt, når hvert segment på øverste niveau opfylder tilladelseslisten
@@ -238,5 +246,3 @@ Relateret:
 - [Exec-værktøj](/tools/exec)
 - [Forhøjet tilstand](/tools/elevated)
 - [Færdigheder](/tools/skills)
-
-

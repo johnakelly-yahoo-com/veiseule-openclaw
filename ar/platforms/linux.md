@@ -1,4 +1,8 @@
 ---
+summary: "دعم Linux + حالة التطبيقات المُرافِقة"
+read_when:
+  - البحث عن حالة التطبيق المُرافِق على Linux
+  - التخطيط لتغطية المنصات أو المساهمة
 title: "تطبيق Linux"
 ---
 
@@ -88,5 +92,3 @@ WantedBy=default.target
 ```
 systemctl --user enable --now openclaw-gateway[-<profile>].service
 ```
-
-

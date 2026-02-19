@@ -1,4 +1,7 @@
 ---
+summary: "Katayuan ng suporta, mga kakayahan, at konpigurasyon ng Nextcloud Talk"
+read_when:
+  - Nagtatrabaho sa mga feature ng channel ng Nextcloud Talk
 title: "Nextcloud Talk"
 ---
 
@@ -97,14 +100,14 @@ Minimal na config:
 
 ## Mga kakayahan
 
-| Tampok         | Katayuan        |
-| --------------- | --------------- |
-| Mga direktang mensahe | Sinusuportahan  |
-| Mga silid           | Sinusuportahan  |
-| Mga hiwalay na talakayan         | Hindi suportado |
-| Media           | URL-lamang        |
-| Reactions       | Sinusuportahan  |
-| Native commands | Hindi suportado |
+| Tampok                   | Katayuan        |
+| ------------------------ | --------------- |
+| Mga direktang mensahe    | Sinusuportahan  |
+| Mga silid                | Sinusuportahan  |
+| Mga hiwalay na talakayan | Hindi suportado |
+| Media                    | URL-lamang      |
+| Reactions                | Sinusuportahan  |
+| Native commands          | Hindi suportado |
 
 ## Sanggunian sa konpigurasyon (Nextcloud Talk)
 
@@ -136,5 +139,3 @@ Mga opsyon ng provider:
 - `channels.nextcloud-talk.blockStreaming`: i-disable ang block streaming para sa channel na ito.
 - `channels.nextcloud-talk.blockStreamingCoalesce`: tuning ng block streaming coalesce.
 - `channels.nextcloud-talk.mediaMaxMb`: inbound media cap (MB).
-
-

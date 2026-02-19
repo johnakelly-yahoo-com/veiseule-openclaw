@@ -1,4 +1,7 @@
 ---
+summary: "Yükseltilmiş exec modu ve /elevated yönergeleri"
+read_when:
+  - Yükseltilmiş mod varsayılanlarını, izin listelerini veya slash komutu davranışını ayarlarken
 title: "Elevated Modu"
 ---
 
@@ -52,5 +55,3 @@ title: "Elevated Modu"
 
 - Yükseltilmiş exec çağrıları bilgi (info) seviyesinde günlüklenir.
 - Oturum durumu, yükseltilmiş modu içerir (örn. `elevated=ask`, `elevated=full`).
-
-

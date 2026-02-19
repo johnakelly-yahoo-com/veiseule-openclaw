@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw’un macOS uygulamasında Apple aygıt model tanımlayıcılarını kullanıcı dostu adlara nasıl sağladığı."
+read_when:
+  - Aygıt model tanımlayıcı eşlemelerini veya NOTICE/lisans dosyalarını güncellerken
+  - Instances UI’nin aygıt adlarını nasıl görüntülediğini değiştirirken
 title: "Aygıt Modeli Veritabanı"
 ---
 
@@ -41,5 +45,3 @@ curl -fsSL "https://raw.githubusercontent.com/kyle-seongwoo-jun/apple-device-ide
 ```bash
 swift build --package-path apps/macos
 ```
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Stellt vom Gateway einen OpenResponses-kompatiblen /v1/responses-HTTP-Endpunkt bereit"
+read_when:
+  - Integration von Clients, die die OpenResponses-API sprechen
+  - Sie möchten elementbasierte Eingaben, Client-Werkzeugaufrufe oder SSE-Ereignisse
 title: "OpenResponses-API"
 ---
 
@@ -24,6 +28,7 @@ Hinweise:
 
 - Wenn `gateway.auth.mode="token"`, verwenden Sie `gateway.auth.token` (oder `OPENCLAW_GATEWAY_TOKEN`).
 - Wenn `gateway.auth.mode="password"`, verwenden Sie `gateway.auth.password` (oder `OPENCLAW_GATEWAY_PASSWORD`).
+- Wenn `gateway.auth.rateLimit` konfiguriert ist und zu viele Authentifizierungsfehler auftreten, gibt der Endpunkt `429` mit `Retry-After` zurück.
 
 ## Auswahl eines Agenten
 
@@ -182,7 +187,11 @@ Standardwerte für das Abrufen von URLs:
 
 - `files.allowUrl`: `true`
 - `images.allowUrl`: `true`
+- `maxUrlParts`: `8` (gesamtzahl der URL-basierten `input_file` + `input_image`-Teile pro Anfrage)
 - Anfragen sind abgesichert (DNS-Auflösung, Blockierung privater IPs, Weiterleitungsobergrenzen, Timeouts).
+- Optionale Hostname-Allowlisten werden pro Eingabetyp unterstützt (`files.urlAllowlist`, `images.urlAllowlist`).
+  - Exakter Host: `"cdn.example.com"`
+  - Wildcard-Subdomains: `"*.assets.example.com"` (entspricht nicht der Apex-Domain)
 
 ## Datei- und Bildlimits (Konfiguration)
 
@@ -233,6 +242,7 @@ Standardwerte können unter `gateway.http.endpoints.responses` angepasst werden:
 Standardwerte, wenn ausgelassen:
 
 - `maxBodyBytes`: 20 MB
+- `maxUrlParts`: 8
 - `files.maxBytes`: 5 MB
 - `files.maxChars`: 200k
 - `files.maxRedirects`: 3
@@ -243,6 +253,13 @@ Standardwerte, wenn ausgelassen:
 - `images.maxBytes`: 10 MB
 - `images.maxRedirects`: 3
 - `images.timeoutMs`: 10 s
+
+Sicherheitshinweis:
+
+- URL-Allowlisten werden vor dem Abruf und bei Weiterleitungen durchgesetzt.
+- Das Allowlisting eines Hostnamens umgeht nicht die Blockierung privater/interner IP-Adressen.
+- Für Gateways mit Internetzugang sollten zusätzlich zu anwendungsseitigen Schutzmechanismen Netzwerk-Egress-Kontrollen angewendet werden.
+  Siehe [Security](/gateway/security).
 
 ## Streaming (SSE)
 
@@ -311,5 +328,3 @@ curl -N http://127.0.0.1:18789/v1/responses \
     "input": "hi"
   }'
 ```
-
-

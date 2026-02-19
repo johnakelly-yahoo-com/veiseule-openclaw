@@ -1,4 +1,7 @@
 ---
+summary: "send、gateway 與 agent 回覆的影像與媒體處理規則"
+read_when:
+  - 修改媒體管線或附件
 title: "圖片與媒體支援"
 ---
 
@@ -60,12 +63,10 @@ WhatsApp 頻道透過 **Baileys Web** 運作。本文件說明目前用於傳送
 - 圖片預設：10 MB（`tools.media.image.maxBytes`）。
 - 音訊預設：20 MB（`tools.media.audio.maxBytes`）。
 - 影片預設：50 MB（`tools.media.video.maxBytes`）。
-- 過大的媒體檔案會略過內容理解，但仍會以原始內容繼續回覆。
+- Oversize media skips understanding, but replies still go through with the original body.
 
 ## 測試注意事項
 
-- 涵蓋圖片／音訊／文件情境下的發送與回覆流程。
+- Cover send + reply flows for image/audio/document cases.
 - 驗證圖片重新壓縮（大小限制）與音訊的語音備忘錄旗標。
 - 確保多媒體回覆會以序列方式分批傳送。
-
-

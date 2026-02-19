@@ -1,4 +1,7 @@
 ---
+summary: "SSH üzerinden uzak bir OpenClaw gateway’ini kontrol etmek için macOS uygulama akışı"
+read_when:
+  - Uzaktan Mac kontrolünü kurma veya hata ayıklama
 title: "Uzaktan Denetim"
 ---
 
@@ -45,7 +48,7 @@ Uzak mod iki taşıma yöntemini destekler:
 - **Doğrudan (ws/wss)**: Web Chat, yapılandırılmış gateway URL’sine doğrudan bağlanır.
 - Artık ayrı bir WebChat HTTP sunucusu yoktur.
 
-## İzinler
+## Permissions
 
 - Uzak ana makine, yerel ile aynı TCC onaylarına ihtiyaç duyar (Otomasyon, Erişilebilirlik, Ekran Kaydı, Mikrofon, Konuşma Tanıma, Bildirimler). Bir kez vermek için o makinede onboarding’i çalıştırın.
 - Düğümler, ajanların nelerin kullanılabilir olduğunu bilmesi için izin durumlarını `node.list` / `node.describe` üzerinden ilan eder.
@@ -78,5 +81,3 @@ openclaw nodes notify --node <id> --title "Ping" --body "Remote gateway ready" -
 ```
 
 Uygulamada artık genel bir “varsayılan ses” anahtarı yoktur; çağıranlar her istek için bir ses (ya da hiçbiri) seçer.
-
-

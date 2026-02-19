@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw-loggning: rullande diagnostikfillogg + integritetsflaggor för unified log"
+read_when:
+  - Insamling av macOS-loggar eller undersökning av loggning av privata data
+  - Felsökning av problem med röstväckning/sessionens livscykel
 title: "macOS-loggning"
 ---
 
@@ -51,5 +55,3 @@ sudo install -m 644 -o root -g wheel /tmp/bot.molt.plist /Library/Preferences/Lo
 - Ta bort åsidosättningen: `sudo rm /Library/Preferences/Logging/Subsystems/bot.molt.plist`.
 - Kör eventuellt `sudo log config --reload` för att tvinga logd att omedelbart släppa åsidosättningen.
 - Kom ihåg att denna yta kan innehålla telefonnummer och meddelandetexter; behåll plist-filen endast så länge du aktivt behöver den extra detaljnivån.
-
-

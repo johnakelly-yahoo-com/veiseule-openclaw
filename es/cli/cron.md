@@ -1,4 +1,8 @@
 ---
+summary: "Referencia de la CLI para `openclaw cron` (programar y ejecutar trabajos en segundo plano)"
+read_when:
+  - Quiere trabajos programados y activaciones
+  - Está depurando la ejecución de cron y los registros
 title: "cron"
 ---
 
@@ -38,5 +42,3 @@ Anuncie en un canal específico:
 ```bash
 openclaw cron edit <job-id> --announce --channel slack --to "channel:C1234567890"
 ```
-
-

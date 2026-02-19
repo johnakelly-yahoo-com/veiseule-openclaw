@@ -1,20 +1,24 @@
 ---
-title: "Fon rejimidagi Exec va Process vositasi"
+summary: "Background exec execution and process management"
+read_when:
+  - Adding or modifying background exec behavior
+  - Debugging long-running exec tasks
+title: "Background Exec and Process Tool"
 ---
 
 # boshqa kontekstlardan qayta foydalanish (mahalliy skriptlar, kelajakdagi desktop ilova va h.k.)
 
-OpenClaw shell buyruqlarini `exec` vositasi orqali ishga tushiradi va uzoq davom etadigan vazifalarni xotirada saqlaydi. `process` vositasi esa ushbu fon sessiyalarini boshqaradi.
+OpenClaw runs shell commands through the `exec` tool and keeps long‑running tasks in memory. The `process` tool manages those background sessions.
 
 ## exec tool
 
-Asosiy parametrlar:
+Key parameters:
 
-- `command` (majburiy)
-- `yieldMs` (standart 10000): ushbu kechikishdan so‘ng avtomatik ravishda fon rejimiga o‘tkaziladi
-- `background` (bool): darhol fon rejimida ishga tushirish
-- `timeout` (soniya, standart 1800): ushbu vaqt tugagach jarayonni to‘xtatadi
-- `elevated` (bool): agar elevated rejimi yoqilgan/ruxsat berilgan bo‘lsa, hostda ishga tushirish
+- `command` (required)
+- `yieldMs` (default 10000): auto‑background after this delay
+- `background` (bool): background immediately
+- `timeout` (seconds, default 1800): kill the process after this timeout
+- `elevated` (bool): run on host if elevated mode is enabled/allowed
 - Fon ijrosi + Jarayon asbobi Set `pty: true`.
 - Haqiqiy TTY kerakmi?
 
@@ -42,6 +46,7 @@ Environment overrides:
 - 4. `tools.exec.timeoutSec` (standart 1800)
 - 5. `tools.exec.cleanupMs` (standart 1800000)
 - 6. `tools.exec.notifyOnExit` (standart true): fon rejimidagi exec yakunlanganda tizim hodisasini navbatga qo‘shadi va heartbeat so‘raydi.
+- `tools.exec.notifyOnExitEmptySuccess` (standart false): true bo‘lganda, hech qanday chiqish bermagan muvaffaqiyatli background rejimdagi ishga tushirishlar uchun ham yakunlanish hodisalarini navbatga qo‘shadi.
 
 ## 7. process vositasi
 
@@ -62,7 +67,9 @@ Environment overrides:
 - 19. Sessiya jurnallari faqat `process poll/log` ishga tushirilganda va vosita natijasi yozib olinganda chat tarixiga saqlanadi.
 - 20. `process` agent bo‘yicha cheklangan; u faqat shu agent boshlagan sessiyalarni ko‘radi.
 - 21. `process list` tez ko‘zdan kechirish uchun hosila `name` (buyruq fe’li + maqsad) ni o‘z ichiga oladi.
-- 22. `process log` qatorlarga asoslangan `offset`/`limit` dan foydalanadi (`offset`ni qoldirsangiz, oxirgi N qator olinadi).
+- `process log` qatorga asoslangan `offset`/`limit` dan foydalanadi.
+- `offset` va `limit` ikkalasi ham ko‘rsatilmasa, oxirgi 200 qatorni qaytaradi va sahifalash bo‘yicha ko‘rsatma qo‘shadi.
+- `offset` ko‘rsatilgan va `limit` ko‘rsatilmagan bo‘lsa, `offset` dan oxirigacha qaytaradi (200 bilan cheklanmaydi).
 
 ## 23. Misollar
 
@@ -87,5 +94,3 @@ Environment overrides:
 ```json
 30. { "tool": "process", "action": "write", "sessionId": "<id>", "data": "y\n" }
 ```
-
-

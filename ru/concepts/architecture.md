@@ -1,4 +1,7 @@
 ---
+summary: "Архитектура WebSocket‑шлюза, компоненты и клиентские потоки"
+read_when:
+  - При работе над протоколом шлюза, клиентами или транспортами
 title: "Архитектура Gateway"
 ---
 
@@ -16,7 +19,10 @@ title: "Архитектура Gateway"
 - **Узлы** (macOS/iOS/Android/headless) также подключаются по **WebSocket**, но
   объявляют `role: node` с явными возможностями/командами.
 - Один Gateway на хост; это единственное место, где открывается сессия WhatsApp.
-- **Хост canvas** (по умолчанию `18793`) обслуживает редактируемый агентом HTML и A2UI.
+- **canvas host** обслуживается HTTP-сервером Gateway по адресу:
+  - `/__openclaw__/canvas/` (редактируемые агентом HTML/CSS/JS)
+  - `/__openclaw__/a2ui/` (хост A2UI)
+    Используется тот же порт, что и у Gateway (по умолчанию `18789`).
 
 ## Компоненты и потоки
 
@@ -53,22 +59,6 @@ title: "Архитектура Gateway"
 ## Жизненный цикл подключения (один клиент)
 
 ```mermaid
-%%{init: {
-  'theme': 'base',
-  'themeVariables': {
-    'primaryColor': '#ffffff',
-    'primaryTextColor': '#000000',
-    'primaryBorderColor': '#000000',
-    'lineColor': '#000000',
-    'secondaryColor': '#f9f9fb',
-    'tertiaryColor': '#ffffff',
-    'clusterBkg': '#f9f9fb',
-    'clusterBorder': '#000000',
-    'nodeBorder': '#000000',
-    'mainBkg': '#ffffff',
-    'edgeLabelBackground': '#ffffff'
-  }
-}}%%
 sequenceDiagram
     participant Client
     participant Gateway
@@ -146,5 +136,3 @@ sequenceDiagram
 - Ровно один Gateway управляет одной сессией Baileys на хост.
 - Рукопожатие обязательно; любой первый фрейм, не являющийся JSON или connect, приводит к жёсткому закрытию.
 - События не переигрываются; при разрывах клиенты должны обновляться.
-
-

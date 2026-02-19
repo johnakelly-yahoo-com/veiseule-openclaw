@@ -1,4 +1,8 @@
 ---
+summary: "CLI-referens för `openclaw devices` (enhetsparning + rotation/återkallning av token)"
+read_when:
+  - Du godkänner begäranden om enhetsparning
+  - Du behöver rotera eller återkalla enhetstoken
 title: "enheter"
 ---
 
@@ -64,5 +68,3 @@ Passera `--token` eller` --lösenord` explicit. Saknar explicita referenser är 
 
 - Token rotation returnerar en ny token (känslig). Behandla det som en hemlighet.
 - Dessa kommandon kräver `operator.pairing`-scope (eller `operator.admin`).
-
-

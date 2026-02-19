@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw کے لیے جدید سیٹ اپ اور ڈویلپمنٹ ورک فلو"
+read_when:
+  - نئی مشین سیٹ اپ کرتے وقت
+  - آپ اپنی ذاتی سیٹ اپ کو متاثر کیے بغیر “تازہ ترین + بہترین” چاہتے ہوں
 title: "سیٹ اپ"
 ---
 
@@ -153,5 +157,3 @@ sudo loginctl enable-linger $USER
 - [Discord](/channels/discord) اور [Telegram](/channels/telegram) (reply tags + replyToMode سیٹنگز)
 - [OpenClaw assistant setup](/start/openclaw)
 - [macOS app](/platforms/macos) (gateway لائف سائیکل)
-
-

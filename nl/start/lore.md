@@ -1,4 +1,7 @@
 ---
+summary: "Achtergrondverhaal en lore van OpenClaw voor context en toon"
+read_when:
+  - Bij het schrijven van documentatie of UX-teksten die naar de lore verwijzen
 title: "OpenClaw Overlevering"
 ---
 
@@ -214,5 +217,3 @@ _"De klauw is de wet."_
 — ELU, tijdens de Definitieve Vorm-migratie, 30 januari 2026
 
 🦞💙
-
-

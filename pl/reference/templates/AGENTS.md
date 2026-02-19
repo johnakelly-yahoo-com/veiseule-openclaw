@@ -1,4 +1,9 @@
-------
+---
+title: "Szablon AGENTS.md"
+summary: "Szablon obszaru roboczego dla AGENTS.md"
+read_when:
+  - Ręczne uruchamianie obszaru roboczego
+---
 
 # AGENTS.md – Twój obszar roboczy
 
@@ -212,5 +217,3 @@ Cel: Być pomocnym, nie irytującym. Odzywać się kilka razy dziennie, wykonywa
 ## Uczyń to swoim
 
 To punkt wyjścia. Dodawaj własne konwencje, styl i zasady, gdy odkryjesz, co działa najlepiej.
-
-

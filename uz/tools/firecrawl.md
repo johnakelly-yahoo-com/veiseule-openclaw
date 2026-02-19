@@ -1,19 +1,24 @@
 ---
+summary: "Firecrawl fallback for web_fetch (anti-bot + cached extraction)"
+read_when:
+  - You want Firecrawl-backed web extraction
+  - You need a Firecrawl API key
+  - You want anti-bot extraction for web_fetch
 title: "Firecrawl"
 ---
 
 # Firecrawl
 
-OpenClaw `web_fetch` uchun zaxira ajratuvchi sifatida **Firecrawl** dan foydalanishi mumkin. Bu joylashtirilgan
-kontent ajratish xizmati bo‘lib, botlardan himoyani chetlab o‘tish va keshlashni qo‘llab-quvvatlaydi, bu esa
-JS-ga boy saytlar yoki oddiy HTTP so‘rovlarini bloklaydigan sahifalar bilan ishlashda yordam beradi.
+OpenClaw can use **Firecrawl** as a fallback extractor for `web_fetch`. It is a hosted
+content extraction service that supports bot circumvention and caching, which helps
+with JS-heavy sites or pages that block plain HTTP fetches.
 
-## API kalitini oling
+## Get an API key
 
-1. Firecrawl akkauntini yarating va API kalit hosil qiling.
-2. Uni konfiguratsiyada saqlang yoki gateway muhitida `FIRECRAWL_API_KEY` ni o‘rnating.
+1. Create a Firecrawl account and generate an API key.
+2. Store it in config or set `FIRECRAWL_API_KEY` in the gateway environment.
 
-## Firecrawl ni sozlash
+## Configure Firecrawl
 
 ```json5
 {
@@ -33,25 +38,24 @@ JS-ga boy saytlar yoki oddiy HTTP so‘rovlarini bloklaydigan sahifalar bilan is
 }
 ```
 
-Izohlar:
+Notes:
 
-- API kalit mavjud bo‘lsa, `firecrawl.enabled` sukut bo‘yicha true bo‘ladi.
-- `maxAgeMs` keshlangan natijalar qanchalik eski bo‘lishi mumkinligini (ms) belgilaydi. Sukut bo‘yicha 2 kun.
+- `firecrawl.enabled` defaults to true when an API key is present.
+- `maxAgeMs` controls how old cached results can be (ms). Default is 2 days.
 
-## Stealth / botlardan himoyani chetlab o‘tish
+## Stealth / bot circumvention
 
-Firecrawl botlardan himoyani chetlab o‘tish uchun **proxy mode** parametrini taqdim etadi (`basic`, `stealth` yoki `auto`).
-OpenClaw har doim Firecrawl so‘rovlari uchun `proxy: "auto"` va `storeInCache: true` dan foydalanadi.
-Agar proxy ko‘rsatilmasa, Firecrawl sukut bo‘yicha `auto` ni ishlatadi. `auto` dastlabki urinish muvaffaqiyatsiz bo‘lsa, stealth proxy bilan qayta urinadi, bu esa
-faqat basic scrapingga qaraganda ko‘proq kredit sarflanishiga olib kelishi mumkin.
+Firecrawl exposes a **proxy mode** parameter for bot circumvention (`basic`, `stealth`, or `auto`).
+OpenClaw always uses `proxy: "auto"` plus `storeInCache: true` for Firecrawl requests.
+If proxy is omitted, Firecrawl defaults to `auto`. `auto` retries with stealth proxies if a basic attempt fails, which may use more credits
+than basic-only scraping.
 
-## `web_fetch` Firecrawl dan qanday foydalanadi
+## How `web_fetch` uses Firecrawl
 
-`web_fetch` ajratish tartibi:
+`web_fetch` extraction order:
 
-1. Readability (lokal)
-2. Firecrawl (agar sozlangan bo‘lsa)
-3. Oddiy HTML tozalash (oxirgi zaxira variant)
+1. Readability (local)
+2. Firecrawl (if configured)
+3. Basic HTML cleanup (last fallback)
 
-To‘liq web tool sozlamalari uchun [Web tools](/tools/web) ga qarang.
-
+See [Web tools](/tools/web) for the full web tool setup.

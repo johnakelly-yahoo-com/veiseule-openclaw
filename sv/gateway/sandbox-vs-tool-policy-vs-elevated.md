@@ -1,5 +1,7 @@
 ---
 title: Sandbox vs verktygspolicy vs förhöjd
+summary: "Varför ett verktyg blockeras: sandbox‑runtime, verktygstillåt/nek‑policy och grindar för förhöjd exec"
+read_when: "Du hamnar i ”sandbox jail” eller ser ett verktygs-/förhöjningsavslag och vill veta exakt vilken konfigurationsnyckel som ska ändras."
 status: active
 ---
 
@@ -124,5 +126,3 @@ Se [Elevated Mode](/tools/elevated).
 ### ”Jag trodde detta var main, varför är det sandboxat?”
 
 I `"non-main"` läge, grupp/kanal nycklar är _inte_ huvud. Använd huvudsessionsnyckeln (visas av `sandbox förklaring`) eller växla läge till `"off"`.
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "Gateway WebSocket-protokol: håndtryk, frames, versionering"
+read_when:
+  - Implementering eller opdatering af gateway WS-klienter
+  - Fejlfinding af protokol-mismatch eller forbindelsesfejl
+  - Gengenerering af protokolschemaer/modeller
 title: "Gateway-protokol"
 ---
 
@@ -214,5 +219,3 @@ Gatewayen behandler disse som **claims** og håndhæver server-side tilladelsesl
 Denne protokol udsætter **fuld gateway API** (status, kanaler, modeller, chat,
 agent, sessioner, knudepunkter, godkendelser osv.). Den nøjagtige overflade defineres ved
 TypeBox skemaerne i 'src/gateway/protocol/schema.ts'.
-
-

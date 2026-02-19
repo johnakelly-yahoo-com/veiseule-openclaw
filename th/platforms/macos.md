@@ -1,10 +1,16 @@
 ---
+summary: "แอปคู่หู OpenClaw บน macOS (แถบเมนู + ตัวกลาง Gateway)"
+read_when:
+  - การพัฒนาฟีเจอร์แอป macOS
+  - การเปลี่ยนแปลงวงจรชีวิตของ Gateway หรือการเชื่อมต่อโหนดบน macOS
 title: "แอป macOS"
 ---
 
 # OpenClaw macOS Companion (แถบเมนู + ตัวกลาง Gateway)
 
 แอป macOS เป็น **คู่หูบนแถบเมนู** สำหรับ OpenClaw แอป macOS คือ **แอปคู่หูบนแถบเมนู** สำหรับ OpenClaw ทำหน้าที่จัดการสิทธิ์,
+ดูแล/เชื่อมต่อกับ Gateway ในเครื่อง (ผ่าน launchd หรือแบบแมนนวล) และเปิดเผย
+ความสามารถเฉพาะของ macOS ให้เอเจนต์ใช้งานในรูปแบบโหนด แอป macOS คือ **แอปคู่หูบนแถบเมนู** สำหรับ OpenClaw ทำหน้าที่จัดการสิทธิ์,
 ดูแล/เชื่อมต่อกับ Gateway ในเครื่อง (ผ่าน launchd หรือแบบแมนนวล) และเปิดเผย
 ความสามารถเฉพาะของ macOS ให้เอเจนต์ใช้งานในรูปแบบโหนด
 
@@ -28,6 +34,8 @@ title: "แอป macOS"
   แอปจะไม่สร้าง Gateway เป็นโปรเซสลูก
   แอปจะเริ่ม **node host service** ภายในเครื่อง เพื่อให้ Gateway ระยะไกลเข้าถึง Mac เครื่องนี้ได้
   แอปจะไม่สร้าง Gateway เป็น child process
+  แอปจะเริ่ม **node host service** ภายในเครื่อง เพื่อให้ Gateway ระยะไกลเข้าถึง Mac เครื่องนี้ได้
+  แอปจะไม่สร้าง Gateway เป็น child process
 
 ## การควบคุม Launchd
 
@@ -46,7 +54,7 @@ launchctl bootout gui/$UID/bot.molt.gateway
 
 ## ความสามารถของโหนด (mac)
 
-แอป macOS จะแสดงตัวเองเป็นโหนด คำสั่งที่ใช้บ่อย: คำสั่งที่ใช้บ่อย:
+แอป macOS จะแสดงตัวเองเป็นโหนด คำสั่งที่ใช้บ่อย: คำสั่งที่ใช้บ่อย: คำสั่งที่ใช้บ่อย:
 
 - แคนวาส: `canvas.present`, `canvas.navigate`, `canvas.eval`, `canvas.snapshot`, `canvas.a2ui.*`
 - กล้อง: `camera.snap`, `camera.clip`
@@ -73,6 +81,7 @@ Gateway -> Node Service (WS)
 
 `system.run` ถูกควบคุมด้วย **Exec approvals** ในแอป macOS (Settings → Exec approvals)
 การตั้งค่าด้านความปลอดภัย + การถามยืนยัน + รายการอนุญาตจะถูกเก็บไว้ในเครื่อง Mac ที่:
+ข้อมูล Security + ask + allowlist ถูกเก็บไว้ในเครื่อง Mac ที่:
 ข้อมูล Security + ask + allowlist ถูกเก็บไว้ในเครื่อง Mac ที่:
 
 ```
@@ -128,6 +137,7 @@ open 'openclaw://agent?message=Hello%20from%20deep%20link'
 ความปลอดภัย:
 
 - หากไม่มี `key` แอปจะขอการยืนยันก่อน
+- หากไม่มี `key` แอปจะจำกัดความยาวข้อความสั้น ๆ สำหรับพรอมป์ยืนยัน และจะไม่สนใจ `deliver` / `to` / `channel`
 - หากมี `key` ที่ถูกต้อง การรันจะเป็นแบบ unattended (ออกแบบมาสำหรับอัตโนมัติส่วนบุคคล)
 
 ## ขั้นตอน Onboarding (โดยทั่วไป)
@@ -187,9 +197,10 @@ swift run openclaw-mac discover --timeout 3000 --json
   ExitOnForwardFailure + keepalive
 - **การรายงาน IP:** อุโมงค์SSH ใช้ loopback ดังนั้น Gateway จะเห็น IP ของโหนดเป็น
   `127.0.0.1` หากต้องการให้แสดง IP ไคลเอนต์จริง ให้ใช้ทรานสปอร์ต **Direct (ws/wss)**
-  (ดู [macOS remote access](/platforms/mac/remote)) ใช้การขนส่งแบบ **Direct (ws/wss)** หากต้องการให้ IP ของไคลเอนต์จริงปรากฏ (ดู [macOS remote access](/platforms/mac/remote))
+  (ดู [macOS remote access](/platforms/mac/remote)) ใช้การขนส่งแบบ **Direct (ws/wss)** หากต้องการให้ IP ของไคลเอนต์จริงปรากฏ (ดู [macOS remote access](/platforms/mac/remote)) ใช้การขนส่งแบบ **Direct (ws/wss)** หากต้องการให้ IP ของไคลเอนต์จริงปรากฏ (ดู [macOS remote access](/platforms/mac/remote))
 
 ขั้นตอนการตั้งค่า ดูที่ [macOS remote access](/platforms/mac/remote)
+รายละเอียดโปรโตคอล ดูที่ [Gateway protocol](/gateway/protocol) ขั้นตอนการตั้งค่า ดูที่ [macOS remote access](/platforms/mac/remote)
 รายละเอียดโปรโตคอล ดูที่ [Gateway protocol](/gateway/protocol) สำหรับรายละเอียดโปรโตคอล ดูที่ [Gateway protocol](/gateway/protocol)
 
 ## เอกสารที่เกี่ยวข้อง
@@ -198,5 +209,3 @@ swift run openclaw-mac discover --timeout 3000 --json
 - [Gateway (macOS)](/platforms/mac/bundled-gateway)
 - [macOS permissions](/platforms/mac/permissions)
 - [Canvas](/platforms/mac/canvas)
-
-

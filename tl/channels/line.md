@@ -1,4 +1,9 @@
 ---
+summary: "Setup, config, at paggamit ng plugin para sa LINE Messaging API"
+read_when:
+  - Gusto mong ikonekta ang OpenClaw sa LINE
+  - Kailangan mo ng setup ng LINE webhook + mga kredensyal
+  - Gusto mo ng mga opsyon ng mensahe na partikular sa LINE
 title: LINE
 ---
 
@@ -112,7 +117,7 @@ Mga allowlist at polisiya:
 - `channels.line.allowFrom`: mga allowlisted LINE user ID para sa DMs
 - `channels.line.groupPolicy`: `allowlist | open | disabled`
 - `channels.line.groupAllowFrom`: mga allowlisted LINE user ID para sa mga grupo
-- Mga override bawat grupo: `channels.line.groups.<groupId>.allowFrom`
+- Per-group overrides: `channels.line.groups.<groupId>.allowFrom`
 
 LINE IDs are case-sensitive. Ang mga valid na ID ay ganito ang hitsura:
 
@@ -179,5 +184,3 @@ Kasama rin sa LINE plugin ang isang `/card` command para sa mga preset ng Flex m
   at naaabot ng LINE ang Gateway.
 - **Mga error sa pag-download ng media:** itaas ang `channels.line.mediaMaxMb` kung lumalagpas ang media sa
   default na limit.
-
-

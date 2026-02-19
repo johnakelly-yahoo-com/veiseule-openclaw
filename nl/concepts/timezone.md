@@ -1,4 +1,8 @@
 ---
+summary: "Tijdzone-afhandeling voor agents, enveloppen en prompts"
+read_when:
+  - Je moet begrijpen hoe tijdstempels voor het model worden genormaliseerd
+  - Het configureren van de gebruikers­tijdzone voor systeemprompts
 title: "Tijdzones"
 ---
 
@@ -85,5 +89,3 @@ De systeemprompt bevat:
 Je kunt het promptformaat bepalen met `agents.defaults.timeFormat` (`auto` | `12` | `24`).
 
 Zie [Datum & Tijd](/date-time) voor het volledige gedrag en voorbeelden.
-
-

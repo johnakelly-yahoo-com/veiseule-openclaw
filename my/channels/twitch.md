@@ -1,10 +1,13 @@
 ---
+summary: "Twitch ချတ် ဘော့၏ ဖွဲ့စည်းပြင်ဆင်မှုနှင့် တပ်ဆင်ခြင်း"
+read_when:
+  - OpenClaw အတွက် Twitch ချတ် ပေါင်းစည်းမှုကို တပ်ဆင်သည့်အခါ
 title: "Twitch"
 ---
 
 # Twitch (plugin)
 
-IRC ချိတ်ဆက်မှုမှတစ်ဆင့် Twitch chat ကို ပံ့ပိုးပါသည်။ OpenClaw သည် Twitch အသုံးပြုသူ (bot account) အဖြစ် ချိတ်ဆက်ပြီး channel များအတွင်း မက်ဆေ့ချ်များကို လက်ခံရန်နှင့် ပို့ရန် ဆောင်ရွက်ပါသည်။
+Twitch chat support via IRC connection. OpenClaw connects as a Twitch user (bot account) to receive and send messages in channels.
 
 ## Plugin လိုအပ်ချက်
 
@@ -38,7 +41,7 @@ openclaw plugins install ./extensions/twitch
    - နှစ်ခုလုံး သတ်မှတ်ထားပါက config သည် ဦးစားပေးအဖြစ် အသုံးပြုမည် (env fallback သည် default-account အတွက်သာ)။
 5. Gateway ကို စတင်ပါ။
 
-**⚠️ အရေးကြီးသည်:** အခွင့်မရှိသော အသုံးပြုသူများက bot ကို မဖွင့်နိုင်ရန် access control (`allowFrom` သို့မဟုတ် `allowedRoles`) ကို ထည့်သွင်းပါ။ `requireMention` ၏ မူလတန်ဖိုးမှာ `true` ဖြစ်သည်။
+**⚠️ Important:** Add access control (`allowFrom` or `allowedRoles`) to prevent unauthorized users from triggering the bot. `requireMention` defaults to `true`.
 
 အနည်းဆုံး config:
 
@@ -74,7 +77,7 @@ openclaw plugins install ./extensions/twitch
 - `chat:read` နှင့် `chat:write` scope များကို ရွေးထားကြောင်း အတည်ပြုပါ
 - **Client ID** နှင့် **Access Token** ကို ကူးယူပါ
 
-လက်ဖြင့် app မှတ်ပုံတင်ရန် မလိုအပ်ပါ။ Token များသည် နာရီအနည်းငယ်ကြာပြီးနောက် သက်တမ်းကုန်ဆုံးပါသည်။
+No manual app registration needed. Tokens expire after several hours.
 
 ### bot ကို ပြင်ဆင်သတ်မှတ်ခြင်း
 
@@ -374,5 +377,3 @@ Access token refreshed for user 123456 (expires in 14400s)
 - မက်ဆေ့ချ်တစ်ခုလျှင် **စာလုံး 500** (စကားလုံး အစွန်းအထင်းများအလိုက် အလိုအလျောက် ခွဲပို့သည်)
 - Chunking မလုပ်မီ Markdown ကို ဖယ်ရှားပါသည်
 - Rate limiting မရှိပါ (Twitch ၏ built-in rate limits ကို အသုံးပြုသည်)
-
-

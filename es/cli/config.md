@@ -1,4 +1,7 @@
 ---
+summary: "Referencia de la CLI para `openclaw config` (obtener/establecer/quitar valores de configuración)"
+read_when:
+  - Quiere leer o editar la configuración de forma no interactiva
 title: "config"
 ---
 
@@ -45,5 +48,3 @@ openclaw config set channels.whatsapp.groups '["*"]' --json
 ```
 
 Reinicie el Gateway después de realizar ediciones.
-
-

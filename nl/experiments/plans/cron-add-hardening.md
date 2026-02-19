@@ -1,4 +1,5 @@
 ---
+summary: "Cron.add-invoerafhandeling verharden, schema’s uitlijnen en cron-UI/agent-tooling verbeteren"
 owner: "openclaw"
 status: "complete"
 last_updated: "2026-01-05"
@@ -60,5 +61,3 @@ Zie [Cron jobs](/automation/cron-jobs) voor de genormaliseerde vorm en voorbeeld
 
 - Moet `cron.add` expliciete `state` van clients accepteren (momenteel niet toegestaan door het schema)?
 - Moeten we `webchat` toestaan als expliciete delivery provider (momenteel uitgefilterd in delivery resolution)?
-
-

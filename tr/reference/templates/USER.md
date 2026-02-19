@@ -1,4 +1,8 @@
-------
+---
+summary: "Kullanıcı profil kaydı"
+read_when:
+  - Bir çalışma alanını manuel olarak başlatırken
+---
 
 # USER.md - İnsanınız Hakkında
 
@@ -17,5 +21,3 @@ _(Neyi önemsiyorlar? Hangi projeler üzerinde çalışıyorlar? Onları ne raha
 ---
 
 Ne kadar çok bilirseniz, o kadar iyi yardımcı olabilirsiniz. Ancak unutmayın — bir kişi hakkında öğreniyorsunuz, bir dosya oluşturmuyorsunuz. Aradaki farkı gözetin.
-
-

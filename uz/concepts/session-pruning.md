@@ -1,4 +1,10 @@
-------
+---
+title: "Session Pruning"
+summary: "Session pruning: tool-result trimming to reduce context bloat"
+read_when:
+  - You want to reduce LLM context growth from tool outputs
+  - You are tuning agents.defaults.contextPruning
+---
 
 # Session Pruning
 
@@ -115,5 +121,3 @@ Pruning’ni muayyan tool’lar bilan cheklash:
 ```
 
 Config ma’lumotnomasini ko‘ring: [Gateway Configuration](/gateway/configuration)
-
-

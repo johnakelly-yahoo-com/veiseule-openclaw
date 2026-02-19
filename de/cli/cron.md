@@ -1,4 +1,8 @@
 ---
+summary: "CLI-Referenz für `openclaw cron` (Hintergrundjobs planen und ausführen)"
+read_when:
+  - Sie möchten geplante Jobs und Wakeups verwenden
+  - Sie debuggen die Ausführung von Cron-Jobs und Logs
 title: "cron"
 ---
 
@@ -38,5 +42,3 @@ An einen bestimmten Kanal ankündigen:
 ```bash
 openclaw cron edit <job-id> --announce --channel slack --to "channel:C1234567890"
 ```
-
-

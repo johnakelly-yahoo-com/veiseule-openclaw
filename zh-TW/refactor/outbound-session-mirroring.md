@@ -1,26 +1,26 @@
 ---
 title: refactor/outbound-session-mirroring.md #1520)
-description: "追蹤外發工作階段鏡像重構的說明、決策、測試與待辦事項。"
+description: Track outbound session mirroring refactor notes, decisions, tests, and open items.
 ---
 
-# 外發工作階段鏡像重構（Issue #1520）
+# Outbound Session Mirroring Refactor (Issue #1520)
 
-## 狀態
+## Status
 
 - 進行中。
-- 已更新核心與外掛通道的路由機制，以支援外發鏡像。
+- Core + plugin channel routing updated for outbound mirroring.
 - Gateway send 現在會在省略 sessionKey 時推導目標工作階段。
 
-## 背景
+## Context
 
-外發訊息被鏡像到「目前」的代理工作階段（工具工作階段金鑰），而非目標通道的工作階段。入站路由使用通道／對等方工作階段金鑰，因此外發回應會落在錯誤的工作階段中，且首次聯絡的目標通常缺少對應的工作階段項目。
+Outbound sends were mirrored into the _current_ agent session (tool session key) rather than the target channel session. Inbound routing uses channel/peer session keys, so outbound responses landed in the wrong session and first-contact targets often lacked session entries.
 
 ## 目標
 
-- 將外發訊息鏡像到目標通道的工作階段金鑰。
-- 當外發時若缺少工作階段項目則自動建立。
-- 使執行緒／主題範圍與入站工作階段金鑰保持一致。
-- 涵蓋核心通道與隨附的擴充功能。
+- Mirror outbound messages into the target channel session key.
+- Create session entries on outbound when missing.
+- Keep thread/topic scoping aligned with inbound session keys.
+- Cover core channels plus bundled extensions.
 
 ## 實作摘要
 
@@ -51,7 +51,7 @@ description: "追蹤外發工作階段鏡像重構的說明、決策、測試與
 
 ## 決策
 
-- **Gateway send 工作階段推導**：若提供 `sessionKey`，則使用它；若省略，則從目標 + 預設代理推導 sessionKey 並在該處鏡像。 If omitted, derive a sessionKey from target + default agent and mirror there.
+- **Gateway send 工作階段推導**：若提供 `sessionKey`，則使用它；若省略，則從目標 + 預設代理推導 sessionKey 並在該處鏡像。 **Gateway send 工作階段推導**：若提供 `sessionKey`，則使用它；若省略，則從目標 + 預設代理推導 sessionKey 並在該處鏡像。 If omitted, derive a sessionKey from target + default agent and mirror there.
 - **工作階段項目建立**：一律使用 `recordSessionMetaFromInbound`，且 `Provider/From/To/ChatType/AccountId/Originating*` 與入站格式對齊。
 - **目標正規化**：外送路由在可用時使用已解析的目標（`resolveChannelTarget` 之後）。
 - **Session key casing**: canonicalize session keys to lowercase on write and during migrations.
@@ -83,5 +83,3 @@ description: "追蹤外發工作階段鏡像重構的說明、決策、測試與
   - `src/infra/outbound/outbound-session.test.ts`
   - `src/agents/tools/message-tool.test.ts`
   - `src/gateway/server-methods/send.test.ts`
-
-

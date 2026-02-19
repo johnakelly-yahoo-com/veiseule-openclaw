@@ -1,4 +1,8 @@
 ---
+summary: "Refatoração do Clawnet: unificar protocolo de rede, papéis, autenticação, aprovações e identidade"
+read_when:
+  - Planejar um protocolo de rede unificado para nós + clientes operadores
+  - Retrabalhar aprovações, pareamento, TLS e presença entre dispositivos
 title: "Refatoração do Clawnet"
 ---
 
@@ -411,5 +415,3 @@ Escolha uma antes da implementação para evitar deriva.
 - Dor: aprovações + duplicação + dois stacks.
 - Proposta: um protocolo WS com papéis + escopos explícitos, pareamento unificado + pinagem de TLS, aprovações hospedadas no gateway, IDs de dispositivo estáveis + slugs simpáticos.
 - Resultado: UX mais simples, segurança mais forte, menos duplicação, melhor roteamento móvel.
-
-

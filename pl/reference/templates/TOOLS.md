@@ -1,4 +1,9 @@
-------
+---
+title: "Szablon TOOLS.md"
+summary: "„Szablon obszaru roboczego dla TOOLS.md”"
+read_when:
+  - Ręczne bootstrapowanie obszaru roboczego
+---
 
 # TOOLS.md – Notatki lokalne
 
@@ -40,5 +45,3 @@ Skills są współdzielone. Twoja konfiguracja należy do Ciebie. Rozdzielenie i
 ---
 
 Dodaj wszystko, co pomaga Ci wykonywać pracę. To Twoja ściąga.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "CLI-referentie voor `openclaw memory` (status/index/search)"
+read_when:
+  - Je wilt semantisch geheugen indexeren of doorzoeken
+  - Je bent bezig met het debuggen van geheugenbeschikbaarheid of indexering
 title: "geheugen"
 ---
 
@@ -39,5 +43,3 @@ Notities:
 - `memory status --deep --index` voert een herindexering uit als de store dirty is.
 - `memory index --verbose` toont details per fase (provider, model, bronnen, batchactiviteit).
 - `memory status` neemt alle extra paden mee die zijn geconfigureerd via `memorySearch.extraPaths`.
-
-

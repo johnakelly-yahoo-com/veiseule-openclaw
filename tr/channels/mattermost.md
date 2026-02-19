@@ -1,4 +1,8 @@
 ---
+summary: "Mattermost bot kurulumu ve OpenClaw yapılandırması"
+read_when:
+  - Setting up Mattermost
+  - Debugging Mattermost routing
 title: "Mattermost"
 ---
 
@@ -52,7 +56,7 @@ Asgari yapılandırma:
 }
 ```
 
-## Ortam değişkenleri (varsayılan hesap)
+## Environment variables (default account)
 
 Ortam değişkenlerini tercih ediyorsanız bunları gateway ana makinesinde ayarlayın:
 
@@ -61,7 +65,7 @@ Ortam değişkenlerini tercih ediyorsanız bunları gateway ana makinesinde ayar
 
 Ortam değişkenleri yalnızca **varsayılan** hesap için geçerlidir (`default`). Diğer hesaplar yapılandırma değerlerini kullanmalıdır.
 
-## Sohbet modları
+## Chat modes
 
 Mattermost DM'lere otomatik olarak yanıt verir. Kanal davranışı `chatmode` ile denetlenir:
 
@@ -133,5 +137,3 @@ Mattermost, `channels.mattermost.accounts` altında birden fazla hesabı destekl
 - Kanallarda yanıt yok: botun kanalda olduğundan emin olun ve onu etiketleyin (oncall), bir tetikleyici önek kullanın (onchar) veya `chatmode: "onmessage"` ayarlayın.
 - Kimlik doğrulama hataları: bot belirtecini, temel URL'yi ve hesabın etkin olup olmadığını kontrol edin.
 - Çoklu hesap sorunları: ortam değişkenleri yalnızca `default` hesabına uygulanır.
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "Araştırma notları: Clawd çalışma alanları için çevrimdışı bellek sistemi (Markdown tek gerçek kaynak + türetilmiş indeks)"
+read_when:
+  - Günlük Markdown günlüklerinin ötesinde çalışma alanı belleği (~/.openclaw/workspace) tasarlarken
+  - Deciding: "Karar verirken: bağımsız CLI mi yoksa OpenClaw ile derin entegrasyon mu"
+  - Çevrimdışı geri çağırma + yansıtma eklerken (retain/recall/reflect)
 title: "Çalışma Alanı Belleği Araştırması"
 ---
 
@@ -51,7 +56,7 @@ Harmanlanacak iki parça:
 
 ## Önerilen mimari (Markdown tek gerçek kaynak + türetilmiş indeks)
 
-### Kanonik depo (git-dostu)
+### Canonical store (git-friendly)
 
 `~/.openclaw/workspace`’i kanonik, insan tarafından okunabilir bellek olarak tutun.
 
@@ -87,7 +92,7 @@ Notlar:
 ~/.openclaw/workspace/.memory/index.sqlite
 ```
 
-Şunlarla destekleyin:
+Back it with:
 
 - gerçekler + varlık bağlantıları + görüş metadatası için SQLite şeması
 - sözcüksel geri çağırma için SQLite **FTS5** (hızlı, küçük, offline)
@@ -193,13 +198,13 @@ Bellek araçlarının küçük bir CLI + kütüphane katmanı olması amaçlanı
 - SQLite FTS + (isteğe bağlı) basit gömmelerle başlayın; UX kazanımlarının çoğunu hemen elde edersiniz.
 - SuCo/HNSW/ScaNN sınıfı çözümleri ancak şunlar olduğunda düşünün:
   - derlem büyük olduğunda (on/binlerce yüz binlerce parça)
-  - kaba kuvvet gömme araması çok yavaş hale gelir
+  - brute-force embedding search becomes too slow
   - geri çağırma kalitesi sözcüksel arama tarafından anlamlı biçimde darboğaza girdiğinde
 
 Offline dostu alternatifler (artan karmaşıklıkla):
 
 - SQLite FTS5 + metadata filtreleri (sıfır ML)
-- Gömme vektörleri + kaba kuvvet (parça sayısı düşükse şaşırtıcı derecede iyi çalışır)
+- Embeddings + brute force (works surprisingly far if chunk count is low)
 - HNSW indeksi (yaygın, sağlam; bir kütüphane bağlaması gerekir)
 - SuCo (araştırma düzeyi; gömülebilecek sağlam bir uygulama varsa cazip)
 
@@ -221,5 +226,3 @@ Minimal ama yine de kullanışlı bir sürüm istiyorsanız:
 - Letta / MemGPT kavramları: “core memory blocks” + “archival memory” + araç güdümlü kendi kendini düzenleyen bellek.
 - Hindsight Teknik Raporu: “retain / recall / reflect”, dört ağlı bellek, anlatı gerçek çıkarımı, görüş güveninin evrimi.
 - SuCo: arXiv 2411.14754 (2024): “Subspace Collision” yaklaşık en yakın komşu geri getirme.
-
-

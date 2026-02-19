@@ -1,37 +1,41 @@
 ---
+summary: "CLI آن بورڈنگ وزارڈ کے لیے مکمل حوالہ: ہر مرحلہ، فلیگ، اور کنفیگ فیلڈ"
+read_when:
+  - کسی مخصوص وزارڈ مرحلے یا فلیگ کو تلاش کرتے وقت
+  - نان اِنٹرایکٹو موڈ کے ساتھ آن بورڈنگ کو خودکار بناتے وقت
+  - وزارڈ کے رویّے کی خرابیوں کا ازالہ کرتے وقت
 title: "آن بورڈنگ وزارڈ حوالہ"
 sidebarTitle: "وزارڈ حوالہ"
 ---
 
 # آن بورڈنگ وزارڈ حوالہ
 
-یہ `openclaw onboard` CLI ویزرڈ کے لیے مکمل حوالہ ہے۔  
-اعلیٰ سطحی جائزے کے لیے، دیکھیں [Onboarding Wizard](/start/wizard)۔
+47. یہ `openclaw onboard` CLI ویزرڈ کے لیے مکمل حوالہ ہے۔
+48. اعلیٰ سطحی جائزے کے لیے، دیکھیں [Onboarding Wizard](/start/wizard)۔
 
 ## فلو کی تفصیلات (لوکل موڈ)
 
 <Steps>
   <Step title="Existing config detection">
-    - اگر `~/.openclaw/openclaw.json` موجود ہو تو **Keep / Modify / Reset** منتخب کریں۔
-    - ویزرڈ کو دوبارہ چلانے سے کچھ بھی **صاف نہیں ہوتا** جب تک کہ آپ واضح طور پر **Reset** منتخب نہ کریں
+    49. - اگر `~/.openclaw/openclaw.json` موجود ہو تو **Keep / Modify / Reset** منتخب کریں۔
+    50. - ویزرڈ کو دوبارہ چلانے سے کچھ بھی **صاف نہیں ہوتا** جب تک کہ آپ واضح طور پر **Reset** منتخب نہ کریں
       (یا `--reset` پاس نہ کریں)۔
     - اگر کنفیگ غلط ہو یا اس میں لیگیسی کیز شامل ہوں تو وزارڈ رک جاتا ہے اور آپ سے کہتا ہے کہ آگے بڑھنے سے پہلے `openclaw doctor` چلائیں۔
     - ری سیٹ میں `trash` استعمال ہوتا ہے (`rm` کبھی نہیں) اور اسکوپس فراہم کیے جاتے ہیں:
       - صرف کنفیگ
       - کنفیگ + اسناد + سیشنز
-      - مکمل ری سیٹ (ورک اسپیس بھی ہٹا دی جاتی ہے)
-  
+      - مکمل ری سیٹ (ورک اسپیس بھی ہٹا دی جاتی ہے)  
 </Step>
   <Step title="Model/Auth">
     - **Anthropic API key (تجویز کردہ)**: اگر موجود ہو تو `ANTHROPIC_API_KEY` استعمال کرتا ہے یا کلید مانگتا ہے، پھر اسے ڈیمون کے استعمال کے لیے محفوظ کر لیتا ہے۔
     - **Anthropic OAuth (Claude Code CLI)**: macOS پر وزارڈ Keychain آئٹم "Claude Code-credentials" چیک کرتا ہے ("Always Allow" منتخب کریں تاکہ launchd اسٹارٹس بلاک نہ ہوں)؛ Linux/Windows پر اگر موجود ہو تو `~/.claude/.credentials.json` دوبارہ استعمال کرتا ہے۔
-    - **Anthropic ٹوکن (setup-token پیسٹ کریں)**: کسی بھی مشین پر `claude setup-token` چلائیں، پھر ٹوکن پیسٹ کریں (آپ اسے نام دے سکتے ہیں؛ خالی = ڈیفالٹ)۔
+    - **Anthropic token (paste setup-token)**: run `claude setup-token` on any machine, then paste the token (you can name it; blank = default).
     - **OpenAI Code (Codex) سبسکرپشن (Codex CLI)**: اگر `~/.codex/auth.json` موجود ہو تو وزارڈ اسے دوبارہ استعمال کر سکتا ہے۔
-    - **OpenAI Code (Codex) سبسکرپشن (OAuth)**: براؤزر فلو؛ `code#state` پیسٹ کریں۔
+    - **OpenAI Code (Codex) subscription (OAuth)**: browser flow; paste the `code#state`.
       - جب ماڈل سیٹ نہ ہو یا `openai/*` ہو تو `agents.defaults.model` کو `openai-codex/gpt-5.2` پر سیٹ کرتا ہے۔
     - **OpenAI API key**: اگر موجود ہو تو `OPENAI_API_KEY` استعمال کرتا ہے یا کلید مانگتا ہے، پھر اسے `~/.openclaw/.env` میں محفوظ کرتا ہے تاکہ launchd اسے پڑھ سکے۔
     - **xAI (Grok) API key**: `XAI_API_KEY` کے لیے پرامپٹ کرتا ہے اور xAI کو ماڈل فراہم کنندہ کے طور پر کنفیگر کرتا ہے۔
-    - **OpenCode Zen (ملٹی ماڈل پراکسی)**: `OPENCODE_API_KEY` (یا `OPENCODE_ZEN_API_KEY`، اسے https://opencode.ai/auth سے حاصل کریں) کے لیے پرامپٹ کرتا ہے۔
+    - **OpenCode Zen (multi-model proxy)**: prompts for `OPENCODE_API_KEY` (or `OPENCODE_ZEN_API_KEY`, get it at https://opencode.ai/auth).
     - **API key**: آپ کے لیے کلید محفوظ کرتا ہے۔
     - **Vercel AI Gateway (ملٹی-ماڈل پراکسی)**: `AI_GATEWAY_API_KEY` کے لیے پرامپٹ کرتا ہے۔
     - مزید تفصیل: [Vercel AI Gateway](/providers/vercel-ai-gateway)
@@ -47,9 +51,9 @@ sidebarTitle: "وزارڈ حوالہ"
     - **Skip**: ابھی کوئی آتھنٹیکیشن کنفیگر نہیں کی جاتی۔
     - دریافت شدہ آپشنز میں سے ڈیفالٹ ماڈل منتخب کریں (یا فراہم کنندہ/ماڈل دستی طور پر درج کریں)۔
     - وزارڈ ماڈل چیک چلاتا ہے اور اگر کنفیگر کیا گیا ماڈل نامعلوم ہو یا آتھنٹیکیشن غائب ہو تو وارن کرتا ہے۔
-    - OAuth اسناد `~/.openclaw/credentials/oauth.json` میں محفوظ ہوتی ہیں؛ auth پروفائلز `~/.openclaw/agents/<agentId>/agent/auth-profiles.json` میں محفوظ ہوتے ہیں (API کیز + OAuth)۔
-    - مزید تفصیل: [/concepts/oauth](/concepts/oauth)
-    <Note>
+    - OAuth credentials live in `~/.openclaw/credentials/oauth.json`; auth profiles live in `~/.openclaw/agents/<agentId>/agent/auth-profiles.json` (API keys + OAuth).
+    - مزید تفصیل: [/concepts/oauth](/concepts/oauth)    
+<Note>
     ہیڈلیس/سرور مشورہ: براؤزر والی مشین پر OAuth مکمل کریں، پھر
     `~/.openclaw/credentials/oauth.json` (یا `$OPENCLAW_STATE_DIR/credentials/oauth.json`) کو
     گیٹ وے ہوسٹ پر کاپی کریں۔
@@ -59,15 +63,14 @@ sidebarTitle: "وزارڈ حوالہ"
 </Step>
   <Step title="Workspace">
     - ڈیفالٹ `~/.openclaw/workspace` (کنفیگریبل)۔
-    - ایجنٹ کے بوٹسٹریپ مرحلے کے لیے درکار ورک اسپیس فائلیں تیار کرتا ہے۔
-    - مکمل ورک اسپیس لے آؤٹ + بیک اپ گائیڈ: [Agent workspace](/concepts/agent-workspace)
-  
+    - Seeds the workspace files needed for the agent bootstrap ritual.
+    - مکمل ورک اسپیس لے آؤٹ + بیک اپ گائیڈ: [Agent workspace](/concepts/agent-workspace)  
 </Step>
   <Step title="Gateway">
     - پورٹ، بائنڈ، آتھ موڈ، ٹیل اسکیل ایکسپوژر۔
     - آتھ کی سفارش: لوپ بیک کے لیے بھی **Token** برقرار رکھیں تاکہ لوکل WS کلائنٹس کو آتھنٹیکیٹ کرنا پڑے۔
     - آتھ صرف اسی صورت میں غیر فعال کریں جب آپ ہر لوکل پروسیس پر مکمل بھروسہ رکھتے ہوں۔
-    - نان‑لوپ بیک بائنڈز کے لیے بھی آتھ درکار ہے۔
+    - نان-لوپ بیک بائنڈز کے لیے بھی آتھ درکار ہے۔
   
 </Step>
   <Step title="Channels">
@@ -79,7 +82,9 @@ sidebarTitle: "وزارڈ حوالہ"
     - [Signal](/channels/signal): اختیاری `signal-cli` انسٹال + اکاؤنٹ کنفیگ۔
     - [BlueBubbles](/channels/bluebubbles): **iMessage کے لیے تجویز کردہ**؛ سرور URL + پاس ورڈ + ویب ہوک۔
     - [iMessage](/channels/imessage): لیگیسی `imsg` CLI پاتھ + DB ایکسس۔
-    - DM سیکیورٹی: ڈیفالٹ پیئرنگ ہے۔ پہلا DM ایک کوڈ بھیجتا ہے؛ `openclaw pairing approve <channel> <code>` کے ذریعے منظوری دیں یا allowlists استعمال کریں۔
+    - DM سیکیورٹی: ڈیفالٹ پیئرنگ ہے۔ پہلا DM ایک کوڈ بھیجتا ہے؛ `openclaw pairing approve <channel><code>` کے ذریعے منظوری دیں یا allowlists استعمال کریں۔
+  
+</Step><code>` or use allowlists.
   
 </Step>
   <Step title="Daemon install">
@@ -97,19 +102,19 @@ sidebarTitle: "وزارڈ حوالہ"
   
 </Step>
   <Step title="Skills (recommended)">
-    - دستیاب اسکلز پڑھتا ہے اور تقاضوں کی جانچ کرتا ہے۔
-    - آپ کو نوڈ مینیجر منتخب کرنے دیتا ہے: **npm / pnpm** (bun کی سفارش نہیں کی جاتی)۔
+    - Reads the available skills and checks requirements.
+    - Lets you choose a node manager: **npm / pnpm** (bun not recommended).
     - اختیاری ڈیپنڈنسیز انسٹال کرتا ہے (کچھ macOS پر Homebrew استعمال کرتی ہیں)۔
   
 </Step>
   <Step title="Finish">
-    - خلاصہ + اگلے اقدامات، جن میں اضافی خصوصیات کے لیے iOS/Android/macOS ایپس شامل ہیں۔
+    - Summary + next steps, including iOS/Android/macOS apps for extra features.
   
 </Step>
 </Steps>
 
 <Note>
-اگر کوئی GUI دریافت نہ ہو، تو وزرڈ براؤزر کھولنے کے بجائے Control UI کے لیے SSH پورٹ-فارورڈ ہدایات پرنٹ کرتا ہے۔
+If no GUI is detected, the wizard prints SSH port-forward instructions for the Control UI instead of opening a browser.
 If the Control UI assets are missing, the wizard attempts to build them; fallback is `pnpm ui:build` (auto-installs UI deps).
 </Note>
 
@@ -230,8 +235,8 @@ openclaw agents add work \
 
 ## Gateway وزارڈ RPC
 
-Gateway وزارڈ فلو کو RPC کے ذریعے ظاہر کرتا ہے (`wizard.start`, `wizard.next`, `wizard.cancel`, `wizard.status`)۔  
-کلائنٹس (macOS ایپ، Control UI) آن بورڈنگ لاجک کو دوبارہ نافذ کیے بغیر اسٹیپس رینڈر کر سکتے ہیں۔
+The Gateway exposes the wizard flow over RPC (`wizard.start`, `wizard.next`, `wizard.cancel`, `wizard.status`).
+Clients (macOS app, Control UI) can render steps without re‑implementing onboarding logic.
 
 ## Signal سیٹ اپ (signal-cli)
 
@@ -265,10 +270,10 @@ Gateway وزارڈ فلو کو RPC کے ذریعے ظاہر کرتا ہے (`wiza
 
 `openclaw agents add`، `agents.list[]` اور اختیاری `bindings` لکھتا ہے۔
 
-WhatsApp credentials go under `~/.openclaw/credentials/whatsapp/<accountId>/`.  
+WhatsApp credentials go under `~/.openclaw/credentials/whatsapp/<accountId>/`.
 Sessions are stored under `~/.openclaw/agents/<agentId>/sessions/`.
 
-Some channels are delivered as plugins. When you pick one during onboarding, the wizard  
+Some channels are delivered as plugins. When you pick one during onboarding, the wizard
 will prompt to install it (npm or a local path) before it can be configured.
 
 ## متعلقہ دستاویزات
@@ -278,4 +283,3 @@ will prompt to install it (npm or a local path) before it can be configured.
 - کنفیگ حوالہ: [Gateway configuration](/gateway/configuration)
 - فراہم کنندگان: [WhatsApp](/channels/whatsapp)، [Telegram](/channels/telegram)، [Discord](/channels/discord)، [Google Chat](/channels/googlechat)، [Signal](/channels/signal)، [BlueBubbles](/channels/bluebubbles) (iMessage)، [iMessage](/channels/imessage) (legacy)
 - Skills: [Skills](/tools/skills)، [Skills config](/tools/skills-config)
-

@@ -1,4 +1,8 @@
 ---
+summary: "Globala röstväckningsord (Gateway-ägda) och hur de synkroniseras mellan noder"
+read_when:
+  - Ändring av beteende eller standardvärden för röstväckningsord
+  - Tillägg av nya nodplattformar som behöver synk av väckningsord
 title: "Röstväckning"
 ---
 
@@ -59,5 +63,3 @@ Vem tar emot den:
 
 - Exponerar en redigerare för Wake Words i Inställningar.
 - Anropar `voicewake.set` via Gateway WS så att ändringar synkroniseras överallt.
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "Gateway-ejet nodeparring (Mulighed B) til iOS og andre fjernnoder"
+read_when:
+  - Implementering af godkendelser for nodeparring uden macOS-UI
+  - Tilføjelse af CLI-flows til godkendelse af fjernnoder
+  - Udvidelse af gateway-protokollen med nodehåndtering
 title: "Gateway-ejet parring"
 ---
 
@@ -92,5 +97,3 @@ Sikkerhedsnoter:
 - Transporten er **tilstandsløs**; den gemmer ikke medlemskab.
 - Hvis Gateway er offline, eller parring er deaktiveret, kan noder ikke parre.
 - Hvis Gateway er i fjern-tilstand, sker parring stadig mod den fjerne Gateways lager.
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "„OpenClaw auf Raspberry Pi (günstiges selbstgehostetes Setup)“"
+read_when:
+  - OpenClaw auf einem Raspberry Pi einrichten
+  - OpenClaw auf ARM-Geräten betreiben
+  - Eine günstige, dauerhaft aktive persönliche KI bauen
 title: "„Raspberry Pi“"
 ---
 
@@ -16,14 +21,14 @@ Perfekt für:
 
 ## Hardwareanforderungen
 
-| Pi-Modell       | RAM     | Läuft?     | Hinweise                          |
-| --------------- | ------- | ---------- | --------------------------------- |
-| **Pi 5**        | 4GB/8GB | ✅ Am besten     | Am schnellsten, empfohlen         |
-| **Pi 4**        | 4GB     | ✅ Gut      | Sweet Spot für die meisten Nutzer |
-| **Pi 4**        | 2GB     | ✅ OK       | Läuft, Swap hinzufügen            |
-| **Pi 4**        | 1GB     | ⚠️ Knapp   | Mit Swap möglich, Minimal-Config  |
-| **Pi 3B+**      | 1GB     | ⚠️ Langsam | Läuft, aber träge                 |
-| **Pi Zero 2 W** | 512MB   | ❌          | Nicht empfohlen                   |
+| Pi-Modell       | RAM     | Läuft?      | Hinweise                          |
+| --------------- | ------- | ----------- | --------------------------------- |
+| **Pi 5**        | 4GB/8GB | ✅ Am besten | Am schnellsten, empfohlen         |
+| **Pi 4**        | 4GB     | ✅ Gut       | Sweet Spot für die meisten Nutzer |
+| **Pi 4**        | 2GB     | ✅ OK        | Läuft, Swap hinzufügen            |
+| **Pi 4**        | 1GB     | ⚠️ Knapp    | Mit Swap möglich, Minimal-Config  |
+| **Pi 3B+**      | 1GB     | ⚠️ Langsam  | Läuft, aber träge                 |
+| **Pi Zero 2 W** | 512MB   | ❌           | Nicht empfohlen                   |
 
 **Mindestanforderungen:** 1GB RAM, 1 Core, 500MB Speicher  
 **Empfohlen:** 2GB+ RAM, 64-Bit-OS, 16GB+ SD-Karte (oder USB-SSD)
@@ -351,5 +356,3 @@ echo 'wireless-power off' | sudo tee -a /etc/network/interfaces
 - [Hetzner-Anleitung](/install/hetzner) — Docker-Setup
 - [Tailscale](/gateway/tailscale) — Remote-Zugriff
 - [Nodes](/nodes) — Koppeln Sie Laptop/Telefon mit dem Pi-Gateway
-
-

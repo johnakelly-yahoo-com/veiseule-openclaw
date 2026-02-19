@@ -1,11 +1,13 @@
 ---
-title: "Sandboxing (သီးသန့်ခွဲထားသော လုံခြုံရေးပတ်ဝန်းကျင်)"
+summary: "OpenClaw sandboxing အလုပ်လုပ်ပုံ—မုဒ်များ၊ အကျယ်အဝန်းများ၊ workspace ဝင်ရောက်ခွင့်နှင့် image များ"
+title: Sandboxing (သီးသန့်ခွဲထားသော လုံခြုံရေးပတ်ဝန်းကျင်)
+read_when: "Sandboxing ကို သီးသန့်ရှင်းလင်းချက်လိုအပ်သည့်အခါ သို့မဟုတ် agents.defaults.sandbox ကို ချိန်ညှိရန် လိုအပ်သည့်အခါ"
 status: active
 ---
 
 # Sandboxing (သီးသန့်ခွဲထားသော လုံခြုံရေးပတ်ဝန်းကျင်)
 
-OpenClaw သည် ထိခိုက်မှုအတိုင်းအတာကို လျှော့ချရန် **tools များကို Docker containers အတွင်း** 실행နိုင်သည်။
+OpenClaw can run **tools inside Docker containers** to reduce blast radius.
 This is **optional** and controlled by configuration (`agents.defaults.sandbox` or
 `agents.list[].sandbox`). If sandboxing is off, tools run on the host.
 The Gateway stays on the host; tool execution runs in an isolated sandbox
@@ -18,8 +20,8 @@ filesystem နှင့် process ဝင်ရောက်ခွင့်ကိ
 
 - Tool execution (`exec`, `read`, `write`, `edit`, `apply_patch`, `process`, စသည်တို့)။
 - Optional sandboxed browser (`agents.defaults.sandbox.browser`)။
-  - ပုံမှန်အားဖြင့် browser tool လိုအပ်သည့်အခါ sandbox browser ကို အလိုအလျောက် စတင်ပေးသည် (CDP ကို ချိတ်ဆက်အသုံးပြုနိုင်ရန် သေချာစေသည်)။
-`agents.defaults.sandbox.browser.autoStart` နှင့် `agents.defaults.sandbox.browser.autoStartTimeoutMs` မှတစ်ဆင့် ချိန်ညှိနိုင်သည်။
+  - By default, the sandbox browser auto-starts (ensures CDP is reachable) when the browser tool needs it.
+    Configure via `agents.defaults.sandbox.browser.autoStart` and `agents.defaults.sandbox.browser.autoStartTimeoutMs`.
   - `agents.defaults.sandbox.browser.allowHostControl` သည် sandboxed session များကို host browser သို့ တိတိကျကျ ညွှန်ပြနိုင်စေသည်။
   - Optional allowlists များသည် `target: "custom"` ကို gate လုပ်ပေးသည် —
     `allowedControlUrls`, `allowedControlHosts`, `allowedControlPorts`။
@@ -73,6 +75,11 @@ Global and per-agent binds are **merged** (not replaced). Under `scope: "shared"
 
 ဥပမာ (read-only source + docker socket)—
 
+- သတ်မှတ်ထားပါက (`[]` ပါဝင်သည့်အခါလည်း အပါအဝင်) ၎င်းသည် browser container အတွက် `agents.defaults.sandbox.docker.binds` ကို အစားထိုးမည်ဖြစ်သည်။
+- မသတ်မှတ်ထားပါက browser container သည် `agents.defaults.sandbox.docker.binds` သို့ fallback ပြုလုပ်မည်ဖြစ်သည် (backwards compatible ဖြစ်သည်)။
+
+Security မှတ်ချက်များ—
+
 ```json5
 {
   agents: {
@@ -105,28 +112,32 @@ Security မှတ်ချက်များ—
 - Bind များသည် tool policy နှင့် elevated exec တို့နှင့် မည်သို့ အပြန်အလှန် သက်ရောက်သည်ကို
   [Sandbox vs Tool Policy vs Elevated](/gateway/sandbox-vs-tool-policy-vs-elevated) တွင် ကြည့်ပါ။
 
-## Image များ + ပြင်ဆင်သတ်မှတ်ခြင်း
+## Images + setup
 
-ပုံမှန် image: `openclaw-sandbox:bookworm-slim`
-
-တစ်ကြိမ်သာ build လုပ်ပါ—
-
-```bash
-scripts/sandbox-setup.sh
-```
+Default image: `openclaw-sandbox:bookworm-slim`
 
 မှတ်ချက် - ပုံမှန် image တွင် **Node** မပါဝင်ပါ။ Skill တစ်ခုသည် Node (သို့မဟုတ်
 other runtimes), either bake a custom image or install via
 `sandbox.docker.setupCommand` (requires network egress + writable root +
 root user).
 
-Sandboxed browser image—
+```bash
+scripts/sandbox-setup.sh
+```
+
+Note: the default image does **not** include Node. If a skill needs Node (or
+other runtimes), either bake a custom image or install via
+`sandbox.docker.setupCommand` (requires network egress + writable root +
+root user).
+
+ပုံမှန်အားဖြင့် sandbox container များကို **network မပါဘဲ** လည်ပတ်စေသည်။
+Override with `agents.defaults.sandbox.docker.network`.
 
 ```bash
 scripts/sandbox-browser-setup.sh
 ```
 
-ပုံမှန်အားဖြင့် sandbox container များကို **network မပါဘဲ** လည်ပတ်စေသည်။
+By default, sandbox containers run with **no network**.
 Override with `agents.defaults.sandbox.docker.network`.
 
 Docker install များနှင့် containerized gateway တည်ရှိရာ—
@@ -137,7 +148,7 @@ Docker install များနှင့် containerized gateway တည်ရှ
 `setupCommand` runs **once** after the sandbox container is created (not on every run).
 It executes inside the container via `sh -lc`.
 
-Paths—
+Common pitfalls—
 
 - Global: `agents.defaults.sandbox.docker.setupCommand`
 - Per-agent: `agents.list[].sandbox.docker.setupCommand`
@@ -193,5 +204,3 @@ See [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) for preceden
 - [Sandbox Configuration](/gateway/configuration#agentsdefaults-sandbox)
 - [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools)
 - [Security](/gateway/security)
-
-

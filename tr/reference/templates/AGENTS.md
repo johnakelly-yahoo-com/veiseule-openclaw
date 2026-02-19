@@ -1,4 +1,9 @@
-------
+---
+title: "AGENTS.md Şablonu"
+summary: "AGENTS.md için çalışma alanı şablonu"
+read_when:
+  - Bir çalışma alanını manuel olarak başlatırken
+---
 
 # AGENTS.md - Çalışma Alanınız
 
@@ -212,5 +217,3 @@ Amaç: Rahatsız edici olmadan faydalı olmak. Günde birkaç kez kontrol edin, 
 ## Ona Kendinden Bir Şey Kat
 
 Bu bir başlangıç noktasıdır. Neyin işe yaradığını keşfettikçe kendi geleneklerinizi, stilinizi ve kurallarınızı ekleyin.
-
-

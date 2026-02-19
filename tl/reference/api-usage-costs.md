@@ -1,10 +1,15 @@
 ---
+summary: "I-audit kung ano ang maaaring gumastos ng pera, aling mga key ang ginagamit, at kung paano tingnan ang usage"
+read_when:
+  - Gusto mong maunawaan kung aling mga feature ang maaaring tumawag sa mga paid API
+  - Kailangan mong i-audit ang mga key, gastos, at visibility ng usage
+  - Ipinapaliwanag mo ang /status o /usage na pag-uulat ng gastos
 title: "API Usage at Mga Gastos"
 ---
 
 # API usage at mga gastos
 
-Inililista ng dokumentong ito ang **mga feature na maaaring gumamit ng API keys** at kung saan lumalabas ang kanilang mga gastos. Nakatuon ito sa
+This doc lists **features that can invoke API keys** and where their costs show up. It focuses on
 OpenClaw features that can generate provider usage or paid API calls.
 
 ## Saan lumalabas ang mga gastos (chat + CLI)
@@ -34,20 +39,20 @@ Maaaring makuha ng OpenClaw ang mga credential mula sa:
 - **Mga environment variable** (hal. `OPENAI_API_KEY`, `BRAVE_API_KEY`, `FIRECRAWL_API_KEY`).
 - **Config** (`models.providers.*.apiKey`, `tools.web.search.*`, `tools.web.fetch.firecrawl.*`,
   `memorySearch.*`, `talk.apiKey`).
-- **Skills** (`skills.entries.<name>.apiKey`) na maaaring maglabas ng mga key sa skill process env.
+- **Skills** (`skills.entries.<name>.apiKey`) which may export keys to the skill process env.
 
 ## Mga feature na maaaring gumastos ng mga key
 
 ### 1. Mga core model response (chat + tools)
 
-Bawat tugon o tool call ay gumagamit ng **kasalukuyang model provider** (OpenAI, Anthropic, atbp.). Ito ang
+Every reply or tool call uses the **current model provider** (OpenAI, Anthropic, etc). This is the
 primary source of usage and cost.
 
 Tingnan ang [Models](/providers/models) para sa pricing config at [Token use & costs](/reference/token-use) para sa display.
 
 ### 2. Media understanding (audio/image/video)
 
-Maaaring ibuod/isalin sa teksto ang papasok na media bago patakbuhin ang tugon. Gumagamit ito ng mga model/provider API.
+Inbound media can be summarized/transcribed before the reply runs. This uses model/provider APIs.
 
 - Audio: OpenAI / Groq / Deepgram (ngayon ay **auto-enabled** kapag may mga key).
 - Larawan: OpenAI / Anthropic / Google.
@@ -131,5 +136,3 @@ Skills can store `apiKey` in `skills.entries.<name>.apiKey`. If a skill uses tha
 APIs, it can incur costs according to the skill’s provider.
 
 Tingnan ang [Skills](/tools/skills).
-
-

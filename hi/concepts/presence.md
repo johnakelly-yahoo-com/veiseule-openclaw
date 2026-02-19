@@ -1,4 +1,9 @@
 ---
+summary: "OpenClaw presence प्रविष्टियाँ कैसे उत्पन्न होती हैं, कैसे मर्ज होती हैं, और कैसे प्रदर्शित की जाती हैं"
+read_when:
+  - Instances टैब का डिबगिंग करते समय
+  - डुप्लिकेट या पुरानी instance पंक्तियों की जाँच करते समय
+  - Gateway WS कनेक्ट या system-event beacons बदलते समय
 title: "उपस्थिति"
 ---
 
@@ -37,17 +42,17 @@ Gateway स्टार्टअप पर हमेशा एक “self” प
 
 ### 2. WebSocket connect
 
-हर WS क्लाइंट एक `connect` अनुरोध से शुरू होता है। सफल हैंडशेक पर
+Every WS client begins with a `connect` request. On successful handshake the
 Gateway upserts a presence entry for that connection.
 
 #### एक‑बार वाले CLI कमांड क्यों नहीं दिखते
 
-CLI अक्सर छोटे, एक‑बार के कमांड्स के लिए कनेक्ट होता है। अनावश्यक स्पैम से बचने के लिए
+The CLI often connects for short, one‑off commands. To avoid spamming the
 Instances list, `client.mode === "cli"` is **not** turned into a presence entry.
 
 ### 3. `system-event` beacons
 
-क्लाइंट `system-event` मेथड के माध्यम से अधिक समृद्ध आवधिक बीकन भेज सकते हैं। mac
+Clients can send richer periodic beacons via the `system-event` method. The mac
 app uses this to report host name, IP, and `lastInputSeconds`.
 
 ### 4. Node कनेक्शन (role: node)
@@ -96,5 +101,3 @@ macOS ऐप `system-presence` के आउटपुट को रेंडर 
   - पुष्टि करें कि क्लाइंट हैंडशेक में एक स्थिर `client.instanceId` भेजते हैं
   - पुष्टि करें कि आवधिक beacons उसी `instanceId` का उपयोग करते हैं
   - जाँचें कि क्या कनेक्शन‑व्युत्पन्न प्रविष्टि में `instanceId` गायब है (डुप्लिकेट अपेक्षित हैं)
-
-

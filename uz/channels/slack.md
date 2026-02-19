@@ -1,139 +1,126 @@
 ---
+summary: "Socket yoki HTTP webhook rejimi uchun Slack sozlamalari"
+read_when:
+  - "Holat: Slack ilova integratsiyalari orqali DM + kanallar uchun production-ready."
 title: "Slack"
 ---
 
 # Slack
 
-## Socket rejimi (standart)
+Standart rejim — Socket Mode; HTTP Events API rejimi ham qo‘llab-quvvatlanadi.
+Slack DM’lar sukut bo‘yicha pairing rejimida.
 
-### Tezkor sozlash (boshlovchilar uchun)
+<CardGroup cols={3}>
+  <Card title="Pairing" icon="link" href="/channels/pairing">
+    Native buyruq xatti-harakati va buyruqlar katalogi.
+  
+</Card>
+  <Card title="Slash commands" icon="terminal" href="/tools/slash-commands">
+    Kanallararo diagnostika va tuzatish playbook’lari.
+  
+</Card>
+  <Card title="Channel troubleshooting" icon="wrench" href="/channels/troubleshooting">Tezkor sozlash
+</Card>
+</CardGroup>
 
-1. Slack ilovasini yarating va **Socket Mode** ni yoqing.
-2. **App Token** (`xapp-...`) va **Bot Token** (`xoxb-...`) yarating.
-3. Tokenlarni OpenClaw uchun o‘rnating va gateway’ni ishga tushiring.
+## ```
+    Slack ilovasi sozlamalarida:
+```
 
-Minimal konfiguratsiya:
-
-```json5
-{
+<Tabs>
+  <Tab title="Socket Mode (default)">
+    <Steps>
+      <Step title="Create Slack app and tokens">{
   channels: {
     slack: {
       enabled: true,
+      mode: "socket",
       appToken: "xapp-...",
       botToken: "xoxb-...",
     },
   },
 }
-```
 
-### Sozlash
-
-1. [https://api.slack.com/apps](https://api.slack.com/apps) sahifasida Slack ilovasini (From scratch) yarating.
-2. **Socket Mode** → yoqing. So‘ng **Basic Information** → **App-Level Tokens** → `connections:write` scope’i bilan **Generate Token and Scopes** ni tanlang. **App Token** (`xapp-...`) ni nusxalang.
-3. **OAuth & Permissions** → bot token scope’larini qo‘shing (quyidagi manifestdan foydalaning). **Install to Workspace** tugmasini bosing. **Bot User OAuth Token** (`xoxb-...`) ni nusxalang.
-4. Ixtiyoriy: **OAuth & Permissions** → **User Token Scopes** qo‘shing (quyidagi faqat o‘qish ro‘yxatiga qarang). Ilovani qayta o‘rnating va **User OAuth Token** (`xoxp-...`) ni nusxalang.
-5. **Event Subscriptions** → hodisalarni yoqing va quyidagilarga obuna bo‘ling:
-   - `message.*` (tahrirlar/o‘chirishlar/iplar oqimini o‘z ichiga oladi)
-   - `app_mention`
-   - `reaction_added`, `reaction_removed`
-   - `member_joined_channel`, `member_left_channel`
-   - `channel_rename`
-   - `pin_added`, `pin_removed`
-6. Botni o‘qishi kerak bo‘lgan kanallarga taklif qiling.
-7. `channels.slack.slashCommand` dan foydalansangiz, Slash Commands → `/openclaw` yarating. Agar mahalliy buyruqlarni yoqsangiz, har bir ichki buyruq uchun bittadan slash command qo‘shing (`/help` dagi nomlar bilan bir xil). Slack uchun mahalliy buyruqlar sukut bo‘yicha o‘chiq; faqat `channels.slack.commands.native: true` o‘rnatilganda yoqiladi (global `commands.native` = `"auto"`, bu Slack’ni o‘chiq qoldiradi).
-8. App Home → foydalanuvchilar botga DM yozishi uchun **Messages Tab** ni yoqing.
-
-Scope’lar va hodisalar mos bo‘lib qolishi uchun quyidagi manifestdan foydalaning.
-
-Ko‘p akkauntni qo‘llab-quvvatlash: har bir akkaunt uchun tokenlar va ixtiyoriy `name` bilan `channels.slack.accounts` dan foydalaning. Umumiy namunani ko‘rish uchun [`gateway/configuration`](/gateway/configuration#telegramaccounts--discordaccounts--slackaccounts--signalaccounts--imessageaccounts) ga qarang.
-
-### OpenClaw konfiguratsiyasi (Socket rejimi)
-
-Tokenlarni muhit o‘zgaruvchilari orqali o‘rnating (tavsiya etiladi):
-
-- `SLACK_APP_TOKEN=xapp-...`
-- `SLACK_BOT_TOKEN=xoxb-...`
-
-Yoki konfiguratsiya orqali:
+        ```
+        {
+          channels: {
+            slack: {
+              enabled: true,
+              appToken: "xapp-...",
+              botToken: "xoxb-...",
+            },
+          },
+        }
+        ```
 
 ```json5
-{
-  channels: {
-    slack: {
-      enabled: true,
-      appToken: "xapp-...",
-      botToken: "xoxb-...",
-    },
-  },
-}
+    Env fallback (faqat default account uchun):
 ```
 
-### Foydalanuvchi tokeni (ixtiyoriy)
+        ```
+        SLACK_APP_TOKEN=xapp-...
+        SLACK_BOT_TOKEN=xoxb-...
+        ```
 
-OpenClaw o‘qish amallari (tarix,
-pinlar, reaksiyalar, emoji, a’zo ma’lumoti) uchun Slack foydalanuvchi tokenidan (`xoxp-...`) foydalanishi mumkin. Standart holatda bu faqat o‘qish rejimida qoladi: agar mavjud bo‘lsa, o‘qishlar foydalanuvchi tokenini afzal ko‘radi, yozishlar esa siz aniq ruxsat bermaguningizcha bot tokenidan foydalanadi. `userTokenReadOnly: false` bo‘lsa ham, yozishlar uchun bot tokeni mavjud bo‘lsa, u afzal bo‘lib qoladi.
+```bash
+  
+</Step>
 
-Foydalanuvchi tokenlari konfiguratsiya faylida sozlanadi (env o‘zgaruvchilar qo‘llab-quvvatlanmaydi). Ko‘p akkauntli holatda `channels.slack.accounts.<id>` ni sozlang.userToken\`.
+  <Step title="Ilova hodisalariga obuna bo‘lish">
+    Quyidagilar uchun bot hodisalariga obuna bo‘ling:
 
-Bot + app + foydalanuvchi tokenlari bilan misol:
+    - `app_mention`
+    - `message.channels`, `message.groups`, `message.im`, `message.mpim`
+    - `reaction_added`, `reaction_removed`
+    - `member_joined_channel`, `member_left_channel`
+    - `channel_rename`
+    - `pin_added`, `pin_removed`
 
-```json5
-{
-  channels: {
-    slack: {
-      enabled: true,
-      appToken: "xapp-...",
-      botToken: "xoxb-...",
-      userToken: "xoxp-...",
-    },
-  },
-}
+    Shuningdek, DM’lar uchun App Home **Messages Tab** ni yoqing.
+  
+</Step>
+
+  <Step title="Gateway’ni ishga tushirish">
 ```
 
-userTokenReadOnly aniq o‘rnatilgan misol (foydalanuvchi tokeni bilan yozishga ruxsat berish):
+      openclaw gateway
 
-```json5
-{
-  channels: {
-    slack: {
-      enabled: true,
-      appToken: "xapp-...",
-      botToken: "xoxb-...",
-      userToken: "xoxp-...",
-      userTokenReadOnly: false,
-    },
-  },
-}
+```bash
+  
+</Step>
+</Steps>
 ```
 
-#### Tokenlardan foydalanish
+        
+</Step>
+      
+        <Step title="Multi-account HTTP uchun noyob webhook yo‘llaridan foydalaning">
+          Har bir account uchun HTTP rejimi qo‘llab-quvvatlanadi.
+      
+          Ro‘yxatdan o‘tishlar to‘qnashmasligi uchun har bir account’ga alohida `webhookPath` bering.
+        
+</Step>
+      
+</Steps>
 
-- O‘qish amallari (tarix, reaksiyalar ro‘yxati, pinlar ro‘yxati, emoji ro‘yxati, a’zo ma’lumoti, qidiruv) sozlangan bo‘lsa foydalanuvchi tokenini, aks holda bot tokenini afzal ko‘radi.
-- Yozish amallari (xabar yuborish/tahrirlash/o‘chirish, reaksiyalar qo‘shish/o‘chirish, pinlash/pindan chiqarish, fayl yuklash) standart bo‘yicha bot tokenidan foydalanadi. Agar `userTokenReadOnly: false` bo‘lsa va bot tokeni mavjud bo‘lmasa, OpenClaw foydalanuvchi tokeniga o‘tadi.
+  
+</Tab>
 
-### Tarix konteksti
+  <Tab title="HTTP Events API mode">
+    <Steps>
+      <Step title="Configure Slack app for HTTP">
 
-- `channels.slack.historyLimit` (yoki `channels.slack.accounts.*.historyLimit`) so‘rovga qancha so‘nggi kanal/guruh xabarlari qo‘shilishini boshqaradi.
-- `messages.groupChat.historyLimit` ga qaytadi. O‘chirish uchun `0` ni o‘rnating (standart 50).
-
-## HTTP rejimi (Events API)
-
-Gateway’ingiz Slack tomonidan HTTPS orqali ochiq bo‘lsa (odatda server joylashtirishlar uchun), HTTP webhook rejimidan foydalaning.
-HTTP rejimi umumiy so‘rov URL manzili bilan Events API + Interactivity + Slash Commands’dan foydalanadi.
-
-### Sozlash (HTTP rejimi)
-
-1. Slack ilovasini yarating va **Socket Mode** ni o‘chiring (faqat HTTP’dan foydalansangiz ixtiyoriy).
-2. **Basic Information** → **Signing Secret** ni nusxalang.
-3. **OAuth & Permissions** → ilovani o‘rnating va **Bot User OAuth Token** (`xoxb-...`) ni nusxalang.
-4. **Event Subscriptions** → hodisalarni yoqing va **Request URL** ni gateway webhook yo‘liga o‘rnating (standart `/slack/events`).
-5. **Interactivity & Shortcuts** → yoqing va xuddi shu **Request URL** ni o‘rnating.
-6. **Slash Commands** → buyruqlaringiz uchun xuddi shu **Request URL** ni o‘rnating.
-
-So‘rov URL manzili misoli:
-`https://gateway-host/slack/events`
-
-### OpenClaw konfiguratsiyasi (minimal)
+        ```
+        {
+          channels: {
+            slack: {
+              enabled: true,
+              appToken: "xapp-...",
+              botToken: "xoxb-...",
+            },
+          },
+        }
+        ```
 
 ```json5
 {
@@ -149,17 +136,225 @@ So‘rov URL manzili misoli:
 }
 ```
 
-Ko‘p akkauntli HTTP rejimi: `channels.slack.accounts.<id>` ni o‘rnating.mode = "http"`va har bir akkaunt uchun noyob`webhookPath\` taqdim eting, shunda har bir Slack ilovasi o‘z URL’iga ega bo‘ladi.
+        
+</Tab>
 
-### Manifest (ixtiyoriy)
+  
+</Tab>
+</Tabs>
 
-Ilovani tez yaratish uchun ushbu Slack ilova manifestidan foydalaning (xohlasangiz nom/buyruqni moslang). Agar foydalanuvchi tokenini sozlamoqchi bo‘lsangiz, foydalanuvchi scope’larini qo‘shing.
+## Socket Mode uchun `botToken` + `appToken` talab qilinadi.
+
+- HTTP rejimi `botToken` + `signingSecret` talab qiladi.
+- Konfiguratsiyadagi tokenlar env fallback’dan ustun turadi.
+- `SLACK_BOT_TOKEN` / `SLACK_APP_TOKEN` env fallback faqat default account uchun amal qiladi.
+- `userToken` (`xoxp-...`) faqat konfiguratsiyada beriladi (env fallback yo‘q) va sukut bo‘yicha faqat o‘qish rejimida ishlaydi (`userTokenReadOnly: true`).
+- `userToken` (`xoxp-...`) is config-only (no env fallback) and defaults to read-only behavior (`userTokenReadOnly: true`).
+- Ixtiyoriy: agar chiqish xabarlari faol agent identifikatsiyasidan (maxsus `username` va ikonka) foydalanishini istasangiz, `chat:write.customize` ni qo‘shing. `icon_emoji` `:emoji_name:` sintaksisidan foydalanadi.
+
+<Tip>
+Amallar/katalog o‘qishlar uchun, sozlangan bo‘lsa, foydalanuvchi tokeni afzal ko‘rilishi mumkin. Yozish amallari uchun bot tokeni ustun hisoblanadi; foydalanuvchi tokeni orqali yozish faqat `userTokenReadOnly: false` bo‘lganda va bot tokeni mavjud bo‘lmaganda ruxsat etiladi.
+</Tip>
+
+## Kirish nazorati va marshrutlash
+
+<Tabs>
+  <Tab title="DM policy">
+    `channels.slack.dmPolicy` DM kirishini boshqaradi (eski: `channels.slack.dm.policy`):
+
+    ```
+    - `pairing` (standart)
+    - `allowlist`
+    - `open` (`channels.slack.allowFrom` ichida `"*"` bo‘lishi talab qilinadi; eski: `channels.slack.dm.allowFrom`)
+    - `disabled`
+    
+    DM flaglari:
+    
+    - `dm.enabled` (standart true)
+    - `channels.slack.allowFrom` (afzal)
+    - `dm.allowFrom` (eski)
+    - `dm.groupEnabled` (guruh DMlar uchun standart false)
+    - `dm.groupChannels` (ixtiyoriy MPIM allowlist)
+    
+    DMlarda pairing `openclaw pairing approve slack <code>` orqali amalga oshiriladi.
+    ```
+
+  
+</Tab>
+
+  <Tab title="Channel policy">
+    `channels.slack.groupPolicy` kanal bilan ishlashni boshqaradi:
+
+    ```
+    - `open`
+    - `allowlist`
+    - `disabled`
+    
+    Kanal allowlisti `channels.slack.channels` ostida joylashadi.
+    
+    Runtime eslatma: agar `channels.slack` butunlay mavjud bo‘lmasa (faqat env sozlamasi) va `channels.defaults.groupPolicy` o‘rnatilmagan bo‘lsa, runtime `groupPolicy="open"` ga qaytadi va ogohlantirishni log qiladi.
+    
+    Nom/ID aniqlash:
+    
+    - kanal allowlist yozuvlari va DM allowlist yozuvlari token ruxsati imkon berganda ishga tushishda aniqlanadi
+    - aniqlanmagan yozuvlar sozlangandek saqlanadi
+    ```
+
+  
+</Tab>
+
+  <Tab title="Mentions and channel users">
+    Kanal xabarlari standart holatda mention orqali cheklanadi.
+
+    ```
+    Mention manbalari:
+    
+    - aniq app mention (`<@botId>`)
+    - mention regex andozalari (`agents.list[].groupChat.mentionPatterns`, fallback `messages.groupChat.mentionPatterns`)
+    - botga javob berilgan thread xatti-harakati
+    
+    Har bir kanal uchun boshqaruvlar (`channels.slack.channels.<id|name>`):
+    
+    - `requireMention`
+    - `users` (allowlist)
+    - `allowBots`
+    - `skills`
+    - `systemPrompt`
+    - `tools`, `toolsBySender`
+    ```
+
+  
+</Tab>
+</Tabs>
+
+## OpenClaw konfiguratsiyasi (minimal)
+
+- Slack uchun native command auto-mode **o‘chiq** (`commands.native: "auto"` Slack native commandlarni yoqmaydi).
+- Native Slack command handlerlarini `channels.slack.commands.native: true` (yoki global `commands.native: true`) bilan yoqing.
+- Native commandlar yoqilganda, Slack’da mos slash commandlarni (`/<command>` nomlari) ro‘yxatdan o‘tkazing.
+- Agar native commandlar yoqilmagan bo‘lsa, `channels.slack.slashCommand` orqali bitta sozlangan slash commandni ishga tushirishingiz mumkin.
+
+Standart slash command sozlamalari:
+
+- `enabled: false`
+- `name: "openclaw"`
+- `sessionPrefix: "slack:slash"`
+- `ephemeral: true`
+
+Slash sessiyalari alohida kalitlardan foydalanadi:
+
+- `agent:<agentId>:slack:slash:<userId>`
+
+va baribir buyruq bajarilishini maqsadli suhbat sessiyasiga (`CommandTargetSessionKey`) yo‘naltiradi.
+
+## Scope’lar (joriy va ixtiyoriy)
+
+- DMlar `direct` sifatida; kanallar `channel`; MPIMlar `group` sifatida yo‘naltiriladi.
+- Standart `session.dmScope=main` bilan Slack DMlar agentning asosiy sessiyasiga birlashtiriladi.
+- Kanal sessiyalari: `agent:<agentId>:slack:channel:<channelId>`.
+- Thread javoblari tegishli holatda thread sessiya suffikslarini (`:thread:<threadTs>`) yaratishi mumkin.
+- `channels.slack.thread.historyScope` standarti `thread`; `thread.inheritParent` standarti `false`.
+- `channels.slack.thread.initialHistoryLimit` yangi thread sessiyasi boshlanganda mavjud thread xabarlaridan nechta yuklanishini boshqaradi (standart `20`; o‘chirish uchun `0` qo‘ying).
+
+Javob threading boshqaruvlari:
+
+- `chat:write` (`chat.postMessage` orqali xabar yuborish/yangilash/o‘chirish)
+  [https://docs.slack.dev/reference/methods/chat.postMessage](https://docs.slack.dev/reference/methods/chat.postMessage)
+- `im:write` (`conversations.open` orqali foydalanuvchi DM’larini ochish)
+  [https://docs.slack.dev/reference/methods/conversations.open](https://docs.slack.dev/reference/methods/conversations.open)
+- `channels:history`, `groups:history`, `im:history`, `mpim:history`
+  [https://docs.slack.dev/reference/methods/conversations.history](https://docs.slack.dev/reference/methods/conversations.history)
+
+Qo‘lda reply teglar qo‘llab-quvvatlanadi:
+
+- `[[reply_to_current]]`
+- `[[reply_to:<id>]]`
+
+Eslatma: `replyToMode="off"` implicit reply threadingni o‘chiradi. Aniq `[[reply_to_*]]` teglari baribir inobatga olinadi.
+
+## Not needed today (but likely future)
+
+<AccordionGroup>
+  <Accordion title="Inbound attachments">
+    Slack fayl biriktirmalari Slack’da joylashtirilgan shaxsiy URLlardan (token-autentifikatsiyalangan so‘rov oqimi) yuklab olinadi va yuklab olish muvaffaqiyatli bo‘lsa hamda hajm cheklovlari ruxsat etsa media saqlash joyiga yoziladi.
+
+    ```
+    Runtime kiruvchi hajm cheklovi standart `20MB`, agar `channels.slack.mediaMaxMb` bilan o‘zgartirilmagan bo‘lsa.
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Outbound text and files">
+    - matn bo‘laklari `channels.slack.textChunkLimit` dan foydalanadi (standart 4000)
+    - `channels.slack.chunkMode="newline"` paragraf-birinchi bo‘lishni yoqadi
+    - fayl yuborishlar Slack upload APIlaridan foydalanadi va thread javoblarini (`thread_ts`) o‘z ichiga olishi mumkin
+    - chiquvchi media cheklovi sozlangan bo‘lsa `channels.slack.mediaMaxMb` ga amal qiladi; aks holda kanal yuborishlari media pipeline’dan MIME turiga oid standartlardan foydalanadi
+  
+</Accordion>
+
+  <Accordion title="Delivery targets">
+    Afzal aniq maqsadlar:
+
+    ```
+    - DMlar uchun `user:<id>`
+    - Kanallar uchun `channel:<id>`
+    
+    Slack DMlar foydalanuvchi manzillariga yuborilganda Slack conversation APIlari orqali ochiladi.
+    ```
+
+  
+</Accordion>
+</AccordionGroup>
+
+## Limits
+
+Slack harakatlari `channels.slack.actions.*` orqali boshqariladi.
+
+Joriy Slack vositalarida mavjud harakat guruhlari:
+
+| Guruh       | Standart |
+| ----------- | -------- |
+| xabarlar    | yoqilgan |
+| reaksiyalar | yoqilgan |
+| pinlar      | yoqilgan |
+| memberInfo  | yoqilgan |
+| emojiList   | yoqilgan |
+
+## Hodisalar va operatsion xatti-harakatlar
+
+- Xabarni tahrirlash/o‘chirish/tredda e’lon qilish tizim hodisalariga moslashtiriladi.
+- Reaksiyani qo‘shish/olib tashlash hodisalari tizim hodisalariga moslashtiriladi.
+- A’zo qo‘shilishi/chiqishi, kanal yaratilishi/qayta nomlanishi va pin qo‘shish/olib tashlash hodisalari tizim hodisalariga moslashtiriladi.
+- `channel_id_changed` `configWrites` yoqilgan bo‘lsa, kanal konfiguratsiya kalitlarini migratsiya qilishi mumkin.
+- Kanal mavzusi/maqsadi metama’lumotlari ishonchsiz kontekst sifatida ko‘riladi va marshrutlash kontekstiga kiritilishi mumkin.
+
+## Per-chat-type threading
+
+You can configure different threading behavior per chat type by setting `channels.slack.replyToModeByChatType`:
+
+Yechish tartibi:
+
+- `channels.slack.accounts.<accountId> .ackReaction`
+- `channels.slack.ackReaction`
+- `messages.ackReaction`
+- agent identity emoji fallback (`agents.list[].identity.emoji`, aks holda "👀")
+
+Eslatmalar:
+
+- Slack shortcodelarni kutadi (masalan, `"eyes"`).
+- Kanal yoki akkaunt uchun reaksiyani o‘chirish uchun `""` dan foydalaning.
+
+## Manifest va scope tekshiruv ro‘yxati
+
+<AccordionGroup>
+  <Accordion title="Slack app manifest example">
 
 ```json
 {
   "display_information": {
     "name": "OpenClaw",
-    "description": "Slack connector for OpenClaw"
+    "description": "OpenClaw uchun Slack konnektori"
   },
   "features": {
     "bot_user": {
@@ -173,7 +368,7 @@ Ilovani tez yaratish uchun ushbu Slack ilova manifestidan foydalaning (xohlasang
     "slash_commands": [
       {
         "command": "/openclaw",
-        "description": "Send a message to OpenClaw",
+        "description": "OpenClaw’ga xabar yuborish",
         "should_escape": false
       }
     ]
@@ -185,14 +380,8 @@ Ilovani tez yaratish uchun ushbu Slack ilova manifestidan foydalaning (xohlasang
         "channels:history",
         "channels:read",
         "groups:history",
-        "groups:read",
-        "groups:write",
         "im:history",
-        "im:read",
-        "im:write",
         "mpim:history",
-        "mpim:read",
-        "mpim:write",
         "users:read",
         "app_mentions:read",
         "reactions:read",
@@ -203,21 +392,6 @@ Ilovani tez yaratish uchun ushbu Slack ilova manifestidan foydalaning (xohlasang
         "commands",
         "files:read",
         "files:write"
-      ],
-      "user": [
-        "channels:history",
-        "channels:read",
-        "groups:history",
-        "groups:read",
-        "im:history",
-        "im:read",
-        "mpim:history",
-        "mpim:read",
-        "users:read",
-        "reactions:read",
-        "pins:read",
-        "emoji:read",
-        "search:read"
       ]
     }
   },
@@ -243,319 +417,118 @@ Ilovani tez yaratish uchun ushbu Slack ilova manifestidan foydalaning (xohlasang
 }
 ```
 
-Agar mahalliy buyruqlarni yoqsangiz, ochmoqchi bo‘lgan har bir buyruq uchun bittadan `slash_commands` yozuvini qo‘shing (`/help` ro‘yxatiga mos). `channels.slack.commands.native` bilan almashtiring.
+  
+</Accordion>
 
-## Scope’lar (joriy va ixtiyoriy)
+  <Accordion title="Optional user-token scopes (read operations)">
+    Agar siz `channels.slack.userToken` ni sozlasangiz, odatiy o‘qish scopelari quyidagilar:
 
-Slack’ning Conversations API turi bo‘yicha scope’langan: siz faqat haqiqatan ishlatadigan suhbat turlari (channels, groups, im, mpim) uchun scope’lar kerak. Umumiy ko‘rinish uchun qarang:
-[https://docs.slack.dev/apis/web-api/using-the-conversations-api/](https://docs.slack.dev/apis/web-api/using-the-conversations-api/)
+    ```
+    - `channels:history`, `groups:history`, `im:history`, `mpim:history`
+    - `channels:read`, `groups:read`, `im:read`, `mpim:read`
+    - `users:read`
+    - `reactions:read`
+    - `pins:read`
+    - `emoji:read`
+    - `search:read` (agar Slack qidiruv o‘qishlariga tayanadigan bo‘lsangiz)
+    ```
 
-### Bot tokeni scope’lari (majburiy)
-
-- `chat:write` (`chat.postMessage` orqali xabar yuborish/yangilash/o‘chirish)
-  [https://docs.slack.dev/reference/methods/chat.postMessage](https://docs.slack.dev/reference/methods/chat.postMessage)
-- `im:write` (`conversations.open` orqali foydalanuvchi DM’larini ochish)
-  [https://docs.slack.dev/reference/methods/conversations.open](https://docs.slack.dev/reference/methods/conversations.open)
-- `channels:history`, `groups:history`, `im:history`, `mpim:history`
-  [https://docs.slack.dev/reference/methods/conversations.history](https://docs.slack.dev/reference/methods/conversations.history)
-- `channels:read`, `groups:read`, `im:read`, `mpim:read`
-  [https://docs.slack.dev/reference/methods/conversations.info](https://docs.slack.dev/reference/methods/conversations.info)
-- `users:read` (foydalanuvchini topish)
-  [https://docs.slack.dev/reference/methods/users.info](https://docs.slack.dev/reference/methods/users.info)
-- `reactions:read`, `reactions:write` (`reactions.get` / `reactions.add`)
-  [https://docs.slack.dev/reference/methods/reactions.get](https://docs.slack.dev/reference/methods/reactions.get)
-  [https://docs.slack.dev/reference/methods/reactions.add](https://docs.slack.dev/reference/methods/reactions.add)
-- `pins:read`, `pins:write` (`pins.list` / `pins.add` / `pins.remove`)
-  [https://docs.slack.dev/reference/scopes/pins.read](https://docs.slack.dev/reference/scopes/pins.read)
-  [https://docs.slack.dev/reference/scopes/pins.write](https://docs.slack.dev/reference/scopes/pins.write)
-- `emoji:read` (`emoji.list`)
-  [https://docs.slack.dev/reference/scopes/emoji.read](https://docs.slack.dev/reference/scopes/emoji.read)
-- `files:write` (uploads via `files.uploadV2`)
-  [https://docs.slack.dev/messaging/working-with-files/#upload](https://docs.slack.dev/messaging/working-with-files/#upload)
-
-### User token scopes (optional, read-only by default)
-
-Add these under **User Token Scopes** if you configure `channels.slack.userToken`.
-
-- `channels:history`, `groups:history`, `im:history`, `mpim:history`
-- `channels:read`, `groups:read`, `im:read`, `mpim:read`
-- `users:read`
-- `reactions:read`
-- `pins:read`
-- `emoji:read`
-- `search:read`
-
-### Not needed today (but likely future)
-
-- `mpim:write` (only if we add group-DM open/DM start via `conversations.open`)
-- `groups:write` (only if we add private-channel management: create/rename/invite/archive)
-- `chat:write.public` (only if we want to post to channels the bot isn't in)
-  [https://docs.slack.dev/reference/scopes/chat.write.public](https://docs.slack.dev/reference/scopes/chat.write.public)
-- `users:read.email` (only if we need email fields from `users.info`)
-  [https://docs.slack.dev/changelog/2017-04-narrowing-email-access](https://docs.slack.dev/changelog/2017-04-narrowing-email-access)
-- `files:read` (only if we start listing/reading file metadata)
-
-## Config
-
-Slack uses Socket Mode only (no HTTP webhook server). Provide both tokens:
-
-```json
-{
-  "slack": {
-    "enabled": true,
-    "botToken": "xoxb-...",
-    "appToken": "xapp-...",
-    "groupPolicy": "allowlist",
-    "dm": {
-      "enabled": true,
-      "policy": "pairing",
-      "allowFrom": ["U123", "U456", "*"],
-      "groupEnabled": false,
-      "groupChannels": ["G123"],
-      "replyToMode": "all"
-    },
-    "channels": {
-      "C123": { "allow": true, "requireMention": true },
-      "#general": {
-        "allow": true,
-        "requireMention": true,
-        "users": ["U123"],
-        "skills": ["search", "docs"],
-        "systemPrompt": "Keep answers short."
-      }
-    },
-    "reactionNotifications": "own",
-    "reactionAllowlist": ["U123"],
-    "replyToMode": "off",
-    "actions": {
-      "reactions": true,
-      "messages": true,
-      "pins": true,
-      "memberInfo": true,
-      "emojiList": true
-    },
-    "slashCommand": {
-      "enabled": true,
-      "name": "openclaw",
-      "sessionPrefix": "slack:slash",
-      "ephemeral": true
-    },
-    "textChunkLimit": 4000,
-    "mediaMaxMb": 20
-  }
-}
-```
-
-Tokens can also be supplied via env vars:
-
-- `SLACK_BOT_TOKEN`
-- `SLACK_APP_TOKEN`
-
-Ack reactions are controlled globally via `messages.ackReaction` +
-`messages.ackReactionScope`. Use `messages.removeAckAfterReply` to clear the
-ack reaction after the bot replies.
-
-## Limits
-
-- Outbound text is chunked to `channels.slack.textChunkLimit` (default 4000).
-- Optional newline chunking: set `channels.slack.chunkMode="newline"` to split on blank lines (paragraph boundaries) before length chunking.
-- Media uploads are capped by `channels.slack.mediaMaxMb` (default 20).
-
-## Reply threading
-
-By default, OpenClaw replies in the main channel. Use `channels.slack.replyToMode` to control automatic threading:
-
-| Mode    | Behavior                                                                                                                                                                                                               |
-| ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `off`   | **Default.** Reply in main channel. Only thread if the triggering message was already in a thread.                                                                     |
-| `first` | First reply goes to thread (under the triggering message), subsequent replies go to main channel. Useful for keeping context visible while avoiding thread clutter. |
-| `all`   | All replies go to thread. Keeps conversations contained but may reduce visibility.                                                                                                     |
-
-The mode applies to both auto-replies and agent tool calls (`slack sendMessage`).
-
-### Per-chat-type threading
-
-You can configure different threading behavior per chat type by setting `channels.slack.replyToModeByChatType`:
-
-```json5
-{
-  channels: {
-    slack: {
-      replyToMode: "off", // default for channels
-      replyToModeByChatType: {
-        direct: "all", // DMs always thread
-        group: "first", // group DMs/MPIM thread first reply
-      },
-    },
-  },
-}
-```
-
-Supported chat types:
-
-- `direct`: 1:1 DMs (Slack `im`)
-- `group`: group DMs / MPIMs (Slack `mpim`)
-- `channel`: standard channels (public/private)
-
-Precedence:
-
-1. `replyToModeByChatType.<chatType>`
-2. `replyToMode`
-3. Provider default (`off`)
-
-Legacy `channels.slack.dm.replyToMode` is still accepted as a fallback for `direct` when no chat-type override is set.
-
-Examples:
-
-Thread DMs only:
-
-```json5
-{
-  channels: {
-    slack: {
-      replyToMode: "off",
-      replyToModeByChatType: { direct: "all" },
-    },
-  },
-}
-```
-
-Thread group DMs but keep channels in the root:
-
-```json5
-{
-  channels: {
-    slack: {
-      replyToMode: "off",
-      replyToModeByChatType: { group: "first" },
-    },
-  },
-}
-```
-
-Make channels thread, keep DMs in the root:
-
-```json5
-{
-  channels: {
-    slack: {
-      replyToMode: "first",
-      replyToModeByChatType: { direct: "off", group: "off" },
-    },
-  },
-}
-```
-
-### Manual threading tags
-
-For fine-grained control, use these tags in agent responses:
-
-- `[[reply_to_current]]` — reply to the triggering message (start/continue thread).
-- `[[reply_to:<id>]]` — reply to a specific message id.
-
-## Sessions + routing
-
-- DMs share the `main` session (like WhatsApp/Telegram).
-- Channels map to `agent:<agentId>:slack:channel:<channelId>` sessions.
-- Slash commands use `agent:<agentId>:slack:slash:<userId>` sessions (prefix configurable via `channels.slack.slashCommand.sessionPrefix`).
-- If Slack doesn’t provide `channel_type`, OpenClaw infers it from the channel ID prefix (`D`, `C`, `G`) and defaults to `channel` to keep session keys stable.
-- Native command registration uses `commands.native` (global default `"auto"` → Slack off) and can be overridden per-workspace with `channels.slack.commands.native`. Text commands require standalone `/...` messages and can be disabled with `commands.text: false`. Slack slash commands are managed in the Slack app and are not removed automatically. Use `commands.useAccessGroups: false` to bypass access-group checks for commands.
-- Full command list + config: [Slash commands](/tools/slash-commands)
-
-## DM security (pairing)
-
-- Default: `channels.slack.dm.policy="pairing"` — unknown DM senders get a pairing code (expires after 1 hour).
-- Approve via: `openclaw pairing approve slack <code>`.
-- To allow anyone: set `channels.slack.dm.policy="open"` and `channels.slack.dm.allowFrom=["*"]`.
-- `channels.slack.dm.allowFrom` accepts user IDs, @handles, or emails (resolved at startup when tokens allow). The wizard accepts usernames and resolves them to ids during setup when tokens allow.
-
-## Group policy
-
-- `channels.slack.groupPolicy` controls channel handling (`open|disabled|allowlist`).
-- `allowlist` requires channels to be listed in `channels.slack.channels`.
-- If you only set `SLACK_BOT_TOKEN`/`SLACK_APP_TOKEN` and never create a `channels.slack` section,
-  the runtime defaults `groupPolicy` to `open`. Add `channels.slack.groupPolicy`,
-  `channels.defaults.groupPolicy`, or a channel allowlist to lock it down.
-- The configure wizard accepts `#channel` names and resolves them to IDs when possible
-  (public + private); if multiple matches exist, it prefers the active channel.
-- On startup, OpenClaw resolves channel/user names in allowlists to IDs (when tokens allow)
-  and logs the mapping; unresolved entries are kept as typed.
-- To allow **no channels**, set `channels.slack.groupPolicy: "disabled"` (or keep an empty allowlist).
-
-Channel options (`channels.slack.channels.<id>` or `channels.slack.channels.<name>`):
-
-- `allow`: allow/deny the channel when `groupPolicy="allowlist"`.
-- `requireMention`: mention gating for the channel.
-- `tools`: kanal bo‘yicha ixtiyoriy asbob siyosati override’lari (`allow`/`deny`/`alsoAllow`).
-- `toolsBySender`: kanal ichida jo‘natuvchi bo‘yicha ixtiyoriy asbob siyosati override’lari (kalitlar — jo‘natuvchi ID’lari/@handle’lar/email’lar; `"*"` wildcard qo‘llab-quvvatlanadi).
-- `allowBots`: ushbu kanalda bot tomonidan yozilgan xabarlarga ruxsat berish (standart: false).
-- `users`: kanal bo‘yicha ixtiyoriy foydalanuvchi allowlist.
-- `skills`: ko‘nikmalar filtri (qoldirilsa = barcha ko‘nikmalar, bo‘sh = hech biri).
-- `systemPrompt`: kanal uchun qo‘shimcha system prompt (mavzu/maqsad bilan birlashtiriladi).
-- `enabled`: `false` qilib o‘rnatsangiz kanal o‘chiriladi.
-
-## Yetkazib berish maqsadlari
-
-Bularni cron/CLI yuborishlar bilan ishlating:
-
-- `user:<id>` — DM’lar uchun
-- `channel:<id>` — kanallar uchun
-
-## Asbob harakatlari
-
-Slack asbob harakatlari `channels.slack.actions.*` orqali cheklanishi mumkin:
-
-| Harakat guruhi | Standart | Eslatmalar                            |
-| -------------- | -------- | ------------------------------------- |
-| reaksiyalar    | yoqilgan | Reaksiya qo‘shish + reaksiya ro‘yxati |
-| xabarlar       | yoqilgan | O‘qish/jo‘natish/tahrirlash/o‘chirish |
-| pinlar         | yoqilgan | Pin qo‘yish/olib tashlash/ro‘yxat     |
-| memberInfo     | yoqilgan | A’zo ma’lumoti                        |
-| emojiList      | yoqilgan | Maxsus emoji ro‘yxati                 |
-
-## Xavfsizlik bo‘yicha eslatmalar
-
-- Yozishlar sukut bo‘yicha bot tokenidan foydalanadi, shuning uchun holatni o‘zgartiruvchi harakatlar ilovaning bot ruxsatlari va identiteti doirasida qoladi.
-- `userTokenReadOnly: false` ni sozlash bot tokeni mavjud bo‘lmaganda yozish amallari uchun foydalanuvchi tokenidan foydalanishga ruxsat beradi, bu esa harakatlar o‘rnatgan foydalanuvchining kirish huquqlari bilan bajarilishini anglatadi. Foydalanuvchi tokenini yuqori darajada imtiyozli deb hisoblang va harakatlar uchun gate’lar hamda allowlist’larni qat’iy saqlang.
-- Agar foydalanuvchi-token yozishlarini yoqsangiz, foydalanuvchi tokenida kutilgan yozish scope’lari (`chat:write`, `reactions:write`, `pins:write`,
-  `files:write`) mavjudligiga ishonch hosil qiling, aks holda bu amallar bajarilmaydi.
+  
+</Accordion>
+</AccordionGroup>
 
 ## Nosozliklarni bartaraf etish
 
-Avval ushbu ketma-ketlikni ishga tushiring:
+<AccordionGroup>
+  <Accordion title="No replies in channels">
+    Tartib bilan tekshiring:
+
+    ```
+    - `groupPolicy`
+    - kanal allowlisti (`channels.slack.channels`)
+    - `requireMention`
+    - har bir kanal uchun `users` allowlisti
+    
+    Foydali buyruqlar:
+    ```
 
 ```bash
-openclaw status
-openclaw gateway status
+openclaw channels status --probe
 openclaw logs --follow
 openclaw doctor
-openclaw channels status --probe
 ```
 
-So‘ngra kerak bo‘lsa DM juftlash holatini tasdiqlang:
+  
+</Accordion>
+
+  <Accordion title="DM messages ignored">
+    Tekshiring:
+
+    ```
+    - `channels.slack.dm.enabled`
+    - `channels.slack.dmPolicy` (yoki eski `channels.slack.dm.policy`)
+    - juftlash tasdiqlari / allowlist yozuvlari
+    ```
 
 ```bash
 openclaw pairing list slack
 ```
 
-Keng tarqalgan nosozliklar:
+  
+</Accordion>
 
-- Ulangan, ammo kanalda javob yo‘q: kanal `groupPolicy` tomonidan bloklangan yoki `channels.slack.channels` allowlist’ida yo‘q.
-- DM’lar e’tiborsiz qoldiriladi: `channels.slack.dm.policy="pairing"` bo‘lganda jo‘natuvchi tasdiqlanmagan.
-- API xatolari (`missing_scope`, `not_in_channel`, autentifikatsiya xatolari): bot/ilova tokenlari yoki Slack scope’lari to‘liq emas.
+  <Accordion title="Socket mode not connecting">
+    Slack ilova sozlamalarida bot + app tokenlari va Socket Mode yoqilganini tekshiring.
+  
+</Accordion>
 
-Triage jarayoni uchun: [/channels/troubleshooting](/channels/troubleshooting).
+  <Accordion title="HTTP mode not receiving events">
+    Tekshiring:
 
-## Eslatmalar
+    ```
+    - signing secret
+    - webhook yo‘li
+    - Slack Request URLlari (Events + Interactivity + Slash Commands)
+    - har bir HTTP akkaunt uchun noyob `webhookPath`
+    ```
 
-- Mention gate’lash `channels.slack.channels` orqali boshqariladi (`requireMention` ni `true` qilib qo‘ying); `agents.list[].groupChat.mentionPatterns` (yoki `messages.groupChat.mentionPatterns`) ham mention sifatida hisoblanadi.
-- Multi-agent override: set per-agent patterns on `agents.list[].groupChat.mentionPatterns`.
-- Reaksiya bildirishnomalari `channels.slack.reactionNotifications` ga amal qiladi (`reactionAllowlist` ni `allowlist` rejimi bilan ishlating).
-- Bot-authored messages are ignored by default; enable via `channels.slack.allowBots` or `channels.slack.channels.<id>3. Ogohlantirish: Agar boshqa botlarga javob berishga ruxsat bersangiz (`channels.slack.allowBots=true`yoki`channels.slack.channels.&lt;id&gt;
-  4. .allowBots=true`), `requireMention`, `channels.slack.channels.&lt;id&gt;
-  5. .users`ruxsat ro‘yxatlari va/yoki`AGENTS.md`hamda`SOUL.md\` dagi aniq himoya qoidalari bilan botdan-botga javob aylanishlarining oldini oling.
-- 6. Slack vositasi uchun reaksiya olib tashlash semantikasi [/tools/reactions](/tools/reactions) da keltirilgan..allowBots=true`), prevent bot-to-bot reply loops with `requireMention`, `channels.slack.channels.&lt;id&gt;8. Telegram bot qo‘llab-quvvatlash holati, imkoniyatlari va sozlamalari
-- 9. Telegram funksiyalari yoki webhooklar ustida ishlash
-- 10. Telegram
+  
+</Accordion>
 
+  <Accordion title="Native/slash commands not firing">
+    Quyidagilardan qaysi biri mo‘ljallanganini tekshiring:
 
+    ```
+    - Slack’da mos slash buyruqlar ro‘yxatdan o‘tkazilgan holda native buyruq rejimi (`channels.slack.commands.native: true`)
+    - yoki yagona slash buyruq rejimi (`channels.slack.slashCommand.enabled: true`)
+    
+    Shuningdek, `commands.useAccessGroups` va kanal/foydalanuvchi allowlistlarini tekshiring.
+    ```
+
+  
+</Accordion>
+</AccordionGroup>
+
+## Asbob harakatlari
+
+Slack asbob harakatlari `channels.slack.actions.*` orqali cheklanishi mumkin:
+
+- [Configuration reference - Slack](/gateway/configuration-reference#slack)
+
+  Muhim Slack maydonlari:
+
+  - mode/auth: `mode`, `botToken`, `appToken`, `signingSecret`, `webhookPath`, `accounts.*`
+  - DM kirish: `dm.enabled`, `dmPolicy`, `allowFrom` (eski: `dm.policy`, `dm.allowFrom`), `dm.groupEnabled`, `dm.groupChannels`
+  - kanalga kirish: `groupPolicy`, `channels.*`, `channels.*.users`, `channels.*.requireMention`
+  - tarmoqlash/tarix: `replyToMode`, `replyToModeByChatType`, `thread.*`, `historyLimit`, `dmHistoryLimit`, `dms.*.historyLimit`
+  - yetkazib berish: `textChunkLimit`, `chunkMode`, `mediaMaxMb`
+  - operatsiyalar/xususiyatlar: `configWrites`, `commands.native`, `slashCommand.*`, `actions.*`, `userToken`, `userTokenReadOnly`
+
+## Xavfsizlik bo‘yicha eslatmalar
+
+- Yozishlar sukut bo‘yicha bot tokenidan foydalanadi, shuning uchun holatni o‘zgartiruvchi harakatlar ilovaning bot ruxsatlari va identiteti doirasida qoladi.
+- [Kanal yo‘naltirish](/channels/channel-routing)
+- Agar foydalanuvchi-token yozishlarini yoqsangiz, foydalanuvchi tokenida kutilgan yozish scope’lari (`chat:write`, `reactions:write`, `pins:write`,
+  `files:write`) mavjudligiga ishonch hosil qiling, aks holda bu amallar bajarilmaydi.
+- [Konfiguratsiya](/gateway/configuration)
+- [Slash buyruqlar](/tools/slash-commands)

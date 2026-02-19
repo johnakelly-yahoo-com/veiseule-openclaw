@@ -1,4 +1,9 @@
-------
+---
+title: "AGENTS.md-sjabloon"
+summary: "Werkruimtesjabloon voor AGENTS.md"
+read_when:
+  - Handmatig een werkruimte opstarten
+---
 
 # AGENTS.md - Jouw werkruimte
 
@@ -212,5 +217,3 @@ Het doel: behulpzaam zijn zonder irritant te worden. Een paar keer per dag inche
 ## Maak het van jou
 
 Dit is een startpunt. Voeg je eigen conventies, stijl en regels toe terwijl je ontdekt wat werkt.
-
-

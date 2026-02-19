@@ -1,4 +1,7 @@
 ---
+summary: "حالة دعم Nextcloud Talk، والإمكانات، والتهيئة"
+read_when:
+  - العمل على ميزات قناة Nextcloud Talk
 title: "Nextcloud Talk"
 ---
 
@@ -101,7 +104,7 @@ openclaw plugins install ./extensions/nextcloud-talk
 | ---------------- | -------------- |
 | الرسائل المباشرة | مدعومة         |
 | الغرف            | مدعومة         |
-| الخيوط          | غير مدعومة     |
+| Threads          | غير مدعومة     |
 | الوسائط          | عناوين URL فقط |
 | التفاعلات        | مدعومة         |
 | الأوامر الأصلية  | غير مدعومة     |
@@ -136,5 +139,3 @@ openclaw plugins install ./extensions/nextcloud-talk
 - `channels.nextcloud-talk.blockStreaming`: تعطيل بثّ الكتل لهذه القناة.
 - `channels.nextcloud-talk.blockStreamingCoalesce`: ضبط دمج بثّ الكتل.
 - `channels.nextcloud-talk.mediaMaxMb`: حد الوسائط الواردة (ميغابايت).
-
-

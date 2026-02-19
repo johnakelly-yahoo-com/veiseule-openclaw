@@ -1,4 +1,8 @@
 ---
+summary: "Hub de solução de problemas com abordagem por sintomas para o OpenClaw"
+read_when:
+  - O OpenClaw nao esta funcionando e voce precisa do caminho mais rapido para uma correcao
+  - Voce quer um fluxo de triagem antes de mergulhar em runbooks detalhados
 title: "Solução de problemas"
 ---
 
@@ -62,6 +66,7 @@ flowchart TD
     openclaw logs --follow
     ```
 
+    ````
     ```
     Uma boa saida se parece com:
     
@@ -82,6 +87,7 @@ flowchart TD
     - [/channels/troubleshooting](/channels/troubleshooting)
     - [/channels/pairing](/channels/pairing)
     ```
+    ````
 
   
 </Accordion>
@@ -95,6 +101,7 @@ flowchart TD
     openclaw channels status --probe
     ```
 
+    ````
     ```
     Uma boa saida se parece com:
     
@@ -114,6 +121,7 @@ flowchart TD
     - [/web/control-ui](/web/control-ui)
     - [/gateway/authentication](/gateway/authentication)
     ```
+    ````
 
   
 </Accordion>
@@ -127,6 +135,7 @@ flowchart TD
     openclaw channels status --probe
     ```
 
+    ````
     ```
     Uma boa saida se parece com:
     
@@ -146,6 +155,7 @@ flowchart TD
     - [/gateway/background-process](/gateway/background-process)
     - [/gateway/configuration](/gateway/configuration)
     ```
+    ````
 
   
 </Accordion>
@@ -159,6 +169,7 @@ flowchart TD
     openclaw channels status --probe
     ```
 
+    ````
     ```
     Uma boa saida se parece com:
     
@@ -177,6 +188,7 @@ flowchart TD
     - [/gateway/troubleshooting#channel-connected-messages-not-flowing](/gateway/troubleshooting#channel-connected-messages-not-flowing)
     - [/channels/troubleshooting](/channels/troubleshooting)
     ```
+    ````
 
   
 </Accordion>
@@ -191,6 +203,7 @@ flowchart TD
     openclaw logs --follow
     ```
 
+    ````
     ```
     Uma boa saida se parece com:
     
@@ -211,6 +224,7 @@ flowchart TD
     - [/automation/troubleshooting](/automation/troubleshooting)
     - [/gateway/heartbeat](/gateway/heartbeat)
     ```
+    ````
 
   
 </Accordion>
@@ -224,6 +238,7 @@ flowchart TD
     openclaw logs --follow
     ```
 
+    ````
     ```
     Uma boa saida se parece com:
     
@@ -244,6 +259,7 @@ flowchart TD
     - [/nodes/troubleshooting](/nodes/troubleshooting)
     - [/tools/exec-approvals](/tools/exec-approvals)
     ```
+    ````
 
   
 </Accordion>
@@ -257,6 +273,7 @@ flowchart TD
     openclaw doctor
     ```
 
+    ````
     ```
     Uma boa saida se parece com:
     
@@ -276,9 +293,8 @@ flowchart TD
     - [/tools/browser-linux-troubleshooting](/tools/browser-linux-troubleshooting)
     - [/tools/chrome-extension](/tools/chrome-extension)
     ```
+    ````
 
   
 </Accordion>
 </AccordionGroup>
-
-

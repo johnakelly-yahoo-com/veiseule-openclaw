@@ -1,4 +1,9 @@
 ---
+summary: "iMessage عبر خادم BlueBubbles على macOS (إرسال/استقبال REST، مؤشرات الكتابة، التفاعلات، الاقتران، إجراءات متقدمة)."
+read_when:
+  - إعداد قناة BlueBubbles
+  - استكشاف أخطاء اقتران webhook وإصلاحها
+  - تهيئة iMessage على macOS
 title: "BlueBubbles"
 ---
 
@@ -41,6 +46,10 @@ title: "BlueBubbles"
 4. وجّه webhooks الخاصة بـ BlueBubbles إلى Gateway الخاص بك (مثال: `https://your-gateway-host:3000/bluebubbles-webhook?password=<password>`).
 
 5. ابدأ تشغيل Gateway؛ سيُسجِّل معالج webhook ويبدأ الاقتران.
+
+ذكر بوابة (مجموعات)
+
+- قم دائمًا بتعيين كلمة مرور لـ webhook. إذا قمت بكشف الـ gateway عبر وكيل عكسي (Tailscale Serve/Funnel، nginx، Cloudflare Tunnel، ngrok)، فقد يتصل الوكيل بالـ gateway عبر loopback. يعامل معالج webhook الخاص بـ BlueBubbles الطلبات التي تحتوي على رؤوس إعادة التوجيه على أنها قادمة عبر وكيل، ولن يقبل webhooks بدون كلمة مرور.
 
 ## إبقاء Messages.app نشطًا (بيئات VM / دون واجهة)
 
@@ -247,14 +256,14 @@ DMs:
 قد يعرض OpenClaw معرّفات رسائل _قصيرة_ (مثل `1`، `2`) لتقليل استهلاك الرموز.
 
 - يمكن أن تكون `MessageSid` / `ReplyToId` معرّفات قصيرة.
-- تحتوي `MessageSidFull` / `ReplyToIdFull` على المعرّفات الكاملة لدى الموفّر.
+- السياق: `MessageSidFull` / `ReplyToIdFull` في الحمولات الواردة
 - المعرّفات القصيرة في الذاكرة فقط؛ وقد تنتهي صلاحيتها عند إعادة التشغيل أو إخلاء الذاكرة المؤقتة.
 - تقبل الإجراءات `messageId` القصير أو الكامل، لكن المعرّفات القصيرة ستفشل إذا لم تعد متاحة.
 
 استخدم المعرّفات الكاملة للأتمتة والتخزين الدائمين:
 
 - القوالب: `{{MessageSidFull}}`، `{{ReplyToIdFull}}`
-- السياق: `MessageSidFull` / `ReplyToIdFull` في الحمولات الواردة
+- تحتوي `MessageSidFull` / `ReplyToIdFull` على المعرّفات الكاملة لدى الموفّر.
 
 راجع [Configuration](/gateway/configuration) لمتغيرات القوالب.
 
@@ -298,6 +307,7 @@ DMs:
 - `channels.bluebubbles.textChunkLimit`: حجم تجزئة الإرسال بالأحرف (الافتراضي: 4000).
 - `channels.bluebubbles.chunkMode`: `length` (الافتراضي) يجزّئ فقط عند تجاوز `textChunkLimit`؛ بينما `newline` يجزّئ عند الأسطر الفارغة (حدود الفقرات) قبل التجزئة حسب الطول.
 - `channels.bluebubbles.mediaMaxMb`: حدّ الوسائط الواردة بالميغابايت (الافتراضي: 8).
+- `channels.bluebubbles.mediaLocalRoots`: قائمة سماح صريحة للأدلة المحلية المطلقة المسموح بها لمسارات الوسائط المحلية الصادرة. يتم رفض إرسال المسارات المحلية افتراضيًا ما لم يتم تكوين ذلك. تجاوز لكل حساب: `channels.bluebubbles.accounts.<accountId>`.mediaLocalRoots\`.
 - `channels.bluebubbles.historyLimit`: الحد الأقصى لرسائل المجموعات للسياق (0 لتعطيله).
 - `channels.bluebubbles.dmHistoryLimit`: حدّ سجل الرسائل الخاصة.
 - `channels.bluebubbles.actions`: تمكين/تعطيل إجراءات محددة.
@@ -336,5 +346,3 @@ DMs:
 - لمعلومات الحالة/الصحة: `openclaw status --all` أو `openclaw status --deep`.
 
 للمرجع العام لسير عمل القنوات، راجع [Channels](/channels) ودليل [Plugins](/tools/plugin).
-
-

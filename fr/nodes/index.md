@@ -1,4 +1,9 @@
 ---
+summary: "Nœuds : appairage, capacités, autorisations et assistants CLI pour canvas/caméra/écran/système"
+read_when:
+  - Appairage de nœuds iOS/Android à une passerelle
+  - Utilisation du canvas/de la caméra d’un nœud pour le contexte de l’agent
+  - Ajout de nouvelles commandes de nœud ou d’assistants CLI
 title: "Nœuds"
 ---
 
@@ -272,7 +277,7 @@ Notes :
 - `system.notify` respecte l’état des autorisations de notification dans l’app macOS.
 - `system.run` prend en charge `--cwd`, `--env KEY=VAL`, `--command-timeout` et `--needs-screen-recording`.
 - `system.notify` prend en charge `--priority <passive|active|timeSensitive>` et `--delivery <system|overlay|auto>`.
-- Les nœuds macOS ignorent les remplacements `PATH` ; les hôtes de nœud sans interface n’acceptent `PATH` que lorsqu’il préfixe le PATH de l’hôte de nœud.
+- Les hôtes Node ignorent les surcharges `PATH`. Si vous avez besoin d’entrées PATH supplémentaires, configurez l’environnement du service d’hébergement Node (ou installez les outils dans des emplacements standard) au lieu de transmettre `PATH` via `--env`.
 - En mode nœud macOS, `system.run` est contrôlé par les approbations Exec dans l’app macOS (Paramètres → Approbations Exec).
   Demander/liste blanche/complet se comportent comme sur l’hôte de nœud sans interface ; les invites refusées renvoient `SYSTEM_RUN_DENIED`.
 - Sur l’hôte de nœud sans interface, `system.run` est contrôlé par les approbations Exec (`~/.openclaw/exec-approvals.json`).
@@ -333,5 +338,3 @@ Notes :
 
 - L’app macOS de la barre de menus se connecte au serveur WS de la Gateway en tant que nœud (ainsi `openclaw nodes …` fonctionne sur ce Mac).
 - En mode distant, l’app ouvre un tunnel SSH pour le port de la Gateway et se connecte à `localhost`.
-
-

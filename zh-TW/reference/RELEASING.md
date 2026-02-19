@@ -1,8 +1,15 @@
-------
+---
+title: "發佈檢查清單"
+summary: "npm + macOS 應用程式的逐步發佈檢查清單"
+read_when:
+  - 發佈新的 npm 版本
+  - 發佈新的 macOS 應用程式版本
+  - 從儲存庫根目錄使用 `pnpm`（Node 22+）。
+---
 
 # 「npm + macOS 應用程式的逐步發佈檢查清單」
 
-在標記／發佈前保持工作樹乾淨。 Keep the working tree clean before tagging/publishing.
+從儲存庫根目錄使用 `pnpm`（Node 22+）。 在標記／發佈前保持工作樹乾淨。 Keep the working tree clean before tagging/publishing.
 
 ## 操作者觸發
 
@@ -66,7 +73,7 @@
 
 ### Troubleshooting (notes from 2.0.0-beta2 release)
 
-- **npm pack／publish 卡住或產生巨大的 tarball**：`dist/OpenClaw.app` 中的 macOS 應用程式套件（以及發佈用 zip）被一併打包。請透過 `package.json` `files` 白名單化發佈內容（包含 dist 子目錄、文件、skills；排除應用程式套件）。使用 `npm pack --dry-run` 確認 `dist/OpenClaw.app` 未被列出。 Fix by whitelisting publish contents via `package.json` `files` (include dist subdirs, docs, skills; exclude app bundles). 公告／分享發佈說明。
+- **npm pack／publish 卡住或產生巨大的 tarball**：`dist/OpenClaw.app` 中的 macOS 應用程式套件（以及發佈用 zip）被一併打包。請透過 `package.json` `files` 白名單化發佈內容（包含 dist 子目錄、文件、skills；排除應用程式套件）。使用 `npm pack --dry-run` 確認 `dist/OpenClaw.app` 未被列出。 Fix by whitelisting publish contents via `package.json` `files` (include dist subdirs, docs, skills; exclude app bundles). Fix by whitelisting publish contents via `package.json` `files` (include dist subdirs, docs, skills; exclude app bundles). 公告／分享發佈說明。
 - **npm auth web 在 dist-tags 進入循環**：使用舊版驗證以取得 OTP 提示：
   - `NPM_CONFIG_AUTH_TYPE=legacy npm dist-tag add openclaw@X.Y.Z latest`
 - **`npx` 驗證因 `ECOMPROMISED: Lock compromised` 失敗**：使用全新快取重試：
@@ -86,6 +93,7 @@
 ## Plugin publish scope (npm)
 
 我們只在 `@openclaw/*` 範圍下發佈**既有的 npm 外掛**。未上架 npm 的隨附
+外掛僅維持為**磁碟樹**（仍會隨 `extensions/**` 一併出貨）。 我們只在 `@openclaw/*` 範圍下發佈**既有的 npm 外掛**。未上架 npm 的隨附
 外掛僅維持為**磁碟樹**（仍會隨 `extensions/**` 一併出貨）。 Bundled
 plugins that are not on npm stay **disk-tree only** (still shipped in
 `extensions/**`).
@@ -113,5 +121,3 @@ plugins that are not on npm stay **disk-tree only** (still shipped in
 
 Release notes must also call out **new optional bundled plugins** that are **not
 on by default** (example: `tlon`).
-
-

@@ -1,17 +1,14 @@
 ---
-title: hooks
-x-i18n:
-  generated_at: "2026-02-03T10:04:32Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: e2032e61ff4b9135cb2708d92eb7889ac627b85a5fc153e3d5b84265f7bd7bc6
-  source_path: cli/hooks.md
-  workflow: 15
+summary: "CLI 参考：`openclaw hooks`（智能体钩子）"
+read_when:
+  - You want to manage agent hooks
+  - 你想安装或更新钩子
+title: "hooks"
 ---
 
 # `openclaw hooks`
 
-管理智能体钩子（针对 `/new`、`/reset` 等命令以及 Gateway 网关启动的事件驱动自动化）。
+管理 agent 钩子（针对 `/new`、`/reset` 和 gateway 启动等命令的事件驱动自动化）。
 
 相关内容：
 
@@ -105,7 +102,7 @@ Requirements:
 openclaw hooks check
 ```
 
-显示钩子资格状态摘要（有多少已就绪，有多少未就绪）。
+Show summary of hook eligibility status (how many are ready vs. not ready).
 
 **选项：**
 
@@ -129,8 +126,8 @@ openclaw hooks enable <name>
 
 通过将特定钩子添加到配置（`~/.openclaw/config.json`）来启用它。
 
-**注意：** 由插件管理的钩子在 `openclaw hooks list` 中显示 `plugin:<id>`，
-无法在此处启用/禁用。请改为启用/禁用该插件。
+**Note:** Hooks managed by plugins show `plugin:<id>` in `openclaw hooks list` and
+can’t be enabled/disabled here. Enable/disable the plugin instead.
 
 **参数：**
 
@@ -194,7 +191,10 @@ openclaw hooks install <path-or-spec>
 
 从本地文件夹/压缩包或 npm 安装钩子包。
 
-**执行操作：**
+Npm 规范仅支持 **registry-only**（包名 + 可选版本/标签）。 Git/URL/file
+规范将被拒绝。 为确保安全，依赖安装使用 `--ignore-scripts` 运行。
+
+2026-02-03T10:04:32Z
 
 - 将钩子包复制到 `~/.openclaw/hooks/<id>`
 - 在 `hooks.internal.entries.*` 中启用已安装的钩子
@@ -229,14 +229,14 @@ openclaw hooks update <id>
 openclaw hooks update --all
 ```
 
-更新已安装的钩子包（仅限 npm 安装）。
+Update installed hook packs (npm installs only).
 
 **选项：**
 
 - `--all`：更新所有已跟踪的钩子包
 - `--dry-run`：显示将要进行的更改，但不写入
 
-## 内置钩子
+## Bundled Hooks
 
 ### session-memory
 
@@ -251,6 +251,19 @@ openclaw hooks enable session-memory
 **输出：** `~/.openclaw/workspace/memory/YYYY-MM-DD-slug.md`
 
 **参见：** [session-memory 文档](/automation/hooks#session-memory)
+
+### bootstrap-extra-files
+
+在 `agent:bootstrap` 期间注入额外的引导文件（例如 monorepo 本地的 `AGENTS.md` / `TOOLS.md`）。
+
+**启用**：
+
+```bash
+openclaw hooks 启用 bootstrap-extra-files
+```
+
+**注意：** 由插件管理的钩子在 `openclaw hooks list` 中显示 `plugin:<id>`，
+无法在此处启用/禁用。请改为启用/禁用该插件。
 
 ### command-logger
 
@@ -285,12 +298,10 @@ grep '"action":"new"' ~/.openclaw/logs/commands.log | jq .
 
 **事件**：`gateway:startup`
 
-**启用**：
+**执行操作：**
 
 ```bash
 openclaw hooks enable boot-md
 ```
 
 **参见：** [boot-md 文档](/automation/hooks#boot-md)
-
-

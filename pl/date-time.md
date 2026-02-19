@@ -1,4 +1,8 @@
 ---
+summary: "Obsługa daty i czasu w kopertach, promptach, narzędziach i konektorach"
+read_when:
+  - Zmieniasz sposób prezentacji znaczników czasu dla modelu lub użytkowników
+  - Debugujesz formatowanie czasu w wiadomościach lub w wyjściu promptu systemowego
 title: "Data i czas"
 ---
 
@@ -123,5 +127,3 @@ Jeśli potrzebujesz czasu lokalnego, przelicz go dalej, używając znanej strefy
 - [Prompt systemowy](/concepts/system-prompt)
 - [Strefy czasowe](/concepts/timezone)
 - [Wiadomości](/concepts/messages)
-
-

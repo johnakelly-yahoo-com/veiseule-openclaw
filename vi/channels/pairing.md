@@ -1,10 +1,15 @@
 ---
+summary: "Tổng quan về ghép cặp: phê duyệt ai có thể nhắn DM cho bạn + những node nào có thể tham gia"
+read_when:
+  - Thiết lập kiểm soát truy cập DM
+  - Ghép cặp một node iOS/Android mới
+  - Rà soát tư thế bảo mật của OpenClaw
 title: "Ghép cặp"
 ---
 
 # Ghép cặp
 
-“Pairing” là bước **chủ sở hữu phê duyệt** rõ ràng của OpenClaw.
+“Pairing” is OpenClaw’s explicit **owner approval** step.
 It is used in two places:
 
 1. **Ghép cặp DM** (ai được phép nói chuyện với bot)
@@ -21,7 +26,7 @@ Các chính sách DM mặc định được ghi trong: [Security](/gateway/secur
 Mã ghép cặp:
 
 - 8 ký tự, chữ hoa, không có ký tự dễ gây nhầm lẫn (`0O1I`).
-- **Hết hạn sau 1 giờ**. Bot chỉ gửi thông báo ghép nối khi một yêu cầu mới được tạo (khoảng một lần mỗi giờ cho mỗi người gửi).
+- **Expire after 1 hour**. The bot only sends the pairing message when a new request is created (roughly once per hour per sender).
 - Các yêu cầu ghép cặp DM đang chờ được giới hạn **3 yêu cầu cho mỗi kênh** theo mặc định; các yêu cầu bổ sung sẽ bị bỏ qua cho đến khi một yêu cầu hết hạn hoặc được phê duyệt.
 
 ### Phê duyệt một người gửi
@@ -44,7 +49,7 @@ Hãy coi những mục này là nhạy cảm (chúng kiểm soát quyền truy c
 
 ## 2. Ghép cặp thiết bị node (iOS/Android/macOS/node headless)
 
-Các node kết nối đến Gateway dưới dạng **thiết bị** với `role: node`. Gateway
+Nodes connect to the Gateway as **devices** with `role: node`. The Gateway
 creates a device pairing request that must be approved.
 
 ### Ghép nối qua Telegram (khuyến nghị cho iOS)
@@ -96,5 +101,3 @@ Lưu dưới `~/.openclaw/devices/`:
   - iMessage (legacy): [iMessage](/channels/imessage)
   - Discord: [Discord](/channels/discord)
   - Slack: [Slack](/channels/slack)
-
-

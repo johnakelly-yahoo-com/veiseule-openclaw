@@ -1,4 +1,9 @@
 ---
+summary: "„Zapasowe użycie Firecrawl dla web_fetch (anty‑bot + ekstrakcja z cache)”"
+read_when:
+  - Chcesz ekstrakcję WWW opartą na Firecrawl
+  - Potrzebujesz klucza API Firecrawl
+  - Chcesz ekstrakcję anty‑bot dla web_fetch
 title: "Firecrawl"
 ---
 
@@ -54,5 +59,3 @@ Kolejność ekstrakcji `web_fetch`:
 3. Podstawowe czyszczenie HTML (ostatnia rezerwa)
 
 Zobacz [Narzędzia webowe](/tools/web), aby zapoznać się z pełną konfiguracją narzędzi WWW.
-
-

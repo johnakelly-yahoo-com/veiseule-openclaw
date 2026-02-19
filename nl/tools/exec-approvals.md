@@ -1,4 +1,9 @@
 ---
+summary: "Uitvoeringsgoedkeuringen, toegestane lijsten en prompts voor sandbox-ontsnapping"
+read_when:
+  - Configureren van uitvoeringsgoedkeuringen of toegestane lijsten
+  - Implementeren van UX voor uitvoeringsgoedkeuringen in de macOS-app
+  - Beoordelen van prompts voor sandbox-ontsnapping en de implicaties
 title: "Uitvoeringsgoedkeuringen"
 ---
 
@@ -119,6 +124,9 @@ behandeld als toegestaan op nodes (macOS-node of headless node-host). Dit gebrui
 `tools.exec.safeBins` definieert een kleine lijst **stdin-only**-binaries (bijvoorbeeld `jq`)
 die in allowlist-modus **zonder** expliciete vermeldingen in de toegestane lijst kunnen draaien. Veilige binaries weigeren
 positionele bestandsargumenten en padachtige tokens, zodat ze alleen op de inkomende stream kunnen werken.
+Safe bins dwingen er ook toe dat argv-tokens tijdens uitvoering als **letterlijke tekst** worden behandeld (geen globbing
+and geen `$VARS`-expansie) voor alleen-stdin-segmenten, zodat patronen zoals `*` of `$HOME/...` niet kunnen worden
+gebruikt om bestandslezingen te smokkelen.
 Shell-koppeling en omleidingen worden niet automatisch toegestaan in allowlist-modus.
 
 Shell-koppeling (`&&`, `||`, `;`) is toegestaan wanneer elk segment op het hoogste niveau voldoet aan de toegestane lijst
@@ -239,5 +247,3 @@ Gerelateerd:
 - [Exec-hulpmiddel](/tools/exec)
 - [Verhoogde modus](/tools/elevated)
 - [Vaardigheden](/tools/skills)
-
-

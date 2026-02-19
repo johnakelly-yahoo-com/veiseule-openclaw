@@ -1,19 +1,18 @@
 ---
-title: 智能体循环
-x-i18n:
-  generated_at: "2026-02-03T10:05:11Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 0775b96eb3451e137297661a1095eaefb2bafeebb5f78123174a46290e18b014
-  source_path: concepts/agent-loop.md
-  workflow: 15
+summary: "智能体循环生命周期、流和等待语义"
+read_when:
+  - 你需要智能体循环或生命周期事件的详细说明
+title: "Agent Loop"
 ---
 
 # 智能体循环（OpenClaw）
 
-智能体循环是智能体的完整"真实"运行：接收 → 上下文组装 → 模型推理 → 工具执行 → 流式回复 → 持久化。这是将消息转化为操作和最终回复的权威路径，同时保持会话状态的一致性。
+An agentic loop is the full “real” run of an agent: intake → context assembly → model inference →
+tool execution → streaming replies → persistence. It’s the authoritative path that turns a message
+into actions and a final reply, while keeping session state consistent.
 
-在 OpenClaw 中，循环是每个会话的单次序列化运行，在模型思考、调用工具和流式输出时发出生命周期和流事件。本文档解释了这个真实循环是如何端到端连接的。
+在 OpenClaw 中，循环是每个会话的单次序列化运行，在模型思考、调用工具和流式输出时发出生命周期和流事件。本文档解释了这个真实循环是如何端到端连接的。 This doc explains how that authentic loop is
+wired end-to-end.
 
 ## 入口点
 
@@ -44,9 +43,10 @@ x-i18n:
 
 ## 队列 + 并发
 
-- 运行按会话键（会话通道）序列化，可选择通过全局通道。
+- Runs are serialized per session key (session lane) and optionally through a global lane.
 - 这可以防止工具/会话竞争并保持会话历史的一致性。
 - 消息渠道可以选择队列模式（collect/steer/followup）来馈送此通道系统。参见[命令队列](/concepts/queue)。
+  See [Command Queue](/concepts/queue).
 
 ## 会话 + 工作区准备
 
@@ -71,6 +71,7 @@ OpenClaw 有两个钩子系统：
 ### 内部钩子（Gateway 网关钩子）
 
 - **`agent:bootstrap`**：在系统提示最终确定之前构建引导文件时运行。用于添加/删除引导上下文文件。
+  Use this to add/remove bootstrap context files.
 - **命令钩子**：`/new`、`/reset`、`/stop` 和其他命令事件（参见钩子文档）。
 
 参见[钩子](/automation/hooks)了解设置和示例。
@@ -113,7 +114,7 @@ OpenClaw 有两个钩子系统：
 - 消息工具重复项从最终有效负载列表中移除。
 - 如果没有剩余可渲染的有效负载且工具出错，则发出回退工具错误回复（除非消息工具已经发送了用户可见的回复）。
 
-## 压缩 + 重试
+## Compaction + retries
 
 - 自动压缩发出 `compaction` 流事件，可以触发重试。
 - 重试时，内存缓冲区和工具摘要会重置以避免重复输出。
@@ -132,14 +133,12 @@ OpenClaw 有两个钩子系统：
 
 ## 超时
 
-- `agent.wait` 默认：30 秒（仅等待）。`timeoutMs` 参数可覆盖。
+- `agent.wait` 默认：30 秒（仅等待）。`timeoutMs` 参数可覆盖。 `timeoutMs` param overrides.
 - 智能体运行时：`agents.defaults.timeoutSeconds` 默认 600 秒；在 `runEmbeddedPiAgent` 中止计时器中强制执行。
 
 ## 可能提前结束的情况
 
-- 智能体超时（中止）
+- Agent timeout (abort)
 - AbortSignal（取消）
 - Gateway 网关断开连接或 RPC 超时
 - `agent.wait` 超时（仅等待，不会停止智能体）
-
-

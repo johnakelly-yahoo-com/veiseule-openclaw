@@ -1,4 +1,7 @@
 ---
+summary: "Hvordan indgående lyd/voicenotes downloades, transskriberes og indsættes i svar"
+read_when:
+  - Ændring af lydtransskription eller mediehåndtering
 title: "Lyd og Voicenotes"
 ---
 
@@ -106,8 +109,25 @@ Bemærk: Binær registrering er best-effort på tværs af macOS/Linux/Windows; s
 
 ## Faldgruber
 
+Når `requireMention: true` er sat for en gruppechat, transskriberer OpenClaw nu lyd **før** der kontrolleres for omtaler. Dette gør det muligt at behandle stemmenoter, selv når de indeholder omtaler.
+
+**Sådan fungerer det:**
+
+1. Hvis en talebesked ikke har nogen tekst og gruppen kræver omtaler, udfører OpenClaw en "preflight"-transskription.
+2. Transskriptionen kontrolleres for omtale-mønstre (f.eks. `@BotName`, emoji-triggere).
+3. Hvis en omtale findes, fortsætter beskeden gennem hele svar-pipelinen.
+4. Transskriptionen bruges til omtale-detektion, så talebeskeder kan passere omtale-gaten.
+
+**Fallback-adfærd:**
+
+- Hvis transskription mislykkes under preflight (timeout, API-fejl osv.), behandles beskeden baseret på kun tekstbaseret omtale-detektion.
+- Dette sikrer, at blandede beskeder (tekst + lyd) aldrig fejlagtigt kasseres.
+
+**Eksempel:** En bruger sender en talebesked med "Hey @Claude, hvordan er vejret?" i en Telegram-gruppe med `requireMention: true`. Talebeskeden transskriberes, omtalen registreres, og agenten svarer.
+
+## Faldgruber
+
 - Anvendelsesregler bruger førsteklasses gevinster. `chatType` er normaliseret til `direct`, `group`, eller `room`.
 - Sørg for, at din CLI afslutter med status 0 og udskriver ren tekst; JSON skal tilpasses via `jq -r .text`.
 - Hold timeouts rimelige (`timeoutSeconds`, standard 60s) for at undgå at blokere svarkøen.
-
-
+- Preflight-transskription behandler kun den **første** lydvedhæftning til omtale-detektion. Yderligere lyd behandles under den primære medieforståelsesfase.

@@ -1,4 +1,7 @@
 ---
+summary: "„Projekt kolejki poleceń, który serializuje przychodzące uruchomienia automatycznych odpowiedzi”"
+read_when:
+  - Zmiana wykonywania automatycznych odpowiedzi lub współbieżności
 title: "Kolejka poleceń"
 ---
 
@@ -84,5 +87,3 @@ Ustawienia domyślne: `debounceMs: 1000`, `cap: 20`, `drop: summarize`.
 
 - Jeśli polecenia wydają się zablokowane, włącz szczegółowe logi i szukaj linii „queued for …ms”, aby potwierdzić, że kolejka się opróżnia.
 - Jeśli potrzebujesz głębokości kolejki, włącz szczegółowe logi i obserwuj linie dotyczące czasu kolejki.
-
-

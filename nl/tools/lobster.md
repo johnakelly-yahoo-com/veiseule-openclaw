@@ -1,6 +1,11 @@
 ---
 title: Lobster
-description: Getypte workflowruntime voor OpenClaw — composeerbare pijplijnen met goedkeuringspoorten.---
+summary: "Getypte workflowruntime voor OpenClaw met hervatbare goedkeuringspoorten."
+description: Getypte workflowruntime voor OpenClaw — composeerbare pijplijnen met goedkeuringspoorten.
+read_when:
+  - Je wilt deterministische meerstapsworkflows met expliciete goedkeuringen
+  - Je moet een workflow kunnen hervatten zonder eerdere stappen opnieuw uit te voeren
+---
 
 # Lobster
 
@@ -335,5 +340,3 @@ Een openbaar voorbeeld: een “second brain” CLI + Lobster-pijplijnen die drie
 
 - Thread: [https://x.com/plattenschieber/status/2014508656335770033](https://x.com/plattenschieber/status/2014508656335770033)
 - Repo: [https://github.com/bloomedai/brain-cli](https://github.com/bloomedai/brain-cli)
-
-

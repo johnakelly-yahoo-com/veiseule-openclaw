@@ -1,4 +1,7 @@
 ---
+summary: "Arquitectura del Gateway WebSocket, componentes y flujos de clientes"
+read_when:
+  - Al trabajar en el protocolo del Gateway, clientes o transportes
 title: "Arquitectura del Gateway"
 ---
 
@@ -16,7 +19,10 @@ title: "Arquitectura del Gateway"
 - Los **Nodos** (macOS/iOS/Android/headless) también se conectan por **WebSocket**, pero
   declaran `role: node` con capacidades/comandos explícitos.
 - Un Gateway por host; es el único lugar que abre una sesión de WhatsApp.
-- Un **host de lienzo** (predeterminado `18793`) sirve HTML editable por el agente y A2UI.
+- El **canvas host** es servido por el servidor HTTP de Gateway en:
+  - `/__openclaw__/canvas/` (HTML/CSS/JS editable por el agente)
+  - `/__openclaw__/a2ui/` (host A2UI)
+    Usa el mismo puerto que el Gateway (por defecto `18789`).
 
 ## Componentes y flujos
 
@@ -53,29 +59,13 @@ Detalles del protocolo:
 ## Ciclo de vida de la conexión (cliente único)
 
 ```mermaid
-%%{init: {
-  'theme': 'base',
-  'themeVariables': {
-    'primaryColor': '#ffffff',
-    'primaryTextColor': '#000000',
-    'primaryBorderColor': '#000000',
-    'lineColor': '#000000',
-    'secondaryColor': '#f9f9fb',
-    'tertiaryColor': '#ffffff',
-    'clusterBkg': '#f9f9fb',
-    'clusterBorder': '#000000',
-    'nodeBorder': '#000000',
-    'mainBkg': '#ffffff',
-    'edgeLabelBackground': '#ffffff'
-  }
-}}%%
 sequenceDiagram
     participant Client
     participant Gateway
 
     Client->>Gateway: req:connect
     Gateway-->>Client: res (ok)
-    Note right of Gateway: or res error + close
+    Note right of Gateway: o res error + close
     Note left of Client: payload=hello-ok<br>snapshot: presence + health
 
     Gateway-->>Client: event:presence
@@ -146,5 +136,3 @@ Detalles: [Protocolo del Gateway](/gateway/protocol), [Emparejamiento](/channels
 - Exactamente un Gateway controla una única sesión de Baileys por host.
 - El handshake es obligatorio; cualquier primera trama no JSON o no connect es un cierre inmediato.
 - Los eventos no se reproducen; los clientes deben refrescar ante lagunas.
-
-

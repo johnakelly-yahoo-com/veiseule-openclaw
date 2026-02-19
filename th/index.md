@@ -1,6 +1,8 @@
 ---
+summary: "OpenClawคือเกตเวย์แบบหลายช่องทางสำหรับเอเจนต์AIที่ทำงานได้บนทุกระบบปฏิบัติการ"
+read_when:
+  - แนะนำOpenClawให้กับผู้ใช้ใหม่
 title: "OpenClaw"
-sidebarTitle: "OpenClaw"
 ---
 
 # OpenClaw 🦞
@@ -20,10 +22,10 @@ sidebarTitle: "OpenClaw"
 
 > _"EXFOLIATE! EXFOLIATE!"_ — กุ้งล็อบสเตอร์อวกาศสักตัวหนึ่งน่าจะพูดแบบนี้
 
-<p align="center">
-  <strong>เกตเวย์ที่ใช้ได้บนทุกระบบปฏิบัติการสำหรับเอเจนต์AIผ่านWhatsApp, Telegram, Discord, iMessageและอื่นๆ</strong><br />
+<p align="center"><strong>เกตเวย์ที่ใช้ได้บนทุกระบบปฏิบัติการสำหรับเอเจนต์AIผ่านWhatsApp, Telegram, Discord, iMessageและอื่นๆ</strong><br />
   ส่งข้อความครั้งเดียว รับคำตอบจากเอเจนต์ได้จากกระเป๋าคุณ ปลั๊กอินช่วยเพิ่ม Mattermostและอื่นๆ
 <br />
+  Send a message, get an agent response from your pocket.<br />
   Send a message, get an agent response from your pocket. Plugins add Mattermost and more.
 </p>
 
@@ -44,7 +46,7 @@ sidebarTitle: "OpenClaw"
 
 ## What is OpenClaw?
 
-OpenClawคือ **เกตเวย์แบบโฮสต์เอง** ที่เชื่อมต่อแอปแชตที่คุณชื่นชอบ—WhatsApp, Telegram, Discord, iMessageและอื่นๆ—เข้ากับเอเจนต์AIด้านการเขียนโค้ดอย่างPi คุณรันกระบวนการGatewayเพียงตัวเดียวบนเครื่องของคุณเอง(หรือบนเซิร์ฟเวอร์)และมันจะทำหน้าที่เป็นสะพานเชื่อมระหว่างแอปส่งข้อความกับผู้ช่วยAIที่พร้อมใช้งานตลอดเวลา You run a single Gateway process on your own machine (or a server), and it becomes the bridge between your messaging apps and an always-available AI assistant.
+OpenClawคือ **เกตเวย์แบบโฮสต์เอง** ที่เชื่อมต่อแอปแชตที่คุณชื่นชอบ—WhatsApp, Telegram, Discord, iMessageและอื่นๆ—เข้ากับเอเจนต์AIด้านการเขียนโค้ดอย่างPi คุณรันกระบวนการGatewayเพียงตัวเดียวบนเครื่องของคุณเอง(หรือบนเซิร์ฟเวอร์)และมันจะทำหน้าที่เป็นสะพานเชื่อมระหว่างแอปส่งข้อความกับผู้ช่วยAIที่พร้อมใช้งานตลอดเวลา You run a single Gateway process on your own machine (or a server), and it becomes the bridge between your messaging apps and an always-available AI assistant. You run a single Gateway process on your own machine (or a server), and it becomes the bridge between your messaging apps and an always-available AI assistant.
 
 **เหมาะกับใคร?** นักพัฒนาและผู้ใช้ขั้นสูงที่ต้องการผู้ช่วยAIส่วนตัวซึ่งสามารถส่งข้อความหาได้จากทุกที่—โดยไม่ต้องสละการควบคุมข้อมูลหรือพึ่งพาบริการแบบโฮสต์
 
@@ -211,5 +213,3 @@ Need the full install and dev setup? See [Quick start](/start/quickstart).
   
 </Card>
 </Columns>
-
-

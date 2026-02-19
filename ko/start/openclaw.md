@@ -1,4 +1,8 @@
 ---
+summary: "안전 주의사항을 포함하여 개인 비서로 OpenClaw 를 실행하는 엔드투엔드 가이드"
+read_when:
+  - 새 어시스턴스 인스턴스 온보딩
+  - 안전/권한 영향 검토
 title: "개인 비서 설정"
 ---
 
@@ -30,22 +34,6 @@ OpenClaw 는 **Pi** 에이전트를 위한 WhatsApp + Telegram + Discord + iMess
 이것을 원하신다면:
 
 ```mermaid
-%%{init: {
-  'theme': 'base',
-  'themeVariables': {
-    'primaryColor': '#ffffff',
-    'primaryTextColor': '#000000',
-    'primaryBorderColor': '#000000',
-    'lineColor': '#000000',
-    'secondaryColor': '#f9f9fb',
-    'tertiaryColor': '#ffffff',
-    'clusterBkg': '#f9f9fb',
-    'clusterBorder': '#000000',
-    'nodeBorder': '#000000',
-    'mainBkg': '#ffffff',
-    'edgeLabelBackground': '#ffffff'
-  }
-}}%%
 flowchart TB
     A["<b>Your Phone (personal)<br></b><br>Your WhatsApp<br>+1-555-YOU"] -- message --> B["<b>Second Phone (assistant)<br></b><br>Assistant WA<br>+1-555-ASSIST"]
     B -- linked via QR --> C["<b>Your Mac (openclaw)<br></b><br>Pi agent"]
@@ -225,5 +213,3 @@ openclaw health --json   # gateway health snapshot (WS)
 - Windows 상태: [Windows (WSL2)](/platforms/windows)
 - Linux 상태: [Linux app](/platforms/linux)
 - 보안: [Security](/gateway/security)
-
-

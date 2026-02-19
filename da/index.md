@@ -1,6 +1,8 @@
 ---
+summary: "OpenClaw er en multikanal-gateway til AI-agenter, der kører på ethvert styresystem."
+read_when:
+  - Introduktion af OpenClaw for nye brugere
 title: "OpenClaw"
-sidebarTitle: "OpenClaw"
 ---
 
 # OpenClaw 🦞
@@ -20,8 +22,7 @@ sidebarTitle: "OpenClaw"
 
 > _"EXFOLIATE! EKFOLIATE!"_ — En rumhummer, sandsynligvis
 
-<p align="center">
-  <strong>Enhver OS gateway for AI agenter på tværs WhatsApp, Telegram, Discord, iMessage og meget mere.</strong><br />
+<p align="center"><strong>Enhver OS gateway for AI agenter på tværs WhatsApp, Telegram, Discord, iMessage og meget mere.</strong><br />
   Send en besked, få et agent svar fra din lomme. Plugins tilføjer mest og meget mere.
 </p>
 
@@ -209,5 +210,3 @@ Eksempel:
   
 </Card>
 </Columns>
-
-

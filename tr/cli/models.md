@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw models` için CLI referansı (durum/listele/ayarla/tara, takma adlar, yedekler, kimlik doğrulama)"
+read_when:
+  - Varsayılan modelleri değiştirmek veya sağlayıcı kimlik doğrulama durumunu görüntülemek istediğinizde
+  - Mevcut modelleri/sağlayıcıları taramak ve kimlik doğrulama profillerini hata ayıklamak istediğinizde
 title: "modeller"
 ---
 
@@ -73,5 +77,3 @@ Notlar:
 
 - `setup-token`, bir setup-token değeri ister (herhangi bir makinede `claude setup-token` ile oluşturun).
 - `paste-token`, başka bir yerde veya otomasyondan üretilmiş bir belirteç dizgesini kabul eder.
-
-

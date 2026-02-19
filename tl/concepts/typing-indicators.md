@@ -1,10 +1,13 @@
 ---
+summary: "Kailan nagpapakita ang OpenClaw ng mga indikator ng pagta-type at kung paano i-tune ang mga ito"
+read_when:
+  - Binabago ang behavior o mga default ng typing indicator
 title: "Mga Indikador ng Pagta-type"
 ---
 
 # Mga indikator ng pagta-type
 
-Ipinapadala ang mga typing indicator sa chat channel habang aktibo ang isang run. Gamitin
+Typing indicators are sent to the chat channel while a run is active. Use
 `agents.defaults.typingMode` to control **when** typing starts and `typingIntervalSeconds`
 to control **how often** it refreshes.
 
@@ -59,9 +62,7 @@ Maaari mong i-override ang mode o cadence kada session:
 - Ang `message` mode ay hindi magpapakita ng pagta-type para sa mga silent-only na reply (hal. ang `NO_REPLY`
   token na ginagamit para pigilan ang output).
 - `thinking` only fires if the run streams reasoning (`reasoningLevel: "stream"`).
-Kung hindi naglalabas ang model ng reasoning deltas, hindi magsisimula ang pagta-type.
+  If the model doesn’t emit reasoning deltas, typing won’t start.
 - Ang mga heartbeat ay hindi kailanman nagpapakita ng pagta-type, anuman ang mode.
-- Kinokontrol ng `typingIntervalSeconds` ang **agwat ng pag-refresh**, hindi ang oras ng pagsisimula.
-Ang default ay 6 na segundo.
-
-
+- `typingIntervalSeconds` controls the **refresh cadence**, not the start time.
+  The default is 6 seconds.

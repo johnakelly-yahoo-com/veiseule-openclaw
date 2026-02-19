@@ -1,4 +1,8 @@
 ---
+summary: "CLI-referentie voor `openclaw nodes` (list/status/approve/invoke, camera/canvas/screen)"
+read_when:
+  - Je beheert gekoppelde nodes (camera's, scherm, canvas)
+  - Je moet verzoeken goedkeuren of node-opdrachten uitvoeren
 title: "nodes"
 ---
 
@@ -60,12 +64,10 @@ Invoke-flags:
 Vlaggen:
 
 - `--cwd <path>`: werkmap.
-- `--env <key=val>`: env-overschrijving (herhaalbaar).
+- `--env <key=val>`: env-overschrijving (herhaalbaar). Opmerking: node-hosts negeren `PATH`-overschrijvingen (en `tools.exec.pathPrepend` wordt niet toegepast op node-hosts).
 - `--command-timeout <ms>`: command-timeout.
 - `--invoke-timeout <ms>`: timeout voor node-invoke (standaard `30000`).
 - `--needs-screen-recording`: vereis toestemming voor schermopname.
 - `--raw <command>`: voer een shell-string uit (`/bin/sh -lc` of `cmd.exe /c`).
 - `--agent <id>`: agent-gebonden goedkeuringen/toegestane lijsten (standaard de geconfigureerde agent).
 - `--ask <off|on-miss|always>`, `--security <deny|allowlist|full>`: overschrijvingen.
-
-

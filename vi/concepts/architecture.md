@@ -1,4 +1,7 @@
 ---
+summary: "Kiến trúc gateway WebSocket, các thành phần và luồng phía client"
+read_when:
+  - Làm việc với giao thức gateway, client hoặc transport
 title: "Kiến trúc Gateway"
 ---
 
@@ -17,6 +20,9 @@ Cập nhật lần cuối: 2026-01-22
   khai báo `role: node` với các khả năng/lệnh rõ ràng.
 - Mỗi host chỉ có một Gateway; đây là nơi duy nhất mở một phiên WhatsApp.
 - Một **canvas host** (mặc định `18793`) phục vụ HTML có thể chỉnh sửa bởi tác tử và A2UI.
+  - `/__openclaw__/canvas/` (HTML/CSS/JS có thể chỉnh sửa bởi agent)
+  - `/__openclaw__/a2ui/` (host A2UI)
+    Sử dụng cùng cổng với Gateway (mặc định `18789`).
 
 ## Thành phần và luồng
 
@@ -146,5 +152,3 @@ Chi tiết: [Giao thức Gateway](/gateway/protocol), [Ghép cặp](/channels/pa
 - Chính xác một Gateway kiểm soát một phiên Baileys trên mỗi host.
 - Bắt tay là bắt buộc; bất kỳ frame đầu tiên nào không phải JSON hoặc không phải connect sẽ bị đóng cứng.
 - Sự kiện không được phát lại; client phải làm mới khi có khoảng trống.
-
-

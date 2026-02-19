@@ -1,16 +1,15 @@
 ---
-x-i18n:
-  generated_at: "2026-02-03T10:09:28Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 1a684bc26665966eb3c9c816d58d18eead008fd710041181ece38c21c5ff1c62
-  source_path: reference/RELEASING.md
-  workflow: 15
+title: "发布检查清单"
+summary: "npm + macOS 应用的逐步发布清单"
+read_when:
+  - 发布新的 npm 版本
+  - 发布新的 macOS 应用版本
+  - 发布前验证元数据
 ---
 
 # 发布清单（npm + macOS）
 
-从仓库根目录使用 `pnpm`（Node 22+）。在打标签/发布前保持工作树干净。
+31. 在仓库根目录使用 `pnpm`（Node 22+）。 32. 在打标签/发布前保持工作区干净。
 
 ## 操作员触发
 
@@ -49,12 +48,12 @@ x-i18n:
 - [ ] `pnpm release:check`（验证 npm pack 内容）
 - [ ] `OPENCLAW_INSTALL_SMOKE_SKIP_NONROOT=1 pnpm test:install:smoke`（Docker 安装冒烟测试，快速路径；发布前必需）
   - 如果已知上一个 npm 发布版本有问题，为预安装步骤设置 `OPENCLAW_INSTALL_SMOKE_PREVIOUS=<last-good-version>` 或 `OPENCLAW_INSTALL_SMOKE_SKIP_PREVIOUS=1`。
-- [ ]（可选）完整安装程序冒烟测试（添加非 root + CLI 覆盖）：`pnpm test:install:smoke`
-- [ ]（可选）安装程序 E2E（Docker，运行 `curl -fsSL https://openclaw.ai/install.sh | bash`，新手引导，然后运行真实工具调用）：
+- [ ] [ ]（可选）完整安装程序冒烟测试（添加非 root + CLI 覆盖）：`pnpm test:install:smoke`
+- [ ] [ ]（可选）安装程序 E2E（Docker，运行 `curl -fsSL https://openclaw.ai/install.sh | bash`，新手引导，然后运行真实工具调用）：
   - `pnpm test:install:e2e:openai`（需要 `OPENAI_API_KEY`）
   - `pnpm test:install:e2e:anthropic`（需要 `ANTHROPIC_API_KEY`）
   - `pnpm test:install:e2e`（需要两个密钥；运行两个提供商）
-- [ ]（可选）如果你的更改影响发送/接收路径，抽查 Web Gateway 网关。
+- [ ] [ ]（可选）如果你的更改影响发送/接收路径，抽查 Web Gateway 网关。
 
 5. **macOS 应用（Sparkle）**
 
@@ -74,7 +73,7 @@ x-i18n:
 
 ### 故障排除（来自 2.0.0-beta2 发布的笔记）
 
-- **npm pack/publish 挂起或产生巨大 tarball**：`dist/OpenClaw.app` 中的 macOS 应用包（和发布 zip）被扫入包中。通过 `package.json` 的 `files` 白名单发布内容来修复（包含 dist 子目录、docs、skills；排除应用包）。用 `npm pack --dry-run` 确认 `dist/OpenClaw.app` 未列出。
+- **npm pack/publish 挂起或产生巨大 tarball**：`dist/OpenClaw.app` 中的 macOS 应用包（和发布 zip）被扫入包中。通过 `package.json` 的 `files` 白名单发布内容来修复（包含 dist 子目录、docs、skills；排除应用包）。用 `npm pack --dry-run` 确认 `dist/OpenClaw.app` 未列出。 Fix by whitelisting publish contents via `package.json` `files` (include dist subdirs, docs, skills; exclude app bundles). Confirm with `npm pack --dry-run` that `dist/OpenClaw.app` is not listed.
 - **npm auth dist-tags 的 Web 循环**：使用旧版认证以获取 OTP 提示：
   - `NPM_CONFIG_AUTH_TYPE=legacy npm dist-tag add openclaw@X.Y.Z latest`
 - **`npx` 验证失败并显示 `ECOMPROMISED: Lock compromised`**：使用新缓存重试：
@@ -93,7 +92,9 @@ x-i18n:
 
 ## 插件发布范围（npm）
 
-我们只发布 `@openclaw/*` 范围下的**现有 npm 插件**。不在 npm 上的内置插件保持**仅磁盘树**（仍在 `extensions/**` 中发布）。
+我们只发布 `@openclaw/*` 范围下的**现有 npm 插件**。不在 npm 上的内置插件保持**仅磁盘树**（仍在 `extensions/**` 中发布）。 Bundled
+plugins that are not on npm stay **disk-tree only** (still shipped in
+`extensions/**`).
 
 获取列表的流程：
 
@@ -106,6 +107,7 @@ x-i18n:
 - @openclaw/bluebubbles
 - @openclaw/diagnostics-otel
 - @openclaw/discord
+- @openclaw/feishu
 - @openclaw/lobster
 - @openclaw/matrix
 - @openclaw/msteams
@@ -116,5 +118,3 @@ x-i18n:
 - @openclaw/zalouser
 
 发布说明还必须标注**默认未启用**的**新可选内置插件**（例如：`tlon`）。
-
-

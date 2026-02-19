@@ -1,10 +1,13 @@
 ---
+summary: "Nextcloud Talk کی معاونت کی حیثیت، صلاحیتیں، اور کنفیگریشن"
+read_when:
+  - Nextcloud Talk چینل کی خصوصیات پر کام کرتے وقت
 title: "Nextcloud Talk"
 ---
 
 # Nextcloud Talk (پلگ اِن)
 
-حیثیت: پلگ اِن (ویب ہُک بوٹ) کے ذریعے معاونت یافتہ۔ ڈائریکٹ پیغامات، رومز، ری ایکشنز، اور مارک ڈاؤن پیغامات کی معاونت کی جاتی ہے۔
+Status: supported via plugin (webhook bot). Direct messages, rooms, reactions, and markdown messages are supported.
 
 ## پلگ اِن درکار ہے
 
@@ -62,7 +65,7 @@ openclaw plugins install ./extensions/nextcloud-talk
 
 ## نوٹس
 
-- بوٹس خود سے ڈائریکٹ میسجز شروع نہیں کر سکتے۔ صارف کو پہلے بوٹ کو پیغام بھیجنا ہوگا۔
+- Bots cannot initiate DMs. The user must message the bot first.
 - Webhook URL کا Gateway سے قابلِ رسائی ہونا لازم ہے؛ اگر پراکسی کے پیچھے ہوں تو `webhookPublicUrl` سیٹ کریں۔
 - میڈیا اپ لوڈز بوٹ API کے ذریعے معاونت یافتہ نہیں؛ میڈیا URLs کے طور پر بھیجا جاتا ہے۔
 - Webhook پے لوڈ DMs اور رومز میں فرق نہیں کرتا؛ روم ٹائپ کی تلاش فعال کرنے کے لیے `apiUser` + `apiPassword` سیٹ کریں (ورنہ DMs کو رومز سمجھا جاتا ہے)۔
@@ -136,5 +139,3 @@ openclaw plugins install ./extensions/nextcloud-talk
 - `channels.nextcloud-talk.blockStreaming`: اس چینل کے لیے بلاک اسٹریمنگ غیر فعال کریں۔
 - `channels.nextcloud-talk.blockStreamingCoalesce`: بلاک اسٹریمنگ کوالیس ٹیوننگ۔
 - `channels.nextcloud-talk.mediaMaxMb`: اِن باؤنڈ میڈیا حد (MB)۔
-
-

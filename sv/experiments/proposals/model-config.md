@@ -1,4 +1,7 @@
 ---
+summary: "Utforskning: modellkonfiguration, autentiseringsprofiler och fallback-beteende"
+read_when:
+  - Utforskar framtida idéer för modellval + autentiseringsprofiler
 title: "Utforskning av modellkonfig"
 ---
 
@@ -31,5 +34,3 @@ Operatörer vill ha:
 - Ska profilrotation vara per leverantör eller per modell?
 - Hur bör UI:t exponera profilval för en session?
 - Vilken är den säkraste migreringsvägen från äldre konfig-nycklar?
-
-

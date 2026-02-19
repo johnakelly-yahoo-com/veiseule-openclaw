@@ -1,4 +1,8 @@
 ---
+summary: "Lokationskommando for noder (location.get), tilladelsestilstande og baggrundsadfærd"
+read_when:
+  - Tilføjelse af understøttelse for lokationsnode eller tilladelses-UI
+  - Design af baggrundslokation + push-flows
 title: "Lokationskommando"
 ---
 
@@ -107,5 +111,3 @@ Noter:
 - Mens i brug: “Kun når OpenClaw er åben.”
 - Altid: “Tillad baggrunds placering. Kræver systemtilladelse.”
 - Præcis “Brug præcis GPS-placering. Slå fra for at dele omtrentlige placering.”
-
-

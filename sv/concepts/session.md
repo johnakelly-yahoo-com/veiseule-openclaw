@@ -1,4 +1,7 @@
 ---
+summary: "Regler, nycklar och persistens för sessionshantering i chattar"
+read_when:
+  - Modifierar sessionshantering eller lagring
 title: "Sessionshantering"
 ---
 
@@ -199,5 +202,3 @@ Varje sessionspost registrerar var den kom ifrån (bästa möjliga) i `origin`:
   `GroupSubject`, `GroupChannel`, `GroupSpace`, och `SenderName` i det inkommande
   sammanhanget och ringer `recordSessionMetaFromInbound` (eller skickar samma kontext
   till `updateLastRoute`).
-
-

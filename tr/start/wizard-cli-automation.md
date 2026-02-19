@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw CLI için betik tabanlı onboarding ve ajan kurulumu"
+read_when:
+  - Betikler veya CI içinde onboarding’i otomatikleştiriyorsanız
+  - Belirli sağlayıcılar için etkileşimsiz örneklere ihtiyacınız varsa
 title: "CLI Otomasyonu"
 sidebarTitle: "CLI otomasyonu"
 ---
@@ -109,9 +113,29 @@ Makine tarafından okunabilir bir özet için `--json` ekleyin.
     ```
   
 </Accordion>
+  <Accordion title="Custom provider example">
+    ```bash
+    openclaw onboard --non-interactive \
+      --mode local \
+      --auth-choice custom-api-key \
+      --custom-base-url "https://llm.example.com/v1" \
+      --custom-model-id "foo-large" \
+      --custom-api-key "$CUSTOM_API_KEY" \
+      --custom-provider-id "my-custom" \
+      --custom-compatibility anthropic \
+      --gateway-port 18789 \
+      --gateway-bind loopback
+    ```
+
+    ```
+    `--custom-api-key` isteğe bağlıdır. Atlanırsa, onboarding `CUSTOM_API_KEY` değişkenini kontrol eder.
+    ```
+
+  
+</Accordion>
 </AccordionGroup>
 
-## 5. Başka bir ajan ekle
+## Başka bir ajan ekle
 
 Kendi çalışma alanı, oturumları ve kimlik doğrulama profilleri olan ayrı bir ajan oluşturmak için `openclaw agents add <name>` kullanın. `--workspace` olmadan çalıştırmak sihirbazı başlatır.
 
@@ -141,5 +165,3 @@ Notlar:
 - Onboarding merkezi: [Onboarding Wizard (CLI)](/start/wizard)
 - Tam referans: [CLI Onboarding Reference](/start/wizard-cli-reference)
 - Komut referansı: [`openclaw onboard`](/cli/onboard)
-
-

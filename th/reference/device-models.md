@@ -1,4 +1,8 @@
 ---
+summary: "วิธีที่ OpenClaw จัดเตรียมตัวระบุรุ่นอุปกรณ์ของ Apple ให้เป็นชื่อที่อ่านเข้าใจง่ายในแอปmacOS"
+read_when:
+  - อัปเดตการแม็ปตัวระบุรุ่นอุปกรณ์หรือไฟล์ NOTICE/ไลเซนส์
+  - เปลี่ยนวิธีที่ UI ของ Instances แสดงชื่ออุปกรณ์
 title: "ฐานข้อมูลรุ่นอุปกรณ์"
 ---
 
@@ -41,5 +45,3 @@ curl -fsSL "https://raw.githubusercontent.com/kyle-seongwoo-jun/apple-device-ide
 ```bash
 swift build --package-path apps/macos
 ```
-
-

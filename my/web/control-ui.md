@@ -1,4 +1,8 @@
 ---
+summary: "Gateway (ချတ်၊ နိုဒ်များ၊ ဖွဲ့စည်းပြင်ဆင်မှု) အတွက် ဘရောက်ဇာအခြေပြု ထိန်းချုပ် UI"
+read_when:
+  - ဘရောက်ဇာမှ Gateway ကို လည်ပတ်လိုသောအခါ
+  - SSH တန်နယ်များ မသုံးဘဲ Tailnet ဝင်ရောက်လိုသောအခါ
 title: "ထိန်းချုပ်မှု အသုံးပြုသူမျက်နှာပြင်"
 ---
 
@@ -202,5 +206,3 @@ http://localhost:5173/?gatewayUrl=wss://<gateway-host>:18789&token=<gateway-toke
 ```
 
 Remote ဝင်ရောက်မှု တပ်ဆင်ခြင်း အသေးစိတ်: [Remote access](/gateway/remote)။
-
-

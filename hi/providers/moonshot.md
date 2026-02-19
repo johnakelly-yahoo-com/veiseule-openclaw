@@ -1,10 +1,15 @@
 ---
+summary: "Moonshot K2 बनाम Kimi Coding का विन्यास (अलग प्रदाता + कुंजियाँ)"
+read_when:
+  - आप Moonshot K2 (Moonshot Open Platform) बनाम Kimi Coding का सेटअप चाहते हैं
+  - आपको अलग-अलग एंडपॉइंट्स, कुंजियाँ और मॉडल संदर्भ समझने हैं
+  - आप किसी भी प्रदाता के लिए कॉपी/पेस्ट विन्यास चाहते हैं
 title: "Moonshot AI"
 ---
 
 # Moonshot AI (Kimi)
 
-Moonshot Kimi API को OpenAI-compatible endpoints के साथ प्रदान करता है। कॉन्फ़िगर करें
+Moonshot provides the Kimi API with OpenAI-compatible endpoints. Configure the
 provider and set the default model to `moonshot/kimi-k2.5`, or use
 Kimi Coding with `kimi-coding/k2p5`.
 
@@ -29,7 +34,7 @@ Kimi Coding:
 openclaw onboard --auth-choice kimi-code-api-key
 ```
 
-नोट: Moonshot और Kimi Coding अलग-अलग प्रदाता हैं। कुंजियाँ परस्पर विनिमेय नहीं हैं, एंडपॉइंट्स अलग हैं, और मॉडल रेफरेंस भी अलग हैं (Moonshot `moonshot/...` का उपयोग करता है, Kimi Coding `kimi-coding/...` का उपयोग करता है)।
+Note: Moonshot and Kimi Coding are separate providers. Keys are not interchangeable, endpoints differ, and model refs differ (Moonshot uses `moonshot/...`, Kimi Coding uses `kimi-coding/...`).
 
 ## विन्यास स्निपेट (Moonshot API)
 
@@ -130,10 +135,8 @@ openclaw onboard --auth-choice kimi-code-api-key
 
 ## नोट्स
 
-- Moonshot मॉडल रेफरेंस `moonshot/<modelId>` का उपयोग करते हैं। Kimi Coding मॉडल रेफरेंस `kimi-coding/<modelId>` का उपयोग करते हैं।
+- Moonshot model refs use `moonshot/<modelId>`. Kimi Coding model refs use `kimi-coding/<modelId>`.
 - आवश्यकता होने पर `models.providers` में मूल्य निर्धारण और संदर्भ मेटाडेटा को ओवरराइड करें।
 - यदि Moonshot किसी मॉडल के लिए अलग संदर्भ सीमाएँ प्रकाशित करता है, तो
   `contextWindow` को तदनुसार समायोजित करें।
 - अंतरराष्ट्रीय एंडपॉइंट के लिए `https://api.moonshot.ai/v1` का उपयोग करें, और चीन एंडपॉइंट के लिए `https://api.moonshot.cn/v1` का उपयोग करें।
-
-

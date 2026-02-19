@@ -1,4 +1,9 @@
-------
+---
+title: "AGENTS.md shabloni"
+summary: "Workspace template for AGENTS.md"
+read_when:
+  - Bootstrapping a workspace manually
+---
 
 # AGENTS.md - Your Workspace
 
@@ -212,5 +217,3 @@ The goal: Be helpful without being annoying. Check in a few times a day, do usef
 ## Make It Yours
 
 This is a starting point. Add your own conventions, style, and rules as you figure out what works.
-
-

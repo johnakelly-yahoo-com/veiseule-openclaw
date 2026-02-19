@@ -1,28 +1,24 @@
 ---
-title: 群组消息
-x-i18n:
-  generated_at: "2026-02-03T10:05:00Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 181a72f12f5021af77c2e4c913120f711e0c0bc271d218d75cb6fe80dab675bb
-  source_path: channels/group-messages.md
-  workflow: 15
+summary: "WhatsApp 群组消息处理的行为和配置（mentionPatterns 在各平台间共享）"
+read_when:
+  - 更改群组消息规则或提及设置时
+title: "群组消息"
 ---
 
 # 群组消息（WhatsApp 网页渠道）
 
 目标：让 Clawd 留在 WhatsApp 群组中，仅在被提及时唤醒，并将该对话线程与个人私信会话分开。
 
-注意：`agents.list[].groupChat.mentionPatterns` 现在也被 Telegram/Discord/Slack/iMessage 使用；本文档重点介绍 WhatsApp 特定的行为。对于多智能体设置，为每个智能体设置 `agents.list[].groupChat.mentionPatterns`（或使用 `messages.groupChat.mentionPatterns` 作为全局回退）。
+注意：`agents.list[].groupChat.mentionPatterns` 现在也被 Telegram/Discord/Slack/iMessage 使用；本文档重点介绍 WhatsApp 特定的行为。对于多智能体设置，为每个智能体设置 `agents.list[].groupChat.mentionPatterns`（或使用 `messages.groupChat.mentionPatterns` 作为全局回退）。 For multi-agent setups, set `agents.list[].groupChat.mentionPatterns` per agent (or use `messages.groupChat.mentionPatterns` as a global fallback).
 
 ## 已实现的功能（2025-12-03）
 
-- 激活模式：`mention`（默认）或 `always`。`mention` 需要被提及（通过 `mentionedJids` 的真实 WhatsApp @提及、正则表达式模式，或文本中任意位置的机器人 E.164 号码）。`always` 会在每条消息时唤醒智能体，但它应该只在能提供有意义价值时才回复；否则返回静默令牌 `NO_REPLY`。默认值可在配置中设置（`channels.whatsapp.groups`），并可通过 `/activation` 为每个群组单独覆盖。当设置了 `channels.whatsapp.groups` 时，它同时充当群组允许列表（包含 `"*"` 以允许所有群组）。
-- 群组策略：`channels.whatsapp.groupPolicy` 控制是否接受群组消息（`open|disabled|allowlist`）。`allowlist` 使用 `channels.whatsapp.groupAllowFrom`（回退：显式的 `channels.whatsapp.allowFrom`）。默认为 `allowlist`（在你添加发送者之前被阻止）。
-- 独立群组会话：会话键格式为 `agent:<agentId>:whatsapp:group:<jid>`，因此 `/verbose on` 或 `/think high`（作为独立消息发送）等命令仅作用于该群组；个人私信状态不受影响。群组线程会跳过心跳。
-- 上下文注入：**仅待处理**的群组消息（默认 50 条），即*未*触发运行的消息，会以 `[Chat messages since your last reply - for context]` 为前缀注入，触发行在 `[Current message - respond to this]` 下。已在会话中的消息不会重复注入。
+- Activation modes: `mention` (default) or `always`. `mention` requires a ping (real WhatsApp @-mentions via `mentionedJids`, regex patterns, or the bot’s E.164 anywhere in the text). `always` wakes the agent on every message but it should reply only when it can add meaningful value; otherwise it returns the silent token `NO_REPLY`. Defaults can be set in config (`channels.whatsapp.groups`) and overridden per group via `/activation`. When `channels.whatsapp.groups` is set, it also acts as a group allowlist (include `"*"` to allow all).
+- 群组策略：`channels.whatsapp.groupPolicy` 控制是否接受群组消息（`open|disabled|allowlist`）。`allowlist` 使用 `channels.whatsapp.groupAllowFrom`（回退：显式的 `channels.whatsapp.allowFrom`）。默认为 `allowlist`（在你添加发送者之前被阻止）。 `allowlist` uses `channels.whatsapp.groupAllowFrom` (fallback: explicit `channels.whatsapp.allowFrom`). Default is `allowlist` (blocked until you add senders).
+- 独立群组会话：会话键格式为 `agent:<agentId>:whatsapp:group:<jid>`，因此 `/verbose on` 或 `/think high`（作为独立消息发送）等命令仅作用于该群组；个人私信状态不受影响。群组线程会跳过心跳。 Heartbeats are skipped for group threads.
+- 上下文注入：**仅待处理**的群组消息（默认 50 条），即_未_触发运行的消息，会以 `[Chat messages since your last reply - for context]` 为前缀注入，触发行在 `[Current message - respond to this]` 下。已在会话中的消息不会重复注入。 Messages already in the session are not re-injected.
 - 发送者显示：每个群组批次现在以 `[from: Sender Name (+E164)]` 结尾，让 Pi 知道是谁在说话。
-- 阅后即焚/一次性查看：我们在提取文本/提及之前会先解包这些消息，因此其中的提及仍会触发。
+- Ephemeral/view-once: we unwrap those before extracting text/mentions, so pings inside them still trigger.
 - 群组系统提示：在群组会话的第一轮（以及每当 `/activation` 更改模式时），我们会向系统提示注入一段简短说明，如 `You are replying inside the WhatsApp group "<subject>". Group members: Alice (+44...), Bob (+43...), … Activation: trigger-only … Address the specific sender noted in the message context.` 如果元数据不可用，我们仍会告知智能体这是一个群聊。
 
 ## 配置示例（WhatsApp）
@@ -64,14 +60,14 @@ x-i18n:
 - `/activation mention`
 - `/activation always`
 
-只有所有者号码（来自 `channels.whatsapp.allowFrom`，或未设置时使用机器人自己的 E.164）可以更改此设置。在群组中发送 `/status` 作为独立消息以查看当前激活模式。
+只有所有者号码（来自 `channels.whatsapp.allowFrom`，或未设置时使用机器人自己的 E.164）可以更改此设置。在群组中发送 `/status` 作为独立消息以查看当前激活模式。 Send `/status` as a standalone message in the group to see the current activation mode.
 
 ## 使用方法
 
 1. 将你的 WhatsApp 账号（运行 OpenClaw 的账号）添加到群组。
-2. 说 `@openclaw …`（或包含号码）。只有允许列表中的发送者才能触发，除非你设置 `groupPolicy: "open"`。
+2. Say `@openclaw …` (or include the number). 说 `@openclaw …`（或包含号码）。只有允许列表中的发送者才能触发，除非你设置 `groupPolicy: "open"`。
 3. 智能体提示将包含最近的群组上下文以及尾部的 `[from: …]` 标记，以便它能够回应正确的人。
-4. 会话级指令（`/verbose on`、`/think high`、`/new` 或 `/reset`、`/compact`）仅适用于该群组的会话；将它们作为独立消息发送以使其生效。你的个人私信会话保持独立。
+4. 会话级指令（`/verbose on`、`/think high`、`/new` 或 `/reset`、`/compact`）仅适用于该群组的会话；将它们作为独立消息发送以使其生效。你的个人私信会话保持独立。 Your personal DM session remains independent.
 
 ## 测试/验证
 
@@ -86,5 +82,3 @@ x-i18n:
 - 回声抑制使用组合的批次字符串；如果你发送两次相同的文本但没有提及，只有第一次会得到响应。
 - 会话存储条目将在会话存储中显示为 `agent:<agentId>:whatsapp:group:<jid>`（默认为 `~/.openclaw/agents/<agentId>/sessions/sessions.json`）；缺失条目只是意味着该群组尚未触发运行。
 - 群组中的输入指示器遵循 `agents.defaults.typingMode`（默认：未被提及时为 `message`）。
-
-

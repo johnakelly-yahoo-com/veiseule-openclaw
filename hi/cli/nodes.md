@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw nodes` के लिए CLI संदर्भ (सूची/स्थिति/अनुमोदन/आह्वान, कैमरा/कैनवास/स्क्रीन)"
+read_when:
+  - आप जोड़े गए नोड्स (कैमरे, स्क्रीन, कैनवास) का प्रबंधन कर रहे हों
+  - आपको अनुरोधों को अनुमोदित करना हो या नोड कमांड्स को आह्वान करना हो
 title: "नोड्स"
 ---
 
@@ -29,7 +33,7 @@ openclaw nodes status --connected
 openclaw nodes status --last-connected 24h
 ```
 
-`nodes list` लंबित/पेयर की गई तालिकाएँ प्रिंट करता है। पेयर की गई पंक्तियों में सबसे हालिया कनेक्ट आयु (Last Connect) शामिल होती है।
+`nodes list` prints pending/paired tables. Paired rows include the most recent connect age (Last Connect).
 Use `--connected` to only show currently-connected nodes. Use `--last-connected <duration>` to
 filter to nodes that connected within a duration (e.g. `24h`, `7d`).
 
@@ -60,12 +64,10 @@ Invoke फ़्लैग्स:
 फ़्लैग्स:
 
 - `--cwd <path>`: वर्किंग डायरेक्टरी।
-- `--env <key=val>`: env ओवरराइड (दोहराने योग्य)।
+- `--env <key=val>`: env override (दोहराया जा सकता है)। नोट: node hosts `PATH` overrides को अनदेखा करते हैं (और `tools.exec.pathPrepend` node hosts पर लागू नहीं होता)।
 - `--command-timeout <ms>`: कमांड टाइमआउट।
 - `--invoke-timeout <ms>`: नोड invoke टाइमआउट (डिफ़ॉल्ट `30000`)।
 - `--needs-screen-recording`: स्क्रीन रिकॉर्डिंग अनुमति आवश्यक।
 - `--raw <command>`: शेल स्ट्रिंग चलाएँ (`/bin/sh -lc` या `cmd.exe /c`)।
 - `--agent <id>`: एजेंट-स्कोप्ड अनुमोदन/allowlists (कॉन्फ़िगर किए गए एजेंट पर डिफ़ॉल्ट)।
 - `--ask <off|on-miss|always>`, `--security <deny|allowlist|full>`: ओवरराइड्स।
-
-

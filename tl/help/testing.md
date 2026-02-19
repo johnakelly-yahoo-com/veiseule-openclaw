@@ -1,4 +1,9 @@
 ---
+summary: "Testing kit: mga unit/e2e/live suite, Docker runners, at kung ano ang saklaw ng bawat test"
+read_when:
+  - Kapag nagpapatakbo ng mga test nang lokal o sa CI
+  - Kapag nagdadagdag ng regressions para sa mga bug ng model/provider
+  - Kapag nagde-debug ng gateway + agent na behavior
 title: "Pagsusuri"
 ---
 
@@ -47,12 +52,23 @@ Isipin ang mga suite bilang “papataas ang realism” (at papataas din ang flak
   - Tumatakbo sa CI
   - Walang kailangang totoong key
   - Dapat mabilis at stable
+- Tala sa pool:
+  - Gumagamit ang OpenClaw ng Vitest `vmForks` sa Node 22/23 para sa mas mabilis na unit shards.
+  - Sa Node 24+, awtomatikong bumabalik ang OpenClaw sa karaniwang `forks` upang maiwasan ang mga Node VM linking error (`ERR_VM_MODULE_LINK_FAILURE` / `module is already linked`).
+  - Manwal na i-override gamit ang `OPENCLAW_TEST_VM_FORKS=0` (pilitin ang `forks`) o `OPENCLAW_TEST_VM_FORKS=1` (pilitin ang `vmForks`).
 
 ### E2E (gateway smoke)
 
 - Command: `pnpm test:e2e`
 - Config: `vitest.e2e.config.ts`
 - Files: `src/**/*.e2e.test.ts`
+- Saklaw:
+  - End-to-end na behavior ng multi-instance gateway
+  - Mga WebSocket/HTTP surface, node pairing, at mas mabibigat na networking
+  - Tumatakbo sa silent mode bilang default upang mabawasan ang console I/O overhead.
+- Inaasahan:
+  - Tumatakbo sa CI (kapag naka-enable sa pipeline)
+  - Walang kailangang totoong key
 - Saklaw:
   - End-to-end na behavior ng multi-instance gateway
   - Mga WebSocket/HTTP surface, node pairing, at mas mabibigat na networking
@@ -363,5 +379,3 @@ Kapag nag-ayos ka ng isyu sa provider/model na nadiskubre sa live:
 - Mas mainam na i-target ang pinakamaliit na layer na huhuli sa bug:
   - bug sa provider request conversion/replay → direct models test
   - bug sa gateway session/history/tool pipeline → gateway live smoke o CI-safe gateway mock test
-
-

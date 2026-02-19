@@ -1,4 +1,9 @@
 ---
+summary: "„Gateway-eigenes Node-Pairing (Option B) für iOS und andere entfernte Nodes“"
+read_when:
+  - „Implementierung von Genehmigungen für Node-Pairing ohne macOS-UI“
+  - „Hinzufügen von CLI-Flows zur Genehmigung entfernter Nodes“
+  - „Erweiterung des Gateway-Protokolls um Node-Verwaltung“
 title: "Gateway-eigene Paarung"
 ---
 
@@ -87,5 +92,3 @@ Sicherheitshinweise:
 - Der Transport ist **zustandslos**; er speichert keine Mitgliedschaften.
 - Wenn das Gateway offline ist oder Pairing deaktiviert ist, können Nodes kein Pairing durchführen.
 - Befindet sich das Gateway im Remote-Modus, erfolgt das Pairing weiterhin gegen den Store des entfernten Gateways.
-
-

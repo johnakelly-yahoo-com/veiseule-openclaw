@@ -1,4 +1,8 @@
 ---
+summary: "Översikt över modellleverantörer med exempel på konfigurationer + CLI-flöden"
+read_when:
+  - Du behöver en referens för modellkonfiguration per leverantör
+  - Du vill ha exempel på konfigurationer eller CLI-kommandon för introduktion till modellleverantörer
 title: "Modellleverantörer"
 ---
 
@@ -116,6 +120,7 @@ OpenClaw fartyg med pi‐ai katalog. Dessa leverantörer kräver **nej**
   - OpenAI-kompatibel bas-URL: `https://api.cerebras.ai/v1`.
 - Mistral: `mistral` (`MISTRAL_API_KEY`)
 - GitHub Copilot: `github-copilot` (`COPILOT_GITHUB_TOKEN` / `GH_TOKEN` / `GITHUB_TOKEN`)
+- Hugging Face Inference: `huggingface` (`HUGGINGFACE_HUB_TOKEN` eller `HF_TOKEN`) — OpenAI‑kompatibel router; exempelmodell: `huggingface/deepseek-ai/DeepSeek-R1`; CLI: `openclaw onboard --auth-choice huggingface-api-key`. Se [Hugging Face (Inference)](/providers/huggingface).
 
 ## Leverantörer via `models.providers` (anpassad/bas-URL)
 
@@ -259,6 +264,32 @@ Ollama upptäcks automatiskt när den körs lokalt på `http://127.0.0.1:11434/v
 
 Exempel (OpenAI‑kompatibel):
 
+- Provider: `vllm`
+- Autentisering: Valfri (beror på din server)
+- Standard‑bas-URL: `http://127.0.0.1:8000/v1`
+
+Noteringar:
+
+```bash
+export VLLM_API_KEY="vllm-local"
+```
+
+Ange sedan en modell (ersätt med ett av ID:na som returneras av `/v1/models`):
+
+```json5
+{
+  agents: {
+    defaults: { model: { primary: "vllm/your-model-id" } },
+  },
+}
+```
+
+Se även: [/gateway/configuration](/gateway/configuration) för fullständiga konfigurationsexempel.
+
+### Lokala proxys (LM Studio, vLLM, LiteLLM, m.fl.)
+
+Exempel (OpenAI‑kompatibel):
+
 ```json5
 {
   agents: {
@@ -310,5 +341,3 @@ openclaw models list
 ```
 
 Se även: [/gateway/configuration](/gateway/configuration) för fullständiga konfigurationsexempel.
-
-

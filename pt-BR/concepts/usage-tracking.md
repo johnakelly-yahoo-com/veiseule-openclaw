@@ -1,4 +1,8 @@
 ---
+summary: "Superfícies de rastreamento de uso e requisitos de credenciais"
+read_when:
+  - Você está conectando superfícies de uso/cota de provedores
+  - Você precisa explicar o comportamento do rastreamento de uso ou os requisitos de autenticação
 title: "Rastreamento de uso"
 ---
 
@@ -29,5 +33,3 @@ title: "Rastreamento de uso"
 - **z.ai**: chave de API via variáveis de ambiente/configuração/armazenamento de autenticação.
 
 O uso fica oculto se não existirem credenciais OAuth/API correspondentes.
-
-

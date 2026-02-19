@@ -1,4 +1,7 @@
 ---
+summary: "Dokumentacja referencyjna CLI dla `openclaw config` (get/set/unset wartości konfiguracji)"
+read_when:
+  - Chcesz odczytać lub edytować konfigurację w trybie nieinteraktywnym
 title: "Konfiguracja"
 ---
 
@@ -44,5 +47,3 @@ openclaw config set channels.whatsapp.groups '["*"]' --json
 ```
 
 Po edycjach zrestartuj gateway.
-
-

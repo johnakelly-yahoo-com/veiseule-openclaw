@@ -1,4 +1,8 @@
 ---
+summary: "Visão geral do bot Feishu, recursos e configuração"
+read_when:
+  - Você quer conectar um bot Feishu/Lark
+  - Você está configurando o canal Feishu
 title: Feishu
 ---
 
@@ -528,9 +532,9 @@ Opções principais:
 | ------------------------------------------------- | ------------------------------------------------------------------------------------ | --------- |
 | `channels.feishu.enabled`                         | Ativar/desativar canal                                                               | `true`    |
 | `channels.feishu.domain`                          | Domínio da API (`feishu` ou `lark`)                               | `feishu`  |
-| `channels.feishu.accounts.<id>.appId`             | App ID                                                                               | -         |
-| `channels.feishu.accounts.<id>.appSecret`         | App Secret                                                                           | -         |
-| `channels.feishu.accounts.<id>.domain`            | Substituição de domínio da API por conta                                             | `feishu`  |
+| `channels.feishu.accounts.&lt;id&gt;.appId`             | App ID                                                                               | -         |
+| `channels.feishu.accounts.&lt;id&gt;.appSecret`         | App Secret                                                                           | -         |
+| `channels.feishu.accounts.&lt;id&gt;.domain`            | Substituição de domínio da API por conta                                             | `feishu`  |
 | `channels.feishu.dmPolicy`                        | Política de DM                                                                       | `pairing` |
 | `channels.feishu.allowFrom`                       | Lista de permissões de DM (lista de open_id) | -         |
 | `channels.feishu.groupPolicy`                     | Política de grupo                                                                    | `open`    |
@@ -574,5 +578,3 @@ Opções principais:
 - ✅ Arquivos
 - ✅ Áudio
 - ⚠️ Texto rico (suporte parcial)
-
-

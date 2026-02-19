@@ -1,10 +1,14 @@
 ---
+summary: "بیرونی CLIز (signal-cli، legacy imsg) کے لیے RPC اڈاپٹرز اور gateway پیٹرنز"
+read_when:
+  - بیرونی CLI انضمامات شامل یا تبدیل کرتے وقت
+  - RPC اڈاپٹرز (signal-cli، imsg) کی خرابیوں کا ازالہ کرتے وقت
 title: "RPC اڈاپٹرز"
 ---
 
 # RPC اڈاپٹرز
 
-OpenClaw بیرونی CLI کو JSON-RPC کے ذریعے ضم کرتا ہے۔ آج دو طریقہ کار استعمال کیے جاتے ہیں۔
+OpenClaw integrates external CLIs via JSON-RPC. Two patterns are used today.
 
 ## پیٹرن A: HTTP ڈیمَن (signal-cli)
 
@@ -37,5 +41,3 @@ legacy سیٹ اپ اور ایڈریسنگ کے لیے [iMessage](/channels/imes
 - Gateway (گیٹ وے) پروسیس کا مالک ہوتا ہے (اسٹارٹ/اسٹاپ فراہم کنندہ کے لائف سائیکل سے منسلک)۔
 - RPC کلائنٹس کو مضبوط رکھیں: ٹائم آؤٹس، ایگزٹ پر ری اسٹارٹ۔
 - ڈسپلے اسٹرنگز کے بجائے مستحکم IDs کو ترجیح دیں (مثلاً `chat_id`)۔
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "플랫폼 지원 개요 (Gateway + 컴패니언 앱)"
+read_when:
+  - OS 지원 또는 설치 경로를 찾고 있을 때
+  - Gateway 를 어디에서 실행할지 결정할 때
 title: "플랫폼"
 ---
 
@@ -47,5 +51,3 @@ Windows 용 네이티브 컴패니언 앱도 계획 중이며, Gateway(게이트
 
 - macOS: LaunchAgent (`bot.molt.gateway` 또는 `bot.molt.<profile>`; 레거시 `com.openclaw.*`)
 - Linux/WSL2: systemd 사용자 서비스 (`openclaw-gateway[-<profile>].service`)
-
-

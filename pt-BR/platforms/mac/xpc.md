@@ -1,4 +1,7 @@
 ---
+summary: "Arquitetura de IPC do macOS para o app OpenClaw, transporte de nó do gateway e PeekabooBridge"
+read_when:
+  - Editando contratos de IPC ou IPC do app da barra de menus
 title: "IPC do macOS"
 ---
 
@@ -56,5 +59,3 @@ Agent -> Gateway -> Node Service (WS)
 - Toda a comunicação permanece apenas local; nenhum socket de rede é exposto.
 - Os prompts do TCC se originam apenas do bundle do app GUI; mantenha o bundle ID assinado estável entre recompilações.
 - Endurecimento de IPC: modo do socket `0600`, token, verificações de UID do par, desafio/resposta HMAC, TTL curto.
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "macOS UI 자동화를 위한 PeekabooBridge 통합"
+read_when:
+  - OpenClaw.app 에서 PeekabooBridge 호스팅
+  - Swift Package Manager 를 통해 Peekaboo 통합
+  - PeekabooBridge 프로토콜/경로 변경
 title: "Peekaboo Bridge"
 ---
 
@@ -59,5 +64,3 @@ export PEEKABOO_BRIDGE_SOCKET=/path/to/bridge.sock
   `PEEKABOO_ALLOW_UNSIGNED_SOCKET_CLIENTS=1` 로 호스트를 실행하십시오.
 - 호스트를 찾을 수 없는 경우, 호스트 앱 (Peekaboo.app 또는 OpenClaw.app) 중
   하나를 열고 권한이 부여되었는지 확인하십시오.
-
-

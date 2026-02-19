@@ -1,12 +1,9 @@
 ---
-title: update
-x-i18n:
-  generated_at: "2026-02-03T07:45:34Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 3a08e8ac797612c498eef54ecb83e61c9a1ee5de09162a01dbb4b3bd72897206
-  source_path: cli/update.md
-  workflow: 15
+summary: "`openclaw update` 的 CLI 参考（相对安全的源码更新 + Gateway 网关自动重启）"
+read_when:
+  - 你想安全地更新源码检出
+  - 你需要了解 `--update` 简写行为
+title: "update"
 ---
 
 # `openclaw update`
@@ -56,9 +53,11 @@ openclaw update status --timeout 10
 
 ## `update wizard`
 
-交互式流程，用于选择更新渠道并确认是否在更新后重启 Gateway 网关（默认重启）。如果你选择 `dev` 但没有 git 检出，它会提供创建一个的选项。
+Interactive flow to pick an update channel and confirm whether to restart the Gateway
+after updating (default is to restart). If you select `dev` without a git checkout, it
+offers to create one.
 
-## 工作原理
+## What it does
 
 当你显式切换渠道（`--channel ...`）时，OpenClaw 也会保持安装方式一致：
 
@@ -77,7 +76,7 @@ openclaw update status --timeout 10
 
 1. 需要干净的工作树（无未提交的更改）。
 2. 切换到所选渠道（标签或分支）。
-3. 获取上游（仅 dev）。
+3. Fetches upstream (dev only).
 4. 仅 dev：在临时工作树中预检 lint + TypeScript 构建；如果最新提交失败，回退最多 10 个提交以找到最新的干净构建。
 5. Rebase 到所选提交（仅 dev）。
 6. 安装依赖（优先使用 pnpm；npm 作为备选）。
@@ -95,5 +94,3 @@ openclaw update status --timeout 10
 - [开发渠道](/install/development-channels)
 - [更新](/install/updating)
 - [CLI 参考](/cli)
-
-

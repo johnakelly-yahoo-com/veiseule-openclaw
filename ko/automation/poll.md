@@ -1,4 +1,8 @@
 ---
+summary: "Gateway(게이트웨이) + CLI 를 통한 설문 전송"
+read_when:
+  - 설문 지원을 추가하거나 수정할 때
+  - CLI 또는 게이트웨이에서 설문 전송을 디버깅할 때
 title: "설문"
 ---
 
@@ -62,5 +66,3 @@ openclaw message poll --channel msteams --target conversation:19:abc@thread.tacv
 
 참고: Discord 에는 ‘정확히 N 개 선택’ 모드가 없으며 `pollMulti` 는 다중 선택으로 매핑됩니다.
 Teams 설문은 Adaptive Card 로 렌더링되며 `~/.openclaw/msteams-polls.json` 에서 투표를 기록하려면 Gateway(게이트웨이) 가 온라인 상태를 유지해야 합니다.
-
-

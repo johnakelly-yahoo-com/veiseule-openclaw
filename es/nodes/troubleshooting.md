@@ -1,4 +1,8 @@
 ---
+summary: "Solucione problemas de emparejamiento de nodos, requisitos de primer plano, permisos y fallos de herramientas"
+read_when:
+  - El nodo está conectado, pero fallan las herramientas de cámara/lienzo/pantalla/exec
+  - Necesita el modelo mental de emparejamiento del nodo frente a aprobaciones
 title: "Solución de problemas de nodos"
 ---
 
@@ -106,5 +110,3 @@ Relacionado:
 - [/nodes/location-command](/nodes/location-command)
 - [/tools/exec-approvals](/tools/exec-approvals)
 - [/gateway/pairing](/gateway/pairing)
-
-

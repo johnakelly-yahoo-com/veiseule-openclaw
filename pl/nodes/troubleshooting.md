@@ -1,4 +1,8 @@
 ---
+summary: "Rozwiązywanie problemów z parowaniem węzłów, wymaganiami pierwszoplanowymi, uprawnieniami i awariami narzędzi"
+read_when:
+  - Węzeł jest połączony, ale narzędzia kamery/płótna/ekranu/exec nie działają
+  - Potrzebny jest model mentalny parowania węzła w porównaniu z zatwierdzeniami
 title: "Rozwiązywanie problemów węzła"
 ---
 
@@ -106,5 +110,3 @@ Powiązane:
 - [/nodes/location-command](/nodes/location-command)
 - [/tools/exec-approvals](/tools/exec-approvals)
 - [/gateway/pairing](/gateway/pairing)
-
-

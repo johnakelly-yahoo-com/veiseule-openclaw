@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw 가 macOS 앱에서 친숙한 이름을 표시하기 위해 Apple 디바이스 모델 식별자를 어떻게 벤더링하는지 설명합니다."
+read_when:
+  - 디바이스 모델 식별자 매핑 또는 NOTICE/라이선스 파일을 업데이트할 때
+  - Instances UI 가 디바이스 이름을 표시하는 방식을 변경할 때
 title: "디바이스 모델 데이터베이스"
 ---
 
@@ -41,5 +45,3 @@ curl -fsSL "https://raw.githubusercontent.com/kyle-seongwoo-jun/apple-device-ide
 ```bash
 swift build --package-path apps/macos
 ```
-
-

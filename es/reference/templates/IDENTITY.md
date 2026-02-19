@@ -1,4 +1,8 @@
-------
+---
+summary: "Registro de identidad del agente"
+read_when:
+  - Arranque manual de un espacio de trabajo
+---
 
 # IDENTITY.md - ¿Quién soy?
 
@@ -23,5 +27,3 @@ Notas:
 
 - Guarde este archivo en la raíz del espacio de trabajo como `IDENTITY.md`.
 - Para avatares, use una ruta relativa al espacio de trabajo como `avatars/openclaw.png`.
-
-

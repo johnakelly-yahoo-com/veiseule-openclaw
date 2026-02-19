@@ -1,10 +1,14 @@
 ---
+summary: "Linux समर्थन + सहचर ऐप की स्थिति"
+read_when:
+  - Linux सहचर ऐप की स्थिति खोज रहे हों
+  - प्लेटफ़ॉर्म कवरेज या योगदान की योजना बना रहे हों
 title: "Linux ऐप"
 ---
 
 # Linux ऐप
 
-Gateway Linux पर पूरी तरह समर्थित है। **Node अनुशंसित रनटाइम है**.
+The Gateway is fully supported on Linux. **Node is the recommended runtime**.
 Bun is not recommended for the Gateway (WhatsApp/Telegram bugs).
 
 Native Linux companion apps are planned. अगर आप एक बनाने में मदद करना चाहते हैं, तो contributions का स्वागत है।
@@ -60,7 +64,7 @@ openclaw doctor
 
 ## सिस्टम नियंत्रण (systemd उपयोगकर्ता यूनिट)
 
-OpenClaw डिफ़ॉल्ट रूप से एक systemd **user** सेवा इंस्टॉल करता है। **system** का उपयोग करें
+OpenClaw installs a systemd **user** service by default. Use a **system**
 service for shared or always-on servers. The full unit example and guidance
 live in the [Gateway runbook](/gateway).
 
@@ -88,5 +92,3 @@ WantedBy=default.target
 ```
 systemctl --user enable --now openclaw-gateway[-<profile>].service
 ```
-
-

@@ -1,19 +1,21 @@
 ---
-title: 设置
-x-i18n:
-  generated_at: "2026-02-03T07:54:27Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: b7f4bd657d0df4feb5035c9f5ee727f9c67b991e9cedfc7768f99d010553fa01
-  source_path: start/setup.md
-  workflow: 15
+summary: "Advanced setup and development workflows for OpenClaw"
+read_when:
+  - 设置新机器
+  - 你想要"最新最好的"而不破坏你的个人设置
+title: "设置"
 ---
 
 # 设置
 
+<Note>
+35. 如果你是首次设置，请从 [Getting Started](/start/getting-started) 开始。
+For wizard details, see [Onboarding Wizard](/start/wizard).
+</Note>
+
 最后更新：2026-01-01
 
-## 太长不看
+## TL;DR
 
 - **个性化设置存放在仓库之外：** `~/.openclaw/workspace`（工作区）+ `~/.openclaw/openclaw.json`（配置）。
 - **稳定工作流：** 安装 macOS 应用；让它运行内置的 Gateway 网关。
@@ -27,7 +29,7 @@ x-i18n:
 
 ## 个性化策略（让更新不会造成问题）
 
-如果你想要"100% 为我定制"*并且*易于更新，将你的自定义内容保存在：
+如果你想要"100% 为我定制"_并且_易于更新，将你的自定义内容保存在：
 
 - **配置：** `~/.openclaw/openclaw.json`（JSON/JSON5 格式）
 - **工作区：** `~/.openclaw/workspace`（Skills、提示、记忆；将其设为私有 git 仓库）
@@ -45,6 +47,14 @@ openclaw setup
 ```
 
 如果你还没有全局安装，通过 `pnpm openclaw setup` 运行它。
+
+## Run the Gateway from this repo
+
+37. 在执行 `pnpm build` 之后，你可以直接运行打包后的 CLI：
+
+```bash
+node openclaw.mjs gateway --port 18789 --verbose
+```
 
 ## 稳定工作流（macOS 应用优先）
 
@@ -79,7 +89,7 @@ openclaw health
 ./scripts/restart-mac.sh
 ```
 
-### 1) 启动开发 Gateway 网关
+### 1. 启动开发 Gateway 网关
 
 ```bash
 pnpm install
@@ -88,14 +98,14 @@ pnpm gateway:watch
 
 `gateway:watch` 以监视模式运行 Gateway 网关，并在 TypeScript 更改时重新加载。
 
-### 2) 将 macOS 应用指向你正在运行的 Gateway 网关
+### 2. 将 macOS 应用指向你正在运行的 Gateway 网关
 
 在 **OpenClaw.app** 中：
 
 - 连接模式：**本地**
   应用将连接到在配置端口上运行的 Gateway 网关。
 
-### 3) 验证
+### 3. 验证
 
 - 应用内 Gateway 网关状态应显示 **"Using existing gateway …"**
 - 或通过 CLI：
@@ -132,13 +142,16 @@ openclaw health
 
 ## Linux（systemd 用户服务）
 
-Linux 安装使用 systemd **用户**服务。默认情况下，systemd 在注销/空闲时停止用户服务，这会终止 Gateway 网关。新手引导会尝试为你启用 lingering（可能提示 sudo）。如果仍然关闭，运行：
+Linux installs use a systemd **user** service. By default, systemd stops user
+services on logout/idle, which kills the Gateway. Onboarding attempts to enable
+lingering for you (may prompt for sudo). If it’s still off, run:
 
 ```bash
 sudo loginctl enable-linger $USER
 ```
 
-对于常驻或多用户服务器，考虑使用**系统**服务而不是用户服务（不需要 lingering）。参阅 [Gateway 网关运行手册](/gateway) 了解 systemd 说明。
+For always-on or multi-user servers, consider a **system** service instead of a
+user service (no lingering needed). See [Gateway runbook](/gateway) for the systemd notes.
 
 ## 相关文档
 
@@ -147,5 +160,3 @@ sudo loginctl enable-linger $USER
 - [Discord](/channels/discord) 和 [Telegram](/channels/telegram)（回复标签 + replyToMode 设置）
 - [OpenClaw 助手设置](/start/openclaw)
 - [macOS 应用](/platforms/macos)（Gateway 网关生命周期）
-
-

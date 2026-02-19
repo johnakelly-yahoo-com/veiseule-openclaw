@@ -1,4 +1,7 @@
 ---
+summary: "Säkerhetsöverväganden och hotmodell för att köra en AI-gateway med skalåtkomst"
+read_when:
+  - Lägger till funktioner som breddar åtkomst eller automatisering
 title: "Säkerhet"
 ---
 
@@ -42,6 +45,7 @@ Börja med minsta åtkomst som fungerar och vidga den i takt med att du blir try
 - **Exponering av webbläsarkontroll** (fjärrnoder, reläportar, fjärr‑CDP‑ändpunkter).
 - **Lokal diskhygien** (behörigheter, symlänkar, konfig‑includes, ”synkade mapp”-sökvägar).
 - **Plugins** (tillägg finns utan explicit tillåtelselista).
+- **Modellhygien** (varnar när konfigurerade modeller ser föråldrade ut; inget hårt stopp).
 - **Modellhygien** (varnar när konfigurerade modeller ser föråldrade ut; inget hårt stopp).
 
 Om du kör `--deep` försöker OpenClaw även en bästa‑försök live‑probe av Gateway.
@@ -263,6 +267,7 @@ verktygssamtal. Minska sprängradien genom att:
 - Hålla `web_search` / `web_fetch` / `browser` avstängda för verktygsaktiverade agenter om de inte behövs.
 - Aktivera sandboxing och strikta verktygs‑tillåtelselistor för alla agenter som berör obetrodd input.
 - Hålla hemligheter borta från prompter; skicka dem via env/konfig på gateway‑värden i stället.
+- Hålla hemligheter borta från prompter; skicka dem via env/konfig på gateway‑värden i stället.
 
 ### Modellstyrka (säkerhetsnot)
 
@@ -342,6 +347,16 @@ Gateway multiplexar **WebSocket + HTTP** på en enda port:
 Bind‑läge styr var Gateway lyssnar:
 
 - `gateway.bind: "loopback"` (standard): endast lokala klienter kan ansluta.
+- Canvas-värd: `/__openclaw__/canvas/` och `/__openclaw__/a2ui/` (godtycklig HTML/JS; behandla som ej betrott innehåll)
+
+Tumregler:
+
+- Föredra Tailscale Serve framför LAN‑bindningar (Serve håller Gateway på loopback och Tailscale hanterar åtkomst).
+- Om du måste binda till LAN, brandvägga porten till en snäv tillåtelselista av käll‑IP:er; port‑forwarda den inte brett.
+
+Bind‑läge styr var Gateway lyssnar:
+
+- `gateway.bind: "loopback"` (standard): endast lokala klienter kan ansluta.
 - Icke-loopback binder (`"lan"`, `"tailnet"`, `"custom"`) expandera attackytan. Använd dem endast med ett delat token/lösenord och en riktig brandvägg.
 
 Tumregler:
@@ -403,7 +418,7 @@ Gateway vägrar WebSocket anslutningar (misslyckas-stängd).
 
 Introduktionsguiden genererar en token som standard (även för loopback) så lokala klienter måste autentisera.
 
-Sätt en token så **alla** WS‑klienter måste autentisera:
+Lokal enhetsparning:
 
 ```json5
 {
@@ -413,21 +428,22 @@ Sätt en token så **alla** WS‑klienter måste autentisera:
 }
 ```
 
-Doctor kan generera en åt dig: `openclaw doctor --generate-gateway-token`.
+Auth‑lägen:
 
 Obs: `gateway.remote.token` är **bara** för fjärr-CLI-samtal; det skyddar inte
 lokal WS-åtkomst.
 Valfritt: pin remote TLS med `gateway.remote.tlsFingerprint` när du använder `wss://`.
 
-Lokal enhetsparning:
+Rotationschecklista (token/lösenord):
 
-- Enhetsparning auto‑godkänns för **lokala** anslutningar (loopback eller gateway‑värdens egen tailnet‑adress) för att hålla klienter på samma värd smidiga.
-- Andra tailnet‑peers behandlas **inte** som lokala; de behöver fortfarande parningsgodkännande.
+- Generera/sätt en ny hemlighet (`gateway.auth.token` eller `OPENCLAW_GATEWAY_PASSWORD`).
+- Starta om Gateway (eller macOS‑appen om den övervakar Gateway).
 
 Auth‑lägen:
 
 - `gateway.auth.mode: "token"`: delad bearer‑token (rekommenderas för de flesta uppsättningar).
 - `gateway.auth.mode: "password"`: lösenords‑auth (föredra att sätta via env: `OPENCLAW_GATEWAY_PASSWORD`).
+- `gateway.auth.mode: "trusted-proxy"`: lita på en identitetsmedveten omvänd proxy för att autentisera användare och vidarebefordra identitet via headers (se [Trusted Proxy Auth](/gateway/trusted-proxy-auth)).
 
 Rotationschecklista (token/lösenord):
 
@@ -447,8 +463,8 @@ och inkluderar `x-forwarded-for`, `x-forwarded-proto` och `x-forwarded-host` som
 injiceras av Tailscale.
 
 **Säkerhetsregel:** vidarebefordra inte dessa rubriker från din egen omvända proxy. Om
-du avslutar TLS eller proxy framför gateway, inaktivera
-`gateway.auth.allowTailscale` och använd token/password auth istället.
+du terminerar TLS eller proxar framför gatewayen, inaktivera
+`gateway.auth.allowTailscale` och använd token-/lösenordsautentisering (eller [Trusted Proxy Auth](/gateway/trusted-proxy-auth)) istället.
 
 Betrodda proxys:
 
@@ -493,7 +509,7 @@ Härdningstips:
 
 ### 0.8) Loggar + transkript (redigering + retention)
 
-Loggar och transkript kan läcka känslig info även när åtkomstkontroller är korrekta:
+Detaljer: [Loggning](/gateway/logging)
 
 - Gateway‑loggar kan innehålla verktygssammanfattningar, fel och URL:er.
 - Sessionstranskript kan innehålla inklistrade hemligheter, filinnehåll, kommandoutdata och länkar.
@@ -548,12 +564,17 @@ I gruppchattar, svara endast när du explicit nämns.
 
 ### 4. Skrivskyddat läge (idag via sandlåda + verktyg)
 
-Du kan redan bygga en skrivskyddad profil genom att kombinera:
+En ”säker standard”‑konfig som håller Gateway privat, kräver DM‑parning och undviker always‑on‑gruppbotar:
 
 - `agents.defaults.sandbox.workspaceAccess: "ro"` (eller `"none"` för ingen arbetsyteåtkomst)
 - verktygs‑tillåt/nek‑listor som blockerar `write`, `edit`, `apply_patch`, `exec`, `process` m.fl.
 
-Vi kan lägga till en enda `readOnlyMode`‑flagga senare för att förenkla denna konfiguration.
+Om du vill ha ”säkrare som standard” även för verktygsexekvering, lägg till sandbox + neka farliga verktyg för alla icke‑ägande agenter (exempel nedan under ”Per‑agent‑åtkomstprofiler”).
+
+Ytterligare härdningsalternativ:
+
+- `tools.exec.applyPatch.workspaceOnly: true` (standard): säkerställer att `apply_patch` inte kan skriva/radera utanför arbetskatalogen även när sandboxing är avstängd. Sätt till `false` endast om du avsiktligt vill att `apply_patch` ska påverka filer utanför arbetskatalogen.
+- `tools.fs.workspaceOnly: true` (valfritt): begränsar sökvägar för `read`/`write`/`edit`/`apply_patch` till arbetskatalogen (användbart om du idag tillåter absoluta sökvägar och vill ha en gemensam skyddsmekanism).
 
 ### 5. Säker baslinje (kopiera/klistra in)
 
@@ -576,7 +597,7 @@ En ”säker standard”‑konfig som håller Gateway privat, kräver DM‑parni
 }
 ```
 
-Om du vill ha ”säkrare som standard” även för verktygsexekvering, lägg till sandbox + neka farliga verktyg för alla icke‑ägande agenter (exempel nedan under ”Per‑agent‑åtkomstprofiler”).
+Överväg även agentens arbetsyteåtkomst inne i sandboxen:
 
 ## Sandboxing (rekommenderat)
 
@@ -614,9 +635,9 @@ komma åt dessa konton och data. Behandla webbläsarprofiler som **känsligt**:
 - Håll Gateway och nodvärdar tailnet‑endast; undvik att exponera relä/kontrollportar till LAN eller publik Internet.
 - Chrome‑tilläggets relä‑CDP‑ändpunkt är auth‑skyddad; endast OpenClaw‑klienter kan ansluta.
 - Inaktivera webbläsar‑proxy‑routing när du inte behöver den (`gateway.nodes.browser.mode="off"`).
-- Chrome förlängning relä läge är **inte** "säkrare", det kan ta över dina befintliga Chrome flikar. Anta att det kan agera som du i vad som än &lt;unk&gt; profil kan nå.
+- Chrome förlängning relä läge är **inte** "säkrare", det kan ta över dina befintliga Chrome flikar. Anta att det kan agera som du i vad som än <unk> profil kan nå.
 
-## Per‑agent‑åtkomstprofiler (multi‑agent)
+## Exempel: skrivskyddade verktyg + skrivskyddad arbetsyta
 
 Med multi-agent routing kan varje agent ha sin egen sandlåda + verktygspolicy:
 använda detta för att ge **full åtkomst**, **skrivskyddad**, eller **ingen åtkomst** per agent.
@@ -629,7 +650,7 @@ Vanliga användningsfall:
 - Familj/arbets‑agent: sandboxad + skrivskyddade verktyg
 - Publik agent: sandboxad + inga filsystem/skal‑verktyg
 
-### Exempel: full åtkomst (ingen sandbox)
+### Vad du ska säga till din AI
 
 ```json5
 {
@@ -729,27 +750,27 @@ Inkludera säkerhetsriktlinjer i din agents systemprompt:
 - Private info stays private, even from "friends"
 ```
 
-## Incidentrespons
+## Revision
 
 Om din AI gör något dåligt:
 
-### Inneslut
+### Samla för rapport
 
-1. **Stoppa:** stoppa macOS‑appen (om den övervakar Gateway) eller avsluta din `openclaw gateway`‑process.
-2. **Stäng exponering:** sätt `gateway.bind: "loopback"` (eller inaktivera Tailscale Funnel/Serve) tills du förstår vad som hände.
-3. **Frys åtkomst:** växla riskabla DMs/grupper till `dmPolicy: "disabled"` / kräv mentions, och ta bort `"*"`‑tillåt‑alla‑poster om du hade dem.
+1. Tidsstämpel, gateway‑värdens OS + OpenClaw‑version
+2. Sessionstranskript + en kort loggsvans (efter redigering)
+3. Vad angriparen skickade + vad agenten gjorde
 
-### Rotera (anta kompromiss om hemligheter läckte)
+### Hemlighetsskanning (detect‑secrets)
 
 1. Rotera Gateway‑auth (`gateway.auth.token` / `OPENCLAW_GATEWAY_PASSWORD`) och starta om.
 2. Rotera fjärrklient‑hemligheter (`gateway.remote.token` / `.password`) på alla maskiner som kan anropa Gateway.
 3. Rotera leverantör/API‑uppgifter (WhatsApp‑uppgifter, Slack/Discord‑tokens, modell/API‑nycklar i `auth-profiles.json`).
 
-### Revision
+### Om CI fallerar
 
-1. Kontrollera Gateway‑loggar: `/tmp/openclaw/openclaw-YYYY-MM-DD.log` (eller `logging.file`).
-2. Granska relevanta transkript: `~/.openclaw/agents/<agentId>/sessions/*.jsonl`.
-3. Granska nyliga konfig‑ändringar (allt som kan ha breddat åtkomst: `gateway.bind`, `gateway.auth`, DM/grupp‑policyer, `tools.elevated`, plugin‑ändringar).
+1. Återskapa lokalt:
+2. Förstå verktygen:
+3. För verkliga hemligheter: rotera/ta bort dem och kör sedan skanningen igen för att uppdatera baslinjen.
 
 ### Samla för rapport
 
@@ -765,17 +786,17 @@ Om det misslyckas, finns det nya kandidater ännu inte i baslinjen.
 
 ### Om CI fallerar
 
-1. Återskapa lokalt:
+1. E‑post: [security@openclaw.ai](mailto:security@openclaw.ai)
 
    ```bash
    detect-secrets scan --baseline .secrets.baseline
    ```
 
-2. Förstå verktygen:
+2. Publicera inte offentligt förrän fixat
    - `detect-secrets scan` hittar kandidater och jämför dem mot baslinjen.
    - `detect-secrets audit` öppnar en interaktiv granskning för att markera varje baslinjeobjekt som verkligt eller falskt positivt.
 
-3. För verkliga hemligheter: rotera/ta bort dem och kör sedan skanningen igen för att uppdatera baslinjen.
+3. Vi krediterar dig (om du inte föredrar anonymitet)
 
 4. För falska positiva: kör den interaktiva revisionen och markera dem som falska:
 
@@ -790,30 +811,14 @@ Commita den uppdaterade `.secrets.baseline` när den speglar avsett tillstånd.
 ## Förtroendehierarkin
 
 ```mermaid
-%%{init: {
-  'theme': 'base',
-  'themeVariables': {
-    'primaryColor': '#ffffff',
-    'primaryTextColor': '#000000',
-    'primaryBorderColor': '#000000',
-    'lineColor': '#000000',
-    'secondaryColor': '#f9f9fb',
-    'tertiaryColor': '#ffffff',
-    'clusterBkg': '#f9f9fb',
-    'clusterBorder': '#000000',
-    'nodeBorder': '#000000',
-    'mainBkg': '#ffffff',
-    'edgeLabelBackground': '#ffffff'
-  }
-}}%%
 flowchart TB
-    A["Owner (Peter)"] -- Full trust --> B["AI (Clawd)"]
-    B -- Trust but verify --> C["Friends in allowlist"]
-    C -- Limited trust --> D["Strangers"]
-    D -- No trust --> E["Mario asking for find ~"]
-    E -- Definitely no trust 😏 --> F[" "]
+    A["Ägare (Peter)"] -- Fullt förtroende --> B["AI (Clawd)"]
+    B -- Lita på men verifiera --> C["Vänner i allowlist"]
+    C -- Begränsat förtroende --> D["Främlingar"]
+    D -- Inget förtroende --> E["Mario som ber om find ~"]
+    E -- Definitivt inget förtroende 😏 --> F[" "]
 
-     %% The transparent box is needed to show the bottom-most label correctly
+     %% Den transparenta rutan behövs för att visa den nedersta etiketten korrekt
      F:::Class_transparent_box
     classDef Class_transparent_box fill:transparent, stroke:transparent
 ```
@@ -831,5 +836,3 @@ Hittade du en sårbarhet i OpenClaw? Rapportera ansvarsfullt:
 _"Säkerhet är en process, inte en produkt. Också lita inte hummer med skal åtkomst."_ - Någon klokt, förmodligen
 
 🦞🔐
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "CLI 参照：`openclaw channels`（アカウント、ステータス、ログイン／ログアウト、ログ）"
+read_when:
+  - WhatsApp／Telegram／Discord／Google Chat／Slack／Mattermost（プラグイン）／Signal／iMessage のチャンネルアカウントを追加／削除したい場合
+  - チャンネルのステータスを確認したり、チャンネルログを追跡したい場合
 title: "channels"
 ---
 
@@ -42,7 +46,7 @@ openclaw channels logout --channel whatsapp
 
 - 広範なプローブには `openclaw status --deep` を実行します。
 - ガイド付きの修正には `openclaw doctor` を使用します。
-- `openclaw channels list` は `Claude: HTTP 403 ... user:profile` → 使用スナップショットには `user:profile` スコープが必要です。 `--no-usage` を使用するか、claude.ai セッションキー (`CLAUDE_WEB_SESSION_KEY` / `CLAUDE_WEB_COOKIE` ) を指定するか、またはクロードコード CLI を使用して再認証します。
+- `openclaw channels list` は `Claude: HTTP 403 ... user:profile` → 使用スナップショットには `user:profile` スコープが必要です。 user:profile`→ 使用スナップショットには`user:profile`スコープが必要です。`--no-usage` を使用するか、claude.ai セッションキー (`CLAUDE_WEB_SESSION_KEY`/`CLAUDE_WEB_COOKIE\` ) を指定するか、またはクロードコード CLI を使用して再認証します。
 
 ## 機能プローブ
 
@@ -57,7 +61,7 @@ openclaw channels capabilities --channel discord --target channel:123
 
 - `--channel` は任意です。省略すると、拡張を含むすべてのチャンネルが一覧表示されます。
 - `--target` は `channel:<id>` または生の数値チャンネル ID を受け付け、Discord のみに適用されます。
-- プローブはプロバイダー固有です：Discord の intents＋任意のチャンネル権限、Slack のボット＋ユーザースコープ、Telegram のボットフラグ＋ webhook、Signal のデーモンバージョン、MS Teams のアプリトークン＋ Graph のロール／スコープ（判明している場合は注記）。プローブを持たないチャンネルは `Probe: unavailable` を報告します。 プローブがないチャネルは `Probe: unavailable` を報告します。
+- プローブはプロバイダー固有です：Discord の intents＋任意のチャンネル権限、Slack のボット＋ユーザースコープ、Telegram のボットフラグ＋ webhook、Signal のデーモンバージョン、MS Teams のアプリトークン＋ Graph のロール／スコープ（判明している場合は注記）。プローブを持たないチャンネルは `Probe: unavailable` を報告します。 プローブがないチャネルは `Probe: unavailable` を報告します。 プローブがないチャネルは `Probe: unavailable` を報告します。
 
 ## 名前を ID に解決
 
@@ -73,5 +77,3 @@ openclaw channels resolve --channel matrix "Project Room"
 
 - 対象タイプを強制するには `--kind user|group|auto` を使用します。
 - 同名のエントリが複数ある場合、解決はアクティブな一致を優先します。
-
-

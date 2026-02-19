@@ -1,4 +1,8 @@
 ---
+summary: "Gateway 대시보드를 위한 통합 Tailscale Serve/Funnel"
+read_when:
+  - localhost 외부로 Gateway Control UI 노출
+  - tailnet 또는 공개 대시보드 접근 자동화
 title: "Tailscale"
 ---
 
@@ -116,5 +120,3 @@ Gateway 는 브라우저 동작을 노드로 프록시합니다; 별도의 제�
 - `tailscale serve` 명령: [https://tailscale.com/kb/1242/tailscale-serve](https://tailscale.com/kb/1242/tailscale-serve)
 - Tailscale Funnel 개요: [https://tailscale.com/kb/1223/tailscale-funnel](https://tailscale.com/kb/1223/tailscale-funnel)
 - `tailscale funnel` 명령: [https://tailscale.com/kb/1311/tailscale-funnel](https://tailscale.com/kb/1311/tailscale-funnel)
-
-

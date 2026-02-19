@@ -1,4 +1,8 @@
 ---
+summary: "39. OpenClaw’ni xavfsiz yangilash (global o‘rnatish yoki manbadan), shuningdek qaytish (rollback) strategiyasi"
+read_when:
+  - 40. OpenClaw’ni yangilash
+  - 41. Yangilanishdan keyin nimadir buzildi
 title: "42. Yangilash"
 ---
 
@@ -15,7 +19,7 @@ title: "42. Yangilash"
 curl -fsSL https://openclaw.ai/install.sh | bash
 ```
 
-50. Eslatmalar:
+Notes:
 
 - Add `--no-onboard` if you don’t want the onboarding wizard to run again.
 
@@ -116,7 +120,7 @@ From the repo checkout:
 Preferred:
 
 ```bash
-openclaw yangilanishi
+openclaw update
 ```
 
 Qo‘llanma (taxminan mos):
@@ -130,7 +134,7 @@ openclaw doctor
 openclaw health
 ```
 
-Eslatmalar:
+Notes:
 
 - `pnpm build` qadoqlangan `openclaw` binarini ([`openclaw.mjs`](https://github.com/openclaw/openclaw/blob/main/openclaw.mjs)) ishga tushirganda yoki Node orqali `dist/` ni ishlatganda muhim.
 - Agar global o‘rnatmasiz repo checkout’dan ishlayotgan bo‘lsangiz, CLI buyruqlari uchun `pnpm openclaw ...` dan foydalaning.
@@ -227,5 +231,3 @@ git pull
 - `openclaw doctor` ni yana ishga tushiring va chiqishni diqqat bilan o‘qing (ko‘pincha yechimni aytadi).
 - Tekshiring: [Troubleshooting](/gateway/troubleshooting)
 - Discord’da so‘rang: [https://discord.gg/clawd](https://discord.gg/clawd)
-
-

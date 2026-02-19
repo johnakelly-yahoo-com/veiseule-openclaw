@@ -1,4 +1,9 @@
 ---
+summary: "Agent tomonidan boshqariladigan Canvas paneli WKWebView + maxsus URL sxemasi orqali joylashtirilgan"
+read_when:
+  - macOS Canvas panelini amalga oshirish
+  - Vizual ish maydoni uchun agent boshqaruvlarini qo‘shish
+  - WKWebView Canvas yuklanishini sozlash (debug)
 title: "Canvas"
 ---
 
@@ -116,5 +121,3 @@ The app prompts for confirmation unless a valid key is provided.
 - Canvas scheme blocks directory traversal; files must live under the session root.
 - Local Canvas content uses a custom scheme (no loopback server required).
 - External `http(s)` URLs are allowed only when explicitly navigated.
-
-

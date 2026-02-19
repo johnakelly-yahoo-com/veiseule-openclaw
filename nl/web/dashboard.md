@@ -1,4 +1,7 @@
 ---
+summary: "Toegang en authenticatie voor het Gateway-dashboard (Control UI)"
+read_when:
+  - Het wijzigen van dashboardauthenticatie of blootstellingsmodi
 title: "Dashboard"
 ---
 
@@ -41,5 +44,3 @@ Geef de voorkeur aan localhost, Tailscale Serve of een SSH-tunnel.
 - Zorg dat de Gateway bereikbaar is (lokaal: `openclaw status`; extern: SSH-tunnel `ssh -N -L 18789:127.0.0.1:18789 user@host` en open daarna `http://127.0.0.1:18789/`).
 - Haal de token op van de Gateway-host: `openclaw config get gateway.auth.token` (of genereer er een: `openclaw doctor --generate-gateway-token`).
 - Plak in de dashboardinstellingen de token in het auth-veld en maak vervolgens verbinding.
-
-

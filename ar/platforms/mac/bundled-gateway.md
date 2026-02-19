@@ -1,4 +1,9 @@
 ---
+summary: "بيئة تشغيل Gateway على macOS (خدمة launchd خارجية)"
+read_when:
+  - حزم OpenClaw.app
+  - تصحيح أخطاء خدمة launchd الخاصة بـ Gateway على macOS
+  - تثبيت CLI الخاص بـ Gateway لنظام macOS
 title: "Gateway على macOS"
 ---
 
@@ -61,5 +66,3 @@ openclaw gateway --port 18999 --bind loopback
 ```bash
 openclaw gateway call health --url ws://127.0.0.1:18999 --timeout 3000
 ```
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "7. Masofaviy kirish uchun OpenClaw Gateway’ni exe.dev’da (VM + HTTPS proxy) ishga tushiring"
+read_when:
+  - 8. Siz Gateway uchun arzon, doimiy ishlaydigan Linux xost xohlaysiz
+  - 9. O‘zingiz VPS ishga tushirmasdan masofaviy Control UI kirishini xohlaysiz
 title: "10. exe.dev"
 ---
 
@@ -10,10 +14,10 @@ title: "10. exe.dev"
 
 ## 15. Boshlovchilar uchun tezkor yo‘l
 
-1. 16. [https://exe.new/openclaw](https://exe.new/openclaw)
+1. [https://exe.new/openclaw](https://exe.new/openclaw)
 2. 17. Kerak bo‘lsa, autentifikatsiya kaliti/tokeningizni kiriting
 3. 18. VM yonidagi "Agent" tugmasini bosing va kuting...
-4. 19. ???
+4. ???
 5. 20. Foyda
 
 ## 21) Sizga kerak bo‘ladiganlar
@@ -115,6 +119,4 @@ openclaw gateway restart
 openclaw health
 ```
 
-Qoʻllanma: [Yangilash](/install/updating)
-
-
+Guide: [Updating](/install/updating)

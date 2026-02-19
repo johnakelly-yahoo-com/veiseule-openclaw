@@ -1,4 +1,8 @@
 ---
+summary: "CLI حوالہ برائے `openclaw update` (محفوظ نوعیت کی سورس اپ ڈیٹ + گیٹ وے کی خودکار ری اسٹارٹ)"
+read_when:
+  - آپ سورس چیک آؤٹ کو محفوظ طریقے سے اپ ڈیٹ کرنا چاہتے ہیں
+  - آپ کو `--update` شارٹ ہینڈ کے رویّے کو سمجھنے کی ضرورت ہے
 title: "اپ ڈیٹ"
 ---
 
@@ -49,7 +53,7 @@ openclaw update status --timeout 10
 
 ## `update wizard`
 
-اپ ڈیٹ چینل منتخب کرنے اور Gateway کو دوبارہ شروع کرنے کی تصدیق کے لیے انٹرایکٹو عمل
+Interactive flow to pick an update channel and confirm whether to restart the Gateway
 after updating (default is to restart). If you select `dev` without a git checkout, it
 offers to create one.
 
@@ -92,5 +96,3 @@ offers to create one.
 - [Development channels](/install/development-channels)
 - [Updating](/install/updating)
 - [CLI reference](/cli)
-
-

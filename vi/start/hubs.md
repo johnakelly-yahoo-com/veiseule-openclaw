@@ -1,4 +1,7 @@
 ---
+summary: "Các hub liên kết tới mọi tài liệu OpenClaw"
+read_when:
+  - Bạn muốn có bản đồ đầy đủ của tài liệu
 title: "Các hub tài liệu"
 ---
 
@@ -192,5 +195,3 @@ Sử dụng các hub này để khám phá mọi trang, bao gồm các bài phâ
 - [Testing](/reference/test)
 - [Release checklist](/reference/RELEASING)
 - [Device models](/reference/device-models)
-
-

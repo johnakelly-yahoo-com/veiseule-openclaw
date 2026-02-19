@@ -1,4 +1,7 @@
 ---
+summary: "ความสามารถของOpenClawครอบคลุมช่องทางการสื่อสาร การกำหนดเส้นทาง สื่อ และประสบการณ์ผู้ใช้"
+read_when:
+  - คุณต้องการดูรายการทั้งหมดของสิ่งที่OpenClawรองรับ
 title: "คุณสมบัติ"
 ---
 
@@ -51,9 +54,5 @@ title: "คุณสมบัติ"
 - โหนดAndroidพร้อมการจับคู่ Canvas แชต และกล้อง
 
 <Note>
-Legacy Claude, Codex, Gemini, and Opencode paths have been removed. 
-เส้นทางLegacyของClaude,Codex,GeminiและOpencodeถูกนำออกแล้ว Piเป็นเส้นทางเอเจนต์สำหรับการเขียนโค้ดเพียงตัวเดียว
-
+Legacy Claude, Codex, Gemini, and Opencode paths have been removed. เส้นทางLegacyของClaude,Codex,GeminiและOpencodeถูกนำออกแล้ว Piเป็นเส้นทางเอเจนต์สำหรับการเขียนโค้ดเพียงตัวเดียว
 </Note>
-
-

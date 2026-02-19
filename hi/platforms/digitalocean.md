@@ -1,4 +1,8 @@
 ---
+summary: "DigitalOcean पर OpenClaw (सरल सशुल्क VPS विकल्प)"
+read_when:
+  - DigitalOcean पर OpenClaw सेटअप कर रहे हों
+  - OpenClaw के लिए सस्ता VPS होस्टिंग ढूँढ रहे हों
 title: "DigitalOcean"
 ---
 
@@ -256,5 +260,3 @@ free -h
 - [Docker इंस्टॉल](/install/docker) — कंटेनर-आधारित सेटअप
 - [Tailscale](/gateway/tailscale) — सुरक्षित रिमोट एक्सेस
 - [Configuration](/gateway/configuration) — पूर्ण विन्यास संदर्भ
-
-

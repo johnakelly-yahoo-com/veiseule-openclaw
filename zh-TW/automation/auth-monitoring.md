@@ -1,4 +1,8 @@
 ---
+summary: "監控模型提供者的 OAuth 到期"
+read_when:
+  - 設定身分驗證到期監控或警示時
+  - 自動化 Claude Code / Codex OAuth 重新整理檢查
 title: "身分驗證監控"
 ---
 
@@ -6,9 +10,10 @@ title: "身分驗證監控"
 
 OpenClaw 透過 `openclaw models status` 提供 OAuth 到期健康狀態。請將其用於
 自動化與警示；腳本僅為手機工作流程的選用加值。 Use that for
+automation and alerting; scripts are optional extras for phone workflows. Use that for
 automation and alerting; scripts are optional extras for phone workflows.
 
-## 建議：CLI 檢查（可攜式）
+## Preferred: CLI check (portable)
 
 ```bash
 openclaw models status --check
@@ -22,9 +27,9 @@ openclaw models status --check
 
 可在 cron/systemd 中運作，且不需要額外腳本。
 
-## 可選腳本（維運／手機工作流程）
+## Optional scripts (ops / phone workflows)
 
-這些檔案位於 `scripts/` 目錄下，且為 **可選**。它們假設可透過 SSH 存取該
+These live under `scripts/` and are **optional**. 這些檔案位於 `scripts/` 目錄下，且為 **可選**。它們假設可透過 SSH 存取該
 gateway host and are tuned for systemd + Termux.
 
 - `scripts/claude-auth-status.sh` 現在使用 `openclaw models status --json` 作為
@@ -39,5 +44,3 @@ gateway host and are tuned for systemd + Termux.
 - `scripts/termux-sync-widget.sh`：同步 Claude Code 憑證 → OpenClaw。
 
 如果您不需要手機自動化或 systemd 計時器，可以跳過這些腳本。
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Configuração avançada e fluxos de trabalho de desenvolvimento para o OpenClaw"
+read_when:
+  - Configurando uma nova máquina
+  - Você quer o “último e melhor” sem quebrar sua configuração pessoal
 title: "Configuração"
 ---
 
@@ -153,5 +157,3 @@ Para servidores sempre ativos ou multiusuário, considere um serviço de **siste
 - [Discord](/channels/discord) e [Telegram](/channels/telegram) (tags de resposta + configurações de replyToMode)
 - [Configuração do assistente OpenClaw](/start/openclaw)
 - [App do macOS](/platforms/macos) (ciclo de vida do gateway)
-
-

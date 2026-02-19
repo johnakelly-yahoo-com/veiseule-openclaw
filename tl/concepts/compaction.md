@@ -1,4 +1,8 @@
 ---
+summary: "Context window + compaction: paano pinananatili ng OpenClaw ang mga session sa loob ng limitasyon ng model"
+read_when:
+  - Gusto mong maunawaan ang auto-compaction at /compact
+  - Nagde-debug ka ng mahahabang session na tumatama sa mga limitasyon ng context
 title: "Kompaksiyon"
 ---
 
@@ -56,5 +60,3 @@ Tingnan ang [/concepts/session-pruning](/concepts/session-pruning) para sa mga d
 - Gamitin ang `/compact` kapag pakiramdam ay luma na ang mga session o namamaga ang context.
 - Ang malalaking output ng tool ay na-truncate na; makakatulong pa ang pruning para mabawasan ang naiipong tool-result.
 - Kung kailangan mo ng panibagong simula, ang `/new` o `/reset` ay nagsisimula ng bagong session id.
-
-

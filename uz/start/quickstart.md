@@ -1,21 +1,24 @@
 ---
-title: "Tez boshlash"
+summary: "Quick start has moved to Getting Started."
+read_when:
+  - You are looking for the fastest setup steps
+  - You were sent here from an older link
+title: "Quick start"
 ---
 
-# Tez boshlash
+# Quick start
 
 <Info>
-Tez boshlash endi [Getting Started](/start/getting-started) bo‘limining bir qismidir.
+Quick start is now part of [Getting Started](/start/getting-started).
 </Info>
 
 <Columns>
   <Card title="Getting Started" href="/start/getting-started">
-    OpenClaw’ni o‘rnating va bir necha daqiqada birinchi chattingizni ishga tushiring.
+    Install OpenClaw and run your first chat in minutes.
   
 </Card>
   <Card title="Onboarding Wizard" href="/start/wizard">
-    To‘liq CLI wizard ma’lumotnomasi va kengaytirilgan sozlamalar.
+    Full CLI wizard reference and advanced options.
   
 </Card>
 </Columns>
-

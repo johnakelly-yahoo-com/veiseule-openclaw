@@ -1,4 +1,8 @@
 ---
+summary: "Браузерный UI управления для Gateway (чат, узлы, конфиг)"
+read_when:
+  - Вы хотите управлять Gateway из браузера
+  - Вам нужен доступ через Tailnet без SSH-туннелей
 title: "UI управления"
 ---
 
@@ -216,5 +220,3 @@ http://localhost:5173/?gatewayUrl=wss://<gateway-host>:18789&token=<gateway-toke
 ```
 
 Подробности настройки удалённого доступа: [Remote access](/gateway/remote).
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Zalo 個人向けプラグイン：zca-cli による QR ログイン + メッセージング（プラグインのインストール + チャンネル設定 + CLI + ツール）"
+read_when:
+  - OpenClaw で Zalo Personal（非公式）を利用したい場合
+  - zalouser プラグインを設定または開発している場合
 title: "Zalo Personal プラグイン"
 ---
 
@@ -10,7 +14,7 @@ title: "Zalo Personal プラグイン"
 
 ## 命名
 
-チャンネル id は、**個人用 Zalo ユーザーアカウント**（非公式）を自動化することを明確にするため `zalouser` です。将来の公式 Zalo API 統合の可能性に備えて、`zalo` は予約しています。 「zalo」は将来の公式Zalo API統合のために予約されています。
+チャンネル id は、**個人用 Zalo ユーザーアカウント**（非公式）を自動化することを明確にするため `zalouser` です。将来の公式 Zalo API 統合の可能性に備えて、`zalo` は予約しています。 「zalo」は将来の公式Zalo API統合のために予約されています。 「zalo」は将来の公式Zalo API統合のために予約されています。
 
 ## 実行場所
 
@@ -75,5 +79,3 @@ openclaw directory peers list --channel zalouser --query "name"
 ツール名: `zalouser`
 
 アクション: `send`, `image`, `link`, `friends`, `groups`, `me`, `status`
-
-

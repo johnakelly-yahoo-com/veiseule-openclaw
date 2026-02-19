@@ -1,4 +1,8 @@
 ---
+summary: "Справка CLI для `openclaw doctor` (проверки состояния + пошаговые исправления)"
+read_when:
+  - У вас есть проблемы с подключением/аутентификацией и вы хотите пошаговые исправления
+  - Вы обновились и хотите выполнить проверку корректности
 title: "doctor"
 ---
 
@@ -35,5 +39,3 @@ launchctl getenv OPENCLAW_GATEWAY_PASSWORD
 launchctl unsetenv OPENCLAW_GATEWAY_TOKEN
 launchctl unsetenv OPENCLAW_GATEWAY_PASSWORD
 ```
-
-

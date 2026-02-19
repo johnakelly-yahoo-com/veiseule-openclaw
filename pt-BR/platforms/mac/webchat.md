@@ -1,4 +1,7 @@
 ---
+summary: "Como o app para mac incorpora o WebChat do gateway e como depurá-lo"
+read_when:
+  - Depuração da visualização WebChat no mac ou da porta de loopback
 title: "WebChat"
 ---
 
@@ -39,5 +42,3 @@ se conecta ao Gateway e, por padrão, usa a **sessão principal** do agente sele
 ## Limitações conhecidas
 
 - A UI é otimizada para sessões de chat (não é um sandbox de navegador completo).
-
-

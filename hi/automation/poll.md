@@ -1,4 +1,8 @@
 ---
+summary: "Gateway + CLI के माध्यम से पोल भेजना"
+read_when:
+  - पोल समर्थन जोड़ते या संशोधित करते समय
+  - CLI या Gateway से पोल भेजने का डिबग करते समय
 title: "पोल"
 ---
 
@@ -62,5 +66,3 @@ openclaw message poll --channel msteams --target conversation:19:abc@thread.tacv
 
 नोट: Discord में “ठीक N चुनें” मोड नहीं है; `pollMulti` मल्टी-सेलेक्ट से मैप होता है।
 Teams पोल्स Adaptive Cards के रूप में रेंडर किए जाते हैं और वोट्स रिकॉर्ड करने के लिए गेटवे का ऑनलाइन रहना आवश्यक है, जो `~/.openclaw/msteams-polls.json` में सहेजे जाते हैं।
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "ไปป์ไลน์การจัดรูปแบบMarkdownสำหรับช่องทางขาออก"
+read_when:
+  - คุณกำลังเปลี่ยนการจัดรูปแบบMarkdownหรือการแบ่งชิ้นสำหรับช่องทางขาออก
+  - คุณกำลังเพิ่มตัวจัดรูปแบบช่องทางใหม่หรือการแมปสไตล์
+  - คุณกำลังดีบักการถดถอยของการจัดรูปแบบข้ามช่องทาง
 title: "การจัดรูปแบบMarkdown"
 ---
 
@@ -6,6 +11,8 @@ title: "การจัดรูปแบบMarkdown"
 
 OpenClawจัดรูปแบบMarkdownขาออกโดยแปลงเป็นการแทนค่ากลางร่วม
 (intermediate representation: IR)ก่อน จากนั้นจึงเรนเดอร์เป็นเอาต์พุตเฉพาะช่องทาง IRจะคงข้อความต้นฉบับไว้ครบถ้วน พร้อมพกพาช่วงสไตล์/ลิงก์ เพื่อให้การแบ่งชิ้นและการเรนเดอร์คงความสอดคล้องกันข้ามช่องทาง The IR keeps the
+source text intact while carrying style/link spans so chunking and rendering can
+stay consistent across channels. The IR keeps the
 source text intact while carrying style/link spans so chunking and rendering can
 stay consistent across channels.
 
@@ -55,6 +62,7 @@ IR (เชิงแผนภาพ):
 ## การจัดการตาราง
 
 ตารางMarkdownไม่ได้รับการรองรับอย่างสม่ำเสมอในไคลเอนต์แชต ใช้
+`markdown.tables`เพื่อควบคุมการแปลงตามช่องทาง(และต่อบัญชี) ตารางMarkdownไม่ได้รับการรองรับอย่างสม่ำเสมอในไคลเอนต์แชต ใช้
 `markdown.tables`เพื่อควบคุมการแปลงตามช่องทาง(และต่อบัญชี) Use
 `markdown.tables` to control conversion per channel (and per account).
 
@@ -87,7 +95,7 @@ channels:
 
 ## นโยบายลิงก์
 
-- **Slack:** `[label](url)` -> `<url|label>`; URLเปล่ายังคงเป็นเปล่า ปิดautolinkระหว่างการพาร์สเพื่อหลีกเลี่ยงการลิงก์ซ้ำ Autolink
+- **Slack:** `[label](url)` -> `<url|label>`; URLเปล่ายังคงเป็นเปล่า ปิดautolinkระหว่างการพาร์สเพื่อหลีกเลี่ยงการลิงก์ซ้ำ **Slack:** `[label](url)` -> `<url|label>`; URLเปล่ายังคงเป็นเปล่า ปิดautolinkระหว่างการพาร์สเพื่อหลีกเลี่ยงการลิงก์ซ้ำ Autolink
   is disabled during parse to avoid double-linking.
 - **Telegram:** `[label](url)` -> `<a href="url">label</a>`(โหมดพาร์สHTML)
 - **Signal:** `[label](url)` -> `label (url)` เว้นแต่ป้ายกำกับจะตรงกับURL
@@ -111,5 +119,3 @@ SPOILER style ranges. Other channels treat them as plain text.
 - HTMLของTelegramต้องเอสเคปข้อความนอกแท็กเพื่อหลีกเลี่ยงมาร์กอัปเสียหาย
 - ช่วงสไตล์ของSignalพึ่งพาออฟเซ็ตUTF-16; ห้ามใช้ออฟเซ็ตตามโค้ดพอยต์
 - รักษาขึ้นบรรทัดใหม่ท้ายบล็อกสำหรับโค้ดเฟนซ์ เพื่อให้ตัวปิดอยู่ในบรรทัดของตัวเอง
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "İş akışları için yalnızca JSON LLM görevleri (isteğe bağlı eklenti aracı)"
+read_when:
+  - İş akışları içinde yalnızca JSON kullanan bir LLM adımı istediğinizde
+  - Otomasyon için şema doğrulamalı LLM çıktısına ihtiyaç duyduğunuzda
 title: "LLM Görevi"
 ---
 
@@ -107,5 +111,3 @@ openclaw.invoke --tool llm-task --action json --args-json '{
 - Bu çalıştırma için modele hiçbir araç sunulmaz.
 - `schema` ile doğrulamadıkça çıktıyı güvenilmez kabul edin.
 - Yan etki oluşturan herhangi bir adımdan (gönderme, paylaşma, çalıştırma) önce onayları ekleyin.
-
-

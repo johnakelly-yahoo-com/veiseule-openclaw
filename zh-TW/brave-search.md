@@ -1,4 +1,8 @@
 ---
+summary: "用於 web_search 的 Brave Search API 設定"
+read_when:
+  - 你想要使用 Brave Search 進行 web_search
+  - 你需要 BRAVE_API_KEY 或方案詳細資訊
 title: "Brave Search"
 ---
 
@@ -35,5 +39,3 @@ OpenClaw 使用 Brave Search 作為 `web_search` 的預設提供者。
 - Brave 提供免費方案與付費方案；請查看 Brave API 入口網站以取得目前的限制資訊。
 
 請參閱 [Web tools](/tools/web) 以取得完整的 web_search 設定。
-
-

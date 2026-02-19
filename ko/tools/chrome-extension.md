@@ -1,4 +1,9 @@
 ---
+summary: "Chrome 확장 프로그램: OpenClaw 가 기존 Chrome 탭을 제어하도록 허용"
+read_when:
+  - 에이전트가 기존 Chrome 탭을 제어하도록 하려는 경우 (툴바 버튼)
+  - Tailscale 를 통해 원격 Gateway + 로컬 브라우저 자동화가 필요한 경우
+  - 브라우저 장악의 보안 영향에 대해 이해하고 싶은 경우
 title: "Chrome 확장 프로그램"
 ---
 
@@ -170,5 +175,3 @@ CLI 는 의도적으로 `node_modules` 경로를 출력하지 **않습니다**. 
 - 브라우저 도구 개요: [Browser](/tools/browser)
 - 보안 감사: [Security](/gateway/security)
 - Tailscale 설정: [Tailscale](/gateway/tailscale)
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Khởi động nhanh đã được chuyển sang Bắt đầu."
+read_when:
+  - Bạn đang tìm các bước thiết lập nhanh nhất
+  - Bạn được chuyển tới đây từ một liên kết cũ
 title: "Khởi động nhanh"
 ---
 
@@ -18,5 +22,3 @@ Khởi động nhanh hiện là một phần của [Bắt đầu](/start/getting
   
 </Card>
 </Columns>
-
-

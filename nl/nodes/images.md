@@ -1,4 +1,7 @@
 ---
+summary: "Regels voor beeld- en mediaverwerking voor verzenden, Gateway en agentantwoorden"
+read_when:
+  - Wijzigen van mediapipeline of bijlagen
 title: "Ondersteuning voor Afbeeldingen en Media"
 ---
 
@@ -67,5 +70,3 @@ Het WhatsApp-kanaal draait via **Baileys Web**. Dit document beschrijft de huidi
 - Dek verzend- en antwoordstromen af voor gevallen met afbeeldingen/audio/documenten.
 - Valideer hercompressie voor afbeeldingen (groottebegrenzing) en de spraakbericht-vlag voor audio.
 - Zorg dat antwoorden met meerdere media uitwaaieren als sequentiële verzendingen.
-
-

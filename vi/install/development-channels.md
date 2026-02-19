@@ -1,4 +1,8 @@
 ---
+summary: "Các kênh stable, beta và dev: ngữ nghĩa, chuyển đổi và gắn thẻ"
+read_when:
+  - Bạn muốn chuyển giữa stable/beta/dev
+  - Bạn đang gắn thẻ hoặc phát hành prerelease
 title: "Các kênh phát triển"
 ---
 
@@ -71,5 +75,3 @@ Beta and dev builds may **not** include a macOS app release. That’s OK:
 
 - Git tag và npm dist-tag vẫn có thể được phát hành.
 - Nêu rõ “không có bản build macOS cho bản beta này” trong ghi chú phát hành hoặc changelog.
-
-

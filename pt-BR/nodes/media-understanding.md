@@ -1,4 +1,8 @@
 ---
+summary: "Compreensão de imagem/áudio/vídeo de entrada (opcional) com provedor + fallbacks via CLI"
+read_when:
+  - Projetando ou refatorando a compreensão de mídia
+  - Ajustando o pré-processamento de áudio/vídeo/imagem de entrada
 title: "Compreensão de Mídia"
 ---
 
@@ -373,5 +377,3 @@ Isso mostra os resultados por capacidade e o provedor/modelo escolhido quando ap
 
 - [Configuração](/gateway/configuration)
 - [Suporte a Imagens e Mídia](/nodes/images)
-
-

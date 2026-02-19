@@ -1,4 +1,9 @@
-------
+---
+title: "BOOTSTRAP.md Şablonu"
+summary: "Yeni ajanlar için ilk çalıştırma ritüeli"
+read_when:
+  - Bir çalışma alanını manuel olarak başlatma
+---
 
 # BOOTSTRAP.md - Merhaba, Dünya
 
@@ -55,5 +60,3 @@ Bu dosyayı sil. Artık bir bootstrap betiğine ihtiyacın yok — artık sensin
 ---
 
 _Bol şans. Değerli kıl._
-
-

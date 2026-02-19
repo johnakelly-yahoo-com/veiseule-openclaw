@@ -1,8 +1,12 @@
 ---
-title: "Sygnał życia"
+summary: "Wiadomości odpytywania heartbeat oraz reguły powiadomień"
+read_when:
+  - Dostosowywanie częstotliwości heartbeat lub komunikatów
+  - Wybór między heartbeat a cronem dla zadań zaplanowanych
+title: "Heartbeat"
 ---
 
-# Sygnał życia (Gateway)
+# Heartbeat (Gateway)
 
 > **Heartbeat czy Cron?** Zobacz [Cron vs Heartbeat](/automation/cron-vs-heartbeat), aby uzyskać wskazówki, kiedy używać każdego z nich.
 
@@ -362,5 +366,3 @@ pozostawienie tej opcji wyłączonej w czatach grupowych.
 
 Heartbeat uruchamia pełne tury agenta. Krótsze interwały spalają więcej tokenów. Utrzymuj `HEARTBEAT.md` na niskim poziomie i rozważ tańszy `model` lub `target: "none"`,
 jeśli chcesz wyłącznie wewnętrzne aktualizacje stanu.
-
-

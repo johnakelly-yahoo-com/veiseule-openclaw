@@ -1,4 +1,8 @@
 ---
+summary: "Tài liệu tham chiếu CLI cho `openclaw models` (status/list/set/scan, bí danh, fallback, xác thực)"
+read_when:
+  - Bạn muốn thay đổi mô hình mặc định hoặc xem trạng thái xác thực của nhà cung cấp
+  - Bạn muốn quét các mô hình/nhà cung cấp khả dụng và gỡ lỗi hồ sơ xác thực
 title: "models"
 ---
 
@@ -71,5 +75,3 @@ Ghi chú:
 
 - `setup-token` sẽ yêu cầu giá trị setup-token (tạo bằng `claude setup-token` trên bất kỳ máy nào).
 - `paste-token` chấp nhận một chuỗi token được tạo ở nơi khác hoặc từ tự động hóa.
-
-

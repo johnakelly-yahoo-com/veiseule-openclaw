@@ -1,4 +1,9 @@
 ---
+summary: "Webzoek- en ophaaltools (Brave Search API, Perplexity direct/OpenRouter)"
+read_when:
+  - Je wilt web_search of web_fetch inschakelen
+  - Je hebt een Brave Search API-sleutel nodig
+  - Je wilt Perplexity Sonar gebruiken voor webzoekopdrachten
 title: "Webtools"
 ---
 
@@ -170,6 +175,8 @@ Zoek op het web met je geconfigureerde provider.
 - `search_lang` (optioneel): ISO-taalcode voor zoekresultaten (bijv. "de", "en", "fr")
 - `ui_lang` (optioneel): ISO-taalcode voor UI-elementen
 - `freshness` (optioneel, alleen Brave): filter op ontdekkingstijd (`pd`, `pw`, `pm`, `py` of `YYYY-MM-DDtoYYYY-MM-DD`)
+  - Brave: `pd`, `pw`, `pm`, `py` of `YYYY-MM-DDtoYYYY-MM-DD`
+  - Perplexity: `pd`, `pw`, `pm`, `py`
 
 **Voorbeelden:**
 
@@ -253,5 +260,3 @@ Notities:
 - Antwoorden worden gecachet (standaard 15 minuten) om herhaalde fetches te verminderen.
 - Als je toolprofielen/toegestane lijsten gebruikt, voeg `web_search`/`web_fetch` of `group:web` toe.
 - Als de Brave-sleutel ontbreekt, retourneert `web_search` een korte instelhint met een documentatielink.
-
-

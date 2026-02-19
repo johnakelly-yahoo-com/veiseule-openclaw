@@ -1,4 +1,9 @@
 ---
+summary: "OpenClaw sa Raspberry Pi (budget na self-hosted na setup)"
+read_when:
+  - Pagse-set up ng OpenClaw sa isang Raspberry Pi
+  - Pagpapatakbo ng OpenClaw sa mga ARM device
+  - Pagbuo ng murang, laging-on na personal AI
 title: "Raspberry Pi"
 ---
 
@@ -16,11 +21,11 @@ Perpekto para sa:
 
 ## Mga Kinakailangan sa Hardware
 
-| Modelo ng Pi        | RAM     | Gumagana?       | Mga Tala                            |
+| Modelo ng Pi    | RAM     | Gumagana?       | Mga Tala                            |
 | --------------- | ------- | --------------- | ----------------------------------- |
 | **Pi 5**        | 4GB/8GB | ✅ Pinakamahusay | Pinakamabilis, inirerekomenda       |
 | **Pi 4**        | 4GB     | ✅ Maganda       | Sweet spot para sa karamihan        |
-| **Pi 4**        | 2GB     | ✅ Ayos            | Gumagana, magdagdag ng swap         |
+| **Pi 4**        | 2GB     | ✅ Ayos          | Gumagana, magdagdag ng swap         |
 | **Pi 4**        | 1GB     | ⚠️ Sikip        | Posible may swap, minimal na config |
 | **Pi 3B+**      | 1GB     | ⚠️ Mabagal      | Gumagana pero mabagal               |
 | **Pi Zero 2 W** | 512MB   | ❌               | Hindi inirerekomenda                |
@@ -351,5 +356,3 @@ echo 'wireless-power off' | sudo tee -a /etc/network/interfaces
 - [Hetzner guide](/install/hetzner) — Docker setup
 - [Tailscale](/gateway/tailscale) — remote access
 - [Nodes](/nodes) — ipares ang iyong laptop/telepono sa Pi gateway
-
-

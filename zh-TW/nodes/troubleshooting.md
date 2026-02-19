@@ -1,4 +1,8 @@
 ---
+summary: "疑難排解節點配對、前景需求、權限與工具失敗"
+read_when:
+  - 節點已連線，但相機／畫布／螢幕／exec 工具失敗
+  - You need the node pairing versus approvals mental model
 title: "節點疑難排解"
 ---
 
@@ -28,7 +32,7 @@ openclaw approvals get --node <idOrNameOrIp>
 
 - 節點已連線，且已為角色 `node` 完成配對。
 - `nodes describe` 包含你正在呼叫的能力。
-- Exec 核准顯示預期的模式／允許清單。
+- Exec approvals show expected mode/allowlist.
 
 ## 前景需求
 
@@ -46,14 +50,14 @@ openclaw logs --follow
 
 ## 權限矩陣
 
-| 能力                          | iOS                                     | Android                                                   | macOS 節點 App | 常見失敗代碼                         |
-| --------------------------- | --------------------------------------- | --------------------------------------------------------- | ------------ | ------------------------------ |
-| `camera.snap`、`camera.clip` | 相機（剪輯音訊需麥克風）                            | 相機（剪輯音訊需麥克風）                                              | 相機（剪輯音訊需麥克風） | `*_PERMISSION_REQUIRED`        |
-| `screen.record`             | 螢幕錄製（麥克風選用）                             | 螢幕擷取提示（+ 麥克風為選用） | 螢幕錄製         | `*_PERMISSION_REQUIRED`        |
-| `location.get`              | 使用期間或永遠（依模式而定）                          | 依模式為前景／背景位置                                               | 位置權限         | `LOCATION_PERMISSION_REQUIRED` |
-| `system.run`                | n/a (節點主機路徑) | n/a (節點主機路徑)                   | 需要 Exec 核准   | `SYSTEM_RUN_DENIED`            |
+| 能力                          | iOS                             | Android                                                   | macOS 節點 App | 常見失敗代碼                         |
+| --------------------------- | ------------------------------- | --------------------------------------------------------- | ------------ | ------------------------------ |
+| `camera.snap`、`camera.clip` | 相機（剪輯音訊需麥克風）                    | 相機（剪輯音訊需麥克風）                                              | 相機（剪輯音訊需麥克風） | `*_PERMISSION_REQUIRED`        |
+| `screen.record`             | 螢幕錄製（麥克風選用）                     | Screen capture prompt (+ mic optional) | 螢幕錄製         | `*_PERMISSION_REQUIRED`        |
+| `location.get`              | 使用期間或永遠（依模式而定）                  | 依模式為前景／背景位置                                               | 位置權限         | `LOCATION_PERMISSION_REQUIRED` |
+| `system.run`                | n/a (節點主機路徑) | n/a (節點主機路徑)                           | 需要 Exec 核准   | `SYSTEM_RUN_DENIED`            |
 
-## 配對與核准的比較
+## Pairing versus approvals
 
 這是不同的關卡：
 
@@ -96,16 +100,14 @@ openclaw logs --follow
 若仍卡住：
 
 - 重新核准裝置配對。
-- 重新開啟節點應用程式（前景）。
+- Re-open node app (foreground).
 - 重新授與 OS 權限。
 - 重新建立／調整 exec 核准政策。
 
-相關內容：
+Related:
 
 - [/nodes/index](/nodes/index)
 - [/nodes/camera](/nodes/camera)
 - [/nodes/location-command](/nodes/location-command)
 - [/tools/exec-approvals](/tools/exec-approvals)
 - [/gateway/pairing](/gateway/pairing)
-
-

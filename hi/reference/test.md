@@ -1,4 +1,7 @@
 ---
+summary: "स्थानीय रूप से परीक्षण (vitest) कैसे चलाएँ और force/coverage मोड का उपयोग कब करें"
+read_when:
+  - परीक्षण चलाते या ठीक करते समय
 title: "परीक्षण"
 ---
 
@@ -6,11 +9,13 @@ title: "परीक्षण"
 
 - पूर्ण परीक्षण किट (सूट्स, लाइव, Docker): [Testing](/help/testing)
 
-- `pnpm test:force`: डिफ़ॉल्ट कंट्रोल पोर्ट को होल्ड कर रही किसी भी बची हुई गेटवे प्रोसेस को बंद करता है, फिर एक आइसोलेटेड गेटवे पोर्ट के साथ पूरा Vitest सूट चलाता है ताकि सर्वर टेस्ट किसी चल रहे इंस्टेंस से टकराएँ नहीं। इसका उपयोग तब करें जब पिछले गेटवे रन के कारण पोर्ट 18789 व्यस्त रह गया हो।
+- `pnpm test:force`: Kills any lingering gateway process holding the default control port, then runs the full Vitest suite with an isolated gateway port so server tests don’t collide with a running instance. Use this when a prior gateway run left port 18789 occupied.
 
-- `pnpm test:coverage`: Runs Vitest with V8 coverage. Global thresholds are 70% lines/branches/functions/statements. Coverage excludes integration-heavy entrypoints (CLI wiring, gateway/telegram bridges, webchat static server) to keep the target focused on unit-testable logic.
+- `pnpm test:coverage`: V8 कवरेज के साथ यूनिट सूट चलाता है ( `vitest.unit.config.ts` के माध्यम से)। Global thresholds are 70% lines/branches/functions/statements. Coverage excludes integration-heavy entrypoints (CLI wiring, gateway/telegram bridges, webchat static server) to keep the target focused on unit-testable logic.
 
-- `pnpm test:e2e`: gateway एंड-टू-एंड स्मोक परीक्षण चलाता है (मल्टी-इंस्टेंस WS/HTTP/node पेयरिंग)।
+- Node 24+ पर `pnpm test`: OpenClaw स्वतः Vitest `vmForks` को अक्षम करता है और `ERR_VM_MODULE_LINK_FAILURE` / `module is already linked` से बचने के लिए `forks` का उपयोग करता है। आप `OPENCLAW_TEST_VM_FORKS=0|1` के साथ व्यवहार को बाध्य कर सकते हैं।
+
+- `pnpm test:e2e`: gateway एंड-टू-एंड स्मोक परीक्षण चलाता है (मल्टी-इंस्टेंस WS/HTTP/node पेयरिंग)। `vitest.e2e.config.ts` में डिफ़ॉल्ट रूप से `vmForks` + adaptive workers उपयोग होते हैं; `OPENCLAW_E2E_WORKERS=<n>` से समायोजित करें और विस्तृत लॉग के लिए `OPENCLAW_E2E_VERBOSE=1` सेट करें।
 
 - `pnpm test:live`: Runs provider live tests (minimax/zai). Requires API keys and `LIVE=1` (or provider-specific `*_LIVE_TEST=1`) to unskip.
 
@@ -48,5 +53,3 @@ scripts/e2e/onboard-docker.sh
 ```bash
 pnpm test:docker:qr
 ```
-
-

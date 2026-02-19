@@ -1,4 +1,8 @@
 ---
+summary: "Skills yapılandırma şeması ve örnekler"
+read_when:
+  - Skills yapılandırması eklerken veya değiştirirken
+  - Paketli izin listesi veya kurulum davranışını ayarlarken
 title: "Skills Yapılandırması"
 ---
 
@@ -67,8 +71,6 @@ ana makinenin `process.env` değerini **devralmaz**.
 Aşağıdakilerden birini kullanın:
 
 - `agents.defaults.sandbox.docker.env` (veya ajan başına `agents.list[].sandbox.docker.env`)
-- 48. ortamı özel sandbox imajınıza gömün
+- ortamı özel sandbox imajınıza gömün
 
 Genel `env` ve `skills.entries.<skill>.env/apiKey` yalnızca **ana makine** çalıştırmaları için geçerlidir.
-
-

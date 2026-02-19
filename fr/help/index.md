@@ -1,4 +1,8 @@
 ---
+summary: "Centre d’aide : correctifs courants, verification de l’installation et ou regarder quand quelque chose casse"
+read_when:
+  - Vous debutez et voulez le guide « que dois-je cliquer/executer »
+  - Quelque chose s’est casse et vous voulez le chemin le plus rapide vers une solution
 title: "Aide"
 ---
 
@@ -15,5 +19,3 @@ Si vous voulez un flux rapide pour « vous debloquer », commencez ici :
 Si vous cherchez des questions conceptuelles (et non « quelque chose s’est casse ») :
 
 - [FAQ (concepts)](/help/faq)
-
-

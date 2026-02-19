@@ -1,4 +1,8 @@
 ---
+summary: "Uruchom most ACP dla integracji z IDE"
+read_when:
+  - Konfigurowanie integracji IDE opartych na ACP
+  - Debugowanie routingu sesji ACP do Gateway
 title: "acp"
 ---
 
@@ -164,5 +168,3 @@ Dowiedz się więcej o kluczach sesji na [/concepts/session](/concepts/session).
 - `--server-args <args...>`: dodatkowe argumenty przekazywane do serwera ACP.
 - `--server-verbose`: włącz szczegółowe logowanie na serwerze ACP.
 - `--verbose, -v`: szczegółowe logowanie klienta.
-
-

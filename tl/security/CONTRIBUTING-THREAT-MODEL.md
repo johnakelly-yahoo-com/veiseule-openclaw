@@ -1,12 +1,12 @@
 # Pag-aambag sa OpenClaw Threat Model
 
-Salamat sa pagtulong na gawing mas secure ang OpenClaw. Ang threat model na ito ay isang buhay na dokumento at tinatanggap namin ang mga ambag mula sa kahit sino — hindi mo kailangang maging eksperto sa seguridad.
+Thanks for helping make OpenClaw more secure. This threat model is a living document and we welcome contributions from anyone - you don't need to be a security expert.
 
 ## Mga Paraan ng Pag-aambag
 
 ### Magdagdag ng Banta
 
-May napansin ka bang attack vector o panganib na hindi pa namin natutukoy? Magbukas ng issue sa [openclaw/trust](https://github.com/openclaw/trust/issues) at ilarawan ito sa sarili mong mga salita. Hindi mo kailangang alam ang anumang framework o punan ang bawat field — ilarawan lamang ang senaryo.
+Spotted an attack vector or risk we haven't covered? Open an issue on [openclaw/trust](https://github.com/openclaw/trust/issues) and describe it in your own words. You don't need to know any frameworks or fill in every field - just describe the scenario.
 
 **Makakatulong isama (ngunit hindi kailangan):**
 
@@ -15,17 +15,17 @@ May napansin ka bang attack vector o panganib na hindi pa namin natutukoy? Magbu
 - Gaano ito kalubha sa tingin mo (low / medium / high / critical)
 - Mga link sa kaugnay na pananaliksik, CVEs, o totoong halimbawa
 
-Kami na ang bahala sa ATLAS mapping, threat IDs, at risk assessment sa panahon ng review. Kung nais mong isama ang mga detalyeng iyon, ayos lang — pero hindi ito inaasahan.
+We'll handle the ATLAS mapping, threat IDs, and risk assessment during review. If you want to include those details, great - but it's not expected.
 
 > **Ito ay para sa pagdaragdag sa threat model, hindi para sa pagre-report ng aktibong vulnerabilities.** Kung may natuklasan kang vulnerability na maaaring ma-exploit, tingnan ang aming [Trust page](https://trust.openclaw.ai) para sa mga tagubilin sa responsableng pag-disclose.
 
 ### Magmungkahi ng Mitigation
 
-May ideya ka ba kung paano tugunan ang isang umiiral na banta? Magbukas ng issue o PR na tumutukoy sa threat. Ang kapaki-pakinabang na mitigations ay tiyak at naaaksyunan — halimbawa, mas mabuti ang "per-sender rate limiting na 10 mensahe/minuto sa gateway" kaysa sa "magpatupad ng rate limiting."
+Have an idea for how to address an existing threat? Open an issue or PR referencing the threat. Useful mitigations are specific and actionable - for example, "per-sender rate limiting of 10 messages/minute at the gateway" is better than "implement rate limiting."
 
 ### Magmungkahi ng Attack Chain
 
-Ipinapakita ng attack chains kung paano nagsasama-sama ang maraming banta upang makabuo ng isang makatotohanang senaryo ng pag-atake. Kung may nakikita kang mapanganib na kombinasyon, ilarawan ang mga hakbang at kung paano ito pagsasamahin ng isang attacker. Mas mahalaga ang isang maikling salaysay kung paano nagaganap ang pag-atake sa aktwal na sitwasyon kaysa sa isang pormal na template.
+Attack chains show how multiple threats combine into a realistic attack scenario. If you see a dangerous combination, describe the steps and how an attacker would chain them together. A short narrative of how the attack unfolds in practice is more valuable than a formal template.
 
 ### Ayusin o Pagbutihin ang Umiiral na Nilalaman
 
@@ -35,33 +35,33 @@ Mga typo, paglilinaw, luma nang impormasyon, mas magagandang halimbawa — malug
 
 ### MITRE ATLAS
 
-Ang threat model na ito ay nakabatay sa [MITRE ATLAS](https://atlas.mitre.org/) (Adversarial Threat Landscape for AI Systems), isang framework na sadyang dinisenyo para sa mga banta sa AI/ML tulad ng prompt injection, maling paggamit ng tools, at agent exploitation. Hindi mo kailangang alam ang ATLAS upang makapag-ambag — kami ang nagmamapa ng mga submission sa framework sa panahon ng review.
+This threat model is built on [MITRE ATLAS](https://atlas.mitre.org/) (Adversarial Threat Landscape for AI Systems), a framework designed specifically for AI/ML threats like prompt injection, tool misuse, and agent exploitation. You don't need to know ATLAS to contribute - we map submissions to the framework during review.
 
 ### Mga ID ng Banta
 
-Bawat banta ay may ID tulad ng `T-EXEC-003`. Ang mga kategorya ay:
+Each threat gets an ID like `T-EXEC-003`. The categories are:
 
-| Kodigo    | Kategorya                                   |
-| ------- | ------------------------------------------ |
-| RECON   | Reconnaissance - pangangalap ng impormasyon |
-| ACCESS  | Initial access - pagkakaroon ng paunang pagpasok |
+| Kodigo  | Kategorya                                          |
+| ------- | -------------------------------------------------- |
+| RECON   | Reconnaissance - pangangalap ng impormasyon        |
+| ACCESS  | Initial access - pagkakaroon ng paunang pagpasok   |
 | EXEC    | Execution - pagpapatakbo ng mga malisyosong aksyon |
-| PERSIST | Persistence - pagpapanatili ng access      |
-| EVADE   | Defense evasion - pag-iwas sa pagtukoy     |
-| DISC    | Discovery - pag-aaral tungkol sa kapaligiran |
-| EXFIL   | Exfiltration - pagnanakaw ng data          |
-| IMPACT  | Impact - pinsala o pagkaantala             |
+| PERSIST | Persistence - pagpapanatili ng access              |
+| EVADE   | Defense evasion - pag-iwas sa pagtukoy             |
+| DISC    | Discovery - pag-aaral tungkol sa kapaligiran       |
+| EXFIL   | Exfiltration - pagnanakaw ng data                  |
+| IMPACT  | Impact - pinsala o pagkaantala                     |
 
-Ang mga ID ay itinatalaga ng mga maintainer sa panahon ng review. Hindi mo kailangang pumili ng isa.
+IDs are assigned by maintainers during review. You don't need to pick one.
 
 ### Mga Antas ng Panganib
 
-| Antas        | Kahulugan                                                           |
-| ------------ | ----------------------------------------------------------------- |
-| **Kritikal** | Buong kompromiso ng sistema, o mataas ang posibilidad + kritikal ang epekto |
+| Antas          | Kahulugan                                                                         |
+| -------------- | --------------------------------------------------------------------------------- |
+| **Kritikal**   | Buong kompromiso ng sistema, o mataas ang posibilidad + kritikal ang epekto       |
 | **Mataas**     | Malamang na may malaking pinsala, o katamtamang posibilidad + kritikal ang epekto |
-| **Katamtaman**   | Katamtamang panganib, o mababang posibilidad + mataas na epekto |
-| **Mababa**      | Hindi malamang at limitado ang epekto                            |
+| **Katamtaman** | Katamtamang panganib, o mababang posibilidad + mataas na epekto                   |
+| **Mababa**     | Hindi malamang at limitado ang epekto                                             |
 
 Kung hindi ka sigurado sa antas ng panganib, ilarawan lamang ang epekto at kami na ang magtatasa.
 
@@ -88,5 +88,3 @@ Kung hindi ka sigurado sa antas ng panganib, ilarawan lamang ang epekto at kami 
 ## Pagkilala
 
 Ang mga nag-ambag sa threat model ay kinikilala sa acknowledgments ng threat model, mga release notes, at sa OpenClaw security hall of fame para sa mahahalagang kontribusyon.
-
-

@@ -1,4 +1,6 @@
 ---
+summary: "Anteckningar om RPC-protokoll för introduktionsguide och konfigschema"
+read_when: "När stegen i introduktionsguiden eller konfigschemaendpoints ändras"
 title: "Introduktion och konfigprotokoll"
 ---
 
@@ -36,5 +38,3 @@ Svar (form)
 ## Noteringar
 
 - Detta dokument är den enda platsen för att följa protokollrefaktoreringar för introduktion/konfiguration.
-
-

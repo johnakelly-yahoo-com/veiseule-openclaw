@@ -1,4 +1,8 @@
 ---
+summary: "Heartbeat 폴링 메시지 및 알림 규칙"
+read_when:
+  - Heartbeat 주기 또는 메시지를 조정할 때
+  - 예약 작업에 Heartbeat 와 cron 중 무엇을 사용할지 결정할 때
 title: "하트비트"
 ---
 
@@ -352,5 +356,3 @@ openclaw system event --text "Check for urgent follow-ups" --mode now
 
 Heartbeat 는 전체 에이전트 턴을 실행합니다. 짧은 간격일수록 토큰 소모가 증가합니다. `HEARTBEAT.md` 를 작게 유지하고,
 내부 상태 업데이트만 필요하다면 더 저렴한 `model` 또는 `target: "none"` 를 고려하십시오.
-
-

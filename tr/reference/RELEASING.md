@@ -1,4 +1,11 @@
-------
+---
+title: "Yayın Kontrol Listesi"
+summary: "npm + macOS uygulaması için adım adım sürüm kontrol listesi"
+read_when:
+  - Yeni bir npm sürümü çıkarırken
+  - Yeni bir macOS uygulama sürümü çıkarırken
+  - Yayınlamadan önce meta verileri doğrularken
+---
 
 # Sürüm Kontrol Listesi (npm + macOS)
 
@@ -111,5 +118,3 @@ Mevcut npm eklenti listesi (gerektikçe güncelleyin):
 - @openclaw/zalouser
 
 Sürüm notları ayrıca **varsayılan olarak açık olmayan** **yeni isteğe bağlı paketli eklentileri** de belirtmelidir (örnek: `tlon`).
-
-

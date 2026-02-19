@@ -1,4 +1,7 @@
 ---
+summary: "Reglas de gestión de sesiones, claves y persistencia para chats"
+read_when:
+  - Modificar el manejo o almacenamiento de sesiones
 title: "Gestión de sesiones"
 ---
 
@@ -199,5 +202,3 @@ Cada entrada de sesión registra de dónde provino (mejor esfuerzo) en `origin`:
   `GroupSubject`, `GroupChannel`, `GroupSpace` y `SenderName` en el contexto
   entrante y llamando a `recordSessionMetaFromInbound` (o pasando el mismo contexto
   a `updateLastRoute`).
-
-

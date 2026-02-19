@@ -1,4 +1,9 @@
 ---
+summary: "Chrome uzantısı: OpenClaw’ın mevcut Chrome sekmenizi yönetmesine izin verin"
+read_when:
+  - Ajanın mevcut bir Chrome sekmesini (araç çubuğu düğmesi) yönetmesini istiyorsunuz
+  - Tailscale üzerinden uzak Gateway + yerel tarayıcı otomasyonuna ihtiyacınız var
+  - Tarayıcı devralmanın güvenlik etkilerini anlamak istiyorsunuz
 title: "Chrome Uzantısı"
 ---
 
@@ -171,5 +176,3 @@ Bu güçlü ve risklidir. Model’e “tarayıcınız üzerinde eller” vermek 
 - Tarayıcı aracı genel bakış: [Browser](/tools/browser)
 - Güvenlik denetimi: [Security](/gateway/security)
 - Tailscale kurulumu: [Tailscale](/gateway/tailscale)
-
-

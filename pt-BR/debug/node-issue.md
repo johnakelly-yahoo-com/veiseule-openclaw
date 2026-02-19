@@ -1,4 +1,8 @@
 ---
+summary: Notas e soluções alternativas para falha do Node + tsx "__name is not a function"
+read_when:
+  - Depuração de scripts de desenvolvimento apenas com Node ou falhas no modo watch
+  - Investigação de falhas do loader tsx/esbuild no OpenClaw
 title: "Falha do Node + tsx"
 ---
 
@@ -82,5 +86,3 @@ node --import tsx scripts/repro/tsx-name-repro.ts
 - Reproduzir no Node 22/24 para confirmar regressão no Node 25.
 - Testar `tsx` nightly ou fixar em uma versão anterior se existir uma regressão conhecida.
 - Se reproduzir no Node LTS, abrir um repro mínimo upstream com o stack trace `__name`.
-
-

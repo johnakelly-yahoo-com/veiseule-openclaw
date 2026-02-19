@@ -1,24 +1,52 @@
 ---
-title: iMessage
+summary: "Legacy iMessage support via imsg (JSON-RPC over stdio). Nye opsætninger bør bruge BlueBubbles."
+read_when:
+  - Opsætning af iMessage-understøttelse
+  - Fejlfinding af iMessage send/modtag
+title: "iMessage"
 ---
 
 # iMessage (legacy: imsg)
 
-> **Anbefalet:** Brug [BlueBubbles](/channels/bluebubbles) til nye iMessage-opsætninger.
->
-> Kanalen `imsg` er en ældre ekstern CLI-integration og kan blive fjernet i en fremtidig version.
+<Warning>
+For nye iMessage-implementeringer skal du bruge <a href="/channels/bluebubbles">BlueBubbles</a>.
 
-Status: ældre ekstern CLI integration. Gateway spawns `imsg rpc` (JSON-RPC over stdio).
+`imsg`-integrationen er legacy og kan blive fjernet i en fremtidig udgivelse. 
+</Warning>
 
-## Hurtig opsætning (begynder)
+Status: ældre ekstern CLI integration. Gateway starter `imsg rpc` og kommunikerer via JSON-RPC over stdio (ingen separat daemon/port).
 
-1. Sørg for, at Beskeder er logget ind på denne Mac.
-2. Installér `imsg`:
-   - `brew install steipete/tap/imsg`
-3. Konfigurér OpenClaw med `channels.imessage.cliPath` og `channels.imessage.dbPath`.
-4. Start gatewayen, og godkend eventuelle macOS-prompter (Automation + Fuld diskadgang).
+<CardGroup cols={3}>
+  <Card title="BlueBubbles (recommended)" icon="message-circle" href="/channels/bluebubbles">
+    Foretrukken iMessage-sti til nye opsætninger.
+  
+</Card>
+  <Card title="Pairing" icon="link" href="/channels/pairing">
+    iMessage-DM'er bruger som standard parrings-tilstand.
+  
+</Card>
+  <Card title="Configuration reference" icon="settings" href="/gateway/configuration-reference#imessage">
+    Fuld iMessage-feltreference.
+  
+</Card>
+</CardGroup>
 
-Minimal konfiguration:
+## Hurtig opsætning
+
+<Tabs>
+  <Tab title="Local Mac (fast path)">
+    <Steps>
+      <Step title="Install and verify imsg">
+
+```bash
+brew install steipete/tap/imsg
+imsg rpc --help
+```
+
+        
+</Step>
+      
+        <Step title="Konfigurer OpenClaw">
 
 ```json5
 {
@@ -32,45 +60,76 @@ Minimal konfiguration:
 }
 ```
 
-## Hvad det er
+        
+</Step>
+      
+        <Step title="Start gateway">
 
-- iMessage-kanal baseret på `imsg` på macOS.
-- Deterministisk routing: svar går altid tilbage til iMessage.
-- DMs deler agentens hovedsession; grupper er isolerede (`agent:<agentId>:imessage:group:<chat_id>`).
-- Hvis en tråd med flere deltagere ankommer med `is_group=false`, kan du stadig isolere den ved `chat_id` med `channels.imessage.groups` (se “Gruppe-agtige tråde” nedenfor).
+```bash
+openclaw gateway
+```
 
-## Konfigurationsskrivninger
+      {
+        channels: { imessage: { configWrites: false } },
+      }
 
-Som standard må iMessage skrive konfigurationsopdateringer udløst af `/config set|unset` (kræver `commands.config: true`).
+```bash
+openclaw pairing list imessage
+openclaw pairing approve imessage <CODE>
+```
 
-Deaktivér med:
+        ```
+            Parringsanmodninger udløber efter 1 time.
+          
+</Step>
+        
+</Steps>
+        ```
+
+  
+</Tab>
+
+  <Tab title="Remote Mac over SSH">
+    OpenClaw kræver kun en stdio-kompatibel `cliPath`, så du kan pege `cliPath` på et wrapper-script, der SSH'er til en fjern-Mac og kører `imsg`.
+
+```bash
+#!/usr/bin/env bash
+exec ssh -T gateway-host imsg "$@"
+```
+
+    ```
+    Anbefalet konfiguration, når vedhæftede filer er aktiveret:
+    ```
 
 ```json5
 {
-  channels: { imessage: { configWrites: false } },
+  channels: {
+    imessage: {
+      enabled: true,
+      cliPath: "~/.openclaw/scripts/imsg-ssh",
+      remoteHost: "user@gateway-host", // bruges til SCP-hentning af vedhæftede filer
+      includeAttachments: true,
+    },
+  },
 }
 ```
 
-## Krav
+    ```
+    Hvis `remoteHost` ikke er angivet, forsøger OpenClaw automatisk at registrere den ved at parse SSH-wrapper-scriptet.
+    ```
 
-- macOS med Beskeder logget ind.
-- Fuld diskadgang til OpenClaw + `imsg` (adgang til Beskeder-databasen).
-- Automation-tilladelse ved afsendelse.
-- `channels.imessage.cliPath` kan pege på enhver kommando, der proxyer stdin/stdout (for eksempel et wrapper-script, der SSH’er til en anden Mac og kører `imsg rpc`).
+  
+</Tab>
+</Tabs>
 
-## Fejlfinding af macOS Privacy and Security TCC
+## Krav og tilladelser (macOS)
 
-Hvis afsendelse/modtagelse fejler (for eksempel hvis `imsg rpc` afslutter med en ikke-nul status, får timeout, eller gatewayen ser ud til at hænge), er en almindelig årsag en macOS-tilladelsesprompt, der aldrig blev godkendt.
+- Beskeder skal være logget ind på den Mac, der kører `imsg`.
+- Fuld diskadgang er påkrævet for den proceskontekst, der kører OpenClaw/`imsg` (adgang til Messages-databasen).
+- Automation-tilladelse er påkrævet for at sende beskeder via Messages.app.
 
-macOS giver TCC tilladelser pr. app / proces kontekst. Godkend prompter i samme sammenhæng, der kører `imsg` (for eksempel, Terminal/iTerm, en LaunchAgent session, eller en SSH-lanceret proces).
-
-Tjekliste:
-
-- **Fuld Disk Access**: give adgang til den proces, der kører OpenClaw (og enhver shell/SSH-indpakning, der udfører `imsg`). Dette er nødvendigt for at læse Messages database (`chat.db`).
-- **Automation → Beskeder**: tillad processen, der kører OpenClaw (og/eller din terminal), at styre **Messages.app** for udgående afsendelser.
-- **`imsg` CLI-sundhed**: verificér at `imsg` er installeret og understøtter RPC (`imsg rpc --help`).
-
-Tip: Hvis OpenClaw kører hovedløst (LaunchAgent/systemd/SSH) kan MacOS-prompten være nem at gå glip af. Kør en engangs interaktiv kommando i en GUI terminal for at tvinge prompten, og prøv derefter igen:
+<Tip>
+Tilladelser gives pr. proceskontekst. Hvis gatewayen kører headless (LaunchAgent/SSH), skal du køre en engangs interaktiv kommando i samme kontekst for at udløse tilladelsesprompter:
 
 ```bash
 imsg chats --limit 1
@@ -78,128 +137,101 @@ imsg chats --limit 1
 imsg send <handle> "test"
 ```
 
-Relaterede macOS-mappetilladelser (Skrivebord/Dokumenter/Downloads): [/platforms/mac/permissions](/platforms/mac/permissions).
+</Tip>
 
-## Opsætning (hurtig vej)
+## Adgangskontrol og routing
 
-1. Sørg for, at Beskeder er logget ind på denne Mac.
-2. Konfigurér iMessage og start gatewayen.
+<Tabs>
+  <Tab title="DM policy">
+    `channels.imessage.dmPolicy` styrer direkte beskeder:
 
-### Dedikeret bot-macOS-bruger (for isoleret identitet)
+    ```
+    - `pairing` (standard)
+    - `allowlist`
+    - `open` (kræver at `allowFrom` indeholder `"*"`)
+    - `disabled`
+    
+    Allowlist-felt: `channels.imessage.allowFrom`.
+    
+    Allowlist-poster kan være handles eller chatmål (`chat_id:*`, `chat_guid:*`, `chat_identifier:*`).
+    ```
 
-Hvis du vil have, at botten sender fra en **separat iMessage-identitet** (og holde dine personlige Beskeder rene), så brug et dedikeret Apple-id + en dedikeret macOS-bruger.
+  
+</Tab>
 
-1. Opret et dedikeret Apple-id (eksempel: `my-cool-bot@icloud.com`).
-   - Apple kan kræve et telefonnummer til verifikation / 2FA.
-2. Opret en macOS-bruger (eksempel: `openclawhome`) og log ind på den.
-3. Åbn Beskeder i den macOS-bruger, og log ind på iMessage med bot-Apple-id’et.
-4. Aktivér Fjernlogin (Systemindstillinger → Generelt → Deling → Fjernlogin).
-5. Installér `imsg`:
-   - `brew install steipete/tap/imsg`
-6. Opsæt SSH, så `ssh <bot-macos-user>@localhost true` fungerer uden adgangskode.
-7. Peg `channels.imessage.accounts.bot.cliPath` på en SSH-wrapper, der kører `imsg` som bot-brugeren.
+  <Tab title="Group policy + mentions">
+    `channels.imessage.groupPolicy` styrer håndtering af grupper:
 
-Første-run note: Afsendelse/modtagelse kan kræve GUI-godkendelse - Fuld Disk Access) i _bot macOS user_. If `imsg rpc` looks stuck or exits, log ind på denne bruger (Screen Sharing helps), køre en engangs `imsg chats -- limit 1` / `imsg send . .`, godkende prompter, derefter prøve igen. Se [Fejlfinding af macOS Privacy and Security TCC](#troubleshooting-macos-privacy-and-security-tcc).
-
-Eksempel på wrapper (`chmod +x`). Erstat `<bot-macos-user>` med dit faktiske macOS brugernavn:
-
-```bash
-#!/usr/bin/env bash
-set -euo pipefail
-
-# Run an interactive SSH once first to accept host keys:
-#   ssh <bot-macos-user>@localhost true
-exec /usr/bin/ssh -o BatchMode=yes -o ConnectTimeout=5 -T <bot-macos-user>@localhost \
-  "/usr/local/bin/imsg" "$@"
-```
-
-Eksempelkonfiguration:
-
-```json5
-{
-  channels: {
-    imessage: {
-      enabled: true,
-      accounts: {
-        bot: {
-          name: "Bot",
+    ```
+    {
+      channels: {
+        imessage: {
           enabled: true,
-          cliPath: "/path/to/imsg-bot",
-          dbPath: "/Users/<bot-macos-user>/Library/Messages/chat.db",
+          accounts: {
+            bot: {
+              name: "Bot",
+              enabled: true,
+              cliPath: "/path/to/imsg-bot",
+              dbPath: "/Users/<bot-macos-user>/Library/Messages/chat.db",
+            },
+          },
         },
       },
-    },
-  },
-}
-```
+    }
+    ```
 
-For opsætninger med én konto, brug flade indstillinger (`channels.imessage.cliPath`, `channels.imessage.dbPath`) i stedet for `accounts`-kortet.
+  
+</Tab>
 
-### Fjern-/SSH-variant (valgfrit)
+  <Tab title="Sessions and deterministic replies">
+    - DMs bruger direkte routing; grupper bruger grupperouting.
+    - Med standardindstillingen `session.dmScope=main` samles iMessage-DMs i agentens hovedsession.
+    - Gruppesessioner er isolerede (`agent:<agentId> :imessage:group:<chat_id>`).
+    - Svar routes tilbage til iMessage ved hjælp af metadata fra den oprindelige kanal/det oprindelige mål.
 
-Hvis du vil have iMessage på en anden Mac, skal du indstille `channels.imessage.cliPath` til en wrapper, der kører `imsg` på den eksterne macOS vært over SSH. OpenClaw behøver kun stdio.
+    ```
+    Gruppe-lignende trådadfærd:
+    
+    Nogle iMessage-tråde med flere deltagere kan ankomme med `is_group=false`.
+    Hvis den `chat_id` eksplicit er konfigureret under `channels.imessage.groups`, behandler OpenClaw den som gruppetrafik (gruppe-gating + isolation af gruppesession).
+    ```
 
-Eksempel-wrapper:
+  
+</Tab>
+</Tabs>
 
-```bash
-#!/usr/bin/env bash
-exec ssh -T gateway-host imsg "$@"
-```
+## Implementeringsmønstre
 
-**Fjernvedhæftede filer:** Når `cliPath` peger på en fjernvært via SSH, vedhæftede stier i Messages database referencefilerne på fjernmaskinen. OpenClaw kan automatisk hente disse over SCP ved at indstille `channels.imessage.remoteHost`:
+<AccordionGroup>
+  <Accordion title="Dedicated bot macOS user (separate iMessage identity)">
+    Brug et dedikeret Apple ID og en macOS-bruger, så bottrafik er isoleret fra din personlige Messages-profil.
 
-```json5
-{
-  channels: {
-    imessage: {
-      cliPath: "~/imsg-ssh", // SSH wrapper to remote Mac
-      remoteHost: "user@gateway-host", // for SCP file transfer
-      includeAttachments: true,
-    },
-  },
-}
-```
+    ```
+    {
+      channels: {
+        imessage: {
+          cliPath: "~/imsg-ssh", // SSH wrapper to remote Mac
+          remoteHost: "user@gateway-host", // for SCP file transfer
+          includeAttachments: true,
+        },
+      },
+    }
+    ```
 
-Hvis `remoteHost` ikke er angivet, forsøger OpenClaw at auto-detektere det ved at parse SSH-kommandoen i dit wrapper script. Eksplicit konfiguration anbefales for pålidelighed.
+  
+</Accordion>
 
-#### Fjern-Mac via Tailscale (eksempel)
+  <Accordion title="Remote Mac over Tailscale (example)">
+    Almindelig topologi:
 
-Hvis Gateway kører på en Linux-vært/VM, men iMessage skal køre på en Mac, er Tailscale den enkleste bro: Gatewayen taler med Mac’en over tailnettet, kører `imsg` via SSH og SCP’er vedhæftninger tilbage.
-
-Arkitektur:
-
-```mermaid
-%%{init: {
-  'theme': 'base',
-  'themeVariables': {
-    'primaryColor': '#ffffff',
-    'primaryTextColor': '#000000',
-    'primaryBorderColor': '#000000',
-    'lineColor': '#000000',
-    'secondaryColor': '#f9f9fb',
-    'tertiaryColor': '#ffffff',
-    'clusterBkg': '#f9f9fb',
-    'clusterBorder': '#000000',
-    'nodeBorder': '#000000',
-    'mainBkg': '#ffffff',
-    'edgeLabelBackground': '#ffffff'
-  }
-}}%%
-flowchart TB
- subgraph T[" "]
- subgraph Tailscale[" "]
-    direction LR
-      Gateway["<b>Gateway host (Linux/VM)<br></b><br>openclaw gateway<br>channels.imessage.cliPath"]
-      Mac["<b>Mac med Beskeder + imsg<br></b><br>Beskeder logget ind<br>Fjernlogin aktiveret"]
-  end
-    Gateway -- SSH (imsg rpc) --> Mac
-    Mac -- SCP (vedhæftninger) --> Gateway
-    direction BT
-    User["user@gateway-host"] -- "Tailscale tailnet (værtsnavn eller 100.x.y.z)" --> Gateway
-end
-```
-
-Konkret konfigurationseksempel (Tailscale-værtsnavn):
+    ```
+    - gateway kører på Linux/VM
+    - iMessage + `imsg` kører på en Mac i dit tailnet
+    - `cliPath`-wrapper bruger SSH til at køre `imsg`
+    - `remoteHost` aktiverer SCP-hentning af vedhæftninger
+    
+    Eksempel:
+    ```
 
 ```json5
 {
@@ -215,124 +247,170 @@ Konkret konfigurationseksempel (Tailscale-værtsnavn):
 }
 ```
 
-Eksempel-wrapper (`~/.openclaw/scripts/imsg-ssh`):
-
 ```bash
 #!/usr/bin/env bash
 exec ssh -T bot@mac-mini.tailnet-1234.ts.net imsg "$@"
 ```
 
-Noter:
+    ```
+    Brug SSH-nøgler, så både SSH og SCP er ikke-interaktive.
+    ```
 
-- Sørg for, at Mac’en er logget ind i Beskeder, og at Fjernlogin er aktiveret.
-- Brug SSH-nøgler, så `ssh bot@mac-mini.tailnet-1234.ts.net` fungerer uden prompter.
-- `remoteHost` bør matche SSH-målet, så SCP kan hente vedhæftninger.
+  
+</Accordion>
 
-Multi-konto support: brug `channels.imessage.accounts` med per-konto konfiguration og valgfri `navn`. Se [`gateway/configuration`](/gateway/configuration#telegramaccounts--discordaccounts--slackaccounts--signalaccounts--imessageaccounts) for det delte mønster. Ikke begå `~/.openclaw/openclaw.json` (det indeholder ofte tokens).
+  <Accordion title="Multi-account pattern">
+    iMessage understøtter konfiguration pr. konto under `channels.imessage.accounts`.
 
-## Adgangskontrol (DMs + grupper)
+    ```
+    Hver konto kan tilsidesætte felter som `cliPath`, `dbPath`, `allowFrom`, `groupPolicy`, `mediaMaxMb` og historikindstillinger.
+    ```
 
-DMs:
+  
+</Accordion>
+</AccordionGroup>
 
-- Standard: `channels.imessage.dmPolicy = "pairing"`.
-- Ukendte afsendere modtager en parringskode; beskeder ignoreres, indtil de godkendes (koder udløber efter 1 time).
-- Godkend via:
-  - `openclaw pairing list imessage`
-  - `openclaw pairing approve imessage <CODE>`
-- Parring er standard token udveksling for iMessage DMs. Detaljer: [Pairing](/channels/pairing)
+## Medier, chunking og leveringsmål
 
-Grupper:
+<AccordionGroup>
+  <Accordion title="Attachments and media">
+    - indgående indlæsning af vedhæftninger er valgfri: `channels.imessage.includeAttachments`
+    - eksterne stier til vedhæftninger kan hentes via SCP, når `remoteHost` er angivet
+    - udgående mediestørrelse bruger `channels.imessage.mediaMaxMb` (standard 16 MB)
+  
+</Accordion>
 
-- `channels.imessage.groupPolicy = open | allowlist | disabled`.
-- `channels.imessage.groupAllowFrom` styrer, hvem der kan trigge i grupper, når `allowlist` er sat.
-- Mention-gating bruger `agents.list[].groupChat.mentionPatterns` (eller `messages.groupChat.mentionPatterns`), fordi iMessage ikke har native mention-metadata.
-- Multi-agent override: sæt mønstre pr. agent på `agents.list[].groupChat.mentionPatterns`.
+  <Accordion title="Outbound chunking">
+    - tekst-chunkgrænse: `channels.imessage.textChunkLimit` (standard 4000)
+    - chunk-tilstand: `channels.imessage.chunkMode`
+      - `length` (standard)
+      - `newline` (opdeling med afsnit først)
+  
+</Accordion>
+
+  <Accordion title="Addressing formats">
+    Foretrukne eksplicitte mål:
+
+    ```
+    - `chat_id:123` (anbefales for stabil routing)
+    - `chat_guid:...`
+    - `chat_identifier:...`
+    
+    Handle-mål understøttes også:
+    
+    - `imessage:+1555...`
+    - `sms:+1555...`
+    - `user@example.com`
+    ```
+
+```bash
+imsg chats --limit 20
+```
+
+  
+</Accordion>
+</AccordionGroup>
 
 ## Sådan virker det (adfærd)
 
-- `imsg` streamer beskedhændelser; gatewayen normaliserer dem til den fælles kanal-konvolut.
-- Svar routes altid tilbage til samme chat-id eller handle.
+iMessage tillader som standard kanal-initierede konfigurationsskrivninger (for `/config set|unset`, når `commands.config: true`).
 
-## Gruppe-agtige tråde (`is_group=false`)
-
-Nogle iMessage-tråde kan have flere deltagere, men stadig ankomme med `is_group=false`, afhængigt af hvordan Beskeder gemmer chat-identifikatoren.
-
-Hvis du eksplicit konfigurerer et `chat_id` under `channels.imessage.groups`, behandler OpenClaw den tråd som en “gruppe” for:
-
-- sessionsisolering (separat `agent:<agentId>:imessage:group:<chat_id>`-sessionsnøgle)
-- gruppe-tilladelsesliste / mention-gating-adfærd
-
-Eksempel:
+Deaktiver:
 
 ```json5
 {
   channels: {
     imessage: {
-      groupPolicy: "allowlist",
-      groupAllowFrom: ["+15555550123"],
-      groups: {
-        "42": { requireMention: false },
-      },
+      configWrites: false,
     },
   },
 }
 ```
 
-Dette er nyttigt, når du ønsker en isoleret personlighed/model for en bestemt tråd (se [Multi-agent routing](/concepts/multi-agent)). For isolering af filsystemet, se [Sandboxing](/gateway/sandboxing).
+## Fejlfinding
 
-## Medier + grænser
+<AccordionGroup>
+  <Accordion title="imsg not found or RPC unsupported">
+    Valider binæren og RPC-understøttelse:
 
-- Valgfri indlæsning af vedhæftninger via `channels.imessage.includeAttachments`.
-- Medieloft via `channels.imessage.mediaMaxMb`.
-
-## Begrænsninger
-
-- Udgående tekst opdeles i bidder på `channels.imessage.textChunkLimit` (standard 4000).
-- Valgfri linjeskift-opdeling: sæt `channels.imessage.chunkMode="newline"` til at splitte på tomme linjer (afsnitsgrænser) før længdeopdeling.
-- Medieuploads er begrænset af `channels.imessage.mediaMaxMb` (standard 16).
-
-## Adressering / leveringsmål
-
-Foretræk `chat_id` for stabil routing:
-
-- `chat_id:123` (foretrukket)
-- `chat_guid:...`
-- `chat_identifier:...`
-- direkte handles: `imessage:+1555` / `sms:+1555` / `user@example.com`
-
-List chats:
-
-```
-imsg chats --limit 20
+```bash
+imsg rpc --help
+openclaw channels status --probe
 ```
 
-## Konfigurationsreference (iMessage)
+    ```
+    {
+      channels: {
+        imessage: {
+          groupPolicy: "allowlist",
+          groupAllowFrom: ["+15555550123"],
+          groups: {
+            "42": { requireMention: false },
+          },
+        },
+      },
+    }
+    ```
 
-Fuld konfiguration: [Konfiguration](/gateway/configuration)
+  
+</Accordion>
 
-Udbyderindstillinger:
+  <Accordion title="DMs are ignored">
+    Tjek:
 
-- `channels.imessage.enabled`: aktivér/deaktivér kanalopstart.
-- `channels.imessage.cliPath`: sti til `imsg`.
-- `channels.imessage.dbPath`: sti til Beskeder-databasen.
-- `channels.imessage.remoteHost`: SSH vært for SCP vedhæftet fil overførsel, når `cliPath` peger på en ekstern Mac (fx, `user@gateway-host`). Auto-detekteret fra SSH-indpakning, hvis ikke angivet.
-- `channels.imessage.service`: `imessage | sms | auto`.
-- `channels.imessage.region`: SMS-region.
-- `channels.imessage.dmPolicy`: `pairing | allowlist | open | disabled` (standard: pairing).
-- `channels.imessage.allowFrom`: DM allowlist (håndtag, e-mails, E.164 numre, eller `chat_id:*`). `open` kræver `"*"`. iMessage har ingen brugernavne; brug håndtag eller chat mål.
-- `channels.imessage.groupPolicy`: `open | allowlist | disabled` (standard: tilladelsesliste).
-- `channels.imessage.groupAllowFrom`: gruppesender-tilladelsesliste.
-- `channels.imessage.historyLimit` / `channels.imessage.accounts.*.historyLimit`: max gruppebeskeder til at omfatte som kontekst (0 disables).
-- `channels.imessage.dmHistoryLimit`: DM historik grænse i bruger sving. Per-user tilsidesættelser: `channels.imessage.dms["<handle>"].historyLimit`.
-- `channels.imessage.groups`: standarder pr. gruppe + tilladelsesliste (brug `"*"` for globale standarder).
-- `channels.imessage.includeAttachments`: indlæs vedhæftninger i kontekst.
-- `channels.imessage.mediaMaxMb`: ind-/udgående medieloft (MB).
-- `channels.imessage.textChunkLimit`: udgående chunk-størrelse (tegn).
-- `channels.imessage.chunkMode`: `length` (standard) eller `newline` for at splitte på tomme linjer (afsnitsgrænser) før længdeopdeling.
+    ```
+    - `channels.imessage.dmPolicy`
+    - `channels.imessage.allowFrom`
+    - pairing-godkendelser (`openclaw pairing list imessage`)
+    ```
 
-Relaterede globale indstillinger:
+  
+</Accordion>
+
+  <Accordion title="Group messages are ignored">
+    Tjek:
+
+    ```
+    - `channels.imessage.groupPolicy`
+    - `channels.imessage.groupAllowFrom`
+    - allowlist-adfærd for `channels.imessage.groups`
+    - konfiguration af mention-mønstre (`agents.list[].groupChat.mentionPatterns`)
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Remote attachments fail">
+    Tjek:
+
+    ```
+    - `channels.imessage.remoteHost`
+    - SSH/SCP-nøgleautentificering fra gateway-værten
+    - læseadgang til fjernstien på den Mac, der kører Messages
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="macOS permission prompts were missed">
+    Kør igen i en interaktiv GUI-terminal i samme bruger-/sessionskontekst og godkend forespørgsler:
+
+```bash
+imsg chats --limit 1
+imsg send <handle> "test"
+```
+
+    ```
+    Bekræft, at Full Disk Access + Automation er givet til den proceskontekst, der kører OpenClaw/`imsg`.
+    ```
+
+  
+</Accordion>
+</AccordionGroup>
+
+## Konfigurationsreferencepunkter
 
 - `agents.list[].groupChat.mentionPatterns` (eller `messages.groupChat.mentionPatterns`).
 - `messages.responsePrefix`.
-
-
+- [Pairing](/channels/pairing)
+- [BlueBubbles](/channels/bluebubbles)

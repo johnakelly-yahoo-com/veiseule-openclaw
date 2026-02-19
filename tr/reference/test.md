@@ -1,4 +1,7 @@
 ---
+summary: "Testlerin yerel olarak (vitest) nasıl çalıştırılacağı ve force/coverage modlarının ne zaman kullanılacağı"
+read_when:
+  - Testleri çalıştırırken veya düzeltirken
 title: "Testler"
 ---
 
@@ -10,7 +13,9 @@ title: "Testler"
 
 - `pnpm test:coverage`: Vitest’i V8 coverage ile çalıştırır. Küresel eşikler satırlar/dallar/fonksiyonlar/ifadeler için %70’tir. Coverage, hedefi birim test edilebilir mantığa odaklı tutmak için entegrasyon ağırlıklı giriş noktalarını (CLI bağlama, gateway/telegram köprüleri, webchat statik sunucu) hariç tutar.
 
-- `pnpm test:e2e`: Gateway uçtan uca smoke testlerini çalıştırır (çoklu örnek WS/HTTP/node eşleştirmesi).
+- Node 24+ üzerinde `pnpm test`: OpenClaw, `ERR_VM_MODULE_LINK_FAILURE` / `module is already linked` hatalarını önlemek için Vitest `vmForks` özelliğini otomatik olarak devre dışı bırakır ve `forks` kullanır. Davranışı `OPENCLAW_TEST_VM_FORKS=0|1` ile zorlayabilirsiniz.
+
+- `pnpm test:e2e`: Gateway uçtan uca smoke testlerini çalıştırır (çoklu örnek WS/HTTP/node eşleştirmesi). Varsayılan olarak `vitest.e2e.config.ts` içinde `vmForks` + uyarlanabilir worker’lar kullanılır; `OPENCLAW_E2E_WORKERS=<n>` ile ayarlayabilir ve ayrıntılı günlükler için `OPENCLAW_E2E_VERBOSE=1` olarak belirleyebilirsiniz.
 
 - `pnpm test:live`: Sağlayıcı canlı testlerini (minimax/zai) çalıştırır. Atlama durumunu kaldırmak için API anahtarları ve `LIVE=1` (veya sağlayıcıya özgü `*_LIVE_TEST=1`) gerektirir.
 
@@ -48,5 +53,3 @@ Docker’da Node 22+ altında `qrcode-terminal`’in yüklendiğinden emin olur:
 ```bash
 pnpm test:docker:qr
 ```
-
-

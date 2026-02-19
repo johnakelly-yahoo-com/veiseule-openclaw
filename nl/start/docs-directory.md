@@ -1,4 +1,7 @@
 ---
+summary: "Gecureerde links naar de meest gebruikte OpenClaw-documentatie."
+read_when:
+  - Je wilt snel toegang tot belangrijke documentatiepagina’s
 title: "Documentatieoverzicht"
 ---
 
@@ -59,5 +62,3 @@ Voor een compleet overzicht van de documentatie, zie [Documentatiehubs](/start/h
 - [Gmail-hooks (Pub/Sub)](/automation/gmail-pubsub)
 - [Beveiliging](/gateway/security)
 - [Problemen oplossen](/gateway/troubleshooting)
-
-

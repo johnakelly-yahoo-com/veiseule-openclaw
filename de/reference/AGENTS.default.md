@@ -1,4 +1,10 @@
-------
+---
+title: "Standard-AGENTS.md"
+summary: "„Standardanweisungen für den OpenClaw-Agenten und Skills-Übersicht für die Einrichtung des persönlichen Assistenten“"
+read_when:
+  - Starten einer neuen OpenClaw-Agentensitzung
+  - Aktivieren oder Prüfen der Standard-Skills
+---
 
 # AGENTS.md — OpenClaw Persönlicher Assistent (Standard)
 
@@ -116,5 +122,3 @@ git commit -m "Add Clawd workspace"
 - Für browsergestützte Verifikation verwenden Sie `openclaw browser` (Tabs/Status/Screenshot) mit dem von OpenClaw verwalteten Chrome-Profil.
 - Für DOM-Inspektion verwenden Sie `openclaw browser eval|query|dom|snapshot` (und `--json`/`--out`, wenn Sie maschinelle Ausgabe benötigen).
 - Für Interaktionen verwenden Sie `openclaw browser click|type|hover|drag|select|upload|press|wait|navigate|back|evaluate|run` (Klicken/Tippen erfordert Snapshot-Referenzen; verwenden Sie `evaluate` für CSS-Selektoren).
-
-

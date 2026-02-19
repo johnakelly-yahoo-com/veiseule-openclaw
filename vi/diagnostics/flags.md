@@ -1,4 +1,8 @@
 ---
+summary: "Cờ chẩn đoán cho nhật ký debug có mục tiêu"
+read_when:
+  - Bạn cần nhật ký debug có mục tiêu mà không tăng mức ghi log toàn cục
+  - Bạn cần thu thập nhật ký theo từng phân hệ để hỗ trợ
 title: "Cờ chẩn đoán"
 ---
 
@@ -85,5 +89,3 @@ Với gateway từ xa, bạn cũng có thể dùng `openclaw logs --follow` (xem
 - Nếu `logging.level` được đặt cao hơn `warn`, các log này có thể bị ẩn. `info` mặc định là ổn.
 - Có thể để cờ bật an toàn; chúng chỉ ảnh hưởng đến lượng log của phân hệ cụ thể.
 - Dùng [/logging](/logging) để thay đổi đích đến log, mức log và che dữ liệu.
-
-

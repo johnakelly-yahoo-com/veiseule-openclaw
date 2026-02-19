@@ -1,4 +1,7 @@
 ---
+summary: "Comportement des discussions de groupe sur les différentes surfaces (WhatsApp/Telegram/Discord/Slack/Signal/iMessage/Microsoft Teams)"
+read_when:
+  - Modification du comportement des discussions de groupe ou du filtrage par mention
 title: "Groupes"
 ---
 
@@ -369,5 +372,3 @@ L’invite système de l’agent inclut une introduction de groupe au premier to
 ## Spécificités WhatsApp
 
 Voir [Messages de groupe](/channels/group-messages) pour le comportement propre à WhatsApp (injection d’historique, détails de gestion des mentions).
-
-

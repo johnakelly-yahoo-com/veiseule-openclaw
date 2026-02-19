@@ -1,4 +1,8 @@
 ---
+summary: "Linux 支援 + 配套應用程式狀態"
+read_when:
+  - 尋找 Linux 夥伴應用程式狀態
+  - 規劃平台涵蓋或貢獻
 title: "Linux 應用程式"
 ---
 
@@ -7,7 +11,7 @@ title: "Linux 應用程式"
 閘道在 Linux 上已完全支援。 **Node 是建議的執行環境**。
 不建議在閘道使用 Bun（WhatsApp/Telegram 有錯誤）。
 
-原生的 Linux 夥伴應用程式正在規劃中。 Contributions are welcome if you want to help build one.
+原生的 Linux 夥伴應用程式正在規劃中。 原生的 Linux 夥伴應用程式正在規劃中。 Contributions are welcome if you want to help build one.
 
 ## 初學者快速路徑（VPS）
 
@@ -88,5 +92,3 @@ WantedBy=default.target
 ```
 systemctl --user enable --now openclaw-gateway[-<profile>].service
 ```
-
-

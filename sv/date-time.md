@@ -1,4 +1,8 @@
 ---
+summary: "Hantering av datum och tid över kuvert, promptar, verktyg och kopplingar"
+read_when:
+  - Du ändrar hur tidsstämplar visas för modellen eller användare
+  - Du felsöker tidsformatering i meddelanden eller i systempromptens utdata
 title: "Datum och tid"
 ---
 
@@ -34,7 +38,7 @@ Du kan åsidosätta detta beteende:
 - `envelopeTimezone: "utc"` använder UTC.
 - `envelopeTimezone: "local"` använder värdens tidszon.
 - `envelopeTimezone: "user"` använder `agents.defaults.userTimezone` (faller tillbaka till värdens tidszon).
-- Använd en explicit IANA tidszon (t.ex., "Amerika/Chicago"\`) för en fast zon.
+- Använd en explicit IANA tidszon (t.ex., "Amerika/Chicago"\\`) för en fast zon.
 - `envelopeTimestamp: "off"` tar bort absoluta tidsstämplar från kuvert‑huvuden.
 - `envelopeElapsed: "off"` tar bort suffix för förfluten tid (stilen `+2m`).
 
@@ -122,5 +126,3 @@ Om du behöver lokal tid, konvertera den nedströms med den kända tidszonen.
 - [Systemprompt](/concepts/system-prompt)
 - [Tidszoner](/concepts/timezone)
 - [Meddelanden](/concepts/messages)
-
-

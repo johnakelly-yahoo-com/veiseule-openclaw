@@ -1,4 +1,7 @@
 ---
+summary: "เอกสารอ้างอิงCLIสำหรับ `openclaw docs` (ค้นหาดัชนีเอกสารสด)"
+read_when:
+  - คุณต้องการค้นหาเอกสารOpenClawแบบสดจากเทอร์มินัล
 title: "เอกสาร"
 ---
 
@@ -10,5 +13,3 @@ title: "เอกสาร"
 openclaw docs browser extension
 openclaw docs sandbox allowHostControl
 ```
-
-

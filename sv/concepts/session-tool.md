@@ -1,4 +1,7 @@
 ---
+summary: "Agentsessionverktyg för att lista sessioner, hämta historik och skicka meddelanden mellan sessioner"
+read_when:
+  - Lägga till eller ändra sessionsverktyg
 title: "Sessionsverktyg"
 ---
 
@@ -92,9 +95,10 @@ Beteende:
 - Väntar via gateway `agent.wait` (serversidan) så att återanslutningar inte avbryter väntan.
 - Agent-till-agent-meddelandekontext injiceras för primärkörningen.
 - Efter att primärkörningen slutförts kör OpenClaw en **reply-back-loop**:
-  - Runda 2+ alternerar mellan begärande och målagent.
-  - Svara exakt `REPLY_SKIP` för att stoppa ping‑pong.
-  - Max antal turer är `session.agentToAgent.maxPingPongTurns` (0–5, standard 5).
+- När loopen avslutas kör OpenClaw steget **agent‑till‑agent‑announce** (endast målagent):
+  - Svara exakt `ANNOUNCE_SKIP` för att vara tyst.
+  - Alla andra svar skickas till målkanalen.
+  - Announce-steget inkluderar den ursprungliga begäran + runda‑1‑svaret + senaste ping‑pong‑svaret.
 - När loopen avslutas kör OpenClaw steget **agent‑till‑agent‑announce** (endast målagent):
   - Svara exakt `ANNOUNCE_SKIP` för att vara tyst.
   - Alla andra svar skickas till målkanalen.
@@ -188,5 +192,3 @@ Konfig:
   },
 }
 ```
-
-

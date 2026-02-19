@@ -1,15 +1,15 @@
 ---
-title: 文档导航中心
-x-i18n:
-  generated_at: "2026-02-04T17:55:29Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: c4b4572b64d36c9690988b8f964b0712f551ee6491b18a493701a17d2d352cb4
-  source_path: start/hubs.md
-  workflow: 15
+summary: "链接到每篇 OpenClaw 文档的导航中心"
+read_when:
+  - 你想要一份完整的文档地图
+title: "Docs Hubs"
 ---
 
-# 文档导航中心
+# 如果你是 OpenClaw 新用户，请从 [Getting Started](/start/getting-started) 开始。
+
+<Note>
+start/hubs.md
+</Note>
 
 使用这些导航中心发现每一个页面，包括深入解析和参考文档——它们不一定出现在左侧导航栏中。
 
@@ -195,5 +195,3 @@ x-i18n:
 - [测试](/reference/test)
 - [发布检查清单](/reference/RELEASING)
 - [设备型号](/reference/device-models)
-
-

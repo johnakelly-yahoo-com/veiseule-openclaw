@@ -1,4 +1,8 @@
 ---
+summary: "Agent-værktøjsflade for OpenClaw (browser, canvas, nodes, message, cron), der erstatter de ældre `openclaw-*` Skills"
+read_when:
+  - Tilføjelse eller ændring af agent-værktøjer
+  - Udfasning eller ændring af `openclaw-*` Skills
 title: "Værktøjer"
 ---
 
@@ -177,6 +181,7 @@ Valgfrie plugin-værktøjer:
 
 Anvend strukturerede rettelser på tværs af en eller flere filer. Brug til multi-hunk redigeringer.
 Eksperimentel: Aktiver via `tools.exec.applyPatch.enabled` (OpenAI modeller kun).
+`tools.exec.applyPatch.workspaceOnly` er som standard sat til `true` (begrænset til workspace). Sæt den til `false` kun hvis du bevidst ønsker, at `apply_patch` skal skrive/slette uden for workspace-mappen.
 
 ### `exec`
 
@@ -506,5 +511,3 @@ Værktøjer eksponeres i to parallelle kanaler:
 
 Det betyder, at agenten ser både ”hvilke redskaber der findes” og ”hvordan man kalder dem”. Hvis et værktøj
 ikke vises i systemprompten eller skemaet, kan modellen ikke kalde det.
-
-

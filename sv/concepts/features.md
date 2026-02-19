@@ -1,4 +1,7 @@
 ---
+summary: "”OpenClaw-funktioner över kanaler, routing, media och UX.”"
+read_when:
+  - Du vill ha en fullständig lista över vad OpenClaw stöder
 title: "”Funktioner”"
 ---
 
@@ -54,5 +57,3 @@ title: "”Funktioner”"
 Legacy Claude, Codex, Gemini och Opencode sökvägar har tagits bort. Pi är den enda sökvägen för
 kodningsagenten.
 </Note>
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "Trạng thái hỗ trợ bot Microsoft Teams, khả năng và cấu hình"
+read_when:
+  - Làm việc trên các tính năng kênh MS Teams
 title: "Microsoft Teams"
 ---
 
@@ -84,11 +87,11 @@ Tắt bằng:
 **Truy cập DM**
 
 - Mặc định: `channels.msteams.dmPolicy = "pairing"`. Unknown senders are ignored until approved.
-- `channels.msteams.allowFrom` chấp nhận AAD object ID, UPN hoặc tên hiển thị. Trình hướng dẫn sẽ phân giải tên thành ID thông qua Microsoft Graph khi thông tin xác thực cho phép.
+- `channels.msteams.allowFrom` accepts AAD object IDs, UPNs, or display names. The wizard resolves names to IDs via Microsoft Graph when credentials allow.
 
 **Truy cập nhóm**
 
-- Mặc định: `channels.msteams.groupPolicy = "allowlist"` (bị chặn trừ khi bạn thêm `groupAllowFrom`). Sử dụng `channels.defaults.groupPolicy` để ghi đè giá trị mặc định khi chưa được thiết lập.
+- Default: `channels.msteams.groupPolicy = "allowlist"` (blocked unless you add `groupAllowFrom`). Use `channels.defaults.groupPolicy` to override the default when unset.
 - `channels.msteams.groupAllowFrom` kiểm soát người gửi nào có thể kích hoạt trong chat nhóm/kênh (dự phòng về `channels.msteams.allowFrom`).
 - Đặt `groupPolicy: "open"` để cho phép mọi thành viên (vẫn yêu cầu mention theo mặc định).
 - Để **không cho phép kênh nào**, đặt `channels.msteams.groupPolicy: "disabled"`.
@@ -152,14 +155,14 @@ Trước khi cấu hình OpenClaw, bạn cần tạo tài nguyên Azure Bot.
 1. Vào [Create Azure Bot](https://portal.azure.com/#create/Microsoft.AzureBot)
 2. Điền tab **Basics**:
 
-   | Trường             | Giá trị                                                                      |
-   | ------------------ | ---------------------------------------------------------------------------- |
-   | **Tên bot**     | Tên bot của bạn, ví dụ `openclaw-msteams` (phải duy nhất) |
-   | **Gói đăng ký**   | Chọn subscription Azure                                                      |
+   | Trường              | Giá trị                                                                      |
+   | ------------------- | ---------------------------------------------------------------------------- |
+   | **Tên bot**         | Tên bot của bạn, ví dụ `openclaw-msteams` (phải duy nhất) |
+   | **Gói đăng ký**     | Chọn subscription Azure                                                      |
    | **Nhóm tài nguyên** | Tạo mới hoặc dùng sẵn                                                        |
-   | **Bậc giá**   | **Free** cho dev/test                                                        |
-   | **Loại ứng dụng**    | **Single Tenant** (khuyến nghị - xem lưu ý bên dưới)      |
-   | **Loại tạo**  | **Create new Microsoft App ID**                                              |
+   | **Bậc giá**         | **Free** cho dev/test                                                        |
+   | **Loại ứng dụng**   | **Single Tenant** (khuyến nghị - xem lưu ý bên dưới)      |
+   | **Loại tạo**        | **Create new Microsoft App ID**                                              |
 
 > **Thông báo ngừng hỗ trợ:** Việc tạo bot đa tenant mới đã bị ngừng sau 2025-07-31. Use **Single Tenant** for new bots.
 
@@ -421,7 +424,9 @@ Nếu bạn cần hình ảnh/tệp trong **kênh** hoặc muốn lấy **lịch
 3. Tăng **manifest version** của app Teams, tải lại và **cài lại app trong Teams**.
 4. **Thoát hoàn toàn và mở lại Teams** để xóa cache metadata app.
 
-## Giới hạn đã biết
+**Quyền bổ sung cho user mention:** User @mentions hoạt động mặc định với những người dùng trong cuộc trò chuyện. Tuy nhiên, nếu bạn muốn tìm kiếm động và mention những người dùng **không có trong cuộc trò chuyện hiện tại**, hãy thêm quyền `User.Read.All` (Application) và cấp admin consent.
+
+## Hết thời gian webhook
 
 ### Hết thời gian webhook
 
@@ -733,7 +738,7 @@ Bot hỗ trợ hạn chế trong kênh riêng tư:
 2. Dùng DM – người dùng luôn có thể nhắn trực tiếp cho bot
 3. Dùng Graph API cho truy cập lịch sử (yêu cầu `ChannelMessage.Read.All`)
 
-## Xử lý sự cố
+## Sự cố thường gặp
 
 ### Sự cố thường gặp
 
@@ -765,5 +770,3 @@ Bot hỗ trợ hạn chế trong kênh riêng tư:
 - [RSC permissions reference](https://learn.microsoft.com/en-us/microsoftteams/platform/graph-api/rsc/resource-specific-consent)
 - [Teams bot file handling](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/bots-filesv4) (kênh/nhóm cần Graph)
 - [Proactive messaging](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/conversations/send-proactive-messages)
-
-

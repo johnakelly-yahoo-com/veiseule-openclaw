@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw macOS 配套應用程式（選單列 + gateway broker）"
+read_when:
+  - 實作 macOS 應用程式功能時
+  - 在 macOS 上變更 Gateway 生命週期或節點橋接時
 title: "macOS 應用程式"
 ---
 
@@ -7,9 +11,9 @@ title: "macOS 應用程式"
 The macOS app is the **menu‑bar companion** for OpenClaw. 它擁有權限，
 在本地管理／附加 Gateway（launchd 或手動），並將 macOS 能力以節點形式暴露給代理。
 
-## 功能說明
+## What it does
 
-- 在選單列中顯示原生通知與狀態。
+- Shows native notifications and status in the menu bar.
 - 管理 TCC 提示（通知、輔助使用、螢幕錄製、麥克風、
   語音辨識、自動化／AppleScript）。
 - 執行或連線至 Gateway（本機或遠端）。
@@ -26,6 +30,10 @@ The macOS app is the **menu‑bar companion** for OpenClaw. 它擁有權限，
   本機處理程序。
   應用程式會啟動本機**節點主機服務**，讓遠端 Gateway 能夠連線到此 Mac。
   應用程式不會以子處理程序的方式啟動 Gateway。
+  **Remote**：應用程式透過 SSH／Tailscale 連線至 Gateway，且永遠不會啟動
+  本機處理程序。
+  應用程式會啟動本機**節點主機服務**，讓遠端 Gateway 能夠連線到此 Mac。
+  應用程式不會以子處理程序的方式啟動 Gateway。
   The app starts the local **node host service** so the remote Gateway can reach this Mac.
   應用程式不會以子行程方式啟動 Gateway。
 
@@ -39,7 +47,7 @@ launchctl kickstart -k gui/$UID/bot.molt.gateway
 launchctl bootout gui/$UID/bot.molt.gateway
 ```
 
-在執行具名設定檔時，請將標籤替換為 `bot.molt.<profile> `。\` when running a named profile.
+在執行具名設定檔時，請將標籤替換為 `bot.molt.<profile>`。\\` when running a named profile.
 
 如果尚未安裝 LaunchAgent，可從應用程式中啟用，或執行
 `openclaw gateway install`。
@@ -127,6 +135,7 @@ open 'openclaw://agent?message=Hello%20from%20deep%20link'
 安全性：
 
 - 若未提供 `key`，應用程式會要求確認。
+- 若未提供 `key`，應用程式會對確認提示強制執行較短的訊息長度限制，並忽略 `deliver` / `to` / `channel`。
 - 若提供有效的 `key`，執行將為無人值守（用於個人自動化）。
 
 ## 入門流程（典型）
@@ -188,6 +197,7 @@ macOS 應用程式的探索管線（NWBrowser + tailnet DNS‑SD 後備）
 - **IP 回報：** SSH 通道使用 loopback，因此 gateway 看到的節點 IP
   會是 `127.0.0.1`。若希望顯示真實的用戶端 IP，
   請使用 **Direct（ws/wss）** 傳輸（請參閱 [macOS remote access](/platforms/mac/remote)）。 Use **Direct (ws/wss)** transport if you want the real client
+  IP to appear (see [macOS remote access](/platforms/mac/remote)). Use **Direct (ws/wss)** transport if you want the real client
   IP to appear (see [macOS remote access](/platforms/mac/remote)).
 
 For setup steps, see [macOS remote access](/platforms/mac/remote). For protocol
@@ -199,5 +209,3 @@ details, see [Gateway protocol](/gateway/protocol).
 - [Gateway（macOS）](/platforms/mac/bundled-gateway)
 - [macOS 權限](/platforms/mac/permissions)
 - [Canvas](/platforms/mac/canvas)
-
-

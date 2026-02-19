@@ -1,4 +1,9 @@
 ---
+summary: "在 GCP Compute Engine VM（Docker）上 24/7 執行 OpenClaw Gateway，並具備耐久狀態"
+read_when:
+  - 你希望在 GCP 上 24/7 執行 OpenClaw
+  - 你想要在自己的 VM 上部署生產等級、永遠在線的 Gateway
+  - 你希望完全掌控持久化、二進位檔與重新啟動行為
 title: "GCP"
 ---
 
@@ -10,6 +15,7 @@ title: "GCP"
 
 如果你想要「每月約 ~$5–12 就能 24/7 執行 OpenClaw」，這是在 Google Cloud 上可靠的設定方式。  
 費用會依機器類型與區域而異；請選擇能滿足工作負載的最小 VM，若遇到 OOM 再向上擴充。
+價格依機器類型與地區而異；選擇能滿足工作負載的最小 VM，若遇到 OOM 再向上擴充。
 價格依機器類型與地區而異；選擇能滿足工作負載的最小 VM，若遇到 OOM 再向上擴充。
 
 ## 我們在做什麼（白話說明）？
@@ -28,6 +34,7 @@ Gateway 可透過以下方式存取：
 
 本指南在 GCP Compute Engine 上使用 Debian。
 Ubuntu also works; map packages accordingly.
+Ubuntu also works; map packages accordingly.
 For the generic Docker flow, see [Docker](/install/docker).
 
 ---
@@ -41,7 +48,7 @@ For the generic Docker flow, see [Docker](/install/docker).
 5. 複製 OpenClaw 儲存庫
 6. 建立持久化的主機目錄
 7. 設定 `.env` 與 `docker-compose.yml`
-8. 打包所需的二進位檔、建置並啟動
+8. Bake required binaries, build, and launch
 
 ---
 
@@ -101,7 +108,7 @@ gcloud services enable compute.googleapis.com
 
 1. 前往 IAM 與管理 > 建立專案
 2. 命名並建立
-3. 為專案啟用計費
+3. Enable billing for the project
 4. 前往 API 與服務 > 啟用 API > 搜尋「Compute Engine API」> 啟用
 
 ---
@@ -149,7 +156,7 @@ gcloud compute ssh openclaw-gateway --zone=us-central1-a
 
 在 Compute Engine 儀表板中，點擊 VM 旁的「SSH」按鈕。
 
-注意：VM 建立後，SSH 金鑰同步可能需要 1–2 分鐘。若連線被拒，請稍候再試。 If connection is refused, wait and retry.
+注意：VM 建立後，SSH 金鑰同步可能需要 1–2 分鐘。若連線被拒，請稍候再試。 If connection is refused, wait and retry. If connection is refused, wait and retry.
 
 ---
 
@@ -196,6 +203,7 @@ This guide assumes you will build a custom image to guarantee binary persistence
 
 ## 7. 建立持久化的主機目錄
 
+Docker 容器是短暫的。
 Docker 容器是短暫的。
 All long-lived state must live on the host.
 
@@ -403,11 +411,12 @@ gcloud compute ssh openclaw-gateway --zone=us-central1-a -- -L 18789:127.0.0.1:1
 OpenClaw 在 Docker 中執行，但 Docker 並非單一事實來源。  
 所有長期狀態都必須能在重啟、重建與重新開機後存活。
 All long-lived state must survive restarts, rebuilds, and reboots.
+All long-lived state must survive restarts, rebuilds, and reboots.
 
 | 元件            | 位置                                | 持久化機制             | 注意事項                      |
 | ------------- | --------------------------------- | ----------------- | ------------------------- |
 | Gateway 設定    | `/home/node/.openclaw/`           | Host volume mount | 包含 `openclaw.json`、權杖     |
-| 模型身分驗證設定      | `/home/node/.openclaw/`           | 主機磁碟區掛載           | OAuth 權杖、API 金鑰           |
+| 模型身分驗證設定      | `/home/node/.openclaw/`           | Host volume mount | OAuth 權杖、API 金鑰           |
 | Skill 設定      | `/home/node/.openclaw/skills/`    | Host volume mount | Skill 層級狀態                |
 | 代理程式工作區       | `/home/node/.openclaw/workspace/` | Host volume mount | 程式碼與代理程式產物                |
 | WhatsApp 工作階段 | `/home/node/.openclaw/`           | Host volume mount | 保留 QR 登入                  |
@@ -436,7 +445,7 @@ docker compose up -d
 
 **SSH 連線被拒**
 
-VM 建立後，SSH 金鑰同步可能需要 1–2 分鐘。請稍候再試。 Wait and retry.
+VM 建立後，SSH 金鑰同步可能需要 1–2 分鐘。請稍候再試。 Wait and retry. Wait and retry.
 
 **OS Login 問題**
 
@@ -500,5 +509,3 @@ IAM 角色細節請參考
 - 設定訊息頻道：[Channels](/channels)
 - 將本地裝置配對為節點：[Nodes](/nodes)
 - 設定 Gateway：[Gateway configuration](/gateway/configuration)
-
-

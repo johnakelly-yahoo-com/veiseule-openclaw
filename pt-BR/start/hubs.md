@@ -1,4 +1,7 @@
 ---
+summary: "Hubs que vinculam a todos os documentos do OpenClaw"
+read_when:
+  - Você quer um mapa completo da documentação
 title: "Hubs de documentos"
 ---
 
@@ -192,5 +195,3 @@ Use estes hubs para descobrir todas as páginas, incluindo análises aprofundada
 - [Testes](/reference/test)
 - [Checklist de lançamento](/reference/RELEASING)
 - [Modelos de dispositivos](/reference/device-models)
-
-

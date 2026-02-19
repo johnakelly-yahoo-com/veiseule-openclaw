@@ -1,4 +1,8 @@
 ---
+summary: "مرجع CLI لأمر `openclaw nodes` (list/status/approve/invoke، الكاميرا/اللوحة/الشاشة)"
+read_when:
+  - أنت تدير عُقدًا مقترنة (كاميرات، شاشة، لوحة)
+  - تحتاج إلى الموافقة على الطلبات أو استدعاء أوامر العُقد
 title: "nodes"
 ---
 
@@ -60,12 +64,10 @@ openclaw nodes run --agent main --node <id|name|ip> --raw "git status"
 الأعلام:
 
 - `--cwd <path>`: دليل العمل.
-- `--env <key=val>`: تجاوز متغيرات البيئة (قابل للتكرار).
+- `--env <key=val>`: تجاوز متغيرات البيئة (قابل للتكرار). ملاحظة: تتجاهل مضيفات node تجاوزات `PATH` (ولا يتم تطبيق `tools.exec.pathPrepend` على مضيفات node).
 - `--command-timeout <ms>`: مهلة الأمر.
 - `--invoke-timeout <ms>`: مهلة استدعاء العُقدة (الافتراضي `30000`).
 - `--needs-screen-recording`: يتطلب إذن تسجيل الشاشة.
 - `--raw <command>`: تشغيل سلسلة صدفة (`/bin/sh -lc` أو `cmd.exe /c`).
 - `--agent <id>`: موافقات/قوائم سماح بنطاق الوكيل (الافتراضي إلى الوكيل المُهيأ).
 - `--ask <off|on-miss|always>`، `--security <deny|allowlist|full>`: تجاوزات.
-
-

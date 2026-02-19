@@ -1,10 +1,14 @@
 ---
+summary: "Patakbuhin ang OpenClaw gamit ang Ollama (lokal na LLM runtime)"
+read_when:
+  - Gusto mong patakbuhin ang OpenClaw gamit ang mga lokal na model sa pamamagitan ng Ollama
+  - Kailangan mo ng gabay sa setup at konpigurasyon ng Ollama
 title: "Ollama"
 ---
 
 # Ollama
 
-Ollama is a local LLM runtime that makes it easy to run open-source models on your machine. OpenClaw integrates with Ollama's OpenAI-compatible API and can **auto-discover tool-capable models** when you opt in with `OLLAMA_API_KEY` (or an auth profile) and do not define an explicit `models.providers.ollama` entry.
+Ollama is a local LLM runtime that makes it easy to run open-source models on your machine. Ang OpenClaw ay naka-integrate sa native API ng Ollama (`/api/chat`), na sumusuporta sa streaming at tool calling, at maaaring **awtomatikong tuklasin ang mga modelong may kakayahang gumamit ng tools** kapag nag-opt in ka gamit ang `OLLAMA_API_KEY` (o isang auth profile) at hindi nagde-define ng tahasang `models.providers.ollama` entry.
 
 ## Mabilis na pagsisimula
 
@@ -170,53 +174,36 @@ Libre ang Ollama at lokal na tumatakbo, kaya ang lahat ng gastos ng model ay nak
 
 ### Konpigurasyon ng Streaming
 
-Due to a [known issue](https://github.com/badlogic/pi-mono/issues/1205) in the underlying SDK with Ollama's response format, **streaming is disabled by default** for Ollama models. This prevents corrupted responses when using tool-capable models.
+Ang integration ng OpenClaw sa Ollama ay gumagamit ng **native Ollama API** (`/api/chat`) bilang default, na ganap na sumusuporta sa streaming at tool calling nang sabay. Hindi kailangan ng espesyal na configuration.
 
-Kapag naka-disable ang streaming, ang mga response ay ipinapadala nang sabay-sabay (non-streaming mode), na umiiwas sa isyu kung saan ang magkahalong content/reasoning deltas ay nagdudulot ng magulong output.
+#### Legacy OpenAI-Compatible Mode
 
-#### Muling i-enable ang Streaming (Advanced)
-
-Kung gusto mong muling i-enable ang streaming para sa Ollama (maaaring magdulot ng isyu sa mga model na may kakayahang gumamit ng tool):
+Kung kailangan mong gamitin ang OpenAI-compatible endpoint sa halip (hal., nasa likod ng proxy na OpenAI format lang ang sinusuportahan), itakda nang tahasan ang `api: "openai-completions"`:
 
 ```json5
 {
-  agents: {
-    defaults: {
-      models: {
-        "ollama/gpt-oss:20b": {
-          streaming: true,
-        },
-      },
-    },
-  },
+  models: {
+    providers: {
+      ollama: {
+        baseUrl: "http://ollama-host:11434/v1",
+        api: "openai-completions",
+        apiKey: "ollama-local",
+        models: [...]
+      }
+    }
+  }
 }
 ```
 
-#### I-disable ang Streaming para sa Ibang Provider
+Tandaan: Maaaring hindi suportado ng OpenAI-compatible endpoint ang streaming + tool calling nang sabay. Maaaring kailanganin mong i-disable ang streaming gamit ang `params: { streaming: false }` sa model config.
 
-Maaari mo ring i-disable ang streaming para sa anumang provider kung kinakailangan:
-
-```json5
-{
-  agents: {
-    defaults: {
-      models: {
-        "openai/gpt-4": {
-          streaming: false,
-        },
-      },
-    },
-  },
-}
-```
-
-### Mga context window
+### I-disable ang Streaming para sa Ibang Provider
 
 For auto-discovered models, OpenClaw uses the context window reported by Ollama when available, otherwise it defaults to `8192`. You can override `contextWindow` and `maxTokens` in explicit provider config.
 
 ## Pag-troubleshoot
 
-### Hindi natukoy ang Ollama
+### Mga context window
 
 Tiyaking tumatakbo ang Ollama at na itinakda mo ang `OLLAMA_API_KEY` (o isang auth profile), at **hindi** ka nag-define ng tahasang `models.providers.ollama` na entry:
 
@@ -247,7 +234,7 @@ ollama pull llama3.3     # Or another model
 
 ### Connection refused
 
-Suriin na tumatakbo ang Ollama sa tamang port:
+Para magdagdag ng mga model:
 
 ```bash
 # Check if Ollama is running
@@ -257,19 +244,8 @@ ps aux | grep ollama
 ollama serve
 ```
 
-### Sirang mga response o mga pangalan ng tool sa output
-
-If you see garbled responses containing tool names (like `sessions_send`, `memory_get`) or fragmented text when using Ollama models, this is due to an upstream SDK issue with streaming responses. **This is fixed by default** in the latest OpenClaw version by disabling streaming for Ollama models.
-
-Kung manu-mano mong in-enable ang streaming at naranasan ang isyung ito:
-
-1. Alisin ang konpigurasyong `streaming: true` mula sa iyong mga Ollama model entry, o
-2. Tahasang itakda ang `streaming: false` para sa mga Ollama model (tingnan ang [Konpigurasyon ng Streaming](#streaming-configuration))
-
 ## Tingnan din
 
 - [Model Providers](/concepts/model-providers) - Pangkalahatang-ideya ng lahat ng provider
 - [Model Selection](/concepts/models) - Paano pumili ng mga model
 - [Configuration](/gateway/configuration) - Buong reference ng config
-
-

@@ -1,10 +1,14 @@
 ---
+summary: "Gateway, kanallar, avtomatlashtirish, tugunlar va brauzer uchun chuqur nosozliklarni bartaraf etish qoʻllanmasi"
+read_when:
+  - The troubleshooting hub pointed you here for deeper diagnosis
+  - 15. Sizga aniq buyruqlar bilan barqaror, simptomga asoslangan runbook bo‘limlari kerak
 title: "Nosozliklarni bartaraf etish"
 ---
 
 # Gateway nosozliklarini bartaraf etish
 
-Bu sahifa chuqurlashtirilgan qoʻllanmadir.
+This page is the deep runbook.
 Start at [/help/troubleshooting](/help/troubleshooting) if you want the fast triage flow first.
 
 ## Buyruqlar ketma-ketligi
@@ -51,9 +55,9 @@ Look for:
 
 8. Bog‘liq:
 
-- 9. [/channels/troubleshooting](/channels/troubleshooting)
-- 10. [/channels/pairing](/channels/pairing)
-- 11. [/channels/groups](/channels/groups)
+- [/channels/troubleshooting](/channels/troubleshooting)
+- [/channels/pairing](/channels/pairing)
+- [/channels/groups](/channels/groups)
 
 ## 12. Boshqaruv paneli boshqaruv UI ulanishi
 
@@ -63,7 +67,7 @@ Look for:
 14. openclaw shlyuzi holati
 ```
 
-openclaw status
+Look for:
 
 - openclaw logs --follow
 - openclaw doctor
@@ -77,9 +81,9 @@ openclaw status
 
 19. Keng tarqalgan belgilar:
 
-- 20. `device identity required` → xavfsiz bo‘lmagan kontekst yoki qurilma autentifikatsiyasi yetishmaydi.
-- 21. `unauthorized` / qayta ulanish sikli → token/parol nomuvofiqligi.
-- 22. `gateway connect failed:` → noto‘g‘ri host/port/url manzili.
+- [/web/control-ui](/web/control-ui)
+- [/gateway/authentication](/gateway/authentication)
+- [/gateway/remote](/gateway/remote)
 
 ## 23. Bog‘liq:
 
@@ -89,7 +93,7 @@ openclaw status
 25. [/gateway/authentication](/gateway/authentication)
 ```
 
-26. [/gateway/remote](/gateway/remote)
+Look for:
 
 - 27. Shlyuz xizmati ishga tushmagan
 - 28. Xizmat o‘rnatilgan, lekin jarayon ishlashda qolmasa, shundan foydalaning.
@@ -97,15 +101,15 @@ openclaw status
 
 openclaw status
 
-- openclaw logs --follow
+- `Gateway start blocked: set gateway.mode=local` → local gateway rejimi yoqilmagan. Tuzatish: konfiguratsiyangizda `gateway.mode="local"` ni o‘rnating (yoki `openclaw configure` ni ishga tushiring). Agar OpenClaw’ni maxsus `openclaw` foydalanuvchisi orqali Podman bilan ishga tushirayotgan bo‘lsangiz, konfiguratsiya `~openclaw/.openclaw/openclaw.json` manzilida joylashgan.
 - openclaw doctor openclaw gateway status --deep
 - 30. Qidiring:
 
 31. `Runtime: stopped` va chiqish bo‘yicha maslahatlar.
 
-- 32. Xizmat konfiguratsiyasi nomuvofiqligi (`Config (cli)` vs `Config (service)`).
-- 33. Port/listener ziddiyatlari.
-- 34. Keng tarqalgan belgilar:
+- [/gateway/background-process](/gateway/background-process)
+- [/gateway/configuration](/gateway/configuration)
+- [/gateway/doctor](/gateway/doctor)
 
 ## 35. `Gateway start blocked: set gateway.mode=local` → lokal shlyuz rejimi yoqilmagan.
 
@@ -115,7 +119,7 @@ openclaw status
 37. without auth` → token/parolsiz loopback bo‘lmagan bind.
 ```
 
-38. `another gateway instance is already listening` / `EADDRINUSE` → port ziddiyati.
+Look for:
 
 - 39. Bog‘liq:
 - 40. [/gateway/background-process](/gateway/background-process)
@@ -146,7 +150,7 @@ openclaw system heartbeat last
 openclaw logs --follow
 ```
 
-Quyidagilarga e’tibor bering:
+Look for:
 
 - Cron yoqilgan va keyingi uyg‘onish vaqti mavjud.
 - Ish bajarilish tarixi holati (`ok`, `skipped`, `error`).
@@ -177,7 +181,7 @@ openclaw logs --follow
 openclaw status
 ```
 
-Quyidagilarga e’tibor bering:
+Look for:
 
 - Tugun kutilgan imkoniyatlar bilan onlayn.
 - Kamera/mikrofon/joylashuv/ekran uchun OS ruxsatlari berilgan.
@@ -208,7 +212,7 @@ openclaw logs --follow
 openclaw doctor
 ```
 
-Quyidagilarga e’tibor bering:
+Look for:
 
 - Yaroqli brauzer bajariluvchi fayli yo‘li.
 - CDP profili yetib borilishi.
@@ -300,5 +304,3 @@ Bog‘liq:
 - [/gateway/pairing](/gateway/pairing)
 - [/gateway/authentication](/gateway/authentication)
 - [/gateway/background-process](/gateway/background-process)
-
-

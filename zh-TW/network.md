@@ -1,8 +1,13 @@
 ---
+summary: "32. 網路樞紐：閘道介面、配對、探索與安全性"
+read_when:
+  - 你需要網路架構與安全性的整體概覽
+  - 你正在除錯本地與 tailnet 存取或配對問題
+  - 你想要官方的網路相關文件清單
 title: "網路"
 ---
 
-# 網路中樞
+# Network hub
 
 此中樞連結了核心文件，說明 OpenClaw 如何在 localhost、LAN 與 tailnet 之間連線、配對並保護裝置。
 
@@ -45,5 +50,3 @@ Local trust：
 - [Gateway config reference](/gateway/configuration)
 - [Troubleshooting](/gateway/troubleshooting)
 - [Doctor](/gateway/doctor)
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "Raspberry Pi پر OpenClaw (کم بجٹ خود میزبانی سیٹ اپ)"
+read_when:
+  - Raspberry Pi پر OpenClaw سیٹ اپ کرنا
+  - ARM ڈیوائسز پر OpenClaw چلانا
+  - کم لاگت، ہمہ وقت دستیاب ذاتی AI بنانا
 title: "Raspberry Pi"
 ---
 
@@ -351,5 +356,3 @@ echo 'wireless-power off' | sudo tee -a /etc/network/interfaces
 - [Hetzner guide](/install/hetzner) — Docker سیٹ اپ
 - [Tailscale](/gateway/tailscale) — ریموٹ رسائی
 - [Nodes](/nodes) — اپنے لیپ ٹاپ/فون کو Pi گیٹ وے کے ساتھ جوڑیں
-
-

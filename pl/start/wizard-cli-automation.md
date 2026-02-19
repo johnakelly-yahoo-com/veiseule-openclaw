@@ -1,4 +1,8 @@
 ---
+summary: "Skryptowe wdrażanie i konfiguracja agentów dla CLI OpenClaw"
+read_when:
+  - Automatyzujesz wdrażanie w skryptach lub CI
+  - Potrzebujesz nieinteraktywnych przykładów dla konkretnych dostawców
 title: "Automatyzacja CLI"
 sidebarTitle: "Automatyzacja CLI"
 ---
@@ -109,6 +113,26 @@ Dodaj `--json`, aby uzyskać podsumowanie czytelne dla maszyn.
     ```
   
 </Accordion>
+  <Accordion title="Custom provider example">
+    ```bash
+    openclaw onboard --non-interactive \
+      --mode local \
+      --auth-choice custom-api-key \
+      --custom-base-url "https://llm.example.com/v1" \
+      --custom-model-id "foo-large" \
+      --custom-api-key "$CUSTOM_API_KEY" \
+      --custom-provider-id "my-custom" \
+      --custom-compatibility anthropic \
+      --gateway-port 18789 \
+      --gateway-bind loopback
+    ```
+
+    ```
+    `--custom-api-key` jest opcjonalny. Jeśli zostanie pominięty, proces wdrożenia sprawdzi `CUSTOM_API_KEY`.
+    ```
+
+  
+</Accordion>
 </AccordionGroup>
 
 ## Dodawanie kolejnego agenta
@@ -142,5 +166,3 @@ Uwagi:
 - Centrum wdrażania: [Kreator wdrażania (CLI)](/start/wizard)
 - Pełna referencja: [Referencja wdrażania CLI](/start/wizard-cli-reference)
 - Referencja poleceń: [`openclaw onboard`](/cli/onboard)
-
-

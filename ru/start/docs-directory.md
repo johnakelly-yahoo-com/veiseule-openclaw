@@ -1,4 +1,7 @@
 ---
+summary: "Подборка ссылок на наиболее используемую документацию OpenClaw."
+read_when:
+  - Вам нужен быстрый доступ к ключевым страницам документации
 title: "Каталог документации"
 ---
 
@@ -59,5 +62,3 @@ title: "Каталог документации"
 - [Gmail hooks (Pub/Sub)](/automation/gmail-pubsub)
 - [Безопасность](/gateway/security)
 - [Устранение неполадок](/gateway/troubleshooting)
-
-

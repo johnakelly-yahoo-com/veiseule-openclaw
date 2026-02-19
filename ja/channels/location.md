@@ -1,4 +1,8 @@
 ---
+summary: "チャットチャンネルからの受信位置情報の解析（Telegram + WhatsApp）とコンテキストフィールド"
+read_when:
+  - チャンネルの位置情報解析を追加または変更する場合
+  - エージェントのプロンプトやツールで位置情報のコンテキストフィールドを使用する場合
 title: "チャンネルの位置情報解析"
 ---
 
@@ -50,5 +54,3 @@ Meet here
 - **Telegram**: 会場は `LocationName/LocationAddress` にマップされます。ライブ位置情報は `live_period` を使用します。
 - **WhatsApp**: `locationMessage.comment` と `liveLocationMessage.caption` はキャプション行として追記されます。
 - **Matrix**: `geo_uri` はピン位置として解析されます。高度は無視され、`LocationIsLive` は常に false です。
-
-

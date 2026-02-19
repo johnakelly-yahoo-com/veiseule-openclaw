@@ -1,4 +1,9 @@
 ---
+summary: "تفصیلی جائزہ: سیشن اسٹور + ٹرانسکرپٹس، لائف سائیکل، اور (خودکار) کمپیکشن کے اندرونی پہلو"
+read_when:
+  - آپ کو سیشن آئی ڈیز، transcript JSONL، یا sessions.json فیلڈز کی ڈیبگنگ کرنی ہو
+  - آپ خودکار کمپیکشن کے رویے میں تبدیلی کر رہے ہوں یا “پری-کمپیکشن” ہاؤس کیپنگ شامل کر رہے ہوں
+  - آپ میموری فلشز یا خاموش سسٹم ٹرنز نافذ کرنا چاہتے ہوں
 title: "سیشن مینجمنٹ کی تفصیلی رہنمائی"
 ---
 
@@ -278,5 +283,3 @@ Pi ایکسٹینشن API میں `session_before_compact` ہُک بھی فراہ
   - کمپیکشن سیٹنگز (ماڈل ونڈو کے لیے `reserveTokens` بہت زیادہ ہو تو جلد کمپیکشن ہو سکتی ہے)
   - ٹول-رزلٹ پھولاؤ: سیشن پروننگ کو فعال/ٹیون کریں
 - Silent turns leaking? Confirm the reply starts with `NO_REPLY` (exact token) and you’re on a build that includes the streaming suppression fix.
-
-

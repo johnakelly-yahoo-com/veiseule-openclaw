@@ -1,4 +1,9 @@
 ---
+summary: "Protokol ng Bridge (mga legacy node): TCP JSONL, pagpapares, RPC na may saklaw"
+read_when:
+  - Pagbuo o pag-debug ng mga node client (iOS/Android/macOS node mode)
+  - Pagsisiyasat ng mga pagkabigo sa pairing o bridge auth
+  - Pag-audit sa node surface na inilalantad ng gateway
 title: "Protokol ng Bridge"
 ---
 
@@ -27,8 +32,10 @@ Ang mga legacy na `bridge.*` config key ay hindi na bahagi ng config schema.
 - Opsyonal na TLS (kapag ang `bridge.tls.enabled` ay true).
 - Ang legacy na default listener port ay `18790` (ang mga kasalukuyang build ay hindi nagsisimula ng TCP bridge).
 
-Kapag naka-enable ang TLS, ang discovery TXT records ay kasama ang `bridgeTls=1` kasama ang
-`bridgeTlsSha256` upang ma-pin ng mga node ang certificate.
+Kapag naka-enable ang TLS, kasama sa discovery TXT records ang `bridgeTls=1` at
+`bridgeTlsSha256` bilang isang non-secret na hint. Tandaan na ang mga Bonjour/mDNS TXT record ay
+hindi authenticated; hindi dapat ituring ng mga client ang in-advertise na fingerprint bilang
+awtoritatibong pin nang walang tahasang intensyon ng user o iba pang out-of-band na beripikasyon.
 
 ## Handshake + pairing
 
@@ -79,5 +86,3 @@ Mga field ng payload (lahat ay opsyonal maliban kung nakasaad):
 ## Versioning
 
 Ang Bridge ay kasalukuyang **implicit v1** (walang min/max negotiation). Inaasahan ang backward‑compat; magdagdag ng bridge protocol version field bago ang anumang breaking change.
-
-

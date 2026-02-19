@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw üzerinden cihaz akışını kullanarak GitHub Copilot'a giriş yapın"
+read_when:
+  - GitHub Copilot'ı bir model sağlayıcı olarak kullanmak istiyorsunuz
+  - "`openclaw models auth login-github-copilot` akışına ihtiyacınız var"
 title: "GitHub Copilot"
 ---
 
@@ -55,5 +59,3 @@ openclaw models set github-copilot/gpt-4o
 - Etkileşimli bir TTY gerektirir; doğrudan bir terminalde çalıştırın.
 - Copilot model kullanılabilirliği planınıza bağlıdır; bir model reddedilirse başka bir kimliği deneyin (örneğin `github-copilot/gpt-4.1`).
 - Oturum açma işlemi, GitHub belirtecini kimlik doğrulama profil deposunda saklar ve OpenClaw çalıştığında bunu bir Copilot API belirteciyle değiştirir.
-
-

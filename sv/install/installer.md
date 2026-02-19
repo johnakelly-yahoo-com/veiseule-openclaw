@@ -1,18 +1,23 @@
 ---
-title: "Installer Internals"
+summary: "Hur installationsskripten fungerar (install.sh, install-cli.sh, install.ps1), flaggor och automatisering"
+read_when:
+  - Du vill förstå `openclaw.ai/install.sh`
+  - Du vill automatisera installationer (CI / headless)
+  - Du vill installera från en GitHub-checkout
+title: "Installationsprogrammens internals"
 ---
 
-# Installer internals
+# Installationsprogrammens internals
 
-OpenClaw ships three installer scripts, served from `openclaw.ai`.
+OpenClaw levereras med tre installationsskript som tillhandahålls från `openclaw.ai`.
 
-| Script                             | Platform             | What it does                                                                                 |
-| ---------------------------------- | -------------------- | -------------------------------------------------------------------------------------------- |
-| [`install.sh`](#installsh)         | macOS / Linux / WSL  | Installs Node if needed, installs OpenClaw via npm (default) or git, and can run onboarding. |
-| [`install-cli.sh`](#install-clish) | macOS / Linux / WSL  | Installs Node + OpenClaw into a local prefix (`~/.openclaw`). No root required.              |
-| [`install.ps1`](#installps1)       | Windows (PowerShell) | Installs Node if needed, installs OpenClaw via npm (default) or git, and can run onboarding. |
+| Skript                             | Plattform                               | Vad det gör                                                                                                                                 |
+| ---------------------------------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`install.sh`](#installsh)         | macOS / Linux / WSL                     | Installerar Node vid behov, installerar OpenClaw via npm (standard) eller git och kan köra introduktion. |
+| [`install-cli.sh`](#install-clish) | macOS / Linux / WSL                     | Installerar Node + OpenClaw i ett lokalt prefix (`~/.openclaw`). Ingen rot krävs.        |
+| [`install.ps1`](#installps1)       | Windows (PowerShell) | Installerar Node vid behov, installerar OpenClaw via npm (standard) eller git och kan köra introduktion. |
 
-## Quick commands
+## Snabba kommandon
 
 <Tabs>
   <Tab title="install.sh">
@@ -20,9 +25,13 @@ OpenClaw ships three installer scripts, served from `openclaw.ai`.
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash
     ```
 
+    `````
+    ````
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash -s -- --help
     ```
+    ````
+    `````
 
   
 </Tab>
@@ -31,9 +40,13 @@ OpenClaw ships three installer scripts, served from `openclaw.ai`.
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install-cli.sh | bash
     ```
 
+    `````
+    ````
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install-cli.sh | bash -s -- --help
     ```
+    ````
+    `````
 
   
 </Tab>
@@ -42,16 +55,20 @@ OpenClaw ships three installer scripts, served from `openclaw.ai`.
     iwr -useb https://openclaw.ai/install.ps1 | iex
     ```
 
+    `````
+    ````
     ```powershell
     & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -Tag beta -NoOnboard -DryRun
     ```
+    ````
+    `````
 
   
 </Tab>
 </Tabs>
 
 <Note>
-If install succeeds but `openclaw` is not found in a new terminal, see [Node.js troubleshooting](/install/node#troubleshooting).
+Om installationen lyckas men `openclaw` inte hittas i en ny terminal, se [Node.js-felsökning](/install/node#troubleshooting).
 </Note>
 
 ---
@@ -59,49 +76,49 @@ If install succeeds but `openclaw` is not found in a new terminal, see [Node.js 
 ## install.sh
 
 <Tip>
-Recommended for most interactive installs on macOS/Linux/WSL.
+Rekommenderas för de flesta interaktiva installationer på macOS/Linux/WSL.
 </Tip>
 
-### Flow (install.sh)
+### Flöde (install.sh)
 
 <Steps>
   <Step title="Detect OS">
-    Supports macOS and Linux (including WSL). If macOS is detected, installs Homebrew if missing.
+    Stöder macOS och Linux (inklusive WSL). Om macOS upptäcks, installera Homebrew om det saknas.
   
 </Step>
   <Step title="Ensure Node.js 22+">
-    Checks Node version and installs Node 22 if needed (Homebrew on macOS, NodeSource setup scripts on Linux apt/dnf/yum).
+    Kontrollerar Node-versionen och installerar Node 22 vid behov (Homebrew på macOS, NodeSource-installationsskript på Linux apt/dnf/yum).
   
 </Step>
   <Step title="Ensure Git">
-    Installs Git if missing.
+    Installerar Git om det saknas.
   
 </Step>
   <Step title="Install OpenClaw">
-    - `npm` method (default): global npm install
-    - `git` method: clone/update repo, install deps with pnpm, build, then install wrapper at `~/.local/bin/openclaw`
+    - `npm`-metod (standard): global npm-installation
+    - `git`-metod: klona/uppdatera repo, installera beroenden med pnpm, bygg och installera sedan wrapper i `~/.local/bin/openclaw`
   
 </Step>
   <Step title="Post-install tasks">
-    - Runs `openclaw doctor --non-interactive` on upgrades and git installs (best effort)
-    - Attempts onboarding when appropriate (TTY available, onboarding not disabled, and bootstrap/config checks pass)
-    - Defaults `SHARP_IGNORE_GLOBAL_LIBVIPS=1`
+    - Kör `openclaw doctor --non-interactive` vid uppgraderingar och git-installationer (best effort)
+    - Försöker köra introduktion när det är lämpligt (TTY tillgänglig, introduktion inte inaktiverad och bootstrap-/konfigkontroller passerar)
+    - Standardvärde `SHARP_IGNORE_GLOBAL_LIBVIPS=1`
   
 </Step>
 </Steps>
 
-### Source checkout detection
+### Detektering av källcheckout
 
-If run inside an OpenClaw checkout (`package.json` + `pnpm-workspace.yaml`), the script offers:
+Om skriptet körs inuti en OpenClaw-checkout (`package.json` + `pnpm-workspace.yaml`), erbjuder skriptet:
 
-- use checkout (`git`), or
-- use global install (`npm`)
+- använd checkout (`git`), eller
+- använd global installation (`npm`)
 
-If no TTY is available and no install method is set, it defaults to `npm` and warns.
+Om ingen TTY är tillgänglig och ingen installationsmetod är satt, används som standard `npm` och en varning visas.
 
-The script exits with code `2` for invalid method selection or invalid `--install-method` values.
+Skriptet avslutas med kod `2` vid ogiltigt metodval eller ogiltiga värden för `--install-method`.
 
-### Examples (install.sh)
+### Exempel (install.sh)
 
 <Tabs>
   <Tab title="Default">
@@ -133,40 +150,40 @@ The script exits with code `2` for invalid method selection or invalid `--instal
 <AccordionGroup>
   <Accordion title="Flags reference">
 
-| Flag                            | Description                                                |
-| ------------------------------- | ---------------------------------------------------------- |
-| `--install-method npm|git`     | Choose install method (default: `npm`). Alias: `--method`  |
-| `--npm`                         | Shortcut for npm method                                    |
-| `--git`                         | Shortcut for git method. Alias: `--github`                 |
-| `--version &lt;version|dist-tag&gt;` | npm version or dist-tag (default: `latest`)                |
-| `--beta`                        | Use beta dist-tag if available, else fallback to `latest`  |
-| `--git-dir &lt;path&gt;`              | Checkout directory (default: `~/openclaw`). Alias: `--dir` |
-| `--no-git-update`               | Skip `git pull` for existing checkout                      |
-| `--no-prompt`                   | Disable prompts                                            |
-| `--no-onboard`                  | Skip onboarding                                            |
-| `--onboard`                     | Enable onboarding                                          |
-| `--dry-run`                     | Print actions without applying changes                     |
-| `--verbose`                     | Enable debug output (`set -x`, npm notice-level logs)      |
-| `--help`                        | Show usage (`-h`)                                          |
+| Flagga                                            | Beskrivning                                                                                                                    |
+| ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| \`--install-method npm\\                        | Välj installationsmetod (standard: `npm`). Alias: `--metod` |
+| `--npm`                                           | Genväg för npm-metoden                                                                                                         |
+| `--git`                                           | Genväg för git-metoden. Alias: `--github`                                                      |
+| \`--version <version\\ | dist-tag>\`                                                                                                                    |
+| `--beta`                                          | Använd beta dist-tag om tillgänglig, annars fallback till `latest`                                                             |
+| `--git-dir &lt;path&gt;`                                | Kassakatalog (standard: `~/openclaw`). Alias: `--dir`       |
+| `--no-git-update`                                 | Hoppa över `git pull` för befintlig checkout                                                                                   |
+| `--no-prompt`                                     | Inaktivera frågor                                                                                                              |
+| `--no-onboard`                                    | Hoppa över introduktion                                                                                                        |
+| `--onboard`                                       | Aktivera introduktion                                                                                                          |
+| `--dry-run`                                       | Skriv ut åtgärder utan att tillämpa ändringar                                                                                  |
+| `--verbose`                                       | Aktivera debug-utdata (`set -x`, npm-logger på notice-nivå)                                                 |
+| `--help`                                          | Visa användning (`-h`)                                                                                      |
 
   
 </Accordion>
 
   <Accordion title="Environment variables reference">
 
-| Variable                                    | Description                                   |
-| ------------------------------------------- | --------------------------------------------- |
-| `OPENCLAW_INSTALL_METHOD=git|npm`          | Install method                                |
-| `OPENCLAW_VERSION=latest|next|&lt;semver&gt;`   | npm version or dist-tag                       |
-| `OPENCLAW_BETA=0|1`                        | Use beta if available                         |
-| `OPENCLAW_GIT_DIR=&lt;path&gt;`                   | Checkout directory                            |
-| `OPENCLAW_GIT_UPDATE=0|1`                  | Toggle git updates                            |
-| `OPENCLAW_NO_PROMPT=1`                      | Disable prompts                               |
-| `OPENCLAW_NO_ONBOARD=1`                     | Skip onboarding                               |
-| `OPENCLAW_DRY_RUN=1`                        | Dry run mode                                  |
-| `OPENCLAW_VERBOSE=1`                        | Debug mode                                    |
-| `OPENCLAW_NPM_LOGLEVEL=error|warn|notice` | npm log level                                 |
-| `SHARP_IGNORE_GLOBAL_LIBVIPS=0|1`          | Control sharp/libvips behavior (default: `1`) |
+| Variabel                                                                                           | Beskrivning             |
+| -------------------------------------------------------------------------------------------------- | ----------------------- |
+| \`OPENCLAW_INSTALL_METHOD=git\\                        | npm\`                   |
+| \`OPENCLAW_VERSION=latest\\                                                 | next\\                |
+| \`OPENCLAW_BETA=0\\                                                         | 1\`                     |
+| `OPENCLAW_GIT_DIR=&lt;path&gt;`                                                                          | Checkout-katalog        |
+| \`OPENCLAW_GIT_UPDATE=0\\                              | 1\`                     |
+| `OPENCLAW_NO_PROMPT=1`                                                                             | Inaktivera frågor       |
+| `OPENCLAW_NO_ONBOARD=1`                                                                            | Hoppa över introduktion |
+| `OPENCLAW_DRY_RUN=1`                                                                               | Torrkörningsläge        |
+| `OPENCLAW_VERBOSE=1`                                                                               | Debug-läge              |
+| \`OPENCLAW_NPM_LOGLEVEL=error\\                        | warn\\                |
+| \`SHARP_IGNORE_GLOBAL_LIBVIPS=0\\ | 1\`                     |
 
   
 </Accordion>
@@ -177,27 +194,27 @@ The script exits with code `2` for invalid method selection or invalid `--instal
 ## install-cli.sh
 
 <Info>
-Designed for environments where you want everything under a local prefix (default `~/.openclaw`) and no system Node dependency.
+Utformad för miljöer där du vill ha allt under ett lokalt prefix (standard `~/.openclaw`) och inget systemberoende av Node.
 </Info>
 
-### Flow (install-cli.sh)
+### Flöde (install-cli.sh)
 
 <Steps>
   <Step title="Install local Node runtime">
-    Downloads Node tarball (default `22.22.0`) to `&lt;prefix&gt;/tools/node-v&lt;version&gt;` and verifies SHA-256.
+    Laddar ner Node-tarball (standard `22.22.0`) till `<prefix>/tools/node-v<version>` och verifierar SHA-256.
   
 </Step>
   <Step title="Ensure Git">
-    If Git is missing, attempts install via apt/dnf/yum on Linux or Homebrew on macOS.
+    Om Git saknas försöker den installera via apt/dnf/yum på Linux eller Homebrew på macOS.
   
 </Step>
   <Step title="Install OpenClaw under prefix">
-    Installs with npm using `--prefix &lt;prefix&gt;`, then writes wrapper to `&lt;prefix&gt;/bin/openclaw`.
+    Installerar med npm med `--prefix <prefix>`, och skriver sedan wrapper till `<prefix>/bin/openclaw`.
   
 </Step>
 </Steps>
 
-### Examples (install-cli.sh)
+### Exempel (install-cli.sh)
 
 <Tabs>
   <Tab title="Default">
@@ -229,31 +246,31 @@ Designed for environments where you want everything under a local prefix (defaul
 <AccordionGroup>
   <Accordion title="Flags reference">
 
-| Flag                   | Description                                                                     |
-| ---------------------- | ------------------------------------------------------------------------------- |
-| `--prefix &lt;path&gt;`      | Install prefix (default: `~/.openclaw`)                                         |
-| `--version &lt;ver&gt;`      | OpenClaw version or dist-tag (default: `latest`)                                |
-| `--node-version &lt;ver&gt;` | Node version (default: `22.22.0`)                                               |
-| `--json`               | Emit NDJSON events                                                              |
-| `--onboard`            | Run `openclaw onboard` after install                                            |
-| `--no-onboard`         | Skip onboarding (default)                                                       |
-| `--set-npm-prefix`     | On Linux, force npm prefix to `~/.npm-global` if current prefix is not writable |
-| `--help`               | Show usage (`-h`)                                                               |
+| Flagga                 | Beskrivning                                                                             |
+| ---------------------- | --------------------------------------------------------------------------------------- |
+| `--prefix &lt;path&gt;`      | Installationsprefix (standard: `~/.openclaw`)        |
+| `--version &lt;ver&gt;`      | OpenClaw-version eller dist-tag (standard: `latest`) |
+| `--node-version &lt;ver&gt;` | Node-version (standard: `22.22.0`)                   |
+| `--json`               | Emittera NDJSON-händelser                                                               |
+| `--onboard`            | Kör `openclaw onboard` efter installation                                               |
+| `--no-onboard`         | Hoppa över introduktion (standard)                                   |
+| `--set-npm-prefix`     | På Linux, tvinga npm-prefix till `~/.npm-global` om nuvarande prefix inte är skrivbart  |
+| `--help`               | Visa användning (`-h`)                                               |
 
   
 </Accordion>
 
   <Accordion title="Environment variables reference">
 
-| Variable                                    | Description                                                                       |
-| ------------------------------------------- | --------------------------------------------------------------------------------- |
-| `OPENCLAW_PREFIX=&lt;path&gt;`                    | Install prefix                                                                    |
-| `OPENCLAW_VERSION=&lt;ver&gt;`                    | OpenClaw version or dist-tag                                                      |
-| `OPENCLAW_NODE_VERSION=&lt;ver&gt;`               | Node version                                                                      |
-| `OPENCLAW_NO_ONBOARD=1`                     | Skip onboarding                                                                   |
-| `OPENCLAW_NPM_LOGLEVEL=error|warn|notice` | npm log level                                                                     |
-| `OPENCLAW_GIT_DIR=&lt;path&gt;`                   | Legacy cleanup lookup path (used when removing old `Peekaboo` submodule checkout) |
-| `SHARP_IGNORE_GLOBAL_LIBVIPS=0|1`          | Control sharp/libvips behavior (default: `1`)                                     |
+| Variabel                                                                                           | Beskrivning                                                                                                |
+| -------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `OPENCLAW_PREFIX=&lt;path&gt;`                                                                           | Installationsprefix                                                                                        |
+| `OPENCLAW_VERSION=&lt;ver&gt;`                                                                           | OpenClaw-version eller dist-tag                                                                            |
+| `OPENCLAW_NODE_VERSION=&lt;ver&gt;`                                                                      | Node-version                                                                                               |
+| `OPENCLAW_NO_ONBOARD=1`                                                                            | Hoppa över introduktion                                                                                    |
+| \`OPENCLAW_NPM_LOGLEVEL=error\\                        | warn\\                                                                                                   |
+| `OPENCLAW_GIT_DIR=&lt;path&gt;`                                                                          | Äldre rensningssökväg (används vid borttagning av gammal `Peekaboo`-submodule-checkout) |
+| \`SHARP_IGNORE_GLOBAL_LIBVIPS=0\\ | 1\`                                                                                                        |
 
   
 </Accordion>
@@ -263,29 +280,29 @@ Designed for environments where you want everything under a local prefix (defaul
 
 ## install.ps1
 
-### Flow (install.ps1)
+### Flöde (install.ps1)
 
 <Steps>
   <Step title="Ensure PowerShell + Windows environment">
-    Requires PowerShell 5+.
+    Kräver PowerShell 5+.
   
 </Step>
   <Step title="Ensure Node.js 22+">
-    If missing, attempts install via winget, then Chocolatey, then Scoop.
+    Om det saknas försöker den installera via winget, därefter Chocolatey och sedan Scoop.
   
 </Step>
   <Step title="Install OpenClaw">
-    - `npm` method (default): global npm install using selected `-Tag`
-    - `git` method: clone/update repo, install/build with pnpm, and install wrapper at `%USERPROFILE%\.local\bin\openclaw.cmd`
+    - `npm`-metod (standard): global npm-installation med vald `-Tag`
+    - `git`-metod: klona/uppdatera repo, installera/bygga med pnpm och installera wrapper i `%USERPROFILE%\.local\bin\openclaw.cmd`
   
 </Step>
   <Step title="Post-install tasks">
-    Adds needed bin directory to user PATH when possible, then runs `openclaw doctor --non-interactive` on upgrades and git installs (best effort).
+    Lägger till nödvändig bin-katalog i användarens PATH när möjligt och kör sedan `openclaw doctor --non-interactive` vid uppgraderingar och git-installationer (best effort).
   
 </Step>
 </Steps>
 
-### Examples (install.ps1)
+### Exempel (install.ps1)
 
 <Tabs>
   <Tab title="Default">
@@ -314,53 +331,52 @@ Designed for environments where you want everything under a local prefix (defaul
 </Tab>
   <Tab title="Debug trace">
     ```powershell
-    # install.ps1 has no dedicated -Verbose flag yet.
+    # install.ps1 har ännu ingen dedikerad -Verbose-flagga.
     Set-PSDebug -Trace 1
     & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -NoOnboard
     Set-PSDebug -Trace 0
-    ```
-  
+    ```  
 </Tab>
 </Tabs>
 
 <AccordionGroup>
   <Accordion title="Flags reference">
 
-| Flag                      | Description                                            |
-| ------------------------- | ------------------------------------------------------ |
-| `-InstallMethod npm|git` | Install method (default: `npm`)                        |
-| `-Tag &lt;tag&gt;`              | npm dist-tag (default: `latest`)                       |
-| `-GitDir &lt;path&gt;`          | Checkout directory (default: `%USERPROFILE%\openclaw`) |
-| `-NoOnboard`              | Skip onboarding                                        |
-| `-NoGitUpdate`            | Skip `git pull`                                        |
-| `-DryRun`                 | Print actions only                                     |
+| Flagga                   | Beskrivning                                                                               |
+| ------------------------ | ----------------------------------------------------------------------------------------- |
+| \`-InstallMethod npm\\ | git\`                                                                                     |
+| `-Tag &lt;tag&gt;`             | npm dist-tag (standard: `latest`)                      |
+| `-GitDir &lt;path&gt;`         | Checkout-katalog (standard: `%USERPROFILE%\openclaw`) |
+| `-NoOnboard`             | Hoppa över introduktion                                                                   |
+| `-NoGitUpdate`           | Hoppa över `git pull`                                                                     |
+| `-DryRun`                | Skriv endast ut åtgärder                                                                  |
 
   
 </Accordion>
 
   <Accordion title="Environment variables reference">
 
-| Variable                           | Description        |
-| ---------------------------------- | ------------------ |
-| `OPENCLAW_INSTALL_METHOD=git|npm` | Install method     |
-| `OPENCLAW_GIT_DIR=&lt;path&gt;`          | Checkout directory |
-| `OPENCLAW_NO_ONBOARD=1`            | Skip onboarding    |
-| `OPENCLAW_GIT_UPDATE=0`            | Disable git pull   |
-| `OPENCLAW_DRY_RUN=1`               | Dry run mode       |
+| Variabel                                                                    | Beskrivning             |
+| --------------------------------------------------------------------------- | ----------------------- |
+| \`OPENCLAW_INSTALL_METHOD=git\\ | npm\`                   |
+| `OPENCLAW_GIT_DIR=&lt;path&gt;`                                                   | Checkout-katalog        |
+| `OPENCLAW_NO_ONBOARD=1`                                                     | Hoppa över introduktion |
+| `OPENCLAW_GIT_UPDATE=0`                                                     | Inaktivera git pull     |
+| `OPENCLAW_DRY_RUN=1`                                                        | Torrkörningsläge        |
 
   
 </Accordion>
 </AccordionGroup>
 
 <Note>
-If `-InstallMethod git` is used and Git is missing, the script exits and prints the Git for Windows link.
+Om `-InstallMethod git` används och Git saknas avslutas skriptet och skriver ut länken till Git for Windows.
 </Note>
 
 ---
 
-## CI and automation
+## CI och automatisering
 
-Use non-interactive flags/env vars for predictable runs.
+Använd icke-interaktiva flaggor/miljövariabler för förutsägbara körningar.
 
 <Tabs>
   <Tab title="install.sh (non-interactive npm)">
@@ -392,56 +408,60 @@ Use non-interactive flags/env vars for predictable runs.
 
 ---
 
-## Troubleshooting
+## Felsökning
 
 <AccordionGroup>
   <Accordion title="Why is Git required?">
-    Git is required for `git` install method. For `npm` installs, Git is still checked/installed to avoid `spawn git ENOENT` failures when dependencies use git URLs.
+    Git krävs för `git`-installationsmetod. För `npm`-installationer är Git fortfarande kontrollerad/installerad för att undvika `spawn git ENOENT`-fel när beroenden använder git-URL:er.
   
 </Accordion>
 
   <Accordion title="Why does npm hit EACCES on Linux?">
-    Some Linux setups point npm global prefix to root-owned paths. `install.sh` can switch prefix to `~/.npm-global` and append PATH exports to shell rc files (when those files exist).
+    Vissa Linux-konfigurationer pekar npm globala prefix till root-ägda vägar. `install.sh` kan växla prefix till `~/.npm-global` och lägga till PATH export till shell rc filer (när dessa filer finns).
   
 </Accordion>
 
   <Accordion title="sharp/libvips issues">
-    The scripts default `SHARP_IGNORE_GLOBAL_LIBVIPS=1` to avoid sharp building against system libvips. To override:
+    Skriptens standard `SHARP_IGNORE_GLOBAL_LIBVIPS=1` för att undvika skarp byggnad mot systemet libvips. Att åsidosätta:
 
+    `````
+    ````
     ```bash
     SHARP_IGNORE_GLOBAL_LIBVIPS=0 curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash
     ```
+    ````
+    `````
 
   
 </Accordion>
 
   <Accordion title='Windows: "npm error spawn git / ENOENT"'>
-    Install Git for Windows, reopen PowerShell, rerun installer.
+    Installera Git for Windows, öppna PowerShell igen och kör installationsprogrammet på nytt.
   
 </Accordion>
 
   <Accordion title='Windows: "openclaw is not recognized"'>
-    Run `npm config get prefix`, append `\bin`, add that directory to user PATH, then reopen PowerShell.
+    Kör `npm config get prefix`, lägg till `\bin`, lägg till den katalogen i användarens PATH och öppna sedan PowerShell igen.
   
 </Accordion>
 
   <Accordion title="Windows: how to get verbose installer output">
-    `install.ps1` does not currently expose a `-Verbose` switch.
-    Use PowerShell tracing for script-level diagnostics:
+    `install.ps1` exponerar för närvarande inte någon `-Verbose`-växel.
+    Använd PowerShell-spårning för diagnostik på skriptnivå:
 
+    ````
     ```powershell
     Set-PSDebug -Trace 1
     & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -NoOnboard
     Set-PSDebug -Trace 0
     ```
+    ````
 
   
 </Accordion>
 
   <Accordion title="openclaw not found after install">
-    Usually a PATH issue. See [Node.js troubleshooting](/install/node#troubleshooting).
+    Vanligtvis ett PATH-problem. Se [Node.js felsökning](/install/node#troubleshooting).
   
 </Accordion>
 </AccordionGroup>
-
-

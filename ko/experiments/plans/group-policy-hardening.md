@@ -1,4 +1,7 @@
 ---
+summary: "Telegram allowlist 강화: 접두사 + 공백 정규화"
+read_when:
+  - 과거 Telegram allowlist 변경 사항을 검토할 때
 title: "Telegram Allowlist 강화"
 ---
 
@@ -35,5 +38,3 @@ Telegram allowlist 는 대소문자를 구분하지 않고 `telegram:` 및 `tg:`
 
 - [그룹 채팅](/channels/groups)
 - [Telegram 프로바이더](/channels/telegram)
-
-

@@ -1,5 +1,9 @@
 ---
-title: "31. DigitalOcean"
+summary: "28. DigitalOcean’da OpenClaw (oddiy pullik VPS varianti)"
+read_when:
+  - 29. DigitalOcean’da OpenClaw’ni sozlash
+  - 30. OpenClaw uchun arzon VPS hosting qidiryapsizmi
+title: "DigitalOcean"
 ---
 
 # 32. DigitalOcean’da OpenClaw
@@ -12,12 +16,12 @@ title: "31. DigitalOcean"
 
 ## 36. Xarajatlarni taqqoslash (2026)
 
-| 37. Provayder    | 38. Reja            | 39. Texnik xususiyatlar    | 40. Oyiga narx                                                     | 41. Eslatmalar                                                   |
+| 37. Provayder    | 38. Reja            | Specs                                             | 40. Oyiga narx                                                     | 41. Eslatmalar                                                   |
 | --------------------------------------- | ------------------------------------------ | ------------------------------------------------- | ----------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
 | 42. Oracle Cloud | 43. Always Free ARM | 44. 4 OCPU gacha, 24GB RAM | 45. $0                                                             | 46. ARM, cheklangan quvvat / ro‘yxatdan o‘tishdagi noqulayliklar |
-| 47. Hetzner      | 48. CX22            | 49. 2 vCPU, 4GB RAM        | 50. €3.79 (~$4) | Eng arzon pullik variant                                                                    |
-| DigitalOcean                            | Basic                                      | 1 vCPU, 1GB RAM                                   | $6                                                                                        | Qulay UI, yaxshi hujjatlar                                                                      |
-| Vultr                                   | Cloud Compute                              | 1 vCPU, 1GB RAM                                   | $6                                                                                        | Ko‘plab joylashuvlar                                                                          |
+| 47. Hetzner      | 48. CX22            | 49. 2 vCPU, 4GB RAM        | 50. €3.79 (~$4) | Cheapest paid option                                                                    |
+| DigitalOcean                            | Basic                                      | 1 vCPU, 1GB RAM                                   | $6                                                                                        | Easy UI, good docs                                                                      |
+| Vultr                                   | Cloud Compute                              | 1 vCPU, 1GB RAM                                   | $6                                                                                        | Many locations                                                                          |
 | Linode                                  | Nanode                                     | 1 vCPU, 1GB RAM                                   | $5                                                                                        | Now part of Akamai                                                                      |
 
 **Picking a provider:**
@@ -256,5 +260,3 @@ free -h
 - [Docker install](/install/docker) — containerized setup
 - [Tailscale](/gateway/tailscale) — secure remote access
 - [Configuration](/gateway/configuration) — full config reference
-
-

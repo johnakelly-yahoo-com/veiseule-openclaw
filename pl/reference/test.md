@@ -1,4 +1,7 @@
 ---
+summary: "„Jak uruchamiać testy lokalnie (vitest) oraz kiedy używać trybów force/coverage”"
+read_when:
+  - Uruchamianie lub naprawianie testów
 title: "„Testy”"
 ---
 
@@ -10,7 +13,9 @@ title: "„Testy”"
 
 - `pnpm test:coverage`: Uruchamia Vitest z pokryciem V8. Globalne progi wynoszą 70% dla linii/gałęzi/funkcji/instrukcji. Pokrycie wyklucza punkty wejścia silnie integracyjne (okablowanie CLI, mosty gateway/Telegram, statyczny serwer webchat), aby utrzymać cel skupiony na logice możliwej do testowania jednostkowego.
 
-- `pnpm test:e2e`: Uruchamia testy typu smoke end-to-end gateway (parowanie wielu instancji WS/HTTP/node).
+- `pnpm test` na Node 24+: OpenClaw automatycznie wyłącza Vitest `vmForks` i używa `forks`, aby uniknąć `ERR_VM_MODULE_LINK_FAILURE` / `module is already linked`. Możesz wymusić zachowanie za pomocą `OPENCLAW_TEST_VM_FORKS=0|1`.
+
+- `pnpm test:e2e`: Uruchamia testy typu smoke end-to-end gateway (parowanie wielu instancji WS/HTTP/node). Domyślnie używane jest `vmForks` + adaptacyjna liczba workerów w `vitest.e2e.config.ts`; dostosuj przez `OPENCLAW_E2E_WORKERS=<n>` i ustaw `OPENCLAW_E2E_VERBOSE=1`, aby włączyć szczegółowe logi.
 
 - `pnpm test:live`: Uruchamia testy live dostawców (minimax/zai). Wymaga kluczy API oraz `LIVE=1` (lub specyficznego dla dostawcy `*_LIVE_TEST=1`), aby odblokować pomijane testy.
 
@@ -48,5 +53,3 @@ Zapewnia, że `qrcode-terminal` ładuje się w Node 22+ w Dockerze:
 ```bash
 pnpm test:docker:qr
 ```
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "Models CLI: lijst, instellen, aliassen, fallbacks, scannen, status"
+read_when:
+  - Modellen CLI toevoegen of wijzigen (models list/set/scan/aliases/fallbacks)
+  - Gedrag van model-fallbacks of selectie-UX wijzigen
+  - Model-scanprobes bijwerken (tools/afbeeldingen)
 title: "Models CLI"
 ---
 
@@ -201,5 +206,3 @@ modus geef je `--yes` mee om standaardwaarden te accepteren.
 Aangepaste providers in `models.providers` worden weggeschreven naar `models.json` onder de
 agentdirectory (standaard `~/.openclaw/agents/<agentId>/models.json`). Dit bestand
 wordt standaard samengevoegd, tenzij `models.mode` is ingesteld op `replace`.
-
-

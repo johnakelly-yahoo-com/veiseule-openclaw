@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw channels` အတွက် CLI ကိုးကားချက် (အကောင့်များ၊ အခြေအနေ၊ လော့ဂ်အင်/လော့ဂ်အောက်၊ လော့ဂ်များ)"
+read_when:
+  - ချန်နယ်အကောင့်များ (WhatsApp/Telegram/Discord/Google Chat/Slack/Mattermost (plugin)/Signal/iMessage) ကို ထည့်သွင်း/ဖယ်ရှား လုပ်ချင်သောအခါ
+  - ချန်နယ် အခြေအနေကို စစ်ဆေးလိုသောအခါ သို့မဟုတ် ချန်နယ် လော့ဂ်များကို tail လုပ်ချင်သောအခါ
 title: "channels"
 ---
 
@@ -73,5 +77,3 @@ openclaw channels resolve --channel matrix "Project Room"
 
 - ပစ်မှတ်အမျိုးအစားကို အတင်းအကျပ် သတ်မှတ်ရန် `--kind user|group|auto` ကို အသုံးပြုပါ။
 - အမည်တူ အချက်အလက်များ အများအပြားရှိပါက resolution သည် လက်ရှိ အသုံးပြုနေသော match များကို ဦးစားပေးပါသည်။
-
-

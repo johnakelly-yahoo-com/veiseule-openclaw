@@ -1,4 +1,8 @@
 ---
+summary: "ช่องทาง stable, beta และ dev: ความหมาย การสลับ และการติดแท็ก"
+read_when:
+  - คุณต้องการสลับระหว่าง stable/beta/dev
+  - คุณกำลังติดแท็กหรือเผยแพร่ prerelease
 title: "ช่องทางการพัฒนา"
 ---
 
@@ -64,9 +68,7 @@ openclaw update --channel dev
 
 ## ความพร้อมใช้งานของแอป macOS
 
-บิลด์ beta และ dev อาจ **ไม่** มีรีลีสแอป macOS ซึ่งถือว่าโอเค: That’s OK:
+บิลด์ beta และ dev อาจ **ไม่** มีรีลีสแอป macOS ซึ่งถือว่าโอเค: That’s OK: That’s OK:
 
 - ยังสามารถเผยแพร่ git tag และ npm dist-tag ได้.
 - ระบุว่า “ไม่มีบิลด์ macOS สำหรับ beta นี้” ในบันทึกรีลีสหรือ changelog.
-
-

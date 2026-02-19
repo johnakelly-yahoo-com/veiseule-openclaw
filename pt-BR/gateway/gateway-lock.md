@@ -1,4 +1,8 @@
 ---
+summary: "Proteção de singleton do Gateway usando o bind do listener WebSocket"
+read_when:
+  - Ao executar ou depurar o processo do gateway
+  - Ao investigar a imposição de instância única
 title: "Bloqueio do Gateway"
 ---
 
@@ -28,5 +32,3 @@ title: "Bloqueio do Gateway"
 
 - Se a porta estiver ocupada por _outro_ processo, o erro é o mesmo; libere a porta ou escolha outra com `openclaw gateway --port <port>`.
 - O app do macOS ainda mantém sua própria proteção leve por PID antes de iniciar o gateway; o bloqueio em tempo de execução é imposto pelo bind do WebSocket.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Konfiguration av Mattermost-bot och OpenClaw-konfig"
+read_when:
+  - Konfigurera Mattermost
+  - Felsöka Mattermost-routning
 title: "Mattermost"
 ---
 
@@ -132,5 +136,3 @@ Mattermost stöder flera konton under `channels.mattermost.accounts`:
 - Inga svar i kanaler: säkerställ att boten är med i kanalen och omnämn den (oncall), använd ett trigger-prefix (onchar) eller sätt `chatmode: "onmessage"`.
 - Autentiseringsfel: kontrollera bot-token, bas-URL och om kontot är aktiverat.
 - Flerkontoproblem: miljövariabler gäller endast för `default`-kontot.
-
-

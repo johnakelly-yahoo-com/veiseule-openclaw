@@ -1,4 +1,8 @@
 ---
+summary: "여러 에이전트에 WhatsApp 메시지를 브로드캐스트"
+read_when:
+  - 브로드캐스트 그룹 구성
+  - WhatsApp 에서 멀티 에이전트 응답 디버깅
 status: experimental
 title: "브로드캐스트 그룹"
 ---
@@ -431,10 +435,8 @@ interface OpenClawConfig {
 - [ ] 동적 에이전트 선택(메시지 내용에 따라 에이전트 선택)
 - [ ] 에이전트 우선순위(일부 에이전트가 먼저 응답)
 
-## 참고 항목
+## See Also
 
 - [멀티 에이전트 구성](/tools/multi-agent-sandbox-tools)
 - [라우팅 구성](/channels/channel-routing)
 - [세션 관리](/concepts/sessions)
-
-

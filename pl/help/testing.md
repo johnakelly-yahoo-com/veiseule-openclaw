@@ -1,4 +1,9 @@
 ---
+summary: "Zestaw testów: pakiety unit/e2e/live, runner’y Docker oraz zakres każdego testu"
+read_when:
+  - Uruchamianie testów lokalnie lub w CI
+  - Dodawanie regresji dla błędów modeli/dostawców
+  - Debugowanie zachowania gateway + agenta
 title: "Testowanie"
 ---
 
@@ -37,7 +42,7 @@ Myśl o pakietach jako o „rosnącym realizmie” (i rosnącej niestabilności/
 ### Unit / integration (domyślny)
 
 - Polecenie: `pnpm test`
-- Konfiguracja: `vitest.config.ts`
+- Config: `scripts/test-parallel.mjs` (uruchamia `vitest.unit.config.ts`, `vitest.extensions.config.ts`, `vitest.gateway.config.ts`)
 - Pliki: `src/**/*.test.ts`
 - Zakres:
   - Czyste testy jednostkowe
@@ -47,12 +52,23 @@ Myśl o pakietach jako o „rosnącym realizmie” (i rosnącej niestabilności/
   - Uruchamiane w CI
   - Bez potrzeby prawdziwych kluczy
   - Powinny być szybkie i stabilne
+- Uwaga dotycząca puli:
+  - OpenClaw używa Vitest `vmForks` w Node 22/23 dla szybszego równoległego uruchamiania testów jednostkowych.
+  - W Node 24+ OpenClaw automatycznie przełącza się na zwykłe `forks`, aby uniknąć błędów linkowania VM w Node (`ERR_VM_MODULE_LINK_FAILURE` / `module is already linked`).
+  - Ręczne nadpisanie: `OPENCLAW_TEST_VM_FORKS=0` (wymuś `forks`) lub `OPENCLAW_TEST_VM_FORKS=1` (wymuś `vmForks`).
 
 ### E2E (smoke gateway)
 
 - Polecenie: `pnpm test:e2e`
 - Konfiguracja: `vitest.e2e.config.ts`
 - Pliki: `src/**/*.e2e.test.ts`
+- Domyślne ustawienia środowiska uruchomieniowego:
+  - Używa Vitest `vmForks` dla szybszego uruchamiania plików.
+  - Używa adaptacyjnej liczby workerów (CI: 2-4, lokalnie: 4-8).
+  - Domyślnie działa w trybie cichym, aby ograniczyć narzut I/O konsoli.
+- Przydatne nadpisania:
+  - `OPENCLAW_E2E_WORKERS=<n>` aby wymusić liczbę workerów (limit 16).
+  - `OPENCLAW_E2E_VERBOSE=1` aby ponownie włączyć szczegółowe logi w konsoli.
 - Zakres:
   - Zachowanie end-to-end gateway w wielu instancjach
   - Powierzchnie WebSocket/HTTP, parowanie węzłów oraz cięższe aspekty sieciowe
@@ -363,5 +379,3 @@ Gdy naprawiasz problem dostawcy/modelu wykryty w live:
 - Preferuj celowanie w najmniejszą warstwę, która wychwytuje błąd:
   - błąd konwersji/odtwarzania żądania dostawcy → test modeli bezpośrednich
   - błąd pipeline’u sesji/historii/narzędzi gateway → smoke live gateway lub bezpieczny dla CI test mockowany gateway
-
-

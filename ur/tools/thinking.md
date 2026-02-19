@@ -1,16 +1,19 @@
 ---
-title: "سوچنے کی سطحیں"
+summary: "‏/think + /verbose کے لیے ہدایتی نحو اور یہ ماڈل کی reasoning پر کیسے اثر انداز ہوتے ہیں"
+read_when:
+  - thinking یا verbose ہدایات کی parsing یا ڈیفالٹس کو ایڈجسٹ کرتے وقت
+title: "Thinking Levels"
 ---
 
-# سوچنے کی سطحیں (/think ہدایات)
+# Thinking Levels (/think directives)
 
 ## یہ کیا کرتا ہے
 
 - کسی بھی inbound body میں inline ہدایت: `/t <level>`, `/think:<level>`, یا `/thinking <level>`۔
 - Levels (aliases): `off | minimal | low | medium | high | xhigh` (صرف GPT-5.2 + Codex ماڈلز)
-  - کم سے کم → "سوچیں"
-  - کم → "گہرائی سے سوچیں"
-  - درمیانی → "مزید گہرائی سے سوچیں"
+  - minimal → “think”
+  - low → “think hard”
+  - medium → “think harder”
   - high → “ultrathink” (زیادہ سے زیادہ بجٹ)
   - xhigh → “ultrathink+” (صرف GPT-5.2 + Codex ماڈلز)
   - `x-high`, `x_high`, `extra-high`, `extra high`, اور `extra_high` کا نقشہ `xhigh` سے ملتا ہے۔
@@ -18,7 +21,7 @@ title: "سوچنے کی سطحیں"
 - Provider نوٹس:
   - Z.AI (`zai/*`) صرف بائنری تھنکنگ (`on`/`off`) کو سپورٹ کرتا ہے۔ `off` کے علاوہ کوئی بھی لیول `on` سمجھا جاتا ہے (اور `low` پر میپ کیا جاتا ہے)۔
 
-## حل کرنے کی ترتیب
+## Resolution order
 
 1. پیغام پر inline ہدایت (صرف اسی پیغام پر لاگو)۔
 2. Session override (ہدایتی-only پیغام بھیج کر سیٹ کیا جاتا ہے)۔
@@ -46,7 +49,7 @@ title: "سوچنے کی سطحیں"
 - جب verbose آن ہو، تو وہ ایجنٹس جو اسٹرکچرڈ ٹول رزلٹس (Pi، دیگر JSON ایجنٹس) بھیجتے ہیں، ہر ٹول کال کو اپنی الگ میٹاڈیٹا-اونلی میسج کے طور پر واپس بھیجتے ہیں، جہاں دستیاب ہو `<emoji> <tool-name>: <arg>` (path/command) کے پری فکس کے ساتھ۔ یہ ٹول خلاصے ہر ٹول کے شروع ہوتے ہی بھیجے جاتے ہیں (الگ ببلز)، نہ کہ اسٹریمنگ ڈیلٹاز کے طور پر۔
 - جب verbose `full` ہو، تو مکمل ہونے کے بعد ٹول آؤٹ پٹس بھی فارورڈ کیے جاتے ہیں (الگ ببل، محفوظ لمبائی تک مختصر کیے ہوئے)۔ اگر آپ رن کے دوران `/verbose on|full|off` ٹوگل کریں، تو بعد میں آنے والے ٹول ببلز نئی سیٹنگ کے مطابق ہوں گے۔
 
-## استدلال کی مرئیت (/reasoning)
+## Reasoning visibility (/reasoning)
 
 - Levels: `on|off|stream`۔
 - ہدایتی-only پیغام یہ toggle کرتا ہے کہ replies میں thinking blocks دکھائے جائیں یا نہیں۔
@@ -55,19 +58,17 @@ title: "سوچنے کی سطحیں"
 - Alias: `/reason`۔
 - موجودہ reasoning لیول دیکھنے کے لیے بغیر آرگومنٹ `/reasoning` (یا `/reasoning:`) بھیجیں۔
 
-## متعلقہ
+## Related
 
 - Elevated mode کی دستاویزات [Elevated mode](/tools/elevated) میں دستیاب ہیں۔
 
-## ہارٹ بیٹس
+## Heartbeats
 
 - Heartbeat probe باڈی کنفیگر شدہ heartbeat پرامپٹ ہوتی ہے (ڈیفالٹ: `Read HEARTBEAT.md if it exists (workspace context). 16. Follow it strictly. 17. Do not infer or repeat old tasks from prior chats. 18. If nothing needs attention, reply HEARTBEAT_OK.`)۔ اس پر سختی سے عمل کریں۔ پچھلی چیٹس سے پرانے کاموں کا اندازہ نہ لگائیں اور نہ ہی انہیں دہرائیں۔ اگر کسی چیز پر توجہ کی ضرورت نہ ہو تو HEARTBEAT_OK جواب دیں۔ heartbeat پیغام میں inline ہدایات معمول کے مطابق لاگو ہوتی ہیں (لیکن heartbeats سے سیشن ڈیفالٹس تبدیل کرنے سے گریز کریں)۔
 - Heartbeat کی ترسیل ڈیفالٹ طور پر صرف فائنل پے لوڈ تک محدود ہوتی ہے۔ الگ `Reasoning:` پیغام بھی بھیجنے کے لیے (جب دستیاب ہو)، `agents.defaults.heartbeat.includeReasoning: true` یا فی ایجنٹ `agents.list[].heartbeat.includeReasoning: true` سیٹ کریں۔
 
-## ویب چیٹ UI
+## Web chat UI
 
 - Web chat thinking selector صفحہ لوڈ ہونے پر inbound session store/config سے session میں محفوظ لیول کی عکاسی کرتا ہے۔
 - کوئی اور لیول منتخب کرنے سے صرف اگلے پیغام پر اطلاق ہوتا ہے (`thinkingOnce`)؛ بھیجنے کے بعد selector دوبارہ محفوظ شدہ session لیول پر واپس آ جاتا ہے۔
 - Session default تبدیل کرنے کے لیے حسبِ سابق `/think:<level>` ہدایت بھیجیں؛ اگلے reload کے بعد selector اس کی عکاسی کرے گا۔
-
-

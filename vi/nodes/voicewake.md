@@ -1,4 +1,8 @@
 ---
+summary: "Từ đánh thức bằng giọng nói toàn cục (do Gateway sở hữu) và cách chúng đồng bộ trên các node"
+read_when:
+  - Thay đổi hành vi hoặc giá trị mặc định của từ đánh thức bằng giọng nói
+  - Thêm các nền tảng node mới cần đồng bộ từ đánh thức
 title: "Đánh thức bằng giọng nói"
 ---
 
@@ -59,5 +63,3 @@ Ai nhận được:
 
 - Cung cấp trình chỉnh sửa Wake Words trong Settings.
 - Gọi `voicewake.set` qua Gateway WS để các chỉnh sửa được đồng bộ ở mọi nơi.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "適用於 OpenClaw CLI 的腳本化入門引導與代理程式設定"
+read_when:
+  - 你正在於腳本或 CI 中自動化入門引導
+  - 你需要針對特定提供者的非互動式範例
 title: "CLI 自動化"
 sidebarTitle: "CLI 自動化"
 ---
@@ -10,6 +14,7 @@ sidebarTitle: "CLI 自動化"
 <Note>
 
 `--json` 不代表非互動模式。請在腳本中使用 `--non-interactive`（以及 `--workspace`）。
+ `--json` 不代表非互動模式。請在腳本中使用 `--non-interactive`（以及 `--workspace`）。
  Use `--non-interactive` (and `--workspace`) for scripts.
 </Note>
 
@@ -111,6 +116,25 @@ openclaw onboard --non-interactive \
     ```
   
 </Accordion>
+  <Accordion title="Custom provider example">```bash
+openclaw onboard --non-interactive \
+  --mode local \
+  --auth-choice custom-api-key \
+  --custom-base-url "https://llm.example.com/v1" \
+  --custom-model-id "foo-large" \
+  --custom-api-key "$CUSTOM_API_KEY" \
+  --custom-provider-id "my-custom" \
+  --custom-compatibility anthropic \
+  --gateway-port 18789 \
+  --gateway-bind loopback
+```
+
+    ```
+    `--custom-api-key` 為選用項目。若未提供，入門流程會檢查 `CUSTOM_API_KEY`。
+    ```
+
+  
+</Accordion>
 </AccordionGroup>
 
 ## 新增另一個代理程式
@@ -136,7 +160,7 @@ openclaw agents add work \
 注意事項：
 
 - 預設工作區遵循 `~/.openclaw/workspace-<agentId>`。
-- 39. 新增 `bindings` 以路由傳入訊息（精靈也可完成此操作）。
+- 新增 `bindings` 以路由傳入訊息（精靈也可完成此操作）。
 - 非互動式旗標：`--model`、`--agent-dir`、`--bind`、`--non-interactive`。
 
 ## Related docs
@@ -144,5 +168,3 @@ openclaw agents add work \
 - 入門引導中心：[Onboarding Wizard (CLI)](/start/wizard)
 - 完整參考：[CLI Onboarding Reference](/start/wizard-cli-reference)
 - 指令參考：[`openclaw onboard`](/cli/onboard)
-
-

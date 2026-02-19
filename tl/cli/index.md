@@ -1,4 +1,8 @@
 ---
+summary: "Sanggunian ng OpenClaw CLI para sa mga `openclaw` na command, subcommand, at opsyon"
+read_when:
+  - Pagdaragdag o pagbabago ng mga CLI command o opsyon
+  - Pagdodokumento ng mga bagong command surface
 title: "Sanggunian ng CLI"
 ---
 
@@ -314,6 +318,11 @@ Mga opsyon:
 - `--zai-api-key <key>`
 - `--minimax-api-key <key>`
 - `--opencode-zen-api-key <key>`
+- `--custom-base-url <url>` (non-interactive; ginagamit kasama ng `--auth-choice custom-api-key`)
+- `--custom-model-id <id>` (non-interactive; ginagamit kasama ng `--auth-choice custom-api-key`)
+- `--custom-api-key <key>` (non-interactive; opsyonal; ginagamit kasama ng `--auth-choice custom-api-key`; babalik sa `CUSTOM_API_KEY` kapag hindi ibinigay)
+- `--custom-provider-id <id>` (non-interactive; opsyonal na custom provider id)
+- `--custom-compatibility <openai|anthropic>` (non-interactive; opsyonal; default na `openai`)
 - `--gateway-port <port>`
 - `--gateway-bind <loopback|lan|tailnet|auto|custom>`
 - `--gateway-auth <token|password>`
@@ -1024,5 +1033,3 @@ Mga opsyon:
 - `--message <text>`
 - `--timeout-ms <ms>` (default sa `agents.defaults.timeoutSeconds`)
 - `--history-limit <n>`
-
-

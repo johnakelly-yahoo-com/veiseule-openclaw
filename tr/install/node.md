@@ -1,5 +1,10 @@
 ---
 title: "Node.js"
+summary: "OpenClaw için Node.js’i yükleyin ve yapılandırın — sürüm gereksinimleri, yükleme seçenekleri ve PATH sorun giderme"
+read_when:
+  - "OpenClaw’ı yüklemeden önce Node.js yüklemeniz gerekiyor"
+  - "OpenClaw’ı yüklediniz ancak `openclaw` komutu bulunamadı"
+  - "npm install -g izinler veya PATH sorunları nedeniyle başarısız oluyor"
 ---
 
 # Node.js
@@ -20,46 +25,58 @@ Bu komut `v22.x.x` veya daha yeni bir sürüm yazdırıyorsa sorun yok. Node yü
   <Tab title="macOS">
     **Homebrew** (önerilen):
 
+    `````
+    ````
     ```bash
     brew install node
     ```
-
+    
     Ya da macOS yükleyicisini [nodejs.org](https://nodejs.org/) üzerinden indirin.
+    ````
+    `````
 
   
 </Tab>
   <Tab title="Linux">
     **Ubuntu / Debian:**
 
+    `````
+    ````
     ```bash
     curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
     sudo apt-get install -y nodejs
     ```
-
+    
     **Fedora / RHEL:**
-
+    
     ```bash
     sudo dnf install nodejs
     ```
-
+    
     Alternatif olarak bir sürüm yöneticisi kullanabilirsiniz (aşağıya bakın).
+    ````
+    `````
 
   
 </Tab>
   <Tab title="Windows">
     **winget** (önerilen):
 
+    `````
+    ````
     ```powershell
     winget install OpenJS.NodeJS.LTS
     ```
-
+    
     **Chocolatey:**
-
+    
     ```powershell
     choco install nodejs-lts
     ```
-
+    
     Ya da Windows yükleyicisini [nodejs.org](https://nodejs.org/) üzerinden indirin.
+    ````
+    `````
 
   
 </Tab>
@@ -72,7 +89,7 @@ Bu komut `v22.x.x` veya daha yeni bir sürüm yazdırıyorsa sorun yok. Node yü
 - [**nvm**](https://github.com/nvm-sh/nvm) — macOS/Linux’te yaygın
 - [**mise**](https://mise.jdx.dev/) — çok dilli (Node, Python, Ruby, vb.)
 
-Örnek (fnm ile):
+fnm ile örnek:
 
 ```bash
 fnm install 22
@@ -103,7 +120,11 @@ Bu, neredeyse her zaman npm’in global bin dizininin PATH’inizde olmadığı 
     echo "$PATH"
     ```
 
-    Çıktıda `<npm-prefix>/bin` (macOS/Linux) veya `<npm-prefix>` (Windows) ifadesini arayın.
+    ````
+    ```
+    Çıktıda `<npm-prefix>/bin`’yı (macOS/Linux) veya `<npm-prefix>`’yi (Windows) arayın.
+    ```
+    ````
 
   
 </Step>
@@ -112,19 +133,23 @@ Bu, neredeyse her zaman npm’in global bin dizininin PATH’inizde olmadığı 
       <Tab title="macOS / Linux">
         `~/.zshrc` veya `~/.bashrc` dosyasına ekleyin:
 
-        ```bash
-        export PATH="$(npm prefix -g)/bin:$PATH"
         ```
-
-        Ardından yeni bir terminal açın (veya zsh’te `rehash`, bash’te `hash -r` çalıştırın).
-      
+            ```
+                ```bash
+                export PATH="$(npm prefix -g)/bin:$PATH"
+                ```
+            
+                Ardından yeni bir terminal açın (veya zsh’te `rehash`, bash’te `hash -r` çalıştırın).
+              
 </Tab>
-      <Tab title="Windows">
-        `npm prefix -g` çıktısını Ayarlar → Sistem → Ortam Değişkenleri üzerinden sistem PATH’inize ekleyin.
-      
+              <Tab title="Windows">
+                `npm prefix -g` çıktısını Ayarlar → Sistem → Ortam Değişkenleri üzerinden sistem PATH’inize ekleyin.
+              
 </Tab>
-    
+            
 </Tabs>
+            ```
+        ```
 
   
 </Step>
@@ -141,4 +166,3 @@ export PATH="$HOME/.npm-global/bin:$PATH"
 ```
 
 Kalıcı olması için `export PATH=...` satırını `~/.bashrc` veya `~/.zshrc` dosyanıza ekleyin.
-

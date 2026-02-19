@@ -1,4 +1,8 @@
 ---
+summary: "Mga web surface ng Gateway: Control UI, mga bind mode, at seguridad"
+read_when:
+  - Gusto mong i-access ang Gateway sa pamamagitan ng Tailscale
+  - Gusto mo ang Control UI sa browser at pag-edit ng config
 title: "Web"
 ---
 
@@ -109,5 +113,3 @@ Nagsi-serve ang Gateway ng mga static file mula sa `dist/control-ui`. I-build an
 ```bash
 pnpm ui:build # auto-installs UI deps on first run
 ```
-
-

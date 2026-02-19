@@ -1,4 +1,8 @@
 ---
+summary: "RPC के माध्यम से Gateway लॉग्स को टेल करने के लिए `openclaw logs` का CLI संदर्भ"
+read_when:
+  - आपको SSH के बिना दूरस्थ रूप से Gateway लॉग्स टेल करने की आवश्यकता हो
+  - आपको टूलिंग के लिए JSON लॉग लाइनों की आवश्यकता हो
 title: "लॉग्स"
 ---
 
@@ -19,4 +23,4 @@ openclaw logs --json
 openclaw logs --limit 500
 ```
 
-
+timestamps को अपनी स्थानीय timezone में दिखाने के लिए `--local-time` का उपयोग करें।

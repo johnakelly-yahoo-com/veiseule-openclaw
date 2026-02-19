@@ -1,4 +1,8 @@
 ---
+summary: "macOS アプリで Apple デバイスのモデル識別子を分かりやすい名称に対応付けるために、OpenClaw がどのようにベンダリングしているかを説明します。"
+read_when:
+  - デバイスモデル識別子の対応表や NOTICE／ライセンス ファイルを更新する場合
+  - Instances UI がデバイス名を表示する方法を変更する場合
 title: "デバイスモデル データベース"
 ---
 
@@ -41,5 +45,3 @@ curl -fsSL "https://raw.githubusercontent.com/kyle-seongwoo-jun/apple-device-ide
 ```bash
 swift build --package-path apps/macos
 ```
-
-

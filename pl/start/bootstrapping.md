@@ -1,6 +1,11 @@
 ---
+summary: "Rytuał inicjalnego uruchomienia agenta, który zasiewa obszar roboczy oraz pliki tożsamości"
+read_when:
+  - Zrozumienie, co dzieje się przy pierwszym uruchomieniu agenta
+  - Wyjaśnianie gdzie są pliki bootstrapping na żywo
+  - Debugowanie konfiguracji tożsamości podczas onboardingu
 title: "Inicjalizacja agenta"
-sidebarTitle: "Inicjalizacja"
+sidebarTitle: "Bootstrapping"
 ---
 
 # Inicjalizacja agenta
@@ -33,5 +38,3 @@ Gdy Gateway działa na innej maszynie, edytuj pliki obszaru roboczego na hoście
 
 - Onboarding aplikacji na macOS: [Onboarding](/start/onboarding)
 - Układ obszaru roboczego: [Agent workspace](/concepts/agent-workspace)
-
-

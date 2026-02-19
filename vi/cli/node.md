@@ -1,4 +1,8 @@
 ---
+summary: "Tài liệu tham chiếu CLI cho `openclaw node` (máy chủ node không giao diện)"
+read_when:
+  - Chạy máy chủ node không giao diện
+  - Ghép cặp một node không phải macOS cho system.run
 title: "node"
 ---
 
@@ -104,5 +108,3 @@ Máy chủ node lưu id node, token, tên hiển thị và thông tin kết nố
 - `~/.openclaw/exec-approvals.json`
 - [Phê duyệt exec](/tools/exec-approvals)
 - `openclaw approvals --node <id|name|ip>` (chỉnh sửa từ Gateway)
-
-

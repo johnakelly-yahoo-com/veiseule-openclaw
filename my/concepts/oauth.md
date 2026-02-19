@@ -1,4 +1,10 @@
 ---
+summary: "OpenClaw ရှိ OAuth — တိုကင်လဲလှယ်မှု၊ သိမ်းဆည်းမှု၊ နှင့် အကောင့်အများအပြား ပုံစံများ"
+read_when:
+  - OpenClaw OAuth ကို အစမှအဆုံး နားလည်လိုသောအခါ
+  - တိုကင် မမှန်တော့ခြင်း / ထွက်ခွာသွားခြင်း ပြဿနာများကို ကြုံတွေ့သောအခါ
+  - setup-token သို့မဟုတ် OAuth auth လမ်းကြောင်းများကို လိုအပ်သောအခါ
+  - အကောင့်အများအပြား သို့မဟုတ် ပရိုဖိုင် လမ်းကြောင်းပြုလုပ်ခြင်းကို လိုအပ်သောအခါ
 title: "OAuth"
 ---
 
@@ -136,5 +142,3 @@ openclaw agents add personal
 
 - [/concepts/model-failover](/concepts/model-failover) (rotation + cooldown စည်းမျဉ်းများ)
 - [/tools/slash-commands](/tools/slash-commands) (ကွန်မန်း မျက်နှာပြင်)
-
-

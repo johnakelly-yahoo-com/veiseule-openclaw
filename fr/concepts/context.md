@@ -1,4 +1,9 @@
 ---
+summary: "Contexte : ce que le modèle voit, comment il est construit et comment l’inspecter"
+read_when:
+  - Vous voulez comprendre ce que signifie le « contexte » dans OpenClaw
+  - Vous depannez pourquoi le modele « sait » quelque chose (ou l’a oublie)
+  - Vous voulez reduire la surcharge de contexte (/context, /status, /compact)
 title: "Contexte"
 ---
 
@@ -107,7 +112,7 @@ Par defaut, OpenClaw injecte un ensemble fixe de fichiers de l’espace de trava
 - `HEARTBEAT.md`
 - `BOOTSTRAP.md` (premiere execution uniquement)
 
-Les fichiers volumineux sont tronques par fichier a l’aide de `agents.defaults.bootstrapMaxChars` (par defaut `20000` caracteres). `/context` affiche les tailles **brutes vs injectees** et indique si une troncature a eu lieu.
+Les fichiers volumineux sont tronques par fichier a l’aide de `agents.defaults.bootstrapMaxChars` (par defaut `20000` caracteres). OpenClaw applique également une limite totale d’injection bootstrap sur l’ensemble des fichiers avec `agents.defaults.bootstrapTotalMaxChars` (par défaut `24000` caractères). `/context` affiche les tailles **brutes vs injectees** et indique si une troncature a eu lieu.
 
 ## Skills : ce qui est injecte vs charge a la demande
 
@@ -154,5 +159,3 @@ Documentation : [Session](/concepts/session), [Compaction](/concepts/compactio
 - `System prompt (estimate)` = calcule a la volee lorsqu’aucun rapport d’execution n’existe (ou lors d’une execution via un backend CLI qui ne genere pas le rapport).
 
 Dans tous les cas, il rapporte les tailles et les principaux contributeurs ; il ne **deverse pas** l’invite systeme complete ni les schemas d’outils.
-
-

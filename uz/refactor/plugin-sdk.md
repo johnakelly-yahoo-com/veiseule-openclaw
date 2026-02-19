@@ -1,10 +1,14 @@
 ---
+summary: "Reja: barcha xabar almashish konnektorlari uchun yagona, soddalashtirilgan plugin SDK + runtime"
+read_when:
+  - Defining or refactoring the plugin architecture
+  - Migrating channel connectors to the plugin SDK/runtime
 title: "Plugin SDK’ni qayta tuzish"
 ---
 
 # Plugin SDK + Runtime’ni qayta tuzish rejasi
 
-Maqsad: har bir xabar almashish konnektori bitta barqaror API’dan foydalanadigan plugin (ichki yoki tashqi) bo‘lishi.
+Goal: every messaging connector is a plugin (bundled or external) using one stable API.
 No plugin imports from `src/**` directly. All dependencies go through the SDK or runtime.
 
 ## Nega aynan hozir
@@ -16,7 +20,7 @@ No plugin imports from `src/**` directly. All dependencies go through the SDK or
 
 ### 1. Plugin SDK (compile-time, stable, publishable)
 
-Qamrov: turlar, yordamchi vositalar va konfiguratsiya utilitalari. Runtime holati yo‘q, nojo‘ya ta’sirlar yo‘q.
+Scope: types, helpers, and config utilities. No runtime state, no side effects.
 
 Tarkibi (misollar):
 
@@ -208,5 +212,3 @@ Notes:
 - External plugins can be developed and updated without core source access.
 
 Related docs: [Plugins](/tools/plugin), [Channels](/channels/index), [Configuration](/gateway/configuration).
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "Entegre tarayıcı kontrol hizmeti + eylem komutları"
+read_when:
+  - 13. Ajan kontrollü tarayıcı otomasyonu ekleme
+  - OpenClaw’ın kendi Chrome’unuzla neden etkileşime girdiğini hata ayıklarken
+  - macOS uygulamasında tarayıcı ayarları ve yaşam döngüsünü uygularken
 title: "Tarayıcı (OpenClaw tarafından yönetilen)"
 ---
 
@@ -187,6 +192,7 @@ Notlar:
 Temel fikirler:
 
 - Tarayıcı kontrolü yalnızca loopback’tir; erişim Gateway’in kimlik doğrulaması veya node eşlemesi üzerinden akar.
+- Tarayıcı kontrolü etkinse ve kimlik doğrulama yapılandırılmamışsa, OpenClaw başlangıçta `gateway.auth.token` değerini otomatik oluşturur ve yapılandırmaya kaydeder.
 - Gateway’i ve tüm node host’ları özel bir ağda (Tailscale) tutun; herkese açık maruziyetten kaçının.
 - Uzak CDP URL’lerini/belirteçlerini gizli bilgi olarak değerlendirin; ortam değişkenlerini veya bir gizli anahtar yöneticisini tercih edin.
 
@@ -312,6 +318,11 @@ Yalnızca yerel entegrasyonlar için Gateway, küçük bir loopback HTTP API’s
 
 Tüm uç noktalar `?profile=<name>` kabul eder.
 
+Gateway auth yapılandırılmışsa, tarayıcı HTTP rotaları da kimlik doğrulama gerektirir:
+
+- `Authorization: Bearer <gateway token>`
+- Durum:
+
 ### Playwright gereksinimi
 
 Bazı özellikler (gezinti/eylem/AI anlık görüntü/rol anlık görüntüsü, öğe ekran görüntüleri, PDF)
@@ -434,6 +445,11 @@ Eylemler:
 Notlar:
 
 - `upload` ve `dialog` **hazırlama** çağrılarıdır; seçici/iletişim kutusunu tetikleyen tıklama/tuş basımından önce çalıştırın.
+- İndirme ve iz (trace) çıktı yolları OpenClaw geçici kök dizinleriyle sınırlandırılmıştır:
+  - traces: `/tmp/openclaw` (fallback: `${os.tmpdir()}/openclaw`)
+  - downloads: `/tmp/openclaw/downloads` (fallback: `${os.tmpdir()}/openclaw/downloads`)
+- Yükleme yolları OpenClaw geçici yükleme kök diziniyle sınırlandırılmıştır:
+  - uploads: `/tmp/openclaw/uploads` (fallback: `${os.tmpdir()}/openclaw/uploads`)
 - `upload`, dosya girdilerini `--input-ref` veya `--element` ile doğrudan ayarlayabilir.
 - `snapshot`:
   - `--format ai` (Playwright yüklüyken varsayılan): sayısal referanslar (`aria-ref="<n>"`) içeren bir AI anlık görüntüsü döndürür.
@@ -557,7 +573,7 @@ Ajan, tarayıcı otomasyonu için **tek bir araç** alır:
 
 - `browser` — durum/başlat/durdur/sekme/aç/odakla/kapat/anlık görüntü/ekran görüntüsü/gezinti/eylem
 
-18. Nasıl eşlendiği:
+Nasıl eşlendiği:
 
 - `browser snapshot`, kararlı bir UI ağacı (AI veya ARIA) döndürür.
 - `browser act`, tıklama/yazma/sürükleme/seçme için anlık görüntü `ref` kimliklerini kullanır.
@@ -570,5 +586,3 @@ Ajan, tarayıcı otomasyonu için **tek bir araç** alır:
   - Tarayıcı yetenekli bir node bağlıysa, `target="host"` veya `target="node"`’i sabitlemediğiniz sürece araç otomatik yönlendirme yapabilir.
 
 Bu, ajanı deterministik tutar ve kırılgan seçicilerden kaçınır.
-
-

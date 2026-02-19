@@ -1,12 +1,9 @@
 ---
-title: macOS 日志
-x-i18n:
-  generated_at: "2026-02-01T21:32:54Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: c4c201d154915e0eb08bf5e32bac98fa93766f50f2a24bf56ab4424eb7781526
-  source_path: platforms/mac/logging.md
-  workflow: 15
+summary: "OpenClaw 日志：滚动诊断文件日志 + 统一日志隐私标志"
+read_when:
+  - 捕获 macOS 日志或调查隐私数据日志记录
+  - 调试语音唤醒/会话生命周期问题
+title: "macOS 日志"
 ---
 
 # 日志（macOS）
@@ -22,12 +19,12 @@ OpenClaw 通过 swift-log（默认使用统一日志）路由 macOS 应用日志
 
 注意事项：
 
-- 此功能**默认关闭**。仅在主动调试时启用。
+- 此功能**默认关闭**。仅在主动调试时启用。 Enable only while actively debugging.
 - 该文件包含敏感信息；分享前请先审查内容。
 
 ## macOS 上统一日志的隐私数据
 
-统一日志会屏蔽大部分负载内容，除非子系统选择启用 `privacy -off`。根据 Peter 关于 macOS [日志隐私机制](https://steipete.me/posts/2025/logging-privacy-shenanigans)（2025）的文章，这通过 `/Library/Preferences/Logging/Subsystems/` 中以子系统名称为键的 plist 文件来控制。只有新的日志条目才会应用该标志，因此请在复现问题之前启用它。
+Unified logging redacts most payloads unless a subsystem opts into `privacy -off`. 统一日志会屏蔽大部分负载内容，除非子系统选择启用 `privacy -off`。根据 Peter 关于 macOS [日志隐私机制](https://steipete.me/posts/2025/logging-privacy-shenanigans)（2025）的文章，这通过 `/Library/Preferences/Logging/Subsystems/` 中以子系统名称为键的 plist 文件来控制。只有新的日志条目才会应用该标志，因此请在复现问题之前启用它。 2. 为 OpenClaw（`bot.molt`）启用
 
 ## 为 OpenClaw 启用（`bot.molt`）
 
@@ -57,6 +54,4 @@ sudo install -m 644 -o root -g wheel /tmp/bot.molt.plist /Library/Preferences/Lo
 
 - 移除覆盖配置：`sudo rm /Library/Preferences/Logging/Subsystems/bot.molt.plist`。
 - 可选择运行 `sudo log config --reload` 强制 logd 立即丢弃覆盖配置。
-- 请注意此数据可能包含电话号码和消息正文；仅在确实需要额外详细信息时才保留该 plist 文件。
-
-
+- 11. 菜单栏状态逻辑以及向用户展示的内容

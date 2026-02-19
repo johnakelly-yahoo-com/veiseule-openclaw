@@ -1,4 +1,8 @@
 ---
+summary: "CLI حوالہ برائے `openclaw setup` (کنفیگ اور ورک اسپیس کی ابتدا)"
+read_when:
+  - آپ مکمل آن بورڈنگ وزرڈ کے بغیر پہلی بار سیٹ اپ کر رہے ہوں
+  - آپ ڈیفالٹ ورک اسپیس کا راستہ مقرر کرنا چاہتے ہوں
 title: "سیٹ اپ"
 ---
 
@@ -23,5 +27,3 @@ openclaw setup --workspace ~/.openclaw/workspace
 ```bash
 openclaw setup --wizard
 ```
-
-

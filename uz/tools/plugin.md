@@ -1,34 +1,38 @@
 ---
-title: "Plugins"
+summary: "OpenClaw plaginlari/kengaytmalari: kashf etish, sozlash va xavfsizlik"
+read_when:
+  - Adding or modifying plugins/extensions
+  - Documenting plugin install or load rules
+title: "Plaginlar"
 ---
 
-# Plugins (Extensions)
+# Plaginlar (Kengaytmalar)
 
-## Quick start (new to plugins?)
+## Tez boshlash (plaginlarga yangi misiz?)
 
-A plugin is just a **small code module** that extends OpenClaw with extra
+Plagin — bu OpenClaw’ni qo‘shimcha imkoniyatlar bilan kengaytiradigan **kichik kod moduli** xolos
 features (commands, tools, and Gateway RPC).
 
-Most of the time, you’ll use plugins when you want a feature that’s not built
+Ko‘p hollarda, o‘rnatilgan funksiyalar orasida mavjud bo‘lmagan imkoniyat kerak bo‘lganda plaginlardan foydalanasiz
 into core OpenClaw yet (or you want to keep optional features out of your main
 install).
 
-Fast path:
+Tezkor yo‘l:
 
-1. See what’s already loaded:
+1. Allaqachon yuklanganlarni ko‘ring:
 
 ```bash
 openclaw plugins list
 ```
 
-2. Install an official plugin (example: Voice Call):
+2. Rasmiy plaginni o‘rnating (misol: Voice Call):
 
 ```bash
 openclaw plugins install @openclaw/voice-call
 ```
 
-Npm specs are **registry-only** (package name + optional version/tag). Git/URL/file
-specs are rejected.
+Npm spetsifikatsiyalari **faqat registry** uchun (paket nomi + ixtiyoriy versiya/tag). Git/URL/file
+spetsifikatsiyalari rad etiladi.
 
 3. Restart the Gateway, then configure under `plugins.entries.<id>.config`.
 
@@ -137,9 +141,9 @@ becomes `name/<fileBase>`.
 If your plugin imports npm deps, install them in that directory so
 `node_modules` is available (`npm install` / `pnpm install`).
 
-Security note: `openclaw plugins install` installs plugin dependencies with
-`npm install --ignore-scripts` (no lifecycle scripts). Keep plugin dependency
-trees "pure JS/TS" and avoid packages that require `postinstall` builds.
+Xavfsizlik eslatmasi: `openclaw plugins install` plugin bog‘liqliklarini
+`npm install --ignore-scripts` bilan o‘rnatadi (lifecycle scriptlarsiz). Plugin dependency
+daraxtlarini "toza JS/TS" holatda saqlang va `postinstall` build talab qiladigan paketlardan saqlaning.
 
 ### Channel catalog metadata
 
@@ -159,7 +163,7 @@ Example:
       "selectionLabel": "Nextcloud Talk (self-hosted)",
       "docsPath": "/channels/nextcloud-talk",
       "docsLabel": "nextcloud-talk",
-      "blurb": "Self-hosted chat via Nextcloud Talk webhook bots.",
+      "blurb": "Nextcloud Talk webhook botlari orqali self-hosted chat.",
       "order": 65,
       "aliases": ["nc-talk", "nc"]
     },
@@ -172,129 +176,83 @@ Example:
 }
 ```
 
-OpenClaw can also merge **external channel catalogs** (for example, an MPM
-registry export). Drop a JSON file at one of:
+OpenClaw **tashqi kanal kataloglarini** ham birlashtira oladi (masalan, MPM reyestri eksporti). JSON faylini quyidagilardan biriga joylashtiring:
 
 - `~/.openclaw/mpm/plugins.json`
 - `~/.openclaw/mpm/catalog.json`
 - `~/.openclaw/plugins/catalog.json`
 
-Or point `OPENCLAW_PLUGIN_CATALOG_PATHS` (or `OPENCLAW_MPM_CATALOG_PATHS`) at
-one or more JSON files (comma/semicolon/`PATH`-delimited). Each file should
-contain `{ "entries": [ { "name": "@scope/pkg", "openclaw": { "channel": {...}, "install": {...} } } ] }`.
+Yoki `OPENCLAW_PLUGIN_CATALOG_PATHS` (yoki `OPENCLAW_MPM_CATALOG_PATHS`) ni bir yoki bir nechta JSON fayllarga yo‘naltiring (vergul/nuqta-vergul/`PATH` bilan ajratilgan). Har bir fayl  \`{ "entries": [ { "name": "@scope/pkg", "openclaw": { "channel": {...}, "install": {...}
 
-## Plugin IDs
+## } } ] }\` ni o‘z ichiga olishi kerak.
 
-Default plugin ids:
+Alohida fayl: faylning asosiy nomi (`~/.../voice-call.ts` → `voice-call`)
 
-- Package packs: `package.json` `name`
-- Standalone file: file base name (`~/.../voice-call.ts` → `voice-call`)
+- Standart plagin id’lari:
+- Paket to‘plamlari: `package.json` dagi `name`
 
-If a plugin exports `id`, OpenClaw uses it but warns when it doesn’t match the
-configured id.
+Alohida fayl: faylning asosiy nomi (`~/.../voice-call.ts` → `voice-call`)
 
-## Config
+## Agar plagin `id` ni eksport qilsa, OpenClaw undan foydalanadi, ammo u sozlangan id bilan mos kelmasa, ogohlantiradi.
 
 ```json5
-{
-  plugins: {
-    enabled: true,
-    allow: ["voice-call"],
-    deny: ["untrusted-plugin"],
-    load: { paths: ["~/Projects/oss/voice-call-extension"] },
-    entries: {
-      "voice-call": { enabled: true, config: { provider: "twilio" } },
-    },
-  },
-}
+Konfiguratsiya
 ```
 
-Fields:
+: har bir plagin uchun yoqish/o‘chirish + konfiguratsiya
 
-- `enabled`: master toggle (default: true)
-- `allow`: allowlist (optional)
-- `deny`: denylist (optional; deny wins)
-- `load.paths`: extra plugin files/dirs
-- `entries.<id>`: per‑plugin toggles + config
+- Maydonlar:
+- `enabled`: asosiy yoqib/o‘chirish tugmasi (standart: true)
+- `allow`: ruxsat etilganlar ro‘yxati (ixtiyoriy)
+- `deny`: taqiqlanganlar ro‘yxati (ixtiyoriy; taqiq ustun turadi)
+- `load.paths`: qo‘shimcha plagin fayllari/kataloglari`entries.<id>`
 
-Config changes **require a gateway restart**.
+: har bir plagin uchun yoqish/o‘chirish + konfiguratsiya
 
-Validation rules (strict):
+Konfiguratsiya o‘zgarishlari **gateway qayta ishga tushirilishini talab qiladi**.
 
-- Unknown plugin ids in `entries`, `allow`, `deny`, or `slots` are **errors**.
-- Unknown `channels.<id>` keys are **errors** unless a plugin manifest declares
-  the channel id.
-- Plugin config is validated using the JSON Schema embedded in
-  `openclaw.plugin.json` (`configSchema`).
-- If a plugin is disabled, its config is preserved and a **warning** is emitted.
+- Tekshiruv qoidalari (qat’iy):
+- `entries`, `allow`, `deny` yoki `slots` ichidagi noma’lum plagin id’lari **xato** hisoblanadi.Noma’lum `channels.<id>`
+- kalitlari **xato** hisoblanadi, agar plagin manifesti kanal id’sini e’lon qilmagan bo‘lsa.
+- Plagin konfiguratsiyasi `openclaw.plugin.json` ichiga joylangan JSON Schema (`configSchema`) yordamida tekshiriladi.
 
-## Plugin slots (exclusive categories)
+## Agar plagin o‘chirilgan bo‘lsa, uning konfiguratsiyasi saqlanadi va **ogohlantirish** chiqariladi.
 
-Some plugin categories are **exclusive** (only one active at a time). Use
-`plugins.slots` to select which plugin owns the slot:
+Plagin slotlari (eksklyuziv kategoriyalar) Ba’zi plagin kategoriyalari **eksklyuziv** (bir vaqtda faqat bittasi faol bo‘lishi mumkin).
 
 ```json5
-{
-  plugins: {
-    slots: {
-      memory: "memory-core", // or "none" to disable memory plugins
-    },
-  },
-}
+Qaysi plagin slotga egalik qilishini tanlash uchun
 ```
 
-If multiple plugins declare `kind: "memory"`, only the selected one loads. Others
-are disabled with diagnostics.
+`plugins.slots` dan foydalaning: {
+plugins: {
+slots: {
+memory: "memory-core", // yoki xotira plaginlarini o‘chirish uchun "none"
+},
+},
+}
 
-## Control UI (schema + labels)
+## Agar bir nechta plagin `kind: "memory"` ni e’lon qilsa, faqat tanlangani yuklanadi.
 
-The Control UI uses `config.schema` (JSON Schema + `uiHints`) to render better forms.
+Boshqalari diagnostika bilan o‘chiriladi.
 
-OpenClaw augments `uiHints` at runtime based on discovered plugins:
+Boshqaruv UI (sxema + yorliqlar)
 
-- Adds per-plugin labels for `plugins.entries.<id>` / `.enabled` / `.config`
-- Merges optional plugin-provided config field hints under:
-  `plugins.entries.<id>.config.<field>`
+- Boshqaruv UI yaxshiroq shakllarni chizish uchun `config.schema` (JSON Schema + `uiHints`) dan foydalanadi.OpenClaw aniqlangan plaginlarga asoslanib, ish vaqtida `uiHints` ni kengaytiradi:
+- `plugins.entries.<id>` uchun har bir plagin bo‘yicha yorliqlar qo‘shadi`/`.enabled`/`.config\`Quyidagi ostida plagin tomonidan taqdim etilgan ixtiyoriy konfiguratsiya maydoni ko‘rsatmalarini birlashtiradi:
 
-If you want your plugin config fields to show good labels/placeholders (and mark secrets as sensitive),
-provide `uiHints` alongside your JSON Schema in the plugin manifest.
+`plugins.entries.<id>`
 
 Example:
 
 ```json
-{
-  "id": "my-plugin",
-  "configSchema": {
-    "type": "object",
-    "additionalProperties": false,
-    "properties": {
-      "apiKey": { "type": "string" },
-      "region": { "type": "string" }
-    }
-  },
-  "uiHints": {
-    "apiKey": { "label": "API Key", "sensitive": true },
-    "region": { "label": "Region", "placeholder": "us-east-1" }
-  }
-}
+Misol:
 ```
 
-## CLI
+## Agar plagin konfiguratsiya maydonlaringiz yaxshi yorliqlar/placeholder’lar bilan ko‘rinishini (va sirlarni maxfiy deb belgilashni) istasangiz, plagin manifestida JSON Schema bilan birga `uiHints` ni taqdim eting.
 
 ```bash
-openclaw plugins list
-openclaw plugins info <id>
-openclaw plugins install <path>                 # copy a local file/dir into ~/.openclaw/extensions/<id>
-openclaw plugins install ./extensions/voice-call # relative path ok
-openclaw plugins install ./plugin.tgz           # install from a local tarball
-openclaw plugins install ./plugin.zip           # install from a local zip
-openclaw plugins install -l ./extensions/voice-call # link (no copy) for dev
-openclaw plugins install @openclaw/voice-call # install from npm
-openclaw plugins update <id>
-openclaw plugins update --all
-openclaw plugins enable <id>
-openclaw plugins disable <id>
-openclaw plugins doctor
+Misol:
 ```
 
 `plugins update` only works for npm installs tracked under `plugins.installs`.
@@ -427,7 +385,7 @@ Notes:
 
 ### Write a new messaging channel (step‑by‑step)
 
-Use this when you want a **new chat surface** (a "messaging channel"), not a model provider.
+Buni **yangi chat yuzasi** ("messaging channel") kerak bo‘lganda ishlating, model provider emas.
 Model provider docs live under `/providers/*`.
 
 1. Pick an id + config shape
@@ -435,30 +393,30 @@ Model provider docs live under `/providers/*`.
 - All channel config lives under `channels.<id>`.
 - Prefer `channels.<id>.accounts.<accountId>` for multi‑account setups.
 
-2. Define the channel metadata
+2. Majburiy adapterlarni amalga oshiring
 
-- `meta.label`, `meta.selectionLabel`, `meta.docsPath`, `meta.blurb` control CLI/UI lists.
-- `meta.docsPath` should point at a docs page like `/channels/<id>`.
-- `meta.preferOver` lets a plugin replace another channel (auto-enable prefers it).
-- `meta.detailLabel` and `meta.systemImage` are used by UIs for detail text/icons.
+- `meta.label`, `meta.selectionLabel`, `meta.docsPath`, `meta.blurb` CLI/UI roʻyxatlarini boshqaradi.
+- `capabilities` (chat turlari, media, tarmoqlar va h.k.)
+- `outbound.deliveryMode` + `outbound.sendText` (asosiy yuborish uchun)
+- `meta.detailLabel` va `meta.systemImage` UIʼlar tomonidan tafsilot matni/ikonlar uchun ishlatiladi.
 
-3. Implement the required adapters
+3. Kerak bo‘lganda ixtiyoriy adapterlarni qo‘shing
 
 - `config.listAccountIds` + `config.resolveAccount`
-- `capabilities` (chat types, media, threads, etc.)
-- `outbound.deliveryMode` + `outbound.sendText` (for basic send)
+- `capabilities` (chat turlari, media, tarmoqlar va h.k.)
+- `actions` (xabar amallari), `commands` (mahalliy buyruq xatti-harakati)
 
-4. Add optional adapters as needed
+4. Kanalni plaginingizda ro‘yxatdan o‘tkazing
 
-- `setup` (wizard), `security` (DM policy), `status` (health/diagnostics)
+- `setup` (ustoz), `security` (DM siyosati), `status` (sog‘liq/diagnostika)
 - `gateway` (start/stop/login), `mentions`, `threading`, `streaming`
-- `actions` (message actions), `commands` (native command behavior)
+- `actions` (xabar amallari), `commands` (mahalliy buyruq xatti-harakati)
 
-5. Register the channel in your plugin
+5. Kanalni plaginingizda ro‘yxatdan o‘tkazing
 
 - `api.registerChannel({ plugin })`
 
-Minimal config example:
+Minimal kanal plagini (faqat outbound):
 
 ```json5
 {
@@ -472,7 +430,7 @@ Minimal config example:
 }
 ```
 
-Minimal channel plugin (outbound‑only):
+Minimal kanal plagini (faqat outbound):
 
 ```ts
 const plugin = {
@@ -507,14 +465,14 @@ export default function (api) {
 }
 ```
 
-Load the plugin (extensions dir or `plugins.load.paths`), restart the gateway,
-then configure `channels.<id>` in your config.
+Plaginni yuklang (extensions katalogi yoki `plugins.load.paths`), gatewayʼni qayta ishga tushiring,
+so‘ng `channels.<id>` ni sozlang\` konfiguratsiyangizda.
 
 ### Agent tools
 
-See the dedicated guide: [Plugin agent tools](/plugins/agent-tools).
+Maxsus qo‘llanmaga qarang: [Plugin agent tools](/plugins/agent-tools).
 
-### Register a gateway RPC method
+### CLI buyruqlarini ro‘yxatdan o‘tkazing
 
 ```ts
 export default function (api) {
@@ -524,7 +482,7 @@ export default function (api) {
 }
 ```
 
-### Register CLI commands
+### Avto-javob buyruqlarini ro‘yxatdan o‘tkazing
 
 ```ts
 export default function (api) {
@@ -539,11 +497,9 @@ export default function (api) {
 }
 ```
 
-### Register auto-reply commands
+### Avto-javob buyruqlarini ro‘yxatdan o‘tkazing
 
-Plugins can register custom slash commands that execute **without invoking the
-AI agent**. This is useful for toggle commands, status checks, or quick actions
-that don't need LLM processing.
+Plaginlar **AI agentini chaqirmasdan** bajariladigan maxsus slash-buyruqlarni ro‘yxatdan o‘tkazishi mumkin. Bu LLM ishloviga ehtiyoj bo‘lmagan yoqish/o‘chirish buyruqlari, holat tekshiruvlari yoki tezkor amallar uchun foydalidir.
 
 ```ts
 export default function (api) {
@@ -557,24 +513,24 @@ export default function (api) {
 }
 ```
 
-Command handler context:
+Buyruq parametrlari:
 
-- `senderId`: The sender's ID (if available)
+- `name`: Buyruq nomi (oldidagi `/`siz)
 - `channel`: The channel where the command was sent
-- `isAuthorizedSender`: Whether the sender is an authorized user
-- `args`: Arguments passed after the command (if `acceptsArgs: true`)
-- `commandBody`: The full command text
-- `config`: The current OpenClaw config
+- `isAuthorizedSender`: Yuboruvchi vakolatli foydalanuvchi ekanligi
+- `requireAuth`: Vakolatli yuboruvchini talab qilish (standart: true)
+- `handler`: `{ text: string }` qaytaradigan funksiya (async bo‘lishi mumkin)
+- `config`: Joriy OpenClaw konfiguratsiyasi
 
-Command options:
+Avtorizatsiya va argumentlar bilan misol:
 
-- `name`: Command name (without the leading `/`)
-- `description`: Help text shown in command lists
-- `acceptsArgs`: Whether the command accepts arguments (default: false). If false and arguments are provided, the command won't match and the message falls through to other handlers
-- `requireAuth`: Whether to require authorized sender (default: true)
-- `handler`: Function that returns `{ text: string }` (can be async)
+- `name`: Buyruq nomi (oldidagi `/`siz)
+- `description`: Buyruqlar ro‘yxatida ko‘rsatiladigan yordam matni
+- `acceptsArgs`: Buyruq argumentlarni qabul qiladimi (standart: false). Agar false bo‘lsa va argumentlar berilsa, buyruq mos kelmaydi va xabar boshqa ishlovchilarga o‘tadi
+- `requireAuth`: Vakolatli yuboruvchini talab qilish (standart: true)
+- `handler`: `{ text: string }` qaytaradigan funksiya (async bo‘lishi mumkin)
 
-Example with authorization and arguments:
+Eslatmalar:
 
 ```ts
 api.registerCommand({
@@ -592,7 +548,7 @@ api.registerCommand({
 
 Notes:
 
-- Plugin commands are processed **before** built-in commands and the AI agent
+- Plagin buyruqlari **o‘rnatilgan** buyruqlar va AI agentdan **oldin** qayta ishlanadi
 - Commands are registered globally and work across all channels
 - Command names are case-insensitive (`/MyStatus` matches `/mystatus`)
 - Command names must start with a letter and contain only letters, numbers, hyphens, and underscores
@@ -665,7 +621,3 @@ Plugins can (and should) ship tests:
 
 - In-repo plugins can keep Vitest tests under `src/**` (example: `src/plugins/voice-call.plugin.test.ts`).
 - Separately published plugins should run their own CI (lint/build/test) and validate `openclaw.extensions` points at the built entrypoint (`dist/index.js`).
-
-
-
-{/* v2 */}

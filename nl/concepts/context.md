@@ -1,4 +1,9 @@
 ---
+summary: "Context: wat het model ziet, hoe die wordt opgebouwd en hoe je deze kunt inspecteren"
+read_when:
+  - Je wilt begrijpen wat “context” betekent in OpenClaw
+  - Je bent aan het debuggen waarom het model iets “weet” (of is vergeten)
+  - Je wilt context-overhead verminderen (/context, /status, /compact)
 title: "Context"
 ---
 
@@ -107,7 +112,7 @@ Standaard injecteert OpenClaw een vaste set werkruimtebestanden (indien aanwezig
 - `HEARTBEAT.md`
 - `BOOTSTRAP.md` (alleen bij eerste run)
 
-Grote bestanden worden per bestand afgekapt met `agents.defaults.bootstrapMaxChars` (standaard `20000` tekens). `/context` toont **ruw vs. geïnjecteerd** formaat en of afkappen heeft plaatsgevonden.
+Grote bestanden worden per bestand afgekapt met `agents.defaults.bootstrapMaxChars` (standaard `20000` tekens). OpenClaw dwingt ook een totale bootstrap-injectielimiet over bestanden af met `agents.defaults.bootstrapTotalMaxChars` (standaard `24000` tekens). `/context` toont **ruw vs. geïnjecteerd** formaat en of afkappen heeft plaatsgevonden.
 
 ## Skills: wat wordt geïnjecteerd vs. on-demand geladen
 
@@ -154,5 +159,3 @@ Documentatie: [Sessie](/concepts/session), [Compactie](/concepts/compaction), [S
 - `System prompt (estimate)` = on-the-fly berekend wanneer er geen run-rapport bestaat (of bij uitvoering via een CLI-backend die het rapport niet genereert).
 
 In beide gevallen rapporteert het groottes en belangrijkste bijdragers; het dumpt **niet** de volledige systeemprompt of tool-schema’s.
-
-

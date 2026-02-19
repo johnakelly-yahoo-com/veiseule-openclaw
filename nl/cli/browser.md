@@ -1,4 +1,9 @@
 ---
+summary: "CLI-referentie voor `openclaw browser` (profielen, tabbladen, acties, extensierelay)"
+read_when:
+  - Je gebruikt `openclaw browser` en wilt voorbeelden voor veelvoorkomende taken
+  - Je wilt een browser die op een andere machine draait bedienen via een node-host
+  - Je wilt de Chrome-extensierelay gebruiken (koppelen/ontkoppelen via de werkbalkknop)
 title: "browser"
 ---
 
@@ -58,7 +63,7 @@ openclaw browser close <targetId>
 
 ## Snapshot / screenshot / acties
 
-Momentopname:
+Snapshot:
 
 ```bash
 openclaw browser snapshot
@@ -100,5 +105,3 @@ Als de Gateway op een andere machine draait dan de browser, voer dan een **node 
 Gebruik `gateway.nodes.browser.mode` om auto-routering te regelen en `gateway.nodes.browser.node` om een specifieke node vast te pinnen als er meerdere verbonden zijn.
 
 Beveiliging + externe installatie: [Browser tool](/tools/browser), [Remote access](/gateway/remote), [Tailscale](/gateway/tailscale), [Security](/gateway/security)
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Flyt (migrér) en OpenClaw-installation fra én maskine til en anden"
+read_when:
+  - Du flytter OpenClaw til en ny bærbar/server
+  - Du vil bevare sessioner, autentificering og kanal-logins (WhatsApp m.fl.)
 title: "Migreringsguide"
 ---
 
@@ -186,5 +190,3 @@ På den nye maskine skal du bekræfte:
 - [Doctor](/gateway/doctor)
 - [Gateway-fejlfinding](/gateway/troubleshooting)
 - [Hvor gemmer OpenClaw sine data?](/help/faq#where-does-openclaw-store-its-data)
-
-

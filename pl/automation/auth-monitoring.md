@@ -1,4 +1,8 @@
 ---
+summary: "Monitorowanie wygaśnięcia OAuth dla dostawców modeli"
+read_when:
+  - Konfigurowanie monitorowania wygaśnięcia uwierzytelniania lub alertów
+  - Automatyzowanie sprawdzania odświeżania OAuth w Claude Code / Codex
 title: "Monitorowanie uwierzytelniania"
 ---
 
@@ -38,5 +42,3 @@ hosta gateway (hosta bramy) i są dostrojone pod systemd + Termux.
 - `scripts/termux-sync-widget.sh`: synchronizacja poświadczeń Claude Code → OpenClaw.
 
 Jeśli nie potrzebujesz automatyzacji na telefonie ani timerów systemd, pomiń te skrypty.
-
-

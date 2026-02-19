@@ -1,8 +1,12 @@
 ---
+summary: "OpenClaw qanday qilib auth profillarini aylantiradi va modellar o‘rtasida fallback qiladi"
+read_when:
+  - Auth profili aylanishi, cooldown’lar yoki model fallback xatti-harakatlarini diagnostika qilayotganda
+  - Auth profillari yoki modellar uchun failover qoidalarini yangilayotganda
 title: "Model Fallback"
 ---
 
-# Model fallback
+# Model failover
 
 OpenClaw xatolarni ikki bosqichda boshqaradi:
 
@@ -24,7 +28,7 @@ Batafsil: [/concepts/oauth](/concepts/oauth)
 Credential turlari:
 
 - `type: "api_key"` → `{ provider, key }`
-- `type: "oauth"` → `{ provider, access, refresh, expires, email? }` (+ ayrim provayderlar uchun `projectId`/`enterpriseUrl`)
+- `type: "oauth"` → `{ provider, access, refresh, expires, email? }` (+ `projectId`/`enterpriseUrl` for some providers)
 
 ## Profil IDlari
 
@@ -51,8 +55,8 @@ Agar aniq tartib sozlanmagan bo‘lsa, OpenClaw round‑robin tartibidan foydala
 
 ### Sessiya bo‘yicha biriktirish (kesh uchun qulay)
 
-OpenClaw **tanlangan auth profilini sessiya bo‘yicha biriktiradi**, provayder keshlarini “issiq” saqlash uchun.  
-Har bir so‘rovda aylantirilmaydi. Biriktirilgan profil quyidagi holatlargacha qayta ishlatiladi:
+1. OpenClaw **tanlangan auth profilini sessiya davomida mahkamlaydi** — bu provayder keshlarini “issiq” holatda saqlash uchun.
+2. U har bir so‘rovda **aylantirilmaydi**. 3. Mahkamlangan profil quyidagilargacha qayta ishlatiladi:
 
 - sessiya tiklanganda (`/new` / `/reset`)
 - compaction yakunlanganda (compaction soni oshganda)
@@ -61,21 +65,22 @@ Har bir so‘rovda aylantirilmaydi. Biriktirilgan profil quyidagi holatlargacha 
 `/model …@<profileId>` orqali qo‘lda tanlash ushbu sessiya uchun **foydalanuvchi override** ni o‘rnatadi  
 va yangi sessiya boshlanmaguncha avtomatik aylantirilmaydi.
 
-Avtomatik biriktirilgan profillar (sessiya router tomonidan tanlangan) **afzallik** sifatida ko‘riladi:  
-ular birinchi sinab ko‘riladi, ammo rate limit yoki timeout bo‘lsa OpenClaw boshqa profilga o‘tishi mumkin.  
-Foydalanuvchi biriktirgan profillar esa o‘sha profilga qat’iy bog‘lanadi; agar u ishlamasa va model fallback  
-sozlangan bo‘lsa, OpenClaw profilni almashtirish o‘rniga keyingi modelga o‘tadi.
+8. Avtomatik mahkamlangan profillar (sessiya routeri tomonidan tanlangan) **afzallik** sifatida qaraladi:
+   ular avval sinab ko‘riladi, ammo rate limitlar/timeoutlar bo‘lsa, OpenClaw boshqa profilga o‘tishi mumkin.
+9. Foydalanuvchi mahkamlagan profillar o‘sha profilga qulflanib qoladi; agar u ishlamasa va model fallbacklar
+   sozlangan bo‘lsa, OpenClaw profilni almashtirish o‘rniga keyingi modelga o‘tadi.
 
 ### Nega OAuth “yo‘qolib qolgandek” ko‘rinishi mumkin
 
-Agar bir provayder uchun ham OAuth, ham API kalit profillari bo‘lsa, round‑robin xabarlar orasida ularni almashtirishi mumkin (agar biriktirilmagan bo‘lsa). Bitta profilni majburan ishlatish uchun:
+11. Agar bir provayder uchun ham OAuth profili, ham API key profili bo‘lsa, round‑robin mahkamlashsiz xabarlar orasida ular o‘rtasida almashishi mumkin. 12. Bitta profilni majburlash uchun:
 
 - `auth.order[provider] = ["provider:profileId"]` bilan biriktiring, yoki
 - UI/chat interfeysingiz qo‘llab-quvvatlasa, `/model …` orqali sessiya bo‘yicha override ishlating.
 
 ## Cooldown’lar
 
-Agar profil auth/rate‑limit xatolari (yoki rate limitga o‘xshash timeout) sababli muvaffaqiyatsiz tugasa, OpenClaw uni cooldown holatiga o‘tkazadi va keyingi profilga o‘tadi. Format/invalid‑request xatolari (masalan, Cloud Code Assist tool call ID tekshiruv xatolari) ham failover talab qiluvchi deb hisoblanadi va xuddi shu cooldown mexanizmidan foydalanadi.
+16. Profil auth/rate‑limit xatolari (yoki rate limitingga o‘xshash timeout) sababli ishlamay qolsa, OpenClaw uni cooldown holatiga o‘tkazadi va keyingi profilga o‘tadi.
+17. Format/yaroqsiz so‘rov xatolari (masalan, Cloud Code Assist tool call ID tekshiruv xatolari) ham failoverga loyiq deb qaraladi va xuddi shu cooldownlardan foydalanadi.
 
 Cooldown’lar eksponensial backoff asosida:
 
@@ -100,7 +105,7 @@ Holat `auth-profiles.json` faylida `usageStats` ostida saqlanadi:
 
 ## Billing sababli o‘chirish
 
-Billing/kredit xatolari (masalan, “insufficient credits” / “credit balance too low”) ham failover talab qiladi, ammo ular odatda vaqtinchalik emas. Qisqa cooldown o‘rniga OpenClaw profilni **disabled** deb belgilaydi (uzoqroq backoff bilan) va keyingi profil/provayderga o‘tadi.
+26. Billing/kredit xatolari (masalan, “insufficient credits” / “credit balance too low”) failoverga loyiq deb qaraladi, ammo ular odatda vaqtinchalik bo‘lmaydi. 27. Qisqa cooldown o‘rniga, OpenClaw profilni **o‘chirilgan** deb belgilaydi (uzoqroq backoff bilan) va keyingi profil/provayderga o‘tadi.
 
 Holat `auth-profiles.json` faylida saqlanadi:
 
@@ -120,11 +125,10 @@ Standart sozlamalar:
 - Billing backoff **5 soatdan** boshlanadi, har bir billing xatosida ikki baravar oshadi va **24 soat** bilan cheklanadi.
 - Agar profil **24 soat** davomida xatoga uchramasa (sozlanishi mumkin), backoff hisoblagichlari tiklanadi.
 
-## Modelning zaxira rejimi
+## Model fallback
 
-Agar provayderning barcha profillari muvaffaqiyatsiz tugasa, OpenClaw  
-`agents.defaults.model.fallbacks` dagi keyingi modelga o‘tadi. Bu auth xatolari, rate limit va  
-profil aylanishi tugagan timeout holatlariga tegishli (boshqa xatolar fallback’ni davom ettirmaydi).
+34. Agar provayder uchun barcha profillar ishlamasa, OpenClaw `agents.defaults.model.fallbacks` dagi keyingi modelga o‘tadi. 35. Bu auth xatolari, rate limitlar va
+    profil aylantirish tugagan timeoutlarga taalluqli (boshqa xatolar fallbackni oldinga siljitmaydi).
 
 Agar ishga tushirish model override (hook yoki CLI orqali) bilan boshlangan bo‘lsa ham, fallback’lar  
 sozlangan fallback’lar sinab ko‘rilgach, baribir `agents.defaults.model.primary` da yakunlanadi.
@@ -140,5 +144,3 @@ Qarang: [Gateway configuration](/gateway/configuration):
 - `agents.defaults.imageModel` marshrutlash
 
 Kengroq model tanlash va fallback haqida umumiy ma’lumot uchun [Models](/concepts/models) sahifasiga qarang.
-
-

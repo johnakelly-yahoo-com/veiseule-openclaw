@@ -1,5 +1,7 @@
 ---
-title: "سینڈ باکسنگ"
+summary: "OpenClaw میں sandboxing کیسے کام کرتا ہے: موڈز، اسکوپس، ورک اسپیس رسائی، اور امیجز"
+title: سینڈ باکسنگ
+read_when: "جب آپ کو sandboxing کی مخصوص وضاحت درکار ہو یا agents.defaults.sandbox کو ٹیون کرنا ہو۔"
 status: active
 ---
 
@@ -71,6 +73,11 @@ Global and per-agent binds are **merged** (not replaced). Under `scope: "shared"
 
 مثال (read-only سورس + docker ساکٹ):
 
+- جب سیٹ کیا جائے (بشمول `[]`)، تو یہ براؤزر کنٹینر کے لیے `agents.defaults.sandbox.docker.binds` کو ریپلیس کر دیتا ہے۔
+- اگر چھوڑ دیا جائے، تو براؤزر کنٹینر واپس `agents.defaults.sandbox.docker.binds` پر چلا جاتا ہے (backwards compatible)۔
+
+سکیورٹی نوٹس:
+
 ```json5
 {
   agents: {
@@ -134,9 +141,9 @@ Docker کی تنصیبات اور کنٹینرائزڈ Gateway یہاں موجو
 `setupCommand` runs **once** after the sandbox container is created (not on every run).
 It executes inside the container via `sh -lc`.
 
-راستے:
+عام مسائل:
 
-- گلوبل: `agents.defaults.sandbox.docker.setupCommand`
+- بطورِ طے شدہ `docker.network` `"none"` ہے (کوئی egress نہیں)، اس لیے پیکج انسٹالز ناکام ہوں گے۔
 - Per-agent: `agents.list[].sandbox.docker.setupCommand`
 
 عام مسائل:
@@ -189,5 +196,3 @@ See [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) for preceden
 - [Sandbox Configuration](/gateway/configuration#agentsdefaults-sandbox)
 - [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools)
 - [Security](/gateway/security)
-
-

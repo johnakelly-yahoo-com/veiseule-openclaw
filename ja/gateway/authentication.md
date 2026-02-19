@@ -1,11 +1,16 @@
 ---
+summary: "モデル認証：OAuth、API キー、および setup-token"
+read_when:
+  - モデル認証や OAuth の有効期限切れをデバッグする場合
+  - 認証や資格情報の保存を文書化する場合
 title: "認証"
 ---
 
 # 認証
 
 OpenClaw は、モデルプロバイダー向けに OAuth と API キーをサポートします。Anthropic のアカウントでは、**API キー**の使用を推奨します。Claude のサブスクリプションアクセスには、`claude setup-token` によって作成される長期有効トークンを使用してください。 Anthropic
-アカウントでは、**API キー**を使用することをお勧めします。 22. Claude のサブスクリプションアクセスには、`claude setup-token` で作成した長期間有効なトークンを使用してください。
+アカウントでは、**API キー**を使用することをお勧めします。 22. Anthropic
+アカウントでは、**API キー**を使用することをお勧めします。 Claude のサブスクリプションアクセスには、`claude setup-token` で作成した長期間有効なトークンを使用してください。
 
 OAuth の完全なフローと保存レイアウトについては、[/concepts/oauth](/concepts/oauth) を参照してください。
 
@@ -43,6 +48,7 @@ openclaw doctor
 ## Anthropic：setup-token（サブスクリプション認証）
 
 Anthropicでは、推奨されるパスは**APIキー**です。 Claude
+サブスクリプションを使用している場合は、setup-token フローもサポートされます。 **ゲートウェイホスト**で実行します。 Claude
 サブスクリプションを使用している場合は、setup-token フローもサポートされます。 **ゲートウェイホスト**で実行します。
 
 ```bash
@@ -133,5 +139,3 @@ openclaw models status
 
 - Claude Max または Pro のサブスクリプション（`claude setup-token` 用）
 - Claude Code CLI がインストールされていること（`claude` コマンドが利用可能）
-
-

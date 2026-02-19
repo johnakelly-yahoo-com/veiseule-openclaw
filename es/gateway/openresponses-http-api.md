@@ -1,4 +1,8 @@
 ---
+summary: "Exponer un endpoint HTTP /v1/responses compatible con OpenResponses desde el Gateway"
+read_when:
+  - Integrar clientes que hablan la API de OpenResponses
+  - Quiere entradas basadas en ítems, llamadas a herramientas del cliente o eventos SSE
 title: "API de OpenResponses"
 ---
 
@@ -24,6 +28,7 @@ Notas:
 
 - Cuando `gateway.auth.mode="token"`, use `gateway.auth.token` (o `OPENCLAW_GATEWAY_TOKEN`).
 - Cuando `gateway.auth.mode="password"`, use `gateway.auth.password` (o `OPENCLAW_GATEWAY_PASSWORD`).
+- Si `gateway.auth.rateLimit` está configurado y se producen demasiados fallos de autenticación, el endpoint devuelve `429` con `Retry-After`.
 
 ## Elección de un agente
 
@@ -182,7 +187,11 @@ Valores predeterminados de obtención de URL:
 
 - `files.allowUrl`: `true`
 - `images.allowUrl`: `true`
+- `maxUrlParts`: `8` (total de partes `input_file` + `input_image` basadas en URL por solicitud)
 - Las solicitudes están protegidas (resolución DNS, bloqueo de IP privadas, límites de redirección, timeouts).
+- Se admiten listas de hosts permitidos opcionales por tipo de entrada (`files.urlAllowlist`, `images.urlAllowlist`).
+  - Host exacto: `"cdn.example.com"`
+  - Subdominios comodín: `"*.assets.example.com"` (no coincide con el dominio raíz)
 
 ## Límites de archivos + imágenes (configuración)
 
@@ -233,6 +242,7 @@ Los valores predeterminados pueden ajustarse en `gateway.http.endpoints.response
 Valores predeterminados cuando se omiten:
 
 - `maxBodyBytes`: 20MB
+- `maxUrlParts`: 8
 - `files.maxBytes`: 5MB
 - `files.maxChars`: 200k
 - `files.maxRedirects`: 3
@@ -243,6 +253,13 @@ Valores predeterminados cuando se omiten:
 - `images.maxBytes`: 10MB
 - `images.maxRedirects`: 3
 - `images.timeoutMs`: 10s
+
+Nota de seguridad:
+
+- Las listas de URLs permitidas se aplican antes de la descarga y en cada salto de redirección.
+- Incluir un hostname en la lista de permitidos no omite el bloqueo de IP privadas/internas.
+- Para gateways expuestos a Internet, aplique controles de salida de red además de las protecciones a nivel de aplicación.
+  Consulte [Security](/gateway/security).
 
 ## Streaming (SSE)
 
@@ -285,7 +302,7 @@ Casos comunes:
 
 ## Ejemplos
 
-Sin streaming:
+Con streaming:
 
 ```bash
 curl -sS http://127.0.0.1:18789/v1/responses \
@@ -298,7 +315,7 @@ curl -sS http://127.0.0.1:18789/v1/responses \
   }'
 ```
 
-Con streaming:
+Sin streaming:
 
 ```bash
 curl -N http://127.0.0.1:18789/v1/responses \
@@ -311,5 +328,3 @@ curl -N http://127.0.0.1:18789/v1/responses \
     "input": "hi"
   }'
 ```
-
-

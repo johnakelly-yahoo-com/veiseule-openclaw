@@ -1,4 +1,7 @@
 ---
+summary: "使用 SSH 通道（Gateway WS）與 tailnet 的遠端存取"
+read_when:
+  - 執行或疑難排解遠端 Gateway 設定時
 title: "13. 遠端存取"
 ---
 
@@ -16,7 +19,7 @@ title: "13. 遠端存取"
 
 ## 常見的 VPN／tailnet 設定（代理程式所在位置）
 
-將 **Gateway 主機** 想像成「代理程式所在之處」。它負責管理會話、驗證設定檔、通道與狀態。
+Think of the **Gateway host** as “where the agent lives.” It owns sessions, auth profiles, channels, and state.
 Your laptop/desktop (and nodes) connect to that host.
 
 ### 1. tailnet 中的常駐 Gateway（VPS 或家用伺服器）
@@ -31,7 +34,7 @@ Your laptop/desktop (and nodes) connect to that host.
 
 ### 2. 家用桌機執行 Gateway，筆電作為遠端控制
 
-筆電 **不** 執行代理程式，而是遠端連線： It connects remotely:
+筆電 **不** 執行代理程式，而是遠端連線： It connects remotely: It connects remotely:
 
 - 使用 macOS App 的 **Remote over SSH** 模式（設定 → 一般 →「OpenClaw runs」）。
 - App 會開啟並管理通道，因此 WebChat 與健康檢查可「即刻可用」。
@@ -49,7 +52,7 @@ Your laptop/desktop (and nodes) connect to that host.
 
 ## 指令流程（各元件執行位置）
 
-一個 Gateway 服務擁有狀態與通道。節點是周邊裝置。
+One gateway service owns state + channels. Nodes are peripherals.
 
 流程範例（Telegram → 節點）：
 
@@ -80,7 +83,8 @@ ssh -N -L 18789:127.0.0.1:18789 user@host
 注意：當你傳入 `--url` 時，CLI 不會回退使用設定或環境變數中的憑證。
 請明確包含 `--token` 或 `--password`。缺少明確憑證會視為錯誤。
 Note: when you pass `--url`, the CLI does not fall back to config or environment credentials.
-21. 請明確包含 `--token` 或 `--password`。 22. 缺少明確憑證會被視為錯誤。
+21.
+請明確包含 `--token` 或 `--password`。 22. 缺少明確憑證會被視為錯誤。
 
 ## CLI 遠端預設值
 
@@ -124,8 +128,7 @@ macOS 選單列 App 可端到端地驅動相同設定（遠端狀態檢查、Web
 - 當 `gateway.auth.allowTailscale: true` 時，**Tailscale Serve** 可透過身分識別標頭進行驗證。
   若你改用權杖／密碼，請將其設為 `false`。
   Set it to `false` if you want tokens/passwords instead.
+  Set it to `false` if you want tokens/passwords instead.
 - 25. 將瀏覽器控制視為操作員存取：僅限 tailnet + 審慎的節點配對。
 
 深入說明：[安全性](/gateway/security)。
-
-

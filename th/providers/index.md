@@ -1,4 +1,8 @@
 ---
+summary: "ผู้ให้บริการโมเดล(LLMs)ที่ OpenClaw รองรับ"
+read_when:
+  - คุณต้องการเลือกผู้ให้บริการโมเดล
+  - คุณต้องการภาพรวมอย่างรวดเร็วของแบ็กเอนด์LLMที่รองรับ
 title: "ผู้ให้บริการโมเดล"
 ---
 
@@ -35,7 +39,9 @@ Veniceคือการตั้งค่า Venice AI ที่เราแน
 - [Anthropic (API + Claude Code CLI)](/providers/anthropic)
 - [Qwen (OAuth)](/providers/qwen)
 - [OpenRouter](/providers/openrouter)
+- [LiteLLM (เกตเวย์แบบรวมศูนย์)](/providers/litellm)
 - [Vercel AI Gateway](/providers/vercel-ai-gateway)
+- [Together AI](/providers/together)
 - [Cloudflare AI Gateway](/providers/cloudflare-ai-gateway)
 - [Moonshot AI (Kimi + Kimi Coding)](/providers/moonshot)
 - [OpenCode Zen](/providers/opencode)
@@ -45,8 +51,12 @@ Veniceคือการตั้งค่า Venice AI ที่เราแน
 - [GLM models](/providers/glm)
 - [MiniMax](/providers/minimax)
 - [Venice (Venice AI, เน้นความเป็นส่วนตัว)](/providers/venice)
+- [Hugging Face (Inference)](/providers/huggingface)
 - [Ollama (โมเดลภายในเครื่อง)](/providers/ollama)
+- OpenClaw สามารถใช้ผู้ให้บริการ LLM ได้หลายราย OpenClawสามารถใช้ผู้ให้บริการLLMได้หลายราย เลือกผู้ให้บริการ ทำการยืนยันตัวตน จากนั้นตั้งค่า
+  โมเดลเริ่มต้นเป็น `provider/model`.
 - [Qianfan](/providers/qianfan)
+- [NVIDIA](/providers/nvidia)
 
 ## ผู้ให้บริการถอดเสียง
 
@@ -58,5 +68,3 @@ Veniceคือการตั้งค่า Venice AI ที่เราแน
 
 สำหรับแคตตาล็อกผู้ให้บริการทั้งหมด(xAI, Groq, Mistral, ฯลฯ)และการกำหนดค่าขั้นสูง
 ดูที่ [Model providers](/concepts/model-providers). และการกำหนดค่าขั้นสูง ดูที่ [Model providers](/concepts/model-providers)
-
-

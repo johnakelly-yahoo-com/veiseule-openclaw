@@ -1,4 +1,5 @@
 ---
+summary: "Plan: Lägg till OpenResponses-/v1/responses-slutpunkt och fasa ut chat completions på ett rent sätt"
 owner: "openclaw"
 status: "draft"
 last_updated: "2026-01-19"
@@ -120,5 +121,3 @@ Viktiga punkter:
 
 - Lägg till en ny dokumentsida för användning och exempel för `/v1/responses`.
 - Uppdatera `/gateway/openai-http-api` med en notering om äldre status och en hänvisning till `/v1/responses`.
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "Aperçu de la journalisation : journaux de fichiers, sortie console, suivi CLI et l’UI de contrôle"
+read_when:
+  - Vous avez besoin d’un aperçu de la journalisation adapté aux debutants
+  - Vous souhaitez configurer les niveaux ou les formats de journalisation
+  - Vous effectuez un depannage et devez trouver rapidement les journaux
 title: "Journalisation"
 ---
 
@@ -126,7 +131,7 @@ des journaux de fichiers.
 - `compact` : sortie plus compacte (ideal pour les longues sessions).
 - `json` : JSON par ligne (pour les processeurs de journaux).
 
-### Caviardage
+### Redaction
 
 Les resumes d’outils peuvent masquer les jetons sensibles avant l’affichage en
 console :
@@ -370,5 +375,3 @@ Files + sessions :
   ecrit vers le chemin de fichier indique dans `logging.file`.
 - **Besoin de plus de details ?** Definissez `logging.level` sur
   `debug` ou `trace` et reessayez.
-
-

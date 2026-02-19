@@ -1,4 +1,6 @@
 ---
+summary: "Ghi chú giao thức RPC cho trình hướng dẫn onboarding và lược đồ cấu hình"
+read_when: "Khi thay đổi các bước của trình hướng dẫn onboarding hoặc các endpoint lược đồ cấu hình"
 title: "Giao thức Onboarding và Cấu hình"
 ---
 
@@ -36,5 +38,3 @@ Phản hồi (hình dạng)
 ## Ghi chú
 
 - Tài liệu này là nơi duy nhất để theo dõi các thay đổi refactor giao thức cho onboarding/cấu hình.
-
-

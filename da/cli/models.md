@@ -1,4 +1,8 @@
 ---
+summary: "CLI-reference for `openclaw models` (status/list/set/scan, aliaser, fallback-modeller, autentificering)"
+read_when:
+  - Du vil ændre standardmodeller eller se status for udbyderautentificering
+  - Du vil scanne tilgængelige modeller/udbydere og fejlfinde autentificeringsprofiler
 title: "modeller"
 ---
 
@@ -73,5 +77,3 @@ Noter:
 
 - `setup-token` beder om en setup-token-værdi (generér den med `claude setup-token` på en hvilken som helst maskine).
 - `paste-token` accepterer en token-streng genereret andetsteds eller fra automatisering.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw’ı Ollama ile çalıştırın (yerel LLM çalışma zamanı)"
+read_when:
+  - OpenClaw’ı Ollama üzerinden yerel modellerle çalıştırmak istiyorsanız
+  - Ollama kurulumu ve yapılandırma rehberine ihtiyaç duyuyorsanız
 title: "Ollama"
 ---
 
@@ -170,45 +174,28 @@ Ollama ücretsizdir ve yerel olarak çalışır; bu nedenle tüm model maliyetle
 
 ### Akış Yapılandırması
 
-Ollama’nın yanıt formatıyla ilgili temel SDK’daki [bilinen bir sorun](https://github.com/badlogic/pi-mono/issues/1205) nedeniyle, **Ollama modelleri için akış varsayılan olarak devre dışıdır**. Bu, araç destekli modeller kullanılırken bozuk yanıtları önler.
+OpenClaw’un Ollama entegrasyonu varsayılan olarak **yerel Ollama API**’sini (`/api/chat`) kullanır; bu, aynı anda hem streaming hem de tool calling’i tam olarak destekler. Özel bir yapılandırma gerekmez.
 
-Akış devre dışı olduğunda yanıtlar tek seferde (akışsız mod) iletilir; bu da iç içe geçmiş içerik/akıl yürütme deltalarının bozuk çıktıya yol açtığı durumu önler.
+#### Eski OpenAI-Uyumlu Mod
 
-#### Akışı Yeniden Etkinleştir (Gelişmiş)
-
-Ollama için akışı yeniden etkinleştirmek istiyorsanız (araç destekli modellerde sorunlara yol açabilir):
+Bunun yerine OpenAI-uyumlu endpoint’i kullanmanız gerekiyorsa (örneğin yalnızca OpenAI formatını destekleyen bir proxy arkasında), `api: "openai-completions"` değerini açıkça ayarlayın:
 
 ```json5
 {
-  agents: {
-    defaults: {
-      models: {
-        "ollama/gpt-oss:20b": {
-          streaming: true,
-        },
-      },
-    },
-  },
+  models: {
+    providers: {
+      ollama: {
+        baseUrl: "http://ollama-host:11434/v1",
+        api: "openai-completions",
+        apiKey: "ollama-local",
+        models: [...]
+      }
+    }
+  }
 }
 ```
 
-#### Diğer Sağlayıcılar için Akışı Devre Dışı Bırakma
-
-Gerektiğinde herhangi bir sağlayıcı için de akışı devre dışı bırakabilirsiniz:
-
-```json5
-{
-  agents: {
-    defaults: {
-      models: {
-        "openai/gpt-4": {
-          streaming: false,
-        },
-      },
-    },
-  },
-}
-```
+Not: OpenAI-uyumlu endpoint aynı anda streaming + tool calling’i desteklemeyebilir. Ollama modelleri için `streaming: false`’ü açıkça ayarlayın (bkz. [Akış Yapılandırması](#akış-yapılandırması))
 
 ### Bağlam pencereleri
 
@@ -257,19 +244,8 @@ ps aux | grep ollama
 ollama serve
 ```
 
-### Bozuk yanıtlar veya çıktıda araç adları
-
-Ollama modellerini kullanırken çıktıda araç adları (ör. `sessions_send`, `memory_get`) içeren bozuk yanıtlar ya da parçalanmış metin görüyorsanız, bunun nedeni akışlı yanıtlarla ilgili yukarı akış bir SDK sorunudur. **Bu, en son OpenClaw sürümünde Ollama modelleri için akış devre dışı bırakılarak varsayılan olarak düzeltilmiştir.**
-
-Akışı manuel olarak etkinleştirdiyseniz ve bu sorunu yaşıyorsanız:
-
-1. Ollama model girdilerinizden `streaming: true` yapılandırmasını kaldırın veya
-2. Ollama modelleri için `streaming: false`’ü açıkça ayarlayın (bkz. [Akış Yapılandırması](#akış-yapılandırması))
-
 ## Ayrıca Bakınız
 
 - [Model Providers](/concepts/model-providers) - Tüm sağlayıcıların genel bakışı
 - [Model Selection](/concepts/models) - Modeller nasıl seçilir
 - [Configuration](/gateway/configuration) - Tam yapılandırma başvurusu
-
-

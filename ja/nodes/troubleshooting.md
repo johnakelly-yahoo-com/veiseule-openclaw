@@ -1,4 +1,8 @@
 ---
+summary: "ノードのペアリング、フォアグラウンド要件、権限、ツール失敗のトラブルシューティング"
+read_when:
+  - ノードは接続されているが、camera/canvas/screen/exec ツールが失敗する場合
+  - ノードのペアリングと承認のメンタルモデルを理解する必要がある場合
 title: "ノードのトラブルシューティング"
 ---
 
@@ -46,7 +50,7 @@ openclaw logs --follow
 
 ## 権限マトリクス
 
-| 機能                  | iOS                | Android                      | macOS ノードアプリ     | 典型的な失敗コード                      |
+| Capability                  | iOS                | Android                      | macOS ノードアプリ     | 典型的な失敗コード                      |
 | --------------------------- | ------------------ | ---------------------------- | ---------------- | ------------------------------ |
 | `camera.snap`、`camera.clip` | カメラ（クリップ音声用にマイク）   | カメラ（クリップ音声用にマイク）             | カメラ（クリップ音声用にマイク） | `*_PERMISSION_REQUIRED`        |
 | `screen.record`             | 画面収録（マイクは任意）       | 画面キャプチャのプロンプト（マイクは任意）        | 画面収録             | `*_PERMISSION_REQUIRED`        |
@@ -106,5 +110,3 @@ openclaw logs --follow
 - [/nodes/location-command](/nodes/location-command)
 - [/tools/exec-approvals](/tools/exec-approvals)
 - [/gateway/pairing](/gateway/pairing)
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "Microsoft Teams 봇 지원 상태, 기능 및 구성"
+read_when:
+  - MS Teams 채널 기능 작업 중
 title: "Microsoft Teams"
 ---
 
@@ -152,14 +155,14 @@ OpenClaw 를 구성하기 전에 Azure Bot 리소스를 생성해야 합니다.
 1. [Create Azure Bot](https://portal.azure.com/#create/Microsoft.AzureBot) 로 이동합니다.
 2. **Basics** 탭을 채웁니다:
 
-   | 필드                 | 값                                                                                                           |
-   | ------------------ | ----------------------------------------------------------------------------------------------------------- |
-   | **봇 핸들**     | 봇 이름(예: `openclaw-msteams`, 고유해야 함) |
-   | **구독**   | Azure 구독 선택                                                                                                 |
-   | **리소스 그룹** | 새로 생성 또는 기존 사용                                                                                              |
-   | **요금제**   | 개발/테스트용 **Free**                                                                                            |
-   | **앱 유형**    | **Single Tenant** (권장 - 아래 참고)                                                           |
-   | **생성 유형**  | **새 Microsoft App ID 만들기**                                                                             |
+   | 필드         | 값                                                                      |
+   | ---------- | ---------------------------------------------------------------------- |
+   | **봇 핸들**   | 봇 이름(예: `openclaw-msteams`, 고유해야 함) |
+   | **구독**     | Azure 구독 선택                                                            |
+   | **리소스 그룹** | 새로 생성 또는 기존 사용                                                         |
+   | **요금제**    | 개발/테스트용 **Free**                                                       |
+   | **앱 유형**   | **Single Tenant** (권장 - 아래 참고)                      |
+   | **생성 유형**  | **새 Microsoft App ID 만들기**                                             |
 
 > **사용 중단 공지:** 새 멀티 테넌트 봇 생성은 2025-07-31 이후로 중단되었습니다. 신규 봇은 **Single Tenant** 를 사용하십시오.
 
@@ -420,6 +423,8 @@ tailscale funnel 3978
 2. 테넌트에 대해 **관리자 동의**를 부여합니다.
 3. Teams 앱 **매니페스트 버전**을 올리고, 다시 업로드한 뒤 **Teams 에서 앱을 재설치**합니다.
 4. **Teams 를 완전히 종료 후 재실행**하여 캐시된 앱 메타데이터를 지웁니다.
+
+**사용자 멘션에 대한 추가 권한:** 대화에 참여 중인 사용자에 대한 @멘션은 기본적으로 동작합니다. 하지만 **현재 대화에 없는** 사용자를 동적으로 검색해 멘션하려면 `User.Read.All` (Application) 권한을 추가하고 관리자 동의를 부여하세요.
 
 ## 알려진 제한 사항
 
@@ -765,5 +770,3 @@ https://teams.microsoft.com/l/channel/19%3A15bc...%40thread.tacv2/ChannelName?gr
 - [RSC permissions reference](https://learn.microsoft.com/en-us/microsoftteams/platform/graph-api/rsc/resource-specific-consent)
 - [Teams bot file handling](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/bots-filesv4) (채널/그룹은 Graph 필요)
 - [Proactive messaging](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/conversations/send-proactive-messages)
-
-

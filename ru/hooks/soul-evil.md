@@ -1,4 +1,8 @@
 ---
+summary: "Хук SOUL Evil (замена SOUL.md на SOUL_EVIL.md)"
+read_when:
+  - Вы хотите включить или настроить хук SOUL Evil
+  - Вам нужно окно очистки или случайная смена персоны
 title: "Хук SOUL Evil"
 ---
 
@@ -63,5 +67,3 @@ openclaw hooks enable soul-evil
 ## См. также
 
 - [Хуки](/automation/hooks)
-
-

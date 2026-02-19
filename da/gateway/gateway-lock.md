@@ -1,4 +1,8 @@
 ---
+summary: "Gateway-singletonbeskyttelse ved brug af WebSocket-lytterbinding"
+read_when:
+  - Kørsel eller fejlsøgning af gateway-processen
+  - Undersøgelse af håndhævelse af enkeltinstans
 title: "Gateway-lås"
 ---
 
@@ -28,5 +32,3 @@ Senest opdateret: 2025-12-11
 
 - Hvis porten er optaget af en _anden_ proces, er fejlen den samme; frigiv porten eller vælg en anden med `openclaw gateway --port <port>`.
 - macOS-appen opretholder stadig sin egen letvægts-PID-beskyttelse, før gatewayen startes; runtime-låsen håndhæves af WebSocket-bindingen.
-
-

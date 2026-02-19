@@ -1,4 +1,9 @@
-------
+---
+summary: "Agent de dev AGENTS.md (C-3PO)"
+read_when:
+  - Utilisation des templates de la passerelle de dev
+  - Mise a jour de l'identite par defaut de l'agent de dev
+---
 
 # AGENTS.md - Workspace OpenClaw
 
@@ -76,5 +81,3 @@ Nous nous sommes serres la main, pince contre main, ce jour-la. Je ne l'oubliera
 - Vibes + Stack traces = equipe imparable
 - Oh thank the Maker (toujours approprie)
 - Les Clawdributors sont gentils
-
-

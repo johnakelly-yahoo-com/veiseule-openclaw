@@ -1,4 +1,8 @@
 ---
+summary: "Gateway के लिए ब्राउज़र-आधारित नियंत्रण UI (चैट, नोड्स, विन्यास)"
+read_when:
+  - आप Gateway को ब्राउज़र से संचालित करना चाहते हैं
+  - आप SSH टनलों के बिना Tailnet एक्सेस चाहते हैं
 title: "कंट्रोल UI"
 ---
 
@@ -7,7 +11,7 @@ title: "कंट्रोल UI"
 कंट्रोल UI एक छोटा **Vite + Lit** सिंगल‑पेज ऐप है जिसे Gateway द्वारा परोसा जाता है:
 
 - डिफ़ॉल्ट: `http://<host>:18789/`
-- वैकल्पिक प्रीफ़िक्स: `gateway.controlUi.basePath` सेट करें (उदा. `/openclaw`)
+- optional prefix: set `gateway.controlUi.basePath` (e.g. `/openclaw`)
 
 यह उसी पोर्ट पर **Gateway WebSocket** से **सीधे** बात करता है।
 
@@ -23,12 +27,12 @@ title: "कंट्रोल UI"
 
 - `connect.params.auth.token`
 - `connect.params.auth.password`
-डैशबोर्ड सेटिंग्स पैनल आपको एक टोकन सहेजने की सुविधा देता है; पासवर्ड सहेजे नहीं जाते हैं।
+  The dashboard settings panel lets you store a token; passwords are not persisted.
   The onboarding wizard generates a gateway token by default, so paste it here on first connect.
 
 ## डिवाइस पेयरिंग (पहला कनेक्शन)
 
-जब आप किसी नए ब्राउज़र या डिवाइस से Control UI से कनेक्ट करते हैं, तो Gateway
+When you connect to the Control UI from a new browser or device, the Gateway
 requires a **one-time pairing approval** — even if you're on the same Tailnet
 with `gateway.auth.allowTailscale: true`. This is a security measure to prevent
 unauthorized access.
@@ -45,14 +49,14 @@ openclaw devices list
 openclaw devices approve <requestId>
 ```
 
-स्वीकृत होने के बाद, डिवाइस को याद रखा जाता है और पुनः-स्वीकृति की आवश्यकता नहीं होगी जब तक
+Once approved, the device is remembered and won't require re-approval unless
 you revoke it with `openclaw devices revoke --device <id> --role <role>`. See
 [Devices CLI](/cli/devices) for token rotation and revocation.
 
 **टिप्पणियाँ:**
 
 - लोकल कनेक्शन (`127.0.0.1`) स्वतः अनुमोदित होते हैं।
-- रिमोट कनेक्शन (LAN, Tailnet आदि) के लिए स्पष्ट स्वीकृति आवश्यक है।
+- Remote connections (LAN, Tailnet, etc.) require explicit approval.
 - प्रत्येक ब्राउज़र प्रोफ़ाइल एक अद्वितीय डिवाइस ID बनाती है, इसलिए ब्राउज़र बदलने या
   ब्राउज़र डेटा साफ़ करने पर पुनः‑पेयरिंग की आवश्यकता होगी।
 
@@ -77,7 +81,7 @@ you revoke it with `openclaw devices revoke --device <id> --role <role>`. See
 
 क्रॉन जॉब्स पैनल नोट्स:
 
-- अलग-थलग जॉब्स के लिए, डिलीवरी डिफ़ॉल्ट रूप से सारांश की घोषणा पर सेट होती है। यदि आप केवल आंतरिक रन चाहते हैं, तो आप इसे none पर स्विच कर सकते हैं।
+- For isolated jobs, delivery defaults to announce summary. You can switch to none if you want internal-only runs.
 - जब announce चुना जाता है, तब चैनल/टार्गेट फ़ील्ड दिखाई देते हैं।
 
 ## चैट व्यवहार
@@ -104,7 +108,7 @@ openclaw gateway --tailscale serve
 
 - `https://<magicdns>/` (या आपका विन्यस्त `gateway.controlUi.basePath`)
 
-डिफ़ॉल्ट रूप से, Serve अनुरोध Tailscale पहचान हेडर्स के माध्यम से प्रमाणित हो सकते हैं
+By default, Serve requests can authenticate via Tailscale identity headers
 (`tailscale-user-login`) when `gateway.auth.allowTailscale` is `true`. OpenClaw
 verifies the identity by resolving the `x-forwarded-for` address with
 `tailscale whois` and matching it to the header, and only accepts these when the
@@ -126,7 +130,7 @@ openclaw gateway --bind tailnet --token "$(openssl rand -hex 32)"
 
 ## असुरक्षित HTTP
 
-यदि आप डैशबोर्ड को साधारण HTTP (`http://<lan-ip>` या `http://<tailscale-ip>`) पर खोलते हैं,
+If you open the dashboard over plain HTTP (`http://<lan-ip>` or `http://<tailscale-ip>`),
 the browser runs in a **non-secure context** and blocks WebCrypto. By default,
 OpenClaw **blocks** Control UI connections without device identity.
 
@@ -147,7 +151,7 @@ OpenClaw **blocks** Control UI connections without device identity.
 }
 ```
 
-यह Control UI के लिए डिवाइस पहचान + पेयरिंग को अक्षम कर देता है (यहाँ तक कि HTTPS पर भी)। उपयोग करें
+This disables device identity + pairing for the Control UI (even on HTTPS). Use
 only if you trust the network.
 
 HTTPS सेटअप मार्गदर्शन के लिए [Tailscale](/gateway/tailscale) देखें।
@@ -217,5 +221,3 @@ http://localhost:5173/?gatewayUrl=wss://<gateway-host>:18789&token=<gateway-toke
 ```
 
 रिमोट एक्सेस सेटअप विवरण: [Remote access](/gateway/remote)।
-
-

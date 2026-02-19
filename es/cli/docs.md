@@ -1,4 +1,7 @@
 ---
+summary: "Referencia de la CLI para `openclaw docs` (buscar en el índice de documentación en vivo)"
+read_when:
+  - Quiere buscar en la documentación en vivo de OpenClaw desde la terminal
 title: "docs"
 ---
 
@@ -10,5 +13,3 @@ Busque en el índice de documentación en vivo.
 openclaw docs browser extension
 openclaw docs sandbox allowHostControl
 ```
-
-

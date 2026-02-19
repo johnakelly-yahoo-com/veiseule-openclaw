@@ -1,4 +1,7 @@
 ---
+summary: "Gia cố danh sách cho phép Telegram: chuẩn hóa tiền tố + khoảng trắng"
+read_when:
+  - Xem lại các thay đổi lịch sử của danh sách cho phép Telegram
 title: "Gia cố danh sách cho phép Telegram"
 ---
 
@@ -34,5 +37,3 @@ kết quả âm tính giả khi quyết định có phản hồi trong DM hay nh
 
 - [Nhóm trò chuyện](/channels/groups)
 - [Nhà cung cấp Telegram](/channels/telegram)
-
-

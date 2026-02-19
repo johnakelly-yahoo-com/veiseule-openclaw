@@ -1,10 +1,14 @@
 ---
+summary: "فراہم کنندہ + CLI فال بیکس کے ساتھ ان باؤنڈ تصویر/آڈیو/ویڈیو کی سمجھ (اختیاری)"
+read_when:
+  - میڈیا سمجھ بوجھ کی ڈیزائننگ یا ری فیکٹرنگ
+  - ان باؤنڈ آڈیو/ویڈیو/تصویر کی پری پروسیسنگ کی ٹیوننگ
 title: "میڈیا سمجھ بوجھ"
 ---
 
 # میڈیا سمجھ بوجھ (ان باؤنڈ) — 2026-01-17
 
-OpenClaw جواب کے پائپ لائن چلنے سے پہلے **آنے والے میڈیا کا خلاصہ** (تصویر/آڈیو/ویڈیو) تیار کر سکتا ہے۔ یہ خودکار طور پر معلوم کر لیتا ہے کہ آیا مقامی ٹولز یا پرووائیڈر کیز دستیاب ہیں، اور اسے غیر فعال یا حسبِ ضرورت ترتیب دیا جا سکتا ہے۔ اگر سمجھنے کی سہولت بند ہو تو بھی ماڈلز کو حسبِ معمول اصل فائلیں/URLs موصول ہوتے رہتے ہیں۔
+OpenClaw can **summarize inbound media** (image/audio/video) before the reply pipeline runs. It auto‑detects when local tools or provider keys are available, and can be disabled or customized. If understanding is off, models still receive the original files/URLs as usual.
 
 ## مقاصد
 
@@ -126,7 +130,7 @@ CLI ٹیمپلیٹس یہ بھی استعمال کر سکتے ہیں:
 
 ### میڈیا سمجھ بوجھ کی خودکار شناخت (بطورِ طے شدہ)
 
-اگر `tools.media.<capability>.enabled` کو `false` پر **سیٹ نہیں** کیا گیا اور آپ نے نہیں
+If `tools.media.<capability>.enabled` is **not** set to `false` and you haven’t
 configured models, OpenClaw auto-detects in this order and **stops at the first
 working option**:
 
@@ -158,7 +162,7 @@ working option**:
 
 ## صلاحیتیں (اختیاری)
 
-اگر آپ `capabilities` سیٹ کرتے ہیں تو یہ اندراج صرف انہی میڈیا اقسام کے لیے چلے گا۔ مشترکہ کے لیے
+If you set `capabilities`, the entry only runs for those media types. For shared
 lists, OpenClaw can infer defaults:
 
 - `openai`, `anthropic`, `minimax`: **تصویر**
@@ -166,7 +170,7 @@ lists, OpenClaw can infer defaults:
 - `groq`: **آڈیو**
 - `deepgram`: **آڈیو**
 
-CLI اندراجات کے لیے، غیر متوقع مماثلتوں سے بچنے کے لیے **`capabilities` کو واضح طور پر سیٹ کریں**۔
+For CLI entries, **set `capabilities` explicitly** to avoid surprising matches.
 If you omit `capabilities`, the entry is eligible for the list it appears in.
 
 ## فراہم کنندہ سپورٹ میٹرکس (OpenClaw انٹیگریشنز)
@@ -365,7 +369,7 @@ If you omit `capabilities`, the entry is eligible for the list it appears in.
 
 ## نوٹس
 
-- سمجھنا **بہترین کوشش** کی بنیاد پر ہوتا ہے۔ غلطیاں جوابات کو نہیں روکتیں۔
+- Understanding is **best‑effort**. Errors do not block replies.
 - سمجھ بوجھ غیر فعال ہونے پر بھی اٹیچمنٹس ماڈلز کو منتقل کی جاتی ہیں۔
 - جہاں سمجھ بوجھ چلتی ہے اسے محدود کرنے کے لیے `scope` استعمال کریں (مثلاً صرف DMs)۔
 
@@ -373,5 +377,3 @@ If you omit `capabilities`, the entry is eligible for the list it appears in.
 
 - [Configuration](/gateway/configuration)
 - [Image & Media Support](/nodes/images)
-
-

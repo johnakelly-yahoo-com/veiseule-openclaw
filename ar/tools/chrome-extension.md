@@ -1,4 +1,9 @@
 ---
+summary: "امتداد Chrome: دع OpenClaw يقود علامة تبويب Chrome الحالية لديك"
+read_when:
+  - تريد أن يقود الوكيل علامة تبويب Chrome موجودة (زر شريط الأدوات)
+  - تحتاج إلى Gateway عن بُعد + أتمتة متصفح محلية عبر Tailscale
+  - تريد فهم التداعيات الأمنية للاستحواذ على المتصفح
 title: "امتداد Chrome"
 ---
 
@@ -171,5 +176,3 @@ openclaw browser create-profile \
 - نظرة عامة على أداة المتصفح: [Browser](/tools/browser)
 - التدقيق الأمني: [Security](/gateway/security)
 - إعداد Tailscale: [Tailscale](/gateway/tailscale)
-
-

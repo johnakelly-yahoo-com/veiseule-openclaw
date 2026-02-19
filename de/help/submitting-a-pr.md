@@ -1,4 +1,5 @@
 ---
+summary: "Wie man eine hohe PR sendet"
 title: "PR einreichen"
 ---
 
@@ -395,5 +396,3 @@ pnpm format
 - Submitter effort:
 - Agent notes:
 ```
-
-

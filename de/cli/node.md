@@ -1,4 +1,8 @@
 ---
+summary: "CLI-Referenz für `openclaw node` (headless Node-Host)"
+read_when:
+  - Beim Ausführen des headless Node-Hosts
+  - Beim Koppeln eines Nicht-macOS-Nodes für system.run
 title: "node"
 ---
 
@@ -107,5 +111,3 @@ Gateway-Verbindungsinformationen in
 - `~/.openclaw/exec-approvals.json`
 - [Ausführungsfreigaben](/tools/exec-approvals)
 - `openclaw approvals --node <id|name|ip>` (Bearbeitung über das Gateway)
-
-

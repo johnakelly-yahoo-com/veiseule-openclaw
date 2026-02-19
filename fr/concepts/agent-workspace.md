@@ -1,4 +1,8 @@
 ---
+summary: "Espace de travail de l’agent : emplacement, organisation et strategie de sauvegarde"
+read_when:
+  - Vous devez expliquer l’espace de travail de l’agent ou son organisation de fichiers
+  - Vous souhaitez sauvegarder ou migrer un espace de travail d’agent
 title: "Espace de travail de l’agent"
 ---
 
@@ -233,5 +237,3 @@ Modele de demarrage `.gitignore` suggere :
   [Channel routing](/channels/channel-routing) pour la configuration du routage.
 - Si `agents.defaults.sandbox` est active, les sessions non principales peuvent utiliser des espaces de
   travail en sandbox par session sous `agents.defaults.sandbox.workspaceRoot`.
-
-

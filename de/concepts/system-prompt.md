@@ -1,4 +1,8 @@
 ---
+summary: "„Was der OpenClaw-System-Prompt enthält und wie er zusammengestellt wird“"
+read_when:
+  - Beim Bearbeiten des System-Prompt-Texts, der Werkzeugliste oder der Zeit-/Heartbeat-Abschnitte
+  - Beim Ändern des Workspace-Bootstraps oder des Verhaltens der Skills-Injektion
 title: "„System-Prompt“"
 ---
 
@@ -55,10 +59,25 @@ Bootstrap-Dateien werden gekürzt und unter **Project Context** angehängt, soda
 - `USER.md`
 - `HEARTBEAT.md`
 - `BOOTSTRAP.md` (nur bei brandneuen Workspaces)
+- `MEMORY.md` und/oder `memory.md` (falls im Workspace vorhanden; eine oder beide können injiziert werden)
+
+All diese Dateien werden bei jedem Durchlauf **in das Kontextfenster injiziert**, was
+bedeutet, dass sie Tokens verbrauchen. Halte sie prägnant — insbesondere `MEMORY.md`, das
+im Laufe der Zeit anwachsen und zu unerwartet hoher Kontextnutzung sowie häufigerer
+Kompaktierung führen kann.
+
+> **Hinweis:** `memory/*.md`-Tagesdateien werden **nicht** automatisch injiziert. Sie
+> werden bei Bedarf über die Tools `memory_search` und `memory_get` aufgerufen und
+> zählen daher nicht gegen das Kontextfenster, es sei denn, das Modell liest sie ausdrücklich.
 
 Große Dateien werden mit einem Marker gekürzt. Die maximale Größe pro Datei wird durch
-`agents.defaults.bootstrapMaxChars` (Standard: 20000) gesteuert. Fehlende Dateien injizieren einen
+`agents.defaults.bootstrapMaxChars` (Standard: 20000) gesteuert. Der insgesamt injizierte Bootstrap-
+Inhalt über alle Dateien hinweg ist durch `agents.defaults.bootstrapTotalMaxChars`
+(Standard: 24000) begrenzt. Fehlende Dateien injizieren einen
 kurzen Marker für fehlende Dateien.
+
+Sub-Agent-Sitzungen injizieren nur `AGENTS.md` und `TOOLS.md` (andere Bootstrap-Dateien
+werden herausgefiltert, um den Kontext des Sub-Agenten klein zu halten).
 
 Interne Hooks können diesen Schritt über `agent:bootstrap` abfangen, um die injizierten Bootstrap-Dateien zu verändern oder zu ersetzen (z. B. durch Austauschen von `SOUL.md` gegen eine alternative Persona).
 
@@ -105,5 +124,3 @@ lokale OpenClaw-Dokumentationsverzeichnis verweist (entweder `docs/` im Repo-Wor
 Paket-Dokumente) und außerdem den öffentlichen Mirror, das Source-Repo, den Community-Discord und
 ClawHub ([https://clawhub.com](https://clawhub.com)) für die Skill-Discovery nennt. Der Prompt weist das Modell an, lokale Dokumente zuerst zu konsultieren
 für OpenClaw-Verhalten, Befehle, Konfiguration oder Architektur und, wenn möglich, `openclaw status` selbst auszuführen (den Benutzer nur zu fragen, wenn kein Zugriff besteht).
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "OAuth-verval bewaken voor modelproviders"
+read_when:
+  - Auth-vervalbewaking of waarschuwingen instellen
+  - Automatiseren van controles voor OAuth-vernieuwing van Claude Code / Codex
 title: "Auth-bewaking"
 ---
 
@@ -38,5 +42,3 @@ Gateway-host en zijn afgestemd op systemd + Termux.
 - `scripts/termux-sync-widget.sh`: synchroniseer Claude Code-inloggegevens → OpenClaw.
 
 Als je geen telefoonautomatisering of systemd-timers nodig hebt, sla deze scripts over.
-
-

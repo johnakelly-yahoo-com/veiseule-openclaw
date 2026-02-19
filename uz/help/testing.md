@@ -1,4 +1,9 @@
 ---
+summary: "Test to‘plami: unit/e2e/live to‘plamlar, Docker runnerlar va har bir test nimani qamrab oladi"
+read_when:
+  - Running tests locally or in CI
+  - Adding regressions for model/provider bugs
+  - Debugging gateway + agent behavior
 title: "Testlash"
 ---
 
@@ -47,12 +52,23 @@ Think of the suites as “increasing realism” (and increasing flakiness/cost):
   - Runs in CI
   - Haqiqiy kalitlar talab qilinmaydi
   - Should be fast and stable
+- Pool eslatmasi:
+  - OpenClaw tezroq unit shard’lar uchun Node 22/23 da Vitest `vmForks` dan foydalanadi.
+  - Node 24+ da OpenClaw Node VM bog‘lanish xatolaridan (`ERR_VM_MODULE_LINK_FAILURE` / `module is already linked`) qochish uchun avtomatik ravishda oddiy `forks` ga o‘tadi.
+  - `OPENCLAW_TEST_VM_FORKS=0` (majburiy `forks`) yoki `OPENCLAW_TEST_VM_FORKS=1` (majburiy `vmForks`) bilan qo‘lda bekor qiling.
 
 ### E2E (gateway smoke)
 
 - Command: `pnpm test:e2e`
 - Config: `vitest.e2e.config.ts`
 - Files: `src/**/*.e2e.test.ts`
+- Runtime standart sozlamalari:
+  - Fayllarni tezroq ishga tushirish uchun Vitest `vmForks` dan foydalanadi.
+  - Moslashuvchan worker’lardan foydalanadi (CI: 2-4, local: 4-8).
+  - Konsol I/O yukini kamaytirish uchun sukut bo‘yicha silent rejimida ishlaydi.
+- Foydali override’lar:
+  - Worker sonini majburan belgilash uchun `OPENCLAW_E2E_WORKERS=<n>` (maksimal 16 bilan cheklangan).
+  - Haqiqiy kalitlar talab qilinmaydi
 - Scope:
   - Multi-instance gateway end-to-end behavior
   - WebSocket/HTTP surfaces, node pairing, and heavier networking
@@ -70,7 +86,7 @@ Think of the suites as “increasing realism” (and increasing flakiness/cost):
 - Scope:
   - “Does this provider/model actually work _today_ with real creds?”
   - Catch provider format changes, tool-calling quirks, auth issues, and rate limit behavior
-- Kutilmalar:
+- Expectations:
   - Not CI-stable by design (real networks, real provider policies, quotas, outages)
   - Costs money / uses rate limits
   - Prefer running narrowed subsets instead of “everything”
@@ -100,7 +116,7 @@ Live tests are split into two layers so we can isolate failures:
   - Use `getApiKeyForModel` to select models you have creds for
   - Har bir model uchun kichik yakunlashni ishga tushiring (zarur bo‘lsa, maqsadli regressiyalar bilan)
 - Qanday yoqish:
-  - `pnpm test:live` (yoki Vitest’ni to‘g‘ridan-to‘g‘ri chaqirayotgan bo‘lsangiz `OPENCLAW_LIVE_TEST=1`)
+  - `pnpm test:live` (or `OPENCLAW_LIVE_TEST=1` if invoking Vitest directly)
 - Bu to‘plamni haqiqatan ham ishga tushirish uchun `OPENCLAW_LIVE_MODELS=modern` (yoki `all`, modern uchun alias) ni o‘rnating; aks holda u o‘tkazib yuboriladi va `pnpm test:live` gateway smoke testlariga yo‘naltirilgan bo‘lib qoladi
 - Modellarni qanday tanlash:
   - Zamonaviy ruxsat etilgan ro‘yxatni ishga tushirish uchun `OPENCLAW_LIVE_MODELS=modern` (Opus/Sonnet/Haiku 4.5, GPT-5.x + Codex, Gemini 3, GLM 4.7, MiniMax M2.1, Grok 4)
@@ -118,7 +134,7 @@ Live tests are split into two layers so we can isolate failures:
 ### 2-qavat: Gateway + dev agent smoke ("@openclaw" aslida nima qiladi)
 
 - Test: `src/gateway/gateway-models.profiles.live.test.ts`
-- Maqsad:
+- Goal:
   - Jarayon ichidagi gateway’ni ishga tushiring
   - `agent:dev:*` sessiyasini yaratish/patch qilish (har ishga tushirishda modelni override qilish)
   - Kalitlari bor modellar bo‘ylab aylanish va quyidagilarni tekshirish:
@@ -132,7 +148,7 @@ Live tests are split into two layers so we can isolate failures:
   - image probe: test yaratilgan PNG’ni (mushuk + tasodifiy kod) biriktiradi va modeldan `cat <CODE>` qaytarishini kutadi.
   - Implementatsiya uchun havola: `src/gateway/gateway-models.profiles.live.test.ts` va `src/gateway/live-image-probe.ts`.
 - Qanday yoqish:
-  - `pnpm test:live` (yoki Vitest’ni to‘g‘ridan-to‘g‘ri chaqirayotgan bo‘lsangiz `OPENCLAW_LIVE_TEST=1`)
+  - `pnpm test:live` (or `OPENCLAW_LIVE_TEST=1` if invoking Vitest directly)
 - Modellarni qanday tanlash:
   - Odatiy: zamonaviy ruxsat etilgan ro‘yxat (Opus/Sonnet/Haiku 4.5, GPT-5.x + Codex, Gemini 3, GLM 4.7, MiniMax M2.1, Grok 4)
   - `OPENCLAW_LIVE_GATEWAY_MODELS=all` — zamonaviy ruxsat etilgan ro‘yxat uchun alias
@@ -179,7 +195,7 @@ OPENCLAW_LIVE_SETUP_TOKEN=1 OPENCLAW_LIVE_SETUP_TOKEN_PROFILE=anthropic:setup-to
 
 - Test: `src/gateway/gateway-cli-backend.live.test.ts`
 - Goal: validate the Gateway + agent pipeline using a local CLI backend, without touching your default config.
-- Yoqish:
+- Enable:
   - `pnpm test:live` (or `OPENCLAW_LIVE_TEST=1` if invoking Vitest directly)
   - `OPENCLAW_LIVE_CLI_BACKEND=1`
 - Defaults:
@@ -362,5 +378,3 @@ When you fix a provider/model issue discovered in live:
 - Prefer targeting the smallest layer that catches the bug:
   - provider request conversion/replay bug → direct models test
   - gateway session/history/tool pipeline bug → gateway live smoke or CI-safe gateway mock test
-
-

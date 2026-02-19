@@ -1,4 +1,9 @@
 ---
+summary: "WKWebView + 사용자 정의 URL 스킴을 통해 임베드된 에이전트 제어 Canvas 패널"
+read_when:
+  - macOS Canvas 패널 구현
+  - 시각적 작업공간을 위한 에이전트 컨트롤 추가
+  - WKWebView Canvas 로드 디버깅
 title: "Canvas"
 ---
 
@@ -114,5 +119,3 @@ window.location.href = "openclaw://agent?message=Review%20this%20design";
 - Canvas 스킴은 디렉터리 트래버설을 차단합니다. 파일은 세션 루트 아래에 있어야 합니다.
 - 로컬 Canvas 콘텐츠는 사용자 정의 스킴을 사용합니다(local loopback 서버 불필요).
 - 외부 `http(s)` URL 은 명시적으로 탐색한 경우에만 허용됩니다.
-
-

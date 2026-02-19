@@ -1,5 +1,7 @@
 ---
+summary: "エージェントごとのサンドボックス化 + ツール制限、優先順位、および例"
 title: マルチエージェントのサンドボックス & ツール
+read_when: "マルチエージェント ゲートウェイで、エージェントごとのサンドボックス化やツールの許可 / 拒否ポリシーが必要な場合。"
 status: active
 ---
 
@@ -27,8 +29,10 @@ status: active
 ```
 
 認証情報はエージェント間で共有されません\*\*。 エージェント間で `agentDir` を再利用しないでください。
+認証情報はエージェント間で共有されません\*\*。 エージェント間で `agentDir` を再利用しないでください。
 資格情報はエージェント間で**共有されません**。`agentDir` をエージェント間で再利用しないでください。資格情報を共有したい場合は、`auth-profiles.json` を別のエージェントの `agentDir` にコピーしてください。
 
+実行時の Sandbox の動作については、 [Sandboxing](/gateway/sandboxing) を参照してください。
 実行時の Sandbox の動作については、 [Sandboxing](/gateway/sandboxing) を参照してください。
 実行時のサンドボックスの挙動については、[Sandboxing](/gateway/sandboxing) を参照してください。
 「なぜブロックされるのか？」のデバッグについては、[Sandbox vs Tool Policy vs Elevated](/gateway/sandbox-vs-tool-policy-vs-elevated) と `openclaw sandbox explain` を参照してください。
@@ -236,7 +240,7 @@ agents.list[].sandbox.prune.* > agents.defaults.sandbox.prune.*
 
 ### Elevated モード
 
-`tools.elevated` はグローバルベースライン(送信者ベースの許可リスト)です。 `tools.elevated` はグローバルのベースライン（送信者ベースの許可リスト）です。`agents.list[].tools.elevated` は、特定のエージェントに対して Elevated をさらに制限できます（両方で許可される必要があります）。
+`tools.elevated` はグローバルベースライン(送信者ベースの許可リスト)です。 `tools.elevated` はグローバルのベースライン（送信者ベースの許可リスト）です。`agents.list[].tools.elevated` は、特定のエージェントに対して Elevated をさらに制限できます（両方で許可される必要があります）。 `tools.elevated` はグローバルのベースライン（送信者ベースの許可リスト）です。`agents.list[].tools.elevated` は、特定のエージェントに対して Elevated をさらに制限できます（両方で許可される必要があります）。
 
 緩和パターン:
 
@@ -335,6 +339,8 @@ agents.list[].sandbox.prune.* > agents.defaults.sandbox.prune.*
 `agents.defaults.sandbox.mode: "non-main"` はエージェント ID ではなく、`session.mainKey`（デフォルトは `"main"`）に基づきます。
 グループ / チャンネル セッションは常に独自のキーを取得するため、non-main として扱われ、サンドボックス化されます。エージェントを常にサンドボックス化しない場合は、`agents.list[].sandbox.mode: "off"` を設定してください。 グループ/チャネルセッションは常に独自のキーを取得するため、
 はメインではないものとして扱われ、サンドボックス化されます。 もしエージェントに
+サンドボックスを渡さないようにしたい場合は、 `agents.list[].sandbox.mode: "off"` を設定します。 グループ/チャネルセッションは常に独自のキーを取得するため、
+はメインではないものとして扱われ、サンドボックス化されます。 もしエージェントに
 サンドボックスを渡さないようにしたい場合は、 `agents.list[].sandbox.mode: "off"` を設定します。
 
 ---
@@ -392,5 +398,3 @@ agents.list[].sandbox.prune.* > agents.defaults.sandbox.prune.*
 - [Multi-Agent Routing](/concepts/multi-agent)
 - [Sandbox Configuration](/gateway/configuration#agentsdefaults-sandbox)
 - [Session Management](/concepts/session)
-
-

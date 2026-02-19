@@ -1,4 +1,9 @@
 ---
+summary: "OpenClaw’ı Nix ile bildirime dayalı olarak kurun"
+read_when:
+  - Tekrarlanabilir, geri alınabilir kurulumlar istiyorsanız
+  - Halihazırda Nix/NixOS/Home Manager kullanıyorsanız
+  - Her şeyin sabitlenmiş ve bildirime dayalı olarak yönetilmesini istiyorsanız
 title: "Nix"
 ---
 
@@ -91,5 +96,3 @@ paketleme ve Nix derlemeleri için (tam bir Xcode araç zincirine dayanmadıklar
 - [nix-openclaw](https://github.com/openclaw/nix-openclaw) — tam kurulum kılavuzu
 - [Wizard](/start/wizard) — Nix olmayan CLI kurulumu
 - [Docker](/install/docker) — konteyner tabanlı kurulum
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Giao diện điều khiển dựa trên trình duyệt cho Gateway (chat, node, cấu hình)"
+read_when:
+  - Bạn muốn vận hành Gateway từ trình duyệt
+  - Bạn muốn truy cập Tailnet mà không cần đường hầm SSH
 title: "Giao diện điều khiển"
 ---
 
@@ -122,7 +126,7 @@ Dán token vào cài đặt UI (được gửi dưới dạng `connect.params.au
 
 ## HTTP không an toàn
 
-Nếu bạn mở bảng điều khiển qua HTTP thuần (`http://<lan-ip>` hoặc `http://<tailscale-ip>`),
+If you open the dashboard over plain HTTP (`http://<lan-ip>` or `http://<tailscale-ip>`),
 the browser runs in a **non-secure context** and blocks WebCrypto. By default,
 OpenClaw **blocks** Control UI connections without device identity.
 
@@ -213,5 +217,3 @@ Ví dụ:
 ```
 
 Chi tiết thiết lập truy cập từ xa: [Remote access](/gateway/remote).
-
-

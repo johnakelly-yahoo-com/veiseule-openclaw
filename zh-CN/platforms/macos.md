@@ -1,19 +1,18 @@
 ---
-title: macOS 应用
-x-i18n:
-  generated_at: "2026-02-03T07:53:14Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: a5b1c02e5905e4cbc6c0688149cdb50a5bf7653e641947143e169ad948d1f057
-  source_path: platforms/macos.md
-  workflow: 15
+summary: "OpenClaw macOS 配套应用（菜单栏 + Gateway 网关代理）"
+read_when:
+  - 实现 macOS 应用功能
+  - 在 macOS 上更改 Gateway 网关生命周期或节点桥接
+title: "macOS 应用"
 ---
 
 # OpenClaw macOS 配套应用（菜单栏 + Gateway 网关代理）
 
-macOS 应用是 OpenClaw 的**菜单栏配套应用**。它拥有权限，在本地管理/附加到 Gateway 网关（launchd 或手动），并作为节点向智能体暴露 macOS 功能。
+macOS 应用是 OpenClaw 的**菜单栏配套应用**。它拥有权限，在本地管理/附加到 Gateway 网关（launchd 或手动），并作为节点向智能体暴露 macOS 功能。 It owns permissions,
+manages/attaches to the Gateway locally (launchd or manual), and exposes macOS
+capabilities to the agent as a node.
 
-## 功能
+## 它的功能
 
 - 在菜单栏中显示原生通知和状态。
 - 拥有 TCC 提示（通知、辅助功能、屏幕录制、麦克风、语音识别、自动化/AppleScript）。
@@ -26,9 +25,12 @@ macOS 应用是 OpenClaw 的**菜单栏配套应用**。它拥有权限，在本
 ## 本地 vs 远程模式
 
 - **本地**（默认）：如果存在运行中的本地 Gateway 网关，应用附加到它；否则通过 `openclaw gateway install` 启用 launchd 服务。
-- **远程**：应用通过 SSH/Tailscale 连接到 Gateway 网关，从不启动本地进程。
+- **Remote**: the app connects to a Gateway over SSH/Tailscale and never starts
+  a local process.
+  **远程**：应用通过 SSH/Tailscale 连接到 Gateway 网关，从不启动本地进程。
   应用启动本地**节点主机服务**，以便远程 Gateway 网关可以访问此 Mac。
   应用不会将 Gateway 网关作为子进程生成。
+  The app does not spawn the Gateway as a child process.
 
 ## Launchd 控制
 
@@ -39,13 +41,13 @@ launchctl kickstart -k gui/$UID/bot.molt.gateway
 launchctl bootout gui/$UID/bot.molt.gateway
 ```
 
-运行命名配置文件时，将标签替换为 `bot.molt.<profile>`。
+运行命名配置文件时，将标签替换为 `bot.molt.<profile> `。\` when running a named profile.
 
 如果 LaunchAgent 未安装，从应用中启用它或运行 `openclaw gateway install`。
 
 ## 节点功能（mac）
 
-macOS 应用将自身呈现为一个节点。常用命令：
+macOS 应用将自身呈现为一个节点。常用命令： Common commands:
 
 - Canvas：`canvas.present`、`canvas.navigate`、`canvas.eval`、`canvas.snapshot`、`canvas.a2ui.*`
 - 相机：`camera.snap`、`camera.clip`
@@ -71,6 +73,7 @@ Gateway -> Node Service (WS)
 ## Exec 审批（system.run）
 
 `system.run` 由 macOS 应用中的 **Exec 审批**控制（设置 → Exec approvals）。安全 + 询问 + 允许列表本地存储在 Mac 上：
+Security + ask + allowlist are stored locally on the Mac in:
 
 ```
 ~/.openclaw/exec-approvals.json
@@ -125,6 +128,7 @@ open 'openclaw://agent?message=Hello%20from%20deep%20link'
 安全：
 
 - 没有 `key` 时，应用会提示确认。
+- 在没有 `key` 的情况下，应用会对确认提示强制执行较短的消息长度限制，并忽略 `deliver` / `to` / `channel`。
 - 有有效的 `key` 时，运行是无人值守的（用于个人自动化）。
 
 ## 新手引导流程（典型）
@@ -172,14 +176,15 @@ Discovery 选项：
 
 ### 控制隧道（Gateway 网关 WebSocket 端口）
 
-- **目的：**健康检查、状态、Web Chat、配置和其他控制平面调用。
-- **本地端口：**Gateway 网关端口（默认 `18789`），始终稳定。
-- **远程端口：**远程主机上的相同 Gateway 网关端口。
-- **行为：**无随机本地端口；应用复用现有的健康隧道或在需要时重启它。
+- \*\*目的：\*\*健康检查、状态、Web Chat、配置和其他控制平面调用。
+- \*\*本地端口：\*\*Gateway 网关端口（默认 `18789`），始终稳定。
+- \*\*远程端口：\*\*远程主机上的相同 Gateway 网关端口。
+- \*\*行为：\*\*无随机本地端口；应用复用现有的健康隧道或在需要时重启它。
 - **SSH 形式：**`ssh -N -L <local>:127.0.0.1:<remote>`，带有 BatchMode + ExitOnForwardFailure + keepalive 选项。
-- **IP 报告：**SSH 隧道使用 loopback，因此 Gateway 网关将看到节点 IP 为 `127.0.0.1`。如果你想要显示真实的客户端 IP，请使用 **Direct (ws/wss)** 传输（参见 [macOS 远程访问](/platforms/mac/remote)）。
+- \*\*IP 报告：\*\*SSH 隧道使用 loopback，因此 Gateway 网关将看到节点 IP 为 `127.0.0.1`。如果你想要显示真实的客户端 IP，请使用 **Direct (ws/wss)** 传输（参见 [macOS 远程访问](/platforms/mac/remote)）。 50. 如果你希望显示真实的客户端 IP，请使用 **Direct（ws/wss）** 传输（参见 [macOS remote access](/platforms/mac/remote)）。
 
-有关设置步骤，请参阅 [macOS 远程访问](/platforms/mac/remote)。有关协议详情，请参阅 [Gateway 网关协议](/gateway/protocol)。
+1. 有关设置步骤，请参阅 [macOS 远程访问](/platforms/mac/remote)。 2. 有关协议
+   详情，请参阅 [Gateway 协议](/gateway/protocol)。
 
 ## 相关文档
 
@@ -187,5 +192,3 @@ Discovery 选项：
 - [Gateway 网关（macOS）](/platforms/mac/bundled-gateway)
 - [macOS 权限](/platforms/mac/permissions)
 - [Canvas](/platforms/mac/canvas)
-
-

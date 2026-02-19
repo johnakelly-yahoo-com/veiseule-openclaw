@@ -1,4 +1,8 @@
 ---
+summary: "Sử dụng OAuth Qwen (gói miễn phí) trong OpenClaw"
+read_when:
+  - Bạn muốn dùng Qwen với OpenClaw
+  - Bạn muốn truy cập OAuth gói miễn phí cho Qwen Coder
 title: "Qwen"
 ---
 
@@ -37,7 +41,7 @@ openclaw models set qwen-portal/coder-model
 
 ## Tái sử dụng đăng nhập Qwen Code CLI
 
-Nếu bạn đã đăng nhập bằng Qwen Code CLI, OpenClaw sẽ đồng bộ thông tin xác thực
+If you already logged in with the Qwen Code CLI, OpenClaw will sync credentials
 from `~/.qwen/oauth_creds.json` when it loads the auth store. You still need a
 `models.providers.qwen-portal` entry (use the login command above to create one).
 
@@ -47,5 +51,3 @@ from `~/.qwen/oauth_creds.json` when it loads the auth store. You still need a
 - URL cơ sở mặc định: `https://portal.qwen.ai/v1` (ghi đè bằng
   `models.providers.qwen-portal.baseUrl` nếu Qwen cung cấp endpoint khác).
 - Xem [Model providers](/concepts/model-providers) để biết các quy tắc áp dụng cho toàn bộ nhà cung cấp.
-
-

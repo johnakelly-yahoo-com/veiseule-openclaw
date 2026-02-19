@@ -1,4 +1,7 @@
 ---
+summary: "macOS 上的 Gateway 生命週期（launchd）"
+read_when:
+  - 整合 mac 應用程式與 Gateway 生命週期
 title: "Gateway 生命週期"
 ---
 
@@ -9,6 +12,7 @@ Gateway on the configured port; if none is reachable, it enables the launchd
 service via the external `openclaw` CLI (no embedded runtime). This gives you
 reliable auto‑start at login and restart on crashes.
 
+Child‑process mode (Gateway spawned directly by the app) is **not in use** today.
 子行程模式（由應用程式直接啟動的 Gateway）目前**未在使用**。
 If you need tighter coupling to the UI, run the Gateway manually in a terminal.
 
@@ -26,15 +30,15 @@ launchctl kickstart -k gui/$UID/bot.molt.gateway
 launchctl bootout gui/$UID/bot.molt.gateway
 ```
 
-使用具名設定檔執行時，請將標籤替換為 `bot.molt.<profile> `。\` when running a named profile.
+使用具名設定檔執行時，請將標籤替換為 `bot.molt.<profile>`。\\` when running a named profile.
 
 ## 未簽署的開發版本
 
-`scripts/restart-mac.sh --no-sign` 用於在沒有簽署金鑰時進行快速的本機建置。為避免 launchd 指向未簽署的 relay 二進位檔，它會： To prevent launchd from pointing at an unsigned relay binary, it:
+`scripts/restart-mac.sh --no-sign` 用於在沒有簽署金鑰時進行快速的本機建置。為避免 launchd 指向未簽署的 relay 二進位檔，它會： To prevent launchd from pointing at an unsigned relay binary, it: To prevent launchd from pointing at an unsigned relay binary, it:
 
 - 寫入 `~/.openclaw/disable-launchagent`。
 
-`scripts/restart-mac.sh` 的已簽署執行會在偵測到該標記存在時清除此覆寫。若要手動重設： To reset manually:
+`scripts/restart-mac.sh` 的已簽署執行會在偵測到該標記存在時清除此覆寫。若要手動重設： To reset manually: To reset manually:
 
 ```bash
 rm ~/.openclaw/disable-launchagent
@@ -49,7 +53,7 @@ behavior in Debug Settings.
 
 ## 遠端模式
 
-遠端模式永遠不會啟動本機 Gateway。應用程式會使用 SSH 通道連線到遠端主機，並透過該通道進行連線。 The app uses an SSH tunnel to the
+遠端模式永遠不會啟動本機 Gateway。應用程式會使用 SSH 通道連線到遠端主機，並透過該通道進行連線。 遠端模式永遠不會啟動本機 Gateway。應用程式會使用 SSH 通道連線到遠端主機，並透過該通道進行連線。 The app uses an SSH tunnel to the
 remote host and connects over that tunnel.
 
 ## 為何我們偏好 launchd
@@ -60,5 +64,3 @@ remote host and connects over that tunnel.
 
 If a true child‑process mode is ever needed again, it should be documented as a
 separate, explicit dev‑only mode.
-
-

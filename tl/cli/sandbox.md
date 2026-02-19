@@ -1,5 +1,7 @@
 ---
 title: Sandbox CLI
+summary: "Pamahalaan ang mga sandbox container at siyasatin ang epektibong sandbox policy"
+read_when: "Pinamamahalaan mo ang mga sandbox container o nagde-debug ng gawi ng sandbox/tool-policy."
 status: active
 ---
 
@@ -148,5 +150,3 @@ Matatagpuan ang mga sandbox setting sa `~/.openclaw/openclaw.json` sa ilalim ng 
 - [Sandbox Documentation](/gateway/sandboxing)
 - [Agent Configuration](/concepts/agent-workspace)
 - [Doctor Command](/gateway/doctor) - Suriin ang setup ng sandbox
-
-

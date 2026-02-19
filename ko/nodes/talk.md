@@ -1,4 +1,8 @@
 ---
+summary: "Talk 모드: ElevenLabs TTS 를 사용한 연속 음성 대화"
+read_when:
+  - macOS/iOS/Android 에서 Talk 모드를 구현할 때
+  - 음성/TTS/인터럽트 동작을 변경할 때
 title: "Talk 모드"
 ---
 
@@ -84,5 +88,3 @@ Talk 모드는 연속적인 음성 대화 루프입니다:
 - `eleven_v3` 에 대한 `stability` 는 `0.0`, `0.5`, 또는 `1.0` 로 검증되며, 다른 모델은 `0..1` 를 허용합니다.
 - `latency_tier` 는 설정 시 `0..4` 로 검증됩니다.
 - Android 는 저지연 AudioTrack 스트리밍을 위해 `pcm_16000`, `pcm_22050`, `pcm_24000`, 및 `pcm_44100` 출력 형식을 지원합니다.
-
-

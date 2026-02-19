@@ -1,4 +1,8 @@
 ---
+summary: "CLI-referens för `openclaw hooks` (agent-hooks)"
+read_when:
+  - Du vill hantera agent-hooks
+  - Du vill installera eller uppdatera hooks
 title: "hooks"
 ---
 
@@ -188,6 +192,9 @@ openclaw hooks install <path-or-spec>
 
 Installera ett hook-paket från en lokal mapp/arkiv eller npm.
 
+Npm-specifikationer är **endast för registry** (paketnamn + valfri version/tagg). Git/URL/file
+specifikationer avvisas. Beroendeinstallationer körs med `--ignore-scripts` av säkerhetsskäl.
+
 **Vad den gör:**
 
 - Kopierar hook-paketet till `~/.openclaw/hooks/<id>`
@@ -198,7 +205,7 @@ Installera ett hook-paket från en lokal mapp/arkiv eller npm.
 
 - `-l, --link`: Länka en lokal katalog i stället för att kopiera (lägger till den i `hooks.internal.load.extraDirs`)
 
-**Stödda arkiv:** `.zip`, `.tgz`, `.tar.gz`, `.tar`
+**Exempel:**
 
 **Exempel:**
 
@@ -223,7 +230,7 @@ openclaw hooks update <id>
 openclaw hooks update --all
 ```
 
-Uppdatera installerade hook-paket (endast npm-installationer).
+**Alternativ:**
 
 **Alternativ:**
 
@@ -234,7 +241,7 @@ Uppdatera installerade hook-paket (endast npm-installationer).
 
 ### session-memory
 
-Sparar sessionskontext till minne när du utfärdar `/new`.
+**Aktivera:**
 
 **Aktivera:**
 
@@ -242,13 +249,25 @@ Sparar sessionskontext till minne när du utfärdar `/new`.
 openclaw hooks enable session-memory
 ```
 
-**Utdata:** `~/.openclaw/workspace/memory/YYYY-MM-DD-slug.md`
+**Se:** [session-memory-dokumentation](/automation/hooks#session-memory)
 
 **Se:** [session-memory-dokumentation](/automation/hooks#session-memory)
 
+### bootstrap-extra-files
+
+**Aktivera:**
+
+**Aktivera:**
+
+```bash
+openclaw hooks aktiverar bootstrap-extra-files
+```
+
+**Visa loggar:**
+
 ### command-logger
 
-Loggar alla kommandohändelser till en centraliserad revisionsfil.
+**Se:** [command-logger-dokumentation](/automation/hooks#command-logger)
 
 **Aktivera:**
 
@@ -256,7 +275,7 @@ Loggar alla kommandohändelser till en centraliserad revisionsfil.
 openclaw hooks enable command-logger
 ```
 
-**Utdata:** `~/.openclaw/logs/commands.log`
+**Aktivera:**
 
 **Visa loggar:**
 
@@ -273,23 +292,11 @@ grep '"action":"new"' ~/.openclaw/logs/commands.log | jq .
 
 **Se:** [command-logger-dokumentation](/automation/hooks#command-logger)
 
-### soul-evil
-
-Byter ut injicerat `SOUL.md`-innehåll mot `SOUL_EVIL.md` under ett rensningsfönster eller av slump.
-
-**Aktivera:**
-
-```bash
-openclaw hooks enable soul-evil
-```
-
-**Se:** [SOUL Evil Hook](/hooks/soul-evil)
-
 ### boot-md
 
-Kör `BOOT.md` när gateway (nätverksgateway) startar (efter att kanalerna startat).
-
 **Händelser**: `gateway:startup`
+
+**Aktivera**:
 
 **Aktivera**:
 
@@ -298,5 +305,3 @@ openclaw hooks enable boot-md
 ```
 
 **Se:** [boot-md-dokumentation](/automation/hooks#boot-md)
-
-

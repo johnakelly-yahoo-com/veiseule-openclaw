@@ -1,4 +1,7 @@
 ---
+summary: "Wie eingehende Audio-/Sprachnachrichten heruntergeladen, transkribiert und in Antworten eingefügt werden"
+read_when:
+  - Ändern der Audiotranskription oder Medienverarbeitung
 title: "Audio- und Sprachnachrichten"
 ---
 
@@ -104,10 +107,27 @@ Hinweis: Die Erkennung von Binärdateien ist bestmöglich über macOS/Linux/Wind
 - Das Transkript steht Templates als `{{Transcript}}` zur Verfügung.
 - CLI‑stdout ist begrenzt (5 MB); halten Sie die CLI‑Ausgabe knapp.
 
+## Erwähnungserkennung in Gruppen
+
+Wenn `requireMention: true` für einen Gruppenchat gesetzt ist, transkribiert OpenClaw nun Audio **vor** der Überprüfung auf Erwähnungen. Dadurch können Sprachnachrichten verarbeitet werden, auch wenn sie Erwähnungen enthalten.
+
+**So funktioniert es:**
+
+1. Wenn eine Sprachnachricht keinen Textinhalt hat und die Gruppe Erwähnungen erfordert, führt OpenClaw eine „Preflight“-Transkription durch.
+2. Das Transkript wird auf Erwähnungsmuster geprüft (z. B. `@BotName`, Emoji-Trigger).
+3. Wird eine Erwähnung gefunden, durchläuft die Nachricht die vollständige Antwort-Pipeline.
+4. Das Transkript wird für die Erwähnungserkennung verwendet, sodass Sprachnachrichten die Erwähnungsprüfung bestehen können.
+
+**Fallback-Verhalten:**
+
+- Wenn die Transkription während des Preflight-Vorgangs fehlschlägt (Timeout, API-Fehler usw.), wird die Nachricht basierend auf einer reinen Text-Erwähnungserkennung verarbeitet.
+- Dadurch wird sichergestellt, dass gemischte Nachrichten (Text + Audio) niemals fälschlicherweise verworfen werden.
+
+**Beispiel:** Ein Benutzer sendet in einer Telegram-Gruppe mit `requireMention: true` eine Sprachnachricht mit dem Inhalt „Hey @Claude, wie ist das Wetter?“. Die Sprachnachricht wird transkribiert, die Erwähnung wird erkannt, und der Agent antwortet.
+
 ## Gotchas
 
 - Scope‑Regeln verwenden „First‑Match‑Wins“. `chatType` wird zu `direct`, `group` oder `room` normalisiert.
 - Stellen Sie sicher, dass Ihre CLI mit Exit‑Code 0 beendet wird und reinen Text ausgibt; JSON muss über `jq -r .text` aufbereitet werden.
 - Halten Sie Timeouts angemessen (`timeoutSeconds`, Standard 60 s), um das Blockieren der Antwort‑Warteschlange zu vermeiden.
-
-
+- Die Preflight-Transkription verarbeitet nur den **ersten** Audio-Anhang für die Erwähnungserkennung. Zusätzliche Audiodateien werden während der Hauptphase der Medienverarbeitung verarbeitet.

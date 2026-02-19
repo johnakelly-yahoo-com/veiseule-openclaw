@@ -1,10 +1,15 @@
 ---
+summary: "Gateway WebSocket protocol: handshake, mga frame, pagba-version"
+read_when:
+  - Pagpapatupad o pag-update ng mga gateway WS client
+  - Pag-debug ng mga protocol mismatch o pagkabigo sa pagkonekta
+  - Muling pagbuo ng mga schema/model ng protocol
 title: "Gateway Protocol"
 ---
 
 # Gateway protocol (WebSocket)
 
-Ang Gateway WS protocol ay ang **iisang control plane + node transport** para sa
+The Gateway WS protocol is the **single control plane + node transport** for
 OpenClaw. All clients (CLI, web UI, macOS app, iOS/Android nodes, headless
 nodes) connect over WebSocket and declare their **role** + **scope** at
 handshake time.
@@ -213,5 +218,3 @@ Itinuturing ng Gateway ang mga ito bilang **claims** at ipinapatupad ang mga ser
 This protocol exposes the **full gateway API** (status, channels, models, chat,
 agent, sessions, nodes, approvals, etc.). The exact surface is defined by the
 TypeBox schemas in `src/gateway/protocol/schema.ts`.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Провайдеры моделей (LLM), поддерживаемые OpenClaw"
+read_when:
+  - Вы хотите выбрать провайдера модели
+  - Вам нужен краткий обзор поддерживаемых бэкендов LLM
 title: "Провайдеры моделей"
 ---
 
@@ -35,7 +39,9 @@ Venice — это рекомендуемая нами настройка Venice 
 - [Anthropic (API + Claude Code CLI)](/providers/anthropic)
 - [Qwen (OAuth)](/providers/qwen)
 - [OpenRouter](/providers/openrouter)
+- [LiteLLM (унифицированный шлюз)](/providers/litellm)
 - [Vercel AI Gateway](/providers/vercel-ai-gateway)
+- [Together AI](/providers/together)
 - [Cloudflare AI Gateway](/providers/cloudflare-ai-gateway)
 - [Moonshot AI (Kimi + Kimi Coding)](/providers/moonshot)
 - [OpenCode Zen](/providers/opencode)
@@ -45,8 +51,11 @@ Venice — это рекомендуемая нами настройка Venice 
 - [GLM models](/providers/glm)
 - [MiniMax](/providers/minimax)
 - [Venice (Venice AI, ориентирован на приватность)](/providers/venice)
+- [Hugging Face (Inference)](/providers/huggingface)
 - [Ollama (локальные модели)](/providers/ollama)
+- [vLLM (локальные модели)](/providers/vllm)
 - [Qianfan](/providers/qianfan)
+- [NVIDIA](/providers/nvidia)
 
 ## Провайдеры транскрибации
 
@@ -58,5 +67,3 @@ Venice — это рекомендуемая нами настройка Venice 
 
 Полный каталог провайдеров (xAI, Groq, Mistral и т. д.) и расширенную конфигурацию
 см. в разделе [Model providers](/concepts/model-providers).
-
-

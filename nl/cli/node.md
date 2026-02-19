@@ -1,4 +1,8 @@
 ---
+summary: "CLI-referentie voor `openclaw node` (headless Node-host)"
+read_when:
+  - Het draaien van de headless Node-host
+  - Het koppelen van een niet-macOS-node voor system.run
 title: "node"
 ---
 
@@ -86,7 +90,7 @@ Gebruik `openclaw node run` voor een foreground Node-host (geen service).
 
 Service-opdrachten accepteren `--json` voor machineleesbare uitvoer.
 
-## Koppelen
+## Pairing
 
 De eerste verbinding maakt een openstaande Node-koppelingsaanvraag aan op de Gateway.
 Keur deze goed via:
@@ -106,5 +110,3 @@ De Node-host slaat zijn Node-id, token, weergavenaam en Gateway-verbindingsinfor
 - `~/.openclaw/exec-approvals.json`
 - [Uitvoeringsgoedkeuringen](/tools/exec-approvals)
 - `openclaw approvals --node <id|name|ip>` (bewerken vanuit de Gateway)
-
-

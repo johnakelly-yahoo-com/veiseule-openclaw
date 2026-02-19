@@ -1,4 +1,8 @@
 ---
+summary: "Executer plusieurs Gateway OpenClaw sur un même hôte (isolation, ports et profils)"
+read_when:
+  - Exécuter plus d'une Gateway sur la même machine
+  - Vous avez besoin d'une configuration/d'un état/dés ports isolés par Gateway
 title: "Plusieurs Gateways"
 ---
 
@@ -75,7 +79,7 @@ openclaw --profile rescue gateway install
 Port de base = `gateway.port` (ou `OPENCLAW_GATEWAY_PORT` / `--port`).
 
 - port du service de contrôle du navigateur = base + 2 (loopback uniquement)
-- `canvasHost.port = base + 4`
+- le canvas host est servi sur le serveur HTTP du Gateway (même port que `gateway.port`)
 - Les ports CDP du profil de navigateur s'allouent automatiquement à partir de `browser.controlPort + 9 .. + 108`
 
 Si vous remplacez l'un de ces paramètres dans la configuration ou les variables d'environnement, vous devez les maintenir uniques par instance.
@@ -106,5 +110,3 @@ openclaw --profile main status
 openclaw --profile rescue status
 openclaw --profile rescue browser status
 ```
-
-

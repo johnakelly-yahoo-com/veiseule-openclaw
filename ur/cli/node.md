@@ -1,4 +1,8 @@
 ---
+summary: "CLI حوالہ برائے `openclaw node` (ہیڈ لیس نوڈ ہوسٹ)"
+read_when:
+  - ہیڈ لیس نوڈ ہوسٹ چلانا
+  - system.run کے لیے غیر macOS نوڈ کی جوڑی بنانا
 title: "نوڈ"
 ---
 
@@ -103,5 +107,3 @@ openclaw nodes approve <requestId>
 - `~/.openclaw/exec-approvals.json`
 - [ایگزیکٹو منظوریات](/tools/exec-approvals)
 - `openclaw approvals --node <id|name|ip>` (Gateway سے ترمیم کریں)
-
-

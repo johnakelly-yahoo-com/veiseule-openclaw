@@ -1,4 +1,7 @@
 ---
+summary: "„Einrichtungsleitfaden für Entwickler, die an der OpenClaw macOS-App arbeiten“"
+read_when:
+  - Einrichten der macOS-Entwicklungsumgebung
 title: "„macOS-Entwickler-Setup“"
 ---
 
@@ -13,7 +16,7 @@ Stellen Sie vor dem Build der App sicher, dass Folgendes installiert ist:
 1. **Xcode 26.2+**: Erforderlich für die Swift-Entwicklung.
 2. **Node.js 22+ & pnpm**: Erforderlich für Gateway, CLI und Packaging-Skripte.
 
-## 1) Abhängigkeiten installieren
+## 3) CLI installieren
 
 Installieren Sie die projektweiten Abhängigkeiten:
 
@@ -99,5 +102,3 @@ lsof -nP -iTCP:18789 -sTCP:LISTEN
 ```
 
 Wenn ein manueller Lauf den Port belegt, beenden Sie diesen Prozess (Ctrl+C). Als letzte Maßnahme beenden Sie die oben gefundene PID.
-
-

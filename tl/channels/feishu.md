@@ -1,4 +1,8 @@
 ---
+summary: "Pangkalahatang-ideya ng Feishu bot, mga tampok, at konpigurasyon"
+read_when:
+  - Gusto mong kumonekta ng Feishu/Lark bot
+  - Kino-configure mo ang Feishu channel
 title: Feishu
 ---
 
@@ -67,13 +71,13 @@ Piliin ang **Feishu**, pagkatapos ay ilagay ang App ID at App Secret.
 
 ## Hakbang 1: Gumawa ng Feishu app
 
-### 1. Buksan ang Feishu Open Platform
+### 1. Open Feishu Open Platform
 
 Bisitahin ang [Feishu Open Platform](https://open.feishu.cn/app) at mag-sign in.
 
 Ang mga Lark (global) tenant ay dapat gumamit ng [https://open.larksuite.com/app](https://open.larksuite.com/app) at itakda ang `domain: "lark"` sa Feishu config.
 
-### 2. Gumawa ng app
+### 2. Create an app
 
 1. I-click ang **Create enterprise app**
 2. Ilagay ang pangalan at deskripsyon ng app
@@ -81,7 +85,7 @@ Ang mga Lark (global) tenant ay dapat gumamit ng [https://open.larksuite.com/app
 
 ![Create enterprise app](../images/feishu-step2-create-app.png)
 
-### 3. Kopyahin ang mga kredensyal
+### 3. Copy credentials
 
 Mula sa **Credentials & Basic Info**, kopyahin ang:
 
@@ -528,9 +532,9 @@ Mga pangunahing opsyon:
 | ------------------------------------------------------------ | ------------------------------------------------------------------- | --------- |
 | `channels.feishu.enabled`                                    | I-enable/i-disable ang channel                                      | `true`    |
 | `channels.feishu.domain`                                     | API domain (`feishu` o `lark`)                   | `feishu`  |
-| `channels.feishu.accounts.<id>``.appId`                      | App ID                                                              | -         |
-| `channels.feishu.accounts.<id>``.appSecret`                  | App Secret                                                          | -         |
-| `channels.feishu.accounts.<id>``.domain`                     | Per-account API domain override                                     | `feishu`  |
+| `channels.feishu.accounts.&lt;id&gt;``.appId`                      | App ID                                                              | -         |
+| `channels.feishu.accounts.&lt;id&gt;``.appSecret`                  | App Secret                                                          | -         |
+| `channels.feishu.accounts.&lt;id&gt;``.domain`                     | Per-account API domain override                                     | `feishu`  |
 | `channels.feishu.dmPolicy`                                   | DM policy                                                           | `pairing` |
 | `channels.feishu.allowFrom`                                  | DM allowlist (open_id list) | -         |
 | `channels.feishu.groupPolicy`                                | Group policy                                                        | `open`    |
@@ -574,5 +578,3 @@ Mga pangunahing opsyon:
 - ✅ Files
 - ✅ Audio
 - ⚠️ Rich text (bahagyang suporta)
-
-

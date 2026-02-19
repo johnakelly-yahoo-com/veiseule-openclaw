@@ -1,15 +1,19 @@
 ---
+summary: "OpenClaw में API कुंजियों या Codex सब्सक्रिप्शन के माध्यम से OpenAI का उपयोग करें"
+read_when:
+  - आप OpenClaw में OpenAI मॉडल का उपयोग करना चाहते हैं
+  - आप API कुंजियों के बजाय Codex सब्सक्रिप्शन प्रमाणीकरण चाहते हैं
 title: "OpenAI"
 ---
 
 # OpenAI
 
-OpenAI, GPT मॉडल्स के लिए डेवलपर API प्रदान करता है। Codex, **ChatGPT साइन-इन** को सब्सक्रिप्शन के लिए समर्थन करता है।
+OpenAI provides developer APIs for GPT models. Codex supports **ChatGPT sign-in** for subscription
 access or **API key** sign-in for usage-based access. Codex cloud requires ChatGPT sign-in.
 
 ## विकल्प A: OpenAI API कुंजी (OpenAI प्लेटफ़ॉर्म)
 
-**किसके लिए सर्वश्रेष्ठ:** सीधे API एक्सेस और उपयोग-आधारित बिलिंग।
+**Best for:** direct API access and usage-based billing.
 Get your API key from the OpenAI dashboard.
 
 ### CLI सेटअप
@@ -31,7 +35,7 @@ openclaw onboard --openai-api-key "$OPENAI_API_KEY"
 
 ## विकल्प B: OpenAI Code (Codex) सब्सक्रिप्शन
 
-**किसके लिए सर्वश्रेष्ठ:** API key के बजाय ChatGPT/Codex सब्सक्रिप्शन एक्सेस का उपयोग करना।
+**Best for:** using ChatGPT/Codex subscription access instead of an API key.
 Codex cloud requires ChatGPT sign-in, while the Codex CLI supports ChatGPT or API key sign-in.
 
 ### CLI सेटअप (Codex OAuth)
@@ -56,5 +60,3 @@ openclaw models auth login --provider openai-codex
 
 - मॉडल संदर्भ हमेशा `provider/model` का उपयोग करते हैं (देखें [/concepts/models](/concepts/models))।
 - प्रमाणीकरण विवरण और पुन: उपयोग नियम [/concepts/oauth](/concepts/oauth) में हैं।
-
-

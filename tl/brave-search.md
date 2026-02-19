@@ -1,4 +1,8 @@
 ---
+summary: "Setup ng Brave Search API para sa web_search"
+read_when:
+  - Gusto mong gamitin ang Brave Search para sa web_search
+  - Kailangan mo ng BRAVE_API_KEY o mga detalye ng plano
 title: "Brave Search"
 ---
 
@@ -35,5 +39,3 @@ Ginagamit ng OpenClaw ang Brave Search bilang default na provider para sa `web_s
 - Nagbibigay ang Brave ng libreng tier pati mga bayad na plano; tingnan ang Brave API portal para sa kasalukuyang mga limitasyon.
 
 Tingnan ang [Web tools](/tools/web) para sa kumpletong konpigurasyon ng web_search.
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "โฟลว์ของแอปmacOSสำหรับควบคุมOpenClaw Gatewayระยะไกลผ่านSSH"
+read_when:
+  - เมื่อกำลังตั้งค่าหรือแก้ไขปัญหาการควบคุมmacระยะไกล
 title: "การควบคุมระยะไกล"
 ---
 
@@ -10,9 +13,9 @@ title: "การควบคุมระยะไกล"
 
 - **Local (this Mac)**: ทุกอย่างรันบนแล็ปท็อป ไม่เกี่ยวข้องกับSSH 39. ไม่มี SSH เกี่ยวข้อง
 - **Remote over SSH (default)**: คำสั่งOpenClawถูกรันบนโฮสต์ระยะไกล แอปmacจะเปิดการเชื่อมต่อSSHด้วย `-o BatchMode` พร้อมตัวตน/คีย์ที่คุณเลือกและการทำพอร์ตฟอร์เวิร์ดภายในเครื่อง 40. แอป mac จะเปิดการเชื่อมต่อ SSH ด้วย `-o BatchMode` พร้อม identity/key ที่คุณเลือก และการพอร์ตฟอร์เวิร์ดภายในเครื่อง
-- 41. **Remote direct (ws/wss)**: ไม่มี SSH tunnel **Remote direct (ws/wss)**: ไม่มีอุโมงค์SSH แอปmacเชื่อมต่อกับURLของGatewayโดยตรง(เช่น ผ่านTailscale Serve หรือรีเวิร์สพร็อกซีHTTPSสาธารณะ)
+- **Remote direct (ws/wss)**: ไม่มี SSH tunnel **Remote direct (ws/wss)**: ไม่มีอุโมงค์SSH แอปmacเชื่อมต่อกับURLของGatewayโดยตรง(เช่น ผ่านTailscale Serve หรือรีเวิร์สพร็อกซีHTTPSสาธารณะ) **Remote direct (ws/wss)**: ไม่มีอุโมงค์SSH แอปmacเชื่อมต่อกับURLของGatewayโดยตรง(เช่น ผ่านTailscale Serve หรือรีเวิร์สพร็อกซีHTTPSสาธารณะ)
 
-## การเชื่อมต่อระยะไกล
+## Remote transports
 
 โหมดระยะไกลรองรับทรานสปอร์ตสองแบบ:
 
@@ -23,7 +26,7 @@ title: "การควบคุมระยะไกล"
 
 1. ติดตั้งNode + pnpm และสร้าง/ติดตั้งOpenClaw CLI (`pnpm install && pnpm build && pnpm link --global`)
 2. ตรวจสอบให้แน่ใจว่า `openclaw` อยู่บนPATHสำหรับเชลล์ที่ไม่โต้ตอบ(ทำsymlinkไปยัง `/usr/local/bin` หรือ `/opt/homebrew/bin` หากจำเป็น)
-3. 44. เปิด SSH ด้วยการยืนยันตัวตนด้วยคีย์ เปิดSSHด้วยการยืนยันตัวตนแบบคีย์ แนะนำให้ใช้IPของ **Tailscale** เพื่อการเข้าถึงที่เสถียรนอกLAN
+3. เปิด SSH ด้วยการยืนยันตัวตนด้วยคีย์ เปิดSSHด้วยการยืนยันตัวตนแบบคีย์ แนะนำให้ใช้IPของ **Tailscale** เพื่อการเข้าถึงที่เสถียรนอกLAN เปิดSSHด้วยการยืนยันตัวตนแบบคีย์ แนะนำให้ใช้IPของ **Tailscale** เพื่อการเข้าถึงที่เสถียรนอกLAN
 
 ## การตั้งค่าแอปบน macOS
 
@@ -36,7 +39,7 @@ title: "การควบคุมระยะไกล"
    - **Identity file** (ขั้นสูง): พาธไปยังคีย์ของคุณ
    - **Project root** (ขั้นสูง): พาธเช็กเอาต์บนรีโมตที่ใช้สำหรับคำสั่ง
    - **CLI path** (ขั้นสูง): พาธเสริมไปยังเอนทรีพอยต์/ไบนารี `openclaw` ที่รันได้(จะกรอกอัตโนมัติเมื่อมีการประกาศ)
-3. 45. คลิก **Test remote** 46. ความสำเร็จหมายความว่า `openclaw status --json` บนรีโมตรันได้ถูกต้อง กด **Test remote** หากสำเร็จแสดงว่า `openclaw status --json` ระยะไกลทำงานถูกต้อง ความล้มเหลวมักเกิดจากปัญหาPATH/CLI; exit 127 หมายถึงไม่พบCLIบนรีโมต
+3. คลิก **Test remote** 46. ความสำเร็จหมายความว่า `openclaw status --json` บนรีโมตรันได้ถูกต้อง กด **Test remote** หากสำเร็จแสดงว่า `openclaw status --json` ระยะไกลทำงานถูกต้อง ความล้มเหลวมักเกิดจากปัญหาPATH/CLI; exit 127 หมายถึงไม่พบCLIบนรีโมต กด **Test remote** หากสำเร็จแสดงว่า `openclaw status --json` ระยะไกลทำงานถูกต้อง ความล้มเหลวมักเกิดจากปัญหาPATH/CLI; exit 127 หมายถึงไม่พบCLIบนรีโมต
 4. การตรวจสุขภาพและ Web Chat จะรันผ่านอุโมงค์SSHนี้โดยอัตโนมัติ
 
 ## เว็บแชต
@@ -63,10 +66,10 @@ title: "การควบคุมระยะไกล"
 
 ## การแก้ไขปัญหา
 
-- 50. **exit 127 / not found**: `openclaw` ไม่อยู่ใน PATH สำหรับเชลล์ที่ไม่ใช่เชลล์ล็อกอิน **exit 127 / not found**: `openclaw` ไม่อยู่บนPATHสำหรับเชลล์ที่ไม่ใช่การล็อกอิน เพิ่มไปยัง `/etc/paths`, shell rc ของคุณ หรือทำsymlinkไปยัง `/usr/local/bin`/`/opt/homebrew/bin`
+- **exit 127 / not found**: `openclaw` ไม่อยู่ใน PATH สำหรับเชลล์ที่ไม่ใช่เชลล์ล็อกอิน **exit 127 / not found**: `openclaw` ไม่อยู่บนPATHสำหรับเชลล์ที่ไม่ใช่การล็อกอิน เพิ่มไปยัง `/etc/paths`, shell rc ของคุณ หรือทำsymlinkไปยัง `/usr/local/bin`/`/opt/homebrew/bin` **exit 127 / not found**: `openclaw` ไม่อยู่บนPATHสำหรับเชลล์ที่ไม่ใช่การล็อกอิน เพิ่มไปยัง `/etc/paths`, shell rc ของคุณ หรือทำsymlinkไปยัง `/usr/local/bin`/`/opt/homebrew/bin`
 - **Health probe failed**: ตรวจสอบการเข้าถึงSSH, PATH และตรวจว่าBaileysได้ล็อกอินแล้ว (`openclaw status --json`)
 - **Web Chat stuck**: ยืนยันว่าGatewayกำลังรันอยู่บนโฮสต์ระยะไกลและพอร์ตที่ฟอร์เวิร์ดตรงกับพอร์ตWSของGateway; UIต้องการการเชื่อมต่อWSที่สมบูรณ์
-- **Node IP แสดงเป็น 127.0.0.1**: เป็นสิ่งที่คาดไว้เมื่อใช้ SSH tunnel **Node IP shows 127.0.0.1**: เป็นพฤติกรรมที่คาดไว้เมื่อใช้อุโมงค์SSH เปลี่ยน **Transport** เป็น **Direct (ws/wss)** หากต้องการให้Gatewayเห็นIPไคลเอนต์จริง
+- **Node IP แสดงเป็น 127.0.0.1**: เป็นสิ่งที่คาดไว้เมื่อใช้ SSH tunnel **Node IP shows 127.0.0.1**: เป็นพฤติกรรมที่คาดไว้เมื่อใช้อุโมงค์SSH เปลี่ยน **Transport** เป็น **Direct (ws/wss)** หากต้องการให้Gatewayเห็นIPไคลเอนต์จริง **Node IP shows 127.0.0.1**: เป็นพฤติกรรมที่คาดไว้เมื่อใช้อุโมงค์SSH เปลี่ยน **Transport** เป็น **Direct (ws/wss)** หากต้องการให้Gatewayเห็นIPไคลเอนต์จริง
 - **Voice Wake**: วลีทริกเกอร์จะถูกส่งต่ออัตโนมัติในโหมดระยะไกล ไม่ต้องมีตัวส่งต่อแยกต่างหาก
 
 ## เสียงแจ้งเตือน
@@ -78,5 +81,3 @@ openclaw nodes notify --node <id> --title "Ping" --body "Remote gateway ready" -
 ```
 
 ขณะนี้ไม่มีสวิตช์ “default sound” แบบรวมในแอปอีกต่อไป ผู้เรียกจะเลือกเสียง(หรือไม่เลือกเสียง)เป็นรายคำขอ
-
-

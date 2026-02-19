@@ -1,8 +1,13 @@
 ---
-title: "Węzły"
+summary: "Węzły: parowanie, możliwości, uprawnienia oraz pomocniki CLI dla canvas/kamery/ekranu/systemu"
+read_when:
+  - Parowanie węzłów iOS/Android z gatewayem
+  - Używanie canvas/kamery węzła jako kontekstu agenta
+  - Dodawanie nowych poleceń węzła lub pomocników CLI
+title: "Nodes"
 ---
 
-# Węzły
+# Nodes
 
 **Węzeł** to urządzenie towarzyszące (macOS/iOS/Android/headless), które łączy się z **WebSocket** Gateway (ten sam port co operatorzy) z użyciem `role: "node"` i udostępnia powierzchnię poleceń (np. `canvas.*`, `camera.*`, `system.*`) przez `node.invoke`. Szczegóły protokołu: [Gateway protocol](/gateway/protocol).
 
@@ -274,7 +279,7 @@ Uwagi:
 - `system.notify` respektuje stan uprawnień powiadomień w aplikacji macOS.
 - `system.run` obsługuje `--cwd`, `--env KEY=VAL`, `--command-timeout` oraz `--needs-screen-recording`.
 - `system.notify` obsługuje `--priority <passive|active|timeSensitive>` i `--delivery <system|overlay|auto>`.
-- Węzły macOS odrzucają nadpisania `PATH`; headless hosty węzłów akceptują `PATH` tylko wtedy, gdy poprzedza on PATH hosta węzła.
+- Hosty Node ignorują nadpisania `PATH`. Jeśli potrzebujesz dodatkowych wpisów w PATH, skonfiguruj środowisko usługi hosta node (lub zainstaluj narzędzia w standardowych lokalizacjach) zamiast przekazywać `PATH` przez `--env`.
 - W trybie węzła macOS, `system.run` jest objęte zatwierdzeniami exec w aplikacji macOS (Ustawienia → Zatwierdzenia exec).
   Tryby ask/allowlist/full zachowują się tak samo jak w headless hoście węzła; odrzucone monity zwracają `SYSTEM_RUN_DENIED`.
 - W headless hoście węzła, `system.run` jest objęte zatwierdzeniami exec (`~/.openclaw/exec-approvals.json`).
@@ -335,5 +340,3 @@ Uwagi:
 
 - Aplikacja macOS w pasku menu łączy się z serwerem WS Gateway jako węzeł (dzięki czemu `openclaw nodes …` działa na tym Macu).
 - W trybie zdalnym aplikacja otwiera tunel SSH dla portu Gateway i łączy się z `localhost`.
-
-

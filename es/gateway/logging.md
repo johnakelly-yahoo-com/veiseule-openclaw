@@ -1,4 +1,8 @@
 ---
+summary: "Superficies de registro, archivos de logs, estilos de logs WS y formato de consola"
+read_when:
+  - Cambiar la salida o los formatos de logging
+  - Depurar la salida de la CLI o del Gateway
 title: "Registro"
 ---
 
@@ -107,5 +111,3 @@ Comportamiento:
 - **Los cuerpos de mensajes de WhatsApp** se registran en `debug` (use `--verbose` para verlos)
 
 Esto mantiene estables los logs de archivo existentes mientras hace que la salida interactiva sea fácil de escanear.
-
-

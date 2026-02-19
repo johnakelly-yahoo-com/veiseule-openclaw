@@ -1,4 +1,8 @@
 ---
+summary: "CLI-Referenz für `openclaw plugins` (Auflisten, Installieren, Aktivieren/Deaktivieren, Diagnose)"
+read_when:
+  - Sie möchten In-Process-Gateway-Plugins installieren oder verwalten
+  - Sie möchten Fehler beim Laden von Plugins debuggen
 title: "Plugins"
 ---
 
@@ -36,6 +40,9 @@ openclaw plugins install <path-or-spec>
 
 Sicherheitshinweis: Behandeln Sie Plugin-Installationen wie das Ausführen von Code. Bevorzugen Sie gepinnte Versionen.
 
+Npm-Spezifikationen sind **nur Registry-basiert** (Paketname + optionale Version/Tag). Git/URL/File-
+Spezifikationen werden abgelehnt. Dependency-Installationen werden aus Sicherheitsgründen mit `--ignore-scripts` ausgeführt.
+
 Unterstützte Archive: `.zip`, `.tgz`, `.tar.gz`, `.tar`.
 
 Verwenden Sie `--link`, um das Kopieren eines lokalen Verzeichnisses zu vermeiden (fügt zu `plugins.load.paths` hinzu):
@@ -43,6 +50,24 @@ Verwenden Sie `--link`, um das Kopieren eines lokalen Verzeichnisses zu vermeide
 ```bash
 openclaw plugins install -l ./my-plugin
 ```
+
+### Deinstallation
+
+```bash
+openclaw plugins uninstall <id>
+openclaw plugins uninstall <id> --dry-run
+openclaw plugins uninstall <id> --keep-files>
+```
+
+`uninstall` entfernt Plugin-Einträge aus `plugins.entries`, `plugins.installs`,
+der Plugin-Allowlist sowie verknüpfte `plugins.load.paths`-Einträge, sofern zutreffend.
+Bei aktiven Memory-Plugins wird der Memory-Slot auf `memory-core` zurückgesetzt.
+
+Standardmäßig entfernt die Deinstallation außerdem das Plugin-Installationsverzeichnis im aktiven
+State-Dir-Extensions-Root (`$OPENCLAW_STATE_DIR/extensions/<id>`). Verwenden Sie
+`--keep-files`, um die Dateien auf der Festplatte zu behalten.
+
+`--keep-config` wird als veraltetes Alias für `--keep-files` unterstützt.
 
 ### Aktualisieren
 
@@ -53,5 +78,3 @@ openclaw plugins update <id> --dry-run
 ```
 
 Aktualisierungen gelten nur für Plugins, die von npm installiert wurden (nachverfolgt in `plugins.installs`).
-
-

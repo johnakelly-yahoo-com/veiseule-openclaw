@@ -1,4 +1,9 @@
 ---
+summary: "اینڈرائیڈ ایپ (نوڈ): کنکشن رن بُک + کینوس/چیٹ/کیمرہ"
+read_when:
+  - اینڈرائیڈ نوڈ کو جوڑتے یا دوبارہ کنیکٹ کرتے وقت
+  - اینڈرائیڈ gateway کی دریافت یا تصدیق کی ڈیبگنگ
+  - کلائنٹس کے درمیان چیٹ ہسٹری کی برابری کی توثیق
 title: "اینڈرائیڈ ایپ"
 ---
 
@@ -131,7 +136,7 @@ openclaw nodes invoke --node "<Android Node>" --command canvas.navigate --params
 Tailnet (اختیاری): اگر دونوں ڈیوائسز Tailscale پر ہیں، تو `.local` کے بجائے MagicDNS نام یا tailnet IP استعمال کریں، مثلاً `http://<gateway-magicdns>:18793/__openclaw__/canvas/`۔
 
 16. یہ سرور HTML میں ایک live-reload کلائنٹ شامل کرتا ہے اور فائلوں میں تبدیلی پر دوبارہ لوڈ کرتا ہے۔
-17. A2UI ہوسٹ یہاں موجود ہے: `http://<gateway-host>:18793/__openclaw__/a2ui/`.
+    A2UI host یہاں موجود ہے: `http://<gateway-host>:18789/__openclaw__/a2ui/`۔
 
 کینوس کمانڈز (صرف foreground):
 
@@ -144,5 +149,3 @@ Tailnet (اختیاری): اگر دونوں ڈیوائسز Tailscale پر ہیں
 - `camera.clip` (mp4)
 
 پیرامیٹرز اور CLI ہیلپرز کے لیے [Camera node](/nodes/camera) دیکھیں۔
-
-

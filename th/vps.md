@@ -1,4 +1,8 @@
 ---
+summary: "ศูนย์รวมการโฮสต์VPSสำหรับOpenClaw(Oracle/Fly/Hetzner/GCP/exe.dev)"
+read_when:
+  - คุณต้องการรันGatewayบนคลาวด์
+  - คุณต้องการภาพรวมอย่างรวดเร็วของคู่มือVPS/การโฮสต์
 title: "การโฮสต์VPS"
 ---
 
@@ -17,6 +21,7 @@ title: "การโฮสต์VPS"
 - **exe.dev** (VM + พร็อกซีHTTPS): [exe.dev](/install/exe-dev)
 - **AWS (EC2/Lightsail/free tier)**: ใช้งานได้ดีเช่นกัน วิดีโอไกด์:
   [https://x.com/techfrenAJ/status/2014934471095812547](https://x.com/techfrenAJ/status/2014934471095812547) วิดีโอแนะนำ:
+  [https://x.com/techfrenAJ/status/2014934471095812547](https://x.com/techfrenAJ/status/2014934471095812547) วิดีโอแนะนำ:
   [https://x.com/techfrenAJ/status/2014934471095812547](https://x.com/techfrenAJ/status/2014934471095812547)
 
 ## การตั้งค่าบนคลาวด์ทำงานอย่างไร
@@ -25,6 +30,8 @@ title: "การโฮสต์VPS"
 - คุณเชื่อมต่อจากแล็ปท็อป/โทรศัพท์ผ่าน **Control UI** หรือ **Tailscale/SSH**
 - ถือว่าVPSเป็นแหล่งความจริงหลัก และ**สำรองข้อมูล**สถานะ + เวิร์กสเปซ
 - ค่าเริ่มต้นที่ปลอดภัย: ให้Gatewayอยู่บน loopback และเข้าถึงผ่านอุโมงค์SSHหรือ Tailscale Serve
+  หาก bind ไปที่ `lan`/`tailnet` ให้บังคับใช้ `gateway.auth.token` หรือ `gateway.auth.password`
+  ค่าเริ่มต้นที่ปลอดภัย: ให้Gatewayอยู่บน loopback และเข้าถึงผ่านอุโมงค์SSHหรือ Tailscale Serve
   หาก bind ไปที่ `lan`/`tailnet` ให้บังคับใช้ `gateway.auth.token` หรือ `gateway.auth.password`
   หากผูกกับ `lan`/`tailnet` ต้องกำหนด `gateway.auth.token` หรือ `gateway.auth.password`
 
@@ -35,8 +42,8 @@ title: "การโฮสต์VPS"
 
 คุณสามารถคงGatewayไว้บนคลาวด์ และจับคู่ **โหนด** บนอุปกรณ์ภายในเครื่องของคุณ
 (Mac/iOS/Android/headless) โหนดให้ความสามารถด้านหน้าจอ/กล้อง/แคนวาสภายในเครื่อง และความสามารถ `system.run`
+ในขณะที่Gatewayยังคงอยู่บนคลาวด์ คุณสามารถคงGatewayไว้บนคลาวด์ และจับคู่ **โหนด** บนอุปกรณ์ภายในเครื่องของคุณ
+(Mac/iOS/Android/headless) โหนดให้ความสามารถด้านหน้าจอ/กล้อง/แคนวาสภายในเครื่อง และความสามารถ `system.run`
 ในขณะที่Gatewayยังคงอยู่บนคลาวด์ Nodes ให้ความสามารถหน้าจอ/กล้อง/แคนวาสภายในเครื่อง และ `system.run` ในขณะที่ Gateway ยังคงอยู่บนคลาวด์
 
 เอกสาร: [Nodes](/nodes), [Nodes CLI](/cli/nodes)
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Deplacer (migrer) une installation OpenClaw d'une machine a une autre"
+read_when:
+  - Vous deplacez OpenClaw vers un nouvel ordinateur portable/serveur
+  - Vous souhaitez conserver les sessions, l'authentification et les connexions aux canaux (WhatsApp, etc.)
 title: "Guide de migration"
 ---
 
@@ -186,5 +190,3 @@ Sur la nouvelle machine, verifiez :
 - [Doctor](/gateway/doctor)
 - [Depannage de la Gateway](/gateway/troubleshooting)
 - [Ou OpenClaw stocke-t-il ses donnees ?](/help/faq#where-does-openclaw-store-its-data)
-
-

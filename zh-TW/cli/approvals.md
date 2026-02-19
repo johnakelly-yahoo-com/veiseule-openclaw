@@ -1,13 +1,17 @@
 ---
+summary: "「openclaw approvals」的 CLI 參考（用於 Gateway 閘道器或節點主機的 exec 核准）"
+read_when:
+  - You want to edit exec approvals from the CLI
+  - 你需要管理 Gateway 閘道器或節點主機上的允許清單
 title: "cli/approvals.md"
 ---
 
 # `openclaw approvals`
 
-管理 **local host**、**gateway host** 或 **node host** 的 exec 核准。
+Manage exec approvals for the **local host**, **gateway host**, or a **node host**.
 By default, commands target the local approvals file on disk. Use `--gateway` to target the gateway, or `--node` to target a specific node.
 
-相關：
+Related:
 
 - Exec 核准：[Exec approvals](/tools/exec-approvals)
 - 節點：[Nodes](/nodes)
@@ -42,7 +46,5 @@ openclaw approvals allowlist remove "~/Projects/**/bin/rg"
 
 - `--node` 使用與 `openclaw nodes` 相同的解析器（id、名稱、ip 或 id 前綴）。
 - `--agent` 預設為 `"*"`，此設定會套用至所有代理程式。
-- node host 必須宣告 `system.execApprovals.get/set`（macOS 應用程式或無頭 node host）。
+- The node host must advertise `system.execApprovals.get/set` (macOS app or headless node host).
 - 每個主機的核准檔案會儲存在 `~/.openclaw/exec-approvals.json`。
-
-

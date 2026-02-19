@@ -1,4 +1,8 @@
 ---
+summary: "معالج التهيئة الأولية عبر CLI: إعداد مُوجَّه للبوابة، مساحة العمل، القنوات، وSkills"
+read_when:
+  - عند تشغيل أو تهيئة معالج التهيئة الأولية
+  - عند إعداد جهاز جديد
 title: "معالج التهيئة الأولية (CLI)"
 sidebarTitle: "التهيئة الأولية: CLI"
 ---
@@ -102,7 +106,6 @@ openclaw agents add <name>
 ## مستندات ذات صلة
 
 - مرجع أوامر CLI: [`openclaw onboard`](/cli/onboard)
+- نظرة عامة على الإعداد: [Onboarding Overview](/start/onboarding-overview)
 - التهيئة الأولية لتطبيق macOS: [التهيئة الأولية](/start/onboarding)
 - طقس التشغيل الأول للوكيل: [تهيئة الوكيل الأولية](/start/bootstrapping)
-
-

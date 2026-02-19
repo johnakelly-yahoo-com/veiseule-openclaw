@@ -1,4 +1,8 @@
 ---
+summary: "Chạy OpenClaw Gateway trên exe.dev (VM + proxy HTTPS) để truy cập từ xa"
+read_when:
+  - Bạn muốn một máy chủ Linux luôn bật với chi phí thấp cho Gateway
+  - Bạn muốn truy cập Control UI từ xa mà không cần tự vận hành VPS
 title: "exe.dev"
 ---
 
@@ -6,7 +10,7 @@ title: "exe.dev"
 
 Mục tiêu: OpenClaw Gateway chạy trên một VM exe.dev, có thể truy cập từ laptop của bạn thông qua: `https://<vm-name>.exe.xyz`
 
-Trang này giả định bạn sử dụng image **exeuntu** mặc định của exe.dev. Nếu bạn chọn một distro khác, hãy ánh xạ các gói tương ứng.
+This page assumes exe.dev's default **exeuntu** image. If you picked a different distro, map packages accordingly.
 
 ## Lối nhanh cho người mới
 
@@ -23,7 +27,7 @@ Trang này giả định bạn sử dụng image **exeuntu** mặc định của
 
 ## Cài đặt tự động với Shelley
 
-Shelley, agent của [exe.dev](https://exe.dev), có thể cài đặt OpenClaw ngay lập tức với
+Shelley, [exe.dev](https://exe.dev)'s agent, can install OpenClaw instantly with our
 prompt. The prompt used is as below:
 
 ```
@@ -46,7 +50,7 @@ Sau đó kết nối:
 ssh <vm-name>.exe.xyz
 ```
 
-Mẹo: hãy giữ VM này ở trạng thái **stateful**. OpenClaw lưu trữ trạng thái tại `~/.openclaw/` và `~/.openclaw/workspace/`.
+Tip: keep this VM **stateful**. OpenClaw stores state under `~/.openclaw/` and `~/.openclaw/workspace/`.
 
 ## 2. Cài đặt các yêu cầu tiên quyết (trên VM)
 
@@ -99,14 +103,14 @@ server {
 
 ## 5. Truy cập OpenClaw và cấp quyền
 
-Truy cập `https://<vm-name>.exe.xyz/` (xem kết quả Control UI từ quá trình onboarding). Nếu được yêu cầu xác thực, hãy dán
+Access `https://<vm-name>.exe.xyz/` (see the Control UI output from onboarding). If it prompts for auth, paste the
 token from `gateway.auth.token` on the VM (retrieve with `openclaw config get gateway.auth.token`, or generate one
 with `openclaw doctor --generate-gateway-token`). Approve devices with `openclaw devices list` and
 `openclaw devices approve <requestId>`. When in doubt, use Shelley from your browser!
 
 ## Truy cập từ xa
 
-Quyền truy cập từ xa được xử lý bởi cơ chế xác thực của [exe.dev](https://exe.dev). Bằng cách
+Remote access is handled by [exe.dev](https://exe.dev)'s authentication. By
 default, HTTP traffic from port 8000 is forwarded to `https://<vm-name>.exe.xyz`
 with email auth.
 
@@ -120,5 +124,3 @@ openclaw health
 ```
 
 Hướng dẫn: [Updating](/install/updating)
-
-

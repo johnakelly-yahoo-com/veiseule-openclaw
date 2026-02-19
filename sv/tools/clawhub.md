@@ -1,4 +1,9 @@
 ---
+summary: "ClawHub-guide: offentlig Skills-register + CLI-arbetsflöden"
+read_when:
+  - Introducera ClawHub för nya användare
+  - Installera, söka efter eller publicera skills
+  - Förklara ClawHub CLI-flaggor och synkroniseringsbeteende
 title: "ClawHub"
 ---
 
@@ -250,5 +255,3 @@ export CLAWHUB_DISABLE_TELEMETRY=1
 - `CLAWHUB_CONFIG_PATH`: Åsidosätt var CLI:t lagrar token/konfig.
 - `CLAWHUB_WORKDIR`: Åsidosätt standard-arbetskatalogen.
 - `CLAWHUB_DISABLE_TELEMETRY=1`: Inaktivera telemetri för `sync`.
-
-

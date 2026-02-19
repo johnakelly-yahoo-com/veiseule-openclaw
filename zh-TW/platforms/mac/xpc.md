@@ -1,10 +1,13 @@
 ---
+summary: "OpenClaw macOS 應用程式、Gateway 閘道器節點傳輸與 PeekabooBridge 的 macOS IPC 架構"
+read_when:
+  - 編輯 IPC 合約或選單列應用程式 IPC
 title: "macOS IPC"
 ---
 
 # OpenClaw macOS IPC 架構
 
-**目前模型：** 以本機 Unix socket 連接 **node host service** 與 **macOS 應用程式**，用於 exec 核准 + `system.run`。另有一個 `openclaw-mac` 偵錯 CLI，供探索／連線檢查；代理程式動作仍透過 Gateway WebSocket 與 `node.invoke` 流動。UI 自動化使用 PeekabooBridge。 A `openclaw-mac` debug CLI exists for discovery/connect checks; agent actions still flow through the Gateway WebSocket and `node.invoke`. UI automation uses PeekabooBridge.
+**目前模型：** 以本機 Unix socket 連接 **node host service** 與 **macOS 應用程式**，用於 exec 核准 + `system.run`。另有一個 `openclaw-mac` 偵錯 CLI，供探索／連線檢查；代理程式動作仍透過 Gateway WebSocket 與 `node.invoke` 流動。UI 自動化使用 PeekabooBridge。 A `openclaw-mac` debug CLI exists for discovery/connect checks; agent actions still flow through the Gateway WebSocket and `node.invoke`. A `openclaw-mac` debug CLI exists for discovery/connect checks; agent actions still flow through the Gateway WebSocket and `node.invoke`. UI automation uses PeekabooBridge.
 
 ## 目標
 
@@ -12,7 +15,7 @@ title: "macOS IPC"
 - 精簡的自動化介面：Gateway + node 指令，另以 PeekabooBridge 進行 UI 自動化。
 - 可預期的權限：一律使用相同已簽署的 bundle ID，由 launchd 啟動，確保 TCC 授權可持續。
 
-## 運作方式
+## How it works
 
 ### Gateway + node 傳輸
 
@@ -23,7 +26,7 @@ title: "macOS IPC"
 
 - 無介面的 node host service 連線至 Gateway WebSocket。
 - `system.run` 請求會透過本機 Unix socket 轉送至 macOS 應用程式。
-- 該應用程式在 UI 情境中執行 exec，必要時會提示，並回傳輸出結果。
+- The app performs the exec in UI context, prompts if needed, and returns output.
 
 圖示（SCI）：
 
@@ -44,7 +47,7 @@ Agent -> Gateway -> Node Service (WS)
 ## 操作流程
 
 - 重新啟動／重建：`SIGN_IDENTITY="Apple Development: <Developer Name> (<TEAMID>)" scripts/restart-mac.sh`
-  - 終止現有執行個體
+  - Kills existing instances
   - Swift 建置 + 封裝
   - 寫入／啟動／kickstart LaunchAgent
 - 單一實例：若已有相同 bundle ID 的實例在執行，應用程式會提前結束。
@@ -56,5 +59,3 @@ Agent -> Gateway -> Node Service (WS)
 - 所有通訊皆維持僅限本地；不暴露任何網路通訊端。
 - TCC 提示僅由 GUI 應用程式 bundle 發起；重建時請保持已簽署的 bundle ID 穩定。
 - IPC 強化：socket 模式 `0600`、權杖、對等 UID 檢查、HMAC 挑戰／回應、短 TTL。
-
-

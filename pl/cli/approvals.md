@@ -1,4 +1,8 @@
 ---
+summary: "Referencja CLI dla `openclaw approvals` (zatwierdzanie wykonania (exec) dla hostów Gateway lub węzłów)"
+read_when:
+  - Chcesz edytować zatwierdzanie wykonania (exec) z poziomu CLI
+  - Musisz zarządzać listami dozwolonych na hostach Gateway lub węzłów
 title: "approvals"
 ---
 
@@ -44,5 +48,3 @@ openclaw approvals allowlist remove "~/Projects/**/bin/rg"
 - `--agent` domyślnie ma wartość `"*"`, co ma zastosowanie do wszystkich agentów.
 - Host węzła musi reklamować `system.execApprovals.get/set` (aplikacja na macOS lub bezgłowy host węzła).
 - Pliki zatwierdzeń są przechowywane per host w `~/.openclaw/exec-approvals.json`.
-
-

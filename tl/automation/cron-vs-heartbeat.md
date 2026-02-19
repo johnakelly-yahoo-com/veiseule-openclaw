@@ -1,10 +1,15 @@
 ---
+summary: "Gabay sa pagpili sa pagitan ng heartbeat at mga cron job para sa automation"
+read_when:
+  - Nagpapasya kung paano mag-iskedyul ng mga paulit-ulit na gawain
+  - Nagse-setup ng background monitoring o mga notification
+  - Pag-o-optimize ng paggamit ng token para sa mga pana-panahong check
 title: "Cron vs Heartbeat"
 ---
 
 # Cron vs Heartbeat: Kailan Gagamitin ang Bawat Isa
 
-Parehong nagbibigay-daan ang heartbeats at cron jobs upang magpatakbo ng mga gawain ayon sa iskedyul. Tinutulungan ka ng gabay na ito na piliin ang tamang mekanismo para sa iyong use case.
+Both heartbeats and cron jobs let you run tasks on a schedule. This guide helps you choose the right mechanism for your use case.
 
 ## Mabilis na Gabay sa Pagpapasya
 
@@ -19,7 +24,7 @@ Parehong nagbibigay-daan ang heartbeats at cron jobs upang magpatakbo ng mga gaw
 
 ## Heartbeat: Pana-panahong Awareness
 
-Ang heartbeats ay tumatakbo sa **main session** sa regular na pagitan (default: 30 min). Dinisenyo ang mga ito upang masuri ng agent ang mga bagay-bagay at ilabas ang anumang mahalaga.
+Heartbeats run in the **main session** at a regular interval (default: 30 min). They're designed for the agent to check on things and surface anything important.
 
 ### Kailan gagamit ng heartbeat
 
@@ -275,5 +280,3 @@ openclaw cron add \
 - [Heartbeat](/gateway/heartbeat) - kumpletong configuration ng heartbeat
 - [Cron jobs](/automation/cron-jobs) - kumpletong cron CLI at API reference
 - [System](/cli/system) - mga system event + kontrol sa heartbeat
-
-

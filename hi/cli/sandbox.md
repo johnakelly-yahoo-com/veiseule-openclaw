@@ -1,5 +1,7 @@
 ---
 title: Sandbox CLI
+summary: "sandbox कंटेनरों का प्रबंधन करें और प्रभावी sandbox नीति का निरीक्षण करें"
+read_when: "आप sandbox कंटेनरों का प्रबंधन कर रहे हैं या sandbox/टूल-नीति व्यवहार का डिबग कर रहे हैं।"
 status: active
 ---
 
@@ -147,5 +149,3 @@ Sandbox सेटिंग्स `~/.openclaw/openclaw.json` में `agents.d
 - [Sandbox Documentation](/gateway/sandboxing)
 - [Agent Configuration](/concepts/agent-workspace)
 - [Doctor Command](/gateway/doctor) - sandbox सेटअप की जाँच करें
-
-

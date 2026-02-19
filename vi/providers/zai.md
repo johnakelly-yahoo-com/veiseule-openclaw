@@ -1,4 +1,8 @@
 ---
+summary: "Dùng Z.AI (mô hình GLM) với OpenClaw"
+read_when:
+  - Bạn muốn dùng mô hình Z.AI / GLM trong OpenClaw
+  - Bạn cần thiết lập ZAI_API_KEY đơn giản
 title: "Z.AI"
 ---
 
@@ -29,5 +33,3 @@ openclaw onboard --zai-api-key "$ZAI_API_KEY"
 - Các mô hình GLM có sẵn dưới dạng `zai/<model>` (ví dụ: `zai/glm-4.7`).
 - Xem [/providers/glm](/providers/glm) để biết tổng quan về họ mô hình.
 - Z.AI sử dụng xác thực Bearer với khóa API của bạn.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Hoe OpenClaw Apple-apparaatmodelidentifiers levert voor gebruiksvriendelijke namen in de macOS-app."
+read_when:
+  - Bijwerken van toewijzingen van apparaatmodelidentifiers of NOTICE-/licentiebestanden
+  - Wijzigen van hoe de Instances-UI apparaatnamen weergeeft
 title: "Apparaatmodeldatabase"
 ---
 
@@ -41,5 +45,3 @@ curl -fsSL "https://raw.githubusercontent.com/kyle-seongwoo-jun/apple-device-ide
 ```bash
 swift build --package-path apps/macos
 ```
-
-

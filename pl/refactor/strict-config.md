@@ -1,4 +1,9 @@
 ---
+summary: "Ścisła walidacja konfiguracji + migracje wyłącznie przez Doctor"
+read_when:
+  - Projektowanie lub implementacja zachowania walidacji konfiguracji
+  - Praca nad migracjami konfiguracji lub przepływami Doctor
+  - Obsługa schematów konfiguracji wtyczek lub bramkowanie ładowania wtyczek
 title: "Ścisła walidacja konfiguracji"
 ---
 
@@ -19,7 +24,7 @@ title: "Ścisła walidacja konfiguracji"
 ## Zasady ścisłej walidacji
 
 - Konfiguracja musi dokładnie odpowiadać schematowi na każdym poziomie.
-- Nieznane klucze są błędami walidacji (brak przepuszczania na poziomie korzenia i w zagnieżdżeniach).
+- Nieznane klucze powodują błędy walidacji (brak przekazywania na poziomie root ani w zagnieżdżeniach), z wyjątkiem głównego `$schema`, gdy jest typu string.
 - `plugins.entries.<id>.config` musi być walidowane przez schemat wtyczki.
   - Jeśli wtyczka nie ma schematu, **odrzuć ładowanie wtyczki** i pokaż jednoznaczny błąd.
 - Nieznane klucze `channels.<id>` są błędami, chyba że manifest wtyczki deklaruje identyfikator kanału.
@@ -86,5 +91,3 @@ Wszystkie pozostałe muszą zakończyć się twardą porażką z komunikatem: �
 - Brak schematu wtyczki → ładowanie wtyczki zablokowane z jednoznacznym błędem.
 - Nieprawidłowa konfiguracja → uruchomienie Gateway zablokowane poza poleceniami diagnostycznymi.
 - Doctor uruchamiany automatycznie w trybie dry-run; `doctor --fix` zapisuje poprawioną konfigurację.
-
-

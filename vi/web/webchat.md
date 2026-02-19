@@ -1,4 +1,7 @@
 ---
+summary: "Lưu trữ tĩnh WebChat dạng loopback và cách dùng Gateway WS cho giao diện chat"
+read_when:
+  - Khi gỡ lỗi hoặc cấu hình quyền truy cập WebChat
 title: "WebChat"
 ---
 
@@ -44,5 +47,4 @@ Các tùy chọn toàn cục liên quan:
 - `gateway.auth.mode`, `gateway.auth.token`, `gateway.auth.password`: xác thực WebSocket.
 - `gateway.remote.url`, `gateway.remote.token`, `gateway.remote.password`: đích gateway từ xa.
 - `session.*`: lưu trữ phiên và các giá trị mặc định của khóa chính.
-
-
+- `session.*`: lưu trữ phiên và các giá trị mặc định của khóa chính.

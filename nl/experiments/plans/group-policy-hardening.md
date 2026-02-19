@@ -1,4 +1,7 @@
 ---
+summary: "Versteviging van de Telegram-toegestane lijst: prefix- en witruimtenormalisatie"
+read_when:
+  - Beoordelen van historische wijzigingen in de Telegram-toegestane lijst
 title: "Versteviging van de Telegram-toegestane lijst"
 ---
 
@@ -35,5 +38,3 @@ valse negatieven bij het bepalen of er in DM's of groepen moet worden gereageerd
 
 - [Groepschats](/channels/groups)
 - [Telegram-provider](/channels/telegram)
-
-

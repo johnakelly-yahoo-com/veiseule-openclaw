@@ -1,4 +1,9 @@
 ---
+summary: "Gateway WebSocket-protokoll: handskakning, ramar, versionering"
+read_when:
+  - Implementera eller uppdatera gateway-WS-klienter
+  - Felsöka protokollmismatchar eller anslutningsfel
+  - Återskapa protokollscheman/-modeller
 title: "Gateway-protokoll"
 ---
 
@@ -203,7 +208,7 @@ Gateway behandlar dessa som **anspråk** och upprätthåller tillåtelselistor p
   (eller `gateway.controlUi.dangerouslyDisableDeviceAuth` för användning med glasbrott).
 - Icke-lokala anslutningar måste signera den serverlevererade `connect.challenge`-noncen.
 
-## TLS + certifikatspinning
+## TLS + pinning
 
 - TLS stöds för WS-anslutningar.
 - Klienter kan valfritt nåla gateway-certifikatets fingeravtryck (se konfigen `gateway.tls`
@@ -214,5 +219,3 @@ Gateway behandlar dessa som **anspråk** och upprätthåller tillåtelselistor p
 Detta protokoll exponerar **hela gateway API** (status, kanaler, modeller, chatt,
 agent, sessioner, noder, godkännanden, etc.). Den exakta ytan definieras av scheman
 TypeBox i `src/gateway/protocol/schema.ts`.
-
-

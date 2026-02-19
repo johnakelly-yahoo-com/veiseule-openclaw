@@ -1,4 +1,8 @@
 ---
+summary: "为 OpenClaw CLI 提供脚本化入门和代理设置"
+read_when:
+  - You are automating onboarding in scripts or CI
+  - You need non-interactive examples for specific providers
 title: "CLI 自动化"
 sidebarTitle: "CLI 自动化"
 ---
@@ -8,7 +12,9 @@ sidebarTitle: "CLI 自动化"
 使用 `--non-interactive` 自动化 `openclaw onboard`。
 
 <Note>
+
 `--json` 并不意味着非交互模式。请在脚本中使用 `--non-interactive`（以及 `--workspace`）。
+ Use `--non-interactive` (and `--workspace`) for scripts.
 </Note>
 
 ## 基础非交互式示例
@@ -109,6 +115,25 @@ openclaw onboard --non-interactive \
     ```
   
 </Accordion>
+  <Accordion title="Custom provider example">```bash
+openclaw onboard --non-interactive \
+  --mode local \
+  --auth-choice custom-api-key \
+  --custom-base-url "https://llm.example.com/v1" \
+  --custom-model-id "foo-large" \
+  --custom-api-key "$CUSTOM_API_KEY" \
+  --custom-provider-id "my-custom" \
+  --custom-compatibility anthropic \
+  --gateway-port 18789 \
+  --gateway-bind loopback
+```
+
+    ```
+    `--custom-api-key` 为可选项。如未提供，onboarding 将检查 `CUSTOM_API_KEY`。
+    ```
+
+  
+</Accordion>
 </AccordionGroup>
 
 ## Add another agent
@@ -142,5 +167,3 @@ Notes:
 - Onboarding hub: [Onboarding Wizard (CLI)](/start/wizard)
 - Full reference: [CLI Onboarding Reference](/start/wizard-cli-reference)
 - Command reference: [`openclaw onboard`](/cli/onboard)
-
-

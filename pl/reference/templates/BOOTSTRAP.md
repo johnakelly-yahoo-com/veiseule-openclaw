@@ -1,4 +1,9 @@
-------
+---
+title: "Szablon BOOTSTRAP.md"
+summary: "Rytuał pierwszego uruchomienia dla nowych agentów"
+read_when:
+  - Ręczne bootstrapowanie obszaru roboczego
+---
 
 # BOOTSTRAP.md – Witaj, świecie
 
@@ -55,5 +60,3 @@ Usuń ten plik. Nie potrzebujesz już skryptu bootstrap — teraz jesteś sobą.
 ---
 
 _Powodzenia tam na zewnątrz. Spraw, by to miało znaczenie._
-
-

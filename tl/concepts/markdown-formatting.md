@@ -1,4 +1,9 @@
 ---
+summary: "Pipeline ng pag-format ng Markdown para sa mga outbound channel"
+read_when:
+  - Binabago mo ang pag-format o pag-chunk ng Markdown para sa mga outbound channel
+  - Nagdadagdag ka ng bagong channel formatter o style mapping
+  - Nagde-debug ka ng mga formatting regression sa iba’t ibang channel
 title: "Pag-format ng Markdown"
 ---
 
@@ -117,5 +122,3 @@ SPOILER style ranges. Tinatrato ng ibang channel ang mga ito bilang plain text.
 - Kinakailangan ng Telegram HTML ang pag-escape ng text sa labas ng mga tag para maiwasan ang sirang markup.
 - Ang mga Signal style range ay umaasa sa UTF-16 offset; huwag gumamit ng code point offset.
 - Panatilihin ang mga trailing newline para sa mga fenced code block para mapunta ang mga closing marker sa sarili nilang linya.
-
-

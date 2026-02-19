@@ -1,4 +1,9 @@
 ---
+summary: "संदर्भ: प्रदाता-विशिष्ट ट्रांसक्रिप्ट सैनिटाइजेशन और मरम्मत नियम"
+read_when:
+  - आप ट्रांसक्रिप्ट संरचना से जुड़े प्रदाता अनुरोध अस्वीकरणों का डिबग कर रहे हों
+  - आप ट्रांसक्रिप्ट सैनिटाइजेशन या टूल-कॉल मरम्मत लॉजिक बदल रहे हों
+  - आप प्रदाताओं के बीच टूल-कॉल आईडी असंगतियों की जाँच कर रहे हों
 title: "ट्रांसक्रिप्ट स्वच्छता"
 ---
 
@@ -19,6 +24,7 @@ file is backed up alongside the session file.
 - टर्न सत्यापन / क्रम निर्धारण
 - विचार हस्ताक्षर (thought signature) की सफ़ाई
 - इमेज पेलोड सैनिटाइजेशन
+- यूज़र-इनपुट स्रोत टैगिंग (inter-session रूटेड प्रॉम्प्ट्स के लिए)
 
 यदि आपको ट्रांसक्रिप्ट भंडारण के विवरण चाहिए, तो देखें:
 
@@ -69,9 +75,26 @@ persisted tool calls (for example, after a rate limit failure).
 
 ## प्रदाता मैट्रिक्स (वर्तमान व्यवहार)
 
-**OpenAI / OpenAI Codex**
+जब कोई एजेंट `sessions_send` के माध्यम से किसी अन्य session में प्रॉम्प्ट भेजता है (जिसमें
+agent-to-agent reply/announce चरण शामिल हैं), OpenClaw बनाए गए user turn को इस प्रकार persist करता है:
 
 - केवल इमेज सैनिटाइजेशन।
+
+यह मेटाडेटा transcript append समय पर लिखा जाता है और role में कोई परिवर्तन नहीं करता
+(`role: "user"` provider संगतता के लिए यथावत रहता है)। Transcript readers इसका उपयोग
+रूट किए गए आंतरिक प्रॉम्प्ट्स को अंतिम-उपयोगकर्ता द्वारा लिखे गए निर्देशों के रूप में मानने से बचने के लिए कर सकते हैं।
+
+Context पुनर्निर्माण के दौरान, OpenClaw इन user turns के आगे in-memory एक छोटा `[Inter-session message]`
+मार्कर भी जोड़ता है ताकि मॉडल उन्हें
+बाहरी अंतिम-उपयोगकर्ता निर्देशों से अलग पहचान सके।
+
+---
+
+## प्रदाता मैट्रिक्स (वर्तमान व्यवहार)
+
+**OpenAI / OpenAI Codex**
+
+- टूल कॉल आईडी सैनिटाइजेशन: strict9 (अल्फ़ान्यूमेरिक लंबाई 9)।
 - OpenAI Responses/Codex में मॉडल स्विच पर, अनाथ reasoning हस्ताक्षर हटाए जाते हैं (वे standalone reasoning आइटम जिनके बाद कोई content ब्लॉक नहीं होता)।
 - टूल कॉल आईडी सैनिटाइजेशन नहीं।
 - टूल परिणाम युग्मन की मरम्मत नहीं।
@@ -81,15 +104,15 @@ persisted tool calls (for example, after a rate limit failure).
 
 **Google (Generative AI / Gemini CLI / Antigravity)**
 
-- टूल कॉल आईडी सैनिटाइजेशन: सख्त अल्फ़ान्यूमेरिक।
+- thought signature की सफ़ाई: गैर-base64 `thought_signature` मानों को हटाना (base64 को बनाए रखना)।
 - टूल परिणाम युग्मन की मरम्मत और सिंथेटिक टूल परिणाम।
 - टर्न सत्यापन (Gemini-शैली टर्न वैकल्पन)।
 - Google टर्न ऑर्डरिंग सुधार (यदि इतिहास असिस्टेंट से शुरू होता है तो एक छोटा user bootstrap जोड़ना)।
 - Antigravity Claude: thinking हस्ताक्षरों को सामान्यीकृत करना; बिना हस्ताक्षर वाले thinking ब्लॉक हटाना।
 
-**Anthropic / Minimax (Anthropic-संगत)**
+**अन्य सभी**
 
-- टूल परिणाम युग्मन की मरम्मत और सिंथेटिक टूल परिणाम।
+- केवल इमेज सैनिटाइजेशन।
 - टर्न सत्यापन (सख्त वैकल्पन को संतुष्ट करने के लिए लगातार user टर्न को मर्ज करना)।
 
 **Mistral (मॉडल-आईडी आधारित पहचान सहित)**
@@ -98,7 +121,7 @@ persisted tool calls (for example, after a rate limit failure).
 
 **OpenRouter Gemini**
 
-- thought signature की सफ़ाई: गैर-base64 `thought_signature` मानों को हटाना (base64 को बनाए रखना)।
+- एक **transcript-sanitize extension** हर संदर्भ निर्माण पर चलता था और यह कर सकता था:
 
 **अन्य सभी**
 
@@ -122,5 +145,3 @@ persisted tool calls (for example, after a rate limit failure).
 This complexity caused cross-provider regressions (notably `openai-responses`
 `call_id|fc_id` pairing). The 2026.1.22 cleanup removed the extension, centralized
 logic in the runner, and made OpenAI **no-touch** beyond image sanitization.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "ใช้ OpenCode Zen(โมเดลที่คัดสรร)ร่วมกับ OpenClaw"
+read_when:
+  - คุณต้องการใช้ OpenCode Zen เพื่อเข้าถึงโมเดล
+  - คุณต้องการรายการโมเดลที่คัดสรรซึ่งเหมาะกับงานเขียนโค้ด
 title: "OpenCode Zen"
 ---
 
@@ -7,6 +11,8 @@ title: "OpenCode Zen"
 OpenCode Zen คือ**รายการโมเดลที่คัดสรร**ซึ่งทีม OpenCode แนะนำสำหรับเอเจนต์เขียนโค้ด
 เป็นเส้นทางการเข้าถึงโมเดลแบบโฮสต์เสริมที่ใช้คีย์APIและผู้ให้บริการ `opencode`
 ขณะนี้ Zen อยู่ในสถานะเบต้า
+เป็นเส้นทางการเข้าถึงโมเดลแบบโฮสต์เสริม ที่ใช้คีย์ API และผู้ให้บริการ `opencode`
+Zen อยู่ในสถานะเบต้าในขณะนี้
 เป็นเส้นทางการเข้าถึงโมเดลแบบโฮสต์เสริม ที่ใช้คีย์ API และผู้ให้บริการ `opencode`
 Zen อยู่ในสถานะเบต้าในขณะนี้
 
@@ -18,7 +24,7 @@ openclaw onboard --auth-choice opencode-zen
 openclaw onboard --opencode-zen-api-key "$OPENCODE_API_KEY"
 ```
 
-## ตัวอย่างโค้ดการตั้งค่า
+## Config snippet
 
 ```json5
 {
@@ -32,5 +38,3 @@ openclaw onboard --opencode-zen-api-key "$OPENCODE_API_KEY"
 - รองรับ `OPENCODE_ZEN_API_KEY` ด้วยเช่นกัน
 - คุณต้องลงชื่อเข้าใช้ Zen เพิ่มรายละเอียดการเรียกเก็บเงิน และคัดลอกคีย์API ของคุณ
 - OpenCode Zen คิดค่าบริการต่อคำขอ โปรดตรวจสอบรายละเอียดในแดชบอร์ด OpenCode
-
-

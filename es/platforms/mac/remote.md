@@ -1,4 +1,7 @@
 ---
+summary: "Flujo de la app de macOS para controlar un Gateway de OpenClaw remoto a través de SSH"
+read_when:
+  - Configuración o depuración del control remoto de mac en macOS
 title: "Control remoto"
 ---
 
@@ -78,5 +81,3 @@ openclaw nodes notify --node <id> --title "Ping" --body "Remote gateway ready" -
 ```
 
 Ya no existe un interruptor global de “sonido predeterminado” en la app; quienes llaman eligen un sonido (o ninguno) por solicitud.
-
-

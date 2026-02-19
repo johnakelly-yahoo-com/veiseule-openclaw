@@ -1,4 +1,8 @@
 ---
+summary: "Ручной вход для автоматизации браузера + публикации в X/Twitter"
+read_when:
+  - Вам нужно входить на сайты для автоматизации браузера
+  - Вы хотите публиковать обновления в X/Twitter
 title: "Вход в браузер"
 ---
 
@@ -61,5 +65,3 @@ openclaw browser open https://x.com --browser-profile openclaw --target host
 ```
 
 Или отключите sandboxing для агента, который публикует обновления.
-
-

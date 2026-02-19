@@ -1,10 +1,15 @@
 ---
+summary: "Claude Max/Pro सब्सक्रिप्शन को OpenAI-संगत API एंडपॉइंट के रूप में उपयोग करें"
+read_when:
+  - आप OpenAI-संगत टूल्स के साथ Claude Max सब्सक्रिप्शन का उपयोग करना चाहते हैं
+  - आप Claude Code CLI को रैप करने वाला एक स्थानीय API सर्वर चाहते हैं
+  - आप API कुंजियों के बजाय सब्सक्रिप्शन का उपयोग करके पैसे बचाना चाहते हैं
 title: "Claude Max API प्रॉक्सी"
 ---
 
 # Claude Max API प्रॉक्सी
 
-**claude-max-api-proxy** एक कम्युनिटी टूल है जो आपकी Claude Max/Pro सदस्यता को OpenAI-संगत API endpoint के रूप में उपलब्ध कराता है। इससे आप अपनी सदस्यता का उपयोग किसी भी ऐसे टूल के साथ कर सकते हैं जो OpenAI API फ़ॉर्मेट को सपोर्ट करता है।
+**claude-max-api-proxy** is a community tool that exposes your Claude Max/Pro subscription as an OpenAI-compatible API endpoint. This allows you to use your subscription with any tool that supports the OpenAI API format.
 
 ## इसका उपयोग क्यों करें?
 
@@ -141,5 +146,3 @@ launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.claude-max-api.plist
 
 - [Anthropic provider](/providers/anthropic) - setup-token या API कुंजियों के साथ Claude के लिए नेटिव OpenClaw एकीकरण
 - [OpenAI provider](/providers/openai) - OpenAI/Codex सब्सक्रिप्शन के लिए
-
-

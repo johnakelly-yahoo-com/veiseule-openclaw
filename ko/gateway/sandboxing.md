@@ -1,9 +1,11 @@
 ---
-title: "샌드박싱"
+summary: "OpenClaw 샌드박스화가 작동하는 방식: 모드, 범위, 워크스페이스 접근, 이미지"
+title: Sandboxing
+read_when: "샌드박스화에 대한 전용 설명이 필요하거나 agents.defaults.sandbox 를 튜닝해야 할 때."
 status: active
 ---
 
-# 샌드박싱
+# Sandboxing
 
 OpenClaw 는 **Docker 컨테이너 내부에서 도구를 실행**하여 피해 범위를 줄일 수 있습니다.
 이는 **선택 사항**이며 구성(`agents.defaults.sandbox` 또는
@@ -64,6 +66,11 @@ OpenClaw 는 읽을 수 있도록 적격한 Skills 를 샌드박스 워크스페
 형식: `host:container:mode` (예: `"/home/user/source:/source:rw"`).
 
 전역 및 에이전트별 바인드는 **병합**됩니다(대체되지 않음). `scope: "shared"`에서는 에이전트별 바인드가 무시됩니다.
+
+`agents.defaults.sandbox.browser.binds`는 추가적인 호스트 디렉터리를 **sandbox browser** 컨테이너에만 마운트합니다.
+
+- 설정된 경우(`[]` 포함), 브라우저 컨테이너에 대해 `agents.defaults.sandbox.docker.binds`를 대체합니다.
+- 생략된 경우, 브라우저 컨테이너는 `agents.defaults.sandbox.docker.binds`로 폴백합니다(하위 호환).
 
 예시(읽기 전용 소스 + docker 소켓):
 
@@ -185,5 +192,3 @@ Docker 설치와 컨테이너화된 Gateway(게이트웨이)는 여기에서 확
 - [Sandbox Configuration](/gateway/configuration#agentsdefaults-sandbox)
 - [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools)
 - [Security](/gateway/security)
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Gateway(게이트웨이)를 위한 브라우저 기반 제어 UI (채팅, 노드, 구성)"
+read_when:
+  - 브라우저에서 Gateway(게이트웨이)를 운영하려는 경우
+  - SSH 터널 없이 Tailnet 접근이 필요한 경우
 title: "Control UI"
 ---
 
@@ -58,7 +62,7 @@ openclaw devices approve <requestId>
 
 - Gateway WS 를 통한 모델과의 채팅 (`chat.history`, `chat.send`, `chat.abort`, `chat.inject`)
 - 채팅에서 도구 호출 스트리밍 + 실시간 도구 출력 카드 (에이전트 이벤트)
-- 채널: WhatsApp/Telegram/Discord/Slack + 플러그인 채널(Mattermost 등) 채널: WhatsApp/Telegram/Discord/Slack + 플러그인 채널 (Mattermost 등) 상태 + QR 로그인 + 채널별 설정 (`channels.status`, `web.login.*`, `config.patch`)
+- 채널: WhatsApp/Telegram/Discord/Slack + 플러그인 채널(Mattermost 등) 채널: WhatsApp/Telegram/Discord/Slack + 플러그인 채널 (Mattermost 등) 상태 + QR 로그인 + 채널별 설정 (`channels.status`, `web.login.*`, `config.patch`) 채널: WhatsApp/Telegram/Discord/Slack + 플러그인 채널 (Mattermost 등) 상태 + QR 로그인 + 채널별 설정 (`channels.status`, `web.login.*`, `config.patch`)
 - 인스턴스: 상태 목록 + 새로 고침 (`system-presence`)
 - 세션: 목록 + 세션별 thinking/verbose 재정의 (`sessions.list`, `sessions.patch`)
 - Cron 작업: 목록/추가/실행/활성화/비활성화 + 실행 기록 (`cron.*`)
@@ -210,5 +214,3 @@ http://localhost:5173/?gatewayUrl=wss://<gateway-host>:18789&token=<gateway-toke
 ```
 
 원격 접근 설정 세부 정보: [Remote access](/gateway/remote).
-
-

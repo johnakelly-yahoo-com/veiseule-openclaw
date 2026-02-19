@@ -1,4 +1,8 @@
 ---
+summary: "SOUL 恶意钩子（将 SOUL.md 替换为 SOUL_EVIL.md）"
+read_when:
+  - You want to enable or tune the SOUL Evil hook
+  - You want a purge window or random-chance persona swap
 title: "SOUL 恶意钩子"
 ---
 
@@ -7,10 +11,10 @@ title: "SOUL 恶意钩子"
 SOUL 恶意钩子会在执行期间将**注入的** `SOUL.md` 内容替换为 `SOUL_EVIL.md`
 a purge window or by random chance. It does **not** modify files on disk.
 
-## 工作原理
+## How It Works
 
 When `agent:bootstrap` runs, the hook can replace the `SOUL.md` content in memory
-before the system prompt is assembled. 23. 如果 `SOUL_EVIL.md` 缺失或为空，
+before the system prompt is assembled. 如果 `SOUL_EVIL.md` 缺失或为空，
 OpenClaw 会记录一条警告并继续使用正常的 `SOUL.md`。
 
 子代理运行时**不会**在其引导文件中包含 `SOUL.md`，因此该钩子
@@ -63,5 +67,3 @@ openclaw hooks enable soul-evil
 ## See Also
 
 - [Hooks](/automation/hooks)
-
-

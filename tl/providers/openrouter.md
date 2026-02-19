@@ -1,10 +1,14 @@
 ---
+summary: "Gamitin ang pinag-isang API ng OpenRouter para ma-access ang maraming model sa OpenClaw"
+read_when:
+  - Gusto mo ng iisang API key para sa maraming LLM
+  - Gusto mong patakbuhin ang mga model sa pamamagitan ng OpenRouter sa OpenClaw
 title: "OpenRouter"
 ---
 
 # OpenRouter
 
-Ang OpenRouter ay nagbibigay ng **pinag-isang API** na nagpapadala ng mga kahilingan sa maraming modelo sa likod ng iisang
+OpenRouter provides a **unified API** that routes requests to many models behind a single
 endpoint and API key. It is OpenAI-compatible, so most OpenAI SDKs work by switching the base URL.
 
 ## Pag-set up ng CLI
@@ -31,5 +35,3 @@ openclaw onboard --auth-choice apiKey --token-provider openrouter --token "$OPEN
 - Ang mga model ref ay `openrouter/<provider>/<model>`.
 - Para sa higit pang opsyon sa model/provider, tingnan ang [/concepts/model-providers](/concepts/model-providers).
 - Gumagamit ang OpenRouter ng Bearer token kasama ang iyong API key sa ilalim ng hood.
-
-

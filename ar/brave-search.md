@@ -1,4 +1,8 @@
 ---
+summary: "إعداد واجهة برمجة تطبيقات Brave Search لاستخدام web_search"
+read_when:
+  - تريد استخدام Brave Search لأداة web_search
+  - تحتاج إلى BRAVE_API_KEY أو تفاصيل الخطة
 title: "Brave Search"
 ---
 
@@ -35,5 +39,3 @@ title: "Brave Search"
 - توفّر Brave فئة مجانية إلى جانب خطط مدفوعة؛ راجع بوابة واجهة برمجة تطبيقات Brave للاطلاع على الحدود الحالية.
 
 انظر [أدوات الويب](/tools/web) للاطلاع على التهيئة الكاملة لـ web_search.
-
-

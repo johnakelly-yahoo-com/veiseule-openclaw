@@ -1,4 +1,8 @@
 ---
+summary: "Instale o OpenClaw e execute seu primeiro chat em minutos."
+read_when:
+  - Primeira configuração do zero
+  - Voce quer o caminho mais rápido para um chat funcional
 title: "Primeiros passos"
 ---
 
@@ -30,6 +34,10 @@ Verifique sua versão do Node com `node --version` se tiver dúvidas.
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash
         ```
+      <img
+  src="/assets/install-script.svg"
+  alt="Install Script Process"
+  className="rounded-lg"></img>
       
 </Tab>
       <Tab title="Windows (PowerShell)">
@@ -41,12 +49,14 @@ Verifique sua versão do Node com `node --version` se tiver dúvidas.
     
 </Tabs>
 
+    ````
     ```
     <Note>
     Outros métodos de instalação e requisitos: [Instalar](/install).
     
 </Note>
     ```
+    ````
 
   
 </Step>
@@ -55,21 +65,25 @@ Verifique sua versão do Node com `node --version` se tiver dúvidas.
     openclaw onboard --install-daemon
     ```
 
+    ````
     ```
     O assistente configura autenticação, configurações do gateway e canais opcionais.
     Veja [Onboarding Wizard](/start/wizard) para detalhes.
     ```
+    ````
 
   
 </Step>
   <Step title="Check the Gateway">
     Se voce instalou o serviço, ele já deve estar em execução:
 
+    `````
     ````
     ```bash
     openclaw gateway status
     ```
     ````
+    `````
 
   
 </Step>
@@ -91,22 +105,26 @@ Se a Control UI carregar, seu Gateway está pronto para uso.
   <Accordion title="Run the Gateway in the foreground">
     Útil para testes rápidos ou solução de problemas.
 
+    `````
     ````
     ```bash
     openclaw gateway --port 18789
     ```
     ````
+    `````
 
   
 </Accordion>
   <Accordion title="Send a test message">
     Requer um canal configurado.
 
+    `````
     ````
     ```bash
     openclaw message send --target +15555550123 --message "Hello from OpenClaw"
     ```
     ````
+    `````
 
   
 </Accordion>
@@ -146,5 +164,3 @@ Referência completa das variáveis de ambiente: [Variáveis de ambiente](/help/
 - Segurança e aprovações de DM: [Pairing](/channels/pairing)
 - Conectar mais canais: [Channels](/channels)
 - Fluxos avançados e a partir do código-fonte: [Configuração](/start/setup)
-
-

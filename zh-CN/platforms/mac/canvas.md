@@ -1,19 +1,19 @@
 ---
-title: Canvas
-x-i18n:
-  generated_at: "2026-02-03T07:52:39Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: e39caa21542e839d9f59ad0bf7ecefb379225ed7e8f00cd59131d188f193bec6
-  source_path: platforms/mac/canvas.md
-  workflow: 15
+summary: "通过 WKWebView + 自定义 URL 方案嵌入的智能体控制 Canvas 面板"
+read_when:
+  - 实现 macOS Canvas 面板
+  - 为可视化工作区添加智能体控制
+  - 调试 WKWebView canvas 加载
+title: "Canvas"
 ---
 
 # Canvas（macOS 应用）
 
-macOS 应用使用 `WKWebView` 嵌入一个智能体控制的 **Canvas 面板**。它是一个用于 HTML/CSS/JS、A2UI 和小型交互式界面的轻量级可视化工作区。
+macOS 应用使用 `WKWebView` 嵌入一个智能体控制的 **Canvas 面板**。它是一个用于 HTML/CSS/JS、A2UI 和小型交互式界面的轻量级可视化工作区。 It
+is a lightweight visual workspace for HTML/CSS/JS, A2UI, and small interactive
+UI surfaces.
 
-## Canvas 存储位置
+## Where Canvas lives
 
 Canvas 状态存储在 Application Support 下：
 
@@ -33,14 +33,15 @@ Canvas 面板通过**自定义 URL 方案**提供这些文件：
 
 ## 面板行为
 
-- 无边框、可调整大小的面板，锚定在菜单栏（或鼠标光标）附近。
+- Borderless, resizable panel anchored near the menu bar (or mouse cursor).
 - 记住每个会话的大小/位置。
 - 当本地 canvas 文件更改时自动重新加载。
 - 一次只显示一个 Canvas 面板（根据需要切换会话）。
 
-可以从设置 → **允许 Canvas** 禁用 Canvas。禁用时，canvas 节点命令返回 `CANVAS_DISABLED`。
+可以从设置 → **允许 Canvas** 禁用 Canvas。禁用时，canvas 节点命令返回 `CANVAS_DISABLED`。 When disabled, canvas
+node commands return `CANVAS_DISABLED`.
 
-## 智能体 API 接口
+## Agent API surface
 
 Canvas 通过 **Gateway 网关 WebSocket** 暴露，因此智能体可以：
 
@@ -65,6 +66,7 @@ openclaw nodes canvas snapshot --node <id>
 
 ## Canvas 中的 A2UI
 
+A2UI is hosted by the Gateway canvas host and rendered inside the Canvas panel.
 A2UI 由 Gateway 网关 canvas 主机托管并在 Canvas 面板内渲染。
 当 Gateway 网关广播 Canvas 主机时，macOS 应用在首次打开时自动导航到 A2UI 主机页面。
 
@@ -96,7 +98,7 @@ EOFA2
 openclaw nodes canvas a2ui push --jsonl /tmp/a2ui-v0.8.jsonl --node <id>
 ```
 
-快速测试：
+Quick smoke:
 
 ```bash
 openclaw nodes canvas a2ui push --node <id> --text "Hello from A2UI"
@@ -121,5 +123,3 @@ window.location.href = "openclaw://agent?message=Review%20this%20design";
 - Canvas 方案阻止目录遍历；文件必须位于会话根目录下。
 - 本地 Canvas 内容使用自定义方案（不需要 loopback 服务器）。
 - 仅在显式导航时允许外部 `http(s)` URL。
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "सबसे अधिक उपयोग किए जाने वाले OpenClaw दस्तावेज़ों के लिए क्यूरेटेड लिंक।"
+read_when:
+  - आपको प्रमुख दस्तावेज़ पृष्ठों तक त्वरित पहुँच चाहिए
 title: "दस्तावेज़ निर्देशिका"
 ---
 
@@ -61,5 +64,3 @@ Bootstrapping हमेशा **gateway host** पर चलता है।
 - [Gmail हुक्स (Pub/Sub)](/automation/gmail-pubsub)
 - [सुरक्षा](/gateway/security)
 - [समस्या-निवारण](/gateway/troubleshooting)
-
-

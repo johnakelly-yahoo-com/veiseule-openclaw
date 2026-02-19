@@ -1,4 +1,7 @@
 ---
+summary: "Kirish audio/ovozli eslatmalar qanday yuklab olinadi, transkripsiya qilinadi va javoblarga kiritiladi"
+read_when:
+  - Audio transkripsiyasi yoki media bilan ishlashni o‘zgartirish
 title: "Audio va ovozli eslatmalar"
 ---
 
@@ -104,10 +107,27 @@ Eslatma: Binar aniqlash macOS/Linux/Windows bo‘ylab best-effort; CLI `PATH` da
 - Transkript shablonlar uchun `{{Transcript}}` sifatida mavjud.
 - CLI stdout cheklangan (5MB); CLI chiqishini ixcham saqlang.
 
+## Guruhlarda Mention aniqlash
+
+Guruh chatida `requireMention: true` o‘rnatilganda, OpenClaw endi mentionlarni tekshirishdan **oldin** audioni transkripsiya qiladi. Bu mention mavjud bo‘lgan ovozli xabarlarni ham qayta ishlash imkonini beradi.
+
+**Qanday ishlaydi:**
+
+1. Agar ovozli xabarda matn bo‘lmasa va guruh mention talab qilsa, OpenClaw "preflight" transkripsiyani amalga oshiradi.
+2. Transkript mention andozalari (masalan, `@BotName`, emoji triggerlar) uchun tekshiriladi.
+3. Agar mention aniqlansa, xabar to‘liq javob pipeline orqali davom etadi.
+4. Transkript mention aniqlash uchun ishlatiladi, shuning uchun ovozli xabarlar mention tekshiruvidan o‘ta oladi.
+
+**Fallback xatti-harakat:**
+
+- Agar preflight vaqtida transkripsiya muvaffaqiyatsiz tugasa (timeout, API xatosi va h.k.), xabar faqat matn asosidagi mention aniqlash bo‘yicha qayta ishlanadi.
+- Bu aralash xabarlar (matn + audio) hech qachon noto‘g‘ri rad etilmasligini ta’minlaydi.
+
+**Misol:** Foydalanuvchi `requireMention: true` o‘rnatilgan Telegram guruhida "Hey @Claude, what's the weather?" deb ovozli xabar yuboradi. Ovozli xabar transkripsiya qilinadi, mention aniqlanadi va agent javob beradi.
+
 ## Gotchas
 
 - Scope rules use first-match wins. `chatType` is normalized to `direct`, `group`, or `room`.
 - Ensure your CLI exits 0 and prints plain text; JSON needs to be massaged via `jq -r .text`.
 - Keep timeouts reasonable (`timeoutSeconds`, default 60s) to avoid blocking the reply queue.
-
-
+- Preflight transkripsiya mention aniqlash uchun faqat **birinchi** audio biriktirmani qayta ishlaydi. Qo‘shimcha audiolar asosiy media tushunish bosqichida qayta ishlanadi.

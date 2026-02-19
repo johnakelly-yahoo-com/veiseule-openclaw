@@ -1,12 +1,9 @@
 ---
-title: setup
-x-i18n:
-  generated_at: "2026-02-01T20:21:26Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 7f3fc8b246924edf48501785be2c0d356bd31bfbb133e75a139a5ee41dbf57f4
-  source_path: cli/setup.md
-  workflow: 14
+summary: "`openclaw setup` 的 CLI 参考（初始化配置 + 工作区）"
+read_when:
+  - 你在不使用完整新手引导向导的情况下进行首次设置
+  - 你想设置默认工作区路径
+title: "setup"
 ---
 
 # `openclaw setup`
@@ -30,5 +27,3 @@ openclaw setup --workspace ~/.openclaw/workspace
 ```bash
 openclaw setup --wizard
 ```
-
-

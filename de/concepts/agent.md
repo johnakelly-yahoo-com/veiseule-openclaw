@@ -1,4 +1,7 @@
 ---
+summary: "Agent-Laufzeit (eingebettetes pi-mono), Workspace-Vertrag und Sitzungs-Bootstrap"
+read_when:
+  - Beim Ändern der Agent-Laufzeit, des Workspace-Bootstraps oder des Sitzungsverhaltens
 title: "Agent-Laufzeit"
 ---
 
@@ -116,5 +119,3 @@ Mindestens zu setzen:
 ---
 
 _Weiter: [Gruppenchats](/channels/group-messages)_ 🦞
-
-

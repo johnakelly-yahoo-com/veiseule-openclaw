@@ -1,54 +1,59 @@
 ---
+summary: "Oracle Cloud (Always Free ARM) üzerinde OpenClaw"
+read_when:
+  - Oracle Cloud üzerinde OpenClaw kurulumu yaparken
+  - OpenClaw için düşük maliyetli VPS barındırma ararken
+  - Küçük bir sunucuda 7/24 OpenClaw istemek
 title: "Oracle Cloud"
 ---
 
-# OpenClaw on Oracle Cloud (OCI)
+# Oracle Cloud (OCI) üzerinde OpenClaw
 
-## Goal
+## Amaç
 
-Run a persistent OpenClaw Gateway on Oracle Cloud's **Always Free** ARM tier.
+Oracle Cloud’un **Always Free** ARM katmanında kalıcı bir OpenClaw Gateway çalıştırmak.
 
-Oracle’s free tier can be a great fit for OpenClaw (especially if you already have an OCI account), but it comes with tradeoffs:
+Oracle’ın ücretsiz katmanı OpenClaw için iyi bir uyum olabilir (özellikle zaten bir OCI hesabınız varsa), ancak bazı ödünleşimleri vardır:
 
-- ARM architecture (most things work, but some binaries may be x86-only)
-- Capacity and signup can be finicky
+- ARM mimarisi (çoğu şey çalışır, ancak bazı ikililer yalnızca x86 olabilir)
+- Kapasite ve kayıt süreci hassas olabilir
 
-## Cost Comparison (2026)
+## Maliyet Karşılaştırması (2026)
 
-| Provider     | Plan            | Specs                  | Price/mo | Notes                 |
-| ------------ | --------------- | ---------------------- | -------- | --------------------- |
-| Oracle Cloud | Always Free ARM | up to 4 OCPU, 24GB RAM | $0       | ARM, limited capacity |
-| Hetzner      | CX22            | 2 vCPU, 4GB RAM        | ~ $4     | Cheapest paid option  |
-| DigitalOcean | Basic           | 1 vCPU, 1GB RAM        | $6       | Easy UI, good docs    |
-| Vultr        | Cloud Compute   | 1 vCPU, 1GB RAM        | $6       | Many locations        |
-| Linode       | Nanode          | 1 vCPU, 1GB RAM        | $5       | Now part of Akamai    |
+| Sağlayıcı    | Plan            | Özellikler                | Aylık fiyat          | Notlar                          |
+| ------------ | --------------- | ------------------------- | -------------------- | ------------------------------- |
+| Oracle Cloud | Always Free ARM | 4 OCPU’ya kadar, 24GB RAM | $0                   | ARM, sınırlı kapasite           |
+| Hetzner      | CX22            | 2 vCPU, 4GB RAM           | ~ $4 | En ucuz ücretli seçenek         |
+| DigitalOcean | Basic           | 1 vCPU, 1GB RAM           | $6                   | Kolay arayüz, iyi dokümantasyon |
+| Vultr        | Cloud Compute   | 1 vCPU, 1GB RAM           | $6                   | Birçok konum                    |
+| Linode       | Nanode          | 1 vCPU, 1GB RAM           | $5                   | Artık Akamai’nin parçası        |
 
 ---
 
-## Prerequisites
+## Ön Koşullar
 
-- Oracle Cloud account ([signup](https://www.oracle.com/cloud/free/)) — see [community signup guide](https://gist.github.com/rssnyder/51e3cfedd730e7dd5f4a816143b25dbd) if you hit issues
-- Tailscale account (free at [tailscale.com](https://tailscale.com))
-- ~30 minutes
+- Oracle Cloud hesabı ([kayıt](https://www.oracle.com/cloud/free/)) — sorun yaşarsanız [topluluk kayıt rehberi](https://gist.github.com/rssnyder/51e3cfedd730e7dd5f4a816143b25dbd)’ne bakın
+- Tailscale hesabı ([tailscale.com](https://tailscale.com) üzerinden ücretsiz)
+- ~30 dakika
 
-## 1) Create an OCI Instance
+## 1. Bir OCI Instance Oluşturun
 
-1. Log into [Oracle Cloud Console](https://cloud.oracle.com/)
-2. Navigate to **Compute → Instances → Create Instance**
-3. Configure:
-   - **Name:** `openclaw`
+1. [Oracle Cloud Console](https://cloud.oracle.com/)’a giriş yapın
+2. **Compute → Instances → Create Instance** yolunu izleyin
+3. Yapılandırın:
+   - **Ad:** `openclaw`
    - **Image:** Ubuntu 24.04 (aarch64)
    - **Shape:** `VM.Standard.A1.Flex` (Ampere ARM)
-   - **OCPUs:** 2 (or up to 4)
-   - **Memory:** 12 GB (or up to 24 GB)
-   - **Boot volume:** 50 GB (up to 200 GB free)
-   - **SSH key:** Add your public key
-4. Click **Create**
-5. Note the public IP address
+   - **OCPU:** 2 (veya 4’e kadar)
+   - **Bellek:** 12 GB (veya 24 GB’a kadar)
+   - **Boot volume:** 50 GB (200 GB’a kadar ücretsiz)
+   - **SSH anahtarı:** Genel anahtarınızı ekleyin
+4. **Create**’e tıklayın
+5. Genel IP adresini not edin
 
-**Tip:** If instance creation fails with "Out of capacity", try a different availability domain or retry later. Free tier capacity is limited.
+**İpucu:** Instance oluşturma “Out of capacity” hatasıyla başarısız olursa, farklı bir availability domain deneyin veya daha sonra tekrar deneyin. Ücretsiz katman kapasitesi sınırlıdır.
 
-## 2) Connect and Update
+## 2. Bağlanın ve Güncelleyin
 
 ```bash
 # Connect via public IP
@@ -59,9 +64,9 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install -y build-essential
 ```
 
-**Note:** `build-essential` is required for ARM compilation of some dependencies.
+**Not:** Bazı bağımlılıkların ARM derlemesi için `build-essential` gereklidir.
 
-## 3) Configure User and Hostname
+## 3. Kullanıcı ve Hostname Yapılandırın
 
 ```bash
 # Set hostname
@@ -74,37 +79,37 @@ sudo passwd ubuntu
 sudo loginctl enable-linger ubuntu
 ```
 
-## 4) Install Tailscale
+## 4. Tailscale Kurulumu
 
 ```bash
 curl -fsSL https://tailscale.com/install.sh | sh
 sudo tailscale up --ssh --hostname=openclaw
 ```
 
-This enables Tailscale SSH, so you can connect via `ssh openclaw` from any device on your tailnet — no public IP needed.
+Bu, Tailscale SSH’yi etkinleştirir; böylece tailnet’inizdeki herhangi bir cihazdan `ssh openclaw` ile bağlanabilirsiniz — genel IP gerekmez.
 
-Verify:
+Doğrulayın:
 
 ```bash
 tailscale status
 ```
 
-**From now on, connect via Tailscale:** `ssh ubuntu@openclaw` (or use the Tailscale IP).
+**Bundan sonra Tailscale üzerinden bağlanın:** `ssh ubuntu@openclaw` (veya Tailscale IP’sini kullanın).
 
-## 5) Install OpenClaw
+## 5. OpenClaw Kurulumu
 
 ```bash
 curl -fsSL https://openclaw.ai/install.sh | bash
 source ~/.bashrc
 ```
 
-When prompted "How do you want to hatch your bot?", select **"Do this later"**.
+“Botunuzu nasıl hatch etmek istersiniz?” sorulduğunda **“Do this later”** seçeneğini seçin.
 
-> Note: If you hit ARM-native build issues, start with system packages (e.g. `sudo apt install -y build-essential`) before reaching for Homebrew.
+> Not: ARM-yerel derleme sorunlarıyla karşılaşırsanız, Homebrew’e yönelmeden önce sistem paketleriyle (ör. `sudo apt install -y build-essential`) başlayın.
 
-## 6) Configure Gateway (loopback + token auth) and enable Tailscale Serve
+## 6. Gateway Yapılandırması (loopback + token auth) ve Tailscale Serve’i Etkinleştirin
 
-Use token auth as the default. It’s predictable and avoids needing any “insecure auth” Control UI flags.
+Varsayılan olarak token auth kullanın. Bu, öngörülebilirdir ve “insecure auth” Control UI bayraklarına ihtiyaç duymayı önler.
 
 ```bash
 # Keep the Gateway private on the VM
@@ -121,7 +126,7 @@ openclaw config set gateway.trustedProxies '["127.0.0.1"]'
 systemctl --user restart openclaw-gateway
 ```
 
-## 7) Verify
+## 7. Doğrulama
 
 ```bash
 # Check version
@@ -137,63 +142,63 @@ tailscale serve status
 curl http://localhost:18789
 ```
 
-## 8) Lock Down VCN Security
+## 8. VCN Güvenliğini Sıkılaştırın
 
-Now that everything is working, lock down the VCN to block all traffic except Tailscale. OCI's Virtual Cloud Network acts as a firewall at the network edge — traffic is blocked before it reaches your instance.
+Artık her şey çalıştığına göre, Tailscale dışındaki tüm trafiği engellemek için VCN’i kilitleyin. OCI’nin Virtual Cloud Network’ü ağ kenarında bir güvenlik duvarı gibi davranır — trafik instance’ınıza ulaşmadan önce engellenir.
 
-1. Go to **Networking → Virtual Cloud Networks** in the OCI Console
-2. Click your VCN → **Security Lists** → Default Security List
-3. **Remove** all ingress rules except:
+1. OCI Console’da **Networking → Virtual Cloud Networks**’e gidin
+2. VCN’inize tıklayın → **Security Lists** → Default Security List
+3. Aşağıdakiler dışındaki tüm ingress kurallarını **kaldırın**:
    - `0.0.0.0/0 UDP 41641` (Tailscale)
-4. Keep default egress rules (allow all outbound)
+4. Varsayılan egress kurallarını koruyun (tüm çıkışlara izin ver)
 
-This blocks SSH on port 22, HTTP, HTTPS, and everything else at the network edge. From now on, you can only connect via Tailscale.
+Bu, ağ kenarında 22 numaralı porttaki SSH’yi, HTTP, HTTPS ve diğer her şeyi engeller. Bundan sonra yalnızca Tailscale üzerinden bağlanabilirsiniz.
 
 ---
 
-## Access the Control UI
+## Control UI’ye Erişim
 
-From any device on your Tailscale network:
+Tailscale ağınızdaki herhangi bir cihazdan:
 
 ```
 https://openclaw.<tailnet-name>.ts.net/
 ```
 
-Replace `<tailnet-name>` with your tailnet name (visible in `tailscale status`).
+`<tailnet-name>` yerine tailnet adınızı yazın ( `tailscale status` içinde görünür).
 
-No SSH tunnel needed. Tailscale provides:
+SSH tüneline gerek yoktur. Tailscale şunları sağlar:
 
-- HTTPS encryption (automatic certs)
-- Authentication via Tailscale identity
-- Access from any device on your tailnet (laptop, phone, etc.)
+- HTTPS şifreleme (otomatik sertifikalar)
+- Tailscale kimliği ile kimlik doğrulama
+- Tailnet’inizdeki herhangi bir cihazdan erişim (dizüstü, telefon vb.)
 
 ---
 
-## Security: VCN + Tailscale (recommended baseline)
+## Güvenlik: VCN + Tailscale (önerilen temel)
 
-With the VCN locked down (only UDP 41641 open) and the Gateway bound to loopback, you get strong defense-in-depth: public traffic is blocked at the network edge, and admin access happens over your tailnet.
+VCN kilitliyken (yalnızca UDP 41641 açık) ve Gateway loopback’e bağlanmışken, güçlü bir savunma-derinliği elde edersiniz: genel trafik ağ kenarında engellenir ve yönetici erişimi tailnet’iniz üzerinden gerçekleşir.
 
-This setup often removes the _need_ for extra host-based firewall rules purely to stop Internet-wide SSH brute force — but you should still keep the OS updated, run `openclaw security audit`, and verify you aren’t accidentally listening on public interfaces.
+Bu kurulum, İnternet genelindeki SSH brute force saldırılarını durdurmak için ekstra ana makine tabanlı güvenlik duvarı kurallarına olan _ihtiyacı_ çoğu zaman ortadan kaldırır — ancak yine de işletim sistemini güncel tutmalı, `openclaw security audit` çalıştırmalı ve yanlışlıkla genel arayüzlerde dinlemediğinizi doğrulamalısınız.
 
-### What's Already Protected
+### Zaten Korunanlar
 
-| Traditional Step   | Needed?     | Why                                                                          |
-| ------------------ | ----------- | ---------------------------------------------------------------------------- |
-| UFW firewall       | No          | VCN blocks before traffic reaches instance                                   |
-| fail2ban           | No          | No brute force if port 22 blocked at VCN                                     |
-| sshd hardening     | No          | Tailscale SSH doesn't use sshd                                               |
-| Disable root login | No          | Tailscale uses Tailscale identity, not system users                          |
-| SSH key-only auth  | No          | Tailscale authenticates via your tailnet                                     |
-| IPv6 hardening     | Usually not | Depends on your VCN/subnet settings; verify what’s actually assigned/exposed |
+| Geleneksel Adım       | Gerekli mi?      | Neden                                                                                |
+| --------------------- | ---------------- | ------------------------------------------------------------------------------------ |
+| UFW firewall          | Hayır            | VCN, trafik instance’a ulaşmadan önce engeller                                       |
+| fail2ban              | Hayır            | VCN’de 22 numaralı port kapalıysa brute force yok                                    |
+| sshd sıkılaştırma     | Hayır            | Tailscale SSH, sshd kullanmaz                                                        |
+| Root girişini kapatma | Hayır            | Tailscale, sistem kullanıcıları değil Tailscale kimliği kullanır                     |
+| Yalnızca SSH anahtarı | Hayır            | Tailscale, tailnet’iniz üzerinden kimlik doğrular                                    |
+| IPv6 sıkılaştırma     | Genellikle hayır | VCN/alt ağ ayarlarınıza bağlıdır; gerçekte neyin atandığını/açık olduğunu doğrulayın |
 
-### Still Recommended
+### Hâlâ Önerilenler
 
-- **Credential permissions:** `chmod 700 ~/.openclaw`
-- **Security audit:** `openclaw security audit`
-- **System updates:** `sudo apt update && sudo apt upgrade` regularly
-- **Monitor Tailscale:** Review devices in [Tailscale admin console](https://login.tailscale.com/admin)
+- **Kimlik bilgisi izinleri:** `chmod 700 ~/.openclaw`
+- **Güvenlik denetimi:** `openclaw security audit`
+- **Sistem güncellemeleri:** `sudo apt update && sudo apt upgrade` düzenli olarak
+- **Tailscale’i izleme:** [Tailscale yönetici konsolu](https://login.tailscale.com/admin)’nda cihazları gözden geçirin
 
-### Verify Security Posture
+### Güvenlik Duruşunu Doğrulayın
 
 ```bash
 # Confirm no public ports listening
@@ -208,30 +213,30 @@ sudo systemctl disable --now ssh
 
 ---
 
-## Fallback: SSH Tunnel
+## Alternatif: SSH Tüneli
 
-If Tailscale Serve isn't working, use an SSH tunnel:
+Tailscale Serve çalışmıyorsa, bir SSH tüneli kullanın:
 
 ```bash
 # From your local machine (via Tailscale)
 ssh -L 18789:127.0.0.1:18789 ubuntu@openclaw
 ```
 
-Then open `http://localhost:18789`.
+Ardından `http://localhost:18789`’i açın.
 
 ---
 
-## Troubleshooting
+## Sorun Giderme
 
-### Instance creation fails ("Out of capacity")
+### Instance oluşturma başarısız (“Out of capacity”)
 
-Free tier ARM instances are popular. Try:
+Ücretsiz katman ARM instance’ları popülerdir. Şunları deneyin:
 
-- Different availability domain
-- Retry during off-peak hours (early morning)
-- Use the "Always Free" filter when selecting shape
+- Farklı bir availability domain
+- Yoğun olmayan saatlerde tekrar deneyin (erken sabah)
+- Shape seçerken “Always Free” filtresini kullanın
 
-### Tailscale won't connect
+### Tailscale bağlanmıyor
 
 ```bash
 # Check status
@@ -241,7 +246,7 @@ sudo tailscale status
 sudo tailscale up --ssh --hostname=openclaw --reset
 ```
 
-### Gateway won't start
+### Gateway başlatılmıyor
 
 ```bash
 openclaw gateway status
@@ -249,7 +254,7 @@ openclaw doctor --non-interactive
 journalctl --user -u openclaw-gateway -n 50
 ```
 
-### Can't reach Control UI
+### Control UI’ye erişemiyorum
 
 ```bash
 # Verify Tailscale Serve is running
@@ -262,26 +267,26 @@ curl http://localhost:18789
 systemctl --user restart openclaw-gateway
 ```
 
-### ARM binary issues
+### ARM ikili sorunları
 
-Some tools may not have ARM builds. Check:
+Bazı araçların ARM derlemeleri olmayabilir. Şunları kontrol edin:
 
 ```bash
 uname -m  # Should show aarch64
 ```
 
-Most npm packages work fine. For binaries, look for `linux-arm64` or `aarch64` releases.
+Çoğu npm paketi sorunsuz çalışır. İkililer için `linux-arm64` veya `aarch64` sürümlerini arayın.
 
 ---
 
-## Persistence
+## Kalıcılık
 
-All state lives in:
+Tüm durum şu dizinlerde bulunur:
 
-- `~/.openclaw/` — config, credentials, session data
-- `~/.openclaw/workspace/` — workspace (SOUL.md, memory, artifacts)
+- `~/.openclaw/` — yapılandırma, kimlik bilgileri, oturum verileri
+- `~/.openclaw/workspace/` — çalışma alanı (SOUL.md, bellek, yapıtlar)
 
-Back up periodically:
+Periyodik olarak yedekleyin:
 
 ```bash
 tar -czvf openclaw-backup.tar.gz ~/.openclaw ~/.openclaw/workspace
@@ -289,12 +294,10 @@ tar -czvf openclaw-backup.tar.gz ~/.openclaw ~/.openclaw/workspace
 
 ---
 
-## See Also
+## Ayrıca Bakınız
 
-- [Gateway remote access](/gateway/remote) — other remote access patterns
-- [Tailscale integration](/gateway/tailscale) — full Tailscale docs
-- [Gateway configuration](/gateway/configuration) — all config options
-- [DigitalOcean guide](/platforms/digitalocean) — if you want paid + easier signup
-- [Hetzner guide](/install/hetzner) — Docker-based alternative
-
-
+- [Gateway uzaktan erişim](/gateway/remote) — diğer uzaktan erişim kalıpları
+- [Tailscale entegrasyonu](/gateway/tailscale) — tam Tailscale dokümantasyonu
+- [Gateway yapılandırması](/gateway/configuration) — tüm yapılandırma seçenekleri
+- [DigitalOcean rehberi](/platforms/digitalocean) — ücretli + daha kolay kayıt
+- [Hetzner rehberi](/install/hetzner) — Docker tabanlı alternatif

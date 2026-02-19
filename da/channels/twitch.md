@@ -1,4 +1,7 @@
 ---
+summary: "Konfiguration og opsætning af Twitch-chatbot"
+read_when:
+  - Opsætning af Twitch-chatintegration for OpenClaw
 title: "Twitch"
 ---
 
@@ -374,5 +377,3 @@ Eksempel:
 - **500 tegn** pr. besked (auto-opdelt ved ordgrænser)
 - Markdown fjernes før opdeling
 - Ingen rate limiting (bruger Twitch’ indbyggede rate limits)
-
-

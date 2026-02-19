@@ -1,6 +1,10 @@
 ---
 title: Lobster
-description: "Entorno de ejecución de flujos de trabajo tipados para OpenClaw — canalizaciones componibles con puertas de aprobación."
+summary: "Runtime de flujos de trabajo tipado para OpenClaw con compuertas de aprobación reanudables."
+description: Entorno de ejecución de flujos de trabajo tipados para OpenClaw — canalizaciones componibles con puertas de aprobación.
+read_when:
+  - Quiere flujos de trabajo deterministas de varios pasos con aprobaciones explícitas
+  - Necesita reanudar un flujo de trabajo sin volver a ejecutar pasos anteriores
 ---
 
 # Lobster
@@ -336,5 +340,3 @@ Un ejemplo público: una CLI de “segundo cerebro” + pipelines de Lobster que
 
 - Hilo: [https://x.com/plattenschieber/status/2014508656335770033](https://x.com/plattenschieber/status/2014508656335770033)
 - Repositorio: [https://github.com/bloomedai/brain-cli](https://github.com/bloomedai/brain-cli)
-
-

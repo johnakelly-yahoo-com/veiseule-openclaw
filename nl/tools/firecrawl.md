@@ -1,4 +1,9 @@
 ---
+summary: "Firecrawl-terugval voor web_fetch (anti-bot + gecachte extractie)"
+read_when:
+  - Je wilt webextractie met Firecrawl
+  - Je hebt een Firecrawl API-sleutel nodig
+  - Je wilt anti-botextractie voor web_fetch
 title: "Firecrawl"
 ---
 
@@ -54,5 +59,3 @@ dan scraping met alleen de basisoptie.
 3. Basis HTML-opschoning (laatste terugval)
 
 Zie [Web tools](/tools/web) voor de volledige configuratie van webtools.
-
-

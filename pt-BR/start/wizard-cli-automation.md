@@ -1,4 +1,8 @@
 ---
+summary: "Integração inicial por script e configuração de agente para a CLI do OpenClaw"
+read_when:
+  - Você está automatizando a integração inicial em scripts ou CI
+  - Você precisa de exemplos não interativos para provedores específicos
 title: "Automação da CLI"
 sidebarTitle: "Automação de CLI"
 ---
@@ -109,6 +113,25 @@ Adicione `--json` para um resumo legível por máquina.
     ```
   
 </Accordion>
+  <Accordion title="Custom provider example">```bash
+openclaw onboard --non-interactive \
+  --mode local \
+  --auth-choice custom-api-key \
+  --custom-base-url "https://llm.example.com/v1" \
+  --custom-model-id "foo-large" \
+  --custom-api-key "$CUSTOM_API_KEY" \
+  --custom-provider-id "my-custom" \
+  --custom-compatibility anthropic \
+  --gateway-port 18789 \
+  --gateway-bind loopback
+```
+
+    ```
+    `--custom-api-key` é opcional. Se omitido, o onboarding verifica `CUSTOM_API_KEY`.
+    ```
+
+  
+</Accordion>
 </AccordionGroup>
 
 ## Adicionar outro agente
@@ -142,5 +165,3 @@ Notas:
 - Hub de integração inicial: [Onboarding Wizard (CLI)](/start/wizard)
 - Referência completa: [CLI Onboarding Reference](/start/wizard-cli-reference)
 - Referência de comandos: [`openclaw onboard`](/cli/onboard)
-
-

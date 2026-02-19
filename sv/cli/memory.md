@@ -1,4 +1,8 @@
 ---
+summary: "CLI-referens för `openclaw memory` (status/index/search)"
+read_when:
+  - Du vill indexera eller söka i semantiskt minne
+  - Du felsöker minnestillgänglighet eller indexering
 title: "minne"
 ---
 
@@ -39,5 +43,3 @@ Noteringar:
 - `memory status --deep --index` kör en omindexering om lagret är smutsigt.
 - `memory index --verbose` skriver ut detaljer per fas (leverantör, modell, källor, batchaktivitet).
 - `memory status` inkluderar eventuella extra sökvägar som konfigurerats via `memorySearch.extraPaths`.
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "Regras de roteamento por canal (WhatsApp, Telegram, Discord, Slack) e contexto compartilhado"
+read_when:
+  - Ao alterar o roteamento de canais ou o comportamento da caixa de entrada
 title: "Roteamento de canais"
 ---
 
@@ -41,11 +44,15 @@ Exemplos:
 O roteamento seleciona **um agente** para cada mensagem de entrada:
 
 1. **Correspondência exata de par** (`bindings` com `peer.kind` + `peer.id`).
-2. **Correspondência de guilda** (Discord) via `guildId`.
-3. **Correspondência de equipe** (Slack) via `teamId`.
-4. **Correspondência de conta** (`accountId` no canal).
-5. **Correspondência de canal** (qualquer conta nesse canal).
-6. **Agente padrão** (`agents.list[].default`, caso contrário a primeira entrada da lista, fallback para `main`).
+2. **Correspondência por parente** (herança de thread).
+3. **Correspondência por guild + roles** (Discord) via `guildId` + `roles`.
+4. **Correspondência de guilda** (Discord) via `guildId`.
+5. **Correspondência de equipe** (Slack) via `teamId`.
+6. **Correspondência de conta** (`accountId` no canal).
+7. **Correspondência de canal** (qualquer conta nesse canal).
+8. **Agente padrão** (`agents.list[].default`, caso contrário a primeira entrada da lista, fallback para `main`).
+
+Quando um binding inclui múltiplos campos de correspondência (`peer`, `guildId`, `teamId`, `roles`), **todos os campos fornecidos devem corresponder** para que o binding seja aplicado.
 
 O agente correspondente determina qual workspace e armazenamento de sessão são usados.
 
@@ -107,5 +114,3 @@ As respostas de entrada incluem:
 - O contexto citado é anexado a `Body` como um bloco `[Replying to ...]`.
 
 Isso é consistente entre os canais.
-
-

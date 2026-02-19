@@ -1,4 +1,8 @@
 ---
+summary: "Exécuter le pont ACP pour les integrations d’IDE"
+read_when:
+  - Mise en place d’integrations d’IDE basees sur ACP
+  - Debogage du routage des sessions ACP vers la Gateway (passerelle)
 title: "acp"
 ---
 
@@ -164,5 +168,3 @@ Pour en savoir plus sur les cles de session, consultez [/concepts/session](/conc
 - `--server-args <args...>` : arguments supplementaires passes au serveur ACP.
 - `--server-verbose` : activer la journalisation verbeuse sur le serveur ACP.
 - `--verbose, -v` : journalisation verbeuse du client.
-
-

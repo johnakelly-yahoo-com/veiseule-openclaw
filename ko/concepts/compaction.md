@@ -1,4 +1,8 @@
 ---
+summary: "컨텍스트 윈도우 + 컴팩션: OpenClaw 가 모델 한계 내에서 세션을 유지하는 방법"
+read_when:
+  - auto-compaction 및 /compact 를 이해하고 싶을 때
+  - 컨텍스트 한계에 도달하는 긴 세션을 디버깅할 때
 title: "컴팩션"
 ---
 
@@ -17,7 +21,7 @@ title: "컴팩션"
 
 ## 구성
 
-`agents.defaults.compaction` 설정은 [Compaction config & modes](/concepts/compaction)를 참고하십시오.
+`openclaw.json`에서 `agents.defaults.compaction` 설정을 사용해 compaction 동작(모드, 목표 토큰 수 등)을 구성하세요.
 
 ## 자동 컴팩션(기본값: 켜짐)
 
@@ -55,5 +59,3 @@ title: "컴팩션"
 - 세션이 오래되어 느껴지거나 컨텍스트가 비대해졌을 때 `/compact` 를 사용하십시오.
 - 큰 도구 출력은 이미 잘려 있으며, 프루닝으로 도구 결과 누적을 더 줄일 수 있습니다.
 - 완전히 새로 시작해야 한다면 `/new` 또는 `/reset` 이 새로운 세션 ID 를 시작합니다.
-
-

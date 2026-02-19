@@ -1,4 +1,8 @@
 ---
+summary: "Adaptadores RPC para CLIs externas (signal-cli, imsg legado) y patrones de Gateway"
+read_when:
+  - Al agregar o cambiar integraciones de CLI externas
+  - Al depurar adaptadores RPC (signal-cli, imsg)
 title: "Adaptadores RPC"
 ---
 
@@ -37,5 +41,3 @@ Consulte [iMessage](/channels/imessage) para la configuración legada y el direc
 - El Gateway es dueño del proceso (inicio/detención vinculados al ciclo de vida del proveedor).
 - Mantenga los clientes RPC resilientes: tiempos de espera, reinicio al salir.
 - Prefiera IDs estables (p. ej., `chat_id`) sobre cadenas de visualización.
-
-

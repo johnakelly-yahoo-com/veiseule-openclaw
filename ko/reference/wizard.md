@@ -1,4 +1,9 @@
 ---
+summary: "CLI 온보딩 마법사의 전체 레퍼런스: 모든 단계, 플래그, 설정 필드"
+read_when:
+  - 특정 마법사 단계나 플래그를 찾아볼 때
+  - 비대화형 모드로 온보딩을 자동화할 때
+  - 마법사 동작을 디버깅할 때
 title: "온보딩 마법사 레퍼런스"
 sidebarTitle: "마법사 레퍼런스"
 ---
@@ -20,17 +25,16 @@ sidebarTitle: "마법사 레퍼런스"
     - 초기화는 `trash` 를 사용하며(`rm` 는 절대 사용하지 않음) 다음 범위를 제공합니다:
       - 설정만
       - 설정 + 자격 증명 + 세션
-      - 전체 초기화(워크스페이스도 제거)
-  
+      - 전체 초기화(워크스페이스도 제거)  
 </Step>
   <Step title="Model/Auth">
     - **Anthropic API 키(권장)**: 존재하면 `ANTHROPIC_API_KEY` 를 사용하거나 키 입력을 요청한 뒤, 데몬 사용을 위해 저장합니다.
-    - **Anthropic OAuth (Claude Code CLI)**: macOS 에서는 Keychain 항목 "Claude Code-credentials" 를 확인합니다("Always Allow" 를 선택해야 launchd 시작이 차단되지 않음). Linux/Windows 에서는 존재할 경우 `~/.claude/.credentials.json` 을 재사용합니다.
+    - **Anthropic OAuth (Claude Code CLI)**: macOS 에서는 Keychain 항목 'Claude Code-credentials' 를 확인합니다('Always Allow' 를 선택해야 launchd 시작이 차단되지 않음). Linux/Windows 에서는 존재할 경우 `~/.claude/.credentials.json` 을 재사용합니다.
     - **Anthropic 토큰(setup-token 붙여넣기)**: 어떤 머신에서든 `claude setup-token` 을 실행한 뒤 토큰을 붙여넣습니다(이름 지정 가능, 비워두면 기본값).
     - **OpenAI Code (Codex) 구독 (Codex CLI)**: `~/.codex/auth.json` 이 존재하면 마법사가 이를 재사용할 수 있습니다.
     - **OpenAI Code (Codex) 구독 (OAuth)**: 브라우저 플로우로 진행하며 `code#state` 를 붙여넣습니다.
       - 모델이 설정되지 않았거나 `openai/*` 인 경우 `agents.defaults.model` 을 `openai-codex/gpt-5.2` 로 설정합니다.
-    - **OpenAI API 키**: 존재하면 `OPENAI_API_KEY` 를 사용하거나 키 입력을 요청한 뒤, launchd 가 읽을 수 있도록 `~/.openclaw/.env` 에 저장합니다.
+    - **OpenAI API 키**: 존재하면 `OPENAI_API_KEY` 을 사용하거나 키 입력을 요청한 뒤, launchd 가 읽을 수 있도록 `~/.openclaw/.env` 에 저장합니다.
     - **xAI (Grok) API 키**: `XAI_API_KEY` 입력을 요청하고 xAI 를 모델 프로바이더로 구성합니다.
     - **OpenCode Zen (멀티 모델 프록시)**: `OPENCODE_API_KEY` (또는 `OPENCODE_ZEN_API_KEY`, https://opencode.ai/auth 에서 발급) 입력을 요청합니다.
     - **API 키**: 키를 대신 저장합니다.
@@ -49,8 +53,8 @@ sidebarTitle: "마법사 레퍼런스"
     - 감지된 옵션에서 기본 모델을 선택합니다(또는 프로바이더/모델을 수동으로 입력).
     - 마법사는 모델 검사를 실행하고 구성된 모델을 알 수 없거나 인증이 누락된 경우 경고합니다.
     - OAuth 자격 증명은 `~/.openclaw/credentials/oauth.json` 에, 인증 프로필은 `~/.openclaw/agents/<agentId>/agent/auth-profiles.json` 에 저장됩니다(API 키 + OAuth).
-    - 자세한 내용: [/concepts/oauth](/concepts/oauth)
-    <Note>
+    - 자세한 내용: [/concepts/oauth](/concepts/oauth)    
+<Note>
     헤드리스/서버 팁: 브라우저가 있는 머신에서 OAuth 를 완료한 뒤
     `~/.openclaw/credentials/oauth.json` (또는 `$OPENCLAW_STATE_DIR/credentials/oauth.json`) 를
     게이트웨이 호스트로 복사하십시오.
@@ -61,11 +65,10 @@ sidebarTitle: "마법사 레퍼런스"
   <Step title="Workspace">
     - 기본값은 `~/.openclaw/workspace` (구성 가능).
     - 에이전트 부트스트랩 의식을 위해 필요한 워크스페이스 파일을 시드합니다.
-    - 전체 워크스페이스 레이아웃 + 백업 가이드: [Agent workspace](/concepts/agent-workspace)
-  
+    - 전체 워크스페이스 레이아웃 + 백업 가이드: [Agent workspace](/concepts/agent-workspace)  
 </Step>
   <Step title="Gateway">
-    - 포트, 바인드, 인증 모드, tailscale 노출.
+    - 포트, 바인드, 인증 모드, Tailscale 노출.
     - 인증 권장 사항: 로컬 loopback 이더라도 **Token** 을 유지하여 로컬 WS 클라이언트가 반드시 인증하도록 하십시오.
     - 모든 로컬 프로세스를 완전히 신뢰하는 경우에만 인증을 비활성화하십시오.
     - non‑loopback 바인드는 여전히 인증이 필요합니다.
@@ -80,10 +83,12 @@ sidebarTitle: "마법사 레퍼런스"
     - [Signal](/channels/signal): 선택적 `signal-cli` 설치 + 계정 구성.
     - [BlueBubbles](/channels/bluebubbles): **iMessage 권장**; 서버 URL + 비밀번호 + 웹훅.
     - [iMessage](/channels/imessage): 레거시 `imsg` CLI 경로 + DB 접근.
-    - 다이렉트 메시지 보안: 기본값은 페어링입니다. 첫 다이렉트 메시지는 코드를 전송하며, `openclaw pairing approve <channel> <code>` 를 통해 승인하거나 허용 목록을 사용하십시오.
+    - 다이렉트 메시지 보안: 기본값은 페어링입니다. 첫 다이렉트 메시지는 코드를 전송하며, `openclaw pairing approve <channel><code>` 를 통해 승인하거나 허용 목록을 사용하십시오.
+  
+</Step><code>` 를 통해 승인하거나 허용 목록을 사용하십시오.
   
 </Step>
-  <Step title="Daemon install">
+  <Step title="데몬 설치">
     - macOS: LaunchAgent
       - 로그인된 사용자 세션이 필요합니다. 헤드리스의 경우 사용자 정의 LaunchDaemon 을 사용하십시오(제공되지 않음).
     - Linux (및 WSL2 를 통한 Windows): systemd 사용자 유닛
@@ -92,8 +97,8 @@ sidebarTitle: "마법사 레퍼런스"
     - **런타임 선택:** Node (권장; WhatsApp/Telegram 에 필수). Bun 은 **권장되지 않음**.
   
 </Step>
-  <Step title="Health check">
-    - 필요 시 Gateway 를 시작하고 `openclaw health` 를 실행합니다.
+  <Step title="헬스 체크">
+    - 필요 시 Gateway 를 시작하고 `openclaw health` 을 실행합니다.
     - 팁: `openclaw status --deep` 는 상태 출력에 게이트웨이 헬스 프로브를 추가합니다(접근 가능한 게이트웨이 필요).
   
 </Step>
@@ -278,5 +283,4 @@ WhatsApp 자격 증명은 `~/.openclaw/credentials/whatsapp/<accountId>/` 아래
 - macOS 앱 온보딩: [Onboarding](/start/onboarding)
 - 설정 레퍼런스: [Gateway configuration](/gateway/configuration)
 - 프로바이더: [WhatsApp](/channels/whatsapp), [Telegram](/channels/telegram), [Discord](/channels/discord), [Google Chat](/channels/googlechat), [Signal](/channels/signal), [BlueBubbles](/channels/bluebubbles) (iMessage), [iMessage](/channels/imessage) (레거시)
-- 스킬: [스킬](/tools/skills), [스킬 구성](/tools/skills-config)
-
+- Skills: [Skills](/tools/skills), [Skills config](/tools/skills-config)

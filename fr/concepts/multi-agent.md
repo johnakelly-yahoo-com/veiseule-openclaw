@@ -1,5 +1,7 @@
 ---
+summary: "Routage multi-agent : agents isolés, comptes de canal et liaisons"
 title: Routage multi-agent
+read_when: "Vous souhaitez plusieurs agents isolés (espaces de travail + authentification) dans un seul processus de Gateway."
 status: active
 ---
 
@@ -123,11 +125,15 @@ Notes :
 Les liaisons sont **déterministes** et **la plus spécifique l’emporte** :
 
 1. Correspondance `peer` (ID exact de Message prive/groupe/canal)
-2. `guildId` (Discord)
-3. `teamId` (Slack)
-4. Correspondance `accountId` pour un canal
-5. Correspondance au niveau du canal (`accountId: "*"`)
-6. Repli vers l’agent par défaut (`agents.list[].default`, sinon la première entrée de la liste, valeur par défaut : `main`)
+2. Correspondance `parentPeer` (héritage de thread)
+3. `guildId + roles` (routage par rôle Discord)
+4. `guildId` (Discord)
+5. `teamId` (Slack)
+6. Correspondance `accountId` pour un canal
+7. Correspondance au niveau du canal (`accountId: "*"`)
+8. Repli vers l’agent par défaut (`agents.list[].default`, sinon la première entrée de la liste, valeur par défaut : `main`)
+
+Si un binding définit plusieurs champs de correspondance (par exemple `peer` + `guildId`), tous les champs spécifiés sont requis (sémantique `AND`).
 
 ## Comptes / numéros multiples
 
@@ -381,5 +387,3 @@ Si vous avez besoin de frontières par agent, utilisez `agents.list[].tools` pou
 Pour le ciblage de groupe, utilisez `agents.list[].groupChat.mentionPatterns` afin que les @mentions correspondent clairement à l’agent prévu.
 
 Voir [Sandbox et outils multi-agent](/tools/multi-agent-sandbox-tools) pour des exemples détaillés.
-
-

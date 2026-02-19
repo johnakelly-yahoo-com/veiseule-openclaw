@@ -1,14 +1,18 @@
 ---
+summary: "Hooks: event-driven na automation para sa mga command at lifecycle event"
+read_when:
+  - Gusto mo ng event-driven na automation para sa /new, /reset, /stop, at mga lifecycle event ng agent
+  - Gusto mong bumuo, mag-install, o mag-debug ng mga hook
 title: "Mga Hook"
 ---
 
 # Mga Hook
 
-Ang mga Hook ay nagbibigay ng napapalawak na event-driven system para sa pag-automate ng mga aksyon bilang tugon sa mga utos at kaganapan ng agent. Awtomatikong natutuklasan ang mga Hook mula sa mga direktoryo at maaaring pamahalaan sa pamamagitan ng mga utos sa CLI, katulad ng kung paano gumagana ang mga skill sa OpenClaw.
+Hooks provide an extensible event-driven system for automating actions in response to agent commands and events. Hooks are automatically discovered from directories and can be managed via CLI commands, similar to how skills work in OpenClaw.
 
 ## Panimulang Gabay
 
-Ang mga Hook ay maliliit na script na tumatakbo kapag may nangyari. May dalawang uri:
+Hooks are small scripts that run when something happens. There are two kinds:
 
 - **Hooks** (pahinang ito): tumatakbo sa loob ng Gateway kapag may nag-trigger na agent event, gaya ng `/new`, `/reset`, `/stop`, o mga lifecycle event.
 - **Webhooks**: mga external HTTP webhook na nagbibigay-daan sa ibang mga sistema na mag-trigger ng trabaho sa OpenClaw. See [Webhook Hooks](/automation/webhook) or use `openclaw webhooks` for Gmail helper commands.
@@ -70,7 +74,7 @@ openclaw hooks info session-memory
 
 ### Onboarding
 
-Sa panahon ng onboarding (`openclaw onboard`), hihingan ka ng pahintulot na paganahin ang mga inirerekomendang hook. Awtomatikong natutuklasan ng wizard ang mga karapat-dapat na hook at ipinapakita ang mga ito para mapili.
+During onboarding (`openclaw onboard`), you'll be prompted to enable recommended hooks. The wizard automatically discovers eligible hooks and presents them for selection.
 
 ## Hook Discovery
 
@@ -99,6 +103,8 @@ Hook packs are standard npm packages that export one or more hooks via `openclaw
 openclaw hooks install <path-or-spec>
 ```
 
+Ang mga Npm spec ay para lamang sa registry (pangalan ng package + opsyonal na bersyon/tag). Ang mga Git/URL/file spec ay tinatanggihan.
+
 Halimbawang `package.json`:
 
 ```json
@@ -114,6 +120,10 @@ Halimbawang `package.json`:
 Each entry points to a hook directory containing `HOOK.md` and `handler.ts` (or `index.ts`).
 Hook packs can ship dependencies; they will be installed under `~/.openclaw/hooks/<id>`.
 
+Paalala sa seguridad: Ang `openclaw hooks install` ay nag-i-install ng mga dependency gamit ang `npm install --ignore-scripts`
+(walang lifecycle scripts). Panatilihing "pure JS/TS" ang mga dependency tree ng hook pack at iwasan ang mga package na umaasa
+sa `postinstall` builds.
+
 ## Hook Structure
 
 ### HOOK.md Format
@@ -123,29 +133,29 @@ Ang file na `HOOK.md` ay naglalaman ng metadata sa YAML frontmatter at Markdown 
 ```markdown
 ---
 name: my-hook
-description: "Short description of what this hook does"
-homepage: https://docs.openclaw.ai/hooks#my-hook
+description: "Maikling paglalarawan kung ano ang ginagawa ng hook na ito"
+homepage: https://docs.openclaw.ai/automation/hooks#my-hook
 metadata:
   { "openclaw": { "emoji": "🔗", "events": ["command:new"], "requires": { "bins": ["node"] } } }
 ---
 
 # My Hook
 
-Detailed documentation goes here...
+Dito ilalagay ang detalyadong dokumentasyon...
 
-## What It Does
+## Ano ang Ginagawa Nito
 
-- Listens for `/new` commands
-- Performs some action
-- Logs the result
+- Nakikinig sa mga `/new` na command
+- Nagsasagawa ng ilang aksyon
+- Itinatala ang resulta
 
-## Requirements
+## Mga Kinakailangan
 
-- Node.js must be installed
+- Dapat naka-install ang Node.js
 
 ## Configuration
 
-No configuration needed.
+Walang kailangang configuration.
 ```
 
 ### Metadata Fields
@@ -221,7 +231,7 @@ Bawat event ay may kasamang:
 
 Na-ti-trigger kapag nag-issue ng mga agent command:
 
-- **`command`**: Lahat ng command event (pangkalahatang listener)
+- **`agent:bootstrap`**: Bago ma-inject ang workspace bootstrap files (maaaring baguhin ng mga hook ang `context.bootstrapFiles`)
 - **`command:new`**: Kapag na-issue ang `/new` na command
 - **`command:reset`**: Kapag na-issue ang `/reset` na command
 - **`command:stop`**: Kapag na-issue ang `/stop` na command
@@ -390,6 +400,8 @@ Gumagana pa rin ang lumang config format para sa backwards compatibility:
 }
 ```
 
+Tandaan: Ang `module` ay dapat na workspace-relative na path. Ang mga absolute path at pag-traverse palabas ng workspace ay tinatanggihan.
+
 **Migration**: Use the new discovery-based system for new hooks. Legacy handlers are loaded after directory-based hooks.
 
 ## CLI Commands
@@ -444,13 +456,13 @@ openclaw hooks disable command-logger
 
 ### session-memory
 
-Nagsa-save ng session context sa memory kapag nag-issue ka ng `/new`.
+**Output**: `<workspace>/memory/YYYY-MM-DD-slug.md` (default ay `~/.openclaw/workspace`)
 
 **Events**: `command:new`
 
 **Requirements**: Dapat naka-configure ang `workspace.dir`
 
-**Output**: `<workspace>/memory/YYYY-MM-DD-slug.md` (default ay `~/.openclaw/workspace`)
+**Halimbawang output**:
 
 **Ano ang ginagawa nito**:
 
@@ -475,10 +487,51 @@ Nagsa-save ng session context sa memory kapag nag-issue ka ng `/new`.
 - `2026-01-16-api-design.md`
 - `2026-01-16-1430.md` (fallback na timestamp kung pumalya ang slug generation)
 
-**I-enable**:
+Ini-log ang lahat ng command event sa isang sentralisadong audit file.
 
 ```bash
 openclaw hooks enable session-memory
+```
+
+### bootstrap-extra-files
+
+Nag-i-inject ng karagdagang mga bootstrap file (halimbawa, monorepo-local na `AGENTS.md` / `TOOLS.md`) habang `agent:bootstrap`.
+
+**Events**: `agent:bootstrap`
+
+**Requirements**: Dapat naka-configure ang `workspace.dir`
+
+**Mga halimbawang log entry**:
+
+**Config**:
+
+```json
+{
+  "hooks": {
+    "internal": {
+      "enabled": true,
+      "entries": {
+        "bootstrap-extra-files": {
+          "enabled": true,
+          "paths": ["packages/*/AGENTS.md", "packages/*/TOOLS.md"]
+        }
+      }
+    }
+  }
+}
+```
+
+**Mga Tala**:
+
+- Ang mga path ay nireresolba nang relative sa workspace.
+- Dapat manatili ang mga file sa loob ng workspace (sinusuri gamit ang realpath).
+- Ang mga kinikilalang bootstrap basename lamang ang nilo-load.
+- Pinananatili ang subagent allowlist (`AGENTS.md` at `TOOLS.md` lamang).
+
+**I-enable**:
+
+```bash
+openclaw hooks enable bootstrap-extra-files
 ```
 
 ### command-logger
@@ -487,7 +540,7 @@ Ini-log ang lahat ng command event sa isang sentralisadong audit file.
 
 **Events**: `command`
 
-**Requirements**: Wala
+**Output**: Walang file na sinusulat; ang mga pagpapalit ay nangyayari lamang in-memory.
 
 **Output**: `~/.openclaw/logs/commands.log`
 
@@ -517,46 +570,10 @@ cat ~/.openclaw/logs/commands.log | jq .
 grep '"action":"new"' ~/.openclaw/logs/commands.log | jq .
 ```
 
-**I-enable**:
+**Requirements**: Dapat naka-configure ang `workspace.dir`
 
 ```bash
 openclaw hooks enable command-logger
-```
-
-### soul-evil
-
-Pinapalitan ang injected na `SOUL.md` content ng `SOUL_EVIL.md` sa panahon ng purge window o batay sa random na tsansa.
-
-**Events**: `agent:bootstrap`
-
-**Docs**: [SOUL Evil Hook](/hooks/soul-evil)
-
-**Output**: Walang file na sinusulat; ang mga pagpapalit ay nangyayari lamang in-memory.
-
-**I-enable**:
-
-```bash
-openclaw hooks enable soul-evil
-```
-
-**Config**:
-
-```json
-{
-  "hooks": {
-    "internal": {
-      "enabled": true,
-      "entries": {
-        "soul-evil": {
-          "enabled": true,
-          "file": "SOUL_EVIL.md",
-          "chance": 0.1,
-          "purge": { "at": "21:00", "duration": "15m" }
-        }
-      }
-    }
-  }
-}
 ```
 
 ### boot-md
@@ -566,7 +583,7 @@ Internal hooks must be enabled for this to run.
 
 **Events**: `gateway:startup`
 
-**Requirements**: Dapat naka-configure ang `workspace.dir`
+**Mga Kinakailangan**: Dapat naka-configure ang `workspace.dir`
 
 **Ano ang ginagawa nito**:
 
@@ -616,7 +633,7 @@ const handler: HookHandler = async (event) => {
 
 ### Filter Events Early
 
-Mag-return kaagad kung hindi relevant ang event:
+Sa halip na:
 
 ```typescript
 const handler: HookHandler = async (event) => {
@@ -651,6 +668,7 @@ Ini-log ng gateway ang pag-load ng hook sa startup:
 
 ```
 Registered hook: session-memory -> command:new
+Registered hook: bootstrap-extra-files -> agent:bootstrap
 Registered hook: command-logger -> command
 Registered hook: boot-md -> gateway:startup
 ```
@@ -665,7 +683,7 @@ openclaw hooks list --verbose
 
 ### Check Registration
 
-Sa iyong handler, mag-log kapag ito ay tinatawag:
+Hanapin ang mga nawawalang requirement sa output.
 
 ```typescript
 const handler: HookHandler = async (event) => {
@@ -676,7 +694,7 @@ const handler: HookHandler = async (event) => {
 
 ### Verify Eligibility
 
-Suriin kung bakit hindi eligible ang isang hook:
+I-monitor ang gateway logs para makita ang pag-execute ng hook:
 
 ```bash
 openclaw hooks info my-hook
@@ -768,21 +786,21 @@ Session reset
 
 ### Hook Not Discovered
 
-1. Suriin ang directory structure:
+1. Mga binary (suriin ang PATH)
 
    ```bash
    ls -la ~/.openclaw/hooks/my-hook/
    # Should show: HOOK.md, handler.ts
    ```
 
-2. I-verify ang HOOK.md format:
+2. Mga environment variable
 
    ```bash
    cat ~/.openclaw/hooks/my-hook/HOOK.md
    # Should have YAML frontmatter with name and metadata
    ```
 
-3. Ilista ang lahat ng nadiskubreng hook:
+3. Mga config value
 
    ```bash
    openclaw hooks list
@@ -796,7 +814,7 @@ Suriin ang mga requirement:
 openclaw hooks info my-hook
 ```
 
-Hanapin ang mga nawawala:
+Suriin kung may TypeScript/import error:
 
 - Mga binary (suriin ang PATH)
 - Mga environment variable
@@ -910,5 +928,3 @@ node -e "import('./path/to/handler.ts').then(console.log)"
 - [Bundled Hooks README](https://github.com/openclaw/openclaw/tree/main/src/hooks/bundled)
 - [Webhook Hooks](/automation/webhook)
 - [Configuration](/gateway/configuration#hooks)
-
-

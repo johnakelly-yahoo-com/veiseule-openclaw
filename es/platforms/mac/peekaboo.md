@@ -1,4 +1,9 @@
 ---
+summary: "Integración de PeekabooBridge para la automatización de la interfaz de usuario en macOS"
+read_when:
+  - Alojamiento de PeekabooBridge en OpenClaw.app
+  - Integración de Peekaboo mediante Swift Package Manager
+  - Cambio del protocolo/rutas de PeekabooBridge
 title: "Peekaboo Bridge"
 ---
 
@@ -49,5 +54,3 @@ Si necesita una retención más prolongada, vuelva a capturar desde el cliente.
 
 - Si `peekaboo` informa “bridge client is not authorized”, asegúrese de que el cliente esté firmado correctamente o ejecute el host con `PEEKABOO_ALLOW_UNSIGNED_SOCKET_CLIENTS=1` solo en modo **debug**.
 - Si no se encuentran hosts, abra una de las apps host (Peekaboo.app u OpenClaw.app) y confirme que los permisos estén concedidos.
-
-

@@ -1,10 +1,16 @@
-------
+---
+title: "デフォルト AGENTS.md"
+summary: "個人アシスタント設定向けのデフォルト OpenClaw エージェント指示と Skills 一覧"
+read_when:
+  - 新しい OpenClaw エージェントセッションを開始する場合
+  - デフォルト Skills を有効化または監査する場合
+---
 
 # AGENTS.md — OpenClaw 個人アシスタント（デフォルト）
 
 ## 初回実行（推奨）
 
-OpenClawはエージェントの専用ワークスペースディレクトリを使用します。 OpenClaw は、エージェント用に専用のワークスペースディレクトリを使用します。デフォルトは `~/.openclaw/workspace` です（`agents.defaults.workspace` で設定可能）。
+OpenClawはエージェントの専用ワークスペースディレクトリを使用します。 OpenClaw は、エージェント用に専用のワークスペースディレクトリを使用します。デフォルトは `~/.openclaw/workspace` です（`agents.defaults.workspace` で設定可能）。 OpenClaw は、エージェント用に専用のワークスペースディレクトリを使用します。デフォルトは `~/.openclaw/workspace` です（`agents.defaults.workspace` で設定可能）。
 
 1. ワークスペースを作成します（まだ存在しない場合）:
 
@@ -47,7 +53,7 @@ cp docs/reference/AGENTS.default.md ~/.openclaw/workspace/AGENTS.md
 
 ## Soul（必須）
 
-- `SOUL.md` は、アイデンティティ、トーン、境界を定義します。常に最新の状態に保ってください。 そのままにしておきなさい。
+- `SOUL.md` は、アイデンティティ、トーン、境界を定義します。常に最新の状態に保ってください。 そのままにしておきなさい。 そのままにしておきなさい。
 - `SOUL.md` を変更した場合は、ユーザーに伝えてください。
 - 各セッションは新しいインスタンスです。継続性はこれらのファイルにあります。
 
@@ -96,7 +102,7 @@ git commit -m "Add Clawd workspace"
 - **eightctl** — ターミナルから睡眠を制御します。
 - **imsg** — iMessage と SMS の送信、読み取り、ストリーミング。
 - **wacli** — WhatsApp CLI。同期、検索、送信。
-- **discord** — Discordアクション：反応、ステッカー、投票。 `user:<id>` または `channel:<id>` ターゲットを使用します。(素の数値idは曖昧です)。
+- **discord** — Discordアクション：反応、ステッカー、投票。 `user:<id>` または `channel:<id>` ターゲットを使用します。(素の数値idは曖昧です)。 `user:<id>` または `channel:<id>` ターゲットを使用します。(素の数値idは曖昧です)。
 - **gog** — Google Suite CLI。Gmail、Calendar、Drive、Contacts。
 - **spotify-player** — 検索／キュー／再生制御が可能なターミナル Spotify クライアント。
 - **sag** — ElevenLabs 音声を mac スタイルの say UX で提供。デフォルトでスピーカーへストリーミングします。
@@ -112,9 +118,7 @@ git commit -m "Add Clawd workspace"
 - スクリプトには `openclaw` CLI を優先してください。権限は mac アプリが処理します。
 - インストールは Skills タブから実行してください。バイナリが既に存在する場合、ボタンは非表示になります。
 - ハートビートを有効にして、アシスタントがリマインダーのスケジュール、受信箱の監視、カメラキャプチャのトリガーを行えるようにしてください。
-- Canvas UI はネイティブオーバーレイ付きのフルスクリーンを実行します。 左上/右上/下のエッジに重要なコントロールを配置しないでください。レイアウトに明示的なガターを追加し、セーフエリアのインセットに頼らないでください。
+- Canvas UI はネイティブオーバーレイ付きのフルスクリーンを実行します。 左上/右上/下のエッジに重要なコントロールを配置しないでください。レイアウトに明示的なガターを追加し、セーフエリアのインセットに頼らないでください。 左上/右上/下のエッジに重要なコントロールを配置しないでください。レイアウトに明示的なガターを追加し、セーフエリアのインセットに頼らないでください。
 - ブラウザー駆動の検証には、OpenClaw 管理の Chrome プロファイルで `openclaw browser`（タブ／ステータス／スクリーンショット）を使用してください。
 - DOM 検査には `openclaw browser eval|query|dom|snapshot` を使用してください（機械出力が必要な場合は `--json`/`--out`）。
 - インタラクションには `openclaw browser click|type|hover|drag|select|upload|press|wait|navigate|back|evaluate|run` を使用してください（クリック／入力にはスナップショット参照が必要です。CSS セレクターには `evaluate` を使用します）。
-
-

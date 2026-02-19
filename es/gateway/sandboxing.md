@@ -1,9 +1,11 @@
 ---
-title: "Aislamiento en entorno seguro"
+summary: "Cómo funciona el sandboxing de OpenClaw: modos, alcances, acceso al workspace e imágenes"
+title: Sandboxing
+read_when: "Quiere una explicación dedicada del sandboxing o necesita ajustar agents.defaults.sandbox."
 status: active
 ---
 
-# Aislamiento en entorno seguro
+# Sandboxing
 
 OpenClaw puede ejecutar **herramientas dentro de contenedores Docker** para reducir el radio de impacto.
 Esto es **opcional** y está controlado por la configuración (`agents.defaults.sandbox` o
@@ -68,6 +70,11 @@ que puedan leerse. Con `"rw"`, las skills del workspace son legibles desde
 Formato: `host:container:mode` (por ejemplo, `"/home/user/source:/source:rw"`).
 
 Los binds globales y por agente se **fusionan** (no se reemplazan). Bajo `scope: "shared"`, los binds por agente se ignoran.
+
+`agents.defaults.sandbox.browser.binds` monta directorios adicionales del host únicamente en el contenedor del **sandbox browser**.
+
+- Cuando se establece (incluido `[]`), reemplaza `agents.defaults.sandbox.docker.binds` para el contenedor del navegador.
+- Si se omite, el contenedor del navegador recurre a `agents.defaults.sandbox.docker.binds` (compatible con versiones anteriores).
 
 Ejemplo (origen de solo lectura + socket de Docker):
 
@@ -189,5 +196,3 @@ Consulte [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) para la
 - [Sandbox Configuration](/gateway/configuration#agentsdefaults-sandbox)
 - [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools)
 - [Security](/gateway/security)
-
-

@@ -1,12 +1,16 @@
 ---
-title: "हुक्स"
+summary: "Hooks: कमांड और लाइफसाइकल इवेंट्स के लिए इवेंट-ड्रिवन स्वचालन"
+read_when:
+  - आप /new, /reset, /stop, और एजेंट लाइफसाइकल इवेंट्स के लिए इवेंट-ड्रिवन स्वचालन चाहते हैं
+  - आप hooks को बनाना, इंस्टॉल करना, या डिबग करना चाहते हैं
+title: "Hooks"
 ---
 
-# हुक्स
+# Hooks
 
 हुक्स एक विस्तारयोग्य इवेंट-ड्रिवन सिस्टम प्रदान करते हैं, जो एजेंट कमांड्स और इवेंट्स के जवाब में क्रियाओं को स्वचालित करता है। हुक्स को डायरेक्टरीज़ से अपने आप खोज लिया जाता है और इन्हें CLI कमांड्स के ज़रिए प्रबंधित किया जा सकता है, ठीक वैसे ही जैसे OpenClaw में स्किल्स काम करती हैं।
 
-## दिशा-परिचय
+## Getting Oriented
 
 हुक्स छोटे स्क्रिप्ट होते हैं जो किसी घटना के होने पर चलते हैं। दो प्रकार होते हैं:
 
@@ -24,7 +28,7 @@ Hooks को plugins के अंदर भी बंडल किया जा
 
 यदि आप एक छोटा TypeScript फ़ंक्शन लिख सकते हैं, तो आप एक हुक लिख सकते हैं। हुक्स अपने आप खोजे जाते हैं, और आप उन्हें CLI के ज़रिए सक्षम या अक्षम करते हैं।
 
-## अवलोकन
+## Overview
 
 Hooks सिस्टम आपको यह करने देता है:
 
@@ -33,9 +37,9 @@ Hooks सिस्टम आपको यह करने देता है:
 - एजेंट लाइफसाइकल इवेंट्स पर कस्टम स्वचालन ट्रिगर करना
 - कोर कोड में संशोधन किए बिना OpenClaw के व्यवहार का विस्तार करना
 
-## शुरुआत
+## Getting Started
 
-### बंडल किए गए हुक्स
+### Bundled Hooks
 
 OpenClaw चार बंडल्ड hooks के साथ आता है जो स्वतः खोजे जाते हैं:
 
@@ -68,11 +72,11 @@ openclaw hooks check
 openclaw hooks info session-memory
 ```
 
-### ऑनबोर्डिंग
+### Onboarding
 
 ऑनबोर्डिंग (`openclaw onboard`) के दौरान, आपको अनुशंसित हुक्स सक्षम करने के लिए कहा जाएगा। विज़ार्ड अपने आप योग्य हुक्स खोजता है और चयन के लिए उन्हें प्रस्तुत करता है।
 
-## हुक खोज
+## Hook Discovery
 
 Hooks तीन डायरेक्टरीज़ से स्वतः खोजे जाते हैं (प्राथमिकता क्रम में):
 
@@ -90,13 +94,15 @@ my-hook/
 └── handler.ts       # Handler implementation
 ```
 
-## हुक पैक्स (npm/archives)
+## Hook Packs (npm/archives)
 
 हुक पैक्स मानक npm पैकेज होते हैं जो `package.json` में `openclaw.hooks` के माध्यम से एक या अधिक हुक्स एक्सपोर्ट करते हैं। इन्हें इस तरह इंस्टॉल करें:
 
 ```bash
 openclaw hooks install <path-or-spec>
 ```
+
+Npm स्पेसिफिकेशन केवल रजिस्ट्री-आधारित होते हैं (पैकेज नाम + वैकल्पिक वर्ज़न/टैग)। Git/URL/file स्पेसिफिकेशन अस्वीकार किए जाते हैं।
 
 उदाहरण `package.json`:
 
@@ -113,6 +119,9 @@ openclaw hooks install <path-or-spec>
 प्रत्येक एंट्री एक हुक डायरेक्टरी की ओर इशारा करती है जिसमें `HOOK.md` और `handler.ts` (या `index.ts`) होता है।
 हुक पैक्स डिपेंडेंसीज़ के साथ आ सकते हैं; इन्हें `~/.openclaw/hooks/<id>` के अंतर्गत इंस्टॉल किया जाएगा।
 
+सुरक्षा नोट: `openclaw hooks install` निर्भरताओं को `npm install --ignore-scripts` के साथ इंस्टॉल करता है
+(कोई lifecycle scripts नहीं)। हुक पैक की निर्भरता ट्री को "pure JS/TS" रखें और उन पैकेजों से बचें जो `postinstall` बिल्ड पर निर्भर करते हैं।
+
 ## Hook Structure
 
 ### HOOK.md Format
@@ -122,29 +131,29 @@ openclaw hooks install <path-or-spec>
 ```markdown
 ---
 name: my-hook
-description: "Short description of what this hook does"
-homepage: https://docs.openclaw.ai/hooks#my-hook
+description: "यह हुक क्या करता है इसका संक्षिप्त विवरण"
+homepage: https://docs.openclaw.ai/automation/hooks#my-hook
 metadata:
   { "openclaw": { "emoji": "🔗", "events": ["command:new"], "requires": { "bins": ["node"] } } }
 ---
 
 # My Hook
 
-Detailed documentation goes here...
+विस्तृत दस्तावेज़ यहाँ जाएँगे...
 
-## What It Does
+## यह क्या करता है
 
-- Listens for `/new` commands
-- Performs some action
-- Logs the result
+- `/new` कमांड्स को सुनता है
+- कोई क्रिया करता है
+- परिणाम को लॉग करता है
 
-## Requirements
+## आवश्यकताएँ
 
-- Node.js must be installed
+- Node.js इंस्टॉल होना चाहिए
 
-## Configuration
+## कॉन्फ़िगरेशन
 
-No configuration needed.
+कोई कॉन्फ़िगरेशन आवश्यक नहीं है।
 ```
 
 ### Metadata Fields
@@ -220,7 +229,7 @@ export default myHandler;
 
 एजेंट कमांड्स जारी होने पर ट्रिगर होते हैं:
 
-- **`command`**: सभी कमांड इवेंट्स (सामान्य लिसनर)
+- **`agent:bootstrap`**: वर्कस्पेस bootstrap फाइलें inject होने से पहले (hooks `context.bootstrapFiles` को mutate कर सकते हैं)
 - **`command:new`**: जब `/new` कमांड जारी की जाती है
 - **`command:reset`**: जब `/reset` कमांड जारी की जाती है
 - **`command:stop`**: जब `/stop` कमांड जारी की जाती है
@@ -370,7 +379,7 @@ Hooks के पास कस्टम विन्यास हो सकता
 
 ### Legacy Config Format (Still Supported)
 
-पुराना config फ़ॉर्मेट बैकवर्ड कम्पैटिबिलिटी के लिए अभी भी काम करता है:
+**माइग्रेशन**: नए हुक्स के लिए नए डिस्कवरी-आधारित सिस्टम का उपयोग करें। लीगेसी हैंडलर्स को डायरेक्टरी-आधारित हुक्स के बाद लोड किया जाता है।
 
 ```json
 {
@@ -388,6 +397,8 @@ Hooks के पास कस्टम विन्यास हो सकता
   }
 }
 ```
+
+नोट: `module` एक workspace-सापेक्ष पथ होना चाहिए। workspace के बाहर के absolute पथ और traversal अस्वीकार किए जाते हैं।
 
 **माइग्रेशन**: नए हुक्स के लिए नए डिस्कवरी-आधारित सिस्टम का उपयोग करें। लीगेसी हैंडलर्स को डायरेक्टरी-आधारित हुक्स के बाद लोड किया जाता है।
 
@@ -443,7 +454,7 @@ openclaw hooks disable command-logger
 
 ### session-memory
 
-जब आप `/new` जारी करते हैं, तो सत्र संदर्भ को मेमोरी में सहेजता है।
+**Output**: `<workspace>/memory/YYYY-MM-DD-slug.md` (डिफ़ॉल्ट `~/.openclaw/workspace`)
 
 **Events**: `command:new`
 
@@ -480,13 +491,54 @@ openclaw hooks disable command-logger
 openclaw hooks enable session-memory
 ```
 
+### bootstrap-extra-files
+
+`agent:bootstrap` के दौरान अतिरिक्त bootstrap फ़ाइलें (उदाहरण के लिए monorepo-स्थानीय `AGENTS.md` / `TOOLS.md`) इंजेक्ट करता है।
+
+**Events**: `agent:bootstrap`
+
+**Requirements**: `workspace.dir` कॉन्फ़िगर होना चाहिए
+
+**आउटपुट**: कोई फ़ाइल नहीं लिखी जाती; bootstrap कॉन्टेक्स्ट केवल इन-मेमोरी संशोधित होता है।
+
+**Config**:
+
+```json
+{
+  "hooks": {
+    "internal": {
+      "enabled": true,
+      "entries": {
+        "bootstrap-extra-files": {
+          "enabled": true,
+          "paths": ["packages/*/AGENTS.md", "packages/*/TOOLS.md"]
+        }
+      }
+    }
+  }
+}
+```
+
+**नोट्स**:
+
+- पथ workspace के सापेक्ष resolve किए जाते हैं।
+- फ़ाइलें workspace के अंदर ही रहनी चाहिए (realpath-checked)।
+- केवल मान्यता प्राप्त bootstrap basenames लोड किए जाते हैं।
+- Subagent allowlist संरक्षित रहती है (`AGENTS.md` और `TOOLS.md` ही)।
+
+**Enable**:
+
+```bash
+openclaw hooks enable bootstrap-extra-files
+```
+
 ### command-logger
 
 सभी कमांड इवेंट्स को एक केंद्रीकृत ऑडिट फ़ाइल में लॉग करता है।
 
 **Events**: `command`
 
-**Requirements**: कोई नहीं
+**Output**: कोई फ़ाइल नहीं लिखी जाती; swapping केवल मेमोरी में होती है।
 
 **Output**: `~/.openclaw/logs/commands.log`
 
@@ -522,42 +574,6 @@ grep '"action":"new"' ~/.openclaw/logs/commands.log | jq .
 openclaw hooks enable command-logger
 ```
 
-### soul-evil
-
-purge विंडो के दौरान या यादृच्छिक संभावना से injected `SOUL.md` सामग्री को `SOUL_EVIL.md` से बदल देता है।
-
-**Events**: `agent:bootstrap`
-
-**Docs**: [SOUL Evil Hook](/hooks/soul-evil)
-
-**Output**: कोई फ़ाइल नहीं लिखी जाती; swapping केवल मेमोरी में होती है।
-
-**Enable**:
-
-```bash
-openclaw hooks enable soul-evil
-```
-
-**Config**:
-
-```json
-{
-  "hooks": {
-    "internal": {
-      "enabled": true,
-      "entries": {
-        "soul-evil": {
-          "enabled": true,
-          "file": "SOUL_EVIL.md",
-          "chance": 0.1,
-          "purge": { "at": "21:00", "duration": "15m" }
-        }
-      }
-    }
-  }
-}
-```
-
 ### boot-md
 
 Gateway के शुरू होने पर (चैनल्स शुरू होने के बाद) `BOOT.md` चलाता है।
@@ -565,7 +581,7 @@ Gateway के शुरू होने पर (चैनल्स शुरू
 
 **Events**: `gateway:startup`
 
-**Requirements**: `workspace.dir` कॉन्फ़िगर होना चाहिए
+**आवश्यकताएँ**: `workspace.dir` कॉन्फ़िगर होना चाहिए
 
 **What it does**:
 
@@ -615,7 +631,7 @@ const handler: HookHandler = async (event) => {
 
 ### Filter Events Early
 
-यदि इवेंट प्रासंगिक नहीं है तो तुरंत return करें:
+इसके बजाय:
 
 ```typescript
 const handler: HookHandler = async (event) => {
@@ -650,6 +666,7 @@ Gateway स्टार्टअप पर hook लोडिंग को लॉ
 
 ```
 Registered hook: session-memory -> command:new
+Registered hook: bootstrap-extra-files -> agent:bootstrap
 Registered hook: command-logger -> command
 Registered hook: boot-md -> gateway:startup
 ```
@@ -664,7 +681,7 @@ openclaw hooks list --verbose
 
 ### Check Registration
 
-अपने handler में, कॉल होने पर लॉग करें:
+आउटपुट में missing requirements देखें।
 
 ```typescript
 const handler: HookHandler = async (event) => {
@@ -675,7 +692,7 @@ const handler: HookHandler = async (event) => {
 
 ### Verify Eligibility
 
-देखें कि कोई hook पात्र क्यों नहीं है:
+Hook निष्पादन देखने के लिए Gateway logs मॉनिटर करें:
 
 ```bash
 openclaw hooks info my-hook
@@ -767,7 +784,7 @@ Session reset
 
 ### Hook Not Discovered
 
-1. डायरेक्टरी संरचना जाँचें:
+1. Binaries (PATH जाँचें)
 
    ```bash
    ls -la ~/.openclaw/hooks/my-hook/
@@ -781,7 +798,7 @@ Session reset
    # Should have YAML frontmatter with name and metadata
    ```
 
-3. सभी खोजे गए hooks की सूची देखें:
+3. Config मान
 
    ```bash
    openclaw hooks list
@@ -795,7 +812,7 @@ Session reset
 openclaw hooks info my-hook
 ```
 
-निम्न के लिए देखें:
+TypeScript/import त्रुटियों की जाँच करें:
 
 - Binaries (PATH जाँचें)
 - Environment variables
@@ -909,5 +926,3 @@ node -e "import('./path/to/handler.ts').then(console.log)"
 - [Bundled Hooks README](https://github.com/openclaw/openclaw/tree/main/src/hooks/bundled)
 - [Webhook Hooks](/automation/webhook)
 - [Configuration](/gateway/configuration#hooks)
-
-

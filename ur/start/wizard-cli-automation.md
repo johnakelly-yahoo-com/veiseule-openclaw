@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw CLI کے لیے اسکرپٹڈ آن بورڈنگ اور ایجنٹ سیٹ اپ"
+read_when:
+  - آپ اسکرپٹس یا CI میں آن بورڈنگ کو خودکار بنا رہے ہوں
+  - آپ کو مخصوص فراہم کنندگان کے لیے غیر تعاملی مثالیں درکار ہوں
 title: "CLI خودکاری"
 sidebarTitle: "CLI آٹومیشن"
 ---
@@ -8,7 +12,7 @@ sidebarTitle: "CLI آٹومیشن"
 `--non-interactive` کا استعمال کر کے `openclaw onboard` کو خودکار بنائیں۔
 
 <Note>
-`--json` غیر تعاملی موڈ کی نشاندہی نہیں کرتا۔ اسکرپٹس کے لیے `--non-interactive` (اور `--workspace`) استعمال کریں۔
+`--json` does not imply non-interactive mode. Use `--non-interactive` (and `--workspace`) for scripts.
 </Note>
 
 ## بنیادی غیر تعاملی مثال
@@ -109,6 +113,25 @@ openclaw onboard --non-interactive \
     ```
   
 </Accordion>
+  <Accordion title="Custom provider example">    ```bash
+    openclaw onboard --non-interactive \
+      --mode local \
+      --auth-choice custom-api-key \
+      --custom-base-url "https://llm.example.com/v1" \
+      --custom-model-id "foo-large" \
+      --custom-api-key "$CUSTOM_API_KEY" \
+      --custom-provider-id "my-custom" \
+      --custom-compatibility anthropic \
+      --gateway-port 18789 \
+      --gateway-bind loopback
+    ```
+
+    ```
+    `--custom-api-key` اختیاری ہے۔ اگر شامل نہ کیا جائے تو onboarding `CUSTOM_API_KEY` کو چیک کرتا ہے۔
+    ```
+
+  
+</Accordion>
 </AccordionGroup>
 
 ## ایک اور ایجنٹ شامل کریں
@@ -125,7 +148,7 @@ openclaw agents add work \
   --json
 ```
 
-یہ کن چیزوں کو سیٹ کرتا ہے:
+نوٹس:
 
 - `agents.list[].name`
 - `agents.list[].workspace`
@@ -133,14 +156,12 @@ openclaw agents add work \
 
 نوٹس:
 
-- ڈیفالٹ ورک اسپیسز `~/.openclaw/workspace-<agentId>` کی پیروی کرتے ہیں۔
-- آنے والے پیغامات کو روٹ کرنے کے لیے `bindings` شامل کریں (یہ کام ویزارڈ بھی کر سکتا ہے)۔
-- غیر تعاملی فلیگز: `--model`, `--agent-dir`, `--bind`, `--non-interactive`۔
+- آن بورڈنگ ہب: [Onboarding Wizard (CLI)](/start/wizard)
+- مکمل حوالہ: [CLI Onboarding Reference](/start/wizard-cli-reference)
+- کمانڈ حوالہ: [`openclaw onboard`](/cli/onboard)
 
 ## متعلقہ دستاویزات
 
 - آن بورڈنگ ہب: [Onboarding Wizard (CLI)](/start/wizard)
 - مکمل حوالہ: [CLI Onboarding Reference](/start/wizard-cli-reference)
 - کمانڈ حوالہ: [`openclaw onboard`](/cli/onboard)
-
-

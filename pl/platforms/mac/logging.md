@@ -1,4 +1,8 @@
 ---
+summary: "Logowanie OpenClaw: rotujący plik diagnostyczny + flagi prywatności unified logging"
+read_when:
+  - Przechwytywanie logów macOS lub badanie logowania danych prywatnych
+  - Debugowanie problemów z wybudzaniem głosowym i cyklem życia sesji
 title: "Logowanie macOS"
 ---
 
@@ -51,5 +55,3 @@ sudo install -m 644 -o root -g wheel /tmp/bot.molt.plist /Library/Preferences/Lo
 - Usuń nadpisanie: `sudo rm /Library/Preferences/Logging/Subsystems/bot.molt.plist`.
 - Opcjonalnie uruchom `sudo log config --reload`, aby wymusić natychmiastowe usunięcie nadpisania przez logd.
 - Pamiętaj, że ta powierzchnia może zawierać numery telefonów i treści wiadomości; pozostawiaj plist tylko tak długo, jak aktywnie potrzebujesz dodatkowych szczegółów.
-
-

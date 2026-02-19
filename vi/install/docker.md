@@ -1,16 +1,20 @@
 ---
+summary: "Thiết lập và hướng dẫn ban đầu tùy chọn dựa trên Docker cho OpenClaw"
+read_when:
+  - Bạn muốn một gateway chạy trong container thay vì cài đặt cục bộ
+  - Bạn đang kiểm tra luồng Docker
 title: "Docker"
 ---
 
 # Docker (tùy chọn)
 
-Docker là **tùy chọn**. Chỉ sử dụng nếu bạn muốn một gateway chạy trong container hoặc để kiểm tra luồng Docker.
+Docker is **optional**. Use it only if you want a containerized gateway or to validate the Docker flow.
 
 ## Docker có phù hợp với tôi không?
 
 - **Có**: bạn muốn một môi trường gateway tách biệt, dùng xong bỏ, hoặc chạy OpenClaw trên máy chủ không có cài đặt cục bộ.
-- **Không**: bạn đang chạy trên máy của riêng mình và chỉ muốn vòng lặp phát triển nhanh nhất. Thay vào đó, hãy sử dụng quy trình cài đặt thông thường.
-- **Lưu ý về sandboxing**: cơ chế sandbox cho agent cũng sử dụng Docker, nhưng **không** yêu cầu toàn bộ gateway phải chạy trong Docker. Xem [Sandboxing](/gateway/sandboxing).
+- **No**: you’re running on your own machine and just want the fastest dev loop. Use the normal install flow instead.
+- **Sandboxing note**: agent sandboxing uses Docker too, but it does **not** require the full gateway to run in Docker. See [Sandboxing](/gateway/sandboxing).
 
 Hướng dẫn này bao gồm:
 
@@ -52,14 +56,32 @@ Sau khi hoàn tất:
 
 - Mở `http://127.0.0.1:18789/` trong trình duyệt.
 - Dán token vào Control UI (Settings → token).
-- Cần lại URL? Chạy `docker compose run --rm openclaw-cli dashboard --no-open`.
+- Need the URL again? Run `docker compose run --rm openclaw-cli dashboard --no-open`.
 
 Nó ghi cấu hình/workspace trên host:
 
 - `~/.openclaw/`
 - `~/.openclaw/workspace`
 
-Đang chạy trên VPS? Xem [Hetzner (Docker VPS)](/install/hetzner).
+Running on a VPS? See [Hetzner (Docker VPS)](/install/hetzner).
+
+### Luồng thủ công (compose)
+
+Để quản lý Docker hằng ngày dễ dàng hơn, hãy cài đặt `ClawDock`:
+
+```bash
+mkdir -p ~/.clawdock && curl -sL https://raw.githubusercontent.com/openclaw/openclaw/main/scripts/shell-helpers/clawdock-helpers.sh -o ~/.clawdock/clawdock-helpers.sh
+```
+
+**Thêm vào cấu hình shell của bạn (zsh):**
+
+```bash
+echo 'source ~/.clawdock/clawdock-helpers.sh' >> ~/.zshrc && source ~/.zshrc
+```
+
+Sau đó sử dụng `clawdock-start`, `clawdock-stop`, `clawdock-dashboard`, v.v. Chạy `clawdock-help` để xem tất cả các lệnh.
+
+Xem [`ClawDock` Helper README](https://github.com/openclaw/openclaw/blob/main/scripts/shell-helpers/README.md) để biết chi tiết.
 
 ### Luồng thủ công (compose)
 
@@ -79,8 +101,7 @@ docker compose -f docker-compose.yml -f docker-compose.extra.yml <command>
 
 ### Token Control UI + ghép cặp (Docker)
 
-Nếu bạn thấy “unauthorized” hoặc “disconnected (1008): pairing required”, hãy lấy
-liên kết dashboard mới và phê duyệt thiết bị trình duyệt:
+Ghi chú:
 
 ```bash
 docker compose run --rm openclaw-cli dashboard --no-open
@@ -145,7 +166,7 @@ libraries), set `OPENCLAW_DOCKER_APT_PACKAGES` before running `docker-setup.sh`.
 This installs the packages during the image build, so they persist even if the
 container is deleted.
 
-Ví dụ:
+Nếu bạn muốn container đầy đủ tính năng hơn, hãy dùng các tùy chọn opt-in sau:
 
 ```bash
 export OPENCLAW_DOCKER_APT_PACKAGES="ffmpeg build-essential"
@@ -154,7 +175,7 @@ export OPENCLAW_DOCKER_APT_PACKAGES="ffmpeg build-essential"
 
 Ghi chú:
 
-- Nhận danh sách tên gói apt, phân tách bằng dấu cách.
+- **Đóng gói phụ thuộc hệ thống vào image** (lặp lại được + bền vững):
 - Nếu bạn thay đổi `OPENCLAW_DOCKER_APT_PACKAGES`, hãy chạy lại `docker-setup.sh` để build lại
   image.
 
@@ -167,9 +188,10 @@ user. This keeps the attack surface small, but it means:
 - không có Homebrew mặc định
 - không kèm trình duyệt Chromium/Playwright
 
-Nếu bạn muốn container đầy đủ tính năng hơn, hãy dùng các tùy chọn opt-in sau:
+Nếu bạn cần Playwright cài phụ thuộc hệ thống, hãy build lại image với
+`OPENCLAW_DOCKER_APT_PACKAGES` thay vì dùng `--with-deps` lúc runtime.
 
-1. **Lưu `/home/node`** để các bản tải trình duyệt và cache công cụ được giữ lại:
+1. **Lưu các bản tải trình duyệt Playwright**:
 
 ```bash
 export OPENCLAW_HOME_VOLUME="openclaw_home"
@@ -190,8 +212,7 @@ docker compose run --rm openclaw-cli \
   node /app/node_modules/playwright-core/cli.js install chromium
 ```
 
-Nếu bạn cần Playwright cài phụ thuộc hệ thống, hãy build lại image với
-`OPENCLAW_DOCKER_APT_PACKAGES` thay vì dùng `--with-deps` lúc runtime.
+Nếu bạn chọn chạy dưới root cho tiện lợi, bạn chấp nhận đánh đổi về bảo mật.
 
 4. **Lưu các bản tải trình duyệt Playwright**:
 
@@ -205,7 +226,7 @@ Nếu bạn cần Playwright cài phụ thuộc hệ thống, hãy build lại i
 The image runs as `node` (uid 1000). If you see permission errors on
 `/home/node/.openclaw`, make sure your host bind mounts are owned by uid 1000.
 
-Ví dụ (host Linux):
+Dùng container CLI để cấu hình kênh, rồi khởi động lại gateway nếu cần.
 
 ```bash
 sudo chown -R 1000:1000 /path/to/openclaw-config /path/to/openclaw-workspace
@@ -248,7 +269,7 @@ CMD ["node","dist/index.js"]
 
 ### Thiết lập kênh (tùy chọn)
 
-Dùng container CLI để cấu hình kênh, rồi khởi động lại gateway nếu cần.
+Tài liệu: [WhatsApp](/channels/whatsapp), [Telegram](/channels/telegram), [Discord](/channels/discord)
 
 WhatsApp (QR):
 
@@ -311,11 +332,11 @@ When `agents.defaults.sandbox` is enabled, **non-main sessions** run tools insid
 container. The gateway stays on your host, but the tool execution is isolated:
 
 - phạm vi: `"agent"` theo mặc định (một container + workspace cho mỗi tác tử)
-- phạm vi: `"session"` để cô lập theo từng phiên
-- thư mục workspace theo phạm vi được mount tại `/workspace`
-- quyền truy cập workspace tác tử tùy chọn (`agents.defaults.sandbox.workspaceAccess`)
-- chính sách cho phép/từ chối công cụ (từ chối được ưu tiên)
-- media đầu vào được sao chép vào workspace sandbox đang hoạt động (`media/inbound/*`) để công cụ có thể đọc (với `workspaceAccess: "rw"`, nội dung này nằm trong workspace tác tử)
+- Mỗi tác tử một container
+- Quyền truy cập workspace tác tử: `workspaceAccess: "none"` (mặc định) dùng `~/.openclaw/sandboxes`
+- Tự động dọn dẹp: nhàn rỗi > 24h HOẶC tuổi > 7 ngày
+- Mạng: `none` theo mặc định (chỉ bật khi bạn cần egress)
+- Cho phép mặc định: `exec`, `process`, `read`, `write`, `edit`, `sessions_list`, `sessions_history`, `sessions_send`, `sessions_spawn`, `session_status`
 
 Warning: `scope: "shared"` disables cross-session isolation. All sessions share
 one container and one workspace.
@@ -330,8 +351,9 @@ mixed access levels in one gateway:
 - Công cụ chỉ đọc + workspace chỉ đọc (tác tử gia đình/công việc)
 - Không có công cụ filesystem/shell (tác tử công khai)
 
-Xem [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) để biết ví dụ,
-thứ tự ưu tiên và xử lý sự cố.
+Các nút tăng cường bảo mật nằm dưới `agents.defaults.sandbox.docker`:
+`network`, `user`, `pidsLimit`, `memory`, `memorySwap`, `cpus`, `ulimits`,
+`seccompProfile`, `apparmorProfile`, `dns`, `extraHosts`.
 
 ### Hành vi mặc định
 
@@ -347,7 +369,7 @@ thứ tự ưu tiên và xử lý sự cố.
 
 ### Bật sandboxing
 
-Nếu bạn dự định cài gói trong `setupCommand`, lưu ý:
+Lệnh này build `openclaw-sandbox:bookworm-slim` dùng `Dockerfile.sandbox`.
 
 - `docker.network` mặc định là `"none"` (không egress).
 - `readOnlyRoot: true` chặn việc cài gói.
@@ -430,7 +452,7 @@ Các nút tăng cường bảo mật nằm dưới `agents.defaults.sandbox.dock
 scripts/sandbox-setup.sh
 ```
 
-Lệnh này build `openclaw-sandbox:bookworm-slim` dùng `Dockerfile.sandbox`.
+Để chạy công cụ trình duyệt trong sandbox, hãy build image trình duyệt:
 
 ### Image sandbox dùng chung (tùy chọn)
 
@@ -454,7 +476,7 @@ This builds `openclaw-sandbox-common:bookworm-slim`. To use it:
 
 ### Image sandbox cho trình duyệt
 
-Để chạy công cụ trình duyệt trong sandbox, hãy build image trình duyệt:
+Image trình duyệt tùy chỉnh:
 
 ```bash
 scripts/sandbox-browser-setup.sh
@@ -498,8 +520,8 @@ Image trình duyệt tùy chỉnh:
 
 Khi bật, tác tử nhận được:
 
-- URL điều khiển trình duyệt sandbox (cho công cụ `browser`)
-- URL noVNC (nếu bật và headless=false)
+- `deny` được ưu tiên hơn `allow`.
+- Nếu `allow` trống: tất cả công cụ (trừ deny) đều khả dụng.
 
 Remember: if you use an allowlist for tools, add `browser` (and remove it from
 deny) or the tool remains blocked.
@@ -523,13 +545,13 @@ docker build -t my-openclaw-sbx -f Dockerfile.sandbox .
 }
 ```
 
-### Chính sách công cụ (cho phép/từ chối)
+### Ghi chú bảo mật
 
-- `deny` được ưu tiên hơn `allow`.
-- Nếu `allow` trống: tất cả công cụ (trừ deny) đều khả dụng.
-- Nếu `allow` không trống: chỉ các công cụ trong `allow` khả dụng (trừ deny).
+- Hàng rào cứng chỉ áp dụng cho **công cụ** (exec/read/write/edit/apply_patch).
+- Công cụ chỉ chạy trên host như browser/camera/canvas bị chặn theo mặc định.
+- Cho phép `browser` trong sandbox **phá vỡ cô lập** (trình duyệt chạy trên host).
 
-### Chiến lược dọn dẹp
+### Xử lý sự cố
 
 Hai nút:
 
@@ -559,5 +581,3 @@ Ví dụ:
   sources `/etc/profile` and may reset PATH. Set `docker.env.PATH` to prepend your
   custom tool paths (e.g., `/custom/bin:/usr/local/share/npm-global/bin`), or add
   a script under `/etc/profile.d/` in your Dockerfile.
-
-

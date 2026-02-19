@@ -1,4 +1,9 @@
 ---
+summary: "„Notatki badawcze: system pamięci offline dla obszarów roboczych Clawd (Markdown jako źródło prawdy + indeks pochodny)”"
+read_when:
+  - Projektowanie pamięci obszaru roboczego (~/.openclaw/workspace) poza dziennymi logami Markdown
+  - Deciding: "Decyzja: samodzielne CLI vs głęboka integracja z OpenClaw"
+  - Dodawanie przywoływania offline + refleksji (retain/recall/reflect)
 title: "„Badania nad pamięcią obszaru roboczego”"
 ---
 
@@ -221,5 +226,3 @@ Jeśli chcesz minimalną, a nadal użyteczną wersję:
 - Koncepcje Letta / MemGPT: „core memory blocks” + „archival memory” + pamięć samoredagująca sterowana narzędziami.
 - Raport techniczny Hindsight: „retain / recall / reflect”, pamięć czterosieciowa, ekstrakcja faktów narracyjnych, ewolucja pewności opinii.
 - SuCo: arXiv 2411.14754 (2024): „Subspace Collision” – przybliżone wyszukiwanie najbliższych sąsiadów.
-
-

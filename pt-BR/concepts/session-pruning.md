@@ -1,4 +1,10 @@
-------
+---
+title: "Poda de sessão"
+summary: "Poda de sessão: corte de resultados de ferramentas para reduzir o inchaço de contexto"
+read_when:
+  - Você quer reduzir o crescimento de contexto do LLM a partir de saídas de ferramentas
+  - Você está ajustando agents.defaults.contextPruning
+---
 
 # Poda de sessão
 
@@ -115,5 +121,3 @@ Restringir a poda a ferramentas específicas:
 ```
 
 Veja a referência de configuração: [Gateway Configuration](/gateway/configuration)
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "CLI حوالہ برائے `openclaw devices` (ڈیوائس جوڑی بنانا + ٹوکن کی گردش/منسوخی)"
+read_when:
+  - آپ ڈیوائس جوڑی بنانے کی درخواستوں کی منظوری دے رہے ہوں
+  - آپ کو ڈیوائس ٹوکنز کی گردش یا منسوخی درکار ہو
 title: "ڈیوائسز"
 ---
 
@@ -57,12 +61,10 @@ openclaw devices revoke --device <deviceId> --role node
 - `--timeout <ms>`: RPC ٹائم آؤٹ۔
 - `--json`: JSON آؤٹ پٹ (اسکرپٹنگ کے لیے سفارش کردہ)۔
 
-نوٹ: جب آپ `--url` سیٹ کرتے ہیں تو CLI کنفیگ یا ماحولیاتی اسناد کی طرف رجوع نہیں کرتا۔
+Note: when you set `--url`, the CLI does not fall back to config or environment credentials.
 Pass `--token` or `--password` explicitly. Missing explicit credentials is an error.
 
 ## نوٹس
 
-- ٹوکن روٹیشن ایک نیا ٹوکن (حساس) واپس کرتی ہے۔ اسے راز کی طرح محفوظ رکھیں۔
+- Token rotation returns a new token (sensitive). Treat it like a secret.
 - ان کمانڈز کے لیے `operator.pairing` (یا `operator.admin`) اسکوپ درکار ہے۔
-
-

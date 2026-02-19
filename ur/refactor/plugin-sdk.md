@@ -1,4 +1,8 @@
 ---
+summary: "منصوبہ: تمام میسجنگ کنیکٹرز کے لیے ایک صاف پلگ اِن SDK + رَن ٹائم"
+read_when:
+  - پلگ اِن آرکیٹیکچر کی تعریف یا ریفیکٹرنگ کرتے وقت
+  - چینل کنیکٹرز کو پلگ اِن SDK/رَن ٹائم پر منتقل کرتے وقت
 title: "پلگ اِن SDK ریفیکٹر"
 ---
 
@@ -208,5 +212,3 @@ export type PluginRuntime = {
 - بیرونی پلگ اِنز کور سورس تک رسائی کے بغیر تیار اور اپ ڈیٹ کیے جا سکیں۔
 
 متعلقہ دستاویزات: [Plugins](/tools/plugin), [Channels](/channels/index), [Configuration](/gateway/configuration)۔
-
-

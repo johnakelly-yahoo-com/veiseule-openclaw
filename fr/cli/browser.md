@@ -1,4 +1,9 @@
 ---
+summary: "Reference CLI pour `openclaw browser` (profils, onglets, actions, relais d’extension)"
+read_when:
+  - Vous utilisez `openclaw browser` et souhaitez des exemples pour les taches courantes
+  - Vous voulez controler un navigateur s’executant sur une autre machine via un hote de nœud
+  - Vous voulez utiliser le relais de l’extension Chrome (attacher/detacher via le bouton de la barre d’outils)
 title: "navigateur"
 ---
 
@@ -47,7 +52,7 @@ Utiliser un profil specifique :
 openclaw browser --browser-profile work tabs
 ```
 
-## Onglets
+## Tabs
 
 ```bash
 openclaw browser tabs
@@ -58,7 +63,7 @@ openclaw browser close <targetId>
 
 ## Instantane / capture d’ecran / actions
 
-Instantané :
+Snapshot:
 
 ```bash
 openclaw browser snapshot
@@ -100,5 +105,3 @@ Si la Gateway (passerelle) s’execute sur une machine differente de celle du na
 Utilisez `gateway.nodes.browser.mode` pour controler le routage automatique et `gateway.nodes.browser.node` pour epingler un nœud specifique si plusieurs sont connectes.
 
 Securite + configuration a distance : [Browser tool](/tools/browser), [Remote access](/gateway/remote), [Tailscale](/gateway/tailscale), [Security](/gateway/security)
-
-

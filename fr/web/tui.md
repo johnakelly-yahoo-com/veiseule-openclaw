@@ -1,4 +1,8 @@
 ---
+summary: "Interface utilisateur en terminal (TUI) : se connecter à la Gateway (passerelle) depuis n’importe quelle machine"
+read_when:
+  - Vous voulez un guide pas à pas pour débutants sur la TUI
+  - Vous avez besoin de la liste complète des fonctionnalités, commandes et raccourcis de la TUI
 title: "TUI"
 ---
 
@@ -156,5 +160,3 @@ Aucune sortie après l’envoi d’un message :
 - `disconnected` : assurez‑vous que la Gateway (passerelle) est en cours d’exécution et que vos `--url/--token/--password` sont corrects.
 - Aucun agent dans le sélecteur : vérifiez `openclaw agents list` et votre configuration de routage.
 - Sélecteur de session vide : vous êtes peut‑être en portée globale ou vous n’avez pas encore de sessions.
-
-

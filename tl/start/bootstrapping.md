@@ -1,11 +1,16 @@
 ---
+summary: "Ritwal ng bootstrapping ng agent na naglalagay ng paunang laman sa workspace at mga identity file"
+read_when:
+  - Pag-unawa kung ano ang nangyayari sa unang takbo ng agent
+  - Pagpapaliwanag kung saan nakaimbak ang mga bootstrapping file
+  - Pag-debug ng setup ng identity sa onboarding
 title: "Bootstrapping ng Agent"
 sidebarTitle: "Pag-bootstrapping"
 ---
 
 # Bootstrapping ng Agent
 
-Ang Bootstrapping ay ang **unang pagtakbo** na ritwal na naghahanda ng workspace ng agent at
+Bootstrapping is the **first‑run** ritual that prepares an agent workspace and
 collects identity details. It happens after onboarding, when the agent starts
 for the first time.
 
@@ -21,7 +26,7 @@ Sa unang takbo ng agent, bina-bootstrap ng OpenClaw ang workspace (default
 
 ## Saan ito tumatakbo
 
-Laging tumatakbo ang Bootstrapping sa **host ng gateway**. Kung kumokonekta ang macOS app sa
+Bootstrapping always runs on the **gateway host**. If the macOS app connects to
 a remote Gateway, the workspace and bootstrapping files live on that remote
 machine.
 
@@ -34,5 +39,3 @@ Kapag tumatakbo ang Gateway sa ibang makina, i-edit ang mga workspace file sa ho
 
 - Onboarding ng macOS app: [Onboarding](/start/onboarding)
 - Layout ng workspace: [Agent workspace](/concepts/agent-workspace)
-
-

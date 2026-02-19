@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw’da maxfiylikka yo‘naltirilgan Venice AI modellaridan foydalaning"
+read_when:
+  - You want privacy-focused inference in OpenClaw
+  - You want Venice AI setup guidance
 title: "Venice AI"
 ---
 
@@ -6,7 +10,7 @@ title: "Venice AI"
 
 **Venice** — bu maxfiylikni birinchi o‘ringa qo‘ygan inference uchun, xususiy modellarga ixtiyoriy anonim kirish imkoniyati bilan ta’minlangan, bizning tavsiya etilgan Venice sozlamamiz.
 
-Venice AI maxfiylikka yo‘naltirilgan AI inference xizmatini taqdim etadi, senzurasiz modellarni qo‘llab-quvvatlaydi va anonim proksi orqali yirik xususiy modellarga kirishni ta’minlaydi. Barcha inference jarayonlari sukut bo‘yicha maxfiy — ma’lumotlaringiz asosida o‘qitish yo‘q, log yuritilmaydi.
+Venice AI provides privacy-focused AI inference with support for uncensored models and access to major proprietary models through their anonymized proxy. All inference is private by default—no training on your data, no logging.
 
 ## Nega OpenClaw’da Venice
 
@@ -59,7 +63,7 @@ Venice offers two privacy levels — understanding this is key to choosing your 
 
 5. Bu quyidagilarni amalga oshiradi:
 
-1. 6. API kalitingizni so‘raydi (yoki mavjud `VENICE_API_KEY` dan foydalanadi)
+1. **Variant C: Interaktiv bo‘lmagan**
 2. 7. Mavjud barcha Venice modellarini ko‘rsatadi
 3. 8. Standart modelingizni tanlashga imkon beradi
 4. 9. Provayderni avtomatik sozlaydi
@@ -82,7 +86,7 @@ openclaw chat --model venice/llama-3.3-70b "Hello, are you working?"
 
 16. Sozlashdan so‘ng, OpenClaw barcha mavjud Venice modellarini ko‘rsatadi. 17. Ehtiyojlaringizga qarab tanlang:
 
-- **Sukut bo‘yicha (bizning tanlovimiz)**: shaxsiylik va muvozanatli unumdorlik uchun `venice/llama-3.3-70b`.
+- Standart modelingizni istalgan vaqtda o‘zgartiring:
 - 19. **Eng yuqori umumiy sifat**: `venice/claude-opus-45` — murakkab vazifalar uchun (Opus hanuzgacha eng kuchlisi).
 - 20. **Maxfiylik**: To‘liq maxfiy inferensiya uchun "private" modellarni tanlang.
 - 21. **Imkoniyat**: Venice’ning proksi xizmati orqali Claude, GPT, Gemini’dan foydalanish uchun "anonymized" modellarni tanlang.
@@ -108,16 +112,16 @@ openclaw models set venice/llama-3.3-70b
 
 ## 30) Qaysi modelni ishlatishim kerak?
 
-| 31. Foydalanish holati            | 32. Tavsiya etilgan model            | 33. Sababi                                                      |
-| -------------------------------------------------------- | ----------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| 34. **Umumiy chat**               | 35. `llama-3.3-70b`                  | 36. Har tomonlama yaxshi, to‘liq maxfiy                         |
-| 37. **Eng yuqori umumiy sifat**   | 38. `claude-opus-45`                 | 39. Opus murakkab vazifalar uchun hanuzgacha eng kuchlisi       |
-| 40. **Maxfiylik + Claude sifati** | 41. `claude-opus-45`                 | 42. Anonimlashtirilgan proksi orqali eng yaxshi mantiqiy xulosa |
-| 43. **Dasturlash**                | 44. `qwen3-coder-480b-a35b-instruct` | 45. Kodlash uchun optimallashtirilgan, 262k kontekst            |
-| 46. **Ko‘rish vazifalari**        | 47. `qwen3-vl-235b-a22b`             | 48. Eng yaxshi xususiy ko‘rish modeli                           |
-| 49. **Tsenzurasiz**               | 50. `venice-uncensored`              | No content restrictions                                                                |
-| **Fast + cheap**                                         | `qwen3-4b`                                                  | Lightweight, still capable                                                             |
-| **Complex reasoning**                                    | `deepseek-v3.2`                                             | Strong reasoning, private                                                              |
+| 31. Foydalanish holati            | 32. Tavsiya etilgan model | 33. Sababi                                                      |
+| -------------------------------------------------------- | ------------------------------------------------ | -------------------------------------------------------------------------------------- |
+| 34. **Umumiy chat**               | `llama-3.3-70b`                                  | 36. Har tomonlama yaxshi, to‘liq maxfiy                         |
+| 37. **Eng yuqori umumiy sifat**   | `claude-opus-45`                                 | 39. Opus murakkab vazifalar uchun hanuzgacha eng kuchlisi       |
+| 40. **Maxfiylik + Claude sifati** | `claude-opus-45`                                 | 42. Anonimlashtirilgan proksi orqali eng yaxshi mantiqiy xulosa |
+| 43. **Dasturlash**                | `qwen3-coder-480b-a35b-instruct`                 | 45. Kodlash uchun optimallashtirilgan, 262k kontekst            |
+| 46. **Ko‘rish vazifalari**        | `qwen3-vl-235b-a22b`                             | 48. Eng yaxshi xususiy ko‘rish modeli                           |
+| 49. **Tsenzurasiz**               | `venice-uncensored`                              | No content restrictions                                                                |
+| **Fast + cheap**                                         | `qwen3-4b`                                       | Lightweight, still capable                                                             |
+| **Complex reasoning**                                    | `deepseek-v3.2`                                  | Strong reasoning, private                                                              |
 
 ## Available Models (25 Total)
 
@@ -134,27 +138,27 @@ openclaw models set venice/llama-3.3-70b
 | `qwen3-next-80b`                 | Qwen3 Next 80B                             | 262k                                | General                       |
 | `qwen3-vl-235b-a22b`             | Qwen3 VL 235B                              | 262k                                | Vision                        |
 | `qwen3-4b`                       | Venice Small (Qwen3 4B) | 32k                                 | Fast, reasoning               |
-| `deepseek-v3.2`                  | DeepSeek V3.2              | 163k                                | Mantiqiy fikrlash             |
+| `deepseek-v3.2`                  | DeepSeek V3.2              | 163k                                | Reasoning                     |
 | `venice-uncensored`              | Venice Tsenzurasiz                         | 32k                                 | Tsenzurasiz                   |
-| `mistral-31-24b`                 | Venice O‘rta (Mistral)  | 131k                                | Ko‘rish                       |
-| `google-gemma-3-27b-it`          | Gemma 3 27B Instruct                       | 202k                                | Ko‘rish                       |
-| `openai-gpt-oss-120b`            | OpenAI GPT OSS 120B                        | 131k                                | Umumiy                        |
+| `mistral-31-24b`                 | Venice O‘rta (Mistral)  | 131k                                | Vision                        |
+| `google-gemma-3-27b-it`          | Gemma 3 27B Instruct                       | 202k                                | Vision                        |
+| `openai-gpt-oss-120b`            | OpenAI GPT OSS 120B                        | 131k                                | General                       |
 | `zai-org-glm-4.7`                | GLM 4.7                    | 202k                                | Mantiqiy fikrlash, ko‘p tilli |
 
 ### Anonimlashtirilgan modellar (10) — Venice proksi orqali
 
-| Model ID                 | Asl                               | Kontekst (tokenlar) | Xususiyatlar               |
-| ------------------------ | --------------------------------- | -------------------------------------- | -------------------------- |
-| `claude-opus-45`         | Claude Opus 4.5   | 202k                                   | Mantiqiy fikrlash, ko‘rish |
-| `claude-sonnet-45`       | Claude Sonnet 4.5 | 202k                                   | Mantiqiy fikrlash, ko‘rish |
-| `openai-gpt-52`          | GPT-5.2           | 262k                                   | Mantiqiy fikrlash          |
-| `openai-gpt-52-codex`    | GPT-5.2 Codex     | 262k                                   | Mantiqiy fikrlash, ko‘rish |
-| `gemini-3-pro-preview`   | Gemini 3 Pro                      | 202k                                   | Mantiqiy fikrlash, ko‘rish |
-| `gemini-3-flash-preview` | Gemini 3 Flash                    | 262k                                   | Mantiqiy fikrlash, ko‘rish |
-| `grok-41-fast`           | Grok 4.1 Fast     | 262k                                   | Mantiqiy fikrlash, ko‘rish |
-| `grok-code-fast-1`       | Grok Code Fast 1                  | 262k                                   | Mantiqiy fikrlash, kod     |
-| `kimi-k2-thinking`       | Kimi K2 Thinking                  | 262k                                   | Mantiqiy fikrlash          |
-| `minimax-m21`            | MiniMax M2.1      | 202k                                   | Mantiqiy fikrlash          |
+| Model ID                 | Asl                               | Context (tokens) | Features                   |
+| ------------------------ | --------------------------------- | ----------------------------------- | -------------------------- |
+| `claude-opus-45`         | Claude Opus 4.5   | 202k                                | Mantiqiy fikrlash, ko‘rish |
+| `claude-sonnet-45`       | Claude Sonnet 4.5 | 202k                                | Mantiqiy fikrlash, ko‘rish |
+| `openai-gpt-52`          | GPT-5.2           | 262k                                | Reasoning                  |
+| `openai-gpt-52-codex`    | GPT-5.2 Codex     | 262k                                | Mantiqiy fikrlash, ko‘rish |
+| `gemini-3-pro-preview`   | Gemini 3 Pro                      | 202k                                | Mantiqiy fikrlash, ko‘rish |
+| `gemini-3-flash-preview` | Gemini 3 Flash                    | 262k                                | Mantiqiy fikrlash, ko‘rish |
+| `grok-41-fast`           | Grok 4.1 Fast     | 262k                                | Mantiqiy fikrlash, ko‘rish |
+| `grok-code-fast-1`       | Grok Code Fast 1                  | 262k                                | Mantiqiy fikrlash, kod     |
+| `kimi-k2-thinking`       | Kimi K2 Thinking                  | 262k                                | Reasoning                  |
+| `minimax-m21`            | MiniMax M2.1      | 202k                                | Reasoning                  |
 
 ## Modelni aniqlash
 
@@ -261,5 +265,3 @@ Venice API is at `https://api.venice.ai/api/v1`. Ensure your network allows HTTP
 - [API Documentation](https://docs.venice.ai)
 - [Pricing](https://venice.ai/pricing)
 - [Status](https://status.venice.ai)
-
-

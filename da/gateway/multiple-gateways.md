@@ -1,4 +1,8 @@
 ---
+summary: "Kør flere OpenClaw Gateways på én vært (isolering, porte og profiler)"
+read_when:
+  - Kørsel af mere end én Gateway på den samme maskine
+  - Du skal have isoleret konfig/stat/porte per Gateway
 title: "Flere Gateways"
 ---
 
@@ -106,5 +110,3 @@ openclaw --profile main status
 openclaw --profile rescue status
 openclaw --profile rescue browser status
 ```
-
-

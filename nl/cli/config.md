@@ -1,4 +1,7 @@
 ---
+summary: "CLI-referentie voor `openclaw config` (configwaarden ophalen/instellen/verwijderen)"
+read_when:
+  - Je wilt config niet-interactief lezen of bewerken
 title: "config"
 ---
 
@@ -17,7 +20,7 @@ openclaw config set agents.list[0].tools.exec.node "node-id-or-name"
 openclaw config unset tools.web.search.apiKey
 ```
 
-## Paden
+## Paths
 
 Paden gebruiken punt- of haakjesnotatie:
 
@@ -33,7 +36,7 @@ openclaw config get agents.list
 openclaw config set agents.list[1].tools.exec.node "node-id-or-name"
 ```
 
-## Waarden
+## Values
 
 Waarden worden, waar mogelijk, als JSON5 geparseerd; anders worden ze als strings behandeld.
 Gebruik `--json` om JSON5-parsing af te dwingen.
@@ -45,5 +48,3 @@ openclaw config set channels.whatsapp.groups '["*"]' --json
 ```
 
 Herstart de Gateway na wijzigingen.
-
-

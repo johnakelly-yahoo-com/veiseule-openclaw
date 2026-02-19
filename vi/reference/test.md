@@ -1,4 +1,7 @@
 ---
+summary: "Cách chạy test cục bộ (vitest) và khi nào dùng các chế độ force/coverage"
+read_when:
+  - Chạy hoặc sửa test
 title: "Kiểm thử"
 ---
 
@@ -6,11 +9,13 @@ title: "Kiểm thử"
 
 - Bộ công cụ kiểm thử đầy đủ (suite, live, Docker): [Testing](/help/testing)
 
-- `pnpm test:force`: Chấm dứt mọi tiến trình gateway còn tồn tại đang chiếm cổng điều khiển mặc định, sau đó chạy toàn bộ bộ kiểm thử Vitest với một cổng gateway tách biệt để các kiểm thử server không bị xung đột với một phiên bản đang chạy. Sử dụng lệnh này khi một lần chạy gateway trước đó đã khiến cổng 18789 bị chiếm.
+- `pnpm test:force`: Kills any lingering gateway process holding the default control port, then runs the full Vitest suite with an isolated gateway port so server tests don’t collide with a running instance. Use this when a prior gateway run left port 18789 occupied.
 
-- `pnpm test:coverage`: Runs Vitest with V8 coverage. 4. Ngưỡng toàn cục là 70% cho lines/branches/functions/statements. Coverage excludes integration-heavy entrypoints (CLI wiring, gateway/telegram bridges, webchat static server) to keep the target focused on unit-testable logic.
+- `pnpm test:coverage`: Chạy bộ kiểm thử unit với V8 coverage (thông qua `vitest.unit.config.ts`). 4. Ngưỡng toàn cục là 70% cho lines/branches/functions/statements. Coverage excludes integration-heavy entrypoints (CLI wiring, gateway/telegram bridges, webchat static server) to keep the target focused on unit-testable logic.
 
-- `pnpm test:e2e`: Chạy các smoke test end-to-end của gateway (ghép cặp WS/HTTP/node đa instance).
+- `pnpm test` trên Node 24+: OpenClaw tự động tắt Vitest `vmForks` và sử dụng `forks` để tránh lỗi `ERR_VM_MODULE_LINK_FAILURE` / `module is already linked`. Bạn có thể ép buộc hành vi bằng `OPENCLAW_TEST_VM_FORKS=0|1`.
+
+- `pnpm test:e2e`: Chạy các smoke test end-to-end của gateway (ghép cặp WS/HTTP/node đa instance). Mặc định dùng `vmForks` + worker thích ứng trong `vitest.e2e.config.ts`; điều chỉnh bằng `OPENCLAW_E2E_WORKERS=<n>` và đặt `OPENCLAW_E2E_VERBOSE=1` để bật log chi tiết.
 
 - 5. `pnpm test:live`: Chạy các bài kiểm thử live của provider (minimax/zai). Requires API keys and `LIVE=1` (or provider-specific `*_LIVE_TEST=1`) to unskip.
 
@@ -48,5 +53,3 @@ Script này điều khiển trình hướng dẫn tương tác qua pseudo-tty, x
 ```bash
 pnpm test:docker:qr
 ```
-
-

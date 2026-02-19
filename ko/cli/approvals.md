@@ -1,4 +1,8 @@
 ---
+summary: "Gateway 또는 노드 호스트에 대한 exec 승인용 `openclaw approvals` CLI 레퍼런스"
+read_when:
+  - CLI 에서 exec 승인을 편집하려는 경우
+  - Gateway 또는 노드 호스트의 허용 목록을 관리해야 하는 경우
 title: "승인"
 ---
 
@@ -44,5 +48,3 @@ openclaw approvals allowlist remove "~/Projects/**/bin/rg"
 - `--agent` 의 기본값은 `"*"` 이며, 이는 모든 에이전트에 적용됩니다.
 - 노드 호스트는 `system.execApprovals.get/set` 을 광고해야 합니다 (macOS 앱 또는 헤드리스 노드 호스트).
 - 승인 파일은 호스트별로 `~/.openclaw/exec-approvals.json` 에 저장됩니다.
-
-

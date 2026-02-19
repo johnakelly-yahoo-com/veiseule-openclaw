@@ -1,4 +1,6 @@
 ---
+summary: "Linux’da OpenClaw brauzer boshqaruvi uchun Chrome/Brave/Edge/Chromium CDP ishga tushirish muammolarini tuzatish"
+read_when: "Linux’da brauzer boshqaruvi ishlamaydi, ayniqsa snap Chromium bilan"
 title: "Brauzer muammolarini bartaraf etish"
 ---
 
@@ -110,13 +112,13 @@ curl -s http://127.0.0.1:18791/tabs
 
 ### Konfiguratsiya ma’lumotnomasi
 
-| Parametr                   | Tavsif                                                                                                                  | Standart qiymat                                                                        |
+| Parametr                 | Tavsif                                                                                                                       | Standart qiymat                                                                |
 | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| `browser.enabled`        | Brauzer boshqaruvini yoqish                                                                                                       | `true`                                                                         |
+| `browser.enabled`        | Brauzer boshqaruvini yoqish                                                                                                  | `true`                                                                         |
 | `browser.executablePath` | 10. Chromium-ga asoslangan brauzer binar fayliga yo‘l (Chrome/Brave/Edge/Chromium) | auto-detected (prefers default browser when Chromium-based) |
 | `browser.headless`       | Run without GUI                                                                                                              | `false`                                                                        |
 | `browser.noSandbox`      | Add `--no-sandbox` flag (needed for some Linux setups)                                                    | `false`                                                                        |
-| `browser.attachOnly`     | Don't launch browser, only attach to existing                                                                                | 11. `false`                                             |
+| `browser.attachOnly`     | Don't launch browser, only attach to existing                                                                                | `false`                                                                        |
 | `browser.cdpPort`        | Chrome DevTools Protocol port                                                                                                | `18800`                                                                        |
 
 ### Problem: "Chrome extension relay is running, but no tab is connected"
@@ -135,5 +137,3 @@ Notes:
 
 - The `chrome` profile uses your **system default Chromium browser** when possible.
 - Local `openclaw` profiles auto-assign `cdpPort`/`cdpUrl`; only set those for remote CDP.
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "Referens: leverantörsspecifika regler för sanering och reparation av transkript"
+read_when:
+  - Du felsöker avvisningar av leverantörsförfrågningar kopplade till transkriptets form
+  - Du ändrar logik för sanering av transkript eller reparation av verktygsanrop
+  - Du utreder mismatch av verktygsanrops-id mellan leverantörer
 title: "Transkripthygien"
 ---
 
@@ -19,6 +24,7 @@ Omfattningen inkluderar:
 - Validering/ordning av turer
 - Rensning av tankesignaturer
 - Sanering av bildpayloads
+- Proveniensmärkning av användarinmatning (för promptar som routas mellan sessioner)
 
 Om du behöver detaljer om lagring av transkript, se:
 
@@ -69,9 +75,26 @@ Implementering:
 
 ## Leverantörsmatris (nuvarande beteende)
 
-**OpenAI / OpenAI Codex**
+När en agent skickar en prompt till en annan session via `sessions_send` (inklusive
+agent-till-agent-svar/meddelandesteg) sparar OpenClaw den skapade användarturen med:
 
 - Endast bildsanering.
+
+Denna metadata skrivs när transkriptet uppdateras och ändrar inte rollen
+(`role: "user"` förblir oförändrad för kompatibilitet med leverantörer). Transkriptläsare kan använda
+detta för att undvika att behandla routade interna promptar som instruktioner skrivna av en slutanvändare.
+
+Vid ombyggnad av kontext lägger OpenClaw också till en kort `[Inter-session message]`-
+markering till dessa användarturer i minnet så att modellen kan skilja dem från
+externa slutanvändarinstruktioner.
+
+---
+
+## Leverantörsmatris (nuvarande beteende)
+
+**OpenAI / OpenAI Codex**
+
+- Sanering av verktygsanrops‑id: strict9 (alfanumerisk längd 9).
 - Vid modellbyte till OpenAI Responses/Codex: ta bort föräldralösa resonemangssignaturer (fristående resonemangsobjekt utan efterföljande innehållsblock).
 - Ingen sanering av verktygsanrops‑id.
 - Ingen reparation av parning mellan verktygsresultat.
@@ -81,15 +104,15 @@ Implementering:
 
 **Google (Generative AI / Gemini CLI / Antigravity)**
 
-- Sanering av verktygsanrops‑id: strikt alfanumeriskt.
+- Rensning av tankesignaturer: ta bort icke‑base64‑värden för `thought_signature` (behåll base64).
 - Reparation av parning mellan verktygsanrop och verktygsresultat samt syntetiska verktygsresultat.
 - Turvalidering (Gemini‑stilad turväxling).
 - Fix för Googles turordning (lägg till en mycket liten användar‑bootstrap om historiken börjar med assistenten).
 - Antigravity Claude: normalisera tankesignaturer; ta bort osignerade tankeblock.
 
-**Anthropic / Minimax (Anthropic‑kompatibel)**
+**Allt annat**
 
-- Reparation av parning mellan verktygsresultat och syntetiska verktygsresultat.
+- Endast bildsanering.
 - Turvalidering (slå samman på varandra följande användarturer för att uppfylla strikt alternering).
 
 **Mistral (inklusive detektion baserad på modell‑id)**
@@ -98,7 +121,7 @@ Implementering:
 
 **OpenRouter Gemini**
 
-- Rensning av tankesignaturer: ta bort icke‑base64‑värden för `thought_signature` (behåll base64).
+- Ett **transcript-sanitize‑tillägg** kördes vid varje kontextbyggnad och kunde:
 
 **Allt annat**
 
@@ -122,5 +145,3 @@ Före version 2026.1.22 tillämpade OpenClaw flera lager av transkripthygien:
 Denna komplexitet orsakade cross-provider regressioner (särskilt `openai-responses`
 `call_id<unk> fc_id` parning). 2026.1.22 rensningen tog bort tillägget, centraliserad
 logik i löparen och gjorde OpenAI **no-touch** bortom bildsanering.
-
-

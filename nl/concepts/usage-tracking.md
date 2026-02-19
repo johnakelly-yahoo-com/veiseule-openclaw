@@ -1,4 +1,8 @@
 ---
+summary: "Volgoppervlakken voor gebruik en certificaatvereisten"
+read_when:
+  - Je koppelt provider-gebruiks-/quotoppervlakken
+  - Je moet het gedrag van gebruikstracking of authenticatievereisten uitleggen
 title: "Gebruik volgen"
 ---
 
@@ -29,5 +33,3 @@ title: "Gebruik volgen"
 - **z.ai**: API-sleutel via env/config/auth store.
 
 Gebruik wordt verborgen als er geen overeenkomende OAuth-/API-inloggegevens bestaan.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "CLI-Referenz für `openclaw status` (Diagnose, Probes, Nutzungs-Snapshots)"
+read_when:
+  - Sie möchten eine schnelle Diagnose der Kanal-Gesundheit und der jüngsten Sitzungs-Empfänger
+  - Sie möchten einen einfügbaren „all“-Status für das Debugging
 title: "Status"
 ---
 
@@ -20,5 +24,3 @@ Hinweise:
 - Der Überblick enthält den Installations-/Laufzeitstatus von Gateway + Node-Host-Dienst, sofern verfügbar.
 - Der Überblick enthält Update-Kanal + git-SHA (für Source-Checkouts).
 - Update-Informationen werden im Überblick angezeigt; wenn ein Update verfügbar ist, gibt der Status einen Hinweis aus, `openclaw update` auszuführen (siehe [Updating](/install/updating)).
-
-

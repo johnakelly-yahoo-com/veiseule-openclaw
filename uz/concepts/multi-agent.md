@@ -1,256 +1,118 @@
 ---
-title: Multi-Agent Routing
-status: active
+summary: "Ko‘p-agentli marshrutlash: ajratilgan agentlar, kanal akkauntlari va bog‘lamalar"
+title: Ko‘p-agentli marshrutlash
+read_when: "Siz bitta gateway jarayonida bir nechta ajratilgan agentlarni (ish maydonlari + auth) xohlaysiz."
+status: faol
 ---
 
-# Multi-Agent Routing
+# Ko‘p-agentli marshrutlash
 
-Goal: multiple _isolated_ agents (separate workspace + `agentDir` + sessions), plus multiple channel accounts (e.g. two WhatsApps) in one running Gateway. Inbound is routed to an agent via bindings.
+Maqsad: bitta ishlayotgan Gateway’da bir nechta _ajratilgan_ agentlar (alohida ish maydoni + `agentDir` + sessiyalar), shuningdek bir nechta kanal akkauntlari (masalan, ikkita WhatsApp). Kirish oqimi bog‘lamalar orqali agentga yo‘naltiriladi.
 
-## What is “one agent”?
+## “Bitta agent” nima?
 
-An **agent** is a fully scoped brain with its own:
+**Agent** — bu o‘ziga xos, to‘liq chegaralangan miya bo‘lib, quyidagilarga ega:
 
-- **Workspace** (files, AGENTS.md/SOUL.md/USER.md, local notes, persona rules).
-- **State directory** (`agentDir`) for auth profiles, model registry, and per-agent config.
-- **Session store** (chat history + routing state) under `~/.openclaw/agents/<agentId>/sessions`.
+- **Ish maydoni** (fayllar, AGENTS.md/SOUL.md/USER.md, mahalliy qaydlar, persona qoidalari).
+- **Holat katalogi** (`agentDir`) — auth profillari, model reyestri va har bir agent uchun sozlamalar.
+- **Sessiyalar ombori** (chat tarixi + marshrutlash holati) `~/.openclaw/agents/<agentId>/sessions` ostida.
 
-Auth profiles are **per-agent**. Each agent reads from its own:
+1. Auth profillari **har bir agent uchun alohida**. 2. Har bir agent o‘zining quyidagi manbasidan o‘qiydi:
 
 ```
-~/.openclaw/agents/<agentId>/agent/auth-profiles.json
+3. ~/.openclaw/agents/<agentId>/agent/auth-profiles.json
 ```
 
-Main agent credentials are **not** shared automatically. Never reuse `agentDir`
-across agents (it causes auth/session collisions). If you want to share creds,
-copy `auth-profiles.json` into the other agent's `agentDir`.
+4. Asosiy agent credentiallari avtomatik ravishda **ulashilmaydi**. 5. `agentDir` ni hech qachon qayta ishlatmang
+   agentlar o‘rtasida (bu auth/session to‘qnashuvlariga olib keladi). 6. Agar credentiallarni ulashmoqchi bo‘lsangiz,
+   `auth-profiles.json` faylini boshqa agentning `agentDir` ichiga nusxalang.
 
-Skills are per-agent via each workspace’s `skills/` folder, with shared skills
-available from `~/.openclaw/skills`. See [Skills: per-agent vs shared](/tools/skills#per-agent-vs-shared-skills).
+7. Skilllar har bir agent uchun alohida bo‘lib, har bir workspace’ning `skills/` papkasi orqali boshqariladi, umumiy skilllar esa
+   `~/.openclaw/skills` dan mavjud. 8. Qarang: [Skills: per-agent vs shared](/tools/skills#per-agent-vs-shared-skills).
 
-The Gateway can host **one agent** (default) or **many agents** side-by-side.
+9. Gateway **bitta agent**ni (default) yoki **bir nechta agent**ni yonma-yon joylashtirib ishlata oladi.
 
-**Workspace note:** each agent’s workspace is the **default cwd**, not a hard
-sandbox. Relative paths resolve inside the workspace, but absolute paths can
-reach other host locations unless sandboxing is enabled. See
-[Sandboxing](/gateway/sandboxing).
+10. **Workspace eslatmasi:** har bir agentning workspace’i **default cwd** hisoblanadi, qat’iy
+    sandbox emas. 11. Nisbiy yo‘llar workspace ichida yechiladi, ammo absolut yo‘llar
+    sandboxing yoqilmagan bo‘lsa, hostdagi boshqa joylarga yetib borishi mumkin. 12. Qarang
+    [Sandboxing](/gateway/sandboxing).
 
-## Paths (quick map)
+## 13. Yo‘llar (tezkor xarita)
 
-- Config: `~/.openclaw/openclaw.json` (or `OPENCLAW_CONFIG_PATH`)
-- State dir: `~/.openclaw` (or `OPENCLAW_STATE_DIR`)
-- Workspace: `~/.openclaw/workspace` (or `~/.openclaw/workspace-<agentId>`)
-- Agent dir: `~/.openclaw/agents/<agentId>/agent` (or `agents.list[].agentDir`)
+- 14. Config: `~/.openclaw/openclaw.json` (yoki `OPENCLAW_CONFIG_PATH`)
+- 15. State dir: `~/.openclaw` (yoki `OPENCLAW_STATE_DIR`)
+- 16. Workspace: `~/.openclaw/workspace` (yoki `~/.openclaw/workspace-<agentId>`)
+- 17. Agent dir: `~/.openclaw/agents/<agentId>/agent` (yoki `agents.list[].agentDir`)
 - Sessions: `~/.openclaw/agents/<agentId>/sessions`
 
-### Single-agent mode (default)
+### 19. Yakka-agent rejimi (default)
 
-If you do nothing, OpenClaw runs a single agent:
+20. Hech narsa qilmasangiz, OpenClaw bitta agentni ishga tushiradi:
 
-- `agentId` defaults to **`main`**.
-- Sessions are keyed as `agent:main:<mainKey>`.
-- Workspace defaults to `~/.openclaw/workspace` (or `~/.openclaw/workspace-<profile>` when `OPENCLAW_PROFILE` is set).
-- State defaults to `~/.openclaw/agents/main/agent`.
+- 21. `agentId` default bo‘yicha **`main`**.
+- 22. Sessionlar `agent:main:<mainKey>` sifatida kalitlanadi.
+- 23. Workspace default bo‘yicha `~/.openclaw/workspace` (yoki `OPENCLAW_PROFILE` o‘rnatilganda `~/.openclaw/workspace-<profile>`).
+- 24. State default bo‘yicha `~/.openclaw/agents/main/agent`.
 
-## Agent helper
+## 25. Agent yordamchisi
 
-Use the agent wizard to add a new isolated agent:
-
-```bash
-openclaw agents add work
-```
-
-Then add `bindings` (or let the wizard do it) to route inbound messages.
-
-Verify with:
+26. Yangi izolyatsiyalangan agent qo‘shish uchun agent wizard’dan foydalaning:
 
 ```bash
-openclaw agents list --bindings
+27. openclaw agents add work
 ```
 
-## Multiple agents = multiple people, multiple personalities
+28. So‘ngra kiruvchi xabarlarni yo‘naltirish uchun `bindings` qo‘shing (yoki wizard’ga buni avtomatik bajarishga ruxsat bering).
 
-With **multiple agents**, each `agentId` becomes a **fully isolated persona**:
+29. Tekshirish:
 
-- **Different phone numbers/accounts** (per channel `accountId`).
-- **Different personalities** (per-agent workspace files like `AGENTS.md` and `SOUL.md`).
-- **Separate auth + sessions** (no cross-talk unless explicitly enabled).
+```bash
+30. openclaw agents list --bindings
+```
 
-This lets **multiple people** share one Gateway server while keeping their AI “brains” and data isolated.
+## 31. Bir nechta agent = bir nechta odam, bir nechta shaxsiyat
 
-## One WhatsApp number, multiple people (DM split)
+32. **Bir nechta agent** bilan, har bir `agentId` **to‘liq izolyatsiyalangan persona**ga aylanadi:
 
-You can route **different WhatsApp DMs** to different agents while staying on **one WhatsApp account**. Match on sender E.164 (like `+15551234567`) with `peer.kind: "direct"`. Replies still come from the same WhatsApp number (no per‑agent sender identity).
+- 33. **Turli telefon raqamlari/akkauntlar** (har bir kanal uchun `accountId`).
+- 34. **Turli shaxsiyatlar** (har bir agent workspace’iga xos `AGENTS.md` va `SOUL.md` kabi fayllar).
+- 35. **Alohida auth + sessionlar** (aniq yoqilmaguncha o‘zaro aralashuv yo‘q).
 
-Important detail: direct chats collapse to the agent’s **main session key**, so true isolation requires **one agent per person**.
+36. Bu **bir nechta odam**ga bitta Gateway serverdan foydalanib, ularning AI “miyalari” va ma’lumotlarini izolyatsiya holatda saqlash imkonini beradi.
 
-Example:
+## 37. Bitta WhatsApp raqami, bir nechta odam (DM bo‘linishi)
 
-```json5
-{
-  agents: {
+38. **Turli WhatsApp DM**larni **bitta WhatsApp akkaunti**da qolgan holda turli agentlarga yo‘naltirishingiz mumkin. 44. {
+    agents: {
     list: [
-      { id: "alex", workspace: "~/.openclaw/workspace-alex" },
-      { id: "mia", workspace: "~/.openclaw/workspace-mia" },
+    { id: "alex", workspace: "~/.openclaw/workspace-alex" },
+    { id: "mia", workspace: "~/.openclaw/workspace-mia" },
     ],
-  },
-  bindings: [
+    },
+    bindings: [
     {
-      agentId: "alex",
-      match: { channel: "whatsapp", peer: { kind: "direct", id: "+15551230001" } },
+    agentId: "alex",
+    match: { channel: "whatsapp", peer: { kind: "direct", id: "+15551230001" } },
     },
     {
-      agentId: "mia",
-      match: { channel: "whatsapp", peer: { kind: "direct", id: "+15551230002" } },
+    agentId: "mia",
+    match: { channel: "whatsapp", peer: { kind: "direct", id: "+15551230002" } },
     },
-  ],
-  channels: {
+    ],
+    channels: {
     whatsapp: {
-      dmPolicy: "allowlist",
-      allowFrom: ["+15551230001", "+15551230002"],
+    dmPolicy: "allowlist",
+    allowFrom: ["+15551230001", "+15551230002"],
     },
-  },
-}
-```
-
-Notes:
-
-- DM access control is **global per WhatsApp account** (pairing/allowlist), not per agent.
-- For shared groups, bind the group to one agent or use [Broadcast groups](/channels/broadcast-groups).
-
-## Routing rules (how messages pick an agent)
-
-Bindings are **deterministic** and **most-specific wins**:
-
-1. `peer` match (exact DM/group/channel id)
-2. `parentPeer` match (thread inheritance)
-3. `guildId + roles` (Discord role routing)
-4. `guildId` (Discord)
-5. `teamId` (Slack)
-6. `accountId` match for a channel
-7. channel-level match (`accountId: "*"`)
-8. fallback to default agent (`agents.list[].default`, else first list entry, default: `main`)
-
-If a binding sets multiple match fields (for example `peer` + `guildId`), all specified fields are required (`AND` semantics).
-
-## Multiple accounts / phone numbers
-
-Channels that support **multiple accounts** (e.g. WhatsApp) use `accountId` to identify
-each login. Each `accountId` can be routed to a different agent, so one server can host
-multiple phone numbers without mixing sessions.
-
-## Concepts
-
-- `agentId`: one “brain” (workspace, per-agent auth, per-agent session store).
-- `accountId`: one channel account instance (e.g. WhatsApp account `"personal"` vs `"biz"`).
-- `binding`: routes inbound messages to an `agentId` by `(channel, accountId, peer)` and optionally guild/team ids.
-- Direct chats collapse to `agent:<agentId>:<mainKey>` (per-agent “main”; `session.mainKey`).
-
-## Example: two WhatsApps → two agents
-
-`~/.openclaw/openclaw.json` (JSON5):
-
-```js
-{
-  agents: {
-    list: [
-      {
-        id: "home",
-        default: true,
-        name: "Home",
-        workspace: "~/.openclaw/workspace-home",
-        agentDir: "~/.openclaw/agents/home/agent",
-      },
-      {
-        id: "work",
-        name: "Work",
-        workspace: "~/.openclaw/workspace-work",
-        agentDir: "~/.openclaw/agents/work/agent",
-      },
-    ],
-  },
-
-  // Deterministic routing: first match wins (most-specific first).
-  bindings: [
-    { agentId: "home", match: { channel: "whatsapp", accountId: "personal" } },
-    { agentId: "work", match: { channel: "whatsapp", accountId: "biz" } },
-
-    // Optional per-peer override (example: send a specific group to work agent).
-    {
-      agentId: "work",
-      match: {
-        channel: "whatsapp",
-        accountId: "personal",
-        peer: { kind: "group", id: "1203630...@g.us" },
-      },
     },
-  ],
+    } 39. Javoblar baribir bir xil WhatsApp raqamidan keladi (har bir agent uchun alohida yuboruvchi identifikatori yo‘q).
 
-  // Off by default: agent-to-agent messaging must be explicitly enabled + allowlisted.
-  tools: {
-    agentToAgent: {
-      enabled: false,
-      allow: ["home", "work"],
-    },
-  },
+40. Muhim tafsilot: to‘g‘ridan-to‘g‘ri chatlar agentning **asosiy session kaliti**ga birlashadi, shuning uchun haqiqiy izolyatsiya **har bir odam uchun bitta agent**ni talab qiladi.
 
-  channels: {
-    whatsapp: {
-      accounts: {
-        personal: {
-          // Optional override. Default: ~/.openclaw/credentials/whatsapp/personal
-          // authDir: "~/.openclaw/credentials/whatsapp/personal",
-        },
-        biz: {
-          // Optional override. Default: ~/.openclaw/credentials/whatsapp/biz
-          // authDir: "~/.openclaw/credentials/whatsapp/biz",
-        },
-      },
-    },
-  },
-}
-```
-
-## Example: WhatsApp daily chat + Telegram deep work
-
-Split by channel: route WhatsApp to a fast everyday agent and Telegram to an Opus agent.
+41. Misol:
 
 ```json5
-{
-  agents: {
-    list: [
-      {
-        id: "chat",
-        name: "Everyday",
-        workspace: "~/.openclaw/workspace-chat",
-        model: "anthropic/claude-sonnet-4-5",
-      },
-      {
-        id: "opus",
-        name: "Deep Work",
-        workspace: "~/.openclaw/workspace-opus",
-        model: "anthropic/claude-opus-4-6",
-      },
-    ],
-  },
-  bindings: [
-    { agentId: "chat", match: { channel: "whatsapp" } },
-    { agentId: "opus", match: { channel: "telegram" } },
-  ],
-}
-```
-
-Notes:
-
-- If you have multiple accounts for a channel, add `accountId` to the binding (for example `{ channel: "whatsapp", accountId: "personal" }`).
-- To route a single DM/group to Opus while keeping the rest on chat, add a `match.peer` binding for that peer; peer matches always win over channel-wide rules.
-
-## Example: same channel, one peer to Opus
-
-Keep WhatsApp on the fast agent, but route one DM to Opus:
-
-```json5
-{
+45. {
   agents: {
     list: [
       {
@@ -277,15 +139,95 @@ Keep WhatsApp on the fast agent, but route one DM to Opus:
 }
 ```
 
-Peer bindings always win, so keep them above the channel-wide rule.
+42. Eslatmalar:
 
-## Family agent bound to a WhatsApp group
+- 43. DM kirish nazorati **har bir WhatsApp akkaunti uchun global** (pairing/allowlist), agent bo‘yicha emas.
+- 44. Umumiy guruhlar uchun guruhni bitta agentga bog‘lang yoki [Broadcast groups](/channels/broadcast-groups) dan foydalaning.
 
-Bind a dedicated family agent to a single WhatsApp group, with mention gating
-and a tighter tool policy:
+## 45. Marshrutlash qoidalari (xabarlar agentni qanday tanlaydi)
+
+Har bir `accountId` alohida agentga yo‘naltirilishi mumkin, shuning uchun bitta server sessiyalarni aralashtirmasdan bir nechta telefon raqamlarini joylashtira oladi.
+
+1. 47. `peer` mosligi (aniq DM/guruh/kanal id)
+2. `parentPeer` mosligi (thread merosxo‘rligi)
+3. `guildId + roles` (Discord role marshrutlash)
+4. `guildId` (Discord)
+5. `teamId` (Slack)
+6. 50. Kanal uchun `accountId` mosligi
+7. 1. kanal darajasidagi moslash (`accountId: "*"`)
+8. 2. standart agentga qaytish (`agents.list[].default`, aks holda roʻyxatdagi birinchi element, standart: `main`)
+
+Agar binding bir nechta match maydonlarini belgilasa (masalan, `peer` + `guildId`), ko‘rsatilgan barcha maydonlar talab qilinadi (`AND` semantikasi).
+
+## 3. Bir nechta hisoblar / telefon raqamlari
+
+4. **Bir nechta hisoblarni** qoʻllab-quvvatlaydigan kanallar (masalan, WhatsApp) har bir loginni aniqlash uchun `accountId` dan foydalanadi. **Vektor o‘xshashligi** (semantik moslik, ifodalar farq qilishi mumkin)
+
+## 6. Tushunchalar
+
+- 7. `agentId`: bitta “miya” (ish maydoni, har-agent autentifikatsiyasi, har-agent seanslar ombori).
+- 8. `accountId`: kanal hisobining bitta nusxasi (masalan, WhatsApp hisobi "personal" va "biz").
+- 9. `binding`: kiruvchi xabarlarni `(channel, accountId, peer)` va ixtiyoriy ravishda guild/jamoa IDlari orqali `agentId` ga yoʻnaltiradi.
+- 10. Toʻgʻridan-toʻgʻri chatlar `agent:<agentId>:<mainKey>` ga yigʻiladi (har-agent uchun “main”; `session.mainKey`).
+
+## 11. Misol: ikkita WhatsApp → ikkita agent
+
+`~/.openclaw/openclaw.json` (JSON5):
+
+```js
+46. Tur bo‘yicha alohida sozlamalar (ixtiyoriy): `resetByType` `direct`, `group` va `thread` sessiyalari uchun siyosatni almashtirish imkonini beradi (thread = Slack/Discord tarmoqlari, Telegram mavzulari, Matrix tarmoqlari — konnektor taqdim etsa).
+```
+
+## 14. Misol: WhatsApp kundalik chat + Telegram chuqur ish
+
+`~/.openclaw/openclaw.json` (JSON5):
 
 ```json5
-{
+16. {
+  agents: {
+    list: [
+      {
+        id: "chat",
+        name: "Everyday",
+        workspace: "~/.openclaw/workspace-chat",
+        model: "anthropic/claude-sonnet-4-5",
+      },
+      {
+        id: "opus",
+        name: "Deep Work",
+        workspace: "~/.openclaw/workspace-opus",
+        model: "anthropic/claude-opus-4-6",
+      },
+    ],
+  },
+  bindings: [
+    { agentId: "chat", match: { channel: "whatsapp" } },
+    { agentId: "opus", match: { channel: "telegram" } },
+  ],
+}
+```
+
+Kanal bo‘yicha ajrating: WhatsApp’ni tezkor kundalik agentga, Telegram’ni esa Opus agentiga yo‘naltiring.
+
+- Eslatmalar:
+- 19. Qolganlarini chatda qoldirib, bitta DM/guruhni Opus’ga yo‘naltirish uchun o‘sha peer uchun `match.peer` binding qo‘shing; peer mosliklari har doim kanal darajasidagi qoidalardan ustun keladi.
+
+## 20. Misol: bir xil kanal, bitta peer Opus’ga
+
+21. WhatsApp’ni tezkor agentda qoldiring, lekin bitta DM’ni Opus’ga yo‘naltiring:
+
+```json5
+46. Tur bo‘yicha alohida sozlamalar (ixtiyoriy): `resetByType` `direct`, `group` va `thread` sessiyalari uchun siyosatni almashtirish imkonini beradi (thread = Slack/Discord tarmoqlari, Telegram mavzulari, Matrix tarmoqlari — konnektor taqdim etsa).
+```
+
+Eslatmalar:
+
+## 23. WhatsApp guruhiga bog‘langan oila agenti
+
+24. Bitta WhatsApp guruhiga maxsus oila agentini bog‘lang, mention gating va yanada qat’iyroq tool siyosati bilan:
+
+```json5
+25. {
   agents: {
     list: [
       {
@@ -327,43 +269,41 @@ and a tighter tool policy:
 }
 ```
 
-Notes:
+26. Eslatmalar:
 
-- Tool allow/deny lists are **tools**, not skills. If a skill needs to run a
-  binary, ensure `exec` is allowed and the binary exists in the sandbox.
-- For stricter gating, set `agents.list[].groupChat.mentionPatterns` and keep
-  group allowlists enabled for the channel.
+- Peer bog‘lanishlari har doim ustun turadi, shuning uchun ularni kanal bo‘yicha umumiy qoidadan yuqorida saqlang. 28. Agar skill binar faylni ishga tushirishi kerak bo‘lsa, `exec` ruxsat etilganligiga va binar sandbox’da mavjudligiga ishonch hosil qiling.
+- 29. Yanada qat’iy gating uchun `agents.list[].groupChat.mentionPatterns` ni sozlang va kanal uchun guruh allowlist’larini yoqilgan holda saqlang.
 
-## Per-Agent Sandbox and Tool Configuration
+## 30. Har-Agent Sandbox va Tool konfiguratsiyasi
 
-Starting with v2026.1.6, each agent can have its own sandbox and tool restrictions:
+31. v2026.1.6 dan boshlab, har bir agent o‘z sandbox’i va tool cheklovlariga ega bo‘lishi mumkin:
 
 ```js
-{
+32. {
   agents: {
     list: [
       {
         id: "personal",
         workspace: "~/.openclaw/workspace-personal",
         sandbox: {
-          mode: "off",  // No sandbox for personal agent
+          mode: "off",  // personal agent uchun sandbox yo‘q
         },
-        // No tool restrictions - all tools available
+        // Tool cheklovlari yo‘q - barcha tool’lar mavjud
       },
       {
         id: "family",
         workspace: "~/.openclaw/workspace-family",
         sandbox: {
-          mode: "all",     // Always sandboxed
-          scope: "agent",  // One container per agent
+          mode: "all",     // Har doim sandbox’da
+          scope: "agent",  // Har bir agent uchun alohida konteyner
           docker: {
-            // Optional one-time setup after container creation
+            // Konteyner yaratilgandan keyin bir martalik ixtiyoriy sozlash
             setupCommand: "apt-get update && apt-get install -y git curl",
           },
         },
         tools: {
-          allow: ["read"],                    // Only read tool
-          deny: ["exec", "write", "edit", "apply_patch"],    // Deny others
+          allow: ["read"],                    // Faqat read tool
+          deny: ["exec", "write", "edit", "apply_patch"],    // Qolganlarini taqiqlash
         },
       },
     ],
@@ -371,21 +311,17 @@ Starting with v2026.1.6, each agent can have its own sandbox and tool restrictio
 }
 ```
 
-Note: `setupCommand` lives under `sandbox.docker` and runs once on container creation.
-Per-agent `sandbox.docker.*` overrides are ignored when the resolved scope is `"shared"`.
+33. Eslatma: `setupCommand` `sandbox.docker` ostida joylashadi va konteyner yaratilganda bir marta ishga tushadi.
+34. Agar yakuniy scope `"shared"` bo‘lsa, har-agent `sandbox.docker.*` override’lari e’tiborga olinmaydi.
 
-**Benefits:**
+35. **Afzalliklar:**
 
-- **Security isolation**: Restrict tools for untrusted agents
-- **Resource control**: Sandbox specific agents while keeping others on host
-- **Flexible policies**: Different permissions per agent
+- 36. **Xavfsizlik izolyatsiyasi**: ishonchsiz agentlar uchun tool’larni cheklash
+- 37. **Resurslarni boshqarish**: ayrim agentlarni sandbox’da, boshqalarini esa host’da qoldirish
+- 38. **Moslashuvchan siyosatlar**: har agent uchun turli ruxsatlar
 
-Note: `tools.elevated` is **global** and sender-based; it is not configurable per agent.
-If you need per-agent boundaries, use `agents.list[].tools` to deny `exec`.
-For group targeting, use `agents.list[].groupChat.mentionPatterns` so @mentions map cleanly to the intended agent.
+39. Eslatma: `tools.elevated` **global** va yuboruvchi asosida ishlaydi; uni har agent uchun sozlab bo‘lmaydi.
+40. Agar har-agent chegaralari kerak bo‘lsa, `agents.list[].tools` dan foydalanib `exec` ni taqiqlang.
+41. Guruhni nishonga olish uchun `agents.list[].groupChat.mentionPatterns` dan foydalaning, shunda @mention’lar to‘g‘ri agentga aniq mos keladi.
 
-See [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) for detailed examples.
-
-
-
-{/* v2 */}
+42. Batafsil misollar uchun [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) sahifasiga qarang.

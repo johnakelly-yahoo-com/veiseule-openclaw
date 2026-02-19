@@ -1,4 +1,9 @@
 ---
+summary: "Emparejamiento de nodos propiedad del Gateway (Opción B) para iOS y otros nodos remotos"
+read_when:
+  - Implementación de aprobaciones de emparejamiento de nodos sin UI de macOS
+  - Adición de flujos de CLI para aprobar nodos remotos
+  - Extensión del protocolo del Gateway con gestión de nodos
 title: "Emparejamiento propiedad del Gateway"
 ---
 
@@ -92,5 +97,3 @@ Notas de seguridad:
 - El transporte es **sin estado**; no almacena la membresía.
 - Si el Gateway está fuera de línea o el emparejamiento está deshabilitado, los nodos no pueden emparejarse.
 - Si el Gateway está en modo remoto, el emparejamiento sigue ocurriendo contra el almacén del Gateway remoto.
-
-

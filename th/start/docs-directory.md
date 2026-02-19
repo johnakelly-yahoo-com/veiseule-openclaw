@@ -1,13 +1,14 @@
 ---
+summary: "ลิงก์ที่คัดสรรไปยังเอกสาร OpenClaw ที่ใช้งานบ่อยที่สุด"
+read_when:
+  - คุณต้องการเข้าถึงหน้าเอกสารสำคัญอย่างรวดเร็ว
 title: "ไดเรกทอรีเอกสาร"
 ---
 
 <Note>
 This page is a curated index. If you are new, start with [Getting Started](/start/getting-started).
-
 หน้านี้เป็นดัชนีที่คัดสรรไว้ หากคุณเป็นผู้ใช้ใหม่ ให้เริ่มที่ [Getting Started](/start/getting-started)
 สำหรับแผนที่เอกสารทั้งหมด โปรดดู [Docs hubs](/start/hubs)
-
 </Note>
 
 ## เริ่มต้นที่นี่
@@ -62,5 +63,3 @@ This page is a curated index. If you are new, start with [Getting Started](/star
 - [Gmail hooks (Pub/Sub)](/automation/gmail-pubsub)
 - [Security](/gateway/security)
 - [การแก้ไขปัญหา](/gateway/troubleshooting)
-
-

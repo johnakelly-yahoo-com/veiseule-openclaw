@@ -1,4 +1,8 @@
 ---
+summary: "Ajanlar, zarflar ve istemler için saat dilimi işleme"
+read_when:
+  - Model için zaman damgalarının nasıl normalize edildiğini anlamanız gerektiğinde
+  - Sistem istemleri için kullanıcı saat dilimini yapılandırırken
 title: "Saat Dilimleri"
 ---
 
@@ -38,7 +42,7 @@ Bunu şu şekilde geçersiz kılabilirsiniz:
 
 ### Örnekler
 
-**Yerel (varsayılan):**
+**Local (default):**
 
 ```
 [Signal Alice +1555 2026-01-18 00:19 PST] hello
@@ -85,5 +89,3 @@ Sistem istemi şunları içerir:
 İstem biçimini `agents.defaults.timeFormat` ile kontrol edebilirsiniz (`auto` | `12` | `24`).
 
 Tüm davranış ve örnekler için [Date & Time](/date-time) bölümüne bakın.
-
-

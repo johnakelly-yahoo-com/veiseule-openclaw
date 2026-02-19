@@ -1,4 +1,7 @@
 ---
+summary: "Integración de la API de Bots de Telegram mediante grammY con notas de configuración"
+read_when:
+  - Trabajando en rutas de Telegram o grammY
 title: grammY
 ---
 
@@ -18,7 +21,7 @@ title: grammY
 - **Soporte de webhook:** `webhook-set.ts` envuelve `setWebhook/deleteWebhook`; `webhook.ts` aloja el callback con salud + apagado gradual. El Gateway habilita el modo webhook cuando se establecen `channels.telegram.webhookUrl` + `channels.telegram.webhookSecret` (de lo contrario usa long-poll).
 - **Sesiones:** los chats directos se colapsan en la sesión principal del agente (`agent:<agentId>:<mainKey>`); los grupos usan `agent:<agentId>:telegram:group:<chatId>`; las respuestas regresan al mismo canal.
 - **Perillas de configuración:** `channels.telegram.botToken`, `channels.telegram.dmPolicy`, `channels.telegram.groups` (lista de permitidos + valores predeterminados de menciones), `channels.telegram.allowFrom`, `channels.telegram.groupAllowFrom`, `channels.telegram.groupPolicy`, `channels.telegram.mediaMaxMb`, `channels.telegram.linkPreview`, `channels.telegram.proxy`, `channels.telegram.webhookSecret`, `channels.telegram.webhookUrl`.
-- **Streaming de borradores:** el `channels.telegram.streamMode` opcional usa `sendMessageDraft` en chats de temas privados (API de Bots 9.3+). Esto es independiente del streaming por bloques del canal.
+- **Vista previa de transmisión en vivo:** `channels.telegram.streamMode` opcional envía un mensaje temporal y lo actualiza con `editMessageText`. Esto es independiente del streaming por bloques del canal.
 - **Pruebas:** los mocks de grammY cubren el control de menciones en mensajes directos y grupos, y el envío saliente; aún se agradecen más fixtures de medios/webhooks.
 
 Preguntas abiertas
@@ -26,5 +29,3 @@ Preguntas abiertas
 - Plugins opcionales de grammY (limitador) si encontramos errores 429 de la API de Bots.
 - Agregar más pruebas estructuradas de medios (stickers, notas de voz).
 - Hacer configurable el puerto de escucha del webhook (actualmente fijo en 8787 a menos que se conecte a través del Gateway).
-
-

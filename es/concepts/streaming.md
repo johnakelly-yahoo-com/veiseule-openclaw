@@ -1,4 +1,9 @@
 ---
+summary: "Comportamiento de streaming + fragmentación (respuestas por bloques, streaming de borradores, límites)"
+read_when:
+  - Explicar cómo funciona el streaming o la fragmentación en los canales
+  - Cambiar el streaming por bloques o el comportamiento de fragmentación por canal
+  - Depurar respuestas por bloques duplicadas/anticipadas o streaming de borradores
 title: "Streaming y fragmentación"
 ---
 
@@ -104,17 +109,17 @@ Recordatorio de ubicación de configuración: los valores predeterminados de `bl
 
 Telegram es el único canal con streaming de borradores:
 
-- Usa la API de Bot `sendMessageDraft` en **chats privados con temas**.
+- Usa la API de Bot `sendMessage` (primera actualización) + `editMessageText` (actualizaciones posteriores).
 - `channels.telegram.streamMode: "partial" | "block" | "off"`.
   - `partial`: actualizaciones del borrador con el texto más reciente del stream.
   - `block`: actualizaciones del borrador en bloques fragmentados (mismas reglas del fragmentador).
   - `off`: sin streaming de borradores.
 - Configuración de fragmentos del borrador (solo para `streamMode: "block"`): `channels.telegram.draftChunk` (valores predeterminados: `minChars: 200`, `maxChars: 800`).
-- El streaming de borradores es independiente del streaming por bloques; las respuestas por bloques están desactivadas por defecto y solo se habilitan mediante `*.blockStreaming: true` en canales que no son Telegram.
-- La respuesta final sigue siendo un mensaje normal.
+- La transmisión en streaming de vista previa es independiente de la transmisión de bloques.
+- Cuando el streaming de borradores está activo, OpenClaw desactiva el streaming por bloques para esa respuesta para evitar doble streaming.
+- Los finales solo de texto se aplican editando el mensaje de vista previa en el mismo lugar.
+- Los finales no textuales o complejos recurren a la entrega normal del mensaje final.
 - `/reasoning stream` escribe el razonamiento en la burbuja de borrador (solo Telegram).
-
-Cuando el streaming de borradores está activo, OpenClaw desactiva el streaming por bloques para esa respuesta para evitar doble streaming.
 
 ```
 Telegram (private + topics)
@@ -126,7 +131,5 @@ Telegram (private + topics)
 
 Leyenda:
 
-- `sendMessageDraft`: burbuja de borrador de Telegram (no es un mensaje real).
-- `final reply`: envío normal de mensaje de Telegram.
-
-
+- `preview message`: mensaje temporal de Telegram que se actualiza durante la generación.
+- `final edit`: edición en el mismo lugar sobre el mismo mensaje de vista previa (solo texto).

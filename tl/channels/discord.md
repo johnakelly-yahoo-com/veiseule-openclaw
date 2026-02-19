@@ -1,4 +1,7 @@
 ---
+summary: "Katayuan ng suporta ng Discord bot, mga kakayahan, at konpigurasyon"
+read_when:
+  - Gumagawa sa mga feature ng Discord channel
 title: "Discord"
 ---
 
@@ -6,141 +9,35 @@ title: "Discord"
 
 Status: handa para sa DM at mga guild text channel sa pamamagitan ng opisyal na Discord bot gateway.
 
-## Quick setup (beginner)
+<CardGroup cols={3}>
+  <Card title="Pairing" icon="link" href="/channels/pairing">
+    Cross-channel diagnostics at daloy ng pag-aayos.
+  
+</Card>
+  <Card title="Slash commands" icon="terminal" href="/tools/slash-commands">Mabilis na setup
+</Card>
+  <Card title="Channel troubleshooting" icon="wrench" href="/channels/troubleshooting">
+    Gumawa ng application sa Discord Developer Portal, magdagdag ng bot, pagkatapos ay i-enable:
+- **Message Content Intent**
+- **Server Members Intent** (kinakailangan para sa mga role allowlist at role-based routing; inirerekomenda para sa name-to-ID allowlist matching)
+</Card>
+</CardGroup>
 
-1. Gumawa ng Discord bot at kopyahin ang bot token.
-2. Sa mga setting ng Discord app, i-enable ang **Message Content Intent** (at **Server Members Intent** kung balak mong gumamit ng mga allowlist o name lookup).
-3. Itakda ang token para sa OpenClaw:
-   - Env: `DISCORD_BOT_TOKEN=...`
-   - O config: `channels.discord.token: "..."`.
-   - Kapag parehong naka-set, mas nauuna ang config (ang env fallback ay para lang sa default-account).
-4. I-invite ang bot sa iyong server na may mga pahintulot sa mensahe (gumawa ng private server kung DM lang ang gusto mo).
-5. Simulan ang gateway.
-6. Ang DM access ay pairing by default; aprubahan ang pairing code sa unang contact.
+## Env fallback para sa default account:
 
-Minimal na config:
+<Steps>
+  <Step title="Create a Discord bot and enable intents">
+    Create an application in the Discord Developer Portal, add a bot, then enable:
 
-```json5
-{
-  channels: {
-    discord: {
-      enabled: true,
-      token: "YOUR_BOT_TOKEN",
-    },
-  },
-}
-```
+    ```
+    - **Message Content Intent**
+    - **Server Members Intent** (required for role allowlists and role-based routing; recommended for name-to-ID allowlist matching)
+    ```
 
-## Mga layunin
+  
+</Step>
 
-- Makipag-usap sa OpenClaw sa pamamagitan ng Discord DMs o mga guild channel.
-- Ang mga direct chat ay pinagsasama sa pangunahing session ng agent (default `agent:main:main`); ang mga guild channel ay nananatiling hiwalay bilang `agent:<agentId>:discord:channel:<channelId>` (ang mga display name ay gumagamit ng `discord:<guildSlug>#<channelSlug>`).
-- Ang mga group DM ay binabalewala by default; i-enable sa pamamagitan ng `channels.discord.dm.groupEnabled` at opsyonal na higpitan gamit ang `channels.discord.dm.groupChannels`.
-- Panatilihing deterministiko ang routing: ang mga reply ay laging bumabalik sa channel kung saan sila dumating.
-
-## Paano ito gumagana
-
-1. Gumawa ng Discord application → Bot, i-enable ang mga intent na kailangan mo (DMs + guild messages + message content), at kunin ang bot token.
-2. I-invite ang bot sa iyong server na may mga pahintulot na kailangan para magbasa/magpadala ng mga mensahe kung saan mo ito gagamitin.
-3. I-configure ang OpenClaw gamit ang `channels.discord.token` (o `DISCORD_BOT_TOKEN` bilang fallback).
-4. Patakbuhin ang gateway; awtomatiko nitong sinisimulan ang Discord channel kapag may available na token (config muna, env fallback) at ang `channels.discord.enabled` ay hindi `false`.
-   - Kung mas gusto mo ang env vars, itakda ang `DISCORD_BOT_TOKEN` (opsyonal ang config block).
-5. Direct chats: use `user:<id>` (or a `<@id>` mention) when delivering; all turns land in the shared `main` session. Bare numeric IDs are ambiguous and rejected.
-6. Guild channels: use `channel:<channelId>` for delivery. Mentions are required by default and can be set per guild or per channel.
-7. Direct chats: secure by default via `channels.discord.dm.policy` (default: `"pairing"`). Unknown senders get a pairing code (expires after 1 hour); approve via `openclaw pairing approve discord <code>`.
-   - Para panatilihin ang lumang “open to anyone” na behavior: itakda ang `channels.discord.dm.policy="open"` at `channels.discord.dm.allowFrom=["*"]`.
-   - Para sa mahigpit na allowlist: itakda ang `channels.discord.dm.policy="allowlist"` at ilista ang mga sender sa `channels.discord.dm.allowFrom`.
-   - Para balewalain ang lahat ng DM: itakda ang `channels.discord.dm.enabled=false` o `channels.discord.dm.policy="disabled"`.
-8. Ang mga group DM ay binabalewala by default; i-enable sa pamamagitan ng `channels.discord.dm.groupEnabled` at opsyonal na higpitan gamit ang `channels.discord.dm.groupChannels`.
-9. Opsyonal na guild rules: itakda ang `channels.discord.guilds` na naka-key sa guild id (mas gusto) o slug, na may per-channel na mga patakaran.
-10. Optional native commands: `commands.native` defaults to `"auto"` (on for Discord/Telegram, off for Slack). Override with `channels.discord.commands.native: true|false|"auto"`; `false` clears previously registered commands. Text commands are controlled by `commands.text` and must be sent as standalone `/...` messages. Use `commands.useAccessGroups: false` to bypass access-group checks for commands.
-    - Buong listahan ng command + config: [Slash commands](/tools/slash-commands)
-11. Optional guild context history: set `channels.discord.historyLimit` (default 20, falls back to `messages.groupChat.historyLimit`) to include the last N guild messages as context when replying to a mention. Set `0` to disable.
-12. Reactions: maaaring mag-trigger ang agent ng mga reaction sa pamamagitan ng `discord` tool (nakagated ng `channels.discord.actions.*`).
-    - Semantics ng pag-alis ng reaction: tingnan ang [/tools/reactions](/tools/reactions).
-    - Ang `discord` tool ay inilalantad lamang kapag ang kasalukuyang channel ay Discord.
-13. Ang mga native command ay gumagamit ng hiwalay na session key (`agent:<agentId>:discord:slash:<userId>`) sa halip na ang pinagsasaluhang `main` session.
-
-Note: Name → id resolution uses guild member search and requires Server Members Intent; if the bot can’t search members, use ids or `<@id>` mentions.
-Note: Slugs are lowercase with spaces replaced by `-`. Channel names are slugged without the leading `#`.
-Note: Guild context `[from:]` lines include `author.tag` + `id` to make ping-ready replies easy.
-
-## Config writes
-
-By default, pinapayagan ang Discord na magsulat ng mga update sa config na na-trigger ng `/config set|unset` (nangangailangan ng `commands.config: true`).
-
-I-disable gamit ang:
-
-```json5
-{
-  channels: { discord: { configWrites: false } },
-}
-```
-
-## Paano gumawa ng sarili mong bot
-
-Ito ang setup ng “Discord Developer Portal” para patakbuhin ang OpenClaw sa isang server (guild) channel tulad ng `#help`.
-
-### 1. Gumawa ng Discord app + bot user
-
-1. Discord Developer Portal → **Applications** → **New Application**
-2. Sa iyong app:
-   - **Bot** → **Add Bot**
-   - Kopyahin ang **Bot Token** (ito ang inilalagay mo sa `DISCORD_BOT_TOKEN`)
-
-### 2) I-enable ang mga gateway intent na kailangan ng OpenClaw
-
-Hinaharangan ng Discord ang mga “privileged intents” maliban kung tahasan mong i-enable ang mga ito.
-
-Sa **Bot** → **Privileged Gateway Intents**, i-enable ang:
-
-- **Message Content Intent** (kinakailangan para mabasa ang text ng mensahe sa karamihan ng guild; kung wala nito makikita mo ang “Used disallowed intents” o kokonekta ang bot pero hindi tutugon sa mga mensahe)
-- **Server Members Intent** (inirerekomenda; kinakailangan para sa ilang member/user lookup at allowlist matching sa mga guild)
-
-You usually do **not** need **Presence Intent**. Setting the bot's own presence (`setPresence` action) uses gateway OP3 and does not require this intent; it is only needed if you want to receive presence updates about other guild members.
-
-### 3. Bumuo ng invite URL (OAuth2 URL Generator)
-
-Sa iyong app: **OAuth2** → **URL Generator**
-
-**Scopes**
-
-- ✅ `bot`
-- ✅ `applications.commands` (kinakailangan para sa native commands)
-
-**Bot Permissions** (minimal na baseline)
-
-- ✅ View Channels
-- ✅ Send Messages
-- ✅ Read Message History
-- ✅ Embed Links
-- ✅ Attach Files
-- ✅ Add Reactions (opsyonal ngunit inirerekomenda)
-- ✅ Use External Emojis / Stickers (opsyonal; kung gusto mo lang ang mga ito)
-
-Iwasan ang **Administrator** maliban kung nagde-debug ka at lubos mong pinagkakatiwalaan ang bot.
-
-Kopyahin ang nabuong URL, buksan ito, piliin ang iyong server, at i-install ang bot.
-
-### 4. Kunin ang mga id (guild/user/channel)
-
-Gumagamit ang Discord ng mga numeric id sa lahat ng dako; mas gusto ng OpenClaw config ang mga id.
-
-1. Discord (desktop/web) → **User Settings** → **Advanced** → i-enable ang **Developer Mode**
-2. Right-click:
-   - Pangalan ng server → **Copy Server ID** (guild id)
-   - Channel (hal. `#help`) → **Copy Channel ID**
-   - Ang iyong user → **Copy User ID**
-
-### 5) I-configure ang OpenClaw
-
-#### Token
-
-Itakda ang bot token sa pamamagitan ng env var (inirerekomenda sa mga server):
-
-- `DISCORD_BOT_TOKEN=...`
-
-O sa pamamagitan ng config:
+  <Step title="Configure token">
 
 ```json5
 {
@@ -153,156 +50,379 @@ O sa pamamagitan ng config:
 }
 ```
 
-Suporta sa multi-account: gamitin ang `channels.discord.accounts` na may per-account na mga token at opsyonal na `name`. See [`gateway/configuration`](/gateway/configuration#telegramaccounts--discordaccounts--slackaccounts--signalaccounts--imessageaccounts) for the shared pattern.
+    ```
+    Env fallback for the default account:
+    ```
 
-#### Allowlist + channel routing
+```bash
+DISCORD_BOT_TOKEN=...
+```
 
-Halimbawa ng “isang server lang, ako lang ang papayagan, #help lang ang papayagan”:
+  
+</Step>
+
+  <Step title="Invite the bot and start gateway">
+    Imbitahan ang bot sa iyong server na may pahintulot sa mga mensahe.
+
+```bash
+openclaw gateway
+```
+
+  
+</Step>
+
+  <Step title="Approve first DM pairing">
+
+```bash
+openclaw pairing list discord
+openclaw pairing approve discord <CODE>
+```
+
+    ```
+    Ang mga pairing code ay mag-e-expire pagkatapos ng 1 oras.
+    ```
+
+  
+</Step>
+</Steps>
+
+<Note>
+Ang token resolution ay nakabatay sa account. Ang mga halaga ng config token ang masusunod kaysa sa env fallback. Ang `DISCORD_BOT_TOKEN` ay ginagamit lamang para sa default na account.
+</Note>
+
+## Runtime model
+
+- Ang Gateway ang may kontrol sa koneksyon ng Discord.
+- Deterministiko ang reply routing: ang mga inbound reply mula sa Discord ay babalik din sa Discord.
+- Bilang default (`session.dmScope=main`), ang mga direct chat ay nagbabahagi ng main session ng agent (`agent:main:main`).
+- Ang mga Guild channel ay may hiwa-hiwalay na session key (`agent:<agentId>:discord:channel:<channelId>`).
+- Ang mga Group DM ay hindi pinapansin bilang default (`channels.discord.dm.groupEnabled=false`).
+- Ang mga native slash command ay tumatakbo sa hiwalay na command session (`agent:<agentId>:discord:slash:<userId>`), habang dala pa rin ang `CommandTargetSessionKey` papunta sa na-route na session ng pag-uusap.
+
+## Access control at routing
+
+<Tabs>
+  <Tab title="DM policy">
+    Kinokontrol ng `channels.discord.dmPolicy` ang DM access (legacy: `channels.discord.dm.policy`):
+
+    ```
+    - `pairing` (default)
+    - `allowlist`
+    - `open` (nangangailangan na isama ng `channels.discord.allowFrom` ang `"*"`; legacy: `channels.discord.dm.allowFrom`)
+    - `disabled`
+    
+    Kung ang DM policy ay hindi open, ang mga hindi kilalang user ay iba-block (o ipo-prompt para sa pairing sa `pairing` mode).
+    
+    DM target format para sa delivery:
+    
+    - `user:<id>`
+    - `<@id>` mention
+    
+    Ang mga numeric ID lamang ay itinuturing na ambiguous at tinatanggihan maliban kung may malinaw na user/channel target kind na ibinigay.
+    ```
+
+  
+</Tab>
+
+  <Tab title="Guild policy">
+    Ang paghawak sa Guild ay kinokontrol ng `channels.discord.groupPolicy`:
+
+    ```
+    - `open`
+    - `allowlist`
+    - `disabled`
+    
+    Ang secure na baseline kapag may `channels.discord` ay `allowlist`.
+    
+    Pag-uugali ng `allowlist`:
+    
+    - ang guild ay dapat tumugma sa `channels.discord.guilds` (`id` ang mas mainam, tinatanggap ang slug)
+    - opsyonal na sender allowlist: `users` (mga ID o pangalan) at `roles` (mga role ID lamang); kung alinman ang naka-configure, pinapayagan ang sender kapag tumugma sa `users` O `roles`
+    - kung ang isang guild ay may naka-configure na `channels`, ang mga channel na wala sa listahan ay tatanggihan
+    - kung ang isang guild ay walang `channels` block, lahat ng channel sa allowlisted guild na iyon ay pinapayagan
+    
+    Halimbawa:
+    ```
 
 ```json5
 {
   channels: {
     discord: {
-      enabled: true,
-      dm: { enabled: false },
+      groupPolicy: "allowlist",
       guilds: {
-        YOUR_GUILD_ID: {
-          users: ["YOUR_USER_ID"],
+        "123456789012345678": {
           requireMention: true,
+          users: ["987654321098765432"],
+          roles: ["123456789012345678"],
           channels: {
+            general: { allow: true },
             help: { allow: true, requireMention: true },
           },
         },
       },
-      retry: {
-        attempts: 3,
-        minDelayMs: 500,
-        maxDelayMs: 30000,
-        jitter: 0.1,
-      },
     },
   },
 }
 ```
 
-Mga tala:
+    ```
+    Kung `DISCORD_BOT_TOKEN` lamang ang itinakda mo at hindi ka gumawa ng `channels.discord` block, ang runtime fallback ay `groupPolicy="open"` (may kasamang babala sa logs).
+    ```
 
-- Ang `requireMention: true` ay nangangahulugang sasagot lang ang bot kapag nabanggit (inirerekomenda para sa mga shared channel).
-- Ang `agents.list[].groupChat.mentionPatterns` (o `messages.groupChat.mentionPatterns`) ay binibilang din bilang mga mention para sa mga guild message.
-- Multi-agent override: magtakda ng per-agent pattern sa `agents.list[].groupChat.mentionPatterns`.
-- Kapag naroon ang `channels`, anumang channel na hindi nakalista ay tinatanggihan by default.
-- Gumamit ng `"*"` na channel entry para mag-apply ng mga default sa lahat ng channel; ang mga explicit channel entry ay nag-o-override sa wildcard.
-- Threads inherit parent channel config (allowlist, `requireMention`, skills, prompts, etc.) unless you add the thread channel id explicitly.
-- Owner hint: when a per-guild or per-channel `users` allowlist matches the sender, OpenClaw treats that sender as the owner in the system prompt. For a global owner across channels, set `commands.ownerAllowFrom`.
-- Ang mga mensaheng gawa ng bot ay binabalewala by default; itakda ang `channels.discord.allowBots=true` para payagan ang mga ito (ang sariling mensahe ay mananatiling filtered).
-- Warning: If you allow replies to other bots (`channels.discord.allowBots=true`), prevent bot-to-bot reply loops with `requireMention`, `channels.discord.guilds.*.channels.<id>.users` allowlists, and/or clear guardrails in `AGENTS.md` and `SOUL.md`.
+  
+</Tab>
 
-### 6. I-verify na gumagana ito
+  <Tab title="Mentions and group DMs">
+    Ang mga mensahe sa Guild ay nangangailangan ng mention bilang default.
 
-1. Simulan ang gateway.
-2. Sa iyong server channel, ipadala: `@Krill hello` (o kung ano man ang pangalan ng iyong bot).
-3. Kung walang nangyari: tingnan ang **Troubleshooting** sa ibaba.
+    ```
+    Kasama sa mention detection ang:
+    
+    - tahasang pag-mention sa bot
+    - mga naka-configure na mention pattern (`agents.list[].groupChat.mentionPatterns`, fallback `messages.groupChat.mentionPatterns`)
+    - implicit na pag-reply sa bot sa mga suportadong kaso
+    
+    Ang `requireMention` ay kino-configure bawat guild/channel (`channels.discord.guilds...`).
+    
+    Group DMs:
+    
+    - default: hindi pinapansin (`dm.groupEnabled=false`)
+    - opsyonal na allowlist sa pamamagitan ng `dm.groupChannels` (mga channel ID o slug)
+    ```
 
-### Troubleshooting
+  
+</Tab>
+</Tabs>
 
-- Una: patakbuhin ang `openclaw doctor` at `openclaw channels status --probe` (actionable warnings + quick audits).
-- **“Used disallowed intents”**: i-enable ang **Message Content Intent** (at malamang **Server Members Intent**) sa Developer Portal, pagkatapos ay i-restart ang gateway.
-- **Kumokonekta ang bot pero hindi kailanman sumasagot sa isang guild channel**:
-  - Nawawala ang **Message Content Intent**, o
-  - Kulang ang pahintulot ng bot sa channel (View/Send/Read History), o
-  - Nangangailangan ng mention ang iyong config at hindi mo ito binanggit, o
-  - Tinatanggihan ng iyong guild/channel allowlist ang channel/user.
-- **`requireMention: false` pero wala pa ring mga reply**:
-- `channels.discord.groupPolicy` defaults to **allowlist**; set it to `"open"` or add a guild entry under `channels.discord.guilds` (optionally list channels under `channels.discord.guilds.<id>.channels` to restrict).
-  - If you only set `DISCORD_BOT_TOKEN` and never create a `channels.discord` section, the runtime
-    defaults `groupPolicy` to `open`. Add `channels.discord.groupPolicy`,
-    `channels.defaults.groupPolicy`, or a guild/channel allowlist to lock it down.
-- `requireMention` must live under `channels.discord.guilds` (or a specific channel). `channels.discord.requireMention` at the top level is ignored.
-- **Permission audits** (`channels status --probe`) only check numeric channel IDs. If you use slugs/names as `channels.discord.guilds.*.channels` keys, the audit can’t verify permissions.
-- **Hindi gumagana ang mga DM**: `channels.discord.dm.enabled=false`, `channels.discord.dm.policy="disabled"`, o hindi ka pa naaprubahan (`channels.discord.dm.policy="pairing"`).
-- **Exec approvals in Discord**: Discord supports a **button UI** for exec approvals in DMs (Allow once / Always allow / Deny). `/approve <id> ...` is only for forwarded approvals and won’t resolve Discord’s button prompts. 1. Kung makita mo ang `❌ Failed to submit approval: Error: unknown approval id` o hindi kailanman lumitaw ang UI, suriin ang:
-  - Ang `channels.discord.execApprovals.enabled: true` sa iyong config.
-  - Ang iyong Discord user ID ay nakalista sa `channels.discord.execApprovals.approvers` (ang UI ay ipinapadala lang sa mga approver).
-  - Gamitin ang mga button sa DM prompt (**Allow once**, **Always allow**, **Deny**).
-  - Tingnan ang [Exec approvals](/tools/exec-approvals) at [Slash commands](/tools/slash-commands) para sa mas malawak na daloy ng approvals at command.
+### Role-based na pag-route ng agent
 
-## Mga kakayahan at limitasyon
+Gamitin ang `bindings[].match.roles` upang i-route ang mga miyembro ng Discord guild sa iba’t ibang agent batay sa role ID. Ang mga role-based binding ay tumatanggap lamang ng mga role ID at sinusuri pagkatapos ng peer o parent-peer binding at bago ang guild-only binding. Kung ang isang binding ay nagtakda rin ng iba pang match field (halimbawa `peer` + `guildId` + `roles`), lahat ng naka-configure na field ay dapat tumugma.
 
-- DMs at mga guild text channel (ang mga thread ay itinuturing na hiwalay na mga channel; hindi suportado ang voice).
-- Ang mga typing indicator ay ipinapadala sa best-effort; ang message chunking ay gumagamit ng `channels.discord.textChunkLimit` (default 2000) at hinahati ang mahahabang reply ayon sa bilang ng linya (`channels.discord.maxLinesPerMessage`, default 17).
-- Opsyonal na newline chunking: itakda ang `channels.discord.chunkMode="newline"` para hatiin sa mga blank line (mga hangganan ng talata) bago ang length chunking.
-- Sinusuportahan ang file upload hanggang sa naka-configure na `channels.discord.mediaMaxMb` (default 8 MB).
-- Mention-gated ang mga guild reply by default para maiwasan ang maingay na mga bot.
-- Ang reply context ay ini-inject kapag ang isang mensahe ay tumutukoy sa isa pang mensahe (quoted content + ids).
-- Ang native reply threading ay **off by default**; i-enable gamit ang `channels.discord.replyToMode` at mga reply tag.
+```json5
+{
+  bindings: [
+    {
+      agentId: "opus",
+      match: {
+        channel: "discord",
+        guildId: "123456789012345678",
+        roles: ["111111111111111111"],
+      },
+    },
+    {
+      agentId: "sonnet",
+      match: {
+        channel: "discord",
+        guildId: "123456789012345678",
+      },
+    },
+  ],
+}
+```
+
+## Setup ng Developer Portal
+
+<AccordionGroup>
+  <Accordion title="Create app and bot">
+
+    ```
+    1. Discord Developer Portal -> **Applications** -> **New Application**
+    2. **Bot** -> **Add Bot**
+    3. Kopyahin ang bot token
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Privileged intents">
+    Sa **Bot -> Privileged Gateway Intents**, i-enable ang:
+
+    ```
+    - Message Content Intent
+    - Server Members Intent (inirerekomenda)
+    
+    Ang Presence intent ay opsyonal at kinakailangan lamang kung nais mong makatanggap ng mga update sa presence. Ang pagtatakda ng bot presence (`setPresence`) ay hindi nangangailangan ng pag-enable ng presence updates para sa mga miyembro.
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="OAuth scopes and baseline permissions">
+    OAuth URL generator:
+
+    ```
+    - scopes: `bot`, `applications.commands`
+    
+    Karaniwang baseline na mga pahintulot:
+    
+    - View Channels
+    - Send Messages
+    - Read Message History
+    - Embed Links
+    - Attach Files
+    - Add Reactions (opsyonal)
+    
+    Iwasan ang `Administrator` maliban kung tahasang kinakailangan.
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Copy IDs">
+    I-enable ang Discord Developer Mode, pagkatapos ay kopyahin ang:
+
+    ```
+    - server ID
+    - channel ID
+    - user ID
+    
+    Mas mainam ang paggamit ng mga numeric ID sa OpenClaw config para sa mas maaasahang audit at probes.
+    ```
+
+  
+</Accordion>
+</AccordionGroup>
+
+## Mga native na command at command auth
+
+- Ang `commands.native` ay naka-default sa `"auto"` at naka-enable para sa Discord.
+- Per-channel override: `channels.discord.commands.native`.
+- Ang `commands.native=false` ay tahasang nag-aalis ng mga dati nang nairehistrong Discord native command.
+- Ang native command auth ay gumagamit ng parehong Discord allowlists/policies tulad ng karaniwang paghawak ng mensahe.
+- Maaaring makita pa rin ang mga command sa Discord UI ng mga user na hindi awtorisado; gayunpaman, ang pagpapatupad ay patuloy na nagpapatupad ng OpenClaw auth at magbabalik ng "not authorized".
+
+Tingnan ang [Slash commands](/tools/slash-commands) para sa katalogo at pag-uugali ng command.
 
 ## Retry policy
 
-2. Ang mga outbound Discord API call ay muling sinusubukan kapag may rate limit (429) gamit ang Discord `retry_after` kapag available, na may exponential backoff at jitter. 3. I-configure sa pamamagitan ng `channels.discord.retry`. 4. Tingnan ang [Retry policy](/concepts/retry).
+<AccordionGroup>
+  <Accordion title="Reply tags and native replies">
+    Sinusuportahan ng Discord ang reply tags sa output ng agent:
 
-## Config
+    ```
+    - `[[reply_to_current]]`
+    - `[[reply_to:<id>]]`
+    
+    Kinokontrol ng `channels.discord.replyToMode`:
+    
+    - `off` (default)
+    - `first`
+    - `all`
+    
+    Tandaan: Ang `off` ay nagdi-disable ng implicit reply threading. Ang mga tahasang `[[reply_to_*]]` tag ay patuloy na sinusunod.
+    
+    Ang mga Message ID ay inilalabas sa context/history upang ma-target ng mga agent ang partikular na mensahe.
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="History, context, and thread behavior">
+    Guild history context:
+
+    ```
+    - `channels.discord.historyLimit` default `20`
+    - fallback: `messages.groupChat.historyLimit`
+    - `0` disables
+    
+    Mga kontrol sa DM history:
+    
+    - `channels.discord.dmHistoryLimit`
+    - `channels.discord.dms["<user_id>"].historyLimit`
+    
+    Thread behavior:
+    
+    - Ang mga Discord thread ay niruruta bilang mga channel session
+    - maaaring gamitin ang parent thread metadata para sa parent-session linkage
+    - ang thread config ay nagmamana ng parent channel config maliban kung may thread-specific entry
+    
+    Ang mga topic ng channel ay ini-inject bilang **untrusted** na context (hindi bilang system prompt).
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Reaction notifications">
+    Per-guild reaction notification mode:
+
+    ```
+    - `off`
+    - `own` (default)
+    - `all`
+    - `allowlist` (gumagamit ng `guilds.<id>.users`)
+    
+    Ang mga reaction event ay ginagawang system event at ikinakabit sa nirutang Discord session.
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Ack reactions">
+    Ang `ackReaction` ay nagpapadala ng acknowledgement emoji habang pinoproseso ng OpenClaw ang isang papasok na mensahe.
+
+    ```
+    Resolution order:
+    
+    - `channels.discord.accounts.<accountId>.ackReaction`
+    - `channels.discord.ackReaction`
+    - `messages.ackReaction`
+    - fallback na emoji ng agent identity (`agents.list[].identity.emoji`, kung wala ay "👀")
+    
+    Mga Tala:
+    
+    - Tumatanggap ang Discord ng unicode emoji o custom emoji names.
+    - Gamitin ang `""` upang i-disable ang reaction para sa isang channel o account.
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Config writes">
+    Ang mga config write na sinimulan ng channel ay naka-enable bilang default.
+
+    ```
+    Nakakaapekto ito sa mga daloy ng `/config set|unset` (kapag naka-enable ang mga feature ng command).
+    
+    I-disable:
+    ```
 
 ```json5
 {
   channels: {
     discord: {
-      enabled: true,
-      token: "abc.123",
-      groupPolicy: "allowlist",
-      guilds: {
-        "*": {
-          channels: {
-            general: { allow: true },
-          },
-        },
-      },
-      mediaMaxMb: 8,
-      actions: {
-        reactions: true,
-        stickers: true,
-        emojiUploads: true,
-        stickerUploads: true,
-        polls: true,
-        permissions: true,
-        messages: true,
-        threads: true,
-        pins: true,
-        search: true,
-        memberInfo: true,
-        roleInfo: true,
-        roles: false,
-        channelInfo: true,
-        channels: true,
-        voiceStatus: true,
-        events: true,
-        moderation: false,
-        presence: false,
-      },
-      replyToMode: "off",
-      dm: {
-        enabled: true,
-        policy: "pairing", // pairing | allowlist | open | disabled
-        allowFrom: ["123456789012345678", "steipete"],
-        groupEnabled: false,
-        groupChannels: ["openclaw-dm"],
-      },
-      guilds: {
-        "*": { requireMention: true },
-        "123456789012345678": {
-          slug: "friends-of-openclaw",
-          requireMention: false,
-          reactionNotifications: "own",
-          users: ["987654321098765432", "steipete"],
-          channels: {
-            general: { allow: true },
-            help: {
-              allow: true,
-              requireMention: true,
-              users: ["987654321098765432"],
-              skills: ["search", "docs"],
-              systemPrompt: "Keep answers short.",
-            },
-          },
+      configWrites: false,
+    },
+  },
+}
+```
+
+  
+</Accordion>
+
+  <Accordion title="Gateway proxy">
+    Iruta ang Discord gateway WebSocket traffic sa pamamagitan ng HTTP(S) proxy gamit ang `channels.discord.proxy`.
+
+```json5
+{
+  channels: {
+    discord: {
+      proxy: "http://proxy.example:8080",
+    },
+  },
+}
+```
+
+    ```
+    Per-account override:
+    ```
+
+```json5
+{
+  channels: {
+    discord: {
+      accounts: {
+        primary: {
+          proxy: "http://proxy.example:8080",
         },
       },
     },
@@ -310,62 +430,11 @@ Mga tala:
 }
 ```
 
-5. Ang mga ack reaction ay kinokontrol sa buong sistema sa pamamagitan ng `messages.ackReaction` +
-   `messages.ackReactionScope`. 6. Gamitin ang `messages.removeAckAfterReply` upang alisin ang ack reaction matapos sumagot ang bot.
+  
+</Accordion>
 
-- `dm.enabled`: itakda ang `false` para balewalain ang lahat ng DM (default `true`).
-- 7. `dm.policy`: kontrol sa access ng DM (`pairing` ang inirerekomenda). 8. Ang `"open"` ay nangangailangan ng `dm.allowFrom=["*"]`.
-- 9. `dm.allowFrom`: DM allowlist (mga user id o pangalan). 10. Ginagamit ng `dm.policy="allowlist"` at para sa pag-validate ng `dm.policy="open"`. 11. Tumatanggap ang wizard ng mga username at nireresolba ang mga ito sa mga id kapag kayang maghanap ng bot ng mga miyembro.
-- `dm.groupEnabled`: i-enable ang mga group DM (default `false`).
-- `dm.groupChannels`: opsyonal na allowlist para sa mga group DM channel id o slug.
-- `groupPolicy`: kumokontrol sa paghawak ng mga guild channel (`open|disabled|allowlist`); ang `allowlist` ay nangangailangan ng mga channel allowlist.
-- `guilds`: per-guild na mga patakaran na naka-key sa guild id (mas gusto) o slug.
-- `guilds."*"`: default na per-guild na mga setting na inilalapat kapag walang tahasang entry.
-- 12. `guilds.<id>13. .slug`: opsyonal na friendly slug na ginagamit para sa mga display name.
-- 14. `guilds.<id>15. .users`: opsyonal na per-guild user allowlist (mga id o pangalan).
-- 16. `guilds.<id>17. .tools`: opsyonal na per-guild tool policy overrides (`allow`/`deny`/`alsoAllow`) na ginagamit kapag nawawala ang channel override.
-- 18. `guilds.<id>19. .toolsBySender`: opsyonal na per-sender tool policy overrides sa antas ng guild (naaangkop kapag nawawala ang channel override; sinusuportahan ang wildcard na `"*"`).
-- 20. `guilds.<id>21. .channels.<channel>.allow`: payagan/itanggi ang channel kapag `groupPolicy="allowlist"`.
-- 22. `guilds.<id>23. .channels.<channel>.requireMention`: mention gating para sa channel.
-- 24. `guilds.<id>25. .channels.<channel>.tools`: opsyonal na per-channel tool policy overrides (`allow`/`deny`/`alsoAllow`).
-- 26. `guilds.<id>27. .channels.<channel>28. .toolsBySender`: opsyonal na per-sender tool policy overrides sa loob ng channel (sinusuportahan ang wildcard na `"*"`).
-- 29. `guilds.<id>30. .channels.<channel>.users`: opsyonal na per-channel user allowlist.
-- 31. `guilds.<id>.channels.<channel>.skills`: skill filter (omit = lahat ng skills, empty = wala).
-- 33. `guilds.<id>34. .channels.<channel>35. .systemPrompt`: karagdagang system prompt para sa channel. 36. Ang mga Discord channel topic ay ini-inject bilang **hindi pinagkakatiwalaan** na context (hindi system prompt).
-- 37. `guilds.<id>38. .channels.<channel>.enabled`: itakda ang `false` para i-disable ang channel.
-- 39. `guilds.<id>40. .channels`: mga patakaran ng channel (ang mga key ay mga channel slug o id).
-- 41. `guilds.<id>.requireMention`: per-guild mention requirement (overridable per channel).
-- 43. `guilds.<id>44. .reactionNotifications`: mode ng reaction system event (`off`, `own`, `all`, `allowlist`).
-- 45. `textChunkLimit`: laki ng outbound text chunk (mga character). 46. Default: 2000.
-- `chunkMode`: ang `length` (default) ay naghahati lang kapag lumampas sa `textChunkLimit`; ang `newline` ay naghahati sa mga blank line (mga hangganan ng talata) bago ang length chunking.
-- 47. `maxLinesPerMessage`: soft max na bilang ng linya kada mensahe. Default: 17.
-- `mediaMaxMb`: i-clamp ang inbound media na sine-save sa disk.
-- `historyLimit`: bilang ng mga kamakailang guild message na isasama bilang context kapag nagre-reply sa isang mention (default 20; bumabagsak sa `messages.groupChat.historyLimit`; ang `0` ay nagdi-disable).
-- 49. `dmHistoryLimit`: limit ng DM history sa bilang ng user turn. 50. Per-user overrides: `dms["<user_id>"].historyLimit`.
-- `retry`: retry policy para sa mga outbound na Discord API call (attempts, minDelayMs, maxDelayMs, jitter).
-- `pluralkit`: resolbahin ang mga PluralKit proxied message para lumitaw ang mga system member bilang magkakaibang sender.
-- `actions`: per-action tool gate; i-omit para payagan ang lahat (itakda ang `false` para i-disable).
-  - `reactions` (saklaw ang react + read reactions)
-  - `stickers`, `emojiUploads`, `stickerUploads`, `polls`, `permissions`, `messages`, `threads`, `pins`, `search`
-  - `memberInfo`, `roleInfo`, `channelInfo`, `voiceStatus`, `events`
-  - `channels` (gumawa/mag-edit/magbura ng mga channel + category + pahintulot)
-  - `roles` (role add/remove, default `false`)
-  - `moderation` (timeout/kick/ban, default `false`)
-  - `presence` (bot status/activity, default `false`)
-- `execApprovals`: Discord-only exec approval DMs (button UI). Supports `enabled`, `approvers`, `agentFilter`, `sessionFilter`.
-
-Reaction notifications use `guilds.<id>.reactionNotifications`:
-
-- `off`: walang reaction event.
-- `own`: mga reaction sa sariling mensahe ng bot (default).
-- `all`: lahat ng reaction sa lahat ng mensahe.
-- `allowlist`: reactions from `guilds.<id>.users` on all messages (empty list disables).
-
-### Suporta sa PluralKit (PK)
-
-Enable PK lookups so proxied messages resolve to the underlying system + member.
-When enabled, OpenClaw uses the member identity for allowlists and labels the
-sender as `Member (PK:System)` to avoid accidental Discord pings.
+  <Accordion title="PluralKit support">
+    I-enable ang PluralKit resolution upang imapa ang mga proxied na mensahe sa identity ng system member:
 
 ```json5
 {
@@ -373,100 +442,277 @@ sender as `Member (PK:System)` to avoid accidental Discord pings.
     discord: {
       pluralkit: {
         enabled: true,
-        token: "pk_live_...", // optional; required for private systems
+        token: "pk_live_...", // opsyonal; kailangan para sa mga private system
       },
     },
   },
 }
 ```
 
-Mga tala sa allowlist (PK-enabled):
+    ```
+    Mga Tala:
+    
+    - maaaring gumamit ang allowlists ng `pk:<memberId>`
+    - ang mga display name ng member ay itinutugma ayon sa name/slug
+    - ang mga lookup ay gumagamit ng orihinal na message ID at may limitasyon sa time-window
+    - kung mabigo ang lookup, ang mga proxied na mensahe ay ituturing na bot messages at ida-drop maliban kung `allowBots=true`
+    ```
 
-- Use `pk:<memberId>` in `dm.allowFrom`, `guilds.<id>.users`, or per-channel `users`.
-- Ang mga display name ng member ay tinatapatan din ayon sa pangalan/slug.
-- Ang mga lookup ay gumagamit ng **orihinal** na Discord message ID (ang pre-proxy message), kaya nireresolba lang ito ng PK API sa loob ng 30-minutong window nito.
-- Kapag pumalya ang mga PK lookup (hal., private system na walang token), ang mga proxied message ay itinuturing na mga mensahe ng bot at ibinabagsak maliban kung `channels.discord.allowBots=true`.
+  
+</Accordion>
 
-### Mga default ng tool action
+  <Accordion title="Presence configuration">
+    Ang mga presence update ay inilalapat lamang kapag nagtakda ka ng status o activity field.
 
-| Action group   | Default  | Mga tala                                             |
-| -------------- | -------- | ---------------------------------------------------- |
-| reactions      | enabled  | React + list reactions + emojiList                   |
-| stickers       | enabled  | Magpadala ng stickers                                |
-| emojiUploads   | enabled  | Mag-upload ng emojis                                 |
-| stickerUploads | enabled  | Mag-upload ng stickers                               |
-| polls          | enabled  | Gumawa ng mga poll                                   |
-| permissions    | enabled  | Snapshot ng pahintulot sa channel                    |
-| messages       | enabled  | Basa/padala/edit/bura                                |
-| threads        | enabled  | Gumawa/maglista/magreply                             |
-| pins           | enabled  | Pin/unpin/list                                       |
-| search         | enabled  | Paghahanap ng mensahe (preview)   |
-| memberInfo     | enabled  | Impormasyon ng member                                |
-| roleInfo       | enabled  | Listahan ng role                                     |
-| channelInfo    | enabled  | Impormasyon + listahan ng channel                    |
-| channels       | pinagana  | Pamamahala ng channel/category                       |
-| voiceStatus    | pinagana  | Lookup ng voice state                                |
-| events         | pinagana  | Maglista/gumawa ng scheduled event                   |
-| mga papel          | hindi pinagana | Role add/remove                                      |
-| moderasyon     | hindi pinagana | Timeout/kick/ban                                     |
-| presensya       | hindi pinagana | Bot status/activity (setPresence) |
+    ```
+    Halimbawa ng status lamang:
+    ```
 
-- `replyToMode`: `off` (default), `first`, or `all`. Applies only when the model includes a reply tag.
+```json5
+{
+  channels: {
+    discord: {
+      status: "idle",
+    },
+  },
+}
+```
 
-## Reply tags
+    ```
+    Halimbawa ng activity (ang custom status ang default na activity type):
+    ```
 
-Para humiling ng threaded reply, maaaring magsama ang model ng isang tag sa output nito:
+```json5
+{
+  channels: {
+    discord: {
+      activity: "Focus time",
+      activityType: 4,
+    },
+  },
+}
+```
 
-- `[[reply_to_current]]` — mag-reply sa nag-trigger na Discord message.
-- `[[reply_to:<id>]]` — reply to a specific message id from context/history.
-  Current message ids are appended to prompts as `[message_id: …]`; history entries already include ids.
+    ```
+    Halimbawa ng streaming:
+    ```
 
-Ang behavior ay kinokontrol ng `channels.discord.replyToMode`:
+```json5
+{
+  channels: {
+    discord: {
+      activity: "Live coding",
+      activityType: 1,
+      activityUrl: "https://twitch.tv/openclaw",
+    },
+  },
+}
+```
 
-- `off`: balewalain ang mga tag.
-- `first`: ang unang outbound chunk/attachment lang ang reply.
-- `all`: bawat outbound chunk/attachment ay reply.
+    ```
+    Activity type map:
+    
+    - 0: Playing
+    - 1: Streaming (nangangailangan ng `activityUrl`)
+    - 2: Listening
+    - 3: Watching
+    - 4: Custom (ginagamit ang activity text bilang status state; opsyonal ang emoji)
+    - 5: Competing
+    ```
 
-Mga tala sa allowlist matching:
+  
+</Accordion>
 
-- Ang `allowFrom`/`users`/`groupChannels` ay tumatanggap ng mga id, pangalan, tag, o mga mention tulad ng `<@id>`.
-- Sinusuportahan ang mga prefix tulad ng `discord:`/`user:` (users) at `channel:` (group DM).
-- Gamitin ang `*` para payagan ang anumang sender/channel.
-- When `guilds.<id>.channels` is present, channels not listed are denied by default.
-- When `guilds.<id>.channels` is omitted, all channels in the allowlisted guild are allowed.
-- Para payagan ang **walang channel**, itakda ang `channels.discord.groupPolicy: "disabled"` (o panatilihin ang walang laman na allowlist).
-- Tumatanggap ang configure wizard ng mga pangalang `Guild/Channel` (public + private) at nireresolba ang mga ito sa mga ID kapag posible.
-- Sa startup, nireresolba ng OpenClaw ang mga pangalan ng channel/user sa mga allowlist tungo sa mga ID (kapag makakapag-search ng mga member ang bot)
-  at nilolog ang mapping; ang mga hindi maresolba ay pinananatili gaya ng itinype.
+  <Accordion title="Exec approvals in Discord">
+    Sinusuportahan ng Discord ang button-based exec approvals sa mga DM at maaaring opsyonal na mag-post ng mga approval prompt sa pinanggalingang channel.
 
-Mga tala sa native command:
+    ```
+    Config path:
+    
+    - `channels.discord.execApprovals.enabled`
+    - `channels.discord.execApprovals.approvers`
+    - `channels.discord.execApprovals.target` (`dm` | `channel` | `both`, default: `dm`)
+    - `agentFilter`, `sessionFilter`, `cleanupAfterResolve`
+    
+    Kapag ang `target` ay `channel` o `both`, makikita ang approval prompt sa channel. Tanging ang mga naka-configure na approver lamang ang maaaring gumamit ng mga button; ang ibang user ay makakatanggap ng ephemeral na pagtanggi. Kasama sa mga approval prompt ang teksto ng command, kaya i-enable lamang ang channel delivery sa mga pinagkakatiwalaang channel. Kung hindi makuha ang channel ID mula sa session key, babalik ang OpenClaw sa DM delivery.
+    
+    Kung mabigo ang approvals na may unknown approval IDs, i-verify ang listahan ng approver at ang pag-enable ng feature.
+    
+    Kaugnay na docs: [Exec approvals](/tools/exec-approvals)
+    ```
 
-- Ang mga nairehistrong command ay sumasalamin sa mga chat command ng OpenClaw.
-- Iginagalang ng mga native command ang parehong mga allowlist gaya ng DMs/guild messages (`channels.discord.dm.allowFrom`, `channels.discord.guilds`, mga patakaran per channel).
-- Maaaring makita pa rin ang mga slash command sa Discord UI ng mga user na hindi allowlisted; ipinapatupad ng OpenClaw ang mga allowlist sa execution at sumasagot ng “not authorized”.
+  
+</Accordion>
+</AccordionGroup>
 
-## Mga tool action
+## Mga tool at action gates
 
-Maaaring tawagin ng agent ang `discord` na may mga aksyon tulad ng:
+Kasama sa mga Discord message action ang messaging, channel admin, moderation, presence, at metadata actions.
 
-- `react` / `reactions` (magdagdag o maglista ng mga reaction)
-- `sticker`, `poll`, `permissions`
-- `readMessages`, `sendMessage`, `editMessage`, `deleteMessage`
-- Ang mga payload ng read/search/pin tool ay may kasamang normalized na `timestampMs` (UTC epoch ms) at `timestampUtc` kasama ng raw Discord `timestamp`.
-- `threadCreate`, `threadList`, `threadReply`
-- `pinMessage`, `unpinMessage`, `listPins`
-- `searchMessages`, `memberInfo`, `roleInfo`, `roleAdd`, `roleRemove`, `emojiList`
-- `channelInfo`, `channelList`, `voiceStatus`, `eventList`, `eventCreate`
-- `timeout`, `kick`, `ban`
-- `setPresence` (aktibidad ng bot at online status)
+Mga pangunahing halimbawa:
 
-Discord message ids are surfaced in the injected context (`[discord message id: …]` and history lines) so the agent can target them.
-Emoji can be unicode (e.g., `✅`) or custom emoji syntax like `<:party_blob:1234567890>`.
+- messaging: `sendMessage`, `readMessages`, `editMessage`, `deleteMessage`, `threadReply`
+- reactions: `react`, `reactions`, `emojiList`
+- moderation: `timeout`, `kick`, `ban`
+- presence: `setPresence`
 
-## Kaligtasan at ops
+Ang mga action gate ay nasa ilalim ng `channels.discord.actions.*`.
 
-- Ituring ang bot token na parang password; mas piliin ang `DISCORD_BOT_TOKEN` env var sa mga supervised host o higpitan ang mga pahintulot ng config file.
-- Ibigay lamang sa bot ang mga pahintulot na kailangan nito (karaniwan Read/Send Messages).
-- Kung ang bot ay na-stuck o na-rate limit, i-restart ang gateway (`openclaw gateway --force`) matapos tiyaking walang ibang prosesong may-ari ng Discord session.
+Default na behavior ng gate:
 
+| Action group                                                                                                                                                             | Default  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- |
+| reactions, messages, threads, pins, polls, search, memberInfo, roleInfo, channelInfo, channels, voiceStatus, events, stickers, emojiUploads, stickerUploads, permissions | enabled  |
+| roles                                                                                                                                                                    | disabled |
+| moderation                                                                                                                                                               | disabled |
+| presence                                                                                                                                                                 | disabled |
 
+## Components v2 UI
+
+Ginagamit ng OpenClaw ang Discord components v2 para sa exec approvals at cross-context markers. Ang Discord message actions ay maaari ring tumanggap ng `components` para sa custom UI (advanced; nangangailangan ng Carbon component instances), habang nananatiling available ang legacy `embeds` ngunit hindi ito inirerekomenda.
+
+- Itinatakda ng `channels.discord.ui.components.accentColor` ang accent color na ginagamit ng mga Discord component container (hex).
+- Itakda kada account gamit ang `channels.discord.accounts.<id> .ui.components.accentColor`.
+- Hindi pinapansin ang `embeds` kapag may components v2.
+
+Halimbawa:
+
+```json5
+{
+  channels: {
+    discord: {
+      ui: {
+        components: {
+          accentColor: "#5865F2",
+        },
+      },
+    },
+  },
+}
+```
+
+## Mga voice message
+
+Ang mga Discord voice message ay nagpapakita ng waveform preview at nangangailangan ng OGG/Opus audio kasama ang metadata. Awtomatikong binubuo ng OpenClaw ang waveform, ngunit kailangan nito ang `ffmpeg` at `ffprobe` na available sa gateway host upang suriin at i-convert ang mga audio file.
+
+Mga kinakailangan at limitasyon:
+
+- Magbigay ng **lokal na file path** (hindi tinatanggap ang mga URL).
+- Huwag isama ang text content (hindi pinapayagan ng Discord ang text + voice message sa iisang payload).
+- Anumang audio format ay tinatanggap; kino-convert ng OpenClaw sa OGG/Opus kapag kinakailangan.
+
+Halimbawa:
+
+```bash
+message(action="send", channel="discord", target="channel:123", path="/path/to/audio.mp3", asVoice=true)
+```
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Used disallowed intents or bot sees no guild messages">
+
+    ```
+    - i-enable ang Message Content Intent
+    - i-enable ang Server Members Intent kapag umaasa ka sa user/member resolution
+    - i-restart ang gateway pagkatapos baguhin ang intents
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Guild messages blocked unexpectedly">
+
+    ```
+    - i-verify ang `groupPolicy`
+    - i-verify ang guild allowlist sa ilalim ng `channels.discord.guilds`
+    - kung may umiiral na guild `channels` map, tanging ang mga nakalistang channel lamang ang pinapayagan
+    - i-verify ang `requireMention` behavior at mga mention pattern
+    
+    Mga kapaki-pakinabang na pagsusuri:
+    ```
+
+```bash
+openclaw doctor
+openclaw channels status --probe
+openclaw logs --follow
+```
+
+  
+</Accordion>
+
+  <Accordion title="Require mention false but still blocked">
+    Mga karaniwang sanhi:
+
+    ```
+    - `groupPolicy="allowlist"` na walang katugmang guild/channel allowlist
+    - naka-configure ang `requireMention` sa maling lugar (dapat nasa ilalim ng `channels.discord.guilds` o channel entry)
+    - naka-block ang sender ng guild/channel `users` allowlist
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Permissions audit mismatches">
+    Ang `channels status --probe` permission checks ay gumagana lamang para sa numeric channel IDs.
+
+    ```
+    Kung gumagamit ka ng slug keys, maaari pa ring gumana ang runtime matching, ngunit hindi ganap na mave-verify ng probe ang mga permission.
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="DM and pairing issues">
+
+    ```
+    - naka-disable ang DM: `channels.discord.dm.enabled=false`
+    - naka-disable ang DM policy: `channels.discord.dmPolicy="disabled"` (legacy: `channels.discord.dm.policy`)
+    - naghihintay ng pairing approval sa `pairing` mode
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Bot to bot loops">
+    Bilang default, hindi pinapansin ang mga mensaheng ginawa ng bot.
+
+    ```
+    Kung itatakda mo ang `channels.discord.allowBots=true`, gumamit ng mahigpit na mention at allowlist rules upang maiwasan ang loop behavior.
+    ```
+
+  
+</Accordion>
+</AccordionGroup>
+
+## Mga sangguniang pointer sa configuration
+
+Pangunahing sanggunian:
+
+- [Configuration reference - Discord](/gateway/configuration-reference#discord)
+
+Mahahalagang Discord fields:
+
+- startup/auth: `enabled`, `token`, `accounts.*`, `allowBots`
+- patakaran: `groupPolicy`, `dm.*`, `guilds.*`, `guilds.*.channels.*`
+- utos: `commands.native`, `commands.useAccessGroups`, `configWrites`
+- reply/history: `replyToMode`, `historyLimit`, `dmHistoryLimit`, `dms.*.historyLimit`
+- delivery: `textChunkLimit`, `chunkMode`, `maxLinesPerMessage`
+- media/retry: `mediaMaxMb`, `retry`
+- mga aksyon: `actions.*`
+- presence: `activity`, `status`, `activityType`, `activityUrl`
+- UI: `ui.components.accentColor`
+- mga feature: `pluralkit`, `execApprovals`, `intents`, `agentComponents`, `heartbeat`, `responsePrefix`
+
+## Kaligtasan at operasyon
+
+- Tratuhin ang mga bot token bilang mga lihim (`DISCORD_BOT_TOKEN` ang mas pinipili sa mga supervised na environment).
+- Magbigay ng pinakamababang kinakailangang Discord permissions.
+- Kung luma na ang command deploy/state, i-restart ang gateway at suriin muli gamit ang `openclaw channels status --probe`.
+
+## Kaugnay
+
+- [Pairing](/channels/pairing)
+- [Channel routing](/channels/channel-routing)
+- [Troubleshooting](/channels/troubleshooting)
+- [Slash commands](/tools/slash-commands)

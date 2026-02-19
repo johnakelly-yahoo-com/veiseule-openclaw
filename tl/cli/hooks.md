@@ -1,4 +1,8 @@
 ---
+summary: "Sanggunian ng CLI para sa `openclaw hooks` (mga hook ng agent)"
+read_when:
+  - Gusto mong pamahalaan ang mga hook ng agent
+  - Gusto mong mag-install o mag-update ng mga hook
 title: "hooks"
 ---
 
@@ -187,6 +191,9 @@ openclaw hooks install <path-or-spec>
 
 Mag-install ng hook pack mula sa lokal na folder/archive o npm.
 
+Ang Npm specs ay **registry-only** (pangalan ng package + opsyonal na bersyon/tag). Ang Git/URL/file
+specs ay tinatanggihan. Ang pag-install ng dependency ay tumatakbo gamit ang `--ignore-scripts` para sa seguridad.
+
 **Ano ang ginagawa nito:**
 
 - Kinokopya ang hook pack papunta sa `~/.openclaw/hooks/<id>`
@@ -197,7 +204,7 @@ Mag-install ng hook pack mula sa lokal na folder/archive o npm.
 
 - `-l, --link`: I-link ang isang lokal na directory sa halip na kopyahin (idinadagdag ito sa `hooks.internal.load.extraDirs`)
 
-**Mga suportadong archive:** `.zip`, `.tgz`, `.tar.gz`, `.tar`
+**Mga halimbawa:**
 
 **Mga halimbawa:**
 
@@ -222,7 +229,7 @@ openclaw hooks update <id>
 openclaw hooks update --all
 ```
 
-I-update ang mga naka-install na hook pack (para sa mga npm install lang).
+**Mga opsyon:**
 
 **Mga opsyon:**
 
@@ -233,7 +240,7 @@ I-update ang mga naka-install na hook pack (para sa mga npm install lang).
 
 ### session-memory
 
-Sine-save ang session context sa memory kapag nag-issue ka ng `/new`.
+**I-enable:**
 
 **I-enable:**
 
@@ -245,9 +252,21 @@ openclaw hooks enable session-memory
 
 **Tingnan:** [session-memory documentation](/automation/hooks#session-memory)
 
+### bootstrap-extra-files
+
+**I-enable:**
+
+**I-enable:**
+
+```bash
+Pinapagana ng openclaw hooks ang bootstrap-extra-files
+```
+
+**Tingnan ang mga log:**
+
 ### command-logger
 
-Nilo-log ang lahat ng command event sa isang sentralisadong audit file.
+**Tingnan:** [command-logger documentation](/automation/hooks#command-logger)
 
 **I-enable:**
 
@@ -272,23 +291,11 @@ grep '"action":"new"' ~/.openclaw/logs/commands.log | jq .
 
 **Tingnan:** [command-logger documentation](/automation/hooks#command-logger)
 
-### soul-evil
-
-Pinapalitan ang injected na `SOUL.md` na content ng `SOUL_EVIL.md` sa loob ng purge window o sa pamamagitan ng random na tsansa.
-
-**I-enable:**
-
-```bash
-openclaw hooks enable soul-evil
-```
-
-**Tingnan:** [SOUL Evil Hook](/hooks/soul-evil)
-
 ### boot-md
 
-Pinapatakbo ang `BOOT.md` kapag nagsimula ang Gateway (pagkatapos magsimula ang mga channel).
-
 **Mga event**: `gateway:startup`
+
+**I-enable**:
 
 **I-enable**:
 
@@ -297,5 +304,3 @@ openclaw hooks enable boot-md
 ```
 
 **Tingnan:** [boot-md documentation](/automation/hooks#boot-md)
-
-

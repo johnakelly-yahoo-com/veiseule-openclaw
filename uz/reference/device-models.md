@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw macOS ilovasida Apple qurilma model identifikatorlarini foydalanuvchiga qulay nomlarga qanday moslashtirishi."
+read_when:
+  - Qurilma model identifikatori moslamalarini yoki NOTICE/litsenziya fayllarini yangilash
+  - Instances UI qurilma nomlarini qanday ko‘rsatishini o‘zgartirish
 title: "Qurilma modellari ma’lumotlar bazasi"
 ---
 
@@ -41,5 +45,3 @@ curl -fsSL "https://raw.githubusercontent.com/kyle-seongwoo-jun/apple-device-ide
 ```bash
 swift build --package-path apps/macos
 ```
-
-

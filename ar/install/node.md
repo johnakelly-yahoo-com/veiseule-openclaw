@@ -1,5 +1,10 @@
 ---
 title: "Node.js"
+summary: "تثبيت وتهيئة Node.js لـ OpenClaw — متطلبات الإصدارات، خيارات التثبيت، واستكشاف أخطاء PATH وإصلاحها"
+read_when:
+  - "تحتاج إلى تثبيت Node.js قبل تثبيت OpenClaw"
+  - "قمت بتثبيت OpenClaw لكن يظهر الخطأ بأن الأمر `openclaw` غير موجود"
+  - "يفشل `npm install -g` بسبب الأذونات أو مشاكل PATH"
 ---
 
 # Node.js
@@ -20,46 +25,58 @@ node -v
   <Tab title="macOS">
     **Homebrew** (موصى به):
 
+    `````
+    ````
     ```bash
     brew install node
     ```
-
+    
     أو قم بتنزيل مُثبّت macOS من [nodejs.org](https://nodejs.org/).
+    ````
+    `````
 
   
 </Tab>
   <Tab title="Linux">
     **Ubuntu / Debian:**
 
+    `````
+    ````
     ```bash
     curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
     sudo apt-get install -y nodejs
     ```
-
+    
     **Fedora / RHEL:**
-
+    
     ```bash
     sudo dnf install nodejs
     ```
-
+    
     أو استخدم مدير إصدارات (انظر أدناه).
+    ````
+    `````
 
   
 </Tab>
   <Tab title="Windows">
     **winget** (موصى به):
 
+    `````
+    ````
     ```powershell
     winget install OpenJS.NodeJS.LTS
     ```
-
+    
     **Chocolatey:**
-
+    
     ```powershell
     choco install nodejs-lts
     ```
-
+    
     أو قم بتنزيل مُثبّت Windows من [nodejs.org](https://nodejs.org/).
+    ````
+    `````
 
   
 </Tab>
@@ -103,7 +120,11 @@ fnm use 22
     echo "$PATH"
     ```
 
+    ````
+    ```
     ابحث عن `<npm-prefix>/bin` (macOS/Linux) أو `<npm-prefix>` (Windows) في المخرجات.
+    ```
+    ````
 
   
 </Step>
@@ -112,19 +133,23 @@ fnm use 22
       <Tab title="macOS / Linux">
         أضِف إلى `~/.zshrc` أو `~/.bashrc`:
 
-        ```bash
-        export PATH="$(npm prefix -g)/bin:$PATH"
         ```
-
-        ثم افتح طرفية جديدة (أو شغّل `rehash` في zsh / `hash -r` في bash).
-      
+            ```
+                ```bash
+                export PATH="$(npm prefix -g)/bin:$PATH"
+                ```
+            
+                ثم افتح طرفية جديدة (أو شغّل `rehash` في zsh / `hash -r` في bash).
+              
 </Tab>
-      <Tab title="Windows">
-        أضِف مخرجات `npm prefix -g` إلى PATH الخاص بالنظام عبر الإعدادات → النظام → متغيرات البيئة.
-      
+              <Tab title="Windows">
+                أضِف مخرجات `npm prefix -g` إلى PATH الخاص بالنظام عبر الإعدادات → النظام → متغيرات البيئة.
+              
 </Tab>
-    
+            
 </Tabs>
+            ```
+        ```
 
   
 </Step>
@@ -141,4 +166,3 @@ export PATH="$HOME/.npm-global/bin:$PATH"
 ```
 
 أضِف سطر `export PATH=...` إلى `~/.bashrc` أو `~/.zshrc` لجعله دائمًا.
-

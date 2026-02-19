@@ -1,4 +1,8 @@
 ---
+summary: "Zalo Personal ပလပ်ဂင်: zca-cli ဖြင့် QR လော့ဂ်အင် + မက်ဆေ့ချ်ပို့ခြင်း (ပလပ်ဂင် ထည့်သွင်းခြင်း + ချန်နယ် ဖွဲ့စည်းပြင်ဆင်ခြင်း + CLI + ကိရိယာ)"
+read_when:
+  - OpenClaw တွင် Zalo Personal (အတည်မပြုထားသော) ပံ့ပိုးမှု လိုအပ်သောအခါ
+  - zalouser ပလပ်ဂင်ကို ဖွဲ့စည်းပြင်ဆင်ခြင်း သို့မဟုတ် ဖွံ့ဖြိုးရေး လုပ်နေသောအခါ
 title: "Zalo Personal ပလပ်ဂင်"
 ---
 
@@ -75,5 +79,3 @@ openclaw directory peers list --channel zalouser --query "name"
 ကိရိယာအမည်: `zalouser`
 
 လုပ်ဆောင်ချက်များ: `send`, `image`, `link`, `friends`, `groups`, `me`, `status`
-
-

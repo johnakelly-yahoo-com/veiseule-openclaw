@@ -1,4 +1,9 @@
 ---
+summary: "Bridge-protokol (legacy-noder): TCP JSONL, parring, scoped RPC"
+read_when:
+  - Opbygning eller fejlfinding af nodeklienter (iOS/Android/macOS node-tilstand)
+  - Undersøgelse af parring eller fejl i bridge-godkendelse
+  - Revision af node-overfladen, der eksponeres af gatewayen
 title: "Bridge-protokol"
 ---
 
@@ -29,8 +34,10 @@ Legacy `bridge.*` config nøgler er ikke længere en del af config skema.
 - Valgfri TLS (når `bridge.tls.enabled` er true).
 - Legacy standard-lytterport var `18790` (aktuelle builds starter ikke en TCP bridge).
 
-Når TLS er aktiveret, inkluderer discovery TXT-poster `bridgeTls=1` plus
-`bridgeTlsSha256`, så noder kan pinne certifikatet.
+Når TLS er aktiveret, inkluderer discovery TXT records `bridgeTls=1` plus
+`bridgeTlsSha256` som et ikke-hemmeligt hint. Bemærk, at Bonjour/mDNS TXT records er
+uautentificerede; klienter må ikke betragte det annoncerede fingerprint som en
+autoritativ pin uden eksplicit brugerintention eller anden out-of-band-verifikation.
 
 ## Handshake + parring
 
@@ -82,5 +89,3 @@ Payload-felter (alle valgfri, medmindre andet er angivet):
 
 Broen er i øjeblikket **implicit v1** (ingen min/max forhandling). Bagud-compat
 forventes; tilføj en bro protokol versionsfelt før eventuelle brydende ændringer.
-
-

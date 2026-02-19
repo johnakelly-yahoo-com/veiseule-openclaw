@@ -1,4 +1,9 @@
 ---
+summary: "مرجع CLI لأمر `openclaw browser` (الملفات الشخصية، علامات التبويب، الإجراءات، ترحيل الامتداد)"
+read_when:
+  - تستخدم `openclaw browser` وتريد أمثلة على المهام الشائعة
+  - تريد التحكم في متصفح يعمل على جهاز آخر عبر مضيف عُقدة
+  - تريد استخدام ترحيل امتداد Chrome (الإرفاق/الفصل عبر زر شريط الأدوات)
 title: "browser"
 ---
 
@@ -11,7 +16,7 @@ title: "browser"
 - أداة المتصفح + واجهة برمجة التطبيقات: [Browser tool](/tools/browser)
 - ترحيل امتداد Chrome: [Chrome extension](/tools/chrome-extension)
 
-## الخيارات الشائعة
+## Common flags
 
 - `--url <gatewayWsUrl>`: عنوان URL لـ WebSocket الخاص بـ Gateway (الإعداد الافتراضي من التهيئة).
 - `--token <token>`: رمز Gateway (إذا كان مطلوبًا).
@@ -100,5 +105,3 @@ openclaw browser extension path
 استخدم `gateway.nodes.browser.mode` للتحكم في التوجيه التلقائي و `gateway.nodes.browser.node` لتثبيت عُقدة محددة إذا كان هناك عدة عُقد متصلة.
 
 الأمان + الإعداد عن بُعد: [Browser tool](/tools/browser)، [Remote access](/gateway/remote)، [Tailscale](/gateway/tailscale)، [Security](/gateway/security)
-
-

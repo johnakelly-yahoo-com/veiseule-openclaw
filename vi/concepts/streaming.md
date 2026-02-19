@@ -1,4 +1,9 @@
 ---
+summary: "Hành vi streaming + chunking (trả lời theo block, streaming bản nháp, giới hạn)"
+read_when:
+  - Giải thích cách streaming hoặc chunking hoạt động trên các kênh
+  - Thay đổi hành vi streaming theo block hoặc chunking theo kênh
+  - Gỡ lỗi việc trả lời block bị trùng/lệch sớm hoặc streaming bản nháp
 title: "Streaming và Chunking"
 ---
 
@@ -9,7 +14,7 @@ OpenClaw có hai lớp “streaming” riêng biệt:
 - **Block streaming (channels):** emit completed **blocks** as the assistant writes. Đây là các tin nhắn kênh thông thường (không phải token delta).
 - **Streaming kiểu token (chỉ Telegram):** cập nhật một **bong bóng bản nháp** với văn bản từng phần trong khi tạo; tin nhắn cuối cùng được gửi ở cuối.
 
-Hiện tại **không có streaming token thực sự** tới các tin nhắn kênh bên ngoài. Telegram draft streaming is the only partial-stream surface.
+Hiện tại **không có streaming token-delta thực sự** tới tin nhắn kênh. Xem trước dạng streaming trên Telegram là bề mặt streaming một phần duy nhất.
 
 ## Block streaming (tin nhắn kênh)
 
@@ -25,7 +30,7 @@ Model output
                    └─ channel send (block replies)
 ```
 
-Chú thích:
+Legend:
 
 - `text_delta/events`: sự kiện stream của mô hình (có thể thưa thớt với các mô hình không streaming).
 - `chunker`: `EmbeddedBlockChunker` áp dụng ràng buộc min/max + ưu tiên điểm ngắt.
@@ -92,8 +97,8 @@ trông tự nhiên hơn.
 - **Không block streaming:** `blockStreamingDefault: "off"` (chỉ trả lời cuối).
 
 **Channel note:** For non-Telegram channels, block streaming is **off unless**
-`*.blockStreaming` is explicitly set to `true`. Telegram can stream drafts
-(`channels.telegram.streamMode`) without block replies.
+`*.blockStreaming` is explicitly set to `true`. Telegram có thể stream bản xem trước trực tiếp
+(`channels.telegram.streamMode`) mà không cần trả lời theo khối.
 
 Nhắc vị trí cấu hình: các mặc định `blockStreaming*` nằm dưới
 `agents.defaults`, không phải cấu hình gốc.
@@ -111,20 +116,19 @@ Telegram là kênh duy nhất có streaming bản nháp:
 - Streaming bản nháp tách biệt với block streaming; trả lời theo block tắt theo mặc định và chỉ được bật bởi `*.blockStreaming: true` trên các kênh không phải Telegram.
 - Trả lời cuối vẫn là một tin nhắn bình thường.
 - `/reasoning stream` ghi reasoning vào bong bóng bản nháp (chỉ Telegram).
-
-Khi streaming bản nháp đang hoạt động, OpenClaw vô hiệu hóa block streaming cho lượt trả lời đó để tránh streaming kép.
+- Các kết quả cuối không phải văn bản/hoặc phức tạp sẽ quay về cơ chế gửi tin nhắn cuối bình thường.
+- `/reasoning stream` ghi nội dung suy luận vào bản xem trước trực tiếp (chỉ Telegram).
 
 ```
-Telegram (private + topics)
-  └─ sendMessageDraft (draft bubble)
-       ├─ streamMode=partial → update latest text
-       └─ streamMode=block   → chunker updates draft
-  └─ final reply → normal message
+Telegram
+  └─ sendMessage (tin nhắn xem trước tạm thời)
+       ├─ streamMode=partial → chỉnh sửa văn bản mới nhất
+       └─ streamMode=block   → chunker + cập nhật chỉnh sửa
+  └─ phản hồi cuối chỉ văn bản → chỉnh sửa cuối trên cùng một tin nhắn
+  └─ fallback: dọn dẹp bản xem trước + gửi kết quả cuối bình thường (media/phức tạp)
 ```
 
 Legend:
 
-- `sendMessageDraft`: bong bóng bản nháp Telegram (không phải tin nhắn thật).
-- `final reply`: gửi tin nhắn Telegram bình thường.
-
-
+- `preview message`: tin nhắn Telegram tạm thời được cập nhật trong quá trình tạo nội dung.
+- `final edit`: chỉnh sửa trực tiếp trên cùng một tin nhắn xem trước (chỉ văn bản).

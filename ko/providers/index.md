@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw 에서 지원하는 모델 프로바이더 (LLM)"
+read_when:
+  - 모델 프로바이더를 선택하려는 경우
+  - 지원되는 LLM 백엔드의 빠른 개요가 필요한 경우
 title: "모델 프로바이더"
 ---
 
@@ -35,7 +39,9 @@ Venice 는 개인정보 보호를 우선하는 추론을 위해 권장되는 Ven
 - [Anthropic (API + Claude Code CLI)](/providers/anthropic)
 - [Qwen (OAuth)](/providers/qwen)
 - [OpenRouter](/providers/openrouter)
+- [LiteLLM (unified gateway)](/providers/litellm)
 - [Vercel AI Gateway](/providers/vercel-ai-gateway)
+- [Together AI](/providers/together)
 - [Cloudflare AI Gateway](/providers/cloudflare-ai-gateway)
 - [Moonshot AI (Kimi + Kimi Coding)](/providers/moonshot)
 - [OpenCode Zen](/providers/opencode)
@@ -45,8 +51,12 @@ Venice 는 개인정보 보호를 우선하는 추론을 위해 권장되는 Ven
 - [GLM models](/providers/glm)
 - [MiniMax](/providers/minimax)
 - [Venice (Venice AI, 개인정보 보호 중심)](/providers/venice)
+- [Hugging Face (Inference)](/providers/huggingface)
 - [Ollama (로컬 모델)](/providers/ollama)
+- 전체 제공업체 카탈로그(xAI, Groq, Mistral 등)는 전체 프로바이더 카탈로그 (xAI, Groq, Mistral 등) 및 고급 구성은
+  [Model providers](/concepts/model-providers)를 참고하십시오.
 - [Qianfan](/providers/qianfan)
+- [NVIDIA](/providers/nvidia)
 
 ## 전사 제공업체
 
@@ -58,5 +68,3 @@ Venice 는 개인정보 보호를 우선하는 추론을 위해 권장되는 Ven
 
 전체 제공업체 카탈로그(xAI, Groq, Mistral 등)는 전체 프로바이더 카탈로그 (xAI, Groq, Mistral 등) 및 고급 구성은
 [Model providers](/concepts/model-providers)를 참고하십시오.
-
-

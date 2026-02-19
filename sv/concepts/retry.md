@@ -1,4 +1,8 @@
 ---
+summary: "Återförsökspolicy för utgående leverantörsanrop"
+read_when:
+  - Uppdatering av leverantörers återförsöksbeteende eller standardvärden
+  - Felsökning av leverantörers sändningsfel eller hastighetsbegränsningar
 title: "Återförsökspolicy"
 ---
 
@@ -63,5 +67,3 @@ Ställ in återförsökspolicy per leverantör i `~/.openclaw/openclaw.json`:
 
 - Återförsök gäller per begäran (meddelandesändning, medieuppladdning, reaktion, omröstning, klistermärke).
 - Sammansatta flöden återförsöker inte redan slutförda steg.
-
-

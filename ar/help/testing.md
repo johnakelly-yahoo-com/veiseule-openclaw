@@ -1,4 +1,9 @@
 ---
+summary: "عدة الاختبار: مجموعات unit/e2e/live، مشغّلات Docker، وما الذي يغطيه كل اختبار"
+read_when:
+  - تشغيل الاختبارات محليًا أو في CI
+  - إضافة اختبارات انحدار لأخطاء النماذج/الموفّرين
+  - تصحيح سلوك Gateway + الوكيل
 title: "الاختبار"
 ---
 
@@ -37,7 +42,7 @@ title: "الاختبار"
 ### Unit / integration (الافتراضي)
 
 - الأمر: `pnpm test`
-- التهيئة: `vitest.config.ts`
+- الإعداد: `scripts/test-parallel.mjs` (يشغّل `vitest.unit.config.ts`، `vitest.extensions.config.ts`، `vitest.gateway.config.ts`)
 - الملفات: `src/**/*.test.ts`
 - النطاق:
   - اختبارات unit خالصة
@@ -47,12 +52,23 @@ title: "الاختبار"
   - تعمل في CI
   - لا تتطلب مفاتيح حقيقية
   - سريعة ومستقرة
+- ملاحظة حول التجميع (Pool):
+  - يستخدم OpenClaw ميزة Vitest `vmForks` على Node 22/23 للحصول على تقسيمات وحدات أسرع.
+  - على Node 24+، يعود OpenClaw تلقائيًا إلى `forks` العادية لتجنب أخطاء ربط Node VM (`ERR_VM_MODULE_LINK_FAILURE` / `module is already linked`).
+  - يمكنك التجاوز يدويًا باستخدام `OPENCLAW_TEST_VM_FORKS=0` (لفرض `forks`) أو `OPENCLAW_TEST_VM_FORKS=1` (لفرض `vmForks`).
 
 ### E2E (فحص دخاني للـ gateway)
 
 - الأمر: `pnpm test:e2e`
 - التهيئة: `vitest.e2e.config.ts`
 - الملفات: `src/**/*.e2e.test.ts`
+- الإعدادات الافتراضية لوقت التشغيل:
+  - يستخدم Vitest `vmForks` لتسريع بدء تشغيل الملفات.
+  - يستخدم عمّالًا متكيّفين (CI: 2-4، محليًا: 4-8).
+  - يعمل في الوضع الصامت افتراضيًا لتقليل حمل إدخال/إخراج وحدة التحكم.
+- تجاوزات مفيدة:
+  - `OPENCLAW_E2E_WORKERS=<n>` لفرض عدد العمّال (بحد أقصى 16).
+  - `OPENCLAW_E2E_VERBOSE=1` لإعادة تفعيل مخرجات وحدة التحكم التفصيلية.
 - النطاق:
   - سلوك end-to-end لعدة مثيلات Gateway
   - واجهات WebSocket/HTTP، إقران العُقد، وشبكات أثقل
@@ -363,5 +379,3 @@ OPENCLAW_LIVE_CLI_BACKEND=1 \
 - فضّل استهداف أصغر طبقة تلتقط الخطأ:
   - خطأ تحويل/إعادة تشغيل طلب الموفّر → اختبار النماذج المباشرة
   - خطأ خط أنابيب جلسة/سجل/أدوات Gateway → فحص Gateway الحي أو اختبار Gateway مُحاكَى وآمن لـ CI
-
-

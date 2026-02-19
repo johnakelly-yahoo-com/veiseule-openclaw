@@ -1,4 +1,8 @@
 ---
+summary: "Escriba herramientas de agente en un plugin (esquemas, herramientas opcionales, listas de permitidos)"
+read_when:
+  - Quiere agregar una nueva herramienta de agente en un plugin
+  - Necesita hacer que una herramienta sea de adhesión voluntaria mediante listas de permitidos
 title: "Herramientas de agente del plugin"
 ---
 
@@ -86,5 +90,3 @@ Otros ajustes de configuración que afectan la disponibilidad de herramientas:
 - Los nombres de las herramientas **no** deben entrar en conflicto con los nombres de las herramientas del núcleo; las herramientas en conflicto se omiten.
 - Los ids de plugins usados en listas de permitidos no deben entrar en conflicto con los nombres de las herramientas del núcleo.
 - Prefiera `optional: true` para herramientas que desencadenan efectos secundarios o requieren binarios/credenciales adicionales.
-
-

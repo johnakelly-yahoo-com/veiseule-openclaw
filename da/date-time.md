@@ -1,4 +1,8 @@
 ---
+summary: "Håndtering af dato og tid på tværs af konvolutter, prompts, værktøjer og connectors"
+read_when:
+  - Du ændrer, hvordan tidsstempler vises for modellen eller brugere
+  - Du fejlsøger tidsformatering i beskeder eller output fra systemprompten
 title: "Dato og tid"
 ---
 
@@ -122,5 +126,3 @@ Hvis du har brug for lokal tid, skal du konvertere den nedstrøms ved hjælp af 
 - [Systemprompt](/concepts/system-prompt)
 - [Tidszoner](/concepts/timezone)
 - [Beskeder](/concepts/messages)
-
-

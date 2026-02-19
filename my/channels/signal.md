@@ -1,4 +1,8 @@
 ---
+summary: "signal-cli (JSON-RPC + SSE) ကိုအသုံးပြုသော Signal ပံ့ပိုးမှု၊ setup နှင့် နံပါတ် မော်ဒယ်"
+read_when:
+  - Signal ပံ့ပိုးမှုကို တပ်ဆင်ချိန်
+  - Signal ပို့/လက်ခံမှုကို ပြဿနာရှာဖွေချိန်
 title: "Signal"
 ---
 
@@ -6,13 +10,22 @@ title: "Signal"
 
 အခြေအနေ: ပြင်ပ CLI ပေါင်းစည်းမှု။ Gateway သည် `signal-cli` နှင့် HTTP JSON-RPC + SSE ဖြင့် ဆက်သွယ်ပါသည်။
 
+## လိုအပ်ချက်များ
+
+- ဘော့အတွက် **သီးခြား Signal နံပါတ်** ကို အသုံးပြုပါ (အကြံပြုသည်)။
+- `signal-cli` ကို ထည့်သွင်းပါ (Java လိုအပ်သည်)။
+- ဘော့ စက်ပစ္စည်းကို ချိတ်ဆက်ပြီး daemon ကို စတင်ပါ။
+- OpenClaw ကို ဖွဲ့စည်းပြင်ဆင်ပြီး Gateway ကို စတင်ပါ။
+
 ## Quick setup (beginner)
 
 1. ဘော့အတွက် **သီးခြား Signal နံပါတ်** ကို အသုံးပြုပါ (အကြံပြုသည်)။
-2. `signal-cli` ကို ထည့်သွင်းပါ (Java လိုအပ်သည်)။
-3. ဘော့ စက်ပစ္စည်းကို ချိတ်ဆက်ပြီး daemon ကို စတင်ပါ။
-   - `signal-cli link -n "OpenClaw"`
-4. OpenClaw ကို ဖွဲ့စည်းပြင်ဆင်ပြီး Gateway ကို စတင်ပါ။
+2. `signal-cli` ကို ထည့်သွင်းပါ (JVM build ကို အသုံးပြုပါက Java လိုအပ်သည်)။
+3. Setup လမ်းကြောင်းတစ်ခုကို ရွေးချယ်ပါ:
+   - **Path A (QR link):** `signal-cli link -n "OpenClaw"` ကို လုပ်ဆောင်ပြီး Signal ဖြင့် scan လုပ်ပါ။
+   - **Path B (SMS register):** captcha + SMS verification ဖြင့် သီးသန့်ဖုန်းနံပါတ်တစ်ခုကို register လုပ်ပါ။
+4. OpenClaw ကို configure လုပ်ပြီး gateway ကို ပြန်လည်စတင်ပါ။
+5. ပထမဆုံး DM တစ်စောင် ပို့ပြီး pairing ကို အတည်ပြုပါ (`openclaw pairing approve signal <CODE>`).
 
 အနည်းဆုံး ဖွဲ့စည်းမှု:
 
@@ -30,13 +43,22 @@ title: "Signal"
 }
 ```
 
+Field အညွှန်း:
+
+| Field       | ဖော်ပြချက်                                                                                       |
+| ----------- | ------------------------------------------------------------------------------------------------ |
+| `account`   | Bot ဖုန်းနံပါတ်ကို E.164 ဖော်မတ်ဖြင့် ထည့်ပါ (`+15551234567`) |
+| `cliPath`   | `signal-cli` ၏ လမ်းကြောင်း (`PATH` ထဲရှိပါက `signal-cli`)                     |
+| `dmPolicy`  | DM အသုံးပြုခွင့် မူဝါဒ (`pairing` ကို အကြံပြုသည်)                             |
+| `allowFrom` | DM ပို့ခွင့်ပြုထားသော ဖုန်းနံပါတ်များ သို့မဟုတ် `uuid:&lt;id&gt;` တန်ဖိုးများ                          |
+
 ## အရာက ဘာလဲ
 
 - `signal-cli` မှတစ်ဆင့် Signal ချန်နယ် (libsignal ကို မထည့်သွင်းထားပါ)။
 - သတ်မှတ်ချက်တိကျသော လမ်းကြောင်းပြန်လည်ပို့ဆောင်မှု: အဖြေများသည် အမြဲ Signal သို့ ပြန်သွားသည်။
 - DM များသည် အေးဂျင့်၏ အဓိက ဆက်ရှင်ကို မျှဝေသည်; အုပ်စုများကို သီးခြားထားသည် (`agent:<agentId>:signal:group:<groupId>`)။
 
-## Config ရေးသားမှုများ
+## နံပါတ် မော်ဒယ် (အရေးကြီး)
 
 မူလအနေဖြင့် Signal သည် `/config set|unset` ကြောင့် ဖြစ်ပေါ်လာသော config အပ်ဒိတ်များကို ရေးသားခွင့်ပြုထားသည် (`commands.config: true` လိုအပ်သည်)။
 
@@ -54,14 +76,14 @@ title: "Signal"
 - ဘော့ကို **သင်၏ ကိုယ်ပိုင် Signal အကောင့်** ပေါ်တွင် လည်ပတ်ပါက သင်၏ ကိုယ်ပိုင် မက်ဆေ့ချ်များကို လျစ်လျူရှုမည် (loop ကာကွယ်မှု)။
 - “ကျွန်ုပ်က ဘော့ကို စာပို့ပြီး အဖြေပြန်လာစေချင်တယ်” ဆိုပါက **သီးခြား ဘော့ နံပါတ်** ကို အသုံးပြုပါ။
 
-## Setup (fast path)
+## Setup လမ်းကြောင်း A: ရှိပြီးသား Signal အကောင့်ကို ချိတ်ဆက်ပါ (QR)
 
-1. `signal-cli` ကို ထည့်သွင်းပါ (Java လိုအပ်သည်)။
+1. `signal-cli` ကို ထည့်သွင်းပါ (JVM သို့မဟုတ် native build)။
 2. ဘော့ အကောင့်တစ်ခုကို ချိတ်ဆက်ပါ။
    - `signal-cli link -n "OpenClaw"` ပြီးနောက် Signal တွင် QR ကို စကန်ပါ။
 3. Signal ကို ဖွဲ့စည်းပြင်ဆင်ပြီး Gateway ကို စတင်ပါ။
 
-ဥပမာ:
+`signal-cli` ကို ကိုယ်တိုင် စီမံလိုပါက (JVM အအေးစတင်မှု နှေးကွေးခြင်း၊ container init၊ သို့မဟုတ် shared CPUs) daemon ကို သီးခြား လည်ပတ်ပြီး OpenClaw ကို ထိုနေရာသို့ ညွှန်ပြပါ။
 
 ```json5
 {
@@ -78,6 +100,67 @@ title: "Signal"
 ```
 
 Multi-account ပံ့ပိုးမှု: `channels.signal.accounts` ကို account တစ်ခုချင်းစီအတွက် config နှင့် မဖြစ်မနေ မဟုတ်သော `name` ဖြင့် အသုံးပြုပါ။ ပုံစံတူ အသုံးပြုနည်းအတွက် [`gateway/configuration`](/gateway/configuration#telegramaccounts--discordaccounts--slackaccounts--signalaccounts--imessageaccounts) ကို ကြည့်ပါ။
+
+## Setup လမ်းကြောင်း B: သီးသန့် bot နံပါတ်တစ်ခုကို မှတ်ပုံတင်ပါ (SMS, Linux)
+
+DM များ:
+
+1. မူလ: `channels.signal.dmPolicy = "pairing"`။
+   - အကောင့်/စက်ရှင် ပဋိပက္ခများကို ရှောင်ရှားရန် သီးသန့် bot နံပါတ်ကို အသုံးပြုပါ။
+2. မသိသော ပို့သူများသည် pairing code ကို လက်ခံရရှိပြီး အတည်ပြုမပြုလုပ်မချင်း မက်ဆေ့ချ်များကို လျစ်လျူရှုမည် (code များသည် ၁ နာရီအတွင်း သက်တမ်းကုန်ဆုံးသည်)။
+
+```bash
+VERSION=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/AsamK/signal-cli/releases/latest | sed -e 's/^.*\/v//')
+curl -L -O "https://github.com/AsamK/signal-cli/releases/download/v${VERSION}/signal-cli-${VERSION}-Linux-native.tar.gz"
+sudo tar xf "signal-cli-${VERSION}-Linux-native.tar.gz" -C /opt
+sudo ln -sf /opt/signal-cli /usr/local/bin/
+signal-cli --version
+```
+
+JVM build (`signal-cli-${VERSION}.tar.gz`) ကို အသုံးပြုပါက JRE 25+ ကို အရင်ဆုံး ထည့်သွင်းပါ။
+`signal-cli` ကို အမြဲတမ်း အပ်ဒိတ်ထားပါ။ upstream မှ Signal server API များ ပြောင်းလဲသည့်အခါ အဟောင်း release များ မလုပ်ဆောင်နိုင်တော့ကြောင်း အသိပေးထားသည်။
+
+3. နံပါတ်ကို မှတ်ပုံတင်ပြီး အတည်ပြုပါ:
+
+```bash
+signal-cli -a +<BOT_PHONE_NUMBER> register
+```
+
+captcha လိုအပ်ပါက:
+
+1. ထွက်သွားသော စာသားကို `channels.signal.textChunkLimit` အထိ ခွဲပိုင်းပြုလုပ်သည် (မူလ 4000)။
+2. အလိုအလျောက် လိုင်းခွဲခြင်း (optional): အရှည်အလိုက် ခွဲခြင်းမတိုင်မီ အလွတ်လိုင်းများ (စာပိုဒ်နယ်နိမိတ်) တွင် ခွဲရန် `channels.signal.chunkMode="newline"` ကို သတ်မှတ်ပါ။
+3. Attachments ကို ပံ့ပိုးထားသည် (base64 ကို `signal-cli` မှ ရယူသည်)။
+4. မီဒီယာ မူလ ကန့်သတ်ချက်: `channels.signal.mediaMaxMb` (မူလ 8)။
+
+```bash
+signal-cli -a +<BOT_PHONE_NUMBER> register --captcha '<SIGNALCAPTCHA_URL>'
+signal-cli -a +<BOT_PHONE_NUMBER> verify <VERIFICATION_CODE>
+```
+
+4. **Typing indicators**: OpenClaw သည် `signal-cli sendTyping` မှတစ်ဆင့် typing signal များ ပို့ပြီး အဖြေ လည်ပတ်နေစဉ် ပြန်လည် အသက်သွင်းထားသည်။
+
+```bash
+# gateway ကို user systemd service အဖြစ် လည်ပတ်နေပါက:
+systemctl --user restart openclaw-gateway
+
+# ထို့နောက် စစ်ဆေးပါ:
+openclaw doctor
+openclaw channels status --probe
+```
+
+5. `message action=react` ကို `channel=signal` နှင့်အတူ အသုံးပြုပါ။
+   - bot နံပါတ်သို့ မည်သည့် မက်ဆေ့ခ်ျမဆို ပို့ပါ။
+   - ဆာဗာပေါ်တွင် code ကို အတည်ပြုပါ: `openclaw pairing approve signal <PAIRING_CODE>`။
+   - "Unknown contact" မပေါ်စေရန် bot နံပါတ်ကို သင့်ဖုန်းထဲတွင် contact အဖြစ် သိမ်းဆည်းပါ။
+
+အရေးကြီးချက်: `signal-cli` ဖြင့် ဖုန်းနံပါတ်အကောင့်ကို မှတ်ပုံတင်ပါက ထိုနံပါတ်အတွက် အဓိက Signal app ၏ စက်ရှင်ကို de-authenticate ဖြစ်စေနိုင်သည်။ ရှိပြီးသား ဖုန်း app setup ကို ဆက်လက်အသုံးပြုလိုပါက သီးသန့် bot နံပါတ်ကို ဦးစားပေးအသုံးပြုပါ၊ သို့မဟုတ် QR link mode ကို အသုံးပြုပါ။
+
+Upstream အညွှန်းများ:
+
+- `signal-cli` README: `https://github.com/AsamK/signal-cli`
+- Captcha လုပ်ငန်းစဉ်: `https://github.com/AsamK/signal-cli/wiki/Registration-with-captcha`
+- Linking လုပ်ငန်းစဉ်: `https://github.com/AsamK/signal-cli/wiki/Linking-other-devices-(Provisioning)`
 
 ## External daemon mode (httpUrl)
 
@@ -130,15 +213,15 @@ DM များ:
 
 ## Typing + ဖတ်ပြီး အမှတ်အသားများ
 
-- **Typing indicators**: OpenClaw သည် `signal-cli sendTyping` မှတစ်ဆင့် typing signal များ ပို့ပြီး အဖြေ လည်ပတ်နေစဉ် ပြန်လည် အသက်သွင်းထားသည်။
-- **Read receipts**: `channels.signal.sendReadReceipts` သည် true ဖြစ်ပါက OpenClaw သည် ခွင့်ပြုထားသော DM များအတွက် read receipt များကို လွှဲပြောင်းပို့ဆောင်သည်။
-- Signal-cli သည် အုပ်စုများအတွက် read receipt များကို မဖော်ပြပေးပါ။
+- `channels.signal.enabled`: ချန်နယ် စတင်မှုကို ဖွင့်/ပိတ်။
+- `channels.signal.account`: ဘော့ အကောင့်အတွက် E.164။
+- `channels.signal.cliPath`: `signal-cli` သို့ လမ်းကြောင်း။
 
 ## Reactions (message tool)
 
-- `message action=react` ကို `channel=signal` နှင့်အတူ အသုံးပြုပါ။
-- Targets: ပို့သူ၏ E.164 သို့မဟုတ် UUID (pairing output မှ `uuid:<id>` ကို အသုံးပြုပါ; bare UUID လည်း အသုံးပြုနိုင်သည်)။
-- `messageId` သည် သင်တုံ့ပြန်မည့် မက်ဆေ့ချ်၏ Signal timestamp ဖြစ်သည်။
+- `agents.list[].groupChat.mentionPatterns` (Signal သည် native mentions ကို မပံ့ပိုးပါ)။
+- `messages.groupChat.mentionPatterns` (global fallback)။
+- `messages.responsePrefix`။
 - အုပ်စု တုံ့ပြန်မှုများအတွက် `targetAuthor` သို့မဟုတ် `targetAuthorUuid` လိုအပ်သည်။
 
 ဥပမာများ:
@@ -156,8 +239,8 @@ Config:
   - `off`/`ack` သည် အေးဂျင့် reaction များကို ပိတ်သည် (message tool `react` သည် error ပြမည်)။
   - `minimal`/`extensive` သည် အေးဂျင့် reaction များကို ဖွင့်ပြီး လမ်းညွှန်မှု အဆင့်ကို သတ်မှတ်သည်။
 - Account တစ်ခုချင်းစီအလိုက် override များ: `channels.signal.accounts.<id>
-  .actions.reactions`, `channels.signal.accounts.&lt;id&gt;
-  .reactionLevel`။`channels.signal.allowFrom`: DM ခွင့်ပြုစာရင်း (E.164 သို့မဟုတ် `uuid:&lt;id&gt;`)။`open` သည် `"*"` ကို လိုအပ်ပါသည်။
+  .actions.reactions`, `channels.signal.accounts.<id>
+  .reactionLevel`။`channels.signal.allowFrom`: DM ခွင့်ပြုစာရင်း (E.164 သို့မဟုတ် `uuid:<id>`)။`open` သည် `"*"` ကို လိုအပ်ပါသည်။
 
 ## Delivery targets (CLI/cron)
 
@@ -189,8 +272,25 @@ openclaw pairing list signal
 - Daemon ကို ချိတ်ဆက်ရနိုင်သော်လည်း အဖြေမပြန်ပါ: အကောင့်/daemon ဆက်တင်များ (`httpUrl`, `account`) နှင့် receive mode ကို စစ်ဆေးပါ။
 - DM များကို လျစ်လျူရှုခြင်း: ပို့သူသည် pairing အတည်ပြုမှုကို စောင့်ဆိုင်းနေသည်။
 - အုပ်စု မက်ဆေ့ချ်များကို လျစ်လျူရှုခြင်း: အုပ်စု ပို့သူ/mention gating သည် ပို့ဆောင်မှုကို တားဆီးထားသည်။
+- ပြင်ဆင်ပြီးနောက် config validation အမှားများ ဖြစ်ပါက `openclaw doctor --fix` ကို chạy ပါ။
+- diagnostics တွင် Signal မပေါ်ပါက `channels.signal.enabled: true` ကို အတည်ပြုပါ။
+
+ထပ်ဆောင်း စစ်ဆေးမှုများ:
+
+```bash
+openclaw pairing list signal
+pgrep -af signal-cli
+grep -i "signal" "/tmp/openclaw/openclaw-$(date +%Y-%m-%d).log" | tail -20
+```
 
 Triage လမ်းကြောင်းအတွက်: [/channels/troubleshooting](/channels/troubleshooting)။
+
+## လုံခြုံရေး မှတ်ချက်များ
+
+- `signal-cli` သည် account keys များကို local တွင် သိမ်းဆည်းထားသည် (ပုံမှန်အားဖြင့် `~/.local/share/signal-cli/data/`)။
+- server ကို ပြောင်းရွှေ့ခြင်း သို့မဟုတ် ပြန်လည်တည်ဆောက်ခြင်း မလုပ်မီ Signal account အခြေအနေကို backup လုပ်ထားပါ။
+- `channels.signal.dmPolicy: "pairing"` ကို သင်သည် DM အဝင်အထွက်ခွင့်ကို ပိုမိုကျယ်ပြန့်စွာ ဖွင့်လိုခြင်းမရှိပါက မပြောင်းဘဲ ထားပါ။
+- SMS အတည်ပြုခြင်းသည် မှတ်ပုံတင်ခြင်း သို့မဟုတ် အကောင့်ပြန်လည်ရယူခြင်း လုပ်ငန်းစဉ်များအတွက်သာ လိုအပ်သည်။ သို့သော် ဖုန်းနံပါတ် သို့မဟုတ် အကောင့်ကို ထိန်းချုပ်မှုဆုံးရှုံးပါက ပြန်လည်မှတ်ပုံတင်ရာတွင် ရှုပ်ထွေးမှုများ ဖြစ်ပေါ်နိုင်သည်။
 
 ## Configuration reference (Signal)
 
@@ -224,5 +324,3 @@ Provider options:
 - `agents.list[].groupChat.mentionPatterns` (Signal သည် native mentions ကို မပံ့ပိုးပါ)။
 - `messages.groupChat.mentionPatterns` (global fallback)။
 - `messages.responsePrefix`။
-
-

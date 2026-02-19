@@ -1,4 +1,9 @@
 ---
+summary: "„Models-CLI: auflisten, setzen, Aliasse, Fallbacks, scannen, Status“"
+read_when:
+  - Hinzufügen oder Ändern der Models-CLI (models list/set/scan/aliases/fallbacks)
+  - Ändern des Verhaltens von Modell-Fallbacks oder der Auswahl-UX
+  - Aktualisieren der Model-Scan-Probes (Tools/Bilder)
 title: "„Models-CLI“"
 ---
 
@@ -201,5 +206,3 @@ Modus übergeben Sie `--yes`, um Standardwerte zu akzeptieren.
 Benutzerdefinierte Anbieter in `models.providers` werden unter dem Agent‑Verzeichnis
 (standardmäßig `~/.openclaw/agents/<agentId>/models.json`) in `models.json` geschrieben. Diese Datei
 wird standardmäßig zusammengeführt, sofern `models.mode` nicht auf `replace` gesetzt ist.
-
-

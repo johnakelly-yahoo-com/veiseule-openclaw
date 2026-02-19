@@ -1,4 +1,8 @@
 ---
+summary: "CLI संदर्भ `openclaw doctor` के लिए (स्वास्थ्य जाँच + मार्गदर्शित मरम्मत)"
+read_when:
+  - आपको कनेक्टिविटी/प्रमाणीकरण संबंधी समस्याएँ हैं और आप मार्गदर्शित समाधान चाहते हैं
+  - आपने अपडेट किया है और एक त्वरित सत्यापन चाहते हैं
 title: "doctor"
 ---
 
@@ -21,7 +25,7 @@ openclaw doctor --deep
 
 नोट्स:
 
-- इंटरैक्टिव प्रॉम्प्ट्स (जैसे keychain/OAuth फिक्स) केवल तभी चलते हैं जब stdin एक TTY हो और `--non-interactive` **सेट न** किया गया हो। हेडलेस रन (cron, Telegram, बिना टर्मिनल) प्रॉम्प्ट्स को छोड़ देंगे।
+- Interactive prompts (like keychain/OAuth fixes) only run when stdin is a TTY and `--non-interactive` is **not** set. Headless runs (cron, Telegram, no terminal) will skip prompts.
 - `--fix` (`--repair` का उपनाम) `~/.openclaw/openclaw.json.bak` में एक बैकअप लिखता है और अज्ञात विन्यास कुंजियों को हटा देता है, प्रत्येक हटाने को सूचीबद्ध करते हुए।
 
 ## macOS: `launchctl` के env ओवरराइड्स
@@ -35,5 +39,3 @@ launchctl getenv OPENCLAW_GATEWAY_PASSWORD
 launchctl unsetenv OPENCLAW_GATEWAY_TOKEN
 launchctl unsetenv OPENCLAW_GATEWAY_PASSWORD
 ```
-
-

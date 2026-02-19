@@ -1,4 +1,6 @@
 ---
+summary: "Onboarding sihirbazı ve yapılandırma şeması için RPC protokol notları"
+read_when: "Onboarding sihirbazı adımlarını veya yapılandırma şeması uç noktalarını değiştirirken"
 title: "Onboarding ve Yapılandırma Protokolü"
 ---
 
@@ -36,5 +38,3 @@ Yanıtlar (şekil)
 ## Notlar
 
 - Bu doküman, onboarding/yapılandırma için protokol yeniden düzenlemelerini takip etmek için tek yerdir.
-
-

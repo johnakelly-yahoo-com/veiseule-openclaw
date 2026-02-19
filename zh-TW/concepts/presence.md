@@ -1,8 +1,13 @@
 ---
-title: "在線狀態"
+summary: "OpenClaw presence 項目如何產生、合併與顯示"
+read_when:
+  - 除錯 Instances 分頁
+  - 調查重複或過時的 instance 列
+  - 變更 Gateway WS 連線或系統事件 beacon
+title: "Presence"
 ---
 
-# 在線狀態
+# Presence
 
 OpenClaw 的「presence」是一種輕量、盡力而為的檢視方式，用來呈現：
 
@@ -89,5 +94,3 @@ macOS app 會呈現 `system-presence` 的輸出，並根據最後一次更新的
   - 確認用戶端在 handshake 中送出穩定的 `client.instanceId`
   - 確認週期性 beacon 使用相同的 `instanceId`
   - 檢查是否有由連線衍生的項目缺少 `instanceId`（此情況下出現重複是預期的）
-
-

@@ -355,7 +355,7 @@ const { model, error, authStorage, modelRegistry } = resolveModel(
 authStorage.setRuntimeApiKey(model.provider, apiKeyInfo.apiKey);
 ```
 
-### Alternância automática
+### Failover
 
 `FailoverError` aciona fallback de modelo quando configurado:
 
@@ -516,7 +516,7 @@ Isso fornece a experiência interativa de terminal semelhante ao modo nativo do 
 | Invocação               | Comando `pi` / RPC                  | SDK via `createAgentSession()`                                                                                    |
 | Ferramentas             | Ferramentas padrão de codificação   | Conjunto personalizado de ferramentas do OpenClaw                                                                 |
 | Prompt do sistema       | AGENTS.md + prompts | Dinâmico por canal/contexto                                                                                       |
-| Armazenamento de sessão | `~/.pi/agent/sessions/`             | `~/.openclaw/agents/<agentId>/sessions/` (ou `$OPENCLAW_STATE_DIR/agents/<agentId>/sessions/`) |
+| Armazenamento de sessão | `~/.pi/agent/sessions/`             | `~/.openclaw/agents/&lt;agentId&gt;/sessions/` (ou `$OPENCLAW_STATE_DIR/agents/&lt;agentId&gt;/sessions/`) |
 | Autenticação            | Credencial única                    | Múltiplos perfis com rotação                                                                                      |
 | Extensões               | Carregadas do disco                 | Programáticas + caminhos de disco                                                                                 |
 | Tratamento de eventos   | Renderização TUI                    | Baseado em callbacks (onBlockReply, etc.)                                      |
@@ -610,5 +610,3 @@ Todos os testes existentes que cobrem a integração com o pi e suas extensões:
 - `src/agents/pi-tools.policy.test.ts`
 - `src/agents/pi-tools.safe-bins.test.ts`
 - `src/agents/pi-tools.workspace-paths.test.ts`
-
-

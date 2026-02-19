@@ -1,5 +1,7 @@
 ---
 title: CLI de Sandbox
+summary: "Administre contenedores sandbox y examine la política efectiva del sandbox"
+read_when: "Usted está administrando contenedores sandbox o depurando el comportamiento de sandbox/política de herramientas."
 status: active
 ---
 
@@ -148,5 +150,3 @@ La configuración del sandbox se encuentra en `~/.openclaw/openclaw.json` bajo `
 - [Documentación de Sandbox](/gateway/sandboxing)
 - [Configuración del agente](/concepts/agent-workspace)
 - [Comando Doctor](/gateway/doctor) - Verifique la configuración del sandbox
-
-

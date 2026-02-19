@@ -1,4 +1,8 @@
 ---
+summary: "مرجع CLI لأمر `openclaw memory` (الحالة/الفهرسة/البحث)"
+read_when:
+  - تريد فهرسة الذاكرة الدلالية أو البحث فيها
+  - تقوم باستكشاف أخطاء توفر الذاكرة أو الفهرسة وإصلاحها
 title: "الذاكرة"
 ---
 
@@ -39,5 +43,3 @@ openclaw memory index --agent main --verbose
 - `memory status --deep --index` يُجري إعادة فهرسة إذا كان المخزن متسخًا.
 - `memory index --verbose` يطبع تفاصيل لكل مرحلة (الموفّر، النموذج، المصادر، نشاط الدُفعات).
 - `memory status` يتضمن أي مسارات إضافية مهيأة عبر `memorySearch.extraPaths`.
-
-

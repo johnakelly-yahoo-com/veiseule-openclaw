@@ -1,19 +1,15 @@
 ---
-title: OpenAI Chat Completions
-x-i18n:
-  generated_at: "2026-02-03T07:48:15Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 6f935777f489bff925a3bf18b1e4b7493f83ae7b1e581890092e5779af59b732
-  source_path: gateway/openai-http-api.md
-  workflow: 15
+summary: "从 Gateway 网关暴露 OpenAI 兼容的 /v1/chat/completions HTTP 端点"
+read_when:
+  - 集成需要 OpenAI Chat Completions 的工具
+title: "OpenAI Chat Completions"
 ---
 
 # OpenAI Chat Completions（HTTP）
 
 OpenClaw 的 Gateway 网关可以提供一个小型的 OpenAI 兼容 Chat Completions 端点。
 
-此端点**默认禁用**。请先在配置中启用它。
+此端点**默认禁用**。请先在配置中启用它。 Enable it in config first.
 
 - `POST /v1/chat/completions`
 - 与 Gateway 网关相同的端口（WS + HTTP 多路复用）：`http://<gateway-host>:<port>/v1/chat/completions`
@@ -22,7 +18,7 @@ OpenClaw 的 Gateway 网关可以提供一个小型的 OpenAI 兼容 Chat Comple
 
 ## 认证
 
-使用 Gateway 网关认证配置。发送 bearer 令牌：
+使用 Gateway 网关认证配置。发送 bearer 令牌： Send a bearer token:
 
 - `Authorization: Bearer <token>`
 
@@ -30,8 +26,9 @@ OpenClaw 的 Gateway 网关可以提供一个小型的 OpenAI 兼容 Chat Comple
 
 - 当 `gateway.auth.mode="token"` 时，使用 `gateway.auth.token`（或 `OPENCLAW_GATEWAY_TOKEN`）。
 - 当 `gateway.auth.mode="password"` 时，使用 `gateway.auth.password`（或 `OPENCLAW_GATEWAY_PASSWORD`）。
+- 如果配置了 `gateway.auth.rateLimit` 且发生过多身份验证失败，端点将返回 `429` 并附带 `Retry-After`。
 
-## 选择智能体
+## Choosing an agent
 
 无需自定义头：在 OpenAI `model` 字段中编码智能体 ID：
 
@@ -120,5 +117,3 @@ curl -N http://127.0.0.1:18789/v1/chat/completions \
     "messages": [{"role":"user","content":"hi"}]
   }'
 ```
-
-

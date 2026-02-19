@@ -1,4 +1,9 @@
 ---
+summary: "تطبيق عُقدة iOS: الاتصال بـ Gateway، الاقتران، اللوحة، واستكشاف الأخطاء وإصلاحها"
+read_when:
+  - إقران أو إعادة توصيل عُقدة iOS
+  - تشغيل تطبيق iOS من الشيفرة المصدرية
+  - تصحيح اكتشاف Gateway أو أوامر اللوحة
 title: "تطبيق iOS"
 ---
 
@@ -70,6 +75,7 @@ openclaw nodes invoke --node "iOS Node" --command canvas.navigate --params '{"ur
 ملاحظات:
 
 - يقدّم مضيف لوحة Gateway `/__openclaw__/canvas/` و`/__openclaw__/a2ui/`.
+- يتم تقديمه من خادم Gateway عبر HTTP (نفس المنفذ `gateway.port`، الافتراضي `18789`).
 - تنتقل عُقدة iOS تلقائيًا إلى A2UI عند الاتصال عندما يتم الإعلان عن عنوان URL لمضيف اللوحة.
 - عُد إلى الهيكل الافتراضي المدمج باستخدام `canvas.navigate` و`{"url":""}`.
 
@@ -100,5 +106,3 @@ openclaw nodes invoke --node "iOS Node" --command canvas.snapshot --params '{"ma
 - [الإقران](/gateway/pairing)
 - [الاكتشاف](/gateway/discovery)
 - [Bonjour](/gateway/bonjour)
-
-

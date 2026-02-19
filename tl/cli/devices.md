@@ -1,4 +1,8 @@
 ---
+summary: "Sanggunian ng CLI para sa `openclaw devices` (pagpapares ng device + pag-ikot/pagbawi ng token)"
+read_when:
+  - Ikaw ay nag-aapruba ng mga kahilingan sa pagpapares ng device
+  - Kailangan mong mag-rotate o mag-revoke ng mga token ng device
 title: "mga device"
 ---
 
@@ -64,5 +68,3 @@ openclaw devices revoke --device <deviceId> --role node
 
 - 8. Ang token rotation ay nagbabalik ng bagong token (sensitibo). 9. Ituring ito bilang isang lihim.
 - Kinakailangan ng mga command na ito ang `operator.pairing` (o `operator.admin`) scope.
-
-

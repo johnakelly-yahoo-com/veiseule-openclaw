@@ -1,9 +1,14 @@
 ---
+summary: "การรองรับ Linux และสถานะของแอปคู่หู"
+read_when:
+  - กำลังมองหาสถานะของแอปคู่หูบน Linux
+  - วางแผนความครอบคลุมแพลตฟอร์มหรือการมีส่วนร่วม
 title: "แอป Linux"
 ---
 
 # แอป Linux
 
+Gateway รองรับบน Linux อย่างเต็มรูปแบบ **Node เป็นรันไทม์ที่แนะนำ**
 Gateway รองรับบน Linux อย่างเต็มรูปแบบ **Node เป็นรันไทม์ที่แนะนำ**
 ไม่แนะนำให้ใช้ Bun สำหรับ Gateway (มีบั๊กกับ WhatsApp/Telegram)
 
@@ -89,5 +94,3 @@ WantedBy=default.target
 ```
 systemctl --user enable --now openclaw-gateway[-<profile>].service
 ```
-
-

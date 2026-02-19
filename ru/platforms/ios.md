@@ -1,4 +1,9 @@
 ---
+summary: "Приложение узла iOS: подключение к Gateway (шлюз), сопряжение, canvas и устранение неполадок"
+read_when:
+  - Сопряжение или повторное подключение узла iOS
+  - Запуск приложения iOS из исходников
+  - Отладка обнаружения шлюза Gateway или команд canvas
 title: "Приложение iOS"
 ---
 
@@ -70,6 +75,7 @@ openclaw nodes invoke --node "iOS Node" --command canvas.navigate --params '{"ur
 Примечания:
 
 - Хост canvas шлюза Gateway обслуживает `/__openclaw__/canvas/` и `/__openclaw__/a2ui/`.
+- Он обслуживается HTTP-сервером Gateway (тот же порт, что и `gateway.port`, по умолчанию `18789`).
 - Узел iOS автоматически переходит к A2UI при подключении, если объявлен URL хоста canvas.
 - Возврат к встроенному шаблону выполняется с помощью `canvas.navigate` и `{"url":""}`.
 
@@ -100,5 +106,3 @@ openclaw nodes invoke --node "iOS Node" --command canvas.snapshot --params '{"ma
 - [Сопряжение](/gateway/pairing)
 - [Обнаружение](/gateway/discovery)
 - [Bonjour](/gateway/bonjour)
-
-

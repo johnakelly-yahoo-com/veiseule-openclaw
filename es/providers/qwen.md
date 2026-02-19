@@ -1,4 +1,8 @@
 ---
+summary: "Use OAuth de Qwen (nivel gratuito) en OpenClaw"
+read_when:
+  - Quiere usar Qwen con OpenClaw
+  - Quiere acceso OAuth de nivel gratuito a Qwen Coder
 title: "Qwen"
 ---
 
@@ -47,5 +51,3 @@ entrada `models.providers.qwen-portal` (use el comando de inicio de sesión ante
 - URL base predeterminada: `https://portal.qwen.ai/v1` (anúlela con
   `models.providers.qwen-portal.baseUrl` si Qwen proporciona un endpoint diferente).
 - Consulte [Model providers](/concepts/model-providers) para reglas a nivel de proveedor.
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "โหมดการรันแบบยกระดับและไดเรกทีฟ /elevated"
+read_when:
+  - เมื่อปรับค่าเริ่มต้นของโหมดการยกระดับ รายการอนุญาต หรือพฤติกรรมของคำสั่งสแลช
 title: "โหมดการยกระดับ"
 ---
 
@@ -45,12 +48,10 @@ title: "โหมดการยกระดับ"
 - allowlist ผู้ส่ง: `tools.elevated.allowFrom` พร้อม allowlist แยกตามผู้ให้บริการ(เช่น `discord`, `whatsapp`).
 - เกตต่อเอเจนต์: `agents.list[].tools.elevated.enabled` (ไม่บังคับ; ทำได้เพียงจำกัดเพิ่มเติม).
 - allowlist ต่อเอเจนต์: `agents.list[].tools.elevated.allowFrom` (ไม่บังคับ; เมื่อกำหนด ผู้ส่งต้องตรงกับ **ทั้ง** allowlist ส่วนกลาง+ต่อเอเจนต์).
-- ทางเลือกสำรองของ Discord: หากละ `tools.elevated.allowFrom.discord` จะใช้รายการ `channels.discord.dm.allowFrom` เป็นทางเลือกสำรอง ตั้งค่า `tools.elevated.allowFrom.discord` (แม้เป็น `[]`) เพื่อแทนที่ allowlist ต่อเอเจนต์จะ **ไม่** ใช้ทางเลือกสำรอง. Set `tools.elevated.allowFrom.discord` (even `[]`) to override. Per-agent allowlists do **not** use the fallback.
+- Discord fallback: หากไม่ได้ระบุ `tools.elevated.allowFrom.discord` จะใช้รายการ `channels.discord.allowFrom` เป็นค่า fallback (legacy: `channels.discord.dm.allowFrom`) Set `tools.elevated.allowFrom.discord` (even `[]`) to override. Per-agent allowlists do **not** use the fallback.
 - ทุกเกตต้องผ่าน มิฉะนั้นจะถือว่าการยกระดับไม่พร้อมใช้งาน.
 
 ## การบันทึก+สถานะ
 
 - การเรียกใช้การรันคำสั่งแบบยกระดับจะถูกบันทึกในระดับ info.
 - สถานะเซสชันจะแสดงโหมดการยกระดับ(เช่น `elevated=ask`, `elevated=full`).
-
-

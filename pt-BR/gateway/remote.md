@@ -1,4 +1,7 @@
 ---
+summary: "Acesso remoto usando túneis SSH (Gateway WS) e tailnets"
+read_when:
+  - Ao executar ou solucionar problemas de configurações remotas do gateway
 title: "Acesso remoto"
 ---
 
@@ -124,5 +127,3 @@ Versão curta: **mantenha o Gateway apenas em loopback** a menos que você tenha
 - Trate o controle pelo navegador como acesso de operador: apenas tailnet + pareamento deliberado de nós.
 
 Aprofundamento: [Segurança](/gateway/security).
-
-

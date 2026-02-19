@@ -1,25 +1,21 @@
 ---
-title: 语音唤醒
-x-i18n:
-  generated_at: "2026-02-03T10:08:23Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: f6440bb89f349ba5c1c9aacffe95e568681beb9899ca736dedfe2f4a366cb5e4
-  source_path: platforms/mac/voicewake.md
-  workflow: 15
+summary: "Mac 应用中的语音唤醒和按键通话模式及路由详情"
+read_when:
+  - Working on voice wake or PTT pathways
+title: "语音唤醒"
 ---
 
 # 语音唤醒与按键通话
 
 ## 模式
 
-- **唤醒词模式**（默认）：常驻语音识别器等待触发词（`swabbleTriggerWords`）。匹配时开始捕获，显示带有部分文本的悬浮窗，并在静默后自动发送。
-- **按键通话（按住右 Option 键）**：按住右 Option 键立即开始捕获——无需触发词。按住时显示悬浮窗；松开后延迟片刻再最终转发，以便你可以调整文本。
+- **唤醒词模式**（默认）：常驻语音识别器等待触发词（`swabbleTriggerWords`）。匹配时开始捕获，显示带有部分文本的悬浮窗，并在静默后自动发送。 On match it starts capture, shows the overlay with partial text, and auto-sends after silence.
+- **Push-to-talk (Right Option hold)**: hold the right Option key to capture immediately—no trigger needed. The overlay appears while held; releasing finalizes and forwards after a short delay so you can tweak text.
 
 ## 运行时行为（唤醒词）
 
 - 语音识别器位于 `VoiceWakeRuntime` 中。
-- 仅当唤醒词和下一个词之间有**明显停顿**（约 0.55 秒间隔）时才触发。悬浮窗/提示音可以在命令开始前的停顿时就启动。
+- 仅当唤醒词和下一个词之间有**明显停顿**（约 0.55 秒间隔）时才触发。悬浮窗/提示音可以在命令开始前的停顿时就启动。 4. 覆盖层/提示音可以在停顿时就开始，甚至在命令真正开始之前。
 - 静默窗口：语音流畅时为 2.0 秒，如果只听到触发词则为 5.0 秒。
 - 硬性停止：120 秒，防止会话失控。
 - 会话间去抖动：350 毫秒。
@@ -42,7 +38,7 @@ x-i18n:
 
 ## 按键通话细节
 
-- 热键检测使用全局 `.flagsChanged` 监视器检测**右 Option 键**（`keyCode 61` + `.option`）。我们只观察事件（不拦截）。
+- 热键检测使用全局 `.flagsChanged` 监视器检测**右 Option 键**（`keyCode 61` + `.option`）。我们只观察事件（不拦截）。 20. 我们只观察事件（不吞掉）。
 - 捕获管道位于 `VoicePushToTalk` 中：立即启动语音识别，将部分结果流式传输到悬浮窗，并在松开时调用 `VoiceWakeForwarder`。
 - 按键通话开始时，我们暂停唤醒词运行时以避免音频采集冲突；松开后自动重启。
 - 权限：需要麦克风 + 语音识别权限；查看事件需要辅助功能/输入监控批准。
@@ -51,23 +47,21 @@ x-i18n:
 ## 面向用户的设置
 
 - **语音唤醒**开关：启用唤醒词运行时。
-- **按住 Cmd+Fn 说话**：启用按键通话监视器。在 macOS < 26 上禁用。
+- 27. **按住 Cmd+Fn 说话**：启用按键说话监听。 在 macOS < 26 上禁用。
 - 语言和麦克风选择器、实时电平指示器、触发词表、测试器（仅本地；不转发）。
 - 麦克风选择器在设备断开时保留上次选择，显示断开提示，并临时回退到系统默认设备直到设备恢复。
-- **声音**：触发检测和发送时的提示音；默认为 macOS"Glass"系统声音。你可以为每个事件选择任何 `NSSound` 可加载的文件（例如 MP3/WAV/AIFF）或选择**无声音**。
+- **声音**：触发检测和发送时的提示音；默认为 macOS"Glass"系统声音。你可以为每个事件选择任何 `NSSound` 可加载的文件（例如 MP3/WAV/AIFF）或选择**无声音**。 你可以为每个事件选择任意 `NSSound` 可加载的文件（例如 MP3/WAV/AIFF），或选择**无声音**。
 
-## 转发行为
+## 33. 转发行为
 
 - 启用语音唤醒时，转录文本被转发到活动的 Gateway 网关/智能体（与 Mac 应用其他部分使用相同的本地/远程模式）。
-- 回复被投递到**上次使用的主提供商**（WhatsApp/Telegram/Discord/WebChat）。如果投递失败，错误会被记录，运行记录仍可通过 WebChat/会话日志查看。
+- 回复被投递到**上次使用的主提供商**（WhatsApp/Telegram/Discord/WebChat）。如果投递失败，错误会被记录，运行记录仍可通过 WebChat/会话日志查看。 如果投递失败，错误会被记录，且仍可通过 WebChat/会话日志查看该运行。
 
 ## 转发负载
 
-- `VoiceWakeForwarder.prefixedTranscript(_:)` 在发送前添加机器提示前缀。唤醒词和按键通话路径共享此方法。
+- `VoiceWakeForwarder.prefixedTranscript(_:)` 在发送前添加机器提示前缀。唤醒词和按键通话路径共享此方法。 39. 在唤醒词和按键说话路径之间共享。
 
 ## 快速验证
 
-- 开启按键通话，按住 Cmd+Fn，说话，松开：悬浮窗应显示部分结果然后发送。
+- 41. 打开按键说话，按住 Cmd+Fn，说话，松开：覆盖层应显示部分结果然后发送。
 - 按住时，菜单栏耳朵图标应保持放大状态（使用 `triggerVoiceEars(ttl:nil)`）；松开后恢复。
-
-

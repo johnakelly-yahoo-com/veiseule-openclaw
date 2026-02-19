@@ -1,5 +1,9 @@
 ---
-title: "Beceriler"
+summary: "macOS Skills ayarları kullanıcı arayüzü ve Gateway destekli durum"
+read_when:
+  - macOS Skills ayarları kullanıcı arayüzünü güncellerken
+  - Skills kısıtlamalarını veya yükleme davranışını değiştirirken
+title: "Skills"
 ---
 
 # Beceriler (macOS)
@@ -27,5 +31,3 @@ macOS uygulaması OpenClaw Skills’i gateway üzerinden sunar; Skills’i yerel
 ## Uzaktan mod
 
 - Yükleme ve yapılandırma güncellemeleri yerel Mac’te değil, gateway ana makinesinde gerçekleşir.
-
-

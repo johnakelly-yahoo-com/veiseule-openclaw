@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw için ilk çalıştırma onboarding akışı (macOS uygulaması)"
+read_when:
+  - macOS onboarding asistanını tasarlarken
+  - Kimlik doğrulama veya kimlik kurulumunu uygularken
 title: "Onboarding (macOS Uygulaması)"
 sidebarTitle: "Başlangıç: macOS Uygulaması"
 ---
@@ -9,6 +13,7 @@ Bu belge, **mevcut** ilk çalıştırma onboarding akışını açıklar. Amaç,
 sorunsuz bir “0. gün” deneyimidir: Gateway’in nerede çalışacağını seçmek,
 kimlik doğrulamayı bağlamak, sihirbazı çalıştırmak ve ajanın kendi kendini
 bootstrap etmesine izin vermek.
+Onboarding yollarına genel bir bakış için bkz. [Onboarding Overview](/start/onboarding-overview).
 
 <Steps>
 <Step title="Approve macOS warning">
@@ -81,5 +86,3 @@ Bu adım isteğe bağlıdır
   için [Bootstrapping](/start/bootstrapping) bölümüne bakın.
 </Step>
 </Steps>
-
-

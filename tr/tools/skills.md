@@ -1,5 +1,9 @@
 ---
-title: "Beceriler"
+summary: "Skills: yönetilen vs çalışma alanı, geçitleme kuralları ve config/env bağlanması"
+read_when:
+  - Skills eklerken veya değiştirirken
+  - Skill geçitlemesini veya yükleme kurallarını değiştirirken
+title: "Skills"
 ---
 
 # Beceriler (OpenClaw)
@@ -277,5 +281,3 @@ Tam yapılandırma şeması için [Skills config](/tools/skills-config) sayfası
 [https://clawhub.com](https://clawhub.com) adresine göz atın.
 
 ---
-
-

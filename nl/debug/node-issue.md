@@ -1,4 +1,8 @@
 ---
+summary: Node + tsx-crashnotities en workarounds voor "__name is not a function"
+read_when:
+  - Debuggen van alleen-Node dev-scripts of watch-modusfouten
+  - Onderzoeken van tsx/esbuild loader-crashes in OpenClaw
 title: "Node + tsx-crash"
 ---
 
@@ -54,7 +58,7 @@ node --import tsx scripts/repro/tsx-name-repro.ts
 - `2871657e` (2026-01-06): scripts gewijzigd van Bun naar tsx om Bun optioneel te maken.
 - Daarvoor (Bun-pad) werkten `openclaw status` en `gateway:watch`.
 
-## Tijdelijke oplossingen
+## Workarounds
 
 - Gebruik Bun voor dev-scripts (huidige tijdelijke terugdraai).
 
@@ -82,5 +86,3 @@ node --import tsx scripts/repro/tsx-name-repro.ts
 - Repro op Node 22/24 om een Node 25-regressie te bevestigen.
 - Test `tsx` nightly of pin naar een eerdere versie als er een bekende regressie bestaat.
 - Als het ook op Node LTS reproduceert, dien een minimale repro upstream in met de `__name`-stacktrace.
-
-

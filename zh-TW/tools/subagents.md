@@ -1,166 +1,170 @@
 ---
+summary: "子代理程式：產生隔離的代理程式執行，並將結果回報給請求者聊天"
+read_when:
+  - 你需要透過代理程式進行背景／平行工作
+  - 你正在變更 sessions_spawn 或 子代理程式 工具政策
 title: "子代理程式"
 ---
 
-# 子代理程式
+# Per-Agent Overrides
 
-子代理是在既有代理執行期間所產生的背景代理執行。它們在自己的工作階段（`agent:<agentId>:subagent:<uuid>`）中運行，完成後會將結果**公告**回請求者的聊天頻道。
+子代理是從現有代理執行中啟動的背景代理執行個體。 它們在各自的工作階段中執行（`agent:<agentId>:subagent:<uuid>`），完成後會將結果**公告**回請求者的聊天通道。
 
-## Slash command
+## 指令
 
-使用 `/subagents` 來檢視或控制**目前工作階段**的子代理執行：
+Use the `/subagents` slash command to inspect and control sub-agent runs for the current session:
 
 - `/subagents list`
-- `/subagents kill <id|#|all>`
-- `/subagents log <id|#> [limit] [tools]`
-- `/subagents info <id|#>`
-- `/subagents send <id|#> <message>`
+- \`/subagents stop <id\\
+- \`/subagents log <id\\
+- \`/subagents info <id\\
+- \`/subagents send <id\\
 
-`/subagents info` 會顯示執行中繼資料（狀態、時間戳記、工作階段 id、逐字稿路徑、cleanup）。
+`/subagents info` 會顯示執行中繼資料（狀態、時間戳記、session id、逐字稿路徑、清理資訊）。
 
 主要目標：
 
-- 在不阻塞主執行的情況下，平行化「研究／長時間任務／慢速工具」工作。
-- 預設讓子代理彼此隔離（工作階段分離 + 可選沙箱）。
-- 讓工具介面難以被誤用：子代理**預設不會**取得工作階段工具。
-- 支援可設定的巢狀深度，以實現 orchestrator 模式。
+- 在不阻塞主要執行流程的情況下，將「研究／長時間任務／緩慢工具」工作平行化。
+- 預設保持子代理隔離（工作階段分離 + 可選沙箱化）。
+- 維持工具介面難以被誤用：子代理預設**不會**取得 session 工具。
+- 支援可設定的巢狀深度，以實現協調器（orchestrator）模式。
 
-成本注意：每個子代理都有其**自己的**上下文與 token 使用量。對於繁重或重複性任務，請為子代理設定較便宜的模型，並將主代理維持在較高品質的模型上。  
-你可以透過 `agents.defaults.subagents.model` 或每個代理的覆寫設定來配置。
+Each sub-agent has its **own** context and token usage. 對於繁重或重複性
+任務，請為子代理設定較低成本的模型，並讓主要代理維持在較高品質的模型上。
+In a multi-agent setup, you can set sub-agent defaults per agent:
 
-## Tool
+## 工具
 
-使用 `sessions_spawn`：
+Explicit `model` parameter in the `sessions_spawn` call
 
-- 啟動子代理執行（`deliver: false`，全域 lane：`subagent`）
-- 接著執行公告步驟，並將公告回覆張貼到請求者聊天頻道
-- 預設模型：繼承呼叫者，除非你設定 `agents.defaults.subagents.model`（或每個代理的 `agents.list[].subagents.model`）；若明確提供 `sessions_spawn.model`，則以其為準。
-- 預設 thinking：繼承呼叫者，除非你設定 `agents.defaults.subagents.thinking`（或每個代理的 `agents.list[].subagents.thinking`）；若明確提供 `sessions_spawn.thinking`，則以其為準。
+- Global default: `agents.defaults.subagents.thinking`
+- 接著執行公告步驟，並將公告回覆發佈到請求者的聊天通道
+- Model: target agent’s normal model selection (unless `subagents.model` is set)
+- Per-agent config: `agents.list[].subagents.thinking`
 
 工具參數：
 
-- `task`（必填）
-- `label?`（選填）
-- `agentId?`（選填；若允許，可在其他 agent id 之下產生）
-- `model?`（選填；覆寫子代理模型；若為無效值將被跳過，子代理會以預設模型執行，並在工具結果中顯示警告）
-- `thinking?`（選填；覆寫子代理的 thinking 等級）
-- `runTimeoutSeconds?`（預設 `0`；設定後，子代理執行會在 N 秒後中止）
-- `cleanup?`（`delete|keep`，預設 `keep`）
+- `task`
+- `label`
+- Spawn under a different agent id (must be allowed)
+- Invalid model values are silently skipped — the sub-agent runs on the next valid default with a warning in the tool result.
+- Thinking: no sub-agent override (unless `subagents.thinking` is set)
+- Abort the sub-agent after N seconds
+- `"delete"` \\
 
-允許清單：
+Allowlist：
 
-- `agents.list[].subagents.allowAgents`：可透過 `agentId` 指定的 agent id 清單（`["*"]` 代表允許任何）。預設：僅限請求者代理。
+- Per-agent config: `agents.list[].subagents.model` 預設：僅限請求者代理。
 
-探索：
+探索（Discovery）：
 
-- 使用 `agents_list` 來查看目前哪些 agent id 允許 `sessions_spawn`。
+- Use the `agents_list` tool to discover which agent ids are currently allowed for `sessions_spawn`.
 
-自動封存：
+Auto-Archive
 
-- 子代理工作階段會在 `agents.defaults.subagents.archiveAfterMinutes`（預設：60）後自動封存。
-- 封存使用 `sessions.delete`，並將逐字稿重新命名為 `*.deleted.<timestamp>`（相同資料夾）。
-- `cleanup: "delete"` 會在公告後立即封存（仍會透過重新命名保留逐字稿）。
-- 自動封存為盡力而為；若 gateway 重新啟動，尚未觸發的計時器將會遺失。
-- `runTimeoutSeconds` **不會** 自動封存；它只會停止執行。工作階段會保留，直到自動封存。
-- 自動封存同樣適用於 depth-1 與 depth-2 工作階段。
+- Sub-agent sessions are automatically archived after a configurable period:
+- Archive renames the transcript to `*.deleted.` （相同資料夾）。
+- `"delete"` archives immediately after announce
+- Auto-archive timers are best-effort; pending timers are lost if the gateway restarts.
+- `runTimeoutSeconds` **不會** 自動封存工作階段。 40. 工作階段會保留直到自動封存。
+- 自動封存同樣適用於深度 1 與深度 2 的工作階段。
 
-## Nested Sub-Agents
+## 子代理程式
 
-預設情況下，子代理不能再產生自己的子代理（`maxSpawnDepth: 1`）。你可以將 `maxSpawnDepth` 設為 `2` 來啟用一層巢狀，允許 **orchestrator 模式**：主代理 → orchestrator 子代理 → worker 子子代理。
+By default, sub-agents can only spawn under their own agent id. To allow an agent to spawn sub-agents under other agent ids:
 
-### How to enable
+### 如何啟用
 
 ```json5
 {
   agents: {
     defaults: {
       subagents: {
-        maxSpawnDepth: 2, // allow sub-agents to spawn children (default: 1)
-        maxChildrenPerAgent: 5, // max active children per agent session (default: 5)
-        maxConcurrent: 8, // global concurrency lane cap (default: 8)
+        model: "minimax/MiniMax-M2.1",
       },
     },
   },
 }
 ```
 
-### Depth levels
+### 深度層級
 
-| Depth | Session key shape                            | Role                                          | Can spawn?                   |
-| ----- | -------------------------------------------- | --------------------------------------------- | ---------------------------- |
-| 0     | `agent:<id>:main`                            | 主代理                                       | Always                       |
-| 1     | `agent:<id>:subagent:<uuid>`                 | 子代理（當允許 depth 2 時為 orchestrator）    | Only if `maxSpawnDepth >= 2` |
-| 2     | `agent:<id>:subagent:<uuid>:subagent:<uuid>` | 子子代理（leaf worker）                      | Never                        |
+| 深度 | Session key 形狀                                                                                                                                                                                                                                                                                                                                                                                                               | 角色                                                    | 可以啟動子代理嗎？               |
+| -- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- | ----------------------- |
+| 0  | `agentId`                                                                                                                                                                                                                                                                                                                                                                                                                    | _(caller's agent)_                 | 永遠                      |
+| 1  | {&#xA;agents: {&#xA;defaults: {&#xA;subagents: {&#xA;thinking: "low",&#xA;},&#xA;},&#xA;},&#xA;}                                                                                                                                                                                                                                                             | 子代理（當允許深度 2 時為 orchestrator）                          | 僅當 `maxSpawnDepth >= 2` |
+| 2  | {&#xA;agents: {&#xA;list: [&#xA;{&#xA;id: "orchestrator",&#xA;subagents: {&#xA;allowAgents: ["researcher", "coder"], // or ["\*"] to allow any&#xA;},&#xA;},&#xA;],&#xA;},&#xA;} | Managing Sub-Agents (`/subagents`) | 永不                      |
 
-### Announce chain
+### 公告鏈
 
 結果會沿著鏈向上回傳：
 
-1. Depth-2 worker 完成 → 向其父層（depth-1 orchestrator）公告
-2. Depth-1 orchestrator 接收公告、整合結果、完成 → 向主代理公告
-3. 主代理接收公告並回覆給使用者
+1. 深度 2 工作代理完成 → 向其父層（深度 1 orchestrator）發出公告
+2. 深度 1 orchestrator 接收公告，彙整結果並完成 → 向主代理發出公告
+3. 主代理接收公告並將結果交付給使用者
 
-每一層只會看到其直屬子代理的公告。
+每一層只能看到來自其直接子代理的公告。
 
-### Tool policy by depth
+### 工具政策
 
-- **Depth 1（orchestrator，當 `maxSpawnDepth >= 2`）**：取得 `sessions_spawn`、`subagents`、`sessions_list`、`sessions_history` 以管理其子代理。其他工作階段／系統工具仍被拒絕。
-- **Depth 1（leaf，當 `maxSpawnDepth == 1`）**：沒有工作階段工具（目前預設行為）。
-- **Depth 2（leaf worker）**：沒有工作階段工具 — 在 depth 2 永遠拒絕 `sessions_spawn`，不能再產生子代理。
+- **深度 1（orchestrator，當 `maxSpawnDepth >= 2` 時）**：取得 `sessions_spawn`、`subagents`、`sessions_list`、`sessions_history` 以便管理其子代理。 其他 session/system 工具仍然被拒絕。
+- **深度 1（leaf，當 `maxSpawnDepth == 1` 時）**：無 session 工具（目前預設行為）。
+- **深度 2（leaf worker）**：無 session 工具——在深度 2 時 `sessions_spawn` 一律被拒絕。 不可再啟動子代理。
 
-### Per-agent spawn limit
+### Cross-Agent Spawning
 
-每個代理工作階段（任何深度）同時間最多只能有 `maxChildrenPerAgent`（預設：5）個活躍子代理。這可防止單一 orchestrator 失控式擴散。
+每個代理 session（任何深度）同一時間最多可擁有 `maxChildrenPerAgent`（預設：5）個啟用中的子代理。 這可防止單一 orchestrator 發生失控式扇出。
 
-### Cascade stop
+### 級聯停止
 
-停止 depth-1 orchestrator 會自動停止其所有 depth-2 子代理：
+停止深度 1 orchestrator 會自動停止其所有深度 2 子代理：
 
-- 在主聊天中輸入 `/stop` 會停止所有 depth-1 代理，並級聯停止其 depth-2 子代理。
-- `/subagents kill <id>` 會停止特定子代理，並級聯停止其子代理。
-- `/subagents kill all` 會停止請求者的所有子代理，並級聯停止。
+- 在主聊天中執行 `/stop` 會停止所有深度 1 代理，並級聯停止其深度 2 子代理。
+- 子代理也會收到一個以任務為導向的系統提示，指示其專注於被指派的任務、完成任務，且不要充當主代理。
+- `/subagents kill all` 會停止請求者的所有子代理，並進行級聯。
 
-## Authentication
+## 驗證
 
-子代理的驗證是依據 **agent id** 解析，而非依據工作階段類型：
+Sub-agent auth is resolved by **agent id**, not by session type:
 
-- 子代理的工作階段金鑰為 `agent:<agentId>:subagent:<uuid>`。
-- 驗證存放區會從該代理的 `agentDir` 載入。
-- 主代理的驗證設定檔會作為**備援**合併進來；若發生衝突，以子代理所屬代理的設定為準。
+- 子代理的 session key 為 `agent:<agentId>:subagent:<uuid>`。
+- auth store 會從該代理的 `agentDir` 載入。
+- 主代理的 auth profiles 會合併作為**後備（fallback）**；若發生衝突，代理的 profiles 會覆蓋主 profiles。
 
-注意：此合併為累加式，因此主代理的設定檔永遠可作為備援。目前尚未支援每個代理完全隔離的驗證。
+注意：此合併為累加式，因此主 profiles 始終可作為後備使用。 目前尚未支援每個子代理完全隔離的驗證。
+</Note>
 
-## Announce
+## 公告狀態
 
-子代理透過公告步驟回報結果：
+子代理透過公告步驟回報：
 
-- 公告步驟在子代理工作階段內執行（不是在請求者工作階段）。
-- 若子代理精確回覆 `ANNOUNCE_SKIP`，則不會張貼任何內容。
-- 否則，公告回覆會透過後續的 `agent` 呼叫（`deliver=true`）張貼到請求者聊天頻道。
+- 公告步驟在子代理 session 內執行（而非請求者 session）。
+- 若子代理回覆完全為 `ANNOUNCE_SKIP`，則不會發佈任何內容。
+- When the sub-agent finishes, it announces its findings back to the requester chat.
 - 在可用時，公告回覆會保留執行緒／主題路由（Slack 執行緒、Telegram 主題、Matrix 執行緒）。
-- 公告訊息會被標準化為穩定範本：
-  - `Status:` 來自執行結果（`success`、`error`、`timeout` 或 `unknown`）。
-  - `Result:` 公告步驟中的摘要內容（若缺少則為 `(not available)`）。
-  - `Notes:` 錯誤細節與其他有用資訊。
-- `Status` 並非從模型輸出推斷，而是來自執行階段結果訊號。
+- 公告訊息會標準化為穩定的範本：
+  - `Status:` 依執行結果而定（`success`、`error`、`timeout` 或 `unknown`）。
+  - `Result:` 公告步驟中的摘要內容（若缺失則為 `(not available)`）。
+  - `Notes:` 錯誤細節及其他有用的背景資訊。
+- `Status` 並非從模型輸出推斷；而是來自執行階段的結果訊號。
 
-公告內容在結尾會包含統計資訊（即使包裝後仍會保留）：
+Each announce includes a stats line with:
 
-- 執行時間（例如 `runtime 5m12s`）
-- Token 使用量（input/output/total）
-- 當模型定價透過 `models.providers.*.models[].cost` 設定時的預估成本
-- `sessionKey`、`sessionId` 與逐字稿路徑（主代理可透過 `sessions_history` 取得歷史或直接檢視檔案）
+- 執行時間（例如：`runtime 5m12s`）
+- Token 使用量（輸入／輸出／總計）
+- 預估成本（當模型定價透過 `models.providers.*.models[].cost` 設定時）
+- `sessionKey`、`sessionId` 以及對話紀錄路徑（因此主代理可透過 `sessions_history` 取得歷史記錄，或在磁碟上檢視該檔案）
 
-## Tool Policy (sub-agent tools)
+## 工具政策（子代理工具）
 
-預設情況下，子代理可使用**所有工具，除了工作階段工具與系統工具**：
+預設情況下，子代理可使用**除 session 工具與系統工具之外的所有工具**：
 
-- `sessions_list`
-- `sessions_history`
+- Explicit `thinking` parameter in the `sessions_spawn` call
+- `runTimeoutSeconds`
 - `sessions_send`
-- `sessions_spawn`
+- The `sessions_spawn` Tool
 
-當 `maxSpawnDepth >= 2` 時，depth-1 的 orchestrator 子代理還會額外取得 `sessions_spawn`、`subagents`、`sessions_list` 與 `sessions_history` 以管理其子代理。
+當 `maxSpawnDepth >= 2` 時，深度為 1 的協調型子代理會額外取得 `sessions_spawn`、`subagents`、`sessions_list` 與 `sessions_history`，以便管理其子代理。
 
 可透過設定覆寫：
 
@@ -169,41 +173,30 @@ title: "子代理程式"
   agents: {
     defaults: {
       subagents: {
-        maxConcurrent: 1,
-      },
-    },
-  },
-  tools: {
-    subagents: {
-      tools: {
-        // deny wins
-        deny: ["gateway", "cron"],
-        // if allow is set, it becomes allow-only (deny still wins)
-        // allow: ["read", "exec", "process"]
+        maxConcurrent: 4, // default: 8
       },
     },
   },
 }
 ```
 
-## Concurrency
+## 併發
 
-子代理使用專用的 in-process 佇列 lane：
+子代理使用專用的程序內佇列通道：
 
-- Lane 名稱：`subagent`
-- 併發數：`agents.defaults.subagents.maxConcurrent`（預設 `8`）
+- :subagent:
+- Global default: `agents.defaults.subagents.model`
 
-## Stopping
+## 停止子代理
 
-- 在請求者聊天中輸入 `/stop` 會中止請求者工作階段，並停止其所產生的所有活躍子代理執行（包含巢狀子代理）。
-- `/subagents kill <id>` 會停止特定子代理，並級聯停止其子代理。
+- 在請求者聊天中傳送 `/stop` 會中止請求者的 session，並停止由其啟動的所有作用中子代理執行，並級聯至巢狀子代理。
+- `) on the dedicated `subagent\` queue lane.
 
-## Limitations
+## 限制
 
-- 子代理公告為**盡力而為**。若 gateway 重新啟動，尚未完成的「回傳公告」工作將會遺失。
-- 子代理仍與主代理共用同一個 gateway 行程資源；請將 `maxConcurrent` 視為安全閥。
-- `sessions_spawn` 永遠為非阻塞：它會立即回傳 `{ status: "accepted", runId, childSessionKey }`。
-- 子代理的上下文只會注入 `AGENTS.md` 與 `TOOLS.md`（不包含 `SOUL.md`、`IDENTITY.md`、`USER.md`、`HEARTBEAT.md` 或 `BOOTSTRAP.md`）。
-- 最大巢狀深度為 5（`maxSpawnDepth` 範圍：1–5）。多數使用情境建議使用 depth 2。
-- `maxChildrenPerAgent` 會限制每個工作階段的活躍子代理數（預設：5，範圍：1–20）。
-
+- 子代理公告為\*\*盡力而為（best-effort）\*\*機制。 若 gateway 重新啟動，尚未完成的「announce back」工作將會遺失。
+- 子代理仍與同一個 gateway 行程共享資源；請將 `maxConcurrent` 視為安全閥。
+- The main agent calls `sessions_spawn` with a task description. The call is **non-blocking** — the main agent gets back `{ status: "accepted", runId, childSessionKey }` immediately.
+- 子代理的內容上下文僅注入 `AGENTS.md` + `TOOLS.md`（不包含 `SOUL.md`、`IDENTITY.md`、`USER.md`、`HEARTBEAT.md` 或 `BOOTSTRAP.md`）。
+- 最大巢狀深度為 5（`maxSpawnDepth` 範圍：1–5）。 多數使用情境建議使用深度 2。
+- `maxChildrenPerAgent` 限制每個 session 的作用中子代理數量（預設：5，範圍：1–20）。

@@ -1,4 +1,7 @@
 ---
+summary: "Справочник CLI для `openclaw pairing` (утверждение/просмотр запросов на сопряжение)"
+read_when:
+  - Вы используете личные сообщения в режиме сопряжения и вам нужно утверждать отправителей
 title: "сопряжение"
 ---
 
@@ -16,5 +19,3 @@ title: "сопряжение"
 openclaw pairing list whatsapp
 openclaw pairing approve whatsapp <code> --notify
 ```
-
-

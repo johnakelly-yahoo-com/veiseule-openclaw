@@ -1,10 +1,12 @@
 ---
-title: "HEARTBEAT.md Shabloni"
+title: "HEARTBEAT.md shabloni"
+summary: "Workspace template for HEARTBEAT.md"
+read_when:
+  - Bootstrapping a workspace manually
 ---
 
 # HEARTBEAT.md
 
-# Heartbeat API chaqiruvlarini o‘tkazib yuborish uchun bu faylni bo‘sh qoldiring (yoki faqat izohlar bilan).
+# Keep this file empty (or with only comments) to skip heartbeat API calls.
 
-# Agent ma’lum vaqt oralig‘ida biror narsani tekshirishi kerak bo‘lsa, vazifalarni quyida qo‘shing.
-
+# Add tasks below when you want the agent to check something periodically.

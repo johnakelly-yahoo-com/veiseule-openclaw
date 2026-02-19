@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw 에서 디바이스 플로우를 사용해 GitHub Copilot 에 로그인합니다"
+read_when:
+  - GitHub Copilot 을 모델 프로바이더로 사용하려는 경우
+  - "`openclaw models auth login-github-copilot` 플로우가 필요한 경우"
 title: "GitHub Copilot"
 ---
 
@@ -55,5 +59,3 @@ openclaw models set github-copilot/gpt-4o
 - 대화형 TTY 가 필요합니다. 터미널에서 직접 실행하십시오.
 - Copilot 모델 사용 가능 여부는 요금제에 따라 다릅니다. 모델이 거부되는 경우 다른 ID 를 시도하십시오(예: `github-copilot/gpt-4.1`).
 - 로그인 과정은 인증 프로파일 저장소에 GitHub 토큰을 저장하고, OpenClaw 가 실행될 때 이를 Copilot API 토큰으로 교환합니다.
-
-

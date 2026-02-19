@@ -1,4 +1,8 @@
 ---
+summary: "Visão geral de provedores de modelo com exemplos de configuração + fluxos de CLI"
+read_when:
+  - Você precisa de uma referência de configuração de modelos por provedor
+  - Você quer exemplos de configuração ou comandos de integração inicial via CLI para provedores de modelo
 title: "Provedores de Modelo"
 ---
 
@@ -116,6 +120,7 @@ configuração de `models.providers`; basta definir a autenticação e escolher 
   - URL base compatível com OpenAI: `https://api.cerebras.ai/v1`.
 - Mistral: `mistral` (`MISTRAL_API_KEY`)
 - GitHub Copilot: `github-copilot` (`COPILOT_GITHUB_TOKEN` / `GH_TOKEN` / `GITHUB_TOKEN`)
+- Hugging Face Inference: `huggingface` (`HUGGINGFACE_HUB_TOKEN` ou `HF_TOKEN`) — roteador compatível com OpenAI; modelo de exemplo: `huggingface/deepseek-ai/DeepSeek-R1`; CLI: `openclaw onboard --auth-choice huggingface-api-key`. Veja [Hugging Face (Inference)](/providers/huggingface).
 
 ## Provedores via `models.providers` (URL personalizada/base)
 
@@ -255,6 +260,32 @@ ollama pull llama3.3
 
 O Ollama é detectado automaticamente ao executar localmente em `http://127.0.0.1:11434/v1`. Veja [/providers/ollama](/providers/ollama) para recomendações de modelos e configuração personalizada.
 
+### vLLM
+
+vLLM é um servidor compatível com OpenAI local (ou auto-hospedado):
+
+- Provider: `vllm`
+- Auth: Opcional (depende do seu servidor)
+- URL base padrão: `http://127.0.0.1:8000/v1`
+
+Para habilitar a descoberta automática localmente (qualquer valor funciona se o seu servidor não exigir autenticação):
+
+```bash
+export VLLM_API_KEY="vllm-local"
+```
+
+Em seguida, defina um modelo (substitua por um dos IDs retornados por `/v1/models`):
+
+```json5
+{
+  agents: {
+    defaults: { model: { primary: "vllm/your-model-id" } },
+  },
+}
+```
+
+Veja [/providers/vllm](/providers/vllm) para mais detalhes.
+
 ### Proxies locais (LM Studio, vLLM, LiteLLM, etc.)
 
 Exemplo (compatível com OpenAI):
@@ -310,5 +341,3 @@ openclaw models list
 ```
 
 Veja também: [/gateway/configuration](/gateway/configuration) para exemplos completos de configuração.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Plan: één schone plugin-SDK + runtime voor alle messaging-connectoren"
+read_when:
+  - Het definiëren of herstructureren van de plugin-architectuur
+  - Het migreren van kanaalconnectoren naar de plugin-SDK/runtime
 title: "Plugin-SDK-refactor"
 ---
 
@@ -208,5 +212,3 @@ Notities:
 - Externe plugins kunnen worden ontwikkeld en bijgewerkt zonder toegang tot de core-broncode.
 
 Gerelateerde documentatie: [Plugins](/tools/plugin), [Kanalen](/channels/index), [Configuratie](/gateway/configuration).
-
-

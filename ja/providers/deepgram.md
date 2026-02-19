@@ -1,13 +1,19 @@
 ---
+summary: "インバウンド音声メモ向けの Deepgram 文字起こし"
+read_when:
+  - 音声添付に Deepgram の音声認識を使いたい場合
+  - Deepgram の簡単な設定例が必要な場合
 title: "Deepgram"
 ---
 
 # Deepgram（音声文字起こし）
 
 Deepgram は音声認識（speech-to-text）API です。OpenClaw では、**インバウンドの音声／ボイスノートの文字起こし** に `tools.media.audio` を介して使用されます。 OpenClawでは、`tools.media.audio`を介して**音声/音声音符
+トランスクリプト**に使用されます。 OpenClawでは、`tools.media.audio`を介して**音声/音声音符
 トランスクリプト**に使用されます。
 
 有効化すると、OpenClaw は音声ファイルを Deepgram にアップロードし、文字起こし結果を返信パイプライン（`{{Transcript}}` + `[Audio]` ブロック）に注入します。これは**ストリーミングではありません**。事前録音向けの文字起こしエンドポイントを使用します。 これは**ストリーミングしません**;
+は事前に記録された転写エンドポイントを使用します。 これは**ストリーミングしません**;
 は事前に記録された転写エンドポイントを使用します。
 
 Web サイト: [https://deepgram.com](https://deepgram.com)  
@@ -86,5 +92,3 @@ Deepgram オプション指定の例:
 - 認証は標準のプロバイダー認証順に従います。`DEEPGRAM_API_KEY` が最も簡単な方法です。
 - プロキシを使用する場合、`tools.media.audio.baseUrl` および `tools.media.audio.headers` でエンドポイントやヘッダーを上書きできます。
 - 出力は他のプロバイダーと同じ音声ルール（サイズ上限、タイムアウト、文字起こしの注入）に従います。
-
-

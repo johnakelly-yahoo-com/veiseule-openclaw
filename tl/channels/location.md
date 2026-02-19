@@ -1,4 +1,8 @@
 ---
+summary: "Pag-parse ng lokasyon ng inbound channel (Telegram + WhatsApp) at mga field ng konteksto"
+read_when:
+  - Pagdaragdag o pagbabago ng pag-parse ng lokasyon ng channel
+  - Paggamit ng mga field ng konteksto ng lokasyon sa mga prompt o tool ng agent
 title: "Pag-parse ng Lokasyon ng Channel"
 ---
 
@@ -50,5 +54,3 @@ Kapag may lokasyon, idinaragdag ang mga field na ito sa `ctx`:
 - **Telegram**: ang mga venue ay minamapa sa `LocationName/LocationAddress`; ang mga live location ay gumagamit ng `live_period`.
 - **WhatsApp**: ang `locationMessage.comment` at `liveLocationMessage.caption` ay idinadagdag bilang caption line.
 - **Matrix**: ang `geo_uri` ay bina-parse bilang pin location; binabalewala ang altitude at ang `LocationIsLive` ay palaging false.
-
-

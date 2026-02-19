@@ -1,4 +1,9 @@
-------
+---
+title: "Plantilla de BOOTSTRAP.md"
+summary: "Ritual de primera ejecución para nuevos agentes"
+read_when:
+  - Arranque de un espacio de trabajo de forma manual
+---
 
 # BOOTSTRAP.md - Hola, Mundo
 
@@ -55,5 +60,3 @@ Elimine este archivo. Ya no necesita un script de arranque — ahora es usted.
 ---
 
 _Buena suerte ahí fuera. Haga que valga la pena._
-
-

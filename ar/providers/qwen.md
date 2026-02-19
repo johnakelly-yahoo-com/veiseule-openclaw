@@ -1,4 +1,8 @@
 ---
+summary: "استخدم OAuth من Qwen (الفئة المجانية) في OpenClaw"
+read_when:
+  - تريد استخدام Qwen مع OpenClaw
+  - تريد وصول OAuth من الفئة المجانية إلى Qwen Coder
 title: "Qwen"
 ---
 
@@ -47,5 +51,3 @@ openclaw models set qwen-portal/coder-model
 - عنوان URL الأساسي الافتراضي: `https://portal.qwen.ai/v1` (يمكن تجاوزه باستخدام
   `models.providers.qwen-portal.baseUrl` إذا وفّرت Qwen نقطة نهاية مختلفة).
 - راجع [موفّري النماذج](/concepts/model-providers) للاطلاع على القواعد العامة على مستوى الموفّر.
-
-

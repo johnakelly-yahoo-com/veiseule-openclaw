@@ -1,4 +1,8 @@
 ---
+summary: "CLI 參考文件：`openclaw memory`（status/index/search）"
+read_when:
+  - 您想要建立索引或搜尋語意記憶
+  - 您正在除錯記憶可用性或索引建立
 title: "memory"
 ---
 
@@ -8,7 +12,7 @@ Manage semantic memory indexing and search.
 管理語意記憶的索引與搜尋。
 由目前啟用的記憶體外掛提供（預設：`memory-core`；可設定 `plugins.slots.memory = "none"` 以停用）。
 
-相關：
+Related:
 
 - 記憶概念：[Memory](/concepts/memory)
 - 外掛：[Plugins](/tools/plugin)
@@ -40,5 +44,3 @@ openclaw memory index --agent main --verbose
 - `memory status --deep --index`：如果儲存區為髒狀態，則執行重新索引。
 - `memory index --verbose`：列印各階段的詳細資訊（提供者、模型、來源、批次活動）。
 - `memory status`：包含任何透過 `memorySearch.extraPaths` 設定的額外路徑。
-
-

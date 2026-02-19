@@ -1,4 +1,8 @@
 ---
+summary: "Paano nirorotate ng OpenClaw ang mga auth profile at nagba-back fallback sa mga model"
+read_when:
+  - Pag-diagnose ng auth profile rotation, mga cooldown, o gawi ng model fallback
+  - Pag-update ng mga failover rule para sa mga auth profile o mga model
 title: "Paglipat ng Modelo"
 ---
 
@@ -141,5 +145,3 @@ Tingnan ang [Gateway configuration](/gateway/configuration) para sa:
 - `agents.defaults.imageModel` na pagruruta
 
 Tingnan ang [Models](/concepts/models) para sa mas malawak na pangkalahatang-ideya ng pagpili ng model at fallback.
-
-

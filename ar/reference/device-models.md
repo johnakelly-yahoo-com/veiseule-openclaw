@@ -1,4 +1,8 @@
 ---
+summary: "كيف يقوم OpenClaw بتضمين معرّفات نماذج أجهزة Apple لتقديم أسماء ودّية في تطبيق macOS."
+read_when:
+  - تحديث تعيينات معرّفات نماذج الأجهزة أو ملفات NOTICE/الترخيص
+  - تغيير كيفية عرض واجهة Instances لأسماء الأجهزة
 title: "قاعدة بيانات نماذج الأجهزة"
 ---
 
@@ -41,5 +45,3 @@ curl -fsSL "https://raw.githubusercontent.com/kyle-seongwoo-jun/apple-device-ide
 ```bash
 swift build --package-path apps/macos
 ```
-
-

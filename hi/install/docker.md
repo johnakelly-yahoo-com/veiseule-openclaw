@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw के लिए वैकल्पिक Docker-आधारित सेटअप और ऑनबोर्डिंग"
+read_when:
+  - आप स्थानीय इंस्टॉल के बजाय एक कंटेनरीकृत Gateway चाहते हैं
+  - आप Docker फ्लो को सत्यापित कर रहे हैं
 title: "Docker"
 ---
 
@@ -52,14 +56,32 @@ Sandboxing विवरण: [Sandboxing](/gateway/sandboxing)
 
 - अपने ब्राउज़र में `http://127.0.0.1:18789/` खोलें।
 - Control UI में टोकन पेस्ट करें (Settings → token)।
-- फिर से URL चाहिए? `docker compose run --rm openclaw-cli dashboard --no-open` चलाएँ।
+- Need the URL again? Run `docker compose run --rm openclaw-cli dashboard --no-open`.
 
 यह होस्ट पर config/workspace लिखता है:
 
 - `~/.openclaw/`
 - `~/.openclaw/workspace`
 
-VPS पर चला रहे हैं? देखें [Hetzner (Docker VPS)](/install/hetzner)।
+Running on a VPS? See [Hetzner (Docker VPS)](/install/hetzner).
+
+### मैनुअल फ्लो (compose)
+
+दैनिक Docker प्रबंधन को आसान बनाने के लिए `ClawDock` इंस्टॉल करें:
+
+```bash
+mkdir -p ~/.clawdock && curl -sL https://raw.githubusercontent.com/openclaw/openclaw/main/scripts/shell-helpers/clawdock-helpers.sh -o ~/.clawdock/clawdock-helpers.sh
+```
+
+**अपने शेल कॉन्फ़िग (zsh) में जोड़ें:**
+
+```bash
+echo 'source ~/.clawdock/clawdock-helpers.sh' >> ~/.zshrc && source ~/.zshrc
+```
+
+फिर `clawdock-start`, `clawdock-stop`, `clawdock-dashboard` आदि का उपयोग करें। सभी कमांड के लिए `clawdock-help` चलाएँ।
+
+विवरण के लिए [`ClawDock` Helper README](https://github.com/openclaw/openclaw/blob/main/scripts/shell-helpers/README.md) देखें।
 
 ### मैनुअल फ्लो (compose)
 
@@ -79,8 +101,7 @@ docker compose -f docker-compose.yml -f docker-compose.extra.yml <command>
 
 ### Control UI टोकन + पेयरिंग (Docker)
 
-यदि आपको “unauthorized” या “disconnected (1008): pairing required” दिखाई देता है, तो
-एक नया डैशबोर्ड लिंक प्राप्त करें और ब्राउज़र डिवाइस को अनुमोदित करें:
+नोट्स:
 
 ```bash
 docker compose run --rm openclaw-cli dashboard --no-open
@@ -147,7 +168,7 @@ libraries), set `OPENCLAW_DOCKER_APT_PACKAGES` before running `docker-setup.sh`.
 This installs the packages during the image build, so they persist even if the
 container is deleted.
 
-उदाहरण:
+यदि आप अधिक पूर्ण-विशेषताओं वाला कंटेनर चाहते हैं, तो इन ऑप्ट-इन विकल्पों का उपयोग करें:
 
 ```bash
 export OPENCLAW_DOCKER_APT_PACKAGES="ffmpeg build-essential"
@@ -156,7 +177,7 @@ export OPENCLAW_DOCKER_APT_PACKAGES="ffmpeg build-essential"
 
 नोट्स:
 
-- यह apt पैकेज नामों की स्पेस-सेपरेटेड सूची स्वीकार करता है।
+- **सिस्टम निर्भरताएँ इमेज में शामिल करें** (दोहराने योग्य + स्थायी):
 - यदि आप `OPENCLAW_DOCKER_APT_PACKAGES` बदलते हैं, तो इमेज को पुनः बनाने के लिए `docker-setup.sh` चलाएँ।
 
 ### पावर-यूज़र / पूर्ण-विशेषताओं वाला कंटेनर (ऑप्ट-इन)
@@ -168,9 +189,10 @@ user. This keeps the attack surface small, but it means:
 - डिफ़ॉल्ट रूप से Homebrew नहीं
 - बंडल्ड Chromium/Playwright ब्राउज़र नहीं
 
-यदि आप अधिक पूर्ण-विशेषताओं वाला कंटेनर चाहते हैं, तो इन ऑप्ट-इन विकल्पों का उपयोग करें:
+यदि Playwright को सिस्टम निर्भरताएँ इंस्टॉल करनी हों, तो रनटाइम पर
+`--with-deps` उपयोग करने के बजाय `OPENCLAW_DOCKER_APT_PACKAGES` के साथ इमेज को पुनः बनाएँ।
 
-1. **`/home/node` को स्थायी बनाएँ** ताकि ब्राउज़र डाउनलोड और टूल कैश बने रहें:
+1. **Playwright ब्राउज़र डाउनलोड को स्थायी बनाएँ**:
 
 ```bash
 export OPENCLAW_HOME_VOLUME="openclaw_home"
@@ -192,8 +214,7 @@ docker compose run --rm openclaw-cli \
   node /app/node_modules/playwright-core/cli.js install chromium
 ```
 
-यदि Playwright को सिस्टम निर्भरताएँ इंस्टॉल करनी हों, तो रनटाइम पर
-`--with-deps` उपयोग करने के बजाय `OPENCLAW_DOCKER_APT_PACKAGES` के साथ इमेज को पुनः बनाएँ।
+यदि सुविधा के लिए आप root के रूप में चलाने का चयन करते हैं, तो आप सुरक्षा समझौते को स्वीकार करते हैं।
 
 4. **Playwright ब्राउज़र डाउनलोड को स्थायी बनाएँ**:
 
@@ -207,7 +228,7 @@ docker compose run --rm openclaw-cli \
 The image runs as `node` (uid 1000). If you see permission errors on
 `/home/node/.openclaw`, make sure your host bind mounts are owned by uid 1000.
 
-उदाहरण (Linux होस्ट):
+CLI कंटेनर का उपयोग करके चैनल कॉन्फ़िगर करें, फिर आवश्यकता होने पर Gateway को पुनः प्रारंभ करें।
 
 ```bash
 sudo chown -R 1000:1000 /path/to/openclaw-config /path/to/openclaw-workspace
@@ -250,7 +271,7 @@ CMD ["node","dist/index.js"]
 
 ### चैनल सेटअप (वैकल्पिक)
 
-CLI कंटेनर का उपयोग करके चैनल कॉन्फ़िगर करें, फिर आवश्यकता होने पर Gateway को पुनः प्रारंभ करें।
+डॉक्स: [WhatsApp](/channels/whatsapp), [Telegram](/channels/telegram), [Discord](/channels/discord)
 
 WhatsApp (QR):
 
@@ -312,12 +333,12 @@ pnpm test:docker:qr
 When `agents.defaults.sandbox` is enabled, **non-main sessions** run tools inside a Docker
 container. The gateway stays on your host, but the tool execution is isolated:
 
-- स्कोप: डिफ़ॉल्ट रूप से `"agent"` (प्रति एजेंट एक कंटेनर + वर्कस्पेस)
-- स्कोप: प्रति-सत्र पृथक्करण के लिए `"session"`
-- प्रति-स्कोप वर्कस्पेस फ़ोल्डर `/workspace` पर माउंट
-- वैकल्पिक एजेंट वर्कस्पेस एक्सेस (`agents.defaults.sandbox.workspaceAccess`)
-- allow/deny टूल नीति (deny की प्राथमिकता)
-- इनबाउंड मीडिया को सक्रिय sandbox वर्कस्पेस (`media/inbound/*`) में कॉपी किया जाता है ताकि टूल्स उसे पढ़ सकें ( `workspaceAccess: "rw"` के साथ यह एजेंट वर्कस्पेस में जाता है)
+- इमेज: `openclaw-sandbox:bookworm-slim`
+- प्रति एजेंट एक कंटेनर
+- एजेंट वर्कस्पेस एक्सेस: `workspaceAccess: "none"` (डिफ़ॉल्ट) `~/.openclaw/sandboxes` का उपयोग करता है
+- ऑटो-प्रून: निष्क्रिय > 24 घंटे या आयु > 7 दिन
+- नेटवर्क: डिफ़ॉल्ट रूप से `none` (यदि egress चाहिए तो स्पष्ट रूप से ऑप्ट-इन करें)
+- डिफ़ॉल्ट allow: `exec`, `process`, `read`, `write`, `edit`, `sessions_list`, `sessions_history`, `sessions_send`, `sessions_spawn`, `session_status`
 
 Warning: `scope: "shared"` disables cross-session isolation. All sessions share
 one container and one workspace.
@@ -332,8 +353,9 @@ mixed access levels in one gateway:
 - केवल-पठन टूल्स + केवल-पठन वर्कस्पेस (परिवार/कार्य एजेंट)
 - कोई फ़ाइलसिस्टम/शेल टूल नहीं (सार्वजनिक एजेंट)
 
-उदाहरण, प्राथमिकता और समस्या-निवारण के लिए देखें
-[Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools)।
+हार्डनिंग विकल्प `agents.defaults.sandbox.docker` के अंतर्गत उपलब्ध हैं:
+`network`, `user`, `pidsLimit`, `memory`, `memorySwap`, `cpus`, `ulimits`,
+`seccompProfile`, `apparmorProfile`, `dns`, `extraHosts`।
 
 ### डिफ़ॉल्ट व्यवहार
 
@@ -349,7 +371,7 @@ mixed access levels in one gateway:
 
 ### sandboxing सक्षम करें
 
-यदि आप `setupCommand` में पैकेज इंस्टॉल करने की योजना बनाते हैं, तो ध्यान दें:
+यह `Dockerfile.sandbox` का उपयोग करके `openclaw-sandbox:bookworm-slim` बनाता है।
 
 - डिफ़ॉल्ट `docker.network` `"none"` है (कोई egress नहीं)।
 - `readOnlyRoot: true` पैकेज इंस्टॉल को ब्लॉक करता है।
@@ -432,7 +454,7 @@ mixed access levels in one gateway:
 scripts/sandbox-setup.sh
 ```
 
-यह `Dockerfile.sandbox` का उपयोग करके `openclaw-sandbox:bookworm-slim` बनाता है।
+sandbox के भीतर ब्राउज़र टूल चलाने के लिए, ब्राउज़र इमेज बनाएँ:
 
 ### Sandbox common इमेज (वैकल्पिक)
 
@@ -456,7 +478,7 @@ This builds `openclaw-sandbox-common:bookworm-slim`. To use it:
 
 ### Sandbox ब्राउज़र इमेज
 
-sandbox के भीतर ब्राउज़र टूल चलाने के लिए, ब्राउज़र इमेज बनाएँ:
+कस्टम ब्राउज़र इमेज:
 
 ```bash
 scripts/sandbox-browser-setup.sh
@@ -500,8 +522,8 @@ an optional noVNC observer (headful via Xvfb).
 
 सक्षम होने पर, एजेंट को मिलता है:
 
-- एक sandbox ब्राउज़र कंट्रोल URL (`browser` टूल के लिए)
-- एक noVNC URL (यदि सक्षम है और headless=false)
+- `deny` की प्राथमिकता `allow` पर होती है।
+- यदि `allow` खाली है: सभी टूल्स (deny को छोड़कर) उपलब्ध हैं।
 
 Remember: if you use an allowlist for tools, add `browser` (and remove it from
 deny) or the tool remains blocked.
@@ -525,13 +547,13 @@ docker build -t my-openclaw-sbx -f Dockerfile.sandbox .
 }
 ```
 
-### टूल नीति (allow/deny)
+### सुरक्षा नोट्स
 
-- `deny` की प्राथमिकता `allow` पर होती है।
-- यदि `allow` खाली है: सभी टूल्स (deny को छोड़कर) उपलब्ध हैं।
-- यदि `allow` खाली नहीं है: केवल `allow` में दिए गए टूल्स उपलब्ध हैं (deny को घटाकर)।
+- हार्ड वॉल केवल **टूल्स** (exec/read/write/edit/apply_patch) पर लागू होती है।
+- होस्ट-ओनली टूल्स जैसे browser/camera/canvas डिफ़ॉल्ट रूप से ब्लॉक होते हैं।
+- sandbox में `browser` की अनुमति देना **पृथक्करण को तोड़ देता है** (ब्राउज़र होस्ट पर चलता है)।
 
-### प्रूनिंग रणनीति
+### समस्या-निवारण
 
 दो विकल्प:
 
@@ -561,5 +583,3 @@ docker build -t my-openclaw-sbx -f Dockerfile.sandbox .
   sources `/etc/profile` and may reset PATH. Set `docker.env.PATH` to prepend your
   custom tool paths (e.g., `/custom/bin:/usr/local/share/npm-global/bin`), or add
   a script under `/etc/profile.d/` in your Dockerfile.
-
-

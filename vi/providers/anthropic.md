@@ -1,4 +1,8 @@
 ---
+summary: "Dùng Anthropic Claude qua khóa API hoặc setup-token trong OpenClaw"
+read_when:
+  - Bạn muốn dùng các mô hình Anthropic trong OpenClaw
+  - Bạn muốn dùng setup-token thay vì khóa API
 title: "Anthropic"
 ---
 
@@ -146,5 +150,3 @@ openclaw onboard --auth-choice setup-token
 - Thêm một hồ sơ Anthropic khác hoặc chờ hết cooldown.
 
 Xem thêm: [/gateway/troubleshooting](/gateway/troubleshooting) và [/help/faq](/help/faq).
-
-

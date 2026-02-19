@@ -1,4 +1,8 @@
 ---
+summary: "Tratamento de fuso horário para agentes, envelopes e prompts"
+read_when:
+  - Você precisa entender como os timestamps são normalizados para o modelo
+  - Configurar o fuso horário do usuário para prompts do sistema
 title: "Fusos horários"
 ---
 
@@ -85,5 +89,3 @@ O prompt do sistema inclui:
 Você pode controlar o formato do prompt com `agents.defaults.timeFormat` (`auto` | `12` | `24`).
 
 Veja [Date & Time](/date-time) para o comportamento completo e exemplos.
-
-

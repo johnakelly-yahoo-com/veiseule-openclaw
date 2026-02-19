@@ -1,8 +1,11 @@
 ---
-title: "文件中心"
+summary: "連結至所有 OpenClaw 文件的中樞頁面"
+read_when:
+  - 你想要完整掌握整份文件的地圖
+title: "Docs Hubs"
 ---
 
-# 文件中心
+# Docs hubs
 
 <Note>
 如果你是 OpenClaw 新手，請從 [Getting Started](/start/getting-started) 開始。
@@ -192,5 +195,3 @@ title: "文件中心"
 - [Testing](/reference/test)
 - [Release checklist](/reference/RELEASING)
 - [Device models](/reference/device-models)
-
-

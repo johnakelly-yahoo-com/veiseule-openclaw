@@ -1,4 +1,8 @@
 ---
+summary: "「openclaw update」の CLI リファレンス（安全性を重視したソース更新 + ゲートウェイの自動再起動）"
+read_when:
+  - ソースのチェックアウトを安全に更新したい場合
+  - 「--update」の省略指定の挙動を理解する必要がある場合
 title: "update"
 ---
 
@@ -51,9 +55,10 @@ openclaw update status --timeout 10
 
 更新チャンネルを選択し、アップデート後にゲートウェイ
 を再起動するかどうかを確認するための対話フローです(デフォルトは再起動します)。 git checkout なしで `dev` を選択した場合、
+で作成することができます。 git checkout なしで `dev` を選択した場合、
 で作成することができます。
 
-## 機能概要
+## What it does
 
 チャンネルを明示的に切り替える場合（`--channel ...`）、OpenClaw は
 インストール方法も整合させます。
@@ -70,7 +75,7 @@ openclaw update status --timeout 10
 - `beta`: 最新の `-beta` タグをチェックアウトし、build + doctor を実行します。
 - `dev`: `main` をチェックアウトし、fetch + rebase を実行します。
 
-概要:
+High-level:
 
 1. クリーンな worktree（未コミットの変更がないこと）が必要です。
 2. 選択したチャンネル（タグまたはブランチ）に切り替えます。
@@ -86,11 +91,9 @@ openclaw update status --timeout 10
 
 `openclaw --update` は `openclaw update` に書き換えられます（シェルやランチャースクリプトに便利です）。
 
-## 関連項目
+## See also
 
 - `openclaw doctor`（git のチェックアウトでは、まず update を実行することを提案します）
 - [Development channels](/install/development-channels)
 - [Updating](/install/updating)
 - [CLI reference](/cli)
-
-

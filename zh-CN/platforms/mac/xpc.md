@@ -1,17 +1,13 @@
 ---
-title: macOS IPC
-x-i18n:
-  generated_at: "2026-02-03T07:52:57Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: d0211c334a4a59b71afb29dd7b024778172e529fa618985632d3d11d795ced92
-  source_path: platforms/mac/xpc.md
-  workflow: 15
+summary: "OpenClaw 应用的 macOS IPC 架构、Gateway 网关节点传输和 PeekabooBridge"
+read_when:
+  - 编辑 IPC 合约或菜单栏应用 IPC
+title: "macOS IPC"
 ---
 
 # OpenClaw macOS IPC 架构
 
-**当前模型：** 一个本地 Unix 套接字将**节点主机服务**连接到 **macOS 应用**，用于 exec 审批 + `system.run`。存在一个 `openclaw-mac` 调试 CLI 用于发现/连接检查；智能体操作仍通过 Gateway 网关 WebSocket 和 `node.invoke` 流转。UI 自动化使用 PeekabooBridge。
+**当前模型：** 一个本地 Unix 套接字将**节点主机服务**连接到 **macOS 应用**，用于 exec 审批 + `system.run`。存在一个 `openclaw-mac` 调试 CLI 用于发现/连接检查；智能体操作仍通过 Gateway 网关 WebSocket 和 `node.invoke` 流转。UI 自动化使用 PeekabooBridge。 A `openclaw-mac` debug CLI exists for discovery/connect checks; agent actions still flow through the Gateway WebSocket and `node.invoke`. UI 自动化使用 PeekabooBridge。
 
 ## 目标
 
@@ -19,7 +15,7 @@ x-i18n:
 - 小型自动化接口：Gateway 网关 + 节点命令，加上用于 UI 自动化的 PeekabooBridge。
 - 可预测的权限：始终是同一个签名的 bundle ID，由 launchd 启动，因此 TCC 授权保持有效。
 
-## 工作原理
+## How it works
 
 ### Gateway 网关 + 节点传输
 
@@ -63,5 +59,3 @@ Agent -> Gateway -> Node Service (WS)
 - 所有通信仅保持本地；不暴露网络套接字。
 - TCC 提示仅源自 GUI 应用包；在重建时保持签名的 bundle ID 稳定。
 - IPC 加固：套接字模式 `0600`、令牌、对等 UID 检查、HMAC 质询/响应、短 TTL。
-
-

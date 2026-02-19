@@ -1,11 +1,16 @@
 ---
+summary: "Proces wdrożenia przy pierwszym uruchomieniu OpenClaw (aplikacja na macOS)"
+read_when:
+  - Projektowanie asystenta wdrożeniowego macOS
+  - Implementowanie uwierzytelniania lub konfiguracji tożsamości
 title: "Wdrożenie (aplikacja na macOS)"
-sidebarTitle: "Wprowadzenie: aplikacja macOS"
+sidebarTitle: "Onboarding: macOS App"
 ---
 
 # Wdrożenie (aplikacja na macOS)
 
 Ten dokument opisuje **aktualny** proces wdrożenia przy pierwszym uruchomieniu. Celem jest płynne doświadczenie „dzień 0”: wybór miejsca uruchomienia Gateway, podłączenie uwierzytelniania, przejście kreatora i pozwolenie agentowi na samodzielne uruchomienie.
+Aby zapoznać się z ogólnym przeglądem ścieżek wdrożenia, zobacz [Onboarding Overview](/start/onboarding-overview).
 
 <Steps>
 <Step title="Approve macOS warning">
@@ -72,5 +77,3 @@ Ten krok jest opcjonalny
   co dzieje się na hoście gateway podczas pierwszego uruchomienia agenta.
 </Step>
 </Steps>
-
-

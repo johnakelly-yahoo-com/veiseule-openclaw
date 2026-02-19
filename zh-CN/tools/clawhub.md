@@ -1,23 +1,42 @@
 ---
-title: ClawHub
-x-i18n:
-  generated_at: "2026-02-01T21:42:32Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 8b7f8fab80a34e409f37fa130a49ff5b487966755a7b0d214dfebf5207c7124c
-  source_path: tools/clawhub.md
-  workflow: 15
+summary: "ClawHub 指南：公共 Skills 注册中心 + CLI 工作流"
+read_when:
+  - 向新用户介绍 ClawHub
+  - 安装、搜索或发布 Skills
+  - 说明 ClawHub CLI 标志和同步行为
+title: "ClawHub"
 ---
 
 # ClawHub
 
-ClawHub 是 **OpenClaw 的公共 Skills 注册中心**。它是一项免费服务：所有 Skills 都是公开的、开放的，所有人都可以查看、共享和复用。Skills 就是一个包含 `SKILL.md` 文件（以及辅助文本文件）的文件夹。你可以在网页应用中浏览 Skills，也可以使用 CLI 来搜索、安装、更新和发布 Skills。
+ClawHub 是 **OpenClaw 的公共 Skills 注册中心**。它是一项免费服务：所有 Skills 都是公开的、开放的，所有人都可以查看、共享和复用。Skills 就是一个包含 `SKILL.md` 文件（以及辅助文本文件）的文件夹。你可以在网页应用中浏览 Skills，也可以使用 CLI 来搜索、安装、更新和发布 Skills。 16. 这是一个免费服务：所有技能都是公开、开放，并对所有人可见，便于共享和复用。 17. 一个技能只是一个包含 `SKILL.md` 文件（以及支持性的文本文件）的文件夹。 18. 你可以在 Web 应用中浏览技能，或使用 CLI 来搜索、安装、更新和发布技能。
 
 网站：[clawhub.com](https://clawhub.com)
 
-## 适用人群（新手友好）
+## 20. ClawHub 是什么
 
-如果你想为 OpenClaw 智能体添加新功能，ClawHub 是查找和安装 Skills 的最简单方式。你不需要了解后端的工作原理。你可以：
+- 21. 一个用于 OpenClaw 技能的公共注册表。
+- 22. 一个带版本的技能包及其元数据存储库。
+- 23. 一个用于搜索、标签和使用信号的发现平台。
+
+## 24. 工作原理
+
+1. 25. 用户发布一个技能包（文件 + 元数据）。
+2. 26. ClawHub 存储该技能包，解析元数据，并分配一个版本。
+3. 27. 注册表会对技能建立索引，用于搜索和发现。
+4. 28. 用户在 OpenClaw 中浏览、下载并安装技能。
+
+## 29) 你可以做什么
+
+- 30. 发布新技能以及现有技能的新版本。
+- 31. 按名称、标签或搜索来发现技能。
+- Download skill bundles and inspect their files.
+- 33. 举报具有滥用性或不安全的技能。
+- 34. 如果你是版主，可以隐藏、取消隐藏、删除或封禁。
+
+## 35. 适合谁（对初学者友好）
+
+如果你想为 OpenClaw 智能体添加新功能，ClawHub 是查找和安装 Skills 的最简单方式。你不需要了解后端的工作原理。你可以： 37. 你不需要了解后端是如何工作的。 38. 你可以：
 
 - 使用自然语言搜索 Skills。
 - 将 Skills 安装到你的工作区。
@@ -47,20 +66,54 @@ pnpm add -g clawhub
 
 ## 在 OpenClaw 中的定位
 
-默认情况下，CLI 会将 Skills 安装到当前工作目录下的 `./skills`。如果已配置 OpenClaw 工作区，`clawhub` 会回退到该工作区，除非你通过 `--workdir`（或 `CLAWHUB_WORKDIR`）进行覆盖。OpenClaw 从 `<workspace>/skills` 加载工作区 Skills，并会在**下一个**会话中生效。如果你已经在使用 `~/.openclaw/skills` 或内置 Skills，工作区 Skills 优先级更高。
+默认情况下，CLI 会将 Skills 安装到当前工作目录下的 `./skills`。如果已配置 OpenClaw 工作区，`clawhub` 会回退到该工作区，除非你通过 `--workdir`（或 `CLAWHUB_WORKDIR`）进行覆盖。OpenClaw 从 `<workspace>/skills` 加载工作区 Skills，并会在**下一个**会话中生效。如果你已经在使用 `~/.openclaw/skills` 或内置 Skills，工作区 Skills 优先级更高。 如果配置了 OpenClaw 工作区，`clawhub` 会回退到该工作区，除非你通过 `--workdir`（或 `CLAWHUB_WORKDIR`）进行覆盖。 OpenClaw 会从 `<workspace>/skills` 加载工作区技能，并会在**下一次**会话中生效。 如果你已经使用 `~/.openclaw/skills` 或内置技能，工作区技能具有更高优先级。
 
 有关 Skills 加载、共享和权限控制的更多详情，请参阅
 [Skills](/tools/skills)。
+
+## 技能系统概览
+
+技能是一个带版本的文件包，用于教会 OpenClaw 如何执行
+特定任务。 每次发布都会创建一个新版本，注册表会保留
+版本历史，以便用户审计更改。
+
+一个典型的技能包括：
+
+- 一个 `SKILL.md` 文件，包含主要说明和使用方法。
+- 技能使用的可选配置、脚本或支持文件。
+- 诸如标签、摘要和安装要求等元数据。
+
+ClawHub 使用元数据来支持发现，并安全地暴露技能能力。
+注册表还会跟踪使用信号（例如星标和下载量），以改进
+排名和可见性。
 
 ## 服务功能
 
 - **公开浏览**Skills 及其 `SKILL.md` 内容。
 - 基于嵌入向量（向量搜索）的**搜索**，而不仅仅是关键词匹配。
-- 支持语义化版本号、变更日志和标签（包括 `latest`）的**版本管理**。
+- 基于 semver 的**版本管理**，包含变更日志和标签（包括 `latest`）。
 - 每个版本以 zip 格式**下载**。
 - **星标和评论**，支持社区反馈。
 - **审核**钩子，用于审批和审计。
 - **CLI 友好的 API**，支持自动化和脚本编写。
+
+## 安全与审核
+
+ClawHub 默认是开放的。 任何人都可以上传技能，但用于发布的 GitHub 账号必须
+至少创建一周。 这有助于减缓滥用行为，而不会阻止
+合法贡献者。
+
+举报与审核：
+
+- 任何已登录用户都可以举报技能。
+- 举报原因是必填的，并会被记录。
+- 每个用户同时最多可以有 20 个有效举报。
+- 拥有超过 3 个不同用户举报的技能将默认被自动隐藏。
+- 版主可以查看被隐藏的技能、将其取消隐藏、删除它们，或封禁用户。
+- 滥用举报功能可能会导致账号被封禁。
+
+有兴趣成为版主吗？ 请在 OpenClaw Discord 中咨询，并联系一位
+版主或维护者。
 
 ## CLI 命令和参数
 
@@ -132,7 +185,7 @@ pnpm add -g clawhub
 - `--tags <tags>`：逗号分隔的标签（默认：`latest`）。
 - `--concurrency <n>`：注册中心检查并发数（默认：4）。
 
-## 智能体常用工作流
+## Common workflows for agents
 
 ### 搜索 Skills
 
@@ -176,11 +229,11 @@ clawhub sync --all
 
 ### 本地更改与注册中心版本
 
-更新时会使用内容哈希将本地 Skills 内容与注册中心版本进行比较。如果本地文件与任何已发布版本不匹配，CLI 会在覆盖前询问确认（或在非交互模式下需要 `--force`）。
+更新时会使用内容哈希将本地 Skills 内容与注册中心版本进行比较。如果本地文件与任何已发布版本不匹配，CLI 会在覆盖前询问确认（或在非交互模式下需要 `--force`）。 If local files do not match any published version, the CLI asks before overwriting (or requires `--force` in non-interactive runs).
 
 ### 同步扫描和回退根目录
 
-`clawhub sync` 首先扫描当前工作目录。如果未找到 Skills，它会回退到已知的旧版位置（例如 `~/openclaw/skills` 和 `~/.openclaw/skills`）。这样设计是为了在不需要额外标志的情况下找到旧版 Skills 安装。
+`clawhub sync` scans your current workdir first. If no skills are found, it falls back to known legacy locations (for example `~/openclaw/skills` and `~/.openclaw/skills`). This is designed to find older skill installs without extra flags.
 
 ### 存储和锁文件
 
@@ -189,7 +242,7 @@ clawhub sync --all
 
 ### 遥测（安装计数）
 
-当你在登录状态下运行 `clawhub sync` 时，CLI 会发送一个最小快照用于计算安装次数。你可以完全禁用此功能：
+当你在登录状态下运行 `clawhub sync` 时，CLI 会发送一个最小快照用于计算安装次数。你可以完全禁用此功能： You can disable this entirely:
 
 ```bash
 export CLAWHUB_DISABLE_TELEMETRY=1
@@ -202,5 +255,3 @@ export CLAWHUB_DISABLE_TELEMETRY=1
 - `CLAWHUB_CONFIG_PATH`：覆盖 CLI 存储令牌/配置的位置。
 - `CLAWHUB_WORKDIR`：覆盖默认工作目录。
 - `CLAWHUB_DISABLE_TELEMETRY=1`：禁用 `sync` 的遥测功能。
-
-

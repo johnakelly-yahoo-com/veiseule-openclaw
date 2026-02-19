@@ -1,4 +1,8 @@
 ---
+summary: "Tổng quan nhà cung cấp mô hình với cấu hình mẫu + luồng CLI"
+read_when:
+  - Bạn cần tài liệu tham chiếu thiết lập mô hình theo từng nhà cung cấp
+  - Bạn muốn xem cấu hình mẫu hoặc các lệnh CLI hướng dẫn ban đầu cho nhà cung cấp mô hình
 title: "Nhà cung cấp mô hình"
 ---
 
@@ -115,6 +119,7 @@ cấu hình `models.providers`; chỉ cần đặt auth + chọn một mô hình
   - Base URL tương thích OpenAI: `https://api.cerebras.ai/v1`.
 - Mistral: `mistral` (`MISTRAL_API_KEY`)
 - GitHub Copilot: `github-copilot` (`COPILOT_GITHUB_TOKEN` / `GH_TOKEN` / `GITHUB_TOKEN`)
+- Hugging Face Inference: `huggingface` (`HUGGINGFACE_HUB_TOKEN` hoặc `HF_TOKEN`) — router tương thích OpenAI; ví dụ model: `huggingface/deepseek-ai/DeepSeek-R1`; CLI: `openclaw onboard --auth-choice huggingface-api-key`. Xem [Hugging Face (Inference)](/providers/huggingface).
 
 ## Nhà cung cấp qua `models.providers` (URL tùy chỉnh/cơ sở)
 
@@ -258,6 +263,32 @@ Ollama được tự động phát hiện khi chạy cục bộ tại `http://12
 
 Ví dụ (tương thích OpenAI):
 
+- Provider: `vllm`
+- Xác thực: Tùy chọn (phụ thuộc vào máy chủ của bạn)
+- Base URL mặc định: `http://127.0.0.1:8000/v1`
+
+Ghi chú:
+
+```bash
+export VLLM_API_KEY="vllm-local"
+```
+
+Sau đó đặt một model (thay bằng một trong các ID được trả về từ `/v1/models`):
+
+```json5
+{
+  agents: {
+    defaults: { model: { primary: "vllm/your-model-id" } },
+  },
+}
+```
+
+Xem thêm: [/gateway/configuration](/gateway/configuration) để biết các ví dụ cấu hình đầy đủ.
+
+### Proxy cục bộ (LM Studio, vLLM, LiteLLM, v.v.)
+
+Ví dụ (tương thích OpenAI):
+
 ```json5
 {
   agents: {
@@ -309,5 +340,3 @@ openclaw models list
 ```
 
 Xem thêm: [/gateway/configuration](/gateway/configuration) để biết các ví dụ cấu hình đầy đủ.
-
-

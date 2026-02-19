@@ -1,10 +1,14 @@
 ---
+summary: "Gamitin ang MiniMax M2.1 sa OpenClaw"
+read_when:
+  - Gusto mo ng mga MiniMax model sa OpenClaw
+  - Kailangan mo ng gabay sa setup ng MiniMax
 title: "MiniMax"
 ---
 
 # MiniMax
 
-Ang MiniMax ay isang AI company na bumubuo ng **M2/M2.1** na pamilya ng mga modelo. Ang kasalukuyang
+MiniMax is an AI company that builds the **M2/M2.1** model family. The current
 coding-focused release is **MiniMax M2.1** (December 23, 2025), built for
 real-world complex tasks.
 
@@ -27,8 +31,8 @@ Itinatampok ng MiniMax ang mga sumusunod na pagpapahusay sa M2.1:
 
 - **Bilis:** Ang Lightning ang “fast” variant sa pricing docs ng MiniMax.
 - **Gastos:** Ipinapakita ng pricing ang parehong input cost, ngunit mas mataas ang output cost ng Lightning.
-- **Routing ng coding plan:** Ang Lightning back-end ay hindi direktang available sa MiniMax
-coding plan. Awtomatikong niruruta ng MiniMax ang karamihan ng mga request sa Lightning, ngunit bumabalik ito sa
+- **Coding plan routing:** The Lightning back-end isn’t directly available on the MiniMax
+  coding plan. MiniMax auto-routes most requests to Lightning, but falls back to the
   regular M2.1 back-end during traffic spikes.
 
 ## Pumili ng setup
@@ -114,7 +118,7 @@ I-configure sa pamamagitan ng CLI:
 
 ### Opsyonal: Lokal sa pamamagitan ng LM Studio (manual)
 
-**Pinakamainam para sa:** lokal na inference gamit ang LM Studio.
+**Best for:** local inference with LM Studio.
 We have seen strong results with MiniMax M2.1 on powerful hardware (e.g. a
 desktop/server) using LM Studio's local server.
 
@@ -202,5 +206,3 @@ Pagkatapos, i-recheck gamit ang:
 ```bash
 openclaw models list
 ```
-
-

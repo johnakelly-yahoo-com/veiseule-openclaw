@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw کی انسٹالیشن کو ایک مشین سے دوسری مشین پر منتقل (مائیگریٹ) کریں"
+read_when:
+  - آپ OpenClaw کو نئے لیپ ٹاپ/سرور پر منتقل کر رہے ہیں
+  - آپ سیشنز، تصدیق، اور چینل لاگ اِنز (WhatsApp وغیرہ) کو محفوظ رکھنا چاہتے ہیں
 title: "مائیگریشن گائیڈ"
 ---
 
@@ -186,5 +190,3 @@ openclaw doctor
 - [Doctor](/gateway/doctor)
 - [Gateway مسائل کا حل](/gateway/troubleshooting)
 - [OpenClaw اپنا ڈیٹا کہاں محفوظ کرتا ہے؟](/help/faq#where-does-openclaw-store-its-data)
-
-

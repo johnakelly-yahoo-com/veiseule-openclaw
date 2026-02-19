@@ -1,10 +1,14 @@
 ---
+summary: "گیٹ وے، چینلز، آٹومیشن، نوڈز، اور براؤزر کے لیے تفصیلی خرابیوں کے ازالے کا رن بُک"
+read_when:
+  - خرابیوں کے ازالے کے ہب نے گہری تشخیص کے لیے آپ کو یہاں بھیجا ہو
+  - آپ کو علامات پر مبنی مستحکم رن بُک حصے اور عین کمانڈز درکار ہوں
 title: "خرابیوں کا ازالہ"
 ---
 
 # Gateway کی خرابیوں کا ازالہ
 
-یہ صفحہ تفصیلی رن بک ہے۔
+This page is the deep runbook.
 Start at [/help/troubleshooting](/help/troubleshooting) if you want the fast triage flow first.
 
 ## کمانڈ سیڑھی
@@ -105,8 +109,8 @@ openclaw gateway status --deep
 
 عام نشانیاں:
 
-- `Gateway start blocked: set gateway.mode=local` → لوکل گیٹ وے موڈ فعال نہیں۔
-- `refusing to bind gateway ... without auth` → بغیر ٹوکن/پاس ورڈ کے نان-لوپ بیک بائنڈ۔
+- `Gateway start blocked: set gateway.mode=local` → لوکل گیٹ وے موڈ فعال نہیں ہے۔ حل: اپنی config میں `gateway.mode="local"` سیٹ کریں (یا `openclaw configure` چلائیں)۔ اگر آپ OpenClaw کو مخصوص `openclaw` صارف کے ساتھ Podman کے ذریعے چلا رہے ہیں تو config یہاں موجود ہوگی: `~openclaw/.openclaw/openclaw.json`۔
+- `refusing to bind gateway ... without auth` → non-loopback bind without token/password.
 - `another gateway instance is already listening` / `EADDRINUSE` → پورٹ تنازع۔
 
 متعلقہ:
@@ -312,5 +316,3 @@ openclaw gateway restart
 - [/gateway/pairing](/gateway/pairing)
 - [/gateway/authentication](/gateway/authentication)
 - [/gateway/background-process](/gateway/background-process)
-
-

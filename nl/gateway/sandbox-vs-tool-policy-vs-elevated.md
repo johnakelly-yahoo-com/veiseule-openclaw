@@ -1,5 +1,7 @@
 ---
 title: Sandbox vs Toolbeleid vs Elevated
+summary: "Waarom een tool is geblokkeerd: sandbox-runtime, tool-toestaan/weigeren-beleid en elevated exec-gates"
+read_when: "Je tegen een 'sandbox jail' aanloopt of een tool/elevated-weigering ziet en exact wilt weten welke config-sleutel je moet aanpassen."
 status: active
 ---
 
@@ -124,5 +126,3 @@ Fix-it-sleutels (kies er één):
 ### “Ik dacht dat dit main was, waarom is het gesandboxed?”
 
 In de modus `"non-main"` zijn groep-/kanaalsleutels _niet_ main. Gebruik de main-sessiesleutel (getoond door `sandbox explain`) of schakel de modus om naar `"off"`.
-
-

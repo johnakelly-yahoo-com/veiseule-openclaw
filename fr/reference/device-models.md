@@ -1,4 +1,8 @@
 ---
+summary: "Comment OpenClaw fournit des identifiants de modele d’appareils Apple avec des noms conviviaux dans l’application macOS."
+read_when:
+  - Mise a jour des correspondances d’identifiants de modele d’appareils ou des fichiers NOTICE/licence
+  - Modification de la maniere dont l’interface des Instances affiche les noms des appareils
 title: "Base de donnees des modeles d’appareils"
 ---
 
@@ -41,5 +45,3 @@ curl -fsSL "https://raw.githubusercontent.com/kyle-seongwoo-jun/apple-device-ide
 ```bash
 swift build --package-path apps/macos
 ```
-
-

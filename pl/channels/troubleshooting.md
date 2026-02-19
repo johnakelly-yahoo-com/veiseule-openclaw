@@ -1,4 +1,8 @@
 ---
+summary: "Szybkie rozwiązywanie problemów na poziomie kanału z charakterystycznymi sygnaturami awarii i poprawkami dla poszczególnych kanałów"
+read_when:
+  - Transport kanału pokazuje połączenie, ale odpowiedzi nie działają
+  - Potrzebne są kontrole specyficzne dla kanału przed sięgnięciem po szczegółową dokumentację dostawcy
 title: "Rozwiązywanie problemów z kanałami"
 ---
 
@@ -40,11 +44,12 @@ Pełne rozwiązywanie problemów: [/channels/whatsapp#troubleshooting-quick](/ch
 
 ### Sygnatury awarii Telegram
 
-| Objaw                                              | Najszybsza kontrola                                     | Naprawa                                                                             |
-| -------------------------------------------------- | ------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| `/start` ale brak użytecznego przepływu odpowiedzi | `openclaw pairing list telegram`                        | Zatwierdź parowanie lub zmień politykę DM.                          |
-| Bot online, ale grupa pozostaje cicha              | Zweryfikuj wymóg wzmianek i tryb prywatności bota       | Wyłącz tryb prywatności dla widoczności w grupie lub wspomnij bota. |
-| Błędy wysyłania z błędami sieci                    | Sprawdź logi pod kątem niepowodzeń wywołań API Telegram | Napraw routowanie DNS/IPv6/proxy do `api.telegram.org`.             |
+| Objaw                                              | Najszybsza kontrola                                      | Naprawa                                                                                          |
+| -------------------------------------------------- | -------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| `/start` ale brak użytecznego przepływu odpowiedzi | `openclaw pairing list telegram`                         | Zatwierdź parowanie lub zmień politykę DM.                                       |
+| Bot online, ale grupa pozostaje cicha              | Zweryfikuj wymóg wzmianek i tryb prywatności bota        | Wyłącz tryb prywatności dla widoczności w grupie lub wspomnij bota.              |
+| Błędy wysyłania z błędami sieci                    | Sprawdź logi pod kątem niepowodzeń wywołań API Telegram  | Napraw routowanie DNS/IPv6/proxy do `api.telegram.org`.                          |
+| Zaktualizowano i blokuje Cię allowlista            | `openclaw security audit` oraz allowlisty w konfiguracji | Uruchom `openclaw doctor --fix` lub zastąp `@username` numerycznymi ID nadawców. |
 
 Pełne rozwiązywanie problemów: [/channels/telegram#troubleshooting](/channels/telegram#troubleshooting)
 
@@ -110,5 +115,3 @@ Pełne rozwiązywanie problemów: [/channels/signal#troubleshooting](/channels/s
 | Zaszyfrowane pokoje nie działają             | Zweryfikuj moduł kryptograficzny i ustawienia szyfrowania | Włącz obsługę szyfrowania i ponownie dołącz/zsynchronizuj pokój. |
 
 Pełne rozwiązywanie problemów: [/channels/matrix#troubleshooting](/channels/matrix#troubleshooting)
-
-

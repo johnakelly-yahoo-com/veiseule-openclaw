@@ -1,4 +1,7 @@
 ---
+summary: "Runtime ng agent (embedded pi-mono), kontrata ng workspace, at bootstrap ng session"
+read_when:
+  - Pagbabago sa runtime ng agent, bootstrap ng workspace, o pag-uugali ng session
 title: "Runtime ng Agent"
 ---
 
@@ -118,5 +121,3 @@ Sa minimum, itakda ang:
 ---
 
 _Susunod: [Group Chats](/channels/group-messages)_ 🦞
-
-

@@ -1,13 +1,17 @@
 ---
 title: Lobster
-description: "Moteur d’exécution de workflows typé pour OpenClaw — pipelines composables avec des points d’approbation."
+summary: "Runtime de workflow typé pour OpenClaw avec des portes d’approbation reprenables."
+description: Moteur d’exécution de workflows typé pour OpenClaw — pipelines composables avec des points d’approbation.
+read_when:
+  - Vous souhaitez des workflows déterministes en plusieurs étapes avec des approbations explicites
+  - Vous devez reprendre un workflow sans relancer les étapes précédentes
 ---
 
 # Lobster
 
 Lobster est un shell de workflow qui permet à OpenClaw d’exécuter des séquences d’outils en plusieurs étapes comme une seule opération déterministe, avec des points de contrôle d’approbation explicites.
 
-## Accroche
+## Hook
 
 Votre assistant peut construire les outils qui se gèrent eux‑mêmes. Demandez un workflow et, 30 minutes plus tard, vous avez une CLI ainsi que des pipelines qui s’exécutent en un seul appel. Lobster est la pièce manquante : des pipelines déterministes, des approbations explicites et un état reprenable.
 
@@ -336,5 +340,3 @@ Un exemple public : une CLI de « second cerveau » + des pipelines Lobster
 
 - Fil : https://x.com/plattenschieber/status/2014508656335770033
 - Repo : https://github.com/bloomedai/brain-cli
-
-

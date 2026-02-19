@@ -1,4 +1,8 @@
 ---
+summary: "ติดตั้ง OpenClaw และเริ่มแชตแรกของคุณได้ภายในไม่กี่นาที"
+read_when:
+  - ตั้งค่าใช้งานครั้งแรกจากศูนย์
+  - คุณต้องการเส้นทางที่เร็วที่สุดไปสู่แชตที่ใช้งานได้
 title: "เริ่มต้นใช้งาน"
 ---
 
@@ -7,15 +11,13 @@ title: "เริ่มต้นใช้งาน"
 เป้าหมาย: จากศูนย์ไปสู่แชตแรกที่ใช้งานได้ด้วยการตั้งค่าขั้นต่ำ
 
 <Info>
-Fastest chat: open the Control UI (no channel setup needed). 
-แชตที่เร็วที่สุด: เปิด Control UI (ไม่ต้องตั้งค่าช่องทาง) รัน `openclaw dashboard`
+Fastest chat: open the Control UI (no channel setup needed). แชตที่เร็วที่สุด: เปิด Control UI (ไม่ต้องตั้งค่าช่องทาง) รัน `openclaw dashboard`
 แล้วแชตในเบราว์เซอร์ หรือเปิด `http://127.0.0.1:18789/` บน
-
 <Tooltip headline="Gateway host" tip="The machine running the OpenClaw gateway service.">โฮสต์Gateway</Tooltip>.
 เอกสาร: [Dashboard](/web/dashboard) และ [Control UI](/web/control-ui).
 </Info>
 
-## ข้อกำหนดเบื้องต้น
+## Prereqs
 
 - Node 22 หรือใหม่กว่า
 
@@ -32,6 +34,10 @@ Fastest chat: open the Control UI (no channel setup needed).
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash
         ```
+      <img
+  src="/assets/install-script.svg"
+  alt="Install Script Process"
+  className="rounded-lg"></img>
       
 </Tab>
       <Tab title="Windows (PowerShell)">
@@ -43,12 +49,14 @@ Fastest chat: open the Control UI (no channel setup needed).
     
 </Tabs>
 
+    ````
     ```
     <Note>
     วิธีติดตั้งอื่นๆและข้อกำหนด: [Install](/install).
     
 </Note>
     ```
+    ````
 
   
 </Step>
@@ -57,21 +65,25 @@ Fastest chat: open the Control UI (no channel setup needed).
     openclaw onboard --install-daemon
     ```
 
+    ````
     ```
     วิซาร์ดจะตั้งค่าการยืนยันตัวตน การตั้งค่าGateway และช่องทางเสริม
     ดูรายละเอียดที่ [Onboarding Wizard](/start/wizard)
     ```
+    ````
 
   
 </Step>
   <Step title="Check the Gateway">
     หากคุณติดตั้งบริการไว้แล้ว ควรกำลังทำงานอยู่:
 
+    `````
     ````
     ```bash
     openclaw gateway status
     ```
     ````
+    `````
 
   
 </Step>
@@ -93,22 +105,26 @@ Fastest chat: open the Control UI (no channel setup needed).
   <Accordion title="Run the Gateway in the foreground">
     มีประโยชน์สำหรับการทดสอบอย่างรวดเร็วหรือการแก้ไขปัญหา
 
+    `````
     ````
     ```bash
     openclaw gateway --port 18789
     ```
     ````
+    `````
 
   
 </Accordion>
   <Accordion title="Send a test message">
     ต้องมีการตั้งค่าช่องทางแล้ว
 
+    `````
     ````
     ```bash
     openclaw message send --target +15555550123 --message "Hello from OpenClaw"
     ```
     ````
+    `````
 
   
 </Accordion>
@@ -148,5 +164,3 @@ Fastest chat: open the Control UI (no channel setup needed).
 - ความปลอดภัยและการอนุมัติDM: [Pairing](/channels/pairing)
 - เชื่อมต่อช่องทางเพิ่มเติม: [Channels](/channels)
 - เวิร์กโฟลว์ขั้นสูงและการใช้งานจากซอร์ส: [Setup](/start/setup)
-
-

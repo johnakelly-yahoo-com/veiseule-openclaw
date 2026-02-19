@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw nodes` کے لیے CLI حوالہ (list/status/approve/invoke، camera/canvas/screen)"
+read_when:
+  - آپ جوڑے گئے نوڈز (کیمرے، اسکرین، کینوس) کا انتظام کر رہے ہوں
+  - آپ کو درخواستوں کی منظوری دینی ہو یا نوڈ کمانڈز چلانی ہوں
 title: "نوڈز"
 ---
 
@@ -59,12 +63,10 @@ Invoke فلیگز:
 فلیگز:
 
 - `--cwd <path>`: ورکنگ ڈائریکٹری۔
-- `--env <key=val>`: env اووررائیڈ (دہرایا جا سکتا ہے)۔
+- `--env <key=val>`: env اووررائیڈ (دہرایا جا سکتا ہے)۔ نوٹ: node hosts `PATH` اووررائیڈز کو نظر انداز کرتے ہیں (اور `tools.exec.pathPrepend` node hosts پر لاگو نہیں ہوتا)۔
 - `--command-timeout <ms>`: کمانڈ ٹائم آؤٹ۔
 - `--invoke-timeout <ms>`: نوڈ invoke ٹائم آؤٹ (بطورِ طے شدہ `30000`)۔
 - `--needs-screen-recording`: اسکرین ریکارڈنگ اجازت درکار ہو۔
 - `--raw <command>`: شیل اسٹرنگ چلائیں (`/bin/sh -lc` یا `cmd.exe /c`)۔
 - `--agent <id>`: ایجنٹ-اسکوپڈ منظوریات/allowlists (کنفیگر شدہ ایجنٹ بطورِ طے شدہ)۔
 - `--ask <off|on-miss|always>`, `--security <deny|allowlist|full>`: اووررائیڈز۔
-
-

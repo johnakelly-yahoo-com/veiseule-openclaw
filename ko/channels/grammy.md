@@ -1,4 +1,7 @@
 ---
+summary: "grammY 를 통한 Telegram Bot API 통합과 설정 참고 사항"
+read_when:
+  - Telegram 또는 grammY 경로를 작업할 때
 title: grammY
 ---
 
@@ -18,7 +21,7 @@ title: grammY
 - **Webhook 지원:** `webhook-set.ts` 는 `setWebhook/deleteWebhook` 를 래핑하며, `webhook.ts` 는 헬스 체크 + 정상 종료를 포함한 콜백을 호스팅합니다. Gateway 는 `channels.telegram.webhookUrl` + `channels.telegram.webhookSecret` 가 설정되면 webhook 모드를 활성화하고(그렇지 않으면 long-poll 을 사용합니다).
 - **세션:** 다이렉트 메시지 채팅은 에이전트 메인 세션(`agent:<agentId>:<mainKey>`)으로 병합되며, 그룹은 `agent:<agentId>:telegram:group:<chatId>` 를 사용합니다. 응답은 동일한 채널로 라우팅됩니다.
 - **설정 노브:** `channels.telegram.botToken`, `channels.telegram.dmPolicy`, `channels.telegram.groups` (허용 목록 + 멘션 기본값), `channels.telegram.allowFrom`, `channels.telegram.groupAllowFrom`, `channels.telegram.groupPolicy`, `channels.telegram.mediaMaxMb`, `channels.telegram.linkPreview`, `channels.telegram.proxy`, `channels.telegram.webhookSecret`, `channels.telegram.webhookUrl`.
-- **초안 스트리밍:** 선택 사항인 `channels.telegram.streamMode` 는 개인 토픽 채팅(Bot API 9.3+)에서 `sendMessageDraft` 를 사용합니다. 이는 채널 블록 스트리밍과는 별개입니다.
+- **라이브 스트림 미리보기:** 선택적 `channels.telegram.streamMode`는 임시 메시지를 전송하고 `editMessageText`로 이를 업데이트합니다. 이는 채널 블록 스트리밍과는 별개입니다.
 - **테스트:** grammY 모킹은 다이렉트 메시지 + 그룹 멘션 게이팅과 아웃바운드 전송을 커버합니다. 추가적인 미디어/webhook 픽스처는 환영합니다.
 
 미해결 질문
@@ -26,5 +29,3 @@ title: grammY
 - Bot API 429 오류가 발생할 경우 선택적인 grammY 플러그인(throttler) 적용 여부.
 - 더 구조화된 미디어 테스트 추가(스티커, 음성 노트).
 - webhook 리스닝 포트를 설정 가능하게 만들기(현재는 Gateway 를 통해 연결되지 않는 한 8787 로 고정됨).
-
-

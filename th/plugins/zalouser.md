@@ -1,4 +1,8 @@
 ---
+summary: "ปลั๊กอิน Zalo Personal: เข้าสู่ระบบด้วย QR + การส่งข้อความผ่าน zca-cli (ติดตั้งปลั๊กอิน + คอนฟิกช่องทาง + CLI + เครื่องมือ)"
+read_when:
+  - คุณต้องการรองรับ Zalo Personal (ไม่เป็นทางการ) ใน OpenClaw
+  - คุณกำลังกำหนดค่าหรือพัฒนาปลั๊กอิน zalouser
 title: "ปลั๊กอิน Zalo Personal"
 ---
 
@@ -75,5 +79,3 @@ openclaw directory peers list --channel zalouser --query "name"
 ชื่อเครื่องมือ: `zalouser`
 
 การกระทำ: `send`, `image`, `link`, `friends`, `groups`, `me`, `status`
-
-

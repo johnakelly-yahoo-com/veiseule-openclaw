@@ -1,4 +1,8 @@
 ---
+summary: "Heartbeat-pollingmeddelelser og notifikationsregler"
+read_when:
+  - Justering af heartbeat-kadence eller beskeder
+  - Valg mellem heartbeat og cron til planlagte opgaver
 title: "Hjerteslag"
 ---
 
@@ -356,5 +360,3 @@ fra i gruppechats.
 
 Hjertebanken kører fuld agent drejer. Kortere intervaller brænder flere tokens. Hold `HEARTBEAT.md` lille og overvej en billigere `model` eller `target: "none"`, hvis du
 kun ønsker interne tilstandsopdateringer.
-
-

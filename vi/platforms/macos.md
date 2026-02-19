@@ -1,10 +1,14 @@
 ---
+summary: "Ứng dụng đồng hành OpenClaw trên macOS (menu bar + gateway broker)"
+read_when:
+  - Triển khai các tính năng ứng dụng macOS
+  - Thay đổi vòng đời gateway hoặc cầu nối node trên macOS
 title: "Ứng dụng macOS"
 ---
 
 # Ứng dụng đồng hành OpenClaw trên macOS (menu bar + gateway broker)
 
-Ứng dụng macOS là **trình đồng hành trên thanh menu** cho OpenClaw. Ứng dụng này quản lý các quyền truy cập,
+The macOS app is the **menu‑bar companion** for OpenClaw. It owns permissions,
 manages/attaches to the Gateway locally (launchd or manual), and exposes macOS
 capabilities to the agent as a node.
 
@@ -23,14 +27,14 @@ capabilities to the agent as a node.
 
 - **Local** (mặc định): ứng dụng gắn vào một Gateway cục bộ đang chạy nếu có;
   nếu không, nó kích hoạt dịch vụ launchd qua `openclaw gateway install`.
-- **Từ xa**: ứng dụng kết nối tới một Gateway qua SSH/Tailscale và không bao giờ khởi động
-một tiến trình cục bộ.
+- **Remote**: the app connects to a Gateway over SSH/Tailscale and never starts
+  a local process.
   The app starts the local **node host service** so the remote Gateway can reach this Mac.
   The app does not spawn the Gateway as a child process.
 
 ## Điều khiển Launchd
 
-Ứng dụng quản lý một LaunchAgent theo từng người dùng với nhãn `bot.molt.gateway`
+The app manages a per‑user LaunchAgent labeled `bot.molt.gateway`
 (or `bot.molt.<profile>` when using `--profile`/`OPENCLAW_PROFILE`; legacy `com.openclaw.*` still unloads).
 
 ```bash
@@ -38,7 +42,7 @@ launchctl kickstart -k gui/$UID/bot.molt.gateway
 launchctl bootout gui/$UID/bot.molt.gateway
 ```
 
-Thay thế nhãn bằng `bot.molt.<profile>` khi chạy một profile được đặt tên.
+Replace the label with `bot.molt.<profile>` when running a named profile.
 
 Nếu LaunchAgent chưa được cài đặt, hãy bật nó từ ứng dụng hoặc chạy
 `openclaw gateway install`.
@@ -70,7 +74,7 @@ Gateway -> Node Service (WS)
 
 ## Phê duyệt Exec (system.run)
 
-`system.run` được kiểm soát bởi **phê duyệt thực thi (Exec approvals)** trong ứng dụng macOS (Cài đặt → Exec approvals).
+`system.run` is controlled by **Exec approvals** in the macOS app (Settings → Exec approvals).
 Security + ask + allowlist are stored locally on the Mac in:
 
 ```
@@ -126,6 +130,7 @@ Tham số truy vấn:
 An toàn:
 
 - Không có `key`, ứng dụng sẽ hỏi xác nhận.
+- Với `key` hợp lệ, lần chạy sẽ ở chế độ unattended (dành cho tự động hóa cá nhân).
 - Với `key` hợp lệ, lần chạy sẽ ở chế độ unattended (dành cho tự động hóa cá nhân).
 
 ## Luồng onboarding (điển hình)
@@ -197,5 +202,3 @@ details, see [Gateway protocol](/gateway/protocol).
 - [Gateway (macOS)](/platforms/mac/bundled-gateway)
 - [Quyền macOS](/platforms/mac/permissions)
 - [Canvas](/platforms/mac/canvas)
-
-

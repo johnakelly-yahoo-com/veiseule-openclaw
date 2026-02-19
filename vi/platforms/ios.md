@@ -1,10 +1,15 @@
 ---
+summary: "Ứng dụng node iOS: kết nối tới Gateway, ghép cặp, canvas và xử lý sự cố"
+read_when:
+  - Ghép cặp hoặc kết nối lại node iOS
+  - Chạy ứng dụng iOS từ mã nguồn
+  - Gỡ lỗi khám phá gateway hoặc các lệnh canvas
 title: "Ứng dụng iOS"
 ---
 
 # Ứng dụng iOS (Node)
 
-Tình trạng khả dụng: bản xem trước nội bộ. Ứng dụng iOS hiện chưa được phân phối công khai.
+Availability: internal preview. The iOS app is not publicly distributed yet.
 
 ## Chức năng
 
@@ -72,6 +77,7 @@ Ghi chú:
 - Máy chủ canvas của Gateway phục vụ `/__openclaw__/canvas/` và `/__openclaw__/a2ui/`.
 - Node iOS tự động điều hướng tới A2UI khi kết nối nếu có quảng bá URL máy chủ canvas.
 - Quay lại scaffold tích hợp sẵn bằng `canvas.navigate` và `{"url":""}`.
+- Quay lại scaffold tích hợp sẵn bằng `canvas.navigate` và `{"url":""}`.
 
 ### Canvas eval / snapshot
 
@@ -100,5 +106,3 @@ openclaw nodes invoke --node "iOS Node" --command canvas.snapshot --params '{"ma
 - [Pairing](/gateway/pairing)
 - [Discovery](/gateway/discovery)
 - [Bonjour](/gateway/bonjour)
-
-

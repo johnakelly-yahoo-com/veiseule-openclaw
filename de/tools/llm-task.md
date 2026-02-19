@@ -1,4 +1,8 @@
 ---
+summary: "Ausschließlich-JSON-LLM-Aufgaben für Workflows (optionales Plugin-Werkzeug)"
+read_when:
+  - Sie möchten einen ausschließlich-JSON-LLM-Schritt innerhalb von Workflows
+  - Sie benötigen schema-validierte LLM-Ausgaben für Automatisierung
 title: "LLM-Aufgabe"
 ---
 
@@ -109,5 +113,3 @@ openclaw.invoke --tool llm-task --action json --args-json '{
 - Für diesen Lauf werden dem Modell keine Werkzeuge bereitgestellt.
 - Behandeln Sie die Ausgabe als nicht vertrauenswürdig, sofern Sie nicht mit `schema` validieren.
 - Platzieren Sie Genehmigungen vor jedem Schritt mit Seiteneffekten (senden, posten, ausführen).
-
-

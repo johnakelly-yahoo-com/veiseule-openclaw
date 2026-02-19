@@ -1,4 +1,8 @@
 ---
+summary: Node + tsx "__name bir fonksiyon değil" çökme notları ve geçici çözümler
+read_when:
+  - Yalnızca Node’a özgü geliştirme betiklerini veya izleme modu hatalarını ayıklarken
+  - OpenClaw’da tsx/esbuild yükleyici çökmelerini incelerken
 title: "Node + tsx Çökmesi"
 ---
 
@@ -16,7 +20,7 @@ OpenClaw’ı Node üzerinden `tsx` ile çalıştırmak başlangıçta şu hata 
 
 Bu durum, geliştirme betiklerinin Bun’dan `tsx`’e geçirilmesinden sonra başladı (commit `2871657e`, 2026-01-06). Aynı çalışma yolu Bun ile sorunsuzdu.
 
-## Ortam
+## Environment
 
 - Node: v25.x (v25.3.0 üzerinde gözlemlendi)
 - tsx: 4.21.0
@@ -31,7 +35,7 @@ pnpm install
 node --import tsx src/entry.ts status
 ```
 
-## Repoda minimal yeniden üretim
+## Minimal repro in repo
 
 ```bash
 node --import tsx scripts/repro/tsx-name-repro.ts
@@ -82,5 +86,3 @@ node --import tsx scripts/repro/tsx-name-repro.ts
 - Node 25 regresyonunu doğrulamak için Node 22/24’te yeniden üretin.
 - Bilinen bir regresyon varsa `tsx` nightly’i test edin veya daha eski bir sürüme sabitleyin.
 - Node LTS’te de yeniden üretilirse, `__name` yığın izini içeren minimal bir yeniden üretimi upstream’e bildirin.
-
-

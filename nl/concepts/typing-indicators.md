@@ -1,4 +1,7 @@
 ---
+summary: "Wanneer OpenClaw typindicatoren toont en hoe je ze afstemt"
+read_when:
+  - Het gedrag of de standaardwaarden van typindicatoren wijzigen
 title: "Typindicatoren"
 ---
 
@@ -63,5 +66,3 @@ Je kunt de modus of cadans per sessie overschrijven:
 - Heartbeats tonen nooit typen, ongeacht de modus.
 - `typingIntervalSeconds` bepaalt de **verversingscadans**, niet het startmoment.
   De standaard is 6 seconden.
-
-

@@ -14,7 +14,7 @@ Skill คือไดเรกทอรีที่มีไฟล์ `SKILL.md`
 
 ### 1. สร้างไดเรกทอรี
 
-Skills จะอยู่ในเวิร์กสเปซของคุณ โดยปกติคือ `~/.openclaw/workspace/skills/` สร้างโฟลเดอร์ใหม่สำหรับ Skill ของคุณ: Create a new folder for your skill:
+Skills จะอยู่ในเวิร์กสเปซของคุณ โดยปกติคือ `~/.openclaw/workspace/skills/` สร้างโฟลเดอร์ใหม่สำหรับ Skill ของคุณ: Skills จะอยู่ในเวิร์กสเปซของคุณ โดยปกติคือ `~/.openclaw/workspace/skills/` สร้างโฟลเดอร์ใหม่สำหรับ Skill ของคุณ: Create a new folder for your skill:
 
 ```bash
 mkdir -p ~/.openclaw/workspace/skills/hello-world
@@ -52,5 +52,3 @@ Ask your agent to "refresh skills" or restart the gateway. ขอให้เอ
 ## Skills ที่แชร์ร่วมกัน
 
 คุณยังสามารถเรียกดูและร่วมแบ่งปัน Skills ได้ที่ [ClawHub](https://clawhub.com)
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "從 Gateway 暴露相容 OpenResponses 的 /v1/responses HTTP 端點"
+read_when:
+  - 整合使用 OpenResponses API 的用戶端
+  - 你需要以項目為基礎的輸入、用戶端工具呼叫，或 SSE 事件
 title: "OpenResponses API"
 ---
 
@@ -6,7 +10,7 @@ title: "OpenResponses API"
 
 OpenClaw 的 Gateway 閘道器可以提供一個相容 OpenResponses 的 `POST /v1/responses` 端點。
 
-此端點 **預設為停用**。請先在設定中啟用。 Enable it in config first.
+此端點 **預設為停用**。請先在設定中啟用。 Enable it in config first. Enable it in config first.
 
 - `POST /v1/responses`
 - 與 Gateway 閘道器相同的連接埠（WS + HTTP 多工）：`http://<gateway-host>:<port>/v1/responses`
@@ -16,7 +20,7 @@ OpenClaw 的 Gateway 閘道器可以提供一個相容 OpenResponses 的 `POST /
 
 ## 驗證
 
-使用 Gateway 驗證設定。請傳送 Bearer 權杖：
+Uses the Gateway auth configuration. Send a bearer token:
 
 - `Authorization: Bearer <token>`
 
@@ -24,6 +28,7 @@ OpenClaw 的 Gateway 閘道器可以提供一個相容 OpenResponses 的 `POST /
 
 - 當 `gateway.auth.mode="token"` 時，請使用 `gateway.auth.token`（或 `OPENCLAW_GATEWAY_TOKEN`）。
 - 當 `gateway.auth.mode="password"` 時，請使用 `gateway.auth.password`（或 `OPENCLAW_GATEWAY_PASSWORD`）。
+- 如果設定了 `gateway.auth.rateLimit` 且驗證失敗次數過多，端點會回傳 `429` 並附帶 `Retry-After`。
 
 ## 選擇代理程式
 
@@ -81,7 +86,7 @@ By default the endpoint is **stateless per request** (a new session key is gener
 
 ## Request shape (supported)
 
-請求遵循 OpenResponses API，並使用以項目為基礎的輸入。目前支援： Current support:
+請求遵循 OpenResponses API，並使用以項目為基礎的輸入。目前支援： Current support: Current support:
 
 - `input`：字串或項目物件陣列。
 - `instructions`：合併到系統提示中。
@@ -132,6 +137,8 @@ By default the endpoint is **stateless per request** (a new session key is gener
 
 如果代理程式決定呼叫某個工具，回應會回傳一個 `function_call` 輸出項目。
 接著你需要傳送一個包含 `function_call_output` 的後續請求，以繼續該回合。
+如果代理程式決定呼叫某個工具，回應會回傳一個 `function_call` 輸出項目。
+接著你需要傳送一個包含 `function_call_output` 的後續請求，以繼續該回合。
 You then send a follow-up request with `function_call_output` to continue the turn.
 
 ## 圖片（`input_image`）
@@ -147,6 +154,7 @@ You then send a follow-up request with `function_call_output` to continue the tu
 
 允許的 MIME 類型（目前）：`image/jpeg`、`image/png`、`image/gif`、`image/webp`。
 最大大小（目前）：10MB。
+Max size (current): 10MB.
 Max size (current): 10MB.
 
 ## 檔案（`input_file`）
@@ -177,6 +185,7 @@ Max size (current): 10MB.
 - PDFs are parsed for text. 1. 如果偵測到的文字很少，會將前幾頁光柵化成圖片並傳遞給模型。
 
 PDF 解析使用對 Node 友善的 `pdfjs-dist` 舊版建置（不使用 worker）。較新的
+PDF.js 建置需要瀏覽器 worker／DOM 全域物件，因此未在 Gateway 閘道器中使用。 PDF 解析使用對 Node 友善的 `pdfjs-dist` 舊版建置（不使用 worker）。較新的
 PDF.js 建置需要瀏覽器 worker／DOM 全域物件，因此未在 Gateway 閘道器中使用。 The modern
 PDF.js build expects browser workers/DOM globals, so it is not used in the Gateway.
 
@@ -184,7 +193,11 @@ URL 擷取預設值：
 
 - `files.allowUrl`：`true`
 - `images.allowUrl`：`true`
+- `maxUrlParts`：`8`（每個請求中基於 URL 的 `input_file` + `input_image` 總數）
 - Requests are guarded (DNS resolution, private IP blocking, redirect caps, timeouts).
+- 每種輸入類型都支援可選的主機名稱允許清單（`files.urlAllowlist`、`images.urlAllowlist`）。
+  - 精確主機名稱：`"cdn.example.com"`
+  - 萬用字元子網域：`"*.assets.example.com"`（不匹配 apex 網域）
 
 ## 檔案與圖片限制（設定）
 
@@ -235,16 +248,24 @@ URL 擷取預設值：
 Defaults when omitted:
 
 - `maxBodyBytes`：20MB
-- `files.maxBytes`：5MB
+- `maxUrlParts`：8
 - `files.maxChars`：200k
 - `files.maxRedirects`：3
+- `files.maxBytes`：5MB
 - `files.timeoutMs`：10s
-- `files.pdf.maxPages`：4
 - `files.pdf.maxPixels`：4,000,000
+- `files.pdf.maxPages`：4
 - `files.pdf.minTextChars`：200
 - `images.maxBytes`：10MB
 - `images.maxRedirects`：3
 - `images.timeoutMs`：10s
+
+安全注意事項：
+
+- URL 允許清單會在發送請求前以及重新導向過程中強制執行。
+- 將主機名稱加入允許清單並不會繞過對私有／內部 IP 的封鎖。
+- 對於對外公開的 gateway，除了應用層防護外，還應實施網路出口管制。
+  請參閱 [Security](/gateway/security)。
 
 ## 串流（SSE）
 
@@ -313,5 +334,3 @@ curl -N http://127.0.0.1:18789/v1/responses \
     "input": "hi"
   }'
 ```
-
-

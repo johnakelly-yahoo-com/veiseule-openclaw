@@ -1,4 +1,7 @@
 ---
+summary: "Agent-sessietools voor het weergeven van sessies, het ophalen van geschiedenis en het verzenden van berichten tussen sessies"
+read_when:
+  - Sessietools toevoegen of wijzigen
 title: "Sessietools"
 ---
 
@@ -91,11 +94,12 @@ Gedrag:
 - Aankondigingsruns na aflevering worden uitgevoerd nadat de primaire run is voltooid en zijn best-effort; `status: "ok"` garandeert niet dat de aankondiging is afgeleverd.
 - Wacht via gateway `agent.wait` (server-side) zodat reconnects het wachten niet onderbreken.
 - Agent-naar-agent berichtcontext wordt geïnjecteerd voor de primaire run.
-- Nadat de primaire run is voltooid, start OpenClaw een **reply-back loop**:
+- Inter-sessieberichten worden opgeslagen met `message.provenance.kind = "inter_session"` zodat transcriptlezers gerouteerde agentinstructies kunnen onderscheiden van externe gebruikersinvoer.
+- Zodra de loop eindigt, voert OpenClaw de **agent-naar-agent aankondigingsstap** uit (alleen doelagent):
   - Ronde 2+ wisselt af tussen de aanvragende en doelagent.
   - Antwoord exact `REPLY_SKIP` om de ping‑pong te stoppen.
   - Maximaal aantal beurten is `session.agentToAgent.maxPingPongTurns` (0–5, standaard 5).
-- Zodra de loop eindigt, voert OpenClaw de **agent-naar-agent aankondigingsstap** uit (alleen doelagent):
+- Nadat de primaire run is voltooid, start OpenClaw een **reply-back loop**:
   - Antwoord exact `ANNOUNCE_SKIP` om stil te blijven.
   - Elk ander antwoord wordt naar het doelkanaal verzonden.
   - De aankondigingsstap bevat het oorspronkelijke verzoek + antwoord van ronde 1 + het laatste ping‑pong-antwoord.
@@ -188,5 +192,3 @@ Config:
   },
 }
 ```
-
-

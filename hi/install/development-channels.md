@@ -1,4 +1,8 @@
 ---
+summary: "Stable, beta, और dev चैनल: अर्थवत्ता, स्विचिंग, और टैगिंग"
+read_when:
+  - आप stable/beta/dev के बीच स्विच करना चाहते हैं
+  - आप prereleases को टैग या प्रकाशित कर रहे हैं
 title: "विकास चैनल्स"
 ---
 
@@ -69,5 +73,3 @@ openclaw update --channel dev
 
 - git टैग और npm dist-tag फिर भी प्रकाशित किए जा सकते हैं।
 - रिलीज़ नोट्स या changelog में “इस beta के लिए कोई macOS बिल्ड नहीं” स्पष्ट रूप से उल्लेख करें।
-
-

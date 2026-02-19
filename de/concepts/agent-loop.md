@@ -1,4 +1,7 @@
 ---
+summary: "„Lebenszyklus der Agenten-Schleife, Streams und Warte-Semantik“"
+read_when:
+  - Sie benötigen eine exakte Schritt-für-Schritt-Erklärung der Agenten-Schleife oder der Lebenszyklusereignisse
 title: "„Agenten-Schleife“"
 ---
 
@@ -141,5 +144,3 @@ Siehe [Plugins](/tools/plugin#plugin-hooks) für die Hook-API und Registrierungs
 - AbortSignal (Abbrechen)
 - Gateway-Trennung oder RPC-Timeout
 - `agent.wait`-Timeout (nur Warten, stoppt den Agenten nicht)
-
-

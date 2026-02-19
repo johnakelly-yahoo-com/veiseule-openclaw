@@ -1,4 +1,9 @@
 ---
+summary: "Referencia: reglas de saneamiento y reparación de transcripciones específicas del proveedor"
+read_when:
+  - Usted está depurando rechazos de solicitudes del proveedor vinculados a la forma de la transcripción
+  - Usted está cambiando el saneamiento de transcripciones o la lógica de reparación de llamadas a herramientas
+  - Usted está investigando desajustes de id de llamadas a herramientas entre proveedores
 title: "Higiene de transcripciones"
 ---
 
@@ -18,6 +23,7 @@ El alcance incluye:
 - Validación/ordenamiento de turnos
 - Limpieza de firmas de pensamiento
 - Saneamiento de cargas de imágenes
+- Etiquetado de procedencia de entrada de usuario (para prompts enrutados entre sesiones)
 
 Si necesita detalles sobre el almacenamiento de transcripciones, consulte:
 
@@ -63,6 +69,23 @@ Implementación:
 
 - `sanitizeToolCallInputs` en `src/agents/session-transcript-repair.ts`
 - Aplicado en `sanitizeSessionHistory` en `src/agents/pi-embedded-runner/google.ts`
+
+---
+
+## Regla global: procedencia de entrada entre sesiones
+
+Cuando un agente envía un prompt a otra sesión mediante `sessions_send` (incluidos
+pasos de respuesta/anuncio de agente a agente), OpenClaw guarda el turno de usuario creado con:
+
+- `message.provenance.kind = "inter_session"`
+
+Estos metadatos se escriben al añadir la transcripción y no cambian el rol
+(`role: "user"` se mantiene por compatibilidad con el proveedor). Los lectores de transcripciones pueden usar
+esto para evitar tratar los prompts internos enrutados como instrucciones redactadas por el usuario final.
+
+Durante la reconstrucción del contexto, OpenClaw también antepone un breve marcador `[Inter-session message]`
+a esos turnos de usuario en memoria para que el modelo pueda distinguirlos de
+las instrucciones externas del usuario final.
 
 ---
 
@@ -121,5 +144,3 @@ Antes de la versión 2026.1.22, OpenClaw aplicaba múltiples capas de higiene de
 Esta complejidad causó regresiones entre proveedores (en particular el emparejamiento `openai-responses`
 `call_id|fc_id`). La limpieza de 2026.1.22 eliminó la extensión, centralizó la
 lógica en el runner e hizo que OpenAI fuera **sin intervención** más allá del saneamiento de imágenes.
-
-

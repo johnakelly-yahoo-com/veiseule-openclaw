@@ -1,4 +1,8 @@
 ---
+summary: "Linux-ondersteuning + status van de companion-app"
+read_when:
+  - Zoekt naar de status van de Linux companion-app
+  - Plant platformdekking of bijdragen
 title: "Linux-app"
 ---
 
@@ -88,5 +92,3 @@ Schakel het in:
 ```
 systemctl --user enable --now openclaw-gateway[-<profile>].service
 ```
-
-

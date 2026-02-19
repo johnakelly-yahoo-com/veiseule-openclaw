@@ -1,4 +1,9 @@
 ---
+summary: "Testkit: unit-/e2e-/live-suiter, Docker-runners og hvad hver test dækker"
+read_when:
+  - Når du kører tests lokalt eller i CI
+  - Når du tilføjer regressioner for model-/udbyderfejl
+  - Når du debugger gateway- og agentadfærd
 title: "Test"
 ---
 
@@ -47,12 +52,23 @@ Tænk på suiterne som “stigende realisme” (og stigende flakiness/omkostning
   - Kører i CI
   - Ingen rigtige nøgler krævet
   - Skal være hurtig og stabil
+- Bemærkning om pool:
+  - OpenClaw bruger Vitest `vmForks` på Node 22/23 for hurtigere unit-shards.
+  - På Node 24+ falder OpenClaw automatisk tilbage til almindelige `forks` for at undgå Node VM-linkingfejl (`ERR_VM_MODULE_LINK_FAILURE` / `module is already linked`).
+  - Tilsidesæt manuelt med `OPENCLAW_TEST_VM_FORKS=0` (tving `forks`) eller `OPENCLAW_TEST_VM_FORKS=1` (tving `vmForks`).
 
 ### E2E (gateway smoke)
 
 - Kommando: `pnpm test:e2e`
 - Konfiguration: `vitest.e2e.config.ts`
 - Filer: `src/**/*.e2e.test.ts`
+- Omfang:
+  - End-to-end-adfærd for gateway med flere instanser
+  - WebSocket/HTTP-overflader, node-parring og tungere netværk
+  - Kører som standard i silent mode for at reducere console I/O-overhead.
+- Forventninger:
+  - Kører i CI (når aktiveret i pipelinen)
+  - Ingen rigtige nøgler krævet
 - Omfang:
   - End-to-end-adfærd for gateway med flere instanser
   - WebSocket/HTTP-overflader, node-parring og tungere netværk
@@ -363,5 +379,3 @@ Når du retter et udbyder-/modelproblem opdaget i live:
 - Foretræk at målrette det mindste lag, der fanger bug’en:
   - fejl i udbyder-request-konvertering/replay → direkte model-tests
   - fejl i gateway-session/historik/tool-pipeline → gateway live-smoke eller CI-sikker gateway-mock-test
-
-

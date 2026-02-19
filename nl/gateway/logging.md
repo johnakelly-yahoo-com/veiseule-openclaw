@@ -1,4 +1,8 @@
 ---
+summary: "Logging-oppervlakken, bestandslogs, WS-logstijlen en console-opmaak"
+read_when:
+  - Wijzigen van logging-uitvoer of -formaten
+  - Debuggen van CLI- of gateway-uitvoer
 title: "Logregistratie"
 ---
 
@@ -107,5 +111,3 @@ Gedrag:
 - **WhatsApp-berichtinhoud** wordt gelogd op `debug` (gebruik `--verbose` om ze te zien)
 
 Dit houdt bestaande bestandslogs stabiel terwijl interactieve uitvoer beter scanbaar wordt.
-
-

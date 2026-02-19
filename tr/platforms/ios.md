@@ -1,4 +1,9 @@
 ---
+summary: "iOS düğüm uygulaması: Gateway’e bağlanma, eşleştirme, canvas ve sorun giderme"
+read_when:
+  - iOS düğümünü eşleştirirken veya yeniden bağlarken
+  - iOS uygulamasını kaynaktan çalıştırırken
+  - Gateway keşfi veya canvas komutlarını hata ayıklarken
 title: "iOS Uygulaması"
 ---
 
@@ -70,6 +75,7 @@ openclaw nodes invoke --node "iOS Node" --command canvas.navigate --params '{"ur
 Notlar:
 
 - Gateway canvas ana makinesi `/__openclaw__/canvas/` ve `/__openclaw__/a2ui/` sunar.
+- Canvas, Gateway HTTP sunucusundan sunulur (`gateway.port` ile aynı port, varsayılan `18789`).
 - Bir canvas ana makinesi URL’si duyurulduğunda iOS düğümü bağlanırken A2UI’ye otomatik olarak gider.
 - Yerleşik iskelete dönmek için `canvas.navigate` ve `{"url":""}` kullanın.
 
@@ -100,5 +106,3 @@ openclaw nodes invoke --node "iOS Node" --command canvas.snapshot --params '{"ma
 - [Eşleştirme](/gateway/pairing)
 - [Keşif](/gateway/discovery)
 - [Bonjour](/gateway/bonjour)
-
-

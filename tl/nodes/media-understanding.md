@@ -1,4 +1,8 @@
 ---
+summary: "Inbound na pag‑unawa sa image/audio/video (opsyonal) gamit ang provider + CLI fallbacks"
+read_when:
+  - Pagdidisenyo o pagre‑refactor ng media understanding
+  - Pag‑tune ng inbound audio/video/image preprocessing
 title: "Pag-unawa sa Media"
 ---
 
@@ -373,5 +377,3 @@ Ipinapakita nito ang kinalabasan kada capability at ang napiling provider/model 
 
 - [Configuration](/gateway/configuration)
 - [Image & Media Support](/nodes/images)
-
-

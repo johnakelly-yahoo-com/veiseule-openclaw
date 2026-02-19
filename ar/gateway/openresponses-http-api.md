@@ -1,4 +1,8 @@
 ---
+summary: "إتاحة نقطة نهاية HTTP ‏/v1/responses متوافقة مع OpenResponses من خلال Gateway"
+read_when:
+  - دمج العملاء الذين يتحدثون واجهة OpenResponses API
+  - عندما تريد مدخلات قائمة على العناصر، أو استدعاءات أدوات من العميل، أو أحداث SSE
 title: "واجهة OpenResponses API"
 ---
 
@@ -24,6 +28,7 @@ title: "واجهة OpenResponses API"
 
 - عند `gateway.auth.mode="token"`، استخدم `gateway.auth.token` (أو `OPENCLAW_GATEWAY_TOKEN`).
 - عند `gateway.auth.mode="password"`، استخدم `gateway.auth.password` (أو `OPENCLAW_GATEWAY_PASSWORD`).
+- إذا تم تكوين `gateway.auth.rateLimit` وحدثت محاولات مصادقة فاشلة كثيرة، فستُرجع نقطة النهاية `429` مع `Retry-After`.
 
 ## اختيار وكيل
 
@@ -182,7 +187,11 @@ title: "واجهة OpenResponses API"
 
 - `files.allowUrl`: `true`
 - `images.allowUrl`: `true`
+- `maxUrlParts`: `8` (إجمالي أجزاء `input_file` + `input_image` المعتمدة على URL لكل طلب)
 - الطلبات محمية (حل DNS، حظر عناوين IP الخاصة، حدود إعادة التوجيه، مهلات).
+- يتم دعم قوائم السماح الاختيارية لأسماء المضيفين لكل نوع إدخال (`files.urlAllowlist`, `images.urlAllowlist`).
+  - اسم مضيف مطابق تمامًا: "cdn.example.com"
+  - نطاقات فرعية بدلائل عامة (Wildcard): "\*.assets.example.com" (لا يطابق النطاق الأساسي)
 
 ## حدود الملفات والصور (التهيئة)
 
@@ -233,6 +242,7 @@ title: "واجهة OpenResponses API"
 القيم الافتراضية عند عدم التحديد:
 
 - `maxBodyBytes`: 20MB
+- `maxUrlParts`: 8
 - `files.maxBytes`: 5MB
 - `files.maxChars`: 200k
 - `files.maxRedirects`: 3
@@ -243,6 +253,13 @@ title: "واجهة OpenResponses API"
 - `images.maxBytes`: 10MB
 - `images.maxRedirects`: 3
 - `images.timeoutMs`: 10s
+
+ملاحظة أمنية:
+
+- يتم فرض قوائم السماح لعناوين URL قبل الجلب وأثناء عمليات إعادة التوجيه.
+- إدراج اسم مضيف في قائمة السماح لا يتجاوز حظر عناوين IP الخاصة/الداخلية.
+- بالنسبة للـ gateways المعرّضة للإنترنت، طبّق ضوابط التحكم في حركة الخروج من الشبكة (network egress) بالإضافة إلى وسائل الحماية على مستوى التطبيق.
+  راجع [Security](/gateway/security).
 
 ## البث (SSE)
 
@@ -311,5 +328,3 @@ curl -N http://127.0.0.1:18789/v1/responses \
     "input": "hi"
   }'
 ```
-
-

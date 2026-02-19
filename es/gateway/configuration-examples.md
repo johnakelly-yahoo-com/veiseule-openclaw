@@ -1,4 +1,9 @@
 ---
+summary: "Ejemplos de configuración fieles al esquema para configuraciones comunes de OpenClaw"
+read_when:
+  - Aprendiendo a configurar OpenClaw
+  - Buscando ejemplos de configuración
+  - Configurando OpenClaw por primera vez
 title: "Ejemplos de configuración"
 ---
 
@@ -599,5 +604,3 @@ Si más de una persona puede enviar mensajes directos a su bot (múltiples entra
 - Los IDs de proveedor difieren (números de teléfono, IDs de usuario, IDs de canal). Use la documentación del proveedor para confirmar el formato.
 - Secciones opcionales para agregar más adelante: `web`, `browser`, `ui`, `discovery`, `canvasHost`, `talk`, `signal`, `imessage`.
 - Consulte [Proveedores](/channels/whatsapp) y [Solución de problemas](/gateway/troubleshooting) para obtener notas de configuración más detalladas.
-
-

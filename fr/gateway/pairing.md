@@ -1,4 +1,9 @@
 ---
+summary: "Appariement des nœuds détenu par la Gateway (Option B) pour iOS et autres nœuds distants"
+read_when:
+  - Mise en œuvre des approbations d’appariement de nœuds sans interface macOS
+  - Ajout de flux CLI pour approuver des nœuds distants
+  - Extension du protocole de la Gateway avec la gestion des nœuds
 title: "Appariement détenu par la Gateway"
 ---
 
@@ -87,5 +92,3 @@ Notes de sécurité :
 - Le transport est **sans état** ; il ne stocke pas l’appartenance.
 - Si la Gateway est hors ligne ou si l’appariement est désactivé, les nœuds ne peuvent pas s’apparier.
 - Si la Gateway est en mode distant, l’appariement s’effectue toujours par rapport au magasin de la Gateway distante.
-
-

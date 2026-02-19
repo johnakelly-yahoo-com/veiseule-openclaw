@@ -1,4 +1,9 @@
 ---
+summary: "Uruchom OpenClaw Gateway 24/7 na maszynie wirtualnej GCP Compute Engine (Docker) z trwałym stanem"
+read_when:
+  - Chcesz, aby OpenClaw działał 24/7 na GCP
+  - Chcesz produkcyjny, zawsze włączony Gateway na własnej maszynie wirtualnej
+  - Chcesz pełnej kontroli nad trwałością danych, binariami i zachowaniem przy restartach
 title: "GCP"
 ---
 
@@ -497,5 +502,3 @@ Szczegóły ról IAM znajdziesz na stronie [https://cloud.google.com/iam/docs/un
 - Skonfiguruj kanały komunikacji: [Channels](/channels)
 - Sparuj lokalne urządzenia jako węzły: [Nodes](/nodes)
 - Skonfiguruj Gateway: [Gateway configuration](/gateway/configuration)
-
-

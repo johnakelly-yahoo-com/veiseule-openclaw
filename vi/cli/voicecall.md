@@ -1,4 +1,8 @@
 ---
+summary: "Tài liệu tham chiếu CLI cho `openclaw voicecall` (bề mặt lệnh của plugin voice-call)"
+read_when:
+  - Bạn dùng plugin voice-call và muốn các điểm vào CLI
+  - Bạn muốn các ví dụ nhanh cho `voicecall call|continue|status|tail|expose`
 title: "voicecall"
 ---
 
@@ -29,5 +33,3 @@ openclaw voicecall unexpose
 
 Ưu tiên Tailscale Serve hơn Funnel khi có thể. Vòng lặp agentic là lần chạy “thực” đầy đủ của một agent: tiếp nhận → lắp ráp ngữ cảnh → suy luận mô hình →
 thực thi công cụ → phản hồi dạng stream → lưu trữ.
-
-

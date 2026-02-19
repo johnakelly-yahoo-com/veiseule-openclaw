@@ -4,7 +4,7 @@ title: "建立 Skills"
 
 # 建立自訂 Skills 🛠
 
-OpenClaw 的設計宗旨是易於擴充。「Skills」是為你的助理新增功能的主要方式。
+OpenClaw is designed to be easily extensible. "Skills" are the primary way to add new capabilities to your assistant.
 
 ## 什麼是 Skill？
 
@@ -14,7 +14,7 @@ Skill 是一個目錄，內含一個 `SKILL.md` 檔案（用於向 LLM 提供指
 
 ### 1. 建立目錄
 
-Skills 會存在於你的工作區，通常位於 `~/.openclaw/workspace/skills/`。為你的 Skill 建立一個新資料夾： Create a new folder for your skill:
+Skills 會存在於你的工作區，通常位於 `~/.openclaw/workspace/skills/`。為你的 Skill 建立一個新資料夾： Create a new folder for your skill: Create a new folder for your skill:
 
 ```bash
 mkdir -p ~/.openclaw/workspace/skills/hello-world
@@ -41,7 +41,7 @@ When the user asks for a greeting, use the `echo` tool to say "Hello from your c
 
 ### 4. 重新整理 OpenClaw
 
-請你的代理程式「refresh skills」或重新啟動 gateway。OpenClaw 將會發現新的目錄並索引 `SKILL.md`。
+Ask your agent to "refresh skills" or restart the gateway. 請你的代理程式「refresh skills」或重新啟動 gateway。OpenClaw 將會發現新的目錄並索引 `SKILL.md`。
 
 ## 最佳實務
 
@@ -52,5 +52,3 @@ When the user asks for a greeting, use the `echo` tool to say "Hello from your c
 ## 共用 Skills
 
 你也可以在 [ClawHub](https://clawhub.com) 瀏覽並貢獻 Skills。
-
-

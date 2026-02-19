@@ -1,4 +1,6 @@
 ---
+summary: "OpenClaw.app’in uzak bir gateway’e bağlanması için SSH tüneli kurulumu"
+read_when: "macOS uygulamasını SSH üzerinden uzak bir gateway’e bağlarken"
 title: "Uzak Gateway Kurulumu"
 ---
 
@@ -9,33 +11,17 @@ OpenClaw.app, uzak bir gateway’e bağlanmak için SSH tünelleme kullanır. Bu
 ## Genel bakış
 
 ```mermaid
-%%{init: {
-  'theme': 'base',
-  'themeVariables': {
-    'primaryColor': '#ffffff',
-    'primaryTextColor': '#000000',
-    'primaryBorderColor': '#000000',
-    'lineColor': '#000000',
-    'secondaryColor': '#f9f9fb',
-    'tertiaryColor': '#ffffff',
-    'clusterBkg': '#f9f9fb',
-    'clusterBorder': '#000000',
-    'nodeBorder': '#000000',
-    'mainBkg': '#ffffff',
-    'edgeLabelBackground': '#ffffff'
-  }
-}}%%
 flowchart TB
-    subgraph Client["İstemci Makine"]
+    subgraph Client["Client Machine"]
         direction TB
         A["OpenClaw.app"]
-        B["ws://127.0.0.1:18789\n(yerel port)"]
-        T["SSH Tüneli"]
+        B["ws://127.0.0.1:18789\n(local port)"]
+        T["SSH Tunnel"]
 
         A --> B
         B --> T
     end
-    subgraph Remote["Uzak Makine"]
+    subgraph Remote["Remote Machine"]
         direction TB
         C["Gateway WebSocket"]
         D["ws://127.0.0.1:18789"]
@@ -130,7 +116,7 @@ launchctl bootstrap gui/$UID ~/Library/LaunchAgents/bot.molt.ssh-tunnel.plist
 Tünel artık şunları yapacaktır:
 
 - Oturum açtığınızda otomatik olarak başlar
-- Çökerse yeniden başlatın
+- Restart if it crashes
 - Arka planda çalışmaya devam eder
 
 Eski not: varsa kalan `com.openclaw.ssh-tunnel` LaunchAgent’ı kaldırın.
@@ -170,5 +156,3 @@ launchctl bootout gui/$UID/bot.molt.ssh-tunnel
 | `RunAtLoad`                          | Ajan yüklendiğinde tüneli başlatır                                             |
 
 OpenClaw.app, istemci makinenizdeki `ws://127.0.0.1:18789` adresine bağlanır. SSH tüneli bu bağlantıyı, Gateway’in çalıştığı uzak makinedeki 18789 portuna yönlendirir.
-
-

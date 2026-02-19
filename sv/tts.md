@@ -1,4 +1,9 @@
 ---
+summary: "Text-till-tal (TTS) för utgående svar"
+read_when:
+  - Aktivera text-till-tal för svar
+  - Konfigurera TTS-leverantörer eller gränser
+  - Använda /tts-kommandon
 title: "Text-till-tal"
 ---
 
@@ -18,12 +23,12 @@ Det fungerar var som helst OpenClaw kan skicka ljud, Telegram får en rund röst
 Kanten TTS använder Microsoft Edges online-neurala TTS-tjänst via `node-edge-tts`
 biblioteket. Det är en värd tjänst (inte lokal), använder Microsofts slutpunkter, och gör
 inte kräver en API-nyckel. `node-edge-tts` exponerar talkonfigurationsalternativ och
-utdataformat, men inte alla alternativ stöds av Edge tjänsten. &lt;unk&gt; cite&lt;unk&gt; turn2search0&lt;unk&gt;
+utdataformat, men inte alla alternativ stöds av Edge tjänsten. <unk> cite<unk> turn2search0<unk>
 
 Eftersom Edge TTS är en offentlig webbtjänst utan en publicerad SLA eller kvot, behandla det
 som bäst-ansträngning. Om du behöver garanterade gränser och stöd, använd OpenAI eller ElevenLabs.
 Microsofts Speech REST API dokumenterar en 10 minuters ljudgräns per begäran; Edge TTS
-inte publicera gränser, så anta liknande eller lägre gränser. &lt;unk&gt; cite&lt;unk&gt; turn0search3&lt;unk&gt;
+inte publicera gränser, så anta liknande eller lägre gränser. <unk> cite<unk> turn0search3<unk>
 
 ## Valfria nycklar
 
@@ -309,10 +314,10 @@ Dessa åsidosätter `messages.tts.*` för den värden.
   - 44,1 kHz / 128 kbps är standardbalansen för taltydlighet.
 - **Edge TTS**: använder `edge.outputFormat` (standard `audio-24khz-48kbitrate-mono-mp3`).
   - `node-edge-tts` accepterar en `outputFormat`, men inte alla format är tillgängliga
-    från Edge tjänsten. &lt;unk&gt; cite&lt;unk&gt; turn2search0&lt;unk&gt;
-  - Utdataformatvärden följer Microsoft Utdataformat (inklusive Ogg/WebM Opus). &lt;unk&gt; cite&lt;unk&gt; turn1search0&lt;unk&gt;
+    från Edge tjänsten. <unk> cite<unk> turn2search0<unk>
+  - Utdataformatvärden följer Microsoft Utdataformat (inklusive Ogg/WebM Opus). <unk> cite<unk> turn1search0<unk>
   - Telegram `sendVoice` accepterar OGG/MP3/M4A; använd OpenAI/ElevenLabs om du behöver
-    garanterade röstanteckningar från Opus. &lt;unk&gt; cite&lt;unk&gt; turn1search1&lt;unk&gt;
+    garanterade röstanteckningar från Opus. <unk> cite<unk> turn1search1<unk>
   - Om det konfigurerade Edge-utdataformatet misslyckas försöker OpenClaw igen med MP3.
 
 OpenAI/ElevenLabs-format är fasta; Telegram förväntar sig Opus för röstmeddelande-UX.
@@ -388,5 +393,3 @@ Gateway-metoder:
 - `tts.convert`
 - `tts.setProvider`
 - `tts.providers`
-
-

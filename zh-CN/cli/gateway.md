@@ -1,12 +1,10 @@
 ---
-title: gateway
-x-i18n:
-  generated_at: "2026-02-03T07:45:15Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 054dd48056e4784f153c6511c8eb35b56f239db8d4e629661841a00259e9abbf
-  source_path: cli/gateway.md
-  workflow: 15
+summary: "OpenClaw Gateway 网关 CLI（`openclaw gateway`）— 运行、查询和发现 Gateway 网关"
+read_when:
+  - 从 CLI 运行 Gateway 网关（开发或服务器）
+  - 调试 Gateway 网关认证、绑定模式和连接性
+  - 通过 Bonjour 发现 Gateway 网关（局域网 + tailnet）
+title: "gateway"
 ---
 
 # Gateway 网关 CLI
@@ -37,10 +35,10 @@ openclaw gateway run
 
 注意事项：
 
-- 默认情况下，除非在 `~/.openclaw/openclaw.json` 中设置了 `gateway.mode=local`，否则 Gateway 网关将拒绝启动。使用 `--allow-unconfigured` 进行临时/开发运行。
+- 默认情况下，除非在 `~/.openclaw/openclaw.json` 中设置了 `gateway.mode=local`，否则 Gateway 网关将拒绝启动。使用 `--allow-unconfigured` 进行临时/开发运行。 Use `--allow-unconfigured` for ad-hoc/dev runs.
 - 在没有认证的情况下绑定到 loopback 之外的地址会被阻止（安全护栏）。
 - `SIGUSR1` 在授权时触发进程内重启（启用 `commands.restart` 或使用 gateway 工具/config apply/update）。
-- `SIGINT`/`SIGTERM` 处理程序会停止 Gateway 网关进程，但不会恢复任何自定义终端状态。如果你用 TUI 或 raw-mode 输入包装 CLI，请在退出前恢复终端。
+- `SIGINT`/`SIGTERM` 处理程序会停止 Gateway 网关进程，但不会恢复任何自定义终端状态。如果你用 TUI 或 raw-mode 输入包装 CLI，请在退出前恢复终端。 If you wrap the CLI with a TUI or raw-mode input, restore the terminal before exit.
 
 ### 选项
 
@@ -80,6 +78,9 @@ openclaw gateway run
 - `--timeout <ms>`：超时/预算（因命令而异）。
 - `--expect-final`：等待"最终"响应（智能体调用）。
 
+Note: when you set `--url`, the CLI does not fall back to config or environment credentials.
+Pass `--token` or `--password` explicitly. Missing explicit credentials is an error.
+
 ### `gateway health`
 
 ```bash
@@ -106,12 +107,12 @@ openclaw gateway status --json
 
 ### `gateway probe`
 
-`gateway probe` 是"调试一切"命令。它始终探测：
+`gateway probe` 是"调试一切"命令。它始终探测： It always probes:
 
 - 你配置的远程 Gateway 网关（如果设置了），以及
 - localhost（loopback）**即使配置了远程也会探测**。
 
-如果多个 Gateway 网关可达，它会打印所有。当你使用隔离的配置文件/端口（例如救援机器人）时支持多个 Gateway 网关，但大多数安装仍然运行单个 Gateway 网关。
+If multiple gateways are reachable, it prints all of them. 如果多个 Gateway 网关可达，它会打印所有。当你使用隔离的配置文件/端口（例如救援机器人）时支持多个 Gateway 网关，但大多数安装仍然运行单个 Gateway 网关。
 
 ```bash
 openclaw gateway probe
@@ -199,5 +200,3 @@ openclaw gateway discover
 openclaw gateway discover --timeout 4000
 openclaw gateway discover --json | jq '.beacons[].wsUrl'
 ```
-
-

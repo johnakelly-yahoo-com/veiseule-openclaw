@@ -1,4 +1,8 @@
 ---
+summary: "Manu-manong pag-login para sa browser automation + pag-post sa X/Twitter"
+read_when:
+  - Kailangan mong mag-log in sa mga site para sa browser automation
+  - Gusto mong mag-post ng mga update sa X/Twitter
 title: "Pag-login sa Browser"
 ---
 
@@ -61,5 +65,3 @@ openclaw browser open https://x.com --browser-profile openclaw --target host
 ```
 
 O i-disable ang sandboxing para sa agent na nagpo-post ng mga update.
-
-

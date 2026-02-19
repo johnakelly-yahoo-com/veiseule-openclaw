@@ -1,6 +1,12 @@
-------
+---
+title: "8. Xotira"
+summary: "5. OpenClaw xotirasi qanday ishlaydi (workspace fayllari + avtomatik xotira flush)"
+read_when:
+  - 6. Siz xotira fayllari joylashuvi va ish jarayonini xohlaysiz
+  - 7. Siz avtomatik pre-kompaktsiya xotira flush’ini sozlamoqchisiz
+---
 
-# 8. Xotira
+# Memory
 
 OpenClaw memory is **plain Markdown in the agent workspace**. Fayllar — haqiqatning yagona manbai; model faqat diskka yozilgan narsalarnigina "eslab qoladi".
 
@@ -10,7 +16,7 @@ OpenClaw memory is **plain Markdown in the agent workspace**. Fayllar — haqiqa
 
 Standart ish muhiti joylashuvi ikki xotira qatlamidan foydalanadi:
 
-- 15. `memory/YYYY-MM-DD.md`
+- `memory/YYYY-MM-DD.md`
   - 16. Kundalik jurnal (faqat qo‘shib boriladi).
   - 17. Sessiya boshida bugun + kecha o‘qiladi.
 - 18. `MEMORY.md` (ixtiyoriy)
@@ -69,6 +75,8 @@ To‘liq siqish hayotiy sikli uchun qarang:
 
 - 45. Standart holatda yoqilgan.
 - 46. Xotira fayllaridagi o‘zgarishlarni kuzatadi (debounced).
+- `agents.defaults.memorySearch` ostida memory qidiruvini sozlang (yuqori darajadagi
+  `memorySearch` emas).
 - 47. Standart holatda masofaviy embeddinglardan foydalanadi. 48. Agar `memorySearch.provider` o‘rnatilmagan bo‘lsa, OpenClaw avtomatik tanlaydi:
   1. 49. `local` — agar `memorySearch.local.modelPath` sozlangan bo‘lsa va fayl mavjud bo‘lsa.
   2. 50. `openai` — agar OpenAI kalitini aniqlash mumkin bo‘lsa.
@@ -91,33 +99,36 @@ O‘rnatilgan SQLite indeksatorini [QMD](https://github.com/tobi/qmd) bilan alma
 mahalliy-first qidiruv sidecar’idir. Markdown haqiqatning yagona manbai bo‘lib qoladi; OpenClaw
 qidiruv uchun QMD’ga murojaat qiladi. Asosiy nuqtalar:
 
-**Talablar**
-
-- Standart holatda o‘chirilgan. Har bir konfiguratsiya bo‘yicha yoqiladi (`memory.backend = "qmd"`).
-- QMD CLI’ni alohida o‘rnating (`bun install -g https://github.com/tobi/qmd` yoki
-  relizni yuklab oling) va `qmd` binari gateway’ning `PATH`’ida ekanligiga ishonch hosil qiling.
-- QMD kengaytmalarga ruxsat beruvchi SQLite build’ini talab qiladi (macOS’da `brew install sqlite`).
-- QMD to‘liq mahalliy tarzda Bun + `node-llama-cpp` orqali ishlaydi va birinchi ishga tushishda
-  HuggingFace’dan GGUF modellarini avtomatik yuklab oladi (alohida Ollama demoni talab qilinmaydi).
-- Gateway QMD’ni o‘zini-o‘zi ta’minlovchi XDG home’da
-  `~/.openclaw/agents/<agentId>/qmd/` ostida ishga tushiradi, buning uchun `XDG_CONFIG_HOME` va
-  `XDG_CACHE_HOME` ni sozlaydi.
-- OS qo‘llab-quvvatlashi: Bun + SQLite o‘rnatilgach, macOS va Linux darhol ishlaydi. Windows eng yaxshi WSL2 orqali qo‘llab-quvvatlanadi.
-
 **Sidecar qanday ishlaydi**
 
-- Gateway o‘zini-o‘zi ta’minlovchi QMD home’ni
-  `~/.openclaw/agents/<agentId>/qmd/` ostida yozadi (konfiguratsiya + kesh + sqlite DB).
+- Standart holatda o‘chirilgan. Har bir konfiguratsiya bo‘yicha yoqiladi (`memory.backend = "qmd"`).
 - Kolleksiyalar `memory.qmd.paths` dan `qmd collection add` orqali yaratiladi
   (hamda standart ish maydoni xotira fayllari), so‘ng `qmd update` + `qmd embed`
   ishga tushishda va sozlanadigan intervalda (`memory.qmd.update.interval`,
   standart 5 daq) bajariladi.
 - Endi ishga tushishdagi yangilash standart bo‘yicha fon rejimida ishlaydi, shunda chat ishga tushishi bloklanmaydi;
   oldingi bloklovchi xatti-harakatni saqlash uchun `memory.qmd.update.waitForBootSync = true` ni sozlang.
-- Qidiruvlar `qmd query --json` orqali bajariladi. Agar QMD ishlamay qolsa yoki binar yo‘q bo‘lsa,
-  OpenClaw avtomatik ravishda o‘rnatilgan SQLite menejeriga qaytadi, shunda xotira vositalari ishlashda davom etadi.
+- QMD to‘liq mahalliy tarzda Bun + `node-llama-cpp` orqali ishlaydi va birinchi ishga tushishda
+  HuggingFace’dan GGUF modellarini avtomatik yuklab oladi (alohida Ollama demoni talab qilinmaydi).
 - OpenClaw hozircha QMD embedding batch-size sozlamalarini ochib bermaydi; batch xatti-harakati
   QMD’ning o‘zi tomonidan boshqariladi.
+- OS qo‘llab-quvvatlashi: Bun + SQLite o‘rnatilgach, macOS va Linux darhol ishlaydi. Windows eng yaxshi WSL2 orqali qo‘llab-quvvatlanadi.
+
+**Konfiguratsiya sathi (`memory.qmd.*`)**
+
+- `command` (standart `qmd`): bajariladigan fayl yo‘lini almashtirish.
+- `includeDefaultMemory` (standart `true`): `MEMORY.md` + `memory/**/*.md` ni avtomatik indekslash.
+- `paths[]`: qo‘shimcha kataloglar/fayllarni qo‘shish (`path`, ixtiyoriy `pattern`, ixtiyoriy
+  barqaror `name`).
+- `sessions`: sessiya JSONL indekslashiga qo‘shilish (`enabled`, `retentionDays`,
+  `exportDir`).
+- Qidiruvlar `memory.qmd.searchMode` orqali bajariladi (standart `qmd search --json`; shuningdek
+  `vsearch` va `query` ni ham qo‘llab-quvvatlaydi). Agar tanlangan rejim sizning QMD build’ingizda flag’larni rad etsa,
+  OpenClaw `qmd query` bilan qayta urinib ko‘radi. Agar QMD ishlamay qolsa yoki binary mavjud bo‘lmasa,
+  OpenClaw avtomatik ravishda ichki SQLite manager’ga o‘tadi, shunda
+  memory toollari ishlashda davom etadi.
+- `limits`: recall yuklamasini cheklash (`maxResults`, `maxSnippetChars`,
+  `maxInjectedChars`, `timeoutMs`).
 - **Birinchi qidiruv sekin bo‘lishi mumkin**: birinchi `qmd query` ishga tushirilganda
   QMD mahalliy GGUF modellarini (reranker/query expansion) yuklab olishi mumkin.
   - OpenClaw QMD’ni ishga tushirganda `XDG_CONFIG_HOME`/`XDG_CACHE_HOME` ni avtomatik sozlaydi.
@@ -128,27 +139,25 @@ qidiruv uchun QMD’ga murojaat qiladi. Asosiy nuqtalar:
     Xuddi shu indeksga `qmd` ni yo‘naltirish uchun OpenClaw ishlatadigan XDG o‘zgaruvchilarini eksport qilishingiz mumkin:
 
     ```bash
-    # Pick the same state dir OpenClaw uses
+    # OpenClaw foydalanadigan state dir ni tanlang
     STATE_DIR="${OPENCLAW_STATE_DIR:-$HOME/.openclaw}"
-    if [ -d "$HOME/.moltbot" ] && [ ! -d "$HOME/.openclaw" ] \
-      && [ -z "${OPENCLAW_STATE_DIR:-}" ]; then
-      STATE_DIR="$HOME/.moltbot"
-    fi
 
     export XDG_CONFIG_HOME="$STATE_DIR/agents/main/qmd/xdg-config"
     export XDG_CACHE_HOME="$STATE_DIR/agents/main/qmd/xdg-cache"
 
-    # (Optional) force an index refresh + embeddings
+    # (Ixtiyoriy) indeksni majburan yangilash + embeddinglar
     qmd update
     qmd embed
 
-    # Warm up / trigger first-time model downloads
+    # Qizdirish / birinchi marta model yuklab olishni ishga tushirish
     qmd query "test" -c memory-root --json >/dev/null 2>&1
     ```
 
-**Konfiguratsiya sathi (`memory.qmd.*`)**
+**Misol**
 
 - `command` (standart `qmd`): bajariladigan fayl yo‘lini almashtirish.
+- `searchMode` (standart `search`): `memory_search` uchun
+  qaysi QMD buyrug‘i ishlatilishini tanlang (`search`, `vsearch`, `query`).
 - `includeDefaultMemory` (standart `true`): `MEMORY.md` + `memory/**/*.md` ni avtomatik indekslash.
 - `paths[]`: qo‘shimcha kataloglar/fayllarni qo‘shish (`path`, ixtiyoriy `pattern`, ixtiyoriy
   barqaror `name`).
@@ -162,6 +171,12 @@ qidiruv uchun QMD’ga murojaat qiladi. Asosiy nuqtalar:
 - `scope`: [`session.sendPolicy`](/gateway/configuration#session) bilan bir xil sxema.
   Standart holatda faqat DM (`deny` hammasi, `allow` to‘g‘ridan-to‘g‘ri chatlar);
   guruhlar/kanallarda QMD natijalarini ko‘rsatish uchun uni bo‘shating.
+  - `match.keyPrefix` **normallashtirilgan** session key bilan mos keladi (kichik harflarga o‘tkazilgan va
+    boshidagi `agent:<id>:` olib tashlangan). Misol: `discord:channel:`.
+  - `match.rawKeyPrefix` **xom** session key bilan mos keladi (kichik harflarga o‘tkazilgan),
+    `agent:<id>:` ni o‘z ichiga oladi. Misol: `agent:main:discord:`.
+  - Legacy: `match.keyPrefix: "agent:..."` hali ham raw-key prefix sifatida qabul qilinadi,
+    ammo aniqlik uchun `rawKeyPrefix` dan foydalanish tavsiya etiladi.
 - 43. Jo‘natuvchi E.164 (masalan `+15551234567`) bo‘yicha `peer.kind: "direct"` bilan moslang.
 - Ish maydonidan tashqaridan olingan snippet’lar `memory_search` natijalarida
   `qmd/<collection>/<relative-path>` ko‘rinishida paydo bo‘ladi; `memory_get`
@@ -176,7 +191,7 @@ qidiruv uchun QMD’ga murojaat qiladi. Asosiy nuqtalar:
   `memory_get` uchun yo‘lni oladi, ammo snippet matni pastki izohsiz bo‘ladi va tizim prompti
   agentni uni keltirmaslik haqida ogohlantiradi).
 
-**Misol**
+**Iqtiboslar va zaxira (fallback)**
 
 ```json5
 memory: {
@@ -188,7 +203,13 @@ memory: {
     limits: { maxResults: 6, timeoutMs: 4000 },
     scope: {
       default: "deny",
-      rules: [{ action: "allow", match: { chatType: "direct" } }]
+      rules: [
+        { action: "allow", match: { chatType: "direct" } },
+        // Normallashtirilgan session-key prefiksi (`agent:<id>:` olib tashlanadi).
+        { action: "deny", match: { keyPrefix: "discord:channel:" } },
+        // Xom session-key prefiksi (`agent:<id>:` ni o‘z ichiga oladi).
+        { action: "deny", match: { rawKeyPrefix: "agent:main:discord:" } },
+      ]
     },
     paths: [
       { name: "docs", path: "~/notes", pattern: "**/*.md" }
@@ -204,7 +225,7 @@ memory: {
 
 ### Qo‘shimcha xotira yo‘llari
 
-Agar standart ish maydoni tuzilmasidan tashqaridagi Markdown fayllarni indekslashni istasangiz, aniq yo‘llarni qo‘shing:
+Eslatmalar:
 
 ```json5
 agents: {
@@ -225,7 +246,7 @@ Eslatmalar:
 
 ### Gemini embeddinglari (mahalliy)
 
-Gemini embeddinglari API’sidan bevosita foydalanish uchun provayderni `gemini` ga sozlang:
+Eslatmalar:
 
 ```json5
 agents: {
@@ -241,13 +262,13 @@ agents: {
 }
 ```
 
-Eslatmalar:
+Agar **OpenAI-ga mos maxsus endpoint** (OpenRouter, vLLM yoki proksi) dan foydalanmoqchi bo‘lsangiz, OpenAI provayderi bilan `remote` konfiguratsiyasidan foydalanishingiz mumkin:
 
 - `remote.baseUrl` ixtiyoriy (standart bo‘yicha Gemini API bazaviy URL’i).
 - `remote.headers` kerak bo‘lsa qo‘shimcha sarlavhalarni qo‘shish imkonini beradi.
 - Standart model: `gemini-embedding-001`.
 
-Agar **OpenAI-ga mos maxsus endpoint** (OpenRouter, vLLM yoki proksi) dan foydalanmoqchi bo‘lsangiz, OpenAI provayderi bilan `remote` konfiguratsiyasidan foydalanishingiz mumkin:
+Agar API kalitini sozlashni istamasangiz, `memorySearch.provider = "local"` dan foydalaning yoki `memorySearch.fallback = "none"` qilib qo‘ying.
 
 ```json5
 agents: {
@@ -267,20 +288,20 @@ agents: {
 
 Agar API kalitini sozlashni istamasangiz, `memorySearch.provider = "local"` dan foydalaning yoki `memorySearch.fallback = "none"` qilib qo‘ying.
 
-Zaxira (fallback)lar:
-
-- `memorySearch.fallback` `openai`, `gemini`, `local` yoki `none` bo‘lishi mumkin.
-- Zaxira provayder faqat asosiy embedding provayderi ishlamay qolganda qo‘llanadi.
-
 Paketli indekslash (OpenAI + Gemini):
 
-- OpenAI va Gemini embeddinglari uchun standart bo‘yicha yoqilgan. O‘chirish uchun `agents.defaults.memorySearch.remote.batch.enabled = false` ni sozlang.
+- `memorySearch.fallback` `openai`, `gemini`, `local` yoki `none` bo‘lishi mumkin.
 - Standart xatti-harakat paket yakunlanishini kutadi; kerak bo‘lsa `remote.batch.wait`, `remote.batch.pollIntervalMs` va `remote.batch.timeoutMinutes` ni sozlang.
-- Bir vaqtda nechta paketli ish yuborilishini boshqarish uchun `remote.batch.concurrency` ni sozlang (standart: 2).
+
+Nega OpenAI paketi tez va arzon:
+
+- Standart bo‘yicha o‘chiq. Katta korpuslarni indekslash uchun yoqish maqsadida `agents.defaults.memorySearch.remote.batch.enabled = true` ni o‘rnating (OpenAI, Gemini va Voyage).
+- OpenAI Batch API ish yuklamalari uchun chegirmali narxlarni taklif qiladi, shuning uchun katta indekslash ishlarida bir xil so‘rovlarni sinxron yuborishga qaraganda odatda arzonroq bo‘ladi.
+- Batafsil ma’lumot uchun OpenAI Batch API hujjatlari va narxlariga qarang:
 - Paket rejimi `memorySearch.provider = "openai"` yoki `"gemini"` bo‘lganda qo‘llanadi va mos API kalitidan foydalanadi.
 - Gemini paketli ishlar async embedding batch endpoint’dan foydalanadi va Gemini Batch API mavjud bo‘lishini talab qiladi.
 
-Nega OpenAI paketi tez va arzon:
+Konfiguratsiya namunasi:
 
 - Katta hajmdagi backfilllar uchun OpenAI odatda biz qo‘llab-quvvatlaydigan eng tez variant, chunki ko‘plab embedding so‘rovlarini bitta paketli ishda yuborib, ularni OpenAI tomonidan asinxron qayta ishlashga topshira olamiz.
 - OpenAI Batch API ish yuklamalari uchun chegirmali narxlarni taklif qiladi, shuning uchun katta indekslash ishlarida bir xil so‘rovlarni sinxron yuborishga qaraganda odatda arzonroq bo‘ladi.
@@ -288,7 +309,7 @@ Nega OpenAI paketi tez va arzon:
   - https://platform.openai.com/docs/api-reference/batch
   - https://platform.openai.com/pricing
 
-Konfiguratsiya namunasi:
+Asboblar:
 
 ```json5
 agents: {
@@ -306,10 +327,10 @@ agents: {
 }
 ```
 
-Asboblar:
+Mahalliy rejim:
 
-- `memory_search` — fayl va satr diapazonlari bilan snippetlarni qaytaradi.
-- `memory_get` — yo‘l bo‘yicha xotira fayli mazmunini o‘qish.
+- `agents.defaults.memorySearch.provider = "local"` qilib sozlang.
+- `agents.defaults.memorySearch.local.modelPath` ni taqdim eting (GGUF yoki `hf:` URI).
 
 Mahalliy rejim:
 
@@ -323,9 +344,9 @@ Mahalliy rejim:
 - 3. `memory_get` ma’lum bir xotira Markdown faylini (workspace-ga nisbiy) o‘qiydi, ixtiyoriy ravishda boshlang‘ich qatordan va N qator uchun. [Session management + compaction](/reference/session-management-compaction).
 - 5. Ikkala vosita ham faqat `memorySearch.enabled` agent uchun true bo‘lib hal bo‘lganda yoqiladi.
 
-### 6. Nimalar indekslanadi (va qachon)
+### Agar ulardan birortasi o‘zgarsa, OpenClaw avtomatik ravishda butun omborni qayta tiklaydi va qayta indekslaydi.
 
-- 7. Fayl turi: faqat Markdown (`MEMORY.md`, `memory/**/*.md`).
+- Yoqilganda, OpenClaw quyidagilarni birlashtiradi:
 - 8. Indeks saqlanishi: har bir agent uchun SQLite `~/.openclaw/memory/<agentId>.sqlite` da ( `agents.defaults.memorySearch.store.path` orqali sozlanadi, `{agentId}` tokenini qo‘llab-quvvatlaydi).
 - 9. Yangilanish: `MEMORY.md` + `memory/` uchun kuzatuvchi indeksni “iflos” deb belgilaydi (debounce 1.5s). 10. Sinxronlash sessiya boshlanishida, qidiruvda yoki interval bo‘yicha rejalashtiriladi va asinxron ishlaydi. 11. Sessiya transkriptlari fon sinxronlashni ishga tushirish uchun delta chegaralaridan foydalanadi.
 - 12. Qayta indekslash triggerlari: indeks embedding **provayder/model + endpoint fingerprint + bo‘laklash (chunking) parametrlari** ni saqlaydi. `MEMORY.md` / `memory/` tashqarisidagi yo‘llar rad etiladi.
@@ -366,11 +387,11 @@ Mahalliy rejim:
 
 2. 34. BM25 reytingini 0..1 ga o‘xshash ballga aylantirish:
 
-- 35) `textScore = 1 / (1 + max(0, bm25Rank))`
+- `textScore = 1 / (1 + max(0, bm25Rank))`
 
 3. 36. Nomzodlarni bo‘lak (chunk) ID bo‘yicha birlashtirib, og‘irliklangan ballni hisoblash:
 
-- 37) `finalScore = vectorWeight * vectorScore + textWeight * textScore`
+- `finalScore = vectorWeight * vectorScore + textWeight * textScore`
 
 38. Izohlar:
 
@@ -474,13 +495,17 @@ agents: {
 18. Konfiguratsiya (ixtiyoriy):
 
 ```json5
-19. agents: {
+31. agents: {
   defaults: {
     memorySearch: {
-      store: {
-        vector: {
-          enabled: true,
-          extensionPath: "/path/to/sqlite-vec"
+      provider: "openai",
+      model: "text-embedding-3-small",
+      remote: {
+        baseUrl: "https://api.example.com/v1/",
+        apiKey: "YOUR_REMOTE_API_KEY",
+        headers: {
+          "X-Organization": "org-id",
+          "X-Project": "project-id"
         }
       }
     }
@@ -496,7 +521,7 @@ agents: {
 
 ### 24. Mahalliy embeddingni avtomatik yuklab olish
 
-- 25. Sukut bo‘yicha mahalliy embedding modeli: `hf:ggml-org/embeddinggemma-300M-GGUF/embeddinggemma-300M-Q8_0.gguf` (~0.6 GB).
+- Standart lokal embedding modeli: `hf:ggml-org/embeddinggemma-300m-qat-q8_0-GGUF/embeddinggemma-300m-qat-Q8_0.gguf` (~0.6 GB).
 - 26. `memorySearch.provider = "local"` bo‘lganda, `node-llama-cpp` `modelPath`ni aniqlaydi; agar GGUF yo‘q bo‘lsa, u **avtomatik yuklab olinadi** (keshga yoki `local.modelCacheDir` o‘rnatilgan bo‘lsa o‘sha joyga), so‘ng yuklanadi. 27. Yuklab olishlar qayta urinishda davom ettiriladi.
 - 28. Native build talabi: `pnpm approve-builds`ni ishga tushiring, `node-llama-cpp`ni tanlang, so‘ng `pnpm rebuild node-llama-cpp`.
 - 29. Fallback: agar mahalliy sozlama muvaffaqiyatsiz bo‘lsa va `memorySearch.fallback = "openai"` bo‘lsa, biz avtomatik ravishda masofaviy embeddinglarga o‘tamiz (`openai/text-embedding-3-small`, agar o‘zgartirilmagan bo‘lsa) va sababini qayd etamiz.
@@ -526,5 +551,3 @@ agents: {
 
 - 33. `remote.*` `models.providers.openai.*`dan ustun turadi.
 - 34. `remote.headers` OpenAI headerlari bilan birlashtiriladi; kalitlar to‘qnashganda remote ustun bo‘ladi. 35. OpenAI sukut bo‘yicha qiymatlaridan foydalanish uchun `remote.headers`ni tashlab yuboring.
-
-

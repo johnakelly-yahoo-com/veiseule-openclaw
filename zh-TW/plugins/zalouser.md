@@ -1,4 +1,8 @@
 ---
+summary: "Zalo Personal 外掛：QR 登入 + 透過 zca-cli 傳訊（外掛安裝 + 頻道設定 + CLI + 工具）"
+read_when:
+  - 你想在 OpenClaw 中使用 Zalo Personal（非官方）支援
+  - 你正在設定或開發 zalouser 外掛
 title: "Zalo Personal 外掛"
 ---
 
@@ -10,9 +14,9 @@ title: "Zalo Personal 外掛"
 
 ## 命名
 
-頻道 id 為 `zalouser`，以明確表示這是自動化 **個人 Zalo 使用者帳號**（非官方）。我們保留 `zalo`，以供未來可能的官方 Zalo API 整合使用。 We keep `zalo` reserved for a potential future official Zalo API integration.
+頻道 id 為 `zalouser`，以明確表示這是自動化 **個人 Zalo 使用者帳號**（非官方）。我們保留 `zalo`，以供未來可能的官方 Zalo API 整合使用。 We keep `zalo` reserved for a potential future official Zalo API integration. We keep `zalo` reserved for a potential future official Zalo API integration.
 
-## 執行位置
+## Where it runs
 
 此插件會在 **Gateway process** 內部執行。
 
@@ -75,5 +79,3 @@ openclaw directory peers list --channel zalouser --query "name"
 工具名稱：`zalouser`
 
 動作：`send`、`image`、`link`、`friends`、`groups`、`me`、`status`
-
-

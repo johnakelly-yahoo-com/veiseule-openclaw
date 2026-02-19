@@ -1,4 +1,8 @@
 ---
+summary: "إعداد اختياري قائم على Docker وتهيئة أولية لـ OpenClaw"
+read_when:
+  - تريد Gateway مُحَوْسَبًا بالحاويات بدل التثبيتات المحلية
+  - تقوم بالتحقق من مسار Docker
 title: "Docker"
 ---
 
@@ -52,14 +56,32 @@ Docker **اختياري**. استخدمه فقط إذا كنت تريد Gateway 
 
 - افتح `http://127.0.0.1:18789/` في المتصفح.
 - الصق الرمز في واجهة التحكم (الإعدادات → الرمز).
-- هل تحتاج إلى عنوان URL مرة أخرى؟ هل تحتاج العنوان مرة أخرى؟ شغّل `docker compose run --rm openclaw-cli dashboard --no-open`.
+- هل تحتاج إلى عنوان URL مرة أخرى؟ هل تحتاج إلى عنوان URL مرة أخرى؟ هل تحتاج العنوان مرة أخرى؟ شغّل `docker compose run --rm openclaw-cli dashboard --no-open`.
 
 يكتب الإعداد/مساحة العمل على المضيف:
 
 - `~/.openclaw/`
 - `~/.openclaw/workspace`
 
-تشغيل على VPS؟ تعمل على VPS؟ راجع [Hetzner (Docker VPS)](/install/hetzner).
+تشغيل على VPS؟ تشغيل على VPS؟ تعمل على VPS؟ راجع [Hetzner (Docker VPS)](/install/hetzner).
+
+### مساعدات Shell (اختياري)
+
+لتسهيل إدارة Docker اليومية، ثبّت `ClawDock`:
+
+```bash
+mkdir -p ~/.clawdock && curl -sL https://raw.githubusercontent.com/openclaw/openclaw/main/scripts/shell-helpers/clawdock-helpers.sh -o ~/.clawdock/clawdock-helpers.sh
+```
+
+**أضف إلى إعدادات shell الخاصة بك (zsh):**
+
+```bash
+echo 'source ~/.clawdock/clawdock-helpers.sh' >> ~/.zshrc && source ~/.zshrc
+```
+
+ثم استخدم `clawdock-start` و`clawdock-stop` و`clawdock-dashboard` وغيرها. شغّل `clawdock-help` لعرض جميع الأوامر.
+
+راجع [`ClawDock` Helper README](https://github.com/openclaw/openclaw/blob/main/scripts/shell-helpers/README.md) للتفاصيل.
 
 ### المسار اليدوي (compose)
 
@@ -559,5 +581,3 @@ docker build -t my-openclaw-sbx -f Dockerfile.sandbox .
   تُصدِر `/etc/profile` وقد تعيد ضبط PATH. اضبط `docker.env.PATH` لإضافة
   مسارات أدواتك المخصّصة (مثل `/custom/bin:/usr/local/share/npm-global/bin`)، أو أضِف
   سكربتًا تحت `/etc/profile.d/` في Dockerfile الخاص بك.
-
-

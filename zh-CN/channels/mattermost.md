@@ -1,19 +1,16 @@
 ---
-title: Mattermost
-x-i18n:
-  generated_at: "2026-02-03T07:43:43Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 57fabe5eb0efbcb885f4178b317b2fa99a41daf609e3a471de2b44db9def4ad7
-  source_path: channels/mattermost.md
-  workflow: 15
+summary: "Mattermost 机器人设置和 OpenClaw 配置"
+read_when:
+  - 设置 Mattermost
+  - 调试 Mattermost 路由
+title: "Mattermost"
 ---
 
 # Mattermost（插件）
 
-状态：通过插件支持（bot token + WebSocket 事件）。支持频道、群组和私信。
-Mattermost 是一个可自托管的团队消息平台；有关产品详情和下载，请访问官方网站
-[mattermost.com](https://mattermost.com)。
+Status: supported via plugin (bot token + WebSocket events). Channels, groups, and DMs are supported.
+Mattermost is a self-hostable team messaging platform; see the official site at
+[mattermost.com](https://mattermost.com) for product details and downloads.
 
 ## 需要插件
 
@@ -64,11 +61,11 @@ openclaw plugins install ./extensions/mattermost
 - `MATTERMOST_BOT_TOKEN=...`
 - `MATTERMOST_URL=https://chat.example.com`
 
-环境变量仅适用于**默认**账户（`default`）。其他账户必须使用配置值。
+Env vars apply only to the **default** account (`default`). Other accounts must use config values.
 
 ## 聊天模式
 
-Mattermost 自动响应私信。频道行为由 `chatmode` 控制：
+33. Mattermost 会自动回复私信（DM）。 Mattermost 自动响应私信。频道行为由 `chatmode` 控制：
 
 - `oncall`（默认）：仅在频道中被 @提及时响应。
 - `onmessage`：响应每条频道消息。
@@ -138,5 +135,3 @@ Mattermost 支持在 `channels.mattermost.accounts` 下配置多个账户：
 - 频道中无回复：确保 bot 在频道中并提及它（oncall），使用触发前缀（onchar），或设置 `chatmode: "onmessage"`。
 - 认证错误：检查 bot token、基础 URL 以及账户是否已启用。
 - 多账户问题：环境变量仅适用于 `default` 账户。
-
-

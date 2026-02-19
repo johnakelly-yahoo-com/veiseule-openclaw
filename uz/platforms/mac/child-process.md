@@ -1,4 +1,7 @@
 ---
+summary: "1. macOS’da Gateway hayotiy sikli (launchd)"
+read_when:
+  - Integrating the mac app with the gateway lifecycle
 title: "3. Gateway hayotiy sikli"
 ---
 
@@ -7,7 +10,7 @@ title: "3. Gateway hayotiy sikli"
 The macOS app **manages the Gateway via launchd** by default and does not spawn
 the Gateway as a child process. 6. Avval u sozlangan portda allaqachon ishlayotgan Gateway’ga ulanishga harakat qiladi; agar hech biri mavjud bo‘lmasa, tashqi `openclaw` CLI orqali launchd xizmatini yoqadi (ichki runtime yo‘q). 7. Bu tizimga kirishda ishonchli avtomatik ishga tushirishni va nosozliklardan keyin qayta ishga tushirishni ta’minlaydi.
 
-Farzand jarayon rejimi (Gateway ilova tomonidan to‘g‘ridan‑to‘g‘ri ishga tushiriladi) hozirda **foydalanilmaydi**.
+Child‑process mode (Gateway spawned directly by the app) is **not in use** today.
 If you need tighter coupling to the UI, run the Gateway manually in a terminal.
 
 ## Standart xatti-harakat (launchd)
@@ -53,5 +56,3 @@ Replace the label with `bot.molt.<profile>18. ` \`.
 - 36. Bashorat qilinadigan loglar va nazorat.
 
 37. Agar haqiqiy bola-jarayon rejimi yana kerak bo‘lsa, u alohida, aniq dev‑only rejim sifatida hujjatlashtirilishi kerak.
-
-

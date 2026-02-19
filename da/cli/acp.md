@@ -1,4 +1,8 @@
 ---
+summary: "Kør ACP-broen til IDE-integrationer"
+read_when:
+  - Opsætning af ACP-baserede IDE-integrationer
+  - Fejlfinding af ACP-sessionrouting til Gateway
 title: "acp"
 ---
 
@@ -77,7 +81,7 @@ openclaw acp --session agent:qa:bug-123
 ```
 
 Hver AVS-session kort til en enkelt Gateway session nøgle. Én agent kan have mange
--sessioner; AVS er standard til en isoleret 'acp:&lt;uuid&gt;-session, medmindre du tilsidesætter
+-sessioner; AVS er standard til en isoleret 'acp:<uuid>-session, medmindre du tilsidesætter
 nøglen eller etiketten.
 
 ## Zed-editoropsætning
@@ -164,5 +168,3 @@ Læs mere om sessionsnøgler på [/concepts/session](/concepts/session).
 - `--server-args <args...>`: ekstra argumenter sendt til ACP-serveren.
 - `--server-verbose`: aktivér udførlig logning på ACP-serveren.
 - `--verbose, -v`: udførlig klientlogning.
-
-

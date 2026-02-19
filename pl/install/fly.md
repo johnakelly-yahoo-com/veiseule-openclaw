@@ -1,6 +1,6 @@
 ---
 title: Fly.io
-description: "Wdróż OpenClaw na Fly.io"
+description: Wdróż OpenClaw na Fly.io
 ---
 
 # Wdrożenie na Fly.io
@@ -463,7 +463,7 @@ Tunel ngrok działa wewnątrz kontenera i zapewnia publiczny URL webhooka bez wy
 
 | Aspekt                 | Publiczne    | Prywatne    |
 | ---------------------- | ------------ | ----------- |
-| Skanery internetu      | Wykrywalne   | Ukryte      |
+| Skanery internetu      | Wykrywalne   | Hidden      |
 | Ataki bezpośrednie     | Możliwe      | Zablokowane |
 | Dostęp do Control UI   | Przeglądarka | Proxy/VPN   |
 | Dostarczanie webhooków | Bezpośrednie | Przez tunel |
@@ -484,5 +484,3 @@ Przy zalecanej konfiguracji (`shared-cpu-2x`, 2 GB RAM):
 - Plan darmowy obejmuje pewien limit
 
 Szczegóły znajdziesz w [cenniku Fly.io](https://fly.io/docs/about/pricing/).
-
-

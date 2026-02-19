@@ -1,4 +1,8 @@
 ---
+summary: "MiniMax M2.1 in OpenClaw verwenden"
+read_when:
+  - Sie möchten MiniMax-Modelle in OpenClaw verwenden
+  - Sie benötigen Anleitungen zur MiniMax-Einrichtung
 title: "MiniMax"
 ---
 
@@ -199,5 +203,3 @@ Stellen Sie sicher, dass die Modell-ID **groß-/kleinschreibungssensitiv** ist:
 ```bash
 openclaw models list
 ```
-
-

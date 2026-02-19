@@ -1,4 +1,9 @@
 ---
+summary: "Test kiti: unit/e2e/canlı paketler, Docker çalıştırıcıları ve her testin neleri kapsadığı"
+read_when:
+  - Testleri yerelde veya CI’da çalıştırırken
+  - Model/sağlayıcı hataları için regresyon eklerken
+  - Gateway + ajan davranışını hata ayıklama
 title: "Testler"
 ---
 
@@ -37,7 +42,7 @@ Paketleri “artan gerçekçilik” (ve artan oynaklık/maliyet) olarak düşün
 ### Unit / integration (varsayılan)
 
 - Komut: `pnpm test`
-- Yapılandırma: `vitest.config.ts`
+- Config: `scripts/test-parallel.mjs` (`vitest.unit.config.ts`, `vitest.extensions.config.ts`, `vitest.gateway.config.ts` çalıştırır)
 - Dosyalar: `src/**/*.test.ts`
 - Kapsam:
   - Saf unit testleri
@@ -47,12 +52,23 @@ Paketleri “artan gerçekçilik” (ve artan oynaklık/maliyet) olarak düşün
   - CI’da çalışır
   - Gerçek anahtarlar gerekmez
   - Hızlı ve kararlı olmalıdır
+- Havuz notu:
+  - OpenClaw, daha hızlı birim shard’ları için Node 22/23 üzerinde Vitest `vmForks` kullanır.
+  - Node 24+ sürümünde OpenClaw, Node VM bağlantı hatalarından (`ERR_VM_MODULE_LINK_FAILURE` / `module is already linked`) kaçınmak için otomatik olarak normal `forks` moduna geri döner.
+  - `OPENCLAW_TEST_VM_FORKS=0` ( `forks` zorla ) veya `OPENCLAW_TEST_VM_FORKS=1` ( `vmForks` zorla ) ile manuel olarak geçersiz kılın.
 
 ### E2E (gateway duman testi)
 
 - Komut: `pnpm test:e2e`
 - Yapılandırma: `vitest.e2e.config.ts`
 - Dosyalar: `src/**/*.e2e.test.ts`
+- Çalışma zamanı varsayılanları:
+  - Daha hızlı dosya başlatma için Vitest `vmForks` kullanır.
+  - Uyarlanabilir worker’lar kullanır (CI: 2-4, yerel: 4-8).
+  - Konsol G/Ç yükünü azaltmak için varsayılan olarak sessiz modda çalışır.
+- Yararlı geçersiz kılmalar:
+  - Worker sayısını zorlamak için `OPENCLAW_E2E_WORKERS=<n>` (en fazla 16).
+  - Ayrıntılı konsol çıktısını yeniden etkinleştirmek için `OPENCLAW_E2E_VERBOSE=1`.
 - Kapsam:
   - Çok örnekli gateway uçtan uca davranışı
   - WebSocket/HTTP yüzeyleri, düğüm eşleştirme ve daha ağır ağ işlemleri
@@ -363,5 +379,3 @@ Canlıda keşfedilen bir sağlayıcı/model sorununu düzelttiğinizde:
 - Hatayı yakalayan en küçük katmanı hedeflemeyi tercih edin:
   - sağlayıcı istek dönüştürme/yeniden oynatma hatası → doğrudan modeller testi
   - gateway oturum/geçmiş/araç hattı hatası → gateway canlı duman testi veya CI-güvenli gateway mock testi
-
-

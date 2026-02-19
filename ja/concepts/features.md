@@ -1,8 +1,11 @@
 ---
+summary: "チャンネル、ルーティング、メディア、UX にわたる OpenClaw の機能。"
+read_when:
+  - OpenClaw がサポートする内容の全一覧を確認したい場合
 title: "機能"
 ---
 
-## ハイライト
+## Highlights
 
 <Columns>
   <Card title="Channels" icon="message-square">
@@ -56,5 +59,3 @@ title: "機能"
 コーディングエージェントパスです。
 
 </Note>
-
-

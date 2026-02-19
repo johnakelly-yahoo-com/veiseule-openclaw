@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw 와 함께 Amazon Bedrock (Converse API) 모델을 사용합니다"
+read_when:
+  - OpenClaw 와 함께 Amazon Bedrock 모델을 사용하려는 경우
+  - 모델 호출을 위한 AWS 자격 증명/리전 설정이 필요한 경우
 title: "Amazon Bedrock"
 ---
 
@@ -161,5 +165,3 @@ openclaw models list
   기본 AWS SDK 체인입니다.
 - 추론(Reasoning) 지원 여부는 모델에 따라 다르므로, 최신 기능은 Bedrock 모델 카드를 확인하십시오.
 - 관리형 키 흐름을 선호한다면, Bedrock 앞단에 OpenAI 호환 프록시를 두고 이를 OpenAI 프로바이더로 설정할 수도 있습니다.
-
-

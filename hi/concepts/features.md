@@ -1,4 +1,7 @@
 ---
+summary: "चैनलों, रूटिंग, मीडिया और UX में OpenClaw की क्षमताएँ।"
+read_when:
+  - आप OpenClaw द्वारा समर्थित सभी सुविधाओं की पूरी सूची चाहते हैं
 title: "विशेषताएँ"
 ---
 
@@ -54,5 +57,3 @@ title: "विशेषताएँ"
 50. Legacy Claude, Codex, Gemini, और Opencode paths हटा दिए गए हैं। Pi एकमात्र
 कोडिंग एजेंट पाथ है।
 </Note>
-
-

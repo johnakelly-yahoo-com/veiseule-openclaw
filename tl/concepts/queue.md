@@ -1,4 +1,7 @@
 ---
+summary: "Disenyo ng command queue na nagsi-serialize ng mga inbound auto-reply run"
+read_when:
+  - Binabago ang pagpapatupad o concurrency ng auto-reply
 title: "Pila ng Utos"
 ---
 
@@ -23,14 +26,14 @@ Nagse-serialize kami ng mga inbound auto-reply run (lahat ng channel) gamit ang 
 
 Maaaring idirekta ng mga inbound message ang kasalukuyang run, maghintay ng followup turn, o gawin ang pareho:
 
-- `steer`: agad na ini-inject sa kasalukuyang run (kinakansela ang mga nakapending na tool call pagkatapos ng susunod na tool boundary). Kung hindi naka-stream, babalik ito sa followup.
+- `steer`: inject immediately into the current run (cancels pending tool calls after the next tool boundary). If not streaming, falls back to followup.
 - `followup`: i-enqueue para sa susunod na agent turn matapos matapos ang kasalukuyang run.
-- `collect`: pinagsasama ang lahat ng naka-queue na mensahe sa **iisang** followup turn (default). Kung ang mga mensahe ay nakatuon sa magkakaibang channel/thread, isa-isa silang ipo-proseso upang mapanatili ang tamang routing.
+- `collect`: coalesce all queued messages into a **single** followup turn (default). If messages target different channels/threads, they drain individually to preserve routing.
 - `steer-backlog` (aka `steer+backlog`): mag-steer ngayon **at** panatilihin ang message para sa followup turn.
 - `interrupt` (legacy): ihinto ang aktibong run para sa session na iyon, pagkatapos ay patakbuhin ang pinakabagong message.
 - `queue` (legacy alias): kapareho ng `steer`.
 
-Ang steer-backlog ay nangangahulugang maaari kang makakuha ng followup na tugon pagkatapos ng steered run, kaya
+Steer-backlog means you can get a followup response after the steered run, so
 streaming surfaces can look like duplicates. Prefer `collect`/`steer` if you want
 one response per inbound message.
 Send `/queue collect` as a standalone command (per-session) or set `messages.queue.byChannel.discord: "collect"`.
@@ -63,7 +66,7 @@ Nalalapat ang mga opsyon sa `followup`, `collect`, at `steer-backlog` (at sa `st
 - `cap`: maximum na naka-queue na message bawat session.
 - `drop`: patakaran sa overflow (`old`, `new`, `summarize`).
 
-Ang Summarize ay nagpapanatili ng maikling bullet list ng mga tinanggal na mensahe at ini-inject ito bilang isang synthetic na followup prompt.
+Summarize keeps a short bullet list of dropped messages and injects it as a synthetic followup prompt.
 Defaults: `debounceMs: 1000`, `cap: 20`, `drop: summarize`.
 
 ## Mga override bawat session
@@ -84,5 +87,3 @@ Defaults: `debounceMs: 1000`, `cap: 20`, `drop: summarize`.
 
 - Kung tila na-stuck ang mga command, i-enable ang verbose log at hanapin ang mga linyang “queued for …ms” upang makumpirma na nagda-drain ang queue.
 - Kung kailangan mo ang queue depth, i-enable ang verbose log at bantayan ang mga linya ng queue timing.
-
-

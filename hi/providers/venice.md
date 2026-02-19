@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw में Venice AI के गोपनीयता-केंद्रित मॉडलों का उपयोग करें"
+read_when:
+  - आप OpenClaw में गोपनीयता-केंद्रित इनफेरेंस चाहते हैं
+  - आप Venice AI सेटअप मार्गदर्शन चाहते हैं
 title: "Venice AI"
 ---
 
@@ -6,7 +10,7 @@ title: "Venice AI"
 
 **Venice** गोपनीयता-प्रथम इनफेरेंस के लिए हमारा प्रमुख Venice सेटअप है, जिसमें स्वामित्व वाले मॉडलों तक वैकल्पिक अनामीकृत पहुँच शामिल है।
 
-Venice AI गोपनीयता-केंद्रित AI इंफेरेंस प्रदान करता है, जिसमें बिना सेंसर वाले मॉडलों का समर्थन और उनके अनाम प्रॉक्सी के माध्यम से प्रमुख स्वामित्व वाले मॉडलों तक पहुंच शामिल है। सभी इंफेरेंस डिफ़ॉल्ट रूप से निजी होते हैं—आपके डेटा पर कोई प्रशिक्षण नहीं, कोई लॉगिंग नहीं।
+Venice AI provides privacy-focused AI inference with support for uncensored models and access to major proprietary models through their anonymized proxy. All inference is private by default—no training on your data, no logging.
 
 ## OpenClaw में Venice क्यों
 
@@ -22,7 +26,7 @@ Venice दो गोपनीयता स्तर प्रदान करत
 | मोड            | विवरण                                                                                                                                                                   | मॉडल                                          |
 | -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
 | **Private**    | पूरी तरह निजी। Prompts/responses are **never stored or logged**. Ephemeral.                                                             | Llama, Qwen, DeepSeek, Venice Uncensored, आदि |
-| **Anonymized** | Venice के माध्यम से प्रॉक्सी किया गया, जिसमें मेटाडेटा हटा दिया गया है। मूल प्रदाता (OpenAI, Anthropic) को अनाम अनुरोध दिखाई देते हैं। | Claude, GPT, Gemini, Grok, Kimi, MiniMax      |
+| **Anonymized** | Proxied through Venice with metadata stripped. The underlying provider (OpenAI, Anthropic) sees anonymized requests. | Claude, GPT, Gemini, Grok, Kimi, MiniMax      |
 
 ## विशेषताएँ
 
@@ -37,7 +41,7 @@ Venice दो गोपनीयता स्तर प्रदान करत
 
 ## सेटअप
 
-### 1. API Key प्राप्त करें
+### 1. Get API Key
 
 1. [venice.ai](https://venice.ai) पर साइन अप करें
 2. **Settings → API Keys → Create new key** पर जाएँ
@@ -72,7 +76,7 @@ openclaw onboard --non-interactive \
   --venice-api-key "vapi_xxxxxxxxxxxx"
 ```
 
-### 3. सेटअप सत्यापित करें
+### 3. Verify Setup
 
 ```bash
 openclaw chat --model venice/llama-3.3-70b "Hello, are you working?"
@@ -80,7 +84,7 @@ openclaw chat --model venice/llama-3.3-70b "Hello, are you working?"
 
 ## मॉडल चयन
 
-सेटअप के बाद, OpenClaw सभी उपलब्ध Venice मॉडलों को दिखाता है। अपनी आवश्यकताओं के आधार पर चुनें:
+After setup, OpenClaw shows all available Venice models. Pick based on your needs:
 
 - **डिफ़ॉल्ट (हमारी पसंद)**: निजी, संतुलित प्रदर्शन के लिए `venice/llama-3.3-70b`।
 - **सर्वोत्तम समग्र गुणवत्ता**: कठिन कार्यों के लिए `venice/claude-opus-45` (Opus अब भी सबसे शक्तिशाली है)।
@@ -261,5 +265,3 @@ Venice API is at `https://api.venice.ai/api/v1`. सुनिश्चित क
 - [API Documentation](https://docs.venice.ai)
 - [Pricing](https://venice.ai/pricing)
 - [Status](https://status.venice.ai)
-
-

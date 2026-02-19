@@ -1,4 +1,7 @@
 ---
+summary: "Ferramentas de sessão do agente para listar sessões, buscar histórico e enviar mensagens entre sessões"
+read_when:
+  - Ao adicionar ou modificar ferramentas de sessão
 title: "Ferramentas de Sessão"
 ---
 
@@ -91,11 +94,12 @@ Comportamento:
 - Execuções de anúncio de entrega ocorrem após a execução primária concluir e são de melhor esforço; `status: "ok"` não garante que o anúncio foi entregue.
 - Aguarda via `agent.wait` do gateway (lado do servidor) para que reconexões não interrompam a espera.
 - O contexto de mensagem agente‑para‑agente é injetado para a execução primária.
-- Após a execução primária concluir, o OpenClaw executa um **loop de resposta de volta**:
+- Mensagens entre sessões são persistidas com `message.provenance.kind = "inter_session"` para que leitores de transcrições possam distinguir instruções de agentes roteadas de entradas externas de usuários.
+- Quando o loop termina, o OpenClaw executa a **etapa de anúncio agente‑para‑agente** (somente agente alvo):
   - A partir da rodada 2, alterna entre os agentes solicitante e alvo.
   - Responda exatamente `REPLY_SKIP` para parar o ping‑pong.
   - O máximo de turnos é `session.agentToAgent.maxPingPongTurns` (0–5, padrão 5).
-- Quando o loop termina, o OpenClaw executa a **etapa de anúncio agente‑para‑agente** (somente agente alvo):
+- Após a execução primária concluir, o OpenClaw executa um **loop de resposta de volta**:
   - Responda exatamente `ANNOUNCE_SKIP` para permanecer em silêncio.
   - Qualquer outra resposta é enviada para o canal de destino.
   - A etapa de anúncio inclui a solicitação original + resposta da rodada 1 + a resposta mais recente do ping‑pong.
@@ -188,5 +192,3 @@ Configuração:
   },
 }
 ```
-
-

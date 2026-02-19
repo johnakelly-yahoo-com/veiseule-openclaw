@@ -1,4 +1,8 @@
 ---
+summary: "เอกสารอ้างอิงCLIสำหรับ `openclaw approvals` (การอนุมัติการรันคำสั่งสำหรับGatewayหรือโฮสต์โหนด)"
+read_when:
+  - คุณต้องการแก้ไขการอนุมัติการรันคำสั่งจากCLI
+  - คุณต้องการจัดการรายการอนุญาตบนโฮสต์Gatewayหรือโฮสต์โหนด
 title: "approvals"
 ---
 
@@ -45,5 +49,3 @@ openclaw approvals allowlist remove "~/Projects/**/bin/rg"
 - `--agent` มีค่าเริ่มต้นเป็น `"*"` ซึ่งมีผลกับเอเจนต์ทั้งหมด
 - โฮสต์โหนดต้องโฆษณา `system.execApprovals.get/set` (แอปmacOSหรือโฮสต์โหนดแบบไม่ต้องมีหัว)
 - ไฟล์การอนุมัติจะถูกจัดเก็บแยกตามโฮสต์ที่ `~/.openclaw/exec-approvals.json`
-
-

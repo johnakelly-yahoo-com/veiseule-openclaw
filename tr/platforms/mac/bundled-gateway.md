@@ -1,4 +1,9 @@
 ---
+summary: "macOS üzerinde Gateway çalışma zamanı (harici launchd hizmeti)"
+read_when:
+  - OpenClaw.app paketlenirken
+  - macOS gateway launchd hizmeti hata ayıklanırken
+  - macOS için gateway CLI kurulurken
 title: "macOS üzerinde Gateway"
 ---
 
@@ -42,7 +47,7 @@ Davranış:
 - Yapılandırılan portta bir Gateway zaten çalışıyorsa, uygulama yeni bir tane
   başlatmak yerine ona bağlanır.
 
-Günlükleme:
+Logging:
 
 - launchd standart çıktı/hata: `/tmp/openclaw/openclaw-gateway.log`
 
@@ -66,5 +71,3 @@ Ardından:
 ```bash
 openclaw gateway call health --url ws://127.0.0.1:18999 --timeout 3000
 ```
-
-

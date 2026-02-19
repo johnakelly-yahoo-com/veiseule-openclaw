@@ -1,8 +1,12 @@
 ---
+summary: "Bağlam penceresi + sıkıştırma: OpenClaw oturumları model sınırları içinde nasıl tutar"
+read_when:
+  - Otomatik sıkıştırmayı ve /compact komutunu anlamak istiyorsunuz
+  - You are debugging long sessions hitting context limits
 title: "Sıkıştırma"
 ---
 
-# Bağlam Penceresi ve Sıkıştırma
+# Context Window & Compaction
 
 Her modelin bir **bağlam penceresi** vardır (görebileceği en fazla token sayısı). Uzun süreli sohbetlerde mesajlar ve araç sonuçları birikir; pencere daraldığında OpenClaw, sınırlar içinde kalmak için eski geçmişi **sıkıştırır**.
 
@@ -17,7 +21,7 @@ Sıkıştırma, oturumun JSONL geçmişinde **kalıcıdır**.
 
 ## Yapılandırma
 
-`agents.defaults.compaction` ayarları için [Sıkıştırma yapılandırması ve modları](/concepts/compaction) sayfasına bakın.
+Sıkıştırma davranışını (mod, hedef token sayısı vb.) yapılandırmak için `openclaw.json` dosyanızdaki `agents.defaults.compaction` ayarını kullanın.
 
 ## Otomatik sıkıştırma (varsayılan açık)
 
@@ -42,7 +46,7 @@ Bir sıkıştırma geçişini zorlamak için (isteğe bağlı talimatlarla) `/co
 
 Bağlam penceresi modele özeldir. OpenClaw, sınırları belirlemek için yapılandırılmış sağlayıcı kataloğundaki model tanımını kullanır.
 
-## Sıkıştırma ve budama karşılaştırması
+## Compaction vs pruning
 
 - **Sıkıştırma**: özetler ve JSONL’de **kalıcı** olarak saklar.
 - **Oturum budaması**: yalnızca eski **araç sonuçlarını** keser, **bellek içi**, istek başına.
@@ -54,5 +58,3 @@ Budama ayrıntıları için [/concepts/session-pruning](/concepts/session-prunin
 - Oturumlar bayat hissettirdiğinde veya bağlam şiştiğinde `/compact` kullanın.
 - Büyük araç çıktıları zaten kısaltılır; budama, araç sonucu birikimini daha da azaltabilir.
 - Temiz bir başlangıç gerekiyorsa, `/new` veya `/reset` yeni bir oturum kimliği başlatır.
-
-

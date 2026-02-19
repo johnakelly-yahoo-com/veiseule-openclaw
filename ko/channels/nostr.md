@@ -1,4 +1,8 @@
 ---
+summary: "NIP-04 암호화 메시지를 통한 Nostr 다이렉트 메시지 채널"
+read_when:
+  - OpenClaw 가 Nostr 를 통해 다이렉트 메시지를 수신하도록 하려는 경우
+  - 탈중앙화 메시징을 설정하는 경우
 title: "Nostr"
 ---
 
@@ -10,7 +14,7 @@ Nostr 는 소셜 네트워킹을 위한 탈중앙화 프로토콜입니다. 이 
 
 ## 설치 (온디맨드)
 
-### 온보딩(권장)
+### Onboarding (recommended)
 
 - 온보딩 마법사 (`openclaw onboard`) 및 `openclaw channels add` 에서 선택적 채널 플러그인이 나열됩니다.
 - Nostr 를 선택하면 온디맨드로 플러그인 설치를 안내합니다.
@@ -227,5 +231,3 @@ docker run -p 7777:7777 ghcr.io/hoytech/strfry
 - 다이렉트 메시지만 지원합니다 (그룹 채팅 미지원).
 - 미디어 첨부를 지원하지 않습니다.
 - NIP-04 만 지원합니다 (NIP-17 기프트 래핑은 계획됨).
-
-

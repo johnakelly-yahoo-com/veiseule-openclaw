@@ -1,4 +1,8 @@
 ---
+summary: "उदाहरण विन्यास + CLI प्रवाहों सहित मॉडल प्रदाता अवलोकन"
+read_when:
+  - आपको प्रदाता‑दर‑प्रदाता मॉडल सेटअप संदर्भ की आवश्यकता हो
+  - आप मॉडल प्रदाताओं के लिए उदाहरण विन्यास या CLI ऑनबोर्डिंग कमांड चाहते हों
 title: "मॉडल प्रदाता"
 ---
 
@@ -114,6 +118,7 @@ title: "मॉडल प्रदाता"
   - OpenAI‑संगत बेस URL: `https://api.cerebras.ai/v1`।
 - Mistral: `mistral` (`MISTRAL_API_KEY`)
 - GitHub Copilot: `github-copilot` (`COPILOT_GITHUB_TOKEN` / `GH_TOKEN` / `GITHUB_TOKEN`)
+- Hugging Face Inference: `huggingface` (`HUGGINGFACE_HUB_TOKEN` या `HF_TOKEN`) — OpenAI-संगत राउटर; उदाहरण मॉडल: `huggingface/deepseek-ai/DeepSeek-R1`; CLI: `openclaw onboard --auth-choice huggingface-api-key`। [Hugging Face (Inference)](/providers/huggingface) देखें।
 
 ## `models.providers` के माध्यम से प्रदाता (custom/base URL)
 
@@ -257,6 +262,32 @@ Ollama is automatically detected when running locally at `http://127.0.0.1:11434
 
 उदाहरण (OpenAI‑संगत):
 
+- Provider: `vllm`
+- Auth: वैकल्पिक (आपके सर्वर पर निर्भर)
+- डिफ़ॉल्ट base URL: `http://127.0.0.1:8000/v1`
+
+टिप्पणियाँ:
+
+```bash
+export VLLM_API_KEY="vllm-local"
+```
+
+फिर एक मॉडल सेट करें (`/v1/models` द्वारा लौटाए गए IDs में से किसी एक से बदलें):
+
+```json5
+{
+  agents: {
+    defaults: { model: { primary: "vllm/your-model-id" } },
+  },
+}
+```
+
+पूर्ण विन्यास उदाहरणों के लिए यह भी देखें: [/gateway/configuration](/gateway/configuration)।
+
+### स्थानीय प्रॉक्सी (LM Studio, vLLM, LiteLLM, आदि)
+
+उदाहरण (OpenAI‑संगत):
+
 ```json5
 {
   agents: {
@@ -308,5 +339,3 @@ openclaw models list
 ```
 
 पूर्ण विन्यास उदाहरणों के लिए यह भी देखें: [/gateway/configuration](/gateway/configuration)।
-
-

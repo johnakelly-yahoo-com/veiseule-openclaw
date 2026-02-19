@@ -1,15 +1,19 @@
 ---
-title: "  --account openclaw@gmail.com \\"
+summary: "15. Sinov"
+read_when:
+  - "16. Kuzatilayotgan inbox’ga xabar yuboring:"
+  - 17. gog gmail send \
+title: "Hooks"
 ---
 
-# --to openclaw@gmail.com \
+# Hooks
 
 \--subject "watch test" \   --body "ping"
 
 ## 18. Watch holati va tarixini tekshiring:
 
 19. gog gmail watch status --account openclaw@gmail.com
-    gog gmail history --account openclaw@gmail.com --since &lt;historyId&gt; 20. Nosozliklarni bartaraf etish
+    gog gmail history --account openclaw@gmail.com --since <historyId> 20. Nosozliklarni bartaraf etish
 
 - 21. `Invalid topicName`: loyiha nomuvofiqligi (topic OAuth client loyihasida emas).
 - 22. `User not authorized`: topic’da `roles/pubsub.publisher` yetishmaydi. 23. Bo‘sh xabarlar: Gmail push faqat `historyId` beradi; `gog gmail history` orqali olib keling.
@@ -43,9 +47,9 @@ title: "  --account openclaw@gmail.com \\"
 OpenClaw ships with four bundled hooks that are automatically discovered:
 
 - **💾 session-memory**: Saves session context to your agent workspace (default `~/.openclaw/workspace/memory/`) when you issue `/new`
+- Npm spetsifikatsiyalari faqat registry orqali (paket nomi + ixtiyoriy versiya/tag).
 - **📝 command-logger**: Logs all command events to `~/.openclaw/logs/commands.log`
 - 13. **🚀 boot-md**: Shlyuz ishga tushganda `BOOT.md` ni ishga tushiradi (ichki hooklar yoqilgan bo‘lishi kerak)
-- **😈 soul-evil**: Swaps injected `SOUL.md` content with `SOUL_EVIL.md` during a purge window or by random chance
 
 List available hooks:
 
@@ -56,7 +60,7 @@ openclaw hooks list
 14. Hookni yoqish:
 
 ```bash
-15. openclaw hooks enable session-memory
+openclaw hooks enable session-memory
 ```
 
 Check hook status:
@@ -102,6 +106,9 @@ Hook packs are standard npm packages that export one or more hooks via `openclaw
 openclaw hooks install <path-or-spec>
 ```
 
+Git/URL/file spetsifikatsiyalari rad etiladi. Xavfsizlik eslatmasi: `openclaw hooks install` bog‘liqliklarni `npm install --ignore-scripts` bilan o‘rnatadi
+(lifecycle skriptlarisiz).
+
 Example `package.json`:
 
 ```json
@@ -117,49 +124,35 @@ Example `package.json`:
 Each entry points to a hook directory containing `HOOK.md` and `handler.ts` (or `index.ts`).
 Hook packs can ship dependencies; they will be installed under `~/.openclaw/hooks/<id>`.
 
-## Hook tuzilmasi
-
-### HOOK.md formati
-
-`HOOK.md` fayli YAML frontmatter’dagi metama’lumotlar hamda Markdown hujjatlarini o‘z ichiga oladi:
-
-```markdown
----
+Hook pack bog‘liqlik daraxtlarini "pure JS/TS" holatida saqlang va `postinstall` build’lariga tayanadigan paketlardan qoching. ---
 name: my-hook
-description: "Short description of what this hook does"
-homepage: https://docs.openclaw.ai/hooks#my-hook
+description: "Ushbu hook nima qilishini qisqacha tavsifi"
+homepage: https://docs.openclaw.ai/automation/hooks#my-hook
 metadata:
-  { "openclaw": { "emoji": "🔗", "events": ["command:new"], "requires": { "bins": ["node"] } } }
----
+{ "openclaw": { "emoji": "🔗", "events": ["command:new"], "requires": { "bins": ["node"] } } }
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------# My HookBatafsil hujjatlar shu yerga yoziladi...## Nima Qiladi* `/new` buyruqlarini tinglaydi
+* Muayyan amalni bajaradi
+* Natijani log qiladi## Talablar* Node.js o‘rnatilgan bo‘lishi kerak## SozlashHech qanday sozlash talab qilinmaydi.
 
-# My Hook
-
-Detailed documentation goes here...
-
-## What It Does
-
-- Listens for `/new` commands
-- Performs some action
-- Logs the result
-
-## Requirements
-
-- Node.js must be installed
-
-## Configuration
-
-No configuration needed.
-```
+## Hook Structure
 
 ### Metama’lumot maydonlari
 
 `metadata.openclaw` obyekti quyidagilarni qo‘llab-quvvatlaydi:
 
-- **`emoji`**: CLI uchun ko‘rsatiladigan emoji (masalan, `"💾"`)
-- **`events`**: Kuzatish uchun hodisalar ro‘yxati (masalan, `["command:new", "command:reset"]`)
-- **`export`**: Foydalaniladigan nomlangan eksport (standart qiymati `"default"`)
-- **`homepage`**: Hujjatlar URL manzili
-- **`requires`**: Ixtiyoriy talablar
+```markdown
+Eslatma: `module` workspace’ga nisbiy yo‘l bo‘lishi kerak.
+```
+
+### Metadata Fields
+
+The `metadata.openclaw` object supports:
+
+- **`emoji`**: Display emoji for CLI (e.g., `"💾"`)
+- **`events`**: Array of events to listen for (e.g., `["command:new", "command:reset"]`)
+- **`export`**: Named export to use (defaults to `"default"`)
+- **`homepage`**: Documentation URL
+- **`requires`**: Optional requirements
   - **`bins`**: Required binaries on PATH (e.g., `["git", "node"]`)
   - **`anyBins`**: At least one of these binaries must be present
   - **`env`**: Required environment variables
@@ -393,6 +386,8 @@ The old config format still works for backwards compatibility:
 }
 ```
 
+Absolyut yo‘llar va workspace’dan tashqariga chiqish rad etiladi. bootstrap-extra-files
+
 **Migration**: Use the new discovery-based system for new hooks. Legacy handlers are loaded after directory-based hooks.
 
 ## CLI Commands
@@ -484,6 +479,47 @@ Saves session context to memory when you issue `/new`.
 openclaw hooks enable session-memory
 ```
 
+### `agent:bootstrap` jarayonida qo‘shimcha bootstrap fayllarini (masalan, monorepo-local `AGENTS.md` / `TOOLS.md`) qo‘shadi.
+
+**Chiqish**: Fayllar yozilmaydi; bootstrap konteksti faqat xotirada o‘zgartiriladi.
+
+**Hodisalar**: `agent:bootstrap`
+
+**Requirements**: `workspace.dir` must be configured
+
+{
+"hooks": {
+"internal": {
+"enabled": true,
+"entries": {
+"bootstrap-extra-files": {
+"enabled": true,
+"paths": ["packages/_/AGENTS.md", "packages/_/TOOLS.md"]
+}
+}
+}
+}
+}
+
+**Loglarni ko‘rish**:
+
+```json
+Yo‘llar workspace’ga nisbatan aniqlanadi.
+```
+
+**Yoqish**:
+
+- Fayllar workspace ichida qolishi kerak (realpath orqali tekshiriladi).
+- Faqat tan olingan bootstrap basename’lar yuklanadi.
+- Subagent allowlist saqlanadi (faqat `AGENTS.md` va `TOOLS.md`).
+- openclaw hooks enable bootstrap-extra-files
+
+**Enable**:
+
+```bash
+Query-string tokenlar rad etiladi (`?token=...` `400` qaytaradi).
+```
+
 ### command-logger
 
 Logs all command events to a centralized audit file.
@@ -507,7 +543,7 @@ Logs all command events to a centralized audit file.
 {"timestamp":"2026-01-16T15:45:22.000Z","action":"stop","sessionKey":"agent:main:main","senderId":"user@example.com","source":"whatsapp"}
 ```
 
-**Loglarni ko‘rish**:
+**Hodisalar**: `gateway:startup`
 
 ```bash
 # View recent commands
@@ -520,46 +556,10 @@ cat ~/.openclaw/logs/commands.log | jq .
 grep '"action":"new"' ~/.openclaw/logs/commands.log | jq .
 ```
 
-**Yoqish**:
+**Enable**:
 
 ```bash
 openclaw hooks enable command-logger
-```
-
-### soul-evil
-
-Purge oynasi davomida yoki tasodifiy ehtimol bilan kiritilgan `SOUL.md` tarkibini `SOUL_EVIL.md` bilan almashtiradi.
-
-**Hodisalar**: `agent:bootstrap`
-
-**Hujjatlar**: [SOUL Evil Hook](/hooks/soul-evil)
-
-**Chiqish**: Hech qanday fayl yozilmaydi; almashtirishlar faqat xotirada amalga oshadi.
-
-**Yoqish**:
-
-```bash
-openclaw hooks enable soul-evil
-```
-
-**Konfiguratsiya**:
-
-```json
-{
-  "hooks": {
-    "internal": {
-      "enabled": true,
-      "entries": {
-        "soul-evil": {
-          "enabled": true,
-          "file": "SOUL_EVIL.md",
-          "chance": 0.1,
-          "purge": { "at": "21:00", "duration": "15m" }
-        }
-      }
-    }
-  }
-}
 ```
 
 ### boot-md
@@ -569,15 +569,15 @@ Buning ishlashi uchun ichki hooklar yoqilgan bo‘lishi kerak.
 
 **Hodisalar**: `gateway:startup`
 
-**Talablar**: `workspace.dir` sozlangan bo‘lishi kerak
+**Requirements**: `workspace.dir` must be configured
 
-**Nima qiladi**:
+**What it does**:
 
 1. Workspace’ingizdan `BOOT.md` ni o‘qiydi
 2. Ko‘rsatmalarni agent runner orqali bajaradi
 3. So‘ralgan barcha tashqi xabarlarni message tool orqali yuboradi
 
-**Yoqish**:
+**Enable**:
 
 ```bash
 openclaw hooks enable boot-md
@@ -585,7 +585,7 @@ openclaw hooks enable boot-md
 
 ## Eng Yaxshi Amaliyotlar
 
-### Handlerlarni Tez Saqlang
+### Hodisalarni Erta Filtrlash
 
 Hooklar buyruqlarni qayta ishlash jarayonida ishlaydi. Ularni yengil saqlang:
 
@@ -602,9 +602,9 @@ const handler: HookHandler = async (event) => {
 };
 ```
 
-### Xatolarni Muloyimlik Bilan Qayta Ishlang
+### Aniq Hodisa Kalitlaridan Foydalaning
 
-Xavfli amallarni har doim o‘rab oling:
+Imkon bo‘lsa, metadata’da aniq hodisalarni ko‘rsating:
 
 ```typescript
 const handler: HookHandler = async (event) => {
@@ -632,9 +632,9 @@ const handler: HookHandler = async (event) => {
 };
 ```
 
-### Aniq Hodisa Kalitlaridan Foydalaning
+### Hook Loglashni Yoqish
 
-Imkon bo‘lsa, metadata’da aniq hodisalarni ko‘rsating:
+Gateway ishga tushishda hook yuklanishini loglaydi:
 
 ```yaml
 metadata: { "openclaw": { "events": ["command:new"] } } # Specific
@@ -653,9 +653,10 @@ metadata: { "openclaw": { "events": ["command"] } } # General - more overhead
 Gateway ishga tushishda hook yuklanishini loglaydi:
 
 ```
-Registered hook: session-memory -> command:new
-Registered hook: command-logger -> command
-Registered hook: boot-md -> gateway:startup
+4. const handler: HookHandler = async (event) => {
+  console.log("[my-handler] Triggered:", event.type, event.action);
+  // Sizning mantiqingiz
+};
 ```
 
 ### Kashfiyotni Tekshirish
@@ -663,7 +664,7 @@ Registered hook: boot-md -> gateway:startup
 Topilgan barcha hooklarni ro‘yxatlash:
 
 ```bash
-1. openclaw hooks list --verbose
+7. openclaw hooks info my-hook
 ```
 
 ### 2. Roʻyxatdan oʻtishni tekshiring
@@ -754,17 +755,7 @@ Hodisalar uchun handler’larni ro‘yxatdan o‘tkazish
 ### 29. Hodisa oqimi
 
 ```
-30. Foydalanuvchi /new yuboradi
-    ↓
-Buyruqni tekshirish
-    ↓
-Hook hodisasini yaratish
-    ↓
-Hook’ni ishga tushirish (barcha ro‘yxatdan o‘tgan handler’lar)
-    ↓
-Buyruqni qayta ishlash davom etadi
-    ↓
-Sessiyani qayta o‘rnatish
+41. openclaw hooks info my-hook
 ```
 
 ## 31. Nosozliklarni bartaraf etish
@@ -788,7 +779,7 @@ Sessiyani qayta o‘rnatish
 3. 37. Barcha aniqlangan hook’larni ro‘yxatlang:
 
    ```bash
-   38. openclaw hooks list
+   openclaw hooks list
    ```
 
 ### 39) Hook mos emas
@@ -913,5 +904,3 @@ node -e "import('./path/to/handler.ts').then(console.log)"
 - [Bundled Hooks README](https://github.com/openclaw/openclaw/tree/main/src/hooks/bundled)
 - [Webhook Hooks](/automation/webhook)
 - [Configuration](/gateway/configuration#hooks)
-
-

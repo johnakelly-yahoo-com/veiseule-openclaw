@@ -1,4 +1,8 @@
 ---
+summary: "npm dist-tag：`dev`（發佈時）。"
+read_when:
+  - 你想在 stable／beta／dev 之間切換
+  - 你正在為 prerelease 進行標記或發佈
 title: "開發通道"
 ---
 
@@ -10,7 +14,7 @@ OpenClaw 提供三種更新通道：
 
 - **stable**：npm dist-tag `latest`。
 - **beta**：npm dist-tag `beta`（測試中的建置）。
-- **dev**：`main`（git）的持續前進頭；npm dist-tag：`dev`（發佈時）。 外掛與頻道
+- **dev**：`main`（git）的持續前進頭；npm dist-tag：`dev`（發佈時）。 npm dist-tag：`dev`（發佈時）。
 
 我們會先將建置發佈到 **beta**、進行測試，然後**將經審核的建置提升為 `latest`**，
 而不變更版本號 —— dist-tag 是 npm 安裝時的權威來源。
@@ -64,9 +68,7 @@ openclaw update --channel dev
 
 ## macOS App 可用性
 
-Beta 與 dev 建置**可能**不包含 macOS App 發佈。這是可以接受的： Docker 是 **選用** 的。
+Beta 與 dev 建置**可能**不包含 macOS App 發佈。這是可以接受的： Docker 是 **選用** 的。 Docker 是 **選用** 的。
 
 - 仍可發佈 git 標記與 npm dist-tag。
 - 請在發佈說明或變更紀錄中註明「此 beta 無 macOS 建置」。
-
-

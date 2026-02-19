@@ -1,4 +1,7 @@
 ---
+summary: "Paano ini-embed ng mac app ang Gateway WebChat at paano ito i-debug"
+read_when:
+  - Pag-debug ng mac WebChat view o loopback port
 title: "WebChat"
 ---
 
@@ -37,5 +40,3 @@ ay kumokonekta sa Gateway at nagde-default sa **main session** para sa napiling 
 ## Known limitations
 
 - Ang UI ay optimized para sa mga chat session (hindi isang full browser sandbox).
-
-

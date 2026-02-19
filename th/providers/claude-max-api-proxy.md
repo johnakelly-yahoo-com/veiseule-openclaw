@@ -1,4 +1,9 @@
 ---
+summary: "ใช้การสมัครสมาชิก Claude Max/Pro เป็นเอ็นด์พอยต์ API ที่เข้ากันได้กับ OpenAI"
+read_when:
+  - คุณต้องการใช้การสมัครสมาชิก Claude Max กับเครื่องมือที่รองรับ OpenAI
+  - คุณต้องการเซิร์ฟเวอร์ API ภายในเครื่องที่ห่อหุ้ม Claude Code CLI
+  - คุณต้องการประหยัดค่าใช้จ่ายโดยใช้การสมัครสมาชิกแทนคีย์ API
 title: "Claude Max API Proxy"
 ---
 
@@ -47,7 +52,7 @@ claude-max-api
 # Server runs at http://localhost:3456
 ```
 
-### 44. ทดสอบ
+### ทดสอบ
 
 ```bash
 # Health check
@@ -141,5 +146,3 @@ launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.claude-max-api.plist
 
 - [Anthropic provider](/providers/anthropic) - การผสานรวม OpenClaw แบบเนทีฟกับการตั้งค่า Claude setup-token หรือคีย์ API
 - [OpenAI provider](/providers/openai) - สำหรับการสมัครสมาชิก OpenAI/Codex
-
-

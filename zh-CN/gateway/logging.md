@@ -1,12 +1,9 @@
 ---
-title: 日志
-x-i18n:
-  generated_at: "2026-02-03T07:48:14Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: efb8eda5e77e3809369a8ff569fac110323a86b3945797093f20e9bc98f39b2e
-  source_path: gateway/logging.md
-  workflow: 15
+summary: "日志输出界面、文件日志、WS 日志样式和控制台格式化"
+read_when:
+  - 更改日志输出或格式
+  - 调试 CLI 或 Gateway 网关输出
+title: "日志"
 ---
 
 # 日志
@@ -29,6 +26,7 @@ OpenClaw 有两个日志"界面"：
 文件格式是每行一个 JSON 对象。
 
 Control UI 的 Logs 标签页通过 Gateway 网关（`logs.tail`）尾随此文件。CLI 也可以这样做：
+CLI 也可以做到同样的事情：
 
 ```bash
 openclaw logs --follow
@@ -51,7 +49,7 @@ CLI 捕获 `console.log/info/warn/error/debug/trace` 并将它们写入文件日
 
 ## 工具摘要脱敏
 
-详细工具摘要（例如 `🛠️ Exec: ...`）可以在进入控制台流之前屏蔽敏感令牌。这**仅限工具**，不会更改文件日志。
+详细的工具摘要（例如 `🛠️ Exec: ...`）在进入控制台流之前可以掩盖敏感令牌。 这**仅作用于工具**，不会改变文件日志。
 
 - `logging.redactSensitive`：`off` | `tools`（默认：`tools`）
 - `logging.redactPatterns`：正则表达式字符串数组（覆盖默认值）
@@ -94,6 +92,7 @@ openclaw gateway --verbose --ws-log full
 ## 控制台格式化（子系统日志）
 
 控制台格式化器是 **TTY 感知的**，打印一致的带前缀行。子系统日志记录器保持输出分组且易于扫描。
+子系统日志器使输出保持分组且易于扫描。
 
 行为：
 
@@ -108,5 +107,3 @@ openclaw gateway --verbose --ws-log full
 - **WhatsApp 消息正文**以 `debug` 级别记录（使用 `--verbose` 查看它们）
 
 这保持现有文件日志稳定，同时使交互式输出易于扫描。
-
-

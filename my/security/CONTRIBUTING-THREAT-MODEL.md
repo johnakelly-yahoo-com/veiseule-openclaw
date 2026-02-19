@@ -41,7 +41,7 @@
 
 6. Threat တစ်ခုစီတွင် `T-EXEC-003` ကဲ့သို့သော ID တစ်ခု ရရှိပါသည်။ 7. အမျိုးအစားများမှာ -
 
-| ကုဒ်                               | အမျိုးအစား                                                                                  |
+| Code                               | အမျိုးအစား                                                                                  |
 | ---------------------------------- | ------------------------------------------------------------------------------------------- |
 | 8. RECON    | 9. Reconnaissance - အချက်အလက် စုဆောင်းခြင်း                          |
 | 10. ACCESS  | 11. Initial access - စနစ်ထဲသို့ ဝင်ရောက်နိုင်မှု ရရှိခြင်း           |
@@ -61,7 +61,7 @@
 | 29. **Critical** | 30. စနစ်တစ်ခုလုံး ပျက်စီးသွားနိုင်ခြင်း သို့မဟုတ် ဖြစ်နိုင်ချေ မြင့်မားပြီး အကျိုးဆက် အလွန်ပြင်းထန်ခြင်း        |
 | 31. **High**     | 32. ထိခိုက်ပျက်စီးမှု အရေးကြီးစွာ ဖြစ်နိုင်ခြင်း သို့မဟုတ် ဖြစ်နိုင်ချေ အလယ်အလတ် + အကျိုးဆက် အလွန်ပြင်းထန်ခြင်း |
 | 33. **Medium**   | 34. အန္တရာယ် အလယ်အလတ် ဖြစ်ခြင်း သို့မဟုတ် ဖြစ်နိုင်ချေ နည်းပါးပြီး အကျိုးဆက် မြင့်မားခြင်း                      |
-| **နိမ့်**                                 | 36. ဖြစ်နိုင်ချေ နည်းပြီး အကျိုးသက်ရောက်မှု ကန့်သတ်ထားခြင်း                                                     |
+| **Low**                                 | 36. ဖြစ်နိုင်ချေ နည်းပြီး အကျိုးသက်ရောက်မှု ကန့်သတ်ထားခြင်း                                                     |
 
 37. Risk level အကြောင်း မသေချာပါက အကျိုးသက်ရောက်မှုကို ဖော်ပြရုံဖြင့် ကျွန်ုပ်တို့က သတ်မှတ်ပေးပါမည်။
 
@@ -70,23 +70,21 @@
 1. 39. **Triage** - submission အသစ်များကို 48 နာရီအတွင်း စစ်ဆေးပါသည်
 2. 40. **Assessment** - ဖြစ်နိုင်မှုကို အတည်ပြုခြင်း၊ ATLAS mapping နှင့် threat ID သတ်မှတ်ခြင်း၊ risk level ကို အတည်ပြုခြင်း
 3. 41. **Documentation** - အရာအားလုံးကို ဖော်မတ်မှန်ကန်ပြီး ပြည့်စုံကြောင်း သေချာစေခြင်း
-4. **ပေါင်းစည်းခြင်း** - ခြိမ်းခြောက်မှု မော်ဒယ်နှင့် မြင်ကွင်းဖော်ပြချက်တွင် ထည့်သွင်းခဲ့သည်
+4. **Merge** - Added to the threat model and visualization
 
 ## 43) အရင်းအမြစ်များ
 
-- 44. [ATLAS Website](https://atlas.mitre.org/)
-- 45. [ATLAS Techniques](https://atlas.mitre.org/techniques/)
-- 46. [ATLAS Case Studies](https://atlas.mitre.org/studies/)
-- 47. [OpenClaw Threat Model](./THREAT-MODEL-ATLAS.md)
+- [ATLAS Website](https://atlas.mitre.org/)
+- [ATLAS Techniques](https://atlas.mitre.org/techniques/)
+- [ATLAS Case Studies](https://atlas.mitre.org/studies/)
+- [OpenClaw Threat Model](./THREAT-MODEL-ATLAS.md)
 
 ## 48. ဆက်သွယ်ရန်
 
 - 49. **Security vulnerabilities:** တင်ပြရန် လမ်းညွှန်ချက်များအတွက် ကျွန်ုပ်တို့၏ [Trust page](https://trust.openclaw.ai) ကို ကြည့်ပါ
 - 50. **Threat model မေးခွန်းများ:** [openclaw/trust](https://github.com/openclaw/trust/issues) တွင် issue တစ်ခု ဖွင့်ပါ
-- **အထွေထွေ စကားပြောခန်း:** Discord #security ချန်နယ်
+- **General chat:** Discord #security channel
 
-## အသိအမှတ်ပြုမှု
+## Recognition
 
-ခြိမ်းခြောက်မှု မော်ဒယ်အတွက် ပံ့ပိုးကူညီသူများကို ခြိမ်းခြောက်မှု မော်ဒယ်၏ အသိအမှတ်ပြုချက်များ၊ ဖြန့်ချိမှု မှတ်စုများနှင့် အရေးပါသော ပံ့ပိုးကူညီမှုများအတွက် OpenClaw လုံခြုံရေး ဂုဏ်ပြုခန်းမတွင် အသိအမှတ်ပြုထားသည်။
-
-
+Contributors to the threat model are recognized in the threat model acknowledgments, release notes, and the OpenClaw security hall of fame for significant contributions.

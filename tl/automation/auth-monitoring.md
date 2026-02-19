@@ -1,10 +1,14 @@
 ---
+summary: "I-monitor ang pag-expire ng OAuth para sa mga provider ng model"
+read_when:
+  - Pagse-set up ng monitoring o mga alert para sa pag-expire ng auth
+  - Pag-automate ng mga check sa OAuth refresh ng Claude Code / Codex
 title: "Pagsubaybay sa Auth"
 ---
 
 # Pagsubaybay sa Auth
 
-Naglalabas ang OpenClaw ng kalusugan ng pag-expire ng OAuth sa pamamagitan ng `openclaw models status`. Gamitin ito para sa
+OpenClaw exposes OAuth expiry health via `openclaw models status`. Use that for
 automation and alerting; scripts are optional extras for phone workflows.
 
 ## Inirerekomenda: CLI check (portable)
@@ -23,7 +27,7 @@ Gumagana ito sa cron/systemd at hindi nangangailangan ng dagdag na mga script.
 
 ## Opsyonal na mga script (ops / mga workflow sa telepono)
 
-Matatagpuan ang mga ito sa ilalim ng `scripts/` at **opsyonal**. Ipinapalagay nito na may SSH access sa
+These live under `scripts/` and are **optional**. They assume SSH access to the
 gateway host and are tuned for systemd + Termux.
 
 - Ang `scripts/claude-auth-status.sh` ay gumagamit na ngayon ng `openclaw models status --json` bilang
@@ -38,5 +42,3 @@ gateway host and are tuned for systemd + Termux.
 - `scripts/termux-sync-widget.sh`: i-sync ang mga kredensyal ng Claude Code → OpenClaw.
 
 Kung hindi mo kailangan ang phone automation o mga systemd timer, laktawan ang mga script na ito.
-
-

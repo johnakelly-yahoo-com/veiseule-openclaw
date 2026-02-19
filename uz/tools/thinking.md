@@ -1,4 +1,7 @@
 ---
+summary: "/think + /verbose direktivalari sintaksisi va ularning model fikrlashiga ta’siri"
+read_when:
+  - Fikrlash yoki verbose direktiva parsingini yoki standart sozlamalarni o‘zgartirishda
 title: "Fikrlash darajalari"
 ---
 
@@ -16,7 +19,7 @@ title: "Fikrlash darajalari"
   - `x-high`, `x_high`, `extra-high`, `extra high`, va `extra_high` `xhigh` ga mos keladi.
   - `highest`, `max` `high` ga mos keladi.
 - Provayder eslatmalari:
-  - Z.AI (`zai/*`) faqat ikkilik fikrlashni qo‘llab-quvvatlaydi (`on`/`off`). `off` dan boshqa har qanday daraja `on` sifatida qabul qilinadi (`low` ga moslanadi).
+  - Z.AI (`zai/*`) only supports binary thinking (`on`/`off`). Any non-`off` level is treated as `on` (mapped to `low`).
 
 ## Aniqlash tartibi
 
@@ -29,7 +32,7 @@ title: "Fikrlash darajalari"
 
 - **Faqat** direktivadan iborat xabar yuboring (bo‘sh joylarga ruxsat beriladi), masalan: `/think:medium` yoki `/t high`.
 - Bu joriy sessiya uchun saqlanadi (standart bo‘yicha har bir yuboruvchi uchun); `/think:off` yoki sessiya idle reset orqali bekor qilinadi.
-- Tasdiqlovchi javob yuboriladi (`Thinking level set to high.` / `Thinking disabled.`). Agar daraja noto‘g‘ri bo‘lsa (masalan, `/thinking big`), buyruq rad etiladi va maslahat beriladi, sessiya holati o‘zgarmaydi.
+- Confirmation reply is sent (`Thinking level set to high.` / `Thinking disabled.`). If the level is invalid (e.g. `/thinking big`), the command is rejected with a hint and the session state is left unchanged.
 - Joriy fikrlash darajasini ko‘rish uchun `/think` (yoki `/think:`) ni argumentsiz yuboring.
 
 ## Agent tomonidan qo‘llanishi
@@ -43,8 +46,8 @@ title: "Fikrlash darajalari"
 - `/verbose off` aniq sessiya override’ini saqlaydi; uni Sessions UI orqali `inherit` ni tanlab tozalash mumkin.
 - Inline direktiva faqat o‘sha xabarga ta’sir qiladi; aks holda sessiya/global standartlar qo‘llanadi.
 - Joriy verbose darajasini ko‘rish uchun `/verbose` (yoki `/verbose:`) ni argumentsiz yuboring.
-- Verbose yoqilganda, strukturalangan tool natijalarini chiqaradigan agentlar (Pi, boshqa JSON agentlari) har bir tool chaqiruvini alohida, faqat metadata’dan iborat xabar sifatida yuboradi; mavjud bo‘lsa `<emoji> <tool-name>: <arg>` (yo‘l/buyruq) prefiksi bilan. Bu tool xulosalari har bir tool boshlanishi bilan darhol yuboriladi (alohida bubble), streaming delta sifatida emas.
-- Verbose `full` bo‘lsa, tool natijalari yakunlangandan keyin ham yuboriladi (alohida bubble, xavfsiz uzunlikkacha qisqartirilgan). Agar `/verbose on|full|off` ni jarayon davomida o‘zgartirsangiz, keyingi tool xabarlari yangi sozlamaga amal qiladi.
+- When verbose is on, agents that emit structured tool results (Pi, other JSON agents) send each tool call back as its own metadata-only message, prefixed with `<emoji> <tool-name>: <arg>` when available (path/command). These tool summaries are sent as soon as each tool starts (separate bubbles), not as streaming deltas.
+- When verbose is `full`, tool outputs are also forwarded after completion (separate bubble, truncated to a safe length). If you toggle `/verbose on|full|off` while a run is in-flight, subsequent tool bubbles honor the new setting.
 
 ## Fikrlash ko‘rinishi (/reasoning)
 
@@ -61,13 +64,11 @@ title: "Fikrlash darajalari"
 
 ## Heartbeat’lar
 
-- Heartbeat probe body — sozlangan heartbeat prompt’idir (standart: `Read HEARTBEAT.md if it exists (workspace context). Follow it strictly. Do not infer or repeat old tasks from prior chats. If nothing needs attention, reply HEARTBEAT_OK.`). Heartbeat xabaridagi inline direktivalar odatdagidek qo‘llanadi (ammo heartbeat orqali sessiya standartlarini o‘zgartirishdan saqlaning).
-- Heartbeat yuborilishi standart bo‘yicha faqat yakuniy payload’ni o‘z ichiga oladi. Alohida `Reasoning:` xabarini ham yuborish uchun (mavjud bo‘lsa), `agents.defaults.heartbeat.includeReasoning: true` yoki har bir agent uchun `agents.list[].heartbeat.includeReasoning: true` ni sozlang.
+- Heartbeat probe tanasi sozlangan heartbeat promptidir (standart: `Read HEARTBEAT.md if it exists (workspace context). Bunga qatʼiy amal qiling. Oldingi chatlardan eski vazifalarni taxmin qilmang yoki takrorlamang. Agar eʼtibor talab qilinadigan narsa boʻlmasa, HEARTBEAT_OK.`) deb javob bering. Heartbeat xabaridagi inline direktivalar odatdagidek qoʻllaniladi (lekin heartbeatlar orqali sessiya standartlarini oʻzgartirishdan saqlaning).
+- Heartbeat yetkazilishi standart holatda faqat yakuniy payload bilan cheklanadi. Alohida `Reasoning:` xabarini ham yuborish uchun (mavjud boʻlsa), `agents.defaults.heartbeat.includeReasoning: true` yoki har bir agent uchun `agents.list[].heartbeat.includeReasoning: true` ni sozlang.
 
 ## Veb chat interfeysi
 
 - Web chat’dagi fikrlash tanlagichi sahifa yuklanganda kiruvchi sessiya store/config’da saqlangan sessiya darajasini aks ettiradi.
 - Boshqa darajani tanlash faqat keyingi xabarga qo‘llanadi (`thinkingOnce`); yuborilgandan so‘ng tanlagich saqlangan sessiya darajasiga qaytadi.
 - Sessiya standartini o‘zgartirish uchun avvalgidek `/think:<level>` direktivasini yuboring; keyingi yuklashdan so‘ng tanlagich buni aks ettiradi.
-
-

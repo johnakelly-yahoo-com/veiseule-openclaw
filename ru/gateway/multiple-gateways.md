@@ -1,4 +1,8 @@
 ---
+summary: "Запуск нескольких Gateway OpenClaw на одном хосте (изоляция, порты и профили)"
+read_when:
+  - Запуск более одного Gateway на одной машине
+  - Требуется изоляция конфигурации/состояния/портов для каждого Gateway
 title: "Несколько Gateway"
 ---
 
@@ -75,7 +79,7 @@ openclaw --profile rescue gateway install
 Базовый порт = `gateway.port` (или `OPENCLAW_GATEWAY_PORT` / `--port`).
 
 - порт сервиса управления браузером = базовый + 2 (только local loopback)
-- `canvasHost.port = base + 4`
+- Хост canvas обслуживается HTTP‑сервером Gateway (тот же порт, что и `gateway.port`)
 - Порты CDP профиля браузера автоматически выделяются из `browser.controlPort + 9 .. + 108`
 
 Если вы переопределяете любой из них в конфиге или через переменные окружения, необходимо сохранять уникальность для каждого экземпляра.
@@ -106,5 +110,3 @@ openclaw --profile main status
 openclaw --profile rescue status
 openclaw --profile rescue browser status
 ```
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "Daloy ng mensahe, mga session, queueing, at visibility ng reasoning"
+read_when:
+  - Pagpapaliwanag kung paano nagiging mga reply ang mga inbound na mensahe
+  - Paglilinaw ng mga session, queueing mode, o gawi ng streaming
+  - Pagdodokumento ng visibility ng reasoning at mga implikasyon sa paggamit
 title: "Mga Mensahe"
 ---
 
@@ -142,9 +147,7 @@ Mga detalye: [Thinking + reasoning directives](/tools/thinking) at [Token use](/
 
 Ang pag-format ng outbound na mensahe ay sentralisado sa `messages`:
 
-- `messages.responsePrefix`, `channels.<channel>`.responsePrefix`, and `channels.&lt;channel&gt;.accounts.&lt;id&gt;`.responsePrefix` (outbound prefix cascade), kasama ang `channels.whatsapp.messagePrefix` (WhatsApp inbound prefix)
+- `messages.responsePrefix`, `channels.<channel>`.responsePrefix`, and `channels.<channel>.accounts.<id>`.responsePrefix` (outbound prefix cascade), kasama ang `channels.whatsapp.messagePrefix` (WhatsApp inbound prefix)
 - Reply threading sa pamamagitan ng `replyToMode` at mga per-channel default
 
 Mga detalye: [Configuration](/gateway/configuration#messages) at mga docs ng channel.
-
-

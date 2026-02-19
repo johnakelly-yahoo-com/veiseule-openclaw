@@ -1,4 +1,9 @@
 ---
+summary: "اسٹریمنگ + چنکنگ کا رویہ (بلاک جوابات، ڈرافٹ اسٹریمنگ، حدود)"
+read_when:
+  - چینلز پر اسٹریمنگ یا چنکنگ کے کام کرنے کے طریقے کی وضاحت کرتے وقت
+  - بلاک اسٹریمنگ یا چینل چنکنگ کے رویے میں تبدیلی کرتے وقت
+  - دوہرے/ابتدائی بلاک جوابات یا ڈرافٹ اسٹریمنگ کی خرابیوں کی جانچ کرتے وقت
 title: "اسٹریمنگ اور چنکنگ"
 ---
 
@@ -9,7 +14,7 @@ OpenClaw میں “اسٹریمنگ” کی دو الگ تہیں ہیں:
 - یہ عام چینل پیغامات ہوتے ہیں (ٹوکن ڈیلٹاز نہیں)۔ آج بیرونی چینل پیغامات میں **حقیقی ٹوکن اسٹریمنگ نہیں** ہے۔
 - **ٹوکن نما اسٹریمنگ (صرف Telegram):** تخلیق کے دوران جزوی متن کے ساتھ ایک **ڈرافٹ ببل** کو اپڈیٹ کرتا ہے؛ آخر میں حتمی پیغام بھیجا جاتا ہے۔
 
-Telegram ڈرافٹ اسٹریمنگ واحد جزوی اسٹریمنگ سطح ہے۔ `agents.defaults.blockStreamingChunk`: \`{ minChars, maxChars, breakPreference?
+آج کے وقت میں channel messages کے لیے **حقیقی token-delta streaming** دستیاب نہیں ہے. Telegram preview streaming واحد جزوی-stream سطح ہے.
 
 ## بلاک اسٹریمنگ (چینل پیغامات)
 
@@ -92,8 +97,8 @@ Model output
 - **کوئی بلاک اسٹریمنگ نہیں:** `blockStreamingDefault: "off"` (صرف حتمی جواب)۔
 
 1. **چینل نوٹ:** غیر‑Telegram چینلز کے لیے، بلاک اسٹریمنگ **بند** رہتی ہے **جب تک کہ**
-   `*.blockStreaming` کو واضح طور پر `true` پر سیٹ نہ کیا جائے۔ 2. Telegram بلاک جوابات کے بغیر ڈرافٹس اسٹریم کر سکتا ہے
-   (`channels.telegram.streamMode`)۔
+   `*.blockStreaming` کو واضح طور پر `true` پر سیٹ نہ کیا جائے۔ Telegram بلاک جوابات کے بغیر
+   (`channels.telegram.streamMode`) ایک live preview stream کر سکتا ہے.
 
 کنفیگ لوکیشن یاد دہانی: `blockStreaming*` کے ڈیفالٹس
 `agents.defaults` کے تحت ہوتے ہیں، روٹ کنفیگ میں نہیں۔
@@ -111,20 +116,19 @@ Telegram واحد چینل ہے جس میں ڈرافٹ اسٹریمنگ ہے:
 - ڈرافٹ اسٹریمنگ بلاک اسٹریمنگ سے الگ ہے؛ بلاک جوابات بطورِ طے شدہ بند ہوتے ہیں اور غیر-Telegram چینلز پر صرف `*.blockStreaming: true` کے ذریعے فعال کیے جاتے ہیں۔
 - حتمی جواب پھر بھی ایک عام پیغام ہوتا ہے۔
 - `/reasoning stream` استدلال کو ڈرافٹ ببل میں لکھتا ہے (صرف Telegram)۔
-
-جب ڈرافٹ اسٹریمنگ فعال ہو، OpenClaw اس جواب کے لیے بلاک اسٹریمنگ غیر فعال کر دیتا ہے تاکہ ڈبل اسٹریمنگ سے بچا جا سکے۔
+- غیر متنی/پیچیدہ finals عام حتمی پیغام کی ترسیل پر واپس آ جاتے ہیں.
+- `/reasoning stream` reasoning کو live preview میں لکھتا ہے (صرف Telegram).
 
 ```
-Telegram (private + topics)
-  └─ sendMessageDraft (draft bubble)
-       ├─ streamMode=partial → update latest text
-       └─ streamMode=block   → chunker updates draft
-  └─ final reply → normal message
+Telegram
+  └─ sendMessage (عارضی preview پیغام)
+       ├─ streamMode=partial → تازہ ترین متن میں ترمیم
+       └─ streamMode=block   → chunker + ترمیمی اپڈیٹس
+  └─ حتمی صرف-متن جواب → اسی پیغام پر حتمی ترمیم
+  └─ fallback: preview کی صفائی + عام حتمی ترسیل (media/complex)
 ```
 
-کلید:
+Legend:
 
-- `sendMessageDraft`: Telegram ڈرافٹ ببل (حقیقی پیغام نہیں)۔
-- `final reply`: عام Telegram پیغام بھیجنا۔
-
-
+- `preview message`: عارضی Telegram پیغام جو generation کے دوران اپڈیٹ ہوتا ہے.
+- `final edit`: اسی preview پیغام پر in-place ترمیم (صرف متن).

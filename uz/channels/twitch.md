@@ -1,4 +1,7 @@
 ---
+summary: "46. Twitch chat-bot konfiguratsiyasi va sozlash"
+read_when:
+  - 47. OpenClaw uchun Twitch chat integratsiyasini sozlash
 title: "48. Twitch"
 ---
 
@@ -143,7 +146,7 @@ Bot tokenlarni muddati tugashidan oldin avtomatik yangilaydi va yangilash hodisa
 
 ## Ko‘p akkauntni qo‘llab-quvvatlash
 
-Har bir akkaunt uchun alohida tokenlar bilan `channels.twitch.accounts`dan foydalaning. Umumiy andoza uchun [`gateway/configuration`](/gateway/configuration) ga qarang.
+Use `channels.twitch.accounts` with per-account tokens. See [`gateway/configuration`](/gateway/configuration) for the shared pattern.
 
 Misol (bitta bot akkaunti ikki kanalda):
 
@@ -374,5 +377,3 @@ Example:
 - **500 characters** per message (auto-chunked at word boundaries)
 - Markdown is stripped before chunking
 - No rate limiting (uses Twitch's built-in rate limits)
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "استخدام Anthropic Claude عبر مفاتيح API أو setup-token في OpenClaw"
+read_when:
+  - تريد استخدام نماذج Anthropic في OpenClaw
+  - تريد استخدام setup-token بدلًا من مفاتيح API
 title: "Anthropic"
 ---
 
@@ -145,5 +149,3 @@ openclaw onboard --auth-choice setup-token
 - أضف ملف Anthropic آخر أو انتظر انتهاء فترة التهدئة.
 
 المزيد: [/gateway/troubleshooting](/gateway/troubleshooting) و [/help/faq](/help/faq).
-
-

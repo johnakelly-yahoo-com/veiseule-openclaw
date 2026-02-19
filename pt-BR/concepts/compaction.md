@@ -1,4 +1,8 @@
 ---
+summary: "Janela de contexto + compactação: como o OpenClaw mantém sessões dentro dos limites do modelo"
+read_when:
+  - Você quer entender a compactação automática e /compact
+  - Você está depurando sessões longas que atingem limites de contexto
 title: "Compactação"
 ---
 
@@ -17,7 +21,7 @@ A compactação **persiste** no histórico JSONL da sessão.
 
 ## Configuração
 
-Veja [Configuração e modos de compactação](/concepts/compaction) para as configurações `agents.defaults.compaction`.
+Use a configuração `agents.defaults.compaction` no seu `openclaw.json` para definir o comportamento de compactação (modo, tokens alvo, etc.).
 
 ## Compactação automática (ativada por padrão)
 
@@ -54,5 +58,3 @@ Veja [/concepts/session-pruning](/concepts/session-pruning) para detalhes sobre 
 - Use `/compact` quando as sessões parecerem obsoletas ou o contexto estiver inchado.
 - Grandes saídas de ferramentas já são truncadas; a poda pode reduzir ainda mais o acúmulo de resultados de ferramentas.
 - Se você precisa de uma página em branco, `/new` ou `/reset` inicia um novo id de sessão.
-
-

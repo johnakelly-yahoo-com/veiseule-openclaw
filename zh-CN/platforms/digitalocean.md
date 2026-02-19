@@ -1,12 +1,9 @@
 ---
-title: DigitalOcean
-x-i18n:
-  generated_at: "2026-02-03T07:51:55Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: d60559b8751da37413e5364e83c88254b476b2283386a0b07b2ca6b4e16157fc
-  source_path: platforms/digitalocean.md
-  workflow: 15
+summary: "在 DigitalOcean 上运行 OpenClaw（简单的付费 VPS 选项）"
+read_when:
+  - 在 DigitalOcean 上设置 OpenClaw
+  - 寻找便宜的 VPS 托管来运行 OpenClaw
+title: "DigitalOcean"
 ---
 
 # 在 DigitalOcean 上运行 OpenClaw
@@ -19,13 +16,13 @@ x-i18n:
 
 ## 成本比较（2026）
 
-| 提供商       | 方案            | 配置                  | 价格/月     | 备注                     |
-| ------------ | --------------- | --------------------- | ----------- | ------------------------ |
-| Oracle Cloud | Always Free ARM | 最高 4 OCPU、24GB RAM | $0          | ARM，容量有限 / 注册有坑 |
-| Hetzner      | CX22            | 2 vCPU、4GB RAM       | €3.79 (~$4) | 最便宜的付费选项         |
-| DigitalOcean | 基础           | 1 vCPU、1GB RAM       | $6          | 界面简单，文档完善       |
-| Vultr        | Cloud Compute   | 1 vCPU、1GB RAM       | $6          | 多地区可选               |
-| Linode       | Nanode          | 1 vCPU、1GB RAM       | $5          | 现为 Akamai 旗下         |
+| 提供商          | 方案              | 配置                 | 价格/月                                                           | 备注              |
+| ------------ | --------------- | ------------------ | -------------------------------------------------------------- | --------------- |
+| Oracle Cloud | Always Free ARM | 最高 4 OCPU、24GB RAM | $0                                                             | ARM，容量有限 / 注册有坑 |
+| Hetzner      | CX22            | 2 vCPU、4GB RAM     | €3.79 (~$4) | 最便宜的付费选项        |
+| DigitalOcean | 基础              | 1 vCPU、1GB RAM     | $6                                                             | 界面简单，文档完善       |
+| Vultr        | Cloud Compute   | 1 vCPU、1GB RAM     | $6                                                             | 多地区可选           |
+| Linode       | Nanode          | 1 vCPU、1GB RAM     | $5                                                             | 现为 Akamai 旗下    |
 
 **选择提供商：**
 
@@ -41,7 +38,7 @@ x-i18n:
 - SSH 密钥对（或愿意使用密码认证）
 - 约 20 分钟
 
-## 1) 创建 Droplet
+## 1. 创建 Droplet
 
 1. 登录 [DigitalOcean](https://cloud.digitalocean.com/)
 2. 点击 **Create → Droplets**
@@ -59,7 +56,7 @@ x-i18n:
 ssh root@YOUR_DROPLET_IP
 ```
 
-## 3) 安装 OpenClaw
+## 3. 安装 OpenClaw
 
 ```bash
 # Update system
@@ -76,7 +73,7 @@ curl -fsSL https://openclaw.ai/install.sh | bash
 openclaw --version
 ```
 
-## 4) 运行新手引导
+## 4. 运行新手引导
 
 ```bash
 openclaw onboard --install-daemon
@@ -89,7 +86,7 @@ openclaw onboard --install-daemon
 - Gateway 网关令牌（自动生成）
 - 守护进程安装（systemd）
 
-## 5) 验证 Gateway 网关
+## 5. 验证 Gateway 网关
 
 ```bash
 # Check status
@@ -102,9 +99,9 @@ systemctl --user status openclaw-gateway.service
 journalctl --user -u openclaw-gateway.service -f
 ```
 
-## 6) 访问控制面板
+## 6. 访问控制面板
 
-Gateway 网关默认绑定到 loopback。要访问控制界面：
+The gateway binds to loopback by default. To access the Control UI:
 
 **选项 A：SSH 隧道（推荐）**
 
@@ -143,7 +140,7 @@ openclaw gateway restart
 
 打开：`http://<tailscale-ip>:18789`（需要令牌）。
 
-## 7) 连接你的渠道
+## 7. 连接你的渠道
 
 ### Telegram
 
@@ -165,7 +162,7 @@ openclaw channels login whatsapp
 
 ## 1GB RAM 的优化
 
-$6 的 droplet 只有 1GB RAM。为了保持运行流畅：
+$6 的 droplet 只有 1GB RAM。为了保持运行流畅： To keep things running smoothly:
 
 ### 添加 swap（推荐）
 
@@ -200,7 +197,7 @@ htop
 - `~/.openclaw/` — 配置、凭证、会话数据
 - `~/.openclaw/workspace/` — 工作区（SOUL.md、记忆等）
 
-这些在重启后保留。定期备份：
+These survive reboots. 这些在重启后保留。定期备份：
 
 ```bash
 tar -czvf openclaw-backup.tar.gz ~/.openclaw ~/.openclaw/workspace
@@ -212,19 +209,19 @@ tar -czvf openclaw-backup.tar.gz ~/.openclaw ~/.openclaw/workspace
 
 Oracle Cloud 提供 **Always Free** ARM 实例，比这里任何付费选项都强大得多 — 每月 $0。
 
-| 你将获得       | 配置             |
-| -------------- | ---------------- |
-| **4 OCPUs**    | ARM Ampere A1    |
-| **24GB RAM**   | 绰绰有余         |
-| **200GB 存储** | 块存储卷         |
-| **永久免费**   | 不收取信用卡费用 |
+| 你将获得         | 配置               |
+| ------------ | ---------------- |
+| **4 OCPUs**  | ARM Ampere A1    |
+| **24GB RAM** | More than enough |
+| **200GB 存储** | Block volume     |
+| **永久免费**     | 不收取信用卡费用         |
 
 **注意事项：**
 
 - 注册可能有点麻烦（失败了就重试）
 - ARM 架构 — 大多数东西都能工作，但有些二进制文件需要 ARM 构建
 
-完整设置指南请参阅 [Oracle Cloud](/platforms/oracle)。关于注册技巧和注册流程故障排除，请参阅此[社区指南](https://gist.github.com/rssnyder/51e3cfedd730e7dd5f4a816143b25dbd)。
+完整设置指南请参阅 [Oracle Cloud](/platforms/oracle)。关于注册技巧和注册流程故障排除，请参阅此[社区指南](https://gist.github.com/rssnyder/51e3cfedd730e7dd5f4a816143b25dbd)。 For signup tips and troubleshooting the enrollment process, see this [community guide](https://gist.github.com/rssnyder/51e3cfedd730e7dd5f4a816143b25dbd).
 
 ---
 
@@ -263,5 +260,3 @@ free -h
 - [Docker 安装](/install/docker) — 容器化设置
 - [Tailscale](/gateway/tailscale) — 安全远程访问
 - [配置](/gateway/configuration) — 完整配置参考
-
-

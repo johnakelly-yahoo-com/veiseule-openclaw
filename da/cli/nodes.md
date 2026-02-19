@@ -1,4 +1,8 @@
 ---
+summary: "CLI-reference for `openclaw nodes` (list/status/approve/invoke, camera/canvas/screen)"
+read_when:
+  - Du administrerer parrede noder (kameraer, skærm, lærred)
+  - Du skal godkende anmodninger eller kalde node-kommandoer
 title: "nodes"
 ---
 
@@ -60,12 +64,10 @@ Invoke-flag:
 Flag:
 
 - `--cwd <path>`: arbejdsmappe.
-- `--env <key=val>`: env-overstyring (kan gentages).
+- `--env <key=val>`: miljøoverride (kan gentages). Bemærk: node-værter ignorerer `PATH`-overrides (og `tools.exec.pathPrepend` anvendes ikke på node-værter).
 - `--command-timeout <ms>`: timeout for kommando.
 - `--invoke-timeout <ms>`: timeout for node-invoke (standard `30000`).
 - `--needs-screen-recording`: kræv tilladelse til skærmoptagelse.
 - `--raw <command>`: kør en shell-streng (`/bin/sh -lc` eller `cmd.exe /c`).
 - `--agent <id>`: agent-afgrænsede godkendelser/tilladelseslister (standard er konfigureret agent).
 - `--ask <off|on-miss|always>`, `--security <deny|allowlist|full>`: overstyringer.
-
-

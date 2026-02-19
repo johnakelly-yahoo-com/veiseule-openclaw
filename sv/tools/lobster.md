@@ -1,6 +1,10 @@
 ---
 title: Lobster
-description: "Typad arbetsflödeskörning för OpenClaw — komponerbara pipelines med godkännandesteg."
+summary: "”Typad arbetsflödeskörning för OpenClaw med återupptagbara godkännandespärrar.”"
+description: Typad arbetsflödeskörning för OpenClaw — komponerbara pipelines med godkännandesteg.
+read_when:
+  - Du vill ha deterministiska flerstegsarbetsflöden med explicita godkännanden
+  - Du behöver återuppta ett arbetsflöde utan att köra om tidigare steg
 ---
 
 # Lobster
@@ -336,5 +340,3 @@ Ett offentligt exempel: en ”second brain” CLI + Hummerledningar som hanterar
 
 - Tråd: [https://x.com/plattenschieber/status/2014508656335770033](https://x.com/plattenschieber/status/2014508656335770033)
 - Repo: [https://github.com/bloomedai/brain-cli](https://github.com/bloomedai/brain-cli)
-
-

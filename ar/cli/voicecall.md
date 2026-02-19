@@ -1,4 +1,8 @@
 ---
+summary: "مرجع CLI للأمر `openclaw voicecall` (سطح أوامر إضافة المكالمات الصوتية)"
+read_when:
+  - تستخدم إضافة المكالمات الصوتية وتريد نقاط الدخول في CLI
+  - تريد أمثلة سريعة لأوامر `voicecall call|continue|status|tail|expose`
 title: "voicecall"
 ---
 
@@ -28,5 +32,3 @@ openclaw voicecall unexpose
 ```
 
 ملاحظة أمنية: لا تُعرِّض نقطة نهاية webhook إلا للشبكات التي تثق بها. يُفضَّل استخدام Tailscale Serve بدل Funnel كلما أمكن.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "تشغيل OpenClaw Gateway على exe.dev ‏(آلة افتراضية + وكيل HTTPS) للوصول عن بُعد"
+read_when:
+  - تريد مضيف لينكس منخفض التكلفة يعمل دائمًا لـ Gateway
+  - تريد وصولًا عن بُعد إلى واجهة التحكم دون تشغيل VPS خاص بك
 title: "exe.dev"
 ---
 
@@ -120,5 +124,3 @@ openclaw health
 ```
 
 الدليل: [التحديث](/install/updating)
-
-

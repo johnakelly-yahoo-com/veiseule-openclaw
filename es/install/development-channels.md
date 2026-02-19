@@ -1,4 +1,8 @@
 ---
+summary: "Canales estable, beta y dev: semántica, cambio y etiquetado"
+read_when:
+  - Desea cambiar entre estable/beta/dev
+  - Está etiquetando o publicando versiones preliminares
 title: "Canales de desarrollo"
 ---
 
@@ -69,5 +73,3 @@ Las compilaciones beta y dev pueden **no** incluir una versión de la app de mac
 
 - La etiqueta de git y el dist-tag de npm aún pueden publicarse.
 - Indique “sin compilación de macOS para esta beta” en las notas de la versión o el registro de cambios.
-
-

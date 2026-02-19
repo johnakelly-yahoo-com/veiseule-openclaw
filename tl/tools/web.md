@@ -1,4 +1,9 @@
 ---
+summary: "Mga tool para sa web search + fetch (Brave Search API, Perplexity direct/OpenRouter)"
+read_when:
+  - Gusto mong i-enable ang web_search o web_fetch
+  - Kailangan mo ng setup ng Brave Search API key
+  - Gusto mong gamitin ang Perplexity Sonar para sa web search
 title: "Mga Web Tool"
 ---
 
@@ -171,6 +176,8 @@ Maghanap sa web gamit ang iyong naka-configure na provider.
 - `search_lang` (opsyonal): ISO language code para sa mga search result (hal., "de", "en", "fr")
 - `ui_lang` (opsyonal): ISO language code para sa mga UI element
 - `freshness` (opsyonal, Brave lang): i-filter ayon sa discovery time (`pd`, `pw`, `pm`, `py`, o `YYYY-MM-DDtoYYYY-MM-DD`)
+  - Brave: `pd`, `pw`, `pm`, `py`, o `YYYY-MM-DDtoYYYY-MM-DD`
+  - Perplexity: `pd`, `pw`, `pm`, `py`
 
 **Mga halimbawa:**
 
@@ -254,5 +261,3 @@ Mga tala:
 - Ang mga tugon ay kino-cache (default 15 minuto) para mabawasan ang paulit-ulit na fetch.
 - Kung gumagamit ka ng mga tool profile/allowlist, idagdag ang `web_search`/`web_fetch` o `group:web`.
 - Kapag nawawala ang Brave key, magbabalik ang `web_search` ng maikling setup hint na may link sa docs.
-
-

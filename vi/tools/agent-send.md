@@ -1,10 +1,13 @@
 ---
+summary: "Chạy trực tiếp CLI `openclaw agent` (có tùy chọn gửi kết quả)"
+read_when:
+  - Thêm hoặc chỉnh sửa điểm vào CLI của agent
 title: "Gửi Agent"
 ---
 
 # `openclaw agent` (chạy agent trực tiếp)
 
-`openclaw agent` chạy một lượt agent mà không cần tin nhắn chat đầu vào.
+`openclaw agent` runs a single agent turn without needing an inbound chat message.
 By default it goes **through the Gateway**; add `--local` to force the embedded
 runtime on the current machine.
 
@@ -48,5 +51,3 @@ openclaw agent --agent ops --message "Generate report" --deliver --reply-channel
 - `--verbose <on|full|off>`: lưu bền mức verbose
 - `--timeout <seconds>`: ghi đè thời gian chờ của agent
 - `--json`: xuất JSON có cấu trúc
-
-

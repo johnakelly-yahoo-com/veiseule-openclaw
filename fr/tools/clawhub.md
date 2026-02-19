@@ -1,4 +1,9 @@
 ---
+summary: "Guide ClawHub : registre public de Skills + flux de travail CLI"
+read_when:
+  - Presentation de ClawHub aux nouveaux utilisateurs
+  - Installation, recherche ou publication de Skills
+  - Explication des options CLI ClawHub et du comportement de synchronisation
 title: "ClawHub"
 ---
 
@@ -244,5 +249,3 @@ export CLAWHUB_DISABLE_TELEMETRY=1
 - `CLAWHUB_CONFIG_PATH` : Remplacer l’emplacement ou la CLI stocke le jeton/la configuration.
 - `CLAWHUB_WORKDIR` : Remplacer le workdir par defaut.
 - `CLAWHUB_DISABLE_TELEMETRY=1` : Desactiver la telemetrie sur `sync`.
-
-

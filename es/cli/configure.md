@@ -1,4 +1,7 @@
 ---
+summary: "Referencia de la CLI para `openclaw configure` (prompts interactivos de configuración)"
+read_when:
+  - Quiere ajustar credenciales, dispositivos o valores predeterminados del agente de forma interactiva
 title: "configure"
 ---
 
@@ -28,5 +31,3 @@ Notas:
 openclaw configure
 openclaw configure --section models --section channels
 ```
-
-

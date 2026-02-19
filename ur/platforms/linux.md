@@ -1,4 +1,8 @@
 ---
+summary: "لینکس سپورٹ + معاون ایپ کی حیثیت"
+read_when:
+  - لینکس معاون ایپ کی حیثیت تلاش کر رہے ہوں
+  - پلیٹ فارم کوریج یا شراکتوں کی منصوبہ بندی کر رہے ہوں
 title: "لینکس ایپ"
 ---
 
@@ -50,7 +54,7 @@ openclaw gateway install
 openclaw configure
 ```
 
-جب کہا جائے تو **Gateway سروس** منتخب کریں۔
+مرمت/منتقلی:
 
 مرمت/منتقلی:
 
@@ -63,7 +67,7 @@ openclaw doctor
 49. OpenClaw ڈیفالٹ طور پر systemd **user** سروس انسٹال کرتا ہے۔ 50. مشترکہ یا ہمیشہ آن سرورز کے لیے **system** سروس استعمال کریں۔ مکمل یونٹ کی مثال اور رہنمائی
     [Gateway runbook](/gateway) میں موجود ہے۔
 
-کم از کم سیٹ اپ:
+`~/.config/systemd/user/openclaw-gateway[-<profile>].service` بنائیں:
 
 `~/.config/systemd/user/openclaw-gateway[-<profile>].service` بنائیں:
 
@@ -87,5 +91,3 @@ WantedBy=default.target
 ```
 systemctl --user enable --now openclaw-gateway[-<profile>].service
 ```
-
-

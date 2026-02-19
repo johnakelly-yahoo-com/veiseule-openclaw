@@ -1,4 +1,7 @@
 ---
+summary: "Agentloopens livscykel, strömmar och väntesemantik"
+read_when:
+  - Du behöver en exakt genomgång av agentloopen eller livscykelhändelser
 title: "Agentloop"
 ---
 
@@ -141,5 +144,3 @@ Se [Plugins](/tools/plugin#plugin-hooks) för hook-API:t och registreringsdetalj
 - AbortSignal (avbryt)
 - Gateway-frånkoppling eller RPC-timeout
 - `agent.wait`-timeout (endast väntan, stoppar inte agenten)
-
-

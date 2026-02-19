@@ -1,4 +1,9 @@
 ---
+summary: "آٹومیشن کے لیے heartbeat اور cron جابز کے درمیان انتخاب کی رہنمائی"
+read_when:
+  - بار بار چلنے والے کاموں کی شیڈولنگ کا فیصلہ کرتے وقت
+  - بیک گراؤنڈ مانیٹرنگ یا نوٹیفیکیشنز سیٹ اپ کرتے وقت
+  - وقفہ وار جانچ کے لیے ٹوکن استعمال کو بہتر بناتے وقت
 title: "Cron بمقابلہ Heartbeat"
 ---
 
@@ -275,5 +280,3 @@ openclaw cron add \
 - [Heartbeat](/gateway/heartbeat) - مکمل heartbeat کنفیگریشن
 - [Cron jobs](/automation/cron-jobs) - مکمل cron CLI اور API حوالہ
 - [System](/cli/system) - سسٹم ایونٹس + heartbeat کنٹرولز
-
-

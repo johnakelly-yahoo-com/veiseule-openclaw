@@ -1,4 +1,7 @@
 ---
+summary: "Sessionlarni ro‘yxatlash, tarixni olish va sessionlararo xabar yuborish uchun agent session tool’lari"
+read_when:
+  - Session tool’larini qo‘shish yoki o‘zgartirish
 title: "Session Tool’lari"
 ---
 
@@ -91,6 +94,7 @@ Xulq-atvor:
 - Announce delivery runs after the primary run completes and is best-effort; `status: "ok"` does not guarantee the announce was delivered.
 - Waits via gateway `agent.wait` (server-side) so reconnects don't drop the wait.
 - Agent-to-agent message context is injected for the primary run.
+- Sessionlararo xabarlar `message.provenance.kind = "inter_session"` bilan saqlanadi, shunda transkript o‘quvchilari marshrutlangan agent ko‘rsatmalarini tashqi foydalanuvchi kirishidan ajrata oladi.
 - After the primary run completes, OpenClaw runs a **reply-back loop**:
   - 1. 2+ raund so‘rovchi va nishon agentlar o‘rtasida navbatma‑navbat almashadi.
   - 2. Ping‑pongni to‘xtatish uchun aniq `REPLY_SKIP` deb javob bering.
@@ -141,9 +145,9 @@ Xulq-atvor:
 
 23. Izolyatsiyalangan sessiyada quyi‑agent ishini ishga tushiring va natijani so‘rovchi chat kanaliga e’lon qiling.
 
-24. Parametrlar:
+Parameters:
 
-- 25. `task` (majburiy)
+- Ruxsat etilganlar ro‘yxati:
 - 26. `label?` (ixtiyoriy; loglar/UI uchun ishlatiladi)
 - 27. `agentId?` (ixtiyoriy; ruxsat etilsa, boshqa agent identifikatori ostida ishga tushiradi)
 - 28. `model?` (ixtiyoriy; quyi‑agent modelini almashtiradi; noto‘g‘ri qiymatlar xato beradi)
@@ -156,9 +160,9 @@ Xulq-atvor:
 
 34. Aniqlash:
 
-- 35. `sessions_spawn` uchun qaysi agent identifikatorlariga ruxsat berilganini aniqlashda `agents_list`dan foydalaning.
+- Xatti‑harakat:
 
-36. Xatti‑harakat:
+Behavior:
 
 - 37. `deliver: false` bilan yangi `agent:<agentId>:subagent:<uuid>` sessiyasini boshlaydi.
 - 38. Quyi‑agentlar sukut bo‘yicha to‘liq vositalar to‘plamiga ega bo‘ladi **sessiya vositalarisiz** ( `tools.subagents.tools` orqali sozlanadi ).
@@ -188,5 +192,3 @@ Xulq-atvor:
   },
 }
 ```
-
-

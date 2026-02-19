@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw devices` uchun CLI ma’lumotnomasi (qurilmalarni juftlash + tokenlarni aylantirish/bekor qilish)"
+read_when:
+  - Siz qurilma juftlash so‘rovlarini tasdiqlayapsiz
+  - Siz qurilma tokenlarini aylantirishingiz yoki bekor qilishingiz kerak
 title: "qurilmalar"
 ---
 
@@ -64,5 +68,3 @@ Eslatma: `--url` ni o‘rnatganingizda, CLI konfiguratsiya yoki muhit o‘zgaruv
 
 - Tokenni aylantirish yangi tokenni qaytaradi (maxfiy). Uni sir kabi saqlang.
 - Bu buyruqlar `operator.pairing` (yoki `operator.admin`) scope’ini talab qiladi.
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "En çok kullanılan OpenClaw belgelerine seçilmiş bağlantılar."
+read_when:
+  - Önemli belge sayfalarına hızlı erişim istediğinizde
 title: "Belgeler dizini"
 ---
 
@@ -59,5 +62,3 @@ Belgelerin eksiksiz haritası için [Belgeler merkezleri](/start/hubs) sayfasın
 - [Gmail kancaları (Pub/Sub)](/automation/gmail-pubsub)
 - [Güvenlik](/gateway/security)
 - [Sorun Giderme](/gateway/troubleshooting)
-
-

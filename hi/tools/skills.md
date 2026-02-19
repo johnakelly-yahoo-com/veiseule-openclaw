@@ -1,4 +1,8 @@
 ---
+summary: "Skills: प्रबंधित बनाम वर्कस्पेस, गेटिंग नियम, और कॉन्फ़िग/एनवायरनमेंट वायरिंग"
+read_when:
+  - Skills जोड़ते या संशोधित करते समय
+  - Skill गेटिंग या लोड नियम बदलते समय
 title: "कौशल"
 ---
 
@@ -292,5 +296,3 @@ copy). Workspace skills are user-owned and override both on name conflicts.
 [https://clawhub.com](https://clawhub.com) ब्राउज़ करें।
 
 ---
-
-

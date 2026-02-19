@@ -1,10 +1,15 @@
 ---
+summary: "Cấu hình Moonshot K2 so với Kimi Coding (nhà cung cấp + khóa riêng)"
+read_when:
+  - Bạn muốn thiết lập Moonshot K2 (Moonshot Open Platform) so với Kimi Coding
+  - Bạn cần hiểu các endpoint, khóa và tham chiếu mô hình riêng biệt
+  - Bạn muốn cấu hình sao chép/dán cho từng nhà cung cấp
 title: "Moonshot AI"
 ---
 
 # Moonshot AI (Kimi)
 
-Moonshot cung cấp Kimi API với các endpoint tương thích với OpenAI. Cấu hình
+Moonshot provides the Kimi API with OpenAI-compatible endpoints. Configure the
 provider and set the default model to `moonshot/kimi-k2.5`, or use
 Kimi Coding with `kimi-coding/k2p5`.
 
@@ -135,5 +140,3 @@ openclaw onboard --auth-choice kimi-code-api-key
 - Nếu Moonshot công bố giới hạn ngữ cảnh khác cho một mô hình, hãy điều chỉnh
   `contextWindow` cho phù hợp.
 - Dùng `https://api.moonshot.ai/v1` cho endpoint quốc tế, và `https://api.moonshot.cn/v1` cho endpoint Trung Quốc.
-
-

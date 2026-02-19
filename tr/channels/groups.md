@@ -1,4 +1,7 @@
 ---
+summary: "Yüzeyler arasında grup sohbeti davranışı (WhatsApp/Telegram/Discord/Slack/Signal/iMessage/Microsoft Teams)"
+read_when:
+  - Grup sohbeti davranışını veya mention gating’i değiştirirken
 title: "Gruplar"
 ---
 
@@ -37,7 +40,7 @@ otherwise -> reply
 
 İsterseniz...
 
-| Amaç                                                                 | Ne ayarlanmalı                                                                 |
+| Amaç                                                                 | Ne ayarlanmalı                                                              |
 | -------------------------------------------------------------------- | --------------------------------------------------------------------------- |
 | Tüm gruplara izin ver ama yalnızca @mention ile yanıtla | `groups: { "*": { requireMention: true } }`                                 |
 | Tüm grup yanıtlarını devre dışı bırak                                | `groupPolicy: "disabled"`                                                   |
@@ -369,5 +372,3 @@ Ajan sistem istemi, yeni bir grup oturumunun ilk turunda bir grup girişi içeri
 ## WhatsApp ayrıntıları
 
 WhatsApp’a özgü davranışlar (geçmiş enjeksiyonu, mention işleme ayrıntıları) için [Grup mesajları](/channels/group-messages) bölümüne bakın.
-
-

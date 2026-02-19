@@ -1,4 +1,8 @@
 ---
+summary: "Bun ish jarayoni (eksperimental): o‘rnatish va pnpm bilan bog‘liq nozik jihatlar"
+read_when:
+  - Siz eng tezkor lokal dev jarayonini xohlaysiz (bun + watch)
+  - Siz Bun o‘rnatish/patch/lifecycle script muammolariga duch keldingiz
 title: "Bun (Eksperimental)"
 ---
 
@@ -7,7 +11,7 @@ title: "Bun (Eksperimental)"
 Maqsad: ushbu repozitoriyani **Bun** bilan ishga tushirish (ixtiyoriy, WhatsApp/Telegram uchun tavsiya etilmaydi),  
 pnpm ish jarayonlaridan chetga chiqmagan holda.
 
-⚠️ **Gateway runtime uchun tavsiya etilmaydi** (WhatsApp/Telegram xatoliklari sababli). Ishlab chiqarish muhiti uchun Node’dan foydalaning.
+⚠️ **Not recommended for Gateway runtime** (WhatsApp/Telegram bugs). Use Node for production.
 
 ## Holati
 
@@ -23,7 +27,7 @@ Standart usul:
 bun install
 ```
 
-Eslatma: `bun.lock`/`bun.lockb` fayllari gitignored qilingan, shuning uchun repozitoriyada ortiqcha o‘zgarishlar bo‘lmaydi. Agar _lockfile yozilmasligini_ xohlasangiz:
+Note: `bun.lock`/`bun.lockb` are gitignored, so there’s no repo churn either way. If you want _no lockfile writes_:
 
 ```sh
 bun install --no-save
@@ -38,8 +42,8 @@ bun run vitest run
 
 ## Bun lifecycle scriptlari (standart holatda bloklanadi)
 
-Bun bog‘liqlik lifecycle scriptlarini aniq ishonch bildirilmaguncha bloklashi mumkin (`bun pm untrusted` / `bun pm trust`).  
-Ushbu repo uchun odatda bloklanadigan scriptlar majburiy emas:
+Bun may block dependency lifecycle scripts unless explicitly trusted (`bun pm untrusted` / `bun pm trust`).
+For this repo, the commonly blocked scripts are not required:
 
 - `@whiskeysockets/baileys` `preinstall`: Node major versiyasi >= 20 ekanini tekshiradi (biz Node 22+ ishlatamiz).
 - `protobufjs` `postinstall`: mos kelmaydigan versiya sxemalari haqida ogohlantirishlar chiqaradi (build artefaktlari yo‘q).
@@ -52,6 +56,4 @@ bun pm trust @whiskeysockets/baileys protobufjs
 
 ## Cheklovlar
 
-- Ba’zi scriptlar hali ham pnpm’ni qat’iy belgilagan (masalan, `docs:build`, `ui:*`, `protocol:check`). Hozircha ularni pnpm orqali ishga tushiring.
-
-
+- Some scripts still hardcode pnpm (e.g. `docs:build`, `ui:*`, `protocol:check`). Run those via pnpm for now.

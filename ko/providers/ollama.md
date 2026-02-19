@@ -1,4 +1,8 @@
 ---
+summary: "Ollama (로컬 LLM 런타임)로 OpenClaw 실행"
+read_when:
+  - Ollama 를 통해 로컬 모델로 OpenClaw 를 실행하려는 경우
+  - Ollama 설정 및 구성 가이드가 필요한 경우
 title: "Ollama"
 ---
 
@@ -170,45 +174,28 @@ Ollama 는 무료이며 로컬에서 실행되므로 모든 모델 비용은 $0 
 
 ### 스트리밍 구성
 
-Ollama 의 응답 형식과 관련된 기본 SDK 의 [알려진 문제](https://github.com/badlogic/pi-mono/issues/1205)로 인해, Ollama 모델에 대해서는 **스트리밍이 기본적으로 비활성화**되어 있습니다. 이는 도구 사용이 가능한 모델을 사용할 때 응답이 손상되는 것을 방지합니다.
+OpenClaw의 Ollama 통합은 기본적으로 **네이티브 Ollama API** (`/api/chat`)를 사용하며, 스트리밍과 도구 호출을 동시에 완전히 지원합니다. 특별한 설정은 필요하지 않습니다.
 
-스트리밍이 비활성화되면 응답은 한 번에 전달됩니다(비스트리밍 모드). 이는 콘텐츠/추론 델타가 교차되어 출력이 깨지는 문제를 방지합니다.
+#### 레거시 OpenAI 호환 모드
 
-#### 스트리밍 다시 활성화 (고급)
-
-Ollama 에 대해 스트리밍을 다시 활성화하려는 경우 (도구 사용이 가능한 모델에서 문제가 발생할 수 있음):
+대신 OpenAI 호환 엔드포인트를 사용해야 하는 경우(예: OpenAI 형식만 지원하는 프록시 뒤에 있는 경우) `api: "openai-completions"`을 명시적으로 설정하세요:
 
 ```json5
 {
-  agents: {
-    defaults: {
-      models: {
-        "ollama/gpt-oss:20b": {
-          streaming: true,
-        },
-      },
-    },
-  },
+  models: {
+    providers: {
+      ollama: {
+        baseUrl: "http://ollama-host:11434/v1",
+        api: "openai-completions",
+        apiKey: "ollama-local",
+        models: [...]
+      }
+    }
+  }
 }
 ```
 
-#### 다른 프로바이더에 대해 스트리밍 비활성화
-
-필요한 경우 어떤 프로바이더에 대해서도 스트리밍을 비활성화할 수 있습니다:
-
-```json5
-{
-  agents: {
-    defaults: {
-      models: {
-        "openai/gpt-4": {
-          streaming: false,
-        },
-      },
-    },
-  },
-}
-```
+참고: OpenAI 호환 엔드포인트는 스트리밍과 도구 호출을 동시에 지원하지 않을 수 있습니다. Ollama 모델에 대해 `streaming: false` 를 명시적으로 설정하십시오([스트리밍 구성](#streaming-configuration) 참고)
 
 ### 컨텍스트 윈도우
 
@@ -257,19 +244,8 @@ ps aux | grep ollama
 ollama serve
 ```
 
-### 응답이 손상되거나 출력에 도구 이름이 포함되는 경우
-
-Ollama 모델을 사용할 때 `sessions_send`, `memory_get` 와 같은 도구 이름이 포함된 깨진 응답이나 텍스트 조각화가 보인다면, 이는 스트리밍 응답과 관련된 상위 SDK 문제 때문입니다. 최신 OpenClaw 버전에서는 Ollama 모델에 대해 스트리밍을 비활성화하여 **기본적으로 해결**되어 있습니다.
-
-스트리밍을 수동으로 활성화했고 이 문제가 발생한다면:
-
-1. Ollama 모델 항목에서 `streaming: true` 구성을 제거하거나
-2. Ollama 모델에 대해 `streaming: false` 를 명시적으로 설정하십시오([스트리밍 구성](#streaming-configuration) 참고)
-
 ## 참고
 
 - [Model Providers](/concepts/model-providers) - 모든 프로바이더 개요
 - [Model Selection](/concepts/models) - 모델 선택 방법
 - [Configuration](/gateway/configuration) - 전체 구성 참조
-
-

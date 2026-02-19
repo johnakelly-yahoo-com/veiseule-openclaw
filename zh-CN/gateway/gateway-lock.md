@@ -1,12 +1,9 @@
 ---
-title: Gateway 网关锁
-x-i18n:
-  generated_at: "2026-02-03T07:47:52Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 15fdfa066d1925da8b4632073a876709f77ca8d40e6828c174a30d953ba4f8e9
-  source_path: gateway/gateway-lock.md
-  workflow: 15
+summary: "使用 WebSocket 监听器绑定的 Gateway 网关单例保护"
+read_when:
+  - 运行或调试 Gateway 网关进程
+  - 调查单实例强制执行
+title: "Gateway 网关锁"
 ---
 
 # Gateway 网关锁
@@ -31,9 +28,7 @@ x-i18n:
 - 如果另一个进程持有端口，启动会抛出 `GatewayLockError("another gateway instance is already listening on ws://127.0.0.1:<port>")`。
 - 其他绑定失败会显示为 `GatewayLockError("failed to bind gateway socket on ws://127.0.0.1:<port>: …")`。
 
-## 运维说明
+## 33. 运行说明
 
-- 如果端口被*另一个*进程占用，错误是相同的；释放端口或使用 `openclaw gateway --port <port>` 选择另一个端口。
+- 如果端口被_另一个_进程占用，错误是相同的；释放端口或使用 `openclaw gateway --port <port>` 选择另一个端口。
 - macOS 应用在启动 Gateway 网关之前仍维护自己的轻量级 PID 保护；运行时锁由 WebSocket 绑定强制执行。
-
-

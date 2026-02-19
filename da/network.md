@@ -1,4 +1,9 @@
 ---
+summary: "Netværkshub: gateway‑overflader, parring, discovery og sikkerhed"
+read_when:
+  - Du har brug for overblik over netværksarkitektur og sikkerhed
+  - Du fejlsøger lokal vs. tailnet‑adgang eller parring
+  - Du vil have den kanoniske liste over netværksdokumentation
 title: "Netværk"
 ---
 
@@ -47,5 +52,3 @@ Lokal tillid:
 - [Gateway konfigurationsreference](/gateway/configuration)
 - [Fejlfinding](/gateway/troubleshooting)
 - [Doctor](/gateway/doctor)
-
-

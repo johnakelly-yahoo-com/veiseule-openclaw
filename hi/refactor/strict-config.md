@@ -1,4 +1,9 @@
 ---
+summary: "कठोर विन्यास सत्यापन + केवल Doctor के माध्यम से माइग्रेशन"
+read_when:
+  - विन्यास सत्यापन व्यवहार को डिज़ाइन या लागू करते समय
+  - विन्यास माइग्रेशन या Doctor वर्कफ़्लो पर काम करते समय
+  - प्लगइन विन्यास स्कीमा या प्लगइन लोड गेटिंग को संभालते समय
 title: "कठोर विन्यास सत्यापन"
 ---
 
@@ -20,9 +25,9 @@ title: "कठोर विन्यास सत्यापन"
 
 - विन्यास को हर स्तर पर स्कीमा से बिल्कुल मेल खाना चाहिए।
 - अज्ञात कुंजियाँ सत्यापन त्रुटियाँ हैं (रूट या नेस्टेड में कोई पासथ्रू नहीं)।
-- `plugins.entries.<id>.config` को plugin के schema द्वारा सत्यापित किया जाना चाहिए।
+- `plugins.entries.<id>.config` must be validated by the plugin’s schema.
   - यदि किसी प्लगइन में स्कीमा नहीं है, तो **प्लगइन लोड को अस्वीकार करें** और स्पष्ट त्रुटि दिखाएँ।
-- अज्ञात `channels.<id>` keys त्रुटि मानी जाएँगी, जब तक कि कोई plugin manifest उस channel id की घोषणा न करे।
+- Unknown `channels.<id>` keys are errors unless a plugin manifest declares the channel id.
 - प्लगइन मैनिफ़ेस्ट (`openclaw.plugin.json`) सभी प्लगइनों के लिए आवश्यक हैं।
 
 ## प्लगइन स्कीमा प्रवर्तन
@@ -60,7 +65,7 @@ title: "कठोर विन्यास सत्यापन"
 - `openclaw status`
 - `openclaw gateway status`
 
-बाकी सब कुछ इस संदेश के साथ हार्ड-फेल होना चाहिए: “Config invalid. Run `openclaw doctor --fix`.”
+Everything else must hard-fail with: “Config invalid. Run `openclaw doctor --fix`.”
 
 ## त्रुटि UX प्रारूप
 
@@ -86,5 +91,3 @@ title: "कठोर विन्यास सत्यापन"
 - प्लगइन में स्कीमा अनुपस्थित → स्पष्ट त्रुटि के साथ प्लगइन लोड अवरुद्ध।
 - अमान्य विन्यास → गेटवे स्टार्टअप अवरुद्ध, केवल नैदानिक कमांड्स को छोड़कर।
 - Doctor ड्राय-रन स्वतः; `doctor --fix` सुधारा हुआ विन्यास लिखता है।
-
-

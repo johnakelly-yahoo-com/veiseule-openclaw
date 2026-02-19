@@ -1,4 +1,7 @@
 ---
+summary: "Statuslogica van de menubalk en wat aan gebruikers wordt getoond"
+read_when:
+  - Afstellen van de mac-menubalk-UI of statuslogica
 title: "Menubalk"
 ---
 
@@ -19,7 +22,7 @@ title: "Menubalk"
   - `job`: uitvoering van opdrachten op hoog niveau (`state: started|streaming|done|error`).
   - `tool`: `phase: start|result` met `toolName` en `meta/args`.
 
-## IconState-enum (Swift)
+## IconState enum (Swift)
 
 - `idle`
 - `workingMain(ActivityKind)`
@@ -76,5 +79,3 @@ title: "Menubalk"
 - Start hoofd terwijl een andere actief is: pictogram schakelt direct naar hoofd.
 - Snelle toolbursts: zorg dat de badge niet flikkert (TTL-speling op toolresultaten).
 - Gezondheidsregel verschijnt opnieuw zodra alle sessies inactief zijn.
-
-

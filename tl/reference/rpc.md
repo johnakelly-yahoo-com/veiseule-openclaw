@@ -1,10 +1,14 @@
 ---
+summary: "Mga RPC adapter para sa mga external CLI (signal-cli, legacy imsg) at mga pattern ng gateway"
+read_when:
+  - Pagdaragdag o pagbabago ng mga external na integrasyon ng CLI
+  - Pag-debug ng mga RPC adapter (signal-cli, imsg)
 title: "Mga RPC Adapter"
 ---
 
 # Mga RPC adapter
 
-Isinasama ng OpenClaw ang mga external na CLI sa pamamagitan ng JSON-RPC. Dalawang pattern ang ginagamit sa kasalukuyan.
+OpenClaw integrates external CLIs via JSON-RPC. Two patterns are used today.
 
 ## Padron A: HTTP daemon (signal-cli)
 
@@ -37,5 +41,3 @@ Tingnan ang [iMessage](/channels/imessage) para sa legacy na setup at addressing
 - Ang Gateway ang may-ari ng proseso (ang start/stop ay naka-tali sa lifecycle ng provider).
 - Panatilihing resilient ang mga RPC client: may mga timeout, mag-restart kapag nag-exit.
 - Mas piliin ang mga stable ID (hal., `chat_id`) kaysa sa mga display string.
-
-

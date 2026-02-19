@@ -1,4 +1,8 @@
 ---
+summary: Заметки о сбое Node + tsx «__name is not a function» и обходные пути
+read_when:
+  - Отладка dev-скриптов только для Node или сбоев в режиме watch
+  - Исследование сбоев загрузчика tsx/esbuild в OpenClaw
 title: "Сбой Node + tsx"
 ---
 
@@ -82,5 +86,3 @@ node --import tsx scripts/repro/tsx-name-repro.ts
 - Воспроизвести на Node 22/24, чтобы подтвердить регрессию Node 25.
 - Протестировать nightly `tsx` или зафиксировать более раннюю версию, если известна регрессия.
 - Если воспроизводится на Node LTS, оформить минимальное воспроизведение upstream с трассировкой стека `__name`.
-
-

@@ -484,5 +484,3 @@ Com a configuração recomendada (`shared-cpu-2x`, 2GB de RAM):
 - O plano gratuito inclui alguma franquia
 
 Veja [preços do Fly.io](https://fly.io/docs/about/pricing/) para detalhes.
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "Status van ondersteuning voor Google Chat-apps, mogelijkheden en configuratie"
+read_when:
+  - Werken aan Google Chat-kanaalfuncties
 title: "Google Chat"
 ---
 
@@ -151,6 +154,7 @@ Configureer de ingress-regels van je tunnel om alleen het webhookpad te routeren
 Gebruik deze identificaties voor bezorging en toegestane lijsten:
 
 - Directe berichten: `users/<userId>` of `users/<email>` (e-mailadressen worden geaccepteerd).
+- Verouderd: `users/<email>` wordt behandeld als een gebruikers-ID, niet als een e-mail allowlist.
 - Spaces: `spaces/<spaceId>`.
 
 ## Config-hoogtepunten
@@ -247,5 +251,3 @@ Gerelateerde documentatie:
 - [Gateway-configuratie](/gateway/configuration)
 - [Beveiliging](/gateway/security)
 - [Reacties](/tools/reactions)
-
-

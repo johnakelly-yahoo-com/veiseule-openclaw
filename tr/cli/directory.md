@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw directory` için CLI referansı (self, peers, groups)"
+read_when:
+  - Bir kanal için kişiler/gruplar/self kimliklerini aramak istiyorsunuz
+  - Bir kanal dizini bağdaştırıcısı geliştiriyorsunuz
 title: "directory"
 ---
 
@@ -6,7 +10,7 @@ title: "directory"
 
 Bunu destekleyen kanallar için dizin sorgulamaları (kişiler/peers, gruplar ve “ben”).
 
-## Yaygın seçenekler
+## Common flags
 
 - `--channel <name>`: kanal kimliği/takma adı (birden fazla kanal yapılandırılmışsa gereklidir; yalnızca biri yapılandırılmışsa otomatik)
 - `--account <id>`: hesap kimliği (varsayılan: kanal varsayılanı)
@@ -57,5 +61,3 @@ openclaw directory groups list --channel zalouser
 openclaw directory groups list --channel zalouser --query "work"
 openclaw directory groups members --channel zalouser --group-id <id>
 ```
-
-

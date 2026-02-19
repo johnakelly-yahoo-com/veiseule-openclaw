@@ -1,4 +1,9 @@
 ---
+summary: "Herramientas de depuración: modo de observación, flujos de modelo en bruto y trazado de fugas de razonamiento"
+read_when:
+  - Necesita inspeccionar la salida en bruto del modelo para detectar fugas de razonamiento
+  - Quiere ejecutar el Gateway en modo de observación mientras itera
+  - Necesita un flujo de trabajo de depuración repetible
 title: "Depuración"
 ---
 
@@ -155,5 +160,3 @@ Archivo predeterminado:
 - Los registros de flujos en bruto pueden incluir prompts completos, salida de herramientas y datos de usuario.
 - Mantenga los registros locales y elimínelos después de depurar.
 - Si comparte registros, elimine secretos y PII primero.
-
-

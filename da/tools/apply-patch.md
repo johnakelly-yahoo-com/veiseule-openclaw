@@ -1,4 +1,8 @@
 ---
+summary: "Anvend patches på tværs af flere filer med værktøjet apply_patch"
+read_when:
+  - Du har brug for strukturerede filredigeringer på tværs af flere filer
+  - Du vil dokumentere eller fejlfinde patch-baserede redigeringer
 title: "apply_patch-værktøj"
 ---
 
@@ -29,7 +33,8 @@ Værktøjet accepterer en enkelt `input`-streng, der indkapsler én eller flere 
 ## Noter
 
 - Stier opløses relativt til workspace-roden.
-- Brug `*** Move to:` inden for en `*** Update File:`-hunk til at omdøbe filer.
+- `tools.exec.applyPatch.workspaceOnly` er som standard sat til `true` (begrænset til workspace). Sæt den kun til `false`, hvis du bevidst ønsker, at `apply_patch` skal skrive/slette uden for workspace-mappen.
+- `*** End of File` markerer en indsættelse kun ved EOF, når det er nødvendigt.
 - `*** End of File` markerer en indsættelse kun ved EOF, når det er nødvendigt.
 - Eksperimentel og deaktiveret som standard. Aktiver med `tools.exec.applyPatch.enabled`.
 - Udelukkende OpenAI- (inkl. OpenAI Codex). Valgfrit gate efter model via
@@ -44,5 +49,3 @@ Værktøjet accepterer en enkelt `input`-streng, der indkapsler én eller flere 
   "input": "*** Begin Patch\n*** Update File: src/index.ts\n@@\n-const foo = 1\n+const foo = 2\n*** End Patch"
 }
 ```
-
-

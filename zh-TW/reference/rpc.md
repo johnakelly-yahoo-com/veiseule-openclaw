@@ -1,10 +1,14 @@
 ---
+summary: "用於外部 CLI（signal-cli、legacy imsg）的 RPC 介接器與 Gateway 閘道器模式"
+read_when:
+  - 新增或變更外部 CLI 整合時
+  - 偵錯 RPC 介接器（signal-cli、imsg）時
 title: "RPC 介接器"
 ---
 
 # RPC 介接器
 
-OpenClaw 透過 JSON-RPC 整合外部 CLI。目前使用兩種模式。 Two patterns are used today.
+OpenClaw 透過 JSON-RPC 整合外部 CLI。目前使用兩種模式。 Two patterns are used today. Two patterns are used today.
 
 ## 模式 A：HTTP 常駐程式（signal-cli）
 
@@ -34,8 +38,6 @@ legacy 設定與位址指定請參閱 [iMessage](/channels/imessage)（偏好 `c
 
 ## 介接器指引
 
-- Gateway 負責該進程（啟動/停止與提供者生命週期綁定）。
+- Gateway owns the process (start/stop tied to provider lifecycle).
 - 保持 RPC 用戶端具備韌性：設定逾時，於退出時重新啟動。
 - 優先使用穩定的 ID（例如 `chat_id`），避免使用顯示字串。
-
-

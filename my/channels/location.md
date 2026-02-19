@@ -1,4 +1,8 @@
 ---
+summary: "အဝင် ချန်နယ် တည်နေရာ ခွဲခြမ်းစိတ်ဖြာခြင်း (Telegram + WhatsApp) နှင့် context အကွက်များ"
+read_when:
+  - ချန်နယ် တည်နေရာ ခွဲခြမ်းစိတ်ဖြာမှုကို ထည့်သွင်းခြင်း သို့မဟုတ် ပြင်ဆင်ခြင်း ပြုလုပ်သည့်အခါ
+  - agent prompt များ သို့မဟုတ် tool များတွင် တည်နေရာ context အကွက်များကို အသုံးပြုသည့်အခါ
 title: "ချန်နယ် တည်နေရာ ခွဲခြမ်းစိတ်ဖြာခြင်း"
 ---
 
@@ -50,5 +54,3 @@ Meet here
 - **Telegram**: venue များကို `LocationName/LocationAddress` သို့ mapping လုပ်ထားပြီး; live location များသည် `live_period` ကို အသုံးပြုပါသည်။
 - **WhatsApp**: `locationMessage.comment` နှင့် `liveLocationMessage.caption` ကို caption လိုင်းအဖြစ် ဆက်လက် ထည့်သွင်းပါသည်။
 - **Matrix**: `geo_uri` ကို pin တည်နေရာအဖြစ် ခွဲခြမ်းစိတ်ဖြာပါသည်; altitude ကို လျစ်လျူရှုထားပြီး `LocationIsLive` သည် အမြဲတမ်း false ဖြစ်ပါသည်။
-
-

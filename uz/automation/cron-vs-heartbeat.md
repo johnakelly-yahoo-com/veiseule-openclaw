@@ -1,21 +1,26 @@
 ---
+summary: "Avtomatlashtirish uchun heartbeat va cron vazifalari orasidan tanlash bo‘yicha qo‘llanma"
+read_when:
+  - Deciding how to schedule recurring tasks
+  - Setting up background monitoring or notifications
+  - Optimizing token usage for periodic checks
 title: "Cron va Heartbeat"
 ---
 
 # Cron va Heartbeat: Qachon qaysi birini ishlatish kerak
 
-Heartbeat ham, cron vazifalari ham topshiriqlarni jadval asosida ishga tushirish imkonini beradi. Ushbu qo‘llanma sizning holatingiz uchun to‘g‘ri mexanizmni tanlashga yordam beradi.
+Both heartbeats and cron jobs let you run tasks on a schedule. This guide helps you choose the right mechanism for your use case.
 
 ## Tezkor tanlash qo‘llanmasi
 
-| Foydalanish holati                             | Tavsiya etiladi                            | Sababi                                      |
-| ------------------------------------ | -------------------------------------- | ---------------------------------------- |
-| Har 30 daqiqada kiruvchi xatlarni tekshirish             | Heartbeat                              | Batches with other checks, context-aware |
-| Send daily report at 9am sharp       | Cron (isolated)     | Exact timing needed                      |
-| Monitor calendar for upcoming events | Heartbeat                              | Natural fit for periodic awareness       |
-| Run weekly deep analysis             | Cron (isolated)     | Standalone task, can use different model |
-| Remind me in 20 minutes              | Cron (main, `--at`) | One-shot with precise timing             |
-| Background project health check      | Heartbeat                              | Piggybacks on existing cycle             |
+| Foydalanish holati                           | Tavsiya etiladi                        | Sababi                                   |
+| -------------------------------------------- | -------------------------------------- | ---------------------------------------- |
+| Har 30 daqiqada kiruvchi xatlarni tekshirish | Heartbeat                              | Batches with other checks, context-aware |
+| Send daily report at 9am sharp               | Cron (isolated)     | Exact timing needed                      |
+| Monitor calendar for upcoming events         | Heartbeat                              | Natural fit for periodic awareness       |
+| Run weekly deep analysis                     | Cron (isolated)     | Standalone task, can use different model |
+| Remind me in 20 minutes                      | Cron (main, `--at`) | One-shot with precise timing             |
+| Background project health check              | Heartbeat                              | Piggybacks on existing cycle             |
 
 ## Heartbeat: Periodic Awareness
 
@@ -275,5 +280,3 @@ openclaw cron add \
 - [Heartbeat](/gateway/heartbeat) - full heartbeat configuration
 - [Cron jobs](/automation/cron-jobs) - full cron CLI and API reference
 - [System](/cli/system) - system events + heartbeat controls
-
-

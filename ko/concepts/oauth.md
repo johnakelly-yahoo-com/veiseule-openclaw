@@ -1,4 +1,10 @@
 ---
+summary: "OpenClaw 의 OAuth: 토큰 교환, 저장, 그리고 다중 계정 패턴"
+read_when:
+  - OpenClaw OAuth 를 엔드투엔드로 이해하고 싶을 때
+  - 토큰 무효화 / 로그아웃 문제를 겪었을 때
+  - setup-token 또는 OAuth 인증 플로우가 필요할 때
+  - 다중 계정 또는 프로필 라우팅이 필요할 때
 title: "OAuth"
 ---
 
@@ -136,5 +142,3 @@ openclaw agents add personal
 
 - [/concepts/model-failover](/concepts/model-failover)(로테이션 + 쿨다운 규칙)
 - [/tools/slash-commands](/tools/slash-commands)(명령 표면)
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "Host estático de WebChat en loopback y uso de WS del Gateway para la UI de chat"
+read_when:
+  - Depuración o configuración del acceso a WebChat
 title: "WebChat"
 ---
 
@@ -42,7 +45,6 @@ Opciones globales relacionadas:
 
 - `gateway.port`, `gateway.bind`: host/puerto de WebSocket.
 - `gateway.auth.mode`, `gateway.auth.token`, `gateway.auth.password`: autenticación de WebSocket.
+- `gateway.auth.mode: "trusted-proxy"`: autenticación reverse-proxy para clientes de navegador (ver [Trusted Proxy Auth](/gateway/trusted-proxy-auth)).
 - `gateway.remote.url`, `gateway.remote.token`, `gateway.remote.password`: destino del Gateway remoto.
 - `session.*`: almacenamiento de sesiones y valores predeterminados de la clave principal.
-
-

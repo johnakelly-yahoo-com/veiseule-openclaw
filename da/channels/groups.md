@@ -1,4 +1,7 @@
 ---
+summary: "Gruppechat-adfærd på tværs af overflader (WhatsApp/Telegram/Discord/Slack/Signal/iMessage/Microsoft Teams)"
+read_when:
+  - Ændring af gruppechat-adfærd eller mention-gating
 title: "Grupper"
 ---
 
@@ -243,7 +246,7 @@ Noter:
 - Pr.-agent-override: `agents.list[].groupChat.mentionPatterns` (nyttigt når flere agenter deler en gruppe).
 - Mention-gating håndhæves kun, når mention-detektion er mulig (native mentions eller `mentionPatterns` er konfigureret).
 - Discord-standarder findes i `channels.discord.guilds."*"` (kan tilsidesættes pr. guild/kanal).
-- Gruppehistorik kontekst er indpakket ensartet på tværs af kanaler og er **ventende kun** (meddelelser sprunget over grundet at nævne gating); brug `beskeder. roupChat.historyLimit` for den globale standard og `kanaler.<channel>.historyLimit` (eller 'kanaler).&lt;channel&gt;.accounts.\*.historyLimit`) for tilsidesættelser. Sæt `0\` til deaktiveret.
+- Gruppehistorik kontekst er indpakket ensartet på tværs af kanaler og er **ventende kun** (meddelelser sprunget over grundet at nævne gating); brug `beskeder. roupChat.historyLimit` for den globale standard og `kanaler.<channel>.historyLimit` (eller 'kanaler).<channel>.accounts.\*.historyLimit`) for tilsidesættelser. Sæt `0\` til deaktiveret.
 
 ## Gruppe-/kanalværktøjsbegrænsninger (valgfrit)
 
@@ -369,5 +372,3 @@ Agent system prompt omfatter en gruppe intro på den første tur af en ny gruppe
 ## WhatsApp-specifikt
 
 Se [Group messages](/channels/group-messages) for WhatsApp-specifik adfærd (historik-injektion, detaljer om mention-håndtering).
-
-

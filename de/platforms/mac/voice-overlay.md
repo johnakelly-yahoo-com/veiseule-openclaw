@@ -1,4 +1,7 @@
 ---
+summary: "„Lebenszyklus des Voice-Overlays, wenn Wake-Word und Push-to-Talk überlappen“"
+read_when:
+  - Anpassen des Voice-Overlay-Verhaltens
 title: "„Voice Overlay“"
 ---
 
@@ -33,7 +36,7 @@ Zielgruppe: Mitwirkende an der macOS-App. Ziel: Das Voice-Overlay vorhersehbar h
    - Bei `endCapture`: Wenn getrimmter Text leer ist → verwerfen; andernfalls `performSend(session:)` (spielt den Sende-Chime einmal ab, leitet weiter, verwirft).
    - Push-to-Talk: keine Verzögerung; Wake-Word: optionale Verzögerung für Auto-Senden.
    - Wenden Sie nach Abschluss von Push-to-Talk einen kurzen Cooldown auf die Wake-Laufzeit an, damit das Wake-Word nicht sofort erneut auslöst.
-5. **Protokollierung**
+5. **Logging**
    - Der Coordinator gibt `.info`-Logs im Subsystem `bot.molt` in den Kategorien `voicewake.overlay` und `voicewake.chime` aus.
    - Schlüsselereignisse: `session_started`, `adopted_by_push_to_talk`, `partial`, `finalized`, `send`, `dismiss`, `cancel`, `cooldown`.
 
@@ -56,5 +59,3 @@ Zielgruppe: Mitwirkende an der macOS-App. Ziel: Das Voice-Overlay vorhersehbar h
 3. Refaktorieren Sie `VoicePushToTalk`, um bestehende Sitzungen zu übernehmen und beim Loslassen `endCapture` aufzurufen; wenden Sie einen Laufzeit-Cooldown an.
 4. Verdrahten Sie `VoiceWakeOverlayController` mit dem Publisher; entfernen Sie direkte Aufrufe aus Runtime/PTT.
 5. Fügen Sie Integrationstests für Sitzungsübernahme, Cooldown und Verwerfen bei leerem Text hinzu.
-
-

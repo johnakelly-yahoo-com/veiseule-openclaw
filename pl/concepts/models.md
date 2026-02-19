@@ -1,4 +1,9 @@
 ---
+summary: "CLI modeli: lista, ustawianie, aliasy, fallbacki, skanowanie, status"
+read_when:
+  - Dodawanie lub modyfikowanie CLI modeli (models list/set/scan/aliases/fallbacks)
+  - Zmiana zachowania fallbacków modeli lub UX wyboru
+  - Aktualizacja sond skanowania modeli (narzędzia/obrazy)
 title: "CLI modeli"
 ---
 
@@ -201,5 +206,3 @@ przekaż `--yes`, aby zaakceptować domyślne wartości.
 Niestandardowi dostawcy w `models.providers` są zapisywani do `models.json` w katalogu
 agenta (domyślnie `~/.openclaw/agents/<agentId>/models.json`). Ten plik
 jest domyślnie scalany, chyba że `models.mode` jest ustawione na `replace`.
-
-

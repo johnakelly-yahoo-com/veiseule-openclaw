@@ -1,4 +1,8 @@
 ---
+summary: "Giden sağlayıcı çağrıları için yeniden deneme ilkesi"
+read_when:
+  - Sağlayıcı yeniden deneme davranışını veya varsayılanlarını güncellerken
+  - Sağlayıcı gönderim hatalarını veya oran sınırlarını ayıklarken
 title: "Yeniden Deneme Politikası"
 ---
 
@@ -63,5 +67,3 @@ Yeniden deneme ilkesini sağlayıcı başına `~/.openclaw/openclaw.json` içind
 
 - Yeniden denemeler istek başına uygulanır (mesaj gönderme, medya yükleme, tepki, anket, çıkartma).
 - Bileşik akışlar tamamlanan adımları yeniden denemez.
-
-

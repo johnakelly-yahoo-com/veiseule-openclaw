@@ -1,4 +1,8 @@
 ---
+summary: "Parsning av inkommande kanalplatser (Telegram + WhatsApp) och kontextfält"
+read_when:
+  - Lägga till eller ändra parsning av kanalplatser
+  - Använda platskontextfält i agentprompter eller verktyg
 title: "Kanalplatsparsning"
 ---
 
@@ -50,5 +54,3 @@ När en plats finns närvarande läggs dessa fält till i `ctx`:
 - **Telegram**: platser mappas till `LocationName/LocationAddress`; liveplatser använder `live_period`.
 - **WhatsApp**: `locationMessage.comment` och `liveLocationMessage.caption` läggs till som bildtextraden.
 - **Matrix**: `geo_uri` tolkas som en nålplats; höjd ignoreras och `LocationIsLive` är alltid false.
-
-

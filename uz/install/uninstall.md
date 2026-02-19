@@ -1,4 +1,12 @@
 ---
+summary: "Agar `EACCES` xatolarini ko‘rsangiz, npm’ning global prefiksini foydalanuvchi yozishi mumkin bo‘lgan katalogga o‘tkazing:"
+read_when:
+  - mkdir -p "$HOME/.npm-global"
+
+    npm config set prefix "$HOME/.npm-global"
+
+    export PATH="$HOME/.npm-global/bin:$PATH"
+  - Doimiy bo‘lishi uchun `export PATH=...` qatorini `~/.bashrc` yoki `~/.zshrc` ga qo‘shing.
 title: "OpenClaw’ni to‘liq olib tashlash (CLI, xizmat, holat, ish maydoni)"
 ---
 
@@ -14,13 +22,14 @@ O‘chirgandan keyin ham gateway xizmati ishlayapti
 **Oson yo‘l** agar `openclaw` hali ham o‘rnatilgan bo‘lsa.
 
 ```bash
-**Qo‘lda xizmatni olib tashlash** agar CLI yo‘q bo‘lsa, lekin xizmat ishlayotgan bo‘lsa.
+openclaw uninstall
 ```
 
 Oson yo‘l (CLI hali ham o‘rnatilgan)
 
 ```bash
-Tavsiya etiladi: o‘rnatilgan o‘chiruvchidan foydalaning:
+openclaw uninstall --all --yes --non-interactive
+npx -y openclaw uninstall --all --yes --non-interactive
 ```
 
 openclaw uninstall
@@ -122,5 +131,3 @@ Remove-Item -Force "$env:USERPROFILE\.openclaw\gateway.cmd"
 1. 36. Repo’ni o‘chirishdan **oldin** gateway xizmatini olib tashlang (yuqoridagi oson yo‘l yoki qo‘lda xizmatni olib tashlashdan foydalaning).
 2. 37. Repo katalogini o‘chiring.
 3. 38. Yuqorida ko‘rsatilgandek holat + ish joyini olib tashlang.
-
-

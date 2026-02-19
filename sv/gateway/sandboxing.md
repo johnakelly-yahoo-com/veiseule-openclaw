@@ -1,5 +1,7 @@
 ---
-title: "Sandlådeisolering"
+summary: "Hur OpenClaw sandboxing fungerar: lägen, omfång, åtkomst till arbetsyta och images"
+title: Sandlådeisolering
+read_when: "Du vill ha en dedikerad förklaring av sandboxing eller behöver justera agents.defaults.sandbox."
 status: active
 ---
 
@@ -71,6 +73,11 @@ Globala bindningar och per-agent är **sammanslagna** (ersättare). Under `scope
 
 Exempel (skrivskyddad källa + docker‑socket):
 
+- När satt (inklusive `[]`) ersätter den `agents.defaults.sandbox.docker.binds` för webbläsarcontainern.
+- När den utelämnas faller webbläsarcontainern tillbaka till `agents.defaults.sandbox.docker.binds` (bakåtkompatibelt).
+
+Säkerhetsnoteringar:
+
 ```json5
 {
   agents: {
@@ -134,10 +141,10 @@ Docker‑installationer och den containeriserade Gateway finns här:
 `setupCommand` körs **en gång** efter att sandlådan har skapats (inte på varje körning).
 Den körs inuti behållaren via `sh -lc`.
 
-Sökvägar:
+Vanliga fallgropar:
 
-- Globalt: `agents.defaults.sandbox.docker.setupCommand`
-- Per‑agent: `agents.list[].sandbox.docker.setupCommand`
+- Standard för `docker.network` är `"none"` (ingen egress), så paketinstallationer misslyckas.
+- `readOnlyRoot: true` förhindrar skrivningar; sätt `readOnlyRoot: false` eller baka en anpassad image.
 
 Vanliga fallgropar:
 
@@ -162,13 +169,13 @@ Felsökning:
 - Se [Sandbox vs Verktygspolicy vs förhöjd](/gateway/sandbox-vs-tool-policy-vs-elevated) för “varför är detta blockerad?” mental modell.
   Håll den låst.
 
-## Multi‑agent‑åsidosättningar
+## Minimalt aktiverings‑exempel
 
 Varje agent kan åsidosätta sandlåda + verktyg:
 `agents.list[].sandbox` och `agents.list[].tools` (plus `agents.list[].tools.sandbox.tools` för politik för sandboxverktyg).
 Se [Multi-Agent Sandbox & Verktyg](/tools/multi-agent-sandbox-tools) för företräde.
 
-## Minimalt aktiverings‑exempel
+## Relaterad dokumentation
 
 ```json5
 {
@@ -189,5 +196,3 @@ Se [Multi-Agent Sandbox & Verktyg](/tools/multi-agent-sandbox-tools) för föret
 - [Sandbox Configuration](/gateway/configuration#agentsdefaults-sandbox)
 - [Multi‑Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools)
 - [Security](/gateway/security)
-
-

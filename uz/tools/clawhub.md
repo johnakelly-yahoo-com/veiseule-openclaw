@@ -1,4 +1,9 @@
 ---
+summary: "ClawHub qo‘llanmasi: ommaviy skilllar reyestri + CLI ish jarayonlari"
+read_when:
+  - ClawHub’ni yangi foydalanuvchilarga tanishtirish
+  - 24. Ko‘nikmalarni o‘rnatish, qidirish yoki nashr qilish
+  - ClawHub CLI flaglari va sinxronlash xatti-harakatlarini tushuntirish
 title: "ClawHub"
 ---
 
@@ -82,7 +87,7 @@ Agar OpenClaw agentingizga yangi imkoniyatlar qo‘shmoqchi bo‘lsangiz, ClawHu
 ## 19. Xizmat nimani taqdim etadi (xususiyatlar)
 
 - 20. Ko‘nikmalar va ularning `SKILL.md` kontentini **ommaviy ko‘rish**.
-- 21. Faqat kalit so‘zlargagina emas, balki embeddinglar (vektorli qidiruv) asosidagi **qidiruv**.
+- Hisobot berish va moderatsiya:
 - 22. Semver, o‘zgarishlar jurnali va teglar (jumladan `latest`) bilan **versiyalash**.
 - 23. Har bir versiya uchun zip ko‘rinishida **yuklab olishlar**.
 - 24. Hamjamiyat fikri uchun **yulduzlar va izohlar**.
@@ -95,7 +100,7 @@ Agar OpenClaw agentingizga yangi imkoniyatlar qo‘shmoqchi bo‘lsangiz, ClawHu
 
 31. Hisobot berish va moderatsiya:
 
-- 32. Tizimga kirgan har qanday foydalanuvchi ko‘nikma haqida shikoyat qilishi mumkin.
+- Global opsiyalar (barcha buyruqlarga qo‘llaniladi):
 - 33. Shikoyat sabablari majburiy va qayd etiladi.
 - 34. Har bir foydalanuvchi bir vaqtning o‘zida 20 tagacha faol shikoyatga ega bo‘lishi mumkin.
 - 35. 3 tadan ortiq noyob shikoyatga ega ko‘nikmalar sukut bo‘yicha avtomatik yashiriladi.
@@ -108,7 +113,7 @@ Agar OpenClaw agentingizga yangi imkoniyatlar qo‘shmoqchi bo‘lsangiz, ClawHu
 
 41. Global opsiyalar (barcha buyruqlarga qo‘llaniladi):
 
-- 42. `--workdir <dir>`: Ishchi katalog (sukut bo‘yicha: joriy katalog; OpenClaw ish maydoniga qaytadi).
+- Variantlar:
 - 43. `--dir <dir>`: Ishchi katalogga nisbatan ko‘nikmalar katalogi (sukut bo‘yicha: `skills`).
 - 44. `--site <url>`: Saytning asosiy URL manzili (brauzer orqali kirish).
 - 45. `--registry <url>`: Reyestr API asosiy URL manzili.
@@ -117,41 +122,41 @@ Agar OpenClaw agentingizga yangi imkoniyatlar qo‘shmoqchi bo‘lsangiz, ClawHu
 
 48. Autentifikatsiya:
 
-- 49. `clawhub login` (brauzer oqimi) yoki `clawhub login --token <token>`
-- 50. `clawhub logout`
-- 1. `clawhub whoami`
+- Qidiruv:
+- `clawhub logout`
+- `clawhub whoami`
 
 2. Variantlar:
 
-- 3. `--token <token>`: API tokenini joylashtiring.
+- O‘rnatish:
 - 4. `--label <label>`: Brauzer orqali kirish tokenlari uchun saqlanadigan yorliq (standart: `CLI token`).
 - 5. `--no-browser`: Brauzerni ochmang (`--token` talab qilinadi).
 
 6. Qidiruv:
 
-- 7. `clawhub search "query"`
+- `clawhub search "query"`
 - 8. `--limit <n>`: Maksimal natijalar soni.
 
 9. O‘rnatish:
 
-- 10. `clawhub install <slug>`
+- `clawhub install <slug>`
 - 11. `--version <version>`: Muayyan versiyani o‘rnatish.
 - 12. `--force`: Papka allaqachon mavjud bo‘lsa, ustiga yozish.
 
 13. Yangilash:
 
-- 14. `clawhub update <slug>`
-- 15. `clawhub update --all`
+- `clawhub update <slug>`
+- `clawhub update --all`
 - 16. `--version <version>`: Muayyan versiyaga yangilash (faqat bitta slug).
 - 17. `--force`: Mahalliy fayllar chop etilgan hech bir versiyaga mos kelmasa, ustiga yozish.
 
 18. Ro‘yxat:
 
-- 19. `clawhub list` (`.clawhub/lock.json` ni o‘qiydi)
+- O‘chirish/qayta tiklash (faqat egasi/admin):
 
 20. Chop etish:
 
-- 21. `clawhub publish <path>`
+- `clawhub publish <path>`
 - 22. `--slug <slug>`: Skill slug’i.
 - 23. `--name <name>`: Ko‘rinadigan nom.
 - 24. `--version <version>`: Semver versiyasi.
@@ -160,12 +165,12 @@ Agar OpenClaw agentingizga yangi imkoniyatlar qo‘shmoqchi bo‘lsangiz, ClawHu
 
 27. O‘chirish/qayta tiklash (faqat egasi/admin):
 
-- 28. `clawhub delete <slug> --yes`
-- 29. `clawhub undelete <slug> --yes`
+- `clawhub delete <slug> --yes`
+- `clawhub undelete <slug> --yes`
 
 30. Sinxronlash (mahalliy skill’larni skanerlash + yangi/yangilanganlarini chop etish):
 
-- 31. `clawhub sync`
+- `clawhub sync`
 - 32. `--root <dir...>`: Qo‘shimcha skanerlash ildizlari.
 - 33. `--all`: So‘rovlarsiz hammasini yuklash.
 - 34. `--dry-run`: Nimalar yuklanishini ko‘rsatish.
@@ -191,7 +196,7 @@ Agar OpenClaw agentingizga yangi imkoniyatlar qo‘shmoqchi bo‘lsangiz, ClawHu
 ### 44. O‘rnatilgan skill’larni yangilash
 
 ```bash
-45. clawhub update --all
+48. clawhub publish ./my-skill --slug my-skill --name "My Skill" --version 1.0.0 --tags latest
 ```
 
 ### 46. Skill’laringizni zaxiralash (chop etish yoki sinxronlash)
@@ -242,7 +247,5 @@ export CLAWHUB_DISABLE_TELEMETRY=1
 - `CLAWHUB_SITE`: Override the site URL.
 - `CLAWHUB_REGISTRY`: Override the registry API URL.
 - `CLAWHUB_CONFIG_PATH`: Override where the CLI stores the token/config.
-- `CLAWHUB_WORKDIR`: Standart ishchi katalogni almashtiradi.
-- `CLAWHUB_DISABLE_TELEMETRY=1`: `sync` jarayonida telemetriyani o‘chiradi.
-
-
+- `CLAWHUB_WORKDIR`: Override the default workdir.
+- `CLAWHUB_DISABLE_TELEMETRY=1`: Disable telemetry on `sync`.

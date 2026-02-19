@@ -1,4 +1,8 @@
 ---
+summary: "Đăng nhập GitHub Copilot từ OpenClaw bằng quy trình device flow"
+read_when:
+  - Bạn muốn dùng GitHub Copilot làm nhà cung cấp mô hình
+  - Bạn cần quy trình `openclaw models auth login-github-copilot`
 title: "GitHub Copilot"
 ---
 
@@ -64,5 +68,3 @@ openclaw models set github-copilot/gpt-4o
   hãy thử ID khác (ví dụ `github-copilot/gpt-4.1`).
 - Lần đăng nhập sẽ lưu token GitHub trong kho hồ sơ xác thực và đổi sang token API
   Copilot khi OpenClaw chạy.
-
-

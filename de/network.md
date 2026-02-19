@@ -1,4 +1,9 @@
 ---
+summary: "Netzwerk-Hub: Gateway-Oberflächen, Kopplung, Discovery und Sicherheit"
+read_when:
+  - Sie benötigen die Netzwerkarchitektur- und Sicherheitsübersicht
+  - Sie debuggen lokalen vs. Tailnet-Zugriff oder Kopplung
+  - Sie möchten die kanonische Liste der Netzwerkdokumente
 title: "Netzwerk"
 ---
 
@@ -49,5 +54,3 @@ Lokales Vertrauen:
 - [Gateway-Konfigurationsreferenz](/gateway/configuration)
 - [Fehlerbehebung](/gateway/troubleshooting)
 - [Doctor](/gateway/doctor)
-
-

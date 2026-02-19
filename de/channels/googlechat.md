@@ -1,4 +1,7 @@
 ---
+summary: "Status der Google-Chat-App-Unterstützung, Funktionen und Konfiguration"
+read_when:
+  - Arbeiten an Google-Chat-Kanal-Funktionen
 title: "Google Chat"
 ---
 
@@ -151,6 +154,7 @@ Konfigurieren Sie die Ingress-Regeln Ihres Tunnels so, dass nur der Webhook-Pfad
 Verwenden Sie diese Kennungen für Zustellung und Allowlists:
 
 - Direktnachrichten: `users/<userId>` oder `users/<email>` (E-Mail-Adressen werden akzeptiert).
+- Veraltet: `users/<email>` wird als Benutzer-ID behandelt, nicht als E-Mail-Allowlist.
 - Spaces: `spaces/<spaceId>`.
 
 ## Konfigurations-Highlights
@@ -247,5 +251,3 @@ Zugehörige Dokumente:
 - [Gateway-Konfiguration](/gateway/configuration)
 - [Sicherheit](/gateway/security)
 - [Reaktionen](/tools/reactions)
-
-

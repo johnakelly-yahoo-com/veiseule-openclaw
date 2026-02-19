@@ -52,5 +52,3 @@ Poproś agenta o „refresh skills” lub uruchom ponownie gateway. OpenClaw wyk
 ## Współdzielone Skills
 
 Możesz także przeglądać i współtworzyć skills w [ClawHub](https://clawhub.com).
-
-

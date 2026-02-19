@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw devices` के लिए CLI संदर्भ (डिवाइस पेयरिंग + टोकन रोटेशन/रद्द करना)"
+read_when:
+  - आप डिवाइस पेयरिंग अनुरोधों को स्वीकृत कर रहे हों
+  - आपको डिवाइस टोकन को रोटेट या रद्द करना हो
 title: "डिवाइस"
 ---
 
@@ -57,12 +61,10 @@ openclaw devices revoke --device <deviceId> --role node
 - `--timeout <ms>`: RPC टाइमआउट।
 - `--json`: JSON आउटपुट (स्क्रिप्टिंग के लिए अनुशंसित)।
 
-नोट: जब आप `--url` सेट करते हैं, तो CLI कॉन्फ़िग या एनवायरनमेंट क्रेडेंशियल्स पर वापस नहीं जाता।
+Note: when you set `--url`, the CLI does not fall back to config or environment credentials.
 Pass `--token` or `--password` explicitly. Missing explicit credentials is an error.
 
 ## नोट्स
 
-- टोकन रोटेशन एक नया टोकन (संवेदनशील) लौटाता है। इसे एक सीक्रेट की तरह सुरक्षित रखें।
+- Token rotation returns a new token (sensitive). Treat it like a secret.
 - इन कमांड्स के लिए `operator.pairing` (या `operator.admin`) स्कोप की आवश्यकता होती है।
-
-

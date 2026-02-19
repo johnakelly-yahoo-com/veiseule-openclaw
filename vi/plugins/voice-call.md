@@ -1,10 +1,14 @@
 ---
+summary: "Plugin Voice Call: cuộc gọi đi + đến qua Twilio/Telnyx/Plivo (cài plugin + cấu hình + CLI)"
+read_when:
+  - Bạn muốn thực hiện một cuộc gọi thoại đi từ OpenClaw
+  - Bạn đang cấu hình hoặc phát triển plugin voice-call
 title: "Plugin Voice Call"
 ---
 
 # Cuộc gọi thoại (plugin)
 
-Cuộc gọi thoại cho OpenClaw thông qua một plugin. Hỗ trợ thông báo gửi đi và
+Voice calls for OpenClaw via a plugin. Supports outbound notifications and
 multi-turn conversations with inbound policies.
 
 Các nhà cung cấp hiện tại:
@@ -109,6 +113,7 @@ Ghi chú:
 - Plivo yêu cầu URL webhook **có thể truy cập công khai**.
 - `mock` là nhà cung cấp dev local (không gọi mạng).
 - `skipSignatureVerification` chỉ dành cho kiểm thử local.
+- Nếu bạn dùng ngrok gói miễn phí, đặt `publicUrl` thành đúng URL ngrok; việc xác minh chữ ký luôn được áp dụng.
 - Nếu bạn dùng ngrok gói miễn phí, đặt `publicUrl` thành đúng URL ngrok; việc xác minh chữ ký luôn được áp dụng.
 - `tunnel.allowNgrokFreeTierLoopbackBypass: true` allows Twilio webhooks with invalid signatures **only** when `tunnel.provider="ngrok"` and `serve.bind` is loopback (ngrok local agent). Chỉ dùng cho môi trường phát triển cục bộ.
 - Ngrok free tier URLs can change or add interstitial behavior; if `publicUrl` drifts, Twilio signatures will fail. For production, prefer a stable domain or Tailscale funnel.
@@ -277,5 +282,3 @@ Repo này cung cấp tài liệu skill tương ứng tại `skills/voice-call/SK
 - `voicecall.speak` (`callId`, `message`)
 - `voicecall.end` (`callId`)
 - `voicecall.status` (`callId`)
-
-

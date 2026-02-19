@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw အတွက် VPS ဟို့စ်တင်ခြင်း ဟပ် (Oracle/Fly/Hetzner/GCP/exe.dev)"
+read_when:
+  - Cloud ပေါ်တွင် Gateway ကို လည်ပတ်စေလိုသောအခါ
+  - VPS/ဟို့စ်တင်ခြင်း လမ်းညွှန်များကို အမြန်တစ်ချက်နဲ့ မြင်ကွင်းဖော်လိုသောအခါ
 title: "VPS ဟို့စ်တင်ခြင်း"
 ---
 
@@ -35,5 +39,3 @@ title: "VPS ဟို့စ်တင်ခြင်း"
 Gateway ကို cloud တွင်ထားပြီး local devices (Mac/iOS/Android/headless) များတွင် **nodes** ကို pair လုပ်ထားနိုင်ပါသည်။ Nodes များသည် Gateway ကို cloud တွင်ထားစဉ် local screen/camera/canvas နှင့် `system.run` စွမ်းဆောင်ရည်များကို ပံ့ပိုးပေးပါသည်။
 
 စာရွက်စာတမ်းများ: [Nodes](/nodes), [Nodes CLI](/cli/nodes)
-
-

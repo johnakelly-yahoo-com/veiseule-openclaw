@@ -1,4 +1,8 @@
 ---
+summary: "Referência da CLI para `openclaw devices` (emparelhamento de dispositivos + rotação/revogação de tokens)"
+read_when:
+  - Você está aprovando solicitações de emparelhamento de dispositivos
+  - Você precisa rotacionar ou revogar tokens de dispositivos
 title: "dispositivos"
 ---
 
@@ -64,5 +68,3 @@ Passe `--token` ou `--password` explicitamente. A ausência de credenciais expl�
 
 - A rotação de token retorna um novo token (sensível). Trate-o como um segredo.
 - Esses comandos exigem o escopo `operator.pairing` (ou `operator.admin`).
-
-

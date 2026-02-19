@@ -1,4 +1,7 @@
 ---
+summary: "حالة دعم Matrix، والإمكانات، والتهيئة"
+read_when:
+  - العمل على ميزات قناة Matrix
 title: "Matrix"
 ---
 
@@ -138,6 +141,47 @@ openclaw plugins install ./extensions/matrix
 افتح Element (أو عميلًا آخر) ووافق على طلب التحقق لإرساء الثقة.
 بعد التحقق، يمكن للبوت فك تشفير الرسائل في الغرف المشفّرة.
 
+## متعدد الحسابات
+
+دعم متعدد الحسابات: استخدم `channels.matrix.accounts` مع بيانات اعتماد لكل حساب وخيار `name` اختياري. راجع [`gateway/configuration`](/gateway/configuration#telegramaccounts--discordaccounts--slackaccounts--signalaccounts--imessageaccounts) للاطلاع على النمط المشترك.
+
+يعمل كل حساب كمستخدم Matrix منفصل على أي homeserver. تهيئة لكل حساب
+ترث من إعدادات `channels.matrix` على المستوى الأعلى ويمكنها تجاوز أي خيار
+(سياسة الرسائل الخاصة، المجموعات، التشفير، إلخ).
+
+```json5
+{
+  channels: {
+    matrix: {
+      enabled: true,
+      dm: { policy: "pairing" },
+      accounts: {
+        assistant: {
+          name: "Main assistant",
+          homeserver: "https://matrix.example.org",
+          accessToken: "syt_assistant_***",
+          encryption: true,
+        },
+        alerts: {
+          name: "Alerts bot",
+          homeserver: "https://matrix.example.org",
+          accessToken: "syt_alerts_***",
+          dm: { policy: "allowlist", allowFrom: ["@admin:example.org"] },
+        },
+      },
+    },
+  },
+}
+```
+
+ملاحظات:
+
+- يتم تسلسل بدء تشغيل الحساب لتجنب حالات التعارض الناتجة عن استيراد الوحدات بشكل متزامن.
+- متغيرات البيئة (`MATRIX_HOMESERVER`, `MATRIX_ACCESS_TOKEN`, إلخ) تنطبق فقط على الحساب **الافتراضي**.
+- إعدادات القناة الأساسية (سياسة الرسائل الخاصة، سياسة المجموعات، تقييد الإشارات، إلخ) تنطبق على جميع الحسابات ما لم يتم تجاوزها لكل حساب على حدة.
+- استخدم `bindings[].match.accountId` لتوجيه كل حساب إلى وكيل مختلف.
+- يتم تخزين حالة التشفير لكل حساب + access token (مخازن مفاتيح منفصلة لكل حساب).
+
 ## نموذج التوجيه
 
 - تعود الردود دائمًا إلى Matrix.
@@ -151,6 +195,7 @@ openclaw plugins install ./extensions/matrix
   - `openclaw pairing approve matrix <CODE>`
 - الرسائل المباشرة العامة: `channels.matrix.dm.policy="open"` بالإضافة إلى `channels.matrix.dm.allowFrom=["*"]`.
 - يقبل `channels.matrix.dm.allowFrom` معرّفات مستخدم Matrix الكاملة (مثال: `@user:server`). يحلّ معالج الإعداد أسماء العرض إلى معرّفات مستخدم عندما يجد بحث الدليل تطابقًا واحدًا دقيقًا.
+- لا تستخدم أسماء العرض أو الأجزاء المحلية المجردة (مثال: `"Alice"` أو `"alice"`). فهي غامضة ويتم تجاهلها عند مطابقة قائمة السماح. استخدم معرّفات `@user:server` الكاملة.
 
 ## الغرف (المجموعات)
 
@@ -182,7 +227,7 @@ openclaw plugins install ./extensions/matrix
 - للسماح **بعدم وجود غرف**، اضبط `channels.matrix.groupPolicy: "disabled"` (أو اترك قائمة السماح فارغة).
 - المفتاح القديم: `channels.matrix.rooms` (بالشكل نفسه لـ `groups`).
 
-## السلاسل (Threads)
+## Threads
 
 - دعم سلاسل الردود متوفر.
 - يتحكم `channels.matrix.threadReplies` فيما إذا كانت الردود تبقى ضمن السلاسل:
@@ -258,6 +303,5 @@ openclaw pairing list matrix
 - `channels.matrix.mediaMaxMb`: حدّ الوسائط الواردة/الصادرة (ميغابايت).
 - `channels.matrix.autoJoin`: التعامل مع الدعوات (`always | allowlist | off`، الافتراضي: always).
 - `channels.matrix.autoJoinAllowlist`: معرّفات/أسماء الغرف المسموح بها للانضمام التلقائي.
+- `channels.matrix.accounts`: تهيئة متعددة الحسابات مُعرَّفة بواسطة معرّف الحساب (يرث كل حساب إعدادات المستوى الأعلى).
 - `channels.matrix.actions`: تقييد الأدوات لكل إجراء (reactions/messages/pins/memberInfo/channelInfo).
-
-

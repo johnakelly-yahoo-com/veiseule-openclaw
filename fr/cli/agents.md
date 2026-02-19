@@ -1,4 +1,7 @@
 ---
+summary: "Reference CLI pour `openclaw agents` (lister/ajouter/supprimer/definir l'identite)"
+read_when:
+  - Vous souhaitez plusieurs agents isoles (espaces de travail + routage + authentification)
 title: "agents"
 ---
 
@@ -70,5 +73,3 @@ Exemple de configuration :
   },
 }
 ```
-
-

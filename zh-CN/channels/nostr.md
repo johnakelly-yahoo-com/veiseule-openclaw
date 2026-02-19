@@ -1,19 +1,16 @@
 ---
-title: Nostr
-x-i18n:
-  generated_at: "2026-02-03T07:44:13Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 6b9fe4c74bf5e7c0f59bbaa129ec5270fd29a248551a8a9a7dde6cff8fb46111
-  source_path: channels/nostr.md
-  workflow: 15
+summary: "通过 NIP-04 加密消息的 Nostr 私信渠道"
+read_when:
+  - 你希望 OpenClaw 通过 Nostr 接收私信
+  - 你正在设置去中心化消息
+title: "Nostr"
 ---
 
 # Nostr
 
 **状态：** 可选插件（默认禁用）。
 
-Nostr 是一个去中心化的社交网络协议。此渠道使 OpenClaw 能够通过 NIP-04 接收和回复加密私信（DMs）。
+Nostr 是一个去中心化的社交网络协议。此渠道使 OpenClaw 能够通过 NIP-04 接收和回复加密私信（DMs）。 This channel enables OpenClaw to receive and respond to encrypted direct messages (DMs) via NIP-04.
 
 ## 安装（按需）
 
@@ -74,19 +71,19 @@ export NOSTR_PRIVATE_KEY="nsec1..."
 
 ## 配置参考
 
-| 键           | 类型     | 默认值                                      | 描述                        |
-| ------------ | -------- | ------------------------------------------- | --------------------------- |
-| `privateKey` | string   | 必填                                        | `nsec` 或十六进制格式的私钥 |
-| `relays`     | string[] | `['wss://relay.damus.io', 'wss://nos.lol']` | 中继 URL（WebSocket）       |
-| `dmPolicy`   | string   | `pairing`                                   | 私信访问策略                |
-| `allowFrom`  | string[] | `[]`                                        | 允许的发送者公钥            |
-| `enabled`    | boolean  | `true`                                      | 启用/禁用渠道               |
-| `name`       | string   | -                                           | 显示名称                    |
-| `profile`    | object   | -                                           | NIP-01 个人资料元数据       |
+| 键            | 类型                                                           | 默认值                                         | 描述                |
+| ------------ | ------------------------------------------------------------ | ------------------------------------------- | ----------------- |
+| `privateKey` | string                                                       | 必填                                          | `nsec` 或十六进制格式的私钥 |
+| `relays`     | string[] | `['wss://relay.damus.io', 'wss://nos.lol']` | 中继 URL（WebSocket） |
+| `dmPolicy`   | string                                                       | `pairing`                                   | DM access policy  |
+| `allowFrom`  | string[] | `[]`                                        | 允许的发送者公钥          |
+| `enabled`    | boolean                                                      | `true`                                      | 启用/禁用渠道           |
+| `name`       | string                                                       | -                                           | 显示名称              |
+| `profile`    | object                                                       | -                                           | NIP-01 个人资料元数据    |
 
 ## 个人资料元数据
 
-个人资料数据作为 NIP-01 `kind:0` 事件发布。你可以从控制界面（Channels -> Nostr -> Profile）管理它，或直接在配置中设置。
+个人资料数据作为 NIP-01 `kind:0` 事件发布。你可以从控制界面（Channels -> Nostr -> Profile）管理它，或直接在配置中设置。 You can manage it from the Control UI (Channels -> Nostr -> Profile) or set it directly in config.
 
 示例：
 
@@ -117,7 +114,7 @@ export NOSTR_PRIVATE_KEY="nsec1..."
 
 ## 访问控制
 
-### 私信策略
+### DM policies
 
 - **pairing**（默认）：未知发送者会收到配对码。
 - **allowlist**：只有 `allowFrom` 中的公钥可以发送私信。
@@ -169,12 +166,12 @@ export NOSTR_PRIVATE_KEY="nsec1..."
 
 ## 协议支持
 
-| NIP    | 状态   | 描述                          |
-| ------ | ------ | ----------------------------- |
-| NIP-01 | 已支持 | 基本事件格式 + 个人资料元数据 |
-| NIP-04 | 已支持 | 加密私信（`kind:4`）          |
-| NIP-17 | 计划中 | 礼物包装私信                  |
-| NIP-44 | 计划中 | 版本化加密                    |
+| NIP    | 状态  | 描述                                          |
+| ------ | --- | ------------------------------------------- |
+| NIP-01 | 已支持 | 基本事件格式 + 个人资料元数据                            |
+| NIP-04 | 已支持 | Encrypted DMs (`kind:4`) |
+| NIP-17 | 计划中 | Gift-wrapped DMs                            |
+| NIP-44 | 计划中 | 版本化加密                                       |
 
 ## 测试
 
@@ -198,9 +195,9 @@ docker run -p 7777:7777 ghcr.io/hoytech/strfry
 
 ### 手动测试
 
-1. 从日志中记下机器人公钥（npub）。
+1. 5. 从日志中记录机器人公钥（npub）。
 2. 打开 Nostr 客户端（Damus、Amethyst 等）。
-3. 向机器人公钥发送私信。
+3. 7. 向机器人公钥发送私信。
 4. 验证响应。
 
 ## 故障排除
@@ -234,5 +231,3 @@ docker run -p 7777:7777 ghcr.io/hoytech/strfry
 - 仅支持私信（不支持群聊）。
 - 不支持媒体附件。
 - 仅支持 NIP-04（计划支持 NIP-17 礼物包装）。
-
-

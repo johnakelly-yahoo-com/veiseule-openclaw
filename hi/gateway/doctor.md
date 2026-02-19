@@ -1,4 +1,8 @@
 ---
+summary: "Doctor कमांड: स्वास्थ्य जाँच, विन्यास माइग्रेशन, और मरम्मत चरण"
+read_when:
+  - Doctor माइग्रेशन जोड़ते या संशोधित करते समय
+  - ब्रेकिंग विन्यास परिवर्तनों को प्रस्तुत करते समय
 title: "Doctor"
 ---
 
@@ -266,5 +270,3 @@ Doctor यदि workspace memory system गायब हो तो उसका
 
 Workspace संरचना और git backup (अनुशंसित private GitHub या GitLab) के पूर्ण मार्गदर्शक के लिए
 देखें [/concepts/agent-workspace](/concepts/agent-workspace)।
-
-

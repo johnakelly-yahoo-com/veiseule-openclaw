@@ -1,4 +1,8 @@
 ---
+summary: "在同一台主機上執行多個 OpenClaw Gateway 閘道器（隔離、連接埠與設定檔）"
+read_when:
+  - 在同一台機器上執行多個 Gateway 閘道器
+  - 你需要每個 Gateway 閘道器都有隔離的設定 / 狀態 / 連接埠
 title: "多個 Gateway 閘道器"
 ---
 
@@ -9,7 +13,7 @@ Most setups should use one Gateway because a single Gateway can handle multiple 
 ## 隔離檢查清單（必要）
 
 - `OPENCLAW_CONFIG_PATH` — 每個實例獨立的設定檔
-- `OPENCLAW_STATE_DIR` — 每個實例的工作階段、憑證與快取
+- `OPENCLAW_STATE_DIR` — per-instance sessions, creds, caches
 - `agents.defaults.workspace` — 每個實例獨立的工作區根目錄
 - `gateway.port`（或 `--port`）— 每個實例必須唯一
 - 衍生的連接埠（瀏覽器 / 畫布）不得重疊
@@ -44,9 +48,9 @@ openclaw --profile rescue gateway install
 - 設定檔 / 設定
 - 狀態目錄
 - 工作區
-- 基礎連接埠（以及衍生連接埠）
+- base port (plus derived ports)
 
-這可讓救援機器人與主要機器人彼此隔離，因此當主要機器人離線時，它仍可進行除錯或套用設定變更。
+This keeps the rescue bot isolated from the main bot so it can debug or apply config changes if the primary bot is down.
 
 連接埠間距：基礎連接埠之間至少預留 20 個連接埠，確保衍生的瀏覽器 / 畫布 / CDP 連接埠永不衝突。
 
@@ -70,15 +74,15 @@ openclaw --profile rescue onboard
 openclaw --profile rescue gateway install
 ```
 
-## 連接埠對應（衍生）
+## Port mapping (derived)
 
 基礎連接埠 = `gateway.port`（或 `OPENCLAW_GATEWAY_PORT` / `--port`）。
 
 - 瀏覽器控制服務連接埠 = 基礎連接埠 + 2（僅限 local loopback）
-- `canvasHost.port = base + 4`
+- canvas host 由 Gateway HTTP 伺服器提供（與 `gateway.port` 使用相同連接埠）
 - 瀏覽器設定檔的 CDP 連接埠會自動從 `browser.controlPort + 9 .. + 108` 配置
 
-如果你在設定或環境變數中覆寫其中任何一項，必須確保每個實例之間保持唯一。
+If you override any of these in config or env, you must keep them unique per instance.
 
 ## 瀏覽器／CDP 注意事項（常見陷阱）
 
@@ -106,5 +110,3 @@ openclaw --profile main status
 openclaw --profile rescue status
 openclaw --profile rescue browser status
 ```
-
-

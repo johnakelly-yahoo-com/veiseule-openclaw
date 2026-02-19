@@ -1,4 +1,8 @@
 ---
+summary: "Подробный регламент устранения неполадок для шлюза, каналов, автоматизации, узлов и браузера"
+read_when:
+  - Центр устранения неполадок направил вас сюда для более глубокой диагностики
+  - Вам нужны стабильные разделы регламента по симптомам с точными командами
 title: "Устранение неполадок"
 ---
 
@@ -105,7 +109,7 @@ openclaw gateway status --deep
 
 Общие подписи:
 
-- `Gateway start blocked: set gateway.mode=local` → локальный режим шлюза не включён.
+- `Gateway start blocked: set gateway.mode=local` → локальный режим шлюза не включён. Исправление: установите `gateway.mode="local"` в конфигурации (или выполните `openclaw configure`). Если вы запускаете OpenClaw через Podman с использованием выделенного пользователя `openclaw`, конфигурация находится по пути `~openclaw/.openclaw/openclaw.json`.
 - `refusing to bind gateway ... without auth` → привязка не к loopback без токена/пароля.
 - `another gateway instance is already listening` / `EADDRINUSE` → конфликт портов.
 
@@ -312,5 +316,3 @@ openclaw gateway restart
 - [/gateway/pairing](/gateway/pairing)
 - [/gateway/authentication](/gateway/authentication)
 - [/gateway/background-process](/gateway/background-process)
-
-

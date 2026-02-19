@@ -1,4 +1,8 @@
 ---
+summary: "Plan: ét rent plugin-SDK + runtime til alle beskedforbindelser"
+read_when:
+  - Definering eller refaktorering af plugin-arkitekturen
+  - Migrering af kanalconnectors til plugin-SDK/runtime
 title: "Refaktorering af Plugin SDK"
 ---
 
@@ -208,5 +212,3 @@ Noter:
 - Eksterne plugins kan udvikles og opdateres uden adgang til core-kildekode.
 
 Relaterede dokumenter: [Plugins](/tools/plugin), [Channels](/channels/index), [Configuration](/gateway/configuration).
-
-

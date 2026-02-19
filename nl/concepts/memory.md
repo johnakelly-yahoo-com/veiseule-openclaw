@@ -1,4 +1,10 @@
-------
+---
+title: "Geheugen"
+summary: "Hoe OpenClaw-geheugen werkt (werkruimtebestanden + automatische geheugenflush)"
+read_when:
+  - Je wilt de geheugenbestandsindeling en workflow
+  - Je wilt de automatische pre-compactie geheugenflush afstellen
+---
 
 # Geheugen
 
@@ -79,6 +85,8 @@ Standaardinstellingen:
 
 - Standaard ingeschakeld.
 - Houdt geheugenbestanden in de gaten voor wijzigingen (gedebounced).
+- Configureer geheugenzoekopdrachten onder `agents.defaults.memorySearch` (niet op het topniveau
+  `memorySearch`).
 - Gebruikt standaard externe embeddings. Als `memorySearch.provider` niet is ingesteld, selecteert OpenClaw automatisch:
   1. `local` als een `memorySearch.local.modelPath` is geconfigureerd en het bestand bestaat.
   2. `openai` als een OpenAI-sleutel kan worden gevonden.
@@ -126,10 +134,12 @@ roept QMD aan voor retrieval. Belangrijke punten:
   (plus standaard werkruimtegeheugenbestanden), daarna draaien `qmd update` + `qmd embed`
   bij boot en op een configureerbaar interval (`memory.qmd.update.interval`,
   standaard 5 min).
+- De gateway initialiseert nu de QMD-manager bij het opstarten, zodat periodieke update-timers actief zijn nog vóór de eerste `memory_search`-aanroep.
 - De boot-verversing draait nu standaard op de achtergrond zodat de chatstart niet
   wordt geblokkeerd; stel `memory.qmd.update.waitForBootSync = true` in om het eerdere
   blokkerende gedrag te behouden.
-- Zoekopdrachten lopen via `qmd query --json`. Als QMD faalt of het binary ontbreekt,
+- Zoekopdrachten lopen via `qmd query --json`. Als de geselecteerde modus flags op jouw
+  QMD-build weigert, probeert OpenClaw het opnieuw met `qmd query`. Als QMD faalt of het binary ontbreekt,
   valt OpenClaw automatisch terug op de ingebouwde SQLite-manager zodat geheugentools
   blijven werken.
 - OpenClaw stelt momenteel geen QMD embed batch-size tuning bloot; batchgedrag wordt
@@ -167,6 +177,7 @@ roept QMD aan voor retrieval. Belangrijke punten:
 
 - `command` (standaard `qmd`): overschrijft het pad naar het uitvoerbare bestand.
 - `includeDefaultMemory` (standaard `true`): auto-indexeer `MEMORY.md` + `memory/**/*.md`.
+- `includeDefaultMemory` (standaard `true`): auto-indexeer `MEMORY.md` + `memory/**/*.md`.
 - `paths[]`: voeg extra mappen/bestanden toe (`path`, optioneel `pattern`, optioneel
   stabiel `name`).
 - `sessions`: opt-in voor sessie-JSONL-indexering (`enabled`, `retentionDays`,
@@ -179,6 +190,12 @@ roept QMD aan voor retrieval. Belangrijke punten:
 - `scope`: hetzelfde schema als [`session.sendPolicy`](/gateway/configuration#session).
   Standaard is alleen DM (`deny` alles, `allow` directe chats); versoepel dit om QMD-
   treffers in groepen/kanalen te tonen.
+  - `match.keyPrefix` komt overeen met de **genormaliseerde** session key (in kleine letters, met een eventuele
+    voorloop `agent:<id>:` verwijderd). Voorbeeld: `discord:channel:`.
+  - `match.rawKeyPrefix` komt overeen met de **ruwe** session key (in kleine letters), inclusief
+    `agent:<id>:`. Voorbeeld: `agent:main:discord:`.
+  - Legacy: `match.keyPrefix: "agent:..."` wordt nog steeds behandeld als een raw-key-prefix,
+    maar geef voor de duidelijkheid de voorkeur aan `rawKeyPrefix`.
 - Wanneer `scope` een zoekopdracht weigert, logt OpenClaw een waarschuwing met het afgeleide
   `channel`/`chatType`, zodat lege resultaten makkelijker te debuggen zijn.
 - Snippets die buiten de werkruimte zijn gesourced verschijnen als
@@ -551,5 +568,3 @@ Notities:
 
 - `remote.*` heeft voorrang op `models.providers.openai.*`.
 - `remote.headers` voegt samen met OpenAI-headers; extern wint bij sleutelconflicten. Laat `remote.headers` weg om de OpenAI-standaard te gebruiken.
-
-

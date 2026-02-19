@@ -1,9 +1,11 @@
 ---
-title: "Korumalı Alan"
+summary: "OpenClaw sandboxing’in nasıl çalıştığı: modlar, kapsamlar, çalışma alanı erişimi ve imajlar"
+title: Sandboxing
+read_when: "Sandboxing için özel bir açıklamaya ihtiyaç duyduğunuzda veya agents.defaults.sandbox ayarını ince ayarlamanız gerektiğinde."
 status: active
 ---
 
-# Korumalı Alan
+# Sandboxing
 
 OpenClaw, etki alanını azaltmak için **araçları Docker konteynerleri içinde** çalıştırabilir.
 Bu **isteğe bağlıdır** ve yapılandırma ile kontrol edilir (`agents.defaults.sandbox` veya
@@ -13,7 +15,7 @@ Gateway ana makinede kalır; etkinleştirildiğinde araç yürütme izole bir sa
 Bu kusursuz bir güvenlik sınırı değildir, ancak modelin hatalı bir şey yapması durumunda
 dosya sistemi ve süreç erişimini anlamlı ölçüde sınırlar.
 
-## Korumalı alana alınanlar
+## What gets sandboxed
 
 - Araç yürütme (`exec`, `read`, `write`, `edit`, `apply_patch`, `process` vb.).
 - İsteğe bağlı sandbox’lanmış tarayıcı (`agents.defaults.sandbox.browser`).
@@ -65,6 +67,11 @@ OpenClaw, uygun Skills’leri okunabilmeleri için sandbox çalışma alanına (
 Biçim: `host:container:mode` (ör., `"/home/user/source:/source:rw"`).
 
 Genel ve ajan başına bind’ler **birleştirilir** (değiştirilmez). `scope: "shared"` altında, ajan başına bind’ler yok sayılır.
+
+`agents.defaults.sandbox.browser.binds`, ek ana makine dizinlerini yalnızca **sandbox browser** container’ına bağlar (mount eder).
+
+- Ayarlandığında ( `[]` dahil ), tarayıcı container’ı için `agents.defaults.sandbox.docker.binds` değerinin yerine geçer.
+- Belirtilmezse, tarayıcı container’ı `agents.defaults.sandbox.docker.binds` değerine geri döner (geriye dönük uyumlu).
 
 Örnek (salt okunur kaynak + docker soketi):
 
@@ -183,5 +190,3 @@ Her ajan sandbox + araçları geçersiz kılabilir:
 - [Sandbox Configuration](/gateway/configuration#agentsdefaults-sandbox)
 - [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools)
 - [Security](/gateway/security)
-
-

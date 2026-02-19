@@ -1,4 +1,9 @@
 ---
+summary: "iOS 노드 앱: Gateway 연결, 페어링, 캔버스 및 문제 해결"
+read_when:
+  - iOS 노드 페어링 또는 재연결
+  - 소스에서 iOS 앱 실행
+  - Gateway 디바이스 검색 또는 캔버스 명령 디버깅
 title: "iOS 앱"
 ---
 
@@ -6,7 +11,7 @@ title: "iOS 앱"
 
 가용성: 내부 프리뷰. iOS 앱은 아직 공개 배포되지 않았습니다.
 
-## 기능
+## What it does
 
 - WebSocket 을 통해 Gateway(게이트웨이)에 연결합니다 (LAN 또는 tailnet).
 - 노드 기능을 노출합니다: Canvas, 화면 스냅샷, 카메라 캡처, 위치, 대화 모드, 음성 깨우기.
@@ -70,6 +75,7 @@ openclaw nodes invoke --node "iOS Node" --command canvas.navigate --params '{"ur
 참고 사항:
 
 - Gateway(게이트웨이) 캔버스 호스트는 `/__openclaw__/canvas/` 및 `/__openclaw__/a2ui/` 를 제공합니다.
+- 이는 Gateway HTTP 서버(`gateway.port`와 동일한 포트, 기본값 `18789`)에서 제공됩니다.
 - iOS 노드는 캔버스 호스트 URL 이 광고되면 연결 시 A2UI 로 자동 이동합니다.
 - `canvas.navigate` 및 `{"url":""}` 으로 기본 제공 스캐폴드로 돌아갑니다.
 
@@ -100,5 +106,3 @@ openclaw nodes invoke --node "iOS Node" --command canvas.snapshot --params '{"ma
 - [페어링](/gateway/pairing)
 - [디바이스 검색](/gateway/discovery)
 - [Bonjour](/gateway/bonjour)
-
-

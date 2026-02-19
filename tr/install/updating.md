@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw’ı güvenle güncelleme (global kurulum veya kaynaktan), ayrıca geri alma stratejisi"
+read_when:
+  - OpenClaw’ı güncelleme
+  - Bir güncellemeden sonra bir şeyler bozulduğunda
 title: "Güncelleme"
 ---
 
@@ -34,7 +38,7 @@ Notlar:
 
 - Nasıl kurduğunuzu bilin: **global** (npm/pnpm) vs **kaynaktan** (git clone).
 - Gateway’inizin nasıl çalıştığını bilin: **ön planda terminal** vs **denetimli servis** (launchd/systemd).
-- Özelleştirmenizin anlık görüntüsünü alın:
+- Snapshot your tailoring:
   - Yapılandırma: `~/.openclaw/openclaw.json`
   - Kimlik bilgileri: `~/.openclaw/credentials/`
   - Çalışma alanı: `~/.openclaw/workspace`
@@ -196,7 +200,7 @@ openclaw doctor
 openclaw gateway restart
 ```
 
-### Tarihe göre sabitle (kaynak)
+### Pin (source) by date
 
 Bir tarihten bir commit seçin (örnek: “2026-01-01 itibarıyla main’in durumu”):
 
@@ -225,5 +229,3 @@ git pull
 - `openclaw doctor`’ü tekrar çalıştırın ve çıktıyı dikkatle okuyun (çoğu zaman çözümü söyler).
 - Kontrol edin: [Sorun Giderme](/gateway/troubleshooting)
 - Discord’da sorun: [https://discord.gg/clawd](https://discord.gg/clawd)
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw 에서 API 키 또는 setup-token 을 통해 Anthropic Claude 를 사용합니다"
+read_when:
+  - OpenClaw 에서 Anthropic 모델을 사용하려는 경우
+  - API 키 대신 setup-token 을 사용하려는 경우
 title: "Anthropic"
 ---
 
@@ -145,5 +149,3 @@ openclaw onboard --auth-choice setup-token
 - 다른 Anthropic 프로파일을 추가하거나 쿨다운이 끝날 때까지 기다리십시오.
 
 추가 정보: [/gateway/troubleshooting](/gateway/troubleshooting) 및 [/help/faq](/help/faq).
-
-

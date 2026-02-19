@@ -1,4 +1,7 @@
 ---
+summary: "wake-word နှင့် push-to-talk တိုက်ဆိုင်လာသောအခါ voice overlay ၏ lifecycle"
+read_when:
+  - Voice overlay အပြုအမူကို ချိန်ညှိနေစဉ်
 title: "အသံ ထပ်တင်ခြင်း"
 ---
 
@@ -56,5 +59,3 @@ Audience: macOS app contributors. Goal: wake‑word နှင့် push‑to‑
 3. `VoicePushToTalk` ကို refactor လုပ်၍ ရှိပြီးသား session များကို adopt လုပ်စေပြီး လွှတ်ချိန်တွင် `endCapture` ကို ခေါ်ပါ; runtime cooldown ကို အသုံးချပါ။
 4. `VoiceWakeOverlayController` ကို publisher နှင့် ချိတ်ဆက်ပြီး runtime/PTT မှ တိုက်ရိုက်ခေါ်မှုများကို ဖယ်ရှားပါ။
 5. session adoption, cooldown, နှင့် empty-text dismissal အတွက် integration tests များ ထည့်သွင်းပါ။
-
-

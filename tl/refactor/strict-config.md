@@ -1,4 +1,9 @@
 ---
+summary: "Mahigpit na beripikasyon ng config + mga migration na para sa doctor lang"
+read_when:
+  - Nagdidisenyo o nagpapatupad ng behavior ng beripikasyon ng config
+  - Gumagawa sa mga migration ng config o mga workflow ng doctor
+  - Humahawak ng mga schema ng config ng plugin o gating ng pag-load ng plugin
 title: "Mahigpit na Beripikasyon ng Config"
 ---
 
@@ -33,7 +38,7 @@ title: "Mahigpit na Beripikasyon ng Config"
   2. I-validate ang config laban sa schema.
   3. Kung nawawala ang schema o hindi wasto ang config: harangin ang pag-load ng plugin, i-record ang error.
 - Kasama sa mensahe ng error ang:
-  - ID ng Plugin
+  - Plugin id
   - Dahilan (walang schema / hindi wastong config)
   - (Mga) path na bumagsak sa beripikasyon
 - Ang mga disabled na plugin ay pinananatili ang kanilang config, ngunit ang Doctor + mga log ay maglalantad ng babala.
@@ -60,7 +65,7 @@ Pinapayagan (diagnostic-only):
 - `openclaw status`
 - `openclaw gateway status`
 
-Ang lahat ng iba pa ay dapat mag-hard-fail na may mensaheng: “Hindi wasto ang config. Patakbuhin ang `openclaw doctor --fix`.”
+Everything else must hard-fail with: “Config invalid. Run `openclaw doctor --fix`.”
 
 ## Format ng Error UX
 
@@ -86,5 +91,3 @@ Ang lahat ng iba pa ay dapat mag-hard-fail na may mensaheng: “Hindi wasto ang 
 - Nawawalang schema ng plugin → na-block ang pag-load ng plugin na may malinaw na error.
 - Hindi wastong config → na-block ang startup ng Gateway maliban sa mga diagnostic na command.
 - Doctor dry-run auto; isinusulat ng `doctor --fix` ang naitama na config.
-
-

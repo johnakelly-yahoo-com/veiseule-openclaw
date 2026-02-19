@@ -1,8 +1,12 @@
 ---
-title: "Registro de logs"
+summary: "Superfícies de logging, logs em arquivo, estilos de log WS e formatação do console"
+read_when:
+  - Ao alterar a saída ou os formatos de logging
+  - Ao depurar a saída da CLI ou do gateway
+title: "Logging"
 ---
 
-# Registro de logs
+# Logging
 
 Para uma visão geral voltada ao usuário (CLI + Control UI + configuração), veja [/logging](/logging).
 
@@ -107,5 +111,3 @@ Comportamento:
 - **Corpos de mensagens do WhatsApp** são registrados em `debug` (use `--verbose` para vê-los)
 
 Isso mantém os logs em arquivo existentes estáveis enquanto torna a saída interativa fácil de examinar.
-
-

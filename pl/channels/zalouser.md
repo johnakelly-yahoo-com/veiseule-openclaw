@@ -1,4 +1,8 @@
 ---
+summary: "Obsługa konta osobistego Zalo przez zca-cli (logowanie QR), możliwości i konfiguracja"
+read_when:
+  - Konfiguracja Zalo Personal dla OpenClaw
+  - Debugowanie logowania Zalo Personal lub przepływu wiadomości
 title: "Zalo Personal"
 ---
 
@@ -134,5 +138,3 @@ Konta mapują się na profile zca. Przykład:
 
 - `openclaw channels status --probe`
 - Ponowne logowanie: `openclaw channels logout --channel zalouser && openclaw channels login --channel zalouser`
-
-

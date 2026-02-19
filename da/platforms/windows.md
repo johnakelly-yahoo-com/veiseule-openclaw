@@ -1,4 +1,8 @@
 ---
+summary: "Windows-understøttelse (WSL2) + status for companion-app"
+read_when:
+  - Installerer OpenClaw på Windows
+  - Leder efter status for Windows companion-app
 title: "Windows (WSL2)"
 ---
 
@@ -153,5 +157,3 @@ Fuld vejledning: [Kom godt i gang](/start/getting-started)
 
 Vi har ikke en Windows følgesvend app endnu. Bidrag er velkomne, hvis du vil have
 bidrag til at få det til at ske.
-
-

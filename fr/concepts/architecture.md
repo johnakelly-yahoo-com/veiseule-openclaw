@@ -1,4 +1,7 @@
 ---
+summary: "Architecture de la passerelle WebSocket, composants et flux clients"
+read_when:
+  - Travail sur le protocole de la passerelle, les clients ou les transports
 title: "Architecture de la passerelle"
 ---
 
@@ -16,7 +19,10 @@ Derniere mise a jour : 2026-01-22
 - Les **Nodes** (macOS/iOS/Android/headless) se connectent egalement via **WebSocket**, mais
   declarent `role: node` avec des capacites/commandes explicites.
 - Une Gateway par hote ; c’est le seul endroit qui ouvre une session WhatsApp.
-- Un **hote de canvas** (par defaut `18793`) sert du HTML editable par l’agent et l’A2UI.
+- Le **hôte du canvas** est servi par le serveur HTTP Gateway sous :
+  - `/__openclaw__/canvas/` (HTML/CSS/JS modifiables par l’agent)
+  - `/__openclaw__/a2ui/` (hôte A2UI)
+    Il utilise le même port que le Gateway (par défaut `18789`).
 
 ## Composants et flux
 
@@ -53,22 +59,6 @@ Details du protocole :
 ## Cycle de vie de la connexion (client unique)
 
 ```mermaid
-%%{init: {
-  'theme': 'base',
-  'themeVariables': {
-    'primaryColor': '#ffffff',
-    'primaryTextColor': '#000000',
-    'primaryBorderColor': '#000000',
-    'lineColor': '#000000',
-    'secondaryColor': '#f9f9fb',
-    'tertiaryColor': '#ffffff',
-    'clusterBkg': '#f9f9fb',
-    'clusterBorder': '#000000',
-    'nodeBorder': '#000000',
-    'mainBkg': '#ffffff',
-    'edgeLabelBackground': '#ffffff'
-  }
-}}%%
 sequenceDiagram
     participant Client
     participant Gateway
@@ -146,5 +136,3 @@ Details : [Gateway protocol](/gateway/protocol), [Pairing](/start/pairing),
 - Exactement une Gateway controle une seule session Baileys par hote.
 - L’handshake est obligatoire ; toute premiere trame non‑JSON ou non‑connect entraine une fermeture immediate.
 - Les evenements ne sont pas rejoues ; les clients doivent se rafraichir en cas de lacunes.
-
-

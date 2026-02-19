@@ -1,4 +1,7 @@
 ---
+summary: "Lógica del estado de la barra de menús y lo que se muestra a los usuarios"
+read_when:
+  - Ajustando la UI del menú de mac o la lógica de estado
 title: "Barra de menús"
 ---
 
@@ -60,7 +63,7 @@ title: "Barra de menús"
   - `edit`: ruta más tipo de cambio inferido de `meta`/recuentos de diff.
   - respaldo: nombre de la herramienta.
 
-## Anulación de depuración
+## Debug override
 
 - Ajustes ▸ Depuración ▸ selector “Icon override”:
   - `System (auto)` (predeterminado)
@@ -76,5 +79,3 @@ title: "Barra de menús"
 - Inicie la principal mientras otra está activa: el ícono cambia a la principal al instante.
 - Ráfagas rápidas de herramientas: asegúrese de que la insignia no parpadee (gracia de TTL en resultados de herramientas).
 - La fila de salud reaparece cuando todas las sesiones están inactivas.
-
-

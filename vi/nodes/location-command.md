@@ -1,4 +1,8 @@
 ---
+summary: "Lệnh vị trí cho các node (location.get), các chế độ quyền và hành vi nền"
+read_when:
+  - Thêm hỗ trợ node vị trí hoặc UI quyền
+  - Thiết kế luồng vị trí nền + push
 title: "Lệnh vị trí"
 ---
 
@@ -92,7 +96,7 @@ Luồng kích hoạt bằng push (tương lai):
 
 Ghi chú:
 
-- iOS: Yêu cầu quyền "Always" + chế độ định vị nền. Thông báo đẩy im lặng có thể bị hạn chế; có thể xảy ra lỗi gián đoạn.
+- iOS: Always permission + background location mode required. Silent push may be throttled; expect intermittent failures.
 - Android: vị trí nền có thể yêu cầu dịch vụ tiền cảnh; nếu không, dự kiến sẽ bị từ chối.
 
 ## Tích hợp mô hình/công cụ
@@ -107,5 +111,3 @@ Ghi chú:
 - Khi đang dùng: “Chỉ khi OpenClaw đang mở.”
 - Always: “Cho phép vị trí nền. Yêu cầu quyền hệ thống.”
 - Precise: “Sử dụng vị trí GPS chính xác. Tắt để chia sẻ vị trí xấp xỉ.”
-
-

@@ -1,12 +1,9 @@
 ---
-title: 迁移指南
-x-i18n:
-  generated_at: "2026-02-03T07:49:55Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 604d862c4bf86e7924d09028db8cc2514ca6f1d64ebe8bb7d1e2dde57ef70caa
-  source_path: install/migrating.md
-  workflow: 15
+summary: "将 OpenClaw 安装从一台机器迁移到另一台"
+read_when:
+  - 你正在将 OpenClaw 迁移到新的笔记本电脑/服务器
+  - 你想保留会话、认证和渠道登录（WhatsApp 等）
+title: "迁移指南"
 ---
 
 # 将 OpenClaw 迁移到新机器
@@ -39,7 +36,7 @@ x-i18n:
 openclaw status
 ```
 
-在输出中查找 `OPENCLAW_STATE_DIR` / profile 的提及。如果你运行多个 Gateway 网关，对每个配置文件重复此操作。
+Look for mentions of `OPENCLAW_STATE_DIR` / profile in the output. 在输出中查找 `OPENCLAW_STATE_DIR` / profile 的提及。如果你运行多个 Gateway 网关，对每个配置文件重复此操作。
 
 ### 2）确定你的工作区
 
@@ -107,7 +104,7 @@ tar -czf openclaw-workspace.tgz .openclaw/workspace
 
 常见方法：
 
-- `scp` 压缩包并解压
+- `scp` the tarballs and extract
 - 通过 SSH 使用 `rsync -a`
 - 外部驱动器
 
@@ -124,7 +121,7 @@ tar -czf openclaw-workspace.tgz .openclaw/workspace
 openclaw doctor
 ```
 
-Doctor 是"安全可靠"的命令。它修复服务、应用配置迁移，并警告不匹配问题。
+4. Doctor 是一个“安全且无聊”的命令。 5. 它会修复服务、应用配置迁移，并对不匹配情况发出警告。
 
 然后：
 
@@ -151,7 +148,7 @@ openclaw doctor
 
 ### 陷阱：只复制 `openclaw.json`
 
-`openclaw.json` 是不够的。许多提供商在以下位置存储状态：
+`openclaw.json` 是不够的。许多提供商在以下位置存储状态： 18. 许多提供方会将状态存储在：
 
 - `$OPENCLAW_STATE_DIR/credentials/`
 - `$OPENCLAW_STATE_DIR/agents/<agentId>/...`
@@ -173,7 +170,7 @@ openclaw doctor
 
 ### 陷阱：备份中的密钥
 
-`$OPENCLAW_STATE_DIR` 包含密钥（API 密钥、OAuth 令牌、WhatsApp 凭证）。将备份视为生产密钥：
+`$OPENCLAW_STATE_DIR` 包含密钥（API 密钥、OAuth 令牌、WhatsApp 凭证）。将备份视为生产密钥： 31. 将备份视同生产环境的秘密：
 
 - 加密存储
 - 避免通过不安全的渠道共享
@@ -193,5 +190,3 @@ openclaw doctor
 - [Doctor](/gateway/doctor)
 - [Gateway 网关故障排除](/gateway/troubleshooting)
 - [OpenClaw 在哪里存储数据？](/help/faq#where-does-openclaw-store-its-data)
-
-

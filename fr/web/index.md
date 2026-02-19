@@ -1,4 +1,8 @@
 ---
+summary: "Surfaces web de la Gateway : interface de controle, modes de liaison et securite"
+read_when:
+  - Vous voulez acceder a la Gateway via Tailscale
+  - Vous voulez l’interface de controle dans le navigateur et l’edition de la configuration
 title: "Web"
 ---
 
@@ -110,5 +114,3 @@ La Gateway sert des fichiers statiques depuis `dist/control-ui`. Construisez-les
 ```bash
 pnpm ui:build # auto-installs UI deps on first run
 ```
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw CLI-referens för `openclaw`-kommandon, underkommandon och alternativ"
+read_when:
+  - Lägga till eller ändra CLI-kommandon eller alternativ
+  - Dokumentera nya kommandoytor
 title: "CLI-referens"
 ---
 
@@ -314,6 +318,11 @@ Alternativ:
 - `--zai-api-key <key>`
 - `--minimax-api-key <key>`
 - `--opencode-zen-api-key <key>`
+- `--custom-base-url <url>` (icke-interaktiv; används med `--auth-choice custom-api-key`)
+- `--custom-model-id <id>` (icke-interaktiv; används med `--auth-choice custom-api-key`)
+- `--custom-api-key <key>` (icke-interaktiv; valfri; används med `--auth-choice custom-api-key`; faller tillbaka till `CUSTOM_API_KEY` om den utelämnas)
+- `--custom-provider-id <id>` (icke-interaktiv; valfritt anpassat provider-id)
+- `--custom-compatibility <openai|anthropic>` (icke-interaktiv; valfri; standard är `openai`)
 - `--gateway-port <port>`
 - `--gateway-bind <loopback|lan|tailnet|auto|custom>`
 - `--gateway-auth <token|password>`
@@ -1025,5 +1034,3 @@ Alternativ:
 - `--message <text>`
 - `--timeout-ms <ms>` (standard är `agents.defaults.timeoutSeconds`)
 - `--history-limit <n>`
-
-

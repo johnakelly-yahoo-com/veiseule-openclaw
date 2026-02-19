@@ -1,4 +1,9 @@
 ---
+summary: "ตัวอย่างการกำหนดค่าที่ตรงตามสคีมาสำหรับการตั้งค่า OpenClaw ที่พบบ่อย"
+read_when:
+  - เรียนรู้วิธีการกำหนดค่า OpenClaw
+  - มองหาตัวอย่างการกำหนดค่า
+  - ตั้งค่า OpenClaw เป็นครั้งแรก
 title: "ตัวอย่างการกำหนดค่า"
 ---
 
@@ -43,7 +48,7 @@ Examples below are aligned with the current config schema. ตัวอย่า
 
 ## ตัวอย่างแบบขยาย (ตัวเลือกหลัก)
 
-> JSON5 ช่วยให้ใช้คอมเมนต์และเครื่องหมายจุลภาคต่อท้ายได้ JSON ปกติก็ใช้งานได้เช่นกัน Regular JSON works too.
+> JSON5 ช่วยให้ใช้คอมเมนต์และเครื่องหมายจุลภาคต่อท้ายได้ JSON ปกติก็ใช้งานได้เช่นกัน Regular JSON works too. Regular JSON works too.
 
 ```json5
 {
@@ -596,8 +601,6 @@ Examples below are aligned with the current config schema. ตัวอย่า
 ## เคล็ดลับ
 
 - หากคุณตั้งค่า `dmPolicy: "open"` รายการ `allowFrom` ที่ตรงกันต้องมี `"*"` รวมอยู่ด้วย
-- รหัสผู้ให้บริการแตกต่างกัน (หมายเลขโทรศัพท์, รหัสผู้ใช้, รหัสช่องทาง) โปรดใช้เอกสารของผู้ให้บริการเพื่อยืนยันรูปแบบ Use the provider docs to confirm the format.
+- รหัสผู้ให้บริการแตกต่างกัน (หมายเลขโทรศัพท์, รหัสผู้ใช้, รหัสช่องทาง) โปรดใช้เอกสารของผู้ให้บริการเพื่อยืนยันรูปแบบ รหัสผู้ให้บริการแตกต่างกัน (หมายเลขโทรศัพท์, รหัสผู้ใช้, รหัสช่องทาง) โปรดใช้เอกสารของผู้ให้บริการเพื่อยืนยันรูปแบบ Use the provider docs to confirm the format.
 - ส่วนที่เป็นตัวเลือกซึ่งสามารถเพิ่มภายหลังได้: `web`, `browser`, `ui`, `discovery`, `canvasHost`, `talk`, `signal`, `imessage`
 - ดู [Providers](/channels/whatsapp) และ [Troubleshooting](/gateway/troubleshooting) สำหรับหมายเหตุการตั้งค่าเชิงลึกเพิ่มเติม
-
-

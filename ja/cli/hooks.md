@@ -1,4 +1,8 @@
 ---
+summary: "CLI 参照用の `openclaw hooks`（エージェント フック）"
+read_when:
+  - エージェント フックを管理したい場合
+  - フックをインストールまたは更新したい場合
 title: "フック"
 ---
 
@@ -124,7 +128,7 @@ openclaw hooks enable <name>
 特定のフックを設定（`~/.openclaw/config.json`）に追加して有効化します。
 
 **注記:** プラグインによって管理されるフックは、`openclaw hooks list` 内に `plugin:<id>` と表示され、
-ここでは有効化／無効化できません。代わりにプラグインを有効化／無効化してください。 代わりにプラグインを有効/無効にします。
+ここでは有効化／無効化できません。代わりにプラグインを有効化／無効化してください。 代わりにプラグインを有効/無効にします。 代わりにプラグインを有効/無効にします。
 
 **引数:**
 
@@ -188,6 +192,9 @@ openclaw hooks install <path-or-spec>
 
 ローカル フォルダー／アーカイブ、または npm からフック パックをインストールします。
 
+Npm 仕様は **registry-only**（パッケージ名 + 任意のバージョン/タグ）のみ対応しています。 Git/URL/file
+spec は拒否されます。 安全のため、依存関係のインストールは `--ignore-scripts` を付けて実行されます。
+
 **動作内容:**
 
 - フック パックを `~/.openclaw/hooks/<id>` にコピー
@@ -246,6 +253,18 @@ openclaw hooks enable session-memory
 
 **参照:** [session-memory documentation](/automation/hooks#session-memory)
 
+### bootstrap-extra-files
+
+`agent:bootstrap` 実行時に追加のブートストラップファイル（例: モノレポ内の `AGENTS.md` / `TOOLS.md`）を挿入します。
+
+**有効化:**
+
+```bash
+openclaw hooks で bootstrap-extra-files を有効化
+```
+
+**参照:** [SOUL Evil Hook](/hooks/soul-evil)
+
 ### command-logger
 
 すべてのコマンド イベントを集中管理された監査ファイルに記録します。
@@ -273,30 +292,16 @@ grep '"action":"new"' ~/.openclaw/logs/commands.log | jq .
 
 **参照:** [command-logger documentation](/automation/hooks#command-logger)
 
-### soul-evil
-
-パージ ウィンドウ中、またはランダムな確率で、注入された `SOUL.md` コンテンツを `SOUL_EVIL.md` に置き換えます。
-
-**有効化:**
-
-```bash
-openclaw hooks enable soul-evil
-```
-
-**参照:** [SOUL Evil Hook](/hooks/soul-evil)
-
 ### boot-md
 
 ゲートウェイの起動時（チャンネル開始後）に `BOOT.md` を実行します。
 
-**イベント**: `gateway:startup`
-
 **有効化**:
+
+**イベント**: `gateway:startup`
 
 ```bash
 openclaw hooks enable boot-md
 ```
 
 **参照:** [boot-md documentation](/automation/hooks#boot-md)
-
-

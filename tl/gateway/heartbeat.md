@@ -1,4 +1,8 @@
 ---
+summary: "Mga mensahe ng heartbeat polling at mga patakaran sa notification"
+read_when:
+  - Ina-adjust ang cadence o pagmemensahe ng heartbeat
+  - Pagpapasya sa pagitan ng heartbeat at cron para sa mga naka-iskedyul na gawain
 title: "Tibok ng Puso"
 ---
 
@@ -38,12 +42,12 @@ Halimbawang config:
 ## Mga default
 
 - 1. Interval: `30m` (o `1h` kapag Anthropic OAuth/setup-token ang natukoy na auth mode). Set `agents.defaults.heartbeat.every` or per-agent `agents.list[].heartbeat.every`; use `0m` to disable.
-- Laman ng prompt (maiko-configure sa pamamagitan ng `agents.defaults.heartbeat.prompt`):
+- Prompt body (configurable via `agents.defaults.heartbeat.prompt`):
   `Read HEARTBEAT.md if it exists (workspace context). Follow it strictly. Do not infer or repeat old tasks from prior chats. 6. Kung walang kailangang asikasuhin, sumagot ng HEARTBEAT_OK.`
-- Ang heartbeat prompt ay ipinapadala **nang eksakto** bilang mensahe ng user. Ang system
-prompt ay may kasamang seksyong “Heartbeat” at ang run ay minamarkahan sa loob ng system.
-- Ang mga aktibong oras (`heartbeat.activeHours`) ay sinusuri ayon sa naka-configure na timezone.
-Sa labas ng itinakdang oras, nilalaktawan ang mga heartbeat hanggang sa susunod na tick sa loob ng nasabing oras.
+- The heartbeat prompt is sent **verbatim** as the user message. The system
+  prompt includes a “Heartbeat” section and the run is flagged internally.
+- Active hours (`heartbeat.activeHours`) are checked in the configured timezone.
+  Outside the window, heartbeats are skipped until the next tick inside the window.
 
 ## Para saan ang heartbeat prompt
 
@@ -62,8 +66,8 @@ stats” o “verify gateway health”), itakda ang `agents.defaults.heartbeat.p
 ## Kontrata ng tugon
 
 - Kung walang nangangailangan ng atensyon, mag-reply ng **`HEARTBEAT_OK`**.
-- Sa panahon ng mga heartbeat run, itinuturing ng OpenClaw ang `HEARTBEAT_OK` bilang ack kapag ito ay lumabas
-sa **simula o dulo** ng tugon. Ang token ay inaalis at ang tugon ay
+- During heartbeat runs, OpenClaw treats `HEARTBEAT_OK` as an ack when it appears
+  at the **start or end** of the reply. The token is stripped and the reply is
   dropped if the remaining content is **≤ `ackMaxChars`** (default: 300).
 - Kung lumitaw ang `HEARTBEAT_OK` sa **gitna** ng isang reply, hindi ito tinatrato nang espesyal.
 - Para sa mga alert, **huwag** isama ang `HEARTBEAT_OK`; ibalik lamang ang alert text.
@@ -356,5 +360,3 @@ Kung gusto mo ng transparency, i-enable ang:
 40. Ang mga heartbeat ay nagpapatakbo ng buong agent turns. 41. Mas maiikling interval ang kumokonsumo ng mas maraming token. 4. Panatilihing maliit ang
     `HEARTBEAT.md` at isaalang-alang ang mas murang `model` o `target: "none"` kung
     panloob na state updates lamang ang gusto mo.
-
-

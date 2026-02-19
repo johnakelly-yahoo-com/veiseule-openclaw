@@ -1,4 +1,8 @@
 ---
+summary: "मॉडल प्रदाताओं के लिए OAuth की समाप्ति की निगरानी करें"
+read_when:
+  - प्रमाणीकरण समाप्ति की निगरानी या अलर्ट सेट करते समय
+  - Claude Code / Codex OAuth रिफ्रेश जाँचों का स्वचालन करते समय
 title: "प्रमाणीकरण निगरानी"
 ---
 
@@ -36,5 +40,3 @@ openclaw models status --check
 - `scripts/termux-sync-widget.sh`: Claude Code क्रेड्स → OpenClaw समन्वय।
 
 यदि आपको फ़ोन स्वचालन या systemd टाइमर्स की आवश्यकता नहीं है, तो इन स्क्रिप्ट्स को छोड़ दें।
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Desinstale o OpenClaw completamente (CLI, serviço, estado, workspace)"
+read_when:
+  - Você quer remover o OpenClaw de uma máquina
+  - O serviço do gateway ainda está em execução após a desinstalação
 title: "Desinstalar"
 ---
 
@@ -122,5 +126,3 @@ Se você executa a partir de um checkout do repositório (`git clone` + `opencla
 1. Desinstale o serviço do gateway **antes** de excluir o repositório (use o caminho fácil acima ou a remoção manual do serviço).
 2. Exclua o diretório do repositório.
 3. Remova estado + workspace conforme mostrado acima.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Overzicht van de Feishu-bot, functies en configuratie"
+read_when:
+  - Je wilt een Feishu/Lark-bot verbinden
+  - Je de Feishu-channel configureert
 title: Feishu
 ---
 
@@ -528,9 +532,9 @@ Belangrijke opties:
 | ------------------------------------------------- | --------------------------------------------------------------------------- | --------- |
 | `channels.feishu.enabled`                         | Kanaal in-/uitschakelen                                                     | `true`    |
 | `channels.feishu.domain`                          | API-domein (`feishu` of `lark`)                          | `feishu`  |
-| `channels.feishu.accounts.<id>.appId`             | App ID                                                                      | -         |
-| `channels.feishu.accounts.<id>.appSecret`         | App Secret                                                                  | -         |
-| `channels.feishu.accounts.<id>.domain`            | Per-account API-domeinoverschrijving                                        | `feishu`  |
+| `channels.feishu.accounts.&lt;id&gt;.appId`             | App ID                                                                      | -         |
+| `channels.feishu.accounts.&lt;id&gt;.appSecret`         | App Secret                                                                  | -         |
+| `channels.feishu.accounts.&lt;id&gt;.domain`            | Per-account API-domeinoverschrijving                                        | `feishu`  |
 | `channels.feishu.dmPolicy`                        | DM-beleid                                                                   | `pairing` |
 | `channels.feishu.allowFrom`                       | DM-toegestane lijst (open_id-lijst) | -         |
 | `channels.feishu.groupPolicy`                     | Groepsbeleid                                                                | `open`    |
@@ -574,5 +578,3 @@ Belangrijke opties:
 - ✅ Bestanden
 - ✅ Audio
 - ⚠️ Rijke tekst (gedeeltelijke ondersteuning)
-
-

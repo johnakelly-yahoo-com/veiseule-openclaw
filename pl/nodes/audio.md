@@ -1,4 +1,7 @@
 ---
+summary: "Jak przychodzące audio/notatki głosowe są pobierane, transkrybowane i wstrzykiwane do odpowiedzi"
+read_when:
+  - Zmiana transkrypcji audio lub obsługi multimediów
 title: "Audio i notatki głosowe"
 ---
 
@@ -104,10 +107,27 @@ Uwaga: Wykrywanie binariów jest „best‑effort” na macOS/Linux/Windows; upe
 - Transkrypt jest dostępny dla szablonów jako `{{Transcript}}`.
 - Stdout CLI jest limitowany (5 MB); utrzymuj zwięzłość wyjścia CLI.
 
+## Wykrywanie wzmianek w grupach
+
+Gdy w czacie grupowym ustawiono `requireMention: true`, OpenClaw transkrybuje teraz dźwięk **przed** sprawdzeniem wzmianek. Pozwala to przetwarzać wiadomości głosowe, nawet jeśli zawierają wzmianki.
+
+**Jak to działa:**
+
+1. Jeśli wiadomość głosowa nie ma treści tekstowej, a grupa wymaga wzmianek, OpenClaw wykonuje transkrypcję „preflight”.
+2. Transkrypt jest sprawdzany pod kątem wzorców wzmianek (np. `@BotName`, wyzwalacze emoji).
+3. Jeśli wykryta zostanie wzmianka, wiadomość przechodzi przez pełny pipeline odpowiedzi.
+4. Transkrypt jest używany do wykrywania wzmianek, dzięki czemu wiadomości głosowe mogą przejść przez bramkę wzmianek.
+
+**Zachowanie awaryjne:**
+
+- Jeśli transkrypcja nie powiedzie się podczas etapu preflight (timeout, błąd API itp.), wiadomość jest przetwarzana wyłącznie na podstawie wykrywania wzmianek w tekście.
+- Zapewnia to, że wiadomości mieszane (tekst + audio) nigdy nie zostaną błędnie odrzucone.
+
+**Przykład:** Użytkownik wysyła wiadomość głosową z treścią „Hej @Claude, jaka jest pogoda?” w grupie Telegram z ustawieniem `requireMention: true`. Wiadomość głosowa jest transkrybowana, wzmianka zostaje wykryta i agent odpowiada.
+
 ## Gotchas
 
 - Zasady zakresu działają na zasadzie „pierwsze dopasowanie wygrywa”. `chatType` jest normalizowane do `direct`, `group` lub `room`.
 - Upewnij się, że Twoje CLI kończy działanie kodem 0 i wypisuje zwykły tekst; JSON wymaga obróbki przez `jq -r .text`.
 - Utrzymuj rozsądne timeouty (`timeoutSeconds`, domyślnie 60 s), aby nie blokować kolejki odpowiedzi.
-
-
+- Transkrypcja preflight przetwarza tylko **pierwszy** załącznik audio w celu wykrycia wzmianek. Dodatkowe pliki audio są przetwarzane podczas głównej fazy rozumienia mediów.

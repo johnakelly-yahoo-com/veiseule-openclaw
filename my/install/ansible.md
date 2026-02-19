@@ -1,4 +1,9 @@
 ---
+summary: "Ansible၊ Tailscale VPN နှင့် firewall ခွဲခြားကာကွယ်မှုတို့ကို အသုံးပြုသော အလိုအလျောက်၊ လုံခြုံရေးအမြင့် OpenClaw တပ်ဆင်ခြင်း"
+read_when:
+  - လုံခြုံရေးအားကောင်းစေသည့် အလိုအလျောက် ဆာဗာ တပ်ဆင်မှုကို လိုအပ်သည့်အခါ
+  - VPN ဝင်ရောက်ခွင့်ပါသော firewall ခွဲခြားထားသည့် တပ်ဆင်မှုကို လိုအပ်သည့်အခါ
+  - အဝေးမှ Debian/Ubuntu ဆာဗာများသို့ တပ်ဆင်မည့်အခါ
 title: "Ansible"
 ---
 
@@ -201,5 +206,3 @@ openclaw channels login
 - [Docker](/install/docker) — container ဖြင့် Gateway တပ်ဆင်ခြင်း
 - [Sandboxing](/gateway/sandboxing) — agent sandbox ပြင်ဆင်မှု
 - [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) — အေးဂျင့်တစ်ခုချင်းစီအလိုက် ခွဲခြားမှု
-
-

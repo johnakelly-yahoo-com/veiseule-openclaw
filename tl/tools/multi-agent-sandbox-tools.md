@@ -1,5 +1,7 @@
 ---
+summary: "Per-agent na sandbox + mga restriksyon sa tool, precedence, at mga halimbawa"
 title: Multi-Agent Sandbox at Mga Tool
+read_when: "Gusto mo ng per-agent sandboxing o per-agent na mga patakaran sa pagpayag/pagtanggi ng tool sa isang multi-agent gateway."
 status: active
 ---
 
@@ -388,5 +390,3 @@ Pagkatapos i-configure ang multi-agent sandbox at mga tool:
 - [Pag-ruta ng Multi-Agent](/concepts/multi-agent)
 - [Konpigurasyon ng Sandbox](/gateway/configuration#agentsdefaults-sandbox)
 - [Pamamahala ng Session](/concepts/session)
-
-

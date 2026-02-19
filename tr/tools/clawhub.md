@@ -1,4 +1,9 @@
 ---
+summary: "ClawHub rehberi: herkese açık Skills kayıt defteri + CLI iş akışları"
+read_when:
+  - ClawHub’ı yeni kullanıcılara tanıtma
+  - Skills yükleme, arama veya yayımlama
+  - ClawHub CLI bayraklarını ve senkronizasyon davranışını açıklama
 title: "ClawHub"
 ---
 
@@ -243,5 +248,3 @@ export CLAWHUB_DISABLE_TELEMETRY=1
 - `CLAWHUB_CONFIG_PATH`: CLI’nin belirteci/yapılandırmayı nerede sakladığını geçersiz kılar.
 - `CLAWHUB_WORKDIR`: Varsayılan workdir’i geçersiz kılar.
 - `CLAWHUB_DISABLE_TELEMETRY=1`: `sync` üzerinde telemetriyi devre dışı bırakır.
-
-

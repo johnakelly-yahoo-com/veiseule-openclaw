@@ -1,4 +1,8 @@
 ---
+summary: "Tài liệu tham chiếu CLI cho `openclaw cron` (lên lịch và chạy các tác vụ nền)"
+read_when:
+  - Bạn cần các tác vụ theo lịch và đánh thức
+  - Bạn đang gỡ lỗi việc thực thi cron và nhật ký
 title: "cron"
 ---
 
@@ -38,5 +42,3 @@ Thông báo tới một kênh cụ thể:
 ```bash
 openclaw cron edit <job-id> --announce --channel slack --to "channel:C1234567890"
 ```
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "คู่มือการแก้ไขปัญหาเชิงลึกสำหรับเกตเวย์ ช่องทาง ระบบอัตโนมัติ โหนด และเบราว์เซอร์"
+read_when:
+  - ศูนย์การแก้ไขปัญหาแนะนำให้มาที่นี่เพื่อการวินิจฉัยเชิงลึก
+  - คุณต้องการส่วนคู่มือแบบอิงอาการที่เสถียรพร้อมคำสั่งที่ชัดเจน
 title: "การแก้ไขปัญหา"
 ---
 
@@ -106,7 +110,7 @@ openclaw gateway status --deep
 
 ลักษณะอาการที่พบบ่อย:
 
-- `Gateway start blocked: set gateway.mode=local` → โหมดเกตเวย์ภายในเครื่องไม่ได้เปิดใช้งาน
+- `Gateway start blocked: set gateway.mode=local` → โหมดเกตเวย์ภายในเครื่องไม่ได้เปิดใช้งาน วิธีแก้ไข: ตั้งค่า `gateway.mode="local"` ในไฟล์ config ของคุณ (หรือรัน `openclaw configure`) หากคุณรัน OpenClaw ผ่าน Podman โดยใช้ผู้ใช้ `openclaw` โดยเฉพาะ ไฟล์ config จะอยู่ที่ `~openclaw/.openclaw/openclaw.json`
 - `refusing to bind gateway ... without auth` → bind ที่ไม่ใช่ loopback โดยไม่มีโทเคน/รหัสผ่าน
 - `another gateway instance is already listening` / `EADDRINUSE` → พอร์ตขัดแย้ง
 
@@ -313,5 +317,3 @@ openclaw gateway restart
 - [/gateway/pairing](/gateway/pairing)
 - [/gateway/authentication](/gateway/authentication)
 - [/gateway/background-process](/gateway/background-process)
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Co zawiera systemowy prompt OpenClaw i jak jest składany"
+read_when:
+  - Edytowanie tekstu systemowego promptu, listy narzędzi lub sekcji czasu/heartbeat
+  - Zmienianie zachowania bootstrapu obszaru roboczego lub wstrzykiwania Skills
 title: "Systemowy prompt"
 ---
 
@@ -55,10 +59,25 @@ Pliki bootstrapu są przycinane i dołączane w sekcji **Project Context**, aby 
 - `USER.md`
 - `HEARTBEAT.md`
 - `BOOTSTRAP.md` (tylko w zupełnie nowych obszarach roboczych)
+- `MEMORY.md` i/lub `memory.md` (jeśli znajdują się w obszarze roboczym; jeden lub oba pliki mogą zostać wstrzyknięte)
+
+Wszystkie te pliki są **wstrzykiwane do okna kontekstu** przy każdej turze, co
+oznacza, że zużywają tokeny. Utrzymuj je zwięzłe — szczególnie `MEMORY.md`, który może
+z czasem rosnąć i prowadzić do nieoczekiwanie wysokiego zużycia kontekstu oraz częstszej
+kompaktacji.
+
+> **Uwaga:** dzienne pliki `memory/*.md` **nie** są wstrzykiwane automatycznie. Są
+> uzyskiwane na żądanie za pomocą narzędzi `memory_search` i `memory_get`, więc
+> nie wliczają się do okna kontekstu, dopóki model jawnie ich nie odczyta.
 
 Duże pliki są obcinane z odpowiednim znacznikiem. Maksymalny rozmiar na plik jest kontrolowany przez
-`agents.defaults.bootstrapMaxChars` (domyślnie: 20000). Brakujące pliki wstrzykują
+`agents.defaults.bootstrapMaxChars` (domyślnie: 20000). Łączna wstrzyknięta zawartość początkowa
+we wszystkich plikach jest ograniczona przez `agents.defaults.bootstrapTotalMaxChars`
+(domyslnie: 24000). Brakujące pliki wstrzykują
 krótki znacznik braku pliku.
+
+Sesje pod-agentów wstrzykują tylko `AGENTS.md` i `TOOLS.md` (inne pliki początkowe
+są odfiltrowywane, aby utrzymać mały kontekst pod-agenta).
 
 Wewnętrzne hooki mogą przechwycić ten krok przez `agent:bootstrap`, aby modyfikować lub zastępować
 wstrzyknięte pliki bootstrapu (na przykład zamieniając `SOUL.md` na alternatywną personę).
@@ -109,5 +128,3 @@ dołączoną dokumentację pakietu npm), a także informuje o publicznym mirrorz
 społeczności Discord oraz ClawHub ([https://clawhub.com](https://clawhub.com)) do odkrywania Skills. Prompt instruuje model, aby w pierwszej kolejności konsultował lokalną dokumentację
 w kwestiach zachowania OpenClaw, poleceń, konfiguracji lub architektury, oraz aby samodzielnie uruchamiał
 `openclaw status`, gdy to możliwe (pytając użytkownika tylko wtedy, gdy nie ma dostępu).
-
-

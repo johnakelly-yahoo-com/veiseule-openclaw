@@ -1,4 +1,9 @@
 ---
+summary: "macOS میں اجازتوں کی پائیداری (TCC) اور سائننگ کی ضروریات"
+read_when:
+  - macOS میں اجازتوں کے غائب یا اَٹکے ہوئے پرامپٹس کی ڈیبگنگ کرتے وقت
+  - macOS ایپ کو پیکج یا سائن کرتے وقت
+  - بنڈل آئی ڈی یا ایپ کی انسٹال راہوں میں تبدیلی کرتے وقت
 title: "macOS اجازتیں"
 ---
 
@@ -40,5 +45,3 @@ macOS ٹرمینل/بیک گراؤنڈ پروسیسز کے لیے Desktop، Docu
 
 اگر آپ اجازتوں کی جانچ کر رہے ہیں تو ہمیشہ حقیقی سرٹیفکیٹ کے ساتھ سائن کریں۔ Ad-hoc
 builds are only acceptable for quick local runs where permissions do not matter.
-
-

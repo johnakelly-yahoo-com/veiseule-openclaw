@@ -1,10 +1,14 @@
 ---
+summary: "Sổ tay xử lý sự cố chuyên sâu cho gateway, kênh, tự động hóa, node và trình duyệt"
+read_when:
+  - Trung tâm xử lý sự cố đã điều hướng bạn tới đây để chẩn đoán sâu hơn
+  - Bạn cần các mục sổ tay dựa trên triệu chứng ổn định với lệnh chính xác
 title: "Xử lý sự cố"
 ---
 
 # Xử lý sự cố Gateway
 
-Trang này là runbook chuyên sâu.
+This page is the deep runbook.
 Start at [/help/troubleshooting](/help/troubleshooting) if you want the fast triage flow first.
 
 ## Thang lệnh
@@ -105,8 +109,8 @@ Cần kiểm tra:
 
 Dấu hiệu thường gặp:
 
-- `Gateway start blocked: set gateway.mode=local` → chế độ gateway cục bộ chưa được bật.
-- `refusing to bind gateway ... without auth` → bind non-loopback mà không có token/mật khẩu.
+- `Gateway start blocked: set gateway.mode=local` → chế độ gateway cục bộ chưa được bật. Cách khắc phục: đặt `gateway.mode="local"` trong cấu hình của bạn (hoặc chạy `openclaw configure`). Nếu bạn đang chạy OpenClaw qua Podman bằng người dùng chuyên dụng `openclaw`, tệp cấu hình nằm tại `~openclaw/.openclaw/openclaw.json`.
+- `refusing to bind gateway ... without auth` → non-loopback bind without token/password.
 - `another gateway instance is already listening` / `EADDRINUSE` → xung đột cổng.
 
 Liên quan:
@@ -312,5 +316,3 @@ Liên quan:
 - [/gateway/pairing](/gateway/pairing)
 - [/gateway/authentication](/gateway/authentication)
 - [/gateway/background-process](/gateway/background-process)
-
-

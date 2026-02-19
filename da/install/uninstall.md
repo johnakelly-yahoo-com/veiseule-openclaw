@@ -1,4 +1,8 @@
 ---
+summary: "Afinstallér OpenClaw fuldstændigt (CLI, service, tilstand, arbejdsområde)"
+read_when:
+  - Du vil fjerne OpenClaw fra en maskine
+  - Gateway-servicen kører stadig efter afinstallation
 title: "Afinstallér"
 ---
 
@@ -122,5 +126,3 @@ Hvis du kører fra et repo-checkout (`git clone` + `openclaw ...` / `bun run ope
 1. Afinstallér gateway-servicen **før** du sletter repoet (brug den nemme vej ovenfor eller manuel fjernelse af service).
 2. Slet repo-mappen.
 3. Fjern tilstand + arbejdsområde som vist ovenfor.
-
-

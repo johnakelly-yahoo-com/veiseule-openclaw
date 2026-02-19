@@ -1,4 +1,8 @@
 ---
+summary: "CLI için `openclaw approvals` başvurusu (gateway veya node ana makineleri için exec onayları)"
+read_when:
+  - CLI üzerinden exec onaylarını düzenlemek istediğinizde
+  - Gateway veya node ana makinelerinde izin listelerini yönetmeniz gerektiğinde
 title: "cli/approvals.md"
 ---
 
@@ -44,5 +48,3 @@ openclaw approvals allowlist remove "~/Projects/**/bin/rg"
 - `--agent` varsayılan olarak `"*"`’dur; bu tüm ajanlara uygulanır.
 - Node ana makinesi `system.execApprovals.get/set`’u duyurmalıdır (macOS uygulaması veya başsız node ana makinesi).
 - Onaylar dosyaları ana makine başına `~/.openclaw/exec-approvals.json` konumunda saklanır.
-
-

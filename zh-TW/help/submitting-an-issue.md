@@ -1,4 +1,5 @@
 ---
+summary: "提交高訊號的 issue 與錯誤回報"
 title: "提交問題"
 ---
 
@@ -76,7 +77,7 @@ title: "提交問題"
 ### Evidence (redacted)
 ```
 
-47. _避免在公開場合放入機密／漏洞利用細節。 _避免在公開場合提供祕密或漏洞細節。對於敏感問題，請將細節降到最低並請求私下揭露。_
+_避免在公開場合放入機密／漏洞利用細節。 _避免在公開場合提供祕密或漏洞細節。對於敏感問題，請將細節降到最低並請求私下揭露。_ _避免在公開場合提供祕密或漏洞細節。對於敏感問題，請將細節降到最低並請求私下揭露。_
 
 #### 回歸問題回報
 
@@ -149,5 +150,3 @@ title: "提交問題"
 ### 提交修復 PR
 
 Issue before PR is optional. 49. 若跳過，請在 PR 中包含細節。 Keep the PR focused, note issue number, add tests or explain absence, document behavior changes/risks, include redacted logs/screenshots as proof, and run proper validation before submitting.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw dns`에 대한 CLI 레퍼런스 (광역 디스커버리 도우미)"
+read_when:
+  - Tailscale + CoreDNS를 통한 광역 디스커버리 (DNS-SD)가 필요할 때
+  - You’re setting up split DNS for a custom discovery domain (example: openclaw.internal)
 title: "dns"
 ---
 
@@ -17,5 +21,3 @@ title: "dns"
 openclaw dns setup
 openclaw dns setup --apply
 ```
-
-

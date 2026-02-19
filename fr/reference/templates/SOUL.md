@@ -1,4 +1,9 @@
-------
+---
+title: "Modèle SOUL.md"
+summary: "Modele d’espace de travail pour SOUL.md"
+read_when:
+  - Initialisation manuelle d’un espace de travail
+---
 
 # SOUL.md - Qui vous etes
 
@@ -36,5 +41,3 @@ Si vous modifiez ce fichier, informez l’utilisateur — c’est votre ame, et 
 ---
 
 _Ce fichier est a vous de le faire evoluer. En apprenant qui vous etes, mettez-le a jour._
-
-

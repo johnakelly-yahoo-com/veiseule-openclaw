@@ -1,4 +1,11 @@
-------
+---
+title: "Release-checklista"
+summary: "Steg-för-steg-checklista för release av npm + macOS-app"
+read_when:
+  - Skapa en ny npm-release
+  - Skapa en ny macOS-app-release
+  - Verifiera metadata före publicering
+---
 
 # Releasechecklista (npm + macOS)
 
@@ -112,5 +119,3 @@ Aktuell lista över npm-plugins (uppdatera vid behov):
 
 Release notes måste också lyfta **nya valfria bundlade plugins** som **inte är påslagna
 som standard** (exempel: `tlon`).
-
-

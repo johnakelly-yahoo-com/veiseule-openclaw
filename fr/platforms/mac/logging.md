@@ -1,4 +1,8 @@
 ---
+summary: "Journalisation OpenClaw : fichier de diagnostics à rotation + indicateurs de confidentialité de la journalisation unifiée"
+read_when:
+  - Capture des journaux macOS ou enquête sur la journalisation de données privées
+  - Débogage des problèmes de cycle de vie de l’activation vocale/de session
 title: "Journalisation macOS"
 ---
 
@@ -51,5 +55,3 @@ sudo install -m 644 -o root -g wheel /tmp/bot.molt.plist /Library/Preferences/Lo
 - Supprimez la surcharge : `sudo rm /Library/Preferences/Logging/Subsystems/bot.molt.plist`.
 - Exécutez éventuellement `sudo log config --reload` pour forcer logd à abandonner immédiatement la surcharge.
 - N’oubliez pas que cette surface peut inclure des numéros de téléphone et des corps de messages ; conservez le plist en place uniquement tant que vous avez activement besoin du niveau de détail supplémentaire.
-
-

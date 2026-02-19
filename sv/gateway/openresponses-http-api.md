@@ -1,4 +1,8 @@
 ---
+summary: "Exponera en OpenResponses-kompatibel /v1/responses HTTP-endpoint från Gateway"
+read_when:
+  - Integrera klienter som talar OpenResponses API
+  - Du vill ha objektbaserade indata, klientverktygsanrop eller SSE-händelser
 title: "OpenResponses API"
 ---
 
@@ -24,6 +28,7 @@ Noteringar:
 
 - När `gateway.auth.mode="token"`, använd `gateway.auth.token` (eller `OPENCLAW_GATEWAY_TOKEN`).
 - När `gateway.auth.mode="password"`, använd `gateway.auth.password` (eller `OPENCLAW_GATEWAY_PASSWORD`).
+- Om `gateway.auth.rateLimit` är konfigurerad och för många autentiseringsfel inträffar returnerar endpointen `429` med `Retry-After`.
 
 ## Välja agent
 
@@ -183,6 +188,10 @@ Standardvärden för URL-hämtning:
 - `files.allowUrl`: `true`
 - `images.allowUrl`: `true`
 - Förfrågningar skyddas (DNS-upplösning, blockering av privata IP-adresser, begränsning av omdirigeringar, tidsgränser).
+- Förfrågningar skyddas (DNS-upplösning, blockering av privata IP-adresser, begränsning av omdirigeringar, tidsgränser).
+- Valfria värdnamns‑allowlists stöds per inmatningstyp (`files.urlAllowlist`, `images.urlAllowlist`).
+  - Exakt värd: `"cdn.example.com"`
+  - Wildcard-underdomäner: `"*.assets.example.com"` (matchar inte apex-domänen)
 
 ## Fil- och bildgränser (konfig)
 
@@ -233,6 +242,7 @@ Standardvärden kan justeras under `gateway.http.endpoints.responses`:
 Standardvärden när de utelämnas:
 
 - `maxBodyBytes`: 20MB
+- `maxUrlParts`: 8
 - `files.maxBytes`: 5MB
 - `files.maxChars`: 200k
 - `files.maxRedirects`: 3
@@ -244,9 +254,16 @@ Standardvärden när de utelämnas:
 - `images.maxRedirects`: 3
 - `images.timeoutMs`: 10s
 
+Säkerhetsnotering:
+
+- URL‑allowlists tillämpas före hämtning och vid omdirigeringssteg.
+- Att allowlista ett värdnamn kringgår inte blockering av privata/interna IP-adresser.
+- För gateways som exponeras mot internet, tillämpa nätverksbaserade egress-kontroller utöver skydd på applikationsnivå.
+  Se [Security](/gateway/security).
+
 ## Streaming (SSE)
 
-Sätt `stream: true` för att ta emot Server-Sent Events (SSE):
+Händelsetyper som för närvarande skickas:
 
 - `Content-Type: text/event-stream`
 - Varje händelserad är `event: <type>` och `data: <json>`
@@ -265,13 +282,13 @@ Händelsetyper som för närvarande skickas:
 - `response.completed`
 - `response.failed` (vid fel)
 
-## Användning
-
-`usage` fylls i när den underliggande leverantören rapporterar tokenräkningar.
-
 ## Fel
 
 Fel använder ett JSON-objekt som:
+
+## Fel
+
+Vanliga fall:
 
 ```json
 { "error": { "message": "...", "type": "invalid_request_error" } }
@@ -311,5 +328,3 @@ curl -N http://127.0.0.1:18789/v1/responses \
     "input": "hi"
   }'
 ```
-
-

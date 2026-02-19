@@ -1,6 +1,6 @@
 ---
 title: "Refactor van uitgaande sessiespiegeling (Issue #1520)" #1520)
-description: "Houd notities, beslissingen, tests en openstaande punten bij voor de refactor van uitgaande sessiespiegeling."
+description: Houd notities, beslissingen, tests en openstaande punten bij voor de refactor van uitgaande sessiespiegeling.
 ---
 
 # Refactor van uitgaande sessiespiegeling (Issue #1520)
@@ -83,5 +83,3 @@ Uitgaande verzendingen werden gespiegeld naar de _huidige_ agent-sessie (tool se
   - `src/infra/outbound/outbound-session.test.ts`
   - `src/agents/tools/message-tool.test.ts`
   - `src/gateway/server-methods/send.test.ts`
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Nostr-DM-Kanal über NIP-04-verschlüsselte Nachrichten"
+read_when:
+  - Sie möchten, dass OpenClaw DMs über Nostr empfängt
+  - Sie richten dezentrale Nachrichtenübermittlung ein
 title: "Nostr"
 ---
 
@@ -67,7 +71,7 @@ export NOSTR_PRIVATE_KEY="nsec1..."
 
 ## Konfigurationsreferenz
 
-| Schlüssel          | Typ                                                         | Standard                                     | Beschreibung                                   |
+| Schlüssel    | Typ                                                          | Standard                                    | Beschreibung                                  |
 | ------------ | ------------------------------------------------------------ | ------------------------------------------- | --------------------------------------------- |
 | `privateKey` | string                                                       | required                                    | Privater Schlüssel im `nsec`- oder Hex-Format |
 | `relays`     | string[] | `['wss://relay.damus.io', 'wss://nos.lol']` | Relay-URLs (WebSocket)     |
@@ -162,7 +166,7 @@ Tipps:
 
 ## Protokollunterstützung
 
-| NIP    | Status      | Beschreibung                                      |
+| NIP    | Status      | Beschreibung                                     |
 | ------ | ----------- | ------------------------------------------------ |
 | NIP-01 | Unterstützt | Basis-Eventformat + Profilmetadaten              |
 | NIP-04 | Unterstützt | Verschlüsselte DMs (`kind:4`) |
@@ -227,5 +231,3 @@ docker run -p 7777:7777 ghcr.io/hoytech/strfry
 - Nur Direktnachrichten (keine Gruppenchats).
 - Keine Medienanhänge.
 - Nur NIP-04 (NIP-17 Gift-Wrap geplant).
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Descripción general de compatibilidad de plataformas (Gateway + aplicaciones complementarias)"
+read_when:
+  - Buscando compatibilidad de SO o rutas de instalación
+  - Decidiendo dónde ejecutar el Gateway
 title: "Plataformas"
 ---
 
@@ -47,5 +51,3 @@ El destino del servicio depende del SO:
 
 - macOS: LaunchAgent (`bot.molt.gateway` o `bot.molt.<profile>`; legado `com.openclaw.*`)
 - Linux/WSL2: servicio de usuario systemd (`openclaw-gateway[-<profile>].service`)
-
-

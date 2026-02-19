@@ -1,4 +1,7 @@
 ---
+summary: "مرجع CLI لأمر `openclaw config` (الحصول/التعيين/إلغاء التعيين لقيم التهيئة)"
+read_when:
+  - عندما تريد قراءة التهيئة أو تحريرها بشكل غير تفاعلي
 title: "التهيئة"
 ---
 
@@ -44,5 +47,3 @@ openclaw config set channels.whatsapp.groups '["*"]' --json
 ```
 
 أعد تشغيل Gateway (البوابة) بعد إجراء التعديلات.
-
-

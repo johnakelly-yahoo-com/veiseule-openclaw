@@ -1,4 +1,7 @@
 ---
+summary: "Справка CLI для `openclaw configure` (интерактивные запросы конфигурации)"
+read_when:
+  - Вам нужно интерактивно настроить учётные данные, устройства или параметры агента по умолчанию
 title: "configure"
 ---
 
@@ -27,5 +30,3 @@ title: "configure"
 openclaw configure
 openclaw configure --section models --section channels
 ```
-
-

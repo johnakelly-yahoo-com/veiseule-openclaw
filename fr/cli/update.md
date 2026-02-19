@@ -1,4 +1,8 @@
 ---
+summary: "Reference CLI pour `openclaw update` (mise a jour de la source plutot sure + redemarrage automatique de la Gateway (passerelle))"
+read_when:
+  - Vous voulez mettre a jour un checkout source en toute securite
+  - Vous devez comprendre le comportement du raccourci `--update`
 title: "update"
 ---
 
@@ -90,5 +94,3 @@ Niveau supérieur:
 - [Canaux de développement](/install/development-channels)
 - [Mise à jour](/install/updating)
 - [Reference CLI](/cli)
-
-

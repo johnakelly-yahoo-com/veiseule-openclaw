@@ -1,4 +1,9 @@
 ---
+summary: "Skemakorrekte konfigurationseksempler for almindelige OpenClaw-opsætninger"
+read_when:
+  - Når du lærer at konfigurere OpenClaw
+  - Når du leder efter konfigurationseksempler
+  - Når du sætter OpenClaw op for første gang
 title: "Konfigurationseksempler"
 ---
 
@@ -599,5 +604,3 @@ Hvis mere end én person kan DM’e din bot (flere poster i `allowFrom`, parring
 - Udbyder-ID'er adskiller sig (telefonnumre, bruger-IDs, kanal-ID'er). Brug udbyderens dokumenter til at bekræfte formatet.
 - Valgfrie sektioner, der kan tilføjes senere: `web`, `browser`, `ui`, `discovery`, `canvasHost`, `talk`, `signal`, `imessage`.
 - Se [Providers](/channels/whatsapp) og [Fejlfinding](/gateway/troubleshooting) for mere detaljerede opsætningsnoter.
-
-

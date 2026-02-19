@@ -1,4 +1,8 @@
 ---
+summary: "CLI-reference for `openclaw status` (diagnostik, prober, brugssnapshots)"
+read_when:
+  - Du vil have en hurtig diagnose af kanaltilstand + nylige sessionsmodtagere
+  - Du vil have en indsættelig “all”-status til fejlfinding
 title: "status"
 ---
 
@@ -20,5 +24,3 @@ Noter:
 - Overblikket inkluderer Gateway + node-værtstjenestens installations-/kørselsstatus, når den er tilgængelig.
 - Overblikket inkluderer opdateringskanal + git SHA (for kildecheckouts).
 - Opdateringsinfo vises i Overblikket; hvis en opdatering er tilgængelig, udskriver status et hint om at køre `openclaw update` (se [Opdatering](/install/updating)).
-
-

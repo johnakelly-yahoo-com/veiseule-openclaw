@@ -1,4 +1,7 @@
 ---
+summary: "가장 많이 사용되는 OpenClaw 문서로 연결되는 엄선된 링크입니다."
+read_when:
+  - 핵심 문서 페이지에 빠르게 접근하고 싶을 때
 title: "문서 디렉토리"
 ---
 
@@ -59,5 +62,3 @@ title: "문서 디렉토리"
 - [Gmail 훅 (Pub/Sub)](/automation/gmail-pubsub)
 - [보안](/gateway/security)
 - [문제 해결](/gateway/troubleshooting)
-
-

@@ -1,4 +1,10 @@
 ---
+summary: "OAuth в OpenClaw: обмен токенами, хранение и шаблоны работы с несколькими аккаунтами"
+read_when:
+  - Вы хотите понять OAuth в OpenClaw целиком, от начала до конца
+  - Вы попадаете в проблемы с аннулированием / выходом токена
+  - Вам нужны потоки аутентификации setup-token или OAuth
+  - Вам нужны несколько аккаунтов или маршрутизация по профилям
 title: "OAuth"
 ---
 
@@ -136,5 +142,3 @@ openclaw agents add personal
 
 - [/concepts/model-failover](/concepts/model-failover) (ротация + правила cooldown)
 - [/tools/slash-commands](/tools/slash-commands) (поверхность команд)
-
-

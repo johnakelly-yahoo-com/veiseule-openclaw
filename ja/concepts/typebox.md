@@ -1,4 +1,7 @@
 ---
+summary: "Gateway プロトコルの単一の信頼できる情報源としての TypeBox スキーマ"
+read_when:
+  - プロトコルスキーマやコード生成を更新する場合
 title: "TypeBox"
 ---
 
@@ -7,6 +10,9 @@ title: "TypeBox"
 最終更新日: 2026-01-10
 
 TypeBox は TypeScript ファーストのスキーマライブラリです。私たちはこれを使用して **Gateway WebSocket プロトコル**（ハンドシェイク、リクエスト/レスポンス、サーバーイベント）を定義しています。これらのスキーマは **ランタイム検証**、**JSON Schema のエクスポート**、および macOS アプリ向けの **Swift コード生成** を駆動します。単一の信頼できる情報源があり、その他はすべて生成されます。 **Gateway
+WebSocket プロトコル** (ハンドシェイク、リクエスト、レスポンス、サーバーイベント) を定義します。 これらのスキーマ
+はmacOSアプリの**ランタイム検証**、**JSONスキーマエクスポート**、**Swiftコード**を
+ドライブします。 真実の一つの源;他のすべてが生成されます。 **Gateway
 WebSocket プロトコル** (ハンドシェイク、リクエスト、レスポンス、サーバーイベント) を定義します。 これらのスキーマ
 はmacOSアプリの**ランタイム検証**、**JSONスキーマエクスポート**、**Swiftコード**を
 ドライブします。 真実の一つの源;他のすべてが生成されます。
@@ -21,7 +27,7 @@ WebSocket プロトコル** (ハンドシェイク、リクエスト、レスポ
 - **レスポンス**: `{ type: "res", id, ok, payload | error }`
 - **イベント**: `{ type: "event", event, payload, seq?, stateVersion? }`
 
-最初のフレームは `connect` リクエストでなければなりません。 その後、クライアントは
+最初のフレームは `connect` リクエストでなければなりません。 最初のフレームは `connect` リクエストでなければなりません。 その後、クライアントは
 メソッド(例: `health`, `send`, `chat.send`)を呼び出し、イベント(例:
 `presence`, `tick`, `agent`)を購読することができます。
 
@@ -38,14 +44,14 @@ Client                    Gateway
 
 一般的なメソッド + イベント:
 
-| カテゴリ  | 例                                                  | 備考                        |
-| --------- | --------------------------------------------------------- | ---------------------------- |
-| コア      | `connect`, `health`, `status`                             | `connect` が最初である必要があります      |
-| メッセージング | `send`, `poll`, `agent`, `agent.wait`                     | 副作用には `idempotencyKey` が必要です |
-| Chat      | `chat.history`, `chat.send`, `chat.abort`, `chat.inject`  | WebChat はこれらを使用します           |
-| Sessions  | `sessions.list`, `sessions.patch`, `sessions.delete`      | セッション管理                      |
-| Nodes     | `node.list`, `node.invoke`, `node.pair.*`                 | Gateway WS + ノードアクション        |
-| Events    | `tick`, `presence`, `agent`, `chat`, `health`, `shutdown` | サーバープッシュ                     |
+| カテゴリ     | 例                                                         | Notes                        |
+| -------- | --------------------------------------------------------- | ---------------------------- |
+| コア       | `connect`, `health`, `status`                             | `connect` が最初である必要があります      |
+| メッセージング  | `send`, `poll`, `agent`, `agent.wait`                     | 副作用には `idempotencyKey` が必要です |
+| Chat     | `chat.history`, `chat.send`, `chat.abort`, `chat.inject`  | WebChat はこれらを使用します           |
+| Sessions | `sessions.list`, `sessions.patch`, `sessions.delete`      | セッション管理                      |
+| Nodes    | `node.list`, `node.invoke`, `node.pair.*`                 | Gateway WS + ノードアクション        |
+| Events   | `tick`, `presence`, `agent`, `chat`, `health`, `shutdown` | サーバープッシュ                     |
 
 正式な一覧は `src/gateway/server.ts`（`METHODS`, `EVENTS`）にあります。
 
@@ -274,6 +280,7 @@ Swift ジェネレーターは次を出力します:
 生成された JSON Schema は、リポジトリ内の `dist/protocol.schema.json` にあります。
 公開されている raw ファイルは、通常次の場所で利用できます:
 公開された生ファイルは通常、以下で利用できます：
+公開された生ファイルは通常、以下で利用できます：
 
 - [https://raw.githubusercontent.com/openclaw/openclaw/main/dist/protocol.schema.json](https://raw.githubusercontent.com/openclaw/openclaw/main/dist/protocol.schema.json)
 
@@ -282,5 +289,3 @@ Swift ジェネレーターは次を出力します:
 1. TypeBox スキーマを更新します。
 2. `pnpm protocol:check` を実行します。
 3. 再生成されたスキーマと Swift モデルをコミットします。
-
-

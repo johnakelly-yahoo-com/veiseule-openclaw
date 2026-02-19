@@ -1,4 +1,7 @@
 ---
+summary: "macOS アプリが Gateway（ゲートウェイ）/Baileys のヘルス状態をどのように報告するか"
+read_when:
+  - mac アプリのヘルスインジケーターをデバッグする場合
 title: "ヘルスチェック"
 ---
 
@@ -23,11 +26,9 @@ title: "ヘルスチェック"
 
 ## プローブの仕組み
 
-- アプリは約 60 秒ごと、およびオンデマンドで、`openclaw health --json` を `ShellExecutor` 経由で実行します。プローブは認証情報を読み込み、メッセージを送信せずにステータスを報告します。 プローブは、メッセージを送信せずにクリードを読み込み、ステータスを報告します。
+- アプリは約 60 秒ごと、およびオンデマンドで、`openclaw health --json` を `ShellExecutor` 経由で実行します。プローブは認証情報を読み込み、メッセージを送信せずにステータスを報告します。 プローブは、メッセージを送信せずにクリードを読み込み、ステータスを報告します。 プローブは、メッセージを送信せずにクリードを読み込み、ステータスを報告します。
 - ちらつきを防ぐため、直近の正常なスナップショットと直近のエラーを個別にキャッシュし、それぞれのタイムスタンプを表示します。
 
 ## 判断に迷った場合
 
 - [Gateway health](/gateway/health) の CLI フロー（`openclaw status`、`openclaw status --deep`、`openclaw health --json`）を引き続き利用でき、`web-heartbeat` / `web-reconnect` のために `/tmp/openclaw/openclaw-*.log` を tail することも可能です。
-
-

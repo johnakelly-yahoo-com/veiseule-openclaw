@@ -1,4 +1,8 @@
 ---
+summary: "إعداد Perplexity Sonar لـ web_search"
+read_when:
+  - تريد استخدام Perplexity Sonar للبحث على الويب
+  - تحتاج إلى PERPLEXITY_API_KEY أو إعداد OpenRouter
 title: "Perplexity Sonar"
 ---
 
@@ -74,5 +78,3 @@ title: "Perplexity Sonar"
 - `perplexity/sonar-reasoning-pro` — بحث معمّق
 
 انظر [أدوات الويب](/tools/web) للاطلاع على التهيئة الكاملة لـ web_search.
-
-

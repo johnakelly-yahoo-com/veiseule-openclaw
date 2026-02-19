@@ -1,4 +1,8 @@
 ---
+summary: "Tek bir ana makinede birden fazla OpenClaw Gateway çalıştırma (izolasyon, portlar ve profiller)"
+read_when:
+  - Aynı makinede birden fazla Gateway çalıştırıyorsanız
+  - Her Gateway için yalıtılmış yapılandırma/durum/portlara ihtiyacınız varsa
 title: "Birden Fazla Gateway"
 ---
 
@@ -75,7 +79,7 @@ openclaw --profile rescue gateway install
 Temel port = `gateway.port` (veya `OPENCLAW_GATEWAY_PORT` / `--port`).
 
 - tarayıcı kontrol servis portu = temel + 2 (yalnızca local loopback)
-- `canvasHost.port = base + 4`
+- canvas host, Gateway HTTP sunucusunda (`gateway.port` ile aynı port) sunulur
 - Tarayıcı profil CDP portları `browser.controlPort + 9 .. + 108`’den otomatik olarak atanır
 
 Bunlardan herhangi birini yapılandırmada veya ortam değişkenlerinde geçersiz kılarsanız, örnek başına benzersiz tutmalısınız.
@@ -106,5 +110,3 @@ openclaw --profile main status
 openclaw --profile rescue status
 openclaw --profile rescue browser status
 ```
-
-

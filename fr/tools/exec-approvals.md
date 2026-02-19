@@ -1,4 +1,9 @@
 ---
+summary: "Approbations d’exécution, listes d’autorisation et invites d’échappement du sandbox"
+read_when:
+  - Configuration des approbations d’exécution ou des listes d’autorisation
+  - Implémentation de l’UX d’approbation d’exécution dans l’application macOS
+  - Revue des invites d’échappement du sandbox et de leurs implications
 title: "Approbations d’exécution"
 ---
 
@@ -116,6 +121,9 @@ sont traités comme autorisés sur les nœuds (nœud macOS ou hôte de nœud san
 `tools.exec.safeBins` définit une petite liste de binaires **stdin‑only** (par exemple `jq`)
 qui peuvent s’exécuter en mode liste d’autorisation **sans** entrées explicites dans la liste d’autorisation. Les binaires sûrs rejettent
 les arguments positionnels de fichiers et les jetons de type chemin, afin qu’ils ne puissent opérer que sur le flux entrant.
+Les safe bins forcent également les jetons argv à être traités comme du **texte littéral** au moment de l’exécution (sans globbing
+et sans expansion de `$VARS`) pour les segments stdin uniquement, afin que des motifs comme `*` ou `$HOME/...` ne puissent pas être
+utilisés pour dissimuler des lectures de fichiers.
 L’enchaînement de shells et les redirections ne sont pas auto‑autorisés en mode liste d’autorisation.
 
 L’enchaînement de shells (`&&`, `||`, `;`) est autorisé lorsque chaque segment de niveau supérieur satisfait la liste d’autorisation
@@ -236,5 +244,3 @@ Liens associés :
 - [Outil exec](/tools/exec)
 - [Mode élevé](/tools/elevated)
 - [Compétences](/tools/skills)
-
-

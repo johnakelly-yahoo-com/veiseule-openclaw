@@ -1,4 +1,7 @@
 ---
+summary: "Menyu paneli holati logikasi va foydalanuvchilarga nimalar ko‘rsatilishi"
+read_when:
+  - Mac menyu UI yoki holat logikasini sozlash
 title: "Menyu paneli"
 ---
 
@@ -76,5 +79,3 @@ title: "Menyu paneli"
 - Start main while other active: icon flips to main instantly.
 - Rapid tool bursts: ensure badge does not flicker (TTL grace on tool results).
 - Health row reappears once all sessions idle.
-
-

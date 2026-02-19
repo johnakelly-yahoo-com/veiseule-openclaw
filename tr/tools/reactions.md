@@ -1,4 +1,7 @@
 ---
+summary: "Kanallar arasında paylaşılan tepki semantiği"
+read_when:
+  - Herhangi bir kanalda tepkiler üzerinde çalışırken
 title: "Tepkiler"
 ---
 
@@ -17,5 +20,3 @@ Kanal notları:
 - **Telegram**: boş `emoji`, botun tepkilerini kaldırır; `remove: true` da tepkileri kaldırır ancak araç doğrulaması için yine de boş olmayan bir `emoji` gerektirir.
 - **WhatsApp**: boş `emoji`, bot tepkisini kaldırır; `remove: true` boş emojiye eşlenir (yine de `emoji` gerektirir).
 - **Signal**: gelen tepki bildirimleri, `channels.signal.reactionNotifications` etkinleştirildiğinde sistem olayları üretir.
-
-

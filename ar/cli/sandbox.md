@@ -1,5 +1,7 @@
 ---
 title: رملد CLI
+summary: "إدارة حاويات sandbox وفحص سياسة sandbox الفعلية"
+read_when: "عندما تكون تدير حاويات sandbox أو تقوم بتصحيح سلوك sandbox/سياسة الأدوات."
 status: active
 ---
 
@@ -147,5 +149,3 @@ openclaw sandbox recreate --agent alfred
 - [توثيق Sandbox](/gateway/sandboxing)
 - [تهيئة الوكيل](/concepts/agent-workspace)
 - [أمر Doctor](/gateway/doctor) - التحقق من إعداد sandbox
-
-

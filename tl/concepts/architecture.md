@@ -1,4 +1,7 @@
 ---
+summary: "Arkitektura ng WebSocket gateway, mga component, at mga daloy ng client"
+read_when:
+  - Nagtatrabaho sa gateway protocol, mga client, o mga transport
 title: "Arkitektura ng Gateway"
 ---
 
@@ -17,6 +20,9 @@ Huling na-update: 2026-01-22
   nagde-deklara ng `role: node` na may tahasang caps/commands.
 - Isang Gateway bawat host; ito lamang ang lugar na nagbubukas ng WhatsApp session.
 - Isang **canvas host** (default `18793`) ang nagseserbisyo ng agent‑editable HTML at A2UI.
+  - `/__openclaw__/canvas/` (HTML/CSS/JS na mae-edit ng agent)
+  - `/__openclaw__/a2ui/` (A2UI host)
+    Ginagamit nito ang parehong port tulad ng Gateway (default `18789`).
 
 ## Mga component at daloy
 
@@ -146,5 +152,3 @@ Mga detalye: [Gateway protocol](/gateway/protocol), [Pairing](/channels/pairing)
 - Eksaktong isang Gateway ang kumokontrol sa isang Baileys session bawat host.
 - Sapilitan ang handshake; anumang non‑JSON o non‑connect na unang frame ay agarang isasara.
 - Ang mga event ay hindi nire-replay; dapat mag-refresh ang mga client kapag may gap.
-
-

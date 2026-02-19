@@ -1,4 +1,7 @@
 ---
+summary: "Loopback WebChat statische host en Gateway WS-gebruik voor chat-UI"
+read_when:
+  - Debuggen of configureren van WebChat-toegang
 title: "WebChat"
 ---
 
@@ -42,7 +45,6 @@ Gerelateerde globale opties:
 
 - `gateway.port`, `gateway.bind`: WebSocket-host/poort.
 - `gateway.auth.mode`, `gateway.auth.token`, `gateway.auth.password`: WebSocket-authenticatie.
+- `gateway.auth.mode: "trusted-proxy"`: reverse-proxy-authenticatie voor browserclients (zie [Trusted Proxy Auth](/gateway/trusted-proxy-auth)).
 - `gateway.remote.url`, `gateway.remote.token`, `gateway.remote.password`: doel van de Gateway op afstand.
 - `session.*`: sessieopslag en standaardwaarden voor de hoofdsleutel.
-
-

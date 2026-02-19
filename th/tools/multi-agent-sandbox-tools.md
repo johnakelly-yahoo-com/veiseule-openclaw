@@ -1,5 +1,7 @@
 ---
+summary: "sandboxต่อเอเจนต์+ข้อจำกัดเครื่องมือ ลำดับความสำคัญ และตัวอย่าง"
 title: Sandboxและเครื่องมือแบบหลายเอเจนต์
+read_when: "คุณต้องการsandboxingต่อเอเจนต์หรือกำหนดนโยบายอนุญาต/ปฏิเสธเครื่องมือต่อเอเจนต์ในGatewayแบบหลายเอเจนต์"
 status: active
 ---
 
@@ -219,6 +221,7 @@ agents.list[].sandbox.prune.* > agents.defaults.sandbox.prune.*
 
 แต่ละระดับสามารถจำกัดการใช้เครื่องมือเพิ่มเติมได้ แต่ไม่สามารถอนุญาตให้ใช้เครื่องมือที่ถูกปฏิเสธในระดับก่อนหน้าได้อีก
 If `agents.list[].tools.sandbox.tools` is set, it replaces `tools.sandbox.tools` for that agent.
+If `agents.list[].tools.sandbox.tools` is set, it replaces `tools.sandbox.tools` for that agent.
 If `agents.list[].tools.profile` is set, it overrides `tools.profile` for that agent.
 Provider tool keys accept either `provider` (e.g. `google-antigravity`) or `provider/model` (e.g. `openai/gpt-5.2`).
 
@@ -337,7 +340,7 @@ Provider tool keys accept either `provider` (e.g. `google-antigravity`) or `prov
 `agents.defaults.sandbox.mode: "non-main"` อ้างอิงจาก `session.mainKey` (ค่าเริ่มต้น `"main"`)
 ไม่ใช่รหัสเอเจนต์ เซสชันกลุ่ม/ช่องทางจะได้คีย์ของตัวเองเสมอ
 จึงถูกมองว่าเป็น non-main และจะถูกsandbox หากต้องการให้เอเจนต์ไม่เข้าsandboxเลย
-ให้ตั้งค่า `agents.list[].sandbox.mode: "off"` เซสชันแบบกลุ่ม/ช่องจะได้รับคีย์ของตัวเองเสมอ ดังนั้นจึงถูกจัดว่าไม่ใช่ main และจะถูก sandbox หากคุณต้องการให้อเจนต์ไม่ถูก sandbox เลย ให้ตั้งค่า `agents.list[].sandbox.mode: "off"`
+ให้ตั้งค่า `agents.list[].sandbox.mode: "off"` เซสชันแบบกลุ่ม/ช่องจะได้รับคีย์ของตัวเองเสมอ ดังนั้นจึงถูกจัดว่าไม่ใช่ main และจะถูก sandbox หากคุณต้องการให้อเจนต์ไม่ถูก sandbox เลย ให้ตั้งค่า `agents.list[].sandbox.mode: "off"` เซสชันแบบกลุ่ม/ช่องจะได้รับคีย์ของตัวเองเสมอ ดังนั้นจึงถูกจัดว่าไม่ใช่ main และจะถูก sandbox หากคุณต้องการให้อเจนต์ไม่ถูก sandbox เลย ให้ตั้งค่า `agents.list[].sandbox.mode: "off"`
 
 ---
 
@@ -394,5 +397,3 @@ Provider tool keys accept either `provider` (e.g. `google-antigravity`) or `prov
 - [Multi-Agent Routing](/concepts/multi-agent)
 - [Sandbox Configuration](/gateway/configuration#agentsdefaults-sandbox)
 - [Session Management](/concepts/session)
-
-

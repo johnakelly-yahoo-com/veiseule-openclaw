@@ -1,16 +1,20 @@
 ---
+summary: "OpenClaw کے لیے ایجنٹ ٹول سطح (براؤزر، کینوس، نوڈز، میسج، کرون) جو پرانے `openclaw-*` skills کی جگہ لیتی ہے"
+read_when:
+  - ایجنٹ ٹولز شامل یا ترمیم کرتے وقت
+  - "`openclaw-*` skills کو ریٹائر یا تبدیل کرتے وقت"
 title: "ٹولز"
 ---
 
 # ٹولز (OpenClaw)
 
-OpenClaw براؤزر، کینوس، نوڈز، اور cron کے لیے **فرسٹ کلاس ایجنٹ ٹولز** فراہم کرتا ہے۔
+OpenClaw exposes **first-class agent tools** for browser, canvas, nodes, and cron.
 These replace the old `openclaw-*` skills: the tools are typed, no shelling,
 and the agent should rely on them directly.
 
 ## ٹولز کو غیر فعال کرنا
 
-آپ `openclaw.json` میں `tools.allow` / `tools.deny` کے ذریعے عالمی سطح پر ٹولز کو اجازت یا نامنظور کر سکتے ہیں
+You can globally allow/deny tools via `tools.allow` / `tools.deny` in `openclaw.json`
 (deny wins). This prevents disallowed tools from being sent to model providers.
 
 ```json5
@@ -27,7 +31,7 @@ and the agent should rely on them directly.
 
 ## ٹول پروفائلز (بنیادی اجازت فہرست)
 
-`tools.profile` ایک **بنیادی ٹول اجازت فہرست** مقرر کرتا ہے قبل اس کے کہ `tools.allow`/`tools.deny` لاگو ہوں۔
+`tools.profile` sets a **base tool allowlist** before `tools.allow`/`tools.deny`.
 Per-agent override: `agents.list[].tools.profile`.
 
 پروفائلز:
@@ -77,11 +81,11 @@ Per-agent override: `agents.list[].tools.profile`.
 
 ## فراہم کنندہ کے لحاظ سے ٹول پالیسی
 
-مخصوص فراہم کنندگان کے لیے ٹولز کو **مزید محدود** کرنے کے لیے `tools.byProvider` استعمال کریں
+Use `tools.byProvider` to **further restrict** tools for specific providers
 (or a single `provider/model`) without changing your global defaults.
 Per-agent override: `agents.list[].tools.byProvider`.
 
-یہ بنیادی ٹول پروفائل کے **بعد** اور allow/deny فہرستوں سے **پہلے** لاگو ہوتا ہے،
+This is applied **after** the base tool profile and **before** allow/deny lists,
 so it can only narrow the tool set.
 Provider keys accept either `provider` (e.g. `google-antigravity`) or
 `provider/model` (e.g. `openai/gpt-5.2`).
@@ -175,6 +179,7 @@ Plugins can register **additional tools** (and CLI commands) beyond the core set
 
 ایک یا ایک سے زیادہ فائلوں پر اسٹرکچرڈ پیچز لاگو کریں۔ ملٹی ہنک ایڈیٹس کے لیے استعمال کریں۔
 تجرباتی: `tools.exec.applyPatch.enabled` کے ذریعے فعال کریں (صرف OpenAI ماڈلز)۔
+`tools.exec.applyPatch.workspaceOnly` کا ڈیفالٹ `true` ہے (ورک اسپیس تک محدود)۔ اسے صرف اس صورت میں `false` کریں جب آپ جان بوجھ کر چاہتے ہوں کہ `apply_patch` ورک اسپیس ڈائریکٹری سے باہر لکھے یا حذف کرے۔
 
 ### `exec`
 
@@ -502,5 +507,3 @@ Gateway بیکڈ ٹولز (`canvas`, `nodes`, `cron`):
 2. **ٹول اسکیما**: ماڈل API کو بھیجی جانے والی ساختہ فنکشن تعریفیں۔
 
 اس کا مطلب ہے کہ ایجنٹ دونوں چیزیں دیکھتا ہے: “کون سے ٹولز موجود ہیں” اور “انہیں کیسے کال کرنا ہے۔” اگر کوئی ٹول سسٹم پرامپٹ یا اسکیما میں ظاہر نہیں ہوتا، تو ماڈل اسے کال نہیں کر سکتا۔
-
-

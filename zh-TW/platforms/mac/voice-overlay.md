@@ -1,10 +1,13 @@
 ---
-title: "語音覆蓋層"
+summary: "喚醒詞與按鍵通話重疊時的語音覆蓋層生命週期"
+read_when:
+  - 調整語音覆蓋層行為
+title: "Voice Overlay"
 ---
 
 # 語音覆蓋層生命週期（macOS）
 
-對象：macOS 應用程式貢獻者。目標：當喚醒詞與按住說話重疊時，讓語音覆蓋層保持可預期的行為。
+Audience: macOS app contributors. Goal: keep the voice overlay predictable when wake-word and push-to-talk overlap.
 
 ## 目前意圖
 
@@ -56,5 +59,3 @@ title: "語音覆蓋層"
 3. 重構 `VoicePushToTalk`，以採用既有工作階段，並在放開時呼叫 `endCapture`；套用執行環境冷卻。
 4. 將 `VoiceWakeOverlayController` 接線至發布者；移除執行環境／按鍵通話的直接呼叫。
 5. 為工作階段接管、冷卻時間，以及空文字關閉新增整合測試。
-
-

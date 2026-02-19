@@ -1,4 +1,10 @@
-------
+---
+title: "Sessiesnoeien"
+summary: "Sessiesnoeien: het inkorten van toolresultaten om contextopblazing te verminderen"
+read_when:
+  - Je wilt de groei van LLM-context door tooluitvoer verminderen
+  - Je stemt agents.defaults.contextPruning af
+---
 
 # Sessiesnoeien
 
@@ -115,5 +121,3 @@ Snoeien beperken tot specifieke tools:
 ```
 
 Zie configreferentie: [Gateway Configuration](/gateway/configuration)
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "리팩터링 계획: exec 호스트 라우팅, 노드 승인, 헤드리스 러너"
+read_when:
+  - exec 호스트 라우팅 또는 exec 승인을 설계할 때
+  - 노드 러너 + UI IPC 를 구현할 때
+  - exec 호스트 보안 모드와 슬래시 명령을 추가할 때
 title: "Exec 호스트 리팩터링"
 ---
 
@@ -309,5 +314,3 @@ Agent -> Gateway -> Bridge -> Node Service (TS)
 - [Exec approvals](/tools/exec-approvals)
 - [Nodes](/nodes)
 - [Elevated mode](/tools/elevated)
-
-

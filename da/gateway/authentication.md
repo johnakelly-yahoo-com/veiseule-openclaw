@@ -1,4 +1,8 @@
 ---
+summary: "Modelautentificering: OAuth, API-nøgler og setup-token"
+read_when:
+  - Fejlfinding af modelautentificering eller OAuth-udløb
+  - Dokumentation af autentificering eller lagring af legitimationsoplysninger
 title: "Autentificering"
 ---
 
@@ -145,5 +149,3 @@ mangler, skal du omdirigere `claude setup-token` og indsætte token igen.
 
 - Claude Max- eller Pro‑abonnement (for `claude setup-token`)
 - Claude Code CLI installeret (`claude`‑kommando tilgængelig)
-
-

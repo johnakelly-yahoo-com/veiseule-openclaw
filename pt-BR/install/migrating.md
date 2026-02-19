@@ -1,4 +1,8 @@
 ---
+summary: "Mover (migrar) uma instalação do OpenClaw de uma máquina para outra"
+read_when:
+  - Voce esta movendo o OpenClaw para um novo laptop/servidor
+  - Voce quer preservar sessoes, autenticacao e logins de canais (WhatsApp, etc.)
 title: "Guia de Migracao"
 ---
 
@@ -186,5 +190,3 @@ Na nova maquina, confirme:
 - [Doctor](/gateway/doctor)
 - [Solução de problemas do Gateway](/gateway/troubleshooting)
 - [Onde o OpenClaw armazena seus dados?](/help/faq#where-does-openclaw-store-its-data)
-
-

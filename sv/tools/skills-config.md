@@ -1,4 +1,8 @@
 ---
+summary: "”Schema och exempel för Skills-konfig”"
+read_when:
+  - Lägga till eller ändra Skills-konfig
+  - Justera medföljande tillåtelselista eller installationsbeteende
 title: "”Skills-konfig”"
 ---
 
@@ -42,7 +46,7 @@ All konfiguration som rör Skills finns under `skills` i `~/.openclaw/openclaw.j
 - `load.watch`: bevaka Skills-mappar och uppdatera Skills-ögonblicksbilden (standard: true).
 - `load.watchDebounceMs`: debounce för händelser från Skills-bevakaren i millisekunder (standard: 250).
 - `install.preferBrew`: föredra brew-installatörer när de finns tillgängliga (standard: true).
-- `install.nodeManager`: Node installer preferens (`npm` &lt;unk&gt; `pnpm` &lt;unk&gt; `yarn` &lt;unk&gt; `bun`, default: npm).
+- `install.nodeManager`: Node installer preferens (`npm` <unk> `pnpm` <unk> `yarn` <unk> `bun`, default: npm).
   Detta påverkar endast **färdighetsinstallationer**; Gateway runtime bör fortfarande vara Node
   (Bun rekommenderas inte för WhatsApp/Telegram).
 - `entries.<skillKey>`: åsidosättningar per skicklighet.
@@ -70,5 +74,3 @@ Använd något av följande:
 - baka in miljövariablerna i din anpassade sandbox-image
 
 Global `env` och `skills.entries.<skill>.env/apiKey` gäller endast **värd** körningar.
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "Cách các mục presence của OpenClaw được tạo ra, hợp nhất và hiển thị"
+read_when:
+  - Gỡ lỗi tab Instances
+  - Điều tra các dòng instance bị trùng lặp hoặc lỗi thời
+  - Thay đổi kết nối WS của gateway hoặc các beacon sự kiện hệ thống
 title: "Hiện diện"
 ---
 
@@ -93,5 +98,3 @@ Presence được thiết kế là tạm thời:
   - xác nhận client gửi một `client.instanceId` ổn định trong quá trình bắt tay
   - xác nhận các beacon định kỳ dùng cùng `instanceId`
   - kiểm tra xem mục phát sinh từ kết nối có thiếu `instanceId` hay không (trùng lặp là điều được dự đoán)
-
-

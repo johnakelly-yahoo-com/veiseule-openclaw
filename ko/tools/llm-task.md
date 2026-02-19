@@ -1,4 +1,8 @@
 ---
+summary: "워크플로를 위한 JSON 전용 LLM 작업 (선택적 플러그인 도구)"
+read_when:
+  - 워크플로 내에서 JSON 전용 LLM 단계를 원할 때
+  - 자동화를 위해 스키마 검증된 LLM 출력이 필요할 때
 title: "LLM 작업"
 ---
 
@@ -104,5 +108,3 @@ openclaw.invoke --tool llm-task --action json --args-json '{
 - 이 실행에서는 모델에 어떠한 도구도 노출되지 않습니다.
 - `schema` 로 검증하지 않는 한 출력을 신뢰할 수 없는 것으로 취급하십시오.
 - 부작용이 있는 단계(send, post, exec) 이전에 승인 단계를 배치하십시오.
-
-

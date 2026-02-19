@@ -1,4 +1,8 @@
 ---
+summary: "تسجيل OpenClaw: ملف تشخيصي دوّار + أعلام خصوصية السجل الموحّد"
+read_when:
+  - التقاط سجلات macOS أو التحقيق في تسجيل البيانات الخاصة
+  - تصحيح أخطاء تنشيط الصوت ودورة حياة الجلسة
 title: "تسجيل macOS"
 ---
 
@@ -51,5 +55,3 @@ sudo install -m 644 -o root -g wheel /tmp/bot.molt.plist /Library/Preferences/Lo
 - أزل التجاوز: `sudo rm /Library/Preferences/Logging/Subsystems/bot.molt.plist`.
 - اختياريًا، شغّل `sudo log config --reload` لإجبار logd على إسقاط التجاوز فورًا.
 - تذكّر أن هذه الواجهة قد تتضمن أرقام هواتف ونصوص رسائل؛ احتفِظ بملف plist في مكانه فقط طالما كنت بحاجة فعلية إلى هذا المستوى الإضافي من التفاصيل.
-
-

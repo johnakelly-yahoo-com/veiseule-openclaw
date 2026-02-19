@@ -1,4 +1,8 @@
 ---
+summary: "使用 Ollama（本機 LLM 執行環境）執行 OpenClaw"
+read_when:
+  - 你想透過 Ollama 使用本機模型來執行 OpenClaw
+  - 你需要 Ollama 的安裝與設定指引
 title: "Ollama"
 ---
 
@@ -88,7 +92,7 @@ export OLLAMA_API_KEY="ollama-local"
 
 在以下情況下使用明確設定：
 
-- 38. Ollama 會在另一個主機／連接埠上執行。
+- Ollama 會在另一個主機／連接埠上執行。
 - 你想強制指定特定的內容視窗大小或模型清單。
 - 你想納入未回報工具支援的模型。
 
@@ -170,45 +174,28 @@ Ollama 為免費且於本機執行，因此所有模型成本皆設為 $0。
 
 ### 串流設定
 
-由於底層 SDK 在處理 Ollama 回應格式時存在一個[已知問題](https://github.com/badlogic/pi-mono/issues/1205)，**預設會停用 Ollama 模型的串流**。這可避免在使用具備工具能力的模型時產生損毀的回應。 39. 這可防止在使用具備工具能力的模型時出現回應損毀。
+OpenClaw 的 Ollama 整合預設使用 **原生 Ollama API**（`/api/chat`），可同時完整支援串流與工具呼叫。 不需要任何特殊設定。
 
-當串流停用時，回應會一次性傳送（非串流模式），可避免內容／推理增量交錯而造成輸出混亂的問題。
+#### 舊版 OpenAI 相容模式
 
-#### 重新啟用串流（進階）
-
-若你想為 Ollama 重新啟用串流（在具備工具能力的模型上可能會產生問題）：
+如果你需要改用 OpenAI 相容端點（例如在僅支援 OpenAI 格式的 proxy 之後），請明確設定 `api: "openai-completions"`：
 
 ```json5
 {
-  agents: {
-    defaults: {
-      models: {
-        "ollama/gpt-oss:20b": {
-          streaming: true,
-        },
-      },
-    },
-  },
+  models: {
+    providers: {
+      ollama: {
+        baseUrl: "http://ollama-host:11434/v1",
+        api: "openai-completions",
+        apiKey: "ollama-local",
+        models: [...]
+      }
+    }
+  }
 }
 ```
 
-#### 為其他提供者停用串流
-
-如有需要，你也可以為任何提供者停用串流：
-
-```json5
-{
-  agents: {
-    defaults: {
-      models: {
-        "openai/gpt-4": {
-          streaming: false,
-        },
-      },
-    },
-  },
-}
-```
+注意：OpenAI 相容端點可能無法同時支援串流與工具呼叫。 為 Ollama 模型明確設定 `streaming: false`（請參閱[串流設定](#streaming-configuration)）
 
 ### 內容視窗
 
@@ -257,19 +244,8 @@ ps aux | grep ollama
 ollama serve
 ```
 
-### 回應損毀或輸出中出現工具名稱
-
-若你在使用 Ollama 模型時，看到包含工具名稱（例如 `sessions_send`、`memory_get`）或文字片段化的混亂回應，這是由於上游 SDK 在串流回應上的問題所致。最新版本的 OpenClaw 已**預設修正此問題**，方式是停用 Ollama 模型的串流。 **This is fixed by default** in the latest OpenClaw version by disabling streaming for Ollama models.
-
-若你手動啟用了串流並遇到此問題：
-
-1. 從你的 Ollama 模型項目中移除 `streaming: true` 設定，或
-2. 為 Ollama 模型明確設定 `streaming: false`（請參閱[串流設定](#streaming-configuration)）
-
-## 另請參閱
+## See Also
 
 - [Model Providers](/concepts/model-providers) - 所有提供者的概覽
 - [Model Selection](/concepts/models) - 如何選擇模型
 - [Configuration](/gateway/configuration) - 完整設定參考
-
-

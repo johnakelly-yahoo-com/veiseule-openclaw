@@ -1,4 +1,7 @@
 ---
+summary: "Exploration: Modellkonfiguration, Auth-Profile und Fallback-Verhalten"
+read_when:
+  - Erkundung zukünftiger Ideen zur Modellauswahl und zu Auth-Profilen
 title: "Erkundung der Modellkonfiguration"
 ---
 
@@ -31,5 +34,3 @@ Betreiber wünschen sich:
 - Sollte die Profilrotation pro Anbieter oder pro Modell erfolgen?
 - Wie sollte die UI die Profilauswahl für eine Sitzung darstellen?
 - Was ist der sicherste Migrationspfad von Legacy-Konfigurationsschlüsseln?
-
-

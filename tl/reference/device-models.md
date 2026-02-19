@@ -1,4 +1,8 @@
 ---
+summary: "Kung paano kino-vendor ng OpenClaw ang mga Apple device model identifier bilang mga friendly name sa macOS app."
+read_when:
+  - Ina-update ang mga mapping ng device model identifier o mga NOTICE/license file
+  - Binabago kung paano ipinapakita ng Instances UI ang mga pangalan ng device
 title: "Database ng Device Model"
 ---
 
@@ -41,5 +45,3 @@ curl -fsSL "https://raw.githubusercontent.com/kyle-seongwoo-jun/apple-device-ide
 ```bash
 swift build --package-path apps/macos
 ```
-
-

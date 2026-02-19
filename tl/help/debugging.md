@@ -1,4 +1,9 @@
 ---
+summary: "Mga tool sa pag-debug: watch mode, raw model streams, at pag-trace ng pagtagas ng reasoning"
+read_when:
+  - Kailangan mong inspeksyunin ang raw model output para sa pagtagas ng reasoning
+  - Gusto mong patakbuhin ang Gateway sa watch mode habang nag-i-iterate
+  - Kailangan mo ng paulit-ulit na workflow sa pag-debug
 title: "Pag-debug"
 ---
 
@@ -155,5 +160,3 @@ Default na file:
 - Maaaring maglaman ang mga raw stream log ng buong prompt, tool output, at data ng user.
 - Panatilihing lokal ang mga log at burahin ang mga ito pagkatapos ng pag-debug.
 - Kung magbabahagi ka ng mga log, i-scrub muna ang mga lihim at PII.
-
-

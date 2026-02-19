@@ -1,4 +1,9 @@
 ---
+summary: "Khám phá node và các phương thức truyền tải (Bonjour, Tailscale, SSH) để tìm gateway"
+read_when:
+  - Triển khai hoặc thay đổi cơ chế khám phá/quảng bá Bonjour
+  - Điều chỉnh các chế độ kết nối từ xa (trực tiếp so với SSH)
+  - Thiết kế khám phá node + ghép cặp cho các node từ xa
 title: "Khám phá và phương thức truyền tải"
 ---
 
@@ -65,6 +70,13 @@ Chi tiết xử lý sự cố và beacon: [Bonjour](/gateway/bonjour).
 
 Tắt/ghi đè:
 
+- Bản ghi Bonjour/mDNS TXT là **không được xác thực**. Client chỉ nên xem các giá trị TXT như gợi ý UX.
+- `gateway.bind` trong `~/.openclaw/openclaw.json` kiểm soát chế độ bind của Gateway.
+- `OPENCLAW_SSH_PORT` ghi đè cổng SSH được quảng bá trong TXT (mặc định là 22).
+- `OPENCLAW_TAILNET_DNS` xuất bản gợi ý `tailnetDns` (MagicDNS).
+
+Tắt/ghi đè:
+
 - `OPENCLAW_DISABLE_BONJOUR=1` tắt quảng bá.
 - `gateway.bind` trong `~/.openclaw/openclaw.json` kiểm soát chế độ bind của Gateway.
 - `OPENCLAW_SSH_PORT` ghi đè cổng SSH được quảng bá trong TXT (mặc định là 22).
@@ -77,13 +89,13 @@ Với các thiết lập kiểu London/Vienna, Bonjour sẽ không hữu ích. `
 
 - Tên Tailscale MagicDNS (ưu tiên) hoặc một IP tailnet ổn định.
 
-Nếu gateway có thể phát hiện nó đang chạy dưới Tailscale, nó sẽ công bố `tailnetDns` như một gợi ý tùy chọn cho client (bao gồm cả beacon diện rộng).
+Khi không có tuyến direct (hoặc direct bị tắt), client luôn có thể kết nối qua SSH bằng cách chuyển tiếp cổng gateway trên local loopback.
 
 ### 3. Mục tiêu thủ công / SSH
 
 Khi không có tuyến direct (hoặc direct bị tắt), client luôn có thể kết nối qua SSH bằng cách chuyển tiếp cổng gateway trên local loopback.
 
-Xem [Remote access](/gateway/remote).
+Hành vi client được khuyến nghị:
 
 ## Lựa chọn phương thức truyền tải (chính sách client)
 
@@ -98,8 +110,8 @@ Hành vi client được khuyến nghị:
 
 Gateway là nguồn sự thật cho việc chấp nhận node/client.
 
-- Yêu cầu ghép cặp được tạo/phê duyệt/từ chối trong gateway (xem [Gateway pairing](/gateway/pairing)).
-- Gateway thực thi:
+- **Gateway**: quảng bá beacon khám phá, quyết định ghép cặp, và lưu trữ endpoint WS.
+- **Ứng dụng macOS**: giúp bạn chọn gateway, hiển thị lời nhắc ghép cặp, và chỉ dùng SSH như phương án dự phòng.
   - xác thực (token / cặp khóa)
   - phạm vi/ACLs (gateway không phải là proxy thô tới mọi phương thức)
   - giới hạn tốc độ
@@ -109,5 +121,3 @@ Gateway là nguồn sự thật cho việc chấp nhận node/client.
 - **Gateway**: quảng bá beacon khám phá, quyết định ghép cặp, và lưu trữ endpoint WS.
 - **Ứng dụng macOS**: giúp bạn chọn gateway, hiển thị lời nhắc ghép cặp, và chỉ dùng SSH như phương án dự phòng.
 - **Node iOS/Android**: duyệt Bonjour như một tiện lợi và kết nối tới Gateway WS đã ghép cặp.
-
-

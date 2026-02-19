@@ -1,4 +1,11 @@
-------
+---
+title: "Danh sách kiểm tra phát hành"
+summary: "Danh sách kiểm tra phát hành từng bước cho npm + ứng dụng macOS"
+read_when:
+  - Phát hành một bản npm mới
+  - Phát hành một bản ứng dụng macOS mới
+  - Xác minh metadata trước khi xuất bản
+---
 
 # Danh sách kiểm tra phát hành (npm + macOS)
 
@@ -111,5 +118,3 @@ Danh sách plugin npm hiện tại (cập nhật khi cần):
 - @openclaw/zalouser
 
 Ghi chú phát hành cũng phải nêu rõ **các plugin bundle tùy chọn mới** **không bật mặc định** (ví dụ: `tlon`).
-
-

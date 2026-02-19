@@ -1,11 +1,18 @@
 ---
+summary: "OpenClaw 的進階設定與開發工作流程"
+read_when:
+  - 設定新機器時
+  - 想要「最新 + 最強」但不破壞你的個人設定
 title: "設定"
 ---
 
 # 設定
 
 <Note>
+
 如果你是第一次設定，請從 [Getting Started](/start/getting-started) 開始。
+如需精靈的詳細資訊，請參閱 [Onboarding Wizard](/start/wizard)。
+
 如需精靈的詳細資訊，請參閱 [Onboarding Wizard](/start/wizard)。
 </Note>
 
@@ -44,7 +51,7 @@ openclaw setup
 
 如果你尚未有全域安裝，請透過 `pnpm openclaw setup` 執行。
 
-## 39. 從此 repo 執行 Gateway
+## 從此 repo 執行 Gateway
 
 在 `pnpm build` 之後，你可以直接執行封裝好的 CLI：
 
@@ -140,7 +147,7 @@ openclaw health
 
 Linux installs use a systemd **user** service. 預設情況下，systemd 會在登出/閒置時停止使用者
 服務，這會終止 Gateway。 新手引導會嘗試為你啟用
-lingering（可能會要求 sudo）。 47. 如果仍然未啟用，請執行：
+lingering（可能會要求 sudo）。 如果仍然未啟用，請執行：
 
 ```bash
 sudo loginctl enable-linger $USER
@@ -156,5 +163,3 @@ sudo loginctl enable-linger $USER
 - [Discord](/channels/discord) 與 [Telegram](/channels/telegram)（回覆標籤 + replyToMode 設定）
 - [OpenClaw 助理設定](/start/openclaw)
 - [macOS app](/platforms/macos)（gateway 生命週期）
-
-

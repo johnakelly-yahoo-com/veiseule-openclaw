@@ -1,4 +1,8 @@
 ---
+summary: "Retrybeleid voor uitgaande provider-aanroepen"
+read_when:
+  - Bijwerken van provider-retrygedrag of -standaardwaarden
+  - Debuggen van provider-verzendfouten of snelheidslimieten
 title: "Retrybeleid"
 ---
 
@@ -63,5 +67,3 @@ Stel het retrybeleid per provider in via `~/.openclaw/openclaw.json`:
 
 - Retries zijn van toepassing per verzoek (bericht verzenden, media uploaden, reactie, poll, sticker).
 - Samengestelde flows proberen voltooide stappen niet opnieuw.
-
-

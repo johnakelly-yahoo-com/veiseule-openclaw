@@ -1,4 +1,5 @@
 ---
+summary: "Issues en bugrapporten met hoge signaalwaarde indienen"
 title: "Een issue indienen"
 ---
 
@@ -149,5 +150,3 @@ _Vermijd geheimen/exploitdetails in het openbaar. Beperk bij gevoelige issues de
 ### Een fix-PR indienen
 
 Een issue vóór de PR is optioneel. Neem details op in de PR als je dit overslaat. Houd de PR gefocust, vermeld het issuenummer, voeg tests toe of leg het ontbreken uit, documenteer gedragswijzigingen/risico’s, voeg geredigeerde logs/screenshots toe als bewijs en voer de juiste validatie uit vóór indiening.
-
-

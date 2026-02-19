@@ -1,10 +1,17 @@
 ---
+summary: "WKWebView とカスタム URL スキームを介して埋め込まれた、エージェント制御の Canvas パネル"
+read_when:
+  - macOS Canvas パネルを実装する場合
+  - 視覚的ワークスペース向けのエージェント制御を追加する場合
+  - WKWebView の Canvas 読み込みをデバッグする場合
 title: "Canvas"
 ---
 
 # Canvas（macOS アプリ）
 
 macOS アプリは、`WKWebView` を使用して、エージェント制御の **Canvas パネル** を埋め込みます。これは、HTML/CSS/JS、A2UI、および小規模なインタラクティブ UI サーフェス向けの軽量な視覚的ワークスペースです。 It
+は、HTML/CSS/JS、A2UI、小型対話型
+UI サーフェス用の軽量なビジュアルワークスペースです。 It
 は、HTML/CSS/JS、A2UI、小型対話型
 UI サーフェス用の軽量なビジュアルワークスペースです。
 
@@ -62,6 +69,7 @@ openclaw nodes canvas snapshot --node <id>
 
 A2UI はゲートウェイの canvas ホストによってホストされ、Canvas パネル内でレンダリングされます。
 A2UI は Gateway の canvas host によってホストされ、Canvas パネル内にレンダリングされます。Gateway が Canvas host をアドバタイズすると、macOS アプリは初回オープン時に A2UI host ページへ自動的にナビゲートします。
+A2UI は Gateway の canvas host によってホストされ、Canvas パネル内にレンダリングされます。Gateway が Canvas host をアドバタイズすると、macOS アプリは初回オープン時に A2UI host ページへ自動的にナビゲートします。
 
 デフォルトの A2UI host URL:
 
@@ -116,5 +124,3 @@ window.location.href = "openclaw://agent?message=Review%20this%20design";
 - Canvas スキームはディレクトリトラバーサルをブロックします。ファイルはセッションルート配下に存在する必要があります。
 - ローカルの Canvas コンテンツはカスタムスキームを使用します（ループバックサーバーは不要です）。
 - 外部の `http(s)` URL は、明示的にナビゲートされた場合にのみ許可されます。
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "設定 Moonshot K2 與 Kimi Coding（獨立的提供者與金鑰）"
+read_when:
+  - 你想要設定 Moonshot K2（Moonshot Open Platform）與 Kimi Coding
+  - You need to understand separate endpoints, keys, and model refs
+  - 你想要可直接複製貼上的設定，適用於任一提供者
 title: "Moonshot AI"
 ---
 
@@ -7,6 +12,8 @@ title: "Moonshot AI"
 Moonshot 提供具有 OpenAI 相容端點的 Kimi API。請設定
 提供者，並將預設模型設為 `moonshot/kimi-k2.5`，或使用
 Kimi Coding 搭配 `kimi-coding/k2p5`。 Configure the
+provider and set the default model to `moonshot/kimi-k2.5`, or use
+Kimi Coding with `kimi-coding/k2p5`. Configure the
 provider and set the default model to `moonshot/kimi-k2.5`, or use
 Kimi Coding with `kimi-coding/k2p5`.
 
@@ -132,10 +139,8 @@ Note: Moonshot and Kimi Coding are separate providers. 注意：Moonshot 與 Kim
 
 ## 注意事項
 
-- Moonshot 的模型參照使用 `moonshot/<modelId>`。Kimi Coding 的模型參照使用 `kimi-coding/<modelId>`。 Kimi Coding model refs use `kimi-coding/<modelId>`.
+- Moonshot 的模型參照使用 `moonshot/<modelId>`。Kimi Coding 的模型參照使用 `kimi-coding/<modelId>`。 Moonshot 的模型參照使用 `moonshot/<modelId>`。Kimi Coding 的模型參照使用 `kimi-coding/<modelId>`。 Kimi Coding model refs use `kimi-coding/<modelId>`.
 - 如有需要，可在 `models.providers` 中覆寫定價與上下文中繼資料。
 - 若 Moonshot 為某個模型公布不同的上下文限制，請相應調整
   `contextWindow`。
 - 國際端點請使用 `https://api.moonshot.ai/v1`，中國端點請使用 `https://api.moonshot.cn/v1`。
-
-

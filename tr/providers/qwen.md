@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw’da Qwen OAuth’u (ücretsiz katman) kullanın"
+read_when:
+  - OpenClaw ile Qwen kullanmak istiyorsunuz
+  - Qwen Coder için ücretsiz katman OAuth erişimi istiyorsunuz
 title: "Qwen"
 ---
 
@@ -48,5 +52,3 @@ bir `models.providers.qwen-portal` girdisine ihtiyacınız vardır (oluşturmak 
 - Varsayılan temel URL: `https://portal.qwen.ai/v1` (Qwen farklı bir uç nokta sağlarsa
   `models.providers.qwen-portal.baseUrl` ile geçersiz kılın).
 - Sağlayıcı genelindeki kurallar için [Model providers](/concepts/model-providers) bölümüne bakın.
-
-

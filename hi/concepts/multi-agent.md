@@ -1,5 +1,7 @@
 ---
+summary: "मल्टी-एजेंट रूटिंग: अलग-थलग एजेंट, चैनल खाते, और बाइंडिंग्स"
 title: मल्टी-एजेंट रूटिंग
+read_when: "आप एक ही Gateway प्रक्रिया में कई अलग-थलग एजेंट (वर्कस्पेस + प्रमाणीकरण) चाहते हैं।"
 status: active
 ---
 
@@ -123,11 +125,15 @@ You can route **different WhatsApp DMs** to different agents while staying on **
 बाइंडिंग्स **निर्धारित** होती हैं और **सबसे विशिष्ट नियम जीतता है**:
 
 1. `peer` मिलान (सटीक DM/समूह/चैनल आईडी)
-2. `guildId` (Discord)
-3. `teamId` (Slack)
-4. किसी चैनल के लिए `accountId` मिलान
-5. चैनल-स्तरीय मिलान (`accountId: "*"`)
+2. `parentPeer` मिलान (थ्रेड इनहेरिटेंस)
+3. `guildId + roles` (Discord रोल रूटिंग)
+4. `guildId` (Discord)
+5. `teamId` (Slack)
 6. डिफ़ॉल्ट एजेंट पर फ़ॉलबैक (`agents.list[].default`, अन्यथा सूची की पहली प्रविष्टि, डिफ़ॉल्ट: `main`)
+7. चैनल-स्तरीय मिलान (`accountId: "*"`)
+8. डिफ़ॉल्ट एजेंट पर फ़ॉलबैक (`agents.list[].default`, अन्यथा सूची की पहली प्रविष्टि, डिफ़ॉल्ट: `main`)
+
+यदि कोई binding कई match फ़ील्ड सेट करती है (उदाहरण के लिए `peer` + `guildId`), तो सभी निर्दिष्ट फ़ील्ड आवश्यक हैं (`AND` सेमांटिक्स)।
 
 ## कई खाते / फ़ोन नंबर
 
@@ -381,5 +387,3 @@ If you need per-agent boundaries, use `agents.list[].tools` to deny `exec`.
 For group targeting, use `agents.list[].groupChat.mentionPatterns` so @mentions map cleanly to the intended agent.
 
 विस्तृत उदाहरणों के लिए [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) देखें।
-
-

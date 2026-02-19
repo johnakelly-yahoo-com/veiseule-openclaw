@@ -1,4 +1,9 @@
 ---
+summary: "Strumieniowanie + zachowanie chunkingu (blokuj odpowiedzi, szkic streamingu, limity)"
+read_when:
+  - Wyjaśnianie, jak działa strumieniowanie lub porcjowanie w kanałach
+  - Zmiana zachowania strumieniowania blokowego lub porcjowania kanałów
+  - Debugowanie zduplikowanych/wczesnych odpowiedzi blokowych lub strumieniowania wersji roboczej
 title: "Strumieniowanie i czowanie"
 ---
 
@@ -104,17 +109,17 @@ Przypomnienie o lokalizacji konfiguracji: domyślne wartości `blockStreaming*` 
 
 Telegram jest jedynym kanałem ze strumieniowaniem wersji roboczej:
 
-- Używa Bot API `sendMessageDraft` w **czatach prywatnych z tematami**.
+- Używa API Bota `sendMessage` (pierwsza aktualizacja) + `editMessageText` (kolejne aktualizacje).
 - `channels.telegram.streamMode: "partial" | "block" | "off"`.
   - `partial`: aktualizacje wersji roboczej z najnowszym tekstem strumienia.
   - `block`: aktualizacje wersji roboczej w porcjowanych blokach (te same reguły porcjownika).
   - `off`: brak projektu streamingu.
 - Konfiguracja porcji wersji roboczej (tylko dla `streamMode: "block"`): `channels.telegram.draftChunk` (domyślne: `minChars: 200`, `maxChars: 800`).
-- Strumieniowanie wersji roboczej jest niezależne od strumieniowania blokowego; odpowiedzi blokowe są domyślnie wyłączone i włączane tylko przez `*.blockStreaming: true` na kanałach innych niż Telegram.
-- Odpowiedź końcowa jest nadal zwykłą wiadomością.
+- Strumieniowanie podglądu jest oddzielone od strumieniowania bloków.
+- Gdy strumieniowanie bloków Telegram jest jawnie włączone, strumieniowanie podglądu jest pomijane, aby uniknąć podwójnego strumieniowania.
+- Końcowe odpowiedzi zawierające wyłącznie tekst są stosowane poprzez edycję wiadomości podglądu w miejscu.
+- Końcowe odpowiedzi nietekstowe/złożone wracają do standardowego sposobu dostarczania wiadomości końcowej.
 - `/reasoning stream` zapisuje rozumowanie do dymka wersji roboczej (tylko Telegram).
-
-Gdy strumieniowanie wersji roboczej jest aktywne, OpenClaw wyłącza strumieniowanie blokowe dla tej odpowiedzi, aby uniknąć podwójnego strumieniowania.
 
 ```
 Telegram (private + topics)
@@ -126,7 +131,5 @@ Telegram (private + topics)
 
 Legenda:
 
-- `sendMessageDraft`: dymek wersji roboczej Telegrama (nie jest prawdziwą wiadomością).
-- `final reply`: zwykła wysyłka wiadomości w Telegramie.
-
-
+- `preview message`: tymczasowa wiadomość Telegram aktualizowana podczas generowania.
+- `final edit`: edycja w miejscu tej samej wiadomości podglądu (tylko tekst).

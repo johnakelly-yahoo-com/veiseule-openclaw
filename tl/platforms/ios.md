@@ -1,4 +1,9 @@
 ---
+summary: "iOS node app: kumonekta sa Gateway, pairing, canvas, at pag-troubleshoot"
+read_when:
+  - Pag-pair o muling pagkonekta ng iOS node
+  - Pagpapatakbo ng iOS app mula sa source
+  - Pag-debug ng discovery ng gateway o mga command ng canvas
 title: "App sa iOS"
 ---
 
@@ -72,6 +77,7 @@ Mga tala:
 - Ang Gateway canvas host ay nagsi-serve ng `/__openclaw__/canvas/` at `/__openclaw__/a2ui/`.
 - Awtomatikong nagna-navigate ang iOS node sa A2UI kapag kumokonekta kapag may na-advertise na canvas host URL.
 - Bumalik sa built-in scaffold gamit ang `canvas.navigate` at `{"url":""}`.
+- Bumalik sa built-in scaffold gamit ang `canvas.navigate` at `{"url":""}`.
 
 ### Canvas eval / snapshot
 
@@ -100,5 +106,3 @@ openclaw nodes invoke --node "iOS Node" --command canvas.snapshot --params '{"ma
 - [Pairing](/gateway/pairing)
 - [Discovery](/gateway/discovery)
 - [Bonjour](/gateway/bonjour)
-
-

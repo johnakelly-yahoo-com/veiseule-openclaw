@@ -1,4 +1,8 @@
 ---
+summary: "نظرة عامة على بوت Feishu، الميزات، والتهيئة"
+read_when:
+  - تريد ربط بوت Feishu/Lark
+  - تقوم بتهيئة قناة Feishu
 title: Feishu
 ---
 
@@ -528,9 +532,9 @@ openclaw pairing list feishu
 | ------------------------------------------------- | ------------------------------------------------------------------------------------- | --------- |
 | `channels.feishu.enabled`                         | تفعيل/تعطيل القناة                                                                    | `true`    |
 | `channels.feishu.domain`                          | نطاق API ‏(`feishu` أو `lark`)                                     | `feishu`  |
-| `channels.feishu.accounts.<id>.appId`             | App ID                                                                                | -         |
-| `channels.feishu.accounts.<id>.appSecret`         | App Secret                                                                            | -         |
-| `channels.feishu.accounts.<id>.domain`            | تجاوز نطاق API لكل حساب                                                               | `feishu`  |
+| `channels.feishu.accounts.&lt;id&gt;.appId`             | App ID                                                                                | -         |
+| `channels.feishu.accounts.&lt;id&gt;.appSecret`         | App Secret                                                                            | -         |
+| `channels.feishu.accounts.&lt;id&gt;.domain`            | تجاوز نطاق API لكل حساب                                                               | `feishu`  |
 | `channels.feishu.dmPolicy`                        | سياسة DM                                                                              | `pairing` |
 | `channels.feishu.allowFrom`                       | قائمة السماح للرسائل المباشرة (قائمة open_id) | -         |
 | `channels.feishu.groupPolicy`                     | سياسة المجموعات                                                                       | `open`    |
@@ -574,5 +578,3 @@ openclaw pairing list feishu
 - ✅ ملفات
 - ✅ صوت
 - ⚠️ نص منسّق (دعم جزئي)
-
-

@@ -1,10 +1,15 @@
 ---
+summary: "Text-to-speech (TTS) para sa mga outbound na sagot"
+read_when:
+  - Pag-enable ng text-to-speech para sa mga sagot
+  - Pag-configure ng mga TTS provider o limitasyon
+  - Paggamit ng mga /tts command
 title: "Teksto-sa-Boses"
 ---
 
 # Teksto-sa-Boses (TTS)
 
-Maaaring i-convert ng OpenClaw ang mga tugon na ipinapadala palabas bilang audio gamit ang ElevenLabs, OpenAI, o Edge TTS.
+OpenClaw can convert outbound replies into audio using ElevenLabs, OpenAI, or Edge TTS.
 It works anywhere OpenClaw can send audio; Telegram gets a round voice-note bubble.
 
 ## Mga sinusuportahang serbisyo
@@ -15,12 +20,12 @@ It works anywhere OpenClaw can send audio; Telegram gets a round voice-note bubb
 
 ### Mga tala sa Edge TTS
 
-Ginagamit ng Edge TTS ang online neural TTS service ng Microsoft Edge sa pamamagitan ng `node-edge-tts`
+Edge TTS uses Microsoft Edge's online neural TTS service via the `node-edge-tts`
 library. It's a hosted service (not local), uses Microsoft’s endpoints, and does
 not require an API key. `node-edge-tts` exposes speech configuration options and
 output formats, but not all options are supported by the Edge service. citeturn2search0
 
-Dahil ang Edge TTS ay isang pampublikong web service na walang inilathalang SLA o quota, ituring itong
+Because Edge TTS is a public web service without a published SLA or quota, treat it
 as best-effort. If you need guaranteed limits and support, use OpenAI or ElevenLabs.
 Microsoft's Speech REST API documents a 10‑minute audio limit per request; Edge TTS
 does not publish limits, so assume similar or lower limits. citeturn0search3
@@ -32,10 +37,10 @@ Kung gusto mo ng OpenAI o ElevenLabs:
 - `ELEVENLABS_API_KEY` (o `XI_API_KEY`)
 - `OPENAI_API_KEY`
 
-Ang Edge TTS ay **hindi** nangangailangan ng API key. Kung walang makitang mga API key, ang OpenClaw ay awtomatikong gumagamit ng default
+Edge TTS does **not** require an API key. If no API keys are found, OpenClaw defaults
 to Edge TTS (unless disabled via `messages.tts.edge.enabled=false`).
 
-Kung maraming provider ang naka-configure, ang napiling provider ang unang gagamitin at ang iba ay magsisilbing fallback na mga opsyon.
+If multiple providers are configured, the selected provider is used first and the others are fallback options.
 Auto-summary uses the configured `summaryModel` (or `agents.defaults.model.primary`),
 so that provider must also be authenticated if you enable summaries.
 
@@ -388,5 +393,3 @@ Mga Gateway method:
 - `tts.convert`
 - `tts.setProvider`
 - `tts.providers`
-
-

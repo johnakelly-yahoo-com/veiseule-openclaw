@@ -1,4 +1,8 @@
 ---
+summary: "Fejlfinding af node-parring, krav til forgrund, tilladelser og værktøjsfejl"
+read_when:
+  - Node er forbundet, men kamera-/canvas-/skærm-/exec-værktøjer fejler
+  - Du har brug for den mentale model for node-parring versus godkendelser
 title: "Fejlfinding af node"
 ---
 
@@ -106,5 +110,3 @@ Relateret:
 - [/nodes/location-command](/nodes/location-command)
 - [/tools/exec-approvals](/tools/exec-approvals)
 - [/gateway/pairing](/gateway/pairing)
-
-

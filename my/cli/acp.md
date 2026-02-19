@@ -1,4 +1,8 @@
 ---
+summary: "IDE ပေါင်းစည်းမှုများအတွက် ACP bridge ကို လည်ပတ်စေခြင်း"
+read_when:
+  - ACP အခြေပြု IDE ပေါင်းစည်းမှုများကို တပ်ဆင်ချိန်
+  - Gateway သို့ ACP ဆက်ရှင် လမ်းကြောင်းပြမှုကို ဒီဘဂ်လုပ်ချိန်
 title: "acp"
 ---
 
@@ -160,5 +164,3 @@ default အနေဖြင့် ACP sessions များသည် `acp:` prefi
 - `--server-args <args...>`: ACP server သို့ ပေးပို့သော အပို arguments။
 - `--server-verbose`: ACP server တွင် အသေးစိတ် logging ကို ဖွင့်ရန်။
 - `--verbose, -v`: client ဘက် အသေးစိတ် logging။
-
-

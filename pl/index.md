@@ -1,6 +1,8 @@
 ---
+summary: "OpenClaw to wielokanałowy gateway dla agentów AI, który działa na każdym systemie operacyjnym."
+read_when:
+  - Przedstawianie OpenClaw nowym użytkownikom
 title: "OpenClaw"
-sidebarTitle: "OpenClaw"
 ---
 
 # OpenClaw 🦞
@@ -20,8 +22,7 @@ sidebarTitle: "OpenClaw"
 
 > _„EXFOLIATE! EXFOLIATE!”_ — kosmiczny homar, prawdopodobnie
 
-<p align="center">
-  <strong>Gateway dla agentów AI na dowolnym systemie operacyjnym, obejmujący WhatsApp, Telegram, Discord, iMessage i inne.</strong><br />
+<p align="center"><strong>Gateway dla agentów AI na dowolnym systemie operacyjnym, obejmujący WhatsApp, Telegram, Discord, iMessage i inne.</strong><br />
   Wyślij wiadomość i otrzymaj odpowiedź agenta prosto z kieszeni. Wtyczki dodają Mattermost i kolejne kanały.
 </p>
 
@@ -209,5 +210,3 @@ Przykład:
   
 </Card>
 </Columns>
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Bonjour/mDNS डिस्कवरी + डिबगिंग (Gateway बीकन, क्लाइंट्स, और सामान्य विफलता मोड)"
+read_when:
+  - macOS/iOS पर Bonjour डिस्कवरी समस्याओं का डिबग करते समय
+  - mDNS सेवा प्रकार, TXT रिकॉर्ड, या डिस्कवरी UX बदलते समय
 title: "Bonjour डिस्कवरी"
 ---
 
@@ -92,9 +96,17 @@ UI फ़्लो को सुविधाजनक बनाने के ल
 - `cliPath=<path>` (वैकल्पिक; रन करने योग्य `openclaw` एंट्रीपॉइंट का पूर्ण पथ)
 - `tailnetDns=<magicdns>` (वैकल्पिक संकेत जब Tailnet उपलब्ध हो)
 
+सुरक्षा नोट्स:
+
+- Bonjour/mDNS TXT रिकॉर्ड **प्रमाणित नहीं** होते हैं। क्लाइंट्स को TXT को प्रामाणिक रूटिंग के रूप में नहीं मानना चाहिए।
+- क्लाइंट्स को resolved service endpoint (SRV + A/AAAA) का उपयोग करके रूट करना चाहिए। `lanHost`, `tailnetDns`, `gatewayPort`, और `gatewayTlsSha256` को केवल संकेत के रूप में मानें।
+- TLS pinning को कभी भी विज्ञापित `gatewayTlsSha256` को पहले से संग्रहीत pin को ओवरराइड करने की अनुमति नहीं देनी चाहिए।
+- iOS/Android नोड्स को discovery-आधारित direct connects को **केवल TLS** के रूप में मानना चाहिए और पहली बार के fingerprint पर भरोसा करने से पहले स्पष्ट उपयोगकर्ता पुष्टि की आवश्यकता होनी चाहिए।
+
 ## macOS पर डिबगिंग
 
-उपयोगी बिल्ट‑इन टूल्स:
+यदि ब्राउज़िंग काम करती है लेकिन रेज़ॉल्व विफल होता है, तो आमतौर पर यह LAN नीति या
+mDNS रेज़ॉल्वर समस्या होती है।
 
 - इंस्टेंस ब्राउज़ करें:
 
@@ -124,14 +136,14 @@ mDNS रेज़ॉल्वर समस्या होती है।
 
 iOS नोड `NWBrowser` का उपयोग करके `_openclaw-gw._tcp` की खोज करता है।
 
-लॉग कैप्चर करने के लिए:
+लॉग में ब्राउज़र स्थिति संक्रमण और परिणाम‑सेट परिवर्तनों का विवरण होता है।
 
 - Settings → Gateway → Advanced → **Discovery Debug Logs**
 - Settings → Gateway → Advanced → **Discovery Logs** → पुनरुत्पादन करें → **Copy**
 
 लॉग में ब्राउज़र स्थिति संक्रमण और परिणाम‑सेट परिवर्तनों का विवरण होता है।
 
-## सामान्य विफलता मोड
+## एस्केप किए गए इंस्टेंस नाम (`\032`)
 
 - **Bonjour नेटवर्क पार नहीं करता**: Tailnet या SSH का उपयोग करें।
 - **मल्टीकास्ट अवरुद्ध**: कुछ Wi‑Fi नेटवर्क mDNS को अक्षम करते हैं।
@@ -144,13 +156,13 @@ iOS नोड `NWBrowser` का उपयोग करके `_openclaw-gw._tcp
 Bonjour/DNS‑SD अक्सर सेवा इंस्टेंस नामों में बाइट्स को दशमलव `\DDD`
 क्रमों के रूप में एस्केप करता है (उदाहरण: स्पेस `\032` बन जाते हैं)।
 
-- यह प्रोटोकॉल स्तर पर सामान्य है।
-- UI को प्रदर्शन के लिए डिकोड करना चाहिए (iOS `BonjourEscapes.decode` का उपयोग करता है)।
-
-## अक्षम करना / विन्यास
-
 - `OPENCLAW_DISABLE_BONJOUR=1` विज्ञापन को अक्षम करता है (लेगेसी: `OPENCLAW_DISABLE_BONJOUR`)।
 - `~/.openclaw/openclaw.json` में `gateway.bind` Gateway बाइंड मोड को नियंत्रित करता है।
+
+## संबंधित दस्तावेज़
+
+- डिस्कवरी नीति और ट्रांसपोर्ट चयन: [Discovery](/gateway/discovery)
+- नोड पेयरिंग + अनुमोदन: [Gateway pairing](/gateway/pairing)
 - `OPENCLAW_SSH_PORT` TXT में विज्ञापित SSH पोर्ट को ओवरराइड करता है (लेगेसी: `OPENCLAW_SSH_PORT`)।
 - `OPENCLAW_TAILNET_DNS` TXT में MagicDNS संकेत प्रकाशित करता है (लेगेसी: `OPENCLAW_TAILNET_DNS`)।
 - `OPENCLAW_CLI_PATH` विज्ञापित CLI पथ को ओवरराइड करता है (लेगेसी: `OPENCLAW_CLI_PATH`)।
@@ -159,5 +171,3 @@ Bonjour/DNS‑SD अक्सर सेवा इंस्टेंस नाम
 
 - डिस्कवरी नीति और ट्रांसपोर्ट चयन: [Discovery](/gateway/discovery)
 - नोड पेयरिंग + अनुमोदन: [Gateway pairing](/gateway/pairing)
-
-

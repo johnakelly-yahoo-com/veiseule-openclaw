@@ -1,4 +1,7 @@
 ---
+summary: "SSH 를 통해 원격 OpenClaw Gateway(게이트웨이)를 제어하기 위한 macOS 앱 플로우"
+read_when:
+  - 원격 mac 제어를 설정하거나 디버깅할 때
 title: "원격 제어"
 ---
 
@@ -78,5 +81,3 @@ openclaw nodes notify --node <id> --title "Ping" --body "Remote gateway ready" -
 ```
 
 앱에는 더 이상 전역 '기본 사운드' 토글이 없습니다. 호출자는 요청별로 사운드(또는 무음)를 선택합니다.
-
-

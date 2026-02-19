@@ -1,13 +1,17 @@
 ---
+summary: "OpenClaw کے ذریعے معاون ماڈل فراہم کنندگان (LLMs)"
+read_when:
+  - آپ ماڈل فراہم کنندہ منتخب کرنا چاہتے ہیں
+  - آپ کو معاون LLM بیک اینڈز کا فوری جائزہ درکار ہے
 title: "ماڈل فراہم کنندگان"
 ---
 
 # ماڈل فراہم کنندگان
 
-OpenClaw بہت سے LLM فراہم کنندگان استعمال کر سکتا ہے۔ کسی فراہم کنندہ کا انتخاب کریں، تصدیق کریں، پھر سیٹ کریں
+OpenClaw can use many LLM providers. Pick a provider, authenticate, then set the
 default model as `provider/model`.
 
-چیٹ چینل کی دستاویزات (WhatsApp/Telegram/Discord/Slack/Mattermost (plugin)/وغیرہ) تلاش کر رہے ہیں؟ [چینلز](/channels) دیکھیں۔
+Looking for chat channel docs (WhatsApp/Telegram/Discord/Slack/Mattermost (plugin)/etc.)? See [Channels](/channels).
 
 ## نمایاں: Venice (Venice AI)
 
@@ -35,7 +39,9 @@ Venice ہماری تجویز کردہ Venice AI سیٹ اپ ہے جو پرائی
 - [Anthropic (API + Claude Code CLI)](/providers/anthropic)
 - [Qwen (OAuth)](/providers/qwen)
 - [OpenRouter](/providers/openrouter)
+- [LiteLLM (unified gateway)](/providers/litellm)
 - [Vercel AI Gateway](/providers/vercel-ai-gateway)
+- [Together AI](/providers/together)
 - [Cloudflare AI Gateway](/providers/cloudflare-ai-gateway)
 - [Moonshot AI (Kimi + Kimi Coding)](/providers/moonshot)
 - [OpenCode Zen](/providers/opencode)
@@ -45,8 +51,11 @@ Venice ہماری تجویز کردہ Venice AI سیٹ اپ ہے جو پرائی
 - [GLM models](/providers/glm)
 - [MiniMax](/providers/minimax)
 - [Venice (Venice AI، پرائیویسی پر مرکوز)](/providers/venice)
+- [Hugging Face (Inference)](/providers/huggingface)
 - [Ollama (لوکل ماڈلز)](/providers/ollama)
+- [vLLM (local models)](/providers/vllm)
 - [Qianfan](/providers/qianfan)
+- [NVIDIA](/providers/nvidia)
 
 ## ٹرانسکرپشن فراہم کنندگان
 
@@ -58,5 +67,3 @@ Venice ہماری تجویز کردہ Venice AI سیٹ اپ ہے جو پرائی
 
 For the full provider catalog (xAI, Groq, Mistral, etc.) and advanced configuration,
 see [Model providers](/concepts/model-providers).
-
-

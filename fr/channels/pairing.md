@@ -1,4 +1,9 @@
 ---
+summary: "Aperçu de l'appairage : approuve qui peut vous DM + quels nœuds peuvent rejoindre"
+read_when:
+  - Mise en place du contrôle d'accès aux DM
+  - Pairing d’un nouveau nœud iOS/Android
+  - Examen de la posture de sécurité d’OpenClaw
 title: "Appairage"
 ---
 
@@ -96,5 +101,3 @@ Stocké sous `~/.openclaw/devices/` :
   - iMessage (hérité) : [iMessage](/channels/imessage)
   - Discord : [Discord](/channels/discord)
   - Slack : [Slack](/channels/slack)
-
-

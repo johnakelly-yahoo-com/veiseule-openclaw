@@ -1,4 +1,9 @@
 ---
+summary: "Chiqish javoblari uchun matndan nutqqa (TTS)"
+read_when:
+  - Javoblar uchun matndan nutqqa funksiyasini yoqish
+  - TTS provayderlari yoki limitlarini sozlash
+  - /tts buyruqlaridan foydalanish
 title: "Matndan Nutqqa"
 ---
 
@@ -237,11 +242,11 @@ Mana.
 [[tts:provider=elevenlabs voiceId=pMsXgVXv3BLzUgSXRplE model=eleven_v3 speed=1.1]]
 [[tts:text]](kuladi) Qo‘shiqni yana bir bor o‘qing.[[/tts:text]]
 
-- Mavjud direktiva kalitlari (yoqilganda):
+- `provider` (`openai` | `elevenlabs` | `edge`)
 - `provider` (`openai` | `elevenlabs` | `edge`)
 - `voice` (OpenAI ovozi) yoki `voiceId` (ElevenLabs)
-- `model` (OpenAI TTS modeli yoki ElevenLabs model IDsi)
 - `stability`, `similarityBoost`, `style`, `speed`, `useSpeakerBoost`
+- `applyTextNormalization` (`auto|on|off`)
 - `applyTextNormalization` (`auto|on|off`)
 - `seed`
 
@@ -284,8 +289,8 @@ Slash buyruqlar mahalliy almashtirishlarni `prefsPath` ga yozadi (standart:
 `~/.openclaw/settings/tts.json`, `OPENCLAW_TTS_PREFS` yoki
 `messages.tts.prefsPath` bilan almashtiring).
 
-- Saqlanadigan maydonlar:
 - `enabled`
+- `provider`
 - `provider`
 - `maxLength` (xulosa chegarasi; standart 1500 belgi)
 
@@ -379,5 +384,3 @@ Gateway methods:
 - `tts.convert`
 - `tts.setProvider`
 - `tts.providers`
-
-

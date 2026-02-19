@@ -1,4 +1,8 @@
 ---
+summary: "모델 인증: OAuth, API 키 및 setup-token"
+read_when:
+  - 모델 인증 또는 OAuth 만료 디버깅
+  - 인증 또는 자격 증명 저장 문서화
 title: "인증"
 ---
 
@@ -141,5 +145,3 @@ openclaw models status
 
 - Claude Max 또는 Pro 구독(`claude setup-token` 용)
 - Claude Code CLI 설치됨(`claude` 명령 사용 가능)
-
-

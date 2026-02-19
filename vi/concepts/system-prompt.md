@@ -1,10 +1,14 @@
 ---
+summary: "Những nội dung có trong system prompt của OpenClaw và cách nó được lắp ghép"
+read_when:
+  - Chỉnh sửa văn bản system prompt, danh sách công cụ, hoặc các phần thời gian/heartbeat
+  - Thay đổi hành vi bootstrap workspace hoặc cơ chế chèn Skills
 title: "Lời nhắc hệ thống"
 ---
 
 # Lời nhắc hệ thống
 
-OpenClaw builds a custom system prompt for every agent run. Prompt là **do OpenClaw sở hữu** và không dùng prompt mặc định của p-coding-agent.
+OpenClaw builds a custom system prompt for every agent run. Prompt thuộc quyền sở hữu của **OpenClaw** và không sử dụng prompt mặc định của pi-coding-agent.
 
 Prompt được OpenClaw lắp ghép và chèn vào mỗi lần chạy tác tử.
 
@@ -55,10 +59,24 @@ Các tệp bootstrap được cắt gọn và nối vào dưới **Project Conte
 - `USER.md`
 - `HEARTBEAT.md`
 - `BOOTSTRAP.md` (chỉ trên workspace hoàn toàn mới)
+- `MEMORY.md` và/hoặc `memory.md` (khi tồn tại trong workspace; có thể chèn một hoặc cả hai)
+
+Tất cả các tệp này đều được **chèn vào context window** ở mỗi lượt, điều này
+có nghĩa là chúng tiêu tốn token. Hãy giữ chúng ngắn gọn — đặc biệt là `MEMORY.md`, vì tệp này có thể
+tăng dần theo thời gian và dẫn đến mức sử dụng context cao ngoài dự kiến cũng như việc
+compaction xảy ra thường xuyên hơn.
+
+> **Lưu ý:** các tệp `memory/*.md` theo ngày **không** được chèn tự động. Chúng
+> được truy cập theo yêu cầu thông qua các công cụ `memory_search` và `memory_get`, vì vậy
+> chúng không tính vào context window trừ khi model chủ động đọc chúng.
 
 Các tệp lớn bị cắt bớt với một dấu đánh dấu. Kích thước tối đa cho mỗi tệp được kiểm soát bởi
-`agents.defaults.bootstrapMaxChars` (mặc định: 20000). Các tệp bị thiếu sẽ chèn một
-dấu đánh dấu tệp bị thiếu ngắn.
+`agents.defaults.bootstrapMaxChars` (mặc định: 20000). Tổng nội dung bootstrap được chèn
+trên tất cả các tệp bị giới hạn bởi `agents.defaults.bootstrapTotalMaxChars`
+(mặc định: 24000). Các tệp bị thiếu sẽ chèn một dấu đánh dấu ngắn cho biết tệp không tồn tại.
+
+Các phiên sub-agent chỉ chèn `AGENTS.md` và `TOOLS.md` (các tệp bootstrap khác
+bị lọc bỏ để giữ ngữ cảnh của sub-agent nhỏ gọn).
 
 Các hook nội bộ có thể chặn bước này thông qua `agent:bootstrap` để biến đổi hoặc thay thế
 các tệp bootstrap được chèn (ví dụ hoán đổi `SOUL.md` bằng một persona thay thế).
@@ -71,8 +89,7 @@ System prompt bao gồm một mục **Current Date & Time** chuyên biệt khi
 múi giờ người dùng được biết. Để giữ bộ nhớ đệm prompt ổn định, giờ đây nó chỉ bao gồm
 **múi giờ** (không có đồng hồ động hay định dạng thời gian).
 
-Dùng `session_status` khi tác tử cần thời gian hiện tại; thẻ trạng thái
-có kèm một dòng timestamp.
+Xem [Date & Time](/date-time) để biết đầy đủ chi tiết hành vi.
 
 Cấu hình bằng:
 
@@ -104,5 +121,3 @@ Cách này giữ prompt nền nhỏ gọn trong khi vẫn cho phép sử dụng 
 Khi khả dụng, system prompt bao gồm một mục **Documentation** trỏ tới thư mục tài liệu OpenClaw cục bộ (hoặc `docs/` trong workspace repo hoặc tài liệu được đóng gói trong npm package) và cũng ghi chú mirror công khai, repo nguồn, Discord cộng đồng và ClawHub ([https://clawhub.com](https://clawhub.com)) để khám phá kỹ năng. Prompt hướng dẫn mô hình tham khảo tài liệu cục bộ trước
 cho hành vi, lệnh, cấu hình hoặc kiến trúc của OpenClaw, và tự chạy
 `openclaw status` khi có thể (chỉ hỏi người dùng khi nó không có quyền truy cập).
-
-

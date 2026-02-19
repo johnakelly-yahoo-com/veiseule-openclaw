@@ -1,10 +1,14 @@
 ---
+summary: "OpenClaw ကို လုံခြုံစွာ အပ်ဒိတ်လုပ်ခြင်း (global install သို့မဟုတ် source) နှင့် rollback မဟာဗျူဟာ"
+read_when:
+  - OpenClaw ကို အပ်ဒိတ်လုပ်နေစဉ်
+  - အပ်ဒိတ်ပြီးနောက် တစ်ခုခု ပျက်သွားသောအခါ
 title: "အပ်ဒိတ်လုပ်ခြင်း"
 ---
 
 # အပ်ဒိတ်လုပ်ခြင်း
 
-OpenClaw သည် ("1.0" မတိုင်မီအဆင့်) လျင်မြန်စွာ ဖွံ့ဖြိုးတိုးတက်နေပါသည်။ Update များကို shipping infrastructure ကဲ့သို့ စီမံပါ—update → စစ်ဆေးမှုများ လုပ်ဆောင်ပါ → restart (သို့မဟုတ် restart ပါဝင်သည့် `openclaw update` ကို အသုံးပြုပါ) → verify လုပ်ပါ။
+OpenClaw is moving fast (pre “1.0”). Treat updates like shipping infra: update → run checks → restart (or use `openclaw update`, which restarts) → verify.
 
 ## အကြံပြုချက်: ဝဘ်ဆိုက် installer ကို ပြန်လည် chạy လုပ်ပါ (နေရာမပြောင်းဘဲ အပ်ဂရိတ်)
 
@@ -225,5 +229,3 @@ git pull
 - `openclaw doctor` ကို ထပ်မံ chạy လုပ်ပြီး output ကို သေချာဖတ်ပါ (အများအားဖြင့် ပြုပြင်နည်းကို ပြောပြထားတတ်ပါသည်)။
 - စစ်ဆေးရန်: [Troubleshooting](/gateway/troubleshooting)
 - Discord တွင် မေးမြန်းပါ: [https://discord.gg/clawd](https://discord.gg/clawd)
-
-

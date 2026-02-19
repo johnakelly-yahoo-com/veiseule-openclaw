@@ -1,4 +1,8 @@
 ---
+summary: "Désinstaller OpenClaw complètement (CLI, service, état, espace de travail)"
+read_when:
+  - Vous souhaitez supprimer OpenClaw d’une machine
+  - Le service Gateway (passerelle) fonctionne encore après la désinstallation
 title: "Désinstaller"
 ---
 
@@ -122,5 +126,3 @@ Si vous exécutez depuis un dépôt cloné (`git clone` + `openclaw ...` / `bun 
 1. Désinstallez le service Gateway (passerelle) **avant** de supprimer le dépôt (utilisez la méthode simple ci-dessus ou la suppression manuelle du service).
 2. Supprimez le répertoire du dépôt.
 3. Supprimez l’état + l’espace de travail comme indiqué ci-dessus.
-
-

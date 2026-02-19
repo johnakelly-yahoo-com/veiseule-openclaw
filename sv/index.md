@@ -1,6 +1,8 @@
 ---
+summary: "OpenClaw är en flerkanalig gateway för AI-agenter som körs på alla operativsystem."
+read_when:
+  - Introducerar OpenClaw för nybörjare
 title: "OpenClaw"
-sidebarTitle: "OpenClaw"
 ---
 
 # OpenClaw 🦞
@@ -20,8 +22,7 @@ sidebarTitle: "OpenClaw"
 
 > _"EXFOLIATE! EXFOLIATE!"_ - En rymdhummer, förmodligen
 
-<p align="center">
-  <strong>Alla OS-gateway för AI-agenter över WhatsApp, Telegram, Discord, iMessage, och mer.</strong><br />
+<p align="center"><strong>Alla OS-gateway för AI-agenter över WhatsApp, Telegram, Discord, iMessage, och mer.</strong><br />
   Skicka ett meddelande, få ett agentsvar från din ficka. Plugins lägga Mattermost och mer.
 </p>
 
@@ -124,7 +125,7 @@ Gateway är den enda sanningskällan för sessioner, routing och kanalkopplingar
 
 Behöver du den fullständiga installationen och utvecklarkonfigurationen? Se [Snabb start](/start/quickstart).
 
-## Instrumentpanel
+## Dashboard
 
 Öppna webbaserade Control UI efter att Gateway har startat.
 
@@ -209,5 +210,3 @@ Exempel:
   
 </Card>
 </Columns>
-
-

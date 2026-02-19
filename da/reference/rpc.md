@@ -1,4 +1,8 @@
 ---
+summary: "RPC-adaptere til eksterne CLI’er (signal-cli, legacy imsg) og gateway-mønstre"
+read_when:
+  - Tilføjelse eller ændring af eksterne CLI-integrationer
+  - Fejlfinding af RPC-adaptere (signal-cli, imsg)
 title: "RPC-adaptere"
 ---
 
@@ -37,5 +41,3 @@ Se [iMessage](/channels/imessage) for legacy-opsætning og adressering (`chat_id
 - Gateway ejer processen (start/stop er knyttet til udbyderens livscyklus).
 - Hold RPC-klienter robuste: timeouts, genstart ved exit.
 - Foretræk stabile id'er (f.eks.`chat_id`) over visningsstrenge.
-
-

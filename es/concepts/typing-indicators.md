@@ -1,4 +1,7 @@
 ---
+summary: "Cuándo OpenClaw muestra indicadores de escritura y cómo ajustarlos"
+read_when:
+  - Cambiar el comportamiento o los valores predeterminados de los indicadores de escritura
 title: "Indicadores de escritura"
 ---
 
@@ -63,5 +66,3 @@ Puede sobrescribir el modo o la cadencia por sesión:
 - Los heartbeats nunca muestran escritura, independientemente del modo.
 - `typingIntervalSeconds` controla la **cadencia de actualización**, no el momento de inicio.
   El valor predeterminado es 6 segundos.
-
-

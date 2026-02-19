@@ -1,4 +1,8 @@
 ---
+summary: "LLM-opgaver kun med JSON til workflows (valgfrit plugin-værktøj)"
+read_when:
+  - Du vil have et LLM-trin kun med JSON inde i workflows
+  - Du har brug for skemavalideret LLM-output til automatisering
 title: "LLM-opgave"
 ---
 
@@ -109,5 +113,3 @@ openclaw.invoke --tool llm-task --action json --args-json '{
 - Ingen værktøjer eksponeres for modellen i denne kørsel.
 - Behandl output som utroværdigt, medmindre du validerer med `schema`.
 - Placer godkendelser før ethvert trin med bivirkninger (send, post, exec).
-
-

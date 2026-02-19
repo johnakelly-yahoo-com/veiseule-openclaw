@@ -1,16 +1,22 @@
 ---
+summary: "OAuth sa OpenClaw: palitan ng token, pag-iimbak, at mga pattern para sa maraming account"
+read_when:
+  - Gusto mong maunawaan ang OAuth sa OpenClaw mula simula hanggang dulo
+  - Nakaranas ka ng mga isyu sa invalidation ng token / pag-logout
+  - Gusto mo ang setup-token o mga OAuth auth flow
+  - Gusto mo ng maraming account o routing batay sa profile
 title: "OAuth"
 ---
 
 # OAuth
 
-Sinusuportahan ng OpenClaw ang “subscription auth” sa pamamagitan ng OAuth para sa mga provider na nag-aalok nito (lalo na ang **OpenAI Codex (ChatGPT OAuth)**). Para sa mga subscription ng Anthropic, gamitin ang **setup-token** na daloy. Ipinapaliwanag ng pahinang ito ang:
+OpenClaw supports “subscription auth” via OAuth for providers that offer it (notably **OpenAI Codex (ChatGPT OAuth)**). For Anthropic subscriptions, use the **setup-token** flow. This page explains:
 
 - kung paano gumagana ang OAuth **token exchange** (PKCE)
 - kung saan **iniimbak** ang mga token (at kung bakit)
 - kung paano pangasiwaan ang **maraming account** (mga profile + per-session na override)
 
-Sinusuportahan din ng OpenClaw ang **provider plugins** na may sariling OAuth o API‑key
+OpenClaw also supports **provider plugins** that ship their own OAuth or API‑key
 flows. Run them via:
 
 ```bash
@@ -19,7 +25,7 @@ openclaw models auth login --provider <id>
 
 ## Ang token sink (bakit ito umiiral)
 
-Karaniwang nag-iisyu ang mga OAuth provider ng **bagong refresh token** sa panahon ng mga daloy ng login/refresh. Ang ilang provider (o OAuth clients) ay maaaring magpawalang-bisa ng mga mas lumang refresh token kapag may bagong inilabas para sa parehong user/app.
+OAuth providers commonly mint a **new refresh token** during login/refresh flows. Some providers (or OAuth clients) can invalidate older refresh tokens when a new one is issued for the same user/app.
 
 Praktikal na sintomas:
 
@@ -41,7 +47,7 @@ Legacy na import-only file (suportado pa rin, ngunit hindi ang pangunahing store
 
 - `~/.openclaw/credentials/oauth.json` (ini-import sa `auth-profiles.json` sa unang gamit)
 
-Ang lahat ng nasa itaas ay sumusunod din sa `$OPENCLAW_STATE_DIR` (override ng state dir). Buong sanggunian: [/gateway/configuration](/gateway/configuration#auth-storage-oauth--api-keys)
+All of the above also respect `$OPENCLAW_STATE_DIR` (state dir override). Full reference: [/gateway/configuration](/gateway/configuration#auth-storage-oauth--api-keys)
 
 ## Anthropic setup-token (subscription auth)
 
@@ -137,5 +143,3 @@ Kaugnay na docs:
 
 - [/concepts/model-failover](/concepts/model-failover) (mga patakaran sa rotation + cooldown)
 - [/tools/slash-commands](/tools/slash-commands) (command surface)
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "Refaktor rejasi: exec host routing, node tasdiqlashlari va headless runner"
+read_when:
+  - Exec xost marshrutizatsiyasini yoki exec tasdiqlarini loyihalash
+  - Node runner + UI IPC ni joriy etish
+  - Exec xost xavfsizlik rejimlari va slash buyruqlarini qo‘shish
 title: "Exec xostni refaktorlash"
 ---
 
@@ -79,17 +84,17 @@ So‘rash allowlistdan **mustaqil**; allowlist `always` yoki `on-miss` bilan ish
 
 ### 8. Konfiguratsiya kalitlari (global)
 
-- 9. `tools.exec.host`
-- 10. `tools.exec.security`
-- 11. `tools.exec.ask`
+- `tools.exec.host`
+- `tools.exec.security`
+- `tools.exec.ask`
 - 12. `tools.exec.node` (standart tugun bog‘lanishi)
 
 ### 13. Konfiguratsiya kalitlari (agent bo‘yicha)
 
-- 14. `agents.list[].tools.exec.host`
-- 15. `agents.list[].tools.exec.security`
-- 16. `agents.list[].tools.exec.ask`
-- 17. `agents.list[].tools.exec.node`
+- `agents.list[].tools.exec.host`
+- `agents.list[].tools.exec.security`
+- `agents.list[].tools.exec.ask`
+- `agents.list[].tools.exec.node`
 
 ### 18. Alias
 
@@ -102,7 +107,7 @@ So‘rash allowlistdan **mustaqil**; allowlist `always` yoki `on-miss` bilan ish
 
 23. Maqsad:
 
-- 24. **Ijro xosti** (gateway yoki node runner) uchun mahalliy siyosat + ruxsat ro‘yxatlari.
+- Taklif etilgan sxema (v1):
 - 25. UI mavjud bo‘lmaganda so‘rov uchun zaxira mexanizmi.
 - 26. UI mijozlari uchun IPC hisob ma’lumotlari.
 
@@ -163,23 +168,23 @@ So‘rash allowlistdan **mustaqil**; allowlist `always` yoki `on-miss` bilan ish
 
 - 44. `~/.openclaw/exec-approvals.sock` dagi Unix soketi (0600).
 - 45. Token `exec-approvals.json` da saqlanadi (0600).
-- Peer tekshiruvlari: faqat bir xil UID.
+- Peer checks: same-UID only.
 - 47. Challenge/response: qayta ijroni oldini olish uchun nonce + HMAC(token, request-hash).
-- Qisqa TTL (masalan, 10s) + maksimal yuk hajmi + tezlikni cheklash.
+- Short TTL (e.g., 10s) + max payload + rate limit.
 
 ### 49. So‘rov oqimi (macOS ilovasi ijro xosti)
 
 1. 50. Tugun xizmati gateway’dan `system.run` ni qabul qiladi.
-2. Node xizmati lokal socket’ga ulanadi va prompt/exec so‘rovini yuboradi.
-3. Ilova peer + token + HMAC + TTL ni tekshiradi, so‘ng kerak bo‘lsa dialog oynasini ko‘rsatadi.
-4. Ilova buyruqni UI kontekstida bajaradi va natijani qaytaradi.
-5. Node xizmati natijani gateway’ga qaytaradi.
+2. Node service connects to the local socket and sends the prompt/exec request.
+3. App validates peer + token + HMAC + TTL, then shows dialog if needed.
+4. App executes the command in UI context and returns output.
+5. Node service returns output to gateway.
 
-Agar UI mavjud bo‘lmasa:
+If UI missing:
 
-- `askFallback` ni qo‘llang (`deny|allowlist|full`).
+- Apply `askFallback` (`deny|allowlist|full`).
 
-### Diagramma (SCI)
+### Diagram (SCI)
 
 ```
 Agent -> Gateway -> Bridge -> Node Service (TS)
@@ -188,7 +193,7 @@ Agent -> Gateway -> Bridge -> Node Service (TS)
                      Mac App (UI + TCC + system.run)
 ```
 
-## Node identifikatsiyasi va bog‘lanishi
+## Node identity + binding
 
 - Use existing `nodeId` from Bridge pairing.
 - Binding model:
@@ -305,9 +310,7 @@ Option B:
 
 ## 35. Tegishli hujjatlar
 
-- 36. [Exec tool](/tools/exec)
-- 37. [Exec approvals](/tools/exec-approvals)
-- 38. [Nodes](/nodes)
-- 39. [Elevated mode](/tools/elevated)
-
-
+- [Exec tool](/tools/exec)
+- [Exec approvals](/tools/exec-approvals)
+- [Nodes](/nodes)
+- [Elevated mode](/tools/elevated)

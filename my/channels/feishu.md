@@ -1,10 +1,14 @@
 ---
+summary: "Feishu bot အကြောင်းအရာအကျဉ်းချုပ်၊ အင်္ဂါရပ်များနှင့် ဖွဲ့စည်းပြင်ဆင်ခြင်း"
+read_when:
+  - Feishu/Lark bot ကို ချိတ်ဆက်လိုသောအခါ
+  - Feishu ချန်နယ်ကို ဖွဲ့စည်းပြင်ဆင်နေသောအခါ
 title: Feishu
 ---
 
 # Feishu bot
 
-Feishu (Lark) သည် ကုမ္ပဏီများတွင် မက်ဆေ့ချ်ပို့ခြင်းနှင့် ပူးပေါင်းလုပ်ဆောင်ခြင်းများအတွက် အသုံးပြုသော အသင်းလိုက် စကားပြော ပလက်ဖောင်းတစ်ခု ဖြစ်သည်။ ဤ plugin သည် OpenClaw ကို Feishu/Lark bot တစ်ခုနှင့် ချိတ်ဆက်ပေးပြီး၊ ပလက်ဖောင်း၏ WebSocket event subscription ကို အသုံးပြုသဖြင့် public webhook URL တစ်ခုကို ဖော်ပြရန်မလိုဘဲ မက်ဆေ့ချ်များကို လက်ခံနိုင်ပါသည်။
+Feishu (Lark) is a team chat platform used by companies for messaging and collaboration. This plugin connects OpenClaw to a Feishu/Lark bot using the platform’s WebSocket event subscription so messages can be received without exposing a public webhook URL.
 
 ---
 
@@ -67,13 +71,13 @@ openclaw channels add
 
 ## အဆင့် ၁: Feishu app တစ်ခု ဖန်တီးခြင်း
 
-### 1. Feishu Open Platform ကို ဖွင့်ပါ
+### 1. Open Feishu Open Platform
 
 [Feishu Open Platform](https://open.feishu.cn/app) သို့ ဝင်ရောက်ပြီး လက်မှတ်ထိုးဝင်ပါ။
 
 Lark (global) tenant များအတွက် [https://open.larksuite.com/app](https://open.larksuite.com/app) ကို အသုံးပြုရမည်ဖြစ်ပြီး Feishu config တွင် `domain: "lark"` ကို သတ်မှတ်ပါ။
 
-### 2. App တစ်ခု ဖန်တီးပါ
+### 2. Create an app
 
 1. **Create enterprise app** ကို နှိပ်ပါ
 2. App အမည်နှင့် ဖော်ပြချက်ကို ဖြည့်ပါ
@@ -81,7 +85,7 @@ Lark (global) tenant များအတွက် [https://open.larksuite.com/app
 
 ![Create enterprise app](../images/feishu-step2-create-app.png)
 
-### 3. အထောက်အထား အချက်အလက်များကို ကူးယူပါ
+### 3. Copy credentials
 
 **Credentials & Basic Info** မှ အောက်ပါအချက်များကို ကူးယူပါ—
 
@@ -528,9 +532,9 @@ Routing အကွက်များ—
 | ------------------------------------------------- | --------------------------------------------------------------------- | --------- |
 | `channels.feishu.enabled`                         | ချန်နယ်ကို ဖွင့်/ပိတ်                                                 | `true`    |
 | `channels.feishu.domain`                          | API domain (`feishu` သို့မဟုတ် `lark`)             | `feishu`  |
-| `channels.feishu.accounts.<id>.appId`             | App ID                                                                | -         |
-| `channels.feishu.accounts.<id>.appSecret`         | App Secret                                                            | -         |
-| `channels.feishu.accounts.<id>.domain`            | အကောင့်တစ်ခုချင်းစီအလိုက် API domain override                         | `feishu`  |
+| `channels.feishu.accounts.&lt;id&gt;.appId`             | App ID                                                                | -         |
+| `channels.feishu.accounts.&lt;id&gt;.appSecret`         | App Secret                                                            | -         |
+| `channels.feishu.accounts.&lt;id&gt;.domain`            | အကောင့်တစ်ခုချင်းစီအလိုက် API domain override                         | `feishu`  |
 | `channels.feishu.dmPolicy`                        | DM မူဝါဒ                                                              | `pairing` |
 | `channels.feishu.allowFrom`                       | DM allowlist (open_id စာရင်း) | -         |
 | `channels.feishu.groupPolicy`                     | Group မူဝါဒ                                                           | `open`    |
@@ -574,5 +578,3 @@ Routing အကွက်များ—
 - ✅ ဖိုင်များ
 - ✅ အသံ
 - ⚠️ Rich text (တစ်စိတ်တစ်ပိုင်း ပံ့ပိုး)
-
-

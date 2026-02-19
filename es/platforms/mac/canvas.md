@@ -1,4 +1,9 @@
 ---
+summary: "Panel Canvas controlado por el agente incrustado mediante WKWebView + esquema de URL personalizado"
+read_when:
+  - Implementación del panel Canvas en macOS
+  - Adición de controles del agente para el espacio de trabajo visual
+  - Depuración de cargas de Canvas en WKWebView
 title: "Canvas"
 ---
 
@@ -118,5 +123,3 @@ La app solicita confirmación a menos que se proporcione una clave válida.
 - El esquema de Canvas bloquea el recorrido de directorios; los archivos deben vivir bajo la raíz de la sesión.
 - El contenido local de Canvas usa un esquema personalizado (no se requiere un servidor de loopback).
 - Las URL externas `http(s)` solo se permiten cuando se navega explícitamente.
-
-

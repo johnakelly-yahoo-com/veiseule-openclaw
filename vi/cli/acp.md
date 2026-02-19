@@ -1,4 +1,8 @@
 ---
+summary: "Chạy cầu nối ACP cho các tích hợp IDE"
+read_when:
+  - Thiết lập các tích hợp IDE dựa trên ACP
+  - Gỡ lỗi định tuyến phiên ACP tới Gateway
 title: "acp"
 ---
 
@@ -164,5 +168,3 @@ Tìm hiểu thêm về khóa phiên tại [/concepts/session](/concepts/session)
 - `--server-args <args...>`: đối số bổ sung truyền cho máy chủ ACP.
 - `--server-verbose`: bật ghi log chi tiết trên máy chủ ACP.
 - `--verbose, -v`: ghi log chi tiết phía client.
-
-

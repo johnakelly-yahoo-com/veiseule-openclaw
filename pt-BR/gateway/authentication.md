@@ -1,4 +1,8 @@
 ---
+summary: "Autenticação de modelos: OAuth, chaves de API e setup-token"
+read_when:
+  - Depurando autenticação de modelos ou expiração de OAuth
+  - Documentando autenticação ou armazenamento de credenciais
 title: "Autenticação"
 ---
 
@@ -134,5 +138,3 @@ estiver ausente, execute novamente `claude setup-token` e cole o token outra vez
 
 - Assinatura Claude Max ou Pro (para `claude setup-token`)
 - Claude Code CLI instalada (comando `claude` disponível)
-
-

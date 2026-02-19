@@ -1,4 +1,8 @@
 ---
+summary: "Gebruik de Anthropic-compatibele API van Synthetic in OpenClaw"
+read_when:
+  - Je wilt Synthetic gebruiken als modelprovider
+  - Je hebt een Synthetic API-sleutel of basis-URL nodig
 title: "Synthetic"
 ---
 
@@ -93,5 +97,3 @@ Alle onderstaande modellen gebruiken kosten `0` (invoer/uitvoer/cache).
 - Als je een model-allowlist inschakelt (`agents.defaults.models`), voeg dan elk model toe dat je
   van plan bent te gebruiken.
 - Zie [Model providers](/concepts/model-providers) voor providerregels.
-
-

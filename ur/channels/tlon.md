@@ -1,14 +1,17 @@
 ---
+summary: "Tlon/Urbit کی معاونت کی حیثیت، صلاحیتیں، اور کنفیگریشن"
+read_when:
+  - Tlon/Urbit چینل کی خصوصیات پر کام کرتے وقت
 title: "Tlon"
 ---
 
 # Tlon (plugin)
 
-Tlon ایک غیر مرکزی پیغام رسانی ایپ ہے جو Urbit پر بنائی گئی ہے۔ OpenClaw آپ کے Urbit شپ سے منسلک ہوتا ہے اور کر سکتا ہے
+Tlon is a decentralized messenger built on Urbit. OpenClaw connects to your Urbit ship and can
 respond to DMs and group chat messages. Group replies require an @ mention by default and can
 be further restricted via allowlists.
 
-حالت: پلگ اِن کے ذریعے معاونت دستیاب ہے۔ ڈی ایمز، گروپ مینشنز، تھریڈ جوابات، اور صرف متن پر مبنی میڈیا فال بیک
+Status: supported via plugin. DMs, group mentions, thread replies, and text-only media fallback
 (URL appended to caption). Reactions, polls, and native media uploads are not supported.
 
 ## پلگ اِن درکار ہے
@@ -52,6 +55,22 @@ openclaw plugins install ./extensions/tlon
 }
 ```
 
+Private/LAN ship URLs (ایڈوانسڈ):
+
+ڈیفالٹ طور پر، OpenClaw اس پلگ اِن کے لیے نجی/اندرونی ہوسٹ نیمز اور IP رینجز کو بلاک کرتا ہے (SSRF ہارڈننگ)۔
+اگر آپ کا ship URL نجی نیٹ ورک پر ہے (مثال کے طور پر `http://192.168.1.50:8080` یا `http://localhost:8080`)،
+آپ کو واضح طور پر اجازت دینی ہوگی:
+
+```json5
+{
+  channels: {
+    tlon: {
+      allowPrivateNetwork: true,
+    },
+  },
+}
+```
+
 ## Group channels
 
 Auto-discovery is enabled by default. You can also pin channels manually:
@@ -66,7 +85,7 @@ Auto-discovery is enabled by default. You can also pin channels manually:
 }
 ```
 
-خودکار ڈسکوری غیر فعال کریں:
+DM اجازت فہرست (خالی = سب کی اجازت):
 
 ```json5
 {
@@ -92,7 +111,7 @@ DM اجازت فہرست (خالی = سب کی اجازت):
 }
 ```
 
-گروپ مجاز کاری (بطورِ طے شدہ محدود):
+انہیں `openclaw message send` یا cron ڈیلیوری کے ساتھ استعمال کریں:
 
 ```json5
 {
@@ -127,5 +146,3 @@ DM اجازت فہرست (خالی = سب کی اجازت):
 - گروپس میں جواب دینے کے لیے mention درکار ہے (مثلاً `~your-bot-ship`)۔
 - تھریڈ جوابات: اگر آنے والا پیغام کسی تھریڈ میں ہو تو OpenClaw اسی تھریڈ میں جواب دیتا ہے۔
 - میڈیا: `sendMedia` متن + URL پر فال بیک کرتا ہے (native اپلوڈ نہیں)۔
-
-

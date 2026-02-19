@@ -1,4 +1,8 @@
 ---
+summary: "Hur OpenClaw roterar autentiseringsprofiler och faller tillbaka mellan modeller"
+read_when:
+  - Felsökning av rotation av autentiseringsprofiler, nedkylningsperioder eller beteende för modellfallback
+  - Uppdatering av failover-regler för autentiseringsprofiler eller modeller
 title: "Modellfailover"
 ---
 
@@ -143,5 +147,3 @@ Se [Gateway-konfiguration](/gateway/configuration) för:
 - `agents.defaults.imageModel`-routning
 
 Se [Modeller](/concepts/models) för en bredare översikt över modellval och fallback.
-
-

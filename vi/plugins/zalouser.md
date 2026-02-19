@@ -1,4 +1,8 @@
 ---
+summary: "Plugin Zalo Personal: đăng nhập QR + nhắn tin qua zca-cli (cài plugin + cấu hình kênh + CLI + công cụ)"
+read_when:
+  - Bạn muốn hỗ trợ Zalo Personal (không chính thức) trong OpenClaw
+  - Bạn đang cấu hình hoặc phát triển plugin zalouser
 title: "Plugin Zalo Personal"
 ---
 
@@ -6,11 +10,11 @@ title: "Plugin Zalo Personal"
 
 Hỗ trợ Zalo Personal cho OpenClaw thông qua một plugin, sử dụng `zca-cli` để tự động hóa một tài khoản người dùng Zalo thông thường.
 
-> **Cảnh báo:** Tự động hóa không chính thức có thể dẫn đến việc tài khoản bị đình chỉ/cấm. Hãy tự chịu rủi ro khi sử dụng.
+> **Warning:** Unofficial automation may lead to account suspension/ban. Use at your own risk.
 
 ## Đặt tên
 
-Channel id là `zalouser` để làm rõ rằng tính năng này tự động hóa một **tài khoản người dùng Zalo cá nhân** (không chính thức). Chúng tôi giữ `zalo` để dành cho khả năng tích hợp API Zalo chính thức trong tương lai.
+Channel id is `zalouser` to make it explicit this automates a **personal Zalo user account** (unofficial). We keep `zalo` reserved for a potential future official Zalo API integration.
 
 ## Nơi chạy
 
@@ -75,5 +79,3 @@ openclaw directory peers list --channel zalouser --query "name"
 Tên công cụ: `zalouser`
 
 Hành động: `send`, `image`, `link`, `friends`, `groups`, `me`, `status`
-
-

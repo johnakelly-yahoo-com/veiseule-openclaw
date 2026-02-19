@@ -1,5 +1,7 @@
 ---
 title: Sandbox CLI
+summary: "Beheer sandboxcontainers en inspecteer het effectieve sandboxbeleid"
+read_when: "Je beheert sandboxcontainers of debugt sandbox-/toolbeleidsgedrag."
 status: active
 ---
 
@@ -147,5 +149,3 @@ Sandboxinstellingen staan in `~/.openclaw/openclaw.json` onder `agents.defaults.
 - [Sandboxdocumentatie](/gateway/sandboxing)
 - [Agentconfiguratie](/concepts/agent-workspace)
 - [Doctor-opdracht](/gateway/doctor) - Controleer sandboxinstallatie
-
-

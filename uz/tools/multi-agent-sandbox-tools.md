@@ -1,5 +1,7 @@
 ---
+summary: "Har bir agent uchun sandbox + vosita cheklovlari, ustuvorlik va misollar"
 title: Ko‘p agentli sandbox va vositalar
+read_when: "Siz ko‘p agentli shlyuzda har bir agent uchun alohida sandbox yoki har bir agent uchun vositalarni ruxsat berish/taqiqlash siyosatini xohlaysiz."
 status: faol
 ---
 
@@ -214,7 +216,7 @@ Filtrlash tartibi quyidagicha:
 7. **Sandbox vosita siyosati** (`tools.sandbox.tools` or `agents.list[].tools.sandbox.tools`)
 8. **Subagent vosita siyosati** (`tools.subagents.tools`, agar mavjud bo‘lsa)
 
-Har bir daraja vositalarni yanada cheklashi mumkin, ammo avvalgi darajalarda rad etilgan vositalarni qayta ruxsat eta olmaydi.
+Each level can further restrict tools, but cannot grant back denied tools from earlier levels.
 If `agents.list[].tools.sandbox.tools` is set, it replaces `tools.sandbox.tools` for that agent.
 If `agents.list[].tools.profile` is set, it overrides `tools.profile` for that agent.
 Provider tool keys accept either `provider` (e.g. `google-antigravity`) or `provider/model` (e.g. `openai/gpt-5.2`).
@@ -391,5 +393,3 @@ After configuring multi-agent sandbox and tools:
 - [Multi-Agent Routing](/concepts/multi-agent)
 - [Sandbox Configuration](/gateway/configuration#agentsdefaults-sandbox)
 - [Session Management](/concepts/session)
-
-

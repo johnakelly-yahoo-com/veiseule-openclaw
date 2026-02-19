@@ -1,4 +1,9 @@
 ---
+summary: "Application Android (nœud) : runbook de connexion + Canvas/Chat/Camera"
+read_when:
+  - Appairage ou reconnexion du nœud Android
+  - Débogage de la découverte ou de l’authentification de la Gateway Android
+  - Vérification de la parité de l’historique de chat entre les clients
 title: "Application Android"
 ---
 
@@ -118,7 +123,7 @@ La feuille Chat du nœud Android utilise la **clé de session primaire** de la G
 
 Si vous souhaitez que le nœud affiche de vrais HTML/CSS/JS que l’agent peut modifier sur disque, pointez le nœud vers l’hôte Canvas de la Gateway.
 
-Remarque : les nœuds utilisent l’hôte Canvas autonome sur `canvasHost.port` (par défaut `18793`).
+Remarque : les nœuds chargent le canvas depuis le serveur HTTP Gateway (même port que `gateway.port`, par défaut `18789`).
 
 1. Créez `~/.openclaw/workspace/canvas/index.html` sur l’hôte de la Gateway.
 
@@ -144,5 +149,3 @@ Commandes caméra (premier plan uniquement ; permissions requises) :
 - `camera.clip` (mp4)
 
 Voir [Nœud caméra](/nodes/camera) pour les paramètres et les aides CLI.
-
-

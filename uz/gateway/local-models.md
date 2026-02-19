@@ -1,14 +1,19 @@
 ---
-title: "Lokal modellar"
+summary: "Run OpenClaw on local LLMs (LM Studio, vLLM, LiteLLM, custom OpenAI endpoints)"
+read_when:
+  - You want to serve models from your own GPU box
+  - You are wiring LM Studio or an OpenAI-compatible proxy
+  - You need the safest local model guidance
+title: "Local Models"
 ---
 
-# Lokal modellar
+# Local models
 
-Lokal ishga tushirish mumkin, ammo OpenClaw katta kontekst va prompt injection’ga qarshi kuchli himoyani talab qiladi. Kichik GPU kartalar kontekstni qisqartiradi va xavfsizlikni zaiflashtiradi. Yuqori darajani maqsad qiling: **kamida 2 ta maksimal konfiguratsiyadagi Mac Studio yoki shunga teng GPU rig (~$30k+)**. Bitta **24 GB** GPU faqat yengilroq prompt’lar uchun va yuqori kechikish bilan ishlaydi. Imkon qadar **eng katta / to‘liq o‘lchamli model variantini ishlating**; kuchli kvantlangan yoki “kichik” checkpoint’lar prompt injection xavfini oshiradi (qarang: [Security](/gateway/security)).
+Local is doable, but OpenClaw expects large context + strong defenses against prompt injection. Small cards truncate context and leak safety. Aim high: **≥2 maxed-out Mac Studios or equivalent GPU rig (~$30k+)**. A single **24 GB** GPU works only for lighter prompts with higher latency. Use the **largest / full-size model variant you can run**; aggressively quantized or “small” checkpoints raise prompt-injection risk (see [Security](/gateway/security)).
 
-## Tavsiya etiladi: LM Studio + MiniMax M2.1 (Responses API, to‘liq o‘lcham)
+## Recommended: LM Studio + MiniMax M2.1 (Responses API, full-size)
 
-Hozirgi eng yaxshi lokal stek. MiniMax M2.1’ni LM Studio’da yuklang, lokal serverni yoqing (standart `http://127.0.0.1:1234`), va fikrlashni yakuniy matndan ajratish uchun Responses API’dan foydalaning.
+Best current local stack. Load MiniMax M2.1 in LM Studio, enable the local server (default `http://127.0.0.1:1234`), and use Responses API to keep reasoning separate from final text.
 
 ```json5
 {
@@ -45,17 +50,17 @@ Hozirgi eng yaxshi lokal stek. MiniMax M2.1’ni LM Studio’da yuklang, lokal s
 }
 ```
 
-**Sozlash bo‘yicha tekshiruv ro‘yxati**
+**Setup checklist**
 
-- LM Studio’ni o‘rnating: [https://lmstudio.ai](https://lmstudio.ai)
-- LM Studio ichida **mavjud eng katta MiniMax M2.1 build’ini yuklab oling** (“small”/kuchli kvantlangan variantlardan saqlaning), serverni ishga tushiring va `http://127.0.0.1:1234/v1/models` orqali model ro‘yxatda borligini tekshiring.
-- Model yuklangan holda tursin; sovuq yuklash ishga tushish kechikishini oshiradi.
-- Agar LM Studio build’ingiz boshqacha bo‘lsa, `contextWindow`/`maxTokens` qiymatlarini moslang.
-- WhatsApp uchun faqat Responses API’dan foydalaning, shunda faqat yakuniy matn yuboriladi.
+- Install LM Studio: [https://lmstudio.ai](https://lmstudio.ai)
+- In LM Studio, download the **largest MiniMax M2.1 build available** (avoid “small”/heavily quantized variants), start the server, confirm `http://127.0.0.1:1234/v1/models` lists it.
+- Keep the model loaded; cold-load adds startup latency.
+- Adjust `contextWindow`/`maxTokens` if your LM Studio build differs.
+- For WhatsApp, stick to Responses API so only final text is sent.
 
-Lokal ishlatayotganda ham hosted modellarni sozlangan holda qoldiring; fallback’lar mavjud bo‘lishi uchun `models.mode: "merge"` dan foydalaning.
+Keep hosted models configured even when running local; use `models.mode: "merge"` so fallbacks stay available.
 
-### Gibrid konfiguratsiya: hosted asosiy, lokal fallback
+### Hybrid config: hosted primary, local fallback
 
 ```json5
 {
@@ -96,18 +101,18 @@ Lokal ishlatayotganda ham hosted modellarni sozlangan holda qoldiring; fallback�
 }
 ```
 
-### Lokal-birinchi, hosted xavfsizlik tarmog‘i bilan
+### Local-first with hosted safety net
 
-Asosiy va fallback tartibini almashtiring; xuddi shu providers blokini va `models.mode: "merge"` ni saqlang, shunda lokal server ishlamay qolganda Sonnet yoki Opus’ga o‘ta olasiz.
+Swap the primary and fallback order; keep the same providers block and `models.mode: "merge"` so you can fall back to Sonnet or Opus when the local box is down.
 
-### Mintaqaviy hosting / ma’lumot yo‘naltirish
+### Regional hosting / data routing
 
-- Hosted MiniMax/Kimi/GLM variantlari OpenRouter’da ham mavjud va mintaqaga bog‘langan endpoint’larga ega (masalan, US-hosted). Trafikni tanlagan yurisdiksiyangizda saqlash uchun u yerda mintaqaviy variantni tanlang va shu bilan birga Anthropic/OpenAI fallback’lari uchun `models.mode: "merge"` dan foydalaning.
-- Faqat-lokal yechim maxfiylik uchun eng kuchli yo‘l; hosted mintaqaviy yo‘naltirish esa provayder funksiyalari kerak bo‘lganda va ma’lumot oqimini nazorat qilishni istaganda o‘rtacha variantdir.
+- Hosted MiniMax/Kimi/GLM variants also exist on OpenRouter with region-pinned endpoints (e.g., US-hosted). Pick the regional variant there to keep traffic in your chosen jurisdiction while still using `models.mode: "merge"` for Anthropic/OpenAI fallbacks.
+- Local-only remains the strongest privacy path; hosted regional routing is the middle ground when you need provider features but want control over data flow.
 
-## Boshqa OpenAI-compatible lokal proksilar
+## Other OpenAI-compatible local proxies
 
-vLLM, LiteLLM, OAI-proxy yoki maxsus gateway’lar OpenAI uslubidagi `/v1` endpoint’ni taqdim etsa, ishlaydi. Yuqoridagi provider blokini o‘z endpoint’ingiz va model ID bilan almashtiring:
+vLLM, LiteLLM, OAI-proxy, or custom gateways work if they expose an OpenAI-style `/v1` endpoint. Replace the provider block above with your endpoint and model ID:
 
 ```json5
 {
@@ -135,12 +140,11 @@ vLLM, LiteLLM, OAI-proxy yoki maxsus gateway’lar OpenAI uslubidagi `/v1` endpo
 }
 ```
 
-Hosted modellar fallback sifatida mavjud bo‘lib qolishi uchun `models.mode: "merge"` ni saqlang.
+Keep `models.mode: "merge"` so hosted models stay available as fallbacks.
 
-## Muammolarni bartaraf etish
+## Troubleshooting
 
-- Gateway proksiga ulanganmi? `curl http://127.0.0.1:1234/v1/models`.
-- LM Studio modeli yuklanmaganmi? Qayta yuklang; sovuq ishga tushish ko‘pincha “osilib qolish” sababi bo‘ladi.
-- Kontekst xatolari? `contextWindow` ni kamaytiring yoki server limitini oshiring.
-- Xavfsizlik: lokal modellar provayder tomondagi filtrlarsiz ishlaydi; prompt injection ta’sir doirasini cheklash uchun agentlarni tor doirada saqlang va compaction’ni yoqilgan holda qoldiring.
-
+- Gateway can reach the proxy? `curl http://127.0.0.1:1234/v1/models`.
+- LM Studio model unloaded? Reload; cold start is a common “hanging” cause.
+- Context errors? Lower `contextWindow` or raise your server limit.
+- Safety: local models skip provider-side filters; keep agents narrow and compaction on to limit prompt injection blast radius.

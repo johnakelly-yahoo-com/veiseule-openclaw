@@ -1,4 +1,8 @@
 ---
+summary: "استخدم OpenAI عبر مفاتيح API أو اشتراك Codex في OpenClaw"
+read_when:
+  - تريد استخدام نماذج OpenAI في OpenClaw
+  - تريد مصادقة اشتراك Codex بدلًا من مفاتيح API
 title: "OpenAI"
 ---
 
@@ -55,5 +59,3 @@ openclaw models auth login --provider openai-codex
 
 - تستخدم مراجع النماذج دائمًا `provider/model` (انظر [/concepts/models](/concepts/models)).
 - توجد تفاصيل المصادقة + قواعد إعادة الاستخدام في [/concepts/oauth](/concepts/oauth).
-
-

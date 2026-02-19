@@ -1,4 +1,10 @@
-------
+---
+title: "Session Pruning"
+summary: "सेशन प्रूनिंग: संदर्भ फुलाव कम करने के लिए टूल-रिज़ल्ट ट्रिमिंग"
+read_when:
+  - आप टूल आउटपुट से LLM संदर्भ वृद्धि को कम करना चाहते हैं
+  - आप agents.defaults.contextPruning को ट्यून कर रहे हैं
+---
 
 # Session Pruning
 
@@ -115,5 +121,3 @@ Restrict pruning to specific tools:
 ```
 
 See config reference: [Gateway Configuration](/gateway/configuration)
-
-

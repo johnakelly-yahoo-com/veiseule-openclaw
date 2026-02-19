@@ -1,4 +1,9 @@
 ---
+summary: "Exec Genehmigungen, Zulassungen und Sandbox Escape-Eingabeaufforderungen"
+read_when:
+  - Konfigurieren von Exec Genehmigungen oder Zulassungslisten
+  - Implementierung der Exec-Freigabe-UX in der macOS-App
+  - Überprüfung von Sandbox-Escape-Prompts und deren Auswirkungen
 title: "Exec Genehmigungen"
 ---
 
@@ -119,6 +124,9 @@ ausführbare Dateien auf Nodes (macOS-Node oder Headless-Node-Host) als allowlis
 `tools.exec.safeBins` definiert eine kleine Liste von **stdin-only**-Binärdateien (z. B. `jq`),
 die im Allowlist-Modus **ohne** explizite Allowlist-Einträge ausgeführt werden dürfen. Sichere Bins verwerfen
 positionale Dateiargumente und pfadähnliche Token, sodass sie nur auf dem eingehenden Stream arbeiten können.
+Safe Bins erzwingen außerdem, dass argv-Tokens zur Ausführungszeit als **wörtlicher Text** behandelt werden (kein Globbing
+und keine `$VARS`-Expansion) für reine stdin-Segmente, sodass Muster wie `*` oder `$HOME/...` nicht
+zum Einschleusen von Dateizugriffen verwendet werden können.
 Shell-Verkettungen und Umleitungen werden im Allowlist-Modus nicht automatisch erlaubt.
 
 Shell-Verkettung (`&&`, `||`, `;`) ist erlaubt, wenn jedes Top-Level-Segment die Allowlist erfüllt
@@ -238,5 +246,3 @@ Verwandt:
 - [Exec-Tool](/tools/exec)
 - [Elevated-Modus](/tools/elevated)
 - [Fähigkeiten](/tools/skills)
-
-

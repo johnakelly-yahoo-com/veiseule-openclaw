@@ -1,4 +1,8 @@
 ---
+summary: "CLI-referens för `openclaw channels` (konton, status, inloggning/utloggning, loggar)"
+read_when:
+  - Du vill lägga till/ta bort kanalkonton (WhatsApp/Telegram/Discord/Google Chat/Slack/Mattermost (plugin)/Signal/iMessage)
+  - Du vill kontrollera kanalstatus eller följa kanalloggar
 title: "kanaler"
 ---
 
@@ -73,5 +77,3 @@ Noteringar:
 
 - Använd `--kind user|group|auto` för att tvinga måltyp.
 - Upplösning föredrar aktiva träffar när flera poster delar samma namn.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Tarayıcı otomasyonu + X/Twitter gönderimi için manuel girişler"
+read_when:
+  - Tarayıcı otomasyonu için sitelere giriş yapmanız gerektiğinde
+  - X/Twitter’a güncelleme göndermek istediğinizde
 title: "Tarayıcı Girişi"
 ---
 
@@ -61,5 +65,3 @@ openclaw browser open https://x.com --browser-profile openclaw --target host
 ```
 
 Ya da güncelleme gönderen ajan için sandboxing’i devre dışı bırakın.
-
-

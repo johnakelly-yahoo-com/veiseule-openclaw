@@ -1,5 +1,7 @@
 ---
+summary: "Multi-Agent-Routing: isolierte Agenten, Kanal-Konten und Bindungen"
 title: Multi-Agent-Routing
+read_when: "Sie möchten mehrere isolierte Agenten (Workspaces + Auth) in einem Gateway-Prozess."
 status: active
 ---
 
@@ -123,11 +125,15 @@ Hinweise:
 Bindungen sind **deterministisch** und **die spezifischste gewinnt**:
 
 1. `peer`-Match (exakte DM-/Gruppen-/Kanal-ID)
-2. `guildId` (Discord)
-3. `teamId` (Slack)
-4. `accountId`-Match für einen Kanal
-5. Kanalweite Übereinstimmung (`accountId: "*"`)
-6. Fallback auf Standardagent (`agents.list[].default`, andernfalls erster Listeneintrag, Standard: `main`)
+2. `parentPeer`-Match (Thread-Vererbung)
+3. `guildId + roles` (Discord-Rollen-Routing)
+4. `guildId` (Discord)
+5. `teamId` (Slack)
+6. `accountId`-Match für einen Kanal
+7. Kanalweite Übereinstimmung (`accountId: "*"`)
+8. Fallback auf Standardagent (`agents.list[].default`, andernfalls erster Listeneintrag, Standard: `main`)
+
+Wenn ein Binding mehrere Match-Felder setzt (zum Beispiel `peer` + `guildId`), sind alle angegebenen Felder erforderlich (`AND`-Semantik).
 
 ## Mehrere Konten / Telefonnummern
 
@@ -381,5 +387,3 @@ Wenn Sie agentenspezifische Grenzen benötigen, verwenden Sie `agents.list[].too
 Für Gruppenzielsteuerung verwenden Sie `agents.list[].groupChat.mentionPatterns`, damit @Mentions sauber dem vorgesehenen Agenten zugeordnet werden.
 
 Siehe [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) für detaillierte Beispiele.
-
-

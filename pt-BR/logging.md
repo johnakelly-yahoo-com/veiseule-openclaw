@@ -1,4 +1,9 @@
 ---
+summary: "Visão geral de logging: logs em arquivo, saída no console, tail via CLI e a UI de Controle"
+read_when:
+  - Você precisa de uma visão geral de logging amigável para iniciantes
+  - Você quer configurar níveis ou formatos de log
+  - Você está solucionando problemas e precisa encontrar logs rapidamente
 title: "Registro de logs"
 ---
 
@@ -353,5 +358,3 @@ Filas + sessões:
   do arquivo em `logging.file`.
 - **Precisa de mais detalhes?** Defina `logging.level` como `debug` ou
   `trace` e tente novamente.
-
-

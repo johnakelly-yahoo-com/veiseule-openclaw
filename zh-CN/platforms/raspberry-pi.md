@@ -1,12 +1,10 @@
 ---
-title: Raspberry Pi
-x-i18n:
-  generated_at: "2026-02-03T07:53:30Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 6741eaf0115a4fa0efd6599a99e0526a20ceb30eda1d9b04cba9dd5dec84bee2
-  source_path: platforms/raspberry-pi.md
-  workflow: 15
+summary: "在 Raspberry Pi 上运行 OpenClaw（低成本自托管设置）"
+read_when:
+  - 在 Raspberry Pi 上设置 OpenClaw 时
+  - 在 ARM 设备上运行 OpenClaw 时
+  - 构建低成本常驻个人 AI 时
+title: "Raspberry Pi"
 ---
 
 # 在 Raspberry Pi 上运行 OpenClaw
@@ -23,19 +21,19 @@ x-i18n:
 
 ## 硬件要求
 
-| Pi 型号         | 内存    | 是否可用？ | 说明                       |
-| --------------- | ------- | ---------- | -------------------------- |
-| **Pi 5**        | 4GB/8GB | ✅ 最佳    | 最快，推荐                 |
-| **Pi 4**        | 4GB     | ✅ 良好    | 大多数用户的最佳选择       |
-| **Pi 4**        | 2GB     | ✅ 可以    | 可用，添加交换空间         |
-| **Pi 4**        | 1GB     | ⚠️ 紧张    | 使用交换空间可行，最小配置 |
-| **Pi 3B+**      | 1GB     | ⚠️ 慢      | 可用但较慢                 |
-| **Pi Zero 2 W** | 512MB   | ❌         | 不推荐                     |
+| Pi 型号           | 内存      | 是否可用？    | 说明              |
+| --------------- | ------- | -------- | --------------- |
+| **Pi 5**        | 4GB/8GB | ✅ 最佳     | 最快，推荐           |
+| **Pi 4**        | 4GB     | ✅ 良好     | 大多数用户的最佳选择      |
+| **Pi 4**        | 2GB     | ✅ 可以     | Works, add swap |
+| **Pi 4**        | 1GB     | ⚠️ Tight | 使用交换空间可行，最小配置   |
+| **Pi 3B+**      | 1GB     | ⚠️ 慢     | 可用但较慢           |
+| **Pi Zero 2 W** | 512MB   | ❌        | 不推荐             |
 
 **最低配置：** 1GB 内存，1 核，500MB 磁盘  
 **推荐：** 2GB+ 内存，64 位系统，16GB+ SD 卡（或 USB SSD）
 
-## 你需要准备
+## What You'll Need
 
 - Raspberry Pi 4 或 5（推荐 2GB+）
 - MicroSD 卡（16GB+）或 USB SSD（性能更好）
@@ -43,7 +41,7 @@ x-i18n:
 - 网络连接（以太网或 WiFi）
 - 约 30 分钟
 
-## 1) 刷写系统
+## 1. 刷写系统
 
 使用 **Raspberry Pi OS Lite (64-bit)** — 无头服务器不需要桌面。
 
@@ -65,7 +63,7 @@ ssh user@gateway-host
 ssh user@192.168.x.x
 ```
 
-## 3) 系统设置
+## 3. 系统设置
 
 ```bash
 # 更新系统
@@ -78,7 +76,7 @@ sudo apt install -y git curl build-essential
 sudo timedatectl set-timezone America/Chicago  # 改成你的时区
 ```
 
-## 4) 安装 Node.js 22（ARM64）
+## 4. 安装 Node.js 22（ARM64）
 
 ```bash
 # 通过 NodeSource 安装 Node.js
@@ -90,7 +88,7 @@ node --version  # 应显示 v22.x.x
 npm --version
 ```
 
-## 5) 添加交换空间（2GB 或更少内存时很重要）
+## 5. 添加交换空间（2GB 或更少内存时很重要）
 
 交换空间可防止内存不足崩溃：
 
@@ -109,7 +107,7 @@ echo 'vm.swappiness=10' | sudo tee -a /etc/sysctl.conf
 sudo sysctl -p
 ```
 
-## 6) 安装 OpenClaw
+## 6. 安装 OpenClaw
 
 ### 选项 A：标准安装（推荐）
 
@@ -129,7 +127,7 @@ npm link
 
 可修改安装让你可以直接访问日志和代码 — 对调试 ARM 特定问题很有用。
 
-## 7) 运行新手引导
+## 7. 运行新手引导
 
 ```bash
 openclaw onboard --install-daemon
@@ -155,7 +153,7 @@ sudo systemctl status openclaw
 journalctl -u openclaw -f
 ```
 
-## 9) 访问仪表板
+## 9. 访问仪表板
 
 由于 Pi 是无头的，使用 SSH 隧道：
 
@@ -185,7 +183,7 @@ sudo systemctl restart openclaw
 
 ### 使用 USB SSD（巨大改进）
 
-SD 卡速度慢且会磨损。USB SSD 可大幅提升性能：
+SD cards are slow and wear out. SD 卡速度慢且会磨损。USB SSD 可大幅提升性能：
 
 ```bash
 # 检查是否从 USB 启动
@@ -225,19 +223,19 @@ htop
 
 大多数 OpenClaw 功能在 ARM64 上可用，但某些外部二进制文件可能需要 ARM 构建：
 
-| 工具               | ARM64 状态 | 说明                                |
-| ------------------ | ---------- | ----------------------------------- |
-| Node.js            | ✅         | 运行良好                            |
-| WhatsApp (Baileys) | ✅         | 纯 JS，无问题                       |
-| Telegram           | ✅         | 纯 JS，无问题                       |
-| gog (Gmail CLI)    | ⚠️         | 检查是否有 ARM 版本                 |
-| Chromium (browser) | ✅         | `sudo apt install chromium-browser` |
+| 工具                                    | ARM64 状态 | 说明                                  |
+| ------------------------------------- | -------- | ----------------------------------- |
+| Node.js               | ✅        | 运行良好                                |
+| WhatsApp (Baileys) | ✅        | 纯 JS，无问题                            |
+| Telegram                              | ✅        | 纯 JS，无问题                            |
+| gog (Gmail CLI)    | ⚠️       | 检查是否有 ARM 版本                        |
+| Chromium (browser) | ✅        | `sudo apt install chromium-browser` |
 
-如果某个 skill 失败，检查其二进制文件是否有 ARM 构建。许多 Go/Rust 工具有；有些没有。
+如果某个 skill 失败，检查其二进制文件是否有 ARM 构建。许多 Go/Rust 工具有；有些没有。 Many Go/Rust tools do; some don't.
 
 ### 32 位 vs 64 位
 
-**始终使用 64 位系统。** Node.js 和许多现代工具需要它。使用以下命令检查：
+**始终使用 64 位系统。** Node.js 和许多现代工具需要它。使用以下命令检查： Check with:
 
 ```bash
 uname -m
@@ -263,7 +261,7 @@ uname -m
 }
 ```
 
-**不要尝试在 Pi 上运行本地 LLM** — 即使是小模型也太慢了。让 Claude/GPT 来做繁重的工作。
+**不要尝试在 Pi 上运行本地 LLM** — 即使是小模型也太慢了。让 Claude/GPT 来做繁重的工作。 Let Claude/GPT do the heavy lifting.
 
 ---
 
@@ -338,14 +336,14 @@ echo 'wireless-power off' | sudo tee -a /etc/network/interfaces
 
 ## 成本对比
 
-| 设置           | 一次性成本 | 月费     | 说明               |
-| -------------- | ---------- | -------- | ------------------ |
-| **Pi 4 (2GB)** | ~$45       | $0       | + 电费（约 $5/年） |
-| **Pi 4 (4GB)** | ~$55       | $0       | 推荐               |
-| **Pi 5 (4GB)** | ~$60       | $0       | 最佳性能           |
-| **Pi 5 (8GB)** | ~$80       | $0       | 过剩但面向未来     |
-| DigitalOcean   | $0         | $6/月    | $72/年             |
-| Hetzner        | $0         | €3.79/月 | 约 $50/年          |
+| 设置                                | 一次性成本                | 月费                      | 说明           |
+| --------------------------------- | -------------------- | ----------------------- | ------------ |
+| **Pi 4 (2GB)** | ~$45 | $0                      | + 电费（约 $5/年） |
+| **Pi 4 (4GB)** | ~$55 | $0                      | 推荐           |
+| **Pi 5 (4GB)** | ~$60 | $0                      | 最佳性能         |
+| **Pi 5 (8GB)** | ~$80 | $0                      | 过剩但面向未来      |
+| DigitalOcean                      | $0                   | $6/月                    | $72/年        |
+| Hetzner                           | $0                   | €3.79/月 | 约 $50/年      |
 
 **回本期：** 与云 VPS 相比，Pi 约 6-12 个月内回本。
 
@@ -358,5 +356,3 @@ echo 'wireless-power off' | sudo tee -a /etc/network/interfaces
 - [Hetzner 指南](/install/hetzner) — Docker 设置
 - [Tailscale](/gateway/tailscale) — 远程访问
 - [节点](/nodes) — 将你的笔记本电脑/手机与 Pi Gateway 网关配对
-
-

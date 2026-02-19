@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw uchun ixtiyoriy Docker-ga asoslangan sozlash va onboarding"
+read_when:
+  - Mahalliy o‘rnatishlar o‘rniga konteynerlashtirilgan gateway xohlaysiz
+  - Siz Docker oqimini tekshirmoqdasiz
 title: "Docker"
 ---
 
@@ -63,6 +67,24 @@ VPS’da ishlayapsizmi? [Hetzner (Docker VPS)](/install/hetzner) ga qarang.
 
 ### Qo‘lda oqim (compose)
 
+Docker’ni kundalik boshqarishni osonlashtirish uchun `ClawDock` ni o‘rnating:
+
+```bash
+mkdir -p ~/.clawdock && curl -sL https://raw.githubusercontent.com/openclaw/openclaw/main/scripts/shell-helpers/clawdock-helpers.sh -o ~/.clawdock/clawdock-helpers.sh
+```
+
+**Shell konfiguratsiyangizga qo‘shing (zsh):**
+
+```bash
+echo 'source ~/.clawdock/clawdock-helpers.sh' >> ~/.zshrc && source ~/.zshrc
+```
+
+Shundan so‘ng `clawdock-start`, `clawdock-stop`, `clawdock-dashboard` va boshqalardan foydalaning. Barcha buyruqlarni ko‘rish uchun `clawdock-help` ni ishga tushiring.
+
+Batafsil ma’lumot uchun [`ClawDock` Helper README](https://github.com/openclaw/openclaw/blob/main/scripts/shell-helpers/README.md) ga qarang.
+
+### Qo‘lda oqim (compose)
+
 ```bash
 docker build -t openclaw:local -f Dockerfile .
 docker compose run --rm openclaw-cli onboard
@@ -79,7 +101,7 @@ docker compose -f docker-compose.yml -f docker-compose.extra.yml <command>
 
 ### Control UI tokeni + juftlash (Docker)
 
-Agar “unauthorized” yoki “disconnected (1008): pairing required” ni ko‘rsangiz, yangi dashboard havolasini oling va brauzer qurilmasini tasdiqlang:
+Eslatmalar:
 
 ```bash
 docker compose run --rm openclaw-cli dashboard --no-open
@@ -95,14 +117,14 @@ Agar qo‘shimcha host kataloglarini konteynerlarga mount qilmoqchi bo‘lsangiz
 `OPENCLAW_EXTRA_MOUNTS` ni o‘rnating. Bu vergul bilan ajratilgan Docker bind mount’lar ro‘yxatini qabul qiladi va
 `docker-compose.extra.yml` ni yaratish orqali ularni ham `openclaw-gateway`, ham `openclaw-cli` ga qo‘llaydi.
 
-Misol:
+Example:
 
 ```bash
 export OPENCLAW_EXTRA_MOUNTS="$HOME/.codex:/home/node/.codex:ro,$HOME/github:/home/node/github:rw"
 ./docker-setup.sh
 ```
 
-Eslatmalar:
+Notes:
 
 - macOS/Windows’da yo‘llar Docker Desktop bilan bo‘lishilgan bo‘lishi kerak.
 - `OPENCLAW_EXTRA_MOUNTS` ni tahrirlasangiz, qo‘shimcha compose faylini qayta yaratish uchun
@@ -115,7 +137,7 @@ Agar `/home/node` konteyner qayta yaratilganda saqlanib qolishini istasangiz, `O
 `/home/node` ga mount qiladi, shu bilan birga standart config/workspace bind mount’larini saqlab qoladi. Bu yerda nomlangan volume’dan foydalaning (bind path emas); bind mount’lar uchun
 `OPENCLAW_EXTRA_MOUNTS` dan foydalaning.
 
-Misol:
+Example:
 
 ```bash
 export OPENCLAW_HOME_VOLUME="openclaw_home"
@@ -428,7 +450,7 @@ Ko‘p-agentli: har bir agent uchun `agents.list[].sandbox.{docker,browser,prune
 scripts/sandbox-setup.sh
 ```
 
-Bu `Dockerfile.sandbox` dan foydalanib `openclaw-sandbox:bookworm-slim` ni yig‘adi.
+Sandbox ichida brauzer vositasini ishga tushirish uchun brauzer image’ni yig‘ing:
 
 ### Sandbox umumiy image (ixtiyoriy)
 
@@ -452,7 +474,7 @@ Bu `openclaw-sandbox-common:bookworm-slim` ni yig‘adi. Uni ishlatish uchun:
 
 ### Sandbox brauzer image’i
 
-Sandbox ichida brauzer vositasini ishga tushirish uchun brauzer image’ni yig‘ing:
+Maxsus brauzer image’i:
 
 ```bash
 scripts/sandbox-browser-setup.sh
@@ -461,7 +483,7 @@ scripts/sandbox-browser-setup.sh
 Bu `Dockerfile.sandbox-browser` dan foydalanib `openclaw-sandbox-browser:bookworm-slim` ni yig‘adi. Konteyner CDP yoqilgan Chromium’ni va
 ixtiyoriy noVNC kuzatuvchini (Xvfb orqali headful) ishga tushiradi.
 
-Eslatmalar:
+Notes:
 
 - Headful (Xvfb) headless’ga nisbatan bot bloklashni kamaytiradi.
 - `agents.defaults.sandbox.browser.headless=true` qilib, headless’ni ham ishlatish mumkin.
@@ -495,8 +517,8 @@ Maxsus brauzer image’i:
 
 Yoqilganda, agent quyidagilarni oladi:
 
-- sandbox brauzerini boshqarish URL’i (`browser` vositasi uchun)
-- noVNC URL’i (agar yoqilgan bo‘lsa va headless=false)
+- `deny` `allow`dan ustun turadi.
+- Agar `allow` bo‘sh bo‘lsa: barcha vositalar (deny’dan tashqari) mavjud.
 
 Eslab qoling: agar vositalar uchun allowlist’dan foydalansangiz, `browser` ni qo‘shing (va deny’dan olib tashlang), aks holda vosita bloklangan bo‘lib qoladi.
 Prune qoidalari (`agents.defaults.sandbox.prune`) brauzer konteynerlariga ham qo‘llanadi.
@@ -519,11 +541,11 @@ docker build -t my-openclaw-sbx -f Dockerfile.sandbox .
 }
 ```
 
-### Vositlar siyosati (allow/deny)
+### Xavfsizlik eslatmalari
 
-- `deny` `allow`dan ustun turadi.
-- Agar `allow` bo‘sh bo‘lsa: barcha vositalar (deny’dan tashqari) mavjud.
-- Agar `allow` bo‘sh bo‘lmasa: faqat `allow` dagi vositalar mavjud (deny chiqarib tashlanadi).
+- Qattiq devor faqat **vositalar** ga taalluqli (exec/read/write/edit/apply_patch).
+- Brauzer/kamera/canvas kabi host-only vositalar sukut bo‘yicha bloklangan.
+- Sandbox’da `browser`ga ruxsat berish **izolyatsiyani buzadi** (brauzer host’da ishlaydi).
 
 ### Pruning strategiyasi
 
@@ -532,7 +554,7 @@ Ikki sozlama:
 - `prune.idleHours`: X soat davomida ishlatilmagan konteynerlarni o‘chirish (0 = o‘chirilgan)
 - `prune.maxAgeDays`: X kundan eski konteynerlarni o‘chirish (0 = o‘chirilgan)
 
-Misol:
+Example:
 
 - Band sessiyalarni saqlab, lekin umrini cheklash:
   `idleHours: 24`, `maxAgeDays: 7`
@@ -551,5 +573,3 @@ Misol:
 - 3. Konteyner ishlamayapti: u sessiya uchun talab bo‘yicha avtomatik yaratiladi.
 - 4. Sandbox’dagi ruxsat xatolari: `docker.user` ni siz ulanayotgan workspace egaligiga mos UID:GID ga o‘rnating (yoki workspace papkasini chown qiling).
 - 5. Maxsus vositalar topilmadi: OpenClaw buyruqlarni `sh -lc` (login shell) bilan ishga tushiradi, bu esa `/etc/profile` ni yuklaydi va PATH ni qayta o‘rnatishi mumkin. 6. `docker.env.PATH` ni sozlab, maxsus vosita yo‘llarini oldindan qo‘shing (masalan, `/custom/bin:/usr/local/share/npm-global/bin`), yoki Dockerfile’ingizda `/etc/profile.d/` ostiga skript qo‘shing.
-
-

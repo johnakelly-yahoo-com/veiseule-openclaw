@@ -1,4 +1,8 @@
 ---
+summary: "Справочник CLI OpenClaw для команд, подкоманд и параметров `openclaw`"
+read_when:
+  - Добавление или изменение команд или параметров CLI
+  - Документирование новых поверхностей команд
 title: "Справочник CLI"
 ---
 
@@ -314,6 +318,11 @@ openclaw [--dev] [--profile <name>] <command>
 - `--zai-api-key <key>`
 - `--minimax-api-key <key>`
 - `--opencode-zen-api-key <key>`
+- `--custom-base-url <url>` (неинтерактивный режим; используется с `--auth-choice custom-api-key`)
+- `--custom-model-id <id>` (неинтерактивный режим; используется с `--auth-choice custom-api-key`)
+- `--custom-api-key <key>` (неинтерактивный режим; необязательно; используется с `--auth-choice custom-api-key`; при отсутствии используется значение `CUSTOM_API_KEY`)
+- `--custom-provider-id <id>` (неинтерактивный режим; необязательный пользовательский идентификатор провайдера)
+- `--custom-compatibility <openai|anthropic>` (неинтерактивный режим; необязательно; по умолчанию `openai`)
 - `--gateway-port <port>`
 - `--gateway-bind <loopback|lan|tailnet|auto|custom>`
 - `--gateway-auth <token|password>`
@@ -1024,5 +1033,3 @@ CLI управления браузером (выделенный Chrome/Brave/E
 - `--message <text>`
 - `--timeout-ms <ms>` (по умолчанию `agents.defaults.timeoutSeconds`)
 - `--history-limit <n>`
-
-

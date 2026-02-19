@@ -1,12 +1,15 @@
 ---
+summary: "Zalo bot support status, capabilities, and configuration"
+read_when:
+  - 進行 Zalo 功能或 webhook 相關工作時
 title: "Zalo"
 ---
 
 # Zalo（Bot API）
 
-狀態：實驗性。僅支援私訊；根據 Zalo 文件，群組功能即將推出。
+Status: experimental. Direct messages only; groups coming soon per Zalo docs.
 
-## 需要的外掛
+## Plugin required
 
 Zalo 以外掛形式提供，未隨核心安裝一併包含。
 
@@ -21,10 +24,10 @@ Zalo 以外掛形式提供，未隨核心安裝一併包含。
    - 從 npm 安裝（若已發佈）：`openclaw plugins install @openclaw/zalo`
    - 或在入門引導中選擇 **Zalo** 並確認安裝提示
 2. 設定權杖：
-   - 環境變數：`ZALO_BOT_TOKEN=...`
+   - Env: `ZALO_BOT_TOKEN=...`
    - 或設定檔：`channels.zalo.botToken: "..."`。
 3. 重新啟動 gateway（或完成初始化設定）。
-4. 私訊存取預設為配對模式；首次聯絡時請核准配對碼。
+4. DM access is pairing by default; approve the pairing code on first contact.
 
 最小設定：
 
@@ -45,10 +48,11 @@ Zalo 以外掛形式提供，未隨核心安裝一併包含。
 Zalo 是以越南為主的即時通訊應用程式；其 Bot API 讓 Gateway 閘道器能執行用於 1:1 對話的機器人。
 適合用於客服或通知等需要確定性回傳至 Zalo 的情境。
 It is a good fit for support or notifications where you want deterministic routing back to Zalo.
+It is a good fit for support or notifications where you want deterministic routing back to Zalo.
 
 - 由 Gateway 閘道器擁有的 Zalo Bot API 頻道。
 - 確定性路由：回覆一律回到 Zalo；模型不會選擇頻道。
-- 私訊會共用該代理的主要工作階段。
+- DMs share the agent's main session.
 - 尚未支援群組（Zalo 文件標示「即將推出」）。
 
 ## 設定（快速路徑）
@@ -56,8 +60,8 @@ It is a good fit for support or notifications where you want deterministic routi
 ### 1. 建立機器人權杖（Zalo Bot Platform）
 
 1. 前往 [https://bot.zaloplatforms.com](https://bot.zaloplatforms.com) 並登入。
-2. 建立新的機器人並設定其相關設定。
-3. 複製機器人權杖（格式：`12345689:abc-xyz`）。
+2. Create a new bot and configure its settings.
+3. Copy the bot token (format: `12345689:abc-xyz`).
 
 ### 2) 設定權杖（環境變數或設定檔）
 
@@ -79,7 +83,7 @@ It is a good fit for support or notifications where you want deterministic routi
 
 多帳號支援：使用 `channels.zalo.accounts` 搭配各帳號權杖，並可選用 `name`。
 
-3. 重新啟動 Gateway 閘道器（或完成入門引導）。 Zalo starts when a token is resolved (env or config).
+3. 重新啟動 Gateway 閘道器（或完成入門引導）。 重新啟動 Gateway 閘道器（或完成入門引導）。 Zalo starts when a token is resolved (env or config).
 4. DM access defaults to pairing. Approve the code when the bot is first contacted.
 
 ## 運作方式（行為）
@@ -166,7 +170,7 @@ It is a good fit for support or notifications where you want deterministic routi
 - `channels.zalo.botToken`：來自 Zalo Bot Platform 的機器人權杖。
 - `channels.zalo.tokenFile`：從檔案路徑讀取權杖。
 - `channels.zalo.dmPolicy`：`pairing | allowlist | open | disabled`（預設：配對）。
-- `channels.zalo.allowFrom`：私訊允許清單（使用者 ID）。`open` 需要 `"*"`。 `open` requires `"*"`. The wizard will ask for numeric IDs.
+- `channels.zalo.allowFrom`：私訊允許清單（使用者 ID）。`open` 需要 `"*"`。 `channels.zalo.allowFrom`：私訊允許清單（使用者 ID）。`open` 需要 `"*"`。 `open` requires `"*"`. The wizard will ask for numeric IDs.
 - `channels.zalo.mediaMaxMb`：進站／出站媒體上限（MB，預設 5）。
 - `channels.zalo.webhookUrl`：啟用 webhook 模式（需要 HTTPS）。
 - `channels.zalo.webhookSecret`：webhook 祕密（8–256 個字元）。
@@ -185,5 +189,3 @@ It is a good fit for support or notifications where you want deterministic routi
 - `channels.zalo.accounts.<id>.webhookSecret`：各帳號 webhook 祕密。
 - `channels.zalo.accounts.<id>.webhookPath`：各帳號 webhook 路徑。
 - `channels.zalo.accounts.<id>.proxy`：各帳號代理 URL。
-
-

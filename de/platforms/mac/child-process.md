@@ -1,4 +1,7 @@
 ---
+summary: "„Gateway-Lebenszyklus unter macOS (launchd)“"
+read_when:
+  - Integration der macOS-App in den Gateway-Lebenszyklus
 title: "Gateway-Lebenszyklus"
 ---
 
@@ -74,5 +77,3 @@ SSH-Tunnel zum Remote-Host und verbindet sich über diesen Tunnel.
 Falls jemals wieder ein echter Child-Process-Modus benötigt wird, sollte dieser
 als separater, expliziter, nur für Entwickler gedachter Modus dokumentiert
 werden.
-
-

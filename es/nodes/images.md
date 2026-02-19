@@ -1,4 +1,7 @@
 ---
+summary: "Reglas de manejo de imágenes y medios para envíos, el Gateway y respuestas del agente"
+read_when:
+  - Modificando la canalización de medios o adjuntos
 title: "Soporte de Imágenes y Medios"
 ---
 
@@ -67,5 +70,3 @@ El canal de WhatsApp funciona mediante **Baileys Web**. Este documento captura l
 - Cubrir flujos de envío y respuesta para casos de imagen/audio/documento.
 - Validar la recompresión de imágenes (límite de tamaño) y la marca de nota de voz para audio.
 - Asegurar que las respuestas con múltiples medios se distribuyan como envíos secuenciales.
-
-

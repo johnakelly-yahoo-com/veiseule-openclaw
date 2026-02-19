@@ -1,4 +1,8 @@
 ---
+summary: "Referência da CLI para `openclaw setup` (inicializar configuração + workspace)"
+read_when:
+  - Você está fazendo a configuração inicial sem o assistente completo de integração inicial
+  - Você quer definir o caminho padrão do workspace
 title: "configuração"
 ---
 
@@ -23,5 +27,3 @@ Para executar o assistente via setup:
 ```bash
 openclaw setup --wizard
 ```
-
-

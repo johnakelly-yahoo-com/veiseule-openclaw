@@ -1,4 +1,8 @@
 ---
+summary: "Overvåg OAuth-udløb for modeludbydere"
+read_when:
+  - Opsætning af overvågning eller alarmer for auth-udløb
+  - Automatisering af Claude Code / Codex OAuth-opdateringstjek
 title: "Autentificeringsovervågning"
 ---
 
@@ -38,5 +42,3 @@ gateway vært og er indstillet til systemd + Termux.
 - `scripts/termux-sync-widget.sh`: synkroniser Claude Code-legitimationsoplysninger → OpenClaw.
 
 Hvis du ikke har brug for telefonaautomatisering eller systemd-timere, kan du springe disse scripts over.
-
-

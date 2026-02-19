@@ -1,4 +1,7 @@
 ---
+summary: "Gabay sa setup para sa mga developer na nagtatrabaho sa OpenClaw macOS app"
+read_when:
+  - Pagse-set up ng macOS development environment
 title: "Setup ng Development sa macOS"
 ---
 
@@ -99,5 +102,3 @@ lsof -nP -iTCP:18789 -sTCP:LISTEN
 ```
 
 Kung may manu-manong run na humahawak sa port, ihinto ang prosesong iyon (Ctrl+C). Bilang huling hakbang, patayin ang PID na nahanap mo sa itaas.
-
-

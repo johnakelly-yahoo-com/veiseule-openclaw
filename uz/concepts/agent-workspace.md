@@ -1,10 +1,14 @@
 ---
+summary: "Agent ish maydoni: joylashuvi, tuzilishi va zaxiralash strategiyasi"
+read_when:
+  - You need to explain the agent workspace or its file layout
+  - You want to back up or migrate an agent workspace
 title: "Agent Workspace"
 ---
 
 # Agent workspace
 
-Ish maydoni agentning uyi. U uchun ishlatiladigan yagona ishchi katalogdir
+The workspace is the agent's home. It is the only working directory used for
 file tools and for workspace context. Keep it private and treat it as memory.
 
 Bu `~/.openclaw/` dan alohida bo‘lib, u konfiguratsiya, hisob ma’lumotlari va
@@ -168,7 +172,7 @@ gh repo create openclaw-workspace --private --source . --remote origin --push
 Option C: GitLab web UI
 
 1. Create a new **private** repository on GitLab.
-2. Yo‘naltirish konfiguratsiyasi uchun [Channel routing](/channels/channel-routing) ga qarang.
+2. Do not initialize with a README (avoids merge conflicts).
 3. Copy the HTTPS remote URL.
 4. Add the remote and push:
 
@@ -219,5 +223,3 @@ Suggested `.gitignore` starter:
 
 - 3. Ko‘p agentli marshrutlash har bir agent uchun turli ish maydonlaridan foydalanishi mumkin. OpenClaw **pi-mono** dan olingan bitta ichki agent runtime’ni ishga tushiradi.
 - 5. Agar `agents.defaults.sandbox` yoqilgan bo‘lsa, asosiy bo‘lmagan sessiyalar `agents.defaults.sandbox.workspaceRoot` ostida sessiya-bo‘yicha sandbox ish maydonlaridan foydalanishi mumkin.
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "Her OpenClaw dokümanına bağlantı veren merkezler"
+read_when:
+  - Belgelerin tamamının bir haritasını istiyorsun
 title: "Dokümantasyon Merkezleri"
 ---
 
@@ -192,5 +195,3 @@ Bu merkezleri kullanarak, sol gezinmede görünmeyen derinlemesine incelemeler v
 - [Test](/reference/test)
 - [Sürüm kontrol listesi](/reference/RELEASING)
 - [Cihaz modelleri](/reference/device-models)
-
-

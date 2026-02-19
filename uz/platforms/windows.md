@@ -1,14 +1,18 @@
 ---
+summary: "Windows (WSL2) qo‘llab-quvvatlovi + hamroh ilova holati"
+read_when:
+  - OpenClaw’ni Windows’da o‘rnatayotganda
+  - Windows hamroh ilovasi holatini qidirayotganda
 title: "Windows (WSL2)"
 ---
 
 # Windows (WSL2)
 
-Windows’da OpenClaw’dan foydalanish **WSL2 orqali** tavsiya etiladi (Ubuntu tavsiya qilinadi).  
-CLI + Gateway Linux ichida ishlaydi, bu esa ish muhitini bir xil saqlaydi va
-asboblar bilan moslikni ancha yaxshilaydi (Node/Bun/pnpm, Linux binarlari, skills). Native
-Windows biroz murakkabroq bo‘lishi mumkin. WSL2 sizga to‘liq Linux tajribasini beradi — o‘rnatish uchun
-bitta buyruq yetarli: `wsl --install`.
+OpenClaw on Windows is recommended **via WSL2** (Ubuntu recommended). The
+CLI + Gateway run inside Linux, which keeps the runtime consistent and makes
+tooling far more compatible (Node/Bun/pnpm, Linux binaries, skills). Native
+Windows might be trickier. WSL2 gives you the full Linux experience — one command
+to install: `wsl --install`.
 
 Native Windows hamroh ilovalari rejalashtirilgan.
 
@@ -53,10 +57,10 @@ openclaw doctor
 
 ## Kengaytirilgan: WSL servislarini LAN orqali ochish (portproxy)
 
-WSL o‘zining virtual tarmog‘iga ega. Agar boshqa qurilma **WSL ichida**
-ishlayotgan servisga (SSH, lokal TTS server yoki Gateway) ulanishi kerak bo‘lsa,
-Windows portini joriy WSL IP manziliga yo‘naltirishingiz kerak. WSL IP manzili qayta ishga tushirilgandan
-so‘ng o‘zgaradi, shuning uchun yo‘naltirish qoidasini yangilab turish talab qilinishi mumkin.
+WSL has its own virtual network. If another machine needs to reach a service
+running **inside WSL** (SSH, a local TTS server, or the Gateway), you must
+forward a Windows port to the current WSL IP. The WSL IP changes after restarts,
+so you may need to refresh the forwarding rule.
 
 Misol (PowerShell’ni **Administrator sifatida** ishga tushiring):
 
@@ -98,7 +102,7 @@ Eslatmalar:
 
 ## WSL2 o‘rnatish bo‘yicha bosqichma-bosqich qo‘llanma
 
-### 1) WSL2 + Ubuntu o‘rnatish
+### 1. WSL2 + Ubuntu o‘rnatish
 
 PowerShell’ni (Admin) oching:
 
@@ -111,7 +115,7 @@ wsl --install -d Ubuntu-24.04
 
 Agar Windows so‘rasa, kompyuterni qayta ishga tushiring.
 
-### 2) systemd ni yoqish (gateway o‘rnatish uchun talab qilinadi)
+### 2. systemd ni yoqish (gateway o‘rnatish uchun talab qilinadi)
 
 WSL terminalingizda:
 
@@ -134,7 +138,7 @@ Ubuntu’ni qayta oching, keyin tekshiring:
 systemctl --user status
 ```
 
-### 3) OpenClaw o‘rnatish (WSL ichida)
+### 3. OpenClaw o‘rnatish (WSL ichida)
 
 WSL ichida Linux uchun Boshlash qo‘llanmasiga amal qiling:
 
@@ -151,7 +155,5 @@ To‘liq qo‘llanma: [Boshlash](/start/getting-started)
 
 ## Windows hamroh ilovasi
 
-Hozircha Windows uchun hamroh ilova mavjud emas. Agar buni amalga oshirishga
-hissa qo‘shmoqchi bo‘lsangiz, hissalar mamnuniyat bilan qabul qilinadi.
-
-
+We do not have a Windows companion app yet. Contributions are welcome if you want
+contributions to make it happen.

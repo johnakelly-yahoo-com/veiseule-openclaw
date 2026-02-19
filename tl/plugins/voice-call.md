@@ -1,4 +1,8 @@
 ---
+summary: "Voice Call plugin: outbound + inbound na mga tawag sa pamamagitan ng Twilio/Telnyx/Plivo (install ng plugin + config + CLI)"
+read_when:
+  - Gusto mong maglagay ng outbound na voice call mula sa OpenClaw
+  - Kino-configure o dine-develop mo ang voice-call plugin
 title: "Plugin ng Tawag na Boses"
 ---
 
@@ -108,6 +112,7 @@ Mga tala:
 - Ang Plivo ay nangangailangan ng **publicly reachable** na webhook URL.
 - Ang `mock` ay isang local dev provider (walang network calls).
 - Ang `skipSignatureVerification` ay para sa local testing lamang.
+- Kung gumagamit ka ng ngrok free tier, i-set ang `publicUrl` sa eksaktong ngrok URL; palaging ipinapatupad ang signature verification.
 - Kung gumagamit ka ng ngrok free tier, i-set ang `publicUrl` sa eksaktong ngrok URL; palaging ipinapatupad ang signature verification.
 - `tunnel.allowNgrokFreeTierLoopbackBypass: true` ay nagpapahintulot sa mga Twilio webhook na may invalid na mga signature **lamang** kapag `tunnel.provider="ngrok"` at ang `serve.bind` ay loopback (ngrok local agent). Gamitin lamang para sa lokal na development.
 - Maaaring magbago o magdagdag ng interstitial behavior ang mga URL ng Ngrok free tier; kung mag-drift ang `publicUrl`, mabibigo ang mga Twilio signature. Para sa production, mas mainam ang isang stable na domain o Tailscale funnel.
@@ -274,5 +279,3 @@ Ang repo na ito ay may kasamang katugmang skill doc sa `skills/voice-call/SKILL.
 - `voicecall.speak` (`callId`, `message`)
 - `voicecall.end` (`callId`)
 - `voicecall.status` (`callId`)
-
-

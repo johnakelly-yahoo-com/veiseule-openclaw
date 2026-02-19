@@ -1,4 +1,8 @@
 ---
+summary: "signal-cli（JSON-RPC + SSE）による Signal サポート、セットアップ、および番号モデル"
+read_when:
+  - Signal サポートのセットアップ時
+  - Signal の送受信をデバッグする場合
 title: "Signal"
 ---
 
@@ -6,13 +10,22 @@ title: "Signal"
 
 ステータス: 外部 CLI 統合。 ステータス: 外部 CLI 連携。Gateway（ゲートウェイ）は HTTP JSON-RPC + SSE 経由で `signal-cli` と通信します。
 
+## 前提条件
+
+- サーバーにOpenClawがインストールされていること（以下のLinux手順はUbuntu 24でテスト済み）。
+- gatewayが実行されているホストで`signal-cli`が利用可能であること。
+- （SMS登録手順用に）1回の認証SMSを受信できる電話番号。
+- 登録中にSignalのcaptcha（`signalcaptchas.org`）へアクセスできるブラウザ。
+
 ## クイックスタート（初心者向け）
 
 1. ボット用に **別の Signal 番号** を使用してください（推奨）。
 2. `signal-cli` をインストールします（Java が必要です）。
-3. ボットデバイスをリンクし、デーモンを起動します:
+3. いずれかのセットアップパスを選択してください:
    - `signal-cli link -n "OpenClaw"`
+   - **パスB（SMS登録）:** 専用番号をcaptcha＋SMS認証で登録します。
 4. OpenClaw を設定し、ゲートウェイを起動します。
+5. 最初のDMを送信し、ペアリングを承認します（`openclaw pairing approve signal <CODE>`）。
 
 最小構成:
 
@@ -29,6 +42,15 @@ title: "Signal"
   },
 }
 ```
+
+フィールド参照：
+
+| フィールド        | 説明                                                                                                                                                                                                                      |
+| ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `account`    | E.164形式のボット電話番号（`+15551234567`）                                                                                                                                                                         |
+| セットアップ（高速パス） | ステータス: 外部 CLI 統合。 ステータス: 外部 CLI 連携。Gateway（ゲートウェイ）は HTTP JSON-RPC + SSE 経由で `signal-cli` と通信します。                                                                                        |
+| `dmPolicy`   | DMアクセスポリシー（`pairing`を推奨）                                                                                                                                                                                                |
+| `allowFrom`  | `channels.signal.allowFrom`: DM 許可リスト（E.164 または `uuid:&lt;id&gt;`）。`open` には `"*"` が必要です。Signal にはユーザー名がないため、電話番号/UUID ID を使用してください。 `open`には`"*"`が必要です。 シグナルにはユーザー名がありません。電話/UUID を使用してください。 |
 
 ## これは何か
 
@@ -54,7 +76,7 @@ title: "Signal"
 - **個人の Signal アカウント** でボットを実行した場合、自分自身のメッセージは無視されます（ループ防止）。
 - 「自分がボットに送信し、ボットが返信する」動作には、**別のボット番号** を使用してください。
 
-## セットアップ（高速パス）
+## セットアップ方法A：既存のSignalアカウントをリンク（QR）
 
 1. `signal-cli` をインストールします（Java が必要です）。
 2. ボットアカウントをリンクします:
@@ -78,6 +100,67 @@ title: "Signal"
 ```
 
 マルチアカウントサポート: アカウントごとの設定とオプションの `name` で `channels.signal.accounts` を使用します。 マルチアカウント対応: アカウントごとの設定と任意の `name` を使用して `channels.signal.accounts` を指定します。共通パターンについては [`gateway/configuration`](/gateway/configuration#telegramaccounts--discordaccounts--slackaccounts--signalaccounts--imessageaccounts) を参照してください。
+
+## セットアップ方法B：専用ボット番号を登録（SMS、Linux）
+
+既存のSignalアプリアカウントをリンクせず、専用のボット番号を使用したい場合に利用します。
+
+1. SMS（または固定電話の場合は音声認証）を受信できる番号を用意します。
+   - アカウントやセッションの競合を避けるため、専用のボット番号を使用してください。
+2. Gatewayホストに`signal-cli`をインストールします：
+
+```bash
+VERSION=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/AsamK/signal-cli/releases/latest | sed -e 's/^.*\/v//')
+curl -L -O "https://github.com/AsamK/signal-cli/releases/download/v${VERSION}/signal-cli-${VERSION}-Linux-native.tar.gz"
+sudo tar xf "signal-cli-${VERSION}-Linux-native.tar.gz" -C /opt
+sudo ln -sf /opt/signal-cli /usr/local/bin/
+signal-cli --version
+```
+
+JVMビルド（`signal-cli-${VERSION}.tar.gz`）を使用する場合は、先にJRE 25以上をインストールしてください。
+`signal-cli`は常に最新の状態に保ってください。SignalサーバーのAPI変更により、古いリリースは動作しなくなる場合があるとupstreamで注意されています。
+
+3. 番号を登録して確認します：
+
+```bash
+signal-cli -a +<BOT_PHONE_NUMBER> register
+```
+
+captchaが必要な場合：
+
+1. `https://signalcaptchas.org/registration/generate.html`を開きます。
+2. captchaを完了し、「Open Signal」から`signalcaptcha://...`リンクのリンク先をコピーします。
+3. 可能であれば、ブラウザセッションと同じ外部IPアドレスから実行してください。
+4. 登録をすぐに再実行します（captchaトークンはすぐに期限切れになります）：
+
+```bash
+signal-cli -a +<BOT_PHONE_NUMBER> register --captcha '<SIGNALCAPTCHA_URL>'
+signal-cli -a +<BOT_PHONE_NUMBER> verify <VERIFICATION_CODE>
+```
+
+4. これにより、OpenClaw 内での自動起動と起動待ちがスキップされます。自動起動時の起動が遅い場合は、`channels.signal.startupTimeoutMs` を設定してください。 自動スポーン時にゆっくり起動するには、 `channels.signal.startupTimeoutMs` を設定してください。
+
+```bash
+# Gatewayをユーザーsystemdサービスとして実行している場合：
+systemctl --user restart openclaw-gateway
+
+# その後確認：
+openclaw doctor
+openclaw channels status --probe
+```
+
+5. ペアリングは Signal の DM におけるデフォルトのトークン交換方式です。詳細: [Pairing](/channels/pairing) 詳細: [Pairing](/channels/pairing)
+   - ボットデバイスをリンクし、デーモンを起動します:
+   - サーバー上でコードを承認します：`openclaw pairing approve signal <PAIRING_CODE>`。
+   - 「不明な連絡先」と表示されないよう、ボット番号をスマートフォンの連絡先に保存してください。
+
+重要：`signal-cli`で電話番号アカウントを登録すると、その番号のメインSignalアプリのセッションが認証解除される可能性があります。 既存のスマートフォンアプリ設定を維持する必要がある場合は、専用のボット番号を使用するか、QRリンクモードを利用してください。
+
+Upstream参照：
+
+- `signal-cli` README: `https://github.com/AsamK/signal-cli`
+- Captchaフロー：`https://github.com/AsamK/signal-cli/wiki/Registration-with-captcha`
+- リンクフロー：`https://github.com/AsamK/signal-cli/wiki/Linking-other-devices-(Provisioning)`
 
 ## 外部デーモンモード（httpUrl）
 
@@ -126,7 +209,7 @@ DM:
 - 添付ファイルをサポートします（`signal-cli` から取得した base64）。
 - デフォルトのメディア上限: `channels.signal.mediaMaxMb`（デフォルト 8）。
 - `channels.signal.ignoreAttachments` を使用するとメディアのダウンロードをスキップします。
-- グループ履歴コンテキストは `channels.signal.historyLimit`（または `channels.signal.accounts.*.historyLimit`）を使用し、`messages.groupChat.historyLimit` にフォールバックします。無効化するには `0` を設定してください（デフォルト 50）。 `0`を無効にします（デフォルトは50）。
+- グループ履歴コンテキストは `channels.signal.historyLimit`（または `channels.signal.accounts.*.historyLimit`）を使用し、`messages.groupChat.historyLimit` にフォールバックします。無効化するには `0` を設定してください（デフォルト 50）。 `0`を無効にします（デフォルトは50）。 `0`を無効にします（デフォルトは50）。
 
 ## 入力+開封通知
 
@@ -187,8 +270,25 @@ openclaw pairing list signal
 - デーモンには到達できるが返信がない: アカウント/デーモン設定（`httpUrl`、`account`）と受信モードを確認してください。
 - DM が無視される: 送信者がペアリング承認待ちです。
 - グループメッセージが無視される: グループの送信者/メンション制御により配信がブロックされています。
+- 編集後に設定検証エラーが発生した場合：`openclaw doctor --fix`を実行してください。
+- マルチアカウントサポート: アカウントごとの設定とオプションの `name` で `channels.signal.accounts` を使用します。 マルチアカウント対応: アカウントごとの設定と任意の `name` を使用して `channels.signal.accounts` を指定します。共通パターンについては [`gateway/configuration`](/gateway/configuration#telegramaccounts--discordaccounts--slackaccounts--signalaccounts--imessageaccounts) を参照してください。
+
+追加チェック：
+
+```bash
+openclaw pairing list signal
+pgrep -af signal-cli
+grep -i "signal" "/tmp/openclaw/openclaw-$(date +%Y-%m-%d).log" | tail -20
+```
 
 切り分けフローについては [/channels/troubleshooting](/channels/troubleshooting) を参照してください。
+
+## セキュリティに関する注意
+
+- `signal-cli`はアカウントキーをローカル（通常は`~/.local/share/signal-cli/data/`）に保存します。
+- サーバーの移行や再構築の前に、Signal アカウントの状態をバックアップしてください。
+- `channels.signal.dmHistoryLimit`: ユーザターンのDM履歴制限。 `channels.signal.dmHistoryLimit`: DM 履歴のユーザーターン上限。ユーザーごとの上書き: `channels.signal.dms["<phone_or_uuid>"].historyLimit`。
+- SMS 認証は登録または復旧フローでのみ必要ですが、番号やアカウントの管理権を失うと再登録が複雑になる可能性があります。
 
 ## 設定リファレンス（Signal）
 
@@ -222,5 +322,3 @@ openclaw pairing list signal
 - `agents.list[].groupChat.mentionPatterns`（Signal はネイティブのメンションをサポートしません）。
 - `messages.groupChat.mentionPatterns`（グローバルフォールバック）。
 - `messages.responsePrefix`。
-
-

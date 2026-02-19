@@ -1,6 +1,6 @@
 ---
 title: "Tái cấu trúc Mirroring Phiên Gửi Đi (Issue #1520)" #1520)
-description: "Theo dõi các ghi chú tái cấu trúc phản chiếu phiên gửi đi, các quyết định, kiểm thử và các hạng mục còn mở."
+description: Theo dõi các ghi chú tái cấu trúc phản chiếu phiên gửi đi, các quyết định, kiểm thử và các hạng mục còn mở.
 ---
 
 # Tái cấu trúc Mirroring Phiên Gửi Đi (Issue #1520)
@@ -69,7 +69,7 @@ Outbound sends were mirrored into the _current_ agent session (tool session key)
 
 ## Mục mở / Theo dõi tiếp
 
-- Plugin voice-call sử dụng khóa phiên tùy chỉnh `voice:<phone>`. Việc ánh xạ outbound chưa được chuẩn hóa tại đây; nếu message-tool cần hỗ trợ gửi qua voice-call, hãy bổ sung ánh xạ rõ ràng.
+- Voice-call plugin uses custom `voice:<phone>` session keys. Outbound mapping is not standardized here; if message-tool should support voice-call sends, add explicit mapping.
 - Xác nhận xem có plugin bên ngoài nào dùng các định dạng `From/To` không chuẩn ngoài bộ đi kèm hay không.
 
 ## Các tệp đã chạm
@@ -83,5 +83,3 @@ Outbound sends were mirrored into the _current_ agent session (tool session key)
   - `src/infra/outbound/outbound-session.test.ts`
   - `src/agents/tools/message-tool.test.ts`
   - `src/gateway/server-methods/send.test.ts`
-
-

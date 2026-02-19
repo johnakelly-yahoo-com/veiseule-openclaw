@@ -1,4 +1,8 @@
 ---
+summary: "Gateway 閘道器 的瀏覽器型控制 UI（聊天、節點、設定）"
+read_when:
+  - 你想要從瀏覽器操作 Gateway 閘道器
+  - 你想要在沒有 SSH 通道 的情況下存取 Tailnet
 title: "控制 UI"
 ---
 
@@ -22,8 +26,8 @@ title: "控制 UI"
 身分驗證會在 WebSocket 握手期間提供，方式如下：
 
 - `connect.params.auth.token`
-- 8. `connect.params.auth.password`
-     儀表板設定面板可讓你儲存權杖；密碼不會被持久化保存。
+- `connect.params.auth.password`
+  儀表板設定面板可讓你儲存權杖；密碼不會被持久化保存。
   9. 上線引導精靈預設會產生一個 gateway 權杖，因此首次連線時請在此貼上。
 
 ## 裝置配對（首次連線）
@@ -52,14 +56,14 @@ openclaw devices approve <requestId>
 **注意事項：**
 
 - Local connections (`127.0.0.1`) are auto-approved.
-- 13. 遠端連線（LAN、Tailnet 等） 14. 需要明確核准。
+- 遠端連線（LAN、Tailnet 等） 14. 需要明確核准。
 - 15. 每個瀏覽器設定檔都會產生唯一的裝置 ID，因此切換瀏覽器或清除瀏覽器資料將需要重新配對。
 
-## 目前可執行的功能
+## What it can do (today)
 
 - 透過 Gateway WS 與模型聊天（`chat.history`、`chat.send`、`chat.abort`、`chat.inject`）
 - 串流工具呼叫與即時工具輸出卡片（聊天中的代理程式事件）
-- 17. 頻道：WhatsApp／Telegram／Discord／Slack + 外掛頻道（Mattermost 等） 頻道：WhatsApp/Telegram/Discord/Slack + 外掛頻道（Mattermost 等）的狀態 + QR 登入 + 各頻道設定（`channels.status`、`web.login.*`、`config.patch`）
+- 頻道：WhatsApp／Telegram／Discord／Slack + 外掛頻道（Mattermost 等） 頻道：WhatsApp/Telegram/Discord/Slack + 外掛頻道（Mattermost 等）的狀態 + QR 登入 + 各頻道設定（`channels.status`、`web.login.*`、`config.patch`） 頻道：WhatsApp/Telegram/Discord/Slack + 外掛頻道（Mattermost 等）的狀態 + QR 登入 + 各頻道設定（`channels.status`、`web.login.*`、`config.patch`）
 - Instances：線上清單 + 重新整理（`system-presence`）
 - Sessions：清單 + 各工作階段的 thinking/verbose 覆寫（`sessions.list`、`sessions.patch`）
 - Cron jobs：列出/新增/執行/啟用/停用 + 執行歷史（`cron.*`）
@@ -71,13 +75,13 @@ openclaw devices approve <requestId>
 - 設定寫入包含基礎雜湊防護，以避免覆寫同時進行的編輯
 - 設定結構描述 + 表單轉譯（`config.schema`，包含外掛與頻道結構描述）；Raw JSON 編輯器仍可使用
 - 偵錯：狀態/健康/模型快照 + 事件記錄 + 手動 RPC 呼叫（`status`、`health`、`models.list`）
-- 日誌：即時追蹤閘道器檔案日誌，並可篩選/匯出（`logs.tail`）
+- Logs: live tail of gateway file logs with filter/export (`logs.tail`)
 - 更新：執行套件/git 更新 + 重新啟動（`update.run`），並提供重新啟動報告
 
 Cron jobs 面板注意事項：
 
-- 19. 對於隔離的工作，傳遞方式預設為公告摘要。 20. 若只想進行內部執行，你可以切換為 none。
-- 選擇 announce 時會顯示頻道/目標欄位。
+- 對於隔離的工作，傳遞方式預設為公告摘要。 20. 若只想進行內部執行，你可以切換為 none。
+- Channel/target fields appear when announce is selected.
 
 ## 聊天行為
 
@@ -107,7 +111,7 @@ By default, Serve requests can authenticate via Tailscale identity headers
 (`tailscale-user-login`) when `gateway.auth.allowTailscale` is `true`. OpenClaw
 verifies the identity by resolving the `x-forwarded-for` address with
 `tailscale whois` and matching it to the header, and only accepts these when the
-request hits loopback with Tailscale’s `x-forwarded-*` headers. 24. 若即使是 Serve 流量也想要求權杖／密碼，請設定
+request hits loopback with Tailscale’s `x-forwarded-*` headers. 若即使是 Serve 流量也想要求權杖／密碼，請設定
 `gateway.auth.allowTailscale: false`（或強制 `gateway.auth.mode: "password"`）。
 
 ### 綁定至 tailnet + 權杖
@@ -124,8 +128,9 @@ openclaw gateway --bind tailnet --token "$(openssl rand -hex 32)"
 
 ## 不安全的 HTTP
 
-25. 若你透過純 HTTP（`http://<lan-ip>` 或 `http://<tailscale-ip>`）開啟儀表板，瀏覽器會在**非安全內容**中執行並封鎖 WebCrypto。 By default,
-    OpenClaw **blocks** Control UI connections without device identity.
+若你透過純 HTTP（`http://<lan-ip>` 或 `http://<tailscale-ip>`）開啟儀表板，瀏覽器會在**非安全內容**中執行並封鎖 WebCrypto。 By default,
+OpenClaw **blocks** Control UI connections without device identity. By default,
+OpenClaw **blocks** Control UI connections without device identity.
 
 **建議的修正方式：** 使用 HTTPS（Tailscale Serve）或在本機開啟 UI：
 
@@ -151,7 +156,7 @@ only if you trust the network.
 
 ## 建置 UI
 
-Gateway 閘道器 會從 `dist/control-ui` 提供靜態檔案。請使用以下方式建置： Build them with:
+Gateway 閘道器 會從 `dist/control-ui` 提供靜態檔案。請使用以下方式建置： Build them with: Build them with:
 
 ```bash
 pnpm ui:build # auto-installs UI deps on first run
@@ -196,7 +201,7 @@ http://localhost:5173/?gatewayUrl=wss://<gateway-host>:18789&token=<gateway-toke
 - `token` 會儲存在 localStorage；`password` 僅保留在記憶體中。
 - 當設定 `gatewayUrl` 時，UI 不會回退使用設定或環境中的憑證。
   請明確提供 `token`（或 `password`）。缺少明確憑證將視為錯誤。
-  Provide `token` (or `password`) explicitly. 32. 缺少明確的認證資訊會被視為錯誤。
+  Provide `token` (or `password`) explicitly. 缺少明確的認證資訊會被視為錯誤。
 - 當 Gateway 位於 TLS 後方（Tailscale Serve、HTTPS 代理等）時，請使用 `wss://`。
 - 為避免點擊劫持，`gatewayUrl` 僅在最上層視窗中接受（不可內嵌）。
 - 對於跨來源的開發設定（例如：`pnpm ui:dev` 連線到遠端 Gateway），請將 UI
@@ -215,5 +220,3 @@ http://localhost:5173/?gatewayUrl=wss://<gateway-host>:18789&token=<gateway-toke
 ```
 
 遠端存取設定細節：[Remote access](/gateway/remote)。
-
-

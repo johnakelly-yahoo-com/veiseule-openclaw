@@ -1,4 +1,8 @@
 ---
+summary: "Schema en voorbeelden voor Skills-configuratie"
+read_when:
+  - Skills-configuratie toevoegen of wijzigen
+  - Gebundelde toegestane lijst of installatiegedrag aanpassen
 title: "Skills-configuratie"
 ---
 
@@ -70,5 +74,3 @@ Gebruik een van de volgende opties:
 - bak de env in je aangepaste sandbox-image
 
 Globale `env` en `skills.entries.<skill>.env/apiKey` zijn alleen van toepassing op **host**-runs.
-
-

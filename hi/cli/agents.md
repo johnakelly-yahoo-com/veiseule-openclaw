@@ -1,4 +1,7 @@
 ---
+summary: "CLI के लिए संदर्भ: `openclaw agents` (सूची/जोड़ें/हटाएँ/पहचान सेट करें)"
+read_when:
+  - आपको कई अलग-थलग एजेंट्स (वर्कस्पेस + रूटिंग + प्रमाणीकरण) चाहिए
 title: "एजेंट्स"
 ---
 
@@ -70,5 +73,3 @@ openclaw agents set-identity --agent main --name "OpenClaw" --emoji "🦞" --ava
   },
 }
 ```
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Envío de encuestas vía Gateway + CLI"
+read_when:
+  - Agregar o modificar el soporte de encuestas
+  - Depurar envíos de encuestas desde la CLI o el Gateway
 title: "Encuestas"
 ---
 
@@ -63,5 +67,3 @@ Use la herramienta `message` con la acción `poll` (`to`, `pollQuestion`, `pollO
 Nota: Discord no tiene un modo de “elegir exactamente N”; `pollMulti` se asigna a selección múltiple.
 Las encuestas de Teams se representan como Adaptive Cards y requieren que el Gateway permanezca en línea
 para registrar votos en `~/.openclaw/msteams-polls.json`.
-
-

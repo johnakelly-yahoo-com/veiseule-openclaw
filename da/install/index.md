@@ -1,4 +1,9 @@
 ---
+summary: "Installér OpenClaw — installationsscript, npm/pnpm, fra kilde, Docker og mere"
+read_when:
+  - Du har brug for en installationsmetode ud over Kom godt i gang-quickstarten
+  - Du vil udrulle til en cloudplatform
+  - Du skal opdatere, migrere eller afinstallere
 title: "Installér"
 ---
 
@@ -19,13 +24,15 @@ På Windows anbefaler vi kraftigt at køre OpenClaw under [WSL2](https://learn.m
 ## Installationsmetoder
 
 <Tip>
-**Installationsscriptet** er den anbefalede måde at installere OpenClaw på. Det håndterer Node-detektion, installation og onboarding i ét trin.
+The **installer script** is the recommended way to install OpenClaw. (Automatic Copy) Det håndterer Node afsløring, installation og onboarding i ét trin.
 </Tip>
 
 <AccordionGroup>
   <Accordion title="Installer script" icon="rocket" defaultOpen>
     Downloader CLI’en, installerer den globalt via npm og starter introduktionsguiden.
 
+    ````
+    ```
     <Tabs>
       <Tab title="macOS / Linux / WSL2">
         ```bash
@@ -41,11 +48,11 @@ På Windows anbefaler vi kraftigt at køre OpenClaw under [WSL2](https://learn.m
 </Tab>
     
 </Tabs>
-
-    Det er det — scriptet håndterer Node-detektion, installation og onboarding.
-
-    For at springe onboarding over og kun installere binæren:
-
+    
+    Det er det — scriptet håndterer Node-detektion, installation og introduktion.
+    
+    For at springe introduktionen over og kun installere binæren:
+    
     <Tabs>
       <Tab title="macOS / Linux / WSL2">
         ```bash
@@ -61,8 +68,10 @@ På Windows anbefaler vi kraftigt at køre OpenClaw under [WSL2](https://learn.m
 </Tab>
     
 </Tabs>
-
+    
     For alle flag, miljøvariabler og CI/automationsmuligheder, se [Installer internals](/install/installer).
+    ```
+    ````
 
   
 </Accordion>
@@ -70,20 +79,22 @@ På Windows anbefaler vi kraftigt at køre OpenClaw under [WSL2](https://learn.m
   <Accordion title="npm / pnpm" icon="package">
     Hvis du allerede har Node 22+ og foretrækker selv at styre installationen:
 
+    ````
+    ```
     <Tabs>
       <Tab title="npm">
         ```bash
         npm install -g openclaw@latest
         openclaw onboard --install-daemon
         ```
-
+    
         <Accordion title="sharp build-fejl?">
           Hvis du har libvips installeret globalt (almindeligt på macOS via Homebrew) og `sharp` fejler, så gennemtving forbyggede binærer:
-
+    
           ```bash
           SHARP_IGNORE_GLOBAL_LIBVIPS=1 npm install -g openclaw@latest
           ```
-
+    
           Hvis du ser `sharp: Please add node-gyp to your dependencies`, skal du enten installere build-værktøjer (macOS: Xcode CLT + `npm install -g node-gyp`) eller bruge miljøvariablen ovenfor.
         
 </Accordion>
@@ -95,7 +106,7 @@ På Windows anbefaler vi kraftigt at køre OpenClaw under [WSL2](https://learn.m
         pnpm approve-builds -g        # approve openclaw, node-llama-cpp, sharp, etc.
         openclaw onboard --install-daemon
         ```
-
+    
         <Note>
         pnpm kræver eksplicit godkendelse af pakker med build-scripts. Når den første installation viser advarslen "Ignored build scripts", kør `pnpm approve-builds -g` og vælg de listede pakker.
         
@@ -104,6 +115,8 @@ På Windows anbefaler vi kraftigt at køre OpenClaw under [WSL2](https://learn.m
 </Tab>
     
 </Tabs>
+    ```
+    ````
 
   
 </Accordion>
@@ -111,10 +124,12 @@ På Windows anbefaler vi kraftigt at køre OpenClaw under [WSL2](https://learn.m
   <Accordion title="From source" icon="github">
     For bidragydere eller alle, der vil køre fra et lokalt checkout.
 
+    ````
+    ```
     <Steps>
       <Step title="Klon og byg">
         Klon [OpenClaw-repoet](https://github.com/openclaw/openclaw) og byg:
-
+    
         ```bash
         git clone https://github.com/openclaw/openclaw.git
         cd openclaw
@@ -126,15 +141,15 @@ På Windows anbefaler vi kraftigt at køre OpenClaw under [WSL2](https://learn.m
 </Step>
       <Step title="Link CLI’en">
         Gør `openclaw`-kommandoen tilgængelig globalt:
-
+    
         ```bash
         pnpm link --global
         ```
-
+    
         Alternativt kan du springe linket over og køre kommandoer via `pnpm openclaw ...` inde fra repoet.
       
 </Step>
-      <Step title="Kør onboarding">
+      <Step title="Kør introduktion">
         ```bash
         openclaw onboard --install-daemon
         ```
@@ -142,8 +157,10 @@ På Windows anbefaler vi kraftigt at køre OpenClaw under [WSL2](https://learn.m
 </Step>
     
 </Steps>
-
+    
     For dybere udviklingsarbejdsgange, se [Opsætning](/start/setup).
+    ```
+    ````
 
   
 </Accordion>
@@ -157,15 +174,15 @@ På Windows anbefaler vi kraftigt at køre OpenClaw under [WSL2](https://learn.m
   
 </Card>
   <Card title="Podman" href="/install/podman" icon="container">
-    Rootless container: kør `setup-podman.sh` én gang, derefter launch-scriptet.
-  
-</Card>
-  <Card title="Nix" href="/install/nix" icon="snowflake">
     Deklarativ installation via Nix.
   
 </Card>
-  <Card title="Ansible" href="/install/ansible" icon="server">
+  <Card title="Nix" href="/install/nix" icon="snowflake">
     Automatiseret klargøring af flåder.
+  
+</Card>
+  <Card title="Ansible" href="/install/ansible" icon="server">
+    Kun-CLI-brug via Bun-runtime.
   
 </Card>
   <Card title="Bun" href="/install/bun" icon="zap">
@@ -184,13 +201,13 @@ openclaw status         # gateway status
 openclaw dashboard      # open the browser UI
 ```
 
-Hvis du har brug for brugerdefinerede runtime-stier, kan du bruge:
+If you need custom runtime paths, use:
 
-- `OPENCLAW_HOME` til hjemmemappe-baserede interne stier
-- `OPENCLAW_STATE_DIR` til placering af muterbar tilstand
-- `OPENCLAW_CONFIG_PATH` til placering af konfigurationsfilen
+- `OPENCLAW_HOME` for home-directory based internal paths
+- `OPENCLAW_STATE_DIR` for mutable state location
+- `OPENCLAW_CONFIG_PATH` for config file location
 
-Se [Environment vars](/help/environment) for prioritet og fulde detaljer.
+See [Environment vars](/help/environment) for precedence and full details.
 
 ## Fejlfinding: `openclaw` ikke fundet
 
@@ -214,7 +231,7 @@ export PATH="$(npm prefix -g)/bin:$PATH"
 
 På Windows skal du tilføje outputtet af `npm prefix -g` til din PATH.
 
-Åbn derefter en ny terminal (eller `rehash` i zsh / `hash -r` i bash).
+Åbn derefter en ny terminal (eller `rehash` i zsh / `hash -r` i bash). 
 </Accordion>
 
 ## Opdater / afinstaller
@@ -233,4 +250,3 @@ På Windows skal du tilføje outputtet af `npm prefix -g` til din PATH.
   
 </Card>
 </CardGroup>
-

@@ -1,4 +1,8 @@
 ---
+summary: "„Verwenden Sie Qwen OAuth (Free-Tier) in OpenClaw“"
+read_when:
+  - Sie möchten Qwen mit OpenClaw verwenden
+  - Sie möchten Free-Tier-OAuth-Zugriff auf Qwen Coder
 title: "Qwen"
 ---
 
@@ -47,5 +51,3 @@ dennoch einen `models.providers.qwen-portal`-Eintrag (verwenden Sie den obigen L
 - Standard-Basis-URL: `https://portal.qwen.ai/v1` (überschreiben Sie diese mit
   `models.providers.qwen-portal.baseUrl`, falls Qwen einen anderen Endpunkt bereitstellt).
 - Siehe [Model providers](/concepts/model-providers) für anbieterweite Regeln.
-
-

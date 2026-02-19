@@ -1,10 +1,14 @@
 ---
 title: "Cloudflare AI Gateway"
+summary: "การตั้งค่าCloudflare AI Gateway(การยืนยันตัวตน+การเลือกโมเดล)"
+read_when:
+  - คุณต้องการใช้Cloudflare AI GatewayกับOpenClaw
+  - คุณต้องการaccount ID, gateway IDหรือAPI key env var
 ---
 
 # Cloudflare AI Gateway
 
-Cloudflare AI Gatewayทำหน้าที่อยู่หน้าสุดของAPIจากผู้ให้บริการและช่วยให้คุณเพิ่มการวิเคราะห์ การแคช และการควบคุมต่างๆสำหรับAnthropicนั้นOpenClawจะใช้Anthropic Messages APIผ่านGateway endpointของคุณ For Anthropic, OpenClaw uses the Anthropic Messages API through your Gateway endpoint.
+Cloudflare AI Gatewayทำหน้าที่อยู่หน้าสุดของAPIจากผู้ให้บริการและช่วยให้คุณเพิ่มการวิเคราะห์ การแคช และการควบคุมต่างๆสำหรับAnthropicนั้นOpenClawจะใช้Anthropic Messages APIผ่านGateway endpointของคุณ Cloudflare AI Gatewayทำหน้าที่อยู่หน้าสุดของAPIจากผู้ให้บริการและช่วยให้คุณเพิ่มการวิเคราะห์ การแคช และการควบคุมต่างๆสำหรับAnthropicนั้นOpenClawจะใช้Anthropic Messages APIผ่านGateway endpointของคุณ For Anthropic, OpenClaw uses the Anthropic Messages API through your Gateway endpoint.
 
 - Provider: `cloudflare-ai-gateway`
 - Base URL: `https://gateway.ai.cloudflare.com/v1/<account_id>/<gateway_id>/anthropic`
@@ -65,5 +69,3 @@ openclaw onboard --non-interactive \
 ## หมายเหตุด้านสภาพแวดล้อม
 
 หากGatewayทำงานเป็นdaemon(launchd/systemd)ให้ตรวจสอบว่า`CLOUDFLARE_AI_GATEWAY_API_KEY`พร้อมใช้งานสำหรับโปรเซสนั้น(ตัวอย่างเช่นใน`~/.openclaw/.env`หรือผ่าน`env.shellEnv`)
-
-

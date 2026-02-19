@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw 에서 MiniMax M2.1 사용"
+read_when:
+  - OpenClaw 에서 MiniMax 모델을 사용하려는 경우
+  - MiniMax 설정 가이드가 필요한 경우
 title: "MiniMax"
 ---
 
@@ -207,5 +211,3 @@ JSON 을 직접 편집하지 않고 대화형 설정 마법사를 사용하여 M
 ```bash
 openclaw models list
 ```
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "OpenClaw Gateway CLI（`openclaw gateway`）— ゲートウェイの実行、クエリ、検出"
+read_when:
+  - CLI から Gateway を実行する場合（開発またはサーバー）
+  - Gateway の認証、バインドモード、接続性をデバッグする場合
+  - Bonjour（LAN + tailnet）経由でゲートウェイを検出する場合
 title: "ゲートウェイ"
 ---
 
@@ -30,7 +35,7 @@ openclaw gateway run
 
 注記:
 
-- 既定では、`gateway.mode=local` が `~/.openclaw/openclaw.json` に設定されていない限り、Gateway は起動を拒否します。アドホック／開発用途の実行には `--allow-unconfigured` を使用してください。 ad-hoc/dev runs には `--allow-unconfigured` を使用してください。
+- 既定では、`gateway.mode=local` が `~/.openclaw/openclaw.json` に設定されていない限り、Gateway は起動を拒否します。アドホック／開発用途の実行には `--allow-unconfigured` を使用してください。 ad-hoc/dev runs には `--allow-unconfigured` を使用してください。 ad-hoc/dev runs には `--allow-unconfigured` を使用してください。
 - 認証なしで loopback を超えてバインドすることはブロックされます（安全ガードレール）。
 - `SIGUSR1` は、認可されている場合にインプロセスの再起動をトリガーします（`commands.restart` を有効にするか、gateway ツール／config の apply/update を使用してください）。
 - `SIGINT`/`SIGTERM` ハンドラーはゲートウェイプロセスを停止しますが、カスタムのターミナル状態は復元しません。TUI や raw モード入力で CLI をラップしている場合は、終了前にターミナルを復元してください。 CLI を TUI または raw-mode 入力でラップする場合は、ターミナルを終了する前に復元します。
@@ -103,12 +108,12 @@ openclaw gateway status --json
 
 ### `gateway probe`
 
-`gateway probe` は「すべてをデバッグ」するコマンドです。常に次をプローブします: それは常にプローブ:
+`gateway probe` は「すべてをデバッグ」するコマンドです。常に次をプローブします: それは常にプローブ: それは常にプローブ:
 
 - 設定されているリモートゲートウェイ（設定されている場合）、および
 - localhost（loopback）。**リモートが設定されていても実行されます**。
 
-複数のゲートウェイに到達可能な場合、それらのすべてを出力します。 到達可能なゲートウェイが複数ある場合は、すべてを表示します。分離されたプロファイル／ポート（例: レスキューボット）を使用すると複数ゲートウェイをサポートできますが、ほとんどのインストールでは単一のゲートウェイが稼働します。
+複数のゲートウェイに到達可能な場合、それらのすべてを出力します。 複数のゲートウェイに到達可能な場合、それらのすべてを出力します。 到達可能なゲートウェイが複数ある場合は、すべてを表示します。分離されたプロファイル／ポート（例: レスキューボット）を使用すると複数ゲートウェイをサポートできますが、ほとんどのインストールでは単一のゲートウェイが稼働します。
 
 ```bash
 openclaw gateway probe
@@ -196,5 +201,3 @@ openclaw gateway discover
 openclaw gateway discover --timeout 4000
 openclaw gateway discover --json | jq '.beacons[].wsUrl'
 ```
-
-

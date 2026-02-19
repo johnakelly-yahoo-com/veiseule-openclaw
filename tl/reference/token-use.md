@@ -1,20 +1,24 @@
 ---
+summary: "Paano binubuo ng OpenClaw ang prompt context at nag-uulat ng paggamit ng token + mga gastos"
+read_when:
+  - Pagpapaliwanag ng paggamit ng token, mga gastos, o mga context window
+  - Pag-debug ng paglaki ng context o pag-uugali ng compaction
 title: "Paggamit ng Token at Mga Gastos"
 ---
 
 # Paggamit ng token at mga gastos
 
-Sinusubaybayan ng OpenClaw ang **tokens**, hindi mga character. Ang mga token ay nakadepende sa modelo, ngunit karamihan
+OpenClaw tracks **tokens**, not characters. Tokens are model-specific, but most
 OpenAI-style models average ~4 characters per token for English text.
 
 ## Paano binubuo ang system prompt
 
-Binubuo ng OpenClaw ang sarili nitong system prompt sa bawat pagtakbo. Kabilang dito ang:
+OpenClaw assembles its own system prompt on every run. It includes:
 
 - Listahan ng mga tool + maiikling paglalarawan
 - Listahan ng Skills (metadata lang; ang mga instruction ay nilo-load on demand gamit ang `read`)
 - Mga instruction para sa self-update
-- Workspace + bootstrap files (`AGENTS.md`, `SOUL.md`, `TOOLS.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md`, `BOOTSTRAP.md` when new). Large files are truncated by `agents.defaults.bootstrapMaxChars` (default: 20000).
+- Workspace + mga bootstrap file (`AGENTS.md`, `SOUL.md`, `TOOLS.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md`, `BOOTSTRAP.md` kapag bago, pati `MEMORY.md` at/o `memory.md` kung mayroon). Ang malalaking file ay tina-truncate ayon sa `agents.defaults.bootstrapMaxChars` (default: 20000), at ang kabuuang bootstrap injection ay nililimitahan ng `agents.defaults.bootstrapTotalMaxChars` (default: 24000). Ang mga `memory/*.md` file ay ina-access kapag kailangan sa pamamagitan ng memory tools at hindi awtomatikong ini-inject.
 - Oras (UTC + timezone ng user)
 - Mga reply tag + heartbeat behavior
 - Metadata ng runtime (host/OS/model/pag-iisip)
@@ -32,7 +36,7 @@ Lahat ng natatanggap ng model ay binibilang sa context limit:
 - Mga compaction summary at pruning artifact
 - Mga provider wrapper o safety header (hindi nakikita, pero binibilang pa rin)
 
-Para sa praktikal na breakdown (bawat na-inject na file, mga tool, mga skill, at laki ng system prompt), gamitin ang `/context list` o `/context detail`. Tingnan ang [Context](/concepts/context).
+For a practical breakdown (per injected file, tools, skills, and system prompt size), use `/context list` or `/context detail`. See [Context](/concepts/context).
 
 ## Paano makita ang kasalukuyang paggamit ng token
 
@@ -102,5 +106,3 @@ agents:
 - Mas piliin ang mas maliliit na model para sa verbose at exploratory na trabaho.
 
 Tingnan ang [Skills](/tools/skills) para sa eksaktong formula ng overhead ng skill list.
-
-

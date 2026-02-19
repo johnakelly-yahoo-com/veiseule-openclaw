@@ -1,4 +1,8 @@
 ---
+summary: "Gebruik OpenCode Zen (gecurateerde modellen) met OpenClaw"
+read_when:
+  - Je wilt OpenCode Zen voor modeltoegang
+  - Je wilt een gecureerde lijst met codeervriendelijke modellen
 title: "OpenCode Zen"
 ---
 
@@ -30,5 +34,3 @@ openclaw onboard --opencode-zen-api-key "$OPENCODE_API_KEY"
 - `OPENCODE_ZEN_API_KEY` wordt ook ondersteund.
 - Je meldt je aan bij Zen, voegt factureringsgegevens toe en kopieert je API-sleutel.
 - OpenCode Zen rekent per aanvraag; raadpleeg het OpenCode-dashboard voor details.
-
-

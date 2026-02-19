@@ -1,4 +1,8 @@
 ---
+summary: "Faça login no GitHub Copilot a partir do OpenClaw usando o fluxo de dispositivo"
+read_when:
+  - Você quer usar o GitHub Copilot como provedor de modelo
+  - Você precisa do fluxo `openclaw models auth login-github-copilot`
 title: "GitHub Copilot"
 ---
 
@@ -55,5 +59,3 @@ openclaw models set github-copilot/gpt-4o
 - Requer um TTY interativo; execute diretamente em um terminal.
 - A disponibilidade dos modelos do Copilot depende do seu plano; se um modelo for rejeitado, tente outro ID (por exemplo, `github-copilot/gpt-4.1`).
 - O login armazena um token do GitHub no armazenamento de perfis de autenticação e o troca por um token da API do Copilot quando o OpenClaw é executado.
-
-

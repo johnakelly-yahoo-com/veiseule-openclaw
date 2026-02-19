@@ -1,10 +1,11 @@
 ---
+summary: "उच्च‑संकेत वाले इश्यू और बग रिपोर्ट दर्ज करना"
 title: "इश्यू सबमिट करना"
 ---
 
 ## इश्यू सबमिट करना
 
-स्पष्ट और संक्षिप्त मुद्दे निदान और सुधार की प्रक्रिया को तेज करते हैं। बग, रिग्रेशन या फीचर की कमी के लिए निम्नलिखित शामिल करें:
+Clear, concise issues speed up diagnosis and fixes. Include the following for bugs, regressions, or feature gaps:
 
 ### क्या शामिल करें
 
@@ -20,7 +21,7 @@ title: "इश्यू सबमिट करना"
 - [ ] हाल ही में ठीक/सुलझाया नहीं गया है, इसकी पुष्टि (विशेषकर सुरक्षा)
 - [ ] दावे प्रमाण या पुनरुत्पादन द्वारा समर्थित
 
-संक्षिप्त रहें। संक्षिप्तता > पूर्ण व्याकरण।
+Be brief. Terseness > perfect grammar.
 
 मान्यकरण (PR से पहले चलाएँ/ठीक करें):
 
@@ -76,7 +77,7 @@ title: "इश्यू सबमिट करना"
 ### Evidence (redacted)
 ```
 
-_सार्वजनिक रूप से गोपनीय जानकारी/एक्सप्लॉइट विवरण साझा करने से बचें। संवेदनशील मुद्दों के लिए विवरण न्यूनतम रखें और निजी प्रकटीकरण का अनुरोध करें।_
+_Avoid secrets/exploit details in public. For sensitive issues, minimize detail and request private disclosure._
 
 #### रिग्रेशन रिपोर्ट
 
@@ -148,6 +149,4 @@ _सार्वजनिक रूप से गोपनीय जानका
 
 ### फिक्स PR सबमिट करना
 
-PR से पहले Issue बनाना वैकल्पिक है। यदि छोड़ रहे हैं, तो विवरण PR में शामिल करें। PR को केंद्रित रखें, issue नंबर उल्लेख करें, परीक्षण जोड़ें या उनकी अनुपस्थिति का कारण बताएं, व्यवहार में बदलाव/जोखिम को दस्तावेज़ करें, प्रमाण के रूप में संपादित (redacted) लॉग/स्क्रीनशॉट शामिल करें, और सबमिट करने से पहले उचित वैलिडेशन चलाएँ।
-
-
+Issue before PR is optional. Include details in PR if skipping. Keep the PR focused, note issue number, add tests or explain absence, document behavior changes/risks, include redacted logs/screenshots as proof, and run proper validation before submitting.

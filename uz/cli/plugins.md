@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw plugins` uchun CLI maʼlumotnomasi (roʻyxatlash, oʻrnatish, yoqish/oʻchirish, doctor)"
+read_when:
+  - Siz in-process Gateway plaginlarini oʻrnatmoqchi yoki boshqarmoqchisiz
+  - Siz plagin yuklanishidagi nosozliklarni tuzatmoqchisiz
 title: "plaginlar"
 ---
 
@@ -36,13 +40,34 @@ openclaw plugins install <path-or-spec>
 
 Xavfsizlik eslatmasi: plaginlarni o‘rnatishni kodni ishga tushirishdek qabul qiling. Mahkamlangan (pinned) versiyalarni afzal ko‘ring.
 
-Qo‘llab-quvvatlanadigan arxivlar: `.zip`, `.tgz`, `.tar.gz`, `.tar`.
+Npm spetsifikatsiyalari faqat **registry-only** (paket nomi + ixtiyoriy versiya/tag). Git/URL/file
+spetsifikatsiyalari rad etiladi. Bog‘liqliklarni o‘rnatish xavfsizlik uchun `--ignore-scripts` bilan bajariladi.
+
+Mahalliy katalogni nusxalamaslik uchun `--link` dan foydalaning (`plugins.load.paths` ga qo‘shadi):
 
 Mahalliy katalogni nusxalamaslik uchun `--link` dan foydalaning (`plugins.load.paths` ga qo‘shadi):
 
 ```bash
 openclaw plugins install -l ./my-plugin
 ```
+
+### O‘chirish
+
+```bash
+openclaw plugins uninstall <id>
+openclaw plugins uninstall <id> --dry-run
+openclaw plugins uninstall <id> --keep-files
+```
+
+`uninstall` plugin yozuvlarini `plugins.entries`, `plugins.installs`,
+plugin allowlist va mavjud bo‘lsa bog‘langan `plugins.load.paths` yozuvlaridan olib tashlaydi.
+Faol memory pluginlari uchun memory slot `memory-core` ga qayta o‘rnatiladi.
+
+Standart bo‘yicha, uninstall faol state dir extensions ildizi ostidagi
+plugin o‘rnatish katalogini ham o‘chiradi (`$OPENCLAW_STATE_DIR/extensions/<id>`). Diskdagi fayllarni saqlab qolish uchun
+`--keep-files` dan foydalaning.
+
+`--keep-config` eskirgan alias sifatida `--keep-files` uchun qo‘llab-quvvatlanadi.
 
 ### Yangilash
 
@@ -53,5 +78,3 @@ openclaw plugins update <id> --dry-run
 ```
 
 Yangilanishlar faqat npm’dan o‘rnatilgan ( `plugins.installs` da kuzatiladigan) plaginlarga qo‘llanadi.
-
-

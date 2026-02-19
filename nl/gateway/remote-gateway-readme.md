@@ -1,4 +1,6 @@
 ---
+summary: "SSH-tunnelinstallatie voor OpenClaw.app die verbinding maakt met een externe gateway"
+read_when: "De macOS-app verbinden met een externe gateway via SSH"
 title: "Installatie van de Remote Gateway"
 ---
 
@@ -9,22 +11,6 @@ OpenClaw.app gebruikt SSH-tunneling om verbinding te maken met een externe gatew
 ## Overzicht
 
 ```mermaid
-%%{init: {
-  'theme': 'base',
-  'themeVariables': {
-    'primaryColor': '#ffffff',
-    'primaryTextColor': '#000000',
-    'primaryBorderColor': '#000000',
-    'lineColor': '#000000',
-    'secondaryColor': '#f9f9fb',
-    'tertiaryColor': '#ffffff',
-    'clusterBkg': '#f9f9fb',
-    'clusterBorder': '#000000',
-    'nodeBorder': '#000000',
-    'mainBkg': '#ffffff',
-    'edgeLabelBackground': '#ffffff'
-  }
-}}%%
 flowchart TB
     subgraph Client["Clientmachine"]
         direction TB
@@ -170,5 +156,3 @@ launchctl bootout gui/$UID/bot.molt.ssh-tunnel
 | `RunAtLoad`                          | Start de tunnel wanneer de agent wordt geladen                                               |
 
 OpenClaw.app maakt verbinding met `ws://127.0.0.1:18789` op je clientmachine. De SSH-tunnel stuurt die verbinding door naar poort 18789 op de externe machine waar de Gateway draait.
-
-

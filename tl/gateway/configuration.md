@@ -1,24 +1,29 @@
 ---
-title: "Configuration"
+summary: "Lahat ng opsyon sa configuration para sa ~/.openclaw/openclaw.json na may mga halimbawa"
+read_when:
+  - Pagdaragdag o pagbabago ng mga field ng config
+  - Naghahanap ng karaniwang pattern ng configuration
+  - Pag-navigate sa mga partikular na seksyon ng config
+title: "Konpigurasyon"
 ---
 
-# Configuration
+# Konpigurasyon 🔧
 
-OpenClaw reads an optional <Tooltip tip="JSON5 supports comments and trailing commas">**JSON5**</Tooltip> config from `~/.openclaw/openclaw.json`.
+Binabasa ng OpenClaw ang opsyonal na **JSON5** config mula sa `~/.openclaw/openclaw.json` (pinapayagan ang mga komento + trailing commas).
 
-If the file is missing, OpenClaw uses safe defaults. Common reasons to add a config:
+Kung nawawala ang file, gagamit ang OpenClaw ng ligtas na mga default. Mga karaniwang dahilan para magdagdag ng config:
 
-- Connect channels and control who can message the bot
-- Set models, tools, sandboxing, or automation (cron, hooks)
-- Tune sessions, media, networking, or UI
+- limitahan kung sino ang puwedeng mag‑trigger ng bot (`channels.whatsapp.allowFrom`, `channels.telegram.allowFrom`, atbp.)
+- kontrolin ang mga group allowlist + asal ng pag‑mention (`channels.whatsapp.groups`, `channels.telegram.groups`, `channels.discord.guilds`, `agents.list[].groupChat`)
+- i‑customize ang mga prefix ng mensahe (`messages`)
 
-See the [full reference](/gateway/configuration-reference) for every available field.
+Tingnan ang [buong reference](/gateway/configuration-reference) para sa lahat ng available na field.
 
 <Tip>
-**New to configuration?** Start with `openclaw onboard` for interactive setup, or check out the [Configuration Examples](/gateway/configuration-examples) guide for complete copy-paste configs.
+**Bago sa configuration?** Magsimula sa `openclaw onboard` para sa interactive na setup, o tingnan ang gabay na [Configuration Examples](/gateway/configuration-examples) para sa kumpletong copy-paste na mga config.
 </Tip>
 
-## Minimal config
+## Minimal na config
 
 ```json5
 // ~/.openclaw/openclaw.json
@@ -28,12 +33,12 @@ See the [full reference](/gateway/configuration-reference) for every available f
 }
 ```
 
-## Editing config
+## Pag-edit ng config
 
 <Tabs>
   <Tab title="Interactive wizard">
     ```bash
-    openclaw onboard       # full setup wizard
+    openclaw onboard       # buong setup wizard
     openclaw configure     # config wizard
     ```
   
@@ -47,35 +52,36 @@ See the [full reference](/gateway/configuration-reference) for every available f
   
 </Tab>
   <Tab title="Control UI">
-    Open [http://127.0.0.1:18789](http://127.0.0.1:18789) and use the **Config** tab.
-    The Control UI renders a form from the config schema, with a **Raw JSON** editor as an escape hatch.
+    Buksan ang [http://127.0.0.1:18789](http://127.0.0.1:18789) at gamitin ang tab na **Config**.
+    Ang Control UI ay nagre-render ng form mula sa config schema, na may **Raw JSON** editor bilang alternatibong opsyon.
   
 </Tab>
   <Tab title="Direct edit">
-    Edit `~/.openclaw/openclaw.json` directly. The Gateway watches the file and applies changes automatically (see [hot reload](#config-hot-reload)).
+    Direktang i-edit ang `~/.openclaw/openclaw.json`. Binabantayan ng Gateway ang file at awtomatikong inilalapat ang mga pagbabago (tingnan ang [hot reload](#config-hot-reload)).
   
 </Tab>
 </Tabs>
 
-## Strict validation
+## Schema + mga UI hint
 
 <Warning>
-OpenClaw only accepts configurations that fully match the schema. Unknown keys, malformed types, or invalid values cause the Gateway to **refuse to start**. The only root-level exception is `$schema` (string), so editors can attach JSON Schema metadata.
+Tumatanggap lamang ang OpenClaw ng mga configuration na ganap na tumutugma sa schema. Ang mga hindi kilalang key, maling uri ng data, o invalid na halaga ay magdudulot sa Gateway na **tumangging mag-start**. Ang tanging exception sa root level ay `$schema` (string), upang makapag-attach ang mga editor ng JSON Schema metadata.
 </Warning>
 
-When validation fails:
+Maaaring mag‑register ang mga channel plugin at extension ng schema + mga UI hint para sa kanilang config, kaya nananatiling schema‑driven ang mga setting ng channel sa iba’t ibang app nang walang hard‑coded na form.
 
-- The Gateway does not boot
-- Only diagnostic commands work (`openclaw doctor`, `openclaw logs`, `openclaw health`, `openclaw status`)
-- Run `openclaw doctor` to see exact issues
-- Run `openclaw doctor --fix` (or `--yes`) to apply repairs
+- Hindi nagbo-boot ang Gateway
+- Tanging mga diagnostic command lang ang gumagana (`openclaw doctor`, `openclaw logs`, `openclaw health`, `openclaw status`)
+- Patakbuhin ang `openclaw doctor` upang makita ang eksaktong mga isyu
+- Patakbuhin ang `openclaw doctor --fix` (o `--yes`) upang ilapat ang mga pag-aayos
 
-## Common tasks
+## I‑apply + i‑restart (RPC)
 
 <AccordionGroup>
   <Accordion title="Set up a channel (WhatsApp, Telegram, Discord, etc.)">
-    Each channel has its own config section under `channels.<provider>`. See the dedicated channel page for setup steps:
+    Bawat channel ay may sariling seksyon ng config sa ilalim ng `channels.<provider>`. Tingnan ang nakalaang pahina ng channel para sa mga hakbang sa setup:
 
+    ````
     - [WhatsApp](/channels/whatsapp) — `channels.whatsapp`
     - [Telegram](/channels/telegram) — `channels.telegram`
     - [Discord](/channels/discord) — `channels.discord`
@@ -85,9 +91,9 @@ When validation fails:
     - [Google Chat](/channels/googlechat) — `channels.googlechat`
     - [Mattermost](/channels/mattermost) — `channels.mattermost`
     - [MS Teams](/channels/msteams) — `channels.msteams`
-
-    All channels share the same DM policy pattern:
-
+    
+    Lahat ng channel ay may iisang pattern ng DM policy:
+    
     ```json5
     {
       channels: {
@@ -100,13 +106,16 @@ When validation fails:
       },
     }
     ```
+    ````
 
   
 </Accordion>
 
   <Accordion title="Choose and configure models">
-    Set the primary model and optional fallbacks:
+    Itakda ang pangunahing model at mga opsyonal na fallback:
 
+
+    ````
     ```json5
     {
       agents: {
@@ -123,33 +132,38 @@ When validation fails:
       },
     }
     ```
-
-    - `agents.defaults.models` defines the model catalog and acts as the allowlist for `/model`.
-    - Model refs use `provider/model` format (e.g. `anthropic/claude-opus-4-6`).
-    - See [Models CLI](/concepts/models) for switching models in chat and [Model Failover](/concepts/model-failover) for auth rotation and fallback behavior.
-    - For custom/self-hosted providers, see [Custom providers](/gateway/configuration-reference#custom-providers-and-base-urls) in the reference.
+    
+    - `agents.defaults.models` ang nagtatakda ng model catalog at nagsisilbing allowlist para sa `/model`.
+    - Gumagamit ang model refs ng `provider/model` na format (hal. `anthropic/claude-opus-4-6`).
+    - Tingnan ang [Models CLI](/concepts/models) para sa pagpapalit ng model sa chat at ang [Model Failover](/concepts/model-failover) para sa auth rotation at fallback behavior.
+    - Para sa custom/self-hosted na mga provider, tingnan ang [Custom providers](/gateway/configuration-reference#custom-providers-and-base-urls) sa reference.
+    ````
 
   
 </Accordion>
 
   <Accordion title="Control who can message the bot">
-    DM access is controlled per channel via `dmPolicy`:
+    Kinokontrol ang DM access kada channel sa pamamagitan ng `dmPolicy`:
 
-    - `"pairing"` (default): unknown senders get a one-time pairing code to approve
-    - `"allowlist"`: only senders in `allowFrom` (or the paired allow store)
-    - `"open"`: allow all inbound DMs (requires `allowFrom: ["*"]`)
-    - `"disabled"`: ignore all DMs
 
-    For groups, use `groupPolicy` + `groupAllowFrom` or channel-specific allowlists.
-
-    See the [full reference](/gateway/configuration-reference#dm-and-group-access) for per-channel details.
+    ```
+    - `"pairing"` (default): ang mga hindi kilalang sender ay makakatanggap ng one-time pairing code para maaprubahan
+    - `"allowlist"`: tanging mga sender sa `allowFrom` (o sa paired allow store)
+    - `"open"`: payagan ang lahat ng papasok na DM (nangangailangan ng `allowFrom: ["*"]`)
+    - `"disabled"`: balewalain ang lahat ng DM
+    
+    Para sa mga group, gamitin ang `groupPolicy` + `groupAllowFrom` o mga channel-specific na allowlist.
+    
+    Tingnan ang [buong reference](/gateway/configuration-reference#dm-and-group-access) para sa mga detalyeng per-channel.
+    ```
 
   
 </Accordion>
 
   <Accordion title="Set up group chat mention gating">
-    Group messages default to **require mention**. Configure patterns per agent:
+    Ang mga mensahe sa grupo ay default na **nangangailangan ng pagbanggit**. I-configure ang mga pattern bawat agent:
 
+    ````
     ```json5
     {
       agents: {
@@ -169,21 +183,22 @@ When validation fails:
       },
     }
     ```
-
-    - **Metadata mentions**: native @-mentions (WhatsApp tap-to-mention, Telegram @bot, etc.)
-    - **Text patterns**: regex patterns in `mentionPatterns`
-    - See [full reference](/gateway/configuration-reference#group-chat-mention-gating) for per-channel overrides and self-chat mode.
+    
+    - **Metadata mentions**: native @-mentions (WhatsApp tap-to-mention, Telegram @bot, atbp.)
+    - **Text patterns**: regex patterns sa `mentionPatterns`
+    - Tingnan ang [full reference](/gateway/configuration-reference#group-chat-mention-gating) para sa per-channel overrides at self-chat mode.
+    ````
 
   
 </Accordion>
 
-  <Accordion title="Configure sessions and resets">
-    Sessions control conversation continuity and isolation:
+  <Accordion title="Configure sessions and resets">    Kinokontrol ng mga session ang pagpapatuloy at paghihiwalay ng mga pag-uusap:
 
+    ````
     ```json5
     {
       session: {
-        dmScope: "per-channel-peer",  // recommended for multi-user
+        dmScope: "per-channel-peer",  // inirerekomenda para sa multi-user
         reset: {
           mode: "daily",
           atHour: 4,
@@ -192,39 +207,25 @@ When validation fails:
       },
     }
     ```
-
+    
     - `dmScope`: `main` (shared) | `per-peer` | `per-channel-peer` | `per-account-channel-peer`
-    - See [Session Management](/concepts/session) for scoping, identity links, and send policy.
-    - See [full reference](/gateway/configuration-reference#session) for all fields.
+    - Tingnan ang [Session Management](/concepts/session) para sa scoping, identity links, at send policy.
+    - Tingnan ang [full reference](/gateway/configuration-reference#session) para sa lahat ng field.
+    ````
 
   
 </Accordion>
 
-  <Accordion title="Enable sandboxing">
-    Run agent sessions in isolated Docker containers:
+  <Accordion title="Enable sandboxing">    Patakbuhin ang mga agent session sa mga nakahiwalay na Docker container:
 
-    ```json5
-    {
-      agents: {
-        defaults: {
-          sandbox: {
-            mode: "non-main",  // off | non-main | all
-            scope: "agent",    // session | agent | shared
-          },
-        },
-      },
-    }
+    ```
+    scripts/sandbox-setup.sh
     ```
 
-    Build the image first: `scripts/sandbox-setup.sh`
-
-    See [Sandboxing](/gateway/sandboxing) for the full guide and [full reference](/gateway/configuration-reference#sandbox) for all options.
-
   
 </Accordion>
 
-  <Accordion title="Set up heartbeat (periodic check-ins)">
-    ```json5
+  <Accordion title="Set up heartbeat (periodic check-ins)">    ```json5
     {
       agents: {
         defaults: {
@@ -237,15 +238,31 @@ When validation fails:
     }
     ```
 
-    - `every`: duration string (`30m`, `2h`). Set `0m` to disable.
-    - `target`: `last` | `whatsapp` | `telegram` | `discord` | `none`
-    - See [Heartbeat](/gateway/heartbeat) for the full guide.
+    ```
+    {
+      agents: {
+        defaults: { workspace: "~/.openclaw/workspace" },
+        list: [
+          {
+            id: "main",
+            groupChat: { mentionPatterns: ["@openclaw", "reisponde"] },
+          },
+        ],
+      },
+      channels: {
+        whatsapp: {
+          // Allowlist is DMs only; including your own number enables self-chat mode.
+          allowFrom: ["+15555550123"],
+          groups: { "*": { requireMention: true } },
+        },
+      },
+    }
+    ```
 
   
 </Accordion>
 
-  <Accordion title="Configure cron jobs">
-    ```json5
+  <Accordion title="Configure cron jobs">    ```json5
     {
       cron: {
         enabled: true,
@@ -255,83 +272,48 @@ When validation fails:
     }
     ```
 
+    ```
     See [Cron jobs](/automation/cron-jobs) for the feature overview and CLI examples.
+    ```
 
   
 </Accordion>
 
-  <Accordion title="Set up webhooks (hooks)">
-    Enable HTTP webhook endpoints on the Gateway:
+  <Accordion title="Set up webhooks (hooks)">    I-enable ang HTTP webhook endpoints sa Gateway:
 
-    ```json5
+    ```
+    // ~/.openclaw/agents.json5
     {
-      hooks: {
-        enabled: true,
-        token: "shared-secret",
-        path: "/hooks",
-        defaultSessionKey: "hook:ingress",
-        allowRequestSessionKey: false,
-        allowedSessionKeyPrefixes: ["hook:"],
-        mappings: [
-          {
-            match: { path: "gmail" },
-            action: "agent",
-            agentId: "main",
-            deliver: true,
-          },
-        ],
-      },
+      defaults: { sandbox: { mode: "all", scope: "session" } },
+      list: [{ id: "main", workspace: "~/.openclaw/workspace" }],
     }
     ```
-
-    See [full reference](/gateway/configuration-reference#hooks) for all mapping options and Gmail integration.
 
   
 </Accordion>
 
-  <Accordion title="Configure multi-agent routing">
-    Run multiple isolated agents with separate workspaces and sessions:
+  <Accordion title="Configure multi-agent routing">    Magpatakbo ng maraming nakahiwalay na agent na may magkakahiwalay na workspace at session:
 
-    ```json5
+    ```
+    // Sibling keys override included values
     {
-      agents: {
-        list: [
-          { id: "home", default: true, workspace: "~/.openclaw/workspace-home" },
-          { id: "work", workspace: "~/.openclaw/workspace-work" },
-        ],
-      },
-      bindings: [
-        { agentId: "home", match: { channel: "whatsapp", accountId: "personal" } },
-        { agentId: "work", match: { channel: "whatsapp", accountId: "biz" } },
-      ],
+      $include: "./base.json5", // { a: 1, b: 2 }
+      b: 99, // Result: { a: 1, b: 99 }
     }
     ```
-
-    See [Multi-Agent](/concepts/multi-agent) and [full reference](/gateway/configuration-reference#multi-agent-routing) for binding rules and per-agent access profiles.
 
   
 </Accordion>
 
-  <Accordion title="Split config into multiple files ($include)">
-    Use `$include` to organize large configs:
+  <Accordion title="Split config into multiple files ($include)">    Gamitin ang `$include` upang ayusin ang malalaking config:
 
-    ```json5
-    // ~/.openclaw/openclaw.json
+    ```
+    // clients/mueller.json5
     {
-      gateway: { port: 18789 },
-      agents: { $include: "./agents.json5" },
-      broadcast: {
-        $include: ["./clients/a.json5", "./clients/b.json5"],
-      },
+      agents: { $include: "./mueller/agents.json5" },
+      broadcast: { $include: "./mueller/broadcast.json5" },
     }
     ```
-
-    - **Single file**: replaces the containing object
-    - **Array of files**: deep-merged in order (later wins)
-    - **Sibling keys**: merged after includes (override included values)
-    - **Nested includes**: supported up to 10 levels deep
-    - **Relative paths**: resolved relative to the including file
-    - **Error handling**: clear errors for missing files, parse errors, and circular includes
 
   
 </Accordion>
@@ -339,16 +321,16 @@ When validation fails:
 
 ## Config hot reload
 
-The Gateway watches `~/.openclaw/openclaw.json` and applies changes automatically — no manual restart needed for most settings.
+Binabantayan ng Gateway ang `~/.openclaw/openclaw.json` at awtomatikong ina-apply ang mga pagbabago — hindi kailangan ng manu-manong restart para sa karamihan ng setting.
 
-### Reload modes
+### Pag‑hawak ng error
 
-| Mode                   | Behavior                                                                                |
-| ---------------------- | --------------------------------------------------------------------------------------- |
-| **`hybrid`** (default) | Hot-applies safe changes instantly. Automatically restarts for critical ones.           |
-| **`hot`**              | Hot-applies safe changes only. Logs a warning when a restart is needed — you handle it. |
-| **`restart`**          | Restarts the Gateway on any config change, safe or not.                                 |
-| **`off`**              | Disables file watching. Changes take effect on the next manual restart.                 |
+| Mode                                      | Behavior                                                                                                                                                               |
+| ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`hybrid`** (default) | Agarang ina-apply ang mga ligtas na pagbabago. Awtomatikong nagre-restart para sa mga kritikal na pagbabago.                           |
+| **`hot`**                                 | Ina-apply lamang nang live ang mga ligtas na pagbabago. Naglalagay ng babala sa log kapag kailangan ng restart — ikaw ang bahala rito. |
+| **`restart`**                             | Nagre-restart ang Gateway sa anumang pagbabago ng config, ligtas man o hindi.                                                                          |
+| **`off`**                                 | Hindi pinapagana ang file watching. Magkakabisa ang mga pagbabago sa susunod na manu-manong restart.                                   |
 
 ```json5
 {
@@ -358,88 +340,94 @@ The Gateway watches `~/.openclaw/openclaw.json` and applies changes automaticall
 }
 ```
 
-### What hot-applies vs what needs a restart
+### Ano ang maaaring i-hot-apply at ano ang nangangailangan ng restart
 
-Most fields hot-apply without downtime. In `hybrid` mode, restart-required changes are handled automatically.
+Karamihan sa mga field ay naia-apply nang live nang walang downtime. Sa `hybrid` mode, ang mga pagbabagong nangangailangan ng restart ay awtomatikong hinahawakan.
 
-| Category            | Fields                                                               | Restart needed? |
-| ------------------- | -------------------------------------------------------------------- | --------------- |
-| Channels            | `channels.*`, `web` (WhatsApp) — all built-in and extension channels | No              |
-| Agent & models      | `agent`, `agents`, `models`, `routing`                               | No              |
-| Automation          | `hooks`, `cron`, `agent.heartbeat`                                   | No              |
-| Sessions & messages | `session`, `messages`                                                | No              |
-| Tools & media       | `tools`, `browser`, `skills`, `audio`, `talk`                        | No              |
-| UI & misc           | `ui`, `logging`, `identity`, `bindings`                              | No              |
-| Gateway server      | `gateway.*` (port, bind, auth, tailscale, TLS, HTTP)                 | **Yes**         |
-| Infrastructure      | `discovery`, `canvasHost`, `plugins`                                 | **Yes**         |
+| Category                           | Fields                                                                                     | Kailangan ng restart? |
+| ---------------------------------- | ------------------------------------------------------------------------------------------ | --------------------- |
+| Channels                           | `channels.*`, `web` (WhatsApp) — lahat ng built-in at extension channel | Hindi                 |
+| Agent & models | `agent`, `agents`, `models`, `routing`                                                     | Hindi                 |
+| Awtomasyon                         | `hooks`, `cron`, `agent.heartbeat`                                                         | Hindi                 |
+| Mga session at mensahe             | `session`, `messages`                                                                      | Hindi                 |
+| Mga tool at media                  | `tools`, `browser`, `skills`, `audio`, `talk`                                              | Hindi                 |
+| UI at iba pa                       | `ui`, `logging`, `identity`, `bindings`                                                    | Hindi                 |
+| Gateway server                     | `gateway.*` (port, bind, auth, tailscale, TLS, HTTP)                    | **Oo**                |
+| Imprastraktura                     | `discovery`, `canvasHost`, `plugins`                                                       | **Oo**                |
 
 <Note>
-`gateway.reload` and `gateway.remote` are exceptions — changing them does **not** trigger a restart.
+`gateway.reload` at `gateway.remote` ay mga exception — ang pagbabago sa mga ito ay **hindi** magti-trigger ng restart.
 </Note>
 
-## Config RPC (programmatic updates)
+## Mga env var + `.env`
 
 <AccordionGroup>
   <Accordion title="config.apply (full replace)">
-    Validates + writes the full config and restarts the Gateway in one step.
+    Vina-validate + isinusulat ang buong config at nire-restart ang Gateway sa isang hakbang.
 
+
+    ````
     <Warning>
-    `config.apply` replaces the **entire config**. Use `config.patch` for partial updates, or `openclaw config set` for single keys.
+    `config.apply` pinapalitan ang **buong config**. Gamitin ang `config.patch` para sa bahagyang mga update, o `openclaw config set` para sa iisang key.
     
 </Warning>
-
+    
     Params:
-
-    - `raw` (string) — JSON5 payload for the entire config
-    - `baseHash` (optional) — config hash from `config.get` (required when config exists)
-    - `sessionKey` (optional) — session key for the post-restart wake-up ping
-    - `note` (optional) — note for the restart sentinel
-    - `restartDelayMs` (optional) — delay before restart (default 2000)
-
+    
+    - `raw` (string) — JSON5 payload para sa buong config
+    - `baseHash` (optional) — config hash mula sa `config.get` (kinakailangan kapag may umiiral na config)
+    - `sessionKey` (optional) — session key para sa post-restart wake-up ping
+    - `note` (optional) — tala para sa restart sentinel
+    - `restartDelayMs` (optional) — delay bago ang restart (default 2000)
+    
     ```bash
-    openclaw gateway call config.get --params '{}'  # capture payload.hash
+    openclaw gateway call config.get --params '{}'  # kunin ang payload.hash
     openclaw gateway call config.apply --params '{
       "raw": "{ agents: { defaults: { workspace: \"~/.openclaw/workspace\" } } }",
       "baseHash": "<hash>",
       "sessionKey": "agent:main:whatsapp:dm:+15555550123"
     }'
     ```
+    ````
 
   
 </Accordion>
 
   <Accordion title="config.patch (partial update)">
-    Merges a partial update into the existing config (JSON merge patch semantics):
+    Pinagsasama ang bahagyang update sa umiiral na config (JSON merge patch semantics):
 
-    - Objects merge recursively
-    - `null` deletes a key
-    - Arrays replace
 
+    ````
+    - Ang mga object ay recursive na pinagsasama
+    - Ang `null` ay nagtatanggal ng key
+    - Ang mga array ay pinapalitan
+    
     Params:
-
-    - `raw` (string) — JSON5 with just the keys to change
-    - `baseHash` (required) — config hash from `config.get`
-    - `sessionKey`, `note`, `restartDelayMs` — same as `config.apply`
-
+    
+    - `raw` (string) — JSON5 na may mga key lang na babaguhin
+    - `baseHash` (kinakailangan) — config hash mula sa `config.get`
+    - `sessionKey`, `note`, `restartDelayMs` — pareho sa `config.apply`
+    
     ```bash
     openclaw gateway call config.patch --params '{
       "raw": "{ channels: { telegram: { groups: { \"*\": { requireMention: false } } } } }",
       "baseHash": "<hash>"
     }'
     ```
+    ````
 
   
 </Accordion>
 </AccordionGroup>
 
-## Environment variables
+## Mga environment variable
 
-OpenClaw reads env vars from the parent process plus:
+Binabasa ng OpenClaw ang mga env var mula sa parent process kasama ang:
 
-- `.env` from the current working directory (if present)
+- `.env` mula sa kasalukuyang working directory (kung mayroon)
 - `~/.openclaw/.env` (global fallback)
 
-Neither file overrides existing env vars. You can also set inline env vars in config:
+Walang alinman sa file ang nag-o-override ng mga umiiral na env var. Maaari ka ring magtakda ng inline na env var sa config:
 
 ```json5
 {
@@ -451,7 +439,8 @@ Neither file overrides existing env vars. You can also set inline env vars in co
 ```
 
 <Accordion title="Shell env import (optional)">
-  If enabled and expected keys aren't set, OpenClaw runs your login shell and imports only the missing keys:
+  Kapag naka-enable at hindi nakatakda ang mga inaasahang key, pinapatakbo ng OpenClaw ang iyong login shell at ini-import lamang ang mga nawawalang key:
+
 
 ```json5
 {
@@ -461,11 +450,11 @@ Neither file overrides existing env vars. You can also set inline env vars in co
 }
 ```
 
-Env var equivalent: `OPENCLAW_LOAD_SHELL_ENV=1`
+Env var equivalent: `OPENCLAW_LOAD_SHELL_ENV=1` 
 </Accordion>
 
 <Accordion title="Env var substitution in config values">
-  Reference env vars in any config string value with `${VAR_NAME}`:
+  I-refer ang mga env var sa anumang string value ng config gamit ang `${VAR_NAME}`:
 
 ```json5
 {
@@ -474,24 +463,22 @@ Env var equivalent: `OPENCLAW_LOAD_SHELL_ENV=1`
 }
 ```
 
-Rules:
+Mga Patakaran:
 
-- Only uppercase names matched: `[A-Z_][A-Z0-9_]*`
-- Missing/empty vars throw an error at load time
-- Escape with `$${VAR}` for literal output
-- Works inside `$include` files
-- Inline substitution: `"${BASE}/v1"` → `"https://api.example.com/v1"`
+- Mga uppercase na pangalan lamang ang tinutugma: `[A-Z_][A-Z0-9_]*`
+- Ang nawawala o walang laman na mga var ay magdudulot ng error sa oras ng pag-load
+- I-escape gamit ang `$${VAR}` para sa literal na output
+- Gumagana sa loob ng `$include` na mga file
+- Inline na pagpapalit: `"${BASE}/v1"` → `"https://api.example.com/v1"`
 
 </Accordion>
 
-See [Environment](/help/environment) for full precedence and sources.
+Tingnan ang [Environment](/help/environment) para sa kumpletong precedence at mga pinagmulan.
 
-## Full reference
+## Buong sanggunian
 
-For the complete field-by-field reference, see **[Configuration Reference](/gateway/configuration-reference)**.
+Para sa kumpletong sanggunian na nakaayos bawat field, tingnan ang **[Configuration Reference](/gateway/configuration-reference)**.
 
 ---
 
-_Related: [Configuration Examples](/gateway/configuration-examples) · [Configuration Reference](/gateway/configuration-reference) · [Doctor](/gateway/doctor)_
-
-
+Legacy OAuth imports:

@@ -1,4 +1,9 @@
 ---
+summary: "Raspberry Pi 上的 OpenClaw（低成本自架設方案）"
+read_when:
+  - 在 Raspberry Pi 上設定 OpenClaw
+  - 在 ARM 裝置上執行 OpenClaw
+  - 打造便宜且全天候運作的個人 AI
 title: "Raspberry Pi"
 ---
 
@@ -21,7 +26,7 @@ title: "Raspberry Pi"
 | **Pi 5**        | 4GB/8GB | ✅ 最佳     | 最快，建議使用            |
 | **Pi 4**        | 4GB     | ✅ 良好     | 多數使用者的甜蜜點          |
 | **Pi 4**        | 2GB     | ✅ 尚可     | 可用，請增加 swap        |
-| **Pi 4**        | 1GB     | ⚠️ 嚴格 | 透過 swap 可行，最小化設定   |
+| **Pi 4**        | 1GB     | ⚠️ Tight | 透過 swap 可行，最小化設定   |
 | **Pi 3B+**      | 1GB     | ⚠️ 慢     | Works but sluggish |
 | **Pi Zero 2 W** | 512MB   | ❌        | 不建議                |
 
@@ -230,7 +235,7 @@ If a skill fails, check if its binary has an ARM build. Many Go/Rust tools do; s
 
 ### 32 位元 vs 64 位元
 
-**一律使用 64 位元 OS。** Node.js 與許多現代工具都需要。可用以下方式確認： Check with:
+**一律使用 64 位元 OS。** Node.js 與許多現代工具都需要。可用以下方式確認： Check with: Check with:
 
 ```bash
 uname -m
@@ -256,7 +261,7 @@ uname -m
 }
 ```
 
-**不要嘗試在 Pi 上執行本地 LLM** —— 即使是小模型也太慢。把重活交給 Claude / GPT。 Let Claude/GPT do the heavy lifting.
+**不要嘗試在 Pi 上執行本地 LLM** —— 即使是小模型也太慢。把重活交給 Claude / GPT。 Let Claude/GPT do the heavy lifting. Let Claude/GPT do the heavy lifting.
 
 ---
 
@@ -351,5 +356,3 @@ echo 'wireless-power off' | sudo tee -a /etc/network/interfaces
 - [Hetzner 指南](/install/hetzner) — Docker 設定
 - [Tailscale](/gateway/tailscale) — 遠端存取
 - [Nodes](/nodes) — 將你的筆電／手機與 Pi Gateway 閘道器配對
-
-

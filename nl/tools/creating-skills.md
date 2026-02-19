@@ -52,5 +52,3 @@ Vraag je agent om "refresh skills" of herstart de Gateway. OpenClaw zal de nieuw
 ## Gedeelde Skills
 
 Je kunt ook skills bekijken en eraan bijdragen op [ClawHub](https://clawhub.com).
-
-

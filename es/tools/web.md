@@ -1,4 +1,9 @@
 ---
+summary: "Herramientas de búsqueda y obtención web (Brave Search API, Perplexity directo/OpenRouter)"
+read_when:
+  - Quiere habilitar web_search o web_fetch
+  - Necesita configurar la clave de la API de Brave Search
+  - Quiere usar Perplexity Sonar para búsqueda web
 title: "Herramientas web"
 ---
 
@@ -169,6 +174,8 @@ Busque en la web usando su proveedor configurado.
 - `search_lang` (opcional): código de idioma ISO para los resultados de búsqueda (p. ej., "de", "en", "fr")
 - `ui_lang` (opcional): código de idioma ISO para elementos de la interfaz
 - `freshness` (opcional, solo Brave): filtrar por tiempo de descubrimiento (`pd`, `pw`, `pm`, `py`, o `YYYY-MM-DDtoYYYY-MM-DD`)
+  - Brave: `pd`, `pw`, `pm`, `py` o `YYYY-MM-DDtoYYYY-MM-DD`
+  - Perplexity: `pd`, `pw`, `pm`, `py`
 
 **Ejemplos:**
 
@@ -252,5 +259,3 @@ Notas:
 - Las respuestas se almacenan en caché (predeterminado: 15 minutos) para reducir obtenciones repetidas.
 - Si usa perfiles/listas de permitidos de herramientas, agregue `web_search`/`web_fetch` o `group:web`.
 - Si falta la clave de Brave, `web_search` devuelve una breve sugerencia de configuración con un enlace a la documentación.
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "แนวทางในการเลือกใช้ heartbeat และ cron jobs สำหรับระบบอัตโนมัติ"
+read_when:
+  - การตัดสินใจว่าจะตั้งเวลางานที่ทำซ้ำอย่างไร
+  - การตั้งค่าการมอนิเตอร์หรือการแจ้งเตือนเบื้องหลัง
+  - การเพิ่มประสิทธิภาพการใช้โทเคนสำหรับการตรวจสอบเป็นระยะ
 title: "Cron เทียบกับ Heartbeat"
 ---
 
@@ -15,11 +20,11 @@ title: "Cron เทียบกับ Heartbeat"
 | มอนิเตอร์ปฏิทินสำหรับอีเวนต์ที่จะมาถึง                           | Heartbeat                              | เหมาะสมตามธรรมชาติสำหรับการรับรู้เป็นระยะ |
 | รันการวิเคราะห์เชิงลึกรายสัปดาห์                                 | Cron (isolated)     | งานเดี่ยวสามารถใช้โมเดลอื่นได้            |
 | เตือนฉันในอีก 20 นาที                                            | Cron (main, `--at`) | งานครั้งเดียวที่ต้องการความแม่นยำ         |
-| ตรวจสอบสุขภาพโปรเจ็กต์เบื้องหลัง                                 | Heartbeat                              | อาศัยรอบการทำงานที่มีอยู่แล้ว              |
+| ตรวจสอบสุขภาพโปรเจ็กต์เบื้องหลัง                                 | Heartbeat                              | Piggybacks on existing cycle              |
 
 ## Heartbeat: การรับรู้เป็นระยะ
 
-Heartbeat จะรันใน **main session** ตามช่วงเวลาที่กำหนดอย่างสม่ำเสมอ (ค่าเริ่มต้น: 30 นาที) ออกแบบมาเพื่อให้เอเจนต์ตรวจสอบสิ่งต่างๆและนำเสนอสิ่งสำคัญ They're designed for the agent to check on things and surface anything important.
+Heartbeat จะรันใน **main session** ตามช่วงเวลาที่กำหนดอย่างสม่ำเสมอ (ค่าเริ่มต้น: 30 นาที) ออกแบบมาเพื่อให้เอเจนต์ตรวจสอบสิ่งต่างๆและนำเสนอสิ่งสำคัญ They're designed for the agent to check on things and surface anything important. They're designed for the agent to check on things and surface anything important.
 
 ### เมื่อใดควรใช้ heartbeat
 
@@ -182,6 +187,8 @@ openclaw cron add --name "Call back" --at "2h" --session main --system-event "Ca
 
 Lobster คือรันไทม์เวิร์กโฟลว์สำหรับ **pipeline เครื่องมือหลายขั้นตอน** ที่ต้องการการทำงานแบบกำหนดแน่นอนและการอนุมัติที่ชัดเจน
 ใช้เมื่อภารกิจมีมากกว่าการทำงานของเอเจนต์หนึ่งรอบ และคุณต้องการเวิร์กโฟลว์ที่หยุดต่อได้พร้อมจุดตรวจจากมนุษย์
+Lobster คือรันไทม์เวิร์กโฟลว์สำหรับ **pipeline เครื่องมือหลายขั้นตอน** ที่ต้องการการทำงานแบบกำหนดแน่นอนและการอนุมัติที่ชัดเจน
+ใช้เมื่อภารกิจมีมากกว่าการทำงานของเอเจนต์หนึ่งรอบ และคุณต้องการเวิร์กโฟลว์ที่หยุดต่อได้พร้อมจุดตรวจจากมนุษย์
 Use it when the task is more than a single agent turn, and you want a resumable workflow with human checkpoints.
 
 ### เมื่อใดที่ Lobster เหมาะสม
@@ -197,6 +204,7 @@ Use it when the task is more than a single agent turn, and you want a resumable 
 
 สำหรับเวิร์กโฟลว์ตามตาราง ให้ใช้ cron หรือ heartbeat เพื่อทริกเกอร์การทำงานของเอเจนต์ที่เรียก Lobster
 สำหรับเวิร์กโฟลว์เฉพาะกิจ ให้เรียก Lobster โดยตรง
+For ad-hoc workflows, call Lobster directly.
 For ad-hoc workflows, call Lobster directly.
 
 ### หมายเหตุการปฏิบัติงาน (จากโค้ด)
@@ -277,5 +285,3 @@ openclaw cron add \
 - [Heartbeat](/gateway/heartbeat) - การกำหนดค่า heartbeat แบบครบถ้วน
 - [Cron jobs](/automation/cron-jobs) - เอกสารอ้างอิง CLI และ API ของ cron แบบครบถ้วน
 - [System](/cli/system) - system events และการควบคุม heartbeat
-
-

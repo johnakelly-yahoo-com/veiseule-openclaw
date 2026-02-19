@@ -1,10 +1,15 @@
 ---
+summary: "Gateway WebSocket پروٹوکول: ہینڈشیک، فریمز، ورژننگ"
+read_when:
+  - Gateway WS کلائنٹس کو نافذ یا اپ ڈیٹ کرتے وقت
+  - پروٹوکول عدم مطابقت یا کنکشن کی ناکامیوں کی ڈیبگنگ کے دوران
+  - پروٹوکول اسکیما/ماڈلز کو دوبارہ تیار کرتے وقت
 title: "Gateway پروٹوکول"
 ---
 
 # Gateway پروٹوکول (WebSocket)
 
-Gateway WS پروٹوکول **واحد کنٹرول پلین + نوڈ ٹرانسپورٹ** ہے برائے
+The Gateway WS protocol is the **single control plane + node transport** for
 OpenClaw. All clients (CLI, web UI, macOS app, iOS/Android nodes, headless
 nodes) connect over WebSocket and declare their **role** + **scope** at
 handshake time.
@@ -212,5 +217,3 @@ The Gateway treats these as **claims** and enforces server-side allowlists.
 20. یہ پروٹوکول **مکمل گیٹ وے API** کو ایکسپوز کرتا ہے (status, channels, models, chat,
     agent, sessions, nodes, approvals، وغیرہ)۔ The exact surface is defined by the
     TypeBox schemas in `src/gateway/protocol/schema.ts`.
-
-

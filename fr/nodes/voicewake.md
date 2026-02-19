@@ -1,4 +1,8 @@
 ---
+summary: "Mots de reveil vocaux globaux (appartenant a la Gateway) et leur synchronisation entre les nœuds"
+read_when:
+  - Modification du comportement ou des valeurs par defaut des mots de reveil vocaux
+  - Ajout de nouvelles plateformes de nœuds necessitant la synchronisation des mots de reveil
 title: "Reveil vocal"
 ---
 
@@ -59,5 +63,3 @@ Qui le recoit :
 
 - Expose un éditeur Wake Words dans les paramètres.
 - Appelle `voicewake.set` via le WS de la Gateway afin que les modifications se synchronisent partout.
-
-

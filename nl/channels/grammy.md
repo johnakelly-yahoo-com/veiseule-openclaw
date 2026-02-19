@@ -1,4 +1,7 @@
 ---
+summary: "Integratie met de Telegram Bot API via grammY met installatienotities"
+read_when:
+  - Werken aan Telegram- of grammY-trajecten
 title: grammY
 ---
 
@@ -18,7 +21,7 @@ title: grammY
 - **Webhook-ondersteuning:** `webhook-set.ts` wikkelt `setWebhook/deleteWebhook`; `webhook.ts` host de callback met healthchecks + graceful shutdown. De Gateway schakelt webhook-modus in wanneer `channels.telegram.webhookUrl` + `channels.telegram.webhookSecret` zijn ingesteld (anders wordt long-poll gebruikt).
 - **Sessies:** directe chats worden samengevoegd tot de hoofd­sessie van de agent (`agent:<agentId>:<mainKey>`); groepen gebruiken `agent:<agentId>:telegram:group:<chatId>`; antwoorden worden teruggerouteerd naar hetzelfde kanaal.
 - **Configuratieknoppen:** `channels.telegram.botToken`, `channels.telegram.dmPolicy`, `channels.telegram.groups` (allowlist + mention-standaarden), `channels.telegram.allowFrom`, `channels.telegram.groupAllowFrom`, `channels.telegram.groupPolicy`, `channels.telegram.mediaMaxMb`, `channels.telegram.linkPreview`, `channels.telegram.proxy`, `channels.telegram.webhookSecret`, `channels.telegram.webhookUrl`.
-- **Conceptstreaming:** optionele `channels.telegram.streamMode` gebruikt `sendMessageDraft` in privé-topicchats (Bot API 9.3+). Dit staat los van kanaal-blokstreaming.
+- **Live stream preview:** optioneel `channels.telegram.streamMode` verstuurt een tijdelijk bericht en werkt dit bij met `editMessageText`. Dit staat los van kanaal-blokstreaming.
 - **Tests:** grammY-mocks dekken DM- en groeps-mention-gating en uitgaand verzenden; meer media-/webhook-fixtures zijn nog welkom.
 
 Openstaande vragen
@@ -26,5 +29,3 @@ Openstaande vragen
 - Optionele grammY-plugins (throttler) toevoegen als we Bot API 429’s tegenkomen.
 - Meer gestructureerde mediatests toevoegen (stickers, spraaknotities).
 - De webhook-luisterpoort configureerbaar maken (momenteel vast op 8787, tenzij via de Gateway aangesloten).
-
-

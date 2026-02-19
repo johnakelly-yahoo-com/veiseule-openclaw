@@ -1,4 +1,7 @@
 ---
+summary: "محاور تربط بجميع مستندات OpenClaw"
+read_when:
+  - عندما تريد خريطة كاملة للتوثيق
 title: "محاور التوثيق"
 ---
 
@@ -192,5 +195,3 @@ title: "محاور التوثيق"
 - [الاختبار](/reference/test)
 - [قائمة التحقق للإصدار](/reference/RELEASING)
 - [نماذج الأجهزة](/reference/device-models)
-
-

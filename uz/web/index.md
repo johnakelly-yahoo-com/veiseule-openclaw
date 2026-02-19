@@ -1,4 +1,8 @@
 ---
+summary: "Gateway veb yuzalari: Boshqaruv UI, ulanish rejimlari va xavfsizlik"
+read_when:
+  - Gateway’ga Tailscale orqali kirishni xohlaysiz
+  - Brauzer Boshqaruv UI va konfiguratsiyani tahrirlash kerak
 title: "Veb"
 ---
 
@@ -9,18 +13,18 @@ Gateway Gateway WebSocket bilan bir xil portda kichik **brauzer Boshqaruv UI** (
 - standart: `http://<host>:18789/`
 - ixtiyoriy prefiks: `gateway.controlUi.basePath` ni sozlang (masalan, `/openclaw`)
 
-Imkoniyatlar [Control UI](/web/control-ui) sahifasida keltirilgan.
-Bu sahifa ulanish rejimlari, xavfsizlik va vebga ochiq yuzalarga e’tibor qaratadi.
+Capabilities live in [Control UI](/web/control-ui).
+This page focuses on bind modes, security, and web-facing surfaces.
 
 ## Webhook’lar
 
-`hooks.enabled=true` bo‘lsa, Gateway shu HTTP serverda kichik webhook endpoint’ni ham ochadi.
-Autentifikatsiya va payload’lar uchun [Gateway configuration](/gateway/configuration) → `hooks` bo‘limiga qarang.
+When `hooks.enabled=true`, the Gateway also exposes a small webhook endpoint on the same HTTP server.
+See [Gateway configuration](/gateway/configuration) → `hooks` for auth + payloads.
 
 ## Konfiguratsiya (standart bo‘yicha yoqilgan)
 
-Agar asset’lar mavjud bo‘lsa (`dist/control-ui`), Boshqaruv UI **standart bo‘yicha yoqilgan**.
-Uni konfiguratsiya orqali boshqarishingiz mumkin:
+The Control UI is **enabled by default** when assets are present (`dist/control-ui`).
+You can control it via config:
 
 ```json5
 {
@@ -97,18 +101,16 @@ Ochish:
 - UI `connect.params.auth.token` yoki `connect.params.auth.password` yuboradi.
 - Boshqaruv UI anti-clickjacking sarlavhalarini yuboradi va faqat bir xil origin’dan
   websocket brauzer ulanishlarini qabul qiladi, agar `gateway.controlUi.allowedOrigins` o‘rnatilmagan bo‘lsa.
-- Serve bilan ishlaganda, agar `gateway.auth.allowTailscale` `true` bo‘lsa,
-  Tailscale identifikatsiya sarlavhalari autentifikatsiyani ta’minlashi mumkin (token/parol talab qilinmaydi). 
-  Aniq login ma’lumotlarini talab qilish uchun `gateway.auth.allowTailscale: false` qilib sozlang. Qarang:
-  [Tailscale](/gateway/tailscale) va [Security](/gateway/security).
+- With Serve, Tailscale identity headers can satisfy auth when
+  `gateway.auth.allowTailscale` is `true` (no token/password required). Set
+  `gateway.auth.allowTailscale: false` to require explicit credentials. See
+  [Tailscale](/gateway/tailscale) and [Security](/gateway/security).
 - `gateway.tailscale.mode: "funnel"` uchun `gateway.auth.mode: "password"` (umumiy parol) talab qilinadi.
 
 ## UI’ni build qilish
 
-Gateway statik fayllarni `dist/control-ui` dan taqdim etadi. Ularni quyidagicha build qiling:
+The Gateway serves static files from `dist/control-ui`. Build them with:
 
 ```bash
 pnpm ui:build # birinchi ishga tushirishda UI dependency’larini avtomatik o‘rnatadi
 ```
-
-

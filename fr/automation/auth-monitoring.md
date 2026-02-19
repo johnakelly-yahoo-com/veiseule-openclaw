@@ -1,4 +1,8 @@
 ---
+summary: "Surveiller l’expiration OAuth pour les fournisseurs de modèles"
+read_when:
+  - Mise en place de la surveillance ou d’alertes d’expiration d’authentification
+  - Automatisation des vérifications de rafraîchissement OAuth de Claude Code / Codex
 title: "Surveillance de l’authentification"
 ---
 
@@ -37,5 +41,3 @@ Ils se trouvent sous `scripts/` et sont **optionnels**. Ils supposent un accès 
 - `scripts/termux-sync-widget.sh` : synchronisation des identifiants Claude Code → OpenClaw.
 
 Si vous n’avez pas besoin de l’automatisation sur téléphone ou des minuteurs systemd, ignorez ces scripts.
-
-

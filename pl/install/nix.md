@@ -1,4 +1,9 @@
 ---
+summary: "Zainstaluj OpenClaw deklaratywnie za pomocą Nix"
+read_when:
+  - Chcesz instalacji odtwarzalnych i z możliwością cofania
+  - Już korzystasz z Nix/NixOS/Home Manager
+  - Chcesz, aby wszystko było przypięte i zarządzane deklaratywnie
 title: "Nix"
 ---
 
@@ -91,5 +96,3 @@ pakowania SwiftPM oraz buildów Nix (które nie polegają na pełnym łańcuchu 
 - [nix-openclaw](https://github.com/openclaw/nix-openclaw) — pełny przewodnik konfiguracji
 - [Wizard](/start/wizard) — konfiguracja CLI bez Nix
 - [Docker](/install/docker) — konfiguracja konteneryzowana
-
-

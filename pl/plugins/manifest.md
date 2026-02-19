@@ -1,4 +1,8 @@
 ---
+summary: "Manifest wtyczki + wymagania schematu JSON (ścisła walidacja konfiguracji)"
+read_when:
+  - Tworzysz wtyczkę OpenClaw
+  - Musisz dostarczyć schemat konfiguracji wtyczki lub debugować błędy walidacji wtyczek
 title: "Manifest wtyczki"
 ---
 
@@ -59,5 +63,3 @@ Klucze opcjonalne:
 - Runtime nadal ładuje moduł wtyczki oddzielnie; manifest służy wyłącznie do wykrywania i walidacji.
 - Jeśli Twoja wtyczka zależy od modułów natywnych, udokumentuj kroki budowania oraz wszelkie wymagania listy dozwolonych menedżera pakietów (na przykład pnpm `allow-build-scripts`
   - `pnpm rebuild <package>`).
-
-

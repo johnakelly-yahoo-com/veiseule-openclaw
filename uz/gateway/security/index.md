@@ -1,4 +1,7 @@
 ---
+summary: "47. Shellga kirish huquqi bilan AI gateway’ni ishga tushirish uchun xavfsizlik masalalari va tahdid modeli"
+read_when:
+  - 48. Kirishni yoki avtomatlashtirishni kengaytiradigan funksiyalarni qo‘shish
 title: "49. Xavfsizlik"
 ---
 
@@ -42,6 +45,7 @@ Hali ishlaydigan eng kichik kirishdan boshlang, keyin ishonch ortgani sayin keng
 - **Brauzer boshqaruvi ochiqligi** (masofaviy tugunlar, relay portlar, masofaviy CDP endpointlar).
 - **Mahalliy disk gigiyenasi** (ruxsatlar, symlinklar, konfiguratsiya qo‘shimchalari, “sinxronlangan papka” yo‘llari).
 - **Plaginlar** (aniq allowlistsiz kengaytmalar mavjud).
+- **Model gigiyenasi** (sozlangan modellar eskirgan ko‘rinsa ogohlantiradi; qat’iy blok emas).
 - **Model gigiyenasi** (sozlangan modellar eskirgan ko‘rinsa ogohlantiradi; qat’iy blok emas).
 
 Agar `--deep` ni ishga tushirsangiz, OpenClaw qo‘shimcha ravishda imkon qadar jonli Gateway tekshiruvini ham bajaradi.
@@ -249,6 +253,7 @@ Even with strong system prompts, **prompt injection is not solved**. System prom
 
 - 21. Ishonchsiz kontentni xulosa qilish uchun faqat o‘qishga ruxsatli yoki vositalari o‘chiq **reader agent**dan foydalaning, so‘ng xulosani asosiy agentga uzating.
 - 22. Zarurat bo‘lmasa, vositalarga ega agentlar uchun `web_search` / `web_fetch` / `browser`’ni o‘chiq tuting.
+- OpenResponses URL kiritishlari (`input_file` / `input_image`) uchun `gateway.http.endpoints.responses.files.urlAllowlist` va `gateway.http.endpoints.responses.images.urlAllowlist` ni qat’iy sozlang hamda `maxUrlParts` ni past darajada saqlang.
 - 23. Ishonchsiz kirishlar bilan ishlaydigan har qanday agent uchun sandboxlash va qat’iy vosita allowlistlarini yoqing.
 - 24. Sirlarni promptlarga kiritmang; ularni gateway xostidagi env/config orqali uzating.
 
@@ -259,7 +264,7 @@ Even with strong system prompts, **prompt injection is not solved**. System prom
 28. Tavsiyalar:
 
 - 29. **Vositalarni ishga tushira oladigan yoki fayl/tarmoqlarga tegadigan har qanday bot uchun eng so‘nggi avlod, eng yuqori darajadagi modeldan foydalaning.**
-- 30. **Kuchsiz darajalardan qoching** (masalan, Sonnet yoki Haiku) — vositalarga ega agentlar yoki ishonchsiz inboxlar uchun.
+- Yo‘riqnoma:
 - 31. Agar kichik modeldan foydalanishingiz shart bo‘lsa, **ta’sir doirasini kamaytiring** (faqat o‘qish vositalari, kuchli sandboxlash, minimal fayl tizimi kirishi, qat’iy allowlistlar).
 - 32. Kichik modellar bilan ishlaganda, **barcha sessiyalar uchun sandboxlashni yoqing** va kirishlar qat’iy nazorat qilinmasa **web_search/web_fetch/browser**’ni o‘chiring.
 - 33. Faqat chatga mo‘ljallangan, ishonchli kirishga ega va vositalarsiz shaxsiy yordamchilar uchun kichik modellar odatda yetarli.
@@ -313,7 +318,7 @@ Even with strong system prompts, **prompt injection is not solved**. System prom
 
 21. Gateway xostida konfiguratsiya + holatni maxfiy saqlang:
 
-- 22. `~/.openclaw/openclaw.json`: `600` (faqat foydalanuvchi o‘qish/yozish)
+- Amaliy qoidalar:
 - 23. `~/.openclaw`: `700` (faqat foydalanuvchi)
 
 24. `openclaw doctor` bu ruxsatlar haqida ogohlantirishi va ularni mahkamlashni taklif qilishi mumkin.
@@ -324,6 +329,16 @@ Even with strong system prompts, **prompt injection is not solved**. System prom
 
 - 27. Sukut bo‘yicha: `18789`
 - 28. Konfiguratsiya/bayroqlar/muhit: `gateway.port`, `--port`, `OPENCLAW_GATEWAY_PORT`
+
+Ushbu HTTP yuzasi Control UI va canvas xostni o‘z ichiga oladi:
+
+- Control UI (SPA assetlari) (standart asosiy yo‘l `/`)
+- Canvas host: `/__openclaw__/canvas/` va `/__openclaw__/a2ui/` (ixtiyoriy HTML/JS; ishonchsiz kontent sifatida ko‘rib chiqing)
+
+Agar canvas kontentini oddiy brauzerda yuklasangiz, uni boshqa har qanday ishonchsiz veb-sahifa kabi qabul qiling:
+
+- Canvas host’ni ishonchsiz tarmoqlar/foydalanuvchilarga ochmang.
+- Agar oqibatlarini to‘liq tushunmasangiz, canvas kontentini imtiyozli veb-interfeyslar bilan bir xil origin’da joylashtirmang.
 
 29. Bind rejimi Gateway qayerda tinglashini boshqaradi:
 
@@ -417,6 +432,7 @@ Auth modes:
 
 - `gateway.auth.mode: "token"`: shared bearer token (recommended for most setups).
 - `gateway.auth.mode: "password"`: password auth (prefer setting via env: `OPENCLAW_GATEWAY_PASSWORD`).
+- `gateway.auth.mode: "trusted-proxy"`: foydalanuvchilarni autentifikatsiya qilish va identifikatsiyani sarlavhalar orqali uzatish uchun identity-aware reverse proxy’ga ishoning (qarang: [Trusted Proxy Auth](/gateway/trusted-proxy-auth)).
 
 Rotation checklist (token/password):
 
@@ -435,9 +451,9 @@ and matching it to the header. This only triggers for requests that hit loopback
 and include `x-forwarded-for`, `x-forwarded-proto`, and `x-forwarded-host` as
 injected by Tailscale.
 
-**Security rule:** do not forward these headers from your own reverse proxy. If
-you terminate TLS or proxy in front of the gateway, disable
-`gateway.auth.allowTailscale` and use token/password auth instead.
+**Security rule:** do not forward these headers from your own reverse proxy. Agar
+gateway oldida TLS’ni yakunlasangiz yoki proxy ishlatsangiz,
+`gateway.auth.allowTailscale` ni o‘chirib qo‘ying va uning o‘rniga token/parol autentifikatsiyasidan (yoki [Trusted Proxy Auth](/gateway/trusted-proxy-auth)) foydalaning.
 
 Trusted proxies:
 
@@ -476,7 +492,7 @@ Assume anything under `~/.openclaw/` (or `$OPENCLAW_STATE_DIR/`) may contain sec
 
 3. Qattiqlashtirish bo‘yicha maslahatlar:
 
-- 4. Ruxsatlarni qat’iy saqlang (kataloglar uchun `700`, fayllar uchun `600`).
+- AI’ingizni shaxsiy raqamingizdan alohida telefon raqamida ishga tushirishni ko‘rib chiqing:
 - 5. Gateway xosti uchun to‘liq disk shifrlashdan foydalaning.
 - 6. Agar xost umumiy bo‘lsa, Gateway uchun alohida OS foydalanuvchi hisobidan foydalanishni afzal ko‘ring.
 
@@ -484,12 +500,12 @@ Assume anything under `~/.openclaw/` (or `$OPENCLAW_STATE_DIR/`) may contain sec
 
 8. Loglar va transkriptlar kirish nazorati to‘g‘ri bo‘lsa ham maxfiy ma’lumotlarni sizdirishi mumkin:
 
-- 9. Gateway loglarida asboblar xulosalari, xatolar va URL’lar bo‘lishi mumkin.
+- Siz allaqachon quyidagilarni birlashtirib faqat o‘qish profilini yaratishingiz mumkin:
 - 10. Sessiya transkriptlarida qo‘lda kiritilgan sirlar, fayl mazmuni, buyruq chiqishi va havolalar bo‘lishi mumkin.
 
 11. Tavsiyalar:
 
-- 12. Asboblar xulosasini redaksiyalashni yoqilgan holda saqlang (`logging.redactSensitive: "tools"`; sukut bo‘yicha).
+- Keyinroq bu sozlamani soddalashtirish uchun yagona `readOnlyMode` bayrog‘ini qo‘shishimiz mumkin.
 - 13. Muhitingiz uchun `logging.redactPatterns` orqali maxsus naqshlar qo‘shing (tokenlar, xost nomlari, ichki URL’lar).
 - 14. Diagnostikani ulashishda xom loglar o‘rniga `openclaw status --all` (nusxa ko‘chirishga qulay, sirlar redaksiyalangan) ni afzal ko‘ring.
 - 15. Uzoq muddat saqlash kerak bo‘lmasa, eski sessiya transkriptlari va log fayllarini tozalang.
@@ -499,8 +515,19 @@ Assume anything under `~/.openclaw/` (or `$OPENCLAW_STATE_DIR/`) may contain sec
 ### 17. 1. DMlar: sukut bo‘yicha juftlash
 
 ```json5
-18. {
-  channels: { whatsapp: { dmPolicy: "pairing" } },
+35. {
+  gateway: {
+    mode: "local",
+    bind: "loopback",
+    port: 18789,
+    auth: { mode: "token", token: "your-long-random-token" },
+  },
+  channels: {
+    whatsapp: {
+      dmPolicy: "pairing",
+      groups: { "*": { requireMention: true } },
+    },
+  },
 }
 ```
 
@@ -543,6 +570,11 @@ Assume anything under `~/.openclaw/` (or `$OPENCLAW_STATE_DIR/`) may contain sec
 - 31. `write`, `edit`, `apply_patch`, `exec`, `process` va boshqalarni bloklaydigan asboblar ruxsat/taqiq ro‘yxatlari.
 
 32. Keyinroq bu sozlamani soddalashtirish uchun yagona `readOnlyMode` bayrog‘ini qo‘shishimiz mumkin.
+
+Qo‘shimcha mustahkamlash (hardening) variantlari:
+
+- `tools.exec.applyPatch.workspaceOnly: true` (standart): sandbox o‘chirilgan bo‘lsa ham, `apply_patch` workspace katalogidan tashqarida yozish/o‘chirishni amalga oshira olmasligini ta’minlaydi. `apply_patch` workspace’dan tashqaridagi fayllarga ta’sir qilishini ataylab xohlasangizgina `false` ga o‘rnating.
+- `tools.fs.workspaceOnly: true` (ixtiyoriy): `read`/`write`/`edit`/`apply_patch` yo‘llarini workspace katalogi bilan cheklaydi (agar hozir absolute path’larga ruxsat bersangiz va yagona himoya mexanizmini xohlasangiz foydali).
 
 ### 33. 5. Xavfsiz bazaviy sozlama (nusxa ko‘chirib qo‘llash)
 
@@ -746,7 +778,7 @@ If your AI does something bad:
 - What the attacker sent + what the agent did
 - Secret Scanning (detect-secrets)
 
-## CI `secrets` job’ida `detect-secrets scan --baseline .secrets.baseline` ni ishga tushiradi.
+## Secret Scanning (detect-secrets)
 
 9. CI `secrets` ishida `detect-secrets scan --baseline .secrets.baseline`ni ishga tushiradi.
    Agar CI muvaffaqiyatsiz bo‘lsa
@@ -756,7 +788,7 @@ If your AI does something bad:
 1. detect-secrets scan --baseline .secrets.baseline
 
    ```bash
-   Vositalarni tushuning:
+   detect-secrets scan --baseline .secrets.baseline
    ```
 
 2. `detect-secrets scan` nomzodlarni topadi va ularni baseline bilan solishtiradi.
@@ -769,9 +801,7 @@ If your AI does something bad:
 4. detect-secrets audit .secrets.baseline
 
    ```bash
-   Agar yangi exclude’lar kerak bo‘lsa, ularni `.detect-secrets.cfg` ga qo‘shing va mos
-      `--exclude-files` / `--exclude-lines` flag’lari bilan baseline’ni qayta yarating (config
-      fayl faqat ma’lumot uchun; detect-secrets uni avtomatik o‘qimaydi).
+   detect-secrets audit .secrets.baseline
    ```
 
 5. Mo‘ljallangan holatni aks ettirgach, yangilangan `.secrets.baseline` ni commit qiling.
@@ -781,22 +811,6 @@ Ishonch ierarxiyasi
 ## Xavfsizlik muammolarini xabar qilish
 
 ```mermaid
-%%{init: {
-  'theme': 'base',
-  'themeVariables': {
-    'primaryColor': '#ffffff',
-    'primaryTextColor': '#000000',
-    'primaryBorderColor': '#000000',
-    'lineColor': '#000000',
-    'secondaryColor': '#f9f9fb',
-    'tertiaryColor': '#ffffff',
-    'clusterBkg': '#f9f9fb',
-    'clusterBorder': '#000000',
-    'nodeBorder': '#000000',
-    'mainBkg': '#ffffff',
-    'edgeLabelBackground': '#ffffff'
-  }
-}}%%
 flowchart TB
     A["Owner (Peter)"] -- Full trust --> B["AI (Clawd)"]
     B -- Trust but verify --> C["Friends in allowlist"]
@@ -804,7 +818,7 @@ flowchart TB
     D -- No trust --> E["Mario asking for find ~"]
     E -- Definitely no trust 😏 --> F[" "]
 
-     %% The transparent box is needed to show the bottom-most label correctly
+     %% Eng pastki yorliqni to‘g‘ri ko‘rsatish uchun shaffof blok kerak
      F:::Class_transparent_box
     classDef Class_transparent_box fill:transparent, stroke:transparent
 ```
@@ -823,5 +837,3 @@ Iltimos, mas’uliyat bilan xabar bering: Email: [security@openclaw.ai](mailto:s
 🦞🔐 Gateway dashboard’i uchun Tailscale Serve/Funnel integratsiyasi
 
 Gateway Control UI’ni localhost’dan tashqariga ochish
-
-

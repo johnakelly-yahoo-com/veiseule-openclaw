@@ -1,4 +1,9 @@
 ---
+summary: "OpenClaw Gateway CLI (`openclaw gateway`) — gatewaylarni ishga tushirish, so‘rov yuborish va topish"
+read_when:
+  - Gateway’ni CLI orqali ishga tushirganda (dev yoki serverlarda)
+  - Gateway autentifikatsiyasi, bind rejimlari va ulanishni nosozliklarini tuzatishda
+  - Bonjour orqali gatewaylarni topishda (LAN + tailnet)
 title: "gateway"
 ---
 
@@ -30,10 +35,10 @@ openclaw gateway run
 
 Eslatmalar:
 
-- Standart holatda, agar `~/.openclaw/openclaw.json` faylida `gateway.mode=local` o‘rnatilmagan bo‘lsa, Gateway ishga tushmaydi. Vaqtinchalik/dev ishga tushirish uchun `--allow-unconfigured` dan foydalaning.
+- By default, the Gateway refuses to start unless `gateway.mode=local` is set in `~/.openclaw/openclaw.json`. Use `--allow-unconfigured` for ad-hoc/dev runs.
 - Autentifikatsiyasiz loopback’dan tashqariga bind qilish bloklanadi (xavfsizlik chorasi).
 - `SIGUSR1` avtorizatsiya qilinganda jarayon ichida qayta ishga tushirishni ishga tushiradi (`commands.restart` ni yoqing yoki gateway tool/config apply/update’dan foydalaning).
-- `SIGINT`/`SIGTERM` handler’lari gateway jarayonini to‘xtatadi, lekin terminalning maxsus holatini tiklamaydi. Agar CLI’ni TUI yoki raw-mode input bilan o‘rab ishlatsangiz, chiqishdan oldin terminalni tiklang.
+- `SIGINT`/`SIGTERM` handlers stop the gateway process, but they don’t restore any custom terminal state. If you wrap the CLI with a TUI or raw-mode input, restore the terminal before exit.
 
 ### Parametrlar
 
@@ -73,8 +78,8 @@ Umumiy parametrlar (mavjud joylarda):
 - `--timeout <ms>`: timeout/budjet (buyruqqa qarab farq qiladi).
 - `--expect-final`: “final” javobni kutish (agent chaqiruvlari).
 
-Eslatma: `--url` ni o‘rnatganingizda, CLI config yoki muhit credential’lariga qaytmaydi.
-`--token` yoki `--password` ni aniq ko‘rsating. Aniq credential ko‘rsatilmasa, xato yuz beradi.
+Eslatma: `--url` o‘rnatilganda, CLI konfiguratsiya yoki muhit credentiallariga qaytmaydi.
+`--token` yoki `--password` ni aniq ko‘rsating. Aniq ko‘rsatilgan hisob ma’lumotlarining yo‘qligi xato hisoblanadi.
 
 ### `gateway health`
 
@@ -102,12 +107,12 @@ Parametrlar:
 
 ### `gateway probe`
 
-`gateway probe` — bu “hammasini tekshir” buyrug‘i. U har doim quyidagilarni tekshiradi:
+`gateway probe` — “hammasini debug qilish” buyrug‘i. U har doim tekshiradi:
 
 - sozlangan masofaviy gateway (agar o‘rnatilgan bo‘lsa), va
 - localhost (loopback) **hatto remote sozlangan bo‘lsa ham**.
 
-Agar bir nechta gateway mavjud bo‘lsa, ularning barchasini chiqaradi. Izolyatsiyalangan profil/portlar (masalan, rescue bot) ishlatilganda bir nechta gateway qo‘llab-quvvatlanadi, ammo ko‘pchilik o‘rnatmalarda baribir bitta gateway ishlaydi.
+Agar bir nechta gateway mavjud bo‘lsa, ularning barchasini chiqaradi. Izolyatsiyalangan profillar/portlardan foydalanganda (masalan, qutqaruv bot), bir nechta gateway qo‘llab-quvvatlanadi, ammo ko‘pchilik o‘rnatmalarda hali ham bitta gateway ishlaydi.
 
 ```bash
 openclaw gateway probe
@@ -195,5 +200,3 @@ Misollar:
 openclaw gateway discover --timeout 4000
 openclaw gateway discover --json | jq '.beacons[].wsUrl'
 ```
-
-

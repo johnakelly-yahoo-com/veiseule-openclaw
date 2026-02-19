@@ -1,4 +1,8 @@
 ---
+summary: "„Verwenden Sie Amazon-Bedrock-Modelle (Converse API) mit OpenClaw“"
+read_when:
+  - Sie möchten Amazon-Bedrock-Modelle mit OpenClaw verwenden
+  - Sie benötigen die Einrichtung von AWS-Anmeldeinformationen/Regionen für Modellaufrufe
 title: "Amazon Bedrock"
 ---
 
@@ -163,5 +167,3 @@ openclaw models list
   aktuelle Fähigkeiten.
 - Wenn Sie einen verwalteten Schlüsselablauf bevorzugen, können Sie auch einen OpenAI‑kompatiblen
   Proxy vor Bedrock platzieren und ihn stattdessen als OpenAI-Anbieter konfigurieren.
-
-

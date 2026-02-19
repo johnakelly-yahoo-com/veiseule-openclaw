@@ -1,4 +1,8 @@
 ---
+summary: "Giao diện cài đặt Skills trên macOS và trạng thái được hậu thuẫn bởi gateway"
+read_when:
+  - Cập nhật giao diện cài đặt Skills trên macOS
+  - Thay đổi cơ chế kiểm soát hoặc hành vi cài đặt Skills
 title: "Kỹ năng"
 ---
 
@@ -21,11 +25,9 @@ title: "Kỹ năng"
 
 ## Khóa Env/API
 
-- Ứng dụng lưu trữ các khóa trong `~/.openclaw/openclaw.json` dưới `skills.entries.<skillKey>`.
+- The app stores keys in `~/.openclaw/openclaw.json` under `skills.entries.<skillKey>`.
 - `skills.update` vá `enabled`, `apiKey`, và `env`.
 
 ## Chế độ từ xa
 
 - Việc cài đặt + cập nhật cấu hình diễn ra trên máy chủ gateway (không phải máy Mac cục bộ).
-
-

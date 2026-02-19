@@ -1,4 +1,8 @@
 ---
+summary: "Kontextfönster + kompaktering: hur OpenClaw håller sessioner inom modellgränser"
+read_when:
+  - Du vill förstå autokompaktering och /compact
+  - Du felsöker långa sessioner som slår i kontextgränser
 title: "Kompaktering"
 ---
 
@@ -55,5 +59,3 @@ Se [/concepts/session-pruning](/concepts/session-pruning) för detaljer om besk�
 - Använd `/compact` när sessioner känns stela eller kontexten är uppblåst.
 - Stora verktygsutdata trunkeras redan; beskärning kan ytterligare minska ansamling av verktygsresultat.
 - Om du behöver ett helt nytt blad, `/new` eller `/reset` startar ett nytt sessions-ID.
-
-

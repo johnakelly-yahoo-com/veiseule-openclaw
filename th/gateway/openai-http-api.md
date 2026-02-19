@@ -1,4 +1,7 @@
 ---
+summary: "เปิดให้ใช้งานเอ็นด์พอยต์ HTTP /v1/chat/completions ที่เข้ากันได้กับ OpenAI จาก Gateway"
+read_when:
+  - การผสานรวมเครื่องมือที่คาดหวัง OpenAI Chat Completions
 title: "OpenAI Chat Completions"
 ---
 
@@ -6,7 +9,7 @@ title: "OpenAI Chat Completions"
 
 Gateway（เกตเวย์）ของ OpenClaw สามารถให้บริการเอ็นด์พอยต์ Chat Completions ที่เข้ากันได้กับ OpenAI ขนาดเล็กได้
 
-เอ็นด์พอยต์นี้ **ปิดใช้งานเป็นค่าเริ่มต้น** ต้องเปิดใช้งานในการกำหนดค่าก่อน เปิดใช้งานใน config ก่อน
+เอ็นด์พอยต์นี้ **ปิดใช้งานเป็นค่าเริ่มต้น** ต้องเปิดใช้งานในการกำหนดค่าก่อน เปิดใช้งานใน config ก่อน เปิดใช้งานใน config ก่อน
 
 - `POST /v1/chat/completions`
 - พอร์ตเดียวกับ Gateway (มัลติเพล็กซ์ WS + HTTP): `http://<gateway-host>:<port>/v1/chat/completions`
@@ -15,7 +18,7 @@ Gateway（เกตเวย์）ของ OpenClaw สามารถให้
 
 ## การยืนยันตัวตน
 
-ใช้การกำหนดค่า auth ของ Gateway ส่ง bearer token: ส่ง bearer token:
+ใช้การกำหนดค่า auth ของ Gateway ส่ง bearer token: ส่ง bearer token: ส่ง bearer token:
 
 - `Authorization: Bearer <token>`
 
@@ -23,6 +26,7 @@ Gateway（เกตเวย์）ของ OpenClaw สามารถให้
 
 - เมื่อ `gateway.auth.mode="token"` ให้ใช้ `gateway.auth.token` (หรือ `OPENCLAW_GATEWAY_TOKEN`)
 - เมื่อ `gateway.auth.mode="password"` ให้ใช้ `gateway.auth.password` (หรือ `OPENCLAW_GATEWAY_PASSWORD`)
+- หากมีการตั้งค่า `gateway.auth.rateLimit` และเกิดความล้มเหลวในการยืนยันตัวตนมากเกินไป endpoint จะส่งคืน `429` พร้อม `Retry-After`.
 
 ## การเลือกเอเจนต์
 
@@ -113,5 +117,3 @@ curl -N http://127.0.0.1:18789/v1/chat/completions \
     "messages": [{"role":"user","content":"hi"}]
   }'
 ```
-
-

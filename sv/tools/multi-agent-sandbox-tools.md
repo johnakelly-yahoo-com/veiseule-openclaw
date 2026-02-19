@@ -1,5 +1,7 @@
 ---
-title: "Sandbox och verktyg för flera agenter"
+summary: "Per-agent sandbox + verktygsbegränsningar, företräde och exempel"
+title: Sandbox och verktyg för flera agenter
+read_when: "Du vill ha per-agent sandboxing eller per-agent tillåt/nek-policyer för verktyg i en multi-agent gateway."
 status: active
 ---
 
@@ -392,5 +394,3 @@ Efter att ha konfigurerat multi-agent sandbox och verktyg:
 - [Multi-Agent Routing](/concepts/multi-agent)
 - [Sandbox-konfiguration](/gateway/configuration#agentsdefaults-sandbox)
 - [Sessionshantering](/concepts/session)
-
-

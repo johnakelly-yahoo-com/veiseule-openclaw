@@ -1,4 +1,8 @@
 ---
+summary: "Как OpenClaw использует идентификаторы моделей устройств Apple для отображения удобочитаемых названий в приложении для macOS."
+read_when:
+  - Обновление сопоставлений идентификаторов моделей устройств или файлов NOTICE/лицензии
+  - Изменение того, как UI Instances отображает названия устройств
 title: "База данных моделей устройств"
 ---
 
@@ -41,5 +45,3 @@ curl -fsSL "https://raw.githubusercontent.com/kyle-seongwoo-jun/apple-device-ide
 ```bash
 swift build --package-path apps/macos
 ```
-
-

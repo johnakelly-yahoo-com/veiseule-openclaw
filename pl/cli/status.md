@@ -1,4 +1,8 @@
 ---
+summary: "Dokumentacja referencyjna CLI dla `openclaw status` (diagnostyka, sondy, migawki użycia)"
+read_when:
+  - Chcesz szybko zdiagnozować kondycję kanałów oraz ostatnich odbiorców sesji
+  - Chcesz uzyskać wklejalny status „all” do debugowania
 title: "status"
 ---
 
@@ -20,5 +24,3 @@ Uwagi:
 - Przegląd obejmuje status instalacji i działania usługi Gateway oraz hosta węzła, gdy jest dostępny.
 - Przegląd obejmuje kanał aktualizacji oraz SHA gita (dla checkoutów ze źródeł).
 - Informacje o aktualizacjach są prezentowane w Przeglądzie; jeśli dostępna jest aktualizacja, status wyświetla wskazówkę, aby uruchomić `openclaw update` (zobacz [Updating](/install/updating)).
-
-

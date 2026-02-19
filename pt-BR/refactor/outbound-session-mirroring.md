@@ -1,6 +1,6 @@
 ---
 title: refactor/outbound-session-mirroring.md #1520)
-description: "Acompanhar notas de refatoração do espelhamento de sessões de saída, decisões, testes e itens em aberto."
+description: Acompanhar notas de refatoração do espelhamento de sessões de saída, decisões, testes e itens em aberto.
 ---
 
 # Refatoração do Espelhamento de Sessões de Saída (Issue #1520)
@@ -83,5 +83,3 @@ Envios de saída eram espelhados na sessão _atual_ do agente (chave de sessão 
   - `src/infra/outbound/outbound-session.test.ts`
   - `src/agents/tools/message-tool.test.ts`
   - `src/gateway/server-methods/send.test.ts`
-
-

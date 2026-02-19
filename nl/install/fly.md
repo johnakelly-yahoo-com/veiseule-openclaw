@@ -463,7 +463,7 @@ De ngrok-tunnel draait in de container en levert een publieke webhook-URL zonder
 
 | Aspect             | Publiek  | Privé       |
 | ------------------ | -------- | ----------- |
-| Internetscanners   | Vindbaar | Verborgen      |
+| Internetscanners   | Vindbaar | Hidden      |
 | Directe aanvallen  | Mogelijk | Geblokkeerd |
 | Control UI-toegang | Browser  | Proxy/VPN   |
 | Webhook-bezorging  | Direct   | Via tunnel  |
@@ -484,5 +484,3 @@ Met de aanbevolen config (`shared-cpu-2x`, 2GB RAM):
 - De gratis tier bevat enige tegoeden
 
 Zie [Fly.io-prijzen](https://fly.io/docs/about/pricing/) voor details.
-
-

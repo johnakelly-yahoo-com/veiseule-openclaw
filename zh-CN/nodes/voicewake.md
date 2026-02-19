@@ -1,12 +1,9 @@
 ---
-title: 语音唤醒
-x-i18n:
-  generated_at: "2026-02-03T07:51:10Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: eb34f52dfcdc3fc1ae088ae1f621f245546d3cf388299fbeea62face61788c37
-  source_path: nodes/voicewake.md
-  workflow: 15
+summary: "全局语音唤醒词（Gateway 网关拥有）及其如何跨节点同步"
+read_when:
+  - 更改语音唤醒词行为或默认值
+  - 添加需要唤醒词同步的新节点平台
+title: "语音唤醒"
 ---
 
 # 语音唤醒（全局唤醒词）
@@ -23,7 +20,7 @@ OpenClaw 将**唤醒词作为单一全局列表**，由 **Gateway 网关**拥有
 
 - `~/.openclaw/settings/voicewake.json`
 
-结构：
+43. 结构：
 
 ```json
 { "triggers": ["openclaw", "claude", "computer"], "updatedAtMs": 1730000000000 }
@@ -38,7 +35,7 @@ OpenClaw 将**唤醒词作为单一全局列表**，由 **Gateway 网关**拥有
 
 注意事项：
 
-- 触发词会被规范化（修剪空格、删除空值）。空列表回退到默认值。
+- 50. 触发词会被规范化（去除首尾空格，丢弃空值）。 1. 空列表将回退到默认值。
 - 为安全起见会强制执行限制（数量/长度上限）。
 
 ### 事件
@@ -66,5 +63,3 @@ OpenClaw 将**唤醒词作为单一全局列表**，由 **Gateway 网关**拥有
 
 - 在设置中暴露唤醒词编辑器。
 - 通过 Gateway 网关 WS 调用 `voicewake.set`，使编辑在所有地方同步。
-
-

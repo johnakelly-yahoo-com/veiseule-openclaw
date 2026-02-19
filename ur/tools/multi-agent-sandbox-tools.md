@@ -1,5 +1,7 @@
 ---
+summary: "ہر ایجنٹ کے لیے sandbox اور اوزار کی پابندیاں، ترجیحی ترتیب، اور مثالیں"
 title: ملٹی ایجنٹ Sandbox اور Tools
+read_when: "جب آپ ملٹی ایجنٹ گیٹ وے میں ہر ایجنٹ کے لیے sandboxing یا ہر ایجنٹ کے لیے اوزار کی اجازت/ممانعت کی پالیسیاں چاہتے ہوں۔"
 status: active
 ---
 
@@ -29,7 +31,7 @@ status: active
 ایجنٹس کے درمیان کریڈینشلز **شیئر نہیں** کیے جاتے۔ Never reuse `agentDir` across agents.
 If you want to share creds, copy `auth-profiles.json` into the other agent's `agentDir`.
 
-رن ٹائم پر سینڈ باکسنگ کے برتاؤ کے بارے میں جاننے کے لیے، [Sandboxing](/gateway/sandboxing) دیکھیں۔
+For how sandboxing behaves at runtime, see [Sandboxing](/gateway/sandboxing).
 For debugging “why is this blocked?”, see [Sandbox vs Tool Policy vs Elevated](/gateway/sandbox-vs-tool-policy-vs-elevated) and `openclaw sandbox explain`.
 
 ---
@@ -214,7 +216,7 @@ agents.list[].sandbox.prune.* > agents.defaults.sandbox.prune.*
 7. **Sandbox اوزار پالیسی** (`tools.sandbox.tools` یا `agents.list[].tools.sandbox.tools`)
 8. **سب ایجنٹ اوزار پالیسی** (`tools.subagents.tools`، اگر قابلِ اطلاق ہو)
 
-ہر سطح مزید ٹولز کو محدود کر سکتی ہے، لیکن پہلے کی سطحوں پر مسترد کیے گئے ٹولز کو دوبارہ اجازت نہیں دے سکتی۔
+Each level can further restrict tools, but cannot grant back denied tools from earlier levels.
 If `agents.list[].tools.sandbox.tools` is set, it replaces `tools.sandbox.tools` for that agent.
 If `agents.list[].tools.profile` is set, it overrides `tools.profile` for that agent.
 Provider tool keys accept either `provider` (e.g. `google-antigravity`) or `provider/model` (e.g. `openai/gpt-5.2`).
@@ -391,5 +393,3 @@ sandbox, set `agents.list[].sandbox.mode: "off"`.
 - [ملٹی ایجنٹ روٹنگ](/concepts/multi-agent)
 - [Sandbox کنفیگریشن](/gateway/configuration#agentsdefaults-sandbox)
 - [سیشن مینجمنٹ](/concepts/session)
-
-

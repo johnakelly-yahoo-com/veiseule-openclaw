@@ -1,4 +1,9 @@
 ---
+summary: "Decouverte des nœuds et transports (Bonjour, Tailscale, SSH) pour trouver la passerelle"
+read_when:
+  - Implementation ou modification de la decouverte/publicite Bonjour
+  - Ajustement des modes de connexion distante (direct vs SSH)
+  - Conception de la decouverte des nœuds et de l'appairage pour les nœuds distants
 title: "Decouverte et transports"
 ---
 
@@ -63,6 +68,13 @@ Depannage et details des balises : [Bonjour](/gateway/bonjour).
   - `cliPath=<path>` (optionnel ; chemin absolu vers un point d’entree `openclaw` executable ou un binaire)
   - `tailnetDns=<magicdns>` (indice optionnel ; detecte automatiquement lorsque Tailscale est disponible)
 
+Notes de sécurité :
+
+- Les enregistrements TXT Bonjour/mDNS sont **non authentifiés**. Les clients doivent considérer les valeurs TXT uniquement comme des indications UX.
+- Le routage (hôte/port) doit privilégier le **point de terminaison du service résolu** (SRV + A/AAAA) plutôt que les valeurs `lanHost`, `tailnetDns` ou `gatewayPort` fournies via TXT.
+- Le TLS pinning ne doit jamais permettre à un `gatewayTlsSha256` annoncé d’écraser une empreinte précédemment enregistrée.
+- Les nœuds iOS/Android doivent traiter les connexions directes basées sur la découverte comme **TLS uniquement** et exiger une confirmation explicite « faire confiance à cette empreinte » avant d’enregistrer une empreinte initiale (vérification hors bande).
+
 Desactiver/remplacer :
 
 - `OPENCLAW_DISABLE_BONJOUR=1` desactive l’annonce.
@@ -109,5 +121,3 @@ La passerelle est la source de verite pour l’admission des nœuds/clients.
 - **Gateway (passerelle)** : annonce les balises de decouverte, possede les decisions d’appairage et heberge le point de terminaison WS.
 - **Application macOS** : vous aide a choisir une passerelle, affiche les invites d’appairage et n’utilise SSH qu’en secours.
 - **Nœuds iOS/Android** : parcourent Bonjour par commodite et se connectent au Gateway WS appaire.
-
-

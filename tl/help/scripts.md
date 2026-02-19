@@ -1,4 +1,8 @@
 ---
+summary: "Mga script ng repository: layunin, saklaw, at mga tala sa kaligtasan"
+read_when:
+  - Pagpapatakbo ng mga script mula sa repo
+  - Pagdaragdag o pagbabago ng mga script sa ilalim ng ./scripts
 title: "Mga Script"
 ---
 
@@ -22,5 +26,3 @@ Ang mga script sa auth monitoring ay nakadokumento dito:
 
 - Panatilihing nakatuon at may dokumentasyon ang mga script.
 - Magdagdag ng maikling entry sa kaugnay na doc (o lumikha ng bago kung wala).
-
-

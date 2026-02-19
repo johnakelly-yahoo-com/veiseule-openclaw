@@ -1,17 +1,13 @@
 ---
-title: 音频与语音消息
-x-i18n:
-  generated_at: "2026-02-01T21:17:35Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: b926c47989ab0d1ee1fb8ae6372c51d27515b53d6fefe211a85856d372f14569
-  source_path: nodes/audio.md
-  workflow: 15
+summary: "入站音频/语音消息如何被下载、转录并注入回复"
+read_when:
+  - 更改音频转录或媒体处理方式
+title: "音频与语音消息"
 ---
 
 # 音频 / 语音消息 — 2026-01-17
 
-## 已支持的功能
+## 11. 可用功能
 
 - **媒体理解（音频）**：如果音频理解已启用（或自动检测），OpenClaw 会：
   1. 找到第一个音频附件（本地路径或 URL），如有需要则下载。
@@ -36,6 +32,8 @@ x-i18n:
 要禁用自动检测，请设置 `tools.media.audio.enabled: false`。
 要自定义，请设置 `tools.media.audio.models`。
 注意：二进制检测在 macOS/Linux/Windows 上采用尽力而为的方式；请确保 CLI 在 `PATH` 中（我们会展开 `~`），或通过完整命令路径设置显式 CLI 模型。
+29. 要进行自定义，请设置 `tools.media.audio.models`。
+30. 注意：在 macOS/Linux/Windows 上的二进制检测为尽力而为；请确保 CLI 在 `PATH` 中（我们会展开 `~`），或使用包含完整命令路径的显式 CLI 模型。
 
 ## 配置示例
 
@@ -63,7 +61,7 @@ x-i18n:
 }
 ```
 
-### 仅提供商 + 作用域控制
+### 34. 仅提供方并带作用域控制
 
 ```json5
 {
@@ -103,17 +101,34 @@ x-i18n:
 - 当使用 `provider: "deepgram"` 时，Deepgram 会读取 `DEEPGRAM_API_KEY`。
 - Deepgram 设置详情：[Deepgram（音频转录）](/providers/deepgram)。
 - 音频提供商可以通过 `tools.media.audio` 覆盖 `baseUrl`、`headers` 和 `providerOptions`。
-- 默认大小限制为 20MB（`tools.media.audio.maxBytes`）。超大音频会跳过该模型并尝试下一个条目。
-- 音频的默认 `maxChars` **未设置**（完整转录文本）。设置 `tools.media.audio.maxChars` 或每个条目的 `maxChars` 来裁剪输出。
+- 43. 默认大小上限为 20MB（`tools.media.audio.maxBytes`）。 默认大小限制为 20MB（`tools.media.audio.maxBytes`）。超大音频会跳过该模型并尝试下一个条目。
+- 45. 音频的默认 `maxChars` **未设置**（完整转录）。 音频的默认 `maxChars` **未设置**（完整转录文本）。设置 `tools.media.audio.maxChars` 或每个条目的 `maxChars` 来裁剪输出。
 - OpenAI 自动检测默认使用 `gpt-4o-mini-transcribe`；设置 `model: "gpt-4o-transcribe"` 可获得更高准确度。
 - 使用 `tools.media.audio.attachments` 处理多条语音消息（`mode: "all"` + `maxAttachments`）。
 - 转录文本可在模板中通过 `{{Transcript}}` 使用。
 - CLI 标准输出有上限（5MB）；请保持 CLI 输出简洁。
 
-## 常见陷阱
+## 群组中的提及检测
 
-- 作用域规则采用首次匹配优先。`chatType` 会被规范化为 `direct`、`group` 或 `room`。
+当为群聊设置 `requireMention: true` 时，OpenClaw 现在会在检查提及之前**先转录音频**。 这使得即使语音消息中包含提及，也能够被处理。
+
+**工作原理：**
+
+1. 如果语音消息没有文本内容且群组要求提及，OpenClaw 会执行一次“预检”转录。
+2. 系统会检查转录文本中的提及模式（例如 `@BotName`、表情触发器）。
+3. 如果检测到提及，消息将进入完整的回复处理流程。
+4. 该转录文本用于提及检测，使语音消息能够通过提及门控。
+
+**回退行为：**
+
+- 如果在预检阶段转录失败（超时、API 错误等），则基于纯文本提及检测来处理消息。
+- 这可确保混合消息（文本 + 音频）不会被错误丢弃。
+
+**示例：** 用户在一个设置了 `requireMention: true` 的 Telegram 群组中发送了一条语音消息，说“Hey @Claude, what's the weather?”。 语音消息被转录，检测到提及，随后代理进行回复。
+
+## 注意事项
+
+- 2. 作用域规则采用“先匹配者优先”。 作用域规则采用首次匹配优先。`chatType` 会被规范化为 `direct`、`group` 或 `room`。
 - 确保你的 CLI 以退出码 0 退出并输出纯文本；JSON 格式需要通过 `jq -r .text` 进行转换。
 - 保持合理的超时时间（`timeoutSeconds`，默认 60 秒），以避免阻塞回复队列。
-
-
+- 预检转录仅处理**第一个**音频附件以进行提及检测。 其他音频将在主要媒体理解阶段处理。

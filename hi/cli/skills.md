@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw skills` (list/info/check) और स्किल पात्रता के लिए CLI संदर्भ"
+read_when:
+  - आप देखना चाहते हैं कि कौन-से Skills उपलब्ध हैं और चलाने के लिए तैयार हैं
+  - आप Skills के लिए गायब बाइनरी/पर्यावरण चर/विन्यास का डिबग करना चाहते हैं
 title: "Skills"
 ---
 
@@ -20,5 +24,3 @@ openclaw skills list --eligible
 openclaw skills info <name>
 openclaw skills check
 ```
-
-

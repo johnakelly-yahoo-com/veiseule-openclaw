@@ -1,4 +1,8 @@
 ---
+summary: "Gateway၊ ချန်နယ်များ၊ အလိုအလျောက်လုပ်ဆောင်မှု၊ နိုဒ်များနှင့် ဘရောက်ဇာအတွက် အနက်ရှိုင်းဆုံး ပြဿနာဖြေရှင်းမှု လမ်းညွှန်စာအုပ်"
+read_when:
+  - ပြဿနာဖြေရှင်းရေး ဟပ်မှ အနက်ရှိုင်းဆုံး ခွဲခြားစစ်ဆေးရန် ဒီနေရာကို ညွှန်ပြထားသောအခါ
+  - တိကျသော အမိန့်များပါဝင်သည့် လက္ခဏာအခြေပြု လမ်းညွှန်ပိုင်းများ လိုအပ်သောအခါ
 title: "ပြဿနာဖြေရှင်းခြင်း"
 ---
 
@@ -105,7 +109,7 @@ openclaw gateway status --deep
 
 ပုံမှန်တွေ့ရသော လက္ခဏာများ–
 
-- `Gateway start blocked: set gateway.mode=local` → local gateway mode ကို ဖွင့်မထားခြင်း။
+- `Gateway start blocked: set gateway.mode=local` → local gateway mode ကို မဖွင့်ထားပါ။ ဖြေရှင်းရန် - သင့် config တွင် `gateway.mode="local"` ဟု သတ်မှတ်ပါ (သို့မဟုတ် `openclaw configure` ကို chạyပါ)။ OpenClaw ကို သီးသန့် `openclaw` user ဖြင့် Podman မှတစ်ဆင့် လည်ပတ်နေပါက config ဖိုင်သည် `~openclaw/.openclaw/openclaw.json` တွင် တည်ရှိသည်။
 - `refusing to bind gateway ... without auth` → token/စကားဝှက် မပါဘဲ non-loopback bind လုပ်ရန် ကြိုးပမ်းခြင်း။
 - `another gateway instance is already listening` / `EADDRINUSE` → ပို့တ် အပြိုင်အဆိုင် ဖြစ်ခြင်း။
 
@@ -312,5 +316,3 @@ openclaw gateway restart
 - [/gateway/pairing](/gateway/pairing)
 - [/gateway/authentication](/gateway/authentication)
 - [/gateway/background-process](/gateway/background-process)
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "OpenClaw uygulaması, gateway düğüm taşıması ve PeekabooBridge için macOS IPC mimarisi"
+read_when:
+  - IPC sözleşmelerini veya menü çubuğu uygulaması IPC'sini düzenlerken
 title: "macOS IPC"
 ---
 
@@ -56,5 +59,3 @@ Agent -> Gateway -> Node Service (WS)
 - Tüm iletişim yalnızca yereldir; ağ soketleri açığa çıkarılmaz.
 - TCC istemleri yalnızca GUI uygulaması paketinden kaynaklanır; yeniden derlemeler arasında imzalı bundle ID’yi sabit tutun.
 - IPC sertleştirmesi: soket modu `0600`, belirteç, eş UID denetimleri, HMAC challenge/response, kısa TTL.
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "Zatwierdzanie wykonania (exec), listy dozwolonych i monity wyjścia z sandboxa"
+read_when:
+  - Konfigurowanie zatwierdzania wykonania (exec) lub list dozwolonych
+  - Implementowanie UX zatwierdzania exec w aplikacji na macOS
+  - Przeglądanie monitów wyjścia z sandboxa i ich konsekwencji
 title: "Zatwierdzanie wykonania (Exec)"
 ---
 
@@ -119,6 +124,9 @@ są traktowane jako dozwolone na węzłach (węzeł macOS lub bezgłowy host wę
 `tools.exec.safeBins` definiuje niewielką listę binariów **tylko stdin** (na przykład `jq`),
 które mogą działać w trybie listy dozwolonych **bez** jawnych wpisów na liście. Bezpieczne binaria odrzucają
 pozycyjne argumenty plików i tokeny przypominające ścieżki, więc mogą operować wyłącznie na strumieniu wejściowym.
+Bezpieczne binaria wymuszają również traktowanie tokenów argv jako **tekstu dosłownego** w czasie wykonania (bez globbingu
+i bez rozwijania `$VARS`) dla segmentów tylko ze stdin, dzięki czemu wzorce takie jak `*` lub `$HOME/...` nie mogą być
+użyte do przemycania odczytu plików.
 Łączenie poleceń powłoki i przekierowania nie są automatycznie dozwolone w trybie listy dozwolonych.
 
 Łączenie poleceń powłoki (`&&`, `||`, `;`) jest dozwolone, gdy każdy segment najwyższego poziomu spełnia listę dozwolonych
@@ -239,5 +247,3 @@ Powiązane:
 - [Exec tool](/tools/exec)
 - [Elevated mode](/tools/elevated)
 - [Skills](/tools/skills)
-
-

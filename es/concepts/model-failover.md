@@ -1,4 +1,8 @@
 ---
+summary: "Cómo OpenClaw rota perfiles de autenticación y realiza fallback entre modelos"
+read_when:
+  - Diagnosticar la rotación de perfiles de autenticación, los cooldowns o el comportamiento de fallback de modelos
+  - Actualizar reglas de failover para perfiles de autenticación o modelos
 title: "Failover de modelos"
 ---
 
@@ -73,7 +77,7 @@ Si tiene tanto un perfil OAuth como un perfil de clave de API para el mismo prov
 - Fíjelo con `auth.order[provider] = ["provider:profileId"]`, o
 - Use una anulación por sesión mediante `/model …` con una anulación de perfil (cuando su UI/superficie de chat lo admita).
 
-## Tiempos de espera
+## Cooldowns
 
 Cuando un perfil falla por errores de autenticación/límite de tasa (o por un tiempo de espera que parece
 limitación de tasa), OpenClaw lo marca en cooldown y pasa al siguiente perfil.
@@ -142,5 +146,3 @@ Consulte [Configuración del Gateway](/gateway/configuration) para:
 - enrutamiento `agents.defaults.imageModel`
 
 Consulte [Modelos](/concepts/models) para una visión general más amplia de la selección de modelos y el fallback.
-
-

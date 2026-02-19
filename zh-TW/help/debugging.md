@@ -1,4 +1,9 @@
 ---
+summary: "除錯工具：監看模式、原始模型串流，以及推理洩漏的追蹤"
+read_when:
+  - 你需要檢視原始模型輸出以檢查推理洩漏
+  - 你想在反覆迭代時以監看模式執行 Gateway 閘道器
+  - 你需要可重複的除錯工作流程
 title: "除錯"
 ---
 
@@ -10,6 +15,7 @@ provider mixes reasoning into normal text.
 ## 執行期除錯覆寫
 
 Use `/debug` in chat to set **runtime-only** config overrides (memory, not disk).
+`/debug` 預設為停用；請以 `commands.debug: true` 啟用。
 `/debug` 預設為停用；請以 `commands.debug: true` 啟用。
 This is handy when you need to toggle obscure settings without editing `openclaw.json`.
 
@@ -82,6 +88,7 @@ pnpm gateway:dev:reset
 ```
 
 注意：`--dev` 是一個**全域**設定檔旗標，且會被某些執行器吃掉。
+注意：`--dev` 是一個**全域**設定檔旗標，且會被某些執行器吃掉。
 If you need to spell it out, use the env var form:
 
 ```bash
@@ -141,7 +148,7 @@ PI_RAW_STREAM=1
 PI_RAW_STREAM_PATH=~/.pi-mono/logs/raw-openai-completions.jsonl
 ```
 
-預設檔案：
+Default file:
 
 `~/.pi-mono/logs/raw-openai-completions.jsonl`
 
@@ -153,5 +160,3 @@ PI_RAW_STREAM_PATH=~/.pi-mono/logs/raw-openai-completions.jsonl
 - 原始串流記錄可能包含完整提示、工具輸出與使用者資料。
 - Keep logs local and delete them after debugging.
 - 若你分享日誌，請先清除祕密資訊與 PII。
-
-

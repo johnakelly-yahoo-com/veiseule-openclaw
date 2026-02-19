@@ -1,4 +1,11 @@
-------
+---
+title: "Lista de verificación de lanzamiento"
+summary: "Lista de verificación paso a paso para el lanzamiento de npm + app macOS"
+read_when:
+  - Preparar un nuevo lanzamiento de npm
+  - Preparar un nuevo lanzamiento de la app macOS
+  - Verificar metadatos antes de publicar
+---
 
 # Lista de verificación de lanzamiento (npm + macOS)
 
@@ -112,5 +119,3 @@ Lista actual de plugins npm (actualice según sea necesario):
 
 Las notas del lanzamiento también deben mencionar **nuevos plugins opcionales incluidos** que **no
 están activados por defecto** (ejemplo: `tlon`).
-
-

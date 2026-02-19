@@ -1,22 +1,22 @@
 ---
-title: Bridge 协议
-x-i18n:
-  generated_at: "2026-02-03T07:47:42Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 789bcf3cbc6841fc293e054b919e63d661b3cc4cd205b2094289f00800127fe2
-  source_path: gateway/bridge-protocol.md
-  workflow: 15
+summary: "Bridge 协议（旧版节点）：TCP JSONL、配对、作用域 RPC"
+read_when:
+  - 构建或调试节点客户端（iOS/Android/macOS 节点模式）
+  - 调查配对或 bridge 认证失败
+  - 审计 Gateway 网关暴露的节点接口
+title: "Bridge 协议"
 ---
 
 # Bridge 协议（旧版节点传输）
 
-Bridge 协议是一个**旧版**节点传输（TCP JSONL）。新的节点客户端应该使用统一的 Gateway 网关 WebSocket 协议。
+Bridge 协议是一个**旧版**节点传输（TCP JSONL）。新的节点客户端应该使用统一的 Gateway 网关 WebSocket 协议。 New node clients
+should use the unified Gateway WebSocket protocol instead.
 
 如果你正在构建操作者或节点客户端，请使用 [Gateway 网关协议](/gateway/protocol)。
 
 **注意：** 当前的 OpenClaw 构建不再包含 TCP bridge 监听器；本文档仅作历史参考保留。
 旧版 `bridge.*` 配置键不再是配置模式的一部分。
+Legacy `bridge.*` config keys are no longer part of the config schema.
 
 ## 为什么我们有两种协议
 
@@ -31,7 +31,9 @@ Bridge 协议是一个**旧版**节点传输（TCP JSONL）。新的节点客户
 - 可选 TLS（当 `bridge.tls.enabled` 为 true 时）。
 - 旧版默认监听端口为 `18790`（当前构建不启动 TCP bridge）。
 
-当 TLS 启用时，设备发现 TXT 记录包含 `bridgeTls=1` 加上 `bridgeTlsSha256`，以便节点可以固定证书。
+当 TLS 启用时，设备发现 TXT 记录包含 `bridgeTls=1` 加上 `bridgeTlsSha256`，以便节点可以固定证书。 请注意，Bonjour/mDNS TXT 记录是
+未认证的；客户端不得在没有明确用户意图或其他带外验证的情况下，将所公布的指纹视为
+权威 pin。
 
 ## 握手 + 配对
 
@@ -42,7 +44,7 @@ Bridge 协议是一个**旧版**节点传输（TCP JSONL）。新的节点客户
 
 `hello-ok` 返回 `serverName`，可能包含 `canvasHostUrl`。
 
-## 帧
+## Frames
 
 客户端 → Gateway 网关：
 
@@ -61,6 +63,7 @@ Gateway 网关 → 客户端：
 
 节点可以发出 `exec.finished` 或 `exec.denied` 事件来表面化 system.run 活动。
 这些被映射到 Gateway 网关中的系统事件。（旧版节点可能仍会发出 `exec.started`。）
+These are mapped to system events in the gateway. (Legacy nodes may still emit `exec.started`.)
 
 Payload 字段（除非注明，否则都是可选的）：
 
@@ -78,6 +81,5 @@ Payload 字段（除非注明，否则都是可选的）：
 
 ## 版本控制
 
-Bridge 目前是**隐式 v1**（无最小/最大协商）。预期向后兼容；在任何破坏性变更之前添加 bridge 协议版本字段。
-
-
+Bridge 目前是**隐式 v1**（无最小/最大协商）。预期向后兼容；在任何破坏性变更之前添加 bridge 协议版本字段。 Backward‑compat
+is expected; add a bridge protocol version field before any breaking changes.

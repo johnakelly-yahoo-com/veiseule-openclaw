@@ -1,4 +1,8 @@
 ---
+summary: "모델 프로바이더 개요 및 예시 설정 + CLI 플로우"
+read_when:
+  - 프로바이더별 모델 설정 참고가 필요할 때
+  - 모델 프로바이더용 예시 설정 또는 CLI 온보딩 명령이 필요할 때
 title: "모델 프로바이더"
 ---
 
@@ -114,6 +118,7 @@ OpenClaw 는 pi‑ai 카탈로그와 함께 제공됩니다. 이 프로바이더
   - OpenAI 호환 base URL: `https://api.cerebras.ai/v1`.
 - Mistral: `mistral` (`MISTRAL_API_KEY`)
 - GitHub Copilot: `github-copilot` (`COPILOT_GITHUB_TOKEN` / `GH_TOKEN` / `GITHUB_TOKEN`)
+- Hugging Face Inference: `huggingface` (`HUGGINGFACE_HUB_TOKEN` 또는 `HF_TOKEN`) — OpenAI 호환 라우터; 예시 모델: `huggingface/deepseek-ai/DeepSeek-R1`; CLI: `openclaw onboard --auth-choice huggingface-api-key`. [Hugging Face (Inference)](/providers/huggingface)를 참고하세요.
 
 ## `models.providers` 를 통한 프로바이더 (custom/base URL)
 
@@ -253,6 +258,32 @@ ollama pull llama3.3
 
 Ollama 는 `http://127.0.0.1:11434/v1`에서 로컬로 실행 중일 때 자동으로 감지됩니다. 모델 권장 사항과 커스텀 구성은 [/providers/ollama](/providers/ollama)을 참조하십시오.
 
+### vLLM
+
+vLLM은 로컬(또는 자체 호스팅) OpenAI 호환 서버입니다:
+
+- Provider: `vllm`
+- Auth: 선택 사항(서버 설정에 따라 다름)
+- 기본 base URL: `http://127.0.0.1:8000/v1`
+
+로컬에서 자동 검색을 사용하려면(서버가 인증을 강제하지 않는 경우 어떤 값이든 가능):
+
+```bash
+export VLLM_API_KEY="vllm-local"
+```
+
+그런 다음 모델을 설정하세요(`/v1/models`에서 반환된 ID 중 하나로 교체):
+
+```json5
+{
+  agents: {
+    defaults: { model: { primary: "vllm/your-model-id" } },
+  },
+}
+```
+
+자세한 내용은 [/providers/vllm](/providers/vllm)을 참고하세요.
+
 ### 로컬 프록시 (LM Studio, vLLM, LiteLLM 등)
 
 예시 (OpenAI 호환):
@@ -308,5 +339,3 @@ openclaw models list
 ```
 
 전체 구성 예시는 [/gateway/configuration](/gateway/configuration)을 참조하십시오.
-
-

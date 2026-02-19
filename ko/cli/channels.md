@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw channels`에 대한 CLI 레퍼런스 (계정, 상태, 로그인/로그아웃, 로그)"
+read_when:
+  - WhatsApp/Telegram/Discord/Google Chat/Slack/Mattermost (플러그인)/Signal/iMessage 채널 계정을 추가/제거하려는 경우
+  - 채널 상태를 확인하거나 채널 로그를 테일링하려는 경우
 title: "channels"
 ---
 
@@ -73,5 +77,3 @@ openclaw channels resolve --channel matrix "Project Room"
 
 - 대상 유형을 강제하려면 `--kind user|group|auto` 를 사용하십시오.
 - 동일한 이름을 공유하는 여러 항목이 있는 경우, 활성 일치를 우선하여 해석합니다.
-
-

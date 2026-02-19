@@ -1,4 +1,9 @@
 ---
+summary: "Chrome extension: hayaan ang OpenClaw na kontrolin ang iyong umiiral na Chrome tab"
+read_when:
+  - Gusto mong patakbuhin ng agent ang isang umiiral na Chrome tab (toolbar button)
+  - Kailangan mo ng remote Gateway + lokal na browser automation sa pamamagitan ng Tailscale
+  - Gusto mong maunawaan ang mga implikasyon sa seguridad ng pag-takeover ng browser
 title: "Ekstensiyon ng Chrome"
 ---
 
@@ -171,5 +176,3 @@ Kaugnay:
 - Pangkalahatang-ideya ng Browser tool: [Browser](/tools/browser)
 - Audit sa seguridad: [Seguridad](/gateway/security)
 - Setup ng Tailscale: [Tailscale](/gateway/tailscale)
-
-

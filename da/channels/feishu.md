@@ -1,4 +1,8 @@
 ---
+summary: "Overblik over Feishu-bot, funktioner og konfiguration"
+read_when:
+  - Du vil forbinde en Feishu/Lark-bot
+  - Du konfigurerer Feishu-kanalen
 title: Feishu
 ---
 
@@ -81,12 +85,12 @@ Lark (global) tenants skal bruge [https://open.larksuite.com/app](https://open.l
 
 ![Create enterprise app](../images/feishu-step2-create-app.png)
 
-### 3. Kopiér legitimationsoplysninger
+### 3. Kopier legitimationsoplysninger
 
 Fra **Credentials & Basic Info**, kopiér:
 
-- **App ID** (format: `cli_xxx`)
-- **App Secret**
+- **App-id** (format: `cli_xxx`)
+- **App-hemmelighed**
 
 ❗ **Vigtigt:** hold App Secret privat.
 
@@ -133,9 +137,9 @@ I **App Capability** > **Bot**:
 
 ![Enable bot capability](../images/feishu-step5-bot-capability.png)
 
-### 6. Konfigurer event subscription
+### 6. Konfigurer event abonnement
 
-⚠️ **Vigtigt:** før du opsætter event subscription, skal du sikre:
+⚠️ **Vigtigt:** før du opsætter event-abonnement, skal du sikre:
 
 1. At du allerede har kørt `openclaw channels add` for Feishu
 2. At gatewayen kører (`openclaw gateway status`)
@@ -196,9 +200,9 @@ export FEISHU_APP_ID="cli_xxx"
 export FEISHU_APP_SECRET="xxx"
 ```
 
-### Lark (global) domain
+### Lark (global) domæne
 
-Hvis din tenant er på Lark (international), sæt domænet til `lark` (eller en fuld domænestreng). Du kan sætte det på `channels.feishu.domain` eller per konto (`channels.feishu.accounts.<id>.domain`).
+Hvis din lejer er på Lark (international), indstil domænet til 'lark' (eller en fuld domænestreng). Du kan indstille det på `channels.feishu.domain` eller per konto (`channels.feishu.accounts.<id>.domain`).
 
 ```json5
 {
@@ -232,7 +236,7 @@ I Feishu, find din bot og send en besked.
 
 ### 3. Godkend parring
 
-Som standard svarer botten med en parringskode. Godkend den:
+Som standard svarer bot med en parringskode. Godkend det:
 
 ```bash
 openclaw pairing approve feishu <CODE>
@@ -256,6 +260,7 @@ Efter godkendelse kan du chatte normalt.
 ### Direkte beskeder
 
 - **Standard**: `dmPolicy: "pairing"` (ukendte brugere får en parringskode)
+
 - **Godkend parring**:
 
   ```bash
@@ -263,7 +268,7 @@ Efter godkendelse kan du chatte normalt.
   openclaw pairing approve feishu <CODE>
   ```
 
-- **Allowlist-tilstand**: sæt `channels.feishu.allowFrom` med tilladte Open IDs
+- **Tilladelsesliste-tilstand**: sæt `channels.feishu.allowFrom` med tilladte Open IDs
 
 ### Gruppechats
 
@@ -273,7 +278,7 @@ Efter godkendelse kan du chatte normalt.
 - `"allowlist"` = tillad kun `groupAllowFrom`
 - `"disabled"` = deaktivér gruppebeskeder
 
-**2. Mention-krav** (`channels.feishu.groups.<chat_id>.requireMention`):
+**2. Omtale krav** (`channels.feishu.groups.<chat_id>.requireMention`:
 
 - `true` = kræv @mention (standard)
 - `false` = svar uden omtaler
@@ -309,7 +314,7 @@ Efter godkendelse kan du chatte normalt.
 }
 ```
 
-### Tillad specifikke brugere i grupper
+### Tillad kun specifikke brugere i grupper
 
 ```json5
 {
@@ -360,23 +365,23 @@ openclaw pairing list feishu
 
 ## Almindelige kommandoer
 
-| Command   | Description      |
-| --------- | ---------------- |
-| `/status` | Vis bot-status   |
+| Kommando  | Beskrivelse       |
+| --------- | ----------------- |
+| `/status` | Vis bot-status    |
 | `/reset`  | Nulstil sessionen |
-| `/model`  | Vis/skift model  |
+| `/model`  | Vis/skift model   |
 
 > Note: Feishu understøtter endnu ikke indbyggede kommandomenupunkter, så kommandoer skal sendes som tekst.
 
 ## Gateway-administrationskommandoer
 
-| Command                    | Description                      |
-| -------------------------- | -------------------------------- |
-| `openclaw gateway status`  | Vis gateway-status               |
-| `openclaw gateway install` | Installér/start gateway-service  |
-| `openclaw gateway stop`    | Stop gateway-service             |
-| `openclaw gateway restart` | Genstart gateway-service         |
-| `openclaw logs --follow`   | Følg gateway-logs                |
+| Kommando                   | Beskrivelse                     |
+| -------------------------- | ------------------------------- |
+| `openclaw gateway status`  | Vis gateway-status              |
+| `openclaw gateway install` | Installér/start gateway-service |
+| `openclaw gateway stop`    | Stop gateway-service            |
+| `openclaw gateway restart` | Genstart gateway-service        |
+| `openclaw logs --follow`   | Følg gateway-logs               |
 
 ---
 
@@ -392,13 +397,13 @@ openclaw pairing list feishu
 ### Botten modtager ikke beskeder
 
 1. Sørg for, at appen er udgivet og godkendt
-2. Sørg for, at event subscription inkluderer `im.message.receive_v1`
+2. Sørg for, at event-abonnementet inkluderer `im.message.receive_v1`
 3. Sørg for, at **long connection** er aktiveret
 4. Sørg for, at app-tilladelserne er komplette
 5. Sørg for, at gatewayen kører: `openclaw gateway status`
 6. Tjek logs: `openclaw logs --follow`
 
-### App Secret-læk
+### Læk af App Secret
 
 1. Nulstil App Secret i Feishu Open Platform
 2. Opdatér App Secret i din konfiguration
@@ -440,12 +445,12 @@ openclaw pairing list feishu
 
 ### Beskedgrænser
 
-- `textChunkLimit`: udgående tekst-chunkstørrelse (standard: 2000 chars)
-- `mediaMaxMb`: grænse for upload/download af medier (standard: 30MB)
+- `textChunkLimit`: udgående tekst-chunkstørrelse (standard: 2000 tegn)
+- `mediaMaxMb`: grænse for upload/download af medier (standard: 30 MB)
 
 ### Streaming
 
-Feishu understøtter streaming-svar via interaktive kort. Når aktiveret, opdaterer botten et kort, mens den genererer tekst.
+Feishu understøtter streaming svar via interaktive kort. Når aktiveret, opdaterer botten et kort som det genererer tekst.
 
 ```json5
 {
@@ -510,7 +515,7 @@ Brug `bindings` til at route Feishu-DM’er eller -grupper til forskellige agent
 Routing-felter:
 
 - `match.channel`: `"feishu"`
-- `match.peer.kind`: `"direct"` eller `"group"`
+- `match.peer.kind`: "direct" eller "group"
 - `match.peer.id`: bruger-Open ID (`ou_xxx`) eller gruppe-ID (`oc_xxx`)
 
 Se [Hent gruppe-/bruger-ID’er](#get-groupuser-ids) for opslagstips.
@@ -519,38 +524,38 @@ Se [Hent gruppe-/bruger-ID’er](#get-groupuser-ids) for opslagstips.
 
 ## Konfigurationsreference
 
-Fuld konfiguration: [Gateway configuration](/gateway/configuration)
+Fuld konfiguration: [Gateway-konfiguration](/gateway/configuration)
 
 Nøgleindstillinger:
 
-| Setting                                           | Description                                  | Default   |
-| ------------------------------------------------- | -------------------------------------------- | --------- |
-| `channels.feishu.enabled`                         | Aktivér/deaktivér kanal                      | `true`    |
-| `channels.feishu.domain`                          | API-domæne (`feishu` eller `lark`)           | `feishu`  |
-| `channels.feishu.accounts.<id>.appId`             | App ID                                       | -         |
-| `channels.feishu.accounts.<id>.appSecret`         | App Secret                                   | -         |
-| `channels.feishu.accounts.<id>.domain`            | Tilsidesættelse af API-domæne pr. konto      | `feishu`  |
-| `channels.feishu.dmPolicy`                        | DM-politik                                   | `pairing` |
-| `channels.feishu.allowFrom`                       | DM-tilladelsesliste (open_id-liste)          | -         |
-| `channels.feishu.groupPolicy`                     | Gruppepolitik                                | `open`    |
-| `channels.feishu.groupAllowFrom`                  | Gruppens tilladelsesliste                    | -         |
-| `channels.feishu.groups.<chat_id>.requireMention` | Kræv @mention                                | `true`    |
-| `channels.feishu.groups.<chat_id>.enabled`        | Aktivér gruppe                               | `true`    |
-| `channels.feishu.textChunkLimit`                  | Besked-chunkstørrelse                        | `2000`    |
-| `channels.feishu.mediaMaxMb`                      | Mediestørrelsesgrænse                        | `30`      |
-| `channels.feishu.streaming`                       | Aktivér streaming-kortoutput                 | `true`    |
-| `channels.feishu.blockStreaming`                  | Aktivér blokstreaming                        | `true`    |
+| Indstilling                                                                                                                                                      | Beskrivelse                                                                 | Standard  |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- | --------- |
+| `channels.feishu.enabled`                                                                                                                                        | Aktivér/deaktivér kanal                                                     | `true`    |
+| `channels.feishu.domain`                                                                                                                                         | API-domæne (`feishu` eller `lark`)                       | `feishu`  |
+| \`channels.feishu.accounts.&lt;id&gt;.appId«                                                           | App ID                                                                      | -         |
+| `channels.feishu.accounts.&lt;id&gt;.appSecret`                                                                                                                        | App Secret                                                                  | -         |
+| \`channels.feishu.accounts.&lt;id&gt;.domæne«                                                          | Tilsidesættelse af API-domæne pr. konto                     | `feishu`  |
+| `channels.feishu.dmPolicy`                                                                                                                                       | DM-politik                                                                  | `pairing` |
+| `channels.feishu.allowFrom`                                                                                                                                      | DM-tilladelsesliste (open_id-liste) | -         |
+| `channels.feishu.groupPolicy`                                                                                                                                    | Gruppepolitik                                                               | `open`    |
+| `channels.feishu.groupAllowFrom`                                                                                                                                 | Gruppens tilladelsesliste                                                   | -         |
+| \`channels.feishu.groups.<chat_id>.requireMention« | Kræv @mention                                                  | `true`    |
+| `channels.feishu.groups.<chat_id>.enabled`                                                                                                                       | Aktivér gruppe                                                              | `true`    |
+| `channels.feishu.textChunkLimit`                                                                                                                                 | Besked-chunkstørrelse                                                       | `2000`    |
+| `channels.feishu.mediaMaxMb`                                                                                                                                     | Mediestørrelsesgrænse                                                       | `30`      |
+| `channels.feishu.streaming`                                                                                                                                      | Aktivér streaming-kortoutput                                                | `true`    |
+| `channels.feishu.blockStreaming`                                                                                                                                 | Aktivér blokstreaming                                                       | `true`    |
 
 ---
 
-## dmPolicy reference
+## dmPolicy-reference
 
-| Value         | Behavior                                                                 |
-| ------------- | ------------------------------------------------------------------------ |
-| `"pairing"`   | **Standard.** Ukendte brugere får en parringskode; skal godkendes       |
-| `"allowlist"` | Kun brugere i `allowFrom` kan chatte                                     |
-| `"open"`      | Tillad alle brugere (kræver `"*"` i allowFrom)                           |
-| `"disabled"`  | Deaktivér DM’er                                                          |
+| Værdi         | Adfærd                                                                            |
+| ------------- | --------------------------------------------------------------------------------- |
+| `"pairing"`   | **Standard.** Ukendte brugere får en parringskode; skal godkendes |
+| `"allowlist"` | Kun brugere i `allowFrom` kan chatte                                              |
+| `"open"`      | Tillad alle brugere (kræver `"*"` i allowFrom)                 |
+| `"disabled"`  | Deaktivér DM’er                                                                   |
 
 ---
 

@@ -1,5 +1,10 @@
 ---
-title: "งานตามกำหนดเวลา (Cron)"
+summary: "งาน Cron + การปลุกสำหรับตัวจัดตารางเวลาGateway"
+read_when:
+  - การตั้งเวลางานเบื้องหลังหรือการปลุก
+  - การเชื่อมระบบอัตโนมัติที่ควรรันพร้อมหรือร่วมกับฮาร์ตบีต
+  - การตัดสินใจเลือกระหว่างฮาร์ตบีตกับ cron สำหรับงานที่ตั้งเวลา
+title: "Cron Jobs"
 ---
 
 # งาน Cron (ตัวกำหนดเวลา Gateway)
@@ -84,6 +89,7 @@ tool call API for changes.
    - เซสชันแยกอิสระ → `payload.kind = "agentTurn"`
 
 ไม่บังคับ: งานแบบครั้งเดียว (`schedule.kind = "at"`) จะลบหลังสำเร็จเป็นค่าเริ่มต้น ตั้งค่า
+`deleteAfterRun: false` เพื่อเก็บไว้ (งานจะถูกปิดใช้งานหลังสำเร็จ) ไม่บังคับ: งานแบบครั้งเดียว (`schedule.kind = "at"`) จะลบหลังสำเร็จเป็นค่าเริ่มต้น ตั้งค่า
 `deleteAfterRun: false` เพื่อเก็บไว้ (งานจะถูกปิดใช้งานหลังสำเร็จ) Set
 `deleteAfterRun: false` to keep them (they will disable after success).
 
@@ -126,6 +132,7 @@ Main jobs enqueue a system event and optionally wake the heartbeat runner.
 เหมาะที่สุดเมื่อคุณต้องการพรอมต์ฮาร์ตบีตปกติพร้อมบริบทเซสชันหลัก
 ดู [Heartbeat](/gateway/heartbeat)
 See [Heartbeat](/gateway/heartbeat).
+See [Heartbeat](/gateway/heartbeat).
 
 #### งานแยกอิสระ (เซสชัน cron เฉพาะ)
 
@@ -166,7 +173,7 @@ See [Heartbeat](/gateway/heartbeat).
 - `delivery.bestEffort`: หลีกเลี่ยงการทำให้งานล้มเหลวหากการประกาศล้มเหลว
 
 การประกาศจะระงับการส่งผ่านเครื่องมือส่งข้อความสำหรับการรันนั้น ใช้ `delivery.channel`/`delivery.to`
-เพื่อกำหนดเป้าหมายไปยังแชตแทน เมื่อเป็น `delivery.mode = "none"` จะไม่โพสต์สรุปไปยังเซสชันหลัก When `delivery.mode = "none"`, no summary is posted to the main session.
+เพื่อกำหนดเป้าหมายไปยังแชตแทน เมื่อเป็น `delivery.mode = "none"` จะไม่โพสต์สรุปไปยังเซสชันหลัก When `delivery.mode = "none"`, no summary is posted to the main session. When `delivery.mode = "none"`, no summary is posted to the main session.
 
 หากไม่ระบุ `delivery` สำหรับงานแยกอิสระ OpenClaw จะตั้งค่าเริ่มต้นเป็น `announce`
 
@@ -174,6 +181,7 @@ See [Heartbeat](/gateway/heartbeat).
 
 เมื่อเป็น `delivery.mode = "announce"` cron จะส่งมอบโดยตรงผ่านอะแดปเตอร์ช่องทางขาออก
 เอเจนต์หลักจะไม่ถูกเรียกขึ้นมาเพื่อร่างหรือส่งต่อข้อความ
+The main agent is not spun up to craft or forward the message.
 The main agent is not spun up to craft or forward the message.
 
 รายละเอียดพฤติกรรม:
@@ -194,6 +202,7 @@ The main agent is not spun up to craft or forward the message.
 - `thinking`: ระดับการคิด (`off`, `minimal`, `low`, `medium`, `high`, `xhigh`; เฉพาะโมเดล GPT-5.2 + Codex)
 
 หมายเหตุ: คุณสามารถตั้งค่า `model` กับงานเซสชันหลักได้เช่นกัน แต่จะเปลี่ยนโมเดลของเซสชันหลักที่ใช้ร่วมกัน เราแนะนำให้โอเวอร์ไรด์โมเดลเฉพาะงานแยกอิสระเพื่อหลีกเลี่ยงการเปลี่ยนบริบทโดยไม่คาดคิด We recommend model overrides only for isolated jobs to avoid
+unexpected context shifts. We recommend model overrides only for isolated jobs to avoid
 unexpected context shifts.
 
 ลำดับความสำคัญของการตัดสินใจ:
@@ -234,6 +243,9 @@ Telegram supports forum topics via `message_thread_id`. Telegram รองรั
 
 ## JSON schema สำหรับการเรียกเครื่องมือ
 
+ใช้รูปแบบเหล่านี้เมื่อเรียกเครื่องมือ Gateway `cron.*` โดยตรง (การเรียกเครื่องมือของเอเจนต์หรือ RPC)
+แฟล็ก CLI รองรับระยะเวลาแบบอ่านง่าย เช่น `20m` แต่การเรียกเครื่องมือควรใช้สตริง ISO 8601
+สำหรับ `schedule.at` และมิลลิวินาทีสำหรับ `schedule.everyMs`
 ใช้รูปแบบเหล่านี้เมื่อเรียกเครื่องมือ Gateway `cron.*` โดยตรง (การเรียกเครื่องมือของเอเจนต์หรือ RPC)
 แฟล็ก CLI รองรับระยะเวลาแบบอ่านง่าย เช่น `20m` แต่การเรียกเครื่องมือควรใช้สตริง ISO 8601
 สำหรับ `schedule.at` และมิลลิวินาทีสำหรับ `schedule.everyMs`
@@ -470,5 +482,3 @@ openclaw system event --mode now --text "Next heartbeat: check battery."
 - สำหรับหัวข้อฟอรัม ให้ใช้ `-100…:topic:<id>` เพื่อให้ชัดเจนไม่กำกวม
 - หากเห็นคำนำหน้า `telegram:...` ในล็อกหรือในเป้าหมาย “เส้นทางล่าสุด” ที่จัดเก็บ นั่นเป็นเรื่องปกติ;
   การส่งมอบด้วย cron รองรับและยังคงแยกวิเคราะห์ไอดีหัวข้อได้ถูกต้อง
-
-

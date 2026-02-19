@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw için isteğe bağlı Docker tabanlı kurulum ve işe alım"
+read_when:
+  - Yerel kurulumlar yerine kapsayıcılı bir gateway istiyorsunuz
+  - Docker akışını doğruluyorsunuz
 title: "Docker"
 ---
 
@@ -60,6 +64,24 @@ Ana makinede yapılandırma/çalışma alanı yazar:
 - `~/.openclaw/workspace`
 
 Bir VPS üzerinde mi çalışıyorsunuz? [Hetzner (Docker VPS)](/install/hetzner).
+
+### Shell Yardımcıları (isteğe bağlı)
+
+Günlük Docker yönetimini kolaylaştırmak için `ClawDock` yükleyin:
+
+```bash
+mkdir -p ~/.clawdock && curl -sL https://raw.githubusercontent.com/openclaw/openclaw/main/scripts/shell-helpers/clawdock-helpers.sh -o ~/.clawdock/clawdock-helpers.sh
+```
+
+**Shell yapılandırmanıza ekleyin (zsh):**
+
+```bash
+echo 'source ~/.clawdock/clawdock-helpers.sh' >> ~/.zshrc && source ~/.zshrc
+```
+
+Ardından `clawdock-start`, `clawdock-stop`, `clawdock-dashboard` vb. komutları kullanın. Tüm komutlar için `clawdock-help` çalıştırın.
+
+Ayrıntılar için [`ClawDock` Helper README](https://github.com/openclaw/openclaw/blob/main/scripts/shell-helpers/README.md) sayfasına bakın.
 
 ### Manuel akış (compose)
 
@@ -572,5 +594,3 @@ docker build -t my-openclaw-sbx -f Dockerfile.sandbox .
   çalıştırır; bu, `/etc/profile`’yi kaynak alır ve PATH’i sıfırlayabilir. Özel araç yollarınızı başa eklemek için `docker.env.PATH`’yi ayarlayın
   (örn., `/custom/bin:/usr/local/share/npm-global/bin`), ya da Dockerfile’ınızda `/etc/profile.d/` altında
   bir betik ekleyin.
-
-

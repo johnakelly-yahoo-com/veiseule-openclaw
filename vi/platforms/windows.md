@@ -1,10 +1,14 @@
 ---
+summary: "Hỗ trợ Windows (WSL2) + trạng thái ứng dụng đồng hành"
+read_when:
+  - Cài đặt OpenClaw trên Windows
+  - Tìm trạng thái ứng dụng đồng hành trên Windows
 title: "Windows (WSL2)"
 ---
 
 # Windows (WSL2)
 
-OpenClaw trên Windows được khuyến nghị **thông qua WSL2** (khuyến nghị Ubuntu). Phần
+OpenClaw on Windows is recommended **via WSL2** (Ubuntu recommended). The
 CLI + Gateway run inside Linux, which keeps the runtime consistent and makes
 tooling far more compatible (Node/Bun/pnpm, Linux binaries, skills). Native
 Windows might be trickier. WSL2 gives you the full Linux experience — one command
@@ -53,7 +57,7 @@ openclaw doctor
 
 ## Nâng cao: mở dịch vụ WSL ra LAN (portproxy)
 
-WSL có mạng ảo riêng. Nếu một máy khác cần truy cập vào một dịch vụ
+WSL has its own virtual network. If another machine needs to reach a service
 running **inside WSL** (SSH, a local TTS server, or the Gateway), you must
 forward a Windows port to the current WSL IP. The WSL IP changes after restarts,
 so you may need to refresh the forwarding rule.
@@ -151,7 +155,5 @@ Hướng dẫn đầy đủ: [Bắt đầu](/start/getting-started)
 
 ## Ứng dụng đồng hành trên Windows
 
-Chúng tôi hiện chưa có ứng dụng đồng hành cho Windows. Rất hoan nghênh bạn đóng góp nếu bạn muốn
+We do not have a Windows companion app yet. Contributions are welcome if you want
 contributions to make it happen.
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "iOS node ilovasi: Gateway’ga ulanish, pairing, canvas va muammolarni bartaraf etish"
+read_when:
+  - iOS node’ni pairing qilish yoki qayta ulash
+  - iOS ilovasini manbadan ishga tushirish
+  - Gateway’ni aniqlash yoki canvas buyruqlarini disk raskadrovka qilish
 title: "iOS ilova"
 ---
 
@@ -72,6 +77,7 @@ Eslatmalar:
 - Gateway canvas host’i `/__openclaw__/canvas/` va `/__openclaw__/a2ui/` ni xizmat qiladi.
 - iOS node canvas host URL reklama qilinganda ulanishda avtomatik ravishda A2UI’ga o‘tadi.
 - `canvas.navigate` va `{"url":""}` bilan ichki scaffold’ga qayting.
+- `canvas.navigate` va `{"url":""}` bilan ichki scaffold’ga qayting.
 
 ### Canvas eval / snapshot
 
@@ -100,5 +106,3 @@ openclaw nodes invoke --node "iOS Node" --command canvas.snapshot --params '{"ma
 - [Pairing](/gateway/pairing)
 - [Discovery](/gateway/discovery)
 - [Bonjour](/gateway/bonjour)
-
-

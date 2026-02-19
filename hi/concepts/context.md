@@ -1,4 +1,9 @@
 ---
+summary: "संदर्भ: मॉडल क्या देखता है, यह कैसे बनाया जाता है, और इसे कैसे जांचें"
+read_when:
+  - आप समझना चाहते हैं कि OpenClaw में “संदर्भ” का क्या अर्थ है
+  - आप यह डिबग कर रहे हैं कि मॉडल कुछ “जानता” क्यों है (या क्यों भूल गया)
+  - आप संदर्भ ओवरहेड कम करना चाहते हैं (/context, /status, /compact)
 title: "संदर्भ"
 ---
 
@@ -107,7 +112,7 @@ Top tools (schema size):
 - `HEARTBEAT.md`
 - `BOOTSTRAP.md` (केवल पहली बार)
 
-39. बड़े files को per-file `agents.defaults.bootstrapMaxChars` (default `20000` chars) का उपयोग करके truncate किया जाता है। 40. `/context` **raw बनाम injected** sizes और क्या truncation हुआ, यह दिखाता है।
+39. बड़े files को per-file `agents.defaults.bootstrapMaxChars` (default `20000` chars) का उपयोग करके truncate किया जाता है। OpenClaw फ़ाइलों में कुल bootstrap injection सीमा भी लागू करता है, जिसे `agents.defaults.bootstrapTotalMaxChars` (डिफ़ॉल्ट `24000` वर्ण) द्वारा नियंत्रित किया जाता है। 40. `/context` **raw बनाम injected** sizes और क्या truncation हुआ, यह दिखाता है।
 
 ## Skills: क्या इंजेक्ट होता है बनाम ऑन-डिमांड लोड
 
@@ -154,5 +159,3 @@ Tools संदर्भ को दो तरीकों से प्रभा
 - `System prompt (estimate)` = जब कोई रन रिपोर्ट मौजूद न हो (या ऐसे CLI बैकएंड के माध्यम से चलाते समय जो रिपोर्ट उत्पन्न नहीं करता) तब तुरंत गणना किया जाता है।
 
 किसी भी स्थिति में, यह आकार और शीर्ष योगदानकर्ताओं की रिपोर्ट करता है; यह पूर्ण system prompt या tool schemas को **डंप नहीं** करता।
-
-

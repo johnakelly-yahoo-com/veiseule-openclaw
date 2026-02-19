@@ -1,4 +1,9 @@
 ---
+summary: "CLI-Referenz für `openclaw browser` (Profile, Tabs, Aktionen, Extension-Relay)"
+read_when:
+  - Sie verwenden `openclaw browser` und möchten Beispiele für häufige Aufgaben
+  - Sie möchten einen Browser steuern, der auf einer anderen Maschine über einen Node-Host läuft
+  - Sie möchten das Chrome-Extension-Relay verwenden (Anhängen/Trennen über die Toolbar-Schaltfläche)
 title: "browser"
 ---
 
@@ -11,7 +16,7 @@ Verwandt:
 - Browser-Werkzeug + API: [Browser tool](/tools/browser)
 - Chrome-Extension-Relay: [Chrome extension](/tools/chrome-extension)
 
-## Allgemeine Optionen
+## Common flags
 
 - `--url <gatewayWsUrl>`: Gateway-WebSocket-URL (Standard aus der Konfiguration).
 - `--token <token>`: Gateway-Token (falls erforderlich).
@@ -47,7 +52,7 @@ Ein bestimmtes Profil verwenden:
 openclaw browser --browser-profile work tabs
 ```
 
-## Registerkarten
+## Tabs
 
 ```bash
 openclaw browser tabs
@@ -100,5 +105,3 @@ Wenn der Gateway auf einer anderen Maschine als der Browser läuft, starten Sie 
 Verwenden Sie `gateway.nodes.browser.mode`, um das automatische Routing zu steuern, und `gateway.nodes.browser.node`, um einen bestimmten Node festzulegen, wenn mehrere verbunden sind.
 
 Sicherheit + Remote-Einrichtung: [Browser tool](/tools/browser), [Remote access](/gateway/remote), [Tailscale](/gateway/tailscale), [Security](/gateway/security)
-
-

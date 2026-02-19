@@ -1,4 +1,8 @@
 ---
+summary: "由 Gateway 閘道器 擁有的全域語音喚醒詞，以及它們如何在各節點之間同步"
+read_when:
+  - 變更語音喚醒詞的行為或預設值時
+  - 新增需要喚醒詞同步的新節點平台時
 title: "語音喚醒"
 ---
 
@@ -32,7 +36,7 @@ OpenClaw 將**喚醒詞視為由 Gateway 擁有的單一全域清單**。
 注意事項：
 
 - Triggers are normalized (trimmed, empties dropped). 空清單會回退到預設值。
-- 為了安全起見，會強制執行限制（數量／長度上限）。
+- Limits are enforced for safety (count/length caps).
 
 ### 事件
 
@@ -47,7 +51,7 @@ OpenClaw 將**喚醒詞視為由 Gateway 擁有的單一全域清單**。
 
 ### macOS 應用程式
 
-- 使用全域清單來控管 `VoiceWakeRuntime` 觸發。
+- Uses the global list to gate `VoiceWakeRuntime` triggers.
 - 在「語音喚醒」設定中編輯「觸發詞」會呼叫 `voicewake.set`，接著依賴廣播來讓其他用戶端保持同步。
 
 ### iOS 節點
@@ -59,5 +63,3 @@ OpenClaw 將**喚醒詞視為由 Gateway 擁有的單一全域清單**。
 
 - 在設定中提供喚醒詞編輯器。
 - 透過 Gateway WS 呼叫 `voicewake.set`，讓編輯結果在各處同步。
-
-

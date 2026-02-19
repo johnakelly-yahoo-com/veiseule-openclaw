@@ -1,4 +1,8 @@
 ---
+summary: "터미널 UI (TUI): 어떤 머신에서든 Gateway(게이트웨이)에 연결"
+read_when:
+  - TUI 에 대한 초보자 친화적인 안내가 필요할 때
+  - TUI 기능, 명령, 단축키의 전체 목록이 필요할 때
 title: "TUI"
 ---
 
@@ -156,5 +160,3 @@ Gateway(게이트웨이)가 비밀번호 인증을 사용하는 경우 `--passwo
 - `disconnected`: Gateway(게이트웨이)가 실행 중인지, `--url/--token/--password` 가 올바른지 확인하십시오.
 - 선택기에 에이전트가 없는 경우: `openclaw agents list` 및 라우팅 구성을 확인하십시오.
 - 세션 선택기가 비어 있는 경우: 전역 범위에 있거나 아직 세션이 없을 수 있습니다.
-
-

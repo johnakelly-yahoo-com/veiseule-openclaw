@@ -1,4 +1,8 @@
 ---
+summary: "Gescripte onboarding en agentinstallatie voor de OpenClaw CLI"
+read_when:
+  - Je automatiseert onboarding in scripts of CI
+  - Je hebt niet-interactieve voorbeelden nodig voor specifieke providers
 title: "CLI-automatisering"
 sidebarTitle: "CLI-automatisering"
 ---
@@ -109,6 +113,25 @@ Voeg `--json` toe voor een machineleesbare samenvatting.
     ```
   
 </Accordion>
+  <Accordion title="Custom provider example">```bash
+openclaw onboard --non-interactive \
+  --mode local \
+  --auth-choice custom-api-key \
+  --custom-base-url "https://llm.example.com/v1" \
+  --custom-model-id "foo-large" \
+  --custom-api-key "$CUSTOM_API_KEY" \
+  --custom-provider-id "my-custom" \
+  --custom-compatibility anthropic \
+  --gateway-port 18789 \
+  --gateway-bind loopback
+```
+
+    ```
+    `--custom-api-key` is optioneel. Indien weggelaten controleert onboarding `CUSTOM_API_KEY`.
+    ```
+
+  
+</Accordion>
 </AccordionGroup>
 
 ## Nog een agent toevoegen
@@ -142,5 +165,3 @@ Notities:
 - Onboarding-hub: [Onboarding Wizard (CLI)](/start/wizard)
 - Volledige referentie: [CLI Onboarding Reference](/start/wizard-cli-reference)
 - Opdrachtenreferentie: [`openclaw onboard`](/cli/onboard)
-
-

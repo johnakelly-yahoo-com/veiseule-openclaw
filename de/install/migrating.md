@@ -1,4 +1,8 @@
 ---
+summary: "Verschieben (Migrieren) einer OpenClaw-Installation von einer Maschine auf eine andere"
+read_when:
+  - Sie ziehen OpenClaw auf einen neuen Laptop/Server um
+  - Sie möchten Sitzungen, Authentifizierung und Kanal-Logins (WhatsApp usw.) beibehalten
 title: "Migrationsleitfaden"
 ---
 
@@ -186,5 +190,3 @@ Bestätigen Sie auf der neuen Maschine:
 - [Doctor](/gateway/doctor)
 - [Gateway-Fehlerbehebung](/gateway/troubleshooting)
 - [Wo speichert OpenClaw seine Daten?](/help/faq#where-does-openclaw-store-its-data)
-
-

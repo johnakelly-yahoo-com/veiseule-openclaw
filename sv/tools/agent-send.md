@@ -1,4 +1,7 @@
 ---
+summary: "Direkta körningar av `openclaw agent` via CLI (med valfri leverans)"
+read_when:
+  - När du lägger till eller ändrar agentens CLI-ingångspunkt
 title: "Skicka agent"
 ---
 
@@ -48,5 +51,3 @@ openclaw agent --agent ops --message "Generate report" --deliver --reply-channel
 - `--verbose <on|full|off>`: spara verbose-nivå
 - `--timeout <seconds>`: åsidosätt agentens timeout
 - `--json`: mata ut strukturerad JSON
-
-

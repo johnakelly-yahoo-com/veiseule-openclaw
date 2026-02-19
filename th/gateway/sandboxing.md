@@ -1,13 +1,18 @@
 ---
-title: "การทำแซนด์บ็อกซ์"
+summary: "วิธีการทำงานของsandboxingในOpenClaw: โหมด ขอบเขต การเข้าถึงเวิร์กสเปซ และอิมเมจ"
+title: Sandboxing
+read_when: "คุณต้องการคำอธิบายเฉพาะเกี่ยวกับsandboxingหรือจำเป็นต้องปรับแต่งagents.defaults.sandbox"
 status: active
 ---
 
-# การทำแซนด์บ็อกซ์
+# Sandboxing
 
 OpenClaw สามารถรัน **เครื่องมือภายในคอนเทนเนอร์ Docker** เพื่อลดขอบเขตผลกระทบ
 This is **optional** and controlled by configuration (`agents.defaults.sandbox` or
+`agents.list[].sandbox`).
+This is **optional** and controlled by configuration (`agents.defaults.sandbox` or
 `agents.list[].sandbox`). หากปิด sandbox เครื่องมือจะรันบนโฮสต์
+หากปิด sandbox เครื่องมือจะรันบนโฮสต์
 OpenClawสามารถรัน**เครื่องมือภายในDocker containers**เพื่อลดขอบเขตความเสียหายที่อาจเกิดขึ้น
 สิ่งนี้เป็น**ทางเลือก**และควบคุมด้วยการกำหนดค่า(`agents.defaults.sandbox`หรือ
 `agents.list[].sandbox`) หากปิดsandboxing เครื่องมือจะรันบนโฮสต์
@@ -22,6 +27,8 @@ Gatewayยังคงอยู่บนโฮสต์ ส่วนการร
 - เบราว์เซอร์แบบsandboxที่เป็นทางเลือก(`agents.defaults.sandbox.browser`)
   - โดยค่าเริ่มต้น เบราว์เซอร์ในsandboxจะเริ่มอัตโนมัติ(เพื่อให้แน่ใจว่าCDPเข้าถึงได้)เมื่อเครื่องมือเบราว์เซอร์ต้องการใช้งาน
     กำหนดค่าผ่าน`agents.defaults.sandbox.browser.autoStart`และ`agents.defaults.sandbox.browser.autoStartTimeoutMs`
+    โดยค่าเริ่มต้น เบราว์เซอร์ในsandboxจะเริ่มอัตโนมัติ(เพื่อให้แน่ใจว่าCDPเข้าถึงได้)เมื่อเครื่องมือเบราว์เซอร์ต้องการใช้งาน
+    กำหนดค่าผ่าน`agents.defaults.sandbox.browser.autoStart`และ`agents.defaults.sandbox.browser.autoStartTimeoutMs`
     กำหนดค่าผ่าน `agents.defaults.sandbox.browser.autoStart` และ `agents.defaults.sandbox.browser.autoStartTimeoutMs`
   - `agents.defaults.sandbox.browser.allowHostControl`ช่วยให้เซสชันในsandboxกำหนดเป้าหมายไปยังเบราว์เซอร์บนโฮสต์ได้โดยตรง
   - allowlistsแบบทางเลือกใช้ควบคุม`target: "custom"`: `allowedControlUrls`, `allowedControlHosts`, `allowedControlPorts`
@@ -31,7 +38,7 @@ Gatewayยังคงอยู่บนโฮสต์ ส่วนการร
 - ตัวโปรเซสของ Gateway เอง
 - เครื่องมือใดๆที่อนุญาตให้รันบนโฮสต์อย่างชัดเจน(เช่น `tools.elevated`)
   - **การรันคำสั่งแบบยกระดับจะรันบนโฮสต์และข้ามsandboxing**
-  - หากปิดsandboxing `tools.elevated`จะไม่เปลี่ยนแปลงการรัน(อยู่บนโฮสต์อยู่แล้ว) ดู [Elevated Mode](/tools/elevated) ดู [Elevated Mode](/tools/elevated)
+  - หากปิดsandboxing `tools.elevated`จะไม่เปลี่ยนแปลงการรัน(อยู่บนโฮสต์อยู่แล้ว) ดู [Elevated Mode](/tools/elevated) ดู [Elevated Mode](/tools/elevated) ดู [Elevated Mode](/tools/elevated)
 
 ## โหมด
 
@@ -40,6 +47,10 @@ Gatewayยังคงอยู่บนโฮสต์ ส่วนการร
 - `"off"`: ไม่มีsandboxing
 - `"non-main"`: sandboxเฉพาะเซสชันที่**ไม่ใช่หลัก**(ค่าเริ่มต้นหากต้องการให้แชตปกติรันบนโฮสต์)
 - `"all"`: ทุกเซสชันจะรันใน sandbox
+  `"all"`: ทุกเซสชันรันในsandbox
+  หมายเหตุ: `"non-main"`อิงจาก`session.mainKey`(ค่าเริ่มต้น`"main"`) ไม่ใช่agent id
+  เซสชันแบบกลุ่ม/ช่องทางใช้คีย์ของตัวเอง ดังนั้นจะถูกนับว่าไม่ใช่หลักและจะถูกsandbox
+  เซสชันกลุ่ม/แชนเนลใช้คีย์ของตนเอง ดังนั้นจึงนับเป็น non-main และจะถูกทำ sandbox
   `"all"`: ทุกเซสชันรันในsandbox
   หมายเหตุ: `"non-main"`อิงจาก`session.mainKey`(ค่าเริ่มต้น`"main"`) ไม่ใช่agent id
   เซสชันแบบกลุ่ม/ช่องทางใช้คีย์ของตัวเอง ดังนั้นจะถูกนับว่าไม่ใช่หลักและจะถูกsandbox
@@ -62,10 +73,12 @@ Gatewayยังคงอยู่บนโฮสต์ ส่วนการร
 - `"rw"`: เมานต์เวิร์กสเปซของเอเจนต์แบบอ่าน/เขียนที่`/workspace`
 
 สื่อขาเข้าจะถูกคัดลอกไปยังเวิร์กสเปซ sandbox ที่ใช้งานอยู่ (`media/inbound/*`)
+หมายเหตุทักษะ: เครื่องมือ `read` ถูกผูกกับรากของ sandbox สื่อขาเข้าจะถูกคัดลอกไปยังเวิร์กสเปซ sandbox ที่ใช้งานอยู่ (`media/inbound/*`)
 หมายเหตุทักษะ: เครื่องมือ `read` ถูกผูกกับรากของ sandbox สื่อขาเข้าจะถูกคัดลอกไปยังเวิร์กสเปซsandboxที่ใช้งานอยู่(`media/inbound/*`)
 หมายเหตุเกี่ยวกับSkills: เครื่องมือ`read`มีรากอยู่ในsandbox ด้วย`workspaceAccess: "none"`
 OpenClawจะมิเรอร์skillsที่เข้าเกณฑ์ไปยังเวิร์กสเปซsandbox(`.../skills`)เพื่อให้อ่านได้
 ด้วย`"rw"` skillsในเวิร์กสเปซสามารถอ่านได้จาก`/workspace/skills` ด้วย `"rw"` ทักษะของเวิร์กสเปซจะสามารถอ่านได้จาก
+`/workspace/skills` ด้วย `"rw"` ทักษะของเวิร์กสเปซจะสามารถอ่านได้จาก
 `/workspace/skills`
 
 ## การเมานต์ bind แบบกำหนดเอง
@@ -73,8 +86,16 @@ OpenClawจะมิเรอร์skillsที่เข้าเกณฑ์ไ
 `agents.defaults.sandbox.docker.binds`เมานต์ไดเรกทอรีโฮสต์เพิ่มเติมเข้าไปในcontainer
 รูปแบบ: `host:container:mode`(เช่น `"/home/user/source:/source:rw"`)
 รูปแบบ: `host:container:mode` (เช่น `"/home/user/source:/source:rw"`).
+รูปแบบ: `host:container:mode` (เช่น `"/home/user/source:/source:rw"`).
 
-bindแบบglobalและแบบต่อเอเจนต์จะถูก**รวมกัน**(ไม่ใช่แทนที่) ภายใต้`scope: "shared"` bindต่อเอเจนต์จะถูกละเว้น ภายใต้ `scope: "shared"` การ bind แบบต่อเอเจนต์จะถูกเพิกเฉย.
+bindแบบglobalและแบบต่อเอเจนต์จะถูก**รวมกัน**(ไม่ใช่แทนที่) ภายใต้`scope: "shared"` bindต่อเอเจนต์จะถูกละเว้น bindแบบglobalและแบบต่อเอเจนต์จะถูก**รวมกัน**(ไม่ใช่แทนที่) ภายใต้`scope: "shared"` bindต่อเอเจนต์จะถูกละเว้น ภายใต้ `scope: "shared"` การ bind แบบต่อเอเจนต์จะถูกเพิกเฉย.
+
+โดยค่าเริ่มต้น containerของsandboxจะรันแบบ**ไม่มีเครือข่าย**
+สามารถoverrideได้ด้วย`agents.defaults.sandbox.docker.network`
+เขียนทับด้วย `agents.defaults.sandbox.docker.network`.
+
+- เมื่อกำหนดค่า (รวมถึง `[]`) จะใช้แทนที่ `agents.defaults.sandbox.docker.binds` สำหรับคอนเทนเนอร์เบราว์เซอร์
+- เมื่อไม่ระบุค่า คอนเทนเนอร์เบราว์เซอร์จะย้อนกลับไปใช้ `agents.defaults.sandbox.docker.binds` (รองรับย้อนหลัง)
 
 ตัวอย่าง(แหล่งอ่านอย่างเดียว + docker socket):
 
@@ -142,6 +163,7 @@ scripts/sandbox-browser-setup.sh
 `setupCommand`จะรัน**ครั้งเดียว**หลังจากสร้างcontainerของsandboxแล้ว(ไม่ใช่ทุกครั้งที่รัน)
 มันถูกรันภายในcontainerผ่าน`sh -lc`
 มันถูกรันภายในคอนเทนเนอร์ผ่าน `sh -lc`.
+มันถูกรันภายในคอนเทนเนอร์ผ่าน `sh -lc`.
 
 พาธ:
 
@@ -178,6 +200,7 @@ scripts/sandbox-browser-setup.sh
 `agents.list[].sandbox`และ`agents.list[].tools`(รวมถึง`agents.list[].tools.sandbox.tools`สำหรับนโยบายเครื่องมือของsandbox)
 ดู [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) สำหรับลำดับความสำคัญ
 ดู [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) สำหรับลำดับความสำคัญ.
+ดู [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) สำหรับลำดับความสำคัญ.
 
 ## ตัวอย่างการเปิดใช้งานขั้นต่ำ
 
@@ -200,5 +223,3 @@ scripts/sandbox-browser-setup.sh
 - [Sandbox Configuration](/gateway/configuration#agentsdefaults-sandbox)
 - [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools)
 - [Security](/gateway/security)
-
-

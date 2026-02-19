@@ -1,4 +1,7 @@
 ---
+summary: "การเข้าถึงและการยืนยันตัวตนของแดชบอร์ดGateway(Control UI)"
+read_when:
+  - การเปลี่ยนโหมดการยืนยันตัวตนหรือการเปิดเผยแดชบอร์ด
 title: "แดชบอร์ด"
 ---
 
@@ -18,7 +21,7 @@ title: "แดชบอร์ด"
 - [Web surfaces](/web) สำหรับโหมดการผูก(bind)และหมายเหตุด้านความปลอดภัย
 
 การยืนยันตัวตนถูกบังคับใช้ในขั้นตอนWebSocket handshakeผ่าน `connect.params.auth`
-(โทเคนหรือรหัสผ่าน) ดู `gateway.auth` ใน [การกำหนดค่าGateway](/gateway/configuration) ดู `gateway.auth` ใน [Gateway configuration](/gateway/configuration)
+(โทเคนหรือรหัสผ่าน) ดู `gateway.auth` ใน [การกำหนดค่าGateway](/gateway/configuration) ดู `gateway.auth` ใน [Gateway configuration](/gateway/configuration) ดู `gateway.auth` ใน [Gateway configuration](/gateway/configuration)
 
 หมายเหตุด้านความปลอดภัย: Control UI เป็น **พื้นผิวผู้ดูแลระบบ** (แชต, คอนฟิก, การอนุมัติ exec)
 อย่าเปิดเผยต่อสาธารณะ UI จะเก็บโทเค็นไว้ใน `localStorage` หลังจากโหลดครั้งแรก
@@ -34,12 +37,10 @@ title: "แดชบอร์ด"
 
 - **Localhost**: เปิด `http://127.0.0.1:18789/`
 - **แหล่งที่มาของโทเคน**: `gateway.auth.token` (หรือ `OPENCLAW_GATEWAY_TOKEN`); UIจะเก็บสำเนาไว้ใน localStorage หลังจากเชื่อมต่อ
-- **ไม่ใช่ localhost**: ใช้ Tailscale Serve (ไม่ต้องใช้โทเคนหาก `gateway.auth.allowTailscale: true`), การผูกกับtailnetพร้อมโทเคน หรืออุโมงค์SSH ดู [Web surfaces](/web) ดู [Web surfaces](/web)
+- **ไม่ใช่ localhost**: ใช้ Tailscale Serve (ไม่ต้องใช้โทเคนหาก `gateway.auth.allowTailscale: true`), การผูกกับtailnetพร้อมโทเคน หรืออุโมงค์SSH ดู [Web surfaces](/web) ดู [Web surfaces](/web) ดู [Web surfaces](/web)
 
 ## หากพบ “unauthorized” / 1008
 
 - ตรวจสอบว่าGatewayเข้าถึงได้ (ภายในเครื่อง: `openclaw status`; ระยะไกล: อุโมงค์SSH `ssh -N -L 18789:127.0.0.1:18789 user@host` จากนั้นเปิด `http://127.0.0.1:18789/`)
 - ดึงโทเคนจากโฮสต์Gateway: `openclaw config get gateway.auth.token` (หรือสร้างใหม่: `openclaw doctor --generate-gateway-token`)
 - ในการตั้งค่าแดชบอร์ด ให้วางโทเคนลงในช่องการยืนยันตัวตน แล้วเชื่อมต่อ
-
-

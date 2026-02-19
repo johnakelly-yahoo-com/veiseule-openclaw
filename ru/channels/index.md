@@ -1,4 +1,8 @@
 ---
+summary: "Мессенджинговые платформы, к которым может подключаться OpenClaw"
+read_when:
+  - Вы хотите выбрать чат-канал для OpenClaw
+  - Вам нужен краткий обзор поддерживаемых мессенджинговых платформ
 title: "Чат-каналы"
 ---
 
@@ -12,6 +16,7 @@ OpenClaw может общаться с вами в любом чат-прило
 - [WhatsApp](/channels/whatsapp) — Самый популярный; использует Baileys и требует QR‑сопряжения.
 - [Telegram](/channels/telegram) — Bot API через grammY; поддерживает группы.
 - [Discord](/channels/discord) — Discord Bot API + Gateway (шлюз); поддерживает серверы, каналы и личные сообщения.
+- [IRC](/channels/irc) — Классические IRC-серверы; каналы и личные сообщения с управлением сопряжением/списком разрешённых.
 - [Slack](/channels/slack) — Bolt SDK; приложения для рабочих пространств.
 - [Feishu](/channels/feishu) — бот Feishu/Lark через WebSocket (плагин, устанавливается отдельно).
 - [Google Chat](/channels/googlechat) — приложение Google Chat API через HTTP‑webhook.
@@ -24,9 +29,9 @@ OpenClaw может общаться с вами в любом чат-прило
 - [Nextcloud Talk](/channels/nextcloud-talk) — Самостоятельно размещаемый чат через Nextcloud Talk (плагин, устанавливается отдельно).
 - [Matrix](/channels/matrix) — протокол Matrix (плагин, устанавливается отдельно).
 - [Nostr](/channels/nostr) — Децентрализованные личные сообщения через NIP‑04 (плагин, устанавливается отдельно).
-- [Tlon](/channels/tlon) — Мессенджер на базе Urbit (плагин, устанавливается отдельно).
 - [Twitch](/channels/twitch) — чат Twitch через IRC‑подключение (плагин, устанавливается отдельно).
 - [Zalo](/channels/zalo) — Zalo Bot API; популярный мессенджер во Вьетнаме (плагин, устанавливается отдельно).
+- [Tlon](/channels/tlon) — Мессенджер на базе Urbit (плагин, устанавливается отдельно).
 - [Zalo Personal](/channels/zalouser) — личный аккаунт Zalo через вход по QR (плагин, устанавливается отдельно).
 - [WebChat](/web/webchat) — интерфейс WebChat Gateway (шлюза) поверх WebSocket.
 
@@ -40,5 +45,3 @@ OpenClaw может общаться с вами в любом чат-прило
 - Внутренние детали Telegram: [заметки grammY](/channels/grammy).
 - Устранение неполадок: [Устранение неполадок каналов](/channels/troubleshooting).
 - Провайдеры моделей документируются отдельно; см. [Провайдеры моделей](/providers/models).
-
-

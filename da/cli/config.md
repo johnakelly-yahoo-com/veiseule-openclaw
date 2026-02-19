@@ -1,4 +1,7 @@
 ---
+summary: "CLI-reference for `openclaw config` (hent/angiv/fjern konfigurationsværdier)"
+read_when:
+  - Du vil læse eller redigere konfiguration ikke-interaktivt
 title: "config"
 ---
 
@@ -45,5 +48,3 @@ openclaw config set channels.whatsapp.groups '["*"]' --json
 ```
 
 Genstart gatewayen efter ændringer.
-
-

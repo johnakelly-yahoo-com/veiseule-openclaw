@@ -1,4 +1,8 @@
 ---
+summary: "Nostr-DM-kanaal via NIP-04-versleutelde berichten"
+read_when:
+  - Je wilt dat OpenClaw DM's ontvangt via Nostr
+  - Je bent bezig met het opzetten van gedecentraliseerde berichtgeving
 title: "Nostr"
 ---
 
@@ -227,5 +231,3 @@ docker run -p 7777:7777 ghcr.io/hoytech/strfry
 - Alleen directe berichten (geen groepschats).
 - Geen media-bijlagen.
 - Alleen NIP-04 (NIP-17 gift-wrap gepland).
-
-

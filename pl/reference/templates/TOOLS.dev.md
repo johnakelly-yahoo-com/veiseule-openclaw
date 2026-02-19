@@ -1,4 +1,9 @@
-------
+---
+summary: "Notatki dotyczące narzędzi agenta deweloperskiego (C-3PO)"
+read_when:
+  - Korzystanie z szablonów gateway deweloperskiego
+  - Aktualizowanie domyślnej tożsamości agenta deweloperskiego
+---
 
 # TOOLS.md - Notatki użytkownika dotyczące narzędzi (edytowalne)
 
@@ -17,5 +22,3 @@ Nie definiuje on, jakie narzędzia istnieją; OpenClaw udostępnia wbudowane nar
 - Zamiana tekstu na mowę: określ głos, docelowego mówcę/pokój oraz czy strumieniować.
 
 Dodaj wszystko, co chcesz, aby asystent wiedział o Twoim lokalnym toolchainie.
-
-

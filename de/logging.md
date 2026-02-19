@@ -1,8 +1,13 @@
 ---
-title: "Protokollierung"
+summary: "Protokollierungsüberblick: Dateiprotokolle, Konsolenausgabe, CLI-Tailing und die Control UI"
+read_when:
+  - Sie benötigen einen einsteigerfreundlichen Überblick zur Protokollierung
+  - Sie möchten Protokollierungsstufen oder -formate konfigurieren
+  - Sie beheben Fehler und müssen Protokolle schnell finden
+title: "Logging"
 ---
 
-# Protokollierung
+# Logging
 
 OpenClaw protokolliert an zwei Stellen:
 
@@ -124,7 +129,7 @@ Die gesamte Protokollierungskonfiguration befindet sich unter `logging` in `~/.o
 - `compact`: kompaktere Ausgabe (ideal für lange Sitzungen).
 - `json`: JSON pro Zeile (für Log-Prozessoren).
 
-### Schwärzung
+### Redaction
 
 Werkzeugzusammenfassungen können sensible Tokens schwärzen, bevor sie die Konsole erreichen:
 
@@ -345,5 +350,3 @@ Warteschlangen + Sitzungen:
 - **Protokolle leer?** Prüfen Sie, dass das Gateway läuft und in den Dateipfad
   aus `logging.file` schreibt.
 - **Mehr Details nötig?** Setzen Sie `logging.level` auf `debug` oder `trace` und versuchen Sie es erneut.
-
-

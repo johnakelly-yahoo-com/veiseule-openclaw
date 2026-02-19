@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw` komutları, alt komutları ve seçenekleri için OpenClaw CLI başvuru belgesi"
+read_when:
+  - CLI komutları veya seçenekleri eklerken ya da değiştirirken
+  - Yeni komut yüzeylerini belgelendirirken
 title: "CLI Başvurusu"
 ---
 
@@ -314,6 +318,11 @@ Seçenekler:
 - `--zai-api-key <key>`
 - `--minimax-api-key <key>`
 - `--opencode-zen-api-key <key>`
+- `--custom-base-url <url>` (etkileşimsiz; `--auth-choice custom-api-key` ile birlikte kullanılır)
+- `--custom-model-id <id>` (etkileşimsiz; `--auth-choice custom-api-key` ile kullanılır)
+- `--custom-api-key <key>` (etkileşimsiz; isteğe bağlı; `--auth-choice custom-api-key` ile kullanılır; belirtilmezse `CUSTOM_API_KEY` kullanılır)
+- `--custom-provider-id <id>` (etkileşimsiz; isteğe bağlı özel sağlayıcı kimliği)
+- `--custom-compatibility <openai|anthropic>` (etkileşimsiz; isteğe bağlı; varsayılan `openai`)
 - `--gateway-port <port>`
 - `--gateway-bind <loopback|lan|tailnet|auto|custom>`
 - `--gateway-auth <token|password>`
@@ -1024,5 +1033,3 @@ Seçenekler:
 - `--message <text>`
 - `--timeout-ms <ms>` (varsayılan `agents.defaults.timeoutSeconds`)
 - `--history-limit <n>`
-
-

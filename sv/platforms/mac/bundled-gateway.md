@@ -1,4 +1,9 @@
 ---
+summary: "Gateway-körning på macOS (extern launchd-tjänst)"
+read_when:
+  - Paketering av OpenClaw.app
+  - Felsökning av macOS gateway launchd-tjänsten
+  - Installera gateway CLI för macOS
 title: "Gateway på macOS"
 ---
 
@@ -66,5 +71,3 @@ Sedan:
 ```bash
 openclaw gateway call health --url ws://127.0.0.1:18999 --timeout 3000
 ```
-
-

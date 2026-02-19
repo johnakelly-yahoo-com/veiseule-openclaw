@@ -1,4 +1,8 @@
 ---
+summary: "Uwierzytelnianie modeli: OAuth, klucze API i setup-token"
+read_when:
+  - Debugowanie uwierzytelniania modelu lub wygaśnięcia OAuth
+  - Dokumentowanie uwierzytelniania lub przechowywania poświadczeń
 title: "Uwierzytelnianie"
 ---
 
@@ -142,5 +146,3 @@ brakuje, uruchom ponownie `claude setup-token` i wklej token jeszcze raz.
 
 - Subskrypcja Claude Max lub Pro (dla `claude setup-token`)
 - Zainstalowany Claude Code CLI (dostępne polecenie `claude`)
-
-

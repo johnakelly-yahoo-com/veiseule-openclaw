@@ -1,20 +1,24 @@
 ---
+summary: "Cách OpenClaw xây dựng ngữ cảnh prompt và báo cáo mức sử dụng token + chi phí"
+read_when:
+  - Giải thích về mức sử dụng token, chi phí hoặc cửa sổ ngữ cảnh
+  - Gỡ lỗi sự tăng trưởng ngữ cảnh hoặc hành vi nén gọn
 title: "Sử dụng Token và Chi phí"
 ---
 
 # Sử dụng token & chi phí
 
-OpenClaw theo dõi **token**, không phải ký tự. Token phụ thuộc vào từng mô hình, nhưng hầu hết
+OpenClaw tracks **tokens**, not characters. Tokens are model-specific, but most
 OpenAI-style models average ~4 characters per token for English text.
 
 ## Cách system prompt được xây dựng
 
-OpenClaw tự xây dựng system prompt riêng của mình trong mỗi lần chạy. Nó bao gồm:
+OpenClaw assembles its own system prompt on every run. It includes:
 
 - Danh sách công cụ + mô tả ngắn
 - Danh sách Skills (chỉ metadata; hướng dẫn được tải theo yêu cầu với `read`)
 - Hướng dẫn tự cập nhật
-- Workspace + bootstrap files (`AGENTS.md`, `SOUL.md`, `TOOLS.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md`, `BOOTSTRAP.md` when new). 6. Các tệp lớn bị cắt bớt bởi `agents.defaults.bootstrapMaxChars` (mặc định: 20000).
+- Workspace + các tệp bootstrap (`AGENTS.md`, `SOUL.md`, `TOOLS.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md`, `BOOTSTRAP.md` khi mới, cùng với `MEMORY.md` và/hoặc `memory.md` nếu có). Các tệp lớn sẽ bị cắt bớt theo `agents.defaults.bootstrapMaxChars` (mặc định: 20000), và tổng nội dung bootstrap được chèn vào bị giới hạn bởi `agents.defaults.bootstrapTotalMaxChars` (mặc định: 24000). Các tệp `memory/*.md` được truy cập theo yêu cầu thông qua công cụ memory và không được tự động chèn.
 - Thời gian (UTC + múi giờ người dùng)
 - Thẻ trả lời + hành vi heartbeat
 - Metadata runtime (máy chủ/OS/mô hình/tư duy)
@@ -104,5 +108,3 @@ agents:
 - Ưu tiên các mô hình nhỏ hơn cho công việc khám phá, nhiều lời.
 
 Xem [Skills](/tools/skills) để biết công thức chính xác cho chi phí overhead của danh sách skill.
-
-

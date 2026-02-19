@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw için gelişmiş kurulum ve geliştirme iş akışları"
+read_when:
+  - Yeni bir makine kurarken
+  - Kişisel kurulumunuzu bozmadan “en yeni + en iyiyi” istiyorsanız
 title: "Kurulum"
 ---
 
@@ -11,7 +15,7 @@ Sihirbaz ayrıntıları için [Onboarding Wizard](/start/wizard) bölümüne bak
 
 Son güncelleme: 2026-01-01
 
-## Kısaca
+## TL;DR
 
 - **Özelleştirme depo dışında yaşar:** `~/.openclaw/workspace` (çalışma alanı) + `~/.openclaw/openclaw.json` (yapılandırma).
 - **Kararlı iş akışı:** macOS uygulamasını yükleyin; paketli Gateway’i çalıştırmasına izin verin.
@@ -63,7 +67,7 @@ node openclaw.mjs gateway --port 18789 --verbose
 openclaw channels login
 ```
 
-5. 1. Sağlamlık kontrolü:
+5. Sağlamlık kontrolü:
 
 ```bash
 openclaw health
@@ -156,5 +160,3 @@ kullanıcı servisi yerine **sistem** servisini düşünün (lingering gerekmez)
 - [Discord](/channels/discord) ve [Telegram](/channels/telegram) (yanıt etiketleri + replyToMode ayarları)
 - [OpenClaw asistan kurulumu](/start/openclaw)
 - [macOS uygulaması](/platforms/macos) (gateway yaşam döngüsü)
-
-

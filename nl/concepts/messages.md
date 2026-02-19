@@ -1,4 +1,9 @@
 ---
+summary: "Berichtenstroom, sessies, wachtrijen en zichtbaarheid van redenering"
+read_when:
+  - Uitleggen hoe inkomende berichten antwoorden worden
+  - Verduidelijken van sessies, wachtrijmodi of streaminggedrag
+  - Documenteren van zichtbaarheid van redenering en gebruiksimplicaties
 title: "Berichten"
 ---
 
@@ -148,5 +153,3 @@ Uitgaande berichtopmaak is gecentraliseerd in `messages`:
 - Antwoord-threading via `replyToMode` en per-kanaalstandaarden
 
 Details: [Configuratie](/gateway/configuration#messages) en kanaaldocumentatie.
-
-

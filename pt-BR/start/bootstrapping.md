@@ -1,6 +1,11 @@
 ---
+summary: "Ritual de inicialização do agente que prepara o workspace e os arquivos de identidade"
+read_when:
+  - Entender o que acontece na primeira execução do agente
+  - Explicar onde ficam os arquivos de bootstrapping
+  - Configuração de identidade de depuração
 title: "Bootstrapping do Agente"
-sidebarTitle: "Inicialização"
+sidebarTitle: "Bootstrapping"
 ---
 
 # Bootstrapping do Agente
@@ -34,5 +39,3 @@ Quando o Gateway é executado em outra máquina, edite os arquivos do workspace 
 
 - Integração inicial do app do macOS: [Onboarding](/start/onboarding)
 - Layout do workspace: [Agent workspace](/concepts/agent-workspace)
-
-

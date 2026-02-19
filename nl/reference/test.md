@@ -1,4 +1,7 @@
 ---
+summary: "Hoe je tests lokaal uitvoert (vitest) en wanneer je force-/coverage-modi gebruikt"
+read_when:
+  - Tests uitvoeren of oplossen
 title: "Tests"
 ---
 
@@ -10,7 +13,9 @@ title: "Tests"
 
 - `pnpm test:coverage`: Voert Vitest uit met V8-coverage. Globale drempels zijn 70% voor lines/branches/functions/statements. Coverage sluit integratie-zware entrypoints uit (CLI-wiring, gateway/telegram-bridges, webchat statische server) om de doelstelling te richten op unit-testbare logica.
 
-- `pnpm test:e2e`: Voert gateway end-to-end smoketests uit (multi-instance WS/HTTP/node-koppeling).
+- `pnpm test` op Node 24+: OpenClaw schakelt automatisch Vitest `vmForks` uit en gebruikt `forks` om `ERR_VM_MODULE_LINK_FAILURE` / `module is already linked` te vermijden. Je kunt het gedrag forceren met `OPENCLAW_TEST_VM_FORKS=0|1`.
+
+- `pnpm test:e2e`: Voert gateway end-to-end smoketests uit (multi-instance WS/HTTP/node-koppeling). Standaard ingesteld op `vmForks` + adaptieve workers in `vitest.e2e.config.ts`; pas aan met `OPENCLAW_E2E_WORKERS=<n>` en stel `OPENCLAW_E2E_VERBOSE=1` in voor uitgebreide logs.
 
 - `pnpm test:live`: Voert provider live tests uit (minimax/zai). Vereist API-sleutels en `LIVE=1` (of provider-specifieke `*_LIVE_TEST=1`) om uitgeschakelde tests te activeren.
 
@@ -48,5 +53,3 @@ Zorgt ervoor dat `qrcode-terminal` laadt onder Node 22+ in Docker:
 ```bash
 pnpm test:docker:qr
 ```
-
-

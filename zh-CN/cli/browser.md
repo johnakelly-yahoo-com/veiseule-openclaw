@@ -1,12 +1,10 @@
 ---
-title: browser
-x-i18n:
-  generated_at: "2026-02-03T07:44:49Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: af35adfd68726fd519c704d046451effd330458c2b8305e713137fb07b2571fd
-  source_path: cli/browser.md
-  workflow: 15
+summary: "`openclaw browser` 的 CLI 参考（配置文件、标签页、操作、扩展中继）"
+read_when:
+  - 你使用 `openclaw browser` 并想要常见任务的示例
+  - 你想通过 node host 控制在另一台机器上运行的浏览器
+  - 你想使用 Chrome 扩展中继（通过工具栏按钮附加/分离）
+title: "browser"
 ---
 
 # `openclaw browser`
@@ -37,7 +35,7 @@ openclaw browser --browser-profile openclaw snapshot
 
 ## 配置文件
 
-配置文件是命名的浏览器路由配置。实际上：
+配置文件是命名的浏览器路由配置。实际上： 在实践中：
 
 - `openclaw`：启动/附加到专用的 OpenClaw 管理的 Chrome 实例（隔离的用户数据目录）。
 - `chrome`：通过 Chrome 扩展中继控制你现有的 Chrome 标签页。
@@ -102,10 +100,8 @@ openclaw browser extension path
 
 ## 远程浏览器控制（node host 代理）
 
-如果 Gateway 网关与浏览器运行在不同的机器上，在有 Chrome/Brave/Edge/Chromium 的机器上运行 **node host**。Gateway 网关会将浏览器操作代理到该节点（无需单独的浏览器控制服务器）。
+如果 Gateway 网关与浏览器运行在不同的机器上，在有 Chrome/Brave/Edge/Chromium 的机器上运行 **node host**。Gateway 网关会将浏览器操作代理到该节点（无需单独的浏览器控制服务器）。 Gateway 将把浏览器操作代理到该 node（无需单独的浏览器控制服务器）。
 
 使用 `gateway.nodes.browser.mode` 控制自动路由，使用 `gateway.nodes.browser.node` 在连接多个节点时固定特定节点。
 
 安全 + 远程设置：[浏览器工具](/tools/browser)、[远程访问](/gateway/remote)、[Tailscale](/gateway/tailscale)、[安全](/gateway/security)
-
-

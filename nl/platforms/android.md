@@ -1,4 +1,9 @@
 ---
+summary: "Android-app (node): verbindingsrunbook + Canvas/Chat/Camera"
+read_when:
+  - Het koppelen of opnieuw verbinden van de Android-node
+  - Het debuggen van Android Gateway-discovery of -authenticatie
+  - Het verifiëren van chatgeschiedenis-pariteit tussen clients
 title: "Android-app"
 ---
 
@@ -118,7 +123,7 @@ Het Chat-blad van de Android-node gebruikt de **primaire sessiesleutel** van de 
 
 Als je wilt dat de node echte HTML/CSS/JS toont die de agent op schijf kan bewerken, wijs de node dan naar de Gateway canvas host.
 
-Let op: nodes gebruiken de standalone canvas host op `canvasHost.port` (standaard `18793`).
+Opmerking: nodes laden canvas vanaf de Gateway HTTP-server (dezelfde poort als `gateway.port`, standaard `18789`).
 
 1. Maak `~/.openclaw/workspace/canvas/index.html` aan op de Gateway-host.
 
@@ -144,5 +149,3 @@ Camera-opdrachten (alleen foreground; permissie-afhankelijk):
 - `camera.clip` (mp4)
 
 Zie [Camera-node](/nodes/camera) voor parameters en CLI-hulpmiddelen.
-
-

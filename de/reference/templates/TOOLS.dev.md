@@ -1,4 +1,9 @@
-------
+---
+summary: "„Notizen zu Dev-Agent-Werkzeugen (C-3PO)“"
+read_when:
+  - Verwendung der Dev-Gateway-Vorlagen
+  - Beim Aktualisieren der Standardidentität des Dev-Agenten
+---
 
 # TOOLS.md – Hinweise zu Benutzerwerkzeugen (bearbeitbar)
 
@@ -17,5 +22,3 @@ Sie definiert nicht, welche Werkzeuge existieren; OpenClaw stellt intern integri
 - Text-to-Speech: Geben Sie Stimme, Ziel-Lautsprecher/-Raum und an, ob gestreamt werden soll.
 
 Fügen Sie alles Weitere hinzu, was der Assistent über Ihre lokale Toolchain wissen soll.
-
-

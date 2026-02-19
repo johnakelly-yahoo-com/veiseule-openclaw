@@ -1,4 +1,8 @@
 ---
+summary: "37. OpenClaw’da ko‘plab modellarga kirish uchun Qianfan’ning yagona API’sidan foydalaning"
+read_when:
+  - 38. Ko‘plab LLM’lar uchun bitta API kalitini xohlaysiz
+  - 39. Baidu Qianfan sozlash bo‘yicha yo‘riqnoma kerak
 title: "40. Qianfan"
 ---
 
@@ -32,5 +36,3 @@ openclaw onboard --auth-choice qianfan-api-key
 - [Model provayderlari](/concepts/model-providers)
 - [Agent sozlamalari](/concepts/agent)
 - [Qianfan API hujjatlari](https://cloud.baidu.com/doc/qianfan-api/s/3m7of64lb)
-
-

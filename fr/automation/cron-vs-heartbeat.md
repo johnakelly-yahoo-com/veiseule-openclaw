@@ -1,4 +1,9 @@
 ---
+summary: "Conseils pour choisir entre heartbeat et les tâches cron pour l’automatisation"
+read_when:
+  - Choisir comment planifier des tâches récurrentes
+  - Mettre en place une surveillance ou des notifications en arrière-plan
+  - Optimiser l’utilisation des tokens pour des vérifications périodiques
 title: "Cron vs Signal de vie"
 ---
 
@@ -275,5 +280,3 @@ openclaw cron add \
 - [Heartbeat](/gateway/heartbeat) - configuration complète de heartbeat
 - [Cron jobs](/automation/cron-jobs) - référence complète CLI et API des tâches cron
 - [System](/cli/system) - événements système + contrôles de heartbeat
-
-

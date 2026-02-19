@@ -1,4 +1,8 @@
 ---
+summary: "CLI 入門引導精靈：引導式設定 Gateway 閘道器、工作區、頻道與 Skills"
+read_when:
+  - 執行或設定入門引導精靈
+  - 設定新機器
 title: "入門引導精靈（CLI）"
 sidebarTitle: "入門導覽: CLI"
 ---
@@ -15,11 +19,12 @@ openclaw onboard
 ```
 
 <Info>
-
 最快速的第一次聊天：開啟 Control UI（不需要設定頻道）。執行
 `openclaw dashboard`，並在瀏覽器中聊天。文件：[Dashboard](/web/dashboard)。
  Run
+`openclaw dashboard` and chat in the browser. Run
 `openclaw dashboard` and chat in the browser. 文件：[Dashboard](/web/dashboard)。
+</Info>
 </Info>
 
 稍後要重新設定：
@@ -30,9 +35,8 @@ openclaw agents add <name>
 ```
 
 <Note>
-
 `--json` 並不代表非互動模式。用於腳本時，請使用 `--non-interactive`。
- For scripts, use `--non-interactive`.
+ For scripts, use `--non-interactive`. For scripts, use `--non-interactive`.
 </Note>
 
 <Tip>
@@ -41,12 +45,13 @@ openclaw agents add <name>
 （`web_fetch` 無需金鑰也可運作）。最簡單的路徑：`openclaw configure --section web`，
 它會儲存 `tools.web.search.apiKey`。文件：[Web tools](/tools/web)。
  Easiest path: `openclaw configure --section web`
-which stores `tools.web.search.apiKey`. 1. 文件：[Web 工具](/tools/web)。
+which stores `tools.web.search.apiKey`. 文件：[Web 工具](/tools/web)。
+</Tip>
 </Tip>
 
 ## 快速開始 vs 進階
 
-2. 精靈以 **QuickStart**（預設值）或 **Advanced**（完整控制）開始。
+精靈以 **QuickStart**（預設值）或 **Advanced**（完整控制）開始。
 
 <Tabs>
   <Tab title="QuickStart (defaults)">
@@ -68,9 +73,9 @@ which stores `tools.web.search.apiKey`. 1. 文件：[Web 工具](/tools/web)。
 
 **本機模式（預設）** 會引導你完成以下步驟：
 
-1. **模型／身分驗證** — Anthropic API 金鑰（建議）、OAuth、OpenAI，或其他提供者。選擇預設模型。 3. 選擇預設模型。
+1. **模型／身分驗證** — Anthropic API 金鑰（建議）、OAuth、OpenAI，或其他提供者。選擇預設模型。 3. 3. 選擇預設模型。
 2. **工作區** — 代理程式檔案的位置（預設為 `~/.openclaw/workspace`）。建立啟動所需的初始檔案。 4. 產生種子（seeds）啟動檔案。
-3. 5. **Gateway** — 連接埠、綁定位址、驗證模式、Tailscale 暴露設定。
+3. **Gateway** — 連接埠、綁定位址、驗證模式、Tailscale 暴露設定。
 4. **頻道** — WhatsApp、Telegram、Discord、Google Chat、Mattermost、Signal、BlueBubbles，或 iMessage。
 5. **常駐程式** — 安裝 LaunchAgent（macOS）或 systemd 使用者單元（Linux/WSL2）。
 6. **健康檢查** — 啟動 Gateway 閘道器並確認其正在執行。
@@ -78,16 +83,18 @@ which stores `tools.web.search.apiKey`. 1. 文件：[Web 工具](/tools/web)。
 
 <Note>
 6. 重新執行精靈**不會**清除任何內容，除非你明確選擇 **Reset**（或傳入 `--reset`）。
-7. 如果設定無效或包含舊版金鑰，精靈會要求你先執行 `openclaw doctor`。
+如果設定無效或包含舊版金鑰，精靈會要求你先執行 `openclaw doctor`。
 </Note>
 
+**遠端模式** 僅會設定本機用戶端以連線至其他位置的 Gateway 閘道器。
+它**不會**在遠端主機上安裝或變更任何內容。
 **遠端模式** 僅會設定本機用戶端以連線至其他位置的 Gateway 閘道器。
 它**不會**在遠端主機上安裝或變更任何內容。
 It does **not** install or change anything on the remote host.
 
 ## 新增另一個代理程式
 
-8. 使用 `openclaw agents add <name>` 建立一個具有獨立工作區、工作階段與驗證設定檔的代理。 Running without `--workspace` launches the wizard.
+使用 `openclaw agents add <name>` 建立一個具有獨立工作區、工作階段與驗證設定檔的代理。 Running without `--workspace` launches the wizard. Running without `--workspace` launches the wizard.
 
 它會設定的內容：
 
@@ -107,10 +114,9 @@ It does **not** install or change anything on the remote host.
 RPC API，以及精靈會寫入的完整設定欄位清單，請參閱
 [Wizard Reference](/reference/wizard)。
 
-## 相關文件
+## Related docs
 
 - CLI 指令參考：[`openclaw onboard`](/cli/onboard)
+- 入門概覽：[Onboarding Overview](/start/onboarding-overview)
 - macOS 應用程式入門引導：[Onboarding](/start/onboarding)
 - 代理程式首次執行儀式：[Agent Bootstrapping](/start/bootstrapping)
-
-

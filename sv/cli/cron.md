@@ -1,4 +1,8 @@
 ---
+summary: "CLI-referens för `openclaw cron` (schemalägg och kör bakgrundsjobb)"
+read_when:
+  - Du vill ha schemalagda jobb och väckningar
+  - Du felsöker cron-körning och loggar
 title: "cron"
 ---
 
@@ -38,5 +42,3 @@ Meddela till en specifik kanal:
 ```bash
 openclaw cron edit <job-id> --announce --channel slack --to "channel:C1234567890"
 ```
-
-

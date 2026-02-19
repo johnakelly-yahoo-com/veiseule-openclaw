@@ -1,4 +1,8 @@
 ---
+summary: "„Globale Sprach-Aktivierungswörter (vom Gateway verwaltet) und wie sie über Nodes hinweg synchronisiert werden“"
+read_when:
+  - Ändern des Sprach-Weckwort-Verhaltens oder Standardeinstellungen
+  - „Hinzufügen neuer Node-Plattformen, die eine Synchronisierung der Aktivierungswörter benötigen“
 title: "Sprachaktivierung"
 ---
 
@@ -59,5 +63,3 @@ Wer es erhält:
 
 - Stellt in den Einstellungen einen Editor für Aktivierungswörter bereit.
 - Ruft `voicewake.set` über das Gateway-WS auf, damit Änderungen überall synchronisiert werden.
-
-

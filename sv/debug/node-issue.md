@@ -1,4 +1,8 @@
 ---
+summary: Anteckningar och lösningar för Node + tsx-krasch med ”__name is not a function”
+read_when:
+  - Felsökning av Node-baserade utvecklingsskript eller fel i watch-läge
+  - Undersökning av tsx/esbuild-loaderkrascher i OpenClaw
 title: "Node + tsx-krasch"
 ---
 
@@ -82,5 +86,3 @@ node --import tsx scripts/repro/tsx-name-repro.ts
 - Repro på Node 22/24 för att bekräfta regression i Node 25.
 - Testa `tsx` nightly eller lås till en tidigare version om en känd regression finns.
 - Om det reproduceras på Node LTS, skapa ett minimalt repro uppströms med `__name`-stackspåret.
-
-

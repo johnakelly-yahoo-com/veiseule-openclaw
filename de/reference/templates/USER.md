@@ -1,4 +1,8 @@
-------
+---
+summary: "Benutzerprofil-Datensatz"
+read_when:
+  - Manuelles Bootstrapping eines Workspace
+---
 
 # USER.md – Über Ihren Menschen
 
@@ -17,5 +21,3 @@ _(Was ist ihnen wichtig? An welchen Projekten arbeiten sie? Was nervt sie? Was b
 ---
 
 Je mehr Sie wissen, desto besser können Sie helfen. Aber denken Sie daran — Sie lernen einen Menschen kennen, kein Dossier. Respektieren Sie den Unterschied.
-
-

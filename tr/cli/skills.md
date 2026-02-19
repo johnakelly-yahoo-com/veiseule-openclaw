@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw skills` (list/info/check) ve skill uygunluğu için CLI başvurusu"
+read_when:
+  - Hangi skill’lerin kullanılabilir ve çalışmaya hazır olduğunu görmek istiyorsunuz
+  - Skill’ler için eksik ikililer/ortam değişkenleri/yapılandırmayı hata ayıklamak istiyorsunuz
 title: "skills"
 ---
 
@@ -20,5 +24,3 @@ openclaw skills list --eligible
 openclaw skills info <name>
 openclaw skills check
 ```
-
-

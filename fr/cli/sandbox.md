@@ -1,5 +1,7 @@
 ---
 title: CLI de la sandbox
+summary: "Gérer les conteneurs de sandbox et inspecter la politique de sandbox effective"
+read_when: "Vous gérez des conteneurs de sandbox ou déboguez le comportement de la sandbox ou des politiques d’outils."
 status: active
 ---
 
@@ -147,5 +149,3 @@ Les paramètres de la sandbox se trouvent dans `~/.openclaw/openclaw.json` sous 
 - [Documentation Sandbox](/gateway/sandboxing)
 - [Configuration des agents](/concepts/agent-workspace)
 - [Commande Doctor](/gateway/doctor) - Vérifier la configuration de la sandbox
-
-

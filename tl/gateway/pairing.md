@@ -1,14 +1,19 @@
 ---
+summary: "Gateway-owned na pagpa-pair ng node (Option B) para sa iOS at iba pang remote na node"
+read_when:
+  - Pagpapatupad ng mga pag-apruba ng node pairing nang walang macOS UI
+  - Pagdaragdag ng mga CLI flow para sa pag-apruba ng mga remote na node
+  - Pagpapalawak ng gateway protocol gamit ang node management
 title: "Pagpapares na Pinamamahalaan ng Gateway"
 ---
 
 # Pagpapares na pinamamahalaan ng Gateway (Option B)
 
-Sa pagpapares na pinamamahalaan ng Gateway, ang **Gateway** ang pinagmumulan ng katotohanan kung aling mga node
+In Gateway-owned pairing, the **Gateway** is the source of truth for which nodes
 are allowed to join. UIs (macOS app, future clients) are just frontends that
 approve or reject pending requests.
 
-**Mahalaga:** Ang mga WS node ay gumagamit ng **device pairing** (role `node`) sa panahon ng `connect`.
+**Important:** WS nodes use **device pairing** (role `node`) during `connect`.
 `node.pair.*` is a separate pairing store and does **not** gate the WS handshake.
 Only clients that explicitly call `node.pair.*` use this flow.
 
@@ -16,8 +21,8 @@ Only clients that explicitly call `node.pair.*` use this flow.
 
 - **Pending request**: isang node ang humiling na sumali; nangangailangan ng pag-apruba.
 - **Paired node**: naaprubahang node na may inilabas na auth token.
-- **Transport**: ang Gateway WS endpoint ay nagpapasa ng mga request ngunit hindi nagpapasya
-ng membership. (Ang suporta sa legacy TCP bridge ay deprecated/inalis na.)
+- **Transport**: the Gateway WS endpoint forwards requests but does not decide
+  membership. (Legacy TCP bridge support is deprecated/removed.)
 
 ## Paano gumagana ang pairing
 
@@ -92,5 +97,3 @@ Mga tala sa seguridad:
 - Ang transport ay **stateless**; hindi ito nag-i-store ng membership.
 - Kung offline ang Gateway o naka-disable ang pairing, hindi makakapag-pair ang mga node.
 - Kung nasa remote mode ang Gateway, ang pairing ay nagaganap pa rin laban sa store ng remote Gateway.
-
-

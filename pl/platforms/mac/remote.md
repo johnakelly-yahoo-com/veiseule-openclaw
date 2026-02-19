@@ -1,4 +1,7 @@
 ---
+summary: "„Przepływ aplikacji macOS do sterowania zdalną bramą OpenClaw przez SSH”"
+read_when:
+  - Konfiguracja lub debugowanie zdalnego sterowania macOS
 title: "„Zdalne sterowanie”"
 ---
 
@@ -45,7 +48,7 @@ Tryb zdalny obsługuje dwa transporty:
 - **Bezpośrednio (ws/wss)**: Web Chat łączy się bezpośrednio z skonfigurowanym adresem URL Gateway.
 - Nie ma już osobnego serwera HTTP WebChat.
 
-## Uprawnienia
+## Permissions
 
 - Host zdalny wymaga tych samych zgód TCC co lokalny (Automatyzacja, Dostępność, Nagrywanie ekranu, Mikrofon, Rozpoznawanie mowy, Powiadomienia). Uruchom onboarding na tej maszynie, aby przyznać je jednorazowo.
 - Węzły ogłaszają swój stan uprawnień przez `node.list` / `node.describe`, aby agenci wiedzieli, co jest dostępne.
@@ -78,5 +81,3 @@ openclaw nodes notify --node <id> --title "Ping" --body "Remote gateway ready" -
 ```
 
 W aplikacji nie ma już globalnego przełącznika „domyślny dźwięk”; wywołujący wybierają dźwięk (lub brak) dla każdego żądania.
-
-

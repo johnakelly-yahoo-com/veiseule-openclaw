@@ -1,10 +1,14 @@
 ---
+summary: "OpenClaw ချိတ်ဆက်နိုင်သော မက်ဆေ့ချ်ပို့ဆောင်ရေး ပလက်ဖောင်းများ"
+read_when:
+  - OpenClaw အတွက် ချတ် ချန်နယ်တစ်ခု ရွေးချယ်လိုသောအခါ
+  - ပံ့ပိုးထားသော မက်ဆေ့ချ်ပို့ဆောင်ရေး ပလက်ဖောင်းများကို အမြန်အကျဉ်းချုပ် သိလိုသောအခါ
 title: "ချတ် ချန်နယ်များ"
 ---
 
 # ချတ် ချန်နယ်များ
 
-OpenClaw သည် သင် ယခင်ကတည်းက အသုံးပြုနေသော မည်သည့် ချတ်အက်ပ်တွင်မဆို သင်နှင့် စကားပြောနိုင်ပါသည်။ ချန်နယ်တစ်ခုချင်းစီသည် Gateway မှတစ်ဆင့် ချိတ်ဆက်ပါသည်။
+OpenClaw can talk to you on any chat app you already use. Each channel connects via the Gateway.
 Text is supported everywhere; media and reactions vary by channel.
 
 ## ပံ့ပိုးထားသော ချန်နယ်များ
@@ -29,6 +33,7 @@ Text is supported everywhere; media and reactions vary by channel.
 - [Zalo](/channels/zalo) — Zalo Bot API; ဗီယက်နမ်တွင် လူကြိုက်များသော မက်ဆင်ဂျာ (plugin, သီးခြားထည့်သွင်းရပါသည်)။
 - [Zalo Personal](/channels/zalouser) — QR login မှတစ်ဆင့် Zalo ကိုယ်ရေးကိုယ်တာ အကောင့် (plugin, သီးခြားထည့်သွင်းရပါသည်)။
 - [WebChat](/web/webchat) — WebSocket မှတစ်ဆင့် Gateway WebChat UI။
+- [WebChat](/web/webchat) — WebSocket မှတစ်ဆင့် Gateway WebChat UI။
 
 ## Notes
 
@@ -40,5 +45,3 @@ Text is supported everywhere; media and reactions vary by channel.
 - Telegram အတွင်းပိုင်း အချက်အလက်များ: [grammY notes](/channels/grammy)။
 - ပြဿနာဖြေရှင်းခြင်း: [Channel troubleshooting](/channels/troubleshooting)။
 - မော်ဒယ် ပံ့ပိုးသူများကို သီးခြား စာရွက်စာတမ်းအဖြစ် ဖော်ပြထားပါသည်; [Model Providers](/providers/models) ကို ကြည့်ပါ။
-
-

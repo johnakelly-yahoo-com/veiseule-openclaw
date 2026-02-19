@@ -1,12 +1,9 @@
 ---
-title: Clawnet 重构
-x-i18n:
-  generated_at: "2026-02-03T07:55:03Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 719b219c3b326479658fe6101c80d5273fc56eb3baf50be8535e0d1d2bb7987f
-  source_path: refactor/clawnet.md
-  workflow: 15
+summary: "Clawnet 重构：统一网络协议、角色、认证、审批、身份"
+read_when:
+  - 规划节点 + 操作者客户端的统一网络协议
+  - 重新设计跨设备的审批、配对、TLS 和在线状态
+title: "Clawnet 重构"
 ---
 
 # Clawnet 重构（协议 + 认证统一）
@@ -38,7 +35,7 @@ x-i18n:
 ## 非目标（明确）
 
 - 移除能力分离（仍需要最小权限）。
-- 不经作用域检查就暴露完整的 Gateway 网关控制平面。
+- 5. 在不进行作用域检查的情况下暴露完整的网关控制平面。
 - 使认证依赖于人类标签（别名仍然是非安全性的）。
 
 ---
@@ -47,10 +44,10 @@ x-i18n:
 
 ## 两个协议
 
-### 1) Gateway 网关 WebSocket（控制平面）
+### 1. Gateway 网关 WebSocket（控制平面）
 
 - 完整 API 表面：配置、渠道、模型、会话、智能体运行、日志、节点等。
-- 默认绑定：loopback。通过 SSH/Tailscale 远程访问。
+- 11. 默认绑定：回环。 默认绑定：loopback。通过 SSH/Tailscale 远程访问。
 - 认证：通过 `connect` 的令牌/密码。
 - 无 TLS 固定（依赖 loopback/隧道）。
 - 代码：
@@ -58,7 +55,7 @@ x-i18n:
   - `src/gateway/client.ts`
   - `docs/gateway/protocol.md`
 
-### 2) Bridge（节点传输）
+### 2. Bridge（节点传输）
 
 - 窄允许列表表面，节点身份 + 配对。
 - TCP 上的 JSONL；可选 TLS + 证书指纹固定。
@@ -77,7 +74,7 @@ x-i18n:
 - ACP → Gateway 网关 WS。
 - 浏览器控制使用自己的 HTTP 控制服务器。
 
-## 当前的节点
+## 34. 当前的节点
 
 - macOS 应用在节点模式下连接到 Gateway 网关 bridge（`MacNodeBridgeSession`）。
 - iOS/Android 应用连接到 Gateway 网关 bridge。
@@ -141,7 +138,7 @@ x-i18n:
 
 ### 关键规则
 
-角色是按连接的，不是按设备。一个设备可以分别打开两个角色。
+角色是按连接的，不是按设备。一个设备可以分别打开两个角色。 一个设备可以分别打开这两种角色。
 
 ---
 
@@ -155,7 +152,7 @@ x-i18n:
 - `displayName`（人类名称）。
 - `role` + `scope` + `caps` + `commands`。
 
-## 配对流程（统一）
+## Pairing flow (unified)
 
 - 客户端未认证连接。
 - Gateway 网关为该 `deviceId` 创建**配对请求**。
@@ -183,7 +180,7 @@ x-i18n:
 
 ## 静默批准（SSH 启发式）
 
-精确定义以避免薄弱环节。优选其一：
+Define it precisely to avoid a weak link. Prefer one:
 
 - **仅限本地**：当客户端通过 loopback/Unix socket 连接时自动配对。
 - **通过 SSH 质询**：Gateway 网关颁发 nonce；客户端通过获取它来证明 SSH。
@@ -220,7 +217,7 @@ x-i18n:
 
 ## 当前
 
-审批发生在节点主机上（mac 应用节点运行时）。提示出现在节点运行的地方。
+审批发生在节点主机上（mac 应用节点运行时）。提示出现在节点运行的地方。 Prompt appears where node runs.
 
 ## 提议
 
@@ -281,6 +278,7 @@ x-i18n:
 
 认证必需；永不改变。
 首选：
+Preferred:
 
 - 密钥对指纹（公钥哈希）。
 
@@ -317,7 +315,7 @@ x-i18n:
 
 - 保持 bridge 运行。
 - 并行添加 WS node 支持。
-- 通过配置标志限制功能。
+- Gate features behind config flag.
 
 ## 阶段 3：中央审批
 
@@ -346,7 +344,7 @@ x-i18n:
 
 - 角色/允许列表在 Gateway 网关边界强制执行。
 - 没有客户端可以在没有 operator 作用域的情况下获得"完整"API。
-- *所有*连接都需要配对。
+- _所有_连接都需要配对。
 - TLS + 固定减少移动设备的 MITM 风险。
 - SSH 静默批准是便利措施；仍然记录 + 可撤销。
 - 设备发现永远不是信任锚。
@@ -384,7 +382,7 @@ WS 控制平面对于小消息没问题，但节点还做：
 
 - 显式协议版本 + 错误代码。
 - 重连规则 + 心跳策略。
-- 在线状态 TTL 和最后在线语义。
+- 28. 在线状态 TTL 与最后一次可见语义。
 
 ---
 
@@ -396,13 +394,13 @@ WS 控制平面对于小消息没问题，但节点还做：
 
 2. 操作者作用域粒度
    - read/write/admin + approvals + pairing（最小可行）。
-   - 以后考虑每功能作用域。
+   - 35. 之后再考虑按功能划分的作用域。
 
 3. 令牌轮换 + 撤销 UX
    - 角色更改时自动轮换。
    - 按 deviceId + 角色撤销的 UI。
 
-4. 设备发现
+4. 39. 发现
    - 扩展当前 Bonjour TXT 以包含 WS TLS 指纹 + 角色提示。
    - 仅作为定位器提示处理。
 
@@ -418,5 +416,3 @@ WS 控制平面对于小消息没问题，但节点还做：
 - 痛点：审批 + 重复 + 两个栈。
 - 提议：一个带有显式角色 + 作用域的 WS 协议，统一配对 + TLS 固定，Gateway 网关托管的审批，稳定设备 ID + 可爱别名。
 - 结果：更简单的 UX，更强的安全性，更少的重复，更好的移动路由。
-
-

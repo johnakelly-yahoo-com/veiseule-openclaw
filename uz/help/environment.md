@@ -1,4 +1,9 @@
 ---
+summary: "OpenClaw muhit o‘zgaruvchilarini qayerdan yuklaydi va ustuvorlik tartibi"
+read_when:
+  - Qaysi env o‘zgaruvchilar yuklanishini va qaysi tartibda ekanini bilishingiz kerak
+  - Gateway’da API kalitlari yetishmayotganini nosozlikdan o‘tkazyapsiz
+  - Provayder autentifikatsiyasi yoki deployment muhitlarini hujjatlashtiryapsiz
 title: "Muhit o‘zgaruvchilari"
 ---
 
@@ -100,5 +105,3 @@ O‘rnatilganda, `OPENCLAW_HOME` barcha ichki yo‘l aniqlashlari uchun tizim uy
 - [Gateway konfiguratsiyasi](/gateway/configuration)
 - [FAQ: env o‘zgaruvchilari va .env yuklanishi](/help/faq#env-vars-and-env-loading)
 - [Modellar haqida umumiy ma’lumot](/concepts/models)
-
-

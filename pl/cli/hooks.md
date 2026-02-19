@@ -1,4 +1,8 @@
 ---
+summary: "Dokumentacja referencyjna CLI dla `openclaw hooks` (hooki agenta)"
+read_when:
+  - Chcesz zarządzać hookami agenta
+  - Chcesz instalować lub aktualizować hooki
 title: "hooks"
 ---
 
@@ -188,6 +192,9 @@ openclaw hooks install <path-or-spec>
 
 Instaluje pakiet hooków z lokalnego folderu/archiwum lub z npm.
 
+Specyfikacje npm są **tylko z rejestru** (nazwa pakietu + opcjonalna wersja/tag). Specyfikacje Git/URL/file
+są odrzucane. Instalacje zależności są uruchamiane z `--ignore-scripts` ze względów bezpieczeństwa.
+
 **Co robi:**
 
 - Kopiuje pakiet hooków do `~/.openclaw/hooks/<id>`
@@ -246,6 +253,18 @@ openclaw hooks enable session-memory
 
 **Zobacz:** [dokumentacja session-memory](/automation/hooks#session-memory)
 
+### bootstrap-extra-files
+
+Wstrzykuje dodatkowe pliki bootstrap (na przykład lokalne w monorepo `AGENTS.md` / `TOOLS.md`) podczas `agent:bootstrap`.
+
+**Włącz:**
+
+```bash
+hooki openclaw włączają bootstrap-extra-files
+```
+
+**Zobacz:** [SOUL Evil Hook](/hooks/soul-evil)
+
 ### command-logger
 
 Rejestruje wszystkie zdarzenia poleceń do scentralizowanego pliku audytu.
@@ -273,30 +292,16 @@ grep '"action":"new"' ~/.openclaw/logs/commands.log | jq .
 
 **Zobacz:** [dokumentacja command-logger](/automation/hooks#command-logger)
 
-### soul-evil
-
-Zamienia wstrzykniętą treść `SOUL.md` na `SOUL_EVIL.md` podczas okna czyszczenia lub losowo.
-
-**Włącz:**
-
-```bash
-openclaw hooks enable soul-evil
-```
-
-**Zobacz:** [SOUL Evil Hook](/hooks/soul-evil)
-
 ### boot-md
 
 Uruchamia `BOOT.md`, gdy gateway startuje (po uruchomieniu kanałów).
 
-**Zdarzenia**: `gateway:startup`
-
 **Włącz**:
+
+**Zdarzenia**: `gateway:startup`
 
 ```bash
 openclaw hooks enable boot-md
 ```
 
 **Zobacz:** [dokumentacja boot-md](/automation/hooks#boot-md)
-
-

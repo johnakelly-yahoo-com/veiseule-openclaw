@@ -1,10 +1,15 @@
 ---
+summary: "ကိုးကားချက်: ပံ့ပိုးသူအလိုက် transcript သန့်စင်ခြင်းနှင့် ပြုပြင်ခြင်း စည်းမျဉ်းများ"
+read_when:
+  - Transcript ပုံသဏ္ဍာန်နှင့် ဆက်စပ်သော ပံ့ပိုးသူ၏ တောင်းဆိုချက် ငြင်းပယ်မှုများကို ချွတ်ယွင်းချက်ရှာဖွေနေစဉ်
+  - Transcript သန့်စင်ခြင်း သို့မဟုတ် tool-call ပြုပြင်ရေး လိုဂျစ်ကို ပြောင်းလဲနေစဉ်
+  - ပံ့ပိုးသူများအကြား tool-call id မကိုက်ညီမှုများကို စုံစမ်းနေစဉ်
 title: "မှတ်တမ်း သန့်ရှင်းရေး"
 ---
 
 # မှတ်တမ်း သန့်ရှင်းရေး (Provider ပြင်ဆင်မှုများ)
 
-ဤစာရွက်စာတမ်းတွင် run မလုပ်ဆောင်မီ မှတ်တမ်းများအပေါ် အသုံးပြုသည့် **provider အလိုက် ပြင်ဆင်မှုများ** ကို ဖော်ပြထားသည်။
+This document describes **provider-specific fixes** applied to transcripts before a run
 (building model context). These are **in-memory** adjustments used to satisfy strict
 provider requirements. These hygiene steps do **not** rewrite the stored JSONL transcript
 on disk; however, a separate session-file repair pass may rewrite malformed JSONL files
@@ -19,6 +24,7 @@ file is backed up alongside the session file.
 - Turn အတည်ပြုခြင်း / အစဉ်လိုက်စီစဉ်ခြင်း
 - Thought signature သန့်ရှင်းရေး
 - Image payload သန့်စင်ခြင်း
+- အသုံးပြုသူ ထည့်သွင်းသည့် အချက်အလက်၏ provenance tagging (session အကြား routed prompts များအတွက်)
 
 Transcript သိမ်းဆည်းမှု အသေးစိတ်များ လိုအပ်ပါက—
 
@@ -64,6 +70,18 @@ Implementation:
 
 - `sanitizeToolCallInputs` in `src/agents/session-transcript-repair.ts`
 - Applied in `sanitizeSessionHistory` in `src/agents/pi-embedded-runner/google.ts`
+
+---
+
+## အထွေထွေ စည်းမျဉ်း - inter-session input provenance
+
+agent တစ်ခုက `sessions_send` မှတဆင့် (agent-to-agent reply/announce အဆင့်များအပါအဝင်) အခြား session သို့ prompt ပို့သောအခါ OpenClaw သည် ဖန်တီးထားသော user turn ကို အောက်ပါအတိုင်း သိမ်းဆည်းထားပါသည်—
+
+- `message.provenance.kind = "inter_session"`
+
+ဤ metadata ကို transcript append ပြုလုပ်ချိန်တွင် ရေးသားထားပြီး role ကို မပြောင်းလဲပါ (`role: "user"` သည် provider compatibility အတွက် ဆက်လက် တည်ရှိသည်)။ Transcript ကို ဖတ်ရှုသူများသည် ၎င်းကို အသုံးပြု၍ routed လုပ်ထားသော internal prompts များကို နောက်ဆုံးအသုံးပြုသူမှ ရေးသားထားသော ညွှန်ကြားချက်များအဖြစ် မသတ်မှတ်ရန် ရှောင်ရှားနိုင်သည်။
+
+Context ကို ပြန်လည်တည်ဆောက်သည့်အခါ OpenClaw သည် ထို user turns များ၏ အစတွင် `[Inter-session message]` အမှတ်အသားတိုကို in-memory အနေဖြင့် ထည့်သွင်းပေးပြီး model သည် ၎င်းတို့ကို ပြင်ပ end-user ညွှန်ကြားချက်များနှင့် ခွဲခြားနိုင်စေရန် ကူညီပေးပါသည်။
 
 ---
 
@@ -121,5 +139,3 @@ Before the 2026.1.22 release, OpenClaw applied multiple layers of transcript hyg
 
 This complexity caused cross-provider regressions (notably `openai-responses`
 `call_id|fc_id` pairing). 2026.1.22 cleanup တွင် extension ကို ဖယ်ရှားပြီး logic ကို runner တွင် စုစည်းကာ OpenAI ကို image sanitization အပြင် **no-touch** ဖြစ်စေခဲ့သည်။
-
-

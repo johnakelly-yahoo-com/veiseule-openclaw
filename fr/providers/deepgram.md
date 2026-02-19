@@ -1,4 +1,8 @@
 ---
+summary: "Transcription Deepgram pour les notes vocales entrantes"
+read_when:
+  - Vous souhaitez utiliser la reconnaissance vocale Deepgram pour les pièces jointes audio
+  - Vous avez besoin d’un exemple de configuration Deepgram rapide
 title: "Deepgram"
 ---
 
@@ -84,5 +88,3 @@ Exemple avec des options Deepgram :
 - L’authentification suit l’ordre standard des fournisseurs ; `DEEPGRAM_API_KEY` est la voie la plus simple.
 - Remplacez les endpoints ou les en-têtes avec `tools.media.audio.baseUrl` et `tools.media.audio.headers` lors de l’utilisation d’un proxy.
 - La sortie suit les mêmes règles audio que les autres fournisseurs (plafonds de taille, délais d’expiration, injection de la transcription).
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "CLI حوالہ برائے `openclaw agent` (Gateway کے ذریعے ایک ایجنٹ ٹرن بھیجیں)"
+read_when:
+  - آپ اسکرپٹس سے ایک ایجنٹ ٹرن چلانا چاہتے ہیں (اختیاری طور پر جواب پہنچانا)
 title: "ایجنٹ"
 ---
 
@@ -19,5 +22,3 @@ openclaw agent --agent ops --message "Summarize logs"
 openclaw agent --session-id 1234 --message "Summarize inbox" --thinking medium
 openclaw agent --agent ops --message "Generate report" --deliver --reply-channel slack --reply-to "#reports"
 ```
-
-

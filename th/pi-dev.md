@@ -51,7 +51,7 @@ scripts/pi/run-tests.sh --live
 
 ## 46. รีเซ็ตล้างสถานะทั้งหมด
 
-47. สถานะถูกเก็บไว้ภายใต้ไดเรกทอรีสถานะของ OpenClaw 48. ค่าเริ่มต้นคือ `~/.openclaw` สถานะจะอยู่ภายใต้ไดเรกทอรีสถานะของ OpenClaw ค่าเริ่มต้นคือ `~/.openclaw` หากตั้งค่า `OPENCLAW_STATE_DIR` ให้ใช้ไดเรกทอรีนั้นแทน
+สถานะถูกเก็บไว้ภายใต้ไดเรกทอรีสถานะของ OpenClaw 48. 48. ค่าเริ่มต้นคือ `~/.openclaw` ค่าเริ่มต้นคือ `~/.openclaw` สถานะจะอยู่ภายใต้ไดเรกทอรีสถานะของ OpenClaw ค่าเริ่มต้นคือ `~/.openclaw` หากตั้งค่า `OPENCLAW_STATE_DIR` ให้ใช้ไดเรกทอรีนั้นแทน
 
 เพื่อรีเซ็ตทุกอย่าง:
 
@@ -68,5 +68,3 @@ scripts/pi/run-tests.sh --live
 
 - [https://docs.openclaw.ai/testing](https://docs.openclaw.ai/testing)
 - [https://docs.openclaw.ai/start/getting-started](https://docs.openclaw.ai/start/getting-started)
-
-

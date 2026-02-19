@@ -1,4 +1,7 @@
 ---
+summary: "विभिन्न प्लेटफ़ॉर्म्स (WhatsApp/Telegram/Discord/Slack/Signal/iMessage/Microsoft Teams) पर समूह चैट का व्यवहार"
+read_when:
+  - समूह चैट व्यवहार या मेंशन गेटिंग बदलते समय
 title: "समूह"
 ---
 
@@ -244,7 +247,7 @@ otherwise -> reply
 - मेंशन गेटिंग केवल तब लागू होती है जब मेंशन डिटेक्शन संभव हो (नेटिव mentions या `mentionPatterns` कॉन्फ़िगर हों)।
 - Discord के डिफ़ॉल्ट्स `channels.discord.guilds."*"` में रहते हैं (प्रति guild/channel ओवरराइड योग्य)।
 - समूह इतिहास कॉन्टेक्स्ट सभी चैनलों में समान रूप से रैप किया जाता है और **pending-only** होता है (mention gating के कारण छोड़े गए संदेश); ग्लोबल डिफ़ॉल्ट के लिए `messages.groupChat.historyLimit` और ओवरराइड्स के लिए `channels.<channel>
-  .historyLimit` (या `channels.&lt;channel&gt;
+  .historyLimit` (या `channels.<channel>
   .accounts.*.historyLimit`) का उपयोग करें।`0` सेट करने पर अक्षम हो जाता है।`toolsBySender`: समूह के भीतर प्रति-प्रेषक ओवरराइड्स (कुंजियाँ चैनल के अनुसार sender IDs/usernames/emails/phone numbers होती हैं)। वाइल्डकार्ड के रूप में `"*"` का उपयोग करें।
 
 ## समूह/चैनल टूल प्रतिबंध (वैकल्पिक)
@@ -371,5 +374,3 @@ When `channels.whatsapp.groups`, `channels.telegram.groups`, or `channels.imessa
 ## WhatsApp विशेषताएँ
 
 WhatsApp-विशिष्ट व्यवहार (इतिहास इंजेक्शन, मेंशन हैंडलिंग विवरण) के लिए [Group messages](/channels/group-messages) देखें।
-
-

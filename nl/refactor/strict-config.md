@@ -1,4 +1,9 @@
 ---
+summary: "Strikte configvalidatie + alleen-doctor-migraties"
+read_when:
+  - Ontwerpen of implementeren van gedrag voor configvalidatie
+  - Werken aan configmigraties of doctor-workflows
+  - Afhandelen van plugin-configschema’s of het blokkeren van plugin-load
 title: "Strikte configvalidatie"
 ---
 
@@ -62,7 +67,7 @@ Toegestaan (alleen diagnostisch):
 
 Alles andere moet hard falen met: “Config ongeldig. Voer `openclaw doctor --fix` uit.”
 
-## Fout-UX-indeling
+## Error UX format
 
 - Enkele koptekst kop.
 - Gegroepeerde secties:
@@ -86,5 +91,3 @@ Alles andere moet hard falen met: “Config ongeldig. Voer `openclaw doctor --fi
 - Plugin zonder schema → plugin-load geblokkeerd met duidelijke fout.
 - Ongeldige config → gateway-opstart geblokkeerd behalve diagnostische opdrachten.
 - Doctor dry-run automatisch; `doctor --fix` schrijft gecorrigeerde config.
-
-

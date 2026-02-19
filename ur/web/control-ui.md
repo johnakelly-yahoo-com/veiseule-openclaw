@@ -1,4 +1,8 @@
 ---
+summary: "Gateway کے لیے براؤزر پر مبنی کنٹرول UI (چیٹ، نوڈز، کنفیگ)"
+read_when:
+  - آپ براؤزر سے Gateway کو چلانا چاہتے ہیں
+  - آپ SSH سرنگوں کے بغیر Tailnet رسائی چاہتے ہیں
 title: "کنٹرول UI"
 ---
 
@@ -210,5 +214,3 @@ http://localhost:5173/?gatewayUrl=wss://<gateway-host>:18789&token=<gateway-toke
 ```
 
 ریموٹ رسائی سیٹ اپ کی تفصیلات: [Remote access](/gateway/remote)۔
-
-

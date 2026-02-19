@@ -1,4 +1,8 @@
 ---
+summary: "Cameravastlegging (iOS-node + macOS-app) voor agentgebruik: foto’s (jpg) en korte videoclips (mp4)"
+read_when:
+  - Bij het toevoegen of wijzigen van cameravastlegging op iOS-nodes of macOS
+  - Bij het uitbreiden van door agenten toegankelijke MEDIA-tempbestandworkflows
 title: "Cameravastlegging"
 ---
 
@@ -83,7 +87,7 @@ Notities:
   - Standaard: **aan** (ontbrekende sleutel wordt als ingeschakeld behandeld).
   - Wanneer uit: `camera.*`-opdrachten retourneren `CAMERA_DISABLED`.
 
-### Machtigingen
+### Permissions
 
 - Android vereist runtime-rechten:
   - `CAMERA` voor zowel `camera.snap` als `camera.clip`.
@@ -150,5 +154,3 @@ openclaw nodes screen record --node <id> --duration 10s --fps 15   # prints MEDI
 Notities:
 
 - Vereist macOS-recht **Schermopname** (TCC).
-
-

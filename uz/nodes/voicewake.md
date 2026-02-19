@@ -1,4 +1,8 @@
 ---
+summary: "Global ovozli uyg‘otish so‘zlari (Gateway tomonidan boshqariladi) va ular tugunlar bo‘ylab qanday sinxronlanadi"
+read_when:
+  - Changing voice wake words behavior or defaults
+  - Adding new node platforms that need wake word sync
 title: "Ovozli uyg‘otish"
 ---
 
@@ -59,5 +63,3 @@ Kimlar qabul qiladi:
 
 - Exposes a Wake Words editor in Settings.
 - Tahrirlar hamma joyda sinxron bo‘lishi uchun Gateway WS orqali `voicewake.set`ni chaqiradi.
-
-

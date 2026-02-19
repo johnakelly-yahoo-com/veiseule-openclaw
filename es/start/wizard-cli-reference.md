@@ -1,4 +1,8 @@
 ---
+summary: "Referencia completa del flujo de incorporación de la CLI, configuración de autenticación/modelos, salidas e internals"
+read_when:
+  - Necesita un comportamiento detallado para la incorporación de openclaw
+  - Está depurando los resultados de la incorporación o integrando clientes de incorporación
 title: "Referencia de incorporación por CLI"
 sidebarTitle: "Referencia de CLI"
 ---
@@ -26,21 +30,20 @@ No instala ni modifica nada en el host remoto.
 ## Detalles del flujo local
 
 <Steps>
-  <Step title="Detección de configuración existente">
+  <Step title="Existing config detection">
     - Si existe `~/.openclaw/openclaw.json`, elija Mantener, Modificar o Restablecer.
     - Volver a ejecutar el asistente no borra nada a menos que elija explícitamente Restablecer (o pase `--reset`).
     - Si la configuración es inválida o contiene claves heredadas, el asistente se detiene y le pide que ejecute `openclaw doctor` antes de continuar.
     - El restablecimiento usa `trash` y ofrece alcances:
       - Solo configuración
       - Configuración + credenciales + sesiones
-      - Restablecimiento completo (también elimina el espacio de trabajo)
-  
+      - Restablecimiento completo (también elimina el espacio de trabajo)  
 </Step>
-  <Step title="Modelo y autenticación">
+  <Step title="Model and auth">
     - La matriz completa de opciones está en [Opciones de autenticación y modelos](#auth-and-model-options).
   
 </Step>
-  <Step title="Espacio de trabajo">
+  <Step title="Workspace">
     - Predeterminado `~/.openclaw/workspace` (configurable).
     - Inicializa los archivos del espacio de trabajo necesarios para el ritual de arranque de la primera ejecución.
     - Diseño del espacio de trabajo: [Espacio de trabajo del Agente](/concepts/agent-workspace).
@@ -53,7 +56,7 @@ No instala ni modifica nada en el host remoto.
     - Los binds que no son loopback aún requieren autenticación.
   
 </Step>
-  <Step title="Canales">
+  <Step title="Channels">
     - [WhatsApp](/channels/whatsapp): inicio de sesión por QR opcional
     - [Telegram](/channels/telegram): token del bot
     - [Discord](/channels/discord): token del bot
@@ -63,7 +66,9 @@ No instala ni modifica nada en el host remoto.
     - [BlueBubbles](/channels/bluebubbles): recomendado para iMessage; URL del servidor + contraseña + webhook
     - [iMessage](/channels/imessage): ruta CLI heredada `imsg` + acceso a la base de datos
     - Seguridad de mensajes directos: el valor predeterminado es el emparejamiento. El primer mensaje directo envía un código; apruébelo mediante
-      `openclaw pairing approve <channel> <code>` o use listas de permitidos.
+      `openclaw pairing approve <channel><code>` o use listas de permitidos.
+  
+</Step><code>` o use listas de permitidos.
   
 </Step>
   <Step title="Instalación del daemon">
@@ -128,7 +133,11 @@ Lo que configura:
     - macOS: verifica el ítem del Llavero "Claude Code-credentials"
     - Linux y Windows: reutiliza `~/.claude/.credentials.json` si está presente
 
+    ````
+    ```
     En macOS, elija "Permitir siempre" para que los inicios de launchd no se bloqueen.
+    ```
+    ````
 
   
 </Accordion>
@@ -144,7 +153,11 @@ Lo que configura:
   <Accordion title="OpenAI Code subscription (OAuth)">
     Flujo en el navegador; pegue `code#state`.
 
+    ````
+    ```
     Establece `agents.defaults.model` en `openai-codex/gpt-5.3-codex` cuando el modelo no está configurado o es `openai/*`.
+    ```
+    ````
 
   
 </Accordion>
@@ -152,7 +165,11 @@ Lo que configura:
     Usa `OPENAI_API_KEY` si está presente o solicita una clave, y luego la guarda en
     `~/.openclaw/.env` para que launchd pueda leerla.
 
+    ````
+    ```
     Establece `agents.defaults.model` en `openai/gpt-5.1-codex` cuando el modelo no está configurado, es `openai/*` o `openai-codex/*`.
+    ```
+    ````
 
   
 </Accordion>
@@ -195,15 +212,17 @@ Lo que configura:
   
 </Accordion>
   <Accordion title="Custom provider">
-    Funciona con endpoints compatibles con OpenAI y Anthropic.
+    Funciona con endpoints compatibles con OpenAI y compatibles con Anthropic.
 
+    ```
     Flags no interactivos:
     - `--auth-choice custom-api-key`
     - `--custom-base-url`
     - `--custom-model-id`
-    - `--custom-api-key` (opcional; usa `CUSTOM_API_KEY` como fallback)
+    - `--custom-api-key` (opcional; usa `CUSTOM_API_KEY` como alternativa)
     - `--custom-provider-id` (opcional)
-    - `--custom-compatibility <openai|anthropic>` (opcional; predeterminado `openai`)
+    - `--custom-compatibility <openai|anthropic>` (opcional; por defecto `openai`)
+    ```
 
   
 </Accordion>
@@ -226,7 +245,7 @@ Rutas de credenciales y perfiles:
 <Note>
 Consejo para headless y servidores: complete OAuth en una máquina con navegador y luego copie
 `~/.openclaw/credentials/oauth.json` (o `$OPENCLAW_STATE_DIR/credentials/oauth.json`)
-al host del gateway.
+al host del Gateway.
 </Note>
 
 ## Salidas e internals
@@ -278,4 +297,3 @@ Comportamiento de configuración de Signal:
 - Centro de incorporación: [Asistente de incorporación (CLI)](/start/wizard)
 - Automatización y scripts: [Automatización de la CLI](/start/wizard-cli-automation)
 - Referencia de comandos: [`openclaw onboard`](/cli/onboard)
-

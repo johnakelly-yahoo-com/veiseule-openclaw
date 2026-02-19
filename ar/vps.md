@@ -1,4 +1,8 @@
 ---
+summary: "مركز استضافة VPS لـ OpenClaw (Oracle/Fly/Hetzner/GCP/exe.dev)"
+read_when:
+  - تريد تشغيل Gateway في السحابة
+  - تحتاج إلى خريطة سريعة لأدلة VPS/الاستضافة
 title: "استضافة VPS"
 ---
 
@@ -37,5 +41,3 @@ title: "استضافة VPS"
 وقدرات `system.run` بينما يبقى Gateway في السحابة.
 
 المستندات: [Nodes](/nodes)، [Nodes CLI](/cli/nodes)
-
-

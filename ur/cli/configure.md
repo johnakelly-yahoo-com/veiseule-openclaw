@@ -1,4 +1,7 @@
 ---
+summary: "CLI کے لیے حوالہ: `openclaw configure` (انٹرایکٹو کنفیگریشن پرامپٹس)"
+read_when:
+  - آپ اس وقت جب اسناد، ڈیوائسز، یا ایجنٹ کی ڈیفالٹس کو انٹرایکٹو طور پر ایڈجسٹ کرنا چاہتے ہوں
 title: "کنفیگر"
 ---
 
@@ -8,7 +11,7 @@ title: "کنفیگر"
 
 نوٹ: **Model** سیکشن میں اب `agents.defaults.models` اجازت فہرست کے لیے ملٹی-سلیکٹ شامل ہے (جو `/model` اور ماڈل پکر میں ظاہر ہوتا ہے)۔
 
-مشورہ: `openclaw config` کو بغیر کسی ذیلی کمانڈ کے چلانے سے وہی وزرڈ کھلتا ہے۔ استعمال کریں
+Tip: `openclaw config` without a subcommand opens the same wizard. Use
 `openclaw config get|set|unset` for non-interactive edits.
 
 متعلقہ:
@@ -18,8 +21,8 @@ title: "کنفیگر"
 
 نوٹس:
 
-- Gateway کہاں چلتا ہے اس کا انتخاب کرنے سے ہمیشہ `gateway.mode` اپ ڈیٹ ہوتا ہے۔ اگر آپ کو صرف یہی درکار ہے تو آپ دیگر حصوں کے بغیر "Continue" منتخب کر سکتے ہیں۔
-- چینل پر مبنی سروسز (Slack/Discord/Matrix/Microsoft Teams) سیٹ اپ کے دوران چینل/روم الاؤ لسٹس کے لیے اشارہ کرتی ہیں۔ آپ نام یا IDs درج کر سکتے ہیں؛ وزرڈ جہاں ممکن ہو ناموں کو IDs میں تبدیل کر دیتا ہے۔
+- Choosing where the Gateway runs always updates `gateway.mode`. You can select "Continue" without other sections if that is all you need.
+- Channel-oriented services (Slack/Discord/Matrix/Microsoft Teams) prompt for channel/room allowlists during setup. You can enter names or IDs; the wizard resolves names to IDs when possible.
 
 ## مثالیں
 
@@ -27,5 +30,3 @@ title: "کنفیگر"
 openclaw configure
 openclaw configure --section models --section channels
 ```
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "CLI-backends: tekst-only fallback via lokale AI-CLI’s"
+read_when:
+  - Je wilt een betrouwbare fallback wanneer API-providers falen
+  - Je draait Claude Code CLI of andere lokale AI-CLI’s en wilt ze hergebruiken
+  - Je hebt een tekst-only, tool-vrije route nodig die nog steeds sessies en afbeeldingen ondersteunt
 title: "CLI-backends"
 ---
 
@@ -168,7 +173,7 @@ automatisch laden vanaf platte paden (gedrag van Claude Code CLI).
   laatste agent-bericht plus `thread_id` wanneer aanwezig.
 - `output: "text"` behandelt stdout als de uiteindelijke respons.
 
-Invoermodi:
+Input modes:
 
 - `input: "arg"` (standaard) geeft de prompt door als het laatste CLI-argument.
 - `input: "stdin"` verstuurt de prompt via stdin.
@@ -216,5 +221,3 @@ Overschrijf alleen indien nodig (gebruikelijk: absoluut `command`-pad).
 - **Geen sessiecontinuïteit**: zorg dat `sessionArg` is ingesteld en `sessionMode` niet
   `none` is (Codex CLI kan momenteel niet hervatten met JSON-uitvoer).
 - **Afbeeldingen genegeerd**: stel `imageArg` in (en verifieer dat de CLI bestandspaden ondersteunt).
-
-

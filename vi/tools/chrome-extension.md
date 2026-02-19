@@ -1,4 +1,9 @@
 ---
+summary: "Tiện ích Chrome: cho phép OpenClaw điều khiển tab Chrome hiện có của bạn"
+read_when:
+  - Bạn muốn tác tử điều khiển một tab Chrome hiện có (nút trên thanh công cụ)
+  - Bạn cần Gateway từ xa + tự động hóa trình duyệt cục bộ qua Tailscale
+  - Bạn muốn hiểu các hệ quả bảo mật của việc chiếm quyền trình duyệt
 title: "Tiện ích Chrome"
 ---
 
@@ -95,7 +100,7 @@ Nếu bạn thấy `!`:
 
 ### Gateway cục bộ (cùng máy với Chrome) — thường **không cần bước bổ sung**
 
-Nếu Gateway chạy trên cùng một máy với Chrome, nó sẽ khởi động dịch vụ điều khiển trình duyệt trên loopback
+If the Gateway runs on the same machine as Chrome, it starts the browser control service on loopback
 and auto-starts the relay server. The extension talks to the local relay; the CLI/tool calls go to the Gateway.
 
 ### Gateway từ xa (Gateway chạy ở nơi khác) — **chạy node host**
@@ -171,5 +176,3 @@ Liên quan:
 - Tổng quan công cụ trình duyệt: [Browser](/tools/browser)
 - Kiểm toán bảo mật: [Security](/gateway/security)
 - Thiết lập Tailscale: [Tailscale](/gateway/tailscale)
-
-

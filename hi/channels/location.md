@@ -1,4 +1,8 @@
 ---
+summary: "इनबाउंड चैनल लोकेशन पार्सिंग (Telegram + WhatsApp) और संदर्भ फ़ील्ड"
+read_when:
+  - चैनल लोकेशन पार्सिंग जोड़ते या संशोधित करते समय
+  - एजेंट प्रॉम्प्ट्स या टूल्स में लोकेशन संदर्भ फ़ील्ड का उपयोग करते समय
 title: "चैनल लोकेशन पार्सिंग"
 ---
 
@@ -50,5 +54,3 @@ Meet here
 - **Telegram**: वेन्यू `LocationName/LocationAddress` से मैप होते हैं; लाइव लोकेशन `live_period` का उपयोग करती हैं।
 - **WhatsApp**: `locationMessage.comment` और `liveLocationMessage.caption` को कैप्शन पंक्ति के रूप में जोड़ा जाता है।
 - **Matrix**: `geo_uri` को पिन लोकेशन के रूप में पार्स किया जाता है; ऊँचाई (altitude) को अनदेखा किया जाता है और `LocationIsLive` हमेशा false रहता है।
-
-

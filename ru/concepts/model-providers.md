@@ -1,4 +1,8 @@
 ---
+summary: "Обзор провайдеров моделей с примерами конфигов и CLI‑процессов"
+read_when:
+  - Вам нужен справочник по настройке моделей для каждого провайдера
+  - Вам нужны примеры конфигов или команды CLI для онбординга провайдеров моделей
 title: "Провайдеры моделей"
 ---
 
@@ -116,6 +120,7 @@ OpenClaw поставляется с каталогом pi‑ai. Эти пров
   - OpenAI‑совместимый базовый URL: `https://api.cerebras.ai/v1`.
 - Mistral: `mistral` (`MISTRAL_API_KEY`)
 - GitHub Copilot: `github-copilot` (`COPILOT_GITHUB_TOKEN` / `GH_TOKEN` / `GITHUB_TOKEN`)
+- Hugging Face Inference: `huggingface` (`HUGGINGFACE_HUB_TOKEN` или `HF_TOKEN`) — OpenAI-совместимый маршрутизатор; пример модели: `huggingface/deepseek-ai/DeepSeek-R1`; CLI: `openclaw onboard --auth-choice huggingface-api-key`. См. [Hugging Face (Inference)](/providers/huggingface).
 
 ## Провайдеры через `models.providers` (кастомный/базовый URL)
 
@@ -255,6 +260,32 @@ ollama pull llama3.3
 
 Ollama автоматически обнаруживается при локальном запуске по адресу `http://127.0.0.1:11434/v1`. См. [/providers/ollama](/providers/ollama) для рекомендаций по моделям и кастомной конфигурации.
 
+### vLLM
+
+vLLM — это локальный (или самостоятельно размещённый) OpenAI-совместимый сервер:
+
+- Провайдер: `vllm`
+- Аутентификация: необязательна (зависит от вашего сервера)
+- Базовый URL по умолчанию: `http://127.0.0.1:8000/v1`
+
+Чтобы включить автообнаружение локально (подойдет любое значение, если ваш сервер не требует аутентификацию):
+
+```bash
+export VLLM_API_KEY="vllm-local"
+```
+
+Затем укажите модель (замените на один из ID, возвращаемых `/v1/models`):
+
+```json5
+{
+  agents: {
+    defaults: { model: { primary: "vllm/your-model-id" } },
+  },
+}
+```
+
+Подробности см. в [/providers/vllm](/providers/vllm).
+
 ### Локальные прокси (LM Studio, vLLM, LiteLLM и т. п.)
 
 Пример (OpenAI‑совместимый):
@@ -310,5 +341,3 @@ openclaw models list
 ```
 
 См. также: [/gateway/configuration](/gateway/configuration) — полные примеры конфигурации.
-
-

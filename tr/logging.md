@@ -1,8 +1,13 @@
 ---
-title: "Günlükleme"
+summary: "Günlükleme genel bakışı: dosya günlükleri, konsol çıktısı, CLI ile izleme ve Control UI"
+read_when:
+  - You need a beginner-friendly overview of logging
+  - Günlük seviyelerini veya biçimlerini yapılandırmak istediğinizde
+  - You are troubleshooting and need to find logs quickly
+title: "Logging"
 ---
 
-# Günlükleme
+# Logging
 
 OpenClaw iki yerde günlük tutar:
 
@@ -12,7 +17,7 @@ OpenClaw iki yerde günlük tutar:
 Bu sayfa, günlüklerin nerede bulunduğunu, nasıl okunacağını ve günlük
 seviyeleri ile biçimlerinin nasıl yapılandırılacağını açıklar.
 
-## Günlüklerin bulunduğu yer
+## Where logs live
 
 Varsayılan olarak Gateway, aşağıdaki dizin altında dönen bir günlük dosyası yazar:
 
@@ -30,7 +35,7 @@ Bunu `~/.openclaw/openclaw.json` içinde geçersiz kılabilirsiniz:
 }
 ```
 
-## Günlükler nasıl okunur
+## How to read logs
 
 ### CLI: canlı izleme (önerilir)
 
@@ -123,7 +128,7 @@ Tüm günlükleme yapılandırması, `~/.openclaw/openclaw.json` içindeki `logg
 - `compact`: daha sıkı çıktı (uzun oturumlar için en iyisi).
 - `json`: satır başına JSON (günlük işleyiciler için).
 
-### Veri maskeleme
+### Redaction
 
 Araç özetleri, konsola ulaşmadan önce hassas belirteçleri sansürleyebilir:
 
@@ -155,7 +160,7 @@ tanılamalar + dışa aktarıcı eklentisi etkinleştirildiğinde bağlanır.
 - **Günlükler**: `diagnostics.otel.logs` etkinleştirildiğinde OTLP üzerinden dışa aktarılır. Günlük
   hacmi yüksek olabilir; `logging.level` ve dışa aktarıcı filtrelerini göz önünde bulundurun.
 
-### Tanılama olay kataloğu
+### Diagnostic event catalog
 
 Model kullanımı:
 
@@ -342,5 +347,3 @@ Kuyruklar + oturumlar:
 - **Gateway’e ulaşılamıyor mu?** Önce `openclaw doctor` çalıştırın.
 - **Günlükler boş mu?** Gateway’in çalıştığını ve `logging.file` içindeki dosya yoluna yazdığını kontrol edin.
 - **Daha fazla ayrıntı mı gerekli?** `logging.level`’yi `debug` veya `trace` olarak ayarlayın ve yeniden deneyin.
-
-

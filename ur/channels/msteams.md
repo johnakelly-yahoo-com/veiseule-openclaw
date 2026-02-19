@@ -1,4 +1,7 @@
 ---
+summary: "Microsoft Teams بوٹ سپورٹ کی حیثیت، صلاحیتیں، اور کنفیگریشن"
+read_when:
+  - MS Teams چینل کی خصوصیات پر کام کرتے وقت
 title: "Microsoft Teams"
 ---
 
@@ -154,12 +157,12 @@ OpenClaw کنفیگر کرنے سے پہلے، آپ کو Azure Bot ریسورس 
 
    | فیلڈ               | قدر                                                                              |
    | ------------------ | -------------------------------------------------------------------------------- |
-   | **بوٹ ہینڈل**     | آپ کے بوٹ کا نام، مثلاً `openclaw-msteams` (منفرد ہونا چاہیے) |
-   | **سبسکرپشن**   | اپنی Azure سبسکرپشن منتخب کریں                                                   |
-   | **ریسورس گروپ** | نیا بنائیں یا موجودہ استعمال کریں                                                |
-   | **قیمت کا درجہ**   | **Free** (ڈیولپمنٹ/ٹیسٹنگ کے لیے)                             |
-   | **ایپ کی قسم**    | **Single Tenant** (سفارش کردہ — نیچے نوٹ دیکھیں)              |
-   | **تخلیق کی قسم**  | **نیا Microsoft App ID بنائیں**                                                  |
+   | **Bot handle**     | آپ کے بوٹ کا نام، مثلاً `openclaw-msteams` (منفرد ہونا چاہیے) |
+   | **Subscription**   | اپنی Azure سبسکرپشن منتخب کریں                                                   |
+   | **Resource group** | نیا بنائیں یا موجودہ استعمال کریں                                                |
+   | **Pricing tier**   | **Free** (ڈیولپمنٹ/ٹیسٹنگ کے لیے)                             |
+   | **Type of App**    | **Single Tenant** (سفارش کردہ — نیچے نوٹ دیکھیں)              |
+   | **Creation type**  | **Create new Microsoft App ID**                                                  |
 
 > **ڈیپریکیشن نوٹس:** نئے ملٹی ٹیننٹ بوٹس کی تخلیق 2025-07-31 کے بعد ڈیپریکیٹ کر دی گئی ہے۔ نئے بوٹس کے لیے **سنگل ٹیننٹ** استعمال کریں۔
 
@@ -242,7 +245,7 @@ tailscale funnel 3978
 2. **بوٹ رجسٹریشن**
    - Azure Bot بنائیں (اوپر دیکھیں) اور نوٹ کریں:
      - App ID
-     - کلائنٹ سیکرٹ (ایپ پاس ورڈ)
+     - Client secret (App password)
      - Tenant ID (single-tenant)
 
 3. **Teams ایپ منیفیسٹ**
@@ -421,7 +424,9 @@ Minimal, valid example with the required fields. Replace IDs and URLs.
 3. Teams ایپ **منیفیسٹ ورژن** بڑھائیں، دوبارہ اپ لوڈ کریں، اور **Teams میں ایپ دوبارہ انسٹال کریں**۔
 4. **Teams کو مکمل طور پر بند کر کے دوبارہ کھولیں** تاکہ کیشڈ میٹا ڈیٹا صاف ہو۔
 
-## معلوم حدود
+**صارف mentions کے لیے اضافی اجازت:** صارف @mentions گفتگو میں موجود صارفین کے لیے خود بخود کام کرتے ہیں۔ تاہم، اگر آپ ایسے صارفین کو dynamically تلاش کر کے mention کرنا چاہتے ہیں جو **موجودہ گفتگو میں شامل نہیں ہیں**، تو `User.Read.All` (Application) اجازت شامل کریں اور admin consent دیں۔
+
+## Webhook ٹائم آؤٹس
 
 ### Webhook ٹائم آؤٹس
 
@@ -568,7 +573,7 @@ Bots don't have a personal OneDrive drive (the `/me/drive` Graph API endpoint do
    }
    ```
 
-### شیئرنگ رویہ
+### Sharing behavior
 
 | اجازت                                   | شیئرنگ رویہ                                                                           |
 | --------------------------------------- | ------------------------------------------------------------------------------------- |
@@ -733,7 +738,7 @@ https://teams.microsoft.com/l/channel/19%3A15bc...%40thread.tacv2/ChannelName?gr
 2. DMs استعمال کریں — صارفین ہمیشہ بوٹ کو براہِ راست پیغام بھیج سکتے ہیں
 3. تاریخی رسائی کے لیے Graph API استعمال کریں (درکار: `ChannelMessage.Read.All`)
 
-## خرابیوں کا ازالہ
+## عام مسائل
 
 ### عام مسائل
 
@@ -765,5 +770,3 @@ https://teams.microsoft.com/l/channel/19%3A15bc...%40thread.tacv2/ChannelName?gr
 - [RSC permissions reference](https://learn.microsoft.com/en-us/microsoftteams/platform/graph-api/rsc/resource-specific-consent)
 - [Teams bot file handling](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/bots-filesv4) (چینل/گروپ کے لیے Graph درکار)
 - [Proactive messaging](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/conversations/send-proactive-messages)
-
-

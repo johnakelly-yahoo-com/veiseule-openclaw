@@ -1,4 +1,7 @@
 ---
+summary: "직접 `openclaw agent` CLI 실행 (선택적 전달 포함)"
+read_when:
+  - 에이전트 CLI 엔트리포인트를 추가하거나 수정할 때
 title: "Agent Send"
 ---
 
@@ -48,5 +51,3 @@ openclaw agent --agent ops --message "Generate report" --deliver --reply-channel
 - `--verbose <on|full|off>`: verbose 레벨 유지
 - `--timeout <seconds>`: 에이전트 타임아웃 재정의
 - `--json`: 구조화된 JSON 출력
-
-

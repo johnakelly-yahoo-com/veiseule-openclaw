@@ -1,4 +1,7 @@
 ---
+summary: "Status ng suporta ng Tlon/Urbit, mga kakayahan, at konpigurasyon"
+read_when:
+  - Gumagawa sa mga feature ng Tlon/Urbit channel
 title: "Tlon"
 ---
 
@@ -50,6 +53,22 @@ Minimal na config (iisang account):
 }
 ```
 
+Private/LAN ship URLs (advanced):
+
+Bilang default, bina-block ng OpenClaw ang mga private/internal hostname at IP range para sa plugin na ito (SSRF hardening).
+Kung ang iyong ship URL ay nasa private network (halimbawa `http://192.168.1.50:8080` o `http://localhost:8080`),
+kailangan mo itong tahasang payagan:
+
+```json5
+{
+  channels: {
+    tlon: {
+      allowPrivateNetwork: true,
+    },
+  },
+}
+```
+
 ## Mga group channel
 
 Naka-enable ang auto-discovery bilang default. Maaari mo ring i-pin ang mga channel nang manu-mano:
@@ -64,7 +83,7 @@ Naka-enable ang auto-discovery bilang default. Maaari mo ring i-pin ang mga chan
 }
 ```
 
-I-disable ang auto-discovery:
+DM allowlist (walang laman = payagan ang lahat):
 
 ```json5
 {
@@ -90,7 +109,7 @@ DM allowlist (walang laman = payagan ang lahat):
 }
 ```
 
-Awtorisasyon ng group (restricted bilang default):
+Gamitin ang mga ito kasama ng `openclaw message send` o cron delivery:
 
 ```json5
 {
@@ -113,7 +132,7 @@ Awtorisasyon ng group (restricted bilang default):
 }
 ```
 
-## Mga delivery target (CLI/cron)
+## Mga tala
 
 Gamitin ang mga ito kasama ng `openclaw message send` o cron delivery:
 
@@ -125,5 +144,3 @@ Gamitin ang mga ito kasama ng `openclaw message send` o cron delivery:
 - Ang mga reply sa group ay nangangailangan ng mention (hal. `~your-bot-ship`) para tumugon.
 - Thread replies: kung ang papasok na mensahe ay nasa isang thread, sasagot ang OpenClaw sa loob ng thread.
 - Media: ang `sendMedia` ay bumabagsak sa text + URL (walang native upload).
-
-

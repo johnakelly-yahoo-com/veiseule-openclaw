@@ -1,4 +1,9 @@
 ---
+summary: "لوحة Canvas خاضعة لتحكم الوكيل ومُضمَّنة عبر WKWebView مع مخطط URL مخصّص"
+read_when:
+  - تنفيذ لوحة Canvas على macOS
+  - إضافة عناصر تحكم الوكيل لمساحة عمل مرئية
+  - تصحيح أخطاء تحميل Canvas عبر WKWebView
 title: "Canvas"
 ---
 
@@ -117,5 +122,3 @@ window.location.href = "openclaw://agent?message=Review%20this%20design";
 - يمنع مخطط Canvas اجتياز الدلائل؛ يجب أن تعيش الملفات ضمن جذر الجلسة.
 - يستخدم محتوى Canvas المحلي مخططًا مخصّصًا (لا يتطلب خادم loopback).
 - يُسمح بعناوين URL الخارجية `http(s)` فقط عند الانتقال إليها صراحةً.
-
-

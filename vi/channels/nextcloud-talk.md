@@ -1,10 +1,13 @@
 ---
+summary: "Trạng thái hỗ trợ, khả năng và cấu hình của Nextcloud Talk"
+read_when:
+  - Làm việc trên các tính năng kênh Nextcloud Talk
 title: "Nextcloud Talk"
 ---
 
 # Nextcloud Talk (plugin)
 
-Trạng thái: được hỗ trợ thông qua plugin (webhook bot). Hỗ trợ tin nhắn trực tiếp, phòng, phản ứng và tin nhắn markdown.
+Status: supported via plugin (webhook bot). Direct messages, rooms, reactions, and markdown messages are supported.
 
 ## Yêu cầu plugin
 
@@ -62,7 +65,7 @@ Cấu hình tối thiểu:
 
 ## Ghi chú
 
-- Bot không thể tự khởi tạo tin nhắn trực tiếp (DM). Người dùng phải nhắn tin cho bot trước.
+- Bots cannot initiate DMs. The user must message the bot first.
 - URL webhook phải truy cập được bởi Gateway; đặt `webhookPublicUrl` nếu ở sau proxy.
 - Tải lên media không được hỗ trợ bởi API bot; media được gửi dưới dạng URL.
 - Payload webhook không phân biệt DM và phòng; đặt `apiUser` + `apiPassword` để bật tra cứu loại phòng (nếu không, DM sẽ được xử lý như phòng).
@@ -102,7 +105,7 @@ Cấu hình tối thiểu:
 | Tin nhắn trực tiếp | Hỗ trợ       |
 | Phòng              | Hỗ trợ       |
 | Luồng              | Không hỗ trợ |
-| Phương tiện              | Chỉ URL      |
+| Phương tiện        | Chỉ URL      |
 | Phản ứng           | Hỗ trợ       |
 | Lệnh gốc           | Không hỗ trợ |
 
@@ -124,7 +127,7 @@ Tùy chọn nhà cung cấp:
 - `channels.nextcloud-talk.webhookPath`: đường dẫn webhook (mặc định: /nextcloud-talk-webhook).
 - `channels.nextcloud-talk.webhookPublicUrl`: URL webhook có thể truy cập từ bên ngoài.
 - `channels.nextcloud-talk.dmPolicy`: `pairing | allowlist | open | disabled`.
-- `channels.nextcloud-talk.allowFrom`: danh sách cho phép DM (ID người dùng). `open` yêu cầu `"*"`.
+- `channels.nextcloud-talk.allowFrom`: DM allowlist (user IDs). `open` requires `"*"`.
 - `channels.nextcloud-talk.groupPolicy`: `allowlist | open | disabled`.
 - `channels.nextcloud-talk.groupAllowFrom`: danh sách cho phép nhóm (ID người dùng).
 - `channels.nextcloud-talk.rooms`: cài đặt theo phòng và danh sách cho phép.
@@ -136,5 +139,3 @@ Tùy chọn nhà cung cấp:
 - `channels.nextcloud-talk.blockStreaming`: tắt block streaming cho kênh này.
 - `channels.nextcloud-talk.blockStreamingCoalesce`: tinh chỉnh gộp block streaming.
 - `channels.nextcloud-talk.mediaMaxMb`: giới hạn media đầu vào (MB).
-
-

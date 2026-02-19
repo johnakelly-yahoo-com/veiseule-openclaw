@@ -1,4 +1,9 @@
 ---
+summary: "Запуск OpenClaw Gateway 24/7 на VM Google Compute Engine (Docker) с устойчивым состоянием"
+read_when:
+  - Вы хотите, чтобы OpenClaw работал 24/7 на GCP
+  - Вам нужен production-уровня, всегда включённый Gateway (шлюз) на собственной VM
+  - Вам нужен полный контроль над персистентностью, бинарными файлами и поведением перезапуска
 title: "GCP"
 ---
 
@@ -497,5 +502,3 @@ gcloud compute instances start openclaw-gateway --zone=us-central1-a
 - Настройте каналы обмена сообщениями: [Channels](/channels)
 - Подключите локальные устройства как узлы: [Nodes](/nodes)
 - Настройте Gateway (шлюз): [Gateway configuration](/gateway/configuration)
-
-

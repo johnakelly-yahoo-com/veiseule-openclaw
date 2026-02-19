@@ -1,4 +1,8 @@
 ---
+summary: "Talk 模式：使用 ElevenLabs TTS 的連續語音對話"
+read_when:
+  - 在 macOS／iOS／Android 上實作 Talk 模式
+  - 變更語音／TTS／中斷行為
 title: "Talk 模式"
 ---
 
@@ -69,7 +73,7 @@ Talk 模式是一個連續的語音對話循環：
 
 - 選單列切換：**Talk**
 - 設定分頁：**Talk 模式** 群組（語音 ID ＋ 中斷切換）
-- 覆蓋層：
+- Overlay:
   - **聆聽**：雲朵隨麥克風音量脈動
   - **思考**：下沉動畫
   - **說話**：放射狀圓環
@@ -84,5 +88,3 @@ Talk 模式是一個連續的語音對話循環：
 - `stability` 的 `eleven_v3` 會驗證為 `0.0`、`0.5` 或 `1.0`；其他模型接受 `0..1`。
 - 設定時，`latency_tier` 會驗證為 `0..4`。
 - Android 支援 `pcm_16000`、`pcm_22050`、`pcm_24000` 與 `pcm_44100` 輸出格式，以進行低延遲的 AudioTrack 串流。
-
-

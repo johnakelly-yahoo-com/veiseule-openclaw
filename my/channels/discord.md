@@ -1,4 +1,7 @@
 ---
+summary: "Discord ဘော့တ်၏ ပံ့ပိုးမှုအခြေအနေ၊ စွမ်းဆောင်ရည်များနှင့် ဖွဲ့စည်းပြင်ဆင်မှု"
+read_when:
+  - Discord ချန်နယ် အင်္ဂါရပ်များကို လုပ်ဆောင်နေစဉ်
 title: "Discord"
 ---
 
@@ -6,141 +9,36 @@ title: "Discord"
 
 အခြေအနေ: တရားဝင် Discord bot gateway ကို အသုံးပြု၍ DM နှင့် guild စာသား ချန်နယ်များအတွက် အသင့်ဖြစ်နေပါသည်။
 
-## Quick setup (beginner)
+<CardGroup cols={3}>
+  <Card title="Pairing" icon="link" href="/channels/pairing">
+    Discord DMs များသည် ပုံမှန်အားဖြင့် pairing mode ကို အသုံးပြုသည်။
+  
+</Card>
+  <Card title="Slash commands" icon="terminal" href="/tools/slash-commands">
+    Native command အပြုအမူနှင့် command catalog။
+  
+</Card>
+  <Card title="Channel troubleshooting" icon="wrench" href="/channels/troubleshooting">
+    Channel များအကြား diagnostics နှင့် ပြုပြင်ရေး လုပ်ငန်းစဉ်။
+  
+</Card>
+</CardGroup>
 
-1. Discord ဘော့တ်တစ်ခု ဖန်တီးပြီး bot token ကို ကူးယူပါ။
-2. Discord app settings တွင် **Message Content Intent** ကို ဖွင့်ပါ (**allowlists** သို့မဟုတ် အမည်ရှာဖွေမှုများ အသုံးပြုမည်ဆိုပါက **Server Members Intent** ကိုပါ ဖွင့်ပါ)။
-3. OpenClaw အတွက် token ကို သတ်မှတ်ပါ:
-   - Env: `DISCORD_BOT_TOKEN=...`
-   - သို့မဟုတ် config: `channels.discord.token: "..."`။
-   - နှစ်ခုစလုံး သတ်မှတ်ထားပါက config ကို ဦးစားပေးအသုံးပြုမည် (env fallback သည် default-account အတွက်သာ ဖြစ်သည်)။
-4. မက်ဆေ့ချ် ခွင့်ပြုချက်များဖြင့် သင့် server သို့ ဘော့တ်ကို ဖိတ်ခေါ်ပါ (DM များသာ လိုလားပါက private server တစ်ခု ဖန်တီးနိုင်သည်)။
-5. Gateway ကို စတင်ပါ။
-6. DM ဝင်ရောက်ခွင့်သည် မူလအားဖြင့် pairing ဖြစ်ပါသည်။ ပထမဆုံး ဆက်သွယ်ရာတွင် pairing code ကို အတည်ပြုပါ။
+## အမြန် စတင်ခြင်း
 
-Minimal config:
+<Steps>
+  <Step title="Create a Discord bot and enable intents">
+    Discord Developer Portal တွင် application တစ်ခု ဖန်တီးပါ၊ bot တစ်ခု ထည့်ပြီးနောက် အောက်ပါတို့ကို ဖွင့်ပါ -
 
-```json5
-{
-  channels: {
-    discord: {
-      enabled: true,
-      token: "YOUR_BOT_TOKEN",
-    },
-  },
-}
-```
+    ```
+    - **မက်ဆေ့ခ်ျ အကြောင်းအရာ ရည်ရွယ်ချက် (Message Content Intent)**
+    - **Server Members Intent** (role allowlists နှင့် role-based routing အတွက် လိုအပ်သည်; name-to-ID allowlist ကို ကိုက်ညီစေရန် အကြံပြုသည်)
+    ```
 
-## Goals
+  
+</Step>
 
-- Discord DM များ သို့မဟုတ် guild ချန်နယ်များမှတဆင့် OpenClaw နှင့် ဆက်သွယ်နိုင်ရန်။
-- Direct chats များသည် agent ၏ အဓိက session (default `agent:main:main`) သို့ ပေါင်းစည်းသွားပြီး guild ချန်နယ်များသည် `agent:<agentId>:discord:channel:<channelId>` အဖြစ် သီးခြားထားရှိမည် (ပြသအမည်များတွင် `discord:<guildSlug>#<channelSlug>` ကို အသုံးပြုသည်)။
-- Group DM များကို မူလအားဖြင့် လျစ်လျူရှုသည်။ `channels.discord.dm.groupEnabled` ဖြင့် ဖွင့်နိုင်ပြီး `channels.discord.dm.groupChannels` ဖြင့် ကန့်သတ်နိုင်သည်။
-- လမ်းကြောင်းသတ်မှတ်မှုကို တိကျစေရန်: ပြန်ကြားချက်များသည် အမြဲတမ်း ရောက်လာသည့် ချန်နယ်သို့ ပြန်သွားမည်။
-
-## How it works
-
-1. Discord application → Bot တစ်ခု ဖန်တီးပြီး လိုအပ်သော intents (DMs + guild messages + message content) ကို ဖွင့်ကာ bot token ကို ရယူပါ။
-2. သင် အသုံးပြုလိုသည့် နေရာများတွင် မက်ဆေ့ချ် ဖတ်/ပို့နိုင်ရန် လိုအပ်သော ခွင့်ပြုချက်များဖြင့် သင့် server သို့ ဘော့တ်ကို ဖိတ်ခေါ်ပါ။
-3. OpenClaw ကို `channels.discord.token` ဖြင့် (သို့မဟုတ် fallback အဖြစ် `DISCORD_BOT_TOKEN`) ဖွဲ့စည်းပြင်ဆင်ပါ။
-4. Gateway ကို လည်ပတ်ပါ။ token ရရှိပါက (config ကို ဦးစားပေး၊ env fallback) Discord ချန်နယ်ကို အလိုအလျောက် စတင်မည်이며 `channels.discord.enabled` သည် `false` မဖြစ်ရပါ။
-   - env vars ကိုသာ အသုံးပြုလိုပါက `DISCORD_BOT_TOKEN` ကို သတ်မှတ်ပါ (config block သည် မလိုအပ်ပါ)။
-5. တိုက်ရိုက်စကားပြောများ - ပို့ရာတွင် `user:<id>` (သို့မဟုတ် `<@id>` mention) ကို အသုံးပြုပါ။ အလှည့်အပြောင်းအားလုံးသည် မျှဝေထားသော `main` session ထဲသို့ ဝင်ပါသည်။ နံပါတ်သာပါတဲ့ ID များသည် မရှင်းလင်းသောကြောင့် ငြင်းပယ်ခံရပါသည်။
-6. Guild ချန်နယ်များ - ပို့ရန် `channel:<channelId>` ကို အသုံးပြုပါ။ Mention များကို မူလအဖြစ် လိုအပ်ပြီး guild သို့မဟုတ် ချန်နယ်အလိုက် သတ်မှတ်နိုင်ပါသည်။
-7. တိုက်ရိုက်စကားပြောများ - `channels.discord.dm.policy` (မူလ: `"pairing"`) ဖြင့် မူလအနေဖြင့် လုံခြုံထားပါသည်။ မသိသော ပို့သူများသည် pairing code တစ်ခု ရရှိမည်ဖြစ်ပြီး (၁ နာရီအတွင်း သက်တမ်းကုန်ဆုံး) `openclaw pairing approve discord <code>` ဖြင့် အတည်ပြုနိုင်ပါသည်။
-   - ယခင် “မည်သူမဆို ဝင်နိုင်” အပြုအမူကို ဆက်ထားလိုပါက `channels.discord.dm.policy="open"` နှင့် `channels.discord.dm.allowFrom=["*"]` ကို သတ်မှတ်ပါ။
-   - Hard-allowlist ပြုလုပ်လိုပါက `channels.discord.dm.policy="allowlist"` ကို သတ်မှတ်ပြီး `channels.discord.dm.allowFrom` တွင် ပို့သူများကို စာရင်းပြုစုပါ။
-   - DM များအားလုံးကို လျစ်လျူရှုလိုပါက `channels.discord.dm.enabled=false` သို့မဟုတ် `channels.discord.dm.policy="disabled"` ကို သတ်မှတ်ပါ။
-8. Group DM များကို မူလအားဖြင့် လျစ်လျူရှုသည်။ `channels.discord.dm.groupEnabled` ဖြင့် ဖွင့်နိုင်ပြီး `channels.discord.dm.groupChannels` ဖြင့် ကန့်သတ်နိုင်သည်။
-9. Optional guild စည်းမျဉ်းများ: guild id (ဦးစားပေး) သို့မဟုတ် slug ဖြင့် key ပြုလုပ်ထားသော `channels.discord.guilds` ကို သတ်မှတ်ပြီး ချန်နယ်အလိုက် စည်းမျဉ်းများ ထားနိုင်သည်။
-10. ရွေးချယ်နိုင်သော native commands - `commands.native` သည် မူလအနေဖြင့် `"auto"` (Discord/Telegram အတွက် ဖွင့်၊ Slack အတွက် ပိတ်) ဖြစ်ပါသည်။ Override ပြုလုပ်ရန် `channels.discord.commands.native: true|false|"auto"` ကို အသုံးပြုပါ။ `false` သည် ယခင် register လုပ်ထားသော commands များကို ဖယ်ရှားပါသည်။ Text commands များကို `commands.text` ဖြင့် ထိန်းချုပ်ပြီး သီးသန့် `/...` မက်ဆေ့ချ်များအဖြစ် ပို့ရပါသည်။ Commands များအတွက် access-group စစ်ဆေးမှုကို ကျော်လွှားရန် `commands.useAccessGroups: false` ကို အသုံးပြုပါ။
-    - Command အပြည့်အစုံ + config: [Slash commands](/tools/slash-commands)
-11. Optional guild context history: set `channels.discord.historyLimit` (default 20, falls back to `messages.groupChat.historyLimit`) to include the last N guild messages as context when replying to a mention. ပိတ်ရန် `0` ကို သတ်မှတ်ပါ။
-12. Reactions: agent သည် `discord` tool ဖြင့် reaction များကို လှုံ့ဆော်နိုင်သည် (`channels.discord.actions.*` ဖြင့် ထိန်းချုပ်ထားသည်)။
-    - Reaction ဖယ်ရှားခြင်း အဓိပ္ပါယ်များ: [/tools/reactions](/tools/reactions) ကို ကြည့်ပါ။
-    - `discord` tool သည် လက်ရှိ ချန်နယ်သည် Discord ဖြစ်သည့်အခါတွင်သာ ဖော်ပြပေးသည်။
-13. Native commands များသည် မျှဝေထားသော `main` session မဟုတ်ဘဲ သီးခြား session keys (`agent:<agentId>:discord:slash:<userId>`) ကို အသုံးပြုသည်။
-
-မှတ်ချက် - အမည် → id ပြန်လည်ဖြေရှင်းခြင်းသည် guild member search ကို အသုံးပြုပြီး Server Members Intent လိုအပ်ပါသည်။ bot သည် member များကို မရှာနိုင်ပါက id များ သို့မဟုတ် `<@id>` mention များကို အသုံးပြုပါ။
-မှတ်ချက် - Slug များသည် အက္ခရာအသေးဖြစ်ပြီး အလွတ်နေရာများကို `-` ဖြင့် အစားထိုးထားပါသည်။ Channel အမည်များကို ရှေ့ရှိ `#` မပါဘဲ slug ပြုလုပ်ထားပါသည်။
-မှတ်ချက် - Guild context `[from:]` လိုင်းများတွင် `author.tag` + `id` ပါဝင်ပြီး mention ပြုလုပ်နိုင်သော အဖြေများကို လွယ်ကူစေရန် ဖြစ်ပါသည်။
-
-## Config writes
-
-မူလအားဖြင့် Discord သည် `/config set|unset` ဖြင့် ဖြစ်ပေါ်လာသော config updates များကို ရေးသားခွင့်ရှိသည် (`commands.config: true` လိုအပ်)။
-
-ပိတ်ရန်:
-
-```json5
-{
-  channels: { discord: { configWrites: false } },
-}
-```
-
-## How to create your own bot
-
-ဤသည်မှာ OpenClaw ကို server (guild) ချန်နယ်တစ်ခု (ဥပမာ `#help`) တွင် လည်ပတ်ရန် “Discord Developer Portal” setup ဖြစ်သည်။
-
-### 1. Discord app + bot user ဖန်တီးခြင်း
-
-1. Discord Developer Portal → **Applications** → **New Application**
-2. သင့် app တွင်:
-   - **Bot** → **Add Bot**
-   - **Bot Token** ကို ကူးယူပါ (ဤ token ကို `DISCORD_BOT_TOKEN` တွင် ထည့်ပါ)
-
-### 2) OpenClaw လိုအပ်သော gateway intents များကို ဖွင့်ခြင်း
-
-Discord သည် “privileged intents” များကို သင်ကိုယ်တိုင် မဖွင့်မချင်း ပိတ်ထားပါသည်။
-
-**Bot** → **Privileged Gateway Intents** တွင် အောက်ပါအချက်များကို ဖွင့်ပါ:
-
-- **Message Content Intent** (guild အများစုတွင် မက်ဆေ့ချ်စာသား ဖတ်ရန် လိုအပ်သည်; မဖွင့်ပါက “Used disallowed intents” ကို တွေ့ရမည် သို့မဟုတ် ဘော့တ်သည် ချိတ်ဆက်သော်လည်း မက်ဆေ့ချ်များကို မတုံ့ပြန်ပါ)
-- **Server Members Intent** (အကြံပြုသည်; guild များတွင် member/user ရှာဖွေမှုအချို့နှင့် allowlist ကိုက်ညီမှုအတွက် လိုအပ်သည်)
-
-ပုံမှန်အားဖြင့် **Presence Intent** ကို **မလိုအပ်ပါ**။ Bot ၏ ကိုယ်ပိုင် presence ကို သတ်မှတ်ခြင်း (`setPresence` action) သည် gateway OP3 ကို အသုံးပြုပြီး ဤ intent မလိုအပ်ပါ။ အခြား guild member များ၏ presence updates ကို လက်ခံလိုပါကသာ လိုအပ်ပါသည်။
-
-### 3. Invite URL ဖန်တီးခြင်း (OAuth2 URL Generator)
-
-သင့် app တွင်: **OAuth2** → **URL Generator**
-
-**Scopes**
-
-- ✅ `bot`
-- ✅ `applications.commands` (native commands အတွက် လိုအပ်)
-
-**Bot Permissions** (အနည်းဆုံး အခြေခံ)
-
-- ✅ View Channels
-- ✅ Send Messages
-- ✅ Read Message History
-- ✅ Embed Links
-- ✅ Attach Files
-- ✅ Add Reactions (ရွေးချယ်နိုင်သော်လည်း အကြံပြု)
-- ✅ Use External Emojis / Stickers (ရွေးချယ်နိုင်; အသုံးပြုလိုပါကသာ)
-
-**Administrator** ကို မသုံးပါနှင့် (debug လုပ်နေပြီး ဘော့တ်ကို အပြည့်အဝ ယုံကြည်သည့်အခါမှသာ အသုံးပြုပါ)။
-
-ဖန်တီးထားသော URL ကို ကူးယူပြီး ဖွင့်ကာ သင့် server ကို ရွေးချယ်၍ ဘော့တ်ကို ထည့်သွင်းပါ။
-
-### 4. ids (guild/user/channel) များ ရယူခြင်း
-
-Discord သည် နေရာတိုင်းတွင် နံပါတ် ids များကို အသုံးပြုသည်။ OpenClaw config သည် ids များကို ဦးစားပေးပါသည်။
-
-1. Discord (desktop/web) → **User Settings** → **Advanced** → **Developer Mode** ကို ဖွင့်ပါ
-2. Right-click:
-   - Server အမည် → **Copy Server ID** (guild id)
-   - Channel (ဥပမာ `#help`) → **Copy Channel ID**
-   - သင့် user → **Copy User ID**
-
-### 5) OpenClaw ကို ဖွဲ့စည်းပြင်ဆင်ခြင်း
-
-#### Token
-
-Server များတွင် အကြံပြုထားသည့်အတိုင်း env var ဖြင့် bot token ကို သတ်မှတ်ပါ:
-
-- `DISCORD_BOT_TOKEN=...`
-
-သို့မဟုတ် config ဖြင့်:
+  <Step title="Configure token">
 
 ```json5
 {
@@ -153,239 +51,380 @@ Server များတွင် အကြံပြုထားသည့်အတ
 }
 ```
 
-Multi-account ပံ့ပိုးမှု: per-account token များနှင့် optional `name` ကို အသုံးပြု၍ `channels.discord.accounts` ကို အသုံးပြုပါ။ [`gateway/configuration`](/gateway/configuration#telegramaccounts--discordaccounts--slackaccounts--signalaccounts--imessageaccounts) တွင် မျှဝေထားသော pattern ကို ကြည့်ပါ။
+    ```
+    မူလ account အတွက် env fallback:
+    ```
 
-#### Allowlist + channel routing
-
-ဥပမာ “server တစ်ခုတည်း၊ ကျွန်ုပ်ကိုသာ ခွင့်ပြု၊ #help ကိုသာ ခွင့်ပြု”:
-
-```json5
-{
-  channels: {
-    discord: {
-      enabled: true,
-      dm: { enabled: false },
-      guilds: {
-        YOUR_GUILD_ID: {
-          users: ["YOUR_USER_ID"],
-          requireMention: true,
-          channels: {
-            help: { allow: true, requireMention: true },
-          },
-        },
-      },
-      retry: {
-        attempts: 3,
-        minDelayMs: 500,
-        maxDelayMs: 30000,
-        jitter: 0.1,
-      },
-    },
-  },
-}
+```bash
+DISCORD_BOT_TOKEN=...
 ```
 
-မှတ်ချက်များ:
+  
+</Step>
 
-- `requireMention: true` သည် mention ဖြစ်သောအခါမှသာ ပြန်ကြားမည်ဟု ဆိုလိုသည် (shared channels အတွက် အကြံပြု)။
-- `agents.list[].groupChat.mentionPatterns` (သို့မဟုတ် `messages.groupChat.mentionPatterns`) ကိုလည်း guild မက်ဆေ့ချ်များအတွက် mention အဖြစ် ရေတွက်သည်။
-- Multi-agent override: per-agent patterns များကို `agents.list[].groupChat.mentionPatterns` တွင် သတ်မှတ်ပါ။
-- `channels` ရှိပါက စာရင်းမပါသော ချန်နယ်များအားလုံးကို မူလအားဖြင့် ငြင်းပယ်သည်။
-- Channel အားလုံးအတွက် default များကို သတ်မှတ်ရန် `"*"` channel entry ကို အသုံးပြုပါ; သီးခြား channel entries များက wildcard ကို override လုပ်သည်။
-- Threads များသည် parent channel ၏ config (allowlist, `requireMention`, skills, prompts စသည်) ကို ဆက်ခံပါသည်။ thread channel id ကို သီးခြား ထည့်မထားပါက ဖြစ်ပါသည်။
-- Owner hint - per-guild သို့မဟုတ် per-channel `users` allowlist သည် ပို့သူနှင့် ကိုက်ညီပါက OpenClaw သည် ထိုပို့သူကို system prompt ထဲတွင် owner အဖြစ် သတ်မှတ်ပါသည်။ ချန်နယ်အနှံ့ အတွက် global owner တစ်ဦး သတ်မှတ်ရန် `commands.ownerAllowFrom` ကို သတ်မှတ်ပါ။
-- Bot မှ ရေးသားသော မက်ဆေ့ချ်များကို မူလအားဖြင့် လျစ်လျူရှုသည်; `channels.discord.allowBots=true` ဖြင့် ခွင့်ပြုနိုင်သည် (ကိုယ်ပိုင် မက်ဆေ့ချ်များကိုတော့ ဆက်လက် စစ်ထုတ်ထားသည်)။
-- သတိပေးချက် - အခြား bot များထံ ပြန်စာပို့ခွင့် ပြုထားပါက (`channels.discord.allowBots=true`)، bot-to-bot reply loop မဖြစ်စေရန် `requireMention`, `channels.discord.guilds.*.channels.<id>.users` allowlists များနှင့်/သို့မဟုတ် `AGENTS.md` နှင့် `SOUL.md` ထဲရှိ guardrails များကို ရှင်းလင်းပါ။`channels.discord.groupPolicy` သည် မူလအနေဖြင့် **allowlist** ဖြစ်ပါသည်။ `"open"` ဟု သတ်မှတ်ခြင်း သို့မဟုတ် `channels.discord.guilds` အောက်တွင် guild entry တစ်ခု ထည့်ပါ (လိုအပ်ပါက `channels.discord.guilds.<id>.channels` အောက်တွင် ချန်နယ်များကို စာရင်းပြုလုပ်၍ ကန့်သတ်နိုင်ပါသည်)။
+  <Step title="Invite the bot and start gateway">    မက်ဆေ့ခ်ျ ပို့ရန် ခွင့်ပြုချက်များဖြင့် bot ကို သင့် server သို့ ဖိတ်ခေါ်ပါ။
 
-### 6. အလုပ်လုပ်မှု စစ်ဆေးခြင်း
+```bash
+openclaw gateway
+```
 
-1. Gateway ကို စတင်ပါ။
-2. သင့် server ချန်နယ်တွင် `@Krill hello` (သို့မဟုတ် သင့် bot အမည်) ကို ပို့ပါ။
-3. ဘာမှ မဖြစ်ပါက အောက်ပါ **Troubleshooting** ကို စစ်ဆေးပါ။
+  
+</Step>
 
-### Troubleshooting
+  <Step title="Approve first DM pairing">
 
-- ပထမဦးစွာ: `openclaw doctor` နှင့် `openclaw channels status --probe` ကို လည်ပတ်ပါ (လုပ်ဆောင်နိုင်သော သတိပေးချက်များ + အမြန် စစ်ဆေးမှုများ)။
-- **“Used disallowed intents”**: Developer Portal တွင် **Message Content Intent** (နှင့် ဖြစ်နိုင်ချေရှိသည့် **Server Members Intent**) ကို ဖွင့်ပြီး Gateway ကို ပြန်စတင်ပါ။
-- **ဘော့တ် ချိတ်ဆက်သော်လည်း guild ချန်နယ်တွင် မပြန်ကြားပါက**:
-  - **Message Content Intent** မရှိခြင်း၊ သို့မဟုတ်
-  - Channel permissions (View/Send/Read History) မရှိခြင်း၊ သို့မဟုတ်
-  - Config တွင် mention လိုအပ်ပြီး သင် mention မလုပ်ခြင်း၊ သို့မဟုတ်
-  - Guild/channel allowlist သည် channel/user ကို ငြင်းပယ်ခြင်း။
-- **`requireMention: false` ဖြစ်သော်လည်း ပြန်ကြားမှု မရှိပါက**:
-- `DISCORD_BOT_TOKEN` ကိုသာ သတ်မှတ်ပြီး `channels.discord` အပိုင်းကို မဖန်တီးပါက runtime သည် `groupPolicy` ကို `open` အဖြစ် မူလသတ်မှတ်ပါသည်။`channels.discord.groupPolicy`, `channels.defaults.groupPolicy`, သို့မဟုတ် guild/channel allowlist တစ်ခုကို ထည့်၍ ကန့်သတ်နိုင်ပါသည်။
-  - `requireMention` သည် `channels.discord.guilds` (သို့မဟုတ် ချန်နယ်တစ်ခုချင်းစီ) အောက်တွင်သာ ရှိရပါမည်။ အပေါ်ဆုံးအဆင့်ရှိ `channels.discord.requireMention` ကို လျစ်လျူရှုပါသည်။
-- **Permission audits** (`channels status --probe`) သည် နံပါတ် channel ID များကိုသာ စစ်ဆေးပါသည်။ သင် `channels.discord.guilds.*.channels` key များအဖြစ် slug/အမည်များကို အသုံးပြုပါက audit သည် ခွင့်ပြုချက်များကို အတည်မပြုနိုင်ပါ။
-- **Discord တွင် Exec approvals** - Discord သည် DM များတွင် exec approval အတွက် **button UI** (Allow once / Always allow / Deny) ကို ထောက်ပံ့ပါသည်။ If you use slugs/names as `channels.discord.guilds.*.channels` keys, the audit can’t verify permissions.
-- **DM များ မလုပ်ဆောင်ပါက**: `channels.discord.dm.enabled=false`, `channels.discord.dm.policy="disabled"` သို့မဟုတ် သင် အတည်ပြုမခံရသေးခြင်း (`channels.discord.dm.policy="pairing"`) ဖြစ်နိုင်သည်။
-- **Exec approvals in Discord**: Discord supports a **button UI** for exec approvals in DMs (Allow once / Always allow / Deny). `/approve <id> ...` သည် forward လုပ်ထားသော approval များအတွက်သာ ဖြစ်ပြီး Discord ၏ button prompt များကို မဖြေရှင်းနိုင်ပါ။ `❌ Failed to submit approval: Error: unknown approval id` ကိုတွေ့ရပါက သို့မဟုတ် UI မပေါ်လာပါက အောက်ပါအချက်များကို စစ်ဆေးပါ။
-  - သင့် config တွင် `channels.discord.execApprovals.enabled: true`။
-  - သင့် Discord user ID သည် `channels.discord.execApprovals.approvers` တွင် စာရင်းသွင်းထားခြင်း (UI ကို approvers များထံသာ ပို့ပါသည်)။
-  - DM prompt ထဲရှိ ခလုတ်များ (**Allow once**, **Always allow**, **Deny**) ကို အသုံးပြုပါ။
-  - အကျယ်အဝန်း approval နှင့် command flow အတွက် [Exec approvals](/tools/exec-approvals) နှင့် [Slash commands](/tools/slash-commands) ကို ကြည့်ပါ။
+```bash
+openclaw pairing list discord
+openclaw pairing approve discord <CODE>
+```
 
-## Capabilities & limits
+    ```
+    Pairing code များသည် ၁ နာရီအတွင်း သက်တမ်းကုန်ဆုံးပါသည်။
+    ```
 
-- DMs နှင့် guild စာသား ချန်နယ်များ (threads များကို သီးခြား ချန်နယ်များအဖြစ် သတ်မှတ်သည်; voice မပံ့ပိုးပါ)။
-- Typing indicators များကို best-effort ဖြင့် ပို့ပါသည်; မက်ဆေ့ချ် ခွဲခြမ်းမှုသည် `channels.discord.textChunkLimit` (default 2000) ကို အသုံးပြုပြီး စာကြောင်းအရေအတွက် (`channels.discord.maxLinesPerMessage`, default 17) အပေါ်မူတည်၍ ရှည်လျားသော ပြန်ကြားချက်များကို ခွဲပါသည်။
-- Optional newline chunking: `channels.discord.chunkMode="newline"` ကို သတ်မှတ်ပါက အရှည်အလိုက် ခွဲခြမ်းခြင်းမပြုမီ အလွတ်စာကြောင်းများ (paragraph boundaries) ပေါ်တွင် ခွဲပါသည်။
-- File uploads များကို သတ်မှတ်ထားသော `channels.discord.mediaMaxMb` (default 8 MB) အထိ ပံ့ပိုးပါသည်။
-- Guild replies များကို မူလအားဖြင့် mention-gated လုပ်ထားပြီး noisy bots မဖြစ်စေရန် ဖြစ်သည်။
-- Message တစ်ခုက အခြား message ကို reference လုပ်ပါက reply context ကို ထည့်သွင်းပါသည် (quoted content + ids)။
-- Native reply threading သည် **မူလအားဖြင့် ပိတ်ထားသည်**; `channels.discord.replyToMode` နှင့် reply tags ဖြင့် ဖွင့်နိုင်သည်။
+  
+</Step>
+</Steps>
 
-## Retry policy
+<Note>
+Token resolution သည် account အလိုက် ခွဲခြားစီမံပါသည်။ Config ထဲရှိ token တန်ဖိုးများသည် env fallback ထက် ဦးစားပေးပါသည်။ `DISCORD_BOT_TOKEN` ကို မူလ account အတွက်သာ အသုံးပြုပါသည်။
+</Note>
 
-Outbound Discord API call များသည် rate limit (429) ဖြစ်သည့်အခါ Discord ၏ `retry_after` ကို ရရှိပါက အသုံးပြုပြီး exponential backoff နှင့် jitter ဖြင့် retry လုပ်ပါသည်။ `channels.discord.retry` မှတစ်ဆင့် configure လုပ်ပါ။ [Retry policy](/concepts/retry) ကိုကြည့်ပါ။
+## Runtime model
 
-## Config
+- Gateway သည် Discord connection ကို တာဝန်ယူ ကိုင်တွယ်ပါသည်။
+- Reply routing သည် တိကျသေချာပါသည် — Discord မှ ဝင်လာသော reply များကို Discord သို့ ပြန်ပို့ပါသည်။
+- ပုံမှန်အားဖြင့် (`session.dmScope=main`), direct chat များသည် agent main session (`agent:main:main`) ကို မျှဝေ အသုံးပြုပါသည်။
+- Guild channel များသည် သီးခြား session key များ (`agent:<agentId>:discord:channel:<channelId>`) ဖြစ်ပါသည်။
+- Group DM များကို ပုံမှန်အားဖြင့် လျစ်လျူရှုထားပါသည် (`channels.discord.dm.groupEnabled=false`)။
+- Native slash command များသည် သီးခြား command session များ (`agent:<agentId>:discord:slash:<userId>`) တွင် လုပ်ဆောင်ပြီး၊ routed conversation session သို့ `CommandTargetSessionKey` ကိုလည်း သယ်ဆောင်ပါသည်။
 
-```json5
-{
-  channels: {
-    discord: {
-      enabled: true,
-      token: "abc.123",
-      groupPolicy: "allowlist",
-      guilds: {
-        "*": {
-          channels: {
-            general: { allow: true },
-          },
-        },
-      },
-      mediaMaxMb: 8,
-      actions: {
-        reactions: true,
-        stickers: true,
-        emojiUploads: true,
-        stickerUploads: true,
-        polls: true,
-        permissions: true,
-        messages: true,
-        threads: true,
-        pins: true,
-        search: true,
-        memberInfo: true,
-        roleInfo: true,
-        roles: false,
-        channelInfo: true,
-        channels: true,
-        voiceStatus: true,
-        events: true,
-        moderation: false,
-        presence: false,
-      },
-      replyToMode: "off",
-      dm: {
-        enabled: true,
-        policy: "pairing", // pairing | allowlist | open | disabled
-        allowFrom: ["123456789012345678", "steipete"],
-        groupEnabled: false,
-        groupChannels: ["openclaw-dm"],
-      },
-      guilds: {
-        "*": { requireMention: true },
-        "123456789012345678": {
-          slug: "friends-of-openclaw",
-          requireMention: false,
-          reactionNotifications: "own",
-          users: ["987654321098765432", "steipete"],
-          channels: {
-            general: { allow: true },
-            help: {
-              allow: true,
+## Access control နှင့် routing
+
+<Tabs>
+  <Tab title="DM policy">    `channels.discord.dmPolicy` သည် DM access ကို ထိန်းချုပ်ပါသည် (legacy: `channels.discord.dm.policy`):
+- `pairing` (မူလတန်ဖိုး)
+- `allowlist`
+- `open` (`channels.discord.allowFrom` တွင် `"*"` ပါဝင်ရန် လိုအပ်သည်; legacy: `channels.discord.dm.allowFrom`)
+- `disabled`
+
+DM policy သည် open မဟုတ်ပါက မသိသော user များကို ပိတ်ဆို့မည် (သို့မဟုတ် `pairing` mode တွင် pairing ပြုလုပ်ရန် အသိပေးမည်)။
+
+ပို့ဆောင်ရန်အတွက် DM target format:
+
+- `user:<id>`
+- `<@id>` mention
+
+သာမန် ကိန်းဂဏန်း ID များသည် မသေချာသဖြင့် explicit user/channel target kind မဖော်ပြပါက လက်မခံပါ။
+
+    ```
+        Guild ကို ကိုင်တွယ်ခြင်းကို `channels.discord.groupPolicy` ဖြင့် ထိန်းချုပ်ပါသည်:
+    ```
+
+  
+</Tab>
+
+  <Tab title="Guild policy">- `open`
+- `allowlist`
+- `disabled`
+
+`channels.discord` ရှိနေပါက လုံခြုံရေးအခြေခံတန်ဖိုးမှာ `allowlist` ဖြစ်သည်။
+
+`allowlist` အပြုအမူ:
+
+- guild သည် `channels.discord.guilds` နှင့် ကိုက်ညီရမည် (`id` ကို ဦးစားပေးပြီး slug ကိုလည်း လက်ခံသည်)
+- ရွေးချယ်နိုင်သော sender allowlist များ: `users` (ID သို့မဟုတ် နာမည်များ) နှင့် `roles` (role ID များသာ); တစ်ခုခု သတ်မှတ်ထားပါက sender သည် `users` သို့မဟုတ် `roles` နှင့် ကိုက်ညီလျှင် ခွင့်ပြုသည်
+- guild တွင် `channels` ကို သတ်မှတ်ထားပါက စာရင်းမပါသော channel များကို ပိတ်ပင်မည်
+- guild တွင် `channels` block မရှိပါက allowlist လုပ်ထားသော guild အတွင်းရှိ channel အားလုံးကို ခွင့်ပြုမည်
+
+ဥပမာ:
+
+    ```
+    {
+      channels: {
+        discord: {
+          groupPolicy: "allowlist",
+          guilds: {
+            "123456789012345678": {
               requireMention: true,
               users: ["987654321098765432"],
-              skills: ["search", "docs"],
-              systemPrompt: "Keep answers short.",
+              roles: ["123456789012345678"],
+              channels: {
+                general: { allow: true },
+                help: { allow: true, requireMention: true },
+              },
             },
           },
         },
       },
+    }
+    ```
+
+```json5
+`DISCORD_BOT_TOKEN` ကိုသာ သတ်မှတ်ပြီး `channels.discord` block မဖန်တီးပါက runtime fallback သည် `groupPolicy="open"` ဖြစ်မည် (log များတွင် သတိပေးချက် ပြသမည်)။
+```
+
+    ```
+        ပုံမှန်အားဖြင့် Guild မက်ဆေ့ခ်ျများသည် mention ဖြင့်သာ အလုပ်လုပ်စေပါသည်။
+    ```
+
+  
+</Tab>
+
+  <Tab title="Mentions and group DMs">Mention detection တွင် ပါဝင်သည်:
+
+- bot ကို တိုက်ရိုက် mention ပြုလုပ်ခြင်း
+- သတ်မှတ်ထားသော mention pattern များ (`agents.list[].groupChat.mentionPatterns`, fallback `messages.groupChat.mentionPatterns`)
+- ပံ့ပိုးထားသော အခြေအနေများတွင် bot သို့ reply ပြန်သည့် အပြုအမူ
+
+`requireMention` ကို guild/channel အလိုက် (`channels.discord.guilds...`) တွင် သတ်မှတ်ပါသည်။
+
+Group DM များ:
+
+- မူလတန်ဖိုး: လျစ်လျူရှုထားသည် (`dm.groupEnabled=false`)
+- ရွေးချယ်နိုင်သော allowlist ကို `dm.groupChannels` (channel ID သို့မဟုတ် slug များ) ဖြင့် သတ်မှတ်နိုင်သည်
+
+    ```
+      
+</Tab>
+    ```
+
+  
+</Tab>
+</Tabs>
+
+### Discord guild member များကို role ID အလိုက် မတူညီသော agent များသို့ လမ်းကြောင်းခွဲရန် `bindings[].match.roles` ကို အသုံးပြုပါ။
+
+Role-based binding များသည် role ID များကိုသာ လက်ခံပြီး peer သို့မဟုတ် parent-peer binding များပြီးနောက်၊ guild-only binding များမတိုင်မီ စစ်ဆေးအကဲဖြတ်ပါသည်။ Binding တစ်ခုတွင် အခြား match field များ (ဥပမာ `peer` + `guildId` + `roles`) ကိုလည်း သတ်မှတ်ထားပါက သတ်မှတ်ထားသော field အားလုံး ကိုက်ညီရမည်။ {
+bindings: [
+{
+agentId: "opus",
+match: {
+channel: "discord",
+guildId: "123456789012345678",
+roles: ["111111111111111111"],
+},
+},
+{
+agentId: "sonnet",
+match: {
+channel: "discord",
+guildId: "123456789012345678",
+},
+},
+],
+}
+
+```json5
+Developer Portal setup
+```
+
+## 1. Discord Developer Portal -> **Applications** -> **New Application**
+2. **Bot** -> **Add Bot**
+3. bot token ကို ကူးယူပါ
+
+<AccordionGroup>
+  <Accordion title="Create app and bot">
+
+    ```
+        **Bot -> Privileged Gateway Intents** တွင် ဖွင့်ပါ:
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Privileged intents">- Message Content Intent
+- Server Members Intent (အကြံပြုသည်)
+
+Presence intent သည် ရွေးချယ်နိုင်သောအရာဖြစ်ပြီး presence update များကို လက်ခံလိုပါကသာ လိုအပ်သည်။ bot presence (`setPresence`) ကို သတ်မှတ်ရန် member များအတွက် presence update ကို ဖွင့်ရန် မလိုအပ်ပါ။
+
+    ```
+        OAuth URL generator:
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="OAuth scopes and baseline permissions">- scopes: `bot`, `applications.commands`
+
+ပုံမှန် အခြေခံ permission များ:
+
+- View Channels
+- Send Messages
+- Read Message History
+- Embed Links
+- Attach Files
+- Add Reactions (ရွေးချယ်နိုင်သည်)
+
+အထူးလိုအပ်ချက် မရှိပါက `Administrator` ကို မသုံးပါနှင့်။
+
+    ```
+        Discord Developer Mode ကို ဖွင့်ပြီးနောက်၊ အောက်ပါတို့ကို ကူးယူပါ:
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Copy IDs">
+    Enable Discord Developer Mode, then copy:
+
+    ```
+    - server ID
+    - channel ID
+    - user ID
+    
+    ယုံကြည်စိတ်ချရသော audit နှင့် probe များအတွက် OpenClaw config တွင် numeric ID များကို အသုံးပြုရန် အကြံပြုပါသည်။
+    ```
+
+  
+</Accordion>
+</AccordionGroup>
+
+## Native commands နှင့် command auth
+
+- `commands.native` ၏ မူလတန်ဖိုးမှာ `"auto"` ဖြစ်ပြီး Discord အတွက် ဖွင့်ထားပါသည်။
+- Channel တစ်ခုချင်းအလိုက် override ပြုလုပ်ရန်: `channels.discord.commands.native`.
+- `commands.native=false` သည် ယခင်က register လုပ်ထားသော Discord native commands များကို တိတိကျကျ ဖယ်ရှားပေးပါသည်။
+- Native command auth သည် ပုံမှန် message handling နှင့် အတူတူသော Discord allowlists/policies များကို အသုံးပြုပါသည်။
+- ခွင့်မပြုထားသော အသုံးပြုသူများအတွက်လည်း Commands များကို Discord UI တွင် မြင်နိုင်နိုင်သော်လည်း၊ execute လုပ်သည့်အခါ OpenClaw auth ကို စစ်ဆေးပြီး "not authorized" ဟု ပြန်လည်ပေးပို့ပါမည်။
+
+Command စာရင်းနှင့် လုပ်ဆောင်ပုံများအတွက် [Slash commands](/tools/slash-commands) ကို ကြည့်ပါ။
+
+## Retry policy
+
+<AccordionGroup>
+  <Accordion title="Reply tags and native replies">    Discord သည် agent output ထဲတွင် reply tags များကို ထောက်ပံ့ပါသည်:
+
+    ```
+    - `[[reply_to_current]]`
+    - `[[reply_to:<id>]]`
+    
+    `channels.discord.replyToMode` ဖြင့် ထိန်းချုပ်ပါသည်:
+    
+    - `off` (မူလတန်ဖိုး)
+    - `first`
+    - `all`
+    
+    မှတ်ချက်: `off` သည် အလိုအလျောက် reply threading ကို ပိတ်ထားပါသည်။ သို့သော် `[[reply_to_*]]` tags များကို တိတိကျကျ အသုံးပြုထားပါက ဆက်လက် လေးစားလုပ်ဆောင်ပါသည်။
+    
+    Agent များသည် သီးသန့် message များကို ရည်ညွှန်းနိုင်ရန် Message ID များကို context/history ထဲတွင် ဖော်ပြပေးထားပါသည်။
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="History, context, and thread behavior">    Guild history context:
+
+    ```
+    - `channels.discord.historyLimit` မူလတန်ဖိုး `20`
+    - fallback: `messages.groupChat.historyLimit`
+    - `0` သည် ပိတ်ထားခြင်းဖြစ်သည်
+    
+    DM history ထိန်းချုပ်မှုများ:
+    
+    - `channels.discord.dmHistoryLimit`
+    - `channels.discord.dms["<user_id>"].historyLimit`
+    
+    Thread အပြုအမူ:
+    
+    - Discord threads များကို channel sessions အဖြစ် route လုပ်ပါသည်
+    - parent thread metadata ကို parent-session linkage အတွက် အသုံးပြုနိုင်ပါသည်
+    - thread-specific entry မရှိပါက thread config သည် parent channel config ကို အမွေဆက်ခံပါသည်
+    
+    Channel topics များကို **untrusted** context အဖြစ် (system prompt အဖြစ်မဟုတ်ဘဲ) ထည့်သွင်းပါသည်။
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Reaction notifications">    Per-guild reaction notification mode:
+
+    ```
+    - `off`
+    - `own` (မူလတန်ဖိုး)
+    - `all`
+    - `allowlist` (`guilds.<id>.users` ကို အသုံးပြုသည်)
+    
+    Reaction events များကို system events အဖြစ် ပြောင်းလဲပြီး route လုပ်ထားသော Discord session သို့ ချိတ်ဆက်ပါသည်။
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Ack reactions">`ackReaction` သည် OpenClaw မှ inbound message ကို လုပ်ဆောင်နေစဉ် acknowledgement emoji တစ်ခု ပို့ပေးပါသည်။
+
+    ```
+    Resolution order:
+    
+    - `channels.discord.accounts.<accountId>.ackReaction`
+    - `channels.discord.ackReaction`
+    - `messages.ackReaction`
+    - agent identity emoji fallback (`agents.list[].identity.emoji`, မရှိပါက "👀")
+    
+    မှတ်ချက်များ:
+    
+    - Discord သည် unicode emoji သို့မဟုတ် custom emoji name များကို လက်ခံပါသည်။
+    - Channel သို့မဟုတ် account အတွက် reaction ကို ပိတ်လိုပါက `""` ကို အသုံးပြုပါ။
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Config writes">    Channel မှ စတင်သော config write များကို မူလအနေဖြင့် ဖွင့်ထားပါသည်။
+
+    ```
+    ဤအရာသည် `/config set|unset` flow များ (command features များ ဖွင့်ထားသည့်အခါ) ကို သက်ရောက်စေပါသည်။
+    
+    Disable:
+    ```
+
+```json5
+{
+  channels: {
+    discord: {
+      configWrites: false,
     },
   },
 }
 ```
 
-Ack reaction များကို `messages.ackReaction` နှင့်
-`messages.ackReactionScope` ဖြင့် global အဆင့်တွင် ထိန်းချုပ်ပါသည်။ `messages.removeAckAfterReply` ကို အသုံးပြုပြီး bot မှ reply ပြီးနောက် ack reaction ကို ဖယ်ရှားပါ။
+  
+</Accordion>
 
-- `dm.enabled`: `false` ကို သတ်မှတ်ပါက DM အားလုံးကို လျစ်လျူရှုသည် (default `true`)။
-- `dm.policy`: DM access control (`pairing` ကို အကြံပြုသည်)။ `"open"` သည် `dm.allowFrom=["*"]` ကို လိုအပ်ပါသည်။
-- `dm.allowFrom`: DM allowlist (user id များ သို့မဟုတ် name များ)။ `dm.policy="allowlist"` အတွက် အသုံးပြုသည့်အပြင် `dm.policy="open"` validation အတွက်လည်း အသုံးပြုပါသည်။ wizard သည် username များကို လက်ခံပြီး bot က member များကို ရှာဖွေနိုင်ပါက id များအဖြစ် resolve လုပ်ပါသည်။
-- `dm.groupEnabled`: group DMs ကို ဖွင့်ခြင်း (default `false`)။
-- `dm.groupChannels`: group DM channel ids သို့မဟုတ် slugs အတွက် optional allowlist။
-- `groupPolicy`: guild channel ကို ကိုင်တွယ်ပုံကို ထိန်းချုပ်သည် (`open|disabled|allowlist`)； `allowlist` သည် channel allowlists လိုအပ်သည်။
-- `guilds`: guild id (ဦးစားပေး) သို့မဟုတ် slug ဖြင့် key ပြုလုပ်ထားသော per-guild စည်းမျဉ်းများ။
-- `guilds."*"`: သီးခြား entry မရှိပါက အသုံးပြုမည့် default per-guild settings။
-- `guilds.<id>
-  .slug`: ပြသရန်အတွက် အသုံးပြုသော optional friendly slug။`guilds.&lt;id&gt;
-  .users`: optional per-guild user allowlist (id များ သို့မဟုတ် name များ)။
-- `guilds.<id>
-  .tools`: channel override မရှိသည့်အခါ အသုံးပြုသော optional per-guild tool policy override များ (`allow`/`deny`/`alsoAllow`)။`guilds.&lt;id&gt;
-  .toolsBySender`: guild အဆင့်တွင် per-sender tool policy override များ (channel override မရှိသည့်အခါ အသုံးပြုသည်; `"*"` wildcard ကို ထောက်ပံ့သည်)။
-- `guilds.<id>
-  .channels.&lt;channel&gt;
-  .allow`: `groupPolicy="allowlist"` ဖြစ်သည့်အခါ channel ကို allow/deny လုပ်ရန်။`guilds.&lt;id&gt;
-  .channels.&lt;channel&gt;
-  .requireMention`: channel အတွက် mention gating။
-- `guilds.<id>
-  .channels.&lt;channel&gt;
-  .tools`: optional per-channel tool policy override များ (`allow`/`deny`/`alsoAllow`)။`guilds.&lt;id&gt;
-  .channels.&lt;channel&gt;
-  .toolsBySender`: channel အတွင်း per-sender tool policy override များ (`"*"` wildcard ကို ထောက်ပံ့သည်)။
-- `guilds.<id>
-  .channels.&lt;channel&gt;
-  .users`: optional per-channel user allowlist။`guilds.&lt;id&gt;
-  .channels.&lt;channel&gt;
-  .skills`: skill filter (မထည့်လျှင် = skill အားလုံး၊ အလွတ်ထားလျှင် = မရှိ)။`guilds.&lt;id&gt;
-  .channels.&lt;channel&gt;
-  .systemPrompt`: channel အတွက် extra system prompt။
-- Discord channel topic များကို **untrusted** context အဖြစ် inject လုပ်ပါသည် (system prompt မဟုတ်ပါ)။`guilds.<id>
-  .channels.&lt;channel&gt;
-  .enabled`: channel ကို ပိတ်ရန် `false` သတ်မှတ်ပါ။`guilds.&lt;id&gt;
-  .channels`: channel rule များ (key များမှာ channel slug များ သို့မဟုတ် id များ ဖြစ်သည်)။
-- `guilds.<id>
-  .requireMention`: per-guild mention လိုအပ်ချက် (channel အလိုက် override လုပ်နိုင်သည်)။`guilds.&lt;id&gt;`.tools`: optional per-channel tool policy overrides (`allow`/`deny`/`alsoAllow\`).
-- `guilds.<id>.channels.<channel>.toolsBySender`: optional per-sender tool policy overrides within the channel (`"*"` wildcard supported).
-- `guilds.<id>.channels.<channel>.users`: optional per-channel user allowlist.
-- `guilds.<id>.channels.<channel>.skills`: skill filter (omit = all skills, empty = none).
-- `guilds.<id>.channels.<channel>.systemPrompt`: extra system prompt for the channel. Discord channel topics are injected as **untrusted** context (not system prompt).
-- `guilds.<id>.channels.<channel>.enabled`: set `false` to disable the channel.
-- `guilds.<id>.channels`: channel rules (keys are channel slugs or ids).
-- `guilds.<id>.requireMention`: per-guild mention requirement (overridable per channel).
-- `guilds.<id>.reactionNotifications`: reaction system event mode (`off`, `own`, `all`, `allowlist`).
-- `textChunkLimit`: outbound text chunk size (chars). Default: 2000.
-- `chunkMode`: `length` (default) သည် `textChunkLimit` ကို ကျော်လွန်မှသာ ခွဲသည်； `newline` သည် အလွတ်စာကြောင်းများ (paragraph boundaries) ပေါ်တွင် အရှည်ခွဲခြမ်းမလုပ်မီ ခွဲသည်။
-- `maxLinesPerMessage`: soft max line count per message. Default: 17.
-- `mediaMaxMb`: inbound media ကို disk သို့ သိမ်းဆည်းရာတွင် clamp လုပ်ခြင်း။
-- `historyLimit`: mention ကို ပြန်ကြားရာတွင် context အဖြစ် ထည့်သွင်းမည့် နောက်ဆုံး guild မက်ဆေ့ချ် အရေအတွက် (default 20; `messages.groupChat.historyLimit` သို့ fallback; `0` ပိတ်သည်)။
-- `dmHistoryLimit`: DM history limit in user turns. Per-user overrides: `dms["<user_id>"].historyLimit`.
-- `retry`: outbound Discord API calls အတွက် retry policy (attempts, minDelayMs, maxDelayMs, jitter)။
-- `pluralkit`: PluralKit proxied messages များကို ဖြေရှင်းပြီး system members များကို သီးခြား ပို့သူများအဖြစ် ဖော်ပြခြင်း။
-- `actions`: per-action tool gates; omit လုပ်ပါက အားလုံး ခွင့်ပြု (ပိတ်ရန် `false` ကို သတ်မှတ်)။
-  - `reactions` (react + read reactions ကို ဖုံးလွှမ်း)
-  - `stickers`, `emojiUploads`, `stickerUploads`, `polls`, `permissions`, `messages`, `threads`, `pins`, `search`
-  - `memberInfo`, `roleInfo`, `channelInfo`, `voiceStatus`, `events`
-  - `channels` (channels + categories + permissions ကို create/edit/delete)
-  - `roles` (role add/remove, default `false`)
-  - `moderation` (timeout/kick/ban, default `false`)
-  - `presence` (bot status/activity, default `false`)
-- `execApprovals`: Discord-only exec approval DMs (button UI). Supports `enabled`, `approvers`, `agentFilter`, `sessionFilter`.
+  <Accordion title="Gateway proxy">    Discord gateway WebSocket traffic ကို HTTP(S) proxy မှတဆင့် route လုပ်ရန် `channels.discord.proxy` ကို အသုံးပြုပါ။
 
-Reaction notifications use `guilds.<id>.reactionNotifications`:
+```json5
+{
+  channels: {
+    discord: {
+      proxy: "http://proxy.example:8080",
+    },
+  },
+}
+```
 
-- `off`: reaction events မရှိ။
-- `own`: ဘော့တ်၏ ကိုယ်ပိုင် မက်ဆေ့ချ်များပေါ်ရှိ reactions (default)။
-- `all`: မက်ဆေ့ချ်အားလုံးပေါ်ရှိ reactions အားလုံး။
-- `allowlist`: reactions from `guilds.<id>.users` on all messages (empty list disables).
+    ```
+    Per-account override:
+    ```
 
-### PluralKit (PK) support
+```json5
+{
+  channels: {
+    discord: {
+      accounts: {
+        primary: {
+          proxy: "http://proxy.example:8080",
+        },
+      },
+    },
+  },
+}
+```
 
-Enable PK lookups so proxied messages resolve to the underlying system + member.
-When enabled, OpenClaw uses the member identity for allowlists and labels the
-sender as `Member (PK:System)` to avoid accidental Discord pings.
+  
+</Accordion>
+
+  <Accordion title="PluralKit support">    Proxied messages များကို system member identity နှင့် map လုပ်ရန် PluralKit resolution ကို ဖွင့်ပါ:
 
 ```json5
 {
@@ -393,102 +432,275 @@ sender as `Member (PK:System)` to avoid accidental Discord pings.
     discord: {
       pluralkit: {
         enabled: true,
-        token: "pk_live_...", // optional; required for private systems
+        token: "pk_live_...", // optional; private systems များအတွက် လိုအပ်သည်
       },
     },
   },
 }
 ```
 
-Allowlist မှတ်ချက်များ (PK-enabled):
+    ```
+    မှတ်ချက်များ:
+    
+    - allowlists တွင် `pk:<memberId>` ကို အသုံးပြုနိုင်သည်
+    - member display names များကို name/slug ဖြင့် ကိုက်ညီမှု စစ်ဆေးပါသည်
+    - lookups များသည် မူရင်း message ID ကို အသုံးပြုပြီး အချိန်ကာလကန့်သတ်ထားပါသည်
+    - lookup မအောင်မြင်ပါက proxied messages များကို bot messages အဖြစ် သတ်မှတ်ပြီး `allowBots=true` မထားလျှင် ဖယ်ရှားပါသည်
+    ```
 
-- Use `pk:<memberId>` in `dm.allowFrom`, `guilds.<id>.users`, or per-channel `users`.
-- Member display names များကို အမည်/slug ဖြင့်လည်း ကိုက်ညီစစ်ဆေးပါသည်။
-- Lookups များသည် **မူရင်း** Discord message ID (proxy မဖြစ်မီ မက်ဆေ့ချ်) ကို အသုံးပြုသဖြင့်
-  PK API သည် မိနစ် ၃၀ အတွင်းသာ ဖြေရှင်းနိုင်ပါသည်။
-- PK lookups မအောင်မြင်ပါက (ဥပမာ token မပါသော private system) proxied messages များကို
-  bot messages အဖြစ် သတ်မှတ်ပြီး `channels.discord.allowBots=true` မရှိလျှင် ဖယ်ရှားပါသည်။
+  
+</Accordion>
 
-### Tool action defaults
+  <Accordion title="Presence configuration">    Status သို့မဟုတ် activity field တစ်ခုခုကို သတ်မှတ်ထားသောအခါမှသာ Presence updates ကို အသုံးချပါသည်။
 
-| Action group   | Default  | Notes                                                |
-| -------------- | -------- | ---------------------------------------------------- |
-| reactions      | enabled  | React + list reactions + emojiList                   |
-| stickers       | enabled  | Send stickers                                        |
-| emojiUploads   | enabled  | Upload emojis                                        |
-| stickerUploads | enabled  | Upload stickers                                      |
-| polls          | enabled  | Create polls                                         |
-| permissions    | enabled  | Channel permission snapshot                          |
-| messages       | enabled  | Read/send/edit/delete                                |
-| threads        | enabled  | Create/list/reply                                    |
-| pins           | enabled  | Pin/unpin/list                                       |
-| search         | enabled  | Message search (preview feature)  |
-| memberInfo     | ဖွင့်ထားသည်  | Member info                                          |
-| roleInfo       | ဖွင့်ထားသည်  | Role list                                            |
-| channelInfo    | ဖွင့်ထားသည်  | Channel info + list                                  |
-| channels       | ဖွင့်ထားသည်  | Channel/category management                          |
-| voiceStatus    | ဖွင့်ထားသည်  | Voice state lookup                                   |
-| events         | ဖွင့်ထားသည်  | List/create scheduled events                         |
-| အခန်းကဏ္ဍများ          | ပိတ်ထားသည် | Role add/remove                                      |
-| moderation     | ပိတ်ထားသည် | Timeout/kick/ban                                     |
-| presence       | ပိတ်ထားသည် | Bot status/activity (setPresence) |
+    ```
+    Status only ဥပမာ:
+    ```
 
-- `replyToMode`: `off` (default), `first`, or `all`. Applies only when the model includes a reply tag.
+```json5
+{
+  channels: {
+    discord: {
+      status: "idle",
+    },
+  },
+}
+```
 
-## Reply tags
+    ```
+    Activity ဥပမာ (custom status သည် မူလ activity type ဖြစ်သည်):
+    ```
 
-Threaded reply တောင်းဆိုရန် model သည် output တွင် tag တစ်ခု ထည့်နိုင်သည်:
+```json5
+{
+  channels: {
+    discord: {
+      activity: "Focus time",
+      activityType: 4,
+    },
+  },
+}
+```
 
-- `[[reply_to_current]]` — trigger ဖြစ်သည့် Discord message ကို reply လုပ်ပါ။
-- `[[reply_to:<id>]]` — reply to a specific message id from context/history.
-  Current message ids are appended to prompts as `[message_id: …]`; history entries already include ids.
+    ```
+    Streaming ဥပမာ:
+    ```
 
-အပြုအမူကို `channels.discord.replyToMode` ဖြင့် ထိန်းချုပ်ပါသည်:
+```json5
+{
+  channels: {
+    discord: {
+      activity: "Live coding",
+      activityType: 1,
+      activityUrl: "https://twitch.tv/openclaw",
+    },
+  },
+}
+```
 
-- `off`: tags များကို လျစ်လျူရှု။
-- `first`: ပထမ outbound chunk/attachment တစ်ခုသာ reply ဖြစ်သည်။
-- `all`: outbound chunk/attachment အားလုံး reply ဖြစ်သည်။
+    ```
+    Activity type map:
+    
+    - 0: Playing
+    - 1: Streaming (`activityUrl` လိုအပ်သည်)
+    - 2: Listening
+    - 3: Watching
+    - 4: Custom (activity text ကို status state အဖြစ် အသုံးပြုသည်; emoji ကို မဖြစ်မနေ မလိုအပ်ပါ)
+    - 5: Competing
+    ```
 
-Allowlist ကိုက်ညီမှု မှတ်ချက်များ:
+  
+</Accordion>
 
-- `allowFrom`/`users`/`groupChannels` သည် ids, အမည်များ, tags သို့မဟုတ် `<@id>` ကဲ့သို့ mentions များကို လက်ခံပါသည်။
-- `discord:`/`user:` (users) နှင့် `channel:` (group DMs) ကဲ့သို့ prefixes များကို ပံ့ပိုးပါသည်။
-- မည်သည့် sender/channel မဆို ခွင့်ပြုရန် `*` ကို အသုံးပြုပါ။
-- When `guilds.<id>.channels` is present, channels not listed are denied by default.
-- When `guilds.<id>.channels` is omitted, all channels in the allowlisted guild are allowed.
-- **Channel မည်သည့်တစ်ခုမျှ မခွင့်ပြုလိုပါက** `channels.discord.groupPolicy: "disabled"` ကို သတ်မှတ်ပါ (သို့မဟုတ် empty allowlist ကို ထားပါ)။
-- Configure wizard သည် `Guild/Channel` အမည်များ (public + private) ကို လက်ခံပြီး ဖြစ်နိုင်ပါက IDs သို့ ဖြေရှင်းပါသည်။
-- စတင်ရာတွင် OpenClaw သည် allowlists ထဲရှိ channel/user အမည်များကို IDs သို့ ဖြေရှင်းပြီး (ဘော့တ်က members များကို ရှာနိုင်ပါက)
-  mapping ကို log ထုတ်ပေးပါသည်; မဖြေရှင်းနိုင်သော entries များကို မူလအတိုင်း ထားရှိပါသည်။
+  <Accordion title="Exec approvals in Discord">    Discord သည် DMs အတွင်း button-based exec approvals များကို ထောက်ပံ့ပြီး မူရင်း channel တွင် approval prompt များကို ရွေးချယ်နိုင်စွာ တင်ပို့နိုင်ပါသည်။
 
-Native command မှတ်ချက်များ:
+    ```
+    Config path:
+    
+    - `channels.discord.execApprovals.enabled`
+    - `channels.discord.execApprovals.approvers`
+    - `channels.discord.execApprovals.target` (`dm` | `channel` | `both`, မူလတန်ဖိုး: `dm`)
+    - `agentFilter`, `sessionFilter`, `cleanupAfterResolve`
+    
+    `target` ကို `channel` သို့မဟုတ် `both` ဟု သတ်မှတ်ထားပါက approval prompt ကို channel တွင် မြင်နိုင်ပါသည်။ သတ်မှတ်ထားသော approvers များသာ button များကို အသုံးပြုနိုင်ပြီး အခြားအသုံးပြုသူများသည် ephemeral denial ကို လက်ခံရရှိပါမည်။ Approval prompt များတွင် command text ပါဝင်သောကြောင့် ယုံကြည်ရသော channel များတွင်သာ channel delivery ကို ဖွင့်ပါ။ Session key မှ channel ID ကို မထုတ်ယူနိုင်ပါက OpenClaw သည် DM delivery သို့ ပြန်လည် fallback လုပ်ပါသည်။
+    
+    Approval များသည် unknown approval IDs ဖြင့် မအောင်မြင်ပါက approver list နှင့် feature enablement ကို စစ်ဆေးပါ။
+    
+    ဆက်စပ်စာရွက်စာတမ်း: [Exec approvals](/tools/exec-approvals)
+    ```
 
-- Register လုပ်ထားသော commands များသည် OpenClaw ၏ chat commands များကို ထင်ဟပ်ပါသည်။
-- Native commands များသည် DMs/guild messages များနှင့် တူညီသော allowlists များကို လိုက်နာပါသည် (`channels.discord.dm.allowFrom`, `channels.discord.guilds`, per-channel rules)။
-- Slash commands များသည် allowlisted မဟုတ်သော users များအတွက် Discord UI တွင် မြင်ရနိုင်သော်လည်း OpenClaw သည် execution တွင် allowlists ကို အတည်ပြုပြီး “not authorized” ဟု ပြန်ကြားပါသည်။
+  
+</Accordion>
+</AccordionGroup>
 
-## Tool actions
+## Tools နှင့် action gates
 
-Agent သည် အောက်ပါ actions များဖြင့် `discord` ကို ခေါ်နိုင်သည်:
+Discord message actions တွင် messaging, channel admin, moderation, presence နှင့် metadata actions များ ပါဝင်ပါသည်။
 
-- `react` / `reactions` (reactions ထည့်ခြင်း သို့မဟုတ် စာရင်းပြုစုခြင်း)
-- `sticker`, `poll`, `permissions`
-- `readMessages`, `sendMessage`, `editMessage`, `deleteMessage`
-- Read/search/pin tool payloads တွင် normalized `timestampMs` (UTC epoch ms) နှင့် `timestampUtc` ကို raw Discord `timestamp` နှင့်အတူ ပါဝင်ပါသည်။
-- `threadCreate`, `threadList`, `threadReply`
-- `pinMessage`, `unpinMessage`, `listPins`
-- `searchMessages`, `memberInfo`, `roleInfo`, `roleAdd`, `roleRemove`, `emojiList`
-- `channelInfo`, `channelList`, `voiceStatus`, `eventList`, `eventCreate`
-- `timeout`, `kick`, `ban`
-- `setPresence` (bot activity နှင့် online status)
+အခြေခံ ဥပမာများ:
 
-Discord message ids are surfaced in the injected context (`[discord message id: …]` and history lines) so the agent can target them.
-Emoji can be unicode (e.g., `✅`) or custom emoji syntax like `<:party_blob:1234567890>`.
+- messaging: `sendMessage`, `readMessages`, `editMessage`, `deleteMessage`, `threadReply`
+- reactions: `react`, `reactions`, `emojiList`
+- moderation: `timeout`, `kick`, `ban`
+- presence: `setPresence`
 
-## Safety & ops
+`channels.discord.actions.*` အောက်တွင် Action gates များရှိသည်။
 
-- Bot token ကို စကားဝှက်ကဲ့သို့ ဆက်ဆံပါ; supervised hosts များတွင် `DISCORD_BOT_TOKEN` env var ကို ဦးစားပေးအသုံးပြုပါ သို့မဟုတ် config ဖိုင် ခွင့်ပြုချက်များကို တင်းကြပ်စွာ သတ်မှတ်ပါ။
-- ဘော့တ်အတွက် လိုအပ်သလောက်သာ ခွင့်ပြုချက်များ ပေးပါ (ပုံမှန်အားဖြင့် Read/Send Messages)။
-- ဘော့တ်သည် အတက်အကျ ရပ်တန့်နေပါက သို့မဟုတ် rate limited ဖြစ်ပါက Discord session ကို အခြား process များက မပိုင်ဆိုင်ကြောင်း အတည်ပြုပြီးနောက် Gateway (`openclaw gateway --force`) ကို ပြန်စတင်ပါ။
+Default gate လုပ်ဆောင်ပုံ:
 
+| Action group                                                                                                                                                             | Default  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- |
+| reactions, messages, threads, pins, polls, search, memberInfo, roleInfo, channelInfo, channels, voiceStatus, events, stickers, emojiUploads, stickerUploads, permissions | enabled  |
+| roles                                                                                                                                                                    | disabled |
+| moderation                                                                                                                                                               | disabled |
+| presence                                                                                                                                                                 | disabled |
 
+## Components v2 UI
+
+OpenClaw သည် exec approvals နှင့် cross-context markers များအတွက် Discord components v2 ကို အသုံးပြုပါသည်။ Discord message actions များသည် custom UI အတွက် `components` ကိုလည်း လက်ခံနိုင်သည် (အဆင့်မြင့်; Carbon component instances လိုအပ်သည်)၊ legacy `embeds` များကိုလည်း အသုံးပြုနိုင်သေးသော်လည်း အကြံပြုထားခြင်းမရှိပါ။
+
+- `channels.discord.ui.components.accentColor` သည် Discord component containers များတွင် အသုံးပြုမည့် accent color (hex) ကို သတ်မှတ်ပေးသည်။
+- အကောင့်တစ်ခုချင်းစီအလိုက် `channels.discord.accounts.<id>` တွင် သတ်မှတ်နိုင်သည်။.ui.components.accentColor\`.
+- `components v2` ရှိပါက `embeds` များကို လျစ်လျူရှုမည်ဖြစ်သည်။
+
+ဥပမာ:
+
+```json5
+{
+  channels: {
+    discord: {
+      ui: {
+        components: {
+          accentColor: "#5865F2",
+        },
+      },
+    },
+  },
+}
+```
+
+## Voice messages
+
+Discord voice messages များတွင် waveform preview ပြသပြီး OGG/Opus audio နှင့် metadata လိုအပ်သည်။ OpenClaw သည် waveform ကို အလိုအလျောက် ဖန်တီးပေးသည်၊ သို့သော် audio ဖိုင်များကို စစ်ဆေးခြင်းနှင့် ပြောင်းလဲခြင်း ပြုလုပ်ရန် gateway host တွင် `ffmpeg` နှင့် `ffprobe` ရရှိနိုင်ရမည်။
+
+လိုအပ်ချက်များနှင့် ကန့်သတ်ချက်များ:
+
+- **local file path** ကို ပေးရမည် (URL များကို လက်မခံပါ)။
+- စာသား content မထည့်ပါနှင့် (Discord သည် payload တစ်ခုတည်းအတွင်း text + voice message ကို ခွင့်မပြုပါ)။
+- မည်သည့် audio format မဆို လက်ခံနိုင်သည်; လိုအပ်ပါက OpenClaw သည် OGG/Opus သို့ ပြောင်းလဲပေးမည်။
+
+ဥပမာ:
+
+```bash
+message(action="send", channel="discord", target="channel:123", path="/path/to/audio.mp3", asVoice=true)
+```
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Used disallowed intents or bot sees no guild messages">
+
+    ```
+    - Message Content Intent ကို ဖွင့်ပါ
+    - user/member resolution ကို အသုံးပြုမည်ဆိုပါက Server Members Intent ကို ဖွင့်ပါ
+    - intents များ ပြောင်းလဲပြီးနောက် gateway ကို restart ပြုလုပ်ပါ
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Guild messages blocked unexpectedly">
+
+    ```
+    - `groupPolicy` ကို စစ်ဆေးပါ
+    - `channels.discord.guilds` အောက်ရှိ guild allowlist ကို စစ်ဆေးပါ
+    - guild တွင် `channels` map ရှိပါက စာရင်းပြုစုထားသော channels များသာ ခွင့်ပြုသည်
+    - `requireMention` လုပ်ဆောင်ပုံနှင့် mention patterns များကို စစ်ဆေးပါ
+    
+    Useful checks:
+    ```
+
+```bash
+openclaw doctor
+openclaw channels status --probe
+openclaw logs --follow
+```
+
+  
+</Accordion>
+
+  <Accordion title="Require mention false but still blocked">
+    ပုံမှန် ဖြစ်ပေါ်ရသော အကြောင်းရင်းများ:
+
+    ```
+    - ကိုက်ညီသော guild/channel allowlist မရှိဘဲ `groupPolicy="allowlist"` ကို အသုံးပြုခြင်း
+    - `requireMention` ကို မှားယွင်းသော နေရာတွင် သတ်မှတ်ထားခြင်း (`channels.discord.guilds` သို့မဟုတ် channel entry အောက်တွင်သာ ထားရမည်)
+    - ပို့သူကို guild/channel `users` allowlist မှ ပိတ်ဆို့ထားခြင်း
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Permissions audit mismatches">
+    `channels status --probe` permission စစ်ဆေးမှုများသည် numeric channel ID များအတွက်သာ အလုပ်လုပ်သည်။
+
+    ```
+    slug keys များကို အသုံးပြုပါက runtime matching သည် အလုပ်လုပ်နိုင်သော်လည်း probe သည် permissions ကို အပြည့်အဝ မစစ်ဆေးနိုင်ပါ။
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="DM and pairing issues">
+
+    ```
+    - DM ပိတ်ထားသည်: `channels.discord.dm.enabled=false`
+    - DM policy ပိတ်ထားသည်: `channels.discord.dmPolicy="disabled"` (legacy: `channels.discord.dm.policy`)
+    - `pairing` mode တွင် approval ကို စောင့်ဆိုင်းနေခြင်း
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Bot to bot loops">
+    ပုံမှန်အားဖြင့် bot မှ ပို့ထားသော မက်ဆေ့ချ်များကို လျစ်လျူရှုသည်။
+
+    ```
+    `channels.discord.allowBots=true` ဟု သတ်မှတ်ပါက loop behavior မဖြစ်စေရန် တင်းကျပ်သော mention နှင့် allowlist စည်းမျဉ်းများကို အသုံးပြုပါ။
+    ```
+
+  
+</Accordion>
+</AccordionGroup>
+
+## Configuration reference အညွှန်းများ
+
+အဓိက reference:
+
+- [Configuration reference - Discord](/gateway/configuration-reference#discord)
+
+အချက်အလက်အရေးကြီးသော Discord fields:
+
+- startup/auth: `enabled`, `token`, `accounts.*`, `allowBots`
+- policy: `groupPolicy`, `dm.*`, `guilds.*`, `guilds.*.channels.*`
+- command: `commands.native`, `commands.useAccessGroups`, `configWrites`
+- reply/history: `replyToMode`, `historyLimit`, `dmHistoryLimit`, `dms.*.historyLimit`
+- delivery: `textChunkLimit`, `chunkMode`, `maxLinesPerMessage`
+- media/retry: `mediaMaxMb`, `retry`
+- actions: `actions.*`
+- presence: `activity`, `status`, `activityType`, `activityUrl`
+- UI: `ui.components.accentColor`
+- features: `pluralkit`, `execApprovals`, `intents`, `agentComponents`, `heartbeat`, `responsePrefix`
+
+## လုံခြုံရေးနှင့် လုပ်ဆောင်ရေးဆိုင်ရာ
+
+- bot token များကို လျှို့ဝှက်အချက်အလက်အဖြစ် ကိုင်တွယ်ပါ (`DISCORD_BOT_TOKEN` ကို supervised environments များတွင် အသုံးပြုရန် အကြံပြုသည်).
+- အနည်းဆုံးလိုအပ်သည့် (least-privilege) Discord permissions များသာ ခွင့်ပြုပါ.
+- command deploy/state သည် အဟောင်းဖြစ်နေပါက gateway ကို restart လုပ်ပြီး `openclaw channels status --probe` ဖြင့် ပြန်လည်စစ်ဆေးပါ.
+
+## ဆက်စပ်အကြောင်းအရာများ
+
+- [Pairing](/channels/pairing)
+- [Channel routing](/channels/channel-routing)
+- [Troubleshooting](/channels/troubleshooting)
+- [Slash commands](/tools/slash-commands)

@@ -1,4 +1,9 @@
 ---
+summary: "Android app (node): runbook ng koneksyon + Canvas/Chat/Camera"
+read_when:
+  - Pag-pair o muling pagkonekta ng Android node
+  - Pag-debug ng Android gateway discovery o auth
+  - Pag-verify ng parity ng chat history sa iba’t ibang client
 title: "App ng Android"
 ---
 
@@ -14,7 +19,7 @@ title: "App ng Android"
 
 ## Kontrol ng Sistema
 
-Ang kontrol ng sistema (launchd/systemd) ay nasa Gateway host. Tingnan ang [Gateway](/gateway).
+System control (launchd/systemd) lives on the Gateway host. See [Gateway](/gateway).
 
 ## Runbook ng Koneksyon
 
@@ -131,7 +136,7 @@ openclaw nodes invoke --node "<Android Node>" --command canvas.navigate --params
 Tailnet (optional): if both devices are on Tailscale, use a MagicDNS name or tailnet IP instead of `.local`, e.g. `http://<gateway-magicdns>:18793/__openclaw__/canvas/`.
 
 This server injects a live-reload client into HTML and reloads on file changes.
-The A2UI host lives at `http://<gateway-host>:18793/__openclaw__/a2ui/`.
+Ang A2UI host ay nasa `http://<gateway-host>:18789/__openclaw__/a2ui/`.
 
 Mga command ng Canvas (foreground lamang):
 
@@ -144,5 +149,3 @@ Mga command ng camera (foreground lamang; may permission gate):
 - `camera.clip` (mp4)
 
 Tingnan ang [Camera node](/nodes/camera) para sa mga parameter at CLI helpers.
-
-

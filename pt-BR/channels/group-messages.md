@@ -1,4 +1,7 @@
 ---
+summary: "Comportamento e configuração para o tratamento de mensagens de grupo do WhatsApp (mentionPatterns são compartilhados entre superfícies)"
+read_when:
+  - Alterar regras de mensagens de grupo ou menções
 title: "Mensagens de grupo"
 ---
 
@@ -79,5 +82,3 @@ Apenas o número do proprietário (de `channels.whatsapp.allowFrom`, ou o própr
 - A supressão de eco usa a string combinada do lote; se você enviar o mesmo texto duas vezes sem menções, apenas a primeira receberá resposta.
 - Entradas no armazenamento de sessões aparecerão como `agent:<agentId>:whatsapp:group:<jid>` no armazenamento de sessões (`~/.openclaw/agents/<agentId>/sessions/sessions.json` por padrão); uma entrada ausente apenas significa que o grupo ainda não disparou uma execução.
 - Indicadores de digitação em grupos seguem `agents.defaults.typingMode` (padrão: `message` quando não mencionado).
-
-

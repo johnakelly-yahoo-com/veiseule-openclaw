@@ -1,4 +1,8 @@
 ---
+summary: "Agent-tooloppervlak voor OpenClaw (browser, canvas, nodes, message, cron) ter vervanging van verouderde `openclaw-*` Skills"
+read_when:
+  - Agent-tools toevoegen of wijzigen
+  - "`openclaw-*` Skills uitfaseren of wijzigen"
 title: "Hulpmiddelen"
 ---
 
@@ -177,6 +181,7 @@ Optionele plugin-tools:
 
 Pas gestructureerde patches toe op één of meerdere bestanden. Gebruik voor multi-hunk bewerkingen.
 Experimenteel: inschakelen via `tools.exec.applyPatch.enabled` (alleen OpenAI-modellen).
+`tools.exec.applyPatch.workspaceOnly` staat standaard op `true` (beperkt tot de workspace). Zet dit alleen op `false` als je er bewust voor kiest dat `apply_patch` buiten de workspace-directory mag schrijven/verwijderen.
 
 ### `exec`
 
@@ -506,5 +511,3 @@ Tools worden in twee parallelle kanalen aangeboden:
 
 Dat betekent dat de agent zowel “welke tools bestaan” als “hoe ze aan te roepen” ziet. Als een tool
 niet in de systeemprompt of het schema verschijnt, kan het model deze niet aanroepen.
-
-

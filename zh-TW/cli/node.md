@@ -1,4 +1,8 @@
 ---
+summary: "「openclaw node」（無頭節點主機）的 CLI 參考文件"
+read_when:
+  - Running the headless node host
+  - 為 system.run 配對非 macOS 的節點
 title: "node"
 ---
 
@@ -7,7 +11,7 @@ title: "node"
 執行一個**無頭節點主機**，連線至 Gateway WebSocket，並在此機器上公開
 `system.run` / `system.which`。
 
-## 為什麼要使用節點主機？
+## Why use a node host?
 
 當你希望代理程式在你的網路中**於其他機器上執行指令**，但不想在那些機器上安裝完整的 macOS 配套應用程式時，請使用節點主機。
 
@@ -54,7 +58,7 @@ openclaw node run --host <gateway-host> --port 18789
 
 ## 服務（背景）
 
-以使用者服務的方式安裝無頭節點主機。
+Install a headless node host as a user service.
 
 ```bash
 openclaw node install --host <gateway-host> --port 18789
@@ -84,9 +88,9 @@ openclaw node uninstall
 
 服務指令接受 `--json` 以取得機器可讀的輸出。
 
-## 配對
+## Pairing
 
-首次連線會在 Gateway 上建立一個待處理的節點配對請求。
+The first connection creates a pending node pair request on the Gateway.
 Approve it via:
 
 ```bash
@@ -104,5 +108,3 @@ openclaw nodes approve <requestId>
 - `~/.openclaw/exec-approvals.json`
 - [執行核准](/tools/exec-approvals)
 - `openclaw approvals --node <id|name|ip>`（從 Gateway 編輯）
-
-

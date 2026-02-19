@@ -1,4 +1,8 @@
 ---
+summary: "إرسال الاستطلاعات عبر Gateway + CLI"
+read_when:
+  - إضافة دعم الاستطلاعات أو تعديله
+  - تصحيح أخطاء إرسال الاستطلاعات من CLI أو Gateway
 title: "الاستطلاعات"
 ---
 
@@ -40,7 +44,7 @@ openclaw message poll --channel msteams --target conversation:19:abc@thread.tacv
 
 الطريقة: `poll`
 
-المعاملات:
+Params:
 
 - `to` (string، مطلوب)
 - `question` (string، مطلوب)
@@ -63,5 +67,3 @@ openclaw message poll --channel msteams --target conversation:19:abc@thread.tacv
 ملاحظة: لا يوفّر Discord وضع «اختيار عدد محدد N»؛ إذ يتم ربط `pollMulti` بالتحديد المتعدد.
 تُعرَض استطلاعات Teams كبطاقات تكيّفية وتتطلب بقاء Gateway متصلًا
 لتسجيل الأصوات في `~/.openclaw/msteams-polls.json`.
-
-

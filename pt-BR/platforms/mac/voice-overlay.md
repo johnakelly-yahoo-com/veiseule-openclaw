@@ -1,4 +1,7 @@
 ---
+summary: "Ciclo de vida do overlay de voz quando palavra de ativação e push-to-talk se sobrepõem"
+read_when:
+  - Ajustando o comportamento do overlay de voz
 title: "Overlay de Voz"
 ---
 
@@ -33,7 +36,7 @@ Público: contribuidores do app macOS. Objetivo: manter o overlay de voz previs�
    - Em `endCapture`: se o texto aparado estiver vazio → dispensar; caso contrário `performSend(session:)` (toca o chime de envio uma vez, encaminha, dispensa).
    - Push-to-talk: sem atraso; palavra de ativação: atraso opcional para envio automático.
    - Aplique um curto cooldown ao runtime de palavra de ativação após o término do push-to-talk para que a palavra de ativação não seja acionada imediatamente novamente.
-5. **Registro de logs**
+5. **Logging**
    - O coordinator emite logs `.info` no subsistema `bot.molt`, categorias `voicewake.overlay` e `voicewake.chime`.
    - Eventos-chave: `session_started`, `adopted_by_push_to_talk`, `partial`, `finalized`, `send`, `dismiss`, `cancel`, `cooldown`.
 
@@ -56,5 +59,3 @@ Público: contribuidores do app macOS. Objetivo: manter o overlay de voz previs�
 3. Refatore `VoicePushToTalk` para adotar sessões existentes e chamar `endCapture` ao soltar; aplique cooldown em runtime.
 4. Conecte `VoiceWakeOverlayController` ao publisher; remova chamadas diretas do runtime/PTT.
 5. Adicione testes de integração para adoção de sessão, cooldown e dispensa de texto vazio.
-
-

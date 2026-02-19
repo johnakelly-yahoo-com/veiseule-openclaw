@@ -1,4 +1,9 @@
 ---
+summary: "Raspberry Pi पर OpenClaw (बजट स्वयं-होस्टेड सेटअप)"
+read_when:
+  - Raspberry Pi पर OpenClaw सेट अप करना
+  - ARM डिवाइसों पर OpenClaw चलाना
+  - एक सस्ता हमेशा-चालू व्यक्तिगत AI बनाना
 title: "Raspberry Pi"
 ---
 
@@ -351,5 +356,3 @@ echo 'wireless-power off' | sudo tee -a /etc/network/interfaces
 - [Hetzner guide](/install/hetzner) — Docker सेटअप
 - [Tailscale](/gateway/tailscale) — दूरस्थ पहुँच
 - [Nodes](/nodes) — अपने लैपटॉप/फ़ोन को Pi Gateway के साथ जोड़ें
-
-

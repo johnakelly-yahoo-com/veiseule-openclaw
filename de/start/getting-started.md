@@ -1,4 +1,8 @@
 ---
+summary: "Installieren Sie OpenClaw und führen Sie in wenigen Minuten Ihren ersten Chat aus."
+read_when:
+  - Erstmaliges Setup von Null
+  - Sie möchten den schnellsten Weg zu einem funktionierenden Chat
 title: "Erste Schritte"
 ---
 
@@ -30,6 +34,10 @@ Prüfen Sie Ihre Node-Version mit `node --version`, wenn Sie unsicher sind.
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash
         ```
+      <img
+  src="/assets/install-script.svg"
+  alt="Install Script Process"
+  className="rounded-lg"></img>
       
 </Tab>
       <Tab title="Windows (PowerShell)">
@@ -41,12 +49,14 @@ Prüfen Sie Ihre Node-Version mit `node --version`, wenn Sie unsicher sind.
     
 </Tabs>
 
+    ````
     ```
     <Note>
     Weitere Installationsmethoden und Anforderungen: [Install](/install).
     
 </Note>
     ```
+    ````
 
   
 </Step>
@@ -55,21 +65,25 @@ Prüfen Sie Ihre Node-Version mit `node --version`, wenn Sie unsicher sind.
     openclaw onboard --install-daemon
     ```
 
+    ````
     ```
     Der Assistent konfiguriert Authentifizierung, Gateway-Einstellungen und optionale Kanäle.
     Siehe [Onboarding Wizard](/start/wizard) für Details.
     ```
+    ````
 
   
 </Step>
   <Step title="Check the Gateway">
     Wenn Sie den Dienst installiert haben, sollte er bereits laufen:
 
+    `````
     ````
     ```bash
     openclaw gateway status
     ```
     ````
+    `````
 
   
 </Step>
@@ -91,22 +105,26 @@ Wenn die Control UI lädt, ist Ihr Gateway einsatzbereit.
   <Accordion title="Run the Gateway in the foreground">
     Nützlich für schnelle Tests oder zur Fehlerbehebung.
 
+    `````
     ````
     ```bash
     openclaw gateway --port 18789
     ```
     ````
+    `````
 
   
 </Accordion>
   <Accordion title="Send a test message">
     Erfordert einen konfigurierten Kanal.
 
+    `````
     ````
     ```bash
     openclaw message send --target +15555550123 --message "Hello from OpenClaw"
     ```
     ````
+    `````
 
   
 </Accordion>
@@ -146,5 +164,3 @@ Vollständige Referenz der Umgebungsvariablen: [Environment vars](/help/environm
 - DM-Sicherheit und Freigaben: [Pairing](/channels/pairing)
 - Weitere Kanäle verbinden: [Channels](/channels)
 - Erweiterte Workflows und aus dem Quellcode: [Setup](/start/setup)
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Linux 지원 + 컴패니언 앱 상태"
+read_when:
+  - Linux 컴패니언 앱 상태를 찾는 경우
+  - 플랫폼 범위 또는 기여를 계획하는 경우
 title: "Linux 앱"
 ---
 
@@ -88,5 +92,3 @@ WantedBy=default.target
 ```
 systemctl --user enable --now openclaw-gateway[-<profile>].service
 ```
-
-

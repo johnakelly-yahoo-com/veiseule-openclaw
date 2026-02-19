@@ -1,4 +1,7 @@
 ---
+summary: "وضع التنفيذ المرتفع وتوجيهات ‎/elevated‎"
+read_when:
+  - ضبط الإعدادات الافتراضية لوضع elevated، أو قوائم السماح، أو سلوك أوامر الشرطة المائلة
 title: "وضع Elevated"
 ---
 
@@ -45,12 +48,10 @@ title: "وضع Elevated"
 - قائمة سماح المرسل: `tools.elevated.allowFrom` مع قوائم سماح لكل موفّر (مثل `discord`، `whatsapp`).
 - بوابة لكل وكيل: `agents.list[].tools.elevated.enabled` (اختيارية؛ لا يمكنها إلا مزيدًا من التقييد).
 - قائمة سماح لكل وكيل: `agents.list[].tools.elevated.allowFrom` (اختيارية؛ عند تعيينها، يجب أن يطابق المرسل **كلًا من** قائمة السماح العامة وقائمة السماح لكل وكيل).
-- بديل Discord: إذا حُذفت `tools.elevated.allowFrom.discord`، تُستخدم قائمة `channels.discord.dm.allowFrom` كبديل. اضبط `tools.elevated.allowFrom.discord` (حتى `[]`) للتجاوز. قوائم السماح لكل وكيل **لا** تستخدم البديل.
+- خيار احتياطي لـ Discord: إذا لم يتم تحديد `tools.elevated.allowFrom.discord`، فسيتم استخدام قائمة `channels.discord.allowFrom` كخيار احتياطي (الإعداد القديم: `channels.discord.dm.allowFrom`). اضبط `tools.elevated.allowFrom.discord` (حتى `[]`) للتجاوز. قوائم السماح لكل وكيل **لا** تستخدم البديل.
 - يجب أن تجتاز جميع البوابات؛ وإلا يُعامَل elevated على أنه غير متاح.
 
 ## التسجيل + الحالة
 
 - تُسجَّل استدعاءات التنفيذ المرتفع على مستوى المعلومات.
 - تتضمن حالة الجلسة وضع elevated (مثل `elevated=ask`، `elevated=full`).
-
-

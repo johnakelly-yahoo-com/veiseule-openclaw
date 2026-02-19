@@ -1,10 +1,15 @@
 ---
+summary: "ใช้ Anthropic Claude ผ่านคีย์APIหรือsetup-tokenในOpenClaw"
+read_when:
+  - คุณต้องการใช้โมเดลAnthropicในOpenClaw
+  - คุณต้องการใช้setup-tokenแทนคีย์API
 title: "Anthropic"
 ---
 
 # Anthropic (Claude)
 
 32. Anthropic พัฒนาโมเดลตระกูล **Claude** และให้การเข้าถึงผ่าน API
+    Anthropic พัฒนาโมเดลตระกูล **Claude** และให้การเข้าถึงผ่าน API
     Anthropicพัฒนาโมเดลตระกูล **Claude** และให้การเข้าถึงผ่านAPI
     ในOpenClawคุณสามารถยืนยันตัวตนด้วยคีย์APIหรือ **setup-token** ได้
 
@@ -12,7 +17,8 @@ title: "Anthropic"
 
 **เหมาะสำหรับ:** การเข้าถึงAPIมาตรฐานและการคิดค่าบริการตามการใช้งาน
 สร้างคีย์APIของคุณในAnthropic Console
-33. สร้าง API key ของคุณใน Anthropic Console
+33.
+สร้าง API key ของคุณใน Anthropic Console
 
 ### การตั้งค่าCLI
 
@@ -35,7 +41,7 @@ openclaw onboard --anthropic-api-key "$ANTHROPIC_API_KEY"
 
 ## การแคชพรอมต์ (Anthropic API)
 
-34. OpenClaw รองรับฟีเจอร์ prompt caching ของ Anthropic OpenClawรองรับฟีเจอร์การแคชพรอมต์ของAnthropic ซึ่งเป็น **เฉพาะAPIเท่านั้น**; การยืนยันตัวตนแบบสมัครสมาชิกจะไม่ใช้การตั้งค่าแคช
+34. OpenClaw รองรับฟีเจอร์ prompt caching ของ Anthropic OpenClaw รองรับฟีเจอร์ prompt caching ของ Anthropic OpenClawรองรับฟีเจอร์การแคชพรอมต์ของAnthropic ซึ่งเป็น **เฉพาะAPIเท่านั้น**; การยืนยันตัวตนแบบสมัครสมาชิกจะไม่ใช้การตั้งค่าแคช
 
 ### การกำหนดค่า
 
@@ -126,14 +132,15 @@ openclaw onboard --auth-choice setup-token
 
 **ข้อผิดพลาด401 / โทเคนกลายเป็นโมฆะกะทันหัน**
 
-- 37. การยืนยันตัวตนของการสมัครสมาชิก Claude อาจหมดอายุหรือถูกเพิกถอนได้ การยืนยันตัวตนแบบสมัครสมาชิกClaudeอาจหมดอายุหรือถูกเพิกถอน ให้รัน `claude setup-token`
-      แล้ววางลงใน **โฮสต์Gateway**
+- การยืนยันตัวตนของการสมัครสมาชิก Claude อาจหมดอายุหรือถูกเพิกถอนได้ การยืนยันตัวตนแบบสมัครสมาชิกClaudeอาจหมดอายุหรือถูกเพิกถอน ให้รัน `claude setup-token`
+  แล้ววางลงใน **โฮสต์Gateway** การยืนยันตัวตนแบบสมัครสมาชิกClaudeอาจหมดอายุหรือถูกเพิกถอน ให้รัน `claude setup-token`
+  แล้ววางลงใน **โฮสต์Gateway**
 - หากการล็อกอินClaude CLIอยู่บนเครื่องอื่น ให้ใช้
   `openclaw models auth paste-token --provider anthropic` บนโฮสต์Gateway
 
 **ไม่พบคีย์APIสำหรับผู้ให้บริการ "anthropic"**
 
-- 38. การยืนยันตัวตนเป็นแบบ **ต่อเอเจนต์** การยืนยันตัวตนเป็นแบบ **ต่อเอเจนต์** เอเจนต์ใหม่จะไม่สืบทอดคีย์ของเอเจนต์หลัก
+- 38. การยืนยันตัวตนเป็นแบบ **ต่อเอเจนต์** การยืนยันตัวตนเป็นแบบ **ต่อเอเจนต์** การยืนยันตัวตนเป็นแบบ **ต่อเอเจนต์** เอเจนต์ใหม่จะไม่สืบทอดคีย์ของเอเจนต์หลัก
 - รันการเริ่มต้นใช้งานใหม่สำหรับเอเจนต์นั้น หรือวาง setup-token / คีย์API บน
   โฮสต์Gateway จากนั้นตรวจสอบด้วย `openclaw models status`
 
@@ -148,5 +155,3 @@ openclaw onboard --auth-choice setup-token
 - เพิ่มโปรไฟล์Anthropicอื่นหรือรอให้คูลดาวน์สิ้นสุด
 
 เพิ่มเติม: [/gateway/troubleshooting](/gateway/troubleshooting) และ [/help/faq](/help/faq)
-
-

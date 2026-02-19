@@ -1,4 +1,8 @@
 ---
+summary: "CLI ma’lumotnomasi `openclaw models` uchun (holat/ro‘yxat/o‘rnatish/skanerlash, taxalluslar, zaxira variantlar, autentifikatsiya)"
+read_when:
+  - You want to change default models or view provider auth status
+  - You want to scan available models/providers and debug auth profiles
 title: "models"
 ---
 
@@ -69,5 +73,3 @@ Eslatmalar:
 
 - `setup-token` setup-token qiymatini so‘raydi (uni istalgan mashinada `claude setup-token` bilan yarating).
 - `paste-token` boshqa joyda yoki avtomatlashtirish orqali yaratilgan token satrini qabul qiladi.
-
-

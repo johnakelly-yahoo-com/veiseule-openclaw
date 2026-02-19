@@ -1,4 +1,9 @@
 ---
+summary: "Gateway-runtime op macOS (externe launchd-service)"
+read_when:
+  - Verpakken van OpenClaw.app
+  - Debuggen van de macOS Gateway launchd-service
+  - Installeren van de Gateway CLI voor macOS
 title: "Gateway op macOS"
 ---
 
@@ -67,5 +72,3 @@ Daarna:
 ```bash
 openclaw gateway call health --url ws://127.0.0.1:18999 --timeout 3000
 ```
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "Comportamiento del chat grupal en distintas superficies (WhatsApp/Telegram/Discord/Slack/Signal/iMessage/Microsoft Teams)"
+read_when:
+  - Cambiar el comportamiento del chat grupal o el control por menciones
 title: "Grupos"
 ---
 
@@ -369,5 +372,3 @@ El prompt del sistema del agente incluye una introducción del grupo en el prime
 ## Especificidades de WhatsApp
 
 Vea [Mensajes de grupo](/channels/group-messages) para el comportamiento exclusivo de WhatsApp (inyección de historial, detalles del manejo de menciones).
-
-

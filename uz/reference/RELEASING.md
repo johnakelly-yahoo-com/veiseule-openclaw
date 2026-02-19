@@ -1,10 +1,15 @@
 ---
 title: "Reliz uchun tekshiruv roʻyxati"
+summary: "npm + macOS ilovasi uchun bosqichma-bosqich reliz tekshiruv roʻyxati"
+read_when:
+  - Yangi npm relizini chiqarishda
+  - Yangi macOS ilovasi relizini chiqarishda
+  - Nashrdan oldin metamaʼlumotlarni tekshirishda
 ---
 
 # Reliz uchun tekshiruv roʻyxati (npm + macOS)
 
-Repo ildizidan `pnpm` (Node 22+) dan foydalaning. Teg qoʻyish/nashr qilishdan oldin ishchi daraxt toza ekanini tekshiring.
+Use `pnpm` (Node 22+) from the repo root. Keep the working tree clean before tagging/publishing.
 
 ## Operatorni ishga tushirish
 
@@ -68,7 +73,7 @@ Operator “release” deganda, darhol quyidagi preflight bosqichlarini bajaring
 
 ### Nosozliklarni bartaraf etish (2.0.0-beta2 relizidan eslatmalar)
 
-- **npm pack/publish osilib qoladi yoki juda katta tarball hosil qiladi**: `dist/OpenClaw.app` ichidagi macOS app bundle (va reliz zip’lari) paketga qo‘shilib ketadi. Buni `package.json` dagi `files` orqali publish tarkibini whitelist qilish bilan tuzating (dist subdir’lar, docs, skills’ni qo‘shing; app bundle’larni chiqarib tashlang). `npm pack --dry-run` bilan `dist/OpenClaw.app` ro‘yxatda yo‘qligini tasdiqlang.
+- **npm pack/publish osilib qoladi yoki juda katta tarball hosil qiladi**: `dist/OpenClaw.app` ichidagi macOS ilova bundle’i (va reliz ziplar) paketga qo‘shilib ketadi. `package.json` dagi `files` orqali nashr tarkibini whitelist qilish bilan tuzating (dist quyi kataloglari, docs, skills ni kiriting; app bundle’larni chiqarib tashlang). `npm pack --dry-run` bilan `dist/OpenClaw.app` ro‘yxatda yo‘qligini tasdiqlang.
 - **dist-tags uchun npm auth web loop**: OTP so‘rovini olish uchun legacy auth’dan foydalaning:
   - `NPM_CONFIG_AUTH_TYPE=legacy npm dist-tag add openclaw@X.Y.Z latest`
 - **`npx` tekshiruvi `ECOMPROMISED: Lock compromised` bilan muvaffaqiyatsiz tugaydi**: yangi cache bilan qayta urinib ko‘ring:
@@ -87,7 +92,7 @@ Operator “release” deganda, darhol quyidagi preflight bosqichlarini bajaring
 
 ## Plugin nashr qilish qamrovi (npm)
 
-Biz faqat `@openclaw/*` scope ostidagi **mavjud npm plugin’larni** nashr qilamiz. npm’da mavjud bo‘lmagan, lekin bundle qilingan plugin’lar **faqat disk-tree ko‘rinishida** qoladi (`extensions/**` ichida tarqatiladi).
+Biz faqat **mavjud npm plaginlari**ni `@openclaw/*` doirasi ostida nashr qilamiz. npm’da bo‘lmagan, lekin bundle qilingan plaginlar **faqat disk-daraxt** holatida qoladi (baribir `extensions/**` ichida yetkaziladi).
 
 Ro‘yxatni aniqlash jarayoni:
 
@@ -111,5 +116,3 @@ Joriy npm plugin ro‘yxati (zaruratga ko‘ra yangilang):
 - @openclaw/zalouser
 
 Reliz eslatmalarida, shuningdek, **sukut bo‘yicha yoqilmagan yangi ixtiyoriy bundle qilingan plugin’lar** ham alohida qayd etilishi kerak (masalan: `tlon`).
-
-

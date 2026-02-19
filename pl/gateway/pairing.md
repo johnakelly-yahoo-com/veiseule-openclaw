@@ -1,4 +1,9 @@
 ---
+summary: "Parowanie węzłów należących do Gateway (Opcja B) dla iOS i innych węzłów zdalnych"
+read_when:
+  - Implementowanie zatwierdzania parowania węzłów bez interfejsu macOS
+  - Dodawanie przepływów CLI do zatwierdzania węzłów zdalnych
+  - Rozszerzanie protokołu gateway o zarządzanie węzłami
 title: "Parowanie bramy"
 ---
 
@@ -92,5 +97,3 @@ Uwagi dotyczące bezpieczeństwa:
 - Transport jest **bezstanowy**; nie przechowuje członkostwa.
 - Jeśli Gateway jest offline lub parowanie jest wyłączone, węzły nie mogą się parować.
 - Jeśli Gateway działa w trybie zdalnym, parowanie nadal odbywa się względem magazynu zdalnego Gateway.
-
-

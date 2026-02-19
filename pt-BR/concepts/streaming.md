@@ -1,4 +1,9 @@
 ---
+summary: "Comportamento de streaming + chunking (respostas em blocos, streaming de rascunho, limites)"
+read_when:
+  - Explicando como o streaming ou chunking funciona nos canais
+  - Alterando o streaming em blocos ou o comportamento de chunking do canal
+  - Depurando respostas em bloco duplicadas/antecipadas ou streaming de rascunho
 title: "Streaming e Chunking"
 ---
 
@@ -104,17 +109,17 @@ Lembrete de local da configuração: os padrões de `blockStreaming*` ficam em
 
 O Telegram é o único canal com streaming de rascunho:
 
-- Usa a API de Bot `sendMessageDraft` em **chats privados com tópicos**.
+- Usa a Bot API `sendMessage` (primeira atualização) + `editMessageText` (atualizações subsequentes).
 - `channels.telegram.streamMode: "partial" | "block" | "off"`.
   - `partial`: atualizações do rascunho com o texto de stream mais recente.
   - `block`: atualizações do rascunho em blocos chunked (mesmas regras do chunker).
   - `off`: sem streaming de rascunho.
 - Configuração de chunk do rascunho (apenas para `streamMode: "block"`): `channels.telegram.draftChunk` (padrões: `minChars: 200`, `maxChars: 800`).
-- O streaming de rascunho é separado do streaming em blocos; respostas em bloco ficam desativadas por padrão e só são ativadas por `*.blockStreaming: true` em canais não Telegram.
-- A resposta final ainda é uma mensagem normal.
+- A transmissão de preview é separada da transmissão de blocos.
+- Quando o streaming de rascunho está ativo, o OpenClaw desativa o streaming em blocos para aquela resposta para evitar streaming duplo.
+- Finais apenas em texto são aplicados editando a mensagem de preview no próprio local.
+- Finais não textuais/complexos recorrem ao envio normal da mensagem final.
 - `/reasoning stream` grava o raciocínio na bolha de rascunho (apenas Telegram).
-
-Quando o streaming de rascunho está ativo, o OpenClaw desativa o streaming em blocos para aquela resposta para evitar streaming duplo.
 
 ```
 Telegram (private + topics)
@@ -126,7 +131,5 @@ Telegram (private + topics)
 
 Legenda:
 
-- `sendMessageDraft`: bolha de rascunho do Telegram (não é uma mensagem real).
-- `final reply`: envio normal de mensagem do Telegram.
-
-
+- `preview message`: mensagem temporária do Telegram atualizada durante a geração.
+- `final edit`: edição no próprio local na mesma mensagem de preview (apenas texto).

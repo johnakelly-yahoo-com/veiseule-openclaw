@@ -1,8 +1,12 @@
 ---
-title: "Secuencias de comandos"
+summary: "Scripts del repositorio: propósito, alcance y notas de seguridad"
+read_when:
+  - Al ejecutar scripts del repositorio
+  - Al agregar o cambiar scripts bajo ./scripts
+title: "Scripts"
 ---
 
-# Secuencias de comandos
+# Scripts
 
 El directorio `scripts/` contiene scripts de ayuda para flujos de trabajo locales y tareas operativas.
 Úselos cuando una tarea esté claramente vinculada a un script; de lo contrario, prefiera la CLI.
@@ -22,5 +26,3 @@ Los scripts de monitoreo de autenticación están documentados aquí:
 
 - Mantenga los scripts enfocados y documentados.
 - Agregue una entrada breve en el documento relevante (o cree uno si falta).
-
-

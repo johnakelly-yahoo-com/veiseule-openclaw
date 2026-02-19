@@ -1,4 +1,7 @@
 ---
+summary: "Cycle de vie de la boucle d’agent, flux et semantique d’attente"
+read_when:
+  - Vous avez besoin d’un parcours exact de la boucle d’agent ou des evenements de cycle de vie
 title: "Boucle d’agent"
 ---
 
@@ -141,5 +144,3 @@ Voir [Plugins](/tools/plugin#plugin-hooks) pour l’API des accroches et les det
 - AbortSignal (annulation)
 - Deconnexion de la Gateway ou delai d’expiration RPC
 - Delai d’expiration `agent.wait` (attente uniquement, n’arrete pas l’agent)
-
-

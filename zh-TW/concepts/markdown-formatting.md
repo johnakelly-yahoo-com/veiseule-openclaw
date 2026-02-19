@@ -1,10 +1,17 @@
 ---
+summary: "用於對外通道的 Markdown 格式化管線"
+read_when:
+  - 當你正在變更對外通道的 Markdown 格式化或分塊行為時
+  - You are adding a new channel formatter or style mapping
+  - 當你正在除錯跨通道的格式回歸問題時
 title: "Markdown 格式化"
 ---
 
 # Markdown 格式化
 
 OpenClaw 透過先將對外的 Markdown 轉換為共用的中介表示（IR），再渲染成各通道專屬的輸出格式。IR 在保留原始文字內容的同時，攜帶樣式／連結的跨度資訊，讓分塊與渲染能在各通道間保持一致。 The IR keeps the
+source text intact while carrying style/link spans so chunking and rendering can
+stay consistent across channels. The IR keeps the
 source text intact while carrying style/link spans so chunking and rendering can
 stay consistent across channels.
 
@@ -55,6 +62,7 @@ IR（示意）：
 
 Markdown 表格在各聊天客戶端中的支援並不一致。請使用
 `markdown.tables` 來控制各通道（以及各帳戶）的轉換行為。 Use
+`markdown.tables` to control conversion per channel (and per account). Use
 `markdown.tables` to control conversion per channel (and per account).
 
 - `code`: render tables as code blocks (default for most channels).
@@ -88,6 +96,7 @@ channels:
 ## 連結政策
 
 - **Slack：** `[label](url)` -> `<url|label>`；裸露 URL 保持原樣。解析時會停用自動連結，以避免重複建立連結。 Autolink
+  is disabled during parse to avoid double-linking. Autolink
   is disabled during parse to avoid double-linking.
 - **Telegram：** `[label](url)` -> `<a href="url">label</a>`（HTML 解析模式）。
 - **Signal：** `[label](url)` -> `label (url)`，除非標籤與 URL 相同。
@@ -112,5 +121,3 @@ SPOILER style ranges. Other channels treat them as plain text.
 - Signal 的樣式範圍依賴 UTF-16 位移量；請勿使用程式碼點位移。
 - Preserve trailing newlines for fenced code blocks so closing markers land on
   their own line.
-
-

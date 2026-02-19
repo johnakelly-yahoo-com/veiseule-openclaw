@@ -1,4 +1,7 @@
 ---
+summary: "Modes de reveil vocal et push-to-talk, ainsi que les details de routage dans l’application mac"
+read_when:
+  - Travail sur les parcours de reveil vocal ou de PTT
 title: "Reveil vocal"
 ---
 
@@ -62,5 +65,3 @@ Renforcement :
 
 - Activez le push-to-talk, maintenez Cmd+Fn, parlez, relachez : la superposition doit afficher des partiels puis envoyer.
 - Pendant le maintien, les oreilles de la barre de menus doivent rester agrandies (utilise `triggerVoiceEars(ttl:nil)`) ; elles se reduisent apres le relachement.
-
-

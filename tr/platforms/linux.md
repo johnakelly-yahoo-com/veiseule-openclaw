@@ -1,4 +1,8 @@
 ---
+summary: "Linux desteği + yardımcı uygulama durumu"
+read_when:
+  - Linux yardımcı uygulama durumunu ararken
+  - Platform kapsamını veya katkıları planlarken
 title: "Linux Uygulaması"
 ---
 
@@ -87,5 +91,3 @@ Etkinleştirin:
 ```
 systemctl --user enable --now openclaw-gateway[-<profile>].service
 ```
-
-

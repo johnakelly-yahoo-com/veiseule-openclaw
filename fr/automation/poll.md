@@ -1,4 +1,8 @@
 ---
+summary: "Envoi de sondages via la passerelle + CLI"
+read_when:
+  - Ajout ou modification de la prise en charge des sondages
+  - Debogage des envois de sondages depuis la CLI ou la passerelle
 title: "Sondages"
 ---
 
@@ -63,5 +67,3 @@ Utilisez l’outil `message` avec l’action `poll` (`to`, `pollQuestion`, `poll
 Remarque : Discord n’a pas de mode « choisir exactement N » ; `pollMulti` correspond a la selection multiple.
 Les sondages Teams sont rendus sous forme d’Adaptive Cards et necessitent que la passerelle reste en ligne
 pour enregistrer les votes dans `~/.openclaw/msteams-polls.json`.
-
-

@@ -1,8 +1,12 @@
-------
+---
+summary: "Bản ghi hồ sơ người dùng"
+read_when:
+  - Khởi tạo workspace thủ công
+---
 
 # USER.md - Về Con Người Của Bạn
 
-_Tìm hiểu về người bạn đang hỗ trợ. Cập nhật thông tin này trong quá trình làm việc._
+_Learn about the person you're helping. Update this as you go._
 
 - **Tên:**
 - **Cách xưng hô:**
@@ -12,10 +16,8 @@ _Tìm hiểu về người bạn đang hỗ trợ. Cập nhật thông tin này 
 
 ## Bối cảnh
 
-_(Họ quan tâm đến điều gì? Họ đang thực hiện những dự án nào? Điều gì khiến họ khó chịu? Điều gì khiến họ bật cười? Hãy xây dựng phần này theo thời gian.)_
+_(What do they care about? What projects are they working on? What annoys them? What makes them laugh? Build this over time.)_
 
 ---
 
-Bạn càng biết nhiều, bạn càng có thể hỗ trợ tốt hơn. Nhưng hãy nhớ — bạn đang tìm hiểu về một con người, không phải xây dựng một hồ sơ theo dõi. Hãy tôn trọng sự khác biệt đó.
-
-
+The more you know, the better you can help. But remember — you're learning about a person, not building a dossier. Respect the difference.

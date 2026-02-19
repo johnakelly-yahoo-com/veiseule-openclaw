@@ -1,12 +1,9 @@
 ---
-title: 开发渠道
-x-i18n:
-  generated_at: "2026-02-03T10:07:21Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 2b01219b7e705044ce39838a0da7c7fa65c719809ab2f8a51e14529064af81bf
-  source_path: install/development-channels.md
-  workflow: 15
+summary: "stable、beta 和 dev 渠道：语义、切换和标签"
+read_when:
+  - 你想在 stable/beta/dev 之间切换
+  - 你正在标记或发布预发布版本
+title: "开发渠道"
 ---
 
 # 开发渠道
@@ -17,7 +14,7 @@ OpenClaw 提供三个更新渠道：
 
 - **stable**：npm dist-tag `latest`。
 - **beta**：npm dist-tag `beta`（测试中的构建）。
-- **dev**：`main` 的移动头（git）。npm dist-tag：`dev`（发布时）。
+- **dev**：`main` 的移动头（git）。npm dist-tag：`dev`（发布时）。 npm dist-tag: `dev` (when published).
 
 我们将构建发布到 **beta**，进行测试，然后**将经过验证的构建提升到 `latest`**，
 版本号不变——dist-tag 是 npm 安装的数据源。
@@ -71,9 +68,7 @@ openclaw update --channel dev
 
 ## macOS 应用可用性
 
-Beta 和 dev 构建可能**不**包含 macOS 应用发布。这没问题：
+Beta 和 dev 构建可能**不**包含 macOS 应用发布。这没问题： That’s OK:
 
 - git 标签和 npm dist-tag 仍然可以发布。
 - 在发布说明或变更日志中注明"此 beta 无 macOS 构建"。
-
-

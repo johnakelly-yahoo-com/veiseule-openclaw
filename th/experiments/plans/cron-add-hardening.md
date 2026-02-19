@@ -1,4 +1,5 @@
 ---
+summary: "เสริมความแข็งแกร่งการจัดการอินพุตของ cron.add ปรับสคีมาให้สอดคล้อง และปรับปรุงเครื่องมือ cron ของ UI/เอเจนต์"
 owner: "openclaw"
 status: "complete"
 last_updated: "2026-01-05"
@@ -9,7 +10,7 @@ title: "การเสริมความแข็งแกร่งของ
 
 ## บริบท
 
-บันทึกล็อกของเกตเวย์ล่าสุดแสดงความล้มเหลวของ `cron.add` ซ้ำ ๆ พร้อมพารามิเตอร์ไม่ถูกต้อง (ขาด `sessionTarget`, `wakeMode`, `payload` และ `schedule` มีรูปแบบไม่ถูกต้อง) ซึ่งบ่งชี้ว่ามีไคลเอนต์อย่างน้อยหนึ่งตัว (น่าจะเป็นเส้นทางการเรียกใช้เครื่องมือของเอเจนต์) กำลังส่งเพย์โหลดงานที่ถูกห่อ (wrapped) หรือระบุข้อมูลไม่ครบถ้วน นอกจากนี้ ยังมีความไม่สอดคล้องกันของ enum ผู้ให้บริการ cron ระหว่าง TypeScript, สคีมาของเกตเวย์, แฟล็กของ CLI และชนิดฟอร์มของ UI รวมถึงความไม่ตรงกันใน UI สำหรับ `cron.status` (คาดหวัง `jobCount` ในขณะที่เกตเวย์ส่งกลับเป็น `jobs`)
+Recent gateway logs show repeated `cron.add` failures with invalid parameters (missing `sessionTarget`, `wakeMode`, `payload`, and malformed `schedule`). This indicates that at least one client (likely the agent tool call path) is sending wrapped or partially specified job payloads. Separately, there is drift between cron provider enums in TypeScript, gateway schema, CLI flags, and UI form types, plus a UI mismatch for `cron.status` (expects `jobCount` while gateway returns `jobs`).
 
 ## เป้าหมาย
 
@@ -19,7 +20,7 @@ title: "การเสริมความแข็งแกร่งของ
 - แก้ไขการแสดงผลจำนวนงานสถานะ cron ใน Control UI
 - เพิ่มการทดสอบเพื่อครอบคลุมการทำให้เป็นรูปแบบปกติและพฤติกรรมของเครื่องมือ
 
-## สิ่งที่ไม่ครอบคลุม (Non-goals)
+## Non-goals
 
 - เปลี่ยนความหมายการตั้งเวลา cron หรือพฤติกรรมการรันงาน
 - เพิ่มชนิดตารางเวลาใหม่หรือการพาร์ส cron expression
@@ -52,7 +53,7 @@ title: "การเสริมความแข็งแกร่งของ
 - เฝ้าดูบันทึกล็อกของ Gateway（เกตเวย์）เพื่อยืนยันว่าข้อผิดพลาด INVALID_REQUEST ของ `cron.add` ลดลง
 - ยืนยันว่า Control UI แสดงจำนวนงานสถานะ cron หลังรีเฟรช
 
-## งานติดตามเพิ่มเติม (ทางเลือก)
+## Optional Follow-ups
 
 - ทดสอบ Control UI แบบ smoke ด้วยตนเอง: เพิ่มงาน cron ต่อผู้ให้บริการหนึ่งรายการ + ตรวจสอบจำนวนงานสถานะ
 
@@ -60,5 +61,3 @@ title: "การเสริมความแข็งแกร่งของ
 
 - ควรให้ `cron.add` ยอมรับ `state` แบบระบุชัดจากไคลเอนต์หรือไม่ (ปัจจุบันไม่อนุญาตโดยสคีมา)?
 - ควรอนุญาต `webchat` เป็นผู้ให้บริการการส่งมอบแบบระบุชัดหรือไม่ (ปัจจุบันถูกกรองในขั้นตอนการแก้ไขการส่งมอบ)?
-
-

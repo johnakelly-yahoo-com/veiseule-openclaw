@@ -1,10 +1,14 @@
 ---
+summary: "योजना: सभी मैसेजिंग कनेक्टर्स के लिए एक स्वच्छ प्लगइन SDK + रनटाइम"
+read_when:
+  - प्लगइन आर्किटेक्चर को परिभाषित या पुनर्गठित करते समय
+  - चैनल कनेक्टर्स को प्लगइन SDK/रनटाइम में माइग्रेट करते समय
 title: "प्लगइन SDK पुनर्गठन"
 ---
 
 # प्लगइन SDK + रनटाइम पुनर्गठन योजना
 
-लक्ष्य: हर मैसेजिंग कनेक्टर एक प्लगइन (बंडल्ड या बाहरी) हो जो एक स्थिर API का उपयोग करे।
+Goal: every messaging connector is a plugin (bundled or external) using one stable API.
 No plugin imports from `src/**` directly. All dependencies go through the SDK or runtime.
 
 ## अभी क्यों
@@ -16,7 +20,7 @@ No plugin imports from `src/**` directly. All dependencies go through the SDK or
 
 ### 1. प्लगइन SDK (कम्पाइल-टाइम, स्थिर, प्रकाशित करने योग्य)
 
-परिधि: प्रकार, हेल्पर, और कॉन्फ़िग यूटिलिटीज़। कोई रनटाइम स्थिति नहीं, कोई साइड इफेक्ट नहीं।
+Scope: types, helpers, and config utilities. No runtime state, no side effects.
 
 सामग्री (उदाहरण):
 
@@ -35,7 +39,7 @@ No plugin imports from `src/**` directly. All dependencies go through the SDK or
 
 ### 2. प्लगइन रनटाइम (एक्सीक्यूशन सतह, इंजेक्टेड)
 
-परिधि: वह सब कुछ जो कोर रनटाइम व्यवहार को प्रभावित करता है।
+Scope: everything that touches core runtime behavior.
 Accessed via `OpenClawPluginApi.runtime` so plugins never import `src/**`.
 
 प्रस्तावित सतह (न्यूनतम लेकिन पूर्ण):
@@ -208,5 +212,3 @@ export type PluginRuntime = {
 - बाहरी प्लगइन्स को कोर सोर्स एक्सेस के बिना विकसित और अपडेट किया जा सके।
 
 संबंधित दस्तावेज़: [Plugins](/tools/plugin), [Channels](/channels/index), [Configuration](/gateway/configuration)।
-
-

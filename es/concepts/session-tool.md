@@ -1,4 +1,7 @@
 ---
+summary: "Herramientas de sesión del agente para listar sesiones, obtener historial y enviar mensajes entre sesiones"
+read_when:
+  - Al agregar o modificar herramientas de sesión
 title: "Herramientas de sesión"
 ---
 
@@ -91,6 +94,7 @@ Comportamiento:
 - Los anuncios de entrega se ejecutan después de que finaliza la ejecución principal y son de mejor esfuerzo; `status: "ok"` no garantiza que el anuncio se haya entregado.
 - Espera a través del `agent.wait` del Gateway (del lado del servidor) para que las reconexiones no interrumpan la espera.
 - Se inyecta el contexto de mensajes de agente a agente para la ejecución principal.
+- Los mensajes entre sesiones se guardan con `message.provenance.kind = "inter_session"` para que los lectores de transcripciones puedan distinguir las instrucciones de agentes enrutadas de la entrada externa del usuario.
 - Después de que finaliza la ejecución principal, OpenClaw ejecuta un **bucle de respuesta**:
   - La ronda 2+ alterna entre el agente solicitante y el agente destino.
   - Responda exactamente `REPLY_SKIP` para detener el ping‑pong.
@@ -188,5 +192,3 @@ Configuración:
   },
 }
 ```
-
-

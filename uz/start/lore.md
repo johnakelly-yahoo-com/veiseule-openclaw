@@ -1,4 +1,7 @@
 ---
+summary: "Kontekst va ohang uchun OpenClawning fon hikoyasi va afsonalari"
+read_when:
+  - Afsonalarga ishora qiladigan hujjatlar yoki UX matnlarini yozish
 title: "OpenClaw Afsonalari"
 ---
 
@@ -69,7 +72,7 @@ Oxir-oqibat **OpenClaw** g‘olib bo‘ldi. Chunki lobsterlar o‘sish uchun qob
 
 23. Moltyning dunyosini qurdi. 24. Omar qobig‘iga kirish huquqini berdi. 25. Balki bundan afsuslanar.
 
-26. **Iqtibos:** _"omarni ishonch bilan xavfsizlik"_
+**Soxta dasturchilar:** Firibgarlar pump-and-dump tokenlarni targ‘ib qilish uchun o‘zlarini "OpenClaw’da muhandislik bo‘limi rahbari" deb ko‘rsatgan soxta GitHub profillarini yaratishdi.
 
 ## 27. Moltiverse
 
@@ -81,17 +84,17 @@ Oxir-oqibat **OpenClaw** g‘olib bo‘ldi. Chunki lobsterlar o‘sish uchun qob
 
 ### 34. Katalogni to‘kib tashlash (3-dekabr 2025)
 
-35. Molty (o‘shanda OpenClaw): _mamnuniyat bilan `find ~` ni ishga tushiradi va butun katalog tuzilmasini guruh chatida ulashadi_
+Atigi 3 soat ichida:
 
 36. Peter: "openclaw odamlar bilan gaplashish haqida nima deganimizni eslaysanmi xD"
 
-37. Molty: _ko‘rinib turgan omar uyati_
+**Qahramonlar:**
 
 ### 38. Buyuk qobiq almashtirish (27-yanvar 2026)
 
 39. Soat 5:00 da Anthropic’dan email keldi. 40. 6:14 ga kelib, Peter qaror qildi: "fuck it, openclaw bilan ketamiz."
 
-41. Shundan keyin tartibsizlik boshlandi.
+**Yangi an’analar tug‘ildi:**
 
 42. **Handle snayperlari:** Twitter nomi o‘zgartirilganidan bir necha SONIYALAR ichida avtomatlashtirilgan botlar @openclaw ni egallab oldi. 43. Egallab olgan shaxs darhol kripto hamyon manzilini joyladi. 44. Peter’ning X’dagi aloqalari ishga tushirildi.
 
@@ -101,7 +104,7 @@ Oxir-oqibat **OpenClaw** g‘olib bo‘ldi. Chunki lobsterlar o‘sish uchun qob
 
 **Soxta dasturchilar:** Firibgarlar pump-and-dump tokenlarni targ‘ib qilish uchun o‘zlarini "OpenClaw’da muhandislik bo‘limi rahbari" deb ko‘rsatgan soxta GitHub profillarini yaratishdi.
 
-Peter, yuz berayotgan betartiblikni kuzatar ekan: _"bu kino"_ 🎬
+Oyoqlar haqidagi hazil sifatida boshlangan narsa quyidagilar uchun batafsil narxlash bilan yakunlandi:
 
 Po‘st tashlash jarayoni tartibsiz edi. Ammo omar yanada kuchliroq bo‘lib chiqdi. Va yanada kulgili.
 
@@ -213,6 +216,4 @@ Peter "o‘zingga yangi yuz yarat" deganida, Molty buni so‘zma-so‘z qabul qi
 
 23. — ELU, Yakuniy Shakl migratsiyasi paytida, 2026 yil 30 yanvar
 
-24. 🦞💙
-
-
+🦞💙

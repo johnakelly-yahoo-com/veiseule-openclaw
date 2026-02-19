@@ -1,4 +1,9 @@
 ---
+summary: "Nodes — pairing, စွမ်းဆောင်ရည်များ, ခွင့်ပြုချက်များ နှင့် canvas/camera/screen/system အတွက် CLI အကူအညီများ"
+read_when:
+  - iOS/Android node များကို Gateway နှင့် pairing လုပ်သောအခါ
+  - agent context အတွက် node canvas/camera ကို အသုံးပြုသောအခါ
+  - node command အသစ်များ သို့မဟုတ် CLI helper များ ထည့်သွင်းသောအခါ
 title: "နိုဒ်များ"
 ---
 
@@ -267,9 +272,9 @@ openclaw nodes notify --node <idOrNameOrIp> --title "Ping" --body "Gateway ready
 - `system.notify` သည် macOS app ပေါ်ရှိ notification permission အခြေအနေကို လေးစားလိုက်နာပါသည်။
 - `system.run` သည် `--cwd`, `--env KEY=VAL`, `--command-timeout`, နှင့် `--needs-screen-recording` ကို ပံ့ပိုးပါသည်။
 - `system.notify` သည် `--priority <passive|active|timeSensitive>` နှင့် `--delivery <system|overlay|auto>` ကို ပံ့ပိုးပါသည်။
-- macOS node များသည် `PATH` override များကို ပယ်ချပါသည်; headless node host များသည် node host PATH ကို prepend လုပ်ထားသည့်အခါမှသာ `PATH` ကို လက်ခံပါသည်။
-- macOS နိုဒ်မုဒ်တွင် `system.run` ကို macOS အက်ပ်အတွင်းရှိ exec approvals (Settings → Exec approvals) ဖြင့် ကန့်သတ်ထားသည်။
-Ask/allowlist/full သည် headless node host နှင့် တူညီစွာ အလုပ်လုပ်သည်။ ငြင်းပယ်ထားသော prompt များသည် `SYSTEM_RUN_DENIED` ကို ပြန်လည်ပေးပို့သည်။
+- Node host များသည် `PATH` override များကို လျစ်လျူရှုပါသည်။ အပို PATH entries လိုအပ်ပါက `--env` မှတစ်ဆင့် `PATH` ပို့ခြင်းအစား node host service environment ကို သတ်မှတ်ပြင်ဆင်ပါ (သို့မဟုတ် tool များကို ပုံမှန်တည်နေရာများတွင် ထည့်သွင်းပါ)။
+- On macOS node mode, `system.run` is gated by exec approvals in the macOS app (Settings → Exec approvals).
+  Ask/allowlist/full behave the same as the headless node host; denied prompts return `SYSTEM_RUN_DENIED`.
 - Headless node host တွင် `system.run` သည် exec approvals (`~/.openclaw/exec-approvals.json`) ဖြင့် ထိန်းချုပ်ထားပါသည်။
 
 ## Exec နိုဒ် ချိတ်ဆက်မှု
@@ -326,5 +331,3 @@ openclaw node run --host <gateway-host> --port 18789
 
 - macOS menubar app သည် Gateway WS server သို့ node အဖြစ် ချိတ်ဆက်ပါသည် (ထို့ကြောင့် `openclaw nodes …` သည် ဒီ Mac ကို ရည်ညွှန်း၍ အလုပ်လုပ်နိုင်ပါသည်)။
 - Remote mode တွင် app သည် Gateway port အတွက် SSH tunnel ကို ဖွင့်ပြီး `localhost` သို့ ချိတ်ဆက်ပါသည်။
-
-

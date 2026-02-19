@@ -1,54 +1,59 @@
 ---
+summary: "OpenClaw trên Oracle Cloud (ARM Always Free)"
+read_when:
+  - Thiết lập OpenClaw trên Oracle Cloud
+  - Tìm VPS chi phí thấp để chạy OpenClaw
+  - Muốn chạy OpenClaw 24/7 trên một máy chủ nhỏ
 title: "Oracle Cloud"
 ---
 
-# OpenClaw on Oracle Cloud (OCI)
+# OpenClaw trên Oracle Cloud (OCI)
 
-## Goal
+## Mục tiêu
 
-Run a persistent OpenClaw Gateway on Oracle Cloud's **Always Free** ARM tier.
+Chạy một OpenClaw Gateway hoạt động liên tục trên gói **Always Free** ARM của Oracle Cloud.
 
-Oracle’s free tier can be a great fit for OpenClaw (especially if you already have an OCI account), but it comes with tradeoffs:
+Gói miễn phí của Oracle có thể rất phù hợp cho OpenClaw (đặc biệt nếu bạn đã có tài khoản OCI), nhưng cũng có một số đánh đổi:
 
-- ARM architecture (most things work, but some binaries may be x86-only)
-- Capacity and signup can be finicky
+- Kiến trúc ARM (đa số hoạt động tốt, nhưng một số binary có thể chỉ hỗ trợ x86)
+- Dung lượng và quá trình đăng ký đôi khi không ổn định
 
-## Cost Comparison (2026)
+## So sánh chi phí (2026)
 
-| Provider     | Plan            | Specs                  | Price/mo | Notes                 |
-| ------------ | --------------- | ---------------------- | -------- | --------------------- |
-| Oracle Cloud | Always Free ARM | up to 4 OCPU, 24GB RAM | $0       | ARM, limited capacity |
-| Hetzner      | CX22            | 2 vCPU, 4GB RAM        | ~ $4     | Cheapest paid option  |
-| DigitalOcean | Basic           | 1 vCPU, 1GB RAM        | $6       | Easy UI, good docs    |
-| Vultr        | Cloud Compute   | 1 vCPU, 1GB RAM        | $6       | Many locations        |
-| Linode       | Nanode          | 1 vCPU, 1GB RAM        | $5       | Now part of Akamai    |
+| Nhà cung cấp | Gói             | Cấu hình                | Giá/tháng            | Ghi chú                  |
+| ------------ | --------------- | ----------------------- | -------------------- | ------------------------ |
+| Oracle Cloud | Always Free ARM | tối đa 4 OCPU, 24GB RAM | $0                   | ARM, dung lượng hạn chế  |
+| Hetzner      | CX22            | 2 vCPU, 4GB RAM         | ~ $4 | Lựa chọn trả phí rẻ nhất |
+| DigitalOcean | Basic           | 1 vCPU, 1GB RAM         | $6                   | UI dễ dùng, tài liệu tốt |
+| Vultr        | Cloud Compute   | 1 vCPU, 1GB RAM         | $6                   | Nhiều khu vực            |
+| Linode       | Nanode          | 1 vCPU, 1GB RAM         | $5                   | Hiện thuộc Akamai        |
 
 ---
 
-## Prerequisites
+## Điều kiện tiên quyết
 
-- Oracle Cloud account ([signup](https://www.oracle.com/cloud/free/)) — see [community signup guide](https://gist.github.com/rssnyder/51e3cfedd730e7dd5f4a816143b25dbd) if you hit issues
-- Tailscale account (free at [tailscale.com](https://tailscale.com))
-- ~30 minutes
+- Tài khoản Oracle Cloud ([đăng ký](https://www.oracle.com/cloud/free/)) — xem [hướng dẫn đăng ký cộng đồng](https://gist.github.com/rssnyder/51e3cfedd730e7dd5f4a816143b25dbd) nếu gặp sự cố
+- Tài khoản Tailscale (miễn phí tại [tailscale.com](https://tailscale.com))
+- Khoảng ~30 phút
 
-## 1) Create an OCI Instance
+## 1. Tạo một OCI Instance
 
-1. Log into [Oracle Cloud Console](https://cloud.oracle.com/)
-2. Navigate to **Compute → Instances → Create Instance**
-3. Configure:
+1. Đăng nhập vào [Oracle Cloud Console](https://cloud.oracle.com/)
+2. Điều hướng đến **Compute → Instances → Create Instance**
+3. Cấu hình:
    - **Name:** `openclaw`
    - **Image:** Ubuntu 24.04 (aarch64)
    - **Shape:** `VM.Standard.A1.Flex` (Ampere ARM)
-   - **OCPUs:** 2 (or up to 4)
-   - **Memory:** 12 GB (or up to 24 GB)
-   - **Boot volume:** 50 GB (up to 200 GB free)
-   - **SSH key:** Add your public key
-4. Click **Create**
-5. Note the public IP address
+   - **OCPUs:** 2 (hoặc tối đa 4)
+   - **Memory:** 12 GB (hoặc tối đa 24 GB)
+   - **Boot volume:** 50 GB (tối đa 200 GB miễn phí)
+   - **SSH key:** Thêm public key của bạn
+4. Nhấn **Create**
+5. Ghi lại địa chỉ IP công khai
 
 **Tip:** If instance creation fails with "Out of capacity", try a different availability domain or retry later. Free tier capacity is limited.
 
-## 2) Connect and Update
+## 2. Kết nối và cập nhật
 
 ```bash
 # Connect via public IP
@@ -59,9 +64,9 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install -y build-essential
 ```
 
-**Note:** `build-essential` is required for ARM compilation of some dependencies.
+**Lưu ý:** `build-essential` là cần thiết để biên dịch ARM cho một số dependency.
 
-## 3) Configure User and Hostname
+## 3. Cấu hình người dùng và hostname
 
 ```bash
 # Set hostname
@@ -74,35 +79,35 @@ sudo passwd ubuntu
 sudo loginctl enable-linger ubuntu
 ```
 
-## 4) Install Tailscale
+## 4. Cài đặt Tailscale
 
 ```bash
 curl -fsSL https://tailscale.com/install.sh | sh
 sudo tailscale up --ssh --hostname=openclaw
 ```
 
-This enables Tailscale SSH, so you can connect via `ssh openclaw` from any device on your tailnet — no public IP needed.
+Việc này kích hoạt Tailscale SSH, cho phép bạn kết nối qua `ssh openclaw` từ bất kỳ thiết bị nào trong tailnet — không cần IP công khai.
 
-Verify:
+Xác minh:
 
 ```bash
 tailscale status
 ```
 
-**From now on, connect via Tailscale:** `ssh ubuntu@openclaw` (or use the Tailscale IP).
+**Từ bây giờ, hãy kết nối qua Tailscale:** `ssh ubuntu@openclaw` (hoặc dùng IP Tailscale).
 
-## 5) Install OpenClaw
+## 5. Cài đặt OpenClaw
 
 ```bash
 curl -fsSL https://openclaw.ai/install.sh | bash
 source ~/.bashrc
 ```
 
-When prompted "How do you want to hatch your bot?", select **"Do this later"**.
+Khi được hỏi "How do you want to hatch your bot?", hãy chọn **"Do this later"**.
 
-> Note: If you hit ARM-native build issues, start with system packages (e.g. `sudo apt install -y build-essential`) before reaching for Homebrew.
+> Lưu ý: Nếu gặp vấn đề build native trên ARM, hãy bắt đầu với các gói hệ thống (ví dụ: `sudo apt install -y build-essential`) trước khi dùng đến Homebrew.
 
-## 6) Configure Gateway (loopback + token auth) and enable Tailscale Serve
+## 6. Cấu hình Gateway (loopback + xác thực bằng token) và bật Tailscale Serve
 
 Use token auth as the default. It’s predictable and avoids needing any “insecure auth” Control UI flags.
 
@@ -121,7 +126,7 @@ openclaw config set gateway.trustedProxies '["127.0.0.1"]'
 systemctl --user restart openclaw-gateway
 ```
 
-## 7) Verify
+## 7. Xác minh
 
 ```bash
 # Check version
@@ -137,67 +142,67 @@ tailscale serve status
 curl http://localhost:18789
 ```
 
-## 8) Lock Down VCN Security
+## 8. Siết chặt bảo mật VCN
 
 Now that everything is working, lock down the VCN to block all traffic except Tailscale. OCI's Virtual Cloud Network acts as a firewall at the network edge — traffic is blocked before it reaches your instance.
 
-1. Go to **Networking → Virtual Cloud Networks** in the OCI Console
-2. Click your VCN → **Security Lists** → Default Security List
-3. **Remove** all ingress rules except:
+1. Vào **Networking → Virtual Cloud Networks** trong OCI Console
+2. Chọn VCN của bạn → **Security Lists** → Default Security List
+3. **Xóa** tất cả rule ingress ngoại trừ:
    - `0.0.0.0/0 UDP 41641` (Tailscale)
-4. Keep default egress rules (allow all outbound)
+4. Giữ nguyên rule egress mặc định (cho phép outbound)
 
 This blocks SSH on port 22, HTTP, HTTPS, and everything else at the network edge. From now on, you can only connect via Tailscale.
 
 ---
 
-## Access the Control UI
+## Truy cập Control UI
 
-From any device on your Tailscale network:
+Từ bất kỳ thiết bị nào trong mạng Tailscale của bạn:
 
 ```
 https://openclaw.<tailnet-name>.ts.net/
 ```
 
-Replace `<tailnet-name>` with your tailnet name (visible in `tailscale status`).
+Thay `<tailnet-name>` bằng tên tailnet của bạn (hiển thị trong `tailscale status`).
 
 No SSH tunnel needed. Tailscale provides:
 
-- HTTPS encryption (automatic certs)
-- Authentication via Tailscale identity
-- Access from any device on your tailnet (laptop, phone, etc.)
+- Mã hóa HTTPS (chứng chỉ tự động)
+- Xác thực qua danh tính Tailscale
+- Truy cập từ mọi thiết bị trong tailnet (laptop, điện thoại, v.v.)
 
 ---
 
-## Security: VCN + Tailscale (recommended baseline)
+## Bảo mật: VCN + Tailscale (baseline khuyến nghị)
 
-With the VCN locked down (only UDP 41641 open) and the Gateway bound to loopback, you get strong defense-in-depth: public traffic is blocked at the network edge, and admin access happens over your tailnet.
+Khi VCN đã bị khóa (chỉ mở UDP 41641) và Gateway được bind vào loopback, bạn có được phòng thủ nhiều lớp: lưu lượng công khai bị chặn ở rìa mạng, và quyền quản trị diễn ra qua tailnet.
 
-This setup often removes the _need_ for extra host-based firewall rules purely to stop Internet-wide SSH brute force — but you should still keep the OS updated, run `openclaw security audit`, and verify you aren’t accidentally listening on public interfaces.
+Thiết lập này thường loại bỏ _nhu cầu_ thêm firewall trên host chỉ để ngăn SSH brute force từ Internet — nhưng bạn vẫn nên cập nhật OS, chạy `openclaw security audit`, và kiểm tra để chắc chắn không vô tình lắng nghe trên các interface công khai.
 
-### What's Already Protected
+### Những gì đã được bảo vệ sẵn
 
-| Traditional Step   | Needed?     | Why                                                                          |
-| ------------------ | ----------- | ---------------------------------------------------------------------------- |
-| UFW firewall       | No          | VCN blocks before traffic reaches instance                                   |
-| fail2ban           | No          | No brute force if port 22 blocked at VCN                                     |
-| sshd hardening     | No          | Tailscale SSH doesn't use sshd                                               |
-| Disable root login | No          | Tailscale uses Tailscale identity, not system users                          |
-| SSH key-only auth  | No          | Tailscale authenticates via your tailnet                                     |
-| IPv6 hardening     | Usually not | Depends on your VCN/subnet settings; verify what’s actually assigned/exposed |
+| Bước truyền thống | Cần không?   | Lý do                                                                    |
+| ----------------- | ------------ | ------------------------------------------------------------------------ |
+| Firewall UFW      | Không        | VCN chặn lưu lượng trước khi tới instance                                |
+| fail2ban          | Không        | Không có brute force khi cổng 22 bị chặn ở VCN                           |
+| Hardening sshd    | Không        | Tailscale SSH không dùng sshd                                            |
+| Vô hiệu hóa root  | Không        | Tailscale dùng danh tính Tailscale, không phải user hệ thống             |
+| Chỉ SSH key       | Không        | Tailscale xác thực qua tailnet của bạn                                   |
+| Hardening IPv6    | Thường không | Phụ thuộc cấu hình VCN/subnet; hãy xác minh những gì thực sự được gán/mở |
 
-### Still Recommended
+### Vẫn nên làm
 
-- **Credential permissions:** `chmod 700 ~/.openclaw`
-- **Security audit:** `openclaw security audit`
-- **System updates:** `sudo apt update && sudo apt upgrade` regularly
-- **Monitor Tailscale:** Review devices in [Tailscale admin console](https://login.tailscale.com/admin)
+- **Quyền truy cập credential:** `chmod 700 ~/.openclaw`
+- **Kiểm toán bảo mật:** `openclaw security audit`
+- **Cập nhật hệ thống:** chạy `sudo apt update && sudo apt upgrade` định kỳ
+- **Giám sát Tailscale:** xem lại thiết bị trong [Tailscale admin console](https://login.tailscale.com/admin)
 
-### Verify Security Posture
+### Xác minh trạng thái bảo mật
 
 ```bash
 # Confirm no public ports listening
-sudo ss -tlnp | grep -v '127.0.0.1\|::1'
+sudo ss -tlnp | grep -v '127.0.0.1|::1'
 
 # Verify Tailscale SSH is active
 tailscale status | grep -q 'offers: ssh' && echo "Tailscale SSH active"
@@ -208,30 +213,30 @@ sudo systemctl disable --now ssh
 
 ---
 
-## Fallback: SSH Tunnel
+## Phương án dự phòng: SSH Tunnel
 
-If Tailscale Serve isn't working, use an SSH tunnel:
+Nếu Tailscale Serve không hoạt động, hãy dùng SSH tunnel:
 
 ```bash
 # From your local machine (via Tailscale)
 ssh -L 18789:127.0.0.1:18789 ubuntu@openclaw
 ```
 
-Then open `http://localhost:18789`.
+Sau đó mở `http://localhost:18789`.
 
 ---
 
-## Troubleshooting
+## Xử lý sự cố
 
-### Instance creation fails ("Out of capacity")
+### Tạo instance thất bại ("Out of capacity")
 
 Free tier ARM instances are popular. Try:
 
-- Different availability domain
-- Retry during off-peak hours (early morning)
-- Use the "Always Free" filter when selecting shape
+- Availability domain khác
+- Thử lại vào giờ thấp điểm (sáng sớm)
+- Dùng bộ lọc "Always Free" khi chọn shape
 
-### Tailscale won't connect
+### Tailscale không kết nối được
 
 ```bash
 # Check status
@@ -241,7 +246,7 @@ sudo tailscale status
 sudo tailscale up --ssh --hostname=openclaw --reset
 ```
 
-### Gateway won't start
+### Gateway không khởi động
 
 ```bash
 openclaw gateway status
@@ -249,7 +254,7 @@ openclaw doctor --non-interactive
 journalctl --user -u openclaw-gateway -n 50
 ```
 
-### Can't reach Control UI
+### Không truy cập được Control UI
 
 ```bash
 # Verify Tailscale Serve is running
@@ -262,7 +267,7 @@ curl http://localhost:18789
 systemctl --user restart openclaw-gateway
 ```
 
-### ARM binary issues
+### Vấn đề binary ARM
 
 Some tools may not have ARM builds. Check:
 
@@ -274,14 +279,14 @@ Most npm packages work fine. For binaries, look for `linux-arm64` or `aarch64` r
 
 ---
 
-## Persistence
+## Tính bền vững
 
-All state lives in:
+Toàn bộ trạng thái nằm trong:
 
-- `~/.openclaw/` — config, credentials, session data
-- `~/.openclaw/workspace/` — workspace (SOUL.md, memory, artifacts)
+- `~/.openclaw/` — cấu hình, credential, dữ liệu phiên
+- `~/.openclaw/workspace/` — workspace (SOUL.md, bộ nhớ, artifacts)
 
-Back up periodically:
+Sao lưu định kỳ:
 
 ```bash
 tar -czvf openclaw-backup.tar.gz ~/.openclaw ~/.openclaw/workspace
@@ -289,12 +294,10 @@ tar -czvf openclaw-backup.tar.gz ~/.openclaw ~/.openclaw/workspace
 
 ---
 
-## See Also
+## Xem thêm
 
-- [Gateway remote access](/gateway/remote) — other remote access patterns
-- [Tailscale integration](/gateway/tailscale) — full Tailscale docs
-- [Gateway configuration](/gateway/configuration) — all config options
-- [DigitalOcean guide](/platforms/digitalocean) — if you want paid + easier signup
-- [Hetzner guide](/install/hetzner) — Docker-based alternative
-
-
+- [Gateway remote access](/gateway/remote) — các mô hình truy cập từ xa khác
+- [Tailscale integration](/gateway/tailscale) — tài liệu Tailscale đầy đủ
+- [Gateway configuration](/gateway/configuration) — tất cả tùy chọn cấu hình
+- [DigitalOcean guide](/platforms/digitalocean) — nếu bạn muốn trả phí + đăng ký dễ hơn
+- [Hetzner guide](/install/hetzner) — phương án Docker-based

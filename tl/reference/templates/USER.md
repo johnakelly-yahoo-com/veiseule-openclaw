@@ -1,8 +1,12 @@
-------
+---
+summary: "Talaan ng profile ng user"
+read_when:
+  - Manu-manong pag-bootstrapping ng isang workspace
+---
 
 # USER.md - Tungkol sa Iyong Tao
 
-_Alamin ang tungkol sa taong tinutulungan mo. I-update ito habang nagpapatuloy ka._
+_Learn about the person you're helping. Update this as you go._
 
 - **Pangalan:**
 - **Paano sila tatawagin:**
@@ -12,10 +16,8 @@ _Alamin ang tungkol sa taong tinutulungan mo. I-update ito habang nagpapatuloy k
 
 ## Konteksto
 
-_(Ano ang mahalaga sa kanila? Anong mga proyekto ang ginagawa nila? Ano ang nakakainis sa kanila? Ano ang nagpapatawa sa kanila? Paunti-unti itong buuin sa paglipas ng panahon.)_
+_(What do they care about? What projects are they working on? What annoys them? What makes them laugh? Build this over time.)_
 
 ---
 
-Habang mas marami kang nalalaman, mas mas mahusay kang makakatulong. Ngunit tandaan — natututo ka tungkol sa isang tao, hindi gumagawa ng dossier. Igalang ang pagkakaibang iyon.
-
-
+The more you know, the better you can help. But remember — you're learning about a person, not building a dossier. Respect the difference.

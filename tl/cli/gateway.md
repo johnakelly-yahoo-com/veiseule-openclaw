@@ -1,4 +1,9 @@
 ---
+summary: "OpenClaw Gateway CLI (`openclaw gateway`) — patakbuhin, i-query, at i-discover ang mga gateway"
+read_when:
+  - Pagpapatakbo ng Gateway mula sa CLI (dev o servers)
+  - Pag-debug ng auth, bind modes, at connectivity ng Gateway
+  - Pag-discover ng mga gateway sa pamamagitan ng Bonjour (LAN + tailnet)
 title: "gateway"
 ---
 
@@ -195,5 +200,3 @@ Mga halimbawa:
 openclaw gateway discover --timeout 4000
 openclaw gateway discover --json | jq '.beacons[].wsUrl'
 ```
-
-

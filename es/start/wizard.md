@@ -1,4 +1,8 @@
 ---
+summary: "Asistente de incorporación de la CLI: configuración guiada para Gateway, espacio de trabajo, canales y Skills"
+read_when:
+  - Al ejecutar o configurar el asistente de incorporación
+  - Al configurar una nueva máquina
 title: "Asistente de incorporación (CLI)"
 sidebarTitle: "Incorporación: CLI"
 ---
@@ -102,7 +106,6 @@ API RPC y una lista completa de campos de configuración que escribe el asistent
 ## Documentos relacionados
 
 - Referencia de comandos de la CLI: [`openclaw onboard`](/cli/onboard)
+- Resumen de onboarding: [Onboarding Overview](/start/onboarding-overview)
 - Incorporación de la app de macOS: [Onboarding](/start/onboarding)
 - Ritual de primera ejecución del agente: [Inicialización del agente](/start/bootstrapping)
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Поддержка личного аккаунта Zalo через zca-cli (вход по QR), возможности и конфигурация"
+read_when:
+  - Настройка Zalo Personal для OpenClaw
+  - Отладка входа или потока сообщений Zalo Personal
 title: "Zalo Personal"
 ---
 
@@ -134,5 +138,3 @@ openclaw directory groups list --channel zalouser --query "work"
 
 - `openclaw channels status --probe`
 - Повторный вход: `openclaw channels logout --channel zalouser && openclaw channels login --channel zalouser`
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw update`에 대한 CLI 레퍼런스 (안전한 소스 업데이트 + Gateway(게이트웨이) 자동 재시작)"
+read_when:
+  - 소스 체크아웃을 안전하게 업데이트하려는 경우
+  - "`--update` 축약 동작을 이해해야 하는 경우"
 title: "업데이트"
 ---
 
@@ -53,7 +57,7 @@ openclaw update status --timeout 10
 (기본값은 재시작). git 체크아웃 없이 `dev` 를 선택하면,
 체크아웃을 생성할지 제안합니다.
 
-## 기능 설명
+## What it does
 
 채널을 명시적으로 전환하면 (`--channel ...`), OpenClaw 는
 설치 방법도 함께 정렬합니다:
@@ -70,7 +74,7 @@ openclaw update status --timeout 10
 - `beta`: 최신 `-beta` 태그를 체크아웃한 다음 build + doctor 를 실행합니다.
 - `dev`: `main` 를 체크아웃한 다음 fetch + rebase 를 수행합니다.
 
-개요:
+High-level:
 
 1. 깨끗한 워크트리(커밋되지 않은 변경 사항 없음)가 필요합니다.
 2. 선택한 채널(태그 또는 브랜치)로 전환합니다.
@@ -86,11 +90,9 @@ openclaw update status --timeout 10
 
 `openclaw --update` 는 `openclaw update` 로 재작성됩니다 (셸 및 런처 스크립트에 유용).
 
-## 참고
+## See also
 
 - `openclaw doctor` (git 체크아웃에서 먼저 업데이트를 실행하도록 제안)
 - [개발 채널](/install/development-channels)
 - [Updating](/install/updating)
 - [CLI reference](/cli)
-
-

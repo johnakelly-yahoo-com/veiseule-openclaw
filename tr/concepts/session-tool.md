@@ -1,4 +1,7 @@
 ---
+summary: "Oturumları listeleme, geçmişi alma ve oturumlar arası mesaj gönderme için ajan oturum araçları"
+read_when:
+  - Oturum araçları eklerken veya değiştirirken
 title: "Oturum Araçları"
 ---
 
@@ -91,11 +94,12 @@ Davranış:
 - Duyuru teslimi, birincil çalışma tamamlandıktan sonra çalışır ve en iyi çaba esaslıdır; `status: "ok"`, duyurunun teslim edildiğini garanti etmez.
 - Bekleme, gateway `agent.wait` (sunucu tarafı) üzerinden yapılır; böylece yeniden bağlanmalar beklemeyi düşürmez.
 - Ajanlar arası mesaj bağlamı, birincil çalıştırma için enjekte edilir.
-- Birincil çalışma tamamlandıktan sonra OpenClaw bir **yanıt-geri döngüsü** çalıştırır:
+- Oturumlar arası mesajlar, yönlendirilen ajan talimatlarını harici kullanıcı girdisinden ayırt edebilmek için `message.provenance.kind = "inter_session"` olarak kalıcı hale getirilir.
+- Döngü sona erdiğinde OpenClaw **ajan‑ajan duyuru adımı**nı çalıştırır (yalnızca hedef ajan):
   - Round 2+ alternates between requester and target agents.
   - Ping‑pong’u durdurmak için tam olarak `REPLY_SKIP` yanıtlayın.
   - Azami tur sayısı `session.agentToAgent.maxPingPongTurns`’dir (0–5, varsayılan 5).
-- Döngü sona erdiğinde OpenClaw **ajan‑ajan duyuru adımı**nı çalıştırır (yalnızca hedef ajan):
+- Birincil çalışma tamamlandıktan sonra OpenClaw bir **yanıt-geri döngüsü** çalıştırır:
   - Sessiz kalmak için tam olarak `ANNOUNCE_SKIP` yanıtlayın.
   - Diğer herhangi bir yanıt hedef kanala gönderilir.
   - Duyuru adımı, özgün istek + 1. tur yanıtı + en son ping‑pong yanıtını içerir.
@@ -188,5 +192,3 @@ Yapılandırma:
   },
 }
 ```
-
-

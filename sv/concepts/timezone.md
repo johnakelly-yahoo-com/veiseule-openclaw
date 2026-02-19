@@ -1,4 +1,8 @@
 ---
+summary: "Hantering av tidszoner för agenter, kuvert och prompter"
+read_when:
+  - Du behöver förstå hur tidsstämplar normaliseras för modellen
+  - Konfigurering av användarens tidszon för systemprompter
 title: "Tidszoner"
 ---
 
@@ -85,5 +89,3 @@ Systemprompten inkluderar:
 Du kan styra promptformatet med `agents.defaults.timeFormat` (`auto` | `12` | `24`).
 
 Se [Date & Time](/date-time) för fullständigt beteende och exempel.
-
-

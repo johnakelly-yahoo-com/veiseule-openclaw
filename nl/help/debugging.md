@@ -1,8 +1,13 @@
 ---
-title: "Foutopsporing"
+summary: "Debuggingtools: watch-modus, ruwe modelstreams en het traceren van redeneringslekken"
+read_when:
+  - Je moet ruwe modeluitvoer inspecteren op redeneringslekken
+  - Je wilt de Gateway in watch-modus draaien tijdens iteraties
+  - Je hebt een herhaalbare debugworkflow nodig
+title: "Debugging"
 ---
 
-# Foutopsporing
+# Debugging
 
 Deze pagina behandelt hulpmiddelen voor het debuggen van streaming-uitvoer, vooral wanneer een
 provider redenering mengt met normale tekst.
@@ -155,5 +160,3 @@ Standaardbestand:
 - Ruwe streamlogs kunnen volledige prompts, tooluitvoer en gebruikersgegevens bevatten.
 - Houd logs lokaal en verwijder ze na het debuggen.
 - Als je logs deelt, verwijder eerst geheimen en PII.
-
-

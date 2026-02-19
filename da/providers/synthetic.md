@@ -1,4 +1,8 @@
 ---
+summary: "Brug Synthetics Anthropic-kompatible API i OpenClaw"
+read_when:
+  - Du vil bruge Synthetic som modeludbyder
+  - Du har brug for en Synthetic API-nøgle eller opsætning af basis-URL
 title: "Synthetic"
 ---
 
@@ -65,7 +69,7 @@ dens base URL, tilsidesætte `models.providers.synthetic.baseUrl`.
 
 Alle modeller nedenfor bruger omkostning `0` (input/output/cache).
 
-| Model-ID                                               | Kontekstvindue | Maks. tokens | Ræsonnering | Inddata        |
+| Model-ID                                               | Kontekstvindue | Maks. tokens | Ræsonnering | Inddata      |
 | ------------------------------------------------------ | -------------- | ---------------------------- | ----------- | ------------ |
 | `hf:MiniMaxAI/MiniMax-M2.1`                            | 192000         | 65536                        | false       | text         |
 | `hf:moonshotai/Kimi-K2-Thinking`                       | 256000         | 8192                         | true        | text         |
@@ -93,5 +97,3 @@ Alle modeller nedenfor bruger omkostning `0` (input/output/cache).
 - Hvis du aktiverer en model-tilladelsesliste (`agents.defaults.models`), skal du tilføje alle de modeller, du
   planlægger at bruge.
 - Se [Model providers](/concepts/model-providers) for udbyderregler.
-
-

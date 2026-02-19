@@ -1,4 +1,8 @@
 ---
+summary: "Sanggunian ng CLI para sa `openclaw dns` (mga helper para sa wide-area discovery)"
+read_when:
+  - Gusto mo ng wide-area discovery (DNS-SD) sa pamamagitan ng Tailscale + CoreDNS
+  - You’re setting up split DNS for a custom discovery domain (example: openclaw.internal)
 title: "dns"
 ---
 
@@ -17,5 +21,3 @@ Kaugnay:
 openclaw dns setup
 openclaw dns setup --apply
 ```
-
-

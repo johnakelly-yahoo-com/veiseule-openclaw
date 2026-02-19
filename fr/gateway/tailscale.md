@@ -1,4 +1,8 @@
 ---
+summary: "Serve/Funnel Tailscale intégré pour le tableau de bord de la Gateway (passerelle)"
+read_when:
+  - Exposer l’interface de contrôle de la Gateway (passerelle) en dehors de localhost
+  - Automatiser l’accès au tableau de bord via le tailnet ou en public
 title: "Tailscale"
 ---
 
@@ -120,5 +124,3 @@ La Gateway transmettra les actions du navigateur au nœud ; aucun serveur de con
 - Commande `tailscale serve` : https://tailscale.com/kb/1242/tailscale-serve
 - Présentation de Tailscale Funnel : https://tailscale.com/kb/1223/tailscale-funnel
 - Commande `tailscale funnel` : https://tailscale.com/kb/1311/tailscale-funnel
-
-

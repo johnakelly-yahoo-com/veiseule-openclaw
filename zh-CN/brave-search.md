@@ -1,12 +1,9 @@
 ---
-title: Brave Search
-x-i18n:
-  generated_at: "2026-02-03T07:43:09Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: cdcb037b092b8a10609f02acf062b4164cb826ac22bdb3fb2909c842a1405341
-  source_path: brave-search.md
-  workflow: 15
+summary: "用于 web_search 的 Brave Search API 设置"
+read_when:
+  - 你想使用 Brave Search 进行 web_search
+  - 你需要 BRAVE_API_KEY 或套餐详情
+title: "Brave Search"
 ---
 
 # Brave Search API
@@ -42,5 +39,3 @@ OpenClaw 使用 Brave Search 作为 `web_search` 的默认提供商。
 - Brave 提供免费层级和付费套餐；请查看 Brave API 门户了解当前限制。
 
 请参阅 [Web 工具](/tools/web) 了解完整的 web_search 配置。
-
-

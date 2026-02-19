@@ -1,4 +1,7 @@
 ---
+summary: "macOS-appstroom voor het bedienen van een externe OpenClaw-gateway via SSH"
+read_when:
+  - Het instellen of debuggen van externe Mac-bediening
 title: "Externe bediening"
 ---
 
@@ -45,7 +48,7 @@ De externe modus ondersteunt twee transports:
 - **Direct (ws/wss)**: Web Chat verbindt rechtstreeks met de geconfigureerde gateway-URL.
 - Er is geen aparte WebChat HTTP-server meer.
 
-## Machtigingen
+## Permissions
 
 - De externe host heeft dezelfde TCC-goedkeuringen nodig als lokaal (Automatisering, Toegankelijkheid, Schermopname, Microfoon, Spraakherkenning, Meldingen). Voer onboarding op die machine uit om ze eenmalig te verlenen.
 - Nodes adverteren hun rechtenstatus via `node.list` / `node.describe` zodat agents weten wat beschikbaar is.
@@ -78,5 +81,3 @@ openclaw nodes notify --node <id> --title "Ping" --body "Remote gateway ready" -
 ```
 
 Er is geen globale schakelaar “standaardgeluid” meer in de app; aanroepers kiezen per verzoek een geluid (of geen).
-
-

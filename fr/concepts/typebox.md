@@ -1,4 +1,7 @@
 ---
+summary: "Les schémas TypeBox comme source de vérité unique pour le protocole de la passerelle"
+read_when:
+  - Lors de la mise à jour des schémas de protocole ou de la génération de code
 title: "TypeBox"
 ---
 
@@ -36,14 +39,14 @@ Client                    Gateway
 
 Méthodes + événements courants :
 
-| Catégorie  | Exemples                                                  | Remarques                                           |
-| --------- | --------------------------------------------------------- | ----------------------------------------------- |
-| Noyau      | `connect`, `health`, `status`                             | `connect` doit être le premier                  |
+| Catégorie  | Exemples                                                  | Remarques                                       |
+| ---------- | --------------------------------------------------------- | ----------------------------------------------- |
+| Core       | `connect`, `health`, `status`                             | `connect` doit être le premier                  |
 | Messagerie | `send`, `poll`, `agent`, `agent.wait`                     | les effets de bord nécessitent `idempotencyKey` |
-| Chat      | `chat.history`, `chat.send`, `chat.abort`, `chat.inject`  | WebChat utilise ces méthodes                    |
-| Sessions  | `sessions.list`, `sessions.patch`, `sessions.delete`      | administration des sessions                     |
-| Nodes     | `node.list`, `node.invoke`, `node.pair.*`                 | WS de la Gateway + actions de nœud              |
-| Events    | `tick`, `presence`, `agent`, `chat`, `health`, `shutdown` | push serveur                                    |
+| Chat       | `chat.history`, `chat.send`, `chat.abort`, `chat.inject`  | WebChat utilise ces méthodes                    |
+| Sessions   | `sessions.list`, `sessions.patch`, `sessions.delete`      | administration des sessions                     |
+| Nodes      | `node.list`, `node.invoke`, `node.pair.*`                 | WS de la Gateway + actions de nœud              |
+| Events     | `tick`, `presence`, `agent`, `chat`, `health`, `shutdown` | push serveur                                    |
 
 La liste faisant autorité se trouve dans `src/gateway/server.ts` (`METHODS`, `EVENTS`).
 
@@ -281,5 +284,3 @@ fichier brut publié est généralement disponible à l’adresse :
 1. Mettez à jour les schémas TypeBox.
 2. Exécutez `pnpm protocol:check`.
 3. Committez le schéma régénéré et les modèles Swift.
-
-

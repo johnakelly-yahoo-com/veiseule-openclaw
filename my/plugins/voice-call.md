@@ -1,4 +1,8 @@
 ---
+summary: "Voice Call ပလပ်ဂင် — Twilio/Telnyx/Plivo ဖြင့် အထွက် + အဝင် ဖုန်းခေါ်ဆိုမှုများ (ပလပ်ဂင် ထည့်သွင်းခြင်း + ဖွဲ့စည်းပြင်ဆင်ခြင်း + CLI)"
+read_when:
+  - OpenClaw မှ အထွက် Voice Call တစ်ခုပြုလုပ်လိုသောအခါ
+  - Voice Call ပလပ်ဂင်ကို ဖွဲ့စည်းပြင်ဆင်ခြင်း သို့မဟုတ် ဖွံ့ဖြိုးတိုးတက်ရေးလုပ်ဆောင်နေသောအခါ
 title: "Voice Call ပလပ်ဂင်"
 ---
 
@@ -109,6 +113,7 @@ cd ./extensions/voice-call && pnpm install
 - `mock` သည် local dev အတွက် ပံ့ပိုးသူ (network ခေါ်ဆိုမှု မရှိ) ဖြစ်သည်။
 - `skipSignatureVerification` သည် local စမ်းသပ်မှုအတွက်သာ ဖြစ်သည်။
 - ngrok free tier ကို အသုံးပြုပါက `publicUrl` ကို ngrok URL အတိအကျ သတ်မှတ်ရပါမည်; လက်မှတ်စစ်ဆေးခြင်းကို အမြဲတမ်း အကောင်အထည်ဖော်ထားသည်။
+- `tunnel.allowNgrokFreeTierLoopbackBypass: true` သည် `tunnel.provider="ngrok"` ဖြစ်ပြီး `serve.bind` သည် loopback (ngrok local agent) ဖြစ်သည့်အခါတွင်သာ **signature မမှန်သော** Twilio webhooks များကို ခွင့်ပြုပါသည်။ Local dev အတွက်သာ အသုံးပြုပါ။
 - `tunnel.allowNgrokFreeTierLoopbackBypass: true` သည် `tunnel.provider="ngrok"` ဖြစ်ပြီး `serve.bind` သည် loopback (ngrok local agent) ဖြစ်သည့်အခါတွင်သာ **signature မမှန်သော** Twilio webhooks များကို ခွင့်ပြုပါသည်။ Local dev အတွက်သာ အသုံးပြုပါ။
 - Ngrok free tier URL များသည် ပြောင်းလဲနိုင်သလို interstitial behavior ကိုလည်း ထည့်နိုင်ပါသည်။ `publicUrl` ပြောင်းလဲသွားပါက Twilio signature များ ပျက်ကွက်ပါလိမ့်မည်။ Production အတွက် stable domain သို့မဟုတ် Tailscale funnel ကို အသုံးပြုရန် အကြံပြုပါသည်။
 
@@ -272,5 +277,3 @@ openclaw voicecall expose --mode funnel
 - `voicecall.speak` (`callId`, `message`)
 - `voicecall.end` (`callId`)
 - `voicecall.status` (`callId`)
-
-

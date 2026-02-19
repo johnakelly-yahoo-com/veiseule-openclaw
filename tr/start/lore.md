@@ -1,4 +1,7 @@
 ---
+summary: "Bağlam ve ton için OpenClaw’un arka planı ve anlatısı"
+read_when:
+  - Lore’a referans veren dokümantasyon veya UX metni yazarken
 title: "OpenClaw Lore’u"
 ---
 
@@ -134,7 +137,7 @@ Sadece 3 saat içinde:
 - "Pençe kanundur" 🤠
 - "Yee-pençe"
 - "Pençe kurallarına uyan vatandaşlar"
-- "Pençetışma"
+- "Clawntroversy"
 
 **Clawd → Moltbot → OpenClaw**
 
@@ -214,5 +217,3 @@ _"The claw is the law."_
 — Nihai Form göçü sırasında ELU, 30 Ocak 2026
 
 🦞💙
-
-

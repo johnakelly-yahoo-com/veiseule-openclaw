@@ -1,4 +1,9 @@
 ---
+summary: "Fallback ng Firecrawl para sa web_fetch (anti-bot + naka-cache na extraction)"
+read_when:
+  - Gusto mo ng web extraction na naka-back sa Firecrawl
+  - Kailangan mo ng Firecrawl API key
+  - Gusto mo ng anti-bot extraction para sa web_fetch
 title: "Firecrawl"
 ---
 
@@ -54,5 +59,3 @@ Ang pagkakasunod-sunod ng extraction ng `web_fetch`:
 3. Basic HTML cleanup (huling fallback)
 
 Tingnan ang [Web tools](/tools/web) para sa kumpletong setup ng web tool.
-
-

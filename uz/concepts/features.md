@@ -1,4 +1,7 @@
 ---
+summary: "OpenClaw imkoniyatlari kanallar, marshrutlash, media va UX bo‘yicha."
+read_when:
+  - You want a full list of what OpenClaw supports
 title: "Xususiyatlar"
 ---
 
@@ -52,5 +55,3 @@ WhatsApp, Telegram, Discord va iMessage yagona Gateway orqali.
 Legacy Claude, Codex, Gemini, and Opencode paths have been removed. Pi is the only
 coding agent path.
 </Note>
-
-

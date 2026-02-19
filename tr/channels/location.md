@@ -1,4 +1,8 @@
 ---
+summary: "Gelen kanal konum ayrıştırması (Telegram + WhatsApp) ve bağlam alanları"
+read_when:
+  - Kanal konum ayrıştırması eklerken veya değiştirirken
+  - Ajan istemlerinde veya araçlarda konum bağlamı alanlarını kullanırken
 title: "Kanal Konum Ayrıştırması"
 ---
 
@@ -50,5 +54,3 @@ Bir konum mevcut olduğunda, şu alanlar `ctx` içine eklenir:
 - **Telegram**: mekânlar `LocationName/LocationAddress` ile eşleştirilir; canlı konumlar `live_period` kullanır.
 - **WhatsApp**: `locationMessage.comment` ve `liveLocationMessage.caption` başlık satırı olarak eklenir.
 - **Matrix**: `geo_uri` pin konumu olarak ayrıştırılır; irtifa yok sayılır ve `LocationIsLive` her zaman false olur.
-
-

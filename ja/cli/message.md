@@ -1,4 +1,8 @@
 ---
+summary: "「openclaw message」（送信 + チャンネル操作）の CLI リファレンス"
+read_when:
+  - メッセージの CLI 操作を追加または変更する場合
+  - 送信先チャンネルの挙動を変更する場合
 title: "メッセージ"
 ---
 
@@ -64,6 +68,7 @@ openclaw message <subcommand> [flags]
   - 必須: `--target`、`--poll-question`、`--poll-option`（繰り返し）
   - 任意: `--poll-multi`
   - Discord のみ: `--poll-duration-hours`、`--message`
+  - Telegram のみ: `--poll-duration-seconds`（5〜600）、`--silent`、`--poll-anonymous` / `--poll-public`、`--thread-id`
 
 - `react`
   - チャンネル: Discord/Google Chat/Slack/Telegram/WhatsApp/Signal
@@ -196,6 +201,16 @@ openclaw message poll --channel discord \
   --poll-multi --poll-duration-hours 48
 ```
 
+Telegram で投票を作成（2分後に自動終了）:
+
+```
+openclaw message poll --channel telegram \
+  --target @mychat \
+  --poll-question "Lunch?" \
+  --poll-option Pizza --poll-option Sushi \
+  --poll-duration-seconds 120 --silent
+```
+
 Teams のプロアクティブメッセージを送信する:
 
 ```
@@ -233,5 +248,3 @@ Telegram のインラインボタンを送信する:
 openclaw message send --channel telegram --target @mychat --message "Choose:" \
   --buttons '[ [{"text":"Yes","callback_data":"cmd:yes"}], [{"text":"No","callback_data":"cmd:no"}] ]'
 ```
-
-

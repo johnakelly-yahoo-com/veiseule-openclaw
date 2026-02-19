@@ -1,4 +1,8 @@
 ---
+summary: "Tham chiếu CLI cho `openclaw setup` (khởi tạo cấu hình + workspace)"
+read_when:
+  - Bạn đang thiết lập lần đầu mà không dùng trình hướng dẫn onboarding đầy đủ
+  - Bạn muốn đặt đường dẫn workspace mặc định
 title: "thiết lập"
 ---
 
@@ -23,5 +27,3 @@ openclaw setup --workspace ~/.openclaw/workspace
 ```bash
 openclaw setup --wizard
 ```
-
-

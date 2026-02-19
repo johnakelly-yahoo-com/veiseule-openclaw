@@ -1,4 +1,8 @@
 ---
+summary: "Signal-ondersteuning via signal-cli (JSON-RPC + SSE), installatie en nummermodel"
+read_when:
+  - Signal-ondersteuning instellen
+  - Signal verzenden/ontvangen debuggen
 title: "Signal"
 ---
 
@@ -6,13 +10,22 @@ title: "Signal"
 
 Status: externe CLI-integratie. De Gateway communiceert met `signal-cli` via HTTP JSON-RPC + SSE.
 
+## Vereisten
+
+- OpenClaw geïnstalleerd op je server (Linux-flow hieronder getest op Ubuntu 24).
+- `signal-cli` beschikbaar op de host waarop de gateway draait.
+- Een telefoonnummer dat één verificatie-sms kan ontvangen (voor het sms-registratiepad).
+- Browsertoegang voor de Signal-captcha (`signalcaptchas.org`) tijdens registratie.
+
 ## Snelle installatie (beginner)
 
 1. Gebruik een **afzonderlijk Signal-nummer** voor de bot (aanbevolen).
 2. Installeer `signal-cli` (Java vereist).
-3. Koppel het botapparaat en start de daemon:
+3. Kies één installatiepad:
    - `signal-cli link -n "OpenClaw"`
+   - **Pad B (sms-registratie):** registreer een speciaal nummer met captcha + sms-verificatie.
 4. Configureer OpenClaw en start de Gateway.
+5. Stuur een eerste DM en keur de pairing goed (`openclaw pairing approve signal <CODE>`).
 
 Minimale config:
 
@@ -29,6 +42,15 @@ Minimale config:
   },
 }
 ```
+
+Veldreferentie:
+
+| Veld        | Beschrijving                                                                            |
+| ----------- | --------------------------------------------------------------------------------------- |
+| `account`   | Bot-telefoonnummer in E.164-formaat (`+15551234567`) |
+| `cliPath`   | Installatie (snelle route)                                           |
+| `dmPolicy`  | DM-toegangsbeleid (`pairing` aanbevolen)                             |
+| `allowFrom` | Telefoonnummers of `uuid:&lt;id&gt;`-waarden die DM's mogen sturen                            |
 
 ## Wat het is
 
@@ -54,7 +76,7 @@ Uitschakelen met:
 - Als je de bot draait op **je persoonlijke Signal-account**, worden je eigen berichten genegeerd (lusbescherming).
 - Voor “ik stuur de bot een bericht en hij antwoordt”, gebruik een **afzonderlijk botnummer**.
 
-## Installatie (snelle route)
+## Installatiepad A: koppel een bestaand Signal-account (QR)
 
 1. Installeer `signal-cli` (Java vereist).
 2. Koppel een botaccount:
@@ -78,6 +100,67 @@ Voorbeeld:
 ```
 
 Ondersteuning voor meerdere accounts: gebruik `channels.signal.accounts` met per-account config en optioneel `name`. Zie [`gateway/configuration`](/gateway/configuration#telegramaccounts--discordaccounts--slackaccounts--signalaccounts--imessageaccounts) voor het gedeelde patroon.
+
+## Installatiepad B: registreer een speciaal botnummer (SMS, Linux)
+
+Gebruik dit als je een speciaal botnummer wilt in plaats van een bestaand Signal-appaccount te koppelen.
+
+1. Zorg voor een nummer dat SMS kan ontvangen (of spraakverificatie voor vaste lijnen).
+   - Gebruik een speciaal botnummer om account-/sessieconflicten te voorkomen.
+2. Installeer `signal-cli` op de gateway-host:
+
+```bash
+VERSION=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/AsamK/signal-cli/releases/latest | sed -e 's/^.*\/v//')
+curl -L -O "https://github.com/AsamK/signal-cli/releases/download/v${VERSION}/signal-cli-${VERSION}-Linux-native.tar.gz"
+sudo tar xf "signal-cli-${VERSION}-Linux-native.tar.gz" -C /opt
+sudo ln -sf /opt/signal-cli /usr/local/bin/
+signal-cli --version
+```
+
+Als je de JVM-build (`signal-cli-${VERSION}.tar.gz`) gebruikt, installeer dan eerst JRE 25+.
+Houd `signal-cli` up-to-date; upstream merkt op dat oude releases kunnen stoppen met werken wanneer Signal-server-API's veranderen.
+
+3. Registreer en verifieer het nummer:
+
+```bash
+signal-cli -a +<BOT_PHONE_NUMBER> register
+```
+
+Als een captcha vereist is:
+
+1. Open `https://signalcaptchas.org/registration/generate.html`.
+2. Voltooi de captcha en kopieer het `signalcaptcha://...`-linkdoel van "Open Signal".
+3. Voer dit indien mogelijk uit vanaf hetzelfde externe IP-adres als de browsersessie.
+4. Voer de registratie direct opnieuw uit (captcha-tokens verlopen snel):
+
+```bash
+signal-cli -a +<BOT_PHONE_NUMBER> register --captcha '<SIGNALCAPTCHA_URL>'
+signal-cli -a +<BOT_PHONE_NUMBER> verify <VERIFICATION_CODE>
+```
+
+4. Koppel het botapparaat en start de daemon:
+
+```bash
+# Als je de gateway uitvoert als een user systemd-service:
+systemctl --user restart openclaw-gateway
+
+# Verifieer vervolgens:
+openclaw doctor
+openclaw channels status --probe
+```
+
+5. Goedkeuren via:
+   - Stuur een willekeurig bericht naar het botnummer.
+   - Keur de code goed op de server: `openclaw pairing approve signal <PAIRING_CODE>`.
+   - Sla het botnummer op als contact op je telefoon om "Onbekend contact" te voorkomen.
+
+Belangrijk: het registreren van een telefoonnummeraccount met `signal-cli` kan de hoofdsessie van de Signal-app voor dat nummer deauthenticeren. Gebruik bij voorkeur een speciaal botnummer, of gebruik de QR-koppelmodus als je je bestaande telefoonappconfiguratie wilt behouden.
+
+Upstream-verwijzingen:
+
+- `signal-cli` README: `https://github.com/AsamK/signal-cli`
+- Captcha-proces: `https://github.com/AsamK/signal-cli/wiki/Registration-with-captcha`
+- Koppelproces: `https://github.com/AsamK/signal-cli/wiki/Linking-other-devices-(Provisioning)`
 
 ## Externe daemonmodus (httpUrl)
 
@@ -187,8 +270,25 @@ Veelvoorkomende fouten:
 - Daemon bereikbaar maar geen antwoorden: controleer account-/daemoninstellingen (`httpUrl`, `account`) en ontvangmodus.
 - DM's genegeerd: afzender wacht op koppelingsgoedkeuring.
 - Groepsberichten genegeerd: gating voor groepsafzenders/mentions blokkeert levering.
+- Configuratievalidatiefouten na bewerkingen: voer `openclaw doctor --fix` uit.
+- Signal ontbreekt in de diagnostiek: controleer `channels.signal.enabled: true`.
+
+Extra controles:
+
+```bash
+openclaw pairing list signal
+pgrep -af signal-cli
+grep -i "signal" "/tmp/openclaw/openclaw-$(date +%Y-%m-%d).log" | tail -20
+```
 
 Voor triageflow: [/channels/troubleshooting](/channels/troubleshooting).
+
+## Beveiligingsopmerkingen
+
+- `signal-cli` slaat account-sleutels lokaal op (meestal `~/.local/share/signal-cli/data/`).
+- Maak een back-up van de Signal-accountstatus vóór servermigratie of herbouw.
+- Houd `channels.signal.dmPolicy: "pairing"` tenzij je expliciet bredere DM-toegang wilt.
+- SMS-verificatie is alleen nodig voor registratie- of herstelprocessen, maar het verliezen van controle over het nummer/account kan herregistratie bemoeilijken.
 
 ## Configuratiereferentie (Signal)
 
@@ -222,5 +322,3 @@ Gerelateerde globale opties:
 - `agents.list[].groupChat.mentionPatterns` (Signal ondersteunt geen native mentions).
 - `messages.groupChat.mentionPatterns` (globale fallback).
 - `messages.responsePrefix`.
-
-

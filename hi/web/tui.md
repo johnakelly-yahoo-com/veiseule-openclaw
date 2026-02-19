@@ -1,4 +1,8 @@
 ---
+summary: "टर्मिनल UI (TUI): किसी भी मशीन से Gateway से कनेक्ट करें"
+read_when:
+  - आप TUI के लिए शुरुआती-अनुकूल मार्गदर्शन चाहते हैं
+  - आपको TUI की सभी विशेषताओं, कमांड्स और शॉर्टकट्स की पूरी सूची चाहिए
 title: "TUI"
 ---
 
@@ -156,5 +160,3 @@ openclaw tui --url ws://<host>:<port> --token <gateway-token>
 - `disconnected`: सुनिश्चित करें कि Gateway चल रहा है और आपके `--url/--token/--password` सही हैं।
 - पिकर में कोई एजेंट नहीं: `openclaw agents list` और अपनी रूटिंग config जाँचें।
 - खाली सत्र पिकर: आप global स्कोप में हो सकते हैं या अभी तक कोई सत्र नहीं है।
-
-

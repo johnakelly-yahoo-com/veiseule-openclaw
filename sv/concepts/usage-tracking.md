@@ -1,4 +1,8 @@
 ---
+summary: "Ytor för användningsspårning och krav på autentiseringsuppgifter"
+read_when:
+  - Du kopplar ytor för leverantörers användning/kvoter
+  - Du behöver förklara beteendet för användningsspårning eller autentiseringskrav
 title: "Användningsspårning"
 ---
 
@@ -29,5 +33,3 @@ title: "Användningsspårning"
 - **z.ai**: API-nyckel via env/konfig/autentiseringslager.
 
 Användning döljs om inga matchande OAuth-/API‑autentiseringsuppgifter finns.
-
-

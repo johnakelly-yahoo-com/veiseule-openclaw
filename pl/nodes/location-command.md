@@ -1,4 +1,8 @@
 ---
+summary: "Polecenie lokalizacji dla węzłów (location.get), tryby uprawnień i zachowanie w tle"
+read_when:
+  - Dodawanie obsługi węzła lokalizacji lub interfejsu uprawnień
+  - Projektowanie przepływów lokalizacji w tle + powiadomień push
 title: "Polecenie lokalizacji"
 ---
 
@@ -107,5 +111,3 @@ Uwagi:
 - Podczas użycia: „Tylko gdy OpenClaw jest otwarty.”
 - Zawsze: „Zezwól na lokalizację w tle. Wymaga uprawnienia systemowego.”
 - Dokładna: „Użyj dokładnej lokalizacji GPS. Wyłącz, aby udostępniać lokalizację przybliżoną.”
-
-

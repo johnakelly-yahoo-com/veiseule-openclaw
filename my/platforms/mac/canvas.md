@@ -1,4 +1,9 @@
 ---
+summary: "WKWebView + custom URL scheme ဖြင့် ထည့်သွင်းထားသော agent ထိန်းချုပ် Canvas panel"
+read_when:
+  - macOS Canvas panel ကို အကောင်အထည်ဖော်နေချိန်
+  - မြင်ကွင်းအလုပ်လုပ်ရာနေရာအတွက် agent ထိန်းချုပ်မှုများ ထည့်သွင်းနေချိန်
+  - WKWebView canvas load ပြဿနာများကို Debug လုပ်နေချိန်
 title: "ကန်ဗတ်စ်"
 ---
 
@@ -114,5 +119,3 @@ window.location.href = "openclaw://agent?message=Review%20this%20design";
 - Canvas scheme သည် directory traversal ကို တားဆီးထားပြီး ဖိုင်များသည် session root အောက်တွင်သာ ရှိရမည်။
 - Local Canvas content သည် custom scheme ကို အသုံးပြုထားပြီး (loopback server မလိုအပ်ပါ)။
 - External `http(s)` URLs များကို တိတိကျကျ navigate လုပ်ထားသည့်အခါတွင်သာ ခွင့်ပြုသည်။
-
-

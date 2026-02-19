@@ -1,4 +1,9 @@
 ---
+summary: "Pipeline de mise en forme Markdown pour les canaux sortants"
+read_when:
+  - Vous modifiez la mise en forme Markdown ou le découpage en segments pour les canaux sortants
+  - Vous ajoutez un nouveau formateur de canal ou un mappage de styles
+  - Vous corrigez des régressions de mise en forme entre les canaux
 title: "Mise en forme Markdown"
 ---
 
@@ -18,7 +23,7 @@ cohérents entre les canaux.
 - **Adaptation au canal :** mapper la même IR vers le mrkdwn Slack, le HTML
   Telegram et les plages de styles Signal sans reparser le Markdown.
 
-## Chaîne de traitement
+## Pipeline
 
 1. **Parser le Markdown -> IR**
    - L’IR est du texte brut plus des plages de styles (gras/italique/barré/code/spoiler) et des plages de liens.
@@ -122,5 +127,3 @@ des plages de style SPOILER. Les autres canaux les traitent comme du texte brut.
 - Les plages de styles Signal dépendent des décalages UTF-16 ; n’utilisez pas des décalages en points de code.
 - Préserver les retours à la ligne finaux pour les blocs de code délimités afin que les marqueurs de fermeture
   se retrouvent sur leur propre ligne.
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "Hata ayıklama araçları: izleme modu, ham model akışları ve muhakeme sızıntısının izlenmesi"
+read_when:
+  - Ham model çıktısını muhakeme sızıntısı açısından incelemeniz gerekiyor
+  - Yineleme yaparken Gateway’i izleme modunda çalıştırmak istiyorsunuz
+  - Tekrarlanabilir bir hata ayıklama iş akışına ihtiyacınız var
 title: "Hata ayıklama"
 ---
 
@@ -152,5 +157,3 @@ Varsayılan dosya:
 - Ham akış günlükleri tam istemleri, araç çıktısını ve kullanıcı verilerini içerebilir.
 - Günlükleri yerel tutun ve hata ayıklamadan sonra silin.
 - Günlükleri paylaşırsanız, önce sırları ve PII'yi temizleyin.
-
-

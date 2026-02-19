@@ -1,4 +1,8 @@
 ---
+summary: "تسجيلات دخول يدوية لأتمتة المتصفح + النشر على X/Twitter"
+read_when:
+  - تحتاج إلى تسجيل الدخول إلى المواقع لأتمتة المتصفح
+  - تريد نشر تحديثات على X/Twitter
 title: "تسجيل دخول المتصفح"
 ---
 
@@ -61,5 +65,3 @@ openclaw browser open https://x.com --browser-profile openclaw --target host
 ```
 
 أو عطّل sandboxing للوكيل الذي ينشر التحديثات.
-
-

@@ -1,15 +1,19 @@
 ---
+summary: "Checklist ng release ng OpenClaw sa macOS (Sparkle feed, packaging, signing)"
+read_when:
+  - Pag-cut o pag-validate ng isang OpenClaw macOS release
+  - Pag-update ng Sparkle appcast o mga feed asset
 title: "Paglabas ng macOS"
 ---
 
 # Paglabas ng OpenClaw macOS (Sparkle)
 
-Ang app na ito ay may kasamang Sparkle auto-updates. Ang mga release build ay dapat naka-Developer ID–signed, naka-zip, at nailathala na may signed na appcast entry.
+This app now ships Sparkle auto-updates. Release builds must be Developer ID–signed, zipped, and published with a signed appcast entry.
 
 ## Mga paunang kinakailangan
 
 - Naka-install ang Developer ID Application cert (halimbawa: `Developer ID Application: <Developer Name> (<TEAMID>)`).
-- Ang path ng Sparkle private key ay nakatakda sa environment bilang `SPARKLE_PRIVATE_KEY_FILE` (path papunta sa iyong Sparkle ed25519 private key; ang public key ay naka-embed sa Info.plist). Kung ito ay nawawala, tingnan ang `~/.profile`.
+- Sparkle private key path set in the environment as `SPARKLE_PRIVATE_KEY_FILE` (path to your Sparkle ed25519 private key; public key baked into Info.plist). If it is missing, check `~/.profile`.
 - Notary credentials (keychain profile o API key) para sa `xcrun notarytool` kung gusto mo ng Gatekeeper-safe na DMG/zip distribution.
   - Gumagamit kami ng Keychain profile na pinangalanang `openclaw-notary`, na ginawa mula sa App Store Connect API key env vars sa iyong shell profile:
     - `APP_STORE_CONNECT_API_KEY_P8`, `APP_STORE_CONNECT_KEY_ID`, `APP_STORE_CONNECT_ISSUER_ID`
@@ -23,8 +27,8 @@ Ang app na ito ay may kasamang Sparkle auto-updates. Ang mga release build ay da
 Mga tala:
 
 - Ang `APP_BUILD` ay nagma-map sa `CFBundleVersion`/`sparkle:version`; panatilihin itong numeric + monotonic (walang `-beta`), kung hindi ay iko-compare ito ng Sparkle bilang equal.
-- Naka-default sa kasalukuyang architecture (`$(uname -m)`). Para sa release/universal builds, itakda ang `BUILD_ARCHS="arm64 x86_64"` (o `BUILD_ARCHS=all`).
-- Gamitin ang `scripts/package-mac-dist.sh` para sa release artifacts (zip + DMG + notarization). Gamitin ang `scripts/package-mac-app.sh` para sa lokal/dev na packaging.
+- Defaults to the current architecture (`$(uname -m)`). For release/universal builds, set `BUILD_ARCHS="arm64 x86_64"` (or `BUILD_ARCHS=all`).
+- Use `scripts/package-mac-dist.sh` for release artifacts (zip + DMG + notarization). Use `scripts/package-mac-app.sh` for local/dev packaging.
 
 ```bash
 # From repo root; set release IDs so Sparkle feed is enabled.
@@ -66,7 +70,7 @@ Gamitin ang release note generator para mag-render ang Sparkle ng formatted HTML
 SPARKLE_PRIVATE_KEY_FILE=/path/to/ed25519-private-key scripts/make_appcast.sh dist/OpenClaw-2026.2.9.zip https://raw.githubusercontent.com/openclaw/openclaw/main/appcast.xml
 ```
 
-Gumagawa ng HTML release notes mula sa `CHANGELOG.md` (sa pamamagitan ng [`scripts/changelog-to-html.sh`](https://github.com/openclaw/openclaw/blob/main/scripts/changelog-to-html.sh)) at ini-embed ang mga ito sa appcast entry.
+Generates HTML release notes from `CHANGELOG.md` (via [`scripts/changelog-to-html.sh`](https://github.com/openclaw/openclaw/blob/main/scripts/changelog-to-html.sh)) and embeds them in the appcast entry.
 Commit the updated `appcast.xml` alongside the release assets (zip + dSYM) when publishing.
 
 ## I-publish at i-verify
@@ -79,5 +83,3 @@ Commit the updated `appcast.xml` alongside the release assets (zip + dSYM) when 
   - Sa isang naunang public build, patakbuhin ang “Check for Updates…” mula sa About tab at tiyaking maayos na ini-install ng Sparkle ang bagong build.
 
 Kahulugan ng tapos: nai-publish ang signed app + appcast, gumagana ang update flow mula sa mas lumang naka-install na bersyon, at naka-attach ang mga release asset sa GitHub release.
-
-

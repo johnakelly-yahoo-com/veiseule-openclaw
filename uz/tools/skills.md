@@ -1,4 +1,8 @@
 ---
+summary: "Ko‘nikmalar: boshqariladigan va workspace, cheklov (gating) qoidalari hamda config/env ulanishi"
+read_when:
+  - Adding or modifying skills
+  - Changing skill gating or load rules
 title: "Ko‘nikmalar"
 ---
 
@@ -81,7 +85,7 @@ description: Gemini 3 Pro Image orqali tasvirlarni yaratish yoki tahrirlash
 ---
 ```
 
-Eslatmalar:
+Notes:
 
 - Joylashuv/maqsad uchun AgentSkills spetsifikatsiyasiga amal qilamiz.
 - Ichki agent tomonidan ishlatiladigan parser **faqat bir qatorli** frontmatter kalitlarini qo‘llab-quvvatlaydi.
@@ -89,8 +93,8 @@ Eslatmalar:
 - Ko‘rsatmalarda ko‘nikma papkasi yo‘lini ko‘rsatish uchun `{baseDir}` dan foydalaning.
 - Ixtiyoriy frontmatter kalitlari:
   - `homepage` — macOS dagi Skills UI’da “Website” sifatida ko‘rsatiladigan URL (shuningdek `metadata.openclaw.homepage` orqali ham qo‘llab-quvvatlanadi).
-  - `user-invocable` — `true|false` (standart: `true`). `true` bo‘lsa, ko‘nikma foydalanuvchi slash buyrug‘i sifatida taqdim etiladi.
-  - `disable-model-invocation` — `true|false` (standart: `false`). `true` bo‘lsa, ko‘nikma model promptidan chiqarib tashlanadi (baribir foydalanuvchi chaqiruvi orqali mavjud bo‘ladi).
+  - `user-invocable` — `true|false` (default: `true`). When `true`, the skill is exposed as a user slash command.
+  - `disable-model-invocation` — `true|false` (default: `false`). When `true`, the skill is excluded from the model prompt (still available via user invocation).
   - `command-dispatch` — `tool` (optional). When set to `tool`, the slash command bypasses the model and dispatches directly to a tool.
   - `command-tool` — tool name to invoke when `command-dispatch: tool` is set.
   - `command-arg-mode` — `raw` (default). For tool dispatch, forwards the raw args string to the tool (no core parsing).
@@ -294,5 +298,3 @@ See [Skills config](/tools/skills-config) for the full configuration schema.
 Browse [https://clawhub.com](https://clawhub.com).
 
 ---
-
-

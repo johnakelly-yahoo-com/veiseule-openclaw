@@ -1,4 +1,8 @@
 ---
+summary: "CLI-reference for `openclaw approvals` (exec-godkendelser for gateway- eller node-værter)"
+read_when:
+  - Du vil redigere exec-godkendelser fra CLI
+  - Du skal administrere tilladelseslister på gateway- eller node-værter
 title: "godkendelser"
 ---
 
@@ -44,5 +48,3 @@ openclaw approvals allowlist remove "~/Projects/**/bin/rg"
 - `--agent` er som standard `"*"`, hvilket gælder for alle agenter.
 - Node-værten skal annoncere `system.execApprovals.get/set` (macOS-app eller headless node-vært).
 - Godkendelsesfiler gemmes pr. vært på `~/.openclaw/exec-approvals.json`.
-
-

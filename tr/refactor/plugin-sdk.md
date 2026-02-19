@@ -1,4 +1,8 @@
 ---
+summary: "Plan: tüm mesajlaşma bağlayıcıları için tek, temiz bir eklenti SDK'sı + çalışma zamanı"
+read_when:
+  - Eklenti mimarisini tanımlarken veya yeniden düzenlerken
+  - Kanal bağlayıcılarını eklenti SDK'sı/çalışma zamanına taşırken
 title: "Eklenti SDK'sı Yeniden Düzenleme"
 ---
 
@@ -10,7 +14,7 @@ Hiçbir eklenti doğrudan `src/**` içe aktarmasın. Tüm bağımlılıklar SDK 
 ## Neden şimdi
 
 - Mevcut bağlayıcılar desenleri karıştırıyor: doğrudan çekirdek içe aktarımları, yalnızca dağıtıma özel köprüler ve özel yardımcılar.
-- Bu, yükseltmeleri kırılgan hale getirir ve temiz bir harici eklenti yüzeyini engeller.
+- This makes upgrades brittle and blocks a clean external plugin surface.
 
 ## Hedef mimari (iki katman)
 
@@ -163,7 +167,7 @@ Notlar:
 ### Aşama 2: hafif doğrudan içe aktarımlı eklentiler
 
 - Matrix, SDK + çalışma zamanına taşınsın.
-- Onboarding, dizin ve grup bahsetme mantığını doğrulayın.
+- Validate onboarding, directory, group mention logic.
 
 ### Aşama 3: ağır doğrudan içe aktarımlı eklentiler
 
@@ -181,7 +185,7 @@ Notlar:
 - Lint kuralı / CI denetimi eklensin: `src/**` içinden `extensions/**` içe aktarımları yok.
 - Eklenti SDK/sürüm uyumluluk denetimleri eklensin (çalışma zamanı + SDK semver).
 
-## Uyumluluk ve sürümleme
+## Compatibility and versioning
 
 - SDK: semver, yayımlanmış, değişiklikleri belgelenmiş.
 - Çalışma zamanı: çekirdek sürüm başına sürümlenir. `api.runtime.version` eklensin.
@@ -197,7 +201,7 @@ Notlar:
 
 - SDK türleri nerede barındırılmalı: ayrı paket mi yoksa çekirdek dışa aktarımı mı?
 - Çalışma zamanı türlerinin dağıtımı: SDK'da mı (yalnızca türler) yoksa çekirdekte mi?
-- Dahili ve harici eklentiler için dokümantasyon bağlantıları nasıl sunulmalı?
+- How to expose docs links for bundled vs external plugins?
 - Geçiş sırasında depo içi eklentiler için sınırlı doğrudan çekirdek içe aktarımlarına izin veriyor muyuz?
 
 ## Başarı ölçütleri
@@ -208,5 +212,3 @@ Notlar:
 - Harici eklentiler, çekirdek kaynak koduna erişim olmadan geliştirilebilir ve güncellenebilir.
 
 İlgili dokümanlar: [Eklentiler](/tools/plugin), [Kanallar](/channels/index), [Yapılandırma](/gateway/configuration).
-
-

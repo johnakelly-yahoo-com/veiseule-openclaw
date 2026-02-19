@@ -1,10 +1,13 @@
 ---
+summary: "OpenClaw ऐप, Gateway नोड ट्रांसपोर्ट, और PeekabooBridge के लिए macOS IPC आर्किटेक्चर"
+read_when:
+  - IPC कॉन्ट्रैक्ट्स या मेनू बार ऐप IPC संपादित करते समय
 title: "macOS IPC"
 ---
 
 # OpenClaw macOS IPC आर्किटेक्चर
 
-**वर्तमान मॉडल:** एक लोकल Unix socket **node host service** को **macOS app** से जोड़ता है, ताकि exec approvals और `system.run` संभव हो सकें। डिस्कवरी/कनेक्ट जाँच के लिए एक `openclaw-mac` debug CLI उपलब्ध है; एजेंट की कार्रवाइयाँ अभी भी Gateway WebSocket और `node.invoke` के माध्यम से प्रवाहित होती हैं। UI ऑटोमेशन के लिए PeekabooBridge का उपयोग किया जाता है।
+**Current model:** a local Unix socket connects the **node host service** to the **macOS app** for exec approvals + `system.run`. A `openclaw-mac` debug CLI exists for discovery/connect checks; agent actions still flow through the Gateway WebSocket and `node.invoke`. UI automation uses PeekabooBridge.
 
 ## लक्ष्य
 
@@ -56,5 +59,3 @@ Agent -> Gateway -> Node Service (WS)
 - सभी संचार केवल स्थानीय रहते हैं; कोई नेटवर्क सॉकेट उजागर नहीं किए जाते।
 - TCC प्रॉम्प्ट केवल GUI ऐप बंडल से उत्पन्न होते हैं; पुनर्निर्माणों के बीच साइन किया हुआ बंडल ID स्थिर रखें।
 - IPC हार्डनिंग: सॉकेट मोड `0600`, टोकन, peer-UID जाँच, HMAC चैलेंज/रिस्पॉन्स, छोटा TTL।
-
-

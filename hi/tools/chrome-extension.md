@@ -1,4 +1,9 @@
 ---
+summary: "Chrome एक्सटेंशन: OpenClaw को आपके मौजूदा Chrome टैब को नियंत्रित करने दें"
+read_when:
+  - आप चाहते हैं कि एजेंट किसी मौजूदा Chrome टैब को नियंत्रित करे (टूलबार बटन)
+  - आपको Tailscale के माध्यम से रिमोट Gateway + स्थानीय ब्राउज़र ऑटोमेशन चाहिए
+  - आप ब्राउज़र टेकओवर के सुरक्षा प्रभावों को समझना चाहते हैं
 title: "Chrome एक्सटेंशन"
 ---
 
@@ -171,5 +176,3 @@ openclaw browser create-profile \
 - ब्राउज़र टूल अवलोकन: [Browser](/tools/browser)
 - सुरक्षा ऑडिट: [Security](/gateway/security)
 - Tailscale सेटअप: [Tailscale](/gateway/tailscale)
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Meerdere OpenClaw Gateways op één host draaien (isolatie, poorten en profielen)"
+read_when:
+  - Meer dan één Gateway op dezelfde machine draaien
+  - Je geïsoleerde config/toestand/poorten per Gateway nodig hebt
 title: "Meerdere Gateways"
 ---
 
@@ -75,7 +79,7 @@ openclaw --profile rescue gateway install
 Basispoort = `gateway.port` (of `OPENCLAW_GATEWAY_PORT` / `--port`).
 
 - poort voor browser-besturingsservice = basis + 2 (alleen loopback)
-- `canvasHost.port = base + 4`
+- canvas host wordt gehost op de Gateway HTTP-server (dezelfde poort als `gateway.port`)
 - Browserprofiel-CDP-poorten worden automatisch toegewezen vanaf `browser.controlPort + 9 .. + 108`
 
 Als je een van deze overschrijft in config of env, moet je ze per instantie uniek houden.
@@ -106,5 +110,3 @@ openclaw --profile main status
 openclaw --profile rescue status
 openclaw --profile rescue browser status
 ```
-
-

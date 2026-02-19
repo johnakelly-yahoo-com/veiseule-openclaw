@@ -1,4 +1,7 @@
 ---
+summary: "Endurecimento da allowlist do Telegram: prefixo + normalização de espaços em branco"
+read_when:
+  - Ao revisar mudanças históricas na allowlist do Telegram
 title: "Endurecimento da Allowlist do Telegram"
 ---
 
@@ -35,5 +38,3 @@ falsos negativos ao decidir se deve responder em DMs ou grupos.
 
 - [Conversas em Grupo](/channels/groups)
 - [Provedor do Telegram](/channels/telegram)
-
-

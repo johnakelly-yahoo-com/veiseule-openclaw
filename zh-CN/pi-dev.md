@@ -1,12 +1,5 @@
 ---
-title: Pi 开发工作流程
-x-i18n:
-  generated_at: "2026-02-03T10:07:59Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 65bd0580dd03df05321ced35a036ce6fb815ce3ddac1d35c9976279adcbf87c0
-  source_path: pi-dev.md
-  workflow: 15
+title: "Pi 开发工作流程"
 ---
 
 # Pi 开发工作流程
@@ -56,9 +49,9 @@ scripts/pi/run-tests.sh --live
 
 对于工具调用行为，提示执行 `read` 或 `exec` 操作，以便查看工具流式传输和负载处理。
 
-## 完全重置
+## 26. 清空状态重置
 
-状态存储在 OpenClaw 状态目录下。默认为 `~/.openclaw`。如果设置了 `OPENCLAW_STATE_DIR`，则使用该目录。
+27. 状态存放在 OpenClaw 状态目录下。 Default is `~/.openclaw`. 29. 如果设置了 `OPENCLAW_STATE_DIR`，则使用该目录。
 
 要重置所有内容：
 
@@ -69,11 +62,9 @@ scripts/pi/run-tests.sh --live
 - `sessions/` 如果存在旧版路径
 - `workspace/` 如果你想要一个空白工作区
 
-如果只想重置会话，删除该智能体的 `agents/<agentId>/sessions/` 和 `agents/<agentId>/sessions.json`。如果不想重新认证，保留 `credentials/`。
+如果只想重置会话，删除该智能体的 `agents/<agentId>/sessions/` 和 `agents/<agentId>/sessions.json`。如果不想重新认证，保留 `credentials/`。 Keep `credentials/` if you do not want to reauthenticate.
 
 ## 参考资料
 
 - https://docs.openclaw.ai/testing
 - https://docs.openclaw.ai/start/getting-started
-
-

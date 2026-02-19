@@ -1,4 +1,9 @@
 ---
+summary: "Text-zu-Sprache (TTS) für ausgehende Antworten"
+read_when:
+  - Aktivieren von Text-zu-Sprache für Antworten
+  - Konfigurieren von TTS-Anbietern oder -Limits
+  - Verwenden von /tts-Befehlen
 title: "Text-zu-Sprache"
 ---
 
@@ -391,5 +396,3 @@ Gateway-Methoden:
 - `tts.convert`
 - `tts.setProvider`
 - `tts.providers`
-
-

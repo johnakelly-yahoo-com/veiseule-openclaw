@@ -1,4 +1,8 @@
 ---
+summary: "Har bir kanal uchun nosozlik imzolari va tuzatishlar bilan tezkor kanal darajasida nosozliklarni bartaraf etish"
+read_when:
+  - Channel transport says connected but replies fail
+  - You need channel specific checks before deep provider docs
 title: "Kanal nosozliklarini bartaraf etish"
 ---
 
@@ -40,11 +44,12 @@ Toʻliq nosozliklarni bartaraf etish: [/channels/whatsapp#troubleshooting-quick]
 
 ### Telegram nosozlik alomatlari
 
-| Alomat                                                | Eng tezkor tekshiruv                                                                    | Yechim                                                                                           |
-| ----------------------------------------------------- | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| `/start`, ammo foydalanib bo‘ladigan javob oqimi yo‘q | `openclaw pairing list telegram`                                                        | Ulanishni tasdiqlang yoki DM siyosatini o‘zgartiring.                            |
-| Bot onlayn, ammo guruh jim                            | Eslatib o‘tish (mention) talabi va bot maxfiylik rejimini tekshiring | Guruhda ko‘rinishi uchun maxfiylik rejimini o‘chiring yoki botni mention qiling. |
-| Tarmoq xatolari bilan yuborish muvaffaqiyatsiz        | Telegram API chaqiruvlari xatolari uchun loglarni tekshiring                            | `api.telegram.org` ga DNS/IPv6/proksi marshrutlashini tuzating.                  |
+| Symptom                                               | Fastest check                                                                           | Fix                                                                                                                          |
+| ----------------------------------------------------- | --------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `/start`, ammo foydalanib bo‘ladigan javob oqimi yo‘q | `openclaw pairing list telegram`                                                        | Ulanishni tasdiqlang yoki DM siyosatini o‘zgartiring.                                                        |
+| Bot onlayn, ammo guruh jim                            | Eslatib o‘tish (mention) talabi va bot maxfiylik rejimini tekshiring | Guruhda ko‘rinishi uchun maxfiylik rejimini o‘chiring yoki botni mention qiling.                             |
+| Tarmoq xatolari bilan yuborish muvaffaqiyatsiz        | Telegram API chaqiruvlari xatolari uchun loglarni tekshiring                            | `api.telegram.org` ga DNS/IPv6/proksi marshrutlashini tuzating.                                              |
+| Yangilandingiz va allowlist sizni blokladi            | `openclaw security audit` va konfiguratsiya allowlistlari                               | `openclaw doctor --fix` ni ishga tushiring yoki `@username` ni raqamli yuboruvchi IDlari bilan almashtiring. |
 
 Toʻliq nosozliklarni bartaraf etish: [/channels/telegram#troubleshooting](/channels/telegram#troubleshooting)
 
@@ -52,11 +57,11 @@ Toʻliq nosozliklarni bartaraf etish: [/channels/telegram#troubleshooting](/chan
 
 ### Discord nosozlik alomatlari
 
-| Alomat                                   | Eng tezkor tekshiruv                                                   | Yechim                                                                                             |
-| ---------------------------------------- | ---------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| Bot onlayn, ammo guilddan javob yo‘q     | `openclaw channels status --probe`                                     | Guild/kanalga ruxsat bering va xabar mazmuni intentini tekshiring.                 |
-| Guruh xabarlari e’tiborsiz qoldirilmoqda | Mention cheklovi sababli tashlab yuborishlar uchun loglarni tekshiring | Botni mention qiling yoki guild/kanal uchun `requireMention: false` qilib qo‘ying. |
-| DM javoblari yo‘q                        | `openclaw pairing list discord`                                        | DM ulanishini tasdiqlang yoki DM siyosatini moslang.                               |
+| Symptom                              | Fastest check                                                          | Fix                                                                                                |
+| ------------------------------------ | ---------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| Bot onlayn, ammo guilddan javob yo‘q | `openclaw channels status --probe`                                     | Guild/kanalga ruxsat bering va xabar mazmuni intentini tekshiring.                 |
+| Group messages ignored               | Mention cheklovi sababli tashlab yuborishlar uchun loglarni tekshiring | Botni mention qiling yoki guild/kanal uchun `requireMention: false` qilib qo‘ying. |
+| DM javoblari yo‘q                    | `openclaw pairing list discord`                                        | DM ulanishini tasdiqlang yoki DM siyosatini moslang.                               |
 
 Toʻliq nosozliklarni bartaraf etish: [/channels/discord#troubleshooting](/channels/discord#troubleshooting)
 
@@ -64,7 +69,7 @@ Toʻliq nosozliklarni bartaraf etish: [/channels/discord#troubleshooting](/chann
 
 ### Slack nosozlik alomatlari
 
-| Alomat                                    | Eng tezkor tekshiruv                           | Yechim                                                                           |
+| Symptom                                   | Fastest check                                  | Fix                                                                              |
 | ----------------------------------------- | ---------------------------------------------- | -------------------------------------------------------------------------------- |
 | Socket rejimi ulangan, ammo javoblar yo‘q | `openclaw channels status --probe`             | Ilova tokeni va bot tokenini hamda zarur scope’larni tekshiring. |
 | DMlar bloklangan                          | `openclaw pairing list slack`                  | Ulanishni tasdiqlang yoki DM siyosatini yumshating.              |
@@ -76,7 +81,7 @@ Toʻliq nosozliklarni bartaraf etish: [/channels/slack#troubleshooting](/channel
 
 ### iMessage va BlueBubbles nosozlik alomatlari
 
-| Belgi                                                                      | 2. Eng tezkor tekshiruv                                      | 3. Tuzatish                                                                                 |
+| Symptom                                                                    | Fastest check                                                                       | Fix                                                                                                                |
 | -------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
 | 4. Kiruvchi hodisalar yo‘q                          | 5. Webhook/serverga ulanish va ilova ruxsatlarini tekshiring | 6. Webhook URL manzilini yoki BlueBubbles server holatini tuzating.         |
 | 7. macOS’da yuborish mumkin, lekin qabul qilinmaydi | Messages avtomatlashtirish uchun macOS maxfiylik ruxsatlarini tekshiring            | 9. TCC ruxsatlarini qayta bering va kanal jarayonini qayta ishga tushiring. |
@@ -84,16 +89,16 @@ Toʻliq nosozliklarni bartaraf etish: [/channels/slack#troubleshooting](/channel
 
 To‘liq nosozliklarni bartaraf etish:
 
-- 14. [/channels/imessage#troubleshooting-macos-privacy-and-security-tcc](/channels/imessage#troubleshooting-macos-privacy-and-security-tcc)
+- [/channels/imessage#troubleshooting-macos-privacy-and-security-tcc](/channels/imessage#troubleshooting-macos-privacy-and-security-tcc)
 - [/channels/bluebubbles#troubleshooting](/channels/bluebubbles#troubleshooting)
 
 ## 16. Signal
 
 ### Signal nosozligi imzolari
 
-| 18. Alomat                          | 19. Eng tezkor tekshiruv                                 | 20. Tuzatish                                                                                         |
+| Symptom                                                    | Fastest check                                                                   | Fix                                                                                                                         |
 | ---------------------------------------------------------- | ------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| 21. Demon mavjud, lekin bot jim     | 22. `openclaw channels status --probe`                   | 23. `signal-cli` demon URL/manzilini, akkauntni va qabul qilish rejimini tekshiring. |
+| 21. Demon mavjud, lekin bot jim     | `openclaw channels status --probe`                                              | 23. `signal-cli` demon URL/manzilini, akkauntni va qabul qilish rejimini tekshiring. |
 | 24. DM bloklangan                   | 25. `openclaw pairing list signal`                       | 26. Yuboruvchini tasdiqlang yoki DM siyosatini sozlang.                              |
 | 27. Guruh javoblari ishga tushmaydi | 28. Guruh allowlistini va mention naqshlarini tekshiring | 29. Yuboruvchi/guruhni qo‘shing yoki cheklovlarni yumshating.                        |
 
@@ -103,12 +108,10 @@ To‘liq nosozliklarni bartaraf etish:
 
 ### 32. Matrix nosozlik belgilari
 
-| 33. Alomat                                                        | 34. Eng tezkor tekshiruv                                  | 35. Tuzatish                                                                                             |
+| Symptom                                                                                  | Fastest check                                                                    | Fix                                                                                                                             |
 | ---------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| 36. Tizimga kirilgan, lekin xona xabarlarini e’tiborsiz qoldiradi | 37. `openclaw channels status --probe`                    | 38. `groupPolicy` va xona allowlistini tekshiring.                                       |
+| 36. Tizimga kirilgan, lekin xona xabarlarini e’tiborsiz qoldiradi | `openclaw channels status --probe`                                               | 38. `groupPolicy` va xona allowlistini tekshiring.                                       |
 | 39. DMlar qayta ishlanmaydi                                       | 40. `openclaw pairing list matrix`                        | 41. Yuboruvchini tasdiqlang yoki DM siyosatini sozlang.                                  |
 | 42. Shifrlangan xonalar ishlamaydi                                | 43. Kripto modulini va shifrlash sozlamalarini tekshiring | 44. Shifrlash qo‘llab-quvvatlashini yoqing va xonaga qayta qo‘shiling/sinxronlashtiring. |
 
 45. To‘liq nosozliklarni bartaraf etish: [/channels/matrix#troubleshooting](/channels/matrix#troubleshooting)
-
-

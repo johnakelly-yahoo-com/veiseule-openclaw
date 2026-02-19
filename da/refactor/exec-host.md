@@ -1,4 +1,9 @@
 ---
+summary: "Refaktorplan: routing af exec-hosts, node-godkendelser og headless runner"
+read_when:
+  - Design af routing for exec-hosts eller exec-godkendelser
+  - Implementering af node runner + UI IPC
+  - Tilføjelse af exec-host-sikkerhedstilstande og slash-kommandoer
 title: "Refaktorering af Exec Host"
 ---
 
@@ -309,5 +314,3 @@ Mulighed B:
 - [Exec-godkendelser](/tools/exec-approvals)
 - [Noder](/nodes)
 - [Elevated-tilstand](/tools/elevated)
-
-

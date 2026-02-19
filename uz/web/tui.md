@@ -1,4 +1,8 @@
 ---
+summary: "Terminal UI (TUI): istalgan qurilmadan Gateway’ga ulanish"
+read_when:
+  - Sizga TUI bo‘yicha boshlovchilar uchun qulay qo‘llanma kerak
+  - Sizga TUI funksiyalari, buyruqlari va klavish yorliqlarining to‘liq ro‘yxati kerak
 title: "TUI"
 ---
 
@@ -38,7 +42,7 @@ Agar Gateway parol orqali autentifikatsiyadan foydalansa, `--password` dan foyda
 
 ## Asosiy tushuncha: agentlar + sessiyalar
 
-- Agentlar — noyob identifikatorlar (masalan, `main`, `research`). Gateway ularning ro‘yxatini taqdim etadi.
+- Agents are unique slugs (e.g. `main`, `research`). The Gateway exposes the list.
 - Sessiyalar joriy agentga tegishli bo‘ladi.
 - Sessiya kalitlari `agent:<agentId>:<sessionKey>` ko‘rinishida saqlanadi.
   - Agar siz `/session main` deb yozsangiz, TUI uni `agent:<currentAgent>:main` ga kengaytiradi.
@@ -102,7 +106,7 @@ Sessiya hayot sikli:
 - `/settings`
 - `/exit`
 
-Boshqa Gateway slash buyruqlari (masalan, `/context`) Gateway’ga uzatiladi va tizim chiqishi sifatida ko‘rsatiladi. Qarang: [Slash commands](/tools/slash-commands).
+38. Boshqa Gateway slash buyruqlari (masalan, `/context`) Gateway’ga uzatiladi va tizim chiqishi sifatida ko‘rsatiladi. 39. [Slash commands](/tools/slash-commands) ni ko‘ring.
 
 ## Lokal shell buyruqlari
 
@@ -138,8 +142,8 @@ Boshqa Gateway slash buyruqlari (masalan, `/context`) Gateway’ga uzatiladi va 
 - `--thinking <level>`: Yuborishda thinking darajasini override qilish
 - `--timeout-ms <ms>`: Agent timeout vaqti (ms) (`agents.defaults.timeoutSeconds` standart)
 
-Eslatma: `--url` o‘rnatilganda, TUI konfiguratsiya yoki muhit (environment) ma’lumotlariga qaytmaydi.
-`--token` yoki `--password` ni aniq ko‘rsating. Aniq ko‘rsatilmagan autentifikatsiya ma’lumotlari xatoga olib keladi.
+Note: when you set `--url`, the TUI does not fall back to config or environment credentials.
+Pass `--token` or `--password` explicitly. Missing explicit credentials is an error.
 
 ## Muammolarni bartaraf etish
 
@@ -156,5 +160,3 @@ Xabar yuborilgandan so‘ng chiqish yo‘q:
 - `disconnected`: Gateway ishlayotganini va `--url/--token/--password` to‘g‘ri ekanini tekshiring.
 - Tanlash oynasida agentlar yo‘q: `openclaw agents list` va routing konfiguratsiyangizni tekshiring.
 - Bo‘sh sessiya tanlash oynasi: siz global scope’da bo‘lishingiz yoki hali sessiyalar bo‘lmasligi mumkin.
-
-

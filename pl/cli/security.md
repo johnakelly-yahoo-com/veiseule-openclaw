@@ -1,4 +1,8 @@
 ---
+summary: "Referencja CLI dla `openclaw security` (audyt i naprawa typowych pułapek bezpieczeństwa)"
+read_when:
+  - Chcesz uruchomić szybki audyt bezpieczeństwa konfiguracji/stanu
+  - Chcesz zastosować bezpieczne sugestie „napraw” (chmod, zaostrzenie ustawień domyślnych)
 title: "bezpieczeństwo"
 ---
 
@@ -20,5 +24,5 @@ openclaw security audit --fix
 
 Audyt ostrzega, gdy wielu nadawców DM współdzieli główną sesję, i zaleca **bezpieczny tryb DM**: `session.dmScope="per-channel-peer"` (lub `per-account-channel-peer` dla kanałów wielokontowych) w przypadku współdzielonych skrzynek odbiorczych.
 Ostrzega również, gdy małe modele (`<=300B`) są używane bez sandboxing oraz z włączonymi narzędziami web/przeglądarki.
-
-
+W przypadku webhook ingress wyświetlane jest ostrzeżenie, gdy `hooks.defaultSessionKey` nie jest ustawione, gdy włączone są nadpisania `sessionKey` w żądaniu oraz gdy nadpisania są włączone bez `hooks.allowedSessionKeyPrefixes`.
+Wyświetlane jest również ostrzeżenie, gdy ustawienia Docker sandbox są skonfigurowane przy wyłączonym trybie sandbox, gdy `gateway.nodes.denyCommands` używa nieskutecznych wzorców lub nieznanych wpisów, gdy globalne `tools.profile="minimal"` jest nadpisane przez profile narzędzi agenta oraz gdy narzędzia zainstalowanych wtyczek rozszerzeń mogą być dostępne przy liberalnej polityce narzędzi.

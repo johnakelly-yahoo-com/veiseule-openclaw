@@ -1,4 +1,7 @@
 ---
+summary: "สถานะการรองรับ ความสามารถ และการกำหนดค่าสำหรับ Tlon/Urbit"
+read_when:
+  - กำลังทำงานเกี่ยวกับฟีเจอร์ช่องทาง Tlon/Urbit
 title: "Tlon"
 ---
 
@@ -7,10 +10,11 @@ title: "Tlon"
 Tlon is a decentralized messenger built on Urbit. Tlon เป็นแอปส่งข้อความแบบกระจายศูนย์ที่สร้างบน Urbit OpenClaw เชื่อมต่อกับ Urbit ship ของคุณและสามารถ
 ตอบกลับข้อความส่วนตัว(DMs)และข้อความแชทกลุ่มได้ การตอบกลับในกลุ่มต้องมีการ @ mention ตามค่าเริ่มต้น และสามารถ
 จำกัดเพิ่มเติมได้ด้วย allowlists Group replies require an @ mention by default and can
+be further restricted via allowlists. Group replies require an @ mention by default and can
 be further restricted via allowlists.
 
 Status: supported via plugin. สถานะ: รองรับผ่านปลั๊กอิน รองรับ DMs, การกล่าวถึงในกลุ่ม, การตอบกลับในเธรด และการสำรองสื่อเป็นข้อความเท่านั้น
-(แนบ URL ต่อท้ายคำบรรยาย) ไม่รองรับรีแอ็กชัน โพล และการอัปโหลดสื่อแบบเนทีฟ Reactions, polls, and native media uploads are not supported.
+(แนบ URL ต่อท้ายคำบรรยาย) ไม่รองรับรีแอ็กชัน โพล และการอัปโหลดสื่อแบบเนทีฟ Reactions, polls, and native media uploads are not supported. Reactions, polls, and native media uploads are not supported.
 
 ## ต้องใช้ปลั๊กอิน
 
@@ -48,6 +52,22 @@ openclaw plugins install ./extensions/tlon
       ship: "~sampel-palnet",
       url: "https://your-ship-host",
       code: "lidlut-tabwed-pillex-ridrup",
+    },
+  },
+}
+```
+
+URL ของ ship แบบ Private/LAN (ขั้นสูง):
+
+โดยค่าเริ่มต้น OpenClaw จะบล็อก hostname และช่วง IP ภายใน/ส่วนตัวสำหรับปลั๊กอินนี้ (การป้องกัน SSRF)
+หาก ship URL ของคุณอยู่บนเครือข่ายส่วนตัว (ตัวอย่างเช่น `http://192.168.1.50:8080` หรือ `http://localhost:8080`),
+คุณต้องเปิดใช้งานด้วยตนเองอย่างชัดเจน:
+
+```json5
+{
+  channels: {
+    tlon: {
+      allowPrivateNetwork: true,
     },
   },
 }
@@ -128,5 +148,3 @@ DM allowlist (ว่าง = อนุญาตทั้งหมด):
 - การตอบกลับในกลุ่มต้องมีการกล่าวถึง (เช่น `~your-bot-ship`) จึงจะตอบได้
 - การตอบกลับในเธรด: หากข้อความขาเข้าอยู่ในเธรด OpenClaw จะตอบกลับในเธรด
 - สื่อ: `sendMedia` จะสำรองเป็นข้อความ + URL (ไม่มีการอัปโหลดแบบเนทีฟ)
-
-

@@ -1,12 +1,8 @@
 ---
-title: macOS 开发设置
-x-i18n:
-  generated_at: "2026-02-03T07:52:36Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 4ea67701bd58b7512f945fce58d79e1b3d990fbf45183323a1e3ab9688827623
-  source_path: platforms/mac/dev-setup.md
-  workflow: 15
+summary: "为在 OpenClaw macOS 应用上工作的开发者提供的设置指南"
+read_when:
+  - 设置 macOS 开发环境
+title: "macOS 开发设置"
 ---
 
 # macOS 开发者设置
@@ -17,10 +13,10 @@ x-i18n:
 
 在构建应用之前，确保你已安装以下内容：
 
-1.  **Xcode 26.2+**：Swift 开发所需。
-2.  **Node.js 22+ & pnpm**：Gateway 网关、CLI 和打包脚本所需。
+1. **Xcode 26.2+**：Swift 开发所需。
+2. **Node.js 22+ & pnpm**：Gateway 网关、CLI 和打包脚本所需。
 
-## 1. 安装依赖
+## 1) 安装依赖
 
 安装项目范围的依赖：
 
@@ -41,7 +37,7 @@ pnpm install
 有关开发运行模式、签名标志和 Team ID 故障排除，请参阅 macOS 应用 README：
 https://github.com/openclaw/openclaw/blob/main/apps/macos/README.md
 
-> **注意**：Ad-hoc 签名的应用可能会触发安全提示。如果应用立即崩溃并显示"Abort trap 6"，请参阅[故障排除](#troubleshooting)部分。
+> **注意**：Ad-hoc 签名的应用可能会触发安全提示。如果应用立即崩溃并显示"Abort trap 6"，请参阅[故障排除](#troubleshooting)部分。 8. 如果应用启动后立即因 "Abort trap 6" 崩溃，请参阅 [Troubleshooting](#troubleshooting) 部分。
 
 ## 3. 安装 CLI
 
@@ -49,9 +45,9 @@ macOS 应用期望全局安装 `openclaw` CLI 来管理后台任务。
 
 **安装方法（推荐）：**
 
-1.  打开 OpenClaw 应用。
-2.  转到 **General** 设置标签页。
-3.  点击 **"Install CLI"**。
+1. 打开 OpenClaw 应用。
+2. 转到 **General** 设置标签页。
+3. 点击 **"Install CLI"**。
 
 或者，手动安装：
 
@@ -86,9 +82,11 @@ xcrun swift --version
 **修复：**
 
 1. 重置 TCC 权限：
+
    ```bash
    tccutil reset All bot.molt.mac.debug
    ```
+
 2. 如果这不起作用，在 [`scripts/package-mac-app.sh`](https://github.com/openclaw/openclaw/blob/main/scripts/package-mac-app.sh) 中临时更改 `BUNDLE_ID` 以强制 macOS 从"全新状态"开始。
 
 ### Gateway 网关无限期"Starting..."
@@ -103,6 +101,4 @@ openclaw gateway stop
 lsof -nP -iTCP:18789 -sTCP:LISTEN
 ```
 
-如果手动运行占用了端口，停止该进程（Ctrl+C）。作为最后手段，杀死你找到的 PID。
-
-
+36. 如果是手动运行的进程占用了端口，请停止该进程（Ctrl+C）。 37. 作为最后手段，杀掉你在上面找到的 PID。

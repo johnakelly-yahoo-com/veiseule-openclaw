@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw で Qwen の OAuth（無料枠）を使用します"
+read_when:
+  - OpenClaw で Qwen を使用したい場合
+  - Qwen Coder への無料枠 OAuth アクセスを利用したい場合
 title: "Qwen"
 ---
 
@@ -41,6 +45,7 @@ openclaw models set qwen-portal/coder-model
 `~/.qwen/oauth_creds.json` から認証情報を同期します。それでも
 `models.providers.qwen-portal` エントリーは必要です（上記のログインコマンドを使用して作成してください）。
 `models.providers.qwen-portal` エントリが必要です（上記のログインコマンドを使用して作成します）。
+`models.providers.qwen-portal` エントリが必要です（上記のログインコマンドを使用して作成します）。
 
 ## 注記
 
@@ -48,5 +53,3 @@ openclaw models set qwen-portal/coder-model
 - デフォルトのベース URL：`https://portal.qwen.ai/v1`（Qwen が別のエンドポイントを提供する場合は
   `models.providers.qwen-portal.baseUrl` で上書きしてください）。
 - プロバイダー共通のルールについては、[Model providers](/concepts/model-providers) を参照してください。
-
-

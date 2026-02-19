@@ -1,5 +1,9 @@
 ---
 title: "Cloudflare AI Gateway"
+summary: "Cloudflare AI Gateway 設定（驗證＋模型選擇）"
+read_when:
+  - 你想要將 Cloudflare AI Gateway 與 OpenClaw 一起使用
+  - You need the account ID, gateway ID, or API key env var
 ---
 
 # Cloudflare AI Gateway
@@ -65,5 +69,3 @@ openclaw onboard --non-interactive \
 ## 環境注意事項
 
 如果 Gateway 以常駐服務（launchd/systemd）方式執行，請確保 `CLOUDFLARE_AI_GATEWAY_API_KEY` 對該程序可用（例如，於 `~/.openclaw/.env` 中或透過 `env.shellEnv`）。
-
-

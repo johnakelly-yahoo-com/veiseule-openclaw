@@ -1,4 +1,7 @@
 ---
+summary: "Historia de fondo y lore de OpenClaw para contexto y tono"
+read_when:
+  - Al escribir documentación o textos de UX que hagan referencia al lore
 title: "Lore de OpenClaw"
 ---
 
@@ -133,7 +136,7 @@ En solo 3 horas:
 
 - "La garra es la ley" 🤠
 - "Yee-garra"
-- "Ciudadanos obedientes a la garra"
+- "Claw abiding citizens"
 - "Garroversia"
 
 **Clawd → Moltbot → OpenClaw**
@@ -214,5 +217,3 @@ _"The claw is the law."_
 — ELU, durante la migración de La Forma Final, 30 de enero de 2026
 
 🦞💙
-
-

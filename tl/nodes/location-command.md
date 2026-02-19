@@ -1,4 +1,8 @@
 ---
+summary: "Command ng lokasyon para sa mga node (location.get), mga mode ng pahintulot, at pag-uugali sa background"
+read_when:
+  - Pagdaragdag ng suporta sa location node o UI ng mga pahintulot
+  - Pagdidisenyo ng mga daloy para sa background location + push
 title: "Command ng Lokasyon"
 ---
 
@@ -107,5 +111,3 @@ Mga tala:
 - While Using: “Kapag bukas lang ang OpenClaw.”
 - Palagi: “Payagan ang background location.” Nangangailangan ng system permission.”
 - Eksakto: “Gumamit ng eksaktong lokasyon ng GPS. I-off upang magbahagi ng tinatayang lokasyon.”
-
-

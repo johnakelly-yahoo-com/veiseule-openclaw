@@ -1,4 +1,10 @@
-------
+---
+title: "AGENTS.md par défaut"
+summary: "Instructions par defaut de l’agent OpenClaw et repertoire des Skills pour la configuration d’assistant personnel"
+read_when:
+  - Demarrage d’une nouvelle session d’agent OpenClaw
+  - Activation ou audit des Skills par defaut
+---
 
 # AGENTS.md — Assistant personnel OpenClaw (par defaut)
 
@@ -116,5 +122,3 @@ git commit -m "Add Clawd workspace"
 - Pour la verification pilotee par le navigateur, utilisez `openclaw browser` (onglets/statut/capture d’ecran) avec le profil Chrome gere par OpenClaw.
 - Pour l’inspection du DOM, utilisez `openclaw browser eval|query|dom|snapshot` (et `--json`/`--out` lorsque vous avez besoin d’une sortie machine).
 - Pour les interactions, utilisez `openclaw browser click|type|hover|drag|select|upload|press|wait|navigate|back|evaluate|run` (cliquer/taper necessitent des references de snapshot ; utilisez `evaluate` pour les selecteurs CSS).
-
-

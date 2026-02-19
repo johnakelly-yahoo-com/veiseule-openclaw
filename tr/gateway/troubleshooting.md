@@ -1,4 +1,8 @@
 ---
+summary: "gateway, kanallar, otomasyon, düğümler ve tarayıcı için derinlemesine sorun giderme runbook'u"
+read_when:
+  - Sorun giderme merkezi sizi daha derin teşhis için buraya yönlendirdiyse
+  - Kesin komutlarla kararlı, belirtiye dayalı runbook bölümlerine ihtiyacınız varsa
 title: "Sorun Giderme"
 ---
 
@@ -105,7 +109,7 @@ openclaw gateway status --deep
 
 Yaygın imzalar:
 
-- `Gateway start blocked: set gateway.mode=local` → yerel gateway modu etkin değil.
+- `Gateway start blocked: set gateway.mode=local` → yerel gateway modu etkin değil. Düzeltme: yapılandırmanızda `gateway.mode="local"` ayarlayın (veya `openclaw configure` çalıştırın). OpenClaw’ı Podman ile özel `openclaw` kullanıcısı üzerinden çalıştırıyorsanız, yapılandırma dosyası `~openclaw/.openclaw/openclaw.json` konumundadır.
 - `refusing to bind gateway ... without auth` → belirteç/parola olmadan loopback dışı bağlama.
 - `another gateway instance is already listening` / `EADDRINUSE` → port çakışması.
 
@@ -312,5 +316,3 @@ openclaw gateway restart
 - [/gateway/pairing](/gateway/pairing)
 - [/gateway/authentication](/gateway/authentication)
 - [/gateway/background-process](/gateway/background-process)
-
-

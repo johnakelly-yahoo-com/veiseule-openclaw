@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw အတွက် လက္ခဏာအခြေခံ ပြဿနာရှာဖွေဖြေရှင်းမှု အချက်အချာ"
+read_when:
+  - OpenClaw အလုပ်မလုပ်တော့ဘဲ အမြန်ဆုံး ဖြေရှင်းချက်ကို ရယူရန် လိုအပ်သောအခါ
+  - အသေးစိတ် runbook များထဲ မဝင်မီ အခြေအနေခွဲခြမ်းစစ်ဆေးမှု လမ်းကြောင်းကို လိုလားသောအခါ
 title: "ပြဿနာဖြေရှင်းခြင်း"
 ---
 
@@ -62,6 +66,7 @@ flowchart TD
     openclaw logs --follow
     ```
 
+    ````
     ```
     ကောင်းမွန်သော အထွက်အပေါ်လက္ခဏာများ —
     
@@ -82,6 +87,7 @@ flowchart TD
     - [/channels/troubleshooting](/channels/troubleshooting)
     - [/channels/pairing](/channels/pairing)
     ```
+    ````
 
   
 </Accordion>
@@ -95,6 +101,7 @@ flowchart TD
     openclaw channels status --probe
     ```
 
+    ````
     ```
     ကောင်းမွန်သော အထွက်အပေါ်လက္ခဏာများ —
     
@@ -114,6 +121,7 @@ flowchart TD
     - [/web/control-ui](/web/control-ui)
     - [/gateway/authentication](/gateway/authentication)
     ```
+    ````
 
   
 </Accordion>
@@ -127,6 +135,7 @@ flowchart TD
     openclaw channels status --probe
     ```
 
+    ````
     ```
     ကောင်းမွန်သော အထွက်အပေါ်လက္ခဏာများ —
     
@@ -146,6 +155,7 @@ flowchart TD
     - [/gateway/background-process](/gateway/background-process)
     - [/gateway/configuration](/gateway/configuration)
     ```
+    ````
 
   
 </Accordion>
@@ -159,6 +169,7 @@ flowchart TD
     openclaw channels status --probe
     ```
 
+    ````
     ```
     ကောင်းမွန်သော အထွက်အပေါ်လက္ခဏာများ —
     
@@ -177,6 +188,7 @@ flowchart TD
     - [/gateway/troubleshooting#channel-connected-messages-not-flowing](/gateway/troubleshooting#channel-connected-messages-not-flowing)
     - [/channels/troubleshooting](/channels/troubleshooting)
     ```
+    ````
 
   
 </Accordion>
@@ -191,6 +203,7 @@ flowchart TD
     openclaw logs --follow
     ```
 
+    ````
     ```
     ကောင်းမွန်သော အထွက်အပေါ်လက္ခဏာများ —
     
@@ -211,6 +224,7 @@ flowchart TD
     - [/automation/troubleshooting](/automation/troubleshooting)
     - [/gateway/heartbeat](/gateway/heartbeat)
     ```
+    ````
 
   
 </Accordion>
@@ -224,6 +238,7 @@ flowchart TD
     openclaw logs --follow
     ```
 
+    ````
     ```
     ကောင်းမွန်သော အထွက်အပေါ်လက္ခဏာများ —
     
@@ -244,6 +259,7 @@ flowchart TD
     - [/nodes/troubleshooting](/nodes/troubleshooting)
     - [/tools/exec-approvals](/tools/exec-approvals)
     ```
+    ````
 
   
 </Accordion>
@@ -257,6 +273,7 @@ flowchart TD
     openclaw doctor
     ```
 
+    ````
     ```
     ကောင်းမွန်သော အထွက်အပေါ်လက္ခဏာများ —
     
@@ -276,9 +293,8 @@ flowchart TD
     - [/tools/browser-linux-troubleshooting](/tools/browser-linux-troubleshooting)
     - [/tools/chrome-extension](/tools/chrome-extension)
     ```
+    ````
 
   
 </Accordion>
 </AccordionGroup>
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "TypeBox-schema’s als de enige bron van waarheid voor het gateway-protocol"
+read_when:
+  - Bijwerken van protocols schema’s of codegeneratie
 title: "TypeBox"
 ---
 
@@ -285,5 +288,3 @@ gepubliceerde ruwe bestand is doorgaans beschikbaar op:
 1. Werk de TypeBox-schema’s bij.
 2. Voer `pnpm protocol:check` uit.
 3. Commit het geregenereerde schema + de Swift-modellen.
-
-

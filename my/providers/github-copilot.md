@@ -1,4 +1,8 @@
 ---
+summary: "စက်ပစ္စည်း flow ကို အသုံးပြုပြီး OpenClaw မှ GitHub Copilot သို့ လော့ဂ်အင် ဝင်ရန်"
+read_when:
+  - GitHub Copilot ကို မော်ဒယ် ပံ့ပိုးသူအဖြစ် အသုံးပြုလိုသောအခါ
+  - "`openclaw models auth login-github-copilot` flow ကို လိုအပ်သောအခါ"
 title: "GitHub Copilot"
 ---
 
@@ -55,5 +59,3 @@ openclaw models set github-copilot/gpt-4o
 - Interactive TTY လိုအပ်ပါသည်; terminal ထဲတွင် တိုက်ရိုက် လည်ပတ်ပါ။
 - Copilot မော်ဒယ် ရရှိနိုင်မှုသည် သင့်အစီအစဉ်အပေါ် မူတည်ပါသည်; မော်ဒယ်တစ်ခုကို ပယ်ချပါက အခြား ID တစ်ခုကို စမ်းကြည့်ပါ (ဥပမာ `github-copilot/gpt-4.1`)။
 - လော့ဂ်အင် လုပ်ငန်းစဉ်သည် auth profile store ထဲတွင် GitHub token ကို သိမ်းဆည်းပြီး OpenClaw လည်ပတ်စဉ် Copilot API token အဖြစ် ပြန်လည်လဲလှယ်ပါသည်။
-
-

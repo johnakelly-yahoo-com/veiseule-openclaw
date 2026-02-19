@@ -1,4 +1,9 @@
 ---
+summary: "Models CLI: lista, ställ in, alias, fallbacks, skanna, status"
+read_when:
+  - Lägga till eller ändra models CLI (models list/set/scan/aliases/fallbacks)
+  - Ändra beteende för modell-fallback eller UX för val
+  - Uppdatera modellskanningsprober (verktyg/bilder)
 title: "Models CLI"
 ---
 
@@ -201,5 +206,3 @@ När du kör i en TTY, kan du välja fallbackar interaktivt. I icke-interaktivt
 Anpassade leverantörer i `models.providers` skrivs in i `models.json` under
 agentkatalogen (standard `~/.openclaw/agents/<agentId>/models.json`). Denna fil
 slås samman som standard såvida inte `models.mode` är satt till `ersätta`.
-
-

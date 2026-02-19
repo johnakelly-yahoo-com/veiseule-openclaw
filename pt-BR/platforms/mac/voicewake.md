@@ -1,4 +1,7 @@
 ---
+summary: "Modos de ativação por voz e push-to-talk, além de detalhes de roteamento no app para mac"
+read_when:
+  - Trabalhando nos fluxos de ativação por voz ou PTT
 title: "Ativação por Voz"
 ---
 
@@ -62,5 +65,3 @@ Endurecimento:
 
 - Ative o push-to-talk, segure Cmd+Fn, fale, solte: a sobreposição deve mostrar parciais e então enviar.
 - Enquanto segura, as orelhas da barra de menus devem permanecer ampliadas (usa `triggerVoiceEars(ttl:nil)`); elas diminuem após soltar.
-
-

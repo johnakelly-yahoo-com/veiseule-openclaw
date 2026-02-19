@@ -1,4 +1,7 @@
 ---
+summary: "Matrix 支援狀態、功能與設定"
+read_when:
+  - 進行 Matrix 頻道功能相關工作時
 title: "Matrix"
 ---
 
@@ -7,13 +10,14 @@ title: "Matrix"
 Matrix is an open, decentralized messaging protocol. Matrix 是一種開放、去中心化的即時通訊協定。OpenClaw 會以 Matrix **使用者**
 身分連線到任何 homeserver，因此你需要一個 Matrix 帳號給機器人使用。登入完成後，你可以直接私訊
 機器人，或邀請它加入房間（Matrix「群組」）。Beeper 也是可行的用戶端選項，但需要啟用 E2EE。 Once it is logged in, you can DM
+the bot directly or invite it to rooms (Matrix "groups"). Once it is logged in, you can DM
 the bot directly or invite it to rooms (Matrix "groups"). Beeper is a valid client option too,
 but it requires E2EE to be enabled.
 
-狀態：透過外掛支援（@vector-im/matrix-bot-sdk）。支援私訊、聊天室、討論串、媒體、回應等。
+Status: supported via plugin (@vector-im/matrix-bot-sdk). Direct messages, rooms, threads, media, reactions,
 polls (send + poll-start as text), location, and E2EE (with crypto support).
 
-## 需要外掛
+## Plugin required
 
 Matrix 以外掛形式提供，未隨核心安裝一併提供。
 
@@ -42,9 +46,9 @@ OpenClaw 會自動提供本機安裝路徑。
 
 2. 在 homeserver 上建立 Matrix 帳號：
    - 瀏覽託管選項：[https://matrix.org/ecosystem/hosting/](https://matrix.org/ecosystem/hosting/)
-   - 或自行託管。
+   - Or host it yourself.
 
-3. 為機器人帳號取得存取權杖：
+3. Get an access token for the bot account:
 
    - 在你的 homeserver 上使用 Matrix 登入 API，搭配 `curl`：
 
@@ -70,14 +74,14 @@ OpenClaw 會自動提供本機安裝路徑。
 4. 設定認證資訊：
    - 環境變數：`MATRIX_HOMESERVER`、`MATRIX_ACCESS_TOKEN`（或 `MATRIX_USER_ID` + `MATRIX_PASSWORD`）
    - 或設定檔：`channels.matrix.*`
-   - 若兩者皆已設定，則以設定檔為優先。
+   - If both are set, config takes precedence.
    - 使用存取權杖時，使用者 ID 會透過 `/whoami` 自動取得。
    - 設定時，`channels.matrix.userId` 應為完整的 Matrix ID（範例：`@bot:example.org`）。
 
 5. 重新啟動 gateway（或完成入門設定）。
 
-6. 從任何 Matrix 用戶端與機器人開始私訊，或邀請它加入聊天室
-（Element、Beeper 等；請參閱 [https://matrix.org/ecosystem/clients/](https://matrix.org/ecosystem/clients/)）。Beeper 需要啟用 E2EE，
+6. Start a DM with the bot or invite it to a room from any Matrix client
+   (Element, Beeper, etc.; see [https://matrix.org/ecosystem/clients/](https://matrix.org/ecosystem/clients/)). Beeper requires E2EE,
    so set `channels.matrix.encryption: true` and verify the device.
 
 最小設定（存取權杖，使用者 ID 自動取得）：
@@ -120,7 +124,7 @@ E2EE 設定（啟用端對端加密）：
 - 若成功載入加密模組，會自動解密加密房間。
 - 對加密房間送出的媒體會進行加密。
 - 初次連線時，OpenClaw 會向你其他工作階段請求裝置驗證。
-- 在其他 Matrix 用戶端（Element 等）中驗證該裝置以啟用金鑰分享。
+- Verify the device in another Matrix client (Element, etc.) to enable key sharing.
 - 若無法載入加密模組，將停用 E2EE，且無法解密加密房間；
   OpenClaw 會記錄警告。
 - 若看到遺失加密模組的錯誤（例如 `@matrix-org/matrix-sdk-crypto-nodejs-*`），
@@ -136,7 +140,48 @@ re-verified for encrypted rooms.
 
 **Device verification:**
 When E2EE is enabled, the bot will request verification from your other sessions on startup.
-Open Element (or another client) and approve the verification request to establish trust.1) 驗證完成後，機器人即可在加密房間中解密訊息。
+Open Element (or another client) and approve the verification request to establish trust.1) 驗證完成後，機器人即可在加密房間中解密訊息。1) 驗證完成後，機器人即可在加密房間中解密訊息。
+
+## 多帳號
+
+多帳號支援：使用 `channels.matrix.accounts` 設定各帳號的憑證與可選的 `name`。 請參閱 [`gateway/configuration`](/gateway/configuration#telegramaccounts--discordaccounts--slackaccounts--signalaccounts--imessageaccounts) 了解共用模式。
+
+每個帳號會在任意 homeserver 上以獨立的 Matrix 使用者身分執行。 各帳號設定
+繼承自最上層的 `channels.matrix` 設定，並可覆寫任何選項
+（DM 政策、群組、加密等）。
+
+```json5
+{
+  channels: {
+    matrix: {
+      enabled: true,
+      dm: { policy: "pairing" },
+      accounts: {
+        assistant: {
+          name: "Main assistant",
+          homeserver: "https://matrix.example.org",
+          accessToken: "syt_assistant_***",
+          encryption: true,
+        },
+        alerts: {
+          name: "Alerts bot",
+          homeserver: "https://matrix.example.org",
+          accessToken: "syt_alerts_***",
+          dm: { policy: "allowlist", allowFrom: ["@admin:example.org"] },
+        },
+      },
+    },
+  },
+}
+```
+
+注意：
+
+- 為避免並行模組匯入造成競態條件，帳號啟動會以序列方式進行。
+- 環境變數（`MATRIX_HOMESERVER`、`MATRIX_ACCESS_TOKEN` 等） 僅適用於**預設**帳號。
+- 基礎頻道設定（DM 政策、群組政策、提及門檻等） 除非在個別帳號中覆寫，否則會套用至所有帳號。
+- 使用 `bindings[].match.accountId` 將各帳號路由至不同的 agent。
+- 加密狀態會依帳號 + access token 分別儲存（每個帳號各自獨立的金鑰儲存）。
 
 ## 路由模型
 
@@ -151,6 +196,7 @@ Open Element (or another client) and approve the verification request to establi
   - `openclaw pairing approve matrix <CODE>`
 - 公開私訊：`channels.matrix.dm.policy="open"` 加上 `channels.matrix.dm.allowFrom=["*"]`。
 - `channels.matrix.dm.allowFrom` 接受完整的 Matrix 使用者 ID（範例：`@user:server`）。當目錄搜尋找到單一且完全符合的結果時，精靈會將顯示名稱解析為使用者 ID。 6. 當目錄搜尋找到單一且完全相符的結果時，精靈會將顯示名稱解析為使用者 ID。
+- 請勿使用顯示名稱或僅本地部分（例如：`"Alice"` 或 `"alice"`）。 它們具有歧義，且在允許清單比對時會被忽略。 請使用完整的 `@user:server` ID。
 
 ## 房間（群組）
 
@@ -248,7 +294,7 @@ openclaw pairing list matrix
 - `channels.matrix.textChunkLimit`：外送文字分塊大小（字元）。
 - `channels.matrix.chunkMode`：`length`（預設）或 `newline`，在長度分塊前先依空白行（段落邊界）分割。
 - `channels.matrix.dm.policy`：`pairing | allowlist | open | disabled`（預設：pairing）。
-- 13. `channels.matrix.dm.allowFrom`：私訊允許清單（完整的 Matrix 使用者 ID）。 14. `open` 需要使用 `"*"`。 15. 精靈會在可行時將名稱解析為 ID。
+- `channels.matrix.dm.allowFrom`：私訊允許清單（完整的 Matrix 使用者 ID）。 14. `open` 需要使用 `"*"`。 15. 精靈會在可行時將名稱解析為 ID。
 - `channels.matrix.groupPolicy`：`allowlist | open | disabled`（預設：allowlist）。
 - `channels.matrix.groupAllowFrom`：群組訊息的允許寄件者（完整 Matrix 使用者 ID）。
 - `channels.matrix.allowlistOnly`：對私訊 + 房間強制套用允許清單規則。
@@ -258,6 +304,5 @@ openclaw pairing list matrix
 - `channels.matrix.mediaMaxMb`：入站／出站媒體上限（MB）。
 - `channels.matrix.autoJoin`：邀請處理（`always | allowlist | off`，預設：always）。
 - `channels.matrix.autoJoinAllowlist`：允許自動加入的房間 ID／別名。
+- `channels.matrix.accounts`：以帳號 ID 為鍵的多帳號設定（每個帳號繼承最上層設定）。
 - `channels.matrix.actions`：依動作的工具門檻（reactions/messages/pins/memberInfo/channelInfo）。
-
-

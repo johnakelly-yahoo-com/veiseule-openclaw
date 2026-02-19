@@ -1,4 +1,7 @@
 ---
+summary: "Pag-uugali at config para sa paghawak ng WhatsApp group messages (ang mentionPatterns ay ibinabahagi sa iba’t ibang surface)"
+read_when:
+  - Kapag binabago ang mga patakaran ng group message o mga mention
 title: "Mga Mensahe ng Grupo"
 ---
 
@@ -13,7 +16,7 @@ Layunin: hayaan si Clawd na manatili sa mga WhatsApp group, magising lang kapag 
 - Activation modes: `mention` (default) or `always`. Para sa mga multi-agent setup, itakda ang `agents.list[].groupChat.mentionPatterns` bawat agent (o gamitin ang `messages.groupChat.mentionPatterns` bilang global fallback). Mga activation mode: `mention` (default) o `always`. Ang `mention` ay nangangailangan ng ping (tunay na WhatsApp @-mentions sa pamamagitan ng `mentionedJids`, mga regex pattern, o ang E.164 ng bot kahit saan sa teksto). Ang `always` ay ginigising ang agent sa bawat mensahe ngunit dapat lamang itong sumagot kapag maaari itong magbigay ng makabuluhang halaga; kung hindi, ibinabalik nito ang silent token na `NO_REPLY`.
 - Maaaring itakda ang mga default sa config (`channels.whatsapp.groups`) at i-override bawat group sa pamamagitan ng `/activation`. `allowlist` uses `channels.whatsapp.groupAllowFrom` (fallback: explicit `channels.whatsapp.allowFrom`). Patakaran sa grupo: Kinokontrol ng `channels.whatsapp.groupPolicy` kung tatanggapin ang mga mensahe ng grupo (`open|disabled|allowlist`).
 - Per-group sessions: session keys look like `agent:<agentId>:whatsapp:group:<jid>` so commands such as `/verbose on` or `/think high` (sent as standalone messages) are scoped to that group; personal DM state is untouched. 2. Nilalaktawan ang mga heartbeat para sa mga group thread.
-- Context injection: **pending-only** na mga mensahe ng grupo (default 50) na _hindi_ nag-trigger ng run ay inilalagay sa unahan sa ilalim ng `[Mga mensahe sa chat mula noong huli mong tugon - para sa konteksto]`, at ang linyang nag-trigger ay nasa ilalim ng `[Kasalukuyang mensahe - tumugon dito]`. Ang mga mensaheng nasa session na ay hindi na muling inilalagay.
+- Context injection: **pending-only** group messages (default 50) that _did not_ trigger a run are prefixed under `[Chat messages since your last reply - for context]`, with the triggering line under `[Current message - respond to this]`. Messages already in the session are not re-injected.
 - Sender surfacing: ang bawat batch ng grupo ay nagtatapos na ngayon sa `[from: Sender Name (+E164)]` para malaman ni Pi kung sino ang nagsasalita.
 - Ephemeral/view-once: binubuksan namin ang mga ito bago kunin ang teksto/mga mention, kaya ang mga ping sa loob ng mga ito ay nagti-trigger pa rin.
 - Group system prompt: on the first turn of a group session (and whenever `/activation` changes the mode) we inject a short blurb into the system prompt like `You are replying inside the WhatsApp group "<subject>". 6. Mga miyembro ng grupo: Alice (+44...), Bob (+43...), … Activation: trigger-only … Address the specific sender noted in the message context.` If metadata isn’t available we still tell the agent it’s a group chat.
@@ -79,5 +82,3 @@ Gamitin ang group chat command:
 - Gumagamit ang echo suppression ng pinagsamang batch string; kung magpadala ka ng magkaparehong teksto nang dalawang beses nang walang mga mention, ang una lang ang makakakuha ng tugon.
 - Lalabas ang mga entry ng session store bilang `agent:<agentId>:whatsapp:group:<jid>` sa session store (`~/.openclaw/agents/<agentId>/sessions/sessions.json` bilang default); ang nawawalang entry ay nangangahulugang hindi pa nagti-trigger ng run ang grupo.
 - Ang mga typing indicator sa mga grupo ay sumusunod sa `agents.defaults.typingMode` (default: `message` kapag walang mention).
-
-

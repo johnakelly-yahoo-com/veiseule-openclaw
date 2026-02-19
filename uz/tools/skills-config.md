@@ -1,10 +1,14 @@
 ---
-title: "Skills Konfiguratsiyasi"
+summary: "Skills config schema and examples"
+read_when:
+  - Adding or modifying skills config
+  - Adjusting bundled allowlist or install behavior
+title: "Skills Config"
 ---
 
-# Skills Konfiguratsiyasi
+# Skills Config
 
-Skills bilan bog‘liq barcha sozlamalar `~/.openclaw/openclaw.json` ichidagi `skills` bo‘limida joylashgan.
+All skills-related configuration lives under `skills` in `~/.openclaw/openclaw.json`.
 
 ```json5
 {
@@ -34,39 +38,39 @@ Skills bilan bog‘liq barcha sozlamalar `~/.openclaw/openclaw.json` ichidagi `s
 }
 ```
 
-## Maydonlar
+## Fields
 
-- `allowBundled`: faqat **bundled** skills uchun ixtiyoriy allowlist. Agar o‘rnatilgan bo‘lsa, faqat ro‘yxatdagi bundled skills ishlatiladi (managed/workspace skills ta’sir qilmaydi).
-- `load.extraDirs`: skanerlash uchun qo‘shimcha skill kataloglari (eng past ustuvorlik).
-- `load.watch`: skill papkalarini kuzatish va skills snapshot’ini yangilash (standart: true).
-- `load.watchDebounceMs`: skill watcher hodisalari uchun millisekundlardagi debounce (standart: 250).
-- `install.preferBrew`: mavjud bo‘lsa, brew o‘rnatuvchilarini afzal ko‘rish (standart: true).
-- `install.nodeManager`: node o‘rnatuvchi tanlovi (`npm` | `pnpm` | `yarn` | `bun`, standart: npm).
-  Bu faqat **skill o‘rnatishlariga** ta’sir qiladi; Gateway runtime baribir Node bo‘lishi kerak
-  (WhatsApp/Telegram uchun Bun tavsiya etilmaydi).
-- `entries.<skillKey>`: har bir skill uchun alohida sozlamalar.
+- `allowBundled`: optional allowlist for **bundled** skills only. When set, only
+  bundled skills in the list are eligible (managed/workspace skills unaffected).
+- `load.extraDirs`: additional skill directories to scan (lowest precedence).
+- `load.watch`: watch skill folders and refresh the skills snapshot (default: true).
+- `load.watchDebounceMs`: debounce for skill watcher events in milliseconds (default: 250).
+- `install.preferBrew`: prefer brew installers when available (default: true).
+- `install.nodeManager`: node installer preference (`npm` | `pnpm` | `yarn` | `bun`, default: npm).
+  This only affects **skill installs**; the Gateway runtime should still be Node
+  (Bun not recommended for WhatsApp/Telegram).
+- `entries.<skillKey>`: per-skill overrides.
 
-Har bir skill uchun maydonlar:
+Per-skill fields:
 
-- `enabled`: agar skill bundled/o‘rnatilgan bo‘lsa ham, uni o‘chirish uchun `false` qilib qo‘ying.
-- `env`: agent ishga tushirilganda qo‘shiladigan muhit o‘zgaruvchilari (faqat avvaldan o‘rnatilmagan bo‘lsa).
-- `apiKey`: asosiy env o‘zgaruvchini belgilaydigan skills uchun ixtiyoriy qulay parametr.
+- `enabled`: set `false` to disable a skill even if it’s bundled/installed.
+- `env`: environment variables injected for the agent run (only if not already set).
+- `apiKey`: optional convenience for skills that declare a primary env var.
 
-## Eslatmalar
+## Notes
 
-- `entries` ostidagi kalitlar odatda skill nomiga mos keladi. Agar skill
-  `metadata.openclaw.skillKey` ni belgilagan bo‘lsa, o‘sha kalitdan foydalaning.
-- Watcher yoqilgan bo‘lsa, skills’dagi o‘zgarishlar keyingi agent bosqichida qo‘llaniladi.
+- Keys under `entries` map to the skill name by default. If a skill defines
+  `metadata.openclaw.skillKey`, use that key instead.
+- Changes to skills are picked up on the next agent turn when the watcher is enabled.
 
-### Sandboxed skills + env o‘zgaruvchilar
+### Sandboxed skills + env vars
 
-Sessiya **sandboxed** bo‘lsa, skill jarayonlari Docker ichida ishlaydi. Sandbox
-host `process.env` ni **meros qilib olmaydi**.
+When a session is **sandboxed**, skill processes run inside Docker. The sandbox
+does **not** inherit the host `process.env`.
 
-Quyidagilardan birini ishlating:
+Use one of:
 
-- `agents.defaults.sandbox.docker.env` (yoki har bir agent uchun `agents.list[].sandbox.docker.env`)
-- env’ni o‘zingizning maxsus sandbox image’ingizga qo‘shib yuboring
+- `agents.defaults.sandbox.docker.env` (or per-agent `agents.list[].sandbox.docker.env`)
+- bake the env into your custom sandbox image
 
-Global `env` va `skills.entries.<skill>.env/apiKey` faqat **host** ishga tushirishlari uchun amal qiladi.
-
+Global `env` and `skills.entries.<skill>.env/apiKey` apply to **host** runs only.

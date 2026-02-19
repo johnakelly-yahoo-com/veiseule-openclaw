@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw voicecall`에 대한 CLI 참조 (음성 통화 플러그인 명령 인터페이스)"
+read_when:
+  - 음성 통화 플러그인을 사용하며 CLI 진입점이 필요할 때
+  - "`voicecall call|continue|status|tail|expose`에 대한 빠른 예제가 필요할 때"
 title: "voicecall"
 ---
 
@@ -28,5 +32,3 @@ openclaw voicecall unexpose
 ```
 
 보안 참고 사항: 신뢰하는 네트워크에만 웹훅 엔드포인트를 노출하십시오. 가능하면 Funnel 대신 Tailscale Serve 사용을 권장합니다.
-
-

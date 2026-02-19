@@ -1,4 +1,8 @@
 ---
+summary: "Anropa ett enskilt verktyg direkt via Gateways HTTP-slutpunkt"
+read_when:
+  - Anropa verktyg utan att köra en fullständig agenttur
+  - Bygga automatiseringar som behöver verktygspolicysäkerställande
 title: "Verktygsanrop API"
 ---
 
@@ -21,6 +25,7 @@ Noteringar:
 
 - När `gateway.auth.mode="token"`, använd `gateway.auth.token` (eller `OPENCLAW_GATEWAY_TOKEN`).
 - När `gateway.auth.mode="password"`, använd `gateway.auth.password` (eller `OPENCLAW_GATEWAY_PASSWORD`).
+- Om `gateway.auth.rateLimit` är konfigurerad och för många autentiseringsfel inträffar returnerar endpointen `429` med `Retry-After`.
 
 ## Begärandekropp
 
@@ -58,14 +63,38 @@ För att hjälpa gruppolicyer att lösa kontext kan du valfritt ange:
 
 - `x-openclaw-message-channel: <channel>` (exempel: `slack`, `telegram`)
 - `x-openclaw-account-id: <accountId>` (när flera konton finns)
+- `gateway`
+- `whatsapp_login`
+
+Du kan anpassa denna blockeringslista via `gateway.tools`:
+
+```json5
+{
+  gateway: {
+    tools: {
+      // Additional tools to block over HTTP /tools/invoke
+      deny: ["browser"],
+      // Remove tools from the default deny list
+      allow: ["gateway"],
+    },
+  },
+}
+```
+
+För att hjälpa gruppolicyer att lösa kontext kan du valfritt ange:
+
+- `x-openclaw-message-channel: <channel>` (exempel: `slack`, `telegram`)
+- `x-openclaw-account-id: <accountId>` (när flera konton finns)
 
 ## Svar
 
 - `200` → `{ ok: true, result }`
-- `400` → `{ ok: false, error: { type, message } }` (ogiltig begäran eller verktygsfel)
+- `400` → `{ ok: false, error: { type, message } }` (ogiltig begäran eller felaktig verktygsindata)
 - `401` → obehörig
+- `429` → auth hastighetsbegränsad (`Retry-After` satt)
 - `404` → verktyg inte tillgängligt (hittades inte eller ej på tillåtelselistan)
 - `405` → metod ej tillåten
+- `500` → `{ ok: false, error: { type, message } }` (oväntat fel vid verktygskörning; rensat felmeddelande)
 
 ## Exempel
 
@@ -79,5 +108,3 @@ curl -sS http://127.0.0.1:18789/tools/invoke \
     "args": {}
   }'
 ```
-
-

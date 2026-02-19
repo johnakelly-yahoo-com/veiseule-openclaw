@@ -1,4 +1,9 @@
 ---
+summary: "Websøgning + hentningsværktøjer (Brave Search API, Perplexity direkte/OpenRouter)"
+read_when:
+  - Du vil aktivere web_search eller web_fetch
+  - Du har brug for opsætning af Brave Search API-nøgle
+  - Du vil bruge Perplexity Sonar til websøgning
 title: "Webværktøjer"
 ---
 
@@ -171,6 +176,8 @@ Søg på nettet ved hjælp af din konfigurerede udbyder.
 - `search_lang` (valgfri): ISO-sprogkode for søgeresultater (fx "de", "en", "fr")
 - `ui_lang` (valgfri): ISO-sprogkode for UI-elementer
 - `freshness` (valgfri, kun Brave): filtrér efter opdagelsestid (`pd`, `pw`, `pm`, `py` eller `YYYY-MM-DDtoYYYY-MM-DD`)
+  - Brave: `pd`, `pw`, `pm`, `py` eller `YYYY-MM-DDtoYYYY-MM-DD`
+  - Perplexity: `pd`, `pw`, `pm`, `py`
 
 **Eksempler:**
 
@@ -254,5 +261,3 @@ Noter:
 - Svar caches (standard 15 minutter) for at reducere gentagne hentninger.
 - Hvis du bruger værktøjsprofiler/tilladelseslister, skal du tilføje `web_search`/`web_fetch` eller `group:web`.
 - Hvis Brave-nøglen mangler, returnerer `web_search` et kort opsætningstip med et link til dokumentationen.
-
-

@@ -1,6 +1,6 @@
 ---
 title: refactor/outbound-session-mirroring.md #1520)
-description: "Refactoring-Notizen, Entscheidungen, Tests und offene Punkte zur Spiegelung ausgehender Sitzungen nachverfolgen."
+description: Refactoring-Notizen, Entscheidungen, Tests und offene Punkte zur Spiegelung ausgehender Sitzungen nachverfolgen.
 ---
 
 # Refaktorierung der ausgehenden Sitzungs-Spiegelung (Issue #1520)
@@ -83,5 +83,3 @@ Ausgehende Sendungen wurden in die _aktuelle_ Agenten-Sitzung (Werkzeug-Sitzungs
   - `src/infra/outbound/outbound-session.test.ts`
   - `src/agents/tools/message-tool.test.ts`
   - `src/gateway/server-methods/send.test.ts`
-
-

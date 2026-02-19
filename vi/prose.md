@@ -1,4 +1,9 @@
 ---
+summary: "OpenProse: quy trình làm việc .prose, lệnh slash và trạng thái trong OpenClaw"
+read_when:
+  - Bạn muốn chạy hoặc viết các quy trình làm việc .prose
+  - Bạn muốn bật plugin OpenProse
+  - Bạn cần hiểu cách lưu trữ trạng thái
 title: "OpenProse"
 ---
 
@@ -127,5 +132,3 @@ Nếu danh sách cho phép công cụ của bạn chặn các công cụ này, c
 Hãy coi các tệp `.prose` như mã nguồn. Xem xét trước khi chạy. Sử dụng danh sách cho phép công cụ OpenClaw và các cổng phê duyệt để kiểm soát tác dụng phụ.
 
 Đối với các quy trình làm việc xác định và có cổng phê duyệt, hãy so sánh với [Lobster](/tools/lobster).
-
-

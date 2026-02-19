@@ -1,29 +1,33 @@
 ---
+summary: "Signal-stöd via signal-cli (JSON-RPC + SSE), konfigurering och nummermodell"
+read_when:
+  - Konfigurering av Signal-stöd
+  - Felsökning av Signal sändning/mottagning
 title: "Signal"
 ---
 
 # Signal (signal-cli)
 
-Status: external CLI integration. Gateway talks to `signal-cli` over HTTP JSON-RPC + SSE.
+Status: extern CLI-integration. Gateway talar med `signal-cli` över HTTP JSON-RPC + SSE.
 
-## Prerequisites
+## Snabb konfiguration (nybörjare)
 
-- OpenClaw installed on your server (Linux flow below tested on Ubuntu 24).
-- `signal-cli` available on the host where the gateway runs.
-- A phone number that can receive one verification SMS (for SMS registration path).
-- Browser access for Signal captcha (`signalcaptchas.org`) during registration.
+- Använd ett **separat Signal-nummer** för boten (rekommenderas).
+- Installera `signal-cli` (Java krävs).
+- Länka bot-enheten och starta daemonen:
+- Konfigurera OpenClaw och starta gateway.
 
-## Quick setup (beginner)
+## Snabb konfiguration (nybörjare)
 
-1. Use a **separate Signal number** for the bot (recommended).
-2. Install `signal-cli` (Java required if you use the JVM build).
-3. Choose one setup path:
-   - **Path A (QR link):** `signal-cli link -n "OpenClaw"` and scan with Signal.
-   - **Path B (SMS register):** register a dedicated number with captcha + SMS verification.
-4. Configure OpenClaw and restart the gateway.
-5. Send a first DM and approve pairing (`openclaw pairing approve signal <CODE>`).
+1. Använd ett **separat Signal-nummer** för boten (rekommenderas).
+2. Installera `signal-cli` (Java krävs om du använder JVM-bygget).
+3. Välj en installationsväg:
+   - **Väg A (QR-länk):** `signal-cli link -n "OpenClaw"` och skanna med Signal.
+   - **Väg B (SMS-registrering):** registrera ett dedikerat nummer med captcha + SMS-verifiering.
+4. Konfigurera OpenClaw och starta om gatewayen.
+5. Skicka ett första DM och godkänn parkoppling (`openclaw pairing approve signal <CODE>`).
 
-Minimal config:
+Minimal konfig:
 
 ```json5
 {
@@ -39,26 +43,26 @@ Minimal config:
 }
 ```
 
-Field reference:
+Fältreferens:
 
-| Field       | Description                                       |
-| ----------- | ------------------------------------------------- |
-| `account`   | Bot phone number in E.164 format (`+15551234567`) |
-| `cliPath`   | Path to `signal-cli` (`signal-cli` if on `PATH`)  |
-| `dmPolicy`  | DM access policy (`pairing` recommended)          |
-| `allowFrom` | Phone numbers or `uuid:<id>` values allowed to DM |
+| Fält        | Beskrivning                                                                             |
+| ----------- | --------------------------------------------------------------------------------------- |
+| `account`   | Botens telefonnummer i E.164-format (`+15551234567`) |
+| `cliPath`   | Sökväg till `signal-cli` (`signal-cli` om den finns i `PATH`)        |
+| `dmPolicy`  | Åtkomstpolicy för DM (`pairing` rekommenderas)                       |
+| `allowFrom` | Telefonnummer eller `uuid:&lt;id&gt;`-värden som får skicka DM                                |
 
-## What it is
+## Vad det är
 
-- Signal channel via `signal-cli` (not embedded libsignal).
-- Deterministic routing: replies always go back to Signal.
-- DMs share the agent's main session; groups are isolated (`agent:<agentId>:signal:group:<groupId>`).
+- Signal-kanal via `signal-cli` (inte inbäddat libsignal).
+- Deterministisk routning: svar går alltid tillbaka till Signal.
+- Direktmeddelanden delar agentens huvudsession; grupper är isolerade (`agent:<agentId>:signal:group:<groupId>`).
 
-## Config writes
+## Nummermodellen (viktigt)
 
-By default, Signal is allowed to write config updates triggered by `/config set|unset` (requires `commands.config: true`).
+Som standard får Signal skriva konfiguppdateringar som triggas av `/config set|unset` (kräver `commands.config: true`).
 
-Disable with:
+Inaktivera med:
 
 ```json5
 {
@@ -66,20 +70,20 @@ Disable with:
 }
 ```
 
-## The number model (important)
+## Nummermodellen (viktigt)
 
-- The gateway connects to a **Signal device** (the `signal-cli` account).
-- If you run the bot on **your personal Signal account**, it will ignore your own messages (loop protection).
-- For "I text the bot and it replies," use a **separate bot number**.
+- Gateway ansluter till en **Signal-enhet** (kontot `signal-cli`).
+- Om du kör boten på **ditt personliga Signal-konto** kommer den att ignorera dina egna meddelanden (loopskydd).
+- För ”jag sms:ar boten och den svarar”, använd ett **separat bot-nummer**.
 
-## Setup path A: link existing Signal account (QR)
+## Installationsväg A: länka befintligt Signal-konto (QR)
 
-1. Install `signal-cli` (JVM or native build).
-2. Link a bot account:
-   - `signal-cli link -n "OpenClaw"` then scan the QR in Signal.
-3. Configure Signal and start the gateway.
+1. Installera `signal-cli` (JVM- eller native‑version).
+2. Länka ett bot-konto:
+   - `signal-cli link -n "OpenClaw"` och skanna sedan QR-koden i Signal.
+3. Konfigurera Signal och starta gateway.
 
-Example:
+Om du vill hantera `signal-cli` själv (långsamma JVM-kallstarter, container-init eller delade CPU:er), kör daemonen separat och peka OpenClaw mot den:
 
 ```json5
 {
@@ -95,15 +99,15 @@ Example:
 }
 ```
 
-Multi-account support: use `channels.signal.accounts` with per-account config and optional `name`. See [`gateway/configuration`](/gateway/configuration#telegramaccounts--discordaccounts--slackaccounts--signalaccounts--imessageaccounts) for the shared pattern.
+Stöd för flera konton: använd `channels.signal.accounts` med konfiguration per konto och valfri `name`. Se [`gateway/configuration`](/gateway/configuration#telegramaccounts--discordaccounts--slackaccounts--signalaccounts--imessageaccounts) för det delade mönstret.
 
-## Setup path B: register dedicated bot number (SMS, Linux)
+## Åtkomstkontroll (DMs + grupper)
 
-Use this when you want a dedicated bot number instead of linking an existing Signal app account.
+Direktmeddelanden:
 
-1. Get a number that can receive SMS (or voice verification for landlines).
-   - Use a dedicated bot number to avoid account/session conflicts.
-2. Install `signal-cli` on the gateway host:
+1. Standard: `channels.signal.dmPolicy = "pairing"`.
+   - Använd ett dedikerat botnummer för att undvika konto-/sessionskonflikter.
+2. Okända avsändare får en parningskod; meddelanden ignoreras tills de godkänts (koder upphör efter 1 timme).
 
 ```bash
 VERSION=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/AsamK/signal-cli/releases/latest | sed -e 's/^.*\/v//')
@@ -113,54 +117,54 @@ sudo ln -sf /opt/signal-cli /usr/local/bin/
 signal-cli --version
 ```
 
-If you use the JVM build (`signal-cli-${VERSION}.tar.gz`), install JRE 25+ first.
-Keep `signal-cli` updated; upstream notes that old releases can break as Signal server APIs change.
+Om du använder JVM-versionen (`signal-cli-${VERSION}.tar.gz`), installera JRE 25+ först.
+Håll `signal-cli` uppdaterad; upstream påpekar att äldre versioner kan sluta fungera när Signals server-API:er ändras.
 
-3. Register and verify the number:
+3. Registrera och verifiera numret:
 
 ```bash
 signal-cli -a +<BOT_PHONE_NUMBER> register
 ```
 
-If captcha is required:
+Om captcha krävs:
 
-1. Open `https://signalcaptchas.org/registration/generate.html`.
-2. Complete captcha, copy the `signalcaptcha://...` link target from "Open Signal".
-3. Run from the same external IP as the browser session when possible.
-4. Run registration again immediately (captcha tokens expire quickly):
+1. Utgående text delas upp till `channels.signal.textChunkLimit` (standard 4000).
+2. Valfri radbrytningsuppdelning: sätt `channels.signal.chunkMode="newline"` för att dela på tomma rader (styckegränser) före längduppdelning.
+3. Bilagor stöds (base64 hämtas från `signal-cli`).
+4. Standardgräns för media: `channels.signal.mediaMaxMb` (standard 8).
 
 ```bash
 signal-cli -a +<BOT_PHONE_NUMBER> register --captcha '<SIGNALCAPTCHA_URL>'
 signal-cli -a +<BOT_PHONE_NUMBER> verify <VERIFICATION_CODE>
 ```
 
-4. Configure OpenClaw, restart gateway, verify channel:
+4. **Skrivindikatorer**: OpenClaw skickar skrivsignaler via `signal-cli sendTyping` och uppdaterar dem medan ett svar körs.
 
 ```bash
-# If you run the gateway as a user systemd service:
+# Om du kör gatewayen som en systemd-användartjänst:
 systemctl --user restart openclaw-gateway
 
-# Then verify:
+# Verifiera sedan:
 openclaw doctor
 openclaw channels status --probe
 ```
 
-5. Pair your DM sender:
-   - Send any message to the bot number.
-   - Approve code on the server: `openclaw pairing approve signal <PAIRING_CODE>`.
-   - Save the bot number as a contact on your phone to avoid "Unknown contact".
+5. Använd `message action=react` med `channel=signal`.
+   - Skicka valfritt meddelande till botnumret.
+   - Godkänn koden på servern: `openclaw pairing approve signal <PAIRING_CODE>`.
+   - Spara botnumret som en kontakt i din telefon för att undvika "Okänd kontakt".
 
-Important: registering a phone number account with `signal-cli` can de-authenticate the main Signal app session for that number. Prefer a dedicated bot number, or use QR link mode if you need to keep your existing phone app setup.
+Viktigt: att registrera ett telefonnummerkonto med `signal-cli` kan avautentisera huvudsessionen i Signal-appen för det numret. Föredra ett dedikerat botnummer, eller använd QR-länkningsläge om du behöver behålla din befintliga appkonfiguration i telefonen.
 
-Upstream references:
+Upstream-referenser:
 
 - `signal-cli` README: `https://github.com/AsamK/signal-cli`
-- Captcha flow: `https://github.com/AsamK/signal-cli/wiki/Registration-with-captcha`
-- Linking flow: `https://github.com/AsamK/signal-cli/wiki/Linking-other-devices-(Provisioning)`
+- Captcha-flöde: `https://github.com/AsamK/signal-cli/wiki/Registration-with-captcha`
+- Länkningsflöde: `https://github.com/AsamK/signal-cli/wiki/Linking-other-devices-(Provisioning)`
 
-## External daemon mode (httpUrl)
+## Externt daemon-läge (httpUrl)
 
-If you want to manage `signal-cli` yourself (slow JVM cold starts, container init, or shared CPUs), run the daemon separately and point OpenClaw at it:
+Om du vill hantera `signal-cli` själv (långsamma JVM-kallstarter, container-init eller delade CPU:er), kör daemonen separat och peka OpenClaw mot den:
 
 ```json5
 {
@@ -173,54 +177,54 @@ If you want to manage `signal-cli` yourself (slow JVM cold starts, container ini
 }
 ```
 
-This skips auto-spawn and the startup wait inside OpenClaw. For slow starts when auto-spawning, set `channels.signal.startupTimeoutMs`.
+Detta hoppar över auto-spawn och start vänta inuti OpenClaw. För långsam startar vid auto-spawning, ange `channels.signal.startupTimeoutMs`.
 
-## Access control (DMs + groups)
+## Åtkomstkontroll (DMs + grupper)
 
-DMs:
+Direktmeddelanden:
 
-- Default: `channels.signal.dmPolicy = "pairing"`.
-- Unknown senders receive a pairing code; messages are ignored until approved (codes expire after 1 hour).
-- Approve via:
+- Standard: `channels.signal.dmPolicy = "pairing"`.
+- Okända avsändare får en parningskod; meddelanden ignoreras tills de godkänts (koder upphör efter 1 timme).
+- Godkänn via:
   - `openclaw pairing list signal`
   - `openclaw pairing approve signal <CODE>`
-- Pairing is the default token exchange for Signal DMs. Details: [Pairing](/channels/pairing)
-- UUID-only senders (from `sourceUuid`) are stored as `uuid:<id>` in `channels.signal.allowFrom`.
+- Parkoppling är standard token utbyte för Signal DMs. Detaljer: [Pairing](/channels/pairing)
+- Endast-UUID-avsändare (från `sourceUuid`) lagras som `uuid:<id>` i `channels.signal.allowFrom`.
 
-Groups:
+Grupper:
 
 - `channels.signal.groupPolicy = open | allowlist | disabled`.
-- `channels.signal.groupAllowFrom` controls who can trigger in groups when `allowlist` is set.
+- `channels.signal.groupAllowFrom` styr vem som kan trigga i grupper när `allowlist` är satt.
 
-## How it works (behavior)
+## Hur det fungerar (beteende)
 
-- `signal-cli` runs as a daemon; the gateway reads events via SSE.
-- Inbound messages are normalized into the shared channel envelope.
-- Replies always route back to the same number or group.
+- `signal-cli` körs som en daemon; gateway läser händelser via SSE.
+- Inkommande meddelanden normaliseras till det delade kanalomslaget.
+- Svar routas alltid tillbaka till samma nummer eller grupp.
 
-## Media + limits
+## Konfigurationsreferens (Signal)
 
-- Outbound text is chunked to `channels.signal.textChunkLimit` (default 4000).
-- Optional newline chunking: set `channels.signal.chunkMode="newline"` to split on blank lines (paragraph boundaries) before length chunking.
-- Attachments supported (base64 fetched from `signal-cli`).
-- Default media cap: `channels.signal.mediaMaxMb` (default 8).
-- Use `channels.signal.ignoreAttachments` to skip downloading media.
-- Group history context uses `channels.signal.historyLimit` (or `channels.signal.accounts.*.historyLimit`), falling back to `messages.groupChat.historyLimit`. Set `0` to disable (default 50).
+- Utgående text delas upp till `channels.signal.textChunkLimit` (standard 4000).
+- Valfri radbrytningsuppdelning: sätt `channels.signal.chunkMode="newline"` för att dela på tomma rader (styckegränser) före längduppdelning.
+- Bilagor stöds (base64 hämtas från `signal-cli`).
+- Standardgräns för media: `channels.signal.mediaMaxMb` (standard 8).
+- Använd `channels.signal.ignoreAttachments` för att hoppa över nedladdning av media.
+- Grupphistorik sammanhang använder `channels.signal.historyLimit` (eller `channels.signal.accounts.*.historyLimit`), faller tillbaka till `messages.groupChat.historyLimit`. Sätt `0` till att inaktivera (standard 50).
 
-## Typing + read receipts
+## Skrivindikatorer + läskvitton
 
-- **Typing indicators**: OpenClaw sends typing signals via `signal-cli sendTyping` and refreshes them while a reply is running.
-- **Read receipts**: when `channels.signal.sendReadReceipts` is true, OpenClaw forwards read receipts for allowed DMs.
-- Signal-cli does not expose read receipts for groups.
+- `channels.signal.enabled`: aktivera/inaktivera kanalstart.
+- `channels.signal.account`: E.164 för bot-kontot.
+- `channels.signal.cliPath`: sökväg till `signal-cli`.
 
-## Reactions (message tool)
+## Reaktioner (meddelandeverktyg)
 
-- Use `message action=react` with `channel=signal`.
-- Targets: sender E.164 or UUID (use `uuid:<id>` from pairing output; bare UUID works too).
-- `messageId` is the Signal timestamp for the message you’re reacting to.
-- Group reactions require `targetAuthor` or `targetAuthorUuid`.
+- `agents.list[].groupChat.mentionPatterns` (Signal stöder inte inbyggda omnämnanden).
+- Mål: avsändarens E.164 eller UUID (använd `uuid:<id>` från parningsutdata; bar UUID fungerar också).
+- `messageId` är Signal-tidsstämpeln för meddelandet du reagerar på.
+- Gruppreaktioner kräver `targetAuthor` eller `targetAuthorUuid`.
 
-Examples:
+Exempel:
 
 ```
 message action=react channel=signal target=uuid:123e4567-e89b-12d3-a456-426614174000 messageId=1737630212345 emoji=🔥
@@ -228,24 +232,24 @@ message action=react channel=signal target=+15551234567 messageId=1737630212345 
 message action=react channel=signal target=signal:group:<groupId> targetAuthor=uuid:<sender-uuid> messageId=1737630212345 emoji=✅
 ```
 
-Config:
+Konfig:
 
-- `channels.signal.actions.reactions`: enable/disable reaction actions (default true).
+- `channels.signal.actions.reactions`: aktivera/inaktivera reaktionsåtgärder (standard true).
 - `channels.signal.reactionLevel`: `off | ack | minimal | extensive`.
-  - `off`/`ack` disables agent reactions (message tool `react` will error).
-  - `minimal`/`extensive` enables agent reactions and sets the guidance level.
-- Per-account overrides: `channels.signal.accounts.<id>.actions.reactions`, `channels.signal.accounts.<id>.reactionLevel`.
+  - `off`/`ack` inaktiverar agentreaktioner (meddelandeverktyget `react` ger fel).
+  - `minimal`/`extensive` aktiverar agentreaktioner och sätter vägledningsnivån.
+- Ersätter varje konto: `channels.signal.accounts.<id>.actions.reactions`, \`channels.signal.accounts.<id>.reaktionNivå.
 
-## Delivery targets (CLI/cron)
+## Leveransmål (CLI/cron)
 
-- DMs: `signal:+15551234567` (or plain E.164).
-- UUID DMs: `uuid:<id>` (or bare UUID).
-- Groups: `signal:group:<groupId>`.
-- Usernames: `username:<name>` (if supported by your Signal account).
+- DMs: `signal:+15551234567` (eller vanlig E.164).
+- UUID-DMs: `uuid:<id>` (eller bar UUID).
+- Grupper: `signal:group:<groupId>`.
+- Användarnamn: `username:<name>` (om det stöds av ditt Signal-konto).
 
-## Troubleshooting
+## Felsökning
 
-Run this ladder first:
+Kör denna stege först:
 
 ```bash
 openclaw status
@@ -255,21 +259,21 @@ openclaw doctor
 openclaw channels status --probe
 ```
 
-Then confirm DM pairing state if needed:
+Bekräfta sedan DM-parningsstatus vid behov:
 
 ```bash
 openclaw pairing list signal
 ```
 
-Common failures:
+Vanliga fel:
 
-- Daemon reachable but no replies: verify account/daemon settings (`httpUrl`, `account`) and receive mode.
-- DMs ignored: sender is pending pairing approval.
-- Group messages ignored: group sender/mention gating blocks delivery.
-- Config validation errors after edits: run `openclaw doctor --fix`.
-- Signal missing from diagnostics: confirm `channels.signal.enabled: true`.
+- Daemonen nås men inga svar: verifiera konto-/daemoninställningar (`httpUrl`, `account`) och mottagningsläge.
+- DMs ignoreras: avsändaren väntar på parningsgodkännande.
+- Gruppmeddelanden ignoreras: spärrar för gruppavsändare/omnämnanden blockerar leverans.
+- Valideringsfel i konfigurationen efter ändringar: kör `openclaw doctor --fix`.
+- Signal saknas i diagnostiken: kontrollera `channels.signal.enabled: true`.
 
-Extra checks:
+Extra kontroller:
 
 ```bash
 openclaw pairing list signal
@@ -277,48 +281,44 @@ pgrep -af signal-cli
 grep -i "signal" "/tmp/openclaw/openclaw-$(date +%Y-%m-%d).log" | tail -20
 ```
 
-For triage flow: [/channels/troubleshooting](/channels/troubleshooting).
+För triage-flöde: [/channels/troubleshooting](/channels/troubleshooting).
 
-## Security notes
+## Säkerhetsanmärkningar
 
-- `signal-cli` stores account keys locally (typically `~/.local/share/signal-cli/data/`).
-- Back up Signal account state before server migration or rebuild.
-- Keep `channels.signal.dmPolicy: "pairing"` unless you explicitly want broader DM access.
-- SMS verification is only needed for registration or recovery flows, but losing control of the number/account can complicate re-registration.
+- `signal-cli` lagrar kontonycklar lokalt (vanligtvis `~/.local/share/signal-cli/data/`).
+- Säkerhetskopiera Signal-kontots tillstånd före servermigrering eller ominstallation.
+- Behåll `channels.signal.dmPolicy: "pairing"` om du inte uttryckligen vill tillåta bredare DM-åtkomst.
+- SMS-verifiering behövs endast vid registrering eller återställning, men att förlora kontrollen över numret/kontot kan försvåra omregistrering.
 
-## Configuration reference (Signal)
+## Konfigurationsreferens (Signal)
 
-Full configuration: [Configuration](/gateway/configuration)
+Fullständig konfiguration: [Konfiguration](/gateway/configuration)
 
-Provider options:
+Leverantörsalternativ:
 
-- `channels.signal.enabled`: enable/disable channel startup.
-- `channels.signal.account`: E.164 for the bot account.
-- `channels.signal.cliPath`: path to `signal-cli`.
-- `channels.signal.httpUrl`: full daemon URL (overrides host/port).
-- `channels.signal.httpHost`, `channels.signal.httpPort`: daemon bind (default 127.0.0.1:8080).
-- `channels.signal.autoStart`: auto-spawn daemon (default true if `httpUrl` unset).
-- `channels.signal.startupTimeoutMs`: startup wait timeout in ms (cap 120000).
+- `channels.signal.enabled`: aktivera/inaktivera kanalstart.
+- `channels.signal.account`: E.164 för bot-kontot.
+- `channels.signal.cliPath`: sökväg till `signal-cli`.
+- `channels.signal.httpUrl`: full daemon-URL (åsidosätter värd/port).
+- `channels.signal.httpHost`, `channels.signal.httpPort`: daemon-bindning (standard 127.0.0.1:8080).
+- `channels.signal.autoStart`: auto-starta daemon (standard true om `httpUrl` inte är satt).
+- `channels.signal.startupTimeoutMs`: tidsgräns för startväntan i ms (tak 120000).
 - `channels.signal.receiveMode`: `on-start | manual`.
-- `channels.signal.ignoreAttachments`: skip attachment downloads.
-- `channels.signal.ignoreStories`: ignore stories from the daemon.
-- `channels.signal.sendReadReceipts`: forward read receipts.
-- `channels.signal.dmPolicy`: `pairing | allowlist | open | disabled` (default: pairing).
-- `channels.signal.allowFrom`: DM allowlist (E.164 or `uuid:<id>`). `open` requires `"*"`. Signal has no usernames; use phone/UUID ids.
-- `channels.signal.groupPolicy`: `open | allowlist | disabled` (default: allowlist).
-- `channels.signal.groupAllowFrom`: group sender allowlist.
-- `channels.signal.historyLimit`: max group messages to include as context (0 disables).
-- `channels.signal.dmHistoryLimit`: DM history limit in user turns. Per-user overrides: `channels.signal.dms["<phone_or_uuid>"].historyLimit`.
-- `channels.signal.textChunkLimit`: outbound chunk size (chars).
-- `channels.signal.chunkMode`: `length` (default) or `newline` to split on blank lines (paragraph boundaries) before length chunking.
-- `channels.signal.mediaMaxMb`: inbound/outbound media cap (MB).
+- `channels.signal.ignoreAttachments`: hoppa över nedladdning av bilagor.
+- `channels.signal.ignoreStories`: ignorera stories från daemonen.
+- `channels.signal.sendReadReceipts`: vidarebefordra läskvitton.
+- `channels.signal.dmPolicy`: `pairing | allowlist | open | disabled` (standard: parning).
+- `channels.signal.allowFrom`: DM allowlist (E.164 eller `uuid:<id>`). `open` kräver `"*"`. Signalen har inga användarnamn; använd telefon/UUID-ID.
+- `channels.signal.groupPolicy`: `open | allowlist | disabled` (standard: tillåtelselista).
+- `channels.signal.groupAllowFrom`: tillåtelselista för gruppavsändare.
+- `channels.signal.historyLimit`: max antal gruppmeddelanden att inkludera som kontext (0 inaktiverar).
+- `channels.signal.dmHistorikLimit`: DM historikgräns i användarens varv. Per-user overrides: `channels.signal.dms["<phone_or_uuid>"].historyLimit`.
+- `channels.signal.textChunkLimit`: storlek på utgående uppdelning (tecken).
+- `channels.signal.chunkMode`: `length` (standard) eller `newline` för att dela på tomma rader (styckegränser) före längduppdelning.
+- `channels.signal.mediaMaxMb`: gräns för inkommande/utgående media (MB).
 
-Related global options:
+Relaterade globala alternativ:
 
-- `agents.list[].groupChat.mentionPatterns` (Signal does not support native mentions).
+- `agents.list[].groupChat.mentionPatterns` (Signal stöder inte inbyggda omnämnanden).
 - `messages.groupChat.mentionPatterns` (global fallback).
 - `messages.responsePrefix`.
-
-
-
-{/* v2 */}

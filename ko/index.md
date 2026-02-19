@@ -1,6 +1,8 @@
 ---
+summary: "OpenClaw 는 모든 OS 에서 실행되는 AI 에이전트를 위한 멀티 채널 Gateway(게이트웨이)입니다."
+read_when:
+  - OpenClaw 를 처음 접하는 사용자에게 소개할 때
 title: "OpenClaw"
-sidebarTitle: "OpenClaw"
 ---
 
 # OpenClaw 🦞
@@ -20,8 +22,7 @@ sidebarTitle: "OpenClaw"
 
 > _"EXFOLIATE! EXFOLIATE!"_ — 아마도 우주 랍스터의 외침
 
-<p align="center">
-  <strong>WhatsApp, Telegram, Discord, iMessage 등에서 AI 에이전트를 연결하는 모든 OS 용 Gateway(게이트웨이).</strong><br />
+<p align="center"><strong>WhatsApp, Telegram, Discord, iMessage 등에서 AI 에이전트를 연결하는 모든 OS 용 Gateway(게이트웨이).</strong><br />
   메시지를 보내면, 주머니 속에서 바로 에이전트의 응답을 받습니다. 플러그인을 통해 Mattermost 등도 추가할 수 있습니다.
 </p>
 
@@ -209,5 +210,3 @@ Gateway 가 시작된 후 브라우저에서 Control UI 를 엽니다.
   
 </Card>
 </Columns>
-
-

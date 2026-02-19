@@ -1,4 +1,8 @@
 ---
+summary: "„OpenClaw macOS‑Release‑Checkliste (Sparkle‑Feed, Packaging, Signierung)“"
+read_when:
+  - Beim Erstellen oder Validieren eines OpenClaw macOS‑Releases
+  - Beim Aktualisieren des Sparkle‑Appcasts oder der Feed‑Assets
 title: "„macOS‑Release“"
 ---
 
@@ -79,5 +83,3 @@ Committen Sie die aktualisierte `appcast.xml` zusammen mit den Release‑Assets 
   - Führen Sie in einer früheren öffentlichen Version „Nach Updates suchen…“ im Tab „Über“ aus und verifizieren Sie, dass Sparkle das neue Build sauber installiert.
 
 Definition of done: Signierte App und Appcast sind veröffentlicht, der Update‑Flow funktioniert ausgehend von einer älteren installierten Version, und die Release‑Assets sind dem GitHub‑Release beigefügt.
-
-

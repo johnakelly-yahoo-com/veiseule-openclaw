@@ -1,7 +1,8 @@
 ---
+summary: "OpenClaw — har qanday OS’da ishlaydigan, AI agentlari uchun ko‘p kanalli shlyuz."
+read_when:
+  - Yangi foydalanuvchilarga OpenClaw’ni tanishtirish
 title: "OpenClaw"
-description: "OpenClaw — AI agentlari uchun har qanday OS’da ishlaydigan ko‘p kanalli gateway."
-sidebarTitle: "OpenClaw"
 ---
 
 # OpenClaw 🦞
@@ -21,21 +22,19 @@ sidebarTitle: "OpenClaw"
 
 > _"EXFOLIATE! EXFOLIATE!"_ — ehtimol, kosmik omar
 
-<p align="center">
-  <strong>WhatsApp, Telegram, Discord, iMessage va boshqalar bo‘ylab AI agentlari uchun har qanday OS gateway.</strong><br />
+<p align="center"><strong>WhatsApp, Telegram, Discord, iMessage va boshqalar bo‘ylab AI agentlari uchun har qanday OS gateway.</strong><br />
   Xabar yuboring, cho‘ntagingizdan agent javobini oling. Plaginlar Mattermost va boshqalarni qo‘shadi.
 </p>
 
 <Columns>
-  <Card title="Boshlash" href="/start/getting-started" icon="rocket">
-    OpenClaw’ni o‘rnating va Gateway’ni bir necha daqiqada ishga tushiring.
+  <Card title="Get Started" href="/start/getting-started" icon="rocket">    OpenClaw’ni o‘rnating va Gateway’ni bir necha daqiqada ishga tushiring.
   
 </Card>
-  <Card title="Sehrgarni ishga tushiring" href="/start/wizard" icon="sparkles">
+  <Card title="Run the Wizard" href="/start/wizard" icon="sparkles"> 
     `openclaw onboard` va juftlash jarayonlari bilan boshqariladigan sozlash.
   
 </Card>
-  <Card title="Control UI’ni oching" href="/web/control-ui" icon="layout-dashboard">
+  <Card title="Open the Control UI" href="/web/control-ui" icon="layout-dashboard"> 
     Chat, konfiguratsiya va sessiyalar uchun brauzer boshqaruv panelini ishga tushiring.
   
 </Card>
@@ -73,27 +72,27 @@ Gateway sessiyalar, marshrutlash va kanal ulanishlari uchun yagona haqiqat manba
 ## Asosiy imkoniyatlar
 
 <Columns>
-  <Card title="Ko‘p kanalli gateway" icon="network">
+  <Card title="Multi-channel gateway" icon="network"> 
     Bitta Gateway jarayoni bilan WhatsApp, Telegram, Discord va iMessage.
   
 </Card>
-  <Card title="Plagin kanallari" icon="plug">
+  <Card title="Plugin channels" icon="plug"> 
     Kengaytma paketlari orqali Mattermost va boshqalarni qo‘shing.
   
 </Card>
-  <Card title="Ko‘p agentli marshrutlash" icon="route">
+  <Card title="Multi-agent routing" icon="route"> 
     Har bir agent, ish maydoni yoki jo‘natuvchi uchun alohida sessiyalar.
   
 </Card>
-  <Card title="Media qo‘llab-quvvatlash" icon="image">
+  <Card title="Media support" icon="image"> 
     Rasm, audio va hujjatlarni yuborish va qabul qilish.
   
 </Card>
-  <Card title="Web Control UI" icon="monitor">
+  <Card title="Web Control UI" icon="monitor"> 
     Chat, konfiguratsiya, sessiyalar va tugunlar uchun brauzer boshqaruv paneli.
   
 </Card>
-  <Card title="Mobil tugunlar" icon="smartphone">
+  <Card title="Mobile nodes" icon="smartphone"> 
     Canvas qo‘llab-quvvatlovi bilan iOS va Android tugunlarini juftlash.
   
 </Card>
@@ -102,19 +101,19 @@ Gateway sessiyalar, marshrutlash va kanal ulanishlari uchun yagona haqiqat manba
 ## Tezkor boshlash
 
 <Steps>
-  <Step title="OpenClaw’ni o‘rnating">
+  <Step title="Install OpenClaw"> 
     ```bash
     npm install -g openclaw@latest
     ```
   
 </Step>
-  <Step title="Onboard qiling va xizmatni o‘rnating">
+  <Step title="Onboard and install the service"> 
     ```bash
     openclaw onboard --install-daemon
     ```
   
 </Step>
-  <Step title="WhatsApp’ni juftlang va Gateway’ni ishga tushiring">
+  <Step title="Pair WhatsApp and start the Gateway"> 
     ```bash
     openclaw channels login
     openclaw gateway --port 18789
@@ -136,12 +135,12 @@ Gateway ishga tushgach, brauzer Control UI’ni oching.
   <img src="whatsapp-openclaw.jpg" alt="OpenClaw" width="420"></img>
 </p>
 
-## Konfiguratsiya (ixtiyoriy)
+## Configuration (optional)
 
 Konfiguratsiya `~/.openclaw/openclaw.json` da joylashgan.
 
-- Agar siz **hech narsa qilmasangiz**, OpenClaw har bir jo‘natuvchi uchun sessiyalar bilan RPC rejimida o‘rnatilgan Pi binary’dan foydalanadi.
-- Agar uni cheklamoqchi bo‘lsangiz, `channels.whatsapp.allowFrom` dan va (guruhlar uchun) mention qoidalaridan boshlang.
+- If you **do nothing**, OpenClaw uses the bundled Pi binary in RPC mode with per-sender sessions.
+- If you want to lock it down, start with `channels.whatsapp.allowFrom` and (for groups) mention rules.
 
 Misol:
 
@@ -157,31 +156,29 @@ Misol:
 }
 ```
 
-## Shu yerdan boshlang
+## Start here
 
 <Columns>
-  <Card title="Hujjatlar markazi" href="/start/hubs" icon="book-open">
-    Foydalanish holatlari bo‘yicha tartiblangan barcha hujjatlar va qo‘llanmalar.
+  <Card title="Docs hubs" href="/start/hubs" icon="book-open">
+    All docs and guides, organized by use case.
   
 </Card>
-  <Card title="Konfiguratsiya" href="/gateway/configuration" icon="settings">
-    Asosiy Gateway sozlamalari, tokenlar va provider konfiguratsiyasi.
+  <Card title="Configuration" href="/gateway/configuration" icon="settings">
+    Core Gateway settings, tokens, and provider config.
   
 </Card>
-  <Card title="Masofaviy kirish" href="/gateway/remote" icon="globe">
-    SSH va tailnet kirish usullari.
+  <Card title="Remote access" href="/gateway/remote" icon="globe">
+    SSH and tailnet access patterns.
   
 </Card>
-  <Card title="Kanallar" href="/channels/telegram" icon="message-square">
-    WhatsApp, Telegram, Discord va boshqalar uchun kanalga xos sozlash.
+  <Card title="Channels" href="/channels/telegram" icon="message-square">
+    Channel-specific setup for WhatsApp, Telegram, Discord, and more.
   
 </Card>
-  <Card title="Tugunlar" href="/nodes" icon="smartphone">
-    Juftlash va Canvas bilan iOS va Android tugunlari.
-  
+  <Card title="Nodes" href="/nodes" icon="smartphone">Juftlash va Canvas bilan iOS va Android tugunlari.
 </Card>
-  <Card title="Yordam" href="/help" icon="life-buoy">
-    Keng tarqalgan tuzatishlar va muammolarni bartaraf etish bo‘limi.
+  <Card title="Help" href="/help" icon="life-buoy">
+    Common fixes and troubleshooting entry point.
   
 </Card>
 </Columns>
@@ -189,25 +186,24 @@ Misol:
 ## Batafsil ma’lumot
 
 <Columns>
-  <Card title="To‘liq imkoniyatlar ro‘yxati" href="/concepts/features" icon="list">
-    Kanal, marshrutlash va media imkoniyatlarining to‘liq tavsifi.
+  <Card title="Full feature list" href="/concepts/features" icon="list">
+    Complete channel, routing, and media capabilities.
   
 </Card>
-  <Card title="Ko‘p agentli marshrutlash" href="/concepts/multi-agent" icon="route">
-    Workspace izolyatsiyasi va har bir agent uchun alohida sessiyalar.
+  <Card title="Multi-agent routing" href="/concepts/multi-agent" icon="route">
+    Workspace isolation and per-agent sessions.
   
 </Card>
-  <Card title="Xavfsizlik" href="/gateway/security" icon="shield">
-    Tokenlar, allowlist’lar va xavfsizlik boshqaruvlari.
+  <Card title="Security" href="/gateway/security" icon="shield">
+    Tokens, allowlists, and safety controls.
   
 </Card>
-  <Card title="Muammolarni bartaraf etish" href="/gateway/troubleshooting" icon="wrench">
-    Gateway diagnostikasi va keng tarqalgan xatolar.
+  <Card title="Troubleshooting" href="/gateway/troubleshooting" icon="wrench">
+    Gateway diagnostics and common errors.
   
 </Card>
-  <Card title="Loyiha va mualliflar" href="/reference/credits" icon="info">
-    Loyiha kelib chiqishi, hissa qo‘shuvchilar va litsenziya.
+  <Card title="About and credits" href="/reference/credits" icon="info">
+    Project origins, contributors, and license.
   
 </Card>
 </Columns>
-

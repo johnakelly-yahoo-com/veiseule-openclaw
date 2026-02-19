@@ -1,4 +1,8 @@
 ---
+summary: "終端機 UI（TUI）：從任何機器連線到 Gateway 閘道器"
+read_when:
+  - 你想要一份適合初學者的 TUI 操作導覽
+  - 你需要完整的 TUI 功能、指令與快捷鍵清單
 title: "TUI"
 ---
 
@@ -18,7 +22,7 @@ openclaw gateway
 openclaw tui
 ```
 
-3. 19. 輸入訊息並按 Enter。
+3. 輸入訊息並按 Enter。
 
 遠端 Gateway 閘道器：
 
@@ -38,7 +42,7 @@ openclaw tui --url ws://<host>:<port> --token <gateway-token>
 
 ## 心智模型：代理程式 + 工作階段
 
-- Agents 是唯一的 slug（例如 `main`、`research`）。Gateway 會公開此清單。
+- Agents 是唯一的 slug（例如 `main`、`research`）。Gateway 會公開此清單。 The Gateway exposes the list.
 - 24. 工作階段隸屬於目前的代理。
 - 工作階段金鑰會以 `agent:<agentId>:<sessionKey>` 儲存。
   - 如果你輸入 `/session main`，TUI 會將其展開為 `agent:<currentAgent>:main`。
@@ -58,7 +62,7 @@ openclaw tui --url ws://<host>:<port> --token <gateway-token>
 
 ## 選擇器 + 覆蓋層
 
-- 模型選擇器：列出可用模型並設定工作階段覆寫。
+- Model picker: list available models and set the session override.
 - Agent 選擇器：選擇不同的 Agent。
 - 31. 工作階段選擇器：僅顯示目前代理的工作階段。
 - 設定：切換投遞、工具輸出展開，以及思考可見性。
@@ -71,7 +75,7 @@ openclaw tui --url ws://<host>:<port> --token <gateway-token>
 - Ctrl+D：退出
 - Ctrl+L：模型選擇器
 - Ctrl+G：代理程式選擇器
-- Ctrl+P：工作階段選擇器
+- Ctrl+P: session picker
 - Ctrl+O：切換工具輸出展開
 - Ctrl+T：切換思考可見性（會重新載入歷史）
 
@@ -85,7 +89,7 @@ openclaw tui --url ws://<host>:<port> --token <gateway-token>
 - `/session <key>`（或 `/sessions`）
 - `/model <provider/model>`（或 `/models`）
 
-工作階段控制：
+Session controls:
 
 - `/think <off|minimal|low|medium|high>`
 - `/verbose <on|full|off>`
@@ -104,10 +108,10 @@ openclaw tui --url ws://<host>:<port> --token <gateway-token>
 
 其他 Gateway 閘道器斜線指令（例如 `/context`）會轉送至 Gateway 閘道器，並以系統輸出顯示。請參閱 [Slash commands](/tools/slash-commands)。 35. 請參閱 [斜線指令](/tools/slash-commands)。
 
-## 36. 本地 shell 指令
+## 本地 shell 指令
 
 - 在一行前加上 `!`，即可在 TUI 主機上執行本機殼層指令。
-- TUI 會在每個工作階段中提示一次以允許本機執行；若拒絕，該工作階段中的 `!` 將保持停用。
+- The TUI prompts once per session to allow local execution; declining keeps `!` disabled for the session.
 - 指令會在 TUI 工作目錄中的全新、非互動式殼層執行（不會保留 `cd`/env）。
 - 38. 單獨的 `!` 會作為一般訊息送出；前置空白不會觸發本地執行。
 
@@ -123,7 +127,7 @@ openclaw tui --url ws://<host>:<port> --token <gateway-token>
 - 串流回應會即時更新，直到完成。
 - TUI 也會監聽代理程式的工具事件，以呈現更豐富的工具卡片。
 
-## 40. 連線詳細資訊
+## 連線詳細資訊
 
 - TUI 會以 `mode: "tui"` 的身分向 Gateway 閘道器註冊。
 - 41. 重新連線會顯示系統訊息；事件間隙會在日誌中呈現。
@@ -140,7 +144,8 @@ openclaw tui --url ws://<host>:<port> --token <gateway-token>
 
 注意：當你設定 `--url` 時，TUI 不會回退使用設定或環境中的認證。
 請明確傳入 `--token` 或 `--password`。缺少明確的認證會視為錯誤。
-42. 明確傳入 `--token` 或 `--password`。 43. 缺少明確的認證會被視為錯誤。
+42.
+明確傳入 `--token` 或 `--password`。 43. 缺少明確的認證會被視為錯誤。
 
 ## 44. 疑難排解
 
@@ -157,5 +162,3 @@ openclaw tui --url ws://<host>:<port> --token <gateway-token>
 - `disconnected`：確保 Gateway 閘道器正在執行，且你的 `--url/--token/--password` 正確。
 - 選擇器中沒有代理程式：檢查 `openclaw agents list` 與你的路由設定。
 - 46. 工作階段選擇器為空：你可能在全域範圍，或尚未有任何工作階段。
-
-

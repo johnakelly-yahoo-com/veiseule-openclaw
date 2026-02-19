@@ -1,4 +1,7 @@
 ---
+summary: "Signeringstrin for macOS-debug-builds genereret af pakkescripts"
+read_when:
+  - Bygning eller signering af macOS-debug-builds
 title: "macOS-signering"
 ---
 
@@ -42,5 +45,3 @@ Fanebladet Om læser disse nøgler til at vise version, bygge dato, git commit, 
 ## Hvorfor
 
 TCC tilladelser er bundet til bundle identifier _and_ kode signatur. Usigneret fejlfinding bygger med skiftende UUID'er fik macOS til at glemme tilskud efter hver genopbygning. Underskrift af binære filer (ad hoc som standard) og opretholdelse af et fast bundt id/path (`dist/OpenClaw.app`) bevarer tilskuddene mellem bygninger, der stemmer overens med VibeTunnel tilgang.
-
-

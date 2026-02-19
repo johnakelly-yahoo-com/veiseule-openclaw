@@ -31,10 +31,10 @@ scripts/pi/run-tests.sh --live
 
 - `src/agents/pi-*.test.ts`
 - `src/agents/pi-embedded-*.test.ts`
-- 13. `src/agents/pi-tools*.test.ts`
+- `src/agents/pi-tools*.test.ts`
 - `src/agents/pi-settings.test.ts`
-- 15. `src/agents/pi-tool-definition-adapter.test.ts`
-- 16. `src/agents/pi-extensions/*.test.ts`
+- `src/agents/pi-tool-definition-adapter.test.ts`
+- `src/agents/pi-extensions/*.test.ts`
 
 ## Qo‘lda sinovdan o‘tkazish
 
@@ -43,9 +43,9 @@ scripts/pi/run-tests.sh --live
 - Gateway'ni dev rejimida ishga tushiring:
   - `pnpm gateway:dev`
 - 21. Agentni bevosita ishga tushiring:
-  - 22. `pnpm openclaw agent --message "Hello" --thinking low`
+  - `pnpm openclaw agent --message "Hello" --thinking low`
 - 23. Interaktiv debug qilish uchun TUI’dan foydalaning:
-  - 24. `pnpm tui`
+  - `pnpm tui`
 
 25. Tool chaqiruv xatti-harakatlari uchun `read` yoki `exec` amalini so‘rang, shunda tool streaming va payloadni qayta ishlashni ko‘rishingiz mumkin.
 
@@ -66,7 +66,5 @@ scripts/pi/run-tests.sh --live
 
 ## 39. Manbalar
 
-- 40. [https://docs.openclaw.ai/testing](https://docs.openclaw.ai/testing)
-- 41. [https://docs.openclaw.ai/start/getting-started](https://docs.openclaw.ai/start/getting-started)
-
-
+- [https://docs.openclaw.ai/testing](https://docs.openclaw.ai/testing)
+- [https://docs.openclaw.ai/start/getting-started](https://docs.openclaw.ai/start/getting-started)

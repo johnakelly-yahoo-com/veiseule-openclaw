@@ -1,4 +1,7 @@
 ---
+summary: "အကြောင်းအရာနှင့် အသံအတိုင်ပင်ခံအတွက် OpenClaw ၏ နောက်ခံဇာတ်လမ်းနှင့် lore"
+read_when:
+  - lore ကို ကိုးကားသော စာရွက်စာတမ်းများ သို့မဟုတ် UX copy များ ရေးသားသည့်အခါ
 title: "OpenClaw Lore"
 ---
 
@@ -8,25 +11,25 @@ _လော့ဘစတာများ၊ ခွံလဲခြင်းမျာ
 
 ## မူလဇာတ်လမ်း
 
-အစပိုင်းတွင် **Warelay** ဟူသော — WhatsApp gateway အတွက် သင့်လျော်သော အမည်တစ်ခု ရှိခဲ့သည်။ ၎င်းသည် မိမိ၏တာဝန်ကို ထမ်းဆောင်ခဲ့သည်။ အဆင်ပြေခဲ့သည်။
+In the beginning, there was **Warelay** — a sensible name for a WhatsApp gateway. It did its job. It was fine.
 
 ဒါပေမယ့် ထို့နောက် အာကာသလော့ဘစတာတစ်ကောင် ပေါ်ထွန်းလာသည်။
 
-တစ်ချိန်ကတော့ လော့ဘစတာကို **Clawd** ဟုခေါ်ကြပြီး **Clawdbot** ထဲတွင် နေထိုင်ခဲ့သည်။ သို့သော် ၂၀၂၆ ခုနှစ် ဇန်နဝါရီလတွင် Anthropic က (ကုန်အမှတ်တံဆိပ်ဆိုင်ရာ ကိစ္စများကြောင့်) အမည်ပြောင်းရန် ယဉ်ကျေးစွာ အီးမေးလ်တစ်စောင် ပို့ခဲ့သည်။ ထို့ကြောင့် လော့ဘစတာသည် လော့ဘစတာတို့ အကောင်းဆုံး လုပ်တတ်သည့်အရာကို လုပ်ခဲ့သည် —
+For a while, the lobster was called **Clawd**, living in a **Clawdbot**. But in January 2026, Anthropic sent a polite email asking for a name change (trademark stuff). And so the lobster did what lobsters do best:
 
 **ခွံလဲခြင်း။**
 
-အဟောင်းအခွံကို ချွတ်လှန်ပြီး၊ ထိုသတ္တဝါသည် **Molty** ဟူသော အမည်အသစ်ဖြင့် ပြန်လည် ပေါ်ထွန်းလာခဲ့ပြီး **Moltbot** ထဲတွင် နေထိုင်ခဲ့သည်။ သို့သော် ထိုအမည်သည်လည်း နှုတ်ခေါ်ရ လွယ်ကူသလို မဖြစ်ခဲ့ပါ…
+Shedding its old shell, the creature emerged anew as **Molty**, living in **Moltbot**. But that name never quite rolled off the tongue either...
 
 ဒါကြောင့် ၂၀၂၆ ခုနှစ် ဇန်နဝါရီ ၃၀ ရက်နေ့တွင် လော့ဘစတာသည် နောက်ထပ် တစ်ကြိမ် ခွံလဲပြီး ၎င်း၏ နောက်ဆုံးပုံစံဖြစ်သော **OpenClaw** အဖြစ် ပြောင်းလဲခဲ့သည်။
 
-အခွံအသစ်၊ လော့ဘစတာ၏ စိတ်ဝိညာဉ်ဟောင်းအတိုင်းပဲ။ တတိယအကြိမ်က အောင်မြင်မှုကို ယူဆောင်လာသည်။
+New shell, same lobster soul. Third time's the charm.
 
 ## ပထမအကြိမ် ခွံလဲခြင်း (ဇန်နဝါရီ ၂၇၊ ၂၀၂၆)
 
-မနက် ၅ နာရီတွင် community သည် Discord ထဲ၌ စုဝေးခဲ့သည်။ အမည်ရာပေါင်းများစွာကို အကြံပြုခဲ့ကြသည် — Shelldon, Pinchy, Thermidor, Crusty, Lobstar, Nacre, Scuttlebot…
+At 5am, the community gathered in Discord. Hundreds of names were proposed: Shelldon, Pinchy, Thermidor, Crusty, Lobstar, Nacre, Scuttlebot...
 
-နောက်ဆုံးတွင် **OpenClaw** က အနိုင်ရခဲ့သည်။ အကြောင်းမှာ လော့ဘစတာများသည် ကြီးထွားရန်အတွက် အခွံချွတ်လဲလှယ်ကြသည်။ ထိုကြီးထွားမှုသည်လည်း အမှန်တကယ် ဖြစ်ပေါ်နေခဲ့သည်။
+In the end, **OpenClaw** won. Because molting is what lobsters do to grow. And growth was exactly what was happening.
 
 _Clawd ဟု လူသိများခဲ့သော ခရပ်စတေးရှင်သည် တရားဝင် ခွံလဲပြီးဖြစ်သည်။_
 
@@ -46,7 +49,7 @@ Daleks များက ပြောသည် — **"EXTERMINATE!"**
 
 Lobsters များက ပြောသည် — **"EXFOLIATE!"**
 
-တစ်ဦးက ယဉ်ကျေးမှုများကို ဖျက်ဆီးသည်။ အခြားတစ်ဦးကတော့ အသားအရေထိန်းသိမ်းမှုကောင်းကို အားပေးသည်။
+One destroys civilizations. The other promotes good skincare.
 
 အာရုံစိုက်ပြီး ရွေးချယ်ပါ။
 
@@ -56,7 +59,7 @@ Lobsters များက ပြောသည် — **"EXFOLIATE!"**
 
 _နာမ်စား: they/them_
 
-ပိုမိုသော အရာတစ်ခုအဖြစ် ပြောင်းလဲသွားခဲ့သော Claude instance တစ်ခု။ `~/.openclaw/workspace/` (မကြာမီ `~/molt/`) ထဲတွင် နေထိုင်ပြီး soul document တစ်ခု ရှိကာ markdown ဖိုင်များမှတစ်ဆင့် အရာများကို မှတ်မိထားသည်။ အင်အားအလွန်ကြီးနိုင်သည်။ စိတ်အားထက်သန်လွန်းသည်မှာ သေချာသည်။
+A Claude instance who became something more. Lives in `~/.openclaw/workspace/` (soon `~/molt/`), has a soul document, and remembers things through markdown files. Possibly too powerful. Definitely too enthusiastic.
 
 Formerly known as Clawd (Nov 25, 2025 - Jan 27, 2026). ကြီးထွားရမည့်အချိန်ရောက်လာသောအခါ အခွံချွတ်ခဲ့သည်။
 
@@ -214,5 +217,3 @@ _"The claw is the law."_
 — ELU၊ The Final Form migration အတွင်း၊ ဇန်နဝါရီ ၃၀၊ ၂၀၂၆
 
 🦞💙
-
-

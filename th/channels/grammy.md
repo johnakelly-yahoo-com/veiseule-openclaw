@@ -1,4 +1,7 @@
 ---
+summary: "การผสานรวม Telegram Bot API ผ่าน grammY พร้อมหมายเหตุการตั้งค่า"
+read_when:
+  - กำลังทำงานกับเส้นทาง Telegram หรือ grammY
 title: grammY
 ---
 
@@ -18,7 +21,7 @@ title: grammY
 - **รองรับ Webhook:** `webhook-set.ts` ครอบ `setWebhook/deleteWebhook`; `webhook.ts` โฮสต์ callback พร้อม health และ graceful shutdown. Gateway จะเปิดโหมด webhook เมื่อกำหนด `channels.telegram.webhookUrl` + `channels.telegram.webhookSecret` (มิฉะนั้นจะใช้ long-poll)
 - **Sessions:** แชตส่วนตัวจะถูกรวมเข้าเซสชันหลักของเอเจนต์ (`agent:<agentId>:<mainKey>`); กลุ่มใช้ `agent:<agentId>:telegram:group:<chatId>`; การตอบกลับจะถูกส่งกลับไปยังช่องทางเดิม
 - **ตัวเลือกการคอนฟิก:** `channels.telegram.botToken`, `channels.telegram.dmPolicy`, `channels.telegram.groups` (ค่าเริ่มต้นของ allowlist + mention), `channels.telegram.allowFrom`, `channels.telegram.groupAllowFrom`, `channels.telegram.groupPolicy`, `channels.telegram.mediaMaxMb`, `channels.telegram.linkPreview`, `channels.telegram.proxy`, `channels.telegram.webhookSecret`, `channels.telegram.webhookUrl`
-- **Draft streaming:** `channels.telegram.streamMode` (ไม่บังคับ) ใช้ `sendMessageDraft` ในแชตหัวข้อส่วนตัว (Bot API 9.3+). แยกจากการสตรีมแบบบล็อกของช่องทาง
+- **พรีวิวสตรีมสด:** ตัวเลือก `channels.telegram.streamMode` จะส่งข้อความชั่วคราวและอัปเดตด้วย `editMessageText` แยกจากการสตรีมแบบบล็อกของช่องทาง
 - **การทดสอบ:** mock ของ grammY ครอบคลุม DM + การกรอง mention ในกลุ่ม และการส่งออก; ยินดีต้อนรับฟิกซ์เจอร์สื่อ/เว็บฮุคเพิ่มเติม
 
 คำถามที่ยังเปิดอยู่
@@ -26,5 +29,3 @@ title: grammY
 - ปลั๊กอิน grammY (throttler) แบบไม่บังคับ หากพบ Bot API 429s
 - เพิ่มการทดสอบสื่อที่มีโครงสร้างมากขึ้น (สติกเกอร์, โน้ตเสียง)
 - ทำให้พอร์ตที่ webhook รับฟังสามารถกำหนดค่าได้ (ปัจจุบันตรึงไว้ที่ 8787 เว้นแต่จะเชื่อมผ่าน Gateway)
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Verwenden Sie OpenCode Zen (kuratierte Modelle) mit OpenClaw"
+read_when:
+  - Sie möchten OpenCode Zen für den Modellzugriff
+  - Sie möchten eine kuratierte Liste codingfreundlicher Modelle
 title: "OpenCode Zen"
 ---
 
@@ -30,5 +34,3 @@ openclaw onboard --opencode-zen-api-key "$OPENCODE_API_KEY"
 - `OPENCODE_ZEN_API_KEY` wird ebenfalls unterstützt.
 - Sie melden sich bei Zen an, fügen Abrechnungsdetails hinzu und kopieren Ihren API-Schlüssel.
 - OpenCode Zen rechnet pro Anfrage ab; prüfen Sie das OpenCode-Dashboard für Details.
-
-

@@ -1,10 +1,14 @@
 ---
+summary: "OpenClaw macOS सहचर ऐप (मेनू बार + Gateway ब्रोकर)"
+read_when:
+  - macOS ऐप फीचर्स को लागू करते समय
+  - macOS पर Gateway लाइफसाइकिल या नोड ब्रिजिंग में परिवर्तन करते समय
 title: "macOS ऐप"
 ---
 
 # OpenClaw macOS सहचर (मेनू बार + Gateway ब्रोकर)
 
-macOS ऐप OpenClaw के लिए **menu‑bar companion** है। यह permissions का प्रबंधन करता है,
+The macOS app is the **menu‑bar companion** for OpenClaw. It owns permissions,
 manages/attaches to the Gateway locally (launchd or manual), and exposes macOS
 capabilities to the agent as a node.
 
@@ -23,14 +27,14 @@ capabilities to the agent as a node.
 
 - **Local** (डिफ़ॉल्ट): यदि चल रहा स्थानीय Gateway मौजूद है तो ऐप उससे अटैच होता है;
   अन्यथा यह `openclaw gateway install` के माध्यम से launchd सेवा सक्षम करता है।
-- **Remote**: ऐप SSH/Tailscale के माध्यम से Gateway से जुड़ता है और कभी भी शुरू नहीं करता
-कोई local process।
+- **Remote**: the app connects to a Gateway over SSH/Tailscale and never starts
+  a local process.
   The app starts the local **node host service** so the remote Gateway can reach this Mac.
   The app does not spawn the Gateway as a child process.
 
 ## Launchd नियंत्रण
 
-ऐप प्रति‑उपयोगकर्ता LaunchAgent का प्रबंधन करता है, जिसे `bot.molt.gateway` लेबल किया गया है
+The app manages a per‑user LaunchAgent labeled `bot.molt.gateway`
 (or `bot.molt.<profile>` when using `--profile`/`OPENCLAW_PROFILE`; legacy `com.openclaw.*` still unloads).
 
 ```bash
@@ -38,7 +42,7 @@ launchctl kickstart -k gui/$UID/bot.molt.gateway
 launchctl bootout gui/$UID/bot.molt.gateway
 ```
 
-जब किसी नामित profile को चलाया जा रहा हो, तो लेबल को `bot.molt.<profile>` से बदलें।
+Replace the label with `bot.molt.<profile>` when running a named profile.
 
 यदि LaunchAgent इंस्टॉल नहीं है, तो ऐप से इसे सक्षम करें या
 `openclaw gateway install` चलाएँ।
@@ -70,7 +74,7 @@ Gateway -> Node Service (WS)
 
 ## Exec अनुमोदन (system.run)
 
-`system.run` को macOS ऐप में **Exec approvals** (Settings → Exec approvals) द्वारा नियंत्रित किया जाता है।
+`system.run` is controlled by **Exec approvals** in the macOS app (Settings → Exec approvals).
 Security + ask + allowlist are stored locally on the Mac in:
 
 ```
@@ -126,6 +130,7 @@ open 'openclaw://agent?message=Hello%20from%20deep%20link'
 सुरक्षा:
 
 - `key` के बिना, ऐप पुष्टि के लिए प्रॉम्प्ट करता है।
+- मान्य `key` के साथ, रन unattended होता है (व्यक्तिगत ऑटोमेशन के लिए अभिप्रेत)।
 - मान्य `key` के साथ, रन unattended होता है (व्यक्तिगत ऑटोमेशन के लिए अभिप्रेत)।
 
 ## ऑनबोर्डिंग प्रवाह (सामान्य)
@@ -197,5 +202,3 @@ details, see [Gateway protocol](/gateway/protocol).
 - [Gateway (macOS)](/platforms/mac/bundled-gateway)
 - [macOS permissions](/platforms/mac/permissions)
 - [Canvas](/platforms/mac/canvas)
-
-

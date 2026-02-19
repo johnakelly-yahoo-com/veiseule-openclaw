@@ -1,10 +1,15 @@
 ---
+summary: "用於入站語音訊息的 Deepgram 轉錄"
+read_when:
+  - 你需要將 Deepgram 語音轉文字用於音訊附件
+  - 你需要一個快速的 Deepgram 設定範例
 title: "Deepgram"
 ---
 
 # Deepgram（音訊轉錄）
 
 Deepgram 是一個語音轉文字 API。在 OpenClaw 中，它用於透過 `tools.media.audio` 進行**入站音訊／語音訊息轉錄**。 In OpenClaw it is used for **inbound audio/voice note
+transcription** via `tools.media.audio`. In OpenClaw it is used for **inbound audio/voice note
 transcription** via `tools.media.audio`.
 
 啟用後，OpenClaw 會將音訊檔案上傳至 Deepgram，並將轉錄結果注入回覆管線（`{{Transcript}}` + `[Audio]` 區塊）。這**不是串流**；它使用預先錄製的轉錄端點。 3. 這**不是串流**；
@@ -86,5 +91,3 @@ DEEPGRAM_API_KEY=dg_...
 - 身分驗證遵循標準提供者驗證順序；`DEEPGRAM_API_KEY` 是最簡單的途徑。
 - 使用代理時，可透過 `tools.media.audio.baseUrl` 與 `tools.media.audio.headers` 覆寫端點或標頭。
 - 輸出遵循與其他提供者相同的音訊規則（大小上限、逾時、轉錄注入）。
-
-

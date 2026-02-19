@@ -1,4 +1,8 @@
 ---
+summary: "End-to-end gids voor het draaien van OpenClaw als persoonlijke assistent met veiligheidswaarschuwingen"
+read_when:
+  - Onboarden van een nieuwe assistent-instantie
+  - Beoordelen van veiligheids- en toestemmingsimplicaties
 title: "Installatie van persoonlijke assistent"
 ---
 
@@ -30,25 +34,9 @@ Begin conservatief:
 Je wilt dit:
 
 ```mermaid
-%%{init: {
-  'theme': 'base',
-  'themeVariables': {
-    'primaryColor': '#ffffff',
-    'primaryTextColor': '#000000',
-    'primaryBorderColor': '#000000',
-    'lineColor': '#000000',
-    'secondaryColor': '#f9f9fb',
-    'tertiaryColor': '#ffffff',
-    'clusterBkg': '#f9f9fb',
-    'clusterBorder': '#000000',
-    'nodeBorder': '#000000',
-    'mainBkg': '#ffffff',
-    'edgeLabelBackground': '#ffffff'
-  }
-}}%%
 flowchart TB
-    A["<b>Your Phone (personal)<br></b><br>Your WhatsApp<br>+1-555-YOU"] -- message --> B["<b>Second Phone (assistant)<br></b><br>Assistant WA<br>+1-555-ASSIST"]
-    B -- linked via QR --> C["<b>Your Mac (openclaw)<br></b><br>Pi agent"]
+    A["<b>Je telefoon (persoonlijk)<br></b><br>Je WhatsApp<br>+1-555-YOU"] -- bericht --> B["<b>Tweede telefoon (assistent)<br></b><br>Assistent WA<br>+1-555-ASSIST"]
+    B -- gekoppeld via QR --> C["<b>Je Mac (openclaw)<br></b><br>Pi-agent"]
 ```
 
 Als je je persoonlijke WhatsApp aan OpenClaw koppelt, wordt elk bericht aan jou “agent-input”. Dat is zelden wat je wilt.
@@ -225,5 +213,3 @@ Logs staan onder `/tmp/openclaw/` (standaard: `openclaw-YYYY-MM-DD.log`).
 - Windows-status: [Windows (WSL2)](/platforms/windows)
 - Linux-status: [Linux app](/platforms/linux)
 - Beveiliging: [Security](/gateway/security)
-
-

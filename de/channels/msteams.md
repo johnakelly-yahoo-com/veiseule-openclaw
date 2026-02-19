@@ -1,4 +1,7 @@
 ---
+summary: "Supportstatus, Fähigkeiten und Konfiguration des Microsoft-Teams-Bots"
+read_when:
+  - Arbeit an MS-Teams-Kanalfunktionen
 title: "Microsoft Teams"
 ---
 
@@ -152,14 +155,14 @@ Bevor Sie OpenClaw konfigurieren, müssen Sie eine Azure-Bot-Ressource erstellen
 1. Gehen Sie zu [Azure Bot erstellen](https://portal.azure.com/#create/Microsoft.AzureBot)
 2. Füllen Sie den Reiter **Basics** aus:
 
-   | Feld               | Wert                                                                                                           |
-   | ------------------ | -------------------------------------------------------------------------------------------------------------- |
-   | **Bot-Name**     | Ihr Botname, z. B. `openclaw-msteams` (muss eindeutig sein) |
-   | **Abonnement**   | Wählen Sie Ihr Azure-Abonnement                                                                                |
+   | Feld                 | Wert                                                                                                           |
+   | -------------------- | -------------------------------------------------------------------------------------------------------------- |
+   | **Bot-Name**         | Ihr Botname, z. B. `openclaw-msteams` (muss eindeutig sein) |
+   | **Abonnement**       | Wählen Sie Ihr Azure-Abonnement                                                                                |
    | **Ressourcengruppe** | Neu erstellen oder bestehende verwenden                                                                        |
-   | **Tarifstufe**   | **Free** für Dev/Test                                                                                          |
-   | **App-Typ**    | **Single Tenant** (empfohlen – siehe Hinweis unten)                                         |
-   | **Erstellungstyp**  | **Neue Microsoft App ID erstellen**                                                                                |
+   | **Tarifstufe**       | **Free** für Dev/Test                                                                                          |
+   | **App-Typ**          | **Single Tenant** (empfohlen – siehe Hinweis unten)                                         |
+   | **Erstellungstyp**   | **Neue Microsoft App ID erstellen**                                                                            |
 
 > **Hinweis zur Abkündigung:** Die Erstellung neuer Multi-Tenant-Bots wurde nach dem 2025-07-31 eingestellt. Verwenden Sie **Single Tenant** für neue Bots.
 
@@ -420,6 +423,8 @@ Wenn Sie Bilder/Dateien in **Kanälen** benötigen oder den **Nachrichtenverlauf
 2. **Admin-Consent** für den Tenant erteilen.
 3. Teams-App-**Manifest-Version** erhöhen, erneut hochladen und **App in Teams neu installieren**.
 4. **Teams vollständig beenden und neu starten**, um Cache zu leeren.
+
+**Zusätzliche Berechtigung für Benutzererwähnungen:** Benutzer-@mentions funktionieren standardmäßig für Benutzer in der Konversation. Wenn du jedoch Benutzer dynamisch suchen und erwähnen möchtest, die sich **nicht in der aktuellen Konversation** befinden, füge die Berechtigung `User.Read.All` (Application) hinzu und erteile Admin-Zustimmung.
 
 ## Bekannte Einschränkungen
 
@@ -733,7 +738,7 @@ Bots haben eingeschränkte Unterstützung in privaten Kanälen:
 2. DMs verwenden – Benutzer können den Bot jederzeit direkt anschreiben
 3. Graph API für historischen Zugriff verwenden (erfordert `ChannelMessage.Read.All`)
 
-## Fehlerbehebung
+## Häufige Probleme
 
 ### Häufige Probleme
 
@@ -765,5 +770,3 @@ Bots haben eingeschränkte Unterstützung in privaten Kanälen:
 - [RSC-Berechtigungsreferenz](https://learn.microsoft.com/en-us/microsoftteams/platform/graph-api/rsc/resource-specific-consent)
 - [Teams-Bot-Dateiverarbeitung](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/bots-filesv4) (Kanal/Gruppe erfordert Graph)
 - [Proaktive Nachrichten](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/conversations/send-proactive-messages)
-
-

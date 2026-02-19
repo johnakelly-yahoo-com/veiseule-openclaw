@@ -1,4 +1,8 @@
 ---
+summary: "အေးဂျင့်များစွာထံသို့ WhatsApp မက်ဆေ့ခ်ျကို ထုတ်လွှင့်ပို့ရန်"
+read_when:
+  - ထုတ်လွှင့်အုပ်စုများကို ဖွဲ့စည်းပြင်ဆင်ခြင်း
+  - WhatsApp တွင် အေးဂျင့်များစွာ၏ ပြန်ကြားချက်များကို အမှားရှာဖွေခြင်း
 status: experimental
 title: "ထုတ်လွှင့် အုပ်စုများ"
 ---
@@ -436,5 +440,3 @@ interface OpenClawConfig {
 - [အေးဂျင့်များစွာ ဖွဲ့စည်းမှု](/tools/multi-agent-sandbox-tools)
 - [လမ်းကြောင်းသတ်မှတ်ခြင်း ဖွဲ့စည်းမှု](/channels/channel-routing)
 - [ဆက်ရှင် စီမံခန့်ခွဲမှု](/concepts/sessions)
-
-

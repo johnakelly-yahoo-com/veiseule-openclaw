@@ -1,4 +1,8 @@
 ---
+summary: "Paggamit ng Exec tool, mga mode ng stdin, at suporta sa TTY"
+read_when:
+  - Kapag gumagamit o nagmo-modify ng exec tool
+  - Kapag nagde-debug ng stdin o TTY behavior
 title: "Kasangkapang Exec"
 ---
 
@@ -70,9 +74,9 @@ Halimbawa:
 - `host=sandbox`: nagpapatakbo ng `sh -lc` (login shell) sa loob ng container, kaya maaaring i-reset ng `/etc/profile` ang `PATH`.
   Idinadagdag ng OpenClaw ang `env.PATH` pagkatapos ma-source ang profile sa pamamagitan ng isang internal env var (walang shell interpolation);
   nalalapat din dito ang `tools.exec.pathPrepend`.
-- 10. `host=node`: ang mga env override na ipinasa mo lang na hindi naka-block ang ipinapadala sa node. 11. Ang mga override ng `env.PATH` ay
-      tinatanggihan para sa host execution. 12. Tumatanggap ang mga headless node host ng `PATH` lamang kapag ito ay nagpi-prepend sa node host
-      PATH (walang kapalit). Ganap na inaalis ng mga macOS node ang mga override ng `PATH`.
+- 10. `host=node`: ang mga env override na ipinasa mo lang na hindi naka-block ang ipinapadala sa node. Ang mga override sa `env.PATH` ay
+      tinatanggihan para sa host execution at binabalewala ng mga node host. Kung kailangan mo ng karagdagang PATH entries sa isang node,
+      i-configure ang environment ng node host service (systemd/launchd) o mag-install ng mga tool sa mga karaniwang lokasyon.
 
 Per-agent node binding (gamitin ang agent list index sa config):
 
@@ -116,7 +120,8 @@ Halimbawa:
 Ang pagpapatupad ng allowlist ay tumutugma lamang sa mga **resolved binary path** (walang basename match). Kapag
 `security=allowlist`, ang mga shell command ay awtomatikong pinapayagan lamang kung ang bawat segment ng pipeline ay
 nasa allowlist o isang ligtas na bin. Ang chaining (`;`, `&&`, `||`) at mga redirection ay tinatanggihan sa
-allowlist mode.
+allowlist mode maliban kung ang bawat top-level na segment ay sumusunod sa allowlist (kasama ang safe bins).
+Ang mga redirection ay nananatiling hindi suportado.
 
 ## Mga halimbawa
 
@@ -162,7 +167,7 @@ Paste (naka-bracket bilang default):
 {
   tools: {
     exec: {
-      applyPatch: { enabled: true, allowModels: ["gpt-5.2"] },
+      applyPatch: { enabled: true, workspaceOnly: true, allowModels: ["gpt-5.2"] },
     },
   },
 }
@@ -173,5 +178,4 @@ Mga tala:
 - Available lamang para sa mga modelong OpenAI/OpenAI Codex.
 - Nalalapat pa rin ang tool policy; implicit na pinapayagan ng `allow: ["exec"]` ang `apply_patch`.
 - Ang config ay nasa ilalim ng `tools.exec.applyPatch`.
-
-
+- Ang `tools.exec.applyPatch.workspaceOnly` ay naka-default sa `true` (nasa loob lamang ng workspace). Itakda ito sa `false` lamang kung sadyang nais mong pahintulutan ang `apply_patch` na magsulat/magbura sa labas ng workspace directory.

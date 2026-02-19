@@ -1,4 +1,10 @@
 ---
+summary: "Dayanıklı durum ve yerleşik ikili dosyalarla OpenClaw Gateway’i ucuz bir Hetzner VPS’te (Docker) 7/24 çalıştırın"
+read_when:
+  - OpenClaw’un 7/24 bir bulut VPS’te (dizüstünüzde değil) çalışmasını istiyorsanız
+  - Kendi VPS’inizde üretim seviyesinde, her zaman açık bir Gateway istiyorsanız
+  - Kalıcılık, ikili dosyalar ve yeniden başlatma davranışı üzerinde tam kontrol istiyorsanız
+  - OpenClaw’u Hetzner veya benzeri bir sağlayıcıda Docker ile çalıştırıyorsanız
 title: "Hetzner"
 ---
 
@@ -324,4 +330,23 @@ Tüm uzun ömürlü durum; yeniden başlatmalar, yeniden oluşturma ve yeniden b
 | OS paketleri                                | Container dosya sistemi           | Docker imajı               | Yalnızca kaynaktan derliyorsanız `pnpm` |
 | Docker container                            | Geçicidir                         | Yeniden başlatılabilir     | Yok edilmesi güvenlidir                 |
 
+---
 
+## Kod Olarak Altyapı (Terraform)
+
+Altyapı-kod iş akışlarını tercih eden ekipler için, topluluk tarafından sürdürülen bir Terraform kurulumu şunları sağlar:
+
+- Uzak durum yönetimi ile modüler Terraform yapılandırması
+- cloud-init aracılığıyla otomatik sağlama
+- Dağıtım betikleri (bootstrap, deploy, backup/restore)
+- Güvenlik güçlendirmesi (güvenlik duvarı, UFW, yalnızca SSH erişimi)
+- Gateway erişimi için SSH tünel yapılandırması
+
+**Depolar:**
+
+- Altyapı: [openclaw-terraform-hetzner](https://github.com/andreesg/openclaw-terraform-hetzner)
+- Docker yapılandırması: [openclaw-docker-config](https://github.com/andreesg/openclaw-docker-config)
+
+Bu yaklaşım, yukarıdaki Docker kurulumunu tekrarlanabilir dağıtımlar, sürüm kontrollü altyapı ve otomatik felaket kurtarma ile tamamlar.
+
+> **Not:** Topluluk tarafından sürdürülmektedir. Sorunlar veya katkılar için yukarıdaki depo bağlantılarına bakın.

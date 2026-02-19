@@ -1,5 +1,7 @@
 ---
-title: "Sandbox vs Zasady narzędzi vs Tryb podwyższony"
+title: Sandbox vs Zasady narzędzi vs Tryb podwyższony
+summary: "„Dlaczego narzędzie jest zablokowane: środowisko wykonawcze sandbox, polityka dozwalania/blokowania narzędzi oraz bramki elevated exec”"
+read_when: "„Gdy trafisz do „sandbox jail” lub zobaczysz odmowę narzędzia/elevated i chcesz znać dokładny klucz konfiguracji do zmiany.”"
 status: active
 ---
 
@@ -124,5 +126,3 @@ Klucze naprawcze (wybierz jeden):
 ### „Myślałem, że to main — dlaczego jest sandboxowane?”
 
 W trybie `"non-main"` klucze grup/kanałów _nie_ są main. Użyj klucza sesji main (pokazanego przez `sandbox explain`) albo przełącz tryb na `"off"`.
-
-

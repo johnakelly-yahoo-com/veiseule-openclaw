@@ -1,4 +1,8 @@
 ---
+summary: "„Zaloguj się do GitHub Copilot z OpenClaw, korzystając z przepływu urządzenia”"
+read_when:
+  - Chcesz używać GitHub Copilot jako dostawcy modeli
+  - Potrzebujesz przepływu `openclaw models auth login-github-copilot`
 title: "GitHub Copilot"
 ---
 
@@ -65,5 +69,3 @@ openclaw models set github-copilot/gpt-4o
   spróbuj innego identyfikatora (na przykład `github-copilot/gpt-4.1`).
 - Logowanie zapisuje token GitHub w magazynie profili uwierzytelniania i wymienia go
   na token API Copilot podczas działania OpenClaw.
-
-

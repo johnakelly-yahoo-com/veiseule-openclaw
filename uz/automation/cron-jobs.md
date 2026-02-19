@@ -1,4 +1,9 @@
 ---
+summary: "Gateway rejalashtirgichi uchun cron vazifalari + uyg‘otishlar"
+read_when:
+  - Fon vazifalari yoki uyg‘otishlarni rejalashtirish
+  - Yurak urishlari bilan birga yoki yonma-yon ishlashi kerak bo‘lgan avtomatlashtirishni ulash
+  - Rejalashtirilgan vazifalar uchun heartbeat va cron o‘rtasida tanlash
 title: "Cron vazifalari"
 ---
 
@@ -59,7 +64,7 @@ Kanonik JSON shakllari va misollar uchun [JSON schema for tool calls](/automatio
 
 ## Cron vazifalari qayerda saqlanadi
 
-Cron vazifalari odatda Gateway hostida `~/.openclaw/cron/jobs.json` manzilida saqlanadi.
+Cron jobs are persisted on the Gateway host at `~/.openclaw/cron/jobs.json` by default.
 The Gateway loads the file into memory and writes it back on changes, so manual edits
 are only safe when the Gateway is stopped. Prefer `openclaw cron add/edit` or the cron
 tool call API for changes.
@@ -466,5 +471,3 @@ openclaw system event --mode now --text "Next heartbeat: check battery."
 - For forum topics, use `-100…:topic:<id>` so it’s explicit and unambiguous.
 - If you see `telegram:...` prefixes in logs or stored “last route” targets, that’s normal;
   cron delivery accepts them and still parses topic IDs correctly.
-
-

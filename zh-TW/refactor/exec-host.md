@@ -1,8 +1,13 @@
 ---
-title: "Exec 主機重構"
+summary: "Refactor plan: exec host routing, node approvals, and headless runner"
+read_when:
+  - 設計 exec 主機路由或 exec 核准時
+  - 實作節點 runner + UI IPC
+  - 新增 exec 主機安全模式與斜線指令
+title: "Exec Host Refactor"
 ---
 
-# Exec 主機重構計畫
+# Exec host refactor plan
 
 ## 目標
 
@@ -34,7 +39,7 @@ title: "Exec 主機重構"
 
 ## 關鍵概念
 
-### 主機
+### Host
 
 - `sandbox`：Docker exec（目前行為）。
 - `gateway`：在 Gateway 閘道器 主機上執行。
@@ -103,7 +108,7 @@ title: "Exec 主機重構"
 用途：
 
 - **執行主機**（Gateway 閘道器 或 node runner）的本機政策 + 允許清單。
-- 45. 當沒有可用 UI 時，詢問後備方案。
+- 當沒有可用 UI 時，詢問後備方案。
 - UI 用戶端的 IPC 憑證。
 
 建議結構描述（v1）：
@@ -148,7 +153,7 @@ title: "Exec 主機重構"
 ### 角色
 
 - 在本機強制執行 `exec.security` + `exec.ask`。
-- 執行系統指令並回傳輸出結果。
+- Execute system commands and return output.
 - 發送 exec 生命週期的 Bridge 事件（選用但建議）。
 
 ### 服務生命週期
@@ -309,5 +314,3 @@ Agent -> Gateway -> Bridge -> Node Service (TS)
 - [Exec 核准](/tools/exec-approvals)
 - [Nodes](/nodes)
 - [提升權限模式](/tools/elevated)
-
-

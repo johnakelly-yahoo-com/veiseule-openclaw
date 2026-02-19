@@ -1,8 +1,12 @@
 ---
-title: "Færdigheder"
+summary: "Skills: administrerede vs. workspace, gate-regler og config/env-kobling"
+read_when:
+  - Tilføjelse eller ændring af skills
+  - Ændring af skill-gating eller indlæsningsregler
+title: "Skills"
 ---
 
-# Færdigheder (OpenClaw)
+# Skills (OpenClaw)
 
 OpenClaw bruger **[AgentSkills](https://agentskills.io)-kompatible** færdighedsmapper til at lære agenten hvordan man bruger værktøjer. Hver færdighed er en mappe, der indeholder en `SKILL.md` med YAML frontmatter og instruktioner. OpenClaw belastninger **bundtede færdigheder** plus valgfri lokale overskrivninger, og filtrerer dem på belastningstidspunktet baseret på miljø, config og binær tilstedeværelse.
 
@@ -11,8 +15,8 @@ OpenClaw bruger **[AgentSkills](https://agentskills.io)-kompatible** færdigheds
 Skills indlæses fra **tre** steder:
 
 1. **Bundled skills**: leveret med installationen (npm-pakke eller OpenClaw.app)
-2. **Administrerede/lokale færdigheder**: `~/.openclaw/skills`
-3. **Arbejdsområdets færdigheder**: `<workspace>/skills`
+2. **Managed/local skills**: `~/.openclaw/skills`
+3. **Workspace skills**: `<workspace>/skills`
 
 Hvis et skill-navn konflikter, er prioriteten:
 
@@ -34,7 +38,7 @@ I **multi-agent** opsætninger, hver agent har sit eget arbejdsområde. Det bety
 Hvis det samme skill-navn findes flere steder, gælder den normale prioritet:
 workspace vinder, derefter managed/local og til sidst bundled.
 
-## Plugins + færdigheder
+## Plugins + skills
 
 Plugins kan sende deres egne færdigheder ved at notere `færdigheder` mapper i
 `openclaw.plugin.json` (stier i forhold til plugin root). Plugin færdigheder indlæse
@@ -293,5 +297,3 @@ Se [Skills config](/tools/skills-config) for det fulde konfigurationsskema.
 Gennemse [https://clawhub.com](https://clawhub.com).
 
 ---
-
-

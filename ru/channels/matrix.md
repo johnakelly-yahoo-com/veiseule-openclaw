@@ -1,4 +1,7 @@
 ---
+summary: "Статус поддержки Matrix, возможности и конфигурация"
+read_when:
+  - Работа над функциями канала Matrix
 title: "Matrix"
 ---
 
@@ -138,6 +141,47 @@ OpenClaw автоматически предложит путь локально
 Откройте Element (или другой клиент) и одобрите запрос подтверждения, чтобы установить доверие.
 После подтверждения бот сможет расшифровывать сообщения в зашифрованных комнатах.
 
+## Мультиаккаунтность
+
+Поддержка нескольких аккаунтов: используйте `channels.matrix.accounts` с учётными данными для каждого аккаунта и необязательным `name`. См. [`gateway/configuration`](/gateway/configuration#telegramaccounts--discordaccounts--slackaccounts--signalaccounts--imessageaccounts) для общего шаблона.
+
+Каждый аккаунт запускается как отдельный пользователь Matrix на любом homeserver. Конфигурация на уровне аккаунта
+наследуется от настроек верхнего уровня `channels.matrix` и может переопределять любые параметры
+(политика DM, группы, шифрование и т. д.).
+
+```json5
+{
+  channels: {
+    matrix: {
+      enabled: true,
+      dm: { policy: "pairing" },
+      accounts: {
+        assistant: {
+          name: "Main assistant",
+          homeserver: "https://matrix.example.org",
+          accessToken: "syt_assistant_***",
+          encryption: true,
+        },
+        alerts: {
+          name: "Alerts bot",
+          homeserver: "https://matrix.example.org",
+          accessToken: "syt_alerts_***",
+          dm: { policy: "allowlist", allowFrom: ["@admin:example.org"] },
+        },
+      },
+    },
+  },
+}
+```
+
+Примечания:
+
+- Запуск аккаунтов выполняется последовательно, чтобы избежать состояний гонки при одновременном импорте модулей.
+- Env variables (`MATRIX_HOMESERVER`, `MATRIX_ACCESS_TOKEN`, etc.) применяются только к **аккаунту по умолчанию**.
+- Базовые настройки канала (политика DM, политика групп, ограничение по упоминаниям и т. д.) применяются ко всем аккаунтам, если не переопределены для конкретного аккаунта.
+- Используйте `bindings[].match.accountId`, чтобы направить каждый аккаунт к разному агенту.
+- Состояние криптографии хранится отдельно для каждого аккаунта + access token (отдельные хранилища ключей для каждого аккаунта).
+
 ## Модель маршрутизации
 
 - Ответы всегда возвращаются в Matrix.
@@ -151,6 +195,7 @@ OpenClaw автоматически предложит путь локально
   - `openclaw pairing approve matrix <CODE>`
 - Публичные личные сообщения: `channels.matrix.dm.policy="open"` плюс `channels.matrix.dm.allowFrom=["*"]`.
 - `channels.matrix.dm.allowFrom` принимает полные Matrix user ID (пример: `@user:server`). Мастер настройки разрешает отображаемые имена в user ID, когда поиск в каталоге находит единственное точное совпадение.
+- Не используйте отображаемые имена или только локальную часть (пример: `"Alice"` или `"alice"`). Они неоднозначны и игнорируются при сопоставлении со списком разрешённых. Используйте полные идентификаторы вида `@user:server`.
 
 ## Комнаты (группы)
 
@@ -258,6 +303,5 @@ openclaw pairing list matrix
 - `channels.matrix.mediaMaxMb`: лимит медиа на вход/выход (МБ).
 - `channels.matrix.autoJoin`: обработка приглашений (`always | allowlist | off`, по умолчанию: always).
 - `channels.matrix.autoJoinAllowlist`: разрешённые ID/алиасы комнат для авто-вступления.
+- `channels.matrix.accounts`: конфигурация мультиаккаунтности с ключами по ID аккаунта (каждый аккаунт наследует настройки верхнего уровня).
 - `channels.matrix.actions`: ограничение инструментов по действиям (reactions/messages/pins/memberInfo/channelInfo).
-
-

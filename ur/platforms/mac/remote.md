@@ -1,4 +1,7 @@
 ---
+summary: "SSH کے ذریعے ریموٹ OpenClaw Gateway کو کنٹرول کرنے کے لیے macOS ایپ کا فلو"
+read_when:
+  - ریموٹ میک کنٹرول سیٹ اپ یا ڈیبگ کرتے وقت
 title: "ریمote کنٹرول"
 ---
 
@@ -78,5 +81,3 @@ openclaw nodes notify --node <id> --title "Ping" --body "Remote gateway ready" -
 ```
 
 اب ایپ میں کوئی عالمی “default sound” ٹوگل موجود نہیں؛ کالرز ہر درخواست کے لیے آواز (یا کوئی نہیں) منتخب کرتے ہیں۔
-
-

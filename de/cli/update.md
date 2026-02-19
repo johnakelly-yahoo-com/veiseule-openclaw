@@ -1,4 +1,8 @@
 ---
+summary: "„CLI-Referenz für `openclaw update` (weitgehend sichere Quellaktualisierung + automatischer Gateway-Neustart)“"
+read_when:
+  - Sie möchten einen Source-Checkout sicher aktualisieren
+  - Sie müssen das Kurzschreibverhalten von `--update` verstehen
 title: "„update“"
 ---
 
@@ -91,5 +95,3 @@ Auf hoher Ebene:
 - [Entwicklungskanäle](/install/development-channels)
 - [Updating](/install/updating)
 - [CLI reference](/cli)
-
-

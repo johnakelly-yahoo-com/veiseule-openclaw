@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw uitvoeren met Ollama (lokale LLM-runtime)"
+read_when:
+  - Je wilt OpenClaw uitvoeren met lokale modellen via Ollama
+  - Je hebt begeleiding nodig bij het opzetten en configureren van Ollama
 title: "Ollama"
 ---
 
@@ -170,45 +174,28 @@ Ollama is gratis en draait lokaal, dus alle modelkosten zijn ingesteld op $0.
 
 ### Streamingconfiguratie
 
-Vanwege een [bekend probleem](https://github.com/badlogic/pi-mono/issues/1205) in de onderliggende SDK met het responsformaat van Ollama, is **streaming standaard uitgeschakeld** voor Ollama-modellen. Dit voorkomt corrupte responses bij het gebruik van tool-geschikte modellen.
+De Ollama-integratie van OpenClaw gebruikt standaard de **native Ollama API** (`/api/chat`), die streaming en tool calling volledig gelijktijdig ondersteunt. Er is geen speciale configuratie nodig.
 
-Wanneer streaming is uitgeschakeld, worden responses in één keer geleverd (niet-streamingmodus), wat het probleem voorkomt waarbij verweven content-/redeneer-delta’s tot onleesbare uitvoer leiden.
+#### Legacy OpenAI-compatibele modus
 
-#### Streaming opnieuw inschakelen (geavanceerd)
-
-Als je streaming voor Ollama opnieuw wilt inschakelen (kan problemen veroorzaken met tool-geschikte modellen):
+Als je in plaats daarvan het OpenAI-compatibele endpoint moet gebruiken (bijv. achter een proxy die alleen het OpenAI-formaat ondersteunt), stel dan expliciet `api: "openai-completions"` in:
 
 ```json5
 {
-  agents: {
-    defaults: {
-      models: {
-        "ollama/gpt-oss:20b": {
-          streaming: true,
-        },
-      },
-    },
-  },
+  models: {
+    providers: {
+      ollama: {
+        baseUrl: "http://ollama-host:11434/v1",
+        api: "openai-completions",
+        apiKey: "ollama-local",
+        models: [...]
+      }
+    }
+  }
 }
 ```
 
-#### Streaming uitschakelen voor andere providers
-
-Je kunt streaming ook uitschakelen voor elke provider indien nodig:
-
-```json5
-{
-  agents: {
-    defaults: {
-      models: {
-        "openai/gpt-4": {
-          streaming: false,
-        },
-      },
-    },
-  },
-}
-```
+Opmerking: Het OpenAI-compatibele endpoint ondersteunt mogelijk geen streaming + tool calling gelijktijdig. Mogelijk moet je streaming uitschakelen met `params: { streaming: false }` in de modelconfiguratie.
 
 ### Context vensters
 
@@ -257,19 +244,8 @@ ps aux | grep ollama
 ollama serve
 ```
 
-### Corrupte responses of toolnamen in de uitvoer
-
-Als je onleesbare responses ziet met toolnamen (zoals `sessions_send`, `memory_get`) of gefragmenteerde tekst bij het gebruik van Ollama-modellen, komt dit door een upstream SDK-probleem met streamingresponses. **Dit is standaard opgelost** in de nieuwste OpenClaw-versie door streaming voor Ollama-modellen uit te schakelen.
-
-Als je streaming handmatig hebt ingeschakeld en dit probleem ervaart:
-
-1. Verwijder de `streaming: true`-configuratie uit je Ollama-modelvermeldingen, of
-2. Stel `streaming: false` expliciet in voor Ollama-modellen (zie [Streamingconfiguratie](#streamingconfiguratie))
-
 ## Zie ook
 
 - [Model Providers](/concepts/model-providers) - Overzicht van alle providers
 - [Model Selection](/concepts/models) - Hoe je modellen kiest
 - [Configuration](/gateway/configuration) - Volledige configreferentie
-
-

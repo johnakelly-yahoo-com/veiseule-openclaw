@@ -1,4 +1,9 @@
-------
+---
+summary: "Notas de ferramentas do agente de dev (C-3PO)"
+read_when:
+  - Usando os templates do gateway de dev
+  - Atualizando a identidade padrão do agente de dev
+---
 
 # TOOLS.md - Notas de ferramentas do usuário (editável)
 
@@ -17,5 +22,3 @@ Ele não define quais ferramentas existem; o OpenClaw fornece ferramentas integr
 - Texto para fala: especifique a voz, o alto-falante/sala de destino e se deve transmitir.
 
 Adicione qualquer outra coisa que você queira que o assistente saiba sobre sua toolchain local.
-
-

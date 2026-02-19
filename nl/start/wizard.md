@@ -1,4 +1,8 @@
 ---
+summary: "CLI-onboardingwizard: begeleide installatie voor Gateway, werkruimte, kanalen en skills"
+read_when:
+  - Het uitvoeren of configureren van de onboardingwizard
+  - Het instellen van een nieuwe machine
 title: "Onboardingwizard (CLI)"
 sidebarTitle: "Introductie: CLI"
 ---
@@ -102,7 +106,6 @@ RPC API en een volledige lijst van configvelden die de wizard wegschrijft, zie d
 ## Gerelateerde documentatie
 
 - CLI-opdrachtenreferentie: [`openclaw onboard`](/cli/onboard)
+- Onboardingoverzicht: [Onboarding Overview](/start/onboarding-overview)
 - macOS-app onboarding: [Onboarding](/start/onboarding)
 - Agent first-run-ritueel: [Agent Bootstrapping](/start/bootstrapping)
-
-

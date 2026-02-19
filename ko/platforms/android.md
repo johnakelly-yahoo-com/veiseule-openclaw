@@ -1,4 +1,9 @@
 ---
+summary: "Android 앱 (노드): 연결 런북 + Canvas/Chat/Camera"
+read_when:
+  - Android 노드 페어링 또는 재연결 시
+  - Android Gateway(게이트웨이) 디바이스 검색 또는 인증 디버깅 시
+  - 클라이언트 간 채팅 기록 일치 여부 검증 시
 title: "Android 앱"
 ---
 
@@ -118,7 +123,7 @@ Android 노드의 Chat 시트는 gateway 의 **기본 세션 키** (`main`) 를 
 
 에이전트가 디스크에서 편집할 수 있는 실제 HTML/CSS/JS 를 노드에 표시하려면, 노드를 Gateway canvas host 로 지정하십시오.
 
-참고: 노드는 `canvasHost.port` (기본값 `18793`) 에 있는 독립형 canvas host 를 사용합니다.
+참고: 노드는 Gateway HTTP 서버(`gateway.port`와 동일한 포트, 기본값 `18789`)에서 canvas를 로드합니다.
 
 1. gateway 호스트에 `~/.openclaw/workspace/canvas/index.html` 를 생성하십시오.
 
@@ -144,5 +149,3 @@ Canvas 명령 (포그라운드 전용):
 - `camera.clip` (mp4)
 
 매개변수와 CLI 헬퍼는 [Camera 노드](/nodes/camera)를 참조하십시오.
-
-

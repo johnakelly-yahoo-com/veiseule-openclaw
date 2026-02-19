@@ -1,4 +1,9 @@
 ---
+summary: "내구성 있는 상태로 GCP Compute Engine VM (Docker)에서 OpenClaw Gateway를 24/7 실행"
+read_when:
+  - GCP에서 OpenClaw를 24/7 실행하고 싶을 때
+  - 자체 VM에서 프로덕션 등급의 항상 켜져 있는 Gateway를 원할 때
+  - 영속성, 바이너리, 재시작 동작을 완전히 제어하고 싶을 때
 title: "GCP"
 ---
 
@@ -497,5 +502,3 @@ IAM 역할에 대한 자세한 내용은 [https://cloud.google.com/iam/docs/unde
 - 메시징 채널 설정: [Channels](/channels)
 - 로컬 디바이스를 노드로 페어링: [Nodes](/nodes)
 - Gateway 구성: [Gateway configuration](/gateway/configuration)
-
-

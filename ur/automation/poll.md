@@ -1,4 +1,8 @@
 ---
+summary: "Gateway + CLI کے ذریعے پول بھیجنا"
+read_when:
+  - پول سپورٹ شامل یا ترمیم کرتے وقت
+  - CLI یا گیٹ وے سے پول بھیجنے کی خرابیوں کا ازالہ کرتے وقت
 title: "پولز"
 ---
 
@@ -62,5 +66,3 @@ openclaw message poll --channel msteams --target conversation:19:abc@thread.tacv
 
 38. نوٹ: Discord میں "بالکل N منتخب کریں" موڈ موجود نہیں؛ `pollMulti` ملٹی سلیکٹ سے میپ ہوتا ہے۔
 39. Teams پولز Adaptive Cards کے طور پر رینڈر ہوتے ہیں اور ووٹس ریکارڈ کرنے کے لیے گیٹ وے کا آن لائن رہنا ضروری ہے `~/.openclaw/msteams-polls.json` میں۔
-
-

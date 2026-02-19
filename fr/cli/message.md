@@ -1,4 +1,8 @@
 ---
+summary: "Reference CLI pour `openclaw message` (envoi + actions de canal)"
+read_when:
+  - Ajout ou modification des actions CLI de message
+  - Changement du comportement des canaux sortants
 title: "message"
 ---
 
@@ -48,7 +52,7 @@ Recherche par nom :
 
 ## Actions
 
-### Noyau
+### Core
 
 - `send`
   - Canaux : WhatsApp/Telegram/Discord/Google Chat/Slack/Mattermost (plugin)/Signal/iMessage/MS Teams
@@ -64,6 +68,7 @@ Recherche par nom :
   - Requis : `--target`, `--poll-question`, `--poll-option` (répéter)
   - Optionnel : `--poll-multi`
   - Discord uniquement : `--poll-duration-hours`, `--message`
+  - Telegram uniquement : `--poll-duration-seconds` (5-600), `--silent`, `--poll-anonymous` / `--poll-public`, `--thread-id`
 
 - `react`
   - Canaux : Discord/Google Chat/Slack/Telegram/WhatsApp/Signal
@@ -196,6 +201,16 @@ openclaw message poll --channel discord \
   --poll-multi --poll-duration-hours 48
 ```
 
+Créer un sondage Telegram (fermeture automatique dans 2 minutes) :
+
+```
+openclaw message poll --channel telegram \
+  --target @mychat \
+  --poll-question "Lunch?" \
+  --poll-option Pizza --poll-option Sushi \
+  --poll-duration-seconds 120 --silent
+```
+
 Envoyer un message proactif Teams :
 
 ```
@@ -233,5 +248,3 @@ Envoyer des boutons en ligne Telegram :
 openclaw message send --channel telegram --target @mychat --message "Choose:" \
   --buttons '[ [{"text":"Yes","callback_data":"cmd:yes"}], [{"text":"No","callback_data":"cmd:no"}] ]'
 ```
-
-

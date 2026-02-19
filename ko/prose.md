@@ -1,4 +1,9 @@
 ---
+summary: "OpenProse: OpenClaw 에서의 .prose 워크플로, 슬래시 명령, 상태 관리"
+read_when:
+  - .prose 워크플로를 실행하거나 작성하려는 경우
+  - OpenProse 플러그인을 활성화하려는 경우
+  - 상태 저장 방식을 이해해야 하는 경우
 title: "OpenProse"
 ---
 
@@ -127,5 +132,3 @@ OpenProse 프로그램은 OpenClaw 기본 요소로 매핑됩니다:
 `.prose` 파일은 코드처럼 취급하십시오. 실행 전에 검토하십시오. OpenClaw 도구 허용 목록과 승인 게이트를 사용하여 부작용을 제어하십시오.
 
 결정적이며 승인으로 제어되는 워크플로의 경우 [Lobster](/tools/lobster)와 비교해 보십시오.
-
-

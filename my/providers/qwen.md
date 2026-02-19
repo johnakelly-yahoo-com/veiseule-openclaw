@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw တွင် Qwen OAuth (အခမဲ့အဆင့်) ကို အသုံးပြုရန်"
+read_when:
+  - OpenClaw နှင့် Qwen ကို အသုံးပြုလိုပါက
+  - Qwen Coder အတွက် အခမဲ့အဆင့် OAuth ဝင်ရောက်ခွင့်ကို လိုအပ်ပါက
 title: "Qwen"
 ---
 
@@ -38,7 +42,7 @@ openclaw models set qwen-portal/coder-model
 
 ## Qwen Code CLI အကောင့်ဝင်ခြင်းကို ပြန်လည်အသုံးပြုပါ
 
-သင်သည် Qwen Code CLI ဖြင့် အကောင့်ဝင်ပြီးသားဖြစ်ပါက OpenClaw သည် အတည်ပြုချက်အချက်အလက်များကို စင့်ခ်လုပ်ပါမည်
+If you already logged in with the Qwen Code CLI, OpenClaw will sync credentials
 from `~/.qwen/oauth_creds.json` when it loads the auth store. You still need a
 `models.providers.qwen-portal` entry (use the login command above to create one).
 
@@ -48,5 +52,3 @@ from `~/.qwen/oauth_creds.json` when it loads the auth store. You still need a
 - ပုံမှန် base URL: `https://portal.qwen.ai/v1` (Qwen မှ မတူညီသော endpoint ကို ပံ့ပိုးပါက
   `models.providers.qwen-portal.baseUrl` ဖြင့် override လုပ်နိုင်ပါသည်)။
 - Provider အလုံးစုံဆိုင်ရာ စည်းမျဉ်းများအတွက် [Model providers](/concepts/model-providers) ကို ကြည့်ရှုပါ။
-
-

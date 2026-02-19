@@ -1,4 +1,8 @@
 ---
+summary: "Clawnet 重構：統一網路協定、角色、驗證、核准與身分識別"
+read_when:
+  - Planning a unified network protocol for nodes + operator clients
+  - 重新設計跨裝置的核准流程、配對、TLS 與線上狀態
 title: "Clawnet 重構"
 ---
 
@@ -21,7 +25,7 @@ title: "Clawnet 重構"
 ## 目標（來自討論）
 
 - 所有用戶端使用單一協定（mac app、CLI、iOS、Android、headless node）。
-- 每個網路參與者皆完成身分驗證並配對。
+- Every network participant authenticated + paired.
 - 角色清楚：nodes 與 operators。
 - 中央化的核准，導向使用者所在的位置。
 - 所有遠端流量皆使用 TLS 加密 + 可選釘選。
@@ -74,7 +78,7 @@ title: "Clawnet 重構"
 
 - macOS app 的 node 模式連線至 Gateway bridge（`MacNodeBridgeSession`）。
 - iOS／Android app 連線至 Gateway bridge。
-- 配對 + 每個節點的權杖儲存在 gateway 上。
+- Pairing + per‑node token stored on gateway.
 
 ## 目前的核准流程（執行）
 
@@ -106,7 +110,7 @@ title: "Clawnet 重構"
 
 # 提議的新狀態（Clawnet）
 
-## 6. 一種協定，兩種角色
+## 一種協定，兩種角色
 
 單一 WS 通訊協定，具備角色 + 範圍。
 
@@ -198,7 +202,7 @@ title: "Clawnet 重構"
 ## 套用至 WS
 
 - WS 伺服器以相同的憑證／金鑰 + 指紋支援 TLS。
-- 3. WS 用戶端可釘選指紋（選用）。
+- WS 用戶端可釘選指紋（選用）。
 - 探索為所有端點宣告 TLS + 指紋。
   - 探索僅作為定位提示；絕非信任錨點。
 
@@ -230,7 +234,7 @@ title: "Clawnet 重構"
 
 ### 核准語義（強化）
 
-- 9. 廣播給所有操作員；只有作用中的 UI 會顯示模態視窗（其他顯示提示）。
+- 廣播給所有操作員；只有作用中的 UI 會顯示模態視窗（其他顯示提示）。
 - 30. 以第一次結果為準；閘道會拒絕後續的解決，並標示為已處理。
 - 31. 預設逾時：N 秒後拒絕（例如 60 秒），並記錄原因。
 - 需具 `operator.approvals` scope 才能解決。
@@ -339,7 +343,7 @@ title: "Clawnet 重構"
 
 - 47. 在閘道邊界強制角色/允許清單。
 - 無 operator scope 的用戶端不得取得「完整」API。
-- 48. 所有連線都必須配對。
+- 所有連線都必須配對。
 - TLS + 釘選降低行動端的 MITM 風險。
 - SSH 靜默核准僅為便利；仍需記錄 + 可撤銷。
 - 探索永遠不是信任錨點。
@@ -411,5 +415,3 @@ WS 控制平面適合小型訊息，但節點也會處理：
 - 痛點：核准 + 重複 + 兩套堆疊。
 - 提案：單一 WS 協定，具明確角色 + 範圍，統一配對 + TLS 釘選，Gateway 託管核准，穩定裝置 ID + 可愛 slug。
 - 成果：更簡單的 UX、更強的安全性、更少重複、更佳的行動端路由。
-
-

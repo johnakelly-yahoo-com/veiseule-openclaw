@@ -1,10 +1,15 @@
 ---
+summary: "Chuyển văn bản thành giọng nói (TTS) cho các phản hồi gửi đi"
+read_when:
+  - Bật chuyển văn bản thành giọng nói cho phản hồi
+  - Cấu hình nhà cung cấp TTS hoặc giới hạn
+  - Sử dụng lệnh /tts
 title: "Chuyển văn bản thành giọng nói"
 ---
 
 # Chuyển văn bản thành giọng nói (TTS)
 
-OpenClaw có thể chuyển đổi các phản hồi gửi đi thành âm thanh bằng ElevenLabs, OpenAI hoặc Edge TTS.
+OpenClaw can convert outbound replies into audio using ElevenLabs, OpenAI, or Edge TTS.
 It works anywhere OpenClaw can send audio; Telegram gets a round voice-note bubble.
 
 ## Dịch vụ được hỗ trợ
@@ -15,7 +20,7 @@ It works anywhere OpenClaw can send audio; Telegram gets a round voice-note bubb
 
 ### Ghi chú về Edge TTS
 
-Edge TTS sử dụng dịch vụ TTS thần kinh trực tuyến của Microsoft Edge thông qua `node-edge-tts`
+Edge TTS uses Microsoft Edge's online neural TTS service via the `node-edge-tts`
 library. It's a hosted service (not local), uses Microsoft’s endpoints, and does
 not require an API key. `node-edge-tts` exposes speech configuration options and
 output formats, but not all options are supported by the Edge service. citeturn2search0
@@ -380,5 +385,3 @@ Các phương thức Gateway:
 - `tts.convert`
 - `tts.setProvider`
 - `tts.providers`
-
-

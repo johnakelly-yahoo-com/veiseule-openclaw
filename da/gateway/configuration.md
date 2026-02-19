@@ -1,21 +1,26 @@
 ---
+summary: "Alle konfigurationsmuligheder for ~/.openclaw/openclaw.json med eksempler"
+read_when:
+  - Tilføjelse eller ændring af konfigurationsfelter
+  - Leder du efter almindelige konfigurationsmønstre
+  - Navigerer til specifikke konfigurationssektioner
 title: "Konfiguration"
 ---
 
-# Konfiguration
+# Konfiguration 🔧
 
-OpenClaw læser en valgfri <Tooltip tip="JSON5 understøtter kommentarer og afsluttende kommaer">**JSON5**</Tooltip>-konfiguration fra `~/.openclaw/openclaw.json`.
+OpenClaw læser en valgfri **JSON5**-konfiguration fra `~/.openclaw/openclaw.json` (kommentarer + afsluttende kommaer er tilladt).
 
-Hvis filen mangler, bruger OpenClaw sikre standardindstillinger. Almindelige grunde til at tilføje en config:
+Hvis filen mangler, bruger OpenClaw sikre standardindstillinger. Almindelige grunde til at tilføje en konfiguration:
 
-- Forbinde kanaler og styre, hvem der kan sende beskeder til botten
-- Sætte modeller, værktøjer, sandboxing eller automatisering (cron, hooks)
-- Justere sessioner, medier, netværk eller UI
+- begrænse hvem der kan trigge botten (`channels.whatsapp.allowFrom`, `channels.telegram.allowFrom`, osv.)
+- styre gruppetilladelseslister + mention-adfærd (`channels.whatsapp.groups`, `channels.telegram.groups`, `channels.discord.guilds`, `agents.list[].groupChat`)
+- tilpasse beskedpræfikser (`messages`)
 
-Se [fuld reference](/gateway/configuration-reference) for alle tilgængelige felter.
+Se den [fulde reference](/gateway/configuration-reference) for alle tilgængelige felter.
 
 <Tip>
-**Ny i konfiguration?** Start med `openclaw onboard` for interaktiv opsætning, eller se guiden [Configuration Examples](/gateway/configuration-examples) for komplette copy-paste eksempler.
+**Ny i konfiguration?** Start med `openclaw onboard` for interaktiv opsætning, eller se guiden [Configuration Examples](/gateway/configuration-examples) for komplette copy-paste-konfigurationer.
 </Tip>
 
 ## Minimal konfiguration
@@ -31,7 +36,7 @@ Se [fuld reference](/gateway/configuration-reference) for alle tilgængelige fel
 ## Redigering af konfiguration
 
 <Tabs>
-  <Tab title="Interaktiv guide">
+  <Tab title="Interactive wizard">
     ```bash
     openclaw onboard       # fuld opsætningsguide
     openclaw configure     # konfigurationsguide
@@ -47,35 +52,37 @@ Se [fuld reference](/gateway/configuration-reference) for alle tilgængelige fel
   
 </Tab>
   <Tab title="Control UI">
-    Åbn [http://127.0.0.1:18789](http://127.0.0.1:18789) og brug fanen **Config**.  
-    Control UI genererer en formular fra konfigurationsskemaet med en **Raw JSON**-editor som nødudgang.
+    Åbn [http://127.0.0.1:18789](http://127.0.0.1:18789) og brug fanen **Config**.
+    Control UI gengiver en formular ud fra konfigurationsskemaet med en **Raw JSON**-editor som nødudgang.
   
 </Tab>
-  <Tab title="Direkte redigering">
+  <Tab title="Direct edit">
     Redigér `~/.openclaw/openclaw.json` direkte. Gateway overvåger filen og anvender ændringer automatisk (se [hot reload](#config-hot-reload)).
   
 </Tab>
 </Tabs>
 
-## Streng validering
+## Skema + UI-hints
 
 <Warning>
-OpenClaw accepterer kun konfigurationer, der fuldt ud matcher skemaet. Ukendte nøgler, forkerte typer eller ugyldige værdier får Gateway til at **nægte at starte**. Den eneste undtagelse på rodeniveau er `$schema` (string), så editorer kan tilknytte JSON Schema metadata.
+OpenClaw accepterer kun konfigurationer, der fuldt ud matcher ordningen. Ukendte nøgler, ugyldige typer eller ugyldige værdier får Gateway til at **nægte at starte**. Den eneste undtagelse på rodniveau er `$schema` (string), så editorer kan tilknytte JSON Schema-metadata.
 </Warning>
 
-Når validering fejler:
+Kanal-plugins og udvidelser kan registrere skema + UI-hints for deres konfiguration, så kanalindstillinger
+forbliver skemadrevne på tværs af apps uden hardcodede formularer.
 
 - Gateway starter ikke
 - Kun diagnostiske kommandoer virker (`openclaw doctor`, `openclaw logs`, `openclaw health`, `openclaw status`)
 - Kør `openclaw doctor` for at se de præcise problemer
 - Kør `openclaw doctor --fix` (eller `--yes`) for at anvende rettelser
 
-## Almindelige opgaver
+## Anvend + genstart (RPC)
 
 <AccordionGroup>
-  <Accordion title="Opsæt en kanal (WhatsApp, Telegram, Discord, osv.)">
-    Hver kanal har sin egen sektion under `channels.<provider>`. Se den dedikerede kanalside for opsætning:
+  <Accordion title="Set up a channel (WhatsApp, Telegram, Discord, etc.)">
+    Hver kanal har sin egen konfigurationssektion under `channels.<provider>`. Se den dedikerede kanalside for opsætningstrin:
 
+    ````
     - [WhatsApp](/channels/whatsapp) — `channels.whatsapp`
     - [Telegram](/channels/telegram) — `channels.telegram`
     - [Discord](/channels/discord) — `channels.discord`
@@ -85,9 +92,9 @@ Når validering fejler:
     - [Google Chat](/channels/googlechat) — `channels.googlechat`
     - [Mattermost](/channels/mattermost) — `channels.mattermost`
     - [MS Teams](/channels/msteams) — `channels.msteams`
-
-    Alle kanaler deler samme DM-policy-mønster:
-
+    
+    Alle kanaler deler det samme DM-politikmønster:
+    
     ```json5
     {
       channels: {
@@ -100,12 +107,15 @@ Når validering fejler:
       },
     }
     ```
+    ````
+
   
 </Accordion>
 
-  <Accordion title="Vælg og konfigurer modeller">
-    Sæt primær model og eventuelle fallbacks:
+  <Accordion title="Choose and configure models">
+    Angiv den primære model og valgfrie fallback-modeller:
 
+    ````
     ```json5
     {
       agents: {
@@ -122,33 +132,37 @@ Når validering fejler:
       },
     }
     ```
-
+    
     - `agents.defaults.models` definerer modelkataloget og fungerer som allowlist for `/model`.
     - Modelreferencer bruger formatet `provider/model` (f.eks. `anthropic/claude-opus-4-6`).
-    - Se [Models CLI](/concepts/models) for at skifte model i chat og [Model Failover](/concepts/model-failover) for fallback-adfærd.
-    - For brugerdefinerede/self-hosted udbydere, se [Custom providers](/gateway/configuration-reference#custom-providers-and-base-urls).
+    - Se [Models CLI](/concepts/models) for at skifte model i chat og [Model Failover](/concepts/model-failover) for auth-rotation og fallback-adfærd.
+    - For brugerdefinerede/selvhostede providere, se [Custom providers](/gateway/configuration-reference#custom-providers-and-base-urls) i referencen.
+    ````
 
   
 </Accordion>
 
-  <Accordion title="Styr hvem der kan skrive til botten">
+  <Accordion title="Control who can message the bot">
     DM-adgang styres pr. kanal via `dmPolicy`:
 
+    ```
     - `"pairing"` (standard): ukendte afsendere får en engangskode til godkendelse
-    - `"allowlist"`: kun afsendere i `allowFrom` (eller parret allow-store)
+    - `"allowlist"`: kun afsendere i `allowFrom` (eller den parrede allow-liste)
     - `"open"`: tillad alle indgående DMs (kræver `allowFrom: ["*"]`)
-    - `"disabled"`: ignorér alle DMs
-
-    For grupper, brug `groupPolicy` + `groupAllowFrom` eller kanal-specifikke allowlists.
-
-    Se [fuld reference](/gateway/configuration-reference#dm-and-group-access) for detaljer.
+    - `"disabled"`: ignorer alle DMs
+    
+    For grupper bruges `groupPolicy` + `groupAllowFrom` eller kanalspecifikke allowlister.
+    
+    Se den [fulde reference](/gateway/configuration-reference#dm-and-group-access) for detaljer pr. kanal.
+    ```
 
   
 </Accordion>
 
-  <Accordion title="Opsæt mention-gating i gruppechat">
-    Gruppebeskeder kræver som standard **mention**. Konfigurer mønstre pr. agent:
+  <Accordion title="Set up group chat mention gating">
+    Gruppemeddelelser kræver som standard **omtale**. Konfigurer mønstre pr. agent:
 
+    ````
     ```json5
     {
       agents: {
@@ -168,21 +182,23 @@ Når validering fejler:
       },
     }
     ```
-
-    - **Metadata-mentions**: native @-mentions (WhatsApp tap-to-mention, Telegram @bot osv.)
+    
+    - **Metadata-omtaler**: native @-omtaler (WhatsApp tryk-for-at-omtale, Telegram @bot osv.)
     - **Tekstmønstre**: regex-mønstre i `mentionPatterns`
-    - Se [fuld reference](/gateway/configuration-reference#group-chat-mention-gating) for overrides pr. kanal og self-chat-tilstand.
+    - Se [fuld reference](/gateway/configuration-reference#group-chat-mention-gating) for kanal-specifikke overrides og self-chat-tilstand.
+    ````
 
   
 </Accordion>
 
-  <Accordion title="Konfigurer sessioner og nulstillinger">
-    Sessioner styrer samtalekontinuitet og isolation:
+  <Accordion title="Configure sessions and resets">
+    Sessioner styrer samtalekontinuitet og isolering:
 
+    ````
     ```json5
     {
       session: {
-        dmScope: "per-channel-peer",  // anbefalet til multi-bruger
+        dmScope: "per-channel-peer",  // anbefalet til flerbruger
         reset: {
           mode: "daily",
           atHour: 4,
@@ -191,38 +207,26 @@ Når validering fejler:
       },
     }
     ```
-
-    - `dmScope`: `main` | `per-peer` | `per-channel-peer` | `per-account-channel-peer`
-    - Se [Session Management](/concepts/session) for scoping og identitetslinks.
+    
+    - `dmScope`: `main` (delt) | `per-peer` | `per-channel-peer` | `per-account-channel-peer`
+    - Se [Session Management](/concepts/session) for scope, identitetslinks og afsendelsespolitik.
     - Se [fuld reference](/gateway/configuration-reference#session) for alle felter.
+    ````
 
   
 </Accordion>
 
-  <Accordion title="Aktivér sandboxing">
+  <Accordion title="Enable sandboxing">
     Kør agent-sessioner i isolerede Docker-containere:
 
-    ```json5
-    {
-      agents: {
-        defaults: {
-          sandbox: {
-            mode: "non-main",  // off | non-main | all
-            scope: "agent",    // session | agent | shared
-          },
-        },
-      },
-    }
     ```
-
-    Byg image først: `scripts/sandbox-setup.sh`
-
-    Se [Sandboxing](/gateway/sandboxing) for fuld guide og [fuld reference](/gateway/configuration-reference#sandbox) for alle muligheder.
+    scripts/sandbox-setup.sh
+    ```
 
   
 </Accordion>
 
-  <Accordion title="Opsæt heartbeat (periodiske check-ins)">
+  <Accordion title="Set up heartbeat (periodic check-ins)">
     ```json5
     {
       agents: {
@@ -236,14 +240,31 @@ Når validering fejler:
     }
     ```
 
-    - `every`: varighed (`30m`, `2h`). Sæt `0m` for at deaktivere.
-    - `target`: `last` | `whatsapp` | `telegram` | `discord` | `none`
-    - Se [Heartbeat](/gateway/heartbeat).
+    ```
+    {
+      agents: {
+        defaults: { workspace: "~/.openclaw/workspace" },
+        list: [
+          {
+            id: "main",
+            groupChat: { mentionPatterns: ["@openclaw", "reisponde"] },
+          },
+        ],
+      },
+      channels: {
+        whatsapp: {
+          // Allowlist is DMs only; including your own number enables self-chat mode.
+          allowFrom: ["+15555550123"],
+          groups: { "*": { requireMention: true } },
+        },
+      },
+    }
+    ```
 
   
 </Accordion>
 
-  <Accordion title="Konfigurer cron-jobs">
+  <Accordion title="Configure cron jobs">
     ```json5
     {
       cron: {
@@ -254,100 +275,68 @@ Når validering fejler:
     }
     ```
 
-    Se [Cron jobs](/automation/cron-jobs).
+    ```
+    Se [Cron job](/automation/cron-jobs) for funktionen oversigt og CLI eksempler.
+    ```
 
   
 </Accordion>
 
-  <Accordion title="Opsæt webhooks (hooks)">
+  <Accordion title="Set up webhooks (hooks)">
     Aktivér HTTP webhook-endpoints på Gateway:
 
-    ```json5
+    ```
+    // ~/.openclaw/agents.json5
     {
-      hooks: {
-        enabled: true,
-        token: "shared-secret",
-        path: "/hooks",
-        defaultSessionKey: "hook:ingress",
-        allowRequestSessionKey: false,
-        allowedSessionKeyPrefixes: ["hook:"],
-        mappings: [
-          {
-            match: { path: "gmail" },
-            action: "agent",
-            agentId: "main",
-            deliver: true,
-          },
-        ],
-      },
+      defaults: { sandbox: { mode: "all", scope: "session" } },
+      list: [{ id: "main", workspace: "~/.openclaw/workspace" }],
     }
     ```
-
-    Se [fuld reference](/gateway/configuration-reference#hooks).
 
   
 </Accordion>
 
-  <Accordion title="Konfigurer multi-agent routing">
+  <Accordion title="Configure multi-agent routing">
     Kør flere isolerede agenter med separate workspaces og sessioner:
 
-    ```json5
+    ```
+    // Sibling keys override included values
     {
-      agents: {
-        list: [
-          { id: "home", default: true, workspace: "~/.openclaw/workspace-home" },
-          { id: "work", workspace: "~/.openclaw/workspace-work" },
-        ],
-      },
-      bindings: [
-        { agentId: "home", match: { channel: "whatsapp", accountId: "personal" } },
-        { agentId: "work", match: { channel: "whatsapp", accountId: "biz" } },
-      ],
+      $include: "./base.json5", // { a: 1, b: 2 }
+      b: 99, // Result: { a: 1, b: 99 }
     }
     ```
-
-    Se [Multi-Agent](/concepts/multi-agent) og [fuld reference](/gateway/configuration-reference#multi-agent-routing).
 
   
 </Accordion>
 
-  <Accordion title="Opdel config i flere filer ($include)">
-    Brug `$include` til at organisere store configs:
+  <Accordion title="Split config into multiple files ($include)">
+    Brug `$include` til at organisere store konfigurationer:
 
-    ```json5
-    // ~/.openclaw/openclaw.json
+    ```
+    // clients/mueller.json5
     {
-      gateway: { port: 18789 },
-      agents: { $include: "./agents.json5" },
-      broadcast: {
-        $include: ["./clients/a.json5", "./clients/b.json5"],
-      },
+      agents: { $include: "./mueller/agents.json5" },
+      broadcast: { $include: "./mueller/broadcast.json5" },
     }
     ```
-
-    - **En fil**: erstatter objektet
-    - **Array af filer**: deep-merge i rækkefølge (senere vinder)
-    - **Søskendenøgler**: merges efter includes (overskriver)
-    - **Nested includes**: op til 10 niveauer
-    - **Relative stier**: opløses relativt til inkluderende fil
-    - **Fejlhåndtering**: klare fejl ved manglende filer, parse-fejl og cirkulære includes
 
   
 </Accordion>
 </AccordionGroup>
 
-## Config hot reload
+## Hot reload af konfiguration
 
 Gateway overvåger `~/.openclaw/openclaw.json` og anvender ændringer automatisk — ingen manuel genstart nødvendig for de fleste indstillinger.
 
-### Reload modes
+### Fejlhåndtering
 
-| Mode                   | Adfærd                                                                 |
-| ---------------------- | ---------------------------------------------------------------------- |
-| **`hybrid`** (standard) | Hot-applier sikre ændringer straks. Genstarter automatisk ved kritiske. |
-| **`hot`**              | Hot-applier kun sikre ændringer. Logger advarsel hvis genstart kræves. |
-| **`restart`**          | Genstarter Gateway ved enhver config-ændring.                          |
-| **`off`**              | Deaktiverer overvågning. Ændringer træder i kraft ved manuel genstart. |
+| Tilstand                                   | Adfærd                                                                                                                                           |
+| ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **`hybrid`** (standard) | Anvender sikre ændringer med det samme. Genstarter automatisk ved kritiske ændringer.                            |
+| **`hot`**                                  | Anvender kun sikre ændringer med det samme. Logger en advarsel, når en genstart er nødvendig — du håndterer den. |
+| **`restart`**                              | Genstarter Gateway ved enhver konfigurationsændring, sikker eller ej.                                                            |
+| **`off`**                                  | Deaktiverer filovervågning. Ændringer træder i kraft ved næste manuelle genstart.                                |
 
 ```json5
 {
@@ -357,15 +346,146 @@ Gateway overvåger `~/.openclaw/openclaw.json` og anvender ændringer automatisk
 }
 ```
 
+### Hvad anvendes med det samme, og hvad kræver en genstart
+
+De fleste felter anvendes med det samme uden nedetid. I `hybrid`-tilstand håndteres ændringer, der kræver genstart, automatisk.
+
+| Kategori                               | Felter                                                                                   | Genstart nødvendig? |
+| -------------------------------------- | ---------------------------------------------------------------------------------------- | ------------------- |
+| Kanaler                                | `channels.*`, `web` (WhatsApp) — alle indbyggede og udvidelseskanaler | Nej                 |
+| Agent og modeller                      | `agent`, `agents`, `models`, `routing`                                                   | Nej                 |
+| Automatisering                         | `hooks`, `cron`, `agent.heartbeat`                                                       | Nej                 |
+| Sessioner og beskeder                  | `session`, `messages`                                                                    | Nej                 |
+| Værktøjer & medier | `tools`, `browser`, `skills`, `audio`, `talk`                                            | Nej                 |
+| UI & diverse       | `ui`, `logging`, `identity`, `bindings`                                                  | Nej                 |
+| Gateway-server                         | `gateway.*` (port, bind, auth, tailscale, TLS, HTTP)                  | **Ja**              |
+| Infrastruktur                          | `discovery`, `canvasHost`, `plugins`                                                     | **Ja**              |
+
 <Note>
-`gateway.reload` og `gateway.remote` er undtagelser — ændringer her udløser **ikke** genstart.
+`gateway.reload` og `gateway.remote` er undtagelser — ændringer af dem udløser **ikke** en genstart.
 </Note>
+
+## Miljøvariabler + `.env`
+
+<AccordionGroup>
+  <Accordion title="config.apply (full replace)">
+    Validerer + skriver hele konfigurationen og genstarter Gateway i ét trin.
+
+
+    ````
+    <Warning>
+    `config.apply` erstatter **hele konfigurationen**. Brug `config.patch` til delvise opdateringer eller `openclaw config set` til enkelte nøgler.
+    
+</Warning>
+    
+    Params:
+    
+    - `raw` (string) — JSON5-payload for hele konfigurationen
+    - `baseHash` (valgfri) — config-hash fra `config.get` (påkrævet når konfigurationen findes)
+    - `sessionKey` (valgfri) — session key til post-genstarts wake-up ping
+    - `note` (valgfri) — note til genstarts-sentinel
+    - `restartDelayMs` (valgfri) — forsinkelse før genstart (standard 2000)
+    
+    ```bash
+    openclaw gateway call config.get --params '{}'  # hent payload.hash
+    openclaw gateway call config.apply --params '{
+      "raw": "{ agents: { defaults: { workspace: \"~/.openclaw/workspace\" } } }",
+      "baseHash": "<hash>",
+      "sessionKey": "agent:main:whatsapp:dm:+15555550123"
+    }'
+    ```
+    ````
+
+  
+</Accordion>
+
+  <Accordion title="config.patch (partial update)">
+    Fletter en delvis opdatering ind i den eksisterende konfiguration (JSON merge patch-semantik):
+
+
+    ````
+    - Objekter flettes rekursivt
+    - `null` sletter en nøgle
+    - Arrays erstattes
+    
+    Params:
+    
+    - `raw` (string) — JSON5 med kun de nøgler, der skal ændres
+    - `baseHash` (påkrævet) — config-hash fra `config.get`
+    - `sessionKey`, `note`, `restartDelayMs` — samme som `config.apply`
+    
+    ```bash
+    openclaw gateway call config.patch --params '{
+      "raw": "{ channels: { telegram: { groups: { \"*\": { requireMention: false } } } } }",
+      "baseHash": "<hash>"
+    }'
+    ```
+    ````
+
+  
+</Accordion>
+</AccordionGroup>
+
+## Miljøvariabler
+
+OpenClaw læser miljøvariabler fra parent-processen samt:
+
+- `.env` fra den aktuelle arbejdsmappe (hvis til stede)
+- `~/.openclaw/.env` (global fallback)
+
+Ingen af filerne overskriver eksisterende miljøvariabler. Du kan også angive inline-miljøvariabler i konfigurationen:
+
+```json5
+{
+  env: {
+    OPENROUTER_API_KEY: "sk-or-...",
+    vars: { GROQ_API_KEY: "gsk-..." },
+  },
+}
+```
+
+<Accordion title="Shell env import (optional)">
+  Hvis aktiveret og de forventede nøgler ikke er angivet, kører OpenClaw din login-shell og importerer kun de manglende nøgler:
+
+
+```json5
+{
+  env: {
+    shellEnv: { enabled: true, timeoutMs: 15000 },
+  },
+}
+```
+
+Miljøvariabel-ækvivalent: `OPENCLAW_LOAD_SHELL_ENV=1` 
+</Accordion>
+
+<Accordion title="Env var substitution in config values">
+  Referér til miljøvariabler i enhver strengværdi i konfigurationen med `${VAR_NAME}`:
+
+
+```json5
+{
+  gateway: { auth: { token: "${OPENCLAW_GATEWAY_TOKEN}" } },
+  models: { providers: { custom: { apiKey: "${CUSTOM_API_KEY}" } } },
+}
+```
+
+Regler:
+
+- Kun navne med store bogstaver matches: `[A-Z_][A-Z0-9_]*`
+- Manglende/tomme variabler giver en fejl ved indlæsning
+- Escap med `$${VAR}` for bogstaveligt output
+- Virker også i `$include`-filer
+- Inline-substitution: `"${BASE}/v1"` → `"https://api.example.com/v1"`
+
+</Accordion>
+
+Se [Environment](/help/environment) for fuld præcedens og kilder.
 
 ## Fuld reference
 
-For komplet felt-for-felt reference, se **[Configuration Reference](/gateway/configuration-reference)**.
+For den komplette felt-for-felt-reference, se **[Configuration Reference](/gateway/configuration-reference)**.
 
 ---
 
-_Relateret: [Configuration Examples](/gateway/configuration-examples) · [Configuration Reference](/gateway/configuration-reference) · [Doctor](/gateway/doctor)_
-
+Legacy OAuth-importer:

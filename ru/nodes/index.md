@@ -1,4 +1,9 @@
 ---
+summary: "Узлы: сопряжение, возможности, разрешения и помощники CLI для canvas/камеры/экрана/системы"
+read_when:
+  - Сопряжение узлов iOS/Android с Gateway (шлюзом)
+  - Использование canvas/камеры узла для контекста агента
+  - Добавление новых команд узла или помощников CLI
 title: "Узлы"
 ---
 
@@ -272,7 +277,7 @@ openclaw nodes notify --node <idOrNameOrIp> --title "Ping" --body "Gateway ready
 - `system.notify` учитывает состояние разрешений на уведомления в приложении macOS.
 - `system.run` поддерживает `--cwd`, `--env KEY=VAL`, `--command-timeout` и `--needs-screen-recording`.
 - `system.notify` поддерживает `--priority <passive|active|timeSensitive>` и `--delivery <system|overlay|auto>`.
-- Узлы macOS игнорируют переопределения `PATH`; безголовые хосты узлов принимают `PATH` только когда он предваряет PATH хоста узла.
+- Узлы macOS игнорируют переопределения `PATH`; безголовые хосты узлов принимают `PATH` только когда он предваряет PATH хоста узла. Если вам нужны дополнительные записи PATH, настройте окружение службы node host (или установите инструменты в стандартные каталоги) вместо передачи `PATH` через `--env`.
 - В режиме узла macOS `system.run` ограничен подтверждениями exec в приложении macOS (Настройки → Exec approvals).
   Ask/allowlist/full ведут себя так же, как на безголовом хосте узла; отклонённые запросы возвращают `SYSTEM_RUN_DENIED`.
 - На безголовом хосте узла `system.run` ограничен подтверждениями exec (`~/.openclaw/exec-approvals.json`).
@@ -333,5 +338,3 @@ openclaw node run --host <gateway-host> --port 18789
 
 - Приложение macOS в строке меню подключается к WS‑серверу Gateway как узел (так что `openclaw nodes …` работает с этим Mac).
 - В удалённом режиме приложение открывает SSH‑туннель для порта шлюза и подключается к `localhost`.
-
-

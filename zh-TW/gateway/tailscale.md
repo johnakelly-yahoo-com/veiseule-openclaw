@@ -1,4 +1,8 @@
 ---
+summary: "為 Gateway 儀表板整合 Tailscale Serve／Funnel"
+read_when:
+  - 在 localhost 之外公開 Gateway 控制 UI
+  - 自動化 tailnet 或公開儀表板存取
 title: "Tailscale"
 ---
 
@@ -11,11 +15,11 @@ Tailscale provides HTTPS, routing, and (for Serve) identity headers.
 
 ## 模式
 
-- `serve`：僅限 Tailnet 的 Serve，透過 `tailscale serve`。Gateway 仍維持在 `127.0.0.1`。
-- `funnel`：透過 `tailscale funnel` 提供公開 HTTPS。OpenClaw 需要共用密碼。 OpenClaw requires a shared password.
+- `serve`: Tailnet-only Serve via `tailscale serve`. The gateway stays on `127.0.0.1`.
+- `funnel`：透過 `tailscale funnel` 提供公開 HTTPS。OpenClaw 需要共用密碼。 `funnel`：透過 `tailscale funnel` 提供公開 HTTPS。OpenClaw 需要共用密碼。 OpenClaw requires a shared password.
 - `off`：預設（不進行 Tailscale 自動化）。
 
-## 驗證
+## Auth
 
 設定 `gateway.auth.mode` 以控制交握：
 
@@ -31,6 +35,8 @@ OpenClaw 只會在請求從 loopback 進入，且帶有 Tailscale 的 `x-forward
 標頭時，才將其視為 Serve。
 若要要求明確的認證，請設定 `gateway.auth.allowTailscale: false`，或
 強制 `gateway.auth.mode: "password"`。 OpenClaw verifies
+the identity by resolving the `x-forwarded-for` address via the local Tailscale
+daemon (`tailscale whois`) and matching it to the header before accepting it. OpenClaw verifies
 the identity by resolving the `x-forwarded-for` address via the local Tailscale
 daemon (`tailscale whois`) and matching it to the header before accepting it.
 OpenClaw only treats a request as Serve when it arrives from loopback with
@@ -103,8 +109,8 @@ openclaw gateway --tailscale funnel --auth password
   或 `tailscale funnel` 的設定，請設定 `gateway.tailscale.resetOnExit`。
 - `gateway.bind: "tailnet"` 為直接綁定 Tailnet（無 HTTPS、無 Serve／Funnel）。
 - `gateway.bind: "auto"` 偏好 loopback；若需要僅限 Tailnet，請使用 `tailnet`。
-- Serve／Funnel 只會公開 **Gateway 控制 UI + WS**。節點會透過相同的 Gateway WS 端點連線，因此 Serve 也可用於節點存取。 Nodes connect over
-相同的 Gateway WS 端點，因此 Serve 可用於節點存取。
+- Serve／Funnel 只會公開 **Gateway 控制 UI + WS**。節點會透過相同的 Gateway WS 端點連線，因此 Serve 也可用於節點存取。 Serve／Funnel 只會公開 **Gateway 控制 UI + WS**。節點會透過相同的 Gateway WS 端點連線，因此 Serve 也可用於節點存取。 Nodes connect over
+  相同的 Gateway WS 端點，因此 Serve 可用於節點存取。
 
 ## 瀏覽器控制（遠端 Gateway + 本機瀏覽器）
 
@@ -112,10 +118,11 @@ openclaw gateway --tailscale funnel --auth password
 請在瀏覽器機器上執行 **node host**，並讓兩者位於同一個 tailnet。
 Gateway 會將瀏覽器動作代理到節點；不需要額外的控制伺服器或 Serve URL。
 The Gateway will proxy browser actions to the node; no separate control server or Serve URL needed.
+The Gateway will proxy browser actions to the node; no separate control server or Serve URL needed.
 
 避免使用 Funnel 進行瀏覽器控制；請將節點配對視為操作員存取。
 
-## Tailscale 先決條件與限制
+## Tailscale prerequisites + limits
 
 - Serve 需要為你的 tailnet 啟用 HTTPS；若缺少，CLI 會提示。
 - Serve 會注入 Tailscale 身分識別標頭；Funnel 不會。
@@ -129,5 +136,3 @@ The Gateway will proxy browser actions to the node; no separate control server o
 - `tailscale serve` 指令：[https://tailscale.com/kb/1242/tailscale-serve](https://tailscale.com/kb/1242/tailscale-serve)
 - Tailscale Funnel 概覽：[https://tailscale.com/kb/1223/tailscale-funnel](https://tailscale.com/kb/1223/tailscale-funnel)
 - `tailscale funnel` 指令：[https://tailscale.com/kb/1311/tailscale-funnel](https://tailscale.com/kb/1311/tailscale-funnel)
-
-

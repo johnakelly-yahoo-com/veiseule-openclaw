@@ -1,4 +1,7 @@
 ---
+summary: "Status de suporte do app Google Chat, capacidades e configuração"
+read_when:
+  - Trabalhando em recursos do canal Google Chat
 title: "Google Chat"
 ---
 
@@ -151,6 +154,7 @@ Configure as regras de ingresso do seu túnel para rotear apenas o caminho do we
 Use estes identificadores para entrega e listas de permissões:
 
 - Mensagens diretas: `users/<userId>` ou `users/<email>` (endereços de e-mail são aceitos).
+- Obsoleto: `users/<email>` é tratado como um ID de usuário, não como uma lista de permissões por e-mail.
 - Espaços: `spaces/<spaceId>`.
 
 ## Destaques de configuração
@@ -247,5 +251,3 @@ Documentos relacionados:
 - [Configuração do Gateway](/gateway/configuration)
 - [Segurança](/gateway/security)
 - [Reações](/tools/reactions)
-
-

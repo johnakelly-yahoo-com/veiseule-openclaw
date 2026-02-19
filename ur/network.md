@@ -1,4 +1,9 @@
 ---
+summary: "نیٹ ورک ہب: گیٹ وے سرفیسز، جوڑی بنانا، ڈسکوری، اور سکیورٹی"
+read_when:
+  - آپ کو نیٹ ورک آرکیٹیکچر اور سکیورٹی کا جائزہ درکار ہو
+  - آپ local بمقابلہ tailnet رسائی یا pairing کی خرابیوں کا ازالہ کر رہے ہوں
+  - آپ نیٹ ورکنگ دستاویزات کی مستند فہرست چاہتے ہوں
 title: "نیٹ ورک"
 ---
 
@@ -47,5 +52,3 @@ localhost، LAN، اور tailnet کے ذریعے ڈیوائسز کو کیسے ک
 - [Gateway config reference](/gateway/configuration)
 - [Troubleshooting](/gateway/troubleshooting)
 - [Doctor](/gateway/doctor)
-
-

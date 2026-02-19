@@ -1,4 +1,8 @@
 ---
+summary: "Diepgaande troubleshooting-runbook voor gateway, kanalen, automatisering, nodes en browser"
+read_when:
+  - De troubleshooting-hub heeft je hierheen verwezen voor diepere diagnose
+  - Je hebt stabiele, symptoomgebaseerde runbook-secties nodig met exacte opdrachten
 title: "Problemen oplossen"
 ---
 
@@ -105,7 +109,7 @@ Let op:
 
 Veelvoorkomende signalen:
 
-- `Gateway start blocked: set gateway.mode=local` → lokale gateway-modus is niet ingeschakeld.
+- `Gateway start blocked: set gateway.mode=local` → lokale gateway-modus is niet ingeschakeld. Oplossing: stel `gateway.mode="local"` in je configuratie in (of voer `openclaw configure` uit). Als je OpenClaw via Podman uitvoert met de speciale `openclaw`-gebruiker, bevindt de configuratie zich op `~openclaw/.openclaw/openclaw.json`.
 - `refusing to bind gateway ... without auth` → niet-loopback binding zonder token/wachtwoord.
 - `another gateway instance is already listening` / `EADDRINUSE` → poortconflict.
 
@@ -312,5 +316,3 @@ Gerelateerd:
 - [/gateway/pairing](/gateway/pairing)
 - [/gateway/authentication](/gateway/authentication)
 - [/gateway/background-process](/gateway/background-process)
-
-

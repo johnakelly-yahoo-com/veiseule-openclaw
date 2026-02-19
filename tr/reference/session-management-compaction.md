@@ -1,5 +1,10 @@
 ---
-title: "Oturum Yönetimine Derinlemesine Bakış"
+summary: "Derinlemesine inceleme: oturum deposu + transkriptler, yaşam döngüsü ve (otomatik) sıkıştırma iç işleyişi"
+read_when:
+  - Oturum kimliklerini, transkript JSONL dosyalarını veya sessions.json alanlarını hata ayıklamanız gerektiğinde
+  - Otomatik sıkıştırma davranışını değiştiriyor ya da “ön sıkıştırma” bakım işleri ekliyorsanız
+  - Bellek boşaltmaları veya sessiz sistem turları uygulamak istiyorsanız
+title: "Session Management Deep Dive"
 ---
 
 # Oturum Yönetimi ve Sıkıştırma (Derinlemesine İnceleme)
@@ -276,5 +281,3 @@ boşaltma mantığı bugün Gateway tarafında yer alır.
   - sıkıştırma ayarları (model penceresi için `reserveTokens` çok yüksekse daha erken sıkıştırmaya neden olabilir)
   - tool-result şişmesi: oturum budamayı etkinleştirin/ayarlayın
 - Sessiz turlar sızdırıyor mu? Yanıtın `NO_REPLY` (tam belirteç) ile başladığını ve akış bastırma düzeltmesini içeren bir derlemede olduğunuzu doğrulayın.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "„Przechwytywanie obrazu z kamery (węzeł iOS + aplikacja macOS) do użycia przez agenta: zdjęcia (jpg) i krótkie klipy wideo (mp4)”"
+read_when:
+  - Dodawanie lub modyfikowanie przechwytywania z kamery na węzłach iOS lub macOS
+  - Rozszerzanie przepływów pracy tymczasowych plików MEDIA dostępnych dla agenta
 title: "„Przechwytywanie z kamery”"
 ---
 
@@ -83,7 +87,7 @@ Uwagi:
   - Domyślnie: **włączone** (brak klucza jest traktowany jako włączone).
   - Gdy wyłączone: polecenia `camera.*` zwracają `CAMERA_DISABLED`.
 
-### Uprawnienia
+### Permissions
 
 - Android wymaga uprawnień w czasie działania:
   - `CAMERA` dla `camera.snap` i `camera.clip`.
@@ -150,5 +154,3 @@ openclaw nodes screen record --node <id> --duration 10s --fps 15   # prints MEDI
 Uwagi:
 
 - Wymaga uprawnienia macOS **Screen Recording** (TCC).
-
-

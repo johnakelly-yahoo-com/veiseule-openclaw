@@ -1,4 +1,9 @@
 ---
+summary: "iOS نوڈ ایپ: Gateway سے کنکشن، جوڑی بنانا، کینوس، اور خرابیوں کا ازالہ"
+read_when:
+  - iOS نوڈ کی جوڑی بنانا یا دوبارہ کنیکٹ کرنا
+  - سورس سے iOS ایپ چلانا
+  - گیٹ وے ڈسکوری یا کینوس کمانڈز کی ڈیبگنگ
 title: "iOS ایپ"
 ---
 
@@ -72,6 +77,7 @@ openclaw nodes invoke --node "iOS Node" --command canvas.navigate --params '{"ur
 - Gateway کینوس ہوسٹ `/__openclaw__/canvas/` اور `/__openclaw__/a2ui/` فراہم کرتا ہے۔
 - جب کینوس ہوسٹ URL کی تشہیر ہوتی ہے تو iOS نوڈ کنیکٹ ہوتے ہی خودکار طور پر A2UI پر نیویگیٹ کرتا ہے۔
 - بلٹ اِن اسکیفولڈ پر واپس جانے کے لیے `canvas.navigate` اور `{"url":""}` استعمال کریں۔
+- بلٹ اِن اسکیفولڈ پر واپس جانے کے لیے `canvas.navigate` اور `{"url":""}` استعمال کریں۔
 
 ### کینوس eval / اسنیپ شاٹ
 
@@ -100,5 +106,3 @@ openclaw nodes invoke --node "iOS Node" --command canvas.snapshot --params '{"ma
 - [Pairing](/gateway/pairing)
 - [Discovery](/gateway/discovery)
 - [Bonjour](/gateway/bonjour)
-
-

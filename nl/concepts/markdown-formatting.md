@@ -1,4 +1,9 @@
 ---
+summary: "Markdown-opmaakpipeline voor uitgaande kanalen"
+read_when:
+  - Je wijzigt markdown-opmaak of chunking voor uitgaande kanalen
+  - Je voegt een nieuwe kanaalformatter of stijlkoppeling toe
+  - Je debugt regressies in opmaak over kanalen heen
 title: "Markdown opmaak"
 ---
 
@@ -123,5 +128,3 @@ gekoppeld aan SPOILER-stijlranges. Andere kanalen behandelen ze als platte tekst
 - Signal-stijlranges zijn afhankelijk van UTF-16-offsets; gebruik geen codepunt-offsets.
 - Behoud afsluitende nieuwe regels voor fenced code blocks, zodat sluitmarkeringen
   op hun eigen regel terechtkomen.
-
-

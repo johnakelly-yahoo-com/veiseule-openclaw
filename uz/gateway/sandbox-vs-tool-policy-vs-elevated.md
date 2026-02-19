@@ -1,5 +1,7 @@
 ---
-title: "Sandbox va Tool Policy hamda Elevated o‘rtasidagi farq"
+title: Sandbox va Tool Policy hamda Elevated o‘rtasidagi farq
+summary: "Nega tool bloklangan: sandbox runtime, tool allow/deny siyosati va elevated exec gate’lar."
+read_when: "Siz “sandbox jail”ga tushdingiz yoki tool/elevated rad etilishini ko‘ryapsiz va o‘zgartirish kerak bo‘lgan aniq config kalitini xohlaysiz."
 status: faol
 ---
 
@@ -124,5 +126,3 @@ Fix-it keys (pick one):
 ### “I thought this was main, why is it sandboxed?”
 
 In `"non-main"` mode, group/channel keys are _not_ main. Use the main session key (shown by `sandbox explain`) or switch mode to `"off"`.
-
-

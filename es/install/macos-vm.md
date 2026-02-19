@@ -1,4 +1,10 @@
 ---
+summary: "Ejecute OpenClaw en una VM de macOS en sandbox (local u hospedada) cuando necesite aislamiento o iMessage"
+read_when:
+  - Desea OpenClaw aislado de su entorno principal de macOS
+  - Desea integración con iMessage (BlueBubbles) en un sandbox
+  - Desea un entorno de macOS reiniciable que pueda clonar
+  - Desea comparar opciones de VM de macOS locales vs hospedadas
 title: "VMs de macOS"
 ---
 
@@ -273,5 +279,3 @@ Para un funcionamiento realmente siempre activo, considere un Mac mini dedicado 
 - [Lume CLI Reference](https://cua.ai/docs/lume/reference/cli-reference)
 - [Unattended VM Setup](https://cua.ai/docs/lume/guide/fundamentals/unattended-setup) (avanzado)
 - [Docker Sandboxing](/install/docker) (enfoque alternativo de aislamiento)
-
-

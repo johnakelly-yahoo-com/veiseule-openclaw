@@ -1,4 +1,10 @@
-------
+---
+title: "기본 AGENTS.md"
+summary: "개인 비서 설정을 위한 기본 OpenClaw 에이전트 지침 및 Skills 목록"
+read_when:
+  - 새 OpenClaw 에이전트 세션을 시작할 때
+  - 기본 Skills 를 활성화하거나 감사할 때
+---
 
 # AGENTS.md — OpenClaw 개인 비서 (기본)
 
@@ -116,5 +122,3 @@ git commit -m "Add Clawd workspace"
 - 브라우저 기반 검증에는 OpenClaw 관리 Chrome 프로필과 함께 `openclaw browser` (탭/상태/스크린샷)를 사용하십시오.
 - DOM 검사에는 `openclaw browser eval|query|dom|snapshot` 를 사용하십시오 (기계 출력이 필요할 때는 `--json`/`--out`).
 - 상호작용에는 `openclaw browser click|type|hover|drag|select|upload|press|wait|navigate|back|evaluate|run` 를 사용하십시오 (클릭/타이핑에는 스냅샷 참조가 필요함; CSS 선택자에는 `evaluate` 사용).
-
-

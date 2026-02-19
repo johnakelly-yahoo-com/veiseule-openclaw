@@ -1,4 +1,7 @@
 ---
+summary: "macOS ऐप Gateway/Baileys स्वास्थ्य स्थितियों की रिपोर्ट कैसे करता है"
+read_when:
+  - mac ऐप स्वास्थ्य संकेतकों का डिबगिंग
 title: "स्वास्थ्य जाँच"
 ---
 
@@ -29,5 +32,3 @@ title: "स्वास्थ्य जाँच"
 ## संदेह होने पर
 
 - आप अभी भी [Gateway health](/gateway/health) (`openclaw status`, `openclaw status --deep`, `openclaw health --json`) में CLI फ़्लो का उपयोग कर सकते हैं और `web-heartbeat` / `web-reconnect` के लिए `/tmp/openclaw/openclaw-*.log` को टेल कर सकते हैं।
-
-

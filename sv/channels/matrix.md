@@ -1,4 +1,7 @@
 ---
+summary: "Status, funktioner och konfiguration för Matrix-stöd"
+read_when:
+  - Arbetar med funktioner för Matrix-kanalen
 title: "Matrix"
 ---
 
@@ -140,19 +143,61 @@ När boten har verifierats kan den dekryptera meddelanden i krypterade rum.
 
 ## Routingmodell
 
-- Svar går alltid tillbaka till Matrix.
-- DM delar agentens huvudsession; rum mappas till gruppsessioner.
+Stöd för flera konton: använd `channels.matrix.accounts` med inloggningsuppgifter per konto och valfritt `name`. Se [`gateway/configuration`](/gateway/configuration#telegramaccounts--discordaccounts--slackaccounts--signalaccounts--imessageaccounts) för det gemensamma mönstret.
 
-## Åtkomstkontroll (DM)
+Varje konto körs som en separat Matrix-användare på valfri homeserver. Konfiguration per konto
+ärver från de överordnade inställningarna i `channels.matrix` och kan åsidosätta valfritt alternativ
+(DM-policy, grupper, kryptering osv.).
+
+```json5
+{
+  channels: {
+    matrix: {
+      enabled: true,
+      dm: { policy: "pairing" },
+      accounts: {
+        assistant: {
+          name: "Main assistant",
+          homeserver: "https://matrix.example.org",
+          accessToken: "syt_assistant_***",
+          encryption: true,
+        },
+        alerts: {
+          name: "Alerts bot",
+          homeserver: "https://matrix.example.org",
+          accessToken: "syt_alerts_***",
+          dm: { policy: "allowlist", allowFrom: ["@admin:example.org"] },
+        },
+      },
+    },
+  },
+}
+```
+
+Obs:
+
+- Kontouppstart sker sekventiellt för att undvika race conditions vid samtidiga modulimporter.
+- Miljövariabler (`MATRIX_HOMESERVER`, `MATRIX_ACCESS_TOKEN`, etc.) gäller endast för **standardkontot**.
+- Grundinställningar för kanalen (DM-policy, gruppolicy, mention-gating osv.) gäller för alla konton om de inte åsidosätts per konto.
+- Använd `bindings[].match.accountId` för att dirigera varje konto till en annan agent.
+- Crypto-tillstånd lagras per konto + access token (separata nyckellager per konto).
+
+## Routingmodell
+
+- `requireMention: false` aktiverar autosvar i det rummet.
+- `groups."*"` kan sätta standardvärden för omnämnandespärr över rum.
+
+## Trådar
 
 - Standard: `channels.matrix.dm.policy = "pairing"`. Okända avsändare får en parningskod.
-- Godkänn via:
+- `channels.matrix.threadReplies` styr om svar stannar i trådar:
   - `openclaw pairing list matrix`
   - `openclaw pairing approve matrix <CODE>`
-- Publika DM: `channels.matrix.dm.policy="open"` plus `channels.matrix.dm.allowFrom=["*"]`.
+- `channels.matrix.replyToMode` styr reply-to-metadata när man inte svarar i en tråd:
 - `channels.matrix.dm.allowFrom` accepterar fullständiga Matrix användar-ID (exempel: `@user:server`). Guiden löser visningsnamn till användar-ID när katalogsökningen hittar en enda exakt match.
+- Använd inte visningsnamn eller enbart localparts (exempel: `"Alice"` eller `"alice"`). De är tvetydiga och ignoreras vid allowlist-matchning. Använd fullständiga `@user:server`-ID:n.
 
-## Rum (grupper)
+## Funktioner
 
 - Standard: `channels.matrix.groupPolicy = "allowlist"` (omnämnandespärr). Använd `channels.defaults.groupPolicy` för att åsidosätta standard när du inaktiverar.
 - Tillåtelselista för rum med `channels.matrix.groups` (rum-ID:n eller alias; namn löses till ID:n när katalogsökningen hittar en enda exakt matchning):
@@ -206,7 +251,7 @@ När boten har verifierats kan den dekryptera meddelanden i krypterade rum.
 
 ## Felsökning
 
-Kör denna stege först:
+För triage-flöde: [/channels/troubleshooting](/channels/troubleshooting).
 
 ```bash
 openclaw status
@@ -216,7 +261,7 @@ openclaw doctor
 openclaw channels status --probe
 ```
 
-Bekräfta sedan DM-parningsstatus vid behov:
+Fullständig konfiguration: [Konfiguration](/gateway/configuration)
 
 ```bash
 openclaw pairing list matrix
@@ -258,6 +303,5 @@ Leverantörsalternativ:
 - `channels.matrix.mediaMaxMb`: gräns för inkommande/utgående media (MB).
 - `channels.matrix.autoJoin`: hantering av inbjudningar (`always | allowlist | off`, standard: alltid).
 - `channels.matrix.autoJoinAllowlist`: tillåtna rum-ID:n/alias för auto-anslutning.
+- `channels.matrix.accounts`: fler-konto-konfiguration nycklad per konto-ID (varje konto ärver överordnade inställningar).
 - `channels.matrix.actions`: per-åtgärd-verktygsspärr (reaktioner/meddelanden/pins/memberInfo/channelInfo).
-
-

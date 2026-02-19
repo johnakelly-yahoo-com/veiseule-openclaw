@@ -1,4 +1,7 @@
 ---
+summary: "Livscyklus for voice overlay, når wake-word og push-to-talk overlapper"
+read_when:
+  - Justering af voice overlay-adfærd
 title: "Stemmeoverlejring"
 ---
 
@@ -56,5 +59,3 @@ Publikum: macOS app-bidragsydere. Målsætning: Hold stemmen overlejret forudsig
 3. Refaktorer `VoicePushToTalk` til at overtage eksisterende sessioner og kalde `endCapture` ved slip; anvend runtime-cooldown.
 4. Kobl `VoiceWakeOverlayController` til publisheren; fjern direkte kald fra runtime/PTT.
 5. Tilføj integrationstests for session-overtagelse, cooldown og lukning ved tom tekst.
-
-

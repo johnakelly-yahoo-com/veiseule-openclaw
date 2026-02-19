@@ -1,4 +1,8 @@
 ---
+summary: "Gamitin ang mga modelong nakatuon sa privacy ng Venice AI sa OpenClaw"
+read_when:
+  - Gusto mo ng inference na nakatuon sa privacy sa OpenClaw
+  - Gusto mo ng gabay sa setup ng Venice AI
 title: "Venice AI"
 ---
 
@@ -6,7 +10,7 @@ title: "Venice AI"
 
 Ang **Venice** ay ang aming highlight na Venice setup para sa privacy-first inference na may opsyonal na anonymized na access sa mga proprietary na modelo.
 
-Nagbibigay ang Venice AI ng AI inference na nakatuon sa privacy na may suporta para sa mga uncensored na modelo at access sa mga pangunahing proprietary na modelo sa pamamagitan ng kanilang anonymized proxy. Lahat ng inference ay pribado bilang default—walang pagsasanay gamit ang iyong data, walang pagla-log.
+Venice AI provides privacy-focused AI inference with support for uncensored models and access to major proprietary models through their anonymized proxy. All inference is private by default—no training on your data, no logging.
 
 ## Bakit Venice sa OpenClaw
 
@@ -19,10 +23,10 @@ Nagbibigay ang Venice AI ng AI inference na nakatuon sa privacy na may suporta p
 
 Nag-aalok ang Venice ng dalawang antas ng privacy — mahalagang maunawaan ito para makapili ng tamang modelo:
 
-| Mode           | Paglalarawan                                                                                                                                                            | Mga Modelo                                                      |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
-| **Pribado**    | Ganap na pribado. Ang mga prompt/response ay **hindi kailanman iniimbak o nilo-log**. Panandalian (ephemeral).                                             | Llama, Qwen, DeepSeek, Venice Uncensored, atbp. |
-| **Hindi Nakikilala (Anonymized)** | Dumaan sa proxy ng Venice na may inalis na metadata. Nakakakita ang underlying provider (OpenAI, Anthropic) ng mga kahilingang hindi nakikilala. | Claude, GPT, Gemini, Grok, Kimi, MiniMax                        |
+| Mode                                                 | Paglalarawan                                                                                                                                                            | Mga Modelo                                                      |
+| ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| **Pribado**                                          | Fully private. Prompts/responses are **never stored or logged**. Ephemeral.                                             | Llama, Qwen, DeepSeek, Venice Uncensored, atbp. |
+| **Hindi Nakikilala (Anonymized)** | Proxied through Venice with metadata stripped. The underlying provider (OpenAI, Anthropic) sees anonymized requests. | Claude, GPT, Gemini, Grok, Kimi, MiniMax                        |
 
 ## Mga Tampok
 
@@ -261,5 +265,3 @@ The Venice model catalog updates dynamically. 9. Patakbuhin ang `openclaw models
 - [API Documentation](https://docs.venice.ai)
 - [Pricing](https://venice.ai/pricing)
 - [Status](https://status.venice.ai)
-
-

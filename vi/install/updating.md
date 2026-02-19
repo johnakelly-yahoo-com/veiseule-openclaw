@@ -1,14 +1,18 @@
 ---
+summary: "Cập nhật OpenClaw an toàn (cài đặt toàn cục hoặc từ mã nguồn), kèm chiến lược khôi phục"
+read_when:
+  - Cập nhật OpenClaw
+  - Có sự cố sau khi cập nhật
 title: "Cập nhật"
 ---
 
 # Cập nhật
 
-OpenClaw đang phát triển rất nhanh (trước phiên bản “1.0”). Hãy xử lý các bản cập nhật như hạ tầng đang vận hành: cập nhật → chạy kiểm tra → khởi động lại (hoặc dùng `openclaw update`, lệnh này sẽ tự khởi động lại) → xác minh.
+OpenClaw is moving fast (pre “1.0”). Treat updates like shipping infra: update → run checks → restart (or use `openclaw update`, which restarts) → verify.
 
 ## Khuyến nghị: chạy lại trình cài đặt từ website (nâng cấp tại chỗ)
 
-Cách cập nhật **được khuyến nghị** là chạy lại trình cài đặt từ website. Nó
+The **preferred** update path is to re-run the installer from the website. It
 detects existing installs, upgrades in place, and runs `openclaw doctor` when
 needed.
 
@@ -67,7 +71,7 @@ Dùng `--tag <dist-tag|version>` cho việc cài đặt một lần theo tag/phi
 
 Xem [Development channels](/install/development-channels) để biết ngữ nghĩa kênh và ghi chú phát hành.
 
-Lưu ý: với bản cài qua npm, gateway sẽ ghi log gợi ý cập nhật khi khởi động (kiểm tra thẻ kênh hiện tại). Tắt bằng `update.checkOnStart: false`.
+Note: on npm installs, the gateway logs an update hint on startup (checks the current channel tag). Disable via `update.checkOnStart: false`.
 
 Sau đó:
 
@@ -98,11 +102,11 @@ Lệnh này chạy một quy trình cập nhật tương đối an toàn:
 - Cài deps, build, build Control UI, và chạy `openclaw doctor`.
 - Khởi động lại gateway theo mặc định (dùng `--no-restart` để bỏ qua).
 
-Nếu bạn cài đặt qua **npm/pnpm** (không có metadata git), `openclaw update` sẽ cố gắng cập nhật thông qua trình quản lý gói của bạn. Nếu không thể phát hiện cách cài đặt, hãy dùng “Update (global install)” thay thế.
+If you installed via **npm/pnpm** (no git metadata), `openclaw update` will try to update via your package manager. If it can’t detect the install, use “Update (global install)” instead.
 
 ## Cập nhật (Control UI / RPC)
 
-Control UI có **Update & Restart** (RPC: `update.run`). Nó:
+The Control UI has **Update & Restart** (RPC: `update.run`). It:
 
 1. Chạy cùng quy trình cập nhật từ mã nguồn như `openclaw update` (chỉ git checkout).
 2. Ghi một sentinel khởi động lại kèm báo cáo có cấu trúc (đuôi stdout/stderr).
@@ -140,7 +144,7 @@ Ghi chú:
 
 ## Luôn chạy: `openclaw doctor`
 
-Doctor là lệnh “cập nhật an toàn”. Nó được thiết kế một cách đơn giản có chủ ý: sửa lỗi + di chuyển dữ liệu + cảnh báo.
+Doctor is the “safe update” command. It’s intentionally boring: repair + migrate + warn.
 
 Lưu ý: nếu bạn đang dùng **cài đặt từ mã nguồn** (git checkout), `openclaw doctor` sẽ đề nghị chạy `openclaw update` trước.
 
@@ -168,7 +172,7 @@ openclaw logs --follow
 
 Nếu bạn dùng giám sát:
 
-- macOS launchd (LaunchAgent đi kèm ứng dụng): `launchctl kickstart -k gui/$UID/bot.molt.gateway` (dùng `bot.molt.<profile>`; phiên bản cũ `com.openclaw.*` vẫn hoạt động)
+- macOS launchd (app-bundled LaunchAgent): `launchctl kickstart -k gui/$UID/bot.molt.gateway` (use `bot.molt.<profile>`; legacy `com.openclaw.*` still works)
 - Dịch vụ người dùng systemd trên Linux: `systemctl --user restart openclaw-gateway[-<profile>].service`
 - Windows (WSL2): `systemctl --user restart openclaw-gateway[-<profile>].service`
   - `launchctl`/`systemctl` chỉ hoạt động nếu dịch vụ đã được cài; nếu không, chạy `openclaw gateway install`.
@@ -227,5 +231,3 @@ git pull
 - Chạy lại `openclaw doctor` và đọc kỹ đầu ra (thường nó sẽ chỉ ra cách khắc phục).
 - Xem: [Xử lý sự cố](/gateway/troubleshooting)
 - Hỏi trên Discord: [https://discord.gg/clawd](https://discord.gg/clawd)
-
-

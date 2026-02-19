@@ -1,4 +1,8 @@
 ---
+summary: "„Verwenden Sie die Anthropic-kompatible API von Synthetic in OpenClaw“"
+read_when:
+  - Sie möchten Synthetic als Modellanbieter verwenden
+  - Sie benötigen einen Synthetic-API-Schlüssel oder eine Base-URL-Einrichtung
 title: "Synthetic"
 ---
 
@@ -66,26 +70,26 @@ seine Base-URL ändert, überschreiben Sie `models.providers.synthetic.baseUrl`.
 Alle unten aufgeführten Modelle verwenden Kosten `0` (Eingabe/Ausgabe/Cache).
 
 | Modell-ID                                              | Kontextfenster | Maximale Tokens | Begründung | Eingabe     |
-| ------------------------------------------------------ | -------------- | --------------- | --------- | ----------- |
-| `hf:MiniMaxAI/MiniMax-M2.1`                            | 192000         | 65536           | false     | Text        |
-| `hf:moonshotai/Kimi-K2-Thinking`                       | 256000         | 8192            | true      | Text        |
-| `hf:zai-org/GLM-4.7`                                   | 198000         | 128000          | false     | Text        |
-| `hf:deepseek-ai/DeepSeek-R1-0528`                      | 128000         | 8192            | false     | Text        |
-| `hf:deepseek-ai/DeepSeek-V3-0324`                      | 128000         | 8192            | false     | Text        |
-| `hf:deepseek-ai/DeepSeek-V3.1`                         | 128000         | 8192            | false     | Text        |
-| `hf:deepseek-ai/DeepSeek-V3.1-Terminus`                | 128000         | 8192            | false     | Text        |
-| `hf:deepseek-ai/DeepSeek-V3.2`                         | 159000         | 8192            | false     | Text        |
-| `hf:meta-llama/Llama-3.3-70B-Instruct`                 | 128000         | 8192            | false     | Text        |
-| `hf:meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8` | 524000         | 8192            | false     | Text        |
-| `hf:moonshotai/Kimi-K2-Instruct-0905`                  | 256000         | 8192            | false     | Text        |
-| `hf:openai/gpt-oss-120b`                               | 128000         | 8192            | false     | Text        |
-| `hf:Qwen/Qwen3-235B-A22B-Instruct-2507`                | 256000         | 8192            | false     | Text        |
-| `hf:Qwen/Qwen3-Coder-480B-A35B-Instruct`               | 256000         | 8192            | false     | Text        |
-| `hf:Qwen/Qwen3-VL-235B-A22B-Instruct`                  | 250000         | 8192            | false     | Text + Bild |
-| `hf:zai-org/GLM-4.5`                                   | 128000         | 128000          | false     | Text        |
-| `hf:zai-org/GLM-4.6`                                   | 198000         | 128000          | false     | Text        |
-| `hf:deepseek-ai/DeepSeek-V3`                           | 128000         | 8192            | false     | Text        |
-| `hf:Qwen/Qwen3-235B-A22B-Thinking-2507`                | 256000         | 8192            | true      | Text        |
+| ------------------------------------------------------ | -------------- | --------------- | ---------- | ----------- |
+| `hf:MiniMaxAI/MiniMax-M2.1`                            | 192000         | 65536           | false      | Text        |
+| `hf:moonshotai/Kimi-K2-Thinking`                       | 256000         | 8192            | true       | Text        |
+| `hf:zai-org/GLM-4.7`                                   | 198000         | 128000          | false      | Text        |
+| `hf:deepseek-ai/DeepSeek-R1-0528`                      | 128000         | 8192            | false      | Text        |
+| `hf:deepseek-ai/DeepSeek-V3-0324`                      | 128000         | 8192            | false      | Text        |
+| `hf:deepseek-ai/DeepSeek-V3.1`                         | 128000         | 8192            | false      | Text        |
+| `hf:deepseek-ai/DeepSeek-V3.1-Terminus`                | 128000         | 8192            | false      | Text        |
+| `hf:deepseek-ai/DeepSeek-V3.2`                         | 159000         | 8192            | false      | Text        |
+| `hf:meta-llama/Llama-3.3-70B-Instruct`                 | 128000         | 8192            | false      | Text        |
+| `hf:meta-llama/Llama-4-Maverick-17B-128E-Instruct-FP8` | 524000         | 8192            | false      | Text        |
+| `hf:moonshotai/Kimi-K2-Instruct-0905`                  | 256000         | 8192            | false      | Text        |
+| `hf:openai/gpt-oss-120b`                               | 128000         | 8192            | false      | Text        |
+| `hf:Qwen/Qwen3-235B-A22B-Instruct-2507`                | 256000         | 8192            | false      | Text        |
+| `hf:Qwen/Qwen3-Coder-480B-A35B-Instruct`               | 256000         | 8192            | false      | Text        |
+| `hf:Qwen/Qwen3-VL-235B-A22B-Instruct`                  | 250000         | 8192            | false      | Text + Bild |
+| `hf:zai-org/GLM-4.5`                                   | 128000         | 128000          | false      | Text        |
+| `hf:zai-org/GLM-4.6`                                   | 198000         | 128000          | false      | Text        |
+| `hf:deepseek-ai/DeepSeek-V3`                           | 128000         | 8192            | false      | Text        |
+| `hf:Qwen/Qwen3-235B-A22B-Thinking-2507`                | 256000         | 8192            | true       | Text        |
 
 ## Hinweise
 
@@ -93,5 +97,3 @@ Alle unten aufgeführten Modelle verwenden Kosten `0` (Eingabe/Ausgabe/Cache).
 - Wenn Sie eine Modell-Allowlist aktivieren (`agents.defaults.models`), fügen Sie jedes Modell hinzu, das Sie
   verwenden möchten.
 - Siehe [Model providers](/concepts/model-providers) für Anbieterregeln.
-
-

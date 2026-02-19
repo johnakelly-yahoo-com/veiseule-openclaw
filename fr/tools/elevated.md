@@ -1,4 +1,7 @@
 ---
+summary: "Mode exec eleve et directives /elevated"
+read_when:
+  - Ajustement des valeurs par defaut du mode eleve, des listes d’autorisation ou du comportement des commandes slash
 title: "Mode eleve"
 ---
 
@@ -52,5 +55,3 @@ title: "Mode eleve"
 
 - Les appels exec en mode eleve sont journalises au niveau info.
 - L’etat de la session inclut le mode eleve (par ex. `elevated=ask`, `elevated=full`).
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Cách OpenClaw xoay vòng hồ sơ xác thực và dự phòng giữa các mô hình"
+read_when:
+  - Chẩn đoán hành vi xoay vòng hồ sơ xác thực, thời gian cooldown hoặc dự phòng mô hình
+  - Cập nhật quy tắc failover cho hồ sơ xác thực hoặc mô hình
 title: "Failover mô hình"
 ---
 
@@ -139,5 +143,3 @@ Xem [Gateway configuration](/gateway/configuration) để biết:
 - Định tuyến `agents.defaults.imageModel`
 
 Xem [Models](/concepts/models) để có cái nhìn tổng quan rộng hơn về việc chọn mô hình và dự phòng.
-
-

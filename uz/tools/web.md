@@ -1,4 +1,9 @@
 ---
+summary: "Veb qidiruv + fetch vositalari (Brave Search API, Perplexity direct/OpenRouter)"
+read_when:
+  - Siz web_search yoki web_fetch ni yoqmoqchisiz
+  - Sizga Brave Search API kalitini sozlash kerak
+  - Siz veb qidiruv uchun Perplexity Sonar’dan foydalanmoqchisiz
 title: "Veb vositalar"
 ---
 
@@ -164,6 +169,8 @@ Sozlangan provayderingizdan foydalanib vebni qidiring.
 - `search_lang` (ixtiyoriy): qidiruv natijalari uchun ISO til kodi (masalan, "de", "en", "fr")
 - `ui_lang` (ixtiyoriy): UI elementlari uchun ISO til kodi
 - `freshness` (ixtiyoriy, faqat Brave): topilgan vaqt bo‘yicha filtrlash (`pd`, `pw`, `pm`, `py` yoki `YYYY-MM-DDtoYYYY-MM-DD`)
+  - Brave: `pd`, `pw`, `pm`, `py`, yoki `YYYY-MM-DDtoYYYY-MM-DD`
+  - Perplexity: `pd`, `pw`, `pm`, `py`
 
 **Misollar:**
 
@@ -247,5 +254,3 @@ Eslatmalar:
 - Takroriy yuklab olishlarni kamaytirish uchun javoblar keshlanadi (standart 15 daqiqa).
 - Agar vosita profillari/allowlistlardan foydalansangiz, `web_search`/`web_fetch` yoki `group:web` ni qo‘shing.
 - Agar Brave kaliti yo‘q bo‘lsa, `web_search` hujjatlar havolasi bilan qisqa sozlash bo‘yicha ko‘rsatma qaytaradi.
-
-

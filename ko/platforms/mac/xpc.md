@@ -1,5 +1,8 @@
 ---
-title: "macOS 프로세스 간 통신"
+summary: "OpenClaw 앱, Gateway(게이트웨이) 노드 전송, 그리고 PeekabooBridge를 위한 macOS IPC 아키텍처"
+read_when:
+  - IPC 계약 또는 메뉴 바 앱 IPC를 편집할 때
+title: "macOS IPC"
 ---
 
 # OpenClaw macOS IPC 아키텍처
@@ -56,5 +59,3 @@ Agent -> Gateway -> Node Service (WS)
 - 모든 통신은 로컬 전용으로 유지되며, 네트워크 소켓은 노출되지 않습니다.
 - TCC 프롬프트는 GUI 앱 번들에서만 발생합니다. 재빌드 전반에 걸쳐 서명된 번들 ID를 안정적으로 유지하십시오.
 - IPC 강화: 소켓 모드 `0600`, 토큰, 피어 UID 검사, HMAC 챌린지/응답, 짧은 TTL.
-
-

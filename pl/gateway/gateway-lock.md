@@ -1,4 +1,8 @@
 ---
+summary: "Ochrona pojedynczej instancji Gateway przy użyciu wiązania nasłuchu WebSocket"
+read_when:
+  - Uruchamianie lub debugowanie procesu Gateway
+  - Badanie wymuszania pojedynczej instancji
 title: "Blokada Gateway"
 ---
 
@@ -28,5 +32,3 @@ Ostatnia aktualizacja: 2025-12-11
 
 - Jeśli port jest zajęty przez _inny_ proces, błąd jest taki sam; zwolnij port lub wybierz inny za pomocą `openclaw gateway --port <port>`.
 - Aplikacja na macOS nadal utrzymuje własną lekką blokadę PID przed uruchomieniem Gateway; blokada czasu wykonania jest wymuszana przez wiązanie WebSocket.
-
-

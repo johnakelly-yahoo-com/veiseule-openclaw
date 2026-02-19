@@ -1,4 +1,8 @@
 ---
+summary: "Phiên âm Deepgram cho tin nhắn thoại đến"
+read_when:
+  - Bạn muốn dùng Deepgram chuyển giọng nói thành văn bản cho tệp âm thanh đính kèm
+  - Bạn cần một ví dụ cấu hình Deepgram nhanh
 title: "Deepgram"
 ---
 
@@ -86,5 +90,3 @@ Ví dụ với các tùy chọn Deepgram:
 - Xác thực tuân theo thứ tự xác thực tiêu chuẩn của nhà cung cấp; `DEEPGRAM_API_KEY` là cách đơn giản nhất.
 - Ghi đè endpoint hoặc header bằng `tools.media.audio.baseUrl` và `tools.media.audio.headers` khi dùng proxy.
 - Đầu ra tuân theo cùng các quy tắc âm thanh như các nhà cung cấp khác (giới hạn kích thước, timeout, chèn bản phiên âm).
-
-

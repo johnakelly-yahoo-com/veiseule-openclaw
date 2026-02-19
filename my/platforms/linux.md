@@ -1,4 +1,8 @@
 ---
+summary: "Linux ပံ့ပိုးမှု + companion app အခြေအနေ"
+read_when:
+  - Linux companion app အခြေအနေကို ရှာဖွေနေချိန်
+  - ပလက်ဖောင်း အကျုံးဝင်မှု သို့မဟုတ် ပါဝင်ကူညီမှုများကို စီစဉ်နေချိန်
 title: "Linux အက်ပ်"
 ---
 
@@ -50,7 +54,7 @@ openclaw gateway install
 openclaw configure
 ```
 
-မေးမြန်းလာပါက **Gateway service** ကို ရွေးချယ်ပါ။
+ပြုပြင်ခြင်း/ပြောင်းရွှေ့ခြင်း:
 
 ပြုပြင်ခြင်း/ပြောင်းရွှေ့ခြင်း:
 
@@ -62,7 +66,7 @@ openclaw doctor
 
 14. OpenClaw သည် ပုံမှန်အားဖြင့် systemd **user** service ကို ထည့်သွင်းပေးပါသည်။ 15. မျှဝေသုံးစွဲသည့် သို့မဟုတ် အမြဲဖွင့်ထားသော server များအတွက် **system** service ကို အသုံးပြုပါ။ 16. unit အပြည့်အစုံ ဥပမာနှင့် လမ်းညွှန်ချက်များကို [Gateway runbook](/gateway) တွင် ကြည့်နိုင်ပါသည်။
 
-အနည်းဆုံး တပ်ဆင်ခြင်း:
+`~/.config/systemd/user/openclaw-gateway[-<profile>].service` ကို ဖန်တီးပါ:
 
 `~/.config/systemd/user/openclaw-gateway[-<profile>].service` ကို ဖန်တီးပါ:
 
@@ -86,5 +90,3 @@ WantedBy=default.target
 ```
 systemctl --user enable --now openclaw-gateway[-<profile>].service
 ```
-
-

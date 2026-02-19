@@ -1,4 +1,9 @@
 ---
+summary: "Persistance des autorisations macOS (TCC) et exigences de signature"
+read_when:
+  - Debogage des invites d'autorisations macOS manquantes ou bloquees
+  - Packaging ou signature de l'application macOS
+  - Changement des identifiants de bundle ou des chemins d'installation de l'application
 title: "Autorisations macOS"
 ---
 
@@ -43,5 +48,3 @@ Solution de contournement : déplacez les fichiers dans l'espace de travail Open
 
 Si vous testez des autorisations, signez toujours avec un veritable certificat. Les builds ad-hoc
 ne sont acceptables que pour des executions locales rapides ou les autorisations n'ont pas d'importance.
-
-

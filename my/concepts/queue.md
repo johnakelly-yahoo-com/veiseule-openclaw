@@ -1,4 +1,7 @@
 ---
+summary: "အဝင် auto-reply အလုပ်လုပ်ဆောင်မှုများကို အစဉ်လိုက်လုပ်ဆောင်စေရန် Command queue ဒီဇိုင်း"
+read_when:
+  - Auto-reply အကောင်အထည်ဖော်မှု သို့မဟုတ် concurrency ကို ပြောင်းလဲသောအခါ
 title: "အမိန့် စုစည်းတန်း"
 ---
 
@@ -23,14 +26,14 @@ title: "အမိန့် စုစည်းတန်း"
 
 အဝင်မက်ဆေ့ချ်များသည် လက်ရှိ run ကို ထိန်းညှိနိုင်သည်၊ နောက်ထပ် turn ကို စောင့်နိုင်သည်၊ သို့မဟုတ် နှစ်ခုစလုံးကို ပြုလုပ်နိုင်သည်–
 
-- `steer`: လက်ရှိ run ထဲသို့ ချက်ချင်း ထည့်သွင်းသည် (နောက်လာမည့် tool boundary အပြီးတွင် စောင့်ဆိုင်းနေသော tool calls များကို ပယ်ဖျက်သည်)။ streaming မလုပ်ဆောင်နေပါက followup သို့ ပြန်လည် ပြောင်းလဲလုပ်ဆောင်မည်။
+- `steer`: inject immediately into the current run (cancels pending tool calls after the next tool boundary). If not streaming, falls back to followup.
 - `followup`: လက်ရှိ run ပြီးဆုံးပြီးနောက် နောက် agent turn အတွက် enqueue ပြုလုပ်ခြင်း။
-- `collect`: queue ထဲရှိ မက်ဆေ့ချ်အားလုံးကို **တစ်ခုတည်းသော** followup turn အဖြစ် ပေါင်းစည်းသည် (ပုံသေ)။ မက်ဆေ့ချ်များသည် မတူညီသော channels/threads များကို ရည်ရွယ်ထားပါက routing ကို ထိန်းသိမ်းရန် သီးခြားစီ drain လုပ်မည်။
+- `collect`: coalesce all queued messages into a **single** followup turn (default). If messages target different channels/threads, they drain individually to preserve routing.
 - `steer-backlog` (aka `steer+backlog`): ယခု steer ပြုလုပ်ပြီး **အပြင်** followup turn အတွက် မက်ဆေ့ချ်ကို သိမ်းဆည်းထားခြင်း။
 - `interrupt` (legacy): ထို session အတွက် active run ကို ဖျက်သိမ်းပြီး နောက်ဆုံးရ မက်ဆေ့ချ်ကို လုပ်ဆောင်ခြင်း။
 - `queue` (legacy alias): `steer` နှင့် အတူတူ ဖြစ်သည်။
 
-Steer-backlog ဆိုသည်မှာ steered run ပြီးနောက် followup response တစ်ခု ရရှိနိုင်သည်ကို ဆိုလိုသည်၊ ထို့ကြောင့်
+Steer-backlog means you can get a followup response after the steered run, so
 streaming surfaces can look like duplicates. Prefer `collect`/`steer` if you want
 one response per inbound message.
 Send `/queue collect` as a standalone command (per-session) or set `messages.queue.byChannel.discord: "collect"`.
@@ -63,7 +66,7 @@ Options များသည် `followup`, `collect`, နှင့် `steer-back
 - `cap`: session တစ်ခုလျှင် queued မက်ဆေ့ချ် အများဆုံးအရေအတွက်။
 - `drop`: overflow policy (`old`, `new`, `summarize`)။
 
-Summarize သည် ဖယ်ရှားလိုက်သော မက်ဆေ့ချ်များကို အကျဉ်းချုပ် bullet list အဖြစ် သိမ်းဆည်းထားပြီး ၎င်းကို synthetic followup prompt အဖြစ် ထည့်သွင်းပေးသည်။
+Summarize keeps a short bullet list of dropped messages and injects it as a synthetic followup prompt.
 Defaults: `debounceMs: 1000`, `cap: 20`, `drop: summarize`.
 
 ## Per-session overrides
@@ -84,5 +87,3 @@ Defaults: `debounceMs: 1000`, `cap: 20`, `drop: summarize`.
 
 - Commands များ ပိတ်နေသကဲ့သို့ ထင်ရပါက verbose logs ကို ဖွင့်ပြီး queue သည် ထုတ်လုပ်လုပ်ဆောင်နေကြောင်း အတည်ပြုရန် “queued for …ms” စာကြောင်းများကို ကြည့်ပါ။
 - Queue အနက်ကို သိလိုပါက verbose logs ကို ဖွင့်ပြီး queue timing စာကြောင်းများကို စောင့်ကြည့်ပါ။
-
-

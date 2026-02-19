@@ -1,4 +1,8 @@
 ---
+summary: "Configuración del bot de Mattermost y configuración de OpenClaw"
+read_when:
+  - Configuración de Mattermost
+  - Depuración del enrutamiento de Mattermost
 title: "Mattermost"
 ---
 
@@ -132,5 +136,3 @@ Mattermost admite múltiples cuentas bajo `channels.mattermost.accounts`:
 - No hay respuestas en los canales: asegúrese de que el bot esté en el canal y menciónelo (oncall), use un prefijo de activación (onchar) o establezca `chatmode: "onmessage"`.
 - Errores de autenticación: verifique el token del bot, la URL base y si la cuenta está habilitada.
 - Problemas de multicuenta: las variables de entorno solo se aplican a la cuenta `default`.
-
-

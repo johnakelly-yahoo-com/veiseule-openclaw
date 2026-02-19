@@ -1,4 +1,7 @@
 ---
+summary: "TypeBox-skemaer som den eneste sandhedskilde for gateway-protokollen"
+read_when:
+  - Opdatering af protokolskemaer eller kodegenerering
 title: "TypeBox"
 ---
 
@@ -41,10 +44,10 @@ Almindelige metoder + events:
 
 | Kategori  | Eksempler                                                 | Noter                                 |
 | --------- | --------------------------------------------------------- | ------------------------------------- |
-| Kerne      | `connect`, `health`, `status`                             | `connect` skal være først             |
-| Beskeder | `send`, `poll`, `agent`, `agent.wait`                     | side-effekter kræver `idempotencyKey` |
+| Kerne     | `connect`, `health`, `status`                             | `connect` skal være først             |
+| Beskeder  | `send`, `poll`, `agent`, `agent.wait`                     | side-effekter kræver `idempotencyKey` |
 | Chat      | `chat.history`, `chat.send`, `chat.abort`, `chat.inject`  | WebChat bruger disse                  |
-| Sessioner  | `sessions.list`, `sessions.patch`, `sessions.delete`      | session-administration                |
+| Sessioner | `sessions.list`, `sessions.patch`, `sessions.delete`      | session-administration                |
 | Nodes     | `node.list`, `node.invoke`, `node.pair.*`                 | Gateway WS + node-handlinger          |
 | Events    | `tick`, `presence`, `agent`, `chat`, `health`, `shutdown` | server push                           |
 
@@ -284,5 +287,3 @@ offentliggjorte råfil er typisk tilgængelig på:
 1. Opdatér TypeBox-skemaerne.
 2. Kør `pnpm protocol:check`.
 3. Commit det regenererede skema + Swift-modeller.
-
-

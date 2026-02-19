@@ -1,10 +1,13 @@
 ---
+summary: "Trạng thái hỗ trợ bot Zalo, khả năng và cấu hình"
+read_when:
+  - Làm việc với các tính năng hoặc webhook của Zalo
 title: "Zalo"
 ---
 
 # Zalo (Bot API)
 
-Trạng thái: thử nghiệm. Chỉ hỗ trợ tin nhắn trực tiếp; nhóm sẽ sớm được hỗ trợ theo tài liệu của Zalo.
+Status: experimental. Direct messages only; groups coming soon per Zalo docs.
 
 ## Cần plugin
 
@@ -42,7 +45,7 @@ Cấu hình tối thiểu:
 
 ## Nó là gì
 
-Zalo là một ứng dụng nhắn tin tập trung vào thị trường Việt Nam; Bot API của nó cho phép Gateway chạy bot cho các cuộc trò chuyện 1:1.
+Zalo is a Vietnam-focused messaging app; its Bot API lets the Gateway run a bot for 1:1 conversations.
 It is a good fit for support or notifications where you want deterministic routing back to Zalo.
 
 - Một kênh Zalo Bot API do Gateway sở hữu.
@@ -79,7 +82,7 @@ Tùy chọn biến môi trường: `ZALO_BOT_TOKEN=...` (chỉ hoạt động ch
 Hỗ trợ nhiều tài khoản: dùng `channels.zalo.accounts` với token theo từng tài khoản và `name` tùy chọn.
 
 3. Khởi động lại gateway. Zalo starts when a token is resolved (env or config).
-4. Quyền truy cập DM mặc định sử dụng cơ chế ghép cặp. Phê duyệt mã khi bot được liên hệ lần đầu.
+4. DM access defaults to pairing. Approve the code when the bot is first contacted.
 
 ## Cách hoạt động (hành vi)
 
@@ -101,7 +104,7 @@ Hỗ trợ nhiều tài khoản: dùng `channels.zalo.accounts` với token theo
 - Phê duyệt qua:
   - `openclaw pairing list zalo`
   - `openclaw pairing approve zalo <CODE>`
-- Ghép cặp là phương thức trao đổi token mặc định. Chi tiết: [Pairing](/channels/pairing)
+- Pairing is the default token exchange. Details: [Pairing](/channels/pairing)
 - `channels.zalo.allowFrom` chấp nhận ID người dùng dạng số (không có tra cứu tên người dùng).
 
 ## Long-polling so với webhook
@@ -184,5 +187,3 @@ Tùy chọn nhiều tài khoản:
 - `channels.zalo.accounts.<id>``.webhookSecret`: webhook secret theo từng tài khoản.
 - `channels.zalo.accounts.<id>``.webhookPath`: đường dẫn webhook theo từng tài khoản.
 - `channels.zalo.accounts.<id>`.proxy\`: URL proxy theo từng tài khoản.
-
-

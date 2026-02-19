@@ -1,4 +1,6 @@
 ---
+summary: "원격 Gateway(게이트웨이)에 연결하기 위한 OpenClaw.app의 SSH 터널 설정"
+read_when: "SSH를 통해 macOS 앱을 원격 Gateway(게이트웨이)에 연결할 때"
 title: "원격 Gateway(게이트웨이) 설정"
 ---
 
@@ -9,33 +11,17 @@ OpenClaw.app은 SSH 터널링을 사용하여 원격 Gateway(게이트웨이)에
 ## 개요
 
 ```mermaid
-%%{init: {
-  'theme': 'base',
-  'themeVariables': {
-    'primaryColor': '#ffffff',
-    'primaryTextColor': '#000000',
-    'primaryBorderColor': '#000000',
-    'lineColor': '#000000',
-    'secondaryColor': '#f9f9fb',
-    'tertiaryColor': '#ffffff',
-    'clusterBkg': '#f9f9fb',
-    'clusterBorder': '#000000',
-    'nodeBorder': '#000000',
-    'mainBkg': '#ffffff',
-    'edgeLabelBackground': '#ffffff'
-  }
-}}%%
 flowchart TB
-    subgraph Client["Client Machine"]
+    subgraph Client["클라이언트 머신"]
         direction TB
         A["OpenClaw.app"]
-        B["ws://127.0.0.1:18789\n(local port)"]
-        T["SSH Tunnel"]
+        B["ws://127.0.0.1:18789\n(로컬 포트)"]
+        T["SSH 터널"]
 
         A --> B
         B --> T
     end
-    subgraph Remote["Remote Machine"]
+    subgraph Remote["원격 머신"]
         direction TB
         C["Gateway WebSocket"]
         D["ws://127.0.0.1:18789"]
@@ -162,7 +148,7 @@ launchctl bootout gui/$UID/bot.molt.ssh-tunnel
 
 ## 작동 방식
 
-| 구성 요소                                | 기능                                      |
+| 구성 요소                                | What It Does                                      |
 | ------------------------------------ | ------------------------------------------------- |
 | `LocalForward 18789 127.0.0.1:18789` | 로컬 포트 18789를 원격 포트 18789로 포워딩합니다                  |
 | `ssh -N`                             | 원격 명령을 실행하지 않는 SSH(포트 포워딩만 수행) |
@@ -170,5 +156,3 @@ launchctl bootout gui/$UID/bot.molt.ssh-tunnel
 | `RunAtLoad`                          | 에이전트 로드 시 터널을 시작합니다                               |
 
 OpenClaw.app은 클라이언트 머신의 `ws://127.0.0.1:18789`에 연결합니다. SSH 터널은 해당 연결을 Gateway(게이트웨이)가 실행 중인 원격 머신의 포트 18789로 포워딩합니다.
-
-

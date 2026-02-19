@@ -1,4 +1,8 @@
 ---
+summary: "gogcli 를 통해 Gmail Pub/Sub 푸시를 OpenClaw 웹훅에 연결"
+read_when:
+  - Gmail 받은편지함 트리거를 OpenClaw 에 연결하기
+  - 에이전트 웨이크를 위한 Pub/Sub 푸시 설정하기
 title: "Gmail PubSub"
 ---
 
@@ -6,7 +10,7 @@ title: "Gmail PubSub"
 
 목표: Gmail watch -> Pub/Sub push -> `gog gmail watch serve` -> OpenClaw 웹훅.
 
-## 사전 요구 사항
+## Prereqs
 
 - `gcloud` 설치 및 로그인 완료 ([설치 가이드](https://docs.cloud.google.com/sdk/docs/install-sdk)).
 - `gog` (gogcli) 설치 및 Gmail 계정에 대해 인증 완료 ([gogcli.sh](https://gogcli.sh/)).
@@ -252,5 +256,3 @@ gog gmail watch stop --account openclaw@gmail.com
 gcloud pubsub subscriptions delete gog-gmail-watch-push
 gcloud pubsub topics delete gog-gmail-watch
 ```
-
-

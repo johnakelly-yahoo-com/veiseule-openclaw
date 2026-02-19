@@ -1,4 +1,8 @@
 ---
+summary: "Kullanım izleme yüzeyleri ve kimlik bilgisi gereksinimleri"
+read_when:
+  - Sağlayıcı kullanım/kota yüzeylerini bağlarken
+  - Kullanım izleme davranışını veya kimlik doğrulama gereksinimlerini açıklamanız gerektiğinde
 title: "Kullanım İzleme"
 ---
 
@@ -29,5 +33,3 @@ title: "Kullanım İzleme"
 - **z.ai**: ortam/yapılandırma/kimlik doğrulama deposu üzerinden API anahtarı.
 
 Eşleşen OAuth/API kimlik bilgileri yoksa kullanım gizlenir.
-
-

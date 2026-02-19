@@ -1,4 +1,6 @@
 ---
+summary: "Khắc phục sự cố khởi động CDP của Chrome/Brave/Edge/Chromium cho điều khiển trình duyệt OpenClaw trên Linux"
+read_when: "Điều khiển trình duyệt không hoạt động trên Linux, đặc biệt với Chromium dạng snap"
 title: "Xử lý sự cố trình duyệt"
 ---
 
@@ -121,7 +123,7 @@ curl -s http://127.0.0.1:18791/tabs
 
 ### Vấn đề: "Chrome extension relay is running, but no tab is connected"
 
-Bạn đang sử dụng hồ sơ `chrome` (extension relay). Hồ sơ này yêu cầu OpenClaw
+You’re using the `chrome` profile (extension relay). It expects the OpenClaw
 browser extension to be attached to a live tab.
 
 Các cách khắc phục:
@@ -134,5 +136,3 @@ Ghi chú:
 
 - Profile `chrome` sử dụng **trình duyệt Chromium mặc định của hệ thống** khi có thể.
 - Các profile `openclaw` cục bộ tự động gán `cdpPort`/`cdpUrl`; chỉ đặt các giá trị đó cho CDP từ xa.
-
-

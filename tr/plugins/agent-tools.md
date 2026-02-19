@@ -1,4 +1,8 @@
 ---
+summary: "Bir eklentide ajan araçları yazın (şemalar, isteğe bağlı araçlar, izin listeleri)"
+read_when:
+  - Bir eklentide yeni bir ajan aracı eklemek istiyorsunuz
+  - Bir aracı izin listeleri aracılığıyla isteğe bağlı yapmak istiyorsunuz
 title: "Eklenti Ajan Araçları"
 ---
 
@@ -94,5 +98,3 @@ Araç kullanılabilirliğini etkileyen diğer yapılandırma ayarları:
 - İzin listelerinde kullanılan eklenti kimlikleri, çekirdek araç adlarıyla çakışmamalıdır.
 - Yan etkileri tetikleyen veya ek ikili dosyalar/kimlik bilgileri gerektiren araçlar için
   `optional: true` tercih edilmelidir.
-
-

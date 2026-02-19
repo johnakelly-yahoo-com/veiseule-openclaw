@@ -1,4 +1,7 @@
 ---
+summary: "การกำหนดค่าและการตั้งค่าบอตแชท Twitch"
+read_when:
+  - การตั้งค่าการผสานรวมแชท Twitch สำหรับ OpenClaw
 title: "Twitch"
 ---
 
@@ -74,7 +77,7 @@ openclaw plugins install ./extensions/twitch
 - ตรวจสอบว่าสcope `chat:read` และ `chat:write` ถูกเลือก
 - คัดลอก **Client ID** และ **Access Token**
 
-ไม่จำเป็นต้องลงทะเบียนแอปด้วยตนเอง โทเค็นจะหมดอายุหลังจากผ่านไปหลายชั่วโมง
+No manual app registration needed. Tokens expire after several hours.
 
 ### กำหนดค่าบอท
 
@@ -118,7 +121,7 @@ Prefer `allowFrom` for a hard allowlist. แนะนำให้ใช้ `allo
 
 **บทบาทที่รองรับ:** `"moderator"`, `"owner"`, `"vip"`, `"subscriber"`, `"all"`.
 
-**ทำไมต้องใช้ user ID?** ชื่อผู้ใช้สามารถเปลี่ยนได้ ทำให้เกิดการสวมรอยได้ แต่ user ID เป็นค่าถาวร User IDs are permanent.
+**ทำไมต้องใช้ user ID?** ชื่อผู้ใช้สามารถเปลี่ยนได้ ทำให้เกิดการสวมรอยได้ แต่ user ID เป็นค่าถาวร User IDs are permanent. User IDs are permanent.
 
 ค้นหา Twitch user ID ของคุณ: [https://www.streamweasels.com/tools/convert-twitch-username-%20to-user-id/](https://www.streamweasels.com/tools/convert-twitch-username-%20to-user-id/) (แปลงชื่อผู้ใช้ Twitch เป็น ID)
 
@@ -228,7 +231,7 @@ Use `channels.twitch.accounts` with per-account tokens. ใช้ `channels.twit
 
 ### Disable @mention requirement
 
-โดยค่าเริ่มต้น `requireMention` คือ `true` หากต้องการปิดและให้ตอบทุกข้อความ: To disable and respond to all messages:
+โดยค่าเริ่มต้น `requireMention` คือ `true` หากต้องการปิดและให้ตอบทุกข้อความ: โดยค่าเริ่มต้น `requireMention` คือ `true` หากต้องการปิดและให้ตอบทุกข้อความ: To disable and respond to all messages:
 
 ```json5
 {
@@ -374,5 +377,3 @@ Access token refreshed for user 123456 (expires in 14400s)
 - **500 ตัวอักษร** ต่อข้อความ (แบ่งอัตโนมัติที่ขอบเขตคำ)
 - Markdown จะถูกลบออกก่อนการแบ่งข้อความ
 - ไม่มีการจำกัดอัตรา (ใช้การจำกัดอัตราที่มีอยู่ใน Twitch)
-
-

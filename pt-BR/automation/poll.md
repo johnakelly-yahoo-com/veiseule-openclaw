@@ -1,4 +1,8 @@
 ---
+summary: "Envio de enquetes via gateway + CLI"
+read_when:
+  - Adicionando ou modificando suporte a enquetes
+  - Depurando envios de enquetes pela CLI ou gateway
 title: "Enquetes"
 ---
 
@@ -63,5 +67,3 @@ Use a ferramenta `message` com a ação `poll` (`to`, `pollQuestion`, `pollOptio
 Nota: o Discord não tem modo de “escolher exatamente N”; `pollMulti` mapeia para seleção múltipla.
 As enquetes do Teams são renderizadas como Adaptive Cards e exigem que o gateway permaneça online
 para registrar votos em `~/.openclaw/msteams-polls.json`.
-
-

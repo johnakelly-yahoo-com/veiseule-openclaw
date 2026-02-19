@@ -1,4 +1,7 @@
 ---
+summary: "مرجع CLI لأمر `openclaw pairing` (الموافقة على طلبات الاقتران أو عرضها)"
+read_when:
+  - أنت تستخدم وضع الإقران DMs وتحتاج إلى الموافقة على المرسلين
 title: "الاقتران"
 ---
 
@@ -16,5 +19,3 @@ title: "الاقتران"
 openclaw pairing list whatsapp
 openclaw pairing approve whatsapp <code> --notify
 ```
-
-

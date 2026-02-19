@@ -1,13 +1,17 @@
 ---
+summary: "平台支援總覽（Gateway 閘道器 + 配套應用程式）"
+read_when:
+  - 尋找作業系統支援或安裝路徑
+  - 決定在哪裡執行 Gateway 閘道器
 title: "平台"
 ---
 
 # 平台
 
-OpenClaw 核心以 TypeScript 撰寫。**Node 是建議使用的執行環境**。
+OpenClaw core is written in TypeScript. **Node is the recommended runtime**.
 Bun is not recommended for the Gateway (WhatsApp/Telegram bugs).
 
-macOS（選單列應用程式）和行動節點（iOS/Android）皆有對應的 Companion 應用程式。Windows 以及
+Companion apps exist for macOS (menu bar app) and mobile nodes (iOS/Android). macOS（選單列應用程式）和行動節點（iOS/Android）皆有對應的 Companion 應用程式。Windows 以及
 Linux companion apps are planned, but the Gateway is fully supported today.
 Native companion apps for Windows are also planned; the Gateway is recommended via WSL2.
 
@@ -47,5 +51,3 @@ Native companion apps for Windows are also planned; the Gateway is recommended v
 
 - macOS： LaunchAgent（`bot.molt.gateway` 或 `bot.molt.<profile>`；舊版 `com.openclaw.*`）
 - Linux／WSL2： systemd 使用者服務（`openclaw-gateway[-<profile>].service`）
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Découverte Bonjour/mDNS + débogage (balises de la Gateway (passerelle), clients et modes de défaillance courants)"
+read_when:
+  - Débogage des problèmes de découverte Bonjour sur macOS/iOS
+  - Modification des types de services mDNS, des enregistrements TXT ou de l’UX de découverte
 title: "Découverte Bonjour"
 ---
 
@@ -95,6 +99,13 @@ La Gateway (passerelle) annonce de petits indices non secrets pour faciliter les
 - `cliPath=<path>` (optionnel ; chemin absolu vers un point d’entrée `openclaw` exécutable)
 - `tailnetDns=<magicdns>` (indice optionnel lorsque Tailnet est disponible)
 
+Notes de sécurité :
+
+- Les enregistrements TXT Bonjour/mDNS sont **non authentifiés**. Les clients ne doivent pas considérer les TXT comme un routage faisant autorité.
+- Les clients doivent router en utilisant le point de terminaison de service résolu (SRV + A/AAAA). Considérez `lanHost`, `tailnetDns`, `gatewayPort` et `gatewayTlsSha256` uniquement comme des indications.
+- Le TLS pinning ne doit jamais permettre à un `gatewayTlsSha256` annoncé de remplacer un pin précédemment enregistré.
+- Les nœuds iOS/Android doivent traiter les connexions directes basées sur la découverte comme **TLS uniquement** et exiger une confirmation explicite de l’utilisateur avant de faire confiance à une empreinte vue pour la première fois.
+
 ## Débogage sur macOS
 
 Outils intégrés utiles :
@@ -163,5 +174,3 @@ Bonjour/DNS‑SD échappe souvent des octets dans les noms d’instance de servi
 
 - Politique de découverte et sélection du transport : [Discovery](/gateway/discovery)
 - Appairage des nœuds + approbations : [Gateway pairing](/gateway/pairing)
-
-

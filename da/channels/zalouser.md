@@ -1,4 +1,8 @@
 ---
+summary: "Understøttelse af Zalo-personlig konto via zca-cli (QR-login), funktioner og konfiguration"
+read_when:
+  - Opsætning af Zalo Personal til OpenClaw
+  - Fejlfinding af Zalo Personal-login eller meddelelsesflow
 title: "Zalo Personal"
 ---
 
@@ -134,5 +138,3 @@ Konti kort til zca profiler. Eksempel:
 
 - `openclaw channels status --probe`
 - Log ind igen: `openclaw channels logout --channel zalouser && openclaw channels login --channel zalouser`
-
-

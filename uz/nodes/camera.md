@@ -1,4 +1,8 @@
 ---
+summary: "Agent foydalanishi uchun kamera tasvirga olish (iOS tuguni + macOS ilovasi): fotosuratlar (jpg) va qisqa video roliklar (mp4)"
+read_when:
+  - iOS tugunlari yoki macOS’da kamera tasvirga olishni qo‘shish yoki o‘zgartirishda
+  - Agent kira oladigan MEDIA vaqtinchalik fayl jarayonlarini kengaytirishda
 title: "Kamera tasvirga olish"
 ---
 
@@ -55,7 +59,7 @@ Barcha kamera kirishlari **foydalanuvchi boshqaradigan sozlamalar** orqali nazor
 
 ### Old fon talabi
 
-`canvas.*` kabi, iOS tuguni `camera.*` buyruqlariga faqat **old fon** holatida ruxsat beradi. Orqa fondagi chaqiruvlar `NODE_BACKGROUND_UNAVAILABLE` qaytaradi.
+`canvas.*` kabi, iOS tuguni faqat **foreground** holatida `camera.*` buyruqlariga ruxsat beradi. Background chaqiruvlar `NODE_BACKGROUND_UNAVAILABLE` ni qaytaradi.
 
 ### CLI yordamchisi (vaqtinchalik fayllar + MEDIA)
 
@@ -94,7 +98,7 @@ Agar ruxsatlar mavjud bo‘lmasa, ilova imkon qadar so‘rov yuboradi; rad etils
 
 ### Android old fon talabi
 
-`canvas.*` kabi, Android tuguni ham `camera.*` buyruqlariga faqat **old fon** holatida ruxsat beradi. Orqa fondagi chaqiruvlar `NODE_BACKGROUND_UNAVAILABLE` qaytaradi.
+`canvas.*` kabi, Android tuguni ham faqat **foreground** holatida `camera.*` buyruqlariga ruxsat beradi. Background chaqiruvlar `NODE_BACKGROUND_UNAVAILABLE` ni qaytaradi.
 
 ### Payload himoyasi
 
@@ -150,5 +154,3 @@ openclaw nodes screen record --node <id> --duration 10s --fps 15   # MEDIA:<path
 Eslatmalar:
 
 - macOS’da **Screen Recording** ruxsati (TCC) talab qilinadi.
-
-

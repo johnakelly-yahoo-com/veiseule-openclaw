@@ -1,4 +1,8 @@
 ---
+summary: "Få OpenClaw installeret, og kør din første chat på få minutter."
+read_when:
+  - Førstegangsopsætning fra bunden
+  - Du vil have den hurtigste vej til en fungerende chat
 title: "Kom godt i gang"
 ---
 
@@ -30,6 +34,10 @@ Tjek din Node-version med `node --version`, hvis du er i tvivl.
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash
         ```
+      <img
+  src="/assets/install-script.svg"
+  alt="Install Script Process"
+  className="rounded-lg"></img>
       
 </Tab>
       <Tab title="Windows (PowerShell)">
@@ -41,12 +49,14 @@ Tjek din Node-version med `node --version`, hvis du er i tvivl.
     
 </Tabs>
 
+    ````
     ```
     <Note>
     Andre installationsmetoder og krav: [Install](/install).
     
 </Note>
     ```
+    ````
 
   
 </Step>
@@ -55,21 +65,25 @@ Tjek din Node-version med `node --version`, hvis du er i tvivl.
     openclaw onboard --install-daemon
     ```
 
+    ````
     ```
     Guiden konfigurerer autentificering, gateway-indstillinger og valgfrie kanaler.
     Se [Onboarding Wizard](/start/wizard) for detaljer.
     ```
+    ````
 
   
 </Step>
   <Step title="Check the Gateway">
     Hvis du installerede tjenesten, burde den allerede køre:
 
+    `````
     ````
     ```bash
     openclaw gateway status
     ```
     ````
+    `````
 
   
 </Step>
@@ -91,22 +105,26 @@ Hvis Control UI indlæses, er din Gateway klar til brug.
   <Accordion title="Run the Gateway in the foreground">
     Nyttigt til hurtige tests eller fejlfinding.
 
+    `````
     ````
     ```bash
     openclaw gateway --port 18789
     ```
     ````
+    `````
 
   
 </Accordion>
   <Accordion title="Send a test message">
     Kræver en konfigureret kanal.
 
+    `````
     ````
     ```bash
     openclaw message send --target +15555550123 --message "Hello from OpenClaw"
     ```
     ````
+    `````
 
   
 </Accordion>
@@ -146,5 +164,3 @@ Fuld reference for miljøvariabler: [Environment vars](/help/environment).
 - DM-sikkerhed og godkendelser: [Pairing](/channels/pairing)
 - Tilslut flere kanaler: [Channels](/channels)
 - Avancerede arbejdsgange og kørsel fra kilde: [Setup](/start/setup)
-
-

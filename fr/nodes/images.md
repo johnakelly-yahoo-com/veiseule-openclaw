@@ -1,4 +1,7 @@
 ---
+summary: "Regles de gestion des images et des medias pour l’envoi, la Gateway (passerelle) et les reponses de l’agent"
+read_when:
+  - Modification du pipeline media ou des pieces jointes
 title: "Prise en charge des images et des medias"
 ---
 
@@ -67,5 +70,3 @@ Le canal WhatsApp fonctionne via **Baileys Web**. Ce document presente les regle
 - Couvrir les flux d’envoi et de reponse pour les cas image/audio/document.
 - Valider la recompression des images (borne de taille) et l’indicateur de note vocale pour l’audio.
 - S’assurer que les reponses multi-medias se deploient en envois sequentiels.
-
-

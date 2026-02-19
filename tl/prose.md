@@ -1,10 +1,15 @@
 ---
+summary: "OpenProse: mga .prose workflow, slash command, at state sa OpenClaw"
+read_when:
+  - Gusto mong magpatakbo o magsulat ng mga .prose workflow
+  - Gusto mong i-enable ang OpenProse plugin
+  - Kailangan mong maunawaan ang pag-iimbak ng state
 title: "OpenProse"
 ---
 
 # OpenProse
 
-Ang OpenProse ay isang portable, markdown-first na format ng workflow para sa pag-oorkestra ng mga AI session. Sa OpenClaw, ito ay ipinapadala bilang isang plugin na nag-i-install ng OpenProse skill pack kasama ang isang `/prose` slash command. Ang mga programa ay nasa `.prose` files at maaaring mag-spawn ng maraming sub-agent na may malinaw na control flow.
+OpenProse is a portable, markdown-first workflow format for orchestrating AI sessions. In OpenClaw it ships as a plugin that installs an OpenProse skill pack plus a `/prose` slash command. Programs live in `.prose` files and can spawn multiple sub-agents with explicit control flow.
 
 Opisyal na site: [https://www.prose.md](https://www.prose.md)
 
@@ -114,11 +119,11 @@ Ang mga direktang URL ay kinukuha kung ano ang eksakto. Ginagamit nito ang `web_
 
 Ang mga OpenProse program ay mina-map sa mga OpenClaw primitive:
 
-| Konsepto ng OpenProse         | Tool ng OpenClaw    |
-| ------------------------- | ---------------- |
+| Konsepto ng OpenProse            | Tool ng OpenClaw |
+| -------------------------------- | ---------------- |
 | Mag-spawn ng session / Task tool | `sessions_spawn` |
-| File read/write           | `read` / `write` |
-| Web fetch                 | `web_fetch`      |
+| File read/write                  | `read` / `write` |
+| Web fetch                        | `web_fetch`      |
 
 Kung hinaharangan ng iyong tool allowlist ang mga tool na ito, mabibigo ang mga programang OpenProse. Tingnan ang [Skills config](/tools/skills-config).
 
@@ -127,5 +132,3 @@ Kung hinaharangan ng iyong tool allowlist ang mga tool na ito, mabibigo ang mga 
 Tratuhin ang mga `.prose` file na parang code. Suriin bago patakbuhin. Use OpenClaw tool allowlists and approval gates to control side effects.
 
 Para sa deterministiko at approval-gated na mga workflow, ihambing sa [Lobster](/tools/lobster).
-
-

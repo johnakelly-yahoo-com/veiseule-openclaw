@@ -1,5 +1,9 @@
 ---
-title: "Compétences"
+summary: "Skills : gérées vs espace de travail, règles de filtrage et câblage config/env"
+read_when:
+  - Ajout ou modification de skills
+  - Modification des règles de filtrage ou de chargement des skills
+title: "Skills"
 ---
 
 # Compétences (OpenClaw)
@@ -291,5 +295,3 @@ Voir [Configuration des Skills](/tools/skills-config) pour le schéma de configu
 Parcourez https://clawhub.com.
 
 ---
-
-

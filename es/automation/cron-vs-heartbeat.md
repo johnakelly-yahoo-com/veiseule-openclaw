@@ -1,4 +1,9 @@
 ---
+summary: "Guía para elegir entre heartbeat y trabajos cron para la automatización"
+read_when:
+  - Decidir cómo programar tareas recurrentes
+  - Configurar monitoreo en segundo plano o notificaciones
+  - Optimizar el uso de tokens para verificaciones periódicas
 title: "Cron vs Heartbeat"
 ---
 
@@ -275,5 +280,3 @@ openclaw cron add \
 - [Heartbeat](/gateway/heartbeat) - configuración completa de heartbeat
 - [Cron jobs](/automation/cron-jobs) - referencia completa de la CLI y la API de cron
 - [System](/cli/system) - eventos del sistema + controles de heartbeat
-
-

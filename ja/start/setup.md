@@ -1,15 +1,17 @@
 ---
+summary: "OpenClaw の高度なセットアップおよび開発ワークフロー"
+read_when:
+  - 新しいマシンをセットアップするとき
+  - 個人のセットアップを壊さずに「最新 + 最良」を使いたいとき
 title: "セットアップ"
 ---
 
 # セットアップ
 
 <Note>
-12. 初めてセットアップする場合は、[Getting Started](/start/getting-started) から始めてください。
-
+初めてセットアップする場合は、[Getting Started](/start/getting-started) から始めてください。
 初めてセットアップする場合は、[Getting Started](/start/getting-started) から始めてください。
 ウィザードの詳細は、[Onboarding Wizard](/start/wizard) を参照してください。
-
 </Note>
 
 最終更新日: 2026-01-01
@@ -106,7 +108,8 @@ pnpm gateway:watch
 
 ### 3. 確認
 
-- アプリ内の Gateway ステータスが **「Using existing gateway …」** と表示されること。
+- 接続モード: **Local**
+  アプリは、設定されたポートで実行中の Gateway に接続します。
 - もしくは CLI で確認します。
 
 ```bash
@@ -158,5 +161,3 @@ sudo loginctl enable-linger $USER
 - [Discord](/channels/discord) および [Telegram](/channels/telegram)（返信タグ + replyToMode 設定）
 - [OpenClaw assistant setup](/start/openclaw)
 - [macOS app](/platforms/macos)（Gateway のライフサイクル）
-
-

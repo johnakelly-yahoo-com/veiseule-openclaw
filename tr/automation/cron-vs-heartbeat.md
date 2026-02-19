@@ -1,4 +1,9 @@
 ---
+summary: "Otomasyon için heartbeat ile cron işleri arasında seçim yapmaya yönelik rehber"
+read_when:
+  - Yinelenen görevlerin nasıl zamanlanacağına karar verirken
+  - Arka plan izleme veya bildirimler kurarken
+  - Periyodik kontroller için token kullanımını optimize ederken
 title: "Cron ve Heartbeat"
 ---
 
@@ -275,5 +280,3 @@ openclaw cron add \
 - [Heartbeat](/gateway/heartbeat) - tam heartbeat yapılandırması
 - [Cron jobs](/automation/cron-jobs) - tam cron CLI ve API referansı
 - [System](/cli/system) - sistem olayları + heartbeat kontrolleri
-
-

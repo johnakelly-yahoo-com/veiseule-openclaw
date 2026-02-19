@@ -1,8 +1,11 @@
 ---
+summary: "ချန်နယ်များ၊ လမ်းကြောင်းချမှတ်မှု၊ မီဒီယာနှင့် UX အပါအဝင် OpenClaw ၏ စွမ်းရည်များ။"
+read_when:
+  - OpenClaw က ဘာတွေကို ပံ့ပိုးထားသလဲဆိုတာ အပြည့်အစုံ သိချင်သောအခါ
 title: "အင်္ဂါရပ်များ"
 ---
 
-## အထူးအသားပေးချက်များ
+## Highlights
 
 <Columns>
   <Card title="Channels" icon="message-square">
@@ -31,7 +34,7 @@ title: "အင်္ဂါရပ်များ"
 </Card>
 </Columns>
 
-## စာရင်းအပြည့်အစုံ
+## Full list
 
 - WhatsApp Web (Baileys) မှတစ်ဆင့် WhatsApp ပေါင်းစည်းမှု
 - Telegram ဘော့ ပံ့ပိုးမှု (grammY)
@@ -53,5 +56,3 @@ title: "အင်္ဂါရပ်များ"
 <Note>
 21. Legacy Claude, Codex, Gemini နှင့် Opencode paths များကို ဖယ်ရှားပြီး ဖြစ်ပါသည်။ 22. Pi သည် တစ်ခုတည်းသော coding agent path ဖြစ်ပါသည်။
 </Note>
-
-

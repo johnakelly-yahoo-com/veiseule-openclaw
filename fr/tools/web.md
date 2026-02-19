@@ -1,4 +1,9 @@
 ---
+summary: "Outils de recherche et de récupération web (API Brave Search, Perplexity direct/OpenRouter)"
+read_when:
+  - Vous souhaitez activer web_search ou web_fetch
+  - Vous avez besoin de configurer une clé API Brave Search
+  - Vous souhaitez utiliser Perplexity Sonar pour la recherche web
 title: "Outils Web"
 ---
 
@@ -23,7 +28,7 @@ Il ne s’agit **pas** d’une automatisation de navigateur. Pour les sites rich
 
 ## Choisir un fournisseur de recherche
 
-| Fournisseur                               | Avantages                                       | Inconvénients                                       | Clé API                                      |
+| Fournisseur                               | Avantages                                       | Cons                                       | Clé API                                      |
 | ----------------------------------------- | ----------------------------------------------- | ------------------------------------------ | -------------------------------------------- |
 | **Brave** (par défaut) | Rapide, résultats structurés, offre gratuite    | Résultats de recherche traditionnels       | `BRAVE_API_KEY`                              |
 | **Perplexity**                            | Réponses IA synthétisées, citations, temps réel | Nécessite l’accès Perplexity ou OpenRouter | `OPENROUTER_API_KEY` ou `PERPLEXITY_API_KEY` |
@@ -164,6 +169,8 @@ Recherche sur le web à l’aide du fournisseur configuré.
 - `search_lang` (optionnel) : code de langue ISO pour les résultats de recherche (ex. : « de », « en », « fr »)
 - `ui_lang` (optionnel) : code de langue ISO pour les éléments d’interface
 - `freshness` (optionnel, Brave uniquement) : filtrer par date de découverte (`pd`, `pw`, `pm`, `py` ou `YYYY-MM-DDtoYYYY-MM-DD`)
+  - Brave : `pd`, `pw`, `pm`, `py` ou `YYYY-MM-DDtoYYYY-MM-DD`
+  - Perplexity : `pd`, `pw`, `pm`, `py`
 
 **Exemples :**
 
@@ -247,5 +254,3 @@ Notes :
 - Les réponses sont mises en cache (15 minutes par défaut) afin de réduire les récupérations répétées.
 - Si vous utilisez des profils d’outils/listes d’autorisation, ajoutez `web_search`/`web_fetch` ou `group:web`.
 - Si la clé Brave est manquante, `web_search` renvoie une courte indication de configuration avec un lien vers la documentation.
-
-

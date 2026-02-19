@@ -1,12 +1,16 @@
 ---
+summary: "「openclaw models」的 CLI 參考（status/list/set/scan、別名、後備、身分驗證）"
+read_when:
+  - 你想要變更預設模型，或查看提供者的身分驗證狀態
+  - 你想要掃描可用的模型／提供者，並偵錯身分驗證設定檔
 title: "模型"
 ---
 
 # `openclaw models`
 
-模型探索、掃描與設定（預設模型、備援、驗證設定檔）。
+Model discovery, scanning, and configuration (default model, fallbacks, auth profiles).
 
-相關：
+Related:
 
 - 提供者＋模型：[Models](/providers/models)
 - 提供者身分驗證設定：[Getting started](/start/getting-started)
@@ -20,6 +24,7 @@ openclaw models set <model-or-alias>
 openclaw models scan
 ```
 
+`openclaw models status` shows the resolved default/fallbacks plus an auth overview.
 `openclaw models status` 會顯示解析後的預設/備援設定，以及驗證總覽。
 When provider usage snapshots are available, the OAuth/token status section includes
 provider usage headers.
@@ -50,14 +55,14 @@ configured default agent.
 - `--probe-max-tokens <n>`
 - `--agent <id>`（已設定的代理程式 ID；會覆寫 `OPENCLAW_AGENT_DIR`/`PI_CODING_AGENT_DIR`）
 
-## 別名 + 備援
+## Aliases + fallbacks
 
 ```bash
 openclaw models aliases list
 openclaw models fallbacks list
 ```
 
-## 驗證設定檔
+## Auth profiles
 
 ```bash
 openclaw models auth add
@@ -68,11 +73,10 @@ openclaw models auth paste-token
 
 `models auth login` 會執行提供者外掛的身分驗證流程（OAuth／API 金鑰）。使用
 `openclaw plugins list` 以查看已安裝的提供者。 Use
+`openclaw plugins list` to see which providers are installed. Use
 `openclaw plugins list` to see which providers are installed.
 
 注意事項：
 
 - `setup-token` 會提示輸入 setup-token 值（可在任何機器上使用 `claude setup-token` 產生）。
 - `paste-token` 接受在其他地方或由自動化產生的權杖字串。
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Adaptateurs RPC pour des CLI externes (signal-cli, imsg legacy) et des modeles de passerelle"
+read_when:
+  - Ajout ou modification d'integrations CLI externes
+  - Debogage des adaptateurs RPC (signal-cli, imsg)
 title: "Adaptateurs RPC"
 ---
 
@@ -37,5 +41,3 @@ Voir [iMessage](/channels/imessage) pour la configuration legacy et l'adressage 
 - Le Gateway (passerelle) possede le processus (demarrage/arret lies au cycle de vie du fournisseur).
 - Rendez les clients RPC resilients : delais d'attente, redemarrage en cas de sortie.
 - Preferez des ID stables (par exemple, `chat_id`) aux chaines d'affichage.
-
-

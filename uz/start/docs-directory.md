@@ -1,4 +1,7 @@
 ---
+summary: "18. Eng ko‘p ishlatiladigan OpenClaw hujjatlariga tanlab olingan havolalar."
+read_when:
+  - 19. Asosiy hujjat sahifalariga tezkor kirishni xohlaysiz
 title: "20. Hujjatlar katalogi"
 ---
 
@@ -31,12 +34,12 @@ title: "20. Hujjatlar katalogi"
 
 ## 44. Provayderlar va UX
 
-- 45. [WebChat](/web/webchat)
+- [WebChat](/web/webchat)
 - 46. [Control UI (brauzer)](/web/control-ui)
-- 47. [Telegram](/channels/telegram)
-- 48. [Discord](/channels/discord)
+- [Telegram](/channels/telegram)
+- [Discord](/channels/discord)
 - 49. [Mattermost (plagin)](/channels/mattermost)
-- 50. [BlueBubbles (iMessage)](/channels/bluebubbles)
+- [BlueBubbles (iMessage)](/channels/bluebubbles)
 - [iMessage (legacy)](/channels/imessage)
 - [Guruhlar](/channels/groups)
 - [WhatsApp guruh xabarlari](/channels/group-messages)
@@ -59,5 +62,3 @@ title: "20. Hujjatlar katalogi"
 - [Gmail hooklari (Pub/Sub)](/automation/gmail-pubsub)
 - [Xavfsizlik](/gateway/security)
 - [Nosozliklarni bartaraf etish](/gateway/troubleshooting)
-
-

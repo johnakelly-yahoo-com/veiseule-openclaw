@@ -1,10 +1,15 @@
 ---
+summary: "Models CLI: စာရင်းပြုစုခြင်း၊ သတ်မှတ်ခြင်း၊ အလယ်အလတ်အမည်များ၊ အစားထိုး fallback များ၊ စကန်လုပ်ခြင်း၊ အခြေအနေ"
+read_when:
+  - Models CLI (models list/set/scan/aliases/fallbacks) ကို ထည့်သွင်းခြင်း သို့မဟုတ် ပြင်ဆင်ခြင်း
+  - မော်ဒယ် fallback အပြုအမူ သို့မဟုတ် ရွေးချယ်မှု UX ကို ပြောင်းလဲခြင်း
+  - မော်ဒယ် စကန် probe များ (tools/images) ကို အပ်ဒိတ်လုပ်ခြင်း
 title: "မော်ဒယ်များ CLI"
 ---
 
 # မော်ဒယ်များ CLI
 
-အတည်ပြု ပရိုဖိုင်အတွက် [/concepts/model-failover](/concepts/model-failover) ကို ကြည့်ပါ
+See [/concepts/model-failover](/concepts/model-failover) for auth profile
 rotation, cooldowns, and how that interacts with fallbacks.
 Quick provider overview + examples: [/concepts/model-providers](/concepts/model-providers).
 
@@ -199,5 +204,3 @@ mode, pass `--yes` to accept defaults.
 Custom providers in `models.providers` are written into `models.json` under the
 agent directory (default `~/.openclaw/agents/<agentId>/models.json`). This file
 is merged by default unless `models.mode` is set to `replace`.
-
-

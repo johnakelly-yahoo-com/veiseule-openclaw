@@ -1,10 +1,14 @@
 ---
+summary: "ویب سرچ کے لیے Perplexity Sonar کی سیٹ اپ"
+read_when:
+  - آپ ویب سرچ کے لیے Perplexity Sonar استعمال کرنا چاہتے ہیں
+  - آپ کو PERPLEXITY_API_KEY یا OpenRouter سیٹ اپ درکار ہے
 title: "Perplexity Sonar"
 ---
 
 # Perplexity Sonar
 
-OpenClaw `web_search` ٹول کے لیے Perplexity Sonar استعمال کر سکتا ہے۔ آپ منسلک کر سکتے ہیں
+OpenClaw can use Perplexity Sonar for the `web_search` tool. You can connect
 through Perplexity’s direct API or via OpenRouter.
 
 ## API کے اختیارات
@@ -72,5 +76,3 @@ through Perplexity’s direct API or via OpenRouter.
 - `perplexity/sonar-reasoning-pro` — گہری تحقیق
 
 مکمل web_search کنفیگریشن کے لیے [Web tools](/tools/web) دیکھیں۔
-
-

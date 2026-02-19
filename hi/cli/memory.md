@@ -1,10 +1,14 @@
 ---
+summary: "`openclaw memory` के लिए CLI संदर्भ (status/index/search)"
+read_when:
+  - आप सेमान्टिक मेमोरी को इंडेक्स या खोज करना चाहते हैं
+  - आप मेमोरी उपलब्धता या इंडेक्सिंग का डिबग कर रहे हैं
 title: "मेमोरी"
 ---
 
 # `openclaw memory`
 
-अर्थगत स्मृति अनुक्रमण और खोज का प्रबंधन करें।
+Manage semantic memory indexing and search.
 Provided by the active memory plugin (default: `memory-core`; set `plugins.slots.memory = "none"` to disable).
 
 संबंधित:
@@ -39,5 +43,3 @@ openclaw memory index --agent main --verbose
 - `memory status --deep --index` यदि स्टोर डर्टी है तो पुनः इंडेक्स चलाता है।
 - `memory index --verbose` प्रति-चरण विवरण प्रिंट करता है (प्रदाता, मॉडल, स्रोत, बैच गतिविधि)।
 - `memory status` `memorySearch.extraPaths` के माध्यम से विन्यस्त किसी भी अतिरिक्त पाथ को शामिल करता है।
-
-

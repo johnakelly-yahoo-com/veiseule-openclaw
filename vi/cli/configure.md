@@ -1,4 +1,7 @@
 ---
+summary: "Tham chiếu CLI cho `openclaw configure` (các lời nhắc cấu hình tương tác)"
+read_when:
+  - Bạn muốn tinh chỉnh thông tin xác thực, thiết bị hoặc mặc định của tác tử theo cách tương tác
 title: "configure"
 ---
 
@@ -27,5 +30,3 @@ Ghi chú:
 openclaw configure
 openclaw configure --section models --section channels
 ```
-
-

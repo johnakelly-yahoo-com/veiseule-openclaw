@@ -1,4 +1,8 @@
 ---
+summary: "Slash-kommandoer: tekst vs. native, konfiguration og understøttede kommandoer"
+read_when:
+  - Brug eller konfigurer chatkommandoer
+  - Fejlfinding af kommandorouting eller tilladelser
 title: "Slash-kommandoer"
 ---
 
@@ -14,7 +18,7 @@ Der er to relaterede systemer:
   - Direktiver fjernes fra beskeden, før modellen ser den.
   - I normale chatbeskeder (ikke kun-direktiv) behandles de som “inline-hints” og **persistérer ikke** sessionsindstillinger.
   - I beskeder, der kun består af direktiver (beskeden indeholder kun direktiver), persistérer de til sessionen og svarer med en bekræftelse.
-  - Direktiver anvendes kun for **autoriserede afsendere** (kanal allowlists/parring plus `commands.useAccessGroups`).
+  - Direktiver anvendes kun for **autoriserede afsendere**. Hvis `commands.allowFrom` er angivet, er det den eneste allowlist, der bruges; ellers kommer autorisation fra kanalens allowlists/parring samt `commands.useAccessGroups`.
     Uautoriserede afsendere ser direktiver, der behandles som almindelig tekst.
 
 Der er også et par **inline genveje** (tilladt/autoriserede afsendere kun): `/help`, `/commands`, `/status`, `/whoami` (`/id`).
@@ -51,7 +55,8 @@ De kører straks, er strippet før modellen ser meddelelsen, og den resterende t
 - `commands.bashForegroundMs` (standard `2000`) styrer, hvor længe bash venter, før der skiftes til baggrundstilstand (`0` baggrundsætter med det samme).
 - `commands.config` (standard `false`) aktiverer `/config` (læser/skriver `openclaw.json`).
 - `commands.debug` (standard `false`) aktiverer `/debug` (kun runtime-tilsidesættelser).
-- `commands.useAccessGroups` (standard `true`) håndhæver tilladelseslister/politikker for kommandoer.
+- `commands.allowFrom` (valgfri) angiver en pr.-udbyder allowlist til kommandogodkendelse. Når den er konfigureret, er den den eneste autorisationskilde for kommandoer og direktiver (kanalens allowlists/parring og `commands.useAccessGroups` ignoreres). Brug `"*"` som en global standard; udbyderspecifikke nøgler tilsidesætter den.
+- `commands.useAccessGroups` (standard `true`) håndhæver allowlists/politikker for kommandoer, når `commands.allowFrom` ikke er angivet.
 
 ## Kommandoliste
 
@@ -70,19 +75,22 @@ Tekst + native (når aktiveret):
 - `/debug show|set|unset|reset` (runtime-tilsidesættelser, kun ejer; kræver `commands.debug: true`)
 - `/usage off|tokens|full|cost` (brugsfodnote pr. svar eller lokal omkostningsoversigt)
 - `/tts off|always|inbound|tagged|status|provider|limit|summary|audio` (styr TTS; se [/tts](/tts))
+- `/debug show|set|unset|reset` (runtime-tilsidesættelser, kun ejer; kræver `commands.debug: true`)
+- `/usage off|tokens|full|cost` (brugsfodnote pr. svar eller lokal omkostningsoversigt)
+- `/dock-telegram` (alias: `/dock_telegram`) (skift svar til Telegram)
   - Discord: native kommando er `/voice` (Discord reserverer `/tts`); tekst `/tts` virker stadig.
 - `/stop`
 - `/restart`
-- `/dock-telegram` (alias: `/dock_telegram`) (skift svar til Telegram)
-- `/dock-discord` (alias: `/dock_discord`) (skift svar til Discord)
-- `/dock-slack` (alias: `/dock_slack`) (skift svar til Slack)
 - `/activation mention|always` (kun grupper)
 - `/send on|off|inherit` (kun ejer)
 - `/reset` eller `/new [model]` (valgfrit modelhint; resten sendes videre)
 - `/think <off|minimal|low|medium|high|xhigh>` (dynamiske valg efter model/udbyder; aliaser: `/thinking`, `/t`)
-- `/verbose on|full|off` (alias: `/v`)
+- `/send on|off|inherit` (kun ejer)
 - `/reasoning on|off|stream` (alias: `/reason`; når slået til, sendes en separat besked med præfikset `Reasoning:`; `stream` = kun Telegram-kladde)
 - `/elevated on|off|ask|full` (alias: `/elev`; `full` springer exec-godkendelser over)
+- `/verbose on|full|off` (alias: `/v`)
+- `/model <name>` (alias: `/models`; eller `/<alias>` fra `agents.defaults.models.*.alias`)
+- `/queue <mode>` (plus muligheder som `debounce:2s cap:25 drop:summarize`; send `/queue` for at se aktuelle indstillinger)
 - `/exec host=<sandbox|gateway|node> security=<deny|allowlist|full> ask=<off|on-miss|always> node=<id>` (send `/exec` for at vise aktuelt)
 - `/model <name>` (alias: `/models`; eller `/<alias>` fra `agents.defaults.models.*.alias`)
 - `/queue <mode>` (plus muligheder som `debounce:2s cap:25 drop:summarize`; send `/queue` for at se aktuelle indstillinger)
@@ -192,5 +200,3 @@ Noter:
   - Telegram: `telegram:slash:<userId>` (målretter chatsessionen via `CommandTargetSessionKey`)
 - **`/stop`** målretter den aktive chatsession, så den kan afbryde den aktuelle kørsel.
 - **Slack:** `channels.slack.slashCommand` er stadig understøttet for en enkelt `/openclaw`-lignende kommando. Hvis du aktiverer `commands.native`, skal du oprette en Slack skråstreg kommando pr. indbygget kommando (samme navne som `/help`). Kommando argument menuer til Slack leveres som flygtige Block Kit knapper.
-
-

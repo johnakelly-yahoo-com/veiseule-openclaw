@@ -1,4 +1,9 @@
 ---
+summary: "Ansible、Tailscale VPN、ファイアウォール分離を用いた、自動化され強化された OpenClaw のインストール"
+read_when:
+  - セキュリティ強化を伴う自動化されたサーバー展開を行いたい場合
+  - VPN アクセス付きのファイアウォール分離セットアップが必要な場合
+  - リモートの Debian/Ubuntu サーバーにデプロイする場合
 title: "Ansible"
 ---
 
@@ -45,7 +50,7 @@ Ansible プレイブックは以下をインストールおよび設定します
 5. **OpenClaw**（ホスト上で実行、コンテナ化しない）
 6. **Systemd サービス**（セキュリティ強化付きの自動起動）
 
-注記: ゲートウェイは **ホスト上で直接** 実行されます（Docker 内ではありません）が、エージェントのサンドボックスは分離のために Docker を使用します。詳細は [サンドボックス化](/gateway/sandboxing) を参照してください。 詳細は [Sandboxing](/gateway/sandboxing) を参照してください。
+注記: ゲートウェイは **ホスト上で直接** 実行されます（Docker 内ではありません）が、エージェントのサンドボックスは分離のために Docker を使用します。詳細は [サンドボックス化](/gateway/sandboxing) を参照してください。 詳細は [Sandboxing](/gateway/sandboxing) を参照してください。 詳細は [Sandboxing](/gateway/sandboxing) を参照してください。
 
 ## インストール後のセットアップ
 
@@ -96,11 +101,11 @@ openclaw channels login
 nmap -p- YOUR_SERVER_IP
 ```
 
-**ポート 22**（SSH）のみが開いていることが表示されるはずです。その他のすべてのサービス（ゲートウェイ、Docker）はロックダウンされています。 他のすべてのサービス (ゲートウェイ、Docker) はロックダウンされています。
+**ポート 22**（SSH）のみが開いていることが表示されるはずです。その他のすべてのサービス（ゲートウェイ、Docker）はロックダウンされています。 他のすべてのサービス (ゲートウェイ、Docker) はロックダウンされています。 他のすべてのサービス (ゲートウェイ、Docker) はロックダウンされています。
 
 ### Docker の利用範囲
 
-Docker は **エージェントのサンドボックス**（分離されたツール実行）のためにインストールされます。ゲートウェイ自体の実行には使用されません。ゲートウェイは localhost のみにバインドされ、Tailscale VPN 経由でアクセスされます。 このゲートウェイは、localhostにのみバインドされ、Tailscale VPN経由でアクセスできます。
+Docker は **エージェントのサンドボックス**（分離されたツール実行）のためにインストールされます。ゲートウェイ自体の実行には使用されません。ゲートウェイは localhost のみにバインドされ、Tailscale VPN 経由でアクセスされます。 このゲートウェイは、localhostにのみバインドされ、Tailscale VPN経由でアクセスできます。 このゲートウェイは、localhostにのみバインドされ、Tailscale VPN経由でアクセスできます。
 
 サンドボックスの設定については、[マルチエージェント サンドボックス & ツール](/tools/multi-agent-sandbox-tools) を参照してください。
 
@@ -128,7 +133,7 @@ ansible-galaxy collection install -r requirements.yml
 
 ## OpenClaw の更新
 
-Ansible インストーラーは、OpenClaw を手動更新できるようにセットアップします。標準的な更新手順については [更新](/install/updating) を参照してください。 標準の更新フローについては、 [Updating](/install/updating) を参照してください。
+Ansible インストーラーは、OpenClaw を手動更新できるようにセットアップします。標準的な更新手順については [更新](/install/updating) を参照してください。 標準の更新フローについては、 [Updating](/install/updating) を参照してください。 標準の更新フローについては、 [Updating](/install/updating) を参照してください。
 
 Ansible プレイブックを再実行する場合（例: 設定変更時）は、以下を実行します。
 
@@ -201,5 +206,3 @@ openclaw channels login
 - [Docker](/install/docker) — コンテナ化されたゲートウェイのセットアップ
 - [サンドボックス化](/gateway/sandboxing) — エージェントのサンドボックス設定
 - [マルチエージェント サンドボックス & ツール](/tools/multi-agent-sandbox-tools) — エージェントごとの分離
-
-

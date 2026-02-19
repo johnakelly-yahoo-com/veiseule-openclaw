@@ -1,4 +1,8 @@
 ---
+summary: "Dostawcy modeli (LLM) obsługiwani przez OpenClaw"
+read_when:
+  - Chcesz wybrać dostawcę modelu
+  - Chcesz szybkie przykłady konfiguracji uwierzytelniania LLM + wyboru modelu
 title: "Szybki start dostawców modeli"
 ---
 
@@ -46,5 +50,3 @@ Zobacz [Venice AI](/providers/venice).
 
 Pełny katalog dostawców (xAI, Groq, Mistral itd.) oraz zaawansowaną konfigurację znajdziesz w
 [Model providers](/concepts/model-providers).
-
-

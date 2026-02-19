@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw tomonidan qo‘llab-quvvatlanadigan model provayderlari (LLM’lar)"
+read_when:
+  - Siz model provayderini tanlamoqchisiz
+  - Sizga qo‘llab-quvvatlanadigan LLM backendlari bo‘yicha tezkor umumiy ko‘rinish kerak
 title: "Model provayderlari"
 ---
 
@@ -35,18 +39,23 @@ Venice — maxfiylikka yo‘naltirilgan inferensiya uchun tavsiya etilgan Venice
 - [Anthropic (API + Claude Code CLI)](/providers/anthropic)
 - [Qwen (OAuth)](/providers/qwen)
 - [OpenRouter](/providers/openrouter)
+- [LiteLLM (yagona gateway)](/providers/litellm)
 - [Vercel AI Gateway](/providers/vercel-ai-gateway)
+- [Together AI](/providers/together)
 - [Cloudflare AI Gateway](/providers/cloudflare-ai-gateway)
 - [Moonshot AI (Kimi + Kimi Coding)](/providers/moonshot)
 - [OpenCode Zen](/providers/opencode)
 - [Amazon Bedrock](/providers/bedrock)
 - [Z.AI](/providers/zai)
 - [Xiaomi](/providers/xiaomi)
-- [GLM modellari](/providers/glm)
+- [Venice (Venice AI, maxfiylikka yo‘naltirilgan)](/providers/venice)
 - [MiniMax](/providers/minimax)
 - [Venice (Venice AI, maxfiylikka yo‘naltirilgan)](/providers/venice)
+- [Hugging Face (Inference)](/providers/huggingface)
 - [Ollama (lokal modellar)](/providers/ollama)
+- [vLLM (lokal modellar)](/providers/vllm)
 - [Qianfan](/providers/qianfan)
+- [NVIDIA](/providers/nvidia)
 
 ## Transkripsiya provayderlari
 
@@ -58,5 +67,3 @@ Venice — maxfiylikka yo‘naltirilgan inferensiya uchun tavsiya etilgan Venice
 
 Provayderlarning to‘liq katalogi (xAI, Groq, Mistral va boshqalar) uchun va ilg‘or sozlamalar uchun,
 [Model provayderlari](/concepts/model-providers) sahifasiga qarang.
-
-

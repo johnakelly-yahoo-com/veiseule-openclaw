@@ -1,4 +1,8 @@
 ---
+summary: "Użyj zunifikowanego API OpenRouter, aby uzyskać dostęp do wielu modeli w OpenClaw"
+read_when:
+  - Chcesz jednego klucza API dla wielu LLM-ów
+  - Chcesz uruchamiać modele przez OpenRouter w OpenClaw
 title: "OpenRouter"
 ---
 
@@ -31,5 +35,3 @@ openclaw onboard --auth-choice apiKey --token-provider openrouter --token "$OPEN
 - Odwołania do modeli to `openrouter/<provider>/<model>`.
 - Aby poznać więcej opcji modeli/dostawców, zobacz [/concepts/model-providers](/concepts/model-providers).
 - OpenRouter korzysta wewnętrznie z tokenu Bearer zawierającego Twój klucz API.
-
-

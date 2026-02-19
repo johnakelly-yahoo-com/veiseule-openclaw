@@ -1,4 +1,9 @@
 ---
+summary: "Backends CLI : solution de repli texte seul via des CLI d’IA locales"
+read_when:
+  - Vous souhaitez un repli fiable lorsque les fournisseurs d’API échouent
+  - Vous exécutez Claude Code CLI ou d’autres CLI d’IA locales et souhaitez les réutiliser
+  - Vous avez besoin d’un chemin texte seul, sans outils, qui prend néanmoins en charge les sessions et les images
 title: "Backends CLI"
 ---
 
@@ -218,5 +223,3 @@ Ne surchargez que si nécessaire (courant : chemin `command` absolu).
 - **Pas de continuité de session** : assurez‑vous que `sessionArg` est défini et que `sessionMode` n’est pas
   `none` (Codex CLI ne peut actuellement pas reprendre avec une sortie JSON).
 - **Images ignorées** : définissez `imageArg` (et vérifiez que la CLI prend en charge les chemins de fichiers).
-
-

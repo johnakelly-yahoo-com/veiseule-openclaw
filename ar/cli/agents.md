@@ -1,4 +1,7 @@
 ---
+summary: "مرجع CLI لأمر `openclaw agents` (السرد/الإضافة/الحذف/تعيين الهوية)"
+read_when:
+  - عندما تحتاج إلى عدة وكلاء معزولين (مساحات عمل + توجيه + مصادقة)
 title: "الوكلاء"
 ---
 
@@ -70,5 +73,3 @@ openclaw agents set-identity --agent main --name "OpenClaw" --emoji "🦞" --ava
   },
 }
 ```
-
-

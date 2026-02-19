@@ -1,4 +1,8 @@
 ---
+summary: "Udsend en WhatsApp-besked til flere agenter"
+read_when:
+  - Konfiguration af broadcast-grupper
+  - Fejlfinding af svar fra flere agenter i WhatsApp
 status: experimental
 title: "Broadcast-grupper"
 ---
@@ -436,5 +440,3 @@ Planlagte funktioner:
 - [Multi-agent-konfiguration](/tools/multi-agent-sandbox-tools)
 - [Ruting-konfiguration](/channels/channel-routing)
 - [Sessionshåndtering](/concepts/sessions)
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "Static host ng Loopback WebChat at paggamit ng Gateway WS para sa chat UI"
+read_when:
+  - Pag-debug o pag-configure ng access sa WebChat
 title: "WebChat"
 ---
 
@@ -36,7 +39,7 @@ Buong konpigurasyon: [Configuration](/gateway/configuration)
 
 Mga opsyon ng channel:
 
-- Walang nakatalagang `webchat.*` block. Ginagamit ng WebChat ang gateway endpoint + mga setting ng auth sa ibaba.
+- No dedicated `webchat.*` block. WebChat uses the gateway endpoint + auth settings below.
 
 Kaugnay na mga global na opsyon:
 
@@ -44,5 +47,4 @@ Kaugnay na mga global na opsyon:
 - `gateway.auth.mode`, `gateway.auth.token`, `gateway.auth.password`: WebSocket auth.
 - `gateway.remote.url`, `gateway.remote.token`, `gateway.remote.password`: remote Gateway target.
 - `session.*`: session storage at mga default ng pangunahing key.
-
-
+- `session.*`: session storage at mga default ng pangunahing key.

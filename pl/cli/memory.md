@@ -1,4 +1,8 @@
 ---
+summary: "Referencja CLI dla `openclaw memory` (status/indeksowanie/wyszukiwanie)"
+read_when:
+  - Chcesz indeksować lub przeszukiwać pamięć semantyczną
+  - Debugujesz dostępność pamięci lub proces indeksowania
 title: "pamięć"
 ---
 
@@ -39,5 +43,3 @@ Uwagi:
 - `memory status --deep --index` uruchamia ponowne indeksowanie, jeśli magazyn jest „brudny”.
 - `memory index --verbose` wypisuje szczegóły dla poszczególnych faz (dostawca, model, źródła, aktywność wsadów).
 - `memory status` uwzględnia wszelkie dodatkowe ścieżki skonfigurowane przez `memorySearch.extraPaths`.
-
-

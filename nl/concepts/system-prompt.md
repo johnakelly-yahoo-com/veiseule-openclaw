@@ -1,4 +1,8 @@
 ---
+summary: "Wat de OpenClaw-systeemprompt bevat en hoe deze wordt samengesteld"
+read_when:
+  - Bewerken van systeemprompttekst, toolslijst of tijd-/heartbeat-secties
+  - Wijzigen van werkruimte-bootstrap of gedrag voor Skills-injectie
 title: "Systeemprompt"
 ---
 
@@ -55,10 +59,17 @@ Bootstrapbestanden worden ingekort en toegevoegd onder **Project Context**, zoda
 - `USER.md`
 - `HEARTBEAT.md`
 - `BOOTSTRAP.md` (alleen bij gloednieuwe werkruimtes)
+- `MEMORY.md` en/of `memory.md` (indien aanwezig in de workspace; één of beide kunnen worden geïnjecteerd)
+
+Al deze bestanden worden bij elke beurt **in het contextvenster geïnjecteerd**, wat betekent dat ze tokens verbruiken. Houd ze beknopt — vooral `MEMORY.md`, dat in de loop van de tijd kan groeien en kan leiden tot onverwacht hoog contextgebruik en frequentere compactie.
+
+> **Opmerking:** dagelijkse bestanden in `memory/*.md` worden **niet** automatisch geïnjecteerd. Ze worden op aanvraag benaderd via de tools `memory_search` en `memory_get`, en tellen dus niet mee voor het contextvenster tenzij het model ze expliciet leest.
 
 Grote bestanden worden afgekapt met een markering. De maximale grootte per bestand wordt bepaald door
-`agents.defaults.bootstrapMaxChars` (standaard: 20000). Ontbrekende bestanden injecteren een
+`agents.defaults.bootstrapMaxChars` (standaard: 20000). De totale geïnjecteerde bootstrap-inhoud over alle bestanden is gemaximeerd door `agents.defaults.bootstrapTotalMaxChars` (standaard: 24000). Ontbrekende bestanden injecteren een
 korte ontbrekend-bestand-markering.
+
+Sub-agent sessies injecteren alleen `AGENTS.md` en `TOOLS.md` (andere bootstrap-bestanden worden gefilterd om de context van de sub-agent klein te houden).
 
 Interne hooks kunnen deze stap onderscheppen via `agent:bootstrap` om de geïnjecteerde
 bootstrapbestanden te muteren of te vervangen (bijvoorbeeld het wisselen van `SOUL.md` voor een alternatieve persona).
@@ -109,5 +120,3 @@ pakketdocumentatie) en vermeldt ook de publieke mirror, bronrepo, community-Disc
 ClawHub ([https://clawhub.com](https://clawhub.com)) voor Skill-discovery. De prompt instrueert het model om eerst de lokale documentatie te raadplegen
 voor OpenClaw-gedrag, opdrachten, configuratie of architectuur, en om indien mogelijk zelf
 `openclaw status` uit te voeren (alleen de gebruiker te vragen wanneer het geen toegang heeft).
-
-

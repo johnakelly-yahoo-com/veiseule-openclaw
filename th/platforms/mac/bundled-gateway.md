@@ -1,10 +1,15 @@
 ---
+summary: "รันไทม์GatewayบนmacOS(บริการlaunchdภายนอก)"
+read_when:
+  - การแพ็กเกจ OpenClaw.app
+  - การดีบักบริการlaunchdของGatewayบนmacOS
+  - การติดตั้งGateway CLIสำหรับmacOS
 title: "GatewayบนmacOS"
 ---
 
 # GatewayบนmacOS(launchdภายนอก)
 
-OpenClaw.app ไม่ได้บันเดิล Node/Bun หรือรันไทม์ Gateway อีกต่อไป OpenClaw.appไม่รวมNode/Bunหรือรันไทม์Gatewayอีกต่อไป แอปmacOSคาดหวังการติดตั้งCLI `openclaw` แบบ**ภายนอก** ไม่สตาร์ทGatewayเป็นโปรเซสลูก และจัดการบริการlaunchdต่อผู้ใช้เพื่อให้Gatewayทำงานต่อเนื่อง(หรือแนบกับGatewayภายในเครื่องที่กำลังทำงานอยู่แล้วหากมี)
+OpenClaw.app ไม่ได้บันเดิล Node/Bun หรือรันไทม์ Gateway อีกต่อไป OpenClaw.app ไม่ได้บันเดิล Node/Bun หรือรันไทม์ Gateway อีกต่อไป OpenClaw.appไม่รวมNode/Bunหรือรันไทม์Gatewayอีกต่อไป แอปmacOSคาดหวังการติดตั้งCLI `openclaw` แบบ**ภายนอก** ไม่สตาร์ทGatewayเป็นโปรเซสลูก และจัดการบริการlaunchdต่อผู้ใช้เพื่อให้Gatewayทำงานต่อเนื่อง(หรือแนบกับGatewayภายในเครื่องที่กำลังทำงานอยู่แล้วหากมี)
 
 ## ติดตั้งCLI(จำเป็นสำหรับโหมดLocal)
 
@@ -44,7 +49,7 @@ npm install -g openclaw@<version>
 
 ## ความเข้ากันได้ของเวอร์ชัน
 
-แอป macOS จะตรวจสอบเวอร์ชันของ gateway เทียบกับเวอร์ชันของตัวเอง แอปmacOSจะตรวจสอบเวอร์ชันของGatewayเทียบกับเวอร์ชันของแอป หากไม่เข้ากัน ให้ อัปเดตCLIแบบโกลบอลให้ตรงกับเวอร์ชันของแอป
+แอป macOS จะตรวจสอบเวอร์ชันของ gateway เทียบกับเวอร์ชันของตัวเอง แอปmacOSจะตรวจสอบเวอร์ชันของGatewayเทียบกับเวอร์ชันของแอป หากไม่เข้ากัน ให้ อัปเดตCLIแบบโกลบอลให้ตรงกับเวอร์ชันของแอป แอปmacOSจะตรวจสอบเวอร์ชันของGatewayเทียบกับเวอร์ชันของแอป หากไม่เข้ากัน ให้ อัปเดตCLIแบบโกลบอลให้ตรงกับเวอร์ชันของแอป
 
 ## การตรวจสอบเบื้องต้น
 
@@ -61,5 +66,3 @@ openclaw gateway --port 18999 --bind loopback
 ```bash
 openclaw gateway call health --url ws://127.0.0.1:18999 --timeout 3000
 ```
-
-

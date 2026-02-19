@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw uchun agent vositalari to‘plami (brauzer, canvas, tugunlar, xabar, cron) — eski `openclaw-*` ko‘nikmalarini almashtiradi"
+read_when:
+  - Adding or modifying agent tools
+  - Retiring or changing `openclaw-*` skills
 title: "Asboblar"
 ---
 
@@ -175,28 +179,29 @@ Available groups:
 
 13. Bir yoki bir nechta fayllar bo‘ylab strukturalangan patch’larni qo‘llash. 32. Ko‘p-hunk tahrirlar uchun foydalaning.
 14. Eksperimental: `tools.exec.applyPatch.enabled` orqali yoqing (faqat OpenAI modellari).
+    `tools.exec.applyPatch.workspaceOnly` standart bo‘yicha `true` (faqat workspace ichida). Uni `false` ga faqat `apply_patch` workspace katalogidan tashqariga yozishi/o‘chirishi kerak bo‘lsa, ataylab o‘rnating.
 
 ### 34. `exec`
 
 17. Ish maydonida shell buyruqlarini ishga tushirish.
 
-35. Asosiy parametrlar:
+Core parameters:
 
 - 19. `command` (majburiy)
 - 20. `yieldMs` (vaqt tugagach avtomatik fon rejimiga o‘tadi, standart 10000)
 - 21. `background` (darhol fon rejimi)
 - 22. `timeout` (soniyalar; oshib ketsa jarayon to‘xtatiladi, standart 1800)
 - 23. `elevated` (bool; elevated rejimi yoqilgan/ruxsat etilgan bo‘lsa xostda ishga tushiradi; agent sandbox qilinganida xulq-atvorni o‘zgartiradi)
-- 24. `host` (`sandbox | gateway | node`)
-- 25. `security` (`deny | allowlist | full`)
-- 26. `ask` (`off | on-miss | always`)
+- `host` (`sandbox | gateway | node`)
+- `security` (`deny | allowlist | full`)
+- `ask` (`off | on-miss | always`)
 - 27. `node` (`host=node` uchun node id/nomi)
 - 28. Haqiqiy TTY kerakmi? 29. `pty: true` qilib sozlang.
 
-30. Eslatmalar:
+Notes:
 
-- 31. Fon rejimida `status: "running"` va `sessionId` qaytariladi.
-- 32. Fon sessiyalarini so‘rash/loglash/yozish/o‘chirish/tozalash uchun `process` dan foydalaning.
+- Fon rejimidagi exec sessiyalarini boshqarish.
+- Asosiy amallar:
 - 33. Agar `process` taqiqlangan bo‘lsa, `exec` sinxron ishlaydi va `yieldMs`/`background` ni e’tiborsiz qoldiradi.
 - 34. `elevated` `tools.elevated` hamda `agents.list[].tools.elevated` override’i bilan cheklanadi (ikkalasi ham ruxsat berishi kerak) va `host=gateway` + `security=full` uchun alias hisoblanadi.
 - 35. `elevated` faqat agent sandbox qilinganida xulq-atvorni o‘zgartiradi (aks holda ta’siri yo‘q).
@@ -207,11 +212,11 @@ Available groups:
 
 39. Fon rejimidagi exec sessiyalarini boshqarish.
 
-40. Asosiy amallar:
+Core actions:
 
-- 41. `list`, `poll`, `log`, `write`, `kill`, `clear`, `remove`
+- `list`, `poll`, `log`, `write`, `kill`, `clear`, `remove`
 
-42. Eslatmalar:
+Notes:
 
 - 43. `poll` yakunlanganda yangi chiqishni va chiqish holatini qaytaradi.
 - 44. `log` qatorma-qator `offset`/`limit` ni qo‘llab-quvvatlaydi (`offset`ni qoldirsangiz oxirgi N qator olinadi).
@@ -221,14 +226,14 @@ Available groups:
 
 47. Brave Search API orqali vebni qidirish.
 
-48. Asosiy parametrlar:
+Core parameters:
 
-- 49. `query` (majburiy)
-- 50. `count` (1–10; standart qiymat `tools.web.search.maxResults` dan olinadi)
+- URL manzildan o‘qilishi mumkin bo‘lgan kontentni olish va ajratib chiqarish (HTML → markdown/text).
+- Asosiy parametrlar:
 
-1. Eslatmalar:
+Notes:
 
-- 2. Brave API kalitini talab qiladi (tavsiya etiladi: `openclaw configure --section web`, yoki `BRAVE_API_KEY` ni o‘rnating).
+- Eslatmalar:
 - 3. `tools.web.search.enabled` orqali yoqing.
 - 4. Javoblar keshlanadi (standart 15 daqiqa).
 - 5. Sozlash uchun [Web tools](/tools/web) ga qarang.
@@ -237,13 +242,13 @@ Available groups:
 
 7. URL manzildan o‘qilishi mumkin bo‘lgan kontentni olish va ajratib chiqarish (HTML → markdown/text).
 
-8. Asosiy parametrlar:
+Core parameters:
 
 - 9. `url` (majburiy)
-- 10. `extractMode` (`markdown` | `text`)
+- `extractMode` (`markdown` | `text`)
 - 11. `maxChars` (uzun sahifalarni qisqartirish)
 
-12. Eslatmalar:
+Notes:
 
 - 13. `tools.web.fetch.enabled` orqali yoqing.
 - 14. `maxChars` `tools.web.fetch.maxCharsCap` bilan cheklanadi (standart 50000).
@@ -256,13 +261,13 @@ Available groups:
 
 20. OpenClaw tomonidan boshqariladigan maxsus brauzerni nazorat qilish.
 
-21. Asosiy amallar:
+Core actions:
 
-- 22. `status`, `start`, `stop`, `tabs`, `open`, `focus`, `close`
-- 23. `snapshot` (aria/ai)
+- `status`, `start`, `stop`, `tabs`, `open`, `focus`, `close`
+- `snapshot` (aria/ai)
 - 24. `screenshot` (rasm bloki + `MEDIA:<path>` qaytaradi)
 - 25. `act` (UI amallari: click/type/press/hover/drag/select/fill/resize/wait/evaluate)
-- 26. `navigate`, `console`, `pdf`, `upload`, `dialog`
+- `navigate`, `console`, `pdf`, `upload`, `dialog`
 
 27. Profil boshqaruvi:
 
@@ -274,7 +279,7 @@ Available groups:
 32. Umumiy parametrlar:
 
 - 33. `profile` (ixtiyoriy; sukut bo‘yicha `browser.defaultProfile`)
-- 34. `target` (`sandbox` | `host` | `node`)
+- `target` (`sandbox` | `host` | `node`)
 - 35. `node` (ixtiyoriy; aniq node id/nomini tanlaydi)
       Eslatmalar:
 - 36. `browser.enabled=true` talab qilinadi (standart `true`; o‘chirish uchun `false` ga o‘rnating).
@@ -295,7 +300,7 @@ Available groups:
 
 50. Node Canvas’ni boshqarish (present, eval, snapshot, A2UI).
 
-37. Asosiy amallar:
+Core actions:
 
 - `present`, `hide`, `navigate`, `eval`
 - `snapshot` (returns image block + `MEDIA:<path>`)
@@ -314,10 +319,10 @@ Notes:
 
 Core actions:
 
-- 40. `status`, `describe`
+- `status`, `describe`
 - 41. `pending`, `approve`, `reject` (juftlash)
 - `notify` (macOS `system.notify`)
-- 42. `run` (macOS `system.run`)
+- `run` (macOS `system.run`)
 - `camera_snap`, `camera_clip`, `screen_record`
 - `location_get`
 
@@ -381,7 +386,7 @@ Core actions:
 - `event-list` / `event-create`
 - `timeout` / `kick` / `ban`
 
-Eslatmalar:
+Notes:
 
 - `send` WhatsApp’ni Gateway orqali yo‘naltiradi; boshqa kanallar to‘g‘ridan-to‘g‘ri boradi.
 - `poll` WhatsApp va MS Teams uchun Gateway’dan foydalanadi; Discord so‘rovlari to‘g‘ridan-to‘g‘ri boradi.
@@ -389,24 +394,24 @@ Eslatmalar:
 
 ### `cron`
 
-Gateway cron ishlarini va uyg‘otishlarni boshqaring.
-
 Asosiy amallar:
+
+Core actions:
 
 - `status`, `list`
 - `add`, `update`, `remove`, `run`, `runs`
 - `wake` (tizim hodisasini navbatga qo‘shish + ixtiyoriy darhol yurak urishi)
 
-Eslatmalar:
+Notes:
 
 - `add` to‘liq cron ish obyektini kutadi (sxema `cron.add` RPC bilan bir xil).
 - `update` `{ jobId, patch }` dan foydalanadi (`id` moslik uchun qabul qilinadi).
 
 ### `gateway`
 
-Ishlayotgan Gateway jarayonini qayta ishga tushiring yoki yangilanishlarni qo‘llang (joyida).
+Asosiy parametrlar:
 
-Asosiy amallar:
+Core actions:
 
 - `restart` (avtorizatsiya qiladi + jarayon ichida qayta ishga tushirish uchun `SIGUSR1` yuboradi; `openclaw gateway` joyida qayta ishga tushiradi)
 - `config.get` / `config.schema`
@@ -414,16 +419,16 @@ Asosiy amallar:
 - `config.patch` (qisman yangilanishni birlashtirish + qayta ishga tushirish + uyg‘otish)
 - `update.run` (yangilanishni ishga tushirish + qayta ishga tushirish + uyg‘otish)
 
-Eslatmalar:
+Notes:
 
 - 44. Amaldagi javobni to‘xtatib qo‘ymaslik uchun `delayMs` (standart 2000) dan foydalaning.
 - `restart` sukut bo‘yicha o‘chirilgan; `commands.restart: true` bilan yoqing.
 
 ### `sessions_list` / `sessions_history` / `sessions_send` / `sessions_spawn` / `session_status`
 
-Sessiyalarni ro‘yxatlang, transkript tarixini ko‘ring yoki boshqa sessiyaga yuboring.
+Eslatmalar:
 
-Asosiy parametrlar:
+Core parameters:
 
 - `sessions_list`: `kinds?`, `limit?`, `activeMinutes?`, `messageLimit?` (0 = yo‘q)
 - `sessions_history`: `sessionKey` (yoki `sessionId`), `limit?`, `includeTools?`
@@ -431,10 +436,10 @@ Asosiy parametrlar:
 - `sessions_spawn`: `task`, `label?`, `agentId?`, `model?`, `runTimeoutSeconds?`, `cleanup?`
 - `session_status`: `sessionKey?` (sukut bo‘yicha joriy; `sessionId` qabul qilinadi), `model?` (`default` bekor qilishni tozalaydi)
 
-Eslatmalar:
+Notes:
 
-- `main` — to‘g‘ridan-to‘g‘ri chat uchun kanonik kalit; global/noma’lum yashirilgan.
-- 45. `messageLimit > 0` har bir sessiya uchun oxirgi N ta xabarni oladi (vosita xabarlari filtrlanadi).
+- `gatewayUrl` (standart `ws://127.0.0.1:18789`)
+- `gatewayToken` (agar autentifikatsiya yoqilgan bo‘lsa)
 - `sessions_send` `timeoutSeconds > 0` bo‘lganda yakuniy tugashni kutadi.
 - Yetkazish/e’lon qilish yakunlangandan keyin sodir bo‘ladi va eng yaxshi sa’y-harakat asosida bajariladi; `status: "ok"` agent yugurishi tugaganini tasdiqlaydi, e’lon yetkazilganini emas.
 - `sessions_spawn` sub-agent yugurishini boshlaydi va so‘rovchi chatga e’lon javobini joylaydi.
@@ -444,9 +449,9 @@ Eslatmalar:
 
 ### `agents_list`
 
-Joriy sessiya `sessions_spawn` bilan nishonga olishi mumkin bo‘lgan agent identifikatorlarini ro‘yxatlang.
+Brauzer vositasi:
 
-Eslatmalar:
+Notes:
 
 - Natija har bir agent uchun ruxsat ro‘yxatlari bilan cheklanadi (`agents.list[].subagents.allowAgents`).
 - `["*"]` sozlanganda, vosita barcha sozlangan agentlarni o‘z ichiga oladi va `allowAny: true` deb belgilaydi.
@@ -461,13 +466,13 @@ Gateway-ga tayangan vositalar (`canvas`, `nodes`, `cron`):
 
 Eslatma: `gatewayUrl` o‘rnatilganda, `gatewayToken`ni aniq ko‘rsatib kiriting. Vositalar sozlamalarni yoki muhit (environment) hisob ma’lumotlarini override uchun meros qilib olmaydi, va aniq ko‘rsatilmagan hisob ma’lumotlari xato hisoblanadi.
 
-Brauzer vositasi:
+Node nishonlash:
 
 - `profile` (ixtiyoriy; standart `browser.defaultProfile`)
 - `target` (`sandbox` | `host` | `node`)
 - `node` (ixtiyoriy; aniq node id/nomini biriktirish)
 
-## Tavsiya etilgan agent oqimlari
+## Xavfsizlik
 
 Brauzer avtomatlashtirish:
 
@@ -476,10 +481,10 @@ Brauzer avtomatlashtirish:
 3. `act` (bosish/yozish/tugma bosish)
 4. Agar vizual tasdiq kerak bo‘lsa `screenshot`
 
-Canvas renderi:
+Vositalar ikki parallel kanalda ochiladi:
 
 1. `canvas` → `present`
-2. `a2ui_push` (ixtiyoriy)
+2. **Vosita sxemasi**: model API’ga yuboriladigan tuzilgan funksiya ta’riflari.
 3. `snapshot`
 
 Node nishonlash:
@@ -502,5 +507,3 @@ Vositalar ikki parallel kanalda ochiladi:
 2. **Vosita sxemasi**: model API’ga yuboriladigan tuzilgan funksiya ta’riflari.
 
 Bu shuni anglatadiki, agent ham “qaysi vositalar mavjud”ligini, ham “ularni qanday chaqirish”ni ko‘radi. Agar biror vosita
-
-

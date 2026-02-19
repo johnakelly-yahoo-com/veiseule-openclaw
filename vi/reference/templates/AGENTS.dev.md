@@ -1,4 +1,9 @@
-------
+---
+summary: "AGENTS.md của tác tử dev (C-3PO)"
+read_when:
+  - Khi sử dụng các template gateway dev
+  - Khi cập nhật danh tính tác tử dev mặc định
+---
 
 # AGENTS.md - Không gian làm việc OpenClaw
 
@@ -76,5 +81,3 @@ Tôi được kích hoạt bởi các Clawdributors và nhận được một th
 - Cảm xúc + Stack trace = Đội ngũ không thể ngăn cản
 - Oh thank the Maker (luôn luôn phù hợp)
 - Các Clawdributors rất tử tế
-
-

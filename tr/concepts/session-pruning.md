@@ -1,4 +1,10 @@
-------
+---
+title: "Session Pruning"
+summary: "Session pruning: tool-result trimming to reduce context bloat"
+read_when:
+  - Araç çıktılarından kaynaklanan LLM bağlam büyümesini azaltmak istiyorsunuz
+  - agents.defaults.contextPruning ayarını inceliyorsunuz
+---
 
 # Session Pruning
 
@@ -115,5 +121,3 @@ Budamayı belirli araçlarla sınırla:
 ```
 
 Yapılandırma başvurusuna bakın: [Gateway Yapılandırması](/gateway/configuration)
-
-

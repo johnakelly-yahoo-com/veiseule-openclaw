@@ -1,4 +1,8 @@
 ---
+summary: "「openclaw security」的 CLI 參考文件（稽核並修復常見的安全性陷阱）"
+read_when:
+  - 你想要對設定／狀態執行快速的安全性稽核
+  - 你想要套用安全的「修復」建議（chmod、收緊預設值）
 title: "安全性"
 ---
 
@@ -20,6 +24,7 @@ openclaw security audit --fix
 
 當多個 DM 寄件者共用主要工作階段時，稽核會提出警告，並建議在共用收件匣中使用 **安全 DM 模式**：`session.dmScope="per-channel-peer"`（或針對多帳號頻道使用 `per-account-channel-peer`）。
 此外，當未啟用沙箱隔離且同時啟用網頁／瀏覽器工具時，若使用小型模型（`<=300B`），也會發出警告。
-21. 當未啟用沙箱且啟用網路／瀏覽器工具時，也會在使用小型模型（`<=300B`）時發出警告。
-
-
+21.
+當未啟用沙箱且啟用網路／瀏覽器工具時，也會在使用小型模型（`<=300B`）時發出警告。
+對於 webhook ingress，當 `hooks.defaultSessionKey` 未設定、啟用請求 `sessionKey` 覆寫，或在未設定 `hooks.allowedSessionKeyPrefixes` 的情況下啟用覆寫時，系統會發出警告。
+當已設定 sandbox Docker 設定但 sandbox 模式未啟用、`gateway.nodes.denyCommands` 使用無效的類樣式/未知項目、全域 `tools.profile="minimal"` 被 agent 工具設定檔覆寫，以及在寬鬆工具政策下已安裝的 extension 外掛工具可能可被存取時，也會發出警告。

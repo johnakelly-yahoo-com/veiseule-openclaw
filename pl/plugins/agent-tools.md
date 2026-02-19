@@ -1,4 +1,8 @@
 ---
+summary: "Twórz narzędzia agenta we wtyczce (schematy, narzędzia opcjonalne, listy dozwolonych)"
+read_when:
+  - Chcesz dodać nowe narzędzie agenta we wtyczce
+  - Musisz uczynić narzędzie opcjonalnym (opt‑in) za pomocą list dozwolonych
 title: "Narzędzia agenta we wtyczkach"
 ---
 
@@ -93,5 +97,3 @@ Inne elementy konfiguracji wpływające na dostępność narzędzi:
 - Identyfikatory wtyczek używane w listach dozwolonych nie mogą kolidować z nazwami narzędzi rdzeniowych.
 - Preferuj `optional: true` dla narzędzi, które wywołują efekty uboczne lub wymagają dodatkowych
   binariów/poświadczeń.
-
-

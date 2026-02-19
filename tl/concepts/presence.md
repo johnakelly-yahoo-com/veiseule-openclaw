@@ -1,4 +1,9 @@
 ---
+summary: "Kung paano ginagawa, pinagsasama, at ipinapakita ang mga presence entry ng OpenClaw"
+read_when:
+  - Pag-debug ng tab na Instances
+  - Pag-iimbestiga ng mga duplicate o lipas na instance row
+  - Pagbabago ng gateway WS connect o system-event beacons
 title: "Presensya"
 ---
 
@@ -37,17 +42,17 @@ kahit wala pang nakakonektang client.
 
 ### 2. WebSocket connect
 
-Bawat WS client ay nagsisimula sa isang `connect` na kahilingan. Kapag matagumpay ang handshake ang
+Every WS client begins with a `connect` request. On successful handshake the
 Gateway upserts a presence entry for that connection.
 
 #### Bakit hindi lumalabas ang mga one‑off na CLI command
 
-Ang CLI ay madalas kumonekta para sa maiikli, minsanang mga utos. Upang maiwasan ang labis na pag-spam sa
+The CLI often connects for short, one‑off commands. To avoid spamming the
 Instances list, `client.mode === "cli"` is **not** turned into a presence entry.
 
 ### 3. `system-event` beacons
 
-Maaaring magpadala ang mga client ng mas detalyadong pana-panahong beacon sa pamamagitan ng `system-event` na method. Ang mac
+Clients can send richer periodic beacons via the `system-event` method. The mac
 app uses this to report host name, IP, and `lastInputSeconds`.
 
 ### 4. Mga node connect (role: node)
@@ -77,7 +82,7 @@ Pinananatiling sariwa nito ang listahan at iniiwasan ang walang hangganang pagla
 
 ## Paalaala sa remote/tunnel (mga loopback IP)
 
-Kapag kumokonekta ang isang client sa pamamagitan ng SSH tunnel / lokal na port forward, maaaring ang Gateway ay
+When a client connects over an SSH tunnel / local port forward, the Gateway may
 see the remote address as `127.0.0.1`. To avoid overwriting a good client‑reported
 IP, loopback remote addresses are ignored.
 
@@ -95,5 +100,3 @@ indicator (Active/Idle/Stale) batay sa edad ng huling update.
   - kumpirmahin na nagpapadala ang mga client ng stable na `client.instanceId` sa handshake
   - kumpirmahin na ang mga periodic beacon ay gumagamit ng parehong `instanceId`
   - tingnan kung nawawala ang `instanceId` sa entry na galing sa koneksyon (inaasahan ang mga duplicate)
-
-

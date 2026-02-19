@@ -1,4 +1,8 @@
 ---
+summary: "เอกสารอ้างอิงCLIสำหรับ`openclaw message`(การส่งข้อความและการดำเนินการของช่องทาง)"
+read_when:
+  - การเพิ่มหรือแก้ไขการดำเนินการของmessageผ่านCLI
+  - การเปลี่ยนพฤติกรรมช่องทางขาออก
 title: "ข้อความ"
 ---
 
@@ -64,6 +68,7 @@ openclaw message <subcommand> [flags]
   - จำเป็น: `--target`, `--poll-question`, `--poll-option` (ทำซ้ำ)
   - ไม่บังคับ: `--poll-multi`
   - เฉพาะDiscord: `--poll-duration-hours`, `--message`
+  - เฉพาะ Telegram: `--poll-duration-seconds` (5-600), `--silent`, `--poll-anonymous` / `--poll-public`, `--thread-id`
 
 - `react`
   - ช่องทาง: Discord/Google Chat/Slack/Telegram/WhatsApp/Signal
@@ -196,7 +201,17 @@ openclaw message poll --channel discord \
   --poll-multi --poll-duration-hours 48
 ```
 
-ส่งข้อความเชิงรุกในTeams:
+สร้างโพลใน Telegram (ปิดอัตโนมัติใน 2 นาที):
+
+```
+openclaw message poll --channel telegram \
+  --target @mychat \
+  --poll-question "Lunch?" \
+  --poll-option Pizza --poll-option Sushi \
+  --poll-duration-seconds 120 --silent
+```
+
+สร้างโพลในTeams:
 
 ```
 openclaw message send --channel msteams \
@@ -233,5 +248,3 @@ openclaw message react --channel signal \
 openclaw message send --channel telegram --target @mychat --message "Choose:" \
   --buttons '[ [{"text":"Yes","callback_data":"cmd:yes"}], [{"text":"No","callback_data":"cmd:no"}] ]'
 ```
-
-

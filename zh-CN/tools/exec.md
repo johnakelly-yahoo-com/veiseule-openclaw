@@ -1,19 +1,16 @@
 ---
-title: Exec 工具
-x-i18n:
-  generated_at: "2026-02-03T09:26:51Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 3b32238dd8dce93d4f24100eaa521ce9f8485eff6d8498e2680ce9ed6045d25f
-  source_path: tools/exec.md
-  workflow: 15
+summary: "Exec 工具用法、stdin 模式和 TTY 支持"
+read_when:
+  - 使用或修改 exec 工具
+  - 调试 stdin 或 TTY 行为
+title: "Exec 工具"
 ---
 
 # Exec 工具
 
-在工作区中运行 shell 命令。通过 `process` 支持前台和后台执行。
-如果 `process` 被禁用，`exec` 将同步运行并忽略 `yieldMs`/`background`。
-后台会话按智能体隔离；`process` 只能看到同一智能体的会话。
+Run shell commands in the workspace. Supports foreground + background execution via `process`.
+If `process` is disallowed, `exec` runs synchronously and ignores `yieldMs`/`background`.
+Background sessions are scoped per agent; `process` only sees sessions from the same agent.
 
 ## 参数
 
@@ -39,7 +36,8 @@ x-i18n:
 - 如果有多个可用节点，设置 `exec.node` 或 `tools.exec.node` 来选择一个。
 - 在非 Windows 主机上，exec 会使用已设置的 `SHELL`；如果 `SHELL` 是 `fish`，它会优先从 `PATH` 中选择 `bash`（或 `sh`）以避免 fish 不兼容的脚本，如果两者都不存在则回退到 `SHELL`。
 - 主机执行（`gateway`/`node`）会拒绝 `env.PATH` 和加载器覆盖（`LD_*`/`DYLD_*`），以防止二进制劫持或代码注入。
-- 重要提示：沙箱隔离**默认关闭**。如果沙箱隔离关闭，`host=sandbox` 将直接在 Gateway 网关主机上运行（无容器）且**不需要审批**。如需审批，请使用 `host=gateway` 运行并配置 exec 审批（或启用沙箱隔离）。
+- Important: sandboxing is **off by default**. 重要提示：沙箱隔离**默认关闭**。如果沙箱隔离关闭，`host=sandbox` 将直接在 Gateway 网关主机上运行（无容器）且**不需要审批**。如需审批，请使用 `host=gateway` 运行并配置 exec 审批（或启用沙箱隔离）。 To require approvals, run with
+  `host=gateway` and configure exec approvals (or enable sandboxing).
 
 ## 配置
 
@@ -66,13 +64,17 @@ x-i18n:
 
 ### PATH 处理
 
-- `host=gateway`：将你的登录 shell `PATH` 合并到 exec 环境中。主机执行时会拒绝 `env.PATH` 覆盖。守护进程本身仍使用最小 `PATH` 运行：
+- `host=gateway`：将你的登录 shell `PATH` 合并到 exec 环境中。主机执行时会拒绝 `env.PATH` 覆盖。守护进程本身仍使用最小 `PATH` 运行： `env.PATH` overrides are
+  rejected for host execution. The daemon itself still runs with a minimal `PATH`:
   - macOS：`/opt/homebrew/bin`、`/usr/local/bin`、`/usr/bin`、`/bin`
   - Linux：`/usr/local/bin`、`/usr/bin`、`/bin`
 - `host=sandbox`：在容器内运行 `sh -lc`（登录 shell），因此 `/etc/profile` 可能会重置 `PATH`。OpenClaw 在 profile 加载后通过内部环境变量将 `env.PATH` 添加到前面（无 shell 插值）；`tools.exec.pathPrepend` 在此也适用。
-- `host=node`：只有你传递的未被阻止的 env 覆盖会发送到节点。主机执行时会拒绝 `env.PATH` 覆盖。无头节点主机仅在 `PATH` 添加到节点主机 PATH 前面时才接受（不允许替换）。macOS 节点完全丢弃 `PATH` 覆盖。
+  OpenClaw prepends `env.PATH` after profile sourcing via an internal env var (no shell interpolation);
+  `tools.exec.pathPrepend` applies here too.
+- `host=node`：只有你传递的未被阻止的 env 覆盖会发送到节点。主机执行时会拒绝 `env.PATH` 覆盖。无头节点主机仅在 `PATH` 添加到节点主机 PATH 前面时才接受（不允许替换）。macOS 节点完全丢弃 `PATH` 覆盖。 `env.PATH` 覆盖设置在主机执行时会被拒绝，在 node 主机中会被忽略。 如果你在某个 node 上需要额外的 PATH 条目，
+  请配置 node 主机服务环境（systemd/launchd），或将工具安装到标准位置。
 
-按智能体绑定节点（在配置中使用智能体列表索引）：
+Per-agent node binding (use the agent list index in config):
 
 ```bash
 openclaw config get agents.list
@@ -85,6 +87,7 @@ openclaw config set agents.list[0].tools.exec.node "node-id-or-name"
 
 使用 `/exec` 为 `host`、`security`、`ask` 和 `node` 设置**每会话**默认值。
 不带参数发送 `/exec` 可显示当前值。
+Send `/exec` with no arguments to show the current values.
 
 示例：
 
@@ -94,19 +97,27 @@ openclaw config set agents.list[0].tools.exec.node "node-id-or-name"
 
 ## 授权模型
 
-`/exec` 仅对**已授权发送者**（渠道白名单/配对加 `commands.useAccessGroups`）生效。
-它仅更新**会话状态**，不写入配置。要彻底禁用 exec，请通过工具策略拒绝它（`tools.deny: ["exec"]` 或按智能体配置）。除非你显式设置 `security=full` 和 `ask=off`，否则主机审批仍然适用。
+`/exec` is only honored for **authorized senders** (channel allowlists/pairing plus `commands.useAccessGroups`).
+It updates **session state only** and does not write config. To hard-disable exec, deny it via tool
+policy (`tools.deny: ["exec"]` or per-agent). Host approvals still apply unless you explicitly set
+`security=full` and `ask=off`.
 
 ## Exec 审批（配套应用/节点主机）
 
-沙箱隔离的智能体可以要求在 `exec` 于 Gateway 网关或节点主机上运行前进行逐请求审批。
-参阅 [Exec 审批](/tools/exec-approvals) 了解策略、白名单和 UI 流程。
+Sandboxed agents can require per-request approval before `exec` runs on the gateway or node host.
+See [Exec approvals](/tools/exec-approvals) for the policy, allowlist, and UI flow.
 
-当需要审批时，exec 工具会立即返回 `status: "approval-pending"` 和审批 id。一旦被批准（或拒绝/超时），Gateway 网关会发出系统事件（`Exec finished` / `Exec denied`）。如果命令在 `tools.exec.approvalRunningNoticeMs` 之后仍在运行，会发出单次 `Exec running` 通知。
+When approvals are required, the exec tool returns immediately with
+`status: "approval-pending"` and an approval id. Once approved (or denied / timed out),
+the Gateway emits system events (`Exec finished` / `Exec denied`). 当需要审批时，exec 工具会立即返回 `status: "approval-pending"` 和审批 id。一旦被批准（或拒绝/超时），Gateway 网关会发出系统事件（`Exec finished` / `Exec denied`）。如果命令在 `tools.exec.approvalRunningNoticeMs` 之后仍在运行，会发出单次 `Exec running` 通知。
 
 ## 白名单 + 安全二进制文件
 
-白名单执行仅匹配**解析后的二进制路径**（不匹配基本名称）。当 `security=allowlist` 时，仅当每个管道段都在白名单中或是安全二进制文件时，shell 命令才会自动允许。在白名单模式下，链式命令（`;`、`&&`、`||`）和重定向会被拒绝。
+Allowlist enforcement matches **resolved binary paths only** (no basename matches). When
+`security=allowlist`, shell commands are auto-allowed only if every pipeline segment is
+allowlisted or a safe bin. 在 allowlist 模式下，链式命令（`;`、`&&`、`||`）和重定向将被拒绝，
+除非每个顶层片段都满足 allowlist 要求（包括 safe bins）。
+重定向仍不受支持。
 
 ## 示例
 
@@ -147,6 +158,7 @@ openclaw config set agents.list[0].tools.exec.node "node-id-or-name"
 
 `apply_patch` 是 `exec` 的子工具，用于结构化多文件编辑。
 需显式启用：
+Enable it explicitly:
 
 ```json5
 {
@@ -163,5 +175,4 @@ openclaw config set agents.list[0].tools.exec.node "node-id-or-name"
 - 仅适用于 OpenAI/OpenAI Codex 模型。
 - 工具策略仍然适用；`allow: ["exec"]` 隐式允许 `apply_patch`。
 - 配置位于 `tools.exec.applyPatch` 下。
-
-
+- `tools.exec.applyPatch.workspaceOnly` 默认值为 `true`（仅限 workspace 内）。 仅当你有意让 `apply_patch` 在 workspace 目录之外进行写入/删除操作时，才将其设置为 `false`。

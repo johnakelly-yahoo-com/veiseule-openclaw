@@ -1,4 +1,8 @@
 ---
+summary: "Refactor ng Clawnet: pag-isahin ang network protocol, mga role, auth, approvals, at identity"
+read_when:
+  - Pagpaplano ng isang pinag-isang network protocol para sa mga node + operator client
+  - Pagre-rework ng approvals, pairing, TLS, at presence sa iba’t ibang device
 title: "Refactor ng Clawnet"
 ---
 
@@ -411,5 +415,3 @@ Pumili ng isa bago ang implementasyon upang maiwasan ang drift.
 - Sakit: approvals + pagdodoble + dalawang stack.
 - Panukala: isang WS protocol na may malinaw na roles + scopes, pinag-isang pairing + TLS pinning, gateway‑hosted approvals, stable device IDs + cute slugs.
 - Resulta: mas simpleng UX, mas matibay na seguridad, mas kaunting pagdodoble, mas maayos na mobile routing.
-
-

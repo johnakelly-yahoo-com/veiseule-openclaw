@@ -1,4 +1,9 @@
 ---
+summary: "„Wo OpenClaw Umgebungsvariablen lädt und die Rangfolge der Priorität“"
+read_when:
+  - Sie müssen wissen, welche Umgebungsvariablen geladen werden und in welcher Reihenfolge
+  - Sie beheben fehlende API-Schlüssel im Gateway
+  - Sie dokumentieren Anbieter-Authentifizierung oder Deployment-Umgebungen
 title: "„Umgebungsvariablen“"
 ---
 
@@ -69,13 +74,13 @@ Sie können Umgebungsvariablen direkt in Konfigurations-Stringwerten referenzier
 
 Siehe [Konfiguration: Ersetzung von Umgebungsvariablen](/gateway/configuration#env-var-substitution-in-config) für vollständige Details.
 
-## Pfadbezogene Umgebungsvariablen
+## Path-related env vars
 
-| Variable               | Zweck                                                                                                                                                                                                                               |
-| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Variable               | Zweck                                                                                                                                                                                                                                                                            |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `OPENCLAW_HOME`        | Überschreibt das Home-Verzeichnis, das für die gesamte interne Pfadauflösung verwendet wird (`~/.openclaw/`, Agent-Verzeichnisse, Sitzungen, Anmeldeinformationen). Useful when running OpenClaw as a dedicated service user. |
-| `OPENCLAW_STATE_DIR`   | Überschreibt das Zustandsverzeichnis (Standard: `~/.openclaw`).                                                                                                                                            |
-| `OPENCLAW_CONFIG_PATH` | Überschreiben des Pfads zur Konfigurationsdatei (Standard `~/.openclaw/openclaw.json`).                                                                                                          |
+| `OPENCLAW_STATE_DIR`   | Überschreibt das Zustandsverzeichnis (Standard: `~/.openclaw`).                                                                                                                                                               |
+| `OPENCLAW_CONFIG_PATH` | Überschreiben des Pfads zur Konfigurationsdatei (Standard `~/.openclaw/openclaw.json`).                                                                                                                                                       |
 
 ### `OPENCLAW_HOME`
 
@@ -100,5 +105,3 @@ Wenn gesetzt, ersetzt `OPENCLAW_HOME` das System-Home-Verzeichnis (`$HOME` / `os
 - [Gateway-Konfiguration](/gateway/configuration)
 - [FAQ: Umgebungsvariablen und .env-Laden](/help/faq#env-vars-and-env-loading)
 - [Modellübersicht](/concepts/models)
-
-

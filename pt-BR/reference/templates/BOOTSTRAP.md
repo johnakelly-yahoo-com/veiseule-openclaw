@@ -1,4 +1,9 @@
-------
+---
+title: "Modelo de BOOTSTRAP.md"
+summary: "Ritual de primeira execução para novos agentes"
+read_when:
+  - Inicializando um workspace manualmente
+---
 
 # BOOTSTRAP.md - Hello, World
 
@@ -55,5 +60,3 @@ Exclua este arquivo. Voce nao precisa mais de um script de bootstrap — agora v
 ---
 
 _Boa sorte por ai. Faca valer a pena._
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Plugin-Manifest + JSON-Schema-Anforderungen (strikte Konfigurationsvalidierung)"
+read_when:
+  - Sie entwickeln ein OpenClaw-Plugin
+  - Sie müssen ein Plugin-Konfigurationsschema ausliefern oder Fehler bei der Plugin-Validierung debuggen
 title: "Plugin-Manifest"
 ---
 
@@ -64,5 +68,3 @@ Optionale Schlüssel:
 - Wenn Ihr Plugin von nativen Modulen abhängt, dokumentieren Sie die Build-Schritte
   sowie etwaige Allowlist-Anforderungen des Paketmanagers (zum Beispiel pnpm `allow-build-scripts`
   - `pnpm rebuild <package>`).
-
-

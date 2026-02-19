@@ -1,4 +1,8 @@
 ---
+summary: "Workflow ng Bun (eksperimental): pag-install at mga gotcha kumpara sa pnpm"
+read_when:
+  - Gusto mo ang pinakamabilis na local dev loop (bun + watch)
+  - Nakaranas ka ng mga isyu sa Bun install/patch/lifecycle scripts
 title: "Bun (Eksperimental)"
 ---
 
@@ -9,13 +13,13 @@ nang hindi lumilihis mula sa mga workflow ng pnpm.
 
 Note: ang `bun.lock`/`bun.lockb` ay naka-gitignore, kaya walang repo churn alinmang paraan. 2. Gumamit ng Node para sa production.
 
-## Katayuan
+## Status
 
 - Ang Bun ay isang opsyonal na local runtime para direktang patakbuhin ang TypeScript (`bun run …`, `bun --watch …`).
 - Ang `pnpm` ang default para sa builds at nananatiling ganap na suportado (at ginagamit ng ilang docs tooling).
 - Hindi magagamit ng Bun ang `pnpm-lock.yaml` at babalewalain ito.
 
-## Pag-install
+## Install
 
 Default:
 
@@ -29,7 +33,7 @@ Kung gusto mo ng _walang pagsusulat ng lockfile_: Maaaring harangin ng Bun ang m
 bun install --no-save
 ```
 
-## Pagbuo / Pagsubok (Bun)
+## Build / Test (Bun)
 
 ```sh
 bun run build
@@ -53,5 +57,3 @@ bun pm trust @whiskeysockets/baileys protobufjs
 ## Mga caveat
 
 - **dev**: gumagalaw na head ng `main` (git). 8. Patakbuhin muna ang mga iyon gamit ang pnpm sa ngayon.
-
-

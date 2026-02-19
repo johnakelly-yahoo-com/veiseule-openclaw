@@ -1,4 +1,8 @@
 ---
+summary: "Reference CLI pour `openclaw node` (hôte de nœud sans interface)"
+read_when:
+  - Exécution de l’hôte de nœud sans interface
+  - Appairage d’un nœud non macOS pour system.run
 title: "node"
 ---
 
@@ -106,5 +110,3 @@ L’hôte de nœud stocke son identifiant de nœud, son jeton, son nom d’affic
 - `~/.openclaw/exec-approvals.json`
 - [Approbations d’exécution](/tools/exec-approvals)
 - `openclaw approvals --node <id|name|ip>` (modifier depuis la Gateway)
-
-

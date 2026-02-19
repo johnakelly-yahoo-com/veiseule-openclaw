@@ -1,4 +1,10 @@
 ---
+summary: "جب آپ کو علیحدگی یا iMessage کی ضرورت ہو تو OpenClaw کو sandboxed macOS VM (لوکل یا ہوسٹڈ) میں چلائیں"
+read_when:
+  - آپ چاہتے ہیں کہ OpenClaw آپ کے مرکزی macOS ماحول سے الگ رہے
+  - آپ sandbox میں iMessage انضمام (BlueBubbles) چاہتے ہیں
+  - آپ ایک ایسا macOS ماحول چاہتے ہیں جسے ری سیٹ کیا جا سکے اور کلون کیا جا سکے
+  - آپ لوکل بمقابلہ ہوسٹڈ macOS VM کے اختیارات کا موازنہ کرنا چاہتے ہیں
 title: "macOS VMs"
 ---
 
@@ -6,9 +12,9 @@ title: "macOS VMs"
 
 ## سفارش کردہ ڈیفالٹ (زیادہ تر صارفین)
 
-- ہمیشہ آن رہنے والے Gateway اور کم لاگت کے لیے **Small Linux VPS**۔ مزید دیکھیں [VPS hosting](/vps).
-- اگر آپ مکمل کنٹرول اور براؤزر آٹومیشن کے لیے **residential IP** چاہتے ہیں تو **Dedicated hardware** (Mac mini یا Linux box) استعمال کریں۔ بہت سی ویب سائٹس ڈیٹا سینٹر IPs کو بلاک کر دیتی ہیں، اس لیے مقامی براؤزنگ اکثر بہتر کام کرتی ہے۔
-- **Hybrid:** سستا VPS پر Gateway رکھیں، اور جب براؤزر/UI آٹومیشن کی ضرورت ہو تو اپنے Mac کو بطور **node** منسلک کریں۔ دیکھیں [Nodes](/nodes) اور [Gateway remote](/gateway/remote).
+- **Small Linux VPS** for an always-on Gateway and low cost. See [VPS hosting](/vps).
+- **Dedicated hardware** (Mac mini or Linux box) if you want full control and a **residential IP** for browser automation. Many sites block data center IPs, so local browsing often works better.
+- **Hybrid:** keep the Gateway on a cheap VPS, and connect your Mac as a **node** when you need browser/UI automation. See [Nodes](/nodes) and [Gateway remote](/gateway/remote).
 
 macOS VM اس وقت استعمال کریں جب آپ کو خاص طور پر macOS تک محدود صلاحیتوں (iMessage/BlueBubbles) کی ضرورت ہو یا اپنے روزمرہ Mac سے سخت علیحدگی چاہتے ہوں۔
 
@@ -84,7 +90,7 @@ lume --version
 lume create openclaw --os macos --ipsw latest
 ```
 
-یہ macOS ڈاؤن لوڈ کرتا ہے اور VM بناتا ہے۔ ایک VNC ونڈو خودکار طور پر کھل جاتی ہے۔
+This downloads macOS and creates the VM. A VNC window opens automatically.
 
 نوٹ: آپ کے کنکشن پر منحصر ہے، ڈاؤن لوڈ میں کچھ وقت لگ سکتا ہے۔
 
@@ -273,5 +279,3 @@ For true always-on, consider a dedicated Mac mini or a small VPS. See [VPS hosti
 - [Lume CLI Reference](https://cua.ai/docs/lume/reference/cli-reference)
 - [Unattended VM Setup](https://cua.ai/docs/lume/guide/fundamentals/unattended-setup) (ایڈوانسڈ)
 - [Docker Sandboxing](/install/docker) (متبادل علیحدگی کا طریقہ)
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "macOS Skills 설정 UI 및 Gateway(게이트웨이) 기반 상태"
+read_when:
+  - macOS Skills 설정 UI 를 업데이트할 때
+  - Skills 게이팅 또는 설치 동작을 변경할 때
 title: "기술"
 ---
 
@@ -21,11 +25,9 @@ macOS 앱은 Gateway(게이트웨이)를 통해 OpenClaw Skills 를 노출하며
 
 ## 환경 변수/API 키
 
-- 앱은 `skills.entries.<skillKey> ` 아래의 `~/.openclaw/openclaw.json` 에 키를 저장합니다.36. \`.
+- 앱은 `skills.entries.<skillKey> ` 아래의 `~/.openclaw/openclaw.json` 에 키를 저장합니다.\\`.
 - `skills.update` 는 `enabled`, `apiKey`, 및 `env` 을 패치합니다.
 
 ## 원격 모드
 
 - 설치 및 설정 업데이트는 로컬 Mac 이 아닌 Gateway(게이트웨이) 호스트에서 이루어집니다.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Appliquer des correctifs multi-fichiers avec l’outil apply_patch"
+read_when:
+  - Vous avez besoin d’editions de fichiers structurees sur plusieurs fichiers
+  - Vous souhaitez documenter ou depanner des modifications basees sur des correctifs
 title: "Outil apply_patch"
 ---
 
@@ -28,7 +32,8 @@ L’outil accepte une seule chaine `input` qui encapsule une ou plusieurs operat
 
 ## Remarques
 
-- Les chemins sont resolus relativement a la racine de l’espace de travail.
+- Les chemins de patch prennent en charge les chemins relatifs (depuis le répertoire de l’espace de travail) et les chemins absolus.
+- `tools.exec.applyPatch.workspaceOnly` est défini sur `true` par défaut (limité à l’espace de travail). Définissez-le sur `false` uniquement si vous souhaitez intentionnellement que `apply_patch` écrive/supprime en dehors du répertoire de l’espace de travail.
 - Utilisez `*** Move to:` au sein d’un hunk `*** Update File:` pour renommer des fichiers.
 - `*** End of File` indique une insertion uniquement en fin de fichier lorsque necessaire.
 - Experimental et desactive par defaut. Activez-le avec `tools.exec.applyPatch.enabled`.
@@ -44,5 +49,3 @@ L’outil accepte une seule chaine `input` qui encapsule une ou plusieurs operat
   "input": "*** Begin Patch\n*** Update File: src/index.ts\n@@\n-const foo = 1\n+const foo = 2\n*** End Patch"
 }
 ```
-
-

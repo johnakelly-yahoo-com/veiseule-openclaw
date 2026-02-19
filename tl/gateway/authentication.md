@@ -1,10 +1,14 @@
 ---
-title: "Pagpapatunay ng Pagkakakilanlan"
+summary: "Authentication ng modelo: OAuth, mga API key, at setup-token"
+read_when:
+  - Pag-debug ng model auth o pag-expire ng OAuth
+  - Pagdodokumento ng authentication o pag-iimbak ng credential
+title: "Authentication"
 ---
 
-# Pagpapatunay ng Pagkakakilanlan
+# Authentication
 
-Sinusuportahan ng OpenClaw ang OAuth at API keys para sa mga model provider. Para sa Anthropic
+OpenClaw supports OAuth and API keys for model providers. For Anthropic
 accounts, we recommend using an **API key**. For Claude subscription access,
 use the long‑lived token created by `claude setup-token`.
 
@@ -100,13 +104,13 @@ openclaw doctor
 
 ## Pagkontrol kung aling credential ang gagamitin
 
-### Bawat sesyon (utos sa chat)
+### Per-session (chat command)
 
 Gamitin ang `/model <alias-or-id>@<profileId>` upang i-pin ang isang partikular na provider credential para sa kasalukuyang session (mga halimbawang profile id: `anthropic:default`, `anthropic:work`).
 
 Gamitin ang `/model` (o `/model list`) para sa compact picker; gamitin ang `/model status` para sa full view (mga kandidato + susunod na auth profile, kasama ang mga detalye ng provider endpoint kapag naka-configure).
 
-### Bawat agent (CLI override)
+### Per-agent (CLI override)
 
 Mag-set ng explicit auth profile order override para sa isang agent (naka-store sa `auth-profiles.json` ng agent na iyon):
 
@@ -120,7 +124,7 @@ Gamitin ang `--agent <id>` upang i-target ang isang partikular na agent; i-omit 
 
 ## Pag-troubleshoot
 
-### “Walang natagpuang kredensyal”
+### “No credentials found”
 
 Kung nawawala ang Anthropic token profile, patakbuhin ang `claude setup-token` sa
 **gateway host**, pagkatapos ay muling i-check:
@@ -129,7 +133,7 @@ Kung nawawala ang Anthropic token profile, patakbuhin ang `claude setup-token` s
 openclaw models status
 ```
 
-### Mag-e-expire na/Nag-expire na ang token
+### Token expiring/expired
 
 Run `openclaw models status` to confirm which profile is expiring. Pinapatakbo ng OpenClaw ang mga shell command sa pamamagitan ng `exec` tool at pinananatili sa memorya ang mga long‑running task.
 
@@ -137,5 +141,3 @@ Run `openclaw models status` to confirm which profile is expiring. Pinapatakbo n
 
 - Claude Max o Pro subscription (para sa `claude setup-token`)
 - Naka-install ang Claude Code CLI (available ang `claude` command)
-
-

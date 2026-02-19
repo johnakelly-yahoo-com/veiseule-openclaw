@@ -1,4 +1,8 @@
 ---
+summary: "„Ausführung im Hintergrund und Prozessverwaltung“"
+read_when:
+  - Hinzufügen oder Ändern des Verhaltens der Hintergrundausführung
+  - Debuggen von lang laufenden Exec-Aufgaben
 title: "„Background Exec und Process Tool“"
 ---
 
@@ -42,6 +46,7 @@ Konfiguration (bevorzugt):
 - `tools.exec.timeoutSec` (Standard 1800)
 - `tools.exec.cleanupMs` (Standard 1800000)
 - `tools.exec.notifyOnExit` (Standard true): stellt beim Beenden einer im Hintergrund ausgeführten Exec einen System-Event in die Warteschlange und fordert einen Heartbeat an.
+- `tools.exec.notifyOnExitEmptySuccess` (Standard false): wenn true, werden auch Completion-Events für erfolgreiche Hintergrundausführungen ohne Ausgabe eingereiht.
 
 ## process tool
 
@@ -63,6 +68,8 @@ Hinweise:
 - `process` ist pro Agent begrenzt; es sieht nur Sitzungen, die von diesem Agent gestartet wurden.
 - `process list` enthält ein abgeleitetes `name` (Befehlsverb + Ziel) für schnelle Übersichten.
 - `process log` verwendet zeilenbasiertes `offset`/`limit` (lassen Sie `offset` weg, um die letzten N Zeilen zu erhalten).
+- Wenn sowohl `offset` als auch `limit` weggelassen werden, werden die letzten 200 Zeilen zurückgegeben und ein Paging-Hinweis eingefügt.
+- Wenn `offset` angegeben und `limit` weggelassen wird, wird von `offset` bis zum Ende zurückgegeben (nicht auf 200 begrenzt).
 
 ## Beispiele
 
@@ -87,5 +94,3 @@ stdin senden:
 ```json
 { "tool": "process", "action": "write", "sessionId": "<id>", "data": "y\n" }
 ```
-
-

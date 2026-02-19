@@ -1,4 +1,9 @@
 ---
+summary: "Gateway WebSocket protokolü: el sıkışma, çerçeveler, sürümleme"
+read_when:
+  - Gateway WS istemcilerini uygularken veya güncellerken
+  - Protokol uyuşmazlıklarını veya bağlantı hatalarını ayıklarken
+  - Protokol şemasını/modellerini yeniden üretirken
 title: "Gateway Protokolü"
 ---
 
@@ -153,7 +158,7 @@ Düğümler, bağlantı sırasında yetenek taleplerini bildirir:
 
 Gateway (Ağ Geçidi) bunları **talepler** olarak ele alır ve sunucu tarafı izin listelerini uygular.
 
-## Varlık
+## Presence
 
 - `system-presence`, cihaz kimliğine göre anahtarlanmış girdiler döndürür.
 - Varlık girdileri `deviceId`, `roles` ve `scopes` içerir; böylece UI'lar,
@@ -169,7 +174,7 @@ Gateway (Ağ Geçidi) bunları **talepler** olarak ele alır ve sunucu tarafı i
 - Bir çalıştırma isteği onay gerektirdiğinde, gateway `exec.approval.requested` yayınlar.
 - Operatör istemciler, `operator.approvals` kapsamını gerektiren `exec.approval.resolve` çağrısı ile çözer.
 
-## Sürümleme
+## Versioning
 
 - `PROTOCOL_VERSION`, `src/gateway/protocol/schema.ts` içinde bulunur.
 - İstemciler `minProtocol` + `maxProtocol` gönderir; sunucu uyuşmazlıkları reddeder.
@@ -217,5 +222,3 @@ Gateway (Ağ Geçidi) bunları **talepler** olarak ele alır ve sunucu tarafı i
 Bu protokol **tam gateway API'sini** (durum, kanallar, modeller, sohbet,
 ajan, oturumlar, düğümler, onaylar vb.) açığa çıkarır. Kesin yüzey,
 `src/gateway/protocol/schema.ts` içindeki TypeBox şemaları tarafından tanımlanır.
-
-

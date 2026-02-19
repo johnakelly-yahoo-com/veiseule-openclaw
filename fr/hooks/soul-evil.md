@@ -1,4 +1,8 @@
 ---
+summary: "Hook SOUL Evil (remplacer SOUL.md par SOUL_EVIL.md)"
+read_when:
+  - Vous souhaitez activer ou ajuster le hook SOUL Evil
+  - Vous souhaitez une fenêtre de purge ou un échange de persona aléatoire
 title: "Hook SOUL Evil"
 ---
 
@@ -63,5 +67,3 @@ Créez `SOUL_EVIL.md` à la racine de l’espace de travail de l’agent (à cô
 ## Voir aussi
 
 - [Hooks](/hooks)
-
-

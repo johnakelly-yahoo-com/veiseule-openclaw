@@ -1,4 +1,9 @@
 ---
+summary: "Aplikacja Android (węzeł): runbook połączenia + Canvas/Czat/Kamera"
+read_when:
+  - Parowanie lub ponowne łączenie węzła Android
+  - Debugowanie wykrywania Gateway lub uwierzytelniania na Androidzie
+  - Weryfikacja spójności historii czatu między klientami
 title: "Aplikacja Android"
 ---
 
@@ -144,5 +149,3 @@ Polecenia kamery (tylko na pierwszym planie; z kontrolą uprawnień):
 - `camera.clip` (mp4)
 
 Zobacz [Węzeł kamery](/nodes/camera) w celu zapoznania się z parametrami i pomocnikami CLI.
-
-

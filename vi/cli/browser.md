@@ -1,4 +1,9 @@
 ---
+summary: "Tham chiếu CLI cho `openclaw browser` (hồ sơ, tab, hành động, chuyển tiếp tiện ích mở rộng)"
+read_when:
+  - Bạn dùng `openclaw browser` và muốn xem ví dụ cho các tác vụ phổ biến
+  - Bạn muốn điều khiển một trình duyệt chạy trên máy khác thông qua một node host
+  - Bạn muốn dùng chuyển tiếp tiện ích mở rộng Chrome (gắn/tách qua nút trên thanh công cụ)
 title: "browser"
 ---
 
@@ -95,10 +100,8 @@ Hướng dẫn đầy đủ: [Chrome extension](/tools/chrome-extension)
 
 ## Điều khiển trình duyệt từ xa (proxy node host)
 
-Nếu Gateway chạy trên một máy khác với trình duyệt, hãy chạy **node host** trên máy có Chrome/Brave/Edge/Chromium. Gateway sẽ chuyển tiếp các thao tác trình duyệt đến node đó (không cần máy chủ điều khiển trình duyệt riêng).
+If the Gateway runs on a different machine than the browser, run a **node host** on the machine that has Chrome/Brave/Edge/Chromium. The Gateway will proxy browser actions to that node (no separate browser control server required).
 
 Dùng `gateway.nodes.browser.mode` để kiểm soát định tuyến tự động và `gateway.nodes.browser.node` để ghim một node cụ thể nếu có nhiều node được kết nối.
 
 Bảo mật + thiết lập từ xa: [Browser tool](/tools/browser), [Remote access](/gateway/remote), [Tailscale](/gateway/tailscale), [Security](/gateway/security)
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Comment OpenClaw fait tourner les profils d’authentification et bascule entre les modeles"
+read_when:
+  - Diagnostiquer la rotation des profils d’authentification, les delais de refroidissement ou le comportement de bascule des modeles
+  - Mettre a jour les regles de bascule pour les profils d’authentification ou les modeles
 title: "Bascule de modele"
 ---
 
@@ -73,7 +77,7 @@ Si vous disposez a la fois d’un profil OAuth et d’un profil a cle API pour l
 - Epinglez‑le avec `auth.order[provider] = ["provider:profileId"]`, ou
 - Utilisez une priorite par session via `/model …` avec une priorite de profil (lorsque votre interface UI/canal de chat le prend en charge).
 
-## Temps de recharge
+## Cooldowns
 
 Lorsqu’un profil echoue en raison d’erreurs d’authentification ou de limites de debit (ou d’un timeout qui ressemble
 a une limitation de debit), OpenClaw le place en cooldown et passe au profil suivant.
@@ -143,5 +147,3 @@ Voir la [Configuration du Gateway (passerelle)](/gateway/configuration) pour :
 - Routage `agents.defaults.imageModel`
 
 Voir [Modeles](/concepts/models) pour une vue d’ensemble plus large de la selection des modeles et de la bascule.
-
-

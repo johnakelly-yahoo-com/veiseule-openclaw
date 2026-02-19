@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw-logging: roterend diagnostisch bestandslog + privacyvlaggen voor unified logging"
+read_when:
+  - Vastleggen van macOS-logs of onderzoek naar het loggen van privégegevens
+  - Debuggen van problemen met de levenscyclus van voice wake/sessies
 title: "macOS-logging"
 ---
 
@@ -51,5 +55,3 @@ sudo install -m 644 -o root -g wheel /tmp/bot.molt.plist /Library/Preferences/Lo
 - Verwijder de override: `sudo rm /Library/Preferences/Logging/Subsystems/bot.molt.plist`.
 - Voer optioneel `sudo log config --reload` uit om logd te dwingen de override onmiddellijk te laten vallen.
 - Onthoud dat dit oppervlak telefoonnummers en berichtinhoud kan bevatten; laat de plist alleen staan zolang je de extra details actief nodig hebt.
-
-

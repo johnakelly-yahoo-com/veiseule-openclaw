@@ -1,4 +1,7 @@
 ---
+summary: "Exploração: configuração de modelo, perfis de autenticação e comportamento de fallback"
+read_when:
+  - Explorando ideias futuras de seleção de modelos + perfis de autenticação
 title: "Exploração de Configuração de Modelo"
 ---
 
@@ -31,5 +34,3 @@ Operadores querem:
 - A rotação de perfis deve ser por provedor ou por modelo?
 - Como a UI deve apresentar a seleção de perfis para uma sessão?
 - Qual é o caminho de migração mais seguro a partir de chaves de configuração legadas?
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Schema und Beispiele für die Skills-Konfiguration"
+read_when:
+  - Hinzufügen oder Ändern der Skills-Konfiguration
+  - Anpassen der gebündelten Allowlist oder des Installationsverhaltens
 title: "Skills-Konfiguration"
 ---
 
@@ -70,5 +74,3 @@ Verwenden Sie eine der folgenden Optionen:
 - Backen Sie die Umgebungsvariablen in Ihr benutzerdefiniertes Sandbox-Image ein
 
 Globale `env` und `skills.entries.<skill>.env/apiKey` gelten nur für **Host**-Ausführungen.
-
-

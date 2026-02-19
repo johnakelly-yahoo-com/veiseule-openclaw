@@ -1,4 +1,8 @@
 ---
+summary: "Mga stable, beta, at dev na channel: semantika, paglipat, at pag-tag"
+read_when:
+  - Gusto mong lumipat sa pagitan ng stable/beta/dev
+  - Nagta-tag o nagpa-publish ka ng mga prerelease
 title: "Mga Development Channel"
 ---
 
@@ -69,5 +73,3 @@ Tingnan ang [Sandboxing](/gateway/sandboxing). 12. OK lang iyon:
 
 - Maaari pa ring i-publish ang git tag at npm dist-tag.
 - Banggitin ang “walang macOS build para sa beta na ito” sa mga release note o changelog.
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "Estado de compatibilidad del bot de Zalo, capacidades y configuración"
+read_when:
+  - Trabajando en funciones o webhooks de Zalo
 title: "Zalo"
 ---
 
@@ -184,5 +187,3 @@ Opciones multi-cuenta:
 - `channels.zalo.accounts.<id>.webhookSecret`: secreto de webhook por cuenta.
 - `channels.zalo.accounts.<id>.webhookPath`: ruta de webhook por cuenta.
 - `channels.zalo.accounts.<id>.proxy`: URL de proxy por cuenta.
-
-

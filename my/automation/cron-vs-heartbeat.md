@@ -1,4 +1,9 @@
 ---
+summary: "အလိုအလျောက်လုပ်ဆောင်မှုအတွက် heartbeat နှင့် cron jobs အကြား ရွေးချယ်ရာတွင် လမ်းညွှန်ချက်"
+read_when:
+  - ထပ်ခါတလဲလဲ လုပ်ဆောင်ရမည့် တာဝန်များကို မည်သို့ အချိန်ဇယားချရမည်ကို ဆုံးဖြတ်နေစဉ်
+  - နောက်ခံ စောင့်ကြည့်မှု သို့မဟုတ် အသိပေးချက်များကို တပ်ဆင်နေစဉ်
+  - ကာလပတ်လုံး စစ်ဆေးမှုများအတွက် token အသုံးပြုမှုကို ထိရောက်အောင် ပြုလုပ်လိုသောအခါ
 title: "Cron နှင့် Heartbeat"
 ---
 
@@ -275,5 +280,3 @@ openclaw cron add \
 - [Heartbeat](/gateway/heartbeat) - heartbeat ဖွဲ့စည်းပြင်ဆင်မှု အပြည့်အစုံ
 - [Cron jobs](/automation/cron-jobs) - cron CLI နှင့် API reference အပြည့်အစုံ
 - [System](/cli/system) - system events နှင့် heartbeat ထိန်းချုပ်မှု
-
-

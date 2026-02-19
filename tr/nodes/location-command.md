@@ -1,5 +1,9 @@
 ---
-title: "Konum Komutu"
+summary: "Düğümler için konum komutu (location.get), izin modları ve arka plan davranışı"
+read_when:
+  - Konum düğümü desteği veya izinler UI'si eklerken
+  - Arka plan konumu + push akışları tasarlarken
+title: "Location Command"
 ---
 
 # Konum komutu (düğümler)
@@ -101,11 +105,9 @@ Notlar:
 - CLI: `openclaw nodes location get --node <id>`.
 - Ajan yönergeleri: yalnızca kullanıcı konumu etkinleştirdiğinde ve kapsamı anladığında çağırın.
 
-## UX metni (önerilen)
+## UX copy (suggested)
 
 - Kapalı: “Konum paylaşımı devre dışı.”
 - Kullanım Sırasında: “Yalnızca OpenClaw açıkken.”
 - Her Zaman: “Arka plan konumuna izin ver. Sistem izni gerektirir.”
 - Hassas: “Hassas GPS konumu kullan. Yaklaşık konum paylaşmak için kapatın.”
-
-

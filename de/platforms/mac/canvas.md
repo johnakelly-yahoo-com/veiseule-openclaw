@@ -1,4 +1,9 @@
 ---
+summary: "„Agentengesteuertes Canvas-Panel, eingebettet über WKWebView + benutzerdefiniertes URL-Schema“"
+read_when:
+  - Implementierung des macOS-Canvas-Panels
+  - Hinzufügen von Agentensteuerungen für visuelle Arbeitsbereiche
+  - Debugging von WKWebView-Canvas-Ladevorgängen
 title: "„Canvas“"
 ---
 
@@ -118,5 +123,3 @@ Die App fordert eine Bestätigung an, sofern kein gültiger Schlüssel bereitges
 - Das Canvas-Schema blockiert Directory Traversal; Dateien müssen unterhalb des Sitzungs-Root liegen.
 - Lokale Canvas-Inhalte verwenden ein benutzerdefiniertes Schema (kein local loopback-Server erforderlich).
 - Externe `http(s)`-URLs sind nur erlaubt, wenn explizit zu ihnen navigiert wird.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Assistant de prise en main CLI : configuration guidee pour la Gateway (passerelle), l’espace de travail, les canaux et les Skills"
+read_when:
+  - Execution ou configuration de l’assistant de prise en main
+  - Mise en place d’une nouvelle machine
 title: "Assistant de prise en main (CLI)"
 sidebarTitle: "Prise en main : CLI"
 ---
@@ -102,7 +106,6 @@ l’API RPC et la liste complete des champs de configuration que l’assistant e
 ## Docs associees
 
 - Reference des commandes CLI : [`openclaw onboard`](/cli/onboard)
+- Aperçu de la configuration : [Onboarding Overview](/start/onboarding-overview)
 - Prise en main de l’app macOS : [Onboarding](/start/onboarding)
 - Rituel du premier demarrage de l’agent : [Agent Bootstrapping](/start/bootstrapping)
-
-

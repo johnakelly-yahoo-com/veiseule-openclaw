@@ -1,4 +1,8 @@
 ---
+summary: "Pluginmanifest + JSON Schema-krav (strikt validering av konfig)"
+read_when:
+  - Du bygger ett OpenClaw-plugin
+  - Du behöver leverera ett konfigschema för ett plugin eller felsöka valideringsfel för plugin
 title: "Pluginmanifest"
 ---
 
@@ -65,5 +69,3 @@ Valfria nycklar:
 - Om ditt plugin är beroende av native-moduler, dokumentera byggstegen och eventuella
   krav på tillåtelselista för pakethanterare (till exempel pnpm `allow-build-scripts`
   - `pnpm rebuild <package>`).
-
-

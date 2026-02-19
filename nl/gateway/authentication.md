@@ -1,4 +1,8 @@
 ---
+summary: "Modelauthenticatie: OAuth, API-sleutels en setup-token"
+read_when:
+  - Fouten opsporen bij modelauthenticatie of OAuth-verval
+  - Authenticatie of opslag van inloggegevens documenteren
 title: "Authenticatie"
 ---
 
@@ -147,5 +151,3 @@ ontbreekt, voer `claude setup-token` opnieuw uit en plak het token opnieuw.
 
 - Claude Max- of Pro-abonnement (voor `claude setup-token`)
 - Claude Code CLI geïnstalleerd (`claude`-opdracht beschikbaar)
-
-

@@ -28,7 +28,7 @@ OpenClaw utilise le SDK pi pour intégrer un agent de codage IA dans son archite
 }
 ```
 
-| Paquet           | Objectif                                                                                                                     |
+| Paquet            | Objectif                                                                                                                     |
 | ----------------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | `pi-ai`           | Abstractions LLM de base : `Model`, `streamSimple`, types de messages, API fournisseurs                      |
 | `pi-agent-core`   | Boucle d’agent, exécution d’outils, types `AgentMessage`                                                                     |
@@ -355,7 +355,7 @@ const { model, error, authStorage, modelRegistry } = resolveModel(
 authStorage.setRuntimeApiKey(model.provider, apiKeyInfo.apiKey);
 ```
 
-### Basculement
+### Failover
 
 `FailoverError` déclenche le repli de modele lorsque configuré :
 
@@ -516,7 +516,7 @@ Cela fournit une expérience terminal interactive similaire au mode natif de pi.
 | Invocation             | Commande `pi` / RPC                 | SDK via `createAgentSession()`                                                                                    |
 | Outils                 | Outils de codage par défaut         | Suite d’outils OpenClaw personnalisée                                                                             |
 | Prompt système         | AGENTS.md + prompts | Dynamique par canal/contexte                                                                                      |
-| Stockage des sessions  | `~/.pi/agent/sessions/`             | `~/.openclaw/agents/<agentId>/sessions/` (ou `$OPENCLAW_STATE_DIR/agents/<agentId>/sessions/`) |
+| Stockage des sessions  | `~/.pi/agent/sessions/`             | `~/.openclaw/agents/&lt;agentId&gt;/sessions/` (ou `$OPENCLAW_STATE_DIR/agents/&lt;agentId&gt;/sessions/`) |
 | Authentification       | Identifiant unique                  | Multi-profils avec rotation                                                                                       |
 | Extensions             | Chargées depuis le disque           | Programmatiques + chemins disque                                                                                  |
 | Gestion des événements | Rendu TUI                           | Basée sur des callbacks (onBlockReply, etc.)                                   |
@@ -610,5 +610,3 @@ Tous les tests existants couvrant l’intégration pi et ses extensions :
 - `src/agents/pi-tools.policy.test.ts`
 - `src/agents/pi-tools.safe-bins.test.ts`
 - `src/agents/pi-tools.workspace-paths.test.ts`
-
-

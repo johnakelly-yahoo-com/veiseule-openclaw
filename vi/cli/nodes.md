@@ -1,4 +1,8 @@
 ---
+summary: "Tham chiếu CLI cho `openclaw nodes` (liệt kê/trạng thái/phê duyệt/gọi, camera/canvas/screen)"
+read_when:
+  - Bạn đang quản lý các node đã ghép đôi (camera, màn hình, canvas)
+  - Bạn cần phê duyệt yêu cầu hoặc gọi các lệnh của node
 title: "nodes"
 ---
 
@@ -60,12 +64,10 @@ Cờ gọi:
 Cờ:
 
 - `--cwd <path>`: thư mục làm việc.
-- `--env <key=val>`: ghi đè env (có thể lặp).
+- `--env <key=val>`: ghi đè biến môi trường (có thể lặp lại). Lưu ý: host node bỏ qua ghi đè `PATH` (và `tools.exec.pathPrepend` không được áp dụng cho host node).
 - `--command-timeout <ms>`: thời gian chờ lệnh.
 - `--invoke-timeout <ms>`: thời gian chờ gọi node (mặc định `30000`).
 - `--needs-screen-recording`: yêu cầu quyền ghi màn hình.
 - `--raw <command>`: chạy một chuỗi shell (`/bin/sh -lc` hoặc `cmd.exe /c`).
 - `--agent <id>`: phê duyệt/danh sách cho phép theo phạm vi tác tử (mặc định là tác tử đã cấu hình).
 - `--ask <off|on-miss|always>`, `--security <deny|allowlist|full>`: ghi đè.
-
-

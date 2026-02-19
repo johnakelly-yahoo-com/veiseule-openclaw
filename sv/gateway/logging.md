@@ -1,4 +1,8 @@
 ---
+summary: "Loggningsytor, filloggar, WS-loggstilar och konsolformatering"
+read_when:
+  - Ändrar loggningsutdata eller format
+  - Felsöker CLI- eller gateway-utdata
 title: "Loggning"
 ---
 
@@ -107,5 +111,3 @@ Beteende:
 - **WhatsApp-meddelandekroppar** loggas på `debug` (använd `--verbose` för att se dem)
 
 Detta håller befintliga filloggar stabila samtidigt som interaktiv utdata blir lätt att skanna.
-
-

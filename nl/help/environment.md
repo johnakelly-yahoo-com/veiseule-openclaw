@@ -1,4 +1,9 @@
 ---
+summary: "Waar OpenClaw omgevingsvariabelen laadt en de volgorde van prioriteit"
+read_when:
+  - Je moet weten welke omgevingsvariabelen worden geladen en in welke volgorde
+  - Je bent bezig met het debuggen van ontbrekende API-sleutels in de Gateway
+  - Je documenteert provider-authenticatie of deploymentomgevingen
 title: "Omgevingsvariabelen"
 ---
 
@@ -100,5 +105,3 @@ Wanneer ingesteld, vervangt `OPENCLAW_HOME` de systeem-homemap (`$HOME` / `os.ho
 - [Gateway-configuratie](/gateway/configuration)
 - [FAQ: omgevingsvariabelen en .env-laden](/help/faq#env-vars-and-env-loading)
 - [Overzicht van modellen](/concepts/models)
-
-

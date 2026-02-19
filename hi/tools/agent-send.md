@@ -1,10 +1,13 @@
 ---
+summary: "सीधे `openclaw agent` CLI रन (वैकल्पिक डिलीवरी के साथ)"
+read_when:
+  - एजेंट CLI एंट्रीपॉइंट जोड़ते या संशोधित करते समय
 title: "एजेंट भेजें"
 ---
 
 # `openclaw agent` (प्रत्यक्ष एजेंट रन)
 
-`openclaw agent` एक इनबाउंड चैट संदेश की आवश्यकता के बिना एजेंट का एकल टर्न चलाता है।
+`openclaw agent` runs a single agent turn without needing an inbound chat message.
 By default it goes **through the Gateway**; add `--local` to force the embedded
 runtime on the current machine.
 
@@ -48,5 +51,3 @@ openclaw agent --agent ops --message "Generate report" --deliver --reply-channel
 - `--verbose <on|full|off>`: वर्बोज़ स्तर स्थायी रखें
 - `--timeout <seconds>`: एजेंट टाइमआउट ओवरराइड
 - `--json`: संरचित JSON आउटपुट
-
-

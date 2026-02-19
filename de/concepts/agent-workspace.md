@@ -1,4 +1,8 @@
 ---
+summary: "Agent-Workspace: Speicherort, Layout und Backup-Strategie"
+read_when:
+  - Sie müssen den Agent-Workspace oder dessen Dateistruktur erklären
+  - Sie möchten einen Agent-Workspace sichern oder migrieren
 title: "Agent-Workspace"
 ---
 
@@ -233,5 +237,3 @@ Vorgeschlagener `.gitignore`-Starter:
 - Multi-Agent-Routing kann unterschiedliche Workspaces pro Agent verwenden. Siehe [Channel routing](/channels/channel-routing) für die Routing-Konfiguration.
 - Wenn `agents.defaults.sandbox` aktiviert ist, können Nicht-Hauptsitzungen
   sitzungsbezogene Sandbox-Workspaces unter `agents.defaults.sandbox.workspaceRoot` verwenden.
-
-

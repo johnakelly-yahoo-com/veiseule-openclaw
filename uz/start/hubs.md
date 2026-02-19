@@ -1,4 +1,7 @@
 ---
+summary: "Har bir OpenClaw hujjatiga havola beruvchi markazlar"
+read_when:
+  - You want a complete map of the documentation
 title: "Hujjatlar markazlari"
 ---
 
@@ -192,5 +195,3 @@ Chap navigatsiyada ko‘rinmaydigan batafsil qo‘llanmalar va ma’lumotnoma hu
 - [Sinov](/reference/test)
 - [Reliz uchun tekshiruv ro‘yxati](/reference/RELEASING)
 - [Qurilma modellari](/reference/device-models)
-
-

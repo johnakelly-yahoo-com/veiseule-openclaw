@@ -1,18 +1,16 @@
 ---
-title: 日期与时间
-x-i18n:
-  generated_at: "2026-02-01T20:24:52Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 753af5946a006215d6af2467fa478f3abb42b1dff027cf85d5dc4c7ba4b58d39
-  source_path: date-time.md
-  workflow: 14
+summary: "信封、提示词、工具和连接器中的日期与时间处理"
+read_when:
+  - 你正在更改向模型或用户展示时间戳的方式
+  - 你正在调试消息或系统提示词输出中的时间格式问题
+title: "日期与时间"
 ---
 
 # 日期与时间
 
 OpenClaw 默认使用**主机本地时间作为传输时间戳**，并且**仅在系统提示词中使用用户时区**。
 提供商时间戳会被保留，因此工具保持其原生语义（当前时间可通过 `session_status` 获取）。
+提供方时间戳会被保留，以便工具保持其原生语义（当前时间可通过 `session_status` 获取）。
 
 ## 消息信封（默认为本地时间）
 
@@ -97,11 +95,12 @@ System: [2026-01-12 12:19:17 PST] Model switched.
 ```
 
 - `userTimezone` 设置提示词上下文中的**用户本地时区**。
-- `timeFormat` 控制提示词中的 **12 小时/24 小时显示格式**。`auto` 跟随操作系统偏好设置。
+- `timeFormat` 控制提示词中的 **12 小时/24 小时显示格式**。`auto` 跟随操作系统偏好设置。 18. `auto` 遵循操作系统偏好设置。
 
 ## 时间格式检测（auto）
 
-当 `timeFormat: "auto"` 时，OpenClaw 会检查操作系统偏好设置（macOS/Windows），并回退到区域格式。检测到的值会**按进程缓存**，以避免重复的系统调用。
+当 `timeFormat: "auto"` 时，OpenClaw 会检查操作系统偏好设置（macOS/Windows），并回退到区域格式。检测到的值会**按进程缓存**，以避免重复的系统调用。 21. 检测到的值会**按进程缓存**，
+以避免重复的系统调用。
 
 ## 工具载荷 + 连接器（原始提供商时间 + 标准化字段）
 
@@ -123,5 +122,3 @@ System: [2026-01-12 12:19:17 PST] Model switched.
 - [系统提示词](/concepts/system-prompt)
 - [时区](/concepts/timezone)
 - [消息](/concepts/messages)
-
-

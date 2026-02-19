@@ -1,10 +1,14 @@
 ---
+summary: "apply_patch ٹول کے ذریعے متعدد فائلوں کے پیچ لاگو کریں"
+read_when:
+  - آپ کو متعدد فائلوں میں منظم ترامیم درکار ہوں
+  - آپ پیچ پر مبنی ترامیم کو دستاویزی شکل دینا یا ڈیبگ کرنا چاہتے ہوں
 title: "apply_patch ٹول"
 ---
 
 # apply_patch ٹول
 
-فائل کی تبدیلیوں کو ایک منظم پیچ فارمیٹ کے ذریعے لاگو کریں۔ یہ کثیر فائل کے لیے مثالی ہے۔
+Apply file changes using a structured patch format. This is ideal for multi-file
 or multi-hunk edits where a single `edit` call would be brittle.
 
 یہ ٹول ایک واحد `input` اسٹرنگ قبول کرتا ہے جو ایک یا زیادہ فائل آپریشنز کو لپیٹتی ہے:
@@ -29,7 +33,8 @@ or multi-hunk edits where a single `edit` call would be brittle.
 ## نوٹس
 
 - راستے ورک اسپیس روٹ کے نسبت حل کیے جاتے ہیں۔
-- فائلوں کا نام تبدیل کرنے کے لیے `*** Update File:` ہنک کے اندر `*** Move to:` استعمال کریں۔
+- `tools.exec.applyPatch.workspaceOnly` کا ڈیفالٹ `true` ہے (ورک اسپیس تک محدود)۔ اسے صرف اس صورت میں `false` کریں جب آپ جان بوجھ کر چاہتے ہوں کہ `apply_patch` ورک اسپیس ڈائریکٹری سے باہر لکھے یا حذف کرے۔
+- ضرورت پڑنے پر `*** End of File` صرف EOF پر اندراج کو نشان زد کرتا ہے۔
 - ضرورت پڑنے پر `*** End of File` صرف EOF پر اندراج کو نشان زد کرتا ہے۔
 - Experimental and disabled by default. Enable with `tools.exec.applyPatch.enabled`.
 - OpenAI-only (including OpenAI Codex). Optionally gate by model via
@@ -44,5 +49,3 @@ or multi-hunk edits where a single `edit` call would be brittle.
   "input": "*** Begin Patch\n*** Update File: src/index.ts\n@@\n-const foo = 1\n+const foo = 2\n*** End Patch"
 }
 ```
-
-

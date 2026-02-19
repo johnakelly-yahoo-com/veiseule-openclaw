@@ -1,4 +1,8 @@
 ---
+summary: "Szybki start został przeniesiony do Pierwsze kroki."
+read_when:
+  - Szukasz najszybszych kroków konfiguracji
+  - Zostałeś tu przekierowany ze starszego linku
 title: "Szybki start"
 ---
 
@@ -18,5 +22,3 @@ Szybki start jest teraz częścią [Pierwsze kroki](/start/getting-started).
   
 </Card>
 </Columns>
-
-

@@ -1,10 +1,14 @@
 ---
+summary: "完整解除安裝 OpenClaw（CLI、服務、狀態、工作區）"
+read_when:
+  - 你想要從一台機器移除 OpenClaw
+  - 解除安裝後 Gateway 閘道器服務仍在執行
 title: "解除安裝"
 ---
 
 # 解除安裝
 
-27. 兩種路徑：
+兩種路徑：
 
 - **簡易方式**：如果 `openclaw` 仍然已安裝。
 - **手動移除服務**：如果 CLI 已不存在，但服務仍在執行。
@@ -84,7 +88,7 @@ launchctl bootout gui/$UID/bot.molt.gateway
 rm -f ~/Library/LaunchAgents/bot.molt.gateway.plist
 ```
 
-如果你使用了設定檔，請將標籤與 plist 名稱替換為 `bot.molt.<profile>29. `. `。若存在任何舊版 `com.openclaw.\*\` plist，也請一併移除。
+如果你使用了設定檔，請將標籤與 plist 名稱替換為 `bot.molt.<profile>`. `。若存在任何舊版 `com.openclaw.\*\\` plist，也請一併移除。
 
 ### Linux（systemd 使用者單元）
 
@@ -100,7 +104,8 @@ systemctl --user daemon-reload
 
 預設工作名稱為 `OpenClaw Gateway`（或 `OpenClaw Gateway (<profile>)`）。
 工作腳本位於你的狀態目錄下。
-30. 任務腳本位於你的狀態目錄之下。
+30.
+任務腳本位於你的狀態目錄之下。
 
 ```powershell
 schtasks /Delete /F /TN "OpenClaw Gateway"
@@ -116,13 +121,12 @@ Remove-Item -Force "$env:USERPROFILE\.openclaw\gateway.cmd"
 如果你使用 `https://openclaw.ai/install.sh` 或 `install.ps1`，CLI 是透過 `npm install -g openclaw@latest` 安裝的。
 請使用 `npm rm -g openclaw` 移除（如果你是用其他方式安裝，則使用 `pnpm remove -g` / `bun remove -g`）。
 在刪除儲存庫之前 **先** 解除安裝閘道服務（使用上方的簡易路徑或手動移除服務）。
+使用 `npm rm -g openclaw` 移除（若你是用該方式安裝，則使用 `pnpm remove -g` / `bun remove -g`）。
 
 ### 原始碼檢出（git clone）
 
 如果你是從儲存庫檢出來執行（`git clone` + `openclaw ...` / `bun run openclaw ...`）：
 
-1. 在刪除儲存庫**之前**，先解除安裝 gateway 服務（使用上述簡易方式或手動移除服務）。
+1. Uninstall the gateway service **before** deleting the repo (use the easy path above or manual service removal).
 2. 如上所示移除狀態資料 + 工作區。
 3. 依照上述說明移除狀態 + 工作區。
-
-

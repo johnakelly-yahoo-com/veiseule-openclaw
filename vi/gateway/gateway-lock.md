@@ -1,4 +1,8 @@
 ---
+summary: "Cơ chế bảo vệ singleton của Gateway bằng cách ràng buộc listener WebSocket"
+read_when:
+  - Khi chạy hoặc gỡ lỗi tiến trình gateway
+  - Khi điều tra việc thực thi chạy một phiên bản duy nhất
 title: "Khóa Gateway"
 ---
 
@@ -28,5 +32,3 @@ Cập nhật lần cuối: 2025-12-11
 
 - Nếu cổng bị chiếm bởi _một_ tiến trình khác, lỗi vẫn như nhau; hãy giải phóng cổng hoặc chọn cổng khác với `openclaw gateway --port <port>`.
 - Ứng dụng macOS vẫn duy trì cơ chế bảo vệ PID nhẹ của riêng nó trước khi khởi chạy gateway; khóa ở thời gian chạy được thực thi bằng việc bind WebSocket.
-
-

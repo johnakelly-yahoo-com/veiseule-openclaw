@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw سے GitHub Copilot میں ڈیوائس فلو کے ذریعے سائن اِن کریں"
+read_when:
+  - آپ GitHub Copilot کو بطور ماڈل فراہم کنندہ استعمال کرنا چاہتے ہیں
+  - آپ کو `openclaw models auth login-github-copilot` فلو درکار ہے
 title: "GitHub Copilot"
 ---
 
@@ -14,18 +18,18 @@ provider in two different ways.
 
 ### 1. بلٹ اِن GitHub Copilot فراہم کنندہ (`github-copilot`)
 
-GitHub ٹوکن حاصل کرنے کے لیے مقامی ڈیوائس لاگ اِن فلو استعمال کریں، پھر اسے ایکسچینج کریں
+Use the native device-login flow to obtain a GitHub token, then exchange it for
 Copilot API tokens when OpenClaw runs. This is the **default** and simplest path
 because it does not require VS Code.
 
 ### 2. Copilot Proxy پلگ اِن (`copilot-proxy`)
 
-مقامی برج کے طور پر **Copilot Proxy** VS Code ایکسٹینشن استعمال کریں۔ OpenClaw اس سے بات کرتا ہے
+Use the **Copilot Proxy** VS Code extension as a local bridge. OpenClaw talks to
 the proxy’s `/v1` endpoint and uses the model list you configure there. Choose
 this when you already run Copilot Proxy in VS Code or need to route through it.
 You must enable the plugin and keep the VS Code extension running.
 
-GitHub Copilot کو بطور ماڈل فراہم کنندہ (`github-copilot`) استعمال کریں۔ لاگ اِن کمانڈ چلتی ہے
+Use GitHub Copilot as a model provider (`github-copilot`). The login command runs
 the GitHub device flow, saves an auth profile, and updates your config to use that
 profile.
 
@@ -35,7 +39,7 @@ profile.
 openclaw models auth login-github-copilot
 ```
 
-آپ سے ایک URL پر جانے اور ایک وقتی کوڈ درج کرنے کے لیے کہا جائے گا۔ ٹرمینل کو کھلا رکھیں
+You'll be prompted to visit a URL and enter a one-time code. Keep the terminal
 open until it completes.
 
 ### اختیاری فلیگز
@@ -66,5 +70,3 @@ openclaw models set github-copilot/gpt-4o
   کسی دوسرے ID کو آزمائیں (مثال کے طور پر `github-copilot/gpt-4.1`)۔
 - لاگ اِن، auth پروفائل اسٹور میں GitHub ٹوکن محفوظ کرتا ہے اور جب OpenClaw چلتا ہے تو اسے
   Copilot API ٹوکن کے ساتھ ایکسچینج کرتا ہے۔
-
-

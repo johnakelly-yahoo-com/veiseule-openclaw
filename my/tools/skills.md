@@ -1,10 +1,14 @@
 ---
+summary: "Skills: စီမံခန့်ခွဲထားသော နှင့် workspace အမျိုးအစားများ၊ gating စည်းမျဉ်းများ၊ နှင့် config/env ချိတ်ဆက်ပုံ"
+read_when:
+  - Skills များကို ထည့်သွင်းခြင်း သို့မဟုတ် ပြင်ဆင်ခြင်း
+  - Skill gating သို့မဟုတ် load စည်းမျဉ်းများကို ပြောင်းလဲခြင်း
 title: "ကျွမ်းကျင်မှုများ"
 ---
 
 # ကျွမ်းကျင်မှုများ (OpenClaw)
 
-OpenClaw သည် **[AgentSkills](https://agentskills.io)-compatible** skill ဖိုလ်ဒါများကို အသုံးပြုပြီး agent အား tool များကို ဘယ်လိုအသုံးပြုရမည်ကို သင်ကြားပေးသည်။ Skill တစ်ခုစီသည် YAML frontmatter နှင့် လမ်းညွှန်ချက်များ ပါဝင်သည့် `SKILL.md` ဖိုင်တစ်ခုကို ကိုင်ဆောင်ထားသော directory တစ်ခုဖြစ်သည်။ OpenClaw သည် **bundled skills** များအပြင် optional local overrides များကိုလည်း load လုပ်ပြီး environment၊ config နှင့် binary ရှိ/မရှိ အခြေအနေအပေါ် မူတည်ကာ load လုပ်သည့်အချိန်တွင် စစ်ထုတ်ပါသည်။
+OpenClaw uses **[AgentSkills](https://agentskills.io)-compatible** skill folders to teach the agent how to use tools. Each skill is a directory containing a `SKILL.md` with YAML frontmatter and instructions. OpenClaw loads **bundled skills** plus optional local overrides, and filters them at load time based on environment, config, and binary presence.
 
 ## တည်နေရာများနှင့် ဦးစားပေးအစီအစဉ်
 
@@ -23,7 +27,7 @@ Skill နာမည် တူညီမှု ဖြစ်ပါက precedence သ
 
 ## Agent တစ်ခုချင်းစီအလိုက် vs မျှဝေသုံးစွဲသော skills
 
-**multi-agent** setup များတွင် agent တစ်ခုချင်းစီတွင် ကိုယ်ပိုင် workspace ရှိပါသည်။ ထို့ကြောင့် -
+In **multi-agent** setups, each agent has its own workspace. That means:
 
 - **Per-agent skills** များသည် ထို agent အတွက်သာ `<workspace>/skills` ထဲတွင် ရှိပါသည်။
 - **Shared skills** များသည် `~/.openclaw/skills` (managed/local) ထဲတွင် ရှိပြီး
@@ -36,7 +40,7 @@ workspace အနိုင်ရပြီး၊ ထို့နောက် manag
 
 ## Plugins + skills
 
-Plugins များသည် `skills` directories များကို စာရင်းပြုစုခြင်းအားဖြင့် ကိုယ်ပိုင် skills များကို ထည့်သွင်းပေးနိုင်ပါသည်
+Plugins can ship their own skills by listing `skills` directories in
 `openclaw.plugin.json` (paths relative to the plugin root). Plugin skills load
 when the plugin is enabled and participate in the normal skill precedence rules.
 You can gate them via `metadata.openclaw.requires.config` on the plugin’s config
@@ -291,5 +295,3 @@ Config schema အပြည့်အစုံအတွက် [Skills config](/too
 [https://clawhub.com](https://clawhub.com) တွင် ကြည့်ရှုပါ။
 
 ---
-
-

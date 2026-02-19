@@ -1,4 +1,8 @@
 ---
+summary: "एक ही होस्ट पर कई OpenClaw Gateway चलाएँ (आइसोलेशन, पोर्ट्स और प्रोफाइल)"
+read_when:
+  - एक ही मशीन पर एक से अधिक Gateway चलाते समय
+  - प्रत्येक Gateway के लिए पृथक विन्यास/स्थिति/पोर्ट्स की आवश्यकता हो
 title: "एकाधिक Gateway"
 ---
 
@@ -106,5 +110,3 @@ openclaw --profile main status
 openclaw --profile rescue status
 openclaw --profile rescue browser status
 ```
-
-

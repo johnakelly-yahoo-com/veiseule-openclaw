@@ -1,4 +1,8 @@
 ---
+summary: "Use OpenAI mediante claves de API o suscripción a Codex en OpenClaw"
+read_when:
+  - Quiere usar modelos de OpenAI en OpenClaw
+  - Quiere autenticación con suscripción a Codex en lugar de claves de API
 title: "OpenAI"
 ---
 
@@ -55,5 +59,3 @@ openclaw models auth login --provider openai-codex
 
 - Las referencias de modelos siempre usan `provider/model` (consulte [/concepts/models](/concepts/models)).
 - Los detalles de autenticación y las reglas de reutilización están en [/concepts/oauth](/concepts/oauth).
-
-

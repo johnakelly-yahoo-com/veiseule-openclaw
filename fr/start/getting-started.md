@@ -1,8 +1,12 @@
 ---
-title: "Premiers pas"
+summary: "Installez OpenClaw et lancez votre premier chat en quelques minutes."
+read_when:
+  - Premiere installation a partir de zero
+  - Vous voulez le chemin le plus rapide vers un chat fonctionnel
+title: "Getting Started"
 ---
 
-# Premiers pas
+# Getting Started
 
 Objectif : passer de zero a un premier chat fonctionnel avec une configuration minimale.
 
@@ -30,6 +34,10 @@ Verifiez votre version de Node avec `node --version` si vous n’etes pas sur.
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash
         ```
+      <img
+  src="/assets/install-script.svg"
+  alt="Install Script Process"
+  className="rounded-lg"></img>
       
 </Tab>
       <Tab title="Windows (PowerShell)">
@@ -41,12 +49,14 @@ Verifiez votre version de Node avec `node --version` si vous n’etes pas sur.
     
 </Tabs>
 
+    ````
     ```
     <Note>
     Autres methodes d’installation et exigences : [Install](/install).
     
 </Note>
     ```
+    ````
 
   
 </Step>
@@ -55,21 +65,25 @@ Verifiez votre version de Node avec `node --version` si vous n’etes pas sur.
     openclaw onboard --install-daemon
     ```
 
+    ````
     ```
     L’assistant configure l’authentification, les parametres de la Gateway (passerelle) et les canaux optionnels.
     Voir [Onboarding Wizard](/start/wizard) pour plus de details.
     ```
+    ````
 
   
 </Step>
   <Step title="Check the Gateway">
     Si vous avez installe le service, il devrait deja etre en cours d’execution :
 
+    `````
     ````
     ```bash
     openclaw gateway status
     ```
     ````
+    `````
 
   
 </Step>
@@ -91,22 +105,26 @@ Si l’interface de controle se charge, votre Gateway est prete a l’emploi.
   <Accordion title="Run the Gateway in the foreground">
     Utile pour des tests rapides ou le depannage.
 
+    `````
     ````
     ```bash
     openclaw gateway --port 18789
     ```
     ````
+    `````
 
   
 </Accordion>
   <Accordion title="Send a test message">
     Necessite un canal configure.
 
+    `````
     ````
     ```bash
     openclaw message send --target +15555550123 --message "Hello from OpenClaw"
     ```
     ````
+    `````
 
   
 </Accordion>
@@ -146,5 +164,3 @@ Référence complète des variables d’environnement : [Variables d’environne
 - Sécurité des DM et approbations : [Pairing](/channels/pairing)
 - Connecter d’autres canaux : [Channels](/channels)
 - Flux de travail avances et execution depuis les sources : [Setup](/start/setup)
-
-

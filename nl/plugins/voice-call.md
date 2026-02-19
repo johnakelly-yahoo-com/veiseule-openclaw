@@ -1,4 +1,8 @@
 ---
+summary: "Voice Call-plugin: uitgaande + inkomende gesprekken via Twilio/Telnyx/Plivo (plugin-installatie + configuratie + CLI)"
+read_when:
+  - Je wilt een uitgaand spraakgesprek plaatsen vanuit OpenClaw
+  - Je bent de voice-call plugin aan het configureren of ontwikkelen
 title: "Voice Call-plugin"
 ---
 
@@ -108,6 +112,7 @@ Notities:
 - Twilio/Telnyx vereisen een **publiek bereikbaar** webhook-URL.
 - Plivo vereist een **publiek bereikbaar** webhook-URL.
 - `mock` is een lokale dev-provider (geen netwerkcalls).
+- Telnyx vereist `telnyx.publicKey` (of `TELNYX_PUBLIC_KEY`) tenzij `skipSignatureVerification` true is.
 - `skipSignatureVerification` is alleen voor lokaal testen.
 - Als je ngrok free tier gebruikt, stel `publicUrl` in op de exacte ngrok-URL; handtekeningverificatie wordt altijd afgedwongen.
 - `tunnel.allowNgrokFreeTierLoopbackBypass: true` staat Twilio-webhooks met ongeldige handtekeningen **alleen** toe wanneer `tunnel.provider="ngrok"` en `serve.bind` loopback is (ngrok local agent). Gebruik dit alleen voor lokale ontwikkeling.
@@ -278,5 +283,3 @@ Deze repo levert een bijbehorend skill-document op `skills/voice-call/SKILL.md`.
 - `voicecall.speak` (`callId`, `message`)
 - `voicecall.end` (`callId`)
 - `voicecall.status` (`callId`)
-
-

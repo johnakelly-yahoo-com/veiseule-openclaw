@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw CLI のスクリプト化されたオンボーディングとエージェントセットアップ"
+read_when:
+  - スクリプトや CI でオンボーディングを自動化する場合
+  - 特定のプロバイダー向けに非対話型の例が必要な場合
 title: "CLI 自動化"
 sidebarTitle: "CLIの自動化"
 ---
@@ -111,11 +115,31 @@ openclaw onboard --non-interactive \
     ```
   
 </Accordion>
+  <Accordion title="Custom provider example">
+    ```bash
+    openclaw onboard --non-interactive \
+      --mode local \
+      --auth-choice custom-api-key \
+      --custom-base-url "https://llm.example.com/v1" \
+      --custom-model-id "foo-large" \
+      --custom-api-key "$CUSTOM_API_KEY" \
+      --custom-provider-id "my-custom" \
+      --custom-compatibility anthropic \
+      --gateway-port 18789 \
+      --gateway-bind loopback
+    ```
+
+    ```
+    `--custom-api-key` は任意です。省略した場合、オンボーディングは `CUSTOM_API_KEY` を確認します。
+    ```
+
+  
+</Accordion>
 </AccordionGroup>
 
 ## 別のエージェントを追加する
 
-`openclaw agents add <name>` を使用すると、独自のワークスペース、セッション、認証プロファイルを持つ別のエージェントを作成できます。`--workspace` を指定せずに実行すると、ウィザードが起動します。 `--workspace` なしで実行すると、ウィザードが起動します。
+`openclaw agents add <name>` を使用すると、独自のワークスペース、セッション、認証プロファイルを持つ別のエージェントを作成できます。`--workspace` を指定せずに実行すると、ウィザードが起動します。 `--workspace` なしで実行すると、ウィザードが起動します。 `--workspace` なしで実行すると、ウィザードが起動します。
 
 ```bash
 openclaw agents add work \
@@ -143,5 +167,3 @@ openclaw agents add work \
 - オンボーディング ハブ: [オンボーディング ウィザード（CLI）](/start/wizard)
 - 完全なリファレンス: [CLI オンボーディング リファレンス](/start/wizard-cli-reference)
 - コマンド リファレンス: [`openclaw onboard`](/cli/onboard)
-
-

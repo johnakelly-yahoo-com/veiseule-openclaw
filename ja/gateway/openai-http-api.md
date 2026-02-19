@@ -1,4 +1,7 @@
 ---
+summary: "Gateway（ゲートウェイ）から OpenAI 互換の /v1/chat/completions HTTP エンドポイントを公開します"
+read_when:
+  - OpenAI Chat Completions を想定するツールを統合する場合
 title: "OpenAI Chat Completions"
 ---
 
@@ -6,7 +9,7 @@ title: "OpenAI Chat Completions"
 
 OpenClaw の Gateway（ゲートウェイ）は、小規模な OpenAI 互換の Chat Completions エンドポイントを提供できます。
 
-このエンドポイントは **デフォルトでは無効** です。まず設定で有効化してください。 最初に設定で有効にします。
+このエンドポイントは **デフォルトでは無効** です。まず設定で有効化してください。 最初に設定で有効にします。 最初に設定で有効にします。
 
 - `POST /v1/chat/completions`
 - Gateway（ゲートウェイ）と同一ポート（WS + HTTP の多重化）：`http://<gateway-host>:<port>/v1/chat/completions`
@@ -23,6 +26,7 @@ OpenClaw の Gateway（ゲートウェイ）は、小規模な OpenAI 互換の 
 
 - `gateway.auth.mode="token"` の場合は、`gateway.auth.token`（または `OPENCLAW_GATEWAY_TOKEN`）を使用します。
 - `gateway.auth.mode="password"` の場合は、`gateway.auth.password`（または `OPENCLAW_GATEWAY_PASSWORD`）を使用します。
+- `gateway.auth.rateLimit` が設定され、認証失敗が多発した場合、エンドポイントは `Retry-After` を伴う `429` を返します。
 
 ## エージェントの選択
 
@@ -113,5 +117,3 @@ curl -N http://127.0.0.1:18789/v1/chat/completions \
     "messages": [{"role":"user","content":"hi"}]
   }'
 ```
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "Przegląd parowania: zatwierdzanie, kto może wysyłać DM-y + które węzły mogą dołączyć"
+read_when:
+  - Konfiguracja kontroli dostępu do DM-ów
+  - Parowanie nowego węzła iOS/Android
+  - Przegląd stanu bezpieczeństwa OpenClaw
 title: "Parowanie"
 ---
 
@@ -96,5 +101,3 @@ Przechowywane w `~/.openclaw/devices/`:
   - iMessage (legacy): [iMessage](/channels/imessage)
   - Discord: [Discord](/channels/discord)
   - Slack: [Slack](/channels/slack)
-
-

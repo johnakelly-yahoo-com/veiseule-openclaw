@@ -1,4 +1,8 @@
 ---
+summary: "Obsługa stref czasowych dla agentów, kopert i promptów"
+read_when:
+  - Musisz zrozumieć, jak znaczniki czasu są normalizowane dla modelu
+  - Konfigurowanie strefy czasowej użytkownika dla promptów systemowych
 title: "Strefy czasowe"
 ---
 
@@ -85,5 +89,3 @@ Prompt systemowy zawiera:
 Format promptu można kontrolować za pomocą `agents.defaults.timeFormat` (`auto` | `12` | `24`).
 
 Zobacz [Date & Time](/date-time), aby poznać pełne zachowanie i przykłady.
-
-

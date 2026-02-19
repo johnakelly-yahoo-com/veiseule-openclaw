@@ -1,4 +1,8 @@
 ---
+summary: "Exposer un endpoint HTTP /v1/responses compatible OpenResponses depuis la Gateway (passerelle)"
+read_when:
+  - Integrer des clients qui parlent l’API OpenResponses
+  - Vous souhaitez des entrees basees sur des items, des appels d’outils cote client, ou des evenements SSE
 title: "API OpenResponses"
 ---
 
@@ -24,6 +28,7 @@ Notes :
 
 - Lorsque `gateway.auth.mode="token"`, utilisez `gateway.auth.token` (ou `OPENCLAW_GATEWAY_TOKEN`).
 - Lorsque `gateway.auth.mode="password"`, utilisez `gateway.auth.password` (ou `OPENCLAW_GATEWAY_PASSWORD`).
+- Si `gateway.auth.rateLimit` est configuré et qu’un trop grand nombre d’échecs d’authentification se produit, le point de terminaison renvoie `429` avec `Retry-After`.
 
 ## Choisir un agent
 
@@ -182,7 +187,11 @@ Défaut de récupération d'URL :
 
 - `files.allowUrl` : `true`
 - `images.allowUrl` : `true`
+- `maxUrlParts` : `8` (nombre total de parties `input_file` + `input_image` basées sur des URL par requête)
 - Les requetes sont protegees (resolution DNS, blocage des IP privees, plafonds de redirection, delais).
+- Des listes blanches de noms d’hôte facultatives sont prises en charge par type d’entrée (`files.urlAllowlist`, `images.urlAllowlist`).
+  - Hôte exact : `"cdn.example.com"`
+  - Sous-domaines avec wildcard : `"*.assets.example.com"` (ne correspond pas au domaine apex)
 
 ## Limites fichiers + images (config)
 
@@ -233,16 +242,24 @@ Les valeurs par defaut peuvent etre ajusteessous `gateway.http.endpoints.respons
 Par défaut en cas d'omission :
 
 - `maxBodyBytes` : 20MB
-- `files.maxBytes` : 5MB
+- `maxUrlParts` : 8
 - `files.maxChars` : 200k
 - `files.maxRedirects` : 3
+- `files.maxBytes` : 5MB
 - `files.timeoutMs` : 10s
-- `files.pdf.maxPages` : 4
 - `files.pdf.maxPixels` : 4,000,000
+- `files.pdf.maxPages` : 4
 - `files.pdf.minTextChars` : 200
 - `images.maxBytes` : 10MB
 - `images.maxRedirects` : 3
 - `images.timeoutMs` : 10s
+
+Remarque de sécurité :
+
+- Les listes blanches d’URL sont appliquées avant le fetch et à chaque redirection.
+- L’ajout d’un nom d’hôte à la liste blanche ne contourne pas le blocage des IP privées/internes.
+- Pour les gateways exposés à Internet, appliquez des contrôles de sortie réseau en plus des protections au niveau applicatif.
+  Voir [Security](/gateway/security).
 
 ## Streaming (SSE)
 
@@ -285,7 +302,7 @@ Cas courants :
 
 ## Exemples
 
-Sans streaming :
+Avec streaming :
 
 ```bash
 curl -sS http://127.0.0.1:18789/v1/responses \
@@ -298,7 +315,7 @@ curl -sS http://127.0.0.1:18789/v1/responses \
   }'
 ```
 
-Avec streaming :
+Sans streaming :
 
 ```bash
 curl -N http://127.0.0.1:18789/v1/responses \
@@ -311,5 +328,3 @@ curl -N http://127.0.0.1:18789/v1/responses \
     "input": "hi"
   }'
 ```
-
-

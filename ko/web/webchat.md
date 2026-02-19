@@ -1,4 +1,7 @@
 ---
+summary: "Loopback WebChat 정적 호스트 및 채팅 UI 를 위한 Gateway(게이트웨이) WS 사용"
+read_when:
+  - WebChat 접근을 디버깅하거나 구성할 때
 title: "WebChat"
 ---
 
@@ -42,7 +45,6 @@ title: "WebChat"
 
 - `gateway.port`, `gateway.bind`: WebSocket 호스트/포트.
 - `gateway.auth.mode`, `gateway.auth.token`, `gateway.auth.password`: WebSocket 인증.
+- `gateway.auth.mode: "trusted-proxy"`: 브라우저 클라이언트를 위한 reverse-proxy 인증 (참고: [Trusted Proxy Auth](/gateway/trusted-proxy-auth)).
 - `gateway.remote.url`, `gateway.remote.token`, `gateway.remote.password`: 원격 gateway 대상.
 - `session.*`: 세션 스토리지 및 기본 메인 키.
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "Referencja: specyficzne dla dostawców zasady sanityzacji i naprawy transkryptów"
+read_when:
+  - Debugujesz odrzucenia żądań przez dostawców powiązane z kształtem transkryptu
+  - Zmieniasz logikę sanityzacji transkryptów lub naprawy wywołań narzędzi
+  - Badasz niezgodności identyfikatorów wywołań narzędzi między dostawcami
 title: "Higiena transkryptu"
 ---
 
@@ -18,6 +23,7 @@ Zakres obejmuje:
 - Włącz sprawdzanie / zamawianie
 - Czyszczenie sygnatur myśli
 - Sanityzację ładunków obrazów
+- Tagowanie pochodzenia danych wejściowych użytkownika (dla promptów kierowanych między sesjami)
 
 Jeśli potrzebujesz szczegółów dotyczących przechowywania transkryptów, zobacz:
 
@@ -63,6 +69,23 @@ Implementacja:
 
 - `sanitizeToolCallInputs` w `src/agents/session-transcript-repair.ts`
 - Stosowane w `sanitizeSessionHistory` w `src/agents/pi-embedded-runner/google.ts`
+
+---
+
+## Zasada globalna: pochodzenie danych wejściowych między sesjami
+
+Gdy agent wysyła prompt do innej sesji przez `sessions_send` (w tym
+kroki odpowiedzi/ogłoszeń agent-do-agenta), OpenClaw zapisuje utworzoną turę użytkownika z:
+
+- `message.provenance.kind = "inter_session"`
+
+Te metadane są zapisywane w momencie dodania do transkryptu i nie zmieniają roli
+(`role: "user"` pozostaje dla zgodności z providerem). Czytniki transkryptu mogą używać
+tego, aby nie traktować przekierowanych wewnętrznych promptów jako instrukcji pochodzących od użytkownika końcowego.
+
+Podczas odbudowy kontekstu OpenClaw również dodaje na początku krótkie oznaczenie `[Inter-session message]`
+do tych tur użytkownika w pamięci, aby model mógł odróżnić je od
+zewnętrznych instrukcji użytkownika końcowego.
 
 ---
 
@@ -121,5 +144,3 @@ Przed wydaniem 2026.1.22 OpenClaw stosował wiele warstw higieny transkryptu:
 Ta złożoność powodowała regresje między dostawcami (w szczególności parowanie
 `openai-responses` / `call_id|fc_id`). Porządki z 2026.1.22 usunęły rozszerzenie, scentralizowały
 logikę w runnerze i uczyniły OpenAI **bez ingerencji** poza sanityzacją obrazów.
-
-

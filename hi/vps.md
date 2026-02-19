@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw के लिए VPS होस्टिंग हब (Oracle/Fly/Hetzner/GCP/exe.dev)"
+read_when:
+  - आप Gateway को क्लाउड में चलाना चाहते हैं
+  - आपको VPS/होस्टिंग गाइड्स का एक त्वरित मानचित्र चाहिए
 title: "VPS होस्टिंग"
 ---
 
@@ -25,17 +29,15 @@ title: "VPS होस्टिंग"
 - आप अपने लैपटॉप/फ़ोन से **Control UI** या **Tailscale/SSH** के माध्यम से कनेक्ट करते हैं।
 - VPS को सत्य का स्रोत मानें और state + workspace का **बैकअप** लें।
 - 50. सुरक्षित डिफ़ॉल्ट: Gateway को loopback पर रखें और SSH टनल या Tailscale Serve के माध्यम से एक्सेस करें।
-यदि आप `lan`/`tailnet` से बाइंड करते हैं, तो `gateway.auth.token` या `gateway.auth.password` आवश्यक करें।
+      If you bind to `lan`/`tailnet`, require `gateway.auth.token` or `gateway.auth.password`.
 
 दूरस्थ एक्सेस: [Gateway remote](/gateway/remote)  
 प्लैटफ़ॉर्म्स हब: [Platforms](/platforms)
 
 ## VPS के साथ nodes का उपयोग
 
-आप Gateway को क्लाउड में रख सकते हैं और अपने लोकल डिवाइसों पर **nodes** को पेयर कर सकते हैं
+You can keep the Gateway in the cloud and pair **nodes** on your local devices
 (Mac/iOS/Android/headless). Nodes provide local screen/camera/canvas and `system.run`
 capabilities while the Gateway stays in the cloud.
 
 डॉक्स: [Nodes](/nodes), [Nodes CLI](/cli/nodes)
-
-

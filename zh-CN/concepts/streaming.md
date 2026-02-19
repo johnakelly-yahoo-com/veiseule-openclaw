@@ -1,22 +1,20 @@
 ---
-title: 流式传输和分块
-x-i18n:
-  generated_at: "2026-02-03T10:05:41Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: f014eb1898c4351b1d6b812223226d91324701e3e809cd0f3faf6679841bc353
-  source_path: concepts/streaming.md
-  workflow: 15
+summary: "流式传输 + 分块行为（块回复、草稿流式传输、限制）"
+read_when:
+  - 解释流式传输或分块在渠道上如何工作
+  - 更改分块流式传输或渠道分块行为
+  - 调试重复/提前的块回复或草稿流式传输
+title: "Streaming and Chunking"
 ---
 
 # 流式传输 + 分块
 
 OpenClaw 有两个独立的"流式传输"层：
 
-- **分块流式传输（渠道）：** 在助手写入时发出已完成的**块**。这些是普通的渠道消息（不是令牌增量）。
+- **分块流式传输（渠道）：** 在助手写入时发出已完成的**块**。这些是普通的渠道消息（不是令牌增量）。 These are normal channel messages (not token deltas).
 - **类令牌流式传输（仅限 Telegram）：** 在生成时用部分文本更新**草稿气泡**；最终消息在结束时发送。
 
-目前**没有真正的令牌流式传输**到外部渠道消息。Telegram 草稿流式传输是唯一的部分流式传输界面。
+目前**尚未实现真正的 token-delta 流式传输**到频道消息。 Telegram 预览流式传输是唯一的部分流式界面。
 
 ## 分块流式传输（渠道消息）
 
@@ -32,7 +30,7 @@ OpenClaw 有两个独立的"流式传输"层：
                    └─ 渠道发送（块回复）
 ```
 
-图例：
+Legend:
 
 - `text_delta/events`：模型流事件（对于非流式模型可能稀疏）。
 - `chunker`：应用最小/最大边界 + 断点偏好的 `EmbeddedBlockChunker`。
@@ -69,9 +67,10 @@ OpenClaw 有两个独立的"流式传输"层：
 
 ## 合并（合并流式块）
 
-启用分块流式传输时，OpenClaw 可以在发送前**合并连续的块分块**。这减少了"单行刷屏"，同时仍提供渐进式输出。
+启用分块流式传输时，OpenClaw 可以在发送前**合并连续的块分块**。这减少了"单行刷屏"，同时仍提供渐进式输出。 This reduces “single-line spam” while still providing
+progressive output.
 
-- 合并在**空闲间隙**（`idleMs`）后刷新。
+- Coalescing waits for **idle gaps** (`idleMs`) before flushing.
 - 缓冲区受 `maxChars` 限制，超过时将刷新。
 - `minChars` 防止微小片段发送，直到累积足够文本（最终刷新始终发送剩余文本）。
 - 连接符从 `blockStreamingChunk.breakPreference` 派生（`paragraph` → `\n\n`，`newline` → `\n`，`sentence` → 空格）。
@@ -80,7 +79,8 @@ OpenClaw 有两个独立的"流式传输"层：
 
 ## 块之间的类人节奏
 
-启用分块流式传输时，你可以在块回复之间添加**随机暂停**（在第一个块之后）。这使多气泡响应感觉更自然。
+启用分块流式传输时，你可以在块回复之间添加**随机暂停**（在第一个块之后）。这使多气泡响应感觉更自然。 This makes multi-bubble responses feel
+more natural.
 
 - 配置：`agents.defaults.humanDelay`（通过 `agents.list[].humanDelay` 按智能体覆盖）。
 - 模式：`off`（默认）、`natural`（800–2500ms）、`custom`（`minMs`/`maxMs`）。
@@ -90,11 +90,12 @@ OpenClaw 有两个独立的"流式传输"层：
 
 这映射到：
 
-- **流式传输块：** `blockStreamingDefault: "on"` + `blockStreamingBreak: "text_end"`（边生成边发出）。非 Telegram 渠道还需要 `*.blockStreaming: true`。
+- **流式传输块：** `blockStreamingDefault: "on"` + `blockStreamingBreak: "text_end"`（边生成边发出）。非 Telegram 渠道还需要 `*.blockStreaming: true`。 Non-Telegram channels also need `*.blockStreaming: true`.
 - **最后流式传输全部内容：** `blockStreamingBreak: "message_end"`（刷新一次，如果很长可能有多个块）。
 - **无分块流式传输：** `blockStreamingDefault: "off"`（只有最终回复）。
 
-**渠道说明：** 对于非 Telegram 渠道，分块流式传输**默认关闭**，除非 `*.blockStreaming` 明确设置为 `true`。Telegram 可以在没有块回复的情况下流式传输草稿（`channels.telegram.streamMode`）。
+**渠道说明：** 对于非 Telegram 渠道，分块流式传输**默认关闭**，除非 `*.blockStreaming` 明确设置为 `true`。Telegram 可以在没有块回复的情况下流式传输草稿（`channels.telegram.streamMode`）。 Telegram 可以流式传输实时预览
+(`channels.telegram.streamMode`)，而无需分块回复。
 
 配置位置提醒：`blockStreaming*` 默认值位于 `agents.defaults` 下，而不是根配置。
 
@@ -102,17 +103,17 @@ OpenClaw 有两个独立的"流式传输"层：
 
 Telegram 是唯一支持草稿流式传输的渠道：
 
-- 在**带主题的私聊**中使用 Bot API `sendMessageDraft`。
+- 使用 Bot API `sendMessage`（首次更新）+ `editMessageText`（后续更新）。
 - `channels.telegram.streamMode: "partial" | "block" | "off"`。
   - `partial`：用最新的流式文本更新草稿。
   - `block`：以分块方式更新草稿（相同的分块器规则）。
   - `off`：无草稿流式传输。
 - 草稿分块配置（仅用于 `streamMode: "block"`）：`channels.telegram.draftChunk`（默认值：`minChars: 200`，`maxChars: 800`）。
-- 草稿流式传输与分块流式传输分开；块回复默认关闭，仅在非 Telegram 渠道上通过 `*.blockStreaming: true` 启用。
-- 最终回复仍然是普通消息。
-- `/reasoning stream` 将推理写入草稿气泡（仅限 Telegram）。
-
-当草稿流式传输活跃时，OpenClaw 会为该回复禁用分块流式传输以避免双重流式传输。
+- 预览流式传输与分块流式传输是分开的。
+- 当显式启用 Telegram 分块流式传输时，将跳过预览流式传输以避免双重流式传输。
+- 纯文本最终结果通过就地编辑预览消息来应用。
+- 非文本/复杂的最终结果将回退为常规的最终消息发送方式。
+- `/reasoning stream` 会将推理内容写入实时预览（仅限 Telegram）。
 
 ```
 Telegram（私聊 + 主题）
@@ -122,9 +123,7 @@ Telegram（私聊 + 主题）
   └─ 最终回复 → 普通消息
 ```
 
-图例：
+Legend:
 
-- `sendMessageDraft`：Telegram 草稿气泡（不是真正的消息）。
-- `final reply`：普通 Telegram 消息发送。
-
-
+- `preview message`：在生成过程中更新的临时 Telegram 消息。
+- `final edit`：在同一个预览消息上的就地编辑（仅文本）。

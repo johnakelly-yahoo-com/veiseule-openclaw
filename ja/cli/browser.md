@@ -1,4 +1,9 @@
 ---
+summary: "「openclaw browser」の CLI リファレンス（プロファイル、タブ、アクション、拡張機能リレー）"
+read_when:
+  - 「openclaw browser」を使用しており、一般的なタスクの例を探している場合
+  - ノード ホスト経由で別のマシン上で実行中のブラウザーを制御したい場合
+  - Chrome 拡張機能リレーを使用したい場合（ツールバー ボタンによるアタッチ／デタッチ）
 title: "ブラウザー"
 ---
 
@@ -30,7 +35,7 @@ openclaw browser --browser-profile openclaw snapshot
 
 ## プロファイル
 
-プロファイルは、名前付きのブラウザー ルーティング設定です。実際には次のとおりです。 実際に：
+プロファイルは、名前付きのブラウザー ルーティング設定です。実際には次のとおりです。 実際に： 実際に：
 
 - `openclaw`: OpenClaw が管理する専用の Chrome インスタンスを起動／アタッチします（分離されたユーザー データ ディレクトリ）。
 - `chrome`: Chrome 拡張機能リレーを介して、既存の Chrome タブを制御します。
@@ -95,10 +100,8 @@ openclaw browser extension path
 
 ## リモート ブラウザー制御（ノード ホスト プロキシ）
 
-Gateway がブラウザーとは別のマシンで実行されている場合、Chrome／Brave／Edge／Chromium があるマシンで **node host** を実行します。Gateway はそのノードにブラウザー アクションをプロキシします（別途ブラウザー制御サーバーは不要です）。 ゲートウェイは、そのノードに対してプロキシブラウザアクションを実行します(個別のブラウザ制御サーバーは必要ありません)。
+Gateway がブラウザーとは別のマシンで実行されている場合、Chrome／Brave／Edge／Chromium があるマシンで **node host** を実行します。Gateway はそのノードにブラウザー アクションをプロキシします（別途ブラウザー制御サーバーは不要です）。 Gateway がブラウザーとは別のマシンで実行されている場合、Chrome／Brave／Edge／Chromium があるマシンで **node host** を実行します。Gateway はそのノードにブラウザー アクションをプロキシします（別途ブラウザー制御サーバーは不要です）。 ゲートウェイは、そのノードに対してプロキシブラウザアクションを実行します(個別のブラウザ制御サーバーは必要ありません)。
 
 自動ルーティングの制御には `gateway.nodes.browser.mode` を使用し、複数のノードが接続されている場合に特定のノードへ固定するには `gateway.nodes.browser.node` を使用します。
 
 セキュリティ + リモート セットアップ: [Browser tool](/tools/browser), [Remote access](/gateway/remote), [Tailscale](/gateway/tailscale), [Security](/gateway/security)
-
-

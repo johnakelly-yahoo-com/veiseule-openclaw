@@ -1,4 +1,8 @@
 ---
+summary: "stable、beta、dev チャンネル：意味、切り替え、タグ付け"
+read_when:
+  - stable / beta / dev を切り替えたい場合
+  - プレリリースをタグ付けまたは公開する場合
 title: "開発チャンネル"
 ---
 
@@ -10,7 +14,7 @@ OpenClaw には 3 つのアップデートチャンネルがあります。
 
 - **stable**: npm dist-tag `latest`。
 - **beta**: npm dist-tag `beta`（テスト中のビルド）。
-- **dev**: `main`（git）の移動する最新ヘッド。npm dist-tag: `dev`（公開時）。 npm dist-tag: `dev` (公開時)
+- **dev**: `main`（git）の移動する最新ヘッド。npm dist-tag: `dev`（公開時）。 **dev**: `main`（git）の移動する最新ヘッド。npm dist-tag: `dev`（公開時）。 npm dist-tag: `dev` (公開時)
 
 ビルドはまず **beta** に配布してテストし、その後 **検証済みのビルドを `latest` に昇格** します。
 この際、バージョン番号は変更しません。npm インストールにおける信頼できる情報源は dist-tag です。
@@ -65,9 +69,7 @@ openclaw update --channel dev
 
 ## macOS アプリの提供状況
 
-beta および dev ビルドには、macOS アプリのリリースが **含まれない** 場合があります。問題ありません。 問題ありません:
+beta および dev ビルドには、macOS アプリのリリースが **含まれない** 場合があります。問題ありません。 問題ありません: 問題ありません:
 
 - git タグおよび npm dist-tag は引き続き公開できます。
 - リリースノートや変更履歴で「この beta には macOS ビルドなし」と明記してください。
-
-

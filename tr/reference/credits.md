@@ -1,12 +1,15 @@
 ---
-title: "Katkıda Bulunanlar"
+summary: "Projenin kökeni, katkıda bulunanlar ve lisans."
+read_when:
+  - You want the project backstory or contributor credits
+title: "Credits"
 ---
 
 ## İsim
 
 OpenClaw = CLAW + TARDIS; çünkü her uzay ıstakozunun bir zaman ve uzay makinesine ihtiyacı vardır.
 
-## Katkıda Bulunanlar
+## Credits
 
 - **Peter Steinberger** ([@steipete](https://x.com/steipete)) - Yaratıcı, ıstakoz fısıldayıcısı
 - **Mario Zechner** ([@badlogicc](https://x.com/badlogicgames)) - Pi yaratıcısı, güvenlik sızma testçisi
@@ -22,5 +25,3 @@ OpenClaw = CLAW + TARDIS; çünkü her uzay ıstakozunun bir zaman ve uzay makin
 MIT - Okyanustaki bir ıstakoz kadar özgür.
 
 > "Hepimiz sadece kendi istemlerimizle oynuyoruz." (Muhtemelen token'lara fazla yüklenmiş bir yapay zekâ)
-
-

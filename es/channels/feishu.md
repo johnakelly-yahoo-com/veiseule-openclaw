@@ -1,4 +1,8 @@
 ---
+summary: "Descripción general del bot de Feishu, características y configuración"
+read_when:
+  - Quiere conectar un bot de Feishu/Lark
+  - Está configurando el canal de Feishu
 title: Feishu
 ---
 
@@ -528,9 +532,9 @@ Opciones clave:
 | ------------------------------------------------- | --------------------------------------------------------------------------------------------------- | -------------- |
 | `channels.feishu.enabled`                         | Habilitar/deshabilitar canal                                                                        | `true`         |
 | `channels.feishu.domain`                          | Dominio de API (`feishu` o `lark`)                                               | `feishu`       |
-| `channels.feishu.accounts.<id>.appId`             | App ID                                                                                              | -              |
-| `channels.feishu.accounts.<id>.appSecret`         | App Secret                                                                                          | -              |
-| `channels.feishu.accounts.<id>.domain`            | Anulación de dominio de API por cuenta                                                              | `feishu`       |
+| `channels.feishu.accounts.&lt;id&gt;.appId`             | App ID                                                                                              | -              |
+| `channels.feishu.accounts.&lt;id&gt;.appSecret`         | App Secret                                                                                          | -              |
+| `channels.feishu.accounts.&lt;id&gt;.domain`            | Anulación de dominio de API por cuenta                                                              | `feishu`       |
 | `channels.feishu.dmPolicy`                        | Política DM                                                                                         | `pairing`      |
 | `channels.feishu.allowFrom`                       | Lista de permitidos de mensajes directos (lista de open_id) | -              |
 | `channels.feishu.groupPolicy`                     | Política de grupos                                                                                  | `open`         |
@@ -574,5 +578,3 @@ Opciones clave:
 - ✅ Archivos
 - ✅ Audio
 - ⚠️ Texto enriquecido (soporte parcial)
-
-

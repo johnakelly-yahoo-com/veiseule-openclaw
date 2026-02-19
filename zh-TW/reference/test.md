@@ -1,4 +1,7 @@
 ---
+summary: "如何在本機執行測試（Vitest）以及何時使用強制／涵蓋率模式"
+read_when:
+  - 執行或修復測試時
 title: "測試"
 ---
 
@@ -6,13 +9,15 @@ title: "測試"
 
 - 完整測試套件（測試組、即時、Docker）：[Testing](/help/testing)
 
-- `pnpm test:force`：終止任何佔用預設控制連接埠的殘留 Gateway 閘道器 程序，然後以隔離的 Gateway 閘道器 連接埠執行完整的 Vitest 測試套件，避免伺服器測試與執行中的實例發生衝突。當先前的 Gateway 閘道器 執行導致連接埠 18789 被佔用時使用。 Use this when a prior gateway run left port 18789 occupied.
+- `pnpm test:force`：終止任何佔用預設控制連接埠的殘留 Gateway 閘道器 程序，然後以隔離的 Gateway 閘道器 連接埠執行完整的 Vitest 測試套件，避免伺服器測試與執行中的實例發生衝突。當先前的 Gateway 閘道器 執行導致連接埠 18789 被佔用時使用。 Use this when a prior gateway run left port 18789 occupied. Use this when a prior gateway run left port 18789 occupied.
 
-- `pnpm test:coverage`：以 V8 涵蓋率執行 Vitest。全域門檻為行數／分支／函式／陳述式 70%。涵蓋率會排除整合性較高的進入點（CLI 連線配置、gateway/telegram 橋接、webchat 靜態伺服器），以將目標聚焦於可進行單元測試的邏輯。 Global thresholds are 70% lines/branches/functions/statements. 為了讓目標聚焦於可進行單元測試的邏輯，覆蓋範圍不包含整合度高的進入點（CLI 佈線、gateway/telegram 橋接、webchat 靜態伺服器）。
+- `pnpm test:coverage`：使用 V8 覆蓋率（透過 `vitest.unit.config.ts`）執行單元測試套件。 Global thresholds are 70% lines/branches/functions/statements. 為了讓目標聚焦於可進行單元測試的邏輯，覆蓋範圍不包含整合度高的進入點（CLI 佈線、gateway/telegram 橋接、webchat 靜態伺服器）。
 
-- `pnpm test:e2e`：執行 Gateway 閘道器 端到端煙霧測試（多實例 WS／HTTP／節點配對）。
+- 在 Node 24+ 上執行 `pnpm test`：OpenClaw 會自動停用 Vitest 的 `vmForks` 並改用 `forks`，以避免 `ERR_VM_MODULE_LINK_FAILURE` / `module is already linked`。 您可以使用 `OPENCLAW_TEST_VM_FORKS=0|1` 強制指定行為。
 
-- `pnpm test:live`：執行提供者即時測試（minimax／zai）。需要 API 金鑰，並且需要 `LIVE=1`（或提供者特定的 `*_LIVE_TEST=1`）才能解除略過。 Requires API keys and `LIVE=1` (or provider-specific `*_LIVE_TEST=1`) to unskip.
+- `pnpm test:e2e`：執行 Gateway 閘道器 端到端煙霧測試（多實例 WS／HTTP／節點配對）。 在 `vitest.e2e.config.ts` 中預設使用 `vmForks` + 自適應 workers；可透過 `OPENCLAW_E2E_WORKERS=<n>` 調整，並設定 `OPENCLAW_E2E_VERBOSE=1` 以啟用詳細日誌。
+
+- `pnpm test:live`：執行提供者即時測試（minimax／zai）。需要 API 金鑰，並且需要 `LIVE=1`（或提供者特定的 `*_LIVE_TEST=1`）才能解除略過。 Requires API keys and `LIVE=1` (or provider-specific `*_LIVE_TEST=1`) to unskip. Requires API keys and `LIVE=1` (or provider-specific `*_LIVE_TEST=1`) to unskip.
 
 ## 模型延遲基準測試（本機金鑰）
 
@@ -48,5 +53,3 @@ This script drives the interactive wizard via a pseudo-tty, verifies config/work
 ```bash
 pnpm test:docker:qr
 ```
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw को सुरक्षित रूप से अपडेट करना (ग्लोबल इंस्टॉल या सोर्स), साथ ही रोलबैक रणनीति"
+read_when:
+  - OpenClaw को अपडेट करना
+  - अपडेट के बाद कुछ टूट जाए
 title: "अपडेट करना"
 ---
 
@@ -226,5 +230,3 @@ git pull
 - `openclaw doctor` फिर से चलाएँ और आउटपुट ध्यान से पढ़ें (अक्सर यह समाधान बता देता है)।
 - जाँचें: [समस्या-निवारण](/gateway/troubleshooting)
 - Discord में पूछें: [https://discord.gg/clawd](https://discord.gg/clawd)
-
-

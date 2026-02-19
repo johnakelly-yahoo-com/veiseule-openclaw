@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw update` အတွက် CLI ကိုးကားချက် (အရင်းအမြစ်ကို လုံခြုံစွာ အပ်ဒိတ်လုပ်ခြင်း + Gateway ကို အလိုအလျောက် ပြန်စတင်ခြင်း)"
+read_when:
+  - အရင်းအမြစ် checkout ကို လုံခြုံစွာ အပ်ဒိတ်လုပ်ချင်သောအခါ
+  - "`--update` shorthand ၏ အပြုအမူကို နားလည်ရန် လိုအပ်သောအခါ"
 title: "update"
 ---
 
@@ -88,5 +92,3 @@ High-level:
 - [Development channels](/install/development-channels)
 - [Updating](/install/updating)
 - [CLI reference](/cli)
-
-

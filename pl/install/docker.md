@@ -1,4 +1,8 @@
 ---
+summary: "Opcjonalna konfiguracja i onboarding oparty na Dockerze dla OpenClaw"
+read_when:
+  - Chcesz użyć konteneryzowanej bramy zamiast instalacji lokalnych
+  - Weryfikujesz przepływ pracy z Dockerem
 title: "Docker"
 ---
 
@@ -60,6 +64,24 @@ Konfiguracja/obszar roboczy są zapisywane na hoście:
 - `~/.openclaw/workspace`
 
 Uruchamiasz na VPS? Zobacz [Hetzner (Docker VPS)](/install/hetzner).
+
+### Pomocnicze funkcje powłoki (opcjonalnie)
+
+Aby ułatwić codzienne zarządzanie Dockerem, zainstaluj `ClawDock`:
+
+```bash
+mkdir -p ~/.clawdock && curl -sL https://raw.githubusercontent.com/openclaw/openclaw/main/scripts/shell-helpers/clawdock-helpers.sh -o ~/.clawdock/clawdock-helpers.sh
+```
+
+**Dodaj do konfiguracji swojej powłoki (zsh):**
+
+```bash
+echo 'source ~/.clawdock/clawdock-helpers.sh' >> ~/.zshrc && source ~/.zshrc
+```
+
+Następnie używaj `clawdock-start`, `clawdock-stop`, `clawdock-dashboard` itd. Uruchom `clawdock-help`, aby zobaczyć wszystkie polecenia.
+
+Szczegóły znajdziesz w [`ClawDock` Helper README](https://github.com/openclaw/openclaw/blob/main/scripts/shell-helpers/README.md).
 
 ### Ręczny przepływ (compose)
 
@@ -561,5 +583,3 @@ Przykład:
   która źródłuje `/etc/profile` i może resetować PATH. Ustaw `docker.env.PATH`, aby poprzedzić
   własne ścieżki narzędzi (np. `/custom/bin:/usr/local/share/npm-global/bin`), albo dodaj
   skrypt w `/etc/profile.d/` w swoim Dockerfile.
-
-

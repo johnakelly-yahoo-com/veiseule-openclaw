@@ -1,4 +1,9 @@
 ---
+summary: "Plano ng refactor: routing ng exec host, mga pag-apruba ng node, at headless runner"
+read_when:
+  - Nagdidisenyo ng routing ng exec host o mga pag-apruba ng exec
+  - Nag-iimplement ng node runner + UI IPC
+  - Nagdadagdag ng mga security mode ng exec host at slash commands
 title: "Refactor ng Exec Host"
 ---
 
@@ -309,5 +314,3 @@ Opsyon B:
 - [Exec approvals](/tools/exec-approvals)
 - [Nodes](/nodes)
 - [Elevated mode](/tools/elevated)
-
-

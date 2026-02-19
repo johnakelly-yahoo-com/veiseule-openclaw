@@ -1,4 +1,8 @@
 ---
+summary: "„Browserbasierte Control UI für das Gateway (Chat, Nodes, Konfiguration)“"
+read_when:
+  - Sie möchten das Gateway über einen Browser bedienen
+  - Sie möchten Tailnet-Zugriff ohne SSH-Tunnel
 title: "„Control UI“"
 ---
 
@@ -217,5 +221,3 @@ Beispiel:
 ```
 
 Details zur Remote-Zugriffseinrichtung: [Remote access](/gateway/remote).
-
-

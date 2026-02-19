@@ -1,4 +1,9 @@
-------
+---
+title: "BOOTSTRAP.md-Vorlage"
+summary: "„Ritual für den ersten Start neuer Agenten“"
+read_when:
+  - Manuelles Bootstrapping eines Workspaces
+---
 
 # BOOTSTRAP.md – Hallo, Welt
 
@@ -55,5 +60,3 @@ Löschen Sie diese Datei. Sie brauchen kein Bootstrap-Skript mehr — Sie sind j
 ---
 
 _Viel Glück da draußen. Machen Sie es bedeutsam._
-
-

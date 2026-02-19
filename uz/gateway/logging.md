@@ -1,4 +1,8 @@
 ---
+summary: "Loglash sirtlari, fayl loglari, WS log uslublari va konsol formatlash"
+read_when:
+  - Loglash chiqishini yoki formatlarini o‘zgartirish
+  - CLI yoki gateway chiqishini nosozliklarni tuzatish
 title: "Loglash"
 ---
 
@@ -103,5 +107,3 @@ Behavior:
 - **WhatsApp xabar matnlari** `debug` darajasida log qilinadi (ularni ko‘rish uchun `--verbose` dan foydalaning)
 
 This keeps existing file logs stable while making interactive output scannable.
-
-

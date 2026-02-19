@@ -1,4 +1,8 @@
 ---
+summary: "Política de retry para chamadas de saída a provedores"
+read_when:
+  - Atualizando o comportamento ou os padrões de retry do provedor
+  - Depurando erros de envio do provedor ou limites de taxa
 title: "Política de Retry"
 ---
 
@@ -63,5 +67,3 @@ Defina a política de retry por provedor em `~/.openclaw/openclaw.json`:
 
 - Retries se aplicam por requisição (envio de mensagem, upload de mídia, reação, enquete, sticker).
 - Fluxos compostos não retentam etapas concluídas.
-
-

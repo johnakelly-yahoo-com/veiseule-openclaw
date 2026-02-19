@@ -1,4 +1,5 @@
 ---
+summary: "Abertura de issues e relatórios de bugs de alto sinal"
 title: "Enviando um Issue"
 ---
 
@@ -149,5 +150,3 @@ _Evite segredos/detalhes de exploração em público. Para questões sensíveis,
 ### Enviando um PR de correção
 
 Issue antes do PR é opcional. Inclua os detalhes no PR se pular essa etapa. Mantenha o PR focado, informe o número do issue, adicione testes ou explique a ausência, documente mudanças de comportamento/riscos, inclua logs/capturas de tela com dados sensíveis removidos como prova e execute a validação adequada antes de enviar.
-
-

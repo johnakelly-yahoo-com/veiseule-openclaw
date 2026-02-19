@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw में Qwen OAuth (मुफ़्त टियर) का उपयोग करें"
+read_when:
+  - आप OpenClaw के साथ Qwen का उपयोग करना चाहते हैं
+  - आप Qwen Coder के लिए मुफ़्त-टियर OAuth एक्सेस चाहते हैं
 title: "Qwen"
 ---
 
@@ -38,7 +42,7 @@ openclaw models set qwen-portal/coder-model
 
 ## Qwen Code CLI लॉगिन का पुन: उपयोग
 
-यदि आप पहले ही Qwen Code CLI के साथ लॉग इन कर चुके हैं, तो OpenClaw क्रेडेंशियल्स को सिंक कर देगा
+If you already logged in with the Qwen Code CLI, OpenClaw will sync credentials
 from `~/.qwen/oauth_creds.json` when it loads the auth store. You still need a
 `models.providers.qwen-portal` entry (use the login command above to create one).
 
@@ -48,5 +52,3 @@ from `~/.qwen/oauth_creds.json` when it loads the auth store. You still need a
 - डिफ़ॉल्ट बेस URL: `https://portal.qwen.ai/v1` (यदि Qwen कोई अलग एंडपॉइंट प्रदान करे, तो
   `models.providers.qwen-portal.baseUrl` से ओवरराइड करें)।
 - प्रदाता-स्तरीय नियमों के लिए [Model providers](/concepts/model-providers) देखें।
-
-

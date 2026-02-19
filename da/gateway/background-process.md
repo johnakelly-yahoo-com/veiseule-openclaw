@@ -1,4 +1,8 @@
 ---
+summary: "Udførelse i baggrunden og processtyring"
+read_when:
+  - Tilføjelse eller ændring af adfærd for baggrunds-exec
+  - Fejlfinding af langvarige exec-opgaver
 title: "Background Exec og procesværktøj"
 ---
 
@@ -42,6 +46,7 @@ Konfiguration (foretrukket):
 - `tools.exec.timeoutSec` (standard 1800)
 - `tools.exec.cleanupMs` (standard 1800000)
 - `tools.exec.notifyOnExit` (standard true): sæt en systemhændelse i kø + anmod om heartbeat, når en baggrunds-exec afsluttes.
+- `tools.exec.notifyOnExitEmptySuccess` (standard false): når true, sættes der også completion-events i kø for vellykkede baggrundskørsler, der ikke producerede noget output.
 
 ## process-værktøj
 
@@ -63,6 +68,8 @@ Noter:
 - `process` er afgrænset pr. agent; den kan kun se sessioner startet af den agent.
 - `process list` inkluderer en afledt `name` (kommandoverbum + mål) til hurtige overblik.
 - `process log` bruger linjebaseret `offset`/`limit` (udelad `offset` for at hente de sidste N linjer).
+- Når både `offset` og `limit` udelades, returneres de sidste 200 linjer, og der inkluderes et paging-hint.
+- Når `offset` er angivet og `limit` udelades, returneres der fra `offset` til slutningen (ikke begrænset til 200).
 
 ## Eksempler
 
@@ -87,5 +94,3 @@ Send stdin:
 ```json
 { "tool": "process", "action": "write", "sessionId": "<id>", "data": "y\n" }
 ```
-
-

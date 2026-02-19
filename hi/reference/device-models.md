@@ -1,4 +1,8 @@
 ---
+summary: "macOS ऐप में उपयोगकर्ता‑अनुकूल नामों के लिए OpenClaw किस प्रकार Apple डिवाइस मॉडल पहचानकर्ताओं को प्रदान करता है।"
+read_when:
+  - डिवाइस मॉडल पहचानकर्ता मैपिंग या NOTICE/लाइसेंस फ़ाइलों को अपडेट करते समय
+  - Instances UI डिवाइस नामों को कैसे प्रदर्शित करता है, इसमें परिवर्तन करते समय
 title: "डिवाइस मॉडल डेटाबेस"
 ---
 
@@ -41,5 +45,3 @@ curl -fsSL "https://raw.githubusercontent.com/kyle-seongwoo-jun/apple-device-ide
 ```bash
 swift build --package-path apps/macos
 ```
-
-

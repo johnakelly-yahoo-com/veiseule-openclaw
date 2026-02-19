@@ -1,4 +1,8 @@
 ---
+summary: "Powierzchnia narzędzi agenta dla OpenClaw (przeglądarka, canvas, węzły, wiadomości, cron), zastępująca starsze skills `openclaw-*`"
+read_when:
+  - Dodawanie lub modyfikowanie narzędzi agenta
+  - Wycofywanie lub zmienianie skills `openclaw-*`
 title: "Narzędzia"
 ---
 
@@ -177,6 +181,7 @@ Opcjonalne narzędzia wtyczek:
 
 Stosuj ustrukturyzowane łatki do jednego lub wielu plików. Używaj do edycji wielohunkowych.
 Eksperymentalne: włącz przez `tools.exec.applyPatch.enabled` (tylko modele OpenAI).
+`tools.exec.applyPatch.workspaceOnly` domyślnie ma wartość `true` (ograniczone do workspace). Ustaw na `false` tylko jeśli celowo chcesz, aby `apply_patch` zapisywał/usuwał poza katalogiem workspace.
 
 ### `exec`
 
@@ -505,5 +510,3 @@ Narzędzia są udostępniane w dwóch równoległych kanałach:
 2. **Schemat narzędzi**: ustrukturyzowane definicje funkcji wysyłane do API modelu.
 
 Oznacza to, że agent widzi zarówno „jakie narzędzia istnieją”, jak i „jak je wywoływać”. Jeśli narzędzie nie pojawia się w promptcie systemowym ani w schemacie, model nie może go wywołać.
-
-

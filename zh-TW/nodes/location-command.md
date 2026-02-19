@@ -1,10 +1,14 @@
 ---
+summary: "節點的位置指令（location.get）、權限模式，以及背景行為"
+read_when:
+  - 新增位置節點支援或權限 UI
+  - 設計背景位置＋推播流程
 title: "位置指令"
 ---
 
 # 位置指令（節點）
 
-## 重點摘要
+## TL;DR
 
 - `location.get` 是一個節點指令（透過 `node.invoke`）。
 - 預設為關閉。
@@ -13,7 +17,7 @@ title: "位置指令"
 
 ## 為何使用選擇器（而不只是開關）
 
-作業系統權限是多層級的。 We can expose a selector in-app, but the OS still decides the actual grant.
+作業系統權限是多層級的。 作業系統權限是多層級的。 We can expose a selector in-app, but the OS still decides the actual grant.
 
 - iOS/macOS：使用者可在系統提示或「設定」中選擇 **使用中** 或 **永遠**。App 可以請求升級，但 OS 可能要求前往「設定」。 應用程式可以請求升級，但作業系統可能需要透過「設定」。
 - Android：背景位置是獨立權限；在 Android 10+ 上通常需要走「設定」流程。
@@ -106,6 +110,4 @@ UI 行為：
 - 關閉：「位置分享已停用。」
 - 使用中：「僅在 OpenClaw 開啟時。」
 - 永遠：「允許背景位置。需要系統權限。」 需要系統權限。”
-- 精確：「使用精確 GPS 位置。關閉以分享近似位置。」 關閉切換即可分享大致位置。”
-
-
+- 精確：「使用精確 GPS 位置。關閉以分享近似位置。」 關閉切換即可分享大致位置。” 關閉切換即可分享大致位置。”

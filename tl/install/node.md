@@ -1,5 +1,10 @@
 ---
 title: "Node.js"
+summary: "I-install at i-configure ang Node.js para sa OpenClaw — mga kinakailangan sa bersyon, mga opsyon sa pag-install, at pag-troubleshoot ng PATH"
+read_when:
+  - "Kailangan mong i-install ang Node.js bago i-install ang OpenClaw"
+  - "Na-install mo ang OpenClaw pero `openclaw` is command not found"
+  - "Nabibigo ang npm install -g dahil sa mga isyu sa permission o PATH"
 ---
 
 # Node.js
@@ -20,44 +25,59 @@ Kung magpi-print ito ng `v22.x.x` o mas mataas, ayos ka na. Kung hindi naka-inst
   <Tab title="macOS">
     **Homebrew** (inirerekomenda):
 
+    `````
+    ````
     ```bash
     brew install node
     ```
-
+    
     O i-download ang macOS installer mula sa [nodejs.org](https://nodejs.org/).
+    ````
+    `````
+
   
 </Tab>
   <Tab title="Linux">
     **Ubuntu / Debian:**
 
+    `````
+    ````
     ```bash
     curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
     sudo apt-get install -y nodejs
     ```
-
+    
     **Fedora / RHEL:**
-
+    
     ```bash
     sudo dnf install nodejs
     ```
-
+    
     O gumamit ng version manager (tingnan sa ibaba).
+    ````
+    `````
+
   
 </Tab>
   <Tab title="Windows">
     **winget** (inirerekomenda):
 
+    `````
+    ````
     ```powershell
     winget install OpenJS.NodeJS.LTS
     ```
-
+    
     **Chocolatey:**
-
+    
     ```powershell
     choco install nodejs-lts
     ```
-
+    
     O i-download ang Windows installer mula sa [nodejs.org](https://nodejs.org/).
+    ````
+    `````
+
   
 </Tab>
 </Tabs>
@@ -100,7 +120,12 @@ Halos palagi itong nangangahulugang wala sa iyong PATH ang global bin directory 
     echo "$PATH"
     ```
 
+    ````
+    ```
     Hanapin ang `<npm-prefix>/bin` (macOS/Linux) o `<npm-prefix>` (Windows) sa output.
+    ```
+    ````
+
   
 </Step>
   <Step title="Add it to your shell startup file">
@@ -108,19 +133,24 @@ Halos palagi itong nangangahulugang wala sa iyong PATH ang global bin directory 
       <Tab title="macOS / Linux">
         Idagdag sa `~/.zshrc` o `~/.bashrc`:
 
-        ```bash
-        export PATH="$(npm prefix -g)/bin:$PATH"
+        ```
+            ```
+                ```bash
+                export PATH="$(npm prefix -g)/bin:$PATH"
+                ```
+            
+                Pagkatapos ay magbukas ng bagong terminal (o patakbuhin ang `rehash` sa zsh / `hash -r` sa bash).
+              
+</Tab>
+              <Tab title="Windows">
+                Idagdag ang output ng `npm prefix -g` sa iyong system PATH sa pamamagitan ng Settings → System → Environment Variables.
+              
+</Tab>
+            
+</Tabs>
+            ```
         ```
 
-        Pagkatapos ay magbukas ng bagong terminal (o patakbuhin ang `rehash` sa zsh / `hash -r` sa bash).
-      
-</Tab>
-      <Tab title="Windows">
-        Idagdag ang output ng `npm prefix -g` sa iyong system PATH sa pamamagitan ng Settings → System → Environment Variables.
-      
-</Tab>
-    
-</Tabs>
   
 </Step>
 </Steps>
@@ -136,4 +166,3 @@ export PATH="$HOME/.npm-global/bin:$PATH"
 ```
 
 Idagdag ang linyang `export PATH=...` sa iyong `~/.bashrc` o `~/.zshrc` para maging permanente.
-

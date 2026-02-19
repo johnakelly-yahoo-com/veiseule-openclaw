@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw CLI-reference for `openclaw`-kommandoer, underkommandoer og indstillinger"
+read_when:
+  - Tilføjelse eller ændring af CLI-kommandoer eller -indstillinger
+  - Dokumentation af nye kommandoflader
 title: "CLI-reference"
 ---
 
@@ -314,6 +318,11 @@ Indstillinger:
 - `--zai-api-key <key>`
 - `--minimax-api-key <key>`
 - `--opencode-zen-api-key <key>`
+- `--custom-base-url <url>` (ikke-interaktiv; bruges med `--auth-choice custom-api-key`)
+- `--custom-model-id <id>` (ikke-interaktiv; bruges med `--auth-choice custom-api-key`)
+- `--custom-api-key <key>` (ikke-interaktiv; valgfri; bruges med `--auth-choice custom-api-key`; falder tilbage til `CUSTOM_API_KEY`, hvis udeladt)
+- `--custom-provider-id <id>` (ikke-interaktiv; valgfri brugerdefineret provider-id)
+- `--custom-compatibility <openai|anthropic>` (ikke-interaktiv; valgfri; standard `openai`)
 - `--gateway-port <port>`
 - `--gateway-bind <loopback|lan|tailnet|auto|custom>`
 - `--gateway-auth <token|password>`
@@ -1025,5 +1034,3 @@ Indstillinger:
 - `--message <text>`
 - `--timeout-ms <ms>` (standard til `agents.defaults.timeoutSeconds`)
 - `--history-limit <n>`
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "Hvor OpenClaw indlæser miljøvariabler, og rækkefølgen for forrang"
+read_when:
+  - Du skal vide, hvilke miljøvariabler der indlæses, og i hvilken rækkefølge
+  - Du fejlretter manglende API-nøgler i Gateway
+  - Du dokumenterer udbyderautentificering eller udrulningsmiljøer
 title: "Miljøvariabler"
 ---
 
@@ -75,11 +80,11 @@ Se [Konfiguration: Substitution af miljøvariabler](/gateway/configuration#env-v
 | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `OPENCLAW_HOME`        | Tilsidesæt hjemmemappen, der bruges til al intern sti-opløsning (`~/.openclaw/`, agent-mapper, sessioner, legitimationsoplysninger). Nyttigt, når OpenClaw køres som en dedikeret servicebruger. |
 | `OPENCLAW_STATE_DIR`   | Tilsidesæt state-mappen (standard `~/.openclaw`).                                                                                                                                                                |
-| `OPENCLAW_CONFIG_PATH` | Tilsidesæt stien til konfigurationsfilen (standard `~/.openclaw/openclaw.json`).                                                                                                                                             |
+| `OPENCLAW_CONFIG_PATH` | Tilsidesæt stien til konfigurationsfilen (standard `~/.openclaw/openclaw.json`).                                                                                                                                 |
 
 ### `OPENCLAW_HOME`
 
-Når den er angivet, erstatter `OPENCLAW_HOME` systemets hjemmemappe (`$HOME` / `os.homedir()`) for al intern stiopløsning. Dette muliggør fuld filsystemisolering for headless servicekonti.
+When set, `OPENCLAW_HOME` replaces the system home directory (`$HOME` / `os.homedir()`) for all internal path resolution. This enables full filesystem isolation for headless service accounts.
 
 **Precedence:** `OPENCLAW_HOME` > `$HOME` > `USERPROFILE` > `os.homedir()`
 
@@ -93,12 +98,10 @@ Når den er angivet, erstatter `OPENCLAW_HOME` systemets hjemmemappe (`$HOME` / 
 </dict>
 ```
 
-`OPENCLAW_HOME` kan også angives som en tilde-sti (f.eks. `~/svc`), som udvides ved hjælp af `$HOME` før brug.
+`OPENCLAW_HOME` can also be set to a tilde path (e.g. `~/svc`), which gets expanded using `$HOME` before use.
 
 ## Relateret
 
 - [Gateway-konfiguration](/gateway/configuration)
 - [FAQ: miljøvariabler og .env-indlæsning](/help/faq#env-vars-and-env-loading)
 - [Modeloverblik](/concepts/models)
-
-

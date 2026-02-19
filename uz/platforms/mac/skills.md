@@ -1,8 +1,12 @@
 ---
-title: "Skills gating yoki o‘rnatish xatti-harakatlarini o‘zgartirish"
+summary: "Binary fayllarni imzolash (odatiy holatda ad-hoc) va qatʼiy bundle id/yo‘lni (`dist/OpenClaw.app`) saqlash buildlar orasida ruxsatlarni saqlab qoladi va VibeTunnel yondashuviga mos keladi."
+read_when:
+  - macOS Skills sozlamalari UI va gateway-ga asoslangan holat
+  - macOS Skills sozlamalari UI ni yangilash
+title: "Skills"
 ---
 
-# Skills
+# Skills (macOS)
 
 Skills (macOS)
 
@@ -28,5 +32,3 @@ Bir nechta variant berilganda, gateway faqat bitta afzal installer-ni ko‘rsata
 ## `skills.update` `enabled`, `apiKey` va `env` ni yangilaydi.
 
 - Masofaviy rejim
-
-

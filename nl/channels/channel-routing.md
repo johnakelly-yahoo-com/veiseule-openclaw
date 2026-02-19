@@ -1,4 +1,7 @@
 ---
+summary: "Routeringsregels per kanaal (WhatsApp, Telegram, Discord, Slack) en gedeelde context"
+read_when:
+  - Bij het wijzigen van kanaalroutering of inboxgedrag
 title: "Kanaalroutering"
 ---
 
@@ -41,11 +44,15 @@ Voorbeelden:
 Routering kiest **één agent** voor elk inkomend bericht:
 
 1. **Exacte peer-match** (`bindings` met `peer.kind` + `peer.id`).
-2. **Guild-match** (Discord) via `guildId`.
-3. **Team-match** (Slack) via `teamId`.
-4. **Account-match** (`accountId` op het kanaal).
-5. **Kanaal-match** (elk account op dat kanaal).
-6. **Standaardagent** (`agents.list[].default`, anders eerste lijstitem, fallback naar `main`).
+2. **Overeenkomende bovenliggende peer** (thread-overerving).
+3. **Guild + rollen komen overeen** (Discord) via `guildId` + `roles`.
+4. **Guild-match** (Discord) via `guildId`.
+5. **Team-match** (Slack) via `teamId`.
+6. **Account-match** (`accountId` op het kanaal).
+7. **Kanaal-match** (elk account op dat kanaal).
+8. **Standaardagent** (`agents.list[].default`, anders eerste lijstitem, fallback naar `main`).
+
+Wanneer een binding meerdere matchvelden bevat (`peer`, `guildId`, `teamId`, `roles`), moeten **alle opgegeven velden overeenkomen** voordat die binding wordt toegepast.
 
 De gematchte agent bepaalt welke werkruimte en sessieopslag worden gebruikt.
 
@@ -109,5 +116,3 @@ Inkomende antwoorden bevatten:
 - Geciteerde context wordt toegevoegd aan `Body` als een `[Replying to ...]`-blok.
 
 Dit is consistent over alle kanalen.
-
-

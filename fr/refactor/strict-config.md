@@ -1,4 +1,9 @@
 ---
+summary: "Validation stricte de la configuration + migrations uniquement via doctor"
+read_when:
+  - Conception ou implémentation du comportement de validation de la configuration
+  - Travail sur les migrations de configuration ou les workflows doctor
+  - Gestion des schémas de configuration des plugins ou du blocage du chargement des plugins
 title: "Validation stricte de la configuration"
 ---
 
@@ -86,5 +91,3 @@ Tout le reste doit échouer immédiatement avec : « Configuration invalide. E
 - Plugin sans schéma → chargement du plugin bloqué avec une erreur claire.
 - Configuration invalide → démarrage de la Gateway (passerelle) bloqué, sauf pour les commandes de diagnostic.
 - Doctor en dry‑run automatique ; `doctor --fix` écrit la configuration corrigée.
-
-

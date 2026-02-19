@@ -1,8 +1,13 @@
 ---
-title: "Düğümler"
+summary: "Düğümler: eşleştirme, yetenekler, izinler ve canvas/kamera/ekran/sistem için CLI yardımcıları"
+read_when:
+  - iOS/Android düğümlerini bir gateway ile eşleştirme
+  - Ajan bağlamı için düğüm canvas/kamerasını kullanma
+  - Yeni düğüm komutları veya CLI yardımcıları ekleme
+title: "Nodes"
 ---
 
-# Düğümler
+# Nodes
 
 Bir **düğüm**, Gateway **WebSocket**’ine (operatörlerle aynı port) `role: "node"` ile bağlanan ve `node.invoke` aracılığıyla bir komut yüzeyi (örn. `canvas.*`, `camera.*`, `system.*`) sunan bir yardımcı cihazdır (macOS/iOS/Android/headless). Protokol ayrıntıları: [Gateway protocol](/gateway/protocol).
 
@@ -109,7 +114,7 @@ openclaw approvals allowlist add --node <id|name|ip> "/usr/bin/sw_vers"
 
 Onaylar node host üzerinde `~/.openclaw/exec-approvals.json` konumunda bulunur.
 
-### Exec’i düğüme yönlendirin
+### Point exec at the node
 
 Varsayılanları yapılandırın (gateway yapılandırması):
 
@@ -134,7 +139,7 @@ node host üzerinde çalışır.
 - [Exec aracı](/tools/exec)
 - [Exec onayları](/tools/exec-approvals)
 
-## Komutları çalıştırma
+## Invoking commands
 
 Düşük seviye (ham RPC):
 
@@ -271,7 +276,7 @@ Notlar:
 - `system.notify`, macOS uygulamasındaki bildirim izin durumuna uyar.
 - `system.run`, `--cwd`, `--env KEY=VAL`, `--command-timeout` ve `--needs-screen-recording` destekler.
 - `system.notify`, `--priority <passive|active|timeSensitive>` ve `--delivery <system|overlay|auto>` destekler.
-- macOS düğümleri `PATH` geçersiz kılmalarını yok sayar; headless node host’lar yalnızca node host PATH’ini başa eklediğinde `PATH` kabul eder.
+- Node host’ları `PATH` override’larını yok sayar. Ek PATH girdilerine ihtiyacınız varsa, `PATH` değerini `--env` ile geçirmek yerine node host servis ortamını yapılandırın (veya araçları standart konumlara yükleyin).
 - macOS node mode’da `system.run`, macOS uygulamasındaki çalıştırma onaylarıyla (Ayarlar → Exec approvals) kısıtlanır.
   Sor/izin listesi/tam davranışları headless node host ile aynıdır; reddedilen istemler `SYSTEM_RUN_DENIED` döndürür.
 - Headless node host’ta `system.run`, çalıştırma onaylarıyla kısıtlanır (`~/.openclaw/exec-approvals.json`).
@@ -287,7 +292,7 @@ Genel varsayılan:
 openclaw config set tools.exec.node "node-id-or-name"
 ```
 
-Aracı başına geçersiz kılma:
+Per-agent override:
 
 ```bash
 openclaw config get agents.list
@@ -332,5 +337,3 @@ Notlar:
 
 - macOS menü çubuğu uygulaması, Gateway WS sunucusuna bir düğüm olarak bağlanır (böylece `openclaw nodes …` bu Mac’e karşı çalışır).
 - Uzak modda, uygulama Gateway portu için bir SSH tüneli açar ve `localhost`’ya bağlanır.
-
-

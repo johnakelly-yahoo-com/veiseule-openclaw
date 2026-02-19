@@ -1,4 +1,9 @@
 ---
+summary: "Giden yanıtlar için metinden konuşmaya (TTS)"
+read_when:
+  - Yanıtlar için metinden konuşmayı etkinleştirme
+  - TTS sağlayıcılarını veya sınırlarını yapılandırma
+  - /tts komutlarını kullanma
 title: "Metinden Konuşmaya"
 ---
 
@@ -380,5 +385,3 @@ Gateway yöntemleri:
 - `tts.convert`
 - `tts.setProvider`
 - `tts.providers`
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "Notes de recherche : systeme de memoire hors ligne pour les espaces de travail Clawd (source de verite Markdown + index derive)"
+read_when:
+  - Conception de la memoire d’espace de travail (~/.openclaw/workspace) au-dela des journaux Markdown quotidiens
+  - Deciding: "Choix: CLI autonome vs integration profonde a OpenClaw"
+  - Ajout du rappel hors ligne + reflexion (retain/recall/reflect)
 title: "Recherche sur la memoire d’espace de travail"
 ---
 
@@ -221,5 +226,3 @@ Si vous voulez une version minimale mais utile :
 - Concepts Letta / MemGPT : « core memory blocks » + « archival memory » + memoire auto-editable pilotee par outils.
 - Rapport technique Hindsight : « retain / recall / reflect », memoire a quatre reseaux, extraction de faits narratifs, evolution de la confiance des opinions.
 - SuCo : arXiv 2411.14754 (2024) : « Subspace Collision » pour la recuperation de plus proches voisins approximate.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Présentation du bot Feishu, fonctionnalités et configuration"
+read_when:
+  - Vous souhaitez connecter un bot Feishu/Lark
+  - Vous configurez le canal Feishu
 title: Feishu
 ---
 
@@ -528,9 +532,9 @@ Options clés :
 | ------------------------------------------------- | --------------------------------------------------------------------------------- | ----------------- |
 | `channels.feishu.enabled`                         | Activer/désactiver le canal                                                       | `true`            |
 | `channels.feishu.domain`                          | Domaine API (`feishu` ou `lark`)                               | `feishu`          |
-| `channels.feishu.accounts.<id>.appId`             | App ID                                                                            | -                 |
-| `channels.feishu.accounts.<id>.appSecret`         | App Secret                                                                        | -                 |
-| `channels.feishu.accounts.<id>.domain`            | Remplacement du domaine API par compte                                            | `feishu`          |
+| `channels.feishu.accounts.&lt;id&gt;.appId`             | App ID                                                                            | -                 |
+| `channels.feishu.accounts.&lt;id&gt;.appSecret`         | App Secret                                                                        | -                 |
+| `channels.feishu.accounts.&lt;id&gt;.domain`            | Remplacement du domaine API par compte                                            | `feishu`          |
 | `channels.feishu.dmPolicy`                        | Politique de DM                                                                   | `pairing`         |
 | `channels.feishu.allowFrom`                       | Liste d’autorisation DM (liste d’open_id) | -                 |
 | `channels.feishu.groupPolicy`                     | Politique de groupe                                                               | `open`            |
@@ -574,5 +578,3 @@ Options clés :
 - ✅ Fichiers
 - ✅ Audio
 - ⚠️ Texte enrichi (prise en charge partielle)
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "Aprobaciones de exec, listas de permitidos y avisos de escape del sandbox"
+read_when:
+  - Configurar aprobaciones de exec o listas de permitidos
+  - Implementar UX de aprobación de exec en la app de macOS
+  - Revisar avisos de escape del sandbox y sus implicaciones
 title: "Aprobaciones de Exec"
 ---
 
@@ -119,6 +124,7 @@ se tratan como permitidos en nodos (nodo de macOS o host de nodo sin interfaz). 
 `tools.exec.safeBins` define una pequeña lista de binarios **solo stdin** (por ejemplo `jq`)
 que pueden ejecutarse en modo de lista de permitidos **sin** entradas explícitas en la lista. Los bins seguros rechazan
 argumentos posicionales de archivo y tokens con apariencia de ruta, por lo que solo pueden operar sobre el flujo entrante.
+Los bins seguros también fuerzan que los tokens argv se traten como **texto literal** en tiempo de ejecución (sin globbing ni expansión de `$VARS`) para los segmentos solo de stdin, de modo que patrones como `*` o `$HOME/...` no puedan usarse para introducir lecturas de archivos de forma encubierta.
 El encadenamiento de shell y las redirecciones no se permiten automáticamente en el modo de lista de permitidos.
 
 El encadenamiento de shell (`&&`, `||`, `;`) se permite cuando cada segmento de nivel superior satisface la lista de permitidos
@@ -234,11 +240,11 @@ Los execs con aprobación reutilizan el id de aprobación como el `runId` en est
 - `/exec security=full` es una comodidad a nivel de sesión para operadores autorizados y salta las aprobaciones por diseño.
   `/exec security=full` es una conveniencia a nivel de sesión para operadores autorizados y omite las aprobaciones por diseño.
   Para bloquear de forma estricta el exec en el host, configure la seguridad de aprobaciones en `deny` o deniegue la herramienta `exec` mediante la política de herramientas.
+  `/exec security=full` es una conveniencia a nivel de sesión para operadores autorizados y omite las aprobaciones por diseño.
+  Para bloquear de forma estricta el exec en el host, configure la seguridad de aprobaciones en `deny` o deniegue la herramienta `exec` mediante la política de herramientas.
 
 Relacionado:
 
 - [Herramienta Exec](/tools/exec)
 - [Modo elevado](/tools/elevated)
 - [Habilidades](/tools/skills)
-
-

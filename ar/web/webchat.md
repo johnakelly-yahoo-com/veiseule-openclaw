@@ -1,4 +1,7 @@
 ---
+summary: "استضافة WebChat الثابتة عبر loopback واستخدام WebSocket الخاص بـ Gateway لواجهة الدردشة"
+read_when:
+  - عند تصحيح الأخطاء أو تهيئة الوصول إلى WebChat
 title: "WebChat"
 ---
 
@@ -42,7 +45,6 @@ title: "WebChat"
 
 - `gateway.port` و`gateway.bind`: مضيف/منفذ WebSocket.
 - `gateway.auth.mode` و`gateway.auth.token` و`gateway.auth.password`: مصادقة WebSocket.
+- `gateway.auth.mode: "trusted-proxy"`: مصادقة الوكيل العكسي لعملاء المتصفح (انظر [Trusted Proxy Auth](/gateway/trusted-proxy-auth)).
 - `gateway.remote.url` و`gateway.remote.token` و`gateway.remote.password`: هدف Gateway البعيد.
 - `session.*`: تخزين الجلسات والإعدادات الافتراضية للمفتاح الرئيسي.
-
-

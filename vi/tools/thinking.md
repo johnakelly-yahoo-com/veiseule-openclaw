@@ -1,4 +1,7 @@
 ---
+summary: "Cú pháp chỉ thị cho /think + /verbose và cách chúng ảnh hưởng đến suy luận của mô hình"
+read_when:
+  - Điều chỉnh việc phân tích hoặc giá trị mặc định của chỉ thị thinking hoặc verbose
 title: "Các mức Thinking"
 ---
 
@@ -16,7 +19,7 @@ title: "Các mức Thinking"
   - `x-high`, `x_high`, `extra-high`, `extra high`, và `extra_high` ánh xạ tới `xhigh`.
   - `highest`, `max` ánh xạ tới `high`.
 - Ghi chú theo nhà cung cấp:
-  - Z.AI (`zai/*`) chỉ hỗ trợ chế độ suy nghĩ nhị phân (`on`/`off`). Bất kỳ mức nào khác `off` đều được xem là `on` (ánh xạ thành `low`).
+  - Z.AI (`zai/*`) only supports binary thinking (`on`/`off`). Any non-`off` level is treated as `on` (mapped to `low`).
 
 ## Thứ tự phân giải
 
@@ -29,7 +32,7 @@ title: "Các mức Thinking"
 
 - Gửi một tin nhắn **chỉ** gồm chỉ thị (cho phép khoảng trắng), ví dụ: `/think:medium` hoặc `/t high`.
 - Thiết lập này được giữ cho phiên hiện tại (mặc định theo từng người gửi); được xóa bởi `/think:off` hoặc khi phiên bị reset do nhàn rỗi.
-- Phản hồi xác nhận được gửi (`Thinking level set to high.` / `Thinking disabled.`). Nếu mức không hợp lệ (ví dụ: `/thinking big`), lệnh sẽ bị từ chối kèm gợi ý và trạng thái phiên sẽ giữ nguyên.
+- Confirmation reply is sent (`Thinking level set to high.` / `Thinking disabled.`). If the level is invalid (e.g. `/thinking big`), the command is rejected with a hint and the session state is left unchanged.
 - Gửi `/think` (hoặc `/think:`) không kèm đối số để xem mức thinking hiện tại.
 
 ## Áp dụng theo tác tử
@@ -43,8 +46,8 @@ title: "Các mức Thinking"
 - `/verbose off` lưu một ghi đè theo phiên rõ ràng; xóa bằng UI Sessions bằng cách chọn `inherit`.
 - Chỉ thị nội tuyến chỉ ảnh hưởng đến tin nhắn đó; mặc định theo phiên/toàn cục áp dụng cho các trường hợp khác.
 - Gửi `/verbose` (hoặc `/verbose:`) không kèm đối số để xem mức verbose hiện tại.
-- Khi verbose được bật, các agent xuất kết quả công cụ có cấu trúc (Pi, các agent JSON khác) sẽ gửi lại mỗi lần gọi công cụ như một thông điệp chỉ chứa metadata riêng biệt, có tiền tố `<emoji> <tool-name>: <arg>` khi có sẵn (đường dẫn/lệnh). Các tóm tắt công cụ này được gửi ngay khi mỗi công cụ bắt đầu (các bong bóng riêng biệt), không phải dưới dạng delta streaming.
-- Khi verbose là `full`, đầu ra của công cụ cũng được chuyển tiếp sau khi hoàn tất (bong bóng riêng biệt, được cắt ngắn ở độ dài an toàn). Nếu bạn chuyển `/verbose on|full|off` trong khi một tiến trình đang chạy, các bong bóng công cụ tiếp theo sẽ tuân theo thiết lập mới.
+- When verbose is on, agents that emit structured tool results (Pi, other JSON agents) send each tool call back as its own metadata-only message, prefixed with `<emoji> <tool-name>: <arg>` when available (path/command). These tool summaries are sent as soon as each tool starts (separate bubbles), not as streaming deltas.
+- When verbose is `full`, tool outputs are also forwarded after completion (separate bubble, truncated to a safe length). If you toggle `/verbose on|full|off` while a run is in-flight, subsequent tool bubbles honor the new setting.
 
 ## Hiển thị suy luận (/reasoning)
 
@@ -61,13 +64,11 @@ title: "Các mức Thinking"
 
 ## Heartbeat
 
-- Nội dung probe Heartbeat là lời nhắc heartbeat đã cấu hình (mặc định: `Read HEARTBEAT.md if it exists (workspace context). Follow it strictly. Do not infer or repeat old tasks from prior chats. If nothing needs attention, reply HEARTBEAT_OK.`). Các chỉ thị nội tuyến trong thông điệp heartbeat được áp dụng như bình thường (nhưng tránh thay đổi thiết lập mặc định của phiên từ heartbeat).
-- Mặc định, Heartbeat chỉ gửi payload cuối cùng. Để gửi thêm thông điệp `Reasoning:` riêng biệt (khi có), đặt `agents.defaults.heartbeat.includeReasoning: true` hoặc theo từng agent `agents.list[].heartbeat.includeReasoning: true`.
+- Heartbeat probe body is the configured heartbeat prompt (default: `Read HEARTBEAT.md if it exists (workspace context). Follow it strictly. Do not infer or repeat old tasks from prior chats. If nothing needs attention, reply HEARTBEAT_OK.`). Inline directives in a heartbeat message apply as usual (but avoid changing session defaults from heartbeats).
+- Heartbeat delivery defaults to the final payload only. To also send the separate `Reasoning:` message (when available), set `agents.defaults.heartbeat.includeReasoning: true` or per-agent `agents.list[].heartbeat.includeReasoning: true`.
 
 ## Giao diện web chat
 
 - Bộ chọn thinking trên web chat phản chiếu mức đã lưu của phiên từ kho phiên/cấu hình đầu vào khi trang tải.
 - Chọn một mức khác chỉ áp dụng cho tin nhắn kế tiếp (`thinkingOnce`); sau khi gửi, bộ chọn sẽ quay lại mức đã lưu của phiên.
 - Để thay đổi mặc định theo phiên, gửi một chỉ thị `/think:<level>` (như trước); bộ chọn sẽ phản ánh sau lần tải lại tiếp theo.
-
-

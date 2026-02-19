@@ -1,4 +1,7 @@
 ---
+summary: "Integration med Telegram Bot API via grammY med anteckningar för konfigurering"
+read_when:
+  - Arbetar med Telegram- eller grammY-flöden
 title: grammY
 ---
 
@@ -18,7 +21,7 @@ title: grammY
 - **Webhook stöd:** `webhook-set.ts` wraps `setWebhook/deleteWebhook`; `webhook.ts` är värd callback med hälsa + graciös avstängning. Gateway aktiverar webhook-läge när `channels.telegram.webhookUrl` + `channels.telegram.webhookSecret` är inställda (annars långpoller).
 - **Sessioner:** direktchattar kollapsar till agentens huvudsession (`agent:<agentId>:<mainKey>`); grupper använder `agent:<agentId>:telegram:group:<chatId>`; svar routas tillbaka till samma kanal.
 - **Konfig-knappar:** `channels.telegram.botToken`, `channels.telegram.dmPolicy`, `channels.telegram.groups` (tillåtelselista + standard för nämningar), `channels.telegram.allowFrom`, `channels.telegram.groupAllowFrom`, `channels.telegram.groupPolicy`, `channels.telegram.mediaMaxMb`, `channels.telegram.linkPreview`, `channels.telegram.proxy`, `channels.telegram.webhookSecret`, `channels.telegram.webhookUrl`.
-- **Utkast streaming:** valfria `channels.telegram.streamMode` använder `sendMessageDraft` i privata trådchattar (Bot API 9.3+). Detta är skilt från kanalblockets strömning.
+- **Förhandsvisning av liveflöde:** valfri `channels.telegram.streamMode` skickar ett tillfälligt meddelande och uppdaterar det med `editMessageText`. Detta är skilt från kanalblockets strömning.
 - **Tester:** grammY-mockar täcker DM + gruppnämnings-gating och utgående sändning; fler fixturer för media/webhook välkomnas.
 
 Öppna frågor
@@ -26,5 +29,3 @@ title: grammY
 - Valfria grammY-plugins (throttler) om vi stöter på Bot API 429:or.
 - Lägg till mer strukturerade medietester (klistermärken, röstmeddelanden).
 - Gör webhookens lyssningsport konfigurerbar (för närvarande låst till 8787 om den inte kopplas via gatewayn).
-
-

@@ -1,11 +1,13 @@
 ---
-title: "Pagru-route ng Maramihang Agent"
+summary: "Multi-agent routing: mga hiwalay na agent, mga channel account, at mga binding"
+title: Pagru-route ng Maramihang Agent
+read_when: "Gusto mo ng maraming hiwalay na agent (workspaces + auth) sa iisang Gateway process."
 status: active
 ---
 
 # Pagru-route ng Maramihang Agent
 
-Layunin: maraming _nakahiwalay_ na agent (hiwalay na workspace + `agentDir` + mga session), pati na rin maraming channel account (hal. dalawang WhatsApp) sa isang tumatakbong Gateway. Ang papasok na mensahe ay niruruta sa isang agent sa pamamagitan ng bindings.
+Goal: multiple _isolated_ agents (separate workspace + `agentDir` + sessions), plus multiple channel accounts (e.g. two WhatsApps) in one running Gateway. Inbound is routed to an agent via bindings.
 
 ## Ano ang “isang agent”?
 
@@ -15,22 +17,22 @@ Ang isang **agent** ay isang ganap na nakapaloob na “utak” na may sariling:
 - **State directory** (`agentDir`) para sa mga auth profile, model registry, at per-agent na config.
 - **Session store** (kasaysayan ng chat + routing state) sa ilalim ng `~/.openclaw/agents/<agentId>/sessions`.
 
-Ang mga profile ng awtentikasyon ay **bawat-agent**. Ang bawat agent ay nagbabasa mula sa sarili nitong:
+Auth profiles are **per-agent**. Each agent reads from its own:
 
 ```
 ~/.openclaw/agents/<agentId>/agent/auth-profiles.json
 ```
 
-Ang pangunahing kredensyal ng agent ay **hindi** awtomatikong ibinabahagi. Huwag kailanman muling gamitin ang `agentDir`
+Main agent credentials are **not** shared automatically. Never reuse `agentDir`
 across agents (it causes auth/session collisions). If you want to share creds,
 copy `auth-profiles.json` into the other agent's `agentDir`.
 
-Ang mga skill ay bawat-agent sa pamamagitan ng `skills/` folder ng bawat workspace, na may mga shared skill
+Skills are per-agent via each workspace’s `skills/` folder, with shared skills
 available from `~/.openclaw/skills`. See [Skills: per-agent vs shared](/tools/skills#per-agent-vs-shared-skills).
 
 Maaaring mag-host ang Gateway ng **isang agent** (default) o **maraming agent** nang magkakatabi.
 
-**Tandaan sa workspace:** ang workspace ng bawat agent ay ang **default cwd**, hindi isang hard
+**Workspace note:** each agent’s workspace is the **default cwd**, not a hard
 sandbox. Relative paths resolve inside the workspace, but absolute paths can
 reach other host locations unless sandboxing is enabled. See
 [Sandboxing](/gateway/sandboxing).
@@ -123,11 +125,15 @@ Mga tala:
 Ang mga binding ay **deterministic** at **ang pinaka-tiyak ang nananalo**:
 
 1. `peer` na tugma (eksaktong DM/group/channel id)
-2. `guildId` (Discord)
-3. `teamId` (Slack)
-4. `accountId` na tugma para sa isang channel
-5. channel-level na tugma (`accountId: "*"`)
+2. `parentPeer` match (mana ng thread)
+3. `guildId + roles` (Discord role routing)
+4. `guildId` (Discord)
+5. `teamId` (Slack)
 6. fallback sa default agent (`agents.list[].default`, kung hindi ay ang unang entry sa listahan, default: `main`)
+7. channel-level na tugma (`accountId: "*"`)
+8. fallback sa default agent (`agents.list[].default`, kung hindi ay ang unang entry sa listahan, default: `main`)
+
+Kung ang isang binding ay nagtatakda ng maraming match field (halimbawa `peer` + `guildId`), lahat ng tinukoy na field ay kinakailangan (`AND` semantics).
 
 ## Maramihang account / numero ng telepono
 
@@ -381,5 +387,3 @@ If you need per-agent boundaries, use `agents.list[].tools` to deny `exec`.
 For group targeting, use `agents.list[].groupChat.mentionPatterns` so @mentions map cleanly to the intended agent.
 
 Tingnan ang [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) para sa detalyadong mga halimbawa.
-
-

@@ -1,5 +1,7 @@
 ---
 title: Sandbox CLI
+summary: "Hantera sandbox-containrar och inspektera effektiv sandbox-policy"
+read_when: "Du hanterar sandbox-containrar eller felsöker sandbox-/verktygspolicybeteende."
 status: active
 ---
 
@@ -148,5 +150,3 @@ Sandbox-inställningar finns i `~/.openclaw/openclaw.json` under `agents.default
 - [Sandbox-dokumentation](/gateway/sandboxing)
 - [Agentkonfiguration](/concepts/agent-workspace)
 - [Doctor-kommandot](/gateway/doctor) – Kontrollera sandbox-konfigurationen
-
-

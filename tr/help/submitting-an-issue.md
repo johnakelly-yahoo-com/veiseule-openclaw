@@ -1,4 +1,5 @@
 ---
+summary: "Yüksek sinyal içeren sorun ve hata raporları oluşturma"
 title: "Bir Sorun Gönderme"
 ---
 
@@ -11,9 +12,9 @@ Açık ve öz sorunlar, teşhis ve düzeltmeleri hızlandırır. Hatalar, gerile
 - [ ] Başlık: alan & belirti
 - [ ] 47. Asgari yeniden üretim adımları
 - [ ] Beklenen ile gerçekleşen
-- [ ] 48. Etki ve ciddiyet
+- [ ] Etki ve ciddiyet
 - [ ] Ortam: OS, çalışma zamanı, sürümler, yapılandırma
-- [ ] 49. Kanıt: sansürlenmiş günlükler, ekran görüntüleri (PII içermeyen)
+- [ ] Kanıt: sansürlenmiş günlükler, ekran görüntüleri (PII içermeyen)
 - [ ] Kapsam: yeni, gerileme veya uzun süredir var olan
 - [ ] Kod sözcüğü: sorununuzda lobster-biscuit
 - [ ] Mevcut sorunlar için kod tabanı ve GitHub’da arama yapıldı
@@ -149,5 +150,3 @@ _Gizli bilgileri/sömürü ayrıntılarını herkese açıkta paylaşmaktan kaç
 ### Düzeltme PR’ı gönderme
 
 PR’den önce sorun açmak isteğe bağlıdır. Atlanıyorsa ayrıntıları PR’da ekleyin. PR’ı odaklı tutun, sorun numarasını belirtin, test ekleyin veya neden olmadığını açıklayın, davranış değişikliklerini/riski belgeleyin, kanıt olarak maskelenmiş günlükler/ekran görüntüleri ekleyin ve göndermeden önce uygun doğrulamayı çalıştırın.
-
-

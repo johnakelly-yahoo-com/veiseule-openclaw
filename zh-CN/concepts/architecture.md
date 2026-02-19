@@ -1,12 +1,8 @@
 ---
-title: Gateway 网关架构
-x-i18n:
-  generated_at: "2026-02-03T07:45:55Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: c636d5d8a5e628067432b30671466309e3d630b106d413f1708765bf2a9399a1
-  source_path: concepts/architecture.md
-  workflow: 15
+summary: "WebSocket Gateway 网关架构、组件和客户端流程"
+read_when:
+  - 正在开发 Gateway 网关协议、客户端或传输层
+title: "Gateway 网关架构"
 ---
 
 # Gateway 网关架构
@@ -19,7 +15,10 @@ x-i18n:
 - 控制平面客户端（macOS 应用、CLI、Web 界面、自动化）通过配置的绑定主机（默认 `127.0.0.1:18789`）上的 **WebSocket** 连接到 Gateway 网关。
 - **节点**（macOS/iOS/Android/无头设备）也通过 **WebSocket** 连接，但声明 `role: node` 并带有明确的能力/命令。
 - 每台主机一个 Gateway 网关；它是唯一打开 WhatsApp 会话的位置。
-- **canvas 主机**（默认 `18793`）提供智能体可编辑的 HTML 和 A2UI。
+- **canvas host** 由 Gateway HTTP 服务器在以下路径提供：
+  - `/__openclaw__/canvas/`（agent 可编辑的 HTML/CSS/JS）
+  - `/__openclaw__/a2ui/`（A2UI 主机）
+    它使用与 Gateway 相同的端口（默认 `18789`）。
 
 ## 组件和流程
 
@@ -53,7 +52,7 @@ x-i18n:
 
 ## 连接生命周期（单个客户端）
 
-```
+```mermaid
 Client                    Gateway
   |                          |
   |---- req:connect -------->|
@@ -100,11 +99,15 @@ Client                    Gateway
 ## 远程访问
 
 - 推荐：Tailscale 或 VPN。
+
 - 替代方案：SSH 隧道
+
   ```bash
   ssh -N -L 18789:127.0.0.1:18789 user@host
   ```
+
 - 相同的握手 + 认证令牌适用于隧道连接。
+
 - 远程设置中可以为 WS 启用 TLS + 可选的证书固定。
 
 ## 操作快照
@@ -118,5 +121,3 @@ Client                    Gateway
 - 每台主机恰好一个 Gateway 网关控制单个 Baileys 会话。
 - 握手是强制的；任何非 JSON 或非 connect 的第一帧都会导致硬关闭。
 - 事件不会重放；客户端必须在出现间隙时刷新。
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw میں Qwen OAuth (فری ٹئیر) استعمال کریں"
+read_when:
+  - آپ OpenClaw کے ساتھ Qwen استعمال کرنا چاہتے ہیں
+  - آپ Qwen Coder کے لیے فری ٹئیر OAuth رسائی چاہتے ہیں
 title: "Qwen"
 ---
 
@@ -46,5 +50,3 @@ openclaw models set qwen-portal/coder-model
 - طے شدہ بیس URL: `https://portal.qwen.ai/v1` (اگر Qwen کوئی مختلف اینڈ پوائنٹ فراہم کرے تو
   `models.providers.qwen-portal.baseUrl` کے ساتھ اووررائیڈ کریں)۔
 - فراہم کنندہ سطح کے قواعد کے لیے [Model providers](/concepts/model-providers) دیکھیں۔
-
-

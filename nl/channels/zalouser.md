@@ -1,4 +1,8 @@
 ---
+summary: "Ondersteuning voor Zalo-persoonlijke accounts via zca-cli (QR-login), mogelijkheden en configuratie"
+read_when:
+  - Zalo Personal instellen voor OpenClaw
+  - Problemen oplossen bij Zalo Personal-login of berichtstroom
 title: "Zalo Personal"
 ---
 
@@ -134,5 +138,3 @@ Accounts worden gekoppeld aan zca-profielen. Voorbeeld:
 
 - `openclaw channels status --probe`
 - Opnieuw inloggen: `openclaw channels logout --channel zalouser && openclaw channels login --channel zalouser`
-
-

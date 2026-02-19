@@ -1,4 +1,9 @@
 ---
+summary: "Verktyg för webbsökning och hämtning (Brave Search API, Perplexity direkt/OpenRouter)"
+read_when:
+  - Du vill aktivera web_search eller web_fetch
+  - Du behöver konfigurera en Brave Search API-nyckel
+  - Du vill använda Perplexity Sonar för webbsökning
 title: "Webbverktyg"
 ---
 
@@ -171,6 +176,8 @@ Sök på webben med din konfigurerade leverantör.
 - `search_lang` (valfritt): ISO språkkod för sökresultat (t.ex., "de", "en", "fr")
 - `ui_lang` (valfri): ISO-språkkod för UI-element
 - `freshness` (valfri, endast Brave): filtrera efter upptäcktstid (`pd`, `pw`, `pm`, `py` eller `YYYY-MM-DDtoYYYY-MM-DD`)
+  - Brave: `pd`, `pw`, `pm`, `py` eller `YYYY-MM-DDtoYYYY-MM-DD`
+  - Perplexity: `pd`, `pw`, `pm`, `py`
 
 **Exempel:**
 
@@ -254,5 +261,3 @@ Noteringar:
 - Svar cachas (standard 15 minuter) för att minska upprepade hämtningar.
 - Om du använder verktygsprofiler/tillåtelselistor, lägg till `web_search`/`web_fetch` eller `group:web`.
 - Om Brave-nyckeln saknas returnerar `web_search` en kort installationshint med en dokumentationslänk.
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "32. Kiruvchi auto-reply ishlarini ketma-ketlashtiradigan buyruqlar navbati dizayni"
+read_when:
+  - 33. Auto-reply bajarilishi yoki parallelizmini o‘zgartirish
 title: "34. Buyruqlar navbati"
 ---
 
@@ -35,7 +38,7 @@ title: "34. Buyruqlar navbati"
 
 9. Standartlar (konfiguratsiyada o‘rnatilmagan bo‘lsa):
 
-- 10. Barcha interfeyslar → `collect`
+- Global yoki kanal bo‘yicha `messages.queue` orqali sozlang:
 
 11. Global yoki kanal bo‘yicha `messages.queue` orqali sozlang:
 
@@ -57,8 +60,8 @@ title: "34. Buyruqlar navbati"
 
 14. Parametrlar `followup`, `collect` va `steer-backlog` ga qo‘llanadi (hamda `steer` keyingi javobga qaytganda):
 
-- 15. `debounceMs`: keyingi javobni boshlashdan oldin sukunatni kutish (“continue, continue” ni oldini oladi).
-- 16. `cap`: har bir sessiya uchun navbatdagi maksimal xabarlar soni.
+- Summarize tashlab yuborilgan xabarlarning qisqa punktlar ro‘yxatini saqlaydi va uni sun’iy keyingi so‘rov sifatida kiritadi.
+- Standartlar: `debounceMs: 1000`, `cap: 20`, `drop: summarize`.
 - 17. `drop`: to‘lib ketganda siyosat (`old`, `new`, `summarize`).
 
 18. Summarize tashlab yuborilgan xabarlarning qisqa punktlar ro‘yxatini saqlaydi va uni sun’iy keyingi so‘rov sifatida kiritadi.
@@ -82,5 +85,3 @@ title: "34. Buyruqlar navbati"
 
 - 31. Agar buyruqlar tiqilib qolgandek ko‘rinsa, batafsil loglarni yoqing va navbat bo‘shayotganini tasdiqlash uchun “queued for …ms” qatorlarini qidiring.
 - 32. Agar navbat chuqurligi kerak bo‘lsa, batafsil loglarni yoqing va navbat vaqtlariga oid qatorlarni kuzating.
-
-

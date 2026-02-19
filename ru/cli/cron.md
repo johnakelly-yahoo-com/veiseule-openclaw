@@ -1,4 +1,8 @@
 ---
+summary: "Справка по CLI для `openclaw cron` (планирование и выполнение фоновых заданий)"
+read_when:
+  - Вам нужны запланированные задания и пробуждения
+  - Вы отлаживаете выполнение cron и логи
 title: "cron"
 ---
 
@@ -38,5 +42,3 @@ openclaw cron edit <job-id> --no-deliver
 ```bash
 openclaw cron edit <job-id> --announce --channel slack --to "channel:C1234567890"
 ```
-
-

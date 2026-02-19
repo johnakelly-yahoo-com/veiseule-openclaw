@@ -1,4 +1,9 @@
 ---
+summary: "Instale OpenClaw — script de instalación, npm/pnpm, desde el código fuente, Docker y más"
+read_when:
+  - Necesita un método de instalación distinto del inicio rápido de Primeros pasos
+  - Quiere implementar en una plataforma en la nube
+  - Necesita actualizar, migrar o desinstalar
 title: "Instalar"
 ---
 
@@ -26,6 +31,8 @@ El **script de instalación** es la forma recomendada de instalar OpenClaw. Gest
   <Accordion title="Installer script" icon="rocket" defaultOpen>
     Descarga la CLI, la instala globalmente mediante npm y lanza el asistente de onboarding.
 
+    ````
+    ```
     <Tabs>
       <Tab title="macOS / Linux / WSL2">
         ```bash
@@ -41,11 +48,11 @@ El **script de instalación** es la forma recomendada de instalar OpenClaw. Gest
 </Tab>
     
 </Tabs>
-
+    
     Eso es todo — el script gestiona la detección de Node, la instalación y el onboarding.
-
+    
     Para omitir el onboarding e instalar solo el binario:
-
+    
     <Tabs>
       <Tab title="macOS / Linux / WSL2">
         ```bash
@@ -61,8 +68,10 @@ El **script de instalación** es la forma recomendada de instalar OpenClaw. Gest
 </Tab>
     
 </Tabs>
-
+    
     Para todas las flags, variables de entorno y opciones de CI/automatización, consulte [Internos del instalador](/install/installer).
+    ```
+    ````
 
   
 </Accordion>
@@ -70,20 +79,22 @@ El **script de instalación** es la forma recomendada de instalar OpenClaw. Gest
   <Accordion title="npm / pnpm" icon="package">
     Si ya tiene Node 22+ y prefiere gestionar la instalación usted mismo:
 
+    ````
+    ```
     <Tabs>
       <Tab title="npm">
         ```bash
         npm install -g openclaw@latest
         openclaw onboard --install-daemon
         ```
-
+    
         <Accordion title="¿errores de compilación de sharp?">
           Si tiene libvips instalado globalmente (común en macOS vía Homebrew) y `sharp` falla, fuerce los binarios precompilados:
-
+    
           ```bash
           SHARP_IGNORE_GLOBAL_LIBVIPS=1 npm install -g openclaw@latest
           ```
-
+    
           Si ve `sharp: Please add node-gyp to your dependencies`, instale las herramientas de compilación (macOS: Xcode CLT + `npm install -g node-gyp`) o use la variable de entorno anterior.
         
 </Accordion>
@@ -95,7 +106,7 @@ El **script de instalación** es la forma recomendada de instalar OpenClaw. Gest
         pnpm approve-builds -g        # approve openclaw, node-llama-cpp, sharp, etc.
         openclaw onboard --install-daemon
         ```
-
+    
         <Note>
         pnpm requiere aprobación explícita para paquetes con scripts de compilación. Después de que la primera instalación muestre la advertencia "Ignored build scripts", ejecute `pnpm approve-builds -g` y seleccione los paquetes listados.
         
@@ -104,6 +115,8 @@ El **script de instalación** es la forma recomendada de instalar OpenClaw. Gest
 </Tab>
     
 </Tabs>
+    ```
+    ````
 
   
 </Accordion>
@@ -111,10 +124,12 @@ El **script de instalación** es la forma recomendada de instalar OpenClaw. Gest
   <Accordion title="From source" icon="github">
     Para colaboradores o cualquiera que quiera ejecutar desde un checkout local.
 
+    ````
+    ```
     <Steps>
       <Step title="Clonar y compilar">
         Clone el [repositorio de OpenClaw](https://github.com/openclaw/openclaw) y compile:
-
+    
         ```bash
         git clone https://github.com/openclaw/openclaw.git
         cd openclaw
@@ -126,11 +141,11 @@ El **script de instalación** es la forma recomendada de instalar OpenClaw. Gest
 </Step>
       <Step title="Vincular la CLI">
         Haga que el comando `openclaw` esté disponible globalmente:
-
+    
         ```bash
         pnpm link --global
         ```
-
+    
         Alternativamente, omita el vínculo y ejecute los comandos mediante `pnpm openclaw ...` desde dentro del repositorio.
       
 </Step>
@@ -142,8 +157,10 @@ El **script de instalación** es la forma recomendada de instalar OpenClaw. Gest
 </Step>
     
 </Steps>
-
+    
     Para flujos de trabajo de desarrollo más profundos, consulte [Configuración](/start/setup).
+    ```
+    ````
 
   
 </Accordion>
@@ -156,8 +173,7 @@ El **script de instalación** es la forma recomendada de instalar OpenClaw. Gest
     Implementaciones en contenedores o sin interfaz.
   
 </Card>
-  <Card title="Podman" href="/install/podman" icon="container">
-    Contenedor sin privilegios: ejecute `setup-podman.sh` una vez, luego el script de lanzamiento.
+  <Card title="Podman" href="/install/podman" icon="container">    Contenedor rootless: ejecuta `setup-podman.sh` una vez y luego el script de inicio.
   
 </Card>
   <Card title="Nix" href="/install/nix" icon="snowflake">
@@ -214,7 +230,7 @@ export PATH="$(npm prefix -g)/bin:$PATH"
 
 En Windows, agregue la salida de `npm prefix -g` a su PATH.
 
-Luego abra una nueva terminal (o ejecute `rehash` en zsh / `hash -r` en bash).
+Luego abra una nueva terminal (o ejecute `rehash` en zsh / `hash -r` en bash). 
 </Accordion>
 
 ## Actualizar / desinstalar
@@ -233,4 +249,3 @@ Luego abra una nueva terminal (o ejecute `rehash` en zsh / `hash -r` en bash).
   
 </Card>
 </CardGroup>
-

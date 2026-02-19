@@ -1,4 +1,9 @@
 ---
+summary: "Comment les entrées de présence OpenClaw sont produites, fusionnées et affichées"
+read_when:
+  - Débogage de l’onglet Instances
+  - Investigation de lignes d’instance en double ou obsolètes
+  - Modification de la connexion WS de la Gateway ou des balises d’événements système
 title: "Présence"
 ---
 
@@ -102,5 +107,3 @@ mise à jour.
   - confirmez que les clients envoient un `client.instanceId` stable lors de la poignée de main
   - confirmez que les balises périodiques utilisent le même `instanceId`
   - vérifiez si l’entrée dérivée de la connexion est dépourvue de `instanceId` (les doublons sont attendus)
-
-

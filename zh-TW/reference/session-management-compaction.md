@@ -1,17 +1,22 @@
 ---
-title: "工作階段管理深入解析"
+summary: "Deep dive: session store + transcripts, lifecycle, and (auto)compaction internals"
+read_when:
+  - 你需要除錯工作階段 ID、逐字稿 JSONL，或 sessions.json 欄位
+  - You are changing auto-compaction behavior or adding “pre-compaction” housekeeping
+  - 你想要實作記憶體寫入或無聲的系統回合
+title: "Session Management Deep Dive"
 ---
 
-# 工作階段管理與壓縮（深入解析）
+# Session Management & Compaction (Deep Dive)
 
 本文件說明 OpenClaw 如何端到端管理工作階段：
 
 - **工作階段路由**（傳入訊息如何對應到一個 `sessionKey`）
 - **工作階段儲存庫**（`sessions.json`）及其追蹤內容
-- **對話記錄持久化**（`*.jsonl`）及其結構
+- **Transcript persistence** (`*.jsonl`) and its structure
 - **逐字稿衛生**（在執行前的提供者特定修正）
 - **上下文限制**（上下文視窗 vs 追蹤的權杖）
-- **壓縮機制**（手動 + 自動壓縮）以及預壓縮流程的掛鉤位置
+- **Compaction** (manual + auto-compaction) and where to hook pre-compaction work
 - **無聲例行整理**（例如不應產生使用者可見輸出的記憶體寫入）
 
 如果你想先看高層概覽，請從以下開始：
@@ -84,7 +89,7 @@ Rules of thumb:
 
 - **重設**（`/new`、`/reset`）會為該 `sessionKey` 建立新的 `sessionId`。
 - **每日重設**（預設為 Gateway 閘道器主機的當地時間凌晨 4:00）會在重設邊界後的下一則訊息建立新的 `sessionId`。
-- **閒置到期**（`session.reset.idleMinutes` 或舊版 `session.idleMinutes`）在超過閒置視窗後收到訊息時建立新的 `sessionId`。若同時設定每日 + 閒置，以先到期者為準。 When daily + idle are both configured, whichever expires first wins.
+- **閒置到期**（`session.reset.idleMinutes` 或舊版 `session.idleMinutes`）在超過閒置視窗後收到訊息時建立新的 `sessionId`。若同時設定每日 + 閒置，以先到期者為準。 When daily + idle are both configured, whichever expires first wins. When daily + idle are both configured, whichever expires first wins.
 
 實作細節：判斷發生於 `src/auto-reply/reply/session.ts` 中的 `initSessionState()`。
 
@@ -272,11 +277,9 @@ Pi 也在擴充 API 中提供 `session_before_compact` 掛鉤，但 OpenClaw 的
 ## 疑難排解檢查清單
 
 - 11. 工作階段金鑰錯誤？ 工作階段金鑰錯誤？先從 [/concepts/session](/concepts/session) 開始，並確認 `/status` 中的 `sessionKey`。
-- 儲存區與逐字稿不一致？ Confirm the Gateway host and the store path from `openclaw status`.
-- Compaction spam? 15. 檢查：
+- 儲存區與逐字稿不一致？ 儲存區與逐字稿不一致？ Confirm the Gateway host and the store path from `openclaw status`.
+- Compaction spam? 檢查：
   - 模型上下文視窗（是否過小）
   - 壓縮設定（`reserveTokens` 對模型視窗而言過高，可能導致提早壓縮）
   - 工具結果膨脹：啟用／調整工作階段修剪
 - Silent turns leaking? 確認回覆以 `NO_REPLY`（完全相同的權杖）開頭，且你正在使用包含串流抑制修復的版本。
-
-

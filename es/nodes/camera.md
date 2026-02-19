@@ -1,4 +1,8 @@
 ---
+summary: "Captura de cámara (nodo iOS + app macOS) para uso del agente: fotos (jpg) y clips de video cortos (mp4)"
+read_when:
+  - Al agregar o modificar la captura de cámara en nodos iOS o macOS
+  - Al ampliar flujos de trabajo de archivos temporales MEDIA accesibles por el agente
 title: "Captura de cámara"
 ---
 
@@ -150,5 +154,3 @@ openclaw nodes screen record --node <id> --duration 10s --fps 15   # prints MEDI
 Notas:
 
 - Requiere el permiso de macOS **Grabación de pantalla** (TCC).
-
-

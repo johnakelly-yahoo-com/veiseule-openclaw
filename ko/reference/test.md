@@ -1,4 +1,7 @@
 ---
+summary: "로컬에서 테스트 (Vitest) 를 실행하는 방법과 force/coverage 모드를 사용해야 하는 시점"
+read_when:
+  - 테스트를 실행하거나 수정할 때
 title: "테스트"
 ---
 
@@ -10,7 +13,9 @@ title: "테스트"
 
 - `pnpm test:coverage`: V8 커버리지와 함께 Vitest 를 실행합니다. 전역 임계값은 라인/브랜치/함수/구문 모두 70% 입니다. 커버리지는 통합 비중이 높은 엔트리포인트 (CLI 연결부, gateway/telegram 브리지, webchat 정적 서버) 를 제외하여 단위 테스트 가능한 로직에 목표를 집중합니다.
 
-- `pnpm test:e2e`: gateway 엔드투엔드 스모크 테스트 (다중 인스턴스 WS/HTTP/node 페어링) 를 실행합니다.
+- Node 24+에서 `pnpm test` 실행 시: OpenClaw는 `ERR_VM_MODULE_LINK_FAILURE` / `module is already linked`를 방지하기 위해 Vitest `vmForks`를 자동 비활성화하고 `forks`를 사용합니다. `OPENCLAW_TEST_VM_FORKS=0|1`로 동작을 강제할 수 있습니다.
+
+- `pnpm test:e2e`: gateway 엔드투엔드 스모크 테스트 (다중 인스턴스 WS/HTTP/node 페어링) 를 실행합니다. 기본값은 `vitest.e2e.config.ts`에서 `vmForks` + 적응형 워커이며, `OPENCLAW_E2E_WORKERS=<n>`으로 조정하고 자세한 로그가 필요하면 `OPENCLAW_E2E_VERBOSE=1`을 설정하세요.
 
 - `pnpm test:live`: 프로바이더 라이브 테스트 (minimax/zai) 를 실행합니다. API 키와 `LIVE=1` (또는 프로바이더별 `*_LIVE_TEST=1`) 가 필요하며, 이를 통해 스킵을 해제합니다.
 
@@ -48,5 +53,3 @@ Docker 에서 Node 22+ 환경에서 `qrcode-terminal` 가 로드되는지 확인
 ```bash
 pnpm test:docker:qr
 ```
-
-

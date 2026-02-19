@@ -1,4 +1,8 @@
 ---
+summary: "تطبيق OpenClaw المُرافِق على macOS (شريط القوائم + وسيط Gateway)"
+read_when:
+  - تنفيذ ميزات تطبيق macOS
+  - تغيير دورة حياة Gateway أو ربط العُقد على macOS
 title: "تطبيق macOS"
 ---
 
@@ -124,6 +128,7 @@ open 'openclaw://agent?message=Hello%20from%20deep%20link'
 السلامة:
 
 - بدون `key`، يطلب التطبيق التأكيد.
+- بدون `key`، يفرض التطبيق حدًا قصيرًا لطول الرسالة في مطالبة التأكيد ويتجاهل `deliver` / `to` / `channel`.
 - مع `key` صالح، يكون التشغيل غير مراقَب (مقصود للأتمتات الشخصية).
 
 ## تدفق أونبواردك (نموذجي)
@@ -195,5 +200,3 @@ swift run openclaw-mac discover --timeout 3000 --json
 - [Gateway (macOS)](/platforms/mac/bundled-gateway)
 - [أذونات macOS](/platforms/mac/permissions)
 - [Canvas](/platforms/mac/canvas)
-
-

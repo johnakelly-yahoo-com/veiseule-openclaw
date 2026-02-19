@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw 記錄：可輪替的診斷檔案記錄 + 統一記錄的隱私旗標"
+read_when:
+  - 擷取 macOS 記錄或調查私密資料記錄
+  - 偵錯語音喚醒／工作階段生命週期問題
 title: "macOS 記錄"
 ---
 
@@ -51,5 +55,3 @@ sudo install -m 644 -o root -g wheel /tmp/bot.molt.plist /Library/Preferences/Lo
 - 移除覆寫設定：`sudo rm /Library/Preferences/Logging/Subsystems/bot.molt.plist`。
 - 視需要執行 `sudo log config --reload`，以強制 logd 立即移除覆寫。
 - 請記住此介面可能包含電話號碼與訊息內容；僅在你實際需要額外細節時才保留 plist。
-
-

@@ -1,22 +1,27 @@
 ---
+summary: "計畫：為所有訊息連接器提供一個乾淨的外掛 SDK + 執行階段"
+read_when:
+  - Defining or refactoring the plugin architecture
+  - 將頻道連接器遷移至外掛 SDK／執行階段時
 title: "refactor/plugin-sdk.md"
 ---
 
 # 外掛 SDK + 執行階段重構計畫
 
 目標：每個訊息連接器都是一個外掛（內建或外部），並使用同一個穩定的 API。
+No plugin imports from `src/**` directly.
 No plugin imports from `src/**` directly. All dependencies go through the SDK or runtime.
 
 ## 為何是現在
 
-- 目前的連接器混用了不同模式：直接匯入核心、僅限 dist 的橋接，以及自訂輔助工具。
-- 這使升級變得脆弱，並阻礙了建立乾淨的外部外掛介面。
+- Current connectors mix patterns: direct core imports, dist-only bridges, and custom helpers.
+- This makes upgrades brittle and blocks a clean external plugin surface.
 
 ## 目標架構（兩層）
 
 ### 1. Plugin SDK (compile-time, stable, publishable)
 
-範圍：型別、輔助工具與設定公用程式。不包含執行期狀態，也不產生副作用。
+Scope: types, helpers, and config utilities. No runtime state, no side effects.
 
 內容（範例）：
 
@@ -31,10 +36,11 @@ No plugin imports from `src/**` directly. All dependencies go through the SDK or
 交付方式：
 
 - 發佈為 `openclaw/plugin-sdk`（或在核心中以 `openclaw/plugin-sdk` 匯出）。
-- 採用語意化版本控制（Semver），並提供明確的穩定性保證。
+- Semver with explicit stability guarantees.
 
 ### 2. 外掛執行階段（執行介面，注入）
 
+Scope: everything that touches core runtime behavior.
 範圍：所有涉及核心執行期行為的內容。
 Accessed via `OpenClawPluginApi.runtime` so plugins never import `src/**`.
 
@@ -142,9 +148,9 @@ Accessed via `OpenClawPluginApi.runtime` so plugins never import `src/**`.
 
 注意事項：
 
-- 執行期是存取核心行為的唯一方式。
+- Runtime is the only way to access core behavior.
 - SDK 有意保持精簡且穩定。
-- 每個執行期方法都對應至現有的核心實作（不重複實作）。
+- Each runtime method maps to an existing core implementation (no duplication).
 
 ## 遷移計畫（分階段、安全）
 
@@ -160,7 +166,7 @@ Accessed via `OpenClawPluginApi.runtime` so plugins never import `src/**`.
 - 先遷移 BlueBubbles、Zalo、Zalo Personal（已相當接近）。
 - 移除重複的橋接程式碼。
 
-### 第二階段：輕量級直接匯入外掛
+### Phase 2: light direct-import plugins
 
 - 將 Matrix 遷移至 SDK + 執行階段。
 - Validate onboarding, directory, group mention logic.
@@ -184,7 +190,7 @@ Accessed via `OpenClawPluginApi.runtime` so plugins never import `src/**`.
 ## 相容性與版本管理
 
 - SDK：Semver、已發佈、變更皆有文件。
-- 新增 `api.runtime.version`。 Add `api.runtime.version`.
+- 新增 `api.runtime.version`。 新增 `api.runtime.version`。 Add `api.runtime.version`.
 - 外掛宣告所需的執行階段版本範圍（例如 `openclawRuntime: ">=2026.2.0"`）。
 
 ## 測試策略
@@ -208,5 +214,3 @@ Accessed via `OpenClawPluginApi.runtime` so plugins never import `src/**`.
 - 處理外掛設定結構或外掛載入門檻
 
 相關文件：[Plugins](/tools/plugin)、[Channels](/channels/index)、[Configuration](/gateway/configuration)。
-
-

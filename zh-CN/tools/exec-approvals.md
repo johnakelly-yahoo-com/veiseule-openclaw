@@ -1,23 +1,22 @@
 ---
-title: 执行审批
-x-i18n:
-  generated_at: "2026-02-03T08:19:51Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 97736427752eb905bb5d1f5b54bddbdea38eb5ac5824e2bf99258fcf44ee393c
-  source_path: tools/exec-approvals.md
-  workflow: 15
+summary: "执行审批、允许列表和沙箱逃逸提示"
+read_when:
+  - 配置执行审批或允许列表
+  - 在 macOS 应用中实现执行审批用户体验
+  - 审查沙箱逃逸提示及其影响
+title: "执行审批"
 ---
 
 # 执行审批
 
-执行审批是**配套应用/节点主机的安全护栏**，用于允许沙箱隔离的智能体在真实主机（`gateway` 或 `node`）上运行命令。可以将其理解为安全联锁：只有当策略 + 允许列表 +（可选的）用户审批都同意时，命令才会被允许执行。
-执行审批是**附加于**工具策略和提权门控之上的（除非 elevated 设置为 `full`，这会跳过审批）。
-生效策略取 `tools.exec.*` 和审批默认值中**更严格**的一方；如果审批字段被省略，则使用 `tools.exec` 的值。
+7. Exec 审批是用于让沙盒化代理在真实主机（`gateway` 或 `node`）上运行命令的 **配套应用 / 节点主机防护栏**。 Think of it like a safety interlock:
+   commands are allowed only when policy + allowlist + (optional) user approval all agree.
+8. Exec 审批是 **额外** 叠加在工具策略和提升级别门控之上的（除非 elevated 设置为 `full`，此时会跳过审批）。
+9. 生效策略取 `tools.exec.*` 与审批默认值中 **更严格** 的那个；如果某个审批字段被省略，则使用 `tools.exec` 的值。
 
 如果配套应用 UI **不可用**，任何需要提示的请求都将由 **ask fallback**（默认：deny）决定。
 
-## 适用范围
+## 12. 适用范围
 
 执行审批在执行主机上本地强制执行：
 
@@ -70,7 +69,7 @@ macOS 分工：
 }
 ```
 
-## 策略选项
+## 24. 策略旋钮
 
 ### Security（`exec.security`）
 
@@ -92,11 +91,11 @@ macOS 分工：
 - **allowlist**：仅在允许列表匹配时允许。
 - **full**：允许。
 
-## 允许列表（按智能体）
+## 38. 允许列表（按代理）
 
-允许列表是**按智能体**配置的。如果存在多个智能体，请在 macOS 应用中切换要编辑的智能体。模式匹配**不区分大小写**。
-模式应解析为**二进制路径**（仅包含基本名称的条目会被忽略）。
-旧版 `agents.default` 条目在加载时会迁移到 `agents.main`。
+39. 允许列表是 **按代理** 的。 40. 如果存在多个代理，请在 macOS 应用中切换你正在编辑的代理。 41. 模式是 **不区分大小写的 glob 匹配**。
+40. 模式应解析为 **二进制路径**（仅基名的条目会被忽略）。
+41. 旧版 `agents.default` 条目在加载时会迁移到 `agents.main`。
 
 示例：
 
@@ -113,13 +112,18 @@ macOS 分工：
 
 ## 自动允许 skill CLI
 
-启用 **Auto-allow skill CLIs** 后，已知 Skills 引用的可执行文件在节点（macOS 节点或无头节点主机）上被视为已列入允许列表。这通过 Gateway RPC 的 `skills.bins` 获取 skill 二进制列表。如果你想要严格的手动允许列表，请禁用此选项。
+启用 **Auto-allow skill CLIs** 后，已知 Skills 引用的可执行文件在节点（macOS 节点或无头节点主机）上被视为已列入允许列表。这通过 Gateway RPC 的 `skills.bins` 获取 skill 二进制列表。如果你想要严格的手动允许列表，请禁用此选项。 这通过 Gateway RPC 使用 `skills.bins` 来获取技能二进制列表。 如果你希望严格的手动允许列表，请禁用此项。
 
-## 安全二进制（仅限标准输入）
+## 安全二进制（仅 stdin）
 
 `tools.exec.safeBins` 定义了一小组**仅限标准输入**的二进制文件（例如 `jq`），这些文件可以在允许列表模式下运行，**无需**显式的允许列表条目。安全二进制会拒绝位置文件参数和类路径标记，因此它们只能操作传入的流。
-在允许列表模式下，shell 链式命令和重定向不会被自动允许。
+在允许列表模式下，shell 链式命令和重定向不会被自动允许。 安全二进制会拒绝位置参数中的文件参数和类似路径的标记，因此它们只能作用于传入的流。
+安全二进制（safe bins）还会强制在执行时将 argv 参数视为**字面文本**（不进行通配符展开
+也不进行 `$VARS` 变量展开），适用于仅通过 stdin 传递的片段，因此像 `*` 或 `$HOME/...` 这样的模式
+无法被用于偷偷读取文件。
+在允许列表模式下，不会自动允许 Shell 链接和重定向。
 
+当每个顶级片段都满足允许列表（包括安全二进制或技能自动允许）时，允许使用 Shell 链接（`&&`、`||`、`;`）。 在允许列表模式下仍然不支持重定向。
 当每个顶级段都满足允许列表（包括安全二进制或 skill 自动允许）时，允许 shell 链式命令（`&&`、`||`、`;`）。重定向在允许列表模式下仍不受支持。
 命令替换（`$()` / 反引号）在允许列表解析期间会被拒绝，包括在双引号内；如果你需要字面的 `$()` 文本，请使用单引号。
 
@@ -127,25 +131,26 @@ macOS 分工：
 
 ## Control UI 编辑
 
-使用 **Control UI → Nodes → Exec approvals** 卡片来编辑默认值、按智能体的覆盖设置和允许列表。选择一个作用域（Defaults 或某个智能体），调整策略，添加/删除允许列表模式，然后点击 **Save**。UI 会显示每个模式的 **last used** 元数据，以便你保持列表整洁。
+使用 **Control UI → Nodes → Exec approvals** 卡片来编辑默认值、按智能体的覆盖设置和允许列表。选择一个作用域（Defaults 或某个智能体），调整策略，添加/删除允许列表模式，然后点击 **Save**。UI 会显示每个模式的 **last used** 元数据，以便你保持列表整洁。 选择一个作用域（默认值或某个代理），调整策略，添加/移除允许列表模式，然后点击 **保存**。 UI 会按模式显示 **上次使用** 的元数据，便于你保持列表整洁。
 
-目标选择器可选择 **Gateway**（本地审批）或 **Node**。节点必须通告 `system.execApprovals.get/set`（macOS 应用或无头节点主机）。
-如果节点尚未通告执行审批，请直接编辑其本地的 `~/.openclaw/exec-approvals.json`。
+目标选择器可选择 **Gateway**（本地审批）或 **Node**。 节点必须声明 `system.execApprovals.get/set`（macOS 应用或无头节点主机）。
+如果某个节点尚未声明 exec 审批，请直接编辑其本地的 `~/.openclaw/exec-approvals.json`。
 
 CLI：`openclaw approvals` 支持 gateway 或 node 编辑（参见 [Approvals CLI](/cli/approvals)）。
 
 ## 审批流程
 
+当需要提示时，Gateway 会向操作员客户端广播 `exec.approval.requested`。
 当需要提示时，gateway 向操作员客户端广播 `exec.approval.requested`。
 Control UI 和 macOS 应用通过 `exec.approval.resolve` 进行处理，然后 gateway 将已批准的请求转发给节点主机。
 
-当需要审批时，exec 工具会立即返回一个审批 id。使用该 id 来关联后续的系统事件（`Exec finished` / `Exec denied`）。如果在超时前没有收到决定，请求将被视为审批超时，并作为拒绝原因显示。
+当需要审批时，exec 工具会立即返回一个审批 id。 当需要审批时，exec 工具会立即返回一个审批 id。使用该 id 来关联后续的系统事件（`Exec finished` / `Exec denied`）。如果在超时前没有收到决定，请求将被视为审批超时，并作为拒绝原因显示。 如果在超时之前没有收到决定，请求将被视为审批超时，并以拒绝原因呈现。
 
 确认对话框包括：
 
 - 命令 + 参数
 - cwd
-- 智能体 id
+- 代理 id
 - 解析后的可执行文件路径
 - 主机 + 策略元数据
 
@@ -157,7 +162,7 @@ Control UI 和 macOS 应用通过 `exec.approval.resolve` 进行处理，然后 
 
 ## 审批转发到聊天渠道
 
-你可以将执行审批提示转发到任何聊天渠道（包括插件渠道），并使用 `/approve` 进行批准。这使用正常的出站投递管道。
+你可以将执行审批提示转发到任何聊天渠道（包括插件渠道），并使用 `/approve` 进行批准。这使用正常的出站投递管道。 这使用的是正常的出站投递流水线。
 
 配置：
 
@@ -209,23 +214,21 @@ Gateway -> Node Service (WS)
 - `Exec finished`
 - `Exec denied`
 
-这些消息在节点报告事件后发布到智能体的会话中。
-Gateway 主机执行审批在命令完成时（以及可选地在运行时间超过阈值时）发出相同的生命周期事件。
-经过审批门控的执行会复用审批 id 作为这些消息中的 `runId`，以便于关联。
+These are posted to the agent’s session after the node reports the event.
+Gateway-host exec approvals emit the same lifecycle events when the command finishes (and optionally when running longer than the threshold).
+Approval-gated execs reuse the approval id as the `runId` in these messages for easy correlation.
 
-## 影响
+## Implications
 
 - **full** 权限很大；尽可能优先使用允许列表。
 - **ask** 让你保持知情，同时仍允许快速审批。
-- 按智能体的允许列表可防止一个智能体的审批泄漏到其他智能体。
-- 审批仅适用于来自**授权发送者**的主机执行请求。未授权的发送者无法发出 `/exec`。
-- `/exec security=full` 是为授权操作员提供的会话级便利功能，设计上会跳过审批。
-  要完全阻止主机执行，请将审批 security 设置为 `deny`，或通过工具策略拒绝 `exec` 工具。
+- Per-agent allowlists prevent one agent’s approvals from leaking into others.
+- 审批仅适用于来自**授权发送者**的主机执行请求。未授权的发送者无法发出 `/exec`。 Unauthorized senders cannot issue `/exec`.
+- `/exec security=full` is a session-level convenience for authorized operators and skips approvals by design.
+  To hard-block host exec, set approvals security to `deny` or deny the `exec` tool via tool policy.
 
 相关内容：
 
 - [Exec 工具](/tools/exec)
 - [提权模式](/tools/elevated)
 - [技能](/tools/skills)
-
-

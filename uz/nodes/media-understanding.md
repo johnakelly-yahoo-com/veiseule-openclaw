@@ -1,4 +1,8 @@
 ---
+summary: "Kirish tasvir/audio/video tushunish (ixtiyoriy) provayder + CLI zaxira variantlari bilan"
+read_when:
+  - Media tushunishni loyihalash yoki qayta refaktorlash
+  - Kirish audio/video/tasvirni oldindan qayta ishlashni sozlash
 title: "Media tushunish"
 ---
 
@@ -134,9 +138,9 @@ modellarni sozlamagan bo‘lsangiz, OpenClaw quyidagi tartibda avtomatik aniqlay
    - **Gemini CLI** (`gemini`) `read_many_files` dan foydalanib
 2. **Provayder kalitlari**
 3. Audio: OpenAI → Groq → Deepgram → Google
-   - Rasm: OpenAI → Anthropic → Google → MiniMax
+   - Audio: OpenAI → Groq → Deepgram → Google
    - Video: Google
-   - Avtomatik aniqlashni o‘chirish uchun quyidagini o‘rnating:
+   - Video: Google
 
 {
 tools: {
@@ -159,7 +163,7 @@ Imkoniyatlar (ixtiyoriy)
 Umumiy ro‘yxatlar uchun OpenClaw standartlarni aniqlashi mumkin: `openai`, `anthropic`, `minimax`: **image**
 
 - `google` (Gemini API): **image + audio + video**
-- `groq`: **audio**
+- `google` (Gemini API): **image + audio + video**
 - `groq`: **audio**
 - CLI yozuvlari uchun kutilmagan mosliklarning oldini olish maqsadida **`capabilities` ni aniq belgilang**.
 
@@ -181,13 +185,13 @@ Provayderlarni qo‘llab-quvvatlash matritsasi (OpenClaw integratsiyalari)
 - 15. Agar faol modelingiz rasmlarni qoʻllab-quvvatlasa, uni afzal koʻring.
 - 16. Yaxshi standartlar: `openai/gpt-5.2`, `anthropic/claude-opus-4-6`, `google/gemini-3-pro-preview`.
 
-17. **Audio**
+**Audio**
 
 - 18. `openai/gpt-4o-mini-transcribe`, `groq/whisper-large-v3-turbo` yoki `deepgram/nova-3`.
 - 19. CLI zaxira varianti: `whisper-cli` (whisper-cpp) yoki `whisper`.
 - 20. Deepgram sozlamalari: [Deepgram (audio transkripsiya)](/providers/deepgram).
 
-21. **Video**
+**Video**
 
 - 22. `google/gemini-3-flash-preview` (tez), `google/gemini-3-pro-preview` (batafsilroq).
 - 23. CLI zaxira varianti: `gemini` CLI (video/audio uchun `read_file` ni qoʻllab-quvvatlaydi).
@@ -198,7 +202,7 @@ Provayderlarni qo‘llab-quvvatlash matritsasi (OpenClaw integratsiyalari)
 
 - 26. `mode`: `first` (standart) yoki `all`
 - 27. `maxAttachments`: qayta ishlanadigan maksimal son (standart **1**)
-- 28. `prefer`: `first`, `last`, `path`, `url`
+- `prefer`: `first`, `last`, `path`, `url`
 
 29. `mode: "all"` bo‘lganda, chiqishlar `[Image 1/2]`, `[Audio 2/2]` va hokazo tarzda belgilanadi.
 
@@ -370,5 +374,3 @@ Provayderlarni qo‘llab-quvvatlash matritsasi (OpenClaw integratsiyalari)
 
 - 49. [Konfiguratsiya](/gateway/configuration)
 - 50. [Rasm va Media qo‘llab-quvvatlashi](/nodes/images)
-
-

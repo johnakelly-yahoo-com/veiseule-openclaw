@@ -1,12 +1,10 @@
 ---
-title: 日志
-x-i18n:
-  generated_at: "2026-02-03T07:50:52Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 884fcf4a906adff34d546908e22abd283cb89fe0845076cf925c72384ec3556b
-  source_path: logging.md
-  workflow: 15
+summary: "日志概述：文件日志、控制台输出、CLI 跟踪和控制 UI"
+read_when:
+  - 你需要一个适合初学者的日志概述
+  - 你想配置日志级别或格式
+  - 你正在故障排除并需要快速找到日志
+title: "日志"
 ---
 
 # 日志
@@ -71,6 +69,7 @@ openclaw doctor
 
 控制 UI 的**日志**标签页使用 `logs.tail` 跟踪相同的文件。
 参见 [/web/control-ui](/web/control-ui) 了解如何打开它。
+有关如何打开它，请参见 [/web/control-ui](/web/control-ui)。
 
 ### 仅渠道日志
 
@@ -84,7 +83,7 @@ openclaw channels logs --channel whatsapp
 
 ### 文件日志（JSONL）
 
-日志文件中的每一行都是一个 JSON 对象。CLI 和控制 UI 解析这些条目以渲染结构化输出（时间、级别、子系统、消息）。
+日志文件中的每一行都是一个 JSON 对象。CLI 和控制 UI 解析这些条目以渲染结构化输出（时间、级别、子系统、消息）。 CLI 和 Control UI 会解析这些条目，以渲染结构化输出（时间、级别、子系统、消息）。
 
 ### 控制台输出
 
@@ -139,7 +138,8 @@ openclaw channels logs --channel whatsapp
 
 ## 诊断 + OpenTelemetry
 
-诊断是用于模型运行**和**消息流遥测（webhooks、队列、会话状态）的结构化、机器可读事件。它们**不**替代日志；它们存在是为了向指标、追踪和其他导出器提供数据。
+诊断是用于模型运行**和**消息流遥测（webhooks、队列、会话状态）的结构化、机器可读事件。它们**不**替代日志；它们存在是为了向指标、追踪和其他导出器提供数据。 They do **not**
+replace logs; they exist to feed metrics, traces, and other exporters.
 
 诊断事件在进程内发出，但导出器仅在启用诊断 + 导出器插件时才附加。
 
@@ -153,7 +153,8 @@ openclaw channels logs --channel whatsapp
 
 - **指标**：计数器 + 直方图（令牌使用、消息流、队列）。
 - **追踪**：模型使用 + webhook/消息处理的 span。
-- **日志**：启用 `diagnostics.otel.logs` 时通过 OTLP 导出。日志量可能很大；请注意 `logging.level` 和导出器过滤器。
+- **日志**：启用 `diagnostics.otel.logs` 时通过 OTLP 导出。日志量可能很大；请注意 `logging.level` 和导出器过滤器。 Log
+  volume can be high; keep `logging.level` and exporter filters in mind.
 
 ### 诊断事件目录
 
@@ -194,6 +195,7 @@ openclaw channels logs --channel whatsapp
 
 使用标志在不提高 `logging.level` 的情况下开启额外的定向调试日志。
 标志不区分大小写，支持通配符（例如 `telegram.*` 或 `*`）。
+Flags are case-insensitive and support wildcards (e.g. `telegram.*` or `*`).
 
 ```json
 {
@@ -217,7 +219,8 @@ OPENCLAW_DIAGNOSTICS=telegram.http,telegram.payload
 
 ### 导出到 OpenTelemetry
 
-诊断可以通过 `diagnostics-otel` 插件（OTLP/HTTP）导出。这适用于任何接受 OTLP/HTTP 的 OpenTelemetry 收集器/后端。
+诊断可以通过 `diagnostics-otel` 插件（OTLP/HTTP）导出。这适用于任何接受 OTLP/HTTP 的 OpenTelemetry 收集器/后端。 9. 这
+适用于任何接受 OTLP/HTTP 的 OpenTelemetry 收集器/后端。
 
 ```json
 {
@@ -249,9 +252,9 @@ OPENCLAW_DIAGNOSTICS=telegram.http,telegram.payload
 注意：
 
 - 你也可以使用 `openclaw plugins enable diagnostics-otel` 启用插件。
-- `protocol` 目前仅支持 `http/protobuf`。`grpc` 被忽略。
+- `protocol` 目前仅支持 `http/protobuf`。`grpc` 被忽略。 `grpc` 会被忽略。
 - 指标包括令牌使用、成本、上下文大小、运行持续时间和消息流计数器/直方图（webhooks、队列、会话状态、队列深度/等待）。
-- 追踪/指标可以通过 `traces` / `metrics` 切换（默认：开启）。启用时，追踪包括模型使用 span 加上 webhook/消息处理 span。
+- 16. 可通过 `traces` / `metrics` 切换追踪/指标（默认：开启）。 追踪/指标可以通过 `traces` / `metrics` 切换（默认：开启）。启用时，追踪包括模型使用 span 加上 webhook/消息处理 span。
 - 当你的收集器需要认证时设置 `headers`。
 - 支持的环境变量：`OTEL_EXPORTER_OTLP_ENDPOINT`、`OTEL_SERVICE_NAME`、`OTEL_EXPORTER_OTLP_PROTOCOL`。
 
@@ -314,7 +317,7 @@ OPENCLAW_DIAGNOSTICS=telegram.http,telegram.payload
 ### 日志导出行为
 
 - OTLP 日志使用与写入 `logging.file` 相同的结构化记录。
-- 遵守 `logging.level`（文件日志级别）。控制台脱敏**不**适用于 OTLP 日志。
+- Respect `logging.level` (file log level). 遵守 `logging.level`（文件日志级别）。控制台脱敏**不**适用于 OTLP 日志。
 - 高流量安装应优先使用 OTLP 收集器采样/过滤。
 
 ## 故障排除提示
@@ -322,5 +325,3 @@ OPENCLAW_DIAGNOSTICS=telegram.http,telegram.payload
 - **Gateway 网关无法访问？** 先运行 `openclaw doctor`。
 - **日志为空？** 检查 Gateway 网关是否正在运行并写入 `logging.file` 中的文件路径。
 - **需要更多细节？** 将 `logging.level` 设置为 `debug` 或 `trace` 并重试。
-
-

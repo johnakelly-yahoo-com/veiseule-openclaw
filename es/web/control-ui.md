@@ -1,4 +1,8 @@
 ---
+summary: "UI de control basada en navegador para el Gateway (chat, nodos, configuración)"
+read_when:
+  - Quiere operar el Gateway desde un navegador
+  - Quiere acceso a Tailnet sin túneles SSH
 title: "UI de control"
 ---
 
@@ -217,5 +221,3 @@ Ejemplo:
 ```
 
 Detalles de configuración de acceso remoto: [Acceso remoto](/gateway/remote).
-
-

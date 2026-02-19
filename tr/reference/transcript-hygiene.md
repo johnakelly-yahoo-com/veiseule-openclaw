@@ -1,4 +1,9 @@
 ---
+summary: "Referans: sağlayıcıya özgü transkript temizleme ve onarma kuralları"
+read_when:
+  - Transkript biçimine bağlı sağlayıcı istek reddedilmelerini ayıklarken
+  - Transkript temizleme veya araç çağrısı onarım mantığını değiştiriyorsun
+  - Sağlayıcılar arasında araç çağrısı kimliği uyuşmazlıklarını araştırıyorsun
 title: "Düşünce imzası temizliği"
 ---
 
@@ -14,6 +19,7 @@ Kapsam şunları içerir:
 - Tur doğrulama / sıralama
 - Düşünce imzası temizliği
 - Görsel yükü temizleme
+- Kullanıcı girdisi köken etiketleme (oturumlar arası yönlendirilen istemler için)
 
 Transkript depolama ayrıntılarına ihtiyacınız varsa, bkz.:
 
@@ -59,6 +65,18 @@ Uygulama:
 
 - `sanitizeToolCallInputs` içinde `src/agents/session-transcript-repair.ts`
 - `sanitizeSessionHistory` içinde `src/agents/pi-embedded-runner/google.ts`’da uygulanır
+
+---
+
+## Genel kural: oturumlar arası girdi kökeni
+
+Bir ajan `sessions_send` aracılığıyla (ajanlar arası yanıt/duyuru adımları dahil) başka bir oturuma istem gönderdiğinde, OpenClaw oluşturulan kullanıcı dönüşünü şu şekilde kaydeder:
+
+- `message.provenance.kind = "inter_session"`
+
+Bu meta veri, transkript ekleme sırasında yazılır ve rolü değiştirmez (`role: "user"` sağlayıcı uyumluluğu için aynı kalır). Transkript okuyucuları, yönlendirilen dahili istemleri son kullanıcı tarafından yazılmış talimatlar olarak değerlendirmemek için bunu kullanabilir.
+
+Bağlam yeniden oluşturulurken, OpenClaw modelin bunları harici son kullanıcı talimatlarından ayırt edebilmesi için bellekte bu kullanıcı dönüşlerinin başına kısa bir `[Inter-session message]` işareti ekler.
 
 ---
 
@@ -117,5 +135,3 @@ Uygulama:
 Bu karmaşıklık, sağlayıcılar arası gerilemelere neden oldu (özellikle `openai-responses`
 `call_id|fc_id` eşleştirmesi). 2026.1.22 temizliği uzantıyı kaldırdı, mantığı çalıştırıcıda merkezileştirdi
 ve OpenAI’yi görsel temizleme dışında **dokunulmaz** hâle getirdi.
-
-

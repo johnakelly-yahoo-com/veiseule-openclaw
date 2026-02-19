@@ -1,4 +1,7 @@
 ---
+summary: "mac ऐप में Voice Wake और push-to-talk मोड्स तथा रूटिंग विवरण"
+read_when:
+  - Voice wake या PTT पाथवे पर काम करते समय
 title: "वॉइस वेक"
 ---
 
@@ -6,13 +9,13 @@ title: "वॉइस वेक"
 
 ## मोड्स
 
-- **वेक-वर्ड मोड** (डिफ़ॉल्ट): हमेशा सक्रिय स्पीच रिकग्नाइज़र ट्रिगर टोकन (`swabbleTriggerWords`) का इंतज़ार करता है। मिलान होने पर यह कैप्चर शुरू करता है, आंशिक टेक्स्ट के साथ ओवरले दिखाता है, और साइलेंस के बाद स्वतः भेज देता है।
-- **पुश-टू-टॉक (Right Option होल्ड)**: तुरंत कैप्चर करने के लिए Right Option कुंजी दबाकर रखें—किसी ट्रिगर की आवश्यकता नहीं। दबाए रखने के दौरान ओवरले दिखाई देता है; छोड़ने पर यह अंतिम रूप देता है और थोड़ी देरी के बाद फ़ॉरवर्ड करता है ताकि आप टेक्स्ट में बदलाव कर सकें।
+- **Wake-word mode** (default): always-on Speech recognizer waits for trigger tokens (`swabbleTriggerWords`). On match it starts capture, shows the overlay with partial text, and auto-sends after silence.
+- **Push-to-talk (Right Option hold)**: hold the right Option key to capture immediately—no trigger needed. The overlay appears while held; releasing finalizes and forwards after a short delay so you can tweak text.
 
 ## रनटाइम व्यवहार (wake-word)
 
 - Speech recognizer `VoiceWakeRuntime` में रहता है।
-- ट्रिगर केवल तब सक्रिय होता है जब वेक वर्ड और अगले शब्द के बीच **सार्थक विराम** हो (~0.55s का अंतर)। कमांड शुरू होने से पहले भी ओवरले/चाइम इस विराम पर शुरू हो सकता है।
+- Trigger only fires when there’s a **meaningful pause** between the wake word and the next word (~0.55s gap). The overlay/chime can start on the pause even before the command begins.
 - मौन विंडो: जब भाषण चल रहा हो तो 2.0s, और यदि केवल ट्रिगर सुना गया हो तो 5.0s।
 - हार्ड स्टॉप: अनियंत्रित सत्रों को रोकने के लिए 120s।
 - सत्रों के बीच डिबाउंस: 350ms।
@@ -35,7 +38,7 @@ title: "वॉइस वेक"
 
 ## Push-to-talk विवरण
 
-- हॉटकी डिटेक्शन **right Option** (`keyCode 61` + `.option`) के लिए एक ग्लोबल `.flagsChanged` मॉनिटर का उपयोग करता है। हम केवल इवेंट्स को ऑब्ज़र्व करते हैं (कोई स्वॉलोइंग नहीं)।
+- Hotkey detection uses a global `.flagsChanged` monitor for **right Option** (`keyCode 61` + `.option`). We only observe events (no swallowing).
 - कैप्चर पाइपलाइन `VoicePushToTalk` में रहती है: Speech तुरंत शुरू होती है, आंशिक परिणाम ओवरले में स्ट्रीम होते हैं, और रिलीज़ पर `VoiceWakeForwarder` कॉल होता है।
 - जब push-to-talk शुरू होता है, तो दोहरे ऑडियो टैप से बचने के लिए हम wake-word रनटाइम को पॉज़ करते हैं; रिलीज़ के बाद यह स्वतः पुनः शुरू हो जाता है।
 - अनुमतियाँ: Microphone + Speech आवश्यक; इवेंट्स देखने के लिए Accessibility/Input Monitoring की स्वीकृति चाहिए।
@@ -44,15 +47,15 @@ title: "वॉइस वेक"
 ## उपयोगकर्ता-समक्ष सेटिंग्स
 
 - **Voice Wake** टॉगल: wake-word रनटाइम सक्षम करता है।
-- **बात करने के लिए Cmd+Fn दबाकर रखें**: पुश-टू-टॉक मॉनिटर को सक्षम करता है। macOS < 26 पर अक्षम।
+- **Hold Cmd+Fn to talk**: enables the push-to-talk monitor. Disabled on macOS < 26.
 - भाषा और माइक पिकर, लाइव लेवल मीटर, ट्रिगर-वर्ड तालिका, टेस्टर (केवल स्थानीय; फ़ॉरवर्ड नहीं करता)।
 - माइक पिकर डिवाइस डिस्कनेक्ट होने पर अंतिम चयन को सुरक्षित रखता है, डिस्कनेक्टेड संकेत दिखाता है, और लौटने तक अस्थायी रूप से सिस्टम डिफ़ॉल्ट पर फ़ॉलबैक करता है।
-- **साउंड्स**: ट्रिगर डिटेक्ट होने पर और भेजते समय चाइम बजती है; डिफ़ॉल्ट रूप से macOS का “Glass” सिस्टम साउंड। आप प्रत्येक इवेंट के लिए कोई भी `NSSound`-लोडेबल फ़ाइल (जैसे MP3/WAV/AIFF) चुन सकते हैं या **No Sound** चुन सकते हैं।
+- **Sounds**: chimes on trigger detect and on send; defaults to the macOS “Glass” system sound. You can pick any `NSSound`-loadable file (e.g. MP3/WAV/AIFF) for each event or choose **No Sound**.
 
 ## फ़ॉरवर्डिंग व्यवहार
 
 - जब Voice Wake सक्षम होता है, तो ट्रांसक्रिप्ट्स सक्रिय gateway/agent को फ़ॉरवर्ड किए जाते हैं (mac ऐप के शेष भाग में उपयोग किए जाने वाले समान लोकल बनाम रिमोट मोड के साथ)।
-- जवाब **अंतिम-उपयोग किए गए मुख्य प्रोवाइडर** (WhatsApp/Telegram/Discord/WebChat) को भेजे जाते हैं। यदि डिलीवरी विफल होती है, तो त्रुटि लॉग की जाती है और रन अभी भी WebChat/सेशन लॉग्स के माध्यम से दिखाई देता है।
+- Replies are delivered to the **last-used main provider** (WhatsApp/Telegram/Discord/WebChat). If delivery fails, the error is logged and the run is still visible via WebChat/session logs.
 
 ## फ़ॉरवर्डिंग पेलोड
 
@@ -62,5 +65,3 @@ title: "वॉइस वेक"
 
 - push-to-talk चालू करें, Cmd+Fn दबाए रखें, बोलें, छोड़ें: ओवरले को आंशिक परिणाम दिखाने चाहिए और फिर भेजना चाहिए।
 - दबाए रखने के दौरान, मेन्यू-बार के कान बड़े बने रहने चाहिए (`triggerVoiceEars(ttl:nil)` का उपयोग करता है); रिलीज़ के बाद वे घट जाते हैं।
-
-

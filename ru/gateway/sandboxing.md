@@ -1,5 +1,7 @@
 ---
-title: "Песочница"
+summary: "Как работает sandboxing в OpenClaw: режимы, области, доступ к рабочему пространству и образы"
+title: Песочница
+read_when: "Вам нужно отдельное объяснение sandboxing или требуется настроить agents.defaults.sandbox."
 status: active
 ---
 
@@ -68,6 +70,11 @@ OpenClaw зеркалирует подходящие skills в рабочее п
 Формат: `host:container:mode` (например, `"/home/user/source:/source:rw"`).
 
 Глобальные и per‑agent бинды **объединяются** (а не заменяются). При `scope: "shared"` per‑agent бинды игнорируются.
+
+`agents.defaults.sandbox.browser.binds` монтирует дополнительные каталоги хоста только в контейнер **sandbox browser**.
+
+- Если задано (включая `[]`), заменяет `agents.defaults.sandbox.docker.binds` для контейнера браузера.
+- Если не задано, контейнер браузера использует `agents.defaults.sandbox.docker.binds` (обратная совместимость).
 
 Пример (источник только для чтения + docker socket):
 
@@ -189,5 +196,3 @@ scripts/sandbox-browser-setup.sh
 - [Sandbox Configuration](/gateway/configuration#agentsdefaults-sandbox)
 - [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools)
 - [Security](/gateway/security)
-
-

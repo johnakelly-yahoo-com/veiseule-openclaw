@@ -1,4 +1,7 @@
 ---
+summary: "Ruteringsregler pr. kanal (WhatsApp, Telegram, Discord, Slack) og delt kontekst"
+read_when:
+  - Ændring af kanalrouting eller indbakkens adfærd
 title: "Kanalrouting"
 ---
 
@@ -46,12 +49,16 @@ Routing vælger **én agent** for hver indgående besked:
 4. **Account-match** (`accountId` på kanalen).
 5. **Kanal-match** (enhver konto på den kanal).
 6. **Standardagent** (`agents.list[].default`, ellers første listepost, fallback til `main`).
+7. **Kanalmatch** (enhver konto på den kanal, `accountId: "*"`).
+8. **Standardagent** (`agents.list[].default`, ellers første listepost, fallback til `main`).
+
+Den matchede agent afgør, hvilket workspace og hvilket session‑lager der bruges.
 
 Den matchede agent afgør, hvilket workspace og hvilket session‑lager der bruges.
 
 ## Broadcast-grupper (kør flere agenter)
 
-Broadcast-grupper lader dig køre **flere agenter** for den samme peer **når OpenClaw normalt ville svare** (for eksempel: i WhatsApp-grupper, efter mention/aktiverings-gating).
+Konfiguration:
 
 Konfiguration:
 
@@ -109,5 +116,3 @@ Indgående svar indeholder:
 - Citeret kontekst føjes til `Body` som en `[Replying to ...]`‑blok.
 
 Dette er konsistent på tværs af kanaler.
-
-

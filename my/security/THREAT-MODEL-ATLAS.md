@@ -1,17 +1,17 @@
-# OpenClaw ခြိမ်းခြောက်မှုပုံစံ v1.0
+# OpenClaw Threat Model v1.0
 
 ## MITRE ATLAS Framework
 
-**ဗားရှင်း:** 1.0-draft  
-**နောက်ဆုံးအပ်ဒိတ်:** 2026-02-04  
-**နည်းလမ်းဗေဒ:** MITRE ATLAS + Data Flow Diagrams  
-**Framework:** [MITRE ATLAS](https://atlas.mitre.org/) (AI စနစ်များအတွက် ဆန့်ကျင်ဘက်တိုက်ခိုက်မှု ခြိမ်းခြောက်မှု ပတ်ဝန်းကျင်)
+**Version:** 1.0-draft
+**Last Updated:** 2026-02-04
+**Methodology:** MITRE ATLAS + Data Flow Diagrams
+**Framework:** [MITRE ATLAS](https://atlas.mitre.org/) (Adversarial Threat Landscape for AI Systems)
 
-### Framework အရင်းအမြစ်ဖော်ပြချက်
+### Framework Attribution
 
-ဤခြိမ်းခြောက်မှုပုံစံကို AI/ML စနစ်များအပေါ် ဆန့်ကျင်ဘက်တိုက်ခိုက်မှုများကို မှတ်တမ်းတင်ရာတွင် စက်မှုလုပ်ငန်းစံအဖြစ် အသုံးပြုသည့် [MITRE ATLAS](https://atlas.mitre.org/) အပေါ် အခြေခံတည်ဆောက်ထားပါသည်။ ATLAS ကို AI လုံခြုံရေးအသိုင်းအဝိုင်းနှင့် ပူးပေါင်း၍ [MITRE](https://www.mitre.org/) မှ ထိန်းသိမ်းထားပါသည်။
+This threat model is built on [MITRE ATLAS](https://atlas.mitre.org/), the industry-standard framework for documenting adversarial threats to AI/ML systems. ATLAS is maintained by [MITRE](https://www.mitre.org/) in collaboration with the AI security community.
 
-**အရေးကြီး ATLAS အရင်းအမြစ်များ:**
+**Key ATLAS Resources:**
 
 - [ATLAS Techniques](https://atlas.mitre.org/techniques/)
 - [ATLAS Tactics](https://atlas.mitre.org/tactics/)
@@ -19,47 +19,47 @@
 - [ATLAS GitHub](https://github.com/mitre-atlas/atlas-data)
 - [Contributing to ATLAS](https://atlas.mitre.org/resources/contribute)
 
-### ဤခြိမ်းခြောက်မှုပုံစံတွင် ပံ့ပိုးပါဝင်ရန်
+### Contributing to This Threat Model
 
-ဤစာတမ်းသည် OpenClaw အသိုင်းအဝိုင်းမှ ထိန်းသိမ်းထားသည့် အသက်ရှင်နေသော စာတမ်းတစ်ခုဖြစ်ပါသည်။ ပံ့ပိုးပါဝင်ရန် လမ်းညွှန်ချက်များအတွက် [CONTRIBUTING-THREAT-MODEL.md](./CONTRIBUTING-THREAT-MODEL.md) ကို ကြည့်ရှုပါ။
+This is a living document maintained by the OpenClaw community. See [CONTRIBUTING-THREAT-MODEL.md](./CONTRIBUTING-THREAT-MODEL.md) for guidelines on contributing:
 
-- ခြိမ်းခြောက်မှုအသစ်များကို တင်ပြခြင်း  
-- ရှိပြီးသား ခြိမ်းခြောက်မှုများကို အပ်ဒိတ်လုပ်ခြင်း  
-- တိုက်ခိုက်မှုချိတ်ဆက်အစဉ်များ (attack chains) ကို အဆိုပြုခြင်း  
-- ကာကွယ်ရေးနည်းလမ်းများ အကြံပြုခြင်း  
-
----
-
-## 1. မိတ်ဆက်
-
-### 1.1 ရည်ရွယ်ချက်
-
-ဤခြိမ်းခြောက်မှုပုံစံသည် AI/ML စနစ်များအတွက် အထူးဒီဇိုင်းပြုလုပ်ထားသော MITRE ATLAS framework ကို အသုံးပြုပြီး OpenClaw AI agent platform နှင့် ClawHub skill marketplace အပေါ် ဆန့်ကျင်ဘက်တိုက်ခိုက်မှု ခြိမ်းခြောက်မှုများကို မှတ်တမ်းတင်ထားပါသည်။
-
-### 1.2 အကျုံးဝင်မှု (Scope)
-
-| အစိတ်အပိုင်း           | ပါဝင်သည် | မှတ်ချက်များ                                           |
-| ---------------------- | -------- | ------------------------------------------------------ |
-| OpenClaw Agent Runtime | ဟုတ်ကဲ့ | အဓိက agent လည်ပတ်မှု၊ tool ခေါ်ယူမှုများ၊ session များ |
-| Gateway                | ဟုတ်ကဲ့ | အထောက်အထားစစ်ဆေးခြင်း၊ လမ်းကြောင်းပြောင်းခြင်း၊ channel ပေါင်းစည်းမှု |
-| Channel Integrations   | ဟုတ်ကဲ့ | WhatsApp, Telegram, Discord, Signal, Slack စသည်တို့ |
-| ClawHub Marketplace    | ဟုတ်ကဲ့ | Skill ထုတ်ဝေခြင်း၊ စိစစ်ခြင်း၊ ဖြန့်ချိခြင်း |
-| MCP Servers            | ဟုတ်ကဲ့ | ပြင်ပ tool ပံ့ပိုးသူများ |
-| User Devices           | တစ်စိတ်တစ်ပိုင်း | မိုဘိုင်းအက်ပ်များ၊ desktop client များ |
-
-### 1.3 အကျုံးမဝင်သည့်အရာများ
-
-ဤခြိမ်းခြောက်မှုပုံစံအတွက် အကျုံးမဝင်ကြောင်း သတ်မှတ်ထားသော အရာမရှိပါ။
+- Reporting new threats
+- Updating existing threats
+- Proposing attack chains
+- Suggesting mitigations
 
 ---
 
-## 2. စနစ် ဖွဲ့စည်းပုံ
+## 1. Introduction
 
-### 2.1 ယုံကြည်မှု နယ်နိမိတ်များ (Trust Boundaries)
+### 1.1 Purpose
+
+This threat model documents adversarial threats to the OpenClaw AI agent platform and ClawHub skill marketplace, using the MITRE ATLAS framework designed specifically for AI/ML systems.
+
+### 1.2 Scope
+
+| Component              | Included | မှတ်ချက်များ                                                     |
+| ---------------------- | -------- | ---------------------------------------------------------------- |
+| OpenClaw Agent Runtime | Yes      | Core agent execution, tool calls, sessions                       |
+| Gateway                | Yes      | Authentication, routing, channel integration                     |
+| Channel Integrations   | Yes      | WhatsApp, Telegram, Discord, Signal, Slack, etc. |
+| ClawHub Marketplace    | Yes      | Skill publishing, moderation, distribution                       |
+| MCP Servers            | Yes      | External tool providers                                          |
+| User Devices           | Partial  | Mobile apps, desktop clients                                     |
+
+### 1.3 Out of Scope
+
+Nothing is explicitly out of scope for this threat model.
+
+---
+
+## 4. 2. System Architecture
+
+### 2.1 Trust Boundaries
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐
-│                    ယုံကြည်စိတ်ချရမည့်မဟုတ်သော နယ်ပယ်               │
+│                    UNTRUSTED ZONE                                │
 │  ┌─────────────┐  ┌─────────────┐  ┌─────────────┐              │
 │  │  WhatsApp   │  │  Telegram   │  │   Discord   │  ...         │
 │  └──────┬──────┘  └──────┬──────┘  └──────┬──────┘              │
@@ -68,92 +68,536 @@
           │                │                │
           ▼                ▼                ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│            TRUST BOUNDARY 1: Channel ဝင်ရောက်ခွင့်                 │
+│                 TRUST BOUNDARY 1: Channel Access                 │
 │  ┌──────────────────────────────────────────────────────────┐   │
 │  │                      GATEWAY                              │   │
 │  │  • Device Pairing (30s grace period)                      │   │
-│  │  • AllowFrom / AllowList စစ်ဆေးခြင်း                      │   │
+│  │  • AllowFrom / AllowList validation                       │   │
 │  │  • Token/Password/Tailscale auth                          │   │
 │  └──────────────────────────────────────────────────────────┘   │
 └─────────────────────────────────────────────────────────────────┘
                               │
                               ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│           TRUST BOUNDARY 2: Session သီးသန့်ခွဲခြားခြင်း            │
+│                 TRUST BOUNDARY 2: Session Isolation              │
 │  ┌──────────────────────────────────────────────────────────┐   │
 │  │                   AGENT SESSIONS                          │   │
 │  │  • Session key = agent:channel:peer                       │   │
-│  │  • Agent အလိုက် tool policy များ                         │   │
-│  │  • Transcript မှတ်တမ်းတင်ခြင်း                            │   │
+│  │  • Tool policies per agent                                │   │
+│  │  • Transcript logging                                     │   │
 │  └──────────────────────────────────────────────────────────┘   │
 └─────────────────────────────────────────────────────────────────┘
                               │
                               ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│            TRUST BOUNDARY 3: Tool လည်ပတ်ဆောင်ရွက်မှု               │
+│                 TRUST BOUNDARY 3: Tool Execution                 │
 │  ┌──────────────────────────────────────────────────────────┐   │
 │  │                  EXECUTION SANDBOX                        │   │
-│  │  • Docker sandbox သို့မဟုတ် Host (exec-approvals)        │   │
+│  │  • Docker sandbox OR Host (exec-approvals)                │   │
 │  │  • Node remote execution                                  │   │
-│  │  • SSRF ကာကွယ်ရေး (DNS pinning + IP ပိတ်ဆို့ခြင်း)       │   │
+│  │  • SSRF protection (DNS pinning + IP blocking)            │   │
 │  └──────────────────────────────────────────────────────────┘   │
 └─────────────────────────────────────────────────────────────────┘
                               │
                               ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│          TRUST BOUNDARY 4: ပြင်ပအကြောင်းအရာများ                 │
+│                 TRUST BOUNDARY 4: External Content               │
 │  ┌──────────────────────────────────────────────────────────┐   │
-│  │           FETCHED URLs / EMAILS / WEBHOOKS                │   │
-│  │  • ပြင်ပအကြောင်းအရာကို ထုပ်ပိုးခြင်း (XML tags)           │   │
-│  │  • လုံခြုံရေး အသိပေးချက် ထည့်သွင်းခြင်း                    │   │
+│  │              FETCHED URLs / EMAILS / WEBHOOKS             │   │
+│  │  • External content wrapping (XML tags)                   │   │
+│  │  • Security notice injection                              │   │
 │  └──────────────────────────────────────────────────────────┘   │
 └─────────────────────────────────────────────────────────────────┘
                               │
                               ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│            TRUST BOUNDARY 5: Supply Chain                      │
+│                 TRUST BOUNDARY 5: Supply Chain                   │
 │  ┌──────────────────────────────────────────────────────────┐   │
 │  │                      CLAWHUB                              │   │
-│  │  • Skill ထုတ်ဝေခြင်း (semver, SKILL.md လိုအပ်)          │   │
-│  │  • Pattern အခြေခံ moderation flag များ                    │   │
-│  │  • VirusTotal စစ်ဆေးခြင်း (မကြာမီလာမည်)                   │   │
-│  │  • GitHub account သက်တမ်း စစ်ဆေးခြင်း                     │   │
+│  │  • Skill publishing (semver, SKILL.md required)           │   │
+│  │  • Pattern-based moderation flags                         │   │
+│  │  • VirusTotal scanning (coming soon)                      │   │
+│  │  • GitHub account age verification                        │   │
 │  └──────────────────────────────────────────────────────────┘   │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
-### 2.2 ဒေတာ စီးဆင်းမှုများ
+### 2.2 Data Flows
 
-| Flow | မူလရင်းမြစ် | ဦးတည်ရာ | ဒေတာ | ကာကွယ်မှု |
-| ---- | ------------ | -------- | ---- | ---------- |
-| F1   | Channel | Gateway | အသုံးပြုသူ မက်ဆေ့ချ်များ | TLS, AllowFrom |
-| F2   | Gateway | Agent | လမ်းကြောင်းပြောင်းထားသော မက်ဆေ့ချ်များ | Session သီးသန့်ခွဲခြားခြင်း |
-| F3   | Agent | Tools | Tool ခေါ်ယူမှုများ | Policy လိုက်နာစေခြင်း |
-| F4   | Agent | External | web_fetch requests | SSRF ပိတ်ဆို့ခြင်း |
-| F5   | ClawHub | Agent | Skill code | Moderation, scanning |
-| F6   | Agent | Channel | ပြန်ကြားချက်များ | Output စစ်ထုတ်ခြင်း |
+| Flow | Source  | Destination | Data                                    | Protection           |
+| ---- | ------- | ----------- | --------------------------------------- | -------------------- |
+| F1   | Channel | Gateway     | User messages                           | TLS, AllowFrom       |
+| F2   | Gateway | Agent       | Routed messages                         | Session isolation    |
+| F3   | Agent   | ကိရိယာများ  | Tool invocations                        | Policy enforcement   |
+| F4   | Agent   | External    | web_fetch requests | SSRF blocking        |
+| F5   | ClawHub | Agent       | Skill code                              | Moderation, scanning |
+| F6   | Agent   | Channel     | Responses                               | Output filtering     |
 
 ---
 
-## 3. ATLAS Tactic အလိုက် ခြိမ်းခြောက်မှု ခွဲခြမ်းစိတ်ဖြာခြင်း
+## 8. 3. Threat Analysis by ATLAS Tactic
 
 ### 3.1 Reconnaissance (AML.TA0002)
 
-#### T-RECON-001: Agent Endpoint ရှာဖွေတွေ့ရှိခြင်း
+#### T-RECON-001: Agent Endpoint Discovery
 
-| Attribute | Value |
-| --------- | ----- |
-| **ATLAS ID** | AML.T0006 - Active Scanning |
-| **Description** | တိုက်ခိုက်သူသည် ဖော်ထုတ်ထားသော OpenClaw gateway endpoint များကို စကန်လုပ်ရှာဖွေသည် |
-| **Attack Vector** | Network scanning, shodan queries, DNS enumeration |
-| **Affected Components** | Gateway, ဖော်ထုတ်ထားသော API endpoint များ |
-| **Current Mitigations** | Tailscale auth option, မူလအနေဖြင့် loopback သို့ bind လုပ်ထားခြင်း |
-| **Residual Risk** | အလယ်အလတ် - Public gateway များကို ရှာဖွေတွေ့ရှိနိုင်သည် |
-| **Recommendations** | လုံခြုံသော deployment ကို စာတမ်းတင်ပါ၊ discovery endpoint များတွင် rate limiting ထည့်သွင်းပါ |
+| Attribute               | Value                                                                |
+| ----------------------- | -------------------------------------------------------------------- |
+| **ATLAS ID**            | AML.T0006 - Active Scanning                          |
+| **Description**         | Attacker scans for exposed OpenClaw gateway endpoints                |
+| **Attack Vector**       | Network scanning, shodan queries, DNS enumeration                    |
+| **Affected Components** | Gateway, exposed API endpoints                                       |
+| **Current Mitigations** | Tailscale auth option, bind to loopback by default                   |
+| **Residual Risk**       | Medium - Public gateways discoverable                                |
+| **Recommendations**     | Document secure deployment, add rate limiting on discovery endpoints |
 
-(အောက်ပါ အပိုင်းများအားလုံးကို မူရင်းဖော်မတ်နှင့် အတိုင်း ဆက်လက် ဘာသာပြန်ထားပါသည်…)
+#### T-RECON-002: Channel Integration Probing
+
+| Attribute               | Value                                                                                            |
+| ----------------------- | ------------------------------------------------------------------------------------------------ |
+| **ATLAS ID**            | AML.T0006 - Active Scanning                                                      |
+| **Description**         | Attacker probes messaging channels to identify AI-managed accounts                               |
+| **Attack Vector**       | 1. စမ်းသပ် မက်ဆေ့ချ်များ ပို့ခြင်း၊ တုံ့ပြန်ပုံစံများကို စောင့်ကြည့်ခြင်း |
+| **Affected Components** | 3. ချန်နယ် ပေါင်းစည်းမှုများ အားလုံး                                      |
+| **Current Mitigations** | None specific                                                                                    |
+| **Residual Risk**       | Low - Limited value from discovery alone                                                         |
+| **Recommendations**     | 9. တုံ့ပြန်ချိန်ကို ကျပန်းပြောင်းလဲခြင်းကို စဉ်းစားပါ                     |
 
 ---
 
-_ဤခြိမ်းခြောက်မှုပုံစံသည် အမြဲပြင်ဆင်အပ်ဒိတ်လုပ်နေသည့် စာတမ်းဖြစ်ပါသည်။ လုံခြုံရေးပြဿနာများကို security@openclaw.ai သို့ အကြောင်းကြားပါ။_
+### 10. 3.2 အစပိုင်း ဝင်ရောက်ခွင့် (AML.TA0004)
 
+#### 11. T-ACCESS-001: Pairing Code ကြားဖြတ်ရယူခြင်း
+
+| Attribute               | Value                                                                                                      |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------- |
+| **ATLAS ID**            | AML.T0040 - AI Model Inference API Access                                                  |
+| **Description**         | 16. တိုက်ခိုက်သူသည် စက္ကန့် ၃၀ ခွင့်လွတ်ကာလအတွင်း Pairing Code ကို ကြားဖြတ်ရယူသည်   |
+| **Attack Vector**       | 18. ပခုံးမှကြည့်ခြင်း၊ ကွန်ယက် sniffing၊ လူမှုရေး အင်ဂျင်နီယာလုပ်ရပ်                |
+| **Affected Components** | 20. စက်ပစ္စည်း ချိတ်ဆက်ခြင်း စနစ်                                                   |
+| **Current Mitigations** | 22. စက္ကန့် ၃၀ အတွင်း သက်တမ်းကုန်ဆုံးခြင်း၊ ရှိပြီးသား ချန်နယ်မှ ကုဒ်များ ပို့ခြင်း |
+| **Residual Risk**       | 24. အလယ်အလတ် — ခွင့်လွတ်ကာလကို အသုံးချနိုင်သည်                                      |
+| **Recommendations**     | 26. ခွင့်လွတ်ကာလကို လျှော့ချပါ၊ အတည်ပြု အဆင့် ထပ်ထည့်ပါ                             |
+
+#### 27. T-ACCESS-002: AllowFrom အတုလုပ်ခြင်း
+
+| Attribute               | Value                                                                                                                  |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| **ATLAS ID**            | AML.T0040 - AI Model Inference API Access                                                              |
+| **Description**         | 32. တိုက်ခိုက်သူသည် ချန်နယ်အတွင်း ခွင့်ပြုထားသော ပို့သူ အထောက်အထားကို အတုလုပ်သည်                |
+| **Attack Vector**       | 34. ချန်နယ်အပေါ် မူတည်သည် — ဖုန်းနံပါတ် အတုလုပ်ခြင်း၊ အသုံးပြုသူအမည် အယောင်ဆောင်ခြင်း           |
+| **Affected Components** | 36. ချန်နယ်အလိုက် AllowFrom စစ်ဆေးအတည်ပြုမှု                                                    |
+| **Current Mitigations** | 38. ချန်နယ်အလိုက် အထောက်အထား စစ်ဆေးအတည်ပြုမှု                                                   |
+| **Residual Risk**       | 40. အလယ်အလတ် — ချန်နယ်အချို့တွင် အတုလုပ်ခြင်းအတွက် အားနည်းချက်ရှိသည်                            |
+| **Recommendations**     | 42. ချန်နယ်အလိုက် အန္တရာယ်များကို မှတ်တမ်းတင်ပါ၊ ဖြစ်နိုင်ပါက ခရစ်ပတိုဂရပ်ဖစ် အတည်ပြုမှု ထည့်ပါ |
+
+#### 43. T-ACCESS-003: တိုကင် ခိုးယူခြင်း
+
+| Attribute               | Value                                                                                                                         |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| **ATLAS ID**            | AML.T0040 - AI Model Inference API Access                                                                     |
+| **Description**         | 48. တိုက်ခိုက်သူသည် config ဖိုင်များမှ အတည်ပြု တိုကင်များကို ခိုးယူသည်                                 |
+| **Attack Vector**       | 50. မယ်လ်ဝဲ၊ ခွင့်မပြုထားသော စက်ပစ္စည်း ဝင်ရောက်မှု၊ config backup ပေါက်ကြားမှု                        |
+| **Affected Components** | 2. ~/.openclaw/credentials/, ပြင်ဆင်မှုသိမ်းဆည်းရာနေရာ                 |
+| **Current Mitigations** | ဖိုင် permissions                                                                                                             |
+| **Residual Risk**       | 5. အမြင့် - တိုကင်များကို plaintext အဖြစ် သိမ်းဆည်းထားသည်                                              |
+| **Recommendations**     | 7. သိမ်းဆည်းထားသည့်အခါ တိုကင်ကို အင်ကရစ်ရှင်း ပြုလုပ်ခြင်း၊ တိုကင် လှည့်လည်ပြောင်းလဲမှု ထည့်သွင်းခြင်း |
+
+---
+
+### 8. 3.3 လုပ်ဆောင်ခြင်း (AML.TA0005)
+
+#### 9. T-EXEC-001: တိုက်ရိုက် Prompt Injection
+
+| Attribute               | Value                                                                                                                                        |
+| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| **ATLAS ID**            | 12. AML.T0051.000 - LLM Prompt Injection: တိုက်ရိုက်                  |
+| **Description**         | 14. တိုက်ခိုက်သူက အေးဂျင့်၏ လုပ်ဆောင်ပုံကို ချိုးဖောက်ရန် ဖန်တီးထားသော prompt များကို ပို့သည်                         |
+| **Attack Vector**       | 16. ဆန့်ကျင်ဘက် ညွှန်ကြားချက်များ ပါဝင်သော ချန်နယ် မက်ဆေ့ခ်ျများ                                                      |
+| **Affected Components** | 18. Agent LLM၊ ထည့်သွင်းမှု မျက်နှာပြင်အားလုံး                                                                        |
+| **Current Mitigations** | 20. ပုံစံ ခွဲခြားသိရှိခြင်း၊ ပြင်ပအကြောင်းအရာကို ထုပ်ပိုးခြင်း                                                        |
+| **Residual Risk**       | 22. အလွန်ပြင်းထန် - ရှာဖွေသိရှိမှုသာရှိပြီး ပိတ်ဆို့မှုမရှိ၊ အဆင့်မြင့် တိုက်ခိုက်မှုများက ကျော်လွှားနိုင်သည်         |
+| **Recommendations**     | 24. အလွှာစုံ ကာကွယ်ရေး အကောင်အထည်ဖော်ခြင်း၊ အထွက်အတည်ပြုခြင်း၊ အရေးကြီး လုပ်ဆောင်ချက်များအတွက် အသုံးပြုသူ အတည်ပြုချက် |
+
+#### 25. T-EXEC-002: မတိုက်ရိုက် Prompt Injection
+
+| Attribute               | Value                                                                                                                        |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| **ATLAS ID**            | 28. AML.T0051.001 - LLM Prompt Injection: မတိုက်ရိုက် |
+| **Description**         | 30. တိုက်ခိုက်သူက ရယူလာသော အကြောင်းအရာအတွင်း မကောင်းသော ညွှန်ကြားချက်များကို ထည့်သွင်းထားသည်          |
+| **Attack Vector**       | 32. မကောင်းသော URL များ၊ အဆိပ်ထည့်ထားသော အီးမေးလ်များ၊ ချိုးဖောက်ခံထားရသော webhook များ               |
+| **Affected Components** | 34. web_fetch၊ အီးမေးလ် ထည့်သွင်းရယူမှု၊ ပြင်ပ ဒေတာ အရင်းအမြစ်များ               |
+| **Current Mitigations** | 36. XML တက်ဂ်များနှင့် လုံခြုံရေး အသိပေးချက်ဖြင့် အကြောင်းအရာ ထုပ်ပိုးခြင်း                           |
+| **Residual Risk**       | 38. အမြင့် - LLM က ထုပ်ပိုးထားသော ညွှန်ကြားချက်များကို လျစ်လျူရှုနိုင်သည်                             |
+| **Recommendations**     | 40. အကြောင်းအရာ သန့်စင်ခြင်း အကောင်အထည်ဖော်ခြင်း၊ လုပ်ဆောင်မှု ပတ်ဝန်းကျင်များကို ခွဲခြားထားခြင်း     |
+
+#### 41. T-EXEC-003: ကိရိယာ အငြင်းအချက် အင်ဂျက်ရှင်း
+
+| Attribute               | Value                                                                                                                       |
+| ----------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| **ATLAS ID**            | 44. AML.T0051.000 - LLM Prompt Injection: တိုက်ရိုက် |
+| **Description**         | 46. တိုက်ခိုက်သူက prompt injection မှတစ်ဆင့် ကိရိယာ အငြင်းအချက်များကို ချိုးဖောက် ပြောင်းလဲစေသည်     |
+| **Attack Vector**       | 48. ကိရိယာ ပါရာမီတာ တန်ဖိုးများကို သက်ရောက်စေသော ဖန်တီးထားသော prompt များ                            |
+| **Affected Components** | 50. ကိရိယာ ခေါ်ယူအသုံးပြုမှု အားလုံး                                                                 |
+| **Current Mitigations** | Exec approvals for dangerous commands                                                                                       |
+| **Residual Risk**       | High - Relies on user judgment                                                                                              |
+| **Recommendations**     | Implement argument validation, parameterized tool calls                                                                     |
+
+#### T-EXEC-004: Exec Approval Bypass
+
+| Attribute               | Value                                                      |
+| ----------------------- | ---------------------------------------------------------- |
+| **ATLAS ID**            | AML.T0043 - Craft Adversarial Data         |
+| **Description**         | Attacker crafts commands that bypass approval allowlist    |
+| **Attack Vector**       | Command obfuscation, alias exploitation, path manipulation |
+| **Affected Components** | exec-approvals.ts, command allowlist       |
+| **Current Mitigations** | Allowlist + ask mode                                       |
+| **Residual Risk**       | High - No command sanitization                             |
+| **Recommendations**     | Implement command normalization, expand blocklist          |
+
+---
+
+### 3.4 Persistence (AML.TA0006)
+
+#### T-PERSIST-001: Malicious Skill Installation
+
+| Attribute               | Value                                                                                                |
+| ----------------------- | ---------------------------------------------------------------------------------------------------- |
+| **ATLAS ID**            | AML.T0010.001 - Supply Chain Compromise: AI Software |
+| **Description**         | Attacker publishes malicious skill to ClawHub                                                        |
+| **Attack Vector**       | Create account, publish skill with hidden malicious code                                             |
+| **Affected Components** | ClawHub, skill loading, agent execution                                                              |
+| **Current Mitigations** | GitHub account age verification, pattern-based moderation flags                                      |
+| **Residual Risk**       | Critical - No sandboxing, limited review                                                             |
+| **Recommendations**     | VirusTotal integration (in progress), skill sandboxing, community review          |
+
+#### T-PERSIST-002: Skill Update Poisoning
+
+| Attribute               | Value                                                                                                                                                                                 |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **ATLAS ID**            | AML.T0010.001 - Supply Chain Compromise: AI Software                                                                                  |
+| **Description**         | Attacker compromises popular skill and pushes malicious update                                                                                                                        |
+| **Attack Vector**       | Account compromise, social engineering of skill owner                                                                                                                                 |
+| **Affected Components** | ClawHub versioning, auto-update flows                                                                                                                                                 |
+| **Current Mitigations** | ဗားရှင်း လက်ဗွေမှတ်တမ်းခြေရာခံခြင်း                                                                                                                                                   |
+| **Residual Risk**       | မြင့်မားသည် - အလိုအလျောက် အပ်ဒိတ်များက အန္တရာယ်ရှိသော ဗားရှင်းများကို ဆွဲယူနိုင်သည်                                                                                                   |
+| **Recommendations**     | အပ်ဒိတ် လက်မှတ်ရေးထိုးခြင်း၊ ပြန်လည်နောက်ပြန်သွားနိုင်စွမ်း (rollback)၊ ဗားရှင်းကို ချိတ်ဆွဲသတ်မှတ်ခြင်း (version pinning) ကို အကောင်အထည်ဖော်ပါ |
+
+#### T-PERSIST-003: အေးဂျင့် ဖွဲ့စည်းမှု ပြုပြင်ချိုးဖောက်ခြင်း
+
+| Attribute               | Value                                                                                                                   |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| **ATLAS ID**            | AML.T0010.002 - ထောက်ပံ့ကွင်းဆက် ချိုးဖောက်မှု: ဒေတာ                    |
+| **Description**         | တိုက်ခိုက်သူသည် အေးဂျင့် ဖွဲ့စည်းမှုကို ပြင်ဆင်၍ ဝင်ရောက်ခွင့်ကို ဆက်လက်တည်တံ့စေရန် လုပ်ဆောင်သည်                        |
+| **Attack Vector**       | ဖွဲ့စည်းမှုဖိုင် ပြင်ဆင်ခြင်း၊ ဆက်တင် ထည့်သွင်းခြင်း                                                                    |
+| **Affected Components** | အေးဂျင့် ဖွဲ့စည်းမှု၊ ကိရိယာ မူဝါဒများ                                                                                  |
+| **Current Mitigations** | ဖိုင် permissions                                                                                                       |
+| **Residual Risk**       | အလတ်စား - ဒေသတွင်း ဝင်ရောက်ခွင့် လိုအပ်သည်                                                                              |
+| **Recommendations**     | ဖွဲ့စည်းမှု တည်ကြည်မှု စစ်ဆေးခြင်း၊ ဖွဲ့စည်းမှု ပြောင်းလဲမှုများအတွက် စစ်ဆေးမှတ်တမ်း (audit logging) |
+
+---
+
+### 3.5 ကာကွယ်ရေး လွတ်မြောက်မှု (AML.TA0007)
+
+#### T-EVADE-001: မော်ဒရေးရှင်း ပုံစံ ရှောင်လွှဲခြင်း
+
+| Attribute               | Value                                                                                                          |
+| ----------------------- | -------------------------------------------------------------------------------------------------------------- |
+| **ATLAS ID**            | AML.T0043 - Craft Adversarial Data                                                             |
+| **Description**         | တိုက်ခိုက်သူသည် မော်ဒရေးရှင်း ပုံစံများကို ရှောင်လွှဲနိုင်ရန် စွမ်းရည် အကြောင်းအရာကို ဖန်တီးသည်                |
+| **Attack Vector**       | Unicode ဟိုမိုဂလစ်ဖ်များ၊ အင်ကုဒင်း လှည့်ကွက်များ၊ ဒိုင်နမစ် လုပ်ဆောင်မှု ထည့်သွင်းခြင်း                       |
+| **Affected Components** | ClawHub moderation.ts                                                                          |
+| **Current Mitigations** | ပုံစံအခြေပြု FLAG_RULES                                                                   |
+| **Residual Risk**       | မြင့်မားသည် - ရိုးရှင်းသော regex ကို လွယ်ကူစွာ ရှောင်လွှဲနိုင်သည်                                              |
+| **Recommendations**     | အပြုအမူ ခွဲခြမ်းစိတ်ဖြာမှု (VirusTotal Code Insight)၊ AST အခြေပြု တွေ့ရှိမှုကို ထည့်သွင်းပါ |
+
+#### T-EVADE-002: အကြောင်းအရာ Wrapper မှ လွတ်မြောက်ခြင်း
+
+| Attribute               | Value                                                                                 |
+| ----------------------- | ------------------------------------------------------------------------------------- |
+| **ATLAS ID**            | AML.T0043 - Craft Adversarial Data                                    |
+| **Description**         | တိုက်ခိုက်သူသည် XML wrapper အကြောင်းအရာမှ လွတ်မြောက်နိုင်ရန် အကြောင်းအရာကို ဖန်တီးသည် |
+| **Attack Vector**       | Tag ပြုပြင်ခြင်း၊ အကြောင်းအရာ ဆက်စပ်မှု ရှုပ်ထွေးစေခြင်း၊ ညွှန်ကြားချက် အစားထိုးခြင်း |
+| **Affected Components** | ပြင်ပ အကြောင်းအရာ ထုပ်ပိုးခြင်း                                                       |
+| **Current Mitigations** | XML tags + လုံခြုံရေး အသိပေးချက်                                                      |
+| **Residual Risk**       | Medium - Novel escapes discovered regularly                                           |
+| **Recommendations**     | Multiple wrapper layers, output-side validation                                       |
+
+---
+
+### 3.6 Discovery (AML.TA0008)
+
+#### T-DISC-001: Tool Enumeration
+
+| Attribute               | Value                                                     |
+| ----------------------- | --------------------------------------------------------- |
+| **ATLAS ID**            | AML.T0040 - AI Model Inference API Access |
+| **Description**         | Attacker enumerates available tools through prompting     |
+| **Attack Vector**       | "What tools do you have?" style queries                   |
+| **Affected Components** | Agent tool registry                                       |
+| **Current Mitigations** | None specific                                             |
+| **Residual Risk**       | Low - Tools generally documented                          |
+| **Recommendations**     | Consider tool visibility controls                         |
+
+#### T-DISC-002: Session Data Extraction
+
+| Attribute               | Value                                                     |
+| ----------------------- | --------------------------------------------------------- |
+| **ATLAS ID**            | AML.T0040 - AI Model Inference API Access |
+| **Description**         | Attacker extracts sensitive data from session context     |
+| **Attack Vector**       | "What did we discuss?" queries, context probing           |
+| **Affected Components** | Session transcripts, context window                       |
+| **Current Mitigations** | Session isolation per sender                              |
+| **Residual Risk**       | Medium - Within-session data accessible                   |
+| **Recommendations**     | Implement sensitive data redaction in context             |
+
+---
+
+### 3.7 Collection & Exfiltration (AML.TA0009, AML.TA0010)
+
+#### T-EXFIL-001: Data Theft via web_fetch
+
+| Attribute               | Value                                                                  |
+| ----------------------- | ---------------------------------------------------------------------- |
+| **ATLAS ID**            | AML.T0009 - Collection                                 |
+| **Description**         | Attacker exfiltrates data by instructing agent to send to external URL |
+| **Attack Vector**       | Prompt injection causing agent to POST data to attacker server         |
+| **Affected Components** | web_fetch tool                                    |
+| **Current Mitigations** | SSRF blocking for internal networks                                    |
+| **Residual Risk**       | High - External URLs permitted                                         |
+| **Recommendations**     | Implement URL allowlisting, data classification awareness              |
+
+#### T-EXFIL-002: Unauthorized Message Sending
+
+| Attribute               | Value                                                            |
+| ----------------------- | ---------------------------------------------------------------- |
+| **ATLAS ID**            | AML.T0009 - Collection                           |
+| **Description**         | Attacker causes agent to send messages containing sensitive data |
+| **Attack Vector**       | Prompt injection causing agent to message attacker               |
+| **Affected Components** | Message tool, channel integrations                               |
+| **Current Mitigations** | Outbound messaging gating                                        |
+| **Residual Risk**       | Medium - Gating may be bypassed                                  |
+| **Recommendations**     | Require explicit confirmation for new recipients                 |
+
+#### T-EXFIL-003: Credential Harvesting
+
+| Attribute               | Value                                                   |
+| ----------------------- | ------------------------------------------------------- |
+| **ATLAS ID**            | AML.T0009 - Collection                  |
+| **Description**         | Malicious skill harvests credentials from agent context |
+| **Attack Vector**       | Skill code reads environment variables, config files    |
+| **Affected Components** | Skill execution environment                             |
+| **Current Mitigations** | None specific to skills                                 |
+| **Residual Risk**       | Critical - Skills run with agent privileges             |
+| **Recommendations**     | Skill sandboxing, credential isolation                  |
+
+---
+
+### 3.8 Impact (AML.TA0011)
+
+#### T-IMPACT-001: Unauthorized Command Execution
+
+| Attribute               | Value                                                                                             |
+| ----------------------- | ------------------------------------------------------------------------------------------------- |
+| **ATLAS ID**            | AML.T0031 - Erode AI Model Integrity                                              |
+| **Description**         | Attacker executes arbitrary commands on user system                                               |
+| **Attack Vector**       | Prompt injection combined with exec approval bypass                                               |
+| **Affected Components** | Bash tool, command execution                                                                      |
+| **Current Mitigations** | Exec approvals, Docker sandbox option                                                             |
+| **Residual Risk**       | Critical - Host execution without sandbox                                                         |
+| **Recommendations**     | 2. ပုံမှန်အားဖြင့် sandbox သုံးရန်၊ ခွင့်ပြုမှု UX ကို တိုးတက်အောင်လုပ်ရန် |
+
+#### 3. T-IMPACT-002: အရင်းအမြစ် ကုန်ခန်းမှု (DoS)
+
+| Attribute               | Value                                                                                                                |
+| ----------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| **ATLAS ID**            | AML.T0031 - Erode AI Model Integrity                                                                 |
+| **Description**         | 8. တိုက်ခိုက်သူက API credit များ သို့မဟုတ် တွက်ချက်ရေး အရင်းအမြစ်များကို ကုန်ခန်းအောင်လုပ်သည် |
+| **Attack Vector**       | 10. အလိုအလျောက် စာတိုများ များပြားစွာ ပို့ခြင်း၊ ကုန်ကျစရိတ်မြင့် tool ခေါ်ယူမှုများ          |
+| **Affected Components** | 12. Gateway၊ agent session များ၊ API ပံ့ပိုးသူ                                                |
+| **Current Mitigations** | 14. မရှိ                                                                                      |
+| **Residual Risk**       | 16. မြင့်မား — rate limiting မရှိ                                                             |
+| **Recommendations**     | 18. ပို့သူတစ်ဦးချင်းစီအလိုက် rate limit များ၊ ကုန်ကျစရိတ် ဘတ်ဂျက်များ ကို အကောင်အထည်ဖော်ရန်   |
+
+#### 19. T-IMPACT-003: ဂုဏ်သတင်း ထိခိုက်မှု
+
+| Attribute               | Value                                                                                                      |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------- |
+| **ATLAS ID**            | AML.T0031 - Erode AI Model Integrity                                                       |
+| **Description**         | 24. တိုက်ခိုက်သူက agent ကို အန္တရာယ်ရှိ သို့မဟုတ် အပြစ်ပြုစရာ အကြောင်းအရာ ပို့စေသည် |
+| **Attack Vector**       | 26. မသင့်လျော်သော တုံ့ပြန်ချက်များ ဖြစ်စေသည့် prompt injection                      |
+| **Affected Components** | 28. အထွက်အမြောက် ထုတ်လုပ်မှု၊ ချန်နယ် စာတိုပို့ခြင်း                                |
+| **Current Mitigations** | 30. LLM ပံ့ပိုးသူ၏ အကြောင်းအရာ မူဝါဒများ                                            |
+| **Residual Risk**       | 32. အလတ်စား — ပံ့ပိုးသူ filter များ မပြည့်စုံ                                       |
+| **Recommendations**     | 34. အထွက်အမြောက် စစ်ထုတ်ခြင်း အလွှာ၊ အသုံးပြုသူ ထိန်းချုပ်မှုများ                   |
+
+---
+
+## 10. 4. 35. ClawHub ပံ့ပိုးမှုကွင်းဆက် ဆန်းစစ်ခြင်း
+
+### 36. 4.1 လက်ရှိ လုံခြုံရေး ထိန်းချုပ်မှုများ
+
+| 37. ထိန်းချုပ်မှု                | Implementation                                                   | 38. ထိရောက်မှု                                                         |
+| ------------------------------------------------------- | ---------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| 39. GitHub အကောင့် အသက်တမ်း      | 40. `requireGitHubAccountAge()`           | 41. အလတ်စား — တိုက်ခိုက်သူ အသစ်များအတွက် အတားအဆီး မြှင့်တင်သည်         |
+| 42. လမ်းကြောင်း သန့်စင်ခြင်း     | 43. `sanitizePath()`                      | 44. မြင့်မား — path traversal ကို တားဆီးသည်                            |
+| 45. ဖိုင် အမျိုးအစား စစ်ဆေးခြင်း | 46. `isTextFile()`                        | 47. အလတ်စား — စာသားဖိုင်များသာ ခွင့်ပြုသော်လည်း အန္တရာယ်ရှိနိုင်သေးသည် |
+| 48. အရွယ်အစား ကန့်သတ်ချက်များ    | 49. စုစုပေါင်း bundle 50MB                | 50. မြင့်မား — အရင်းအမြစ် ကုန်ခန်းမှုကို တားဆီးသည်                     |
+| Required SKILL.md                       | Mandatory readme                                                 | Low security value - Informational only                                                       |
+| Pattern Moderation                                      | FLAG_RULES in moderation.ts | Low - Easily bypassed                                                                         |
+| Moderation Status                                       | `moderationStatus` field                                         | Medium - Manual review possible                                                               |
+
+### 4.2 Moderation Flag Patterns
+
+Current patterns in `moderation.ts`:
+
+```javascript
+// Known-bad identifiers
+/(keepcold131\/ClawdAuthenticatorTool|ClawdAuthenticatorTool)/i
+
+// Suspicious keywords
+/(malware|stealer|phish|phishing|keylogger)/i
+/(api[-_ ]?key|token|password|private key|secret)/i
+/(wallet|seed phrase|mnemonic|crypto)/i
+/(discord\.gg|webhook|hooks\.slack)/i
+/(curl[^\n]+|\s*(sh|bash))/i
+/(bit\.ly|tinyurl\.com|t\.co|goo\.gl|is\.gd)/i
+```
+
+**Limitations:**
+
+- Only checks slug, displayName, summary, frontmatter, metadata, file paths
+- Does not analyze actual skill code content
+- Simple regex easily bypassed with obfuscation
+- No behavioral analysis
+
+### 4.3 Planned Improvements
+
+| Improvement            | အခြေအနေ                                                  | Impact                                                                |
+| ---------------------- | -------------------------------------------------------- | --------------------------------------------------------------------- |
+| VirusTotal Integration | In Progress                                              | High - Code Insight behavioral analysis                               |
+| Community Reporting    | Partial (`skillReports` table exists) | Medium                                                                |
+| Audit Logging          | Partial (`auditLogs` table exists)    | Medium                                                                |
+| Badge System           | Implemented                                              | Medium - `highlighted`, `official`, `deprecated`, `redactionApproved` |
+
+---
+
+## 5. Risk Matrix
+
+### 5.1 Likelihood vs Impact
+
+| Threat ID     | Likelihood | Impact   | Risk Level                             | Priority |
+| ------------- | ---------- | -------- | -------------------------------------- | -------- |
+| T-EXEC-001    | High       | Critical | **Critical**                           | P0       |
+| T-PERSIST-001 | High       | Critical | **Critical**                           | P0       |
+| T-EXFIL-003   | Medium     | Critical | **Critical**                           | P0       |
+| T-IMPACT-001  | Medium     | Critical | P1                                     | P1       |
+| T-EXEC-002    | High       | High     | P1                                     | P1       |
+| T-EXEC-004    | Medium     | High     | P1                                     | P1       |
+| T-ACCESS-003  | Medium     | High     | P1                                     | P1       |
+| T-EXFIL-001   | Medium     | High     | P1                                     | P1       |
+| T-IMPACT-002  | High       | Medium   | P1                                     | P1       |
+| T-EVADE-001   | High       | Medium   | P2                                     | P2       |
+| T-ACCESS-001  | Low        | High     | P2                                     | P2       |
+| T-ACCESS-002  | Low        | High     | P2                                     | P2       |
+| T-PERSIST-002 | Low        | High     | 3. **အလယ်အလတ်** | P2       |
+
+### 5. 5.2 အရေးပါသော လမ်းကြောင်း တိုက်ခိုက်မှု ချိတ်ဆက်ကွင်းများ
+
+6. **တိုက်ခိုက်မှု ချိတ်ဆက်ကွင်း ၁: ကျွမ်းကျင်မှုအခြေပြု ဒေတာ ခိုးယူမှု**
+
+```
+7. T-PERSIST-001 → T-EVADE-001 → T-EXFIL-003
+(အန္တရာယ်ရှိသော skill ကို ထုတ်ပြန်ခြင်း) → (စိစစ်ထိန်းချုပ်မှုကို ရှောင်လွှဲခြင်း) → (အကောင့်အထောက်အထားများ စုဆောင်းခြင်း)
+```
+
+8. **တိုက်ခိုက်မှု ချိတ်ဆက်ကွင်း ၂: Prompt Injection မှ RCE သို့**
+
+```
+9. T-EXEC-001 → T-EXEC-004 → T-IMPACT-001
+(Prompt ထိုးသွင်းခြင်း) → (exec ခွင့်ပြုချက်ကို ကျော်လွှားခြင်း) → (အမိန့်များ လုပ်ဆောင်ခြင်း)
+```
+
+10. **တိုက်ခိုက်မှု ချိတ်ဆက်ကွင်း ၃: ရယူထားသော အကြောင်းအရာမှတစ်ဆင့် အကြမ်းဖက် ထိုးသွင်းခြင်း**
+
+```
+11. T-EXEC-002 → T-EXFIL-001 → External exfiltration
+(URL အကြောင်းအရာကို အဆိပ်သင့်စေခြင်း) → (Agent က ရယူပြီး အညွှန်းများကို လိုက်နာခြင်း) → (ဒေတာကို တိုက်ခိုက်သူထံ ပို့ခြင်း)
+```
+
+---
+
+## 6. 12. အကြံပြုချက်များ အကျဉ်းချုပ်
+
+### 13. 6.1 ချက်ချင်း (P0)
+
+| 14. ID    | 15. အကြံပြုချက်                                                           | 16. ကိုင်တွယ်ဖြေရှင်းသည့် အချက်များ |
+| -------------------------------- | ------------------------------------------------------------------------------------------------ | ---------------------------------------------------------- |
+| 17. R-001 | 18. VirusTotal ပေါင်းစည်းမှုကို အပြည့်အဝ ဆောင်ရွက်ပါ                      | 19. T-PERSIST-001, T-EVADE-001      |
+| 20. R-002 | 21. skill sandboxing ကို အကောင်အထည်ဖော်ပါ                                 | 22. T-PERSIST-001, T-EXFIL-003      |
+| 23. R-003 | 24. အရေးကြီးသော လုပ်ဆောင်ချက်များအတွက် output စိစစ်အတည်ပြုမှု ထည့်သွင်းပါ | 25. T-EXEC-001, T-EXEC-002          |
+
+### 26. 6.2 အချိန်တို (P1)
+
+| 27. ID    | 28. အကြံပြုချက်                                                                    | 29. ကိုင်တွယ်ဖြေရှင်းသည့် အချက်များ |
+| -------------------------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| 30. R-004 | 31. rate limiting ကို အကောင်အထည်ဖော်ပါ                                             | T-IMPACT-002                                               |
+| 33. R-005 | 34. token များကို သိမ်းဆည်းထားစဉ် encryption ထည့်သွင်းပါ                           | T-ACCESS-003                                               |
+| 36. R-006 | 37. exec ခွင့်ပြုချက် UX နှင့် စိစစ်အတည်ပြုမှုကို တိုးတက်ကောင်းမွန်အောင် ပြုလုပ်ပါ | T-EXEC-004                                                 |
+| R-007                            | 40. web_fetch အတွက် URL allowlisting ကို အကောင်အထည်ဖော်ပါ     | T-EXFIL-001                                                |
+
+### 42. 6.3 အလယ်အလတ်ကာလ (P2)
+
+| 43. ID    | 44. အကြံပြုချက်                                                            | 45. ကိုင်တွယ်ဖြေရှင်းသည့် အချက်များ |
+| -------------------------------- | ------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| 46. R-008 | 47. ဖြစ်နိုင်သည့်နေရာများတွင် cryptographic channel အတည်ပြုမှု ထည့်သွင်းပါ | T-ACCESS-002                                               |
+| 49. R-009 | 50. config အပြည့်အဝတည်ကြည်မှု စိစစ်အတည်ပြုမှုကို အကောင်အထည်ဖော်ပါ          | T-PERSIST-003                                              |
+| R-010                            | Add update signing and version pinning                                                            | T-PERSIST-002                                              |
+
+---
+
+## 7. Appendices
+
+### 7.1 ATLAS Technique Mapping
+
+| ATLAS ID                                      | Technique Name                                 | OpenClaw Threats                                                 |
+| --------------------------------------------- | ---------------------------------------------- | ---------------------------------------------------------------- |
+| AML.T0006                     | Active Scanning                                | T-RECON-001, T-RECON-002                                         |
+| AML.T0009                     | Collection                                     | T-EXFIL-001, T-EXFIL-002, T-EXFIL-003                            |
+| AML.T0010.001 | Supply Chain: AI Software      | T-PERSIST-001, T-PERSIST-002                                     |
+| AML.T0010.002 | Supply Chain: Data             | T-PERSIST-003                                                    |
+| AML.T0031                     | Erode AI Model Integrity                       | T-IMPACT-001, T-IMPACT-002, T-IMPACT-003                         |
+| AML.T0040                     | AI Model Inference API Access                  | T-ACCESS-001, T-ACCESS-002, T-ACCESS-003, T-DISC-001, T-DISC-002 |
+| AML.T0043                     | Craft Adversarial Data                         | T-EXEC-004, T-EVADE-001, T-EVADE-002                             |
+| AML.T0051.000 | LLM Prompt Injection: Direct   | T-EXEC-001, T-EXEC-003                                           |
+| AML.T0051.001 | LLM Prompt Injection: Indirect | T-EXEC-002                                                       |
+
+### 7.2 Key Security Files
+
+| ၃၁. Path                                      | Purpose                                                       | Risk Level                              |
+| ------------------------------------------------------------- | ------------------------------------------------------------- | --------------------------------------- |
+| `src/infra/exec-approvals.ts`                                 | Command approval logic                                        | **Critical**                            |
+| `src/gateway/auth.ts`                                         | Gateway authentication                                        | **Critical**                            |
+| `src/web/inbound/access-control.ts`                           | Channel access control                                        | **Critical**                            |
+| `src/infra/net/ssrf.ts`                                       | SSRF protection                                               | **Critical**                            |
+| `src/security/external-content.ts`                            | 1. Prompt injection ကာကွယ်ရေး          | **Critical**                            |
+| 3. `src/agents/sandbox/tool-policy.ts` | 4. Tool မူဝါဒ အတည်ပြုအကောင်အထည်ဖော်မှု | **Critical**                            |
+| 6. `convex/lib/moderation.ts`          | 7. ClawHub စိစစ်ထိန်းချုပ်မှု          | 8. **အမြင့်**    |
+| 9. `convex/lib/skillPublish.ts`        | 10. Skill ထုတ်ဝေမှု လုပ်ငန်းစဉ်        | 11. **အမြင့်**   |
+| 12. `src/routing/resolve-route.ts`     | Session isolation                                             | 14. **အလတ်အလတ်** |
+
+### 15. 7.3 ဝေါဟာရများ
+
+| 16. ဝေါဟာရ               | 17. အဓိပ္ပါယ်ဖော်ပြချက်                                                            |
+| ----------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| 18. **ATLAS**            | 19. MITRE ၏ AI စနစ်များအတွက် ဆန့်ကျင်ဘက်ခြိမ်းခြောက်မှု မြေပြင်အနေအထား             |
+| 20. **ClawHub**          | 21. OpenClaw ၏ skill စျေးကွက်                                                      |
+| **Gateway**                                     | 22. OpenClaw ၏ မက်ဆေ့ချ် လမ်းကြောင်းညွှန်နှင့် အတည်ပြုခြင်း အလွှာ                  |
+| 23. **MCP**              | 24. Model Context Protocol - tool ပံ့ပိုးသူ အင်တာဖေ့စ်                             |
+| 25. **Prompt Injection** | 26. အန္တရာယ်ရှိသော ညွှန်ကြားချက်များကို input အတွင်း ထည့်သွင်းထားသော တိုက်ခိုက်မှု |
+| 27. **Skill**            | 28. OpenClaw agent များအတွက် ဒေါင်းလုဒ်လုပ်နိုင်သော တိုးချဲ့မှု                    |
+| 29. **SSRF**             | 30. Server-Side Request Forgery                                                    |
+
+---
+
+31. _ဤခြိမ်းခြောက်မှု မော်ဒယ်သည် အမြဲတမ်း ပြောင်းလဲတိုးတက်နေသော စာတမ်းဖြစ်သည်။ 32. လုံခြုံရေး ပြဿနာများကို security@openclaw.ai သို့ တင်ပြပါ_

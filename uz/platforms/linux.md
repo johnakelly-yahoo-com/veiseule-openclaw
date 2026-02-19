@@ -1,4 +1,8 @@
 ---
+summary: "Linux qo‘llab-quvvatlashi + hamroh ilova holati"
+read_when:
+  - Linux uchun hamroh ilova holatini qidiryapsizmi
+  - Platformalarni qamrab olish yoki hissa qo‘shishni rejalashtiryapsizmi
 title: "Linux ilovasi"
 ---
 
@@ -88,5 +92,3 @@ Uni yoqing:
 ```
 systemctl --user enable --now openclaw-gateway[-<profile>].service
 ```
-
-

@@ -1,4 +1,9 @@
-------
+---
+title: "TOOLS.md 範本"
+summary: "TOOLS.md 的工作區範本"
+read_when:
+  - 手動引導建立工作區
+---
 
 # TOOLS.md - 本機備註
 
@@ -40,5 +45,3 @@ Skills are shared. Your setup is yours. Skills 是共用的；你的設定是你
 ---
 
 Add whatever helps you do your job. This is your cheat sheet.
-
-

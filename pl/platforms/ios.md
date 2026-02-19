@@ -1,4 +1,9 @@
 ---
+summary: "Aplikacja węzła iOS: połączenie z Gateway, parowanie, canvas i rozwiązywanie problemów"
+read_when:
+  - Parowanie lub ponowne łączenie węzła iOS
+  - Uruchamianie aplikacji iOS ze źródeł
+  - Debugowanie wykrywania Gateway lub poleceń canvas
 title: "Aplikacja iOS"
 ---
 
@@ -70,6 +75,7 @@ openclaw nodes invoke --node "iOS Node" --command canvas.navigate --params '{"ur
 Uwagi:
 
 - Host canvas Gateway serwuje `/__openclaw__/canvas/` oraz `/__openclaw__/a2ui/`.
+- Jest udostępniane przez serwer HTTP Gateway (ten sam port co `gateway.port`, domyślnie `18789`).
 - Węzeł iOS automatycznie przechodzi do A2UI po połączeniu, gdy ogłoszony jest adres URL hosta canvas.
 - Wróć do wbudowanego szkieletu za pomocą `canvas.navigate` oraz `{"url":""}`.
 
@@ -100,5 +106,3 @@ openclaw nodes invoke --node "iOS Node" --command canvas.snapshot --params '{"ma
 - [Parowanie](/gateway/pairing)
 - [Wykrywanie](/gateway/discovery)
 - [Bonjour](/gateway/bonjour)
-
-

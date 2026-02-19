@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw security` için CLI başvuru belgesi (yaygın güvenlik hatalarını denetleme ve düzeltme)"
+read_when:
+  - Yapılandırma/durum üzerinde hızlı bir güvenlik denetimi çalıştırmak istiyorsanız
+  - Güvenli “düzeltme” önerilerini (chmod, varsayılanları sıkılaştırma) uygulamak istiyorsanız
 title: "güvenlik"
 ---
 
@@ -10,7 +14,7 @@ Güvenlik araçları (denetim + isteğe bağlı düzeltmeler).
 
 - Güvenlik kılavuzu: [Güvenlik](/gateway/security)
 
-## Denetim
+## Audit
 
 ```bash
 openclaw security audit
@@ -20,5 +24,5 @@ openclaw security audit --fix
 
 Denetim, birden fazla DM göndereninin ana oturumu paylaştığı durumlarda uyarır ve paylaşılan gelen kutuları için **güvenli DM modu**: `session.dmScope="per-channel-peer"` (çoklu hesap kanalları için `per-account-channel-peer`) önerir.
 Ayrıca, sandboxing olmadan ve web/tarayıcı araçları etkinleştirilmiş şekilde küçük modellerin (`<=300B`) kullanılması durumunda da uyarır.
-
-
+Webhook ingress için, `hooks.defaultSessionKey` ayarlanmamışsa, istek `sessionKey` geçersiz kılmaları etkinse ve `hooks.allowedSessionKeyPrefixes` olmadan geçersiz kılmalar etkinse uyarı verir.
+Ayrıca sandbox modu kapalıyken sandbox Docker ayarları yapılandırılmışsa, `gateway.nodes.denyCommands` etkisiz desen benzeri/bilinmeyen girdiler kullanıyorsa, genel `tools.profile="minimal"` ajan araç profilleri tarafından geçersiz kılınıyorsa ve yüklü extension eklenti araçları izin verici araç politikası altında erişilebilir durumdaysa uyarı verir.

@@ -1,4 +1,8 @@
 ---
+summary: "Справка CLI для `openclaw node` (хост узла без графического интерфейса)"
+read_when:
+  - Запуск хоста узла без графического интерфейса
+  - Сопряжение узла не на macOS для system.run
 title: "node"
 ---
 
@@ -86,7 +90,7 @@ openclaw node uninstall
 
 Команды сервиса принимают `--json` для машиночитаемого вывода.
 
-## Сопряжение
+## Pairing
 
 Первое подключение создаёт ожидающий запрос на сопряжение узла на Gateway.
 Подтвердите его через:
@@ -106,5 +110,3 @@ openclaw nodes approve <requestId>
 - `~/.openclaw/exec-approvals.json`
 - [Подтверждения выполнения команд](/tools/exec-approvals)
 - `openclaw approvals --node <id|name|ip>` (редактирование через Gateway)
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "Mga patakaran sa paghawak ng imahe at media para sa send, gateway, at agent replies"
+read_when:
+  - Pagbabago sa media pipeline o mga attachment
 title: "Suporta sa Imahe at Media"
 ---
 
@@ -67,5 +70,3 @@ Ang WhatsApp channel ay tumatakbo sa pamamagitan ng **Baileys Web**. Kinukunan n
 - Saklawin ang send + reply flows para sa mga kaso ng imahe/audio/dokumento.
 - I-validate ang recompression para sa mga imahe (size bound) at ang voice-note flag para sa audio.
 - Tiyaking ang mga multi-media reply ay nagfa-fan out bilang sunud-sunod na send.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw ile Amazon Bedrock (Converse API) modellerini kullanın"
+read_when:
+  - OpenClaw ile Amazon Bedrock modellerini kullanmak istiyorsunuz
+  - Model çağrıları için AWS kimlik bilgileri/bölge kurulumuna ihtiyacınız var
 title: "Amazon Bedrock"
 ---
 
@@ -168,5 +172,3 @@ openclaw models list
 - Akıl yürütme desteği modele bağlıdır; güncel yetenekler için Bedrock model kartını kontrol edin.
 - Yönetilen bir anahtar akışını tercih ederseniz, Bedrock’un önüne OpenAI‑uyumlu
   bir proxy koyabilir ve bunu bir OpenAI sağlayıcısı olarak yapılandırabilirsiniz.
-
-

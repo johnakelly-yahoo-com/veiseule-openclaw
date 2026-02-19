@@ -1,4 +1,5 @@
 ---
+summary: "Dépôt de tickets et rapports de bugs à fort signal"
 title: "Soumettre un problème"
 ---
 
@@ -149,5 +150,3 @@ _Évitez les secrets/détails d’exploit en public. Pour les sujets sensibles, 
 ### Soumettre une PR de correctif
 
 Un ticket avant la PR est facultatif. Incluez les détails dans la PR si vous passez outre. Gardez la PR ciblée, mentionnez le numéro du ticket, ajoutez des tests ou expliquez leur absence, documentez les changements de comportement/risques, incluez des journaux/captures d’écran expurgés comme preuves, et exécutez la validation appropriée avant la soumission.
-
-

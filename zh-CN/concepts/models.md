@@ -1,18 +1,17 @@
 ---
-title: 模型 CLI
-x-i18n:
-  generated_at: "2026-02-03T10:05:42Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: e8b54bb370b4f63a9b917594fb0f6ff48192e168196d30c713b8bbe72b78fef6
-  source_path: concepts/models.md
-  workflow: 15
+summary: "模型 CLI：列表、设置、别名、回退、扫描、状态"
+read_when:
+  - 添加或修改模型 CLI（models list/set/scan/aliases/fallbacks）
+  - 更改模型回退行为或选择用户体验
+  - 更新模型扫描探测（工具/图像）
+title: "模型 CLI"
 ---
 
 # 模型 CLI
 
 参见 [/concepts/model-failover](/concepts/model-failover) 了解认证配置文件轮换、冷却时间及其与回退的交互。
 快速提供商概述 + 示例：[/concepts/model-providers](/concepts/model-providers)。
+Quick provider overview + examples: [/concepts/model-providers](/concepts/model-providers).
 
 ## 模型选择工作原理
 
@@ -50,19 +49,20 @@ openclaw onboard
 - `agents.defaults.models`（白名单 + 别名 + 提供商参数）
 - `models.providers`（写入 `models.json` 的自定义提供商）
 
-模型引用会规范化为小写。提供商别名如 `z.ai/*` 会规范化为 `zai/*`。
+模型引用会被规范化为小写。 模型引用会规范化为小写。提供商别名如 `z.ai/*` 会规范化为 `zai/*`。
 
 提供商配置示例（包括 OpenCode Zen）在 [/gateway/configuration](/gateway/configuration#opencode-zen-multi-model-proxy)。
 
 ## "Model is not allowed"（以及为什么回复停止）
 
-如果设置了 `agents.defaults.models`，它将成为 `/model` 和会话覆盖的**白名单**。当用户选择不在该白名单中的模型时，OpenClaw 返回：
+如果设置了 `agents.defaults.models`，它将成为 `/model` 和会话覆盖的**白名单**。当用户选择不在该白名单中的模型时，OpenClaw 返回： 当用户选择了不在该允许列表中的模型时，
+OpenClaw 会返回：
 
 ```
 Model "provider/model" is not allowed. Use /model to list available models.
 ```
 
-这发生在正常回复生成**之前**，所以消息可能感觉像"没有响应"。修复方法是：
+这发生在正常回复生成**之前**，所以消息可能感觉像"没有响应"。修复方法是： 4. 修复方法是以下之一：
 
 - 将模型添加到 `agents.defaults.models`，或
 - 清除白名单（删除 `agents.defaults.models`），或
@@ -99,7 +99,7 @@ Model "provider/model" is not allowed. Use /model to list available models.
 - `/model`（和 `/model list`）是紧凑的编号选择器（模型系列 + 可用提供商）。
 - `/model <#>` 从该选择器中选择。
 - `/model status` 是详细视图（认证候选项，以及配置时的提供商端点 `baseUrl` + `api` 模式）。
-- 模型引用通过在**第一个** `/` 处分割来解析。输入 `/model <ref>` 时使用 `provider/model`。
+- 模型引用通过在**第一个** `/` 处分割来解析。 模型引用通过在**第一个** `/` 处分割来解析。输入 `/model <ref>` 时使用 `provider/model`。
 - 如果模型 ID 本身包含 `/`（OpenRouter 风格），你必须包含提供商前缀（例如：`/model openrouter/moonshotai/kimi-k2`）。
 - 如果省略提供商，OpenClaw 将输入视为别名或**默认提供商**的模型（仅在模型 ID 中没有 `/` 时有效）。
 
@@ -132,7 +132,7 @@ openclaw models image-fallbacks clear
 
 ### `models list`
 
-默认显示已配置的模型。有用的标志：
+默认显示已配置的模型。有用的标志： 有用的标志：
 
 - `--all`：完整目录
 - `--local`：仅本地提供商
@@ -142,10 +142,15 @@ openclaw models image-fallbacks clear
 
 ### `models status`
 
-显示已解析的主要模型、回退、图像模型，以及已配置提供商的认证概述。它还显示认证存储中找到的配置文件的 OAuth 过期状态（默认在 24 小时内警告）。`--plain` 仅打印已解析的主要模型。
-OAuth 状态始终显示（并包含在 `--json` 输出中）。如果已配置的提供商没有凭证，`models status` 会打印 **Missing auth** 部分。
-JSON 包括 `auth.oauth`（警告窗口 + 配置文件）和 `auth.providers`（每个提供商的有效认证）。
-使用 `--check` 进行自动化（缺失/过期时退出 `1`，即将过期时退出 `2`）。
+Shows the resolved primary model, fallbacks, image model, and an auth overview
+of configured providers. It also surfaces OAuth expiry status for profiles found
+in the auth store (warns within 24h by default). `--plain` prints only the
+resolved primary model.
+OAuth status is always shown (and included in `--json` output). If a configured
+provider has no credentials, `models status` prints a **Missing auth** section.
+JSON includes `auth.oauth` (warn window + profiles) and `auth.providers`
+(effective auth per provider).
+Use `--check` for automation (exit `1` when missing/expired, `2` when expiring).
 
 首选的 Anthropic 认证是 Claude Code CLI setup-token（在任何地方运行；如需要在 Gateway 网关主机上粘贴）：
 
@@ -168,7 +173,7 @@ openclaw models status
 - `--set-default`：将 `agents.defaults.model.primary` 设置为第一个选择
 - `--set-image`：将 `agents.defaults.imageModel.primary` 设置为第一个图像选择
 
-探测需要 OpenRouter API 密钥（来自认证配置文件或 `OPENROUTER_API_KEY`）。没有密钥时，使用 `--no-probe` 仅列出候选项。
+探测需要 OpenRouter API 密钥（来自认证配置文件或 `OPENROUTER_API_KEY`）。没有密钥时，使用 `--no-probe` 仅列出候选项。 Without a key, use `--no-probe` to list candidates only.
 
 扫描结果按以下顺序排名：
 
@@ -184,10 +189,10 @@ openclaw models status
 - 可选筛选器：`--max-age-days`、`--min-params`、`--provider`、`--max-candidates`
 - 探测控制：`--timeout`、`--concurrency`
 
-在 TTY 中运行时，你可以交互式选择回退。在非交互模式下，传递 `--yes` 接受默认值。
+在 TTY 中运行时，你可以交互式选择回退。在非交互模式下，传递 `--yes` 接受默认值。 In non‑interactive
+mode, pass `--yes` to accept defaults.
 
 ## 模型注册表（`models.json`）
 
-`models.providers` 中的自定义提供商会写入智能体目录下的 `models.json`（默认 `~/.openclaw/agents/<agentId>/models.json`）。除非 `models.mode` 设置为 `replace`，否则此文件默认会被合并。
-
-
+`models.providers` 中的自定义提供商会写入智能体目录下的 `models.json`（默认 `~/.openclaw/agents/<agentId>/models.json`）。除非 `models.mode` 设置为 `replace`，否则此文件默认会被合并。 This file
+is merged by default unless `models.mode` is set to `replace`.

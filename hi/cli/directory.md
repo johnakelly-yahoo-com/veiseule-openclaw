@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw directory` के लिए CLI संदर्भ (self, peers, groups)"
+read_when:
+  - आप किसी चैनल के लिए संपर्क/समूह/self आईडी ढूंढना चाहते हैं
+  - आप एक चैनल डायरेक्टरी एडेप्टर विकसित कर रहे हैं
 title: "डायरेक्टरी"
 ---
 
@@ -57,5 +61,3 @@ openclaw directory groups list --channel zalouser
 openclaw directory groups list --channel zalouser --query "work"
 openclaw directory groups members --channel zalouser --group-id <id>
 ```
-
-

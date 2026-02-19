@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw node` အတွက် CLI ရည်ညွှန်းချက် (headless node host)"
+read_when:
+  - headless node host ကို လည်ပတ်နေစဉ်
+  - system.run အတွက် macOS မဟုတ်သော node ကို တွဲချိတ်နေစဉ်
 title: "node"
 ---
 
@@ -103,5 +107,3 @@ node host သည် ၎င်း၏ node id၊ token၊ ပြသအမည်န
 - `~/.openclaw/exec-approvals.json`
 - [Exec အတည်ပြုချက်များ](/tools/exec-approvals)
 - `openclaw approvals --node <id|name|ip>` (Gateway မှ တည်းဖြတ်နိုင်သည်)
-
-

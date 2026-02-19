@@ -1,22 +1,25 @@
 ---
+summary: "Mga patakaran sa pamamahala ng session, mga key, at persistence para sa mga chat"
+read_when:
+  - Pagbabago ng paghawak o pag-iimbak ng session
 title: "Pamamahala ng Session"
 ---
 
 # Pamamahala ng Session
 
-Itinuturing ng OpenClaw ang **isang direct-chat session bawat agent** bilang primary. Ang mga direct chat ay kino-collapse sa `agent:<agentId>:<mainKey>` (default `main`), habang ang mga group/channel chat ay may sarili nilang mga key. Iginagalang ang `session.mainKey`.
+OpenClaw treats **one direct-chat session per agent** as primary. Direct chats collapse to `agent:<agentId>:<mainKey>` (default `main`), while group/channel chats get their own keys. `session.mainKey` is honored.
 
 Gamitin ang `session.dmScope` upang kontrolin kung paano pinapangkat ang **mga direct message**:
 
 - `main` (default): lahat ng DM ay nagbabahagi ng pangunahing session para sa continuity.
 - `per-peer`: ihiwalay ayon sa sender id sa iba’t ibang channel.
 - `per-channel-peer`: ihiwalay ayon sa channel + sender (inirerekomenda para sa mga multi-user inbox).
-- `per-account-channel-peer`: ihiwalay batay sa account + channel + sender (inirerekomenda para sa mga multi-account inbox).
-Gamitin ang `session.identityLinks` upang i-map ang mga provider-prefixed peer id sa isang canonical identity upang ang parehong tao ay makapagbahagi ng iisang DM session sa iba’t ibang channel kapag gumagamit ng `per-peer`, `per-channel-peer`, o `per-account-channel-peer`.
+- `per-account-channel-peer`: isolate by account + channel + sender (recommended for multi-account inboxes).
+  Use `session.identityLinks` to map provider-prefixed peer ids to a canonical identity so the same person shares a DM session across channels when using `per-peer`, `per-channel-peer`, or `per-account-channel-peer`.
 
 ## Secure DM mode (inirerekomenda para sa mga multi-user setup)
 
-> **Babala sa Seguridad:** Kung ang iyong agent ay maaaring tumanggap ng mga DM mula sa **maraming tao**, mariing inirerekomenda na paganahin ang secure DM mode. Kung hindi, lahat ng user ay magbabahagi ng iisang conversation context, na maaaring magdulot ng pagtagas ng pribadong impormasyon sa pagitan ng mga user.
+> **Security Warning:** If your agent can receive DMs from **multiple people**, you should strongly consider enabling secure DM mode. Without it, all users share the same conversation context, which can leak private information between users.
 
 **Halimbawa ng problema sa default na settings:**
 
@@ -45,7 +48,7 @@ Gamitin ang `session.identityLinks` upang i-map ang mga provider-prefixed peer i
 
 Mga tala:
 
-- Default ay `dmScope: "main"` para sa continuity (lahat ng DM ay nagbabahagi ng main session). Ayos ito para sa mga single-user setup.
+- Default is `dmScope: "main"` for continuity (all DMs share the main session). This is fine for single-user setups.
 - Para sa mga multi-account inbox sa iisang channel, mas mainam ang `per-account-channel-peer`.
 - Kung ang parehong tao ay kumokontak sa iyo sa maraming channel, gamitin ang `session.identityLinks` upang pagsamahin ang kanilang mga DM session sa isang canonical na identidad.
 - Maaari mong i-verify ang iyong DM settings gamit ang `openclaw security audit` (tingnan ang [security](/cli/security)).
@@ -74,7 +77,7 @@ This does **not** rewrite JSONL history. Tingnan ang [/concepts/session-pruning]
 
 ## Pag-flush ng Memorya Bago ang Compaction
 
-Kapag ang isang session ay papalapit na sa auto-compaction, maaaring magpatakbo ang OpenClaw ng isang **silent memory flush**
+When a session nears auto-compaction, OpenClaw can run a **silent memory flush**
 turn that reminds the model to write durable notes to disk. This only runs when
 the workspace is writable. See [Memory](/concepts/memory) and
 [Compaction](/concepts/compaction).
@@ -199,5 +202,3 @@ Ang bawat session entry ay nagtatala kung saan ito nagmula (best‑effort) sa `o
   `GroupSubject`, `GroupChannel`, `GroupSpace`, and `SenderName` in the inbound
   context and calling `recordSessionMetaFromInbound` (or passing the same context
   to `updateLastRoute`).
-
-

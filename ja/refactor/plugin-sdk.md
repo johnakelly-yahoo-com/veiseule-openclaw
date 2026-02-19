@@ -1,4 +1,8 @@
 ---
+summary: "計画: すべてのメッセージング コネクター向けに、1 つのクリーンな プラグイン SDK + ランタイム"
+read_when:
+  - プラグイン アーキテクチャを定義またはリファクタリングする場合
+  - チャンネル コネクターを プラグイン SDK / ランタイム に移行する場合
 title: "プラグイン SDK リファクタ"
 ---
 
@@ -36,6 +40,7 @@ Scope: 型、ヘルパー、設定ユーティリティ。 ランタイム状態
 
 ### 2. プラグイン ランタイム（実行面、注入）
 
+Scope: コア・ランタイムの動作に影響を与えるすべてのもの。
 Scope: コア・ランタイムの動作に影響を与えるすべてのもの。
 スコープ: コアのランタイム挙動に触れるすべて。  
 プラグインが `src/**` を import しないよう、`OpenClawPluginApi.runtime` 経由でアクセスします。
@@ -186,7 +191,7 @@ export type PluginRuntime = {
 ## 互換性とバージョニング
 
 - SDK: semver、公開、変更点を文書化します。
-- ランタイム: コア リリースごとにバージョン管理します。`api.runtime.version` を追加します。 `api.runtime.version` を追加します。
+- ランタイム: コア リリースごとにバージョン管理します。`api.runtime.version` を追加します。 `api.runtime.version` を追加します。 `api.runtime.version` を追加します。
 - プラグインは必要なランタイム範囲を宣言します（例: `openclawRuntime: ">=2026.2.0"`）。
 
 ## テスト戦略
@@ -195,7 +200,7 @@ export type PluginRuntime = {
 - プラグインごとのゴールデン テスト: 挙動の乖離がないことを確認します（ルーティング、ペアリング、許可リスト、メンション ゲーティング）。
 - CI で使用する単一のエンドツーエンド プラグイン サンプル（インストール + 実行 + スモーク）。
 
-## 未解決の課題
+## Open questions
 
 - SDK の型はどこに配置するべきか: 別パッケージか、コア export か。
 - ランタイム型の配布方法: SDK（型のみ）か、コアか。
@@ -210,5 +215,3 @@ export type PluginRuntime = {
 - 外部プラグインが、コア ソースへのアクセスなしに開発・更新できること。
 
 関連ドキュメント: [Plugins](/tools/plugin)、[Channels](/channels/index)、[Configuration](/gateway/configuration)。
-
-

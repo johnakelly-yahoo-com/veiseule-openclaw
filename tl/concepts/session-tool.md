@@ -1,4 +1,7 @@
 ---
+summary: "Mga tool ng agent session para sa paglista ng mga session, pagkuha ng history, at pagpapadala ng cross-session na mga mensahe"
+read_when:
+  - Pagdaragdag o pagbabago ng mga session tool
 title: "Mga Tool ng Session"
 ---
 
@@ -21,7 +24,7 @@ Layunin: maliit at mahirap abusuhin na set ng mga tool para makapaglista ang mga
 - Ang mga hook ay gumagamit ng `hook:<uuid>` maliban kung hayagang itinakda.
 - Ang mga node session ay gumagamit ng `node-<nodeId>` maliban kung hayagang itinakda.
 
-`global` at `unknown` ay mga nakalaang halaga at hindi kailanman inililista. Kung `session.scope = "global"`, ina-alias namin ito sa `main` para sa lahat ng tool upang hindi kailanman makita ng mga tumatawag ang `global`.
+`global` and `unknown` are reserved values and are never listed. If `session.scope = "global"`, we alias it to `main` for all tools so callers never see `global`.
 
 ## sessions_list
 
@@ -30,7 +33,7 @@ Ilista ang mga session bilang array ng mga row.
 Mga Parameter:
 
 - `kinds?: string[]` filter: alinman sa `"main" | "group" | "cron" | "hook" | "node" | "other"`
-- `limit?: number` pinakamataas na bilang ng mga row (default: server default, clamp hal. 200)
+- `limit?: number` max rows (default: server default, clamp e.g. 200)
 - `activeMinutes?: number` mga session lang na na-update sa loob ng N minuto
 - `messageLimit?: number` 0 = walang mga mensahe (default 0); >0 = isama ang huling N na mga mensahe
 
@@ -92,9 +95,10 @@ Gawi:
 - Naghihintay sa pamamagitan ng gateway `agent.wait` (server-side) upang hindi mawala ang paghihintay sa mga reconnect.
 - Ini-inject ang agent-to-agent message context para sa primary run.
 - Pagkatapos makumpleto ang primary run, nagpapatakbo ang OpenClaw ng **reply-back loop**:
-  - Ang Round 2+ ay salitan sa pagitan ng requester at target na mga agent.
-  - Tumugon nang eksakto ng `REPLY_SKIP` upang ihinto ang ping‑pong.
-  - Ang max na mga turn ay `session.agentToAgent.maxPingPongTurns` (0–5, default 5).
+- Kapag natapos ang loop, pinapatakbo ng OpenClaw ang **agent‑to‑agent announce step** (target agent lang):
+  - Tumugon nang eksakto ng `ANNOUNCE_SKIP` upang manatiling tahimik.
+  - Anumang ibang tugon ay ipinapadala sa target na channel.
+  - Kasama sa announce step ang orihinal na request + round‑1 reply + pinakabagong ping‑pong reply.
 - Kapag natapos ang loop, pinapatakbo ng OpenClaw ang **agent‑to‑agent announce step** (target agent lang):
   - Tumugon nang eksakto ng `ANNOUNCE_SKIP` upang manatiling tahimik.
   - Anumang ibang tugon ay ipinapadala sa target na channel.
@@ -188,5 +192,3 @@ Config:
   },
 }
 ```
-
-

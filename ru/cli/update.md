@@ -1,4 +1,8 @@
 ---
+summary: "Справка CLI для `openclaw update` (относительно безопасное обновление исходников + автоперезапуск Gateway (шлюз))"
+read_when:
+  - Вам нужно безопасно обновить checkout исходников
+  - Вам нужно понять поведение сокращения `--update`
 title: "update"
 ---
 
@@ -92,5 +96,3 @@ openclaw update status --timeout 10
 - [Каналы разработки](/install/development-channels)
 - [Обновление](/install/updating)
 - [Справочник CLI](/cli)
-
-

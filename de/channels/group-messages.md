@@ -1,4 +1,7 @@
 ---
+summary: "„Verhalten und Konfiguration für die Verarbeitung von WhatsApp-Gruppennachrichten (mentionPatterns werden kanalübergreifend geteilt)“"
+read_when:
+  - Ändern von Regeln für Gruppennachrichten oder Erwähnungen
 title: "„Gruppennachrichten“"
 ---
 
@@ -79,5 +82,3 @@ Nur die Eigentümernummer (aus `channels.whatsapp.allowFrom` oder die E.164-Numm
 - Die Echo-Unterdrückung verwendet den kombinierten Batch-String; wenn Sie identischen Text zweimal ohne Erwähnungen senden, erhält nur der erste eine Antwort.
 - Sitzungsspeichereinträge erscheinen als `agent:<agentId>:whatsapp:group:<jid>` im Sitzungsspeicher (`~/.openclaw/agents/<agentId>/sessions/sessions.json` standardmäßig); ein fehlender Eintrag bedeutet lediglich, dass die Gruppe noch keinen Lauf ausgelöst hat.
 - Tippindikatoren in Gruppen folgen `agents.defaults.typingMode` (Standard: `message` bei fehlender Erwähnung).
-
-

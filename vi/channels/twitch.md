@@ -1,10 +1,13 @@
 ---
+summary: "Cấu hình và thiết lập bot chat Twitch"
+read_when:
+  - Thiết lập tích hợp chat Twitch cho OpenClaw
 title: "Twitch"
 ---
 
 # Twitch (plugin)
 
-Hỗ trợ chat Twitch thông qua kết nối IRC. OpenClaw kết nối như một người dùng Twitch (tài khoản bot) để nhận và gửi tin nhắn trong các kênh.
+Twitch chat support via IRC connection. OpenClaw connects as a Twitch user (bot account) to receive and send messages in channels.
 
 ## Plugin bắt buộc
 
@@ -38,7 +41,7 @@ Chi tiết: [Plugins](/tools/plugin)
    - Nếu cả hai đều được thiết lập, cấu hình sẽ được ưu tiên (biến môi trường chỉ là phương án dự phòng cho tài khoản mặc định).
 5. Khởi động gateway.
 
-**⚠️ Quan trọng:** Thêm kiểm soát truy cập (`allowFrom` hoặc `allowedRoles`) để ngăn người dùng không được phép kích hoạt bot. `requireMention` mặc định là `true`.
+**⚠️ Important:** Add access control (`allowFrom` or `allowedRoles`) to prevent unauthorized users from triggering the bot. `requireMention` defaults to `true`.
 
 Cấu hình tối thiểu:
 
@@ -74,7 +77,7 @@ Sử dụng [Twitch Token Generator](https://twitchtokengenerator.com/):
 - Xác minh các scope `chat:read` và `chat:write` đã được chọn
 - Sao chép **Client ID** và **Access Token**
 
-Không cần đăng ký ứng dụng thủ công. Token sẽ hết hạn sau vài giờ.
+No manual app registration needed. Tokens expire after several hours.
 
 ### Cấu hình bot
 
@@ -114,11 +117,11 @@ Nếu cả biến môi trường và cấu hình đều được thiết lập, 
 }
 ```
 
-Ưu tiên dùng `allowFrom` để tạo danh sách cho phép (allowlist) cố định. Sử dụng `allowedRoles` nếu bạn muốn phân quyền theo vai trò.
+Prefer `allowFrom` for a hard allowlist. Use `allowedRoles` instead if you want role-based access.
 
 **Các vai trò khả dụng:** `"moderator"`, `"owner"`, `"vip"`, `"subscriber"`, `"all"`.
 
-**Tại sao dùng user ID?** Tên người dùng có thể thay đổi, dẫn đến nguy cơ mạo danh. User ID là cố định vĩnh viễn.
+**Why user IDs?** Usernames can change, allowing impersonation. User IDs are permanent.
 
 Tìm Twitch user ID của bạn: [https://www.streamweasels.com/tools/convert-twitch-username-%20to-user-id/](https://www.streamweasels.com/tools/convert-twitch-username-%20to-user-id/) (Chuyển đổi tên người dùng Twitch sang ID)
 
@@ -143,7 +146,7 @@ Bot sẽ tự động làm mới token trước khi hết hạn và ghi log các
 
 ## Hỗ trợ nhiều tài khoản
 
-Sử dụng `channels.twitch.accounts` với token riêng cho từng tài khoản. Xem [`gateway/configuration`](/gateway/configuration) để biết mẫu cấu hình dùng chung.
+Use `channels.twitch.accounts` with per-account tokens. See [`gateway/configuration`](/gateway/configuration) for the shared pattern.
 
 Ví dụ (một tài khoản bot trong hai kênh):
 
@@ -208,7 +211,7 @@ Ví dụ (một tài khoản bot trong hai kênh):
 
 ### Truy cập theo vai trò (phương án thay thế)
 
-`allowFrom` là danh sách cho phép (allowlist) cố định. Khi được thiết lập, chỉ những user ID đó mới được phép.
+`allowFrom` is a hard allowlist. When set, only those user IDs are allowed.
 If you want role-based access, leave `allowFrom` unset and configure `allowedRoles` instead:
 
 ```json5
@@ -227,7 +230,7 @@ If you want role-based access, leave `allowFrom` unset and configure `allowedRol
 
 ### Tắt yêu cầu @mention
 
-Mặc định, `requireMention` là `true`. Để tắt và phản hồi tất cả tin nhắn:
+By default, `requireMention` is `true`. To disable and respond to all messages:
 
 ```json5
 {
@@ -374,5 +377,3 @@ Ví dụ:
 - **500 ký tự** mỗi tin nhắn (tự động chia đoạn theo ranh giới từ)
 - Markdown sẽ bị loại bỏ trước khi chia đoạn
 - Không giới hạn tốc độ (sử dụng giới hạn tốc độ tích hợp của Twitch)
-
-

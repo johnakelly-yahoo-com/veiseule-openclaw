@@ -1,4 +1,8 @@
 ---
+summary: "Política de reintentos para llamadas salientes a proveedores"
+read_when:
+  - Al actualizar el comportamiento o los valores predeterminados de reintento del proveedor
+  - Al depurar errores de envío del proveedor o límites de velocidad
 title: "Política de reintentos"
 ---
 
@@ -63,5 +67,3 @@ Configure la política de reintentos por proveedor en `~/.openclaw/openclaw.json
 
 - Los reintentos se aplican por solicitud (envío de mensajes, carga de medios, reacción, encuesta, sticker).
 - Los flujos compuestos no reintentan los pasos completados.
-
-

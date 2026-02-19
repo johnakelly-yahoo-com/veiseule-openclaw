@@ -1,4 +1,8 @@
 ---
+summary: "CLI संदर्भ `openclaw update` के लिए (सुरक्षित-सा स्रोत अपडेट + Gateway का स्वचालित पुनःआरंभ)"
+read_when:
+  - आप किसी source checkout को सुरक्षित रूप से अपडेट करना चाहते हैं
+  - आपको `--update` संक्षिप्त व्यवहार को समझने की आवश्यकता है
 title: "update"
 ---
 
@@ -90,5 +94,3 @@ openclaw update status --timeout 10
 - [Development channels](/install/development-channels)
 - [Updating](/install/updating)
 - [CLI reference](/cli)
-
-

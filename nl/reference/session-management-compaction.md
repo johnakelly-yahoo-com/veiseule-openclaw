@@ -1,4 +1,9 @@
 ---
+summary: "Diepgaande uitleg: sessie-opslag + transcripties, levenscyclus en (auto)compactie-internals"
+read_when:
+  - Je moet sessie-id’s, transcript-JSONL of velden in sessions.json debuggen
+  - Je wijzigt het gedrag van auto-compactie of voegt “pre-compactie”-huishoudtaken toe
+  - Je wilt geheugen-flushes of stille systeembeurten implementeren
 title: "Diepgaande uitleg sessiebeheer"
 ---
 
@@ -278,5 +283,3 @@ flush-logica leeft vandaag aan de Gateway-kant.
   - compactie-instellingen (`reserveTokens` te hoog voor het modelvenster kan eerdere compactie veroorzaken)
   - tool-result-bloat: schakel sessie-pruning in of stel het af
 - Lekken stille beurten? Bevestig dat het antwoord begint met `NO_REPLY` (exact token) en dat je op een build zit die de streaming-onderdrukkingsfix bevat.
-
-

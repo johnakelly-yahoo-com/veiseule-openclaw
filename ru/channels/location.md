@@ -1,4 +1,8 @@
 ---
+summary: "Разбор входящих локаций каналов (Telegram + WhatsApp) и поля контекста"
+read_when:
+  - Добавление или изменение разбора локаций каналов
+  - Использование полей контекста локации в подсказках или инструментах агента
 title: "Разбор локаций каналов"
 ---
 
@@ -50,5 +54,3 @@ Meet here
 - **Telegram**: места (venues) сопоставляются с `LocationName/LocationAddress`; живые локации используют `live_period`.
 - **WhatsApp**: `locationMessage.comment` и `liveLocationMessage.caption` добавляются как строка подписи.
 - **Matrix**: `geo_uri` разбирается как локация-пин; высота игнорируется, а `LocationIsLive` всегда false.
-
-

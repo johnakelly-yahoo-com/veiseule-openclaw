@@ -1,4 +1,8 @@
 ---
+summary: "Plugins/extensiones de OpenClaw: descubrimiento, configuración y seguridad"
+read_when:
+  - Al agregar o modificar plugins/extensiones
+  - Al documentar reglas de instalación o carga de plugins
 title: "Complementos"
 ---
 
@@ -26,6 +30,9 @@ openclaw plugins list
 ```bash
 openclaw plugins install @openclaw/voice-call
 ```
+
+Las especificaciones de npm son **solo de registro** (nombre del paquete + versión/etiqueta opcional). Git/URL/file
+specs son rechazadas.
 
 3. Reinicie el Gateway y luego configure en `plugins.entries.<id>.config`.
 
@@ -131,6 +138,9 @@ pasa a ser `name/<fileBase>`.
 
 Si su plugin importa dependencias npm, instálelas en ese directorio para que
 `node_modules` esté disponible (`npm install` / `pnpm install`).
+
+Nota de seguridad: `openclaw plugins install` instala las dependencias del plugin con
+`npm install --ignore-scripts` (sin scripts de ciclo de vida). Mantén los árboles de dependencias del plugin "pure JS/TS" y evita paquetes que requieran compilaciones `postinstall`.
 
 ### Metadatos del catálogo de canales
 
@@ -432,13 +442,13 @@ La documentación de proveedores de modelos vive bajo `/providers/*`.
 - `meta.preferOver` permite que un plugin reemplace otro canal (la habilitación automática lo prefiere).
 - `meta.detailLabel` y `meta.systemImage` son usados por las UIs para texto/iconos de detalle.
 
-3. Implemente los adaptadores requeridos
+3. Agregue adaptadores opcionales según sea necesario
 
 - `config.listAccountIds` + `config.resolveAccount`
 - `capabilities` (tipos de chat, medios, hilos, etc.)
 - `outbound.deliveryMode` + `outbound.sendText` (para envío básico)
 
-4. Agregue adaptadores opcionales según sea necesario
+4. Implemente los adaptadores requeridos
 
 - `setup` (asistente), `security` (política de DM), `status` (salud/diagnósticos)
 - `gateway` (inicio/detención/inicio de sesión), `mentions`, `threading`, `streaming`
@@ -547,7 +557,7 @@ export default function (api) {
 }
 ```
 
-Contexto del manejador de comandos:
+Opciones del comando:
 
 - `senderId`: El ID del remitente (si está disponible)
 - `channel`: El canal donde se envió el comando
@@ -655,5 +665,3 @@ Los plugins pueden (y deben) incluir pruebas:
 
 - Los plugins en el repositorio pueden mantener pruebas de Vitest bajo `src/**` (ejemplo: `src/plugins/voice-call.plugin.test.ts`).
 - Los plugins publicados por separado deben ejecutar su propio CI (lint/build/test) y validar que `openclaw.extensions` apunte al punto de entrada compilado (`dist/index.js`).
-
-

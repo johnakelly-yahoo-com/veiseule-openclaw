@@ -1,4 +1,8 @@
 ---
+summary: "快速的頻道層級疑難排解，提供各頻道的失敗特徵與修復方式"
+read_when:
+  - 頻道傳輸顯示已連線，但回覆失敗
+  - 在深入提供者文件之前，需要進行頻道專屬檢查
 title: "頻道疑難排解"
 ---
 
@@ -40,11 +44,12 @@ openclaw channels status --probe
 
 ### Telegram 失敗特徵
 
-| 症狀                  | 最快檢查                             | 修復                                      |
-| ------------------- | -------------------------------- | --------------------------------------- |
-| `/start` 但沒有可用的回覆流程 | `openclaw pairing list telegram` | 21. 核准配對或變更私訊政策。 |
-| 機器人在線但群組保持沉默        | 驗證提及需求與機器人隱私模式                   | 停用隱私模式以取得群組可見性，或提及機器人。                  |
-| 傳送失敗並伴隨網路錯誤         | 檢查記錄中的 Telegram API 呼叫失敗         | 修復 DNS／IPv6／代理路由至 `api.telegram.org`。   |
+| 症狀                  | 最快檢查                              | 修復                                                      |
+| ------------------- | --------------------------------- | ------------------------------------------------------- |
+| `/start` 但沒有可用的回覆流程 | `openclaw pairing list telegram`  | 21. 核准配對或變更私訊政策。                 |
+| 機器人在線但群組保持沉默        | 驗證提及需求與機器人隱私模式                    | 停用隱私模式以取得群組可見性，或提及機器人。                                  |
+| 傳送失敗並伴隨網路錯誤         | 檢查記錄中的 Telegram API 呼叫失敗          | 修復 DNS／IPv6／代理路由至 `api.telegram.org`。                   |
+| 已升級且 allowlist 封鎖你  | `openclaw security audit` 與設定允許清單 | 執行 `openclaw doctor --fix` 或將 `@username` 替換為數字型發送者 ID。 |
 
 完整疑難排解：[/channels/telegram#troubleshooting](/channels/telegram#troubleshooting)
 
@@ -91,11 +96,11 @@ openclaw channels status --probe
 
 ### Signal 失敗特徵
 
-| 症狀                                        | 最快檢查                               | 修復                                                            |
-| ----------------------------------------- | ---------------------------------- | ------------------------------------------------------------- |
-| 29. 常駐程式可連線但機器人無回應 | `openclaw channels status --probe` | 30. 驗證 `signal-cli` 常駐程式的 URL／帳號與接收模式。 |
-| 31. 私訊被封鎖          | `openclaw pairing list signal`     | 核准寄件者或調整私訊政策。                                                 |
-| 群組回覆未觸發                                   | 檢查群組允許清單與提及模式                      | 新增寄件者／群組或放寬閘控。                                                |
+| 症狀                                        | 最快檢查                               | 修復                                 |
+| ----------------------------------------- | ---------------------------------- | ---------------------------------- |
+| 29. 常駐程式可連線但機器人無回應 | `openclaw channels status --probe` | 驗證 `signal-cli` 常駐程式的 URL／帳號與接收模式。 |
+| 31. 私訊被封鎖          | `openclaw pairing list signal`     | 核准寄件者或調整私訊政策。                      |
+| 群組回覆未觸發                                   | 檢查群組允許清單與提及模式                      | 新增寄件者／群組或放寬閘控。                     |
 
 完整疑難排解：[/channels/signal#troubleshooting](/channels/signal#troubleshooting)
 
@@ -110,5 +115,3 @@ openclaw channels status --probe
 | 加密房間失敗                           | 驗證加密模組與加密設定                        | 啟用加密支援並重新加入／同步房間。         |
 
 完整疑難排解：[/channels/matrix#troubleshooting](/channels/matrix#troubleshooting)
-
-

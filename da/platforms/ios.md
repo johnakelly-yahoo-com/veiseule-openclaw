@@ -1,4 +1,9 @@
 ---
+summary: "iOS-nodeapp: forbindelse til Gateway, parring, canvas og fejlfinding"
+read_when:
+  - Parring eller genforbindelse af iOS-noden
+  - Kørsel af iOS-appen fra kildekode
+  - Fejlfinding af gateway-discovery eller canvas-kommandoer
 title: "iOS-app"
 ---
 
@@ -72,6 +77,7 @@ Noter:
 - Gateway-canvasværten serverer `/__openclaw__/canvas/` og `/__openclaw__/a2ui/`.
 - iOS-noden navigerer automatisk til A2UI ved forbindelse, når en canvas-vært-URL annonceres.
 - Gå tilbage til det indbyggede skelet med `canvas.navigate` og `{"url":""}`.
+- Gå tilbage til det indbyggede skelet med `canvas.navigate` og `{"url":""}`.
 
 ### Canvas eval / snapshot
 
@@ -100,5 +106,3 @@ openclaw nodes invoke --node "iOS Node" --command canvas.snapshot --params '{"ma
 - [Parring](/gateway/pairing)
 - [Discovery](/gateway/discovery)
 - [Bonjour](/gateway/bonjour)
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "پائیدار اسٹیٹ کے ساتھ GCP Compute Engine VM (Docker) پر OpenClaw Gateway کو 24/7 چلائیں"
+read_when:
+  - آپ GCP پر OpenClaw کو 24/7 چلانا چاہتے ہیں
+  - آپ اپنی ہی VM پر پروڈکشن گریڈ، ہمہ وقت فعال Gateway چاہتے ہیں
+  - آپ پرسسٹنس، بائنریز، اور ری اسٹارٹ کے رویّے پر مکمل کنٹرول چاہتے ہیں
 title: "GCP"
 ---
 
@@ -498,5 +503,3 @@ IAM رولز کی تفصیلات کے لیے دیکھیں:
 - میسجنگ چینلز سیٹ اپ کریں: [Channels](/channels)
 - مقامی ڈیوائسز کو نوڈز کے طور پر جوڑیں: [Nodes](/nodes)
 - Gateway کنفیگر کریں: [Gateway configuration](/gateway/configuration)
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Pluginmanifest + JSON-schemavereisten (strikte configvalidatie)"
+read_when:
+  - Je bouwt een OpenClaw-plugin
+  - Je moet een plugin-configschema leveren of pluginvalidatiefouten debuggen
 title: "Pluginmanifest"
 ---
 
@@ -65,5 +69,3 @@ Optionele sleutels:
 - Als je plugin afhankelijk is van native modules, documenteer de buildstappen en eventuele
   vereisten voor een package-manager-allowlist (bijvoorbeeld pnpm `allow-build-scripts`
   - `pnpm rebuild <package>`).
-
-

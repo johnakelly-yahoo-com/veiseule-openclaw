@@ -1,4 +1,8 @@
-------
+---
+summary: "Användarprofil"
+read_when:
+  - Manuell uppstart av en arbetsyta
+---
 
 # USER.md – Om människan du hjälper
 
@@ -17,5 +21,3 @@ _(Vad bryr de sig om? Vilka projekt arbetar de? Vad irriterar dem? Vad får dem 
 ---
 
 Ju mer du vet, desto bättre kan du hjälpa. Men kom ihåg - du lär dig om en person, inte bygga en dossier. Respektera skillnaden.
-
-

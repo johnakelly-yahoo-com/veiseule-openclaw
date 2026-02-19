@@ -1,4 +1,8 @@
 ---
+summary: "Serve/Funnel do Tailscale integrado para o painel do Gateway"
+read_when:
+  - Expor a UI de Controle do Gateway fora do localhost
+  - Automatizar o acesso ao painel via tailnet ou público
 title: "Tailscale"
 ---
 
@@ -120,5 +124,3 @@ Evite o Funnel para controle do navegador; trate o pareamento de nós como acess
 - Comando `tailscale serve`: [https://tailscale.com/kb/1242/tailscale-serve](https://tailscale.com/kb/1242/tailscale-serve)
 - Visão geral do Tailscale Funnel: [https://tailscale.com/kb/1223/tailscale-funnel](https://tailscale.com/kb/1223/tailscale-funnel)
 - Comando `tailscale funnel`: [https://tailscale.com/kb/1311/tailscale-funnel](https://tailscale.com/kb/1311/tailscale-funnel)
-
-

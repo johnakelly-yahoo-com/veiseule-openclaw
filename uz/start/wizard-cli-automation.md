@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw CLI uchun skriptlashtirilgan onboarding va agent sozlamalari"
+read_when:
+  - Siz onboarding’ni skriptlar yoki CI orqali avtomatlashtiryapsiz
+  - Muayyan provayderlar uchun interaktiv bo‘lmagan misollar kerak
 title: "CLI avtomatlashtirish"
 sidebarTitle: "CLI avtomatlashtirish"
 ---
@@ -95,6 +99,25 @@ openclaw onboard --non-interactive \
   --gateway-bind loopback
 ```
 </Accordion>
+  <Accordion title="Custom provider example">```bash
+openclaw onboard --non-interactive \
+  --mode local \
+  --auth-choice custom-api-key \
+  --custom-base-url "https://llm.example.com/v1" \
+  --custom-model-id "foo-large" \
+  --custom-api-key "$CUSTOM_API_KEY" \
+  --custom-provider-id "my-custom" \
+  --custom-compatibility anthropic \
+  --gateway-port 18789 \
+  --gateway-bind loopback
+```
+
+    ```
+    `--custom-api-key` ixtiyoriy. Agar ko‘rsatilmasa, onboarding `CUSTOM_API_KEY` ni tekshiradi.
+    ```
+
+  
+</Accordion>
 </AccordionGroup>
 
 ## Yana bir agent qo‘shish
@@ -110,7 +133,7 @@ openclaw agents add work \
   --json
 ```
 
-U nimani sozlaydi:
+Eslatmalar:
 
 - `agents.list[].name`
 - `agents.list[].workspace`
@@ -118,14 +141,12 @@ U nimani sozlaydi:
 
 Eslatmalar:
 
-- Standart workspace’lar `~/.openclaw/workspace-<agentId>` formatiga amal qiladi.
-- Kirish xabarlarini yo‘naltirish uchun `bindings` qo‘shing (buni wizard ham qila oladi).
-- Interaktiv bo‘lmagan flaglar: `--model`, `--agent-dir`, `--bind`, `--non-interactive`.
+- Onboarding markazi: [Onboarding Wizard (CLI)](/start/wizard)
+- To‘liq ma’lumotnoma: [CLI Onboarding Reference](/start/wizard-cli-reference)
+- Buyruqlar ma’lumotnomasi: [`openclaw onboard`](/cli/onboard)
 
 ## Tegishli hujjatlar
 
 - Onboarding markazi: [Onboarding Wizard (CLI)](/start/wizard)
 - To‘liq ma’lumotnoma: [CLI Onboarding Reference](/start/wizard-cli-reference)
 - Buyruqlar ma’lumotnomasi: [`openclaw onboard`](/cli/onboard)
-
-

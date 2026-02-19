@@ -1,4 +1,8 @@
 ---
+summary: "Handmatige logins voor browserautomatisering + X/Twitter-posts"
+read_when:
+  - Je moet inloggen op sites voor browserautomatisering
+  - Je wilt updates plaatsen op X/Twitter
 title: "Browserlogin"
 ---
 
@@ -61,5 +65,3 @@ openclaw browser open https://x.com --browser-profile openclaw --target host
 ```
 
 Of schakel sandboxing uit voor de agent die updates plaatst.
-
-

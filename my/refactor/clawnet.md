@@ -1,4 +1,8 @@
 ---
+summary: "Clawnet ပြန်လည်ဖွဲ့စည်းခြင်း: ကွန်ယက်ပရိုတိုကော၊ အခန်းကဏ္ဍများ၊ အတည်ပြုခြင်း၊ အတည်ပြုချက်များနှင့် အိုင်ဒင်တီတီကို တစ်စုတစ်စည်းတည်း ပြုလုပ်ခြင်း"
+read_when:
+  - နိုဒ်များနှင့် အော်ပရေးတာ ကလိုင်ယင့်များအတွက် တစ်စုတစ်စည်းတည်းသော ကွန်ယက်ပရိုတိုကောကို စီမံကိန်းရေးဆွဲနေစဉ်
+  - စက်ပစ္စည်းများအကြား approvals၊ pairing၊ TLS နှင့် presence ကို ပြန်လည်ပြုပြင်နေစဉ်
 title: "Clawnet ပြန်လည်ဖွဲ့စည်းခြင်း"
 ---
 
@@ -43,7 +47,7 @@ title: "Clawnet ပြန်လည်ဖွဲ့စည်းခြင်း"
 ### 1. Gateway WebSocket (control plane)
 
 - API အပြည့်အစုံ: config, channels, models, sessions, agent runs, logs, nodes စသည်တို့။
-- မူလ bind: loopback။ SSH/Tailscale မှတစ်ဆင့် အဝေးမှ ဝင်ရောက်ခွင့်။
+- Default bind: loopback. Remote access via SSH/Tailscale.
 - Auth: token/password via `connect`။
 - TLS pinning မရှိ (loopback/tunnel အပေါ် မူတည်)။
 - ကုဒ်:
@@ -387,7 +391,7 @@ Same `deviceId` across roles → single “Instance” row:
    - 20. Role အလိုက် သီးခြား tokens (node vs operator) ကို အကြံပြုသည်။
    - 21. deviceId တူညီ၊ scopes ကွဲပြား၊ revocation ပိုမိုရှင်းလင်း။
 
-2. 22. Operator scope granularity
+2. Operator scope granularity
    - 23. read/write/admin + approvals + pairing (minimum viable)။
    - 24. နောက်ပိုင်းတွင် per‑feature scopes ကို စဉ်းစားပါ။
 
@@ -411,5 +415,3 @@ Same `deviceId` across roles → single “Instance” row:
 - 32. အခက်အခဲများ: approvals + duplication + stacks နှစ်ခု။
 - 33. အဆိုပြုချက်: roles + scopes ကို ရှင်းလင်းစွာ သတ်မှတ်ထားသော WS protocol တစ်ခု၊ unified pairing + TLS pinning, gateway‑hosted approvals, stable device IDs + cute slugs။
 - 34. ရလဒ်: UX ပိုမိုရိုးရှင်း၊ လုံခြုံရေးပိုမိုခိုင်မာ၊ duplication လျော့နည်း၊ mobile routing ပိုကောင်း။
-
-

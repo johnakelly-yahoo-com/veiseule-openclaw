@@ -1,4 +1,9 @@
 ---
+summary: "Android ilovasi (node): ulanish yo‘riqnomasi + Canvas/Chat/Camera"
+read_when:
+  - Pairing or reconnecting the Android node
+  - Debugging Android gateway discovery or auth
+  - Verifying chat history parity across clients
 title: "Android App"
 ---
 
@@ -98,7 +103,7 @@ Pairing tafsilotlari: [Gateway pairing](/gateway/pairing).
   2. openclaw tugunlar holati
   ```
 
-- 3. Via Gateway:
+- Via Gateway:
 
   ```bash
   4. openclaw gateway call node.list --params "{}"
@@ -118,20 +123,20 @@ Pairing tafsilotlari: [Gateway pairing](/gateway/pairing).
 
 12. Agar tugun agent diskda tahrirlashi mumkin bo‘lgan haqiqiy HTML/CSS/JS ni ko‘rsatsin desangiz, tugunni Gateway canvas host’ga yo‘naltiring.
 
-13. Eslatma: tugunlar `canvasHost.port` (`standart` `18793`) dagi mustaqil canvas host’dan foydalanadi.
+Eslatma: node lar canvas ni Gateway HTTP serveridan yuklaydi (`gateway.port` bilan bir xil port, standart `18789`).
 
-1. 14. Gateway host’da `~/.openclaw/workspace/canvas/index.html` yarating.
+1. Tailnet (ixtiyoriy): agar ikkala qurilma ham Tailscale’da bo‘lsa, `.local` o‘rniga MagicDNS nomi yoki tailnet IP’dan foydalaning, masalan: `http://<gateway-magicdns>:18793/__openclaw__/canvas/`.
 
-2. 15. Tugunni unga yo‘naltiring (LAN):
+2. Bu server HTML ichiga live-reload mijozini qo‘shadi va fayllar o‘zgarganda qayta yuklaydi.
 
 ```bash
-16. openclaw nodes invoke --node "<Android Node>" --command canvas.navigate --params '{"url":"http://<gateway-hostname>.local:18793/__openclaw__/canvas/"}'
+openclaw nodes invoke --node "<Android Node>" --command canvas.navigate --params '{"url":"http://<gateway-hostname>.local:18789/__openclaw__/canvas/"}'
 ```
 
-17. Tailnet (ixtiyoriy): agar ikkala qurilma ham Tailscale’da bo‘lsa, `.local` o‘rniga MagicDNS nomi yoki tailnet IP’dan foydalaning, masalan: `http://<gateway-magicdns>:18793/__openclaw__/canvas/`.
+Tailnet (ixtiyoriy): agar ikkala qurilma ham Tailscale da bo‘lsa, `.local` o‘rniga MagicDNS nomi yoki tailnet IP dan foydalaning, masalan `http://<gateway-magicdns>:18789/__openclaw__/canvas/`.
 
 18. Bu server HTML ichiga live-reload mijozini qo‘shadi va fayllar o‘zgarganda qayta yuklaydi.
-19. A2UI host `http://<gateway-host>:18793/__openclaw__/a2ui/` da joylashgan.
+    A2UI host manzili: `http://<gateway-host>:18789/__openclaw__/a2ui/`.
 
 20. Canvas buyruqlari (faqat oldingi rejim):
 
@@ -140,9 +145,7 @@ Pairing tafsilotlari: [Gateway pairing](/gateway/pairing).
 
 24. Kamera buyruqlari (faqat oldingi rejim; ruxsat bilan cheklangan):
 
-- 25. `camera.snap` (jpg)
-- 26. `camera.clip` (mp4)
+- `camera.snap` (jpg)
+- `camera.clip` (mp4)
 
 27. Parametrlar va CLI yordamchilari uchun [Camera node](/nodes/camera) ga qarang.
-
-

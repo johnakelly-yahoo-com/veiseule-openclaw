@@ -1,10 +1,14 @@
 ---
+summary: "Feishu bot umumiy ko‘rinishi, imkoniyatlari va sozlanishi"
+read_when:
+  - Siz Feishu/Lark botini ulashni xohlaysiz
+  - Siz Feishu kanalini sozlayapsiz
 title: Feishu
 ---
 
 # Feishu boti
 
-Feishu (Lark) — bu kompaniyalar xabar almashish va hamkorlik uchun foydalanadigan jamoaviy chat platformasi. Ushbu plagin OpenClaw’ni Feishu/Lark botiga platformaning WebSocket hodisalar obunasi orqali ulaydi, shuning uchun ochiq webhook URL’ni oshkor qilmasdan xabarlarni qabul qilish mumkin.
+Feishu (Lark) is a team chat platform used by companies for messaging and collaboration. This plugin connects OpenClaw to a Feishu/Lark bot using the platform’s WebSocket event subscription so messages can be received without exposing a public webhook URL.
 
 ---
 
@@ -67,13 +71,13 @@ openclaw channels add
 
 ## 1-qadam: Feishu ilovasini yaratish
 
-### 1. Feishu Open Platform’ni oching
+### 1. Open Feishu Open Platform
 
 [Feishu Open Platform](https://open.feishu.cn/app) sahifasiga o‘ting va tizimga kiring.
 
 Lark (global) tenantlar [https://open.larksuite.com/app](https://open.larksuite.com/app) manzilidan foydalanishi va Feishu konfiguratsiyasida `domain: "lark"` ni o‘rnatishi kerak.
 
-### 2. Ilova yarating
+### 2. Create an app
 
 1. **Create enterprise app** tugmasini bosing
 2. Ilova nomi va tavsifini kiriting
@@ -81,7 +85,7 @@ Lark (global) tenantlar [https://open.larksuite.com/app](https://open.larksuite.
 
 ![Korxona ilovasini yaratish](../images/feishu-step2-create-app.png)
 
-### 3. Ma’lumotlarni nusxalash
+### 3. Copy credentials
 
 **Credentials & Basic Info** bo‘limidan quyidagilarni nusxalang:
 
@@ -92,7 +96,7 @@ Lark (global) tenantlar [https://open.larksuite.com/app](https://open.larksuite.
 
 ![Ma’lumotlarni olish](../images/feishu-step3-credentials.png)
 
-### 4. Ruxsatlarni sozlash
+### 4. Configure permissions
 
 **Permissions** bo‘limida **Batch import** ni bosing va quyidagini joylashtiring:
 
@@ -124,7 +128,7 @@ Lark (global) tenantlar [https://open.larksuite.com/app](https://open.larksuite.
 
 ![Ruxsatlarni sozlash](../images/feishu-step4-permissions.png)
 
-### 5. Bot imkoniyatini yoqish
+### 5. Enable bot capability
 
 **App Capability** > **Bot** bo‘limida:
 
@@ -133,7 +137,7 @@ Lark (global) tenantlar [https://open.larksuite.com/app](https://open.larksuite.
 
 ![Bot imkoniyatini yoqish](../images/feishu-step5-bot-capability.png)
 
-### 6. Hodisalar obunasini sozlash
+### 6. Configure event subscription
 
 ⚠️ **Muhim:** hodisalar obunasini sozlashdan oldin quyidagilarga ishonch hosil qiling:
 
@@ -149,7 +153,7 @@ Lark (global) tenantlar [https://open.larksuite.com/app](https://open.larksuite.
 
 ![Hodisalar obunasini sozlash](../images/feishu-step6-event-subscription.png)
 
-### 7. Ilovani nashr qilish
+### 7. Publish the app
 
 1. **Version Management & Release** bo‘limida versiya yarating
 2. Ko‘rib chiqish uchun yuboring va nashr qiling
@@ -198,7 +202,19 @@ export FEISHU_APP_SECRET="xxx"
 
 ### Lark (global) domeni
 
-Agar tenantingiz Lark (xalqaro) da bo‘lsa, domenni `lark` (yoki to‘liq domen satri) ga o‘rnating. Buni `channels.feishu.domain` da yoki har bir akkaunt uchun (`channels.feishu.accounts.<id>.domain`) belgilashingiz mumkin.
+If your tenant is on Lark (international), set the domain to `lark` (or a full domain string). 1. Siz uni `channels.feishu.domain` da yoki har bir hisob bo‘yicha (`channels.feishu.accounts.<id> 2. .domain`) sozlashingiz mumkin.3. {
+channels: {
+feishu: {
+domain: "lark",
+accounts: {
+main: {
+appId: "cli_xxx",
+appSecret: "xxx",
+},
+},
+},
+},
+}
 
 ```json5
 {
@@ -220,19 +236,19 @@ Agar tenantingiz Lark (xalqaro) da bo‘lsa, domenni `lark` (yoki to‘liq domen
 
 ## 3-qadam: Ishga tushirish va sinov
 
-### 1. Gateway’ni ishga tushiring
+### 6. Gateway’ni ishga tushiring 7. openclaw gateway
 
 ```bash
 openclaw gateway
 ```
 
-### 2. Sinov xabari yuboring
+### 9. Sinov xabarini yuboring 10. Feishu’da botingizni topib, unga xabar yuboring.
 
 Feishu’da botingizni toping va xabar yuboring.
 
-### 3. Pairing’ni tasdiqlang
+### 12. Juftlashni tasdiqlash 13. Odatiy holatda bot juftlash kodi bilan javob beradi.
 
-Standart holatda bot pairing kodi bilan javob beradi. Uni tasdiqlang:
+14. Uni tasdiqlang: 15. openclaw pairing approve feishu <CODE>
 
 ```bash
 openclaw pairing approve feishu <CODE>
@@ -256,6 +272,7 @@ Tasdiqlangandan so‘ng odatdagidek suhbatlashishingiz mumkin.
 ### Shaxsiy xabarlar (DM)
 
 - **Standart**: `dmPolicy: "pairing"` (noma’lum foydalanuvchilar pairing kodi oladi)
+
 - **Pairing’ni tasdiqlash**:
 
   ```bash
@@ -267,13 +284,14 @@ Tasdiqlangandan so‘ng odatdagidek suhbatlashishingiz mumkin.
 
 ### Guruh chatlari
 
-**1. Guruh siyosati** (`channels.feishu.groupPolicy`):
+30. Guruh siyosati\*\* (`channels.feishu.groupPolicy`): `"open"` = guruhlarda hammaga ruxsat (standart)
 
 - `"open"` = guruhlarda hammaga ruxsat (standart)
 - `"allowlist"` = faqat `groupAllowFrom` dagilarga ruxsat
 - `"disabled"` = guruh xabarlarini o‘chirish
 
-**2. Mention talabi** (`channels.feishu.groups.<chat_id>.requireMention`):
+35. Eslatib o‘tish talabi\*\* (\`channels.feishu.groups.<chat_id>
+36. .requireMention`): `true` = @mention talab qilinadi (standart)`false\` = eslatmasiz javob berish
 
 - `true` = @mention talab qilinadi (standart)
 - `false` = mentionsiz javob beradi
@@ -360,23 +378,23 @@ openclaw pairing list feishu
 
 ## Keng tarqalgan buyruqlar
 
-| Command   | Tavsif              |
-| --------- | ------------------- |
-| `/status` | Bot holatini ko‘rsatish |
-| `/reset`  | Sessiyani tiklash   |
+| Command   | Tavsif                          |
+| --------- | ------------------------------- |
+| `/status` | Bot holatini ko‘rsatish         |
+| `/reset`  | Sessiyani tiklash               |
 | `/model`  | Modelni ko‘rsatish/almashtirish |
 
 > Eslatma: Feishu hozircha native buyruq menyularini qo‘llab-quvvatlamaydi, shuning uchun buyruqlar matn ko‘rinishida yuborilishi kerak.
 
 ## Gateway boshqaruv buyruqlari
 
-| Command                    | Tavsif                         |
-| -------------------------- | ------------------------------ |
-| `openclaw gateway status`  | Gateway holatini ko‘rsatish    |
+| Command                    | Tavsif                                      |
+| -------------------------- | ------------------------------------------- |
+| `openclaw gateway status`  | Gateway holatini ko‘rsatish                 |
 | `openclaw gateway install` | Gateway xizmatini o‘rnatish/ishga tushirish |
-| `openclaw gateway stop`    | Gateway xizmatini to‘xtatish   |
-| `openclaw gateway restart` | Gateway xizmatini qayta ishga tushirish |
-| `openclaw logs --follow`   | Gateway loglarini kuzatish     |
+| `openclaw gateway stop`    | Gateway xizmatini to‘xtatish                |
+| `openclaw gateway restart` | Gateway xizmatini qayta ishga tushirish     |
+| `openclaw logs --follow`   | Gateway loglarini kuzatish                  |
 
 ---
 
@@ -445,7 +463,7 @@ openclaw pairing list feishu
 
 ### Streaming
 
-Feishu interaktiv kartalar orqali streaming javoblarni qo‘llab-quvvatlaydi. Yoqilganda, bot matn generatsiya qilinayotganda kartani yangilab boradi.
+Feishu supports streaming replies via interactive cards. When enabled, the bot updates a card as it generates text.
 
 ```json5
 {
@@ -523,34 +541,34 @@ To‘liq konfiguratsiya: [Gateway configuration](/gateway/configuration)
 
 Asosiy sozlamalar:
 
-| Setting                                           | Tavsif                          | Default   |
-| ------------------------------------------------- | ------------------------------- | --------- |
-| `channels.feishu.enabled`                         | Kanalni yoqish/o‘chirish        | `true`    |
-| `channels.feishu.domain`                          | API domeni (`feishu` yoki `lark`) | `feishu`  |
-| `channels.feishu.accounts.<id>.appId`             | App ID                          | -         |
-| `channels.feishu.accounts.<id>.appSecret`         | App Secret                      | -         |
-| `channels.feishu.accounts.<id>.domain`            | Har bir akkaunt uchun API domeni | `feishu`  |
-| `channels.feishu.dmPolicy`                        | DM siyosati                     | `pairing` |
+| Setting                                           | Tavsif                                                                  | Default   |
+| ------------------------------------------------- | ----------------------------------------------------------------------- | --------- |
+| `channels.feishu.enabled`                         | Kanalni yoqish/o‘chirish                                                | `true`    |
+| `channels.feishu.domain`                          | API domeni (`feishu` yoki `lark`)                    | `feishu`  |
+| `channels.feishu.accounts.&lt;id&gt;.appId`             | App ID                                                                  | -         |
+| `channels.feishu.accounts.&lt;id&gt;.appSecret`         | App Secret                                                              | -         |
+| `channels.feishu.accounts.&lt;id&gt;.domain`            | Har bir akkaunt uchun API domeni                                        | `feishu`  |
+| `channels.feishu.dmPolicy`                        | DM siyosati                                                             | `pairing` |
 | `channels.feishu.allowFrom`                       | DM allowlist (open_id ro‘yxati) | -         |
-| `channels.feishu.groupPolicy`                     | Guruh siyosati                  | `open`    |
-| `channels.feishu.groupAllowFrom`                  | Guruh allowlist                 | -         |
-| `channels.feishu.groups.<chat_id>.requireMention` | @mention talab qilish           | `true`    |
-| `channels.feishu.groups.<chat_id>.enabled`        | Guruhni yoqish                  | `true`    |
-| `channels.feishu.textChunkLimit`                  | Xabar bo‘lagi hajmi             | `2000`    |
-| `channels.feishu.mediaMaxMb`                      | Media hajmi limiti              | `30`      |
-| `channels.feishu.streaming`                       | Streaming karta chiqishini yoqish | `true`    |
-| `channels.feishu.blockStreaming`                  | Blokli streaming’ni yoqish      | `true`    |
+| `channels.feishu.groupPolicy`                     | Guruh siyosati                                                          | `open`    |
+| `channels.feishu.groupAllowFrom`                  | Guruh allowlist                                                         | -         |
+| `channels.feishu.groups.<chat_id>.requireMention` | @mention talab qilish                                      | `true`    |
+| `channels.feishu.groups.<chat_id>.enabled`        | Guruhni yoqish                                                          | `true`    |
+| `channels.feishu.textChunkLimit`                  | Xabar bo‘lagi hajmi                                                     | `2000`    |
+| `channels.feishu.mediaMaxMb`                      | Media hajmi limiti                                                      | `30`      |
+| `channels.feishu.streaming`                       | Streaming karta chiqishini yoqish                                       | `true`    |
+| `channels.feishu.blockStreaming`                  | Blokli streaming’ni yoqish                                              | `true`    |
 
 ---
 
 ## dmPolicy ma’lumotnomasi
 
-| Value         | Xatti-harakat                                                  |
-| ------------- | -------------------------------------------------------------- |
+| Value         | Xatti-harakat                                                                                |
+| ------------- | -------------------------------------------------------------------------------------------- |
 | `"pairing"`   | **Standart.** Noma’lum foydalanuvchilar pairing kodi oladi; tasdiqlash kerak |
-| `"allowlist"` | Faqat `allowFrom` dagi foydalanuvchilar suhbatlasha oladi     |
-| `"open"`      | Barcha foydalanuvchilarga ruxsat (allowFrom’da `"*"` talab qilinadi) |
-| `"disabled"`  | DM’larni o‘chirish                                             |
+| `"allowlist"` | Faqat `allowFrom` dagi foydalanuvchilar suhbatlasha oladi                                    |
+| `"open"`      | Barcha foydalanuvchilarga ruxsat (allowFrom’da `"*"` talab qilinadi)      |
+| `"disabled"`  | DM’larni o‘chirish                                                                           |
 
 ---
 
@@ -573,5 +591,3 @@ Asosiy sozlamalar:
 - ✅ Fayllar
 - ✅ Audio
 - ⚠️ Boy matn (qisman qo‘llab-quvvatlanadi)
-
-

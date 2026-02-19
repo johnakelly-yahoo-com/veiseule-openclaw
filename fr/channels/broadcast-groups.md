@@ -1,4 +1,8 @@
 ---
+summary: "Diffuser un message WhatsApp à plusieurs agents"
+read_when:
+  - Configuration des groupes de diffusion
+  - Débogage des réponses multi-agents dans WhatsApp
 status: experimental
 title: "Groupes de diffusion"
 ---
@@ -436,5 +440,3 @@ Fonctionnalités prévues :
 - [Configuration multi-agents](/tools/multi-agent-sandbox-tools)
 - [Configuration du routage](/channels/channel-routing)
 - [Gestion des sessions](/concepts/sessions)
-
-

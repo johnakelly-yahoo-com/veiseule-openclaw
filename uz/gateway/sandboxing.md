@@ -1,26 +1,28 @@
 ---
-title: "Sandboxlash"
+summary: "How OpenClaw sandboxing works: modes, scopes, workspace access, and images"
+title: Sandboxing
+read_when: "You want a dedicated explanation of sandboxing or need to tune agents.defaults.sandbox."
 status: active
 ---
 
-# Sandboxlash
+# Sandboxing
 
-OpenClaw **vositalarni Docker konteynerlari ichida** ishga tushirishi mumkin, bu esa zarar ko‘lamini kamaytiradi.
+OpenClaw can run **tools inside Docker containers** to reduce blast radius.
 This is **optional** and controlled by configuration (`agents.defaults.sandbox` or
 `agents.list[].sandbox`). If sandboxing is off, tools run on the host.
 The Gateway stays on the host; tool execution runs in an isolated sandbox
 when enabled.
 
-Bu mukammal xavfsizlik chegarasi emas, biroq u fayl tizimiga kirishni sezilarli darajada cheklaydi.
+This is not a perfect security boundary, but it materially limits filesystem
 and process access when the model does something dumb.
 
-## Nimalar sandbox qilinadi
+## What gets sandboxed
 
-- Vositalarni ishga tushirish (`exec`, `read`, `write`, `edit`, `apply_patch`, `process` va boshqalar).
+- Tool execution (`exec`, `read`, `write`, `edit`, `apply_patch`, `process`, etc.).
 - 1. Ixtiyoriy sandboxlangan brauzer (`agents.defaults.sandbox.browser`).
-  - Odatiy holatda, sandbox brauzeri avtomatik ishga tushadi (CDP mavjudligini ta’minlaydi), brauzer vositasi bunga muhtoj bo‘lganda.
-`agents.defaults.sandbox.browser.autoStart` va `agents.defaults.sandbox.browser.autoStartTimeoutMs` orqali sozlang.
-  - `agents.defaults.sandbox.browser.allowHostControl` sandbox qilingan sessiyalarga xost brauzerini bevosita nishonga olish imkonini beradi.
+  - By default, the sandbox browser auto-starts (ensures CDP is reachable) when the browser tool needs it.
+    Configure via `agents.defaults.sandbox.browser.autoStart` and `agents.defaults.sandbox.browser.autoStartTimeoutMs`.
+  - `agents.defaults.sandbox.browser.allowHostControl` lets sandboxed sessions target the host browser explicitly.
   - Optional allowlists gate `target: "custom"`: `allowedControlUrls`, `allowedControlHosts`, `allowedControlPorts`.
 
 Not sandboxed:
@@ -69,6 +71,11 @@ Format: `host:container:mode` (e.g., `"/home/user/source:/source:rw"`).
 
 Global and per-agent binds are **merged** (not replaced). Under `scope: "shared"`, per-agent binds are ignored.
 
+`agents.defaults.sandbox.browser.binds` qo‘shimcha xost kataloglarini faqat **sandbox browser** konteyneriga ulaydi.
+
+- O‘rnatilganda (shu jumladan `[]`), u browser konteyneri uchun `agents.defaults.sandbox.docker.binds` ni almashtiradi.
+- Agar ko‘rsatilmagan bo‘lsa, browser konteyneri `agents.defaults.sandbox.docker.binds` ga qaytadi (orqaga moslik saqlanadi).
+
 Example (read-only source + docker socket):
 
 ```json5
@@ -97,8 +104,8 @@ Example (read-only source + docker socket):
 
 1. Xavfsizlik bo‘yicha eslatmalar:
 
-- 2. Bindlar sandbox fayl tizimini chetlab o‘tadi: ular siz belgilagan rejimda (`:ro` yoki `:rw`) xost yo‘llarini ochib beradi.
-- 3. Sezgir mountlar (masalan, `docker.sock`, sirlar, SSH kalitlari) mutlaqo zarur bo‘lmaguncha `:ro` bo‘lishi kerak.
+- Standart image: `openclaw-sandbox:bookworm-slim`
+- Uni bir marta build qiling:
 - 2. Agar ish maydoniga faqat o‘qish huquqi kerak bo‘lsa, `workspaceAccess: "ro"` bilan birlashtiring; bog‘lash rejimlari mustaqil qoladi.
 - 5. Bindlar tool policy va elevated exec bilan qanday o‘zaro ishlashini bilish uchun [Sandbox vs Tool Policy vs Elevated](/gateway/sandbox-vs-tool-policy-vs-elevated) ga qarang.
 
@@ -133,7 +140,7 @@ Example (read-only source + docker socket):
 
 20. Yo‘llar:
 
-- 21. Global: `agents.defaults.sandbox.docker.setupCommand`
+- Global: `agents.defaults.sandbox.docker.setupCommand`
 - 22. Har bir agent uchun: `agents.list[].sandbox.docker.setupCommand`
 
 23. Keng tarqalgan xatolar:
@@ -151,7 +158,7 @@ Example (read-only source + docker socket):
 4. `tools.elevated` — xostda `exec`ni ishga tushiradigan aniq chiqish yo‘li.
 5. `/exec` direktivalari faqat vakolatli jo‘natuvchilar uchun amal qiladi va sessiya bo‘yicha saqlanadi; `exec`ni butunlay o‘chirish uchun tool policy deny’dan foydalaning (qarang [Sandbox vs Tool Policy vs Elevated](/gateway/sandbox-vs-tool-policy-vs-elevated)).
 
-34. Debugging:
+Debugging:
 
 - 35. Samarali sandbox rejimi, tool policy va fix-it konfiguratsiya kalitlarini ko‘rish uchun `openclaw sandbox explain` dan foydalaning.
 - 36. “Nega bu bloklangan?” degan mental model uchun [Sandbox vs Tool Policy vs Elevated](/gateway/sandbox-vs-tool-policy-vs-elevated) ga qarang.
@@ -181,8 +188,6 @@ Example (read-only source + docker socket):
 
 ## 43. Bog‘liq hujjatlar
 
-- 44. [Sandbox Configuration](/gateway/configuration#agentsdefaults-sandbox)
-- 45. [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools)
-- 46. [Security](/gateway/security)
-
-
+- [Sandbox Configuration](/gateway/configuration#agentsdefaults-sandbox)
+- [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools)
+- [Security](/gateway/security)

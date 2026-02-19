@@ -1,6 +1,6 @@
 ---
 title: Fly.io
-description: "Triển khai OpenClaw trên Fly.io"
+description: Triển khai OpenClaw trên Fly.io
 ---
 
 # Triển khai Fly.io
@@ -35,13 +35,13 @@ fly apps create my-openclaw
 fly volumes create openclaw_data --size 1 --region iad
 ```
 
-**Mẹo:** Chọn khu vực gần bạn. Các tùy chọn phổ biến: `lhr` (London), `iad` (Virginia), `sjc` (San Jose).
+**Tip:** Choose a region close to you. Common options: `lhr` (London), `iad` (Virginia), `sjc` (San Jose).
 
 ## 2. Cấu hình fly.toml
 
 Chỉnh sửa `fly.toml` để khớp với tên app và yêu cầu của bạn.
 
-**Lưu ý bảo mật:** Cấu hình mặc định sẽ hiển thị một URL công khai. Để triển khai tăng cường bảo mật không có IP công khai, xem [Triển khai Riêng tư](#private-deployment-hardened) hoặc sử dụng `fly.private.toml`.
+**Security note:** The default config exposes a public URL. For a hardened deployment with no public IP, see [Private Deployment](#private-deployment-hardened) or use `fly.private.toml`.
 
 ```toml
 app = "my-openclaw"  # Your app name
@@ -107,7 +107,7 @@ fly secrets set DISCORD_BOT_TOKEN=MTQ...
 
 - Bind không phải loopback (`--bind lan`) yêu cầu `OPENCLAW_GATEWAY_TOKEN` để bảo mật.
 - Hãy coi các token này như mật khẩu.
-- **Ưu tiên sử dụng biến môi trường (env vars) thay cho file cấu hình** cho tất cả các khóa và token API. Điều này giúp giữ bí mật ngoài `openclaw.json`, nơi chúng có thể vô tình bị lộ hoặc bị ghi log.
+- **Prefer env vars over config file** for all API keys and tokens. This keeps secrets out of `openclaw.json` where they could be accidentally exposed or logged.
 
 ## 4. Triển khai
 
@@ -254,7 +254,7 @@ Fly không thể truy cập gateway trên cổng đã cấu hình.
 
 ### OOM / Vấn đề bộ nhớ
 
-Container liên tục khởi động lại hoặc bị dừng. Dấu hiệu: `SIGABRT`, `v8::internal::Runtime_AllocateInYoungGeneration`, hoặc tự khởi động lại mà không có thông báo.
+Container keeps restarting or getting killed. Signs: `SIGABRT`, `v8::internal::Runtime_AllocateInYoungGeneration`, or silent restarts.
 
 **Cách khắc phục:** Tăng bộ nhớ trong `fly.toml`:
 
@@ -484,5 +484,3 @@ Với cấu hình khuyến nghị (`shared-cpu-2x`, RAM 2GB):
 - Gói miễn phí có bao gồm một phần hạn mức
 
 Xem [bảng giá Fly.io](https://fly.io/docs/about/pricing/) để biết chi tiết.
-
-

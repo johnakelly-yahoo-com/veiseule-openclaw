@@ -1,4 +1,8 @@
 ---
+summary: "Talk mode: tuloy-tuloy na mga pag-uusap na boses gamit ang ElevenLabs TTS"
+read_when:
+  - Pagpapatupad ng Talk mode sa macOS/iOS/Android
+  - Pagbabago ng voice/TTS/interrupt na asal
 title: "Mode ng Talk"
 ---
 
@@ -43,7 +47,7 @@ Mga suportadong key:
 - `seed`, `normalize`, `lang`, `output_format`, `latency_tier`
 - `once`
 
-## Konpigurasyon (`~/.openclaw/openclaw.json`)
+## Config (`~/.openclaw/openclaw.json`)
 
 ```json5
 {
@@ -69,7 +73,7 @@ Mga default:
 
 - Toggle sa menu bar: **Talk**
 - Tab ng config: pangkat na **Talk Mode** (voice id + interrupt toggle)
-- Patong:
+- Overlay:
   - **Listening**: pumipintig na ulap na may antas ng mic
   - **Thinking**: lumulubog na animation
   - **Speaking**: mga naglalabasang singsing
@@ -84,5 +88,3 @@ Mga default:
 - Ang `stability` para sa `eleven_v3` ay bina-validate sa `0.0`, `0.5`, o `1.0`; tumatanggap ang ibang model ng `0..1`.
 - Ang `latency_tier` ay bina-validate sa `0..4` kapag itinakda.
 - Sinusuportahan ng Android ang mga output format na `pcm_16000`, `pcm_22050`, `pcm_24000`, at `pcm_44100` para sa low-latency AudioTrack streaming.
-
-

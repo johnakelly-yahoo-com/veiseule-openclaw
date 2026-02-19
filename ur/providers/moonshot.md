@@ -1,10 +1,15 @@
 ---
+summary: "Moonshot K2 بمقابلہ Kimi Coding کی کنفیگریشن (الگ فراہم کنندگان + کلیدیں)"
+read_when:
+  - آپ کو Moonshot K2 (Moonshot Open Platform) بمقابلہ Kimi Coding کا سیٹ اپ درکار ہو
+  - آپ کو الگ اینڈپوائنٹس، کلیدیں، اور ماڈل ریفرنسز سمجھنے کی ضرورت ہو
+  - آپ دونوں میں سے کسی بھی فراہم کنندہ کے لیے کاپی/پیسٹ کنفیگ چاہتے ہوں
 title: "Moonshot AI"
 ---
 
 # Moonshot AI (Kimi)
 
-Moonshot OpenAI کے موافق اینڈ پوائنٹس کے ساتھ Kimi API فراہم کرتا ہے۔ کنفیگر کریں
+Moonshot provides the Kimi API with OpenAI-compatible endpoints. Configure the
 provider and set the default model to `moonshot/kimi-k2.5`, or use
 Kimi Coding with `kimi-coding/k2p5`.
 
@@ -29,7 +34,7 @@ Kimi Coding:
 openclaw onboard --auth-choice kimi-code-api-key
 ```
 
-نوٹ: Moonshot اور Kimi Coding الگ فراہم کنندگان ہیں۔ کیز قابلِ تبادلہ نہیں ہیں، اینڈ پوائنٹس مختلف ہیں، اور ماڈل ریفرنسز مختلف ہیں (Moonshot `moonshot/...` استعمال کرتا ہے، Kimi Coding `kimi-coding/...` استعمال کرتا ہے)۔
+Note: Moonshot and Kimi Coding are separate providers. Keys are not interchangeable, endpoints differ, and model refs differ (Moonshot uses `moonshot/...`, Kimi Coding uses `kimi-coding/...`).
 
 ## کنفیگریشن اسنیپٹ (Moonshot API)
 
@@ -135,5 +140,3 @@ openclaw onboard --auth-choice kimi-code-api-key
 - اگر Moonshot کسی ماڈل کے لیے مختلف سیاقی حدود شائع کرے تو
   `contextWindow` کو اسی کے مطابق ایڈجسٹ کریں۔
 - بین الاقوامی اینڈپوائنٹ کے لیے `https://api.moonshot.ai/v1` استعمال کریں، اور چین اینڈپوائنٹ کے لیے `https://api.moonshot.cn/v1` استعمال کریں۔
-
-

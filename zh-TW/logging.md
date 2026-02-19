@@ -1,8 +1,13 @@
 ---
-title: "日誌記錄"
+summary: "記錄概覽：檔案記錄、主控台輸出、CLI 即時追蹤，以及控制介面"
+read_when:
+  - 你需要適合初學者的記錄概覽
+  - 你想設定記錄層級或格式
+  - 你正在進行疑難排解並需要快速找到記錄
+title: "Logging"
 ---
 
-# 日誌記錄
+# Logging
 
 OpenClaw 會在兩個地方產生記錄：
 
@@ -13,7 +18,7 @@ OpenClaw 會在兩個地方產生記錄：
 
 ## 預設情況下，Gateway 會在以下位置寫入循環記錄檔：
 
-預設情況下，Gateway 會在以下位置寫入滾動式日誌檔案：
+By default, the Gateway writes a rolling log file under:
 
 `/tmp/openclaw/openclaw-YYYY-MM-DD.log`
 
@@ -64,9 +69,11 @@ openclaw doctor
 
 控制介面的 **Logs** 分頁會使用 `logs.tail` 即時追蹤同一個檔案。
 如何開啟請參閱 [/web/control-ui](/web/control-ui)。
+控制介面的 **Logs** 分頁會使用 `logs.tail` 即時追蹤同一個檔案。
+如何開啟請參閱 [/web/control-ui](/web/control-ui)。
 See [/web/control-ui](/web/control-ui) for how to open it.
 
-### 僅通道日誌
+### Channel-only logs
 
 若要篩選頻道活動（WhatsApp／Telegram／等），請使用：
 
@@ -78,7 +85,7 @@ openclaw channels logs --channel whatsapp
 
 ### 檔案記錄（JSONL）
 
-日誌檔中的每一行都是一個 JSON 物件。CLI 和 Control UI 會解析這些內容
+Each line in the log file is a JSON object. 日誌檔中的每一行都是一個 JSON 物件。CLI 和 Control UI 會解析這些內容
 entries to render structured output (time, level, subsystem, message).
 
 ### 1. 主控台輸出
@@ -123,7 +130,7 @@ entries to render structured output (time, level, subsystem, message).
 - `compact`：更緊湊的輸出（適合長時間工作階段）。
 - `json`：每行一個 JSON（供記錄處理器使用）。
 
-### 資料遮蔽
+### Redaction
 
 6. 工具摘要可在輸出到主控台前遮蔽敏感權杖：
 
@@ -134,7 +141,7 @@ entries to render structured output (time, level, subsystem, message).
 
 ## 診斷 + OpenTelemetry
 
-8. 診斷是結構化、機器可讀的事件，用於模型執行 **以及** 訊息流程遙測（Webhook、佇列、工作階段狀態）。 9. 它們 **不會** 取代日誌；其存在是為了提供度量、追蹤與其他匯出器。
+診斷是結構化、機器可讀的事件，用於模型執行 **以及** 訊息流程遙測（Webhook、佇列、工作階段狀態）。 9. 它們 **不會** 取代日誌；其存在是為了提供度量、追蹤與其他匯出器。
 
 10. 診斷事件在程序內發出，但只有在啟用診斷 + 匯出器外掛時，匯出器才會附加。
 
@@ -147,7 +154,7 @@ entries to render structured output (time, level, subsystem, message).
 ### 11. 已匯出的訊號
 
 - **度量（Metrics）**：計數器與直方圖（權杖使用量、訊息流、佇列）。
-- 12. **追蹤**：模型使用量的 span，以及 webhook／訊息處理的 span。
+- **追蹤**：模型使用量的 span，以及 webhook／訊息處理的 span。
 - **記錄（Logs）**：當啟用 `diagnostics.otel.logs` 時，會透過 OTLP 匯出。記錄量
   可能很高；請留意 `logging.level` 與匯出器篩選條件。 13. 日誌量可能很高；請留意 `logging.level` 與匯出器過濾條件。
 
@@ -190,7 +197,8 @@ entries to render structured output (time, level, subsystem, message).
 
 使用旗標即可在不提高 `logging.level` 的情況下，開啟額外且具針對性的除錯記錄。
 旗標不分大小寫，並支援萬用字元（例如 `telegram.*` 或 `*`）。
-17. 旗標不區分大小寫並支援萬用字元（例如 `telegram.*` 或 `*`）。
+17.
+旗標不區分大小寫並支援萬用字元（例如 `telegram.*` 或 `*`）。
 
 ```json
 {
@@ -249,7 +257,7 @@ OPENCLAW_DIAGNOSTICS=telegram.http,telegram.payload
 - 你也可以使用 `openclaw plugins enable diagnostics-otel` 啟用此外掛。
 - `protocol` 目前僅支援 `http/protobuf`。`grpc` 會被忽略。 20. `grpc` 會被忽略。
 - 21. 指標包含權杖用量、成本、內容大小、執行時間，以及訊息流程的計數器／直方圖（webhook、佇列、工作階段狀態、佇列深度／等待）。
-- 22. 可使用 `traces`／`metrics` 切換追蹤／指標（預設：開啟）。 23. 追蹤在啟用時包含模型使用 span，以及 webhook／訊息處理 span。
+- 可使用 `traces`／`metrics` 切換追蹤／指標（預設：開啟）。 23. 追蹤在啟用時包含模型使用 span，以及 webhook／訊息處理 span。
 - 當你的收集器需要驗證時，請設定 `headers`。
 - 支援的環境變數：`OTEL_EXPORTER_OTLP_ENDPOINT`、
   `OTEL_SERVICE_NAME`、`OTEL_EXPORTER_OTLP_PROTOCOL`。
@@ -338,5 +346,3 @@ OPENCLAW_DIAGNOSTICS=telegram.http,telegram.payload
 - **記錄是空的？** 請確認 Gateway 閘道器 正在執行，並且正在寫入
   `logging.file` 中指定的檔案路徑。
 - **需要更多細節？** 將 `logging.level` 設為 `debug` 或 `trace` 後再試一次。
-
-

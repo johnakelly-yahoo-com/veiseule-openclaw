@@ -1,4 +1,8 @@
 ---
+summary: "مرجع CLI لأمر `openclaw skills` (list/info/check) وأهلية Skills"
+read_when:
+  - تريد معرفة Skills المتاحة والجاهزة للتشغيل
+  - تريد تصحيح أخطاء ثنائية البندقية المفقودة/env/التكوين للمهارات
 title: "skills"
 ---
 
@@ -20,5 +24,3 @@ openclaw skills list --eligible
 openclaw skills info <name>
 openclaw skills check
 ```
-
-

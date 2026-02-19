@@ -1,4 +1,8 @@
 ---
+summary: "Voice Call-plugin: udgående + indgående opkald via Twilio/Telnyx/Plivo (plugin-installation + konfiguration + CLI)"
+read_when:
+  - Du vil foretage et udgående taleopkald fra OpenClaw
+  - Du konfigurerer eller udvikler voice-call-pluginet
 title: "Voice Call-plugin"
 ---
 
@@ -110,6 +114,7 @@ Noter:
 - Plivo kræver en **offentligt tilgængelig** webhook-URL.
 - `mock` er en lokal dev-udbyder (ingen netværkskald).
 - `skipSignatureVerification` er kun til lokal test.
+- Hvis du bruger ngrok free tier, skal du sætte `publicUrl` til den præcise ngrok-URL; signaturverifikation håndhæves altid.
 - Hvis du bruger ngrok free tier, skal du sætte `publicUrl` til den præcise ngrok-URL; signaturverifikation håndhæves altid.
 - `tunnel.allowNgrokFreeTierLoopbackBypass: true` tillader Twilio webhooks med ugyldige signaturer **kun** når `tunnel.provider="ngrok"` og `serve.bind` er loopback (ngrok local agent). Må kun anvendes til lokal dev.
 - Ngrok free tier URLs can change or add interstitial behavior; if `publicUrl` drifts, Twilio signaturer will fail. Til produktion foretrækker et stabilt domæne eller Tailscale tragt.
@@ -279,5 +284,3 @@ Dette repo leverer en matchende Skills-dokumentation på `skills/voice-call/SKIL
 - `voicecall.speak` (`callId`, `message`)
 - `voicecall.end` (`callId`)
 - `voicecall.status` (`callId`)
-
-

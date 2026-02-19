@@ -1,4 +1,8 @@
 ---
+summary: "„OpenClaw-Plugins/-Erweiterungen: Discovery, Konfiguration und Sicherheit“"
+read_when:
+  - Hinzufügen oder Ändern von Plugins/Erweiterungen
+  - Dokumentation von Regeln zur Plugin-Installation oder -Ladung
 title: "„Plugins“"
 ---
 
@@ -26,6 +30,9 @@ openclaw plugins list
 ```bash
 openclaw plugins install @openclaw/voice-call
 ```
+
+Npm-Spezifikationen sind **nur für die Registry** (Paketname + optionale Version/Tag). Git/URL/Datei
+Spezifikationen werden abgelehnt.
 
 3. Starten Sie das Gateway neu und konfigurieren Sie es anschließend unter `plugins.entries.<id>.config`.
 
@@ -131,6 +138,9 @@ zu `name/<fileBase>`.
 
 Wenn Ihr Plugin npm-Abhängigkeiten importiert, installieren Sie diese in diesem Verzeichnis,
 damit `node_modules` verfügbar ist (`npm install` / `pnpm install`).
+
+Sicherheitshinweis: `openclaw plugins install` installiert Plugin-Abhängigkeiten mit
+`npm install --ignore-scripts` (keine Lifecycle-Skripte). Halten Sie die Abhängigkeitsbäume von Plugins "reines JS/TS" und vermeiden Sie Pakete, die `postinstall`-Builds erfordern.
 
 ### Kanal-Katalog-Metadaten
 
@@ -432,7 +442,7 @@ Dokumentation zu Modellanbietern finden Sie unter `/providers/*`.
 - `meta.preferOver` ermöglicht es einem Plugin, einen anderen Kanal zu ersetzen (Auto-Aktivierung bevorzugt ihn).
 - `meta.detailLabel` und `meta.systemImage` werden von UIs für Detailtexte/Icons verwendet.
 
-3. Erforderliche Adapter implementieren
+3. Optionale Adapter nach Bedarf hinzufügen
 
 - `config.listAccountIds` + `config.resolveAccount`
 - `capabilities` (Chat-Typen, Medien, Threads usw.)
@@ -547,7 +557,7 @@ export default function (api) {
 }
 ```
 
-Befehls-Handler-Kontext:
+Befehlsoptionen:
 
 - `senderId`: Die ID des Absenders (falls verfügbar)
 - `channel`: Der Kanal, in dem der Befehl gesendet wurde
@@ -556,7 +566,7 @@ Befehls-Handler-Kontext:
 - `commandBody`: Der vollständige Befehlstext
 - `config`: Die aktuelle OpenClaw-Konfiguration
 
-Befehlsoptionen:
+Befehls-Handler-Kontext:
 
 - `name`: Befehlsname (ohne führendes `/`)
 - `description`: Hilfetext, der in Befehlslisten angezeigt wird
@@ -655,5 +665,3 @@ Plugins können (und sollten) Tests mitliefern:
 
 - In-Repo-Plugins können Vitest-Tests unter `src/**` ablegen (Beispiel: `src/plugins/voice-call.plugin.test.ts`).
 - Separat veröffentlichte Plugins sollten ihre eigene CI ausführen (Lint/Build/Test) und validieren, dass `openclaw.extensions` auf den gebauten Entry-Point zeigt (`dist/index.js`).
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "CLI 新手引導精靈的完整參考：每個步驟、旗標與設定欄位"
+read_when:
+  - 查找特定的精靈步驟或旗標
+  - 使用非互動模式自動化入門
+  - 除錯精靈行為
 title: "入門引導精靈參考"
 sidebarTitle: "reference/wizard.md"
 ---
@@ -7,6 +12,8 @@ sidebarTitle: "reference/wizard.md"
 
 這是 `openclaw onboard` CLI 精靈的完整參考。
 如需高層概覽，請參閱 [入門引導精靈](/start/wizard)。
+如需高階總覽，請參閱 [Onboarding Wizard](/start/wizard)。
+如需高階總覽，請參閱 [Onboarding Wizard](/start/wizard)。
 
 ## 流程細節（本機模式）
 
@@ -19,18 +26,23 @@ sidebarTitle: "reference/wizard.md"
     - 重設會使用 `trash`（絕不使用 `rm`），並提供範圍選項：
       - 僅設定
       - 設定 + 憑證 + 工作階段
-      - 完整重設（也會移除工作區）
-  
+      - 完整重設（也會移除工作區）  
 </Step>
   <Step title="Model/Auth">
+    - **Anthropic API 金鑰（建議）**：若存在則使用 `ANTHROPIC_API_KEY`，否則提示輸入金鑰，接著儲存以供 daemon 使用。
     - **Anthropic API 金鑰（建議）**：若存在則使用 `ANTHROPIC_API_KEY`，否則提示輸入金鑰，接著儲存以供 daemon 使用。
     - **Anthropic OAuth（Claude Code CLI）**：在 macOS 上，精靈會檢查 Keychain 項目「Claude Code-credentials」（請選擇「Always Allow」以避免 launchd 啟動時被阻擋）；在 Linux/Windows 上，若存在則重用 `~/.claude/.credentials.json`。
     - **Anthropic token（貼上 setup-token）**：在任何機器上執行 `claude setup-token`，然後貼上 token（可命名；留空 = 預設）。
     - **OpenAI Code（Codex）訂閱（Codex CLI）**：如果存在 `~/.codex/auth.json`，精靈可以重用它。
     - **OpenAI Code（Codex）訂閱（OAuth）**：瀏覽器流程；貼上 `code#state`。
-      - 當模型未設定或為 `openai/*` 時，會將 `agents.defaults.model` 設為 `openai-codex/gpt-5.2`。
+      - Sets `agents.defaults.model` to `openai-codex/gpt-5.2` when model is unset or `openai/*`.
+    - **Anthropic token（貼上 setup-token）**：在任何機器上執行 `claude setup-token`，然後貼上 token（可命名；留空 = 預設）。
+    - **OpenAI Code（Codex）訂閱（Codex CLI）**：如果存在 `~/.codex/auth.json`，精靈可以重用它。
+    - **OpenAI Code（Codex）訂閱（OAuth）**：瀏覽器流程；貼上 `code#state`。
+      - Sets `agents.defaults.model` to `openai-codex/gpt-5.2` when model is unset or `openai/*`.
     - **OpenAI API 金鑰**：若存在則使用 `OPENAI_API_KEY`，否則提示輸入金鑰，然後將其儲存至 `~/.openclaw/.env` 以便 launchd 讀取。
-    - **xAI（Grok）API 金鑰**：提示輸入 `XAI_API_KEY`，並將 xAI 設定為模型提供者。
+    - **xAI (Grok) API key**: prompts for `XAI_API_KEY` and configures xAI as a model provider.
+    - **xAI (Grok) API key**: prompts for `XAI_API_KEY` and configures xAI as a model provider.
     - **OpenCode Zen（多模型代理）**：提示輸入 `OPENCODE_API_KEY`（或 `OPENCODE_ZEN_API_KEY`，於 https://opencode.ai/auth 取得）。
     - **API 金鑰**：為你儲存金鑰。
     - **Vercel AI Gateway（多模型代理）**：提示輸入 `AI_GATEWAY_API_KEY`。
@@ -38,79 +50,93 @@ sidebarTitle: "reference/wizard.md"
     - **Cloudflare AI Gateway**：提示輸入 Account ID、Gateway ID 與 `CLOUDFLARE_AI_GATEWAY_API_KEY`。
     - 更多細節：[Cloudflare AI Gateway](/providers/cloudflare-ai-gateway)
     - **MiniMax M2.1**：設定會自動寫入。
-    - 更多細節：[MiniMax](/providers/minimax)
-    - **Synthetic（相容 Anthropic）**：提示輸入 `SYNTHETIC_API_KEY`。
-    - 更多細節：[Synthetic](/providers/synthetic)
-    - **Moonshot（Kimi K2）**：設定會自動寫入。
-    - **Kimi Coding**：設定會自動寫入。
-    - 更多細節：[Moonshot AI（Kimi + Kimi Coding）](/providers/moonshot)
-    - **Skip**：尚未設定任何驗證。
-    - 從偵測到的選項中選擇預設模型（或手動輸入 provider/model）。
-    - 精靈會執行模型檢查，若設定的模型未知或缺少驗證，會顯示警告。
-    - OAuth 憑證位於 `~/.openclaw/credentials/oauth.json`；驗證設定檔位於 `~/.openclaw/agents/<agentId>/agent/auth-profiles.json`（API 金鑰 + OAuth）。
+    - More detail: [MiniMax](/providers/minimax)
+    - **Synthetic (Anthropic-compatible)**: prompts for `SYNTHETIC_API_KEY`.
+    - **API 金鑰**：為你儲存金鑰。
+    - **Vercel AI Gateway（多模型代理）**：提示輸入 `AI_GATEWAY_API_KEY`。
+    - 更多細節：[Vercel AI Gateway](/providers/vercel-ai-gateway)
+    - **Cloudflare AI Gateway**：提示輸入 Account ID、Gateway ID 與 `CLOUDFLARE_AI_GATEWAY_API_KEY`。
+    - 更多細節：[Cloudflare AI Gateway](/providers/cloudflare-ai-gateway)
+    - **MiniMax M2.1**：設定會自動寫入。
+    - More detail: [MiniMax](/providers/minimax)
+    - **Synthetic (Anthropic-compatible)**: prompts for `SYNTHETIC_API_KEY`.
+    - More detail: [Synthetic](/providers/synthetic)
+    - **Moonshot (Kimi K2)**: config is auto-written.
+    - **Kimi Coding**: config is auto-written.
+    - More detail: [Moonshot AI (Kimi + Kimi Coding)](/providers/moonshot)
+    - **Skip**: no auth configured yet.
+    - Pick a default model from detected options (or enter provider/model manually).
+    - Wizard runs a model check and warns if the configured model is unknown or missing auth.
+    - OAuth credentials live in `~/.openclaw/credentials/oauth.json`; auth profiles live in `~/.openclaw/agents/<agentId>/agent/auth-profiles.json`（API 金鑰 + OAuth）。
     - 更多說明：[/concepts/oauth](/concepts/oauth)
-    <Note>
-    無頭／伺服器提示：請在有瀏覽器的機器上完成 OAuth，然後將
+    - 更多細節：[/concepts/oauth](/concepts/oauth)        
+<Note>
+    無頭／伺服器提示：在有瀏覽器的機器上完成 OAuth，然後將
     `~/.openclaw/credentials/oauth.json`（或 `$OPENCLAW_STATE_DIR/credentials/oauth.json`）複製到
-    Gateway 主機。
+    閘道器主機。
     
 </Note>
   
 </Step>
   <Step title="Workspace">
+    - Default `~/.openclaw/workspace` (configurable).
+    - Seeds the workspace files needed for the agent bootstrap ritual.
     - 預設為 `~/.openclaw/workspace`（可設定）。
-    - 產生代理程式啟動流程所需的工作區檔案。
-    - 完整工作區配置與備份指南：[代理程式工作區](/concepts/agent-workspace)
-  
+- 產生代理程式啟動儀式所需的工作區檔案。
+- 完整工作區配置與備份指南：[代理程式工作區](/concepts/agent-workspace)  
 </Step>
   <Step title="Gateway">
-    - 連接埠、bind、驗證模式、Tailscale 對外暴露。
-    - 驗證建議：即使是 loopback，也請保留 **Token**，讓本機 WS 用戶端必須驗證。
-    - 只有在你完全信任所有本機程序時才停用驗證。
-    - 非 loopback 的 bind 仍然需要驗證。
+    - Port, bind, auth mode, tailscale exposure.
+    - Auth recommendation: keep **Token** even for loopback so local WS clients must authenticate.
+    - Disable auth only if you fully trust every local process.
+    - Non‑loopback binds still require auth.
   
 </Step>
   <Step title="Channels">
-    - [WhatsApp](/channels/whatsapp)：可選 QR 登入。
-    - [Telegram](/channels/telegram)：bot token。
-    - [Discord](/channels/discord)：bot token。
-    - [Google Chat](/channels/googlechat)：service account JSON + webhook audience。
-    - [Mattermost](/channels/mattermost)（外掛）：bot token + base URL。
-    - [Signal](/channels/signal)：可選安裝 `signal-cli` + 帳號設定。
-    - [BlueBubbles](/channels/bluebubbles)：**iMessage 建議方案**；server URL + password + webhook。
-    - [iMessage](/channels/imessage)：舊版 `imsg` CLI 路徑 + DB 存取。
-    - DM 安全性：預設為配對。第一則 DM 會傳送代碼；透過 `openclaw pairing approve <channel> <code>` 核准，或使用允許清單。
+    - [WhatsApp](/channels/whatsapp): optional QR login.
+    - [Telegram](/channels/telegram): bot token.
+    - [Discord](/channels/discord): bot token.
+    - [Google Chat](/channels/googlechat): service account JSON + webhook audience.
+    - [Mattermost](/channels/mattermost) (plugin): bot token + base URL.
+    - [Signal](/channels/signal): optional `signal-cli` install + account config.
+    - [BlueBubbles](/channels/bluebubbles): **recommended for iMessage**; server URL + password + webhook.
+    - [iMessage](/channels/imessage): legacy `imsg` CLI path + DB access.
+    - DM security: default is pairing. First DM sends a code; approve via `openclaw pairing approve <channel><code>` 核准或使用允許清單。
+  
+</Step><code>` 核准或使用允許清單。
+  
+</Step><code>` or use allowlists.
   
 </Step>
   <Step title="Daemon install">
-    - macOS：LaunchAgent
-      - 需要已登入的使用者工作階段；若為無頭環境，請使用自訂 LaunchDaemon（未隨附）。
-    - Linux（以及透過 WSL2 的 Windows）：systemd 使用者單元
-      - 精靈會嘗試透過 `loginctl enable-linger <user>` 啟用 lingering，讓 Gateway 在登出後仍持續運行。
-      - 可能會提示 sudo（寫入 `/var/lib/systemd/linger`）；會先嘗試不使用 sudo。
-    - **執行環境選擇：** Node（建議；WhatsApp/Telegram 必須）。**不建議** 使用 Bun。
+    - macOS: LaunchAgent
+      - Requires a logged-in user session; for headless, use a custom LaunchDaemon (not shipped).
+    - Linux (and Windows via WSL2): systemd user unit
+      - Wizard attempts to enable lingering via `loginctl enable-linger <user>` so the Gateway stays up after logout.
+      - May prompt for sudo (writes `/var/lib/systemd/linger`); it tries without sudo first.
+    - **Runtime selection:** Node (recommended; required for WhatsApp/Telegram). Bun is **not recommended**.
   
 </Step>
   <Step title="Health check">
-    - 啟動 Gateway（如有需要）並執行 `openclaw health`。
-    - 提示：`openclaw status --deep` 會在狀態輸出中加入 gateway 健康探測（需要可連線的 gateway）。
+    - Starts the Gateway (if needed) and runs `openclaw health`.
+    - Tip: `openclaw status --deep` adds gateway health probes to status output (requires a reachable gateway).
   
 </Step>
   <Step title="Skills (recommended)">
-    - 讀取可用的 Skills 並檢查需求。
-    - 讓你選擇 node 管理工具：**npm / pnpm**（不建議使用 bun）。
-    - 安裝選用相依套件（部分在 macOS 上使用 Homebrew）。
+    - Reads the available skills and checks requirements.
+    - Lets you choose a node manager: **npm / pnpm** (bun not recommended).
+    - Installs optional dependencies (some use Homebrew on macOS).
   
 </Step>
   <Step title="Finish">
-    - 摘要與後續步驟，包括 iOS/Android/macOS 應用程式以啟用額外功能。
+    - Summary + next steps, including iOS/Android/macOS apps for extra features.
   
 </Step>
 </Steps>
 
 <Note>
-若未偵測到 GUI，精靈會顯示 Control UI 的 SSH 連接埠轉送指示，而非開啟瀏覽器。
-若缺少 Control UI 資產，精靈會嘗試建置；備援指令為 `pnpm ui:build`（會自動安裝 UI 相依套件）。
+If no GUI is detected, the wizard prints SSH port-forward instructions for the Control UI instead of opening a browser.
+If the Control UI assets are missing, the wizard attempts to build them; fallback is `pnpm ui:build` (auto-installs UI deps).
 </Note>
 
 ## 非互動模式
@@ -132,7 +158,10 @@ openclaw onboard --non-interactive \
 加入 `--json` 以取得機器可讀的摘要。
 
 <Note>
+
 `--json` **不**代表非互動模式。請在指令碼中使用 `--non-interactive`（以及 `--workspace`）。
+ `--json` **不**代表非互動模式。請在指令碼中使用 `--non-interactive`（以及 `--workspace`）。
+ Use `--non-interactive` (and `--workspace`) for scripts.
 </Note>
 
 <AccordionGroup>
@@ -231,29 +260,31 @@ openclaw agents add work \
 ## Gateway 精靈 RPC
 
 Gateway 透過 RPC 提供精靈流程（`wizard.start`、`wizard.next`、`wizard.cancel`、`wizard.status`）。
-用戶端（macOS app、Control UI）可在不重新實作入門邏輯的情況下呈現步驟。
+用戶端（macOS 應用程式、Control UI）可在不重新實作入門邏輯的情況下呈現步驟。
+Clients (macOS app, Control UI) can render steps without re‑implementing onboarding logic.
+Clients (macOS app, Control UI) can render steps without re‑implementing onboarding logic.
 
 ## Signal 設定（signal-cli）
 
 精靈可從 GitHub 發行版安裝 `signal-cli`：
 
-- 下載對應的發行版資產。
+- Downloads the appropriate release asset.
 - 儲存在 `~/.openclaw/tools/signal-cli/<version>/` 之下。
 - 將 `channels.signal.cliPath` 寫入你的設定。
 
 注意事項：
 
 - JVM 版本需要 **Java 21**。
-- 若有可用版本，會使用 Native build。
-- Windows 使用 WSL2；`signal-cli` 的安裝會在 WSL 內依 Linux 流程進行。
+- Native builds are used when available.
+- Windows 使用 WSL2；signal-cli 的安裝會在 WSL 內依 Linux 流程進行。
 
 ## What the wizard writes
 
 `~/.openclaw/openclaw.json` 中的常見欄位：
 
 - `agents.defaults.workspace`
-- `agents.defaults.model` / `models.providers`（若選擇 Minimax）
-- `gateway.*`（模式、bind、驗證、tailscale）
+- `agents.defaults.model`／`models.providers`（若選擇 Minimax）
+- `gateway.*`（模式、繫結、驗證、 Tailscale）
 - `channels.telegram.botToken`、`channels.discord.token`、`channels.signal.*`、`channels.imessage.*`
 - 在提示中選擇加入時，頻道允許清單（Slack／Discord／Matrix／Microsoft Teams）（名稱在可能時會解析為 ID）。
 - `skills.install.nodeManager`
@@ -266,9 +297,12 @@ Gateway 透過 RPC 提供精靈流程（`wizard.start`、`wizard.next`、`wizard
 `openclaw agents add` 會寫入 `agents.list[]` 與選用的 `bindings`。
 
 WhatsApp 憑證位於 `~/.openclaw/credentials/whatsapp/<accountId>/`。
+工作階段儲存在 `~/.openclaw/agents/<agentId>/sessions/`。
+Sessions are stored under `~/.openclaw/agents/<agentId>/sessions/`.
 Sessions are stored under `~/.openclaw/agents/<agentId>/sessions/`.
 
-部分頻道以外掛形式提供。當你在入門流程中選擇其中一個時，精靈會先提示安裝它（npm 或本機路徑），然後才能進行設定。
+Some channels are delivered as plugins. When you pick one during onboarding, the wizard
+will prompt to install it (npm or a local path) before it can be configured.
 
 ## Related docs
 
@@ -277,4 +311,3 @@ Sessions are stored under `~/.openclaw/agents/<agentId>/sessions/`.
 - 設定參考：[Gateway 設定](/gateway/configuration)
 - 提供者：[WhatsApp](/channels/whatsapp)、[Telegram](/channels/telegram)、[Discord](/channels/discord)、[Google Chat](/channels/googlechat)、[Signal](/channels/signal)、[BlueBubbles](/channels/bluebubbles)（iMessage）、[iMessage](/channels/imessage)（舊版）
 - Skills：[Skills](/tools/skills)、[Skills 設定](/tools/skills-config)
-

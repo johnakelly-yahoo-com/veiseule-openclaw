@@ -1,4 +1,8 @@
 ---
+summary: "CLI-referentie voor `openclaw devices` (apparaatkoppeling + tokenrotatie/-intrekking)"
+read_when:
+  - Je keurt verzoeken voor apparaatkoppeling goed
+  - Je moet apparaattokens roteren of intrekken
 title: "apparaten"
 ---
 
@@ -64,5 +68,3 @@ Geef `--token` of `--password` expliciet door. Het ontbreken van expliciete refe
 
 - Tokenrotatie levert een nieuw token op (gevoelig). Behandel het als een geheim.
 - Deze opdrachten vereisen de scope `operator.pairing` (of `operator.admin`).
-
-

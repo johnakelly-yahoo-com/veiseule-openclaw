@@ -1,4 +1,9 @@
 ---
+summary: "Tổng quan về logging: log tệp, đầu ra console, theo dõi bằng CLI, và Control UI"
+read_when:
+  - Bạn cần một cái nhìn tổng quan về logging thân thiện cho người mới
+  - Bạn muốn cấu hình mức log hoặc định dạng
+  - Bạn đang xử lý sự cố và cần tìm log nhanh
 title: "Ghi nhật ký"
 ---
 
@@ -63,7 +68,7 @@ openclaw doctor
 
 ### Giao diện Điều khiển (web)
 
-Tab **Logs** của Giao diện Điều khiển theo dõi cùng một tệp bằng `logs.tail`.
+The Control UI’s **Logs** tab tails the same file using `logs.tail`.
 See [/web/control-ui](/web/control-ui) for how to open it.
 
 ### Log chỉ theo kênh
@@ -78,7 +83,7 @@ openclaw channels logs --channel whatsapp
 
 ### Log tệp (JSONL)
 
-Mỗi dòng trong tệp nhật ký là một đối tượng JSON. CLI và Giao diện Điều khiển phân tích các đối tượng này
+Each line in the log file is a JSON object. The CLI and Control UI parse these
 entries to render structured output (time, level, subsystem, message).
 
 ### Đầu ra console
@@ -134,7 +139,7 @@ Che dữ liệu chỉ ảnh hưởng đến **đầu ra console** và không tha
 
 ## Chẩn đoán + OpenTelemetry
 
-Chẩn đoán là các sự kiện có cấu trúc, có thể đọc được bằng máy cho các lần chạy mô hình **và**
+Diagnostics are structured, machine-readable events for model runs **and**
 message-flow telemetry (webhooks, queueing, session state). They do **not**
 replace logs; they exist to feed metrics, traces, and other exporters.
 
@@ -151,8 +156,8 @@ chẩn đoán + plugin exporter.
 
 - **Metrics**: counter + histogram (mức sử dụng token, luồng thông điệp, xếp hàng).
 - **Traces**: span cho việc dùng mô hình + xử lý webhook/thông điệp.
-- **Logs**: được xuất qua OTLP khi `diagnostics.otel.logs` được bật. Nhật ký
-khối lượng có thể cao; hãy lưu ý `logging.level` và các bộ lọc của exporter.
+- **Logs**: exported over OTLP when `diagnostics.otel.logs` is enabled. Log
+  volume can be high; keep `logging.level` and exporter filters in mind.
 
 ### Danh mục sự kiện chẩn đoán
 
@@ -343,5 +348,3 @@ Hàng đợi + phiên:
 - **Log trống?** Kiểm tra Gateway đang chạy và ghi vào đường dẫn tệp
   trong `logging.file`.
 - **Cần nhiều chi tiết hơn?** Đặt `logging.level` thành `debug` hoặc `trace` rồi thử lại.
-
-

@@ -1,13 +1,16 @@
 ---
+summary: "`openclaw config` के लिए CLI संदर्भ (config मान प्राप्त/सेट/अनसेट करें)"
+read_when:
+  - आप config को गैर‑इंटरैक्टिव रूप से पढ़ना या संपादित करना चाहते हैं
 title: "config"
 ---
 
 # `openclaw config`
 
-कॉन्फ़िग हेल्पर: पाथ के अनुसार मान get/set/unset करें। बिना सबकमांड के चलाएँ ताकि खुल सके।
+Config helpers: get/set/unset values by path. Run without a subcommand to open
 the configure wizard (same as `openclaw configure`).
 
-## उदाहरण
+## Examples
 
 ```bash
 openclaw config get browser.executablePath
@@ -17,7 +20,7 @@ openclaw config set agents.list[0].tools.exec.node "node-id-or-name"
 openclaw config unset tools.web.search.apiKey
 ```
 
-## पाथ
+## Paths
 
 पथ डॉट या ब्रैकेट नोटेशन का उपयोग करते हैं:
 
@@ -33,9 +36,9 @@ openclaw config get agents.list
 openclaw config set agents.list[1].tools.exec.node "node-id-or-name"
 ```
 
-## मान
+## Values
 
-जहाँ संभव हो, मानों को JSON5 के रूप में पार्स किया जाता है; अन्यथा उन्हें स्ट्रिंग के रूप में माना जाता है।
+Values are parsed as JSON5 when possible; otherwise they are treated as strings.
 Use `--json` to require JSON5 parsing.
 
 ```bash
@@ -45,5 +48,3 @@ openclaw config set channels.whatsapp.groups '["*"]' --json
 ```
 
 संपादन के बाद Gateway को पुनः आरंभ करें।
-
-

@@ -1,4 +1,9 @@
-------
+---
+title: "Mẫu BOOTSTRAP.md"
+summary: "Nghi thức chạy lần đầu cho các tác tử mới"
+read_when:
+  - Khởi tạo một workspace thủ công
+---
 
 # BOOTSTRAP.md - Hello, World
 
@@ -55,5 +60,3 @@ Delete this file. You don't need a bootstrap script anymore — you're you now.
 ---
 
 _Good luck out there. Make it count._
-
-

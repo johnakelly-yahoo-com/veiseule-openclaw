@@ -1,4 +1,9 @@
 ---
+summary: "CLI onboarding sihirbazı için tam başvuru: her adım, bayrak ve yapılandırma alanı"
+read_when:
+  - Belirli bir sihirbaz adımını veya bayrağını ararken
+  - Etkileşimsiz modla onboarding’i otomatikleştirirken
+  - Sihirbaz davranışında hata ayıklarken
 title: "Onboarding Sihirbazı Başvurusu"
 sidebarTitle: "reference/wizard.md"
 ---
@@ -13,13 +18,14 @@ Bu belge, `openclaw onboard` CLI sihirbazının tam başvurusudur.
 <Steps>
   <Step title="Existing config detection">
     - `~/.openclaw/openclaw.json` mevcutsa **Koru / Değiştir / Sıfırla** seçeneklerinden biri seçilir.
-    - Sihirbazı yeniden çalıştırmak, siz açıkça **Sıfırla**yı seçmedikçe (veya `--reset` geçmedikçe) hiçbir şeyi **silmez**.
-    - Yapılandırma geçersizse veya eski anahtarlar içeriyorsa, sihirbaz durur ve devam etmeden önce `openclaw doctor` çalıştırmanızı ister.
+    - Sihirbazı yeniden çalıştırmak, siz açıkça **Sıfırla**yı seçmedikçe
+      (veya `--reset` geçmedikçe) hiçbir şeyi **silmez**.
+    - Yapılandırma geçersizse veya eski anahtarlar içeriyorsa, sihirbaz durur ve
+      devam etmeden önce `openclaw doctor` çalıştırmanızı ister.
     - Sıfırlama `trash` kullanır (asla `rm` değil) ve kapsam seçenekleri sunar:
       - Yalnızca yapılandırma
       - Yapılandırma + kimlik bilgileri + oturumlar
-      - Tam sıfırlama (çalışma alanını da kaldırır)
-  
+      - Tam sıfırlama (çalışma alanını da kaldırır)  
 </Step>
   <Step title="Model/Auth">
     - **Anthropic API anahtarı (önerilir)**: mevcutsa `ANTHROPIC_API_KEY` kullanır veya bir anahtar ister, ardından daemon kullanımı için kaydeder.
@@ -47,8 +53,8 @@ Bu belge, `openclaw onboard` CLI sihirbazının tam başvurusudur.
     - Algılanan seçeneklerden varsayılan bir model seçin (veya sağlayıcı/modeli manuel girin).
     - Sihirbaz bir model denetimi çalıştırır ve yapılandırılan model bilinmiyorsa veya kimlik doğrulama eksikse uyarır.
     - OAuth kimlik bilgileri `~/.openclaw/credentials/oauth.json` altında; kimlik doğrulama profilleri `~/.openclaw/agents/<agentId>/agent/auth-profiles.json` altında bulunur (API anahtarları + OAuth).
-    - Daha fazla ayrıntı: [/concepts/oauth](/concepts/oauth)
-    <Note>
+    - Daha fazla ayrıntı: [/concepts/oauth](/concepts/oauth)    
+<Note>
     Başsız/sunucu ipucu: OAuth’u tarayıcılı bir makinede tamamlayın, ardından
     `~/.openclaw/credentials/oauth.json` (veya `$OPENCLAW_STATE_DIR/credentials/oauth.json`) dosyasını
     gateway ana makinesine kopyalayın.
@@ -59,11 +65,10 @@ Bu belge, `openclaw onboard` CLI sihirbazının tam başvurusudur.
   <Step title="Workspace">
     - Varsayılan `~/.openclaw/workspace` (yapılandırılabilir).
     - Ajan bootstrap ritüeli için gereken çalışma alanı dosyalarını oluşturur.
-    - Tam çalışma alanı düzeni + yedekleme kılavuzu: [Ajan çalışma alanı](/concepts/agent-workspace)
-  
+    - Tam çalışma alanı düzeni + yedekleme kılavuzu: [Ajan çalışma alanı](/concepts/agent-workspace)  
 </Step>
   <Step title="Gateway">
-    - Port, bağlama, kimlik doğrulama modu, tailscale yayını.
+    - Port, bağlama, kimlik doğrulama modu, Tailscale yayını.
     - Kimlik doğrulama önerisi: local loopback için bile **Token**’ı koruyun; böylece yerel WS istemcileri kimlik doğrulamak zorunda kalır.
     - Kimlik doğrulamayı yalnızca tüm yerel süreçlere tamamen güveniyorsanız devre dışı bırakın.
     - Loopback olmayan bağlamalar yine de kimlik doğrulama gerektirir.
@@ -78,30 +83,32 @@ Bu belge, `openclaw onboard` CLI sihirbazının tam başvurusudur.
     - [Signal](/channels/signal): isteğe bağlı `signal-cli` kurulumu + hesap yapılandırması.
     - [BlueBubbles](/channels/bluebubbles): **iMessage için önerilir**; sunucu URL’si + parola + webhook.
     - [iMessage](/channels/imessage): eski `imsg` CLI yolu + veritabanı erişimi.
-    - DM güvenliği: varsayılan eşleştirmedir. İlk DM bir kod gönderir; `openclaw pairing approve <channel> <code>` ile onaylayın veya izin listeleri kullanın.
+    - DM güvenliği: varsayılan eşleştirmedir. İlk DM bir kod gönderir; `openclaw pairing approve <channel><code>` üzerinden onaylayın veya izin listeleri kullanın.
+  
+</Step><code>` üzerinden onaylayın veya izin listeleri kullanın.
   
 </Step>
-  <Step title="Daemon install">
+  <Step title="Daemon kurulumu">
     - macOS: LaunchAgent
       - Oturum açmış bir kullanıcı oturumu gerektirir; başsız kullanım için özel bir LaunchDaemon kullanın (pakete dahil değildir).
     - Linux (ve WSL2 üzerinden Windows): systemd kullanıcı birimi
       - Sihirbaz, çıkıştan sonra Gateway’in ayakta kalması için `loginctl enable-linger <user>` ile lingering’i etkinleştirmeye çalışır.
       - sudo isteyebilir (`/var/lib/systemd/linger` yazar); önce sudo olmadan dener.
-    - **Runtime selection:** Node (önerilir; WhatsApp/Telegram için gereklidir). Bun **önerilmez**.
+    - **Çalışma zamanı seçimi:** Node (önerilir; WhatsApp/Telegram için gereklidir). Bun **önerilmez**.
   
 </Step>
-  <Step title="Health check">
+  <Step title="Sağlık denetimi">
     - Gerekirse Gateway’i başlatır ve `openclaw health` çalıştırır.
     - İpucu: `openclaw status --deep`, durum çıktısına gateway sağlık yoklamaları ekler (erişilebilir bir gateway gerektirir).
   
 </Step>
-  <Step title="Skills (recommended)">
+  <Step title="Skills (önerilir)">
     - Mevcut Skills’leri okur ve gereksinimleri denetler.
     - Bir node yöneticisi seçmenizi sağlar: **npm / pnpm** (bun önerilmez).
     - İsteğe bağlı bağımlılıkları kurar (bazıları macOS’ta Homebrew kullanır).
   
 </Step>
-  <Step title="Finish">
+  <Step title="Bitir">
     - Ek özellikler için iOS/Android/macOS uygulamaları dahil özet + sonraki adımlar.
   
 </Step>
@@ -252,7 +259,7 @@ Notlar:
 
 - `agents.defaults.workspace`
 - `agents.defaults.model` / `models.providers` (MiniMax seçildiyse)
-- `gateway.*` (mod, bağlama, kimlik doğrulama, tailscale)
+- `gateway.*` (mod, bağlama, kimlik doğrulama, Tailscale)
 - `channels.telegram.botToken`, `channels.discord.token`, `channels.signal.*`, `channels.imessage.*`
 - İstemler sırasında tercih ettiğinizde kanal izin listeleri (Slack/Discord/Matrix/Microsoft Teams) (adlar mümkün olduğunda kimliklere çözülür).
 - `skills.install.nodeManager`
@@ -267,7 +274,8 @@ Notlar:
 WhatsApp kimlik bilgileri `~/.openclaw/credentials/whatsapp/<accountId>/` altında bulunur.
 Oturumlar `~/.openclaw/agents/<agentId>/sessions/` altında saklanır.
 
-Bazı kanallar eklenti olarak sunulur. Onboarding sırasında birini seçtiğinizde, sihirbaz yapılandırılabilmesi için önce onu kurmayı (npm veya yerel bir yol) ister.
+Bazı kanallar eklenti olarak sunulur. Onboarding sırasında birini seçtiğinizde, sihirbaz
+yapılandırılabilmesi için önce onu kurmayı (npm veya yerel bir yol) ister.
 
 ## İlgili belgeler
 
@@ -276,4 +284,3 @@ Bazı kanallar eklenti olarak sunulur. Onboarding sırasında birini seçtiğini
 - Yapılandırma başvurusu: [Gateway yapılandırması](/gateway/configuration)
 - Sağlayıcılar: [WhatsApp](/channels/whatsapp), [Telegram](/channels/telegram), [Discord](/channels/discord), [Google Chat](/channels/googlechat), [Signal](/channels/signal), [BlueBubbles](/channels/bluebubbles) (iMessage), [iMessage](/channels/imessage) (eski)
 - Skills: [Skills](/tools/skills), [Skills yapılandırması](/tools/skills-config)
-

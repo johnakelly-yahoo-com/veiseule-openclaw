@@ -1,6 +1,11 @@
 ---
 title: Lobster
-description: OpenClaw uchun tiplangan ish jarayoni runtime’i — tasdiqlash darvozalari bilan kompozitsiyalanadigan quvurlar.---
+summary: "OpenClaw uchun qayta tiklanadigan tasdiqlash darvozalari bilan tiplangan ish jarayoni runtime’i."
+description: OpenClaw uchun tiplangan ish jarayoni runtime’i — tasdiqlash darvozalari bilan kompozitsiyalanadigan quvurlar.
+read_when:
+  - Siz aniq tasdiqlar bilan deterministik ko‘p bosqichli ish jarayonlarini xohlaysiz
+  - Oldingi qadamlarni qayta ishga tushirmasdan ish jarayonini davom ettirishingiz kerak
+---
 
 # Lobster
 
@@ -78,21 +83,19 @@ inbox apply --json
 47. Vositanı yoqing:
 
 ```json
-48. {
-  "plugins": {
-    "entries": {
-      "llm-task": { "enabled": true }
-    }
-  },
-  "agents": {
-    "list": [
-      {
-        "id": "main",
-        "tools": { "allow": ["llm-task"] }
-      }
-    ]
+18. openclaw.invoke --tool llm-task --action json --args-json '{
+  "prompt": "Given the input email, return intent and draft.",
+  "input": { "subject": "Hello", "body": "Can you help?" },
+  "schema": {
+    "type": "object",
+    "properties": {
+      "intent": { "type": "string" },
+      "draft": { "type": "string" }
+    },
+    "required": ["intent", "draft"],
+    "additionalProperties": false
   }
-}
+}'
 ```
 
 17. Uni quvurda ishlating:
@@ -142,8 +145,8 @@ steps:
 
 24. Eslatmalar:
 
-- 25. `stdin: $step.stdout` va `stdin: $step.json` oldingi bosqich chiqishini uzatadi.
-- 26. `condition` (yoki `when`) bosqichlarni `$step.approved` ga qarab cheklashi mumkin.
+- OpenClaw Gateway ishlaydigan **xuddi shu xost**ga Lobster CLI’ni o‘rnating ([Lobster repozitoriyasi](https://github.com/openclaw/lobster)ga qarang) va `lobster` `PATH`da ekanini ta’minlang.
+- Agar maxsus binar joylashuvdan foydalanmoqchi bo‘lsangiz, asbob chaqiruvida **mutlaq** `lobsterPath` ni bering.
 
 ## 27. Lobster’ni o‘rnating
 
@@ -192,23 +195,26 @@ steps:
 41. Lobster’siz:
 
 ```
-42. Foydalanuvchi: "Emailimni tekshir va javoblar qoralamasini tayyorla"
-→ openclaw gmail.list ni chaqiradi
-→ LLM xulosa qiladi
-→ Foydalanuvchi: "#2 va #5 ga javoblar qoralamasini yoz"
-→ LLM qoralama yozadi
-→ Foydalanuvchi: "#2 ni yubor"
-→ openclaw gmail.send ni chaqiradi
-(har kuni takrorlanadi, nima saralanganini eslab qolmaydi)
+46. {
+  "ok": true,
+  "status": "needs_approval",
+  "output": [{ "summary": "5 need replies, 2 need action" }],
+  "requiresApproval": {
+    "type": "approval_request",
+    "prompt": "Send 2 draft replies?",
+    "items": [],
+    "resumeToken": "..."
+  }
+}
 ```
 
 43. Lobster bilan:
 
 ```json
-44. {
-  "action": "run",
-  "pipeline": "email.triage --limit 20",
-  "timeoutMs": 30000
+48. {
+  "action": "resume",
+  "token": "<resumeToken>",
+  "approve": true
 }
 ```
 
@@ -280,7 +286,7 @@ steps:
 
 ### 11. Ixtiyoriy kirishlar
 
-- 12. `lobsterPath`: Lobster binar faylining mutlaq yo‘li (`PATH` dan foydalanish uchun qoldiring).
+- Asbob konvertni ham `content` (chiroyli JSON), ham `details` (xom obyekt) da ko‘rsatadi.
 - 13. `cwd`: Pipeline uchun ishchi katalog (standart bo‘yicha joriy jarayonning ishchi katalogi).
 - 14. `timeoutMs`: Agar subprocess bu davomiylikdan oshsa, uni to‘xtatadi (standart: 20000).
 - 15. `maxStdoutBytes`: Agar stdout bu hajmdan oshsa, subprocess-ni to‘xtatadi (standart: 512000).
@@ -325,8 +331,8 @@ steps:
 
 ## 43. Batafsil ma’lumot
 
-- 44. [Plugins](/tools/plugin)
-- 45. [Plugin tool authoring](/plugins/agent-tools)
+- [Plugins](/tools/plugin)
+- [Plugin tool authoring](/plugins/agent-tools)
 
 ## 46. Amaliy tadqiqot: hamjamiyat workflow-lari
 
@@ -334,5 +340,3 @@ steps:
 
 - 50. Mavzu: [https://x.com/plattenschieber/status/2014508656335770033](https://x.com/plattenschieber/status/2014508656335770033)
 - Repo: [https://github.com/bloomedai/brain-cli](https://github.com/bloomedai/brain-cli)
-
-

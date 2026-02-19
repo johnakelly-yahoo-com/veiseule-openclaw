@@ -1,10 +1,15 @@
 ---
+summary: "OpenProse: OpenClaw ichida .prose ish jarayonlari, slash buyruqlar va holat"
+read_when:
+  - Siz .prose ish jarayonlarini ishga tushirmoqchi yoki yozmoqchisiz
+  - Siz OpenProse plaginini yoqmoqchisiz
+  - Sizga holat saqlash mexanizmini tushunish kerak
 title: "OpenProse"
 ---
 
 # OpenProse
 
-OpenProse — bu AI sessiyalarini boshqarish uchun mo‘ljallangan, ko‘chma va markdown-ga asoslangan ish jarayoni formatidir. OpenClaw ichida u OpenProse skill to‘plamini hamda `/prose` slash buyrug‘ini o‘rnatadigan plagin sifatida yetkaziladi. Dasturlar `.prose` fayllarida joylashadi va aniq boshqaruv oqimi bilan bir nechta sub-agentlarni ishga tushirishi mumkin.
+OpenProse is a portable, markdown-first workflow format for orchestrating AI sessions. In OpenClaw it ships as a plugin that installs an OpenProse skill pack plus a `/prose` slash command. Programs live in `.prose` files and can spawn multiple sub-agents with explicit control flow.
 
 Rasmiy sayt: [https://www.prose.md](https://www.prose.md)
 
@@ -16,7 +21,7 @@ Rasmiy sayt: [https://www.prose.md](https://www.prose.md)
 
 ## O‘rnatish + yoqish
 
-Paketga kiritilgan plaginlar sukut bo‘yicha o‘chiq bo‘ladi. OpenProse’ni yoqing:
+Bundled plugins are disabled by default. Enable OpenProse:
 
 ```bash
 openclaw plugins enable open-prose
@@ -30,7 +35,7 @@ Tegishli hujjatlar: [Plugins](/tools/plugin), [Plugin manifest](/plugins/manifes
 
 ## Slash buyrug‘i
 
-OpenProse foydalanuvchi tomonidan chaqiriladigan skill buyrug‘i sifatida `/prose` ni ro‘yxatdan o‘tkazadi. U OpenProse VM ko‘rsatmalariga yo‘naltiradi va ichki jarayonda OpenClaw vositalaridan foydalanadi.
+OpenProse registers `/prose` as a user-invocable skill command. It routes to the OpenProse VM instructions and uses OpenClaw tools under the hood.
 
 Keng tarqalgan buyruqlar:
 
@@ -107,25 +112,23 @@ Eslatmalar:
 
 ## Masofaviy dasturlar
 
-`/prose run <handle/slug>` manzili `https://p.prose.md/<handle>/<slug>` ga yechiladi.
-To‘g‘ridan-to‘g‘ri URL’lar o‘zgartirilmasdan yuklab olinadi. Bunda `web_fetch` vositasi (yoki POST uchun `exec`) ishlatiladi.
+`/prose run <handle/slug>` `https://p.prose.md/<handle>/<slug>` manziliga yo‘naltiriladi.
+To‘g‘ridan-to‘g‘ri URL’lar qanday bo‘lsa, shundayicha olinadi. Bu `web_fetch` vositasidan foydalanadi (yoki POST uchun `exec`).
 
 ## OpenClaw runtime moslashuvi
 
 OpenProse dasturlari OpenClaw primitivlariga moslashtiriladi:
 
-| OpenProse tushunchasi     | OpenClaw vositasi |
-| ------------------------- | ----------------- |
-| Sessiyani ishga tushirish / Task vositasi | `sessions_spawn` |
-| Fayl o‘qish/yozish        | `read` / `write` |
-| Vebdan yuklash            | `web_fetch`      |
+| OpenProse tushunchasi                     | OpenClaw vositasi |
+| ----------------------------------------- | ----------------- |
+| Sessiyani ishga tushirish / Task vositasi | `sessions_spawn`  |
+| Fayl o‘qish/yozish                        | `read` / `write`  |
+| Vebdan yuklash                            | `web_fetch`       |
 
-Agar vositalar allowlist’i ushbu vositalarni bloklasa, OpenProse dasturlari ishlamaydi. Qarang: [Skills config](/tools/skills-config).
+Agar vositalar allowlist’ingiz bu vositalarni bloklasa, OpenProse dasturlari ishlamaydi. [Skills config](/tools/skills-config) sahifasiga qarang.
 
 ## Xavfsizlik + tasdiqlashlar
 
-`.prose` fayllarini kod kabi qabul qiling. Ishga tushirishdan oldin ko‘rib chiqing. Yon ta’sirlarni boshqarish uchun OpenClaw vosita allowlist’lari va tasdiqlash bosqichlaridan foydalaning.
+`.prose` fayllarini kod kabi ko‘ring. Ishga tushirishdan oldin ko‘rib chiqing. Yon ta’sirlarni boshqarish uchun OpenClaw vositalari allowlist’lari va tasdiqlash darvozalaridan foydalaning.
 
 Deterministik va tasdiqlash bosqichlari bilan boshqariladigan ish jarayonlari uchun [Lobster](/tools/lobster) bilan taqqoslang.
-
-

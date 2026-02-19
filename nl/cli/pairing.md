@@ -1,4 +1,7 @@
 ---
+summary: "CLI-referentie voor `openclaw pairing` (pairingverzoeken goedkeuren/lijsten)"
+read_when:
+  - Je gebruikt pairing-modus DM's en moet afzenders goedkeuren
 title: "pairing"
 ---
 
@@ -16,5 +19,3 @@ Gerelateerd:
 openclaw pairing list whatsapp
 openclaw pairing approve whatsapp <code> --notify
 ```
-
-

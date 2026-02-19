@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw macOS kasamang app (menu bar + tagapamagitan ng gateway)"
+read_when:
+  - Pagpapatupad ng mga feature ng macOS app
+  - Pagbabago ng lifecycle ng gateway o node bridging sa macOS
 title: "App ng macOS"
 ---
 
@@ -126,6 +130,7 @@ Kaligtasan:
 
 - Kung walang `key`, hihingi ang app ng kumpirmasyon.
 - Kapag may valid na `key`, ang pagtakbo ay unattended (nilalayong gamitin para sa personal automations).
+- Kapag may valid na `key`, ang pagtakbo ay unattended (nilalayong gamitin para sa personal automations).
 
 ## Onboarding flow (karaniwan)
 
@@ -183,7 +188,7 @@ component ang remote Gateway na parang nasa localhost ito.
   o nire-restart ito kapag kinakailangan.
 - **SSH shape:** `ssh -N -L <local>:127.0.0.1:<remote>` na may BatchMode +
   ExitOnForwardFailure + keepalive options.
-- **Pag-uulat ng IP:** gumagamit ang SSH tunnel ng loopback, kaya makikita ng gateway ang node
+- **IP reporting:** the SSH tunnel uses loopback, so the gateway will see the node
   IP as `127.0.0.1`. Gamitin ang **Direct (ws/wss)** transport kung gusto mong lumabas ang tunay na client IP (tingnan ang [macOS remote access](/platforms/mac/remote)).
 
 Para sa mga hakbang sa setup, tingnan ang [macOS remote access](/platforms/mac/remote). Para sa mga detalye ng protocol, tingnan ang [Gateway protocol](/gateway/protocol).
@@ -194,5 +199,3 @@ Para sa mga hakbang sa setup, tingnan ang [macOS remote access](/platforms/mac/r
 - [Gateway (macOS)](/platforms/mac/bundled-gateway)
 - [macOS permissions](/platforms/mac/permissions)
 - [Canvas](/platforms/mac/canvas)
-
-

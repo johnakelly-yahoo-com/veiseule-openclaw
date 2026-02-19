@@ -1,4 +1,9 @@
 ---
+summary: "Backends de CLI: fallback somente texto via CLIs de IA locais"
+read_when:
+  - Você quer um fallback confiável quando provedores de API falham
+  - Você está executando Claude Code CLI ou outras CLIs de IA locais e quer reutilizá-las
+  - Você precisa de um caminho somente texto, sem ferramentas, que ainda suporte sessões e imagens
 title: "Backends de CLI"
 ---
 
@@ -219,5 +224,3 @@ Substitua apenas se necessário (comum: caminho absoluto de `command`).
 - **Sem continuidade de sessão**: garanta que `sessionArg` esteja definido e que `sessionMode` não seja
   `none` (o Codex CLI atualmente não consegue retomar com saída JSON).
 - **Imagens ignoradas**: defina `imageArg` (e verifique se a CLI suporta caminhos de arquivo).
-
-

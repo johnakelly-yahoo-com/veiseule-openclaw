@@ -1,4 +1,7 @@
 ---
+summary: "Ondersteuningsstatus, mogelijkheden en configuratie van Nextcloud Talk"
+read_when:
+  - Werken aan Nextcloud Talk-kanaalfuncties
 title: "Nextcloud Talk"
 ---
 
@@ -100,8 +103,8 @@ Minimale config:
 | Functie           | Status           |
 | ----------------- | ---------------- |
 | Directe berichten | Ondersteund      |
-| Ruimtes             | Ondersteund      |
-| Discussies           | Niet ondersteund |
+| Ruimtes           | Ondersteund      |
+| Discussies        | Niet ondersteund |
 | Media             | Alleen URL's     |
 | Reacties          | Ondersteund      |
 | Native opdrachten | Niet ondersteund |
@@ -136,5 +139,3 @@ Provider-opties:
 - `channels.nextcloud-talk.blockStreaming`: blokstreaming uitschakelen voor dit kanaal.
 - `channels.nextcloud-talk.blockStreamingCoalesce`: afstemming voor het samenvoegen van blokstreaming.
 - `channels.nextcloud-talk.mediaMaxMb`: limiet voor inkomende media (MB).
-
-

@@ -1,4 +1,5 @@
 ---
+summary: "높은 신호의 PR 을 제출하는 방법"
 title: "PR 제출하기"
 ---
 
@@ -395,5 +396,3 @@ pnpm format
 - Submitter effort:
 - Agent notes:
 ```
-
-

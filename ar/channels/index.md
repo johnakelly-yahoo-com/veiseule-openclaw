@@ -1,4 +1,8 @@
 ---
+summary: "منصات المراسلة التي يمكن لـ OpenClaw الاتصال بها"
+read_when:
+  - تريد اختيار قناة دردشة لـ OpenClaw
+  - تحتاج إلى نظرة عامة سريعة على منصات المراسلة المدعومة
 title: "قنوات الدردشة"
 ---
 
@@ -12,6 +16,7 @@ title: "قنوات الدردشة"
 - [WhatsApp](/channels/whatsapp) — الأكثر شيوعًا؛ يستخدم Baileys ويتطلب إقران QR.
 - [Telegram](/channels/telegram) — واجهة Bot API عبر grammY؛ يدعم المجموعات.
 - [Discord](/channels/discord) — واجهة Discord Bot API + Gateway؛ يدعم الخوادم والقنوات والرسائل الخاصة.
+- [IRC](/channels/irc) — خوادم IRC الكلاسيكية؛ قنوات + رسائل خاصة مع عناصر تحكم الاقتران/قائمة السماح.
 - [Slack](/channels/slack) — Bolt SDK؛ تطبيقات مساحات العمل.
 - [Feishu](/channels/feishu) — بوت Feishu/Lark عبر WebSocket (إضافة، تُثبّت بشكل منفصل).
 - [Google Chat](/channels/googlechat) — تطبيق Google Chat API عبر HTTP webhook.
@@ -24,8 +29,8 @@ title: "قنوات الدردشة"
 - [Nextcloud Talk](/channels/nextcloud-talk) — دردشة مستضافة ذاتيًا عبر Nextcloud Talk (إضافة، تُثبّت بشكل منفصل).
 - [Matrix](/channels/matrix) — بروتوكول Matrix (إضافة، تُثبّت بشكل منفصل).
 - [Nostr](/channels/nostr) — رسائل خاصة لامركزية عبر NIP-04 (إضافة، تُثبّت بشكل منفصل).
-- [Tlon](/channels/tlon) — مراسلة مبنية على Urbit (إضافة، تُثبّت بشكل منفصل).
 - [Twitch](/channels/twitch) — دردشة Twitch عبر اتصال IRC (إضافة، تُثبّت بشكل منفصل).
+- [Tlon](/channels/tlon) — مراسلة مبنية على Urbit (إضافة، تُثبّت بشكل منفصل).
 - [Zalo](/channels/zalo) — واجهة Zalo Bot API؛ تطبيق المراسلة الشهير في فيتنام (إضافة، تُثبّت بشكل منفصل).
 - [Zalo Personal](/channels/zalouser) — حساب Zalo شخصي عبر تسجيل دخول QR (إضافة، تُثبّت بشكل منفصل).
 - [WebChat](/web/webchat) — واجهة Gateway WebChat عبر WebSocket.
@@ -40,5 +45,3 @@ title: "قنوات الدردشة"
 - تفاصيل Telegram الداخلية: [ملاحظات grammY](/channels/grammy).
 - استكشاف الأخطاء وإصلاحها: [استكشاف أخطاء القنوات وإصلاحها](/channels/troubleshooting).
 - يتم توثيق موفّري النماذج بشكل منفصل؛ راجع [موفّرو النماذج](/providers/models).
-
-

@@ -1,4 +1,6 @@
 ---
+summary: "Thiết lập đường hầm SSH cho OpenClaw.app kết nối tới một gateway từ xa"
+read_when: "Kết nối ứng dụng macOS tới một gateway từ xa qua SSH"
 title: "Thiết lập Gateway từ xa"
 ---
 
@@ -170,5 +172,3 @@ launchctl bootout gui/$UID/bot.molt.ssh-tunnel
 | `RunAtLoad`                          | Khởi động đường hầm khi agent được nạp                                  |
 
 OpenClaw.app kết nối tới `ws://127.0.0.1:18789` trên máy khách của bạn. Đường hầm SSH chuyển tiếp kết nối đó tới cổng 18789 trên máy từ xa nơi Gateway đang chạy.
-
-

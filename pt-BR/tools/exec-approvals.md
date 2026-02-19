@@ -1,4 +1,9 @@
 ---
+summary: "Aprovações de exec, listas de permissões e prompts de escape do sandbox"
+read_when:
+  - Configurando aprovações de exec ou listas de permissões
+  - Implementando UX de aprovação de exec no app macOS
+  - Revisando prompts de escape do sandbox e implicações
 title: "Aprovações de Exec"
 ---
 
@@ -119,6 +124,9 @@ são tratados como permitidos na lista de permissões nos nós (nó macOS ou hos
 `tools.exec.safeBins` define uma pequena lista de binários **somente stdin** (por exemplo `jq`)
 que podem executar no modo de lista de permissões **sem** entradas explícitas na lista de permissões. Os safe bins rejeitam
 argumentos posicionais de arquivo e tokens com aparência de caminho, de modo que só possam operar sobre o stream de entrada.
+Safe bins também forçam os tokens argv a serem tratados como **texto literal** no momento da execução (sem globbing
+and sem expansão de `$VARS`) para segmentos somente stdin, de modo que padrões como `*` ou `$HOME/...` não possam ser
+usados para ocultar leituras de arquivos.
 Encadeamento de shell e redirecionamentos não são automaticamente permitidos no modo de lista de permissões.
 
 Encadeamento de shell (`&&`, `||`, `;`) é permitido quando cada segmento de nível superior satisfaz a lista de permissões
@@ -239,5 +247,3 @@ Relacionado:
 - [Ferramenta Exec](/tools/exec)
 - [Modo elevado](/tools/elevated)
 - [Habilidades](/tools/skills)
-
-

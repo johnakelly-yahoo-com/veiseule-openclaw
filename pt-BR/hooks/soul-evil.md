@@ -1,4 +1,8 @@
 ---
+summary: "Hook SOUL Evil (troca SOUL.md por SOUL_EVIL.md)"
+read_when:
+  - Você quer habilitar ou ajustar o hook SOUL Evil
+  - Você quer uma janela de purge ou troca de persona por chance aleatória
 title: "Hook SOUL Evil"
 ---
 
@@ -63,5 +67,3 @@ Crie `SOUL_EVIL.md` na raiz do workspace do agente (ao lado de `SOUL.md`).
 ## Veja também
 
 - [Hooks](/automation/hooks)
-
-

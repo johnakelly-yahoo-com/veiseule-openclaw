@@ -1,20 +1,24 @@
 ---
+summary: "瀏覽器自動化與 X/Twitter 發佈的手動登入"
+read_when:
+  - 你需要為瀏覽器自動化登入網站
+  - 你想要在 X/Twitter 發佈更新
 title: "瀏覽器登入"
 ---
 
-# 5. 瀏覽器登入 + X/Twitter 發文
+# 瀏覽器登入 + X/Twitter 發文
 
 ## 手動登入（建議）
 
 當網站需要登入時，請在**主機**的瀏覽器設定檔（OpenClaw 瀏覽器）中**自行手動登入**。
 
-18. **不要**將你的憑證提供給模型。 Automated logins often trigger anti‑bot defenses and can lock the account.
+18. **不要**將你的憑證提供給模型。 **不要**將你的憑證提供給模型。 Automated logins often trigger anti‑bot defenses and can lock the account.
 
 返回主要的瀏覽器文件：[Browser](/tools/browser)。
 
 ## 使用的是哪個 Chrome 設定檔？
 
-OpenClaw 會控制一個**專用的 Chrome 設定檔**（名稱為 `openclaw`，介面帶有橘色調）。這與你日常使用的瀏覽器設定檔是分開的。 This is separate from your daily browser profile.
+OpenClaw 會控制一個**專用的 Chrome 設定檔**（名稱為 `openclaw`，介面帶有橘色調）。這與你日常使用的瀏覽器設定檔是分開的。 This is separate from your daily browser profile. This is separate from your daily browser profile.
 
 有兩種簡單的方式可以存取它：
 
@@ -35,7 +39,7 @@ openclaw browser open https://x.com
 
 ## 沙箱機制 + host 瀏覽器存取
 
-沙箱化的瀏覽器工作階段**更有可能**觸發機器人偵測。對於 X/Twitter（以及其他嚴格的網站），建議優先使用 **host** 瀏覽器。
+Sandboxed browser sessions are **more likely** to trigger bot detection. For X/Twitter (and other strict sites), prefer the **host** browser.
 
 19. 如果代理在沙箱中，瀏覽器工具預設會使用該沙箱。 To allow host control:
 
@@ -61,5 +65,3 @@ openclaw browser open https://x.com --browser-profile openclaw --target host
 ```
 
 或者為負責發布更新的代理停用沙箱機制。
-
-

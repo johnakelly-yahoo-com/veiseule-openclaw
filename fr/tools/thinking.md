@@ -1,4 +1,7 @@
 ---
+summary: "Syntaxe des directives pour /think + /verbose et leur impact sur le raisonnement du modele"
+read_when:
+  - Ajuster l’analyse des directives de thinking ou verbose, ou leurs valeurs par defaut
 title: "Niveaux de thinking"
 ---
 
@@ -69,5 +72,3 @@ title: "Niveaux de thinking"
 - Le selecteur de thinking du chat web reflète le niveau stocke de la session a partir du magasin/configuration de session entrant(e) au chargement de la page.
 - Choisir un autre niveau s’applique uniquement au message suivant (`thinkingOnce`) ; apres l’envoi, le selecteur revient au niveau de session stocke.
 - Pour modifier la valeur par defaut de la session, envoyez une directive `/think:<level>` (comme precedemment) ; le selecteur la refletera apres le prochain rechargement.
-
-

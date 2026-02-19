@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw tomonidan qo‘llab‑quvvatlanadigan model provayderlari (LLMlar)"
+read_when:
+  - Siz model provayderini tanlamoqchisiz
+  - LLM autentifikatsiyasi va model tanlash bo‘yicha tezkor sozlash misollarini xohlaysiz
 title: "Model Provayderi Tezkor Boshlash"
 ---
 
@@ -45,5 +49,3 @@ Venice — maxfiylikka yo‘naltirilgan inferens uchun tavsiya etiladigan Venice
 
 To‘liq provayderlar katalogi uchun (xAI, Groq, Mistral va boshqalar) va kengaytirilgan sozlashlar uchun,
 [Model provayderlari](/concepts/model-providers) sahifasiga qarang.
-
-

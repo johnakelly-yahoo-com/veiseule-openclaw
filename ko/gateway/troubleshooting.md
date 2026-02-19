@@ -1,4 +1,8 @@
 ---
+summary: "Gateway, 채널, 자동화, 노드, 브라우저에 대한 심층 문제 해결 런북"
+read_when:
+  - 문제 해결 허브에서 더 깊은 진단을 위해 이곳으로 안내된 경우
+  - 정확한 명령어가 포함된 안정적인 증상 기반 런북 섹션이 필요한 경우
 title: "문제 해결"
 ---
 
@@ -37,9 +41,9 @@ openclaw config get channels
 openclaw logs --follow
 ```
 
-다음 항목을 확인하세요:
+Look for:
 
-- DM 발신자에 대해 페어링이 대기 중입니다.
+- Pairing pending for DM senders.
 - 그룹 멘션 게이팅 (`requireMention`, `mentionPatterns`).
 - 채널/그룹 허용 목록 불일치.
 
@@ -67,7 +71,7 @@ openclaw doctor
 openclaw gateway status --json
 ```
 
-다음 항목을 확인하세요:
+Look for:
 
 - 올바른 프로브 URL 과 대시보드 URL.
 - 클라이언트와 Gateway(게이트웨이) 간 인증 모드/토큰 불일치.
@@ -97,7 +101,7 @@ openclaw doctor
 openclaw gateway status --deep
 ```
 
-다음 항목을 확인하세요:
+Look for:
 
 - 종료 힌트가 포함된 `Runtime: stopped`.
 - 서비스 구성 불일치 (`Config (cli)` vs `Config (service)`).
@@ -105,7 +109,7 @@ openclaw gateway status --deep
 
 일반적인 시그니처:
 
-- `Gateway start blocked: set gateway.mode=local` → 로컬 Gateway 모드가 활성화되지 않음.
+- `Gateway start blocked: set gateway.mode=local` → 로컬 Gateway 모드가 활성화되지 않음. 해결 방법: 설정에서 `gateway.mode="local"`로 지정하세요 (또는 `openclaw configure`를 실행하세요). 전용 `openclaw` 사용자를 사용해 Podman으로 OpenClaw를 실행 중인 경우, 설정 파일은 `~openclaw/.openclaw/openclaw.json`에 있습니다.
 - `refusing to bind gateway ... without auth` → 토큰/비밀번호 없이 non-loopback 바인드.
 - `another gateway instance is already listening` / `EADDRINUSE` → 포트 충돌.
 
@@ -127,7 +131,7 @@ openclaw logs --follow
 openclaw config get channels
 ```
 
-다음 항목을 확인하세요:
+Look for:
 
 - 다이렉트 메시지 정책 (`pairing`, `allowlist`, `open`, `disabled`).
 - 그룹 허용 목록 및 멘션 요구 사항.
@@ -158,7 +162,7 @@ openclaw system heartbeat last
 openclaw logs --follow
 ```
 
-다음 항목을 확인하세요:
+Look for:
 
 - Cron 활성화 여부 및 다음 깨우기 시점 존재 여부.
 - 작업 실행 이력 상태 (`ok`, `skipped`, `error`).
@@ -189,7 +193,7 @@ openclaw logs --follow
 openclaw status
 ```
 
-다음 항목을 확인하세요:
+Look for:
 
 - 예상되는 기능을 갖춘 노드가 온라인인지 여부.
 - 카메라/마이크/위치/화면에 대한 OS 권한 부여.
@@ -220,7 +224,7 @@ openclaw logs --follow
 openclaw doctor
 ```
 
-다음 항목을 확인하세요:
+Look for:
 
 - 유효한 브라우저 실행 파일 경로.
 - CDP 프로파일 접근 가능 여부.
@@ -312,5 +316,3 @@ openclaw gateway restart
 - [/gateway/pairing](/gateway/pairing)
 - [/gateway/authentication](/gateway/authentication)
 - [/gateway/background-process](/gateway/background-process)
-
-

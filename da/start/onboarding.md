@@ -1,4 +1,8 @@
 ---
+summary: "Onboarding-flow ved første kørsel for OpenClaw (macOS-app)"
+read_when:
+  - Design af macOS-onboardingassistenten
+  - Implementering af autentificering eller identitetsopsætning
 title: "Onboarding (macOS-app)"
 sidebarTitle: "Introduktion: macOS-app"
 ---
@@ -8,6 +12,7 @@ sidebarTitle: "Introduktion: macOS-app"
 Denne doc beskriver den **nuværende** første rundede onboarding-flow. Målet er en
 glat “dag 0” oplevelse: Vælg hvor Gateway kører, forbind auth, kør
 -guiden, og lad agenten bootstrap selv.
+For et generelt overblik over onboarding-muligheder, se [Onboarding Overview](/start/onboarding-overview).
 
 <Steps>
 <Step title="Approve macOS warning">
@@ -39,7 +44,7 @@ Hvor kører **Gateway**?
 - **Konfigurer senere:** spring opsætning over og lad appen være ukonfigureret.
 
 <Tip>
-**Gateway-autentificeringstip:**
+**Gateway auth tip:**
 - Guiden genererer nu en **token** selv for loopback, så lokale WS klienter skal godkende.
 - Hvis du deaktiverer auth, enhver lokal proces kan tilslutte; bruge det kun på fuldt betroede maskiner.
 - Brug en **token** til multimaskine-adgang eller ikke-loopback bindinger.
@@ -76,5 +81,3 @@ Dette trin er valgfrit
   hvad der sker på gatewayværten under den første agent kørsel.
 </Step>
 </Steps>
-
-

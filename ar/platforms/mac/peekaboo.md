@@ -1,4 +1,9 @@
 ---
+summary: "تكامل PeekabooBridge لأتمتة واجهة مستخدم macOS"
+read_when:
+  - استضافة PeekabooBridge داخل OpenClaw.app
+  - دمج Peekaboo عبر Swift Package Manager
+  - تغيير بروتوكول/مسارات PeekabooBridge
 title: "Peekaboo Bridge"
 ---
 
@@ -51,5 +56,3 @@ export PEEKABOO_BRIDGE_SOCKET=/path/to/bridge.sock
   في وضع **debug** فقط.
 - إذا لم يُعثر على أي مضيفين، فافتح أحد تطبيقات المضيف (Peekaboo.app أو OpenClaw.app)
   وتأكد من منح الأذونات.
-
-

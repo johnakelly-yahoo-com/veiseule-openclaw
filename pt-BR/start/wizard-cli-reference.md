@@ -1,4 +1,8 @@
 ---
+summary: "Referência completa do fluxo de integração da CLI, configuração de autenticação/modelo, saídas e detalhes internos"
+read_when:
+  - Você precisa de comportamento detalhado para openclaw onboard
+  - Você está depurando resultados de integração ou integrando clientes de integração
 title: "Referência de Integração da CLI"
 sidebarTitle: "Referência da CLI"
 ---
@@ -17,7 +21,7 @@ O modo local (padrão) orienta você por:
 - Configurações do Gateway (porta, bind, autenticação, tailscale)
 - Canais e provedores (Telegram, WhatsApp, Discord, Google Chat, plugin do Mattermost, Signal)
 - Instalação do daemon (LaunchAgent ou unidade de usuário systemd)
-- Verificação de integridade
+- Health check
 - Configuração de Skills
 
 O modo remoto configura esta máquina para se conectar a um gateway em outro lugar.
@@ -33,8 +37,7 @@ Ele não instala nem modifica nada no host remoto.
     - A redefinição usa `trash` e oferece escopos:
       - Apenas configuração
       - Configuração + credenciais + sessões
-      - Redefinição completa (também remove o workspace)
-  
+      - Redefinição completa (também remove o workspace)  
 </Step>
   <Step title="Model and auth">
     - A matriz completa de opções está em [Opções de autenticação e modelo](#auth-and-model-options).
@@ -42,6 +45,9 @@ Ele não instala nem modifica nada no host remoto.
 </Step>
   <Step title="Workspace">
     - Padrão `~/.openclaw/workspace` (configurável).
+    - Semeia arquivos de espaço de trabalho necessários para o ritual de inicialização de primeira execução.
+    - Inicializa arquivos do workspace necessários para o ritual de bootstrap da primeira execução.
+    - Layout do workspace: [Workspace do agente](/concepts/agent-workspace).
     - Inicializa arquivos do workspace necessários para o ritual de bootstrap da primeira execução.
     - Layout do workspace: [Workspace do agente](/concepts/agent-workspace).
   
@@ -63,10 +69,12 @@ Ele não instala nem modifica nada no host remoto.
     - [BlueBubbles](/channels/bluebubbles): recomendado para iMessage; URL do servidor + senha + webhook
     - [iMessage](/channels/imessage): caminho legado da CLI `imsg` + acesso ao BD
     - Segurança de DM: o padrão é pareamento. A primeira DM envia um código; aprove via
-      `openclaw pairing approve <channel> <code>` ou use listas de permissões.
+      `openclaw pairing approve <channel><code>` ou use listas de permissões.
+  
+</Step><code>` ou use listas de permissões.
   
 </Step>
-  <Step title="Daemon install">
+  <Step title="Instalação do daemon">
     - macOS: LaunchAgent
       - Requer sessão de usuário logada; para headless, use um LaunchDaemon personalizado (não fornecido).
     - Linux e Windows via WSL2: unidade de usuário systemd
@@ -75,7 +83,7 @@ Ele não instala nem modifica nada no host remoto.
     - Seleção de runtime: Node (recomendado; obrigatório para WhatsApp e Telegram). Bun não é recomendado.
   
 </Step>
-  <Step title="Health check">
+  <Step title="Verificação de integridade">
     - Inicia o gateway (se necessário) e executa `openclaw health`.
     - `openclaw status --deep` adiciona sondas de integridade do gateway à saída de status.
   
@@ -86,7 +94,7 @@ Ele não instala nem modifica nada no host remoto.
     - Instala dependências opcionais (algumas usam Homebrew no macOS).
   
 </Step>
-  <Step title="Finish">
+  <Step title="Finalizar">
     - Resumo e próximos passos, incluindo opções de apps para iOS, Android e macOS.
   
 </Step>
@@ -128,7 +136,11 @@ O que você define:
     - macOS: verifica o item do Keychain "Claude Code-credentials"
     - Linux e Windows: reutiliza `~/.claude/.credentials.json` se presente
 
+    ````
+    ```
     No macOS, escolha "Sempre permitir" para que inicializações via launchd não sejam bloqueadas.
+    ```
+    ````
 
   
 </Accordion>
@@ -144,7 +156,11 @@ O que você define:
   <Accordion title="OpenAI Code subscription (OAuth)">
     Fluxo no navegador; cole `code#state`.
 
-    Sets `agents.defaults.model` to `openai-codex/gpt-5.3-codex` when model is unset or `openai/*`.
+    ````
+    ```
+    Define `agents.defaults.model` como `openai-codex/gpt-5.3-codex` quando o modelo não está definido ou é `openai/*`.
+    ```
+    ````
 
   
 </Accordion>
@@ -152,7 +168,11 @@ O que você define:
     Usa `OPENAI_API_KEY` se presente ou solicita uma chave, e então a salva em
     `~/.openclaw/.env` para que o launchd possa lê-la.
 
-    Sets `agents.defaults.model` to `openai/gpt-5.1-codex` when model is unset, `openai/*`, or `openai-codex/*`.
+    ````
+    ```
+    Define `agents.defaults.model` como `openai/gpt-5.1-codex` quando o modelo não está definido, é `openai/*` ou `openai-codex/*`.
+    ```
+    ````
 
   
 </Accordion>
@@ -195,15 +215,17 @@ O que você define:
   
 </Accordion>
   <Accordion title="Custom provider">
-    Works with OpenAI-compatible and Anthropic-compatible endpoints.
+Funciona com endpoints compatíveis com OpenAI e compatíveis com Anthropic.
 
-    Non-interactive flags:
+    ```
+    Flags não interativas:
     - `--auth-choice custom-api-key`
     - `--custom-base-url`
     - `--custom-model-id`
-    - `--custom-api-key` (optional; falls back to `CUSTOM_API_KEY`)
-    - `--custom-provider-id` (optional)
-    - `--custom-compatibility <openai|anthropic>` (optional; default `openai`)
+    - `--custom-api-key` (opcional; usa `CUSTOM_API_KEY` como fallback)
+    - `--custom-provider-id` (opcional)
+    - `--custom-compatibility <openai|anthropic>` (opcional; padrão `openai`)
+    ```
 
   
 </Accordion>
@@ -255,7 +277,7 @@ Alguns canais são entregues como plugins. Quando selecionados durante a integra
 solicita a instalação do plugin (npm ou caminho local) antes da configuração do canal.
 </Note>
 
-Gateway wizard RPC:
+RPC do assistente do Gateway:
 
 - `wizard.start`
 - `wizard.next`
@@ -278,4 +300,3 @@ Comportamento de configuração do Signal:
 - Hub de integração: [Assistente de Integração (CLI)](/start/wizard)
 - Automação e scripts: [Automação da CLI](/start/wizard-cli-automation)
 - Referência de comandos: [`openclaw onboard`](/cli/onboard)
-

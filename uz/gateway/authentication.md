@@ -1,4 +1,8 @@
 ---
+summary: "Model autentifikatsiyasi: OAuth, API kalitlari va setup-token"
+read_when:
+  - Model autentifikatsiyasi yoki OAuth muddati tugashini debug qilish
+  - Autentifikatsiya yoki credential saqlashni hujjatlashtirish
 title: "Autentifikatsiya"
 ---
 
@@ -132,5 +136,3 @@ is missing, rerun `claude setup-token` and paste the token again.
 
 - Claude Max or Pro subscription (for `claude setup-token`)
 - Claude Code CLI installed (`claude` command available)
-
-

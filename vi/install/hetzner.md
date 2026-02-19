@@ -1,4 +1,10 @@
 ---
+summary: "Chạy OpenClaw Gateway 24/7 trên VPS Hetzner giá rẻ (Docker) với trạng thái bền vững và các binary được đóng gói sẵn"
+read_when:
+  - Bạn muốn OpenClaw chạy 24/7 trên một VPS đám mây (không phải laptop của bạn)
+  - Bạn muốn một Gateway luôn bật, đạt chuẩn production trên VPS riêng của bạn
+  - Bạn muốn toàn quyền kiểm soát việc lưu trữ lâu dài, các binary và hành vi khởi động lại
+  - Bạn đang chạy OpenClaw trong Docker trên Hetzner hoặc nhà cung cấp tương tự
 title: "Hetzner"
 ---
 
@@ -8,7 +14,7 @@ title: "Hetzner"
 
 Chạy một OpenClaw Gateway bền vững trên VPS Hetzner bằng Docker, với trạng thái được lưu lâu dài, các binary được đóng gói sẵn và hành vi khởi động lại an toàn.
 
-Nếu bạn muốn “OpenClaw 24/7 với chi phí khoảng ~$5”, đây là cấu hình đơn giản và đáng tin cậy nhất.
+If you want “OpenClaw 24/7 for ~$5”, this is the simplest reliable setup.
 Hetzner pricing changes; pick the smallest Debian/Ubuntu VPS and scale up if you hit OOMs.
 
 ## Chúng ta đang làm gì (nói đơn giản)?
@@ -24,7 +30,7 @@ Gateway có thể được truy cập qua:
 - Chuyển tiếp cổng SSH từ laptop của bạn
 - Mở cổng trực tiếp nếu bạn tự quản lý firewall và token
 
-Hướng dẫn này giả định bạn đang sử dụng Ubuntu hoặc Debian trên Hetzner.
+This guide assumes Ubuntu or Debian on Hetzner.  
 If you are on another Linux VPS, map packages accordingly.
 For the generic Docker flow, see [Docker](/install/docker).
 
@@ -324,4 +330,23 @@ All long-lived state must survive restarts, rebuilds, and reboots.
 | Gói OS                 | Hệ thống file container           | Docker image           | Không cài ở runtime            |
 | Docker container       | Tạm thời                          | Có thể restart         | An toàn để xóa                 |
 
+---
 
+## Hạ tầng dưới dạng mã (Terraform)
+
+Đối với các nhóm ưu tiên quy trình hạ tầng dưới dạng mã, một cấu hình Terraform do cộng đồng duy trì cung cấp:
+
+- Cấu hình Terraform dạng module với quản lý remote state
+- Tự động cấp phát thông qua cloud-init
+- Các script triển khai (bootstrap, deploy, backup/restore)
+- Tăng cường bảo mật (tường lửa, UFW, chỉ cho phép truy cập SSH)
+- Cấu hình SSH tunnel để truy cập gateway
+
+**Kho lưu trữ:**
+
+- Infrastructure: [openclaw-terraform-hetzner](https://github.com/andreesg/openclaw-terraform-hetzner)
+- Docker config: [openclaw-docker-config](https://github.com/andreesg/openclaw-docker-config)
+
+Cách tiếp cận này bổ sung cho thiết lập Docker ở trên bằng các triển khai có thể tái tạo, hạ tầng được quản lý bằng version control và khôi phục sau thảm họa tự động.
+
+> **Lưu ý:** Do cộng đồng duy trì. Đối với sự cố hoặc đóng góp, xem các liên kết repository ở trên.

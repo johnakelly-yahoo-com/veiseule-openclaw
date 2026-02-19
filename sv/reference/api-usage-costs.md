@@ -1,4 +1,9 @@
 ---
+summary: "Granska vad som kan kosta pengar, vilka nycklar som används och hur du visar användning"
+read_when:
+  - Du vill förstå vilka funktioner som kan anropa betalda API:er
+  - Du behöver granska nycklar, kostnader och synlighet för användning
+  - Du förklarar rapportering för /status eller /usage
 title: "API-användning och kostnader"
 ---
 
@@ -131,5 +136,3 @@ Färdigheter kan lagra `apiKey` i `skills.entries.<name>.apiKey`. Om en färdigh
 API:er, kan det medföra kostnader enligt kompetensleverantören.
 
 Se [Skills](/tools/skills).
-
-

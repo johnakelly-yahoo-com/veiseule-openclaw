@@ -1,4 +1,8 @@
 ---
+summary: "Gateway-Weboberflächen: Control UI, Bind-Modi und Sicherheit"
+read_when:
+  - Sie möchten auf das Gateway über Tailscale zugreifen
+  - Sie möchten die browserbasierte Control UI und die Konfigurationsbearbeitung
 title: "Web"
 ---
 
@@ -110,5 +114,3 @@ Das Gateway stellt statische Dateien aus `dist/control-ui` bereit. Erstellen Sie
 ```bash
 pnpm ui:build # auto-installs UI deps on first run
 ```
-
-

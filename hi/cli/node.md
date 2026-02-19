@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw node` के लिए CLI संदर्भ (हेडलैस नोड होस्ट)"
+read_when:
+  - हेडलैस नोड होस्ट चलाते समय
+  - system.run के लिए गैर‑macOS नोड को पेयर करते समय
 title: "नोड"
 ---
 
@@ -23,7 +27,7 @@ title: "नोड"
 
 ## ब्राउज़र प्रॉक्सी (शून्य‑विन्यास)
 
-यदि `browser.enabled` सक्षम नहीं है, तो नोड होस्ट स्वचालित रूप से एक ब्राउज़र प्रॉक्सी का विज्ञापन करते हैं।
+Node hosts automatically advertise a browser proxy if `browser.enabled` is not
 disabled on the node. This lets the agent use browser automation on that node
 without extra configuration.
 
@@ -88,7 +92,7 @@ openclaw node uninstall
 
 ## पेयरिंग
 
-पहला कनेक्शन Gateway पर एक लंबित नोड-पेयर अनुरोध बनाता है।
+The first connection creates a pending node pair request on the Gateway.
 Approve it via:
 
 ```bash
@@ -106,5 +110,3 @@ openclaw nodes approve <requestId>
 - `~/.openclaw/exec-approvals.json`
 - [Exec approvals](/tools/exec-approvals)
 - `openclaw approvals --node <id|name|ip>` (Gateway से संपादित करें)
-
-

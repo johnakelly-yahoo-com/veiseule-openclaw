@@ -1,4 +1,8 @@
 ---
+summary: "Terminal UI (TUI): kumonekta sa Gateway mula sa anumang machine"
+read_when:
+  - Gusto mo ng beginner-friendly na walkthrough ng TUI
+  - Kailangan mo ang kumpletong listahan ng mga tampok, command, at shortcut ng TUI
 title: "TUI"
 ---
 
@@ -156,5 +160,3 @@ Walang output matapos magpadala ng mensahe:
 - `disconnected`: tiyaking tumatakbo ang Gateway at tama ang iyong `--url/--token/--password`.
 - Walang agent sa picker: suriin ang `openclaw agents list` at ang iyong routing config.
 - Walang laman ang session picker: maaaring nasa global scope ka o wala ka pang mga session.
-
-

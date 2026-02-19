@@ -1,4 +1,8 @@
 ---
+summary: "Сопутствующее приложение OpenClaw для macOS (строка меню + брокер шлюза)"
+read_when:
+  - Реализация функций приложения macOS
+  - Изменение жизненного цикла шлюза или мостов узлов на macOS
 title: "Приложение macOS"
 ---
 
@@ -126,6 +130,7 @@ open 'openclaw://agent?message=Hello%20from%20deep%20link'
 Безопасность:
 
 - Без `key` приложение запрашивает подтверждение.
+- Без `key` приложение применяет ограничение на длину сообщения для запроса подтверждения и игнорирует `deliver` / `to` / `channel`.
 - С действительным `key` выполнение происходит без участия пользователя (предназначено для персональных автоматизаций).
 
 ## Поток посадки (обычный)
@@ -194,5 +199,3 @@ swift run openclaw-mac discover --timeout 3000 --json
 - [Gateway (macOS)](/platforms/mac/bundled-gateway)
 - [Разрешения macOS](/platforms/mac/permissions)
 - [Canvas](/platforms/mac/canvas)
-
-

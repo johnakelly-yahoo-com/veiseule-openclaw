@@ -1,4 +1,8 @@
 ---
+summary: "Eski `openclaw-*` skills’lerin yerini alan OpenClaw için ajan araç yüzeyi (tarayıcı, canvas, düğümler, mesaj, cron)"
+read_when:
+  - Ajan araçlarını eklerken veya değiştirirken
+  - "`openclaw-*` skills’leri emekliye ayırırken veya değiştirirken"
 title: "Araçlar"
 ---
 
@@ -177,6 +181,7 @@ istemlere nasıl enjekte edildiği için [Skills](/tools/skills) bölümüne bak
 
 Bir veya daha fazla dosya üzerinde yapılandırılmış yamalar uygular. Çoklu parça (multi‑hunk) düzenlemeleri için kullanın.
 Deneysel: `tools.exec.applyPatch.enabled` üzerinden etkinleştirin (yalnızca OpenAI modelleri).
+`tools.exec.applyPatch.workspaceOnly` varsayılan olarak `true` (workspace ile sınırlı) değerine ayarlıdır. `apply_patch` komutunun workspace dizini dışına yazmasını/silmesini bilinçli olarak istiyorsanız yalnızca o zaman `false` olarak ayarlayın.
 
 ### `exec`
 
@@ -505,5 +510,3 @@ Araçlar iki paralel kanalda sunulur:
 2. **Araç şeması**: model API’sine gönderilen yapılandırılmış işlev tanımları.
 
 Bu, ajanın hem “hangi araçlar var”ı hem de “nasıl çağrılacaklarını” görmesi anlamına gelir. Bir araç sistem isteminde veya şemada görünmüyorsa, model onu çağıramaz.
-
-

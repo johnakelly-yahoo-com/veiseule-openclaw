@@ -1,10 +1,16 @@
 ---
+summary: "精選連結，指向最常使用的 OpenClaw 文件。"
+read_when:
+  - You want quick access to key docs pages
 title: "文件目錄"
 ---
 
 <Note>
+This page is a curated index. If you are new, start with [Getting Started](/start/getting-started).
+
 本頁為精選索引。如果您是新手，請從 [入門指南](/start/getting-started) 開始。
 For a complete map of the docs, see [Docs hubs](/start/hubs).
+
 </Note>
 
 ## 從這裡開始
@@ -43,7 +49,7 @@ For a complete map of the docs, see [Docs hubs](/start/hubs).
 - [媒體影像](/nodes/images)
 - [媒體音訊](/nodes/audio)
 
-## 12. 伴生應用程式
+## 伴生應用程式
 
 - [macOS 應用程式](/platforms/macos)
 - [iOS 應用程式](/platforms/ios)
@@ -59,5 +65,3 @@ For a complete map of the docs, see [Docs hubs](/start/hubs).
 - [Gmail 鉤子（Pub/Sub）](/automation/gmail-pubsub)
 - [安全性](/gateway/security)
 - [疑難排解](/gateway/troubleshooting)
-
-

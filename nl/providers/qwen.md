@@ -1,4 +1,8 @@
 ---
+summary: "Gebruik Qwen OAuth (gratis tier) in OpenClaw"
+read_when:
+  - Je wilt Qwen gebruiken met OpenClaw
+  - Je wilt gratis OAuth-toegang tot Qwen Coder
 title: "Qwen"
 ---
 
@@ -48,5 +52,3 @@ aanmeldopdracht om er een te maken).
 - Standaard basis-URL: `https://portal.qwen.ai/v1` (overschrijf met
   `models.providers.qwen-portal.baseUrl` als Qwen een ander endpoint aanbiedt).
 - Zie [Model providers](/concepts/model-providers) voor providerbrede regels.
-
-

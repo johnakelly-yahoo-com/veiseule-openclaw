@@ -1,8 +1,13 @@
 ---
-title: "Parring"
+summary: "Overblik over pairing: godkend hvem der kan sende dig DM’er + hvilke noder der kan tilsluttes"
+read_when:
+  - Opsætning af adgangskontrol for DM’er
+  - Paring af en ny iOS/Android-node
+  - Gennemgang af OpenClaws sikkerhedsprofil
+title: "Pairing"
 ---
 
-# Parring
+# Pairing
 
 “Parring” er OpenClaws eksplicitte **ejer godkendelse** trin.
 Det anvendes to steder:
@@ -96,5 +101,3 @@ Gemmes under `~/.openclaw/devices/`:
   - iMessage (legacy): [iMessage](/channels/imessage)
   - Discord: [Discord](/channels/discord)
   - Slack: [Slack](/channels/slack)
-
-

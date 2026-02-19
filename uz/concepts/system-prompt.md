@@ -1,10 +1,14 @@
 ---
+summary: "3. OpenClaw tizim prompti nimalarni o‘z ichiga oladi va u qanday yig‘iladi"
+read_when:
+  - 4. Tizim prompti matnini, asboblar ro‘yxatini yoki vaqt/heartbeat bo‘limlarini tahrirlash
+  - 5. Workspace bootstrap yoki ko‘nikmalarni kiritish (skills injection) xatti-harakatini o‘zgartirish
 title: "6. System Prompt"
 ---
 
 # 7. System Prompt
 
-8. OpenClaw har bir agent ishga tushirilishi uchun maxsus tizim promptini yaratadi. 9. Prompt **OpenClaw-ga tegishli** bo‘lib, p-coding-agent standart promptidan foydalanmaydi.
+8. OpenClaw har bir agent ishga tushirilishi uchun maxsus tizim promptini yaratadi. Prompt **OpenClaw’ga tegishli** va pi-coding-agent standart promptidan foydalanmaydi.
 
 10. Prompt OpenClaw tomonidan yig‘iladi va har bir agent ishga tushirilishiga kiritiladi.
 
@@ -32,7 +36,8 @@ title: "6. System Prompt"
 
 30. OpenClaw sub-agentlar uchun kichikroq tizim promptlarini yaratishi mumkin. 31. Runtime har bir ishga tushirish uchun `promptMode` ni o‘rnatadi (foydalanuvchi ko‘radigan sozlama emas):
 
-- 32. `full` (standart): yuqoridagi barcha bo‘limlarni o‘z ichiga oladi.
+- `promptMode=minimal` bo‘lganda, qo‘shimcha kiritilgan promptlar **Group Chat Context** o‘rniga **Subagent
+  Context** deb belgilanadi.
 - 33. `minimal`: sub-agentlar uchun ishlatiladi; **Skills**, **Memory Recall**, **OpenClaw
       Self-Update**, **Model Aliases**, **User Identity**, **Reply Tags**,
       **Messaging**, **Silent Replies** va **Heartbeats** bo‘limlarini chiqarib tashlaydi. 34. Tooling, **Safety**,
@@ -47,16 +52,31 @@ title: "6. System Prompt"
 
 38. Bootstrap fayllari **Project Context** ostida qisqartiriladi va qo‘shiladi, shunda model aniq o‘qishlarsiz identifikatsiya va profil kontekstini ko‘ra oladi:
 
-- 39. `AGENTS.md`
-- 40. `SOUL.md`
-- 41. `TOOLS.md`
-- 42. `IDENTITY.md`
-- 43. `USER.md`
-- 44. `HEARTBEAT.md`
+- `AGENTS.md`
+- `SOUL.md`
+- `TOOLS.md`
+- `IDENTITY.md`
+- `USER.md`
+- `HEARTBEAT.md`
 - 45. `BOOTSTRAP.md` (faqat mutlaqo yangi workspace-larda)
+- `MEMORY.md` va/yoki `memory.md` (workspace’da mavjud bo‘lsa; bittasi yoki ikkalasi ham kiritilishi mumkin)
+
+Ushbu fayllarning barchasi **har bir turn’da context window’ga kiritiladi**, bu esa
+tokenlar sarflashini anglatadi. Ularni ixcham saqlang — ayniqsa vaqt o‘tishi bilan
+kattalashishi mumkin bo‘lgan `MEMORY.md`, bu kutilmaganda yuqori context ishlatilishiga va tez-tez
+compaction’ga olib kelishi mumkin.
+
+> **Eslatma:** `memory/*.md` kundalik fayllar avtomatik ravishda **kiritilmaydi**. Ular
+> `memory_search` va `memory_get` vositalari orqali talab bo‘yicha olinadi, shuning uchun
+> model ularni aniq o‘qimaguncha context window hisobiga kirmaydi.
 
 46. Katta fayllar belgi (marker) bilan qisqartiriladi. 47. Har bir fayl uchun maksimal hajm
-    `agents.defaults.bootstrapMaxChars` (standart: 20000) tomonidan boshqariladi. 48. Yetishmayotgan fayllar qisqa yetishmayotgan-fayl belgisi bilan kiritiladi.
+    `agents.defaults.bootstrapMaxChars` (standart: 20000) tomonidan boshqariladi. Fayllar bo‘yicha jami kiritiladigan bootstrap
+    kontent `agents.defaults.bootstrapTotalMaxChars`
+    (standart: 24000) bilan cheklangan. Mavjud bo‘lmagan fayllar uchun qisqa missing-file belgisi kiritiladi.
+
+Sub-agent session’lari faqat `AGENTS.md` va `TOOLS.md` fayllarini kiritadi (boshqa bootstrap fayllar
+sub-agent context’ini kichik saqlash uchun filtrlanadi).
 
 49. Ichki hooklar `agent:bootstrap` orqali bu bosqichni ushlab qolib, kiritilgan bootstrap fayllarini o‘zgartirishi yoki almashtirishi mumkin (masalan, `SOUL.md` ni muqobil persona bilan almashtirish).
 
@@ -106,5 +126,3 @@ package docs) and also notes the public mirror, source repo, community Discord, 
 ClawHub ([https://clawhub.com](https://clawhub.com)) for skills discovery. The prompt instructs the model to consult local docs first
 for OpenClaw behavior, commands, configuration, or architecture, and to run
 `openclaw status` itself when possible (asking the user only when it lacks access).
-
-

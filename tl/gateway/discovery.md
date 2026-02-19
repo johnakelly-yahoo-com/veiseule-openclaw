@@ -1,8 +1,13 @@
 ---
+summary: "Discovery ng node at mga transport (Bonjour, Tailscale, SSH) para sa paghahanap ng Gateway"
+read_when:
+  - Pagpapatupad o pagbabago ng Bonjour discovery/advertising
+  - Pag-aayos ng mga remote connection mode (direct vs SSH)
+  - Pagdidisenyo ng node discovery + pairing para sa mga remote node
 title: "Discovery at mga Transport"
 ---
 
-# Discovery at mga transport
+# Discovery & transports
 
 May dalawang magkahiwalay na problema ang OpenClaw na mukhang magkapareho sa unang tingin:
 
@@ -13,7 +18,7 @@ Ang layunin ng disenyo ay panatilihin ang lahat ng network discovery/advertising
 
 ## Mga termino
 
-- **Gateway**: isang nag-iisang pangmatagalang gateway process na namamahala sa state (mga session, pagpapares, registry ng node) at nagpapatakbo ng mga channel. Karamihan ng mga setup ay gumagamit ng isa bawat host; posible rin ang mga hiwalay na multi-gateway setup.
+- **Gateway**: a single long-running gateway process that owns state (sessions, pairing, node registry) and runs channels. Most setups use one per host; isolated multi-gateway setups are possible.
 - **Gateway WS (control plane)**: ang WebSocket endpoint sa `127.0.0.1:18789` bilang default; maaaring i-bind sa LAN/tailnet sa pamamagitan ng `gateway.bind`.
 - **Direct WS transport**: isang LAN/tailnet-facing na Gateway WS endpoint (walang SSH).
 - **SSH transport (fallback)**: remote control sa pamamagitan ng pag-forward ng `127.0.0.1:18789` sa SSH.
@@ -21,8 +26,8 @@ Ang layunin ng disenyo ay panatilihin ang lahat ng network discovery/advertising
 
 Mga detalye ng protocol:
 
-- [Protocol ng Gateway](/gateway/protocol)
-- [Protocol ng Bridge (lumang bersyon)](/gateway/bridge-protocol)
+- [Gateway protocol](/gateway/protocol)
+- [Bridge protocol (legacy)](/gateway/bridge-protocol)
 
 ## Bakit pinananatili namin ang parehong “direct” at SSH
 
@@ -51,7 +56,7 @@ Mga detalye sa pag-troubleshoot at beacon: [Bonjour](/gateway/bonjour).
 #### Mga detalye ng service beacon
 
 - Mga uri ng serbisyo:
-  - `_openclaw-gw._tcp` (beacon ng transport ng gateway)
+  - `_openclaw-gw._tcp` (gateway transport beacon)
 - Mga TXT key (hindi lihim):
   - `role=gateway`
   - `lanHost=<hostname>.local`
@@ -62,6 +67,13 @@ Mga detalye sa pag-troubleshoot at beacon: [Bonjour](/gateway/bonjour).
   - `canvasPort=18793` (default na canvas host port; naghahain ng `/__openclaw__/canvas/`)
   - `cliPath=<path>` (opsyonal; absolute path sa isang runnable na `openclaw` entrypoint o binary)
   - `tailnetDns=<magicdns>` (opsyonal na hint; auto-detected kapag available ang Tailscale)
+
+I-disable/i-override:
+
+- Ang mga Bonjour/mDNS TXT record ay **walang authentication**. Dapat ituring ng mga client ang mga halaga ng TXT bilang mga pahiwatig sa UX lamang.
+- Kinokontrol ng `gateway.bind` sa `~/.openclaw/openclaw.json` ang Gateway bind mode.
+- Ina-override ng `OPENCLAW_SSH_PORT` ang SSH port na ina-advertise sa TXT (default ay 22).
+- Nagpa-publish ang `OPENCLAW_TAILNET_DNS` ng isang `tailnetDns` hint (MagicDNS).
 
 I-disable/i-override:
 
@@ -77,13 +89,13 @@ For London/Vienna style setups, Bonjour won’t help. The recommended “direct�
 
 - Tailscale MagicDNS name (mas gusto) o isang stable na tailnet IP.
 
-Kung matukoy ng Gateway na ito ay tumatakbo sa ilalim ng Tailscale, ipo-publish nito ang `tailnetDns` bilang isang opsyonal na hint para sa mga client (kabilang ang mga wide-area beacon).
+Kapag walang direct route (o naka-disable ang direct), palaging maaaring kumonekta ang mga client sa pamamagitan ng SSH sa pamamagitan ng pag-forward ng loopback gateway port.
 
 ### 3. Manual / SSH target
 
 Kapag walang direct route (o naka-disable ang direct), palaging maaaring kumonekta ang mga client sa pamamagitan ng SSH sa pamamagitan ng pag-forward ng loopback gateway port.
 
-Tingnan ang [Remote access](/gateway/remote).
+Inirerekomendang asal ng client:
 
 ## Pagpili ng transport (client policy)
 
@@ -98,8 +110,8 @@ Inirerekomendang asal ng client:
 
 Ang Gateway ang source of truth para sa admission ng node/client.
 
-- Ang mga pairing request ay nililikha/inaaprubahan/itinatatwa sa Gateway (tingnan ang [Gateway pairing](/gateway/pairing)).
-- Ipinapatupad ng Gateway ang:
+- **Gateway**: nag-a-advertise ng mga discovery beacon, nagmamay-ari ng mga desisyon sa pairing, at nagho-host ng WS endpoint.
+- **macOS app**: tumutulong pumili ng Gateway, nagpapakita ng mga pairing prompt, at gumagamit ng SSH bilang fallback lamang.
   - auth (token / keypair)
   - scopes/ACLs (ang Gateway ay hindi raw proxy sa bawat method)
   - mga rate limit
@@ -109,5 +121,3 @@ Ang Gateway ang source of truth para sa admission ng node/client.
 - **Gateway**: nag-a-advertise ng mga discovery beacon, nagmamay-ari ng mga desisyon sa pairing, at nagho-host ng WS endpoint.
 - **macOS app**: tumutulong pumili ng Gateway, nagpapakita ng mga pairing prompt, at gumagamit ng SSH bilang fallback lamang.
 - **iOS/Android nodes**: nagba-browse ng Bonjour bilang kaginhawaan at kumokonekta sa paired na Gateway WS.
-
-

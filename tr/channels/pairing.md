@@ -1,8 +1,13 @@
 ---
-title: "Eşleştirme"
+summary: "Eşleştirmeye genel bakış: size DM atabilecekleri ve hangi düğümlerin katılabileceğini onaylayın"
+read_when:
+  - DM erişim denetimini ayarlarken
+  - Yeni bir iOS/Android düğümünü eşleştirirken
+  - OpenClaw güvenlik duruşunu gözden geçirirken
+title: "Pairing"
 ---
 
-# Eşleştirme
+# Pairing
 
 “Eşleştirme”, OpenClaw’ın açık **sahip onayı** adımıdır.
 İki yerde kullanılır:
@@ -33,7 +38,7 @@ openclaw pairing approve telegram <CODE>
 
 Desteklenen kanallar: `telegram`, `whatsapp`, `signal`, `imessage`, `discord`, `slack`.
 
-### Durumun bulunduğu yer
+### Where the state lives
 
 `~/.openclaw/credentials/` altında saklanır:
 
@@ -95,5 +100,3 @@ openclaw devices reject <requestId>
   - iMessage (eski): [iMessage](/channels/imessage)
   - Discord: [Discord](/channels/discord)
   - Slack: [Slack](/channels/slack)
-
-

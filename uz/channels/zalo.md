@@ -1,10 +1,13 @@
 ---
+summary: "Zalo bot qo‘llab-quvvatlash holati, imkoniyatlari va sozlamalari"
+read_when:
+  - Zalo funksiyalari yoki webhooklar ustida ishlayotganda
 title: "Zalo"
 ---
 
 # Zalo (Bot API)
 
-Holati: eksperimental. Faqat shaxsiy xabarlar; guruhlar Zalo hujjatlariga ko‘ra tez orada qo‘shiladi.
+Status: experimental. Direct messages only; groups coming soon per Zalo docs.
 
 ## Plagin talab qilinadi
 
@@ -42,8 +45,8 @@ Minimal konfiguratsiya:
 
 ## Bu nima?
 
-Zalo — Vyetnamga yo‘naltirilgan messenjer ilovasi; uning Bot API Gateway’ga 1:1 suhbatlar uchun bot ishlatish imkonini beradi.  
-Agar siz Zalo’ga aniq va ishonchli yo‘naltirishni xohlasangiz (masalan, qo‘llab-quvvatlash yoki bildirishnomalar uchun), bu yaxshi tanlov.
+Zalo is a Vietnam-focused messaging app; its Bot API lets the Gateway run a bot for 1:1 conversations.
+It is a good fit for support or notifications where you want deterministic routing back to Zalo.
 
 - Gateway tomonidan boshqariladigan Zalo Bot API kanali.
 - Deterministik marshrutlash: javoblar Zalo’ga qaytadi; model kanallarni tanlamaydi.
@@ -52,7 +55,7 @@ Agar siz Zalo’ga aniq va ishonchli yo‘naltirishni xohlasangiz (masalan, qo�
 
 ## Sozlash (tezkor usul)
 
-### 1) Bot tokenini yarating (Zalo Bot Platform)
+### 1. Bot tokenini yarating (Zalo Bot Platform)
 
 1. [https://bot.zaloplatforms.com](https://bot.zaloplatforms.com) sahifasiga o‘ting va tizimga kiring.
 2. Yangi bot yarating va sozlamalarini moslang.
@@ -78,8 +81,8 @@ Muhit o‘zgaruvchisi varianti: `ZALO_BOT_TOKEN=...` (faqat sukut bo‘yicha akk
 
 Ko‘p akkauntli qo‘llab-quvvatlash: har bir akkaunt uchun token va ixtiyoriy `name` bilan `channels.zalo.accounts` dan foydalaning.
 
-3. Gateway’ni qayta ishga tushiring. Token (muhit yoki konfiguratsiya orqali) aniqlanganda Zalo ishga tushadi.
-4. Shaxsiy xabarlar uchun kirish sukut bo‘yicha pairing orqali amalga oshiriladi. Bot bilan birinchi aloqa vaqtida kodni tasdiqlang.
+3. Restart the gateway. Zalo starts when a token is resolved (env or config).
+4. DM access defaults to pairing. Approve the code when the bot is first contacted.
 
 ## Qanday ishlaydi (xulq-atvor)
 
@@ -97,11 +100,11 @@ Ko‘p akkauntli qo‘llab-quvvatlash: har bir akkaunt uchun token va ixtiyoriy 
 
 ### Shaxsiy xabarlarga kirish
 
-- Sukut bo‘yicha: `channels.zalo.dmPolicy = "pairing"`. Noma’lum yuboruvchilar pairing kodini oladi; tasdiqlanmaguncha xabarlar e’tiborsiz qoldiriladi (kodlar 1 soatdan keyin muddati tugaydi).
+- Default: `channels.zalo.dmPolicy = "pairing"`. Unknown senders receive a pairing code; messages are ignored until approved (codes expire after 1 hour).
 - Tasdiqlash:
   - `openclaw pairing list zalo`
   - `openclaw pairing approve zalo <CODE>`
-- Pairing — sukut bo‘yicha token almashish usuli. Tafsilotlar: [Pairing](/channels/pairing)
+- Pairing is the default token exchange. Details: [Pairing](/channels/pairing)
 - `channels.zalo.allowFrom` raqamli foydalanuvchi ID’larini qabul qiladi (username orqali qidirish mavjud emas).
 
 ## Long-polling va webhook
@@ -124,16 +127,16 @@ Ko‘p akkauntli qo‘llab-quvvatlash: har bir akkaunt uchun token va ixtiyoriy 
 
 ## Imkoniyatlar
 
-| Funksiya        | Holati                         |
-| --------------- | ------------------------------ |
-| Shaxsiy xabarlar | ✅ Qo‘llab-quvvatlanadi        |
-| Guruhlar        | ❌ Tez orada (Zalo hujjatlariga ko‘ra) |
-| Media (rasmlar) | ✅ Qo‘llab-quvvatlanadi        |
-| Reaksiyalar     | ❌ Qo‘llab-quvvatlanmaydi      |
-| Tarmoqlar (threads) | ❌ Qo‘llab-quvvatlanmaydi  |
-| So‘rovnomalar   | ❌ Qo‘llab-quvvatlanmaydi      |
-| Native buyruqlar | ❌ Qo‘llab-quvvatlanmaydi     |
-| Streaming       | ⚠️ Bloklangan (2000 belgi cheklovi) |
+| Funksiya                               | Holati                                                   |
+| -------------------------------------- | -------------------------------------------------------- |
+| Shaxsiy xabarlar                       | ✅ Qo‘llab-quvvatlanadi                                   |
+| Guruhlar                               | ❌ Tez orada (Zalo hujjatlariga ko‘ra) |
+| Media (rasmlar)     | ✅ Qo‘llab-quvvatlanadi                                   |
+| Reaksiyalar                            | ❌ Qo‘llab-quvvatlanmaydi                                 |
+| Tarmoqlar (threads) | ❌ Qo‘llab-quvvatlanmaydi                                 |
+| So‘rovnomalar                          | ❌ Qo‘llab-quvvatlanmaydi                                 |
+| Native buyruqlar                       | ❌ Qo‘llab-quvvatlanmaydi                                 |
+| Streaming                              | ⚠️ Bloklangan (2000 belgi cheklovi)   |
 
 ## Yetkazib berish manzillari (CLI/cron)
 
@@ -165,7 +168,7 @@ Provayder sozlamalari:
 - `channels.zalo.botToken`: Zalo Bot Platform’dan olingan bot tokeni.
 - `channels.zalo.tokenFile`: tokenni fayldan o‘qish yo‘li.
 - `channels.zalo.dmPolicy`: `pairing | allowlist | open | disabled` (sukut bo‘yicha: pairing).
-- `channels.zalo.allowFrom`: DM allowlist (foydalanuvchi ID’lari). `open` uchun `"*"` talab qilinadi. Sozlash ustasi raqamli ID’larni so‘raydi.
+- `channels.zalo.allowFrom`: DM ruxsatlar ro‘yxati (foydalanuvchi ID’lari). `open` uchun `"*"` talab qilinadi. Usta (wizard) raqamli ID’larni so‘raydi.
 - `channels.zalo.mediaMaxMb`: kiruvchi/chiquvchi media cheklovi (MB, sukut bo‘yicha 5).
 - `channels.zalo.webhookUrl`: webhook rejimini yoqish (HTTPS talab qilinadi).
 - `channels.zalo.webhookSecret`: webhook siri (8–256 belgi).
@@ -176,13 +179,11 @@ Ko‘p akkauntli sozlamalar:
 
 - `channels.zalo.accounts.<id>.botToken`: har bir akkaunt uchun token.
 - `channels.zalo.accounts.<id>.tokenFile`: har bir akkaunt uchun token fayli.
-- `channels.zalo.accounts.<id>.name`: ko‘rsatiladigan nom.
+- `channels.zalo.accounts.<id>.name`: ko‘rinadigan nom.
 - `channels.zalo.accounts.<id>.enabled`: akkauntni yoqish/o‘chirish.
 - `channels.zalo.accounts.<id>.dmPolicy`: har bir akkaunt uchun DM siyosati.
-- `channels.zalo.accounts.<id>.allowFrom`: har bir akkaunt uchun allowlist.
+- `channels.zalo.accounts.<id>.allowFrom`: har bir akkaunt uchun ruxsatlar ro‘yxati.
 - `channels.zalo.accounts.<id>.webhookUrl`: har bir akkaunt uchun webhook URL.
-- `channels.zalo.accounts.<id>.webhookSecret`: har bir akkaunt uchun webhook siri.
+- `channels.zalo.accounts.<id>.webhookSecret`: har bir akkaunt uchun webhook maxfiy kaliti.
 - `channels.zalo.accounts.<id>.webhookPath`: har bir akkaunt uchun webhook yo‘li.
 - `channels.zalo.accounts.<id>.proxy`: har bir akkaunt uchun proxy URL.
-
-

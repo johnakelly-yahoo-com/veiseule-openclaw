@@ -1,4 +1,8 @@
 ---
+summary: "Uppdatera OpenClaw säkert (global installation eller källkod), plus strategi för återställning"
+read_when:
+  - Uppdatera OpenClaw
+  - Något går sönder efter en uppdatering
 title: "Uppdatering"
 ---
 
@@ -227,5 +231,3 @@ git pull
 - Kör `openclaw doctor` igen och läs utdata noggrant (den berättar ofta vad som behöver göras).
 - Kontrollera: [Felsökning](/gateway/troubleshooting)
 - Fråga i Discord: [https://discord.gg/clawd](https://discord.gg/clawd)
-
-

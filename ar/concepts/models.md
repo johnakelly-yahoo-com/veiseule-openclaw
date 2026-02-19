@@ -1,4 +1,9 @@
 ---
+summary: "واجهة نماذج CLI: السرد، التعيين، الأسماء المستعارة، البدائل، الفحص، الحالة"
+read_when:
+  - إضافة أو تعديل واجهة نماذج CLI (models list/set/scan/aliases/fallbacks)
+  - تغيير سلوك بدائل النماذج أو تجربة اختيار النموذج
+  - تحديث مجسّات فحص النماذج (الأدوات/الصور)
 title: "واجهة نماذج CLI"
 ---
 
@@ -200,5 +205,3 @@ openclaw models status
 تُكتب الموفّرات المخصّصة في `models.providers` إلى `models.json` ضمن
 دليل الوكيل (الافتراضي `~/.openclaw/agents/<agentId>/models.json`). يتم دمج هذا الملف افتراضيًا
 ما لم يتم تعيين `models.mode` إلى `replace`.
-
-

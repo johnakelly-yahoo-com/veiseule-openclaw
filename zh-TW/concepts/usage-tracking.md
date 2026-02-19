@@ -1,4 +1,8 @@
 ---
+summary: "使用量追蹤的呈現介面與憑證需求"
+read_when:
+  - You are wiring provider usage/quota surfaces
+  - 你需要說明使用量追蹤的行為或身分驗證需求
 title: "使用量追蹤"
 ---
 
@@ -6,12 +10,12 @@ title: "使用量追蹤"
 
 ## 它是什麼
 
-- 直接從供應商的使用量端點拉取使用量／配額資料。
+- Pulls provider usage/quota directly from their usage endpoints.
 - 不提供估算成本；僅顯示供應商回報的視窗資料。
 
-## 顯示位置
+## Where it shows up
 
-- 聊天中的 `/status`：包含豐富表情符號的狀態卡片，顯示工作階段權杖數與估算成本（僅限 API key）。在可用時，會顯示**目前模型供應商**的使用量。
+- `/status` in chats: emoji‑rich status card with session tokens + estimated cost (API key only). Provider usage shows for the **current model provider** when available.
 - 聊天中：`/usage off|tokens|full`：每則回應的使用量頁尾（OAuth 僅顯示權杖）。
 - 聊天中：`/usage cost`：由 OpenClaw 工作階段紀錄彙總的本地成本摘要。
 - CLI：`openclaw status --usage` 會輸出完整的各提供者明細。
@@ -29,5 +33,3 @@ title: "使用量追蹤"
 - **z.ai**：透過 環境變數／設定／驗證儲存庫 提供的 API 金鑰。
 
 若不存在相符的 OAuth／API 憑證，將隱藏使用量。
-
-

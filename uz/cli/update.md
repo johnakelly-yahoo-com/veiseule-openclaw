@@ -1,4 +1,8 @@
 ---
+summary: "5. `openclaw update` uchun CLI ma’lumotnomasi (xavfsizroq manba yangilash + gateway’ni avtomatik qayta ishga tushirish)"
+read_when:
+  - 6. Siz manba checkout’ini xavfsiz yangilamoqchisiz
+  - 7. `--update` qisqartmasi qanday ishlashini tushunishingiz kerak
 title: "`--no-restart`: muvaffaqiyatli yangilashdan so‘ng Gateway xizmatini qayta ishga tushirishni o‘tkazib yuboradi."
 ---
 
@@ -24,7 +28,7 @@ openclaw --update
 
 ## 14. Parametrlar
 
-- `--timeout <seconds>`: har bir bosqich uchun timeout (standart 1200s).
+- Eslatma: pastga yangilash (downgrade) tasdiqni talab qiladi, chunki eski versiyalar konfiguratsiyani buzishi mumkin.
 - 16. `--channel <stable|beta|dev>`: yangilanish kanalini o‘rnatadi (git + npm; konfiguratsiyada saqlanadi).
 - 17. `--tag <dist-tag|version>`: faqat ushbu yangilanish uchun npm dist-tag yoki versiyani majburan belgilaydi.
 - 18. `--json`: mashina o‘qiy oladigan `UpdateRunResult` JSON’ni chiqaradi.
@@ -32,7 +36,7 @@ openclaw --update
 
 20. Eslatma: pastga yangilash (downgrade) tasdiqni talab qiladi, chunki eski versiyalar konfiguratsiyani buzishi mumkin.
 
-## Faol yangilash kanali + git teg/branch/SHA (manbadan yig‘ilganlar uchun) hamda yangilanish mavjudligini ko‘rsatadi.
+## `update status`
 
 `--json`: mashina o‘qiy oladigan status JSON ni chiqaradi.
 
@@ -62,13 +66,13 @@ openclaw update status --timeout 10
 
 35. Kanallar:
 
-- 36. `stable`: eng so‘nggi beta bo‘lmagan tegni checkout qiladi, so‘ng build + doctor bajaradi.
+- Yuqori darajada:
 - 37. `beta`: eng so‘nggi `-beta` tegini checkout qiladi, so‘ng build + doctor bajaradi.
 - 38. `dev`: `main` ni checkout qiladi, so‘ng fetch + rebase qiladi.
 
 39. Yuqori darajada:
 
-1. 40. Toza worktree talab etiladi (commit qilinmagan o‘zgarishlarsiz).
+1. `openclaw --update` `openclaw update` ga qayta yoziladi (shellar va launcher skriptlari uchun qulay).
 2. 41. Tanlangan kanalga o‘tadi (teg yoki branch).
 3. 42. Upstream’ni fetch qiladi (faqat dev).
 4. 43. Faqat dev: vaqtinchalik worktree’da dastlabki lint va TypeScript build’ni bajaradi; agar eng so‘nggi commit muvaffaqiyatsiz bo‘lsa, eng yangi toza build’ni topish uchun 10 tagacha commit orqaga yuradi.
@@ -78,15 +82,13 @@ openclaw update status --timeout 10
 8. 47. Yakuniy “xavfsiz yangilash” tekshiruvi sifatida `openclaw doctor` ni ishga tushiradi.
 9. 48. Plaginlarni faol kanal bilan sinxronlaydi (dev — paketlangan kengaytmalar; stable/beta — npm) va npm orqali o‘rnatilgan plaginlarni yangilaydi.
 
-## 49) `--update` qisqartmasi
+## Shuningdek qarang
 
 50. `openclaw --update` `openclaw update` ga qayta yoziladi (shellar va launcher skriptlari uchun qulay).
 
 ## Shuningdek qarang
 
 - `openclaw doctor` (git checkoutlarda avval yangilashni ishga tushirishni taklif qiladi)
-- Siz voice-call plaginidan foydalanasiz va CLI kirish nuqtalarini xohlaysiz
+- [Development channels](/install/development-channels)
 - [Yangilash](/install/updating)
 - [CLI ma’lumotnomasi](/cli)
-
-

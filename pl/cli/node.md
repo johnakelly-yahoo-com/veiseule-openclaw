@@ -1,4 +1,8 @@
 ---
+summary: "Dokumentacja referencyjna CLI dla `openclaw node` (bezgłowy host węzła)"
+read_when:
+  - Uruchamianie bezgłowego hosta węzła
+  - Parowanie węzła spoza macOS dla system.run
 title: "node"
 ---
 
@@ -105,5 +109,3 @@ Host węzła przechowuje swój identyfikator węzła, token, nazwę wyświetlan�
 - `~/.openclaw/exec-approvals.json`
 - [Zatwierdzanie wykonania](/tools/exec-approvals)
 - `openclaw approvals --node <id|name|ip>` (edytowane z Gateway)
-
-

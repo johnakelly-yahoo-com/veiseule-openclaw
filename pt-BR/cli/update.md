@@ -1,4 +1,8 @@
 ---
+summary: "Referência da CLI para `openclaw update` (atualização de origem relativamente segura + reinício automático do gateway)"
+read_when:
+  - Voce quer atualizar um checkout de origem com segurança
+  - Voce precisa entender o comportamento do atalho `--update`
 title: "update"
 ---
 
@@ -64,13 +68,13 @@ método de instalação alinhado:
 
 ## Fluxo de checkout do Git
 
-Canais:
+Channels:
 
 - `stable`: faz checkout da tag não-beta mais recente e então build + doctor.
 - `beta`: faz checkout da tag `-beta` mais recente e então build + doctor.
 - `dev`: faz checkout de `main` e então fetch + rebase.
 
-Visão geral:
+High-level:
 
 1. Requer uma worktree limpa (sem alterações não commitadas).
 2. Alterna para o canal selecionado (tag ou branch).
@@ -92,5 +96,3 @@ Visão geral:
 - [Development channels](/install/development-channels)
 - [Updating](/install/updating)
 - [CLI reference](/cli)
-
-

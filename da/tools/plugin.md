@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw plugins/udvidelser: discovery, konfiguration og sikkerhed"
+read_when:
+  - Tilføjelse eller ændring af plugins/udvidelser
+  - Dokumentation af plugin-installation eller indlæsningsregler
 title: "Udvidelser"
 ---
 
@@ -26,6 +30,8 @@ openclaw plugins list
 ```bash
 openclaw plugins install @openclaw/voice-call
 ```
+
+Npm-specifikationer er **kun registry-baserede** (pakkenavn + valgfri version/tag). Git/URL/fil-specifikationer afvises.
 
 3. Genstart Gateway, og konfigurer derefter under `plugins.entries.<id>.config`.
 
@@ -86,9 +92,9 @@ Noter:
 
 OpenClaw scanner i rækkefølge:
 
-1. Konfigurationsstier
+1. `plugins.load.paths` (fil eller mappe)
 
-- `plugins.load.paths` (fil eller mappe)
+- Workspace‑udvidelser
 
 2. Workspace‑udvidelser
 
@@ -134,6 +140,8 @@ Hver indgang bliver et plugin. Hvis pakken viser flere udvidelser, bliver plugin
 Hvis dit plugin importerer npm‑afhængigheder, skal du installere dem i den mappe,
 så `node_modules` er tilgængelig (`npm install` / `pnpm install`).
 
+Sikkerhedsnote: `openclaw plugins install` installerer plugin-afhængigheder med `npm install --ignore-scripts` (ingen lifecycle-scripts). Hold plugin-afhængighedstræer "rene JS/TS" og undgå pakker, der kræver `postinstall`-builds.
+
 ### Kanal‑katalog‑metadata
 
 Kanal plugins kan annoncere onboarding metadata via `openclaw.channel` og
@@ -178,7 +186,8 @@ indeholde `{ "entries": [ { "navn": "@scope/pkg", "openclaw": { "kanal": {...}, 
 
 ## Plugin‑id’er
 
-Standard plugin‑id’er:
+Hvis et plugin eksporterer `id`, bruger OpenClaw det, men advarer hvis
+det ikke matcher det konfigurerede id.
 
 - Package packs: `package.json` `name`
 - Selvstændig fil: filens basisnavn (`~/.../voice-call.ts` → `voice-call`)
@@ -202,7 +211,7 @@ det ikke matcher det konfigurerede id.
 }
 ```
 
-Felter:
+Konfigurationsændringer **kræver genstart af gateway**.
 
 - `enabled`: master‑toggle (standard: true)
 - `allow`: tilladelsesliste (valgfri)
@@ -243,7 +252,8 @@ er deaktiveret med diagnostik.
 
 Control UI bruger `config.schema` (JSON Schema + `uiHints`) til at rendere bedre formularer.
 
-OpenClaw udvider `uiHints` ved runtime baseret på fundne plugins:
+Hvis du vil have, at dine plugin‑konfigurationsfelter viser gode labels/placeholders (og markerer hemmeligheder som følsomme),
+så angiv `uiHints` sammen med dit JSON Schema i plugin‑manifestet.
 
 - Tilføjer per-plugin etiketter til `plugins.entries.<id>` / `.enabled` / `.config`
 - Fletter valgfri plugin-forudsat config felt hints under:
@@ -292,7 +302,7 @@ openclaw plugins doctor
 
 `plugins update` virker kun for npm‑installationer, der spores under `plugins.installs`.
 
-Plugins kan også registrere deres egne top‑level kommandoer (eksempel: `openclaw voicecall`).
+Plugins eksporterer enten:
 
 ## Plugin‑API (overblik)
 
@@ -301,7 +311,7 @@ Plugins eksporterer enten:
 - En funktion: `(api) => { ... }`
 - Et objekt: `{ id, navn, configSchema, register(api) { ... } }`
 
-## Plugin‑hooks
+## Eksempel
 
 Plugins kan sende kroge og registrere dem på runtime. Dette lader en plugin pakke
 event-drevet automatisering uden en separat krog pack installation.
@@ -333,7 +343,7 @@ eller flere auth metoder (OAuth, API-nøgle, enhedskode osv.). Disse metoder vir
 
 - `openclaw models auth login --provider <id> [--method <id>]`
 
-Eksempel:
+Noter:
 
 ```ts
 api.registerProvider({
@@ -420,28 +430,28 @@ Noter:
 
 ### Skriv en ny messaging‑kanal (trin‑for‑trin)
 
-Brug dette, når du vil have en **ny chatoverflade** (en “messaging channel”), ikke en model udbyder.
+Brug dette, når du ønsker en **ny chatflade** (en "beskedkanal"), ikke en modeludbyder.
 Model provider docs live under `/providers/*`.
 
-1. Vælg et id + konfigurationsform
+1. Definér kanal‑metadata
 
 - Alle kanal config lever under `kanaler.<id>`.
 - Foretræk `kanaler.<id>.accounts.<accountId>` for opstillinger på flere konti.
 
-2. Definér kanal‑metadata
+2. Implementér de krævede adaptere
 
 - `meta.label`, `meta.selectionLabel`, `meta.docsPath`, `meta.blurb` styrer CLI/UI‑lister.
-- `meta.docsPath` bør pege på en docs‑side som `/channels/<id>`.
-- `meta.preferOver` lader et plugin erstatte en anden kanal (auto‑enable foretrækker den).
+- `capabilities` (chattyper, medier, tråde osv.)
+- `outbound.deliveryMode` + `outbound.sendText` (til basal afsendelse)
 - `meta.detailLabel` og `meta.systemImage` bruges af UI’er til detaljetekst/ikoner.
 
-3. Implementér de krævede adaptere
+3. Tilføj valgfrie adaptere efter behov
 
 - `config.listAccountIds` + `config.resolveAccount`
 - `capabilities` (chattyper, medier, tråde osv.)
-- `outbound.deliveryMode` + `outbound.sendText` (til basal afsendelse)
+- `actions` (beskedhandlinger), `commands` (indbygget kommandoadfærd)
 
-4. Tilføj valgfrie adaptere efter behov
+4. Registrér kanalen i dit plugin
 
 - `setup` (wizard), `security` (DM‑politik), `status` (health/diagnostik)
 - `gateway` (start/stop/login), `mentions`, `threading`, `streaming`
@@ -451,7 +461,7 @@ Model provider docs live under `/providers/*`.
 
 - `api.registerChannel({ plugin })`
 
-Minimal konfigurations‑eksempel:
+Minimal kanal‑plugin (kun outbound):
 
 ```json5
 {
@@ -503,11 +513,11 @@ export default function (api) {
 Indlæs plugin (udvidelser dir eller `plugins.load.paths`), genstart gateway,
 og derefter konfigurere `kanaler.<id>` i din konfiguration.
 
-### Agent‑værktøjer
+### Registrér en gateway RPC‑metode
 
 Se den dedikerede guide: [Plugin agent tools](/plugins/agent-tools).
 
-### Registrér en gateway RPC‑metode
+### Registrér CLI‑kommandoer
 
 ```ts
 export default function (api) {
@@ -517,7 +527,7 @@ export default function (api) {
 }
 ```
 
-### Registrér CLI‑kommandoer
+### Registrér auto‑reply‑kommandoer
 
 ```ts
 export default function (api) {
@@ -550,16 +560,16 @@ export default function (api) {
 }
 ```
 
-Kommandohandler‑kontekst:
+Kommandoindstillinger:
 
-- `senderId`: Afsenderens id (hvis tilgængeligt)
-- `channel`: Kanalen hvor kommandoen blev sendt
+- `name`: Kommandonavn (uden det indledende `/`)
+- `description`: Hjælpetekst vist i kommandolister
 - `isAuthorizedSender`: Om afsenderen er en autoriseret bruger
-- `args`: Argumenter sendt efter kommandoen (hvis `acceptsArgs: true`)
-- `commandBody`: Den fulde kommandotekst
+- `requireAuth`: Om autoriseret afsender kræves (standard: true)
+- `handler`: Funktion der returnerer `{ text: string }` (kan være async)
 - `config`: Den aktuelle OpenClaw‑konfiguration
 
-Kommandoindstillinger:
+Eksempel med autorisation og argumenter:
 
 - `name`: Kommandonavn (uden det indledende `/`)
 - `description`: Hjælpetekst vist i kommandolister
@@ -567,7 +577,7 @@ Kommandoindstillinger:
 - `requireAuth`: Om autoriseret afsender kræves (standard: true)
 - `handler`: Funktion der returnerer `{ text: string }` (kan være async)
 
-Eksempel med autorisation og argumenter:
+Noter:
 
 ```ts
 api.registerCommand({
@@ -592,7 +602,7 @@ Noter:
 - Reserverede kommandonavne (såsom `help`, `status`, `reset`, etc.) kan ikke tilsidesættes af plugins
 - Dobbelt registrering af kommandoer på tværs af plugins vil fejle med en diagnostisk fejl
 
-### Registrér baggrundstjenester
+### Navngivningskonventioner
 
 ```ts
 export default function (api) {
@@ -618,10 +628,10 @@ det er til stede i dit arbejdsområde / administrerede færdigheder steder.
 
 ## Distribution (npm)
 
-Anbefalet pakning:
+Publiceringskontrakt:
 
-- Hovedpakke: `openclaw` (dette repo)
-- Plugins: separate npm‑pakker under `@openclaw/*` (eksempel: `@openclaw/voice-call`)
+- Plugin `package.json` skal indeholde `openclaw.extensions` med én eller flere entry‑filer.
+- Entry‑filer kan være `.js` eller `.ts` (jiti indlæser TS ved runtime).
 
 Publiceringskontrakt:
 
@@ -632,7 +642,7 @@ Publiceringskontrakt:
 
 ## Eksempel‑plugin: Voice Call
 
-Dette repo indeholder et voice‑call‑plugin (Twilio eller log‑fallback):
+Se [Voice Call](/plugins/voice-call) og `extensions/voice-call/README.md` for opsætning og brug.
 
 - Kilde: `extensions/voice-call`
 - Skill: `skills/voice-call`
@@ -658,5 +668,3 @@ Plugins kan (og bør) levere tests:
 
 - Plugins i repo’et kan have Vitest‑tests under `src/**` (eksempel: `src/plugins/voice-call.plugin.test.ts`).
 - Separat publicerede plugins bør køre deres egen CI (lint/build/test) og validere, at `openclaw.extensions` peger på den byggede entrypoint (`dist/index.js`).
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "Referência: regras de sanitização e reparo de transcrições específicas por provedor"
+read_when:
+  - Voce está depurando rejeições de requisições do provedor ligadas ao formato da transcrição
+  - Voce está alterando a sanitização de transcrições ou a lógica de reparo de chamadas de ferramenta
+  - Voce está investigando incompatibilidades de id de chamadas de ferramenta entre provedores
 title: "Higiene da Transcrição"
 ---
 
@@ -19,6 +24,7 @@ O escopo inclui:
 - Validação/ordenação de turnos
 - Limpeza de assinatura de pensamento
 - Sanitização de payloads de imagem
+- Marcação de proveniência de entrada do usuário (para prompts roteados entre sessões)
 
 Se voce precisar de detalhes sobre armazenamento de transcrições, veja:
 
@@ -64,6 +70,23 @@ Implementação:
 
 - `sanitizeToolCallInputs` em `src/agents/session-transcript-repair.ts`
 - Aplicado em `sanitizeSessionHistory` em `src/agents/pi-embedded-runner/google.ts`
+
+---
+
+## Regra global: proveniência de entrada entre sessões
+
+Quando um agente envia um prompt para outra sessão via `sessions_send` (incluindo
+etapas de resposta/anúncio agente-para-agente), o OpenClaw persiste o turno de usuário criado com:
+
+- `message.provenance.kind = "inter_session"`
+
+Esses metadados são gravados no momento em que o transcript é anexado e não alteram o papel
+(`role: "user"` permanece para compatibilidade com o provider). Leitores de transcript podem usar
+isso para evitar tratar prompts internos roteados como instruções criadas pelo usuário final.
+
+Durante a reconstrução de contexto, o OpenClaw também adiciona no início um marcador curto `[Inter-session message]`
+esses turnos de usuário na memória para que o modelo possa diferenciá-los de
+instruções externas do usuário final.
 
 ---
 
@@ -122,5 +145,3 @@ Antes da versão 2026.1.22, o OpenClaw aplicava múltiplas camadas de higiene de
 Essa complexidade causou regressões entre provedores (notavelmente no pareamento `openai-responses`
 `call_id|fc_id`). A limpeza de 2026.1.22 removeu a extensão, centralizou a lógica no runner
 e tornou o OpenAI **no-touch** além da sanitização de imagens.
-
-

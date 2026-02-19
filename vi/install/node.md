@@ -1,10 +1,15 @@
 ---
 title: "Node.js"
+summary: "Cài đặt và cấu hình Node.js cho OpenClaw — yêu cầu phiên bản, các tùy chọn cài đặt và xử lý sự cố PATH"
+read_when:
+  - "Bạn cần cài đặt Node.js trước khi cài đặt OpenClaw"
+  - "Bạn đã cài OpenClaw nhưng gặp lỗi `openclaw` là lệnh không tồn tại"
+  - "`npm install -g` thất bại do quyền hoặc sự cố PATH"
 ---
 
 # Node.js
 
-OpenClaw yêu cầu **Node 22 hoặc mới hơn**. [installer script](/install#install-methods) sẽ tự động phát hiện và cài đặt Node — trang này dành cho trường hợp bạn muốn tự thiết lập Node và đảm bảo mọi thứ được cấu hình chính xác (phiên bản, PATH, cài đặt toàn cục).
+OpenClaw requires **Node 22 or newer**. The [installer script](/install#install-methods) will detect and install Node automatically — this page is for when you want to set up Node yourself and make sure everything is wired up correctly (versions, PATH, global installs).
 
 ## Kiểm tra phiên bản
 
@@ -20,53 +25,65 @@ Nếu lệnh này in ra `v22.x.x` hoặc cao hơn, bạn đã sẵn sàng. Nếu
   <Tab title="macOS">
     **Homebrew** (khuyến nghị):
 
+    `````
+    ````
     ```bash
     brew install node
     ```
-
+    
     Hoặc tải trình cài đặt macOS từ [nodejs.org](https://nodejs.org/).
+    ````
+    `````
 
   
 </Tab>
   <Tab title="Linux">
     **Ubuntu / Debian:**
 
+    `````
+    ````
     ```bash
     curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
     sudo apt-get install -y nodejs
     ```
-
+    
     **Fedora / RHEL:**
-
+    
     ```bash
     sudo dnf install nodejs
     ```
-
+    
     Hoặc dùng trình quản lý phiên bản (xem bên dưới).
+    ````
+    `````
 
   
 </Tab>
   <Tab title="Windows">
     **winget** (khuyến nghị):
 
+    `````
+    ````
     ```powershell
     winget install OpenJS.NodeJS.LTS
     ```
-
+    
     **Chocolatey:**
-
+    
     ```powershell
     choco install nodejs-lts
     ```
-
+    
     Hoặc tải trình cài đặt Windows từ [nodejs.org](https://nodejs.org/).
+    ````
+    `````
 
   
 </Tab>
 </Tabs>
 
 <Accordion title="Using a version manager (nvm, fnm, mise, asdf)">
-  Trình quản lý phiên bản cho phép bạn chuyển đổi giữa các phiên bản Node một cách dễ dàng. Các lựa chọn phổ biến:
+  Version managers let you switch between Node versions easily. Các lựa chọn phổ biến:
 
 - [**fnm**](https://github.com/Schniz/fnm) — nhanh, đa nền tảng
 - [**nvm**](https://github.com/nvm-sh/nvm) — được dùng rộng rãi trên macOS/Linux
@@ -80,7 +97,7 @@ fnm use 22
 ```
 
   <Warning>
-  Hãy đảm bảo trình quản lý phiên bản của bạn được khởi tạo trong file khởi động shell (`~/.zshrc` hoặc `~/.bashrc`). Nếu không, `openclaw` có thể không được tìm thấy trong các phiên terminal mới vì PATH sẽ không bao gồm thư mục bin của Node.
+  Hãy đảm bảo trình quản lý phiên bản của bạn được khởi tạo trong file khởi động shell (`~/.zshrc` hoặc `~/.bashrc`). If it isn't, `openclaw` may not be found in new terminal sessions because the PATH won't include Node's bin directory.
   
 </Warning>
 </Accordion>
@@ -103,7 +120,11 @@ fnm use 22
     echo "$PATH"
     ```
 
+    ````
+    ```
     Tìm `<npm-prefix>/bin` (macOS/Linux) hoặc `<npm-prefix>` (Windows) trong đầu ra.
+    ```
+    ````
 
   
 </Step>
@@ -112,19 +133,23 @@ fnm use 22
       <Tab title="macOS / Linux">
         Thêm vào `~/.zshrc` hoặc `~/.bashrc`:
 
-        ```bash
-        export PATH="$(npm prefix -g)/bin:$PATH"
         ```
-
-        Sau đó mở một terminal mới (hoặc chạy `rehash` trong zsh / `hash -r` trong bash).
-      
+            ```
+                ```bash
+                export PATH="$(npm prefix -g)/bin:$PATH"
+                ```
+            
+                Sau đó mở một terminal mới (hoặc chạy `rehash` trong zsh / `hash -r` trong bash).
+              
 </Tab>
-      <Tab title="Windows">
-        Thêm đầu ra của `npm prefix -g` vào PATH hệ thống qua Settings → System → Environment Variables.
-      
+              <Tab title="Windows">
+                Thêm đầu ra của `npm prefix -g` vào PATH hệ thống qua Settings → System → Environment Variables.
+              
 </Tab>
-    
+            
 </Tabs>
+            ```
+        ```
 
   
 </Step>
@@ -141,4 +166,3 @@ export PATH="$HOME/.npm-global/bin:$PATH"
 ```
 
 Thêm dòng `export PATH=...` vào `~/.bashrc` hoặc `~/.zshrc` để áp dụng vĩnh viễn.
-

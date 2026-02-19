@@ -1,4 +1,8 @@
 ---
+summary: "เอกสารอ้างอิงCLIสำหรับ`openclaw hooks` (agent hooks)"
+read_when:
+  - คุณต้องการจัดการ agent hooks
+  - คุณต้องการติดตั้งหรืออัปเดต hooks
 title: "hooks"
 ---
 
@@ -124,7 +128,7 @@ openclaw hooks enable <name>
 เปิดใช้งาน hook เฉพาะโดยเพิ่มลงในคอนฟิกของคุณ (`~/.openclaw/config.json`)
 
 **หมายเหตุ:** Hooks ที่ถูกจัดการโดยปลั๊กอินจะแสดง `plugin:<id>` ใน `openclaw hooks list` และ
-ไม่สามารถเปิด/ปิดได้ที่นี่ ให้เปิด/ปิดปลั๊กอินแทน Enable/disable the plugin instead.
+ไม่สามารถเปิด/ปิดได้ที่นี่ ให้เปิด/ปิดปลั๊กอินแทน Enable/disable the plugin instead. Enable/disable the plugin instead.
 
 **อาร์กิวเมนต์:**
 
@@ -188,6 +192,9 @@ openclaw hooks install <path-or-spec>
 
 ติดตั้งแพ็ก hook จากโฟลเดอร์/อาร์ไคฟ์ในเครื่องหรือจาก npm
 
+สเปก Npm เป็นแบบ **registry-only** (ชื่อแพ็กเกจ + เวอร์ชัน/แท็กที่เป็นตัวเลือก) สเปก Git/URL/file
+ถูกปฏิเสธ การติดตั้ง dependency จะรันด้วย `--ignore-scripts` เพื่อความปลอดภัย
+
 **สิ่งที่ทำ:**
 
 - คัดลอกแพ็ก hook ไปยัง `~/.openclaw/hooks/<id>`
@@ -246,6 +253,18 @@ openclaw hooks enable session-memory
 
 **ดู:** [เอกสารsession-memory](/automation/hooks#session-memory)
 
+### bootstrap-extra-files
+
+แทรกไฟล์ bootstrap เพิ่มเติม (เช่น `AGENTS.md` / `TOOLS.md` ภายใน monorepo) ระหว่าง `agent:bootstrap`
+
+**เปิดใช้งาน:**
+
+```bash
+openclaw hooks เปิดใช้งาน bootstrap-extra-files
+```
+
+**ดู:** [SOUL Evil Hook](/hooks/soul-evil)
+
 ### command-logger
 
 บันทึกอีเวนต์คำสั่งทั้งหมดไปยังไฟล์ตรวจสอบส่วนกลาง
@@ -273,30 +292,16 @@ grep '"action":"new"' ~/.openclaw/logs/commands.log | jq .
 
 **ดู:** [เอกสารcommand-logger](/automation/hooks#command-logger)
 
-### soul-evil
-
-สลับเนื้อหา `SOUL.md` ที่ถูกแทรกด้วย `SOUL_EVIL.md` ระหว่างช่วง purge หรือแบบสุ่ม
-
-**เปิดใช้งาน:**
-
-```bash
-openclaw hooks enable soul-evil
-```
-
-**ดู:** [SOUL Evil Hook](/hooks/soul-evil)
-
 ### boot-md
 
 รัน `BOOT.md` เมื่อGatewayเริ่มต้น (หลังจากช่องทางเริ่มทำงาน)
 
-**อีเวนต์**: `gateway:startup`
-
 **เปิดใช้งาน**:
+
+**อีเวนต์**: `gateway:startup`
 
 ```bash
 openclaw hooks enable boot-md
 ```
 
 **ดู:** [เอกสารboot-md](/automation/hooks#boot-md)
-
-

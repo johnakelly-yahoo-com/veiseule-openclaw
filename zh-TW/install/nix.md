@@ -1,4 +1,9 @@
 ---
+summary: "使用 Nix 以宣告式方式安裝 OpenClaw"
+read_when:
+  - 你需要可重現、可回滾的安裝
+  - 你已在使用 Nix／NixOS／Home Manager
+  - 你希望一切都被釘選並以宣告式方式管理
 title: "Nix"
 ---
 
@@ -27,13 +32,13 @@ Reference the nix-openclaw README for module options.
 
 > **📦 完整指南：[github.com/openclaw/nix-openclaw](https://github.com/openclaw/nix-openclaw)**
 >
-> 此頁面僅為快速總覽。 This page is just a quick overview.
+> 此頁面僅為快速總覽。 此頁面僅為快速總覽。 This page is just a quick overview.
 
 ## 你將獲得什麼
 
 - Gateway + macOS 應用程式 + 工具（whisper、spotify、cameras）— 全部已釘選
 - 可在重新開機後持續運作的 Launchd 服務
-- 具備宣告式設定的外掛系統
+- Plugin system with declarative config
 - 即時回滾：`home-manager switch --rollback`
 
 ---
@@ -44,7 +49,8 @@ Reference the nix-openclaw README for module options.
 
 OpenClaw 支援 **Nix 模式**，可使設定具備決定性，並停用自動安裝流程。
 可透過匯出以下設定來啟用：
-14. 透過匯出以下內容來啟用：
+14.
+透過匯出以下內容來啟用：
 
 ```bash
 OPENCLAW_NIX_MODE=1
@@ -59,9 +65,10 @@ defaults write bot.molt.mac openclaw.nixMode -bool true
 ### Config + state paths
 
 OpenClaw 會從 `OPENCLAW_CONFIG_PATH` 讀取 JSON5 設定，並將可變資料儲存在 `OPENCLAW_STATE_DIR`。
-19. 視需要也可以設定 `OPENCLAW_HOME`，以控制內部路徑解析所使用的基礎家目錄。
+19.
+視需要也可以設定 `OPENCLAW_HOME`，以控制內部路徑解析所使用的基礎家目錄。
 
-- 20. `OPENCLAW_HOME`（預設優先順序：`HOME` / `USERPROFILE` / `os.homedir()`）
+- `OPENCLAW_HOME`（預設優先順序：`HOME` / `USERPROFILE` / `os.homedir()`）
 - `OPENCLAW_STATE_DIR`（預設：`~/.openclaw`）
 - `OPENCLAW_CONFIG_PATH`（預設：`$OPENCLAW_STATE_DIR/openclaw.json`）
 
@@ -84,12 +91,10 @@ apps/macos/Sources/OpenClaw/Resources/Info.plist
 
 [`scripts/package-mac-app.sh`](https://github.com/openclaw/openclaw/blob/main/scripts/package-mac-app.sh) 會將此範本複製到應用程式套件中，並修補動態欄位
 （bundle ID、版本／建置、Git SHA、Sparkle 金鑰）。這能讓 plist 對於 SwiftPM
-封裝與 Nix 建置保持決定性（不需仰賴完整的 Xcode 工具鏈）。 相關
+封裝與 Nix 建置保持決定性（不需仰賴完整的 Xcode 工具鏈）。 相關 相關
 
 ## Related
 
 - [nix-openclaw](https://github.com/openclaw/nix-openclaw) — 完整設定指南
 - [Wizard](/start/wizard) — 非 Nix 的 CLI 設定
 - [Docker](/install/docker) — 容器化設定
-
-

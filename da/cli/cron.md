@@ -1,4 +1,8 @@
 ---
+summary: "CLI-reference for `openclaw cron` (planlæg og kør baggrundsjob)"
+read_when:
+  - Du vil have planlagte job og wakeups
+  - Du fejlretter cron-udførelse og logs
 title: "cron"
 ---
 
@@ -38,5 +42,3 @@ Annoncér til en specifik kanal:
 ```bash
 openclaw cron edit <job-id> --announce --channel slack --to "channel:C1234567890"
 ```
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Avancerad konfigurering och utvecklingsarbetsflöden för OpenClaw"
+read_when:
+  - Konfigurera en ny maskin
+  - Du vill ha ”senaste + bästa” utan att bryta din personliga setup
 title: "Konfigurering"
 ---
 
@@ -154,7 +158,5 @@ användartjänst (ingen kvardröjande behövs). Se [Gateway runbook](/gateway) f
 - [Gateway runbook](/gateway) (flaggor, övervakning, portar)
 - [Gateway‑konfiguration](/gateway/configuration) (konfigschema + exempel)
 - [Discord](/channels/discord) och [Telegram](/channels/telegram) (svarstaggar + replyToMode‑inställningar)
-- [Installation av OpenClaw-assistenten](/start/openclaw)
+- [OpenClaw assistant setup](/start/openclaw)
 - [macOS‑app](/platforms/macos) (gatewayns livscykel)
-
-

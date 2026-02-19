@@ -1,4 +1,8 @@
 ---
+summary: "Plugin de llamadas de voz: llamadas salientes + entrantes vía Twilio/Telnyx/Plivo (instalación del plugin + configuración + CLI)"
+read_when:
+  - Quiere realizar una llamada de voz saliente desde OpenClaw
+  - Está configurando o desarrollando el plugin de llamadas de voz
 title: "Plugin de Llamadas de Voz"
 ---
 
@@ -108,6 +112,7 @@ Notas:
 - Twilio/Telnyx requieren una URL de webhook **accesible públicamente**.
 - Plivo requiere una URL de webhook **accesible públicamente**.
 - `mock` es un proveedor local de desarrollo (sin llamadas de red).
+- Telnyx requiere `telnyx.publicKey` (o `TELNYX_PUBLIC_KEY`) a menos que `skipSignatureVerification` sea true.
 - `skipSignatureVerification` es solo para pruebas locales.
 - Si usa el plan gratuito de ngrok, configure `publicUrl` con la URL exacta de ngrok; la verificación de firmas siempre se aplica.
 - `tunnel.allowNgrokFreeTierLoopbackBypass: true` permite webhooks de Twilio con firmas inválidas **solo** cuando `tunnel.provider="ngrok"` y `serve.bind` es loopback (agente local de ngrok). Úselo solo para desarrollo local.
@@ -278,5 +283,3 @@ Este repositorio incluye un documento de skill correspondiente en `skills/voice-
 - `voicecall.speak` (`callId`, `message`)
 - `voicecall.end` (`callId`)
 - `voicecall.status` (`callId`)
-
-

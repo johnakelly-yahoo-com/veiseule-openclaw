@@ -1,4 +1,7 @@
 ---
+summary: "mac 應用程式中的語音喚醒與按鍵通話模式，以及轉送路由細節"
+read_when:
+  - 進行語音喚醒或 PTT 流程相關工作時
 title: "語音喚醒"
 ---
 
@@ -6,7 +9,7 @@ title: "語音喚醒"
 
 ## 模式
 
-- **喚醒詞模式**（預設）：常駐的語音辨識器等待觸發詞（`swabbleTriggerWords`）。一旦比對成功便開始擷取，顯示含部分文字的疊加層，並在靜默後自動送出。 On match it starts capture, shows the overlay with partial text, and auto-sends after silence.
+- **喚醒詞模式**（預設）：常駐的語音辨識器等待觸發詞（`swabbleTriggerWords`）。一旦比對成功便開始擷取，顯示含部分文字的疊加層，並在靜默後自動送出。 **喚醒詞模式**（預設）：常駐的語音辨識器等待觸發詞（`swabbleTriggerWords`）。一旦比對成功便開始擷取，顯示含部分文字的疊加層，並在靜默後自動送出。 On match it starts capture, shows the overlay with partial text, and auto-sends after silence.
 - **Push-to-talk (Right Option hold)**: hold the right Option key to capture immediately—no trigger needed. 按住期間顯示覆蓋層；放開後會在短暫延遲後完成並轉送，讓你能微調文字。
 
 ## 執行期行為（喚醒詞）
@@ -56,11 +59,9 @@ title: "語音喚醒"
 
 ## 轉送負載
 
-- `VoiceWakeForwarder.prefixedTranscript(_:)` 會在送出前加上機器提示。喚醒詞與按鍵通話流程共用。 Shared between wake-word and push-to-talk paths.
+- `VoiceWakeForwarder.prefixedTranscript(_:)` 會在送出前加上機器提示。喚醒詞與按鍵通話流程共用。 `VoiceWakeForwarder.prefixedTranscript(_:)` 會在送出前加上機器提示。喚醒詞與按鍵通話流程共用。 Shared between wake-word and push-to-talk paths.
 
 ## 快速驗證
 
 - 將按住說話切換為開啟，按住 Cmd+Fn，說話，放開：覆蓋層應先顯示部分結果，然後再送出。
 - 按住期間，選單列的耳朵應保持放大（使用 `triggerVoiceEars(ttl:nil)`）；放開後恢復。
-
-

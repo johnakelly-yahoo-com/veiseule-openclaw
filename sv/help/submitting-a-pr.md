@@ -1,4 +1,5 @@
 ---
+summary: "Hur du skickar in en PR med hög signal"
 title: "Skicka in en PR"
 ---
 
@@ -90,7 +91,7 @@ Var kortfattad; kortfattad recension > grammatik. Utelämna eventuella icke-till
 
 ## PR-typmallar (ersätt med din typ)
 
-### Buggfix
+### Fix
 
 ```md
 #### Summary
@@ -123,7 +124,7 @@ Var kortfattad; kortfattad recension > grammatik. Utelämna eventuella icke-till
 - Agent notes:
 ```
 
-### Funktion
+### Feature
 
 ```md
 #### Summary
@@ -161,7 +162,7 @@ Var kortfattad; kortfattad recension > grammatik. Utelämna eventuella icke-till
 - Agent notes:
 ```
 
-### Refaktorering
+### Refactor
 
 ```md
 #### Summary
@@ -221,7 +222,7 @@ Var kortfattad; kortfattad recension > grammatik. Utelämna eventuella icke-till
 - Agent notes:
 ```
 
-### Dokumentation
+### Docs
 
 ```md
 #### Summary
@@ -272,7 +273,7 @@ pnpm format
 - Agent notes:
 ```
 
-### Prestanda
+### Perf
 
 ```md
 #### Summary
@@ -332,7 +333,7 @@ pnpm format
 - Agent notes:
 ```
 
-### Infrastruktur/Bygg
+### Infra/Build
 
 ```md
 #### Summary
@@ -361,7 +362,7 @@ pnpm format
 - Agent notes:
 ```
 
-### Säkerhet
+### Security
 
 ```md
 #### Summary
@@ -395,5 +396,3 @@ pnpm format
 - Submitter effort:
 - Agent notes:
 ```
-
-

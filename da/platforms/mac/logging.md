@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw-logning: rullende diagnostikfillog + privatlivsflag i unified logging"
+read_when:
+  - Indsamling af macOS-logs eller undersøgelse af logning af private data
+  - Fejlfinding af problemer med voice wake/session-livscyklus
 title: "macOS-logning"
 ---
 
@@ -51,5 +55,3 @@ sudo install -m 644 -o root -g wheel /tmp/bot.molt.plist /Library/Preferences/Lo
 - Fjern overstyringen: `sudo rm /Library/Preferences/Logging/Subsystems/bot.molt.plist`.
 - Kør eventuelt `sudo log config --reload` for at tvinge logd til at fjerne overstyringen med det samme.
 - Husk, at denne flade kan indeholde telefonnumre og beskedindhold; behold kun plist-filen på plads, mens du aktivt har brug for de ekstra detaljer.
-
-

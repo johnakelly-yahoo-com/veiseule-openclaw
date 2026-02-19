@@ -1,4 +1,7 @@
 ---
+summary: "Semantika ng reaksyon na ibinabahagi sa iba’t ibang channel"
+read_when:
+  - Kapag nagtatrabaho sa mga reaksyon sa anumang channel
 title: "Mga Reaksyon"
 ---
 
@@ -17,5 +20,3 @@ Mga tala ayon sa channel:
 - **Telegram**: ang walang laman na `emoji` ay nag-aalis ng mga reaksyon ng bot; ang `remove: true` ay nag-aalis din ng mga reaksyon ngunit nangangailangan pa rin ng hindi walang laman na `emoji` para sa tool validation.
 - **WhatsApp**: ang walang laman na `emoji` ay nag-aalis ng reaksyon ng bot; ang `remove: true` ay tumutugma sa walang lamang emoji (nangangailangan pa rin ng `emoji`).
 - **Signal**: ang mga papasok na notification ng reaksyon ay naglalabas ng mga system event kapag naka-enable ang `channels.signal.reactionNotifications`.
-
-

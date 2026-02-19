@@ -1,4 +1,7 @@
 ---
+summary: "Status, funktioner och konfiguration för Discord-botstöd"
+read_when:
+  - Arbetar med funktioner för Discord-kanalen
 title: "Discord"
 ---
 
@@ -6,141 +9,37 @@ title: "Discord"
 
 Status: redo för DM och textkanaler i guild via den officiella Discord-botgatewayen.
 
-## Snabbstart (nybörjare)
+<CardGroup cols={3}>
+  <Card title="Pairing" icon="link" href="/channels/pairing">
+    Discord-DM använder parkopplingsläge som standard.
+  
+</Card>
+  <Card title="Slash commands" icon="terminal" href="/tools/slash-commands">
+    Inbyggt kommandobeteende och kommandokatalog.
+  
+</Card>
+  <Card title="Channel troubleshooting" icon="wrench" href="/channels/troubleshooting">
+    Kanalöverskridande diagnostik och reparationsflöde.
+  
+</Card>
+</CardGroup>
 
-1. Skapa en Discord-bot och kopiera bottoken.
-2. I Discord-appens inställningar, aktivera **Message Content Intent** (och **Server Members Intent** om du planerar att använda tillåtelselistor eller namnuppslag).
-3. Ställ in token för OpenClaw:
-   - Env: `DISCORD_BOT_TOKEN=...`
-   - Eller konfig: `channels.discord.token: "..."`.
-   - Om båda är inställda har konfig företräde (env-reserv gäller endast standardkontot).
-4. Bjud in boten till din server med meddelanderättigheter (skapa en privat server om du bara vill använda DM).
-5. Starta gatewayen.
-6. DM-åtkomst är parning som standard; godkänn parningskoden vid första kontakten.
+## Snabbstart
 
-Minimal konfig:
+<Steps>
+  <Step title="Create a Discord bot and enable intents">
+    Skapa en applikation i Discord Developer Portal, lägg till en bot och aktivera sedan:
 
-```json5
-{
-  channels: {
-    discord: {
-      enabled: true,
-      token: "YOUR_BOT_TOKEN",
-    },
-  },
-}
-```
 
-## Mål
+    ```
+    - **Message Content Intent**
+    - **Server Members Intent** (krävs för rollbaserade tillåtelselistor och rollbaserad dirigering; rekommenderas för namn-till-ID-matchning i tillåtelselistor)
+    ```
 
-- Prata med OpenClaw via Discord-DM eller guild-kanaler.
-- Direktchattar kollapsar till agentens huvudsession (standard `agent:main:main`); guild-kanaler förblir isolerade som `agent:<agentId>:discord:channel:<channelId>` (visningsnamn använder `discord:<guildSlug>#<channelSlug>`).
-- Grupp-DM ignoreras som standard; aktivera via `channels.discord.dm.groupEnabled` och begränsa valfritt med `channels.discord.dm.groupChannels`.
-- Håll routning deterministisk: svar går alltid tillbaka till kanalen de kom in på.
+  
+</Step>
 
-## Hur det fungerar
-
-1. Skapa en Discord-applikation → Bot, aktivera de intents du behöver (DM + guild-meddelanden + meddelandeinnehåll) och hämta bottoken.
-2. Bjud in boten till din server med de behörigheter som krävs för att läsa/skicka meddelanden där du vill använda den.
-3. Konfigurera OpenClaw med `channels.discord.token` (eller `DISCORD_BOT_TOKEN` som reserv).
-4. Kör gatewayen; den startar automatiskt Discord-kanalen när en token finns tillgänglig (konfig först, env-reserv) och `channels.discord.enabled` inte är `false`.
-   - Om du föredrar miljövariabler, sätt `DISCORD_BOT_TOKEN` (ett konfigblock är valfritt).
-5. Direktchatt: använd `user:<id>` (eller en `<@id>` nämnd) när du levererar; alla varvar landar i den delade `main`-sessionen. Bare numeriska ID är tvetydiga och avvisade.
-6. Guild kanaler: använd `channel:<channelId>` för leverans. Omnämningar krävs som standard och kan ställas in per guild eller per kanal.
-7. Direktchatt: säkra som standard via `channels.discord.dm.policy` (standard: `"parning"`). Okända avsändare får en parningskod (löper ut efter 1 timme); godkänner via `openclaw parkoppling godkänna discord <code>`.
-   - För att behålla äldre ”öppen för alla”-beteende: sätt `channels.discord.dm.policy="open"` och `channels.discord.dm.allowFrom=["*"]`.
-   - För strikt tillåtelselista: sätt `channels.discord.dm.policy="allowlist"` och lista avsändare i `channels.discord.dm.allowFrom`.
-   - För att ignorera alla DM: sätt `channels.discord.dm.enabled=false` eller `channels.discord.dm.policy="disabled"`.
-8. Grupp-DM ignoreras som standard; aktivera via `channels.discord.dm.groupEnabled` och begränsa valfritt med `channels.discord.dm.groupChannels`.
-9. Valfria guild-regler: sätt `channels.discord.guilds` nycklade per guild-id (föredraget) eller slug, med regler per kanal.
-10. Valfria inhemska kommandon: `commands.native` defaults to `"auto"` (på för Discord/Telegram, off for Slack). Åsidosätt med `channels.discord.commands.native: true<unk> false<unk> "auto"`; `false` rensar tidigare registrerade kommandon. Textkommandon kontrolleras av `commands.text` och måste skickas som fristående `/...` meddelanden. Använd `commands.useAccessGroups: false` för att förbigå access-gruppskontroller efter kommandon.
-    - Fullständig kommandolista + konfig: [Slash commands](/tools/slash-commands)
-11. Valfri guild kontexthistorik: sätt `channels.discord.historyLimit` (standard 20, faller tillbaka till `messages. roupChat.historyLimit`) att inkludera de sista N guild meddelanden som sammanhang när du svarar på ett omnämnande. Sätt `0` till att inaktivera.
-12. Reaktioner: agenten kan trigga reaktioner via verktyget `discord` (styrt av `channels.discord.actions.*`).
-    - Semantik för borttagning av reaktioner: se [/tools/reactions](/tools/reactions).
-    - Verktyget `discord` exponeras endast när den aktuella kanalen är Discord.
-13. Inbyggda kommandon använder isolerade sessionsnycklar (`agent:<agentId>:discord:slash:<userId>`) snarare än den delade `main`-sessionen.
-
-Obs: Namn → id resolution använder guild medlems sökning och kräver Server Medlemmar Intent; om boten inte kan söka medlemmar, använd ID eller `<@id>` omnämnanden.
-Obs: Slugs är gemener med mellanslag som ersätts med `-`. Kanalnamn är sluggade utan ledande `#`.
-Obs: Guild context `[från:]` rader inkluderar `author.tag` + `id` för att göra ping-ready svar lätt.
-
-## Konfigskrivningar
-
-Som standard tillåts Discord att skriva konfiguppdateringar som triggas av `/config set|unset` (kräver `commands.config: true`).
-
-Inaktivera med:
-
-```json5
-{
-  channels: { discord: { configWrites: false } },
-}
-```
-
-## Hur du skapar din egen bot
-
-Detta är inställningen i ”Discord Developer Portal” för att köra OpenClaw i en serverkanal (guild) som `#help`.
-
-### 1. Skapa Discord-appen + botanvändare
-
-1. Discord Developer Portal → **Applications** → **New Application**
-2. I din app:
-   - **Bot** → **Add Bot**
-   - Kopiera **Bot Token** (detta är vad du anger i `DISCORD_BOT_TOKEN`)
-
-### 2) Aktivera gateway-intents som OpenClaw behöver
-
-Discord blockerar ”privileged intents” om du inte uttryckligen aktiverar dem.
-
-I **Bot** → **Privileged Gateway Intents**, aktivera:
-
-- **Message Content Intent** (krävs för att läsa meddelandetext i de flesta guilds; utan den ser du ”Used disallowed intents” eller så ansluter boten men reagerar inte på meddelanden)
-- **Server Members Intent** (rekommenderas; krävs för vissa medlems-/användaruppslag och matchning mot tillåtelselistor i guilds)
-
-Du behöver vanligtvis **inte** **Presence Intent**. Ställa in botens egen närvaro (`setPresence` åtgärd) använder gateway OP3 och kräver inte denna avsikt; det behövs bara om du vill få närvarouppdateringar om andra guildmedlemmar.
-
-### 3. Generera en inbjudnings-URL (OAuth2 URL Generator)
-
-I din app: **OAuth2** → **URL Generator**
-
-**Scopes**
-
-- ✅ `bot`
-- ✅ `applications.commands` (krävs för inbyggda kommandon)
-
-**Botbehörigheter** (minsta baslinje)
-
-- ✅ Visa kanaler
-- ✅ Skicka meddelanden
-- ✅ Läs meddelandehistorik
-- ✅ Bädda in länkar
-- ✅ Bifoga filer
-- ✅ Lägg till reaktioner (valfritt men rekommenderat)
-- ✅ Använd externa emojis / stickers (valfritt; endast om du vill ha dem)
-
-Undvik **Administrator** om du inte felsöker och fullt ut litar på boten.
-
-Kopiera den genererade URL:en, öppna den, välj din server och installera boten.
-
-### 4. Hämta id:n (guild/användare/kanal)
-
-Discord använder numeriska id:n överallt; OpenClaw-konfig föredrar id:n.
-
-1. Discord (desktop/webb) → **User Settings** → **Advanced** → aktivera **Developer Mode**
-2. Högerklicka:
-   - Servernamn → **Copy Server ID** (guild-id)
-   - Kanal (t.ex. `#help`) → **Kopiera kanal-ID**
-   - Din användare → **Copy User ID**
-
-### 5) Konfigurera OpenClaw
-
-#### Token
-
-Sätt bottoken via miljövariabel (rekommenderat på servrar):
-
-- `DISCORD_BOT_TOKEN=...`
-
-Eller via konfig:
+  <Step title="Configure token">
 
 ```json5
 {
@@ -153,156 +52,378 @@ Eller via konfig:
 }
 ```
 
-Stöd för flera konton: använd `channels.discord.accounts` med per-konto-token och valfri `name`. Se [`gateway/configuration`](/gateway/configuration#telegramaccounts--discordaccounts--slackaccounts--signalaccounts--imessageaccounts) för det delade mönstret.
+    ```
+    Miljövariabelreserv för standardkontot:
+    ```
 
-#### Tillåtelselista + kanalroutning
+```bash
+DISCORD_BOT_TOKEN=...
+```
 
-Exempel ”en server, tillåt bara mig, tillåt bara #help”:
+  
+</Step>
+
+  <Step title="Invite the bot and start gateway">
+    Bjud in boten till din server med meddelandebehörigheter.
+
+```bash
+openclaw gateway
+```
+
+  
+</Step>
+
+  <Step title="Approve first DM pairing">
+
+```bash
+openclaw pairing list discord
+openclaw pairing approve discord <CODE>
+```
+
+    ```
+    Parningskoder upphör att gälla efter 1 timme.
+    ```
+
+  
+</Step>
+</Steps>
+
+<Note>
+Tokenupplösning är kontomedveten. Konfigurerade tokenvärden har företräde framför env‑fallback. `DISCORD_BOT_TOKEN` används endast för standardkontot.
+</Note>
+
+## Körningsmodell
+
+- Gateway äger Discord‑anslutningen.
+- Svarsdirigering är deterministisk: inkommande från Discord besvaras på Discord.
+- Som standard (`session.dmScope=main`) delar direktchattar agentens huvudsession (`agent:main:main`).
+- Guild‑kanaler är isolerade sessionsnycklar (`agent:<agentId>:discord:channel:<channelId>`).
+- Grupp‑DM ignoreras som standard (`channels.discord.dm.groupEnabled=false`).
+- Inbyggda slash‑kommandon körs i isolerade kommandosessioner (`agent:<agentId>:discord:slash:<userId>`), samtidigt som `CommandTargetSessionKey` följer med till den dirigerade konversationssessionen.
+
+## Åtkomstkontroll och dirigering
+
+<Tabs>
+  <Tab title="DM policy">
+    `channels.discord.dmPolicy` styr åtkomst till DM (äldre: `channels.discord.dm.policy`):
+
+    ```
+    - `pairing` (standard)
+    - `allowlist`
+    - `open` (kräver att `channels.discord.allowFrom` inkluderar `"*"`; äldre: `channels.discord.dm.allowFrom`)
+    - `disabled`
+    
+    Om DM‑policyn inte är open blockeras okända användare (eller uppmanas att para i `pairing`‑läge).
+    
+    DM‑målformat för leverans:
+    
+    - `user:<id>`
+    - `<@id>`‑omnämnande
+    
+    Enbart numeriska ID:n är tvetydiga och avvisas om inte en uttrycklig måltyp för användare/kanal anges.
+    ```
+
+  
+</Tab>
+
+  <Tab title="Guild policy">
+    Guild‑hantering styrs av `channels.discord.groupPolicy`:
+
+    ```
+    - `open`
+    - `allowlist`
+    - `disabled`
+    
+    Säker standard när `channels.discord` finns är `allowlist`.
+    
+    `allowlist`‑beteende:
+    
+    - guild måste matcha `channels.discord.guilds` (`id` föredras, slug accepteras)
+    - valfria avsändar‑allowlistor: `users` (ID:n eller namn) och `roles` (endast roll‑ID:n); om någon är konfigurerad tillåts avsändare när de matchar `users` ELLER `roles`
+    - om en guild har `channels` konfigurerat nekas kanaler som inte är listade
+    - om en guild saknar `channels`‑block tillåts alla kanaler i den allowlistade guilden
+    
+    Exempel:
+    ```
 
 ```json5
 {
   channels: {
     discord: {
-      enabled: true,
-      dm: { enabled: false },
+      groupPolicy: "allowlist",
       guilds: {
-        YOUR_GUILD_ID: {
-          users: ["YOUR_USER_ID"],
+        "123456789012345678": {
           requireMention: true,
+          users: ["987654321098765432"],
+          roles: ["123456789012345678"],
           channels: {
+            general: { allow: true },
             help: { allow: true, requireMention: true },
           },
         },
       },
-      retry: {
-        attempts: 3,
-        minDelayMs: 500,
-        maxDelayMs: 30000,
-        jitter: 0.1,
-      },
     },
   },
 }
 ```
 
-Noteringar:
+    ```
+    Om du endast anger `DISCORD_BOT_TOKEN` och inte skapar ett `channels.discord`‑block är runtime‑fallback `groupPolicy="open"` (med en varning i loggarna).
+    ```
 
-- `requireMention: true` betyder att boten bara svarar när den omnämns (rekommenderas för delade kanaler).
-- `agents.list[].groupChat.mentionPatterns` (eller `messages.groupChat.mentionPatterns`) räknas också som omnämningar för guild-meddelanden.
-- Överstyrning för flera agenter: sätt per-agent-mönster på `agents.list[].groupChat.mentionPatterns`.
-- Om `channels` finns, nekas alla kanaler som inte listas som standard.
-- Använd en `"*"`-kanalpost för att tillämpa standarder över alla kanaler; explicita kanalposter åsidosätter jokertecknet.
-- Trådar ärver överordnad kanal konfiguration (tillåten lista, `requireMention`, färdigheter, uppmaningar, etc.) om du inte lägger till trådens kanal-id explicit.
-- Ägare tips: när en per-guild eller per-channel `users` allowlist matchar avsändaren, behandlar OpenClaw den avsändaren som ägare i systemprompten. För en global ägare över kanaler, sätt `commands.ownerAllowFrom`.
-- Meddelanden skrivna av boten ignoreras som standard; sätt `channels.discord.allowBots=true` för att tillåta dem (egna meddelanden filtreras fortfarande).
-- Varning: Om du tillåter svar på andra robotar (`channels.discord.allowBots=true`), förhindra bot-to-bot svar loopar med `requireMention`, `channels.discord.guilds.*.channels.<id>.users` tillåter listor, och/eller klara skyddsräcken i `AGENTS.md` och `SOUL.md`.
+  
+</Tab>
 
-### 6. Verifiera att det fungerar
+  <Tab title="Mentions and group DMs">
+    Guild‑meddelanden kräver omnämnande som standard.
 
-1. Starta gatewayen.
-2. I din serverkanal, skicka: `@Krill hello` (eller vad din bot nu heter).
-3. Om inget händer: kontrollera **Felsökning** nedan.
+    ```
+    Identifiering av omnämnanden inkluderar:
+    
+    - explicit bot‑omnämnande
+    - konfigurerade omnämnandemönster (`agents.list[].groupChat.mentionPatterns`, fallback `messages.groupChat.mentionPatterns`)
+    - implicit svar‑till‑bot‑beteende i stödda fall
+    
+    `requireMention` konfigureras per guild/kanal (`channels.discord.guilds...`).
+    
+    Grupp‑DM:
+    
+    - standard: ignoreras (`dm.groupEnabled=false`)
+    - valfri allowlist via `dm.groupChannels` (kanal‑ID:n eller sluggar)
+    ```
 
-### Felsökning
+  
+</Tab>
+</Tabs>
 
-- Först: kör `openclaw doctor` och `openclaw channels status --probe` (åtgärdsbara varningar + snabba granskningar).
-- **”Used disallowed intents”**: aktivera **Message Content Intent** (och troligen **Server Members Intent**) i Developer Portal och starta sedan om gatewayen.
-- **Boten ansluter men svarar aldrig i en guild-kanal**:
-  - Saknar **Message Content Intent**, eller
-  - Boten saknar kanalbehörigheter (Visa/Skicka/Läs historik), eller
-  - Din konfig kräver omnämningar och du omnämnde den inte, eller
-  - Din guild-/kanaltillåtelselista nekar kanalen/användaren.
-- **`requireMention: false` men fortfarande inga svar**:
-- `channels.discord.groupPolicy` defaults to **allowlist**; set it to `"open"` eller add a guild entry under `channels.discord.guilds` (valfritt lista kanaler under `channels.discord.guilds.<id>.channels` att begränsa).
-  - Om du bara anger `DISCORD_BOT_TOKEN` och aldrig skapar en `channels.discord`-sektion, är runtime
-    standardinställningen `groupPolicy` till `open`. Lägg till `channels.discord.groupPolicy`,
-    `channels.defaults.groupPolicy`, eller en guild/channel allowlist för att låsa ner den.
-- `requireMention` måste leva under `channels.discord.guilds` (eller en specifik kanal). `channels.discord.requireMention` på den översta nivån ignoreras.
-- **Behörighetsgranskningar** (`kanalstatus --probe`) kontrollera endast numeriska kanal-ID. Om du använder sniglar/namn som `channels.discord.guilds.*.channels`-nycklar, kan revisionen inte verifiera behörigheter.
-- **DM fungerar inte**: `channels.discord.dm.enabled=false`, `channels.discord.dm.policy="disabled"`, eller så har du ännu inte blivit godkänd (`channels.discord.dm.policy="pairing"`).
-- **Exec-godkännanden i Discord**: Discord stöder en **knapp-UI** för exec-godkännanden i DMs (Tillåt en gång / Tillåt alltid / neka). `/approve <id> ...` är bara för vidarebefordrade godkännanden och kommer inte att lösa Discords knappmeddelanden. Om du ser `❌ Misslyckades att skicka in godkännande: Fel: okänt godkännande-id` eller UI dyker aldrig upp, kontroll:
-  - `channels.discord.execApprovals.enabled: true` i din konfig.
-  - Att ditt Discord-användar-id finns listat i `channels.discord.execApprovals.approvers` (UI:t skickas endast till godkännare).
-  - Använd knapparna i DM-prompten (**Tillåt en gång**, **Tillåt alltid**, **Neka**).
-  - Se [Exec approvals](/tools/exec-approvals) och [Slash commands](/tools/slash-commands) för det bredare godkännande- och kommandoflödet.
+### Rollbaserad agentdirigering
 
-## Funktioner och begränsningar
+Använd `bindings[].match.roles` för att dirigera Discord‑guildmedlemmar till olika agenter baserat på roll‑ID. Rollbaserade bindningar accepterar endast roll‑ID:n och utvärderas efter peer‑ eller parent‑peer‑bindningar och före guild‑endast‑bindningar. Om en bindning även anger andra matchningsfält (till exempel `peer` + `guildId` + `roles`) måste alla konfigurerade fält matcha.
 
-- DM och textkanaler i guild (trådar behandlas som separata kanaler; röst stöds inte).
-- Skrivindikatorer skickas bäst-effort; meddelandeuppdelning använder `channels.discord.textChunkLimit` (standard 2000) och delar långa svar efter radantal (`channels.discord.maxLinesPerMessage`, standard 17).
-- Valfri radbrytningsuppdelning: sätt `channels.discord.chunkMode="newline"` för att dela på tomrader (styckegränser) före längduppdelning.
-- Filuppladdningar stöds upp till den konfigurerade `channels.discord.mediaMaxMb` (standard 8 MB).
-- Omnämningsstyrda guild-svar som standard för att undvika högljudda botar.
-- Svarskontext injiceras när ett meddelande refererar till ett annat meddelande (citerat innehåll + id:n).
-- Inbyggd svarstrådning är **av som standard**; aktivera med `channels.discord.replyToMode` och svarstaggar.
+```json5
+{
+  bindings: [
+    {
+      agentId: "opus",
+      match: {
+        channel: "discord",
+        guildId: "123456789012345678",
+        roles: ["111111111111111111"],
+      },
+    },
+    {
+      agentId: "sonnet",
+      match: {
+        channel: "discord",
+        guildId: "123456789012345678",
+      },
+    },
+  ],
+}
+```
+
+## Inställning i Developer Portal
+
+<AccordionGroup>
+  <Accordion title="Create app and bot">
+
+    ```
+    1. Discord Developer Portal -> **Applications** -> **New Application**
+    2. **Bot** -> **Add Bot**
+    3. Kopiera bot‑token
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Privileged intents">
+    I **Bot -> Privileged Gateway Intents**, aktivera:
+
+    ```
+    - Message Content Intent
+    - Server Members Intent (rekommenderas)
+    
+    Presence intent är valfri och krävs endast om du vill ta emot närvarouppdateringar. Att ställa in bot‑närvaro (`setPresence`) kräver inte att närvarouppdateringar för medlemmar är aktiverade.
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="OAuth scopes and baseline permissions">
+    OAuth URL‑generator:
+
+    ```
+    - scopes: `bot`, `applications.commands`
+    
+    Typiska grundläggande behörigheter:
+    
+    - View Channels
+    - Send Messages
+    - Read Message History
+    - Embed Links
+    - Attach Files
+    - Add Reactions (valfritt)
+    
+    Undvik `Administrator` om det inte uttryckligen behövs.
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Copy IDs">
+    Aktivera Discord Developer Mode och kopiera sedan:
+
+    ```
+    - server‑ID
+    - kanal‑ID
+    - användar‑ID
+    
+    Föredra numeriska ID:n i OpenClaw‑konfigurationen för tillförlitliga granskningar och prober.
+    ```
+
+  
+</Accordion>
+</AccordionGroup>
+
+## Inbyggda kommandon och kommandoautentisering
+
+- `commands.native` är som standard `"auto"` och är aktiverat för Discord.
+- Per-kanal-åsidosättning: `channels.discord.commands.native`.
+- `commands.native=false` rensar uttryckligen tidigare registrerade Discord-nativekommandon.
+- Native command-auth använder samma Discord allowlists/policys som normal meddelandehantering.
+- Kommandon kan fortfarande vara synliga i Discord-gränssnittet för användare som inte är auktoriserade; körning upprätthåller fortfarande OpenClaw-auth och returnerar "not authorized".
+
+Se [Slash commands](/tools/slash-commands) för kommandokatalog och beteende.
 
 ## Försökspolicy
 
-Utgående Discords API-anrop återförsök på hastighetsgränser (429) med Discord `retry_after` när det är tillgängligt, med exponentiell backoff och jitter. Konfigurera via `channels.discord.retry`. Se [Försök igen policy](/concepts/retry).
+<AccordionGroup>
+  <Accordion title="Reply tags and native replies">
+    Discord stöder reply-taggar i agentens utdata:
 
-## Konfig
+    ```
+    - `[[reply_to_current]]`
+    - `[[reply_to:<id>]]`
+    
+    Styrs av `channels.discord.replyToMode`:
+    
+    - `off` (standard)
+    - `first`
+    - `all`
+    
+    Obs: `off` inaktiverar implicit svarstrådning. Explicita `[[reply_to_*]]`-taggar respekteras fortfarande.
+    
+    Meddelande-ID:n exponeras i kontext/historik så att agenter kan rikta in sig på specifika meddelanden.
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="History, context, and thread behavior">
+    Guild-historikkontext:
+
+    ```
+    - `channels.discord.historyLimit` standard `20`
+    - fallback: `messages.groupChat.historyLimit`
+    - `0` inaktiverar
+    
+    DM-historikkontroller:
+    
+    - `channels.discord.dmHistoryLimit`
+    - `channels.discord.dms["<user_id>"].historyLimit`
+    
+    Trådbeteende:
+    
+    - Discord-trådar dirigeras som kanalsessioner
+    - överordnad trådmetadata kan användas för länkning till överordnad session
+    - trådkonfiguration ärver överordnad kanalkonfiguration om inte en trådspecifik post finns
+    
+    Kanalämnen injiceras som **otillförlitlig** kontext (inte som systemprompt).
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Reaction notifications">
+    Per-guild läge för reaktionsnotiser:
+
+    ```
+    - `off`
+    - `own` (standard)
+    - `all`
+    - `allowlist` (använder `guilds.<id>.users`)
+    
+    Reaktionshändelser omvandlas till systemhändelser och bifogas den dirigerade Discord-sessionen.
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Ack reactions">`ackReaction` skickar en bekräftelse-emoji medan OpenClaw bearbetar ett inkommande meddelande.
+
+    ```
+    Prioritetsordning:
+    
+    - `channels.discord.accounts.<accountId>.ackReaction`
+    - `channels.discord.ackReaction`
+    - `messages.ackReaction`
+    - fallback till agentidentitetens emoji (`agents.list[].identity.emoji`, annars "👀")
+    
+    Obs:
+    
+    - Discord accepterar unicode-emoji eller anpassade emoji-namn.
+    - Använd `""` för att inaktivera reaktionen för en kanal eller ett konto.
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Config writes">
+    Kanalinitierade konfigurationsskrivningar är aktiverade som standard.
+
+    ```
+    Detta påverkar flödena `/config set|unset` (när kommandofunktioner är aktiverade).
+    
+    Inaktivera:
+    ```
 
 ```json5
 {
   channels: {
     discord: {
-      enabled: true,
-      token: "abc.123",
-      groupPolicy: "allowlist",
-      guilds: {
-        "*": {
-          channels: {
-            general: { allow: true },
-          },
-        },
-      },
-      mediaMaxMb: 8,
-      actions: {
-        reactions: true,
-        stickers: true,
-        emojiUploads: true,
-        stickerUploads: true,
-        polls: true,
-        permissions: true,
-        messages: true,
-        threads: true,
-        pins: true,
-        search: true,
-        memberInfo: true,
-        roleInfo: true,
-        roles: false,
-        channelInfo: true,
-        channels: true,
-        voiceStatus: true,
-        events: true,
-        moderation: false,
-        presence: false,
-      },
-      replyToMode: "off",
-      dm: {
-        enabled: true,
-        policy: "pairing", // pairing | allowlist | open | disabled
-        allowFrom: ["123456789012345678", "steipete"],
-        groupEnabled: false,
-        groupChannels: ["openclaw-dm"],
-      },
-      guilds: {
-        "*": { requireMention: true },
-        "123456789012345678": {
-          slug: "friends-of-openclaw",
-          requireMention: false,
-          reactionNotifications: "own",
-          users: ["987654321098765432", "steipete"],
-          channels: {
-            general: { allow: true },
-            help: {
-              allow: true,
-              requireMention: true,
-              users: ["987654321098765432"],
-              skills: ["search", "docs"],
-              systemPrompt: "Keep answers short.",
-            },
-          },
+      configWrites: false,
+    },
+  },
+}
+```
+
+  
+</Accordion>
+
+  <Accordion title="Gateway proxy">
+    Dirigera Discord gateway WebSocket-trafik via en HTTP(S)-proxy med `channels.discord.proxy`.
+
+```json5
+{
+  channels: {
+    discord: {
+      proxy: "http://proxy.example:8080",
+    },
+  },
+}
+```
+
+    ```
+    Per-konto-åsidosättning:
+    ```
+
+```json5
+{
+  channels: {
+    discord: {
+      accounts: {
+        primary: {
+          proxy: "http://proxy.example:8080",
         },
       },
     },
@@ -310,63 +431,11 @@ Utgående Discords API-anrop återförsök på hastighetsgränser (429) med Disc
 }
 ```
 
-Ack reaktioner kontrolleras globalt via `messages.ackReaction` +
-`messages.ackReactionScope`. Använd `messages.removeAckAfterReply` för att rensa
-ack-reaktionen efter att botten svarat.
+  
+</Accordion>
 
-- `dm.enabled`: sätt `false` för att ignorera alla DM (standard `true`).
-- `dm.policy`: DM åtkomstkontroll (`parning` rekommenderas). `"open"` kräver `dm.allowFrom=["*"]`.
-- `dm.allowFrom`: DM allowlist (användar-ID eller namn). Används av `dm.policy="allowlist"` och för `dm.policy="open"` validering. Guiden accepterar användarnamn och löser dem till ids när bot kan söka medlemmar.
-- `dm.groupEnabled`: aktivera grupp-DM (standard `false`).
-- `dm.groupChannels`: valfri tillåtelselista för grupp-DM-kanal-id:n eller slugs.
-- `groupPolicy`: styr hantering av guild-kanaler (`open|disabled|allowlist`); `allowlist` kräver kanaltillåtelselistor.
-- `guilds`: per-guild-regler nycklade per guild-id (föredraget) eller slug.
-- `guilds."*"`: standardinställningar per guild som tillämpas när ingen explicit post finns.
-- `guilds.<id>.slug`: valfri vänlig slug som används för visningsnamn.
-- `guilds.<id>.users`: valfria per-guild användare allowlist (ID eller namn).
-- `guilds.<id>.tools`: valfri policy för per-guild overrides (`allow`/`deny`/`alsoAllow`) som används när kanalen override saknas.
-- `guilds.<id>.toolsBySender`: valfri policy för per-sender åsidosätter på guild nivå (gäller när kanalöverskridande saknas; `"*"` wildcard stöds).
-- `guilds.<id>.kanaler.<channel>.allow`: tillåt/nekad kanalen när `groupPolicy="allowlist"`.
-- `guilds.<id>.kanaler.<channel>.requireMention`: omnämnandespärr för kanalen.
-- `guilds.<id>.kanaler.<channel>.tools`: valfria verktygspolicy-åsidosättningar per kanal (`allow`/`deny`/`alsoAllow`).
-- `guilds.<id>.kanaler.<channel>.toolsBySender`: valfri policy för per-sender åsidosätter i kanalen (`"*"` wildcard stöds).
-- `guilds.<id>.kanaler.<channel>.users`: valfri användar-tillåtelselista per kanal.
-- `guilds.<id>.kanaler.<channel>.skills`: färdighetsfilter (utelämna = alla Skills, tom = inga).
-- `guilds.<id>.kanaler.<channel>.systemPrompt`: extra systemprompt för kanalen. Discord-kanaltrådar injiceras som **opålitliga** sammanhang (inte systemprompt).
-- `guilds.<id>.kanaler.<channel>.enabled`: sätt `false` för att inaktivera kanalen.
-- `guilds.<id>.channels`: kanalregler (nycklar är kanalsniglar eller ids).
-- `guilds.<id>.requireNämn `: per guild nämna krav (overridable per kanal).
-- `guilds.<id>.reactionNotifications`: reaktionssystemets händelse-läge (`off`, `own`, `all`, `allowlist`).
-- `textChunkLimit`: utgående textdatablockstorlek (tecken). Standard: 2000.
-- `chunkMode`: `length` (standard) delar endast när `textChunkLimit` överskrids; `newline` delar på tomrader (styckegränser) före längduppdelning.
-- `maxLinesPerMessage`: mjuk maxantal per meddelande. Standard: 17.
-- `mediaMaxMb`: kläm inkommande media som sparas på disk.
-- `historyLimit`: antal senaste guild-meddelanden att inkludera som kontext när man svarar på en omnämning (standard 20; faller tillbaka till `messages.groupChat.historyLimit`; `0` inaktiverar).
-- `dmHistoryLimit`: DM historikgräns i användarens varv. Åsidosättningar per användare: `dms["<user_id>"].historyLimit`.
-- `retry`: försökspolicy för utgående Discord API-anrop (försök, minDelayMs, maxDelayMs, jitter).
-- `pluralkit`: lös PluralKit-proxyade meddelanden så att systemmedlemmar framstår som distinkta avsändare.
-- `actions`: per-åtgärd verktygsgrindar; utelämna för att tillåta alla (sätt `false` för att inaktivera).
-  - `reactions` (täcker reagera + läsa reaktioner)
-  - `stickers`, `emojiUploads`, `stickerUploads`, `polls`, `permissions`, `messages`, `threads`, `pins`, `search`
-  - `memberInfo`, `roleInfo`, `channelInfo`, `voiceStatus`, `events`
-  - `channels` (skapa/redigera/ta bort kanaler + kategorier + behörigheter)
-  - `roles` (lägg till/ta bort roller, standard `false`)
-  - `moderation` (timeout/kick/ban, standard `false`)
-  - `presence` (botstatus/aktivitet, standard `false`)
-- `execApprovals`: Discord-only exec godkännande DMs (knapp UI). Stöder `enabled`, `approvers`, `agentFilter`, `sessionFilter`.
-
-Reaktionsnotifikationer använder `guilds.<id>.reaktionNotiser`:
-
-- `off`: inga reaktionshändelser.
-- `own`: reaktioner på botens egna meddelanden (standard).
-- `all`: alla reaktioner på alla meddelanden.
-- `allowlist`: reaktioner från `guilds.<id>.users` på alla meddelanden (tom lista inaktiveras).
-
-### PluralKit (PK)-stöd
-
-Aktivera PK uppslagningar så att proxied meddelanden lösa till det underliggande systemet + medlem.
-När den är aktiverad använder OpenClaw medlemsidentiteten för tillåtna listor och etiketterar
-avsändaren som `Member (PK:System)` för att undvika oavsiktliga Discord-pingar.
+  <Accordion title="PluralKit support">
+    Aktivera PluralKit-upplösning för att mappa proxade meddelanden till systemmedlemsidentitet:
 
 ```json5
 {
@@ -374,99 +443,277 @@ avsändaren som `Member (PK:System)` för att undvika oavsiktliga Discord-pingar
     discord: {
       pluralkit: {
         enabled: true,
-        token: "pk_live_...", // optional; required for private systems
+        token: "pk_live_...", // valfritt; krävs för privata system
       },
     },
   },
 }
 ```
 
-Noteringar om tillåtelselista (PK aktiverat):
+    ```
+    Obs:
+    
+    - allowlists kan använda `pk:<memberId>`
+    - medlemmars visningsnamn matchas efter namn/slug
+    - uppslag använder ursprungligt meddelande-ID och är tidsfönsterbegränsade
+    - om uppslag misslyckas behandlas proxade meddelanden som botmeddelanden och släpps om inte `allowBots=true`
+    ```
 
-- Använd `pk:<memberId>` i `dm.allowFrom`, `guilds.<id>.users`, eller per kanal `users`.
-- Medlemmars visningsnamn matchas också på namn/slug.
-- Uppslag använder det **ursprungliga** Discord-meddelande-id:t (före proxy), så PK-API:t löser det endast inom sitt 30-minutersfönster.
-- Om PK-uppslag misslyckas (t.ex. privat system utan token) behandlas proxyade meddelanden som botmeddelanden och släpps inte igenom om inte `channels.discord.allowBots=true`.
+  
+</Accordion>
 
-### Standardvärden för verktygsåtgärder
+  <Accordion title="Presence configuration">
+    Presence-uppdateringar tillämpas endast när du anger ett status- eller aktivitetsfält.
 
-| Åtgärdsgrupp   | Standard | Noteringar                                              |
-| -------------- | -------- | ------------------------------------------------------- |
-| reactions      | enabled  | Reagera + lista reaktioner + emojiList                  |
-| stickers       | enabled  | Skicka stickers                                         |
-| emojiUploads   | enabled  | Ladda upp emojis                                        |
-| stickerUploads | enabled  | Ladda upp stickers                                      |
-| polls          | enabled  | Skapa omröstningar                                      |
-| permissions    | enabled  | Ögonblicksbild av kanalbehörigheter                     |
-| messages       | enabled  | Läs/skicka/redigera/ta bort                             |
-| threads        | enabled  | Skapa/lista/svara                                       |
-| pins           | enabled  | Fäst/lossa/lista                                        |
-| search         | enabled  | Meddelandesökning (förhandsfunktion) |
-| memberInfo     | enabled  | Medlemsinfo                                             |
-| roleInfo       | enabled  | Rollista                                                |
-| channelInfo    | enabled  | Kanalinfo + lista                                       |
-| channels       | aktiverad  | Kanal-/kategorihantering                                |
-| voiceStatus    | aktiverad  | Uppslag av röststatus                                   |
-| events         | aktiverad  | Lista/skapa schemalagda händelser                       |
-| roller          | inaktiverad | Lägg till/ta bort roller                                |
-| moderering     | inaktiverad | Timeout/kick/ban                                        |
-| närvaro       | inaktiverad | Botstatus/aktivitet (setPresence)    |
+    ```
+    Endast status-exempel:
+    ```
 
-- `replyToMode`: `off` (standard), `first`, eller `all`. Gäller endast när modellen innehåller en svarstagg.
+```json5
+{
+  channels: {
+    discord: {
+      status: "idle",
+    },
+  },
+}
+```
 
-## Svarstaggar
+    ```
+    Aktivitetsexempel (anpassad status är standardaktivitetstypen):
+    ```
 
-För att begära ett trådat svar kan modellen inkludera en tagg i sin utdata:
+```json5
+{
+  channels: {
+    discord: {
+      activity: "Focus time",
+      activityType: 4,
+    },
+  },
+}
+```
 
-- `[[reply_to_current]]` — svara på det utlösande Discord-meddelandet.
-- `[[reply_to:<id>]]` — svara på ett specifikt meddelande-id från kontext/historik.
-  Nuvarande meddelande-id läggs till i uppmaningar som `[message_id: …]`; historik poster innehåller redan ids.
+    ```
+    Streaming-exempel:
+    ```
 
-Beteendet styrs av `channels.discord.replyToMode`:
+```json5
+{
+  channels: {
+    discord: {
+      activity: "Live coding",
+      activityType: 1,
+      activityUrl: "https://twitch.tv/openclaw",
+    },
+  },
+}
+```
 
-- `off`: ignorera taggar.
-- `first`: endast första utgående stycket/bilagan är ett svar.
-- `all`: varje utgående stycke/bilaga är ett svar.
+    ```
+    Karta över aktivitetstyper:
+    
+    - 0: Playing
+    - 1: Streaming (kräver `activityUrl`)
+    - 2: Listening
+    - 3: Watching
+    - 4: Custom (använder aktivitetstexten som statusläge; emoji är valfri)
+    - 5: Competing
+    ```
 
-Noteringar om matchning av tillåtelselista:
+  
+</Accordion>
 
-- `allowFrom`/`users`/`groupChannels` accepterar id:n, namn, taggar eller omnämningar som `<@id>`.
-- Prefix som `discord:`/`user:` (användare) och `channel:` (grupp-DM) stöds.
-- Använd `*` för att tillåta vilken avsändare/kanal som helst.
-- När `guilds.<id>.channels` är närvarande, kanaler som inte anges nekas som standard.
-- När `guilds.<id>.channels` utelämnas, alla kanaler i den tillåtna guilden är tillåtna.
-- För att tillåta **inga kanaler**, sätt `channels.discord.groupPolicy: "disabled"` (eller behåll en tom tillåtelselista).
-- Konfigurationsguiden accepterar `Guild/Channel`-namn (offentliga + privata) och löser dem till id:n när möjligt.
-- Vid start löser OpenClaw kanal-/användarnamn i tillåtelselistor till id:n (när boten kan söka medlemmar) och loggar mappningen; olösta poster behålls som de är skrivna.
+  <Accordion title="Exec approvals in Discord">
+    Discord stöder knappbaserade exec-godkännanden i DM och kan valfritt publicera godkännandeförfrågningar i den ursprungliga kanalen.
 
-Noteringar om inbyggda kommandon:
+    ```
+    Konfigurationssökväg:
+    
+    - `channels.discord.execApprovals.enabled`
+    - `channels.discord.execApprovals.approvers`
+    - `channels.discord.execApprovals.target` (`dm` | `channel` | `both`, standard: `dm`)
+    - `agentFilter`, `sessionFilter`, `cleanupAfterResolve`
+    
+    När `target` är `channel` eller `both` är godkännandeförfrågan synlig i kanalen. Endast konfigurerade godkännare kan använda knapparna; andra användare får ett tillfälligt (ephemeral) avslag. Godkännandeförfrågningar inkluderar kommandotexten, så aktivera endast kanalvisning i betrodda kanaler. Om kanal-ID inte kan härledas från sessionsnyckeln faller OpenClaw tillbaka till DM-leverans.
+    
+    Om godkännanden misslyckas med okända godkännande-ID:n, verifiera listan över godkännare och att funktionen är aktiverad.
+    
+    Relaterad dokumentation: [Exec approvals](/tools/exec-approvals)
+    ```
 
-- De registrerade kommandona speglar OpenClaws chattkommandon.
-- Inbyggda kommandon följer samma tillåtelselistor som DM/guild-meddelanden (`channels.discord.dm.allowFrom`, `channels.discord.guilds`, per-kanalregler).
-- Slash-kommandon kan fortfarande vara synliga i Discord-UI för användare som inte är tillåtna; OpenClaw upprätthåller tillåtelselistor vid exekvering och svarar ”not authorized”.
+  
+</Accordion>
+</AccordionGroup>
 
-## Verktygsåtgärder
+## Verktyg och åtgärdsgrindar
 
-Agenten kan anropa `discord` med åtgärder som:
+Discord-meddelandeåtgärder inkluderar meddelandehantering, kanaladministration, moderering, presence och metadataåtgärder.
 
-- `react` / `reactions` (lägg till eller lista reaktioner)
-- `sticker`, `poll`, `permissions`
-- `readMessages`, `sendMessage`, `editMessage`, `deleteMessage`
-- Läs-/sök-/fäst-verktygspayloads inkluderar normaliserade `timestampMs` (UTC epoch ms) och `timestampUtc` tillsammans med råa Discord `timestamp`.
-- `threadCreate`, `threadList`, `threadReply`
-- `pinMessage`, `unpinMessage`, `listPins`
-- `searchMessages`, `memberInfo`, `roleInfo`, `roleAdd`, `roleRemove`, `emojiList`
-- `channelInfo`, `channelList`, `voiceStatus`, `eventList`, `eventCreate`
-- `timeout`, `kick`, `ban`
-- `setPresence` (botaktivitet och onlinestatus)
+Kärnexempel:
 
-Discord-meddelande-id dyker upp i det injicerade sammanhanget (`[discord-meddelande-id: …]` och historik linjer) så att agenten kan rikta dem.
-Emoji kan vara unicode (t.ex., `✅`) eller anpassad emoji-syntax som `<:party_blob:1234567890>`.
+- messaging: `sendMessage`, `readMessages`, `editMessage`, `deleteMessage`, `threadReply`
+- reactions: `react`, `reactions`, `emojiList`
+- moderation: `timeout`, `kick`, `ban`
+- presence: `setPresence`
+
+Åtgärdsgrindar finns under `channels.discord.actions.*`.
+
+Standardbeteende för grindar:
+
+| Åtgärdsgrupp                                                                                                                                                             | Standard |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- |
+| reactions, messages, threads, pins, polls, search, memberInfo, roleInfo, channelInfo, channels, voiceStatus, events, stickers, emojiUploads, stickerUploads, permissions | enabled  |
+| roles                                                                                                                                                                    | disabled |
+| moderation                                                                                                                                                               | disabled |
+| presence                                                                                                                                                                 | disabled |
+
+## Components v2 UI
+
+OpenClaw använder Discord components v2 för exec-godkännanden och markörer över kontextgränser. Discord-meddelandeåtgärder kan också ta emot `components` för anpassat UI (avancerat; kräver Carbon component-instanser), medan äldre `embeds` fortfarande är tillgängliga men inte rekommenderas.
+
+- `channels.discord.ui.components.accentColor` anger accentfärgen som används av Discords komponentbehållare (hex).
+- Ställ in per konto med `channels.discord.accounts.<id>`.ui.components.accentColor\`.
+- `embeds` ignoreras när components v2 finns.
+
+Exempel:
+
+```json5
+{
+  channels: {
+    discord: {
+      ui: {
+        components: {
+          accentColor: "#5865F2",
+        },
+      },
+    },
+  },
+}
+```
+
+## Röstmeddelanden
+
+Discord-röstmeddelanden visar en vågformsförhandsvisning och kräver OGG/Opus-ljud samt metadata. OpenClaw genererar vågformen automatiskt, men det kräver att `ffmpeg` och `ffprobe` finns tillgängliga på gateway-värden för att inspektera och konvertera ljudfiler.
+
+Krav och begränsningar:
+
+- Ange en **lokal filsökväg** (URL:er avvisas).
+- Utelämna textinnehåll (Discord tillåter inte text + röstmeddelande i samma payload).
+- Alla ljudformat accepteras; OpenClaw konverterar till OGG/Opus vid behov.
+
+Exempel:
+
+```bash
+message(action="send", channel="discord", target="channel:123", path="/path/to/audio.mp3", asVoice=true)
+```
+
+## Felsökning
+
+<AccordionGroup>
+  <Accordion title="Used disallowed intents or bot sees no guild messages">
+
+    ```
+    - aktivera Message Content Intent
+    - aktivera Server Members Intent när du är beroende av användar-/medlemsupplösning
+    - starta om gateway efter att ha ändrat intents
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Guild messages blocked unexpectedly">
+
+    ```
+    - verifiera `groupPolicy`
+    - verifiera guild allowlist under `channels.discord.guilds`
+    - om guildens `channels`-mapp finns är endast listade kanaler tillåtna
+    - verifiera beteendet för `requireMention` och omnämningsmönster
+    
+    Användbara kontroller:
+    ```
+
+```bash
+openclaw doctor
+openclaw channels status --probe
+openclaw logs --follow
+```
+
+  
+</Accordion>
+
+  <Accordion title="Require mention false but still blocked">
+    Vanliga orsaker:
+
+    ```
+    - `groupPolicy="allowlist"` utan matchande guild-/kanal-allowlist
+    - `requireMention` konfigurerad på fel plats (måste ligga under `channels.discord.guilds` eller kanalposten)
+    - avsändaren blockeras av guildens/kanalens `users`-allowlist
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Permissions audit mismatches">
+    Behörighetskontroller med `channels status --probe` fungerar endast för numeriska kanal-ID:n.
+
+    ```
+    Om du använder slug-nycklar kan matchning vid körning fortfarande fungera, men probe kan inte fullständigt verifiera behörigheter.
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="DM and pairing issues">
+
+    ```
+    - DM inaktiverat: `channels.discord.dm.enabled=false`
+    - DM-policy inaktiverad: `channels.discord.dmPolicy="disabled"` (äldre: `channels.discord.dm.policy`)
+    - inväntar godkännande för parkoppling i `pairing`-läge
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Bot to bot loops">
+    Som standard ignoreras meddelanden som skrivits av botar.
+
+    ```
+    Om du sätter `channels.discord.allowBots=true`, använd strikta regler för omnämnanden och allowlist för att undvika loopbeteende.
+    ```
+
+  
+</Accordion>
+</AccordionGroup>
+
+## Konfigurationsreferens – hänvisningar
+
+Primär referens:
+
+- [Konfigurationsreferens – Discord](/gateway/configuration-reference#discord)
+
+Viktiga Discord-fält:
+
+- uppstart/autentisering: `enabled`, `token`, `accounts.*`, `allowBots`
+- policy: `groupPolicy`, `dm.*`, `guilds.*`, `guilds.*.channels.*`
+- kommando: `commands.native`, `commands.useAccessGroups`, `configWrites`
+- reply/history: `replyToMode`, `historyLimit`, `dmHistoryLimit`, `dms.*.historyLimit`
+- leverans: `textChunkLimit`, `chunkMode`, `maxLinesPerMessage`
+- media/återförsök: `mediaMaxMb`, `retry`
+- åtgärder: `actions.*`
+- närvaro: `activity`, `status`, `activityType`, `activityUrl`
+- UI: `ui.components.accentColor`
+- funktioner: `pluralkit`, `execApprovals`, `intents`, `agentComponents`, `heartbeat`, `responsePrefix`
 
 ## Säkerhet och drift
 
-- Behandla bottoken som ett lösenord; föredra `DISCORD_BOT_TOKEN`-miljövariabeln på övervakade värdar eller lås ned filbehörigheter för konfigfilen.
-- Ge endast boten de behörigheter den behöver (vanligtvis Läs/Skicka meddelanden).
-- Om boten fastnar eller blir rate-limitad, starta om gatewayen (`openclaw gateway --force`) efter att ha bekräftat att inga andra processer äger Discord-sessionen.
+- Behandla bot-token som hemligheter (`DISCORD_BOT_TOKEN` föredras i övervakade miljöer).
+- Bevilja minsta möjliga Discord-behörigheter.
+- Om kommandodistribution/status är inaktuell, starta om gateway och kontrollera igen med `openclaw channels status --probe`.
 
+## Relaterat
 
+- [Parning](/channels/pairing)
+- [Kanalroutning](/channels/channel-routing)
+- [Felsökning](/channels/troubleshooting)
+- [Snedstreckskommandon](/tools/slash-commands)

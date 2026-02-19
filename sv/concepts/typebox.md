@@ -1,4 +1,7 @@
 ---
+summary: "TypeBox-scheman som den enda sanningskällan för gateway-protokollet"
+read_when:
+  - Uppdaterar protokollscheman eller codegen
 title: "TypeBox"
 ---
 
@@ -39,14 +42,14 @@ Client                    Gateway
 
 Vanliga metoder + händelser:
 
-| Kategori  | Exempel                                                   | Noteringar                           |
-| --------- | --------------------------------------------------------- | ------------------------------------ |
-| Kärna      | `connect`, `health`, `status`                             | `connect` måste vara först           |
+| Kategori    | Exempel                                                   | Noteringar                           |
+| ----------- | --------------------------------------------------------- | ------------------------------------ |
+| Kärna       | `connect`, `health`, `status`                             | `connect` måste vara först           |
 | Meddelanden | `send`, `poll`, `agent`, `agent.wait`                     | sidoeffekter kräver `idempotencyKey` |
-| Chatt      | `chat.history`, `chat.send`, `chat.abort`, `chat.inject`  | WebChat använder dessa               |
-| Sessioner  | `sessions.list`, `sessions.patch`, `sessions.delete`      | sessionadministration                |
-| Nodes     | `node.list`, `node.invoke`, `node.pair.*`                 | Gateway WS + nodåtgärder             |
-| Events    | `tick`, `presence`, `agent`, `chat`, `health`, `shutdown` | serverpush                           |
+| Chatt       | `chat.history`, `chat.send`, `chat.abort`, `chat.inject`  | WebChat använder dessa               |
+| Sessioner   | `sessions.list`, `sessions.patch`, `sessions.delete`      | sessionadministration                |
+| Nodes       | `node.list`, `node.invoke`, `node.pair.*`                 | Gateway WS + nodåtgärder             |
+| Events      | `tick`, `presence`, `agent`, `chat`, `health`, `shutdown` | serverpush                           |
 
 Den auktoritativa listan finns i `src/gateway/server.ts` (`METHODS`, `EVENTS`).
 
@@ -282,5 +285,3 @@ publicerade rå filen är vanligtvis tillgänglig på:
 1. Uppdatera TypeBox‑schemana.
 2. Kör `pnpm protocol:check`.
 3. Committa det regenererade schemat + Swift‑modellerna.
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "Mga CLI backend: text-only fallback sa pamamagitan ng lokal na AI CLIs"
+read_when:
+  - Gusto mo ng maaasahang fallback kapag pumapalya ang mga API provider
+  - Nagpapatakbo ka ng Claude Code CLI o iba pang lokal na AI CLIs at gusto mo silang muling gamitin
+  - Kailangan mo ng text-only, walang tool na ruta na patuloy na sumusuporta sa sessions at images
 title: "Mga CLI Backend"
 ---
 
@@ -208,5 +213,3 @@ I-override lamang kung kinakailangan (karaniwan: absolute na `command` path).
 - **Walang continuity ng session**: tiyaking nakatakda ang `sessionArg` at ang `sessionMode` ay hindi
   `none` (sa kasalukuyan, hindi kayang mag-resume ng Codex CLI gamit ang JSON output).
 - **Hindi pinapansin ang images**: itakda ang `imageArg` (at tiyaking sinusuportahan ng CLI ang mga file path).
-
-

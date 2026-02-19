@@ -1,4 +1,7 @@
 ---
+summary: "Loopback WebChat static host နှင့် ချတ် UI အတွက် Gateway WebSocket အသုံးပြုမှု"
+read_when:
+  - WebChat ဝင်ရောက်အသုံးပြုမှုကို အမှားရှာဖွေခြင်း သို့မဟုတ် ဖွဲ့စည်းပြင်ဆင်ခြင်း ပြုလုပ်နေချိန်
 title: "WebChat"
 ---
 
@@ -44,5 +47,4 @@ title: "WebChat"
 - `gateway.auth.mode`, `gateway.auth.token`, `gateway.auth.password`: WebSocket auth။
 - `gateway.remote.url`, `gateway.remote.token`, `gateway.remote.password`: အဝေးမှ gateway ပစ်မှတ်။
 - `session.*`: ဆက်ရှင် သိမ်းဆည်းမှုနှင့် အဓိက ကီး မူလတန်ဖိုးများ။
-
-
+- `session.*`: ဆက်ရှင် သိမ်းဆည်းမှုနှင့် အဓိက ကီး မူလတန်ဖိုးများ။

@@ -1,10 +1,16 @@
 ---
-title: "橋接協定"
+summary: "橋接通訊協定（舊版節點）：TCP JSONL、配對、具範圍的 RPC"
+read_when:
+  - Building or debugging node clients (iOS/Android/macOS node mode)
+  - 調查配對或橋接身分驗證失敗
+  - Auditing the node surface exposed by the gateway
+title: "Bridge Protocol"
 ---
 
-# 橋接協定（舊版節點傳輸）
+# Bridge protocol (legacy node transport)
 
 橋接通訊協定是一種 **舊版** 的節點傳輸（TCP JSONL）。新的節點用戶端
+應改用統一的 Gateway WebSocket 傳輸協定。 橋接通訊協定是一種 **舊版** 的節點傳輸（TCP JSONL）。新的節點用戶端
 應改用統一的 Gateway WebSocket 傳輸協定。 New node clients
 should use the unified Gateway WebSocket protocol instead.
 
@@ -14,8 +20,9 @@ should use the unified Gateway WebSocket protocol instead.
 **注意事項：** 目前的 OpenClaw 版本已不再隨附 TCP 橋接監聽器；此文件僅保留作為歷史參考。
 舊版的 `bridge.*` 設定金鑰已不再屬於設定結構描述的一部分。
 Legacy `bridge.*` config keys are no longer part of the config schema.
+Legacy `bridge.*` config keys are no longer part of the config schema.
 
-## 為何我們同時保留兩者
+## Why we have both
 
 - **安全邊界**：橋接僅暴露小型的允許清單，而非完整的 Gateway 閘道器 API 介面。
 - **Pairing + node identity**: node admission is owned by the gateway and tied
@@ -30,7 +37,8 @@ Legacy `bridge.*` config keys are no longer part of the config schema.
 - Legacy default listener port was `18790` (current builds do not start a TCP bridge).
 
 啟用 TLS 時，探索用的 TXT 記錄會包含 `bridgeTls=1` 以及
-`bridgeTlsSha256`，以便節點能夠釘選憑證。
+`bridgeTlsSha256`，以便節點能夠釘選憑證。 請注意，Bonjour/mDNS TXT 記錄是
+未經驗證的；用戶端不得在沒有使用者明確意圖或其他帶外驗證的情況下，將所公告的指紋視為具權威性的 pin。
 
 ## Handshake + pairing
 
@@ -80,5 +88,3 @@ Payload fields (all optional unless noted):
 
 Bridge is currently **implicit v1** (no min/max negotiation). Backward‑compat
 is expected; add a bridge protocol version field before any breaking changes.
-
-

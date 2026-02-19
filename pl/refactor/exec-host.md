@@ -1,4 +1,9 @@
 ---
+summary: "Plan refaktoryzacji: routing hosta exec, zatwierdzania węzłów i bezgłowy runner"
+read_when:
+  - Projektowanie routingu hosta exec lub zatwierdzeń exec
+  - Implementacja runnera węzła + IPC interfejsu UI
+  - Dodawanie trybów bezpieczeństwa hosta exec i poleceń slash
 title: "Refaktoryzacja hosta exec"
 ---
 
@@ -309,5 +314,3 @@ Opcja B:
 - [Zgody Exec](/tools/exec-approvals)
 - [Węzły](/nodes)
 - [Tryb podwyższonych uprawnień](/tools/elevated)
-
-

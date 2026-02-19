@@ -1,19 +1,16 @@
 ---
-title: OpenResponses API
-x-i18n:
-  generated_at: "2026-02-03T07:48:43Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 0597714837f8b210c38eeef53561894220c1473e54c56a5c69984847685d518c
-  source_path: gateway/openresponses-http-api.md
-  workflow: 15
+summary: "从 Gateway 网关暴露兼容 OpenResponses 的 /v1/responses HTTP 端点"
+read_when:
+  - 集成使用 OpenResponses API 的客户端
+  - 你需要基于 item 的输入、客户端工具调用或 SSE 事件
+title: "OpenResponses API"
 ---
 
 # OpenResponses API（HTTP）
 
 OpenClaw 的 Gateway 网关可以提供兼容 OpenResponses 的 `POST /v1/responses` 端点。
 
-此端点**默认禁用**。请先在配置中启用。
+此端点**默认禁用**。请先在配置中启用。 Enable it in config first.
 
 - `POST /v1/responses`
 - 与 Gateway 网关相同的端口（WS + HTTP 多路复用）：`http://<gateway-host>:<port>/v1/responses`
@@ -22,7 +19,7 @@ OpenClaw 的 Gateway 网关可以提供兼容 OpenResponses 的 `POST /v1/respon
 
 ## 认证
 
-使用 Gateway 网关认证配置。发送 bearer 令牌：
+使用 Gateway 网关认证配置。发送 bearer 令牌： Send a bearer token:
 
 - `Authorization: Bearer <token>`
 
@@ -30,8 +27,9 @@ OpenClaw 的 Gateway 网关可以提供兼容 OpenResponses 的 `POST /v1/respon
 
 - 当 `gateway.auth.mode="token"` 时，使用 `gateway.auth.token`（或 `OPENCLAW_GATEWAY_TOKEN`）。
 - 当 `gateway.auth.mode="password"` 时，使用 `gateway.auth.password`（或 `OPENCLAW_GATEWAY_PASSWORD`）。
+- 如果配置了 `gateway.auth.rateLimit` 且发生过多身份验证失败，端点将返回 `429` 并附带 `Retry-After`。
 
-## 选择智能体
+## Choosing an agent
 
 无需自定义头：在 OpenResponses `model` 字段中编码智能体 id：
 
@@ -86,7 +84,7 @@ OpenClaw 的 Gateway 网关可以提供兼容 OpenResponses 的 `POST /v1/respon
 
 ## 请求结构（支持的）
 
-请求遵循 OpenResponses API，使用基于 item 的输入。当前支持：
+请求遵循 OpenResponses API，使用基于 item 的输入。当前支持： 当前支持：
 
 - `input`：字符串或 item 对象数组。
 - `instructions`：合并到系统提示中。
@@ -135,7 +133,8 @@ OpenClaw 的 Gateway 网关可以提供兼容 OpenResponses 的 `POST /v1/respon
 
 使用 `tools: [{ type: "function", function: { name, description?, parameters? } }]` 提供工具。
 
-如果智能体决定调用工具，响应返回一个 `function_call` 输出 item。然后你发送带有 `function_call_output` 的后续请求以继续回合。
+42. 然后你需要发送一个包含 `function_call_output` 的后续请求以继续该回合。
+    如果智能体决定调用工具，响应返回一个 `function_call` 输出 item。然后你发送带有 `function_call_output` 的后续请求以继续回合。
 
 ## 图像（`input_image`）
 
@@ -150,6 +149,7 @@ OpenClaw 的 Gateway 网关可以提供兼容 OpenResponses 的 `POST /v1/respon
 
 允许的 MIME 类型（当前）：`image/jpeg`、`image/png`、`image/gif`、`image/webp`。
 最大大小（当前）：10MB。
+48. 文件（`input_file`）
 
 ## 文件（`input_file`）
 
@@ -174,15 +174,19 @@ OpenClaw 的 Gateway 网关可以提供兼容 OpenResponses 的 `POST /v1/respon
 当前行为：
 
 - 文件内容被解码并添加到**系统提示**，而不是用户消息，所以它保持临时性（不持久化在会话历史中）。
-- PDF 被解析提取文本。如果发现的文本很少，前几页会被栅格化为图像并传递给模型。
+- 5. 会对 PDF 进行文本解析。 6. 如果检测到的文本较少，则会将前几页栅格化为图像并传递给模型。
 
-PDF 解析使用 Node 友好的 `pdfjs-dist` legacy 构建（无 worker）。现代 PDF.js 构建期望浏览器 worker/DOM 全局变量，因此不在 Gateway 网关中使用。
+PDF 解析使用 Node 友好的 `pdfjs-dist` legacy 构建（无 worker）。现代 PDF.js 构建期望浏览器 worker/DOM 全局变量，因此不在 Gateway 网关中使用。 现代版的 PDF.js 构建依赖浏览器 worker/DOM 全局对象，因此在 Gateway 中未使用。
 
 URL 获取默认值：
 
 - `files.allowUrl`：`true`
 - `images.allowUrl`：`true`
+- `maxUrlParts`：`8`（每个请求中基于 URL 的 `input_file` + `input_image` 总部分数）
 - 请求受到保护（DNS 解析、私有 IP 阻止、重定向限制、超时）。
+- 支持针对每种输入类型设置可选的主机名允许列表（`files.urlAllowlist`、`images.urlAllowlist`）。
+  - 精确主机名：`"cdn.example.com"`
+  - 通配子域名：`"*.assets.example.com"`（不匹配顶级域名）
 
 ## 文件 + 图像限制（配置）
 
@@ -233,16 +237,24 @@ URL 获取默认值：
 省略时的默认值：
 
 - `maxBodyBytes`：20MB
-- `files.maxBytes`：5MB
+- `maxUrlParts`：8
 - `files.maxChars`：200k
 - `files.maxRedirects`：3
+- `files.maxBytes`：5MB
 - `files.timeoutMs`：10s
-- `files.pdf.maxPages`：4
 - `files.pdf.maxPixels`：4,000,000
+- `files.pdf.maxPages`：4
 - `files.pdf.minTextChars`：200
 - `images.maxBytes`：10MB
 - `images.maxRedirects`：3
 - `images.timeoutMs`：10s
+
+安全说明：
+
+- URL 允许列表会在发起抓取前以及每次重定向时强制执行。
+- 将某个主机名加入允许列表并不会绕过对私有/内部 IP 的阻止。
+- 对于暴露在公网的 gateway，除应用层防护外，还应实施网络出口控制。
+  参见 [Security](/gateway/security)。
 
 ## 流式传输（SSE）
 
@@ -285,7 +297,7 @@ URL 获取默认值：
 
 ## 示例
 
-非流式：
+流式：
 
 ```bash
 curl -sS http://127.0.0.1:18789/v1/responses \
@@ -298,7 +310,7 @@ curl -sS http://127.0.0.1:18789/v1/responses \
   }'
 ```
 
-流式：
+非流式：
 
 ```bash
 curl -N http://127.0.0.1:18789/v1/responses \
@@ -311,5 +323,3 @@ curl -N http://127.0.0.1:18789/v1/responses \
     "input": "hi"
   }'
 ```
-
-

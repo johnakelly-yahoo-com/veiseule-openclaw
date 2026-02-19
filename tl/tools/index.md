@@ -1,4 +1,8 @@
 ---
+summary: "Surface ng agent tool para sa OpenClaw (browser, canvas, nodes, message, cron) na pumapalit sa legacy na `openclaw-*` skills"
+read_when:
+  - Pagdaragdag o pagbabago ng mga agent tool
+  - Pagretiro o pagbabago ng `openclaw-*` skills
 title: "Mga Tool"
 ---
 
@@ -177,6 +181,7 @@ Opsyonal na mga plugin tool:
 
 36. Mag-apply ng structured na mga patch sa isa o higit pang file. Use for multi-hunk edits.
     Experimental: enable via `tools.exec.applyPatch.enabled` (OpenAI models only).
+    Ang `tools.exec.applyPatch.workspaceOnly` ay naka-default sa `true` (nasa loob lamang ng workspace). Itakda ito sa `false` lamang kung sadyang nais mong pahintulutan ang `apply_patch` na magsulat/magbura sa labas ng workspace directory.
 
 ### `exec`
 
@@ -506,5 +511,3 @@ Inilalantad ang mga tool sa dalawang magkatulad na channel:
 
 38) Ibig sabihin nito, nakikita ng agent ang parehong “kung anong mga tool ang umiiral” at “kung paano tawagin ang mga ito.” 39. Kung ang isang tool
     ay hindi lumalabas sa system prompt o sa schema, hindi ito maaaring tawagin ng modelo.
-
-

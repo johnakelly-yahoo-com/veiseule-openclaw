@@ -1,4 +1,7 @@
 ---
+summary: "एलिवेटेड exec मोड और /elevated निर्देश"
+read_when:
+  - एलिवेटेड मोड के डिफ़ॉल्ट, allowlists, या स्लैश कमांड व्यवहार को समायोजित करते समय
 title: "एलिवेटेड मोड"
 ---
 
@@ -45,12 +48,10 @@ title: "एलिवेटेड मोड"
 - प्रेषक allowlist: `tools.elevated.allowFrom` प्रति-प्रदाता allowlists के साथ (उदाहरण के लिए `discord`, `whatsapp`)।
 - प्रति-एजेंट गेट: `agents.list[].tools.elevated.enabled` (वैकल्पिक; केवल और प्रतिबंधित कर सकता है)।
 - प्रति-एजेंट allowlist: `agents.list[].tools.elevated.allowFrom` (वैकल्पिक; सेट होने पर, प्रेषक को **दोनों** वैश्विक + प्रति-एजेंट allowlists से मेल खाना चाहिए)।
-- Discord fallback: यदि `tools.elevated.allowFrom.discord` छोड़ा गया है, तो `channels.discord.dm.allowFrom` सूची को fallback के रूप में उपयोग किया जाता है। Override करने के लिए `tools.elevated.allowFrom.discord` सेट करें (यहाँ तक कि `[]` भी)। Per-agent allowlists fallback का उपयोग **नहीं** करतीं।
+- Discord fallback: यदि `tools.elevated.allowFrom.discord` छोड़ा गया है, तो `channels.discord.allowFrom` सूची को fallback के रूप में उपयोग किया जाता है (legacy: `channels.discord.dm.allowFrom`)। Override करने के लिए `tools.elevated.allowFrom.discord` सेट करें (यहाँ तक कि `[]` भी)। Per-agent allowlists fallback का उपयोग **नहीं** करतीं।
 - सभी गेट्स पास होने चाहिए; अन्यथा एलिवेटेड को अनुपलब्ध माना जाता है।
 
 ## लॉगिंग + स्थिति
 
 - एलिवेटेड exec कॉल info स्तर पर लॉग किए जाते हैं।
 - सत्र स्थिति में एलिवेटेड मोड शामिल होता है (उदाहरण के लिए `elevated=ask`, `elevated=full`)।
-
-

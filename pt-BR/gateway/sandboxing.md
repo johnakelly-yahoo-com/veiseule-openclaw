@@ -1,5 +1,7 @@
 ---
-title: "Isolamento em sandbox"
+summary: "Como funciona o sandboxing do OpenClaw: modos, escopos, acesso ao workspace e imagens"
+title: Isolamento em sandbox
+read_when: "Voce quer uma explicacao dedicada sobre sandboxing ou precisa ajustar agents.defaults.sandbox."
 status: active
 ---
 
@@ -68,6 +70,11 @@ que possam ser lidas. Com `"rw"`, skills do workspace podem ser lidas a partir d
 Formato: `host:container:mode` (por exemplo, `"/home/user/source:/source:rw"`).
 
 Binds globais e por agente sao **mesclados** (nao substituidos). Em `scope: "shared"`, binds por agente sao ignorados.
+
+`agents.defaults.sandbox.browser.binds` monta diretórios adicionais do host apenas no contêiner do **sandbox browser**.
+
+- Quando definido (incluindo `[]`), substitui `agents.defaults.sandbox.docker.binds` para o contêiner do browser.
+- Quando omitido, o contêiner do browser usa como fallback `agents.defaults.sandbox.docker.binds` (compatível com versões anteriores).
 
 Exemplo (fonte somente leitura + socket do docker):
 
@@ -189,5 +196,3 @@ Veja [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) para preced
 - [Sandbox Configuration](/gateway/configuration#agentsdefaults-sandbox)
 - [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools)
 - [Security](/gateway/security)
-
-

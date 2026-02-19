@@ -1,6 +1,6 @@
 ---
 title: Fly.io
-description: "I-deploy ang OpenClaw sa Fly.io"
+description: I-deploy ang OpenClaw sa Fly.io
 ---
 
 # Pag-deploy sa Fly.io
@@ -78,7 +78,7 @@ primary_region = "iad"
 
 **Mga pangunahing setting:**
 
-| Konpigurasyon                        | Bakit                                                                                                   |
+| Konpigurasyon                  | Bakit                                                                                                   |
 | ------------------------------ | ------------------------------------------------------------------------------------------------------- |
 | `--bind lan`                   | Naka-bind sa `0.0.0.0` para maabot ng proxy ng Fly ang gateway                                          |
 | `--allow-unconfigured`         | Nagsisimula nang walang config file (gagawa ka ng isa pagkatapos)                    |
@@ -484,5 +484,3 @@ Sa inirerekomendang config (`shared-cpu-2x`, 2GB RAM):
 - May kasamang ilang allowance ang free tier
 
 Tingnan ang [Fly.io pricing](https://fly.io/docs/about/pricing/) para sa mga detalye.
-
-

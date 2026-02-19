@@ -1,4 +1,8 @@
 ---
+summary: "Application compagnon macOS OpenClaw (barre de menus + courtier de passerelle)"
+read_when:
+  - Implémentation de fonctionnalités de l’application macOS
+  - Modification du cycle de vie de la passerelle ou du pontage de nœuds sur macOS
 title: "Application macOS"
 ---
 
@@ -126,6 +130,7 @@ Paramètres de requête :
 Sécurité :
 
 - Sans `key`, l’application demande une confirmation.
+- Sans `key`, l’application impose une limite courte de message pour l’invite de confirmation et ignore `deliver` / `to` / `channel`.
 - Avec un `key` valide, l’exécution est non supervisée (destinée aux automatisations personnelles).
 
 ## Flux de prise en main (typique)
@@ -195,5 +200,3 @@ du protocole, voir [protocole de la Gateway](/gateway/protocol).
 - [Gateway (macOS)](/platforms/mac/bundled-gateway)
 - [Autorisations macOS](/platforms/mac/permissions)
 - [Canvas](/platforms/mac/canvas)
-
-

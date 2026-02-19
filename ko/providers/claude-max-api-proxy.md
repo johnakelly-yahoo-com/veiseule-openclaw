@@ -1,4 +1,9 @@
 ---
+summary: "Claude Max/Pro 구독을 OpenAI 호환 API 엔드포인트로 사용합니다"
+read_when:
+  - OpenAI 호환 도구에서 Claude Max 구독을 사용하고 싶을 때
+  - Claude Code CLI 를 감싸는 로컬 API 서버가 필요할 때
+  - API 키 대신 구독을 사용해 비용을 절감하고 싶을 때
 title: "Claude Max API Proxy"
 ---
 
@@ -141,5 +146,3 @@ launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.claude-max-api.plist
 
 - [Anthropic provider](/providers/anthropic) - setup-token 또는 API 키를 사용한 Claude 용 네이티브 OpenClaw 통합
 - [OpenAI provider](/providers/openai) - OpenAI/Codex 구독용
-
-

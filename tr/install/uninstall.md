@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw'ı tamamen kaldırın (CLI, servis, durum, çalışma alanı)"
+read_when:
+  - Bir makineden OpenClaw'ı kaldırmak istiyorsunuz
+  - Kaldırma işleminden sonra gateway servisi hâlâ çalışıyor
 title: "Kaldırma"
 ---
 
@@ -120,7 +124,5 @@ Bir profil kullandıysanız, eşleşen görev adını ve `~\.openclaw-<profile>\
 Bir depo kopyasından çalıştırıyorsanız (`git clone` + `openclaw ...` / `bun run openclaw ...`):
 
 1. Depoyu silmeden **önce** gateway servisini kaldırın (yukarıdaki kolay yolu veya manuel servis kaldırmayı kullanın).
-2. Depo dizinini silin.
+2. Delete the repo directory.
 3. Yukarıda gösterildiği gibi durum + çalışma alanını kaldırın.
-
-

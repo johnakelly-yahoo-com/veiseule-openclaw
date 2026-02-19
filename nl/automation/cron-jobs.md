@@ -1,4 +1,9 @@
 ---
+summary: "Cronjobs + wake-ups voor de Gateway-scheduler"
+read_when:
+  - Achtergrondtaken of wake-ups plannen
+  - Automatisering koppelen die met of naast heartbeats moet draaien
+  - Beslissen tussen heartbeat en cron voor geplande taken
 title: "Cronjobs"
 ---
 
@@ -471,5 +476,3 @@ openclaw system event --mode now --text "Next heartbeat: check battery."
 - Gebruik voor forumtopics `-100…:topic:<id>`, zodat het expliciet en ondubbelzinnig is.
 - Als je `telegram:...`-voorvoegsels ziet in logs of opgeslagen “laatste route”-doelen, is dat normaal;
   cron-levering accepteert ze en parseert topic-id’s nog steeds correct.
-
-

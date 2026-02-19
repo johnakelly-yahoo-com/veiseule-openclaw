@@ -1,4 +1,7 @@
 ---
+summary: "Gateway ڈیش بورڈ (کنٹرول UI) تک رسائی اور تصدیق"
+read_when:
+  - ڈیش بورڈ کی تصدیق یا ایکسپوژر موڈز تبدیل کرتے وقت
 title: "ڈیش بورڈ"
 ---
 
@@ -40,5 +43,3 @@ localhost، Tailscale Serve، یا SSH ٹنل کو ترجیح دیں۔
 - یقینی بنائیں کہ gateway قابلِ رسائی ہے (لوکل: `openclaw status`؛ ریموٹ: SSH سرنگ `ssh -N -L 18789:127.0.0.1:18789 user@host` پھر `http://127.0.0.1:18789/` کھولیں)۔
 - gateway ہوسٹ سے ٹوکن حاصل کریں: `openclaw config get gateway.auth.token` (یا ایک نیا بنائیں: `openclaw doctor --generate-gateway-token`)۔
 - ڈیش بورڈ سیٹنگز میں، ٹوکن کو auth فیلڈ میں پیسٹ کریں، پھر کنیکٹ کریں۔
-
-

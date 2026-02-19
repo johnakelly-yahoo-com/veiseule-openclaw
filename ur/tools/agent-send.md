@@ -1,10 +1,13 @@
 ---
+summary: "براہِ راست `openclaw agent` CLI رنز (اختیاری ترسیل کے ساتھ)"
+read_when:
+  - ایجنٹ CLI اینٹری پوائنٹ شامل کرتے یا ترمیم کرتے وقت
 title: "ایجنٹ بھیجیں"
 ---
 
 # `openclaw agent` (براہِ راست ایجنٹ رنز)
 
-`openclaw agent` کسی آنے والے چیٹ پیغام کی ضرورت کے بغیر ایک واحد ایجنٹ ٹرن چلاتا ہے۔
+`openclaw agent` runs a single agent turn without needing an inbound chat message.
 By default it goes **through the Gateway**; add `--local` to force the embedded
 runtime on the current machine.
 
@@ -48,5 +51,3 @@ openclaw agent --agent ops --message "Generate report" --deliver --reply-channel
 - `--verbose <on|full|off>`: وربوز لیول برقرار رکھیں
 - `--timeout <seconds>`: ایجنٹ ٹائم آؤٹ اووررائیڈ
 - `--json`: اسٹرکچرڈ JSON آؤٹ پٹ
-
-

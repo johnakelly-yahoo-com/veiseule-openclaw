@@ -1,4 +1,7 @@
 ---
+summary: "Схемы TypeBox как единственный источник истины для протокола Gateway"
+read_when:
+  - При обновлении схем протокола или codegen
 title: "TypeBox"
 ---
 
@@ -36,14 +39,14 @@ Client                    Gateway
 
 Общие методы и события:
 
-| Категория | Примеры                                                   | Примечания                                |
-| --------- | --------------------------------------------------------- | ----------------------------------------- |
-| Ядро      | `connect`, `health`, `status`                             | `connect` должен быть первым              |
+| Категория         | Примеры                                                   | Примечания                                |
+| ----------------- | --------------------------------------------------------- | ----------------------------------------- |
+| Core              | `connect`, `health`, `status`                             | `connect` должен быть первым              |
 | Обмен сообщениями | `send`, `poll`, `agent`, `agent.wait`                     | побочные эффекты требуют `idempotencyKey` |
-| Чат      | `chat.history`, `chat.send`, `chat.abort`, `chat.inject`  | WebChat использует их                     |
-| Sessions  | `sessions.list`, `sessions.patch`, `sessions.delete`      | администрирование сеансов                 |
-| Nodes     | `node.list`, `node.invoke`, `node.pair.*`                 | Gateway WS + действия узлов               |
-| Events    | `tick`, `presence`, `agent`, `chat`, `health`, `shutdown` | push от сервера                           |
+| Чат               | `chat.history`, `chat.send`, `chat.abort`, `chat.inject`  | WebChat использует их                     |
+| Sessions          | `sessions.list`, `sessions.patch`, `sessions.delete`      | администрирование сеансов                 |
+| Nodes             | `node.list`, `node.invoke`, `node.pair.*`                 | Gateway WS + действия узлов               |
+| Events            | `tick`, `presence`, `agent`, `chat`, `health`, `shutdown` | push от сервера                           |
 
 Авторитетный список находится в `src/gateway/server.ts` (`METHODS`, `EVENTS`).
 
@@ -280,5 +283,3 @@ pnpm protocol:check
 1. Обновите схемы TypeBox.
 2. Запустите `pnpm protocol:check`.
 3. Закоммитьте перегенерированную схему и Swift‑модели.
-
-

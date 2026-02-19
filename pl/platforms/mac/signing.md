@@ -1,4 +1,7 @@
 ---
+summary: "Kroki podpisywania dla debugowych buildów macOS generowanych przez skrypty pakujące"
+read_when:
+  - Budowanie lub podpisywanie debugowych buildów macOS
 title: "Podpisywanie macOS"
 ---
 
@@ -42,5 +45,3 @@ Zakładka „About” odczytuje te klucze, aby wyświetlić wersję, datę build
 ## Dlaczego
 
 Uprawnienia TCC są powiązane z identyfikatorem pakietu _oraz_ podpisem kodu. Niezabezpieczone debug buildy ze zmieniającymi się UUID powodowały, że macOS zapominał przyznane zgody po każdej przebudowie. Podpisywanie plików binarnych (domyślnie ad-hoc) i utrzymywanie stałego identyfikatora pakietu/ścieżki (`dist/OpenClaw.app`) zachowuje zgody pomiędzy buildami, zgodnie z podejściem VibeTunnel.
-
-

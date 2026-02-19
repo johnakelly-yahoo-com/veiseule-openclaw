@@ -1,5 +1,10 @@
 ---
 title: "Node.js"
+summary: "Установка и настройка Node.js для OpenClaw — требования к версиям, варианты установки и устранение проблем с PATH"
+read_when:
+  - "Вам нужно установить Node.js перед установкой OpenClaw"
+  - "Вы установили OpenClaw, но `openclaw` — команда не найдена"
+  - "npm install -g завершается с ошибками прав доступа или PATH"
 ---
 
 # Node.js
@@ -20,46 +25,58 @@ node -v
   <Tab title="macOS">
     **Homebrew** (рекомендуется):
 
+    `````
+    ````
     ```bash
     brew install node
     ```
-
+    
     Либо загрузите установщик для macOS с [nodejs.org](https://nodejs.org/).
+    ````
+    `````
 
   
 </Tab>
   <Tab title="Linux">
     **Ubuntu / Debian:**
 
+    `````
+    ````
     ```bash
     curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
     sudo apt-get install -y nodejs
     ```
-
+    
     **Fedora / RHEL:**
-
+    
     ```bash
     sudo dnf install nodejs
     ```
-
+    
     Либо используйте менеджер версий (см. ниже).
+    ````
+    `````
 
   
 </Tab>
   <Tab title="Windows">
     **winget** (рекомендуется):
 
+    `````
+    ````
     ```powershell
     winget install OpenJS.NodeJS.LTS
     ```
-
+    
     **Chocolatey:**
-
+    
     ```powershell
     choco install nodejs-lts
     ```
-
+    
     Либо загрузите установщик для Windows с [nodejs.org](https://nodejs.org/).
+    ````
+    `````
 
   
 </Tab>
@@ -103,7 +120,11 @@ fnm use 22
     echo "$PATH"
     ```
 
+    ````
+    ```
     Ищите `<npm-prefix>/bin` (macOS/Linux) или `<npm-prefix>` (Windows) в выводе.
+    ```
+    ````
 
   
 </Step>
@@ -112,19 +133,23 @@ fnm use 22
       <Tab title="macOS / Linux">
         Добавьте в `~/.zshrc` или `~/.bashrc`:
 
-        ```bash
-        export PATH="$(npm prefix -g)/bin:$PATH"
         ```
-
-        Затем откройте новый терминал (или выполните `rehash` в zsh / `hash -r` в bash).
-      
+            ```
+                ```bash
+                export PATH="$(npm prefix -g)/bin:$PATH"
+                ```
+            
+                Затем откройте новый терминал (или выполните `rehash` в zsh / `hash -r` в bash).
+              
 </Tab>
-      <Tab title="Windows">
-        Добавьте вывод `npm prefix -g` в системный PATH через «Параметры → Система → Переменные среды».
-      
+              <Tab title="Windows">
+                Добавьте вывод `npm prefix -g` в системный PATH через «Параметры → Система → Переменные среды».
+              
 </Tab>
-    
+            
 </Tabs>
+            ```
+        ```
 
   
 </Step>
@@ -141,4 +166,3 @@ export PATH="$HOME/.npm-global/bin:$PATH"
 ```
 
 Добавьте строку `export PATH=...` в `~/.bashrc` или `~/.zshrc`, чтобы сделать изменение постоянным.
-

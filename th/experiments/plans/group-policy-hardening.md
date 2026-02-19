@@ -1,4 +1,7 @@
 ---
+summary: "การเสริมความปลอดภัย allowlist ของ Telegram: การทำให้ prefix และช่องว่างเป็นมาตรฐาน"
+read_when:
+  - ทบทวนการเปลี่ยนแปลงรายการอนุญาตTelegramในอดีต
 title: "การเสริมความแข็งแกร่งของรายการอนุญาตTelegram"
 ---
 
@@ -10,7 +13,7 @@ title: "การเสริมความแข็งแกร่งของ
 
 ## สรุป
 
-รายการอนุญาตTelegramตอนนี้ยอมรับคำนำหน้า `telegram:` และ `tg:` โดยไม่คำนึงถึงตัวพิมพ์เล็กใหญ่ และทนต่อช่องว่างที่เกิดขึ้นโดยไม่ตั้งใจ การเปลี่ยนแปลงนี้ทำให้การตรวจสอบรายการอนุญาตขาเข้ามีความสอดคล้องกับการทำให้เป็นมาตรฐานของการส่งข้อความขาออก This aligns inbound allowlist checks with outbound send normalization.
+รายการอนุญาตTelegramตอนนี้ยอมรับคำนำหน้า `telegram:` และ `tg:` โดยไม่คำนึงถึงตัวพิมพ์เล็กใหญ่ และทนต่อช่องว่างที่เกิดขึ้นโดยไม่ตั้งใจ การเปลี่ยนแปลงนี้ทำให้การตรวจสอบรายการอนุญาตขาเข้ามีความสอดคล้องกับการทำให้เป็นมาตรฐานของการส่งข้อความขาออก This aligns inbound allowlist checks with outbound send normalization. This aligns inbound allowlist checks with outbound send normalization.
 
 ## สิ่งที่เปลี่ยนแปลง
 
@@ -27,12 +30,10 @@ title: "การเสริมความแข็งแกร่งของ
 
 ## เหตุใดจึงสำคัญ
 
-การคัดลอกจากบันทึก (logs) หรือรหัสแชทมักมี prefix และช่องว่างติดมาด้วย การทำให้เป็นรูปแบบมาตรฐานช่วยหลีกเลี่ยง
+Copy/paste from logs or chat IDs often includes prefixes and whitespace. การคัดลอกจากบันทึก (logs) หรือรหัสแชทมักมี prefix และช่องว่างติดมาด้วย การทำให้เป็นรูปแบบมาตรฐานช่วยหลีกเลี่ยง
 false negatives when deciding whether to respond in DMs or groups.
 
 ## เอกสารที่เกี่ยวข้อง
 
 - [Group Chats](/channels/groups)
 - [Telegram Provider](/channels/telegram)
-
-

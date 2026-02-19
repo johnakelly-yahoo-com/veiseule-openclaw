@@ -1,4 +1,7 @@
 ---
+summary: "42. Mac ilovada voice wake va push-to-talk rejimlari hamda marshrutlash tafsilotlari"
+read_when:
+  - 43. Voice wake yoki PTT yo‘llari ustida ishlash
 title: "44. Voice Wake"
 ---
 
@@ -62,5 +65,3 @@ title: "44. Voice Wake"
 
 - 41. Push-to-talk’ni yoqing, Cmd+Fn ni bosib turing, gapiring, qo‘yib yuboring: overlay avval qisman natijalarni ko‘rsatib, so‘ng yuborishi kerak.
 - 42. Bosib turganingizda, menyu-paneldagi quloqlar kattalashgan holda qolishi kerak (`triggerVoiceEars(ttl:nil)` ishlatiladi); qo‘yib yuborilgandan so‘ng tushadi.
-
-

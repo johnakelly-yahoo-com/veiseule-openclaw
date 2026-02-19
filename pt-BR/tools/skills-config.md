@@ -1,4 +1,8 @@
 ---
+summary: "Esquema de configuração de Skills e exemplos"
+read_when:
+  - Adicionando ou modificando a configuração de Skills
+  - Ajustando a lista de permissões empacotada ou o comportamento de instalação
 title: "Configuração de Skills"
 ---
 
@@ -70,5 +74,3 @@ Use uma das opções:
 - incorporar as variáveis de ambiente na sua imagem de sandbox personalizada
 
 `env` e `skills.entries.<skill>.env/apiKey` globais se aplicam apenas a execuções no **host**.
-
-

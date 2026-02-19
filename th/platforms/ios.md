@@ -1,4 +1,9 @@
 ---
+summary: "แอปโหนด iOS: เชื่อมต่อกับ Gateway, การจับคู่, แคนวาส และการแก้ไขปัญหา"
+read_when:
+  - การจับคู่หรือเชื่อมต่อโหนด iOS ใหม่อีกครั้ง
+  - การรันแอป iOS จากซอร์สโค้ด
+  - การดีบักการค้นหาGatewayหรือคำสั่งแคนวาส
 title: "แอป iOS"
 ---
 
@@ -55,6 +60,7 @@ Gateway จะประกาศ `_openclaw-gw._tcp` บน `local.` แอป i
 หาก mDNS ถูกบล็อก ให้ใช้โซน unicast DNS-SD (เลือกโดเมน; ตัวอย่าง: `openclaw.internal.`) และ Tailscale split DNS
 ดู [Bonjour](/gateway/bonjour) สำหรับตัวอย่าง CoreDNS
 ดู [Bonjour](/gateway/bonjour) สำหรับตัวอย่าง CoreDNS
+ดู [Bonjour](/gateway/bonjour) สำหรับตัวอย่าง CoreDNS
 
 ### ระบุโฮสต์/พอร์ตด้วยตนเอง
 
@@ -62,7 +68,7 @@ Gateway จะประกาศ `_openclaw-gw._tcp` บน `local.` แอป i
 
 ## Canvas + A2UI
 
-โหนด iOS เรนเดอร์แคนวาสด้วย WKWebView ใช้ `node.invoke` เพื่อควบคุม: ใช้ `node.invoke` เพื่อควบคุมการทำงาน:
+โหนด iOS เรนเดอร์แคนวาสด้วย WKWebView ใช้ `node.invoke` เพื่อควบคุม: ใช้ `node.invoke` เพื่อควบคุมการทำงาน: ใช้ `node.invoke` เพื่อควบคุมการทำงาน:
 
 ```bash
 openclaw nodes invoke --node "iOS Node" --command canvas.navigate --params '{"url":"http://<gateway-host>:18793/__openclaw__/canvas/"}'
@@ -71,6 +77,7 @@ openclaw nodes invoke --node "iOS Node" --command canvas.navigate --params '{"ur
 หมายเหตุ:
 
 - โฮสต์แคนวาสของGatewayให้บริการ `/__openclaw__/canvas/` และ `/__openclaw__/a2ui/`
+- ให้บริการจากเซิร์ฟเวอร์ HTTP ของ Gateway (พอร์ตเดียวกับ `gateway.port` ค่าเริ่มต้น `18789`)
 - โหนด iOS จะนำทางไปยัง A2UI โดยอัตโนมัติเมื่อเชื่อมต่อ หากมีการประกาศ URL ของโฮสต์แคนวาส
 - กลับไปยัง scaffold ที่มีมาให้ด้วย `canvas.navigate` และ `{"url":""}`
 
@@ -101,5 +108,3 @@ openclaw nodes invoke --node "iOS Node" --command canvas.snapshot --params '{"ma
 - [การจับคู่](/gateway/pairing)
 - [Discovery](/gateway/discovery)
 - [Bonjour](/gateway/bonjour)
-
-

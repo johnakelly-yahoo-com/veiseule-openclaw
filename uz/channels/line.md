@@ -1,4 +1,9 @@
 ---
+summary: "19. LINE Messaging API plagini: o‘rnatish, sozlash va foydalanish"
+read_when:
+  - 20. Siz OpenClaw’ni LINE’ga ulashni xohlaysiz
+  - 21. Sizga LINE webhook va hisob ma’lumotlarini sozlash kerak
+  - 22. Siz LINE’ga xos xabar opsiyalarini xohlaysiz
 title: 23. LINE
 ---
 
@@ -61,8 +66,8 @@ title: 23. LINE
 
 48. Muhit o‘zgaruvchilari (faqat standart akkaunt uchun):
 
-- 49. `LINE_CHANNEL_ACCESS_TOKEN`
-- 50. `LINE_CHANNEL_SECRET`
+- `LINE_CHANNEL_ACCESS_TOKEN`
+- `LINE_CHANNEL_SECRET`
 
 1. Token/maxfiy fayllar:
 
@@ -106,9 +111,9 @@ openclaw pairing approve line <CODE>
 
 9. Ruxsat etilgan ro‘yxatlar va siyosatlar:
 
-- 10. `channels.line.dmPolicy`: `pairing | allowlist | open | disabled`
+- `channels.line.dmPolicy`: `pairing | allowlist | open | disabled`
 - 11. `channels.line.allowFrom`: DM uchun ruxsat etilgan LINE foydalanuvchi IDlari
-- 12. `channels.line.groupPolicy`: `allowlist | open | disabled`
+- `channels.line.groupPolicy`: `allowlist | open | disabled`
 - 13. `channels.line.groupAllowFrom`: guruhlar uchun ruxsat etilgan LINE foydalanuvchi IDlari
 - 14. Guruh bo‘yicha alohida sozlamalar: `channels.line.groups.<groupId>`15. `.allowFrom`
 
@@ -171,5 +176,3 @@ openclaw pairing approve line <CODE>
 - 32. **Webhook tekshiruvi muvaffaqiyatsiz:** webhook URL HTTPS ekanligiga va `channelSecret` LINE konsolidagi qiymatga mos kelishiga ishonch hosil qiling.
 - 33. **Kirish hodisalari yo‘q:** webhook yo‘li `channels.line.webhookPath` ga mos kelishini va shlyuz LINE’dan yetib borilishi mumkinligini tasdiqlang.
 - 34. **Media yuklab olish xatolari:** media sukut bo‘yicha limitdan oshsa, `channels.line.mediaMaxMb` ni oshiring.
-
-

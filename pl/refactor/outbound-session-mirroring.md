@@ -1,6 +1,6 @@
 ---
 title: "Refaktoryzacja lustrzanego odwzorowania sesji wychodzących (Issue #1520)" #1520)
-description: "Śledź notatki z refaktoryzacji mechanizmu mirrorowania sesji wychodzących, decyzje, testy oraz otwarte kwestie."
+description: Śledź notatki z refaktoryzacji mechanizmu mirrorowania sesji wychodzących, decyzje, testy oraz otwarte kwestie.
 ---
 
 # Refaktoryzacja lustrzanego odwzorowania sesji wychodzących (Issue #1520)
@@ -83,5 +83,3 @@ Wysyłki wychodzące były lustrzanie odwzorowywane do _bieżącej_ sesji agenta
   - `src/infra/outbound/outbound-session.test.ts`
   - `src/agents/tools/message-tool.test.ts`
   - `src/gateway/server-methods/send.test.ts`
-
-

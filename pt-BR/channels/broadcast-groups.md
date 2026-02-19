@@ -1,4 +1,8 @@
 ---
+summary: "Transmitir uma mensagem do WhatsApp para vários agentes"
+read_when:
+  - Configurando grupos de broadcast
+  - Depurando respostas de vários agentes no WhatsApp
 status: experimental
 title: "Grupos de Broadcast"
 ---
@@ -436,5 +440,3 @@ Recursos planejados:
 - [Configuração de múltiplos agentes](/tools/multi-agent-sandbox-tools)
 - [Configuração de roteamento](/channels/channel-routing)
 - [Gerenciamento de sessões](/concepts/sessions)
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw vollständig deinstallieren (CLI, Dienst, Zustand, Workspace)"
+read_when:
+  - Sie möchten OpenClaw von einer Maschine entfernen
+  - Der Gateway-Dienst läuft nach der Deinstallation noch
 title: "Deinstallation"
 ---
 
@@ -122,5 +126,3 @@ Wenn Sie aus einem Repo-Checkout heraus arbeiten (`git clone` + `openclaw ...` /
 1. Deinstallieren Sie den Gateway-Dienst **vor** dem Löschen des Repos (verwenden Sie den einfachen Weg oben oder die manuelle Dienstentfernung).
 2. Löschen Sie das Repo-Verzeichnis.
 3. Entfernen Sie Zustand + Workspace wie oben gezeigt.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "ماڈل فراہم کنندگان کے لیے OAuth کی معیاد ختم ہونے کی نگرانی کریں"
+read_when:
+  - تصدیق کی معیاد ختم ہونے کی نگرانی یا الرٹس سیٹ کرتے وقت
+  - Claude Code / Codex OAuth ریفریش چیکس کو خودکار بناتے وقت
 title: "Auth نگرانی"
 ---
 
@@ -36,5 +40,3 @@ These live under `scripts/` and are **optional**. یہ گیٹ وے ہوسٹ تک
 - `scripts/termux-sync-widget.sh`: Claude Code اسناد → OpenClaw ہم وقت سازی۔
 
 اگر آپ کو فون خودکاری یا systemd ٹائمرز کی ضرورت نہیں، تو ان اسکرپٹس کو چھوڑ دیں۔
-
-

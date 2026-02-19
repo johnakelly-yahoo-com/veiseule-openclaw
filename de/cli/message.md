@@ -1,4 +1,8 @@
 ---
+summary: "CLI-Referenz für `openclaw message` (Senden + Kanalaktionen)"
+read_when:
+  - Hinzufügen oder Ändern von Message-CLI-Aktionen
+  - Ändern des ausgehenden Kanalverhaltens
 title: "message"
 ---
 
@@ -64,6 +68,7 @@ Namensauflösung:
   - Erforderlich: `--target`, `--poll-question`, `--poll-option` (Wiederholen)
   - Optional: `--poll-multi`
   - Nur Discord: `--poll-duration-hours`, `--message`
+  - Nur Telegram: `--poll-duration-seconds` (5-600), `--silent`, `--poll-anonymous` / `--poll-public`, `--thread-id`
 
 - `react`
   - Kanäle: Discord/Google Chat/Slack/Telegram/WhatsApp/Signal
@@ -196,6 +201,16 @@ openclaw message poll --channel discord \
   --poll-multi --poll-duration-hours 48
 ```
 
+Erstellen Sie eine Telegram-Umfrage (automatisches Schließen nach 2 Minuten):
+
+```
+openclaw message poll --channel telegram \
+  --target @mychat \
+  --poll-question "Lunch?" \
+  --poll-option Pizza --poll-option Sushi \
+  --poll-duration-seconds 120 --silent
+```
+
 Eine proaktive Teams-Nachricht senden:
 
 ```
@@ -233,5 +248,3 @@ Telegram-Inline-Buttons senden:
 openclaw message send --channel telegram --target @mychat --message "Choose:" \
   --buttons '[ [{"text":"Yes","callback_data":"cmd:yes"}], [{"text":"No","callback_data":"cmd:no"}] ]'
 ```
-
-

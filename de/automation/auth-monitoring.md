@@ -1,4 +1,8 @@
 ---
+summary: "OAuth-Ablauf für Modellanbieter überwachen"
+read_when:
+  - Einrichten der Überwachung oder von Warnmeldungen zum Auth-Ablauf
+  - Automatisieren von Prüfungen zur OAuth-Aktualisierung für Claude Code / Codex
 title: "Auth-Überwachung"
 ---
 
@@ -38,5 +42,3 @@ Gateway-Host voraus und sind für systemd + Termux abgestimmt.
 - `scripts/termux-sync-widget.sh`: Synchronisierung von Claude‑Code‑Anmeldedaten → OpenClaw.
 
 Wenn Sie keine Telefon‑Automatisierung oder systemd‑Timer benötigen, überspringen Sie diese Skripte.
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "Draai OpenClaw op lokale LLM’s (LM Studio, vLLM, LiteLLM, aangepaste OpenAI-endpoints)"
+read_when:
+  - Je wilt modellen serveren vanaf je eigen GPU-box
+  - Je LM Studio of een OpenAI-compatibele proxy aansluit
+  - Je de veiligste richtlijnen voor lokale modellen nodig hebt
 title: "Lokale modellen"
 ---
 
@@ -143,5 +148,3 @@ Houd `models.mode: "merge"` zodat gehoste modellen beschikbaar blijven als fallb
 - LM Studio-model ontladen? Opnieuw laden; cold start is een veelvoorkomende oorzaak van “hangen”.
 - Contextfouten? Verlaag `contextWindow` of verhoog je serverlimiet.
 - Veiligheid: lokale modellen slaan provider-side filters over; houd agents smal en compaction ingeschakeld om de impact van prompt-injectie te beperken.
-
-

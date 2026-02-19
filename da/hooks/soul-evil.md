@@ -1,4 +1,8 @@
 ---
+summary: "SOUL Evil-hook (byt SOUL.md med SOUL_EVIL.md)"
+read_when:
+  - Du vil aktivere eller finjustere SOUL Evil-hooken
+  - Du vil have et purge-vindue eller et persona-byt med tilfældig sandsynlighed
 title: "SOUL Ond Krog"
 ---
 
@@ -63,5 +67,3 @@ Opret `SOUL_EVIL.md` i agentens workspace-rod (ved siden af `SOUL.md`).
 ## Se også
 
 - [Kroge](/automation/hooks)
-
-

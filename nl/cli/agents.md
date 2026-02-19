@@ -1,4 +1,7 @@
 ---
+summary: "CLI-referentie voor `openclaw agents` (lijst, toevoegen, verwijderen, identiteit instellen)"
+read_when:
+  - Je wilt meerdere geïsoleerde agents (werkruimtes + routing + authenticatie)
 title: "agents"
 ---
 
@@ -70,5 +73,3 @@ Config-voorbeeld:
   },
 }
 ```
-
-

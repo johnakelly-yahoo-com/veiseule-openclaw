@@ -1,4 +1,8 @@
 ---
+summary: "Guide från start till mål för att köra OpenClaw som en personlig assistent med säkerhetsvarningar"
+read_when:
+  - Introduktion av en ny assistentinstans
+  - Granskning av säkerhets- och behörighetsimplikationer
 title: "Konfigurering av personlig assistent"
 ---
 
@@ -225,5 +229,3 @@ Loggar finns under `/tmp/openclaw/` (standard: `openclaw-YYYY-MM-DD.log`).
 - Windows‑status: [Windows (WSL2)](/platforms/windows)
 - Linux‑status: [Linux app](/platforms/linux)
 - Säkerhet: [Security](/gateway/security)
-
-

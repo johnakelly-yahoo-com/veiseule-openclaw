@@ -8,12 +8,12 @@ title: "Pi 整合架構"
 
 ## 概覽
 
-OpenClaw 使用 pi SDK，將 AI 程式設計代理程式嵌入其訊息 Gateway 閘道器架構中。OpenClaw 並非以子行程方式啟動 pi，或使用 RPC 模式，而是透過 `createAgentSession()` 直接匯入並實例化 pi 的 `AgentSession`。此種嵌入式方式提供： Instead of spawning pi as a subprocess or using RPC mode, OpenClaw directly imports and instantiates pi's `AgentSession` via `createAgentSession()`. This embedded approach provides:
+OpenClaw 使用 pi SDK，將 AI 程式設計代理程式嵌入其訊息 Gateway 閘道器架構中。OpenClaw 並非以子行程方式啟動 pi，或使用 RPC 模式，而是透過 `createAgentSession()` 直接匯入並實例化 pi 的 `AgentSession`。此種嵌入式方式提供： OpenClaw 使用 pi SDK，將 AI 程式設計代理程式嵌入其訊息 Gateway 閘道器架構中。OpenClaw 並非以子行程方式啟動 pi，或使用 RPC 模式，而是透過 `createAgentSession()` 直接匯入並實例化 pi 的 `AgentSession`。此種嵌入式方式提供： Instead of spawning pi as a subprocess or using RPC mode, OpenClaw directly imports and instantiates pi's `AgentSession` via `createAgentSession()`. This embedded approach provides:
 
 - 對工作階段生命週期與事件處理的完整控制
 - 自訂工具注入（訊息、沙箱、頻道專屬動作）
 - 依頻道／情境調整的系統提示
-- 具備分支／壓縮支援的工作階段持久化
+- Session persistence with branching/compaction support
 - 具備故障轉移的多帳號驗證設定檔輪替
 - 與供應商無關的模型切換
 
@@ -242,7 +242,7 @@ SDK 會處理完整的代理程式迴圈：傳送至 LLM、執行工具呼叫、
 
 ### 工具定義轉接器
 
-pi-agent-core 的 `AgentTool` 與 pi-coding-agent 的 `ToolDefinition` 在 `execute` 簽章上不同。位於 `pi-tool-definition-adapter.ts` 的轉接器負責銜接兩者： The adapter in `pi-tool-definition-adapter.ts` bridges this:
+pi-agent-core 的 `AgentTool` 與 pi-coding-agent 的 `ToolDefinition` 在 `execute` 簽章上不同。位於 `pi-tool-definition-adapter.ts` 的轉接器負責銜接兩者： The adapter in `pi-tool-definition-adapter.ts` bridges this: The adapter in `pi-tool-definition-adapter.ts` bridges this:
 
 ```typescript
 export function toToolDefinitions(tools: AnyAgentTool[]): ToolDefinition[] {
@@ -289,7 +289,7 @@ applySystemPromptOverrideToSession(session, systemPromptOverride);
 
 ### 工作階段檔案
 
-工作階段為具備樹狀結構（id/parentId 連結）的 JSONL 檔案。pi 的 `SessionManager` 負責持久化： Pi's `SessionManager` handles persistence:
+工作階段為具備樹狀結構（id/parentId 連結）的 JSONL 檔案。pi 的 `SessionManager` 負責持久化： 工作階段為具備樹狀結構（id/parentId 連結）的 JSONL 檔案。pi 的 `SessionManager` 負責持久化： Pi's `SessionManager` handles persistence:
 
 ```typescript
 const sessionManager = SessionManager.open(params.sessionFile);
@@ -332,7 +332,7 @@ const authStore = ensureAuthProfileStore(agentDir, { allowKeychainPrompt: false 
 const profileOrder = resolveAuthProfileOrder({ cfg, store: authStore, provider, preferredProfile });
 ```
 
-設定檔在發生故障時會輪替，並追蹤冷卻時間：
+Profiles rotate on failures with cooldown tracking:
 
 ```typescript
 await markAuthProfileFailure({ store, profileId, reason, cfg, agentDir });
@@ -386,7 +386,7 @@ if (resolveCompactionMode(params.cfg) === "safeguard") {
 }
 ```
 
-### 上下文裁剪
+### Context Pruning
 
 `pi-extensions/context-pruning.ts` 實作基於快取 TTL 的情境修剪：
 
@@ -516,7 +516,7 @@ import { ... } from "@mariozechner/pi-tui";
 | 呼叫方式   | `pi` 指令／RPC                    | 透過 `createAgentSession()` 的 SDK                                                              |
 | 工具     | Default coding tools           | 自訂 OpenClaw 工具套件                                                                             |
 | 系統提示   | AGENTS.md + 提示 | 依頻道／情境動態生成                                                                                   |
-| 工作階段儲存 | `~/.pi/agent/sessions/`        | `~/.openclaw/agents/<agentId>/sessions/`（或 `$OPENCLAW_STATE_DIR/agents/<agentId>/sessions/`） |
+| 工作階段儲存 | `~/.pi/agent/sessions/`        | `~/.openclaw/agents/&lt;agentId&gt;/sessions/`（或 `$OPENCLAW_STATE_DIR/agents/&lt;agentId&gt;/sessions/`） |
 | Auth   | 單一憑證                           | Multi-profile with rotation                                                                  |
 | 擴充     | 從磁碟載入                          | 程式化 + 磁碟路徑                                                                                   |
 | 事件處理   | TUI 繪製                         | 以回呼為基礎（onBlockReply 等）                                                                       |
@@ -610,5 +610,3 @@ import { ... } from "@mariozechner/pi-tui";
 - `src/agents/pi-tools.policy.test.ts`
 - `src/agents/pi-tools.safe-bins.test.ts`
 - `src/agents/pi-tools.workspace-paths.test.ts`
-
-

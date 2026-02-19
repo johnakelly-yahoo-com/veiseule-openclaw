@@ -1,4 +1,9 @@
 ---
+summary: "GCP Compute Engine の VM（Docker）で、永続的な状態を保ちながら OpenClaw Gateway を 24/7 で実行します"
+read_when:
+  - GCP 上で OpenClaw を 24/7 で稼働させたい
+  - 自分の VM 上で本番運用レベルの常時稼働 Gateway が必要
+  - 永続化、バイナリ、再起動挙動を完全に制御したい
 title: "GCP"
 ---
 
@@ -112,7 +117,7 @@ gcloud services enable compute.googleapis.com
 
 **マシンタイプ:**
 
-| タイプ     | Specs               | Cost    | Notes         |
+| タイプ      | Specs               | Cost    | Notes         |
 | -------- | ------------------- | ------- | ------------- |
 | e2-small | 2 vCPU, 2GB RAM     | 約 $12/月 | 推奨            |
 | e2-micro | 2 vCPU（共有）, 1GB RAM | 無料枠対象   | 負荷時に OOM の可能性 |
@@ -405,6 +410,7 @@ Gateway トークンを貼り付けてください。
 OpenClaw は Docker で実行されますが、Docker 自体は真のソースではありません。  
 長期間保持するすべての状態は、再起動・再ビルド・再起動（OS 再起動）後も残る必要があります。
 すべての長寿命の状態は、再起動、再構築、再起動、および再起動を生き残らなければなりません。
+すべての長寿命の状態は、再起動、再構築、再起動、および再起動を生き残らなければなりません。
 
 | コンポーネント          | 場所                                | 永続化の仕組み     | Notes                      |
 | ---------------- | --------------------------------- | ----------- | -------------------------- |
@@ -438,7 +444,7 @@ docker compose up -d
 
 **SSH 接続が拒否される**
 
-VM 作成後、SSH キーの反映に 1～2 分かかることがあります。待ってから再試行してください。 待ち、再試行してください。
+VM 作成後、SSH キーの反映に 1～2 分かかることがあります。待ってから再試行してください。 待ち、再試行してください。 待ち、再試行してください。
 
 **OS Login の問題**
 
@@ -490,7 +496,7 @@ gcloud compute instances start openclaw-gateway --zone=us-central1-a
      --role="roles/compute.instanceAdmin.v1"
    ```
 
-自動化に Owner ロールを使用しないでください。最小権限の原則を適用してください。 最小特権の原則を使用します。
+自動化に Owner ロールを使用しないでください。最小権限の原則を適用してください。 最小特権の原則を使用します。 最小特権の原則を使用します。
 
 IAM ロールの詳細は、[https://cloud.google.com/iam/docs/understanding-roles](https://cloud.google.com/iam/docs/understanding-roles) を参照してください。
 
@@ -501,5 +507,3 @@ IAM ロールの詳細は、[https://cloud.google.com/iam/docs/understanding-rol
 - メッセージングチャンネルを設定: [Channels](/channels)
 - ローカルデバイスをノードとしてペアリング: [Nodes](/nodes)
 - Gateway を設定: [Gateway configuration](/gateway/configuration)
-
-

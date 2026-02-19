@@ -1,4 +1,9 @@
 ---
+summary: "`openclaw browser` uchun CLI ma’lumotnomasi (profilar, tablar, amallar, kengaytma relesi)"
+read_when:
+  - Siz `openclaw browser` dan foydalanasiz va umumiy vazifalar uchun misollarni xohlaysiz
+  - Tugun xosti orqali boshqa mashinada ishlayotgan brauzerni boshqarishni xohlaysiz
+  - Chrome kengaytma relesidan foydalanmoqchisiz (asboblar paneli tugmasi orqali ulash/ajratish)
 title: "browser"
 ---
 
@@ -95,10 +100,8 @@ To‘liq qo‘llanma: [Chrome extension](/tools/chrome-extension)
 
 ## Masofaviy brauzer boshqaruvi (node host proksi)
 
-Agar Gateway brauzerdan boshqa mashinada ishlayotgan bo‘lsa, Chrome/Brave/Edge/Chromium o‘rnatilgan mashinada **node host**ni ishga tushiring. Gateway brauzer amallarini o‘sha node orqali proksi qiladi (alohida brauzer boshqaruv serveri talab qilinmaydi).
+If the Gateway runs on a different machine than the browser, run a **node host** on the machine that has Chrome/Brave/Edge/Chromium. The Gateway will proxy browser actions to that node (no separate browser control server required).
 
 Avtomatik yo‘naltirishni boshqarish uchun `gateway.nodes.browser.mode`dan va bir nechta node ulangan bo‘lsa, aniq node’ni belgilash uchun `gateway.nodes.browser.node`dan foydalaning.
 
 Xavfsizlik + masofaviy sozlash: [Browser tool](/tools/browser), [Remote access](/gateway/remote), [Tailscale](/gateway/tailscale), [Security](/gateway/security)
-
-

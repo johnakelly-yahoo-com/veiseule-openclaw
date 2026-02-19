@@ -1,4 +1,9 @@
-------
+---
+title: "Template ng BOOTSTRAP.md"
+summary: "Ritwal sa unang takbo para sa mga bagong agent"
+read_when:
+  - Manu-manong pag-bootstrapping ng isang workspace
+---
 
 # BOOTSTRAP.md - Hello, World
 
@@ -55,5 +60,3 @@ Gabayán sila sa alinman ang piliin nila.
 ---
 
 3. _Good luck diyan. 4. Gawin mo itong makabuluhan._
-
-

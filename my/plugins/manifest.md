@@ -1,4 +1,8 @@
 ---
+summary: "ပလဂ်အင် မန်နီဖက်စ်နှင့် JSON schema လိုအပ်ချက်များ (တင်းကျပ်သော config စစ်ဆေးခြင်း)"
+read_when:
+  - သင် OpenClaw ပလဂ်အင် တစ်ခုကို တည်ဆောက်နေချိန်
+  - ပလဂ်အင် config schema ကို ပို့ဆောင်ရန် သို့မဟုတ် ပလဂ်အင် စစ်ဆေးမှု အမှားများကို အမှန်တကယ် ခွဲခြမ်းစိတ်ဖြာရန် လိုအပ်သည့်အခါ
 title: "ပလပ်အင် မန်နီဖက်စ်"
 ---
 
@@ -62,5 +66,3 @@ OpenClaw သည် plugin code ကို **မ run ဘဲ** configuration ကိ
 - သင့်ပလဂ်အင်သည် native modules များကို မူတည်နေပါက၊ build လုပ်ငန်းစဉ်များနှင့်
   package-manager allowlist လိုအပ်ချက်များကို မှတ်တမ်းတင်ဖော်ပြပါ (ဥပမာ: pnpm `allow-build-scripts`
   - `pnpm rebuild <package>`)။
-
-

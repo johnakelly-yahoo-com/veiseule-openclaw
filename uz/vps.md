@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw uchun VPS hosting xabi (Oracle/Fly/Hetzner/GCP/exe.dev)"
+read_when:
+  - Siz Gateway’ni bulutda ishga tushirmoqchisiz
+  - Sizga VPS/hosting qo‘llanmalari bo‘yicha tezkor yo‘l xarita kerak
 title: "VPS xostingi"
 ---
 
@@ -16,7 +20,7 @@ deplomentlari yuqori darajada qanday ishlashini tushuntiradi.
 - **Hetzner (Docker)**: [Hetzner](/install/hetzner)
 - **GCP (Compute Engine)**: [GCP](/install/gcp)
 - **exe.dev** (VM + HTTPS proxy): [exe.dev](/install/exe-dev)
-- **AWS (EC2/Lightsail/free tier)**: ham yaxshi ishlaydi. Video qo‘llanma:
+- **AWS (EC2/Lightsail/free tier)**: works well too. Video guide:
   [https://x.com/techfrenAJ/status/2014934471095812547](https://x.com/techfrenAJ/status/2014934471095812547)
 
 ## Bulut sozlamalari qanday ishlaydi
@@ -24,18 +28,16 @@ deplomentlari yuqori darajada qanday ishlashini tushuntiradi.
 - **Gateway VPS’da ishlaydi** va holat + ishchi muhitga egalik qiladi.
 - Siz noutbuk/telefoningizdan **Control UI** yoki **Tailscale/SSH** orqali ulanasiz.
 - VPS’ni yagona ishonchli manba deb hisoblang va holat + ishchi muhitni **zaxiralang**.
-- Xavfsiz standart sozlama: Gateway’ni loopback’da saqlang va unga SSH tunnel yoki Tailscale Serve orqali kiring.
-  Agar siz `lan`/`tailnet`’ga bog‘lasangiz, `gateway.auth.token` yoki `gateway.auth.password` talab qiling.
+- Secure default: keep the Gateway on loopback and access it via SSH tunnel or Tailscale Serve.
+  If you bind to `lan`/`tailnet`, require `gateway.auth.token` or `gateway.auth.password`.
 
 Masofaviy kirish: [Gateway remote](/gateway/remote)  
 Platformalar xabi: [Platforms](/platforms)
 
 ## VPS bilan birga node’lardan foydalanish
 
-Siz Gateway’ni bulutda saqlab, mahalliy qurilmalaringizda **node**’larni
-(Mac/iOS/Android/headless) ulashingiz mumkin. Node’lar mahalliy ekran/kamera/canvas va `system.run`
-imkoniyatlarini taqdim etadi, Gateway esa bulutda qoladi.
+You can keep the Gateway in the cloud and pair **nodes** on your local devices
+(Mac/iOS/Android/headless). Nodes provide local screen/camera/canvas and `system.run`
+capabilities while the Gateway stays in the cloud.
 
 Hujjatlar: [Nodes](/nodes), [Nodes CLI](/cli/nodes)
-
-

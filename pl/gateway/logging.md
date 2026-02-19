@@ -1,4 +1,8 @@
 ---
+summary: "Powierzchnie logowania, logi plikowe, style logów WS i formatowanie konsoli"
+read_when:
+  - Zmiana wyjścia lub formatów logowania
+  - Debugowanie wyjścia CLI lub gateway
 title: "Logowanie"
 ---
 
@@ -107,5 +111,3 @@ Zachowanie:
 - **Treści wiadomości WhatsApp** są logowane na poziomie `debug` (użyj `--verbose`, aby je zobaczyć)
 
 Pozwala to zachować stabilność istniejących logów plikowych, jednocześnie czyniąc interaktywne wyjście czytelnym.
-
-

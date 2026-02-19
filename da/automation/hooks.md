@@ -1,4 +1,8 @@
 ---
+summary: "Hooks: hændelsesdrevet automatisering for kommandoer og livscyklus-hændelser"
+read_when:
+  - Du ønsker hændelsesdrevet automatisering for /new, /reset, /stop og agentens livscyklus-hændelser
+  - Du vil bygge, installere eller fejlfinde hooks
 title: "Hooks"
 ---
 
@@ -99,6 +103,8 @@ Krogpakker er standard npm pakker, der eksporterer en eller flere kroge via `ope
 openclaw hooks install <path-or-spec>
 ```
 
+Npm-specifikationer er kun registry-baserede (pakkenavn + valgfri version/tag). Git/URL/fil-specifikationer afvises.
+
 Eksempel på `package.json`:
 
 ```json
@@ -114,6 +120,10 @@ Eksempel på `package.json`:
 Hver post peger på en krog mappe indeholdende `HOOK.md` og `handler.ts` (eller `index.ts`).
 Krogpakker kan sende afhængigheder; de vil blive installeret under `~/.openclaw/hooks/<id>`.
 
+Sikkerhedsnote: `openclaw hooks install` installerer afhængigheder med `npm install --ignore-scripts`
+(ingen lifecycle-scripts). Hold hook pack-afhængighedstræer "ren JS/TS" og undgå pakker, der er afhængige
+af `postinstall`-builds.
+
 ## Hook-struktur
 
 ### HOOK.md-format
@@ -123,29 +133,29 @@ Filen `HOOK.md` indeholder metadata i YAML-frontmatter plus Markdown-dokumentati
 ```markdown
 ---
 name: my-hook
-description: "Short description of what this hook does"
-homepage: https://docs.openclaw.ai/hooks#my-hook
+description: "Kort beskrivelse af hvad denne hook gør"
+homepage: https://docs.openclaw.ai/automation/hooks#my-hook
 metadata:
   { "openclaw": { "emoji": "🔗", "events": ["command:new"], "requires": { "bins": ["node"] } } }
 ---
 
 # My Hook
 
-Detailed documentation goes here...
+Detaljeret dokumentation findes her...
 
-## What It Does
+## Hvad den gør
 
-- Listens for `/new` commands
-- Performs some action
-- Logs the result
+- Lytter efter `/new`-kommandoer
+- Udfører en handling
+- Logger resultatet
 
-## Requirements
+## Krav
 
-- Node.js must be installed
+- Node.js skal være installeret
 
-## Configuration
+## Konfiguration
 
-No configuration needed.
+Ingen konfiguration nødvendig.
 ```
 
 ### Metadatafelter
@@ -221,12 +231,12 @@ Hver hændelse indeholder:
 
 Udløses, når agentkommandoer udstedes:
 
-- **`command`**: Alle kommandohændelser (generel lytter)
+- **`agent:bootstrap`**: Før workspace-bootstrapfiler injiceres (hooks kan mutere `context.bootstrapFiles`)
 - **`command:new`**: Når kommandoen `/new` udstedes
 - **`command:reset`**: Når kommandoen `/reset` udstedes
 - **`command:stop`**: Når kommandoen `/stop` udstedes
 
-### Agenthændelser
+### Gateway-hændelser
 
 - **`agent:bootstrap`**: Før workspace-bootstrapfiler injiceres (hooks kan mutere `context.bootstrapFiles`)
 
@@ -314,7 +324,7 @@ openclaw hooks enable my-hook
 
 ## Konfiguration
 
-### Nyt konfigurationsformat (anbefalet)
+### Konfiguration pr. hook
 
 ```json
 {
@@ -390,9 +400,11 @@ Det gamle konfigurationsformat fungerer stadig af hensyn til bagudkompatibilitet
 }
 ```
 
+Bemærk: `module` skal være en sti relativ til workspace. Absolutte stier og traversal uden for workspace afvises.
+
 **Migration**: Brug det nye opdagelsesbaserede system til nye kroge. Legacy handlers er indlæst efter mappebaserede kroge.
 
-## CLI-kommandoer
+## Hook-oplysninger
 
 ### List hooks
 
@@ -444,13 +456,13 @@ openclaw hooks disable command-logger
 
 ### session-memory
 
-Gemmer sessionskontekst i hukommelsen, når du udsteder `/new`.
+**Output**: `<workspace>/memory/YYYY-MM-DD-slug.md` (standard er `~/.openclaw/workspace`)
 
-**Hændelser**: `command:new`
+**Hvad den gør**:
 
 **Krav**: `workspace.dir` skal være konfigureret
 
-**Output**: `<workspace>/memory/YYYY-MM-DD-slug.md` (standard er `~/.openclaw/workspace`)
+**Eksempel på output**:
 
 **Hvad den gør**:
 
@@ -475,19 +487,60 @@ Gemmer sessionskontekst i hukommelsen, når du udsteder `/new`.
 - `2026-01-16-api-design.md`
 - `2026-01-16-1430.md` (fallback-tidsstempel, hvis slug-generering mislykkes)
 
-**Aktivér**:
+Logger alle kommandohændelser til en central revisionsfil.
 
 ```bash
 openclaw hooks enable session-memory
 ```
 
+### bootstrap-extra-files
+
+Indsætter yderligere bootstrap-filer (for eksempel monorepo-lokale `AGENTS.md` / `TOOLS.md`) under `agent:bootstrap`.
+
+**Hvad den gør**:
+
+**Krav**: `workspace.dir` skal være konfigureret
+
+**Eksempel på logposter**:
+
+**Konfiguration**:
+
+```json
+{
+  "hooks": {
+    "internal": {
+      "enabled": true,
+      "entries": {
+        "bootstrap-extra-files": {
+          "enabled": true,
+          "paths": ["packages/*/AGENTS.md", "packages/*/TOOLS.md"]
+        }
+      }
+    }
+  }
+}
+```
+
+**Bemærkninger**:
+
+- Stier løses relativt til workspace.
+- Filer skal forblive inden for workspace (realpath-tjekket).
+- Kun genkendte bootstrap-basenavne indlæses.
+- Subagent-allowlist bevares (`AGENTS.md` og `TOOLS.md` kun).
+
+**Aktivér**:
+
+```bash
+openclaw hooks enable bootstrap-extra-files
+```
+
 ### command-logger
 
-Logger alle kommandohændelser til en central revisionsfil.
+**Hændelser**: `agent:bootstrap`
 
-**Hændelser**: `command`
+**Docs**: [SOUL Evil Hook](/hooks/soul-evil)
 
-**Krav**: Ingen
+**Output**: Ingen filer skrives; udskiftninger sker kun i hukommelsen.
 
 **Output**: `~/.openclaw/logs/commands.log`
 
@@ -517,46 +570,10 @@ cat ~/.openclaw/logs/commands.log | jq .
 grep '"action":"new"' ~/.openclaw/logs/commands.log | jq .
 ```
 
-**Aktivér**:
+**Krav**: `workspace.dir` skal være konfigureret
 
 ```bash
 openclaw hooks enable command-logger
-```
-
-### soul-evil
-
-Udskifter injiceret `SOUL.md`-indhold med `SOUL_EVIL.md` under et purge-vindue eller ved tilfældig chance.
-
-**Hændelser**: `agent:bootstrap`
-
-**Docs**: [SOUL Evil Hook](/hooks/soul-evil)
-
-**Output**: Ingen filer skrives; udskiftninger sker kun i hukommelsen.
-
-**Aktivér**:
-
-```bash
-openclaw hooks enable soul-evil
-```
-
-**Konfiguration**:
-
-```json
-{
-  "hooks": {
-    "internal": {
-      "enabled": true,
-      "entries": {
-        "soul-evil": {
-          "enabled": true,
-          "file": "SOUL_EVIL.md",
-          "chance": 0.1,
-          "purge": { "at": "21:00", "duration": "15m" }
-        }
-      }
-    }
-  }
-}
 ```
 
 ### boot-md
@@ -616,7 +633,7 @@ const handler: HookHandler = async (event) => {
 
 ### Filtrér hændelser tidligt
 
-Returnér tidligt, hvis hændelsen ikke er relevant:
+I stedet for:
 
 ```typescript
 const handler: HookHandler = async (event) => {
@@ -629,7 +646,7 @@ const handler: HookHandler = async (event) => {
 };
 ```
 
-### Brug specifikke hændelsesnøgler
+### Fejlfinding
 
 Angiv præcise hændelser i metadata, når det er muligt:
 
@@ -651,6 +668,7 @@ Gatewayen logger indlæsning af hooks ved opstart:
 
 ```
 Registered hook: session-memory -> command:new
+Registered hook: bootstrap-extra-files -> agent:bootstrap
 Registered hook: command-logger -> command
 Registered hook: boot-md -> gateway:startup
 ```
@@ -665,7 +683,7 @@ openclaw hooks list --verbose
 
 ### Tjek registrering
 
-Log i din handler, når den kaldes:
+Se efter manglende krav i outputtet.
 
 ```typescript
 const handler: HookHandler = async (event) => {
@@ -674,9 +692,9 @@ const handler: HookHandler = async (event) => {
 };
 ```
 
-### Verificér egnethed
+### Gateway-logs
 
-Tjek, hvorfor et hook ikke er egnet:
+Overvåg gateway-logs for at se hook-udførelse:
 
 ```bash
 openclaw hooks info my-hook
@@ -718,7 +736,7 @@ test("my handler works", async () => {
 });
 ```
 
-## Arkitektur
+## Hændelsesflow
 
 ### Kernekomponenter
 
@@ -732,7 +750,7 @@ test("my handler works", async () => {
 - **`src/gateway/server-startup.ts`**: Indlæser hooks ved gateway-start
 - **`src/auto-reply/reply/commands-core.ts`**: Udløser kommandohændelser
 
-### Opdagelsesflow
+### Hook ikke opdaget
 
 ```
 Gateway startup
@@ -748,7 +766,7 @@ Load handlers from eligible hooks
 Register handlers for events
 ```
 
-### Hændelsesflow
+### Hook ikke egnet
 
 ```
 User sends /new
@@ -768,27 +786,27 @@ Session reset
 
 ### Hook ikke opdaget
 
-1. Tjek mappestruktur:
+1. Binære filer (tjek PATH)
 
    ```bash
    ls -la ~/.openclaw/hooks/my-hook/
    # Should show: HOOK.md, handler.ts
    ```
 
-2. Verificér HOOK.md-format:
+2. Miljøvariabler
 
    ```bash
    cat ~/.openclaw/hooks/my-hook/HOOK.md
    # Should have YAML frontmatter with name and metadata
    ```
 
-3. List alle opdagede hooks:
+3. Konfigurationsværdier
 
    ```bash
    openclaw hooks list
    ```
 
-### Hook ikke egnet
+### Hook udføres ikke
 
 Tjek krav:
 
@@ -796,14 +814,14 @@ Tjek krav:
 openclaw hooks info my-hook
 ```
 
-Se efter manglende:
+Tjek for TypeScript-/importfejl:
 
 - Binære filer (tjek PATH)
 - Miljøvariabler
 - Konfigurationsværdier
 - OS-kompatibilitet
 
-### Hook udføres ikke
+### Migreringsguide
 
 1. Verificér, at hooket er aktiveret:
 
@@ -910,5 +928,3 @@ node -e "import('./path/to/handler.ts').then(console.log)"
 - [Bundled Hooks README](https://github.com/openclaw/openclaw/tree/main/src/hooks/bundled)
 - [Webhook Hooks](/automation/webhook)
 - [Konfiguration](/gateway/configuration#hooks)
-
-

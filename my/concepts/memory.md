@@ -1,4 +1,10 @@
-------
+---
+title: "Memory"
+summary: "OpenClaw မေမိုရီ အလုပ်လုပ်ပုံ (workspace ဖိုင်များ + အလိုအလျောက် မေမိုရီ ရှင်းထုတ်ခြင်း)"
+read_when:
+  - မေမိုရီ ဖိုင်အလွှာအဆင့်နှင့် လုပ်ငန်းစဉ်ကို သိလိုသောအခါ
+  - အလိုအလျောက် pre-compaction မေမိုရီ ရှင်းထုတ်ခြင်းကို ချိန်ညှိလိုသောအခါ
+---
 
 # Memory
 
@@ -66,12 +72,13 @@ Compaction lifecycle အပြည့်အစုံအတွက်
 
 ## Vector memory search
 
-OpenClaw သည် `MEMORY.md` နှင့် `memory/*.md` အပေါ်တွင် vector index သေးငယ်တစ်ခု တည်ဆောက်နိုင်ပြီး စကားလုံး အသုံးအနှုန်း မတူညီသော်လည်း ဆက်စပ် မှတ်စုများကို semantic query ဖြင့် ရှာတွေ့နိုင်စေသည်။
+Defaults —
 
 Defaults —
 
 - ပုံမှန်အားဖြင့် ဖွင့်ထားသည်။
 - မေမိုရီ ဖိုင် ပြောင်းလဲမှုများကို စောင့်ကြည့်သည် (debounced)။
+- `memorySearch` အထက်တန်းမဟုတ်ဘဲ `agents.defaults.memorySearch` အောက်တွင် memory search ကို ပြင်ဆင်သတ်မှတ်ပါ။
 - 41. Default အနေဖြင့် remote embeddings ကို အသုံးပြုပါသည်။ 42. `memorySearch.provider` ကို မသတ်မှတ်ထားပါက OpenClaw သည် auto-select လုပ်ပါသည်။
   1. `local` ကို `memorySearch.local.modelPath` သတ်မှတ်ထားပြီး ဖိုင် ရှိပါက။
   2. OpenAI key ကို ဖြေရှင်းနိုင်ပါက `openai`။
@@ -109,9 +116,10 @@ Defaults —
   (workspace မေမိုရီ ဖိုင်များကိုပါ ပေါင်းထည့်သည်) ထို့နောက် `qmd update` + `qmd embed` ကို
   boot အချိန်နှင့် သတ်မှတ်နိုင်သော အချိန်အInterval (`memory.qmd.update.interval`,
   ပုံမှန် 5 မိနစ်) တွင် လည်ပတ်စေသည်။
+- gateway သည် ယခု startup အချိန်တွင် QMD manager ကို initialize လုပ်သည်၊ ထို့ကြောင့် ပထမဆုံး `memory_search` ကို ခေါ်မတိုင်မီပင် periodic update timer များကို စတင်ထားပြီး ဖြစ်သည်။
 - Boot refresh ကို ယခု ပုံမှန်အားဖြင့် background တွင် လည်ပတ်စေသဖြင့် chat စတင်မှု မပိတ်ဆို့တော့ပါ။ ယခင်
   blocking အပြုအမူကို ဆက်ထားလိုပါက `memory.qmd.update.waitForBootSync = true` ကို သတ်မှတ်ပါ။
-- ၆။ ရှာဖွေမှုများကို `qmd query --json` ဖြင့် လုပ်ဆောင်သည်။ ၇။ QMD မအောင်မြင်ပါက သို့မဟုတ် binary မရှိပါက၊ OpenClaw သည် builtin SQLite manager သို့ အလိုအလျောက် ပြန်လည်ပြောင်းသုံးပြီး memory tools များ ဆက်လက်အလုပ်လုပ်နိုင်စေရန် ထောက်ပံ့ပေးသည်။
+- Search များကို `memory.qmd.searchMode` (ပုံမှန် `qmd search --json`; ထို့အပြင် `vsearch` နှင့် `query` ကိုလည်း ပံ့ပိုးသည်) မှတစ်ဆင့် လုပ်ဆောင်ပါသည်။ ရွေးချယ်ထားသော mode သည် သင့် QMD build တွင် flags များကို လက်မခံပါက၊ OpenClaw သည် `qmd query` ဖြင့် ပြန်လည်ကြိုးစားပါသည်။ QMD မအောင်မြင်ပါက သို့မဟုတ် binary မရှိပါက၊ OpenClaw သည် builtin SQLite manager သို့ အလိုအလျောက် fallback ပြုလုပ်သဖြင့် memory tools များ ဆက်လက် အလုပ်လုပ်နိုင်ပါသည်။
 - OpenClaw သည် ယနေ့အချိန်တွင် QMD embed batch-size tuning ကို မဖော်ပြပါ။ batch အပြုအမူကို
   QMD ကိုယ်တိုင် ထိန်းချုပ်သည်။
 - **ပထမဆုံး search သည် နှေးကွေးနိုင်သည်**: ပထမဆုံး `qmd query` လည်ပတ်ချိန်တွင် QMD သည် local GGUF models (reranker/query
@@ -126,10 +134,6 @@ Defaults —
     ```bash
     # Pick the same state dir OpenClaw uses
     STATE_DIR="${OPENCLAW_STATE_DIR:-$HOME/.openclaw}"
-    if [ -d "$HOME/.moltbot" ] && [ ! -d "$HOME/.openclaw" ] \
-      && [ -z "${OPENCLAW_STATE_DIR:-}" ]; then
-      STATE_DIR="$HOME/.moltbot"
-    fi
 
     export XDG_CONFIG_HOME="$STATE_DIR/agents/main/qmd/xdg-config"
     export XDG_CACHE_HOME="$STATE_DIR/agents/main/qmd/xdg-cache"
@@ -145,6 +149,7 @@ Defaults —
 **Config surface (`memory.qmd.*`)**
 
 - `command` (ပုံမှန် `qmd`): executable path ကို override လုပ်သည်။
+- `searchMode` (ပုံမှန် `search`): `memory_search` ကို မည်သည့် QMD command ဖြင့် လုပ်ဆောင်မည်ကို ရွေးချယ်ပါ (`search`, `vsearch`, `query`)။
 - `includeDefaultMemory` (ပုံမှန် `true`): `MEMORY.md` + `memory/**/*.md` ကို auto-index လုပ်သည်။
 - `paths[]`: ထပ်မံ directory/file များ ထည့်ရန် (`path`, ရွေးချယ်နိုင်သော `pattern`, တည်ငြိမ်သော
   `name` ကို ရွေးချယ်နိုင်သည်)။
@@ -157,6 +162,9 @@ Defaults —
   `maxInjectedChars`, `timeoutMs`)။
 - ၁၀။ `scope`: [`session.sendPolicy`](/gateway/configuration#session) နှင့် တူညီသော schema ဖြစ်သည်။
   ၁၁။ မူလသတ်မှတ်ချက်မှာ DM-only ဖြစ်သည် (`deny` အားလုံး၊ `allow` direct chats) ဖြစ်ပြီး group/channel များတွင် QMD hits များ ပြသလိုပါက လျော့ပေါ့နိုင်သည်။
+  - `match.keyPrefix` သည် **normalized** session key (စာလုံးအသေးသို့ ပြောင်းထားပြီး၊ မည်သည့် `agent:<id>:` အစရှိသည်ကို ဖယ်ရှားထားသည်) နှင့် ကိုက်ညီမှုရှိသည်။ ဥပမာ - `discord:channel:`။
+  - `match.rawKeyPrefix` သည် `agent:<id>:` ပါဝင်သည့် **raw** session key (စာလုံးအသေးသို့ ပြောင်းထားသည်) နှင့် ကိုက်ညီမှုရှိသည်။ ဥပမာ - `agent:main:discord:`။
+  - Legacy: `match.keyPrefix: "agent:..."` ကို raw-key prefix အဖြစ် ဆက်လက် သတ်မှတ်ဆောင်ရွက်နေဆဲဖြစ်သော်လည်း၊ ပိုမိုရှင်းလင်းစေရန် `rawKeyPrefix` ကို အသုံးပြုရန် အကြံပြုပါသည်။
 - `scope` သည် search ကို ငြင်းပယ်ပါက OpenClaw သည် derived `channel`/`chatType` နှင့်အတူ warning ကို log ထားပြီး အလွတ်ရလဒ်များကို debug လုပ်ရန် လွယ်ကူစေပါသည်။
 - Workspace ပြင်ပမှ ရင်းမြစ်ယူသော snippet များသည်
   `memory_search` ရလဒ်များတွင် `qmd/<collection>/<relative-path>` အဖြစ် ပေါ်လာသည်။ `memory_get` သည် ထို prefix ကို နားလည်ပြီး
@@ -181,7 +189,13 @@ memory: {
     limits: { maxResults: 6, timeoutMs: 4000 },
     scope: {
       default: "deny",
-      rules: [{ action: "allow", match: { chatType: "direct" } }]
+      rules: [
+        { action: "allow", match: { chatType: "direct" } },
+        // Normalized session-key prefix (strips `agent:<id>:`).
+        { action: "deny", match: { keyPrefix: "discord:channel:" } },
+        // Raw session-key prefix (includes `agent:<id>:`).
+        { action: "deny", match: { rawKeyPrefix: "agent:main:discord:" } },
+      ]
     },
     paths: [
       { name: "docs", path: "~/notes", pattern: "**/*.md" }
@@ -260,17 +274,16 @@ agents: {
 }
 ```
 
-API key မသတ်မှတ်လိုပါက `memorySearch.provider = "local"` ကို အသုံးပြုပါ သို့မဟုတ်
-`memorySearch.fallback = "none"` ကို သတ်မှတ်ပါ။
+Fallbacks —
 
 Fallbacks —
 
 - `memorySearch.fallback` သည် `openai`, `gemini`, `local`, သို့မဟုတ် `none` ဖြစ်နိုင်သည်။
 - Fallback provider ကို primary embedding provider မအောင်မြင်သည့်အခါတွင်သာ အသုံးပြုသည်။
 
-Batch indexing (OpenAI + Gemini) —
+Batch indexing (OpenAI + Gemini + Voyage):
 
-- ၁၄။ OpenAI နှင့် Gemini embeddings အတွက် မူလအနေဖြင့် ဖွင့်ထားသည်။ ၁၅။ ပိတ်လိုပါက `agents.defaults.memorySearch.remote.batch.enabled = false` ဟု သတ်မှတ်ပါ။
+- ပုံမှန်အားဖြင့် ပိတ်ထားပါသည်။ အကြီးစား corpus indexing (OpenAI, Gemini နှင့် Voyage) အတွက် ဖွင့်ရန် `agents.defaults.memorySearch.remote.batch.enabled = true` ဟု သတ်မှတ်ပါ။
 - ပုံမှန် အပြုအမူသည် batch ပြီးဆုံးသည်အထိ စောင့်သည်။ လိုအပ်ပါက `remote.batch.wait`, `remote.batch.pollIntervalMs`, နှင့် `remote.batch.timeoutMinutes` ကို ချိန်ညှိပါ။
 - အပြိုင် submit လုပ်မည့် batch jobs အရေအတွက်ကို ထိန်းချုပ်ရန် `remote.batch.concurrency` ကို သတ်မှတ်ပါ (ပုံမှန်: 2)။
 - Batch mode သည် `memorySearch.provider = "openai"` သို့မဟုတ် `"gemini"` ဖြစ်သည့်အခါ အသုံးပြုကာ သက်ဆိုင်ရာ API key ကို အသုံးပြုသည်။
@@ -357,9 +370,9 @@ Local mode —
 
 ၃၂။ Implementation sketch:
 
-1. ၃၃။ နှစ်ဖက်စလုံးမှ candidate pool ကို ရယူပါ:
+1. နှစ်ဘက်စလုံးမှ candidate pool ကို ရယူသည် —
 
-- နှစ်ဘက်စလုံးမှ candidate pool ကို ရယူသည် —
+- **Vector**: cosine similarity အရ ထိပ်ဆုံး `maxResults * candidateMultiplier`။
 - ၃၄။ **BM25**: FTS5 BM25 rank ဖြင့် top `maxResults * candidateMultiplier` (နိမ့်လေလေ ပိုကောင်း)။
 
 2. **Vector**: cosine similarity အရ ထိပ်ဆုံး `maxResults * candidateMultiplier`။
@@ -402,7 +415,9 @@ agents: {
 
 ### Embedding cache
 
-၄၁။ OpenClaw သည် SQLite ထဲတွင် **chunk embeddings** ကို cache လုပ်နိုင်ပြီး reindexing နှင့် မကြာခဏ update များ (အထူးသဖြင့် session transcripts) တွင် မပြောင်းလဲသော စာသားများကို ပြန်လည် embed မလုပ်ရအောင် ကူညီသည်။
+OpenClaw သည် **chunk embedding များကို SQLite တွင် cache လုပ်** နိုင်ပြီး
+reindexing နှင့် မကြာခဏ update များ (အထူးသဖြင့် session transcript များ) တွင်
+မပြောင်းလဲသော စာသားကို ပြန်လည် embed မလုပ်စေရန် ကူညီသည်။
 
 OpenClaw သည် **chunk embedding များကို SQLite တွင် cache လုပ်** နိုင်ပြီး
 reindexing နှင့် မကြာခဏ update များ (အထူးသဖြင့် session transcript များ) တွင်
@@ -500,7 +515,7 @@ agents: {
 
 ### Local embedding auto-download
 
-- Default local embedding model: `hf:ggml-org/embeddinggemma-300M-GGUF/embeddinggemma-300M-Q8_0.gguf` (~0.6 GB).
+- ပုံမှန် local embedding model: `hf:ggml-org/embeddinggemma-300m-qat-q8_0-GGUF/embeddinggemma-300m-qat-Q8_0.gguf` (~0.6 GB)။
 - When `memorySearch.provider = "local"`, `node-llama-cpp` resolves `modelPath`; if the GGUF is missing it **auto-downloads** to the cache (or `local.modelCacheDir` if set), then loads it. Downloads resume on retry.
 - Native build requirement: run `pnpm approve-builds`, pick `node-llama-cpp`, then `pnpm rebuild node-llama-cpp`.
 - Fallback: if local setup fails and `memorySearch.fallback = "openai"`, we automatically switch to remote embeddings (`openai/text-embedding-3-small` unless overridden) and record the reason.
@@ -530,5 +545,3 @@ agents: {
 
 - `remote.*` takes precedence over `models.providers.openai.*`.
 - `remote.headers` merge with OpenAI headers; remote wins on key conflicts. Omit `remote.headers` to use the OpenAI defaults.
-
-

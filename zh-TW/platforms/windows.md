@@ -1,10 +1,14 @@
 ---
+summary: "Windows（WSL2）支援與配套應用程式狀態"
+read_when:
+  - 在 Windows 上安裝 OpenClaw
+  - Looking for Windows companion app status
 title: "Windows（WSL2）"
 ---
 
 # Windows（WSL2）
 
-在 Windows 上執行 OpenClaw 建議**透過 WSL2**（建議使用 Ubuntu）。該
+OpenClaw on Windows is recommended **via WSL2** (Ubuntu recommended). 在 Windows 上執行 OpenClaw 建議**透過 WSL2**（建議使用 Ubuntu）。該
 CLI + Gateway run inside Linux, which keeps the runtime consistent and makes
 tooling far more compatible (Node/Bun/pnpm, Linux binaries, skills). Native
 Windows might be trickier. WSL2 gives you the full Linux experience — one command
@@ -54,6 +58,7 @@ openclaw doctor
 ## 進階：透過 LAN 公開 WSL 服務（portproxy）
 
 WSL 有其自己的虛擬網路。 如果另一台機器需要存取
+在 **WSL 內部** 執行的服務（SSH、本機 TTS 伺服器或 Gateway），你必須將 Windows 連接埠轉送到目前的 WSL IP。 WSL 有其自己的虛擬網路。 如果另一台機器需要存取
 在 **WSL 內部** 執行的服務（SSH、本機 TTS 伺服器或 Gateway），你必須將 Windows 連接埠轉送到目前的 WSL IP。 The WSL IP changes after restarts,
 so you may need to refresh the forwarding rule.
 
@@ -93,7 +98,7 @@ netsh interface portproxy add v4tov4 listenport=$ListenPort listenaddress=0.0.0.
   `openclaw status --all` 進行確認。
 - 使用 `listenaddress=0.0.0.0` 以供 LAN 存取；`127.0.0.1` 則僅限本機。
 - 如果您希望自動執行，請註冊一個排程工作以在登入時執行重新整理
-步驟。
+  步驟。
 
 ## WSL2 逐步安裝
 
@@ -151,6 +156,5 @@ openclaw onboard
 ## Windows 配套應用程式
 
 我們目前尚未提供 Windows 伴隨應用程式。如果您希望
+contributions to make it happen. Contributions are welcome if you want
 contributions to make it happen.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw macOS-kompanjonapp (menyrad + gateway-broker)"
+read_when:
+  - Implementering av macOS-appfunktioner
+  - Ändring av gateway-livscykel eller nodbryggning på macOS
 title: "macOS-app"
 ---
 
@@ -127,6 +131,7 @@ Säkerhet:
 
 - Utan `key` ber appen om bekräftelse.
 - Med en giltig `key` är körningen obevakad (avsedd för personliga automatiseringar).
+- Med en giltig `key` är körningen obevakad (avsedd för personliga automatiseringar).
 
 ## Introduktionsflöde (typiskt)
 
@@ -197,5 +202,3 @@ detaljer, se [Gateway protocol](/gateway/protocol).
 - [Gateway (macOS)](/platforms/mac/bundled-gateway)
 - [macOS‑behörigheter](/platforms/mac/permissions)
 - [Canvas](/platforms/mac/canvas)
-
-

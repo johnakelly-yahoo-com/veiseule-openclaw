@@ -1,4 +1,9 @@
 ---
+summary: "Onderzoeksnotities: offline geheugensysteem voor Clawd-werkruimtes (Markdown als bron van waarheid + afgeleide index)"
+read_when:
+  - Ontwerpen van werkruimtegeheugen (~/.openclaw/workspace) voorbij dagelijkse Markdown-logs
+  - Deciding: "Beslissen: zelfstandige CLI vs diepe OpenClaw-integratie"
+  - Offline terughalen + reflectie toevoegen (retain/recall/reflect)
 title: "Werkruimtegeheugenonderzoek"
 ---
 
@@ -221,5 +226,3 @@ Als je een minimale, toch nuttige versie wilt:
 - Letta / MemGPT-concepten: “core memory blocks” + “archival memory” + tool-gedreven zelfbewerkend geheugen.
 - Hindsight Technical Report: “retain / recall / reflect”, viernetwerkgeheugen, extractie van narratieve feiten, evolutie van opiniebetrouwbaarheid.
 - SuCo: arXiv 2411.14754 (2024): “Subspace Collision” approximate nearest neighbor retrieval.
-
-

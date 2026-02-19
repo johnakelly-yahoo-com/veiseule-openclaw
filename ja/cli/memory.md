@@ -1,9 +1,14 @@
 ---
+summary: "「openclaw memory」（status/index/search）の CLI リファレンスです。"
+read_when:
+  - セマンティックメモリをインデックス化または検索したい場合
+  - メモリの可用性やインデックス作成のデバッグを行っている場合
 title: "メモリ"
 ---
 
 # `openclaw memory`
 
+セマンティックメモリのインデックスと検索を管理します。
 セマンティックメモリのインデックスと検索を管理します。
 セマンティックメモリのインデックス作成と検索を管理します。  
 アクティブなメモリプラグインによって提供されます（デフォルト：`memory-core`。無効化するには `plugins.slots.memory = "none"` を設定してください）。
@@ -40,5 +45,3 @@ openclaw memory index --agent main --verbose
 - `memory status --deep --index` は、ストアがダーティな場合に再インデックスを実行します。
 - `memory index --verbose` は、フェーズごとの詳細（プロバイダー、モデル、ソース、バッチの活動）を出力します。
 - `memory status` には、`memorySearch.extraPaths` を介して設定された追加のパスが含まれます。
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Exec ٹول کا استعمال، stdin موڈز، اور TTY سپورٹ"
+read_when:
+  - Exec ٹول کا استعمال یا ترمیم کرتے وقت
+  - stdin یا TTY کے رویّے کی ڈیبگنگ کرتے وقت
 title: "Exec ٹول"
 ---
 
@@ -23,7 +27,7 @@ Background sessions are scoped per agent; `process` only sees sessions from the 
 - `node` (string): `host=node` کے لیے نوڈ آئی ڈی/نام
 - `elevated` (bool): بلند اختیاراتی موڈ کی درخواست (گیٹ وے ہوسٹ)؛ `security=full` صرف تب لازمی ہوتا ہے جب elevated حل ہو کر `full` بنے
 
-نوٹس:
+Notes:
 
 - `host` بطورِ طے شدہ `sandbox` ہوتا ہے۔
 - sandboxing بند ہونے پر `elevated` نظر انداز کیا جاتا ہے (exec پہلے ہی ہوسٹ پر چلتا ہے)۔
@@ -68,9 +72,9 @@ Example:
 - `host=sandbox`: runs `sh -lc` (login shell) inside the container, so `/etc/profile` may reset `PATH`.
   OpenClaw prepends `env.PATH` after profile sourcing via an internal env var (no shell interpolation);
   `tools.exec.pathPrepend` applies here too.
-- `host=node`: only non-blocked env overrides you pass are sent to the node. `env.PATH` overrides are
-  rejected for host execution. Headless node hosts accept `PATH` only when it prepends the node host
-  PATH (no replacement). macOS nodes drop `PATH` overrides entirely.
+- `host=node`: only non-blocked env overrides you pass are sent to the node. `env.PATH` overrides کو
+  host execution کے لیے مسترد کر دیا جاتا ہے اور node hosts انہیں نظر انداز کرتے ہیں۔ اگر آپ کو کسی node پر اضافی PATH اندراجات درکار ہوں تو
+  node host سروس کا ماحول (systemd/launchd) کنفیگر کریں یا ٹولز کو معیاری مقامات پر انسٹال کریں۔
 
 ہر ایجنٹ کے لیے نوڈ بائنڈنگ (کنفیگ میں ایجنٹ لسٹ انڈیکس استعمال کریں):
 
@@ -113,8 +117,9 @@ running after `tools.exec.approvalRunningNoticeMs`, a single `Exec running` noti
 
 Allowlist enforcement matches **resolved binary paths only** (no basename matches). When
 `security=allowlist`, shell commands are auto-allowed only if every pipeline segment is
-allowlisted or a safe bin. Chaining (`;`, `&&`, `||`) and redirections are rejected in
-allowlist mode.
+allowlisted or a safe bin. Chaining (`;`, `&&`, `||`) اور redirections کو
+allowlist موڈ میں مسترد کر دیا جاتا ہے جب تک ہر top-level حصہ allowlist (بشمول safe bins) پر پورا نہ اترے۔
+Redirections بدستور غیر معاونت یافتہ ہیں۔
 
 ## Examples
 
@@ -171,5 +176,4 @@ Notes:
 - صرف OpenAI/OpenAI Codex ماڈلز کے لیے دستیاب۔
 - ٹول پالیسی بدستور لاگو رہتی ہے؛ `allow: ["exec"]` بالواسطہ طور پر `apply_patch` کی اجازت دیتا ہے۔
 - کنفیگ `tools.exec.applyPatch` کے تحت موجود ہے۔
-
-
+- `tools.exec.applyPatch.workspaceOnly` کا ڈیفالٹ `true` ہے (ورک اسپیس تک محدود)۔ اسے صرف اس صورت میں `false` کریں جب آپ جان بوجھ کر چاہتے ہوں کہ `apply_patch` ورک اسپیس ڈائریکٹری سے باہر لکھے یا حذف کرے۔

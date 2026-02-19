@@ -1,4 +1,9 @@
 ---
+summary: "Plano de refatoração: roteamento do host de exec, aprovações de nó e runner headless"
+read_when:
+  - Ao projetar roteamento do host de exec ou aprovações de exec
+  - Ao implementar runner de nó + IPC de UI
+  - Ao adicionar modos de segurança do host de exec e comandos slash
 title: "Refatoração do Host de Exec"
 ---
 
@@ -91,7 +96,7 @@ Perguntar é **independente** da lista de permissões; a lista pode ser usada co
 - `agents.list[].tools.exec.ask`
 - `agents.list[].tools.exec.node`
 
-### Apelido
+### Alias
 
 - `/elevated on` = definir `tools.exec.host=gateway`, `tools.exec.security=full` para a sessão do agente.
 - `/elevated off` = restaurar configurações anteriores de exec para a sessão do agente.
@@ -309,5 +314,3 @@ Opção B:
 - [Aprovações do Exec](/tools/exec-approvals)
 - [Nós](/nodes)
 - [Modo elevado](/tools/elevated)
-
-

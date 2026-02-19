@@ -1,13 +1,8 @@
 ---
-status: active
 title: 沙箱 CLI
-x-i18n:
-  generated_at: "2026-02-03T07:45:18Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 6e1186f26c77e188206ce5e198ab624d6b38bc7bb7c06e4d2281b6935c39e347
-  source_path: cli/sandbox.md
-  workflow: 15
+summary: "管理沙箱容器并检查生效的沙箱策略"
+read_when: "You are managing sandbox containers or debugging sandbox/tool-policy behavior."
+status: active
 ---
 
 # 沙箱 CLI
@@ -16,7 +11,7 @@ x-i18n:
 
 ## 概述
 
-OpenClaw 可以在隔离的 Docker 容器中运行智能体以确保安全。`sandbox` 命令帮助你管理这些容器，特别是在更新或配置更改后。
+OpenClaw 可以在隔离的 Docker 容器中运行智能体以确保安全。`sandbox` 命令帮助你管理这些容器，特别是在更新或配置更改后。 `sandbox` 命令可帮助你管理这些容器，尤其是在更新或配置变更之后。
 
 ## 命令
 
@@ -45,7 +40,7 @@ openclaw sandbox list --json     # JSON output
 
 - 容器名称和状态（运行中/已停止）
 - Docker 镜像及其是否与配置匹配
-- 创建时间
+- Age (time since creation)
 - 空闲时间（自上次使用以来的时间）
 - 关联的会话/智能体
 
@@ -104,7 +99,7 @@ openclaw sandbox recreate --all
 openclaw sandbox recreate --agent family
 ```
 
-### 仅针对特定智能体
+### For a specific agent only
 
 ```bash
 # Update only one agent's containers
@@ -119,9 +114,10 @@ openclaw sandbox recreate --agent alfred
 - 容器仅在空闲 24 小时后才被清理
 - 经常使用的智能体会无限期保持旧容器运行
 
-**解决方案：** 使用 `openclaw sandbox recreate` 强制移除旧容器。它们会在下次需要时自动使用当前设置重新创建。
+**解决方案：** 使用 `openclaw sandbox recreate` 强制移除旧容器。它们会在下次需要时自动使用当前设置重新创建。 They'll be recreated automatically with current settings when next needed.
 
-提示：优先使用 `openclaw sandbox recreate` 而不是手动 `docker rm`。它使用 Gateway 网关的容器命名规则，避免在作用域/会话键更改时出现不匹配。
+提示：优先使用 `openclaw sandbox recreate` 而不是手动 `docker rm`。它使用 Gateway 网关的容器命名规则，避免在作用域/会话键更改时出现不匹配。 It uses the
+Gateway’s container naming and avoids mismatches when scope/session keys change.
 
 ## 配置
 
@@ -154,5 +150,3 @@ openclaw sandbox recreate --agent alfred
 - [沙箱文档](/gateway/sandboxing)
 - [智能体配置](/concepts/agent-workspace)
 - [Doctor 命令](/gateway/doctor) - 检查沙箱设置
-
-

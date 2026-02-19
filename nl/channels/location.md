@@ -1,4 +1,8 @@
 ---
+summary: "Parseren van inkomende kanaallocaties (Telegram + WhatsApp) en contextvelden"
+read_when:
+  - Het toevoegen of wijzigen van kanaallocatieparsing
+  - Het gebruiken van locatiecontextvelden in agentprompts of tools
 title: "Kanaallocatieparsing"
 ---
 
@@ -50,5 +54,3 @@ Wanneer een locatie aanwezig is, worden deze velden toegevoegd aan `ctx`:
 - **Telegram**: locaties mappen naar `LocationName/LocationAddress`; live locaties gebruiken `live_period`.
 - **WhatsApp**: `locationMessage.comment` en `liveLocationMessage.caption` worden als bijschriftregel toegevoegd.
 - **Matrix**: `geo_uri` wordt geparseerd als een pinlocatie; hoogte wordt genegeerd en `LocationIsLive` is altijd false.
-
-

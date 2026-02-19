@@ -1,4 +1,8 @@
 ---
+summary: "Küresel sesli uyandırma sözcükleri (Gateway sahipli) ve düğümler arasında nasıl senkronize edildikleri"
+read_when:
+  - Sesli uyandırma sözcüklerinin davranışını veya varsayılanlarını değiştirirken
+  - Uyandırma sözcüğü senkronizasyonu gerektiren yeni düğüm platformları eklerken
 title: "Sesli Uyandırma"
 ---
 
@@ -6,7 +10,7 @@ title: "Sesli Uyandırma"
 
 OpenClaw, **uyandırma sözcüklerini Gateway tarafından sahip olunan tek bir küresel liste** olarak ele alır.
 
-- Düğüm başına **özel uyandırma kelimesi yoktur**.
+- There are **no per-node custom wake words**.
 - **Herhangi bir düğüm/uygulama arayüzü listeyi düzenleyebilir**; değişiklikler Gateway tarafından kalıcı hale getirilir ve herkese yayınlanır.
 - Her cihaz, **Sesli Uyandırma etkin/devre dışı** anahtarını ayrı ayrı tutar (yerel UX + izinler farklıdır).
 
@@ -43,7 +47,7 @@ Kimler alır:
 - Tüm WebSocket istemcileri (macOS uygulaması, WebChat vb.)
 - Tüm bağlı düğümler (iOS/Android) ve ayrıca düğüm bağlanırken başlangıç “mevcut durum” iletimi olarak.
 
-## İstemci davranışı
+## Client behavior
 
 ### macOS uygulaması
 
@@ -59,5 +63,3 @@ Kimler alır:
 
 - Ayarlar’da bir Uyandırma Sözcükleri düzenleyicisi sunar.
 - Düzenlemelerin her yerde senkronize olması için Gateway WS üzerinden `voicewake.set` çağrısını yapar.
-
-

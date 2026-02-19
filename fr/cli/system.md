@@ -1,4 +1,9 @@
 ---
+summary: "Reference CLI pour `openclaw system` (evenements systeme, heartbeat, presence)"
+read_when:
+  - Vous souhaitez mettre en file d'attente un evenement systeme sans creer une tache cron
+  - Vous devez activer ou desactiver les heartbeats
+  - Vous souhaitez inspecter les entrees de presence systeme
 title: "system"
 ---
 
@@ -53,5 +58,3 @@ Drapeaux :
 
 - Necessite une Gateway (passerelle) en cours d'execution, accessible via votre configuration actuelle (locale ou distante).
 - Les evenements systeme sont ephemeres et ne sont pas persistants entre les redemarrages.
-
-

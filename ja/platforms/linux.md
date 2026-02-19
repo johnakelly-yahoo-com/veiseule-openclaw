@@ -1,9 +1,14 @@
 ---
+summary: "Linux のサポートおよびコンパニオンアプリの状況"
+read_when:
+  - Linux のコンパニオンアプリの状況を確認したい場合
+  - Planning platform coverage or contribution
 title: "Linux アプリ"
 ---
 
 # Linux アプリ
 
+ゲートウェイは Linux で完全にサポートされています。 **Node は推奨されるランタイムです**
 ゲートウェイは Linux で完全にサポートされています。 **Node は推奨されるランタイムです**
 Bun はゲートウェイ(WhatsApp/Telegramのバグ)には推奨されません。
 
@@ -88,5 +93,3 @@ WantedBy=default.target
 ```
 systemctl --user enable --now openclaw-gateway[-<profile>].service
 ```
-
-

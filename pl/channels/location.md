@@ -1,4 +1,8 @@
 ---
+summary: "Parsowanie lokalizacji kanału przychodzącego (Telegram + WhatsApp) oraz pola kontekstu"
+read_when:
+  - Dodawanie lub modyfikowanie parsowania lokalizacji kanałów
+  - Używanie pól kontekstu lokalizacji w promptach lub narzędziach agentów
 title: "Parsowanie lokalizacji kanału"
 ---
 
@@ -50,5 +54,3 @@ Gdy obecna jest lokalizacja, do `ctx` dodawane są następujące pola:
 - **Telegram**: miejsca (venues) mapowane są do `LocationName/LocationAddress`; lokalizacje na żywo używają `live_period`.
 - **WhatsApp**: `locationMessage.comment` oraz `liveLocationMessage.caption` są dołączane jako linia podpisu.
 - **Matrix**: `geo_uri` jest parsowane jako lokalizacja pinezki; wysokość (altitude) jest ignorowana, a `LocationIsLive` jest zawsze false.
-
-

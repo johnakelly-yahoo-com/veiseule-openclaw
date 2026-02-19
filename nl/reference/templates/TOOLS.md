@@ -1,4 +1,9 @@
-------
+---
+title: "TOOLS.md-sjabloon"
+summary: "Werkruimtesjabloon voor TOOLS.md"
+read_when:
+  - Een werkruimte handmatig opstarten
+---
 
 # TOOLS.md - Lokale notities
 
@@ -40,5 +45,3 @@ Skills worden gedeeld. Jouw setup is van jou. Door ze gescheiden te houden kun j
 ---
 
 Voeg toe wat je helpt om je werk te doen. Dit is jouw spiekbriefje.
-
-

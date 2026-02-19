@@ -1,10 +1,14 @@
 ---
+summary: "OpenClaw bilan Z.AI (GLM modellari) dan foydalaning"
+read_when:
+  - You want Z.AI / GLM models in OpenClaw
+  - You need a simple ZAI_API_KEY setup
 title: "Z.AI"
 ---
 
 # Z.AI
 
-Z.AI — **GLM** modellari uchun API platformasi. U GLM uchun REST APIlar taqdim etadi va API kalitlaridan foydalanadi.
+Z.AI is the API platform for **GLM** models. It provides REST APIs for GLM and uses API keys
 for authentication. Create your API key in the Z.AI console. OpenClaw uses the `zai` provider
 with a Z.AI API key.
 
@@ -30,5 +34,3 @@ openclaw onboard --zai-api-key "$ZAI_API_KEY"
 - GLM models are available as `zai/<model>` (example: `zai/glm-4.7`).
 - Model oilasi haqida umumiy ma’lumot uchun [/providers/glm](/providers/glm) ga qarang.
 - Z.AI API kalitingiz bilan Bearer auth dan foydalanadi.
-
-

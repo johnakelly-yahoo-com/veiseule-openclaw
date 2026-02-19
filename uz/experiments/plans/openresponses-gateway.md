@@ -1,4 +1,5 @@
 ---
+summary: "Reja: OpenResponses /v1/responses endpointini qo‘shish va chat completions’ni toza tarzda eskirtirish"
 owner: "openclaw"
 status: "qoralama"
 last_updated: "2026-01-19"
@@ -120,5 +121,3 @@ Ajratib olingan asosiy nuqtalar:
 
 - `/v1/responses` dan foydalanish va misollar uchun yangi hujjatlar sahifasini qo‘shish.
 - `/gateway/openai-http-api` ni meros (legacy) eslatmasi va `/v1/responses` ga yo‘naltirish bilan yangilash.
-
-

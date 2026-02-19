@@ -1,4 +1,9 @@
 ---
+summary: "Geïntegreerde browserbesturingsservice + actieopdrachten"
+read_when:
+  - Browserautomatisering toevoegen die door een agent wordt bestuurd
+  - Debuggen waarom OpenClaw interfereert met je eigen Chrome
+  - Browserinstellingen + levenscyclus implementeren in de macOS-app
 title: "Browser (door OpenClaw beheerd)"
 ---
 
@@ -187,6 +192,7 @@ Notities:
 Sleutel ideeën:
 
 - Browserbesturing is alleen loopback; toegang loopt via de Gateway-authenticatie of node-koppeling.
+- Als browserbesturing is ingeschakeld en er geen authenticatie is geconfigureerd, genereert OpenClaw automatisch `gateway.auth.token` bij het opstarten en slaat dit op in de configuratie.
 - Houd de Gateway en eventuele node-hosts op een privénetwerk (Tailscale); vermijd publieke blootstelling.
 - Behandel remote CDP-URL’s/tokens als geheimen; gebruik bij voorkeur env vars of een secrets manager.
 
@@ -311,6 +317,11 @@ Alleen voor lokale integraties stelt de Gateway een kleine loopback HTTP-API bes
 
 Alle endpoints accepteren `?profile=<name>`.
 
+Als gateway-authenticatie is geconfigureerd, vereisen browser-HTTP-routes ook authenticatie:
+
+- `Authorization: Bearer <gateway token>`
+- `x-openclaw-password: <gateway password>` of HTTP Basic-authenticatie met dat wachtwoord
+
 ### Playwright-vereiste
 
 Sommige functies (navigeren/acteren/AI-snapshot/rolesnapshot, elementscreenshots, PDF)
@@ -434,6 +445,11 @@ Notities:
 
 - `upload` en `dialog` zijn **arming**-aanroepen; voer ze uit vóór de klik/toets
   die de chooser/dialog triggert.
+- Download- en trace-uitvoerpaden zijn beperkt tot OpenClaw temp-roots:
+  - Stroom:
+  - downloads: `/tmp/openclaw/downloads` (fallback: `${os.tmpdir()}/openclaw/downloads`)
+- Uploadpaden zijn beperkt tot een OpenClaw temp-uploads-root:
+  - uploads: `/tmp/openclaw/uploads` (fallback: `${os.tmpdir()}/openclaw/uploads`)
 - `upload` kan bestandsinputs ook direct instellen via `--input-ref` of `--element`.
 - `snapshot`:
   - `--format ai` (standaard wanneer Playwright is geïnstalleerd): retourneert een AI-snapshot met numerieke refs (`aria-ref="<n>"`).
@@ -570,5 +586,3 @@ Hoe het wordt gemapt:
   - Als een browser-capabele node is verbonden, kan de tool automatisch daarnaar routeren tenzij je `target="host"` of `target="node"` vastzet.
 
 Dit houdt de agent deterministisch en voorkomt broze selectors.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Opdatering af OpenClaw på en sikker måde (global installation eller fra kilde) samt rollback-strategi"
+read_when:
+  - Opdatering af OpenClaw
+  - Noget går i stykker efter en opdatering
 title: "Opdatering"
 ---
 
@@ -227,5 +231,3 @@ git pull
 - Kør `openclaw doctor` igen og læs outputtet omhyggeligt (det fortæller ofte, hvad løsningen er).
 - Tjek: [Fejlfinding](/gateway/troubleshooting)
 - Spørg i Discord: [https://discord.gg/clawd](https://discord.gg/clawd)
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "OpenClaw Gateway CLI (`openclaw gateway`) — kör, fråga och upptäck gateways"
+read_when:
+  - Köra Gateway från CLI (utveckling eller servrar)
+  - Felsöka Gateway-autentisering, bindningslägen och anslutning
+  - Upptäcka gateways via Bonjour (LAN + tailnet)
 title: "gateway"
 ---
 
@@ -195,5 +200,3 @@ Exempel:
 openclaw gateway discover --timeout 4000
 openclaw gateway discover --json | jq '.beacons[].wsUrl'
 ```
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "Claude Max/Pro စာရင်းသွင်းမှုကို OpenAI နှင့် ကိုက်ညီသော API endpoint အဖြစ် အသုံးပြုရန်"
+read_when:
+  - OpenAI နှင့် ကိုက်ညီသော ကိရိယာများနှင့် Claude Max စာရင်းသွင်းမှုကို အသုံးပြုလိုသောအခါ
+  - Claude Code CLI ကို ခေါက်ပတ်ထားသော local API server တစ်ခုကို အသုံးပြုလိုသောအခါ
+  - API key များအစား စာရင်းသွင်းမှုကို အသုံးပြုပြီး ကုန်ကျစရိတ် ချွေတာလိုသောအခါ
 title: "Claude Max API Proxy"
 ---
 
@@ -85,7 +90,7 @@ OpenClaw ကို custom OpenAI နှင့် ကိုက်ညီသော 
 
 ## ရရှိနိုင်သော မော်ဒယ်များ
 
-| မော်ဒယ် ID          | ချိတ်ဆက်ထားသော မော်ဒယ် |
+| မော်ဒယ် ID        | ချိတ်ဆက်ထားသော မော်ဒယ် |
 | ----------------- | ---------------------- |
 | `claude-opus-4`   | Claude Opus 4          |
 | `claude-sonnet-4` | Claude Sonnet 4        |
@@ -141,5 +146,3 @@ launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.claude-max-api.plist
 
 - [Anthropic provider](/providers/anthropic) - setup-token သို့မဟုတ် API key များဖြင့် Claude ကို Native OpenClaw ဖြင့် ချိတ်ဆက်အသုံးပြုခြင်း
 - [OpenAI provider](/providers/openai) - OpenAI/Codex စာရင်းသွင်းမှုများအတွက်
-
-

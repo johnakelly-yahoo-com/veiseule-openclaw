@@ -1,4 +1,9 @@
 ---
+summary: "OpenProse: .prose-arbetsflöden, snedstreckskommandon och tillstånd i OpenClaw"
+read_when:
+  - Du vill köra eller skriva .prose-arbetsflöden
+  - Du vill aktivera OpenProse-pluginet
+  - Du behöver förstå lagring av tillstånd
 title: "OpenProse"
 ---
 
@@ -127,5 +132,3 @@ Om ditt verktyg tillåter blockering av dessa verktyg kommer OpenProse-program a
 Behandla `.prose`-filer som kod. Granska innan du kör. Använd OpenClaw verktyg tillåten lista och portar godkännande för att kontrollera biverkningar.
 
 För deterministiska, godkännandekontrollerade arbetsflöden, jämför med [Lobster](/tools/lobster).
-
-

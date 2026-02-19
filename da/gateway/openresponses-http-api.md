@@ -1,4 +1,8 @@
 ---
+summary: "Eksponér et OpenResponses-kompatibelt /v1/responses HTTP-endpoint fra Gateway"
+read_when:
+  - Integrering af klienter, der taler OpenResponses API
+  - Du ønsker item-baserede input, klientværktøjskald eller SSE-events
 title: "OpenResponses API"
 ---
 
@@ -24,6 +28,7 @@ Noter:
 
 - Når `gateway.auth.mode="token"`, brug `gateway.auth.token` (eller `OPENCLAW_GATEWAY_TOKEN`).
 - Når `gateway.auth.mode="password"`, brug `gateway.auth.password` (eller `OPENCLAW_GATEWAY_PASSWORD`).
+- Hvis `gateway.auth.rateLimit` er konfigureret, og der opstår for mange auth-fejl, returnerer endpointet `429` med `Retry-After`.
 
 ## Valg af agent
 
@@ -183,6 +188,10 @@ Standardindstillinger for URL-hentning:
 - `files.allowUrl`: `true`
 - `images.allowUrl`: `true`
 - Forespørgsler er beskyttet (DNS-opslag, blokering af private IP’er, redirect-grænser, timeouts).
+- Forespørgsler er beskyttet (DNS-opslag, blokering af private IP’er, redirect-grænser, timeouts).
+- Valgfrie hostname-allowlists understøttes pr. inputtype (`files.urlAllowlist`, `images.urlAllowlist`).
+  - Eksakt host: `"cdn.example.com"`
+  - Wildcard-subdomæner: `"*.assets.example.com"` (matcher ikke apex-domænet)
 
 ## Fil- og billedgrænser (konfiguration)
 
@@ -233,6 +242,7 @@ Standarder kan justeres under `gateway.http.endpoints.responses`:
 Standarder når udeladt:
 
 - `maxBodyBytes`: 20MB
+- `maxUrlParts`: 8
 - `files.maxBytes`: 5MB
 - `files.maxChars`: 200k
 - `files.maxRedirects`: 3
@@ -244,9 +254,16 @@ Standarder når udeladt:
 - `images.maxRedirects`: 3
 - `images.timeoutMs`: 10s
 
+Sikkerhedsnote:
+
+- URL-allowlists håndhæves før fetch og ved redirect-hop.
+- Allowlisting af et hostname omgår ikke blokering af private/interne IP-adresser.
+- For gateways eksponeret mod internettet skal der anvendes netværks-egresskontroller ud over applikationsniveau-beskyttelse.
+  Se [Security](/gateway/security).
+
 ## Streaming (SSE)
 
-Sæt `stream: true` for at modtage Server-Sent Events (SSE):
+Eventtyper, der aktuelt udsendes:
 
 - `Content-Type: text/event-stream`
 - Hver eventlinje er `event: <type>` og `data: <json>`
@@ -265,13 +282,13 @@ Eventtyper, der aktuelt udsendes:
 - `response.completed`
 - `response.failed` (ved fejl)
 
-## Forbrug
-
-`usage` udfyldes, når den underliggende udbyder rapporterer token-tællinger.
-
 ## Fejl
 
 Fejl bruger et JSON-objekt som:
+
+## Fejl
+
+Almindelige tilfælde:
 
 ```json
 { "error": { "message": "...", "type": "invalid_request_error" } }
@@ -311,5 +328,3 @@ curl -N http://127.0.0.1:18789/v1/responses \
     "input": "hi"
   }'
 ```
-
-

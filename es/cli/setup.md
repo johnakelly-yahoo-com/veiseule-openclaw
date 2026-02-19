@@ -1,4 +1,8 @@
 ---
+summary: "Referencia de la CLI para `openclaw setup` (inicializar configuración + espacio de trabajo)"
+read_when:
+  - Está realizando la configuración inicial sin el asistente completo de onboarding
+  - Quiere establecer la ruta predeterminada del espacio de trabajo
 title: "configuración"
 ---
 
@@ -23,5 +27,3 @@ Para ejecutar el asistente mediante setup:
 ```bash
 openclaw setup --wizard
 ```
-
-

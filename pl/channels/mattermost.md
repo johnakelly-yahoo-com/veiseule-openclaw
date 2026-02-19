@@ -1,4 +1,8 @@
 ---
+summary: "Konfiguracja bota Mattermost i konfiguracja OpenClaw"
+read_when:
+  - Konfiguracja Mattermost
+  - Debugowanie routingu Mattermost
 title: "Mattermost"
 ---
 
@@ -132,5 +136,3 @@ Mattermost obsługuje wiele kont w ramach `channels.mattermost.accounts`:
 - Brak odpowiedzi w kanałach: upewnij się, że bot jest w kanale i wspomnij go (oncall), użyj prefiksu wyzwalacza (onchar) lub ustaw `chatmode: "onmessage"`.
 - Błędy uwierzytelniania: sprawdź token bota, bazowy URL oraz czy konto jest włączone.
 - Problemy z wieloma kontami: zmienne środowiskowe mają zastosowanie tylko do konta `default`.
-
-

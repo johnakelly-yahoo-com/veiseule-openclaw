@@ -1,4 +1,8 @@
-------
+---
+summary: "„Agenten-Identitätsdatensatz“"
+read_when:
+  - Manuelles Bootstrapping eines Workspace
+---
 
 # IDENTITY.md – Wer bin ich?
 
@@ -23,5 +27,3 @@ Hinweise:
 
 - Speichern Sie diese Datei im Workspace-Stammverzeichnis als `IDENTITY.md`.
 - Verwenden Sie für Avatare einen Workspace-relativen Pfad wie `avatars/openclaw.png`.
-
-

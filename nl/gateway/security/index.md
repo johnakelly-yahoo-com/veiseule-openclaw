@@ -1,4 +1,7 @@
 ---
+summary: "Beveiligingsoverwegingen en dreigingsmodel voor het draaien van een AI-gateway met shelltoegang"
+read_when:
+  - Bij het toevoegen van functies die de toegang of automatisering vergroten
 title: "Beveiliging"
 ---
 
@@ -42,6 +45,32 @@ Begin met de kleinste toegang die nog werkt en breid die vervolgens uit naarmate
 - **Blootstelling van browserbediening** (remote nodes, relaypoorten, externe CDP-eindpunten).
 - **Lokale schijfhygiëne** (rechten, symlinks, config-includes, paden van “gesynchroniseerde mappen”).
 - **Plugins** (extensies bestaan zonder expliciete toegestane lijst).
+- %%{init: {
+  'theme': 'base',
+  'themeVariables': {
+  'primaryColor': '#ffffff',
+  'primaryTextColor': '#000000',
+  'primaryBorderColor': '#000000',
+  'lineColor': '#000000',
+  'secondaryColor': '#f9f9fb',
+  'tertiaryColor': '#ffffff',
+  'clusterBkg': '#f9f9fb',
+  'clusterBorder': '#000000',
+  'nodeBorder': '#000000',
+  'mainBkg': '#ffffff',
+  'edgeLabelBackground': '#ffffff'
+  }
+  }}%%
+  flowchart TB
+  A["Eigenaar (Peter)"] -- Volledig vertrouwen --> B["AI (Clawd)"]
+  B -- Vertrouwen maar verifiëren --> C["Vrienden in allowlist"]
+  C -- Beperkt vertrouwen --> D["Vreemden"]
+  D -- Geen vertrouwen --> E["Mario die vraagt om find ~"]
+  E -- Absoluut geen vertrouwen 😏 --> F[" "]```
+   %% Het transparante vak is nodig om het onderste label correct weer te geven
+   F:::Class_transparent_box
+  classDef Class_transparent_box fill:transparent, stroke:transparent
+  ```
 - **Modelhygiëne** (waarschuwt wanneer geconfigureerde modellen verouderd lijken; geen harde blokkade).
 
 Als je `--deep` uitvoert, probeert OpenClaw ook een best‑effort live Gateway-probe.
@@ -245,6 +274,9 @@ Wanneer tools zijn ingeschakeld, is het typische risico het exfiltreren van cont
 
 - Een alleen‑lezen of tool‑uitgeschakelde **lezer‑agent** te gebruiken om onbetrouwbare inhoud samen te vatten, en de samenvatting daarna aan je hoofdagent te geven.
 - `web_search` / `web_fetch` / `browser` uit te laten voor tool‑ingeschakelde agents tenzij nodig.
+- Voor OpenResponses URL-invoer (`input_file` / `input_image`), stel strikte
+  `gateway.http.endpoints.responses.files.urlAllowlist` en
+  `gateway.http.endpoints.responses.images.urlAllowlist` in, en houd `maxUrlParts` laag.
 - Sandboxing en strikte tool‑allowlists in te schakelen voor elke agent die onbetrouwbare input aanraakt.
 - Geheimen uit prompts te houden; geef ze via env/config op de gateway‑host door.
 
@@ -320,6 +352,16 @@ De Gateway multiplext **WebSocket + HTTP** op één poort:
 
 - Standaard: `18789`
 - Config/flags/env: `gateway.port`, `--port`, `OPENCLAW_GATEWAY_PORT`
+
+Dit HTTP-oppervlak omvat de Control UI en de canvas-host:
+
+- Control UI (SPA-assets) (standaard basispad `/`)
+- Canvas-host: `/__openclaw__/canvas/` en `/__openclaw__/a2ui/` (willekeurige HTML/JS; behandel als niet-vertrouwde inhoud)
+
+Als je canvas-inhoud in een normale browser laadt, behandel het dan als elke andere niet-vertrouwde webpagina:
+
+- Stel de canvas-host niet bloot aan niet-vertrouwde netwerken/gebruikers.
+- Laat canvas-inhoud niet dezelfde origin delen als geprivilegieerde weboppervlakken, tenzij je de implicaties volledig begrijpt.
 
 Bind‑modus bepaalt waar de Gateway luistert:
 
@@ -408,6 +450,7 @@ Auth‑modi:
 
 - `gateway.auth.mode: "token"`: gedeeld bearer‑token (aanbevolen voor de meeste setups).
 - `gateway.auth.mode: "password"`: wachtwoord‑auth (bij voorkeur instellen via env: `OPENCLAW_GATEWAY_PASSWORD`).
+- `gateway.auth.mode: "trusted-proxy"`: vertrouw op een identity-aware reverse proxy om gebruikers te authenticeren en identiteit via headers door te geven (zie [Trusted Proxy Auth](/gateway/trusted-proxy-auth)).
 
 Rotatie‑checklist (token/wachtwoord):
 
@@ -525,6 +568,11 @@ Je kunt nu al een alleen‑lezen profiel bouwen door te combineren:
 - tool‑allow/deny‑lijsten die `write`, `edit`, `apply_patch`, `exec`, `process`, enz. blokkeren
 
 Mogelijk voegen we later één `readOnlyMode`‑flag toe om deze configuratie te vereenvoudigen.
+
+Aanvullende verhardingsopties:
+
+- `tools.exec.applyPatch.workspaceOnly: true` (standaard): zorgt ervoor dat `apply_patch` niet buiten de werkmap kan schrijven/verwijderen, zelfs wanneer sandboxing is uitgeschakeld. Stel in op `false` alleen als je bewust wilt dat `apply_patch` bestanden buiten de werkmap wijzigt.
+- `tools.fs.workspaceOnly: true` (optioneel): beperkt `read`/`write`/`edit`/`apply_patch`-paden tot de werkmap (handig als je momenteel absolute paden toestaat en één centrale beveiliging wilt).
 
 ### 5. Veilige basis (kopiëren/plakken)
 
@@ -756,30 +804,14 @@ Commit de bijgewerkte `.secrets.baseline` zodra deze de beoogde toestand weerspi
 ## De vertrouwenshiërarchie
 
 ```mermaid
-%%{init: {
-  'theme': 'base',
-  'themeVariables': {
-    'primaryColor': '#ffffff',
-    'primaryTextColor': '#000000',
-    'primaryBorderColor': '#000000',
-    'lineColor': '#000000',
-    'secondaryColor': '#f9f9fb',
-    'tertiaryColor': '#ffffff',
-    'clusterBkg': '#f9f9fb',
-    'clusterBorder': '#000000',
-    'nodeBorder': '#000000',
-    'mainBkg': '#ffffff',
-    'edgeLabelBackground': '#ffffff'
-  }
-}}%%
 flowchart TB
     A["Eigenaar (Peter)"] -- Volledig vertrouwen --> B["AI (Clawd)"]
     B -- Vertrouwen maar verifiëren --> C["Vrienden in allowlist"]
     C -- Beperkt vertrouwen --> D["Vreemden"]
-    D -- Geen vertrouwen --> E["Mario die vraagt om find ~"]
+    D -- Geen vertrouwen --> E["Mario vraagt om find ~"]
     E -- Absoluut geen vertrouwen 😏 --> F[" "]
 
-     %% Het transparante vak is nodig om het onderste label correct weer te geven
+     %% The transparent box is needed to show the bottom-most label correctly
      F:::Class_transparent_box
     classDef Class_transparent_box fill:transparent, stroke:transparent
 ```
@@ -797,5 +829,3 @@ Een kwetsbaarheid in OpenClaw gevonden? Meld dit verantwoord:
 _"Beveiliging is een proces, geen product. Vertrouw ook geen kreeften met shelltoegang."_ — Iemand wijs, waarschijnlijk
 
 🦞🔐
-
-

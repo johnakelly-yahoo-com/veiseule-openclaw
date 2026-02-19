@@ -1,4 +1,8 @@
 ---
+summary: "Поддержка Linux + статус сопутствующего приложения"
+read_when:
+  - Ищете статус сопутствующего приложения для Linux
+  - Планируете покрытие платформ или вклад в разработку
 title: "Приложение для Linux"
 ---
 
@@ -88,5 +92,3 @@ WantedBy=default.target
 ```
 systemctl --user enable --now openclaw-gateway[-<profile>].service
 ```
-
-

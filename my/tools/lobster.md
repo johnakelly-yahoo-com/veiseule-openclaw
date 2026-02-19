@@ -1,6 +1,11 @@
 ---
 title: Lobster
-description: OpenClaw အတွက် Typed workflow runtime — အတည်ပြုချက်ဂိတ်များပါဝင်သော ပေါင်းစည်းနိုင်သည့် ပိုက်လိုင်းများ။---
+summary: "OpenClaw အတွက် ပြန်လည်စတင်နိုင်သော အတည်ပြုချက်ဂိတ်များ ပါဝင်သည့် Typed workflow runtime"
+description: OpenClaw အတွက် Typed workflow runtime — အတည်ပြုချက်ဂိတ်များပါဝင်သော ပေါင်းစည်းနိုင်သည့် ပိုက်လိုင်းများ။
+read_when:
+  - သတ်မှတ်ချက်ပြည့်မီပြီး အဆင့်လိုက်လုပ်ဆောင်ရသော workflow များကို ထင်ရှားသော အတည်ပြုချက်များနှင့်အတူ လိုအပ်ပါက
+  - အစောပိုင်းအဆင့်များကို ပြန်မလုပ်ဘဲ workflow ကို ပြန်လည်စတင်လိုပါက
+---
 
 # Lobster
 
@@ -331,5 +336,3 @@ tool သည် envelope ကို `content` (pretty JSON) နှင့် `detai
 
 - Thread: [https://x.com/plattenschieber/status/2014508656335770033](https://x.com/plattenschieber/status/2014508656335770033)
 - Repo: [https://github.com/bloomedai/brain-cli](https://github.com/bloomedai/brain-cli)
-
-

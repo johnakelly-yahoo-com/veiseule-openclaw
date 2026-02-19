@@ -1,4 +1,9 @@
 ---
+summary: "Dépanner la planification et la livraison des tâches cron et des heartbeats"
+read_when:
+  - Cron ne s’est pas exécuté
+  - Cron s’est exécuté mais aucun message n’a été livré
+  - Le heartbeat semble silencieux ou ignoré
 title: "Dépannage de l’automatisation"
 ---
 
@@ -115,5 +120,3 @@ Liens connexes :
 - [/gateway/heartbeat](/gateway/heartbeat)
 - [/automation/cron-vs-heartbeat](/automation/cron-vs-heartbeat)
 - [/concepts/timezone](/concepts/timezone)
-
-

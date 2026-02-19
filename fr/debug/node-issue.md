@@ -1,4 +1,8 @@
 ---
+summary: Notes et solutions de contournement pour le crash Node + tsx « __name is not a function »
+read_when:
+  - Debogage de scripts de dev Node uniquement ou d’echecs en mode watch
+  - Investigation des crashs du chargeur tsx/esbuild dans OpenClaw
 title: "Crash Node + tsx"
 ---
 
@@ -31,7 +35,7 @@ pnpm install
 node --import tsx src/entry.ts status
 ```
 
-## Reproduction minimale dans le dépôt
+## Minimal repro in repo
 
 ```bash
 node --import tsx scripts/repro/tsx-name-repro.ts
@@ -82,5 +86,3 @@ node --import tsx scripts/repro/tsx-name-repro.ts
 - Reproduire sur Node 22/24 pour confirmer une regression de Node 25.
 - Tester `tsx` nightly ou figer sur une version anterieure si une regression connue existe.
 - Si la reproduction se fait sur Node LTS, deposer un repro minimal en amont avec la trace de pile `__name`.
-
-

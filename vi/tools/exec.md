@@ -1,4 +1,8 @@
 ---
+summary: "Cách dùng công cụ Exec, các chế độ stdin và hỗ trợ TTY"
+read_when:
+  - Khi dùng hoặc chỉnh sửa công cụ exec
+  - Khi gỡ lỗi hành vi stdin hoặc TTY
 title: "Công cụ Exec"
 ---
 
@@ -68,11 +72,11 @@ Ví dụ:
   - macOS: `/opt/homebrew/bin`, `/usr/local/bin`, `/usr/bin`, `/bin`
   - Linux: `/usr/local/bin`, `/usr/bin`, `/bin`
 - `host=sandbox`: chạy `sh -lc` (login shell) bên trong container, vì vậy `/etc/profile` có thể đặt lại `PATH`.
-OpenClaw thêm `env.PATH` vào phía trước sau khi nạp profile thông qua một biến môi trường nội bộ (không nội suy shell);
+  OpenClaw prepends `env.PATH` after profile sourcing via an internal env var (no shell interpolation);
   `tools.exec.pathPrepend` applies here too.
 - `host=node`: chỉ các ghi đè env không bị chặn mà bạn truyền vào mới được gửi tới node. Các ghi đè `env.PATH` bị
-  từ chối cho thực thi trên host. Các node host headless chỉ chấp nhận `PATH` khi nó được thêm tiền tố vào
-  PATH của node host (không thay thế). Các node macOS loại bỏ hoàn toàn các ghi đè `PATH`.
+  từ chối khi thực thi trên host và bị bỏ qua bởi node host. Nếu bạn cần thêm mục PATH trên một node,
+  hãy cấu hình môi trường dịch vụ node host (systemd/launchd) hoặc cài đặt công cụ ở các vị trí tiêu chuẩn.
 
 Ràng buộc node theo từng tác tử (dùng chỉ mục danh sách tác tử trong cấu hình):
 
@@ -96,17 +100,17 @@ Ví dụ:
 
 ## Mô hình ủy quyền
 
-`/exec` chỉ được chấp nhận đối với **người gửi được ủy quyền** (danh sách cho phép kênh/ghép cặp cùng với `commands.useAccessGroups`).
+`/exec` is only honored for **authorized senders** (channel allowlists/pairing plus `commands.useAccessGroups`).
 It updates **session state only** and does not write config. To hard-disable exec, deny it via tool
 policy (`tools.deny: ["exec"]` or per-agent). Host approvals still apply unless you explicitly set
 `security=full` and `ask=off`.
 
 ## Phê duyệt Exec (ứng dụng đồng hành / máy chủ node)
 
-Các agent trong môi trường sandbox có thể yêu cầu phê duyệt cho từng yêu cầu trước khi `exec` chạy trên gateway hoặc máy chủ node.
+Sandboxed agents can require per-request approval before `exec` runs on the gateway or node host.
 See [Exec approvals](/tools/exec-approvals) for the policy, allowlist, and UI flow.
 
-Khi cần phê duyệt, công cụ exec sẽ trả về ngay lập tức với
+When approvals are required, the exec tool returns immediately with
 `status: "approval-pending"` and an approval id. Once approved (or denied / timed out),
 the Gateway emits system events (`Exec finished` / `Exec denied`). If the command is still
 running after `tools.exec.approvalRunningNoticeMs`, a single `Exec running` notice is emitted.
@@ -115,8 +119,9 @@ running after `tools.exec.approvalRunningNoticeMs`, a single `Exec running` noti
 
 Allowlist enforcement matches **resolved binary paths only** (no basename matches). When
 `security=allowlist`, shell commands are auto-allowed only if every pipeline segment is
-allowlisted or a safe bin. Chaining (`;`, `&&`, `||`) and redirections are rejected in
-allowlist mode.
+allowlisted or a safe bin. Chaining (`;`, `&&`, `||`) và chuyển hướng (redirection) sẽ bị từ chối trong
+chế độ allowlist trừ khi mọi segment cấp cao nhất đều đáp ứng allowlist (bao gồm cả safe bins).
+Chuyển hướng (redirection) vẫn không được hỗ trợ.
 
 ## Ví dụ
 
@@ -155,7 +160,7 @@ Dán (mặc định có bao khung):
 
 ## apply_patch (thử nghiệm)
 
-`apply_patch` là một công cụ con của `exec` dùng để chỉnh sửa có cấu trúc trên nhiều tệp.
+`apply_patch` is a subtool of `exec` for structured multi-file edits.
 Enable it explicitly:
 
 ```json5
@@ -173,5 +178,4 @@ Ghi chú:
 - Chỉ khả dụng cho các mô hình OpenAI/OpenAI Codex.
 - Chính sách công cụ vẫn áp dụng; `allow: ["exec"]` ngầm cho phép `apply_patch`.
 - Cấu hình nằm dưới `tools.exec.applyPatch`.
-
-
+- `tools.exec.applyPatch.workspaceOnly` mặc định là `true` (giới hạn trong workspace). Chỉ đặt thành `false` nếu bạn thực sự muốn `apply_patch` ghi/xóa bên ngoài thư mục workspace.

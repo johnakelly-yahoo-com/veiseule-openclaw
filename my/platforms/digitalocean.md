@@ -1,4 +1,8 @@
 ---
+summary: "DigitalOcean ပေါ်တွင် OpenClaw (လွယ်ကူသော အခပေး VPS ရွေးချယ်မှု)"
+read_when:
+  - DigitalOcean ပေါ်တွင် OpenClaw ကို တပ်ဆင်နေချိန်
+  - OpenClaw အတွက် စျေးသက်သာသော VPS hosting ကို ရှာဖွေနေချိန်
 title: "DigitalOcean"
 ---
 
@@ -12,13 +16,13 @@ DigitalOcean ပေါ်တွင် **တစ်လ $6** (သို့မဟု
 
 ## ကုန်ကျစရိတ် နှိုင်းယှဉ်မှု (2026)
 
-| ဝန်ဆောင်မှုပေးသူ     | အစီအစဉ်            | သတ်မှတ်ချက်များ                  | စျေးနှုန်း/လ                                                       | မှတ်ချက်များ                                 |
-| ------------ | --------------- | ---------------------- | -------------------------------------------------------------- | ------------------------------------- |
-| Oracle Cloud | Always Free ARM | up to 4 OCPU, 24GB RAM | $0                                                             | ARM, စွမ်းရည်ကန့်သတ် / စာရင်းသွင်းရာတွင် ထူးခြားချက်များ |
-| Hetzner      | CX22            | 2 vCPU, 4GB RAM        | €3.79 (~$4) | Cheapest paid option                  |
-| DigitalOcean | Basic           | 1 vCPU, 1GB RAM        | $6                                                             | Easy UI, good docs                    |
-| Vultr        | Cloud Compute   | 1 vCPU, 1GB RAM        | $6                                                             | Many locations                        |
-| Linode       | Nanode          | 1 vCPU, 1GB RAM        | $5                                                             | Now part of Akamai                    |
+| ဝန်ဆောင်မှုပေးသူ | အစီအစဉ်         | သတ်မှတ်ချက်များ        | စျေးနှုန်း/လ                                                   | မှတ်ချက်များ                                             |
+| ---------------- | --------------- | ---------------------- | -------------------------------------------------------------- | -------------------------------------------------------- |
+| Oracle Cloud     | Always Free ARM | up to 4 OCPU, 24GB RAM | $0                                                             | ARM, စွမ်းရည်ကန့်သတ် / စာရင်းသွင်းရာတွင် ထူးခြားချက်များ |
+| Hetzner          | CX22            | 2 vCPU, 4GB RAM        | €3.79 (~$4) | Cheapest paid option                                     |
+| DigitalOcean     | Basic           | 1 vCPU, 1GB RAM        | $6                                                             | Easy UI, good docs                                       |
+| Vultr            | Cloud Compute   | 1 vCPU, 1GB RAM        | $6                                                             | Many locations                                           |
+| Linode           | Nanode          | 1 vCPU, 1GB RAM        | $5                                                             | Now part of Akamai                                       |
 
 **Provider ကို ရွေးချယ်ခြင်း:**
 
@@ -205,7 +209,7 @@ tar -czvf openclaw-backup.tar.gz ~/.openclaw ~/.openclaw/workspace
 
 Oracle Cloud သည် **Always Free** ARM instances များကို ပေးထားပြီး၊ ဤနေရာရှိ အခပေးရွေးချယ်မှုများအားလုံးထက် စွမ်းဆောင်ရည် ပိုမိုမြင့်မားသည် — တစ်လ $0 ဖြင့်။
 
-| သင်ရရှိမည့်အရာ    | သတ်မှတ်ချက်များ                          |
+| သင်ရရှိမည့်အရာ    | သတ်မှတ်ချက်များ                |
 | ----------------- | ------------------------------ |
 | **4 OCPUs**       | ARM Ampere A1                  |
 | **24GB RAM**      | လုံလောက်သည်ထက် ပိုများ         |
@@ -256,5 +260,3 @@ free -h
 - [Docker install](/install/docker) — containerized setup
 - [Tailscale](/gateway/tailscale) — လုံခြုံသော အဝေးမှ ဝင်ရောက်ခြင်း
 - [Configuration](/gateway/configuration) — config reference အပြည့်အစုံ
-
-

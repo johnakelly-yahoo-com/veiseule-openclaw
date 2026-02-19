@@ -1,4 +1,9 @@
 ---
+summary: "CLI 백엔드: 로컬 AI CLI 를 통한 텍스트 전용 폴백"
+read_when:
+  - API 프로바이더가 실패할 때 신뢰할 수 있는 폴백이 필요합니다
+  - Claude Code CLI 또는 기타 로컬 AI CLI 를 실행 중이며 이를 재사용하고자 합니다
+  - 세션과 이미지를 지원하면서도 텍스트 전용, 도구 미사용 경로가 필요합니다
 title: "CLI 백엔드"
 ---
 
@@ -213,5 +218,3 @@ OpenClaw 는 또한 `codex-cli` 에 대한 기본값을 제공합니다:
 - **세션 연속성 없음**: `sessionArg` 이 설정되어 있고 `sessionMode` 가
   `none` 이 아닌지 확인하십시오 (Codex CLI 는 현재 JSON 출력으로 재개할 수 없습니다).
 - **이미지가 무시됨**: `imageArg` 을 설정하고 CLI 가 파일 경로를 지원하는지 확인하십시오.
-
-

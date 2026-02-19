@@ -1,4 +1,9 @@
 ---
+summary: "OpenClaw на Raspberry Pi (бюджетная самохостинговая настройка)"
+read_when:
+  - Настройка OpenClaw на Raspberry Pi
+  - Запуск OpenClaw на ARM-устройствах
+  - Создание недорогого постоянно работающего персонального ИИ
 title: "Raspberry Pi"
 ---
 
@@ -351,5 +356,3 @@ echo 'wireless-power off' | sudo tee -a /etc/network/interfaces
 - [Руководство Hetzner](/install/hetzner) — настройка Docker
 - [Tailscale](/gateway/tailscale) — удалённый доступ
 - [Nodes](/nodes) — сопряжение ноутбука/телефона с Pi‑шлюзом Gateway
-
-

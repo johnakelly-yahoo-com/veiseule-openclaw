@@ -1,4 +1,8 @@
 ---
+summary: "Voice Call eklentisi: Twilio/Telnyx/Plivo üzerinden giden + gelen aramalar (eklenti kurulumu + yapılandırma + CLI)"
+read_when:
+  - OpenClaw’dan giden bir sesli arama yapmak istiyorsunuz
+  - voice-call eklentisini yapılandırıyor veya geliştiriyorsunuz
 title: "Voice Call Eklentisi"
 ---
 
@@ -107,6 +111,7 @@ Notlar:
 - Twilio/Telnyx **herkese açık erişilebilir** bir webhook URL’si gerektirir.
 - Plivo **herkese açık erişilebilir** bir webhook URL’si gerektirir.
 - `mock` yerel bir geliştirme sağlayıcısıdır (ağ çağrısı yok).
+- Telnyx, `skipSignatureVerification` true olmadığı sürece `telnyx.publicKey` (veya `TELNYX_PUBLIC_KEY`) gerektirir.
 - `skipSignatureVerification` yalnızca yerel testler içindir.
 - Ngrok ücretsiz katmanını kullanıyorsanız, `publicUrl`’yi tam ngrok URL’sine ayarlayın; imza doğrulaması her zaman zorunludur.
 - `tunnel.allowNgrokFreeTierLoopbackBypass: true`, Twilio webhook’larına **yalnızca** `tunnel.provider="ngrok"` ve `serve.bind` loopback (ngrok yerel ajan) olduğunda geçersiz imzalarla izin verir. Yalnızca yerel geliştirme için kullanın.
@@ -276,5 +281,3 @@ Bu depo, `skills/voice-call/SKILL.md` adresinde eşleşen bir skill dokümanı i
 - `voicecall.speak` (`callId`, `message`)
 - `voicecall.end` (`callId`)
 - `voicecall.status` (`callId`)
-
-

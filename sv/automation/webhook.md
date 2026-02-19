@@ -1,4 +1,8 @@
 ---
+summary: "Webhook-ingång för väckning och isolerade agentkörningar"
+read_when:
+  - Lägga till eller ändra webhook-slutpunkter
+  - Koppla externa system till OpenClaw
 title: "Webhooks"
 ---
 
@@ -70,13 +74,14 @@ Payload:
 
 - `message` **krävs** (string): Prompten eller meddelandet som agenten ska bearbeta.
 - `name` tillval (sträng): Människoläsbart namn för kroken (t.ex., "GitHub"), som används som ett prefix i sessionssammanfattningar.
-- `sessionKey` valfri (sträng): Nyckeln som används för att identifiera agentens session. Standardvärdet är en slumpmässig `hook:<uuid>`. Använda en konsekvent nyckel möjliggör en multi-turn konversation inom krok kontext.
+- `agentId` valfri (sträng): Dirigera denna hook till en specifik agent. Okända ID:n faller tillbaka till standardagenten. När den är satt körs hooken med den lösta agentens arbetsyta och konfiguration.
+- `sessionKey` valfri (sträng): Nyckeln som används för att identifiera agentens session. Som standard avvisas detta fält om inte `hooks.allowRequestSessionKey=true`.
 - `wakeMode` valfri (`now` | `next-heartbeat`): Om ett omedelbart heartbeat ska triggas (standard `now`) eller om man ska vänta till nästa periodiska kontroll.
 - `deliver` valfritt (boolean): Om `true`, kommer agentens svar att skickas till meddelandekanalen. Standard är `true`. Svaren som bara är hjärtslag bekräftelser hoppas automatiskt över.
 - `channel` tillval (sträng): Meddelandekanalen för leverans. En av: `last`, `whatsapp`, `telegram`, `discord`, `slack`, `mattermost` (plugin), `signal`, `imessage`, `msteams`. Standardvärdet är `sista`.
 - `to` tillval (sträng): Mottagarens identifierare för kanalen (t.ex. telefonnummer för WhatsApp/Signal, chatt ID för Telegram, kanal ID för Discord/Slack/Mattermost (plugin), konversation ID för MS Team). Standardvärdet för den sista mottagaren i huvudsessionen.
 - `model` tillval (sträng): Modell åsidosätter (t.ex., `antropic/claude-3-5-sonnet` eller ett alias). Måste vara i den tillåtna modelllistan om begränsad.
-- `thinking` tillval (sträng): Tänkande nivå åsidosätter (t.ex., `low`, `medium`, `high`).
+- `timeoutSeconds` valfri (number): Maximal varaktighet för agentkörningen i sekunder.
 - `timeoutSeconds` valfri (number): Maximal varaktighet för agentkörningen i sekunder.
 
 Effekt:
@@ -84,6 +89,40 @@ Effekt:
 - Kör en **isolerad** agentturn (egen sessionsnyckel)
 - Postar alltid en sammanfattning i **huvud**-sessionen
 - Om `wakeMode=now`, triggar ett omedelbart heartbeat
+
+## `POST /hooks/<name>` (mappad)
+
+`/hooks/agent`-payloadens `sessionKey`-åsidosättningar är inaktiverade som standard.
+
+- Rekommenderat: ange en fast `hooks.defaultSessionKey` och håll begärandeåsidosättningar avstängda.
+- Valfritt: tillåt åsidosättningar i begäran endast vid behov och begränsa prefix.
+
+Rekommenderad konfiguration:
+
+```json5
+{
+  hooks: {
+    enabled: true,
+    token: "${OPENCLAW_HOOKS_TOKEN}",
+    defaultSessionKey: "hook:ingress",
+    allowRequestSessionKey: false,
+    allowedSessionKeyPrefixes: ["hook:"],
+  },
+}
+```
+
+Kompatibilitetskonfiguration (äldre beteende):
+
+```json5
+{
+  hooks: {
+    enabled: true,
+    token: "${OPENCLAW_HOOKS_TOKEN}",
+    allowRequestSessionKey: true,
+    allowedSessionKeyPrefixes: ["hook:"], // starkt rekommenderat
+  },
+}
+```
 
 ### `POST /hooks/<name>` (mappad)
 
@@ -96,10 +135,17 @@ Mappningsalternativ (sammanfattning):
 - `hooks.presets: ["gmail"]` aktiverar den inbyggda Gmail-mappningen.
 - `hooks.mappings` låter dig definiera `match`, `action` och mallar i konfig.
 - `hooks.transformsDir` + `transform.module` laddar en JS/TS-modul för anpassad logik.
+  - `hooks.transformsDir` (om angiven) måste ligga inom transforms-roten i din OpenClaw-konfigurationskatalog (vanligtvis `~/.openclaw/hooks/transforms`).
+  - `transform.module` måste kunna lösas inom den effektiva transforms-katalogen (traverserings-/escape-sökvägar avvisas).
 - Använd `match.source` för att behålla en generisk ingest-slutpunkt (payload-driven routing).
 - TS omvandlar kräver en TS-laddare (t.ex. `bun` eller `tsx`) eller förkompilerade `.js` vid körning.
 - Sätt `deliver: true` + `channel`/`to` på mappningar för att routa svar till en chattyta
   (`channel` är som standard `last` och faller tillbaka till WhatsApp).
+- `agentId` dirigerar hooken till en specifik agent; okända ID:n faller tillbaka till standardagenten.
+- `hooks.allowedAgentIds` begränsar explicit `agentId`-dirigering. Utelämna det (eller inkludera `*`) för att tillåta valfri agent. Ange `[]` för att neka explicit `agentId`-dirigering.
+- `hooks.defaultSessionKey` anger standardsessionen för hook-agentkörningar när ingen explicit nyckel anges.
+- `hooks.allowRequestSessionKey` styr om `/hooks/agent`-payloadar får ange `sessionKey` (standard: `false`).
+- `hooks.allowedSessionKeyPrefixes` begränsar valfritt explicita `sessionKey`-värden från begärandepayloadar och mappningar.
 - `allowUnsafeExternalContent: true` inaktiverar den externa innehållssäkerhetsomslutningen för den hooken
   (farligt; endast för betrodda interna källor).
 - `openclaw webhooks gmail setup` writes `hooks.gmail` config för `openclaw webhooks gmail run`.
@@ -110,6 +156,7 @@ Mappningsalternativ (sammanfattning):
 - `200` för `/hooks/wake`
 - `202` för `/hooks/agent` (asynkron körning startad)
 - `401` vid autentiseringsfel
+- `429` efter upprepade autentiseringsfel från samma klient (kontrollera `Retry-After`)
 - `400` vid ogiltig payload
 - `413` vid för stora payloads
 
@@ -153,9 +200,11 @@ curl -X POST http://127.0.0.1:18789/hooks/gmail \
 
 - Håll hook-slutpunkter bakom loopback, tailnet eller betrodd reverse proxy.
 - Använd en dedikerad hook-token; återanvänd inte gateway-autentiseringstokens.
+- Upprepade autentiseringsfel är hastighetsbegränsade per klientadress för att bromsa brute-force-försök.
+- Om du använder multi-agent-dirigering, ange `hooks.allowedAgentIds` för att begränsa explicit val av `agentId`.
+- Behåll `hooks.allowRequestSessionKey=false` om du inte kräver att anroparen väljer session.
+- Om du aktiverar begärans `sessionKey`, begränsa `hooks.allowedSessionKeyPrefixes` (till exempel `["hook:"]`).
 - Undvik att inkludera känsliga råa payloads i webhook-loggar.
 - Hook payloads behandlas som opålitliga och förpackade med säkerhetsgränser som standard.
   Om du måste inaktivera detta för en specifik krok, sätt `allowUnsafeExternalContent: true`
   i den kroken mappning (farlig).
-
-

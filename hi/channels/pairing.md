@@ -1,4 +1,9 @@
 ---
+summary: "पेयरिंग अवलोकन: कौन आपको DM कर सकता है + कौन से नोड्स शामिल हो सकते हैं"
+read_when:
+  - DM एक्सेस नियंत्रण सेट करते समय
+  - नया iOS/Android नोड पेयर करते समय
+  - OpenClaw की सुरक्षा स्थिति की समीक्षा करते समय
 title: "पेयरिंग"
 ---
 
@@ -96,5 +101,3 @@ openclaw devices reject <requestId>
   - iMessage (लेगेसी): [iMessage](/channels/imessage)
   - Discord: [Discord](/channels/discord)
   - Slack: [Slack](/channels/slack)
-
-

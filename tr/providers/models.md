@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw tarafından desteklenen model sağlayıcıları (LLM'ler)"
+read_when:
+  - Bir model sağlayıcısı seçmek istiyorsanız
+  - LLM kimlik doğrulaması + model seçimi için hızlı kurulum örnekleri istiyorsanız
 title: "Model Sağlayıcısı Hızlı Başlangıç"
 ---
 
@@ -46,5 +50,3 @@ Bkz. [Venice AI](/providers/venice).
 
 Tüm sağlayıcı kataloğu (xAI, Groq, Mistral vb.) ve gelişmiş yapılandırma için
 bkz. [Model sağlayıcıları](/concepts/model-providers).
-
-

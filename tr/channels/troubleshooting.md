@@ -1,4 +1,8 @@
 ---
+summary: "Kanal başına hata imzaları ve düzeltmelerle hızlı kanal düzeyi sorun giderme"
+read_when:
+  - Kanal taşıması bağlı diyor ancak yanıtlar başarısız
+  - Sağlayıcı belgelerine derinlemesine geçmeden önce kanala özgü kontroller gerekir
 title: "Kanal Sorun Giderme"
 ---
 
@@ -28,7 +32,7 @@ Sağlıklı temel durum:
 
 ### WhatsApp hata imzaları
 
-| Belirti                                | En hızlı kontrol                                                      | Çözüm                                                                                           |
+| Symptom                                | En hızlı kontrol                                                      | Çözüm                                                                                           |
 | -------------------------------------- | --------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | Bağlı ancak DM yanıtları yok           | `openclaw pairing list whatsapp`                                      | Göndereni onaylayın veya DM politikasını/izin listesini değiştirin.             |
 | Grup mesajları yok sayılıyor           | Yapılandırmadaki `requireMention` + bahsetme kalıplarını kontrol edin | Botu etiketleyin veya o grup için bahsetme politikasını gevşetin.               |
@@ -40,11 +44,12 @@ Ayrıntılı sorun giderme: [/channels/whatsapp#troubleshooting-quick](/channels
 
 ### Telegram hata imzaları
 
-| Belirti                                       | En hızlı kontrol                                         | Çözüm                                                                                           |
-| --------------------------------------------- | -------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `/start` ancak kullanılabilir yanıt akışı yok | `openclaw pairing list telegram`                         | Eşleştirmeyi onaylayın veya DM politikasını değiştirin.                         |
-| Bot çevrimiçi ama grup sessiz                 | Bahsetme gereksinimini ve bot gizlilik modunu doğrulayın | Grup görünürlüğü için gizlilik modunu devre dışı bırakın veya botu etiketleyin. |
-| Ağ hatalarıyla gönderim başarısızlıkları             | Telegram API çağrı hataları için günlükleri inceleyin    | DNS/IPv6/proxy yönlendirmesini `api.telegram.org` için düzeltin.                |
+| Symptom                                       | En hızlı kontrol                                         | Çözüm                                                                                                                        |
+| --------------------------------------------- | -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `/start` ancak kullanılabilir yanıt akışı yok | `openclaw pairing list telegram`                         | Eşleştirmeyi onaylayın veya DM politikasını değiştirin.                                                      |
+| Bot çevrimiçi ama grup sessiz                 | Bahsetme gereksinimini ve bot gizlilik modunu doğrulayın | Grup görünürlüğü için gizlilik modunu devre dışı bırakın veya botu etiketleyin.                              |
+| Ağ hatalarıyla gönderim başarısızlıkları      | Telegram API çağrı hataları için günlükleri inceleyin    | DNS/IPv6/proxy yönlendirmesini `api.telegram.org` için düzeltin.                                             |
+| Yükseltildi ve allowlist sizi engelliyor      | `openclaw security audit` ve yapılandırma izin listeleri | `openclaw doctor --fix` komutunu çalıştırın veya `@username` yerine sayısal gönderici kimliklerini kullanın. |
 
 Ayrıntılı sorun giderme: [/channels/telegram#troubleshooting](/channels/telegram#troubleshooting)
 
@@ -103,12 +108,10 @@ Ayrıntılı sorun giderme: [/channels/signal#troubleshooting](/channels/signal#
 
 ### Matrix hata imzaları
 
-| Belirti                                        | En hızlı kontrol                                   | Çözüm                                                                                       |
+| Symptom                                        | En hızlı kontrol                                   | Çözüm                                                                                       |
 | ---------------------------------------------- | -------------------------------------------------- | ------------------------------------------------------------------------------------------- |
 | Giriş yapılmış ama oda mesajlarını yok sayıyor | `openclaw channels status --probe`                 | `groupPolicy` ve oda izin listesini kontrol edin.                           |
 | DM'ler işlenmiyor                              | `openclaw pairing list matrix`                     | Göndereni onaylayın veya DM politikasını ayarlayın.                         |
 | Şifreli odalar başarısız                       | Kripto modülünü ve şifreleme ayarlarını doğrulayın | Şifreleme desteğini etkinleştirin ve odaya yeniden katılın/senkronize edin. |
 
 Ayrıntılı sorun giderme: [/channels/matrix#troubleshooting](/channels/matrix#troubleshooting)
-
-

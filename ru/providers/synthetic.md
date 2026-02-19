@@ -1,4 +1,8 @@
 ---
+summary: "Используйте Anthropic-совместимый API Synthetic в OpenClaw"
+read_when:
+  - Вы хотите использовать Synthetic как провайдера моделей
+  - Вам нужен ключ API Synthetic или настройка базового URL
 title: "Synthetic"
 ---
 
@@ -7,7 +11,7 @@ title: "Synthetic"
 Synthetic предоставляет Anthropic-совместимые эндпоинты. OpenClaw регистрирует его
 как провайдера `synthetic` и использует Anthropic Messages API.
 
-## Быстрая настройка
+## Quick setup
 
 1. Задайте `SYNTHETIC_API_KEY` (или запустите мастер ниже).
 2. Запустите онбординг:
@@ -93,5 +97,3 @@ synthetic/hf:MiniMaxAI/MiniMax-M2.1
 - Если вы включаете список разрешённых моделей (`agents.defaults.models`), добавьте каждую модель,
   которую планируете использовать.
 - См. [Model providers](/concepts/model-providers) для правил провайдеров.
-
-

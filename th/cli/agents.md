@@ -1,4 +1,7 @@
 ---
+summary: "เอกสารอ้างอิงCLIสำหรับ `openclaw agents` (list/add/delete/set identity)"
+read_when:
+  - คุณต้องการเอเจนต์หลายตัวที่แยกจากกัน (เวิร์กสเปซ + การกำหนดเส้นทาง + การยืนยันตัวตน)
 title: "เอเจนต์"
 ---
 
@@ -70,5 +73,3 @@ openclaw agents set-identity --agent main --name "OpenClaw" --emoji "🦞" --ava
   },
 }
 ```
-
-

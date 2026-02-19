@@ -1,4 +1,8 @@
 ---
+summary: "NIP-04 şifreli mesajlar üzerinden Nostr DM kanalı"
+read_when:
+  - OpenClaw’ın Nostr üzerinden DM almasını istiyorsunuz
+  - Merkeziyetsiz mesajlaşma kuruyorsunuz
 title: "Nostr"
 ---
 
@@ -67,14 +71,14 @@ export NOSTR_PRIVATE_KEY="nsec1..."
 
 ## Yapılandırma referansı
 
-| Anahtar      | Tür                                                         | Varsayılan                                  | Açıklama                                      |
+| Anahtar      | Type                                                         | Varsayılan                                  | Açıklama                                      |
 | ------------ | ------------------------------------------------------------ | ------------------------------------------- | --------------------------------------------- |
 | `privateKey` | string                                                       | gerekli                                     | `nsec` veya hex formatında özel anahtar       |
 | `relays`     | string[] | `['wss://relay.damus.io', 'wss://nos.lol']` | Relay URL’leri (WebSocket) |
 | `dmPolicy`   | string                                                       | `pairing`                                   | DM erişim politikası                          |
 | `allowFrom`  | string[] | `[]`                                        | İzin verilen gönderen pubkey’leri             |
 | `enabled`    | boolean                                                      | `true`                                      | Kanalı etkinleştir/devre dışı bırak           |
-| `name`       | string                                                       | -                                           | Görünen ad                                  |
+| `name`       | string                                                       | -                                           | Display name                                  |
 | `profile`    | object                                                       | -                                           | NIP-01 profil meta verileri                   |
 
 ## Profil meta verileri
@@ -227,5 +231,3 @@ docker run -p 7777:7777 ghcr.io/hoytech/strfry
 - Yalnızca doğrudan mesajlar (grup sohbetleri yok).
 - Medya ekleri yok.
 - Yalnızca NIP-04 (NIP-17 hediye sarmalı planlanıyor).
-
-

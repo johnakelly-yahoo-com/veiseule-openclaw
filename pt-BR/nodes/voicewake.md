@@ -1,4 +1,8 @@
 ---
+summary: "Palavras de ativação por voz globais (de propriedade do Gateway) e como elas são sincronizadas entre nós"
+read_when:
+  - Alterar o comportamento ou os padrões das palavras de ativação por voz
+  - Adicionar novas plataformas de nós que precisam de sincronização de palavras de ativação
 title: "Ativação por Voz"
 ---
 
@@ -59,5 +63,3 @@ Quem recebe:
 
 - Expõe um editor de Palavras de Ativação em Configurações.
 - Chama `voicewake.set` via WS do Gateway para que as edições sejam sincronizadas em todos os lugares.
-
-

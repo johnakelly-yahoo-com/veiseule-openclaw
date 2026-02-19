@@ -1,4 +1,8 @@
 ---
+summary: "Các bề mặt ghi log, log tệp, kiểu log WS và định dạng console"
+read_when:
+  - Thay đổi đầu ra hoặc định dạng ghi log
+  - Gỡ lỗi đầu ra CLI hoặc gateway
 title: "Ghi log"
 ---
 
@@ -107,5 +111,3 @@ Hành vi:
 - **Nội dung tin nhắn WhatsApp** được ghi log ở mức `debug` (dùng `--verbose` để xem)
 
 Điều này giữ cho log tệp hiện có ổn định trong khi làm cho đầu ra tương tác dễ quét hơn.
-
-

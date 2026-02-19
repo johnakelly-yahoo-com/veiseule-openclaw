@@ -1,8 +1,11 @@
 ---
+summary: "OpenClaw 在各通道、路由、媒體與使用者體驗方面的能力。"
+read_when:
+  - 你想要完整清單以了解 OpenClaw 支援的功能
 title: "功能"
 ---
 
-## 重點特色
+## Highlights
 
 <Columns>
   <Card title="Channels" icon="message-square">
@@ -18,7 +21,7 @@ title: "功能"
   
 </Card>
   <Card title="Media" icon="image">
-支援影像、音訊與文件的輸入與輸出。
+    Images, audio, and documents in and out.
   
 </Card>
   <Card title="Apps and UI" icon="monitor">
@@ -36,7 +39,7 @@ title: "功能"
 - 透過 WhatsApp Web（Baileys）的 WhatsApp 整合
 - Telegram 機器人支援（grammY）
 - Discord 機器人支援（channels.discord.js）
-- 支援 Mattermost 機器人（外掛）
+- Mattermost bot support (plugin)
 - 透過本機 imsg CLI（macOS）的 iMessage 整合
 - 以 RPC 模式為 Pi 提供代理程式橋接，支援工具串流
 - 長回應的串流與分段處理
@@ -51,8 +54,8 @@ title: "功能"
 - 具備配對、Canvas、聊天與相機的 Android 節點
 
 <Note>
+Legacy Claude, Codex, Gemini, and Opencode paths have been removed. 
 已移除舊版 Claude、Codex、Gemini 與 Opencode 路徑。Pi 是唯一的
 coding agent path.
+
 </Note>
-
-

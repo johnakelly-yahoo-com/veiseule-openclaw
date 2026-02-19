@@ -1,4 +1,7 @@
 ---
+summary: "Ciclo de vida del bucle del agente, streams y semántica de espera"
+read_when:
+  - Necesita un recorrido exacto del bucle del agente o de los eventos del ciclo de vida
 title: "Bucle del agente"
 ---
 
@@ -141,5 +144,3 @@ Vea [Plugins](/tools/plugin#plugin-hooks) para la API de hooks y los detalles de
 - AbortSignal (cancelación)
 - Desconexión del Gateway o timeout del RPC
 - Timeout de `agent.wait` (solo espera, no detiene al agente)
-
-

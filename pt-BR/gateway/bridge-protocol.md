@@ -1,4 +1,9 @@
 ---
+summary: "Protocolo de bridge (nós legados): TCP JSONL, pareamento, RPC com escopo"
+read_when:
+  - Criando ou depurando clientes de nó (modo nó iOS/Android/macOS)
+  - Investigando falhas de pareamento ou autenticação da bridge
+  - Auditando a superfície de nó exposta pelo gateway
 title: "Protocolo de Bridge"
 ---
 
@@ -30,7 +35,9 @@ As chaves de configuração legadas `bridge.*` não fazem mais parte do esquema 
 - A porta padrão legada do listener era `18790` (as builds atuais não iniciam uma bridge TCP).
 
 Quando o TLS está habilitado, os registros TXT de descoberta incluem `bridgeTls=1` além de
-`bridgeTlsSha256` para que os nós possam fixar o certificado.
+`bridgeTlsSha256` para que os nós possam fixar o certificado. Observe que os registros TXT do Bonjour/mDNS são
+não autenticados; os clientes não devem tratar a impressão digital anunciada como um
+pin autoritativo sem intenção explícita do usuário ou outra verificação fora de banda.
 
 ## Handshake + pareamento
 
@@ -81,5 +88,3 @@ Campos do payload (todos opcionais, salvo indicação):
 ## Versionamento
 
 A bridge é atualmente **v1 implícita** (sem negociação de min/max). Espera-se compatibilidade retroativa; adicione um campo de versão do protocolo da bridge antes de qualquer mudança incompatível.
-
-

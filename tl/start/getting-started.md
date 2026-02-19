@@ -1,4 +1,8 @@
 ---
+summary: "I-install ang OpenClaw at patakbuhin ang iyong unang chat sa loob ng ilang minuto."
+read_when:
+  - Unang beses na setup mula sa zero
+  - Gusto mo ang pinakamabilis na daan papunta sa gumaganang chat
 title: "Pagsisimula"
 ---
 
@@ -7,10 +11,10 @@ title: "Pagsisimula"
 Layunin: mula zero hanggang sa unang gumaganang chat na may minimal na setup.
 
 <Info>
-Pinakamabilis na chat: buksan ang Control UI (hindi kailangan ng pag-setup ng channel). Patakbuhin ang `openclaw dashboard`
+Fastest chat: open the Control UI (no channel setup needed). Run `openclaw dashboard`
 and chat in the browser, or open `http://127.0.0.1:18789/` on the
 <Tooltip headline="Gateway host" tip="The machine running the OpenClaw gateway service.">host ng Gateway</Tooltip>.
-Mga Dokumento: [Dashboard](/web/dashboard) at [Control UI](/web/control-ui).
+Docs: [Dashboard](/web/dashboard) and [Control UI](/web/control-ui).
 </Info>
 
 ## Mga paunang kinakailangan
@@ -30,6 +34,10 @@ Suriin ang iyong bersyon ng Node gamit ang `node --version` kung hindi ka sigura
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash
         ```
+      <img
+  src="/assets/install-script.svg"
+  alt="Install Script Process"
+  className="rounded-lg"></img>
       
 </Tab>
       <Tab title="Windows (PowerShell)">
@@ -41,12 +49,14 @@ Suriin ang iyong bersyon ng Node gamit ang `node --version` kung hindi ka sigura
     
 </Tabs>
 
+    ````
     ```
     <Note>
     Iba pang mga paraan ng pag-install at mga kinakailangan: [Install](/install).
     
 </Note>
     ```
+    ````
 
   
 </Step>
@@ -55,21 +65,25 @@ Suriin ang iyong bersyon ng Node gamit ang `node --version` kung hindi ka sigura
     openclaw onboard --install-daemon
     ```
 
+    ````
     ```
     Kino-configure ng wizard ang auth, mga setting ng Gateway, at mga opsyonal na channel.
     Tingnan ang [Onboarding Wizard](/start/wizard) para sa mga detalye.
     ```
+    ````
 
   
 </Step>
   <Step title="Check the Gateway">
     Kung na-install mo ang service, dapat ay tumatakbo na ito:
 
+    `````
     ````
     ```bash
     openclaw gateway status
     ```
     ````
+    `````
 
   
 </Step>
@@ -91,22 +105,26 @@ Kung naglo-load ang Control UI, handa na ang iyong Gateway para gamitin.
   <Accordion title="Run the Gateway in the foreground">
     Kapaki-pakinabang para sa mabilisang mga test o pag-troubleshoot.
 
+    `````
     ````
     ```bash
     openclaw gateway --port 18789
     ```
     ````
+    `````
 
   
 </Accordion>
   <Accordion title="Send a test message">
     Nangangailangan ng naka-configure na channel.
 
+    `````
     ````
     ```bash
     openclaw message send --target +15555550123 --message "Hello from OpenClaw"
     ```
     ````
+    `````
 
   
 </Accordion>
@@ -146,5 +164,3 @@ Buong sanggunian ng environment variable: [Environment vars](/help/environment).
 - Kaligtasan ng DM at mga approval: [Pairing](/channels/pairing)
 - Kumonekta ng mas maraming channel: [Channels](/channels)
 - Mga advanced na workflow at mula sa source: [Setup](/start/setup)
-
-

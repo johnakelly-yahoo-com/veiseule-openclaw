@@ -1,4 +1,9 @@
 ---
+summary: "Exécutez OpenClaw Gateway 24/7 sur une VM GCP Compute Engine (Docker) avec un état persistant"
+read_when:
+  - Vous souhaitez qu’OpenClaw fonctionne 24/7 sur GCP
+  - Vous voulez une Gateway (passerelle) toujours active, de niveau production, sur votre propre VM
+  - Vous voulez un contrôle total sur la persistance, les binaires et le comportement au redémarrage
 title: "GCP"
 ---
 
@@ -109,7 +114,7 @@ gcloud services enable compute.googleapis.com
 
 **Types de machines :**
 
-| Type     | Spécifications                                 | Coût                       | Remarques                |
+| Type     | Spécifications                                 | Coût                       | Remarques            |
 | -------- | ---------------------------------------------- | -------------------------- | -------------------- |
 | e2-small | 2 vCPU, 2 Go RAM                               | ~12 $/mois | Recommandé           |
 | e2-micro | 2 vCPU (partagés), 1 Go RAM | Éligible free tier         | Peut OOM sous charge |
@@ -402,7 +407,7 @@ Collez votre jeton de Gateway.
 OpenClaw s’exécute dans Docker, mais Docker n’est pas la source de vérité.
 Tout l’état de longue durée doit survivre aux redémarrages, reconstructions et redémarrages système.
 
-| Composant                    | Emplacement                       | Mécanisme de persistance   | Remarques                                               |
+| Composant                    | Emplacement                       | Mécanisme de persistance   | Remarques                                           |
 | ---------------------------- | --------------------------------- | -------------------------- | --------------------------------------------------- |
 | Configuration Gateway        | `/home/node/.openclaw/`           | Montage de volume hôte     | Inclut `openclaw.json`, jetons                      |
 | Profils d’auth modèle        | `/home/node/.openclaw/`           | Montage de volume hôte     | Jetons OAuth, clés API                              |
@@ -497,5 +502,3 @@ Voir https://cloud.google.com/iam/docs/understanding-roles pour les détails sur
 - Configurer les canaux de messagerie : [Channels](/channels)
 - Associer des appareils locaux comme nœuds : [Nodes](/nodes)
 - Configurer la Gateway (passerelle) : [Gateway configuration](/gateway/configuration)
-
-

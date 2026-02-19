@@ -1,4 +1,9 @@
 ---
+summary: "Canalización de formato Markdown para canales salientes"
+read_when:
+  - Está cambiando el formato Markdown o el troceado para canales salientes
+  - Está agregando un nuevo formateador de canal o mapeo de estilos
+  - Está depurando regresiones de formato entre canales
 title: "Formato Markdown"
 ---
 
@@ -122,5 +127,3 @@ rangos de estilo SPOILER. Otros canales los tratan como texto plano.
 - Los rangos de estilo de Signal dependen de desplazamientos UTF-16; no use desplazamientos por puntos de código.
 - Preserve las nuevas líneas finales para los bloques de código cercados para que los marcadores de cierre
   queden en su propia línea.
-
-

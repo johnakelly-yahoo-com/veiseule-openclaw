@@ -1,4 +1,7 @@
 ---
+summary: "Outils de session d’agent pour lister les sessions, recuperer l’historique et envoyer des messages inter‑sessions"
+read_when:
+  - Ajout ou modification des outils de session
 title: "Outils de session"
 ---
 
@@ -91,11 +94,12 @@ Comportement :
 - Les executions d’annonce de livraison sont lancees apres l’execution principale et sont « best‑effort » ; `status: "ok"` ne garantit pas que l’annonce a ete livree.
 - L’attente passe par la Gateway (passerelle) `agent.wait` (cote serveur) afin que les reconnexions n’interrompent pas l’attente.
 - Le contexte de message agent‑a‑agent est injecte pour l’execution principale.
-- Apres l’achevement de l’execution principale, OpenClaw lance une **boucle de reponse‑retour** :
+- Les messages inter-session sont persistés avec `message.provenance.kind = "inter_session"` afin que les lecteurs de transcription puissent distinguer les instructions d’agent routées des entrées utilisateur externes.
+- Une fois la boucle terminee, OpenClaw lance l’**etape d’annonce agent‑a‑agent** (agent cible uniquement) :
   - Les tours 2+ alternent entre l’agent demandeur et l’agent cible.
   - Repondez exactement `REPLY_SKIP` pour arreter le ping‑pong.
   - Le nombre maximal de tours est `session.agentToAgent.maxPingPongTurns` (0–5, defaut 5).
-- Une fois la boucle terminee, OpenClaw lance l’**etape d’annonce agent‑a‑agent** (agent cible uniquement) :
+- Apres l’achevement de l’execution principale, OpenClaw lance une **boucle de reponse‑retour** :
   - Repondez exactement `ANNOUNCE_SKIP` pour rester silencieux.
   - Toute autre reponse est envoyee au canal cible.
   - L’etape d’annonce inclut la demande originale + la reponse du tour 1 + la derniere reponse de ping‑pong.
@@ -188,5 +192,3 @@ Configuration :
   },
 }
 ```
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Prise en charge de Windows (WSL2) + statut de l’application compagnon"
+read_when:
+  - Installation d’OpenClaw sur Windows
+  - Recherche du statut de l’application compagnon Windows
 title: "Windows (WSL2)"
 ---
 
@@ -153,5 +157,3 @@ Guide complet : [Premiers pas](/start/getting-started)
 
 Nous n’avons pas encore d’application compagnon Windows. Les contributions sont bienvenues si vous
 souhaitez contribuer à la concrétiser.
-
-

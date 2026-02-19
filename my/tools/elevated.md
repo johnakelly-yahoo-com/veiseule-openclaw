@@ -1,4 +1,7 @@
 ---
+summary: "Elevated exec မုဒ်နှင့် /elevated ညွှန်ကြားချက်များ"
+read_when:
+  - Elevated မုဒ်၏ ပုံမှန်တန်ဖိုးများ၊ allowlist များ သို့မဟုတ် slash command အပြုအမူကို ပြင်ဆင်ချိန်
 title: "မြှင့်တင်ထားသော မုဒ်"
 ---
 
@@ -45,12 +48,10 @@ title: "မြှင့်တင်ထားသော မုဒ်"
 - ပို့သူ allowlist: `tools.elevated.allowFrom` နှင့် provider အလိုက် allowlists များ (ဥပမာ `discord`, `whatsapp`)။
 - အေးဂျင့်အလိုက် gate: `agents.list[].tools.elevated.enabled` (ရွေးချယ်နိုင်သည်; ထပ်မံ ကန့်သတ်နိုင်ခြင်းသာ ရှိသည်)။
 - အေးဂျင့်အလိုက် allowlist: `agents.list[].tools.elevated.allowFrom` (ရွေးချယ်နိုင်သည်; သတ်မှတ်ထားပါက ပို့သူသည် ကမ္ဘာလုံးဆိုင်ရာ + အေးဂျင့်အလိုက် allowlists နှစ်ခုစလုံးနှင့် ကိုက်ညီရပါသည်)။
-- 18. Discord fallback: `tools.elevated.allowFrom.discord` ကို မထည့်ထားပါက `channels.discord.dm.allowFrom` စာရင်းကို fallback အဖြစ် အသုံးပြုပါသည်။ 19. Override လုပ်ရန် `tools.elevated.allowFrom.discord` ကို ( `[]` ပါဝင်သော်လည်း ) သတ်မှတ်ပါ။ 20. Agent တစ်ခုချင်းစီအလိုက် allowlist များသည် fallback ကို **မ** အသုံးပြုပါ။
+- Discord fallback: `tools.elevated.allowFrom.discord` ကို မသတ်မှတ်ထားပါက `channels.discord.allowFrom` စာရင်းကို fallback အဖြစ် အသုံးပြုမည် (legacy: `channels.discord.dm.allowFrom`)။ 19. Override လုပ်ရန် `tools.elevated.allowFrom.discord` ကို ( `[]` ပါဝင်သော်လည်း ) သတ်မှတ်ပါ။ 20. Agent တစ်ခုချင်းစီအလိုက် allowlist များသည် fallback ကို **မ** အသုံးပြုပါ။
 - ဂိတ်အားလုံး ဖြတ်ကျော်ရပါသည်။ မဟုတ်ပါက elevated ကို မရရှိနိုင်ဟု ဆက်ဆံပါသည်။
 
 ## လော့ဂ်မှတ်တမ်း + အခြေအနေ
 
 - Elevated exec ခေါ်ယူမှုများကို info level ဖြင့် မှတ်တမ်းတင်ထားသည်။
 - ဆက်ရှင် status တွင် elevated မုဒ် ပါဝင်သည် (ဥပမာ `elevated=ask`, `elevated=full`)။
-
-

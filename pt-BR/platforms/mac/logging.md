@@ -1,4 +1,8 @@
 ---
+summary: "Registro do OpenClaw: arquivo de diagnóstico rotativo + flags de privacidade do registro unificado"
+read_when:
+  - Captura de logs do macOS ou investigação de registro de dados privados
+  - Depuração de problemas do ciclo de vida de ativação/sessão de voz
 title: "Registro no macOS"
 ---
 
@@ -51,5 +55,3 @@ sudo install -m 644 -o root -g wheel /tmp/bot.molt.plist /Library/Preferences/Lo
 - Remova a substituição: `sudo rm /Library/Preferences/Logging/Subsystems/bot.molt.plist`.
 - Opcionalmente, execute `sudo log config --reload` para forçar o logd a remover a substituição imediatamente.
 - Lembre-se de que essa superfície pode incluir números de telefone e corpos de mensagens; mantenha o plist no lugar apenas enquanto voce precisar ativamente do detalhe extra.
-
-

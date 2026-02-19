@@ -1,4 +1,7 @@
 ---
+summary: "用於列出工作階段、擷取歷史紀錄，以及傳送跨工作階段訊息的代理程式工作階段工具"
+read_when:
+  - 新增或修改工作階段工具
 title: "工作階段工具"
 ---
 
@@ -21,7 +24,7 @@ title: "工作階段工具"
 - Hooks 除非明確設定，否則使用 `hook:<uuid>`。
 - Node 工作階段除非明確設定，否則使用 `node-<nodeId>`。
 
-`global` 與 `unknown` 為保留值，且永不列出。 `global` 與 `unknown` 為保留值，且永遠不會被列出。若為 `session.scope = "global"`，我們會在所有工具中將其別名為 `main`，以確保呼叫端永遠不會看到 `global`。
+`global` 與 `unknown` 為保留值，且永不列出。 `global` 與 `unknown` 為保留值，且永不列出。 `global` 與 `unknown` 為保留值，且永遠不會被列出。若為 `session.scope = "global"`，我們會在所有工具中將其別名為 `main`，以確保呼叫端永遠不會看到 `global`。
 
 ## sessions_list
 
@@ -86,16 +89,17 @@ title: "工作階段工具"
 
 - `timeoutSeconds = 0`：加入佇列並回傳 `{ runId, status: "accepted" }`。
 - `timeoutSeconds > 0`：最多等待 N 秒完成，然後回傳 `{ runId, status: "ok", reply }`。
-- 若等待逾時：`{ runId, status: "timeout", error }`。 若等待逾時：`{ runId, status: "timeout", error }`。執行仍會繼續；可稍後呼叫 `sessions_history`。
+- 若等待逾時：`{ runId, status: "timeout", error }`。 若等待逾時：`{ runId, status: "timeout", error }`。執行仍會繼續；可稍後呼叫 `sessions_history`。 若等待逾時：`{ runId, status: "timeout", error }`。執行仍會繼續；可稍後呼叫 `sessions_history`。
 - 若執行失敗：`{ runId, status: "error", error }`。
 - 宣告（announce）傳遞會在主要執行完成後進行，且為最佳努力；`status: "ok"` 不保證宣告一定送達。
 - 透過 Gateway 閘道器的 `agent.wait`（伺服器端）進行等待，因此重新連線不會中斷等待。
 - 主要執行會注入代理對代理的訊息內容。
-- 主要執行完成後，OpenClaw 會執行 **回覆往返迴圈**：
+- 跨 session 訊息會以 `message.provenance.kind = "inter_session"` 進行持久化，讓對話紀錄讀取器能區分經路由的代理指令與外部使用者輸入。
+- 迴圈結束後，OpenClaw 會執行 **代理程式對代理程式宣告步驟**（僅目標代理程式）：
   - 第 2 輪以上在請求方與目標代理之間交替。
   - 回覆必須完全等於 `REPLY_SKIP` 才會停止來回。
   - 最大回合數為 `session.agentToAgent.maxPingPongTurns`（0–5，預設 5）。
-- 迴圈結束後，OpenClaw 會執行 **代理程式對代理程式宣告步驟**（僅目標代理程式）：
+- 主要執行完成後，OpenClaw 會執行 **回覆往返迴圈**：
   - 回覆必須完全等於 `ANNOUNCE_SKIP` 才會保持靜默。
   - 任何其他回覆都會送到目標頻道。
   - 公告步驟包含原始請求 + 第 1 輪回覆 + 最新的來回回覆。
@@ -152,7 +156,7 @@ title: "工作階段工具"
 
 允許清單：
 
-- `agents.list[].subagents.allowAgents`：透過 `agentId` 允許的代理程式 id 清單（`["*"]` 代表允許任何）。預設：僅請求者代理程式。 預設：僅請求方代理。
+- `agents.list[].subagents.allowAgents`：透過 `agentId` 允許的代理程式 id 清單（`["*"]` 代表允許任何）。預設：僅請求者代理程式。 預設：僅請求方代理。 預設：僅請求方代理。
 
 探索：
 
@@ -188,5 +192,3 @@ title: "工作階段工具"
   },
 }
 ```
-
-

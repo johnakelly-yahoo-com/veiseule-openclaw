@@ -1,4 +1,9 @@
 ---
+summary: "OpenClaw'ı yerel LLM'ler üzerinde çalıştırın (LM Studio, vLLM, LiteLLM, özel OpenAI uç noktaları)"
+read_when:
+  - Kendi GPU sunucunuzdan modeller sunmak istiyorsunuz
+  - LM Studio veya OpenAI uyumlu bir proxy bağlıyorsunuz
+  - En güvenli yerel model rehberliğine ihtiyacınız var
 title: "Yerel Modeller"
 ---
 
@@ -143,5 +148,3 @@ Barındırılan modellerin yedek olarak kullanılabilir kalması için `models.m
 - LM Studio modeli boşaltıldı mı? Yeniden yükleyin; soğuk başlangıç “takılı kalma”nın yaygın bir nedenidir.
 - Bağlam hataları mı? `contextWindow`’ü düşürün veya sunucu limitinizi yükseltin.
 - Güvenli kullanım: yerel modeller sağlayıcı tarafı filtreleri atlar; prompt injection etki alanını sınırlamak için ajanları dar tutun ve sıkıştırmayı açık bırakın.
-
-

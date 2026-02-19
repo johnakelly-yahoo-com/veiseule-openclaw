@@ -1,4 +1,8 @@
 ---
+summary: "Talk モード：ElevenLabs TTS による継続的な音声会話"
+read_when:
+  - macOS / iOS / Android で Talk モードを実装する場合
+  - 音声 / TTS / 割り込みの挙動を変更する場合
 title: "Talk モード"
 ---
 
@@ -84,5 +88,3 @@ Talk モードは、継続的な音声会話ループです。
 - `eleven_v3` 用の `stability` は `0.0`、`0.5`、または `1.0` に検証されます。その他のモデルは `0..1` を受け入れます。
 - `latency_tier` は、設定時に `0..4` に検証されます。
 - Android は、低レイテンシの AudioTrack ストリーミング向けに `pcm_16000`、`pcm_22050`、`pcm_24000`、および `pcm_44100` の出力フォーマットをサポートします。
-
-

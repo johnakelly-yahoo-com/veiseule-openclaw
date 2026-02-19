@@ -1,4 +1,7 @@
 ---
+summary: "macOS ایپ کس طرح gateway/Baileys کی صحت کی حالتیں رپورٹ کرتی ہے"
+read_when:
+  - mac ایپ کے ہیلتھ انڈیکیٹرز کی ڈیبگنگ
 title: "ہیلتھ چیکس"
 ---
 
@@ -29,5 +32,3 @@ title: "ہیلتھ چیکس"
 ## جب شک ہو
 
 - آپ اب بھی [Gateway health](/gateway/health) میں CLI فلو (`openclaw status`, `openclaw status --deep`, `openclaw health --json`) استعمال کر سکتے ہیں اور `web-heartbeat` / `web-reconnect` کے لیے `/tmp/openclaw/openclaw-*.log` کو ٹیل کر سکتے ہیں۔
-
-

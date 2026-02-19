@@ -1,4 +1,7 @@
 ---
+summary: "Reaktionssemantik som delas över kanaler"
+read_when:
+  - Arbetar med reaktioner i valfri kanal
 title: "Reaktioner"
 ---
 
@@ -17,5 +20,3 @@ Kanalnoteringar:
 - **Telegram**: tom `emoji` tar bort botens reaktioner; `remove: true` tar också bort reaktioner men kräver fortfarande ett icke-tomt `emoji` för verktygsvalidering.
 - **WhatsApp**: tom `emoji` tar bort botens reaktion; `remove: true` mappas till tom emoji (kräver fortfarande `emoji`).
 - **Signal**: inkommande reaktionsaviseringar genererar systemhändelser när `channels.signal.reactionNotifications` är aktiverat.
-
-

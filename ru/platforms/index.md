@@ -1,4 +1,8 @@
 ---
+summary: "Обзор поддержки платформ (Gateway + сопутствующие приложения)"
+read_when:
+  - Ищете поддержку ОС или пути установки
+  - Решаете, где запускать Gateway
 title: "Платформы"
 ---
 
@@ -47,5 +51,3 @@ Linux запланированы, однако Gateway (шлюз) полност
 
 - macOS: LaunchAgent (`bot.molt.gateway` или `bot.molt.<profile>`; устаревший `com.openclaw.*`)
 - Linux/WSL2: пользовательский сервис systemd (`openclaw-gateway[-<profile>].service`)
-
-

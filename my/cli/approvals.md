@@ -1,4 +1,8 @@
 ---
+summary: "Gateway သို့မဟုတ် နိုဒ် ဟို့စ်များအတွက် exec approvals ကို CLI မှ ကိုးကားအသုံးပြုရန် (`openclaw approvals`)"
+read_when:
+  - CLI မှ exec approvals ကို ပြင်ဆင်လိုသည့်အခါ
+  - Gateway သို့မဟုတ် နိုဒ် ဟို့စ်များပေါ်ရှိ allowlist များကို စီမံခန့်ခွဲရန် လိုအပ်သည့်အခါ
 title: "approvals"
 ---
 
@@ -44,5 +48,3 @@ openclaw approvals allowlist remove "~/Projects/**/bin/rg"
 - `--agent` သည် မူလအားဖြင့် `"*"` ဖြစ်ပြီး၊ အေးဂျင့်အားလုံးအတွက် သက်ရောက်မှုရှိသည်။
 - နိုဒ် ဟို့စ်သည် `system.execApprovals.get/set` ကို ကြေညာပေးရမည် (macOS app သို့မဟုတ် headless node host)။
 - Approvals ဖိုင်များကို ဟို့စ်အလိုက် `~/.openclaw/exec-approvals.json` တွင် သိမ်းဆည်းထားသည်။
-
-

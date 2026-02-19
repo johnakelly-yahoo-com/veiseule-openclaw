@@ -1,4 +1,9 @@
 ---
+summary: "Door de Gateway beheerde node-koppeling (Optie B) voor iOS en andere externe nodes"
+read_when:
+  - Implementeren van goedkeuringen voor node-koppeling zonder macOS-UI
+  - Toevoegen van CLI-flows voor het goedkeuren van externe nodes
+  - Uitbreiden van het gatewayprotocol met nodebeheer
 title: "Door de Gateway beheerde koppeling"
 ---
 
@@ -92,5 +97,3 @@ Beveiligingsnotities:
 - Het transport is **stateless**; het slaat geen lidmaatschap op.
 - Als de Gateway offline is of koppeling is uitgeschakeld, kunnen nodes niet koppelen.
 - Als de Gateway in externe modus staat, vindt koppeling nog steeds plaats tegen de opslag van de externe Gateway.
-
-

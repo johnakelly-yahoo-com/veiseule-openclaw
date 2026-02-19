@@ -1,4 +1,9 @@
 ---
+summary: "Aplicación Android (nodo): runbook de conexión + Canvas/Chat/Cámara"
+read_when:
+  - Emparejamiento o reconexión del nodo Android
+  - Depuración del descubrimiento o la autenticación del Gateway en Android
+  - Verificación de la paridad del historial de chat entre clientes
 title: "Aplicación Android"
 ---
 
@@ -118,7 +123,7 @@ La hoja de Chat del nodo Android usa la **clave de sesión primaria** del Gatewa
 
 Si desea que el nodo muestre HTML/CSS/JS reales que el agente pueda editar en disco, apunte el nodo al host de Canvas del Gateway.
 
-Nota: los nodos usan el host de Canvas independiente en `canvasHost.port` (predeterminado `18793`).
+Nota: los nodos cargan el lienzo desde el servidor HTTP de Gateway (mismo puerto que `gateway.port`, por defecto `18789`).
 
 1. Cree `~/.openclaw/workspace/canvas/index.html` en el host del Gateway.
 
@@ -144,5 +149,3 @@ Comandos de cámara (solo en primer plano; con control de permisos):
 - `camera.clip` (mp4)
 
 Consulte [Nodo de cámara](/nodes/camera) para parámetros y ayudantes de la CLI.
-
-

@@ -1,8 +1,10 @@
 ---
-title: "工作階段"
+summary: "Alias for session management docs"
+read_when:
+  - 你曾尋找 docs/sessions.md；正式文件位於 docs/session.md
+title: "Sessions"
 ---
 
-# 工作階段
+# Sessions
 
-正式的工作階段管理文件位於 [Session management](/concepts/session)。
-
+Canonical session management docs live in [Session management](/concepts/session).

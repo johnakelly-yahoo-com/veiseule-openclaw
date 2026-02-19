@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw ile OpenCode Zen’i (küratörlü modeller) kullanın"
+read_when:
+  - Model erişimi için OpenCode Zen istiyorsunuz
+  - Kodlamaya uygun modellerden oluşan küratörlü bir liste istiyorsunuz
 title: "OpenCode Zen"
 ---
 
@@ -30,5 +34,3 @@ openclaw onboard --opencode-zen-api-key "$OPENCODE_API_KEY"
 - `OPENCODE_ZEN_API_KEY` de desteklenmektedir.
 - Zen’e giriş yapar, faturalandırma ayrıntılarını eklersiniz ve API anahtarınızı kopyalarsınız.
 - OpenCode Zen istek başına faturalandırır; ayrıntılar için OpenCode panosunu kontrol edin.
-
-

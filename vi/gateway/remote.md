@@ -1,4 +1,7 @@
 ---
+summary: "Truy cập từ xa bằng đường hầm SSH (Gateway WS) và tailnet"
+read_when:
+  - Chạy hoặc xử lý sự cố các thiết lập gateway từ xa
 title: "Truy cập từ xa"
 ---
 
@@ -36,7 +39,7 @@ Máy tính xách tay **không** chạy agent. Nó kết nối từ xa:
 - Dùng chế độ **Remote over SSH** của ứng dụng macOS (Settings → General → “OpenClaw runs”).
 - Ứng dụng tự mở và quản lý đường hầm, nên WebChat + kiểm tra tình trạng hoạt động “chạy ngay”.
 
-Sổ tay vận hành: [truy cập từ xa macOS](/platforms/mac/remote).
+Runbook: [macOS remote access](/platforms/mac/remote).
 
 ### 3. Laptop chạy Gateway, truy cập từ xa từ các máy khác
 
@@ -124,5 +127,3 @@ Phiên bản ngắn gọn: **giữ Gateway chỉ bind loopback** trừ khi bạn
 - Hãy coi điều khiển qua trình duyệt như quyền operator: chỉ trong tailnet + ghép cặp node có chủ đích.
 
 Phân tích chi tiết: [Security](/gateway/security).
-
-

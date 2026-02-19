@@ -1,4 +1,8 @@
 ---
+summary: "Fluxo de trabalho com Bun (experimental): instalação e pegadinhas vs pnpm"
+read_when:
+  - Você quer o loop de desenvolvimento local mais rápido (bun + watch)
+  - Você encontrou problemas de instalação/patch/scripts de ciclo de vida do Bun
 title: "Bun (Experimental)"
 ---
 
@@ -53,5 +57,3 @@ bun pm trust @whiskeysockets/baileys protobufjs
 ## Ressalvas
 
 - Alguns scripts ainda codificam pnpm (por exemplo, `docs:build`, `ui:*`, `protocol:check`). Execute esses via pnpm por enquanto.
-
-

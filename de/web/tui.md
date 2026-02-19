@@ -1,4 +1,8 @@
 ---
+summary: "„Terminal-UI (TUI): Verbindung zum Gateway von jedem Rechner aus“"
+read_when:
+  - Sie möchten eine einsteigerfreundliche Einführung in die TUI
+  - Sie benötigen die vollständige Liste der TUI-Funktionen, -Befehle und -Tastenkürzel
 title: "„TUI“"
 ---
 
@@ -156,5 +160,3 @@ Keine Ausgabe nach dem Senden einer Nachricht:
 - `disconnected`: Stellen Sie sicher, dass das Gateway läuft und Ihre `--url/--token/--password` korrekt sind.
 - Keine Agents im Picker: Prüfen Sie `openclaw agents list` und Ihre Routing-Konfiguration.
 - Leerer Sitzungs-Picker: Möglicherweise befinden Sie sich im globalen Bereich oder haben noch keine Sitzungen.
-
-

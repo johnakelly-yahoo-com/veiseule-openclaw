@@ -1,19 +1,24 @@
 ---
-title: "串流與分塊處理"
+summary: "Streaming + chunking behavior (block replies, draft streaming, limits)"
+read_when:
+  - 說明串流或分塊在各頻道中的運作方式
+  - 變更區塊串流或頻道分塊行為
+  - 偵錯重複／過早的區塊回覆或草稿串流
+title: "Streaming and Chunking"
 ---
 
 # 串流 + 分塊
 
 OpenClaw 有兩個獨立的「串流」層級：
 
-- **區塊串流（channels）：** 在助理撰寫內容時，輸出已完成的 **區塊**。這些是一般的 channel 訊息（不是 token 增量）。
+- **Block streaming (channels):** emit completed **blocks** as the assistant writes. These are normal channel messages (not token deltas).
 - **類 token 串流（僅 Telegram）：** 在生成期間以部分文字更新 **草稿泡泡**；最終訊息於結尾送出。
 
-目前 **沒有真正的 token 串流** 會送到外部頻道訊息。Telegram 草稿串流是唯一的部分串流介面。 Telegram draft streaming is the only partial-stream surface.
+目前**尚未支援真正的 token-delta 串流**到頻道訊息。 Telegram 預覽串流是目前唯一的部分串流介面。
 
 ## 區塊串流（頻道訊息）
 
-區塊串流會在助理輸出可用時，以較大的分塊形式傳送內容。
+Block streaming sends assistant output in coarse chunks as it becomes available.
 
 ```
 Model output
@@ -25,7 +30,7 @@ Model output
                    └─ channel send (block replies)
 ```
 
-圖例：
+Legend:
 
 - `text_delta/events`：模型串流事件（對非串流模型可能較為稀疏）。
 - `chunker`：套用最小／最大界限 + 斷行偏好的 `EmbeddedBlockChunker`。
@@ -66,7 +71,7 @@ Model output
 before sending them out. This reduces “single-line spam” while still providing
 progressive output.
 
-- 合併機制會在出現 **閒置間隔**（`idleMs`）後才進行輸出。
+- Coalescing waits for **idle gaps** (`idleMs`) before flushing.
 - 緩衝區會受到 `maxChars` 限制，若超出將會立即輸出。
 - `minChars` 會避免在累積到足夠文字前送出微小片段
   （最終清空一定會送出剩餘文字）。
@@ -77,7 +82,7 @@ progressive output.
 
 ## 1. 區塊之間的人類化節奏
 
-2. 當啟用區塊串流時，你可以在區塊回覆之間加入**隨機暫停**（第一個區塊之後）。 3. 這會讓多氣泡回應感覺更自然。
+當啟用區塊串流時，你可以在區塊回覆之間加入**隨機暫停**（第一個區塊之後）。 3. 這會讓多氣泡回應感覺更自然。
 
 - 設定：`agents.defaults.humanDelay`（可透過 `agents.list[].humanDelay` 為每個代理程式覆寫）。
 - 模式：`off`（預設）、`natural`（800–2500ms）、`custom`（`minMs`/`maxMs`）。
@@ -101,17 +106,17 @@ progressive output.
 
 Telegram 是唯一支援草稿串流的頻道：
 
-- 使用 Bot API `sendMessageDraft`，適用於 **有主題的私人聊天**。
+- 使用 Bot API `sendMessage`（首次更新）+ `editMessageText`（後續更新）。
 - `channels.telegram.streamMode: "partial" | "block" | "off"`。
   - `partial`：以最新串流文字更新草稿。
   - `block`：以分塊區塊更新草稿（相同的分塊規則）。
   - `off`：不進行草稿串流。
 - 草稿分塊設定（僅適用於 `streamMode: "block"`）：`channels.telegram.draftChunk`（預設：`minChars: 200`、`maxChars: 800`）。
-- 草稿串流與區塊串流是分離的；區塊回覆預設關閉，且在非 Telegram 頻道上僅能由 `*.blockStreaming: true` 啟用。
-- 7. 最終回覆仍然是一則一般訊息。
-- 8. `/reasoning stream` 會將推理寫入草稿氣泡（僅限 Telegram）。
-
-當草稿串流啟用時，OpenClaw 會為該次回覆停用區塊串流，以避免雙重串流。
+- 預覽串流與區塊串流是分開的。
+- 當明確啟用 Telegram 區塊串流時，將跳過預覽串流以避免重複串流。
+- 純文字最終內容會直接在預覽訊息上原地編輯套用。
+- 非文字／複雜最終內容則會回退為一般的最終訊息傳送方式。
+- `/reasoning stream` 會將推理內容寫入即時預覽（僅限 Telegram）。
 
 ```
 Telegram (private + topics)
@@ -121,9 +126,7 @@ Telegram (private + topics)
   └─ final reply → normal message
 ```
 
-9. 圖例：
+Legend:
 
-- `sendMessageDraft`：Telegram 草稿泡泡（不是真實訊息）。
-- `final reply`：一般的 Telegram 訊息送出。
-
-
+- `preview message`：在生成過程中持續更新的暫時性 Telegram 訊息。
+- `final edit`：在同一則預覽訊息上進行原地編輯（僅限純文字）。

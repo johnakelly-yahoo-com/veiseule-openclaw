@@ -1,4 +1,8 @@
 ---
+summary: "„Ręczne logowania do automatyzacji przeglądarki + publikowanie na X/Twitter”"
+read_when:
+  - Musisz logować się do serwisów na potrzeby automatyzacji przeglądarki
+  - Chcesz publikować aktualizacje na X/Twitter
 title: "„Logowanie w przeglądarce”"
 ---
 
@@ -61,5 +65,3 @@ openclaw browser open https://x.com --browser-profile openclaw --target host
 ```
 
 Alternatywnie wyłącz sandboxing dla agenta, który publikuje aktualizacje.
-
-

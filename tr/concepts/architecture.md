@@ -1,4 +1,7 @@
 ---
+summary: "WebSocket gateway mimarisi, bileşenler ve istemci akışları"
+read_when:
+  - Gateway protokolü, istemciler veya taşıma katmanları üzerinde çalışırken
 title: "Gateway Mimarisi"
 ---
 
@@ -16,7 +19,10 @@ Son güncelleme: 2026-01-22
 - **Node**’lar (macOS/iOS/Android/headless) da **WebSocket** üzerinden bağlanır, ancak
   açık yetenekler/komutlar ile `role: node` bildirir.
 - Ana makine başına bir Gateway; WhatsApp oturumunu açan tek yerdir.
-- Bir **canvas ana makinesi** (varsayılan `18793`), ajan tarafından düzenlenebilir HTML ve A2UI sunar.
+- **canvas host**, Gateway HTTP sunucusu tarafından şu yol altında sunulur:
+  - `/__openclaw__/canvas/` (ajan tarafından düzenlenebilir HTML/CSS/JS)
+  - `/__openclaw__/a2ui/` (A2UI host)
+    Gateway ile aynı portu kullanır (varsayılan `18789`).
 
 ## Bileşenler ve akışlar
 
@@ -52,22 +58,6 @@ Protokol ayrıntıları:
 ## Bağlantı yaşam döngüsü (tek istemci)
 
 ```mermaid
-%%{init: {
-  'theme': 'base',
-  'themeVariables': {
-    'primaryColor': '#ffffff',
-    'primaryTextColor': '#000000',
-    'primaryBorderColor': '#000000',
-    'lineColor': '#000000',
-    'secondaryColor': '#f9f9fb',
-    'tertiaryColor': '#ffffff',
-    'clusterBkg': '#f9f9fb',
-    'clusterBorder': '#000000',
-    'nodeBorder': '#000000',
-    'mainBkg': '#ffffff',
-    'edgeLabelBackground': '#ffffff'
-  }
-}}%%
 sequenceDiagram
     participant Client
     participant Gateway
@@ -145,5 +135,3 @@ Ayrıntılar: [Gateway protokolü](/gateway/protocol), [Eşleştirme](/channels/
 - Her ana makinede tek bir Gateway, tek bir Baileys oturumunu kontrol eder.
 - El sıkışma zorunludur; JSON olmayan veya ilk çerçevesi connect olmayan her şey sert kapatma ile sonuçlanır.
 - Olaylar tekrar oynatılmaz; boşluklarda istemciler yenileme yapmalıdır.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Opsyonal na Docker-based na setup at onboarding para sa OpenClaw"
+read_when:
+  - Gusto mo ng isang containerized na gateway sa halip na local installs
+  - Vina-validate mo ang Docker flow
 title: "Docker"
 ---
 
@@ -64,6 +68,24 @@ Isinusulat nito ang config/workspace sa host:
 
 ### Manual na daloy (compose)
 
+Para sa mas madaling pang‑araw‑araw na pamamahala ng Docker, i-install ang `ClawDock`:
+
+```bash
+mkdir -p ~/.clawdock && curl -sL https://raw.githubusercontent.com/openclaw/openclaw/main/scripts/shell-helpers/clawdock-helpers.sh -o ~/.clawdock/clawdock-helpers.sh
+```
+
+**Idagdag sa iyong shell config (zsh):**
+
+```bash
+echo 'source ~/.clawdock/clawdock-helpers.sh' >> ~/.zshrc && source ~/.zshrc
+```
+
+Pagkatapos, gamitin ang `clawdock-start`, `clawdock-stop`, `clawdock-dashboard`, atbp. Patakbuhin ang `clawdock-help` para sa lahat ng utos.
+
+Tingnan ang [`ClawDock` Helper README](https://github.com/openclaw/openclaw/blob/main/scripts/shell-helpers/README.md) para sa mga detalye.
+
+### Manual na daloy (compose)
+
 ```bash
 docker build -t openclaw:local -f Dockerfile .
 docker compose run --rm openclaw-cli onboard
@@ -80,8 +102,7 @@ docker compose -f docker-compose.yml -f docker-compose.extra.yml <command>
 
 ### Control UI token + pairing (Docker)
 
-Kung makita mo ang “unauthorized” o “disconnected (1008): pairing required”, kunin ang
-isang bagong dashboard link at aprubahan ang browser device:
+Mga tala:
 
 ```bash
 docker compose run --rm openclaw-cli dashboard --no-open
@@ -135,7 +156,7 @@ export OPENCLAW_EXTRA_MOUNTS="$HOME/.codex:/home/node/.codex:ro,$HOME/github:/ho
 ./docker-setup.sh
 ```
 
-Mga tala:
+Mga Tala:
 
 - Kung babaguhin mo ang `OPENCLAW_HOME_VOLUME`, patakbuhin ulit ang `docker-setup.sh` para i-regenerate ang
   extra compose file.
@@ -147,7 +168,7 @@ Mga tala:
     libraries), itakda ang `OPENCLAW_DOCKER_APT_PACKAGES` bago patakbuhin ang `docker-setup.sh`.
     Pinananatili nitong maliit ang attack surface, ngunit nangangahulugan ito na:
 
-Halimbawa:
+Kung gusto mo ng mas full-featured na container, gamitin ang mga opt-in na knob na ito:
 
 ```bash
 export OPENCLAW_DOCKER_APT_PACKAGES="ffmpeg build-essential"
@@ -156,7 +177,7 @@ export OPENCLAW_DOCKER_APT_PACKAGES="ffmpeg build-essential"
 
 Mga tala:
 
-- Tumatanggap ito ng space-separated na listahan ng mga apt package name.
+- **I-bake ang system deps sa image** (repeatable + persistent):
 - Kung babaguhin mo ang `OPENCLAW_DOCKER_APT_PACKAGES`, patakbuhin ulit ang `docker-setup.sh` para i-rebuild
   ang image.
 
@@ -169,9 +190,10 @@ Mga tala:
 - walang Homebrew bilang default
 - walang bundled na Chromium/Playwright browsers
 
-Kung gusto mo ng mas full-featured na container, gamitin ang mga opt-in na knob na ito:
+Kung kailangan mong i-install ng Playwright ang system deps, i-rebuild ang image gamit ang
+`OPENCLAW_DOCKER_APT_PACKAGES` sa halip na gumamit ng `--with-deps` sa runtime.
 
-1. **I-persist ang `/home/node`** para manatili ang browser downloads at tool caches:
+1. **I-persist ang Playwright browser downloads**:
 
 ```bash
 export OPENCLAW_HOME_VOLUME="openclaw_home"
@@ -192,15 +214,12 @@ docker compose run --rm openclaw-cli \
   node /app/node_modules/playwright-core/cli.js install chromium
 ```
 
-Kung kailangan mong i-install ng Playwright ang system deps, i-rebuild ang image gamit ang
-`OPENCLAW_DOCKER_APT_PACKAGES` sa halip na gumamit ng `--with-deps` sa runtime.
+Kung pipiliin mong tumakbo bilang root para sa convenience, tinatanggap mo ang kapalit sa seguridad.
 
 4. **I-persist ang Playwright browser downloads**:
 
-- Itakda ang `PLAYWRIGHT_BROWSERS_PATH=/home/node/.cache/ms-playwright` sa
-  `docker-compose.yml`.
-- Siguraduhing nagpe-persist ang `/home/node` sa pamamagitan ng `OPENCLAW_HOME_VOLUME`, o i-mount ang
-  `/home/node/.cache/ms-playwright` gamit ang `OPENCLAW_EXTRA_MOUNTS`.
+- Para pabilisin ang mga rebuild, ayusin ang iyong Dockerfile upang ma-cache ang mga dependency layer.
+- Iniiwasan nito ang muling pagpapatakbo ng `pnpm install` maliban kung magbago ang mga lockfile:
 
 ### Mga permiso + EACCES
 
@@ -208,7 +227,7 @@ Kung makakita ka ng mga error sa pahintulot sa
 `/home/node/.openclaw`, tiyaking ang iyong host bind mounts ay pag-aari ng uid 1000. Kung pipiliin mo ang OpenAI Codex OAuth sa wizard, magbubukas ito ng browser URL at susubukang
 mahuli ang isang callback sa `http://127.0.0.1:1455/auth/callback`.
 
-Halimbawa (Linux host):
+Gamitin ang CLI container para i-configure ang mga channel, pagkatapos ay i-restart ang gateway kung kailangan.
 
 ```bash
 sudo chown -R 1000:1000 /path/to/openclaw-config /path/to/openclaw-workspace
@@ -313,10 +332,10 @@ Mas malalim na talakay: [Sandboxing](/gateway/sandboxing)
     container. Nanatili ang gateway sa iyong host, ngunit hiwalay ang pagpapatupad ng tool:
 
 - saklaw: `"agent"` bilang default (isang container + workspace bawat agent)
-- saklaw: `"session"` para sa per-session isolation
-- per-scope na workspace folder na naka-mount sa `/workspace`
-- opsyonal na access sa agent workspace (`agents.defaults.sandbox.workspaceAccess`)
-- allow/deny na polisiya ng tool (ang deny ang nananalo)
+- Isang container bawat agent
+- Access sa agent workspace: `workspaceAccess: "none"` (default) gumagamit ng `~/.openclaw/sandboxes`
+- Auto-prune: idle > 24h O edad > 7d
+- Network: `none` bilang default (mag-opt-in nang tahasan kung kailangan mo ng egress)
 - ang inbound media ay kinokopya sa aktibong sandbox workspace (`media/inbound/*`) para mabasa ng mga tool (kapag may `workspaceAccess: "rw"`, napupunta ito sa agent workspace)
 
 Babala: ang `scope: "shared"` ay hindi pinapagana ang cross-session isolation. Lahat ng session ay nagbabahagi
@@ -332,8 +351,9 @@ halo-halong antas ng access sa iisang gateway:
 - Read-only na mga tool + read-only na workspace (family/work agent)
 - Walang filesystem/shell tools (public agent)
 
-Tingnan ang [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) para sa mga halimbawa,
-precedence, at pag-troubleshoot.
+Ang mga hardening knob ay nasa ilalim ng `agents.defaults.sandbox.docker`:
+`network`, `user`, `pidsLimit`, `memory`, `memorySwap`, `cpus`, `ulimits`,
+`seccompProfile`, `apparmorProfile`, `dns`, `extraHosts`.
 
 ### Default na pag-uugali
 
@@ -349,7 +369,7 @@ precedence, at pag-troubleshoot.
 
 ### Paganahin ang sandboxing
 
-Kung plano mong mag-install ng mga package sa `setupCommand`, tandaan:
+Bina-build nito ang `openclaw-sandbox:bookworm-slim` gamit ang `Dockerfile.sandbox`.
 
 - Ang default na `docker.network` ay `"none"` (walang egress).
 - Hinaharangan ng `readOnlyRoot: true` ang pag-install ng mga package.
@@ -432,7 +452,7 @@ Multi-agent: i-override ang `agents.defaults.sandbox.{docker,browser,prune}.*` b
 scripts/sandbox-setup.sh
 ```
 
-Bina-build nito ang `openclaw-sandbox:bookworm-slim` gamit ang `Dockerfile.sandbox`.
+Para patakbuhin ang browser tool sa loob ng sandbox, i-build ang browser image:
 
 ### Sandbox common image (opsyonal)
 
@@ -456,7 +476,7 @@ Binubuo nito ang `openclaw-sandbox-common:bookworm-slim`. Para gamitin ito:
 
 ### Sandbox browser image
 
-Para patakbuhin ang browser tool sa loob ng sandbox, i-build ang browser image:
+Custom na browser image:
 
 ```bash
 scripts/sandbox-browser-setup.sh
@@ -500,8 +520,8 @@ Custom na browser image:
 
 Kapag pinagana, natatanggap ng agent ang:
 
-- isang sandbox browser control URL (para sa `browser` tool)
-- isang noVNC URL (kung pinagana at headless=false)
+- Ang `deny` ang nananalo laban sa `allow`.
+- Kung walang laman ang `allow`: available ang lahat ng tool (maliban sa deny).
 
 Tandaan: kung gagamit ka ng allowlist para sa mga tool, idagdag ang `browser` (at alisin ito sa
 deny) kung hindi ay mananatiling naka-block ang tool.
@@ -525,13 +545,13 @@ docker build -t my-openclaw-sbx -f Dockerfile.sandbox .
 }
 ```
 
-### Polisiya ng tool (allow/deny)
+### Mga tala sa seguridad
 
-- Ang `deny` ang nananalo laban sa `allow`.
-- Kung walang laman ang `allow`: available ang lahat ng tool (maliban sa deny).
-- Kung may laman ang `allow`: tanging ang mga tool sa `allow` ang available (bawas ang deny).
+- Ang hard wall ay nalalapat lamang sa **mga tool** (exec/read/write/edit/apply_patch).
+- Ang mga host-only tool tulad ng browser/camera/canvas ay naka-block bilang default.
+- Ang pagpayag sa `browser` sa sandbox ay **sumisira sa isolation** (tumatakbo ang browser sa host).
 
-### Diskarte sa pruning
+### Pag-troubleshoot
 
 Dalawang knob:
 
@@ -561,5 +581,3 @@ Halimbawa:
   nagsa-source ng `/etc/profile` at maaaring i-reset ang PATH. Itakda ang `docker.env.PATH` upang i-prepend ang iyong
   mga custom na path ng tool (hal., `/custom/bin:/usr/local/share/npm-global/bin`), o magdagdag
   ng script sa ilalim ng `/etc/profile.d/` sa iyong Dockerfile.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Xử lý sự cố nhanh ở cấp độ kênh với các dấu hiệu lỗi theo từng kênh và cách khắc phục"
+read_when:
+  - Kênh vận chuyển báo đã kết nối nhưng phản hồi thất bại
+  - Bạn cần các kiểm tra theo từng kênh trước khi đọc tài liệu chuyên sâu của nhà cung cấp
 title: "Xử lý sự cố kênh"
 ---
 
@@ -40,11 +44,12 @@ Xử lý sự cố đầy đủ: [/channels/whatsapp#troubleshooting-quick](/cha
 
 ### Dấu hiệu lỗi Telegram
 
-| Triệu chứng                                      | Kiểm tra nhanh nhất                                  | Cách khắc phục                                                           |
-| ------------------------------------------------ | ---------------------------------------------------- | ------------------------------------------------------------------------ |
-| `/start` nhưng không có luồng phản hồi dùng được | `openclaw pairing list telegram`                     | Phê duyệt ghép cặp hoặc thay đổi chính sách DM.          |
-| Bot online nhưng nhóm im lặng                    | Xác minh yêu cầu nhắc đến và chế độ riêng tư của bot | Tắt chế độ riêng tư để nhóm thấy được hoặc nhắc đến bot. |
-| Gửi thất bại với lỗi mạng                        | Kiểm tra nhật ký lỗi gọi API Telegram                | Sửa định tuyến DNS/IPv6/proxy tới `api.telegram.org`.    |
+| Triệu chứng                                      | Kiểm tra nhanh nhất                                  | Cách khắc phục                                                                                |
+| ------------------------------------------------ | ---------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `/start` nhưng không có luồng phản hồi dùng được | `openclaw pairing list telegram`                     | Phê duyệt ghép cặp hoặc thay đổi chính sách DM.                               |
+| Bot online nhưng nhóm im lặng                    | Xác minh yêu cầu nhắc đến và chế độ riêng tư của bot | Tắt chế độ riêng tư để nhóm thấy được hoặc nhắc đến bot.                      |
+| Gửi thất bại với lỗi mạng                        | Kiểm tra nhật ký lỗi gọi API Telegram                | Sửa định tuyến DNS/IPv6/proxy tới `api.telegram.org`.                         |
+| Đã nâng cấp và bị chặn bởi allowlist             | `openclaw security audit` và allowlist cấu hình      | Chạy `openclaw doctor --fix` hoặc thay `@username` bằng ID người gửi dạng số. |
 
 Xử lý sự cố đầy đủ: [/channels/telegram#troubleshooting](/channels/telegram#troubleshooting)
 
@@ -110,5 +115,3 @@ Xử lý sự cố đầy đủ: [/channels/signal#troubleshooting](/channels/si
 | Phòng mã hóa thất bại                    | Xác minh mô-đun crypto và cài đặt mã hóa | Bật hỗ trợ mã hóa và tham gia lại/đồng bộ phòng.   |
 
 Xử lý sự cố đầy đủ: [/channels/matrix#troubleshooting](/channels/matrix#troubleshooting)
-
-

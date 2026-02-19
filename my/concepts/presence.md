@@ -1,4 +1,9 @@
 ---
+summary: "OpenClaw presence အင်ထရီများကို မည်သို့ ထုတ်လုပ်၊ ပေါင်းစည်း၊ ပြသသည်ကို ရှင်းလင်းဖော်ပြခြင်း"
+read_when:
+  - Instances တဘ်ကို ဒီဘဂ်လုပ်နေချိန်
+  - ထပ်နေသော သို့မဟုတ် အဟောင်းကျန်နေသည့် instance အတန်းများကို စစ်ဆေးနေချိန်
+  - Gateway WS ချိတ်ဆက်မှု သို့မဟုတ် system-event beacon များကို ပြောင်းလဲနေချိန်
 title: "တည်ရှိမှု"
 ---
 
@@ -89,5 +94,3 @@ indicator (Active/Idle/Stale) based on the age of the last update.
   - confirm clients send a stable `client.instanceId` in the handshake
   - confirm periodic beacons use the same `instanceId`
   - check whether the connection‑derived entry is missing `instanceId` (duplicates are expected)
-
-

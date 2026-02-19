@@ -1,4 +1,8 @@
 ---
+summary: "تشغيل عدة Gateways من OpenClaw على مضيف واحد (العزل، المنافذ، والملفات التعريفية)"
+read_when:
+  - تشغيل أكثر من Gateway واحد على الجهاز نفسه
+  - تحتاج إلى تهيئة/حالة/منافذ معزولة لكل Gateway
 title: "Gateways متعددة"
 ---
 
@@ -75,7 +79,7 @@ openclaw --profile rescue gateway install
 المنفذ الأساسي = `gateway.port` (أو `OPENCLAW_GATEWAY_PORT` / `--port`).
 
 - منفذ خدمة التحكم بالمتصفح = الأساسي + 2 (حلقة محلية فقط)
-- `canvasHost.port = base + 4`
+- يتم تقديم canvas host عبر خادم HTTP الخاص بـ Gateway (نفس المنفذ الخاص بـ `gateway.port`)
 - يتم التخصيص التلقائي لمنافذ CDP لملف تعريف المتصفح من `browser.controlPort + 9 .. + 108`
 
 إذا قمت بتجاوز أيٍّ من هذه في التهيئة أو متغيرات البيئة، فيجب إبقاؤها فريدة لكل مثيل.
@@ -106,5 +110,3 @@ openclaw --profile main status
 openclaw --profile rescue status
 openclaw --profile rescue browser status
 ```
-
-

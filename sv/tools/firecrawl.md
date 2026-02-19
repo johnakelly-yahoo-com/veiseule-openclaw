@@ -1,4 +1,9 @@
 ---
+summary: "Firecrawl-reserv för web_fetch (anti-bot + cachad extraktion)"
+read_when:
+  - Du vill ha webextraktion med Firecrawl-stöd
+  - Du behöver en Firecrawl API-nyckel
+  - Du vill ha anti-bot-extraktion för web_fetch
 title: "Firecrawl"
 ---
 
@@ -54,5 +59,3 @@ Om proxy utelämnas, är Firecrawl standard `auto`. `auto` försöker med stealt
 3. Grundläggande HTML-rensning (sista reserv)
 
 Se [Web tools](/tools/web) för den fullständiga konfigurationen av webbverktyg.
-
-

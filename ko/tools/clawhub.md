@@ -1,4 +1,9 @@
 ---
+summary: "ClawHub 가이드: 공개 Skills 레지스트리 + CLI 워크플로"
+read_when:
+  - 신규 사용자에게 ClawHub 소개 시
+  - Skills 설치, 검색 또는 게시 시
+  - ClawHub CLI 플래그와 동기화 동작 설명 시
 title: "ClawHub"
 ---
 
@@ -244,5 +249,3 @@ export CLAWHUB_DISABLE_TELEMETRY=1
 - `CLAWHUB_CONFIG_PATH`: CLI 가 토큰/설정을 저장하는 위치 재정의
 - `CLAWHUB_WORKDIR`: 기본 workdir 재정의
 - `CLAWHUB_DISABLE_TELEMETRY=1`: `sync` 에서 텔레메트리 비활성화
-
-

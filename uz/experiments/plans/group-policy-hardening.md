@@ -1,4 +1,7 @@
 ---
+summary: "Telegram allowlist mustahkamlanishi: prefiks va bo‘shliqni normallashtirish"
+read_when:
+  - Tarixiy Telegram allowlist o‘zgarishlarini ko‘rib chiqish
 title: "Telegram Allowlist mustahkamlanishi"
 ---
 
@@ -34,5 +37,3 @@ noto‘g‘ri manfiy holatlarning oldini oladi.
 
 - [Guruh chatlari](/channels/groups)
 - [Telegram provayderi](/channels/telegram)
-
-

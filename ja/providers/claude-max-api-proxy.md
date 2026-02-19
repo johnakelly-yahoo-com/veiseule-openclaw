@@ -1,10 +1,15 @@
 ---
+summary: "Claude Max/Pro サブスクリプションを OpenAI 互換 API エンドポイントとして使用します"
+read_when:
+  - OpenAI 互換ツールで Claude Max サブスクリプションを使用したい場合
+  - Claude Code CLI をラップするローカル API サーバーが必要な場合
+  - API キーではなくサブスクリプションを使用してコストを節約したい場合
 title: "Claude Max API プロキシ"
 ---
 
 # Claude Max API プロキシ
 
-**claude-max-api-proxy** は、Claude Max/Pro サブスクリプションを OpenAI 互換の API エンドポイントとして公開するコミュニティツールです。これにより、OpenAI API 形式をサポートするあらゆるツールでサブスクリプションを使用できます。 これにより、OpenAI API形式をサポートする任意のツールでサブスクリプションを使用できます。
+**claude-max-api-proxy** は、Claude Max/Pro サブスクリプションを OpenAI 互換の API エンドポイントとして公開するコミュニティツールです。これにより、OpenAI API 形式をサポートするあらゆるツールでサブスクリプションを使用できます。 これにより、OpenAI API形式をサポートする任意のツールでサブスクリプションを使用できます。 これにより、OpenAI API形式をサポートする任意のツールでサブスクリプションを使用できます。
 
 ## なぜ使用するのですか？
 
@@ -137,9 +142,7 @@ launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.claude-max-api.plist
 - プロキシはローカルで実行され、第三者のサーバーにデータを送信しません。
 - ストリーミングレスポンスは完全にサポートされています。
 
-## 関連項目
+## See Also
 
 - [Anthropic プロバイダー](/providers/anthropic) - setup-token または API キーを用いた Claude のネイティブ OpenClaw 統合
 - [OpenAI プロバイダー](/providers/openai) - OpenAI/Codex サブスクリプション向け
-
-

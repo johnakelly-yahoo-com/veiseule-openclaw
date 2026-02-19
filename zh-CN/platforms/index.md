@@ -1,22 +1,19 @@
 ---
-title: 平台
-x-i18n:
-  generated_at: "2026-02-03T07:52:07Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 254852a5ed1996982a52eed4a72659477609e08d340c625d24ef6d99c21eece6
-  source_path: platforms/index.md
-  workflow: 15
+summary: "平台支持概述（Gateway 网关 + 配套应用）"
+read_when:
+  - 查找操作系统支持或安装路径时
+  - 决定在哪里运行 Gateway 网关时
+title: "平台"
 ---
 
 # 平台
 
-OpenClaw 核心使用 TypeScript 编写。**Node 是推荐的运行时**。
-不推荐 Bun 用于 Gateway 网关（WhatsApp/Telegram 存在 bug）。
+OpenClaw core is written in TypeScript. **Node is the recommended runtime**.
+Bun is not recommended for the Gateway (WhatsApp/Telegram bugs).
 
-配套应用适用于 macOS（菜单栏应用）和移动节点（iOS/Android）。Windows 和
-Linux 配套应用已在计划中，但 Gateway 网关目前已完全支持。
-Windows 原生配套应用也在计划中；推荐通过 WSL2 使用 Gateway 网关。
+Companion apps exist for macOS (menu bar app) and mobile nodes (iOS/Android). Windows and
+Linux companion apps are planned, but the Gateway is fully supported today.
+Native companion apps for Windows are also planned; the Gateway is recommended via WSL2.
 
 ## 选择你的操作系统
 
@@ -54,5 +51,3 @@ Windows 原生配套应用也在计划中；推荐通过 WSL2 使用 Gateway 网
 
 - macOS：LaunchAgent（`bot.molt.gateway` 或 `bot.molt.<profile>`；旧版 `com.openclaw.*`）
 - Linux/WSL2：systemd 用户服务（`openclaw-gateway[-<profile>].service`）
-
-

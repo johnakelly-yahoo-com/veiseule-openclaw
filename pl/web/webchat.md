@@ -1,4 +1,7 @@
 ---
+summary: "Statyczny host WebChat w pętli zwrotnej oraz użycie Gateway WS dla interfejsu czatu"
+read_when:
+  - Debugowanie lub konfigurowanie dostępu do WebChat
 title: "WebChat"
 ---
 
@@ -42,7 +45,6 @@ Powiązane opcje globalne:
 
 - `gateway.port`, `gateway.bind`: host/port WebSocket.
 - `gateway.auth.mode`, `gateway.auth.token`, `gateway.auth.password`: uwierzytelnianie WebSocket.
+- `gateway.auth.mode: "trusted-proxy"`: uwierzytelnianie reverse-proxy dla klientów przeglądarkowych (zobacz [Trusted Proxy Auth](/gateway/trusted-proxy-auth)).
 - `gateway.remote.url`, `gateway.remote.token`, `gateway.remote.password`: docelowy gateway zdalny.
 - `session.*`: magazyn sesji oraz domyślne klucze główne.
-
-

@@ -1,4 +1,9 @@
-------
+---
+summary: "Anteckningar om verktyg för dev-agenten (C-3PO)"
+read_when:
+  - Använder mallarna för dev-gateway
+  - Uppdaterar standardidentiteten för dev-agenten
+---
 
 # TOOLS.md - Användaranteckningar om verktyg (redigerbar)
 
@@ -17,5 +22,3 @@ Det definierar inte vilka verktyg som finns; OpenClaw tillhandahåller inbyggda 
 - Text-till-tal: ange röst, mål-högtalare/rum och om strömning ska användas.
 
 Lägg till vad som helst annat som du vill att assistenten ska känna till om din lokala verktygskedja.
-
-

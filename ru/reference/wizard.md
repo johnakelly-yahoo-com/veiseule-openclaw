@@ -1,4 +1,9 @@
 ---
+summary: "Полная справка по мастеру онбординга CLI: каждый шаг, флаг и поле конфигурации"
+read_when:
+  - Поиск конкретного шага или флага мастера
+  - Автоматизация онбординга в неинтерактивном режиме
+  - Отладка поведения мастера
 title: "Справочник мастера онбординга"
 sidebarTitle: "Справочник мастера"
 ---
@@ -20,8 +25,7 @@ sidebarTitle: "Справочник мастера"
     - Сброс использует `trash` (никогда `rm`) и предлагает области:
       - Только конфиг
       - Конфиг + учётные данные + сеансы
-      - Полный сброс (также удаляет рабочее пространство)
-  
+      - Полный сброс (также удаляет рабочее пространство)  
 </Step>
   <Step title="Model/Auth">
     - **Ключ API Anthropic (рекомендуется)**: использует `ANTHROPIC_API_KEY`, если он есть, или запрашивает ключ, затем сохраняет его для использования демоном.
@@ -49,11 +53,11 @@ sidebarTitle: "Справочник мастера"
     - Выберите модель по умолчанию из обнаруженных вариантов (или введите провайдер/модель вручную).
     - Мастер выполняет проверку модели и предупреждает, если настроенная модель неизвестна или отсутствует аутентификация.
     - Учётные данные OAuth хранятся в `~/.openclaw/credentials/oauth.json`; профили аутентификации — в `~/.openclaw/agents/<agentId>/agent/auth-profiles.json` (ключи API + OAuth).
-    - Подробнее: [/concepts/oauth](/concepts/oauth)
-    <Note>
+    - Подробнее: [/concepts/oauth](/concepts/oauth)    
+<Note>
     Совет для headless/серверов: завершите OAuth на машине с браузером, затем скопируйте
     `~/.openclaw/credentials/oauth.json` (или `$OPENCLAW_STATE_DIR/credentials/oauth.json`) на
-    хост шлюза.
+    хост шлюза Gateway.
     
 </Note>
   
@@ -61,8 +65,7 @@ sidebarTitle: "Справочник мастера"
   <Step title="Workspace">
     - По умолчанию `~/.openclaw/workspace` (настраивается).
     - Создаёт файлы рабочего пространства, необходимые для ритуала инициализации агента.
-    - Полная структура рабочего пространства + руководство по резервному копированию: [Рабочее пространство агента](/concepts/agent-workspace)
-  
+    - Полная структура рабочего пространства + руководство по резервному копированию: [Рабочее пространство агента](/concepts/agent-workspace)  
 </Step>
   <Step title="Gateway">
     - Порт, привязка, режим аутентификации, экспонирование через Tailscale.
@@ -80,10 +83,12 @@ sidebarTitle: "Справочник мастера"
     - [Signal](/channels/signal): необязательная установка `signal-cli` + настройка аккаунта.
     - [BlueBubbles](/channels/bluebubbles): **рекомендуется для iMessage**; URL сервера + пароль + вебхук.
     - [iMessage](/channels/imessage): устаревший путь CLI `imsg` + доступ к БД.
-    - Безопасность личных сообщений: по умолчанию — сопряжение. Первое личное сообщение отправляет код; подтвердите через `openclaw pairing approve <channel> <code>` или используйте списки разрешённых.
+    - Безопасность личных сообщений: по умолчанию — сопряжение. Первое личное сообщение отправляет код; подтвердите через `openclaw pairing approve <channel><code>` или используйте списки разрешённых.
+  
+</Step><code>` или используйте списки разрешённых.
   
 </Step>
-  <Step title="Daemon install">
+  <Step title="Установка демона">
     - macOS: LaunchAgent
       - Требуется активная пользовательская сессия; для headless используйте пользовательский LaunchDaemon (не поставляется).
     - Linux (и Windows через WSL2): пользовательский unit systemd
@@ -92,18 +97,18 @@ sidebarTitle: "Справочник мастера"
     - **Выбор рантайма:** Node (рекомендуется; обязателен для WhatsApp/Telegram). Bun **не рекомендуется**.
   
 </Step>
-  <Step title="Health check">
+  <Step title="Проверка работоспособности">
     - Запускает Gateway (при необходимости) и выполняет `openclaw health`.
     - Совет: `openclaw status --deep` добавляет пробы здоровья Gateway в вывод статуса (требуется доступный Gateway).
   
 </Step>
-  <Step title="Skills (recommended)">
+  <Step title="Skills (рекомендуется)">
     - Считывает доступные Skills и проверяет требования.
     - Позволяет выбрать менеджер узлов: **npm / pnpm** (bun не рекомендуется).
     - Устанавливает необязательные зависимости (некоторые используют Homebrew на macOS).
   
 </Step>
-  <Step title="Finish">
+  <Step title="Завершение">
     - Сводка + дальнейшие шаги, включая приложения для iOS/Android/macOS для дополнительных возможностей.
   
 </Step>
@@ -231,7 +236,7 @@ openclaw agents add work \
 
 ## RPC мастера Gateway
 
-Gateway предоставляет поток мастера через RPC (`wizard.start`, `wizard.next`, `wizard.cancel`, `wizard.status`).
+Gateway (шлюз) предоставляет поток мастера через RPC (`wizard.start`, `wizard.next`, `wizard.cancel`, `wizard.status`).
 Клиенты (приложение для macOS, Control UI) могут отрисовывать шаги без повторной реализации логики онбординга.
 
 ## Настройка Signal (signal-cli)
@@ -279,4 +284,3 @@ Gateway предоставляет поток мастера через RPC (`wi
 - Справочник конфига: [Конфигурация Gateway](/gateway/configuration)
 - Провайдеры: [WhatsApp](/channels/whatsapp), [Telegram](/channels/telegram), [Discord](/channels/discord), [Google Chat](/channels/googlechat), [Signal](/channels/signal), [BlueBubbles](/channels/bluebubbles) (iMessage), [iMessage](/channels/imessage) (устаревший)
 - Skills: [Skills](/tools/skills), [Конфиг Skills](/tools/skills-config)
-

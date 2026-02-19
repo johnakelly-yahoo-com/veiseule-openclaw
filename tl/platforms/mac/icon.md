@@ -1,4 +1,7 @@
 ---
+summary: "Mga estado at animasyon ng icon sa menu bar para sa OpenClaw sa macOS"
+read_when:
+  - Pagbabago ng gawi ng icon sa menu bar
 title: "Icon sa Menu Bar"
 ---
 
@@ -26,5 +29,3 @@ Mga tala sa gawi
 
 - Walang external na CLI/broker toggle para sa ears/working; panatilihin itong internal sa sariling mga signal ng app upang maiwasan ang aksidenteng flapping.
 - Panatilihing maikli ang mga TTL (&lt;10s) upang mabilis na bumalik sa baseline ang icon kung may job na mag-hang.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Hỗ trợ tài khoản Zalo cá nhân thông qua zca-cli (đăng nhập QR), khả năng và cấu hình"
+read_when:
+  - Thiết lập Zalo Personal cho OpenClaw
+  - Gỡ lỗi đăng nhập hoặc luồng tin nhắn Zalo Personal
 title: "Zalo Personal"
 ---
 
@@ -82,7 +86,7 @@ Phê duyệt qua:
 
 ## Truy cập nhóm (tùy chọn)
 
-- Mặc định: `channels.zalouser.groupPolicy = "open"` (cho phép nhóm). Sử dụng `channels.defaults.groupPolicy` để ghi đè giá trị mặc định khi chưa được thiết lập.
+- Default: `channels.zalouser.groupPolicy = "open"` (groups allowed). Use `channels.defaults.groupPolicy` to override the default when unset.
 - Giới hạn theo danh sách cho phép với:
   - `channels.zalouser.groupPolicy = "allowlist"`
   - `channels.zalouser.groups` (khóa là ID hoặc tên nhóm)
@@ -134,5 +138,3 @@ Các tài khoản ánh xạ tới các profile zca. Ví dụ:
 
 - `openclaw channels status --probe`
 - Đăng nhập lại: `openclaw channels logout --channel zalouser && openclaw channels login --channel zalouser`
-
-

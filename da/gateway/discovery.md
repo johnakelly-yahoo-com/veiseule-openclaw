@@ -1,4 +1,9 @@
 ---
+summary: "Node-discovery og transporter (Bonjour, Tailscale, SSH) til at finde gatewayen"
+read_when:
+  - Implementering eller ændring af Bonjour-discovery/annoncering
+  - Justering af fjernforbindelsestilstande (direkte vs. SSH)
+  - Design af node-discovery + parring for fjernnoder
 title: "Discovery og transporter"
 ---
 
@@ -65,6 +70,13 @@ Fejlfinding og beacon-detaljer: [Bonjour](/gateway/bonjour).
 
 Deaktiver/overstyr:
 
+- Bonjour/mDNS TXT-recorder er **uautentificerede**. Klienter må kun behandle TXT-værdier som UX-hints.
+- `gateway.bind` i `~/.openclaw/openclaw.json` styrer Gateway-bind-tilstanden.
+- `OPENCLAW_SSH_PORT` overstyrer SSH-porten, der annonceres i TXT (standard er 22).
+- `OPENCLAW_TAILNET_DNS` publicerer et `tailnetDns`-hint (MagicDNS).
+
+Deaktiver/overstyr:
+
 - `OPENCLAW_DISABLE_BONJOUR=1` deaktiverer annoncering.
 - `gateway.bind` i `~/.openclaw/openclaw.json` styrer Gateway-bind-tilstanden.
 - `OPENCLAW_SSH_PORT` overstyrer SSH-porten, der annonceres i TXT (standard er 22).
@@ -77,13 +89,13 @@ For opsætninger i London/Wien, vil Bonjour ikke hjælpe. Det anbefalede “dire
 
 - Tailscale MagicDNS-navn (foretrukket) eller en stabil tailnet-IP.
 
-Hvis gatewayen kan registrere, at den kører under Tailscale, publicerer den `tailnetDns` som et valgfrit hint til klienter (inklusive wide-area beacons).
+Når der ikke er en direkte rute (eller direkte er deaktiveret), kan klienter altid forbinde via SSH ved at videresende loopback-gateway-porten.
 
 ### 3. Manuel / SSH-mål
 
 Når der ikke er en direkte rute (eller direkte er deaktiveret), kan klienter altid forbinde via SSH ved at videresende loopback-gateway-porten.
 
-Se [Remote access](/gateway/remote).
+Anbefalet klientadfærd:
 
 ## Transportvalg (klientpolitik)
 
@@ -98,8 +110,8 @@ Anbefalet klientadfærd:
 
 Gatewayen er sandhedskilden for node-/klientadgang.
 
-- Parringsanmodninger oprettes/godkendes/afvises i gatewayen (se [Gateway pairing](/gateway/pairing)).
-- Gatewayen håndhæver:
+- **Gateway**: annoncerer discovery-beacons, ejer parringsbeslutninger og hoster WS-endpointet.
+- **macOS-app**: hjælper dig med at vælge en gateway, viser parringsprompter og bruger kun SSH som fallback.
   - auth (token / nøglepar)
   - scopes/ACL’er (gatewayen er ikke en rå proxy til alle metoder)
   - rate limits
@@ -109,5 +121,3 @@ Gatewayen er sandhedskilden for node-/klientadgang.
 - **Gateway**: annoncerer discovery-beacons, ejer parringsbeslutninger og hoster WS-endpointet.
 - **macOS-app**: hjælper dig med at vælge en gateway, viser parringsprompter og bruger kun SSH som fallback.
 - **iOS/Android-noder**: gennemser Bonjour som en bekvemmelighed og forbinder til den parrede Gateway WS.
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "Pinagmulan ng proyekto, mga nag-ambag, at lisensya."
+read_when:
+  - Gusto mo ang backstory ng proyekto o mga kredito ng contributor
 title: "Mga Kredito"
 ---
 
@@ -21,6 +24,4 @@ OpenClaw = CLAW + TARDIS, dahil bawat space lobster ay nangangailangan ng makina
 
 MIT - Malaya tulad ng isang lobster sa karagatan.
 
-> "Lahat tayo ay naglalaro lamang sa sarili nating mga prompt." (Isang AI, marahil ay high sa tokens)
-
-
+> "We are all just playing with our own prompts." (An AI, probably high on tokens)

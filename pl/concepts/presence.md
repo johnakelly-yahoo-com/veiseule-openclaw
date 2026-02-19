@@ -1,4 +1,9 @@
 ---
+summary: "Jak wpisy obecności OpenClaw są tworzone, scalane i wyświetlane"
+read_when:
+  - Debugowanie karty Instances
+  - Badanie zduplikowanych lub nieaktualnych wierszy instancji
+  - Zmienianie połączeń WS Gateway lub sygnałów systemowych
 title: "Obecność"
 ---
 
@@ -95,5 +100,3 @@ Aplikacja na macOS renderuje wynik `system-presence` i stosuje niewielki wskaźn
   - potwierdź, że klienci wysyłają stabilny `client.instanceId` podczas uściśnięcia dłoni
   - potwierdź, że okresowe sygnały używają tego samego `instanceId`
   - sprawdź, czy wpis pochodzący z połączenia nie ma `instanceId` (duplikaty są wówczas oczekiwane)
-
-

@@ -1,13 +1,6 @@
 ---
-description: Deploy OpenClaw on Fly.io
 title: Fly.io
-x-i18n:
-  generated_at: "2026-02-03T07:52:55Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: a00bae43e416112eb269126445c51492a30abe9e136d89e161fc4193314a876f
-  source_path: platforms/fly.md
-  workflow: 15
+description: Deploy OpenClaw on Fly.io
 ---
 
 # Fly.io 部署
@@ -42,13 +35,13 @@ fly apps create my-openclaw
 fly volumes create openclaw_data --size 1 --region iad
 ```
 
-**提示：** 选择离你近的区域。常见选项：`lhr`（伦敦）、`iad`（弗吉尼亚）、`sjc`（圣何塞）。
+**提示：** 选择离你近的区域。常见选项：`lhr`（伦敦）、`iad`（弗吉尼亚）、`sjc`（圣何塞）。 22. 常见选项：`lhr`（伦敦）、`iad`（弗吉尼亚）、`sjc`（圣何塞）。
 
 ## 2）配置 fly.toml
 
 编辑 `fly.toml` 以匹配你的应用名称和需求。
 
-**安全注意事项：** 默认配置暴露公共 URL。对于没有公共 IP 的加固部署，参见[私有部署](#私有部署加固)或使用 `fly.private.toml`。
+25. **安全提示：** 默认配置会暴露一个公共 URL。 **安全注意事项：** 默认配置暴露公共 URL。对于没有公共 IP 的加固部署，参见[私有部署](#私有部署加固)或使用 `fly.private.toml`。
 
 ```toml
 app = "my-openclaw"  # Your app name
@@ -85,13 +78,13 @@ primary_region = "iad"
 
 **关键设置：**
 
-| 设置                           | 原因                                                                      |
-| ------------------------------ | ------------------------------------------------------------------------- |
-| `--bind lan`                   | 绑定到 `0.0.0.0` 以便 Fly 的代理可以访问 Gateway 网关                     |
-| `--allow-unconfigured`         | 无需配置文件启动（你稍后会创建一个）                                      |
+| 设置                             | 原因                                                         |
+| ------------------------------ | ---------------------------------------------------------- |
+| `--bind lan`                   | 绑定到 `0.0.0.0` 以便 Fly 的代理可以访问 Gateway 网关                    |
+| `--allow-unconfigured`         | 无需配置文件启动（你稍后会创建一个）                                         |
 | `internal_port = 3000`         | 必须与 `--port 3000`（或 `OPENCLAW_GATEWAY_PORT`）匹配以进行 Fly 健康检查 |
-| `memory = "2048mb"`            | 512MB 太小；推荐 2GB                                                      |
-| `OPENCLAW_STATE_DIR = "/data"` | 在卷上持久化状态                                                          |
+| `memory = "2048mb"`            | 512MB 太小；推荐 2GB                                            |
+| `OPENCLAW_STATE_DIR = "/data"` | 在卷上持久化状态                                                   |
 
 ## 3）设置密钥
 
@@ -114,7 +107,7 @@ fly secrets set DISCORD_BOT_TOKEN=MTQ...
 
 - 非 loopback 绑定（`--bind lan`）出于安全需要 `OPENCLAW_GATEWAY_TOKEN`。
 - 像对待密码一样对待这些 token。
-- **优先使用环境变量而不是配置文件**来存储所有 API 密钥和 token。这可以避免密钥出现在 `openclaw.json` 中，防止意外暴露或记录。
+- 46. **所有 API 密钥和令牌优先使用环境变量**，而不是配置文件。 47. 这样可以避免密钥出现在 `openclaw.json` 中，被意外暴露或记录到日志。
 
 ## 4）部署
 
@@ -122,7 +115,7 @@ fly secrets set DISCORD_BOT_TOKEN=MTQ...
 fly deploy
 ```
 
-首次部署构建 Docker 镜像（约 2-3 分钟）。后续部署更快。
+首次部署构建 Docker 镜像（约 2-3 分钟）。后续部署更快。 1. 后续部署会更快。
 
 部署后验证：
 
@@ -209,7 +202,7 @@ EOF
 - 环境变量：`DISCORD_BOT_TOKEN`（推荐用于密钥）
 - 配置文件：`channels.discord.token`
 
-如果使用环境变量，无需将 token 添加到配置中。Gateway 网关会自动读取 `DISCORD_BOT_TOKEN`。
+15. 如果使用环境变量，则无需在配置中添加 token。 16. 网关会自动读取 `DISCORD_BOT_TOKEN`。
 
 重启以应用：
 
@@ -261,7 +254,7 @@ Fly 无法在配置的端口上访问 Gateway 网关。
 
 ### OOM / 内存问题
 
-容器持续重启或被终止。迹象：`SIGABRT`、`v8::internal::Runtime_AllocateInYoungGeneration` 或静默重启。
+37. 容器不断重启或被杀死。 容器持续重启或被终止。迹象：`SIGABRT`、`v8::internal::Runtime_AllocateInYoungGeneration` 或静默重启。
 
 **修复：** 在 `fly.toml` 中增加内存：
 
@@ -276,7 +269,7 @@ Fly 无法在配置的端口上访问 Gateway 网关。
 fly machine update <machine-id> --vm-memory 2048 -y
 ```
 
-**注意：** 512MB 太小。1GB 可能可以工作但在负载或详细日志记录下可能 OOM。**推荐 2GB。**
+43. **注意：** 512MB 太小。 **注意：** 512MB 太小。1GB 可能可以工作但在负载或详细日志记录下可能 OOM。**推荐 2GB。** 45. **推荐使用 2GB。**
 
 ### Gateway 网关锁问题
 
@@ -295,7 +288,7 @@ fly machine restart <machine-id>
 
 ### 配置未被读取
 
-如果使用 `--allow-unconfigured`，Gateway 网关会创建最小配置。你在 `/data/openclaw.json` 的自定义配置应该在重启时被读取。
+如果使用 `--allow-unconfigured`，网关会创建一个最小配置。 如果使用 `--allow-unconfigured`，Gateway 网关会创建最小配置。你在 `/data/openclaw.json` 的自定义配置应该在重启时被读取。
 
 验证配置是否存在：
 
@@ -305,7 +298,7 @@ fly ssh console --command "cat /data/openclaw.json"
 
 ### 通过 SSH 写入配置
 
-`fly ssh console -C` 命令不支持 shell 重定向。要写入配置文件：
+`fly ssh console -C` 命令不支持 shell 重定向。要写入配置文件： 写入配置文件的方法：
 
 ```bash
 # Use echo + tee (pipe from local to remote)
@@ -316,7 +309,7 @@ fly sftp shell
 > put /local/path/config.json /data/openclaw.json
 ```
 
-**注意：** 如果文件已存在，`fly sftp` 可能会失败。先删除：
+**注意：** 如果文件已存在，`fly sftp` 可能会失败。先删除： 47. 先删除：
 
 ```bash
 fly ssh console --command "rm /data/openclaw.json"
@@ -357,11 +350,11 @@ fly machine update <machine-id> --command "node dist/index.js gateway --port 300
 fly machine update <machine-id> --vm-memory 2048 --command "node dist/index.js gateway --port 3000 --bind lan" -y
 ```
 
-**注意：** `fly deploy` 后，机器命令可能会重置为 `fly.toml` 中的内容。如果你进行了手动更改，请在部署后重新应用它们。
+**注意：** `fly deploy` 后，机器命令可能会重置为 `fly.toml` 中的内容。如果你进行了手动更改，请在部署后重新应用它们。 如果你做了手动更改，请在部署后重新应用它们。
 
 ## 私有部署（加固）
 
-默认情况下，Fly 分配公共 IP，使你的 Gateway 网关可通过 `https://your-app.fly.dev` 访问。这很方便，但意味着你的部署可被互联网扫描器（Shodan、Censys 等）发现。
+默认情况下，Fly 分配公共 IP，使你的 Gateway 网关可通过 `https://your-app.fly.dev` 访问。这很方便，但意味着你的部署可被互联网扫描器（Shodan、Censys 等）发现。 49. 这很方便，但意味着你的部署会被互联网扫描器（Shodan、Censys 等）发现。
 
 对于**无公共暴露**的加固部署，使用私有模板。
 
@@ -435,9 +428,9 @@ fly wireguard create
 fly ssh console -a my-openclaw
 ```
 
-### 私有部署的 Webhooks
+### 私有部署下的 Webhook
 
-如果你需要 webhook 回调（Twilio、Telnyx 等）而不暴露公共：
+如果你需要 webhook 回调（Twilio、Telnyx 等）而不暴露公共： 且不进行公网暴露：
 
 1. **ngrok 隧道** - 在容器内或作为 sidecar 运行 ngrok
 2. **Tailscale Funnel** - 通过 Tailscale 暴露特定路径
@@ -461,16 +454,16 @@ fly ssh console -a my-openclaw
 }
 ```
 
-ngrok 隧道在容器内运行并提供公共 webhook URL，而不暴露 Fly 应用本身。
+ngrok 隧道在容器内运行并提供公共 webhook URL，而不暴露 Fly 应用本身。 Set `webhookSecurity.allowedHosts` to the public tunnel hostname so forwarded host headers are accepted.
 
 ### 安全优势
 
-| 方面            | 公共   | 私有     |
-| --------------- | ------ | -------- |
-| 互联网扫描器    | 可发现 | 隐藏     |
-| 直接攻击        | 可能   | 被阻止   |
-| Control UI 访问 | 浏览器 | 代理/VPN |
-| Webhook 投递    | 直接   | 通过隧道 |
+| 方面            | 公共  | Private |
+| ------------- | --- | ------- |
+| 互联网扫描器        | 可发现 | 隐藏      |
+| 直接攻击          | 可能  | 被阻止     |
+| Control UI 访问 | 浏览器 | 代理/VPN  |
+| Webhook 投递    | 直接  | 通过隧道    |
 
 ## 注意事项
 
@@ -488,5 +481,3 @@ ngrok 隧道在容器内运行并提供公共 webhook URL，而不暴露 Fly 应
 - 免费套餐包含一些配额
 
 详情参见 [Fly.io 定价](https://fly.io/docs/about/pricing/)。
-
-

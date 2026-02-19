@@ -1,10 +1,15 @@
 ---
+summary: "အပြန်အလှန်ပို့သော အဖြေများအတွက် စာသားမှ အသံ (TTS)"
+read_when:
+  - အဖြေများအတွက် စာသားမှ အသံကို ဖွင့်အသုံးပြုခြင်း
+  - TTS ပံ့ပိုးသူများ သို့မဟုတ် ကန့်သတ်ချက်များကို ဖွဲ့စည်းပြင်ဆင်ခြင်း
+  - /tts အမိန့်များကို အသုံးပြုခြင်း
 title: "စာသားမှ အသံ"
 ---
 
 # စာသားမှ အသံ (TTS)
 
-OpenClaw သည် ElevenLabs၊ OpenAI သို့မဟုတ် Edge TTS ကို အသုံးပြု၍ အပြန်အလှန်ပို့သော စာပြန်များကို အသံဖိုင်အဖြစ် ပြောင်းလဲနိုင်ပါသည်။
+OpenClaw can convert outbound replies into audio using ElevenLabs, OpenAI, or Edge TTS.
 It works anywhere OpenClaw can send audio; Telegram gets a round voice-note bubble.
 
 ## ပံ့ပိုးထားသော ဝန်ဆောင်မှုများ
@@ -375,5 +380,3 @@ Gateway အမိန့်များ-
 - `tts.convert`
 - `tts.setProvider`
 - `tts.providers`
-
-

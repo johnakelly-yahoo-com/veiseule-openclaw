@@ -1,12 +1,9 @@
 ---
-title: node
-x-i18n:
-  generated_at: "2026-02-03T07:45:07Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: a8b1a57712663e2285c9ecd306fe57d067eb3e6820d7d8aec650b41b022d995a
-  source_path: cli/node.md
-  workflow: 15
+summary: "`openclaw node` 的 CLI 参考（无头节点主机）"
+read_when:
+  - 运行无头节点主机
+  - 为 system.run 配对非 macOS 节点
+title: "node"
 ---
 
 # `openclaw node`
@@ -28,7 +25,8 @@ x-i18n:
 
 ## 浏览器代理（零配置）
 
-如果节点上的 `browser.enabled` 未被禁用，节点主机会自动广播浏览器代理。这让智能体无需额外配置即可在该节点上使用浏览器自动化。
+如果节点上的 `browser.enabled` 未被禁用，节点主机会自动广播浏览器代理。这让智能体无需额外配置即可在该节点上使用浏览器自动化。 This lets the agent use browser automation on that node
+without extra configuration.
 
 如需在节点上禁用：
 
@@ -89,10 +87,11 @@ openclaw node uninstall
 
 服务命令接受 `--json` 以获取机器可读输出。
 
-## 配对
+## Pairing
 
 首次连接会在 Gateway 网关上创建待处理的节点配对请求。
 通过以下方式批准：
+Approve it via:
 
 ```bash
 openclaw nodes pending
@@ -109,5 +108,3 @@ openclaw nodes approve <requestId>
 - `~/.openclaw/exec-approvals.json`
 - [执行批准](/tools/exec-approvals)
 - `openclaw approvals --node <id|name|ip>`（从 Gateway 网关编辑）
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "Dybdegående gennemgang: sessionslager + transskripter, livscyklus og (auto)kompakterings‑internals"
+read_when:
+  - Du skal debugge session-id’er, transcript JSONL eller felter i sessions.json
+  - Du ændrer auto-kompakteringsadfærd eller tilføjer “pre-compaction” housekeeping
+  - Du vil implementere memory flushes eller tavse systemturns
 title: "Dybdegående gennemgang af sessionstyring"
 ---
 
@@ -162,7 +167,7 @@ Efter kompaktering ser fremtidige turns:
 - Kompakteringsresuméet
 - Beskeder efter `firstKeptEntryId`
 
-Komprimering er **persistent** (i modsætning til sessionsbeskæring). Se [/concepts/session-pruning](/concepts/session-pruning).
+Komprimering er **persistent** (i modsætning til sessionsbeskæring). Se [/concepts/session-pruning](/concepts/session-beskæring).
 
 ---
 
@@ -278,5 +283,3 @@ flush-logik ligger på Gateway-siden i dag.
   - kompakteringsindstillinger (`reserveTokens` for høj i forhold til modelvinduet kan give tidligere kompaktering)
   - tool-result-bloat: aktivér/justér session pruning
 - Lydløs bliver utæt? Bekræft svaret starter med `NO_REPLY` (eksakt token), og du er på en bygning, der omfatter streaming suppression fix.
-
-

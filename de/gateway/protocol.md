@@ -1,4 +1,9 @@
 ---
+summary: "Gateway-WebSocket-Protokoll: Handshake, Frames, Versionierung"
+read_when:
+  - Implementierung oder Aktualisierung von Gateway-WS-Clients
+  - Debugging von Protokollinkompatibilitäten oder Verbindungsfehlern
+  - Neuerstellung von Protokollschemas/-modellen
 title: "Gateway-Protokoll"
 ---
 
@@ -214,5 +219,3 @@ Das Gateway behandelt diese als **Claims** und erzwingt serverseitige Allowlists
 Dieses Protokoll stellt die **vollständige Gateway‑API** bereit (Status, Kanäle, Modelle, Chat,
 Agent, Sitzungen, Nodes, Freigaben usw.). Der exakte Umfang wird durch die TypeBox‑Schemas in
 `src/gateway/protocol/schema.ts` definiert.
-
-

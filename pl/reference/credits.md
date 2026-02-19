@@ -1,4 +1,7 @@
 ---
+summary: "Pochodzenie projektu, współtwórcy i licencja."
+read_when:
+  - Chcesz poznać historię projektu lub listę współtwórców
 title: "Kredyty"
 ---
 
@@ -22,5 +25,3 @@ OpenClaw = CLAW + TARDIS, ponieważ każdy kosmiczny homar potrzebuje maszyny cz
 MIT – Wolny jak homar w oceanie.
 
 > „Wszyscy tylko bawimy się własnymi promptami.” (Pewna SI, prawdopodobnie na haju tokenów)
-
-

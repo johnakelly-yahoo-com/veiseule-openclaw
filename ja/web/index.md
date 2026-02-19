@@ -1,4 +1,8 @@
 ---
+summary: "Gateway（ゲートウェイ）の Web サーフェス：コントロール UI、バインドモード、セキュリティ"
+read_when:
+  - Tailscale 経由で Gateway にアクセスしたい場合
+  - ブラウザーのコントロール UI と設定編集を利用したい場合
 title: "Web"
 ---
 
@@ -17,11 +21,13 @@ Gateway は、Gateway WebSocket と同じポートから小規模な **ブラウ
 `hooks.enabled=true` の場合、Gateway は同じ HTTP サーバー上で小規模な Webhook エンドポイントも公開します。
 認証およびペイロードについては、[Gateway configuration](/gateway/configuration) → `hooks` を参照してください。
 認証+ペイロードについては、[ゲートウェイ設定](/gateway/configuration) → `フック` を参照してください。
+認証+ペイロードについては、[ゲートウェイ設定](/gateway/configuration) → `フック` を参照してください。
 
 ## Config（デフォルト有効）
 
 アセットが存在する場合、コントロール UI は **デフォルトで有効** です（`dist/control-ui`）。
 設定で制御できます。
+以下の設定で制御できます。
 以下の設定で制御できます。
 
 ```json5
@@ -100,15 +106,15 @@ openclaw gateway
 - コントロール UI はアンチクリックジャッキングのヘッダーを送信し、`gateway.controlUi.allowedOrigins` が設定されていない限り、同一オリジンのブラウザー WebSocket 接続のみを受け付けます。
 - Serve を使用する場合、`gateway.auth.allowTailscale` が `true` のとき、Tailscale のアイデンティティヘッダーで認証を満たせます（トークン／パスワード不要）。明示的な資格情報を必須にするには `gateway.auth.allowTailscale: false` を設定してください。詳細は [Tailscale](/gateway/tailscale) および [Security](/gateway/security) を参照してください。 明示的な資格情報を必要とするには、
   `gateway.auth.allowTailscale: false` を設定してください。
+  [Tailscale](/gateway/tailscale) と [Security](/gateway/security) を参照してください。 明示的な資格情報を必要とするには、
+  `gateway.auth.allowTailscale: false` を設定してください。
   [Tailscale](/gateway/tailscale) と [Security](/gateway/security) を参照してください。
 - `gateway.tailscale.mode: "funnel"` には `gateway.auth.mode: "password"`（共有パスワード）が必要です。
 
 ## UI のビルド
 
-Gateway は `dist/control-ui` から静的ファイルを提供します。次のコマンドでビルドしてください。 以下でビルドします。
+Gateway は `dist/control-ui` から静的ファイルを提供します。次のコマンドでビルドしてください。 以下でビルドします。 以下でビルドします。
 
 ```bash
 pnpm ui:build # auto-installs UI deps on first run
 ```
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "بثّ رسالة WhatsApp إلى عدة وكلاء"
+read_when:
+  - تهيئة مجموعات البثّ
+  - تصحيح أخطاء ردود متعددة الوكلاء في WhatsApp
 status: experimental
 title: "مجموعات البثّ"
 ---
@@ -436,5 +440,3 @@ interface OpenClawConfig {
 - [تهيئة متعددة الوكلاء](/tools/multi-agent-sandbox-tools)
 - [تهيئة التوجيه](/channels/channel-routing)
 - [إدارة الجلسات](/concepts/sessions)
-
-

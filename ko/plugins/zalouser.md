@@ -1,4 +1,8 @@
 ---
+summary: "Zalo 개인 플러그인: zca-cli 를 통한 QR 로그인 + 메시징 (플러그인 설치 + 채널 설정 + CLI + 도구)"
+read_when:
+  - OpenClaw 에서 Zalo 개인(비공식) 지원이 필요할 때
+  - zalouser 플러그인을 구성하거나 개발할 때
 title: "Zalo 개인 플러그인"
 ---
 
@@ -75,5 +79,3 @@ openclaw directory peers list --channel zalouser --query "name"
 도구 이름: `zalouser`
 
 작업: `send`, `image`, `link`, `friends`, `groups`, `me`, `status`
-
-

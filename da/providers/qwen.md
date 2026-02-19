@@ -1,4 +1,8 @@
 ---
+summary: "Brug Qwen OAuth (gratis niveau) i OpenClaw"
+read_when:
+  - Du vil bruge Qwen med OpenClaw
+  - Du vil have gratis OAuth-adgang til Qwen Coder
 title: "Qwen"
 ---
 
@@ -47,5 +51,3 @@ fra `~/.qwen/oauth_creds.json` når den indlæser auth store. Du har stadig brug
 - Standard base-URL: `https://portal.qwen.ai/v1` (kan tilsidesættes med
   `models.providers.qwen-portal.baseUrl`, hvis Qwen stiller et andet endpoint til rådighed).
 - Se [Model providers](/concepts/model-providers) for udbyderfælles regler.
-
-

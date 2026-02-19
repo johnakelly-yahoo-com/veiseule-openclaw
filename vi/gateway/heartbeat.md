@@ -1,4 +1,8 @@
 ---
+summary: "Thông điệp thăm dò heartbeat và các quy tắc thông báo"
+read_when:
+  - Điều chỉnh nhịp heartbeat hoặc nội dung thông điệp
+  - Quyết định giữa heartbeat và cron cho các tác vụ theo lịch
 title: "Nhịp tim"
 ---
 
@@ -43,7 +47,7 @@ Ví dụ cấu hình:
   `Read HEARTBEAT.md if it exists (workspace context). 36. Follow it strictly. 37. Do not infer or repeat old tasks from prior chats. 38. If nothing needs attention, reply HEARTBEAT_OK.` Prompt heartbeat được gửi **nguyên văn** như thông điệp người dùng. Prompt hệ thống bao gồm một mục “Heartbeat” và lần chạy được gắn cờ nội bộ. Giờ hoạt động (`heartbeat.activeHours`) được kiểm tra theo múi giờ đã cấu hình.
 - `channels.<channel> 42. .heartbeat` ghi đè mặc định của kênh. `channels.<channel> 45. .accounts.<id> 46. .heartbeat` (các kênh đa tài khoản) ghi đè cài đặt theo kênh.
 - Nếu bất kỳ mục `agents.list[]` nào có khối `heartbeat`, **chỉ những agent đó** chạy heartbeat.
-Bên ngoài cửa sổ, các nhịp tim sẽ bị bỏ qua cho đến lần tick tiếp theo bên trong cửa sổ.
+  Outside the window, heartbeats are skipped until the next tick inside the window.
 
 ## Mục đích của prompt heartbeat
 
@@ -62,8 +66,8 @@ stats” hoặc “verify gateway health”), hãy đặt `agents.defaults.heart
 ## Hợp đồng phản hồi
 
 - Nếu không có gì cần chú ý, trả lời bằng **`HEARTBEAT_OK`**.
-- Trong quá trình chạy heartbeat, OpenClaw xem `HEARTBEAT_OK` là một xác nhận (ack) khi nó xuất hiện
-ở **đầu hoặc cuối** của phản hồi. Token này sẽ bị loại bỏ và phản hồi sẽ được
+- During heartbeat runs, OpenClaw treats `HEARTBEAT_OK` as an ack when it appears
+  at the **start or end** of the reply. The token is stripped and the reply is
   dropped if the remaining content is **≤ `ackMaxChars`** (default: 300).
 - Nếu `HEARTBEAT_OK` xuất hiện ở **giữa** phản hồi, nó không được xử lý đặc biệt.
 - Với cảnh báo, **không** bao gồm `HEARTBEAT_OK`; chỉ trả về văn bản cảnh báo.
@@ -98,7 +102,7 @@ và ghi log; một thông điệp chỉ gồm `HEARTBEAT_OK` sẽ bị loại.
 - `agents.list[].heartbeat` được gộp chồng lên; nếu bất kỳ tác tử nào có khối `heartbeat`, **chỉ những tác tử đó** chạy heartbeat.
 - `channels.defaults.heartbeat` đặt mặc định hiển thị cho tất cả các kênh.
 - Khối theo agent sẽ được gộp chồng lên `agents.defaults.heartbeat` (vì vậy bạn có thể đặt mặc định dùng chung một lần và ghi đè theo agent).Ngoài khung giờ này (trước 9h sáng hoặc sau 10h tối theo Eastern), heartbeat sẽ bị bỏ qua.
-- Điều này có thể hữu ích khi agent đang quản lý nhiều phiên/codex và bạn muốn biết vì sao nó quyết định ping bạn — nhưng cũng có thể làm lộ nhiều chi tiết nội bộ hơn mức bạn muốn..accounts.&lt;id&gt;.heartbeat\` (multi-account channels) overrides per-channel settings.
+- Điều này có thể hữu ích khi agent đang quản lý nhiều phiên/codex và bạn muốn biết vì sao nó quyết định ping bạn — nhưng cũng có thể làm lộ nhiều chi tiết nội bộ hơn mức bạn muốn..accounts.<id>.heartbeat\` (multi-account channels) overrides per-channel settings.
 
 ### Heartbeat theo từng tác tử
 
@@ -356,5 +360,3 @@ off in group chats.
 Heartbeats run full agent turns. Shorter intervals burn more tokens. Keep
 `HEARTBEAT.md` small and consider a cheaper `model` or `target: "none"` if you
 only want internal state updates.
-
-

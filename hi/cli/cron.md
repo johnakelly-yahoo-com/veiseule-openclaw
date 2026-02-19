@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw cron` के लिए CLI संदर्भ (अनुसूचित करें और पृष्ठभूमि जॉब्स चलाएँ)"
+read_when:
+  - आपको अनुसूचित जॉब्स और वेकअप्स चाहिए
+  - आप cron निष्पादन और लॉग्स का डिबग कर रहे हैं
 title: "cron"
 ---
 
@@ -12,10 +16,10 @@ Gateway शेड्यूलर के लिए cron जॉब्स प्र
 
 सुझाव: पूर्ण कमांड सतह के लिए `openclaw cron --help` चलाएँ।
 
-नोट: अलग-थलग `cron add` जॉब्स डिफ़ॉल्ट रूप से `--announce` डिलीवरी का उपयोग करते हैं। उन्हें बनाए रखने के लिए `--no-deliver` का उपयोग करें।
+Note: isolated `cron add` jobs default to `--announce` delivery. Use `--no-deliver` to keep
 output internal. `--deliver` remains as a deprecated alias for `--announce`.
 
-नोट: एक-बार चलने वाले (`--at`) जॉब्स डिफ़ॉल्ट रूप से सफल होने के बाद हट जाते हैं। उन्हें बनाए रखने के लिए `--keep-after-run` का उपयोग करें।
+Note: one-shot (`--at`) jobs delete after success by default. Use `--keep-after-run` to keep them.
 
 टिप्पणी: आवर्ती जॉब्स अब लगातार त्रुटियों के बाद घातीय पुनःप्रयास बैकऑफ का उपयोग करते हैं (30s → 1m → 5m → 15m → 60m), फिर अगली सफल रन के बाद सामान्य शेड्यूल पर लौट आते हैं।
 
@@ -38,5 +42,3 @@ openclaw cron edit <job-id> --no-deliver
 ```bash
 openclaw cron edit <job-id> --announce --channel slack --to "channel:C1234567890"
 ```
-
-

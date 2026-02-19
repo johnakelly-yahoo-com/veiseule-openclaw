@@ -1,4 +1,8 @@
 ---
+summary: "ปลั๊กอิน Voice Call: โทรออกและรับสายผ่าน Twilio/Telnyx/Plivo (ติดตั้งปลั๊กอิน + คอนฟิก + CLI)"
+read_when:
+  - คุณต้องการโทรออกด้วยเสียงจาก OpenClaw
+  - คุณกำลังกำหนดค่าหรือพัฒนาปลั๊กอิน voice-call
 title: "ปลั๊กอิน Voice Call"
 ---
 
@@ -109,6 +113,7 @@ cd ./extensions/voice-call && pnpm install
 - Twilio/Telnyx ต้องการ URL webhook ที่ **เข้าถึงได้สาธารณะ**
 - Plivo ต้องการ URL webhook ที่ **เข้าถึงได้สาธารณะ**
 - `mock` เป็นผู้ให้บริการสำหรับ dev ภายในเครื่อง (ไม่มีการเรียกเครือข่าย)
+- Telnyx ต้องการ `telnyx.publicKey` (หรือ `TELNYX_PUBLIC_KEY`) เว้นแต่ `skipSignatureVerification` จะเป็น true
 - `skipSignatureVerification` ใช้สำหรับการทดสอบภายในเครื่องเท่านั้น
 - หากใช้ ngrok ระดับฟรี ให้ตั้งค่า `publicUrl` เป็น URL ngrok ที่ตรงกันทุกประการ; การตรวจสอบลายเซ็นจะถูกบังคับเสมอ
 - `tunnel.allowNgrokFreeTierLoopbackBypass: true` อนุญาต webhook ของ Twilio ที่มีลายเซ็นไม่ถูกต้อง **เฉพาะเมื่อ** `tunnel.provider="ngrok"` และ `serve.bind` เป็น loopback (ngrok local agent) ใช้สำหรับ dev ภายในเครื่องเท่านั้น 16. ใช้สำหรับการพัฒนาในเครื่องเท่านั้น
@@ -281,5 +286,3 @@ openclaw voicecall expose --mode funnel
 - `voicecall.speak` (`callId`, `message`)
 - `voicecall.end` (`callId`)
 - `voicecall.status` (`callId`)
-
-

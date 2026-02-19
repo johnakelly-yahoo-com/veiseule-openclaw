@@ -1,4 +1,9 @@
 ---
+summary: "Referencja CLI dla `openclaw browser` (profile, karty, akcje, przekaźnik rozszerzenia)"
+read_when:
+  - Używasz `openclaw browser` i chcesz przykładów typowych zadań
+  - Chcesz sterować przeglądarką uruchomioną na innej maszynie za pośrednictwem hosta węzła
+  - Chcesz używać przekaźnika rozszerzenia Chrome (podłączanie/odłączanie przyciskiem na pasku narzędzi)
 title: "browser"
 ---
 
@@ -47,7 +52,7 @@ Użyj konkretnego profilu:
 openclaw browser --browser-profile work tabs
 ```
 
-## Karty
+## Tabs
 
 ```bash
 openclaw browser tabs
@@ -58,7 +63,7 @@ openclaw browser close <targetId>
 
 ## Migawka / zrzut ekranu / akcje
 
-Migawka:
+Snapshot:
 
 ```bash
 openclaw browser snapshot
@@ -100,5 +105,3 @@ Jeśli Gateway działa na innej maszynie niż przeglądarka, uruchom **host węz
 Użyj `gateway.nodes.browser.mode` do kontrolowania automatycznego routingu oraz `gateway.nodes.browser.node` do przypięcia konkretnego węzła, jeśli podłączonych jest wiele.
 
 Bezpieczeństwo + konfiguracja zdalna: [Browser tool](/tools/browser), [Remote access](/gateway/remote), [Tailscale](/gateway/tailscale), [Security](/gateway/security)
-
-

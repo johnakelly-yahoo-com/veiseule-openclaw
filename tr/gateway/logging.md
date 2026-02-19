@@ -1,8 +1,12 @@
 ---
-title: "Günlükleme"
+summary: "Günlükleme yüzeyleri, dosya günlükleri, WS günlük stilleri ve konsol biçimlendirme"
+read_when:
+  - Günlükleme çıktısını veya biçimlerini değiştirirken
+  - CLI veya gateway çıktısını hata ayıklarken
+title: "Logging"
 ---
 
-# Günlükleme
+# Logging
 
 Kullanıcıya dönük bir genel bakış için (CLI + Control UI + yapılandırma), bkz. [/logging](/logging).
 
@@ -104,5 +108,3 @@ Davranış:
 - **WhatsApp mesaj gövdeleri** `debug` seviyesinde günlüğe alınır (görmek için `--verbose` kullanın)
 
 Bu, mevcut dosya günlüklerini sabit tutarken etkileşimli çıktıyı taranabilir hale getirir.
-
-

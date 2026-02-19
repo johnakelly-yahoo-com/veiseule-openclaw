@@ -1,12 +1,9 @@
 ---
-title: LLM 任务
-x-i18n:
-  generated_at: "2026-02-01T21:42:34Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: d81b74fcfd5491a9edb4bfadb47d404067020990b1f6d6d8fed652fbc860f646
-  source_path: tools/llm-task.md
-  workflow: 15
+summary: "用于工作流的纯 JSON LLM 任务（可选插件工具）"
+read_when:
+  - 你需要在工作流中添加纯 JSON 的 LLM 步骤
+  - 你需要经过 Schema 验证的 LLM 输出用于自动化
+title: "LLM 任务"
 ---
 
 # LLM 任务
@@ -66,7 +63,7 @@ x-i18n:
 }
 ```
 
-`allowedModels` 是 `provider/model` 字符串的允许列表。如果设置了该项，任何不在列表中的请求都会被拒绝。
+`allowedModels` 是 `provider/model` 字符串的允许列表。如果设置了该项，任何不在列表中的请求都会被拒绝。 1. 如果设置，列表之外的任何请求都会被拒绝。
 
 ## 工具参数
 
@@ -111,5 +108,3 @@ openclaw.invoke --tool llm-task --action json --args-json '{
 - 此次运行不会向模型暴露任何工具。
 - 除非使用 `schema` 进行验证，否则应将输出视为不可信。
 - 在任何有副作用的步骤（发送、发布、执行）之前设置审批流程。
-
-

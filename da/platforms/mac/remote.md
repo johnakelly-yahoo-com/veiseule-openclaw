@@ -1,4 +1,7 @@
 ---
+summary: "macOS-appflow til styring af en fjern OpenClaw gateway over SSH"
+read_when:
+  - Opsætning eller fejlfinding af fjern mac-styring
 title: "Fjernstyring"
 ---
 
@@ -78,5 +81,3 @@ openclaw nodes notify --node <id> --title "Ping" --body "Remote gateway ready" -
 ```
 
 Der er ikke længere en global “standardlyd”-kontakt i appen; kaldere vælger en lyd (eller ingen) pr. anmodning.
-
-

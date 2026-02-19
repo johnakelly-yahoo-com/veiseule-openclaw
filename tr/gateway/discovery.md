@@ -1,4 +1,9 @@
 ---
+summary: "Gateway’i bulmak için düğüm keşfi ve taşıma yöntemleri (Bonjour, Tailscale, SSH)"
+read_when:
+  - Bonjour keşfi/yayınını uygularken veya değiştirirken
+  - Uzak bağlantı modlarını ayarlarken (doğrudan vs SSH)
+  - Uzak düğümler için düğüm keşfi + eşleştirme tasarlarken
 title: "Keşif ve Taşıma Yöntemleri"
 ---
 
@@ -63,6 +68,13 @@ Sorun giderme ve beacon ayrıntıları: [Bonjour](/gateway/bonjour).
   - `cliPath=<path>` (isteğe bağlı; çalıştırılabilir bir `openclaw` giriş noktası veya ikili dosyanın mutlak yolu)
   - `tailnetDns=<magicdns>` (isteğe bağlı ipucu; Tailscale mevcutsa otomatik algılanır)
 
+Güvenlik notları:
+
+- Bonjour/mDNS TXT kayıtları **kimlik doğrulamasızdır**. İstemciler, TXT değerlerini yalnızca kullanıcı deneyimi ipuçları olarak değerlendirmelidir.
+- Yönlendirme (host/port), TXT ile sağlanan `lanHost`, `tailnetDns` veya `gatewayPort` yerine **çözümlenmiş hizmet uç noktasını** (SRV + A/AAAA) tercih etmelidir.
+- TLS sabitleme (pinning), ilan edilen bir `gatewayTlsSha256` değerinin daha önce kaydedilmiş bir pini geçersiz kılmasına asla izin vermemelidir.
+- iOS/Android düğümleri, keşfe dayalı doğrudan bağlantıları **yalnızca TLS** olarak değerlendirmeli ve ilk kez bir pin kaydetmeden önce açık bir “bu parmak izine güven” onayı (bant dışı doğrulama) gerektirmelidir.
+
 Devre dışı bırakma/geçersiz kılma:
 
 - `OPENCLAW_DISABLE_BONJOUR=1` yayını devre dışı bırakır.
@@ -109,5 +121,3 @@ Gateway, düğüm/istemci kabulü için tek doğruluk kaynağıdır.
 - **Gateway**: keşif beacon’larını duyurur, eşleştirme kararlarını sahiplenir ve WS uç noktasını barındırır.
 - **macOS uygulaması**: bir gateway seçmenize yardımcı olur, eşleştirme istemlerini gösterir ve yalnızca yedek olarak SSH kullanır.
 - **iOS/Android düğümleri**: kolaylık olarak Bonjour’u tarar ve eşleştirilmiş Gateway WS’ye bağlanır.
-
-

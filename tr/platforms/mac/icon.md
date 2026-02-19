@@ -1,4 +1,7 @@
 ---
+summary: "macOS üzerinde OpenClaw için menü çubuğu simge durumları ve animasyonları"
+read_when:
+  - Menü çubuğu simgesi davranışını değiştirirken
 title: "Menü Çubuğu Simgesi"
 ---
 
@@ -26,5 +29,3 @@ Davranışsal notlar
 
 - Kulaklar/çalışma için harici bir CLI/aracı anahtar yoktur; yanlışlıkla çırpınmayı önlemek için bunu uygulamanın kendi sinyallerine içsel tutun.
 - Bir iş takılırsa simgenin hızla temel duruma dönmesi için TTL’leri kısa tutun (&lt;10 sn).
-
-

@@ -68,5 +68,3 @@ Wenn Sie nur Sitzungen zurücksetzen möchten, löschen Sie `agents/<agentId>/se
 
 - [https://docs.openclaw.ai/testing](https://docs.openclaw.ai/testing)
 - [https://docs.openclaw.ai/start/getting-started](https://docs.openclaw.ai/start/getting-started)
-
-

@@ -1,17 +1,15 @@
 ---
-title: macOS 权限
-x-i18n:
-  generated_at: "2026-02-01T21:32:58Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: d012589c0583dd0b3792d695f3f71a6ff265704cf02a3b79f8c4a5b14712e6aa
-  source_path: platforms/mac/permissions.md
-  workflow: 15
+summary: "macOS 权限持久化（TCC）和签名要求"
+read_when:
+  - 调试缺失或卡住的 macOS 权限提示
+  - 打包或签名 macOS 应用
+  - 更改 Bundle ID 或应用安装路径
+title: "macOS 权限"
 ---
 
 # macOS 权限（TCC）
 
-macOS 权限授予是脆弱的。TCC 将权限授予与应用的代码签名、Bundle 标识符和磁盘路径关联。如果其中任何一项发生变化，macOS 会将该应用视为新应用，可能会丢弃或隐藏权限提示。
+15. macOS 的权限授权非常脆弱。 16. TCC 会将权限授权与应用的代码签名、bundle identifier 以及磁盘上的路径关联起来。 17. 如果其中任何一项发生变化，macOS 会将该应用视为新应用，并可能丢弃或隐藏权限提示。
 
 ## 稳定权限的要求
 
@@ -20,7 +18,7 @@ macOS 权限授予是脆弱的。TCC 将权限授予与应用的代码签名、B
 - 已签名的应用：未签名或临时签名的构建不会持久化权限。
 - 一致的签名：使用真实的 Apple Development 或 Developer ID 证书，以确保签名在多次构建之间保持稳定。
 
-临时签名每次构建都会生成新的身份。macOS 会忘记之前的授权，提示可能完全消失，直到清除过期条目为止。
+23. Ad-hoc 签名会在每次构建时生成新的身份。 临时签名每次构建都会生成新的身份。macOS 会忘记之前的授权，提示可能完全消失，直到清除过期条目为止。
 
 ## 权限提示消失时的恢复清单
 
@@ -38,6 +36,10 @@ sudo tccutil reset ScreenCapture bot.molt.mac
 sudo tccutil reset AppleEvents
 ```
 
-如果你正在测试权限，请始终使用真实证书签名。临时签名的构建仅适用于不需要权限的快速本地运行。
+## 33. 文件与文件夹权限（桌面/文稿/下载）
 
+34. macOS 也可能会对终端或后台进程访问桌面、文稿和下载文件夹进行限制。 35. 如果文件读取或目录列出操作卡住，请向执行文件操作的同一进程上下文授予访问权限（例如 Terminal/iTerm、由 LaunchAgent 启动的应用，或 SSH 进程）。
 
+36. 解决方法：如果想避免逐个文件夹授权，可将文件移动到 OpenClaw 工作区（`~/.openclaw/workspace`）。
+
+如果你正在测试权限，请始终使用真实证书签名。临时签名的构建仅适用于不需要权限的快速本地运行。 38. Ad-hoc 构建仅适用于权限无关的快速本地运行。

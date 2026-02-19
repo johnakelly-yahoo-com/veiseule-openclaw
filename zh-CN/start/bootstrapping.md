@@ -1,10 +1,40 @@
 ---
-title: 智能体引导
-sidebarTitle: 引导
+summary: "Agent bootstrapping ritual that seeds the workspace and identity files"
+read_when:
+  - Understanding what happens on the first agent run
+  - Explaining where bootstrapping files live
+  - Debugging onboarding identity setup
+title: "Agent Bootstrapping"
+sidebarTitle: "Bootstrapping"
 ---
 
-# 智能体引导
+# Agent Bootstrapping
 
-该页面是英文文档的中文占位版本，完整内容请先参考英文版：[Agent Bootstrapping](/start/bootstrapping)。
+Bootstrapping is the **first‑run** ritual that prepares an agent workspace and
+collects identity details. 它发生在完成入门之后，即代理第一次启动时。
 
+## 5. 引导的作用
 
+On the first agent run, OpenClaw bootstraps the workspace (default
+`~/.openclaw/workspace`):
+
+- Seeds `AGENTS.md`, `BOOTSTRAP.md`, `IDENTITY.md`, `USER.md`.
+- 运行一个简短的问答仪式（一次一个问题）。
+- 将身份信息和偏好写入 `IDENTITY.md`、`USER.md`、`SOUL.md`。
+- 完成后删除 `BOOTSTRAP.md`，以确保只运行一次。
+
+## 运行位置
+
+引导始终在 **网关主机** 上运行。 13. 如果 macOS 应用连接到
+远程 Gateway，工作区和引导文件将位于该远程
+机器上。
+
+<Note>
+When the Gateway runs on another machine, edit workspace files on the gateway
+host (for example, `user@gateway-host:~/.openclaw/workspace`).
+</Note>
+
+## 相关文档
+
+- macOS 应用入门：[Onboarding](/start/onboarding)
+- 工作区布局：[Agent workspace](/concepts/agent-workspace)

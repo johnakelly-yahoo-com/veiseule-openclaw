@@ -1,4 +1,8 @@
 ---
+summary: "Referência da CLI para `openclaw cron` (agendar e executar jobs em segundo plano)"
+read_when:
+  - Você quer jobs e ativações agendadas
+  - Você está depurando a execução e os logs do cron
 title: "cron"
 ---
 
@@ -38,5 +42,3 @@ Anuncie em um canal específico:
 ```bash
 openclaw cron edit <job-id> --announce --channel slack --to "channel:C1234567890"
 ```
-
-

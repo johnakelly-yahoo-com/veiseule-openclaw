@@ -1,4 +1,7 @@
 ---
+summary: "Tadqiqot: model konfiguratsiyasi, autentifikatsiya profillari va fallback xatti-harakati"
+read_when:
+  - Kelajakdagi model tanlash + autentifikatsiya profili g‘oyalarini o‘rganish
 title: "Model konfiguratsiyasini o‘rganish"
 ---
 
@@ -31,5 +34,3 @@ Operatorlar xohlaydi:
 - Profil rotatsiyasi provayder bo‘yichami yoki model bo‘yichami bo‘lishi kerak?
 - UI sessiya uchun profil tanlashni qanday ko‘rsatishi kerak?
 - Meros konfiguratsiya kalitlaridan eng xavfsiz migratsiya yo‘li qanday?
-
-

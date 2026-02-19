@@ -1,4 +1,10 @@
-------
+---
+title: "Session Pruning"
+summary: "Session pruning: pag-trim ng tool-result para mabawasan ang paglobo ng context"
+read_when:
+  - Gusto mong bawasan ang paglaki ng LLM context mula sa mga output ng tool
+  - Tina-tune mo ang agents.defaults.contextPruning
+---
 
 # Session Pruning
 
@@ -115,5 +121,3 @@ Limitahan ang pruning sa mga partikular na tool:
 ```
 
 Tingnan ang config reference: [Gateway Configuration](/gateway/configuration)
-
-

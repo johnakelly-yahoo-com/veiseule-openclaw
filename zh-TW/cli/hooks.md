@@ -1,4 +1,8 @@
 ---
+summary: "用於 `openclaw hooks` 的 CLI 參考（代理程式 hooks）"
+read_when:
+  - 你想要管理代理程式 hooks
+  - 你想要安裝或更新 hooks
 title: "hooks"
 ---
 
@@ -6,7 +10,7 @@ title: "hooks"
 
 管理代理程式 hooks（針對如 `/new`、`/reset` 等指令以及 Gateway 啟動時的事件驅動自動化）。
 
-相關：
+Related:
 
 - Hooks：[Hooks](/automation/hooks)
 - Plugin hooks：[Plugins](/tools/plugin#plugin-hooks)
@@ -51,7 +55,7 @@ openclaw hooks list --verbose
 openclaw hooks list --json
 ```
 
-回傳結構化的 JSON 以供程式化使用。
+Returns structured JSON for programmatic use.
 
 ## 取得 Hook 資訊
 
@@ -99,7 +103,7 @@ Requirements:
 openclaw hooks check
 ```
 
-顯示 hook 資格狀態摘要（有多少已就緒，多少尚未就緒）。
+Show summary of hook eligibility status (how many are ready vs. not ready).
 
 **選項：**
 
@@ -124,7 +128,7 @@ openclaw hooks enable <name>
 透過將其加入你的設定（`~/.openclaw/config.json`）來啟用特定 hook。
 
 **注意：** 由插件管理的 hooks 會在 `openclaw hooks list` 中顯示 `plugin:<id>`，
-且無法在此啟用或停用。請改為啟用／停用對應的插件。 Enable/disable the plugin instead.
+且無法在此啟用或停用。請改為啟用／停用對應的插件。 Enable/disable the plugin instead. Enable/disable the plugin instead.
 
 **引數：**
 
@@ -142,7 +146,7 @@ openclaw hooks enable session-memory
 ✓ Enabled hook: 💾 session-memory
 ```
 
-**功能說明：**
+**What it does:**
 
 - 檢查 hook 是否存在且符合資格
 - 更新你設定中的 `hooks.internal.entries.<name>.enabled = true`
@@ -187,6 +191,9 @@ openclaw hooks install <path-or-spec>
 ```
 
 從本機資料夾／封存檔或 npm 安裝 hook 套件。
+
+Npm 規格僅限 **registry-only**（套件名稱 + 可選版本／標籤）。 Git/URL/file
+spec 會被拒絕。 為了安全起見，安裝相依套件時會使用 `--ignore-scripts`。
 
 **What it does:**
 
@@ -246,6 +253,18 @@ openclaw hooks enable session-memory
 
 **參閱：** [session-memory 文件](/automation/hooks#session-memory)
 
+### bootstrap-extra-files
+
+在 `agent:bootstrap` 期間注入額外的 bootstrap 檔案（例如 monorepo 本地的 `AGENTS.md` / `TOOLS.md`）。
+
+**啟用：**
+
+```bash
+openclaw hooks 啟用 bootstrap-extra-files
+```
+
+**請參閱：** [bootstrap-extra-files documentation](/automation/hooks#bootstrap-extra-files)
+
 ### command-logger
 
 將所有指令事件記錄到集中式稽核檔案。
@@ -273,30 +292,16 @@ grep '"action":"new"' ~/.openclaw/logs/commands.log | jq .
 
 **參閱：** [command-logger 文件](/automation/hooks#command-logger)
 
-### soul-evil
-
-在清除視窗期間或依隨機機率，將注入的 `SOUL.md` 內容替換為 `SOUL_EVIL.md`。
-
-**啟用：**
-
-```bash
-openclaw hooks enable soul-evil
-```
-
-**參閱：** [SOUL Evil Hook](/hooks/soul-evil)
-
 ### boot-md
 
 在 Gateway 啟動時（頻道啟動之後）執行 `BOOT.md`。
 
-**事件**：`gateway:startup`
-
 **啟用**：
+
+**功能說明：**
 
 ```bash
 openclaw hooks enable boot-md
 ```
 
 **參閱：** [boot-md 文件](/automation/hooks#boot-md)
-
-

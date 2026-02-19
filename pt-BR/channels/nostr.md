@@ -1,4 +1,8 @@
 ---
+summary: "Canal de DM do Nostr via mensagens criptografadas NIP-04"
+read_when:
+  - Você quer que o OpenClaw receba DMs via Nostr
+  - Você está configurando mensagens descentralizadas
 title: "Nostr"
 ---
 
@@ -227,5 +231,3 @@ docker run -p 7777:7777 ghcr.io/hoytech/strfry
 - Apenas mensagens diretas (sem chats em grupo).
 - Sem anexos de mídia.
 - Apenas NIP-04 (gift-wrap do NIP-17 planejado).
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "Elevated exec-läge och /elevated-direktiv"
+read_when:
+  - Justerar standardvärden för elevated-läge, tillåtelselistor eller beteende för snedstreckskommandon
 title: "Elevated-läge"
 ---
 
@@ -45,12 +48,10 @@ title: "Elevated-läge"
 - Avsändartillåten lista: `tools.elevated.allowFrom` med per-provider allowlists (t.ex. `discord`, `whatsapp`).
 - Per-agent-grind: `agents.list[].tools.elevated.enabled` (valfri; kan endast ytterligare begränsa).
 - Per-agent-tillåtelselista: `agents.list[].tools.elevated.allowFrom` (valfri; när den är satt måste avsändaren matcha **både** globala + per-agent-tillåtelselistor).
-- Discord fallback: om `tools.elevated.allowFrom.discord` utelämnas `channels.discord.dm.allowFrom`-listan används som en reserv. Ange `tools.elevated.allowFrom.discord` (även `[]`) att åsidosätta. Per-agent allowlists gör **inte** använda reserven.
+- Discord-reserv: om `tools.elevated.allowFrom.discord` utelämnas används listan `channels.discord.allowFrom` som reserv (äldre: `channels.discord.dm.allowFrom`). Ange `tools.elevated.allowFrom.discord` (även `[]`) att åsidosätta. Per-agent allowlists gör **inte** använda reserven.
 - Alla grindar måste passera; annars behandlas elevated som otillgängligt.
 
 ## Loggning + status
 
 - Elevated exec-anrop loggas på info-nivå.
 - Sessionsstatus inkluderar förhöjt läge (t.ex. `elevated=ask`, `elevated=full`).
-
-

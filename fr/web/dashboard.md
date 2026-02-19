@@ -1,4 +1,7 @@
 ---
+summary: "Accès et authentification du tableau de bord de la Gateway (UI de contrôle)"
+read_when:
+  - Modification des modes d’authentification ou d’exposition du tableau de bord
 title: "Tableau de bord"
 ---
 
@@ -41,5 +44,3 @@ Privilégiez localhost, Tailscale Serve ou un tunnel SSH.
 - Vérifiez que la gateway est joignable (local : `openclaw status` ; distant : tunnel SSH `ssh -N -L 18789:127.0.0.1:18789 user@host` puis ouvrez `http://127.0.0.1:18789/`).
 - Récupérez le token depuis l’hôte de la gateway : `openclaw config get gateway.auth.token` (ou générez-en un : `openclaw doctor --generate-gateway-token`).
 - Dans les paramètres du tableau de bord, collez le token dans le champ d’authentification, puis connectez-vous.
-
-

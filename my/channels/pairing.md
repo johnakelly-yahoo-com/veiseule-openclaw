@@ -1,4 +1,9 @@
 ---
+summary: "Pairing အကျဉ်းချုပ် — မည်သူများက DM ပို့နိုင်မည်ကို အတည်ပြုခြင်း + မည်သည့် နိုဒ်များကို ကွန်ရက်ထဲ ဝင်ခွင့်ပေးမည်ကို သတ်မှတ်ခြင်း"
+read_when:
+  - DM ဝင်ရောက်ခွင့်ထိန်းချုပ်မှုကို တပ်ဆင်သတ်မှတ်နေချိန်
+  - iOS/Android နိုဒ်အသစ်တစ်ခုကို Pairing ပြုလုပ်နေချိန်
+  - OpenClaw လုံခြုံရေးအနေအထားကို ပြန်လည်သုံးသပ်နေချိန်
 title: "တွဲချိတ်ခြင်း"
 ---
 
@@ -96,5 +101,3 @@ openclaw devices reject <requestId>
   - iMessage (အဟောင်း): [iMessage](/channels/imessage)
   - Discord: [Discord](/channels/discord)
   - Slack: [Slack](/channels/slack)
-
-

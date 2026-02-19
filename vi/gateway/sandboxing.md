@@ -1,5 +1,7 @@
 ---
-title: "Cô lập (Sandboxing)"
+summary: "Cách sandboxing của OpenClaw hoạt động: chế độ, phạm vi, quyền truy cập workspace và image"
+title: Cô lập (Sandboxing)
+read_when: "Bạn muốn một giải thích chuyên biệt về sandboxing hoặc cần tinh chỉnh agents.defaults.sandbox."
 status: active
 ---
 
@@ -71,6 +73,11 @@ Các bind toàn cục và theo agent được **gộp** (không bị thay thế)
 
 Ví dụ (nguồn chỉ đọc + socket Docker):
 
+- Khi được thiết lập (bao gồm cả `[]`), nó sẽ thay thế `agents.defaults.sandbox.docker.binds` cho container trình duyệt.
+- Khi không được thiết lập, container trình duyệt sẽ dùng lại `agents.defaults.sandbox.docker.binds` (tương thích ngược).
+
+Ghi chú bảo mật:
+
 ```json5
 {
   agents: {
@@ -133,10 +140,10 @@ Cài đặt Docker và gateway chạy trong container nằm tại đây:
 `setupCommand` chạy **một lần** sau khi container sandbox được tạo (không chạy mỗi lần).
 Nó thực thi bên trong container qua `sh -lc`.
 
-Đường dẫn:
+Các lỗi thường gặp:
 
-- Toàn cục: `agents.defaults.sandbox.docker.setupCommand`
-- Theo agent: `agents.list[].sandbox.docker.setupCommand`
+- `docker.network` mặc định là `"none"` (không egress), nên cài gói sẽ thất bại.
+- `readOnlyRoot: true` chặn ghi; đặt `readOnlyRoot: false` hoặc bake image tùy chỉnh.
 
 Các lỗi thường gặp:
 
@@ -161,13 +168,13 @@ Gỡ lỗi:
 - Xem [Sandbox vs Tool Policy vs Elevated](/gateway/sandbox-vs-tool-policy-vs-elevated) để có mô hình tư duy “vì sao cái này bị chặn?”.
   Hãy khóa chặt.
 
-## Ghi đè đa agent
+## Ví dụ bật tối thiểu
 
 Mỗi agent có thể ghi đè sandbox + công cụ:
 `agents.list[].sandbox` và `agents.list[].tools` (cộng thêm `agents.list[].tools.sandbox.tools` cho chính sách công cụ của sandbox).
 Xem [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) để biết thứ tự ưu tiên.
 
-## Ví dụ bật tối thiểu
+## Tài liệu liên quan
 
 ```json5
 {
@@ -188,5 +195,3 @@ Xem [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) để biết
 - [Sandbox Configuration](/gateway/configuration#agentsdefaults-sandbox)
 - [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools)
 - [Security](/gateway/security)
-
-

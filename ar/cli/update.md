@@ -1,4 +1,8 @@
 ---
+summary: "مرجع CLI لأمر `openclaw update` (تحديث آمن نسبيًا للمصدر + إعادة تشغيل تلقائية لـ Gateway)"
+read_when:
+  - تريد تحديث نسخة مصدرية بأمان
+  - تحتاج إلى فهم سلوك الاختصار `--update`
 title: "تحديث"
 ---
 
@@ -70,7 +74,7 @@ openclaw update status --timeout 10
 - `beta`: سحب أحدث وسم `-beta`، ثم البناء + doctor.
 - `dev`: سحب `main`، ثم الجلب + إعادة الأساس (rebase).
 
-نظرة عامة:
+High-level:
 
 1. يتطلب شجرة عمل نظيفة (دون تغييرات غير مُلتزم بها).
 2. التبديل إلى القناة المحددة (وسم أو فرع).
@@ -92,5 +96,3 @@ openclaw update status --timeout 10
 - [قنوات التطوير](/install/development-channels)
 - [Updating](/install/updating)
 - [CLI reference](/cli)
-
-

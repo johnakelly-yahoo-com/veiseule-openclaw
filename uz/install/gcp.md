@@ -1,86 +1,90 @@
 ---
+summary: "Run OpenClaw Gateway 24/7 on a GCP Compute Engine VM (Docker) with durable state"
+read_when:
+  - You want OpenClaw running 24/7 on GCP
+  - You want a production-grade, always-on Gateway on your own VM
+  - You want full control over persistence, binaries, and restart behavior
 title: "GCP"
 ---
 
-# GCP Compute Engine’da OpenClaw (Docker, Production VPS qo‘llanma)
+# OpenClaw on GCP Compute Engine (Docker, Production VPS Guide)
 
-## Maqsad
+## Goal
 
-Docker yordamida GCP Compute Engine VM’da doimiy OpenClaw Gateway’ni ishga tushirish — barqaror holat, image ichiga joylangan binar fayllar va xavfsiz qayta ishga tushirish xatti-harakati bilan.
+Run a persistent OpenClaw Gateway on a GCP Compute Engine VM using Docker, with durable state, baked-in binaries, and safe restart behavior.
 
-Agar siz “OpenClaw 24/7 ~$5-12/oy” variantini istasangiz, bu Google Cloud’da ishonchli sozlama hisoblanadi.  
-Narx VM turi va hududga qarab farq qiladi; yuklamangizga mos eng kichik VM’ni tanlang va agar OOM yuz bersa, resursni oshiring.
+If you want "OpenClaw 24/7 for ~$5-12/mo", this is a reliable setup on Google Cloud.
+Pricing varies by machine type and region; pick the smallest VM that fits your workload and scale up if you hit OOMs.
 
-## Nima qilamiz (oddiy tilda)?
+## What are we doing (simple terms)?
 
-- GCP loyihasini yaratamiz va billing’ni yoqamiz
-- Compute Engine VM yaratamiz
-- Docker o‘rnatamiz (izolyatsiyalangan ilova muhiti)
-- OpenClaw Gateway’ni Docker’da ishga tushiramiz
-- Host’da `~/.openclaw` + `~/.openclaw/workspace` papkalarini saqlaymiz (restart/rebuild’dan keyin ham saqlanadi)
-- SSH tunnel orqali noutbukingizdan Control UI’ga kiramiz
+- Create a GCP project and enable billing
+- Create a Compute Engine VM
+- Install Docker (isolated app runtime)
+- Start the OpenClaw Gateway in Docker
+- Persist `~/.openclaw` + `~/.openclaw/workspace` on the host (survives restarts/rebuilds)
+- Access the Control UI from your laptop via an SSH tunnel
 
-Gateway’ga quyidagicha kirish mumkin:
+The Gateway can be accessed via:
 
-- Noutbukdan SSH port forwarding orqali
-- Agar firewall va tokenlarni o‘zingiz boshqarsangiz, portni to‘g‘ridan-to‘g‘ri ochish orqali
+- SSH port forwarding from your laptop
+- Direct port exposure if you manage firewalling and tokens yourself
 
-Ushbu qo‘llanma GCP Compute Engine’da Debian’dan foydalanadi.  
-Ubuntu ham ishlaydi; paketlarni mos ravishda moslashtiring.  
-Umumiy Docker jarayoni uchun [Docker](/install/docker) sahifasiga qarang.
-
----
-
-## Tez yo‘l (tajribali operatorlar uchun)
-
-1. GCP loyihasini yarating + Compute Engine API’ni yoqing
-2. Compute Engine VM yarating (e2-small, Debian 12, 20GB)
-3. VM’ga SSH orqali kiring
-4. Docker o‘rnating
-5. OpenClaw repository’sini klon qiling
-6. Doimiy host papkalarini yarating
-7. `.env` va `docker-compose.yml` ni sozlang
-8. Kerakli binar fayllarni image ichiga joylab, build qiling va ishga tushiring
+This guide uses Debian on GCP Compute Engine.
+Ubuntu also works; map packages accordingly.
+For the generic Docker flow, see [Docker](/install/docker).
 
 ---
 
-## Sizga kerak bo‘ladi
+## Quick path (experienced operators)
 
-- GCP akkaunti (e2-micro uchun free tier mavjud)
-- gcloud CLI o‘rnatilgan (yoki Cloud Console’dan foydalaning)
-- Noutbukingizdan SSH kirish
-- SSH + copy/paste bilan ishlash bo‘yicha asosiy tushuncha
-- ~20–30 daqiqa
-- Docker va Docker Compose
+1. Create GCP project + enable Compute Engine API
+2. Create Compute Engine VM (e2-small, Debian 12, 20GB)
+3. SSH into the VM
+4. Install Docker
+5. Clone OpenClaw repository
+6. Create persistent host directories
+7. Configure `.env` and `docker-compose.yml`
+8. Bake required binaries, build, and launch
+
+---
+
+## What you need
+
+- GCP account (free tier eligible for e2-micro)
+- gcloud CLI installed (or use Cloud Console)
+- SSH access from your laptop
+- Basic comfort with SSH + copy/paste
+- ~20-30 minutes
+- Docker and Docker Compose
 - Model autentifikatsiya ma’lumotlari
-- Ixtiyoriy provayder ma’lumotlari
+- Optional provider credentials
   - WhatsApp QR
   - Telegram bot token
   - Gmail OAuth
 
 ---
 
-## 1) gcloud CLI o‘rnatish (yoki Console’dan foydalanish)
+## 1. Install gcloud CLI (or use Console)
 
-**Variant A: gcloud CLI** (avtomatlashtirish uchun tavsiya etiladi)
+**Option A: gcloud CLI** (recommended for automation)
 
-Quyidan o‘rnating: [https://cloud.google.com/sdk/docs/install](https://cloud.google.com/sdk/docs/install)
+Install from [https://cloud.google.com/sdk/docs/install](https://cloud.google.com/sdk/docs/install)
 
-Initsializatsiya va autentifikatsiya:
+Initialize and authenticate:
 
 ```bash
 gcloud init
 gcloud auth login
 ```
 
-**Variant B: Cloud Console**
+**Option B: Cloud Console**
 
-Barcha bosqichlarni web interfeys orqali bajarish mumkin:  
-[https://console.cloud.google.com](https://console.cloud.google.com)
+All steps can be done via the web UI at [https://console.cloud.google.com](https://console.cloud.google.com)
 
 ---
 
-## 2) GCP loyihasini yaratish
+## 2. Create a GCP project
 
 **CLI:**
 
@@ -89,10 +93,9 @@ gcloud projects create my-openclaw-project --name="OpenClaw Gateway"
 gcloud config set project my-openclaw-project
 ```
 
-Billing’ni yoqing:  
-[https://console.cloud.google.com/billing](https://console.cloud.google.com/billing) (Compute Engine uchun majburiy).
+Enable billing at [https://console.cloud.google.com/billing](https://console.cloud.google.com/billing) (required for Compute Engine).
 
-Compute Engine API’ni yoqing:
+Enable the Compute Engine API:
 
 ```bash
 gcloud services enable compute.googleapis.com
@@ -100,21 +103,21 @@ gcloud services enable compute.googleapis.com
 
 **Console:**
 
-1. IAM & Admin > Create Project’ga o‘ting
-2. Nom bering va yarating
-3. Loyiha uchun billing’ni yoqing
-4. APIs & Services > Enable APIs > "Compute Engine API" ni qidirib, Enable bosing
+1. Go to IAM & Admin > Create Project
+2. Name it and create
+3. Enable billing for the project
+4. Navigate to APIs & Services > Enable APIs > search "Compute Engine API" > Enable
 
 ---
 
-## 3) VM yaratish
+## 3. Create the VM
 
-**Mashina turlari:**
+**Machine types:**
 
-| Type     | Specs                    | Cost               | Notes                     |
-| -------- | ------------------------ | ------------------ | ------------------------- |
-| e2-small | 2 vCPU, 2GB RAM          | ~$12/oy            | Tavsiya etiladi           |
-| e2-micro | 2 vCPU (shared), 1GB RAM | Free tier mavjud   | Yuklama ostida OOM bo‘lishi mumkin |
+| Type     | Specs                                             | Narx                    | Eslatmalar                         |
+| -------- | ------------------------------------------------- | ----------------------- | ---------------------------------- |
+| e2-small | 2 vCPU, 2GB RAM                                   | ~$12/oy | Tavsiya etilgan                    |
+| e2-micro | 2 vCPU (bo‘lishilgan), 1GB RAM | Bepul qatlamga mos      | Yuklama ostida OOM bo‘lishi mumkin |
 
 **CLI:**
 
@@ -129,16 +132,16 @@ gcloud compute instances create openclaw-gateway \
 
 **Console:**
 
-1. Compute Engine > VM instances > Create instance
-2. Name: `openclaw-gateway`
-3. Region: `us-central1`, Zone: `us-central1-a`
-4. Machine type: `e2-small`
-5. Boot disk: Debian 12, 20GB
-6. Create
+1. Compute Engine > VM instances > Create instance bo‘limiga o‘ting
+2. Nomi: `openclaw-gateway`
+3. Mintaqa: `us-central1`, Zona: `us-central1-a`
+4. Mashina turi: `e2-small`
+5. Yuklash diski: Debian 12, 20GB
+6. Yaratish
 
 ---
 
-## 4) VM’ga SSH orqali kirish
+## 4. VM ga SSH orqali kiring
 
 **CLI:**
 
@@ -148,13 +151,13 @@ gcloud compute ssh openclaw-gateway --zone=us-central1-a
 
 **Console:**
 
-Compute Engine panelida VM yonidagi "SSH" tugmasini bosing.
+Compute Engine boshqaruv panelida VM yonidagi "SSH" tugmasini bosing.
 
-Eslatma: VM yaratilgandan keyin SSH kalitlari 1–2 daqiqa ichida tarqaladi. Agar ulanish rad etilsa, biroz kutib qayta urinib ko‘ring.
+Eslatma: VM yaratilgandan so‘ng SSH kalitlari tarqalishi 1–2 daqiqa vaqt olishi mumkin. Agar ulanish rad etilsa, kuting va qayta urinib ko‘ring.
 
 ---
 
-## 5) Docker o‘rnatish (VM ichida)
+## 5. Docker’ni o‘rnating (VM’da)
 
 ```bash
 sudo apt-get update
@@ -163,19 +166,19 @@ curl -fsSL https://get.docker.com | sudo sh
 sudo usermod -aG docker $USER
 ```
 
-Guruh o‘zgarishi kuchga kirishi uchun chiqib, qayta kiring:
+Guruh o‘zgarishi kuchga kirishi uchun tizimdan chiqib qayta kiring:
 
 ```bash
 exit
 ```
 
-Keyin yana SSH orqali kiring:
+So‘ng yana SSH orqali kiring:
 
 ```bash
 gcloud compute ssh openclaw-gateway --zone=us-central1-a
 ```
 
-Tekshiring:
+Tekshirish:
 
 ```bash
 docker --version
@@ -184,21 +187,21 @@ docker compose version
 
 ---
 
-## 6) OpenClaw repository’sini klon qilish
+## 6. OpenClaw repozitoriyasini klonlash
 
 ```bash
 git clone https://github.com/openclaw/openclaw.git
 cd openclaw
 ```
 
-Ushbu qo‘llanma binar fayllar doimiy saqlanishini kafolatlash uchun custom image build qilishni nazarda tutadi.
+Ushbu qo‘llanma binarlarning saqlanib qolishini kafolatlash uchun maxsus image qurishingizni nazarda tutadi.
 
 ---
 
-## 7) Doimiy host papkalarini yaratish
+## 7. Doimiy host kataloglarini yarating
 
-Docker konteynerlari ephemeral (vaqtinchalik).  
-Barcha uzoq muddatli holat host’da saqlanishi kerak.
+Docker konteynerlari vaqtinchalik (ephemeral).
+Uzoq muddatli barcha holat host’da saqlanishi kerak.
 
 ```bash
 mkdir -p ~/.openclaw
@@ -207,9 +210,9 @@ mkdir -p ~/.openclaw/workspace
 
 ---
 
-## 8) Muhit o‘zgaruvchilarini sozlash
+## 8. Muhit o‘zgaruvchilarini sozlash
 
-Repository root’da `.env` fayl yarating.
+Repozitoriya ildizida `.env` yarating.
 
 ```bash
 OPENCLAW_IMAGE=openclaw:latest
@@ -224,17 +227,17 @@ GOG_KEYRING_PASSWORD=change-me-now
 XDG_CONFIG_HOME=/home/node/.openclaw
 ```
 
-Kuchli secret yarating:
+Kuchli maxfiy kalitlar yarating:
 
 ```bash
 openssl rand -hex 32
 ```
 
-**Bu faylni commit qilmang.**
+**Ushbu faylni commit qilmang.**
 
 ---
 
-## 9) Docker Compose konfiguratsiyasi
+## 9. Docker Compose konfiguratsiyasi
 
 `docker-compose.yml` ni yarating yoki yangilang.
 
@@ -260,9 +263,13 @@ services:
       - ${OPENCLAW_CONFIG_DIR}:/home/node/.openclaw
       - ${OPENCLAW_WORKSPACE_DIR}:/home/node/.openclaw/workspace
     ports:
-      # Tavsiya etiladi: Gateway’ni VM ichida faqat loopback’da qoldiring; SSH tunnel orqali kiring.
-      # Agar ommaviy ochmoqchi bo‘lsangiz, `127.0.0.1:` prefiksini olib tashlang va firewall’ni mos ravishda sozlang.
+      # Tavsiya etiladi: Gateway’ni VM’da faqat loopback’da qoldiring; SSH tunneli orqali kiring.
+      # Uni ommaviy tarzda ochish uchun `127.0.0.1:` prefiksini olib tashlang va firewall’ni moslang.
       - "127.0.0.1:${OPENCLAW_GATEWAY_PORT}:18789"
+
+      # Ixtiyoriy: faqat iOS/Android tugunlarini ushbu VM ga ulab, Canvas host kerak bo‘lsa.
+      # Agar buni ommaviy ochsangiz, /gateway/security ni o‘qing va firewall’ni moslang.
+      # - "18793:18793"
     command:
       [
         "node",
@@ -277,29 +284,29 @@ services:
 
 ---
 
-## 10) Kerakli binar fayllarni image ichiga joylash (muhim)
+## 10. Kerakli binarlarni imijga qoʻshib pishiring (muhim)
 
-Ishlayotgan konteyner ichida binar o‘rnatish — xato yondashuv.  
-Runtime’da o‘rnatilgan har qanday narsa restart’dan keyin yo‘qoladi.
+Ishlayotgan konteyner ichiga binarlarni oʻrnatish — bu tuzoq.
+Ishga tushirish vaqtida oʻrnatilgan har qanday narsa qayta ishga tushirilganda yoʻqoladi.
 
-Skill’lar talab qiladigan barcha tashqi binar fayllar image build vaqtida o‘rnatilishi kerak.
+Skill’lar talab qiladigan barcha tashqi binarlar imijni qurish vaqtida oʻrnatilishi shart.
 
-Quyidagi misollar faqat uchta keng tarqalgan binarni ko‘rsatadi:
+Quyidagi misollar faqat uchta keng tarqalgan binarni koʻrsatadi:
 
-- `gog` — Gmail uchun
+- `gog` — Gmail’ga kirish uchun
 - `goplaces` — Google Places uchun
 - `wacli` — WhatsApp uchun
 
-Bular faqat misol, to‘liq ro‘yxat emas.  
-Xuddi shu usul bilan istalgancha binar qo‘shishingiz mumkin.
+Bular misollar, toʻliq roʻyxat emas.
+Xuddi shu andoza yordamida istalgancha binarlarni oʻrnatishingiz mumkin.
 
-Agar keyinroq qo‘shimcha binarga bog‘liq yangi skill qo‘shsangiz, quyidagilarni bajarishingiz kerak:
+Agar keyinroq qoʻshimcha binarlarga bogʻliq yangi skill’lar qoʻshsangiz, quyidagilarni bajarishingiz kerak:
 
-1. Dockerfile’ni yangilang  
-2. Image’ni qayta build qiling  
-3. Konteynerlarni qayta ishga tushiring  
+1. Dockerfile’ni yangilang
+2. Imijni qayta yarating
+3. Konteynerlarni qayta ishga tushiring
 
-**Namuna Dockerfile**
+**Misol Dockerfile**
 
 ```dockerfile
 FROM node:22-bookworm
@@ -340,14 +347,14 @@ CMD ["node","dist/index.js"]
 
 ---
 
-## 11) Build qilish va ishga tushirish
+## 11. Qurish va ishga tushirish
 
 ```bash
 docker compose build
 docker compose up -d openclaw-gateway
 ```
 
-Binarlarni tekshirish:
+Binarlarni tekshiring:
 
 ```bash
 docker compose exec openclaw-gateway which gog
@@ -355,7 +362,7 @@ docker compose exec openclaw-gateway which goplaces
 docker compose exec openclaw-gateway which wacli
 ```
 
-Kutilgan natija:
+Kutilgan chiqish:
 
 ```
 /usr/local/bin/gog
@@ -365,13 +372,13 @@ Kutilgan natija:
 
 ---
 
-## 12) Gateway’ni tekshirish
+## 12. Gateway’ni tekshirish
 
 ```bash
 docker compose logs -f openclaw-gateway
 ```
 
-Muvaffaqiyatli holat:
+Muvaffaqiyat:
 
 ```
 [gateway] listening on ws://0.0.0.0:18789
@@ -379,9 +386,9 @@ Muvaffaqiyatli holat:
 
 ---
 
-## 13) Noutbukdan kirish
+## 13. Noutbukingizdan kirish
 
-Gateway portini forward qilish uchun SSH tunnel yarating:
+Gateway portini yoʻnaltirish uchun SSH tunnel yarating:
 
 ```bash
 gcloud compute ssh openclaw-gateway --zone=us-central1-a -- -L 18789:127.0.0.1:18789
@@ -391,33 +398,33 @@ Brauzeringizda oching:
 
 `http://127.0.0.1:18789/`
 
-Gateway token’ingizni kiriting.
+Gateway tokeningizni joylashtiring.
 
 ---
 
-## Nima qayerda saqlanadi (haqiqiy manba)
+## Nima qayerda saqlanadi (asosiy manba)
 
-OpenClaw Docker’da ishlaydi, lekin Docker haqiqiy manba emas.  
-Barcha uzoq muddatli holat restart, rebuild va reboot’dan omon qolishi kerak.
+OpenClaw Docker’da ishlaydi, ammo Docker asosiy manba emas.
+Barcha uzoq muddatli holat qayta ishga tushirishlar, qayta qurishlar va qayta yuklashlardan omon qolishi kerak.
 
-| Component           | Location                          | Persistence mechanism | Notes                              |
-| ------------------- | --------------------------------- | --------------------- | ---------------------------------- |
-| Gateway config      | `/home/node/.openclaw/`           | Host volume mount     | `openclaw.json`, tokenlar          |
-| Model auth profiles | `/home/node/.openclaw/`           | Host volume mount     | OAuth tokenlar, API kalitlar       |
-| Skill configs       | `/home/node/.openclaw/skills/`    | Host volume mount     | Skill darajasidagi holat           |
-| Agent workspace     | `/home/node/.openclaw/workspace/` | Host volume mount     | Kod va agent artefaktlari          |
-| WhatsApp session    | `/home/node/.openclaw/`           | Host volume mount     | QR login saqlanadi                 |
-| Gmail keyring       | `/home/node/.openclaw/`           | Host volume + password| `GOG_KEYRING_PASSWORD` talab etiladi |
-| External binaries   | `/usr/local/bin/`                 | Docker image          | Build vaqtida image ichiga joylanadi |
-| Node runtime        | Container filesystem              | Docker image          | Har build’da qayta yaratiladi      |
-| OS packages         | Container filesystem              | Docker image          | Runtime’da o‘rnatmang              |
-| Docker container    | Ephemeral                         | Restart qilinadi      | O‘chirish xavfsiz                  |
+| Komponent                         | Joylashuv                                       | Saqlanish mexanizmi     | Izohlar                                      |
+| --------------------------------- | ----------------------------------------------- | ----------------------- | -------------------------------------------- |
+| Gateway konfiguratsiyasi          | `/home/node/.openclaw/`                         | Host volume mount       | `openclaw.json`, tokenlarni o‘z ichiga oladi |
+| Model autentifikatsiya profillari | `/home/node/.openclaw/`                         | Host volume mount       | OAuth tokenlari, API kalitlari               |
+| Skill konfiguratsiyalari          | `/home/node/.openclaw/skills/`                  | Host volume mount       | Ko‘nikma darajasi holati                     |
+| Agent ish maydoni                 | /home/node/.openclaw/workspace/ | Host volume mount       | Kod va agent artefaktlari                    |
+| WhatsApp sessiyasi                | `/home/node/.openclaw/`                         | Host volume mount       | QR orqali kirishni saqlaydi                  |
+| Gmail kalitlar ombori             | `/home/node/.openclaw/`                         | Xost hajmi + parol      | `GOG_KEYRING_PASSWORD` talab qilinadi        |
+| Tashqi binar fayllar              | /usr/local/bin/                                 | Docker imiji            | Build vaqtida joylashtirilishi shart         |
+| Node ish vaqti                    | Konteyner fayl tizimi                           | Docker imiji            | Har bir imij buildida qayta yig‘iladi        |
+| OS paketlari                      | Konteyner fayl tizimi                           | Docker imiji            | Ish vaqtida o‘rnatmang                       |
+| Docker konteyneri                 | Vaqtinchalik                                    | Qayta ishga tushiriladi | O‘chirish xavfsiz                            |
 
 ---
 
-## Yangilash
+## Yangilanishlar
 
-VM’da OpenClaw’ni yangilash:
+VM’da OpenClaw’ni yangilash uchun:
 
 ```bash
 cd ~/openclaw
@@ -428,11 +435,11 @@ docker compose up -d
 
 ---
 
-## Muammolarni hal qilish
+## Nosozliklarni bartaraf etish
 
-**SSH connection refused**
+**SSH ulanishi rad etildi**
 
-VM yaratilgandan keyin SSH kalitlari 1–2 daqiqa ichida tarqaladi. Kuting va qayta urinib ko‘ring.
+VM yaratilgandan so‘ng SSH kalitlari tarqalishi 1–2 daqiqa vaqt olishi mumkin. Kuting va qayta urinib ko‘ring.
 
 **OS Login muammolari**
 
@@ -442,11 +449,11 @@ OS Login profilingizni tekshiring:
 gcloud compute os-login describe-profile
 ```
 
-Hisobingizda kerakli IAM ruxsatlari (Compute OS Login yoki Compute OS Admin Login) mavjudligiga ishonch hosil qiling.
+Hisobingizda zarur IAM ruxsatlari (Compute OS Login yoki Compute OS Admin Login) mavjudligiga ishonch hosil qiling.
 
 **Xotira yetishmasligi (OOM)**
 
-Agar e2-micro ishlatayotgan bo‘lsangiz va OOM yuz bersa, e2-small yoki e2-medium’ga o‘ting:
+Agar e2-micro’dan foydalanib OOM muammosiga duch kelsangiz, e2-small yoki e2-medium’ga yangilang:
 
 ```bash
 # Avval VM’ni to‘xtating
@@ -463,20 +470,20 @@ gcloud compute instances start openclaw-gateway --zone=us-central1-a
 
 ---
 
-## Service account’lar (xavfsizlik bo‘yicha eng yaxshi amaliyot)
+## Xizmat hisoblari (xavfsizlik bo‘yicha eng yaxshi amaliyot)
 
-Shaxsiy foydalanish uchun default user account yetarli.
+Shaxsiy foydalanish uchun standart foydalanuvchi hisobingiz yetarli.
 
-Avtomatlashtirish yoki CI/CD pipeline’lar uchun minimal ruxsatlarga ega alohida service account yarating:
+Avtomatlashtirish yoki CI/CD quvurlari uchun minimal ruxsatlarga ega alohida xizmat hisobini yarating:
 
-1. Service account yarating:
+1. Xizmat hisobini yarating:
 
    ```bash
    gcloud iam service-accounts create openclaw-deploy \
      --display-name="OpenClaw Deployment"
    ```
 
-2. Compute Instance Admin rolini (yoki yanada tor custom rolni) bering:
+2. Compute Instance Admin rolini (yoki torroq maxsus rolni) bering:
 
    ```bash
    gcloud projects add-iam-policy-binding my-openclaw-project \
@@ -484,16 +491,14 @@ Avtomatlashtirish yoki CI/CD pipeline’lar uchun minimal ruxsatlarga ega alohid
      --role="roles/compute.instanceAdmin.v1"
    ```
 
-Avtomatlashtirish uchun Owner rolidan foydalanmang. Eng kam ruxsat tamoyiliga amal qiling.
+Avtomatlashtirish uchun Owner rolidan foydalanishdan saqlaning. Eng kam imtiyozlar tamoyilidan foydalaning.
 
-IAM rollari haqida batafsil:  
-[https://cloud.google.com/iam/docs/understanding-roles](https://cloud.google.com/iam/docs/understanding-roles)
+IAM rollari tafsilotlari uchun [https://cloud.google.com/iam/docs/understanding-roles](https://cloud.google.com/iam/docs/understanding-roles) sahifasiga qarang.
 
 ---
 
 ## Keyingi qadamlar
 
 - Xabar almashish kanallarini sozlang: [Channels](/channels)
-- Lokal qurilmalarni node sifatida ulang: [Nodes](/nodes)
-- Gateway’ni sozlang: [Gateway configuration](/gateway/configuration)
-
+- Mahalliy qurilmalarni tugunlar sifatida juftlang: [Nodes](/nodes)
+- Gateway-ni sozlang: [Gateway configuration](/gateway/configuration)

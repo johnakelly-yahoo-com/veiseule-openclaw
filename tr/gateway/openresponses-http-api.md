@@ -1,4 +1,8 @@
 ---
+summary: "Gateway üzerinden OpenResponses uyumlu bir /v1/responses HTTP uç noktası sunar"
+read_when:
+  - OpenResponses API’sini konuşan istemcileri entegre ederken
+  - Öğe tabanlı girdiler, istemci araç çağrıları veya SSE olayları istediğinizde
 title: "OpenResponses API"
 ---
 
@@ -24,6 +28,7 @@ Notlar:
 
 - `gateway.auth.mode="token"` olduğunda, `gateway.auth.token` (veya `OPENCLAW_GATEWAY_TOKEN`) kullanın.
 - `gateway.auth.mode="password"` olduğunda, `gateway.auth.password` (veya `OPENCLAW_GATEWAY_PASSWORD`) kullanın.
+- `gateway.auth.rateLimit` yapılandırılmışsa ve çok fazla kimlik doğrulama hatası oluşursa, uç nokta `Retry-After` ile birlikte `429` döndürür.
 
 ## Choosing an agent
 
@@ -182,7 +187,11 @@ URL getirme varsayılanları:
 
 - `files.allowUrl`: `true`
 - `images.allowUrl`: `true`
+- `maxUrlParts`: `8` (istek başına URL tabanlı toplam `input_file` + `input_image` parça sayısı)
 - İstekler korunur (DNS çözümleme, özel IP engelleme, yönlendirme sınırları, zaman aşımları).
+- İsteğe bağlı hostname allowlist’leri, her girdi türü için desteklenir (`files.urlAllowlist`, `images.urlAllowlist`).
+  - Tam host: `"cdn.example.com"`
+  - Wildcard alt alan adları: `"*.assets.example.com"` (apex ile eşleşmez)
 
 ## Dosya + görsel sınırları (yapılandırma)
 
@@ -233,6 +242,7 @@ Varsayılanlar `gateway.http.endpoints.responses` altında ayarlanabilir:
 Atlandığında varsayılanlar:
 
 - `maxBodyBytes`: 20MB
+- `maxUrlParts`: 8
 - `files.maxBytes`: 5MB
 - `files.maxChars`: 200k
 - `files.maxRedirects`: 3
@@ -243,6 +253,13 @@ Atlandığında varsayılanlar:
 - `images.maxBytes`: 10MB
 - `images.maxRedirects`: 3
 - `images.timeoutMs`: 10s
+
+Güvenlik notu:
+
+- URL izin listeleri, fetch işleminden önce ve yönlendirme adımlarında uygulanır.
+- Bir ana bilgisayarı (hostname) izin listesine eklemek, özel/dahili IP engellemesini atlatmaz.
+- İnternete açık gateway’ler için, uygulama seviyesindeki korumalara ek olarak ağ çıkış (egress) kontrolleri uygulayın.
+  Bkz. [Security](/gateway/security).
 
 ## Akış (SSE)
 
@@ -311,5 +328,3 @@ curl -N http://127.0.0.1:18789/v1/responses \
     "input": "hi"
   }'
 ```
-
-

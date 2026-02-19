@@ -1,4 +1,7 @@
 ---
+summary: "Sintaks ng directive para sa /think + /verbose at kung paano nila naaapektuhan ang pangangatwiran ng model"
+read_when:
+  - Ina-adjust ang pag-parse o mga default ng thinking o verbose directive
 title: "Mga Antas ng Pag-iisip"
 ---
 
@@ -16,7 +19,7 @@ title: "Mga Antas ng Pag-iisip"
   - Ang `x-high`, `x_high`, `extra-high`, `extra high`, at `extra_high` ay naka-map sa `xhigh`.
   - Ang `highest`, `max` ay naka-map sa `high`.
 - Mga tala ng provider:
-  - Ang Z.AI (`zai/*`) ay sumusuporta lamang sa binary na pag-iisip (`on`/`off`). Anumang antas na hindi `off` ay ituturing na `on` (ina-map sa `low`).
+  - Z.AI (`zai/*`) only supports binary thinking (`on`/`off`). Any non-`off` level is treated as `on` (mapped to `low`).
 
 ## Ayos ng resolusyon
 
@@ -27,7 +30,7 @@ title: "Mga Antas ng Pag-iisip"
 
 ## Pagtatakda ng session default
 
-- Magpadala ng mensaheng **directive lamang** (pinapayagan ang whitespace), hal. `/think:medium` o `/t high`.
+- Send a message that is **only** the directive (whitespace allowed), e.g. `/think:medium` or `/t high`.
 - Mananatili ito para sa kasalukuyang session (per-sender bilang default); na-clear ng `/think:off` o ng session idle reset.
 - Kung hindi wasto ang antas (hal. `/thinking big`), tinatanggihan ang command na may pahiwatig at nananatiling hindi nababago ang estado ng session. If the level is invalid (e.g. `/thinking big`), the command is rejected with a hint and the session state is left unchanged.
 - Ipadala ang `/think` (o `/think:`) nang walang argument para makita ang kasalukuyang antas ng pag-iisip.
@@ -62,12 +65,10 @@ title: "Mga Antas ng Pag-iisip"
 ## Mga Heartbeat
 
 - Sundin ito nang mahigpit. Follow it strictly. Do not infer or repeat old tasks from prior chats. If nothing needs attention, reply HEARTBEAT_OK.\`). Inline directives in a heartbeat message apply as usual (but avoid changing session defaults from heartbeats).
-- Ang paghahatid ng Heartbeat ay naka-default sa pinal na payload lamang. Upang maipadala rin ang hiwalay na mensaheng `Reasoning:` (kapag available), itakda ang `agents.defaults.heartbeat.includeReasoning: true` o per-agent na `agents.list[].heartbeat.includeReasoning: true`.
+- Heartbeat delivery defaults to the final payload only. To also send the separate `Reasoning:` message (when available), set `agents.defaults.heartbeat.includeReasoning: true` or per-agent `agents.list[].heartbeat.includeReasoning: true`.
 
 ## UI ng Web chat
 
 - Ang thinking selector ng web chat ay sumasalamin sa nakaimbak na antas ng session mula sa inbound session store/config kapag nag-load ang page.
 - Ang pagpili ng ibang antas ay nalalapat lang sa susunod na mensahe (`thinkingOnce`); pagkatapos magpadala, babalik ang selector sa nakaimbak na antas ng session.
 - Para baguhin ang session default, magpadala ng `/think:<level>` na directive (gaya ng dati); ipapakita ito ng selector pagkatapos ng susunod na reload.
-
-

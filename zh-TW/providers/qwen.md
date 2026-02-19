@@ -1,4 +1,8 @@
 ---
+summary: "在 OpenClaw 中使用 Qwen OAuth（免費方案）"
+read_when:
+  - 您想在 OpenClaw 中使用 Qwen
+  - 您想要免費方案的 Qwen Coder OAuth 存取
 title: "Qwen"
 ---
 
@@ -7,7 +11,7 @@ title: "Qwen"
 Qwen 為 Qwen Coder 與 Qwen Vision 模型提供免費方案的 OAuth 流程
 （每日 2,000 次請求，實際以 Qwen 的速率限制為準）。
 
-## 啟用外掛程式
+## Enable the plugin
 
 ```bash
 openclaw plugins enable qwen-portal-auth
@@ -15,7 +19,7 @@ openclaw plugins enable qwen-portal-auth
 
 啟用後請重新啟動 Gateway 閘道器。
 
-## 驗證身分
+## Authenticate
 
 ```bash
 openclaw models auth login --provider qwen-portal --set-default
@@ -40,13 +44,12 @@ openclaw models set qwen-portal/coder-model
 如果您已使用 Qwen Code CLI 登入，OpenClaw 會在載入身分驗證儲存區時，從
 `~/.qwen/oauth_creds.json` 同步憑證。您仍然需要一個
 `models.providers.qwen-portal` 項目（請使用上述登入指令建立）。 你仍然需要一個
+`models.providers.qwen-portal` 項目（使用上方的登入指令來建立）。 你仍然需要一個
 `models.providers.qwen-portal` 項目（使用上方的登入指令來建立）。
 
 ## 注意事項
 
-- 權杖會自動重新整理；若重新整理失敗或存取權限遭撤銷，請重新執行登入指令。
+- Tokens auto-refresh; re-run the login command if refresh fails or access is revoked.
 - 預設基礎 URL：`https://portal.qwen.ai/v1`（若 Qwen 提供不同的端點，請使用
   `models.providers.qwen-portal.baseUrl` 覆寫）。
 - 提供者層級的規則請參閱［模型提供者］(/concepts/model-providers)。
-
-

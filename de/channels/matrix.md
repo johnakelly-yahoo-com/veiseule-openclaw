@@ -1,4 +1,7 @@
 ---
+summary: "Status der Matrix-Unterstützung, Funktionen und Konfiguration"
+read_when:
+  - Arbeiten an Matrix-Kanalfunktionen
 title: "Matrix"
 ---
 
@@ -138,6 +141,47 @@ Wenn E2EE aktiviert ist, fordert der Bot beim Start eine Verifizierung von Ihren
 Öffnen Sie Element (oder einen anderen Client) und bestätigen Sie die Verifizierungsanfrage, um Vertrauen herzustellen.
 Nach der Verifizierung kann der Bot Nachrichten in verschlüsselten Räumen entschlüsseln.
 
+## Mehrere Konten
+
+Unterstützung für mehrere Konten: Verwende `channels.matrix.accounts` mit kontospezifischen Zugangsdaten und optionalem `name`. Siehe [`gateway/configuration`](/gateway/configuration#telegramaccounts--discordaccounts--slackaccounts--signalaccounts--imessageaccounts) für das gemeinsame Muster.
+
+Jedes Konto wird als separater Matrix-Benutzer auf einem beliebigen Homeserver ausgeführt. Kontospezifische Konfiguration
+übernimmt die Einstellungen von `channels.matrix` auf oberster Ebene und kann jede Option überschreiben
+(DM-Richtlinie, Gruppen, Verschlüsselung usw.).
+
+```json5
+{
+  channels: {
+    matrix: {
+      enabled: true,
+      dm: { policy: "pairing" },
+      accounts: {
+        assistant: {
+          name: "Main assistant",
+          homeserver: "https://matrix.example.org",
+          accessToken: "syt_assistant_***",
+          encryption: true,
+        },
+        alerts: {
+          name: "Alerts bot",
+          homeserver: "https://matrix.example.org",
+          accessToken: "syt_alerts_***",
+          dm: { policy: "allowlist", allowFrom: ["@admin:example.org"] },
+        },
+      },
+    },
+  },
+}
+```
+
+Hinweise:
+
+- Der Kontostart erfolgt serialisiert, um Race Conditions bei gleichzeitigen Modulimporten zu vermeiden.
+- Umgebungsvariablen (`MATRIX_HOMESERVER`, `MATRIX_ACCESS_TOKEN` usw.) gelten nur für das **Standardkonto**.
+- Basis-Channel-Einstellungen (DM-Richtlinie, Gruppenrichtlinie, Mention-Gating usw.) gelten für alle Konten, sofern sie nicht pro Konto überschrieben werden.
+- Verwende `bindings[].match.accountId`, um jedes Konto an einen anderen Agent weiterzuleiten.
+- Der Kryptozustand wird pro Konto + Access Token gespeichert (separate Key Stores pro Konto).
+
 ## Routing-Modell
 
 - Antworten gehen immer zurück zu Matrix.
@@ -151,6 +195,7 @@ Nach der Verifizierung kann der Bot Nachrichten in verschlüsselten Räumen ents
   - `openclaw pairing approve matrix <CODE>`
 - Öffentliche Direktnachrichten: `channels.matrix.dm.policy="open"` plus `channels.matrix.dm.allowFrom=["*"]`.
 - `channels.matrix.dm.allowFrom` akzeptiert vollständige Matrix-Benutzer-IDs (Beispiel: `@user:server`). Der Assistent löst Anzeigenamen zu Benutzer-IDs auf, wenn die Verzeichnissuche genau einen eindeutigen Treffer findet.
+- Verwende keine Anzeigenamen oder bloßen Localparts (Beispiel: `"Alice"` oder `"alice"`). Sie sind mehrdeutig und werden beim Allowlist-Matching ignoriert. Verwende vollständige `@user:server`-IDs.
 
 ## Räume (Gruppen)
 
@@ -258,6 +303,5 @@ Anbieteroptionen:
 - `channels.matrix.mediaMaxMb`: Limit für ein-/ausgehende Medien (MB).
 - `channels.matrix.autoJoin`: Einladungsbehandlung (`always | allowlist | off`, Standard: immer).
 - `channels.matrix.autoJoinAllowlist`: Zulässige Raum-IDs/Aliase für Auto-Join.
+- `channels.matrix.accounts`: Multi-Account-Konfiguration, nach Konto-ID gruppiert (jedes Konto übernimmt die Einstellungen der obersten Ebene).
 - `channels.matrix.actions`: Werkzeug-Gating pro Aktion (Reaktionen/Nachrichten/Pins/memberInfo/channelInfo).
-
-

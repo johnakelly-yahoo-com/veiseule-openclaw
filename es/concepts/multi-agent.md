@@ -1,5 +1,7 @@
 ---
+summary: "Enrutamiento multiagente: agentes aislados, cuentas de canal y enlaces"
 title: Enrutamiento multiagente
+read_when: "Quiere múltiples agentes aislados (espacios de trabajo + autenticación) en un solo proceso de Gateway."
 status: active
 ---
 
@@ -123,11 +125,15 @@ Notas:
 Los enlaces son **deterministas** y **gana el más específico**:
 
 1. Coincidencia `peer` (DM/grupo/id de canal exacto)
-2. `guildId` (Discord)
-3. `teamId` (Slack)
-4. Coincidencia `accountId` para un canal
-5. Coincidencia a nivel de canal (`accountId: "*"`)
-6. Repliegue al agente predeterminado (`agents.list[].default`; de lo contrario, la primera entrada de la lista; predeterminado: `main`)
+2. Coincidencia `parentPeer` (herencia de hilo)
+3. `guildId + roles` (enrutamiento por roles de Discord)
+4. `guildId` (Discord)
+5. `teamId` (Slack)
+6. Coincidencia `accountId` para un canal
+7. Coincidencia a nivel de canal (`accountId: "*"`)
+8. Repliegue al agente predeterminado (`agents.list[].default`; de lo contrario, la primera entrada de la lista; predeterminado: `main`)
+
+Si un binding establece múltiples campos de coincidencia (por ejemplo `peer` + `guildId`), todos los campos especificados son obligatorios (semántica `AND`).
 
 ## Múltiples cuentas / números de teléfono
 
@@ -381,5 +387,3 @@ Si necesita límites por agente, use `agents.list[].tools` para denegar `exec`.
 Para la segmentación por grupos, use `agents.list[].groupChat.mentionPatterns` para que las @menciones se asignen limpiamente al agente previsto.
 
 Consulte [Sandbox y herramientas multiagente](/tools/multi-agent-sandbox-tools) para ver ejemplos detallados.
-
-

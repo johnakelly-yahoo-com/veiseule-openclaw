@@ -1,4 +1,8 @@
 ---
+summary: "Manejo de zonas horarias para agentes, sobres y prompts"
+read_when:
+  - Necesita comprender cómo se normalizan las marcas de tiempo para el modelo
+  - Configurar la zona horaria del usuario para los prompts del sistema
 title: "Zonas horarias"
 ---
 
@@ -85,5 +89,3 @@ El prompt del sistema incluye:
 Puede controlar el formato del prompt con `agents.defaults.timeFormat` (`auto` | `12` | `24`).
 
 Consulte [Fecha y hora](/date-time) para conocer el comportamiento completo y ver ejemplos.
-
-

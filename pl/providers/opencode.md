@@ -1,4 +1,8 @@
 ---
+summary: "„Używaj OpenCode Zen (kuratorowane modele) z OpenClaw”"
+read_when:
+  - Chcesz korzystać z OpenCode Zen w celu uzyskania dostępu do modeli
+  - Chcesz mieć kuratorowaną listę modeli przyjaznych do kodowania
 title: "OpenCode Zen"
 ---
 
@@ -30,5 +34,3 @@ openclaw onboard --opencode-zen-api-key "$OPENCODE_API_KEY"
 - `OPENCODE_ZEN_API_KEY` jest również obsługiwany.
 - Logujesz się do Zen, dodajesz dane rozliczeniowe i kopiujesz swój klucz API.
 - OpenCode Zen rozlicza się za każde żądanie; szczegóły sprawdź w panelu OpenCode.
-
-

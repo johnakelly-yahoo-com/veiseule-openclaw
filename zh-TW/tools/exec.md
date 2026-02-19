@@ -1,12 +1,17 @@
 ---
+summary: "Exec 工具的使用方式、stdin 模式與 TTY 支援"
+read_when:
+  - 使用或修改 exec 工具時
+  - 偵錯 stdin 或 TTY 行為時
 title: "Exec 工具"
 ---
 
 # Exec 工具
 
-在工作區中執行 shell 指令。 Supports foreground + background execution via `process`.
+在工作區中執行 shell 指令。 在工作區中執行 shell 指令。 Supports foreground + background execution via `process`.
 若 `process` 被拒絕，`exec` 會同步執行並忽略 `yieldMs`/`background`。
-49. 背景工作階段以代理為範圍；`process` 只能看到同一代理的工作階段。
+49.
+背景工作階段以代理為範圍；`process` 只能看到同一代理的工作階段。
 
 ## 參數
 
@@ -34,7 +39,7 @@ title: "Exec 工具"
   來自 `PATH` 以避免與 fish 不相容的指令碼，若兩者皆不存在則回退到 `SHELL`。
 - 主機執行（`gateway`/`node`）會拒絕 `env.PATH` 與載入器覆寫（`LD_*`/`DYLD_*`），
   以防止二進位檔劫持或注入程式碼。
-- 50. 重要：沙箱化**預設為關閉**。 If sandboxing is off, `host=sandbox` runs directly on
+- 50. 重要：沙箱化**預設為關閉**。 重要：沙箱化**預設為關閉**。 If sandboxing is off, `host=sandbox` runs directly on
       the gateway host (no container) and **does not require approvals**. To require approvals, run with
       `host=gateway` and configure exec approvals (or enable sandboxing).
 
@@ -65,6 +70,7 @@ title: "Exec 工具"
 
 - `host=gateway`：將你的登入殼層 `PATH` 合併到 exec 環境中。主機執行時會拒絕 `env.PATH` 覆寫。
   守護程式本身仍以最小化的 `PATH` 執行： `env.PATH` overrides are
+  rejected for host execution. `env.PATH` overrides are
   rejected for host execution. The daemon itself still runs with a minimal `PATH`:
   - macOS：`/opt/homebrew/bin`、`/usr/local/bin`、`/usr/bin`、`/bin`
   - Linux：`/usr/local/bin`、`/usr/bin`、`/bin`
@@ -73,11 +79,15 @@ title: "Exec 工具"
   `tools.exec.pathPrepend` 亦適用於此。
   OpenClaw prepends `env.PATH` after profile sourcing via an internal env var (no shell interpolation);
   `tools.exec.pathPrepend` applies here too.
+  OpenClaw prepends `env.PATH` after profile sourcing via an internal env var (no shell interpolation);
+  `tools.exec.pathPrepend` applies here too.
 - `host=node`：只會將你傳入且未被封鎖的環境變數覆寫送至節點。主機執行時會拒絕 `env.PATH` 覆寫。
   無介面節點主機僅在其前置節點主機 PATH（不取代）時才接受 `PATH`。
+  macOS 節點會完全捨棄 `PATH` 覆寫。 `host=node`：只會將你傳入且未被封鎖的環境變數覆寫送至節點。主機執行時會拒絕 `env.PATH` 覆寫。
+  無介面節點主機僅在其前置節點主機 PATH（不取代）時才接受 `PATH`。
   macOS 節點會完全捨棄 `PATH` 覆寫。 `env.PATH` overrides are
-  rejected for host execution. Headless node hosts accept `PATH` only when it prepends the node host
-  PATH (no replacement). macOS nodes drop `PATH` overrides entirely.
+  rejected for host execution. 若你需要在某個節點上新增 PATH 項目，
+  請設定該節點主機服務的環境（systemd/launchd），或將工具安裝於標準位置。
 
 每個代理程式的節點綁定（在設定中使用代理程式清單索引）：
 
@@ -90,8 +100,9 @@ openclaw config set agents.list[0].tools.exec.node "node-id-or-name"
 
 ## Session overrides (`/exec`)
 
-30. 使用 `/exec` 設定**每個工作階段**的 `host`、`security`、`ask` 與 `node` 預設值。
-    Send `/exec` with no arguments to show the current values.
+使用 `/exec` 設定**每個工作階段**的 `host`、`security`、`ask` 與 `node` 預設值。
+Send `/exec` with no arguments to show the current values.
+Send `/exec` with no arguments to show the current values.
 
 範例：
 
@@ -114,7 +125,7 @@ policy (`tools.deny: ["exec"]` or per-agent). Host approvals still apply unless 
 Sandboxed agents can require per-request approval before `exec` runs on the gateway or node host.
 See [Exec approvals](/tools/exec-approvals) for the policy, allowlist, and UI flow.
 
-31. 當需要核准時，exec 工具會立即回傳 `status: "approval-pending"` 與一個核准 ID。 Once approved (or denied / timed out),
+31. 當需要核准時，exec 工具會立即回傳 `status: "approval-pending"` 與一個核准 ID。 當需要核准時，exec 工具會立即回傳 `status: "approval-pending"` 與一個核准 ID。 Once approved (or denied / timed out),
     the Gateway emits system events (`Exec finished` / `Exec denied`). If the command is still
     running after `tools.exec.approvalRunningNoticeMs`, a single `Exec running` notice is emitted.
 
@@ -122,8 +133,9 @@ See [Exec approvals](/tools/exec-approvals) for the policy, allowlist, and UI fl
 
 Allowlist enforcement matches **resolved binary paths only** (no basename matches). When
 `security=allowlist`, shell commands are auto-allowed only if every pipeline segment is
-allowlisted or a safe bin. Chaining (`;`, `&&`, `||`) and redirections are rejected in
-allowlist mode.
+allowlisted or a safe bin. 在 allowlist 模式下，會拒絕使用鏈式指令（`;`、`&&`、`||`）與重新導向，
+除非每個最上層片段都符合 allowlist（包含安全 bins）。
+不支援重新導向。
 
 ## 範例
 
@@ -164,7 +176,8 @@ Paste (bracketed by default):
 
 `apply_patch` 是 `exec` 的子工具，用於結構化的多檔案編輯。
 請明確啟用：
-32. 請明確啟用它：
+32.
+請明確啟用它：
 
 ```json5
 {
@@ -181,5 +194,4 @@ Paste (bracketed by default):
 - 僅適用於 OpenAI／OpenAI Codex 模型。
 - 工具政策仍然適用；`allow: ["exec"]` 會隱含允許 `apply_patch`。
 - 設定位於 `tools.exec.applyPatch` 之下。
-
-
+- `tools.exec.applyPatch.workspaceOnly` 預設為 `true`（僅限於 workspace 內）。 僅在你有意讓 `apply_patch` 在 workspace 目錄之外進行寫入/刪除時，才將其設為 `false`。

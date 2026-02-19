@@ -1,4 +1,8 @@
 ---
+summary: "Skills: المُدارة مقابل مساحة العمل، قواعد التقييد، وربط التهيئة/البيئة"
+read_when:
+  - إضافة Skills أو تعديلها
+  - تغيير تقييد Skills أو قواعد التحميل
 title: "المهارات"
 ---
 
@@ -292,5 +296,3 @@ total = 195 + Σ (97 + len(name_escaped) + len(description_escaped) + len(locati
 تصفّح [https://clawhub.com](https://clawhub.com).
 
 ---
-
-

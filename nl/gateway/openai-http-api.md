@@ -1,4 +1,7 @@
 ---
+summary: "Stel een OpenAI-compatibel /v1/chat/completions HTTP-eindpunt bloot via de Gateway"
+read_when:
+  - Integratie van tools die OpenAI Chat Completions verwachten
 title: "OpenAI Chat Completions"
 ---
 
@@ -23,6 +26,7 @@ Notities:
 
 - Wanneer `gateway.auth.mode="token"`, gebruik `gateway.auth.token` (of `OPENCLAW_GATEWAY_TOKEN`).
 - Wanneer `gateway.auth.mode="password"`, gebruik `gateway.auth.password` (of `OPENCLAW_GATEWAY_PASSWORD`).
+- Als `gateway.auth.rateLimit` is geconfigureerd en er te veel authenticatiefouten optreden, retourneert het endpoint `429` met `Retry-After`.
 
 ## Een agent kiezen
 
@@ -113,5 +117,3 @@ curl -N http://127.0.0.1:18789/v1/chat/completions \
     "messages": [{"role":"user","content":"hi"}]
   }'
 ```
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Voice Call 플러그인: Twilio/Telnyx/Plivo를 통한 아웃바운드 + 인바운드 통화 (플러그인 설치 + 구성 + CLI)"
+read_when:
+  - OpenClaw에서 아웃바운드 음성 통화를 걸고자 할 때
+  - voice-call 플러그인을 구성하거나 개발할 때
 title: "Voice Call 플러그인"
 ---
 
@@ -107,6 +111,7 @@ cd ./extensions/voice-call && pnpm install
 - Twilio/Telnyx는 **공개적으로 접근 가능한** 웹훅 URL이 필요합니다.
 - Plivo는 **공개적으로 접근 가능한** 웹훅 URL이 필요합니다.
 - `mock` 는 로컬 개발용 프로바이더입니다 (네트워크 호출 없음).
+- Telnyx는 `skipSignatureVerification`이 true가 아닌 한 `telnyx.publicKey`(또는 `TELNYX_PUBLIC_KEY`)가 필요합니다.
 - `skipSignatureVerification` 는 로컬 테스트 전용입니다.
 - ngrok 무료 티어를 사용하는 경우, `publicUrl` 를 정확한 ngrok URL로 설정하십시오. 서명 검증은 항상 강제됩니다.
 - `tunnel.allowNgrokFreeTierLoopbackBypass: true` 는 `tunnel.provider="ngrok"` 이고 `serve.bind` 가 loopback (ngrok 로컬 에이전트)일 때에만 **유효하지 않은 서명**의 Twilio 웹훅을 허용합니다. 로컬 개발 전용으로 사용하십시오.
@@ -273,5 +278,3 @@ openclaw voicecall expose --mode funnel
 - `voicecall.speak` (`callId`, `message`)
 - `voicecall.end` (`callId`)
 - `voicecall.status` (`callId`)
-
-

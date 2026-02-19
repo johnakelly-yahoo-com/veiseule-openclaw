@@ -1,4 +1,8 @@
 ---
+summary: "リモートアクセスのために exe.dev（VM + HTTPS プロキシ）で OpenClaw Gateway（ゲートウェイ）を実行します"
+read_when:
+  - Gateway（ゲートウェイ）用に安価で常時稼働の Linux ホストが必要な場合
+  - 自分で VPS を運用せずにリモート Control UI にアクセスしたい場合
 title: "exe.dev"
 ---
 
@@ -24,7 +28,7 @@ title: "exe.dev"
 ## Shelley による自動インストール
 
 exe.dev のエージェントである Shelley は、当社のプロンプトを使って OpenClaw を即座にインストールできます。
-使用されるプロンプトは以下のとおりです： 使用するプロンプトは以下のとおりです。
+使用されるプロンプトは以下のとおりです： 使用するプロンプトは以下のとおりです。 使用するプロンプトは以下のとおりです。
 
 ```
 Set up OpenClaw (https://docs.openclaw.ai/install) on this VM. Use the non-interactive and accept-risk flags for openclaw onboarding. Add the supplied auth or token as needed. Configure nginx to forward from the default port 18789 to the root location on the default enabled site config, making sure to enable Websocket support. Pairing is done by "openclaw devices list" and "openclaw device approve <request id>". Make sure the dashboard shows that OpenClaw's health is OK. exe.dev handles forwarding from port 8000 to port 80/443 and HTTPS for us, so the final "reachable" should be <vm-name>.exe.xyz, without port specification.
@@ -107,6 +111,8 @@ server {
 リモートアクセスは、[exe.dev](https://exe.dev) の認証によって処理されます。既定では、ポート 8000 からの HTTP トラフィックは、メール認証付きで `https://<vm-name>.exe.xyz` に転送されます。
 デフォルトでは、8000 からの HTTP トラフィックは Eメールで `https://<vm-name>.exe.xyz`
 に転送されます。
+デフォルトでは、8000 からの HTTP トラフィックは Eメールで `https://<vm-name>.exe.xyz`
+に転送されます。
 
 ## 更新
 
@@ -118,5 +124,3 @@ openclaw health
 ```
 
 ガイド：[Updating](/install/updating)
-
-

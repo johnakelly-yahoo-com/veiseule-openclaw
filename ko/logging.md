@@ -1,4 +1,9 @@
 ---
+summary: "로깅 개요: 파일 로그, 콘솔 출력, CLI 테일링, Control UI"
+read_when:
+  - 4. 로깅에 대한 초보자 친화적인 개요가 필요합니다
+  - 로그 레벨 또는 형식을 구성하고 싶을 때
+  - 문제를 해결하면서 로그를 빠르게 찾아야 할 때
 title: "로깅"
 ---
 
@@ -335,5 +340,3 @@ OPENCLAW_DIAGNOSTICS=telegram.http,telegram.payload
 - **Gateway(게이트웨이)에 연결할 수 없습니까?** 먼저 `openclaw doctor` 을 실행하십시오.
 - **로그가 비어 있습니까?** Gateway(게이트웨이)가 실행 중이며 `logging.file` 의 파일 경로에 기록하고 있는지 확인하십시오.
 - **더 많은 정보가 필요합니까?** `logging.level` 를 `debug` 또는 `trace` 로 설정한 후 다시 시도하십시오.
-
-

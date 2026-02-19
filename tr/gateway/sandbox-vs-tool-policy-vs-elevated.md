@@ -1,9 +1,11 @@
 ---
-title: "Korumalı Alan ile Araç İlkesi ve Yükseltilmiş Arasındaki Farklar"
+title: Sandbox vs Tool Policy vs Elevated
+summary: "Bir aracın neden engellendiği: sandbox çalışma zamanı, araç izin/verme politikası ve elevated exec kapıları"
+read_when: "'sandbox jail' ile karşılaştığınızda veya bir tool/elevated reddi gördüğünüzde ve değiştirmeniz gereken tam yapılandırma anahtarını istediğinizde."
 status: active
 ---
 
-# Korumalı Alan ile Araç İlkesi ve Yükseltilmiş Arasındaki Farklar
+# Sandbox vs Tool Policy vs Elevated
 
 OpenClaw’da birbiriyle ilişkili (ancak farklı) üç denetim vardır:
 
@@ -124,5 +126,3 @@ Düzeltme anahtarları (birini seçin):
 ### “Bunun main olduğunu sanıyordum, neden sandbox’ta?”
 
 `"non-main"` modunda, grup/kanal anahtarları _main_ değildir. Ana oturum anahtarını ( `sandbox explain` tarafından gösterilir) kullanın veya modu `"off"` olarak değiştirin.
-
-

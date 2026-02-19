@@ -1,4 +1,8 @@
 ---
+summary: "Polecenia slash: tekstowe vs natywne, konfiguracja i obsługiwane polecenia"
+read_when:
+  - Korzystanie z poleceń czatu lub ich konfiguracja
+  - Debugowanie routingu poleceń lub uprawnień
 title: "Polecenia slash"
 ---
 
@@ -14,7 +18,7 @@ Istnieją dwa powiązane systemy:
   - Dyrektywy są usuwane z wiadomości, zanim zobaczy ją model.
   - W zwykłych wiadomościach czatu (nie tylko dyrektywach) są traktowane jako „wskazówki inline” i **nie** utrwalają ustawień sesji.
   - W wiadomościach zawierających wyłącznie dyrektywy utrwalają się w sesji i zwracają potwierdzenie.
-  - Dyrektywy są stosowane wyłącznie dla **autoryzowanych nadawców** (listy dozwolonych kanałów/parowanie plus `commands.useAccessGroups`).
+  - Dyrektywy są stosowane tylko dla **autoryzowanych nadawców**. Dyrektywy są stosowane wyłącznie dla **autoryzowanych nadawców** (listy dozwolonych kanałów/parowanie plus `commands.useAccessGroups`).
     Nieautoryzowani nadawcy widzą dyrektywy traktowane jako zwykły tekst.
 
 Istnieje także kilka **skrótów inline** (tylko dla nadawców z listy dozwolonych/autoryzowanych): `/help`, `/commands`, `/status`, `/whoami` (`/id`).
@@ -51,6 +55,9 @@ Uruchamiają się natychmiast, są usuwane zanim model zobaczy wiadomość, a po
 - `commands.bashForegroundMs` (domyślnie `2000`) kontroluje, jak długo bash czeka przed przełączeniem do trybu tła (`0` przełącza do tła natychmiast).
 - `commands.config` (domyślnie `false`) włącza `/config` (odczyt/zapis `openclaw.json`).
 - `commands.debug` (domyślnie `false`) włącza `/debug` (nadpisania tylko w czasie działania).
+- `commands.allowFrom` (opcjonalne) ustawia per‑dostawcę listę dozwolonych źródeł autoryzacji poleceń. Po skonfigurowaniu jest to
+  jedyne źródło autoryzacji dla poleceń i dyrektyw (listy dozwolonych kanałów/parowanie oraz `commands.useAccessGroups`
+  są ignorowane). Użyj `"*"` jako globalnej wartości domyślnej; klucze specyficzne dla dostawcy mają nad nią pierwszeństwo.
 - `commands.useAccessGroups` (domyślnie `true`) wymusza listy dozwolonych/polityki dla poleceń.
 
 ## Lista poleceń
@@ -66,6 +73,9 @@ Tekstowe + natywne (gdy włączone):
 - `/context [list|detail|json]` (wyjaśnij „kontekst”; `detail` pokazuje rozmiar per plik + per narzędzie + per skill + prompt systemowy)
 - `/whoami` (pokaż identyfikator nadawcy; alias: `/id`)
 - `/subagents list|stop|log|info|send` (inspekcja, zatrzymanie, logowanie lub wysyłanie wiadomości do uruchomień sub-agenta dla bieżącej sesji)
+- `/kill <id|#|all>` (natychmiast przerywa jednego lub wszystkie działające sub‑agenty w tej sesji; bez komunikatu potwierdzającego)
+- `/steer <id|#> <message>` (natychmiast kieruje działającym sub‑agentem: w trakcie działania, jeśli to możliwe, w przeciwnym razie przerywa bieżącą pracę i uruchamia ponownie z komunikatem sterującym)
+- `/tell <id|#> <message>` (alias dla `/steer`)
 - `/config show|get|set|unset` (zapis konfiguracji na dysk, tylko właściciel; wymaga `commands.config: true`)
 - `/debug show|set|unset|reset` (nadpisania w czasie działania, tylko właściciel; wymaga `commands.debug: true`)
 - `/usage off|tokens|full|cost` (stopka użycia per odpowiedź lub lokalne podsumowanie kosztów)
@@ -192,5 +202,3 @@ Uwagi:
   - Telegram: `telegram:slash:<userId>` (celuje w sesję czatu przez `CommandTargetSessionKey`)
 - **`/stop`** celuje w aktywną sesję czatu, aby móc przerwać bieżące uruchomienie.
 - **Slack:** `channels.slack.slashCommand` jest nadal obsługiwane dla pojedynczego polecenia w stylu `/openclaw`. Jeśli włączysz `commands.native`, musisz utworzyć jedno polecenie slash Slack dla każdego wbudowanego polecenia (te same nazwy co `/help`). Menu argumentów poleceń dla Slack są dostarczane jako efemeryczne przyciski Block Kit.
-
-

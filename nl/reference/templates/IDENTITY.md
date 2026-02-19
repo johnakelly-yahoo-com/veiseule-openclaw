@@ -1,4 +1,8 @@
-------
+---
+summary: "Agentidentiteitsrecord"
+read_when:
+  - Een werkruimte handmatig bootstrappen
+---
 
 # IDENTITY.md - Wie ben ik?
 
@@ -23,5 +27,3 @@ Notities:
 
 - Sla dit bestand op in de werkruimteroot als `IDENTITY.md`.
 - Gebruik voor avatars een werkruimte-relatief pad zoals `avatars/openclaw.png`.
-
-

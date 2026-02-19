@@ -1,4 +1,8 @@
 ---
+summary: "„Użyj OAuth Qwen (warstwa darmowa) w OpenClaw”"
+read_when:
+  - Chcesz używać Qwen z OpenClaw
+  - Chcesz uzyskać dostęp OAuth do Qwen Coder w warstwie darmowej
 title: "Qwen"
 ---
 
@@ -47,5 +51,3 @@ z `~/.qwen/oauth_creds.json` podczas ładowania magazynu uwierzytelniania. Nadal
 - Domyślny adres URL bazy: `https://portal.qwen.ai/v1` (zastąp go
   `models.providers.qwen-portal.baseUrl`, jeśli Qwen udostępni inny punkt końcowy).
 - Zobacz [Dostawcy modeli](/concepts/model-providers), aby poznać zasady obowiązujące dla całego dostawcy.
-
-

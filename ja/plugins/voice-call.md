@@ -1,4 +1,8 @@
 ---
+summary: "音声通話プラグイン：Twilio/Telnyx/Plivo による発信・着信通話（プラグインのインストール＋設定＋ CLI）"
+read_when:
+  - OpenClaw から発信の音声通話を行いたい場合
+  - voice-call プラグインを設定または開発している場合
 title: "音声通話プラグイン"
 ---
 
@@ -108,9 +112,10 @@ cd ./extensions/voice-call && pnpm install
 - Twilio／Telnyx では **公開到達可能** な Webhook URL が必要です。
 - Plivo でも **公開到達可能** な Webhook URL が必要です。
 - `mock` はローカル開発用のプロバイダーです（ネットワーク呼び出しなし）。
+- Telnyx では、`skipSignatureVerification` が true でない限り、`telnyx.publicKey`（または `TELNYX_PUBLIC_KEY`）が必要です。
 - `skipSignatureVerification` はローカルテスト専用です。
 - ngrok の free tier を使用する場合は、`publicUrl` に正確な ngrok URL を設定してください。署名検証は常に有効です。
-- `tunnel.allowNgrokFreeTierLoopbackBypass: true` は、`tunnel.provider="ngrok"` かつ `serve.bind` がループバック（ngrok のローカルエージェント）の場合 **のみ**、無効な署名の Twilio Webhook を許可します。ローカル開発専用で使用してください。 ローカル開発者のみに使用します。
+- `tunnel.allowNgrokFreeTierLoopbackBypass: true` は、`tunnel.provider="ngrok"` かつ `serve.bind` がループバック（ngrok のローカルエージェント）の場合 **のみ**、無効な署名の Twilio Webhook を許可します。ローカル開発専用で使用してください。 ローカル開発者のみに使用します。 ローカル開発者のみに使用します。
 - ngrok の free tier URL は変更されたり、インタースティシャル挙動が追加されたりする場合があります。`publicUrl` が変動すると Twilio の署名検証に失敗します。本番環境では、安定したドメインまたは Tailscale の funnel を推奨します。 生産のために、安定したドメインまたはテイルスケールの漏斗を好む。
 
 ## Webhook のセキュリティ
@@ -226,7 +231,7 @@ Gateway の前段にプロキシやトンネルがある場合、プラグイン
 
 ## 着信通話
 
-インバウンドポリシーのデフォルトは `disabled` です。 着信を有効にするには、以下を設定します。
+インバウンドポリシーのデフォルトは `disabled` です。 着信を有効にするには、以下を設定します。 着信を有効にするには、以下を設定します。
 
 ```json5
 {
@@ -236,7 +241,7 @@ Gateway の前段にプロキシやトンネルがある場合、プラグイン
 }
 ```
 
-自動応答はエージェントシステムを使用します。以下で調整できます： チューニング:
+自動応答はエージェントシステムを使用します。以下で調整できます： チューニング: チューニング:
 
 - `responseModel`
 - `responseSystemPrompt`
@@ -275,5 +280,3 @@ openclaw voicecall expose --mode funnel
 - `voicecall.speak`（`callId`, `message`）
 - `voicecall.end`（`callId`）
 - `voicecall.status`（`callId`）
-
-

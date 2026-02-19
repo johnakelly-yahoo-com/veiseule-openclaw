@@ -1,12 +1,9 @@
 ---
-title: 设备型号数据库
-x-i18n:
-  generated_at: "2026-02-01T21:37:07Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 1d99c2538a0d8fdd80fa468fa402f63479ef2522e83745a0a46527a86238aeb2
-  source_path: reference/device-models.md
-  workflow: 15
+summary: "OpenClaw 如何内置 Apple 设备型号标识符以在 macOS 应用中显示友好名称。"
+read_when:
+  - 更新设备型号标识符映射或 NOTICE/许可证文件
+  - 更改实例 UI 中设备名称的显示方式
+title: "设备型号数据库"
 ---
 
 # 设备型号数据库（友好名称）
@@ -27,7 +24,7 @@ macOS 配套应用通过将 Apple 型号标识符（例如 `iPad16,6`、`Mac16,6
 
 ## 更新数据库
 
-1. 选择要固定的上游提交（iOS 和 macOS 各一个）。
+1. Pick the upstream commits you want to pin to (one for iOS, one for macOS).
 2. 更新 `apps/macos/Sources/OpenClaw/Resources/DeviceModels/NOTICE.md` 中的提交哈希。
 3. 重新下载固定到这些提交的 JSON 文件：
 
@@ -48,5 +45,3 @@ curl -fsSL "https://raw.githubusercontent.com/kyle-seongwoo-jun/apple-device-ide
 ```bash
 swift build --package-path apps/macos
 ```
-
-

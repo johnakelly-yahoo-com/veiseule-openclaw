@@ -1,4 +1,8 @@
 ---
+summary: "슬래시 명령어: 텍스트 vs 네이티브, 구성, 지원되는 명령어"
+read_when:
+  - 채팅 명령어 사용 또는 구성 시
+  - 명령어 라우팅 또는 권한 디버깅 시
 title: "슬래시 명령어"
 ---
 
@@ -14,7 +18,7 @@ title: "슬래시 명령어"
   - 지시어는 모델이 메시지를 보기 전에 제거됩니다.
   - 일반 채팅 메시지(지시어 전용이 아님)에서는 ‘인라인 힌트’로 취급되며 세션 설정을 **유지하지 않습니다**.
   - 지시어 전용 메시지(메시지에 지시어만 포함)에서는 세션에 유지되며 확인 응답을 반환합니다.
-  - 지시어는 **승인된 발신자**(채널 허용 목록/페어링 + `commands.useAccessGroups`)에게만 적용됩니다.
+  - 지시문은 **승인된 발신자**에게만 적용됩니다. 지시어는 **승인된 발신자**(채널 허용 목록/페어링 + `commands.useAccessGroups`)에게만 적용됩니다.
     승인되지 않은 발신자의 경우 지시어는 일반 텍스트로 처리됩니다.
 
 또한 몇 가지 **인라인 단축키**가 있습니다(허용 목록/승인된 발신자만): `/help`, `/commands`, `/status`, `/whoami` (`/id`).
@@ -51,6 +55,7 @@ title: "슬래시 명령어"
 - `commands.bashForegroundMs` (기본값 `2000`)는 bash 가 백그라운드 모드로 전환하기 전에 대기하는 시간을 제어합니다(`0` 는 즉시 백그라운드로 전환).
 - `commands.config` (기본값 `false`)는 `/config` 를 활성화합니다(`openclaw.json` 읽기/쓰기).
 - `commands.debug` (기본값 `false`)는 `/debug` 를 활성화합니다(런타임 전용 재정의).
+- `commands.allowFrom`(선택 사항)은 명령어 인증을 위한 공급자별 허용 목록을 설정합니다. 구성된 경우, 이는 명령어와 지시문에 대한 유일한 인증 소스가 되며(채널 허용 목록/페어링 및 `commands.useAccessGroups`는 무시됨). 전역 기본값으로 `"*"`를 사용하세요. 공급자별 키가 이를 재정의합니다.
 - `commands.useAccessGroups` (기본값 `true`)는 명령어에 대한 허용 목록/정책을 강제합니다.
 
 ## 명령어 목록
@@ -66,6 +71,9 @@ title: "슬래시 명령어"
 - `/context [list|detail|json]` (“컨텍스트” 설명; `detail` 는 파일별 + 도구별 + skill 별 + 시스템 프롬프트 크기 표시)
 - `/whoami` (발신자 id 표시; 별칭: `/id`)
 - `/subagents list|stop|log|info|send` (현재 세션의 서브 에이전트 실행 검사/중지/로그/메시지)
+- `/kill <id|#|all>` (이 세션에서 실행 중인 하나 또는 모든 하위 에이전트를 즉시 중단하며, 확인 메시지는 표시되지 않음)
+- `/steer <id|#> <message>` (실행 중인 하위 에이전트를 즉시 제어: 가능하면 실행 중에 반영하고, 그렇지 않으면 현재 작업을 중단한 뒤 steer 메시지로 재시작)
+- `/tell <id|#> <message>` (`/steer`의 별칭)
 - `/config show|get|set|unset` (구성을 디스크에 유지, 소유자 전용; `commands.config: true` 필요)
 - `/debug show|set|unset|reset` (런타임 재정의, 소유자 전용; `commands.debug: true` 필요)
 - `/usage off|tokens|full|cost` (응답별 사용량 푸터 또는 로컬 비용 요약)
@@ -192,5 +200,3 @@ title: "슬래시 명령어"
   - Telegram: `telegram:slash:<userId>` (`CommandTargetSessionKey` 를 통해 채팅 세션을 대상으로 지정)
 - **`/stop`** 는 현재 실행을 중단할 수 있도록 활성 채팅 세션을 대상으로 합니다.
 - **Slack:** `channels.slack.slashCommand` 는 단일 `/openclaw` 스타일 명령어에 대해 여전히 지원됩니다. `commands.native` 를 활성화하면 기본 제공 명령어마다 하나의 Slack 슬래시 명령어를 생성해야 합니다(`/help` 와 동일한 이름). Slack 의 명령어 인자 메뉴는 일시적 Block Kit 버튼으로 제공됩니다.
-
-

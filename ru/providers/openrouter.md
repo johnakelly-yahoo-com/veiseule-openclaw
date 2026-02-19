@@ -1,4 +1,8 @@
 ---
+summary: "Используйте унифицированный API OpenRouter для доступа ко многим моделям в OpenClaw"
+read_when:
+  - Вам нужен один ключ API для многих LLM
+  - Вы хотите запускать модели через OpenRouter в OpenClaw
 title: "OpenRouter"
 ---
 
@@ -32,5 +36,3 @@ openclaw onboard --auth-choice apiKey --token-provider openrouter --token "$OPEN
 - Ссылки на модели — `openrouter/<provider>/<model>`.
 - Дополнительные параметры моделей и провайдеров см. в [/concepts/model-providers](/concepts/model-providers).
 - OpenRouter использует Bearer‑токен с вашим ключом API под капотом.
-
-

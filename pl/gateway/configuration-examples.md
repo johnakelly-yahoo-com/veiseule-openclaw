@@ -1,4 +1,9 @@
 ---
+summary: "Przykłady konfiguracji zgodne ze schematem dla typowych konfiguracji OpenClaw"
+read_when:
+  - Nauka konfiguracji OpenClaw
+  - Poszukiwanie przykładów konfiguracji
+  - Pierwsza konfiguracja OpenClaw
 title: "Przykłady konfiguracji"
 ---
 
@@ -599,5 +604,3 @@ Jeśli więcej niż jedna osoba może wysyłać DM-y do bota (wiele wpisów w `a
 - Identyfikatory dostawców różnią się (numery telefonów, identyfikatory użytkowników, identyfikatory kanałów). Sprawdź dokumentację dostawcy, aby potwierdzić format.
 - Sekcje opcjonalne do dodania później: `web`, `browser`, `ui`, `discovery`, `canvasHost`, `talk`, `signal`, `imessage`.
 - Zobacz [Providers](/channels/whatsapp) oraz [Rozwiązywanie problemów](/gateway/troubleshooting), aby uzyskać bardziej szczegółowe informacje dotyczące konfiguracji.
-
-

@@ -1,4 +1,5 @@
 ---
+summary: "Paano magsumite ng high-signal na PR"
 title: "Pagsusumite ng PR"
 ---
 
@@ -17,7 +18,7 @@ title: "Pagsusumite ng PR"
 - [ ] I-base ang mga claim sa ebidensya o obserbasyon.
 - [ ] Magandang pamagat: pandiwa + saklaw + kinalabasan (hal., `Docs: add PR and issue templates`).
 
-Maging maigsi; mas mahalaga ang maikling pagsusuri kaysa gramatika. Alisin ang anumang hindi naaangkop na seksyon.
+Be concise; concise review > grammar. Omit any non-applicable sections.
 
 ### Mga baseline validation command (patakbuhin/ayusin ang mga failure para sa iyong pagbabago)
 
@@ -395,5 +396,3 @@ pnpm format
 - Submitter effort:
 - Agent notes:
 ```
-
-

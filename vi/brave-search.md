@@ -1,4 +1,8 @@
 ---
+summary: "Thiết lập API Brave Search cho web_search"
+read_when:
+  - Bạn muốn dùng Brave Search cho web_search
+  - Bạn cần BRAVE_API_KEY hoặc thông tin gói
 title: "Brave Search"
 ---
 
@@ -35,5 +39,3 @@ OpenClaw dùng Brave Search làm nhà cung cấp mặc định cho `web_search`.
 - Brave cung cấp gói miễn phí cùng các gói trả phí; hãy kiểm tra cổng Brave API để biết giới hạn hiện tại.
 
 Xem [Công cụ web](/tools/web) để biết cấu hình web_search đầy đủ.
-
-

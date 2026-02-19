@@ -1,4 +1,8 @@
 ---
+summary: "為 IDE 整合執行 ACP 橋接"
+read_when:
+  - 設定基於 ACP 的 IDE 整合
+  - 除錯 ACP 工作階段路由至 Gateway 閘道器
 title: "acp"
 ---
 
@@ -6,7 +10,7 @@ title: "acp"
 
 執行與 OpenClaw Gateway 閘道器 通訊的 ACP（Agent Client Protocol）橋接。
 
-此指令透過 stdio 為 IDE 使用 ACP，並透過 WebSocket 將提示轉送至 Gateway 閘道器。它會將 ACP 工作階段對應到 Gateway 閘道器 的工作階段金鑰。 It keeps ACP sessions mapped to Gateway session keys.
+此指令透過 stdio 為 IDE 使用 ACP，並透過 WebSocket 將提示轉送至 Gateway 閘道器。它會將 ACP 工作階段對應到 Gateway 閘道器 的工作階段金鑰。 It keeps ACP sessions mapped to Gateway session keys. It keeps ACP sessions mapped to Gateway session keys.
 
 ## 使用方式
 
@@ -28,6 +32,8 @@ openclaw acp --session agent:main:main --reset-session
 
 ## ACP client（除錯）
 
+使用內建的 ACP 用戶端，在沒有 IDE 的情況下對橋接進行基本檢查。
+它會啟動 ACP 橋接，並讓你以互動方式輸入提示。
 使用內建的 ACP 用戶端，在沒有 IDE 的情況下對橋接進行基本檢查。
 它會啟動 ACP 橋接，並讓你以互動方式輸入提示。
 It spawns the ACP bridge and lets you type prompts interactively.
@@ -65,7 +71,7 @@ openclaw acp --url wss://gateway-host:18789 --token <token>
 
 ## 選擇代理
 
-ACP 不會直接選擇代理。它會依據 Gateway 工作階段金鑰進行路由。
+ACP does not pick agents directly. It routes by the Gateway session key.
 
 使用具代理範圍的工作階段金鑰來指定特定代理：
 
@@ -75,9 +81,7 @@ openclaw acp --session agent:design:main
 openclaw acp --session agent:qa:bug-123
 ```
 
-每個 ACP 工作階段都對應到單一的 Gateway 工作階段金鑰。一個代理可以擁有多個
-sessions; ACP defaults to an isolated `acp:<uuid>` session unless you override
-the key or label.
+By default, ACP sessions get an isolated Gateway session key with an `acp:` prefix. To reuse a known session, pass a session key or label:
 
 ## Zed 編輯器設定
 
@@ -121,9 +125,11 @@ the key or label.
 
 在 Zed 中，開啟 Agent 面板並選取「OpenClaw ACP」以啟動一個執行緒。
 
-## 工作階段對應
+## Session mapping
 
-By default, ACP sessions get an isolated Gateway session key with an `acp:` prefix.
+每個 ACP 工作階段都對應到單一的 Gateway 工作階段金鑰。一個代理可以擁有多個
+sessions; ACP defaults to an isolated `acp:<uuid>` session unless you override
+the key or label.
 To reuse a known session, pass a session key or label:
 
 - `--session <key>`：使用特定的 Gateway 閘道器 工作階段金鑰。
@@ -163,5 +169,3 @@ Learn more about session keys at [/concepts/session](/concepts/session).
 - `--server-args <args...>`：傳遞給 ACP 伺服器的額外引數。
 - `--server-verbose`：在 ACP 伺服器上啟用詳細記錄。
 - `--verbose, -v`：詳細的用戶端記錄。
-
-

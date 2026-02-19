@@ -1,4 +1,9 @@
 ---
+summary: "„Przepływ wiadomości, sesje, kolejkowanie i widoczność rozumowania”"
+read_when:
+  - Wyjaśnianie, jak wiadomości przychodzące stają się odpowiedziami
+  - Doprecyzowanie sesji, trybów kolejkowania lub zachowania strumieniowania
+  - Dokumentowanie widoczności rozumowania i implikacji użytkowych
 title: "Wiadomości"
 ---
 
@@ -146,5 +151,3 @@ Formatowanie wiadomości wychodzących jest scentralizowane w `messages`:
 - Wątkowanie odpowiedzi poprzez `replyToMode` oraz domyślne ustawienia per kanał
 
 Szczegóły: [Konfiguracja](/gateway/configuration#messages) oraz dokumentacja kanałów.
-
-

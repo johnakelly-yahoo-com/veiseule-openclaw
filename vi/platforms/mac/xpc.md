@@ -1,10 +1,13 @@
 ---
+summary: "Kiến trúc IPC trên macOS cho ứng dụng OpenClaw, truyền tải node của Gateway và PeekabooBridge"
+read_when:
+  - Chỉnh sửa các hợp đồng IPC hoặc IPC của ứng dụng menu bar
 title: "IPC trên macOS"
 ---
 
 # Kiến trúc IPC OpenClaw trên macOS
 
-**Mô hình hiện tại:** một Unix socket cục bộ kết nối **dịch vụ node host** với **ứng dụng macOS** để phê duyệt thực thi + `system.run`. Có một CLI gỡ lỗi `openclaw-mac` để kiểm tra discovery/kết nối; các hành động của agent vẫn đi qua WebSocket Gateway và `node.invoke`. Tự động hóa UI sử dụng PeekabooBridge.
+**Current model:** a local Unix socket connects the **node host service** to the **macOS app** for exec approvals + `system.run`. A `openclaw-mac` debug CLI exists for discovery/connect checks; agent actions still flow through the Gateway WebSocket and `node.invoke`. UI automation uses PeekabooBridge.
 
 ## Mục tiêu
 
@@ -56,5 +59,3 @@ Agent -> Gateway -> Node Service (WS)
 - Mọi giao tiếp đều chỉ cục bộ; không mở socket mạng.
 - Các prompt TCC chỉ xuất phát từ bundle GUI; giữ bundle ID đã ký ổn định giữa các lần rebuild.
 - Gia cố IPC: chế độ socket `0600`, token, kiểm tra peer-UID, thử thách/đáp ứng HMAC, TTL ngắn.
-
-

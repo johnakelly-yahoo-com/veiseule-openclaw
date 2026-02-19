@@ -1,4 +1,8 @@
 ---
+summary: "Mga surface ng logging, file logs, mga estilo ng WS log, at pag-format ng console"
+read_when:
+  - Kapag binabago ang logging output o mga format
+  - Kapag nagde-debug ng CLI o output ng gateway
 title: "Pag-log"
 ---
 
@@ -107,5 +111,3 @@ Pag-uugali:
 - **Mga body ng mensahe ng WhatsApp** ay nilo-log sa `debug` (gamitin ang `--verbose` para makita ang mga ito)
 
 Pinapanatiling stable ang mga umiiral na file logs habang ginagawang madaling i-scan ang interactive na output.
-
-

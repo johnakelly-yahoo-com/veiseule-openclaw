@@ -1,4 +1,9 @@
 ---
+summary: "Referenz: anbieterspezifische Regeln zur Bereinigung und Reparatur von Transkripten"
+read_when:
+  - Sie debuggen Anbieter-Ablehnungen von Anfragen, die mit der Struktur des Transkripts zusammenhängen
+  - Sie ändern die Bereinigung von Transkripten oder die Reparaturlogik für Tool-Aufrufe
+  - Sie untersuchen Inkonsistenzen von Tool-Call-IDs über Anbieter hinweg
 title: "Transkript-Hygiene"
 ---
 
@@ -19,6 +24,7 @@ Der Umfang umfasst:
 - Validierung/Sortierung von Turns
 - Bereinigung von Thought-Signaturen
 - Bereinigung von Bild-Payloads
+- Kennzeichnung der Herkunft von Benutzereingaben (für sitzungsübergreifend weitergeleitete Prompts)
 
 Wenn Sie Details zur Transkriptspeicherung benötigen, siehe:
 
@@ -64,6 +70,23 @@ Implementierung:
 
 - `sanitizeToolCallInputs` in `src/agents/session-transcript-repair.ts`
 - Angewendet in `sanitizeSessionHistory` in `src/agents/pi-embedded-runner/google.ts`
+
+---
+
+## Globale Regel: Herkunft sitzungsübergreifender Eingaben
+
+Wenn ein Agent über `sessions_send` (einschließlich
+Agent-zu-Agent-Antwort-/Ankündigungsschritten) einen Prompt in eine andere Sitzung sendet, speichert OpenClaw den erzeugten User-Turn mit:
+
+- `message.provenance.kind = "inter_session"`
+
+Diese Metadaten werden beim Anhängen an das Transkript geschrieben und ändern die Rolle nicht
+(`role: "user"` bleibt aus Kompatibilitätsgründen mit dem Provider erhalten). Transkript-Reader können dies verwenden,
+um weitergeleitete interne Prompts nicht als vom Endnutzer verfasste Anweisungen zu behandeln.
+
+Beim Neuaufbau des Kontexts stellt OpenClaw diesen User-Turns im Speicher außerdem einen kurzen `[Inter-session message]`-
+Marker voran, damit das Modell sie von
+externen Endnutzeranweisungen unterscheiden kann.
 
 ---
 
@@ -122,5 +145,3 @@ Vor dem Release 2026.1.22 wendete OpenClaw mehrere Ebenen der Transkript-Hygiene
 Diese Komplexität verursachte providerübergreifende Regressionen (insbesondere bei der Zuordnung von `openai-responses`
 `call_id|fc_id`). Die Bereinigung 2026.1.22 entfernte die Extension, zentralisierte die Logik
 im Runner und machte OpenAI über die Bildbereinigung hinaus **no-touch**.
-
-

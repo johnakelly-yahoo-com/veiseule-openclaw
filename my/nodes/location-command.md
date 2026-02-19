@@ -1,4 +1,8 @@
 ---
+summary: "နိုဒ်များအတွက် Location အမိန့် (location.get)၊ ခွင့်ပြုချက် မုဒ်များနှင့် နောက်ခံ အပြုအမူ"
+read_when:
+  - Location နိုဒ် အထောက်အပံ့ သို့မဟုတ် ခွင့်ပြုချက် UI ကို ထည့်သွင်းရာတွင်
+  - နောက်ခံ Location + push လုပ်ငန်းစဉ်များကို ဒီဇိုင်းရေးဆွဲရာတွင်
 title: "Location အမိန့်"
 ---
 
@@ -107,5 +111,3 @@ Push ဖြင့် အစပြုသော လုပ်ငန်းစဉ် 
 - While Using: “OpenClaw ဖွင့်ထားချိန်တွင်သာ။”
 - 31. Requires system permission.” 32. Precise: “Use precise GPS location.
 - 33. Toggle off to share approximate location.” 34. OpenClaw သည် reply pipeline မစတင်မီ **inbound media** (image/audio/video) ကို **summarize** လုပ်နိုင်သည်။
-
-

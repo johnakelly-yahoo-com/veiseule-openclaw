@@ -1,5 +1,7 @@
 ---
+summary: "Roteamento multiagente: agentes isolados, contas de canal e vínculos"
 title: Roteamento Multiagente
+read_when: "Voce quer varios agentes isolados (workspaces + autenticação) em um unico processo do gateway."
 status: active
 ---
 
@@ -122,11 +124,15 @@ Notas:
 Os vínculos sao **deterministicos** e **o mais especifico vence**:
 
 1. Correspondencia de `peer` (DM/grupo/id de canal exato)
-2. `guildId` (Discord)
-3. `teamId` (Slack)
-4. Correspondencia de `accountId` para um canal
-5. Correspondencia em nivel de canal (`accountId: "*"`)
-6. Retorno ao agente padrão (`agents.list[].default`, caso contrario a primeira entrada da lista, padrão: `main`)
+2. Correspondência `parentPeer` (herança de thread)
+3. `guildId + roles` (roteamento por função no Discord)
+4. `guildId` (Discord)
+5. `teamId` (Slack)
+6. Correspondencia de `accountId` para um canal
+7. Correspondencia em nivel de canal (`accountId: "*"`)
+8. Retorno ao agente padrão (`agents.list[].default`, caso contrario a primeira entrada da lista, padrão: `main`)
+
+Se um binding definir vários campos de correspondência (por exemplo, `peer` + `guildId`), todos os campos especificados são obrigatórios (semântica `AND`).
 
 ## Multiplas contas / numeros de telefone
 
@@ -380,5 +386,3 @@ Se voce precisar de limites por agente, use `agents.list[].tools` para negar `ex
 Para direcionamento de grupos, use `agents.list[].groupChat.mentionPatterns` para que @menções mapeiem corretamente para o agente pretendido.
 
 Veja [Sandbox & Ferramentas Multiagente](/tools/multi-agent-sandbox-tools) para exemplos detalhados.
-
-

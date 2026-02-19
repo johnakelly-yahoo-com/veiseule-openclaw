@@ -1,4 +1,8 @@
 ---
+summary: "Kế hoạch: một SDK plugin + runtime gọn gàng cho tất cả các connector nhắn tin"
+read_when:
+  - Xác định hoặc tái cấu trúc kiến trúc plugin
+  - Di chuyển các connector kênh sang SDK/runtime plugin
 title: "Tái cấu trúc SDK Plugin"
 ---
 
@@ -208,5 +212,3 @@ Ghi chú:
 - Plugin bên ngoài có thể được phát triển và cập nhật mà không cần truy cập mã nguồn core.
 
 Tài liệu liên quan: [Plugins](/tools/plugin), [Channels](/channels/index), [Configuration](/gateway/configuration).
-
-

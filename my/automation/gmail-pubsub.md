@@ -1,4 +1,8 @@
 ---
+summary: "gogcli မှတဆင့် OpenClaw webhooks နှင့် ချိတ်ဆက်ထားသော Gmail Pub/Sub push"
+read_when:
+  - Gmail inbox trigger များကို OpenClaw နှင့် ချိတ်ဆက်ခြင်း
+  - agent wake အတွက် Pub/Sub push ကို တပ်ဆင်ခြင်း
 title: "Gmail PubSub"
 ---
 
@@ -81,8 +85,8 @@ config ထဲတွင် `hooks.gmail.model` / `hooks.gmail.thinking` ကို
 - 47. Gmail hook content ကို ပုံမှန်အားဖြင့် external-content safety boundary များဖြင့် wrap လုပ်ထားသည်။
   48. Disable လုပ်လိုပါက (အန္တရာယ်ရှိ) `hooks.gmail.allowUnsafeExternalContent: true` ကို သတ်မှတ်ပါ။
 
-Payload ကို ထပ်မံ စိတ်ကြိုက်ပြင်ဆင်လိုပါက `hooks.mappings` သို့မဟုတ် JS/TS transform module ကို
-`hooks.transformsDir` အောက်တွင် ထည့်ပါ ([Webhooks](/automation/webhook) ကိုကြည့်ပါ)။
+payload ကို ထပ်မံ စိတ်ကြိုက် ကိုင်တွယ်လိုပါက `hooks.mappings` သို့မဟုတ် JS/TS transform module တစ်ခုကို
+`~/.openclaw/hooks/transforms` အောက်တွင် ထည့်ပါ ( [Webhooks](/automation/webhook) ကို ကြည့်ပါ ).
 
 ## Wizard (အကြံပြု)
 
@@ -95,8 +99,8 @@ openclaw webhooks gmail setup \
 
 Defaults:
 
-- Public push endpoint အတွက် Tailscale Funnel ကို အသုံးပြုပါသည်။
-- `openclaw webhooks gmail run` အတွက် `hooks.gmail` config ကို ရေးထည့်ပါသည်။
+- Path မှတ်ချက်: `tailscale.mode` ကို enable လုပ်ထားသောအခါ OpenClaw သည် `hooks.gmail.serve.path` ကို `/` အဖြစ် အလိုအလျောက် သတ်မှတ်ပြီး Tailscale သည် proxy လုပ်ရာတွင် set-path prefix ကို ဖယ်ရှားသည့်အတွက် public path ကို `hooks.gmail.tailscale.path` (default `/gmail-pubsub`) တွင် ဆက်လက် ထားရှိသည်။
+- Backend သို့ prefixed path ကို လက်ခံစေချင်ပါက `hooks.gmail.tailscale.target` (သို့မဟုတ် `--tailscale-target`) ကို `http://127.0.0.1:8788/gmail-pubsub` ကဲ့သို့ full URL အဖြစ် သတ်မှတ်ပြီး `hooks.gmail.serve.path` နှင့် ကိုက်ညီအောင် ချိန်ညှိပါ။
 - Gmail hook preset (`hooks.presets: ["gmail"]`) ကို enable ပြုလုပ်ပါသည်။
 
 49. Path မှတ်ချက်: `tailscale.mode` ကို enable လုပ်ထားသောအခါ OpenClaw သည် `hooks.gmail.serve.path` ကို `/` အဖြစ် အလိုအလျောက် သတ်မှတ်ပြီး Tailscale သည် proxy လုပ်ရာတွင် set-path prefix ကို ဖယ်ရှားသည့်အတွက် public path ကို `hooks.gmail.tailscale.path` (default `/gmail-pubsub`) တွင် ဆက်လက် ထားရှိသည်။
@@ -104,8 +108,7 @@ Defaults:
 
 စိတ်ကြိုက် endpoint လိုချင်ပါသလား? `--push-endpoint <url>` သို့မဟုတ် `--tailscale off` ကို အသုံးပြုပါ။
 
-Platform မှတ်ချက်: macOS တွင် wizard သည် `gcloud`, `gogcli`, နှင့် `tailscale`
-တို့ကို Homebrew ဖြင့် ထည့်သွင်းပေးပါသည်။ Linux တွင်မူ အရင်ဆုံး manual ထည့်သွင်းရပါမည်။
+Gateway auto-start (အကြံပြု):
 
 Gateway auto-start (အကြံပြု):
 
@@ -236,12 +239,10 @@ gog gmail history --account openclaw@gmail.com --since <historyId>
 - `User not authorized`: topic ပေါ်တွင် `roles/pubsub.publisher` မရှိခြင်း။
 - Empty messages: Gmail push သည် `historyId` ကိုသာ ပေးပါသည်; `gog gmail history` ဖြင့် fetch လုပ်ပါ။
 
-## ရှင်းလင်းခြင်း
+## Cleanup
 
 ```bash
 gog gmail watch stop --account openclaw@gmail.com
 gcloud pubsub subscriptions delete gog-gmail-watch-push
 gcloud pubsub topics delete gog-gmail-watch
 ```
-
-

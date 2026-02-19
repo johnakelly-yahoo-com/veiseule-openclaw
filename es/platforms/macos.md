@@ -1,4 +1,8 @@
 ---
+summary: "Aplicación complementaria de OpenClaw para macOS (barra de menú + broker del Gateway)"
+read_when:
+  - Implementación de funciones de la app para macOS
+  - Cambios en el ciclo de vida del Gateway o el puenteo de nodos en macOS
 title: "App de macOS"
 ---
 
@@ -126,6 +130,7 @@ Parámetros de consulta:
 Seguridad:
 
 - Sin `key`, la app solicita confirmación.
+- Sin `key`, la aplicación aplica un límite corto de mensaje para el aviso de confirmación e ignora `deliver` / `to` / `channel`.
 - Con un `key` válido, la ejecución es desatendida (pensada para automatizaciones personales).
 
 ## Flujo de incorporación (típico)
@@ -194,5 +199,3 @@ Para los pasos de configuración, consulte [acceso remoto en macOS](/platforms/m
 - [Gateway (macOS)](/platforms/mac/bundled-gateway)
 - [Permisos de macOS](/platforms/mac/permissions)
 - [Canvas](/platforms/mac/canvas)
-
-

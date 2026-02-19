@@ -1,4 +1,8 @@
 ---
+summary: "Qianfan 의 통합 API 를 사용하여 OpenClaw 에서 여러 모델에 접근합니다"
+read_when:
+  - 여러 LLM 을 하나의 API 키로 사용하고자 할 때
+  - Baidu Qianfan 설정 가이드가 필요할 때
 title: "Qianfan"
 ---
 
@@ -31,5 +35,3 @@ openclaw onboard --auth-choice qianfan-api-key
 - [모델 프로바이더](/concepts/model-providers)
 - [에이전트 설정](/concepts/agent)
 - [Qianfan API 문서](https://cloud.baidu.com/doc/qianfan-api/s/3m7of64lb)
-
-

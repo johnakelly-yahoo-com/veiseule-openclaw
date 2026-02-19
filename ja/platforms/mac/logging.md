@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw のログ：ローテーションする診断ファイルログと統合ログのプライバシーフラグ"
+read_when:
+  - macOS のログを取得する場合、またはプライベートデータのログ記録を調査する場合
+  - 音声ウェイク／セッションのライフサイクルに関する問題をデバッグする場合
 title: "macOS のログ記録"
 ---
 
@@ -15,12 +19,12 @@ OpenClaw は macOS アプリのログを swift-log（既定では統合ログ）
 
 注記：
 
-- これは**デフォルトではオフ**です。 既定では **無効** です。アクティブにデバッグしている間のみ有効にしてください。
+- これは**デフォルトではオフ**です。 既定では **無効** です。アクティブにデバッグしている間のみ有効にしてください。 既定では **無効** です。アクティブにデバッグしている間のみ有効にしてください。
 - ファイルを機密として扱います。レビューなしで共有しないでください。
 
 ## macOS における統合ログのプライベートデータ
 
-統合ログは、サブシステムが `privacy -off` を選択しない限り、ほとんどのペイロードを編集します。 PeterのmacOSへの書き込み[Logging privacy shenanigans](https://steipete.me/posts/2025/logging-privacy-shenanigans) (2025) これはサブシステム名によってキー付けされた`/Library/Preferences/Logging/Subsystems/`のリストによって制御されます。 新しいログエントリだけがフラグを拾うので、問題を再現する前に有効にします。
+統合ログは、サブシステムが `privacy -off` を選択しない限り、ほとんどのペイロードを編集します。 統合ログは、サブシステムが `privacy -off` を選択しない限り、ほとんどのペイロードを編集します。 PeterのmacOSへの書き込み[Logging privacy shenanigans](https://steipete.me/posts/2025/logging-privacy-shenanigans) (2025) これはサブシステム名によってキー付けされた`/Library/Preferences/Logging/Subsystems/`のリストによって制御されます。 新しいログエントリだけがフラグを拾うので、問題を再現する前に有効にします。 新しいログエントリだけがフラグを拾うので、問題を再現する前に有効にします。
 
 ## OpenClaw 向けに有効化（`bot.molt`）
 
@@ -51,5 +55,3 @@ sudo install -m 644 -o root -g wheel /tmp/bot.molt.plist /Library/Preferences/Lo
 - オーバーライドを削除します：`sudo rm /Library/Preferences/Logging/Subsystems/bot.molt.plist`。
 - 必要に応じて、`sudo log config --reload` を実行し、logd にオーバーライドを直ちに破棄させます。
 - この表面は電話番号およびメッセージボディを含めることができることを覚えなさい; 積極的に余分な詳細を必要とする間だけ場所にplistを保ちなさい。
-
-

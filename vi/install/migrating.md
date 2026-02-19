@@ -1,4 +1,8 @@
 ---
+summary: "Di chuyển (migrate) một cài đặt OpenClaw từ máy này sang máy khác"
+read_when:
+  - Bạn đang chuyển OpenClaw sang laptop/server mới
+  - Bạn muốn giữ nguyên phiên, xác thực và đăng nhập kênh (WhatsApp, v.v.)
 title: "Hướng dẫn Migration"
 ---
 
@@ -186,5 +190,3 @@ Trên máy mới, xác nhận:
 - [Doctor](/gateway/doctor)
 - [Khắc phục sự cố Gateway](/gateway/troubleshooting)
 - [OpenClaw lưu dữ liệu ở đâu?](/help/faq#where-does-openclaw-store-its-data)
-
-

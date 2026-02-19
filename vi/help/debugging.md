@@ -1,4 +1,9 @@
 ---
+summary: "Công cụ gỡ lỗi: chế độ theo dõi, luồng mô hình thô và truy vết rò rỉ lập luận"
+read_when:
+  - Bạn cần kiểm tra đầu ra mô hình thô để phát hiện rò rỉ lập luận
+  - Bạn muốn chạy Gateway ở chế độ theo dõi khi lặp lại chỉnh sửa
+  - Bạn cần một quy trình gỡ lỗi có thể lặp lại
 title: "Gỡ lỗi"
 ---
 
@@ -9,7 +14,7 @@ nhà cung cấp trộn lập luận vào văn bản thông thường.
 
 ## Ghi đè gỡ lỗi lúc chạy
 
-Sử dụng `/debug` trong chat để thiết lập các ghi đè cấu hình **chỉ trong thời gian chạy** (bộ nhớ, không phải đĩa).
+Use `/debug` in chat to set **runtime-only** config overrides (memory, not disk).
 `/debug` is disabled by default; enable with `commands.debug: true`.
 This is handy when you need to toggle obscure settings without editing `openclaw.json`.
 
@@ -43,7 +48,7 @@ mỗi lần khởi động lại.
 
 ## Hồ sơ dev + gateway dev (--dev)
 
-Sử dụng hồ sơ dev để cô lập trạng thái và khởi tạo một môi trường an toàn, tạm thời cho
+Use the dev profile to isolate state and spin up a safe, disposable setup for
 debugging. There are **two** `--dev` flags:
 
 - **`--dev` toàn cục (hồ sơ):** cô lập trạng thái dưới `~/.openclaw-dev` và
@@ -155,5 +160,3 @@ Tệp mặc định:
 - Log luồng thô có thể bao gồm prompt đầy đủ, đầu ra công cụ và dữ liệu người dùng.
 - Giữ log cục bộ và xóa sau khi gỡ lỗi.
 - Nếu chia sẻ log, hãy loại bỏ bí mật và PII trước.
-
-

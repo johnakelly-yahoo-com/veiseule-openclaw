@@ -1,4 +1,7 @@
 ---
+summary: "Zachowanie czatów grupowych na różnych platformach (WhatsApp/Telegram/Discord/Slack/Signal/iMessage/Microsoft Teams)"
+read_when:
+  - Zmienianie zachowania czatów grupowych lub kontroli wzmianek
 title: "Grupy"
 ---
 
@@ -18,7 +21,7 @@ Zachowanie domyślne:
 
 Tłumaczenie: autoryzowani nadawcy mogą wywołać OpenClaw, wspominając go.
 
-> W skrócie
+> TL;DR
 >
 > - **Dostęp do DM-ów** jest kontrolowany przez `*.allowFrom`.
 > - **Dostęp do grup** jest kontrolowany przez `*.groupPolicy` + listy dozwolonych (`*.groups`, `*.groupAllowFrom`).
@@ -369,5 +372,3 @@ Systemowy prompt agenta zawiera wprowadzenie grupowe w pierwszej turze nowej ses
 ## Specyfika WhatsApp
 
 Zobacz [Wiadomości grupowe](/channels/group-messages) dla zachowania specyficznego dla WhatsApp (wstrzykiwanie historii, szczegóły obsługi wzmianek).
-
-

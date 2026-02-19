@@ -1,12 +1,9 @@
 ---
-title: 心跳
-x-i18n:
-  generated_at: "2026-02-03T07:48:57Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 18b017066aa2c41811b985564dd389834906f4576e85b576fb357a0eff482e69
-  source_path: gateway/heartbeat.md
-  workflow: 15
+summary: "心跳轮询消息和通知规则"
+read_when:
+  - 调整心跳频率或消息时
+  - 在心跳和 cron 之间选择定时任务方案时
+title: "心跳"
 ---
 
 # 心跳（Gateway 网关）
@@ -14,6 +11,8 @@ x-i18n:
 > **心跳 vs Cron？** 参见 [Cron vs 心跳](/automation/cron-vs-heartbeat) 了解何时使用哪种方案。
 
 心跳在主会话中运行**周期性智能体轮次**，使模型能够在不打扰你的情况下提醒需要关注的事项。
+
+5. 故障排除：[/automation/troubleshooting](/automation/troubleshooting)
 
 ## 快速开始（新手）
 
@@ -42,11 +41,13 @@ x-i18n:
 
 ## 默认值
 
-- 间隔：`30m`（当检测到的认证模式为 Anthropic OAuth/setup-token 时为 `1h`）。设置 `agents.defaults.heartbeat.every` 或单智能体 `agents.list[].heartbeat.every`；使用 `0m` 禁用。
+- 15. 间隔：`30m`（当检测到 Anthropic OAuth/setup-token 作为认证模式时为 `1h`）。 16. 设置 `agents.defaults.heartbeat.every` 或每个代理的 `agents.list[].heartbeat.every`；使用 `0m` 可禁用。
 - 提示内容（可通过 `agents.defaults.heartbeat.prompt` 配置）：
   `Read HEARTBEAT.md if it exists (workspace context). Follow it strictly. Do not infer or repeat old tasks from prior chats. If nothing needs attention, reply HEARTBEAT_OK.`
-- 心跳提示**原样**作为用户消息发送。系统提示包含"Heartbeat"部分，运行在内部被标记。
+- 心跳提示**原样**作为用户消息发送。系统提示包含"Heartbeat"部分，运行在内部被标记。 39. 系统提示包含一个“Heartbeat”部分，并在内部标记该运行。
 - 活动时段（`heartbeat.activeHours`）按配置的时区检查。在时段外，心跳会被跳过直到下一个时段内的时钟周期。
+  27. **后台任务**：“考虑未完成的任务”会促使代理回顾
+  后续事项（收件箱、日历、提醒、排队中的工作），并提示任何紧急情况。
 
 ## 心跳提示的用途
 
@@ -60,7 +61,7 @@ x-i18n:
 ## 响应约定
 
 - 如果没有需要关注的事项，回复 **`HEARTBEAT_OK`**。
-- 在心跳运行期间，当 `HEARTBEAT_OK` 出现在回复的**开头或结尾**时，OpenClaw 将其视为确认。该标记会被移除，如果剩余内容 **≤ `ackMaxChars`**（默认：300），则回复被丢弃。
+- 在心跳运行期间，当 `HEARTBEAT_OK` 出现在回复的**开头或结尾**时，OpenClaw 将其视为确认。该标记会被移除，如果剩余内容 **≤ `ackMaxChars`**（默认：300），则回复被丢弃。 36. 在非心跳场景下，出现在消息开头/结尾的多余 `HEARTBEAT_OK` 会被移除并记录；仅包含 `HEARTBEAT_OK` 的消息会被丢弃。
 - 如果 `HEARTBEAT_OK` 出现在回复的**中间**，则不会被特殊处理。
 - 对于警报，**不要**包含 `HEARTBEAT_OK`；只返回警报文本。
 
@@ -94,9 +95,10 @@ x-i18n:
 - `channels.<channel>.heartbeat` 覆盖渠道默认值。
 - `channels.<channel>.accounts.<id>.heartbeat`（多账户渠道）覆盖单渠道设置。
 
-### 单智能体心跳
+### Per-agent heartbeats
 
-如果任何 `agents.list[]` 条目包含 `heartbeat` 块，**只有这些智能体**运行心跳。单智能体块在 `agents.defaults.heartbeat` 之上合并（因此你可以设置一次共享默认值，然后按智能体覆盖）。
+如果任何 `agents.list[]` 条目包含 `heartbeat` 块，**只有这些智能体**运行心跳。单智能体块在 `agents.defaults.heartbeat` 之上合并（因此你可以设置一次共享默认值，然后按智能体覆盖）。 The per-agent block merges on top of `agents.defaults.heartbeat`
+(so you can set shared defaults once and override per agent).
 
 示例：两个智能体，只有第二个智能体运行心跳。
 
@@ -125,6 +127,45 @@ x-i18n:
 }
 ```
 
+### 43. 活跃时段示例
+
+Restrict heartbeats to business hours in a specific timezone:
+
+```json5
+间隔：`30m`（当检测到的认证模式为 Anthropic OAuth/setup-token 时为 `1h`）。设置 `agents.defaults.heartbeat.every` 或单智能体 `agents.list[].heartbeat.every`；使用 `0m` 禁用。
+```
+
+Outside this window (before 9am or after 10pm Eastern), heartbeats are skipped. The next scheduled tick inside the window will run normally.
+
+### Multi account example
+
+Use `accountId` to target a specific account on multi-account channels like Telegram:
+
+```json5
+{
+  agents: {
+    list: [
+      {
+        id: "ops",
+        heartbeat: {
+          every: "1h",
+          target: "telegram",
+          to: "12345678",
+          accountId: "ops-bot",
+        },
+      },
+    ],
+  },
+  channels: {
+    telegram: {
+      accounts: {
+        "ops-bot": { botToken: "YOUR_TELEGRAM_BOT_TOKEN" },
+      },
+    },
+  },
+}
+```
+
 ### 字段说明
 
 - `every`：心跳间隔（时长字符串；默认单位 = 分钟）。
@@ -139,21 +180,28 @@ x-i18n:
   - 显式渠道：`whatsapp` / `telegram` / `discord` / `googlechat` / `slack` / `msteams` / `signal` / `imessage`。
   - `none`：运行心跳但**不发送**到外部。
 - `to`：可选的收件人覆盖（渠道特定 ID，例如 WhatsApp 的 E.164 或 Telegram 聊天 ID）。
+- `accountId`: optional account id for multi-account channels. When `target: "last"`, the account id applies to the resolved last channel if it supports accounts; otherwise it is ignored. If the account id does not match a configured account for the resolved channel, delivery is skipped.
 - `prompt`：覆盖默认提示内容（不合并）。
 - `ackMaxChars`：`HEARTBEAT_OK` 后在发送前允许的最大字符数。
+- `activeHours`: restricts heartbeat runs to a time window. Object with `start` (HH:MM, inclusive), `end` (HH:MM exclusive; `24:00` allowed for end-of-day), and optional `timezone`.
+  - Omitted or `"user"`: uses your `agents.defaults.userTimezone` if set, otherwise falls back to the host system timezone.
+  - `"local"`: always uses the host system timezone.
+  - Any IANA identifier (e.g. `America/New_York`): used directly; if invalid, falls back to the `"user"` behavior above.
+  - Outside the active window, heartbeats are skipped until the next tick inside the window.
 
 ## 发送行为
 
-- 心跳默认在智能体主会话中运行（`agent:<id>:<mainKey>`），或当 `session.scope = "global"` 时在 `global` 中运行。设置 `session` 可覆盖为特定渠道会话（Discord/WhatsApp 等）。
+- 心跳默认在智能体主会话中运行（`agent:<id>:<mainKey>`），或当 `session.scope = "global"` 时在 `global` 中运行。设置 `session` 可覆盖为特定渠道会话（Discord/WhatsApp 等）。 Set `session` to override to a
+  specific channel session (Discord/WhatsApp/etc.).
 - `session` 只影响运行上下文；发送由 `target` 和 `to` 控制。
-- 要发送到特定渠道/收件人，设置 `target` + `to`。使用 `target: "last"` 时，发送使用该会话的最后一个外部渠道。
+- To deliver to a specific channel/recipient, set `target` + `to`. 要发送到特定渠道/收件人，设置 `target` + `to`。使用 `target: "last"` 时，发送使用该会话的最后一个外部渠道。
 - 如果主队列繁忙，心跳会被跳过并稍后重试。
 - 如果 `target` 解析为无外部目标，运行仍会发生但不会发送出站消息。
 - 仅心跳回复**不会**保持会话活跃；最后的 `updatedAt` 会被恢复，因此空闲过期正常工作。
 
 ## 可见性控制
 
-默认情况下，`HEARTBEAT_OK` 确认会被抑制，而警报内容会被发送。你可以按渠道或按账户调整：
+默认情况下，`HEARTBEAT_OK` 确认会被抑制，而警报内容会被发送。你可以按渠道或按账户调整： You can adjust this per channel or per account:
 
 ```yaml
 channels:
@@ -205,18 +253,20 @@ channels:
 
 ### 常见模式
 
-| 目标                          | 配置                                                                                     |
-| ----------------------------- | ---------------------------------------------------------------------------------------- |
-| 默认行为（静默 OK，警报开启） | _（无需配置）_                                                                           |
-| 完全静默（无消息，无指示器）  | `channels.defaults.heartbeat: { showOk: false, showAlerts: false, useIndicator: false }` |
-| 仅指示器（无消息）            | `channels.defaults.heartbeat: { showOk: false, showAlerts: false, useIndicator: true }`  |
-| 仅在一个渠道显示 OK           | `channels.telegram.heartbeat: { showOk: true }`                                          |
+| 目标               | 配置                                                                                       |
+| ---------------- | ---------------------------------------------------------------------------------------- |
+| 默认行为（静默 OK，警报开启） | _（无需配置）_                                                                                 |
+| 完全静默（无消息，无指示器）   | `channels.defaults.heartbeat: { showOk: false, showAlerts: false, useIndicator: false }` |
+| 仅指示器（无消息）        | `channels.defaults.heartbeat: { showOk: false, showAlerts: false, useIndicator: true }`  |
+| 仅在一个渠道显示 OK      | `channels.telegram.heartbeat: { showOk: true }`                                          |
 
 ## HEARTBEAT.md（可选）
 
-如果工作区中存在 `HEARTBEAT.md` 文件，默认提示会告诉智能体读取它。把它想象成你的"心跳检查清单"：小巧、稳定，可以安全地每 30 分钟包含一次。
+如果工作区中存在 `HEARTBEAT.md` 文件，默认提示会指示代理读取它。 把它当作你的“心跳清单”：小而稳定，
+并且可以安全地每 30 分钟包含一次。
 
 如果 `HEARTBEAT.md` 存在但实际上是空的（只有空行和 markdown 标题如 `# Heading`），OpenClaw 会跳过心跳运行以节省 API 调用。如果文件不存在，心跳仍会运行，由模型决定做什么。
+如果文件缺失，心跳仍会运行，由模型决定要做什么。
 
 保持它小巧（简短的检查清单或提醒）以避免提示膨胀。
 
@@ -263,10 +313,13 @@ openclaw system event --text "Check for urgent follow-ups" --mode now
 
 - `agents.defaults.heartbeat.includeReasoning: true`
 
-启用后，心跳还会发送一条以 `Reasoning:` 为前缀的单独消息（与 `/reasoning on` 格式相同）。当智能体管理多个会话/代码库并且你想了解它为什么决定联系你时，这很有用 — 但它也可能泄露比你想要的更多内部细节。在群聊中建议保持关闭。
+When enabled, heartbeats will also deliver a separate message prefixed
+`Reasoning:` (same shape as `/reasoning on`). 当代理
+正在管理多个会话/代码库而你想知道它为什么决定提醒你时，这会很有用——但也可能泄露比你希望更多的内部细节。 Prefer keeping it
+off in group chats.
 
 ## 成本意识
 
-心跳运行完整的智能体轮次。更短的间隔消耗更多 token。保持 `HEARTBEAT.md` 小巧，如果你只想要内部状态更新，考虑使用更便宜的 `model` 或 `target: "none"`。
-
-
+心跳会运行完整的代理轮次。 更短的间隔会消耗更多 token。 Keep
+`HEARTBEAT.md` small and consider a cheaper `model` or `target: "none"` if you
+only want internal state updates.

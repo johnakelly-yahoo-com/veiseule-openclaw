@@ -1,14 +1,32 @@
 ---
-title: "Masofaviy Gateway Sozlamasi"
+summary: "SSH tunnel setup for OpenClaw.app connecting to a remote gateway"
+read_when: "Connecting the macOS app to a remote gateway over SSH"
+title: "Remote Gateway Setup"
 ---
 
-# OpenClaw.app ni Masofaviy Gateway bilan Ishga Tushirish
+# Running OpenClaw.app with a Remote Gateway
 
-OpenClaw.app masofaviy gateway’ga ulanish uchun SSH tunneling’dan foydalanadi. Ushbu qo‘llanma uni qanday sozlashni ko‘rsatadi.
+OpenClaw.app uses SSH tunneling to connect to a remote gateway. This guide shows you how to set it up.
 
-## Umumiy Ko‘rinish
+## Overview
 
 ```mermaid
+%%{init: {
+  'theme': 'base',
+  'themeVariables': {
+    'primaryColor': '#ffffff',
+    'primaryTextColor': '#000000',
+    'primaryBorderColor': '#000000',
+    'lineColor': '#000000',
+    'secondaryColor': '#f9f9fb',
+    'tertiaryColor': '#ffffff',
+    'clusterBkg': '#f9f9fb',
+    'clusterBorder': '#000000',
+    'nodeBorder': '#000000',
+    'mainBkg': '#ffffff',
+    'edgeLabelBackground': '#ffffff'
+  }
+}}%%
 flowchart TB
     subgraph Client["Client Machine"]
         direction TB
@@ -29,60 +47,60 @@ flowchart TB
     T --> C
 ```
 
-## Tezkor Sozlash
+## Quick Setup
 
-### 1-qadam: SSH Config qo‘shish
+### Step 1: Add SSH Config
 
-`~/.ssh/config` faylini tahrir qiling va quyidagilarni qo‘shing:
+Edit `~/.ssh/config` and add:
 
 ```ssh
 Host remote-gateway
-    HostName <REMOTE_IP>          # masalan, 172.27.187.184
-    User <REMOTE_USER>            # masalan, jefferson
+    HostName <REMOTE_IP>          # e.g., 172.27.187.184
+    User <REMOTE_USER>            # e.g., jefferson
     LocalForward 18789 127.0.0.1:18789
     IdentityFile ~/.ssh/id_rsa
 ```
 
-`<REMOTE_IP>` va `<REMOTE_USER>` qiymatlarini o‘zingiznikiga almashtiring.
+Replace `<REMOTE_IP>` and `<REMOTE_USER>` with your values.
 
-### 2-qadam: SSH kalitini nusxalash
+### Step 2: Copy SSH Key
 
-Ochiq kalitingizni masofaviy qurilmaga nusxalang (parolni bir marta kiriting):
+Copy your public key to the remote machine (enter password once):
 
 ```bash
 ssh-copy-id -i ~/.ssh/id_rsa <REMOTE_USER>@<REMOTE_IP>
 ```
 
-### 3-qadam: Gateway Token sozlash
+### Step 3: Set Gateway Token
 
 ```bash
 launchctl setenv OPENCLAW_GATEWAY_TOKEN "<your-token>"
 ```
 
-### 4-qadam: SSH Tunnel ishga tushirish
+### Step 4: Start SSH Tunnel
 
 ```bash
 ssh -N remote-gateway &
 ```
 
-### 5-qadam: OpenClaw.app ni qayta ishga tushirish
+### Step 5: Restart OpenClaw.app
 
 ```bash
-# OpenClaw.app ni yoping (⌘Q), so‘ng qayta oching:
+# Quit OpenClaw.app (⌘Q), then reopen:
 open /path/to/OpenClaw.app
 ```
 
-Endi ilova SSH tunnel orqali masofaviy gateway’ga ulanadi.
+The app will now connect to the remote gateway through the SSH tunnel.
 
 ---
 
-## Tizimga Kirishda Tunnel’ni Avtomatik Ishga Tushirish
+## Auto-Start Tunnel on Login
 
-Agar tizimga kirganingizda SSH tunnel avtomatik ishga tushishini istasangiz, Launch Agent yarating.
+To have the SSH tunnel start automatically when you log in, create a Launch Agent.
 
-### PLIST faylini yaratish
+### Create the PLIST file
 
-Quyidagini `~/Library/LaunchAgents/bot.molt.ssh-tunnel.plist` nomi bilan saqlang:
+Save this as `~/Library/LaunchAgents/bot.molt.ssh-tunnel.plist`:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -105,38 +123,38 @@ Quyidagini `~/Library/LaunchAgents/bot.molt.ssh-tunnel.plist` nomi bilan saqlang
 </plist>
 ```
 
-### Launch Agent’ni yuklash
+### Load the Launch Agent
 
 ```bash
 launchctl bootstrap gui/$UID ~/Library/LaunchAgents/bot.molt.ssh-tunnel.plist
 ```
 
-Endi tunnel:
+The tunnel will now:
 
-- Tizimga kirganingizda avtomatik ishga tushadi
-- Agar nosozlik yuz bersa, qayta ishga tushadi
-- Orqa fonda doimiy ishlaydi
+- Start automatically when you log in
+- Restart if it crashes
+- Keep running in the background
 
-Eslatma (legacy): agar mavjud bo‘lsa, eski `com.openclaw.ssh-tunnel` LaunchAgent faylini o‘chirib tashlang.
+Legacy note: remove any leftover `com.openclaw.ssh-tunnel` LaunchAgent if present.
 
 ---
 
-## Muammolarni Bartaraf Etish
+## Troubleshooting
 
-**Tunnel ishlayotganini tekshirish:**
+**Check if tunnel is running:**
 
 ```bash
 ps aux | grep "ssh -N remote-gateway" | grep -v grep
 lsof -i :18789
 ```
 
-**Tunnel’ni qayta ishga tushirish:**
+**Restart the tunnel:**
 
 ```bash
 launchctl kickstart -k gui/$UID/bot.molt.ssh-tunnel
 ```
 
-**Tunnel’ni to‘xtatish:**
+**Stop the tunnel:**
 
 ```bash
 launchctl bootout gui/$UID/bot.molt.ssh-tunnel
@@ -144,14 +162,13 @@ launchctl bootout gui/$UID/bot.molt.ssh-tunnel
 
 ---
 
-## Qanday Ishlaydi
+## How It Works
 
-| Komponent                            | Vazifasi                                                     |
-| ------------------------------------ | ------------------------------------------------------------ |
-| `LocalForward 18789 127.0.0.1:18789` | Lokal 18789 portni masofaviy 18789 portga yo‘naltiradi      |
-| `ssh -N`                             | Masofaviy buyruqlarni bajarmasdan SSH ishga tushiradi (faqat port yo‘naltirish) |
-| `KeepAlive`                          | Agar tunnel to‘xtab qolsa, avtomatik qayta ishga tushiradi  |
-| `RunAtLoad`                          | Agent yuklanganda tunnel’ni ishga tushiradi                 |
+| Component                            | What It Does                                                                    |
+| ------------------------------------ | ------------------------------------------------------------------------------- |
+| `LocalForward 18789 127.0.0.1:18789` | Forwards local port 18789 to remote port 18789                                  |
+| `ssh -N`                             | SSH without executing remote commands (just port forwarding) |
+| `KeepAlive`                          | Automatically restarts tunnel if it crashes                                     |
+| `RunAtLoad`                          | Starts tunnel when the agent loads                                              |
 
-OpenClaw.app mijoz qurilmangizda `ws://127.0.0.1:18789` manziliga ulanadi. SSH tunnel esa ushbu ulanishni Gateway ishlayotgan masofaviy qurilmadagi 18789 portiga yo‘naltiradi.
-
+OpenClaw.app connects to `ws://127.0.0.1:18789` on your client machine. The SSH tunnel forwards that connection to port 18789 on the remote machine where the Gateway is running.

@@ -1,4 +1,8 @@
 ---
+summary: "LLM-taken met alleen JSON voor workflows (optionele plugin-tool)"
+read_when:
+  - Je wilt een LLM-stap met alleen JSON binnen workflows
+  - Je hebt schema-gevalideerde LLM-uitvoer nodig voor automatisering
 title: "LLM-taak"
 ---
 
@@ -109,5 +113,3 @@ openclaw.invoke --tool llm-task --action json --args-json '{
 - Er worden voor deze run geen tools aan het model blootgesteld.
 - Behandel de uitvoer als niet-vertrouwd tenzij je valideert met `schema`.
 - Plaats goedkeuringen vóór elke stap met bijwerkingen (verzenden, posten, uitvoeren).
-
-

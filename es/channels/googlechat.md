@@ -1,4 +1,7 @@
 ---
+summary: "Estado de compatibilidad, capacidades y configuración de la app de Google Chat"
+read_when:
+  - Al trabajar en funciones del canal de Google Chat
 title: "Google Chat"
 ---
 
@@ -151,6 +154,7 @@ Configure las reglas de ingreso de su túnel para enrutar solo la ruta del webho
 Use estos identificadores para la entrega y las listas de permitidos:
 
 - Mensajes directos: `users/<userId>` o `users/<email>` (se aceptan direcciones de correo electrónico).
+- Obsoleto: `users/<email>` se trata como un ID de usuario, no como una lista de correos permitidos.
 - Espacios: `spaces/<spaceId>`.
 
 ## Aspectos destacados de configuración
@@ -247,5 +251,3 @@ Documentación relacionada:
 - [Configuración del Gateway](/gateway/configuration)
 - [Seguridad](/gateway/security)
 - [Reacciones](/tools/reactions)
-
-

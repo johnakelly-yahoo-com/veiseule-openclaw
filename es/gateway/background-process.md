@@ -1,4 +1,8 @@
 ---
+summary: "Ejecución en segundo plano de exec y gestión de procesos"
+read_when:
+  - Al agregar o modificar el comportamiento de exec en segundo plano
+  - Al depurar tareas exec de larga duración
 title: "Exec en Segundo Plano y Herramienta de Procesos"
 ---
 
@@ -42,6 +46,7 @@ Configuración (preferida):
 - `tools.exec.timeoutSec` (predeterminado 1800)
 - `tools.exec.cleanupMs` (predeterminado 1800000)
 - `tools.exec.notifyOnExit` (predeterminado true): encola un evento del sistema + solicita heartbeat cuando un exec en segundo plano finaliza.
+- `tools.exec.notifyOnExitEmptySuccess` (predeterminado false): cuando es true, también encola eventos de finalización para ejecuciones en segundo plano exitosas que no produjeron salida.
 
 ## herramienta process
 
@@ -63,6 +68,8 @@ Notas:
 - `process` tiene alcance por agente; solo ve las sesiones iniciadas por ese agente.
 - `process list` incluye un `name` derivado (verbo del comando + destino) para revisiones rápidas.
 - `process log` usa `offset`/`limit` basados en líneas (omita `offset` para obtener las últimas N líneas).
+- Cuando se omiten tanto `offset` como `limit`, devuelve las últimas 200 líneas e incluye una indicación de paginación.
+- Cuando se proporciona `offset` y se omite `limit`, devuelve desde `offset` hasta el final (sin limitar a 200).
 
 ## Ejemplos
 
@@ -87,5 +94,3 @@ Enviar stdin:
 ```json
 { "tool": "process", "action": "write", "sessionId": "<id>", "data": "y\n" }
 ```
-
-

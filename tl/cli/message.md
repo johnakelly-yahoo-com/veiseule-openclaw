@@ -1,4 +1,8 @@
 ---
+summary: "Sanggunian ng CLI para sa `openclaw message` (send + mga aksyon sa channel)"
+read_when:
+  - Pagdaragdag o pagbabago ng mga aksyon ng message sa CLI
+  - Pagbabago ng outbound na gawi ng channel
 title: "mensahe"
 ---
 
@@ -64,6 +68,7 @@ Pag-lookup ng pangalan:
   - Kinakailangan: `--target`, `--poll-question`, `--poll-option` (ulit)
   - Opsyonal: `--poll-multi`
   - Discord lamang: `--poll-duration-hours`, `--message`
+  - Telegram lamang: `--poll-duration-seconds` (5-600), `--silent`, `--poll-anonymous` / `--poll-public`, `--thread-id`
 
 - `react`
   - Mga channel: Discord/Google Chat/Slack/Telegram/WhatsApp/Signal
@@ -199,11 +204,21 @@ openclaw message poll --channel discord \
 Magpadala ng Teams proactive message:
 
 ```
+openclaw message poll --channel telegram \
+  --target @mychat \
+  --poll-question "Lunch?" \
+  --poll-option Pizza --poll-option Sushi \
+  --poll-duration-seconds 120 --silent
+```
+
+Gumawa ng Teams poll:
+
+```
 openclaw message send --channel msteams \
   --target conversation:19:abc@thread.tacv2 --message "hi"
 ```
 
-Gumawa ng Teams poll:
+Mag-react sa Slack:
 
 ```
 openclaw message poll --channel msteams \
@@ -212,14 +227,14 @@ openclaw message poll --channel msteams \
   --poll-option Pizza --poll-option Sushi
 ```
 
-Mag-react sa Slack:
+Mag-react sa isang Signal group:
 
 ```
 openclaw message react --channel slack \
   --target C123 --message-id 456 --emoji "✅"
 ```
 
-Mag-react sa isang Signal group:
+Magpadala ng Telegram inline buttons:
 
 ```
 openclaw message react --channel signal \
@@ -233,5 +248,3 @@ Magpadala ng Telegram inline buttons:
 openclaw message send --channel telegram --target @mychat --message "Choose:" \
   --buttons '[ [{"text":"Yes","callback_data":"cmd:yes"}], [{"text":"No","callback_data":"cmd:no"}] ]'
 ```
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Xử lý múi giờ cho tác tử, phong bì, và prompt"
+read_when:
+  - Bạn cần hiểu cách dấu thời gian được chuẩn hóa cho mô hình
+  - Cấu hình múi giờ người dùng cho system prompt
 title: "Múi giờ"
 ---
 
@@ -85,5 +89,3 @@ System prompt bao gồm:
 Bạn có thể kiểm soát định dạng prompt bằng `agents.defaults.timeFormat` (`auto` | `12` | `24`).
 
 Xem [Date & Time](/date-time) để biết đầy đủ hành vi và ví dụ.
-
-

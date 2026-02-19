@@ -1,4 +1,8 @@
 ---
+summary: "CLI-referentie voor `openclaw update` (veilig-ish bronupdate + automatische herstart van de Gateway)"
+read_when:
+  - Je wilt een bron-checkout veilig bijwerken
+  - Je moet het verkorte gedrag van `--update` begrijpen
 title: "update"
 ---
 
@@ -91,5 +95,3 @@ Hoog-niveau:
 - [Ontwikkelkanalen](/install/development-channels)
 - [Bijwerken](/install/updating)
 - [CLI-referentie](/cli)
-
-

@@ -1,4 +1,5 @@
 ---
+summary: "Plano: Idagdag ang OpenResponses /v1/responses endpoint at i-deprecate nang maayos ang chat completions"
 owner: "openclaw"
 status: "draft"
 last_updated: "2026-01-19"
@@ -12,7 +13,7 @@ title: "Plano ng OpenResponses Gateway"
 Ang OpenClaw Gateway ay kasalukuyang naglalantad ng isang minimal na OpenAI-compatible Chat Completions endpoint sa
 `/v1/chat/completions` (tingnan ang [OpenAI Chat Completions](/gateway/openai-http-api)).
 
-Open Responses ay isang bukás na pamantayan sa inference na nakabatay sa OpenAI Responses API. Ito ay idinisenyo
+Open Responses is an open inference standard based on the OpenAI Responses API. It is designed
 for agentic workflows and uses item-based inputs plus semantic streaming events. The OpenResponses
 spec defines `/v1/responses`, not `/v1/chat/completions`.
 
@@ -120,5 +121,3 @@ Mga pangunahing puntong nakuha:
 
 - Magdagdag ng bagong docs page para sa paggamit at mga halimbawa ng `/v1/responses`.
 - I-update ang `/gateway/openai-http-api` na may legacy note at pointer papunta sa `/v1/responses`.
-
-

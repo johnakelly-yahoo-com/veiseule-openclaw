@@ -1,4 +1,8 @@
 ---
+summary: "Giao diện người dùng Terminal (TUI): kết nối tới Gateway từ bất kỳ máy nào"
+read_when:
+  - Bạn muốn một hướng dẫn thân thiện cho người mới về TUI
+  - Bạn cần danh sách đầy đủ các tính năng, lệnh và phím tắt của TUI
 title: "TUI"
 ---
 
@@ -156,5 +160,3 @@ Không có đầu ra sau khi gửi tin nhắn:
 - `disconnected`: đảm bảo Gateway đang chạy và `--url/--token/--password` của bạn là chính xác.
 - Không có tác tử trong bộ chọn: kiểm tra `openclaw agents list` và cấu hình định tuyến của bạn.
 - Bộ chọn phiên trống: có thể bạn đang ở phạm vi global hoặc chưa có phiên nào.
-
-

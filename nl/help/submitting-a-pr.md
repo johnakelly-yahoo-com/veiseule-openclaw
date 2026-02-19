@@ -1,4 +1,5 @@
 ---
+summary: "Hoe je een PR met hoge signaalwaarde indient"
 title: "Een PR indienen"
 ---
 
@@ -272,7 +273,7 @@ pnpm format
 - Agent notes:
 ```
 
-### Prestaties
+### Perf
 
 ```md
 #### Summary
@@ -395,5 +396,3 @@ pnpm format
 - Submitter effort:
 - Agent notes:
 ```
-
-

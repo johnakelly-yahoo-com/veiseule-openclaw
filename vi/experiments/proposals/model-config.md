@@ -1,4 +1,7 @@
 ---
+summary: "Khám phá: cấu hình mô hình, hồ sơ xác thực và hành vi dự phòng"
+read_when:
+  - Khám phá các ý tưởng tương lai về lựa chọn mô hình + hồ sơ xác thực
 title: "Khám phá cấu hình mô hình"
 ---
 
@@ -30,5 +33,3 @@ Nhà vận hành muốn:
 - Việc xoay vòng hồ sơ nên theo từng nhà cung cấp hay theo từng mô hình?
 - Giao diện người dùng nên hiển thị việc chọn hồ sơ cho một phiên như thế nào?
 - Lộ trình di chuyển an toàn nhất từ các khóa cấu hình kế thừa là gì?
-
-

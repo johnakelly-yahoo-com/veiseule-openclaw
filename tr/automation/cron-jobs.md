@@ -1,4 +1,9 @@
 ---
+summary: "Gateway zamanlayıcısı için cron işleri + uyandırmalar"
+read_when:
+  - Arka plan işleri veya uyandırmalar zamanlanırken
+  - Kalp atışlarıyla birlikte ya da onların yanında çalışması gereken otomasyon bağlanırken
+  - Zamanlanmış görevler için heartbeat ile cron arasında karar verilirken
 title: "Cron İşleri"
 ---
 
@@ -469,5 +474,3 @@ openclaw system event --mode now --text "Next heartbeat: check battery."
 - Forum konuları için açık ve belirsizliği önlemek adına `-100…:topic:<id>` kullanın.
 - Günlüklerde veya saklanan “son rota” hedeflerinde `telegram:...` önekleri görürseniz bu normaldir;
   cron iletimi bunları kabul eder ve konu kimliklerini yine doğru şekilde ayrıştırır.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "CLI-referentie voor `openclaw voicecall` (opdrachtoppervlak van de voice-call plugin)"
+read_when:
+  - Je gebruikt de voice-call plugin en wilt de CLI-ingangspunten
+  - Je wilt snelle voorbeelden voor `voicecall call|continue|status|tail|expose`
 title: "voicecall"
 ---
 
@@ -28,5 +32,3 @@ openclaw voicecall unexpose
 ```
 
 Beveiligingsopmerking: stel het webhook-eindpunt alleen bloot aan netwerken die je vertrouwt. Geef waar mogelijk de voorkeur aan Tailscale Serve boven Funnel.
-
-

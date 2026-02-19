@@ -1,4 +1,8 @@
 ---
+summary: "Monitorear la caducidad de OAuth para proveedores de modelos"
+read_when:
+  - Configurar el monitoreo o alertas de caducidad de autenticación
+  - Automatizar verificaciones de actualización de OAuth de Claude Code / Codex
 title: "Monitoreo de autenticación"
 ---
 
@@ -38,5 +42,3 @@ host del Gateway y están ajustados para systemd + Termux.
 - `scripts/termux-sync-widget.sh`: sincronizar credenciales de Claude Code → OpenClaw.
 
 Si no necesita automatización en el teléfono ni temporizadores de systemd, omita estos scripts.
-
-

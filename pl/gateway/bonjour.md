@@ -1,4 +1,8 @@
 ---
+summary: "Wykrywanie i debugowanie Bonjour/mDNS (beacony Gateway, klienci i typowe tryby awarii)"
+read_when:
+  - Debugowanie problemów z wykrywaniem Bonjour na macOS/iOS
+  - Zmiana typów usług mDNS, rekordów TXT lub UX wykrywania
 title: "Wykrywanie Bonjour"
 ---
 
@@ -96,6 +100,13 @@ Gateway ogłasza niewielkie, nie‑tajne wskazówki, aby usprawnić przepływy U
 - `cliPath=<path>` (opcjonalne; ścieżka bezwzględna do uruchamialnego punktu wejścia `openclaw`)
 - `tailnetDns=<magicdns>` (opcjonalna wskazówka, gdy Tailnet jest dostępny)
 
+Uwagi dotyczące bezpieczeństwa:
+
+- Rekordy TXT Bonjour/mDNS są **nieuwierzytelnione**. Klienci nie mogą traktować TXT jako autorytatywnego routingu.
+- Klienci powinni kierować ruch przy użyciu rozwiązanego punktu końcowego usługi (SRV + A/AAAA). Traktuj `lanHost`, `tailnetDns`, `gatewayPort` i `gatewayTlsSha256` wyłącznie jako wskazówki.
+- Pinning TLS nigdy nie może pozwalać, aby reklamowany `gatewayTlsSha256` nadpisywał wcześniej zapisany pin.
+- Węzły iOS/Android powinny traktować bezpośrednie połączenia oparte na wykrywaniu jako wyłącznie **TLS-only** i wymagać wyraźnego potwierdzenia użytkownika przed zaufaniem odciskowi palca widzianemu po raz pierwszy.
+
 ## Debugowanie na macOS
 
 Przydatne wbudowane narzędzia:
@@ -164,5 +175,3 @@ Bonjour/DNS‑SD często ucieka bajty w nazwach instancji usług jako dziesiętn
 
 - Polityka wykrywania i wybór transportu: [Discovery](/gateway/discovery)
 - Parowanie węzłów + zatwierdzenia: [Gateway pairing](/gateway/pairing)
-
-

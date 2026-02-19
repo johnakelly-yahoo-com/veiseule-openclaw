@@ -1,4 +1,8 @@
 ---
+summary: "Qué contiene el system prompt de OpenClaw y cómo se ensambla"
+read_when:
+  - Edición del texto del system prompt, la lista de herramientas o las secciones de tiempo/latidos
+  - Cambio del bootstrap del espacio de trabajo o del comportamiento de inyección de Skills
 title: "Mensaje del sistema"
 ---
 
@@ -55,10 +59,25 @@ Los archivos de bootstrap se recortan y se anexan bajo **Project Context** para 
 - `USER.md`
 - `HEARTBEAT.md`
 - `BOOTSTRAP.md` (solo en espacios de trabajo completamente nuevos)
+- `MEMORY.md` y/o `memory.md` (cuando estén presentes en el espacio de trabajo; puede inyectarse uno o ambos)
+
+Todos estos archivos se **inyectan en la ventana de contexto** en cada turno, lo que
+significa que consumen tokens. Manténlos concisos — especialmente `MEMORY.md`, que puede
+crecer con el tiempo y provocar un uso de contexto inesperadamente alto y una compactación
+más frecuente.
+
+> **Nota:** los archivos diarios `memory/*.md` **no** se inyectan automáticamente. Se
+> accede a ellos bajo demanda mediante las herramientas `memory_search` y `memory_get`, por lo que
+> no cuentan para la ventana de contexto a menos que el modelo los lea explícitamente.
 
 Los archivos grandes se truncan con un marcador. El tamaño máximo por archivo está controlado por
-`agents.defaults.bootstrapMaxChars` (predeterminado: 20000). Los archivos faltantes inyectan un
+`agents.defaults.bootstrapMaxChars` (predeterminado: 20000). El contenido total de bootstrap inyectado
+en todos los archivos está limitado por `agents.defaults.bootstrapTotalMaxChars`
+(valor predeterminado: 24000). Los archivos faltantes inyectan un
 marcador corto de archivo faltante.
+
+Las sesiones de subagentes solo inyectan `AGENTS.md` y `TOOLS.md` (los demás archivos de bootstrap
+se filtran para mantener pequeño el contexto del subagente).
 
 Los hooks internos pueden interceptar este paso mediante `agent:bootstrap` para mutar o reemplazar
 los archivos de bootstrap inyectados (por ejemplo, intercambiar `SOUL.md` por una persona alternativa).
@@ -106,5 +125,3 @@ directorio local de documentación de OpenClaw (ya sea `docs/` en el espacio de 
 ClawHub ([https://clawhub.com](https://clawhub.com)) para el descubrimiento de skills. El prompt instruye al modelo a consultar primero la documentación local
 para el comportamiento, comandos, configuración o arquitectura de OpenClaw, y a ejecutar
 `openclaw status` por sí mismo cuando sea posible (preguntando al usuario solo cuando carece de acceso).
-
-

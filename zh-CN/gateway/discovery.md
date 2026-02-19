@@ -1,12 +1,10 @@
 ---
-title: 设备发现 + 传输协议
-x-i18n:
-  generated_at: "2026-02-03T10:06:11Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: e12172c181515bfa6aab8625ed3fbc335b80ba92e2b516c02c6066aeeb9f884c
-  source_path: gateway/discovery.md
-  workflow: 15
+summary: "用于发现 Gateway 网关的节点发现和传输协议（Bonjour、Tailscale、SSH）"
+read_when:
+  - 实现或更改 Bonjour 发现/广播
+  - 调整远程连接模式（直连 vs SSH）
+  - 设计远程节点的节点发现 + 配对
+title: "发现与传输"
 ---
 
 # 设备发现 & 传输协议
@@ -18,9 +16,9 @@ OpenClaw 有两个表面上看起来相似的不同问题：
 
 设计目标是将所有网络发现/广播保留在 **Node Gateway 网关**（`openclaw gateway`）中，并让客户端（mac 应用、iOS）作为消费者。
 
-## 术语
+## 26. 术语
 
-- **Gateway 网关**：一个长期运行的 Gateway 网关进程，拥有状态（会话、配对、节点注册表）并运行渠道。大多数设置每台主机使用一个；也可以进行隔离的多 Gateway 网关设置。
+- **Gateway**：一个长期运行的网关进程，拥有状态（会话、配对、节点注册表）并运行各个渠道。 大多数设置每台主机使用一个；也可以使用隔离的多网关设置。
 - **Gateway 网关 WS（控制平面）**：默认在 `127.0.0.1:18789` 上的 WebSocket 端点；可通过 `gateway.bind` 绑定到 LAN/tailnet。
 - **直连 WS 传输**：面向 LAN/tailnet 的 Gateway 网关 WS 端点（无 SSH）。
 - **SSH 传输（回退）**：通过 SSH 转发 `127.0.0.1:18789` 进行远程控制。
@@ -46,7 +44,7 @@ OpenClaw 有两个表面上看起来相似的不同问题：
 
 ### 1）Bonjour / mDNS（仅限 LAN）
 
-Bonjour 是尽力而为的，不会跨网络。它仅用于"同一 LAN"的便利性。
+Bonjour 是尽力而为的，且不跨网络。 Bonjour 是尽力而为的，不会跨网络。它仅用于"同一 LAN"的便利性。
 
 目标方向：
 
@@ -70,6 +68,13 @@ Bonjour 是尽力而为的，不会跨网络。它仅用于"同一 LAN"的便利
   - `cliPath=<path>`（可选；可运行的 `openclaw` 入口点或二进制文件的绝对路径）
   - `tailnetDns=<magicdns>`（可选提示；当 Tailscale 可用时自动检测）
 
+安全说明：
+
+- Bonjour/mDNS TXT 记录是**未认证的**。 客户端必须仅将 TXT 值视为用户体验提示。
+- 路由（host/port）应优先使用**解析后的服务端点**（SRV + A/AAAA），而不是 TXT 提供的 `lanHost`、`tailnetDns` 或 `gatewayPort`。
+- TLS 固定（pinning）绝不能允许已通告的 `gatewayTlsSha256` 覆盖先前存储的 pin。
+- iOS/Android 节点应将基于发现的直连视为**仅限 TLS**，并在存储首次 pin 之前要求用户明确确认“信任此指纹”（带外验证）。
+
 禁用/覆盖：
 
 - `OPENCLAW_DISABLE_BONJOUR=1` 禁用广播。
@@ -80,7 +85,7 @@ Bonjour 是尽力而为的，不会跨网络。它仅用于"同一 LAN"的便利
 
 ### 2）Tailnet（跨网络）
 
-对于伦敦/维也纳风格的设置，Bonjour 无法帮助。推荐的"直连"目标是：
+对于伦敦/维也纳风格的设置，Bonjour 无法帮助。推荐的"直连"目标是： 26. 推荐的“直连”目标是：
 
 - Tailscale MagicDNS 名称（首选）或稳定的 tailnet IP。
 
@@ -116,5 +121,3 @@ Gateway 网关是节点/客户端准入的唯一权威来源。
 - **Gateway 网关**：广播发现信标，拥有配对决策权，并托管 WS 端点。
 - **macOS 应用**：帮助你选择 Gateway 网关，显示配对提示，仅将 SSH 作为回退方案。
 - **iOS/Android 节点**：将 Bonjour 浏览作为便利功能，连接到已配对的 Gateway 网关 WS。
-
-

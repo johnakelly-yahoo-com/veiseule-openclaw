@@ -1,4 +1,6 @@
 ---
+summary: "Настройка SSH-туннеля для OpenClaw.app при подключении к удалённому Gateway (шлюзу)"
+read_when: "Подключение приложения для macOS к удалённому Gateway (шлюзу) через SSH"
 title: "Настройка удалённого Gateway (шлюза)"
 ---
 
@@ -9,22 +11,6 @@ OpenClaw.app использует SSH-туннелирование для под
 ## Обзор
 
 ```mermaid
-%%{init: {
-  'theme': 'base',
-  'themeVariables': {
-    'primaryColor': '#ffffff',
-    'primaryTextColor': '#000000',
-    'primaryBorderColor': '#000000',
-    'lineColor': '#000000',
-    'secondaryColor': '#f9f9fb',
-    'tertiaryColor': '#ffffff',
-    'clusterBkg': '#f9f9fb',
-    'clusterBorder': '#000000',
-    'nodeBorder': '#000000',
-    'mainBkg': '#ffffff',
-    'edgeLabelBackground': '#ffffff'
-  }
-}}%%
 flowchart TB
     subgraph Client["Client Machine"]
         direction TB
@@ -170,5 +156,3 @@ launchctl bootout gui/$UID/bot.molt.ssh-tunnel
 | `RunAtLoad`                          | Запускает туннель при загрузке агента                                          |
 
 OpenClaw.app подключается к `ws://127.0.0.1:18789` на вашей клиентской машине. SSH-туннель перенаправляет это подключение на порт 18789 на удалённой машине, где запущен Gateway (шлюз).
-
-

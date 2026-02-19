@@ -1,6 +1,8 @@
 ---
+summary: "OpenClaw ایک کثیر-چینل Gateway ہے جو AI ایجنٹس کے لیے کسی بھی OS پر چلتا ہے۔"
+read_when:
+  - نئے صارفین کو OpenClaw سے متعارف کراتے وقت
 title: "OpenClaw"
-sidebarTitle: "OpenClaw"
 ---
 
 # OpenClaw 🦞
@@ -18,10 +20,9 @@ sidebarTitle: "OpenClaw"
         class="hidden dark:block"></img>
 </p>
 
-> _"ایکسفولی ایٹ! ایکسفولی ایٹ!"_ — شاید کوئی خلائی لابسٹر
+> _"EXFOLIATE! EXFOLIATE!"_ — A space lobster, probably
 
-<p align="center">
-  <strong>Any OS gateway for AI agents across WhatsApp, Telegram, Discord, iMessage, and more.</strong><br />
+<p align="center"><strong>Any OS gateway for AI agents across WhatsApp, Telegram, Discord, iMessage, and more.</strong><br />
   Send a message, get an agent response from your pocket. 35. پلگ اِنز Mattermost اور مزید شامل کرتے ہیں۔
 </p>
 
@@ -42,7 +43,7 @@ sidebarTitle: "OpenClaw"
 
 ## OpenClaw کیا ہے؟
 
-OpenClaw ایک **self-hosted gateway** ہے جو آپ کی پسندیدہ چیٹ ایپس — WhatsApp، Telegram، Discord، iMessage اور مزید — کو AI کوڈنگ ایجنٹس جیسے Pi کے ساتھ منسلک کرتا ہے۔ آپ اپنی مشین (یا سرور) پر ایک واحد Gateway پراسیس چلاتے ہیں، اور یہ آپ کی میسجنگ ایپس اور ہمیشہ دستیاب AI اسسٹنٹ کے درمیان ایک پل بن جاتا ہے۔
+OpenClaw is a **self-hosted gateway** that connects your favorite chat apps — WhatsApp, Telegram, Discord, iMessage, and more — to AI coding agents like Pi. You run a single Gateway process on your own machine (or a server), and it becomes the bridge between your messaging apps and an always-available AI assistant.
 
 **یہ کس کے لیے ہے؟** ڈویلپرز اور پاور یوزرز کے لیے جو ایک ذاتی AI اسسٹنٹ چاہتے ہیں جسے وہ کہیں سے بھی پیغام بھیج سکیں — اپنے ڈیٹا پر کنٹرول چھوڑے بغیر یا کسی hosted سروس پر انحصار کیے بغیر۔
 
@@ -122,7 +123,7 @@ Gateway سیشنز، routing، اور چینل کنکشنز کے لیے واحد
 </Step>
 </Steps>
 
-مکمل انسٹال اور ڈیولپمنٹ سیٹ اپ درکار ہے؟ دیکھیں [Quick start](/start/quickstart).
+Need the full install and dev setup? See [Quick start](/start/quickstart).
 
 ## Dashboard
 
@@ -209,5 +210,3 @@ Gateway شروع ہونے کے بعد براؤزر Control UI کھولیں۔
   
 </Card>
 </Columns>
-
-

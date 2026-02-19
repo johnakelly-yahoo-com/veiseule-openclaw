@@ -1,24 +1,21 @@
 ---
-title: 工具
-x-i18n:
-  generated_at: "2026-02-03T10:12:41Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: a1ec62a9c9bea4c1d2cebfb88509739a3b48b451ab3e378193c620832e2aa07b
-  source_path: tools/index.md
-  workflow: 15
+summary: "OpenClaw 的智能体工具接口（browser、canvas、nodes、message、cron），替代旧版 `openclaw-*` Skills"
+read_when:
+  - 添加或修改智能体工具
+  - 停用或更改 `openclaw-*` Skills
+title: "工具"
 ---
 
 # 工具（OpenClaw）
 
-OpenClaw 为 browser、canvas、nodes 和 cron 暴露**一流的智能体工具**。
-这些工具取代了旧的 `openclaw-*` Skills：工具是类型化的，无需调用 shell，
-智能体应该直接依赖它们。
+3. OpenClaw 为浏览器、画布、节点和 cron 提供 **一等公民的代理工具**。
+4. 这些取代了旧的 `openclaw-*` 技能：工具是有类型的，不通过 shell，
+   并且代理应直接依赖它们。
 
 ## 禁用工具
 
 你可以通过 `openclaw.json` 中的 `tools.allow` / `tools.deny` 全局允许/拒绝工具
-（deny 优先）。这会阻止不允许的工具被发送到模型提供商。
+（deny 优先）。这会阻止不允许的工具被发送到模型提供商。 7. 这可以防止被禁止的工具被发送给模型提供方。
 
 ```json5
 {
@@ -36,6 +33,7 @@ OpenClaw 为 browser、canvas、nodes 和 cron 暴露**一流的智能体工具*
 
 `tools.profile` 在 `tools.allow`/`tools.deny` 之前设置**基础工具允许列表**。
 按智能体覆盖：`agents.list[].tools.profile`。
+15. 按代理覆盖：`agents.list[].tools.profile`。
 
 配置文件：
 
@@ -87,10 +85,13 @@ OpenClaw 为 browser、canvas、nodes 和 cron 暴露**一流的智能体工具*
 使用 `tools.byProvider` 为特定提供商（或单个 `provider/model`）**进一步限制**工具，
 而不更改你的全局默认值。
 按智能体覆盖：`agents.list[].tools.byProvider`。
+29. 按代理覆盖：`agents.list[].tools.byProvider`。
 
 这在基础工具配置文件**之后**和允许/拒绝列表**之前**应用，
 因此它只能缩小工具集。
 提供商键接受 `provider`（例如 `google-antigravity`）或
+`provider/model`（例如 `openai/gpt-5.2`）。
+31. 提供方键可以是 `provider`（例如 `google-antigravity`）或
 `provider/model`（例如 `openai/gpt-5.2`）。
 
 示例（保持全局 coding 配置文件，但 Google Antigravity 使用最小工具）：
@@ -142,6 +143,7 @@ OpenClaw 为 browser、canvas、nodes 和 cron 暴露**一流的智能体工具*
 
 工具策略（全局、智能体、沙箱）支持 `group:*` 条目，它们会展开为多个工具。
 在 `tools.allow` / `tools.deny` 中使用这些。
+40. 在 `tools.allow` / `tools.deny` 中使用这些。
 
 可用的组：
 
@@ -168,10 +170,11 @@ OpenClaw 为 browser、canvas、nodes 和 cron 暴露**一流的智能体工具*
 
 ## 插件 + 工具
 
+插件可以在核心工具集之外注册**额外的工具**（以及 CLI 命令）。
 插件可以在核心集之外注册**额外的工具**（和 CLI 命令）。
 参见[插件](/tools/plugin)了解安装 + 配置，以及 [Skills](/tools/skills) 了解
 工具使用指导如何被注入到提示中。一些插件随工具一起提供自己的 Skills
-（例如，voice-call 插件）。
+（例如，voice-call 插件）。 一些插件会在工具之外同时提供自己的技能（例如，语音通话插件）。
 
 可选的插件工具：
 
@@ -182,8 +185,10 @@ OpenClaw 为 browser、canvas、nodes 和 cron 暴露**一流的智能体工具*
 
 ### `apply_patch`
 
+在一个或多个文件中应用结构化补丁。 用于多段（multi-hunk）编辑。
 跨一个或多个文件应用结构化补丁。用于多块编辑。
 实验性：通过 `tools.exec.applyPatch.enabled` 启用（仅 OpenAI 模型）。
+`tools.exec.applyPatch.workspaceOnly` 默认值为 `true`（仅限 workspace 内）。 仅当你有意让 `apply_patch` 在 workspace 目录之外进行写入/删除操作时，才将其设置为 `false`。
 
 ### `exec`
 
@@ -200,7 +205,7 @@ OpenClaw 为 browser、canvas、nodes 和 cron 暴露**一流的智能体工具*
 - `security`（`deny | allowlist | full`）
 - `ask`（`off | on-miss | always`）
 - `node`（`host=node` 时的节点 id/名称）
-- 需要真正的 TTY？设置 `pty: true`。
+- 需要真正的 TTY？设置 `pty: true`。 Set `pty: true`.
 
 注意：
 
@@ -224,7 +229,7 @@ OpenClaw 为 browser、canvas、nodes 和 cron 暴露**一流的智能体工具*
 
 - `poll` 返回新输出，完成时返回退出状态。
 - `log` 支持基于行的 `offset`/`limit`（省略 `offset` 以获取最后 N 行）。
-- `process` 按智能体作用域；来自其他智能体的会话不可见。
+- `process` 以代理为作用域；其他代理的会话不可见。
 
 ### `web_search`
 
@@ -255,6 +260,7 @@ OpenClaw 为 browser、canvas、nodes 和 cron 暴露**一流的智能体工具*
 注意：
 
 - 通过 `tools.web.fetch.enabled` 启用。
+- 14. `maxChars` 会被 `tools.web.fetch.maxCharsCap` 限制（默认 50000）。
 - 响应被缓存（默认 15 分钟）。
 - 对于 JS 密集型网站，优先使用 browser 工具。
 - 参见 [Web 工具](/tools/web) 了解设置。
@@ -467,13 +473,15 @@ Gateway 网关支持的工具（`canvas`、`nodes`、`cron`）：
 - `gatewayToken`（如果启用了认证）
 - `timeoutMs`
 
+6. 注意：当设置了 `gatewayUrl` 时，请显式包含 `gatewayToken`。 7. 工具不会继承用于覆盖的配置或环境凭据，且缺少显式凭据将被视为错误。
+
 Browser 工具：
 
 - `profile`（可选；默认为 `browser.defaultProfile`）
 - `target`（`sandbox` | `host` | `node`）
 - `node`（可选；固定特定的节点 id/名称）
 
-## 推荐的智能体流程
+## 12. 推荐的代理流程
 
 浏览器自动化：
 
@@ -500,14 +508,12 @@ Canvas 渲染：
 - 尊重用户对摄像头/屏幕捕获的同意。
 - 在调用媒体命令前使用 `status/describe` 确保权限。
 
-## 工具如何呈现给智能体
+## 30. 工具如何呈现给代理
 
 工具通过两个并行渠道暴露：
 
 1. **系统提示文本**：人类可读的列表 + 指导。
 2. **工具 schema**：发送到模型 API 的结构化函数定义。
 
-这意味着智能体同时看到"存在哪些工具"和"如何调用它们"。如果工具
-没有出现在系统提示或 schema 中，模型就无法调用它。
-
-
+34) 这意味着代理既能看到“有哪些工具”，也能看到“如何调用它们”。 35. 如果某个工具
+    未出现在系统提示或架构中，模型就无法调用它。

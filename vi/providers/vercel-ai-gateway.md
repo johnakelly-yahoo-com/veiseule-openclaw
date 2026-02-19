@@ -1,5 +1,9 @@
 ---
 title: "Vercel AI Gateway"
+summary: "Thiết lập Vercel AI Gateway (xác thực + chọn mô hình)"
+read_when:
+  - Bạn muốn dùng Vercel AI Gateway với OpenClaw
+  - Bạn cần biến môi trường khóa API hoặc lựa chọn xác thực bằng CLI
 ---
 
 # Vercel AI Gateway
@@ -44,5 +48,3 @@ openclaw onboard --non-interactive \
 Nếu Gateway chạy như một daemon (launchd/systemd), hãy đảm bảo `AI_GATEWAY_API_KEY`
 có sẵn cho tiến trình đó (ví dụ, trong `~/.openclaw/.env` hoặc thông qua
 `env.shellEnv`).
-
-

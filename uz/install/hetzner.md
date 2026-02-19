@@ -1,4 +1,10 @@
 ---
+summary: "OpenClaw Gateway-ni 24/7 arzon Hetzner VPS’da (Docker) mustahkam holat va ichiga kiritilgan binar fayllar bilan ishga tushiring"
+read_when:
+  - Siz OpenClaw’ning bulut VPS’da (noutbukingizda emas) 24/7 ishlashini xohlaysiz
+  - Siz o‘zingizning VPS’ingizda ishlab chiqarish darajasidagi, doimiy ishlovchi Gateway’ni xohlaysiz
+  - Siz saqlanish (persistence), binar fayllar va qayta ishga tushirish xatti-harakatlari ustidan to‘liq nazoratni xohlaysiz
+  - Siz OpenClaw’ni Hetzner yoki shunga o‘xshash provayderda Docker’da ishga tushiryapsiz
 title: "Hetzner"
 ---
 
@@ -68,7 +74,7 @@ root sifatida ulaning:
 ssh root@YOUR_VPS_IP
 ```
 
-Ushbu qo‘llanma VPS holatni saqlovchi (stateful) deb hisoblaydi.
+This guide assumes the VPS is stateful.
 Do not treat it as disposable infrastructure.
 
 ---
@@ -320,8 +326,27 @@ All long-lived state must survive restarts, rebuilds, and reboots.
 | WhatsApp session    | `/home/node/.openclaw/`           | Host volume mount          | Preserves QR login               |
 | Gmail keyring       | `/home/node/.openclaw/`           | Host volume + password     | Requires `GOG_KEYRING_PASSWORD`  |
 | External binaries   | `/usr/local/bin/`                 | Docker image               | Must be baked at build time      |
-| Node runtime        | Konteyner fayl tizimi             | Docker image               | Rebuilt every image build        |
+| Node runtime        | Container filesystem              | Docker image               | Rebuilt every image build        |
 | OS packages         | Container filesystem              | Docker image               | Do not install at runtime        |
 | Docker container    | Ephemeral                         | Qayta ishga tushiriladigan | Yo‘q qilish xavfsiz              |
 
+---
 
+## Infrastructure as Code (Terraform)
+
+Infrastructure-as-code ish jarayonlarini afzal ko‘radigan jamoalar uchun, hamjamiyat tomonidan qo‘llab-quvvatlanadigan Terraform sozlamasi quyidagilarni taqdim etadi:
+
+- Masofaviy holat boshqaruvi bilan modulli Terraform konfiguratsiyasi
+- cloud-init orqali avtomatik ta’minlash
+- Joylashtirish skriptlari (bootstrap, deploy, backup/restore)
+- Xavfsizlikni mustahkamlash (firewall, UFW, faqat SSH orqali kirish)
+- Gateway kirishi uchun SSH tunnel konfiguratsiyasi
+
+**Repositories:**
+
+- Infratuzilma: [openclaw-terraform-hetzner](https://github.com/andreesg/openclaw-terraform-hetzner)
+- Docker konfiguratsiyasi: [openclaw-docker-config](https://github.com/andreesg/openclaw-docker-config)
+
+Ushbu yondashuv yuqoridagi Docker sozlamasini takrorlanadigan joylashtirishlar, versiya nazoratidagi infratuzilma va avtomatlashtirilgan avariyadan tiklash bilan to‘ldiradi.
+
+> **Eslatma:** Hamjamiyat tomonidan qo‘llab-quvvatlanadi. Muammolar yoki hissa qo‘shish uchun yuqoridagi repository havolalariga qarang.

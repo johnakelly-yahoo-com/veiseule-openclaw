@@ -1,4 +1,8 @@
 ---
+summary: "„Okno kontekstu + kompakcja: jak OpenClaw utrzymuje sesje w limitach modelu”"
+read_when:
+  - Chcesz zrozumieć automatyczną kompakcję i /compact
+  - Debugujesz długie sesje trafiające na limity kontekstu
 title: "Kompakcja a przycinanie"
 ---
 
@@ -17,7 +21,7 @@ Kompakcja **utrzymuje się** w historii JSONL sesji.
 
 ## Konfiguracja
 
-Zobacz [Konfiguracja i tryby kompakcji](/concepts/compaction) dla ustawień `agents.defaults.compaction`.
+Użyj ustawienia `agents.defaults.compaction` w swoim pliku `openclaw.json`, aby skonfigurować zachowanie kompakcji (tryb, docelowa liczba tokenów itp.).
 
 ## Automatyczna kompakcja (domyślnie włączona)
 
@@ -54,5 +58,3 @@ Szczegóły przycinania znajdziesz w [/concepts/session-pruning](/concepts/sessi
 - Użyj `/compact`, gdy sesje wydają się „zastałe” lub kontekst jest nadmiernie rozdmuchany.
 - Duże wyjścia narzędzi są już obcinane; przycinanie może dodatkowo zmniejszyć narastanie wyników narzędzi.
 - Jeśli potrzebujesz czystej karty, `/new` lub `/reset` rozpoczyna nowy identyfikator sesji.
-
-

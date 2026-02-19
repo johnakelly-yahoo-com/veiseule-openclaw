@@ -1,4 +1,8 @@
 ---
+summary: "Bonjour/mDNS discovery + pag-debug (Gateway beacons, clients, at mga karaniwang failure mode)"
+read_when:
+  - Pag-debug ng mga isyu sa Bonjour discovery sa macOS/iOS
+  - Pagbabago ng mga uri ng mDNS service, TXT records, o discovery UX
 title: "Bonjour Pagtuklas"
 ---
 
@@ -91,9 +95,17 @@ Nag-a-advertise ang Gateway ng maliliit at hindi lihim na mga hint para gawing m
 - `cliPath=<path>` (opsyonal; absolute path sa isang runnable na `openclaw` entrypoint)
 - `tailnetDns=<magicdns>` (opsyonal na hint kapag available ang Tailnet)
 
+Mga tala sa seguridad:
+
+- Ang mga Bonjour/mDNS TXT record ay **hindi authenticated**. Hindi dapat ituring ng mga client ang TXT bilang awtoritatibong routing.
+- Dapat mag-route ang mga client gamit ang na-resolve na service endpoint (SRV + A/AAAA). Ituring ang `lanHost`, `tailnetDns`, `gatewayPort`, at `gatewayTlsSha256` bilang mga hint lamang.
+- Ang TLS pinning ay hindi dapat kailanman payagan na ang in-advertise na `gatewayTlsSha256` ay mag-override ng naunang naka-store na pin.
+- Dapat ituring ng mga iOS/Android node ang discovery-based direct connects bilang **TLS-only** at mangailangan ng tahasang kumpirmasyon ng user bago magtiwala sa first-time fingerprint.
+
 ## Pag-debug sa macOS
 
-Mga kapaki-pakinabang na built‑in na tool:
+Kung gumagana ang browsing pero pumapalya ang resolving, kadalasan ay LAN policy o
+mDNS resolver issue ang tinatamaan mo.
 
 - Mag-browse ng mga instance:
 
@@ -122,14 +134,14 @@ Nagsusulat ang Gateway ng rolling log file (ipinapakita sa startup bilang `gatew
 
 Ginagamit ng iOS node ang `NWBrowser` para ma-discover ang `_openclaw-gw._tcp`.
 
-Para kumuha ng mga log:
+Kasama sa log ang mga browser state transition at mga pagbabago sa result‑set.
 
 - Settings → Gateway → Advanced → **Discovery Debug Logs**
 - Settings → Gateway → Advanced → **Discovery Logs** → mag-reproduce → **Copy**
 
 Kasama sa log ang mga browser state transition at mga pagbabago sa result‑set.
 
-## Mga karaniwang failure mode
+## Mga escaped na instance name (`\032`)
 
 - **Hindi tumatawid ang Bonjour sa mga network**: gumamit ng Tailnet o SSH.
 - **Naka-block ang multicast**: may ilang Wi‑Fi network na dini-disable ang mDNS.
@@ -141,12 +153,12 @@ Kasama sa log ang mga browser state transition at mga pagbabago sa result‑set.
 Madalas i-escape ng Bonjour/DNS‑SD ang mga byte sa service instance name bilang decimal na `\DDD`
 sequences (hal. ang mga space ay nagiging `\032`).
 
-- Normal ito sa antas ng protocol.
-- Dapat i-decode ng mga UI para sa display (gumagamit ang iOS ng `BonjourEscapes.decode`).
-
-## Pag-disable / konpigurasyon
-
 - Dina-disable ng `OPENCLAW_DISABLE_BONJOUR=1` ang advertising (legacy: `OPENCLAW_DISABLE_BONJOUR`).
+- Kinokontrol ng `gateway.bind` sa `~/.openclaw/openclaw.json` ang Gateway bind mode.
+
+## Kaugnay na docs
+
+- Discovery policy at pagpili ng transport: [Discovery](/gateway/discovery)
 - Kinokontrol ng `gateway.bind` sa `~/.openclaw/openclaw.json` ang Gateway bind mode.
 - Ino-override ng `OPENCLAW_SSH_PORT` ang SSH port na ina-advertise sa TXT (legacy: `OPENCLAW_SSH_PORT`).
 - Nagpa-publish ang `OPENCLAW_TAILNET_DNS` ng MagicDNS hint sa TXT (legacy: `OPENCLAW_TAILNET_DNS`).
@@ -156,5 +168,3 @@ sequences (hal. ang mga space ay nagiging `\032`).
 
 - Discovery policy at pagpili ng transport: [Discovery](/gateway/discovery)
 - Node pairing + approvals: [Gateway pairing](/gateway/pairing)
-
-

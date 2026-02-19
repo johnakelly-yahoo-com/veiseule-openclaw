@@ -1,4 +1,8 @@
 ---
+summary: "Mga diagnostics flag para sa target na debug logs"
+read_when:
+  - Kailangan mo ng target na debug logs nang hindi itinataas ang global logging levels
+  - Kailangan mong kumuha ng mga log na partikular sa subsystem para sa support
 title: "Mga Diagnostics Flag"
 ---
 
@@ -56,7 +60,7 @@ Bilang default: By default:
 /tmp/openclaw/openclaw-YYYY-MM-DD.log
 ```
 
-Kung itinakda mo ang `logging.file`, gamitin ang path na iyon sa halip. Ang mga log ay nasa JSONL format (isang JSON object bawat linya). Patuloy na ipinapatupad ang redaction batay sa `logging.redactSensitive`.
+If you set `logging.file`, use that path instead. Logs are JSONL (one JSON object per line). Redaction still applies based on `logging.redactSensitive`.
 
 ## Kunin ang mga log
 
@@ -82,8 +86,6 @@ Para sa mga remote gateway, maaari mo ring gamitin ang `openclaw logs --follow` 
 
 ## Mga tala
 
-- Kung ang `logging.level` ay nakatakda nang mas mataas kaysa `warn`, maaaring hindi maipakita ang mga log na ito. Ang default na `info` ay ayos na.
+- If `logging.level` is set higher than `warn`, these logs may be suppressed. Default `info` is fine.
 - Ligtas na iwanang naka-enable ang mga flag; naaapektuhan lang nila ang dami ng log para sa partikular na subsystem.
 - Gamitin ang [/logging](/logging) para baguhin ang mga destinasyon ng log, mga level, at redaction.
-
-

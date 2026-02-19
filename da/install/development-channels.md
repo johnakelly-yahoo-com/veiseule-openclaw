@@ -1,4 +1,8 @@
 ---
+summary: "Stabile, beta- og dev-kanaler: semantik, skift og tagging"
+read_when:
+  - Du vil skifte mellem stable/beta/dev
+  - Du tagger eller udgiver prereleases
 title: "Udviklingskanaler"
 ---
 
@@ -69,5 +73,3 @@ Beta og dev builds kan **ikke** indeholde en macOS app release. Det Er OK:
 
 - Git-tagget og npm dist-tagget kan stadig udgives.
 - Angiv “ingen macOS-build for denne beta” i release notes eller changelog.
-
-

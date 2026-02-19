@@ -1,4 +1,8 @@
 ---
+summary: "Dokumentacja CLI dla `openclaw update` (względnie bezpieczna aktualizacja ze źródeł + automatyczny restart Gateway)"
+read_when:
+  - Chcesz bezpiecznie zaktualizować checkout ze źródeł
+  - Musisz zrozumieć zachowanie skrótu `--update`
 title: "update"
 ---
 
@@ -92,5 +96,3 @@ Wysoki poziom:
 - [Kanały rozwojowe](/install/development-channels)
 - [Aktualizacja](/install/updating)
 - [Dokumentacja CLI](/cli)
-
-

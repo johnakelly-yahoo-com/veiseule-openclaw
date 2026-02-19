@@ -1,13 +1,21 @@
 ---
+summary: "ใช้ OpenAI ผ่านคีย์APIหรือการสมัครสมาชิกCodexในOpenClaw"
+read_when:
+  - คุณต้องการใช้โมเดลOpenAIในOpenClaw
+  - คุณต้องการการยืนยันตัวตนด้วยการสมัครสมาชิกCodexแทนคีย์API
 title: "OpenAI"
 ---
 
 # OpenAI
 
-OpenAI ให้บริการ API สำหรับนักพัฒนาสำหรับโมเดล GPT Codex รองรับ **การเข้าสู่ระบบด้วย ChatGPT** สำหรับการเข้าถึงตามการสมัครสมาชิก หรือ **คีย์ API** สำหรับการเข้าถึงแบบคิดค่าบริการตามการใช้งาน Codex cloud requires ChatGPT sign-in.
+OpenAI ให้บริการ API สำหรับนักพัฒนาสำหรับโมเดล GPT **เหมาะที่สุดสำหรับ:** การใช้สิทธิ์การเข้าถึงแบบสมัครสมาชิก ChatGPT/Codex แทนการใช้คีย์ API
+**เหมาะสำหรับ:** การใช้สิทธิ์การเข้าถึงแบบสมัครสมาชิก ChatGPT/Codex แทนคีย์API
+Codex cloud ต้องลงชื่อเข้าใช้ด้วย ChatGPT ขณะที่ Codex CLI รองรับการลงชื่อเข้าใช้ด้วย ChatGPT หรือคีย์API Codex cloud requires ChatGPT sign-in.
 
 ## ตัวเลือก A: คีย์APIของ OpenAI (OpenAI Platform)
 
+**เหมาะสำหรับ:** การเข้าถึง API โดยตรงและการเรียกเก็บเงินตามการใช้งาน
+รับคีย์APIของคุณจากแดชบอร์ด OpenAI
 **เหมาะสำหรับ:** การเข้าถึง API โดยตรงและการเรียกเก็บเงินตามการใช้งาน
 รับคีย์APIของคุณจากแดชบอร์ด OpenAI
 รับคีย์ API ของคุณจากแดชบอร์ด OpenAI
@@ -57,5 +65,3 @@ openclaw models auth login --provider openai-codex
 
 - การอ้างอิงโมเดลจะใช้ `provider/model` เสมอ (ดูที่ [/concepts/models](/concepts/models)).
 - รายละเอียดการยืนยันตัวตนและกฎการนำกลับมาใช้ซ้ำอยู่ที่ [/concepts/oauth](/concepts/oauth).
-
-

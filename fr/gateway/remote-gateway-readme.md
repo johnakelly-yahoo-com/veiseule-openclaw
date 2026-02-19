@@ -1,4 +1,6 @@
 ---
+summary: "Configuration d’un tunnel SSH pour OpenClaw.app se connectant à une Gateway distante"
+read_when: "Connexion de l’application macOS à une Gateway distante via SSH"
 title: "Configuration de la Gateway distante"
 ---
 
@@ -9,35 +11,19 @@ OpenClaw.app utilise un tunnel SSH pour se connecter à une Gateway distante. Ce
 ## Présentation
 
 ```mermaid
-%%{init: {
-  'theme': 'base',
-  'themeVariables': {
-    'primaryColor': '#ffffff',
-    'primaryTextColor': '#000000',
-    'primaryBorderColor': '#000000',
-    'lineColor': '#000000',
-    'secondaryColor': '#f9f9fb',
-    'tertiaryColor': '#ffffff',
-    'clusterBkg': '#f9f9fb',
-    'clusterBorder': '#000000',
-    'nodeBorder': '#000000',
-    'mainBkg': '#ffffff',
-    'edgeLabelBackground': '#ffffff'
-  }
-}}%%
 flowchart TB
-    subgraph Client["Client Machine"]
+    subgraph Client["Machine cliente"]
         direction TB
         A["OpenClaw.app"]
-        B["ws://127.0.0.1:18789\n(local port)"]
-        T["SSH Tunnel"]
+        B["ws://127.0.0.1:18789\n(port local)"]
+        T["Tunnel SSH"]
 
         A --> B
         B --> T
     end
-    subgraph Remote["Remote Machine"]
+    subgraph Remote["Machine distante"]
         direction TB
-        C["Gateway WebSocket"]
+        C["WebSocket Gateway"]
         D["ws://127.0.0.1:18789"]
 
         C --> D
@@ -170,5 +156,3 @@ launchctl bootout gui/$UID/bot.molt.ssh-tunnel
 | `RunAtLoad`                          | Démarre le tunnel lorsque l’agent se charge                                                    |
 
 OpenClaw.app se connecte à `ws://127.0.0.1:18789` sur votre machine cliente. Le tunnel SSH transfère cette connexion vers le port 18789 sur la machine distante où la Gateway (passerelle) est en cours d’exécution.
-
-

@@ -1,134 +1,141 @@
 ---
-title: "Boshqaruv interfeysi"
+summary: "Browser-based control UI for the Gateway (chat, nodes, config)"
+read_when:
+  - You want to operate the Gateway from a browser
+  - You want Tailnet access without SSH tunnels
+title: "Control UI"
 ---
 
-# Boshqaruv interfeysi (brauzer)
+# Control UI (browser)
 
-Boshqaruv interfeysi — bu Gateway tomonidan taqdim etiladigan kichik **Vite + Lit** asosidagi bitta sahifali ilova:
+The Control UI is a small **Vite + Lit** single-page app served by the Gateway:
 
-- standart: `http://<host>:18789/`
-- ixtiyoriy prefiks: `gateway.controlUi.basePath` ni sozlang (masalan, `/openclaw`)
+- default: `http://<host>:18789/`
+- optional prefix: set `gateway.controlUi.basePath` (e.g. `/openclaw`)
 
-U **to‘g‘ridan-to‘g‘ri Gateway WebSocket’iga** shu port orqali ulanadi.
+It speaks **directly to the Gateway WebSocket** on the same port.
 
-## Tez ochish (lokal)
+## Quick open (local)
 
-Agar Gateway shu kompyuterda ishlayotgan bo‘lsa, quyidagini oching:
+If the Gateway is running on the same computer, open:
 
-- [http://127.0.0.1:18789/](http://127.0.0.1:18789/) (yoki [http://localhost:18789/](http://localhost:18789/))
+- [http://127.0.0.1:18789/](http://127.0.0.1:18789/) (or [http://localhost:18789/](http://localhost:18789/))
 
-Agar sahifa yuklanmasa, avval Gateway’ni ishga tushiring: `openclaw gateway`.
+If the page fails to load, start the Gateway first: `openclaw gateway`.
 
-Autentifikatsiya WebSocket qo‘l siqish (handshake) vaqtida quyidagilar orqali uzatiladi:
+Auth is supplied during the WebSocket handshake via:
 
 - `connect.params.auth.token`
-- `connect.params.auth.password`  
-  Dashboard sozlamalari paneli tokenni saqlash imkonini beradi; parollar saqlanmaydi.  
-  Onboarding ustasi (wizard) odatda gateway tokenini avtomatik yaratadi, shuning uchun birinchi ulanishda uni shu yerga joylashtiring.
+- `connect.params.auth.password`
+  The dashboard settings panel lets you store a token; passwords are not persisted.
+  The onboarding wizard generates a gateway token by default, so paste it here on first connect.
 
-## Qurilmani juftlash (birinchi ulanish)
+## Device pairing (first connection)
 
-Boshqaruv interfeysiga yangi brauzer yoki qurilmadan ulanganda, Gateway  
-**bir martalik juftlash tasdig‘ini** talab qiladi — hatto siz `gateway.auth.allowTailscale: true` bilan bir xil Tailnet’da bo‘lsangiz ham. Bu ruxsatsiz kirishni oldini olish uchun xavfsizlik chorasi.
+When you connect to the Control UI from a new browser or device, the Gateway
+requires a **one-time pairing approval** — even if you're on the same Tailnet
+with `gateway.auth.allowTailscale: true`. This is a security measure to prevent
+unauthorized access.
 
-**Ko‘rinadigan xabar:** "disconnected (1008): pairing required"
+**What you'll see:** "disconnected (1008): pairing required"
 
-**Qurilmani tasdiqlash uchun:**
+**To approve the device:**
 
 ```bash
-# Kutilayotgan so‘rovlarni ko‘rish
+# List pending requests
 openclaw devices list
 
-# So‘rov ID bo‘yicha tasdiqlash
+# Approve by request ID
 openclaw devices approve <requestId>
 ```
 
-Tasdiqlangandan so‘ng, qurilma eslab qolinadi va qayta tasdiq talab qilinmaydi,  
-faqat `openclaw devices revoke --device <id> --role <role>` orqali bekor qilmasangiz.  
-Tokenni yangilash va bekor qilish haqida batafsil: [Devices CLI](/cli/devices).
+Once approved, the device is remembered and won't require re-approval unless
+you revoke it with `openclaw devices revoke --device <id> --role <role>`. See
+[Devices CLI](/cli/devices) for token rotation and revocation.
 
-**Eslatma:**
+**Notes:**
 
-- Lokal ulanishlar (`127.0.0.1`) avtomatik tasdiqlanadi.
-- Masofaviy ulanishlar (LAN, Tailnet va boshqalar) qo‘lda tasdiqlashni talab qiladi.
-- Har bir brauzer profili noyob qurilma ID yaratadi, shuning uchun brauzerni almashtirish yoki brauzer ma’lumotlarini tozalash qayta juftlashni talab qiladi.
+- 1. Mahalliy ulanishlar (`127.0.0.1`) avtomatik tasdiqlanadi.
+- 2. Masofaviy ulanishlar (LAN, Tailnet va boshqalar) 3. aniq tasdiqlashni talab qiladi.
+- Each browser profile generates a unique device ID, so switching browsers or
+  clearing browser data will require re-pairing.
 
-## Hozirgi imkoniyatlar
+## 5. Nimalar qila oladi (bugun)
 
-- Gateway WS orqali model bilan chat (`chat.history`, `chat.send`, `chat.abort`, `chat.inject`)
-- Chat’da tool chaqiruvlarini va jonli tool natijalarini oqim ko‘rinishida ko‘rsatish (agent hodisalari)
-- Kanallar: WhatsApp/Telegram/Discord/Slack + plagin kanallari (Mattermost va boshqalar) holati + QR login + har bir kanal uchun sozlamalar (`channels.status`, `web.login.*`, `config.patch`)
-- Instansiyalar: mavjudlik ro‘yxati + yangilash (`system-presence`)
-- Sessiyalar: ro‘yxat + har bir sessiya uchun thinking/verbose sozlamalarini o‘zgartirish (`sessions.list`, `sessions.patch`)
-- Cron vazifalar: ro‘yxat/qoshish/ishga tushirish/yoqish/o‘chirish + ishga tushirish tarixi (`cron.*`)
-- Skills: holat, yoqish/o‘chirish, o‘rnatish, API kalitlarini yangilash (`skills.*`)
-- Tugunlar: ro‘yxat + imkoniyatlar (`node.list`)
-- Exec tasdiqlari: gateway yoki tugun allowlist’larini tahrirlash + `exec host=gateway/node` uchun siyosat so‘rash (`exec.approvals.*`)
-- Config: `~/.openclaw/openclaw.json` ni ko‘rish/tahrirlash (`config.get`, `config.set`)
-- Config: tekshiruv bilan qo‘llash + qayta ishga tushirish (`config.apply`) va oxirgi faol sessiyani uyg‘otish
-- Config yozuvlari bir vaqtda tahrirlarni ustma-ust yozib yubormaslik uchun base-hash himoyasiga ega
-- Config sxemasi + forma orqali render qilish (`config.schema`, plagin + kanal sxemalarini ham o‘z ichiga oladi); Raw JSON muharriri ham mavjud
-- Debug: holat/health/models snapshot’lari + hodisalar logi + qo‘lda RPC chaqiruvlari (`status`, `health`, `models.list`)
-- Loglar: gateway fayl loglarini jonli kuzatish + filtrlash/eksport (`logs.tail`)
-- Yangilash: paket/git orqali yangilash + qayta ishga tushirish (`update.run`) va qayta ishga tushirish hisoboti
+- Chat with the model via Gateway WS (`chat.history`, `chat.send`, `chat.abort`, `chat.inject`)
+- 7. Chat’da tool chaqiruvlarini oqimda uzatish + jonli tool chiqish kartalari (agent hodisalari)
+- 8. Kanallar: WhatsApp/Telegram/Discord/Slack + plagin kanallari (Mattermost va boshqalar) 9. holat + QR login + har bir kanal uchun sozlamalar (`channels.status`, `web.login.*`, `config.patch`)
+- 10. Instansiyalar: mavjudlik ro‘yxati + yangilash (`system-presence`)
+- Sessions: list + per-session thinking/verbose overrides (`sessions.list`, `sessions.patch`)
+- Cron jobs: list/add/run/enable/disable + run history (`cron.*`)
+- Skills: status, enable/disable, install, API key updates (`skills.*`)
+- Nodes: list + caps (`node.list`)
+- 15. Exec tasdiqlari: gateway yoki node allowlist’larini tahrirlash + `exec host=gateway/node` uchun siyosat so‘rash (`exec.approvals.*`)
+- 16. Config: `~/.openclaw/openclaw.json` ni ko‘rish/tahrirlash (`config.get`, `config.set`)
+- 17. Config: tekshiruv bilan qo‘llash + qayta ishga tushirish (`config.apply`) va oxirgi faol sessiyani uyg‘otish
+- 18. Config yozuvlari bir vaqtning o‘zida tahrirlarni bosib ketmaslik uchun base-hash himoyasini o‘z ichiga oladi
+- Config schema + form rendering (`config.schema`, including plugin + channel schemas); Raw JSON editor remains available
+- Debug: status/health/models snapshots + event log + manual RPC calls (`status`, `health`, `models.list`)
+- 21. Loglar: gateway fayl loglarini filtr/eksport bilan jonli kuzatish (`logs.tail`)
+- 22. Yangilash: paket/git yangilashni ishga tushirish + qayta ishga tushirish (`update.run`) va qayta ishga tushirish hisobotini olish
 
-Cron paneli eslatmalari:
+23. Cron vazifalar paneli eslatmalari:
 
-- Izolyatsiyalangan vazifalar uchun yetkazish odatda qisqa xulosa e’lon qilishga sozlangan. Agar faqat ichki ishga tushirish kerak bo‘lsa, none’ga o‘zgartirishingiz mumkin.
-- E’lon tanlanganda kanal/target maydonlari paydo bo‘ladi.
+- 24. Izolyatsiyalangan vazifalar uchun yetkazib berish sukut bo‘yicha qisqa xulosa e’lon qilishga sozlangan. 25. Agar faqat ichki ishga tushirishlarni xohlasangiz, none’ga o‘zgartirishingiz mumkin.
+- 26. Announce tanlanganda kanal/maqsad maydonlari paydo bo‘ladi.
 
-## Chat xatti-harakati
+## 27. Chat xatti-harakati
 
-- `chat.send` **bloklanmaydi**: darhol `{ runId, status: "started" }` bilan javob beradi va natija `chat` hodisalari orqali oqimda keladi.
-- Xuddi shu `idempotencyKey` bilan qayta yuborilganda, jarayon davomida `{ status: "in_flight" }`, tugagandan so‘ng `{ status: "ok" }` qaytariladi.
-- `chat.inject` sessiya transkriptiga assistant eslatmasini qo‘shadi va UI yangilanishi uchun `chat` hodisasini yuboradi (agent ishga tushirilmaydi, kanalga yetkazilmaydi).
-- To‘xtatish:
-  - **Stop** tugmasini bosing (`chat.abort` chaqiriladi)
-  - `/stop` yozing (yoki `stop|esc|abort|wait|exit|interrupt`) — tashqi tarzda to‘xtatish
-  - `chat.abort` `{ sessionKey }` ( `runId` siz) bilan shu sessiyadagi barcha faol jarayonlarni to‘xtatadi
+- 28. `chat.send` **bloklamaydi**: darhol `{ runId, status: "started" }` bilan tasdiqlaydi va javob `chat` hodisalari orqali oqimda keladi.
+- 29. Xuddi shu `idempotencyKey` bilan qayta yuborish ish jarayonida `{ status: "in_flight" }`, yakunlangandan so‘ng esa `{ status: "ok" }` ni qaytaradi.
+- 30. `chat.inject` sessiya transkriptiga assistent eslatmasini qo‘shadi va faqat UI yangilanishlari uchun `chat` hodisasini tarqatadi (agent ishga tushirilmaydi, kanalga yetkazilmaydi).
+- 31. To‘xtatish:
+  - 32. **Stop** tugmasini bosing ( `chat.abort` ni chaqiradi)
+  - 33. `/stop` yozing (yoki `stop|esc|abort|wait|exit|interrupt`) — out-of-band bekor qilish uchun
+  - 34. `chat.abort` `{ sessionKey }` ( `runId` siz) ni qo‘llab-quvvatlaydi va shu sessiya uchun barcha faol ishga tushirishlarni bekor qiladi
 
-## Tailnet orqali kirish (tavsiya etiladi)
+## 35. Tailnet orqali kirish (tavsiya etiladi)
 
-### Integratsiyalashgan Tailscale Serve (afzal)
+### 36. Integratsiyalashgan Tailscale Serve (afzal)
 
-Gateway’ni loopback’da qoldiring va Tailscale Serve orqali HTTPS bilan proksi qiling:
-
-```bash
-openclaw gateway --tailscale serve
-```
-
-Ochish:
-
-- `https://<magicdns>/` (yoki sozlangan `gateway.controlUi.basePath`)
-
-Standart bo‘yicha, Serve so‘rovlari `gateway.auth.allowTailscale: true` bo‘lsa,  
-Tailscale identifikatsiya sarlavhalari (`tailscale-user-login`) orqali autentifikatsiya qilinishi mumkin. OpenClaw identifikatsiyani `x-forwarded-for` manzilini `tailscale whois` orqali tekshirib va sarlavha bilan mosligini solishtirib tasdiqlaydi, va bularni faqat so‘rov loopback’ka Tailscale’ning `x-forwarded-*` sarlavhalari bilan kelganda qabul qiladi.  
-Agar Serve trafigi uchun ham token/parol talab qilmoqchi bo‘lsangiz, `gateway.auth.allowTailscale: false` (yoki `gateway.auth.mode: "password"`) ni sozlang.
-
-### Tailnet’ga bind qilish + token
+37. Gateway’ni loopback’da qoldiring va Tailscale Serve orqali HTTPS bilan proksi qiling:
 
 ```bash
-openclaw gateway --bind tailnet --token "$(openssl rand -hex 32)"
+38. openclaw gateway --tailscale serve
 ```
 
-So‘ng oching:
+39. Ochish:
 
-- `http://<tailscale-ip>:18789/` (yoki sozlangan `gateway.controlUi.basePath`)
+- 40. `https://<magicdns>/` (yoki sozlangan `gateway.controlUi.basePath`)
 
-Tokenni UI sozlamalariga joylashtiring ( `connect.params.auth.token` sifatida yuboriladi).
+41. Sukut bo‘yicha, Serve so‘rovlari `gateway.auth.allowTailscale` `true` bo‘lganda Tailscale identity header’lari (`tailscale-user-login`) orqali autentifikatsiyadan o‘ta oladi. 42. OpenClaw
+    identifikatsiyani `x-forwarded-for` manzilini `tailscale whois` orqali aniqlab, header bilan moslashtirish orqali tekshiradi va faqat so‘rov loopback’ga Tailscale’ning `x-forwarded-*` header’lari bilan kelgandagina qabul qiladi. 43. Agar Serve trafigi uchun ham token/parol talab qilmoqchi bo‘lsangiz,
+    `gateway.auth.allowTailscale: false` qilib qo‘ying (yoki `gateway.auth.mode: "password"` ni majburiy qiling).
 
-## Xavfsiz bo‘lmagan HTTP
+### 44. Tailnet’ga bog‘lash + token
 
-Agar dashboard’ni oddiy HTTP orqali ochsangiz (`http://<lan-ip>` yoki `http://<tailscale-ip>`),  
-brauzer **xavfsiz bo‘lmagan kontekst**da ishlaydi va WebCrypto’ni bloklaydi. Standart bo‘yicha,  
-OpenClaw qurilma identifikatsiyasisiz Control UI ulanishlarini **bloklaydi**.
+```bash
+45. openclaw gateway --bind tailnet --token "$(openssl rand -hex 32)"
+```
 
-**Tavsiya etilgan yechim:** HTTPS (Tailscale Serve) dan foydalaning yoki UI’ni lokal oching:
+46. So‘ng oching:
+
+- 47. `http://<tailscale-ip>:18789/` (yoki sozlangan `gateway.controlUi.basePath`)
+
+48. Token’ni UI sozlamalariga joylang ( `connect.params.auth.token` sifatida yuboriladi).
+
+## 49. Xavfsiz bo‘lmagan HTTP
+
+50. Agar panelni oddiy HTTP orqali ochsangiz (`http://<lan-ip>` yoki `http://<tailscale-ip>`),
+    brauzer **xavfsiz bo‘lmagan kontekst**da ishlaydi va WebCrypto’ni bloklaydi. By default,
+    OpenClaw **blocks** Control UI connections without device identity.
+
+**Recommended fix:** use HTTPS (Tailscale Serve) or open the UI locally:
 
 - `https://<magicdns>/` (Serve)
-- `http://127.0.0.1:18789/` (gateway joylashgan host’da)
+- `http://127.0.0.1:18789/` (on the gateway host)
 
-**Pasaytirilgan xavfsizlik misoli (HTTP ustida faqat token):**
+**Downgrade example (token-only over HTTP):**
 
 ```json5
 {
@@ -140,61 +147,64 @@ OpenClaw qurilma identifikatsiyasisiz Control UI ulanishlarini **bloklaydi**.
 }
 ```
 
-Bu Control UI uchun qurilma identifikatsiyasi + juftlashni o‘chiradi (hatto HTTPS’da ham).  
-Faqat tarmoqqa ishonchingiz komil bo‘lsa foydalaning.
+This disables device identity + pairing for the Control UI (even on HTTPS). Use
+only if you trust the network.
 
-HTTPS sozlash bo‘yicha ko‘rsatmalar: [Tailscale](/gateway/tailscale).
+See [Tailscale](/gateway/tailscale) for HTTPS setup guidance.
 
-## UI’ni build qilish
+## Building the UI
 
-Gateway statik fayllarni `dist/control-ui` dan taqdim etadi. Ularni build qilish:
+The Gateway serves static files from `dist/control-ui`. Build them with:
 
 ```bash
-pnpm ui:build # birinchi ishga tushirishda UI bog‘liqliklarini avtomatik o‘rnatadi
+pnpm ui:build # auto-installs UI deps on first run
 ```
 
-Ixtiyoriy absolut base (asset URL’lari qat’iy bo‘lishi kerak bo‘lsa):
+Optional absolute base (when you want fixed asset URLs):
 
 ```bash
 OPENCLAW_CONTROL_UI_BASE_PATH=/openclaw/ pnpm ui:build
 ```
 
-Lokal ishlab chiqish uchun (alohida dev server):
+For local development (separate dev server):
 
 ```bash
-pnpm ui:dev # birinchi ishga tushirishda UI bog‘liqliklarini avtomatik o‘rnatadi
+pnpm ui:dev # auto-installs UI deps on first run
 ```
 
-So‘ng UI’ni Gateway WS manziliga yo‘naltiring (masalan, `ws://127.0.0.1:18789`).
+Then point the UI at your Gateway WS URL (e.g. `ws://127.0.0.1:18789`).
 
-## Debug/test: dev server + masofaviy Gateway
+## Debugging/testing: dev server + remote Gateway
 
-Control UI — statik fayllar to‘plami; WebSocket manzili sozlanadi va HTTP origin’dan farq qilishi mumkin. Bu Vite dev server lokal ishlaganda, Gateway boshqa joyda bo‘lsa qulay.
+The Control UI is static files; the WebSocket target is configurable and can be
+different from the HTTP origin. This is handy when you want the Vite dev server
+locally but the Gateway runs elsewhere.
 
-1. UI dev serverni ishga tushiring: `pnpm ui:dev`
-2. Quyidagi kabi URL oching:
+1. Start the UI dev server: `pnpm ui:dev`
+2. Open a URL like:
 
 ```text
 http://localhost:5173/?gatewayUrl=ws://<gateway-host>:18789
 ```
 
-Ixtiyoriy bir martalik autentifikatsiya (kerak bo‘lsa):
+Optional one-time auth (if needed):
 
 ```text
 http://localhost:5173/?gatewayUrl=wss://<gateway-host>:18789&token=<gateway-token>
 ```
 
-Eslatma:
+Notes:
 
-- `gatewayUrl` yuklangandan so‘ng localStorage’da saqlanadi va URL’dan olib tashlanadi.
-- `token` localStorage’da saqlanadi; `password` faqat xotirada saqlanadi.
-- `gatewayUrl` o‘rnatilganda, UI config yoki muhitdagi credential’larga qaytmaydi.  
-  `token` (yoki `password`) ni aniq ko‘rsating. Aks holda xatolik yuz beradi.
-- Gateway TLS ortida bo‘lsa (`Tailscale Serve`, HTTPS proksi va boshqalar), `wss://` dan foydalaning.
-- `gatewayUrl` faqat yuqori darajadagi oynada (embed qilinmagan) qabul qilinadi — clickjacking’ni oldini olish uchun.
-- Cross-origin dev sozlamalari uchun (masalan, `pnpm ui:dev` dan masofaviy Gateway’ga), UI origin’ni `gateway.controlUi.allowedOrigins` ga qo‘shing.
+- `gatewayUrl` is stored in localStorage after load and removed from the URL.
+- `token` is stored in localStorage; `password` is kept in memory only.
+- When `gatewayUrl` is set, the UI does not fall back to config or environment credentials.
+  Provide `token` (or `password`) explicitly. Missing explicit credentials is an error.
+- Use `wss://` when the Gateway is behind TLS (Tailscale Serve, HTTPS proxy, etc.).
+- `gatewayUrl` is only accepted in a top-level window (not embedded) to prevent clickjacking.
+- For cross-origin dev setups (e.g. `pnpm ui:dev` to a remote Gateway), add the UI
+  origin to `gateway.controlUi.allowedOrigins`.
 
-Misol:
+Example:
 
 ```json5
 {
@@ -206,5 +216,4 @@ Misol:
 }
 ```
 
-Masofaviy kirish sozlamalari tafsilotlari: [Remote access](/gateway/remote).
-
+Remote access setup details: [Remote access](/gateway/remote).

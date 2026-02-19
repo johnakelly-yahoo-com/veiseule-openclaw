@@ -1,4 +1,8 @@
 ---
+summary: "CLI کے لیے `openclaw channels` کا حوالہ (اکاؤنٹس، اسٹیٹس، لاگ اِن/لاگ آؤٹ، لاگز)"
+read_when:
+  - آپ چینل اکاؤنٹس شامل/حذف کرنا چاہتے ہیں (WhatsApp/Telegram/Discord/Google Chat/Slack/Mattermost (plugin)/Signal/iMessage)
+  - آپ چینل اسٹیٹس چیک کرنا یا چینل لاگز ٹیل کرنا چاہتے ہیں
 title: "channels"
 ---
 
@@ -73,5 +77,3 @@ openclaw channels resolve --channel matrix "Project Room"
 
 - ہدف کی قسم مجبور کرنے کے لیے `--kind user|group|auto` استعمال کریں۔
 - جب ایک ہی نام کے متعدد اندراجات ہوں تو حل فعال میچز کو ترجیح دیتا ہے۔
-
-

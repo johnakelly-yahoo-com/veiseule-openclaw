@@ -1,4 +1,8 @@
 ---
+summary: "Hurtig fejlfinding på kanalniveau med fejlmønstre og rettelser pr. kanal"
+read_when:
+  - Kanaltransporten siger forbundet, men svar fejler
+  - Du har brug for kanalspecifikke tjek før dybdegående udbyderdokumentation
 title: "Kanalfejlfinding"
 ---
 
@@ -40,11 +44,12 @@ Fuld fejlfinding: [/channels/whatsapp#troubleshooting-quick](/channels/whatsapp#
 
 ### Telegram-fejlmønstre
 
-| Symptom                               | Hurtigste tjek                              | Løsning                                                                             |
-| ------------------------------------- | ------------------------------------------- | ----------------------------------------------------------------------------------- |
-| `/start` men intet brugbart svarflow  | `openclaw pairing list telegram`            | Godkend parring eller ændr DM-politik.                              |
-| Bot online, men gruppe forbliver tavs | Bekræft nævnekrav og bot-privatlivstilstand | Deaktivér privatlivstilstand for gruppesynlighed eller nævn botten. |
-| Sende-fejl med netværksfejl           | Gennemse logs for Telegram API-kaldfejl     | Ret DNS/IPv6/proxy-routing til `api.telegram.org`.                  |
+| Symptom                                       | Hurtigste tjek                                                | Løsning                                                                                            |
+| --------------------------------------------- | ------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `/start` men intet brugbart svarflow          | `openclaw pairing list telegram`                              | Godkend parring eller ændr DM-politik.                                             |
+| Bot online, men gruppe forbliver tavs         | Bekræft nævnekrav og bot-privatlivstilstand                   | Deaktivér privatlivstilstand for gruppesynlighed eller nævn botten.                |
+| Sende-fejl med netværksfejl                   | Gennemse logs for Telegram API-kaldfejl                       | Ret DNS/IPv6/proxy-routing til `api.telegram.org`.                                 |
+| Opgraderet, og tilladelseslisten blokerer dig | `openclaw security audit` og konfigurations-tilladelseslister | Kør `openclaw doctor --fix` eller erstat `@username` med numeriske afsender-ID'er. |
 
 Fuld fejlfinding: [/channels/telegram#troubleshooting](/channels/telegram#troubleshooting)
 
@@ -110,5 +115,3 @@ Fuld fejlfinding: [/channels/signal#troubleshooting](/channels/signal#troublesho
 | Krypterede rum fejler                    | Bekræft kryptomodul og krypteringsindstillinger | Aktivér krypteringsunderstøttelse og tilslut/synkronisér rummet igen. |
 
 Fuld fejlfinding: [/channels/matrix#troubleshooting](/channels/matrix#troubleshooting)
-
-

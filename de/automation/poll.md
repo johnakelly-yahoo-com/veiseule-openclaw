@@ -1,4 +1,8 @@
 ---
+summary: "„Versand von Umfragen über Gateway + CLI“"
+read_when:
+  - Hinzufügen oder Ändern der Umfrageunterstützung
+  - Debugging von Umfrageversendungen über die CLI oder das Gateway
 title: "„Umfragen“"
 ---
 
@@ -63,5 +67,3 @@ Verwenden Sie das Werkzeug `message` mit der Aktion `poll` (`to`, `pollQuestion`
 Hinweis: Discord hat keinen Modus „genau N auswählen“; `pollMulti` wird auf Mehrfachauswahl abgebildet.
 Teams-Umfragen werden als Adaptive Cards gerendert und erfordern, dass das Gateway online bleibt,
 um Stimmen in `~/.openclaw/msteams-polls.json` zu erfassen.
-
-

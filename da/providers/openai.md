@@ -1,4 +1,8 @@
 ---
+summary: "Brug OpenAI via API-nøgler eller Codex-abonnement i OpenClaw"
+read_when:
+  - Du vil bruge OpenAI-modeller i OpenClaw
+  - Du vil bruge Codex-abonnementsautentificering i stedet for API-nøgler
 title: "OpenAI"
 ---
 
@@ -56,5 +60,3 @@ openclaw models auth login --provider openai-codex
 
 - Modelreferencer bruger altid `provider/model` (se [/concepts/models](/concepts/models)).
 - Autentificeringsdetaljer + genbrugsregler findes i [/concepts/oauth](/concepts/oauth).
-
-

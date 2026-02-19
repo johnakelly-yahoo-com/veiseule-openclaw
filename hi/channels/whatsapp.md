@@ -1,66 +1,33 @@
 ---
+summary: "WhatsApp (वेब चैनल) एकीकरण: लॉगिन, इनबॉक्स, उत्तर, मीडिया और संचालन"
+read_when:
+  - WhatsApp/वेब चैनल व्यवहार या इनबॉक्स रूटिंग पर काम करते समय
 title: "WhatsApp"
 ---
 
 # WhatsApp (वेब चैनल)
 
-Status: WhatsApp Web via Baileys only. Gateway owns the session(s).
+स्थिति: WhatsApp Web (Baileys) के माध्यम से प्रोडक्शन-रेडी। Gateway लिंक्ड सत्र(सत्रों) का स्वामित्व रखता है।
 
-## त्वरित सेटअप (शुरुआती)
+<CardGroup cols={3}>
+  <Card title="Pairing" icon="link" href="/channels/pairing">
+    अज्ञात प्रेषकों के लिए डिफ़ॉल्ट DM नीति पेयरिंग है。
+  
+</Card>
+  <Card title="Channel troubleshooting" icon="wrench" href="/channels/troubleshooting">
+    क्रॉस-चैनल डायग्नोस्टिक्स और रिपेयर प्लेबुक्स。
+  
+</Card>
+  <Card title="Gateway configuration" icon="settings" href="/gateway/configuration">
+    पूर्ण चैनल कॉन्फ़िग पैटर्न और उदाहरण。
+  
+</Card>
+</CardGroup>
 
-1. यदि संभव हो तो **अलग फोन नंबर** का उपयोग करें (अनुशंसित)।
-2. `~/.openclaw/openclaw.json` में WhatsApp को कॉन्फ़िगर करें।
-3. QR कोड स्कैन करने के लिए `openclaw channels login` चलाएँ (Linked Devices)।
-4. Gateway प्रारंभ करें।
+## त्वरित सेटअप
 
-न्यूनतम विन्यास:
-
-```json5
-{
-  channels: {
-    whatsapp: {
-      dmPolicy: "allowlist",
-      allowFrom: ["+15551234567"],
-    },
-  },
-}
-```
-
-## लक्ष्य
-
-- एक Gateway प्रक्रिया में कई WhatsApp खाते (मल्टी-अकाउंट)।
-- निर्धारक रूटिंग: उत्तर WhatsApp पर ही लौटें, कोई मॉडल रूटिंग नहीं।
-- मॉडल को उद्धृत उत्तर समझने के लिए पर्याप्त संदर्भ मिले।
-
-## कॉन्फ़िग लिखावट
-
-डिफ़ॉल्ट रूप से, WhatsApp को `/config set|unset` द्वारा ट्रिगर किए गए कॉन्फ़िग अपडेट लिखने की अनुमति होती है (इसके लिए `commands.config: true` आवश्यक है)।
-
-अक्षम करने के लिए:
-
-```json5
-{
-  channels: { whatsapp: { configWrites: false } },
-}
-```
-
-## आर्किटेक्चर (कौन क्या नियंत्रित करता है)
-
-- **Gateway** Baileys सॉकेट और इनबॉक्स लूप का स्वामी है।
-- **CLI / macOS ऐप** Gateway से बात करते हैं; Baileys का प्रत्यक्ष उपयोग नहीं।
-- **सक्रिय लिस्नर** आउटबाउंड भेजने के लिए आवश्यक है; अन्यथा भेजना तुरंत विफल हो जाता है।
-
-## फोन नंबर प्राप्त करना (दो मोड)
-
-WhatsApp requires a real mobile number for verification. VoIP and virtual numbers are usually blocked. There are two supported ways to run OpenClaw on WhatsApp:
-
-### समर्पित नंबर (अनुशंसित)
-
-Use a **separate phone number** for OpenClaw. Best UX, clean routing, no self-chat quirks. Ideal setup: **spare/old Android phone + eSIM**. Leave it on Wi‑Fi and power, and link it via QR.
-
-**WhatsApp Business:** You can use WhatsApp Business on the same device with a different number. Great for keeping your personal WhatsApp separate — install WhatsApp Business and register the OpenClaw number there.
-
-**नमूना विन्यास (समर्पित नंबर, सिंगल-यूज़र allowlist):**
+<Steps>
+  <Step title="Configure WhatsApp access policy">
 
 ```json5
 {
@@ -73,180 +40,323 @@ Use a **separate phone number** for OpenClaw. Best UX, clean routing, no self-ch
 }
 ```
 
-**Pairing mode (optional):**
-If you want pairing instead of allowlist, set `channels.whatsapp.dmPolicy` to `pairing`. Unknown senders get a pairing code; approve with:
-`openclaw pairing approve whatsapp <code>`
+  
+</Step>
 
-### व्यक्तिगत नंबर (फ़ॉलबैक)
+  <Step title="Link WhatsApp (QR)">
 
-Quick fallback: run OpenClaw on **your own number**. Message yourself (WhatsApp “Message yourself”) for testing so you don’t spam contacts. Expect to read verification codes on your main phone during setup and experiments. **Must enable self-chat mode.**
-When the wizard asks for your personal WhatsApp number, enter the phone you will message from (the owner/sender), not the assistant number.
-
-**नमूना विन्यास (व्यक्तिगत नंबर, self-chat):**
-
-```json
-{
-  "whatsapp": {
-    "selfChatMode": true,
-    "dmPolicy": "allowlist",
-    "allowFrom": ["+15551234567"]
-  }
-}
+```bash
+openclaw channels login --channel whatsapp
 ```
 
-Self-chat replies default to `[{identity.name}]` when set (otherwise `[openclaw]`)
-if `messages.responsePrefix` is unset. Set it explicitly to customize or disable
-the prefix (use `""` to remove it).
+    ```
+    किसी विशिष्ट खाते के लिए:
+    ```
 
-### नंबर स्रोत सुझाव
+```bash
+openclaw channels login --channel whatsapp --account work
+```
 
-- आपके देश के मोबाइल कैरियर से **लोकल eSIM** (सबसे विश्वसनीय)
-  - ऑस्ट्रिया: [hot.at](https://www.hot.at)
-  - यूके: [giffgaff](https://www.giffgaff.com) — मुफ़्त SIM, कोई अनुबंध नहीं
-- **प्रीपेड SIM** — सस्ता, सत्यापन के लिए केवल एक SMS प्राप्त करना पर्याप्त
+  
+</Step>
 
-**बचें:** TextNow, Google Voice, अधिकांश “free SMS” सेवाएँ — WhatsApp इन्हें आक्रामक रूप से ब्लॉक करता है।
+  <Step title="Start the gateway">
 
-**Tip:** The number only needs to receive one verification SMS. After that, WhatsApp Web sessions persist via `creds.json`.
+```bash
+openclaw gateway
+```
 
-## Twilio क्यों नहीं?
+  
+</Step>
 
-- प्रारंभिक OpenClaw बिल्ड्स में Twilio के WhatsApp Business एकीकरण का समर्थन था।
-- WhatsApp Business नंबर व्यक्तिगत सहायक के लिए उपयुक्त नहीं हैं।
-- Meta 24‑घंटे की उत्तर विंडो लागू करता है; यदि आपने पिछले 24 घंटों में उत्तर नहीं दिया है, तो बिज़नेस नंबर नए संदेश शुरू नहीं कर सकता।
-- उच्च-वॉल्यूम या “चैटी” उपयोग आक्रामक ब्लॉकिंग को ट्रिगर करता है, क्योंकि बिज़नेस अकाउंट दर्जनों व्यक्तिगत सहायक संदेश भेजने के लिए नहीं बने हैं।
-- परिणाम: अविश्वसनीय डिलीवरी और बार-बार ब्लॉक, इसलिए समर्थन हटा दिया गया।
+  <Step title="Approve first pairing request (if using pairing mode)">
 
-## लॉगिन + क्रेडेंशियल्स
+```bash
+openclaw pairing list whatsapp
+openclaw pairing approve whatsapp <CODE>
+```
 
-- लॉगिन कमांड: `openclaw channels login` (Linked Devices के माध्यम से QR)।
-- मल्टी-अकाउंट लॉगिन: `openclaw channels login --account <id>` (`<id>` = `accountId`)।
-- डिफ़ॉल्ट अकाउंट (जब `--account` छोड़ा गया हो): यदि मौजूद हो तो `default`, अन्यथा पहला कॉन्फ़िगर किया गया अकाउंट आईडी (क्रमबद्ध)।
-- क्रेडेंशियल्स `~/.openclaw/credentials/whatsapp/<accountId>/creds.json` में संग्रहीत।
-- बैकअप कॉपी `creds.json.bak` पर (करप्शन होने पर पुनर्स्थापित)।
-- लेगेसी संगतता: पुराने इंस्टॉल Baileys फ़ाइलें सीधे `~/.openclaw/credentials/` में संग्रहीत करते थे।
-- लॉगआउट: `openclaw channels logout` (या `--account <id>`) WhatsApp ऑथ स्टेट हटाता है (लेकिन साझा `oauth.json` रखता है)।
-- लॉगआउटेड सॉकेट => पुनः लिंक करने का निर्देश देने वाली त्रुटि।
+    ```
+    पेयरिंग अनुरोध 1 घंटे के बाद समाप्त हो जाते हैं। लंबित अनुरोध प्रत्येक चैनल पर अधिकतम 3 तक सीमित हैं।
+    ```
 
-## इनबाउंड फ़्लो (DM + समूह)
+  
+</Step>
+</Steps>
 
-- WhatsApp इवेंट्स `messages.upsert` (Baileys) से आते हैं।
-- शटडाउन पर इनबॉक्स लिस्नर्स को अलग किया जाता है ताकि परीक्षण/रीस्टार्ट में इवेंट हैंडलर्स जमा न हों।
-- स्टेटस/ब्रॉडकास्ट चैट्स अनदेखी की जाती हैं।
-- डायरेक्ट चैट्स E.164 का उपयोग करती हैं; समूह group JID का।
-- **DM नीति**: `channels.whatsapp.dmPolicy` डायरेक्ट चैट एक्सेस नियंत्रित करता है (डिफ़ॉल्ट: `pairing`)।
-  - पेयरिंग: अज्ञात प्रेषकों को पेयरिंग कोड मिलता है ( `openclaw pairing approve whatsapp <code>` के माध्यम से अनुमोदन; कोड 1 घंटे बाद समाप्त)।
-  - ओपन: `channels.whatsapp.allowFrom` में `"*"` शामिल होना आवश्यक।
-  - आपका लिंक किया हुआ WhatsApp नंबर निहित रूप से विश्वसनीय है, इसलिए self संदेश `channels.whatsapp.dmPolicy` और `channels.whatsapp.allowFrom` जाँचों को छोड़ देते हैं।
+<Note>
+OpenClaw संभव होने पर WhatsApp को एक अलग नंबर पर चलाने की सलाह देता है। (चैनल मेटाडेटा और ऑनबोर्डिंग फ्लो उस सेटअप के लिए अनुकूलित हैं, लेकिन व्यक्तिगत-नंबर सेटअप भी समर्थित हैं।)
+</Note>
 
-### व्यक्तिगत-नंबर मोड (फ़ॉलबैक)
+## डिप्लॉयमेंट पैटर्न
 
-यदि आप OpenClaw को **अपने व्यक्तिगत WhatsApp नंबर** पर चलाते हैं, तो `channels.whatsapp.selfChatMode` सक्षम करें (ऊपर दिए नमूने देखें)।
+<AccordionGroup>
+  <Accordion title="Dedicated number (recommended)">
+    यह सबसे स्वच्छ संचालन मोड है:
 
-व्यवहार:
+    ````
+    - OpenClaw के लिए अलग WhatsApp पहचान
+    - अधिक स्पष्ट DM allowlists और रूटिंग सीमाएँ
+    - स्वयं-चैट भ्रम की कम संभावना
+    
+    न्यूनतम नीति पैटर्न:
+    
+    ```json5
+    {
+      channels: {
+        whatsapp: {
+          dmPolicy: "allowlist",
+          allowFrom: ["+15551234567"],
+        },
+      },
+    }
+    ```
+    ````
 
-- आउटबाउंड DM कभी भी पेयरिंग उत्तर ट्रिगर नहीं करते (संपर्कों को स्पैम से बचाता है)।
-- इनबाउंड अज्ञात प्रेषक अभी भी `channels.whatsapp.dmPolicy` का पालन करते हैं।
-- self-chat मोड (allowFrom में आपका नंबर शामिल) स्वचालित रीड रसीदें से बचता है और mention JID को अनदेखा करता है।
-- गैर‑self‑chat DM के लिए रीड रसीदें भेजी जाती हैं।
+  
+</Accordion>
 
-## रीड रसीदें
+  <Accordion title="Personal-number fallback">
+    ऑनबोर्डिंग व्यक्तिगत-नंबर मोड का समर्थन करता है और स्वयं-चैट के अनुकूल बेसलाइन लिखता है:
 
-डिफ़ॉल्ट रूप से, Gateway स्वीकार होने पर इनबाउंड WhatsApp संदेशों को पढ़ा हुआ (नीले टिक) चिह्नित करता है।
+    ```
+    {
+      "whatsapp": {
+        "selfChatMode": true,
+        "dmPolicy": "allowlist",
+        "allowFrom": ["+15551234567"]
+      }
+    }
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="WhatsApp Web-only channel scope">
+    वर्तमान OpenClaw चैनल आर्किटेक्चर में मैसेजिंग प्लेटफ़ॉर्म चैनल WhatsApp Web-आधारित (`Baileys`) है।
+
+    ```
+    बिल्ट-इन chat-channel रजिस्ट्री में कोई अलग Twilio WhatsApp मैसेजिंग चैनल नहीं है।
+    ```
+
+  
+</Accordion>
+</AccordionGroup>
+
+## रनटाइम मॉडल
+
+- Gateway WhatsApp socket और reconnect लूप का स्वामित्व रखता है।
+- आउटबाउंड भेजने के लिए लक्ष्य खाते के लिए एक सक्रिय WhatsApp listener आवश्यक है।
+- Status और broadcast चैट्स को अनदेखा किया जाता है (`@status`, `@broadcast`)।
+- Direct चैट्स DM सत्र नियमों का उपयोग करती हैं (`session.dmScope`; डिफ़ॉल्ट `main` DMs को agent के main सत्र में समेट देता है)।
+- Group सत्र अलग-थलग रहते हैं (`agent:<agentId>:whatsapp:group:<jid>`)।
+
+## एक्सेस नियंत्रण और सक्रियण
+
+<Tabs>
+  <Tab title="DM policy">
+    `channels.whatsapp.dmPolicy` direct चैट एक्सेस को नियंत्रित करता है:
+
+    ```
+    - `pairing` (डिफ़ॉल्ट)
+    - `allowlist`
+    - `open` (इसके लिए `allowFrom` में `"*"` शामिल होना आवश्यक है)
+    - `disabled`
+    
+    `allowFrom` E.164-शैली के नंबर स्वीकार करता है (आंतरिक रूप से normalized)।
+    
+    मल्टी-अकाउंट ओवरराइड: `channels.whatsapp.accounts.<id>.dmPolicy` (और `allowFrom`) उस खाते के लिए चैनल-स्तर डिफ़ॉल्ट पर प्राथमिकता लेते हैं।
+    
+    रनटाइम व्यवहार विवरण:
+    
+    - pairings को channel allow-store में persist किया जाता है और कॉन्फ़िगर किए गए `allowFrom` के साथ मर्ज किया जाता है
+    - यदि कोई allowlist कॉन्फ़िगर नहीं है, तो लिंक किया गया self नंबर डिफ़ॉल्ट रूप से अनुमति प्राप्त होता है
+    - आउटबाउंड `fromMe` DMs कभी भी auto-paired नहीं होते
+    ```
+
+  
+</Tab>
+
+  <Tab title="Group policy + allowlists">
+    Group एक्सेस के दो स्तर हैं:
+
+    ```
+    1. **Group membership allowlist** (`channels.whatsapp.groups`)
+       - यदि `groups` छोड़ा गया है, तो सभी groups पात्र हैं
+       - यदि `groups` मौजूद है, तो यह group allowlist की तरह कार्य करता है (`"*"` अनुमति है)
+    
+    2. **Group sender policy** (`channels.whatsapp.groupPolicy` + `groupAllowFrom`)
+       - `open`: sender allowlist को बायपास करता है
+       - `allowlist`: sender को `groupAllowFrom` (या `*`) से मेल खाना चाहिए
+       - `disabled`: सभी group inbound को ब्लॉक करता है
+    
+    Sender allowlist fallback:
+    
+    - यदि `groupAllowFrom` सेट नहीं है, तो रनटाइम उपलब्ध होने पर `allowFrom` पर वापस जाता है
+    
+    नोट: यदि बिल्कुल भी `channels.whatsapp` ब्लॉक मौजूद नहीं है, तो रनटाइम group-policy fallback प्रभावी रूप से `open` होता है।
+    ```
+
+  
+</Tab>
+
+  <Tab title="Mentions + /activation">
+    डिफ़ॉल्ट रूप से Group replies में उल्लेख (mention) आवश्यक होता है।
+
+    ```
+    Mention डिटेक्शन में शामिल हैं:
+    
+    - bot पहचान के स्पष्ट WhatsApp mentions
+    - कॉन्फ़िगर किए गए mention regex patterns (`agents.list[].groupChat.mentionPatterns`, fallback `messages.groupChat.mentionPatterns`)
+    - bot को reply करने की अप्रत्यक्ष पहचान (reply sender bot पहचान से मेल खाता है)
+    
+    सत्र-स्तर सक्रियण कमांड:
+    
+    - `/activation mention`
+    - `/activation always`
+    
+    `activation` सत्र स्थिति को अपडेट करता है (ग्लोबल कॉन्फ़िग नहीं)। यह owner-gated है।
+    ```
+
+  
+</Tab>
+</Tabs>
+
+## व्यक्तिगत-नंबर और स्वयं-चैट व्यवहार
 
 वैश्विक रूप से अक्षम करें:
 
-```json5
-{
-  channels: { whatsapp: { sendReadReceipts: false } },
-}
-```
+- स्वयं-चैट टर्न के लिए read receipts को छोड़ें
+- mention-JID auto-trigger व्यवहार को अनदेखा करें जो अन्यथा आपको स्वयं को ping कर सकता है
+- यदि `messages.responsePrefix` सेट नहीं है, तो स्वयं-चैट replies डिफ़ॉल्ट रूप से `[{identity.name}]` या `[openclaw]` होंगी
 
-प्रति-अकाउंट अक्षम करें:
+## मैसेज normalization और संदर्भ
 
-```json5
-{
-  channels: {
-    whatsapp: {
-      accounts: {
-        personal: { sendReadReceipts: false },
+<AccordionGroup>
+  <Accordion title="Inbound envelope + reply context">
+    इनकमिंग WhatsApp संदेशों को साझा inbound envelope में wrap किया जाता है।
+
+    ````
+    यदि कोई quoted reply मौजूद है, तो संदर्भ इस रूप में जोड़ा जाता है:
+    
+    ```text
+    [Replying to <sender> id:<stanzaId>]
+    <quoted body or media placeholder>
+    [/Replying]
+    ```
+    
+    Reply metadata फ़ील्ड्स भी उपलब्ध होने पर भरे जाते हैं (`ReplyToId`, `ReplyToBody`, `ReplyToSender`, sender JID/E.164)।
+    ````
+
+  
+</Accordion>
+
+  <Accordion title="Media placeholders and location/contact extraction">
+    केवल-मीडिया इनबाउंड संदेशों को निम्न placeholders के साथ normalize किया जाता है:
+
+    ```
+    - `<media:image>`
+    - `<media:video>`
+    - `<media:audio>`
+    - `<media:document>`
+    - `<media:sticker>`
+    
+    Location और contact payloads को रूटिंग से पहले टेक्स्ट संदर्भ में normalize किया जाता है।
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Pending group history injection">
+    Groups के लिए, बिना प्रोसेस किए गए संदेशों को buffer किया जा सकता है और जब bot अंततः ट्रिगर होता है तो संदर्भ के रूप में inject किया जा सकता है।
+
+    ```
+    - डिफ़ॉल्ट सीमा: `50`
+    - कॉन्फ़िग: `channels.whatsapp.historyLimit`
+    - fallback: `messages.groupChat.historyLimit`
+    - `0` अक्षम करता है
+    
+    Injection markers:
+    
+    - `[Chat messages since your last reply - for context]`
+    - `[Current message - respond to this]`
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Read receipts">
+    स्वीकार किए गए इनबाउंड WhatsApp संदेशों के लिए डिफ़ॉल्ट रूप से read receipts सक्षम होते हैं।
+
+    ````
+    वैश्विक रूप से अक्षम करें:
+    
+    ```json5
+    {
+      channels: {
+        whatsapp: {
+          sendReadReceipts: false,
+        },
       },
-    },
-  },
-}
-```
+    }
+    ```
+    
+    प्रति-अकाउंट ओवरराइड:
+    
+    ```json5
+    {
+      channels: {
+        whatsapp: {
+          accounts: {
+            work: {
+              sendReadReceipts: false,
+            },
+          },
+        },
+      },
+    }
+    ```
+    
+    स्वयं-चैट टर्न में, वैश्विक रूप से सक्षम होने पर भी read receipts को छोड़ दिया जाता है।
+    ````
 
-नोट्स:
+  
+</Accordion>
+</AccordionGroup>
 
-- self-chat मोड में रीड रसीदें हमेशा छोड़ी जाती हैं।
+## डिलीवरी, चंकिंग, और मीडिया
 
-## WhatsApp FAQ: संदेश भेजना + पेयरिंग
+<AccordionGroup>
+  <Accordion title="Text chunking">
+    - डिफ़ॉल्ट चंक सीमा: `channels.whatsapp.textChunkLimit = 4000`
+    - `channels.whatsapp.chunkMode = "length" | "newline"`
+    - `newline` मोड पैराग्राफ़ सीमाओं (खाली पंक्तियाँ) को प्राथमिकता देता है, फिर लंबाई-सुरक्षित चंकिंग पर वापस जाता है
+  
+</Accordion>
 
-**Will OpenClaw message random contacts when I link WhatsApp?**  
-No. Default DM policy is **pairing**, so unknown senders only get a pairing code and their message is **not processed**. OpenClaw only replies to chats it receives, or to sends you explicitly trigger (agent/CLI).
+  <Accordion title="Outbound media behavior">
+    - इमेज, वीडियो, ऑडियो (PTT वॉइस-नोट), और दस्तावेज़ पेलोड का समर्थन करता है
+    - वॉइस-नोट संगतता के लिए `audio/ogg` को `audio/ogg; codecs=opus` में पुनर्लिखा जाता है
+    - वीडियो भेजते समय `gifPlayback: true` के माध्यम से एनिमेटेड GIF प्लेबैक समर्थित है
+    - मल्टी-मीडिया रिप्लाई पेलोड भेजते समय कैप्शन पहले मीडिया आइटम पर लागू किए जाते हैं
+    - मीडिया स्रोत HTTP(S), `file://`, या लोकल पाथ हो सकता है
+  
+</Accordion>
 
-**WhatsApp पर पेयरिंग कैसे काम करती है?**  
-पेयरिंग अज्ञात प्रेषकों के लिए DM गेट है:
+  <Accordion title="Media size limits and fallback behavior">
+    - इनबाउंड मीडिया सेव सीमा: `channels.whatsapp.mediaMaxMb` (डिफ़ॉल्ट `50`)
+    - ऑटो-रिप्लाई के लिए आउटबाउंड मीडिया सीमा: `agents.defaults.mediaMaxMb` (डिफ़ॉल्ट `5MB`)
+    - इमेज को सीमा में फिट करने के लिए स्वतः अनुकूलित (रिसाइज़/क्वालिटी समायोजन) किया जाता है
+    - मीडिया भेजने में विफलता होने पर, पहले आइटम के लिए फॉलबैक टेक्स्ट चेतावनी भेजी जाती है ताकि प्रतिक्रिया चुपचाप ड्रॉप न हो
+  
+</Accordion>
+</AccordionGroup>
 
-- नए प्रेषक से पहला DM एक छोटा कोड लौटाता है (संदेश प्रोसेस नहीं होता)।
-- अनुमोदन करें: `openclaw pairing approve whatsapp <code>` (सूची के लिए `openclaw pairing list whatsapp`)।
-- कोड 1 घंटे बाद समाप्त; लंबित अनुरोध प्रति चैनल 3 तक सीमित।
-
-**Can multiple people use different OpenClaw instances on one WhatsApp number?**  
-Yes, by routing each sender to a different agent via `bindings` (peer `kind: "direct"`, sender E.164 like `+15551234567`). Replies still come from the **same WhatsApp account**, and direct chats collapse to each agent's main session, so use **one agent per person**. DM access control (`dmPolicy`/`allowFrom`) is global per WhatsApp account. See [Multi-Agent Routing](/concepts/multi-agent).
-
-**Why do you ask for my phone number in the wizard?**  
-The wizard uses it to set your **allowlist/owner** so your own DMs are permitted. It’s not used for auto-sending. If you run on your personal WhatsApp number, use that same number and enable `channels.whatsapp.selfChatMode`.
-
-## संदेश सामान्यीकरण (मॉडल क्या देखता है)
-
-- `Body` वर्तमान संदेश बॉडी है, एन्वेलप के साथ।
-
-- उद्धृत उत्तर संदर्भ **हमेशा जोड़ा जाता है**:
-
-  ```
-  [Replying to +1555 id:ABC123]
-  <quoted text or <media:...>>
-  [/Replying]
-  ```
-
-- उत्तर मेटाडेटा भी सेट होता है:
-  - `ReplyToId` = stanzaId
-  - `ReplyToBody` = उद्धृत बॉडी या मीडिया प्लेसहोल्डर
-  - `ReplyToSender` = E.164 (जब ज्ञात हो)
-
-- केवल‑मीडिया इनबाउंड संदेश प्लेसहोल्डर का उपयोग करते हैं:
-  - `<media:image|video|audio|document|sticker>`
-
-## समूह
-
-- समूह `agent:<agentId>:whatsapp:group:<jid>` सत्रों से मैप होते हैं।
-- समूह नीति: `channels.whatsapp.groupPolicy = open|disabled|allowlist` (डिफ़ॉल्ट `allowlist`)।
-- सक्रियण मोड:
-  - `mention` (डिफ़ॉल्ट): @mention या regex मैच आवश्यक।
-  - `always`: हमेशा ट्रिगर।
-- `/activation mention|always` केवल owner‑only है और इसे अलग संदेश के रूप में भेजना आवश्यक है।
-- Owner = `channels.whatsapp.allowFrom` (या यदि अनसेट हो तो self E.164)।
-- **इतिहास इंजेक्शन** (केवल लंबित):
-  - हाल के _अप्रोसेस्ड_ संदेश (डिफ़ॉल्ट 50) इसके अंतर्गत डाले जाते हैं:
-    `[Chat messages since your last reply - for context]` (जो संदेश पहले से सत्र में हैं, उन्हें पुनः इंजेक्ट नहीं किया जाता)
-  - वर्तमान संदेश इसके अंतर्गत:
-    `[Current message - respond to this]`
-  - प्रेषक प्रत्यय जोड़ा जाता है: `[from: Name (+E164)]`
-- समूह मेटाडेटा 5 मिनट के लिए कैश किया जाता है (विषय + प्रतिभागी)।
-
-## उत्तर वितरण (थ्रेडिंग)
-
-- WhatsApp Web मानक संदेश भेजता है (वर्तमान Gateway में उद्धृत उत्तर थ्रेडिंग नहीं)।
-- इस चैनल पर रिप्लाई टैग्स अनदेखे किए जाते हैं।
-
-## स्वीकृति प्रतिक्रियाएँ (प्राप्ति पर ऑटो‑रिएक्ट)
-
-WhatsApp can automatically send emoji reactions to incoming messages immediately upon receipt, before the bot generates a reply. This provides instant feedback to users that their message was received.
+## स्वीकृति प्रतिक्रियाएँ
 
 **विन्यास:**
 
-```json
+```json5
 {
   "whatsapp": {
     "ackReaction": {
@@ -260,148 +370,126 @@ WhatsApp can automatically send emoji reactions to incoming messages immediately
 
 **विकल्प:**
 
-- `emoji` (string): Emoji to use for acknowledgment (e.g., "👀", "✅", "📨"). Empty or omitted = feature disabled.
+- इनबाउंड स्वीकार होते ही तुरंत भेजी जाती हैं (प्री-रिप्लाई)
 - `direct` (boolean, डिफ़ॉल्ट: `true`): डायरेक्ट/DM चैट्स में प्रतिक्रियाएँ भेजें।
 - `group` (string, डिफ़ॉल्ट: `"mentions"`): समूह चैट व्यवहार:
-  - `"always"`: सभी समूह संदेशों पर प्रतिक्रिया (बिना @mention भी)
-  - `"mentions"`: केवल तब प्रतिक्रिया जब बॉट @mentioned हो
-  - `"never"`: समूहों में कभी प्रतिक्रिया न करें
+- WhatsApp में `channels.whatsapp.ackReaction` का उपयोग होता है (यहाँ लेगेसी `messages.ackReaction` उपयोग नहीं किया जाता)
 
-**प्रति‑अकाउंट ओवरराइड:**
+## मल्टी-अकाउंट और क्रेडेंशियल्स
 
-```json
-{
-  "whatsapp": {
-    "accounts": {
-      "work": {
-        "ackReaction": {
-          "emoji": "✅",
-          "direct": false,
-          "group": "always"
-        }
-      }
-    }
-  }
-}
-```
+<AccordionGroup>
+  <Accordion title="Account selection and defaults">
+    - अकाउंट आईडी `channels.whatsapp.accounts` से प्राप्त होती हैं
+    - डिफ़ॉल्ट अकाउंट चयन: यदि `default` मौजूद हो तो वही, अन्यथा पहला कॉन्फ़िगर किया गया अकाउंट आईडी (सॉर्टेड)
+    - लुकअप के लिए अकाउंट आईडी आंतरिक रूप से सामान्यीकृत की जाती हैं
+  
+</Accordion>
 
-**व्यवहार नोट्स:**
+  <Accordion title="Credential paths and legacy compatibility">
+    - वर्तमान ऑथ पाथ: `~/.openclaw/credentials/whatsapp/<accountId>/creds.json`
+    - बैकअप फ़ाइल: `creds.json.bak`
+    - `~/.openclaw/credentials/` में लेगेसी डिफ़ॉल्ट ऑथ अभी भी डिफ़ॉल्ट-अकाउंट फ्लो के लिए पहचाना/माइग्रेट किया जाता है
+  
+</Accordion>
 
-- प्रतिक्रियाएँ संदेश प्राप्त होते ही **तुरंत** भेजी जाती हैं, टाइपिंग संकेतकों या बॉट उत्तरों से पहले।
-- `requireMention: false` (activation: always) वाले समूहों में, `group: "mentions"` सभी संदेशों पर प्रतिक्रिया करेगा (केवल @mentions नहीं)।
-- फायर‑एंड‑फॉरगेट: प्रतिक्रिया विफलताओं को लॉग किया जाता है, लेकिन बॉट के उत्तर देने से नहीं रोकतीं।
-- समूह प्रतिक्रियाओं के लिए प्रतिभागी JID स्वतः शामिल किया जाता है।
-- WhatsApp `messages.ackReaction` को अनदेखा करता है; इसके बजाय `channels.whatsapp.ackReaction` का उपयोग करें।
+  <Accordion title="Logout behavior">    `openclaw channels logout --channel whatsapp [--account <id>]` उस अकाउंट के लिए WhatsApp ऑथ स्टेट साफ़ करता है।
 
-## एजेंट टूल (प्रतिक्रियाएँ)
+    ```
+    लेगेसी ऑथ डायरेक्टरी में, `oauth.json` सुरक्षित रखा जाता है जबकि Baileys ऑथ फ़ाइलें हटा दी जाती हैं।
+    ```
 
-- टूल: `whatsapp` with `react` action (`chatJid`, `messageId`, `emoji`, वैकल्पिक `remove`)।
-- वैकल्पिक: `participant` (समूह प्रेषक), `fromMe` (अपने ही संदेश पर प्रतिक्रिया), `accountId` (मल्टी‑अकाउंट)।
-- प्रतिक्रिया हटाने का अर्थ: देखें [/tools/reactions](/tools/reactions)।
-- टूल गेटिंग: `channels.whatsapp.actions.reactions` (डिफ़ॉल्ट: सक्षम)।
+  
+</Accordion>
+</AccordionGroup>
 
 ## सीमाएँ
 
 - आउटबाउंड टेक्स्ट को `channels.whatsapp.textChunkLimit` तक चंक किया जाता है (डिफ़ॉल्ट 4000)।
 - वैकल्पिक नई‑लाइन चंकिंग: लंबाई चंकिंग से पहले खाली लाइनों (पैराग्राफ सीमाएँ) पर विभाजित करने के लिए `channels.whatsapp.chunkMode="newline"` सेट करें।
+  - `channels.whatsapp.actions.reactions`
+  - `channels.whatsapp.actions.polls`
 - इनबाउंड मीडिया सेव `channels.whatsapp.mediaMaxMb` द्वारा सीमित (डिफ़ॉल्ट 50 MB)।
-- आउटबाउंड मीडिया आइटम `agents.defaults.mediaMaxMb` द्वारा सीमित (डिफ़ॉल्ट 5 MB)।
 
 ## आउटबाउंड भेजना (टेक्स्ट + मीडिया)
 
-- सक्रिय वेब लिस्नर का उपयोग करता है; Gateway न चलने पर त्रुटि।
-- टेक्स्ट चंकिंग: प्रति संदेश अधिकतम 4k ( `channels.whatsapp.textChunkLimit` के माध्यम से कॉन्फ़िगर करने योग्य, वैकल्पिक `channels.whatsapp.chunkMode`)।
-- मीडिया:
-  - इमेज/वीडियो/ऑडियो/डॉक्यूमेंट समर्थित।
-  - ऑडियो PTT के रूप में भेजा जाता है; `audio/ogg` => `audio/ogg; codecs=opus`।
-  - कैप्शन केवल पहले मीडिया आइटम पर।
-  - मीडिया फ़ेच HTTP(S) और लोकल पाथ्स का समर्थन करता है।
-  - एनिमेटेड GIFs: इनलाइन लूपिंग के लिए WhatsApp `gifPlayback: true` के साथ MP4 अपेक्षित करता है।
-    - CLI: `openclaw message send --media <mp4> --gif-playback`
-    - Gateway: `send` पैरामीटर में `gifPlayback: true` शामिल
+<AccordionGroup>
+  <Accordion title="Not linked (QR required)">
+    लक्षण: चैनल स्टेटस लिंक नहीं दिखा रहा है।
 
-## वॉयस नोट्स (PTT ऑडियो)
+    ````
+    समाधान:
+    
+    ```bash
+    openclaw channels login --channel whatsapp
+    openclaw channels status
+    ```
+    ````
 
-WhatsApp ऑडियो को **वॉयस नोट्स** (PTT बबल) के रूप में भेजता है।
+  
+</Accordion>
 
-- Best results: OGG/Opus. OpenClaw rewrites `audio/ogg` to `audio/ogg; codecs=opus`.
-- WhatsApp के लिए `[[audio_as_voice]]` अनदेखा किया जाता है (ऑडियो पहले से ही वॉयस नोट के रूप में जाता है)।
+  <Accordion title="Linked but disconnected / reconnect loop">
+    लक्षण: लिंक किया गया अकाउंट बार-बार डिस्कनेक्ट हो रहा है या पुनः कनेक्ट करने की कोशिश कर रहा है।
 
-## मीडिया सीमाएँ + अनुकूलन
+    ````
+    समाधान:
+    
+    ```bash
+    openclaw doctor
+    openclaw logs --follow
+    ```
+    
+    यदि आवश्यक हो, तो `channels login` के साथ पुनः लिंक करें।
+    ````
 
-- डिफ़ॉल्ट आउटबाउंड सीमा: 5 MB (प्रति मीडिया आइटम)।
-- ओवरराइड: `agents.defaults.mediaMaxMb`।
-- इमेजेज़ को सीमा के भीतर JPEG में स्वतः अनुकूलित किया जाता है (रीसाइज़ + क्वालिटी स्वीप)।
-- ओवरसाइज़ मीडिया => त्रुटि; मीडिया उत्तर टेक्स्ट चेतावनी पर फ़ॉलबैक करता है।
+  
+</Accordion>
 
-## हार्टबीट्स
+  <Accordion title="No active listener when sending">
+    जब लक्ष्य अकाउंट के लिए कोई सक्रिय gateway listener मौजूद नहीं होता, तो आउटबाउंड सेंड तुरंत विफल हो जाते हैं।
 
-- **Gateway हार्टबीट** कनेक्शन स्वास्थ्य लॉग करता है (`web.heartbeatSeconds`, डिफ़ॉल्ट 60s)।
-- **एजेंट हार्टबीट** प्रति एजेंट (`agents.list[].heartbeat`) या वैश्विक रूप से
-  `agents.defaults.heartbeat` के माध्यम से कॉन्फ़िगर किया जा सकता है (जब प्रति‑एजेंट प्रविष्टियाँ सेट न हों तो फ़ॉलबैक)।
-  - Uses the configured heartbeat prompt (default: `Read HEARTBEAT.md if it exists (workspace context). Follow it strictly. Do not infer or repeat old tasks from prior chats. If nothing needs attention, reply HEARTBEAT_OK.`) + `HEARTBEAT_OK` skip behavior.
-  - डिलीवरी डिफ़ॉल्ट रूप से अंतिम उपयोग किए गए चैनल पर (या कॉन्फ़िगर किए गए लक्ष्य पर)।
+    ```
+    सुनिश्चित करें कि gateway चल रहा है और अकाउंट लिंक किया गया है।
+    ```
 
-## पुनःकनेक्ट व्यवहार
+  
+</Accordion>
 
-- बैकऑफ़ नीति: `web.reconnect`:
-  - `initialMs`, `maxMs`, `factor`, `jitter`, `maxAttempts`।
-- यदि maxAttempts पहुँच जाता है, तो वेब मॉनिटरिंग रुक जाती है (degraded)।
-- लॉगआउटेड => रोकें और पुनः लिंक की आवश्यकता।
+  <Accordion title="Group messages unexpectedly ignored">
+    इस क्रम में जाँच करें:
 
-## कॉन्फ़िग त्वरित मानचित्र
+    ```
+    - `groupPolicy`
+    - `groupAllowFrom` / `allowFrom`
+    - `groups` allowlist प्रविष्टियाँ
+    - मेंशन गेटिंग (`requireMention` + मेंशन पैटर्न)
+    ```
 
-- `channels.whatsapp.dmPolicy` (DM नीति: pairing/allowlist/open/disabled)।
-- `channels.whatsapp.selfChatMode` (same‑phone सेटअप; बॉट आपका व्यक्तिगत WhatsApp नंबर उपयोग करता है)।
-- `channels.whatsapp.allowFrom` (DM allowlist). WhatsApp uses E.164 phone numbers (no usernames).
-- `channels.whatsapp.mediaMaxMb` (इनबाउंड मीडिया सेव सीमा)।
-- `channels.whatsapp.ackReaction` (संदेश प्राप्ति पर ऑटो‑रिएक्शन: `{emoji, direct, group}`)।
-- `channels.whatsapp.accounts.<accountId>.*` (per-account settings + optional `authDir`).
-- `channels.whatsapp.accounts.<accountId>.mediaMaxMb` (per-account inbound media cap).
-- `channels.whatsapp.accounts.<accountId>.ackReaction` (per-account ack reaction override).
-- `channels.whatsapp.groupAllowFrom` (समूह प्रेषक allowlist)।
-- `channels.whatsapp.groupPolicy` (समूह नीति)।
-- `channels.whatsapp.historyLimit` / `channels.whatsapp.accounts.<accountId>.historyLimit` (group history context; `0` disables).
-- `channels.whatsapp.dmHistoryLimit` (DM history limit in user turns). Per-user overrides: `channels.whatsapp.dms["<phone>"].historyLimit`.
-- `channels.whatsapp.groups` (समूह allowlist + mention गेटिंग डिफ़ॉल्ट; सभी की अनुमति के लिए `"*"` का उपयोग करें)
-- `channels.whatsapp.actions.reactions` (WhatsApp टूल प्रतिक्रियाओं को गेट करें)।
-- `agents.list[].groupChat.mentionPatterns` (या `messages.groupChat.mentionPatterns`)
-- `messages.groupChat.historyLimit`
-- `channels.whatsapp.messagePrefix` (inbound prefix; per-account: `channels.whatsapp.accounts.<accountId>.messagePrefix`; deprecated: `messages.messagePrefix`)
-- `messages.responsePrefix` (आउटबाउंड प्रीफ़िक्स)
-- `agents.defaults.mediaMaxMb`
-- `agents.defaults.heartbeat.every`
-- `agents.defaults.heartbeat.model` (वैकल्पिक ओवरराइड)
-- `agents.defaults.heartbeat.target`
-- `agents.defaults.heartbeat.to`
-- `agents.defaults.heartbeat.session`
-- `agents.list[].heartbeat.*` (प्रति‑एजेंट ओवरराइड्स)
-- `session.*` (scope, idle, store, mainKey)
-- `web.enabled` (false होने पर चैनल स्टार्टअप अक्षम)
-- `web.heartbeatSeconds`
-- `web.reconnect.*`
+  
+</Accordion>
 
-## लॉग्स + समस्या‑निवारण
+  <Accordion title="Bun runtime warning">
+    WhatsApp gateway रनटाइम में Node का उपयोग होना चाहिए। स्थिर WhatsApp/Telegram gateway संचालन के लिए Bun को असंगत के रूप में चिह्नित किया गया है।
+  
+</Accordion>
+</AccordionGroup>
 
-- उपप्रणालियाँ: `whatsapp/inbound`, `whatsapp/outbound`, `web-heartbeat`, `web-reconnect`।
-- लॉग फ़ाइल: `/tmp/openclaw/openclaw-YYYY-MM-DD.log` (कॉन्फ़िगर करने योग्य)।
-- समस्या‑निवारण मार्गदर्शिका: [Gateway troubleshooting](/gateway/troubleshooting)।
+## कॉन्फ़िगरेशन संदर्भ संकेत
 
-## समस्या‑निवारण (त्वरित)
+प्राथमिक संदर्भ:
 
-**लिंक नहीं / QR लॉगिन आवश्यक**
+- [Configuration reference - WhatsApp](/gateway/configuration-reference#whatsapp)
 
-- लक्षण: `channels status` में `linked: false` दिखता है या “Not linked” चेतावनी।
-- समाधान: Gateway होस्ट पर `openclaw channels login` चलाएँ और QR स्कैन करें (WhatsApp → Settings → Linked Devices)।
+उच्च-प्रभाव वाले WhatsApp फ़ील्ड्स:
 
-**लिंक्ड लेकिन डिस्कनेक्टेड / पुनःकनेक्ट लूप**
+- एक्सेस: `dmPolicy`, `allowFrom`, `groupPolicy`, `groupAllowFrom`, `groups`
+- डिलीवरी: `textChunkLimit`, `chunkMode`, `mediaMaxMb`, `sendReadReceipts`, `ackReaction`
+- मल्टी-अकाउंट: `accounts.<id>.enabled`, `accounts.<id>.authDir`, अकाउंट-स्तरीय ओवरराइड्स
+- ऑपरेशन्स: `configWrites`, `debounceMs`, `web.enabled`, `web.heartbeatSeconds`, `web.reconnect.*`
+- सेशन व्यवहार: `session.dmScope`, `historyLimit`, `dmHistoryLimit`, `dms.<id>.historyLimit`
 
-- लक्षण: `channels status` में `running, disconnected` दिखता है या “Linked but disconnected” चेतावनी।
-- Fix: `openclaw doctor` (or restart the gateway). If it persists, relink via `channels login` and inspect `openclaw logs --follow`.
+## संबंधित
 
-**Bun रनटाइम**
-
-- Bun is **not recommended**. WhatsApp (Baileys) and Telegram are unreliable on Bun.
-  Run the gateway with **Node**. (See Getting Started runtime note.)
-
-
+- [Pairing](/channels/pairing)
+- [Channel routing](/channels/channel-routing)
+- [Troubleshooting](/channels/troubleshooting)

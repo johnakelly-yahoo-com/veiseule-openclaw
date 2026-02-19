@@ -1,4 +1,7 @@
 ---
+summary: "Paano nag-uulat ang macOS app ng mga estado ng kalusugan ng gateway/Baileys"
+read_when:
+  - Pag-debug ng mga indicator ng kalusugan ng mac app
 title: "Mga Health Check"
 ---
 
@@ -29,5 +32,3 @@ Paano makita kung malusog ang naka-link na channel mula sa menu bar app.
 ## Kapag may alinlangan
 
 - Maaari mo pa ring gamitin ang CLI flow sa [Gateway health](/gateway/health) (`openclaw status`, `openclaw status --deep`, `openclaw health --json`) at i-tail ang `/tmp/openclaw/openclaw-*.log` para sa `web-heartbeat` / `web-reconnect`.
-
-

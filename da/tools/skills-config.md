@@ -1,4 +1,8 @@
 ---
+summary: "Skema og eksempler for Skills-konfiguration"
+read_when:
+  - Tilføjelse eller ændring af Skills-konfiguration
+  - Justering af bundtet tilladelsesliste eller installationsadfærd
 title: "Skills-konfiguration"
 ---
 
@@ -70,5 +74,3 @@ Brug en af følgende:
 - bag miljøvariablerne ind i dit brugerdefinerede sandbox-image
 
 Global `env` og `skills.entries.<skill>.env/apiKey` gælder kun for **vært** kører.
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "Audite o que pode gastar dinheiro, quais chaves são usadas e como visualizar o uso"
+read_when:
+  - Você quer entender quais recursos podem chamar APIs pagas
+  - Você precisa auditar chaves, custos e visibilidade de uso
+  - Você está explicando relatórios de custo via /status ou /usage
 title: "Uso e custos de API"
 ---
 
@@ -131,5 +136,3 @@ Skills podem armazenar `apiKey` em `skills.entries.<name>.apiKey`. Se uma skill 
 APIs externas, ela pode incorrer em custos de acordo com o provedor da skill.
 
 Veja [Skills](/tools/skills).
-
-

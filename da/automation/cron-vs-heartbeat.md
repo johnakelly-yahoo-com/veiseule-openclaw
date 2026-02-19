@@ -1,4 +1,9 @@
 ---
+summary: "Vejledning til valg mellem heartbeat og cron-jobs til automatisering"
+read_when:
+  - Når du beslutter, hvordan tilbagevendende opgaver skal planlægges
+  - Opsætning af baggrundsovervågning eller notifikationer
+  - Optimering af tokenforbrug ved periodiske tjek
 title: "Cron vs. Heartbeat"
 ---
 
@@ -212,7 +217,7 @@ Både heartbeat og cron kan interagere med hovedsessionen, men på forskellige m
 
 |          | Heartbeat                        | Cron (main)               | Cron (isoleret)            |
 | -------- | -------------------------------- | -------------------------------------------- | --------------------------------------------- |
-| Session  | Primær                             | Main (via systemhændelse) | `cron:<jobId>`                                |
+| Session  | Primær                           | Main (via systemhændelse) | `cron:<jobId>`                                |
 | Historik | Delt                             | Delt                                         | Ny ved hver kørsel                            |
 | Kontekst | Fuld                             | Fuld                                         | Ingen (starter rent)       |
 | Model    | Hovedsessionens model            | Hovedsessionens model                        | Kan overrides                                 |
@@ -275,5 +280,3 @@ openclaw cron add \
 - [Heartbeat](/gateway/heartbeat) – fuld heartbeat-konfiguration
 - [Cron jobs](/automation/cron-jobs) – fuld cron CLI- og API-reference
 - [System](/cli/system) – systemhændelser + heartbeat-kontroller
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "Contexto: o que o modelo vê, como é construído e como inspecioná-lo"
+read_when:
+  - Você quer entender o que “contexto” significa no OpenClaw
+  - Você está depurando por que o modelo “sabe” algo (ou esqueceu)
+  - Você quer reduzir a sobrecarga de contexto (/context, /status, /compact)
 title: "Contexto"
 ---
 
@@ -107,7 +112,7 @@ Por padrão, o OpenClaw injeta um conjunto fixo de arquivos do workspace (se pre
 - `HEARTBEAT.md`
 - `BOOTSTRAP.md` (apenas na primeira execução)
 
-Arquivos grandes são truncados por arquivo usando `agents.defaults.bootstrapMaxChars` (padrão `20000` caracteres). `/context` mostra os tamanhos **brutos vs injetados** e se houve truncamento.
+Arquivos grandes são truncados por arquivo usando `agents.defaults.bootstrapMaxChars` (padrão `20000` caracteres). O OpenClaw também aplica um limite total de injeção de bootstrap entre arquivos com `agents.defaults.bootstrapTotalMaxChars` (padrão `24000` caracteres). `/context` mostra os tamanhos **brutos vs injetados** e se houve truncamento.
 
 ## Skills: o que é injetado vs carregado sob demanda
 
@@ -154,5 +159,3 @@ Docs: [Sessão](/concepts/session), [Compactação](/concepts/compaction), [Poda
 - `System prompt (estimate)` = calculado dinamicamente quando não existe relatório de execução (ou ao executar via um backend de CLI que não gera o relatório).
 
 De qualquer forma, ele reporta tamanhos e principais contribuintes; **não** despeja o prompt do sistema completo nem os esquemas de ferramentas.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw voicecall` için CLI başvurusu (voice-call eklentisi komut yüzeyi)"
+read_when:
+  - Voice-call eklentisini kullanıyorsunuz ve CLI giriş noktalarını istiyorsunuz
+  - "`voicecall call|continue|status|tail|expose` için hızlı örnekler istiyorsunuz"
 title: "voicecall"
 ---
 
@@ -28,5 +32,3 @@ openclaw voicecall unexpose
 ```
 
 Güvenlik notu: webhook uç noktasını yalnızca güvendiğiniz ağlara açın. Mümkün olduğunda Funnel yerine Tailscale Serve'ü tercih edin.
-
-

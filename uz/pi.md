@@ -28,12 +28,12 @@ title: "42. Pi integratsiya arxitekturasi"
 }
 ```
 
-| Paket           | Maqsadi                                                                                                                |
-| ----------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `pi-ai`           | Asosiy LLM abstraksiyalari: `Model`, `streamSimple`, xabar turlari, provayder APIlari                           |
-| `pi-agent-core`   | Agent sikli, vositalarni bajarish, `AgentMessage` turlari                                                                       |
+| Paket             | Maqsadi                                                                                                                        |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| `pi-ai`           | Asosiy LLM abstraksiyalari: `Model`, `streamSimple`, xabar turlari, provayder APIlari                          |
+| `pi-agent-core`   | Agent sikli, vositalarni bajarish, `AgentMessage` turlari                                                                      |
 | `pi-coding-agent` | Yuqori darajadagi SDK: `createAgentSession`, `SessionManager`, `AuthStorage`, `ModelRegistry`, ichki vositalar |
-| `pi-tui`          | Terminal UI components (used in OpenClaw's local TUI mode)                                          |
+| `pi-tui`          | Terminal UI components (used in OpenClaw's local TUI mode)                                                  |
 
 ## File Structure
 
@@ -516,7 +516,7 @@ This provides the interactive terminal experience similar to pi's native mode.
 | Invocation      | `pi` command / RPC                  | SDK via `createAgentSession()`                                                                                    |
 | Tools           | Default coding tools                | Custom OpenClaw tool suite                                                                                        |
 | System prompt   | AGENTS.md + prompts | Dynamic per-channel/context                                                                                       |
-| Session storage | `~/.pi/agent/sessions/`             | `~/.openclaw/agents/<agentId>/sessions/` (or `$OPENCLAW_STATE_DIR/agents/<agentId>/sessions/`) |
+| Session storage | `~/.pi/agent/sessions/`             | `~/.openclaw/agents/&lt;agentId&gt;/sessions/` (or `$OPENCLAW_STATE_DIR/agents/&lt;agentId&gt;/sessions/`) |
 | Auth            | Single credential                   | Multi-profile with rotation                                                                                       |
 | Extensions      | Loaded from disk                    | Programmatic + disk paths                                                                                         |
 | Event handling  | TUI rendering                       | Callback-based (onBlockReply, etc.)                                            |
@@ -610,5 +610,3 @@ All existing tests that cover the pi integration and its extensions:
 - `src/agents/pi-tools.policy.test.ts`
 - `src/agents/pi-tools.safe-bins.test.ts`
 - `src/agents/pi-tools.workspace-paths.test.ts`
-
-

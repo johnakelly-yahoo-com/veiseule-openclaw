@@ -1,4 +1,9 @@
 ---
+summary: "페어링 개요: 누가 다이렉트 메시지를 보낼 수 있는지와 어떤 노드가 참여할 수 있는지 승인"
+read_when:
+  - 다이렉트 메시지 액세스 제어 설정
+  - 새로운 iOS/Android 노드 페어링
+  - OpenClaw 보안 태세 검토
 title: "페어링"
 ---
 
@@ -33,7 +38,7 @@ openclaw pairing approve telegram <CODE>
 
 지원되는 채널: `telegram`, `whatsapp`, `signal`, `imessage`, `discord`, `slack`.
 
-### 상태가 저장되는 위치
+### Where the state lives
 
 `~/.openclaw/credentials/` 아래에 저장됩니다:
 
@@ -95,5 +100,3 @@ openclaw devices reject <requestId>
   - iMessage (레거시): [iMessage](/channels/imessage)
   - Discord: [Discord](/channels/discord)
   - Slack: [Slack](/channels/slack)
-
-

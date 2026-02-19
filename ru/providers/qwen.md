@@ -1,4 +1,8 @@
 ---
+summary: "Используйте OAuth Qwen (бесплатный уровень) в OpenClaw"
+read_when:
+  - Вы хотите использовать Qwen с OpenClaw
+  - Вам нужен доступ к Qwen Coder по OAuth на бесплатном уровне
 title: "Qwen"
 ---
 
@@ -47,5 +51,3 @@ openclaw models set qwen-portal/coder-model
 - Базовый URL по умолчанию: `https://portal.qwen.ai/v1` (переопределите с помощью
   `models.providers.qwen-portal.baseUrl`, если Qwen предоставит другой endpoint).
 - [Model providers](/concepts/model-providers) для правил, общих для провайдеров.
-
-

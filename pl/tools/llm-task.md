@@ -1,4 +1,8 @@
 ---
+summary: "„Zadania LLM wyłącznie w JSON do workflow (opcjonalne narzędzie wtyczki)”"
+read_when:
+  - Chcesz mieć krok LLM wyłącznie w JSON wewnątrz workflow
+  - Potrzebujesz wyjścia LLM walidowanego schematem do automatyzacji
 title: "„Zadanie LLM”"
 ---
 
@@ -109,5 +113,3 @@ openclaw.invoke --tool llm-task --action json --args-json '{
 - Podczas tego uruchomienia żadne narzędzia nie są udostępniane modelowi.
 - Traktuj wyjście jako niezaufane, dopóki nie zostanie zwalidowane za pomocą `schema`.
 - Umieszczaj zatwierdzenia przed każdym krokiem wywołującym skutki uboczne (send, post, exec).
-
-

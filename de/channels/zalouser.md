@@ -1,4 +1,8 @@
 ---
+summary: "Unterstützung für persönliche Zalo-Konten über zca-cli (QR-Login), Funktionen und Konfiguration"
+read_when:
+  - Einrichten von Zalo Personal für OpenClaw
+  - Debugging von Zalo-Personal-Login oder Nachrichtenfluss
 title: "Zalo Personal"
 ---
 
@@ -134,5 +138,3 @@ Konten werden auf zca-Profile abgebildet. Beispiel:
 
 - `openclaw channels status --probe`
 - Erneut anmelden: `openclaw channels logout --channel zalouser && openclaw channels login --channel zalouser`
-
-

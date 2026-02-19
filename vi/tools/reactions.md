@@ -1,4 +1,7 @@
 ---
+summary: "Ngữ nghĩa reaction dùng chung giữa các kênh"
+read_when:
+  - Làm việc với reactions ở bất kỳ kênh nào
 title: "Phản ứng"
 ---
 
@@ -17,5 +20,3 @@ Ghi chú theo kênh:
 - **Telegram**: `emoji` trống sẽ gỡ các reaction của bot; `remove: true` cũng gỡ reaction nhưng vẫn yêu cầu `emoji` không trống để xác thực công cụ.
 - **WhatsApp**: `emoji` trống sẽ gỡ reaction của bot; `remove: true` ánh xạ thành emoji trống (vẫn yêu cầu `emoji`).
 - **Signal**: thông báo reaction đến sẽ phát ra sự kiện hệ thống khi `channels.signal.reactionNotifications` được bật.
-
-

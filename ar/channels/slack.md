@@ -1,60 +1,33 @@
 ---
+summary: "إعداد Slack لوضع Socket أو وضع Webhook عبر HTTP"
+read_when:
+  - عند إعداد Slack أو استكشاف أخطاء وضع Socket/HTTP في Slack
 title: "Slack"
 ---
 
 # Slack
 
-## وضع Socket (الافتراضي)
+الحالة: جاهز للاستخدام في بيئة الإنتاج للرسائل الخاصة (DMs) + القنوات عبر تكاملات تطبيق Slack. الوضع الافتراضي هو Socket Mode؛ كما أن وضع HTTP Events API مدعوم أيضًا.
 
-### إعداد سريع (للمبتدئين)
+<CardGroup cols={3}>
+  <Card title="Pairing" icon="link" href="/channels/pairing">Slack DMs تكون في وضع الاقتران افتراضيًا.
+</Card>
+  <Card title="Slash commands" icon="terminal" href="/tools/slash-commands">سلوك الأوامر الأصلي وفهرس الأوامر.
+</Card>
+  <Card title="Channel troubleshooting" icon="wrench" href="/channels/troubleshooting">أدلة تشخيص وإصلاح عبر القنوات.
+</Card>
+</CardGroup>
 
-1. أنشئ تطبيق Slack وفعّل **Socket Mode**.
-2. أنشئ **App Token** (`xapp-...`) و**Bot Token** (`xoxb-...`).
-3. عيّن الرموز لـ OpenClaw وابدأ الـ Gateway.
+## إعداد سريع (للمبتدئين)
 
-التهيئة الدنيا:
+<Tabs>
+  <Tab title="Socket Mode (default)">
+    <Steps>
+      <Step title="Create Slack app and tokens">        في إعدادات تطبيق Slack:
 
-```json5
-{
-  channels: {
-    slack: {
-      enabled: true,
-      appToken: "xapp-...",
-      botToken: "xoxb-...",
-    },
-  },
-}
-```
-
-### الإعداد
-
-1. أنشئ تطبيق Slack (From scratch) في [https://api.slack.com/apps](https://api.slack.com/apps).
-2. **Socket Mode** → فعّل الخيار. ثم انتقل إلى **Basic Information** → **App-Level Tokens** → **Generate Token and Scopes** مع النطاق `connections:write`. انسخ **App Token** (`xapp-...`).
-3. **OAuth & Permissions** → أضف نطاقات رمز البوت (استخدم البيان أدناه). انقر **Install to Workspace**. انسخ **Bot User OAuth Token** (`xoxb-...`).
-4. اختياري: **OAuth & Permissions** → أضف **User Token Scopes** (انظر قائمة القراءة فقط أدناه). أعد تثبيت التطبيق وانسخ **User OAuth Token** (`xoxp-...`).
-5. **Event Subscriptions** → فعّل الأحداث واشترك في:
-   - `message.*` (يتضمن التعديلات/الحذف/بثّ سلاسل المحادثات)
-   - `app_mention`
-   - `reaction_added`, `reaction_removed`
-   - `member_joined_channel`, `member_left_channel`
-   - `channel_rename`
-   - `pin_added`, `pin_removed`
-6. ادعُ البوت إلى القنوات التي تريد أن يقرأها.
-7. الأوامر المائلة → أنشئ `/openclaw` إذا كنت تستخدم `channels.slack.slashCommand`. إذا فعّلت الأوامر الأصلية، فأضف أمرًا مائلًا واحدًا لكل أمر مدمج (بنفس أسماء `/help`). الوضع الافتراضي للأوامر الأصلية في Slack هو الإيقاف ما لم تضبط `channels.slack.commands.native: true` (القيمة العامة `commands.native` هي `"auto"` والتي تُبقي Slack مُعطّلًا).
-8. **App Home** → فعّل **Messages Tab** حتى يتمكن المستخدمون من مراسلة البوت مباشرة.
-
-استخدم البيان أدناه كي تبقى النطاقات والأحداث متزامنة.
-
-دعم تعدد الحسابات: استخدم `channels.slack.accounts` مع رموز لكل حساب وخيار `name` الاختياري. راجع [`gateway/configuration`](/gateway/configuration#telegramaccounts--discordaccounts--slackaccounts--signalaccounts--imessageaccounts) للنمط المشترك.
-
-### تهيئة OpenClaw (وضع Socket)
-
-تعيين الرموز المميزة عن طريق vars env (مستحسن):
-
-- `SLACK_APP_TOKEN=xapp-...`
-- `SLACK_BOT_TOKEN=xoxb-...`
-
-أو عبر التهيئة:
+        ```
+        **Socket Mode** → فعّل الخيار. ثم انتقل إلى **Basic Information** → **App-Level Tokens** → **Generate Token and Scopes** مع النطاق `connections:write`. انسخ **App Token** (`xapp-...`).
+        ```
 
 ```json5
 {
@@ -68,75 +41,52 @@ title: "Slack"
 }
 ```
 
-### رمز المستخدم (اختياري)
+        ```
+            الرجوع إلى متغيرات البيئة (للحساب الافتراضي فقط):
+        ```
 
-يمكن لـ OpenClaw استخدام رمز مستخدم Slack (`xoxp-...`) لعمليات القراءة (السجل،
-التثبيتات، التفاعلات، الرموز التعبيرية، معلومات الأعضاء). افتراضيًا يبقى هذا للقراءة فقط: تفضّل القراءات رمز المستخدم عند توفره، بينما تستمر الكتابات باستخدام رمز البوت ما لم تختَر خلاف ذلك صراحةً. حتى مع `userTokenReadOnly: false`، يبقى رمز البوت مفضّلًا للكتابة عند توفره.
-
-تُضبط رموز المستخدم في ملف التهيئة (لا يوجد دعم لمتغيرات البيئة). ولتعدد الحسابات، اضبط `channels.slack.accounts.<id>.userToken`.
-
-مثال باستخدام رموز البوت + التطبيق + المستخدم:
-
-```json5
-{
-  channels: {
-    slack: {
-      enabled: true,
-      appToken: "xapp-...",
-      botToken: "xoxb-...",
-      userToken: "xoxp-...",
-    },
-  },
-}
+```bash
+`SLACK_APP_TOKEN=xapp-...`
 ```
 
-مثال مع تعيين userTokenReadOnly صراحةً (السماح بكتابات رمز المستخدم):
+        
+</Step>
+      
+        <Step title="الاشتراك في أحداث التطبيق">
+          اشترك في أحداث البوت التالية:
+      
+          - `app_mention`
+          - `message.channels`, `message.groups`, `message.im`, `message.mpim`
+          - `reaction_added`, `reaction_removed`
+          - `member_joined_channel`, `member_left_channel`
+          - `channel_rename`
+          - `pin_added`, `pin_removed`
+      
+          فعّل أيضًا **Messages Tab** في App Home للرسائل الخاصة (DMs).
+        
+</Step>
+      
+        <Step title="تشغيل Gateway">
 
-```json5
-{
-  channels: {
-    slack: {
-      enabled: true,
-      appToken: "xapp-...",
-      botToken: "xoxb-...",
-      userToken: "xoxp-...",
-      userTokenReadOnly: false,
-    },
-  },
-}
+```bash
+openclaw gateway
 ```
 
-#### استخدام الرموز
+        
+</Step>
+      
+</Steps>
 
-- عمليات القراءة (السجل، قائمة التفاعلات، قائمة التثبيتات، قائمة الرموز التعبيرية، معلومات الأعضاء،
-  البحث) تفضّل رمز المستخدم عند تهيئته، وإلا فترمز البوت.
-- عمليات الكتابة (إرسال/تعديل/حذف الرسائل، إضافة/إزالة التفاعلات، تثبيت/إلغاء تثبيت،
-  رفع الملفات) تستخدم رمز البوت افتراضيًا. إذا كان `userTokenReadOnly: false` ولا يتوفر رمز بوت،
-  يلجأ OpenClaw إلى رمز المستخدم.
+  
+</Tab>
 
-### سياق السجل
+  <Tab title="HTTP Events API mode">
+    <Steps>
+      <Step title="Configure Slack app for HTTP">
 
-- يتحكم `channels.slack.historyLimit` (أو `channels.slack.accounts.*.historyLimit`) في عدد رسائل القناة/المجموعة الحديثة التي تُضمَّن في الموجّه.
-- يعود افتراضيًا إلى `messages.groupChat.historyLimit`. عيّن `0` للتعطيل (الافتراضي 50).
-
-## وضع HTTP (واجهة الأحداث)
-
-استخدم وضع Webhook عبر HTTP عندما يكون الـ Gateway قابلاً للوصول من Slack عبر HTTPS (وهو شائع في نشر الخوادم).
-يستخدم وضع HTTP واجهة الأحداث + التفاعلية + الأوامر المائلة مع عنوان طلب مشترك.
-
-### الإعداد (وضع HTTP)
-
-1. أنشئ تطبيق Slack و**عطّل Socket Mode** (اختياري إذا كنت تستخدم HTTP فقط).
-2. **Basic Information** → انسخ **Signing Secret**.
-3. **OAuth & Permissions** → ثبّت التطبيق وانسخ **Bot User OAuth Token** (`xoxb-...`).
-4. **Event Subscriptions** → فعّل الأحداث وعيّن **Request URL** إلى مسار Webhook للـ Gateway (الافتراضي `/slack/events`).
-5. **Interactivity & Shortcuts** → فعّل وعيّن **Request URL** نفسه.
-6. **Slash Commands** → عيّن **Request URL** نفسه لأوامرك.
-
-مثال على عنوان الطلب:
-`https://gateway-host/slack/events`
-
-### تهيئة OpenClaw (الحد الأدنى)
+        ```
+        استخدم وضع Webhook عبر HTTP عندما يكون الـ Gateway قابلاً للوصول من Slack عبر HTTPS (وهو شائع في نشر الخوادم). يستخدم وضع HTTP واجهة الأحداث + التفاعلية + الأوامر المائلة مع عنوان طلب مشترك.
+        ```
 
 ```json5
 {
@@ -152,13 +102,221 @@ title: "Slack"
 }
 ```
 
-وضع HTTP متعدد الحسابات: اضبط `channels.slack.accounts.<id>.mode = "http"` وقدّم
-`webhookPath` فريدًا لكل حساب بحيث يشير كل تطبيق Slack إلى عنوان URL خاص به.
+        
+</Step>
+      
+        <Step title="استخدام مسارات webhook فريدة لوضع HTTP متعدد الحسابات">
+          يتم دعم وضع HTTP لكل حساب على حدة.
+      
+          امنح كل حساب `webhookPath` مميزًا حتى لا تتعارض عمليات التسجيل.
+        
+</Step>
+      
+</Steps>
 
-### البيان (اختياري)
+  
+</Tab>
+</Tabs>
 
-استخدم بيان تطبيق Slack هذا لإنشاء التطبيق بسرعة (عدّل الاسم/الأمر إذا رغبت). ضمّن
-نطاقات المستخدم إذا كنت تخطط لتهيئة رمز مستخدم.
+## نموذج الرموز (Tokens)
+
+- `botToken` + `appToken` مطلوبان لوضع Socket Mode.
+- وضع HTTP يتطلب `botToken` + `signingSecret`.
+- الرموز في الإعدادات تتجاوز الرجوع إلى متغيرات البيئة.
+- الرجوع إلى متغيرات البيئة `SLACK_BOT_TOKEN` / `SLACK_APP_TOKEN` ينطبق فقط على الحساب الافتراضي.
+- `userToken` (`xoxp-...`) يقتصر على الإعدادات فقط (لا يوجد رجوع إلى متغيرات البيئة) ويكون افتراضيًا بسلوك للقراءة فقط (`userTokenReadOnly: true`).
+- اختياري: أضف `chat:write.customize` إذا كنت تريد أن تستخدم الرسائل الصادرة هوية الوكيل النشطة (اسم مستخدم `username` وأيقونة مخصصان). `icon_emoji` يستخدم صيغة `:emoji_name:`.
+
+<Tip>
+بالنسبة للإجراءات/قراءة الدليل، يمكن تفضيل user token عند تهيئته. حتى مع `userTokenReadOnly: false`، يبقى رمز البوت مفضّلًا للكتابة عند توفره.
+</Tip>
+
+## التحكم في الوصول والتوجيه
+
+<Tabs>
+  <Tab title="DM policy">للسماح للجميع: عيّن `channels.slack.dm.policy="open"` و`channels.slack.dm.allowFrom=["*"]`.
+
+    ```
+    - `pairing` (افتراضي)
+    - `allowlist`
+    - `open` (يتطلب أن يتضمن `channels.slack.allowFrom` القيمة `"*"`؛ قديم: `channels.slack.dm.allowFrom`)
+    - `disabled`
+    
+    إعدادات DM:
+    
+    - `dm.enabled` (افتراضيًا true)
+    - `channels.slack.allowFrom` (مفضل)
+    - `dm.allowFrom` (قديم)
+    - `dm.groupEnabled` (الرسائل الجماعية الخاصة افتراضيًا false)
+    - `dm.groupChannels` (قائمة سماح اختيارية لـ MPIM)
+    
+    يتم الاقتران في الرسائل الخاصة باستخدام `openclaw pairing approve slack <code>`.
+    ```
+
+  
+</Tab>
+
+  <Tab title="Channel policy">يتحكم `channels.slack.groupPolicy` في التعامل مع القنوات (`open|disabled|allowlist`).
+
+    ```
+    متصل لكن لا توجد ردود في القنوات: القناة محظورة بواسطة `groupPolicy` أو غير مدرجة في قائمة السماح `channels.slack.channels`.
+    ```
+
+  
+</Tab>
+
+  <Tab title="Mentions and channel users">رسائل القنوات تتطلب الإشارة (mention) افتراضيًا.
+
+    ```
+    يتحكم ضبط الإشارة عبر `channels.slack.channels` (عيّن `requireMention` إلى `true`)؛ كما تُحتسب `agents.list[].groupChat.mentionPatterns` (أو `messages.groupChat.mentionPatterns`) كإشارات أيضًا.
+    ```
+
+  
+</Tab>
+</Tabs>
+
+## الأوامر وسلوك أوامر الشرطة المائلة (slash)
+
+- الوضع الافتراضي للأوامر الأصلية في Slack هو الإيقاف ما لم تضبط `channels.slack.commands.native: true` (القيمة العامة `commands.native` هي `"auto"` والتي تُبقي Slack مُعطّلًا).
+- {
+  channels: {
+  slack: {
+  enabled: true,
+  appToken: "xapp-...",
+  botToken: "xoxb-...",
+  userToken: "xoxp-...",
+  },
+  },
+  }
+- عند تفعيل الأوامر الأصلية، قم بتسجيل أوامر slash المطابقة في Slack (أسماء `/<command>`).
+- إذا فعّلت الأوامر الأصلية، فأضف إدخال `slash_commands` واحدًا لكل أمر تريد كشفه (مطابقًا لقائمة `/help`). تجاوز ذلك باستخدام `channels.slack.commands.native`.
+
+إعدادات أمر slash الافتراضية:
+
+- `enabled`: عيّن `false` لتعطيل القناة.
+- `name: "openclaw"`
+- `sessionPrefix: "slack:slash"`
+- `ephemeral: true`
+
+تستخدم جلسات slash مفاتيح معزولة:
+
+- تستخدم الأوامر المائلة جلسات `agent:<agentId>:slack:slash:<userId>` (البادئة قابلة للتهيئة عبر `channels.slack.slashCommand.sessionPrefix`).
+
+ومع ذلك يتم توجيه تنفيذ الأمر إلى جلسة المحادثة المستهدفة (`CommandTargetSessionKey`).
+
+## الخيوط (Threads)، الجلسات، وعلامات الرد
+
+- يتم توجيه الرسائل الخاصة كـ `direct`؛ والقنوات كـ `channel`؛ وMPIMs كـ `group`.
+- مع الإعداد الافتراضي `session.dmScope=main`، يتم دمج رسائل Slack الخاصة ضمن الجلسة الرئيسية للوكيل.
+- تُطابِق القنوات جلسات `agent:<agentId>:slack:channel:<channelId>`.
+- يمكن أن تنشئ الردود في الخيوط لاحقات جلسة للخيط (`:thread:<threadTs>`) عند الاقتضاء.
+- القيمة الافتراضية لـ `channels.slack.thread.historyScope` هي `thread`؛ و`thread.inheritParent` افتراضيًا `false`.
+- `channels.slack.thread.initialHistoryLimit` يتحكم في عدد رسائل الخيط الحالية التي يتم جلبها عند بدء جلسة خيط جديدة (الافتراضي `20`؛ عيّنها إلى `0` للتعطيل).
+
+عناصر التحكم في الرد ضمن الخيوط:
+
+- {
+  channels: {
+  slack: {
+  replyToMode: "off",
+  replyToModeByChatType: { group: "first" },
+  },
+  },
+  }
+- {
+  channels: {
+  slack: {
+  replyToMode: "first",
+  replyToModeByChatType: { direct: "off", group: "off" },
+  },
+  },
+  }
+- خيار قديم احتياطي للمحادثات المباشرة: `channels.slack.dm.replyToMode`
+
+يتم دعم علامات الرد اليدوية:
+
+- `[[reply_to_current]]`
+- `[[reply_to:<id>]]`
+
+ملاحظة: يؤدي `replyToMode="off"` إلى تعطيل ترابط الردود الضمني. لا تزال وسوم `[[reply_to_*]]` الصريحة مُعتمدة.
+
+## الوسائط، التقسيم، والتسليم
+
+<AccordionGroup>
+  <Accordion title="Inbound attachments">
+    يتم تنزيل مرفقات ملفات Slack من عناوين URL خاصة مستضافة على Slack (تدفق طلبات بمصادقة الرمز) وكتابتها في مخزن الوسائط عند نجاح الجلب والسماح بحدود الحجم.
+
+    ```
+    يبلغ الحد الأقصى الافتراضي لحجم البيانات الواردة وقت التشغيل `20MB` ما لم يتم تجاوزه عبر `channels.slack.mediaMaxMb`.
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Outbound text and files">
+    - تستخدم مقاطع النص `channels.slack.textChunkLimit` (الافتراضي 4000)
+    - يفعّل `channels.slack.chunkMode="newline"` التقسيم حسب الفقرات أولاً
+    - تستخدم عمليات إرسال الملفات واجهات Slack upload APIs ويمكن أن تتضمن ردودًا ضمن سلاسل المحادثات (`thread_ts`)
+    - يتبع الحد الأقصى للوسائط الصادرة قيمة `channels.slack.mediaMaxMb` عند تهيئته؛ وإلا تستخدم عمليات الإرسال الافتراضية حسب نوع MIME من مسار معالجة الوسائط
+  
+</Accordion>
+
+  <Accordion title="Delivery targets">
+    الأهداف الصريحة المفضلة:
+
+    ```
+    - `user:<id>` للرسائل المباشرة (DMs)
+    - `channel:<id>` للقنوات
+    
+    يتم فتح رسائل Slack المباشرة عبر Slack conversation APIs عند الإرسال إلى أهداف المستخدمين.
+    ```
+
+  
+</Accordion>
+</AccordionGroup>
+
+## الإجراءات والضوابط
+
+يمكن تقييد إجراءات أدوات Slack باستخدام `channels.slack.actions.*`:
+
+مجموعات الإجراءات المتاحة في أدوات Slack الحالية:
+
+| سياسة المجموعات | الافتراضي |
+| --------------- | --------- |
+| messages        | مفعّل     |
+| reactions       | مفعّل     |
+| pins            | مفعّل     |
+| memberInfo      | مفعّل     |
+| emojiList       | مفعّل     |
+
+## الأحداث والسلوك التشغيلي
+
+- يتم تحويل تعديلات/حذف الرسائل وبث سلاسل المحادثات إلى أحداث نظام.
+- يتم تحويل أحداث إضافة/إزالة التفاعلات إلى أحداث نظام.
+- يتم تحويل أحداث انضمام/مغادرة الأعضاء، وإنشاء/إعادة تسمية القنوات، وإضافة/إزالة التثبيت إلى أحداث نظام.
+- يمكن لـ `channel_id_changed` ترحيل مفاتيح تهيئة القناة عند تمكين `configWrites`.
+- تُعامل بيانات موضوع/غرض القناة الوصفية كسياق غير موثوق ويمكن حقنها في سياق التوجيه.
+
+## تشعيب الردود
+
+يرسل `ackReaction` رمزًا تعبيريًا للتأكيد بينما يقوم OpenClaw بمعالجة رسالة واردة.
+
+ترتيب المعالجة:
+
+- ولتعدد الحسابات، اضبط `channels.slack.accounts.<id>`.ackReaction\`
+- `channels.slack.ackReaction`
+- `replyToMode`
+- الرجوع إلى الرمز التعبيري لهوية الوكيل (`agents.list[].identity.emoji`، وإلا "👀")
+
+ملاحظات
+
+- يتوقع Slack استخدام الأسماء المختصرة (على سبيل المثال `"eyes"`).
+- استخدم `""` لتعطيل التفاعل لقناة أو حساب.
+
+## قائمة التحقق من البيان والنطاقات
+
+<AccordionGroup>
+  <Accordion title="Slack app manifest example">
 
 ```json
 {
@@ -248,290 +406,30 @@ title: "Slack"
 }
 ```
 
-إذا فعّلت الأوامر الأصلية، فأضف إدخال `slash_commands` واحدًا لكل أمر تريد كشفه (مطابقًا لقائمة `/help`). تجاوز ذلك باستخدام `channels.slack.commands.native`.
+  
+</Accordion>
 
-## النطاقات (الحالية مقابل الاختيارية)
+  <Accordion title="Optional user-token scopes (read operations)">
+    إذا قمت بتهيئة `channels.slack.userToken`، فعادةً ما تكون نطاقات القراءة:
 
-واجهة محادثات Slack مُقيّدة حسب النوع: لا تحتاج إلا النطاقات لأنواع المحادثات التي تتعامل معها فعليًا
-(قنوات، مجموعات، im، mpim). راجع
-[https://docs.slack.dev/apis/web-api/using-the-conversations-api/](https://docs.slack.dev/apis/web-api/using-the-conversations-api/) للنظرة العامة.
+    ```
+    `channels:history`, `groups:history`, `im:history`, `mpim:history`
+    [https://docs.slack.dev/reference/methods/conversations.history](https://docs.slack.dev/reference/methods/conversations.history)
+    ```
 
-### نطاقات رمز البوت (مطلوبة)
-
-- `chat:write` (إرسال/تحديث/حذف الرسائل عبر `chat.postMessage`)
-  [https://docs.slack.dev/reference/methods/chat.postMessage](https://docs.slack.dev/reference/methods/chat.postMessage)
-- `im:write` (فتح الرسائل المباشرة عبر `conversations.open` لرسائل المستخدم)
-  [https://docs.slack.dev/reference/methods/conversations.open](https://docs.slack.dev/reference/methods/conversations.open)
-- `channels:history`, `groups:history`, `im:history`, `mpim:history`
-  [https://docs.slack.dev/reference/methods/conversations.history](https://docs.slack.dev/reference/methods/conversations.history)
-- `channels:read`, `groups:read`, `im:read`, `mpim:read`
-  [https://docs.slack.dev/reference/methods/conversations.info](https://docs.slack.dev/reference/methods/conversations.info)
-- `users:read` (البحث عن المستخدم)
-  [https://docs.slack.dev/reference/methods/users.info](https://docs.slack.dev/reference/methods/users.info)
-- `reactions:read`, `reactions:write` (`reactions.get` / `reactions.add`)
-  [https://docs.slack.dev/reference/methods/reactions.get](https://docs.slack.dev/reference/methods/reactions.get)
-  [https://docs.slack.dev/reference/methods/reactions.add](https://docs.slack.dev/reference/methods/reactions.add)
-- `pins:read`, `pins:write` (`pins.list` / `pins.add` / `pins.remove`)
-  [https://docs.slack.dev/reference/scopes/pins.read](https://docs.slack.dev/reference/scopes/pins.read)
-  [https://docs.slack.dev/reference/scopes/pins.write](https://docs.slack.dev/reference/scopes/pins.write)
-- `emoji:read` (`emoji.list`)
-  [https://docs.slack.dev/reference/scopes/emoji.read](https://docs.slack.dev/reference/scopes/emoji.read)
-- `files:write` (الرفع عبر `files.uploadV2`)
-  [https://docs.slack.dev/messaging/working-with-files/#upload](https://docs.slack.dev/messaging/working-with-files/#upload)
-
-### نطاقات رمز المستخدم (اختيارية، قراءة فقط افتراضيًا)
-
-أضف هذه ضمن **User Token Scopes** إذا قمت بتهيئة `channels.slack.userToken`.
-
-- `channels:history`, `groups:history`, `im:history`, `mpim:history`
-- `channels:read`, `groups:read`, `im:read`, `mpim:read`
-- `users:read`
-- `reactions:read`
-- `pins:read`
-- `emoji:read`
-- `search:read`
-
-### غير مطلوبة حاليًا (لكن محتملة مستقبلًا)
-
-- `mpim:write` (فقط إذا أضفنا فتح DM جماعي/بدء DM عبر `conversations.open`)
-- `groups:write` (فقط إذا أضفنا إدارة القنوات الخاصة: إنشاء/إعادة تسمية/دعوة/أرشفة)
-- `chat:write.public` (فقط إذا أردنا النشر في قنوات لا يكون البوت عضوًا فيها)
-  [https://docs.slack.dev/reference/scopes/chat.write.public](https://docs.slack.dev/reference/scopes/chat.write.public)
-- `users:read.email` (فقط إذا احتجنا حقول البريد الإلكتروني من `users.info`)
-  [https://docs.slack.dev/changelog/2017-04-narrowing-email-access](https://docs.slack.dev/changelog/2017-04-narrowing-email-access)
-- `files:read` (فقط إذا بدأنا سرد/قراءة بيانات تعريف الملفات)
-
-## التهيئة
-
-يستخدم Slack وضع Socket فقط (لا يوجد خادم Webhook عبر HTTP). قدّم كلا الرمزين:
-
-```json
-{
-  "slack": {
-    "enabled": true,
-    "botToken": "xoxb-...",
-    "appToken": "xapp-...",
-    "groupPolicy": "allowlist",
-    "dm": {
-      "enabled": true,
-      "policy": "pairing",
-      "allowFrom": ["U123", "U456", "*"],
-      "groupEnabled": false,
-      "groupChannels": ["G123"],
-      "replyToMode": "all"
-    },
-    "channels": {
-      "C123": { "allow": true, "requireMention": true },
-      "#general": {
-        "allow": true,
-        "requireMention": true,
-        "users": ["U123"],
-        "skills": ["search", "docs"],
-        "systemPrompt": "Keep answers short."
-      }
-    },
-    "reactionNotifications": "own",
-    "reactionAllowlist": ["U123"],
-    "replyToMode": "off",
-    "actions": {
-      "reactions": true,
-      "messages": true,
-      "pins": true,
-      "memberInfo": true,
-      "emojiList": true
-    },
-    "slashCommand": {
-      "enabled": true,
-      "name": "openclaw",
-      "sessionPrefix": "slack:slash",
-      "ephemeral": true
-    },
-    "textChunkLimit": 4000,
-    "mediaMaxMb": 20
-  }
-}
-```
-
-يمكن أيضا توفير العملات الرمزية عن طريق nv vars:
-
-- `SLACK_BOT_TOKEN`
-- `SLACK_APP_TOKEN`
-
-تُتحكَّم تفاعلات الإقرار عالميًا عبر `messages.ackReaction` +
-`messages.ackReactionScope`. استخدم `messages.removeAckAfterReply` لمسح
-تفاعل الإقرار بعد رد البوت.
-
-## الحدود
-
-- يُجزّأ النص الصادر إلى `channels.slack.textChunkLimit` (الافتراضي 4000).
-- تجزئة الأسطر الجديدة اختيارية: عيّن `channels.slack.chunkMode="newline"` للتقسيم عند الأسطر الفارغة (حدود الفقرات) قبل تجزئة الطول.
-- يُحدَّد سقف رفع الوسائط بواسطة `channels.slack.mediaMaxMb` (الافتراضي 20).
-
-## تشعيب الردود
-
-افتراضيًا، يرد OpenClaw في القناة الرئيسية. استخدم `channels.slack.replyToMode` للتحكم في التشعيب التلقائي:
-
-| الوضع   | السلوك                                                                                                                                                                                         |
-| ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `off`   | **الافتراضي.** الرد في القناة الرئيسية. لا يتم التشعيب إلا إذا كانت الرسالة المُحفِّزة أصلًا ضمن خيط.                                          |
-| `first` | يذهب الرد الأول إلى الخيط (تحت الرسالة المُحفِّزة)، وتذهب الردود اللاحقة إلى القناة الرئيسية. مفيد للحفاظ على السياق مع تجنب ازدحام الخيوط. |
-| `all`   | جميع الردود تذهب إلى الخيط. يُبقي المحادثات محتواة لكنه قد يقلل الظهور.                                                                                        |
-
-ينطبق الوضع على الردود التلقائية واستدعاءات أدوات الوكيل (`slack sendMessage`).
-
-### تشعيب حسب نوع الدردشة
-
-يمكنك تهيئة سلوك تشعيب مختلف لكل نوع دردشة عبر تعيين `channels.slack.replyToModeByChatType`:
-
-```json5
-{
-  channels: {
-    slack: {
-      replyToMode: "off", // default for channels
-      replyToModeByChatType: {
-        direct: "all", // DMs always thread
-        group: "first", // group DMs/MPIM thread first reply
-      },
-    },
-  },
-}
-```
-
-أنواع الدردشة المدعومة:
-
-- `direct`: رسائل مباشرة 1:1 (Slack `im`)
-- `group`: رسائل مباشرة جماعية / MPIMs (Slack `mpim`)
-- `channel`: قنوات قياسية (عامة/خاصة)
-
-الأولوية:
-
-1. `replyToModeByChatType.<chatType>`
-2. `replyToMode`
-3. الافتراضي الخاص بالموفّر (`off`)
-
-لا يزال `channels.slack.dm.replyToMode` القديم مقبولًا كبديل احتياطي لـ `direct` عند عدم تعيين تجاوز حسب نوع الدردشة.
-
-أمثلة:
-
-مناقشة DM:
-
-```json5
-{
-  channels: {
-    slack: {
-      replyToMode: "off",
-      replyToModeByChatType: { direct: "all" },
-    },
-  },
-}
-```
-
-تشعيب الرسائل المباشرة الجماعية مع إبقاء القنوات في الجذر:
-
-```json5
-{
-  channels: {
-    slack: {
-      replyToMode: "off",
-      replyToModeByChatType: { group: "first" },
-    },
-  },
-}
-```
-
-جعل القنوات بخيوط، مع إبقاء الرسائل المباشرة في الجذر:
-
-```json5
-{
-  channels: {
-    slack: {
-      replyToMode: "first",
-      replyToModeByChatType: { direct: "off", group: "off" },
-    },
-  },
-}
-```
-
-### علامات ثلاثية يدوية
-
-للتحكم الدقيق، استخدم هذه الوسوم في ردود الوكيل:
-
-- `[[reply_to_current]]` — الرد على الرسالة المُحفِّزة (بدء/متابعة خيط).
-- `[[reply_to:<id>]]` — الرد على مُعرّف رسالة محدد.
-
-## الجلسات + التوجيه
-
-- تشترك الرسائل المباشرة في جلسة `main` (مثل WhatsApp/Telegram).
-- تُطابِق القنوات جلسات `agent:<agentId>:slack:channel:<channelId>`.
-- تستخدم الأوامر المائلة جلسات `agent:<agentId>:slack:slash:<userId>` (البادئة قابلة للتهيئة عبر `channels.slack.slashCommand.sessionPrefix`).
-- إذا لم يوفّر Slack `channel_type`، يستنتجه OpenClaw من بادئة مُعرّف القناة (`D`, `C`, `G`) ويُعيّن افتراضيًا `channel` للحفاظ على ثبات مفاتيح الجلسات.
-- يستخدم تسجيل الأوامر الأصلية `commands.native` (الافتراضي العام `"auto"` → Slack مُعطّل) ويمكن تجاوزه لكل مساحة عمل عبر `channels.slack.commands.native`. تتطلب الأوامر النصية رسائل `/...` مستقلة ويمكن تعطيلها باستخدام `commands.text: false`. تُدار الأوامر المائلة في Slack داخل تطبيق Slack ولا تُزال تلقائيًا. استخدم `commands.useAccessGroups: false` لتجاوز فحوص مجموعات الوصول للأوامر.
-- قائمة الأوامر الكاملة + التهيئة: [الأوامر المائلة](/tools/slash-commands)
-
-## أمان DM (إقران)
-
-- الافتراضي: `channels.slack.dm.policy="pairing"` — يحصل مُرسلو الرسائل المباشرة غير المعروفين على رمز اقتران (تنتهي صلاحيته بعد ساعة).
-- الموافقة عبر: `openclaw pairing approve slack <code>`.
-- للسماح للجميع: عيّن `channels.slack.dm.policy="open"` و`channels.slack.dm.allowFrom=["*"]`.
-- يقبل `channels.slack.dm.allowFrom` مُعرّفات المستخدمين، أو @handles، أو رسائل البريد الإلكتروني (تُحل عند بدء التشغيل عندما تسمح الرموز). يقبل معالج الإعداد أسماء المستخدمين ويحلّها إلى مُعرّفات أثناء الإعداد عندما تسمح الرموز.
-
-## سياسة المجموعات
-
-- يتحكم `channels.slack.groupPolicy` في التعامل مع القنوات (`open|disabled|allowlist`).
-- يتطلب `allowlist` إدراج القنوات في `channels.slack.channels`.
-- إذا عيّنت فقط `SLACK_BOT_TOKEN`/`SLACK_APP_TOKEN` ولم تُنشئ قسم `channels.slack`،
-  فإن الإعدادات الافتراضية وقت التشغيل تُعيّن `groupPolicy` إلى `open`. أضف `channels.slack.groupPolicy`،
-  أو `channels.defaults.groupPolicy`، أو قائمة سماح للقنوات لإحكام القفل.
-- يقبل معالج التهيئة أسماء `#channel` ويحلّها إلى مُعرّفات عند الإمكان
-  (عامة + خاصة)؛ وإذا وُجدت تطابقات متعددة، يُفضّل القناة النشطة.
-- عند بدء التشغيل، يحل OpenClaw أسماء القنوات/المستخدمين في قوائم السماح إلى مُعرّفات (عندما تسمح الرموز)
-  ويسجل الربط؛ وتُبقى الإدخالات غير المحلولة كما كُتبت.
-- للسماح **بعدم وجود أي قنوات**، عيّن `channels.slack.groupPolicy: "disabled"` (أو أبقِ قائمة السماح فارغة).
-
-خيارات القناة (`channels.slack.channels.<id>` أو `channels.slack.channels.<name>`):
-
-- `allow`: السماح/المنع للقناة عندما `groupPolicy="allowlist"`.
-- `requireMention`: ضبط الإشارة للقناة.
-- `tools`: تجاوزات سياسة الأدوات لكل قناة (اختياري) (`allow`/`deny`/`alsoAllow`).
-- `toolsBySender`: تجاوزات سياسة الأدوات لكل مُرسِل داخل القناة (المفاتيح هي مُعرّفات المُرسِلين/@handles/رسائل البريد الإلكتروني؛ يدعم الرمز الشامل `"*"`).
-- `allowBots`: السماح برسائل من تأليف البوت في هذه القناة (الافتراضي: false).
-- `users`: قائمة سماح مستخدمين لكل قناة (اختياري).
-- `skills`: مُرشّح المهارات (الإغفال = جميع المهارات، الفارغ = لا شيء).
-- `systemPrompt`: موجّه نظام إضافي للقناة (يُدمج مع الموضوع/الغرض).
-- `enabled`: عيّن `false` لتعطيل القناة.
-
-## أهداف التسليم
-
-استخدم هذه مع الإرسال عبر cron/CLI:
-
-- `user:<id>` للرسائل المباشرة
-- `channel:<id>` للقنوات
-
-## إجراءات الأدوات
-
-يمكن تقييد إجراءات أدوات Slack باستخدام `channels.slack.actions.*`:
-
-| مجموعة الإجراءات | الافتراضي | ملاحظات                     |
-| ---------------- | --------- | --------------------------- |
-| reactions        | مفعّل     | تفاعل + سرد التفاعلات       |
-| messages         | مفعّل     | قراءة/إرسال/تعديل/حذف       |
-| pins             | مفعّل     | تثبيت/إلغاء التثبيت/القائمة |
-| memberInfo       | مفعّل     | معلومات الأعضاء             |
-| emojiList        | مفعّل     | قائمة الرموز المخصصة        |
-
-## ملاحظات أمنية
-
-- افتراضيًا، تستخدم الكتابات رمز البوت بحيث تبقى الإجراءات المُغيِّرة للحالة ضمن
-  أذونات وهوية بوت التطبيق.
-- يتيح تعيين `userTokenReadOnly: false` استخدام رمز المستخدم لعمليات
-  الكتابة عند عدم توفر رمز البوت، ما يعني أن الإجراءات تُنفّذ بصلاحيات المستخدم المُثبِّت. تعامل مع رمز المستخدم كرمز عالي الامتيازات وأبقِ بوابات الإجراءات وقوائم السماح مُحكمة.
-- إذا فعّلت كتابات رمز المستخدم، فتأكد من أن رمز المستخدم يتضمن نطاقات
-  الكتابة المتوقعة (`chat:write`, `reactions:write`, `pins:write`,
-  `files:write`) وإلا ستفشل تلك العمليات.
+  
+</Accordion>
+</AccordionGroup>
 
 ## استكشاف الأخطاء وإصلاحها
 
-شغّل هذا التسلسل أولًا:
+<AccordionGroup>
+  <Accordion title="No replies in channels">
+    تحقق، بالترتيب:
+
+    ```
+    `allow`: السماح/المنع للقناة عندما `groupPolicy="allowlist"`.
+    ```
 
 ```bash
 openclaw status
@@ -541,28 +439,81 @@ openclaw doctor
 openclaw channels status --probe
 ```
 
-ثم قم بتأكيد حالة إقران DM إذا لزم الأمر:
+  
+</Accordion>
+
+  <Accordion title="DM messages ignored">
+    تحقق:
+
+    ```
+    يتطلب `allowlist` إدراج القنوات في `channels.slack.channels`.
+    ```
 
 ```bash
 openclaw pairing list slack
 ```
 
-إخفاقات شائعة:
+  
+</Accordion>
 
-- متصل لكن لا توجد ردود في القنوات: القناة محظورة بواسطة `groupPolicy` أو غير مدرجة في قائمة السماح `channels.slack.channels`.
-- تجاهل الرسائل المباشرة: المُرسِل غير معتمد عندما `channels.slack.dm.policy="pairing"`.
-- أخطاء واجهة API (`missing_scope`, `not_in_channel`، فشل المصادقة): رموز البوت/التطبيق أو نطاقات Slack غير مكتملة.
+  <Accordion title="Socket mode not connecting">
+    تحقق من رموز bot وapp وتفعيل Socket Mode في إعدادات تطبيق Slack.
+  
+</Accordion>
 
-لتدفق الفرز: [/channels/troubleshooting](/channels/troubleshooting).
+  <Accordion title="HTTP mode not receiving events">
+    تحقق من:
 
-## ملاحظات
+    ```
+    - signing secret
+    - مسار webhook
+    - عناوين Slack Request URLs (الأحداث + التفاعلية + Slash Commands)
+    - قيمة `webhookPath` فريدة لكل حساب HTTP
+    ```
 
-- يتحكم ضبط الإشارة عبر `channels.slack.channels` (عيّن `requireMention` إلى `true`)؛ كما تُحتسب `agents.list[].groupChat.mentionPatterns` (أو `messages.groupChat.mentionPatterns`) كإشارات أيضًا.
-- تجاوز تعدد الوكلاء: عيّن أنماطًا لكل وكيل على `agents.list[].groupChat.mentionPatterns`.
-- تتبع إشعارات التفاعلات `channels.slack.reactionNotifications` (استخدم `reactionAllowlist` مع الوضع `allowlist`).
-- تُتجاهل الرسائل المؤلَّفة بواسطة البوت افتراضيًا؛ فعّل ذلك عبر `channels.slack.allowBots` أو `channels.slack.channels.<id>.allowBots`.
-- تحذير: إذا سمحت بالرد على بوتات أخرى (`channels.slack.allowBots=true` أو `channels.slack.channels.<id>.allowBots=true`)، فامنع حلقات ردود بوت-إلى-بوت باستخدام قوائم السماح `requireMention` و`channels.slack.channels.<id>.users`، و/أو أزل الحواجز في `AGENTS.md` و`SOUL.md`.
-- لأداة Slack، دلالات إزالة التفاعلات موجودة في [/tools/reactions](/tools/reactions).
-- تُنزَّل المرفقات إلى مخزن الوسائط عند السماح وتحت حد الحجم.
+  
+</Accordion>
 
+  <Accordion title="Native/slash commands not firing">
+    تأكد مما إذا كنت تقصد:
 
+    ```
+    {
+      channels: {
+        slack: {
+          enabled: true,
+          appToken: "xapp-...",
+          botToken: "xoxb-...",
+          userToken: "xoxp-...",
+          userTokenReadOnly: false,
+        },
+      },
+    }
+    ```
+
+  
+</Accordion>
+</AccordionGroup>
+
+## مراجع التهيئة
+
+الأولوية:
+
+- أنشئ تطبيق Slack (From scratch) في [https://api.slack.com/apps](https://api.slack.com/apps).
+
+  حقول Slack عالية الأهمية:
+
+  - mode/auth: `mode`, `botToken`, `appToken`, `signingSecret`, `webhookPath`, `accounts.*`
+  - الوصول إلى الرسائل المباشرة (DM): `dm.enabled`, `dmPolicy`, `allowFrom` (القديم: `dm.policy`, `dm.allowFrom`), `dm.groupEnabled`, `dm.groupChannels`
+  - للسماح **بعدم وجود أي قنوات**، عيّن `channels.slack.groupPolicy: "disabled"` (أو أبقِ قائمة السماح فارغة).
+  - الخيوط/السجل: `replyToMode`، `replyToModeByChatType`، `thread.*`، `historyLimit`، `dmHistoryLimit`، `dms.*.historyLimit`
+  - التسليم: `textChunkLimit`، `chunkMode`، `mediaMaxMb`
+  - العمليات/الميزات: `configWrites`، `commands.native`، `slashCommand.*`، `actions.*`، `userToken`، `userTokenReadOnly`
+
+## ذو صلة
+
+- [الاقتران](/channels/pairing)
+- `channel`: قنوات قياسية (عامة/خاصة)
+- لتدفق الفرز: [/channels/troubleshooting](/channels/troubleshooting).
+- [الإعدادات](/gateway/configuration)
+- قائمة الأوامر الكاملة + التهيئة: [الأوامر المائلة](/tools/slash-commands)

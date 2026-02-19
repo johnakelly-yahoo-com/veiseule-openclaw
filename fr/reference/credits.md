@@ -1,4 +1,7 @@
 ---
+summary: "Origine du projet, contributeurs et licence."
+read_when:
+  - Vous souhaitez connaître l'histoire du projet ou les credits des contributeurs
 title: "Crédits"
 ---
 
@@ -22,5 +25,3 @@ OpenClaw = CLAW + TARDIS, parce que chaque homard de l’espace a besoin d’une
 MIT - Libre comme un homard dans l’ocean.
 
 > « Nous ne faisons tous que jouer avec nos propres prompts. » (Une IA, probablement en overdose de tokens)
-
-

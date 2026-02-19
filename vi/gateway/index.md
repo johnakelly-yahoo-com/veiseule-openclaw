@@ -1,33 +1,38 @@
 ---
-title: "Gateway Runbook"
+summary: "Runbook cho dịch vụ Gateway, vòng đời và vận hành"
+read_when:
+  - Khi chạy hoặc gỡ lỗi tiến trình gateway
+title: "Runbook Gateway"
 ---
 
-# Gateway runbook
+# Runbook dịch vụ Gateway
 
-Use this page for day-1 startup and day-2 operations of the Gateway service.
+Cập nhật lần cuối: 2025-12-09
 
 <CardGroup cols={2}>
   <Card title="Deep troubleshooting" icon="siren" href="/gateway/troubleshooting">
-    Symptom-first diagnostics with exact command ladders and log signatures.
+    Chẩn đoán theo triệu chứng trước, kèm theo các chuỗi lệnh chính xác và dấu hiệu log.
   
 </Card>
   <Card title="Configuration" icon="sliders" href="/gateway/configuration">
-    Task-oriented setup guide + full configuration reference.
+    Hướng dẫn thiết lập theo tác vụ + tài liệu tham chiếu cấu hình đầy đủ.
   
 </Card>
 </CardGroup>
 
-## 5-minute local startup
+## Khởi động cục bộ trong 5 phút
 
 <Steps>
   <Step title="Start the Gateway">
 
 ```bash
 openclaw gateway --port 18789
-# debug/trace mirrored to stdio
+# for full debug/trace logs in stdio:
 openclaw gateway --port 18789 --verbose
-# force-kill listener on selected port, then start
+# if the port is busy, terminate listeners then start:
 openclaw gateway --force
+# dev loop (auto-reload on TS changes):
+pnpm gateway:watch
 ```
 
   
@@ -41,7 +46,7 @@ openclaw status
 openclaw logs --follow
 ```
 
-Healthy baseline: `Runtime: running` and `RPC probe: ok`.
+Trạng thái chuẩn: `Runtime: running` và `RPC probe: ok`.
 
   
 </Step>
@@ -57,37 +62,37 @@ openclaw channels status --probe
 </Steps>
 
 <Note>
-Gateway config reload watches the active config file path (resolved from profile/state defaults, or `OPENCLAW_CONFIG_PATH` when set).
-Default mode is `gateway.reload.mode="hybrid"`.
+Cơ chế tải lại cấu hình Gateway theo dõi đường dẫn tệp cấu hình đang hoạt động (được phân giải từ mặc định hồ sơ/trạng thái, hoặc `OPENCLAW_CONFIG_PATH` khi được thiết lập).
+Chế độ mặc định là `gateway.reload.mode="hybrid"`.
 </Note>
 
-## Runtime model
+## Mô hình runtime
 
-- One always-on process for routing, control plane, and channel connections.
-- Single multiplexed port for:
+- Một tiến trình luôn hoạt động để định tuyến, control plane và kết nối kênh.
+- Một cổng được ghép kênh duy nhất cho:
   - WebSocket control/RPC
-  - HTTP APIs (OpenAI-compatible, Responses, tools invoke)
-  - Control UI and hooks
-- Default bind mode: `loopback`.
-- Auth is required by default (`gateway.auth.token` / `gateway.auth.password`, or `OPENCLAW_GATEWAY_TOKEN` / `OPENCLAW_GATEWAY_PASSWORD`).
+  - HTTP APIs (tương thích OpenAI, Responses, gọi tools)
+  - Control UI và hooks
+- Chế độ bind mặc định: `loopback`.
+- Yêu cầu xác thực theo mặc định (`gateway.auth.token` / `gateway.auth.password`, hoặc `OPENCLAW_GATEWAY_TOKEN` / `OPENCLAW_GATEWAY_PASSWORD`).
 
-### Port and bind precedence
+### Profile dev (`--dev`)
 
-| Setting      | Resolution order                                              |
+| Thiết lập    | Thứ tự phân giải                                              |
 | ------------ | ------------------------------------------------------------- |
-| Gateway port | `--port` → `OPENCLAW_GATEWAY_PORT` → `gateway.port` → `18789` |
-| Bind mode    | CLI/override → `gateway.bind` → `loopback`                    |
+| Cổng Gateway | `--port` → `OPENCLAW_GATEWAY_PORT` → `gateway.port` → `18789` |
+| Chế độ bind  | CLI/override → `gateway.bind` → `loopback`                    |
 
-### Hot reload modes
+### Các chế độ hot reload
 
-| `gateway.reload.mode` | Behavior                                   |
-| --------------------- | ------------------------------------------ |
-| `off`                 | No config reload                           |
-| `hot`                 | Apply only hot-safe changes                |
-| `restart`             | Restart on reload-required changes         |
-| `hybrid` (default)    | Hot-apply when safe, restart when required |
+| `gateway.reload.mode`                  | Hành vi                                            |
+| -------------------------------------- | -------------------------------------------------- |
+| `off`                                  | Không tải lại cấu hình                             |
+| `hot`                                  | Chỉ áp dụng các thay đổi an toàn cho hot reload    |
+| `restart`                              | Khởi động lại khi có thay đổi yêu cầu reload       |
+| `hybrid` (mặc định) | Hot-apply khi an toàn, khởi động lại khi cần thiết |
 
-## Operator command set
+## Bộ lệnh dành cho operator
 
 ```bash
 openclaw gateway status
@@ -100,26 +105,26 @@ openclaw logs --follow
 openclaw doctor
 ```
 
-## Remote access
+## Truy cập từ xa
 
-Preferred: Tailscale/VPN.
-Fallback: SSH tunnel.
+Ưu tiên: Tailscale/VPN.
+Phương án dự phòng: SSH tunnel.
 
 ```bash
 ssh -N -L 18789:127.0.0.1:18789 user@host
 ```
 
-Then connect clients to `ws://127.0.0.1:18789` locally.
+Cài đặt dịch vụ theo profile:
 
 <Warning>
-If gateway auth is configured, clients still must send auth (`token`/`password`) even over SSH tunnels.
+Nếu cấu hình xác thực gateway được bật, client vẫn phải gửi thông tin xác thực (`token`/`password`) ngay cả khi kết nối qua SSH tunnel.
 </Warning>
 
-See: [Remote Gateway](/gateway/remote), [Authentication](/gateway/authentication), [Tailscale](/gateway/tailscale).
+Ví dụ:
 
-## Supervision and service lifecycle
+## Giám sát và vòng đời dịch vụ
 
-Use supervised runs for production-like reliability.
+Sử dụng chế độ chạy có giám sát để đạt độ tin cậy tương tự môi trường production.
 
 <Tabs>
   <Tab title="macOS (launchd)">
@@ -131,7 +136,7 @@ openclaw gateway restart
 openclaw gateway stop
 ```
 
-LaunchAgent labels are `ai.openclaw.gateway` (default) or `ai.openclaw.<profile>` (named profile). `openclaw doctor` audits and repairs service config drift.
+Nhãn LaunchAgent là `ai.openclaw.gateway` (mặc định) hoặc `ai.openclaw.<profile>` (profile được đặt tên). `openclaw doctor` kiểm tra và sửa các sai lệch cấu hình dịch vụ.
 
   
 </Tab>
@@ -144,7 +149,7 @@ systemctl --user enable --now openclaw-gateway[-<profile>].service
 openclaw gateway status
 ```
 
-For persistence after logout, enable lingering:
+Để duy trì hoạt động sau khi đăng xuất, hãy bật lingering:
 
 ```bash
 sudo loginctl enable-linger <user>
@@ -155,7 +160,7 @@ sudo loginctl enable-linger <user>
 
   <Tab title="Linux (system service)">
 
-Use a system unit for multi-user/always-on hosts.
+Sử dụng system unit cho các máy chủ nhiều người dùng/luôn bật.
 
 ```bash
 sudo systemctl daemon-reload
@@ -166,28 +171,28 @@ sudo systemctl enable --now openclaw-gateway[-<profile>].service
 </Tab>
 </Tabs>
 
-## Multiple gateways on one host
+## Nhiều gateway trên một máy chủ
 
-Most setups should run **one** Gateway.
-Use multiple only for strict isolation/redundancy (for example a rescue profile).
+Hầu hết các thiết lập chỉ nên chạy **một** Gateway.
+Chỉ sử dụng nhiều gateway khi cần cô lập/dự phòng nghiêm ngặt (ví dụ: profile cứu hộ).
 
-Checklist per instance:
+Danh sách kiểm tra cho mỗi instance:
 
-- Unique `gateway.port`
-- Unique `OPENCLAW_CONFIG_PATH`
-- Unique `OPENCLAW_STATE_DIR`
-- Unique `agents.defaults.workspace`
+- `gateway.port` duy nhất
+- `OPENCLAW_CONFIG_PATH` duy nhất
+- `OPENCLAW_STATE_DIR` duy nhất
+- `agents.defaults.workspace` duy nhất
 
-Example:
+Ví dụ:
 
 ```bash
 OPENCLAW_CONFIG_PATH=~/.openclaw/a.json OPENCLAW_STATE_DIR=~/.openclaw-a openclaw gateway --port 19001
 OPENCLAW_CONFIG_PATH=~/.openclaw/b.json OPENCLAW_STATE_DIR=~/.openclaw-b openclaw gateway --port 19002
 ```
 
-See: [Multiple gateways](/gateway/multiple-gateways).
+Xem: [Multiple gateways](/gateway/multiple-gateways).
 
-### Dev profile quick path
+### Quản lý dịch vụ Gateway (CLI)
 
 ```bash
 openclaw --dev setup
@@ -195,30 +200,30 @@ openclaw --dev gateway --allow-unconfigured
 openclaw --dev status
 ```
 
-Defaults include isolated state/config and base gateway port `19001`.
+Mặc định bao gồm state/config được cô lập và cổng gateway cơ sở `19001`.
 
-## Protocol quick reference (operator view)
+## Tham khảo nhanh giao thức (góc nhìn vận hành)
 
-- First client frame must be `connect`.
-- Gateway returns `hello-ok` snapshot (`presence`, `health`, `stateVersion`, `uptimeMs`, limits/policy).
-- Requests: `req(method, params)` → `res(ok/payload|error)`.
-- Common events: `connect.challenge`, `agent`, `chat`, `presence`, `tick`, `health`, `heartbeat`, `shutdown`.
+- `gateway status` thăm dò RPC của Gateway theo mặc định bằng cổng/cấu hình đã resolve của dịch vụ (ghi đè bằng `--url`).
+- `gateway status --deep` thêm quét cấp hệ thống (LaunchDaemons/system units).
+- `gateway status --no-probe` bỏ qua thăm dò RPC (hữu ích khi mạng bị down).
+- `gateway status --json` ổn định cho script.
 
-Agent runs are two-stage:
+Ứng dụng mac đóng gói:
 
-1. Immediate accepted ack (`status:"accepted"`)
-2. Final completion response (`status:"ok"|"error"`), with streamed `agent` events in between.
+1. Phản hồi xác nhận ngay lập tức (`status:"accepted"`)
+2. Để dừng sạch, dùng `openclaw gateway stop` (hoặc `launchctl bootout gui/$UID/bot.molt.gateway`).
 
-See full protocol docs: [Gateway Protocol](/gateway/protocol).
+Xem tài liệu giao thức đầy đủ: [Gateway Protocol](/gateway/protocol).
 
-## Operational checks
+## Kiểm tra vận hành
 
-### Liveness
+### Kiểm tra hoạt động (Liveness)
 
-- Open WS and send `connect`.
-- Expect `hello-ok` response with snapshot.
+- Mở WS và gửi `connect`.
+- Mong đợi phản hồi `hello-ok` kèm snapshot.
 
-### Readiness
+### Kiểm tra sẵn sàng (Readiness)
 
 ```bash
 openclaw gateway status
@@ -226,30 +231,30 @@ openclaw channels status --probe
 openclaw health
 ```
 
-### Gap recovery
+### Khôi phục khi mất đồng bộ (Gap recovery)
 
-Events are not replayed. On sequence gaps, refresh state (`health`, `system-presence`) before continuing.
+Sự kiện không được phát lại. Khi phát hiện thiếu sequence, làm mới trạng thái (`health`, `system-presence`) trước khi tiếp tục.
 
-## Common failure signatures
+## Các dấu hiệu lỗi phổ biến
 
-| Signature                                                      | Likely issue                             |
-| -------------------------------------------------------------- | ---------------------------------------- |
-| `refusing to bind gateway ... without auth`                    | Non-loopback bind without token/password |
-| `another gateway instance is already listening` / `EADDRINUSE` | Port conflict                            |
-| `Gateway start blocked: set gateway.mode=local`                | Config set to remote mode                |
-| `unauthorized` during connect                                  | Auth mismatch between client and gateway |
+| Dấu hiệu                                                       | Vấn đề có thể xảy ra                                            |
+| -------------------------------------------------------------- | --------------------------------------------------------------- |
+| `refusing to bind gateway ... without auth`                    | Bind tới địa chỉ không phải loopback mà không có token/password |
+| `another gateway instance is already listening` / `EADDRINUSE` | Xung đột cổng                                                   |
+| `Gateway start blocked: set gateway.mode=local`                | Cấu hình đã được đặt sang chế độ remote                         |
+| `unauthorized` trong quá trình kết nối                         | Không khớp xác thực giữa client và gateway                      |
 
-For full diagnosis ladders, use [Gateway Troubleshooting](/gateway/troubleshooting).
+Để chẩn đoán đầy đủ theo từng bước, xem [Gateway Troubleshooting](/gateway/troubleshooting).
 
-## Safety guarantees
+## Windows (WSL2)
 
-- Gateway protocol clients fail fast when Gateway is unavailable (no implicit direct-channel fallback).
-- Invalid/non-connect first frames are rejected and closed.
-- Graceful shutdown emits `shutdown` event before socket close.
+- Các client sử dụng giao thức Gateway sẽ thất bại ngay khi Gateway không khả dụng (không có cơ chế tự động chuyển sang kênh trực tiếp).
+- Các frame đầu tiên không hợp lệ/không phải kết nối sẽ bị từ chối và đóng lại.
+- Quá trình tắt mềm sẽ phát sự kiện `shutdown` trước khi đóng socket.
 
 ---
 
-Related:
+Liên quan:
 
 - [Troubleshooting](/gateway/troubleshooting)
 - [Background Process](/gateway/background-process)
@@ -257,5 +262,3 @@ Related:
 - [Health](/gateway/health)
 - [Doctor](/gateway/doctor)
 - [Authentication](/gateway/authentication)
-
-

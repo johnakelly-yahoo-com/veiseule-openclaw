@@ -1,4 +1,9 @@
 ---
+summary: "„Integrierter Browsersteuerungsdienst + Aktionsbefehle“"
+read_when:
+  - Hinzufügen agentengesteuerter Browserautomatisierung
+  - Debuggen, warum OpenClaw mit Ihrem eigenen Chrome interferiert
+  - Implementieren von Browsereinstellungen und -lebenszyklus in der macOS-App
 title: "„Browser (OpenClaw-verwaltet)“"
 ---
 
@@ -187,6 +192,7 @@ Hinweise:
 Schlüsselideen:
 
 - Die Browsersteuerung ist ausschließlich Loopback; der Zugriff erfolgt über die Authentifizierung des Gateway oder die Node-Paarung.
+- Wenn die Browsersteuerung aktiviert ist und keine Authentifizierung konfiguriert wurde, generiert OpenClaw beim Start automatisch `gateway.auth.token` und speichert es in der Konfiguration.
 - Halten Sie das Gateway und alle Node-Hosts in einem privaten Netzwerk (Tailscale); vermeiden Sie öffentliche Exposition.
 - Behandeln Sie Remote-CDP-URLs/Token als Geheimnisse; bevorzugen Sie Umgebungsvariablen oder einen Secrets-Manager.
 
@@ -310,6 +316,11 @@ Nur für lokale Integrationen stellt das Gateway eine kleine Loopback-HTTP-API b
 
 Alle Endpunkte akzeptieren `?profile=<name>`.
 
+Wenn die Gateway-Authentifizierung konfiguriert ist, erfordern Browser-HTTP-Routen ebenfalls Authentifizierung:
+
+- `Authorization: Bearer <gateway token>`
+- `x-openclaw-password: <gateway password>` oder HTTP Basic Auth mit diesem Passwort
+
 ### Playwright-Anforderung
 
 Einige Funktionen (Navigation/Aktionen/AI-Snapshot/Rollen-Snapshot, Element-Screenshots, PDF) erfordern
@@ -431,6 +442,11 @@ Hinweise:
 
 - `upload` und `dialog` sind **Arming**-Aufrufe; führen Sie sie vor dem Klick/Tastendruck aus,
   der den Auswahldialog auslöst.
+- Download- und Trace-Ausgabepfade sind auf OpenClaw-Temp-Root-Verzeichnisse beschränkt:
+  - traces: `/tmp/openclaw` (Fallback: `${os.tmpdir()}/openclaw`)
+  - downloads: `/tmp/openclaw/downloads` (Fallback: `${os.tmpdir()}/openclaw/downloads`)
+- Upload-Pfade sind auf ein OpenClaw-Temp-Uploads-Root-Verzeichnis beschränkt:
+  - uploads: `/tmp/openclaw/uploads` (Fallback: `${os.tmpdir()}/openclaw/uploads`)
 - `upload` kann Dateieingaben auch direkt über `--input-ref` oder `--element` setzen.
 - `snapshot`:
   - `--format ai` (Standard, wenn Playwright installiert ist): gibt einen AI-Snapshot mit numerischen Referenzen (`aria-ref="<n>"`) zurück.
@@ -566,5 +582,3 @@ Wie es kartiert:
   - Wenn ein browserfähiger Node verbunden ist, kann das Werkzeug automatisch dorthin routen, sofern Sie `target="host"` oder `target="node"` nicht anheften.
 
 Dies hält den Agenten deterministisch und vermeidet fragile Selektoren.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Flujo de incorporación en el primer inicio para OpenClaw (app de macOS)"
+read_when:
+  - Diseño del asistente de incorporación de macOS
+  - Implementación de autenticación o configuración de identidad
 title: "Incorporación (App de macOS)"
 sidebarTitle: "Incorporación: Aplicación macOS"
 ---
@@ -6,6 +10,7 @@ sidebarTitle: "Incorporación: Aplicación macOS"
 # Incorporación (App de macOS)
 
 Este documento describe el flujo de incorporación **actual** en el primer inicio. El objetivo es una experiencia fluida desde el “día 0”: elegir dónde se ejecuta el Gateway, conectar la autenticación, ejecutar el asistente y permitir que el agente se inicialice por sí mismo.
+Para una visión general de las rutas de onboarding, consulta [Onboarding Overview](/start/onboarding-overview).
 
 <Steps>
 <Step title="Approve macOS warning">
@@ -72,5 +77,3 @@ Este paso es opcional
   saber qué sucede en el host del Gateway durante la primera ejecución del agente.
 </Step>
 </Steps>
-
-

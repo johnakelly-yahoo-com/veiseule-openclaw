@@ -1,4 +1,9 @@
 ---
+summary: "Gateway 스케줄러를 위한 Cron 작업 + 깨우기"
+read_when:
+  - 백그라운드 작업 또는 깨우기 스케줄링
+  - 하트비트와 함께 또는 하트비트와 연동되어 실행되어야 하는 자동화 연결
+  - 예약 작업에서 하트비트와 cron 중 무엇을 선택할지 결정
 title: "Cron 작업"
 ---
 
@@ -12,7 +17,7 @@ _“매일 아침 이 작업을 실행”_ 또는 _“20 분 후에 에이전트
 
 문제 해결: [/automation/troubleshooting](/automation/troubleshooting)
 
-## 요약
+## TL;DR
 
 - Cron 은 **Gateway 내부에서** 실행됩니다 (모델 내부가 아님).
 - 작업은 `~/.openclaw/cron/` 아래에 영속화되므로 재시작 시에도 스케줄이 유실되지 않습니다.
@@ -459,5 +464,3 @@ openclaw system event --mode now --text "Next heartbeat: check battery."
 
 - 포럼 토픽의 경우, 명시적이고 모호하지 않도록 `-100…:topic:<id>` 를 사용하십시오.
 - 로그나 저장된 “마지막 라우트” 대상에 `telegram:...` 접두사가 보이더라도 정상입니다. cron 전달은 이를 허용하며 토픽 id 를 올바르게 파싱합니다.
-
-

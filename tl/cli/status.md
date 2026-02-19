@@ -1,4 +1,8 @@
 ---
+summary: "Reference ng CLI para sa `openclaw status` (diagnostics, probes, mga snapshot ng paggamit)"
+read_when:
+  - Gusto mo ng mabilis na diagnosis ng kalusugan ng channel + mga kamakailang recipient ng session
+  - Gusto mo ng isang pasteable na “all” status para sa debugging
 title: "status"
 ---
 
@@ -20,5 +24,3 @@ Mga tala:
 - Kasama sa Overview ang Gateway + status ng pag-install/pagpapatakbo ng serbisyo ng host ng node kapag available.
 - Kasama sa Overview ang update channel + git SHA (para sa mga source checkout).
 - Lumalabas ang impormasyon ng update sa Overview; kung may available na update, magpi-print ang status ng pahiwatig para patakbuhin ang `openclaw update` (tingnan ang [Updating](/install/updating)).
-
-

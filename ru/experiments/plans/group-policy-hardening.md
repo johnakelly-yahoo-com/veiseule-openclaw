@@ -1,4 +1,7 @@
 ---
+summary: "Укрепление allowlist Telegram: префикс + нормализация пробелов"
+read_when:
+  - При анализе исторических изменений allowlist Telegram
 title: "Укрепление allowlist Telegram"
 ---
 
@@ -35,5 +38,3 @@ Allowlist Telegram теперь принимает префиксы `telegram:` 
 
 - [Групповые чаты](/channels/groups)
 - [Провайдер Telegram](/channels/telegram)
-
-

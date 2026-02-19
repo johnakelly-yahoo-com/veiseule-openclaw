@@ -1,4 +1,8 @@
 ---
+summary: "เอกสารอ้างอิงCLIสำหรับ `openclaw directory` (self, peers, groups)"
+read_when:
+  - คุณต้องการค้นหาIDของผู้ติดต่อ/กลุ่ม/ตัวเองสำหรับช่องทางหนึ่ง
+  - คุณกำลังพัฒนาอะแดปเตอร์ไดเรกทอรีของช่องทาง
 title: "ไดเรกทอรี"
 ---
 
@@ -57,5 +61,3 @@ openclaw directory groups list --channel zalouser
 openclaw directory groups list --channel zalouser --query "work"
 openclaw directory groups members --channel zalouser --group-id <id>
 ```
-
-

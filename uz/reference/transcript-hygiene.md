@@ -1,4 +1,9 @@
 ---
+summary: "1. Ma’lumot: provayderga xos transkriptni sanitizatsiya qilish va tuzatish qoidalari"
+read_when:
+  - 2. Siz transkript shakliga bog‘liq provayder so‘rovlarining rad etilishini nosozlikdan o‘tkazyapsiz
+  - 3. Siz transkriptni sanitizatsiya qilish yoki tool-call tuzatish mantiqini o‘zgartiryapsiz
+  - 4. Siz provayderlar bo‘ylab tool-call id nomuvofiqliklarini tekshiryapsiz
 title: "5. Transkript gigiyenasi"
 ---
 
@@ -15,10 +20,11 @@ Qamrovga quyidagilar kiradi:
 - Navbat (turn)ni tekshirish / tartiblash
 - Fikr (thought) imzosini tozalash
 - 17. Rasm payload sanitizatsiyasi
+- Foydalanuvchi kiritmasining manba belgilanishi (sessiyalararo yo‘naltirilgan so‘rovlar uchun)
 
 18. Agar transkriptni saqlash tafsilotlari kerak bo‘lsa, qarang:
 
-- 19. [/reference/session-management-compaction](/reference/session-management-compaction)
+- [/reference/session-management-compaction](/reference/session-management-compaction)
 
 ---
 
@@ -63,11 +69,24 @@ Qamrovga quyidagilar kiradi:
 
 ---
 
+## Global qoida: sessiyalararo kiritma manbasi
+
+Agent `sessions_send` orqali (jumladan agentdan agentga javob/e’lon bosqichlari) boshqa sessiyaga so‘rov yuborganda, OpenClaw yaratilgan foydalanuvchi navbatini quyidagicha saqlaydi:
+
+- `message.provenance.kind = "inter_session"`
+
+Ushbu metadata transkriptga qo‘shish vaqtida yoziladi va rolni o‘zgartirmaydi
+(`role: "user"` provider mosligi uchun saqlanadi). Transkript o‘quvchilari bundan foydalanib, yo‘naltirilgan ichki so‘rovlarni oxirgi foydalanuvchi tomonidan yozilgan ko‘rsatmalar sifatida qabul qilmasliklari mumkin.
+
+Kontekstni qayta tiklash jarayonida OpenClaw, model ularni tashqi oxirgi foydalanuvchi ko‘rsatmalaridan ajrata olishi uchun, bunday foydalanuvchi navbatlari boshiga xotirada qisqa `[Inter-session message]` belgisini ham qo‘shadi.
+
+---
+
 ## 39. Provayderlar matriksi (joriy xatti-harakat)
 
-40. **OpenAI / OpenAI Codex**
+**OpenAI / OpenAI Codex**
 
-- 41. Faqat rasm sanitizatsiyasi.
+- Image sanitization only.
 - 42. OpenAI Responses/Codex’ga model almashtirilganda, yetim qolgan reasoning imzolari (keyingi kontent bloki bo‘lmagan mustaqil reasoning elementlari) olib tashlanadi.
 - 43. Tool call id sanitizatsiyasi yo‘q.
 - 44. Tool natijalarini juftlashni tuzatish yo‘q.
@@ -75,17 +94,17 @@ Qamrovga quyidagilar kiradi:
 - 46. Sintetik tool natijalari yo‘q.
 - 47. Fikr (thought) imzolarini olib tashlash yo‘q.
 
-48. **Google (Generative AI / Gemini CLI / Antigravity)**
+**Google (Generative AI / Gemini CLI / Antigravity)**
 
 - 49. Tool call id sanitizatsiyasi: qat’iy alfanumerik.
-- 50. Tool natijalarini juftlashni tuzatish va sintetik tool natijalari.
+- Tool result pairing repair and synthetic tool results.
 - Turn validation (Gemini-style turn alternation).
 - Google turn ordering fixup (prepend a tiny user bootstrap if history starts with assistant).
 - Antigravity Claude: normalize thinking signatures; drop unsigned thinking blocks.
 
 **Anthropic / Minimax (Anthropic-compatible)**
 
-- Asbob natijalarini juftlashni tuzatish va sintetik asbob natijalari.
+- Tool result pairing repair and synthetic tool results.
 - Turn validation (merge consecutive user turns to satisfy strict alternation).
 
 **Mistral (including model-id based detection)**
@@ -118,5 +137,3 @@ Before the 2026.1.22 release, OpenClaw applied multiple layers of transcript hyg
 This complexity caused cross-provider regressions (notably `openai-responses`
 `call_id|fc_id` pairing). The 2026.1.22 cleanup removed the extension, centralized
 logic in the runner, and made OpenAI **no-touch** beyond image sanitization.
-
-

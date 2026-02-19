@@ -1,5 +1,7 @@
 ---
+summary: "멀티 에이전트 라우팅: 격리된 에이전트, 채널 계정, 바인딩"
 title: 멀티 에이전트 라우팅
+read_when: "하나의 Gateway(게이트웨이) 프로세스에서 여러 개의 격리된 에이전트(워크스페이스 + 인증)를 사용하려는 경우."
 status: active
 ---
 
@@ -127,11 +129,15 @@ openclaw agents list --bindings
 바인딩은 **결정적**이며 **가장 구체적인 규칙이 우선**됩니다:
 
 1. `peer` 매치(정확한 DM/그룹/채널 id)
-2. `guildId` (Discord)
-3. `teamId` (Slack)
-4. 채널에 대한 `accountId` 매치
-5. 채널 수준 매치(`accountId: "*"`)
-6. 기본 에이전트로 폴백(`agents.list[].default`, 없으면 목록의 첫 항목, 기본값: `main`)
+2. `parentPeer` 일치(스레드 상속)
+3. `guildId + roles` (Discord 역할 라우팅)
+4. `guildId` (Discord)
+5. `teamId` (Slack)
+6. 채널에 대한 `accountId` 매치
+7. 채널 수준 매치(`accountId: "*"`)
+8. 기본 에이전트로 폴백(`agents.list[].default`, 없으면 목록의 첫 항목, 기본값: `main`)
+
+바인딩에서 여러 매치 필드(예: `peer` + `guildId`)를 설정한 경우, 지정된 모든 필드가 필요합니다(`AND` 의미).
 
 ## 여러 계정 / 전화번호
 
@@ -387,5 +393,3 @@ v2026.1.6 부터 각 에이전트는 자체 샌드박스와 도구 제한을 가
 그룹 대상 지정에는 `agents.list[].groupChat.mentionPatterns` 를 사용하여 @멘션이 의도한 에이전트로 깔끔하게 매핑되도록 하십시오.
 
 자세한 예시는 [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools)를 참고하십시오.
-
-

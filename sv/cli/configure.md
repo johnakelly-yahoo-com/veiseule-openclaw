@@ -1,4 +1,7 @@
 ---
+summary: "CLI-referens för `openclaw configure` (interaktiva konfigurationsfrågor)"
+read_when:
+  - Du vill justera autentiseringsuppgifter, enheter eller agentstandarder interaktivt
 title: "konfigurera"
 ---
 
@@ -28,5 +31,3 @@ Noteringar:
 openclaw configure
 openclaw configure --section models --section channels
 ```
-
-

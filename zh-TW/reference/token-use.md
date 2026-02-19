@@ -1,5 +1,9 @@
 ---
-title: "權杖使用與成本"
+summary: "OpenClaw 如何建構提示內容並回報權杖使用量與成本"
+read_when:
+  - Explaining token usage, costs, or context windows
+  - Debugging context growth or compaction behavior
+title: "Token Use and Costs"
 ---
 
 # Token 使用量與成本
@@ -8,12 +12,12 @@ OpenClaw tracks **tokens**, not characters. Tokens 與模型相關，但多數 O
 
 ## 系統提示如何建構
 
-OpenClaw 在每次執行時都會組裝自己的系統提示。內容包含： 它包含：
+OpenClaw 在每次執行時都會組裝自己的系統提示。內容包含： 它包含： 它包含：
 
 - 工具清單 + 簡短說明
 - Skills 清單（僅中繼資料；指示會在需要時透過 `read` 載入）
 - 自我更新指示
-- 工作區 + 啟動檔案（`AGENTS.md`、`SOUL.md`、`TOOLS.md`、`IDENTITY.md`、`USER.md`、`HEARTBEAT.md`、`BOOTSTRAP.md` 於新增時）。大型檔案會由 `agents.defaults.bootstrapMaxChars` 截斷（預設：20000）。 大型檔案會被 `agents.defaults.bootstrapMaxChars` 截斷（預設：20000）。
+- 工作區 + 啟動檔案（`AGENTS.md`、`SOUL.md`、`TOOLS.md`、`IDENTITY.md`、`USER.md`、`HEARTBEAT.md`、`BOOTSTRAP.md` 於新增時）。大型檔案會由 `agents.defaults.bootstrapMaxChars` 截斷（預設：20000）。 大型檔案會被 `agents.defaults.bootstrapMaxChars` 截斷（預設：20000）。 大型檔案會依 `agents.defaults.bootstrapMaxChars`（預設：20000）截斷，且 bootstrap 注入的總字元數上限為 `agents.defaults.bootstrapTotalMaxChars`（預設：24000）。 `memory/*.md` 檔案透過 memory 工具按需載入，不會自動注入。
 - 時間（UTC + 使用者時區）
 - 回覆標籤 + 心跳行為
 - 執行期中繼資料（host/OS/model/thinking）
@@ -69,7 +73,7 @@ models.providers.<provider>.models[].cost
 
 請在 [Gateway 設定](/gateway/configuration) 中設定，並於 [Session pruning](/concepts/session-pruning) 查看行為細節。
 
-Heartbeat 可在閒置間隔期間讓快取保持 **warm**。 心跳可在閒置間隔中讓快取保持 **溫熱**。若你的模型快取 TTL 為 `1h`，
+Heartbeat 可在閒置間隔期間讓快取保持 **warm**。 Heartbeat 可在閒置間隔期間讓快取保持 **warm**。 心跳可在閒置間隔中讓快取保持 **溫熱**。若你的模型快取 TTL 為 `1h`，
 將心跳間隔設在略低於該值（例如 `55m`）即可避免
 重新快取完整提示，降低快取寫入成本。
 
@@ -100,5 +104,3 @@ agents:
 - 在冗長、探索性的工作中優先選擇較小的模型。
 
 請參閱 [Skills](/tools/skills) 以了解精確的技能清單額外負擔公式。
-
-

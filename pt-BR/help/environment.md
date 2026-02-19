@@ -1,4 +1,9 @@
 ---
+summary: "Onde o OpenClaw carrega variáveis de ambiente e a ordem de precedência"
+read_when:
+  - Você precisa saber quais variáveis de ambiente são carregadas e em que ordem
+  - Você está depurando chaves de API ausentes no Gateway
+  - Você está documentando autenticação de provedores ou ambientes de implantação
 title: "Variáveis de ambiente"
 ---
 
@@ -51,7 +56,7 @@ Inserir equivalentes:
 - `OPENCLAW_LOAD_SHELL_ENV=1`
 - `OPENCLAW_SHELL_ENV_TIMEOUT_MS=15000`
 
-## Substituição de variáveis de ambiente na configuração
+## Env var substitution in config
 
 Você pode referenciar variáveis de ambiente diretamente em valores de string da configuração usando a sintaxe `${VAR_NAME}`:
 
@@ -69,13 +74,13 @@ Você pode referenciar variáveis de ambiente diretamente em valores de string d
 
 Veja [Configuração: Substituição de variáveis de ambiente](/gateway/configuration#env-var-substitution-in-config) para todos os detalhes.
 
-## Variáveis de ambiente relacionadas a caminhos
+## Path-related env vars
 
-| Variável               | Propósito                                                                                                                                                                                                                           |
-| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Variável               | Propósito                                                                                                                                                                                                                                             |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `OPENCLAW_HOME`        | Substitui o diretório home usado para toda a resolução interna de caminhos (`~/.openclaw/`, diretórios de agente, sessões, credenciais). Useful when running OpenClaw as a dedicated service user. |
-| `OPENCLAW_STATE_DIR`   | Substitui o diretório de estado (padrão `~/.openclaw`).                                                                                                                                            |
-| `OPENCLAW_CONFIG_PATH` | Substitua o caminho do arquivo de configuração (padrão `~/.openclaw/openclaw.json`).                                                                                                             |
+| `OPENCLAW_STATE_DIR`   | Substitui o diretório de estado (padrão `~/.openclaw`).                                                                                                                                                            |
+| `OPENCLAW_CONFIG_PATH` | Substitua o caminho do arquivo de configuração (padrão `~/.openclaw/openclaw.json`).                                                                                                                               |
 
 ### `OPENCLAW_HOME`
 
@@ -100,5 +105,3 @@ Quando definido, `OPENCLAW_HOME` substitui o diretório home do sistema (`$HOME`
 - [Configuração do Gateway](/gateway/configuration)
 - [Perguntas frequentes: variáveis de ambiente e carregamento de .env](/help/faq#env-vars-and-env-loading)
 - [Visão geral de modelos](/concepts/models)
-
-

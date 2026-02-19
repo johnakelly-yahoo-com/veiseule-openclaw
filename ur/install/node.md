@@ -1,5 +1,10 @@
 ---
 title: "Node.js"
+summary: "OpenClaw کے لیے Node.js انسٹال اور کنفیگر کریں — ورژن کی ضروریات، انسٹال کے اختیارات، اور PATH کی خرابیوں کا ازالہ"
+read_when:
+  - "OpenClaw انسٹال کرنے سے پہلے آپ کو Node.js انسٹال کرنا ہو"
+  - "آپ نے OpenClaw انسٹال کر لیا ہو لیکن `openclaw` کمانڈ نہ مل رہی ہو"
+  - "`npm install -g` اجازتوں یا PATH کے مسائل کے ساتھ ناکام ہو رہا ہو"
 ---
 
 # Node.js
@@ -20,46 +25,58 @@ node -v
   <Tab title="macOS">
     **Homebrew** (سفارش کردہ):
 
+    `````
+    ````
     ```bash
     brew install node
     ```
-
+    
     یا [nodejs.org](https://nodejs.org/) سے macOS انسٹالر ڈاؤن لوڈ کریں۔
+    ````
+    `````
 
   
 </Tab>
   <Tab title="Linux">
     **Ubuntu / Debian:**
 
+    `````
+    ````
     ```bash
     curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
     sudo apt-get install -y nodejs
     ```
-
+    
     **Fedora / RHEL:**
-
+    
     ```bash
     sudo dnf install nodejs
     ```
-
+    
     یا ورژن مینیجر استعمال کریں (نیچے دیکھیں)۔
+    ````
+    `````
 
   
 </Tab>
   <Tab title="Windows">
     **winget** (سفارش کردہ):
 
+    `````
+    ````
     ```powershell
     winget install OpenJS.NodeJS.LTS
     ```
-
+    
     **Chocolatey:**
-
+    
     ```powershell
     choco install nodejs-lts
     ```
-
+    
     یا [nodejs.org](https://nodejs.org/) سے Windows انسٹالر ڈاؤن لوڈ کریں۔
+    ````
+    `````
 
   
 </Tab>
@@ -72,7 +89,7 @@ node -v
 - [**nvm**](https://github.com/nvm-sh/nvm) — macOS/Linux پر وسیع پیمانے پر استعمال ہوتا ہے
 - [**mise**](https://mise.jdx.dev/) — پولی گلاٹ (Node، Python، Ruby، وغیرہ)
 
-مثال (fnm کے ساتھ):
+fnm کے ساتھ مثال:
 
 ```bash
 fnm install 22
@@ -80,7 +97,7 @@ fnm use 22
 ```
 
   <Warning>
-  یقینی بنائیں کہ آپ کا ورژن مینیجر آپ کی شیل اسٹارٹ اپ فائل (`~/.zshrc` یا `~/.bashrc`) میں initialized ہے۔ اگر ایسا نہیں ہے تو نئی ٹرمینل سیشنز میں `openclaw` نہیں ملے گا کیونکہ PATH میں Node کی bin ڈائریکٹری شامل نہیں ہوگی۔
+  یقینی بنائیں کہ آپ کا ورژن مینیجر آپ کی شیل اسٹارٹ اپ فائل (`~/.zshrc` یا `~/.bashrc`) میں initialized ہے۔ If it isn't, `openclaw` may not be found in new terminal sessions because the PATH won't include Node's bin directory.
   
 </Warning>
 </Accordion>
@@ -103,7 +120,11 @@ fnm use 22
     echo "$PATH"
     ```
 
+    ````
+    ```
     آؤٹ پٹ میں `<npm-prefix>/bin` (macOS/Linux) یا `<npm-prefix>` (Windows) تلاش کریں۔
+    ```
+    ````
 
   
 </Step>
@@ -112,19 +133,23 @@ fnm use 22
       <Tab title="macOS / Linux">
         `~/.zshrc` یا `~/.bashrc` میں شامل کریں:
 
-        ```bash
-        export PATH="$(npm prefix -g)/bin:$PATH"
         ```
-
-        پھر نئی ٹرمینل کھولیں (یا zsh میں `rehash` چلائیں / bash میں `hash -r`)۔
-      
+            ```
+                ```bash
+                export PATH="$(npm prefix -g)/bin:$PATH"
+                ```
+            
+                پھر نئی ٹرمینل کھولیں (یا zsh میں `rehash` چلائیں / bash میں `hash -r`)۔
+              
 </Tab>
-      <Tab title="Windows">
-        `npm prefix -g` کے آؤٹ پٹ کو Settings → System → Environment Variables کے ذریعے اپنے سسٹم PATH میں شامل کریں۔
-      
+              <Tab title="Windows">
+                `npm prefix -g` کے آؤٹ پٹ کو Settings → System → Environment Variables کے ذریعے اپنے سسٹم PATH میں شامل کریں۔
+              
 </Tab>
-    
+            
 </Tabs>
+            ```
+        ```
 
   
 </Step>
@@ -141,4 +166,3 @@ export PATH="$HOME/.npm-global/bin:$PATH"
 ```
 
 اسے مستقل بنانے کے لیے `export PATH=...` والی لائن کو اپنے `~/.bashrc` یا `~/.zshrc` میں شامل کریں۔
-

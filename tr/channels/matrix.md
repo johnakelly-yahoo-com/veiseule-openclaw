@@ -1,4 +1,7 @@
 ---
+summary: "Matrix destek durumu, yetenekler ve yapılandırma"
+read_when:
+  - Matrix kanal özellikleri üzerinde çalışırken
 title: "Matrix"
 ---
 
@@ -138,6 +141,47 @@ E2EE etkinleştirildiğinde bot, başlangıçta diğer oturumlarınızdan doğru
 Element’i (veya başka bir istemciyi) açın ve güven tesis etmek için doğrulama isteğini onaylayın.
 Doğrulandıktan sonra bot, şifreli odalardaki mesajları çözebilir.
 
+## Çoklu hesap
+
+Çoklu hesap desteği: hesap başına kimlik bilgileri ve isteğe bağlı `name` ile `channels.matrix.accounts` kullanın. Ortak yapı için [`gateway/configuration`](/gateway/configuration#telegramaccounts--discordaccounts--slackaccounts--signalaccounts--imessageaccounts) bölümüne bakın.
+
+Her hesap, herhangi bir homeserver üzerinde ayrı bir Matrix kullanıcısı olarak çalışır. Hesap başına yapılandırma
+üst düzey `channels.matrix` ayarlarını devralır ve herhangi bir seçeneği geçersiz kılabilir
+(DM politikası, gruplar, şifreleme vb.).
+
+```json5
+{
+  channels: {
+    matrix: {
+      enabled: true,
+      dm: { policy: "pairing" },
+      accounts: {
+        assistant: {
+          name: "Main assistant",
+          homeserver: "https://matrix.example.org",
+          accessToken: "syt_assistant_***",
+          encryption: true,
+        },
+        alerts: {
+          name: "Alerts bot",
+          homeserver: "https://matrix.example.org",
+          accessToken: "syt_alerts_***",
+          dm: { policy: "allowlist", allowFrom: ["@admin:example.org"] },
+        },
+      },
+    },
+  },
+}
+```
+
+Notlar:
+
+- Eşzamanlı modül içe aktarımlarında yarış durumlarını önlemek için hesap başlatma işlemi sıralı olarak gerçekleştirilir.
+- Ortam değişkenleri (`MATRIX_HOMESERVER`, `MATRIX_ACCESS_TOKEN`, vb.) yalnızca **varsayılan** hesap için geçerlidir.
+- Temel kanal ayarları (DM politikası, grup politikası, mention kısıtlaması vb.) hesap başına geçersiz kılınmadıkça tüm hesaplara uygulanır.
+- Her hesabı farklı bir agente yönlendirmek için `bindings[].match.accountId` kullanın.
+- Kripto durumu hesap + access token başına saklanır (hesap başına ayrı anahtar depoları).
+
 ## Yönlendirme modeli
 
 - Yanıtlar her zaman Matrix’e geri gider.
@@ -151,6 +195,7 @@ Doğrulandıktan sonra bot, şifreli odalardaki mesajları çözebilir.
   - `openclaw pairing approve matrix <CODE>`
 - Herkese açık DM’ler: `channels.matrix.dm.policy="open"` artı `channels.matrix.dm.allowFrom=["*"]`.
 - `channels.matrix.dm.allowFrom` tam Matrix kullanıcı kimliklerini kabul eder (örnek: `@user:server`). Sihirbaz, dizin aramasında tek ve tam eşleşme bulunduğunda görünen adları kullanıcı kimliklerine çözer.
+- Görünen adları veya yalın localpart’ları kullanmayın (örnek: `"Alice"` veya `"alice"`). Bunlar belirsizdir ve allowlist eşleştirmesinde yok sayılır. Tam `@user:server` kimliklerini kullanın.
 
 ## Odalar (gruplar)
 
@@ -258,6 +303,5 @@ Sağlayıcı seçenekleri:
 - `channels.matrix.mediaMaxMb`: gelen/giden medya sınırı (MB).
 - `channels.matrix.autoJoin`: davet işleme (`always | allowlist | off`, varsayılan: her zaman).
 - `channels.matrix.autoJoinAllowlist`: otomatik katılım için izin verilen oda kimlikleri/takma adları.
+- `channels.matrix.accounts`: hesap kimliğine göre anahtarlanmış çoklu hesap yapılandırması (her hesap üst düzey ayarları devralır).
 - `channels.matrix.actions`: per-action tool gating (reactions/messages/pins/memberInfo/channelInfo).
-
-

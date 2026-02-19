@@ -1,4 +1,8 @@
 ---
+summary: "Suporte ao Windows (WSL2) + status do aplicativo complementar"
+read_when:
+  - Instalando o OpenClaw no Windows
+  - Procurando o status do aplicativo complementar para Windows
 title: "Windows (WSL2)"
 ---
 
@@ -152,5 +156,3 @@ Guia completo: [Primeiros passos](/start/getting-started)
 
 Ainda não temos um aplicativo complementar para Windows. Contribuições são bem-vindas se você quiser
 ajudar a tornar isso realidade.
-
-

@@ -1,18 +1,22 @@
 ---
-title: "Plugin Agent Vositalari"
+summary: "Write agent tools in a plugin (schemas, optional tools, allowlists)"
+read_when:
+  - You want to add a new agent tool in a plugin
+  - You need to make a tool opt-in via allowlists
+title: "Plugin Agent Tools"
 ---
 
-# Plugin agent vositalari
+# Plugin agent tools
 
-OpenClaw pluginlari **agent vositalarini** (JSON‑schema funksiyalari) ro‘yxatdan o‘tkazishi mumkin, ular
-agent ishga tushirilganda LLM’ga taqdim etiladi. Vositalar **majburiy** (har doim mavjud) yoki
-**ixtiyoriy** (opt‑in) bo‘lishi mumkin.
+OpenClaw plugins can register **agent tools** (JSON‑schema functions) that are exposed
+to the LLM during agent runs. Tools can be **required** (always available) or
+**optional** (opt‑in).
 
-Agent vositalari asosiy konfiguratsiyadagi `tools` bo‘limida yoki har bir agent uchun
-`agents.list[].tools` ostida sozlanadi. Allowlist/denylist siyosati agent
-qaysi vositalarni chaqira olishini boshqaradi.
+Agent tools are configured under `tools` in the main config, or per‑agent under
+`agents.list[].tools`. The allowlist/denylist policy controls which tools the agent
+can call.
 
-## Oddiy vosita
+## Basic tool
 
 ```ts
 import { Type } from "@sinclair/typebox";
@@ -31,10 +35,10 @@ export default function (api) {
 }
 ```
 
-## Ixtiyoriy vosita (opt‑in)
+## Optional tool (opt‑in)
 
-Ixtiyoriy vositalar **hech qachon** avtomatik yoqilmaydi. Foydalanuvchilar ularni agent
-allowlist’iga qo‘shishlari kerak.
+Optional tools are **never** auto‑enabled. Users must add them to an agent
+allowlist.
 
 ```ts
 export default function (api) {
@@ -58,7 +62,7 @@ export default function (api) {
 }
 ```
 
-Ixtiyoriy vositalarni `agents.list[].tools.allow` (yoki global `tools.allow`) orqali yoqing:
+Enable optional tools in `agents.list[].tools.allow` (or global `tools.allow`):
 
 ```json5
 {
@@ -68,9 +72,9 @@ Ixtiyoriy vositalarni `agents.list[].tools.allow` (yoki global `tools.allow`) or
         id: "main",
         tools: {
           allow: [
-            "workflow_tool", // aniq vosita nomi
-            "workflow", // plugin id (ushbu plugindagi barcha vositalarni yoqadi)
-            "group:plugins", // barcha plugin vositalari
+            "workflow_tool", // specific tool name
+            "workflow", // plugin id (enables all tools from that plugin)
+            "group:plugins", // all plugin tools
           ],
         },
       },
@@ -79,16 +83,17 @@ Ixtiyoriy vositalarni `agents.list[].tools.allow` (yoki global `tools.allow`) or
 }
 ```
 
-Vositalar mavjudligiga ta’sir qiluvchi boshqa konfiguratsiya sozlamalari:
+Other config knobs that affect tool availability:
 
-- Faqat plugin vositalari ko‘rsatilgan allowlistlar plugin opt‑in sifatida qabul qilinadi; agar allowlistga core vositalar yoki guruhlar ham kiritilmasa, core vositalar yoqilganligicha qoladi.
-- `tools.profile` / `agents.list[].tools.profile` (asosiy allowlist)
-- `tools.byProvider` / `agents.list[].tools.byProvider` (provayderga xos allow/deny)
-- `tools.sandbox.tools.*` (sandbox rejimida vositalar siyosati)
+- Allowlists that only name plugin tools are treated as plugin opt-ins; core tools remain
+  enabled unless you also include core tools or groups in the allowlist.
+- `tools.profile` / `agents.list[].tools.profile` (base allowlist)
+- `tools.byProvider` / `agents.list[].tools.byProvider` (provider‑specific allow/deny)
+- `tools.sandbox.tools.*` (sandbox tool policy when sandboxed)
 
-## Qoidalar + maslahatlar
+## Rules + tips
 
-- Vosita nomlari core vosita nomlari bilan **to‘qnash kelmasligi** kerak; zid kelgan vositalar o‘tkazib yuboriladi.
-- Allowlistlarda ishlatiladigan plugin id’lar core vosita nomlari bilan to‘qnashmasligi kerak.
-- Yon ta’sirlarni ishga tushiradigan yoki qo‘shimcha binary/fayllar yoki credential talab qiladigan vositalar uchun `optional: true` dan foydalanish tavsiya etiladi.
-
+- Tool names must **not** clash with core tool names; conflicting tools are skipped.
+- Plugin ids used in allowlists must not clash with core tool names.
+- Prefer `optional: true` for tools that trigger side effects or require extra
+  binaries/credentials.

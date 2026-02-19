@@ -1,4 +1,8 @@
 ---
+summary: "การแยกวิเคราะห์ตำแหน่งจากช่องทางขาเข้า(Telegram+WhatsApp)และฟิลด์บริบท"
+read_when:
+  - การเพิ่มหรือปรับแก้การแยกวิเคราะห์ตำแหน่งของช่องทาง
+  - การใช้ฟิลด์บริบทของตำแหน่งในพรอมต์หรือเครื่องมือของเอเจนต์
 title: "การแยกวิเคราะห์ตำแหน่งของช่องทาง"
 ---
 
@@ -50,5 +54,3 @@ Meet here
 - **Telegram**: สถานที่(venues)จะถูกแมปไปที่ `LocationName/LocationAddress`; ตำแหน่งแบบสดใช้ `live_period`.
 - **WhatsApp**: `locationMessage.comment` และ `liveLocationMessage.caption` จะถูกต่อท้ายเป็นบรรทัดคำบรรยาย.
 - **Matrix**: `geo_uri` จะถูกแยกวิเคราะห์เป็นตำแหน่งแบบหมุด; ค่าความสูงจะถูกละเว้นและ `LocationIsLive` จะเป็น false เสมอ.
-
-

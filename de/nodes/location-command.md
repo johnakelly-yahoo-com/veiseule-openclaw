@@ -1,4 +1,8 @@
 ---
+summary: "„Standortbefehl für Nodes (location.get), Berechtigungsmodi und Hintergrundverhalten“"
+read_when:
+  - Hinzufügen von Standort-Node-Unterstützung oder einer Berechtigungs-UI
+  - Entwerfen von Hintergrund-Standort- und Push-Flows
 title: "„Standortbefehl“"
 ---
 
@@ -107,5 +111,3 @@ Hinweise:
 - Während der Nutzung: „Nur wenn OpenClaw geöffnet ist.“
 - Immer: „Hintergrund-Standort erlauben. Erfordert Systemberechtigung.“
 - Präzise: „Präzisen GPS-Standort verwenden. Deaktivieren, um einen ungefähren Standort zu teilen.“
-
-

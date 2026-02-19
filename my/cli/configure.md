@@ -1,4 +1,7 @@
 ---
+summary: "`openclaw configure` အတွက် CLI ကိုးကားချက် (အပြန်အလှန် ဖွဲ့စည်းပြင်ဆင်ရေး မေးခွန်းများ)"
+read_when:
+  - အထောက်အထားများ၊ စက်ပစ္စည်းများ သို့မဟုတ် အေးဂျင့် ပုံသေသတ်မှတ်ချက်များကို အပြန်အလှန် ပြင်ဆင်လိုသောအခါ
 title: "configure"
 ---
 
@@ -26,5 +29,3 @@ title: "configure"
 openclaw configure
 openclaw configure --section models --section channels
 ```
-
-

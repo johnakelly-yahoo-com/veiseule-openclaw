@@ -1,56 +1,60 @@
 ---
+summary: "CLI onboarding wizard bo‘yicha to‘liq ma’lumot: har bir qadam, flag va konfiguratsiya maydoni"
+read_when:
+  - Muayyan wizard qadami yoki flagini qidirayotganda
+  - Onboarding jarayonini non-interactive rejimda avtomatlashtirganda
+  - Wizard xatti-harakatini nosozliklarini tuzatayotganda
 title: "Onboarding Wizard ma’lumotnomasi"
 sidebarTitle: "Wizard ma’lumotnomasi"
 ---
 
 # Onboarding Wizard ma’lumotnomasi
 
-Bu `openclaw onboard` CLI wizard uchun to‘liq ma’lumotnoma.
-Yuqori darajadagi umumiy ko‘rinish uchun [Onboarding Wizard](/start/wizard) sahifasiga qarang.
+This is the full reference for the `openclaw onboard` CLI wizard.
+For a high-level overview, see [Onboarding Wizard](/start/wizard).
 
 ## Jarayon tafsilotlari (local rejim)
 
 <Steps>
-  <Step title="Mavjud konfiguratsiyani aniqlash">
-    - Agar `~/.openclaw/openclaw.json` mavjud bo‘lsa, **Keep / Modify / Reset** dan birini tanlang.
-    - Wizard’ni qayta ishga tushirish **Reset** ni aniq tanlamaguningizcha
-      (yoki `--reset` uzatmaguningizcha) hech narsani o‘chirmaydi.
-    - Agar konfiguratsiya yaroqsiz bo‘lsa yoki eski (legacy) kalitlarni o‘z ichiga olsa, wizard to‘xtaydi va
-      davom etishdan oldin `openclaw doctor` ni ishga tushirishingizni so‘raydi.
-    - Reset `trash` dan foydalanadi (`rm` emas) va quyidagi qamrovlarni taklif qiladi:
-      - Faqat konfiguratsiya
-      - Konfiguratsiya + credentiallar + sessiyalar
-      - To‘liq reset (workspace ham o‘chiriladi)
-  
+  <Step title="Existing config detection">
+    - If `~/.openclaw/openclaw.json` exists, choose **Keep / Modify / Reset**.
+    - Re-running the wizard does **not** wipe anything unless you explicitly choose **Reset**
+      (or pass `--reset`).
+    - If the config is invalid or contains legacy keys, the wizard stops and asks
+      you to run `openclaw doctor` before continuing.
+    - Reset uses `trash` (never `rm`) and offers scopes:
+      - Config only
+      - Config + credentials + sessions
+      - Full reset (also removes workspace)  
 </Step>
   <Step title="Model/Auth">
-    - **Anthropic API key (tavsiya etiladi)**: agar mavjud bo‘lsa `ANTHROPIC_API_KEY` dan foydalanadi yoki kalitni so‘raydi, so‘ngra uni daemon foydalanishi uchun saqlaydi.
-    - **Anthropic OAuth (Claude Code CLI)**: macOS’da wizard Keychain’dagi "Claude Code-credentials" elementini tekshiradi ("Always Allow" ni tanlang, shunda launchd ishga tushganda bloklanmaydi); Linux/Windows’da mavjud bo‘lsa `~/.claude/.credentials.json` dan foydalanadi.
-    - **Anthropic token (setup-token ni joylashtirish)**: istalgan mashinada `claude setup-token` ni ishga tushiring, so‘ng tokenni joylashtiring (unga nom berishingiz mumkin; bo‘sh qoldirilsa = default).
-    - **OpenAI Code (Codex) subscription (Codex CLI)**: agar `~/.codex/auth.json` mavjud bo‘lsa, wizard undan foydalanishi mumkin.
-    - **OpenAI Code (Codex) subscription (OAuth)**: brauzer jarayoni; `code#state` ni joylashtiring.
-      - Agar model o‘rnatilmagan bo‘lsa yoki `openai/*` bo‘lsa, `agents.defaults.model` ni `openai-codex/gpt-5.2` ga o‘rnatadi.
-    - **OpenAI API key**: agar mavjud bo‘lsa `OPENAI_API_KEY` dan foydalanadi yoki kalitni so‘raydi, so‘ng launchd o‘qishi uchun uni `~/.openclaw/.env` ga saqlaydi.
-    - **xAI (Grok) API key**: `XAI_API_KEY` ni so‘raydi va xAI’ni model provayder sifatida sozlaydi.
-    - **OpenCode Zen (multi-model proxy)**: `OPENCODE_API_KEY` (yoki `OPENCODE_ZEN_API_KEY`, uni https://opencode.ai/auth dan oling) ni so‘raydi.
-    - **API key**: kalitni siz uchun saqlaydi.
-    - **Vercel AI Gateway (multi-model proxy)**: `AI_GATEWAY_API_KEY` ni so‘raydi.
-    - Batafsil: [Vercel AI Gateway](/providers/vercel-ai-gateway)
-    - **Cloudflare AI Gateway**: Account ID, Gateway ID va `CLOUDFLARE_AI_GATEWAY_API_KEY` ni so‘raydi.
-    - Batafsil: [Cloudflare AI Gateway](/providers/cloudflare-ai-gateway)
-    - **MiniMax M2.1**: konfiguratsiya avtomatik yoziladi.
-    - Batafsil: [MiniMax](/providers/minimax)
-    - **Synthetic (Anthropic-compatible)**: `SYNTHETIC_API_KEY` ni so‘raydi.
-    - Batafsil: [Synthetic](/providers/synthetic)
-    - **Moonshot (Kimi K2)**: konfiguratsiya avtomatik yoziladi.
-    - **Kimi Coding**: konfiguratsiya avtomatik yoziladi.
-    - Batafsil: [Moonshot AI (Kimi + Kimi Coding)](/providers/moonshot)
-    - **Skip**: hozircha auth sozlanmaydi.
-    - Aniqlangan variantlardan default modelni tanlang (yoki provider/model ni qo‘lda kiriting).
-    - Wizard modelni tekshiradi va agar sozlangan model noma’lum bo‘lsa yoki auth yetishmasa, ogohlantiradi.
-    - OAuth credentiallari `~/.openclaw/credentials/oauth.json` da saqlanadi; auth profillari `~/.openclaw/agents/<agentId>/agent/auth-profiles.json` da saqlanadi (API keylar + OAuth).
-    - Batafsil: [/concepts/oauth](/concepts/oauth)
-    <Note>
+    - **Anthropic API key (recommended)**: uses `ANTHROPIC_API_KEY` if present or prompts for a key, then saves it for daemon use.
+    - **Anthropic OAuth (Claude Code CLI)**: on macOS the wizard checks Keychain item "Claude Code-credentials" (choose "Always Allow" so launchd starts don't block); on Linux/Windows it reuses `~/.claude/.credentials.json` if present.
+    - **Anthropic token (paste setup-token)**: run `claude setup-token` on any machine, then paste the token (you can name it; blank = default).
+    - **OpenAI Code (Codex) subscription (Codex CLI)**: if `~/.codex/auth.json` exists, the wizard can reuse it.
+    - **OpenAI Code (Codex) subscription (OAuth)**: browser flow; paste the `code#state`.
+      - Sets `agents.defaults.model` to `openai-codex/gpt-5.2` when model is unset or `openai/*`.
+    - **OpenAI API key**: uses `OPENAI_API_KEY` if present or prompts for a key, then saves it to `~/.openclaw/.env` so launchd can read it.
+    - **xAI (Grok) API key**: prompts for `XAI_API_KEY` and configures xAI as a model provider.
+    - **OpenCode Zen (multi-model proxy)**: prompts for `OPENCODE_API_KEY` (or `OPENCODE_ZEN_API_KEY`, get it at https://opencode.ai/auth).
+    - **API key**: stores the key for you.
+    - **Vercel AI Gateway (multi-model proxy)**: prompts for `AI_GATEWAY_API_KEY`.
+    - More detail: [Vercel AI Gateway](/providers/vercel-ai-gateway)
+    - **Cloudflare AI Gateway**: prompts for Account ID, Gateway ID, and `CLOUDFLARE_AI_GATEWAY_API_KEY`.
+    - More detail: [Cloudflare AI Gateway](/providers/cloudflare-ai-gateway)
+    - **MiniMax M2.1**: config is auto-written.
+    - More detail: [MiniMax](/providers/minimax)
+    - **Synthetic (Anthropic-compatible)**: prompts for `SYNTHETIC_API_KEY`.
+    - More detail: [Synthetic](/providers/synthetic)
+    - **Moonshot (Kimi K2)**: config is auto-written.
+    - **Kimi Coding**: config is auto-written.
+    - More detail: [Moonshot AI (Kimi + Kimi Coding)](/providers/moonshot)
+    - **Skip**: no auth configured yet.
+    - Pick a default model from detected options (or enter provider/model manually).
+    - Wizard runs a model check and warns if the configured model is unknown or missing auth.
+    - OAuth credentials live in `~/.openclaw/credentials/oauth.json`; auth profiles live in `~/.openclaw/agents/<agentId>/agent/auth-profiles.json` (API keys + OAuth).
+    - More detail: [/concepts/oauth](/concepts/oauth)    
+<Note>
     Headless/server uchun maslahat: OAuth jarayonini brauzerli mashinada yakunlang, so‘ng
     `~/.openclaw/credentials/oauth.json` (yoki `$OPENCLAW_STATE_DIR/credentials/oauth.json`) faylini
     gateway hostiga ko‘chiring.
@@ -59,59 +63,60 @@ Yuqori darajadagi umumiy ko‘rinish uchun [Onboarding Wizard](/start/wizard) sa
   
 </Step>
   <Step title="Workspace">
-    - Standart `~/.openclaw/workspace` (o‘zgartirilishi mumkin).
-    - Agent bootstrap jarayoni uchun zarur workspace fayllarini yaratadi.
-    - To‘liq workspace tuzilmasi + zaxira qo‘llanmasi: [Agent workspace](/concepts/agent-workspace)
-  
+    - Default `~/.openclaw/workspace` (configurable).
+    - Seeds the workspace files needed for the agent bootstrap ritual.
+    - Full workspace layout + backup guide: [Agent workspace](/concepts/agent-workspace)  
 </Step>
   <Step title="Gateway">
-    - Port, bind, auth rejimi, tailscale orqali ochish.
-    - Auth bo‘yicha tavsiya: hatto loopback uchun ham **Token** ni saqlang, shunda mahalliy WS mijozlari autentifikatsiyadan o‘tadi.
-    - Faqat barcha mahalliy jarayonlarga to‘liq ishonchingiz bo‘lsa auth’ni o‘chiring.
-    - Non‑loopback bind’lar ham auth talab qiladi.
+    - Port, bog‘lash, autentifikatsiya rejimi, Tailscale orqali ochish.
+    - Auth recommendation: keep **Token** even for loopback so local WS clients must authenticate.
+    - Disable auth only if you fully trust every local process.
+    - Non‑loopback binds still require auth.
   
 </Step>
   <Step title="Channels">
-    - [WhatsApp](/channels/whatsapp): ixtiyoriy QR login.
-    - [Telegram](/channels/telegram): bot tokeni.
-    - [Discord](/channels/discord): bot tokeni.
-    - [Google Chat](/channels/googlechat): xizmat hisobi JSON + webhook auditoriysi.
-    - [Mattermost](/channels/mattermost) (plagin): bot token + asosiy URL.
-    - [Signal](/channels/signal): ixtiyoriy `signal-cli` o‘rnatish + account konfiguratsiyasi.
-    - [BlueBubbles](/channels/bluebubbles): **iMessage uchun tavsiya etiladi**; server URL + parol + webhook.
-    - [iMessage](/channels/imessage): eski `imsg` CLI yo‘li + DB kirishi.
-    - DM xavfsizligi: standart holatda pairing. Birinchi DM kod yuboradi; `openclaw pairing approve <channel> <code>` orqali tasdiqlang yoki allowlist’dan foydalaning.
+    - [WhatsApp](/channels/whatsapp): optional QR login.
+    - [Telegram](/channels/telegram): bot token.
+    - [Discord](/channels/discord): bot token.
+    - [Google Chat](/channels/googlechat): service account JSON + webhook audience.
+    - [Mattermost](/channels/mattermost) (plugin): bot token + base URL.
+    - [Signal](/channels/signal): optional `signal-cli` install + account config.
+    - [BlueBubbles](/channels/bluebubbles): **recommended for iMessage**; server URL + password + webhook.
+    - [iMessage](/channels/imessage): legacy `imsg` CLI path + DB access.
+    - DM security: default is pairing. First DM sends a code; approve via `openclaw pairing approve <channel><code>` orqali tasdiqlang yoki allowlist’dan foydalaning.
+  
+</Step><code>` or use allowlists.
   
 </Step>
-  <Step title="Daemon o‘rnatish">
+  <Step title="Daemon install">
     - macOS: LaunchAgent
-      - Tizimga kirilgan foydalanuvchi sessiyasi talab qilinadi; headless uchun maxsus LaunchDaemon’dan foydalaning (taqdim etilmaydi).
-    - Linux (va Windows WSL2 orqali): systemd user unit
-      - Gateway logout’dan keyin ham ishlashi uchun wizard `loginctl enable-linger <user>` ni yoqishga harakat qiladi.
-      - sudo so‘rashi mumkin (`/var/lib/systemd/linger` ga yozadi); avval sudo’siz urinib ko‘radi.
-    - **Runtime tanlash:** Node (tavsiya etiladi; WhatsApp/Telegram uchun talab qilinadi). Bun **tavsiya etilmaydi**.
+      - Requires a logged-in user session; for headless, use a custom LaunchDaemon (not shipped).
+    - Linux (and Windows via WSL2): systemd user unit
+      - Wizard attempts to enable lingering via `loginctl enable-linger <user>` so the Gateway stays up after logout.
+      - May prompt for sudo (writes `/var/lib/systemd/linger`); it tries without sudo first.
+    - **Runtime selection:** Node (recommended; required for WhatsApp/Telegram). Bun is **not recommended**.
   
 </Step>
   <Step title="Health check">
-    - Gateway’ni ishga tushiradi (agar kerak bo‘lsa) va `openclaw health` ni ishga tushiradi.
-    - Maslahat: `openclaw status --deep` status chiqishiga gateway health tekshiruvlarini qo‘shadi (gateway mavjud bo‘lishi kerak).
+    - Starts the Gateway (if needed) and runs `openclaw health`.
+    - Tip: `openclaw status --deep` adds gateway health probes to status output (requires a reachable gateway).
   
 </Step>
-  <Step title="Skills (tavsiya etiladi)">
-    - Mavjud skills’larni o‘qiydi va talablarni tekshiradi.
-    - Node manager tanlash imkonini beradi: **npm / pnpm** (bun tavsiya etilmaydi).
-    - Ixtiyoriy bog‘liqliklarni o‘rnatadi (ba’zilari macOS’da Homebrew’dan foydalanadi).
+  <Step title="Skills (recommended)">
+    - Reads the available skills and checks requirements.
+    - Lets you choose a node manager: **npm / pnpm** (bun not recommended).
+    - Installs optional dependencies (some use Homebrew on macOS).
   
 </Step>
-  <Step title="Yakunlash">
-    - Xulosa + keyingi qadamlar, jumladan qo‘shimcha funksiyalar uchun iOS/Android/macOS ilovalari.
+  <Step title="Finish">
+    - Summary + next steps, including iOS/Android/macOS apps for extra features.
   
 </Step>
 </Steps>
 
 <Note>
-Agar GUI aniqlanmasa, wizard brauzerni ochish o‘rniga Control UI uchun SSH port-forward ko‘rsatmalarini chiqaradi.
-Agar Control UI assetlari mavjud bo‘lmasa, wizard ularni build qilishga harakat qiladi; fallback — `pnpm ui:build` (UI bog‘liqliklarini avtomatik o‘rnatadi).
+If no GUI is detected, the wizard prints SSH port-forward instructions for the Control UI instead of opening a browser.
+If the Control UI assets are missing, the wizard attempts to build them; fallback is `pnpm ui:build` (auto-installs UI deps).
 </Note>
 
 ## Non-interactive rejim
@@ -133,11 +138,11 @@ openclaw onboard --non-interactive \
 Mashina o‘qiy oladigan xulosa uchun `--json` ni qo‘shing.
 
 <Note>
-`--json` **non-interactive** rejimni avtomatik yoqmaydi. Skriptlar uchun `--non-interactive` (va `--workspace`) dan foydalaning.
+`--json` does **not** imply non-interactive mode. Use `--non-interactive` (and `--workspace`) for scripts.
 </Note>
 
 <AccordionGroup>
-  <Accordion title="Gemini misoli">
+  <Accordion title="Gemini example">
     ```bash
     openclaw onboard --non-interactive \
       --mode local \
@@ -148,7 +153,7 @@ Mashina o‘qiy oladigan xulosa uchun `--json` ni qo‘shing.
     ```
   
 </Accordion>
-  <Accordion title="Z.AI misoli">
+  <Accordion title="Z.AI example">
     ```bash
     openclaw onboard --non-interactive \
       --mode local \
@@ -159,7 +164,7 @@ Mashina o‘qiy oladigan xulosa uchun `--json` ni qo‘shing.
     ```
   
 </Accordion>
-  <Accordion title="Vercel AI Gateway misoli">
+  <Accordion title="Vercel AI Gateway example">
     ```bash
     openclaw onboard --non-interactive \
       --mode local \
@@ -170,7 +175,7 @@ Mashina o‘qiy oladigan xulosa uchun `--json` ni qo‘shing.
     ```
   
 </Accordion>
-  <Accordion title="Cloudflare AI Gateway misoli">
+  <Accordion title="Cloudflare AI Gateway example">
     ```bash
     openclaw onboard --non-interactive \
       --mode local \
@@ -183,7 +188,7 @@ Mashina o‘qiy oladigan xulosa uchun `--json` ni qo‘shing.
     ```
   
 </Accordion>
-  <Accordion title="Moonshot misoli">
+  <Accordion title="Moonshot example">
     ```bash
     openclaw onboard --non-interactive \
       --mode local \
@@ -194,7 +199,7 @@ Mashina o‘qiy oladigan xulosa uchun `--json` ni qo‘shing.
     ```
   
 </Accordion>
-  <Accordion title="Synthetic misoli">
+  <Accordion title="Synthetic example">
     ```bash
     openclaw onboard --non-interactive \
       --mode local \
@@ -205,7 +210,7 @@ Mashina o‘qiy oladigan xulosa uchun `--json` ni qo‘shing.
     ```
   
 </Accordion>
-  <Accordion title="OpenCode Zen misoli">
+  <Accordion title="OpenCode Zen example">
     ```bash
     openclaw onboard --non-interactive \
       --mode local \
@@ -231,8 +236,8 @@ openclaw agents add work \
 
 ## Gateway sozlash ustasi RPC
 
-Gateway wizard jarayonini RPC orqali taqdim etadi (`wizard.start`, `wizard.next`, `wizard.cancel`, `wizard.status`).
-Mijozlar (macOS ilovasi, Control UI) onboarding logikasini qayta yozmasdan qadamlarni ko‘rsatishi mumkin.
+The Gateway exposes the wizard flow over RPC (`wizard.start`, `wizard.next`, `wizard.cancel`, `wizard.status`).
+Clients (macOS app, Control UI) can render steps without re‑implementing onboarding logic.
 
 ## Signal sozlamasi (signal-cli)
 
@@ -266,11 +271,11 @@ Eslatmalar:
 
 `openclaw agents add` `agents.list[]` va ixtiyoriy `bindings` ni yozadi.
 
-WhatsApp credentiallari `~/.openclaw/credentials/whatsapp/<accountId>/` ostida saqlanadi.
-Sessiyalar `~/.openclaw/agents/<agentId>/sessions/` ostida saqlanadi.
+WhatsApp credentials go under `~/.openclaw/credentials/whatsapp/<accountId>/`.
+Sessions are stored under `~/.openclaw/agents/<agentId>/sessions/`.
 
-Ba’zi channel’lar plugin sifatida yetkaziladi. Onboarding vaqtida ulardan birini tanlasangiz, wizard
-uni sozlashdan oldin o‘rnatishni (npm yoki lokal yo‘l orqali) so‘raydi.
+Some channels are delivered as plugins. When you pick one during onboarding, the wizard
+will prompt to install it (npm or a local path) before it can be configured.
 
 ## Tegishli hujjatlar
 
@@ -279,4 +284,3 @@ uni sozlashdan oldin o‘rnatishni (npm yoki lokal yo‘l orqali) so‘raydi.
 - Konfiguratsiya ma’lumotnomasi: [Gateway configuration](/gateway/configuration)
 - Provayderlar: [WhatsApp](/channels/whatsapp), [Telegram](/channels/telegram), [Discord](/channels/discord), [Google Chat](/channels/googlechat), [Signal](/channels/signal), [BlueBubbles](/channels/bluebubbles) (iMessage), [iMessage](/channels/imessage) (eski)
 - Skills: [Skills](/tools/skills), [Skills config](/tools/skills-config)
-

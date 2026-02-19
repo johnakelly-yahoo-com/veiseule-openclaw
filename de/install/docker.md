@@ -1,4 +1,8 @@
 ---
+summary: "„Optionale Docker-basierte Einrichtung und Onboarding für OpenClaw“"
+read_when:
+  - Sie möchten ein containerisiertes Gateway anstelle lokaler Installationen
+  - Sie validieren den Docker-Flow
 title: "„Docker“"
 ---
 
@@ -60,6 +64,24 @@ Es schreibt Konfiguration/Workspace auf den Host:
 - `~/.openclaw/workspace`
 
 Betrieb auf einem VPS? Siehe [Hetzner (Docker VPS)](/install/hetzner).
+
+### Shell-Helfer (optional)
+
+Für eine einfachere tägliche Docker-Verwaltung installieren Sie `ClawDock`:
+
+```bash
+mkdir -p ~/.clawdock && curl -sL https://raw.githubusercontent.com/openclaw/openclaw/main/scripts/shell-helpers/clawdock-helpers.sh -o ~/.clawdock/clawdock-helpers.sh
+```
+
+**Zu Ihrer Shell-Konfiguration hinzufügen (zsh):**
+
+```bash
+echo 'source ~/.clawdock/clawdock-helpers.sh' >> ~/.zshrc && source ~/.zshrc
+```
+
+Verwenden Sie dann `clawdock-start`, `clawdock-stop`, `clawdock-dashboard` usw. Führen Sie `clawdock-help` aus, um alle Befehle anzuzeigen.
+
+Siehe [`ClawDock` Helper README](https://github.com/openclaw/openclaw/blob/main/scripts/shell-helpers/README.md) für Details.
 
 ### Manueller Flow (Compose)
 
@@ -171,7 +193,7 @@ Benutzer `node`. Dies hält die Angriffsfläche klein, bedeutet aber:
 
 Wenn Sie einen stärker ausgestatteten Container möchten, verwenden Sie diese Opt-in-Optionen:
 
-1. **`/home/node` persistieren**, damit Browser-Downloads und Tool-Caches erhalten bleiben:
+1. **Playwright-Browser-Downloads persistent machen**:
 
 ```bash
 export OPENCLAW_HOME_VOLUME="openclaw_home"
@@ -579,5 +601,3 @@ Beispiel:
 - Benutzerdefinierte Werkzeuge nicht gefunden: OpenClaw führt Befehle mit `sh -lc`
   (Login-Shell) aus, die `/etc/profile` sourced und dabei PATH zurücksetzen kann. Setzen Sie
   `docker.env.PATH`, um Ihre benutzerdefinierten Werkzeugpfade voranzustellen (z. B. `/custom/bin:/usr/local/share/npm-global/bin`), oder fügen Sie ein Skript unter `/etc/profile.d/` in Ihrem Dockerfile hinzu.
-
-

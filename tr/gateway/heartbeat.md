@@ -1,4 +1,8 @@
 ---
+summary: "Heartbeat yoklama mesajları ve bildirim kuralları"
+read_when:
+  - Heartbeat sıklığını veya mesajlaşmayı ayarlarken
+  - Zamanlanmış görevler için heartbeat ile cron arasında karar verirken
 title: "Kalp Atışı"
 ---
 
@@ -359,5 +363,3 @@ kapalı tutmayı tercih edin.
 Heartbeat’ler tam ajan dönüşleri çalıştırır. Daha kısa aralıklar daha fazla token
 harcar. `HEARTBEAT.md`’u küçük tutun ve yalnızca dahili durum güncellemeleri
 istiyorsanız daha ucuz bir `model` veya `target: "none"` düşünün.
-
-

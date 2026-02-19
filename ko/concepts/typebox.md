@@ -1,4 +1,7 @@
 ---
+summary: "Gateway 프로토콜을 위한 단일 진실 원천으로서의 TypeBox 스키마"
+read_when:
+  - 프로토콜 스키마 또는 코드 생성기를 업데이트할 때
 title: "TypeBox"
 ---
 
@@ -37,14 +40,14 @@ Client                    Gateway
 
 공통 메서드 + 이벤트:
 
-| 카테고리  | 예시                                                  | 참고 사항                            |
-| --------- | --------------------------------------------------------- | -------------------------------- |
-| 핵심      | `connect`, `health`, `status`                             | `connect` 는 반드시 처음이어야 합니다        |
-| 메시징 | `send`, `poll`, `agent`, `agent.wait`                     | 부수 효과에는 `idempotencyKey` 가 필요합니다 |
-| Chat      | `chat.history`, `chat.send`, `chat.abort`, `chat.inject`  | WebChat 이 이를 사용합니다               |
-| Sessions  | `sessions.list`, `sessions.patch`, `sessions.delete`      | 세션 관리                            |
-| Nodes     | `node.list`, `node.invoke`, `node.pair.*`                 | Gateway WS + 노드 작업               |
-| Events    | `tick`, `presence`, `agent`, `chat`, `health`, `shutdown` | 서버 푸시                            |
+| 카테고리     | Examples                                                  | 참고 사항                            |
+| -------- | --------------------------------------------------------- | -------------------------------- |
+| 핵심       | `connect`, `health`, `status`                             | `connect` 는 반드시 처음이어야 합니다        |
+| 메시징      | `send`, `poll`, `agent`, `agent.wait`                     | 부수 효과에는 `idempotencyKey` 가 필요합니다 |
+| Chat     | `chat.history`, `chat.send`, `chat.abort`, `chat.inject`  | WebChat 이 이를 사용합니다               |
+| Sessions | `sessions.list`, `sessions.patch`, `sessions.delete`      | 세션 관리                            |
+| Nodes    | `node.list`, `node.invoke`, `node.pair.*`                 | Gateway WS + 노드 작업               |
+| Events   | `tick`, `presence`, `agent`, `chat`, `health`, `shutdown` | 서버 푸시                            |
 
 권위 있는 목록은 `src/gateway/server.ts` (`METHODS`, `EVENTS`)에 있습니다.
 
@@ -281,5 +284,3 @@ Swift 생성기는 다음을 출력합니다:
 1. TypeBox 스키마를 업데이트합니다.
 2. `pnpm protocol:check` 를 실행합니다.
 3. 재생성된 스키마와 Swift 모델을 커밋합니다.
-
-

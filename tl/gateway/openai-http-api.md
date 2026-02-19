@@ -1,4 +1,7 @@
 ---
+summary: "Ilantad ang OpenAI-compatible na /v1/chat/completions HTTP endpoint mula sa Gateway"
+read_when:
+  - Pagsasama ng mga tool na umaasa sa OpenAI Chat Completions
 title: "OpenAI Chat Completions"
 ---
 
@@ -23,6 +26,7 @@ Mga tala:
 
 - Kapag `gateway.auth.mode="token"`, gamitin ang `gateway.auth.token` (o `OPENCLAW_GATEWAY_TOKEN`).
 - Kapag `gateway.auth.mode="password"`, gamitin ang `gateway.auth.password` (o `OPENCLAW_GATEWAY_PASSWORD`).
+- Kapag naka-configure ang `gateway.auth.rateLimit` at masyadong maraming auth failures ang naganap, ang endpoint ay magbabalik ng `429` na may `Retry-After`.
 
 ## Pagpili ng agent
 
@@ -113,5 +117,3 @@ curl -N http://127.0.0.1:18789/v1/chat/completions \
     "messages": [{"role":"user","content":"hi"}]
   }'
 ```
-
-

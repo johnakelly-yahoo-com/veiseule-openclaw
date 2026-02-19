@@ -1,4 +1,8 @@
 ---
+summary: "Heartbeat-pollingberichten en notificatieregels"
+read_when:
+  - Het aanpassen van heartbeat-cadans of berichten
+  - Beslissen tussen heartbeat en cron voor geplande taken
 title: "Hartslag"
 ---
 
@@ -388,5 +392,3 @@ bij voorkeur uit in groepschats.
 Heartbeats voeren volledige agent-beurten uit. Kortere intervallen verbruiken meer
 tokens. Houd `HEARTBEAT.md` klein en overweeg een goedkoper `model` of
 `target: "none"` als je alleen interne statusupdates wilt.
-
-

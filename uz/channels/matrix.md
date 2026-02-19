@@ -1,4 +1,7 @@
 ---
+summary: "20. Matrix qo‘llab-quvvatlash holati, imkoniyatlar va konfiguratsiya"
+read_when:
+  - 21. Matrix kanal imkoniyatlari ustida ish olib borilmoqda
 title: "22. Matrix"
 ---
 
@@ -15,7 +18,7 @@ title: "22. Matrix"
 32. CLI orqali o‘rnating (npm registri):
 
 ```bash
-33. openclaw plugins install @openclaw/matrix
+35. openclaw plugins install ./extensions/matrix
 ```
 
 34. Lokal checkout (git repodan ishga tushirilganda):
@@ -131,6 +134,47 @@ When E2EE is enabled, the bot will request verification from your other sessions
 Open Element (or another client) and approve the verification request to establish trust.
 Once verified, the bot can decrypt messages in encrypted rooms.
 
+## Ko‘p akkauntli rejim
+
+Ko‘p akkauntli qo‘llab-quvvatlash: har bir akkaunt uchun alohida credentials va ixtiyoriy `name` bilan `channels.matrix.accounts`dan foydalaning. Umumiy andoza uchun [`gateway/configuration`](/gateway/configuration#telegramaccounts--discordaccounts--slackaccounts--signalaccounts--imessageaccounts) sahifasiga qarang.
+
+Har bir akkaunt istalgan homeserver’da alohida Matrix foydalanuvchisi sifatida ishlaydi. Har bir akkaunt konfiguratsiyasi
+yuqori darajadagi `channels.matrix` sozlamalaridan meros oladi va istalgan parametrni
+(DM policy, groups, encryption va boshqalar) bekor qilib o‘zgartirishi mumkin.
+
+```json5
+{
+  channels: {
+    matrix: {
+      enabled: true,
+      dm: { policy: "pairing" },
+      accounts: {
+        assistant: {
+          name: "Asosiy yordamchi",
+          homeserver: "https://matrix.example.org",
+          accessToken: "syt_assistant_***",
+          encryption: true,
+        },
+        alerts: {
+          name: "Ogohlantirishlar boti",
+          homeserver: "https://matrix.example.org",
+          accessToken: "syt_alerts_***",
+          dm: { policy: "allowlist", allowFrom: ["@admin:example.org"] },
+        },
+      },
+    },
+  },
+}
+```
+
+Eslatmalar:
+
+- Akkauntni ishga tushirish ketma-ket bajariladi, bu bir vaqtning o‘zida modul importlari bilan bog‘liq race conditionlarning oldini oladi.
+- Muhit o‘zgaruvchilari (`MATRIX_HOMESERVER`, `MATRIX_ACCESS_TOKEN` va boshqalar) faqat **default** akkauntga qo‘llaniladi.
+- Asosiy kanal sozlamalari (DM policy, group policy, mention gating va boshqalar) har bir akkaunt uchun alohida bekor qilinmagan bo‘lsa, barcha akkauntlarga qo‘llaniladi.
+- Har bir akkauntni turli agentga yo‘naltirish uchun `bindings[].match.accountId`dan foydalaning.
+- Kripto holati har bir akkaunt + access token bo‘yicha saqlanadi (har bir akkaunt uchun alohida kalit saqlash joyi).
+
 ## Routing model
 
 - Replies always go back to Matrix.
@@ -144,6 +188,7 @@ Once verified, the bot can decrypt messages in encrypted rooms.
   - `openclaw pairing approve matrix <CODE>`
 - Public DMs: `channels.matrix.dm.policy="open"` plus `channels.matrix.dm.allowFrom=["*"]`.
 - `channels.matrix.dm.allowFrom` accepts full Matrix user IDs (example: `@user:server`). The wizard resolves display names to user IDs when directory search finds a single exact match.
+- Display name yoki faqat localpart’dan (masalan: `"Alice"` yoki `"alice"`) foydalanmang. Ular noaniq hisoblanadi va allowlist moslashtirishida e’tiborga olinmaydi. To‘liq `@user:server` IDlaridan foydalaning.
 
 ## Rooms (groups)
 
@@ -175,7 +220,7 @@ Once verified, the bot can decrypt messages in encrypted rooms.
 - 3. **Hech qanday xona**ga ruxsat bermaslik uchun `channels.matrix.groupPolicy: "disabled"` qilib qo‘ying (yoki allowlistni bo‘sh qoldiring).
 - 4. Meros kalit: `channels.matrix.rooms` (`groups` bilan bir xil tuzilma).
 
-## 5. Tredlar
+## Threads
 
 - Reply threading is supported.
 - 7. `channels.matrix.threadReplies` javoblar tredlarda qolishini boshqaradi:
@@ -187,10 +232,10 @@ Once verified, the bot can decrypt messages in encrypted rooms.
 
 | 12. Funksiya           | 13. Holat                                                                                                                                               |
 | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 14. Shaxsiy xabarlar   | 15. ✅ Qo‘llab-quvvatlanadi                                                                                                                              |
-| Rooms                                         | 17. ✅ Qo‘llab-quvvatlanadi                                                                                                                              |
-| Threads                                       | 19. ✅ Qo‘llab-quvvatlanadi                                                                                                                              |
-| 20. Media              | 21. ✅ Qo‘llab-quvvatlanadi                                                                                                                              |
+| 14. Shaxsiy xabarlar   | ✅ Supported                                                                                                                                                                    |
+| Rooms                                         | ✅ Supported                                                                                                                                                                    |
+| Threads                                       | ✅ Supported                                                                                                                                                                    |
+| 20. Media              | ✅ Supported                                                                                                                                                                    |
 | 22. E2EE               | 23. ✅ Qo‘llab-quvvatlanadi (kripto modul talab qilinadi)                                                                             |
 | 24. Reaksiyalar        | 25. ✅ Qo‘llab-quvvatlanadi (vositalar orqali yuborish/o‘qish)                                                                        |
 | 26. So‘rovnomalar      | 27. ✅ Yuborish qo‘llab-quvvatlanadi; kiruvchi so‘rovnoma boshlanishlari matnga aylantiriladi (javoblar/yakunlar e’tiborga olinmaydi) |
@@ -232,7 +277,7 @@ Full configuration: [Configuration](/gateway/configuration)
 - 45. `channels.matrix.enabled`: kanal ishga tushishini yoqish/o‘chirish.
 - 46. `channels.matrix.homeserver`: homeserver URL manzili.
 - 47. `channels.matrix.userId`: Matrix foydalanuvchi IDsi (access token bilan ixtiyoriy).
-- 48. `channels.matrix.accessToken`: access token.
+- `channels.matrix.accessToken`: access token.
 - 49. `channels.matrix.password`: tizimga kirish paroli (token saqlanadi).
 - 50. `channels.matrix.deviceName`: qurilma ko‘rinadigan nomi.
 - `channels.matrix.encryption`: enable E2EE (default: false).
@@ -251,6 +296,5 @@ Full configuration: [Configuration](/gateway/configuration)
 - `channels.matrix.mediaMaxMb`: inbound/outbound media cap (MB).
 - `channels.matrix.autoJoin`: invite handling (`always | allowlist | off`, default: always).
 - `channels.matrix.autoJoinAllowlist`: allowed room IDs/aliases for auto-join.
+- `channels.matrix.accounts`: akkaunt ID bo‘yicha kalitlangan ko‘p akkauntli konfiguratsiya (har bir akkaunt yuqori darajadagi sozlamalardan meros oladi).
 - `channels.matrix.actions`: per-action tool gating (reactions/messages/pins/memberInfo/channelInfo).
-
-

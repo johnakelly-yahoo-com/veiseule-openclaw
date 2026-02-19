@@ -1,4 +1,7 @@
 ---
+summary: "WebSocket Gateway အခြေခံဖွဲ့စည်းပုံ၊ အစိတ်အပိုင်းများနှင့် client flow များ"
+read_when:
+  - Gateway protocol၊ client များ သို့မဟုတ် transport များကို လုပ်ကိုင်နေချိန်
 title: "Gateway အခြေခံဖွဲ့စည်းပုံ"
 ---
 
@@ -13,6 +16,9 @@ title: "Gateway အခြေခံဖွဲ့စည်းပုံ"
 - **Nodes** (macOS/iOS/Android/headless) များလည်း **WebSocket** မှတစ်ဆင့် ချိတ်ဆက်သော်လည်း `role: node` ကို အတိအကျ caps/commands ဖြင့် ကြေညာရသည်။
 - host တစ်ခုလျှင် Gateway တစ်ခုသာရှိပြီး WhatsApp session ကို ဖွင့်ထားသည့် တစ်ခုတည်းသောနေရာဖြစ်သည်။
 - **canvas host** (default `18793`) သည် agent က ပြင်ဆင်နိုင်သော HTML နှင့် A2UI ကို ဝန်ဆောင်မှုပေးသည်။
+  - `/__openclaw__/canvas/` (agent ပြင်ဆင်နိုင်သော HTML/CSS/JS)
+  - `/__openclaw__/a2ui/` (A2UI host)
+    Gateway နှင့် တူညီသော port (မူလ `18789`) ကို အသုံးပြုသည်။
 
 ## အစိတ်အပိုင်းများနှင့် flow များ
 
@@ -138,5 +144,3 @@ sequenceDiagram
 - host တစ်ခုလျှင် Baileys session တစ်ခုကို Gateway တစ်ခုတည်းသာ ထိန်းချုပ်သည်။
 - Handshake သည် မဖြစ်မနေလိုအပ်ပြီး JSON မဟုတ်သော သို့မဟုတ် connect မဟုတ်သော ပထမ frame ကို ပို့ပါက ချက်ချင်း ပိတ်မည်။
 - Event များကို ပြန်လည်ပို့မည်မဟုတ်သဖြင့် client များသည် gap ရှိပါက refresh လုပ်ရမည်။
-
-

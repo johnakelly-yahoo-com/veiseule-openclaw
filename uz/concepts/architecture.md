@@ -1,4 +1,7 @@
 ---
+summary: "WebSocket gateway arxitekturasi, komponentlari va mijoz oqimlari"
+read_when:
+  - Working on gateway protocol, clients, or transports
 title: "Gateway Architecture"
 ---
 
@@ -10,13 +13,16 @@ Oxirgi yangilanish: 2026-01-22
 
 - Bitta uzoq muddatli **Gateway** barcha xabar almashish yuzalariga egalik qiladi (WhatsApp orqali
   Baileys, Telegram via grammY, Slack, Discord, Signal, iMessage, WebChat).
-- Control-plane mijozlari (macOS app, CLI, web UI, automations) ... ga ulanadi
-Gateway’ga **WebSocket** orqali sozlangan bind hostda (standart
+- Control-plane clients (macOS app, CLI, web UI, automations) connect to the
+  Gateway over **WebSocket** on the configured bind host (default
   `127.0.0.1:18789`).
 - **Nodes** (macOS/iOS/Android/headless) ham **WebSocket** orqali ulanadi, ammo
   declare `role: node` with explicit caps/commands.
 - One Gateway per host; it is the only place that opens a WhatsApp session.
 - A **canvas host** (default `18793`) serves agent‑editable HTML and A2UI.
+  - `/__openclaw__/canvas/` (agent tahrirlashi mumkin bo‘lgan HTML/CSS/JS)
+  - `/__openclaw__/a2ui/` (A2UI xosti)
+    Gateway bilan bir xil portdan foydalanadi (standart `18789`).
 
 ## Components and flows
 
@@ -107,5 +113,3 @@ Xuddi shu handshake + auth token tunnel orqali ham qo‘llaniladi.
 - Har bir xostda aynan bitta Gateway bitta Baileys sessiyasini boshqaradi.
 - Qo‘l siqish majburiy; JSON bo‘lmagan yoki birinchi freymi `connect` bo‘lmagan har qanday holat darhol yopiladi.
 - Hodisalar qayta ijro etilmaydi; bo‘shliqlar bo‘lsa, mijozlar yangilashi kerak.
-
-

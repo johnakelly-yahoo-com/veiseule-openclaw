@@ -1,4 +1,8 @@
 ---
+summary: "„Vollständige Referenz für den CLI-Onboarding-Ablauf, die Authentifizierungs-/Modell-Einrichtung, Ausgaben und Interna“"
+read_when:
+  - Sie benötigen detailliertes Verhalten für openclaw onboard
+  - Sie debuggen Onboarding-Ergebnisse oder integrieren Onboarding-Clients
 title: "„CLI-Onboarding-Referenz“"
 sidebarTitle: "„CLI-Referenz“"
 ---
@@ -33,8 +37,7 @@ Er installiert oder verändert nichts auf dem Remote-Host.
     - Zurücksetzen verwendet `trash` und bietet folgende Umfänge:
       - Nur Konfiguration
       - Konfiguration + Anmeldedaten + Sitzungen
-      - Vollständiges Zurücksetzen (entfernt auch den Workspace)
-  
+      - Vollständiges Zurücksetzen (entfernt auch den Workspace)  
 </Step>
   <Step title="Model and auth">
     - Die vollständige Optionsmatrix finden Sie unter [Authentifizierungs- und Modelloptionen](#auth-and-model-options).
@@ -58,15 +61,17 @@ Er installiert oder verändert nichts auf dem Remote-Host.
     - [Telegram](/channels/telegram): Bot-Token
     - [Discord](/channels/discord): Bot-Token
     - [Google Chat](/channels/googlechat): Service-Account-JSON + Webhook-Zielgruppe
-    - [Mattermost](/channels/mattermost) plugin: Bot-Token + Basis-URL
+    - [Mattermost](/channels/mattermost)-Plugin: Bot-Token + Basis-URL
     - [Signal](/channels/signal): optionale Installation von `signal-cli` + Kontokonfiguration
     - [BlueBubbles](/channels/bluebubbles): empfohlen für iMessage; Server-URL + Passwort + Webhook
     - [iMessage](/channels/imessage): Legacy-`imsg`-CLI-Pfad + DB-Zugriff
     - DM-Sicherheit: Standard ist Pairing. Die erste Direktnachricht sendet einen Code; Genehmigung über
-      `openclaw pairing approve <channel> <code>` oder Verwendung von Allowlists.
+      `openclaw pairing approve <channel><code>` oder Verwendung von Allowlists.
+  
+</Step><code>` oder Verwendung von Allowlists.
   
 </Step>
-  <Step title="Daemon install">
+  <Step title="Daemon-Installation">
     - macOS: LaunchAgent
       - Erfordert eine angemeldete Benutzersitzung; für Headless-Betrieb verwenden Sie einen benutzerdefinierten LaunchDaemon (nicht enthalten).
     - Linux und Windows über WSL2: systemd-User-Unit
@@ -75,7 +80,7 @@ Er installiert oder verändert nichts auf dem Remote-Host.
     - Laufzeitauswahl: Node (empfohlen; erforderlich für WhatsApp und Telegram). Bun wird nicht empfohlen.
   
 </Step>
-  <Step title="Health check">
+  <Step title="Gesundheitscheck">
     - Startet das Gateway (falls erforderlich) und führt `openclaw health` aus.
     - `openclaw status --deep` fügt Gateway-Gesundheitsprüfungen zur Statusausgabe hinzu.
   
@@ -86,7 +91,7 @@ Er installiert oder verändert nichts auf dem Remote-Host.
     - Installiert optionale Abhängigkeiten (einige nutzen Homebrew unter macOS).
   
 </Step>
-  <Step title="Finish">
+  <Step title="Abschluss">
     - Zusammenfassung und nächste Schritte, einschließlich Optionen für iOS-, Android- und macOS-Apps.
   
 </Step>
@@ -128,7 +133,12 @@ Was Sie festlegen:
     - macOS: prüft den Keychain-Eintrag „Claude Code-credentials“
     - Linux und Windows: verwendet `~/.claude/.credentials.json` erneut, falls vorhanden
 
-    Unter macOS „Always Allow“ wählen, damit Startvorgänge über launchd nicht blockiert werden.
+    ````
+    ```
+    Wählen Sie unter macOS „Immer erlauben“, damit Startvorgänge über launchd nicht blockiert werden.
+    ```
+    ````
+
   
 </Accordion>
   <Accordion title="Anthropic token (setup-token paste)">
@@ -143,14 +153,24 @@ Was Sie festlegen:
   <Accordion title="OpenAI Code subscription (OAuth)">
     Browser-Ablauf; fügen Sie `code#state` ein.
 
+    ````
+    ```
     Setzt `agents.defaults.model` auf `openai-codex/gpt-5.3-codex`, wenn das Modell nicht gesetzt ist oder `openai/*`.
+    ```
+    ````
+
   
 </Accordion>
   <Accordion title="OpenAI API key">
     Verwendet `OPENAI_API_KEY`, falls vorhanden, oder fordert einen Schlüssel an und speichert ihn in
     `~/.openclaw/.env`, damit launchd ihn lesen kann.
 
+    ````
+    ```
     Setzt `agents.defaults.model` auf `openai/gpt-5.1-codex`, wenn das Modell nicht gesetzt ist, `openai/*` oder `openai-codex/*`.
+    ```
+    ````
+
   
 </Accordion>
   <Accordion title="xAI (Grok) API key">
@@ -194,13 +214,16 @@ Was Sie festlegen:
   <Accordion title="Custom provider">
     Funktioniert mit OpenAI-kompatiblen und Anthropic-kompatiblen Endpunkten.
 
-    Non-interactive flags:
+    ```
+    Nicht-interaktive Flags:
     - `--auth-choice custom-api-key`
     - `--custom-base-url`
     - `--custom-model-id`
     - `--custom-api-key` (optional; greift auf `CUSTOM_API_KEY` zurück)
     - `--custom-provider-id` (optional)
     - `--custom-compatibility <openai|anthropic>` (optional; Standard `openai`)
+    ```
+
   
 </Accordion>
   <Accordion title="Skip">
@@ -250,7 +273,7 @@ Sitzungen werden unter `~/.openclaw/agents/<agentId>/sessions/` gespeichert.
 Einige Kanäle werden als Plugins ausgeliefert. Wenn sie während des Onboardings ausgewählt werden, fordert der Assistent zur Installation des Plugins (npm oder lokaler Pfad) auf, bevor die Kanalkonfiguration erfolgt.
 </Note>
 
-Gateway wizard RPC:
+Gateway-Assistent-RPC:
 
 - `wizard.start`
 - `wizard.next`
@@ -273,4 +296,3 @@ Signal-Setup-Verhalten:
 - Onboarding-Hub: [Onboarding Wizard (CLI)](/start/wizard)
 - Automatisierung und Skripte: [CLI Automation](/start/wizard-cli-automation)
 - Befehlsreferenz: [`openclaw onboard`](/cli/onboard)
-

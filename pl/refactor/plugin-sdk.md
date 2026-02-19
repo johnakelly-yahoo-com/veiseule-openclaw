@@ -1,4 +1,8 @@
 ---
+summary: "Plan: jeden czysty SDK wtyczek + runtime dla wszystkich konektorów komunikacyjnych"
+read_when:
+  - Definiowanie lub refaktoryzacja architektury wtyczek
+  - Migracja konektorów kanałów do SDK/runtime wtyczek
 title: "Refaktoryzacja SDK wtyczek"
 ---
 
@@ -208,5 +212,3 @@ Uwagi:
 - Zewnętrzne wtyczki mogą być rozwijane i aktualizowane bez dostępu do źródeł core.
 
 Powiązana dokumentacja: [Plugins](/tools/plugin), [Channels](/channels/index), [Configuration](/gateway/configuration).
-
-

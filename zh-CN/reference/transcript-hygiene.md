@@ -1,25 +1,30 @@
 ---
-title: 对话记录清理
-x-i18n:
-  generated_at: "2026-02-01T21:38:16Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 6ce62fad0b07c4d8575c9cdb1c8c2663695ef2d4221cf4a0964fce03461523af
-  source_path: reference/transcript-hygiene.md
-  workflow: 15
+summary: "参考：提供商特定的对话记录清理与修复规则"
+read_when:
+  - 你正在调试与对话记录结构相关的提供商请求拒绝问题
+  - 你正在修改对话记录清理或工具调用修复逻辑
+  - 你正在调查跨提供商的工具调用 id 不匹配问题
+title: "reference/transcript-hygiene.md"
 ---
 
-# 对话记录清理（提供商修正）
+# Transcript Hygiene (Provider Fixups)
 
-本文档描述了在运行前（构建模型上下文时）应用于对话记录的**提供商特定修正**。这些是**内存中**的调整，用于满足提供商的严格要求。它们**不会**重写磁盘上存储的 JSONL 对话记录。
+This document describes **provider-specific fixes** applied to transcripts before a run
+(building model context). These are **in-memory** adjustments used to satisfy strict
+provider requirements. These hygiene steps do **not** rewrite the stored JSONL transcript
+on disk; however, a separate session-file repair pass may rewrite malformed JSONL files
+by dropping invalid lines before the session is loaded. When a repair occurs, the original
+file is backed up alongside the session file.
 
 涵盖范围包括：
 
 - 工具调用 id 清理
+- Tool call input validation
 - 工具结果配对修复
 - 轮次验证 / 排序
 - 思考签名清理
 - 图片负载清理
+- 用户输入来源标记（用于跨会话路由的提示）
 
 如需了解对话记录存储细节，请参阅：
 
@@ -29,12 +34,17 @@ x-i18n:
 
 ## 运行位置
 
-所有对话记录清理逻辑集中在嵌入式运行器中：
+All transcript hygiene is centralized in the embedded runner:
 
 - 策略选择：`src/agents/transcript-policy.ts`
 - 清理/修复应用：`src/agents/pi-embedded-runner/google.ts` 中的 `sanitizeSessionHistory`
 
 策略根据 `provider`、`modelApi` 和 `modelId` 来决定应用哪些规则。
+
+Separate from transcript hygiene, session files are repaired (if needed) before load:
+
+- 对话记录清理（提供商修正）
+- Called from `run/attempt.ts` and `compact.ts` (embedded runner)
 
 ---
 
@@ -46,6 +56,36 @@ x-i18n:
 
 - `src/agents/pi-embedded-helpers/images.ts` 中的 `sanitizeSessionMessagesImages`
 - `src/agents/tool-images.ts` 中的 `sanitizeContentBlocksImages`
+
+---
+
+## Global rule: malformed tool calls
+
+Assistant tool-call blocks that are missing both `input` and `arguments` are dropped
+before model context is built. This prevents provider rejections from partially
+persisted tool calls (for example, after a rate limit failure).
+
+15
+
+- 本文档描述了在运行前（构建模型上下文时）应用于对话记录的**提供商特定修正**。这些是**内存中**的调整，用于满足提供商的严格要求。它们**不会**重写磁盘上存储的 JSONL 对话记录。
+- Applied in `sanitizeSessionHistory` in `src/agents/pi-embedded-runner/google.ts`
+
+---
+
+## 全局规则：跨会话输入来源
+
+当一个 agent 通过 `sessions_send`（包括
+agent 之间的回复/公告步骤）将提示发送到另一个会话时，OpenClaw 会在持久化生成的用户轮次时写入：
+
+- `message.provenance.kind = "inter_session"`
+
+该元数据在追加到对话记录时写入，不会改变角色
+（为保持 provider 兼容性，`role: "user"` 仍然保留）。 对话记录读取器可以使用
+此信息来避免将路由的内部提示视为终端用户撰写的指令。
+
+在重建上下文期间，OpenClaw 还会在内存中为这些用户轮次前置一个简短的 `[Inter-session message]`
+标记，以便模型将其与
+外部终端用户指令区分开来。
 
 ---
 
@@ -101,6 +141,5 @@ x-i18n:
   - 丢弃空的助手错误轮次。
   - 截断工具调用之后的助手内容。
 
-这种复杂性导致了跨提供商的回归问题（尤其是 `openai-responses` 的 `call_id|fc_id` 配对）。2026.1.22 的清理移除了该扩展，将逻辑集中到运行器中，并使 OpenAI 在图片清理之外**不做任何修改**。
-
-
+23. 这种复杂性导致了跨提供方的回归问题（尤其是 `openai-responses`
+    `call_id|fc_id` 配对）。 24. 2026.1.22 的清理移除了该扩展，将逻辑集中到运行器中，并使 OpenAI 除了图像清理之外保持 **no-touch**。

@@ -1,12 +1,8 @@
 ---
-title: 菜单栏图标
-x-i18n:
-  generated_at: "2026-02-01T21:32:49Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: a67a6e6bbdc2b611ba365d3be3dd83f9e24025d02366bc35ffcce9f0b121872b
-  source_path: platforms/mac/icon.md
-  workflow: 15
+summary: "macOS 上 OpenClaw 菜单栏图标的状态和动画"
+read_when:
+  - 更改菜单栏图标行为
+title: "菜单栏图标"
 ---
 
 # 菜单栏图标状态
@@ -15,13 +11,13 @@ x-i18n:
 
 - **空闲：** 正常图标动画（眨眼、偶尔摆动）。
 - **暂停：** 状态项使用 `appearsDisabled`；无动画。
-- **语音触发（大耳朵）：** 语音唤醒检测器在听到唤醒词时调用 `AppState.triggerVoiceEars(ttl: nil)`，在捕获语音期间保持 `earBoostActive=true`。耳朵放大（1.9 倍），显示圆形耳孔以提高可读性，然后在 1 秒静音后通过 `stopVoiceEars()` 恢复。仅由应用内语音管道触发。
-- **工作中（智能体运行中）：** `AppState.isWorking=true` 驱动"尾巴/腿部快速摆动"微动画：工作进行中腿部摆动加快并略有偏移。目前在 WebChat 智能体运行时切换；在接入其他长时间任务时请添加相同的切换逻辑。
+- **语音触发（大耳朵）：** 语音唤醒检测器在听到唤醒词时调用 `AppState.triggerVoiceEars(ttl: nil)`，在捕获语音期间保持 `earBoostActive=true`。耳朵放大（1.9 倍），显示圆形耳孔以提高可读性，然后在 1 秒静音后通过 `stopVoiceEars()` 恢复。仅由应用内语音管道触发。 Ears scale up (1.9x), get circular ear holes for readability, then drop via `stopVoiceEars()` after 1s of silence. Only fired from the in-app voice pipeline.
+- **工作中（代理运行）：** `AppState.isWorking=true` 会驱动一个“尾巴/腿部疾走”的微动画：在任务进行中腿部摆动更快并略有偏移。 Currently toggled around WebChat agent runs; add the same toggle around other long tasks when you wire them.
 
-接入点
+Wiring points
 
 - 语音唤醒：运行时/测试器在触发时调用 `AppState.triggerVoiceEars(ttl: nil)`，在 1 秒静音后调用 `stopVoiceEars()` 以匹配捕获窗口。
-- 智能体活动：在工作区间前后设置 `AppStateStore.shared.setWorking(true/false)`（已在 WebChat 智能体调用中完成）。保持区间简短，并在 `defer` 块中重置以避免动画卡住。
+- 智能体活动：在工作区间前后设置 `AppStateStore.shared.setWorking(true/false)`（已在 WebChat 智能体调用中完成）。保持区间简短，并在 `defer` 块中重置以避免动画卡住。 Keep spans short and reset in `defer` blocks to avoid stuck animations.
 
 形状与尺寸
 
@@ -33,5 +29,3 @@ x-i18n:
 
 - 耳朵/工作状态没有外部 CLI/代理切换；保持仅由应用自身信号控制，以避免意外的状态抖动。
 - 保持 TTL 较短（&lt;10 秒），以便在任务挂起时图标能快速恢复到基准状态。
-
-

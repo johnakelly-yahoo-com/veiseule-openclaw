@@ -1,10 +1,14 @@
 ---
+summary: "OpenClaw’ni Ollama (mahalliy LLM runtime) bilan ishga tushirish"
+read_when:
+  - Siz OpenClaw’ni Ollama orqali mahalliy modellarda ishga tushirmoqchisiz
+  - Sizga Ollama’ni o‘rnatish va sozlash bo‘yicha qo‘llanma kerak
 title: "Ollama"
 ---
 
 # Ollama
 
-Ollama — bu ochiq manbali modellarni kompyuteringizda oson ishga tushirish imkonini beruvchi mahalliy LLM runtime. OpenClaw Ollama’ning OpenAI’ga mos API’si bilan integratsiyalashadi va `OLLAMA_API_KEY` (yoki auth profili) bilan rozilik bildirganingizda hamda aniq `models.providers.ollama` yozuvini belgilamaganingizda **asboblarni qo‘llab-quvvatlaydigan modellarni avtomatik aniqlaydi**.
+Ollama — bu ochiq manbali modellarni kompyuteringizda oson ishga tushirish imkonini beruvchi mahalliy LLM runtime. OpenClaw Ollama’ning mahalliy API (`/api/chat`) bilan integratsiyalashgan bo‘lib, streaming va tool calling’ni qo‘llab-quvvatlaydi hamda `OLLAMA_API_KEY` (yoki auth profile) orqali ruxsat berilgan va `models.providers.ollama` bo‘limi aniq ko‘rsatilmagan holatda **tool-capable modellarni avtomatik aniqlay oladi**.
 
 ## Tezkor boshlash
 
@@ -170,45 +174,28 @@ Ollama bepul va mahalliy ishlaydi, shuning uchun barcha model xarajatlari $0 ga 
 
 ### Streaming konfiguratsiyasi
 
-Ollama javob formatidagi asosiy SDK dagi [ma’lum muammo](https://github.com/badlogic/pi-mono/issues/1205) tufayli, **streaming sukut bo‘yicha o‘chirilgan**. Bu `tools` imkoniyatiga ega modellar bilan ishlaganda buzilgan javoblarning oldini oladi.
+OpenClaw’ning Ollama integratsiyasi sukut bo‘yicha **mahalliy Ollama API** (`/api/chat`) dan foydalanadi, u streaming va tool calling’ni bir vaqtda to‘liq qo‘llab-quvvatlaydi. Hech qanday maxsus sozlash talab qilinmaydi.
 
-Streaming o‘chirilganida, javoblar bir martada (non-streaming rejimida) yuboriladi, bu esa o‘zaro aralashib ketgan content/reasoning deltalar sababli chiqishning buzilishidan qochishga yordam beradi.
+#### Legacy OpenAI-Compatible Mode
 
-#### Streaming’ni qayta yoqish (kengaytirilgan)
-
-Agar Ollama uchun streaming’ni qayta yoqmoqchi bo‘lsangiz (bu `tools` qo‘llab-quvvatlaydigan modellar bilan muammolarga olib kelishi mumkin):
+Agar buning o‘rniga OpenAI-compatible endpoint’dan foydalanishingiz kerak bo‘lsa (masalan, faqat OpenAI formatini qo‘llab-quvvatlaydigan proxy ortida), `api: "openai-completions"` ni aniq belgilang:
 
 ```json5
 {
-  agents: {
-    defaults: {
-      models: {
-        "ollama/gpt-oss:20b": {
-          streaming: true,
-        },
-      },
-    },
-  },
+  models: {
+    providers: {
+      ollama: {
+        baseUrl: "http://ollama-host:11434/v1",
+        api: "openai-completions",
+        apiKey: "ollama-local",
+        models: [...]
+      }
+    }
+  }
 }
 ```
 
-#### Boshqa providerlar uchun streaming’ni o‘chirish
-
-Agar kerak bo‘lsa, istalgan provider uchun ham streaming’ni o‘chirishingiz mumkin:
-
-```json5
-{
-  agents: {
-    defaults: {
-      models: {
-        "openai/gpt-4": {
-          streaming: false,
-        },
-      },
-    },
-  },
-}
-```
+Eslatma: OpenAI-compatible endpoint streaming va tool calling’ni bir vaqtda qo‘llab-quvvatlamasligi mumkin. Model konfiguratsiyasida `params: { streaming: false }` orqali streaming’ni o‘chirishingiz kerak bo‘lishi mumkin.
 
 ### Context windows
 
@@ -247,7 +234,7 @@ ollama pull llama3.3     # Or another model
 
 ### Ulanish rad etildi
 
-Ollama to‘g‘ri portda ishlayotganini tekshiring:
+Modellarni qo‘shish uchun:
 
 ```bash
 # Check if Ollama is running
@@ -257,19 +244,8 @@ ps aux | grep ollama
 ollama serve
 ```
 
-### Chiqishda buzilgan javoblar yoki asbob nomlari
+## Ulanish rad etildi
 
-If you see garbled responses containing tool names (like `sessions_send`, `memory_get`) or fragmented text when using Ollama models, this is due to an upstream SDK issue with streaming responses. **This is fixed by default** in the latest OpenClaw version by disabling streaming for Ollama models.
-
-If you manually enabled streaming and experience this issue:
-
-1. Remove the `streaming: true` configuration from your Ollama model entries, or
-2. Explicitly set `streaming: false` for Ollama models (see [Streaming Configuration](#streaming-configuration))
-
-## Shuningdek qarang
-
-- [Model Providers](/concepts/model-providers) - Barcha provayderlar haqida umumiy ma’lumot
-- [Model Selection](/concepts/models) - Modellarni qanday tanlash kerak
-- [Configuration](/gateway/configuration) - To‘liq konfiguratsiya ma’lumotnomasi
-
-
+- [Model Providers](/concepts/model-providers) - Overview of all providers
+- [Model Selection](/concepts/models) - How to choose models
+- [Configuration](/gateway/configuration) - Full config reference

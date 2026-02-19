@@ -1,4 +1,7 @@
 ---
+summary: "`openclaw pairing` အတွက် CLI ကိုးကားချက် (pairing တောင်းဆိုမှုများကို အတည်ပြု/စာရင်းပြုစုရန်)"
+read_when:
+  - pairing မုဒ် DM မက်ဆေ့ချ်များကို အသုံးပြုနေပြီး ပို့သူများကို အတည်ပြုရန် လိုအပ်သည့်အခါ
 title: "ပူးတွဲချိတ်ဆက်ခြင်း"
 ---
 
@@ -16,5 +19,3 @@ title: "ပူးတွဲချိတ်ဆက်ခြင်း"
 openclaw pairing list whatsapp
 openclaw pairing approve whatsapp <code> --notify
 ```
-
-

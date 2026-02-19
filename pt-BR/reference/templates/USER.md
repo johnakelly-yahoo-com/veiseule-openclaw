@@ -1,4 +1,8 @@
-------
+---
+summary: "Registro de perfil do usuário"
+read_when:
+  - Inicializando um workspace manualmente
+---
 
 # USER.md - Sobre a pessoa
 
@@ -17,5 +21,3 @@ _(O que é importante para ela? Em quais projetos está trabalhando? O que a irr
 ---
 
 Quanto mais você sabe, melhor você pode ajudar. Mas lembre-se — você está aprendendo sobre uma pessoa, não montando um dossiê. Respeite a diferença.
-
-

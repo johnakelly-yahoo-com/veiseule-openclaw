@@ -1,4 +1,7 @@
 ---
+summary: "Règles de routage par canal (WhatsApp, Telegram, Discord, Slack) et contexte partagé"
+read_when:
+  - Modification du routage des canaux ou du comportement des boîtes de réception
 title: "Routage des canaux"
 ---
 
@@ -41,11 +44,15 @@ Exemples :
 Le routage sélectionne **un agent** pour chaque message entrant :
 
 1. **Correspondance exacte du pair** (`bindings` avec `peer.kind` + `peer.id`).
-2. **Correspondance de guilde** (Discord) via `guildId`.
-3. **Correspondance d’équipe** (Slack) via `teamId`.
-4. **Correspondance de compte** (`accountId` sur le canal).
-5. **Correspondance de canal** (n’importe quel compte sur ce canal).
-6. **Agent par défaut** (`agents.list[].default`, sinon la première entrée de la liste, repli vers `main`).
+2. **Correspondance du pair parent** (héritage de fil).
+3. **Correspondance guilde + rôles** (Discord) via `guildId` + `roles`.
+4. **Correspondance de guilde** (Discord) via `guildId`.
+5. **Correspondance d’équipe** (Slack) via `teamId`.
+6. **Correspondance de compte** (`accountId` sur le canal).
+7. **Correspondance de canal** (n’importe quel compte sur ce canal).
+8. **Agent par défaut** (`agents.list[].default`, sinon la première entrée de la liste, repli vers `main`).
+
+Lorsqu’un binding inclut plusieurs champs de correspondance (`peer`, `guildId`, `teamId`, `roles`), **tous les champs fournis doivent correspondre** pour que ce binding s’applique.
 
 L’agent correspondant détermine quel espace de travail et quel magasin de sessions sont utilisés.
 
@@ -109,5 +116,3 @@ Les réponses entrantes incluent :
 - Le contexte cité est ajouté à `Body` sous forme de bloc `[Replying to ...]`.
 
 Ceci est cohérent sur l’ensemble des canaux.
-
-

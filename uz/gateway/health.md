@@ -1,33 +1,35 @@
 ---
-title: "Holat tekshiruvlari"
+summary: "Health check steps for channel connectivity"
+read_when:
+  - Diagnosing WhatsApp channel health
+title: "Health Checks"
 ---
 
-# Holat tekshiruvlari (CLI)
+# Health Checks (CLI)
 
-Taxmin qilmasdan kanal ulanishini tekshirish uchun qisqa qo‘llanma.
+Short guide to verify channel connectivity without guessing.
 
-## Tezkor tekshiruvlar
+## Quick checks
 
-- `openclaw status` — lokal xulosa: gateway mavjudligi/rejimi, yangilanish eslatmasi, ulangan kanal autentifikatsiya yoshi, sessiyalar va so‘nggi faollik.
-- `openclaw status --all` — to‘liq lokal diagnostika (faqat o‘qish rejimida, rangli, nosozliklarni tahlil qilish uchun ulashishga xavfsiz).
-- `openclaw status --deep` — ishlayotgan Gateway’ni ham tekshiradi (qo‘llab-quvvatlansa, har bir kanal bo‘yicha tekshiruvlar).
-- `openclaw health --json` — ishlayotgan Gateway’dan to‘liq holat hisobotini so‘raydi (faqat WS; to‘g‘ridan-to‘g‘ri Baileys socket ishlatilmaydi).
-- WhatsApp/WebChat’da agentni chaqirmasdan holat javobini olish uchun `/status` ni alohida xabar sifatida yuboring.
-- Loglar: `/tmp/openclaw/openclaw-*.log` ni kuzating va `web-heartbeat`, `web-reconnect`, `web-auto-reply`, `web-inbound` bo‘yicha filtrlang.
+- `openclaw status` — local summary: gateway reachability/mode, update hint, linked channel auth age, sessions + recent activity.
+- `openclaw status --all` — full local diagnosis (read-only, color, safe to paste for debugging).
+- `openclaw status --deep` — also probes the running Gateway (per-channel probes when supported).
+- `openclaw health --json` — asks the running Gateway for a full health snapshot (WS-only; no direct Baileys socket).
+- Send `/status` as a standalone message in WhatsApp/WebChat to get a status reply without invoking the agent.
+- Logs: tail `/tmp/openclaw/openclaw-*.log` and filter for `web-heartbeat`, `web-reconnect`, `web-auto-reply`, `web-inbound`.
 
-## Chuqur diagnostika
+## Deep diagnostics
 
-- Diskdagi creds: `ls -l ~/.openclaw/credentials/whatsapp/<accountId>/creds.json` (mtime yaqinda yangilangan bo‘lishi kerak).
-- Sessiya ombori: `ls -l ~/.openclaw/agents/<agentId>/sessions/sessions.json` (yo‘l konfiguratsiyada o‘zgartirilishi mumkin). Soni va so‘nggi qabul qiluvchilar `status` orqali ko‘rsatiladi.
-- Qayta ulash jarayoni: loglarda 409–515 status kodlari yoki `loggedOut` paydo bo‘lsa, `openclaw channels logout && openclaw channels login --verbose` ni ishga tushiring. (Eslatma: QR orqali kirish jarayoni 515 statusidan so‘ng bir marta avtomatik qayta boshlanadi.)
+- Creds on disk: `ls -l ~/.openclaw/credentials/whatsapp/<accountId>/creds.json` (mtime should be recent).
+- Session store: `ls -l ~/.openclaw/agents/<agentId>/sessions/sessions.json` (path can be overridden in config). Count and recent recipients are surfaced via `status`.
+- Relink flow: `openclaw channels logout && openclaw channels login --verbose` when status codes 409–515 or `loggedOut` appear in logs. (Note: the QR login flow auto-restarts once for status 515 after pairing.)
 
-## Muammo yuzaga kelganda
+## When something fails
 
-- `logged out` yoki 409–515 status → `openclaw channels logout` so‘ng `openclaw channels login` bilan qayta ulang.
-- Gateway mavjud emas → uni ishga tushiring: `openclaw gateway --port 18789` (agar port band bo‘lsa, `--force` dan foydalaning).
-- Kiruvchi xabarlar yo‘q → ulangan telefon onlayn ekanini va jo‘natuvchi ruxsat etilganini tekshiring (`channels.whatsapp.allowFrom`); guruh chatlari uchun allowlist va mention qoidalari mos ekanini tasdiqlang (`channels.whatsapp.groups`, `agents.list[].groupChat.mentionPatterns`).
+- `logged out` or status 409–515 → relink with `openclaw channels logout` then `openclaw channels login`.
+- Gateway unreachable → start it: `openclaw gateway --port 18789` (use `--force` if the port is busy).
+- No inbound messages → confirm linked phone is online and the sender is allowed (`channels.whatsapp.allowFrom`); for group chats, ensure allowlist + mention rules match (`channels.whatsapp.groups`, `agents.list[].groupChat.mentionPatterns`).
 
-## Maxsus "health" buyrug‘i
+## Dedicated "health" command
 
-`openclaw health --json` ishlayotgan Gateway’dan uning holat hisobotini so‘raydi (CLI’dan to‘g‘ridan-to‘g‘ri kanal socketlari ishlatilmaydi). Mavjud bo‘lsa, ulangan creds/auth yoshi, har bir kanal bo‘yicha tekshiruv xulosalari, sessiya ombori xulosasi va tekshiruv davomiyligini ko‘rsatadi. Agar Gateway mavjud bo‘lmasa yoki tekshiruv muvaffaqiyatsiz/taym-aut bo‘lsa, nol bo‘lmagan kod bilan yakunlanadi. 10 soniyalik standart vaqtni o‘zgartirish uchun `--timeout <ms>` dan foydalaning.
-
+`openclaw health --json` asks the running Gateway for its health snapshot (no direct channel sockets from the CLI). It reports linked creds/auth age when available, per-channel probe summaries, session-store summary, and a probe duration. It exits non-zero if the Gateway is unreachable or the probe fails/timeouts. Use `--timeout <ms>` to override the 10s default.

@@ -1,4 +1,8 @@
 ---
+summary: "Optionele Docker-gebaseerde installatie en onboarding voor OpenClaw"
+read_when:
+  - Je wilt een gecontaineriseerde gateway in plaats van lokale installaties
+  - Je valideert de Docker-flow
 title: "Docker"
 ---
 
@@ -60,6 +64,24 @@ Het schrijft config/werkruimte op de host:
 - `~/.openclaw/workspace`
 
 Draai je op een VPS? Zie [Hetzner (Docker VPS)](/install/hetzner).
+
+### Shell-helpers (optioneel)
+
+Installeer `ClawDock` voor eenvoudiger dagelijks Docker-beheer:
+
+```bash
+mkdir -p ~/.clawdock && curl -sL https://raw.githubusercontent.com/openclaw/openclaw/main/scripts/shell-helpers/clawdock-helpers.sh -o ~/.clawdock/clawdock-helpers.sh
+```
+
+**Voeg toe aan je shellconfiguratie (zsh):**
+
+```bash
+echo 'source ~/.clawdock/clawdock-helpers.sh' >> ~/.zshrc && source ~/.zshrc
+```
+
+Gebruik daarna `clawdock-start`, `clawdock-stop`, `clawdock-dashboard`, enz. Voer `clawdock-help` uit voor alle commando’s.
+
+Zie de [`ClawDock` Helper README](https://github.com/openclaw/openclaw/blob/main/scripts/shell-helpers/README.md) voor details.
 
 ### Handmatige flow (compose)
 
@@ -571,5 +593,3 @@ Voorbeeld:
   (login shell), die `/etc/profile` sourced en mogelijk PATH reset. Stel `docker.env.PATH`
   in om je aangepaste toolpaden vooraan toe te voegen (bijv. `/custom/bin:/usr/local/share/npm-global/bin`), of voeg
   een script toe onder `/etc/profile.d/` in je Dockerfile.
-
-

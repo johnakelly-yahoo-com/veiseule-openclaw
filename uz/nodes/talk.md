@@ -1,4 +1,8 @@
 ---
+summary: "1. Talk rejimi: ElevenLabs TTS bilan uzluksiz nutq suhbatlari"
+read_when:
+  - 2. macOS/iOS/Android’da Talk rejimini joriy etish
+  - 3. Ovoz/TTS/bo‘lish (interrupt) xatti-harakatlarini o‘zgartirish
 title: "4. Talk Rejimi"
 ---
 
@@ -29,7 +33,7 @@ title: "4. Talk Rejimi"
 
 20. Qoidalar:
 
-- 21. Faqat birinchi bo‘sh bo‘lmagan qatordan foydalaniladi.
+- Qo‘llab-quvvatlanadigan kalitlar:
 - 22. Noma’lum kalitlar e’tiborsiz qoldiriladi.
 - 23. `once: true` faqat joriy javobga qo‘llanadi.
 - 24. `once` bo‘lmasa, ovoz Talk rejimi uchun yangi standartga aylanadi.
@@ -37,11 +41,11 @@ title: "4. Talk Rejimi"
 
 26. Qo‘llab-quvvatlanadigan kalitlar:
 
-- 27. `voice` / `voice_id` / `voiceId`
-- 28. `model` / `model_id` / `modelId`
-- 29. `speed`, `rate` (WPM), `stability`, `similarity`, `style`, `speakerBoost`
-- 30. `seed`, `normalize`, `lang`, `output_format`, `latency_tier`
-- 31. `once`
+- `voice` / `voice_id` / `voiceId`
+- `model` / `model_id` / `modelId`
+- `speed`, `rate` (WPM), `stability`, `similarity`, `style`, `speakerBoost`
+- `seed`, `normalize`, `lang`, `output_format`, `latency_tier`
+- `once`
 
 ## 32. Sozlamalar (`~/.openclaw/openclaw.json`)
 
@@ -59,7 +63,7 @@ title: "4. Talk Rejimi"
 
 34. Standartlar:
 
-- 35. `interruptOnSpeech`: true
+- `interruptOnSpeech`: true
 - 36. `voiceId`: `ELEVENLABS_VOICE_ID` / `SAG_VOICE_ID` ga qaytadi (yoki API kaliti mavjud bo‘lsa, birinchi ElevenLabs ovozi)
 - 37. `modelId`: o‘rnatilmagan bo‘lsa, `eleven_v3` ga standartlanadi
 - 38. `apiKey`: `ELEVENLABS_API_KEY` ga qaytadi (yoki mavjud bo‘lsa, gateway shell profili)
@@ -69,7 +73,7 @@ title: "4. Talk Rejimi"
 
 - 41. Menyu paneli tugmasi: **Talk**
 - 42. Sozlamalar yorlig‘i: **Talk Mode** guruhi (voice id + to‘xtatish tumchog‘i)
-- 43. Overlay:
+- Overlay:
   - 44. **Tinglash**: mikrofon darajasi bilan bulut pulsatsiyalari
   - 45. **O‘ylash**: cho‘kib boruvchi animatsiya
   - 46. **Gapirish**: tarqaluvchi halqalar
@@ -79,10 +83,8 @@ title: "4. Talk Rejimi"
 ## 49. Eslatmalar
 
 - 50. Nutq + Mikrofon ruxsatlari talab etiladi.
-- `main` sessiya kaliti bilan `chat.send` dan foydalanadi.
-- TTS ElevenLabs streaming API dan `ELEVENLABS_API_KEY` bilan foydalanadi va kechikishni kamaytirish uchun macOS/iOS/Android’da bosqichma-bosqich ijroni qo‘llab-quvvatlaydi.
-- `eleven_v3` uchun `stability` qiymati `0.0`, `0.5` yoki `1.0` ga tekshiriladi; boshqa modellar `0..1` oralig‘ini qabul qiladi.
-- Agar o‘rnatilgan bo‘lsa, `latency_tier` `0..4` oralig‘ida tekshiriladi.
-- Android past kechikishli AudioTrack streaming uchun `pcm_16000`, `pcm_22050`, `pcm_24000` va `pcm_44100` chiqish formatlarini qo‘llab-quvvatlaydi.
-
-
+- Uses `chat.send` against session key `main`.
+- TTS uses ElevenLabs streaming API with `ELEVENLABS_API_KEY` and incremental playback on macOS/iOS/Android for lower latency.
+- `stability` for `eleven_v3` is validated to `0.0`, `0.5`, or `1.0`; other models accept `0..1`.
+- `latency_tier` is validated to `0..4` when set.
+- Android supports `pcm_16000`, `pcm_22050`, `pcm_24000`, and `pcm_44100` output formats for low-latency AudioTrack streaming.

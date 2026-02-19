@@ -1,4 +1,9 @@
 ---
+summary: "„Skąd OpenClaw ładuje zmienne środowiskowe i jaka jest kolejność pierwszeństwa”"
+read_when:
+  - Musisz wiedzieć, które zmienne środowiskowe są ładowane i w jakiej kolejności
+  - Debugujesz brakujące klucze API w Gateway
+  - Dokumentujesz uwierzytelnianie dostawców lub środowiska wdrożeniowe
 title: "„Zmienne środowiskowe”"
 ---
 
@@ -69,13 +74,13 @@ Możesz odwoływać się bezpośrednio do zmiennych środowiskowych w wartościa
 
 Zobacz [Konfiguracja: podstawianie zmiennych środowiskowych](/gateway/configuration#env-var-substitution-in-config), aby poznać pełne szczegóły.
 
-## Zmienne środowiskowe związane ze ścieżkami
+## Path-related env vars
 
-| Zmienna                | Przeznaczenie                                                                                                                                                                                                                       |
-| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Zmienna                | Przeznaczenie                                                                                                                                                                                                                                            |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `OPENCLAW_HOME`        | Nadpisuje katalog domowy używany do rozwiązywania wszystkich wewnętrznych ścieżek (`~/.openclaw/`, katalogi agentów, sesje, poświadczenia). Useful when running OpenClaw as a dedicated service user. |
-| `OPENCLAW_STATE_DIR`   | Nadpisuje katalog stanu (domyślnie `~/.openclaw`).                                                                                                                                            |
-| `OPENCLAW_CONFIG_PATH` | Nadpisuje ścieżkę pliku konfiguracyjnego (domyślnie `~/.openclaw/openclaw.json`).                                                                                                                             |
+| `OPENCLAW_STATE_DIR`   | Nadpisuje katalog stanu (domyślnie `~/.openclaw`).                                                                                                                                                                    |
+| `OPENCLAW_CONFIG_PATH` | Nadpisuje ścieżkę pliku konfiguracyjnego (domyślnie `~/.openclaw/openclaw.json`).                                                                                                                                     |
 
 ### `OPENCLAW_HOME`
 
@@ -100,5 +105,3 @@ Po ustawieniu `OPENCLAW_HOME` zastępuje systemowy katalog domowy (`$HOME` / `os
 - [Konfiguracja Gateway](/gateway/configuration)
 - [FAQ: zmienne środowiskowe i ładowanie .env](/help/faq#env-vars-and-env-loading)
 - [Przegląd modeli](/concepts/models)
-
-

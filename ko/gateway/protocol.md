@@ -1,4 +1,9 @@
 ---
+summary: "Gateway WebSocket 프로토콜: 핸드셰이크, 프레임, 버저닝"
+read_when:
+  - Gateway WS 클라이언트 구현 또는 업데이트 시
+  - 프로토콜 불일치 또는 연결 실패 디버깅 시
+  - 프로토콜 스키마/모델 재생성 시
 title: "Gateway 프로토콜"
 ---
 
@@ -208,5 +213,3 @@ Gateway 는 이를 **클레임**으로 취급하고 서버 측 허용 목록을 
 이 프로토콜은 **전체 Gateway API** (상태, 채널, 모델, 채팅,
 에이전트, 세션, 노드, 승인 등) 를 노출합니다. 정확한 표면은
 `src/gateway/protocol/schema.ts` 에 있는 TypeBox 스키마로 정의됩니다.
-
-

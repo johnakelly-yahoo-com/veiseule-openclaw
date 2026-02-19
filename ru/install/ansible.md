@@ -1,4 +1,9 @@
 ---
+summary: "Автоматизированная, усиленная установка OpenClaw с Ansible, VPN Tailscale и изоляцией через файрвол"
+read_when:
+  - Вам требуется автоматизированное развёртывание серверов с усилением безопасности
+  - Нужна изолированная файрволом настройка с доступом через VPN
+  - Вы разворачиваете систему на удалённых серверах Debian/Ubuntu
 title: "Ansible"
 ---
 
@@ -201,5 +206,3 @@ openclaw channels login
 - [Docker](/install/docker) — контейнеризованная настройка Gateway (шлюза)
 - [Sandboxing](/gateway/sandboxing) — конфигурация sandbox‑окружений агентов
 - [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) — изоляция для каждого агента
-
-

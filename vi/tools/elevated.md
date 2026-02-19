@@ -1,4 +1,7 @@
 ---
+summary: "Chế độ exec nâng cao và các chỉ thị /elevated"
+read_when:
+  - Điều chỉnh mặc định chế độ elevated, allowlist hoặc hành vi lệnh gạch chéo
 title: "Chế độ Elevated"
 ---
 
@@ -45,12 +48,10 @@ title: "Chế độ Elevated"
 - Allowlist người gửi: `tools.elevated.allowFrom` với allowlist theo từng nhà cung cấp (ví dụ: `discord`, `whatsapp`).
 - Cổng theo tác tử: `agents.list[].tools.elevated.enabled` (tùy chọn; chỉ có thể hạn chế thêm).
 - Allowlist theo tác tử: `agents.list[].tools.elevated.allowFrom` (tùy chọn; khi đặt, người gửi phải khớp **cả** allowlist toàn cục + theo tác tử).
-- 46. Dự phòng Discord: nếu `tools.elevated.allowFrom.discord` bị bỏ qua, danh sách `channels.discord.dm.allowFrom` sẽ được dùng làm phương án dự phòng. Đặt `tools.elevated.allowFrom.discord` (kể cả `[]`) để ghi đè. 47. Danh sách cho phép theo từng agent **không** dùng phương án dự phòng.
+- Dự phòng Discord: nếu `tools.elevated.allowFrom.discord` bị bỏ qua, danh sách `channels.discord.allowFrom` sẽ được dùng làm dự phòng (legacy: `channels.discord.dm.allowFrom`). Đặt `tools.elevated.allowFrom.discord` (kể cả `[]`) để ghi đè. 47. Danh sách cho phép theo từng agent **không** dùng phương án dự phòng.
 - Tất cả các cổng phải vượt qua; nếu không elevated được coi là không khả dụng.
 
 ## Logging + trạng thái
 
 - Các lệnh exec elevated được ghi log ở mức info.
 - Trạng thái phiên bao gồm chế độ elevated (ví dụ: `elevated=ask`, `elevated=full`).
-
-

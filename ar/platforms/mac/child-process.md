@@ -1,4 +1,7 @@
 ---
+summary: "دورة حياة Gateway على macOS ‏(launchd)"
+read_when:
+  - دمج تطبيق mac مع دورة حياة Gateway
 title: "دورة حياة Gateway"
 ---
 
@@ -55,5 +58,3 @@ rm ~/.openclaw/disable-launchagent
 - سجلات وإشراف متوقّعان.
 
 إذا لزم وجود وضع عملية تابعة حقيقي مرة أخرى، فينبغي توثيقه كَوضع منفصل وصريح مخصّص للتطوير فقط.
-
-

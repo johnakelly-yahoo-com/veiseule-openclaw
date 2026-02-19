@@ -1,4 +1,7 @@
 ---
+summary: "„Logik des Menüleistenstatus und was Benutzern angezeigt wird“"
+read_when:
+  - Optimierung der macOS-Menü-UI oder der Statuslogik
 title: "„Menüleiste“"
 ---
 
@@ -76,5 +79,3 @@ title: "„Menüleiste“"
 - Hauptsitzung starten, während eine andere aktiv ist: Symbol wechselt sofort zur Hauptsitzung.
 - Schnelle Werkzeug-Bursts: sicherstellen, dass das Badge nicht flackert (TTL‑Schonfrist bei Werkzeugergebnissen).
 - Die Gesundheitszeile erscheint wieder, sobald alle Sitzungen inaktiv sind.
-
-

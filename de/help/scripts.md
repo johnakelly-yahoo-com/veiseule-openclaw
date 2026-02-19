@@ -1,4 +1,8 @@
 ---
+summary: "„Repository-Skripte: Zweck, Umfang und Sicherheitshinweise“"
+read_when:
+  - Ausführen von Skripten aus dem Repository
+  - Hinzufügen oder Ändern von Skripten unter ./scripts
 title: "Skripte"
 ---
 
@@ -22,5 +26,3 @@ Skripte zur Authentifizierungsüberwachung sind hier dokumentiert:
 
 - Halten Sie Skripte fokussiert und dokumentiert.
 - Fügen Sie einen kurzen Eintrag in der relevanten Dokumentation hinzu (oder erstellen Sie eine, falls sie fehlt).
-
-

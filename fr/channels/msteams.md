@@ -1,4 +1,7 @@
 ---
+summary: "Statut de prise en charge du bot Microsoft Teams, capacites et configuration"
+read_when:
+  - Travail sur les fonctionnalites du canal MS Teams
 title: "Microsoft Teams"
 ---
 
@@ -152,14 +155,14 @@ Avant de configurer OpenClaw, vous devez creer une ressource Azure Bot.
 1. Allez sur [Creer Azure Bot](https://portal.azure.com/#create/Microsoft.AzureBot)
 2. Remplissez l'onglet **Basics** :
 
-   | Champ              | Valeur                                                                                                             |
-   | ------------------ | ------------------------------------------------------------------------------------------------------------------ |
-   | **Identifiant du bot**     | Nom de votre bot, p. ex., `openclaw-msteams` (doit etre unique) |
-   | **Abonnement**   | Selectionnez votre abonnement Azure                                                                                |
+   | Champ                    | Valeur                                                                                                             |
+   | ------------------------ | ------------------------------------------------------------------------------------------------------------------ |
+   | **Identifiant du bot**   | Nom de votre bot, p. ex., `openclaw-msteams` (doit etre unique) |
+   | **Abonnement**           | Selectionnez votre abonnement Azure                                                                                |
    | **Groupe de ressources** | Creez-en un nouveau ou utilisez l’existant                                                                         |
-   | **Niveau tarifaire**   | **Free** pour dev/test                                                                                             |
-   | **Type d’application**    | **Single Tenant** (recommande – voir note ci-dessous)                                           |
-   | **Type de création**  | **Créer un nouvel ID d’application Microsoft**                                                                                    |
+   | **Niveau tarifaire**     | **Free** pour dev/test                                                                                             |
+   | **Type d’application**   | **Single Tenant** (recommande – voir note ci-dessous)                                           |
+   | **Type de création**     | **Créer un nouvel ID d’application Microsoft**                                                                     |
 
 > **Avis de deprecation :** la creation de nouveaux bots multi-locataires a ete depreciee apres le 2025-07-31. Utilisez **Single Tenant** pour les nouveaux bots.
 
@@ -421,6 +424,8 @@ Si vous avez besoin d’images/fichiers dans les **canaux** ou de recuperer l’
 3. Incrementez la **version du manifeste** de l’app Teams, re-televersez et **reinstallez l’app dans Teams**.
 4. **Quittez completement et relancez Teams** pour vider les metadonnees d’app en cache.
 
+**Autorisation supplémentaire pour les mentions d’utilisateurs :** Les @mentions d’utilisateurs fonctionnent par défaut pour les utilisateurs présents dans la conversation. Cependant, si vous souhaitez rechercher et mentionner dynamiquement des utilisateurs qui **ne sont pas dans la conversation en cours**, ajoutez l’autorisation `User.Read.All` (Application) et accordez le consentement administrateur.
+
 ## Limitations connues
 
 ### Delais d’expiration des webhooks
@@ -533,7 +538,7 @@ Les bots peuvent envoyer des fichiers en Messages prives via le flux FileConsent
 
 Les bots n’ont pas de lecteur OneDrive personnel (le point de terminaison Graph `/me/drive` ne fonctionne pas pour les identites d’application). Pour envoyer des fichiers dans les discussions de groupe/canaux, le bot televerse vers un **site SharePoint** et cree un lien de partage.
 
-### Configuration
+### Délai d'attente de la passerelle
 
 1. **Ajouter des autorisations Graph API** dans Entra ID (Azure AD) → App Registration :
    - `Sites.ReadWrite.All` (Application) – televerser des fichiers vers SharePoint
@@ -765,5 +770,3 @@ Les bots ont une prise en charge limitee dans les canaux prives :
 - [RSC permissions reference](https://learn.microsoft.com/en-us/microsoftteams/platform/graph-api/rsc/resource-specific-consent)
 - [Teams bot file handling](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/bots-filesv4) (canal/groupe requiert Graph)
 - [Proactive messaging](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/conversations/send-proactive-messages)
-
-

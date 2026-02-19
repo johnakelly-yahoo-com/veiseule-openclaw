@@ -1,4 +1,7 @@
 ---
+summary: "Lifecycle ng agent loop, mga stream, at semantika ng paghihintay"
+read_when:
+  - Kailangan mo ng eksaktong walkthrough ng agent loop o mga kaganapan sa lifecycle
 title: "Loop ng Agent"
 ---
 
@@ -141,5 +144,3 @@ Tingnan ang [Plugins](/tools/plugin#plugin-hooks) para sa hook API at mga detaly
 - AbortSignal (cancel)
 - Gateway disconnect o RPC timeout
 - `agent.wait` timeout (wait-only, hindi pinipigilan ang agent)
-
-

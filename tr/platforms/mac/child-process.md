@@ -1,4 +1,7 @@
 ---
+summary: "macOS’te Gateway yaşam döngüsü (launchd)"
+read_when:
+  - mac uygulamasını Gateway yaşam döngüsüyle entegre ederken
 title: "Gateway Yaşam Döngüsü"
 ---
 
@@ -64,5 +67,3 @@ tüneli kullanır ve bu tünel üzerinden bağlanır.
 
 Gerçek bir alt süreç modu tekrar gerekirse, ayrı ve açık bir yalnızca geliştirici
 modu olarak belgelenmelidir.
-
-

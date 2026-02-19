@@ -1,5 +1,7 @@
 ---
 title: Sandbox vs politique d’outil vs Élevé
+summary: "Pourquoi un outil est bloqué : runtime de sandbox, politique d’autorisation/refus des outils, et verrous d’exécution élevée"
+read_when: "Vous tombez sur la “prison de sandbox” ou voyez un refus d’outil/élevé et voulez la clé de configuration exacte à modifier."
 status: active
 ---
 
@@ -124,5 +126,3 @@ Clés de correction (choisissez-en une) :
 ### « Je pensais que c’était la session principale, pourquoi est-elle en sandbox ? »
 
 En mode `"non-main"`, les clés de groupe/canal ne sont _pas_ principales. Utilisez la clé de session principale (affichée par `sandbox explain`) ou passez au mode `"off"`.
-
-

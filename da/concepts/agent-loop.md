@@ -1,4 +1,7 @@
 ---
+summary: "Agent-loopens livscyklus, streams og vent-semantik"
+read_when:
+  - Du har brug for en præcis gennemgang af agent-loopet eller livscyklusbegivenheder
 title: "Agentløkke"
 ---
 
@@ -141,5 +144,3 @@ Se [Plugins](/tools/plugin#plugin-hooks) for hook-API’et og registreringsdetal
 - AbortSignal (annullér)
 - Gateway-frakobling eller RPC-timeout
 - `agent.wait`-timeout (kun vent, stopper ikke agenten)
-
-

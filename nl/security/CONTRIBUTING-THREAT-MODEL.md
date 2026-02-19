@@ -19,7 +19,7 @@ Wij verzorgen tijdens de review de ATLAS-mapping, dreigings-ID’s en risicobeoo
 
 > **Dit is bedoeld voor toevoegingen aan het dreigingsmodel, niet voor het melden van actieve kwetsbaarheden.** Als je een exploiteerbare kwetsbaarheid hebt gevonden, zie onze [Trust-pagina](https://trust.openclaw.ai) voor instructies voor verantwoord melden.
 
-### Stel een mitigatie voor
+### Stel een aanvalsketen voor
 
 Heb je een idee om een bestaande dreiging aan te pakken? Open een issue of PR waarin naar de dreiging wordt verwezen. Nuttige mitigaties zijn specifiek en uitvoerbaar – bijvoorbeeld: “per-afzender rate limiting van 10 berichten/minuut bij de gateway” is beter dan “rate limiting implementeren.”
 
@@ -47,7 +47,7 @@ Elke dreiging krijgt een ID zoals `T-EXEC-003`. De categorieën zijn:
 | ACCESS  | Initiële toegang – toegang verkrijgen              |
 | EXEC    | Uitvoering – het uitvoeren van kwaadaardige acties |
 | PERSIST | Persistentie – toegang behouden                    |
-| EVADE   | Verdedigingsontwijking - detectie vermijden               |
+| EVADE   | Verdedigingsontwijking - detectie vermijden        |
 | DISC    | Ontdekking – leren over de omgeving                |
 | EXFIL   | Exfiltratie – gegevens stelen                      |
 | IMPACT  | Impact – schade of verstoring                      |
@@ -85,8 +85,6 @@ Als je twijfelt over het risiconiveau, beschrijf dan gewoon de impact en wij beo
 - **Vragen over het dreigingsmodel:** Open een issue op [openclaw/trust](https://github.com/openclaw/trust/issues)
 - **Algemene chat:** Discord #security-kanaal
 
-## Erkenning
+## Recognition
 
 Bijdragers aan het dreigingsmodel worden erkend in de dankbetuigingen van het dreigingsmodel, de releaseopmerkingen en de OpenClaw security hall of fame voor belangrijke bijdragen.
-
-

@@ -479,7 +479,7 @@ if (sandboxRoot) {
 }
 ```
 
-## 19. 제공자별 처리
+## 제공자별 처리
 
 ### Anthropic
 
@@ -516,7 +516,7 @@ import { ... } from "@mariozechner/pi-tui";
 | 호출                            | `pi` 명령 / RPC                    | `createAgentSession()` 를 통한 SDK                                                                                   |
 | 도구                            | 기본 코딩 도구                         | 커스텀 OpenClaw 도구 세트                                                                                                |
 | 시스템 프롬프트                      | AGENTS.md + 프롬프트 | 채널/컨텍스트별 동적 구성                                                                                                    |
-| 세션 저장소                        | `~/.pi/agent/sessions/`          | `~/.openclaw/agents/<agentId>/sessions/` (또는 `$OPENCLAW_STATE_DIR/agents/<agentId>/sessions/`) |
+| 세션 저장소                        | `~/.pi/agent/sessions/`          | `~/.openclaw/agents/&lt;agentId&gt;/sessions/` (또는 `$OPENCLAW_STATE_DIR/agents/&lt;agentId&gt;/sessions/`) |
 | 인증                            | 단일 자격 증명                         | 로테이션을 포함한 다중 프로파일                                                                                                 |
 | 확장                            | 디스크에서 로드                         | 프로그래밍 방식 + 디스크 경로                                                                                                 |
 | 이벤트 처리                        | TUI 렌더링                          | 콜백 기반(onBlockReply 등)                                                                          |
@@ -610,5 +610,3 @@ pi 통합 및 그 확장을 다루는 모든 기존 테스트:
 - `src/agents/pi-tools.policy.test.ts`
 - `src/agents/pi-tools.safe-bins.test.ts`
 - `src/agents/pi-tools.workspace-paths.test.ts`
-
-

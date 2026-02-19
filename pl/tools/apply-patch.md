@@ -1,4 +1,8 @@
 ---
+summary: "Stosuj wieloplikowe poprawki za pomocą narzędzia apply_patch"
+read_when:
+  - Potrzebujesz uporządkowanych edycji plików w wielu plikach
+  - Chcesz dokumentować lub debugować edycje oparte na poprawkach
 title: "Narzędzie apply_patch"
 ---
 
@@ -28,7 +32,8 @@ Narzędzie przyjmuje pojedynczy ciąg `input`, który opakowuje jedną lub więc
 
 ## Uwagi
 
-- Ścieżki są rozwiązywane względem katalogu głównego obszaru roboczego.
+- Ścieżki patchy obsługują ścieżki względne (z katalogu przestrzeni roboczej) oraz ścieżki bezwzględne.
+- `tools.exec.applyPatch.workspaceOnly` ma domyślnie wartość `true` (ograniczone do przestrzeni roboczej). Ustaw na `false` tylko wtedy, gdy celowo chcesz, aby `apply_patch` zapisywał/usuw­ał pliki poza katalogiem przestrzeni roboczej.
 - Użyj `*** Move to:` w obrębie hunka `*** Update File:`, aby zmieniać nazwy plików.
 - `*** End of File` oznacza wstawienie wyłącznie na końcu pliku (EOF), gdy jest to potrzebne.
 - Funkcja eksperymentalna i domyślnie wyłączona. Włącz za pomocą `tools.exec.applyPatch.enabled`.
@@ -44,5 +49,3 @@ Narzędzie przyjmuje pojedynczy ciąg `input`, który opakowuje jedną lub więc
   "input": "*** Begin Patch\n*** Update File: src/index.ts\n@@\n-const foo = 1\n+const foo = 2\n*** End Patch"
 }
 ```
-
-

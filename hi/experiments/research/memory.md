@@ -1,4 +1,9 @@
 ---
+summary: "अनुसंधान नोट्स: Clawd वर्कस्पेस के लिए ऑफ़लाइन मेमोरी सिस्टम (Markdown स्रोत‑ऑफ़‑ट्रुथ + व्युत्पन्न इंडेक्स)"
+read_when:
+  - दैनिक Markdown लॉग से आगे वर्कस्पेस मेमोरी (~/.openclaw/workspace) डिज़ाइन करते समय
+  - Deciding: 42. standalone CLI बनाम deep OpenClaw integration
+  - ऑफ़लाइन रिकॉल + रिफ़्लेक्शन (retain/recall/reflect) जोड़ते समय
 title: "वर्कस्पेस मेमोरी अनुसंधान"
 ---
 
@@ -221,5 +226,3 @@ Shape:
 - Letta / MemGPT अवधारणाएँ: “core memory blocks” + “archival memory” + टूल‑ड्रिवन self‑editing memory।
 - Hindsight Technical Report: “retain / recall / reflect”, चार‑नेटवर्क मेमोरी, कथात्मक तथ्य निष्कर्षण, राय कॉन्फ़िडेंस का विकास।
 - SuCo: arXiv 2411.14754 (2024): “Subspace Collision” approximate nearest neighbor retrieval।
-
-

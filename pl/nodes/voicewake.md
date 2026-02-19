@@ -1,4 +1,8 @@
 ---
+summary: "„Globalne słowa wybudzania głosem (należące do Gateway) i sposób ich synchronizacji między węzłami”"
+read_when:
+  - Zmiana zachowania lub ustawień domyślnych słów wybudzania głosem
+  - Dodawanie nowych platform węzłów, które wymagają synchronizacji słów wybudzania
 title: "Wybudzanie głosem"
 ---
 
@@ -59,5 +63,3 @@ Kto je otrzymuje:
 
 - Udostępnia edytor Słów wybudzania w Ustawieniach.
 - Wywołuje `voicewake.set` przez Gateway WS, aby edycje synchronizowały się wszędzie.
-
-

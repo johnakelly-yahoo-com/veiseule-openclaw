@@ -1,4 +1,7 @@
 ---
+summary: "Direkte `openclaw agent`-CLI-kørsler (med valgfri levering)"
+read_when:
+  - Tilføjelse eller ændring af agentens CLI-entrypoint
 title: "Agent-afsendelse"
 ---
 
@@ -48,5 +51,3 @@ openclaw agent --agent ops --message "Generate report" --deliver --reply-channel
 - `--verbose <on|full|off>`: bevar verbose-niveau
 - `--timeout <seconds>`: tilsidesæt agent-timeout
 - `--json`: output struktureret JSON
-
-

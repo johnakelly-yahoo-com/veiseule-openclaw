@@ -1,4 +1,8 @@
 ---
+summary: "Brug Amazon Bedrock (Converse API)-modeller med OpenClaw"
+read_when:
+  - Du vil bruge Amazon Bedrock-modeller med OpenClaw
+  - Du har brug for opsætning af AWS-legitimationsoplysninger/region til modelkald
 title: "Amazon Bedrock"
 ---
 
@@ -170,5 +174,3 @@ openclaw models list
   aktuelle muligheder.
 - Hvis du foretrækker et administreret nøgleflow, kan du også placere en OpenAI‑kompatibel
   proxy foran Bedrock og konfigurere den som en OpenAI-udbyder i stedet.
-
-

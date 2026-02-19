@@ -1,4 +1,8 @@
 ---
+summary: "ถอนการติดตั้ง OpenClaw ออกทั้งหมด (CLI, บริการ, สถานะ, เวิร์กสเปซ)"
+read_when:
+  - คุณต้องการลบ OpenClaw ออกจากเครื่อง
+  - บริการGatewayยังคงทำงานอยู่หลังจากถอนการติดตั้ง
 title: "ถอนการติดตั้ง"
 ---
 
@@ -84,7 +88,7 @@ launchctl bootout gui/$UID/bot.molt.gateway
 rm -f ~/Library/LaunchAgents/bot.molt.gateway.plist
 ```
 
-หากคุณใช้โปรไฟล์ ให้แทนที่ป้ายกำกับและชื่อ plist ด้วย `bot.molt.<profile>`. `ลบ plist แบบเดิม`com.openclaw.\*\` หากมีอยู่
+หากคุณใช้โปรไฟล์ ให้แทนที่ป้ายกำกับและชื่อ plist ด้วย `bot.molt.<profile>`. `ลบ plist แบบเดิม`com.openclaw.\*\\` หากมีอยู่
 
 ### Linux (systemd user unit)
 
@@ -116,6 +120,7 @@ Remove-Item -Force "$env:USERPROFILE\.openclaw\gateway.cmd"
 หากคุณใช้ `https://openclaw.ai/install.sh` หรือ `install.ps1` CLI จะถูกติดตั้งด้วย `npm install -g openclaw@latest`
 ให้ลบออกด้วย `npm rm -g openclaw` (หรือ `pnpm remove -g` / `bun remove -g` หากคุณติดตั้งด้วยวิธีนั้น)
 ลบออกด้วย `npm rm -g openclaw` (หรือ `pnpm remove -g` / `bun remove -g` หากคุณติดตั้งด้วยวิธีนั้น)
+ลบออกด้วย `npm rm -g openclaw` (หรือ `pnpm remove -g` / `bun remove -g` หากคุณติดตั้งด้วยวิธีนั้น)
 
 ### ซอร์สโค้ดที่เช็กเอาต์ (git clone)
 
@@ -124,5 +129,3 @@ Remove-Item -Force "$env:USERPROFILE\.openclaw\gateway.cmd"
 1. ถอนการติดตั้งบริการGateway **ก่อน** ลบรีโป (ใช้วิธีง่ายด้านบนหรือการลบบริการด้วยตนเอง)
 2. ลบไดเรกทอรีรีโป
 3. ลบสถานะ + เวิร์กสเปซตามที่แสดงด้านบน
-
-

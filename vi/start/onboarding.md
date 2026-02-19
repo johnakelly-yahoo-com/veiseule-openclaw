@@ -1,4 +1,8 @@
 ---
+summary: "Luồng hướng dẫn ban đầu khi chạy lần đầu cho OpenClaw (ứng dụng macOS)"
+read_when:
+  - Thiết kế trợ lý hướng dẫn ban đầu trên macOS
+  - Triển khai xác thực hoặc thiết lập danh tính
 title: "Hướng dẫn ban đầu (Ứng dụng macOS)"
 sidebarTitle: "Hướng dẫn bắt đầu: Ứng dụng macOS"
 ---
@@ -6,6 +10,7 @@ sidebarTitle: "Hướng dẫn bắt đầu: Ứng dụng macOS"
 # Hướng dẫn ban đầu (Ứng dụng macOS)
 
 Tài liệu này mô tả luồng onboarding chạy lần đầu **hiện tại**. Mục tiêu là một trải nghiệm “ngày 0” mượt mà: chọn nơi Gateway chạy, kết nối xác thực, chạy trình hướng dẫn, và để agent tự khởi tạo.
+Để xem tổng quan về các cách khởi tạo, hãy xem [Tổng quan khởi tạo](/start/onboarding-overview).
 
 <Steps>
 <Step title="Approve macOS warning">
@@ -37,8 +42,8 @@ Tài liệu này mô tả luồng onboarding chạy lần đầu **hiện tại*
 - **Cấu hình sau:** bỏ qua thiết lập và để ứng dụng ở trạng thái chưa cấu hình.
 
 <Tip>
-**Mẹo xác thực Gateway:**
-- Trình hướng dẫn hiện tạo **token** ngay cả cho loopback, vì vậy các client WS cục bộ phải xác thực.
+**Gateway auth tip:**
+- The wizard now generates a **token** even for loopback, so local WS clients must authenticate.
 - Nếu bạn tắt xác thực, bất kỳ tiến trình cục bộ nào cũng có thể kết nối; chỉ dùng cách này trên các máy hoàn toàn đáng tin cậy.
 - Dùng **token** cho truy cập đa máy hoặc khi bind không phải loopback.
 </Tip>
@@ -71,5 +76,3 @@ Bước này là tùy chọn
   Sau khi thiết lập, ứng dụng sẽ mở một phiên chat onboarding riêng để agent tự giới thiệu và hướng dẫn các bước tiếp theo. Điều này giúp tách hướng dẫn lần chạy đầu khỏi các cuộc trò chuyện thông thường của bạn. Xem [Bootstrapping](/start/bootstrapping) để biết điều gì xảy ra trên máy chủ gateway trong lần chạy agent đầu tiên.
 </Step>
 </Steps>
-
-

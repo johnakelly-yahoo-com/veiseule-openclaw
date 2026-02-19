@@ -1,4 +1,9 @@
 ---
+summary: "Moonshot K2 ile Kimi Coding yapılandırması (ayrı sağlayıcılar + anahtarlar)"
+read_when:
+  - Moonshot K2 (Moonshot Open Platform) ile Kimi Coding kurulumunu istiyorsunuz
+  - Ayrı uç noktaları, anahtarları ve model referanslarını anlamanız gerekiyor
+  - Her iki sağlayıcı için kopyala/yapıştır yapılandırma istiyorsunuz
 title: "Moonshot AI"
 ---
 
@@ -135,5 +140,3 @@ Not: Moonshot ve Kimi Coding ayrı sağlayıcılardır. Anahtarlar birbirinin ye
 - Moonshot bir model için farklı bağlam sınırları yayımlarsa,
   `contextWindow` değerini buna göre ayarlayın.
 - Uluslararası uç nokta için `https://api.moonshot.ai/v1`, Çin uç noktası için `https://api.moonshot.cn/v1` kullanın.
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "Respaldo de Firecrawl para web_fetch (anti‑bot + extracción en caché)"
+read_when:
+  - Quiere extracción web con respaldo de Firecrawl
+  - Necesita una clave de API de Firecrawl
+  - Quiere extracción anti‑bot para web_fetch
 title: "Firecrawl"
 ---
 
@@ -51,5 +56,3 @@ Orden de extracción de `web_fetch`:
 3. Limpieza básica de HTML (último respaldo)
 
 Consulte [Web tools](/tools/web) para la configuración completa de herramientas web.
-
-

@@ -1,5 +1,10 @@
 ---
 title: "Node.js"
+summary: "Node.js für OpenClaw installieren und konfigurieren — Versionsanforderungen, Installationsoptionen und PATH-Fehlerbehebung"
+read_when:
+  - "Sie müssen Node.js installieren, bevor Sie OpenClaw installieren"
+  - "Sie haben OpenClaw installiert, aber `openclaw` ist ein Befehl nicht gefunden"
+  - "`npm install -g` schlägt mit Berechtigungs- oder PATH-Problemen fehl"
 ---
 
 # Node.js
@@ -20,46 +25,58 @@ Wenn dies `v22.x.x` oder höher ausgibt, ist alles in Ordnung. Wenn Node nicht i
   <Tab title="macOS">
     **Homebrew** (empfohlen):
 
+    `````
+    ````
     ```bash
     brew install node
     ```
-
+    
     Oder laden Sie den macOS-Installer von [nodejs.org](https://nodejs.org/) herunter.
+    ````
+    `````
 
   
 </Tab>
   <Tab title="Linux">
     **Ubuntu / Debian:**
 
+    `````
+    ````
     ```bash
     curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
     sudo apt-get install -y nodejs
     ```
-
+    
     **Fedora / RHEL:**
-
+    
     ```bash
     sudo dnf install nodejs
     ```
-
+    
     Oder verwenden Sie einen Versionsmanager (siehe unten).
+    ````
+    `````
 
   
 </Tab>
   <Tab title="Windows">
     **winget** (empfohlen):
 
+    `````
+    ````
     ```powershell
     winget install OpenJS.NodeJS.LTS
     ```
-
+    
     **Chocolatey:**
-
+    
     ```powershell
     choco install nodejs-lts
     ```
-
+    
     Oder laden Sie den Windows-Installer von [nodejs.org](https://nodejs.org/) herunter.
+    ````
+    `````
 
   
 </Tab>
@@ -103,7 +120,11 @@ Das bedeutet fast immer, dass das globale bin-Verzeichnis von npm nicht in Ihrem
     echo "$PATH"
     ```
 
+    ````
+    ```
     Suchen Sie in der Ausgabe nach `<npm-prefix>/bin` (macOS/Linux) oder `<npm-prefix>` (Windows).
+    ```
+    ````
 
   
 </Step>
@@ -112,19 +133,23 @@ Das bedeutet fast immer, dass das globale bin-Verzeichnis von npm nicht in Ihrem
       <Tab title="macOS / Linux">
         Fügen Sie es zu `~/.zshrc` oder `~/.bashrc` hinzu:
 
-        ```bash
-        export PATH="$(npm prefix -g)/bin:$PATH"
         ```
-
-        Öffnen Sie anschließend ein neues Terminal (oder führen Sie `rehash` in zsh / `hash -r` in bash aus).
-      
+            ```
+                ```bash
+                export PATH="$(npm prefix -g)/bin:$PATH"
+                ```
+            
+                Öffnen Sie anschließend ein neues Terminal (oder führen Sie `rehash` in zsh / `hash -r` in bash aus).
+              
 </Tab>
-      <Tab title="Windows">
-        Fügen Sie die Ausgabe von `npm prefix -g` über Einstellungen → System → Umgebungsvariablen zu Ihrem System-PATH hinzu.
-      
+              <Tab title="Windows">
+                Fügen Sie die Ausgabe von `npm prefix -g` über Einstellungen → System → Umgebungsvariablen zu Ihrem System-PATH hinzu.
+              
 </Tab>
-    
+            
 </Tabs>
+            ```
+        ```
 
   
 </Step>
@@ -141,4 +166,3 @@ export PATH="$HOME/.npm-global/bin:$PATH"
 ```
 
 Fügen Sie die Zeile `export PATH=...` zu Ihrer `~/.bashrc` oder `~/.zshrc` hinzu, um dies dauerhaft zu machen.
-

@@ -1,4 +1,8 @@
 ---
+summary: "DigitalOcean üzerinde OpenClaw (basit ücretli VPS seçeneği)"
+read_when:
+  - DigitalOcean üzerinde OpenClaw kurarken
+  - OpenClaw için ucuz VPS barındırma ararken
 title: "DigitalOcean"
 ---
 
@@ -256,5 +260,3 @@ free -h
 - [Docker kurulumu](/install/docker) — konteynerli kurulum
 - [Tailscale](/gateway/tailscale) — güvenli uzaktan erişim
 - [Yapılandırma](/gateway/configuration) — tam yapılandırma referansı
-
-

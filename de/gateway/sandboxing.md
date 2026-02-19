@@ -1,5 +1,7 @@
 ---
-title: "Sandboxing"
+summary: "„Wie OpenClaw-Sandboxing funktioniert: Modi, Geltungsbereiche, Workspace-Zugriff und Images“"
+title: Sandboxing
+read_when: "„Sie möchten eine dedizierte Erklärung zu Sandboxing oder müssen agents.defaults.sandbox feinjustieren.“"
 status: active
 ---
 
@@ -66,6 +68,11 @@ sie gelesen werden können. Mit `"rw"` sind Workspace‑Skills lesbar unter
 Format: `host:container:mode` (z. B. `"/home/user/source:/source:rw"`).
 
 Globale und agentenspezifische Binds werden **zusammengeführt** (nicht ersetzt). Unter `scope: "shared"` werden agentenspezifische Binds ignoriert.
+
+`agents.defaults.sandbox.browser.binds` bindet zusätzliche Host-Verzeichnisse nur in den **Sandbox-Browser**-Container ein.
+
+- Wenn gesetzt (einschließlich `[]`), ersetzt es `agents.defaults.sandbox.docker.binds` für den Browser-Container.
+- Wenn nicht gesetzt, greift der Browser-Container auf `agents.defaults.sandbox.docker.binds` zurück (abwärtskompatibel).
 
 Beispiel (schreibgeschützte Quelle + Docker‑Socket):
 
@@ -188,5 +195,3 @@ Siehe [Multi‑Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) zur Prio
 - [Sandbox‑Konfiguration](/gateway/configuration#agentsdefaults-sandbox)
 - [Multi‑Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools)
 - [Sicherheit](/gateway/security)
-
-

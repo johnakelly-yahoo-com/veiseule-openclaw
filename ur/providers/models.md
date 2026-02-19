@@ -1,10 +1,14 @@
 ---
+summary: "OpenClaw کے ذریعے معاونت یافتہ ماڈل فراہم کنندگان (LLMs)"
+read_when:
+  - آپ ماڈل فراہم کنندہ منتخب کرنا چاہتے ہوں
+  - آپ LLM تصدیق اور ماڈل انتخاب کے لیے فوری سیٹ اپ مثالیں چاہتے ہوں
 title: "ماڈل فراہم کنندہ فوری آغاز"
 ---
 
 # ماڈل فراہم کنندگان
 
-OpenClaw بہت سے LLM فراہم کنندگان استعمال کر سکتا ہے۔ ایک کا انتخاب کریں، تصدیق کریں، پھر اسے بطور ڈیفالٹ سیٹ کریں۔
+OpenClaw can use many LLM providers. Pick one, authenticate, then set the default
 model as `provider/model`.
 
 ## نمایاں: Venice (Venice AI)
@@ -46,5 +50,3 @@ Venice ہماری تجویز کردہ Venice AI سیٹ اپ ہے، جو رازد
 
 For the full provider catalog (xAI, Groq, Mistral, etc.) and advanced configuration,
 see [Model providers](/concepts/model-providers).
-
-

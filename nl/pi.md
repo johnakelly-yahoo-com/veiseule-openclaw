@@ -311,7 +311,7 @@ trackSessionManagerAccess(params.sessionFile);
 
 `limitHistoryTurns()` trimt de conversatiegeschiedenis op basis van kanaaltype (DM versus groep).
 
-### Compactie
+### Compaction
 
 Auto-compactie wordt geactiveerd bij contextoverloop. `compactEmbeddedPiSessionDirect()` handelt handmatige compactie af:
 
@@ -516,7 +516,7 @@ Dit biedt een interactieve terminalervaring vergelijkbaar met pi’s native modu
 | Aanroep           | `pi`-opdracht / RPC                 | SDK via `createAgentSession()`                                                                                    |
 | Tools             | Standaard coderings-tools           | Aangepaste OpenClaw-toolset                                                                                       |
 | Systeemprompt     | AGENTS.md + prompts | Dynamisch per kanaal/context                                                                                      |
-| Sessiestorage     | `~/.pi/agent/sessions/`             | `~/.openclaw/agents/<agentId>/sessions/` (of `$OPENCLAW_STATE_DIR/agents/<agentId>/sessions/`) |
+| Sessiestorage     | `~/.pi/agent/sessions/`             | `~/.openclaw/agents/&lt;agentId&gt;/sessions/` (of `$OPENCLAW_STATE_DIR/agents/&lt;agentId&gt;/sessions/`) |
 | Auth              | Enkele inloggegevens                | Multi-profiel met rotatie                                                                                         |
 | Extensies         | Geladen vanaf schijf                | Programmatic + schijfpaden                                                                                        |
 | Event-afhandeling | TUI-rendering                       | Callback-gebaseerd (onBlockReply, enz.)                                        |
@@ -610,5 +610,3 @@ Alle bestaande tests die de pi-integratie en de extensies daarvan dekken:
 - `src/agents/pi-tools.policy.test.ts`
 - `src/agents/pi-tools.safe-bins.test.ts`
 - `src/agents/pi-tools.workspace-paths.test.ts`
-
-

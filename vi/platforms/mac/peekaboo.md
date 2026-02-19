@@ -1,4 +1,9 @@
 ---
+summary: "Tích hợp PeekabooBridge cho tự động hóa UI trên macOS"
+read_when:
+  - Lưu trữ PeekabooBridge trong OpenClaw.app
+  - Tích hợp Peekaboo qua Swift Package Manager
+  - Thay đổi giao thức/đường dẫn PeekabooBridge
 title: "Peekaboo Bridge"
 ---
 
@@ -18,7 +23,7 @@ Trong ứng dụng macOS:
 
 - Cài đặt → **Bật Peekaboo Bridge**
 
-Khi được bật, OpenClaw khởi động một máy chủ UNIX socket cục bộ. Nếu bị tắt, máy chủ
+When enabled, OpenClaw starts a local UNIX socket server. If disabled, the host
 is stopped and `peekaboo` will fall back to other available hosts.
 
 ## Thứ tự khám phá client
@@ -29,7 +34,7 @@ Các client Peekaboo thường thử các host theo thứ tự sau:
 2. Claude.app (nếu được cài đặt)
 3. OpenClaw.app (broker mỏng)
 
-Sử dụng `peekaboo bridge status --verbose` để xem host nào đang hoạt động và host nào
+Use `peekaboo bridge status --verbose` to see which host is active and which
 socket path is in use. You can override with:
 
 ```bash
@@ -51,5 +56,3 @@ If you need longer retention, re‑capture from the client.
 
 - Nếu `peekaboo` báo “bridge client is not authorized”, hãy đảm bảo client được ký đúng cách hoặc chạy host với `PEEKABOO_ALLOW_UNSIGNED_SOCKET_CLIENTS=1` chỉ trong chế độ **debug**.
 - Nếu không tìm thấy host nào, hãy mở một trong các ứng dụng host (Peekaboo.app hoặc OpenClaw.app) và xác nhận các quyền đã được cấp.
-
-

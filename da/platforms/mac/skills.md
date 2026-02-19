@@ -1,4 +1,8 @@
 ---
+summary: "macOS Skills-indstillings-UI og gateway-baseret status"
+read_when:
+  - Opdatering af macOS Skills-indstillings-UI
+  - Ændring af gating eller installationsadfærd for Skills
 title: "Skills"
 ---
 
@@ -27,5 +31,3 @@ macOS-appen viser OpenClaw Skills via gatewayen; den parser ikke Skills lokalt.
 ## Fjern-tilstand
 
 - Installation + konfigurationsopdateringer sker på gateway-værten (ikke den lokale Mac).
-
-

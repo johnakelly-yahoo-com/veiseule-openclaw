@@ -1,4 +1,7 @@
 ---
+summary: "6. Kengaytirilgan exec rejimi va /elevated direktivalari"
+read_when:
+  - 7. Kengaytirilgan rejim standartlarini, ruxsat ro‘yxatlarini yoki slash-buyruqlar xatti-harakatini sozlash
 title: "8. Kengaytirilgan rejim"
 ---
 
@@ -45,12 +48,10 @@ title: "8. Kengaytirilgan rejim"
 - 41. Jo‘natuvchi ruxsat ro‘yxati: `tools.elevated.allowFrom` provayderlar bo‘yicha ruxsat ro‘yxatlari bilan (masalan, `discord`, `whatsapp`).
 - 42. Agent bo‘yicha to‘siq: `agents.list[].tools.elevated.enabled` (ixtiyoriy; faqat yanada cheklashi mumkin).
 - 43. Agent bo‘yicha ruxsat ro‘yxati: `agents.list[].tools.elevated.allowFrom` (ixtiyoriy; o‘rnatilganda, jo‘natuvchi **ikkala** global + agent bo‘yicha ruxsat ro‘yxatlariga mos kelishi kerak).
-- 44. Discord fallback: agar `tools.elevated.allowFrom.discord` ko‘rsatilmagan bo‘lsa, `channels.discord.dm.allowFrom` ro‘yxati fallback sifatida ishlatiladi. 45. Override qilish uchun `tools.elevated.allowFrom.discord` ni (hatto `[]` bo‘lsa ham) o‘rnating. 46. Agent bo‘yicha ruxsat ro‘yxatlari fallback’dan **foydalanmaydi**.
+- Discord fallback: agar `tools.elevated.allowFrom.discord` ko‘rsatilmagan bo‘lsa, zaxira sifatida `channels.discord.allowFrom` ro‘yxati ishlatiladi (legacy: `channels.discord.dm.allowFrom`). 45. Override qilish uchun `tools.elevated.allowFrom.discord` ni (hatto `[]` bo‘lsa ham) o‘rnating. 46. Agent bo‘yicha ruxsat ro‘yxatlari fallback’dan **foydalanmaydi**.
 - 47. Barcha to‘siqlar o‘tishi kerak; aks holda kengaytirilgan rejim mavjud emas deb hisoblanadi.
 
 ## 48. Loglash + holat
 
 - 49. Kengaytirilgan exec chaqiruvlari info darajasida loglanadi.
 - 50. Sessiya holati kengaytirilgan rejimni o‘z ichiga oladi (masalan, `elevated=ask`, `elevated=full`).
-
-

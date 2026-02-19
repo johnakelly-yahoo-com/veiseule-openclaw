@@ -1,4 +1,10 @@
-------
+---
+title: "Memory"
+summary: "Sådan fungerer OpenClaw-hukommelse (arbejdsområdefiler + automatisk hukommelses-flush)"
+read_when:
+  - Du vil kende hukommelsesfilernes layout og workflow
+  - Du vil justere den automatiske pre-kompakterings-hukommelses-flush
+---
 
 # Memory
 
@@ -79,13 +85,15 @@ Standardindstillinger:
 
 - Aktiveret som standard.
 - Overvåger hukommelsesfiler for ændringer (debounced).
+- Konfigurer memory search under `agents.defaults.memorySearch` (ikke top-level
+  `memorySearch`).
 - Bruger fjernindlejringer som standard. Hvis `memorySearch.provider` ikke er angivet, OpenClaw auto-selects:
   1. `local` hvis en `memorySearch.local.modelPath` er konfigureret, og filen findes.
   2. `openai` hvis en OpenAI-nøgle kan findes.
   3. `gemini` hvis en Gemini-nøgle kan findes.
   4. `voyage` hvis en Voyage-nøgle kan findes.
   5. Ellers forbliver hukommelsessøgning deaktiveret, indtil den konfigureres.
-- Lokal tilstand bruger node-llama-cpp og kan kræve `pnpm approve-builds`.
+- Bruger sqlite-vec (når tilgængelig) til at accelerere vektorsøgning inde i SQLite.
 - Bruger sqlite-vec (når tilgængelig) til at accelerere vektorsøgning inde i SQLite.
 
 Fjernindlejringer **kræve** en API-nøgle til den indlejrede udbyder. OpenClaw
@@ -129,11 +137,16 @@ ud til QMD for at hente. Nøglepunkter:
 - Boot-opdatering kører nu i baggrunden som standard, så chat-opstart ikke
   blokeres; sæt `memory.qmd.update.waitForBootSync = true` for at bevare den tidligere
   blokerende adfærd.
-- Søgninger kører via `qmd forespørgsel --json`. Hvis QMD mislykkes, eller den binære mangler, falder
-  OpenClaw automatisk tilbage til den indbyggede SQLite manager, så hukommelsesværktøjer
-  bliver ved med at fungere.
-- OpenClaw eksponerer ikke tuning af QMD’s embed batch-størrelse i dag; batch-
-  adfærd styres af QMD selv.
+- Boot-opdatering kører nu i baggrunden som standard, så chat-opstart ikke
+  blokeres; sæt `memory.qmd.update.waitForBootSync = true` for at bevare den tidligere
+  blokerende adfærd.
+- Søgninger køres via `memory.qmd.searchMode` (standard `qmd search --json`; understøtter også
+  `vsearch` og `query`). Hvis den valgte tilstand afviser flag i din
+  QMD-build, prøver OpenClaw igen med `qmd query`. Hvis QMD fejler, eller binæren mangler,
+  falder OpenClaw automatisk tilbage til den indbyggede SQLite-manager, så
+  memory-værktøjer fortsat virker.
+- **Første søgning kan være langsom**: QMD kan downloade lokale GGUF-modeller
+  (reranker/forespørgselsudvidelse) ved første `qmd query`-kørsel.
 - **Første søgning kan være langsom**: QMD kan downloade lokale GGUF-modeller
   (reranker/forespørgselsudvidelse) ved første `qmd query`-kørsel.
   - OpenClaw sætter `XDG_CONFIG_HOME`/`XDG_CACHE_HOME` automatisk, når den kører QMD.
@@ -145,21 +158,17 @@ ud til QMD for at hente. Nøglepunkter:
     OpenClaw bruger:
 
     ```bash
-    # Pick the same state dir OpenClaw uses
+    # Vælg den samme state-mappe, som OpenClaw bruger
     STATE_DIR="${OPENCLAW_STATE_DIR:-$HOME/.openclaw}"
-    if [ -d "$HOME/.moltbot" ] && [ ! -d "$HOME/.openclaw" ] \
-      && [ -z "${OPENCLAW_STATE_DIR:-}" ]; then
-      STATE_DIR="$HOME/.moltbot"
-    fi
 
     export XDG_CONFIG_HOME="$STATE_DIR/agents/main/qmd/xdg-config"
     export XDG_CACHE_HOME="$STATE_DIR/agents/main/qmd/xdg-cache"
 
-    # (Optional) force an index refresh + embeddings
+    # (Valgfrit) gennemtving en indeksopdatering + embeddings
     qmd update
     qmd embed
 
-    # Warm up / trigger first-time model downloads
+    # Opvarm / udløs første gangs model-downloads
     qmd query "test" -c memory-root --json >/dev/null 2>&1
     ```
 
@@ -176,11 +185,17 @@ ud til QMD for at hente. Nøglepunkter:
   `commandTimeoutMs`, `updateTimeoutMs`, `embedTimeoutMs`).
 - `limits`: begræns recall-payload (`maxResults`, `maxSnippetChars`,
   `maxInjectedChars`, `timeoutMs`).
+- `limits`: begræns recall-payload (`maxResults`, `maxSnippetChars`,
+  `maxInjectedChars`, `timeoutMs`).
 - `scope`: samme skema som [`session.sendPolicy`](/gateway/configuration#session).
   Standard er kun DM-only (`deny` all, `allow` direkte chats); løsn det til overflade QMD
   hits i grupper/kanaler.
-- Når `scope` afviser en søgning, logger OpenClaw en advarsel med det afledte
-  `channel`/`chatType`, så tomme resultater er nemmere at fejlfinde.
+  - `match.keyPrefix` matcher den **normaliserede** sessionsnøgle (små bogstaver, med eventuel
+    indledende `agent:<id>:` fjernet). Eksempel: `discord:channel:`.
+  - `match.rawKeyPrefix` matcher den **rå** sessionsnøgle (små bogstaver), inklusive
+    `agent:<id>:`. Eksempel: `agent:main:discord:`.
+  - Legacy: `match.keyPrefix: "agent:..."` behandles stadig som et raw-key-præfiks,
+    men brug helst `rawKeyPrefix` for tydelighed.
 - Snippets hentet uden for arbejdsområdet vises som
   `qmd/<collection>/<relative-path>` i `memory_search`-resultater; `memory_get`
   forstår dette præfiks og læser fra den konfigurerede QMD-samlingsrod.
@@ -188,6 +203,11 @@ ud til QMD for at hente. Nøglepunkter:
   transskriptioner (User/Assistant-ture) til en dedikeret QMD-samling under
   `~/.openclaw/agents/<id>/qmd/sessions/`, så `memory_search` kan genkalde nylige
   samtaler uden at røre det indbyggede SQLite-indeks.
+- `memory_search`-snippets inkluderer nu en `Source: <path#line>`-footer, når
+  `memory.citations` er `auto`/`on`; sæt `memory.citations = "off"` for at holde
+  stimetadata interne (agenten modtager stadig stien til
+  `memory_get`, men snippet-teksten udelader footeren, og systemprompten
+  advarer agenten mod at citere den).
 - `memory_search`-snippets inkluderer nu en `Source: <path#line>`-footer, når
   `memory.citations` er `auto`/`on`; sæt `memory.citations = "off"` for at holde
   stimetadata interne (agenten modtager stadig stien til
@@ -298,7 +318,7 @@ Fallbacks:
 
 Batch-indeksering (OpenAI + Gemini):
 
-- Aktiveret som standard for OpenAI og Gemini embeddings. Sæt `agents.defaults.memorySearch.remote.batch.enabled = false` for at deaktivere.
+- Deaktiveret som standard. Sæt `agents.defaults.memorySearch.remote.batch.enabled = true` for at aktivere til indeksering af store korpusser (OpenAI, Gemini og Voyage).
 - Standardadfærd venter på batch-fuldførelse; justér `remote.batch.wait`, `remote.batch.pollIntervalMs` og `remote.batch.timeoutMinutes` efter behov.
 - Sæt `remote.batch.concurrency` for at styre, hvor mange batch-jobs vi indsender parallelt (standard: 2).
 - Batch-tilstand gælder, når `memorySearch.provider = "openai"` eller `"gemini"`, og bruger den tilsvarende API-nøgle.
@@ -554,5 +574,3 @@ Noter:
 
 - `remote.*` har forrang over `models.providers.openai.*`.
 - `remote.headers` fusionere med OpenAI headers; fjerntliggende vinder på centrale konflikter. Udelad `remote.headers` for at bruge OpenAI standardværdierne.
-
-

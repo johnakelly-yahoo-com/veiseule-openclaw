@@ -1,4 +1,8 @@
 ---
+summary: "Comandos de barra: texto vs nativo, configuração e comandos compatíveis"
+read_when:
+  - Usando ou configurando comandos de chat
+  - Depurando roteamento de comandos ou permissões
 title: "Comandos de barra"
 ---
 
@@ -14,7 +18,7 @@ Há dois sistemas relacionados:
   - As diretivas são removidas da mensagem antes que o modelo a veja.
   - Em mensagens de chat normais (não apenas diretivas), elas são tratadas como “dicas inline” e **não** persistem as configurações da sessão.
   - Em mensagens somente com diretivas (a mensagem contém apenas diretivas), elas persistem na sessão e respondem com um reconhecimento.
-  - As diretivas só são aplicadas para **remetentes autorizados** (listas de permissões/pareamento do canal mais `commands.useAccessGroups`).
+  - As diretivas são aplicadas apenas para **remetentes autorizados**. As diretivas só são aplicadas para **remetentes autorizados** (listas de permissões/pareamento do canal mais `commands.useAccessGroups`).
     Remetentes não autorizados veem as diretivas tratadas como texto simples.
 
 Há também alguns **atalhos inline** (somente remetentes na lista de permissões/autorizados): `/help`, `/commands`, `/status`, `/whoami` (`/id`).
@@ -51,6 +55,7 @@ Eles executam imediatamente, são removidos antes que o modelo veja a mensagem, 
 - `commands.bashForegroundMs` (padrão `2000`) controla quanto tempo o bash espera antes de alternar para o modo em segundo plano (`0` envia imediatamente para segundo plano).
 - `commands.config` (padrão `false`) habilita `/config` (leitura/gravação de `openclaw.json`).
 - `commands.debug` (padrão `false`) habilita `/debug` (substituições apenas em tempo de execução).
+- `commands.allowFrom` (opcional) define uma lista de permissões por provedor para autorização de comandos. Quando configurado, é a única fonte de autorização para comandos e diretivas (as listas de permissões/pareamento de canal e `commands.useAccessGroups` são ignoradas). Use `"*"` como padrão global; chaves específicas de provedor o substituem.
 - `commands.useAccessGroups` (padrão `true`) aplica listas de permissões/políticas para comandos.
 
 ## Lista de comandos
@@ -66,6 +71,9 @@ Texto + nativo (quando habilitado):
 - `/context [list|detail|json]` (explicar “contexto”; `detail` mostra tamanho por arquivo + por ferramenta + por skill + prompt do sistema)
 - `/whoami` (mostrar seu id de remetente; alias: `/id`)
 - `/subagents list|stop|log|info|send` (inspecionar, parar, registrar logs ou enviar mensagens para execuções de subagentes da sessão atual)
+- `/kill <id|#|all>` (interrompe imediatamente um ou todos os subagentes em execução nesta sessão; sem mensagem de confirmação)
+- `/steer <id|#> <message>` (direciona um subagente em execução imediatamente: durante a execução quando possível, caso contrário interrompe o trabalho atual e reinicia com a mensagem de direcionamento)
+- `/tell <id|#> <message>` (alias para `/steer`)
 - `/config show|get|set|unset` (persistir configuração em disco, apenas proprietário; requer `commands.config: true`)
 - `/debug show|set|unset|reset` (substituições em tempo de execução, apenas proprietário; requer `commands.debug: true`)
 - `/usage off|tokens|full|cost` (rodapé de uso por resposta ou resumo local de custos)
@@ -192,5 +200,3 @@ Notas:
   - Telegram: `telegram:slash:<userId>` (direciona para a sessão do chat via `CommandTargetSessionKey`)
 - **`/stop`** direciona a sessão de chat ativa para que possa abortar a execução atual.
 - **Slack:** `channels.slack.slashCommand` ainda é compatível para um único comando no estilo `/openclaw`. Se você habilitar `commands.native`, deve criar um comando de barra do Slack por comando embutido (mesmos nomes que `/help`). Menus de argumentos de comando para o Slack são entregues como botões efêmeros do Block Kit.
-
-

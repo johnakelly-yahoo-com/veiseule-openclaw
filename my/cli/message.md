@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw message` အတွက် CLI ကိုးကားချက် (ပို့ခြင်း + ချန်နယ် လုပ်ဆောင်ချက်များ)"
+read_when:
+  - မက်ဆေ့ချ် CLI လုပ်ဆောင်ချက်များကို ထည့်သွင်းခြင်း သို့မဟုတ် ပြင်ဆင်ခြင်း ပြုလုပ်သောအခါ
+  - ထွက်ပေါ်သည့် ချန်နယ် အပြုအမူများကို ပြောင်းလဲသောအခါ
 title: "message"
 ---
 
@@ -64,6 +68,7 @@ Target ဖော်မတ်များ (`--target`):
   - လိုအပ်သည်: `--target`, `--poll-question`, `--poll-option` (ထပ်ခါတလဲလဲအသုံးပြုနိုင်သည်)
   - Optional: `--poll-multi`
   - Discord only: `--poll-duration-hours`, `--message`
+  - Telegram သာ: `--poll-duration-seconds` (5-600), `--silent`, `--poll-anonymous` / `--poll-public`, `--thread-id`
 
 - `react`
   - Channels: Discord/Google Chat/Slack/Telegram/WhatsApp/Signal
@@ -199,11 +204,21 @@ openclaw message poll --channel discord \
 Teams proactive မက်ဆေ့ချ် ပို့ခြင်း:
 
 ```
+openclaw message poll --channel telegram \
+  --target @mychat \
+  --poll-question "Lunch?" \
+  --poll-option Pizza --poll-option Sushi \
+  --poll-duration-seconds 120 --silent
+```
+
+Teams poll တစ်ခု ဖန်တီးခြင်း:
+
+```
 openclaw message send --channel msteams \
   --target conversation:19:abc@thread.tacv2 --message "hi"
 ```
 
-Teams poll တစ်ခု ဖန်တီးခြင်း:
+Slack တွင် reaction ထည့်ခြင်း:
 
 ```
 openclaw message poll --channel msteams \
@@ -212,14 +227,14 @@ openclaw message poll --channel msteams \
   --poll-option Pizza --poll-option Sushi
 ```
 
-Slack တွင် reaction ထည့်ခြင်း:
+Signal အုပ်စုတွင် reaction ထည့်ခြင်း:
 
 ```
 openclaw message react --channel slack \
   --target C123 --message-id 456 --emoji "✅"
 ```
 
-Signal အုပ်စုတွင် reaction ထည့်ခြင်း:
+Telegram inline buttons ပို့ခြင်း:
 
 ```
 openclaw message react --channel signal \
@@ -233,5 +248,3 @@ Telegram inline buttons ပို့ခြင်း:
 openclaw message send --channel telegram --target @mychat --message "Choose:" \
   --buttons '[ [{"text":"Yes","callback_data":"cmd:yes"}], [{"text":"No","callback_data":"cmd:no"}] ]'
 ```
-
-

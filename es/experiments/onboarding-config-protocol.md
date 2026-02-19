@@ -1,4 +1,6 @@
 ---
+summary: "Notas del protocolo RPC para el asistente de onboarding y el esquema de configuración"
+read_when: "Al cambiar los pasos del asistente de onboarding o los endpoints del esquema de configuración"
 title: "Protocolo de Onboarding y Configuración"
 ---
 
@@ -36,5 +38,3 @@ Respuestas (forma)
 ## Notas
 
 - Este documento es el único lugar para dar seguimiento a refactorizaciones del protocolo de onboarding/configuración.
-
-

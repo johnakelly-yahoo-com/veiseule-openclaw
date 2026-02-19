@@ -1,22 +1,20 @@
 ---
-title: Tailscale
-x-i18n:
-  generated_at: "2026-02-03T07:49:04Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: c900c70a9301f2909a3a29a6fb0e6edfc8c18dba443f2e71b9cfadbc58167911
-  source_path: gateway/tailscale.md
-  workflow: 15
+summary: "为 Gateway 网关仪表盘集成 Tailscale Serve/Funnel"
+read_when:
+  - 在 localhost 之外暴露 Gateway 网关控制 UI
+  - 自动化 tailnet 或公共仪表盘访问
+title: "Tailscale"
 ---
 
 # Tailscale（Gateway 网关仪表盘）
 
-OpenClaw 可以为 Gateway 网关仪表盘和 WebSocket 端口自动配置 Tailscale **Serve**（tailnet）或 **Funnel**（公共）。这使 Gateway 网关保持绑定到 loopback，同时 Tailscale 提供 HTTPS、路由和（对于 Serve）身份头。
+OpenClaw 可以为 Gateway 网关仪表盘和 WebSocket 端口自动配置 Tailscale **Serve**（tailnet）或 **Funnel**（公共）。这使 Gateway 网关保持绑定到 loopback，同时 Tailscale 提供 HTTPS、路由和（对于 Serve）身份头。 This keeps the Gateway bound to loopback while
+Tailscale provides HTTPS, routing, and (for Serve) identity headers.
 
 ## 模式
 
-- `serve`：仅限 Tailnet 的 Serve，通过 `tailscale serve`。Gateway 网关保持在 `127.0.0.1` 上。
-- `funnel`：通过 `tailscale funnel` 的公共 HTTPS。OpenClaw 需要共享密码。
+- `serve`：仅限 Tailnet 的 Serve，通过 `tailscale serve`。Gateway 网关保持在 `127.0.0.1` 上。 The gateway stays on `127.0.0.1`.
+- `funnel`：通过 `tailscale funnel` 的公共 HTTPS。OpenClaw 需要共享密码。 OpenClaw requires a shared password.
 - `off`：默认（无 Tailscale 自动化）。
 
 ## 认证
@@ -29,7 +27,14 @@ OpenClaw 可以为 Gateway 网关仪表盘和 WebSocket 端口自动配置 Tails
 当 `tailscale.mode = "serve"` 且 `gateway.auth.allowTailscale` 为 `true` 时，
 有效的 Serve 代理请求可以通过 Tailscale 身份头（`tailscale-user-login`）进行认证，无需提供令牌/密码。OpenClaw 通过本地 Tailscale 守护进程（`tailscale whois`）解析 `x-forwarded-for` 地址并将其与头匹配来验证身份，然后才接受它。
 OpenClaw 仅在请求从 loopback 到达并带有 Tailscale 的 `x-forwarded-for`、`x-forwarded-proto` 和 `x-forwarded-host` 头时才将其视为 Serve 请求。
-要要求显式凭证，设置 `gateway.auth.allowTailscale: false` 或强制 `gateway.auth.mode: "password"`。
+要要求显式凭证，设置 `gateway.auth.allowTailscale: false` 或强制 `gateway.auth.mode: "password"`。 OpenClaw verifies
+the identity by resolving the `x-forwarded-for` address via the local Tailscale
+daemon (`tailscale whois`) and matching it to the header before accepting it.
+OpenClaw only treats a request as Serve when it arrives from loopback with
+Tailscale’s `x-forwarded-for`, `x-forwarded-proto`, and `x-forwarded-host`
+headers.
+To require explicit credentials, set `gateway.auth.allowTailscale: false` or
+force `gateway.auth.mode: "password"`.
 
 ## 配置示例
 
@@ -94,13 +99,15 @@ openclaw gateway --tailscale funnel --auth password
 - 如果你希望 OpenClaw 在关闭时撤销 `tailscale serve` 或 `tailscale funnel` 配置，设置 `gateway.tailscale.resetOnExit`。
 - `gateway.bind: "tailnet"` 是直接 Tailnet 绑定（无 HTTPS，无 Serve/Funnel）。
 - `gateway.bind: "auto"` 优先 loopback；如果你想要仅 Tailnet，使用 `tailnet`。
-- Serve/Funnel 仅暴露 **Gateway 网关控制 UI + WS**。节点通过相同的 Gateway 网关 WS 端点连接，因此 Serve 可以用于节点访问。
+- Serve/Funnel 仅暴露 **Gateway 网关控制 UI + WS**。节点通过相同的 Gateway 网关 WS 端点连接，因此 Serve 可以用于节点访问。 节点通过
+  同一个 Gateway WS 端点连接，因此 Serve 可以用于节点访问。
 
 ## 浏览器控制（远程 Gateway 网关 + 本地浏览器）
 
 如果你在一台机器上运行 Gateway 网关但想在另一台机器上驱动浏览器，
 在浏览器机器上运行一个**节点主机**并让两者保持在同一个 tailnet 上。
 Gateway 网关会将浏览器操作代理到节点；不需要单独的控制服务器或 Serve URL。
+Gateway 会将浏览器操作代理到节点；不需要单独的控制服务器或 Serve URL。
 
 避免将 Funnel 用于浏览器控制；将节点配对视为操作者访问。
 
@@ -118,5 +125,3 @@ Gateway 网关会将浏览器操作代理到节点；不需要单独的控制服
 - `tailscale serve` 命令：https://tailscale.com/kb/1242/tailscale-serve
 - Tailscale Funnel 概述：https://tailscale.com/kb/1223/tailscale-funnel
 - `tailscale funnel` 命令：https://tailscale.com/kb/1311/tailscale-funnel
-
-

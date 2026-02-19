@@ -1,4 +1,5 @@
 ---
+summary: "منصوبہ: OpenResponses /v1/responses اینڈپوائنٹ شامل کرنا اور چیٹ کمپلیشنز کو صاف انداز میں فرسودہ کرنا"
 owner: "openclaw"
 status: "draft"
 last_updated: "2026-01-19"
@@ -118,5 +119,3 @@ spec `/v1/responses` کی وضاحت کرتا ہے، نہ کہ `/v1/chat/complet
 
 - `/v1/responses` کے استعمال اور مثالوں کے لیے ایک نیا ڈاکس صفحہ شامل کریں۔
 - `/gateway/openai-http-api` کو لیگیسی نوٹ اور `/v1/responses` کی طرف اشارے کے ساتھ اپ ڈیٹ کریں۔
-
-

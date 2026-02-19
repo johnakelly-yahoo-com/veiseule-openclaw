@@ -1,4 +1,7 @@
 ---
+summary: "Tlon/Urbit destek durumu, yetenekler ve yapılandırma"
+read_when:
+  - Tlon/Urbit kanal özellikleri üzerinde çalışırken
 title: "Tlon"
 ---
 
@@ -47,6 +50,22 @@ Asgari yapılandırma (tek hesap):
       ship: "~sampel-palnet",
       url: "https://your-ship-host",
       code: "lidlut-tabwed-pillex-ridrup",
+    },
+  },
+}
+```
+
+Özel/LAN ship URL’leri (gelişmiş):
+
+Varsayılan olarak OpenClaw, bu eklenti için özel/dahili ana bilgisayar adlarını ve IP aralıklarını engeller (SSRF güçlendirmesi).
+Ship URL’niz özel bir ağdaysa (örneğin `http://192.168.1.50:8080` veya `http://localhost:8080`),
+açıkça izin vermeniz gerekir:
+
+```json5
+{
+  channels: {
+    tlon: {
+      allowPrivateNetwork: true,
     },
   },
 }
@@ -127,5 +146,3 @@ Bunları `openclaw message send` veya cron teslimi ile kullanın:
 - Grup yanıtları, yanıt vermek için bir bahsetme gerektirir (ör. `~your-bot-ship`).
 - Konu (thread) yanıtları: gelen mesaj bir konu içindeyse, OpenClaw konu içinde yanıtlar.
 - Medya: `sendMedia` metin + URL’ye geri döner (yerel yükleme yok).
-
-

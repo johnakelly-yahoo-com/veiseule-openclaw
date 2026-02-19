@@ -1,10 +1,14 @@
 ---
+summary: "CLI 参照: `openclaw voicecall`（voice-call プラグインのコマンド サーフェス）"
+read_when:
+  - voice-call プラグインを使用しており、CLI のエントリーポイントを確認したい場合
+  - "`voicecall call|continue|status|tail|expose` のクイック例を確認したい場合"
 title: "voicecall"
 ---
 
 # `openclaw voicecall`
 
-`voicecall` はプラグインが提供するコマンドです。 `voicecall` はプラグインによって提供されるコマンドです。voice-call プラグインがインストールされ、有効化されている場合にのみ表示されます。
+`voicecall` はプラグインが提供するコマンドです。 `voicecall` はプラグインによって提供されるコマンドです。voice-call プラグインがインストールされ、有効化されている場合にのみ表示されます。 `voicecall` はプラグインによって提供されるコマンドです。voice-call プラグインがインストールされ、有効化されている場合にのみ表示されます。
 
 主要ドキュメント:
 
@@ -28,5 +32,3 @@ openclaw voicecall unexpose
 ```
 
 セキュリティ注記: Webhook エンドポイントは、信頼できるネットワークにのみ公開してください。可能な場合は、Funnel よりも Tailscale Serve を優先してください。 可能な場合は、テールスケールは、ファンネルよりもサーブを好む。
-
-

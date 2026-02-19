@@ -1,6 +1,6 @@
 ---
 title: Fly.io
-description: "Desplegar OpenClaw en Fly.io"
+description: Desplegar OpenClaw en Fly.io
 ---
 
 # Implementación en Fly.io
@@ -484,5 +484,3 @@ Con la configuración recomendada (`shared-cpu-2x`, 2GB de RAM):
 - El nivel gratuito incluye cierta asignación
 
 Consulte [precios de Fly.io](https://fly.io/docs/about/pricing/) para obtener más detalles.
-
-

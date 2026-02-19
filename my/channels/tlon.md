@@ -1,14 +1,17 @@
 ---
+summary: "Tlon/Urbit အထောက်အပံ့ အခြေအနေ၊ လုပ်ဆောင်နိုင်မှုများနှင့် ဖွဲ့စည်းပြင်ဆင်မှု"
+read_when:
+  - Tlon/Urbit ချန်နယ် အင်္ဂါရပ်များကို လုပ်ဆောင်နေချိန်
 title: "Tlon"
 ---
 
 # Tlon (plugin)
 
-Tlon သည် Urbit ပေါ်တွင် တည်ဆောက်ထားသော ဗဟိုမဲ့ မက်ဆေ့ချာတစ်ခုဖြစ်သည်။ OpenClaw သည် သင့်၏ Urbit ship သို့ ချိတ်ဆက်နိုင်ပြီး
+Tlon is a decentralized messenger built on Urbit. OpenClaw connects to your Urbit ship and can
 respond to DMs and group chat messages. Group replies require an @ mention by default and can
 be further restricted via allowlists.
 
-အခြေအနေ: plugin ဖြင့် ပံ့ပိုးထားသည်။ DMs၊ group mentions၊ thread replies နှင့် media ကို စာသားသာဖြင့် အစားထိုးပြသခြင်း
+Status: supported via plugin. DMs, group mentions, thread replies, and text-only media fallback
 (URL appended to caption). Reactions, polls, and native media uploads are not supported.
 
 ## Plugin လိုအပ်သည်
@@ -52,6 +55,22 @@ openclaw plugins install ./extensions/tlon
 }
 ```
 
+Private/LAN ship URL များ (အဆင့်မြင့်):
+
+မူလအားဖြင့် OpenClaw သည် ဤ plugin အတွက် private/internal hostname များနှင့် IP range များကို ပိတ်ပင်ထားသည် (SSRF လုံခြုံရေးတိုးမြှင့်ခြင်း)။
+သင့်၏ ship URL သည် private network ပေါ်တွင် ရှိပါက (ဥပမာ `http://192.168.1.50:8080` သို့မဟုတ် `http://localhost:8080`)
+သင်ကိုယ်တိုင် ရွေးချယ်ခွင့်ဖြင့် ဖွင့်ရန် လိုအပ်သည်:
+
+```json5
+{
+  channels: {
+    tlon: {
+      allowPrivateNetwork: true,
+    },
+  },
+}
+```
+
 ## Group channels
 
 Auto-discovery is enabled by default. You can also pin channels manually:
@@ -66,7 +85,7 @@ Auto-discovery is enabled by default. You can also pin channels manually:
 }
 ```
 
-Auto-discovery ကို ပိတ်ရန်:
+DM allowlist (ဗလာ = အားလုံး ခွင့်ပြု):
 
 ```json5
 {
@@ -92,7 +111,7 @@ DM allowlist (ဗလာ = အားလုံး ခွင့်ပြု):
 }
 ```
 
-အုပ်စု ခွင့်ပြုချက် (ပုံမှန်အားဖြင့် ကန့်သတ်ထားသည်):
+`openclaw message send` သို့မဟုတ် cron delivery နှင့်အတူ အသုံးပြုပါ:
 
 ```json5
 {
@@ -127,5 +146,3 @@ DM allowlist (ဗလာ = အားလုံး ခွင့်ပြု):
 - အုပ်စုတွင် တုံ့ပြန်ရန် mention (ဥပမာ `~your-bot-ship`) လိုအပ်သည်။
 - Thread တုံ့ပြန်ချက်များ: ဝင်လာသော မက်ဆေ့ချ်သည် thread အတွင်းဖြစ်ပါက OpenClaw သည် thread အတွင်း၌ပင် တုံ့ပြန်သည်။
 - မီဒီယာ: `sendMedia` သည် စာသား + URL သို့ fallback လုပ်သည် (native upload မရှိပါ)။
-
-

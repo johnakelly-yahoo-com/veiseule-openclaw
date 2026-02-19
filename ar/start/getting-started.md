@@ -1,4 +1,8 @@
 ---
+summary: "ثبّت OpenClaw وشغّل أول دردشة لك خلال دقائق."
+read_when:
+  - الإعداد لأول مرة من الصفر
+  - تريد أسرع مسار للوصول إلى دردشة تعمل
 title: "بدء الاستخدام"
 ---
 
@@ -30,6 +34,10 @@ title: "بدء الاستخدام"
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash
         ```
+      <img
+  src="/assets/install-script.svg"
+  alt="Install Script Process"
+  className="rounded-lg"></img>
       
 </Tab>
       <Tab title="Windows (PowerShell)">
@@ -41,12 +49,14 @@ title: "بدء الاستخدام"
     
 </Tabs>
 
+    ````
     ```
     <Note>
     طرق التثبيت الأخرى والمتطلبات: [Install](/install).
     
 </Note>
     ```
+    ````
 
   
 </Step>
@@ -55,21 +65,25 @@ title: "بدء الاستخدام"
     openclaw onboard --install-daemon
     ```
 
+    ````
     ```
     يقوم المعالج بتهيئة المصادقة، وإعدادات Gateway، والقنوات الاختيارية.
     راجع [Onboarding Wizard](/start/wizard) للتفاصيل.
     ```
+    ````
 
   
 </Step>
   <Step title="Check the Gateway">
     إذا قمت بتثبيت الخدمة، فيجب أن تكون قيد التشغيل بالفعل:
 
+    `````
     ````
     ```bash
     openclaw gateway status
     ```
     ````
+    `````
 
   
 </Step>
@@ -91,22 +105,26 @@ title: "بدء الاستخدام"
   <Accordion title="Run the Gateway in the foreground">
     مفيد للاختبارات السريعة أو استكشاف الأخطاء وإصلاحها.
 
+    `````
     ````
     ```bash
     openclaw gateway --port 18789
     ```
     ````
+    `````
 
   
 </Accordion>
   <Accordion title="Send a test message">
     يتطلب قناة مُهيّأة.
 
+    `````
     ````
     ```bash
     openclaw message send --target +15555550123 --message "Hello from OpenClaw"
     ```
     ````
+    `````
 
   
 </Accordion>
@@ -146,5 +164,3 @@ title: "بدء الاستخدام"
 - أمان الرسائل المباشرة والموافقات: [Pairing](/channels/pairing)
 - توصيل المزيد من القنوات: [Channels](/channels)
 - سير عمل متقدم والعمل من المصدر: [Setup](/start/setup)
-
-

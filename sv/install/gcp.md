@@ -1,4 +1,9 @@
 ---
+summary: "Kör OpenClaw Gateway dygnet runt på en GCP Compute Engine-VM (Docker) med beständig tillståndshantering"
+read_when:
+  - Du vill köra OpenClaw dygnet runt på GCP
+  - Du vill ha en produktionsklassad, alltid påslagen Gateway på din egen VM
+  - Du vill ha full kontroll över persistens, binärer och omstartsbeteende
 title: "GCP"
 ---
 
@@ -497,5 +502,3 @@ Se [https://cloud.google.com/iam/docs/understanding-roles](https://cloud.google.
 - Sätt upp meddelandekanaler: [Channels](/channels)
 - Para lokala enheter som noder: [Nodes](/nodes)
 - Konfigurera Gateway: [Gateway configuration](/gateway/configuration)
-
-

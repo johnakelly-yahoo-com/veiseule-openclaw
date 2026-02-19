@@ -1,4 +1,8 @@
 ---
+summary: "모델 프로바이더의 OAuth 만료를 모니터링합니다"
+read_when:
+  - 인증 만료 모니터링 또는 알림을 설정할 때
+  - Claude Code / Codex OAuth 갱신 확인을 자동화할 때
 title: "인증 모니터링"
 ---
 
@@ -34,5 +38,3 @@ openclaw models status --check
 - `scripts/termux-sync-widget.sh`: Claude Code 자격 증명 → OpenClaw 동기화.
 
 휴대폰 자동화나 systemd 타이머가 필요 없다면 이 스크립트들은 건너뛰십시오.
-
-

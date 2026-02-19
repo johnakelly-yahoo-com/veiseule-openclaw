@@ -1,4 +1,8 @@
 ---
+summary: "49. IDE integratsiyalari uchun ACP bridge’ni ishga tushiring"
+read_when:
+  - 50. ACP-ga asoslangan IDE integratsiyalarini sozlash
+  - Gateway’ga ACP sessiya marshrutlashini nosozliklardan tozalash
 title: "acp"
 ---
 
@@ -28,7 +32,7 @@ openclaw acp --session agent:main:main --reset-session
 
 ## ACP mijozi (debug)
 
-IDE’siz ko‘prikni tekshirish uchun ichki ACP mijozidan foydalaning.  
+IDE’siz ko‘prikni tekshirish uchun ichki ACP mijozidan foydalaning.
 U ACP ko‘prigini ishga tushiradi va so‘rovlarni interaktiv tarzda kiritishga imkon beradi.
 
 ```bash
@@ -49,100 +53,103 @@ IDE (yoki boshqa mijoz) Agent Client Protocol’da gaplashganda va u OpenClaw Ga
 2. Gateway nishonini sozlang (konfiguratsiya yoki flaglar orqali).
 3. IDE’ngizni stdio orqali `openclaw acp` ni ishga tushirishga yo‘naltiring.
 
-Misol konfiguratsiya (saqlanadi):
+Misol konfiguratsiya (saqlanadi):openclaw config set gateway.remote.url wss://gateway-host:18789
+openclaw config set gateway.remote.token <token>
 
 ```bash
-openclaw config set gateway.remote.url wss://gateway-host:18789
-openclaw config set gateway.remote.token <token>
-```
-
 To‘g‘ridan-to‘g‘ri ishga tushirish misoli (konfiguratsiya yozilmaydi):
 
-```bash
 openclaw acp --url wss://gateway-host:18789 --token <token>
 ```
 
-## Agentlarni tanlash
-
-ACP agentlarni to‘g‘ridan-to‘g‘ri tanlamaydi. U Gateway sessiya kaliti orqali marshrutlaydi.
-
-Muayyan agentni nishonga olish uchun agent doirasidagi sessiya kalitlaridan foydalaning:
+Agentlarni tanlash
 
 ```bash
-openclaw acp --session agent:main:main
+ACP agentlarni to‘g‘ridan-to‘g‘ri tanlamaydi.
+```
+
+## U Gateway sessiya kaliti orqali marshrutlaydi.
+
+Muayyan agentni nishonga olish uchun agent doirasidagi sessiya kalitlaridan foydalaning:openclaw acp --session agent:main:main
 openclaw acp --session agent:design:main
-openclaw acp --session agent:qa:bug-123
+openclaw acp --session agent:qa:bug-123 Har bir ACP sessiyasi bitta Gateway sessiya kalitiga mos keladi.
+
+Bitta agentda ko‘plab sessiyalar bo‘lishi mumkin; ACP standart holatda ajratilgan `acp:<uuid>` sessiyasidan foydalanadi, agar siz kalit yoki yorliqni almashtirmasangiz.
+
+```bash
+Zed muharriri sozlamalari
 ```
 
-Har bir ACP sessiyasi bitta Gateway sessiya kalitiga mos keladi. Bitta agentda ko‘plab sessiyalar bo‘lishi mumkin; ACP standart holatda ajratilgan `acp:<uuid>` sessiyasidan foydalanadi, agar siz kalit yoki yorliqni almashtirmasangiz.
+`~/.config/zed/settings.json` fayliga maxsus ACP agent qo‘shing (yoki Zed’ning Settings UI’dan foydalaning):{
+"agent_servers": {
+"OpenClaw ACP": {
+"type": "custom",
+"command": "openclaw",
+"args": ["acp"],
+"env": {}
+}
+}
+} Muayyan Gateway yoki agentni nishonga olish uchun:{
+"agent_servers": {
+"OpenClaw ACP": {
+"type": "custom",
+"command": "openclaw",
+"args": [
+"acp",
+"--url",
+"wss://gateway-host:18789",
+"--token",
+"<token>",
+"--session",
+"agent:design:main"
+],
+"env": {}
+}
+}
+}
 
-## Zed muharriri sozlamalari
+## Zed’da Agent panelini oching va oqimni boshlash uchun “OpenClaw ACP” ni tanlang.
 
-`~/.config/zed/settings.json` fayliga maxsus ACP agent qo‘shing (yoki Zed’ning Settings UI’dan foydalaning):
+Sessiyalarni moslash
 
 ```json
-{
-  "agent_servers": {
-    "OpenClaw ACP": {
-      "type": "custom",
-      "command": "openclaw",
-      "args": ["acp"],
-      "env": {}
-    }
-  }
-}
+Standart holatda ACP sessiyalari `acp:` prefiksi bilan ajratilgan Gateway sessiya kalitini oladi.
 ```
 
-Muayyan Gateway yoki agentni nishonga olish uchun:
+Ma’lum sessiyani qayta ishlatish uchun sessiya kaliti yoki yorliqni uzating:
 
 ```json
-{
-  "agent_servers": {
-    "OpenClaw ACP": {
-      "type": "custom",
-      "command": "openclaw",
-      "args": [
-        "acp",
-        "--url",
-        "wss://gateway-host:18789",
-        "--token",
-        "<token>",
-        "--session",
-        "agent:design:main"
-      ],
-      "env": {}
-    }
-  }
-}
+`--session <key>`: muayyan Gateway sessiya kalitidan foydalanish.
 ```
 
-Zed’da Agent panelini oching va oqimni boshlash uchun “OpenClaw ACP” ni tanlang.
+`--session-label <label>`: mavjud sessiyani yorliq orqali aniqlash.
 
-## Sessiyalarni moslash
+## `--reset-session`: shu kalit uchun yangi sessiya identifikatorini yaratish (bir xil kalit, yangi transkript).
 
-Standart holatda ACP sessiyalari `acp:` prefiksi bilan ajratilgan Gateway sessiya kalitini oladi. Ma’lum sessiyani qayta ishlatish uchun sessiya kaliti yoki yorliqni uzating:
-
-- `--session <key>`: muayyan Gateway sessiya kalitidan foydalanish.
-- `--session-label <label>`: mavjud sessiyani yorliq orqali aniqlash.
-- `--reset-session`: shu kalit uchun yangi sessiya identifikatorini yaratish (bir xil kalit, yangi transkript).
-
-Agar ACP mijozingiz metadata’ni qo‘llab-quvvatlasa, har bir sessiya uchun alohida sozlashingiz mumkin:
-
-```json
-{
-  "_meta": {
-    "sessionKey": "agent:main:main",
-    "sessionLabel": "support inbox",
-    "resetSession": true
-  }
+Agar ACP mijozingiz metadata’ni qo‘llab-quvvatlasa, har bir sessiya uchun alohida sozlashingiz mumkin:{
+"_meta": {
+"sessionKey": "agent:main:main",
+"sessionLabel": "support inbox",
+"resetSession": true
 }
-```
-
+}
 Sessiya kalitlari haqida batafsil ma’lumotni [/concepts/session](/concepts/session) sahifasida o‘rganing.
 
-## Variantlar
+- Variantlar
+- `--url <url>`: Gateway WebSocket URL’i (sozlangan bo‘lsa, gateway.remote.url standart bo‘ladi).
+- `--token <token>`: Gateway autentifikatsiya tokeni.
 
-- `--url <url>`: Gateway WebSocket URL (sozlangan bo‘lsa, gateway.remote.url standart bo‘ladi).
+`--password <password>`: Gateway autentifikatsiya paroli.
+
+```json
+`--session <key>`: standart sessiya kaliti.
+```
+
+`--session-label <label>`: aniqlash uchun standart sessiya yorlig‘i.
+
+## `--require-existing`: agar sessiya kaliti/yorlig‘i mavjud bo‘lmasa, xatolik bilan to‘xtaydi.
+
+- `--url <url>`: Gateway WebSocket manzili (sozlanganda standart qiymat gateway.remote.url).
 - `--token <token>`: Gateway autentifikatsiya tokeni.
 - `--password <password>`: Gateway autentifikatsiya paroli.
 - `--session <key>`: standart sessiya kaliti.
@@ -159,4 +166,3 @@ Sessiya kalitlari haqida batafsil ma’lumotni [/concepts/session](/concepts/ses
 - `--server-args <args...>`: ACP serveriga uzatiladigan qo‘shimcha argumentlar.
 - `--server-verbose`: ACP serverida batafsil loglashni yoqadi.
 - `--verbose, -v`: mijoz tomoni uchun batafsil loglash.
-

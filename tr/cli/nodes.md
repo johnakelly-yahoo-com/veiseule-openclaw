@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw nodes` için CLI başvurusu (list/status/approve/invoke, camera/canvas/screen)"
+read_when:
+  - Eşleştirilmiş düğümleri (kameralar, ekran, tuval) yönetiyorsunuz
+  - İstekleri onaylamanız veya düğüm komutlarını çağırmanız gerekiyor
 title: "nodes"
 ---
 
@@ -60,12 +64,10 @@ openclaw nodes run --agent main --node <id|name|ip> --raw "git status"
 Bayraklar:
 
 - `--cwd <path>`: çalışma dizini.
-- `--env <key=val>`: ortam değişkeni geçersiz kılma (tekrarlanabilir).
+- `--env <key=val>`: ortam değişkeni geçersiz kılma (tekrarlanabilir). Not: node host’ları `PATH` geçersiz kılmalarını yok sayar (ve `tools.exec.pathPrepend` node host’larına uygulanmaz).
 - `--command-timeout <ms>`: komut zaman aşımı.
 - `--invoke-timeout <ms>`: düğüm çağırma zaman aşımı (varsayılan `30000`).
 - `--needs-screen-recording`: ekran kaydı izni gerektir.
 - `--raw <command>`: bir kabuk dizesi çalıştır (`/bin/sh -lc` veya `cmd.exe /c`).
 - `--agent <id>`: ajan kapsamlı onaylar/izin listeleri (yapılandırılmış ajanı varsayar).
 - `--ask <off|on-miss|always>`, `--security <deny|allowlist|full>`: geçersiz kılmalar.
-
-

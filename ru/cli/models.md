@@ -1,4 +1,8 @@
 ---
+summary: "Справка CLI для `openclaw models` (status/list/set/scan, алиасы, фолбэки, аутентификация)"
+read_when:
+  - Вы хотите изменить модели по умолчанию или просмотреть статус аутентификации провайдеров
+  - Вы хотите просканировать доступные модели/провайдеров и отладить профили аутентификации
 title: "модели"
 ---
 
@@ -11,7 +15,7 @@ title: "модели"
 - Провайдеры + модели: [Models](/providers/models)
 - Настройка аутентификации провайдера: [Getting started](/start/getting-started)
 
-## Основные команды
+## Common commands
 
 ```bash
 openclaw models status
@@ -50,7 +54,7 @@ openclaw models scan
 - `--probe-max-tokens <n>`
 - `--agent <id>` (идентификатор настроенного агента; переопределяет `OPENCLAW_AGENT_DIR`/`PI_CODING_AGENT_DIR`)
 
-## Псевдонимы и резервные варианты
+## Aliases + fallbacks
 
 ```bash
 openclaw models aliases list
@@ -73,5 +77,3 @@ openclaw models auth paste-token
 
 - `setup-token` запрашивает значение setup-token (сгенерируйте его с помощью `claude setup-token` на любой машине).
 - `paste-token` принимает строку токена, сгенерированную в другом месте или с помощью автоматизации.
-
-

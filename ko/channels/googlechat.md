@@ -1,4 +1,7 @@
 ---
+summary: "Google Chat 앱 지원 상태, 기능 및 구성"
+read_when:
+  - Google Chat 채널 기능을 작업할 때
 title: "Google Chat"
 ---
 
@@ -151,6 +154,7 @@ your-domain.com {
 전송 및 허용 목록에 다음 식별자를 사용하십시오:
 
 - 다이렉트 메시지: `users/<userId>` 또는 `users/<email>` (이메일 주소도 허용됩니다).
+- 사용 중단: `users/<email>`은 이메일 허용 목록이 아니라 사용자 ID로 처리됩니다.
 - 스페이스: `spaces/<spaceId>`.
 
 ## 구성 하이라이트
@@ -247,5 +251,3 @@ openclaw channels status
 - [Gateway configuration](/gateway/configuration)
 - [Security](/gateway/security)
 - [Reactions](/tools/reactions)
-
-

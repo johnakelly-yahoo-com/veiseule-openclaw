@@ -1,4 +1,8 @@
 ---
+summary: "WebSocket リスナーのバインドを使用した Gateway シングルトンガード"
+read_when:
+  - Gateway プロセスを実行またはデバッグする場合
+  - 単一インスタンスの強制を調査する場合
 title: "Gateway ロック"
 ---
 
@@ -28,5 +32,3 @@ title: "Gateway ロック"
 
 - ポートが「別の」プロセスによって占有されている場合でも、エラーは同じです。ポートを解放するか、`openclaw gateway --port <port>` を使用して別のポートを選択してください。
 - macOS アプリは、Gateway を起動する前に独自の軽量な PID ガードを引き続き維持しますが、実行時のロックは WebSocket のバインドによって強制されます。
-
-

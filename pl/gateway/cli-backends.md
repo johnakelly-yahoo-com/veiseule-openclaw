@@ -1,4 +1,9 @@
 ---
+summary: "„Backendy CLI: tekstowy tryb awaryjny przez lokalne CLI AI”"
+read_when:
+  - Gdy potrzebujesz niezawodnego trybu awaryjnego, gdy dostawcy API zawodzą
+  - Gdy uruchamiasz Claude Code CLI lub inne lokalne CLI AI i chcesz je ponownie wykorzystać
+  - Gdy potrzebujesz wyłącznie tekstowej, pozbawionej narzędzi ścieżki, która nadal obsługuje sesje i obrazy
 title: "„Backendy CLI”"
 ---
 
@@ -135,7 +140,7 @@ Identyfikator dostawcy staje się lewą stroną odwołania do modelu:
 4. **Parsuje wyjście** (JSON lub zwykły tekst) i zwraca końcowy tekst.
 5. **Utrwala identyfikatory sesji** per backend, aby kolejne wywołania używały tej samej sesji CLI.
 
-## Sesje
+## Sessions
 
 - Jeśli CLI obsługuje sesje, ustaw `sessionArg` (np. `--session-id`) lub
   `sessionArgs` (placeholder `{sessionId}`), gdy identyfikator musi być wstawiony
@@ -218,5 +223,3 @@ Nadpisuj tylko w razie potrzeby (częste: bezwzględna ścieżka `command`).
 - **Brak ciągłości sesji**: upewnij się, że ustawiono `sessionArg` oraz że `sessionMode` nie jest
   `none` (Codex CLI obecnie nie może wznawiać z wyjściem JSON).
 - **Obrazy ignorowane**: ustaw `imageArg` (i sprawdź, czy CLI obsługuje ścieżki plików).
-
-

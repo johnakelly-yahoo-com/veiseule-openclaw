@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw’da OpenAI’yi API anahtarları veya Codex aboneliği üzerinden kullanın"
+read_when:
+  - OpenClaw’da OpenAI modellerini kullanmak istiyorsunuz
+  - API anahtarları yerine Codex aboneliği ile kimlik doğrulama istiyorsunuz
 title: "OpenAI"
 ---
 
@@ -55,5 +59,3 @@ openclaw models auth login --provider openai-codex
 
 - Model referansları her zaman `provider/model` kullanır (bkz. [/concepts/models](/concepts/models)).
 - Kimlik doğrulama ayrıntıları ve yeniden kullanım kuralları [/concepts/oauth](/concepts/oauth) sayfasındadır.
-
-

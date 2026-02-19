@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw memory` (status/index/search)에 대한 CLI 참조"
+read_when:
+  - 의미론적 메모리를 인덱싱하거나 검색하려는 경우
+  - 메모리 가용성 또는 인덱싱을 디버깅하는 경우
 title: "메모리"
 ---
 
@@ -39,5 +43,3 @@ openclaw memory index --agent main --verbose
 - `memory status --deep --index` 는 스토어가 더러운 경우 재인덱싱을 실행합니다.
 - `memory index --verbose` 는 단계별 세부 정보(프로바이더, 모델, 소스, 배치 활동)를 출력합니다.
 - `memory status` 는 `memorySearch.extraPaths` 를 통해 구성된 모든 추가 경로를 포함합니다.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw’da MiniMax M2.1’i kullanın"
+read_when:
+  - OpenClaw’da MiniMax modellerini istiyorsanız
+  - MiniMax kurulum rehberine ihtiyacınız varsa
 title: "MiniMax"
 ---
 
@@ -202,5 +206,3 @@ Ardından şununla yeniden kontrol edin:
 ```bash
 openclaw models list
 ```
-
-

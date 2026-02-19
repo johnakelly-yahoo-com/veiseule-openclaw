@@ -1,4 +1,8 @@
 ---
+summary: "「openclaw node」（ヘッドレス ノード ホスト）の CLI リファレンス"
+read_when:
+  - ヘッドレス ノード ホストを実行する場合
+  - system.run のために非 macOS ノードをペアリングする場合
 title: "node"
 ---
 
@@ -22,6 +26,7 @@ Gateway WebSocket に接続し、このマシン上で
 ## ブラウザ プロキシ（ゼロ設定）
 
 ノード上で `browser.enabled` が無効化されていない場合、ノード ホストは自動的にブラウザ プロキシをアドバタイズします。これにより、追加の設定なしで、そのノード上のブラウザ自動化をエージェントから利用できます。 これにより、エージェントは追加設定なしでそのノード
+のブラウザーオートメーションを使用することができます。 これにより、エージェントは追加設定なしでそのノード
 のブラウザーオートメーションを使用することができます。
 
 必要に応じてノード上で無効化してください:
@@ -83,10 +88,11 @@ openclaw node uninstall
 
 サービス コマンドは、機械可読な出力のために `--json` を受け付けます。
 
-## ペアリング
+## Pairing
 
 最初の接続時に、Gateway 上で保留中のノード ペア要求が作成されます。
 次の方法で承認してください:
+承認:
 承認:
 
 ```bash
@@ -104,5 +110,3 @@ openclaw nodes approve <requestId>
 - `~/.openclaw/exec-approvals.json`
 - [実行承認](/tools/exec-approvals)
 - `openclaw approvals --node <id|name|ip>`（Gateway から編集）
-
-

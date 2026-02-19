@@ -1,11 +1,16 @@
 ---
+summary: "Fluxo de integração inicial na primeira execução do OpenClaw (app macOS)"
+read_when:
+  - Projetando o assistente de integração do macOS
+  - Implementando autenticação ou configuração de identidade
 title: "Integração inicial (App macOS)"
-sidebarTitle: "Integração: Aplicativo macOS"
+sidebarTitle: "Onboarding: macOS App"
 ---
 
 # Integração inicial (App macOS)
 
 Este documento descreve o fluxo **atual** de integração inicial na primeira execução. O objetivo é uma experiência suave no “dia 0”: escolher onde o Gateway roda, conectar a autenticação, executar o assistente e deixar o agente se inicializar sozinho.
+Para uma visão geral dos caminhos de onboarding, consulte [Onboarding Overview](/start/onboarding-overview).
 
 <Steps>
 <Step title="Approve macOS warning">
@@ -68,5 +73,3 @@ Esta etapa é opcional
   Após a configuração, o app abre uma sessão de chat dedicada à integração inicial para que o agente possa se apresentar e orientar os próximos passos. Isso mantém a orientação da primeira execução separada da sua conversa normal. Veja [Bootstrapping](/start/bootstrapping) para entender o que acontece no host do gateway durante a primeira execução do agente.
 </Step>
 </Steps>
-
-

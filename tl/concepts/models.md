@@ -1,10 +1,15 @@
 ---
-title: "CLI ng Models"
+summary: "Models CLI: listahan, set, mga alias, mga fallback, scan, status"
+read_when:
+  - Pagdaragdag o pagbabago sa models CLI (models list/set/scan/aliases/fallbacks)
+  - Pagbabago sa behavior ng model fallback o UX ng pagpili
+  - Pag-update ng mga probe ng model scan (tools/images)
+title: "Models CLI"
 ---
 
-# CLI ng Models
+# Models CLI
 
-Tingnan ang [/concepts/model-failover](/concepts/model-failover) para sa profile ng auth
+See [/concepts/model-failover](/concepts/model-failover) for auth profile
 rotation, cooldowns, and how that interacts with fallbacks.
 Quick provider overview + examples: [/concepts/model-providers](/concepts/model-providers).
 
@@ -47,7 +52,7 @@ setup-token`).
 - `agents.defaults.models` (allowlist + mga alias + mga parameter ng provider)
 - `models.providers` (mga custom provider na isinusulat sa `models.json`)
 
-Ang mga model ref ay ginagawang lowercase. Ang mga alias ng provider tulad ng `z.ai/*` ay kino-normalize
+Model refs are normalized to lowercase. Provider aliases like `z.ai/*` normalize
 to `zai/*`.
 
 Ang mga halimbawa ng konpigurasyon ng provider (kasama ang OpenCode Zen) ay nasa
@@ -55,7 +60,7 @@ Ang mga halimbawa ng konpigurasyon ng provider (kasama ang OpenCode Zen) ay nasa
 
 ## “Hindi pinapayagan ang model” (at bakit humihinto ang mga reply)
 
-Kapag nakatakda ang `agents.defaults.models`, ito ang nagiging **allowlist** para sa `/model` at para sa
+If `agents.defaults.models` is set, it becomes the **allowlist** for `/model` and for
 session overrides. When a user selects a model that isn’t in that allowlist,
 OpenClaw returns:
 
@@ -63,7 +68,7 @@ OpenClaw returns:
 Model "provider/model" is not allowed. Use /model to list available models.
 ```
 
-Nangyayari ito **bago** makabuo ng karaniwang tugon, kaya maaaring maramdaman na ang mensahe ay
+This happens **before** a normal reply is generated, so the message can feel
 like it “didn’t respond.” The fix is to either:
 
 - Idagdag ang model sa `agents.defaults.models`, o
@@ -101,7 +106,7 @@ Mga tala:
 - Ang `/model` (at `/model list`) ay isang compact, numbered picker (model family + mga available na provider).
 - Ang `/model <#>` ay pumipili mula sa picker na iyon.
 - Ang `/model status` ay ang detalyadong view (mga auth candidate at, kapag naka-configure, provider endpoint `baseUrl` + `api` mode).
-- Ang mga model ref ay sinusuri sa pamamagitan ng paghahati sa **unang** `/`. Gamitin ang `provider/model` kapag nagta-type ng `/model <ref>`.
+- Model refs are parsed by splitting on the **first** `/`. Use `provider/model` when typing `/model <ref>`.
 - Kung ang model ID mismo ay naglalaman ng `/` (OpenRouter-style), dapat mong isama ang provider prefix (halimbawa: `/model openrouter/moonshotai/kimi-k2`).
 - Kung aalisin mo ang provider, ituturing ng OpenClaw ang input bilang isang alias o isang model para sa **default provider** (gumagana lamang kapag walang `/` sa model ID).
 
@@ -134,7 +139,7 @@ Ang `openclaw models` (walang subcommand) ay isang shortcut para sa `models stat
 
 ### `models list`
 
-Ipinapakita ang mga naka-configure na model bilang default. Mga kapaki-pakinabang na flag:
+Shows configured models by default. Useful flags:
 
 - `--all`: buong catalog
 - `--local`: mga lokal na provider lang
@@ -144,7 +149,7 @@ Ipinapakita ang mga naka-configure na model bilang default. Mga kapaki-pakinaban
 
 ### `models status`
 
-Ipinapakita ang naresolbang pangunahing model, mga fallback, model para sa larawan, at pangkalahatang-ideya ng auth
+Shows the resolved primary model, fallbacks, image model, and an auth overview
 of configured providers. It also surfaces OAuth expiry status for profiles found
 in the auth store (warns within 24h by default). `--plain` prints only the
 resolved primary model.
@@ -161,7 +166,7 @@ claude setup-token
 openclaw models status
 ```
 
-## Pag-scan (mga libreng model ng OpenRouter)
+## Scanning (OpenRouter free models)
 
 Ang `openclaw models scan` ay iniinspeksyon ang **free model catalog** ng OpenRouter at maaaring
 opsyonal na i-probe ang mga model para sa suporta sa tool at image.
@@ -201,5 +206,3 @@ mode, pass `--yes` to accept defaults.
 Custom providers in `models.providers` are written into `models.json` under the
 agent directory (default `~/.openclaw/agents/<agentId>/models.json`). This file
 is merged by default unless `models.mode` is set to `replace`.
-
-

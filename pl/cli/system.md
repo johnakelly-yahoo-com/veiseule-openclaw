@@ -1,4 +1,9 @@
 ---
+summary: "Referencja CLI dla `openclaw system` (zdarzenia systemowe, heartbeat, obecność)"
+read_when:
+  - Chcesz umieścić w kolejce zdarzenie systemowe bez tworzenia zadania cron
+  - Musisz włączyć lub wyłączyć heartbeat
+  - Chcesz sprawdzić wpisy obecności systemu
 title: "system"
 ---
 
@@ -53,5 +58,3 @@ Flagi:
 
 - Wymaga działającego Gateway dostępnego zgodnie z bieżącą konfiguracją (lokalnie lub zdalnie).
 - Zdarzenia systemowe są efemeryczne i nie są utrwalane pomiędzy restartami.
-
-

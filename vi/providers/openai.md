@@ -1,4 +1,8 @@
 ---
+summary: "Sử dụng OpenAI qua khóa API hoặc đăng ký Codex trong OpenClaw"
+read_when:
+  - Bạn muốn dùng các mô hình OpenAI trong OpenClaw
+  - Bạn muốn xác thực bằng đăng ký Codex thay vì khóa API
 title: "OpenAI"
 ---
 
@@ -8,7 +12,7 @@ title: "OpenAI"
 
 ## Tùy chọn A: Khóa API OpenAI (OpenAI Platform)
 
-**Phù hợp nhất cho:** truy cập API trực tiếp và tính phí theo mức sử dụng.
+**Best for:** direct API access and usage-based billing.
 Get your API key from the OpenAI dashboard.
 
 ### Thiết lập CLI
@@ -55,5 +59,3 @@ openclaw models auth login --provider openai-codex
 
 - Tham chiếu mô hình luôn dùng `provider/model` (xem [/concepts/models](/concepts/models)).
 - Chi tiết xác thực và quy tắc tái sử dụng nằm trong [/concepts/oauth](/concepts/oauth).
-
-

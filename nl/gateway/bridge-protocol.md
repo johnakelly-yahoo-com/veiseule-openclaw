@@ -1,4 +1,9 @@
 ---
+summary: "Bridge-protocol (legacy nodes): TCP JSONL, koppeling, scoped RPC"
+read_when:
+  - Het bouwen of debuggen van node-clients (iOS/Android/macOS node-modus)
+  - Het onderzoeken van koppelings- of bridge-authenticatiefouten
+  - Het auditen van het node-oppervlak dat door de gateway wordt blootgesteld
 title: "Bridge-protocol"
 ---
 
@@ -30,7 +35,9 @@ Legacy `bridge.*`-config-sleutels maken geen deel meer uit van het config-schema
 - De legacy standaard listener-poort was `18790` (huidige builds starten geen TCP-bridge).
 
 Wanneer TLS is ingeschakeld, bevatten discovery TXT-records `bridgeTls=1` plus
-`bridgeTlsSha256`, zodat nodes het certificaat kunnen pinnen.
+`bridgeTlsSha256`, zodat nodes het certificaat kunnen pinnen. Houd er rekening mee dat Bonjour/mDNS TXT-records
+niet geauthenticeerd zijn; clients mogen de geadverteerde fingerprint niet
+als een gezaghebbende pin behandelen zonder expliciete gebruikersintentie of andere out-of-band-verificatie.
 
 ## Handshake + koppeling
 
@@ -81,5 +88,3 @@ Payload-velden (alle optioneel tenzij vermeld):
 
 Bridge is momenteel **impliciet v1** (geen min/max-onderhandeling). Backward-compatibiliteit
 wordt verwacht; voeg een bridge-protocolversieveld toe vóór eventuele breaking changes.
-
-

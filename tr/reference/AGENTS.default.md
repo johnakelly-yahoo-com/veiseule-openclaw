@@ -1,4 +1,10 @@
-------
+---
+title: "Varsayılan AGENTS.md"
+summary: "Kişisel asistan kurulumu için varsayılan OpenClaw ajan talimatları ve Skills listesi"
+read_when:
+  - Yeni bir OpenClaw ajan oturumu başlatırken
+  - Varsayılan Skills’i etkinleştirirken veya denetlerken
+---
 
 # AGENTS.md — OpenClaw Kişisel Asistan (varsayılan)
 
@@ -116,5 +122,3 @@ git commit -m "Add Clawd workspace"
 - Tarayıcı güdümlü doğrulama için OpenClaw tarafından yönetilen Chrome profiliyle `openclaw browser`’u (sekmeler/durum/ekran görüntüsü) kullanın.
 - DOM incelemesi için `openclaw browser eval|query|dom|snapshot`’u kullanın (makine çıktısına ihtiyaç duyduğunuzda `--json`/`--out` ile).
 - Etkileşimler için `openclaw browser click|type|hover|drag|select|upload|press|wait|navigate|back|evaluate|run`’ü kullanın (tıklama/yazma anlık görüntü referansları gerektirir; CSS seçiciler için `evaluate`’ü kullanın).
-
-

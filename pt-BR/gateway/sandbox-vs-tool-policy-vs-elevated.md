@@ -1,5 +1,7 @@
 ---
 title: Sandbox vs Política de Ferramentas vs Elevado
+summary: "Por que uma ferramenta é bloqueada: runtime de sandbox, política de permitir/negar ferramentas e portões de exec elevado"
+read_when: "Você cai na 'prisão do sandbox' ou vê uma recusa de ferramenta/elevado e quer a chave de configuração exata para mudar."
 status: active
 ---
 
@@ -124,5 +126,3 @@ Chaves de correção (escolha uma):
 ### “Achei que isso era principal, por que está em sandbox?”
 
 No modo `"non-main"`, chaves de grupo/canal _não_ são principais. Use a chave da sessão principal (mostrada por `sandbox explain`) ou mude o modo para `"off"`.
-
-

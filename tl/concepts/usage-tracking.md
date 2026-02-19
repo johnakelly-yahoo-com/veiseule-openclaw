@@ -1,4 +1,8 @@
 ---
+summary: "Mga surface ng pagsubaybay sa paggamit at mga kinakailangan sa kredensyal"
+read_when:
+  - Ikaw ay nagwi-wire ng mga surface ng paggamit/quota ng provider
+  - Kailangan mong ipaliwanag ang gawi ng usage tracking o mga kinakailangan sa auth
 title: "Pagsubaybay sa Paggamit"
 ---
 
@@ -11,7 +15,7 @@ title: "Pagsubaybay sa Paggamit"
 
 ## Saan ito lumalabas
 
-- `/status` sa mga chat: status card na may maraming emoji na may session tokens + tinatayang gastos (API key lamang). Ipinapakita ang paggamit ng provider para sa **current model provider** kapag available.
+- `/status` in chats: emoji‑rich status card with session tokens + estimated cost (API key only). Provider usage shows for the **current model provider** when available.
 - `/usage off|tokens|full` sa mga chat: per-response na footer ng paggamit (OAuth ay nagpapakita ng tokens lamang).
 - `/usage cost` sa mga chat: lokal na buod ng gastos na pinagsama-sama mula sa mga log ng session ng OpenClaw.
 - CLI: `openclaw status --usage` nagpi-print ng kumpletong breakdown bawat provider.
@@ -29,5 +33,3 @@ title: "Pagsubaybay sa Paggamit"
 - **z.ai**: API key sa pamamagitan ng env/config/auth store.
 
 Nakatago ang paggamit kung walang tumutugmang OAuth/API na kredensyal.
-
-

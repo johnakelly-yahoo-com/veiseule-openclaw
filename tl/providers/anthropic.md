@@ -1,4 +1,8 @@
 ---
+summary: "Gamitin ang Anthropic Claude gamit ang mga API key o setup-token sa OpenClaw"
+read_when:
+  - Gusto mong gumamit ng mga Anthropic model sa OpenClaw
+  - Gusto mo ng setup-token sa halip na mga API key
 title: "Anthropic"
 ---
 
@@ -39,7 +43,7 @@ Sinusuportahan ng OpenClaw ang tampok na prompt caching ng Anthropic. Ito ay **A
 
 Gamitin ang parameter na `cacheRetention` sa iyong model config:
 
-| Halaga   | Tagal ng Cache | Paglalarawan                                                          |
+| Halaga  | Tagal ng Cache | Paglalarawan                                                         |
 | ------- | -------------- | -------------------------------------------------------------------- |
 | `none`  | Walang caching | I-disable ang prompt caching                                         |
 | `short` | 5 minuto       | Default para sa API Key auth                                         |
@@ -124,8 +128,8 @@ openclaw onboard --auth-choice setup-token
 
 **401 errors / biglang naging invalid ang token**
 
-- Maaaring mag-expire o mabawi ang Claude subscription auth. Patakbuhin muli ang `claude setup-token`
-at i-paste ito sa **gateway host**.
+- Claude subscription auth can expire or be revoked. Re-run `claude setup-token`
+  and paste it into the **gateway host**.
 - Kung ang Claude CLI login ay nasa ibang machine, gamitin ang
   `openclaw models auth paste-token --provider anthropic` sa host ng Gateway.
 
@@ -146,5 +150,3 @@ at i-paste ito sa **gateway host**.
 - Magdagdag ng isa pang Anthropic profile o maghintay na matapos ang cooldown.
 
 Higit pa: [/gateway/troubleshooting](/gateway/troubleshooting) at [/help/faq](/help/faq).
-
-

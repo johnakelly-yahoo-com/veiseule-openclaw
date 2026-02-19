@@ -1,4 +1,8 @@
 ---
+summary: "33. OpenClaw loglash: aylanuvchi diagnostika fayl logi + unified log maxfiylik bayroqlari"
+read_when:
+  - 34. macOS loglarini yozib olish yoki maxfiy ma’lumot loglanishini tekshirish
+  - 35. Ovoz uyg‘otish/session hayotiy sikli muammolarini debug qilish
 title: "36. macOS Logging"
 ---
 
@@ -51,5 +55,3 @@ sudo install -m 644 -o root -g wheel /tmp/bot.molt.plist /Library/Preferences/Lo
 - Override-ni olib tashlang: `sudo rm /Library/Preferences/Logging/Subsystems/bot.molt.plist`.
 - Ixtiyoriy ravishda `sudo log config --reload` ni ishga tushirib, logd override-ni darhol bekor qilishga majburlashingiz mumkin.
 - Yodda tuting, bu sirt telefon raqamlari va xabar matnlarini o‘z ichiga olishi mumkin; plistni faqat qo‘shimcha tafsilotlar faol kerak bo‘lgan paytda qoldiring.
-
-

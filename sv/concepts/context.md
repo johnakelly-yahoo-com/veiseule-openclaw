@@ -1,4 +1,9 @@
 ---
+summary: "Kontext: vad modellen ser, hur det byggs och hur du inspekterar det"
+read_when:
+  - Du vill förstå vad ”kontext” betyder i OpenClaw
+  - Du felsöker varför modellen ”vet” något (eller har glömt det)
+  - Du vill minska kontextöverhead (/context, /status, /compact)
 title: "Kontext"
 ---
 
@@ -107,7 +112,7 @@ Som standard injicerar OpenClaw en fast uppsättning arbetsytefiler (om de finns
 - `HEARTBEAT.md`
 - `BOOTSTRAP.md` (endast vid första körningen)
 
-Stora filer är trunkerade per-fil med `agents.defaults.bootstrapMaxChars` (standard `20000`-tecken). `/context` visar **rå vs injicerade** storlekar och om trunkering hände.
+Stora filer är trunkerade per-fil med `agents.defaults.bootstrapMaxChars` (standard `20000`-tecken). OpenClaw tillämpar också en total gräns för bootstrap-injektion över filer med `agents.defaults.bootstrapTotalMaxChars` (standard `24000` tecken). `/context` visar **rå vs injicerade** storlekar och om trunkering hände.
 
 ## Skills: vad som injiceras vs laddas vid behov
 
@@ -154,5 +159,3 @@ Dokumentation: [Session](/concepts/session), [Kompaktering](/concepts/compaction
 - `System prompt (estimate)` = beräknad i realtid när ingen körningsrapport finns (eller när du kör via ett CLI-backend som inte genererar rapporten).
 
 Oavsett vilket rapporteras storlekar och största bidragsgivare; den dumpar **inte** hela systemprompten eller verktygsschemana.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "إضافة Zalo Personal: تسجيل الدخول عبر QR + المراسلة عبر zca-cli (تثبيت الإضافة + تهيئة القناة + CLI + الأداة)"
+read_when:
+  - تريد دعم Zalo Personal (غير رسمي) في OpenClaw
+  - تقوم بتهيئة أو تطوير إضافة zalouser
 title: "إضافة Zalo Personal"
 ---
 
@@ -75,5 +79,3 @@ openclaw directory peers list --channel zalouser --query "name"
 اسم الأداة: `zalouser`
 
 الإجراءات: `send`، `image`، `link`، `friends`، `groups`، `me`، `status`
-
-

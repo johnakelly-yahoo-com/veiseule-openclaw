@@ -1,4 +1,8 @@
 ---
+summary: "Hooks: أتمتة قائمة على الأحداث للأوامر وأحداث دورة الحياة"
+read_when:
+  - تريد أتمتة قائمة على الأحداث لأوامر /new و/reset و/stop وأحداث دورة حياة الوكيل
+  - تريد بناء أو تثبيت أو تصحيح Hooks
 title: "Hooks"
 ---
 
@@ -6,7 +10,7 @@ title: "Hooks"
 
 توفر Hooks نظامًا قابلاً للتوسعة قائمًا على الأحداث لأتمتة الإجراءات استجابةً لأوامر الوكيل والأحداث. يتم اكتشاف Hooks تلقائيًا من الأدلة، ويمكن إدارتها عبر أوامر CLI، على نحو مشابه لكيفية عمل Skills في OpenClaw.
 
-## التعرّف على الأساسيات
+## Getting Oriented
 
 تُعد Hooks سكربتات صغيرة تعمل عند حدوث شيء ما. وهناك نوعان:
 
@@ -40,9 +44,9 @@ title: "Hooks"
 يأتي OpenClaw مع أربع Hooks مضمّنة يتم اكتشافها تلقائيًا:
 
 - **💾 session-memory**: يحفظ سياق الجلسة في مساحة عمل الوكيل (الافتراضي `~/.openclaw/workspace/memory/`) عند إصدار `/new`
+- **😈 soul-evil**: يستبدل محتوى `SOUL.md` المُحقن بـ `SOUL_EVIL.md` خلال نافذة تطهير أو باحتمال عشوائي
 - **📝 command-logger**: يسجل جميع أحداث الأوامر إلى `~/.openclaw/logs/commands.log`
 - **🚀 boot-md**: يشغّل `BOOT.md` عند بدء Gateway (يتطلب تمكين Hooks الداخلية)
-- **😈 soul-evil**: يستبدل محتوى `SOUL.md` المُحقن بـ `SOUL_EVIL.md` خلال نافذة تطهير أو باحتمال عشوائي
 
 عرض Hooks المتاحة:
 
@@ -68,7 +72,7 @@ openclaw hooks check
 openclaw hooks info session-memory
 ```
 
-### الإعداد الأولي
+### Onboarding
 
 أثناء التهيئة الأولية (`openclaw onboard`)، سيُطلب منك تمكين Hooks الموصى بها. يقوم معالج الإعداد باكتشاف Hooks المؤهلة تلقائيًا وعرضها للاختيار.
 
@@ -99,6 +103,8 @@ my-hook/
 openclaw hooks install <path-or-spec>
 ```
 
+مواصفات Npm تقتصر على السجل فقط (اسم الحزمة + إصدار/وسم اختياري). يتم رفض مواصفات Git/URL/file.
+
 مثال `package.json`:
 
 ```json
@@ -113,6 +119,9 @@ openclaw hooks install <path-or-spec>
 
 يشير كل إدخال إلى دليل Hook يحتوي على `HOOK.md` و`handler.ts` (أو `index.ts`).
 يمكن لحزم Hooks شحن تبعيات؛ وسيتم تثبيتها ضمن `~/.openclaw/hooks/<id>`.
+
+ملاحظة أمنية: يقوم `openclaw hooks install` بتثبيت التبعيات باستخدام `npm install --ignore-scripts`
+(بدون تشغيل lifecycle scripts). حافظ على أشجار تبعيات حزم hook "pure JS/TS" وتجنب الحزم التي تعتمد على عمليات build عبر `postinstall`.
 
 ## Hook Structure
 
@@ -390,6 +399,8 @@ openclaw hooks enable my-hook
 }
 ```
 
+ملاحظة: يجب أن يكون `module` مسارًا نسبيًا لمساحة العمل. يتم رفض المسارات المطلقة وأي انتقال خارج مساحة العمل.
+
 **الترحيل**: استخدم نظام الاكتشاف الجديد المعتمد على الأدلة للـ Hooks الجديدة. يتم تحميل المعالِجات القديمة بعد Hooks المعتمدة على الأدلة.
 
 ## CLI Commands
@@ -448,7 +459,7 @@ openclaw hooks disable command-logger
 
 **Events**: `command:new`
 
-**Requirements**: يجب تهيئة `workspace.dir`
+الإعداد الأولي
 
 **Output**: ‏`<workspace>/memory/YYYY-MM-DD-slug.md` (الافتراضي `~/.openclaw/workspace`)
 
@@ -479,6 +490,49 @@ openclaw hooks disable command-logger
 
 ```bash
 openclaw hooks enable session-memory
+```
+
+### bootstrap-extra-files
+
+يستبدل محتوى `SOUL.md` المُحقن بـ `SOUL_EVIL.md` خلال نافذة تطهير أو باحتمال عشوائي.
+
+**Events**: `agent:bootstrap`
+
+**Requirements**: يجب تهيئة `workspace.dir`
+
+**Output**: لا يتم كتابة ملفات؛ تتم عمليات الاستبدال في الذاكرة فقط.
+
+**Config**:
+
+```json
+{
+  "hooks": {
+    "internal": {
+      "enabled": true,
+      "entries": {
+        "soul-evil": {
+          "enabled": true,
+          "file": "SOUL_EVIL.md",
+          "chance": 0.1,
+          "purge": { "at": "21:00", "duration": "15m" }
+        }
+      }
+    }
+  }
+}
+```
+
+**Docs**: [SOUL Evil Hook](/hooks/soul-evil)
+
+- يتم تحليل المسارات نسبةً إلى مساحة العمل.
+- يجب أن تبقى الملفات داخل مساحة العمل (يتم التحقق عبر realpath).
+- يتم تحميل أسماء bootstrap الأساسية المعترف بها فقط.
+- يتم الحفاظ على قائمة السماح الخاصة بالوكلاء الفرعيين (`AGENTS.md` و `TOOLS.md` فقط).
+
+**Enable**:
+
+```bash
+openclaw hooks enable bootstrap-extra-files
 ```
 
 ### command-logger
@@ -521,42 +575,6 @@ grep '"action":"new"' ~/.openclaw/logs/commands.log | jq .
 
 ```bash
 openclaw hooks enable command-logger
-```
-
-### soul-evil
-
-يستبدل محتوى `SOUL.md` المُحقن بـ `SOUL_EVIL.md` خلال نافذة تطهير أو باحتمال عشوائي.
-
-**Events**: `agent:bootstrap`
-
-**Docs**: [SOUL Evil Hook](/hooks/soul-evil)
-
-**Output**: لا يتم كتابة ملفات؛ تتم عمليات الاستبدال في الذاكرة فقط.
-
-**Enable**:
-
-```bash
-openclaw hooks enable soul-evil
-```
-
-**Config**:
-
-```json
-{
-  "hooks": {
-    "internal": {
-      "enabled": true,
-      "entries": {
-        "soul-evil": {
-          "enabled": true,
-          "file": "SOUL_EVIL.md",
-          "chance": 0.1,
-          "purge": { "at": "21:00", "duration": "15m" }
-        }
-      }
-    }
-  }
-}
 ```
 
 ### boot-md
@@ -910,5 +928,3 @@ node -e "import('./path/to/handler.ts').then(console.log)"
 - [Bundled Hooks README](https://github.com/openclaw/openclaw/tree/main/src/hooks/bundled)
 - [Webhook Hooks](/automation/webhook)
 - [Configuration](/gateway/configuration#hooks)
-
-

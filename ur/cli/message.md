@@ -1,4 +1,8 @@
 ---
+summary: "CLI حوالہ برائے `openclaw message` (بھیجنا + چینل اعمال)"
+read_when:
+  - پیغام CLI اعمال شامل یا تبدیل کرتے وقت
+  - آؤٹ باؤنڈ چینل کے رویّے میں تبدیلی کرتے وقت
 title: "message"
 ---
 
@@ -64,6 +68,7 @@ openclaw message <subcommand> [flags]
   - درکار: `--target`، `--poll-question`، `--poll-option` (دہرائیں)
   - اختیاری: `--poll-multi`
   - صرف Discord: `--poll-duration-hours`، `--message`
+  - صرف Telegram: `--poll-duration-seconds` (5-600)، `--silent`، `--poll-anonymous` / `--poll-public`، `--thread-id`
 
 - `react`
   - چینلز: Discord/Google Chat/Slack/Telegram/WhatsApp/Signal
@@ -199,11 +204,21 @@ openclaw message poll --channel discord \
 Teams میں proactive پیغام بھیجیں:
 
 ```
+openclaw message poll --channel telegram \
+  --target @mychat \
+  --poll-question "Lunch?" \
+  --poll-option Pizza --poll-option Sushi \
+  --poll-duration-seconds 120 --silent
+```
+
+Teams پول بنائیں:
+
+```
 openclaw message send --channel msteams \
   --target conversation:19:abc@thread.tacv2 --message "hi"
 ```
 
-Teams پول بنائیں:
+Slack میں ری ایکٹ کریں:
 
 ```
 openclaw message poll --channel msteams \
@@ -212,14 +227,14 @@ openclaw message poll --channel msteams \
   --poll-option Pizza --poll-option Sushi
 ```
 
-Slack میں ری ایکٹ کریں:
+Signal گروپ میں ری ایکٹ کریں:
 
 ```
 openclaw message react --channel slack \
   --target C123 --message-id 456 --emoji "✅"
 ```
 
-Signal گروپ میں ری ایکٹ کریں:
+Telegram inline بٹن بھیجیں:
 
 ```
 openclaw message react --channel signal \
@@ -233,5 +248,3 @@ Telegram inline بٹن بھیجیں:
 openclaw message send --channel telegram --target @mychat --message "Choose:" \
   --buttons '[ [{"text":"Yes","callback_data":"cmd:yes"}], [{"text":"No","callback_data":"cmd:no"}] ]'
 ```
-
-

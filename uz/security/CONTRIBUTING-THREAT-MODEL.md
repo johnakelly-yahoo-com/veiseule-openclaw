@@ -15,17 +15,17 @@ Biz qamrab olmagan hujum vektori yoki xavfni payqadingizmi? [openclaw/trust](htt
 - Qanchalik jiddiy deb o‘ylaysiz (past / o‘rta / yuqori / kritik)
 - Tegishli tadqiqotlar, CVElar yoki real hayotdagi misollarga havolalar
 
-ATLAS xaritalash, tahdid identifikatorlari va xavf baholashni ko‘rib chiqish jarayonida biz hal qilamiz. Agar ushbu tafsilotlarni kiritmoqchi bo‘lsangiz, juda yaxshi — ammo bu majburiy emas.
+We'll handle the ATLAS mapping, threat IDs, and risk assessment during review. If you want to include those details, great - but it's not expected.
 
 > **Bu jonli zaifliklar haqida xabar berish uchun emas, balki tahdid modeliga qo‘shish uchun mo‘ljallangan.** Agar siz ekspluatatsiya qilinishi mumkin bo‘lgan zaiflikni aniqlagan bo‘lsangiz, mas’uliyatli oshkor qilish bo‘yicha ko‘rsatmalar uchun [Trust page](https://trust.openclaw.ai) sahifamizga qarang.
 
 ### Kamaytirish Chorasi Taklif Qiling
 
-Mavjud tahdidni bartaraf etish bo‘yicha g‘oyangiz bormi? Tahdidga havola qilgan holda issue yoki PR oching. Foydali kamaytirish choralari aniq va amalga oshiriladigan bo‘ladi — masalan, "gateway’da har bir jo‘natuvchi uchun daqiqasiga 10 ta xabar bilan cheklash" "rate limiting’ni joriy etish" degandan ko‘ra yaxshiroq.
+Have an idea for how to address an existing threat? Open an issue or PR referencing the threat. Useful mitigations are specific and actionable - for example, "per-sender rate limiting of 10 messages/minute at the gateway" is better than "implement rate limiting."
 
 ### Hujum Zanjirini Taklif Qiling
 
-Hujum zanjirlari bir nechta tahdidlar qanday qilib real hujum ssenariysiga birlashishini ko‘rsatadi. Agar xavfli kombinatsiyani ko‘rsangiz, bosqichlarini va hujumchi ularni qanday zanjir qilib bog‘lashini tasvirlab bering. Hujum amalda qanday rivojlanishini qisqa hikoya tarzida bayon qilish rasmiy shablondan ko‘ra qimmatroqdir.
+Attack chains show how multiple threats combine into a realistic attack scenario. If you see a dangerous combination, describe the steps and how an attacker would chain them together. A short narrative of how the attack unfolds in practice is more valuable than a formal template.
 
 ### Mavjud Kontentni Tuzatish yoki Yaxshilash
 
@@ -88,5 +88,3 @@ If you're unsure about the risk level, just describe the impact and we'll assess
 ## Recognition
 
 Contributors to the threat model are recognized in the threat model acknowledgments, release notes, and the OpenClaw security hall of fame for significant contributions.
-
-

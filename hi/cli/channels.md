@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw channels` के लिए CLI संदर्भ (accounts, status, login/logout, logs)"
+read_when:
+  - आप चैनल खातों को जोड़ना/हटाना चाहते हैं (WhatsApp/Telegram/Discord/Google Chat/Slack/Mattermost (plugin)/Signal/iMessage)
+  - आप चैनल की स्थिति जाँचना या चैनल लॉग्स को टेल करना चाहते हैं
 title: "channels"
 ---
 
@@ -57,7 +61,7 @@ openclaw channels capabilities --channel discord --target channel:123
 
 - `--channel` वैकल्पिक है; इसे छोड़ने पर सभी चैनल (एक्सटेंशन्स सहित) सूचीबद्ध होंगे।
 - `--target` `channel:<id>` या एक कच्चा संख्यात्मक चैनल आईडी स्वीकार करता है और केवल Discord पर लागू होता है।
-- Probes provider-specific होते हैं: Discord intents + वैकल्पिक channel permissions; Slack bot + user scopes; Telegram bot flags + webhook; Signal daemon version; MS Teams app token + Graph roles/scopes (जहाँ ज्ञात हो वहाँ annotated)। जिन channels में probes नहीं होते, वे `Probe: unavailable` रिपोर्ट करते हैं।
+- Probes are provider-specific: Discord intents + optional channel permissions; Slack bot + user scopes; Telegram bot flags + webhook; Signal daemon version; MS Teams app token + Graph roles/scopes (annotated where known). Channels without probes report `Probe: unavailable`.
 
 ## नामों को आईडी में बदलें
 
@@ -73,5 +77,3 @@ openclaw channels resolve --channel matrix "Project Room"
 
 - लक्ष्य प्रकार को बाध्य करने के लिए `--kind user|group|auto` का उपयोग करें।
 - जब एक ही नाम साझा करने वाली कई प्रविष्टियाँ हों, तो समाधान सक्रिय मिलानों को प्राथमिकता देता है।
-
-

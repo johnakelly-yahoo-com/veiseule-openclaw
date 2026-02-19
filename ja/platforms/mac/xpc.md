@@ -1,10 +1,13 @@
 ---
+summary: "OpenClaw アプリ、ゲートウェイ ノードのトランスポート、および PeekabooBridge 向けの macOS IPC アーキテクチャ"
+read_when:
+  - IPC コントラクトまたはメニューバー アプリの IPC を編集する場合
 title: "macOS IPC"
 ---
 
 # OpenClaw macOS IPC アーキテクチャ
 
-**現在のモデル:** ローカル Unix ソケットが **ノード ホスト サービス** を **macOS アプリ** に接続し、実行承認 + `system.run` を提供します。検出／接続チェック用に `openclaw-mac` デバッグ CLI が存在します。エージェントのアクションは引き続き Gateway WebSocket と `node.invoke` を経由します。UI 自動化には PeekabooBridge を使用します。 チェックを発見/接続するための `openclaw-mac` デバッグCLI が存在します。エージェントアクションはゲートウェイの WebSocket と `node.invoke` を流れます。 UIオートメーションはPeekabooBridgeを使用しています。
+**現在のモデル:** ローカル Unix ソケットが **ノード ホスト サービス** を **macOS アプリ** に接続し、実行承認 + `system.run` を提供します。検出／接続チェック用に `openclaw-mac` デバッグ CLI が存在します。エージェントのアクションは引き続き Gateway WebSocket と `node.invoke` を経由します。UI 自動化には PeekabooBridge を使用します。 チェックを発見/接続するための `openclaw-mac` デバッグCLI が存在します。エージェントアクションはゲートウェイの WebSocket と `node.invoke` を流れます。 UIオートメーションはPeekabooBridgeを使用しています。 チェックを発見/接続するための `openclaw-mac` デバッグCLI が存在します。エージェントアクションはゲートウェイの WebSocket と `node.invoke` を流れます。 UIオートメーションはPeekabooBridgeを使用しています。
 
 ## 目標
 
@@ -12,7 +15,7 @@ title: "macOS IPC"
 - 自動化のための小さな表面積: Gateway + ノード コマンドに加え、UI 自動化用の PeekabooBridge。
 - 予測可能な権限: 常に同一の署名済みバンドル ID を使用し、launchd により起動されるため、TCC の付与が維持されます。
 
-## 仕組み
+## How it works
 
 ### Gateway + ノード トランスポート
 
@@ -56,5 +59,3 @@ Agent -> Gateway -> Node Service (WS)
 - すべての通信はローカル専用のままであり、ネットワーク ソケットは公開されません。
 - TCC プロンプトは GUI アプリ バンドルからのみ発生します。再ビルド間で署名済みバンドル ID を安定させてください。
 - IPC のハードニング: ソケット モード `0600`、トークン、ピア UID チェック、HMAC チャレンジ／レスポンス、短い TTL。
-
-

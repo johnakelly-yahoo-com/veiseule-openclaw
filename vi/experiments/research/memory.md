@@ -1,4 +1,9 @@
 ---
+summary: "Ghi chú nghiên cứu: hệ thống bộ nhớ offline cho workspace Clawd (Markdown làm nguồn sự thật + chỉ mục dẫn xuất)"
+read_when:
+  - Thiết kế bộ nhớ workspace (~/.openclaw/workspace) vượt ra ngoài các nhật ký Markdown hằng ngày
+  - Deciding: các ràng buộc về thời gian (“điều gì là đúng trong tháng 11 năm 2025?”)
+  - Thêm khả năng hồi tưởng + phản tư offline (retain/recall/reflect)
 title: "Nghiên cứu bộ nhớ Workspace"
 ---
 
@@ -221,5 +226,3 @@ Nếu bạn muốn một phiên bản tối thiểu nhưng vẫn hữu ích:
 - Khái niệm Letta / MemGPT: “core memory blocks” + “archival memory” + bộ nhớ tự chỉnh sửa dựa trên công cụ.
 - Báo cáo kỹ thuật Hindsight: “retain / recall / reflect”, bộ nhớ bốn mạng, trích xuất fact tường thuật, tiến hóa độ tin cậy ý kiến.
 - SuCo: arXiv 2411.14754 (2024): “Subspace Collision” cho truy xuất láng giềng gần đúng.
-
-

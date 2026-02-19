@@ -1,10 +1,14 @@
 ---
+summary: "پلگ اِن مینی فیسٹ + JSON اسکیما کی ضروریات (سخت کنفیگ ویلیڈیشن)"
+read_when:
+  - آپ OpenClaw پلگ اِن بنا رہے ہوں
+  - آپ کو پلگ اِن کنفیگ اسکیما فراہم کرنا ہو یا پلگ اِن ویلیڈیشن کی غلطیوں کی ڈیبگنگ کرنی ہو
 title: "پلگ اِن مینی فیسٹ"
 ---
 
 # پلگ اِن مینی فیسٹ (openclaw.plugin.json)
 
-ہر پلگ اِن کو **لازماً** `openclaw.plugin.json` فائل **پلگ اِن روٹ** میں شامل کرنی چاہیے۔
+Every plugin **must** ship a `openclaw.plugin.json` file in the **plugin root**.
 OpenClaw uses this manifest to validate configuration **without executing plugin
 code**. Missing or invalid manifests are treated as plugin errors and block
 config validation.
@@ -64,5 +68,3 @@ config validation.
 - اگر آپ کا پلگ اِن نیٹو ماڈیولز پر انحصار کرتا ہے، تو بلڈ کے مراحل اور کسی بھی
   پیکج-منیجر اجازت فہرست کی ضروریات کی دستاویز کریں (مثال کے طور پر، pnpm `allow-build-scripts`
   - `pnpm rebuild <package>`)۔
-
-

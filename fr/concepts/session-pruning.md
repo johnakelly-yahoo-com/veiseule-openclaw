@@ -1,4 +1,10 @@
-------
+---
+title: "Élagage de session"
+summary: "Élagage de session : rognage des résultats d’outils pour réduire l’encombrement du contexte"
+read_when:
+  - Vous souhaitez réduire la croissance du contexte LLM due aux sorties d’outils
+  - Vous ajustez agents.defaults.contextPruning
+---
 
 # Élagage de session
 
@@ -115,5 +121,3 @@ Restreindre l’élagage à des outils spécifiques :
 ```
 
 Voir la référence de configuration : [Configuration de la Gateway (passerelle)](/gateway/configuration)
-
-

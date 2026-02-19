@@ -1,4 +1,7 @@
 ---
+summary: "Mac uygulamasında sesle uyandırma ve bas-konuş modları ile yönlendirme ayrıntıları"
+read_when:
+  - Sesle uyandırma veya PTT yolları üzerinde çalışırken
 title: "Sesle Uyandırma"
 ---
 
@@ -62,5 +65,3 @@ Sağlamlaştırma:
 
 - Bas-konuş’u açın, Cmd+Fn basılı tutun, konuşun, bırakın: kaplama kısmi sonuçları göstermeli ve ardından göndermelidir.
 - Basılı tutarken menü çubuğu kulakları büyütülmüş kalmalıdır (`triggerVoiceEars(ttl:nil)` kullanır); bırakmadan sonra küçülürler.
-
-

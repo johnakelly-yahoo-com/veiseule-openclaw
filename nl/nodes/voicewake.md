@@ -1,4 +1,8 @@
 ---
+summary: "Globale voice wake words (eigendom van de Gateway) en hoe ze synchroniseren tussen nodes"
+read_when:
+  - Wijzigen van het gedrag of de standaardwaarden van voice wake words
+  - Toevoegen van nieuwe nodeplatforms die wake word-synchronisatie nodig hebben
 title: "Voice Wake"
 ---
 
@@ -59,5 +63,3 @@ Wie ontvangt het:
 
 - Biedt een Wake Words-editor in Instellingen.
 - Roept `voicewake.set` aan via de Gateway WS zodat bewerkingen overal synchroniseren.
-
-

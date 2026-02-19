@@ -1,8 +1,12 @@
 ---
-title: "Habilidades"
+summary: "Skills: gerenciadas vs workspace, regras de gating e conexão de config/env"
+read_when:
+  - Adicionar ou modificar skills
+  - Alterar gating de skills ou regras de carregamento
+title: "Skills"
 ---
 
-# Habilidades (OpenClaw)
+# Skills (OpenClaw)
 
 O OpenClaw usa pastas de skill **compatíveis com [AgentSkills](https://agentskills.io)** para ensinar o agente a usar ferramentas. Cada skill é um diretório que contém um `SKILL.md` com frontmatter YAML e instruções. O OpenClaw carrega **skills empacotadas** mais substituições locais opcionais e as filtra no momento do carregamento com base no ambiente, na configuração e na presença de binários.
 
@@ -34,7 +38,7 @@ Em configurações **multiagente**, cada agente tem seu próprio workspace. Isso
 Se o mesmo nome de skill existir em mais de um lugar, aplica-se a precedência usual:
 workspace vence, depois gerenciada/local e, por fim, empacotada.
 
-## Plugins + habilidades
+## Plugins + skills
 
 Plugins podem enviar suas próprias skills listando diretórios `skills` em
 `openclaw.plugin.json` (caminhos relativos à raiz do plugin). As skills do plugin são carregadas
@@ -292,5 +296,3 @@ Veja [Skills config](/tools/skills-config) para o esquema completo de configura�
 Navegue em [https://clawhub.com](https://clawhub.com).
 
 ---
-
-

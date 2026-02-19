@@ -1,4 +1,5 @@
 ---
+summary: "Preguntas frecuentes sobre la configuración, instalación y uso de OpenClaw"
 title: "Preguntas frecuentes"
 ---
 
@@ -176,7 +177,7 @@ Respuestas rápidas más solución de problemas en profundidad para configuracio
   - [Telegram setMyCommands falla con errores de red. ¿Qué reviso?](#telegram-setmycommands-fails-with-network-errors-what-should-i-check)
   - [La TUI no muestra salida. ¿Qué reviso?](#tui-shows-no-output-what-should-i-check)
   - [¿Cómo detengo completamente y luego inicio el Gateway?](#how-do-i-completely-stop-then-start-the-gateway)
-  - [Explícamelo como si tuviera 5 años: `openclaw gateway restart` vs `openclaw gateway`](#eli5-openclaw-gateway-restart-vs-openclaw-gateway)
+  - [ELI5: `openclaw gateway restart` vs `openclaw gateway`](#eli5-openclaw-gateway-restart-vs-openclaw-gateway)
   - [¿Cuál es la forma más rápida de obtener más detalles cuando algo falla?](#whats-the-fastest-way-to-get-more-details-when-something-fails)
 - [Medios y adjuntos](#media-and-attachments)
   - [Mi skill generó una imagen/PDF, pero no se envió nada](#my-skill-generated-an-imagepdf-but-nothing-was-sent)
@@ -261,7 +262,7 @@ Respuestas rápidas más solución de problemas en profundidad para configuracio
 
 ## Inicio rápido y configuración inicial
 
-### Estoy atascado, ¿cuál es la forma más rápida de salir del atasco?
+### Im stuck whats the fastest way to get unstuck
 
 Use un agente de IA local que pueda **ver su máquina**. Eso es mucho más efectivo que preguntar
 en Discord, porque la mayoría de los casos de "estoy atascado" son **problemas locales de configuración o entorno** que
@@ -309,7 +310,7 @@ Otros chequeos útiles de la CLI: `openclaw status --all`, `openclaw logs --foll
 Bucle rápido de depuración: [Primeros 60 segundos si algo está roto](#first-60-seconds-if-somethings-broken).
 Documentación de instalación: [Install](/install), [Installer flags](/install/installer), [Updating](/install/updating).
 
-### ¿Cuál es la forma recomendada de instalar y configurar OpenClaw?
+### What's the recommended way to install and set up OpenClaw
 
 El repo recomienda ejecutar desde el código fuente y usar el asistente de onboarding:
 
@@ -333,11 +334,11 @@ openclaw onboard
 
 Si aún no tiene una instalación global, ejecútelo vía `pnpm openclaw onboard`.
 
-### ¿Cómo abro el panel después de la configuración inicial?
+### How do I open the dashboard after onboarding
 
 El asistente abre su navegador con una URL del panel limpia (sin token) justo después del onboarding y también imprime el enlace en el resumen. Mantenga esa pestaña abierta; si no se abrió, copie y pegue la URL impresa en la misma máquina.
 
-### ¿Cómo autentico el token del panel en localhost vs remoto?
+### How do I authenticate the dashboard token on localhost vs remote
 
 **Localhost (misma máquina):**
 
@@ -353,11 +354,11 @@ El asistente abre su navegador con una URL del panel limpia (sin token) justo de
 
 Consulte [Dashboard](/web/dashboard) y [Web surfaces](/web) para modos de enlace y detalles de autenticación.
 
-### ¿Qué entorno de ejecución necesito?
+### What runtime do I need
 
 Se requiere Node **>= 22**. Se recomienda `pnpm`. Bun **no se recomienda** para el Gateway.
 
-### ¿Funciona en Raspberry Pi?
+### Does it run on Raspberry Pi
 
 Sí. El Gateway es liviano: la documentación indica **512MB–1GB de RAM**, **1 núcleo**, y alrededor de **500MB**
 de disco como suficientes para uso personal, y señala que una **Raspberry Pi 4 puede ejecutarlo**.
@@ -367,7 +368,7 @@ Si desea margen adicional (logs, medios, otros servicios), **se recomiendan 2GB*
 Consejo: una Pi/VPS pequeña puede alojar el Gateway, y puede emparejar **nodos** en su laptop/teléfono para
 pantalla/cámara/canvas local o ejecución de comandos. Ver [Nodes](/nodes).
 
-### ¿Algún consejo para instalaciones en Raspberry Pi?
+### Any tips for Raspberry Pi installs
 
 Versión corta: funciona, pero espere bordes ásperos.
 
@@ -542,6 +543,15 @@ Para una instalación hackable (git):
 
 ```bash
 curl -fsSL https://openclaw.ai/install.sh | bash -s -- --install-method git --verbose
+```
+
+Windows (PowerShell) equivalente:
+
+```powershell
+# install.ps1 has no dedicated -Verbose flag yet.
+Set-PSDebug -Trace 1
+& ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -NoOnboard
+Set-PSDebug -Trace 0
 ```
 
 Más opciones: [Installer flags](/install/installer).
@@ -785,7 +795,9 @@ sin WhatsApp/Telegram.
 
 ### Telegram what goes in allowFrom
 
-`channels.telegram.allowFrom` es **el ID de usuario de Telegram del remitente humano** (numérico, recomendado) o `@username`. No es el nombre de usuario del bot.
+`channels.telegram.allowFrom` es **el ID de usuario de Telegram del remitente humano** (numérico). No es el nombre de usuario del bot.
+
+El asistente de onboarding acepta la entrada `@username` y la resuelve a un ID numérico, pero la autorización de OpenClaw utiliza únicamente IDs numéricos.
 
 Más seguro (sin bot de terceros):
 
@@ -1255,12 +1267,12 @@ Todo vive bajo `$OPENCLAW_STATE_DIR` (por defecto: `~/.openclaw`):
 | --------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
 | `$OPENCLAW_STATE_DIR/openclaw.json`                             | Configuración principal (JSON5)                                                    |
 | `$OPENCLAW_STATE_DIR/credentials/oauth.json`                    | Importación de OAuth heredada (copiada en perfiles de autenticación en primer uso) |
-| `$OPENCLAW_STATE_DIR/agents/<agentId>/agent/auth-profiles.json` | Perfiles de autenticación (OAuth + claves API)                                     |
-| `$OPENCLAW_STATE_DIR/agents/<agentId>/agent/auth.json`          | Caché de autenticación de ejecución (administrado automáticamente)                 |
+| `$OPENCLAW_STATE_DIR/agents/&lt;agentId&gt;/agent/auth-profiles.json` | Perfiles de autenticación (OAuth + claves API)                                     |
+| `$OPENCLAW_STATE_DIR/agents/&lt;agentId&gt;/agent/auth.json`          | Caché de autenticación de ejecución (administrado automáticamente)                 |
 | `$OPENCLAW_STATE_DIR/credentials/`                              | Estado del proveedor (por ejemplo, `whatsapp/<accountId>/creds.json`)              |
 | `$OPENCLAW_STATE_DIR/agents/`                                   | Estado por agente (agentDir + sesiones)                                            |
-| `$OPENCLAW_STATE_DIR/agents/<agentId>/sessions/`                | Historial de conversación y estado (por agente)                                    |
-| `$OPENCLAW_STATE_DIR/agents/<agentId>/sessions/sessions.json`   | Metadatos de sesión (por agente)                                                   |
+| `$OPENCLAW_STATE_DIR/agents/&lt;agentId&gt;/sessions/`                | Historial de conversación y estado (por agente)                                    |
+| `$OPENCLAW_STATE_DIR/agents/&lt;agentId&gt;/sessions/sessions.json`   | Metadatos de sesión (por agente)                                                   |
 
 Ruta heredada de un solo agente: `~/.openclaw/agent/*` (migrado por `openclaw doctor`).
 
@@ -2834,5 +2846,3 @@ Puedes añadir opciones como `debounce:2s cap:25 drop:summarize` para los modos 
 ---
 
 ¿Aún atascado? Pregunte en [Discord](https://discord.com/invite/clawd) o abra una [discusión en GitHub](https://github.com/openclaw/openclaw/discussions).
-
-

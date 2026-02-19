@@ -1,4 +1,7 @@
 ---
+summary: "Regler för hantering av bilder och media för sändning, gateway och agentsvar"
+read_when:
+  - Ändring av mediepipeline eller bilagor
 title: "Stöd för bilder och media"
 ---
 
@@ -67,5 +70,3 @@ WhatsApp-kanalen körs via **Baileys Web**. Detta dokument fångar aktuella regl
 - Täck sändnings- och svarsflöden för bild/ljud/dokument.
 - Validera återkomprimering för bilder (storleksgräns) och röstmeddelandeflagga för ljud.
 - Säkerställ att svar med flera medier fläktas ut som sekventiella sändningar.
-
-

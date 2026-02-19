@@ -1,4 +1,7 @@
 ---
+summary: "تقسية قائمة السماح في Telegram: تطبيع البادئة والمسافات البيضاء"
+read_when:
+  - عند مراجعة التغييرات التاريخية على قائمة السماح في Telegram
 title: "تقسية قائمة السماح في Telegram"
 ---
 
@@ -35,5 +38,3 @@ title: "تقسية قائمة السماح في Telegram"
 
 - [دردشات المجموعات](/channels/groups)
 - [موفّر Telegram](/channels/telegram)
-
-

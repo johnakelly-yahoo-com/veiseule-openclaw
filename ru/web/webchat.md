@@ -1,4 +1,7 @@
 ---
+summary: "Статический хост WebChat с loopback и использование WS Gateway для UI чата"
+read_when:
+  - Отладка или настройка доступа WebChat
 title: "WebChat"
 ---
 
@@ -42,7 +45,6 @@ title: "WebChat"
 
 - `gateway.port`, `gateway.bind`: хост/порт WebSocket.
 - `gateway.auth.mode`, `gateway.auth.token`, `gateway.auth.password`: аутентификация WebSocket.
+- `gateway.auth.mode: "trusted-proxy"`: аутентификация через reverse-proxy для браузерных клиентов (см. [Trusted Proxy Auth](/gateway/trusted-proxy-auth)).
 - `gateway.remote.url`, `gateway.remote.token`, `gateway.remote.password`: цель удалённого Gateway (шлюз).
 - `session.*`: хранилище сеансов и значения по умолчанию для основного ключа.
-
-

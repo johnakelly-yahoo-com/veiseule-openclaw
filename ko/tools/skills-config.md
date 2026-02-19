@@ -1,4 +1,8 @@
 ---
+summary: "Skills 설정 스키마 및 예제"
+read_when:
+  - Skills 설정을 추가하거나 수정할 때
+  - 번들된 allowlist 또는 설치 동작을 조정할 때
 title: "Skills 설정"
 ---
 
@@ -70,5 +74,3 @@ Skill 별 필드:
 - 사용자 정의 샌드박스 이미지에 환경 변수를 베이크하세요
 
 전역 `env` 및 `skills.entries.<skill>.env/apiKey`는 **호스트** 실행에만 적용됩니다.
-
-

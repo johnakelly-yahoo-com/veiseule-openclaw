@@ -1,4 +1,8 @@
 ---
+summary: "Skills: منظم بمقابلہ ورک اسپیس، گیٹنگ قواعد، اور کنفیگ/ماحولیاتی وائرنگ"
+read_when:
+  - Skills شامل یا ترمیم کرتے وقت
+  - Skill گیٹنگ یا لوڈ قواعد تبدیل کرتے وقت
 title: "مہارتیں"
 ---
 
@@ -36,7 +40,7 @@ Skills **تین** جگہوں سے لوڈ کی جاتی ہیں:
 
 ## پلگ اِنز + مہارتیں
 
-پلگ اِنز اپنی مہارتیں شامل کر سکتے ہیں، `skills` ڈائریکٹریز کی فہرست دے کر
+Plugins can ship their own skills by listing `skills` directories in
 `openclaw.plugin.json` (paths relative to the plugin root). Plugin skills load
 when the plugin is enabled and participate in the normal skill precedence rules.
 You can gate them via `metadata.openclaw.requires.config` on the plugin’s config
@@ -45,7 +49,7 @@ tool surface those skills teach.
 
 ## ClawHub (انسٹال + ہم آہنگی)
 
-ClawHub، OpenClaw کے لیے عوامی مہارتوں کا رجسٹری ہے۔ ملاحظہ کریں
+ClawHub is the public skills registry for OpenClaw. Browse at
 [https://clawhub.com](https://clawhub.com). Use it to discover, install, update, and back up skills.
 Full guide: [ClawHub](/tools/clawhub).
 
@@ -58,14 +62,14 @@ Full guide: [ClawHub](/tools/clawhub).
 - Sync (اسکین + اپڈیٹس شائع کریں):
   - `clawhub sync --all`
 
-بطورِ ڈیفالٹ، `clawhub` آپ کی موجودہ ورکنگ ڈائریکٹری کے اندر `./skills` میں انسٹال کرتا ہے
+By default, `clawhub` installs into `./skills` under your current working
 directory (or falls back to the configured OpenClaw workspace). OpenClaw picks
 that up as `<workspace>/skills` on the next session.
 
 ## سکیورٹی نوٹس
 
-- تیسرے فریق کی مہارتوں کو **ناقابلِ اعتماد کوڈ** سمجھیں۔ فعال کرنے سے پہلے انہیں پڑھ لیں۔
-- ناقابلِ اعتماد اِن پٹس اور پرخطر ٹولز کے لیے سینڈ باکس شدہ رنز کو ترجیح دیں۔ مزید دیکھیں [سینڈ باکسنگ](/gateway/sandboxing).
+- Treat third-party skills as **untrusted code**. Read them before enabling.
+- Prefer sandboxed runs for untrusted inputs and risky tools. See [Sandboxing](/gateway/sandboxing).
 - `skills.entries.*.env` and `skills.entries.*.apiKey` inject secrets into the **host** process
   for that agent turn (not the sandbox). Keep secrets out of prompts and logs.
 - وسیع تر threat ماڈل اور چیک لسٹس کے لیے [Security](/gateway/security) دیکھیں۔
@@ -291,5 +295,3 @@ OpenClaw انسٹال کے حصے کے طور پر اسکلز کا ایک بنی
 ملاحظہ کریں [https://clawhub.com](https://clawhub.com)۔
 
 ---
-
-

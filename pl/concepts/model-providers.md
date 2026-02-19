@@ -1,4 +1,8 @@
 ---
+summary: "Przegląd dostawców modeli z przykładowymi konfiguracjami i przepływami CLI"
+read_when:
+  - Potrzebujesz referencji konfiguracji modeli według dostawców
+  - Chcesz zobaczyć przykładowe konfiguracje lub polecenia CLI do onboardingu dostawców modeli
 title: "Dostawcy modeli"
 ---
 
@@ -116,6 +120,7 @@ konfiguracji `models.providers`; wystarczy ustawić uwierzytelnianie i wybrać m
   - Bazowy URL zgodny z OpenAI: `https://api.cerebras.ai/v1`.
 - Mistral: `mistral` (`MISTRAL_API_KEY`)
 - GitHub Copilot: `github-copilot` (`COPILOT_GITHUB_TOKEN` / `GH_TOKEN` / `GITHUB_TOKEN`)
+- Hugging Face Inference: `huggingface` (`HUGGINGFACE_HUB_TOKEN` lub `HF_TOKEN`) — router zgodny z OpenAI; przykładowy model: `huggingface/deepseek-ai/DeepSeek-R1`; CLI: `openclaw onboard --auth-choice huggingface-api-key`. Zobacz [Hugging Face (Inference)](/providers/huggingface).
 
 ## Dostawcy przez `models.providers` (niestandardowy/bazowy URL)
 
@@ -255,6 +260,32 @@ ollama pull llama3.3
 
 Ollama jest automatycznie wykrywana podczas lokalnego uruchamiania pod adresem `http://127.0.0.1:11434/v1`. Zalecenia dotyczące modeli i konfigurację niestandardową znajdziesz w [/providers/ollama](/providers/ollama).
 
+### vLLM
+
+vLLM to lokalny (lub hostowany samodzielnie) serwer zgodny z OpenAI:
+
+- Dostawca: `vllm`
+- Uwierzytelnianie: opcjonalne (zależne od Twojego serwera)
+- Domyślny base URL: `http://127.0.0.1:8000/v1`
+
+Aby włączyć automatyczne wykrywanie lokalnie (dowolna wartość działa, jeśli Twój serwer nie wymusza uwierzytelniania):
+
+```bash
+export VLLM_API_KEY="vllm-local"
+```
+
+Następnie ustaw model (zastąp jednym z identyfikatorów zwróconych przez `/v1/models`):
+
+```json5
+{
+  agents: {
+    defaults: { model: { primary: "vllm/your-model-id" } },
+  },
+}
+```
+
+Zobacz [/providers/vllm](/providers/vllm), aby uzyskać szczegóły.
+
 ### Lokalne proxy (LM Studio, vLLM, LiteLLM itd.)
 
 Przykład (zgodny z OpenAI):
@@ -310,5 +341,3 @@ openclaw models list
 ```
 
 Zobacz także: [/gateway/configuration](/gateway/configuration), aby zapoznać się z pełnymi przykładami konfiguracji.
-
-

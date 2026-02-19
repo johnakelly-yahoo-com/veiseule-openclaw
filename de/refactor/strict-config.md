@@ -1,4 +1,9 @@
 ---
+summary: "„Strikte Konfigurationsvalidierung + ausschließlich Doctor-Migrationen“"
+read_when:
+  - Entwurf oder Implementierung von Verhalten zur Konfigurationsvalidierung
+  - Arbeit an Konfigurationsmigrationen oder Doctor-Workflows
+  - Umgang mit Plugin-Konfigurationsschemata oder dem Gating beim Plugin-Laden
 title: "„Strikte Konfigurationsvalidierung“"
 ---
 
@@ -86,5 +91,3 @@ Alles andere muss hart fehlschlagen mit: „Konfiguration ungültig. Führen Sie
 - Plugin ohne Schema → Plugin-Laden mit klarem Fehler blockiert.
 - Ungültige Konfiguration → Gateway-Start blockiert, außer Diagnosebefehle.
 - Doctor-Dry-Run automatisch; `doctor --fix` schreibt korrigierte Konfiguration.
-
-

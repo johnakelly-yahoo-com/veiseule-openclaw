@@ -1,5 +1,7 @@
 ---
 title: Sandbox so với Chính sách Tool so với Elevated
+summary: "Vì sao một tool bị chặn: runtime sandbox, chính sách cho phép/chặn tool, và các cổng thực thi elevated"
+read_when: "Khi bạn gặp 'sandbox jail' hoặc thấy tool/elevated bị từ chối và muốn biết chính xác khóa cấu hình cần thay đổi."
 status: active
 ---
 
@@ -106,7 +108,7 @@ Elevated **không** cấp thêm tool; nó chỉ ảnh hưởng đến `exec`.
 Các cổng:
 
 - Bật/tắt: `tools.elevated.enabled` (và tùy chọn `agents.list[].tools.elevated.enabled`)
-- Danh sách cho phép người gửi: `tools.elevated.allowFrom.<provider>`` (và tùy chọn `agents.list[].tools.elevated.allowFrom.&lt;provider&gt;\`\`)
+- Danh sách cho phép người gửi: `tools.elevated.allowFrom.<provider>`` (và tùy chọn `agents.list[].tools.elevated.allowFrom.<provider>\`\`)
 
 Xem [Elevated Mode](/tools/elevated).
 
@@ -124,5 +126,3 @@ Khóa để sửa (chọn một):
 ### “Tôi tưởng đây là main, sao lại bị sandbox?”
 
 Trong chế độ `"non-main"`, các khóa nhóm/kênh _không_ phải là main. Sử dụng khóa phiên main (hiển thị bởi `sandbox explain`) hoặc chuyển chế độ sang `"off"`.
-
-

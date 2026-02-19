@@ -1,4 +1,7 @@
 ---
+summary: "Installatiehandleiding voor ontwikkelaars die aan de OpenClaw macOS-app werken"
+read_when:
+  - Het instellen van de macOS-ontwikkelomgeving
 title: "macOS Dev-installatie"
 ---
 
@@ -13,7 +16,7 @@ Zorg ervoor dat je vóór het bouwen van de app het volgende hebt geïnstalleerd
 1. **Xcode 26.2+**: Vereist voor Swift-ontwikkeling.
 2. **Node.js 22+ & pnpm**: Vereist voor de Gateway, CLI en verpakkingsscripts.
 
-## 1) Afhankelijkheden installeren
+## 3) De CLI installeren
 
 Installeer de projectbrede afhankelijkheden:
 
@@ -99,5 +102,3 @@ lsof -nP -iTCP:18789 -sTCP:LISTEN
 ```
 
 Als een handmatige run de poort bezet houdt, stop dat proces (Ctrl+C). Als laatste redmiddel kun je de hierboven gevonden PID beëindigen.
-
-

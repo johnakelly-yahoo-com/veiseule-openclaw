@@ -1,10 +1,14 @@
 ---
+summary: "Thiết lập bot Mattermost và cấu hình OpenClaw"
+read_when:
+  - Thiết lập Mattermost
+  - Gỡ lỗi định tuyến Mattermost
 title: "Mattermost"
 ---
 
 # Mattermost (plugin)
 
-Trạng thái: được hỗ trợ thông qua plugin (bot token + sự kiện WebSocket). Hỗ trợ kênh, nhóm và tin nhắn trực tiếp (DM).
+Status: supported via plugin (bot token + WebSocket events). Channels, groups, and DMs are supported.
 Mattermost is a self-hostable team messaging platform; see the official site at
 [mattermost.com](https://mattermost.com) for product details and downloads.
 
@@ -58,11 +62,11 @@ Thiết lập các biến này trên máy chủ gateway nếu bạn предпо
 - `MATTERMOST_BOT_TOKEN=...`
 - `MATTERMOST_URL=https://chat.example.com`
 
-Biến môi trường (env vars) chỉ áp dụng cho tài khoản **mặc định** (`default`). Các tài khoản khác phải sử dụng giá trị trong cấu hình.
+Env vars apply only to the **default** account (`default`). Other accounts must use config values.
 
 ## Chế độ chat
 
-Mattermost tự động phản hồi tin nhắn trực tiếp (DM). Hành vi trong kênh được kiểm soát bởi `chatmode`:
+Mattermost responds to DMs automatically. Channel behavior is controlled by `chatmode`:
 
 - `oncall` (mặc định): chỉ phản hồi khi được @mention trong kênh.
 - `onmessage`: phản hồi mọi tin nhắn trong kênh.
@@ -132,5 +136,3 @@ Mattermost hỗ trợ nhiều tài khoản dưới `channels.mattermost.accounts
 - Không có phản hồi trong kênh: đảm bảo bot đã ở trong kênh và được mention (oncall), dùng tiền tố kích hoạt (onchar), hoặc đặt `chatmode: "onmessage"`.
 - Lỗi xác thực: kiểm tra bot token, base URL và việc tài khoản có được bật hay không.
 - Vấn đề đa tài khoản: biến môi trường chỉ áp dụng cho tài khoản `default`.
-
-

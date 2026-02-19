@@ -1,6 +1,6 @@
 ---
 title: Fly.io
-description: "OpenClaw’ni Fly.io’da joylashtirish"
+description: OpenClaw’ni Fly.io’da joylashtirish
 ---
 
 # Fly.io’da joylashtirish
@@ -395,8 +395,10 @@ fly ips allocate-v6 --private -a my-openclaw
 38. Shundan so‘ng, `fly ips list` faqat `private` turdagi IP’ni ko‘rsatishi kerak:
 
 ```
-39. VERSION  IP                   TYPE             REGION
-v6       fdaa:x:x:x:x::x      private          global
+43. # Lokal 3000-portni ilovaga yo‘naltirish
+fly proxy 3000:3000 -a my-openclaw
+
+# So‘ng brauzerda http://localhost:3000 ni oching
 ```
 
 ### 40. Private deploy’ga kirish
@@ -406,10 +408,7 @@ v6       fdaa:x:x:x:x::x      private          global
 42. **Variant 1: Lokal proxy (eng sodda)**
 
 ```bash
-43. # Lokal 3000-portni ilovaga yo‘naltirish
-fly proxy 3000:3000 -a my-openclaw
-
-# So‘ng brauzerda http://localhost:3000 ni oching
+47. fly ssh console -a my-openclaw
 ```
 
 44. **Variant 2: WireGuard VPN**
@@ -484,5 +483,3 @@ With the recommended config (`shared-cpu-2x`, 2GB RAM):
 - Free tier includes some allowance
 
 See [Fly.io pricing](https://fly.io/docs/about/pricing/) for details.
-
-

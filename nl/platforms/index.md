@@ -1,4 +1,8 @@
 ---
+summary: "Overzicht van platformondersteuning (Gateway + Companion-apps)"
+read_when:
+  - Op zoek naar OS-ondersteuning of installatiepaden
+  - Beslissen waar de Gateway moet draaien
 title: "Platformen"
 ---
 
@@ -47,5 +51,3 @@ Het service-doel is afhankelijk van het OS:
 
 - macOS: LaunchAgent (`bot.molt.gateway` of `bot.molt.<profile>`; legacy `com.openclaw.*`)
 - Linux/WSL2: systemd-gebruikersservice (`openclaw-gateway[-<profile>].service`)
-
-

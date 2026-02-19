@@ -1,4 +1,7 @@
 ---
+summary: "Microsoft Teams-bot supportstatus, funktioner og konfiguration"
+read_when:
+  - Arbejder med MS Teams-kanalfunktioner
 title: "Microsoft Teams"
 ---
 
@@ -152,14 +155,14 @@ Før du konfigurerer OpenClaw, skal du oprette en Azure Bot-ressource.
 1. Gå til [Create Azure Bot](https://portal.azure.com/#create/Microsoft.AzureBot)
 2. Udfyld fanen **Basics**:
 
-   | Felt               | Værdi                                                                   |
-   | ------------------ | ----------------------------------------------------------------------- |
-   | **Botnavn**     | Dit botnavn, fx `openclaw-msteams` (skal være unikt) |
-   | **Abonnement**   | Vælg dit Azure-abonnement                                               |
+   | Felt                | Værdi                                                                   |
+   | ------------------- | ----------------------------------------------------------------------- |
+   | **Botnavn**         | Dit botnavn, fx `openclaw-msteams` (skal være unikt) |
+   | **Abonnement**      | Vælg dit Azure-abonnement                                               |
    | **Ressourcegruppe** | Opret ny eller brug eksisterende                                        |
-   | **Prisniveau**   | **Free** til dev/test                                                   |
-   | **App-type**    | **Single Tenant** (anbefalet – se note nedenfor)     |
-   | **Oprettelsestype**  | **Opret nyt Microsoft-app-id**                                         |
+   | **Prisniveau**      | **Free** til dev/test                                                   |
+   | **App-type**        | **Single Tenant** (anbefalet – se note nedenfor)     |
+   | **Oprettelsestype** | **Opret nyt Microsoft-app-id**                                          |
 
 > **Afskrivningsmeddelelse:** Oprettelse af nye multi-tenant bots blev forældet efter 2025-07-31. Brug **Enkelt Leje** til nye bots.
 
@@ -421,7 +424,9 @@ Hvis du har brug for billeder/filer i **kanaler** eller vil hente **beskedhistor
 3. Forøg Teams-appens **manifestversion**, gen-upload, og **geninstallér appen i Teams**.
 4. **Luk Teams helt og genstart** for at rydde cachet app-metadata.
 
-## Kendte begrænsninger
+**Yderligere tilladelse til bruger-mentions:** Bruger-@mentions fungerer som standard for brugere i samtalen. Hvis du vil dynamisk søge efter og nævne brugere, der **ikke er i den aktuelle samtale**, skal du dog tilføje `User.Read.All` (Application)-tilladelsen og give admin-samtykke.
+
+## Webhook-timeouts
 
 ### Webhook-timeouts
 
@@ -733,7 +738,7 @@ Bots har begrænset support i private kanaler:
 2. Brug DMs – brugere kan altid skrive direkte til botten
 3. Brug Graph API til historisk adgang (kræver `ChannelMessage.Read.All`)
 
-## Fejlfinding
+## Almindelige problemer
 
 ### Almindelige problemer
 
@@ -765,5 +770,3 @@ Bots har begrænset support i private kanaler:
 - [RSC permissions reference](https://learn.microsoft.com/en-us/microsoftteams/platform/graph-api/rsc/resource-specific-consent)
 - [Teams bot file handling](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/bots-filesv4) (kanal/gruppe kræver Graph)
 - [Proactive messaging](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/conversations/send-proactive-messages)
-
-

@@ -1,5 +1,7 @@
 ---
+summary: "Multi-agent routing: geïsoleerde agents, kanaalaccounts en bindingen"
 title: Multi-Agent Routering
+read_when: "Je wilt meerdere geïsoleerde agents (werkruimtes + auth) in één Gateway-proces."
 status: active
 ---
 
@@ -123,11 +125,15 @@ Notities:
 Bindingen zijn **deterministisch** en **meest-specifiek wint**:
 
 1. `peer`-match (exacte DM/groep/kanaal-id)
-2. `guildId` (Discord)
-3. `teamId` (Slack)
-4. `accountId`-match voor een kanaal
-5. match op kanaalniveau (`accountId: "*"`)
-6. terugval naar standaardagent (`agents.list[].default`, anders eerste lijstvermelding, standaard: `main`)
+2. `parentPeer`-match (thread-overerving)
+3. `guildId + roles` (Discord-rolroutering)
+4. `guildId` (Discord)
+5. `teamId` (Slack)
+6. `accountId`-match voor een kanaal
+7. match op kanaalniveau (`accountId: "*"`)
+8. terugval naar standaardagent (`agents.list[].default`, anders eerste lijstvermelding, standaard: `main`)
+
+Als een binding meerdere matchvelden instelt (bijvoorbeeld `peer` + `guildId`), zijn alle opgegeven velden vereist (`AND`-semantiek).
 
 ## Meerdere accounts / telefoonnummers
 
@@ -381,5 +387,3 @@ Als je per-agent grenzen nodig hebt, gebruik `agents.list[].tools` om `exec` te 
 Voor groepsdoelgroepering gebruik je `agents.list[].groupChat.mentionPatterns` zodat @mentions netjes naar de bedoelde agent mappen.
 
 Zie [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) voor gedetailleerde voorbeelden.
-
-

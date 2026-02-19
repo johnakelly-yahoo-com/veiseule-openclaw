@@ -1,4 +1,8 @@
 ---
+summary: "بیک گراؤنڈ exec کی عمل درآمد اور پروسیس مینجمنٹ"
+read_when:
+  - بیک گراؤنڈ exec کے رویّے کو شامل یا تبدیل کرتے وقت
+  - طویل المدت exec ٹاسکس کی ڈیبگنگ کے دوران
 title: "بیک گراؤنڈ Exec اور پروسیس ٹول"
 ---
 
@@ -42,6 +46,7 @@ When spawning long-running child processes outside the exec/process tools (for e
 - `tools.exec.timeoutSec` (بطورِ طے شدہ 1800)
 - `tools.exec.cleanupMs` (بطورِ طے شدہ 1800000)
 - `tools.exec.notifyOnExit` (بطورِ طے شدہ true): جب بیک گراؤنڈ کیا گیا exec ختم ہو تو سسٹم ایونٹ قطار میں ڈالیں + ہارٹ بیٹ کی درخواست کریں۔
+- `tools.exec.notifyOnExitEmptySuccess` (ڈیفالٹ false): جب true ہو، تو ان کامیاب بیک گراؤنڈ رنز کے لیے بھی تکمیل کے ایونٹس قطار میں شامل کرے جو کوئی آؤٹ پٹ پیدا نہیں کرتے۔
 
 ## process ٹول
 
@@ -63,6 +68,8 @@ When spawning long-running child processes outside the exec/process tools (for e
 - `process` ہر ایجنٹ کے لیے مخصوص ہے؛ یہ صرف اسی ایجنٹ کے شروع کیے گئے سیشنز دیکھتا ہے۔
 - `process list` میں فوری جائزے کے لیے ایک اخذ کردہ `name` (کمانڈ ورب + ہدف) شامل ہوتا ہے۔
 - `process log` لائن پر مبنی `offset`/`limit` استعمال کرتا ہے (آخری N لائنیں لینے کے لیے `offset` کو چھوڑ دیں)۔
+- جب `offset` اور `limit` دونوں شامل نہ کیے جائیں، تو یہ آخری 200 لائنیں واپس کرتا ہے اور پیجنگ کا اشارہ شامل کرتا ہے۔
+- جب `offset` فراہم کیا جائے اور `limit` شامل نہ ہو، تو یہ `offset` سے آخر تک واپس کرتا ہے (200 تک محدود نہیں ہوتا)۔
 
 ## مثالیں
 
@@ -87,5 +94,3 @@ stdin بھیجیں:
 ```json
 { "tool": "process", "action": "write", "sessionId": "<id>", "data": "y\n" }
 ```
-
-

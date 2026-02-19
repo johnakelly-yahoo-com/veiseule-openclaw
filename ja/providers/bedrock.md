@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw で Amazon Bedrock（Converse API）モデルを使用します"
+read_when:
+  - OpenClaw で Amazon Bedrock モデルを使用したい場合
+  - モデル呼び出しのために AWS の認証情報／リージョン設定が必要な場合
 title: "Amazon Bedrock"
 ---
 
@@ -17,6 +21,7 @@ API キーは使用しません。
 ## 自動モデル検出
 
 AWS 認証情報が検出されると、OpenClaw は **ストリーミング** と **テキスト出力** をサポートする Bedrock モデルを自動的に検出できます。検出には `bedrock:ListFoundationModels` を使用し、結果はキャッシュされます（デフォルト: 1 時間）。 ディスカバリーは
+`bedrock:ListFoundationModels` を使用してキャッシュされます(デフォルト: 1時間)。 ディスカバリーは
 `bedrock:ListFoundationModels` を使用してキャッシュされます(デフォルト: 1時間)。
 
 設定オプションは `models.bedrockDiscovery` 配下にあります。
@@ -97,8 +102,10 @@ export AWS_BEARER_TOKEN_BEDROCK="..."
 IAM ロールを関連付けた EC2 インスタンスで OpenClaw を実行する場合、AWS SDK は認証のためにインスタンスメタデータサービス（IMDS）を自動的に使用します。ただし、OpenClaw の認証情報検出は現在、環境変数のみを確認し、IMDS の認証情報は確認しません。
 しかし、OpenClawの資格情報検出は現在、IMDSの資格情報ではなく、環境
 変数のみをチェックしています。
+しかし、OpenClawの資格情報検出は現在、IMDSの資格情報ではなく、環境
+変数のみをチェックしています。
 
-**回避策:** AWS 認証情報が利用可能であることを示すために `AWS_PROFILE=default` を設定します。実際の認証は引き続き IMDS 経由のインスタンスロールを使用します。 実際の認証はIMDS経由でインスタンスロールを使用します。
+**回避策:** AWS 認証情報が利用可能であることを示すために `AWS_PROFILE=default` を設定します。実際の認証は引き続き IMDS 経由のインスタンスロールを使用します。 実際の認証はIMDS経由でインスタンスロールを使用します。 実際の認証はIMDS経由でインスタンスロールを使用します。
 
 ```bash
 # Add to ~/.bashrc or your shell profile
@@ -164,5 +171,3 @@ openclaw models list
   AWS SDK のデフォルトチェーンです。
 - 推論（Reasoning）のサポートはモデルに依存します。最新の機能については Bedrock のモデルカードを確認してください。
 - 管理されたキーのフローを希望する場合は、Bedrock の前段に OpenAI 互換プロキシを配置し、代わりに OpenAI プロバイダーとして設定することもできます。
-
-

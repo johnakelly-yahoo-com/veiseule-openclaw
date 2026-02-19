@@ -1,9 +1,14 @@
 ---
+summary: "ゲートウェイ、チャンネル、自動化、ノード、ブラウザーに関する詳細なトラブルシューティングのランブック"
+read_when:
+  - トラブルシューティング ハブから、より深い診断のためにここを参照するよう案内された場合
+  - 正確なコマンドを含む、症状ベースで安定したランブック セクションが必要な場合
 title: "トラブルシューティング"
 ---
 
 # ゲートウェイのトラブルシューティング
 
+このページは深いランブックです。
 このページは深いランブックです。
 高速なトリアージフローを最初にしたい場合は、[/help/troubleshooting](/help/troubleshooting) から開始します。
 
@@ -105,7 +110,7 @@ openclaw gateway status --deep
 
 一般的なシグネチャ:
 
-- `Gateway start blocked: set gateway.mode=local` → ローカル ゲートウェイ モードが有効になっていない。
+- `Gateway start blocked: set gateway.mode=local` → ローカル ゲートウェイ モードが有効になっていない。 修正方法：設定で `gateway.mode="local"` を設定してください（または `openclaw configure` を実行）。 専用の `openclaw` ユーザーで Podman を使用して OpenClaw を実行している場合、設定ファイルは `~openclaw/.openclaw/openclaw.json` にあります。
 - `refusing to bind gateway ... without auth` → トークン／パスワードなしでの非 loopback バインド。
 - `another gateway instance is already listening` / `EADDRINUSE` → ポート競合。
 
@@ -312,5 +317,3 @@ openclaw gateway restart
 - [/gateway/pairing](/gateway/pairing)
 - [/gateway/authentication](/gateway/authentication)
 - [/gateway/background-process](/gateway/background-process)
-
-

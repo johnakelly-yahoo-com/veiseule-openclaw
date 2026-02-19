@@ -1,4 +1,8 @@
 ---
+summary: "apply_patch 도구를 사용하여 다중 파일 패치를 적용합니다"
+read_when:
+  - 여러 파일에 걸친 구조화된 파일 편집이 필요할 때
+  - 패치 기반 편집을 문서화하거나 디버그하려는 경우
 title: "apply_patch 도구"
 ---
 
@@ -27,7 +31,8 @@ title: "apply_patch 도구"
 
 ## 참고
 
-- 경로는 워크스페이스 루트를 기준으로 해석됩니다.
+- 패치 경로는 상대 경로(워크스페이스 디렉터리 기준)와 절대 경로를 모두 지원합니다.
+- `tools.exec.applyPatch.workspaceOnly`의 기본값은 `true`(워크스페이스 내부로 제한)입니다. `apply_patch`가 워크스페이스 디렉터리 외부에 쓰기/삭제를 수행하도록 의도한 경우에만 `false`로 설정하세요.
 - 파일 이름을 변경하려면 `*** Update File:` 헝크 내에서 `*** Move to:` 를 사용하십시오.
 - `*** End of File` 는 필요 시 EOF 전용 삽입을 표시합니다.
 - 실험적이며 기본적으로 비활성화되어 있습니다. `tools.exec.applyPatch.enabled` 로 활성화하십시오.
@@ -42,5 +47,3 @@ title: "apply_patch 도구"
   "input": "*** Begin Patch\n*** Update File: src/index.ts\n@@\n-const foo = 1\n+const foo = 2\n*** End Patch"
 }
 ```
-
-

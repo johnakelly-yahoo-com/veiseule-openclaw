@@ -1,4 +1,8 @@
 ---
+summary: "Slash-commando’s: tekst vs native, configuratie en ondersteunde commando’s"
+read_when:
+  - Gebruik of configuratie van chatcommando’s
+  - Debuggen van commandorouting of rechten
 title: "Slash-commando’s"
 ---
 
@@ -14,7 +18,7 @@ Er zijn twee verwante systemen:
   - Richtlijnen worden uit het bericht verwijderd voordat het model het ziet.
   - In normale chatberichten (niet alleen richtlijnen) worden ze behandeld als “inline hints” en **blijven** ze geen sessie-instellingen behouden.
   - In berichten die alleen uit richtlijnen bestaan (het bericht bevat uitsluitend richtlijnen) blijven ze behouden in de sessie en volgt een bevestigingsantwoord.
-  - Richtlijnen worden alleen toegepast voor **geautoriseerde afzenders** (kanaaltoegestane lijsten/pairing plus `commands.useAccessGroups`).
+  - Richtlijnen worden alleen toegepast voor **geautoriseerde afzenders**. Richtlijnen worden alleen toegepast voor **geautoriseerde afzenders** (kanaaltoegestane lijsten/pairing plus `commands.useAccessGroups`).
     Niet-geautoriseerde afzenders zien richtlijnen als gewone tekst.
 
 Er zijn ook enkele **inline snelkoppelingen** (alleen toegestane/geautoriseerde afzenders): `/help`, `/commands`, `/status`, `/whoami` (`/id`).
@@ -51,6 +55,9 @@ Ze worden onmiddellijk uitgevoerd, verwijderd voordat het model het bericht ziet
 - `commands.bashForegroundMs` (standaard `2000`) bepaalt hoe lang bash wacht voordat wordt overgeschakeld naar de achtergrondmodus (`0` gaat direct naar de achtergrond).
 - `commands.config` (standaard `false`) schakelt `/config` in (leest/schrijft `openclaw.json`).
 - `commands.debug` (standaard `false`) schakelt `/debug` in (alleen runtime-overschrijvingen).
+- `commands.allowFrom` (optioneel) stelt een allowlist per provider in voor commando-autorisatie. Wanneer geconfigureerd, is dit de
+  enige autorisatiebron voor commando's en richtlijnen (channel-allowlists/pairing en `commands.useAccessGroups`
+  worden genegeerd). Gebruik `"*"` als globale standaard; provider-specifieke sleutels overschrijven deze.
 - `commands.useAccessGroups` (standaard `true`) handhaaft toegestane lijsten/beleidsregels voor commando’s.
 
 ## Commandolijst
@@ -66,6 +73,9 @@ Tekst + native (indien ingeschakeld):
 - `/context [list|detail|json]` (leg “context” uit; `detail` toont per-bestand + per-tool + per-skill + systeempromptgrootte)
 - `/whoami` (toon je afzender-id; alias: `/id`)
 - `/subagents list|stop|log|info|send` (inspecteer, stop, log of bericht sub-agent-runs voor de huidige sessie)
+- `/kill <id|#|all>` (breek onmiddellijk één of alle actieve sub-agents voor deze sessie af; geen bevestigingsbericht)
+- `/steer <id|#> <message>` (stuur een actieve sub-agent onmiddellijk bij: tijdens uitvoering indien mogelijk, anders huidige taak afbreken en herstarten met het stuurbericht)
+- `/tell <id|#> <message>` (alias voor `/steer`)
 - `/config show|get|set|unset` (config opslaan op schijf, alleen eigenaar; vereist `commands.config: true`)
 - `/debug show|set|unset|reset` (runtime-overschrijvingen, alleen eigenaar; vereist `commands.debug: true`)
 - `/usage off|tokens|full|cost` (gebruik-footer per antwoord of lokale kostensamenvatting)
@@ -192,5 +202,3 @@ Notities:
   - Telegram: `telegram:slash:<userId>` (richt zich op de chatsessie via `CommandTargetSessionKey`)
 - **`/stop`** richt zich op de actieve chatsessie zodat het de huidige run kan afbreken.
 - **Slack:** `channels.slack.slashCommand` wordt nog steeds ondersteund voor één enkel `/openclaw`-achtig commando. Als je `commands.native` inschakelt, moet je één Slack slash-commando per ingebouwd commando aanmaken (dezelfde namen als `/help`). Command-argumentmenu’s voor Slack worden geleverd als ephemeral Block Kit-knoppen.
-
-

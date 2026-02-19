@@ -1,4 +1,8 @@
 ---
+summary: "Commandes slash : texte vs natives, configuration et commandes prises en charge"
+read_when:
+  - Utilisation ou configuration des commandes de chat
+  - Debogage du routage des commandes ou des autorisations
 title: "Commandes slash"
 ---
 
@@ -14,7 +18,7 @@ Il existe deux systemes connexes :
   - Les directives sont supprimees du message avant que le modele ne le voie.
   - Dans les messages de chat normaux (non constitues uniquement de directives), elles sont traitees comme des « indices inline » et **ne** persistent **pas** les parametres de session.
   - Dans les messages uniquement constitues de directives (le message ne contient que des directives), elles persistent dans la session et renvoient un accusé de reception.
-  - Les directives ne sont appliquees que pour les **expediteurs autorises** (listes d’autorisation de canal / appairage plus `commands.useAccessGroups`).
+  - Les directives sont appliquées uniquement pour les **expéditeurs autorisés**. Les directives ne sont appliquees que pour les **expediteurs autorises** (listes d’autorisation de canal / appairage plus `commands.useAccessGroups`).
     Les expediteurs non autorises voient les directives traitees comme du texte brut.
 
 Il existe egalement quelques **raccourcis inline** (expediteurs autorises uniquement) : `/help`, `/commands`, `/status`, `/whoami` (`/id`).
@@ -51,6 +55,9 @@ Ils s’executent immediatement, sont supprimes avant que le modele ne voie le m
 - `commands.bashForegroundMs` (par defaut `2000`) controle le delai d’attente de bash avant le passage en mode arriere-plan (`0` passe immediatement en arriere-plan).
 - `commands.config` (par defaut `false`) active `/config` (lecture/ecriture de `openclaw.json`).
 - `commands.debug` (par defaut `false`) active `/debug` (surcharges a l’execution uniquement).
+- `commands.allowFrom` (optionnel) définit une liste d’autorisation par fournisseur pour l’autorisation des commandes. Lorsqu’il est configuré, il constitue la
+  seule source d’autorisation pour les commandes et directives (les listes d’autorisation de canal/appairage et `commands.useAccessGroups`
+  sont ignorées). Utilisez `"*"` pour une valeur par défaut globale ; les clés spécifiques au fournisseur la remplacent.
 - `commands.useAccessGroups` (par defaut `true`) impose des listes d’autorisation/politiques pour les commandes.
 
 ## Liste des commandes
@@ -66,6 +73,9 @@ Texte + natives (lorsqu’activees) :
 - `/context [list|detail|json]` (expliquer le « contexte » ; `detail` affiche la taille par fichier + par outil + par skill + du prompt systeme)
 - `/whoami` (afficher votre identifiant d’expediteur ; alias : `/id`)
 - `/subagents list|stop|log|info|send` (inspecter, arreter, journaliser ou envoyer des messages aux executions de sous-agents pour la session courante)
+- `/kill <id|#|all>` (interrompt immédiatement un ou tous les sous-agents en cours pour cette session ; aucun message de confirmation)
+- `/steer <id|#> <message>` (oriente immédiatement un sous-agent en cours : pendant l’exécution si possible, sinon interrompt le travail en cours et redémarre avec le message d’orientation)
+- `/tell <id|#> <message>` (alias de `/steer`)
 - `/config show|get|set|unset` (persister la configuration sur disque, reserve au proprietaire ; necessite `commands.config: true`)
 - `/debug show|set|unset|reset` (surcharges a l’execution, reserve au proprietaire ; necessite `commands.debug: true`)
 - `/usage off|tokens|full|cost` (pied de page d’utilisation par reponse ou resume des couts locaux)
@@ -192,5 +202,3 @@ Remarques :
   - Telegram : `telegram:slash:<userId>` (cible la session de chat via `CommandTargetSessionKey`)
 - **`/stop`** cible la session de chat active afin d’interrompre l’execution en cours.
 - **Slack :** `channels.slack.slashCommand` est toujours pris en charge pour une seule commande de type `/openclaw`. Si vous activez `commands.native`, vous devez creer une commande slash Slack par commande integree (memes noms que `/help`). Les menus d’arguments de commandes pour Slack sont fournis sous forme de boutons Block Kit ephemeres.
-
-

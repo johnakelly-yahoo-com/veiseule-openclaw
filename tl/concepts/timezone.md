@@ -1,4 +1,8 @@
 ---
+summary: "Paghawak ng timezone para sa mga agent, envelope, at prompt"
+read_when:
+  - Kailangan mong maunawaan kung paano ni-normalize ang mga timestamp para sa model
+  - Pagko-configure ng timezone ng user para sa mga system prompt
 title: "Mga Timezone"
 ---
 
@@ -58,7 +62,7 @@ Maaari mo itong i-override gamit ang:
 
 ## Mga tool payload (raw provider data + mga normalized na field)
 
-Ang mga tool call (`channels.discord.readMessages`, `channels.slack.readMessages`, atbp.) ay nagbabalik ng **raw na timestamp mula sa provider**.
+Tool calls (`channels.discord.readMessages`, `channels.slack.readMessages`, etc.) return **raw provider timestamps**.
 We also attach normalized fields for consistency:
 
 - `timestampMs` (UTC epoch na millisecond)
@@ -68,7 +72,7 @@ Pinananatili ang mga raw provider field.
 
 ## Timezone ng user para sa system prompt
 
-Itakda ang `agents.defaults.userTimezone` upang ipaalam sa model ang lokal na time zone ng user. Kung ito ay
+Set `agents.defaults.userTimezone` to tell the model the user's local time zone. If it is
 unset, OpenClaw resolves the **host timezone at runtime** (no config write).
 
 ```json5
@@ -85,5 +89,3 @@ Kasama sa system prompt ang:
 Maaari mong kontrolin ang format ng prompt gamit ang `agents.defaults.timeFormat` (`auto` | `12` | `24`).
 
 Tingnan ang [Date & Time](/date-time) para sa kumpletong pag-uugali at mga halimbawa.
-
-

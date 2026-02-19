@@ -1,4 +1,8 @@
 ---
+summary: "Используйте OpenCode Zen (курируемые модели) с OpenClaw"
+read_when:
+  - Вам нужен OpenCode Zen для доступа к моделям
+  - Вам нужен курируемый список моделей, удобных для программирования
 title: "OpenCode Zen"
 ---
 
@@ -30,5 +34,3 @@ openclaw onboard --opencode-zen-api-key "$OPENCODE_API_KEY"
 - Также поддерживается `OPENCODE_ZEN_API_KEY`.
 - Вы входите в Zen, добавляете платёжные данные и копируете свой ключ API.
 - OpenCode Zen выставляет счета за запрос; подробности см. на панели управления OpenCode.
-
-

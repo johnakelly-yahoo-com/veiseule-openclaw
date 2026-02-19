@@ -1,4 +1,7 @@
 ---
+summary: "Remote na access gamit ang SSH tunnels (Gateway WS) at mga tailnet"
+read_when:
+  - Kapag nagpapatakbo o nagti-troubleshoot ng mga remote gateway setup
 title: "Malayuang Access"
 ---
 
@@ -16,7 +19,7 @@ Sinusuportahan ng repo na ito ang “remote over SSH” sa pamamagitan ng pagpap
 
 ## Mga karaniwang VPN/tailnet setup (kung saan nakatira ang agent)
 
-Isipin ang **Gateway host** bilang “kung saan naninirahan ang agent.” Ito ang may-ari ng mga session, auth profile, channel, at state.
+Think of the **Gateway host** as “where the agent lives.” It owns sessions, auth profiles, channels, and state.
 Your laptop/desktop (and nodes) connect to that host.
 
 ### 1. Palaging-on na Gateway sa iyong tailnet (VPS o home server)
@@ -31,7 +34,7 @@ Mainam ito kapag madalas matulog ang iyong laptop pero gusto mong laging naka-on
 
 ### 2. Home desktop ang nagpapatakbo ng Gateway, laptop ang remote control
 
-Ang laptop ay **hindi** nagpapatakbo ng agent. Kumokonekta ito nang malayuan:
+The laptop does **not** run the agent. It connects remotely:
 
 - Gamitin ang **Remote over SSH** mode ng macOS app (Settings → General → “OpenClaw runs”).
 - Ang app ang nagbubukas at namamahala ng tunnel, kaya ang WebChat + mga health check ay “gumagana na lang.”
@@ -49,7 +52,7 @@ Gabay: [Tailscale](/gateway/tailscale) at [Web overview](/web).
 
 ## Daloy ng command (ano ang tumatakbo saan)
 
-Isang gateway service ang may-ari ng state + mga channel. Ang mga node ay mga peripheral.
+One gateway service owns state + channels. Nodes are peripherals.
 
 Halimbawang daloy (Telegram → node):
 
@@ -76,7 +79,7 @@ Kapag naka-up ang tunnel:
 - Ang `openclaw health` at `openclaw status --deep` ay maaabot na ang remote gateway sa pamamagitan ng `ws://127.0.0.1:18789`.
 - Ang `openclaw gateway {status,health,send,agent,call}` ay maaari ring tumarget sa forwarded URL sa pamamagitan ng `--url` kapag kinakailangan.
 
-Tandaan: palitan ang `18789` ng iyong naka-configure na `gateway.port` (o `--port`/`OPENCLAW_GATEWAY_PORT`).
+Note: replace `18789` with your configured `gateway.port` (or `--port`/`OPENCLAW_GATEWAY_PORT`).
 Note: when you pass `--url`, the CLI does not fall back to config or environment credentials.
 Include `--token` or `--password` explicitly. Missing explicit credentials is an error.
 
@@ -100,7 +103,7 @@ Kapag loopback-only ang gateway, panatilihin ang URL sa `ws://127.0.0.1:18789` a
 
 ## Chat UI sa ibabaw ng SSH
 
-Hindi na gumagamit ang WebChat ng hiwalay na HTTP port. Direktang kumokonekta ang SwiftUI chat UI sa Gateway WebSocket.
+WebChat no longer uses a separate HTTP port. The SwiftUI chat UI connects directly to the Gateway WebSocket.
 
 - I-forward ang `18789` sa SSH (tingnan sa itaas), pagkatapos ay ikonekta ang mga client sa `ws://127.0.0.1:18789`.
 - Sa macOS, mas mainam ang “Remote over SSH” mode ng app, na awtomatikong namamahala ng tunnel.
@@ -119,10 +122,8 @@ Maikling bersyon: **panatilihing loopback-only ang Gateway** maliban kung sigura
 - Ang **non-loopback bind** (`lan`/`tailnet`/`custom`, o `auto` kapag hindi available ang loopback) ay dapat gumamit ng mga auth token/password.
 - Ang `gateway.remote.token` ay **para lamang** sa mga remote CLI call — **hindi** nito ine-enable ang local auth.
 - Ang `gateway.remote.tlsFingerprint` ay nagpi-pin ng remote TLS cert kapag gumagamit ng `wss://`.
-- Maaaring mag-authenticate ang **Tailscale Serve** sa pamamagitan ng mga identity header kapag `gateway.auth.allowTailscale: true`.
-Itakda ito sa `false` kung mas gusto mong gumamit ng mga token/password sa halip.
+- **Tailscale Serve** can authenticate via identity headers when `gateway.auth.allowTailscale: true`.
+  Set it to `false` if you want tokens/passwords instead.
 - Ituring ang browser control na parang operator access: tailnet-only + sinadyang node pairing.
 
 Mas malalim na talakayan: [Security](/gateway/security).
-
-

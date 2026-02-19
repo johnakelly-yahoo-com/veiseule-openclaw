@@ -1,4 +1,8 @@
 ---
+summary: "45. Misol konfiguratsiyalar + CLI oqimlari bilan model provayderlari sharhi"
+read_when:
+  - 46. Sizga provayderlar bo‘yicha model sozlamalari uchun ma’lumotnoma kerak
+  - 47. Sizga model provayderlari uchun misol konfiguratsiyalar yoki CLI onboarding buyruqlari kerak
 title: "48. Model Provayderlari"
 ---
 
@@ -22,7 +26,7 @@ title: "48. Model Provayderlari"
 - 10. Provayder: `openai`
 - 11. Autentifikatsiya: `OPENAI_API_KEY`
 - 12. Namuna model: `openai/gpt-5.1-codex`
-- 13. CLI: `openclaw onboard --auth-choice openai-api-key`
+- CLI: `openclaw onboard --auth-choice openai-api-key`
 
 ```json5
 14. {
@@ -61,7 +65,7 @@ title: "48. Model Provayderlari"
 - 28. Provayder: `opencode`
 - 29. Autentifikatsiya: `OPENCODE_API_KEY` (yoki `OPENCODE_ZEN_API_KEY`)
 - 30. Namuna model: `opencode/claude-opus-4-6`
-- 31. CLI: `openclaw onboard --auth-choice opencode-zen`
+- CLI: `openclaw onboard --auth-choice opencode-zen`
 
 ```json5
 32. {
@@ -74,7 +78,7 @@ title: "48. Model Provayderlari"
 - 34. Provayder: `google`
 - 35. Autentifikatsiya: `GEMINI_API_KEY`
 - 36. Namuna model: `google/gemini-3-pro-preview`
-- 37. CLI: `openclaw onboard --auth-choice gemini-api-key`
+- CLI: `openclaw onboard --auth-choice gemini-api-key`
 
 ### 38. Google Vertex, Antigravity va Gemini CLI
 
@@ -93,7 +97,7 @@ title: "48. Model Provayderlari"
 - 50. Provayder: `zai`
 - 1. Avtorizatsiya: `ZAI_API_KEY`
 - 2. Namunaviy model: `zai/glm-4.7`
-- 3. CLI: `openclaw onboard --auth-choice zai-api-key`
+- CLI: `openclaw onboard --auth-choice zai-api-key`
   - 4. Aliaslar: `z.ai/*` va `z-ai/*` `zai/*` ga normallashtiriladi
 
 ### 5. Vercel AI Gateway
@@ -101,19 +105,20 @@ title: "48. Model Provayderlari"
 - 6. Provayder: `vercel-ai-gateway`
 - 7. Avtorizatsiya: `AI_GATEWAY_API_KEY`
 - 8. Namunaviy model: `vercel-ai-gateway/anthropic/claude-opus-4.6`
-- 9. CLI: `openclaw onboard --auth-choice ai-gateway-api-key`
+- CLI: `openclaw onboard --auth-choice ai-gateway-api-key`
 
 ### 10. Boshqa ichki (built-in) provayderlar
 
-- 11. OpenRouter: `openrouter` (`OPENROUTER_API_KEY`)
+- OpenRouter: `openrouter` (`OPENROUTER_API_KEY`)
 - 12. Namunaviy model: `openrouter/anthropic/claude-sonnet-4-5`
-- 13. xAI: `xai` (`XAI_API_KEY`)
-- 14. Groq: `groq` (`GROQ_API_KEY`)
-- 15. Cerebras: `cerebras` (`CEREBRAS_API_KEY`)
+- xAI: `xai` (`XAI_API_KEY`)
+- Groq: `groq` (`GROQ_API_KEY`)
+- Cerebras: `cerebras` (`CEREBRAS_API_KEY`)
   - 16. Cerebras’dagi GLM modellari `zai-glm-4.7` va `zai-glm-4.6` identifikatorlaridan foydalanadi.
   - 17. OpenAI-mos asosiy URL: `https://api.cerebras.ai/v1`.
-- 18. Mistral: `mistral` (`MISTRAL_API_KEY`)
-- 19. GitHub Copilot: `github-copilot` (`COPILOT_GITHUB_TOKEN` / `GH_TOKEN` / `GITHUB_TOKEN`)
+- Mistral: `mistral` (`MISTRAL_API_KEY`)
+- GitHub Copilot: `github-copilot` (`COPILOT_GITHUB_TOKEN` / `GH_TOKEN` / `GITHUB_TOKEN`)
+- Hugging Face Inference: `huggingface` (`HUGGINGFACE_HUB_TOKEN` yoki `HF_TOKEN`) — OpenAI-compatible router; namuna model: `huggingface/deepseek-ai/DeepSeek-R1`; CLI: `openclaw onboard --auth-choice huggingface-api-key`. Qarang [Hugging Face (Inference)](/providers/huggingface).
 
 ## 20. `models.providers` orqali provayderlar (custom/base URL)
 
@@ -129,12 +134,12 @@ title: "48. Model Provayderlari"
 
 27. Kimi K2 model IDlari:
 
-28. {/_moonshot-kimi-k2-model-refs:start_/ && null}
+{/_moonshot-kimi-k2-model-refs:start_/ && null}
 
-- 29. `moonshot/kimi-k2.5`
-- 30. `moonshot/kimi-k2-0905-preview`
-- 31. `moonshot/kimi-k2-turbo-preview`
-- 32. `moonshot/kimi-k2-thinking`
+- `moonshot/kimi-k2.5`
+- `moonshot/kimi-k2-0905-preview`
+- `moonshot/kimi-k2-turbo-preview`
+- `moonshot/kimi-k2-thinking`
 - 33. `moonshot/kimi-k2-thinking-turbo`
       {/_moonshot-kimi-k2-model-refs:end_/ && null}
 
@@ -186,8 +191,8 @@ openclaw models auth login --provider qwen-portal --set-default
 
 45. Model havolalari:
 
-- 46. `qwen-portal/coder-model`
-- 47. `qwen-portal/vision-model`
+- `qwen-portal/coder-model`
+- `qwen-portal/vision-model`
 
 48. Sozlash tafsilotlari va eslatmalar uchun [/providers/qwen](/providers/qwen) ga qarang.
 
@@ -195,9 +200,9 @@ openclaw models auth login --provider qwen-portal --set-default
 
 50. Synthetic `synthetic` provayderi ortida Anthropic-mos modellalarni taqdim etadi:
 
-- Provayder: `synthetic`
-- Autentifikatsiya: `SYNTHETIC_API_KEY`
-- Namuna model: `synthetic/hf:MiniMaxAI/MiniMax-M2.1`
+- Provider: `synthetic`
+- Auth: `SYNTHETIC_API_KEY`
+- Example model: `synthetic/hf:MiniMaxAI/MiniMax-M2.1`
 - CLI: `openclaw onboard --auth-choice synthetic-api-key`
 
 ```json5
@@ -221,12 +226,12 @@ openclaw models auth login --provider qwen-portal --set-default
 
 ### MiniMax
 
-MiniMax `models.providers` orqali sozlanadi, chunki u maxsus endpointlardan foydalanadi:
+MiniMax is configured via `models.providers` because it uses custom endpoints:
 
-- MiniMax (Anthropic‑mos): `--auth-choice minimax-api`
-- Autentifikatsiya: `MINIMAX_API_KEY`
+- MiniMax (Anthropic‑compatible): `--auth-choice minimax-api`
+- Auth: `MINIMAX_API_KEY`
 
-Sozlash tafsilotlari, model variantlari va konfiguratsiya namunalarini ko‘rish uchun [/providers/minimax](/providers/minimax) sahifasiga qarang.
+See [/providers/minimax](/providers/minimax) for setup details, model options, and config snippets.
 
 ### Ollama
 
@@ -251,6 +256,32 @@ ollama pull llama3.3
 ```
 
 Ollama is automatically detected when running locally at `http://127.0.0.1:11434/v1`. See [/providers/ollama](/providers/ollama) for model recommendations and custom configuration.
+
+### vLLM
+
+vLLM — mahalliy (yoki self-hosted) OpenAI-compatible server:
+
+- Provider: `vllm`
+- Auth: Ixtiyoriy (serveringizga bog‘liq)
+- Standart base URL: `http://127.0.0.1:8000/v1`
+
+Mahalliy auto-discovery’ni yoqish uchun (agar serveringiz auth talab qilmasa, istalgan qiymat mos keladi):
+
+```bash
+export VLLM_API_KEY="vllm-local"
+```
+
+So‘ng modelni sozlang (`/v1/models` tomonidan qaytarilgan IDlardan birini qo‘llang):
+
+```json5
+{
+  agents: {
+    defaults: { model: { primary: "vllm/your-model-id" } },
+  },
+}
+```
+
+Batafsil ma’lumot uchun qarang [/providers/vllm](/providers/vllm).
 
 ### Local proxies (LM Studio, vLLM, LiteLLM, etc.)
 
@@ -307,5 +338,3 @@ openclaw models list
 ```
 
 See also: [/gateway/configuration](/gateway/configuration) for full configuration examples.
-
-

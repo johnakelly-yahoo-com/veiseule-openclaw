@@ -1,4 +1,8 @@
 ---
+summary: "Översikt, funktioner och konfiguration för Feishu-bot"
+read_when:
+  - Du vill ansluta en Feishu/Lark-bot
+  - Du konfigurerar Feishu-kanalen
 title: Feishu
 ---
 
@@ -528,9 +532,9 @@ Viktiga alternativ:
 | ------------------------------------------------- | -------------------------------------------------------------------------- | --------- |
 | `channels.feishu.enabled`                         | Aktivera/inaktivera kanal                                                  | `true`    |
 | `channels.feishu.domain`                          | API-domän (`feishu` eller `lark`)                       | `feishu`  |
-| `channels.feishu.accounts.<id>.appId`             | App ID                                                                     | -         |
-| `channels.feishu.accounts.<id>.appSecret`         | App Secret                                                                 | -         |
-| `channels.feishu.accounts.<id>.domain`            | Åsidosättning av API-domän per konto                                       | `feishu`  |
+| `channels.feishu.accounts.&lt;id&gt;.appId`             | App ID                                                                     | -         |
+| `channels.feishu.accounts.&lt;id&gt;.appSecret`         | App Secret                                                                 | -         |
+| `channels.feishu.accounts.&lt;id&gt;.domain`            | Åsidosättning av API-domän per konto                                       | `feishu`  |
 | `channels.feishu.dmPolicy`                        | DM-policy                                                                  | `pairing` |
 | `channels.feishu.allowFrom`                       | DM-tillåtelselista (open_id-lista) | -         |
 | `channels.feishu.groupPolicy`                     | Grupppolicy                                                                | `open`    |
@@ -574,5 +578,3 @@ Viktiga alternativ:
 - ✅ Filer
 - ✅ Ljud
 - ⚠️ Rik text (begränsat stöd)
-
-

@@ -1,5 +1,7 @@
 ---
-title: "Sandkasseisolering"
+summary: "Sådan fungerer OpenClaw sandboxing: tilstande, omfang, workspace-adgang og images"
+title: Sandkasseisolering
+read_when: "Du vil have en dedikeret forklaring af sandboxing eller skal finjustere agents.defaults.sandbox."
 status: active
 ---
 
@@ -71,6 +73,11 @@ Globale og per-agent bindinger er **sammenflettede** (ikke erstattet). Under `sc
 
 Eksempel (skrivebeskyttet kilde + docker socket):
 
+- Når sat (inklusive `[]`), erstatter det `agents.defaults.sandbox.docker.binds` for browser-containeren.
+- Når udeladt, falder browser-containeren tilbage til `agents.defaults.sandbox.docker.binds` (bagudkompatibelt).
+
+Sikkerhedsnoter:
+
 ```json5
 {
   agents: {
@@ -134,7 +141,7 @@ Docker-installationer og den containeriserede gateway findes her:
 `setupCommand` kører **en gang** efter sandkassen er oprettet (ikke på hver kørsel).
 Det udfører inde i beholderen via `sh -lc`.
 
-Stier:
+Almindelige faldgruber:
 
 - Global: `agents.defaults.sandbox.docker.setupCommand`
 - Per-agent: `agents.list[].sandbox.docker.setupCommand`
@@ -162,13 +169,13 @@ Fejlfinding:
 - Se [Sandkasse vs værktøjspolitik vs forhøjet](/gateway/sandbox-vs-tool-policy-vs-elevated) for “hvorfor er denne blokeret?” mental model.
   Hold den låst nede.
 
-## Multi-agent-tilsidesættelser
+## Minimal aktiveringseksempel
 
 Hver agent kan tilsidesætte sandkasse + værktøjer:
 `agents.list[].sandbox` og `agents.list[].tools` (plus `agents.list[].tools.sandbox.tools` for sandkasse værktøjspolitik).
 Se [Multi-Agent Sandbox & Værktøjer](/tools/multi-agent-sandbox-tools) for forrang.
 
-## Minimal aktiveringseksempel
+## Relaterede dokumenter
 
 ```json5
 {
@@ -189,5 +196,3 @@ Se [Multi-Agent Sandbox & Værktøjer](/tools/multi-agent-sandbox-tools) for for
 - [Sandbox-konfiguration](/gateway/configuration#agentsdefaults-sandbox)
 - [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools)
 - [Sikkerhed](/gateway/security)
-
-

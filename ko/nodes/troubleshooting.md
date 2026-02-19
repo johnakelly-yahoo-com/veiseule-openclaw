@@ -1,4 +1,8 @@
 ---
+summary: "노드 페어링, 포그라운드 요구 사항, 권한, 도구 실패 문제 해결"
+read_when:
+  - 노드는 연결되어 있지만 camera/canvas/screen/exec 도구가 실패하는 경우
+  - 노드 페어링과 승인에 대한 정신 모델이 필요한 경우
 title: "노드 문제 해결"
 ---
 
@@ -106,5 +110,3 @@ openclaw logs --follow
 - [/nodes/location-command](/nodes/location-command)
 - [/tools/exec-approvals](/tools/exec-approvals)
 - [/gateway/pairing](/gateway/pairing)
-
-

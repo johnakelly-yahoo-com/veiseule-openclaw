@@ -1,4 +1,8 @@
 ---
+summary: "واجهة تحكّم قائمة على المتصفح لـ Gateway (الدردشة، العُقد، التهيئة)"
+read_when:
+  - تريد تشغيل Gateway من المتصفح
+  - تريد وصول Tailnet دون أنفاق SSH
 title: "واجهة التحكّم"
 ---
 
@@ -60,7 +64,7 @@ openclaw devices approve <requestId>
 
 - الدردشة مع النموذج عبر Gateway WS (`chat.history`, `chat.send`, `chat.abort`, `chat.inject`)
 - بثّ استدعاءات الأدوات + بطاقات إخراج الأدوات الحية في الدردشة (أحداث الوكيل)
-- القنوات: حالة قنوات WhatsApp/Telegram/Discord/Slack + قنوات الإضافات (Mattermost، إلخ) + تسجيل الدخول عبر QR + تهيئة لكل قناة (`channels.status`, `web.login.*`, `config.patch`) حالة + تسجيل الدخول QR + لكل قناة تهيئة (`channels.status`, `web.login.*`, `config.patch`)
+- القنوات: حالة قنوات WhatsApp/Telegram/Discord/Slack + قنوات الإضافات (Mattermost، إلخ) + تسجيل الدخول عبر QR + تهيئة لكل قناة (`channels.status`, `web.login.*`, `config.patch`) القنوات: حالة قنوات WhatsApp/Telegram/Discord/Slack + قنوات الإضافات (Mattermost، إلخ) + تسجيل الدخول عبر QR + تهيئة لكل قناة (`channels.status`, `web.login.*`, `config.patch`) حالة + تسجيل الدخول QR + لكل قناة تهيئة (`channels.status`, `web.login.*`, `config.patch`)
 - المثيلات: قائمة الحضور + تحديث (`system-presence`)
 - الجلسات: قائمة + تجاوزات التفكير/الوضع المطوّل لكل جلسة (`sessions.list`, `sessions.patch`)
 - مهام Cron: سرد/إضافة/تشغيل/تمكين/تعطيل + سجل التشغيل (`cron.*`)
@@ -217,5 +221,3 @@ http://localhost:5173/?gatewayUrl=wss://<gateway-host>:18789&token=<gateway-toke
 ```
 
 تفاصيل إعداد الوصول البعيد: [الوصول البعيد](/gateway/remote).
-
-

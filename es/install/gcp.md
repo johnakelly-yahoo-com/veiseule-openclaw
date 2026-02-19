@@ -1,4 +1,9 @@
 ---
+summary: "Ejecute OpenClaw Gateway 24/7 en una VM de GCP Compute Engine (Docker) con estado duradero"
+read_when:
+  - Quiere OpenClaw funcionando 24/7 en GCP
+  - Quiere un Gateway siempre activo, de nivel producción, en su propia VM
+  - Quiere control total sobre la persistencia, los binarios y el comportamiento de reinicio
 title: "GCP"
 ---
 
@@ -497,5 +502,3 @@ Vea [https://cloud.google.com/iam/docs/understanding-roles](https://cloud.google
 - Configure canales de mensajería: [Channels](/channels)
 - Empareje dispositivos locales como nodos: [Nodes](/nodes)
 - Configure el Gateway: [Gateway configuration](/gateway/configuration)
-
-

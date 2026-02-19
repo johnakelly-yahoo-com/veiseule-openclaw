@@ -1,17 +1,15 @@
 ---
-title: Amazon Bedrock
-x-i18n:
-  generated_at: "2026-02-03T10:04:01Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 318f1048451a1910b70522e2f7f9dfc87084de26d9e3938a29d372eed32244a8
-  source_path: providers/bedrock.md
-  workflow: 15
+summary: "在 OpenClaw 中使用 Amazon Bedrock（Converse API）模型"
+read_when:
+  - 你想在 OpenClaw 中使用 Amazon Bedrock 模型
+  - 你需要为模型调用配置 AWS 凭证/区域
+title: "Amazon Bedrock"
 ---
 
 # Amazon Bedrock
 
-OpenClaw 可以通过 pi‑ai 的 **Bedrock Converse** 流式提供商使用 **Amazon Bedrock** 模型。Bedrock 认证使用 **AWS SDK 默认凭证链**，而非 API 密钥。
+OpenClaw 可以通过 pi‑ai 的 **Bedrock Converse** 流式提供商使用 **Amazon Bedrock** 模型。Bedrock 认证使用 **AWS SDK 默认凭证链**，而非 API 密钥。 Bedrock auth uses the **AWS SDK default credential chain**,
+not an API key.
 
 ## pi‑ai 支持的功能
 
@@ -22,7 +20,8 @@ OpenClaw 可以通过 pi‑ai 的 **Bedrock Converse** 流式提供商使用 **A
 
 ## 自动模型发现
 
-如果检测到 AWS 凭证，OpenClaw 可以自动发现支持**流式传输**和**文本输出**的 Bedrock 模型。发现功能使用 `bedrock:ListFoundationModels`，并会被缓存（默认：1 小时）。
+如果检测到 AWS 凭证，OpenClaw 可以自动发现支持**流式传输**和**文本输出**的 Bedrock 模型。发现功能使用 `bedrock:ListFoundationModels`，并会被缓存（默认：1 小时）。 Discovery uses
+`bedrock:ListFoundationModels` and is cached (default: 1 hour).
 
 配置选项位于 `models.bedrockDiscovery` 下：
 
@@ -99,8 +98,10 @@ export AWS_BEARER_TOKEN_BEDROCK="..."
 ## EC2 实例角色
 
 当在附加了 IAM 角色的 EC2 实例上运行 OpenClaw 时，AWS SDK 会自动使用实例元数据服务（IMDS）进行认证。但是，OpenClaw 的凭证检测目前只检查环境变量，不检查 IMDS 凭证。
+However, OpenClaw's credential detection currently only checks for environment
+variables, not IMDS credentials.
 
-**解决方法：** 设置 `AWS_PROFILE=default` 以表明 AWS 凭证可用。实际认证仍然通过 IMDS 使用实例角色。
+**解决方法：** 设置 `AWS_PROFILE=default` 以表明 AWS 凭证可用。实际认证仍然通过 IMDS 使用实例角色。 The actual authentication still uses the instance role via IMDS.
 
 ```bash
 # 添加到 ~/.bashrc 或你的 shell 配置文件
@@ -164,5 +165,3 @@ openclaw models list
 - OpenClaw 按以下顺序获取凭证来源：`AWS_BEARER_TOKEN_BEDROCK`，然后是 `AWS_ACCESS_KEY_ID` + `AWS_SECRET_ACCESS_KEY`，然后是 `AWS_PROFILE`，最后是默认的 AWS SDK 链。
 - 推理支持取决于模型；请查看 Bedrock 模型卡了解当前功能。
 - 如果你更喜欢托管密钥流程，也可以在 Bedrock 前面放置一个 OpenAI 兼容的代理，并将其配置为 OpenAI 提供商。
-
-

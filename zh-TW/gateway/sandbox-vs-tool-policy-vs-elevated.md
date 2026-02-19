@@ -1,5 +1,7 @@
 ---
 title: 沙箱 vs 工具政策 vs Elevated
+summary: "為什麼工具會被封鎖：沙箱執行期、工具允許／拒絕政策，以及 Elevated 執行閘門"
+read_when: "你遇到「sandbox jail」或看到工具／elevated 被拒，並想知道要修改的確切設定鍵時。"
 status: active
 ---
 
@@ -22,10 +24,10 @@ openclaw sandbox explain --agent work
 openclaw sandbox explain --json
 ```
 
-它會顯示：
+It prints:
 
 - 生效中的沙箱模式／範圍／工作區存取
-- 目前工作階段是否在沙箱中執行（main 與 non-main）
+- whether the session is currently sandboxed (main vs non-main)
 - 生效中的沙箱工具允許／拒絕（以及來源是 agent／global／default）
 - Elevated 閘門與修正用的設定鍵路徑
 
@@ -37,12 +39,12 @@ openclaw sandbox explain --json
 - `"non-main"`：只有非 main 工作階段會被沙箱隔離（群組／頻道常見的「驚喜」）。
 - `"all"`：所有東西都在沙箱中。
 
-請參閱 [Sandboxing](/gateway/sandboxing) 以了解完整矩陣（範圍、工作區掛載、映像）。
+See [Sandboxing](/gateway/sandboxing) for the full matrix (scope, workspace mounts, images).
 
 ### Bind mounts（安全性快速檢查）
 
 - `docker.binds` 會「穿透」沙箱檔案系統：你掛載的內容會依你設定的模式（`:ro` 或 `:rw`）在容器內可見。
-- 若省略模式，預設為讀寫；對於原始碼／機密資料，建議使用 `:ro`。
+- Default is read-write if you omit the mode; prefer `:ro` for source/secrets.
 - `scope: "shared"` 會忽略每個 agent 的綁定（只套用全域綁定）。
 - 綁定 `/var/run/docker.sock` 等同於把主機控制權交給沙箱；僅在有意識下使用。
 - 工作區存取（`workspaceAccess: "ro"`/`"rw"`）與 bind 模式是獨立的。
@@ -57,12 +59,12 @@ openclaw sandbox explain --json
 - **Provider 工具政策**：`tools.byProvider[provider].allow/deny` 與 `agents.list[].tools.byProvider[provider].allow/deny`
 - **Sandbox 工具政策**（僅在沙箱中套用）：`tools.sandbox.tools.allow`/`tools.sandbox.tools.deny` 與 `agents.list[].tools.sandbox.tools.*`
 
-經驗法則：
+Rules of thumb:
 
-- `deny` 永遠優先生效。
+- `deny` always wins.
 - 若 `allow` 非空，其他一切都會被視為封鎖。
 - 工具政策是硬性阻擋：`/exec` 無法覆寫被拒絕的 `exec` 工具。
-- `/exec` 只會變更已授權傳送者的工作階段預設值；它不會授予工具存取權限。
+- `/exec` only changes session defaults for authorized senders; it does not grant tool access.
   `/exec` 只會改變已授權寄件者的工作階段預設值；它不會授予工具存取權。
   Provider 工具鍵可接受 `provider`（例如 `google-antigravity`）或 `provider/model`（例如 `openai/gpt-5.2`）。
 
@@ -100,9 +102,9 @@ Elevated **不會** 授予額外工具；它只影響 `exec`。
 
 - 若你被沙箱隔離，`/elevated on`（或搭配 `elevated: true` 的 `exec`）會在主機上執行（仍可能需要核准）。
 - 使用 `/elevated full` 可略過該工作階段的 exec 核准。
-- 如果你已經以 direct 模式執行，elevated 實際上不會產生效果（仍會受到管控）。
+- If you’re already running direct, elevated is effectively a no-op (still gated).
 - Elevated **不** 以 Skills 為範圍，且 **不** 覆寫工具的允許／拒絕。
-- `/exec` is separate from elevated. 37. 它只會為已授權的傳送者調整每個 session 的 exec 預設值。
+- `/exec` is separate from elevated. 它只會為已授權的傳送者調整每個 session 的 exec 預設值。
 
 閘門：
 
@@ -125,5 +127,3 @@ Elevated **不會** 授予額外工具；它只影響 `exec`。
 ### 「我以為這是 main，為什麼會被沙箱隔離？」
 
 In `"non-main"` mode, group/channel keys are _not_ main. Use the main session key (shown by `sandbox explain`) or switch mode to `"off"`.
-
-

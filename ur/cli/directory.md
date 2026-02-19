@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw directory` کے لیے CLI حوالہ (خود، ہم منصب، گروپس)"
+read_when:
+  - جب آپ کسی چینل کے لیے رابطہ/گروپس/خود کی آئی ڈیز دیکھنا چاہتے ہوں
+  - جب آپ چینل ڈائریکٹری اڈاپٹر تیار کر رہے ہوں
 title: "ڈائریکٹری"
 ---
 
@@ -57,5 +61,3 @@ openclaw directory groups list --channel zalouser
 openclaw directory groups list --channel zalouser --query "work"
 openclaw directory groups members --channel zalouser --group-id <id>
 ```
-
-

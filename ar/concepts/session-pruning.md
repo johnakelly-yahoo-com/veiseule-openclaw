@@ -1,4 +1,10 @@
-------
+---
+title: "تشذيب الجلسات"
+summary: "تشذيب الجلسات: تقليم نتائج الأدوات لتقليل تضخّم السياق"
+read_when:
+  - تريد تقليل نمو سياق نماذج LLM الناتج عن مخرجات الأدوات
+  - تقوم بضبط agents.defaults.contextPruning
+---
 
 # تشذيب الجلسات
 
@@ -115,5 +121,3 @@
 ```
 
 انظر مرجع التهيئة: [Gateway Configuration](/gateway/configuration)
-
-

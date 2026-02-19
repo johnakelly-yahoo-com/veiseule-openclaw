@@ -1,4 +1,10 @@
 ---
+summary: "รัน OpenClaw Gateway ตลอด 24/7 บน VPS ราคาประหยัดของ Hetzner (Docker) พร้อมสถานะที่คงทนและไบนารีที่ฝังมาในอิมเมจ"
+read_when:
+  - คุณต้องการให้ OpenClaw ทำงานตลอด 24/7 บน VPS บนคลาวด์ (ไม่ใช่บนแล็ปท็อปของคุณ)
+  - คุณต้องการ Gateway ระดับโปรดักชันที่เปิดใช้งานตลอดเวลาบน VPS ของคุณเอง
+  - คุณต้องการควบคุมการคงอยู่ของข้อมูล ไบนารี และพฤติกรรมการรีสตาร์ตได้อย่างเต็มที่
+  - คุณกำลังรัน OpenClaw ใน Docker บน Hetzner หรือผู้ให้บริการที่คล้ายกัน
 title: "Hetzner"
 ---
 
@@ -25,6 +31,7 @@ If you want “OpenClaw 24/7 for ~$5”, this is the simplest reliable setup.
 - การทำ SSH port forwarding จากแล็ปท็อปของคุณ
 - การเปิดพอร์ตโดยตรง หากคุณจัดการไฟร์วอลล์และโทเคนเอง
 
+This guide assumes Ubuntu or Debian on Hetzner.  
 คู่มือนี้สมมติว่าคุณใช้ Ubuntu หรือ Debian บน Hetzner
 If you are on another Linux VPS, map packages accordingly.
 For the generic Docker flow, see [Docker](/install/docker).
@@ -52,7 +59,7 @@ For the generic Docker flow, see [Docker](/install/docker).
 - เวลาประมาณ ~20 นาที
 - Docker และ Docker Compose
 - ข้อมูลรับรองการยืนยันตัวตนของโมเดล
-- ข้อมูลรับรองของผู้ให้บริการ (ไม่บังคับ)
+- Optional provider credentials
   - QR ของ WhatsApp
   - โทเคนบอต Telegram
   - Gmail OAuth
@@ -71,6 +78,7 @@ ssh root@YOUR_VPS_IP
 
 คู่มือนี้สมมติว่า VPS มีสถานะถาวร  
 อย่าปฏิบัติกับมันเหมือนโครงสร้างพื้นฐานแบบใช้แล้วทิ้ง
+Do not treat it as disposable infrastructure.
 Do not treat it as disposable infrastructure.
 
 ---
@@ -331,4 +339,23 @@ OpenClawรันในDockerแต่Dockerไม่ใช่แหล่งอ
 | แพ็กเกจ OS                 | ไฟล์ระบบของคอนเทนเนอร์            | อิมเมจ Docker         | อย่าติดตั้งตอนรันไทม์          |
 | คอนเทนเนอร์ Docker         | Ephemeral                         | รีสตาร์ตได้           | ทำลายได้อย่างปลอดภัย           |
 
+---
 
+## Infrastructure as Code (Terraform)
+
+สำหรับทีมที่ต้องการเวิร์กโฟลว์แบบ infrastructure-as-code การตั้งค่า Terraform ที่ดูแลโดยชุมชนมีสิ่งต่อไปนี้ให้:
+
+- การตั้งค่า Terraform แบบโมดูลาร์พร้อมการจัดการ remote state
+- การจัดเตรียมระบบอัตโนมัติผ่าน cloud-init
+- สคริปต์สำหรับการดีพลอย (bootstrap, deploy, backup/restore)
+- การเสริมความปลอดภัยของระบบ (firewall, UFW, การเข้าถึงผ่าน SSH เท่านั้น)
+- การตั้งค่า SSH tunnel สำหรับการเข้าถึง gateway
+
+**Repositories:**
+
+- Infrastructure: [openclaw-terraform-hetzner](https://github.com/andreesg/openclaw-terraform-hetzner)
+- Docker config: [openclaw-docker-config](https://github.com/andreesg/openclaw-docker-config)
+
+แนวทางนี้ช่วยเสริมการตั้งค่า Docker ข้างต้นด้วยการดีพลอยที่ทำซ้ำได้ โครงสร้างพื้นฐานที่ควบคุมเวอร์ชัน และการกู้คืนความเสียหายอัตโนมัติ
+
+> **หมายเหตุ:** ดูแลโดยชุมชน สำหรับปัญหาหรือการมีส่วนร่วม โปรดดูที่ลิงก์ repository ด้านบน

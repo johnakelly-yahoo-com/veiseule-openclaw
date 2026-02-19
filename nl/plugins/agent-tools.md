@@ -1,4 +1,8 @@
 ---
+summary: "Schrijf agent-tools in een plugin (schema’s, optionele tools, toegestane lijsten)"
+read_when:
+  - Je wilt een nieuwe agent-tool toevoegen in een plugin
+  - Je moet een tool opt-in maken via toegestane lijsten
 title: "Plugin Agent Tools"
 ---
 
@@ -93,5 +97,3 @@ Andere config-opties die de beschikbaarheid van tools beïnvloeden:
 - Plugin-id’s die in toegestane lijsten worden gebruikt, mogen niet botsen met namen van kern-tools.
 - Geef de voorkeur aan `optional: true` voor tools die neveneffecten veroorzaken of extra
   binaries/referenties vereisen.
-
-

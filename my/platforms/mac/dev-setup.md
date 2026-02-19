@@ -1,4 +1,7 @@
 ---
+summary: "OpenClaw macOS အက်ပ်ပေါ်တွင် လုပ်ကိုင်နေသော developer များအတွက် တပ်ဆင်မှု လမ်းညွှန်"
+read_when:
+  - macOS ဖွံ့ဖြိုးရေး ပတ်ဝန်းကျင်ကို တပ်ဆင်နေစဉ်
 title: "macOS ဖွံ့ဖြိုးရေး ဆက်တင်"
 ---
 
@@ -86,7 +89,7 @@ xcrun swift --version
 
 2. အထက်ပါနည်းလမ်း မအောင်မြင်ပါက macOS တွင် "clean slate" ရရှိစေရန် [`scripts/package-mac-app.sh`](https://github.com/openclaw/openclaw/blob/main/scripts/package-mac-app.sh) အတွင်းရှိ `BUNDLE_ID` ကို ယာယီ ပြောင်းလဲပါ။
 
-### Gateway "Starting..." အဖြစ် အဆုံးမရှိ ပြသနေသည်
+### Gateway "Starting..." indefinitely
 
 6. Gateway status သည် "Starting..." မှာပဲ ရပ်နေပါက zombie process တစ်ခုက port ကို ထိန်းထားနေခြင်း ရှိ/မရှိ စစ်ဆေးပါ။
 
@@ -99,5 +102,3 @@ lsof -nP -iTCP:18789 -sTCP:LISTEN
 ```
 
 7. Manual run တစ်ခုက port ကို ထိန်းထားနေပါက ထို process ကို ရပ်တန့်ပါ (Ctrl+C)။ 8. နောက်ဆုံးနည်းလမ်းအဖြစ် အထက်တွင် တွေ့ထားသော PID ကို kill လုပ်ပါ။
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "參考：提供者特定的逐字稿清理與修復規則"
+read_when:
+  - 你正在除錯與逐字稿結構相關的供應商請求拒絕問題
+  - 你正在變更逐字稿清理或工具呼叫修復邏輯
+  - 你正在調查跨提供者的工具呼叫 id 不一致問題
 title: "逐字稿衛生"
 ---
 
@@ -14,6 +19,7 @@ title: "逐字稿衛生"
 - 回合驗證／排序
 - 思考簽章清理
 - 影像負載清理
+- 使用者輸入來源標記（適用於跨會話路由的提示）
 
 如果你需要逐字稿儲存的詳細資訊，請參閱：
 
@@ -57,6 +63,23 @@ title: "逐字稿衛生"
 
 - `sanitizeToolCallInputs`（位於 `src/agents/session-transcript-repair.ts`）
 - 套用於 `sanitizeSessionHistory`（位於 `src/agents/pi-embedded-runner/google.ts`）
+
+---
+
+## 全域規則：跨會話輸入來源
+
+當代理透過 `sessions_send`（包括
+agent 對 agent 的 reply/announce 步驟）將提示傳送至另一個會話時，OpenClaw 會在建立的使用者回合中持久化以下資訊：
+
+- `message.provenance.kind = "inter_session"`
+
+此中繼資料會在附加至對話記錄時寫入，且不會變更角色
+（為了相容 provider，`role: "user"` 仍維持不變）。 對話記錄讀取器可使用
+此資訊，避免將路由的內部提示誤判為終端使用者撰寫的指示。
+
+在重建上下文期間，OpenClaw 也會在記憶體中於這些使用者回合前加上簡短的 `[Inter-session message]`
+標記，使模型能將其與
+外部終端使用者指示區分開來。
 
 ---
 
@@ -114,5 +137,3 @@ title: "逐字稿衛生"
 
 這種複雜性導致跨供應商的回歸問題（尤其是 `openai-responses`
 `call_id|fc_id` 配對）。 2026.1.22 的清理移除了該擴充，將邏輯集中於 runner，並使 OpenAI 在影像清理之外 **不需觸碰**。
-
-

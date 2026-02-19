@@ -1,4 +1,8 @@
 ---
+summary: "CLI reference para sa `openclaw channels` (mga account, status, login/logout, mga log)"
+read_when:
+  - Gusto mong magdagdag/mag-alis ng mga channel account (WhatsApp/Telegram/Discord/Google Chat/Slack/Mattermost (plugin)/Signal/iMessage)
+  - Gusto mong tingnan ang status ng channel o mag-tail ng mga log ng channel
 title: "channels"
 ---
 
@@ -73,5 +77,3 @@ Mga tala:
 
 - Gamitin ang `--kind user|group|auto` para pilitin ang target type.
 - Mas pinipili ng resolution ang mga aktibong tugma kapag maraming entry ang may parehong pangalan.
-
-

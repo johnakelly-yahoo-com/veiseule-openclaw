@@ -1,4 +1,7 @@
 ---
+summary: "كيفية قيام تطبيق macOS بالإبلاغ عن حالات سلامة Gateway/Baileys"
+read_when:
+  - تصحيح مؤشرات سلامة تطبيق mac
 title: "الفحص الصحي"
 ---
 
@@ -29,5 +32,3 @@ title: "الفحص الصحي"
 ## عند الشك
 
 - لا يزال بإمكانك استخدام تدفّق CLI في [سلامة Gateway](/gateway/health) (`openclaw status`، `openclaw status --deep`، `openclaw health --json`) ومتابعة `/tmp/openclaw/openclaw-*.log` لـ `web-heartbeat` / `web-reconnect`.
-
-

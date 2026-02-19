@@ -1,8 +1,13 @@
 ---
-title: "Bağlam"
+summary: "Bağlam: modelin ne gördüğü, nasıl oluşturulduğu ve nasıl inceleneceği"
+read_when:
+  - OpenClaw’da “bağlam”ın ne anlama geldiğini anlamak istiyorsunuz
+  - Modelin neden bir şeyi “bildiğini” (ya da unuttuğunu) ayıklıyorsunuz
+  - Bağlam yükünü azaltmak istiyorsunuz (/context, /status, /compact)
+title: "Context"
 ---
 
-# Bağlam
+# Context
 
 “Bağlam”, **OpenClaw’un bir çalıştırma için modele gönderdiği her şeydir**. Modelin **bağlam penceresi** (token sınırı) ile sınırlıdır.
 
@@ -71,7 +76,7 @@ Top tools (schema size):
 … (+N more tools)
 ```
 
-## Bağlam penceresine neler dahil edilir
+## What counts toward the context window
 
 Modelin aldığı her şey dahildir; buna şunlar da dahil:
 
@@ -107,7 +112,7 @@ Varsayılan olarak OpenClaw, (varsa) sabit bir çalışma alanı dosyaları küm
 - `HEARTBEAT.md`
 - `BOOTSTRAP.md` (yalnızca ilk çalıştırma)
 
-Büyük dosyalar dosya başına `agents.defaults.bootstrapMaxChars` kullanılarak kesilir (varsayılan `20000` karakter). `/context`, **ham vs enjekte edilen** boyutları ve kesme olup olmadığını gösterir.
+Büyük dosyalar dosya başına `agents.defaults.bootstrapMaxChars` kullanılarak kesilir (varsayılan `20000` karakter). OpenClaw ayrıca dosyalar genelinde toplam bootstrap enjeksiyon sınırını `agents.defaults.bootstrapTotalMaxChars` (varsayılan `24000` karakter) ile zorunlu kılar. `/context`, **ham vs enjekte edilen** boyutları ve kesme olup olmadığını gösterir.
 
 ## Skills: enjekte edilenler vs isteğe bağlı yüklenenler
 
@@ -154,5 +159,3 @@ Belgeler: [Session](/concepts/session), [Compaction](/concepts/compaction), [Ses
 - `System prompt (estimate)` = bir çalıştırma raporu yoksa (ya da rapor üretmeyen bir CLI arka ucu üzerinden çalıştırılıyorsa) anında hesaplanır.
 
 Her iki durumda da boyutları ve en büyük katkıda bulunanları raporlar; tam sistem istemini veya araç şemalarını **dökmez**.
-
-

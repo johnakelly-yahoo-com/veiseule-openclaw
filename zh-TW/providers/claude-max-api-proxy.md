@@ -1,21 +1,26 @@
 ---
+summary: "將 Claude Max/Pro 訂閱作為 OpenAI 相容的 API 端點使用"
+read_when:
+  - 你想要將 Claude Max 訂閱與 OpenAI 相容的工具一起使用
+  - 你想要一個包裝 Claude Code CLI 的本機 API 伺服器
+  - 你想要透過訂閱而非 API 金鑰來節省成本
 title: "Claude Max API Proxy"
 ---
 
 # Claude Max API Proxy
 
-**claude-max-api-proxy** 是一個社群工具，能將你的 Claude Max/Pro 訂閱公開為一個 OpenAI 相容的 API 端點。這讓你可以在任何支援 OpenAI API 格式的工具中使用你的訂閱。 This allows you to use your subscription with any tool that supports the OpenAI API format.
+**claude-max-api-proxy** 是一個社群工具，能將你的 Claude Max/Pro 訂閱公開為一個 OpenAI 相容的 API 端點。這讓你可以在任何支援 OpenAI API 格式的工具中使用你的訂閱。 This allows you to use your subscription with any tool that supports the OpenAI API format. This allows you to use your subscription with any tool that supports the OpenAI API format.
 
 ## 為什麼要使用？
 
-| 方案            | 成本                                                                                     | 最適合                          |
-| ------------- | -------------------------------------------------------------------------------------- | ---------------------------- |
-| Anthropic API | 按 token 計費（Opus 約 $15/M 輸入，$75/M 輸出） | 正式環境應用程式，高流量 |
-| Claude Max 訂閱 | 每月 $200 固定費用                                                                           | 個人使用、開發、無限使用                 |
+| 方案            | 成本                                   | 最適合                          |
+| ------------- | ------------------------------------ | ---------------------------- |
+| Anthropic API | 按 token 計費（Opus 約 $15/M 輸入，$75/M 輸出） | Production apps, high volume |
+| Claude Max 訂閱 | 每月 $200 固定費用                         | 個人使用、開發、無限使用                 |
 
 如果你已經擁有 Claude Max 訂閱，並希望將它用於 OpenAI 相容的工具，這個 Proxy 可以為你節省可觀的費用。
 
-## 運作方式
+## How It Works
 
 ```
 Your App → claude-max-api-proxy → Claude Code CLI → Anthropic (via subscription)
@@ -85,7 +90,7 @@ curl http://localhost:3456/v1/chat/completions \
 
 ## 可用模型
 
-| 模型 ID             | 對應至         |
+| 模型 ID             | Maps To         |
 | ----------------- | --------------- |
 | `claude-opus-4`   | Claude Opus 4   |
 | `claude-sonnet-4` | Claude Sonnet 4 |
@@ -141,5 +146,3 @@ launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.claude-max-api.plist
 
 - [Anthropic provider](/providers/anthropic) - 使用 setup-token 或 API 金鑰的原生 OpenClaw Claude 整合
 - [OpenAI provider](/providers/openai) - 適用於 OpenAI/Codex 訂閱
-
-

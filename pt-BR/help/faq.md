@@ -1,4 +1,5 @@
 ---
+summary: "Perguntas frequentes sobre configuração, instalação e uso do OpenClaw"
 title: "Perguntas frequentes"
 ---
 
@@ -176,7 +177,7 @@ Respostas rápidas e solução de problemas mais aprofundada para cenários do m
   - [Telegram setMyCommands falhou com erros de rede. O que devo verificar?](#telegram-setmycommands-fails-with-network-errors-what-should-i-check)
   - [TUI não mostra nenhuma saída. O que devo verificar?](#tui-shows-no-output-what-should-i-check)
   - [Como parar completamente e começar o Gateway?](#how-do-i-completely-stop-then-start-the-gateway)
-  - [Explique como se eu tivesse 5 anos: `openclaw gateway restart` vs `openclaw gateway`](#eli5-openclaw-gateway-restart-vs-openclaw-gateway)
+  - [ELI5: `openclaw gateway restart` vs `openclaw gateway`](#eli5-openclaw-gateway-restart-vs-openclaw-gateway)
   - [Qual é a maneira mais rápida de obter mais detalhes quando algo falhar?](#whats-the-fastest-way-to-get-more-details-when-something-fails)
 - [Mídia e Anexos](#media-and-attachments)
   - [Minha habilidade gerou uma imagem/PDF, mas nada foi enviado](#my-skill-generated-an-imagepdf-but-nothing-was-sent)
@@ -250,7 +251,7 @@ Respostas rápidas e solução de problemas mais aprofundada para cenários do m
 
    Reparações/migrates config/state + executa verificações de saúde. Ver [Doctor](/gateway/doctor).
 
-7. **Snapshot do Gateway**
+7. **Gateway snapshot**
 
    ```bash
    openclaw saúde --json
@@ -468,7 +469,7 @@ Veja o que mudou:
 **Beta** é o npm dist-tag `beta` (pode corresponder com `latest`).
 **Dev** é a cabeça de movimento do `main` (git); quando publicado, ele usa o npm dist-tag `dev`.
 
-Comandos de uma linha (macOS/Linux):
+One-liners (macOS/Linux):
 
 ```bash
 curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh ├bash -s -- ----beta
@@ -543,6 +544,15 @@ Para uma instalação hackeável (git):
 
 ```bash
 curl -fsSL https://openclaw.ai/install.sh £bash -s -- ----install-method git --verbose
+```
+
+Equivalente no Windows (PowerShell):
+
+```powershell
+# install.ps1 has no dedicated -Verbose flag yet.
+Set-PSDebug -Trace 1
+& ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -NoOnboard
+Set-PSDebug -Trace 0
 ```
 
 Mais opções: [Installer flags](/install/installer).
@@ -786,7 +796,9 @@ sem WhatsApp/Telegram.
 
 ### Telegram o que sai allowDe
 
-`channels.telegram.allowFrom` é **o ID de usuário do remetente humano** (numérico, recomendado) ou `@username`. Não é um nome de usuário bot.
+`channels.telegram.allowFrom` é **o ID de usuário do Telegram do remetente humano** (numérico). Não é um nome de usuário bot.
+
+O assistente de onboarding aceita entrada `@username` e a resolve para um ID numérico, mas a autorização do OpenClaw usa apenas IDs numéricos.
 
 Mais seguro (sem bot de terceiros):
 
@@ -932,7 +944,7 @@ SaaS.
 
 Destaques:
 
-- **Seus dispositivos, seus dados:** rode o Gateway onde quiser (Mac, Linux, VPS) e mantenha o espaço* histórico de sessões local.
+- **Seus dispositivos, seus dados:** rode o Gateway onde quiser (Mac, Linux, VPS) e mantenha o espaço\* histórico de sessões local.
 - **Canais reais, não uma sandbox web:** WhatsApp/Telegram/Slack/Discord/Signal/iMessage/etc,
   mais voz móvel e tela nas plataformas suportadas.
 - **Model-agnostic:** use Anthropic, OpenAI, MiniMax, OpenRouter, etc com o roteamento por agente
@@ -1261,12 +1273,12 @@ Tudo mora abaixo de `$OPENCLAW_STATE_DIR` (padrão: `~/.openclaw`):
 | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
 | `$OPENCLAW_STATE_DIR/openclaw.json`                             | Configuração principal (JSON5)                                           |
 | `$OPENCLAW_STATE_DIR/credentials/oauth.json`                    | Importação de OAuth antiga (copiada para perfis de auth no primeiro uso) |
-| `$OPENCLAW_STATE_DIR/agents/<agentId>/agent/auth-profiles.json` | Perfis de autenticação (OAuth + chaves de API)                           |
-| `$OPENCLAW_STATE_DIR/agents/<agentId>/agent/auth.json`          | Cache de autenticação de tempo de execução (gerenciado automaticamente)  |
+| `$OPENCLAW_STATE_DIR/agents/&lt;agentId&gt;/agent/auth-profiles.json` | Perfis de autenticação (OAuth + chaves de API)                           |
+| `$OPENCLAW_STATE_DIR/agents/&lt;agentId&gt;/agent/auth.json`          | Cache de autenticação de tempo de execução (gerenciado automaticamente)  |
 | `$OPENCLAW_STATE_DIR/credentials/`                              | Estado do provedor (por exemplo, `whatsapp/<accountId>/creds.json`)      |
 | `$OPENCLAW_STATE_DIR/agents/`                                   | Estado por agente (agentDir + sessões)                                   |
-| `$OPENCLAW_STATE_DIR/agents/<agentId>/sessions/`                | Histórico e estado da conversa (por agente)                              |
-| `$OPENCLAW_STATE_DIR/agents/<agentId>/sessions/sessions.json`   | Metadados da sessão (por agente)                                         |
+| `$OPENCLAW_STATE_DIR/agents/&lt;agentId&gt;/sessions/`                | Histórico e estado da conversa (por agente)                              |
+| `$OPENCLAW_STATE_DIR/agents/&lt;agentId&gt;/sessions/sessions.json`   | Metadados da sessão (por agente)                                         |
 
 Caminho de um agente único legado: `~/.openclaw/agent/*` (migated por `openclaw doctor`).
 
@@ -1744,7 +1756,7 @@ Envie `/new` ou `/reset` como uma mensagem independente. Ver [Gerenciamento de S
 ### Fazer sessões reiniciadas automaticamente se eu nunca enviar novas
 
 Sim. Sessões expiram após `session.idleMinutes` (padrão **60**). A mensagem
-**próxima** inicia um novo id de sessão para essa chave de bate-papo. Isso não exclui transcrições* só inicia uma nova sessão.
+**próxima** inicia um novo id de sessão para essa chave de bate-papo. Isso não exclui transcrições\* só inicia uma nova sessão.
 
 ```json5
 {
@@ -2682,7 +2694,7 @@ Execute o `openclaw doctor` para desenvolver políticas DM arriscadas.
 
 ### O prompt de injeção é apenas uma preocupação para bots públicos
 
-Não. Injeção imediata é sobre **conteúdo não confiável**, e não apenas quem pode MD o bot.
+Não. Não. Injeção imediata é sobre **conteúdo não confiável**, e não apenas quem pode MD o bot.
 Se seu assistente ler conteúdo externo (busca/busca da web, páginas do navegador, e-mails,
 docs, anexos, logs colados), que conteúdo pode incluir instruções que tentem
 para sequestrar o modelo. Isso pode acontecer mesmo que **você seja o único remetente**.
@@ -2845,10 +2857,8 @@ Você pode adicionar opções como `debounce:2s cap:25 drop:summarize` para modo
 
 **P: "Qual é o modelo padrão para Anthropic com uma chave de API?"**
 
-**R:** Em OpenClaw, credenciais e seleção de modelo são separadas. Definir `ANTHROPIC_API_KEY` (ou armazenar uma chave de API Anthropic nos perfis de autenticação) permite a autenticação, mas o modelo padrão é tudo o que você configurar em 'agentes'. efaults.model.primary`(por exemplo,`anthropic/claude-sonnet-4-5`ou`anthropic/claude-opus-4-6`). Se você ver `Nenhuma credencial encontrada para o perfil "anthropic:default"`, significa que o Gateway não pôde encontrar credenciais Antrópicas nos `perfil-autor/esperados. filho\` para o agente que está correndo.
+**R:** Em OpenClaw, credenciais e seleção de modelo são separadas. Definir `ANTHROPIC_API_KEY` (ou armazenar uma chave de API Anthropic nos perfis de autenticação) permite a autenticação, mas o modelo padrão é tudo o que você configurar em 'agentes'. efaults.model.primary`(por exemplo,`anthropic/claude-sonnet-4-5`ou`anthropic/claude-opus-4-6`). Se você ver `Nenhuma credencial encontrada para o perfil "anthropic:default"`, significa que o Gateway não pôde encontrar credenciais Antrópicas nos `perfil-autor/esperados. filho\\` para o agente que está correndo.
 
 ---
 
 Ainda está travado? Pergunte no [Discord](https://discord.com/invite/clawd) ou abra uma [discussão no GitHub](https://github.com/openclaw/openclaw/discussions).
-
-

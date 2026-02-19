@@ -1,4 +1,9 @@
-------
+---
+title: "Plantilla de TOOLS.md"
+summary: "Plantilla de espacio de trabajo para TOOLS.md"
+read_when:
+  - Arranque de un espacio de trabajo manualmente
+---
 
 # TOOLS.md - Notas locales
 
@@ -40,5 +45,3 @@ Skills se comparten. Su configuración es suya. Mantenerlos separados significa 
 ---
 
 Agregue lo que le ayude a hacer su trabajo. Esta es su chuleta.
-
-

@@ -1,4 +1,5 @@
 ---
+summary: "แผน: เพิ่มเอ็นด์พอยต์ OpenResponses /v1/responses และเลิกใช้ chat completions อย่างเป็นระเบียบ"
 owner: "openclaw"
 status: "draft"
 last_updated: "2026-01-19"
@@ -118,5 +119,3 @@ spec defines `/v1/responses`, not `/v1/chat/completions`.
 
 - เพิ่มหน้าเอกสารใหม่สำหรับการใช้งานและตัวอย่างของ `/v1/responses`.
 - อัปเดต `/gateway/openai-http-api` พร้อมหมายเหตุ legacy และลิงก์ไปยัง `/v1/responses`.
-
-

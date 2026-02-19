@@ -1,4 +1,9 @@
 ---
+summary: "تشغيل OpenClaw Gateway على مدار الساعة 24/7 على جهاز GCP Compute Engine افتراضي (Docker) مع حالة دائمة"
+read_when:
+  - تريد تشغيل OpenClaw على مدار الساعة 24/7 على GCP
+  - تريد Gateway دائم التشغيل بمستوى إنتاجي على جهازك الافتراضي الخاص
+  - تريد تحكمًا كاملًا في الاستمرارية والملفات التنفيذية وسلوك إعادة التشغيل
 title: "GCP"
 ---
 
@@ -497,5 +502,3 @@ gcloud compute instances start openclaw-gateway --zone=us-central1-a
 - إعداد قنوات المراسلة: [Channels](/channels)
 - إقران الأجهزة المحلية كعُقد: [Nodes](/nodes)
 - تهيئة Gateway: [Gateway configuration](/gateway/configuration)
-
-

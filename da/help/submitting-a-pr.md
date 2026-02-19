@@ -1,4 +1,5 @@
 ---
+summary: "Sådan indsender du en PR med højt signal"
 title: "Indsendelse af en PR"
 ---
 
@@ -395,5 +396,3 @@ pnpm format
 - Submitter effort:
 - Agent notes:
 ```
-
-

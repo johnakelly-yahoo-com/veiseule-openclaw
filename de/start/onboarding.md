@@ -1,4 +1,8 @@
 ---
+summary: "„Onboarding-Ablauf beim ersten Start für OpenClaw (macOS-App)“"
+read_when:
+  - Entwurf des macOS-Onboarding-Assistenten
+  - Implementierung von Authentifizierung oder Identitätseinrichtung
 title: "„Onboarding (macOS-App)“"
 sidebarTitle: "„Onboarding: macOS-App“"
 ---
@@ -8,6 +12,7 @@ sidebarTitle: "„Onboarding: macOS-App“"
 Dieses Dokument beschreibt den **aktuellen** Onboarding-Ablauf beim ersten Start. Ziel ist ein
 reibungsloses „Tag‑0“-Erlebnis: auswählen, wo der Gateway läuft, Authentifizierung verbinden, den
 Assistenten ausführen und den Agenten sich selbst bootstrappen lassen.
+Einen allgemeinen Überblick über die Onboarding-Pfade findest du unter [Onboarding Overview](/start/onboarding-overview).
 
 <Steps>
 <Step title="Approve macOS warning">
@@ -76,5 +81,3 @@ Dieser Schritt ist optional
   Informationen dazu, was beim ersten Agentenlauf auf dem Gateway-Host passiert.
 </Step>
 </Steps>
-
-

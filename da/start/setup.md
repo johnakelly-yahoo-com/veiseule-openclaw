@@ -1,4 +1,8 @@
 ---
+summary: "Avanceret opsætning og udviklingsworkflows til OpenClaw"
+read_when:
+  - Opsætning af en ny maskine
+  - Du vil have “latest + greatest” uden at ødelægge din personlige opsætning
 title: "Opsætning"
 ---
 
@@ -156,5 +160,3 @@ brugerservice (ingen dingering nødvendig). Se [Gateway runbook](/gateway) for s
 - [Discord](/channels/discord) og [Telegram](/channels/telegram) (reply-tags + replyToMode-indstillinger)
 - [OpenClaw-assistentopsætning](/start/openclaw)
 - [macOS-app](/platforms/macos) (gateway-livscyklus)
-
-

@@ -1,18 +1,23 @@
 ---
-title: "Installer Internals"
+summary: "安裝程式腳本（install.sh、install-cli.sh、install.ps1）的運作方式、旗標與自動化"
+read_when:
+  - 你想了解 `openclaw.ai/install.sh`
+  - 你想自動化安裝（CI／無互動）
+  - 你想從 GitHub 檢出內容進行安裝
+title: "安裝程式內部機制"
 ---
 
-# Installer internals
+# 42. 安裝程式內部機制
 
-OpenClaw ships three installer scripts, served from `openclaw.ai`.
+OpenClaw 提供三個安裝程式腳本，皆由 `openclaw.ai` 提供。
 
-| Script                             | Platform             | What it does                                                                                 |
-| ---------------------------------- | -------------------- | -------------------------------------------------------------------------------------------- |
-| [`install.sh`](#installsh)         | macOS / Linux / WSL  | Installs Node if needed, installs OpenClaw via npm (default) or git, and can run onboarding. |
-| [`install-cli.sh`](#install-clish) | macOS / Linux / WSL  | Installs Node + OpenClaw into a local prefix (`~/.openclaw`). No root required.              |
-| [`install.ps1`](#installps1)       | Windows (PowerShell) | Installs Node if needed, installs OpenClaw via npm (default) or git, and can run onboarding. |
+| 43. 腳本      | 平台                  | What it does                                             |
+| ---------------------------------- | ------------------- | -------------------------------------------------------- |
+| [`install.sh`](#installsh)         | macOS／Linux／WSL     | 視需要安裝 Node，透過 npm（預設）或 git 安裝 OpenClaw，並可執行入門引導。         |
+| [`install-cli.sh`](#install-clish) | macOS／Linux／WSL     | 將 Node 與 OpenClaw 安裝到本機前綴目錄（`~/.openclaw`）。 不需要 root 權限。 |
+| [`install.ps1`](#installps1)       | Windows（PowerShell） | 視需要安裝 Node，透過 npm（預設）或 git 安裝 OpenClaw，並可執行入門引導。         |
 
-## Quick commands
+## 快速指令
 
 <Tabs>
   <Tab title="install.sh">
@@ -20,9 +25,13 @@ OpenClaw ships three installer scripts, served from `openclaw.ai`.
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash
     ```
 
+    `````
+    ````
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash -s -- --help
     ```
+    ````
+    `````
 
   
 </Tab>
@@ -31,9 +40,13 @@ OpenClaw ships three installer scripts, served from `openclaw.ai`.
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install-cli.sh | bash
     ```
 
+    `````
+    ````
     ```bash
     curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install-cli.sh | bash -s -- --help
     ```
+    ````
+    `````
 
   
 </Tab>
@@ -42,16 +55,20 @@ OpenClaw ships three installer scripts, served from `openclaw.ai`.
     iwr -useb https://openclaw.ai/install.ps1 | iex
     ```
 
+    `````
+    ````
     ```powershell
     & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -Tag beta -NoOnboard -DryRun
     ```
+    ````
+    `````
 
   
 </Tab>
 </Tabs>
 
 <Note>
-If install succeeds but `openclaw` is not found in a new terminal, see [Node.js troubleshooting](/install/node#troubleshooting).
+如果安裝成功，但在新終端機中找不到 `openclaw`，請參閱 [Node.js 疑難排解](/install/node#troubleshooting)。
 </Note>
 
 ---
@@ -59,49 +76,40 @@ If install succeeds but `openclaw` is not found in a new terminal, see [Node.js 
 ## install.sh
 
 <Tip>
-Recommended for most interactive installs on macOS/Linux/WSL.
+建議用於 macOS／Linux／WSL 上大多數互動式安裝。
 </Tip>
 
-### Flow (install.sh)
+### 流程（install.sh）
 
 <Steps>
   <Step title="Detect OS">
-    Supports macOS and Linux (including WSL). If macOS is detected, installs Homebrew if missing.
+    
+    支援 macOS 與 Linux（包含 WSL）。若偵測到 macOS，且尚未安裝 Homebrew，則會進行安裝。
+   46. 若偵測到 macOS，且尚未安裝，將會安裝 Homebrew。
   
 </Step>
-  <Step title="Ensure Node.js 22+">
-    Checks Node version and installs Node 22 if needed (Homebrew on macOS, NodeSource setup scripts on Linux apt/dnf/yum).
-  
+  <Step title="Ensure Node.js 22+">支援 macOS 與 Linux（包含 WSL）。若偵測到 macOS，且尚未安裝 Homebrew，則會進行安裝。
 </Step>
-  <Step title="Ensure Git">
-    Installs Git if missing.
-  
+  <Step title="Ensure Git">git`
 </Step>
-  <Step title="Install OpenClaw">
-    - `npm` method (default): global npm install
-    - `git` method: clone/update repo, install deps with pnpm, build, then install wrapper at `~/.local/bin/openclaw`
-  
+  <Step title="Install OpenClaw">某些 Linux 設定會將 npm 全域前綴指向 root 擁有的路徑。`install.sh` 可將前綴切換為 `~/.npm-global`，並在 shell rc 檔案存在時附加 PATH 匯出設定。
 </Step>
-  <Step title="Post-install tasks">
-    - Runs `openclaw doctor --non-interactive` on upgrades and git installs (best effort)
-    - Attempts onboarding when appropriate (TTY available, onboarding not disabled, and bootstrap/config checks pass)
-    - Defaults `SHARP_IGNORE_GLOBAL_LIBVIPS=1`
-  
+  <Step title="Post-install tasks">git 方法的捷徑。別名：`--github` 別名：`--github`
 </Step>
 </Steps>
 
-### Source checkout detection
+### 原始碼檢出偵測
 
-If run inside an OpenClaw checkout (`package.json` + `pnpm-workspace.yaml`), the script offers:
+若在 OpenClaw 檢出內容內執行（`package.json` + `pnpm-workspace.yaml`），腳本會提供：
 
-- use checkout (`git`), or
-- use global install (`npm`)
+- 使用檢出（`git`），或
+- 使用全域安裝（`npm`）
 
-If no TTY is available and no install method is set, it defaults to `npm` and warns.
+如果沒有可用的 TTY，且未設定安裝方法，則預設為 `npm` 並顯示警告。
 
-The script exits with code `2` for invalid method selection or invalid `--install-method` values.
+若選擇的安裝方法無效或 `--install-method` 值無效，腳本會以代碼 `2` 結束。
 
-### Examples (install.sh)
+### 範例（install.sh）
 
 <Tabs>
   <Tab title="Default">
@@ -133,40 +141,40 @@ The script exits with code `2` for invalid method selection or invalid `--instal
 <AccordionGroup>
   <Accordion title="Flags reference">
 
-| Flag                            | Description                                                |
-| ------------------------------- | ---------------------------------------------------------- |
-| `--install-method npm|git`     | Choose install method (default: `npm`). Alias: `--method`  |
-| `--npm`                         | Shortcut for npm method                                    |
-| `--git`                         | Shortcut for git method. Alias: `--github`                 |
-| `--version &lt;version|dist-tag&gt;` | npm version or dist-tag (default: `latest`)                |
-| `--beta`                        | Use beta dist-tag if available, else fallback to `latest`  |
-| `--git-dir &lt;path&gt;`              | Checkout directory (default: `~/openclaw`). Alias: `--dir` |
-| `--no-git-update`               | Skip `git pull` for existing checkout                      |
-| `--no-prompt`                   | Disable prompts                                            |
-| `--no-onboard`                  | Skip onboarding                                            |
-| `--onboard`                     | Enable onboarding                                          |
-| `--dry-run`                     | Print actions without applying changes                     |
-| `--verbose`                     | Enable debug output (`set -x`, npm notice-level logs)      |
-| `--help`                        | Show usage (`-h`)                                          |
+| 旗標                                                | Description                                                                                                                   |
+| ------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| \`--install-method npm\\                        | 選擇安裝方法（預設：`npm`）。別名：`--method` 49. 別名：`--method`                                                              |
+| `--npm`                                           | npm 方法的捷徑                                                                                                                     |
+| `--git`                                           | git 方法的捷徑。別名：`--github` 別名：`--github`                                                                                         |
+| \`--version <version\\ | npm 版本或 dist-tag（預設：`latest`）                                                                                                 |
+| `--beta`                                          | 若可用則使用 beta dist-tag，否則回退至 `latest`                                                                                           |
+| `--git-dir &lt;path&gt;`                                | Checkout directory (default: `~/openclaw`). Alias: `--dir` |
+| `--no-git-update`                                 | Skip `git pull` for existing checkout                                                                                         |
+| `--no-prompt`                                     | 停用提示                                                                                                                          |
+| `--no-onboard`                                    | Skip onboarding                                                                                                               |
+| `--onboard`                                       | Enable onboarding                                                                                                             |
+| `--dry-run`                                       | 僅列印動作，不套用變更                                                                                                                   |
+| `--verbose`                                       | 啟用除錯輸出（`set -x`、npm notice 級別日誌）                                                                                              |
+| `--help`                                          | 顯示使用說明（`-h`）                                                                                                                  |
 
   
 </Accordion>
 
   <Accordion title="Environment variables reference">
 
-| Variable                                    | Description                                   |
-| ------------------------------------------- | --------------------------------------------- |
-| `OPENCLAW_INSTALL_METHOD=git|npm`          | Install method                                |
-| `OPENCLAW_VERSION=latest|next|&lt;semver&gt;`   | npm version or dist-tag                       |
-| `OPENCLAW_BETA=0|1`                        | Use beta if available                         |
-| `OPENCLAW_GIT_DIR=&lt;path&gt;`                   | Checkout directory                            |
-| `OPENCLAW_GIT_UPDATE=0|1`                  | Toggle git updates                            |
-| `OPENCLAW_NO_PROMPT=1`                      | Disable prompts                               |
-| `OPENCLAW_NO_ONBOARD=1`                     | Skip onboarding                               |
-| `OPENCLAW_DRY_RUN=1`                        | Dry run mode                                  |
-| `OPENCLAW_VERBOSE=1`                        | Debug mode                                    |
-| `OPENCLAW_NPM_LOGLEVEL=error|warn|notice` | npm log level                                 |
-| `SHARP_IGNORE_GLOBAL_LIBVIPS=0|1`          | Control sharp/libvips behavior (default: `1`) |
+| 變數                                                                                                 | Description                 |
+| -------------------------------------------------------------------------------------------------- | --------------------------- |
+| \`OPENCLAW_INSTALL_METHOD=git\\                        | 安裝方法                        |
+| \`OPENCLAW_VERSION=latest\\                                                 | npm 版本或 dist-tag            |
+| \`OPENCLAW_BETA=0\\                                                         | 若可用則使用 beta                 |
+| `OPENCLAW_GIT_DIR=&lt;path&gt;`                                                                          | Checkout directory          |
+| \`OPENCLAW_GIT_UPDATE=0\\                              | 切換 git 更新                   |
+| `OPENCLAW_NO_PROMPT=1`                                                                             | 停用提示                        |
+| `OPENCLAW_NO_ONBOARD=1`                                                                            | Skip onboarding             |
+| `OPENCLAW_DRY_RUN=1`                                                                               | Dry run 模式                  |
+| `OPENCLAW_VERBOSE=1`                                                                               | 除錯模式                        |
+| \`OPENCLAW_NPM_LOGLEVEL=error\\                        | npm 日誌層級                    |
+| \`SHARP_IGNORE_GLOBAL_LIBVIPS=0\\ | 控制 sharp/libvips 行為（預設：`1`） |
 
   
 </Accordion>
@@ -180,24 +188,24 @@ The script exits with code `2` for invalid method selection or invalid `--instal
 Designed for environments where you want everything under a local prefix (default `~/.openclaw`) and no system Node dependency.
 </Info>
 
-### Flow (install-cli.sh)
+### 範例（install-cli.sh）
 
 <Steps>
   <Step title="Install local Node runtime">
-    Downloads Node tarball (default `22.22.0`) to `&lt;prefix&gt;/tools/node-v&lt;version&gt;` and verifies SHA-256.
+    下載 Node tarball（預設 `22.22.0`）至 `<prefix>/tools/node-v<version>`，並驗證 SHA-256。
   
 </Step>
   <Step title="Ensure Git">
-    If Git is missing, attempts install via apt/dnf/yum on Linux or Homebrew on macOS.
+    若未安裝 Git，會嘗試在 Linux 上透過 apt／dnf／yum，或在 macOS 上透過 Homebrew 安裝。
   
 </Step>
   <Step title="Install OpenClaw under prefix">
-    Installs with npm using `--prefix &lt;prefix&gt;`, then writes wrapper to `&lt;prefix&gt;/bin/openclaw`.
+    使用 npm 以 `--prefix <prefix>`, then writes wrapper to `<prefix>/bin/openclaw`。
   
 </Step>
 </Steps>
 
-### Examples (install-cli.sh)
+### 流程（install-cli.sh）
 
 <Tabs>
   <Tab title="Default">
@@ -229,31 +237,31 @@ Designed for environments where you want everything under a local prefix (defaul
 <AccordionGroup>
   <Accordion title="Flags reference">
 
-| Flag                   | Description                                                                     |
-| ---------------------- | ------------------------------------------------------------------------------- |
-| `--prefix &lt;path&gt;`      | Install prefix (default: `~/.openclaw`)                                         |
-| `--version &lt;ver&gt;`      | OpenClaw version or dist-tag (default: `latest`)                                |
-| `--node-version &lt;ver&gt;` | Node version (default: `22.22.0`)                                               |
-| `--json`               | Emit NDJSON events                                                              |
-| `--onboard`            | Run `openclaw onboard` after install                                            |
-| `--no-onboard`         | Skip onboarding (default)                                                       |
-| `--set-npm-prefix`     | On Linux, force npm prefix to `~/.npm-global` if current prefix is not writable |
-| `--help`               | Show usage (`-h`)                                                               |
+| 旗標                     | Description                                        |
+| ---------------------- | -------------------------------------------------- |
+| `--prefix &lt;path&gt;`      | 安裝前綴路徑（預設：`~/.openclaw`）                           |
+| `--version &lt;ver&gt;`      | OpenClaw 版本或 dist-tag（預設：`latest`）                 |
+| `--node-version &lt;ver&gt;` | Node 版本（預設：`22.22.0`）                              |
+| `--json`               | 輸出 NDJSON 事件                                       |
+| `--onboard`            | 安裝後執行 `openclaw onboard`                           |
+| `--no-onboard`         | 跳過入門引導（預設）                                         |
+| `--set-npm-prefix`     | 在 Linux 上，若目前前綴路徑不可寫入，強制將 npm 前綴設為 `~/.npm-global` |
+| `--help`               | 顯示使用說明（`-h`）                                       |
 
   
 </Accordion>
 
   <Accordion title="Environment variables reference">
 
-| Variable                                    | Description                                                                       |
-| ------------------------------------------- | --------------------------------------------------------------------------------- |
-| `OPENCLAW_PREFIX=&lt;path&gt;`                    | Install prefix                                                                    |
-| `OPENCLAW_VERSION=&lt;ver&gt;`                    | OpenClaw version or dist-tag                                                      |
-| `OPENCLAW_NODE_VERSION=&lt;ver&gt;`               | Node version                                                                      |
-| `OPENCLAW_NO_ONBOARD=1`                     | Skip onboarding                                                                   |
-| `OPENCLAW_NPM_LOGLEVEL=error|warn|notice` | npm log level                                                                     |
-| `OPENCLAW_GIT_DIR=&lt;path&gt;`                   | Legacy cleanup lookup path (used when removing old `Peekaboo` submodule checkout) |
-| `SHARP_IGNORE_GLOBAL_LIBVIPS=0|1`          | Control sharp/libvips behavior (default: `1`)                                     |
+| 變數                                                                                                 | Description                           |
+| -------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| `OPENCLAW_PREFIX=&lt;path&gt;`                                                                           | 安裝前綴路徑                                |
+| `OPENCLAW_VERSION=&lt;ver&gt;`                                                                           | OpenClaw 版本或 dist-tag                 |
+| `OPENCLAW_NODE_VERSION=&lt;ver&gt;`                                                                      | Node 版本                               |
+| `OPENCLAW_NO_ONBOARD=1`                                                                            | Skip onboarding                       |
+| \`OPENCLAW_NPM_LOGLEVEL=error\\                        | npm 日誌層級                              |
+| `OPENCLAW_GIT_DIR=&lt;path&gt;`                                                                          | 舊版清理查找路徑（在移除舊的 `Peekaboo` 子模組檢出內容時使用） |
+| \`SHARP_IGNORE_GLOBAL_LIBVIPS=0\\ | 控制 sharp/libvips 行為（預設：`1`）           |
 
   
 </Accordion>
@@ -263,29 +271,29 @@ Designed for environments where you want everything under a local prefix (defaul
 
 ## install.ps1
 
-### Flow (install.ps1)
+### 範例（install.ps1）
 
 <Steps>
   <Step title="Ensure PowerShell + Windows environment">
-    Requires PowerShell 5+.
+    需要 PowerShell 5+。
   
 </Step>
   <Step title="Ensure Node.js 22+">
-    If missing, attempts install via winget, then Chocolatey, then Scoop.
+    若缺少，會依序嘗試透過 winget、Chocolatey、Scoop 安裝。
   
 </Step>
   <Step title="Install OpenClaw">
-    - `npm` method (default): global npm install using selected `-Tag`
-    - `git` method: clone/update repo, install/build with pnpm, and install wrapper at `%USERPROFILE%\.local\bin\openclaw.cmd`
+    - `npm` 方法（預設）：使用選定的 `-Tag` 進行全域 npm 安裝
+    - `git` 方法：複製／更新儲存庫，使用 pnpm 安裝／建置，並在 `%USERPROFILE%\.local\bin\openclaw.cmd` 安裝包裝程式
   
 </Step>
   <Step title="Post-install tasks">
-    Adds needed bin directory to user PATH when possible, then runs `openclaw doctor --non-interactive` on upgrades and git installs (best effort).
+    在可行情況下將所需的 bin 目錄加入使用者 PATH，接著在升級與 git 安裝時執行 `openclaw doctor --non-interactive`（盡力而為）。
   
 </Step>
 </Steps>
 
-### Examples (install.ps1)
+### 流程（install.ps1）
 
 <Tabs>
   <Tab title="Default">
@@ -314,51 +322,51 @@ Designed for environments where you want everything under a local prefix (defaul
 </Tab>
   <Tab title="Debug trace">
     ```powershell
-    # install.ps1 has no dedicated -Verbose flag yet.
+    # install.ps1 目前尚未提供專用的 -Verbose 旗標。
+
     Set-PSDebug -Trace 1
     & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -NoOnboard
     Set-PSDebug -Trace 0
-    ```
-  
+    ```  
 </Tab>
 </Tabs>
 
 <AccordionGroup>
   <Accordion title="Flags reference">
 
-| Flag                      | Description                                            |
-| ------------------------- | ------------------------------------------------------ |
-| `-InstallMethod npm|git` | Install method (default: `npm`)                        |
-| `-Tag &lt;tag&gt;`              | npm dist-tag (default: `latest`)                       |
-| `-GitDir &lt;path&gt;`          | Checkout directory (default: `%USERPROFILE%\openclaw`) |
-| `-NoOnboard`              | Skip onboarding                                        |
-| `-NoGitUpdate`            | Skip `git pull`                                        |
-| `-DryRun`                 | Print actions only                                     |
+| 旗標                       | Description                        |
+| ------------------------ | ---------------------------------- |
+| \`-InstallMethod npm\\ | 安裝方法（預設：`npm`）                     |
+| `-Tag &lt;tag&gt;`             | npm dist-tag（預設：`latest`）          |
+| `-GitDir &lt;path&gt;`         | 檢出目錄（預設：`%USERPROFILE%\openclaw`） |
+| `-NoOnboard`             | Skip onboarding                    |
+| `-NoGitUpdate`           | 跳過 `git pull`                      |
+| `-DryRun`                | 僅列印動作                              |
 
   
 </Accordion>
 
   <Accordion title="Environment variables reference">
 
-| Variable                           | Description        |
-| ---------------------------------- | ------------------ |
-| `OPENCLAW_INSTALL_METHOD=git|npm` | Install method     |
-| `OPENCLAW_GIT_DIR=&lt;path&gt;`          | Checkout directory |
-| `OPENCLAW_NO_ONBOARD=1`            | Skip onboarding    |
-| `OPENCLAW_GIT_UPDATE=0`            | Disable git pull   |
-| `OPENCLAW_DRY_RUN=1`               | Dry run mode       |
+| 變數                                                                          | Description        |
+| --------------------------------------------------------------------------- | ------------------ |
+| \`OPENCLAW_INSTALL_METHOD=git\\ | 安裝方法               |
+| `OPENCLAW_GIT_DIR=&lt;path&gt;`                                                   | Checkout directory |
+| `OPENCLAW_NO_ONBOARD=1`                                                     | Skip onboarding    |
+| `OPENCLAW_GIT_UPDATE=0`                                                     | 停用 git pull        |
+| `OPENCLAW_DRY_RUN=1`                                                        | Dry run 模式         |
 
   
 </Accordion>
 </AccordionGroup>
 
 <Note>
-If `-InstallMethod git` is used and Git is missing, the script exits and prints the Git for Windows link.
+若使用 `-InstallMethod git` 且缺少 Git，腳本會結束並輸出 Git for Windows 連結。
 </Note>
 
 ---
 
-## CI and automation
+## CI 與自動化
 
 Use non-interactive flags/env vars for predictable runs.
 
@@ -396,52 +404,58 @@ Use non-interactive flags/env vars for predictable runs.
 
 <AccordionGroup>
   <Accordion title="Why is Git required?">
-    Git is required for `git` install method. For `npm` installs, Git is still checked/installed to avoid `spawn git ENOENT` failures when dependencies use git URLs.
+    Git is required for `git` install method. Git 是 `git` 安裝方法所必需。對於 `npm` 安裝，仍會檢查／安裝 Git，以避免在相依套件使用 git URL 時發生 `spawn git ENOENT` 失敗。
   
 </Accordion>
 
   <Accordion title="Why does npm hit EACCES on Linux?">
-    Some Linux setups point npm global prefix to root-owned paths. `install.sh` can switch prefix to `~/.npm-global` and append PATH exports to shell rc files (when those files exist).
+    
+    某些 Linux 設定會將 npm 全域前綴指向 root 擁有的路徑。`install.sh` 可將前綴切換為 `~/.npm-global`，並在 shell rc 檔案存在時附加 PATH 匯出設定。
+   `install.sh` can switch prefix to `~/.npm-global` and append PATH exports to shell rc files (when those files exist).
   
 </Accordion>
 
   <Accordion title="sharp/libvips issues">
     The scripts default `SHARP_IGNORE_GLOBAL_LIBVIPS=1` to avoid sharp building against system libvips. To override:
 
+    `````
+    ````
     ```bash
     SHARP_IGNORE_GLOBAL_LIBVIPS=0 curl -fsSL --proto '=https' --tlsv1.2 https://openclaw.ai/install.sh | bash
     ```
+    ````
+    `````
 
   
 </Accordion>
 
   <Accordion title='Windows: "npm error spawn git / ENOENT"'>
-    Install Git for Windows, reopen PowerShell, rerun installer.
+    安裝 Git for Windows，重新開啟 PowerShell，然後重新執行安裝程式。
   
 </Accordion>
 
   <Accordion title='Windows: "openclaw is not recognized"'>
-    Run `npm config get prefix`, append `\bin`, add that directory to user PATH, then reopen PowerShell.
+    執行 `npm config get prefix`，附加 `\bin`，將該目錄加入使用者 PATH，然後重新開啟 PowerShell。
   
 </Accordion>
 
   <Accordion title="Windows: how to get verbose installer output">
-    `install.ps1` does not currently expose a `-Verbose` switch.
-    Use PowerShell tracing for script-level diagnostics:
+    `install.ps1` 目前尚未提供 `-Verbose` 參數。
+    使用 PowerShell 追蹤功能進行腳本層級的診斷：
 
+    ````
     ```powershell
     Set-PSDebug -Trace 1
     & ([scriptblock]::Create((iwr -useb https://openclaw.ai/install.ps1))) -NoOnboard
     Set-PSDebug -Trace 0
     ```
+    ````
 
   
 </Accordion>
 
   <Accordion title="openclaw not found after install">
-    Usually a PATH issue. See [Node.js troubleshooting](/install/node#troubleshooting).
+    Usually a PATH issue. 通常是 PATH 問題。請參閱 [Node.js 疑難排解](/install/node#troubleshooting)。
   
 </Accordion>
 </AccordionGroup>
-
-

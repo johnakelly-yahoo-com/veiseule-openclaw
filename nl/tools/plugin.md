@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw-plugins/extensies: discovery, configuratie en veiligheid"
+read_when:
+  - Plugins/extensies toevoegen of wijzigen
+  - Plugin-installatie- of laadregels documenteren
 title: "Plug-ins"
 ---
 
@@ -26,6 +30,8 @@ openclaw plugins list
 ```bash
 openclaw plugins install @openclaw/voice-call
 ```
+
+Npm-specificaties zijn **alleen registry-gebaseerd** (pakketnaam + optionele versie/tag). Git-/URL-/file-specificaties worden geweigerd.
 
 3. Herstart de Gateway en configureer vervolgens onder `plugins.entries.<id>.config`.
 
@@ -131,6 +137,10 @@ Elke entry wordt een plugin. Als het pack meerdere extensies vermeldt, wordt de 
 
 Als je plugin npm-afhankelijkheden importeert, installeer deze dan in die map zodat
 `node_modules` beschikbaar is (`npm install` / `pnpm install`).
+
+Beveiligingsopmerking: `openclaw plugins install` installeert pluginafhankelijkheden met
+`npm install --ignore-scripts` (geen lifecycle-scripts). Houd pluginafhankelijkheidsbomen
+"pure JS/TS" en vermijd pakketten die een `postinstall`-build vereisen.
 
 ### Kanaalcatalogus-metadata
 
@@ -432,13 +442,13 @@ Documentatie voor modelproviders staat onder `/providers/*`.
 - `meta.preferOver` laat een plugin een ander kanaal vervangen (auto-inschakelen geeft er de voorkeur aan).
 - `meta.detailLabel` en `meta.systemImage` worden door UI’s gebruikt voor detailtekst/iconen.
 
-3. Implementeer de vereiste adapters
+3. Voeg optionele adapters toe indien nodig
 
 - `config.listAccountIds` + `config.resolveAccount`
 - `capabilities` (chattypes, media, threads, enz.)
 - `outbound.deliveryMode` + `outbound.sendText` (voor basisverzending)
 
-4. Voeg optionele adapters toe indien nodig
+4. Implementeer de vereiste adapters
 
 - `setup` (wizard), `security` (DM-beleid), `status` (gezondheid/diagnostiek)
 - `gateway` (start/stop/login), `mentions`, `threading`, `streaming`
@@ -655,5 +665,3 @@ Plugins kunnen (en zouden) tests meeleveren:
 
 - In-repo plugins kunnen Vitest-tests onder `src/**` plaatsen (voorbeeld: `src/plugins/voice-call.plugin.test.ts`).
 - Afzonderlijk gepubliceerde plugins moeten hun eigen CI draaien (lint/build/test) en valideren dat `openclaw.extensions` naar het gebouwde entrypoint wijst (`dist/index.js`).
-
-

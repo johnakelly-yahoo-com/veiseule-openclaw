@@ -1,4 +1,8 @@
 ---
+summary: "Interface de controle basee sur le navigateur pour la Gateway (chat, nœuds, configuration)"
+read_when:
+  - Vous souhaitez exploiter la Gateway depuis un navigateur
+  - Vous souhaitez un acces Tailnet sans tunnels SSH
 title: "Interface de controle"
 ---
 
@@ -217,5 +221,3 @@ Exemple :
 ```
 
 Details de configuration de l’acces distant : [Acces distant](/gateway/remote).
-
-

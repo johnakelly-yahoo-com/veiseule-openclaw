@@ -1,4 +1,8 @@
 ---
+summary: "apply_patch aracıyla çoklu dosya yamaları uygulayın"
+read_when:
+  - Birden fazla dosyada yapılandırılmış düzenlemelere ihtiyacınız olduğunda
+  - Yama tabanlı düzenlemeleri belgelemek veya hata ayıklamak istediğinizde
 title: "apply_patch Aracı"
 ---
 
@@ -29,7 +33,8 @@ Araç, bir veya daha fazla dosya işlemini saran tek bir `input` dizesi kabul ed
 
 ## Notlar
 
-- Yollar, çalışma alanı köküne göre çözülür.
+- Patch yolları göreli yolları (workspace dizininden) ve mutlak yolları destekler.
+- `tools.exec.applyPatch.workspaceOnly` varsayılan olarak `true` (workspace ile sınırlı) değerine ayarlıdır. `apply_patch` komutunun workspace dizini dışına yazmasını/silmesini bilinçli olarak istiyorsanız yalnızca o zaman `false` olarak ayarlayın.
 - Dosyaları yeniden adlandırmak için bir `*** Update File:` hunk’ı içinde `*** Move to:` kullanın.
 - `*** End of File`, gerektiğinde yalnızca EOF eklemesini işaretler.
 - Deneyseldir ve varsayılan olarak devre dışıdır. `tools.exec.applyPatch.enabled` ile etkinleştirin.
@@ -45,5 +50,3 @@ Araç, bir veya daha fazla dosya işlemini saran tek bir `input` dizesi kabul ed
   "input": "*** Begin Patch\n*** Update File: src/index.ts\n@@\n-const foo = 1\n+const foo = 2\n*** End Patch"
 }
 ```
-
-

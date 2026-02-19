@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw macOS အတူတကွ အသုံးပြုသော အက်ပ် (မီနူးဘား + Gateway broker)"
+read_when:
+  - macOS အက်ပ် အင်္ဂါရပ်များကို အကောင်အထည်ဖော်နေချိန်
+  - macOS တွင် Gateway lifecycle သို့မဟုတ် node bridging ကို ပြောင်းလဲနေချိန်
 title: "macOS အက်ပ်"
 ---
 
@@ -123,6 +127,7 @@ Query parameters—
 
 - `key` မပါရှိပါက အက်ပ်သည် အတည်ပြုချက် တောင်းခံသည်။
 - တရားဝင် `key` ရှိပါက run ကို unattended အဖြစ် လုပ်ဆောင်သည် (ကိုယ်ပိုင် automation များအတွက် ရည်ရွယ်သည်)။
+- တရားဝင် `key` ရှိပါက run ကို unattended အဖြစ် လုပ်ဆောင်သည် (ကိုယ်ပိုင် automation များအတွက် ရည်ရွယ်သည်)။
 
 ## Onboarding flow (ပုံမှန်)
 
@@ -189,5 +194,3 @@ setup လုပ်ရန် အဆင့်များအတွက် [macOS re
 - [Gateway (macOS)](/platforms/mac/bundled-gateway)
 - [macOS permissions](/platforms/mac/permissions)
 - [Canvas](/platforms/mac/canvas)
-
-

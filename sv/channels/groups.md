@@ -1,4 +1,7 @@
 ---
+summary: "Gruppchattbeteende över ytor (WhatsApp/Telegram/Discord/Slack/Signal/iMessage/Microsoft Teams)"
+read_when:
+  - Ändrar gruppchattbeteende eller nämningsstyrning
 title: "Grupper"
 ---
 
@@ -369,5 +372,3 @@ Agentsystemet prompten innehåller en grupp intro på den första vändningen av
 ## WhatsApp-specifikt
 
 Se [Gruppmeddelanden](/channels/group-messages) för WhatsApp-specifikt beteende (historikinjektion, detaljer om nämningshantering).
-
-

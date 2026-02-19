@@ -1,4 +1,7 @@
 ---
+summary: "Agent-runtime (embedded pi-mono), werkruimtecontract en sessie-bootstrap"
+read_when:
+  - Wijzigen van agent-runtime, werkruimte-bootstrap of sessiegedrag
 title: "Agent-runtime"
 ---
 
@@ -116,5 +119,3 @@ Stel minimaal in:
 ---
 
 _Volgende: [Group Chats](/channels/group-messages)_ 🦞
-
-

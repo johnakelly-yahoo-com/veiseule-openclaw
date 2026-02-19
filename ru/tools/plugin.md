@@ -1,4 +1,8 @@
 ---
+summary: "Плагины/расширения OpenClaw: обнаружение, конфигурация и безопасность"
+read_when:
+  - Добавление или изменение плагинов/расширений
+  - Документирование правил установки или загрузки плагинов
 title: "Плагины"
 ---
 
@@ -26,6 +30,9 @@ openclaw plugins list
 ```bash
 openclaw plugins install @openclaw/voice-call
 ```
+
+Спецификации npm поддерживаются **только из registry** (имя пакета + необязательная версия/тег). Спецификации Git/URL/file
+отклоняются.
 
 3. Перезапустите Gateway (шлюз), затем настройте в разделе `plugins.entries.<id>.config`.
 
@@ -131,6 +138,10 @@ id плагина становится `name/<fileBase>`.
 
 Если ваш плагин импортирует npm‑зависимости, установите их в этом каталоге,
 чтобы `node_modules` был доступен (`npm install` / `pnpm install`).
+
+Примечание по безопасности: `openclaw plugins install` устанавливает зависимости плагина с помощью
+`npm install --ignore-scripts` (без lifecycle-скриптов). Поддерживайте дерево зависимостей плагина
+«чистым JS/TS» и избегайте пакетов, требующих сборки через `postinstall`.
 
 ### Метаданные каталога каналов
 
@@ -434,13 +445,13 @@ export default function (api) {
 - `meta.preferOver` позволяет плагину заменить другой канал (авто‑включение предпочитает его).
 - `meta.detailLabel` и `meta.systemImage` используются UI для детального текста/иконок.
 
-3. Реализуйте обязательные адаптеры
+3. Добавьте необязательные адаптеры по мере необходимости
 
 - `config.listAccountIds` + `config.resolveAccount`
 - `capabilities` (типы чатов, медиа, треды и т. д.)
 - `outbound.deliveryMode` + `outbound.sendText` (для базовой отправки)
 
-4. Добавьте необязательные адаптеры по мере необходимости
+4. Реализуйте обязательные адаптеры
 
 - `setup` (мастер), `security` (политика ЛС), `status` (здоровье/диагностика)
 - `gateway` (start/stop/login), `mentions`, `threading`, `streaming`
@@ -658,5 +669,3 @@ export default function (api) {
 - Плагины внутри репозитория могут хранить тесты Vitest под `src/**` (пример: `src/plugins/voice-call.plugin.test.ts`).
 - Плагины, публикуемые отдельно, должны запускать собственный CI (lint/build/test) и проверять,
   что `openclaw.extensions` указывает на собранную точку входа (`dist/index.js`).
-
-

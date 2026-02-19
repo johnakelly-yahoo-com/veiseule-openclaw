@@ -1,4 +1,9 @@
 ---
+summary: "Ejecute OpenClaw en LLM locales (LM Studio, vLLM, LiteLLM, endpoints personalizados compatibles con OpenAI)"
+read_when:
+  - Quiere servir modelos desde su propio equipo con GPU
+  - Está conectando LM Studio o un proxy compatible con OpenAI
+  - Necesita la guía más segura para modelos locales
 title: "Modelos locales"
 ---
 
@@ -143,5 +148,3 @@ Mantenga `models.mode: "merge"` para que los modelos alojados sigan disponibles 
 - ¿Modelo de LM Studio descargado de memoria? Vuelva a cargarlo; el inicio en frío es una causa común de “bloqueo”.
 - ¿Errores de contexto? Baje `contextWindow` o aumente el límite de su servidor.
 - Seguridad: los modelos locales omiten los filtros del proveedor; mantenga los agentes acotados y la compactación activada para limitar el radio de impacto de la inyección de prompts.
-
-

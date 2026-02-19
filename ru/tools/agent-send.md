@@ -1,4 +1,7 @@
 ---
+summary: "Прямые запуски CLI `openclaw agent` (с необязательной доставкой)"
+read_when:
+  - При добавлении или изменении точки входа CLI агента
 title: "Отправка агента"
 ---
 
@@ -48,5 +51,3 @@ openclaw agent --agent ops --message "Generate report" --deliver --reply-channel
 - `--verbose <on|full|off>`: сохранять уровень verbose
 - `--timeout <seconds>`: переопределение тайм-аута агента
 - `--json`: вывод структурированного JSON
-
-

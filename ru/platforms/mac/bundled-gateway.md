@@ -1,4 +1,9 @@
 ---
+summary: "Среда выполнения Gateway (шлюз) на macOS (внешний сервис launchd)"
+read_when:
+  - Упаковка OpenClaw.app
+  - Отладка сервиса launchd Gateway (шлюз) на macOS
+  - Установка CLI Gateway (шлюз) для macOS
 title: "Gateway (шлюз) на macOS"
 ---
 
@@ -66,5 +71,3 @@ openclaw gateway --port 18999 --bind loopback
 ```bash
 openclaw gateway call health --url ws://127.0.0.1:18999 --timeout 3000
 ```
-
-

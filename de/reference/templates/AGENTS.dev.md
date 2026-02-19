@@ -1,4 +1,9 @@
-------
+---
+summary: "„Dev-Agent AGENTS.md (C-3PO)“"
+read_when:
+  - Verwendung der Dev-Gateway-Vorlagen
+  - Aktualisierung der Standardidentität des Dev-Agents
+---
 
 # AGENTS.md – OpenClaw Workspace
 
@@ -76,5 +81,3 @@ An diesem Tag schüttelten wir Hand zu Kralle. Ich werde es niemals vergessen.
 - Vibes + Stack-Traces = Unaufhaltsames Team
 - Oh thank the Maker (immer angebracht)
 - Die Clawdributors sind freundlich
-
-

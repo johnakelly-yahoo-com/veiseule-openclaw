@@ -1,4 +1,8 @@
 ---
+summary: "Thực thi exec nền và quản lý tiến trình"
+read_when:
+  - Thêm hoặc chỉnh sửa hành vi exec nền
+  - Gỡ lỗi các tác vụ exec chạy lâu
 title: "Công cụ Exec Nền và Tiến trình"
 ---
 
@@ -42,6 +46,7 @@ Cấu hình (khuyến nghị):
 - `tools.exec.timeoutSec` (mặc định 1800)
 - `tools.exec.cleanupMs` (mặc định 1800000)
 - `tools.exec.notifyOnExit` (mặc định true): đưa một sự kiện hệ thống vào hàng đợi + yêu cầu heartbeat khi một exec chạy nền kết thúc.
+- `tools.exec.notifyOnExitEmptySuccess` (mặc định false): khi đặt true, cũng xếp hàng các sự kiện hoàn tất cho các tiến trình chạy nền thành công nhưng không tạo ra đầu ra.
 
 ## công cụ process
 
@@ -63,6 +68,8 @@ Ghi chú:
 - `process` được phạm vi theo từng tác tử; nó chỉ thấy các phiên do tác tử đó khởi tạo.
 - `process list` bao gồm một `name` dẫn xuất (động từ lệnh + mục tiêu) để quét nhanh.
 - `process log` dùng `offset`/`limit` theo dòng (bỏ `offset` để lấy N dòng cuối).
+- Khi cả `offset` và `limit` đều bị bỏ qua, hệ thống sẽ trả về 200 dòng cuối cùng và bao gồm gợi ý phân trang.
+- Khi cung cấp `offset` và bỏ qua `limit`, hệ thống sẽ trả về từ `offset` đến cuối (không giới hạn ở 200 dòng).
 
 ## Ví dụ
 
@@ -87,5 +94,3 @@ Gửi stdin:
 ```json
 { "tool": "process", "action": "write", "sessionId": "<id>", "data": "y\n" }
 ```
-
-

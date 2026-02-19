@@ -1,5 +1,9 @@
 ---
-title: "Sieć"
+summary: "Powierzchnie webowe Gateway: interfejs sterowania, tryby bindowania i bezpieczeństwo"
+read_when:
+  - Chcesz uzyskać dostęp do Gateway przez Tailscale
+  - Chcesz używać przeglądarkowego interfejsu Control UI i edycji konfiguracji
+title: "Web"
 ---
 
 # Sieć (Gateway)
@@ -109,5 +113,3 @@ Gateway serwuje pliki statyczne z `dist/control-ui`. Zbuduj je poleceniem:
 ```bash
 pnpm ui:build # auto-installs UI deps on first run
 ```
-
-

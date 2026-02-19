@@ -1,4 +1,8 @@
 ---
+summary: บันทึกปัญหาและวิธีแก้ไขชั่วคราวของการแครช Node + tsx "__name is not a function"
+read_when:
+  - ดีบักสคริปต์พัฒนาแบบ Node เท่านั้นหรือความล้มเหลวของโหมด watch
+  - ตรวจสอบการแครชของตัวโหลด tsx/esbuild ใน OpenClaw
 title: "การแครช Node + tsx"
 ---
 
@@ -14,7 +18,7 @@ title: "การแครช Node + tsx"
     at .../src/agents/auth-profiles/constants.ts:25:20
 ```
 
-ปัญหานี้เริ่มขึ้นหลังจากสลับสคริปต์พัฒนาจาก Bun เป็น `tsx` (คอมมิต `2871657e`, 2026-01-06) เส้นทางรันไทม์เดียวกันทำงานได้กับ Bun `tsx` ใช้ esbuild เพื่อแปลง TS/ESM
+ปัญหานี้เริ่มขึ้นหลังจากสลับสคริปต์พัฒนาจาก Bun เป็น `tsx` (คอมมิต `2871657e`, 2026-01-06) เส้นทางรันไทม์เดียวกันทำงานได้กับ Bun `tsx` ใช้ esbuild เพื่อแปลง TS/ESM `tsx` ใช้ esbuild เพื่อแปลง TS/ESM
 
 ## สภาพแวดล้อม
 
@@ -31,7 +35,7 @@ pnpm install
 node --import tsx src/entry.ts status
 ```
 
-## ตัวอย่างทำซ้ำปัญหาแบบย่อในรีโป
+## Minimal repro in repo
 
 ```bash
 node --import tsx scripts/repro/tsx-name-repro.ts
@@ -54,7 +58,7 @@ node --import tsx scripts/repro/tsx-name-repro.ts
 - `2871657e` (2026-01-06): เปลี่ยนสคริปต์จาก Bun เป็น tsx เพื่อทำให้ Bun เป็นทางเลือก
 - ก่อนหน้านั้น (เส้นทาง Bun), `openclaw status` และ `gateway:watch` ทำงานได้
 
-## วิธีแก้ไขชั่วคราว
+## Workarounds
 
 - ใช้ Bun สำหรับสคริปต์พัฒนา (การย้อนกลับชั่วคราวในปัจจุบัน)
 
@@ -82,5 +86,3 @@ node --import tsx scripts/repro/tsx-name-repro.ts
 - ทำซ้ำบน Node 22/24 เพื่อยืนยันว่าเป็นรีเกรสชันของ Node 25
 - ทดสอบ `tsx` รุ่น nightly หรือปักหมุดไปยังเวอร์ชันก่อนหน้า หากมีรีเกรสชันที่ทราบ
 - หากทำซ้ำได้บน Node LTS ให้ยื่นรายงาน repro ขั้นต่ำ upstream พร้อมสแตกเทรซ `__name`
-
-

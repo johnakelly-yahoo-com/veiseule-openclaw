@@ -1,4 +1,9 @@
 ---
+summary: "„Wie OpenClaw-Presence-Einträge erzeugt, zusammengeführt und angezeigt werden“"
+read_when:
+  - Debugging der Registerkarte „Instances“
+  - Untersuchung doppelter oder veralteter Instanzzeilen
+  - Änderung der Gateway-WS-Verbindung oder von System-Event-Beacons
 title: "Präsenz"
 ---
 
@@ -103,5 +108,3 @@ Aktualisierung an.
   - bestätigen Sie, dass periodische Beacons dieselbe `instanceId` verwenden
   - prüfen Sie, ob dem verbindungsbasierten Eintrag `instanceId` fehlt
     (Duplikate sind dann zu erwarten)
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw directory` အတွက် CLI ကိုးကားချက် (ကိုယ်တိုင်၊ peers၊ အုပ်စုများ)"
+read_when:
+  - ချန်နယ်တစ်ခုအတွက် ဆက်သွယ်ရန်/အုပ်စု/ကိုယ်တိုင်၏ ID များကို ရှာဖွေရန်လိုအပ်သည့်အခါ
+  - ချန်နယ် directory adapter တစ်ခုကို ဖွံ့ဖြိုးတည်ဆောက်နေသည့်အခါ
 title: "directory"
 ---
 
@@ -57,5 +61,3 @@ openclaw directory groups list --channel zalouser
 openclaw directory groups list --channel zalouser --query "work"
 openclaw directory groups members --channel zalouser --group-id <id>
 ```
-
-

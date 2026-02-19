@@ -1,4 +1,8 @@
 ---
+summary: "Windows (WSL2) ပံ့ပိုးမှု + companion app အခြေအနေ"
+read_when:
+  - Windows တွင် OpenClaw ကို ထည့်သွင်းတပ်ဆင်နေချိန်
+  - Windows companion app အခြေအနေကို ရှာဖွေနေချိန်
 title: "Windows (WSL2)"
 ---
 
@@ -143,5 +147,3 @@ openclaw onboard
 ## Windows companion app
 
 ယခုအချိန်တွင် Windows companion app မရှိသေးပါ။ ၎င်းကို အကောင်အထည်ဖော်ရန် ပါဝင်ကူညီလိုပါက contributions များကို ကြိုဆိုပါသည်။
-
-

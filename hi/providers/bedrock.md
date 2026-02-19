@@ -1,10 +1,14 @@
 ---
+summary: "OpenClaw के साथ Amazon Bedrock (Converse API) मॉडल का उपयोग करें"
+read_when:
+  - आप OpenClaw के साथ Amazon Bedrock मॉडल का उपयोग करना चाहते हैं
+  - आपको मॉडल कॉल के लिए AWS क्रेडेंशियल/रीजन सेटअप की आवश्यकता है
 title: "Amazon Bedrock"
 ---
 
 # Amazon Bedrock
 
-OpenClaw, pi‑ai के **Bedrock Converse** के माध्यम से **Amazon Bedrock** मॉडल्स का उपयोग कर सकता है
+OpenClaw can use **Amazon Bedrock** models via pi‑ai’s **Bedrock Converse**
 streaming provider. Bedrock auth uses the **AWS SDK default credential chain**,
 not an API key.
 
@@ -17,7 +21,7 @@ not an API key.
 
 ## स्वचालित मॉडल डिस्कवरी
 
-यदि AWS क्रेडेंशियल्स का पता चलता है, तो OpenClaw स्वचालित रूप से Bedrock को खोज सकता है
+If AWS credentials are detected, OpenClaw can automatically discover Bedrock
 models that support **streaming** and **text output**. Discovery uses
 `bedrock:ListFoundationModels` and is cached (default: 1 hour).
 
@@ -96,12 +100,12 @@ export AWS_BEARER_TOKEN_BEDROCK="..."
 
 ## EC2 इंस्टेंस रोल्स
 
-जब OpenClaw को किसी EC2 instance पर संलग्न IAM role के साथ चलाया जाता है, तो AWS SDK
+When running OpenClaw on an EC2 instance with an IAM role attached, the AWS SDK
 will automatically use the instance metadata service (IMDS) for authentication.
 However, OpenClaw's credential detection currently only checks for environment
 variables, not IMDS credentials.
 
-**समाधान:** यह संकेत देने के लिए `AWS_PROFILE=default` सेट करें कि AWS क्रेडेंशियल्स उपलब्ध हैं
+**Workaround:** Set `AWS_PROFILE=default` to signal that AWS credentials are
 available. The actual authentication still uses the instance role via IMDS.
 
 ```bash
@@ -169,5 +173,3 @@ openclaw models list
 - रीज़निंग समर्थन मॉडल पर निर्भर करता है; वर्तमान क्षमताओं के लिए Bedrock मॉडल कार्ड देखें।
 - यदि आप प्रबंधित कुंजी प्रवाह को प्राथमिकता देते हैं, तो आप Bedrock के सामने
   OpenAI‑संगत प्रॉक्सी भी रख सकते हैं और इसे OpenAI प्रदाता के रूप में कॉन्फ़िगर कर सकते हैं।
-
-

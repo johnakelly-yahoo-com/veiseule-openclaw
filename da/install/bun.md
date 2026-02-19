@@ -1,4 +1,8 @@
 ---
+summary: "Bun-workflow (eksperimentel): installation og faldgruber vs pnpm"
+read_when:
+  - Du vil have den hurtigste lokale udviklingsloop (bun + watch)
+  - Du støder på problemer med Bun install/patch/lifecycle-scripts
 title: "Bun (Eksperimentel)"
 ---
 
@@ -53,5 +57,3 @@ bun pm trust @whiskeysockets/baileys protobufjs
 ## Forbehold
 
 - Nogle scripts stadig hardcode pnpm (f.eks. `docs:build`, `ui:*`, `protocol:check`). Kør dem via pnpm for nu.
-
-

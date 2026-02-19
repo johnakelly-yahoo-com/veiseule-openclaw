@@ -1,4 +1,8 @@
 ---
+summary: "„Nutzen Sie die datenschutzorientierten Modelle von Venice AI in OpenClaw“"
+read_when:
+  - Sie möchten datenschutzorientierte Inferenz in OpenClaw
+  - Sie möchten Anleitungen zur Einrichtung von Venice AI
 title: "„Venice AI“"
 ---
 
@@ -43,7 +47,7 @@ Venice bietet zwei Datenschutzstufen — deren Verständnis ist entscheidend fü
 2. Gehen Sie zu **Settings → API Keys → Create new key**
 3. Kopieren Sie Ihren API-Schlüssel (Format: `vapi_xxxxxxxxxxxx`)
 
-### 2) OpenClaw konfigurieren
+### 3) Einrichtung verifizieren
 
 **Option A: Umgebungsvariable**
 
@@ -261,5 +265,3 @@ Die Venice-API befindet sich unter `https://api.venice.ai/api/v1`. Stellen Sie s
 - [API-Dokumentation](https://docs.venice.ai)
 - [Preise](https://venice.ai/pricing)
 - [Status](https://status.venice.ai)
-
-

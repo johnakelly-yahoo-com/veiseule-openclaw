@@ -1,19 +1,18 @@
 ---
-title: 插件智能体工具
-x-i18n:
-  generated_at: "2026-02-03T07:53:22Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 4479462e9d8b17b664bf6b5f424f2efc8e7bedeaabfdb6a93126e051e635c659
-  source_path: plugins/agent-tools.md
-  workflow: 15
+summary: "Write agent tools in a plugin (schemas, optional tools, allowlists)"
+read_when:
+  - 你想在插件中添加新的智能体工具
+  - 你需要通过允许列表使工具可选启用
+title: "插件智能体工具"
 ---
 
 # 插件智能体工具
 
-OpenClaw 插件可以注册**智能体工具**（JSON 模式函数），这些工具在智能体运行期间暴露给 LLM。工具可以是**必需的**（始终可用）或**可选的**（选择启用）。
+OpenClaw 插件可以注册**智能体工具**（JSON 模式函数），这些工具在智能体运行期间暴露给 LLM。工具可以是**必需的**（始终可用）或**可选的**（选择启用）。 Tools can be **required** (always available) or
+**optional** (opt‑in).
 
-智能体工具在主配置的 `tools` 下配置，或在每个智能体的 `agents.list[].tools` 下配置。允许列表/拒绝列表策略控制智能体可以调用哪些工具。
+智能体工具在主配置的 `tools` 下配置，或在每个智能体的 `agents.list[].tools` 下配置。允许列表/拒绝列表策略控制智能体可以调用哪些工具。 The allowlist/denylist policy controls which tools the agent
+can call.
 
 ## 基本工具
 
@@ -36,7 +35,8 @@ export default function (api) {
 
 ## 可选工具（选择启用）
 
-可选工具**永远不会**自动启用。用户必须将它们添加到智能体允许列表中。
+可选工具**永远不会**自动启用。用户必须将它们添加到智能体允许列表中。 Users must add them to an agent
+allowlist.
 
 ```ts
 export default function (api) {
@@ -93,5 +93,3 @@ export default function (api) {
 - 工具名称**不能**与核心工具名称冲突；冲突的工具会被跳过。
 - 允许列表中使用的插件 id 不能与核心工具名称冲突。
 - 对于触发副作用或需要额外二进制文件/凭证的工具，优先使用 `optional: true`。
-
-

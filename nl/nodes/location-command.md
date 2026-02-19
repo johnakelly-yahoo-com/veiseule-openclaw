@@ -1,10 +1,14 @@
 ---
+summary: "Locatie-opdracht voor nodes (location.get), permissiemodi en achtergrondgedrag"
+read_when:
+  - Ondersteuning voor locatienodes of permissie-UI toevoegen
+  - Achtergrondlocatie- en pushstromen ontwerpen
 title: "Locatie-opdracht"
 ---
 
 # Locatie-opdracht (nodes)
 
-## Kort gezegd
+## TL;DR
 
 - `location.get` is een node-opdracht (via `node.invoke`).
 - Standaard uit.
@@ -107,5 +111,3 @@ Notities:
 - Tijdens gebruik: “Alleen wanneer OpenClaw open is.”
 - Altijd: “Achtergrondlocatie toestaan. Vereist systeempermissie.”
 - Nauwkeurig: “Gebruik nauwkeurige GPS-locatie. Schakel uit om een benaderende locatie te delen.”
-
-

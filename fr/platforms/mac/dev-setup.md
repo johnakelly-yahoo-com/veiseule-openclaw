@@ -1,4 +1,7 @@
 ---
+summary: "Guide de configuration pour les developpeurs travaillant sur l’application macOS OpenClaw"
+read_when:
+  - Configuration de l’environnement de developpement macOS
 title: "Configuration dev macOS"
 ---
 
@@ -13,7 +16,7 @@ Avant de compiler l’application, assurez-vous d’avoir installe les elements 
 1. **Xcode 26.2+** : Requis pour le developpement Swift.
 2. **Node.js 22+ & pnpm** : Requis pour la passerelle, la CLI et les scripts de packaging.
 
-## 1) Installer les dependances
+## 3) Installer la CLI
 
 Installez les dependances a l’echelle du projet :
 
@@ -99,5 +102,3 @@ lsof -nP -iTCP:18789 -sTCP:LISTEN
 ```
 
 Si une execution manuelle occupe le port, arretez ce processus (Ctrl+C). En dernier recours, tuez le PID trouve ci-dessus.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw CLI-referentie voor `openclaw`-opdrachten, subopdrachten en opties"
+read_when:
+  - CLI-opdrachten of -opties toevoegen of wijzigen
+  - Nieuwe opdrachtoppervlakken documenteren
 title: "CLI-referentie"
 ---
 
@@ -314,6 +318,11 @@ Opties:
 - `--zai-api-key <key>`
 - `--minimax-api-key <key>`
 - `--opencode-zen-api-key <key>`
+- `--custom-base-url <url>` (niet-interactief; gebruikt met `--auth-choice custom-api-key`)
+- `--custom-model-id <id>` (niet-interactief; gebruikt met `--auth-choice custom-api-key`)
+- `--custom-api-key <key>` (niet-interactief; optioneel; gebruikt met `--auth-choice custom-api-key`; valt terug op `CUSTOM_API_KEY` indien weggelaten)
+- `--custom-provider-id <id>` (niet-interactief; optionele aangepaste provider-id)
+- `--custom-compatibility <openai|anthropic>` (niet-interactief; optioneel; standaard `openai`)
 - `--gateway-port <port>`
 - `--gateway-bind <loopback|lan|tailnet|auto|custom>`
 - `--gateway-auth <token|password>`
@@ -1025,5 +1034,3 @@ Opties:
 - `--message <text>`
 - `--timeout-ms <ms>` (standaard `agents.defaults.timeoutSeconds`)
 - `--history-limit <n>`
-
-

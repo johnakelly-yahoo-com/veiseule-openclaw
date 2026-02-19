@@ -1,28 +1,26 @@
 ---
-title: Claude Max API 代理
-x-i18n:
-  generated_at: "2026-02-01T21:34:52Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 63b61096b96b720c6d0c317520852db65d72ca8279b3868f35e8387fe3b6ce41
-  source_path: providers/claude-max-api-proxy.md
-  workflow: 15
+summary: "将 Claude Max/Pro 订阅用作 OpenAI 兼容的 API 端点"
+read_when:
+  - 你想将 Claude Max 订阅与 OpenAI 兼容工具配合使用
+  - 你想要一个封装 Claude Code CLI 的本地 API 服务器
+  - 你想通过使用订阅而非 API 密钥来节省费用
+title: "Claude Max API 代理"
 ---
 
 # Claude Max API 代理
 
-**claude-max-api-proxy** 是一个社区工具，将你的 Claude Max/Pro 订阅暴露为 OpenAI 兼容的 API 端点。这使你可以将订阅与任何支持 OpenAI API 格式的工具配合使用。
+**claude-max-api-proxy** 是一个社区工具，将你的 Claude Max/Pro 订阅暴露为 OpenAI 兼容的 API 端点。这使你可以将订阅与任何支持 OpenAI API 格式的工具配合使用。 2. 这使你可以在任何支持 OpenAI API 格式的工具中使用你的订阅。
 
 ## 为什么使用它？
 
-| 方式            | 费用                                            | 适用场景                 |
-| --------------- | ----------------------------------------------- | ------------------------ |
-| Anthropic API   | 按 token 计费（Opus 约 $15/M 输入，$75/M 输出） | 生产应用、高流量场景     |
-| Claude Max 订阅 | 每月固定 $200                                   | 个人使用、开发、无限用量 |
+| 方式            | 费用                                   | 6. 最适合 |
+| ------------- | ------------------------------------ | ----------------------------- |
+| Anthropic API | 按 token 计费（Opus 约 $15/M 输入，$75/M 输出） | 生产应用、高流量场景                    |
+| Claude Max 订阅 | 每月固定 $200                            | 个人使用、开发、无限用量                  |
 
 如果你有 Claude Max 订阅并希望与 OpenAI 兼容工具配合使用，这个代理可以帮你节省大量费用。
 
-## 工作原理
+## 14. 工作原理
 
 ```
 你的应用 → claude-max-api-proxy → Claude Code CLI → Anthropic（通过订阅）
@@ -92,11 +90,11 @@ curl http://localhost:3456/v1/chat/completions \
 
 ## 可用模型
 
-| 模型 ID           | 对应模型        |
-| ----------------- | --------------- |
-| `claude-opus-4`   | Claude Opus 4   |
-| `claude-sonnet-4` | Claude Sonnet 4 |
-| `claude-haiku-4`  | Claude Haiku 4  |
+| 模型 ID             | 32. 映射到 |
+| ----------------- | ------------------------------ |
+| `claude-opus-4`   | Claude Opus 4                  |
+| `claude-sonnet-4` | Claude Sonnet 4                |
+| `claude-haiku-4`  | Claude Haiku 4                 |
 
 ## macOS 自动启动
 
@@ -148,5 +146,3 @@ launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.claude-max-api.plist
 
 - [Anthropic 提供商](/providers/anthropic) - OpenClaw 与 Claude 的原生集成，使用 setup-token 或 API 密钥
 - [OpenAI 提供商](/providers/openai) - 适用于 OpenAI/Codex 订阅
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "CLI-reference for `openclaw message` (send + kanalhandlinger)"
+read_when:
+  - Tilføjelse eller ændring af message CLI-handlinger
+  - Ændring af udgående kanaladfærd
 title: "message"
 ---
 
@@ -64,6 +68,7 @@ Navneopslag:
   - Påkrævet: `--target`, `--poll-question`, `--poll-option` (gentag)
   - Valgfri: `--poll-multi`
   - Kun Discord: `--poll-duration-hours`, `--message`
+  - Kun Telegram: `--poll-duration-seconds` (5-600), `--silent`, `--poll-anonymous` / `--poll-public`, `--thread-id`
 
 - `react`
   - Kanaler: Discord/Google Chat/Slack/Telegram/WhatsApp/Signal
@@ -199,11 +204,21 @@ openclaw message poll --channel discord \
 Send en Teams proaktiv besked:
 
 ```
+openclaw message poll --channel telegram \
+  --target @mychat \
+  --poll-question "Lunch?" \
+  --poll-option Pizza --poll-option Sushi \
+  --poll-duration-seconds 120 --silent
+```
+
+Opret en Teams-afstemning:
+
+```
 openclaw message send --channel msteams \
   --target conversation:19:abc@thread.tacv2 --message "hi"
 ```
 
-Opret en Teams-afstemning:
+Reagér i Slack:
 
 ```
 openclaw message poll --channel msteams \
@@ -212,14 +227,14 @@ openclaw message poll --channel msteams \
   --poll-option Pizza --poll-option Sushi
 ```
 
-Reagér i Slack:
+Reagér i en Signal-gruppe:
 
 ```
 openclaw message react --channel slack \
   --target C123 --message-id 456 --emoji "✅"
 ```
 
-Reagér i en Signal-gruppe:
+Send Telegram inline-knapper:
 
 ```
 openclaw message react --channel signal \
@@ -233,5 +248,3 @@ Send Telegram inline-knapper:
 openclaw message send --channel telegram --target @mychat --message "Choose:" \
   --buttons '[ [{"text":"Yes","callback_data":"cmd:yes"}], [{"text":"No","callback_data":"cmd:no"}] ]'
 ```
-
-

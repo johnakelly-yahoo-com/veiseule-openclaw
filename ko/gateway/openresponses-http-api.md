@@ -1,4 +1,8 @@
 ---
+summary: "Gateway에서 OpenResponses 호환 /v1/responses HTTP 엔드포인트를 노출합니다"
+read_when:
+  - OpenResponses API를 사용하는 클라이언트를 통합할 때
+  - 아이템 기반 입력, 클라이언트 도구 호출 또는 SSE 이벤트가 필요할 때
 title: "OpenResponses API"
 ---
 
@@ -24,6 +28,7 @@ Gateway 인증 구성을 사용합니다. Bearer 토큰을 전송하십시오:
 
 - `gateway.auth.mode="token"`인 경우 `gateway.auth.token` (또는 `OPENCLAW_GATEWAY_TOKEN`)를 사용하십시오.
 - `gateway.auth.mode="password"`인 경우 `gateway.auth.password` (또는 `OPENCLAW_GATEWAY_PASSWORD`)를 사용하십시오.
+- `gateway.auth.rateLimit`이 구성되어 있고 인증 실패가 너무 많이 발생하면, 해당 엔드포인트는 `Retry-After`와 함께 `429`를 반환합니다.
 
 ## 에이전트 선택
 
@@ -182,7 +187,11 @@ URL 가져오기 기본값:
 
 - `files.allowUrl`: `true`
 - `images.allowUrl`: `true`
+- `maxUrlParts`: `8` (요청당 URL 기반 `input_file` + `input_image` 파트 총합)
 - 요청은 보호됩니다 (DNS 해석, 사설 IP 차단, 리다이렉트 제한, 타임아웃).
+- 입력 유형별로 선택적 호스트 허용 목록을 지원합니다 (`files.urlAllowlist`, `images.urlAllowlist`).
+  - 정확한 호스트: `"cdn.example.com"`
+  - 와일드카드 서브도메인: `"*.assets.example.com"` (apex 도메인은 일치하지 않음)
 
 ## 파일 + 이미지 제한 (구성)
 
@@ -233,6 +242,7 @@ URL 가져오기 기본값:
 생략 시 기본값:
 
 - `maxBodyBytes`: 20MB
+- `maxUrlParts`: 8
 - `files.maxBytes`: 5MB
 - `files.maxChars`: 200k
 - `files.maxRedirects`: 3
@@ -243,6 +253,13 @@ URL 가져오기 기본값:
 - `images.maxBytes`: 10MB
 - `images.maxRedirects`: 3
 - `images.timeoutMs`: 10s
+
+보안 참고:
+
+- URL 허용 목록은 fetch 이전과 리디렉션 단계마다 적용됩니다.
+- 호스트명을 허용 목록에 추가하더라도 사설/내부 IP 차단이 우회되지는 않습니다.
+- 인터넷에 노출된 게이트웨이의 경우, 애플리케이션 수준의 보호 장치와 함께 네트워크 egress 제어를 적용하세요.
+  [Security](/gateway/security)를 참고하세요.
 
 ## 스트리밍 (SSE)
 
@@ -285,7 +302,7 @@ Server-Sent Events (SSE)를 수신하려면 `stream: true`를 설정하십시오
 
 ## 예제
 
-비스트리밍:
+스트리밍:
 
 ```bash
 curl -sS http://127.0.0.1:18789/v1/responses \
@@ -298,7 +315,7 @@ curl -sS http://127.0.0.1:18789/v1/responses \
   }'
 ```
 
-스트리밍:
+비스트리밍:
 
 ```bash
 curl -N http://127.0.0.1:18789/v1/responses \
@@ -311,5 +328,3 @@ curl -N http://127.0.0.1:18789/v1/responses \
     "input": "hi"
   }'
 ```
-
-

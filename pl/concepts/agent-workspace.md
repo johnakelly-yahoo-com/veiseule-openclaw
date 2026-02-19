@@ -1,4 +1,8 @@
 ---
+summary: "Przestrzeń robocza agenta: lokalizacja, układ i strategia kopii zapasowych"
+read_when:
+  - Musisz wyjaśnić przestrzeń roboczą agenta lub jej układ plików
+  - Chcesz wykonać kopię zapasową lub zmigrować przestrzeń roboczą agenta
 title: "Przestrzeń robocza agenta"
 ---
 
@@ -236,5 +240,3 @@ Sugerowany plik startowy `.gitignore`:
   konfigurację routingu.
 - Jeśli `agents.defaults.sandbox` jest włączone, sesje inne niż główne mogą używać
   sandboxowych przestrzeni roboczych per sesja pod `agents.defaults.sandbox.workspaceRoot`.
-
-

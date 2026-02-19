@@ -1,4 +1,7 @@
 ---
+summary: "Pasos de verificación de salud para la conectividad del canal"
+read_when:
+  - Diagnóstico de la salud del canal de WhatsApp
 title: "Comprobaciones de salud"
 ---
 
@@ -30,5 +33,3 @@ Guía breve para verificar la conectividad del canal sin suposiciones.
 ## Comando dedicado de "health"
 
 `openclaw health --json` solicita al Gateway en ejecución su instantánea de salud (sin sockets directos del canal desde la CLI). Informa, cuando está disponible, las credenciales vinculadas/antigüedad de autenticación, resúmenes de sondeos por canal, resumen del almacén de sesiones y la duración del sondeo. Sale con un código distinto de cero si el Gateway es inalcanzable o si el sondeo falla o excede el tiempo. Use `--timeout <ms>` para sobrescribir el valor predeterminado de 10 s.
-
-

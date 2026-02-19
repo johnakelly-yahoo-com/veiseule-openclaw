@@ -1,4 +1,7 @@
 ---
+summary: "Zalo bot destek durumu, yetenekler ve yapılandırma"
+read_when:
+  - Zalo özellikleri veya web kancaları üzerinde çalışırken
 title: "Zalo"
 ---
 
@@ -122,18 +125,18 @@ Ortam seçeneği: `ZALO_BOT_TOKEN=...` (yalnızca varsayılan hesap için çalı
 - **Çıkartmalar**: Günlüğe alınır ancak tam olarak işlenmez (ajan yanıtı yok).
 - **Desteklenmeyen türler**: Günlüğe alınır (ör. korumalı kullanıcılardan gelen mesajlar).
 
-## Yetenekler
+## Capabilities
 
-| Özellik                               | Durum                                                  |
+| Özellik                               | Status                                                  |
 | ------------------------------------- | ------------------------------------------------------- |
 | Doğrudan mesajlar                     | ✅ Destekleniyor                                         |
 | Gruplar                               | ❌ Yakında (Zalo belgelerine göre)    |
 | Medya (görüntüler) | ✅ Destekleniyor                                         |
 | Tepkiler                              | ❌ Desteklenmiyor                                        |
 | Konular                               | ❌ Desteklenmiyor                                        |
-| Anketler                                 | ❌ Desteklenmiyor                                        |
-| Yerel komutlar                       | ❌ Desteklenmiyor                                        |
-| Akış                             | ⚠️ Engellendi (2000 karakter sınırı) |
+| Polls                                 | ❌ Desteklenmiyor                                        |
+| Native commands                       | ❌ Desteklenmiyor                                        |
+| Streaming                             | ⚠️ Engellendi (2000 karakter sınırı) |
 
 ## Teslim hedefleri (CLI/cron)
 
@@ -184,5 +187,3 @@ Sağlayıcı seçenekleri:
 - `channels.zalo.accounts.<id>.webhookSecret`: hesap başına web kancası gizli anahtarı.
 - `channels.zalo.accounts.<id>.webhookPath`: hesap başına web kancası yolu.
 - `channels.zalo.accounts.<id>.proxy`: hesap başına proxy URL’si.
-
-

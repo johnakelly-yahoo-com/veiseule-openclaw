@@ -1,6 +1,6 @@
 ---
 title: "Omstrukturering av spegling av utgående sessioner (Issue #1520)" #1520)
-description: "Spåra anteckningar, beslut, tester och öppna punkter för refaktoriseringen av spegling av utgående sessioner."
+description: Spåra anteckningar, beslut, tester och öppna punkter för refaktoriseringen av spegling av utgående sessioner.
 ---
 
 # Omstrukturering av spegling av utgående sessioner (Issue #1520)
@@ -83,5 +83,3 @@ Utgående sändningar speglades i _current_ -sessionen (verktygets sessionsnycke
   - `src/infra/outbound/outbound-session.test.ts`
   - `src/agents/tools/message-tool.test.ts`
   - `src/gateway/server-methods/send.test.ts`
-
-

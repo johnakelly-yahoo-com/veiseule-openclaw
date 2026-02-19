@@ -1,4 +1,9 @@
 ---
+summary: "Mga cron job + wakeup para sa Gateway scheduler"
+read_when:
+  - Pag-iskedyul ng mga background job o wakeup
+  - Pag-wire ng automation na dapat tumakbo kasama o kasabay ng mga heartbeat
+  - Pagpapasya sa pagitan ng heartbeat at cron para sa mga naka-iskedyul na gawain
 title: "Mga Cron Job"
 ---
 
@@ -6,7 +11,7 @@ title: "Mga Cron Job"
 
 > **Cron vs Heartbeat?** Tingnan ang [Cron vs Heartbeat](/automation/cron-vs-heartbeat) para sa gabay kung kailan gagamitin ang bawat isa.
 
-Ang Cron ay built-in na scheduler ng Gateway. Nagpapanatili ito ng mga job at ginigising ang agent sa
+Cron is the Gateway’s built-in scheduler. It persists jobs, wakes the agent at
 the right time, and can optionally deliver output back to a chat.
 
 Kung gusto mo ng _“patakbuhin ito tuwing umaga”_ o _“kalabitin ang agent pagkalipas ng 20 minuto”_, cron ang mekanismo.
@@ -60,7 +65,7 @@ Para sa canonical na mga hugis ng JSON at mga halimbawa, tingnan ang [JSON schem
 
 ## Saan naka-store ang mga cron job
 
-Ang mga Cron job ay naka-persist sa Gateway host sa `~/.openclaw/cron/jobs.json` bilang default.
+Cron jobs are persisted on the Gateway host at `~/.openclaw/cron/jobs.json` by default.
 The Gateway loads the file into memory and writes it back on changes, so manual edits
 are only safe when the Gateway is stopped. Prefer `openclaw cron add/edit` or the cron
 tool call API for changes.
@@ -82,7 +87,7 @@ Isipin ang isang cron job bilang: **kailan** tatakbo + **ano** ang gagawin.
    - Main session → `payload.kind = "systemEvent"`
    - Isolated session → `payload.kind = "agentTurn"`
 
-Opsyonal: ang mga one-shot job (`schedule.kind = "at"`) ay awtomatikong dine-delete matapos magtagumpay bilang default. Itakda
+Optional: one-shot jobs (`schedule.kind = "at"`) delete after success by default. Set
 `deleteAfterRun: false` to keep them (they will disable after success).
 
 ## Mga Konsepto
@@ -464,5 +469,3 @@ openclaw system event --mode now --text "Next heartbeat: check battery."
 - Para sa mga forum topic, gamitin ang `-100…:topic:<id>` para maging malinaw at hindi ambiguous.
 - Kung makakita ka ng mga prefix na `telegram:...` sa logs o sa naka-store na “last route” targets, normal iyon;
   tinatanggap ng cron delivery ang mga iyon at tama pa ring pina-parse ang mga topic ID.
-
-

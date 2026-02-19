@@ -1,4 +1,9 @@
 ---
+summary: "Giao thức WebSocket của Gateway: bắt tay, khung, phiên bản hóa"
+read_when:
+  - Triển khai hoặc cập nhật client WS của gateway
+  - Gỡ lỗi sai lệch giao thức hoặc lỗi kết nối
+  - Tái tạo schema/mô hình giao thức
 title: "Giao thức Gateway"
 ---
 
@@ -212,5 +217,3 @@ Gateway coi đây là **claims** và thực thi allowlist phía máy chủ.
 Giao thức này cung cấp **toàn bộ API gateway** (trạng thái, kênh, mô hình, chat,
 agent, phiên, node, phê duyệt, v.v.). Bề mặt chính xác được xác định bởi các schema TypeBox trong
 `src/gateway/protocol/schema.ts`.
-
-

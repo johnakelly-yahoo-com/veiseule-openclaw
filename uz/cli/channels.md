@@ -1,17 +1,21 @@
 ---
+summary: "CLI reference for `openclaw channels` (accounts, status, login/logout, logs)"
+read_when:
+  - You want to add/remove channel accounts (WhatsApp/Telegram/Discord/Google Chat/Slack/Mattermost (plugin)/Signal/iMessage)
+  - You want to check channel status or tail channel logs
 title: "channels"
 ---
 
 # `openclaw channels`
 
-Gateway’da chat kanallari akkauntlari va ularning ish holatini boshqaring.
+Manage chat channel accounts and their runtime status on the Gateway.
 
-Tegishli hujjatlar:
+Related docs:
 
-- Kanal qo‘llanmalari: [Channels](/channels/index)
-- Gateway sozlamalari: [Configuration](/gateway/configuration)
+- Channel guides: [Channels](/channels/index)
+- Gateway configuration: [Configuration](/gateway/configuration)
 
-## Keng tarqalgan buyruqlar
+## Common commands
 
 ```bash
 openclaw channels list
@@ -22,46 +26,46 @@ openclaw channels resolve --channel slack "#general" "@jane"
 openclaw channels logs --channel all
 ```
 
-## Akkaunt qo‘shish / olib tashlash
+## Add / remove accounts
 
 ```bash
 openclaw channels add --channel telegram --token <bot-token>
 openclaw channels remove --channel telegram --delete
 ```
 
-Maslahat: `openclaw channels add --help` har bir kanal uchun mavjud flaglarni (token, app token, signal-cli yo‘llari va boshqalar) ko‘rsatadi.
+Tip: `openclaw channels add --help` shows per-channel flags (token, app token, signal-cli paths, etc).
 
-## Kirish / chiqish (interaktiv)
+## Login / logout (interactive)
 
 ```bash
 openclaw channels login --channel whatsapp
 openclaw channels logout --channel whatsapp
 ```
 
-## Muammolarni bartaraf etish
+## Troubleshooting
 
-- Keng qamrovli tekshiruv uchun `openclaw status --deep` ni ishga tushiring.
-- Yo‘naltirilgan tuzatishlar uchun `openclaw doctor` dan foydalaning.
-- `openclaw channels list` da `Claude: HTTP 403 ... user:profile` chiqsa → foydalanish holati uchun `user:profile` scope talab qilinadi. `--no-usage` dan foydalaning yoki claude.ai sessiya kalitini taqdim eting (`CLAUDE_WEB_SESSION_KEY` / `CLAUDE_WEB_COOKIE`), yoki Claude Code CLI orqali qayta autentifikatsiya qiling.
+- Run `openclaw status --deep` for a broad probe.
+- Use `openclaw doctor` for guided fixes.
+- `openclaw channels list` prints `Claude: HTTP 403 ... user:profile` → usage snapshot needs the `user:profile` scope. Use `--no-usage`, or provide a claude.ai session key (`CLAUDE_WEB_SESSION_KEY` / `CLAUDE_WEB_COOKIE`), or re-auth via Claude Code CLI.
 
-## Imkoniyatlarni tekshirish (Capabilities probe)
+## Capabilities probe
 
-Provayder imkoniyatlari bo‘yicha ma’lumotlarni (mavjud joylarda intents/scopes) hamda statik funksional qo‘llab-quvvatlashni oling:
+Fetch provider capability hints (intents/scopes where available) plus static feature support:
 
 ```bash
 openclaw channels capabilities
 openclaw channels capabilities --channel discord --target channel:123
 ```
 
-Eslatmalar:
+Notes:
 
-- `--channel` majburiy emas; barcha kanallarni (shu jumladan kengaytmalarni) ko‘rish uchun uni ko‘rsatmasangiz ham bo‘ladi.
-- `--target` `channel:<id>` yoki oddiy raqamli kanal id qabul qiladi va faqat Discord uchun amal qiladi.
-- Tekshiruvlar provayderga xos: Discord intents + ixtiyoriy kanal ruxsatlari; Slack bot + user scopes; Telegram bot flaglari + webhook; Signal daemon versiyasi; MS Teams app token + Graph rollari/scopes (ma’lum joylarda izoh bilan). Tekshiruv mavjud bo‘lmagan kanallar `Probe: unavailable` deb ko‘rsatadi.
+- `--channel` is optional; omit it to list every channel (including extensions).
+- `--target` accepts `channel:<id>` or a raw numeric channel id and only applies to Discord.
+- Probes are provider-specific: Discord intents + optional channel permissions; Slack bot + user scopes; Telegram bot flags + webhook; Signal daemon version; MS Teams app token + Graph roles/scopes (annotated where known). Channels without probes report `Probe: unavailable`.
 
-## Nomlarni ID ga o‘girish
+## Resolve names to IDs
 
-Provayder katalogidan foydalanib kanal/foydalanuvchi nomlarini ID ga o‘giring:
+Resolve channel/user names to IDs using the provider directory:
 
 ```bash
 openclaw channels resolve --channel slack "#general" "@jane"
@@ -69,8 +73,7 @@ openclaw channels resolve --channel discord "My Server/#support" "@someone"
 openclaw channels resolve --channel matrix "Project Room"
 ```
 
-Eslatmalar:
+Notes:
 
-- Maqsad turini majburan belgilash uchun `--kind user|group|auto` dan foydalaning.
-- Bir xil nomli bir nechta yozuv bo‘lsa, tizim faol (active) moslikni ustun qo‘yadi.
-
+- Use `--kind user|group|auto` to force the target type.
+- Resolution prefers active matches when multiple entries share the same name.

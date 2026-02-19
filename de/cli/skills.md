@@ -1,4 +1,8 @@
 ---
+summary: "CLI-Referenz für `openclaw skills` (list/info/check) und die Eignung von Skills"
+read_when:
+  - Sie möchten sehen, welche Skills verfügbar und einsatzbereit sind
+  - Sie möchten fehlende Binaries/Umgebungsvariablen/Konfigurationen für Skills debuggen
 title: "Skills"
 ---
 
@@ -20,5 +24,3 @@ openclaw skills list --eligible
 openclaw skills info <name>
 openclaw skills check
 ```
-
-

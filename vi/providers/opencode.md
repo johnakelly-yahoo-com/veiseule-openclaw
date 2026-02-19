@@ -1,4 +1,8 @@
 ---
+summary: "Sử dụng OpenCode Zen (các mô hình được tuyển chọn) với OpenClaw"
+read_when:
+  - Bạn muốn OpenCode Zen để truy cập mô hình
+  - Bạn muốn danh sách mô hình được tuyển chọn, thân thiện với lập trình
 title: "OpenCode Zen"
 ---
 
@@ -30,5 +34,3 @@ openclaw onboard --opencode-zen-api-key "$OPENCODE_API_KEY"
 - `OPENCODE_ZEN_API_KEY` cũng được hỗ trợ.
 - Bạn đăng nhập vào Zen, thêm thông tin thanh toán và sao chép khóa API của mình.
 - OpenCode Zen tính phí theo từng yêu cầu; hãy kiểm tra bảng điều khiển OpenCode để biết chi tiết.
-
-

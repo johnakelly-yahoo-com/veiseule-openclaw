@@ -516,7 +516,7 @@ import { ... } from "@mariozechner/pi-tui";
 | الاستدعاء      | أمر `pi` / RPC                      | SDK عبر `createAgentSession()`                                                                                    |
 | الأدوات        | أدوات الترميز الافتراضية            | مجموعة أدوات OpenClaw المخصّصة                                                                                    |
 | مطالبة النظام  | AGENTS.md + مطالبات | ديناميكية حسب القناة/السياق                                                                                       |
-| تخزين الجلسة   | `~/.pi/agent/sessions/`             | `~/.openclaw/agents/<agentId>/sessions/` (أو `$OPENCLAW_STATE_DIR/agents/<agentId>/sessions/`) |
+| تخزين الجلسة   | `~/.pi/agent/sessions/`             | `~/.openclaw/agents/&lt;agentId&gt;/sessions/` (أو `$OPENCLAW_STATE_DIR/agents/&lt;agentId&gt;/sessions/`) |
 | المصادقة       | اعتماد واحد                         | ملفات متعددة مع تدوير                                                                                             |
 | الامتدادات     | محمّلة من القرص                     | برمجية + مسارات قرص                                                                                               |
 | معالجة الأحداث | عرض TUI                             | قائم على الاستدعاءات الراجعة (onBlockReply، إلخ)                                               |
@@ -610,5 +610,3 @@ import { ... } from "@mariozechner/pi-tui";
 - `src/agents/pi-tools.policy.test.ts`
 - `src/agents/pi-tools.safe-bins.test.ts`
 - `src/agents/pi-tools.workspace-paths.test.ts`
-
-

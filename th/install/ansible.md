@@ -1,4 +1,9 @@
 ---
+summary: "การติดตั้งOpenClawแบบอัตโนมัติที่มีการเสริมความปลอดภัยด้วย Ansible, Tailscale VPN และการแยกด้วยไฟร์วอลล์"
+read_when:
+  - คุณต้องการการปรับใช้เซิร์ฟเวอร์แบบอัตโนมัติพร้อมการเสริมความปลอดภัย
+  - คุณต้องการการตั้งค่าที่แยกด้วยไฟร์วอลล์และเข้าถึงผ่าน VPN
+  - คุณกำลังปรับใช้บนเซิร์ฟเวอร์ Debian/Ubuntu ระยะไกล
 title: "Ansible"
 ---
 
@@ -16,7 +21,7 @@ curl -fsSL https://raw.githubusercontent.com/openclaw/openclaw-ansible/main/inst
 
 > **📦 คู่มือฉบับเต็ม: [github.com/openclaw/openclaw-ansible](https://github.com/openclaw/openclaw-ansible)**
 >
-> > ที่เก็บ openclaw-ansible เป็นแหล่งข้อมูลหลักสำหรับการปรับใช้ด้วย Ansible หน้านี้เป็นภาพรวมโดยสรุปอย่างรวดเร็ว
+> The openclaw-ansible repo is the source of truth for Ansible deployment. This page is a quick overview.
 
 ## สิ่งที่คุณจะได้รับ
 
@@ -45,7 +50,7 @@ Ansible playbook จะติดตั้งและกำหนดค่า:
 5. **OpenClaw** (รันบนโฮสต์โดยตรง ไม่ได้อยู่ในคอนเทนเนอร์)
 6. **บริการ Systemd** (เริ่มอัตโนมัติพร้อมการเสริมความปลอดภัย)
 
-หมายเหตุ: Gateway ทำงาน **โดยตรงบนโฮสต์** (ไม่อยู่ใน Docker) แต่ sandbox ของเอเจนต์ใช้ Docker เพื่อการแยกอิสระ ดูรายละเอียดได้ที่ [Sandboxing](/gateway/sandboxing) See [Sandboxing](/gateway/sandboxing) for details.
+หมายเหตุ: Gateway ทำงาน **โดยตรงบนโฮสต์** (ไม่อยู่ใน Docker) แต่ sandbox ของเอเจนต์ใช้ Docker เพื่อการแยกอิสระ ดูรายละเอียดได้ที่ [Sandboxing](/gateway/sandboxing) See [Sandboxing](/gateway/sandboxing) for details. See [Sandboxing](/gateway/sandboxing) for details.
 
 ## การตั้งค่าหลังการติดตั้ง
 
@@ -96,11 +101,11 @@ openclaw channels login
 nmap -p- YOUR_SERVER_IP
 ```
 
-ควรแสดงว่าเปิด **เฉพาะพอร์ต 22** (SSH) เท่านั้น บริการอื่นทั้งหมด (Gateway, Docker) ถูกล็อกอย่างเข้มงวด All other services (gateway, Docker) are locked down.
+ควรแสดงว่าเปิด **เฉพาะพอร์ต 22** (SSH) เท่านั้น บริการอื่นทั้งหมด (Gateway, Docker) ถูกล็อกอย่างเข้มงวด All other services (gateway, Docker) are locked down. All other services (gateway, Docker) are locked down.
 
 ### ความพร้อมใช้งานของ Docker
 
-Docker ถูกติดตั้งสำหรับ **sandbox ของเอเจนต์** (การรันเครื่องมือแบบแยกอิสระ) ไม่ได้ใช้สำหรับรัน Gateway เอง Gateway จะผูกกับ localhost เท่านั้นและเข้าถึงผ่าน Tailscale VPN The gateway binds to localhost only and is accessible via Tailscale VPN.
+Docker ถูกติดตั้งสำหรับ **sandbox ของเอเจนต์** (การรันเครื่องมือแบบแยกอิสระ) ไม่ได้ใช้สำหรับรัน Gateway เอง Gateway จะผูกกับ localhost เท่านั้นและเข้าถึงผ่าน Tailscale VPN The gateway binds to localhost only and is accessible via Tailscale VPN. The gateway binds to localhost only and is accessible via Tailscale VPN.
 
 ดูรายละเอียดการกำหนดค่า sandbox ได้ที่ [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools)
 
@@ -128,7 +133,7 @@ ansible-galaxy collection install -r requirements.yml
 
 ## การอัปเดต OpenClaw
 
-ตัวติดตั้ง Ansible จะตั้งค่า OpenClaw สำหรับการอัปเดตด้วยตนเอง ดูขั้นตอนมาตรฐานได้ที่ [Updating](/install/updating) See [Updating](/install/updating) for the standard update flow.
+ตัวติดตั้ง Ansible จะตั้งค่า OpenClaw สำหรับการอัปเดตด้วยตนเอง ดูขั้นตอนมาตรฐานได้ที่ [Updating](/install/updating) ตัวติดตั้ง Ansible จะตั้งค่า OpenClaw สำหรับการอัปเดตด้วยตนเอง ดูขั้นตอนมาตรฐานได้ที่ [Updating](/install/updating) See [Updating](/install/updating) for the standard update flow.
 
 หากต้องการรัน Ansible playbook ซ้ำ (เช่น สำหรับการเปลี่ยนแปลงคอนฟิก):
 
@@ -201,5 +206,3 @@ openclaw channels login
 - [Docker](/install/docker) — การตั้งค่า Gateway แบบคอนเทนเนอร์
 - [Sandboxing](/gateway/sandboxing) — การกำหนดค่า sandbox ของเอเจนต์
 - [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) — การแยกอิสระต่อเอเจนต์
-
-

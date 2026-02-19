@@ -1,4 +1,10 @@
-------
+---
+title: "မူလ AGENTS.md"
+summary: "ပုဂ္ဂိုလ်ရေး အကူအညီပေး အပြင်အဆင်အတွက် ပုံမှန် OpenClaw အေးဂျင့် လမ်းညွှန်ချက်များနှင့် Skills စာရင်း"
+read_when:
+  - OpenClaw အေးဂျင့် ဆက်ရှင်အသစ်တစ်ခု စတင်ချိန်
+  - ပုံမှန် Skills များကို ဖွင့်ခြင်း သို့မဟုတ် စစ်ဆေးအကဲဖြတ်ခြင်း ပြုလုပ်ချိန်
+---
 
 # AGENTS.md — OpenClaw ပုဂ္ဂိုလ်ရေး အကူအညီပေး (ပုံမှန်)
 
@@ -116,5 +122,3 @@ git commit -m "Add Clawd workspace"
 - ဘရောက်ဇာအခြေပြု စစ်ဆေးအတည်ပြုမှုအတွက် OpenClaw စီမံခန့်ခွဲထားသော Chrome profile နှင့်အတူ `openclaw browser` (tabs/status/screenshot) ကို အသုံးပြုပါ။
 - DOM စစ်ဆေးရန် `openclaw browser eval|query|dom|snapshot` ကို အသုံးပြုပါ (machine output လိုအပ်ပါက `--json`/`--out` ကိုပါ အသုံးပြုပါ)။
 - အပြန်အလှန်လုပ်ဆောင်မှုများအတွက် `openclaw browser click|type|hover|drag|select|upload|press|wait|navigate|back|evaluate|run` ကို အသုံးပြုပါ (click/type များသည် snapshot refs လိုအပ်သည်; CSS selectors အတွက် `evaluate` ကို အသုံးပြုပါ)။
-
-

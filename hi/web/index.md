@@ -1,4 +1,8 @@
 ---
+summary: "Gateway वेब सतहें: कंट्रोल UI, बाइंड मोड, और सुरक्षा"
+read_when:
+  - आप Tailscale के माध्यम से Gateway तक पहुँचना चाहते हैं
+  - आप ब्राउज़र कंट्रोल UI और कॉन्फ़िग संपादन चाहते हैं
 title: "वेब"
 ---
 
@@ -7,19 +11,19 @@ title: "वेब"
 Gateway, Gateway WebSocket के समान पोर्ट से एक छोटा **ब्राउज़र कंट्रोल UI** (Vite + Lit) परोसता है:
 
 - डिफ़ॉल्ट: `http://<host>:18789/`
-- वैकल्पिक प्रीफ़िक्स: `gateway.controlUi.basePath` सेट करें (उदा. `/openclaw`)
+- optional prefix: set `gateway.controlUi.basePath` (e.g. `/openclaw`)
 
-क्षमताएँ [Control UI](/web/control-ui) में उपलब्ध हैं।
+Capabilities live in [Control UI](/web/control-ui).
 This page focuses on bind modes, security, and web-facing surfaces.
 
 ## वेबहुक्स
 
-जब `hooks.enabled=true` होता है, तो Gateway उसी HTTP सर्वर पर एक छोटा webhook endpoint भी उपलब्ध कराता है।
+When `hooks.enabled=true`, the Gateway also exposes a small webhook endpoint on the same HTTP server.
 See [Gateway configuration](/gateway/configuration) → `hooks` for auth + payloads.
 
 ## कॉन्फ़िग (डिफ़ॉल्ट-ऑन)
 
-जब assets मौजूद हों (`dist/control-ui`), तो Control UI **डिफ़ॉल्ट रूप से सक्षम** होता है।
+The Control UI is **enabled by default** when assets are present (`dist/control-ui`).
 You can control it via config:
 
 ```json5
@@ -97,8 +101,8 @@ openclaw gateway
 - UI `connect.params.auth.token` या `connect.params.auth.password` भेजता है।
 - कंट्रोल UI एंटी-क्लिकजैकिंग हेडर्स भेजता है और केवल same-origin ब्राउज़र
   वेब-सॉकेट कनेक्शनों को स्वीकार करता है, जब तक कि `gateway.controlUi.allowedOrigins` सेट न हो।
-- Serve के साथ, Tailscale identity headers auth को संतुष्ट कर सकते हैं जब
-`gateway.auth.allowTailscale` `true` हो (token/password की आवश्यकता नहीं)। सेट करें
+- With Serve, Tailscale identity headers can satisfy auth when
+  `gateway.auth.allowTailscale` is `true` (no token/password required). Set
   `gateway.auth.allowTailscale: false` to require explicit credentials. See
   [Tailscale](/gateway/tailscale) and [Security](/gateway/security).
 - `gateway.tailscale.mode: "funnel"` के लिए `gateway.auth.mode: "password"` (साझा पासवर्ड) आवश्यक है।
@@ -110,5 +114,3 @@ openclaw gateway
 ```bash
 pnpm ui:build # auto-installs UI deps on first run
 ```
-
-

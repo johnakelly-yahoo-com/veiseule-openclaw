@@ -1,4 +1,9 @@
 ---
+summary: "Message flow, sessions, queueing, and reasoning visibility"
+read_when:
+  - 說明傳入訊息如何轉換為回覆
+  - Clarifying sessions, queueing modes, or streaming behavior
+  - 文件化推理可見性與使用上的影響
 title: "訊息"
 ---
 
@@ -21,7 +26,7 @@ Inbound message
 
 - `messages.*` 用於前綴、佇列與群組行為。
 - `agents.defaults.*` 用於區塊串流與分塊的預設值。
-- 頻道覆寫（`channels.whatsapp.*`、`channels.telegram.*` 等）用於上限與串流切換。 for caps and streaming toggles.
+- 頻道覆寫（`channels.whatsapp.*`、`channels.telegram.*` 等）用於上限與串流切換。 for caps and streaming toggles. for caps and streaming toggles.
 
 完整結構請參閱 [設定](/gateway/configuration)。
 
@@ -54,16 +59,16 @@ and uses the most recent message for reply threading/IDs.
 
 注意事項：
 
-- Debounce 僅適用於**純文字**訊息；媒體／附件會立即送出。
+- Debounce applies to **text-only** messages; media/attachments flush immediately.
 - 控制指令會略過防抖，以保持其獨立性。
 
-## 工作階段與裝置
+## Sessions and devices
 
-工作階段由 gateway 擁有，而非由用戶端擁有。
+Sessions are owned by the gateway, not by clients.
 
-- 私聊會合併為代理的主要工作階段金鑰。
+- Direct chats collapse into the agent main session key.
 - 群組／頻道各自擁有獨立的工作階段鍵。
-- 工作階段儲存與對話紀錄位於 gateway 主機上。
+- The session store and transcripts live on the gateway host.
 
 多個裝置／通道可以對應到同一個工作階段，但歷史紀錄並不會完全同步。
 synced back to every client. Recommendation: use one primary device for long
@@ -72,7 +77,7 @@ gateway-backed session transcript, so they are the source of truth.
 
 詳情：[工作階段管理](/concepts/session)。
 
-## 傳入內容與歷史上下文
+## Inbound bodies and history context
 
 OpenClaw separates the **prompt body** from the **command body**:
 
@@ -113,7 +118,7 @@ current run, or collected for a followup turn.
 
 ## Streaming, chunking, and batching
 
-Block streaming sends partial replies as the model produces text blocks.1) 分塊會遵守通道文字長度限制，並避免切分圍欄程式碼。
+Block streaming sends partial replies as the model produces text blocks.1) 分塊會遵守通道文字長度限制，並避免切分圍欄程式碼。1) 分塊會遵守通道文字長度限制，並避免切分圍欄程式碼。
 
 主要設定：
 
@@ -144,5 +149,3 @@ OpenClaw 可顯示或隱藏模型推理：
 - 透過 `replyToMode` 與每頻道預設值進行回覆串接
 
 詳情：[設定](/gateway/configuration#messages) 與各頻道文件。
-
-

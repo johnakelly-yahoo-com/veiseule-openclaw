@@ -1,8 +1,13 @@
 ---
-title: "Koppelen"
+summary: "Overzicht van pairing: goedkeuren wie je een DM kan sturen + welke nodes kunnen deelnemen"
+read_when:
+  - DM-toegangsbeheer instellen
+  - Een nieuwe iOS/Android-node koppelen
+  - De beveiligingspositie van OpenClaw beoordelen
+title: "Pairing"
 ---
 
-# Koppelen
+# Pairing
 
 “Pairing” is de expliciete stap voor **goedkeuring door de eigenaar** van OpenClaw.
 Deze wordt op twee plekken gebruikt:
@@ -96,5 +101,3 @@ Opgeslagen onder `~/.openclaw/devices/`:
   - iMessage (legacy): [iMessage](/channels/imessage)
   - Discord: [Discord](/channels/discord)
   - Slack: [Slack](/channels/slack)
-
-

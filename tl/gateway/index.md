@@ -1,39 +1,44 @@
 ---
+summary: "Runbook para sa serbisyo ng Gateway, lifecycle, at mga operasyon"
+read_when:
+  - Kapag pinapatakbo o dini-debug ang proseso ng gateway
 title: "Runbook ng Gateway"
 ---
 
-# Gateway runbook
+# Gateway service runbook
 
-Gamitin ang pahinang ito para sa day-1 startup at day-2 operations ng Gateway service.
+Huling na-update: 2025-12-09
 
 <CardGroup cols={2}>
-  <Card title="Malalim na troubleshooting" icon="siren" href="/gateway/troubleshooting">
-    Symptom-first na diagnostics na may eksaktong command ladders at log signatures.
+  <Card title="Deep troubleshooting" icon="siren" href="/gateway/troubleshooting">
+    Diagnostics na inuuna ang sintomas na may eksaktong mga command ladder at log signature.
   
 </Card>
   <Card title="Configuration" icon="sliders" href="/gateway/configuration">
-    Task-oriented na gabay sa setup + kumpletong configuration reference.
+    Gabay sa setup na nakatuon sa gawain + kumpletong configuration reference.
   
 </Card>
 </CardGroup>
 
-## 5-minutong local startup
+## 5-minutong lokal na pagsisimula
 
 <Steps>
-  <Step title="Simulan ang Gateway">
+  <Step title="Start the Gateway">
 
 ```bash
 openclaw gateway --port 18789
-# debug/trace mirrored to stdio
+# for full debug/trace logs in stdio:
 openclaw gateway --port 18789 --verbose
-# force-kill listener on selected port, then start
+# if the port is busy, terminate listeners then start:
 openclaw gateway --force
+# dev loop (auto-reload on TS changes):
+pnpm gateway:watch
 ```
 
   
 </Step>
 
-  <Step title="I-verify ang service health">
+  <Step title="Verify service health">
 
 ```bash
 openclaw gateway status
@@ -41,12 +46,12 @@ openclaw status
 openclaw logs --follow
 ```
 
-Healthy baseline: `Runtime: running` at `RPC probe: ok`.
+Malusog na baseline: `Runtime: running` at `RPC probe: ok`.
 
   
 </Step>
 
-  <Step title="I-validate ang channel readiness">
+  <Step title="Validate channel readiness">
 
 ```bash
 openclaw channels status --probe
@@ -57,37 +62,37 @@ openclaw channels status --probe
 </Steps>
 
 <Note>
-Ang Gateway config reload ay nagmo-monitor sa aktibong config file path (na-resolve mula sa profile/state defaults, o `OPENCLAW_CONFIG_PATH` kapag naka-set).
-Ang default mode ay `gateway.reload.mode="hybrid"`.
+Ang pag-reload ng Gateway config ay nagbabantay sa aktibong path ng config file (na ni-resolve mula sa mga default ng profile/state, o `OPENCLAW_CONFIG_PATH` kapag nakatakda).
+Ang default na mode ay `gateway.reload.mode="hybrid"`.
 </Note>
 
-## Runtime model
+## Modelo ng runtime
 
-- Isang laging tumatakbong proseso para sa routing, control plane, at mga koneksyon ng channel.
+- Isang palaging tumatakbong proseso para sa routing, control plane, at mga koneksyon ng channel.
 - Isang multiplexed na port para sa:
   - WebSocket control/RPC
-  - HTTP APIs (OpenAI-compatible, Responses, tools invoke)
-  - Control UI at hooks
-- Default bind mode: `loopback`.
+  - HTTP APIs (OpenAI-compatible, Responses, pag-invoke ng tools)
+  - Control UI at mga hook
+- Default na bind mode: `loopback`.
 - Kinakailangan ang auth bilang default (`gateway.auth.token` / `gateway.auth.password`, o `OPENCLAW_GATEWAY_TOKEN` / `OPENCLAW_GATEWAY_PASSWORD`).
 
-### Port at bind precedence
+### Precedence ng port at bind
 
-| Setting      | Resolution order                                              |
+| Setting      | Pagkakasunod-sunod ng resolusyon                              |
 | ------------ | ------------------------------------------------------------- |
 | Gateway port | `--port` → `OPENCLAW_GATEWAY_PORT` → `gateway.port` → `18789` |
 | Bind mode    | CLI/override → `gateway.bind` → `loopback`                    |
 
-### Hot reload modes
+### Mga hot reload mode
 
-| `gateway.reload.mode` | Behavior                                   |
-| --------------------- | ------------------------------------------ |
-| `off`                 | Walang config reload                       |
-| `hot`                 | I-apply lang ang hot-safe na mga pagbabago |
-| `restart`             | Mag-restart kapag may reload-required changes |
-| `hybrid` (default)    | Hot-apply kapag ligtas, restart kapag kailangan |
+| `gateway.reload.mode`                 | Pag-uugali                                                      |
+| ------------------------------------- | --------------------------------------------------------------- |
+| `off`                                 | Walang config reload                                            |
+| `hot`                                 | Ilapat lamang ang mga pagbabagong ligtas para sa hot reload     |
+| `restart`                             | Mag-restart kapag may mga pagbabagong nangangailangan ng reload |
+| `hybrid` (default) | Hot-apply kapag ligtas, i-restart kapag kinakailangan           |
 
-## Operator command set
+## Hanay ng mga utos ng operator
 
 ```bash
 openclaw gateway status
@@ -102,7 +107,7 @@ openclaw doctor
 
 ## Remote access
 
-Mas mainam: Tailscale/VPN.  
+Mas mainam: Tailscale/VPN.
 Fallback: SSH tunnel.
 
 ```bash
@@ -117,9 +122,9 @@ Kung naka-configure ang gateway auth, kailangan pa ring magpadala ng auth (`toke
 
 Tingnan: [Remote Gateway](/gateway/remote), [Authentication](/gateway/authentication), [Tailscale](/gateway/tailscale).
 
-## Supervision at service lifecycle
+## Protocol (pananaw ng operator)
 
-Gumamit ng supervised runs para sa production-like reliability.
+Gumamit ng supervised runs para sa production-like na pagiging maaasahan.
 
 <Tabs>
   <Tab title="macOS (launchd)">
@@ -131,7 +136,7 @@ openclaw gateway restart
 openclaw gateway stop
 ```
 
-Ang mga LaunchAgent label ay `ai.openclaw.gateway` (default) o `ai.openclaw.<profile>` (named profile). Ang `openclaw doctor` ay nag-a-audit at nag-aayos ng service config drift.
+Ang mga label ng LaunchAgent ay `ai.openclaw.gateway` (default) o `ai.openclaw.<profile>` (pinangalanang profile). Ang `openclaw doctor` ay nagsusuri at nag-aayos ng service config drift.
 
   
 </Tab>
@@ -144,7 +149,7 @@ systemctl --user enable --now openclaw-gateway[-<profile>].service
 openclaw gateway status
 ```
 
-Para magpatuloy kahit mag-logout, i-enable ang lingering:
+Para magpatuloy kahit pagkatapos mag-logout, i-enable ang lingering:
 
 ```bash
 sudo loginctl enable-linger <user>
@@ -155,7 +160,7 @@ sudo loginctl enable-linger <user>
 
   <Tab title="Linux (system service)">
 
-Gumamit ng system unit para sa multi-user/always-on hosts.
+Gumamit ng system unit para sa multi-user/laging naka-on na mga host.
 
 ```bash
 sudo systemctl daemon-reload
@@ -166,10 +171,10 @@ sudo systemctl enable --now openclaw-gateway[-<profile>].service
 </Tab>
 </Tabs>
 
-## Maramihang gateway sa iisang host
+## Keepalive behavior
 
-Karamihan ng setup ay dapat magpatakbo ng **isang** Gateway.  
-Gumamit lamang ng marami para sa mahigpit na isolation/redundancy (halimbawa, rescue profile).
+Karamihan ng mga setup ay dapat magpatakbo ng **isang** Gateway.
+Gumamit lamang ng maramihan para sa mahigpit na isolation/redundancy (halimbawa, isang rescue profile).
 
 Checklist kada instance:
 
@@ -187,74 +192,73 @@ OPENCLAW_CONFIG_PATH=~/.openclaw/b.json OPENCLAW_STATE_DIR=~/.openclaw-b opencla
 
 Tingnan: [Multiple gateways](/gateway/multiple-gateways).
 
-### Dev profile quick path
+### Mabilis na gabay para sa dev profile
 
 ```bash
-openclaw --dev setup
-openclaw --dev gateway --allow-unconfigured
-openclaw --dev status
+openclaw gateway status
+openclaw gateway install
+openclaw gateway stop
+openclaw gateway restart
+openclaw logs --follow
 ```
 
-Kasama sa defaults ang isolated state/config at base gateway port na `19001`.
+Mga tala:
 
-## Protocol quick reference (pananaw ng operator)
+## Mabilis na sanggunian ng protocol (pananaw ng operator)
 
 - Ang unang client frame ay dapat `connect`.
 - Nagbabalik ang Gateway ng `hello-ok` snapshot (`presence`, `health`, `stateVersion`, `uptimeMs`, limits/policy).
 - Mga request: `req(method, params)` → `res(ok/payload|error)`.
-- Mga karaniwang event: `connect.challenge`, `agent`, `chat`, `presence`, `tick`, `health`, `heartbeat`, `shutdown`.
+- Karaniwang mga event: `connect.challenge`, `agent`, `chat`, `presence`, `tick`, `health`, `heartbeat`, `shutdown`.
 
-Ang agent runs ay two-stage:
+Dalawang yugto ang agent runs:
 
 1. Agarang accepted ack (`status:"accepted"`)
-2. Final completion response (`status:"ok"|"error"`), na may streamed `agent` events sa pagitan.
+2. Panghuling completion response (`status:"ok"|"error"`), na may naka-stream na `agent` events sa pagitan.
 
-Tingnan ang buong protocol docs: [Gateway Protocol](/gateway/protocol).
+Tingnan ang buong dokumentasyon ng protocol: [Gateway Protocol](/gateway/protocol).
 
 ## Operational checks
 
 ### Liveness
 
 - Magbukas ng WS at magpadala ng `connect`.
-- Asahan ang `hello-ok` response na may snapshot.
+- Asahan ang `hello-ok` na tugon na may snapshot.
 
 ### Readiness
 
 ```bash
-openclaw gateway status
-openclaw channels status --probe
-openclaw health
+sudo loginctl enable-linger youruser
 ```
 
 ### Gap recovery
 
-Hindi nire-replay ang mga event. Kapag may sequence gaps, i-refresh ang state (`health`, `system-presence`) bago magpatuloy.
+25. }`. Kapag may sequence gaps, i-refresh ang state (`health`, `system-presence\`) bago magpatuloy.
 
 ## Mga karaniwang failure signature
 
-| Signature                                                      | Malamang na isyu                          |
-| -------------------------------------------------------------- | ----------------------------------------- |
-| `refusing to bind gateway ... without auth`                    | Non-loopback bind na walang token/password |
-| `another gateway instance is already listening` / `EADDRINUSE` | Port conflict                             |
-| `Gateway start blocked: set gateway.mode=local`                | Config na naka-set sa remote mode         |
-| `unauthorized` during connect                                  | Hindi tugmang auth sa pagitan ng client at gateway |
+| Signature                                                      | Malamang na isyu                                     |
+| -------------------------------------------------------------- | ---------------------------------------------------- |
+| `refusing to bind gateway ... without auth`                    | Non-loopback bind nang walang token/password         |
+| `another gateway instance is already listening` / `EADDRINUSE` | Conflict sa port                                     |
+| `Gateway start blocked: set gateway.mode=local`                | Naka-set ang config sa remote mode                   |
+| `unauthorized` habang kumokonekta                              | Hindi tugma ang auth sa pagitan ng client at gateway |
 
-Para sa kumpletong diagnosis ladders, gamitin ang [Gateway Troubleshooting](/gateway/troubleshooting).
+Para sa kumpletong mga hakbang sa diagnosis, gamitin ang [Gateway Troubleshooting](/gateway/troubleshooting).
 
 ## Mga garantiya sa kaligtasan
 
-- Ang Gateway protocol clients ay fail fast kapag hindi available ang Gateway (walang implicit direct-channel fallback).
-- Ang invalid/non-connect first frames ay tinatanggihan at agad na isinasara.
-- Ang maayos na shutdown ay nag-e-emit ng `shutdown` event bago isara ang socket.
+- Ang mga Gateway protocol client ay agad nagfa-fail kapag hindi available ang Gateway (walang implicit direct-channel fallback).
+- Ang mga invalid/non-connect na unang frame ay tinatanggihan at isinasara.
+- Ang maayos na shutdown ay naglalabas ng `shutdown` event bago isara ang socket.
 
 ---
 
-Related:
+Kaugnay:
 
-- [Troubleshooting](/gateway/troubleshooting)
-- [Background Process](/gateway/background-process)
-- [Configuration](/gateway/configuration)
-- [Health](/gateway/health)
+- Ipagpalagay ang isang Gateway bawat host bilang default; kung nagpapatakbo ng maraming profile, ihiwalay ang mga port/state at i-target ang tamang instance.
+- Walang fallback sa direktang koneksyon ng Baileys; kung down ang Gateway, mabilis na babagsak ang mga send.
+- Ang mga non-connect first frame o malformed JSON ay tinatanggihan at isinasara ang socket.
+- Maayos na shutdown: mag-emit ng `shutdown` event bago magsara; dapat hawakan ng mga client ang close + reconnect.
 - [Doctor](/gateway/doctor)
 - [Authentication](/gateway/authentication)
-

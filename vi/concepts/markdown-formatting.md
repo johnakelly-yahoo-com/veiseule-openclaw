@@ -1,4 +1,9 @@
 ---
+summary: "Quy trình định dạng Markdown cho các kênh gửi ra"
+read_when:
+  - Bạn đang thay đổi định dạng Markdown hoặc cơ chế chunking cho các kênh gửi ra
+  - Bạn đang thêm một formatter kênh mới hoặc ánh xạ kiểu dáng
+  - Bạn đang gỡ lỗi các lỗi hồi quy về định dạng giữa các kênh
 title: "Định dạng Markdown"
 ---
 
@@ -119,5 +124,3 @@ Nếu bạn cần thêm thông tin về hành vi chunking giữa các kênh, xem
 - HTML của Telegram yêu cầu escape văn bản ngoài thẻ để tránh hỏng markup.
 - Các dải kiểu của Signal phụ thuộc vào offset UTF-16; không dùng offset theo code point.
 - Giữ lại dấu xuống dòng ở cuối cho các khối code fence để marker đóng nằm trên dòng riêng của chúng.
-
-

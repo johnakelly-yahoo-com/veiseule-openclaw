@@ -1,4 +1,8 @@
 ---
+summary: "CLI 参照：`openclaw approvals`（ゲートウェイまたはノード ホスト向けの実行承認）"
+read_when:
+  - CLI から実行承認を編集したい場合
+  - ゲートウェイまたはノード ホスト上の許可リストを管理する必要がある場合
 title: "approvals"
 ---
 
@@ -45,5 +49,3 @@ openclaw approvals allowlist remove "~/Projects/**/bin/rg"
 - `--agent` の既定値は `"*"` で、すべてのエージェントに適用されます。
 - ノード ホストは `system.execApprovals.get/set`（macOS アプリまたはヘッドレス ノード ホスト）をアドバタイズする必要があります。
 - 承認ファイルは、ホストごとに `~/.openclaw/exec-approvals.json` に保存されます。
-
-

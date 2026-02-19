@@ -1,4 +1,7 @@
 ---
+summary: "Các chế độ kích hoạt bằng giọng nói và nhấn-để-nói cùng chi tiết định tuyến trong ứng dụng mac"
+read_when:
+  - Làm việc trên các luồng Voice Wake hoặc PTT
 title: "Kích hoạt bằng giọng nói"
 ---
 
@@ -6,13 +9,13 @@ title: "Kích hoạt bằng giọng nói"
 
 ## Chế độ
 
-- **Chế độ từ kích hoạt** (mặc định): trình nhận dạng giọng nói luôn bật và chờ các từ kích hoạt (`swabbleTriggerWords`). Khi khớp, hệ thống bắt đầu ghi âm, hiển thị lớp phủ với văn bản tạm thời và tự động gửi sau khi im lặng.
-- **Nhấn để nói (giữ phím Option bên phải)**: giữ phím Option bên phải để ghi âm ngay lập tức—không cần từ kích hoạt. Lớp phủ xuất hiện khi giữ phím; thả ra sẽ hoàn tất và chuyển tiếp sau một khoảng trễ ngắn để bạn có thể chỉnh sửa văn bản.
+- **Wake-word mode** (default): always-on Speech recognizer waits for trigger tokens (`swabbleTriggerWords`). On match it starts capture, shows the overlay with partial text, and auto-sends after silence.
+- **Push-to-talk (Right Option hold)**: hold the right Option key to capture immediately—no trigger needed. The overlay appears while held; releasing finalizes and forwards after a short delay so you can tweak text.
 
 ## Hành vi thời gian chạy (từ đánh thức)
 
 - Trình nhận dạng giọng nói chạy trong `VoiceWakeRuntime`.
-- Chỉ kích hoạt khi có **khoảng dừng đáng kể** giữa từ kích hoạt và từ tiếp theo (khoảng ~0,55 giây). Lớp phủ/âm báo có thể bắt đầu ngay khi tạm dừng, thậm chí trước khi lệnh bắt đầu.
+- Trigger only fires when there’s a **meaningful pause** between the wake word and the next word (~0.55s gap). The overlay/chime can start on the pause even before the command begins.
 - Cửa sổ im lặng: 2,0s khi đang nói liên tục, 5,0s nếu chỉ nghe thấy từ kích hoạt.
 - Dừng cứng: 120s để ngăn phiên chạy quá lâu.
 - Chống dội giữa các phiên: 350ms.
@@ -44,10 +47,10 @@ Gia cố:
 ## Cài đặt cho người dùng
 
 - **Voice Wake**: bật runtime từ đánh thức.
-- **Giữ Cmd+Fn để nói**: bật chế độ theo dõi nhấn-để-nói. Bị vô hiệu hóa trên macOS < 26.
+- **Hold Cmd+Fn to talk**: enables the push-to-talk monitor. Disabled on macOS < 26.
 - Bộ chọn ngôn ngữ & mic, đồng hồ mức âm trực tiếp, bảng từ kích hoạt, trình kiểm thử (chỉ cục bộ; không chuyển tiếp).
 - Bộ chọn mic giữ lại lựa chọn cuối cùng nếu thiết bị ngắt kết nối, hiển thị gợi ý đã ngắt và tạm thời chuyển sang mặc định hệ thống cho đến khi thiết bị quay lại.
-- **Âm thanh**: phát âm báo khi phát hiện từ kích hoạt và khi gửi; mặc định là âm thanh hệ thống “Glass” của macOS. Bạn có thể chọn bất kỳ tệp nào có thể tải bằng `NSSound` (ví dụ: MP3/WAV/AIFF) cho từng sự kiện hoặc chọn **No Sound**.
+- **Sounds**: chimes on trigger detect and on send; defaults to the macOS “Glass” system sound. You can pick any `NSSound`-loadable file (e.g. MP3/WAV/AIFF) for each event or choose **No Sound**.
 
 ## Hành vi chuyển tiếp
 
@@ -56,11 +59,9 @@ Gia cố:
 
 ## Payload chuyển tiếp
 
-- `VoiceWakeForwarder.prefixedTranscript(_:)` thêm tiền tố gợi ý máy trước khi gửi. Được dùng chung cho cả chế độ từ kích hoạt và nhấn-để-nói.
+- `VoiceWakeForwarder.prefixedTranscript(_:)` prepends the machine hint before sending. Shared between wake-word and push-to-talk paths.
 
 ## Xác minh nhanh
 
 - Bật nhấn-để-nói, giữ Cmd+Fn, nói, thả: overlay phải hiển thị các phần tạm thời rồi gửi.
 - Trong lúc giữ, biểu tượng tai ở thanh menu phải được phóng to (dùng `triggerVoiceEars(ttl:nil)`); thả phím thì trở lại bình thường.
-
-

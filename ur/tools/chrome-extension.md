@@ -1,4 +1,9 @@
 ---
+summary: "Chrome ایکسٹینشن: OpenClaw کو آپ کے موجودہ Chrome ٹیب کو کنٹرول کرنے دیں"
+read_when:
+  - آپ چاہتے ہیں کہ ایجنٹ موجودہ Chrome ٹیب کو کنٹرول کرے (ٹول بار بٹن)
+  - آپ کو ریموٹ Gateway + مقامی براؤزر آٹومیشن Tailscale کے ذریعے درکار ہے
+  - آپ براؤزر ٹیک اوور کے سکیورٹی مضمرات کو سمجھنا چاہتے ہیں
 title: "Chrome ایکسٹینشن"
 ---
 
@@ -41,7 +46,7 @@ openclaw browser extension path
 
 ## اپڈیٹس (کوئی build مرحلہ نہیں)
 
-یہ ایکسٹینشن OpenClaw ریلیز (npm package) کے اندر بطور static فائلز شامل ہوتی ہے۔ کوئی علیحدہ “build” مرحلہ نہیں ہے۔
+The extension ships inside the OpenClaw release (npm package) as static files. There is no separate “build” step.
 
 OpenClaw اپگریڈ کرنے کے بعد:
 
@@ -95,12 +100,12 @@ openclaw browser create-profile \
 
 ### لوکل Gateway (Chrome والی ہی مشین) — عموماً **کوئی اضافی اقدامات نہیں**
 
-اگر Gateway اسی مشین پر چل رہا ہو جس پر Chrome موجود ہے، تو یہ loopback پر براؤزر کنٹرول سروس شروع کر دیتا ہے۔
+If the Gateway runs on the same machine as Chrome, it starts the browser control service on loopback
 and auto-starts the relay server. The extension talks to the local relay; the CLI/tool calls go to the Gateway.
 
 ### ریموٹ Gateway (Gateway کہیں اور چل رہا ہو) — **نوڈ ہوسٹ چلائیں**
 
-اگر آپ کا Gateway کسی دوسری مشین پر چل رہا ہے، تو اس مشین پر جہاں Chrome چل رہا ہو ایک node host شروع کریں۔
+If your Gateway runs on another machine, start a node host on the machine that runs Chrome.
 The Gateway will proxy browser actions to that node; the extension + relay stay local to the browser machine.
 
 اگر متعدد نوڈز کنیکٹ ہوں تو ایک کو `gateway.nodes.browser.node` کے ساتھ پن کریں یا `gateway.nodes.browser.mode` سیٹ کریں۔
@@ -144,15 +149,15 @@ The Gateway will proxy browser actions to that node; the extension + relay stay 
 
 `openclaw browser extension path` اس **انسٹال شدہ** آن-ڈسک ڈائریکٹری کو پرنٹ کرتا ہے جس میں ایکسٹینشن فائلیں موجود ہوتی ہیں۔
 
-CLI جان بوجھ کر `node_modules` کا راستہ پرنٹ نہیں کرتا۔ ایکسٹینشن کو اپنے OpenClaw اسٹیٹ ڈائریکٹری کے تحت ایک مستحکم مقام پر کاپی کرنے کے لیے ہمیشہ پہلے `openclaw browser extension install` چلائیں۔
+The CLI intentionally does **not** print a `node_modules` path. Always run `openclaw browser extension install` first to copy the extension to a stable location under your OpenClaw state directory.
 
 اگر آپ اس انسٹال ڈائریکٹری کو منتقل یا حذف کر دیں تو Chrome ایکسٹینشن کو خراب (broken) نشان زد کر دے گا، جب تک آپ اسے کسی درست پاتھ سے دوبارہ لوڈ نہ کریں۔
 
 ## سکیورٹی مضمرات (یہ ضرور پڑھیں)
 
-یہ طاقتور بھی ہے اور خطرناک بھی۔ اسے ایسے سمجھیں جیسے آپ ماڈل کو “اپنے براؤزر پر براہِ راست اختیار” دے رہے ہوں۔
+This is powerful and risky. Treat it like giving the model “hands on your browser”.
 
-- ایکسٹینشن Chrome کی debugger API (`chrome.debugger`) استعمال کرتی ہے۔ منسلک ہونے کے بعد، ماڈل یہ کام کر سکتا ہے:
+- The extension uses Chrome’s debugger API (`chrome.debugger`). When attached, the model can:
   - اس ٹیب میں کلک/ٹائپ/نیویگیٹ کرنا
   - صفحے کے مواد کو پڑھنا
   - وہ سب کچھ ایکسیس کرنا جس تک اس ٹیب کا لاگ اِن سیشن رسائی رکھتا ہے
@@ -171,5 +176,3 @@ CLI جان بوجھ کر `node_modules` کا راستہ پرنٹ نہیں کرت
 - براؤزر ٹول کا جائزہ: [Browser](/tools/browser)
 - سکیورٹی آڈٹ: [Security](/gateway/security)
 - Tailscale سیٹ اپ: [Tailscale](/gateway/tailscale)
-
-

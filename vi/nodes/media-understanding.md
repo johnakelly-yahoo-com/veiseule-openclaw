@@ -1,4 +1,8 @@
 ---
+summary: "Hiểu nội dung media đầu vào (hình ảnh/âm thanh/video) tùy chọn với nhà cung cấp + phương án dự phòng CLI"
+read_when:
+  - Thiết kế hoặc tái cấu trúc phần hiểu media
+  - Tinh chỉnh tiền xử lý âm thanh/video/hình ảnh đầu vào
 title: "Hiểu Media"
 ---
 
@@ -156,7 +160,7 @@ Lưu ý: Việc phát hiện nhị phân là best‑effort trên macOS/Linux/Win
 
 ## Khả năng (tùy chọn)
 
-Nếu bạn đặt `capabilities`, mục này sẽ chỉ chạy cho các loại phương tiện đó. Đối với các mục dùng chung
+If you set `capabilities`, the entry only runs for those media types. For shared
 lists, OpenClaw can infer defaults:
 
 - `openai`, `anthropic`, `minimax`: **hình ảnh**
@@ -371,5 +375,3 @@ Khi phần hiểu media chạy, `/status` bao gồm một dòng tóm tắt ngắ
 
 - [Cấu hình](/gateway/configuration)
 - [Hỗ trợ Hình ảnh & Media](/nodes/images)
-
-

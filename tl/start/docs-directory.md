@@ -1,9 +1,12 @@
 ---
+summary: "Piniling mga link patungo sa mga pinaka-ginagamit na OpenClaw docs."
+read_when:
+  - Gusto mo ng mabilis na access sa mga pangunahing pahina ng docs
 title: "Direktoryo ng docs"
 ---
 
 <Note>
-Ang pahinang ito ay isang maingat na piniling indeks. Kung bago ka, magsimula sa [Pagsisimula](/start/getting-started).
+This page is a curated index. If you are new, start with [Getting Started](/start/getting-started).
 For a complete map of the docs, see [Docs hubs](/start/hubs).
 </Note>
 
@@ -59,5 +62,3 @@ For a complete map of the docs, see [Docs hubs](/start/hubs).
 - [Gmail hooks (Pub/Sub)](/automation/gmail-pubsub)
 - [Seguridad](/gateway/security)
 - [Pag-troubleshoot](/gateway/troubleshooting)
-
-

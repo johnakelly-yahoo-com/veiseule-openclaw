@@ -1,4 +1,9 @@
 ---
+summary: "web_fetch 를 위한 Firecrawl 폴백(안티 봇 + 캐시된 추출)"
+read_when:
+  - Firecrawl 기반 웹 추출을 원할 때
+  - Firecrawl API 키가 필요할 때
+  - web_fetch 를 위한 안티 봇 추출이 필요할 때
 title: "Firecrawl"
 ---
 
@@ -54,5 +59,3 @@ OpenClaw 는 Firecrawl 요청에 항상 `proxy: "auto"` 와 `storeInCache: true`
 3. 기본 HTML 정리(최종 폴백)
 
 전체 웹 도구 설정은 [Web tools](/tools/web)를 참고하십시오.
-
-

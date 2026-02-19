@@ -1,4 +1,9 @@
 ---
+summary: "„Testkit: Unit-/E2E-/Live-Suiten, Docker-Runner und was jeder Test abdeckt“"
+read_when:
+  - Beim lokalen Ausführen von Tests oder in CI
+  - Beim Hinzufügen von Regressionen für Modell-/Anbieter-Bugs
+  - Beim Debuggen des Gateway- und Agent-Verhaltens
 title: "„Tests“"
 ---
 
@@ -37,7 +42,7 @@ Betrachten Sie die Suiten als „zunehmenden Realismus“ (und zunehmende Flakin
 ### Unit / Integration (Standard)
 
 - Befehl: `pnpm test`
-- Konfiguration: `vitest.config.ts`
+- Konfig: `scripts/test-parallel.mjs` (führt `vitest.unit.config.ts`, `vitest.extensions.config.ts`, `vitest.gateway.config.ts` aus)
 - Dateien: `src/**/*.test.ts`
 - Umfang:
   - Reine Unit-Tests
@@ -47,12 +52,23 @@ Betrachten Sie die Suiten als „zunehmenden Realismus“ (und zunehmende Flakin
   - Läuft in CI
   - Keine echten Schlüssel erforderlich
   - Sollte schnell und stabil sein
+- Hinweis zum Pool:
+  - OpenClaw verwendet Vitest `vmForks` unter Node 22/23 für schnellere Unit-Shards.
+  - Unter Node 24+ wechselt OpenClaw automatisch zu regulären `forks`, um Node-VM-Linking-Fehler (`ERR_VM_MODULE_LINK_FAILURE` / `module is already linked`) zu vermeiden.
+  - Manuell überschreiben mit `OPENCLAW_TEST_VM_FORKS=0` (erzwingt `forks`) oder `OPENCLAW_TEST_VM_FORKS=1` (erzwingt `vmForks`).
 
 ### E2E (Gateway-Smoke)
 
 - Befehl: `pnpm test:e2e`
 - Konfiguration: `vitest.e2e.config.ts`
 - Dateien: `src/**/*.e2e.test.ts`
+- Standardwerte zur Laufzeit:
+  - Verwendet Vitest `vmForks` für schnelleren Datei-Start.
+  - Verwendet adaptive Worker (CI: 2–4, lokal: 4–8).
+  - Läuft standardmäßig im Silent-Modus, um den Konsolen-I/O-Overhead zu reduzieren.
+- Nützliche Overrides:
+  - `OPENCLAW_E2E_WORKERS=<n>` um die Anzahl der Worker zu erzwingen (begrenzt auf 16).
+  - `OPENCLAW_E2E_VERBOSE=1` um die ausführliche Konsolenausgabe wieder zu aktivieren.
 - Umfang:
   - End-to-End-Verhalten des Gateways mit mehreren Instanzen
   - WebSocket-/HTTP-Oberflächen, Node-Pairing und schwerere Netzwerklast
@@ -363,5 +379,3 @@ Wenn Sie ein in Live entdecktes Anbieter-/Modellproblem beheben:
 - Bevorzugen Sie die kleinste Ebene, die den Bug einfängt:
   - Anbieter-Request-Konvertierungs-/Replay-Bug → Direkt-Modelle-Test
   - Gateway-Sitzungs-/Verlaufs-/Tool-Pipeline-Bug → Gateway-Live-Smoke oder CI-sicherer Gateway-Mock-Test
-
-

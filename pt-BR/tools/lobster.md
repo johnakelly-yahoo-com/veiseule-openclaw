@@ -1,17 +1,21 @@
 ---
 title: Lobster
-description: "Runtime de workflow tipado para OpenClaw — pipelines componíveis com etapas de aprovação."
+summary: "Runtime de workflow tipado para OpenClaw com portões de aprovação retomáveis."
+description: Typed workflow runtime for OpenClaw — composable pipelines with approval gates.
+read_when:
+  - Você quer workflows determinísticos em várias etapas com aprovações explícitas
+  - Você precisa retomar um workflow sem reexecutar as etapas anteriores
 ---
 
 # Lobster
 
 Lobster é um shell de workflow que permite ao OpenClaw executar sequências de ferramentas em várias etapas como uma única operação determinística, com checkpoints de aprovação explícitos.
 
-## Gancho
+## Hook
 
 Seu assistente pode construir as ferramentas que o gerenciam. Peça um workflow e, 30 minutos depois, você tem uma CLI mais pipelines que rodam como uma única chamada. Lobster é a peça que faltava: pipelines determinísticos, aprovações explícitas e estado retomável.
 
-## Por quê
+## Why
 
 Hoje, workflows complexos exigem muitas chamadas de ferramentas de ida e volta. Cada chamada custa tokens, e o LLM precisa orquestrar cada etapa. Lobster move essa orquestração para um runtime tipado:
 
@@ -19,7 +23,7 @@ Hoje, workflows complexos exigem muitas chamadas de ferramentas de ida e volta. 
 - **Aprovações integradas**: efeitos colaterais (enviar e-mail, postar comentário) interrompem o workflow até serem explicitamente aprovados.
 - **Retomável**: workflows interrompidos retornam um token; aprove e retome sem reexecutar tudo.
 
-## Por que uma DSL em vez de programas comuns?
+## Why a DSL instead of plain programs?
 
 Lobster é intencionalmente pequeno. O objetivo não é “uma nova linguagem”, e sim uma especificação de pipeline previsível e amigável para IA, com aprovações de primeira classe e tokens de retomada.
 
@@ -334,7 +338,5 @@ OpenProse combina bem com o Lobster: use `/prose` para orquestrar a preparação
 
 Um exemplo público: uma CLI de “segundo cérebro” + pipelines do Lobster que gerenciam três cofres Markdown (pessoal, parceiro, compartilhado). A CLI emite JSON para estatísticas, listagens de inbox e varreduras de itens obsoletos; o Lobster encadeia esses comandos em workflows como `weekly-review`, `inbox-triage`, `memory-consolidation` e `shared-task-sync`, cada um com portões de aprovação. A IA cuida do julgamento (categorização) quando disponível e recorre a regras determinísticas quando não.
 
-- Discussão: [https://x.com/plattenschieber/status/2014508656335770033](https://x.com/plattenschieber/status/2014508656335770033)
-- Repositório: [https://github.com/bloomedai/brain-cli](https://github.com/bloomedai/brain-cli)
-
-
+- Thread: [https://x.com/plattenschieber/status/2014508656335770033](https://x.com/plattenschieber/status/2014508656335770033)
+- Repo: [https://github.com/bloomedai/brain-cli](https://github.com/bloomedai/brain-cli)

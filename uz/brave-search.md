@@ -1,18 +1,22 @@
 ---
+summary: "Brave Search API setup for web_search"
+read_when:
+  - You want to use Brave Search for web_search
+  - You need a BRAVE_API_KEY or plan details
 title: "Brave Search"
 ---
 
 # Brave Search API
 
-OpenClaw `web_search` uchun standart provayder sifatida Brave Search’dan foydalanadi.
+OpenClaw uses Brave Search as the default provider for `web_search`.
 
-## API kalitini olish
+## Get an API key
 
-1. [https://brave.com/search/api/](https://brave.com/search/api/) orqali Brave Search API hisobini yarating  
-2. Boshqaruv panelida **Data for Search** rejasini tanlang va API kalitini yarating.  
-3. Kalitni config’da (tavsiya etiladi) saqlang yoki Gateway muhitida `BRAVE_API_KEY` ni o‘rnating.
+1. Create a Brave Search API account at [https://brave.com/search/api/](https://brave.com/search/api/)
+2. In the dashboard, choose the **Data for Search** plan and generate an API key.
+3. Store the key in config (recommended) or set `BRAVE_API_KEY` in the Gateway environment.
 
-## Config namunasi
+## Config example
 
 ```json5
 {
@@ -29,10 +33,9 @@ OpenClaw `web_search` uchun standart provayder sifatida Brave Search’dan foyda
 }
 ```
 
-## Eslatmalar
+## Notes
 
-- Data for AI rejasi `web_search` bilan **mos kelmaydi**.  
-- Brave bepul tarif va pullik rejalarni taklif etadi; amaldagi cheklovlar uchun Brave API portalini tekshiring.
+- The Data for AI plan is **not** compatible with `web_search`.
+- Brave provides a free tier plus paid plans; check the Brave API portal for current limits.
 
-`web_search` to‘liq sozlamalari uchun [Web tools](/tools/web) bo‘limiga qarang.
-
+See [Web tools](/tools/web) for the full web_search configuration.

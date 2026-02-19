@@ -1,4 +1,8 @@
 ---
+summary: "Scripted na onboarding at setup ng agent para sa OpenClaw CLI"
+read_when:
+  - Nag-a-automate ka ng onboarding sa mga script o CI
+  - Kailangan mo ng mga non-interactive na halimbawa para sa mga partikular na provider
 title: "CLI Awtomasyon"
 sidebarTitle: "CLI awtomasyon"
 ---
@@ -109,6 +113,26 @@ Magdagdag ng `--json` para sa isang machine-readable na buod.
     ```
   
 </Accordion>
+  <Accordion title="Custom provider example">
+    ```bash
+    openclaw onboard --non-interactive \
+      --mode local \
+      --auth-choice custom-api-key \
+      --custom-base-url "https://llm.example.com/v1" \
+      --custom-model-id "foo-large" \
+      --custom-api-key "$CUSTOM_API_KEY" \
+      --custom-provider-id "my-custom" \
+      --custom-compatibility anthropic \
+      --gateway-port 18789 \
+      --gateway-bind loopback
+    ```
+
+    ```
+    Ang `--custom-api-key` ay opsyonal. Kapag hindi isinama, susuriin ng onboarding ang `CUSTOM_API_KEY`.
+    ```
+
+  
+</Accordion>
 </AccordionGroup>
 
 ## Magdagdag ng isa pang agent
@@ -124,7 +148,7 @@ openclaw agents add work \
   --json
 ```
 
-Ano ang ise-set nito:
+Mga tala:
 
 - `agents.list[].name`
 - `agents.list[].workspace`
@@ -133,13 +157,11 @@ Ano ang ise-set nito:
 Mga tala:
 
 - Ang mga default na workspace ay sumusunod sa `~/.openclaw/workspace-<agentId>`.
-- Magdagdag ng `bindings` para i-route ang mga papasok na mensahe (kaya rin ito ng wizard).
-- Mga non-interactive na flag: `--model`, `--agent-dir`, `--bind`, `--non-interactive`.
+- Buong reference: [CLI Onboarding Reference](/start/wizard-cli-reference)
+- Reference ng command: [`openclaw onboard`](/cli/onboard)
 
 ## Kaugnay na docs
 
 - Onboarding hub: [Onboarding Wizard (CLI)](/start/wizard)
 - Buong reference: [CLI Onboarding Reference](/start/wizard-cli-reference)
 - Reference ng command: [`openclaw onboard`](/cli/onboard)
-
-

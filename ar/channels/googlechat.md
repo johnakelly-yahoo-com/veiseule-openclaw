@@ -1,4 +1,7 @@
 ---
+summary: "حالة دعم تطبيق Google Chat، والقدرات، والتهيئة"
+read_when:
+  - العمل على ميزات قناة Google Chat
 title: "Google Chat"
 ---
 
@@ -151,6 +154,7 @@ your-domain.com {
 استخدم هذه المعرّفات للتسليم وقوائم السماح:
 
 - الرسائل المباشرة: `users/<userId>` أو `users/<email>` (تُقبل عناوين البريد الإلكتروني).
+- مهمل: يُعامَل `users/<email>` كمعرّف مستخدم، وليس كقائمة سماح للبريد الإلكتروني.
 - المساحات: `spaces/<spaceId>`.
 
 ## أبرز نقاط التهيئة
@@ -247,5 +251,3 @@ openclaw channels status
 - [تهيئة Gateway](/gateway/configuration)
 - [الأمان](/gateway/security)
 - [التفاعلات](/tools/reactions)
-
-

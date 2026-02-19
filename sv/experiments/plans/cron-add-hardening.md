@@ -1,4 +1,5 @@
 ---
+summary: "Härda indatahanteringen för cron.add, anpassa scheman och förbättra cron-UI/agentverktyg"
 owner: "openclaw"
 status: "complete"
 last_updated: "2026-01-05"
@@ -60,5 +61,3 @@ Se [Cron jobs](/automation/cron-jobs) för den normaliserade formen och exempel.
 
 - Bör `cron.add` acceptera explicit `state` från klienter (för närvarande tillåts inte av schemat)?
 - Bör vi tillåta `webchat` som explicit leveransleverantör (för närvarande filtreras den bort i leveransupplösningen)?
-
-

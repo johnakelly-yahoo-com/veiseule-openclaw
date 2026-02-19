@@ -1,4 +1,7 @@
 ---
+summary: "Estado de compatibilidad de Tlon/Urbit, capacidades y configuración"
+read_when:
+  - Al trabajar en funciones del canal Tlon/Urbit
 title: "Tlon"
 ---
 
@@ -47,6 +50,22 @@ Configuración mínima (una sola cuenta):
       ship: "~sampel-palnet",
       url: "https://your-ship-host",
       code: "lidlut-tabwed-pillex-ridrup",
+    },
+  },
+}
+```
+
+URLs de ship privadas/LAN (avanzado):
+
+Por defecto, OpenClaw bloquea nombres de host e IP privadas/internas para este plugin (endurecimiento contra SSRF).
+Si la URL de tu ship está en una red privada (por ejemplo `http://192.168.1.50:8080` o `http://localhost:8080`),
+debes habilitarlo explícitamente:
+
+```json5
+{
+  channels: {
+    tlon: {
+      allowPrivateNetwork: true,
     },
   },
 }
@@ -127,5 +146,3 @@ Use estos con `openclaw message send` o con entrega por cron:
 - Las respuestas en grupos requieren una mención (p. ej., `~your-bot-ship`) para responder.
 - Respuestas en hilos: si el mensaje entrante está en un hilo, OpenClaw responde dentro del hilo.
 - Medios: `sendMedia` usa un respaldo a texto + URL (sin carga nativa).
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Flux de prise en main au premier lancement pour OpenClaw (application macOS)"
+read_when:
+  - Concevoir l’assistant de prise en main macOS
+  - Mettre en œuvre l’authentification ou la configuration d’identité
 title: "Prise en main (application macOS)"
 sidebarTitle: "Prise en main : application macOS"
 ---
@@ -6,6 +10,7 @@ sidebarTitle: "Prise en main : application macOS"
 # Prise en main (application macOS)
 
 Ce document décrit le flux de prise en main **actuel** au premier lancement. L’objectif est une expérience fluide dès le « jour 0 » : choisir où s’exécute le Gateway (passerelle), connecter l’authentification, lancer l’assistant et laisser l’agent s’amorcer automatiquement.
+Pour un aperçu général des parcours de configuration, consultez [Onboarding Overview](/start/onboarding-overview).
 
 <Steps>
 <Step title="Approve macOS warning">
@@ -72,5 +77,3 @@ Cette étape est facultative
   ce qui se passe sur l’hôte de la passerelle lors de la première exécution de l’agent.
 </Step>
 </Steps>
-
-

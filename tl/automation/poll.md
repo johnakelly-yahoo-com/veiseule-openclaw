@@ -1,4 +1,8 @@
 ---
+summary: "Pagpapadala ng poll sa pamamagitan ng Gateway + CLI"
+read_when:
+  - Pagdaragdag o pagbabago ng suporta sa poll
+  - Pag-debug ng pagpapadala ng poll mula sa CLI o Gateway
 title: "Mga Poll"
 ---
 
@@ -53,8 +57,8 @@ Mga parameter:
 ## Mga pagkakaiba ng channel
 
 - WhatsApp: 2-12 opsyon, ang `maxSelections` ay dapat nasa loob ng bilang ng opsyon, binabalewala ang `durationHours`.
-- Discord: 2-10 na opsyon, `durationHours` ay nililimitahan sa 1-768 oras (default na 24). Ang `maxSelections > 1` ay nagpapagana ng multi-select; hindi sinusuportahan ng Discord ang mahigpit na bilang ng pagpili.
-- MS Teams: Mga poll na Adaptive Card (pinamamahalaan ng OpenClaw). Walang katutubong poll API; hindi isinasaalang-alang ang `durationHours`.
+- Discord: 2-10 options, `durationHours` clamped to 1-768 hours (default 24). `maxSelections > 1` enables multi-select; Discord does not support a strict selection count.
+- MS Teams: Adaptive Card polls (OpenClaw-managed). No native poll API; `durationHours` is ignored.
 
 ## Tool ng Agent (Mensahe)
 
@@ -63,5 +67,3 @@ Gamitin ang tool na `message` kasama ang aksyong `poll` (`to`, `pollQuestion`, `
 Tandaan: Walang “pick exactly N” mode ang Discord; ang `pollMulti` ay tumutugma sa multi-select.
 Ang mga Teams poll ay nirender bilang Adaptive Cards at nangangailangan na manatiling online ang gateway
 upang maitala ang mga boto sa `~/.openclaw/msteams-polls.json`.
-
-

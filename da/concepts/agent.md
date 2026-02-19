@@ -1,4 +1,7 @@
 ---
+summary: "Agent-runtime (indlejret pi-mono), workspace-kontrakt og session-bootstrap"
+read_when:
+  - Ændring af agent-runtime, workspace-bootstrap eller sessionsadfærd
 title: "Agent-runtime"
 ---
 
@@ -118,5 +121,3 @@ Som minimum skal du sætte:
 ---
 
 _Næste: [Group Chats](/channels/group-messages)_ 🦞
-
-

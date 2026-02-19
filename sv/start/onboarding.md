@@ -1,4 +1,8 @@
 ---
+summary: "Introduktionsflöde vid första start för OpenClaw (macOS-app)"
+read_when:
+  - Utformning av macOS-introduktionsassistenten
+  - Implementering av autentisering eller identitetskonfiguration
 title: "Introduktion (macOS-app)"
 sidebarTitle: "Kom igång: macOS-app"
 ---
@@ -8,6 +12,7 @@ sidebarTitle: "Kom igång: macOS-app"
 Denna doc beskriver det **aktuella** första körda onboardingflödet. Målet är en
 smidig ”dag 0” upplevelse: välj var Gateway går, anslut auth, kör
 -guiden och låt agenten bootstrap själv.
+För en allmän översikt över onboarding-vägar, se [Onboarding Overview](/start/onboarding-overview).
 
 <Steps>
 <Step title="Approve macOS warning">
@@ -74,5 +79,3 @@ Detta steg är valfritt
   vad som händer på gatewayvärden under den första agentkörningen.
 </Step>
 </Steps>
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Reposkript: syfte, omfattning och säkerhetsnoteringar"
+read_when:
+  - När du kör skript från repot
+  - När du lägger till eller ändrar skript under ./scripts
 title: "Skript"
 ---
 
@@ -22,5 +26,3 @@ Skript för autentiseringsövervakning dokumenteras här:
 
 - Håll skript fokuserade och dokumenterade.
 - Lägg till en kort post i relevant dokumentation (eller skapa en om den saknas).
-
-

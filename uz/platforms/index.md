@@ -1,17 +1,21 @@
 ---
-title: "Platformalar"
+summary: "Platform support overview (Gateway + companion apps)"
+read_when:
+  - Looking for OS support or install paths
+  - Deciding where to run the Gateway
+title: "Platforms"
 ---
 
-# Platformalar
+# Platforms
 
-OpenClaw yadrosi TypeScript’da yozilgan. **Tavsiya etilgan ishga tushirish muhiti — Node**.
-Gateway uchun Bun tavsiya etilmaydi (WhatsApp/Telegram xatolari sababli).
+OpenClaw core is written in TypeScript. **Node is the recommended runtime**.
+Bun is not recommended for the Gateway (WhatsApp/Telegram bugs).
 
-macOS (menyu paneli ilovasi) va mobil tugunlar (iOS/Android) uchun yordamchi ilovalar mavjud. Windows va
-Linux uchun yordamchi ilovalar rejalashtirilgan, biroq Gateway hozirning o‘zida to‘liq qo‘llab-quvvatlanadi.
-Windows uchun mahalliy yordamchi ilovalar ham rejalashtirilgan; Gateway’ni WSL2 orqali ishga tushirish tavsiya etiladi.
+Companion apps exist for macOS (menu bar app) and mobile nodes (iOS/Android). Windows and
+Linux companion apps are planned, but the Gateway is fully supported today.
+Native companion apps for Windows are also planned; the Gateway is recommended via WSL2.
 
-## OT-ni tanlang
+## Choose your OS
 
 - macOS: [macOS](/platforms/macos)
 - iOS: [iOS](/platforms/ios)
@@ -19,32 +23,31 @@ Windows uchun mahalliy yordamchi ilovalar ham rejalashtirilgan; Gateway’ni WSL
 - Windows: [Windows](/platforms/windows)
 - Linux: [Linux](/platforms/linux)
 
-## VPS va xosting
+## VPS & hosting
 
-- VPS markazi: [VPS hosting](/vps)
+- VPS hub: [VPS hosting](/vps)
 - Fly.io: [Fly.io](/install/fly)
 - Hetzner (Docker): [Hetzner](/install/hetzner)
 - GCP (Compute Engine): [GCP](/install/gcp)
 - exe.dev (VM + HTTPS proxy): [exe.dev](/install/exe-dev)
 
-## Umumiy havolalar
+## Common links
 
-- O‘rnatish qo‘llanmasi: [Getting Started](/start/getting-started)
-- Gateway bo‘yicha qo‘llanma: [Gateway](/gateway)
-- Gateway sozlamalari: [Configuration](/gateway/configuration)
-- Xizmat holati: `openclaw gateway status`
+- Install guide: [Getting Started](/start/getting-started)
+- Gateway runbook: [Gateway](/gateway)
+- Gateway configuration: [Configuration](/gateway/configuration)
+- Service status: `openclaw gateway status`
 
-## Gateway xizmatini o‘rnatish (CLI)
+## Gateway service install (CLI)
 
-Quyidagilardan birini ishlating (barchasi qo‘llab-quvvatlanadi):
+Use one of these (all supported):
 
-- Wizard (tavsiya etiladi): `openclaw onboard --install-daemon`
-- To‘g‘ridan-to‘g‘ri: `openclaw gateway install`
-- Sozlash jarayoni: `openclaw configure` → **Gateway service** ni tanlang
-- Ta’mirlash/migratsiya: `openclaw doctor` (xizmatni o‘rnatish yoki tuzatishni taklif qiladi)
+- Wizard (recommended): `openclaw onboard --install-daemon`
+- Direct: `openclaw gateway install`
+- Configure flow: `openclaw configure` → select **Gateway service**
+- Repair/migrate: `openclaw doctor` (offers to install or fix the service)
 
-Xizmat manzili OT’ga bog‘liq:
+The service target depends on OS:
 
-- macOS: LaunchAgent (`bot.molt.gateway` yoki `bot.molt.<profile>`; eski `com.openclaw.*`)
+- macOS: LaunchAgent (`bot.molt.gateway` or `bot.molt.<profile>; legacy `com.openclaw.\*\`)
 - Linux/WSL2: systemd foydalanuvchi xizmati (`openclaw-gateway[-<profile>].service`)
-

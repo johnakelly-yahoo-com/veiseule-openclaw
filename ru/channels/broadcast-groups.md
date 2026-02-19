@@ -1,4 +1,8 @@
 ---
+summary: "Рассылка сообщения WhatsApp нескольким агентам"
+read_when:
+  - Настройка групп рассылки
+  - Отладка ответов нескольких агентов в WhatsApp
 status: experimental
 title: "Группы рассылки"
 ---
@@ -436,5 +440,3 @@ interface OpenClawConfig {
 - [Конфигурация нескольких агентов](/tools/multi-agent-sandbox-tools)
 - [Конфигурация маршрутизации](/channels/channel-routing)
 - [Управление сеансами](/concepts/sessions)
-
-

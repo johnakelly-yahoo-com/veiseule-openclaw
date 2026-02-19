@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw ကို ထည့်သွင်းပြီး မိနစ်အနည်းငယ်အတွင်း သင့်ပထမဆုံး ချတ်ကို လည်ပတ်စေပါ။"
+read_when:
+  - ပထမဆုံးအကြိမ် သုညမှ စတင်တပ်ဆင်နေချိန်
+  - အလုပ်လုပ်နိုင်သော ချတ်တစ်ခုသို့ အမြန်ဆုံး ရောက်လိုချင်သောအခါ
 title: "စတင်အသုံးပြုရန်"
 ---
 
@@ -7,10 +11,10 @@ title: "စတင်အသုံးပြုရန်"
 ရည်မှန်းချက် — တပ်ဆင်မှု အနည်းဆုံးဖြင့် သုညမှ စတင်ကာ ပထမဆုံး အလုပ်လုပ်နိုင်သော ချတ်တစ်ခုအထိ ရောက်ရှိရန်။
 
 <Info>
-အမြန်ဆုံး ချက်တင်လုပ်ရန်: Control UI ကို ဖွင့်ပါ (channel setup မလိုအပ်ပါ)။ `openclaw dashboard` ကို run လုပ်ပါ။
+Fastest chat: open the Control UI (no channel setup needed). Run `openclaw dashboard`
 and chat in the browser, or open `http://127.0.0.1:18789/` on the
 <Tooltip headline="Gateway host" tip="The machine running the OpenClaw gateway service.">Gateway ဟို့စ်</Tooltip>.
-စာရွက်စာတမ်းများ - [Dashboard](/web/dashboard) နှင့် [Control UI](/web/control-ui)။
+Docs: [Dashboard](/web/dashboard) and [Control UI](/web/control-ui).
 </Info>
 
 ## ကြိုတင်လိုအပ်ချက်များ
@@ -30,6 +34,10 @@ and chat in the browser, or open `http://127.0.0.1:18789/` on the
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash
         ```
+      <img
+  src="/assets/install-script.svg"
+  alt="Install Script Process"
+  className="rounded-lg"></img>
       
 </Tab>
       <Tab title="Windows (PowerShell)">
@@ -41,12 +49,14 @@ and chat in the browser, or open `http://127.0.0.1:18789/` on the
     
 </Tabs>
 
+    ````
     ```
     <Note>
     အခြား ထည့်သွင်းနည်းများနှင့် လိုအပ်ချက်များ — [Install](/install)။
     
 </Note>
     ```
+    ````
 
   
 </Step>
@@ -55,21 +65,25 @@ and chat in the browser, or open `http://127.0.0.1:18789/` on the
     openclaw onboard --install-daemon
     ```
 
+    ````
     ```
     wizard သည် auth၊ Gateway ဆိုင်ရာ ဆက်တင်များနှင့် ရွေးချယ်နိုင်သော ချန်နယ်များကို ဖွဲ့စည်းပြင်ဆင်ပေးပါသည်။
     အသေးစိတ်အတွက် [Onboarding Wizard](/start/wizard) ကို ကြည့်ပါ။
     ```
+    ````
 
   
 </Step>
   <Step title="Check the Gateway">
     ဝန်ဆောင်မှုကို ထည့်သွင်းထားပါက ယခုအချိန်တွင် လည်ပတ်နေပြီးသား ဖြစ်သင့်ပါသည် —
 
+    `````
     ````
     ```bash
     openclaw gateway status
     ```
     ````
+    `````
 
   
 </Step>
@@ -91,22 +105,26 @@ Control UI ကို ဖွင့်လို့ရပါက သင့် Gatewa
   <Accordion title="Run the Gateway in the foreground">
     အမြန်စမ်းသပ်မှုများ သို့မဟုတ် ပြဿနာရှာဖွေရန် အထောက်အကူဖြစ်သည်။
 
+    `````
     ````
     ```bash
     openclaw gateway --port 18789
     ```
     ````
+    `````
 
   
 </Accordion>
   <Accordion title="Send a test message">
     ချန်နယ်တစ်ခုကို ဖွဲ့စည်းပြင်ဆင်ထားရန် လိုအပ်သည်။
 
+    `````
     ````
     ```bash
     openclaw message send --target +15555550123 --message "Hello from OpenClaw"
     ```
     ````
+    `````
 
   
 </Accordion>
@@ -146,5 +164,3 @@ Control UI ကို ဖွင့်လို့ရပါက သင့် Gatewa
 - DM လုံခြုံရေးနှင့် အတည်ပြုချက်များ — [Pairing](/channels/pairing)
 - ချန်နယ်များ ထပ်မံ ချိတ်ဆက်ရန် — [Channels](/channels)
 - အဆင့်မြင့် လုပ်ငန်းစဉ်များနှင့် source မှ တည်ဆောက်ခြင်း — [Setup](/start/setup)
-
-

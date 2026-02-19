@@ -1,4 +1,9 @@
 ---
+summary: "Référence : règles de nettoyage et de réparation des transcriptions spécifiques aux fournisseurs"
+read_when:
+  - Vous déboguez des rejets de requêtes côté fournisseur liés à la forme de la transcription
+  - Vous modifiez la logique de nettoyage des transcriptions ou de réparation des appels d’outils
+  - Vous enquêtez sur des incohérences d’identifiants d’appels d’outils entre fournisseurs
 title: "Hygiène des transcriptions"
 ---
 
@@ -19,6 +24,7 @@ Le périmètre inclut :
 - Validation / ordre des tours
 - Nettoyage des signatures de pensée
 - Nettoyage des charges utiles d’images
+- Marquage de provenance des entrées utilisateur (pour les prompts routés inter-session)
 
 Si vous avez besoin de détails sur le stockage des transcriptions, voir :
 
@@ -64,6 +70,23 @@ Implémentation :
 
 - `sanitizeToolCallInputs` dans `src/agents/session-transcript-repair.ts`
 - Appliqué dans `sanitizeSessionHistory` dans `src/agents/pi-embedded-runner/google.ts`
+
+---
+
+## Règle globale : provenance des entrées inter-session
+
+Lorsqu’un agent envoie un prompt dans une autre session via `sessions_send` (y compris
+les étapes de réponse/annonce d’agent à agent), OpenClaw enregistre le tour utilisateur créé avec :
+
+- `message.provenance.kind = "inter_session"`
+
+Ces métadonnées sont écrites au moment de l’ajout au transcript et ne modifient pas le rôle
+(`role: "user"` reste inchangé pour la compatibilité avec le fournisseur). Les lecteurs de transcript peuvent utiliser
+cela pour éviter de traiter les prompts internes routés comme des instructions rédigées par un utilisateur final.
+
+Lors de la reconstruction du contexte, OpenClaw ajoute également en préfixe un court marqueur `[Inter-session message]`
+à ces tours utilisateur en mémoire afin que le modèle puisse les distinguer des
+instructions externes d’un utilisateur final.
 
 ---
 
@@ -122,5 +145,3 @@ Avant la version 2026.1.22, OpenClaw appliquait plusieurs couches d’hygiène d
 Cette complexité a provoqué des régressions inter‑fournisseurs (notamment l’appariement `openai-responses`
 `call_id|fc_id`). Le nettoyage de 2026.1.22 a supprimé l’extension, centralisé la logique
 dans l’exécuteur et rendu OpenAI **sans intervention** au‑delà du nettoyage des images.
-
-

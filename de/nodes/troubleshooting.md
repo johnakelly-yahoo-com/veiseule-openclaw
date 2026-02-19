@@ -1,4 +1,8 @@
 ---
+summary: "Fehlerbehebung bei Node-Pairing, Vordergrundanforderungen, Berechtigungen und Werkzeugfehlern"
+read_when:
+  - Node ist verbunden, aber Kamera-/Canvas-/Bildschirm-/Exec-Werkzeuge schlagen fehl
+  - Sie benötigen das mentale Modell zu Node-Pairing versus Genehmigungen
 title: "Node-Fehlerbehebung"
 ---
 
@@ -106,5 +110,3 @@ Verwandt:
 - [/nodes/location-command](/nodes/location-command)
 - [/tools/exec-approvals](/tools/exec-approvals)
 - [/gateway/pairing](/gateway/pairing)
-
-

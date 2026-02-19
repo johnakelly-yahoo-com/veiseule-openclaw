@@ -1,4 +1,10 @@
-------
+---
+title: "میموری"
+summary: "OpenClaw میموری کیسے کام کرتی ہے (ورک اسپیس فائلیں + خودکار میموری فلش)"
+read_when:
+  - آپ کو میموری فائل لےآؤٹ اور ورک فلو درکار ہو
+  - آپ خودکار پری-کمپیکشن میموری فلش کو ٹیون کرنا چاہتے ہوں
+---
 
 # میموری
 
@@ -19,7 +25,7 @@ source of truth; the model only "remembers" what gets written to disk.
   - ترتیب دی گئی طویل مدتی میموری۔
   - **صرف مرکزی، نجی سیشن میں لوڈ کریں** (گروپ سیاق میں کبھی نہیں)۔
 
-یہ فائلیں ورک اسپیس (`agents.defaults.workspace`، بطورِ ڈیفالٹ
+These files live under the workspace (`agents.defaults.workspace`, default
 `~/.openclaw/workspace`). See [Agent workspace](/concepts/agent-workspace) for the full layout.
 
 ## میموری کب لکھیں
@@ -27,12 +33,12 @@ source of truth; the model only "remembers" what gets written to disk.
 - فیصلے، ترجیحات، اور پائیدار حقائق `MEMORY.md` میں جائیں۔
 - روزمرہ نوٹس اور جاری سیاق `memory/YYYY-MM-DD.md` میں جائیں۔
 - اگر کوئی کہے “اسے یاد رکھو”، تو لکھ دیں (RAM میں نہ رکھیں)۔
-- یہ حصہ ابھی ارتقا کے عمل میں ہے۔ ماڈل کو یاد دہانیاں محفوظ کرنے کی ترغیب دینا مددگار ہوتا ہے؛ وہ جان لے گا کہ کیا کرنا ہے۔
+- This area is still evolving. It helps to remind the model to store memories; it will know what to do.
 - اگر آپ چاہتے ہیں کہ کوئی چیز قائم رہے، **بوٹ سے کہیں کہ اسے میموری میں لکھ دے**۔
 
 ## خودکار میموری فلش (پری-کمپیکشن پِنگ)
 
-جب کوئی سیشن **auto-compaction کے قریب** ہو، OpenClaw ایک **خاموش،**
+When a session is **close to auto-compaction**, OpenClaw triggers a **silent,
 agentic turn** that reminds the model to write durable memory **before** the
 context is compacted. The default prompts explicitly say the model _may reply_,
 but usually `NO_REPLY` is the correct response so the user never sees this turn.
@@ -79,13 +85,15 @@ OpenClaw `MEMORY.md` اور `memory/*.md` پر ایک چھوٹا ویکٹر ان
 
 - بطورِ طے شدہ فعال۔
 - میموری فائلوں میں تبدیلیوں کو دیکھتا ہے (ڈی باؤنسڈ)۔
+- memory تلاش کو `agents.defaults.memorySearch` کے تحت کنفیگر کریں (ٹاپ لیول
+  `memorySearch` نہیں)۔
 - Uses remote embeddings by default. If `memorySearch.provider` is not set, OpenClaw auto-selects:
   1. `local` اگر `memorySearch.local.modelPath` کنفیگر ہو اور فائل موجود ہو۔
   2. `openai` اگر OpenAI کلید حل ہو سکے۔
   3. `gemini` اگر Gemini کلید حل ہو سکے۔
   4. `voyage` اگر Voyage کلید حل ہو سکے۔
   5. بصورتِ دیگر کنفیگریشن تک میموری سرچ غیر فعال رہتی ہے۔
-- لوکل موڈ node-llama-cpp استعمال کرتا ہے اور `pnpm approve-builds` درکار ہو سکتا ہے۔
+- SQLite کے اندر ویکٹر سرچ تیز کرنے کے لیے sqlite-vec (جب دستیاب ہو) استعمال کرتا ہے۔
 - SQLite کے اندر ویکٹر سرچ تیز کرنے کے لیے sqlite-vec (جب دستیاب ہو) استعمال کرتا ہے۔
 
 Remote embeddings **require** an API key for the embedding provider. OpenClaw
@@ -127,11 +135,14 @@ out to QMD for retrieval. Key points:
   ڈیفالٹ 5 m)۔
 - بوٹ ریفریش اب بطورِ طے شدہ بیک گراؤنڈ میں چلتا ہے تاکہ چیٹ اسٹارٹ اپ بلاک نہ ہو؛
   پچھلا بلاکنگ رویہ رکھنے کے لیے `memory.qmd.update.waitForBootSync = true` سیٹ کریں۔
-- Searches run via `qmd query --json`. If QMD fails or the binary is missing,
-  OpenClaw automatically falls back to the builtin SQLite manager so memory tools
-  keep working.
-- OpenClaw فی الحال QMD ایمبیڈ بیچ-سائز ٹیوننگ ایکسپوز نہیں کرتا؛ بیچ رویہ
-  QMD خود کنٹرول کرتا ہے۔
+- بوٹ ریفریش اب بطورِ طے شدہ بیک گراؤنڈ میں چلتا ہے تاکہ چیٹ اسٹارٹ اپ بلاک نہ ہو؛
+  پچھلا بلاکنگ رویہ رکھنے کے لیے `memory.qmd.update.waitForBootSync = true` سیٹ کریں۔
+- Searches `memory.qmd.searchMode` کے ذریعے چلائے جاتے ہیں (ڈیفالٹ `qmd search --json`؛ نیز
+  `vsearch` اور `query` کی بھی سپورٹ ہے). اگر منتخب کردہ موڈ آپ کی
+  QMD build پر flags کو مسترد کرے تو OpenClaw `qmd query` کے ساتھ دوبارہ کوشش کرتا ہے. اگر QMD ناکام ہو جائے یا binary
+  موجود نہ ہو تو OpenClaw خودکار طور پر builtin SQLite manager پر واپس آ جاتا ہے تاکہ
+  memory tools کام کرتے رہیں.
+- **پہلی سرچ سست ہو سکتی ہے**: QMD پہلی `qmd query` رن پر لوکل GGUF ماڈلز (ری رینکر/کوئری ایکسپینشن) ڈاؤن لوڈ کر سکتا ہے۔
 - **پہلی سرچ سست ہو سکتی ہے**: QMD پہلی `qmd query` رن پر لوکل GGUF ماڈلز (ری رینکر/کوئری ایکسپینشن) ڈاؤن لوڈ کر سکتا ہے۔
   - OpenClaw QMD چلانے پر `XDG_CONFIG_HOME`/`XDG_CACHE_HOME` خودکار طور پر سیٹ کرتا ہے۔
   - اگر آپ ماڈلز دستی طور پر پری-ڈاؤن لوڈ کرنا چاہتے ہیں (اور وہی انڈیکس وارم کریں جو OpenClaw استعمال کرتا ہے)،
@@ -142,21 +153,17 @@ out to QMD for retrieval. Key points:
     OpenClaw uses:
 
     ```bash
-    # Pick the same state dir OpenClaw uses
+    # وہی state dir منتخب کریں جو OpenClaw استعمال کرتا ہے
     STATE_DIR="${OPENCLAW_STATE_DIR:-$HOME/.openclaw}"
-    if [ -d "$HOME/.moltbot" ] && [ ! -d "$HOME/.openclaw" ] \
-      && [ -z "${OPENCLAW_STATE_DIR:-}" ]; then
-      STATE_DIR="$HOME/.moltbot"
-    fi
 
     export XDG_CONFIG_HOME="$STATE_DIR/agents/main/qmd/xdg-config"
     export XDG_CACHE_HOME="$STATE_DIR/agents/main/qmd/xdg-cache"
 
-    # (Optional) force an index refresh + embeddings
+    # (اختیاری) index refresh + embeddings کو زبردستی چلائیں
     qmd update
     qmd embed
 
-    # Warm up / trigger first-time model downloads
+    # Warm up / پہلی بار کے model downloads کو متحرک کریں
     qmd query "test" -c memory-root --json >/dev/null 2>&1
     ```
 
@@ -173,18 +180,27 @@ out to QMD for retrieval. Key points:
   `commandTimeoutMs`, `updateTimeoutMs`, `embedTimeoutMs`)۔
 - `limits`: ریکال پے لوڈ محدود کریں (`maxResults`, `maxSnippetChars`,
   `maxInjectedChars`, `timeoutMs`)۔
+- `limits`: ریکال پے لوڈ محدود کریں (`maxResults`, `maxSnippetChars`,
+  `maxInjectedChars`, `timeoutMs`)۔
 - `scope`: same schema as [`session.sendPolicy`](/gateway/configuration#session).
   Default is DM-only (`deny` all, `allow` direct chats); loosen it to surface QMD
   hits in groups/channels.
+  - `match.keyPrefix` **normalized** سیشن key سے میچ کرتا ہے (lowercased، اور کسی بھی
+    ابتدائی `agent:<id>:` کو ہٹا کر). مثال: `discord:channel:`.
+  - `match.rawKeyPrefix` **raw** سیشن key (lowercased) سے میچ کرتا ہے، بشمول
+    `agent:<id>:`. مثال: `agent:main:discord:`.
+  - Legacy: `match.keyPrefix: "agent:..."` کو اب بھی raw-key prefix سمجھا جاتا ہے،
+    لیکن وضاحت کے لیے `rawKeyPrefix` کو ترجیح دیں.
 - When `scope` denies a search, OpenClaw logs a warning with the derived
   `channel`/`chatType` so empty results are easier to debug.
-- ورک اسپیس کے باہر سے آنے والے اسنیپٹس
-  `qmd/<collection>/<relative-path>` کے طور پر `memory_search` نتائج میں دکھائی دیتے ہیں؛
-  `memory_get` اس پریفکس کو سمجھتا ہے اور کنفیگرڈ QMD کلیکشن روٹ سے پڑھتا ہے۔
 - جب `memory.qmd.sessions.enabled = true` ہو، OpenClaw صاف کی گئی سیشن
   ٹرانسکرپٹس (User/Assistant ٹرنز) کو
   `~/.openclaw/agents/<id>/qmd/sessions/` کے تحت ایک مخصوص QMD کلیکشن میں ایکسپورٹ کرتا ہے، تاکہ `memory_search` حالیہ
   گفتگوئیں بلٹ اِن SQLite انڈیکس کو چھوئے بغیر یاد کر سکے۔
+- `memory_search` اسنیپٹس اب `Source: <path#line>` فوٹر شامل کرتے ہیں جب
+  `memory.citations` `auto`/`on` ہو؛
+  پاتھ میٹاڈیٹا اندرونی رکھنے کے لیے `memory.citations = "off"` سیٹ کریں
+  (ایجنٹ کو پھر بھی `memory_get` کے لیے پاتھ ملتا ہے، مگر اسنیپٹ متن فوٹر چھوڑ دیتا ہے اور سسٹم پرامپٹ ایجنٹ کو اسے حوالہ دینے سے روکتا ہے)۔
 - `memory_search` اسنیپٹس اب `Source: <path#line>` فوٹر شامل کرتے ہیں جب
   `memory.citations` `auto`/`on` ہو؛
   پاتھ میٹاڈیٹا اندرونی رکھنے کے لیے `memory.citations = "off"` سیٹ کریں
@@ -294,7 +310,7 @@ agents: {
 
 بیچ انڈیکسنگ (OpenAI + Gemini):
 
-- Enabled by default for OpenAI and Gemini embeddings. Set `agents.defaults.memorySearch.remote.batch.enabled = false` to disable.
+- ڈیفالٹ طور پر غیر فعال ہے. بڑے corpus کی indexing (OpenAI، Gemini، اور Voyage) کے لیے فعال کرنے کی خاطر `agents.defaults.memorySearch.remote.batch.enabled = true` سیٹ کریں.
 - ڈیفالٹ رویہ بیچ مکمل ہونے کا انتظار کرتا ہے؛ ضرورت ہو تو `remote.batch.wait`, `remote.batch.pollIntervalMs`, اور `remote.batch.timeoutMinutes` ٹیون کریں۔
 - متوازی طور پر جمع کرائے جانے والے بیچ جابز کی تعداد کنٹرول کرنے کے لیے `remote.batch.concurrency` سیٹ کریں (ڈیفالٹ: 2)۔
 - بیچ موڈ اس وقت لاگو ہوتا ہے جب `memorySearch.provider = "openai"` یا `"gemini"` ہو اور متعلقہ API کلید استعمال کرتا ہے۔
@@ -548,5 +564,3 @@ agents: {
 
 - `remote.*`، `models.providers.openai.*` پر فوقیت رکھتا ہے۔
 - `remote.headers` merge with OpenAI headers; remote wins on key conflicts. Omit `remote.headers` to use the OpenAI defaults.
-
-

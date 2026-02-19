@@ -1,4 +1,7 @@
 ---
+summary: "Quyền truy cập và xác thực dashboard Gateway (Control UI)"
+read_when:
+  - Thay đổi xác thực dashboard hoặc các chế độ phơi bày
 title: "Bảng điều khiển"
 ---
 
@@ -41,5 +44,3 @@ Xác thực được thực thi tại bước bắt tay WebSocket thông qua `co
 - Đảm bảo gateway có thể truy cập được (cục bộ: `openclaw status`; từ xa: đường hầm SSH `ssh -N -L 18789:127.0.0.1:18789 user@host` rồi mở `http://127.0.0.1:18789/`).
 - Lấy token từ máy chủ gateway: `openclaw config get gateway.auth.token` (hoặc tạo mới: `openclaw doctor --generate-gateway-token`).
 - Trong cài đặt dashboard, dán token vào trường xác thực, sau đó kết nối.
-
-

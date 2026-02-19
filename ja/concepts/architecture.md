@@ -1,4 +1,7 @@
 ---
+summary: "WebSocket ゲートウェイのアーキテクチャ、コンポーネント、およびクライアントフロー"
+read_when:
+  - ゲートウェイプロトコル、クライアント、またはトランスポートに取り組んでいるとき
 title: "Gateway アーキテクチャ"
 ---
 
@@ -12,7 +15,10 @@ title: "Gateway アーキテクチャ"
 - コントロールプレーンのクライアント（macOS アプリ、CLI、Web UI、自動化）は、設定されたバインドホスト（デフォルトは `127.0.0.1:18789`）上の **WebSocket** 経由で Gateway に接続します。
 - **ノード**（macOS / iOS / Android / ヘッドレス）も **WebSocket** 経由で接続しますが、明示的な capabilities / コマンドを伴う `role: node` を宣言します。
 - ホストあたり 1 つの Gateway とし、WhatsApp セッションを開くのはここだけです。
-- **キャンバスホスト**（デフォルトは `18793`）は、エージェントが編集可能な HTML と A2UI を提供します。
+- **canvas host** は Gateway HTTP サーバーによって以下のパスで提供されます:
+  - `/__openclaw__/canvas/`（エージェントが編集可能な HTML/CSS/JS）
+  - `/__openclaw__/a2ui/`（A2UI ホスト）
+    Gateway と同じポート（デフォルト `18789`）を使用します。
 
 ## コンポーネントとフロー
 
@@ -47,22 +53,6 @@ title: "Gateway アーキテクチャ"
 ## 接続ライフサイクル（単一クライアント）
 
 ```mermaid
-%%{init: {
-  'theme': 'base',
-  'themeVariables': {
-    'primaryColor': '#ffffff',
-    'primaryTextColor': '#000000',
-    'primaryBorderColor': '#000000',
-    'lineColor': '#000000',
-    'secondaryColor': '#f9f9fb',
-    'tertiaryColor': '#ffffff',
-    'clusterBkg': '#f9f9fb',
-    'clusterBorder': '#000000',
-    'nodeBorder': '#000000',
-    'mainBkg': '#ffffff',
-    'edgeLabelBackground': '#ffffff'
-  }
-}}%%
 sequenceDiagram
     participant Client
     participant Gateway
@@ -133,5 +123,3 @@ sequenceDiagram
 - 各ホストにつき、単一の Baileys セッションを制御する Gateway は **正確に 1 つ** です。
 - ハンドシェイクは必須です。JSON 以外、または connect 以外の最初のフレームは即時クローズされます。
 - イベントは再送されません。欠落がある場合、クライアントは再取得する必要があります。
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "Levenscyclus van de agentlus, streams en wachtsemantiek"
+read_when:
+  - Je hebt een exacte walkthrough nodig van de agentlus of levenscyclusgebeurtenissen
 title: "Agentlus"
 ---
 
@@ -113,7 +116,7 @@ Zie [Plugins](/tools/plugin#plugin-hooks) voor de hook-API en registratiedetails
 - Als er geen renderbare payloads overblijven en een tool faalde, wordt een fallback-toolfoutantwoord uitgezonden
   (tenzij een messagingtool al een voor de gebruiker zichtbaar antwoord heeft verzonden).
 
-## Compactie + opnieuw proberen
+## Compaction + retries
 
 - Auto-compaction zendt `compaction`-streamevents uit en kan een retry triggeren.
 - Bij retry worden in-memory buffers en toolsamenvattingen gereset om dubbele uitvoer te voorkomen.
@@ -141,5 +144,3 @@ Zie [Plugins](/tools/plugin#plugin-hooks) voor de hook-API en registratiedetails
 - AbortSignal (annuleren)
 - Gateway-ontkoppeling of RPC-time-out
 - `agent.wait`-time-out (alleen wachten; stopt de agent niet)
-
-

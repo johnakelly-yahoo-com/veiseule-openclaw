@@ -1,4 +1,8 @@
 ---
+summary: "Referencja CLI dla `openclaw devices` (parowanie urządzeń + rotacja/cofanie tokenów)"
+read_when:
+  - Zatwierdzasz żądania parowania urządzeń
+  - Musisz obrócić lub cofnąć tokeny urządzeń
 title: "urządzenia"
 ---
 
@@ -64,5 +68,3 @@ Przekaż jawnie `--token` lub `--password`. Brak jawnych poświadczeń jest bł�
 
 - Rotacja tokenu zwraca nowy token (wrażliwy). Traktuj go jak sekret.
 - Te polecenia wymagają zakresu `operator.pairing` (lub `operator.admin`).
-
-

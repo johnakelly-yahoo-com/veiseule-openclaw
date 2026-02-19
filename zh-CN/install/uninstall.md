@@ -1,12 +1,9 @@
 ---
-title: 卸载
-x-i18n:
-  generated_at: "2026-02-03T07:50:10Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 6673a755c5e1f90a807dd8ac92a774cff6d1bc97d125c75e8bf72a40e952a777
-  source_path: install/uninstall.md
-  workflow: 15
+summary: "完全卸载 OpenClaw（CLI、服务、状态、工作区）"
+read_when:
+  - 你想从机器上移除 OpenClaw
+  - 卸载后 Gateway 网关服务仍在运行
+title: "卸载"
 ---
 
 # 卸载
@@ -91,7 +88,7 @@ launchctl bootout gui/$UID/bot.molt.gateway
 rm -f ~/Library/LaunchAgents/bot.molt.gateway.plist
 ```
 
-如果你使用了配置文件，请将标签和 plist 名称替换为 `bot.molt.<profile>`。如果存在任何旧版 `com.openclaw.*` plist，请将其移除。
+如果你使用了配置文件，请将标签和 plist 名称替换为 `bot.molt.<profile>`. `。如果存在任何旧版 `com.openclaw.\*\` plist，请将其移除。
 
 ### Linux（systemd 用户单元）
 
@@ -107,6 +104,7 @@ systemctl --user daemon-reload
 
 默认任务名称是 `OpenClaw Gateway`（或 `OpenClaw Gateway (<profile>)`）。
 任务脚本位于你的状态目录下。
+The task script lives under your state dir.
 
 ```powershell
 schtasks /Delete /F /TN "OpenClaw Gateway"
@@ -121,6 +119,7 @@ Remove-Item -Force "$env:USERPROFILE\.openclaw\gateway.cmd"
 
 如果你使用了 `https://openclaw.ai/install.sh` 或 `install.ps1`，CLI 是通过 `npm install -g openclaw@latest` 安装的。
 使用 `npm rm -g openclaw` 移除（或 `pnpm remove -g` / `bun remove -g`，如果你是用那种方式安装的）。
+使用 `npm rm -g openclaw` 移除（如果你是用那种方式安装的，也可以用 `pnpm remove -g` / `bun remove -g`）。
 
 ### 源码检出（git clone）
 
@@ -129,5 +128,3 @@ Remove-Item -Force "$env:USERPROFILE\.openclaw\gateway.cmd"
 1. 在删除仓库**之前**卸载 Gateway 网关服务（使用上面的简单方式或手动服务移除）。
 2. 删除仓库目录。
 3. 按上述方式移除状态 + 工作区。
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "„Integracja PeekabooBridge do automatyzacji interfejsu użytkownika w macOS”"
+read_when:
+  - Hostowanie PeekabooBridge w OpenClaw.app
+  - Integracja Peekaboo za pomocą Swift Package Manager
+  - Zmiana protokołu/ścieżek PeekabooBridge
 title: "„Peekaboo Bridge”"
 ---
 
@@ -58,5 +63,3 @@ Jeśli potrzebna jest dłuższa retencja, wykonaj ponowne przechwycenie po stron
   wyłącznie w trybie **debug**.
 - Jeśli nie znaleziono żadnych hostów, otwórz jedną z aplikacji hosta (Peekaboo.app lub OpenClaw.app)
   i potwierdź, że uprawnienia zostały przyznane.
-
-

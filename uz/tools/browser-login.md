@@ -1,4 +1,8 @@
 ---
+summary: "Brauzer avtomatlashtirish + X/Twitter joylash uchun qo‘lda kirishlar"
+read_when:
+  - You need to log into sites for browser automation
+  - You want to post updates to X/Twitter
 title: "Brauzerga kirish"
 ---
 
@@ -8,7 +12,7 @@ title: "Brauzerga kirish"
 
 Agar sayt kirishni talab qilsa, **host** brauzer profilida (openclaw brauzeri) **qo‘lda tizimga kiring**.
 
-Modelga hisob ma’lumotlaringizni **bermang**. Avtomatlashtirilgan kirishlar ko‘pincha anti-bot himoyalarini ishga tushiradi va hisob bloklanishiga olib kelishi mumkin.
+Do **not** give the model your credentials. Automated logins often trigger anti‑bot defenses and can lock the account.
 
 Asosiy brauzer hujjatlariga qaytish: [Browser](/tools/browser).
 
@@ -61,5 +65,3 @@ openclaw browser open https://x.com --browser-profile openclaw --target host
 ```
 
 Yoki yangilanishlar joylaydigan agent uchun sandboxlashni o‘chirib qo‘ying.
-
-

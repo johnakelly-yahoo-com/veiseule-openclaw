@@ -1,4 +1,9 @@
 ---
+summary: "Gateway WebSocket-protocol: handshake, frames, versiebeheer"
+read_when:
+  - Implementeren of bijwerken van Gateway WS-clients
+  - Debuggen van protocol-mismatches of verbindingsfouten
+  - Opnieuw genereren van protocolschema’s/modellen
 title: "Gateway-protocol"
 ---
 
@@ -214,5 +219,3 @@ De Gateway behandelt deze als **claims** en handhaaft server-side allowlists.
 Dit protocol stelt de **volledige gateway-API** bloot (status, kanalen, modellen, chat,
 agent, sessies, nodes, goedkeuringen, enz.). Het exacte oppervlak wordt gedefinieerd door de
 TypeBox-schema’s in `src/gateway/protocol/schema.ts`.
-
-

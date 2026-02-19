@@ -1,4 +1,10 @@
-------
+---
+title: "Memory"
+summary: "Paano gumagana ang memory ng OpenClaw (mga workspace file + awtomatikong memory flush)"
+read_when:
+  - Gusto mo ang layout ng memory file at workflow
+  - Gusto mong i-tune ang awtomatikong pre-compaction memory flush
+---
 
 # Memory
 
@@ -79,13 +85,15 @@ Mga default:
 
 - Naka-enable bilang default.
 - Binabantayan ang mga memory file para sa mga pagbabago (debounced).
+- I-configure ang memory search sa ilalim ng `agents.defaults.memorySearch` (hindi sa top-level
+  `memorySearch`).
 - Uses remote embeddings by default. If `memorySearch.provider` is not set, OpenClaw auto-selects:
   1. `local` kung may naka-configure na `memorySearch.local.modelPath` at umiiral ang file.
   2. `openai` kung maresolba ang OpenAI key.
   3. `gemini` kung maresolba ang Gemini key.
   4. `voyage` kung maresolba ang Voyage key.
   5. Kung wala, mananatiling disabled ang memory search hanggang ma-configure.
-- Ang local mode ay gumagamit ng node-llama-cpp at maaaring mangailangan ng `pnpm approve-builds`.
+- Gumagamit ng sqlite-vec (kapag available) para pabilisin ang vector search sa loob ng SQLite.
 - Gumagamit ng sqlite-vec (kapag available) para pabilisin ang vector search sa loob ng SQLite.
 
 Remote embeddings **require** an API key for the embedding provider. OpenClaw
@@ -129,11 +137,15 @@ out to QMD for retrieval. Key points:
 - Ang boot refresh ay tumatakbo na ngayon sa background bilang default upang hindi
   ma-block ang pagsisimula ng chat; i-set ang `memory.qmd.update.waitForBootSync = true` para panatilihin ang dating
   blocking na pag-uugali.
-- Searches run via `qmd query --json`. If QMD fails or the binary is missing,
-  OpenClaw automatically falls back to the builtin SQLite manager so memory tools
-  keep working.
-- Hindi pa inilalantad ng OpenClaw ang QMD embed batch-size tuning sa kasalukuyan; ang batch behavior ay
-  kinokontrol mismo ng QMD.
+- Ang boot refresh ay tumatakbo na ngayon sa background bilang default upang hindi
+  ma-block ang pagsisimula ng chat; i-set ang `memory.qmd.update.waitForBootSync = true` para panatilihin ang dating
+  blocking na pag-uugali.
+- Ang mga paghahanap ay tumatakbo sa pamamagitan ng `memory.qmd.searchMode` (default `qmd search --json`; sinusuportahan din ang `vsearch` at `query`). Kung tinatanggihan ng napiling mode ang mga flag sa iyong
+  QMD build, susubukan muli ng OpenClaw gamit ang `qmd query`. Kung mabigo ang QMD o
+  nawawala ang binary, awtomatikong babalik ang OpenClaw sa builtin SQLite manager upang
+  magpatuloy na gumana ang mga memory tool.
+- **Maaaring mabagal ang unang search**: maaaring mag-download ang QMD ng lokal na GGUF models
+  (reranker/query expansion) sa unang pagtakbo ng `qmd query`.
 - **Maaaring mabagal ang unang search**: maaaring mag-download ang QMD ng lokal na GGUF models
   (reranker/query expansion) sa unang pagtakbo ng `qmd query`.
   - Awtomatikong itinatakda ng OpenClaw ang `XDG_CONFIG_HOME`/`XDG_CACHE_HOME` kapag pinapatakbo nito ang QMD.
@@ -145,21 +157,17 @@ out to QMD for retrieval. Key points:
     OpenClaw uses:
 
     ```bash
-    # Pick the same state dir OpenClaw uses
+    # Piliin ang parehong state dir na ginagamit ng OpenClaw
     STATE_DIR="${OPENCLAW_STATE_DIR:-$HOME/.openclaw}"
-    if [ -d "$HOME/.moltbot" ] && [ ! -d "$HOME/.openclaw" ] \
-      && [ -z "${OPENCLAW_STATE_DIR:-}" ]; then
-      STATE_DIR="$HOME/.moltbot"
-    fi
 
     export XDG_CONFIG_HOME="$STATE_DIR/agents/main/qmd/xdg-config"
     export XDG_CACHE_HOME="$STATE_DIR/agents/main/qmd/xdg-cache"
 
-    # (Optional) force an index refresh + embeddings
+    # (Opsyonal) pilitin ang pag-refresh ng index + embeddings
     qmd update
     qmd embed
 
-    # Warm up / trigger first-time model downloads
+    # I-warm up / i-trigger ang unang pag-download ng mga model
     qmd query "test" -c memory-root --json >/dev/null 2>&1
     ```
 
@@ -176,10 +184,17 @@ out to QMD for retrieval. Key points:
   `commandTimeoutMs`, `updateTimeoutMs`, `embedTimeoutMs`).
 - `limits`: i-clamp ang recall payload (`maxResults`, `maxSnippetChars`,
   `maxInjectedChars`, `timeoutMs`).
+- `limits`: i-clamp ang recall payload (`maxResults`, `maxSnippetChars`,
+  `maxInjectedChars`, `timeoutMs`).
 - `scope`: same schema as [`session.sendPolicy`](/gateway/configuration#session).
   Default is DM-only (`deny` all, `allow` direct chats); loosen it to surface QMD
   hits in groups/channels.
-- Kapag tinanggihan ng `scope` ang isang search, naglo-log ang OpenClaw ng babala kasama ang nabuong `channel`/`chatType` upang mas madaling i-debug ang mga walang resultang query.
+  - Ang `match.keyPrefix` ay tumutugma sa **normalized** na session key (naka-lowercase, at may anumang
+    nangungunang `agent:<id>:` na tinanggal). Halimbawa: `discord:channel:`.
+  - Ang `match.rawKeyPrefix` ay tumutugma sa **raw** na session key (naka-lowercase), kasama ang
+    `agent:<id>:`. Halimbawa: `agent:main:discord:`.
+  - Legacy: ang `match.keyPrefix: "agent:..."` ay itinuturing pa rin bilang raw-key prefix,
+    ngunit mas mainam na gamitin ang `rawKeyPrefix` para sa kalinawan.
 - Ang mga snippet na nagmula sa labas ng workspace ay lilitaw bilang
   `qmd/<collection>/<relative-path>` sa mga resulta ng `memory_search`; nauunawaan ng `memory_get`
   ang prefix na iyon at nagbabasa mula sa naka-configure na QMD collection root.
@@ -187,6 +202,11 @@ out to QMD for retrieval. Key points:
   transcript (User/Assistant turns) sa isang dedikadong QMD collection sa ilalim ng
   `~/.openclaw/agents/<id>/qmd/sessions/`, kaya maaaring i-recall ng `memory_search` ang mga kamakailang
   pag-uusap nang hindi hinahawakan ang builtin SQLite index.
+- Ang mga `memory_search` snippet ay may kasama nang `Source: <path#line>` footer kapag
+  ang `memory.citations` ay `auto`/`on`; i-set ang `memory.citations = "off"` upang panatilihing internal
+  ang path metadata (natatanggap pa rin ng agent ang path para sa
+  `memory_get`, ngunit inaalis ng snippet text ang footer at binabalaan ng system prompt
+  ang agent na huwag itong banggitin).
 - Ang mga `memory_search` snippet ay may kasama nang `Source: <path#line>` footer kapag
   ang `memory.citations` ay `auto`/`on`; i-set ang `memory.citations = "off"` upang panatilihing internal
   ang path metadata (natatanggap pa rin ng agent ang path para sa
@@ -297,7 +317,7 @@ Mga fallback:
 
 Batch indexing (OpenAI + Gemini):
 
-- Enabled by default for OpenAI and Gemini embeddings. Set `agents.defaults.memorySearch.remote.batch.enabled = false` to disable.
+- Naka-disable bilang default. Itakda ang `agents.defaults.memorySearch.remote.batch.enabled = true` upang paganahin para sa malakihang pag-index ng corpus (OpenAI, Gemini, at Voyage).
 - Ang default na pag-uugali ay naghihintay sa pagkumpleto ng batch; i-tune ang `remote.batch.wait`, `remote.batch.pollIntervalMs`, at `remote.batch.timeoutMinutes` kung kailangan.
 - I-set ang `remote.batch.concurrency` upang kontrolin kung ilang batch job ang isinusumite namin nang sabay (default: 2).
 - Nalalapat ang batch mode kapag `memorySearch.provider = "openai"` o `"gemini"` at gumagamit ng kaukulang API key.
@@ -550,5 +570,3 @@ Mga tala:
 
 - Mas may prioridad ang `remote.*` kaysa sa `models.providers.openai.*`.
 - Ang `remote.headers` ay nagme-merge sa mga OpenAI header; nananalo ang remote kapag may key conflicts. Tanggalin ang `remote.headers` para gamitin ang mga default ng OpenAI.
-
-

@@ -1,10 +1,15 @@
 ---
+summary: "กำหนดค่า Moonshot K2 เทียบกับ Kimi Coding (ผู้ให้บริการและคีย์แยกกัน)"
+read_when:
+  - คุณต้องการตั้งค่า Moonshot K2 (Moonshot Open Platform) เทียบกับ Kimi Coding
+  - คุณต้องการทำความเข้าใจเอ็นด์พอยต์ คีย์ และการอ้างอิงโมเดลที่แยกกัน
+  - คุณต้องการคอนฟิกแบบคัดลอก/วางสำหรับผู้ให้บริการใดผู้ให้บริการหนึ่ง
 title: "Moonshot AI"
 ---
 
 # Moonshot AI (Kimi)
 
-Moonshot ให้บริการ Kimi API พร้อมเอ็นด์พอยต์ที่เข้ากันได้กับ OpenAI Moonshot ให้บริการ Kimi API ที่มีเอ็นด์พอยต์เข้ากันได้กับ OpenAI กำหนดค่า
+Moonshot ให้บริการ Kimi API พร้อมเอ็นด์พอยต์ที่เข้ากันได้กับ OpenAI Moonshot ให้บริการ Kimi API พร้อมเอ็นด์พอยต์ที่เข้ากันได้กับ OpenAI Moonshot ให้บริการ Kimi API ที่มีเอ็นด์พอยต์เข้ากันได้กับ OpenAI กำหนดค่า
 ผู้ให้บริการและตั้งค่าโมเดลเริ่มต้นเป็น `moonshot/kimi-k2.5` หรือใช้
 Kimi Coding กับ `kimi-coding/k2p5`.
 
@@ -29,7 +34,7 @@ Kimi Coding:
 openclaw onboard --auth-choice kimi-code-api-key
 ```
 
-หมายเหตุ: Moonshot และ Kimi Coding เป็นผู้ให้บริการแยกจากกัน หมายเหตุ: Moonshot และ Kimi Coding เป็นผู้ให้บริการคนละราย คีย์ไม่สามารถใช้แทนกันได้ เอ็นด์พอยต์แตกต่างกัน และการอ้างอิงโมเดลแตกต่างกัน (Moonshot ใช้ `moonshot/...` ส่วน Kimi Coding ใช้ `kimi-coding/...`).
+หมายเหตุ: Moonshot และ Kimi Coding เป็นผู้ให้บริการแยกจากกัน หมายเหตุ: Moonshot และ Kimi Coding เป็นผู้ให้บริการแยกจากกัน หมายเหตุ: Moonshot และ Kimi Coding เป็นผู้ให้บริการคนละราย คีย์ไม่สามารถใช้แทนกันได้ เอ็นด์พอยต์แตกต่างกัน และการอ้างอิงโมเดลแตกต่างกัน (Moonshot ใช้ `moonshot/...` ส่วน Kimi Coding ใช้ `kimi-coding/...`).
 
 ## ตัวอย่างการตั้งค่า (Moonshot API)
 
@@ -130,10 +135,8 @@ openclaw onboard --auth-choice kimi-code-api-key
 
 ## หมายเหตุ
 
-- การอ้างอิงโมเดลของ Moonshot ใช้ `moonshot/<modelId>` การอ้างอิงโมเดลของ Moonshot ใช้ `moonshot/<modelId>` การอ้างอิงโมเดลของ Kimi Coding ใช้ `kimi-coding/<modelId>`.
+- การอ้างอิงโมเดลของ Moonshot ใช้ `moonshot/<modelId>` การอ้างอิงโมเดลของ Moonshot ใช้ `moonshot/<modelId>` การอ้างอิงโมเดลของ Kimi Coding ใช้ `kimi-coding/<modelId>`. การอ้างอิงโมเดลของ Moonshot ใช้ `moonshot/<modelId>` การอ้างอิงโมเดลของ Kimi Coding ใช้ `kimi-coding/<modelId>`.
 - สามารถแทนที่ข้อมูลราคาและเมทาดาทาคอนเท็กซ์ใน `models.providers` ได้หากจำเป็น
 - หาก Moonshot เผยแพร่ขีดจำกัดคอนเท็กซ์ที่แตกต่างกันสำหรับโมเดลใด ให้ปรับ
   `contextWindow` ให้สอดคล้อง
 - ใช้ `https://api.moonshot.ai/v1` สำหรับเอ็นด์พอยต์สากล และ `https://api.moonshot.cn/v1` สำหรับเอ็นด์พอยต์ประเทศจีน
-
-

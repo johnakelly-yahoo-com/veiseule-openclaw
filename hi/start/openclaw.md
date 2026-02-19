@@ -1,10 +1,14 @@
 ---
+summary: "सुरक्षा सावधानियों के साथ OpenClaw को एक व्यक्तिगत सहायक के रूप में चलाने के लिए एंड-टू-एंड मार्गदर्शिका"
+read_when:
+  - एक नए सहायक इंस्टेंस का ऑनबोर्डिंग
+  - सुरक्षा/अनुमति प्रभावों की समीक्षा
 title: "पर्सनल असिस्टेंट सेटअप"
 ---
 
 # OpenClaw के साथ एक व्यक्तिगत सहायक बनाना
 
-OpenClaw **Pi** एजेंट्स के लिए एक WhatsApp + Telegram + Discord + iMessage gateway है। Plugins Mattermost जोड़ते हैं। यह गाइड "personal assistant" सेटअप के लिए है: एक समर्पित WhatsApp नंबर जो आपके हमेशा‑ऑन एजेंट की तरह व्यवहार करता है।
+OpenClaw is a WhatsApp + Telegram + Discord + iMessage gateway for **Pi** agents. Plugins add Mattermost. This guide is the "personal assistant" setup: one dedicated WhatsApp number that behaves like your always-on agent.
 
 ## ⚠️ सुरक्षा पहले
 
@@ -18,7 +22,7 @@ OpenClaw **Pi** एजेंट्स के लिए एक WhatsApp + Telegra
 
 - हमेशा `channels.whatsapp.allowFrom` सेट करें (अपने व्यक्तिगत Mac पर कभी भी ओपन-टू-द-वर्ल्ड न चलाएँ)।
 - सहायक के लिए एक समर्पित WhatsApp नंबर उपयोग करें।
-- Heartbeats अब डिफ़ॉल्ट रूप से हर 30 मिनट में चलते हैं। सेटअप पर भरोसा होने तक इसे निष्क्रिय करने के लिए `agents.defaults.heartbeat.every: "0m"` सेट करें।
+- Heartbeats now default to every 30 minutes. Disable until you trust the setup by setting `agents.defaults.heartbeat.every: "0m"`.
 
 ## पूर्वापेक्षाएँ
 
@@ -51,7 +55,7 @@ flowchart TB
     B -- linked via QR --> C["<b>Your Mac (openclaw)<br></b><br>Pi agent"]
 ```
 
-यदि आप अपने व्यक्तिगत WhatsApp को OpenClaw से लिंक करते हैं, तो आपको आने वाला हर संदेश “agent input” बन जाएगा। आमतौर पर आप ऐसा नहीं चाहते।
+If you link your personal WhatsApp to OpenClaw, every message to you becomes “agent input”. That’s rarely what you want.
 
 ## 5-मिनट त्वरित प्रारंभ
 
@@ -83,7 +87,7 @@ openclaw gateway --port 18789
 
 OpenClaw अपने वर्कस्पेस डायरेक्टरी से ऑपरेटिंग निर्देश और “मेमोरी” पढ़ता है।
 
-डिफ़ॉल्ट रूप से, OpenClaw एजेंट workspace के रूप में `~/.openclaw/workspace` का उपयोग करता है, और सेटअप/पहली बार एजेंट रन के दौरान इसे (साथ में प्रारंभिक `AGENTS.md`, `SOUL.md`, `TOOLS.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md`) स्वचालित रूप से बना देता है। `BOOTSTRAP.md` केवल तब बनाया जाता है जब workspace बिल्कुल नया हो (इसे हटाने के बाद यह दोबारा नहीं आना चाहिए)। `MEMORY.md` वैकल्पिक है (स्वतः निर्मित नहीं होता); यदि मौजूद हो, तो इसे सामान्य सत्रों में लोड किया जाता है। Subagent सत्रों में केवल `AGENTS.md` और `TOOLS.md` जोड़े जाते हैं।
+By default, OpenClaw uses `~/.openclaw/workspace` as the agent workspace, and will create it (plus starter `AGENTS.md`, `SOUL.md`, `TOOLS.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md`) automatically on setup/first agent run. `BOOTSTRAP.md` is only created when the workspace is brand new (it should not come back after you delete it). `MEMORY.md` is optional (not auto-created); when present, it is loaded for normal sessions. Subagent sessions only inject `AGENTS.md` and `TOOLS.md`.
 
 टिप: इस फ़ोल्डर को OpenClaw की “memory” की तरह मानें और इसे एक git repo बनाएं (आदर्श रूप से निजी), ताकि आपकी `AGENTS.md` + मेमोरी फ़ाइलें बैकअप हो सकें। If git is installed, brand-new workspaces are auto-initialized.
 
@@ -169,7 +173,7 @@ OpenClaw डिफ़ॉल्ट रूप से एक अच्छा अस
 
 ## हार्टबीट्स (प्रोएक्टिव मोड)
 
-डिफ़ॉल्ट रूप से, OpenClaw हर 30 मिनट में निम्न prompt के साथ एक heartbeat चलाता है:
+By default, OpenClaw runs a heartbeat every 30 minutes with the prompt:
 `Read HEARTBEAT.md if it exists (workspace context). Follow it strictly. Do not infer or repeat old tasks from prior chats. यदि किसी चीज़ पर ध्यान देने की आवश्यकता नहीं है, तो HEARTBEAT_OK का जवाब दें।`
 अक्षम करने के लिए `agents.defaults.heartbeat.every: "0m"` सेट करें।
 
@@ -225,5 +229,3 @@ openclaw health --json   # gateway health snapshot (WS)
 - Windows स्थिति: [Windows (WSL2)](/platforms/windows)
 - Linux स्थिति: [Linux app](/platforms/linux)
 - सुरक्षा: [Security](/gateway/security)
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Valgfri Docker-baseret opsætning og introduktion til OpenClaw"
+read_when:
+  - Du vil have en containeriseret gateway i stedet for lokale installationer
+  - Du validerer Docker-flowet
 title: "Docker"
 ---
 
@@ -63,6 +67,24 @@ Kører på en VPS? See [Hetzner (Docker VPS)](/install/hetzner).
 
 ### Manuel flow (compose)
 
+For nemmere daglig Docker-håndtering, installér `ClawDock`:
+
+```bash
+mkdir -p ~/.clawdock && curl -sL https://raw.githubusercontent.com/openclaw/openclaw/main/scripts/shell-helpers/clawdock-helpers.sh -o ~/.clawdock/clawdock-helpers.sh
+```
+
+**Tilføj til din shell-konfiguration (zsh):**
+
+```bash
+echo 'source ~/.clawdock/clawdock-helpers.sh' >> ~/.zshrc && source ~/.zshrc
+```
+
+Brug derefter `clawdock-start`, `clawdock-stop`, `clawdock-dashboard` osv. Kør `clawdock-help` for alle kommandoer.
+
+Se [`ClawDock` Helper README](https://github.com/openclaw/openclaw/blob/main/scripts/shell-helpers/README.md) for detaljer.
+
+### Manuel flow (compose)
+
 ```bash
 docker build -t openclaw:local -f Dockerfile .
 docker compose run --rm openclaw-cli onboard
@@ -79,8 +101,7 @@ docker compose -f docker-compose.yml -f docker-compose.extra.yml <command>
 
 ### Control UI-token + parring (Docker)
 
-Hvis du ser “unauthorized” eller “disconnected (1008): pairing required”, så hent et
-friskt dashboard-link og godkend browser-enheden:
+Noter:
 
 ```bash
 docker compose run --rm openclaw-cli dashboard --no-open
@@ -134,7 +155,7 @@ export OPENCLAW_EXTRA_MOUNTS="$HOME/.codex:/home/node/.codex:ro,$HOME/github:/ho
 ./docker-setup.sh
 ```
 
-Noter:
+Bemærkninger:
 
 - Hvis du ændrer `OPENCLAW_HOME_VOLUME`, så genkør `docker-setup.sh` for at regenerere
   den ekstra compose-fil.
@@ -147,7 +168,7 @@ biblioteker), sæt `OPENCLAW_DOCKER_APT_not. ES` før du kører `docker-setup.sh
 Dette installerer pakkerne under billedbygningen, så de fortsætter selvom
 -beholderen slettes.
 
-Eksempel:
+Hvis du vil have en mere fuldt udstyret container, så brug disse tilvalg:
 
 ```bash
 export OPENCLAW_DOCKER_APT_PACKAGES="ffmpeg build-essential"
@@ -156,7 +177,7 @@ export OPENCLAW_DOCKER_APT_PACKAGES="ffmpeg build-essential"
 
 Noter:
 
-- Dette accepterer en plads-separeret liste af apt-pakkenavne.
+- **Bag systemafhængigheder ind i imaget** (reproducerbart + vedvarende):
 - Hvis du ændrer `OPENCLAW_DOCKER_APT_PACKAGES`, så genkør `docker-setup.sh` for at genbygge
   imaget.
 
@@ -169,9 +190,10 @@ bruger. Dette holder angrebet overflade lille, men det betyder:
 - ingen Homebrew som standard
 - ingen medfølgende Chromium/Playwright-browsere
 
-Hvis du vil have en mere fuldt udstyret container, så brug disse tilvalg:
+Hvis du har brug for, at Playwright installerer systemafhængigheder, så genbyg imaget med
+`OPENCLAW_DOCKER_APT_PACKAGES` i stedet for at bruge `--with-deps` ved runtime.
 
-1. **Bevar `/home/node`** så browser-downloads og værktøjscaches overlever:
+1. **Bevar Playwright browser-downloads**:
 
 ```bash
 export OPENCLAW_HOME_VOLUME="openclaw_home"
@@ -192,8 +214,7 @@ docker compose run --rm openclaw-cli \
   node /app/node_modules/playwright-core/cli.js install chromium
 ```
 
-Hvis du har brug for, at Playwright installerer systemafhængigheder, så genbyg imaget med
-`OPENCLAW_DOCKER_APT_PACKAGES` i stedet for at bruge `--with-deps` ved runtime.
+Hvis du vælger at køre som root for bekvemmelighed, accepterer du sikkerhedskompromisset.
 
 4. **Bevar Playwright browser-downloads**:
 
@@ -207,7 +228,7 @@ Hvis du har brug for, at Playwright installerer systemafhængigheder, så genbyg
 Billedet kører som 'node' (uid 1000). Hvis du ser tilladelsesfejl på
 `/home/node/.openclaw`, sørg for at din vært bind mounts er ejet af uid 1000.
 
-Eksempel (Linux-vært):
+Brug CLI-containeren til at konfigurere kanaler, og genstart derefter gatewayen om nødvendigt.
 
 ```bash
 sudo chown -R 1000:1000 /path/to/openclaw-config /path/to/openclaw-workspace
@@ -250,7 +271,7 @@ CMD ["node","dist/index.js"]
 
 ### Kanalopsætning (valgfrit)
 
-Brug CLI-containeren til at konfigurere kanaler, og genstart derefter gatewayen om nødvendigt.
+Dokumentation: [WhatsApp](/channels/whatsapp), [Telegram](/channels/telegram), [Discord](/channels/discord)
 
 WhatsApp (QR):
 
@@ -313,11 +334,11 @@ Når `agents.defaults.sandbox` er aktiveret, kør **ikke-hovedsessioner** værkt
 container. Porten forbliver på din vært, men værktøjets udførelse er isoleret:
 
 - scope: `"agent"` som standard (én container + arbejdsområde pr. agent)
-- scope: `"session"` for per-session-isolering
-- arbejdsområdemappe pr. scope monteret på `/workspace`
-- valgfri adgang til agent-arbejdsområde (`agents.defaults.sandbox.workspaceAccess`)
-- allow/deny-værktøjspolitik (deny vinder)
-- indgående medier kopieres ind i det aktive sandbox-arbejdsområde (`media/inbound/*`), så værktøjer kan læse det (med `workspaceAccess: "rw"` lander dette i agent-arbejdsområdet)
+- Én container pr. agent
+- Agent-arbejdsområdeadgang: `workspaceAccess: "none"` (standard) bruger `~/.openclaw/sandboxes`
+- Auto-prune: idle > 24 t ELLER alder > 7 dage
+- Netværk: `none` som standard (tilvælg eksplicit, hvis du har brug for egress)
+- Standard allow: `exec`, `process`, `read`, `write`, `edit`, `sessions_list`, `sessions_history`, `sessions_send`, `sessions_spawn`, `session_status`
 
 Advarsel: `scope: "delt"` deaktiverer isolering på tværs af sessioner. Alle sessioner deler
 en beholder og et arbejdsområde.
@@ -332,8 +353,9 @@ blandede adgangsniveauer i én gateway:
 - Skrivebeskyttede værktøjer + skrivebeskyttet arbejdsområde (familie-/arbejdsagent)
 - Ingen filsystem-/shell-værktøjer (offentlig agent)
 
-Se [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) for eksempler,
-præcedens og fejlfinding.
+Hardening-knapper findes under `agents.defaults.sandbox.docker`:
+`network`, `user`, `pidsLimit`, `memory`, `memorySwap`, `cpus`, `ulimits`,
+`seccompProfile`, `apparmorProfile`, `dns`, `extraHosts`.
 
 ### Standardadfærd
 
@@ -349,7 +371,7 @@ præcedens og fejlfinding.
 
 ### Aktivér sandboxing
 
-Hvis du planlægger at installere pakker i `setupCommand`, så bemærk:
+Dette bygger `openclaw-sandbox:bookworm-slim` ved hjælp af `Dockerfile.sandbox`.
 
 - Standard `docker.network` er `"none"` (ingen egress).
 - `readOnlyRoot: true` blokerer pakkeinstallationer.
@@ -432,7 +454,7 @@ Multi-agent: tilsidesæt `agents.defaults.sandbox.{docker,browser,prune}.*` pr. 
 scripts/sandbox-setup.sh
 ```
 
-Dette bygger `openclaw-sandbox:bookworm-slim` ved hjælp af `Dockerfile.sandbox`.
+For at køre browser-værktøjet inde i sandboxen, byg browser-imaget:
 
 ### Sandbox common image (valgfrit)
 
@@ -456,7 +478,7 @@ Dette bygger `openclaw-sandkasse-common:bogorm-slim`. For at bruge det:
 
 ### Sandbox browser image
 
-For at køre browser-værktøjet inde i sandboxen, byg browser-imaget:
+Brugerdefineret browser-image:
 
 ```bash
 scripts/sandbox-browser-setup.sh
@@ -500,8 +522,8 @@ Brugerdefineret browser-image:
 
 Når aktiveret, modtager agenten:
 
-- en sandbox browser-kontrol-URL (til `browser`-værktøjet)
-- en noVNC-URL (hvis aktiveret og headless=false)
+- `deny` vinder over `allow`.
+- Hvis `allow` er tom: alle værktøjer (undtagen deny) er tilgængelige.
 
 Husk: Hvis du bruger en tilladt liste for værktøjer, tilføj `browser` (og fjern den fra
 benægt), eller værktøjet forbliver blokeret.
@@ -525,13 +547,13 @@ docker build -t my-openclaw-sbx -f Dockerfile.sandbox .
 }
 ```
 
-### Værktøjspolitik (allow/deny)
+### Sikkerhedsnoter
 
-- `deny` vinder over `allow`.
-- Hvis `allow` er tom: alle værktøjer (undtagen deny) er tilgængelige.
-- Hvis `allow` ikke er tom: kun værktøjer i `allow` er tilgængelige (minus deny).
+- Hard wall gælder kun for **værktøjer** (exec/read/write/edit/apply_patch).
+- Host-only værktøjer som browser/kamera/canvas er blokeret som standard.
+- At tillade `browser` i sandbox **bryder isolation** (browseren kører på værten).
 
-### Pruning-strategi
+### Fejlfinding
 
 To knapper:
 
@@ -561,5 +583,3 @@ Eksempel:
   kilder `/etc/profile` og kan nulstille PATH. Sæt `docker.env.PATH` til at forberede dine
   brugerdefinerede værktøjsstier (f.eks. `/custom/bin:/usr/local/share/npm-global/bin`), eller tilføj
   et script under `/etc/profile.d/` i din Dockerfile.
-
-

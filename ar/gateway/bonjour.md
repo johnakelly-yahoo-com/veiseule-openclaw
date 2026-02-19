@@ -1,4 +1,8 @@
 ---
+summary: "اكتشاف Bonjour/mDNS + تصحيح الأخطاء (إشارات Gateway، العملاء، وأنماط الفشل الشائعة)"
+read_when:
+  - تصحيح مشكلات اكتشاف Bonjour على macOS/iOS
+  - تغيير أنواع خدمات mDNS أو سجلات TXT أو تجربة واجهة الاكتشاف
 title: "اكتشاف Bonjour"
 ---
 
@@ -96,6 +100,13 @@ dig @<TAILNET_IPV4> -p 53 _openclaw-gw._tcp.openclaw.internal PTR +short
 - `cliPath=<path>` (اختياري؛ مسار مطلق لنقطة دخول قابلة للتشغيل `openclaw`)
 - `tailnetDns=<magicdns>` (تلميح اختياري عند توفر Tailnet)
 
+ملاحظات الأمان:
+
+- سجلات Bonjour/mDNS TXT **غير موثَّقة**. يجب ألا يعتبر العملاء TXT توجيهًا موثوقًا.
+- يجب على العملاء التوجيه باستخدام نقطة نهاية الخدمة التي تم حلّها (SRV + A/AAAA). يجب التعامل مع `lanHost` و`tailnetDns` و`gatewayPort` و`gatewayTlsSha256` على أنها مؤشرات فقط.
+- يجب ألا يسمح تثبيت TLS مطلقًا لقيمة `gatewayTlsSha256` المُعلَن عنها بتجاوز بصمة محفوظة مسبقًا.
+- يجب على عقد iOS/Android اعتبار الاتصالات المباشرة المعتمدة على الاكتشاف على أنها **TLS-only** والمطالبة بتأكيد صريح من المستخدم قبل الوثوق ببصمة تُستخدم لأول مرة.
+
 ## تصحيح الأخطاء على macOS
 
 أدوات مدمجة مفيدة:
@@ -164,5 +175,3 @@ dig @<TAILNET_IPV4> -p 53 _openclaw-gw._tcp.openclaw.internal PTR +short
 
 - سياسة الاكتشاف واختيار النقل: [Discovery](/gateway/discovery)
 - إقران العُقد + الموافقات: [Gateway pairing](/gateway/pairing)
-
-

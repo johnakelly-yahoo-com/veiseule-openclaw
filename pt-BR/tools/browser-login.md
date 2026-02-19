@@ -1,4 +1,8 @@
 ---
+summary: "Logins manuais para automação de navegador + postagem no X/Twitter"
+read_when:
+  - Você precisa fazer login em sites para automação de navegador
+  - Você quer publicar atualizações no X/Twitter
 title: "Login no navegador"
 ---
 
@@ -61,5 +65,3 @@ openclaw browser open https://x.com --browser-profile openclaw --target host
 ```
 
 Ou desative o sandboxing para o agente que publica atualizações.
-
-

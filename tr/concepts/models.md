@@ -1,4 +1,9 @@
 ---
+summary: "Models CLI: listele, ayarla, takma adlar, yedekler, tara, durum"
+read_when:
+  - Models CLI’yi eklerken veya değiştirirken (models list/set/scan/aliases/fallbacks)
+  - Model yedekleme davranışını veya seçim UX’ini değiştirirken
+  - Model tarama yoklamalarını güncellerken (araçlar/görseller)
 title: "Modeller CLI"
 ---
 
@@ -199,5 +204,3 @@ modda, varsayılanları kabul etmek için `--yes` geçin.
 `models.providers` içindeki özel sağlayıcılar, ajan dizini altında
 (varsayılan `~/.openclaw/agents/<agentId>/models.json`) `models.json` içine yazılır. Bu dosya,
 `models.mode` `replace` olarak ayarlanmadıkça varsayılan olarak birleştirilir.
-
-

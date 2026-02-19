@@ -1,4 +1,8 @@
 ---
+summary: "„OpenClaw auf DigitalOcean (einfache kostenpflichtige VPS-Option)“"
+read_when:
+  - OpenClaw auf DigitalOcean einrichten
+  - Günstiges VPS-Hosting für OpenClaw suchen
 title: "DigitalOcean"
 ---
 
@@ -256,5 +260,3 @@ free -h
 - [Docker-Installation](/install/docker) — containerisiertes Setup
 - [Tailscale](/gateway/tailscale) — sicherer Remote-Zugriff
 - [Konfiguration](/gateway/configuration) — vollständige Konfigurationsreferenz
-
-

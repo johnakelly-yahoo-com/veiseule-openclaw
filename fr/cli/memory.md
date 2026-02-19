@@ -1,4 +1,8 @@
 ---
+summary: "Reference CLI pour `openclaw memory` (statut/indexation/recherche)"
+read_when:
+  - Vous souhaitez indexer ou rechercher la memoire semantique
+  - Vous depannez la disponibilite de la memoire ou l’indexation
 title: "memoire"
 ---
 
@@ -39,5 +43,3 @@ Notes :
 - `memory status --deep --index` relance une reindexation si le stockage est marque comme sale.
 - `memory index --verbose` affiche les details par phase (fournisseur, modele, sources, activite par lot).
 - `memory status` inclut tous les chemins supplementaires configures via `memorySearch.extraPaths`.
-
-

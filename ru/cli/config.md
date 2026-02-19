@@ -1,4 +1,7 @@
 ---
+summary: "Справка по CLI для `openclaw config` (получение/установка/сброс значений конфига)"
+read_when:
+  - Вы хотите читать или редактировать конфиг в неинтерактивном режиме
 title: "config"
 ---
 
@@ -45,5 +48,3 @@ openclaw config set channels.whatsapp.groups '["*"]' --json
 ```
 
 Перезапустите Gateway (шлюз) после изменений.
-
-

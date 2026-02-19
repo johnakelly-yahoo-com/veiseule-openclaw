@@ -1,4 +1,8 @@
 ---
+summary: "Visão geral de suporte de plataformas (Gateway + aplicativos complementares)"
+read_when:
+  - Procurando suporte de SO ou caminhos de instalação
+  - Decidindo onde executar o Gateway
 title: "Plataformas"
 ---
 
@@ -47,5 +51,3 @@ O destino do serviço depende do SO:
 
 - macOS: LaunchAgent (`bot.molt.gateway` ou `bot.molt.<profile>`; legado `com.openclaw.*`)
 - Linux/WSL2: serviço de usuário systemd (`openclaw-gateway[-<profile>].service`)
-
-

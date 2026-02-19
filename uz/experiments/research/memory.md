@@ -1,4 +1,9 @@
 ---
+summary: "Tadqiqot qaydlari: Clawd ish joylari uchun oflayn xotira tizimi (Markdown — manba-haqiqat + hosila indeks)"
+read_when:
+  - Kundalik Markdown jurnallaridan tashqarida ish joyi xotirasini loyihalash (~/.openclaw/workspace)
+  - Deciding: mustaqil CLI va chuqur OpenClaw integratsiyasi
+  - Oflayn eslab qolish + refleksiya qo‘shish (saqlash/eslash/refleksiya)
 title: "Workspace Memory tadqiqoti"
 ---
 
@@ -136,9 +141,9 @@ Recall should support:
 
 4. Qaytarish formati agentlar uchun qulay bo‘lishi va manbalarni keltirishi kerak:
 
-- 5. `kind` (`world|experience|opinion|observation`)
+- `kind` (`world|experience|opinion|observation`)
 - Agar mualliflar bu haqda o‘ylashini istamasangiz: reflect vazifasi bu punktlarni jurnalning qolgan qismidan chiqarib olishi mumkin, ammo aniq `## Retain` bo‘limiga ega bo‘lish eng oson “sifat richagi”dir.
-- 7. `entities` (`["Peter","warelay"]`)
+- `entities` (`["Peter","warelay"]`)
 - 8. `content` (bayon qilingan fakt)
 - 9. `source` (`memory/2025-11-27.md#L12` va h.k.)
 
@@ -155,7 +160,7 @@ Recall should support:
 - 16. har bir fikrda quyidagilar bo‘ladi:
   - 17. bayonot
   - 18. ishonch `c ∈ [0,1]`
-  - 19. last_updated
+  - last_updated
   - `timestamp` (manba kuni yoki mavjud bo‘lsa, ajratib olingan vaqt oralig‘i)
 - 21. yangi faktlar kelganda:
   - 22. entity ustma-ustligi + o‘xshashlik bo‘yicha nomzod fikrlarni topish (avval FTS, keyin embeddinglar)
@@ -172,8 +177,8 @@ Recall should support:
   - 29. sessiya modeli + heartbeats
   - 30. loglash + nosozliklarni bartaraf etish andozalari
 - 31. Asboblarni agentning o‘zi chaqirishini xohlaysiz:
-  - 32. `openclaw memory recall "…" --k 25 --since 30d`
-  - 33. `openclaw memory reflect --since 7d`
+  - `openclaw memory recall "…" --k 25 --since 30d`
+  - `openclaw memory reflect --since 7d`
 
 ### 34. Nega baribir kutubxonani ajratish kerak?
 
@@ -188,7 +193,7 @@ Recall should support:
 
 39. Agar “S-Collide” **SuCo (Subspace Collision)** ni anglatadigan bo‘lsa: bu kuchli recall/kechikish muvozanatini maqsad qilgan ANN qidiruv yondashuvi bo‘lib, subfazolardagi o‘rganilgan/tuzilmaviy to‘qnashuvlardan foydalanadi (maqola: arXiv 2411.14754, 2024).
 
-- 40. `~/.openclaw/workspace` uchun amaliy yondashuv:
+- recall sifati leksik qidiruv bilan sezilarli darajada cheklanib qolganda
 - 41. **boshlamang** SuCo bilan.
 - 42. SQLite FTS + (ixtiyoriy) oddiy embeddinglardan boshlang; darhol UX yutuqlarining aksariga erishasiz.
   - 43. SuCo/HNSW/ScaNN turidagi yechimlarni faqat shunda ko‘rib chiqing:
@@ -220,5 +225,3 @@ Agar minimal, lekin baribir foydali versiyani xohlasangiz:
 - Letta / MemGPT tushunchalari: “asosiy xotira bloklari” + “arxiv xotira” + vositalar orqali o‘zini tahrirlovchi xotira.
 - Hindsight Texnik Hisoboti: “retain / recall / reflect”, to‘rtta tarmoqli xotira, narrativ faktlarni ajratib olish, fikr ishonchliligining evolyutsiyasi.
 - SuCo: arXiv 2411.14754 (2024): “Subspace Collision” taxminiy eng yaqin qo‘shnilarni topish (ANN) orqali retrieval.
-
-

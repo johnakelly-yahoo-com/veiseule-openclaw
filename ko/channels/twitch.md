@@ -1,4 +1,7 @@
 ---
+summary: "Twitch 채팅 봇 구성 및 설정"
+read_when:
+  - OpenClaw 를 위한 Twitch 채팅 통합 설정 시
 title: "Twitch"
 ---
 
@@ -374,5 +377,3 @@ Access token refreshed for user 123456 (expires in 14400s)
 - 메시지당 **500자** (단어 경계에서 자동 분할)
 - 분할 전에 Markdown 이 제거됩니다
 - 속도 제한 없음 (Twitch 의 내장 속도 제한 사용)
-
-

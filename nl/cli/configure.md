@@ -1,4 +1,7 @@
 ---
+summary: "CLI-referentie voor `openclaw configure` (interactieve configuratieprompts)"
+read_when:
+  - Je wilt referenties, apparaten of agent-standaardwaarden interactief aanpassen
 title: "configure"
 ---
 
@@ -28,5 +31,3 @@ Notities:
 openclaw configure
 openclaw configure --section models --section channels
 ```
-
-

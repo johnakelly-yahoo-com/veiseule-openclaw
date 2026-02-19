@@ -1,4 +1,9 @@
 ---
+summary: "Sanggunian ng CLI para sa `openclaw system` (mga system event, heartbeat, presence)"
+read_when:
+  - Gusto mong mag-enqueue ng system event nang hindi gumagawa ng cron job
+  - Kailangan mong i-enable o i-disable ang mga heartbeat
+  - Gusto mong inspeksyunin ang mga entry ng system presence
 title: "sistema"
 ---
 
@@ -53,5 +58,3 @@ Mga flag:
 
 - Nangangailangan ng tumatakbong Gateway na maaabot ng iyong kasalukuyang config (local o remote).
 - Ang mga system event ay pansamantala at hindi pinapanatili sa pagitan ng mga restart.
-
-

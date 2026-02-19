@@ -1,4 +1,7 @@
 ---
+summary: "إتاحة نقطة نهاية HTTP متوافقة مع OpenAI لمسار ‎/v1/chat/completions‎ من Gateway"
+read_when:
+  - دمج الأدوات التي تتوقع OpenAI Chat Completions
 title: "إكمالات الدردشة من OpenAI"
 ---
 
@@ -23,6 +26,7 @@ title: "إكمالات الدردشة من OpenAI"
 
 - عند `gateway.auth.mode="token"`، استخدم `gateway.auth.token` (أو `OPENCLAW_GATEWAY_TOKEN`).
 - عند `gateway.auth.mode="password"`، استخدم `gateway.auth.password` (أو `OPENCLAW_GATEWAY_PASSWORD`).
+- إذا تم تكوين `gateway.auth.rateLimit` وحدثت محاولات مصادقة فاشلة كثيرة، فستُرجع نقطة النهاية `429` مع `Retry-After`.
 
 ## اختيار وكيل
 
@@ -113,5 +117,3 @@ curl -N http://127.0.0.1:18789/v1/chat/completions \
     "messages": [{"role":"user","content":"hi"}]
   }'
 ```
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Мастер онбординга CLI: пошаговая настройка шлюза, рабочего пространства, каналов и Skills"
+read_when:
+  - При запуске или настройке мастера онбординга
+  - При настройке новой машины
 title: "Мастер онбординга (CLI)"
 sidebarTitle: "Начало работы: CLI"
 ---
@@ -102,7 +106,6 @@ RPC API и полного списка полей конфига, которые
 ## Связанная документация
 
 - Справочник команд CLI: [`openclaw onboard`](/cli/onboard)
+- Обзор онбординга: [Onboarding Overview](/start/onboarding-overview)
 - Онбординг приложения для macOS: [Onboarding](/start/onboarding)
 - Ритуал первого запуска агента: [Agent Bootstrapping](/start/bootstrapping)
-
-

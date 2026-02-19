@@ -1,4 +1,9 @@
 ---
+summary: "ڈیبگنگ ٹولز: واچ موڈ، خام ماڈل اسٹریمز، اور استدلال کے اخراج کی ٹریسنگ"
+read_when:
+  - آپ کو استدلال کے اخراج کے لیے خام ماڈل آؤٹ پٹ کا معائنہ کرنا ہو
+  - آپ تکرار کے دوران Gateway کو واچ موڈ میں چلانا چاہتے ہوں
+  - آپ کو ایک قابلِ تکرار ڈیبگنگ ورک فلو درکار ہو
 title: "ڈیبگنگ"
 ---
 
@@ -8,7 +13,7 @@ title: "ڈیبگنگ"
 
 ## رن ٹائم ڈیبگ اووررائیڈز
 
-چیٹ میں **runtime-only** کنفیگ اووررائیڈز (میموری، ڈسک نہیں) سیٹ کرنے کے لیے `/debug` استعمال کریں۔
+Use `/debug` in chat to set **runtime-only** config overrides (memory, not disk).
 `/debug` is disabled by default; enable with `commands.debug: true`.
 This is handy when you need to toggle obscure settings without editing `openclaw.json`.
 
@@ -41,7 +46,7 @@ tsx watch src/entry.ts gateway --force
 
 ## ڈیو پروفائل + ڈیو گیٹ وے (--dev)
 
-اسٹیٹ کو الگ رکھنے اور ایک محفوظ، عارضی سیٹ اپ شروع کرنے کے لیے dev پروفائل استعمال کریں۔
+Use the dev profile to isolate state and spin up a safe, disposable setup for
 debugging. There are **two** `--dev` flags:
 
 - **عالمی `--dev` (پروفائل):** اسٹیٹ کو **`~/.openclaw-dev`** کے تحت الگ کرتا ہے اور
@@ -81,7 +86,7 @@ OPENCLAW_PROFILE=dev openclaw tui
 pnpm gateway:dev:reset
 ```
 
-نوٹ: `--dev` ایک **global** پروفائل فلیگ ہے اور کچھ رنرز اسے نظر انداز کر دیتے ہیں۔
+Note: `--dev` is a **global** profile flag and gets eaten by some runners.
 If you need to spell it out, use the env var form:
 
 ```bash
@@ -99,7 +104,7 @@ openclaw gateway stop
 
 ## خام اسٹریم لاگنگ (OpenClaw)
 
-OpenClaw کسی بھی فلٹرنگ/فارمیٹنگ سے پہلے **raw assistant stream** کو لاگ کر سکتا ہے۔
+OpenClaw can log the **raw assistant stream** before any filtering/formatting.
 This is the best way to see whether reasoning is arriving as plain text deltas
 (or as separate thinking blocks).
 
@@ -153,5 +158,3 @@ PI_RAW_STREAM_PATH=~/.pi-mono/logs/raw-openai-completions.jsonl
 - خام اسٹریم لاگز میں مکمل پرامپٹس، ٹول آؤٹ پٹ، اور صارف ڈیٹا شامل ہو سکتا ہے۔
 - لاگز کو مقامی رکھیں اور ڈیبگنگ کے بعد حذف کر دیں۔
 - اگر آپ لاگز شیئر کریں تو پہلے راز اور PII صاف کریں۔
-
-

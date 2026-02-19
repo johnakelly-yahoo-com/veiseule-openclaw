@@ -1,4 +1,9 @@
 ---
+summary: "OpenClaw sur Raspberry Pi (installation auto-hébergée à petit budget)"
+read_when:
+  - Mise en place d'OpenClaw sur un Raspberry Pi
+  - Exécution d'OpenClaw sur des appareils ARM
+  - Construction d'une IA personnelle toujours active et peu coûteuse
 title: "Raspberry Pi"
 ---
 
@@ -16,7 +21,7 @@ Parfait pour :
 
 ## Exigences matérielles
 
-| Modèle Pi       | RAM     | Fonctionne ?      | Remarques                                                  |
+| Modèle Pi       | RAM     | Fonctionne ?      | Remarques                                              |
 | --------------- | ------- | ----------------- | ------------------------------------------------------ |
 | **Pi 5**        | 4GB/8GB | ✅ Meilleur        | Le plus rapide, recommandé                             |
 | **Pi 4**        | 4GB     | ✅ Bon             | Le meilleur compromis pour la plupart des utilisateurs |
@@ -218,7 +223,7 @@ htop
 
 La plupart des fonctionnalités d’OpenClaw fonctionnent sur ARM64, mais certains binaires externes peuvent nécessiter des versions ARM :
 
-| Outil                                    | Statut ARM64 | Remarques                               |
+| Outil                                    | Statut ARM64 | Remarques                           |
 | ---------------------------------------- | ------------ | ----------------------------------- |
 | Node.js                  | ✅            | Fonctionne très bien                |
 | WhatsApp (Baileys)    | ✅            | JS pur, aucun problème              |
@@ -331,7 +336,7 @@ echo 'wireless-power off' | sudo tee -a /etc/network/interfaces
 
 ## Comparaison des coûts
 
-| Configuration                     | Coût unique          | Coût mensuel             | Remarques                                                     |
+| Configuration                     | Coût unique          | Coût mensuel             | Remarques                                                 |
 | --------------------------------- | -------------------- | ------------------------ | --------------------------------------------------------- |
 | **Pi 4 (2GB)** | ~$45 | $0                       | + électricité (~$5/an) |
 | **Pi 4 (4GB)** | ~$55 | $0                       | Recommandé                                                |
@@ -351,5 +356,3 @@ echo 'wireless-power off' | sudo tee -a /etc/network/interfaces
 - [Guide Hetzner](/install/hetzner) — configuration Docker
 - [Tailscale](/gateway/tailscale) — accès distant
 - [Nodes](/nodes) — associez votre ordinateur/téléphone à la Gateway du Pi
-
-

@@ -1,9 +1,11 @@
 ---
-title: "العزل"
+summary: "كيفية عمل sandboxing في OpenClaw: الأوضاع، والنطاقات، والوصول إلى مساحة العمل، والصور"
+title: Sandboxing
+read_when: "عندما تحتاج إلى شرح مخصص لـ sandboxing أو ترغب في ضبط agents.defaults.sandbox."
 status: active
 ---
 
-# العزل
+# Sandboxing
 
 يمكن لـ OpenClaw تشغيل **الأدوات داخل حاويات Docker** لتقليل نطاق التأثير.
 هذا **اختياري** ويتم التحكم فيه عبر التهيئة (`agents.defaults.sandbox` أو
@@ -68,6 +70,11 @@ status: active
 الصيغة: `host:container:mode` (مثلًا، `"/home/user/source:/source:rw"`).
 
 يتم **دمج** الروابط العامة وروابط كل وكيل (ولا يتم استبدالها). ضمن `scope: "shared"`، يتم تجاهل روابط كل وكيل.
+
+`agents.defaults.sandbox.browser.binds` يقوم بربط (mount) أدلة إضافية من المضيف داخل حاوية **sandbox browser** فقط.
+
+- عند تعيينه (بما في ذلك `[]`)، فإنه يستبدل `agents.defaults.sandbox.docker.binds` لحاوية المتصفح.
+- عند عدم تعيينه، تعود حاوية المتصفح لاستخدام `agents.defaults.sandbox.docker.binds` (متوافق مع الإصدارات السابقة).
 
 مثال (مصدر للقراءة فقط + مقبس Docker):
 
@@ -189,5 +196,3 @@ scripts/sandbox-browser-setup.sh
 - [Sandbox Configuration](/gateway/configuration#agentsdefaults-sandbox)
 - [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools)
 - [Security](/gateway/security)
-
-

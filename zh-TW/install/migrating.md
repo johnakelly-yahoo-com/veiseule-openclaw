@@ -1,4 +1,8 @@
 ---
+summary: "將 OpenClaw 的安裝從一台機器移動（遷移）到另一台"
+read_when:
+  - 您正在將 OpenClaw 移到新的筆電／伺服器
+  - 您希望保留工作階段、身分驗證與頻道登入（WhatsApp 等）
 title: "遷移指南"
 ---
 
@@ -32,7 +36,7 @@ title: "遷移指南"
 openclaw status
 ```
 
-在輸出中尋找 `OPENCLAW_STATE_DIR`／profile 的相關提及。如果你執行多個 gateway，請針對每個 profile 重複此步驟。
+在輸出中尋找 `OPENCLAW_STATE_DIR`／profile 的相關提及。如果你執行多個 gateway，請針對每個 profile 重複此步驟。 If you run multiple gateways, repeat for each profile.
 
 ### 2. 確認您的工作區
 
@@ -49,7 +53,7 @@ openclaw status
 
 - Gateway 閘道器 設定（`openclaw.json`）
 - 身分驗證設定檔／API 金鑰／OAuth 權杖
-- 會話歷史 + 代理狀態
+- Session history + agent state
 - 頻道狀態（例如 WhatsApp 登入／工作階段）
 - 您的工作區檔案（記憶、Skills 筆記等）
 
@@ -100,7 +104,7 @@ tar -czf openclaw-workspace.tgz .openclaw/workspace
 
 常見方式：
 
-- 使用 `scp` 傳輸壓縮檔並解壓縮
+- `scp` the tarballs and extract
 - 透過 SSH `rsync -a`
 - 使用外接硬碟
 
@@ -144,7 +148,7 @@ openclaw doctor
 
 ### 踩雷：只複製 `openclaw.json`
 
-僅有 `openclaw.json` 並不足夠。許多提供者會將狀態儲存在以下位置： Many providers store state under:
+僅有 `openclaw.json` 並不足夠。許多提供者會將狀態儲存在以下位置： Many providers store state under: Many providers store state under:
 
 - `$OPENCLAW_STATE_DIR/credentials/`
 - `$OPENCLAW_STATE_DIR/agents/<agentId>/...`
@@ -153,7 +157,7 @@ openclaw doctor
 
 ### 踩雷：權限／擁有權
 
-如果你以 root 身分複製或變更使用者，gateway 可能無法讀取憑證／會話。
+If you copied as root or changed users, the gateway may fail to read credentials/sessions.
 
 修正方式：確保 state 目錄 + workspace 的擁有者為執行 gateway 的使用者。
 
@@ -166,11 +170,11 @@ openclaw doctor
 
 ### 踩雷：備份中的機密資料
 
-`$OPENCLAW_STATE_DIR` 包含機密（API 金鑰、OAuth 權杖、WhatsApp 憑證）。請將備份視同正式環境的機密資料： Treat backups like production secrets:
+`$OPENCLAW_STATE_DIR` 包含機密（API 金鑰、OAuth 權杖、WhatsApp 憑證）。請將備份視同正式環境的機密資料： Treat backups like production secrets: Treat backups like production secrets:
 
 - 以加密方式儲存
 - 避免透過不安全的通道分享
-- 如果懷疑金鑰外洩，請輪換金鑰
+- rotate keys if you suspect exposure
 
 ## 驗證檢查清單
 
@@ -178,7 +182,7 @@ openclaw doctor
 
 - `openclaw status` 顯示 Gateway 閘道器 正在執行
 - 您的頻道仍保持連線（例如 WhatsApp 不需要重新配對）
-- 儀表板會開啟並顯示現有會話
+- The dashboard opens and shows existing sessions
 - 您的工作區檔案（記憶、設定）皆存在
 
 ## Related
@@ -186,5 +190,3 @@ openclaw doctor
 - [Doctor](/gateway/doctor)
 - [Gateway troubleshooting](/gateway/troubleshooting)
 - [Where does OpenClaw store its data?](/help/faq#where-does-openclaw-store-its-data)
-
-

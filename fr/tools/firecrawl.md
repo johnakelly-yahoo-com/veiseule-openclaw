@@ -1,4 +1,9 @@
 ---
+summary: "Solution de repli Firecrawl pour web_fetch (anti-bot + extraction mise en cache)"
+read_when:
+  - Vous souhaitez une extraction web adossée à Firecrawl
+  - Vous avez besoin d'une clé API Firecrawl
+  - Vous souhaitez une extraction anti-bot pour web_fetch
 title: "Firecrawl"
 ---
 
@@ -51,5 +56,3 @@ Ordre d’extraction de `web_fetch` :
 3. Nettoyage HTML basique (dernier recours)
 
 Voir [Outils web](/tools/web) pour la configuration complète des outils web.
-
-

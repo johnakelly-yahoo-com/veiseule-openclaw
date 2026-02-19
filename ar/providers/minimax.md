@@ -1,4 +1,8 @@
 ---
+summary: "استخدم MiniMax M2.1 في OpenClaw"
+read_when:
+  - تريد نماذج MiniMax في OpenClaw
+  - تحتاج إلى إرشادات إعداد MiniMax
 title: "MiniMax"
 ---
 
@@ -201,5 +205,3 @@ openclaw onboard --auth-choice minimax-portal
 ```bash
 openclaw models list
 ```
-
-

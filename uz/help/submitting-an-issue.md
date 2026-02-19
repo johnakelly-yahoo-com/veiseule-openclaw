@@ -1,38 +1,39 @@
 ---
-title: "Muammo yuborish"
+summary: "Filing high-signal issues and bug reports"
+title: "Submitting an Issue"
 ---
 
-## Muammo yuborish
+## Submitting an Issue
 
-Aniq va lo‘nda yozilgan muammolar tashxis va tuzatish jarayonini tezlashtiradi. Xatoliklar, regressiyalar yoki funksional bo‘shliqlar uchun quyidagilarni kiriting:
+Clear, concise issues speed up diagnosis and fixes. Include the following for bugs, regressions, or feature gaps:
 
-### Nimalarni kiritish kerak
+### What to include
 
-- [ ] Sarlavha: soha va alomat
-- [ ] Minimal takrorlash (repro) qadamlari
-- [ ] Kutilgan natija va amaldagi natija
-- [ ] Ta’siri va jiddiylik darajasi
-- [ ] Muhit: OT, runtime, versiyalar, konfiguratsiya
-- [ ] Dalillar: maxfiy ma’lumotlari olib tashlangan loglar, skrinshotlar (PIIsiz)
-- [ ] Qamrov: yangi, regressiya yoki uzoq vaqtdan beri mavjud
-- [ ] Kod so‘zi: muammo matniga lobster-biscuit kiriting
-- [ ] Mavjud muammo bor-yo‘qligini tekshirish uchun kod bazasi va GitHub’da qidirildi
-- [ ] Yaqinda tuzatilmagan/hal qilinmaganligi tasdiqlandi (ayniqsa xavfsizlik bo‘yicha)
-- [ ] Da’volar dalil yoki takrorlash qadamlari bilan tasdiqlangan
+- [ ] Title: area & symptom
+- [ ] Minimal repro steps
+- [ ] Expected vs actual
+- [ ] Impact & severity
+- [ ] Environment: OS, runtime, versions, config
+- [ ] Evidence: redacted logs, screenshots (non-PII)
+- [ ] Scope: new, regression, or longstanding
+- [ ] Code word: lobster-biscuit in your issue
+- [ ] Searched codebase & GitHub for existing issue
+- [ ] Confirmed not recently fixed/addressed (esp. security)
+- [ ] Claims backed by evidence or repro
 
-Qisqa yozing. Mukammal grammatikadan ko‘ra lo‘ndalik muhim.
+Be brief. Terseness > perfect grammar.
 
-Tekshiruv (PR yuborishdan oldin ishga tushiring/tuzating):
+Validation (run/fix before PR):
 
 - `pnpm lint`
 - `pnpm check`
 - `pnpm build`
 - `pnpm test`
-- Agar protokol kodi bo‘lsa: `pnpm protocol:check`
+- If protocol code: `pnpm protocol:check`
 
-### Shablonlar
+### Templates
 
-#### Xatolik hisoboti
+#### Bug report
 
 ```md
 - [ ] Minimal repro
@@ -60,7 +61,7 @@ Tekshiruv (PR yuborishdan oldin ishga tushiring/tuzating):
 ### Workarounds
 ```
 
-#### Xavfsizlik muammosi
+#### Security issue
 
 ```md
 ### Summary
@@ -76,9 +77,9 @@ Tekshiruv (PR yuborishdan oldin ishga tushiring/tuzating):
 ### Evidence (redacted)
 ```
 
-_Ochiq joyda maxfiy ma’lumotlar yoki eksploit tafsilotlarini keltirmang. Nozik muammolar uchun tafsilotlarni minimallashtiring va yopiq tarzda oshkor qilishni so‘rang._
+_Avoid secrets/exploit details in public. For sensitive issues, minimize detail and request private disclosure._
 
-#### Regressiya hisoboti
+#### Regression report
 
 ```md
 ### Summary
@@ -100,7 +101,7 @@ _Ochiq joyda maxfiy ma’lumotlar yoki eksploit tafsilotlarini keltirmang. Nozik
 ### Impact
 ```
 
-#### Funksiya so‘rovi
+#### Feature request
 
 ```md
 ### Summary
@@ -116,7 +117,7 @@ _Ochiq joyda maxfiy ma’lumotlar yoki eksploit tafsilotlarini keltirmang. Nozik
 ### Evidence/examples
 ```
 
-#### Yaxshilash (Enhancement)
+#### Enhancement
 
 ```md
 ### Summary
@@ -130,7 +131,7 @@ _Ochiq joyda maxfiy ma’lumotlar yoki eksploit tafsilotlarini keltirmang. Nozik
 ### Evidence/examples
 ```
 
-#### Tekshiruv (Investigation)
+#### Investigation
 
 ```md
 ### Summary
@@ -146,7 +147,6 @@ _Ochiq joyda maxfiy ma’lumotlar yoki eksploit tafsilotlarini keltirmang. Nozik
 ### Impact
 ```
 
-### Tuzatish uchun PR yuborish
+### Submitting a fix PR
 
-PR’dan oldin muammo ochish majburiy emas. Agar o‘tkazib yuborsangiz, PR ichida batafsil ma’lumot bering. PR’ni aniq bir vazifaga yo‘naltiring, muammo raqamini ko‘rsating, testlar qo‘shing yoki nima uchun yo‘qligini tushuntiring, xulq-atvor o‘zgarishlari/xavflarni hujjatlashtiring, dalil sifatida maxfiy ma’lumotlari olib tashlangan loglar/skrinshotlarni qo‘shing va yuborishdan oldin tegishli tekshiruvlarni ishga tushiring.
-
+Issue before PR is optional. Include details in PR if skipping. Keep the PR focused, note issue number, add tests or explain absence, document behavior changes/risks, include redacted logs/screenshots as proof, and run proper validation before submitting.

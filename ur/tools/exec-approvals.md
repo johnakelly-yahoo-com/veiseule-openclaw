@@ -1,10 +1,15 @@
 ---
+summary: "ایگزیک منظوریات، اجازت فہرستیں، اور sandbox سے باہر نکلنے کے پرامپٹس"
+read_when:
+  - ایگزیک منظوریات یا اجازت فہرستیں کنفیگر کرتے وقت
+  - macOS ایپ میں ایگزیک منظوری UX نافذ کرتے وقت
+  - sandbox سے باہر نکلنے کے پرامپٹس اور ان کے مضمرات کا جائزہ لیتے وقت
 title: "ایگزیک منظوریات"
 ---
 
 # ایگزیک منظوریات
 
-Exec approvals ایک **ساتھی ایپ / نوڈ ہوسٹ گارڈ ریل** ہیں جو سینڈ باکسڈ ایجنٹ کو چلانے کی اجازت دینے کے لیے استعمال ہوتی ہیں
+Exec approvals are the **companion app / node host guardrail** for letting a sandboxed agent run
 commands on a real host (`gateway` or `node`). Think of it like a safety interlock:
 commands are allowed only when policy + allowlist + (optional) user approval all agree.
 Exec approvals are **in addition** to tool policy and elevated gating (unless elevated is set to `full`, which skips approvals).
@@ -90,7 +95,7 @@ macOS تقسیم:
 
 ## اجازت فہرست (ہر ایجنٹ کے لیے)
 
-الاؤ لسٹس **ہر ایجنٹ کے لیے علیحدہ** ہوتی ہیں۔ اگر متعدد ایجنٹس موجود ہوں، تو جس ایجنٹ کو آپ استعمال کر رہے ہیں اسے تبدیل کریں
+Allowlists are **per agent**. If multiple agents exist, switch which agent you’re
 editing in the macOS app. Patterns are **case-insensitive glob matches**.
 Patterns should resolve to **binary paths** (basename-only entries are ignored).
 Legacy `agents.default` entries are migrated to `agents.main` on load.
@@ -110,7 +115,7 @@ Legacy `agents.default` entries are migrated to `agents.main` on load.
 
 ## اسکل CLIs کو خودکار اجازت دیں
 
-جب **اسکل CLIs کو خودکار اجازت دیں** فعال ہو، تو معروف اسکلز کی جانب سے حوالہ دیے گئے قابلِ عمل فائلز
+When **Auto-allow skill CLIs** is enabled, executables referenced by known skills
 are treated as allowlisted on nodes (macOS node or headless node host). This uses
 `skills.bins` over the Gateway RPC to fetch the skill bin list. Disable this if you want strict manual allowlists.
 
@@ -119,9 +124,11 @@ are treated as allowlisted on nodes (macOS node or headless node host). This use
 `tools.exec.safeBins` defines a small list of **stdin-only** binaries (for example `jq`)
 that can run in allowlist mode **without** explicit allowlist entries. Safe bins reject
 positional file args and path-like tokens, so they can only operate on the incoming stream.
+Safe bins execution کے وقت argv ٹوکنز کو **literal text** کے طور پر نافذ کرتے ہیں (کوئی globbing نہیں
+اور نہ ہی `$VARS` کی توسیع) صرف stdin-only حصوں کے لیے، تاکہ `*` یا `$HOME/...` جیسے پیٹرنز کو فائل ریڈ چھپانے کے لیے استعمال نہ کیا جا سکے۔
 Shell chaining and redirections are not auto-allowed in allowlist mode.
 
-جب ہر اعلیٰ سطحی حصّہ الاؤ لسٹ کی شرائط پوری کرتا ہو تو شیل چیننگ (`&&`, `||`, `;`) کی اجازت ہوتی ہے
+Shell chaining (`&&`, `||`, `;`) is allowed when every top-level segment satisfies the allowlist
 (including safe bins or skill auto-allow). Redirections remain unsupported in allowlist mode.
 Command substitution (`$()` / backticks) is rejected during allowlist parsing, including inside
 double quotes; use single quotes if you need literal `$()` text.
@@ -240,5 +247,3 @@ Approval-gated execs reuse the approval id as the `runId` in these messages for 
 - [Exec tool](/tools/exec)
 - [Elevated mode](/tools/elevated)
 - [Skills](/tools/skills)
-
-

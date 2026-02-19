@@ -1,4 +1,7 @@
 ---
+summary: "Status wsparcia aplikacji Google Chat, możliwości i konfiguracja"
+read_when:
+  - Prace nad funkcjami kanału Google Chat
 title: "Google Chat"
 ---
 
@@ -151,6 +154,7 @@ Skonfiguruj reguły ingress tunelu tak, aby routować wyłącznie ścieżkę web
 Używaj tych identyfikatorów do dostarczania i list dozwolonych:
 
 - Wiadomości bezpośrednie: `users/<userId>` lub `users/<email>` (akceptowane są adresy e-mail).
+- Przestarzałe: `users/<email>` jest traktowane jako identyfikator użytkownika, a nie lista dozwolonych adresów e-mail.
 - Przestrzenie: `spaces/<spaceId>`.
 
 ## Najważniejsze elementy konfiguracji
@@ -247,5 +251,3 @@ Powiązana dokumentacja:
 - [Konfiguracja Gateway](/gateway/configuration)
 - [Bezpieczeństwo](/gateway/security)
 - [Reakcje](/tools/reactions)
-
-

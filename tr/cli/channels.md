@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw channels` için CLI başvurusu (hesaplar, durum, giriş/çıkış, günlükler)"
+read_when:
+  - Kanal hesaplarını eklemek/kaldırmak istediğinizde (WhatsApp/Telegram/Discord/Google Chat/Slack/Mattermost (eklenti)/Signal/iMessage)
+  - Kanal durumunu kontrol etmek veya kanal günlüklerini izlemek istediğinizde
 title: "kanallar"
 ---
 
@@ -44,7 +48,7 @@ openclaw channels logout --channel whatsapp
 - Yönlendirmeli düzeltmeler için `openclaw doctor` kullanın.
 - `openclaw channels list`, `Claude: HTTP 403 ... user:profile` yazdırır → kullanım anlık görüntüsü için `user:profile` kapsamı gerekir. `--no-usage` kullanın veya bir claude.ai oturum anahtarı sağlayın (`CLAUDE_WEB_SESSION_KEY` / `CLAUDE_WEB_COOKIE`), ya da Claude Code CLI üzerinden yeniden kimlik doğrulaması yapın.
 
-## Yeteneklerin Yoklanması
+## Capabilities probe
 
 Sağlayıcı yetenek ipuçlarını (mevcut olduğunda intent'ler/kapsamlar) ve statik özellik desteğini alın:
 
@@ -73,5 +77,3 @@ Notlar:
 
 - Hedef türü zorlamak için `--kind user|group|auto` kullanın.
 - Birden fazla giriş aynı adı paylaştığında, çözümleme etkin eşleşmeleri tercih eder.
-
-

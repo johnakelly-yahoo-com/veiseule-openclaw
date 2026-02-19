@@ -1,4 +1,9 @@
 ---
+summary: "Automatiseret, hærdet OpenClaw-installation med Ansible, Tailscale VPN og firewall-isolation"
+read_when:
+  - Du ønsker automatiseret serverudrulning med sikkerhedshærdning
+  - Du har brug for en firewall-isoleret opsætning med VPN-adgang
+  - Du udruller til fjerne Debian/Ubuntu-servere
 title: "Ansible"
 ---
 
@@ -201,5 +206,3 @@ For detaljeret sikkerhedsarkitektur og fejlfinding:
 - [Docker](/install/docker) — containeriseret gateway-opsætning
 - [Sandboxing](/gateway/sandboxing) — konfiguration af agent-sandbox
 - [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) — isolation pr. agent
-
-

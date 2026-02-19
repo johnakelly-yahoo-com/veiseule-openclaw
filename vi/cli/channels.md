@@ -1,4 +1,8 @@
 ---
+summary: "Tài liệu tham chiếu CLI cho `openclaw channels` (tài khoản, trạng thái, đăng nhập/đăng xuất, log)"
+read_when:
+  - Bạn muốn thêm/xóa tài khoản kênh (WhatsApp/Telegram/Discord/Google Chat/Slack/Mattermost (plugin)/Signal/iMessage)
+  - Bạn muốn kiểm tra trạng thái kênh hoặc theo dõi log kênh
 title: "channels"
 ---
 
@@ -73,5 +77,3 @@ Ghi chú:
 
 - Dùng `--kind user|group|auto` để ép kiểu mục tiêu.
 - Việc phân giải ưu tiên các kết quả đang hoạt động khi nhiều mục trùng tên.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Gebruik de uniforme API van Qianfan om toegang te krijgen tot veel modellen in OpenClaw"
+read_when:
+  - Je wilt één API-sleutel voor veel LLM's
+  - Je hebt begeleiding nodig bij het instellen van Baidu Qianfan
 title: "Qianfan"
 ---
 
@@ -32,5 +36,3 @@ openclaw onboard --auth-choice qianfan-api-key
 - [Modelproviders](/concepts/model-providers)
 - [Agent-installatie](/concepts/agent)
 - [Qianfan API-documentatie](https://cloud.baidu.com/doc/qianfan-api/s/3m7of64lb)
-
-

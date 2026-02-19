@@ -1,4 +1,9 @@
 ---
+summary: "Xác thực cấu hình nghiêm ngặt + migration chỉ qua doctor"
+read_when:
+  - Thiết kế hoặc triển khai hành vi xác thực cấu hình
+  - Làm việc với migration cấu hình hoặc quy trình doctor
+  - Xử lý schema cấu hình plugin hoặc kiểm soát việc tải plugin
 title: "Xác thực cấu hình nghiêm ngặt"
 ---
 
@@ -86,5 +91,3 @@ Mọi thứ khác phải hard-fail với: “Config invalid.” Hãy giữ nó l
 - Plugin thiếu schema → chặn tải plugin với lỗi rõ ràng.
 - Cấu hình không hợp lệ → chặn khởi động gateway ngoại trừ các lệnh chẩn đoán.
 - Doctor dry-run tự động; `doctor --fix` ghi cấu hình đã được sửa.
-
-

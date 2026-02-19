@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw models`에 대한 CLI 참조 (status/list/set/scan, 별칭, 폴백, 인증)"
+read_when:
+  - 기본 모델을 변경하거나 프로바이더 인증 상태를 확인하려는 경우
+  - 사용 가능한 모델/프로바이더를 스캔하고 인증 프로필을 디버그하려는 경우
 title: "models"
 ---
 
@@ -11,7 +15,7 @@ title: "models"
 - 프로바이더 + 모델: [Models](/providers/models)
 - 프로바이더 인증 설정: [시작하기](/start/getting-started)
 
-## 일반 명령어
+## Common commands
 
 ```bash
 openclaw models status
@@ -29,7 +33,7 @@ openclaw models scan
 설정된 경우 `OPENCLAW_AGENT_DIR`/`PI_CODING_AGENT_DIR` 를 사용하고, 그렇지 않으면
 구성된 기본 에이전트를 사용합니다.
 
-참고:
+Notes:
 
 - `models set <model-or-alias>` 는 `provider/model` 또는 별칭을 허용합니다.
 - 모델 참조는 **첫 번째** `/` 를 기준으로 분리하여 파싱됩니다. 모델 ID에 `/` (OpenRouter 스타일)가 포함된 경우, 프로바이더 접두사를 포함하십시오 (예: `openrouter/moonshotai/kimi-k2`).
@@ -37,7 +41,7 @@ openclaw models scan
 
 ### `models status`
 
-옵션:
+Options:
 
 - `--json`
 - `--plain`
@@ -50,14 +54,14 @@ openclaw models scan
 - `--probe-max-tokens <n>`
 - `--agent <id>` (구성된 에이전트 ID; `OPENCLAW_AGENT_DIR`/`PI_CODING_AGENT_DIR` 를 재정의)
 
-## 별칭 + 대체 옵션
+## Aliases + fallbacks
 
 ```bash
 openclaw models aliases list
 openclaw models fallbacks list
 ```
 
-## 인증 프로필
+## Auth profiles
 
 ```bash
 openclaw models auth add
@@ -69,9 +73,7 @@ openclaw models auth paste-token
 `models auth login` 는 프로바이더 플러그인의 인증 흐름 (OAuth/API 키)을 실행합니다. 설치된 프로바이더를 확인하려면
 `openclaw plugins list` 를 사용하십시오.
 
-참고:
+Notes:
 
 - `setup-token` 는 설정 토큰 값을 요청합니다 (어떤 머신에서든 `claude setup-token` 로 생성하십시오).
 - `paste-token` 는 다른 곳에서 생성되었거나 자동화에서 생성된 토큰 문자열을 허용합니다.
-
-

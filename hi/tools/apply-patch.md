@@ -1,10 +1,14 @@
 ---
+summary: "apply_patch टूल के साथ बहु-फ़ाइल पैच लागू करें"
+read_when:
+  - आपको कई फ़ाइलों में संरचित संपादन की आवश्यकता है
+  - आप पैच-आधारित संपादनों का दस्तावेज़ीकरण या डिबग करना चाहते हैं
 title: "apply_patch टूल"
 ---
 
 # apply_patch टूल
 
-एक संरचित पैच प्रारूप का उपयोग करके फ़ाइल परिवर्तनों को लागू करें। यह बहु-फ़ाइल
+Apply file changes using a structured patch format. This is ideal for multi-file
 or multi-hunk edits where a single `edit` call would be brittle.
 
 यह टूल एक एकल `input` स्ट्रिंग स्वीकार करता है जो एक या अधिक फ़ाइल ऑपरेशनों को समेटती है:
@@ -29,7 +33,8 @@ or multi-hunk edits where a single `edit` call would be brittle.
 ## नोट्स
 
 - पाथ्स को वर्कस्पेस रूट के सापेक्ष रेज़ॉल्व किया जाता है।
-- फ़ाइलों का नाम बदलने के लिए `*** Update File:` हंक के भीतर `*** Move to:` का उपयोग करें।
+- `tools.exec.applyPatch.workspaceOnly` डिफ़ॉल्ट रूप से `true` (workspace-contained) होता है। इसे `false` केवल तभी सेट करें जब आप जानबूझकर चाहते हों कि `apply_patch` workspace directory के बाहर लिखे/हटाए।
+- आवश्यकता होने पर `*** End of File` केवल-EOF इन्सर्ट को चिह्नित करता है।
 - आवश्यकता होने पर `*** End of File` केवल-EOF इन्सर्ट को चिह्नित करता है।
 - Experimental and disabled by default. Enable with `tools.exec.applyPatch.enabled`.
 - OpenAI-only (including OpenAI Codex). Optionally gate by model via
@@ -44,5 +49,3 @@ or multi-hunk edits where a single `edit` call would be brittle.
   "input": "*** Begin Patch\n*** Update File: src/index.ts\n@@\n-const foo = 1\n+const foo = 2\n*** End Patch"
 }
 ```
-
-

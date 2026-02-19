@@ -1,17 +1,15 @@
 ---
-title: 上下文
-x-i18n:
-  generated_at: "2026-02-03T07:46:15Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: b32867b9b93254fdd1077d0d97c203cabfdba3330bb941693c83feba8e5db0cc
-  source_path: concepts/context.md
-  workflow: 15
+summary: "上下文：模型看到的内容、如何构建以及如何检查"
+read_when:
+  - 你想了解 OpenClaw 中"上下文"的含义
+  - 你在调试为什么模型"知道"某些内容（或忘记了）
+  - 你想减少上下文开销（/context、/status、/compact）
+title: "上下文"
 ---
 
 # 上下文
 
-"上下文"是 **OpenClaw 在一次运行中发送给模型的所有内容**。它受模型的**上下文窗口**（token 限制）约束。
+"上下文"是 **OpenClaw 在一次运行中发送给模型的所有内容**。它受模型的**上下文窗口**（token 限制）约束。 31. 它受模型的 **上下文窗口**（token 限制）约束。
 
 新手心智模型：
 
@@ -91,7 +89,7 @@ Top tools (schema size):
 
 ## OpenClaw 如何构建系统提示词
 
-系统提示词由 **OpenClaw 拥有**，每次运行时重建。它包括：
+系统提示词由 **OpenClaw 拥有**，每次运行时重建。它包括： It includes:
 
 - 工具列表 + 简短描述。
 - Skills 列表（仅元数据；见下文）。
@@ -114,26 +112,26 @@ Top tools (schema size):
 - `HEARTBEAT.md`
 - `BOOTSTRAP.md`（仅首次运行）
 
-大文件按文件使用 `agents.defaults.bootstrapMaxChars`（默认 `20000` 字符）截断。`/context` 显示**原始 vs 注入**大小以及是否发生了截断。
+大文件按文件使用 `agents.defaults.bootstrapMaxChars`（默认 `20000` 字符）截断。`/context` 显示**原始 vs 注入**大小以及是否发生了截断。 OpenClaw 还通过 `agents.defaults.bootstrapTotalMaxChars`（默认 `24000` 字符）在多个文件之间强制执行总引导注入上限。 `/context` shows **raw vs injected** sizes and whether truncation happened.
 
 ## Skills：注入的内容 vs 按需加载的内容
 
-系统提示词包含一个紧凑的 **Skills 列表**（名称 + 描述 + 位置）。此列表有实际开销。
+系统提示词包含一个紧凑的 **Skills 列表**（名称 + 描述 + 位置）。此列表有实际开销。 This list has real overhead.
 
-Skill 指令默认*不*包含。模型应该**仅在需要时**`read` Skill 的 `SKILL.md`。
+Skill instructions are _not_ included by default. Skill 指令默认_不_包含。模型应该**仅在需要时**`read` Skill 的 `SKILL.md`。
 
 ## 工具：有两种成本
 
 工具以两种方式影响上下文：
 
 1. 系统提示词中的**工具列表文本**（你看到的"Tooling"）。
-2. **工具 schema**（JSON）。这些发送给模型以便它可以调用工具。它们计入上下文，即使你看不到它们作为纯文本。
+2. **工具 schema**（JSON）。这些发送给模型以便它可以调用工具。它们计入上下文，即使你看不到它们作为纯文本。 These are sent to the model so it can call tools. They count toward context even though you don’t see them as plain text.
 
 `/context detail` 分解最大的工具 schema，以便你可以看到什么占主导。
 
 ## 命令、指令和"内联快捷方式"
 
-斜杠命令由 Gateway 网关处理。有几种不同的行为：
+Slash commands are handled by the Gateway. There are a few different behaviors:
 
 - **独立命令**：仅为 `/...` 的消息作为命令运行。
 - **指令**：`/think`、`/verbose`、`/reasoning`、`/elevated`、`/model`、`/queue` 在模型看到消息之前被剥离。
@@ -143,13 +141,13 @@ Skill 指令默认*不*包含。模型应该**仅在需要时**`read` Skill 的 
 
 详情：[斜杠命令](/tools/slash-commands)。
 
-## 会话、压缩和修剪（什么会持久化）
+## Sessions, compaction, and pruning (what persists)
 
 什么在消息之间持久化取决于机制：
 
 - **正常历史**在会话记录中持久化，直到被策略压缩/修剪。
 - **压缩**将摘要持久化到记录中，并保持最近的消息不变。
-- **修剪**从运行的*内存中*提示词中删除旧的工具结果，但不重写记录。
+- **修剪**从运行的_内存中_提示词中删除旧的工具结果，但不重写记录。
 
 文档：[会话](/concepts/session)、[压缩](/concepts/compaction)、[会话修剪](/concepts/session-pruning)。
 
@@ -161,5 +159,3 @@ Skill 指令默认*不*包含。模型应该**仅在需要时**`read` Skill 的 
 - `System prompt (estimate)` = 当没有运行报告存在时（或通过不生成报告的 CLI 后端运行时）即时计算。
 
 无论哪种方式，它都报告大小和主要贡献者；它**不会**转储完整的系统提示词或工具 schema。
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "ایک ہی ہوسٹ پر متعدد OpenClaw Gateways چلائیں (آئسولیشن، پورٹس، اور پروفائلز)"
+read_when:
+  - ایک ہی مشین پر ایک سے زیادہ Gateway چلانا ہو
+  - ہر Gateway کے لیے الگ کنفیگ/اسٹیٹ/پورٹس درکار ہوں
 title: "متعدد Gateways"
 ---
 
@@ -106,5 +110,3 @@ openclaw --profile main status
 openclaw --profile rescue status
 openclaw --profile rescue browser status
 ```
-
-

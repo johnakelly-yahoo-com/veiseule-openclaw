@@ -1,4 +1,8 @@
 ---
+summary: "Gmail Pub/Sub-push gekoppeld aan OpenClaw-webhooks via gogcli"
+read_when:
+  - Gmail-inboxtriggers koppelen aan OpenClaw
+  - Pub/Sub-push instellen voor het wekken van agents
 title: "Gmail PubSub"
 ---
 
@@ -6,7 +10,7 @@ title: "Gmail PubSub"
 
 Doel: Gmail-watch -> Pub/Sub-push -> `gog gmail watch serve` -> OpenClaw-webhook.
 
-## Vereisten
+## Prereqs
 
 - `gcloud` geïnstalleerd en aangemeld ([installatiehandleiding](https://docs.cloud.google.com/sdk/docs/install-sdk)).
 - `gog` (gogcli) geïnstalleerd en geautoriseerd voor het Gmail-account ([gogcli.sh](https://gogcli.sh/)).
@@ -250,5 +254,3 @@ gog gmail watch stop --account openclaw@gmail.com
 gcloud pubsub subscriptions delete gog-gmail-watch-push
 gcloud pubsub topics delete gog-gmail-watch
 ```
-
-

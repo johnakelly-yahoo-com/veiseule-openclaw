@@ -1,4 +1,8 @@
 ---
+summary: "เอกสารอ้างอิงCLIสำหรับ `openclaw update` (อัปเดตซอร์สอย่างปลอดภัยพอสมควร + รีสตาร์ตGatewayอัตโนมัติ)"
+read_when:
+  - คุณต้องการอัปเดตซอร์สเช็กเอาต์อย่างปลอดภัย
+  - คุณต้องการทำความเข้าใจพฤติกรรมชอร์ตแฮนด์ของ `--update`
 title: "update"
 ---
 
@@ -86,11 +90,9 @@ openclaw update status --timeout 10
 
 `openclaw --update` จะถูกเขียนใหม่เป็น `openclaw update` (มีประโยชน์สำหรับเชลล์และสคริปต์ตัวเรียก)
 
-## ดูเพิ่มเติม
+## See also
 
 - `openclaw doctor` (เสนอให้รันการอัปเดตก่อนสำหรับ git checkout)
 - [Development channels](/install/development-channels)
 - [Updating](/install/updating)
 - [CLI reference](/cli)
-
-

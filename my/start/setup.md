@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw အတွက် အဆင့်မြင့် တပ်ဆင်ခြင်းနှင့် ဖွံ့ဖြိုးရေး လုပ်ငန်းစဉ်များ"
+read_when:
+  - ကွန်ပျူတာအသစ်တစ်လုံးကို တပ်ဆင်နေစဉ်
+  - ကိုယ်ပိုင် setup ကို မပျက်စီးစေဘဲ “နောက်ဆုံးဗားရှင်းများ” ကို အသုံးပြုလိုသောအခါ
 title: "တပ်ဆင်ခြင်း"
 ---
 
@@ -153,5 +157,3 @@ sudo loginctl enable-linger $USER
 - [Discord](/channels/discord) နှင့် [Telegram](/channels/telegram) (reply tags + replyToMode settings)
 - [OpenClaw assistant setup](/start/openclaw)
 - [macOS အက်ပ်](/platforms/macos) (Gateway ဘဝစက်ဝန်း)
-
-

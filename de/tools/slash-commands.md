@@ -1,4 +1,8 @@
 ---
+summary: "„Slash-Befehle: Text vs. nativ, Konfiguration und unterstützte Befehle“"
+read_when:
+  - Beim Verwenden oder Konfigurieren von Chat-Befehlen
+  - Beim Debuggen von Befehlsrouting oder Berechtigungen
 title: "Slash-Befehle"
 ---
 
@@ -14,7 +18,7 @@ Es gibt zwei verwandte Systeme:
   - Direktiven werden aus der Nachricht entfernt, bevor das Modell sie sieht.
   - In normalen Chat-Nachrichten (nicht nur Direktiven) werden sie als „Inline-Hinweise“ behandelt und **persistieren** keine Sitzungseinstellungen.
   - In Nachrichten, die nur aus Direktiven bestehen (die Nachricht enthält ausschließlich Direktiven), persistieren sie in der Sitzung und antworten mit einer Bestätigung.
-  - Direktiven werden nur für **autorisierte Absender** angewendet (Kanal-Allowlists/Pairing plus `commands.useAccessGroups`).
+  - Direktiven werden nur für **autorisierte Absender** angewendet. Direktiven werden nur für **autorisierte Absender** angewendet (Kanal-Allowlists/Pairing plus `commands.useAccessGroups`).
     Nicht autorisierte Absender sehen Direktiven als normalen Text.
 
 Es gibt außerdem einige **Inline-Shortcuts** (nur für allowlistete/autorisierte Absender): `/help`, `/commands`, `/status`, `/whoami` (`/id`).
@@ -51,6 +55,9 @@ Sie werden sofort ausgeführt, vor dem Modell aus der Nachricht entfernt, und de
 - `commands.bashForegroundMs` (Standard `2000`) steuert, wie lange Bash wartet, bevor in den Hintergrundmodus gewechselt wird (`0` geht sofort in den Hintergrund).
 - `commands.config` (Standard `false`) aktiviert `/config` (liest/schreibt `openclaw.json`).
 - `commands.debug` (Standard `false`) aktiviert `/debug` (nur Laufzeit-Overrides).
+- `commands.allowFrom` (optional) definiert eine anbieterspezifische Allowlist für die Befehlsautorisierung. Wenn konfiguriert, ist es die
+  einzige Autorisierungsquelle für Befehle und Direktiven (Channel-Allowlists/Pairing und `commands.useAccessGroups`
+  werden ignoriert). Verwenden Sie `"*"` für einen globalen Standard; anbieterspezifische Schlüssel überschreiben diesen.
 - `commands.useAccessGroups` (Standard `true`) erzwingt Allowlists/Richtlinien für Befehle.
 
 ## Befehlsliste
@@ -66,6 +73,9 @@ Text + nativ (wenn aktiviert):
 - `/context [list|detail|json]` (erklärt „Kontext“; `detail` zeigt Größe pro Datei + pro Werkzeug + pro Skill + System-Prompt)
 - `/whoami` (zeigt Ihre Absender-ID; Alias: `/id`)
 - `/subagents list|stop|log|info|send` (Untersuchen, stoppen, protokollieren oder Nachrichten an Sub-Agent-Läufe für die aktuelle Sitzung senden)
+- `/kill <id|#|all>` (bricht einen oder alle laufenden Sub-Agents für diese Sitzung sofort ab; keine Bestätigungsnachricht)
+- `/steer <id|#> <message>` (steuert einen laufenden Sub-Agent sofort: wenn möglich während der Ausführung, andernfalls wird die aktuelle Arbeit abgebrochen und mit der Steuerungsnachricht neu gestartet)
+- `/tell <id|#> <message>` (Alias für `/steer`)
 - `/config show|get|set|unset` (Konfiguration auf Datenträger persistieren, nur Eigentümer; erfordert `commands.config: true`)
 - `/debug show|set|unset|reset` (Laufzeit-Overrides, nur Eigentümer; erfordert `commands.debug: true`)
 - `/usage off|tokens|full|cost` (Nutzungs-Fußzeile pro Antwort oder lokale Kostenübersicht)
@@ -192,5 +202,3 @@ Hinweise:
   - Telegram: `telegram:slash:<userId>` (zielt über `CommandTargetSessionKey` auf die Chat-Sitzung)
 - **`/stop`** zielt auf die aktive Chat-Sitzung, sodass der aktuelle Lauf abgebrochen werden kann.
 - **Slack:** `channels.slack.slashCommand` wird weiterhin für einen einzelnen `/openclaw`-artigen Befehl unterstützt. Wenn Sie `commands.native` aktivieren, müssen Sie einen Slack-Slash-Befehl pro eingebautem Befehl erstellen (gleiche Namen wie `/help`). Befehlsargument-Menüs für Slack werden als ephemere Block-Kit-Buttons ausgeliefert.
-
-

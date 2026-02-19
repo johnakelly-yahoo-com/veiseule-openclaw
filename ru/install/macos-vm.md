@@ -1,4 +1,10 @@
 ---
+summary: "Запуск OpenClaw в изолированной macOS VM (локальной или размещённой), когда требуется изоляция или iMessage"
+read_when:
+  - Вам нужен OpenClaw, изолированный от основной среды macOS
+  - Вам нужна интеграция iMessage (BlueBubbles) в sandbox
+  - Вам нужна сбрасываемая среда macOS, которую можно клонировать
+  - Вы хотите сравнить локальные и размещённые варианты macOS VM
 title: "macOS VM"
 ---
 
@@ -248,7 +254,7 @@ lume run openclaw --no-display
 - Отключите сон в System Settings → Energy Saver
 - При необходимости используйте `caffeinate`
 
-Для истинных всегда рассмотрите специализированный Mac mini или небольшой VPS. См. [VPS hosting](/vps).
+Для истинных всегда рассмотрите специализированный Mac mini или небольшой VPS. См. См. [VPS hosting](/vps).
 
 ---
 
@@ -273,5 +279,3 @@ lume run openclaw --no-display
 - [Lume CLI Reference](https://cua.ai/docs/lume/reference/cli-reference)
 - [Unattended VM Setup](https://cua.ai/docs/lume/guide/fundamentals/unattended-setup) (для продвинутых)
 - [Docker Sandboxing](/install/docker) (альтернативный подход к изоляции)
-
-

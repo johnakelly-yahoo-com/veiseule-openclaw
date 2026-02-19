@@ -1,4 +1,9 @@
 ---
+summary: "15. Gateway WebSocket protokoli: qo‘l siqish, freymlar, versiyalash"
+read_when:
+  - 16. Gateway WS mijozlarini amalga oshirish yoki yangilash
+  - 17. Protokol nomuvofiqliklari yoki ulanish xatolarini tuzatish
+  - 18. Protokol sxemasi/modellarini qayta yaratish
 title: "19. Gateway protokoli"
 ---
 
@@ -135,9 +140,9 @@ title: "19. Gateway protokoli"
 
 47. Umumiy qamrovlar:
 
-- 48. `operator.read`
-- 49. `operator.write`
-- 50. `operator.admin`
+- `operator.read`
+- `operator.write`
+- `operator.admin`
 - `operator.approvals`
 - `operator.pairing`
 
@@ -155,7 +160,7 @@ Gateway bularni **da’vo** sifatida qabul qiladi va server tomonida ruxsat etil
 
 - `system-presence` qurilma identifikatoriga ko‘ra kalitlangan yozuvlarni qaytaradi.
 - Mavjudlik yozuvlari `deviceId`, `roles` va `scopes` ni o‘z ichiga oladi, shunda UIlar har bir qurilma uchun bitta qatorni ko‘rsatishi mumkin
-hatto u **operator** va **node** sifatida bir vaqtda ulangan bo‘lsa ham.
+  hatto u **operator** va **node** sifatida bir vaqtda ulangan bo‘lsa ham.
 
 ### Node helper methods
 
@@ -211,5 +216,3 @@ hatto u **operator** va **node** sifatida bir vaqtda ulangan bo‘lsa ham.
 This protocol exposes the **full gateway API** (status, channels, models, chat,
 agent, sessions, nodes, approvals, etc.). The exact surface is defined by the
 TypeBox schemas in `src/gateway/protocol/schema.ts`.
-
-

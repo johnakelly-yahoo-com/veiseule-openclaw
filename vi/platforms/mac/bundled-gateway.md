@@ -1,4 +1,9 @@
 ---
+summary: "Runtime Gateway trên macOS (dịch vụ launchd bên ngoài)"
+read_when:
+  - Đóng gói OpenClaw.app
+  - Gỡ lỗi dịch vụ launchd Gateway trên macOS
+  - Cài đặt CLI gateway cho macOS
 title: "Gateway trên macOS"
 ---
 
@@ -65,5 +70,3 @@ Sau đó:
 ```bash
 openclaw gateway call health --url ws://127.0.0.1:18999 --timeout 3000
 ```
-
-

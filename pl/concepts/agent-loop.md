@@ -1,4 +1,7 @@
 ---
+summary: "Cykl życia pętli agenta, strumienie i semantyka oczekiwania"
+read_when:
+  - Potrzebujesz dokładnego przejścia przez pętlę agenta lub zdarzenia cyklu życia
 title: "Pętla agenta"
 ---
 
@@ -141,5 +144,3 @@ Zobacz [Plugins](/tools/plugin#plugin-hooks) w celu zapoznania się z API hookó
 - AbortSignal (anulowanie)
 - Rozłączenie gateway lub timeout RPC
 - Limit czasu `agent.wait` (tylko oczekiwanie, nie zatrzymuje agenta)
-
-

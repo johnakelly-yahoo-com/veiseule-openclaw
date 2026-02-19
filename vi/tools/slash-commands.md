@@ -1,4 +1,8 @@
 ---
+summary: "Lệnh slash: văn bản so với native, cấu hình và các lệnh được hỗ trợ"
+read_when:
+  - Sử dụng hoặc cấu hình lệnh chat
+  - Gỡ lỗi định tuyến lệnh hoặc quyền
 title: "Lệnh Slash"
 ---
 
@@ -14,7 +18,8 @@ Có hai hệ thống liên quan:
   - Directives sẽ bị loại khỏi tin nhắn trước khi mô hình nhìn thấy.
   - Trong tin nhắn chat thông thường (không chỉ gồm directive), chúng được xem là “gợi ý nội tuyến” và **không** lưu trạng thái phiên.
   - Trong tin nhắn chỉ có directive (tin nhắn chỉ chứa directive), chúng được lưu vào phiên và trả về xác nhận.
-  - Directives are only applied for **authorized senders** (channel allowlists/pairing plus `commands.useAccessGroups`).
+  - Các directive chỉ được áp dụng cho **người gửi được ủy quyền**. Nếu `commands.allowFrom` được thiết lập, đó sẽ là
+    allowlist duy nhất được sử dụng; nếu không, việc ủy quyền đến từ allowlist/pairing của kênh cùng với `commands.useAccessGroups`.
     12. Người gửi không được ủy quyền sẽ thấy các directive được xử lý như văn bản thuần.
 
 13. Cũng có một vài **phím tắt nội tuyến** (chỉ dành cho người gửi trong allowlist/được ủy quyền): `/help`, `/commands`, `/status`, `/whoami` (`/id`).
@@ -51,7 +56,10 @@ Có hai hệ thống liên quan:
 - `commands.bashForegroundMs` (mặc định `2000`) kiểm soát thời gian bash chờ trước khi chuyển sang chế độ nền (`0` chạy nền ngay).
 - `commands.config` (mặc định `false`) bật `/config` (đọc/ghi `openclaw.json`).
 - `commands.debug` (mặc định `false`) bật `/debug` (ghi đè chỉ trong runtime).
-- `commands.useAccessGroups` (mặc định `true`) thực thi danh sách cho phép/chính sách cho lệnh.
+- `commands.allowFrom` (tùy chọn) thiết lập allowlist theo từng provider để ủy quyền lệnh. Khi được cấu hình, đây sẽ là
+  nguồn ủy quyền duy nhất cho lệnh và directive (allowlist/pairing của kênh và `commands.useAccessGroups`
+  sẽ bị bỏ qua). Sử dụng `"*"` cho mặc định toàn cục; các khóa theo provider cụ thể sẽ ghi đè nó.
+- `commands.useAccessGroups` (mặc định `true`) thực thi allowlist/chính sách cho lệnh khi `commands.allowFrom` chưa được thiết lập.
 
 ## Danh sách lệnh
 
@@ -70,12 +78,12 @@ Văn bản + native (khi được bật):
 - `/debug show|set|unset|reset` (ghi đè runtime, chỉ chủ sở hữu; yêu cầu `commands.debug: true`)
 - `/usage off|tokens|full|cost` (chân trang mức sử dụng theo phản hồi hoặc tóm tắt chi phí cục bộ)
 - `/tts off|always|inbound|tagged|status|provider|limit|summary|audio` (điều khiển TTS; xem [/tts](/tts))
+- `/debug show|set|unset|reset` (ghi đè runtime, chỉ chủ sở hữu; yêu cầu `commands.debug: true`)
+- `/usage off|tokens|full|cost` (chân trang mức sử dụng theo phản hồi hoặc tóm tắt chi phí cục bộ)
+- `/dock-telegram` (bí danh: `/dock_telegram`) (chuyển phản hồi sang Telegram)
   - Discord: lệnh native là `/voice` (Discord giữ chỗ `/tts`); lệnh văn bản `/tts` vẫn hoạt động.
 - `/stop`
 - `/restart`
-- `/dock-telegram` (bí danh: `/dock_telegram`) (chuyển phản hồi sang Telegram)
-- `/dock-discord` (bí danh: `/dock_discord`) (chuyển phản hồi sang Discord)
-- `/dock-slack` (bí danh: `/dock_slack`) (chuyển phản hồi sang Slack)
 - `/activation mention|always` (chỉ nhóm)
 - `/send on|off|inherit` (chỉ chủ sở hữu)
 - `/reset` hoặc `/new [model]` (gợi ý mô hình tùy chọn; phần còn lại được chuyển tiếp)
@@ -83,6 +91,9 @@ Văn bản + native (khi được bật):
 - `/verbose on|full|off` (bí danh: `/v`)
 - `/reasoning on|off|stream` (bí danh: `/reason`; khi bật, gửi một tin nhắn riêng có tiền tố `Reasoning:`; `stream` = chỉ bản nháp Telegram)
 - `/elevated on|off|ask|full` (bí danh: `/elev`; `full` bỏ qua phê duyệt exec)
+- `/exec host=<sandbox|gateway|node> security=<deny|allowlist|full> ask=<off|on-miss|always> node=<id>` (gửi `/exec` để hiển thị hiện tại)
+- `/model <name>` (bí danh: `/models`; hoặc `/<alias>` từ `agents.defaults.models.*.alias`)
+- `/queue <mode>` (kèm các tùy chọn như `debounce:2s cap:25 drop:summarize`; gửi `/queue` để xem cài đặt hiện tại)
 - `/exec host=<sandbox|gateway|node> security=<deny|allowlist|full> ask=<off|on-miss|always> node=<id>` (gửi `/exec` để hiển thị hiện tại)
 - `/model <name>` (bí danh: `/models`; hoặc `/<alias>` từ `agents.defaults.models.*.alias`)
 - `/queue <mode>` (kèm các tùy chọn như `debounce:2s cap:25 drop:summarize`; gửi `/queue` để xem cài đặt hiện tại)
@@ -192,5 +203,3 @@ Ghi chú:
   - Telegram: `telegram:slash:<userId>` (nhắm vào phiên chat qua `CommandTargetSessionKey`)
 - **`/stop`** nhắm vào phiên chat đang hoạt động để có thể hủy lần chạy hiện tại.
 - **Slack:** `channels.slack.slashCommand` is still supported for a single `/openclaw`-style command. If you enable `commands.native`, you must create one Slack slash command per built-in command (same names as `/help`). Command argument menus for Slack are delivered as ephemeral Block Kit buttons.
-
-

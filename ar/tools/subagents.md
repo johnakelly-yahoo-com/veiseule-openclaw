@@ -1,122 +1,126 @@
 ---
+summary: "الوكلاء الفرعيون: إنشاء تشغيلات وكلاء معزولة تُعلن النتائج مرة أخرى إلى قناة الدردشة الخاصة بالطالب"
+read_when:
+  - تريد تنفيذ عمل في الخلفية/بالتوازي عبر الوكيل
+  - تقوم بتغيير سياسة sessions_spawn أو أداة الوكيل الفرعي
 title: "الوكلاء الفرعيون"
 ---
 
 # الوكلاء الفرعيون
 
-الوكلاء الفرعيون هم عمليات تشغيل وكيل في الخلفية يتم إنشاؤها من عملية وكيل موجودة. يعملون في جلسة خاصة بهم (`agent:<agentId>:subagent:<uuid>`) وعند الانتهاء **يعلنون** نتيجتهم مرة أخرى في قناة دردشة الطالب.
+الوكلاء الفرعيون هم عمليات وكيل تعمل في الخلفية ويتم إنشاؤها من عملية وكيل موجودة. عند إنشاء وكيل فرعي، يعمل في جلسة معزولة خاصة به، وينفذ عمله، ثم يعلن النتيجة في الدردشة عند الانتهاء.
 
-## أمر Slash
+## أمر بشرطة مائلة
 
-استخدم `/subagents` لفحص أو التحكم في عمليات الوكلاء الفرعيين للجلسة **الحالية**:
+Use the `/subagents` slash command to inspect and control sub-agent runs for the current session:
 
 - `/subagents list`
-- `/subagents kill <id|#|all>`
-- `/subagents log <id|#> [limit] [tools]`
-- `/subagents info <id|#>`
-- `/subagents send <id|#> <message>`
+- \`/subagents stop <id\\
+- \`/subagents log <id\\
+- \`/subagents info <id\\
+- \`/subagents send <id\\
 
-يعرض `/subagents info` بيانات التشغيل (الحالة، الطوابع الزمنية، معرف الجلسة، مسار النص، التنظيف).
+`/subagents info` يعرض بيانات التشغيل الوصفية (الحالة، الطوابع الزمنية، معرّف الجلسة، مسار السجل، التنظيف).
 
 الأهداف الرئيسية:
 
-- تنفيذ أعمال "بحث / مهمة طويلة / أداة بطيئة" بالتوازي دون حجب التشغيل الرئيسي.
+- تنفيذ مهام "البحث / المهام الطويلة / الأدوات البطيئة" بشكل متوازٍ دون حظر التشغيل الرئيسي.
 - إبقاء الوكلاء الفرعيين معزولين افتراضيًا (فصل الجلسات + عزل اختياري).
-- تقليل إساءة استخدام الأدوات: الوكلاء الفرعيون **لا** يحصلون على أدوات الجلسة افتراضيًا.
-- دعم عمق تداخل قابل للتهيئة لأنماط الـ orchestrator.
+- جعل نطاق الأدوات صعب إساءة الاستخدام: لا يحصل الوكلاء الفرعيون على أدوات الجلسة **افتراضيًا**.
+- دعم عمق تداخل قابل للتكوين لأنماط orchestrator.
 
-ملاحظة التكلفة: لكل وكيل فرعي **سياقه الخاص** واستهلاك الرموز الخاص به. للمهام الثقيلة أو المتكررة، عيّن نموذجًا أقل تكلفة للوكلاء الفرعيين واحتفظ بالوكيل الرئيسي على نموذج أعلى جودة. يمكنك ضبط ذلك عبر `agents.defaults.subagents.model` أو عبر إعدادات خاصة بكل وكيل.
+ملاحظة حول التكلفة: لكل وكيل فرعي سياق واستهلاك رموز **خاص به**. بالنسبة للمهام الثقيلة أو المتكررة
+قم بتعيين نموذج أقل تكلفة للوكلاء الفرعيين، وأبقِ وكيلك الرئيسي على نموذج بجودة أعلى.
+In a multi-agent setup, you can set sub-agent defaults per agent:
 
-## الأداة
+## #> [limit] [tools]\`
 
-استخدم `sessions_spawn`:
+Explicit `model` parameter in the `sessions_spawn` call
 
-- يبدأ تشغيل وكيل فرعي (`deliver: false`, مسار عام: `subagent`)
-- ثم ينفّذ خطوة announce وينشر رد الإعلان في قناة دردشة الطالب
-- النموذج الافتراضي: يرث من المستدعي ما لم تقم بتعيين `agents.defaults.subagents.model` (أو `agents.list[].subagents.model` لكل وكيل)؛ أي قيمة `sessions_spawn.model` صريحة لها الأولوية.
-- التفكير الافتراضي: يرث من المستدعي ما لم تقم بتعيين `agents.defaults.subagents.thinking` (أو `agents.list[].subagents.thinking` لكل وكيل)؛ أي قيمة `sessions_spawn.thinking` صريحة لها الأولوية.
+- Global default: `agents.defaults.subagents.thinking`
+- ثم يقوم بتشغيل خطوة إعلان وينشر رد الإعلان في قناة دردشة الجهة الطالبة
+- النموذج: اختيار النموذج الافتراضي للوكيل الهدف (ما لم يتم تعيين `subagents.model`) التفكير: لا يوجد تجاوز للوكيل الفرعي (ما لم يتم تعيين `subagents.thinking`)
+- Per-agent config: `agents.list[].subagents.thinking`
 
 معلمات الأداة:
 
-- `task` (مطلوب)
-- `label?` (اختياري)
-- `agentId?` (اختياري؛ الإنشاء تحت معرف وكيل آخر إذا كان مسموحًا)
-- `model?` (اختياري؛ يتجاوز نموذج الوكيل الفرعي؛ القيم غير الصالحة يتم تخطيها ويعمل الوكيل الفرعي على النموذج الافتراضي مع تحذير في نتيجة الأداة)
+- `task`
+- _(optional)_
+- Spawn under a different agent id (must be allowed)
+- Invalid model values are silently skipped — the sub-agent runs on the next valid default with a warning in the tool result.
 - `thinking?` (اختياري؛ يتجاوز مستوى التفكير لتشغيل الوكيل الفرعي)
-- `runTimeoutSeconds?` (الافتراضي `0`؛ عند التعيين يتم إيقاف تشغيل الوكيل الفرعي بعد N ثانية)
-- `cleanup?` (`delete|keep`, الافتراضي `keep`)
+- Abort the sub-agent after N seconds
+- `"delete"` \\
 
 قائمة السماح:
 
-- `agents.list[].subagents.allowAgents`: قائمة بمعرفات الوكلاء التي يمكن استهدافها عبر `agentId` (`["*"]` للسماح للجميع). الافتراضي: فقط وكيل الطالب.
+- Per-agent config: `agents.list[].subagents.model` الافتراضي: وكيل الجهة الطالبة فقط.
 
 الاكتشاف:
 
-- استخدم `agents_list` لمعرفة معرفات الوكلاء المسموح بها حاليًا لـ `sessions_spawn`.
+- Use the `agents_list` tool to discover which agent ids are currently allowed for `sessions_spawn`.
 
-## الأرشفة التلقائية
+Auto-Archive
 
-- تتم أرشفة جلسات الوكلاء الفرعيين تلقائيًا بعد `agents.defaults.subagents.archiveAfterMinutes` (الافتراضي: 60).
-- تستخدم الأرشفة `sessions.delete` وتعيد تسمية النص إلى `*.deleted.<timestamp>` (في نفس المجلد).
-- `cleanup: "delete"` يقوم بالأرشفة فورًا بعد announce (مع الاحتفاظ بالنص عبر إعادة التسمية).
-- الأرشفة التلقائية بنمط best-effort؛ يتم فقدان المؤقتات المعلقة إذا أُعيد تشغيل البوابة.
-- `runTimeoutSeconds` لا يقوم بالأرشفة التلقائية؛ بل يوقف التشغيل فقط. تبقى الجلسة حتى الأرشفة التلقائية.
-- تنطبق الأرشفة التلقائية على جلسات العمق 1 والعمق 2 على حد سواء.
+- Sub-agent sessions are automatically archived after a configurable period:
+- Archive renames the transcript to `*.deleted.` (نفس المجلد).
+- `"delete"` archives immediately after announce
+- Auto-archive timers are best-effort; pending timers are lost if the gateway restarts.
+- `runTimeoutSeconds` does **not** auto-archive the session. The session remains until the normal archive timer fires.
+- يتم تطبيق الأرشفة التلقائية بالتساوي على جلسات العمق 1 والعمق 2.
 
-## الوكلاء الفرعيون المتداخلون
+## Stopping Sub-Agents
 
-افتراضيًا، لا يمكن للوكلاء الفرعيين إنشاء وكلاء فرعيين خاصين بهم (`maxSpawnDepth: 1`). يمكنك تمكين مستوى واحد من التداخل عبر تعيين `maxSpawnDepth: 2`، مما يسمح بنمط **orchestrator**: الرئيسي → وكيل فرعي orchestrator → وكلاء فرعيون عاملون (sub-sub-agents).
+By default, sub-agents can only spawn under their own agent id. To allow an agent to spawn sub-agents under other agent ids:
 
 ### كيفية التمكين
 
 ```json5
 {
   agents: {
-    defaults: {
-      subagents: {
-        maxSpawnDepth: 2, // السماح للوكلاء الفرعيين بإنشاء أبناء (الافتراضي: 1)
-        maxChildrenPerAgent: 5, // الحد الأقصى للأبناء النشطين لكل جلسة وكيل (الافتراضي: 5)
-        maxConcurrent: 8, // الحد الأقصى للتزامن على مستوى المسار العام (الافتراضي: 8)
-      },
-    },
+  defaults: {
+  subagents: {
+  model: "minimax/MiniMax-M2.1",
   },
-}
+  },
+  },
+  }
 ```
 
 ### مستويات العمق
 
-| Depth | Session key shape                            | Role                                          | Can spawn?                   |
-| ----- | -------------------------------------------- | --------------------------------------------- | ---------------------------- |
-| 0     | `agent:<id>:main`                            | الوكيل الرئيسي                                | دائمًا                      |
-| 1     | `agent:<id>:subagent:<uuid>`                 | وكيل فرعي (orchestrator عند السماح بالعمق 2) | فقط إذا `maxSpawnDepth >= 2` |
-| 2     | `agent:<id>:subagent:<uuid>:subagent:<uuid>` | وكيل فرعي-فرعي (عامل نهائي)                  | أبدًا                       |
+| العمق | صيغة مفتاح الجلسة                                                                                                                                                                                                                                                                                                                                                                                                            | الدور                                                           | هل يمكنه الإنشاء؟                |
+| ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------- | -------------------------------- |
+| 0     | `agentId`                                                                                                                                                                                                                                                                                                                                                                                                                    | Per-Agent Overrides                                             | دائمًا                           |
+| 1     | {&#xA;agents: {&#xA;defaults: {&#xA;subagents: {&#xA;thinking: "low",&#xA;},&#xA;},&#xA;},&#xA;}                                                                                                                                                                                                                                                             | وكيل فرعي (orchestrator عند السماح بالعمق 2) | فقط إذا كان `maxSpawnDepth >= 2` |
+| 2     | {&#xA;agents: {&#xA;list: [&#xA;{&#xA;id: "orchestrator",&#xA;subagents: {&#xA;allowAgents: ["researcher", "coder"], // or ["\*"] to allow any&#xA;},&#xA;},&#xA;],&#xA;},&#xA;} | Managing Sub-Agents (`/subagents`)           | أبدًا                            |
 
-### سلسلة الإعلان (Announce chain)
+### سلسلة الإعلان
 
 تتدفق النتائج عائدًا عبر السلسلة:
 
-1. ينتهي عامل العمق-2 → يعلن إلى والده (orchestrator في العمق-1)
-2. يستقبل orchestrator في العمق-1 الإعلان، يركّب النتائج، ينتهي → يعلن إلى الرئيسي
-3. يستقبل الوكيل الرئيسي الإعلان ويقوم بالتسليم إلى المستخدم
+1. ينهي عامل العمق-2 عمله ← يعلن إلى والده (orchestrator بالعمق-1)
+2. يتلقى orchestrator بالعمق-1 الإعلان، ويُركّب النتائج، وينهي العمل ← يعلن إلى الرئيسي
+3. يتلقى الوكيل الرئيسي الإعلان ويسلّمه إلى المستخدم
 
-كل مستوى يرى فقط إعلانات أبنائه المباشرين.
+كل مستوى يرى فقط الإعلانات من أبنائه المباشرين.
 
-### سياسة الأدوات حسب العمق
+### Tool Policy
 
-- **العمق 1 (orchestrator، عند `maxSpawnDepth >= 2`)**: يحصل على `sessions_spawn`, `subagents`, `sessions_list`, `sessions_history` لإدارة أبنائه. تظل أدوات الجلسة/النظام الأخرى مرفوضة.
-- **العمق 1 (عامل نهائي، عند `maxSpawnDepth == 1`)**: بدون أدوات جلسة (السلوك الافتراضي الحالي).
-- **العمق 2 (عامل نهائي)**: بدون أدوات جلسة — يتم رفض `sessions_spawn` دائمًا في العمق 2. لا يمكنه إنشاء أبناء إضافيين.
+- **العمق 1 (orchestrator، عندما `maxSpawnDepth >= 2`)**: يحصل على `sessions_spawn` و`subagents` و`sessions_list` و`sessions_history` حتى يتمكن من إدارة أبنائه. تبقى أدوات الجلسة/النظام الأخرى مرفوضة.
+- **العمق 1 (leaf، عندما `maxSpawnDepth == 1`)**: لا توجد أدوات جلسة (السلوك الافتراضي الحالي).
+- **العمق 2 (leaf worker)**: لا توجد أدوات جلسة — يتم دائمًا رفض `sessions_spawn` عند العمق 2. لا يمكنه إنشاء أبناء إضافيين.
 
-### حد الإنشاء لكل وكيل
+### Cross-Agent Spawning
 
-يمكن لكل جلسة وكيل (في أي عمق) أن تمتلك بحد أقصى `maxChildrenPerAgent` (الافتراضي: 5) أبناء نشطين في نفس الوقت. هذا يمنع التوسع المفرط من orchestrator واحد.
+يمكن لكل جلسة وكيل (بأي عمق) أن يكون لديها بحد أقصى `maxChildrenPerAgent` (الافتراضي: 5) من الأبناء النشطين في الوقت نفسه. يمنع هذا الانتشار غير المنضبط الناتج عن مُنسِّق واحد.
 
-### الإيقاف المتسلسل (Cascade stop)
+### إيقاف متسلسل
 
-إيقاف orchestrator في العمق-1 يوقف تلقائيًا جميع أبنائه في العمق-2:
+إيقاف مُنسِّق بعمق 1 يؤدي تلقائيًا إلى إيقاف جميع العناصر التابعة له بعمق 2:
 
-- تنفيذ `/stop` في الدردشة الرئيسية يوقف جميع وكلاء العمق-1 ويتسلسل إلى أبنائهم في العمق-2.
-- `/subagents kill <id>` يوقف وكيلًا فرعيًا محددًا ويتسلسل إلى أبنائه.
+- `/stop` في الدردشة الرئيسية يوقف جميع الوكلاء بعمق 1 ويتسلسل إلى العناصر التابعة لهم بعمق 2.
+- `/subagents stop <id>`
 - `/subagents kill all` يوقف جميع الوكلاء الفرعيين للطالب ويتسلسل.
 
 ## المصادقة
@@ -124,61 +128,53 @@ title: "الوكلاء الفرعيون"
 تُحل مصادقة الوكيل الفرعي بحسب **معرّف الوكيل**، وليس بحسب نوع الجلسة:
 
 - مفتاح جلسة الوكيل الفرعي هو `agent:<agentId>:subagent:<uuid>`.
-- يتم تحميل مخزن المصادقة من `agentDir` الخاص بذلك الوكيل.
-- يتم دمج ملفات تعريف مصادقة الوكيل الرئيسي كـ **fallback**؛ ملفات تعريف الوكيل تتغلب عند التعارض.
+- The auth store is loaded from the target agent's `agentDir`
+- The main agent's auth profiles are merged in as a **fallback** (agent profiles win on conflicts)
 
-ملاحظة: الدمج تراكمي (additive)، لذا تظل ملفات تعريف الرئيسي متاحة دائمًا كخيارات احتياطية. العزل الكامل للمصادقة لكل وكيل غير مدعوم حاليًا.
+The merge is additive — main profiles are always available as fallbacks
+Fully isolated auth per sub-agent is not currently supported.
 
-## Announce
+## Announce Status
 
-يقوم الوكلاء الفرعيون بالإبلاغ عبر خطوة announce:
+يقوم الوكلاء الفرعيون بالإبلاغ عبر خطوة إعلان:
 
-- تعمل خطوة announce داخل جلسة الوكيل الفرعي (وليس جلسة الطالب).
-- إذا رد الوكيل الفرعي بالنص `ANNOUNCE_SKIP` حرفيًا، فلن يتم نشر أي شيء.
-- خلاف ذلك، يتم نشر رد الإعلان في قناة دردشة الطالب عبر استدعاء متابعة `agent` (`deliver=true`).
+- تعمل خطوة الإعلان داخل جلسة الوكيل الفرعي (وليس جلسة الطالب).
+- If no user-facing announcement is needed, the main-agent summarize step can return `NO_REPLY` and nothing is posted. This is different from `ANNOUNCE_SKIP`, which is used in agent-to-agent announce flow (`sessions_send`).
+- وإلا يتم نشر رد الإعلان في قناة دردشة الطالب عبر استدعاء متابعة `agent` (`deliver=true`).
 - تحافظ ردود الإعلان على توجيه الخيوط/الموضوعات عند توفره (خيوط Slack، موضوعات Telegram، خيوط Matrix).
-- يتم توحيد رسائل الإعلان إلى قالب ثابت:
-  - `Status:` مشتق من نتيجة التشغيل (`success`, `error`, `timeout`, أو `unknown`).
-  - `Result:` محتوى الملخص من خطوة announce (أو `(not available)` إذا لم يوجد).
+- يتم توحيد رسائل الإعلان ضمن قالب ثابت:
+  - `Status:` مشتق من نتيجة التشغيل (`success` أو `error` أو `timeout` أو `unknown`).
+  - `Result:` محتوى الملخص من خطوة الإعلان (أو `(not available)` إذا لم يكن متوفرًا).
   - `Notes:` تفاصيل الخطأ وسياق مفيد آخر.
-- لا يتم استنتاج `Status` من مخرجات النموذج؛ بل يأتي من إشارات نتيجة وقت التشغيل.
+- The announce message includes a status derived from the runtime outcome (not from model output):
 
-تتضمن حمولات الإعلان سطر إحصائيات في النهاية (حتى عند التغليف):
+Each announce includes a stats line with:
 
-- مدة التشغيل (مثل `runtime 5m12s`)
-- استخدام الرموز (input/output/total)
-- التكلفة التقديرية عند تكوين تسعير النموذج (`models.providers.*.models[].cost`)
-- `sessionKey` و`sessionId` ومسار النص (ليتمكن الوكيل الرئيسي من جلب السجل عبر `sessions_history` أو فحص الملف على القرص)
+- مدة التشغيل (على سبيل المثال، `runtime 5m12s`)
+- استخدام الرموز (إدخال/إخراج/إجمالي)
+- Estimated cost (when model pricing is configured via `models.providers.*.models[].cost`)
+- `sessionKey` و`sessionId` ومسار السجل (بحيث يمكن للوكيل الرئيسي جلب السجل عبر `sessions_history` أو فحص الملف على القرص)
 
-## سياسة الأدوات (أدوات الوكيل الفرعي)
+## Customizing Sub-Agent Tools
 
-افتراضيًا، يحصل الوكلاء الفرعيون على **جميع الأدوات باستثناء أدوات الجلسة** وأدوات النظام:
+By default, sub-agents get **all tools except** a set of denied tools that are unsafe or unnecessary for background tasks:
 
-- `sessions_list`
-- `sessions_history`
+- Explicit `thinking` parameter in the `sessions_spawn` call
+- `runTimeoutSeconds`
 - `sessions_send`
-- `sessions_spawn`
+- The `sessions_spawn` Tool
 
-عند تعيين `maxSpawnDepth >= 2`، يحصل وكلاء العمق-1 من نوع orchestrator أيضًا على `sessions_spawn`, `subagents`, `sessions_list`, و`sessions_history` لإدارة أبنائهم.
+عندما يكون `maxSpawnDepth >= 2`، يتلقى الوكلاء الفرعيون من المستوى 1 (المُنسِّقون) أيضًا `sessions_spawn` و`subagents` و`sessions_list` و`sessions_history` حتى يتمكنوا من إدارة العناصر التابعة لهم.
 
-تجاوز عبر الإعداد:
+تجاوز عبر الإعدادات:
 
 ```json5
 {
-  agents: {
-    defaults: {
-      subagents: {
-        maxConcurrent: 1,
-      },
-    },
-  },
   tools: {
     subagents: {
       tools: {
-        // deny wins
-        deny: ["gateway", "cron"],
-        // if allow is set, it becomes allow-only (deny still wins)
-        // allow: ["read", "exec", "process"]
+        allow: ["read", "exec", "process", "write", "edit", "apply_patch"],
+        // deny still wins if set
       },
     },
   },
@@ -187,22 +183,29 @@ title: "الوكلاء الفرعيون"
 
 ## التزامن
 
-يستخدم الوكلاء الفرعيون مسار قائمة انتظار مخصص داخل العملية:
+يستخدم الوكلاء الفرعيون مسار قائمة انتظار مخصصًا داخل العملية:
 
 - اسم المسار: `subagent`
-- التزامن: `agents.defaults.subagents.maxConcurrent` (الافتراضي `8`)
+- {
+  agents: {
+  defaults: {
+  subagents: {
+  maxConcurrent: 4, // default: 8
+  },
+  },
+  },
+  }
 
 ## الإيقاف
 
-- إرسال `/stop` في دردشة الطالب يجهض جلسة الطالب ويوقف أي عمليات وكيل فرعي نشطة تم إنشاؤها منها، مع التسلسل إلى الأبناء المتداخلين.
-- `/subagents kill <id>` يوقف وكيلًا فرعيًا محددًا ويتسلسل إلى أبنائه.
+- إرسال `/stop` في دردشة الطالب يؤدي إلى إلغاء جلسة الطالب وإيقاف أي تشغيلات نشطة لوكلاء فرعيين تم إنشاؤها منها، مع التسلسل إلى العناصر المتداخلة.
+- Aborts the main session **and** all active sub-agent runs spawned from it
 
 ## القيود
 
-- إعلان الوكيل الفرعي بنمط **best-effort**. إذا أُعيد تشغيل البوابة، يتم فقدان أعمال "announce back" المعلقة.
-- لا يزال الوكلاء الفرعيون يشاركون نفس موارد عملية البوابة؛ استخدم `maxConcurrent` كصمام أمان.
-- `sessions_spawn` دائمًا غير حاجب: يعيد `{ status: "accepted", runId, childSessionKey }` فورًا.
-- سياق الوكيل الفرعي يحقن فقط `AGENTS.md` و`TOOLS.md` (ولا يحقن `SOUL.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md`, أو `BOOTSTRAP.md`).
-- الحد الأقصى لعمق التداخل هو 5 (`maxSpawnDepth` النطاق: 1–5). العمق 2 موصى به لمعظم حالات الاستخدام.
-- `maxChildrenPerAgent` يحدّ عدد الأبناء النشطين لكل جلسة (الافتراضي: 5، النطاق: 1–20).
-
+- إعلان الوكيل الفرعي هو **بأفضل جهد ممكن**. - **Best-effort announce:** If the gateway restarts, pending announce work is lost.
+- - **Shared resources:** Sub-agents share the gateway process; use `maxConcurrent` as a safety valve.
+- الاستدعاء **غير حاجب** — يحصل الوكيل الرئيسي فورًا على `{ status: "accepted", runId, childSessionKey }`.
+- سياق الوكيل الفرعي يحقن فقط `AGENTS.md` + `TOOLS.md` (بدون `SOUL.md` أو `IDENTITY.md` أو `USER.md` أو `HEARTBEAT.md` أو `BOOTSTRAP.md`).
+- أقصى عمق للتداخل هو 5 (`maxSpawnDepth` النطاق: 1–5). يوصى بالعمق 2 لمعظم حالات الاستخدام.
+- `maxChildrenPerAgent` يحدد الحد الأقصى لعدد العناصر التابعة النشطة لكل جلسة (الافتراضي: 5، النطاق: 1–20).

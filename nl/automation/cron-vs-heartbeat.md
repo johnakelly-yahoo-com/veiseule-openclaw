@@ -1,4 +1,9 @@
 ---
+summary: "Richtlijnen voor het kiezen tussen heartbeat en cron-jobs voor automatisering"
+read_when:
+  - Beslissen hoe terugkerende taken te plannen
+  - Achtergrondmonitoring of notificaties instellen
+  - Tokengebruik optimaliseren voor periodieke controles
 title: "Cron vs Heartbeat"
 ---
 
@@ -210,13 +215,13 @@ Zie [Lobster](/tools/lobster) voor volledig gebruik en voorbeelden.
 
 Zowel heartbeat als cron kunnen met de main sessie interageren, maar op verschillende manieren:
 
-|          | Heartbeat                          | Cron (main)             | Cron (geïsoleerd)                 |
-| -------- | ---------------------------------- | ------------------------------------------ | ---------------------------------------------------- |
-| Sessie   | Hoofd                               | Hoofd (via systeemgebeurtenis) | `cron:<jobId>`                                       |
-| Historie | Gedeeld                            | Gedeeld                                    | Elke run fris                                        |
-| Context  | Volledig                           | Volledig                                   | Geen (start schoon)               |
-| Model    | Main-sessiemodel                   | Main-sessiemodel                           | Kan overriden                                        |
-| Uitvoer  | Afgeleverd als niet `HEARTBEAT_OK` | Heartbeat-prompt + event                   | Announce-samenvatting (standaard) |
+|          | Heartbeat                          | Cron (main)                    | Cron (geïsoleerd)                 |
+| -------- | ---------------------------------- | ------------------------------------------------- | ---------------------------------------------------- |
+| Sessie   | Hoofd                              | Hoofd (via systeemgebeurtenis) | `cron:<jobId>`                                       |
+| Historie | Gedeeld                            | Gedeeld                                           | Elke run fris                                        |
+| Context  | Volledig                           | Volledig                                          | Geen (start schoon)               |
+| Model    | Main-sessiemodel                   | Main-sessiemodel                                  | Kan overriden                                        |
+| Uitvoer  | Afgeleverd als niet `HEARTBEAT_OK` | Heartbeat-prompt + event                          | Announce-samenvatting (standaard) |
 
 ### Wanneer cron in de main sessie gebruiken
 
@@ -275,5 +280,3 @@ openclaw cron add \
 - [Heartbeat](/gateway/heartbeat) - volledige heartbeat-configuratie
 - [Cron jobs](/automation/cron-jobs) - volledige cron CLI- en API-referentie
 - [System](/cli/system) - system events + heartbeat-bediening
-
-

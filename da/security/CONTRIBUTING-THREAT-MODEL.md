@@ -1,12 +1,12 @@
 # Bidrag til OpenClaw Threat Model
 
-Tak fordi du hjælper med at gøre OpenClaw mere sikker. Denne threat model er et levende dokument, og vi byder bidrag velkommen fra alle – du behøver ikke at være sikkerhedsekspert.
+Thanks for helping make OpenClaw more secure. This threat model is a living document and we welcome contributions from anyone - you don't need to be a security expert.
 
 ## Måder at bidrage på
 
 ### Tilføj en trussel
 
-Har du opdaget en angrebsvektor eller risiko, vi ikke har dækket? Opret en issue på [openclaw/trust](https://github.com/openclaw/trust/issues) og beskriv den med dine egne ord. Du behøver ikke at kende nogen frameworks eller udfylde alle felter – beskriv blot scenariet.
+Spotted an attack vector or risk we haven't covered? Open an issue on [openclaw/trust](https://github.com/openclaw/trust/issues) and describe it in your own words. You don't need to know any frameworks or fill in every field - just describe the scenario.
 
 **Nyttigt at inkludere (men ikke påkrævet):**
 
@@ -88,5 +88,3 @@ Hvis du er usikker på risikoniveauet, så beskriv blot påvirkningen, og vi vur
 ## Recognition
 
 Contributors to the threat model are recognized in the threat model acknowledgments, release notes, and the OpenClaw security hall of fame for significant contributions.
-
-

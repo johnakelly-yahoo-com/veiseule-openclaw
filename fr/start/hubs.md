@@ -1,4 +1,7 @@
 ---
+summary: "Des hubs qui renvoient vers toute la documentation OpenClaw"
+read_when:
+  - Vous voulez une cartographie complete de la documentation
 title: "Hubs de documentation"
 ---
 
@@ -192,5 +195,3 @@ Utilisez ces hubs pour decouvrir chaque page, y compris les analyses approfondie
 - [Tests](/reference/test)
 - [Checklist de publication](/reference/RELEASING)
 - [Modeles d’appareils](/reference/device-models)
-
-

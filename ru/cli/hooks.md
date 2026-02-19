@@ -1,4 +1,8 @@
 ---
+summary: "Справочник CLI для `openclaw hooks` (хуки агента)"
+read_when:
+  - Вам нужно управлять хуками агента
+  - Вам нужно установить или обновить хуки
 title: "хуки"
 ---
 
@@ -188,6 +192,9 @@ openclaw hooks install <path-or-spec>
 
 Устанавливает пакет хуков из локальной папки/архива или npm.
 
+Спецификации npm принимаются **только из реестра** (имя пакета + необязательная версия/тег). Спецификации Git/URL/file
+отклоняются. Установка зависимостей выполняется с `--ignore-scripts` в целях безопасности.
+
 **Что делает:**
 
 - Копирует пакет хуков в `~/.openclaw/hooks/<id>`
@@ -246,6 +253,18 @@ openclaw hooks enable session-memory
 
 **См.:** [документация session-memory](/automation/hooks#session-memory)
 
+### bootstrap-extra-files
+
+Добавляет дополнительные bootstrap-файлы (например, локальные для монорепозитория `AGENTS.md` / `TOOLS.md`) во время `agent:bootstrap`.
+
+**Включение:**
+
+```bash
+openclaw hooks включают bootstrap-extra-files
+```
+
+**См.:** [хук SOUL Evil](/hooks/soul-evil)
+
 ### command-logger
 
 Журналирует все события команд в централизованный файл аудита.
@@ -273,30 +292,16 @@ grep '"action":"new"' ~/.openclaw/logs/commands.log | jq .
 
 **См.:** [документация command-logger](/automation/hooks#command-logger)
 
-### soul-evil
-
-Подменяет внедрённое содержимое `SOUL.md` на `SOUL_EVIL.md` в течение окна очистки или со случайной вероятностью.
-
-**Включение:**
-
-```bash
-openclaw hooks enable soul-evil
-```
-
-**См.:** [хук SOUL Evil](/hooks/soul-evil)
-
 ### boot-md
 
 Запускает `BOOT.md` при старте Gateway (шлюза) (после запуска каналов).
 
-**События**: `gateway:startup`
-
 **Включение**:
+
+**События**: `gateway:startup`
 
 ```bash
 openclaw hooks enable boot-md
 ```
 
 **См.:** [документация boot-md](/automation/hooks#boot-md)
-
-

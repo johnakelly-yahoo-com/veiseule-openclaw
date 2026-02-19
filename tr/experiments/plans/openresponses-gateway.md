@@ -1,4 +1,5 @@
 ---
+summary: "Plan: OpenResponses /v1/responses uç noktasını eklemek ve chat completions’ı temiz bir şekilde kullanımdan kaldırmak"
 owner: "openclaw"
 status: "draft"
 last_updated: "2026-01-19"
@@ -7,7 +8,7 @@ title: "OpenResponses Gateway Planı"
 
 # OpenResponses Gateway Entegrasyon Planı
 
-## Bağlam
+## Context
 
 OpenClaw Gateway şu anda
 `/v1/chat/completions` adresinde minimal, OpenAI uyumlu bir Chat Completions uç noktası sunmaktadır
@@ -120,5 +121,3 @@ Kaynaklar: OpenResponses OpenAPI, OpenResponses spesifikasyon sitesi ve Hugging 
 
 - `/v1/responses` kullanımı ve örnekleri için yeni bir doküman sayfası eklemek.
 - `/gateway/openai-http-api`’yi eski (legacy) notuyla ve `/v1/responses`’e yönlendirme ile güncellemek.
-
-

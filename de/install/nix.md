@@ -1,4 +1,9 @@
 ---
+summary: "OpenClaw deklarativ mit Nix installieren"
+read_when:
+  - Sie möchten reproduzierbare, rollback-fähige Installationen
+  - Sie verwenden bereits Nix/NixOS/Home Manager
+  - Sie möchten alles fest gepinnt und deklarativ verwalten
 title: "Nix"
 ---
 
@@ -91,5 +96,3 @@ und Nix-Builds (die nicht auf eine vollständige Xcode-Toolchain angewiesen sind
 - [nix-openclaw](https://github.com/openclaw/nix-openclaw) — vollständige Einrichtungsanleitung
 - [Wizard](/start/wizard) — CLI-Einrichtung ohne Nix
 - [Docker](/install/docker) — containerisierte Einrichtung
-
-

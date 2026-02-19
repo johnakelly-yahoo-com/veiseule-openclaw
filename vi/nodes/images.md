@@ -1,10 +1,13 @@
 ---
+summary: "Quy tắc xử lý hình ảnh và media cho gửi, gateway và phản hồi của tác tử"
+read_when:
+  - Sửa đổi pipeline media hoặc tệp đính kèm
 title: "Hỗ trợ Hình ảnh và Media"
 ---
 
 # Hỗ trợ Hình ảnh & Media — 2025-12-05
 
-Kênh WhatsApp hoạt động thông qua **Baileys Web**. Tài liệu này ghi lại các quy tắc xử lý media hiện tại cho gửi, gateway và phản hồi của agent.
+The WhatsApp channel runs via **Baileys Web**. This document captures the current media handling rules for send, gateway, and agent replies.
 
 ## Mục tiêu
 
@@ -67,5 +70,3 @@ Kênh WhatsApp hoạt động thông qua **Baileys Web**. Tài liệu này ghi l
 - Bao phủ luồng gửi + phản hồi cho các trường hợp hình ảnh/âm thanh/tài liệu.
 - Xác thực việc nén lại hình ảnh (giới hạn kích thước) và cờ voice-note cho âm thanh.
 - Đảm bảo phản hồi nhiều media được tách ra thành các lần gửi tuần tự.
-
-

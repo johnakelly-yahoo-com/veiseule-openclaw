@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw op DigitalOcean (eenvoudige betaalde VPS-optie)"
+read_when:
+  - OpenClaw instellen op DigitalOcean
+  - Op zoek naar goedkope VPS-hosting voor OpenClaw
 title: "DigitalOcean"
 ---
 
@@ -12,7 +16,7 @@ Wil je een optie van $0/maand en vind je ARM + provider-specifieke installatie g
 
 ## Kostenvergelijking (2026)
 
-| Aanbieder     | Abonnement            | Specificaties        | Prijs/maand                                    | Notities                                 |
+| Aanbieder    | Plan            | Specificaties        | Prijs/maand                                    | Notities                                 |
 | ------------ | --------------- | -------------------- | ---------------------------------------------- | ---------------------------------------- |
 | Oracle Cloud | Always Free ARM | tot 4 OCPU, 24GB RAM | $0                                             | ARM, beperkte capaciteit / aanmeldquirks |
 | Hetzner      | CX22            | 2 vCPU, 4GB RAM      | €3,79 (~$4) | Goedkoopste betaalde optie               |
@@ -256,5 +260,3 @@ free -h
 - [Docker-installatie](/install/docker) — containerized setup
 - [Tailscale](/gateway/tailscale) — veilige externe toegang
 - [Configuratie](/gateway/configuration) — volledige config-referentie
-
-

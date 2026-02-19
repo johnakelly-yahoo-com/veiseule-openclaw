@@ -1,4 +1,8 @@
 ---
+summary: "UI ng settings ng Skills sa macOS at status na sinusuportahan ng Gateway"
+read_when:
+  - Ina-update ang UI ng settings ng Skills sa macOS
+  - Binabago ang gating o pag-uugali ng pag-install ng skills
 title: "Mga Kasanayan"
 ---
 
@@ -27,5 +31,3 @@ Ipinapakita ng macOS app ang OpenClaw Skills sa pamamagitan ng Gateway; hindi ni
 ## Malayuang Mode
 
 - Ang pag-install at mga update sa config ay nangyayari sa host ng Gateway (hindi sa lokal na Mac).
-
-

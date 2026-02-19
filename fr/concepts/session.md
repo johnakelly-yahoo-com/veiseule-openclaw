@@ -1,4 +1,7 @@
 ---
+summary: "Regles de gestion des sessions, cles et persistance pour les conversations"
+read_when:
+  - Modification de la gestion ou du stockage des sessions
 title: "Gestion des sessions"
 ---
 
@@ -199,5 +202,3 @@ Chaque entree de session enregistre son origine (au mieux) dans `origin` :
   `GroupSubject`, `GroupChannel`, `GroupSpace` et `SenderName` dans le contexte entrant
   et en appelant `recordSessionMetaFromInbound` (ou en transmettant le meme contexte
   a `updateLastRoute`).
-
-

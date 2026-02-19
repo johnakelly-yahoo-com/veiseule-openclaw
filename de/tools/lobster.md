@@ -1,13 +1,17 @@
 ---
 title: Lobster
-description: "Typisierte Workflow-Laufzeitumgebung für OpenClaw — komponierbare Pipelines mit Genehmigungsschritten."
+summary: "„Typisierte Workflow-Laufzeit für OpenClaw mit fortsetzbaren Genehmigungssperren.“"
+description: Typisierte Workflow-Laufzeitumgebung für OpenClaw — komponierbare Pipelines mit Genehmigungsschritten.
+read_when:
+  - Sie möchten deterministische, mehrstufige Workflows mit expliziten Genehmigungen
+  - Sie müssen einen Workflow fortsetzen, ohne frühere Schritte erneut auszuführen
 ---
 
 # Lobster
 
 Lobster ist eine Workflow-Shell, mit der OpenClaw mehrstufige Werkzeugsequenzen als einen einzigen, deterministischen Vorgang mit expliziten Genehmigungs-Checkpoints ausführen kann.
 
-## Aufhänger
+## Hook
 
 Ihr Assistent kann die Werkzeuge bauen, mit denen er sich selbst verwaltet. Fragen Sie nach einem Workflow, und 30 Minuten später haben Sie eine CLI plus Pipelines, die als ein Aufruf laufen. Lobster ist das fehlende Puzzleteil: deterministische Pipelines, explizite Genehmigungen und fortsetzbarer Zustand.
 
@@ -335,5 +339,3 @@ Ein öffentliches Beispiel: eine „Second-Brain“-CLI + Lobster-Pipelines, die
 
 - Thread: [https://x.com/plattenschieber/status/2014508656335770033](https://x.com/plattenschieber/status/2014508656335770033)
 - Repo: [https://github.com/bloomedai/brain-cli](https://github.com/bloomedai/brain-cli)
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Skills: verwaltet vs. Workspace, Gating-Regeln und Konfiguration/Env-Verkabelung"
+read_when:
+  - Hinzufügen oder Ändern von Skills
+  - Ändern von Skill-Gating oder Ladevorschriften
 title: "Fähigkeiten"
 ---
 
@@ -293,5 +297,3 @@ Siehe [Skills config](/tools/skills-config) für das vollständige Konfiguration
 Stöbern Sie unter [https://clawhub.com](https://clawhub.com).
 
 ---
-
-

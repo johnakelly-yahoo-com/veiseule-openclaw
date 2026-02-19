@@ -1,4 +1,7 @@
 ---
+summary: "Ondersteuningsstatus, mogelijkheden en configuratie van de Zalo-bot"
+read_when:
+  - Werken aan Zalo-functies of webhooks
 title: "Zalo"
 ---
 
@@ -130,8 +133,8 @@ Ondersteuning voor meerdere accounts: gebruik `channels.zalo.accounts` met per-a
 | Groepen                                 | ❌ Binnenkort (volgens Zalo-docs)    |
 | Media (afbeeldingen) | ✅ Ondersteund                                          |
 | Reacties                                | ❌ Niet ondersteund                                     |
-| Discussies                                 | ❌ Niet ondersteund                                     |
-| Peilingen                                   | ❌ Niet ondersteund                                     |
+| Discussies                              | ❌ Niet ondersteund                                     |
+| Polls                                   | ❌ Niet ondersteund                                     |
 | Native opdrachten                       | ❌ Niet ondersteund                                     |
 | Streaming                               | ⚠️ Geblokkeerd (limiet 2000 tekens) |
 
@@ -184,5 +187,3 @@ Opties voor meerdere accounts:
 - `channels.zalo.accounts.<id>.webhookSecret`: per-account webhookgeheim.
 - `channels.zalo.accounts.<id>.webhookPath`: per-account webhookpad.
 - `channels.zalo.accounts.<id>.proxy`: per-account proxy-URL.
-
-

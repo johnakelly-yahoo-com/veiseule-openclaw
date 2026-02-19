@@ -1,4 +1,8 @@
 ---
+summary: "Eklenti manifesti + JSON Schema gereksinimleri (katı yapılandırma doğrulaması)"
+read_when:
+  - Bir OpenClaw eklentisi geliştiriyorsunuz
+  - Bir eklenti yapılandırma şeması göndermeniz veya eklenti doğrulama hatalarını hata ayıklamanız gerekir
 title: "Eklenti Manifesti"
 ---
 
@@ -63,5 +67,3 @@ Gerekli anahtarlar:
 - Eklentiniz yerel (native) modüllere bağımlıysa, derleme adımlarını ve
   paket yöneticisi izin listesi gereksinimlerini belgelendirin (örneğin, pnpm `allow-build-scripts`
   - `pnpm rebuild <package>`).
-
-

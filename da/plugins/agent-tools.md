@@ -1,4 +1,8 @@
 ---
+summary: "Skriv agentværktøjer i et plugin (skemaer, valgfrie værktøjer, tilladelseslister)"
+read_when:
+  - Du vil tilføje et nyt agentværktøj i et plugin
+  - Du skal gøre et værktøj valgfrit via tilladelseslister
 title: "Plugin-agentværktøjer"
 ---
 
@@ -93,5 +97,3 @@ Andre konfigurationsindstillinger, der påvirker værktøjers tilgængelighed:
 - Plugin‑id’er, der bruges i tilladelseslister, må ikke kollidere med navne på kerneværktøjer.
 - Foretræk `optional: true` for værktøjer, der udløser sideeffekter eller kræver ekstra
   binære filer/legitimationsoplysninger.
-
-

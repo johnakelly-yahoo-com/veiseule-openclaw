@@ -1,4 +1,8 @@
 ---
+summary: "Sanggunian ng CLI para sa `openclaw models` (status/list/set/scan, mga alias, mga fallback, auth)"
+read_when:
+  - Gusto mong baguhin ang mga default na model o tingnan ang status ng auth ng provider
+  - Gusto mong i-scan ang mga available na model/provider at i-debug ang mga auth profile
 title: "mga model"
 ---
 
@@ -71,5 +75,3 @@ Mga tala:
 
 - Hinihingi ng `setup-token` ang isang setup-token na value (i-generate ito gamit ang `claude setup-token` sa anumang machine).
 - Tumatanggap ang `paste-token` ng token string na na-generate sa ibang lugar o mula sa automation.
-
-

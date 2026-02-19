@@ -1,42 +1,46 @@
 ---
+summary: "Mattermost bot setup and OpenClaw config"
+read_when:
+  - Setting up Mattermost
+  - Debugging Mattermost routing
 title: "Mattermost"
 ---
 
-# Mattermost (plagin)
+# Mattermost (plugin)
 
-Holati: plagin orqali qo‘llab-quvvatlanadi (bot tokeni + WebSocket hodisalari). Kanallar, guruhlar va DMlar qo‘llab-quvvatlanadi.
-Mattermost — o‘zingiz joylashtirishingiz mumkin bo‘lgan jamoaviy xabar almashish platformasi; mahsulot tafsilotlari va yuklab olish uchun rasmiy saytga qarang:
-[mattermost.com](https://mattermost.com).
+Status: supported via plugin (bot token + WebSocket events). Channels, groups, and DMs are supported.
+Mattermost is a self-hostable team messaging platform; see the official site at
+[mattermost.com](https://mattermost.com) for product details and downloads.
 
-## Plagin talab qilinadi
+## Plugin required
 
-Mattermost plagin sifatida taqdim etiladi va asosiy o‘rnatish tarkibiga kiritilmagan.
+Mattermost ships as a plugin and is not bundled with the core install.
 
-CLI orqali o‘rnating (npm registry):
+Install via CLI (npm registry):
 
 ```bash
 openclaw plugins install @openclaw/mattermost
 ```
 
-Mahalliy checkout (git repodan ishga tushirilganda):
+Local checkout (when running from a git repo):
 
 ```bash
 openclaw plugins install ./extensions/mattermost
 ```
 
-Agar sozlash/ilk ishga tushirish vaqtida Mattermost tanlansa va git checkout aniqlansa,
-OpenClaw avtomatik ravishda mahalliy o‘rnatish yo‘lini taklif qiladi.
+If you choose Mattermost during configure/onboarding and a git checkout is detected,
+OpenClaw will offer the local install path automatically.
 
-Batafsil: [Plugins](/tools/plugin)
+Details: [Plugins](/tools/plugin)
 
-## Tezkor sozlash
+## Quick setup
 
-1. Mattermost plaginini o‘rnating.
-2. Mattermost bot akkauntini yarating va **bot token**ni nusxa oling.
-3. Mattermost **base URL** manzilini nusxa oling (masalan, `https://chat.example.com`).
-4. OpenClaw’ni sozlang va gateway’ni ishga tushiring.
+1. Install the Mattermost plugin.
+2. Create a Mattermost bot account and copy the **bot token**.
+3. Copy the Mattermost **base URL** (e.g., `https://chat.example.com`).
+4. Configure OpenClaw and start the gateway.
 
-Minimal konfiguratsiya:
+Minimal config:
 
 ```json5
 {
@@ -51,27 +55,27 @@ Minimal konfiguratsiya:
 }
 ```
 
-## Environment o‘zgaruvchilari (standart akkaunt)
+## Environment variables (default account)
 
-Agar environment o‘zgaruvchilaridan foydalanmoqchi bo‘lsangiz, ularni gateway joylashgan hostda sozlang:
+Set these on the gateway host if you prefer env vars:
 
 - `MATTERMOST_BOT_TOKEN=...`
 - `MATTERMOST_URL=https://chat.example.com`
 
-Environment o‘zgaruvchilari faqat **default** akkauntga (`default`) qo‘llaniladi. Boshqa akkauntlar konfiguratsiya qiymatlaridan foydalanishi kerak.
+Env vars apply only to the **default** account (`default`). Other accounts must use config values.
 
-## Chat rejimlari
+## Chat modes
 
-Mattermost DMlarga avtomatik javob beradi. Kanal xatti-harakati `chatmode` orqali boshqariladi:
+Mattermost responds to DMs automatically. 1. Kanal xatti-harakati `chatmode` orqali boshqariladi:
 
-- `oncall` (standart): kanallarda faqat @mention qilinganda javob beradi.
-- `onmessage`: kanaldagi har bir xabarga javob beradi.
-- `onchar`: xabar belgilangan trigger prefiksi bilan boshlanganda javob beradi.
+- 2. `oncall` (standart): kanallarda faqat @mention qilinganda javob beradi.
+- 3. `onmessage`: kanalga kelgan har bir xabarga javob beradi.
+- 4. `onchar`: xabar trigger prefiksi bilan boshlanganida javob beradi.
 
-Konfiguratsiya namunasi:
+5. Konfiguratsiya namunasi:
 
 ```json5
-{
+6. {
   channels: {
     mattermost: {
       chatmode: "onchar",
@@ -81,41 +85,41 @@ Konfiguratsiya namunasi:
 }
 ```
 
-Eslatmalar:
+7. Eslatmalar:
 
-- `onchar` aniq @mentionlarga ham javob beradi.
-- `channels.mattermost.requireMention` eski konfiguratsiyalar uchun amal qiladi, biroq `chatmode` tavsiya etiladi.
+- 8. `onchar` hali ham aniq @mentionlarga javob beradi.
+- 9. `channels.mattermost.requireMention` eski konfiguratsiyalar uchun qo‘llab-quvvatlanadi, ammo `chatmode` afzal ko‘riladi.
 
-## Kirish nazorati (DMlar)
+## 10. Kirish nazorati (DMlar)
 
-- Standart: `channels.mattermost.dmPolicy = "pairing"` (noma’lum jo‘natuvchilarga pairing kodi beriladi).
-- Tasdiqlash:
+- 11. Standart: `channels.mattermost.dmPolicy = "pairing"` (noma’lum yuboruvchilar juftlash kodi oladi).
+- 12. Tasdiqlash orqali:
   - `openclaw pairing list mattermost`
   - `openclaw pairing approve mattermost <CODE>`
-- Ochiq DMlar: `channels.mattermost.dmPolicy="open"` va `channels.mattermost.allowFrom=["*"]`.
+- 15. Ochiq DMlar: `channels.mattermost.dmPolicy="open"` va `channels.mattermost.allowFrom=["*"]`.
 
-## Kanallar (guruhlar)
+## 16. Kanallar (guruhlar)
 
-- Standart: `channels.mattermost.groupPolicy = "allowlist"` (@mention orqali cheklangan).
-- `channels.mattermost.groupAllowFrom` yordamida jo‘natuvchilarni allowlist’ga qo‘shing (foydalanuvchi IDlari yoki `@username`).
-- Ochiq kanallar: `channels.mattermost.groupPolicy="open"` (@mention orqali cheklangan).
+- 17. Standart: `channels.mattermost.groupPolicy = "allowlist"` (mention orqali cheklangan).
+- 18. `channels.mattermost.groupAllowFrom` bilan ruxsat etilgan yuboruvchilar (foydalanuvchi IDlari yoki `@username`).
+- 19. Ochiq kanallar: `channels.mattermost.groupPolicy="open"` (mention orqali cheklangan).
 
-## Chiquvchi xabarlar uchun target formatlari
+## 20. Chiqish (outbound) yetkazib berish uchun manzillar
 
-Quyidagi target formatlaridan `openclaw message send` yoki cron/webhooks bilan foydalaning:
+21. `openclaw message send` yoki cron/webhooklar bilan quyidagi manzil formatlaridan foydalaning:
 
-- `channel:<id>` — kanal uchun
-- `user:<id>` — DM uchun
-- `@username` — DM uchun (Mattermost API orqali aniqlanadi)
+- 22. Kanal uchun `channel:<id>`
+- 23. DM uchun `user:<id>`
+- 24. DM uchun `@username` (Mattermost API orqali aniqlanadi)
 
-Oddiy IDlar kanal sifatida qabul qilinadi.
+25. Prefikssiz IDlar kanal sifatida qabul qilinadi.
 
-## Ko‘p akkauntli rejim
+## 26. Ko‘p akkauntli ishlash
 
-Mattermost `channels.mattermost.accounts` ostida bir nechta akkauntni qo‘llab-quvvatlaydi:
+27. Mattermost `channels.mattermost.accounts` ostida bir nechta akkauntni qo‘llab-quvvatlaydi:
 
 ```json5
-{
+28. {
   channels: {
     mattermost: {
       accounts: {
@@ -127,9 +131,8 @@ Mattermost `channels.mattermost.accounts` ostida bir nechta akkauntni qo‘llab-
 }
 ```
 
-## Nosozliklarni bartaraf etish
+## 29. Nosozliklarni bartaraf etish
 
-- Kanallarda javob yo‘q: bot kanalga qo‘shilganini tekshiring va uni @mention qiling (`oncall`), trigger prefiksidan foydalaning (`onchar`) yoki `chatmode: "onmessage"` ni sozlang.
-- Autentifikatsiya xatolari: bot token, base URL va akkaunt yoqilganini tekshiring.
-- Ko‘p akkaunt bilan bog‘liq muammolar: environment o‘zgaruvchilari faqat `default` akkauntga qo‘llaniladi.
-
+- 30. Kanallarda javob yo‘q: bot kanalga qo‘shilganini va uni mention qilganingizni tekshiring (oncall), trigger prefiksidan foydalaning (onchar) yoki `chatmode: "onmessage"` ni o‘rnating.
+- 31. Avtorizatsiya xatolari: bot tokeni, asosiy URL va akkaunt yoqilganligini tekshiring.
+- Multi-account issues: env vars only apply to the `default` account.

@@ -1,12 +1,8 @@
 ---
-title: WebChat
-x-i18n:
-  generated_at: "2026-02-03T10:13:28Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: b5ee2b462c8c979ac27f80dea0cf12cf62b3c799cf8fd0a7721901e26efeb1a0
-  source_path: web/webchat.md
-  workflow: 15
+summary: "用于聊天 UI 的 loopback WebChat 静态主机和 Gateway 网关 WS 使用"
+read_when:
+  - 调试或配置 WebChat 访问
+title: "WebChat"
 ---
 
 # WebChat（Gateway 网关 WebSocket UI）
@@ -43,13 +39,12 @@ x-i18n:
 
 渠道选项：
 
-- 没有专用的 `webchat.*` 块。WebChat 使用下面的 Gateway 网关端点 + 认证设置。
+- 没有专用的 `webchat.*` 块。WebChat 使用下面的 Gateway 网关端点 + 认证设置。 WebChat uses the gateway endpoint + auth settings below.
 
 相关的全局选项：
 
 - `gateway.port`、`gateway.bind`：WebSocket 主机/端口。
 - `gateway.auth.mode`、`gateway.auth.token`、`gateway.auth.password`：WebSocket 认证。
+- `gateway.auth.mode: "trusted-proxy"`：用于浏览器客户端的反向代理认证（参见 [Trusted Proxy Auth](/gateway/trusted-proxy-auth)）。
 - `gateway.remote.url`、`gateway.remote.token`、`gateway.remote.password`：远程 Gateway 网关目标。
 - `session.*`：会话存储和主键默认值。
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Model kimlik doğrulaması: OAuth, API anahtarları ve setup-token"
+read_when:
+  - Model kimlik doğrulaması veya OAuth süresinin dolmasını hata ayıklarken
+  - Kimlik doğrulama veya kimlik bilgisi depolamayı belgelendirirken
 title: "Kimlik Doğrulama"
 ---
 
@@ -99,7 +103,7 @@ openclaw models status
 openclaw doctor
 ```
 
-## Hangi kimlik bilgisinin kullanılacağını kontrol etme
+## Controlling which credential is used
 
 ### Oturum başına (sohbet komutu)
 
@@ -110,7 +114,7 @@ Kompakt bir seçici için `/model` (veya `/model list`) kullanın; tam görünü
 (işaret adayları + sonraki kimlik doğrulama profili, ayrıca yapılandırıldığında
 sağlayıcı uç nokta ayrıntıları) için `/model status` kullanın.
 
-### Ajan başına (CLI geçersiz kılma)
+### Per-agent (CLI override)
 
 Bir ajan için açık bir kimlik doğrulama profili sırası geçersiz kılması ayarlayın
 (ajanın `auth-profiles.json` dosyasında saklanır):
@@ -143,5 +147,3 @@ Hangi profilin süresinin dolduğunu doğrulamak için `openclaw models status` 
 
 - Claude Max veya Pro aboneliği (`claude setup-token` için)
 - Claude Code CLI yüklü (`claude` komutu mevcut)
-
-

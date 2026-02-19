@@ -1,9 +1,12 @@
 ---
+summary: "سب سے زیادہ استعمال ہونے والی OpenClaw دستاویزات کے منتخب روابط۔"
+read_when:
+  - آپ کو کلیدی دستاویزی صفحات تک فوری رسائی درکار ہو
 title: "دستاویزات کی فہرست"
 ---
 
 <Note>
-یہ صفحہ ایک منتخب اشاریہ ہے۔ اگر آپ نئے ہیں تو [شروع کریں](/start/getting-started) سے آغاز کریں۔
+This page is a curated index. If you are new, start with [Getting Started](/start/getting-started).
 For a complete map of the docs, see [Docs hubs](/start/hubs).
 </Note>
 
@@ -59,5 +62,3 @@ For a complete map of the docs, see [Docs hubs](/start/hubs).
 - [Gmail ہُکس (Pub/Sub)](/automation/gmail-pubsub)
 - [سکیورٹی](/gateway/security)
 - [خرابیوں کا ازالہ](/gateway/troubleshooting)
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "cron と Heartbeat のスケジューリングおよび配信に関するトラブルシューティング"
+read_when:
+  - Cron が実行されなかった
+  - Cron は実行されたがメッセージが配信されなかった
+  - Heartbeat が無音またはスキップされているように見える
 title: "オートメーションのトラブルシューティング"
 ---
 
@@ -115,5 +120,3 @@ openclaw logs --follow
 - [/gateway/heartbeat](/gateway/heartbeat)
 - [/automation/cron-vs-heartbeat](/automation/cron-vs-heartbeat)
 - [/concepts/timezone](/concepts/timezone)
-
-

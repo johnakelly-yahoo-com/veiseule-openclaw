@@ -1,4 +1,8 @@
 ---
+summary: "واجهات الويب الخاصة بـ Gateway: واجهة التحكم، أوضاع الربط، والأمان"
+read_when:
+  - تريد الوصول إلى Gateway عبر Tailscale
+  - تريد واجهة التحكم في المتصفح وتحرير التهيئة
 title: "الويب"
 ---
 
@@ -110,5 +114,3 @@ openclaw gateway
 ```bash
 pnpm ui:build # auto-installs UI deps on first run
 ```
-
-

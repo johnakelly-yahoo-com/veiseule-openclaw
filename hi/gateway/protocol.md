@@ -1,4 +1,9 @@
 ---
+summary: "Gateway वेब-सॉकेट प्रोटोकॉल: हैंडशेक, फ्रेम, संस्करण निर्धारण"
+read_when:
+  - Gateway WS क्लाइंट्स को लागू या अपडेट करते समय
+  - प्रोटोकॉल असंगतियों या कनेक्ट विफलताओं का डिबग करते समय
+  - प्रोटोकॉल स्कीमा/मॉडल्स को पुनः जनरेट करते समय
 title: "Gateway प्रोटोकॉल"
 ---
 
@@ -209,5 +214,3 @@ Gateway इन्हें **claims** के रूप में मानता
 
 यह प्रोटोकॉल **पूरा गेटवे API** (status, channels, models, chat,
 agent, sessions, nodes, approvals, आदि) को एक्सपोज़ करता है। सटीक सतह `src/gateway/protocol/schema.ts` में TypeBox schemas द्वारा परिभाषित है।
-
-

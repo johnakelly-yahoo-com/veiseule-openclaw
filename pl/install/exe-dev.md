@@ -1,4 +1,8 @@
 ---
+summary: "Uruchom OpenClaw Gateway na exe.dev (VM + proxy HTTPS) w celu zdalnego dostępu"
+read_when:
+  - Chcesz tani, zawsze włączony host Linux dla Gateway
+  - Chcesz zdalny dostęp do Control UI bez uruchamiania własnego VPS
 title: "exe.dev"
 ---
 
@@ -120,5 +124,3 @@ openclaw health
 ```
 
 Przewodnik: [Updating](/install/updating)
-
-

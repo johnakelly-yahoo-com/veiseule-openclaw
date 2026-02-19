@@ -1,4 +1,8 @@
 ---
+summary: "Inkommande bild-/ljud-/videoförståelse (valfritt) med leverantör + CLI‑fallbacks"
+read_when:
+  - Utformning eller omarbetning av medieförståelse
+  - Justering av förbehandling av inkommande ljud/video/bild
 title: "Medieförståelse"
 ---
 
@@ -373,5 +377,3 @@ Detta visar utfall per kapacitet samt vald leverantör/modell när tillämpligt.
 
 - [Konfiguration](/gateway/configuration)
 - [Bild- och mediastöd](/nodes/images)
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "Google Chat uygulaması destek durumu, yetenekler ve yapılandırma"
+read_when:
+  - Google Chat kanal özellikleri üzerinde çalışırken
 title: "Google Chat"
 ---
 
@@ -151,6 +154,7 @@ Tünelinizin ingress kurallarını yalnızca webhook yolunu yönlendirecek şeki
 Teslimat ve izin listeleri için bu tanımlayıcıları kullanın:
 
 - Doğrudan mesajlar: `users/<userId>` veya `users/<email>` (e-posta adresleri kabul edilir).
+- Kullanımdan kaldırıldı: `users/<email>` bir e-posta izin listesi değil, kullanıcı kimliği olarak değerlendirilir.
 - Alanlar: `spaces/<spaceId>`.
 
 ## Yapılandırma öne çıkanlar
@@ -247,5 +251,3 @@ openclaw channels status
 - [Gateway yapılandırması](/gateway/configuration)
 - [Güvenlik](/gateway/security)
 - [Tepkiler](/tools/reactions)
-
-

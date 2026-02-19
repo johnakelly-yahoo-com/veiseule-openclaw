@@ -1,4 +1,9 @@
 ---
+summary: "Gateway 排程器的 Cron 工作 + 喚醒"
+read_when:
+  - 排程背景工作或喚醒
+  - 串接應與心跳一起或並行執行的自動化
+  - 在排程任務中決定使用心跳或 Cron
 title: "Cron 工作"
 ---
 
@@ -6,7 +11,7 @@ title: "Cron 工作"
 
 > **Cron vs Heartbeat？** 請參考 [Cron vs Heartbeat](/automation/cron-vs-heartbeat)，了解各自的使用時機。
 
-Cron 是 Gateway 內建的排程器。它會保存工作、在正確時間喚醒代理程式，並可選擇將輸出回傳到聊天。 It persists jobs, wakes the agent at
+Cron 是 Gateway 內建的排程器。它會保存工作、在正確時間喚醒代理程式，並可選擇將輸出回傳到聊天。 Cron 是 Gateway 內建的排程器。它會保存工作、在正確時間喚醒代理程式，並可選擇將輸出回傳到聊天。 It persists jobs, wakes the agent at
 the right time, and can optionally deliver output back to a chat.
 
 如果你想要「每天早上執行一次」或「20 分鐘後戳一下代理程式」，Cron 就是這個機制。
@@ -63,6 +68,8 @@ openclaw cron add \
 Cron 工作預設會儲存在 Gateway 閘道器主機的 `~/.openclaw/cron/jobs.json`。
 Gateway 會將檔案載入記憶體，並在變更時寫回，因此只有在 Gateway 停止時手動編輯才安全。請優先使用 `openclaw cron add/edit` 或 cron 工具呼叫 API 進行變更。
 The Gateway loads the file into memory and writes it back on changes, so manual edits
+are only safe when the Gateway is stopped.
+The Gateway loads the file into memory and writes it back on changes, so manual edits
 are only safe when the Gateway is stopped. Prefer `openclaw cron add/edit` or the cron
 tool call API for changes.
 
@@ -84,6 +91,7 @@ tool call API for changes.
    - 隔離工作階段 → `payload.kind = "agentTurn"`
 
 可選項：一次性工作（`schedule.kind = "at"`）預設在成功後刪除。設定 `deleteAfterRun: false` 可保留它們（成功後會停用）。 Set
+`deleteAfterRun: false` to keep them (they will disable after success). 可選項：一次性工作（`schedule.kind = "at"`）預設在成功後刪除。設定 `deleteAfterRun: false` 可保留它們（成功後會停用）。 Set
 `deleteAfterRun: false` to keep them (they will disable after success).
 
 ## 概念
@@ -96,8 +104,9 @@ tool call API for changes.
 - 一個 **payload**（它應該執行的內容），
 - 可選的 **傳遞模式**（公告或無）。
 - 可選的 **agent 綁定**（`agentId`）：在特定 agent 下執行此工作；如果
-缺失或未知，gateway 會回退至預設 agent。
+  缺失或未知，gateway 會回退至預設 agent。
 
+Jobs are identified by a stable `jobId` (used by CLI/Gateway APIs).
 每個工作都以穩定的 `jobId` 識別（由 CLI/Gateway APIs 使用）。
 In agent tool calls, `jobId` is canonical; legacy `id` is accepted for compatibility.
 One-shot jobs auto-delete after success by default; set `deleteAfterRun: false` to keep them.
@@ -110,7 +119,7 @@ Cron 支援三種排程類型：
 - `every`：固定間隔（毫秒）。
 - `cron`：5 欄位 Cron 表達式，可選 IANA 時區。
 
-Cron 表達式使用 `croner`。如果省略時區，則使用 Gateway 主機的
+Cron expressions use `croner`. Cron 表達式使用 `croner`。如果省略時區，則使用 Gateway 主機的
 local timezone is used.
 
 ### 主工作階段 vs 隔離執行
@@ -125,6 +134,7 @@ Main jobs enqueue a system event and optionally wake the heartbeat runner.
 - `wakeMode: "next-heartbeat"`：事件會等待下一次排定的心跳。
 
 當你希望使用一般的 heartbeat 提示 + main-session 內容時，這是最合適的選擇。
+See [Heartbeat](/gateway/heartbeat).
 See [Heartbeat](/gateway/heartbeat).
 
 #### 隔離工作（專用 Cron 工作階段）
@@ -165,11 +175,11 @@ See [Heartbeat](/gateway/heartbeat).
 - `delivery.to`：頻道專屬的目標（電話 / 聊天 / 頻道 ID）。
 - `delivery.bestEffort`：若公告傳遞失敗，避免使工作失敗。
 
-公告傳遞會抑制該次執行中的訊息工具發送；請使用 `delivery.channel` / `delivery.to` 直接指向聊天。當 `delivery.mode = "none"` 時，不會向主工作階段發佈摘要。 When `delivery.mode = "none"`, no summary is posted to the main session.
+公告傳遞會抑制該次執行中的訊息工具發送；請使用 `delivery.channel` / `delivery.to` 直接指向聊天。當 `delivery.mode = "none"` 時，不會向主工作階段發佈摘要。 公告傳遞會抑制該次執行中的訊息工具發送；請使用 `delivery.channel` / `delivery.to` 直接指向聊天。當 `delivery.mode = "none"` 時，不會向主工作階段發佈摘要。 When `delivery.mode = "none"`, no summary is posted to the main session.
 
 若隔離工作省略 `delivery`，OpenClaw 會預設為 `announce`。
 
-#### 公告傳遞流程
+#### Announce delivery flow
 
 當 `delivery.mode = "announce"` 時，Cron 會透過對外頻道轉接器直接傳遞。
 主代理程式不會被啟動來撰寫或轉送訊息。
@@ -221,6 +231,7 @@ unexpected context shifts.
 #### Telegram 傳遞目標（主題 / 討論串）
 
 Telegram 透過 `message_thread_id` 支援論壇主題。對於 Cron 傳遞，你可以將主題 / 討論串編碼到 `to` 欄位： For cron delivery, you can encode
+the topic/thread into the `to` field: For cron delivery, you can encode
 the topic/thread into the `to` field:
 
 - `-1001234567890`（僅聊天 ID）
@@ -466,5 +477,3 @@ openclaw system event --mode now --text "Next heartbeat: check battery."
 - 對於論壇主題，請使用 `-100…:topic:<id>`，以確保明確且不含歧義。
 - 若你在日誌或儲存的「最後路由」目標中看到 `telegram:...` 前綴，這是正常的；
   Cron 傳遞接受它們，並仍會正確解析主題 ID。
-
-

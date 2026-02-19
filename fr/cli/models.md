@@ -1,4 +1,8 @@
 ---
+summary: "Référence CLI pour `openclaw models` (status/list/set/scan, alias, solutions de repli, auth)"
+read_when:
+  - Vous souhaitez changer les modèles par défaut ou consulter l’état d’authentification des fournisseurs
+  - Vous souhaitez analyser les modèles/fournisseurs disponibles et déboguer les profils d’authentification
 title: "modèles"
 ---
 
@@ -73,5 +77,3 @@ Remarques :
 
 - `setup-token` demande une valeur de setup-token (générez-la avec `claude setup-token` sur n’importe quelle machine).
 - `paste-token` accepte une chaîne de token générée ailleurs ou via une automatisation.
-
-

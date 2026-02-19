@@ -1,4 +1,7 @@
 ---
+summary: "Статус поддержки бота Zalo, возможности и конфигурация"
+read_when:
+  - Работа над функциями Zalo или вебхуками
 title: "Zalo"
 ---
 
@@ -184,5 +187,3 @@ Zalo — ориентированное на Вьетнам приложение
 - `channels.zalo.accounts.<id>.webhookSecret`: секрет вебхука для учетной записи.
 - `channels.zalo.accounts.<id>.webhookPath`: путь вебхука для учетной записи.
 - `channels.zalo.accounts.<id>.proxy`: URL прокси для учетной записи.
-
-

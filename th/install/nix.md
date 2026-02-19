@@ -1,4 +1,9 @@
 ---
+summary: "ติดตั้ง OpenClaw แบบประกาศกำหนดด้วย Nix"
+read_when:
+  - คุณต้องการการติดตั้งที่ทำซ้ำได้และย้อนกลับได้
+  - คุณใช้งาน Nix/NixOS/Home Manager อยู่แล้ว
+  - คุณต้องการให้ทุกอย่างถูกปักหมุดเวอร์ชันและจัดการแบบประกาศกำหนด
 title: "Nix"
 ---
 
@@ -45,12 +50,14 @@ Reference the nix-openclaw README for module options.
 OpenClaw รองรับ **โหมด Nix** ที่ทำให้การกำหนดค่ามีความกำหนดแน่นอนและปิดการทำงานการติดตั้งอัตโนมัติ
 เปิดใช้งานได้โดยการ export:
 เปิดใช้งานโดยการ export:
+เปิดใช้งานโดยการ export:
 
 ```bash
 OPENCLAW_NIX_MODE=1
 ```
 
 บน macOS แอป GUI จะไม่รับค่า env vars จากเชลล์โดยอัตโนมัติ คุณยังสามารถ
+เปิดใช้งานโหมด Nix ผ่าน defaults ได้: คุณยังสามารถ
 เปิดใช้งานโหมด Nix ผ่าน defaults ได้:
 
 ```bash
@@ -86,6 +93,7 @@ apps/macos/Sources/OpenClaw/Resources/Info.plist
 [`scripts/package-mac-app.sh`](https://github.com/openclaw/openclaw/blob/main/scripts/package-mac-app.sh) จะคัดลอกเทมเพลตนี้เข้าไปใน app bundle และแพตช์ฟิลด์แบบไดนามิก
 (bundle ID, version/build, Git SHA, คีย์ Sparkle) วิธีนี้ทำให้ plist มีความกำหนดแน่นอนสำหรับการแพ็กเกจด้วย SwiftPM
 และการบิลด์ด้วย Nix (ซึ่งไม่พึ่งพา toolchain Xcode แบบเต็ม) สิ่งนี้ช่วยให้ plist คงที่สำหรับการแพ็กเกจด้วย SwiftPM
+และการบิลด์ด้วย Nix (ซึ่งไม่พึ่งพา toolchain Xcode แบบเต็ม) สิ่งนี้ช่วยให้ plist คงที่สำหรับการแพ็กเกจด้วย SwiftPM
 และการบิลด์ด้วย Nix (ซึ่งไม่พึ่งพา toolchain Xcode แบบเต็ม)
 
 ## เกี่ยวข้อง
@@ -93,5 +101,3 @@ apps/macos/Sources/OpenClaw/Resources/Info.plist
 - [nix-openclaw](https://github.com/openclaw/nix-openclaw) — คู่มือการตั้งค่าแบบเต็ม
 - [Wizard](/start/wizard) — การตั้งค่า CLI แบบไม่ใช้ Nix
 - [Docker](/install/docker) — การตั้งค่าแบบคอนเทนเนอร์
-
-

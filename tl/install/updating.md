@@ -1,14 +1,18 @@
 ---
+summary: "Ligtas na pag-update ng OpenClaw (global install o source), kasama ang estratehiya sa rollback"
+read_when:
+  - Pag-update ng OpenClaw
+  - May nasira pagkatapos ng update
 title: "Pag-update"
 ---
 
 # Pag-update
 
-Ang OpenClaw ay mabilis ang pag-unlad (bago ang “1.0”). Ituring ang mga update na parang shipping infra: mag-update → magpatakbo ng mga check → mag-restart (o gamitin ang `openclaw update`, na awtomatikong nagre-restart) → mag-verify.
+OpenClaw is moving fast (pre “1.0”). Treat updates like shipping infra: update → run checks → restart (or use `openclaw update`, which restarts) → verify.
 
 ## Inirerekomenda: patakbuhin muli ang website installer (upgrade in place)
 
-Ang **mas pinipiling** paraan ng pag-update ay ang muling patakbuhin ang installer mula sa website. Ito ay
+The **preferred** update path is to re-run the installer from the website. It
 detects existing installs, upgrades in place, and runs `openclaw doctor` when
 needed.
 
@@ -67,7 +71,7 @@ Gamitin ang `--tag <dist-tag|version>` para sa one-off install na tag/version.
 
 Tingnan ang [Development channels](/install/development-channels) para sa kahulugan ng mga channel at release notes.
 
-Tandaan: sa mga npm install, ang gateway ay naglalabas ng update hint sa startup (sinusuri ang kasalukuyang channel tag). I-disable ito sa pamamagitan ng `update.checkOnStart: false`.
+Note: on npm installs, the gateway logs an update hint on startup (checks the current channel tag). Disable via `update.checkOnStart: false`.
 
 Pagkatapos:
 
@@ -102,7 +106,7 @@ Kung nag-install ka sa pamamagitan ng **npm/pnpm** (walang git metadata), susubu
 
 ## Update (Control UI / RPC)
 
-Ang Control UI ay may **Update & Restart** (RPC: `update.run`). Ito ay:
+The Control UI has **Update & Restart** (RPC: `update.run`). It:
 
 1. Pinapatakbo ang parehong source-update flow gaya ng `openclaw update` (git checkout lamang).
 2. Nagsusulat ng restart sentinel na may structured report (stdout/stderr tail).
@@ -227,5 +231,3 @@ git pull
 - Patakbuhin muli ang `openclaw doctor` at basahin nang mabuti ang output (madalas nitong sinasabi ang solusyon).
 - Tingnan: [Pag-troubleshoot](/gateway/troubleshooting)
 - Magtanong sa Discord: [https://discord.gg/clawd](https://discord.gg/clawd)
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Reference CLI pour `openclaw nodes` (list/status/approve/invoke, camera/canvas/screen)"
+read_when:
+  - Vous gerez des nœuds appaires (cameras, ecran, canevas)
+  - Vous devez approuver des requetes ou invoquer des commandes de nœud
 title: "nœuds"
 ---
 
@@ -60,12 +64,10 @@ Invoquer les drapeaux :
 Drapeaux :
 
 - `--cwd <path>` : repertoire de travail.
-- `--env <key=val>` : remplacement d’env (repetable).
+- `--env <key=val>` : remplacement d’env (repetable). Remarque : les hôtes node ignorent les remplacements de `PATH` (et `tools.exec.pathPrepend` n’est pas appliqué aux hôtes node).
 - `--command-timeout <ms>` : delai d’expiration de la commande.
 - `--invoke-timeout <ms>` : delai d’expiration d’invocation du nœud (par defaut `30000`).
 - `--needs-screen-recording` : exiger l’autorisation d’enregistrement d’ecran.
 - `--raw <command>` : executer une chaine shell (`/bin/sh -lc` ou `cmd.exe /c`).
 - `--agent <id>` : approbations/listes d’autorisations portees a l’agent (par defaut l’agent configure).
 - `--ask <off|on-miss|always>`, `--security <deny|allowlist|full>` : remplacements.
-
-

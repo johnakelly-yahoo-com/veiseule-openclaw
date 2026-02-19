@@ -1,4 +1,8 @@
 ---
+summary: "Gateway-weboverflader: Control UI, bind-tilstande og sikkerhed"
+read_when:
+  - Du vil tilgå Gateway over Tailscale
+  - Du vil bruge browserens Control UI og redigere konfiguration
 title: "Web"
 ---
 
@@ -110,5 +114,3 @@ Gateway serverer statiske filer fra `dist/control-ui`. Byg dem med:
 ```bash
 pnpm ui:build # auto-installs UI deps on first run
 ```
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "„Przegląd obsługi platform (Gateway + aplikacje towarzyszące)”"
+read_when:
+  - Szukasz informacji o obsłudze systemów operacyjnych lub ścieżkach instalacji
+  - Decydujesz, gdzie uruchomić Gateway
 title: "„Platformy”"
 ---
 
@@ -47,5 +51,3 @@ Cel usługi zależy od systemu operacyjnego:
 
 - macOS: LaunchAgent (`bot.molt.gateway` lub `bot.molt.<profile>`; starsze `com.openclaw.*`)
 - Linux/WSL2: usługa użytkownika systemd (`openclaw-gateway[-<profile>].service`)
-
-

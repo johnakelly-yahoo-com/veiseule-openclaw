@@ -1,4 +1,8 @@
 ---
+summary: "Roep één enkele tool rechtstreeks aan via het Gateway HTTP-eindpunt"
+read_when:
+  - Tools aanroepen zonder een volledige agentbeurt te draaien
+  - Automatiseringen bouwen die toolbeleidshandhaving vereisen
 title: "Tools Aanroepen API"
 ---
 
@@ -21,6 +25,7 @@ Notities:
 
 - Wanneer `gateway.auth.mode="token"`, gebruik `gateway.auth.token` (of `OPENCLAW_GATEWAY_TOKEN`).
 - Wanneer `gateway.auth.mode="password"`, gebruik `gateway.auth.password` (of `OPENCLAW_GATEWAY_PASSWORD`).
+- Als `gateway.auth.rateLimit` is geconfigureerd en er te veel authenticatiefouten optreden, retourneert het endpoint `429` met `Retry-After`.
 
 ## Request body
 
@@ -54,6 +59,28 @@ Toolbeschikbaarheid wordt gefilterd via dezelfde beleidsketen die door Gateway-a
 
 Als een tool niet is toegestaan door het beleid, retourneert het eindpunt **404**.
 
+Gateway HTTP past standaard ook een harde denylist toe (zelfs als het sessiebeleid de tool toestaat):
+
+- `sessions_spawn`
+- `sessions_send`
+- `gateway`
+- `whatsapp_login`
+
+Je kunt deze denylist aanpassen via `gateway.tools`:
+
+```json5
+{
+  gateway: {
+    tools: {
+      // Additional tools to block over HTTP /tools/invoke
+      deny: ["browser"],
+      // Remove tools from the default deny list
+      allow: ["gateway"],
+    },
+  },
+}
+```
+
 Om groepsbeleid te helpen context op te lossen, kun je optioneel instellen:
 
 - `x-openclaw-message-channel: <channel>` (voorbeeld: `slack`, `telegram`)
@@ -64,8 +91,10 @@ Om groepsbeleid te helpen context op te lossen, kun je optioneel instellen:
 - `200` → `{ ok: true, result }`
 - `400` → `{ ok: false, error: { type, message } }` (ongeldige aanvraag of toolfout)
 - `401` → unauthorized
+- `429` → authenticatie rate-limited (`Retry-After` ingesteld)
 - `404` → tool niet beschikbaar (niet gevonden of niet op de toegestane lijst)
 - `405` → methode niet toegestaan
+- Velden
 
 ## Voorbeeld
 
@@ -79,5 +108,3 @@ curl -sS http://127.0.0.1:18789/tools/invoke \
     "args": {}
   }'
 ```
-
-

@@ -1,5 +1,7 @@
 ---
-title: "Multi-agent-sandkasse og værktøjer"
+summary: "Sandbox pr. agent + værktøjsbegrænsninger, præcedens og eksempler"
+title: Multi-agent-sandkasse og værktøjer
+read_when: "Du vil have sandboxing pr. agent eller tillad/afvis-politikker for værktøjer pr. agent i en multi-agent gateway."
 status: active
 ---
 
@@ -392,5 +394,3 @@ Efter konfiguration af multi-agent sandbox og værktøjer:
 - [Multi-Agent Routing](/concepts/multi-agent)
 - [Sandbox-konfiguration](/gateway/configuration#agentsdefaults-sandbox)
 - [Session Management](/concepts/session)
-
-

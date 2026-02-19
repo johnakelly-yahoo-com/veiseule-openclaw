@@ -1,4 +1,8 @@
 ---
+summary: "„Eingehende Bild-/Audio-/Video-Erkennung (optional) mit Anbieter- und CLI-Fallbacks“"
+read_when:
+  - Entwurf oder Refactoring der Medienerkennung
+  - Feinabstimmung der eingehenden Audio-/Video-/Bildvorverarbeitung
 title: "Medienverständnis"
 ---
 
@@ -373,5 +377,3 @@ Diese zeigt pro Fähigkeit die Ergebnisse sowie den gewählten Anbieter/das Mode
 
 - [Konfiguration](/gateway/configuration)
 - [Bild- & Medienunterstützung](/nodes/images)
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Obsługa Windows (WSL2) + status aplikacji towarzyszącej"
+read_when:
+  - Instalowanie OpenClaw na Windows
+  - Szukanie informacji o statusie aplikacji towarzyszącej na Windows
 title: "Windows (WSL2)"
 ---
 
@@ -148,5 +152,3 @@ Pełny przewodnik: [Getting Started](/start/getting-started)
 ## Aplikacja towarzysząca na Windows
 
 Obecnie nie mamy aplikacji towarzyszącej na Windows. Wkład społeczności jest mile widziany, jeśli chcesz pomóc w jej powstaniu.
-
-

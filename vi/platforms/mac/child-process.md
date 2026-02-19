@@ -1,4 +1,7 @@
 ---
+summary: "Vòng đời Gateway trên macOS (launchd)"
+read_when:
+  - Tích hợp ứng dụng mac với vòng đời của gateway
 title: "Vòng đời Gateway"
 ---
 
@@ -63,5 +66,3 @@ Remote mode never starts a local Gateway. Ứng dụng sử dụng một đườ
 
 Nếu trong tương lai thực sự cần chế độ tiến trình con, nó nên được tài liệu hóa như
 một chế độ dev‑only riêng biệt, rõ ràng.
-
-

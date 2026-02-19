@@ -1,4 +1,9 @@
 ---
+summary: "Installer OpenClaw de manière déclarative avec Nix"
+read_when:
+  - Vous voulez des installations reproductibles et avec retour en arriere
+  - Vous utilisez deja Nix/NixOS/Home Manager
+  - Vous voulez que tout soit fige et gere de maniere declarative
 title: "Nix"
 ---
 
@@ -91,5 +96,3 @@ et les builds Nix (qui ne s’appuient pas sur une chaine d’outils Xcode compl
 - [nix-openclaw](https://github.com/openclaw/nix-openclaw) — guide de configuration complet
 - [Assistant](/start/wizard) — configuration CLI hors Nix
 - [Docker](/install/docker) — configuration en conteneur
-
-

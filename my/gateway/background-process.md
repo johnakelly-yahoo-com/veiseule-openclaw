@@ -1,4 +1,8 @@
 ---
+summary: "နောက်ခံ exec အကောင်အထည်ဖော်ခြင်းနှင့် ပရိုဆက် စီမံခန့်ခွဲမှု"
+read_when:
+  - နောက်ခံ exec အပြုအမူကို ထည့်သွင်းခြင်း သို့မဟုတ် ပြင်ဆင်ခြင်း
+  - အချိန်ရှည်လျားစွာ လည်ပတ်နေသော exec လုပ်ငန်းများကို Debugging ပြုလုပ်နေစဉ်
 title: "နောက်ခံ Exec နှင့် Process ကိရိယာ"
 ---
 
@@ -42,6 +46,7 @@ Config (ဦးစားပေး):
 - `tools.exec.timeoutSec` (မူလတန်ဖိုး 1800)
 - `tools.exec.cleanupMs` (မူလတန်ဖိုး 1800000)
 - `tools.exec.notifyOnExit` (မူလတန်ဖိုး true): နောက်ခံထားသော exec တစ်ခု exit ဖြစ်သည့်အခါ system event ကို queue ထဲသို့ ထည့်ပြီး request heartbeat ကို တောင်းဆိုသည်။
+- `tools.exec.notifyOnExitEmptySuccess` (မူလတန်ဖိုး false): true ဖြစ်ပါက output မထုတ်လုပ်ခဲ့သော်လည်း အောင်မြင်စွာ background တွင် လုပ်ဆောင်ပြီးစီးသော run များအတွက် completion events များကိုလည်း enqueue လုပ်မည်။
 
 ## process tool
 
@@ -63,6 +68,8 @@ Config (ဦးစားပေး):
 - `process` သည် agent တစ်ခုချင်းစီအလိုက် သတ်မှတ်ထားပြီး၊ ထို agent မှ စတင်ခဲ့သော ဆက်ရှင်များကိုသာ မြင်နိုင်သည်။
 - `process list` တွင် လျင်မြန်စွာ စစ်ဆေးနိုင်ရန် အတွက် ဆင်းသက်လာသော `name` (command verb + target) ပါဝင်သည်။
 - `process log` သည် လိုင်းအခြေပြု `offset`/`limit` ကို အသုံးပြုသည် (`offset` ကို ချန်ထားပါက နောက်ဆုံး N လိုင်းများကို ရယူသည်)။
+- `offset` နှင့် `limit` နှစ်ခုလုံး မပေးထားပါက နောက်ဆုံး စာကြောင်း 200 ကို ပြန်လည်ပေးပို့ပြီး paging hint ကို ထည့်သွင်းပေးမည်။
+- `offset` ကို ပေးထားပြီး `limit` မပေးထားပါက `offset` မှ အဆုံးအထိ ပြန်လည်ပေးပို့မည် (200 သို့ မကန့်သတ်ထားပါ)။
 
 ## ဥပမာများ
 
@@ -87,5 +94,3 @@ stdin ပို့ခြင်း:
 ```json
 { "tool": "process", "action": "write", "sessionId": "<id>", "data": "y\n" }
 ```
-
-

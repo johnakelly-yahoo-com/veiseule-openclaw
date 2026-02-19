@@ -1,4 +1,7 @@
 ---
+summary: "„Design der Befehlswarteschlange, das eingehende Auto-Reply-Ausführungen serialisiert“"
+read_when:
+  - Beim Ändern der Auto-Reply-Ausführung oder -Nebenläufigkeit
 title: "Befehlswarteschlange"
 ---
 
@@ -83,5 +86,3 @@ Standardwerte: `debounceMs: 1000`, `cap: 20`, `drop: summarize`.
 
 - Wenn Befehle festzustecken scheinen, aktivieren Sie ausführliche Logs und suchen Sie nach Zeilen „queued for …ms“, um zu bestätigen, dass die Warteschlange abgearbeitet wird.
 - Wenn Sie die Warteschlangentiefe benötigen, aktivieren Sie ausführliche Logs und achten Sie auf Timing-Zeilen der Warteschlange.
-
-

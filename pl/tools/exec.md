@@ -1,4 +1,8 @@
 ---
+summary: "Użycie narzędzia exec, tryby stdin oraz obsługa TTY"
+read_when:
+  - Używanie lub modyfikowanie narzędzia exec
+  - Debugowanie zachowania stdin lub TTY
 title: "Narzędzie Exec"
 ---
 
@@ -72,7 +76,8 @@ Przykład:
   `tools.exec.pathPrepend` ma tu również zastosowanie.
 - `host=node`: do węzła wysyłane są tylko nieblokowane nadpisania zmiennych środowiskowych, które przekażesz. Nadpisania `env.PATH` są
   odrzucane dla wykonania na hoście. Bezgłowe hosty węzłów akceptują `PATH` tylko wtedy, gdy dodaje on prefiks do PATH hosta węzła
-  (bez zastępowania). Węzły macOS całkowicie odrzucają nadpisania `PATH`.
+  (bez zastępowania). Jeśli potrzebujesz dodatkowych wpisów PATH na węźle,
+  skonfiguruj środowisko usługi hosta węzła (systemd/launchd) lub zainstaluj narzędzia w standardowych lokalizacjach.
 
 Powiązanie węzła per agent (użyj indeksu listy agentów w konfiguracji):
 
@@ -115,8 +120,9 @@ działa po `tools.exec.approvalRunningNoticeMs`, emitowane jest pojedyncze powia
 
 Egzekwowanie listy dozwolonych dopasowuje **wyłącznie rozwiązywane ścieżki binariów** (bez dopasowań po nazwie). Gdy
 `security=allowlist`, polecenia powłoki są automatycznie dozwolone tylko wtedy, gdy każdy segment potoku jest
-na liście dozwolonych lub jest bezpiecznym binarium. Łączenie (`;`, `&&`, `||`) oraz przekierowania są odrzucane w
-trybie listy dozwolonych.
+na liście dozwolonych lub jest bezpiecznym binarium. Łączenie (`;`, `&&`, `||`) i przekierowania są odrzucane w
+trybie allowlist, chyba że każdy segment najwyższego poziomu spełnia warunki allowlist (w tym bezpieczne binaria).
+Przekierowania pozostają nieobsługiwane.
 
 ## Przykłady
 
@@ -173,5 +179,4 @@ Uwagi:
 - Dostępne wyłącznie dla modeli OpenAI/OpenAI Codex.
 - Polityka narzędzi nadal obowiązuje; `allow: ["exec"]` domyślnie zezwala na `apply_patch`.
 - Konfiguracja znajduje się pod `tools.exec.applyPatch`.
-
-
+- `tools.exec.applyPatch.workspaceOnly` domyślnie ma wartość `true` (ograniczone do workspace). Ustaw na `false` tylko jeśli celowo chcesz, aby `apply_patch` zapisywał/usuwał poza katalogiem workspace.

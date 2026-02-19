@@ -1,4 +1,8 @@
 ---
+summary: "Szczegółowy runbook rozwiązywania problemów dla gateway, kanałów, automatyzacji, węzłów i przeglądarki"
+read_when:
+  - Centrum rozwiązywania problemów skierowało Cię tutaj w celu pogłębionej diagnozy
+  - Potrzebujesz stabilnych sekcji runbooka opartych na objawach z dokładnymi poleceniami
 title: "Rozwiązywanie problemów"
 ---
 
@@ -105,7 +109,7 @@ Szukaj:
 
 Typowe sygnatury:
 
-- `Gateway start blocked: set gateway.mode=local` → lokalny tryb gateway nie jest włączony.
+- `Gateway start blocked: set gateway.mode=local` → lokalny tryb gateway nie jest włączony. Poprawka: ustaw `gateway.mode="local"` w swojej konfiguracji (lub uruchom `openclaw configure`). Jeśli uruchamiasz OpenClaw przez Podman z użyciem dedykowanego użytkownika `openclaw`, konfiguracja znajduje się w `~openclaw/.openclaw/openclaw.json`.
 - `refusing to bind gateway ... without auth` → bindowanie poza loopback bez tokena/hasła.
 - `another gateway instance is already listening` / `EADDRINUSE` → konflikt portów.
 
@@ -312,5 +316,3 @@ Powiązane:
 - [/gateway/pairing](/gateway/pairing)
 - [/gateway/authentication](/gateway/authentication)
 - [/gateway/background-process](/gateway/background-process)
-
-

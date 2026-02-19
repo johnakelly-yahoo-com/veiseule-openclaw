@@ -1,8 +1,12 @@
 ---
-title: "Peilingen"
+summary: "Poll verzenden via gateway + CLI"
+read_when:
+  - Toevoegen of wijzigen van poll-ondersteuning
+  - Debuggen van pollverzendingen vanuit de CLI of gateway
+title: "Polls"
 ---
 
-# Peilingen
+# Polls
 
 ## Ondersteunde kanalen
 
@@ -63,5 +67,3 @@ Gebruik de `message`-tool met de `poll`-actie (`to`, `pollQuestion`, `pollOption
 Let op: Discord heeft geen modus “exact N kiezen”; `pollMulti` komt overeen met multi-select.
 Teams-polls worden weergegeven als Adaptive Cards en vereisen dat de gateway online blijft
 om stemmen vast te leggen in `~/.openclaw/msteams-polls.json`.
-
-

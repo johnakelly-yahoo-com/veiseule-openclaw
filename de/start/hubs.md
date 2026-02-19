@@ -1,4 +1,7 @@
 ---
+summary: "„Hubs, die auf jede OpenClaw-Dokumentation verlinken“"
+read_when:
+  - Sie möchten eine vollständige Übersicht der Dokumentation
 title: "„Docs-Hubs“"
 ---
 
@@ -192,5 +195,3 @@ Nutzen Sie diese Hubs, um jede Seite zu entdecken, einschließlich Deep Dives un
 - [Testen](/reference/test)
 - [Release-Checkliste](/reference/RELEASING)
 - [Gerätemodelle](/reference/device-models)
-
-

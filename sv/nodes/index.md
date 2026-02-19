@@ -1,4 +1,9 @@
 ---
+summary: "Noder: parning, funktioner, behörigheter och CLI-hjälpare för canvas/kamera/skärm/system"
+read_when:
+  - Para iOS/Android-noder till en gateway
+  - Använda nodens canvas/kamera för agentkontext
+  - Lägga till nya nodkommandon eller CLI-hjälpare
 title: "Noder"
 ---
 
@@ -274,7 +279,7 @@ Noteringar:
 - `system.notify` respekterar notifieringsbehörighetsstatus i macOS-appen.
 - `system.run` stöder `--cwd`, `--env KEY=VAL`, `--command-timeout` och `--needs-screen-recording`.
 - `system.notify` stöder `--priority <passive|active|timeSensitive>` och `--delivery <system|overlay|auto>`.
-- macOS-noder ignorerar `PATH`-overrides; headless nodvärdar accepterar endast `PATH` när den prefixar nodvärdens PATH.
+- Node-värdar ignorerar `PATH`-överskrivningar. Om du behöver extra PATH-poster, konfigurera node-värdtjänstens miljö (eller installera verktyg på standardplatser) istället för att skicka `PATH` via `--env`.
 - På macOS node-läge är `system.run` gated av exec godkännanden i macOS appen (inställningar → Exec godkännanden).
   Från/allowlist/full beter sig som den huvudlösa noden värden; nekade uppmaningar tillbaka `SYSTEM_RUN_DENIED`.
 - På headless nodvärd är `system.run` spärrat av exec-godkännanden (`~/.openclaw/exec-approvals.json`).
@@ -335,5 +340,3 @@ Noteringar:
 
 - macOS-menyradsappen ansluter till Gatewayns WS-server som en nod (så att `openclaw nodes …` fungerar mot denna Mac).
 - I fjärrläge öppnar appen en SSH-tunnel för Gateway-porten och ansluter till `localhost`.
-
-

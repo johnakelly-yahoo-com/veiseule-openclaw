@@ -1,4 +1,8 @@
 ---
+summary: "Authentification des modeles : OAuth, cles API et setup-token"
+read_when:
+  - Debogage de l’authentification des modeles ou de l’expiration OAuth
+  - Documentation de l’authentification ou du stockage des identifiants
 title: "Authentification"
 ---
 
@@ -131,5 +135,3 @@ Executez `openclaw models status` pour confirmer quel profil arrive a expiration
 
 - Abonnement Claude Max ou Pro (pour `claude setup-token`)
 - Claude Code CLI installee (commande `claude` disponible)
-
-

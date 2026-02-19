@@ -1,4 +1,8 @@
 ---
+summary: "Refactorización de Clawnet: unificar protocolo de red, roles, autenticación, aprobaciones e identidad"
+read_when:
+  - Planificar un protocolo de red unificado para nodos + clientes de operador
+  - Replantear aprobaciones, emparejamiento, TLS y presencia entre dispositivos
 title: "Refactorización de Clawnet"
 ---
 
@@ -411,5 +415,3 @@ Elija uno antes de implementar para evitar deriva.
 - Dolor: aprobaciones + duplicación + dos pilas.
 - Propuesta: un protocolo WS con roles + alcances explícitos, emparejamiento unificado + pinning de TLS, aprobaciones alojadas en el Gateway, IDs de dispositivo estables + slugs simpáticos.
 - Resultado: UX más simple, seguridad más fuerte, menos duplicación, mejor enrutamiento móvil.
-
-

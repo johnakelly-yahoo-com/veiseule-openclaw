@@ -1,4 +1,8 @@
 ---
+summary: "พื้นผิวการบันทึกล็อก, ล็อกไฟล์, สไตล์ล็อกWS และการจัดรูปแบบคอนโซล"
+read_when:
+  - เปลี่ยนเอาต์พุตหรือรูปแบบการบันทึกล็อก
+  - ดีบักเอาต์พุตของCLIหรือGateway
 title: "การบันทึกล็อก"
 ---
 
@@ -23,6 +27,7 @@ OpenClaw มี “พื้นผิว” การบันทึกล็อ
 
 แท็บ Logs ใน Control UI จะ tail ไฟล์นี้ผ่านGateway (`logs.tail`)
 CLI ก็ทำได้เช่นกัน:
+CLI can do the same:
 CLI can do the same:
 
 ```bash
@@ -50,6 +55,7 @@ CLI จะจับ `console.log/info/warn/error/debug/trace` และเขี
 ## การปกปิดสรุปเครื่องมือ
 
 สรุปเครื่องมือแบบverbose (เช่น `🛠️ Exec: ...`) สามารถปกปิดโทเคนที่อ่อนไหวก่อนเข้าสู่
+สตรีมคอนโซลได้ ฟีเจอร์นี้เป็น **เฉพาะเครื่องมือเท่านั้น** และไม่แก้ไขล็อกไฟล์ สรุปเครื่องมือแบบverbose (เช่น `🛠️ Exec: ...`) สามารถปกปิดโทเคนที่อ่อนไหวก่อนเข้าสู่
 สตรีมคอนโซลได้ ฟีเจอร์นี้เป็น **เฉพาะเครื่องมือเท่านั้น** และไม่แก้ไขล็อกไฟล์ This is **tools-only** and does not alter file logs.
 
 - `logging.redactSensitive`: `off` | `tools` (ค่าเริ่มต้น: `tools`)
@@ -95,6 +101,7 @@ openclaw gateway --verbose --ws-log full
 ตัวจัดรูปแบบคอนโซล **รับรู้TTY** และพิมพ์บรรทัดที่สม่ำเสมอพร้อมคำนำหน้า
 ตัวบันทึกล็อกของซับซิสเต็มจะจัดกลุ่มเอาต์พุตให้สแกนได้ง่าย
 Subsystem loggers keep output grouped and scannable.
+Subsystem loggers keep output grouped and scannable.
 
 พฤติกรรม:
 
@@ -109,5 +116,3 @@ Subsystem loggers keep output grouped and scannable.
 - **เนื้อความข้อความ WhatsApp** จะถูกบันทึกที่ระดับ `debug` (ใช้ `--verbose` เพื่อดู)
 
 สิ่งนี้ช่วยคงเสถียรภาพของล็อกไฟล์เดิม ขณะทำให้ออกพุตเชิงโต้ตอบสแกนได้ง่าย
-
-

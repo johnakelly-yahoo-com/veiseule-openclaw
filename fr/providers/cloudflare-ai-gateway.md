@@ -1,5 +1,9 @@
 ---
 title: "Cloudflare AI Gateway"
+summary: "Configuration de Cloudflare AI Gateway (authentification + selection du modele)"
+read_when:
+  - Vous souhaitez utiliser Cloudflare AI Gateway avec OpenClaw
+  - Vous avez besoin de l’ID de compte, de l’ID de Gateway (passerelle) ou de la variable d’environnement de cle API
 ---
 
 # Cloudflare AI Gateway
@@ -65,5 +69,3 @@ Si vous avez active l’authentification de la Gateway dans Cloudflare, ajoutez 
 ## Note sur l’environnement
 
 Si la Gateway s’execute en tant que demon (launchd/systemd), assurez-vous que `CLOUDFLARE_AI_GATEWAY_API_KEY` est disponible pour ce processus (par exemple, dans `~/.openclaw/.env` ou via `env.shellEnv`).
-
-

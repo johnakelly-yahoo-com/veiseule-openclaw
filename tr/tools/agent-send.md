@@ -1,4 +1,7 @@
 ---
+summary: "Doğrudan `openclaw agent` CLI çalıştırmaları (isteğe bağlı teslimat ile)"
+read_when:
+  - Ajan CLI giriş noktasını eklerken veya değiştirirken
 title: "Agent Send"
 ---
 
@@ -48,5 +51,3 @@ openclaw agent --agent ops --message "Generate report" --deliver --reply-channel
 - `--verbose <on|full|off>`: ayrıntılı düzeyi kalıcı yap
 - `--timeout <seconds>`: ajan zaman aşımını geçersiz kıl
 - `--json`: yapılandırılmış JSON çıktısı
-
-

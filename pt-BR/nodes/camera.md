@@ -1,4 +1,8 @@
 ---
+summary: "Captura de câmera (nó iOS + app macOS) para uso por agentes: fotos (jpg) e clipes curtos de vídeo (mp4)"
+read_when:
+  - Ao adicionar ou modificar captura de câmera em nós iOS ou macOS
+  - Ao estender fluxos de trabalho de arquivos temporários MEDIA acessíveis ao agente
 title: "Captura de câmera"
 ---
 
@@ -83,7 +87,7 @@ Notas:
   - Padrão: **ativado** (chave ausente é tratada como habilitada).
   - Quando desativado: comandos `camera.*` retornam `CAMERA_DISABLED`.
 
-### Permissões
+### Permissions
 
 - O Android exige permissões em tempo de execução:
   - `CAMERA` para `camera.snap` e `camera.clip`.
@@ -150,5 +154,3 @@ openclaw nodes screen record --node <id> --duration 10s --fps 15   # prints MEDI
 Notas:
 
 - Requer permissão de **Gravação de Tela** do macOS (TCC).
-
-

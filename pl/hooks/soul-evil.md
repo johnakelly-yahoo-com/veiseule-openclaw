@@ -1,4 +1,8 @@
 ---
+summary: "Hook SOUL Evil (zamiana SOUL.md na SOUL_EVIL.md)"
+read_when:
+  - Chcesz włączyć lub dostroić hook SOUL Evil
+  - Chcesz okno czyszczenia lub losową zamianę persony
 title: "Hook SOUL Evil"
 ---
 
@@ -63,5 +67,3 @@ Utwórz `SOUL_EVIL.md` w katalogu głównym obszaru roboczego agenta (obok `SOUL
 ## Zobacz także
 
 - [Hooki](/automation/hooks)
-
-

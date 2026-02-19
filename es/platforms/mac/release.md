@@ -1,4 +1,8 @@
 ---
+summary: "Lista de verificación de lanzamiento de OpenClaw para macOS (feed de Sparkle, empaquetado, firma)"
+read_when:
+  - Al cortar o validar un lanzamiento de OpenClaw para macOS
+  - Al actualizar el appcast o los activos del feed de Sparkle
 title: "Lanzamiento de macOS"
 ---
 
@@ -6,7 +10,7 @@ title: "Lanzamiento de macOS"
 
 Esta app ahora incluye actualizaciones automáticas con Sparkle. Las compilaciones de lanzamiento deben estar firmadas con Developer ID, comprimidas en zip y publicadas con una entrada de appcast firmada.
 
-## Requisitos previos
+## Prereqs
 
 - Certificado Developer ID Application instalado (ejemplo: `Developer ID Application: <Developer Name> (<TEAMID>)`).
 - Ruta de la clave privada de Sparkle configurada en el entorno como `SPARKLE_PRIVATE_KEY_FILE` (ruta a su clave privada ed25519 de Sparkle; la clave pública está integrada en Info.plist). Si falta, verifique `~/.profile`.
@@ -79,5 +83,3 @@ Confirme el `appcast.xml` actualizado junto con los activos del lanzamiento (zip
   - En una compilación pública anterior, ejecute “Buscar actualizaciones…” desde la pestaña Acerca de y verifique que Sparkle instale la nueva compilación correctamente.
 
 Definición de terminado: la app firmada y el appcast están publicados, el flujo de actualización funciona desde una versión instalada anterior y los activos del lanzamiento están adjuntos al lanzamiento de GitHub.
-
-

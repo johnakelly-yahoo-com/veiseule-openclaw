@@ -1,4 +1,8 @@
 ---
+summary: "「openclaw update」的 CLI 參考（相對安全的來源更新 + Gateway 閘道器自動重新啟動）"
+read_when:
+  - 當你想要安全地更新來源檢出時
+  - 當你需要了解「--update」的簡寫行為時
 title: "update"
 ---
 
@@ -49,8 +53,8 @@ Options：
 
 ## `update wizard`
 
-36. 互動式流程，用於選擇更新通道並確認更新後是否重新啟動 Gateway（預設為重新啟動）。 37. 若你選擇 `dev` 但沒有 git 檢出，
-    它會提供建立一個。
+互動式流程，用於選擇更新通道並確認更新後是否重新啟動 Gateway（預設為重新啟動）。 37. 若你選擇 `dev` 但沒有 git 檢出，
+它會提供建立一個。
 
 ## What it does
 
@@ -75,7 +79,7 @@ Options：
 2. 切換到所選的頻道（標籤或分支）。
 3. 38. 取得上游更新（僅 dev）。
 4. 僅 dev：在暫存工作樹中進行 lint 與 TypeScript 建置的預檢；如果目前提交失敗，會往回最多 10 個提交，找出最新可成功建置的版本。
-5. 39. 重新基底到所選提交（僅 dev）。
+5. 重新基底到所選提交（僅 dev）。
 6. 安裝相依套件（優先使用 pnpm；後備為 npm）。
 7. 建置，並建置 Control UI。
 8. 執行 `openclaw doctor`，作為最終的「安全更新」檢查。
@@ -91,5 +95,3 @@ Options：
 - [Development channels](/install/development-channels)
 - [Updating](/install/updating)
 - [CLI 參考文件](/cli)
-
-

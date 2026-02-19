@@ -1,4 +1,8 @@
 ---
+summary: "43. `openclaw hooks` uchun CLI ma’lumotnomasi (agent hook’lari)"
+read_when:
+  - 44. Agent hook’larini boshqarmoqchisiz
+  - 45. Hook’larni o‘rnatmoqchi yoki yangilamoqchisiz
 title: "46. hooks"
 ---
 
@@ -9,41 +13,41 @@ title: "46. hooks"
 49. Bog‘liq:
 
 - 50. Hook’lar: [Hooks](/automation/hooks)
-- Plagin ilgaklari: [Plugins](/tools/plugin#plugin-hooks)
+- Plugin hooks: [Plugins](/tools/plugin#plugin-hooks)
 
-## Barcha ilgaklarni ro‘yxatlash
+## List All Hooks
 
 ```bash
 openclaw hooks list
 ```
 
-Workspace, boshqariladigan va birga kelgan kataloglardan aniqlangan barcha ilgaklarni ro‘yxatlaydi.
-
 **Variantlar:**
 
-- `--eligible`: Faqat mos ilgaklarni ko‘rsatish (talablar bajarilgan)
-- `--json`: Natijani JSON formatida chiqarish
-- `-v, --verbose`: Yetishmayotgan talablar bilan birga batafsil ma’lumotni ko‘rsatish
+**Options:**
 
-**Namuna chiqishi:**
+- `--eligible`: Show only eligible hooks (requirements met)
+- `--json`: Output as JSON
+- `-v, --verbose`: Show detailed information including missing requirements
+
+**Example output:**
 
 ```
-Hooks (4/4 ready)
+Hooks (4/4 tayyor)
 
-Ready:
-  🚀 boot-md ✓ - Run BOOT.md on gateway startup
-  📝 command-logger ✓ - Log all command events to a centralized audit file
-  💾 session-memory ✓ - Save session context to memory when /new command is issued
-  😈 soul-evil ✓ - Swap injected SOUL content during a purge window or by random chance
+Tayyor:
+  🚀 boot-md ✓ - Gateway ishga tushganda BOOT.md ni ishga tushirish
+  📎 bootstrap-extra-files ✓ - Agent bootstrap jarayonida ishchi muhitga qo‘shimcha bootstrap fayllarni qo‘shish
+  📝 command-logger ✓ - Barcha buyruq hodisalarini markazlashtirilgan audit fayliga yozish
+  💾 session-memory ✓ - /new buyrug‘i berilganda sessiya kontekstini xotiraga saqlash
 ```
 
-**Namuna (batafsil):**
+**Example (verbose):**
 
 ```bash
 openclaw hooks list --verbose
 ```
 
-Mos kelmaydigan ilgaklar uchun yetishmayotgan talablarni ko‘rsatadi.
+Shows missing requirements for ineligible hooks.
 
 **Example (JSON):**
 
@@ -65,9 +69,9 @@ Show detailed information about a specific hook.
 
 - `<name>`: Hook name (e.g., `session-memory`)
 
-**Variantlar:**
+**Options:**
 
-- `--json`: Natijani JSON formatida chiqarish
+- `--json`: Output as JSON
 
 **Example:**
 
@@ -78,18 +82,18 @@ openclaw hooks info session-memory
 **Output:**
 
 ```
-💾 session-memory ✓ Ready
+💾 session-memory ✓ Tayyor
 
-Save session context to memory when /new command is issued
+/new buyrug‘i berilganda sessiya kontekstini xotiraga saqlaydi
 
-Details:
-  Source: openclaw-bundled
-  Path: /path/to/openclaw/hooks/bundled/session-memory/HOOK.md
+Batafsil:
+  Manba: openclaw-bundled
+  Yo‘l: /path/to/openclaw/hooks/bundled/session-memory/HOOK.md
   Handler: /path/to/openclaw/hooks/bundled/session-memory/handler.ts
-  Homepage: https://docs.openclaw.ai/hooks#session-memory
-  Events: command:new
+  Bosh sahifa: https://docs.openclaw.ai/automation/hooks#session-memory
+  Hodisalar: command:new
 
-Requirements:
+Talablar:
   Config: ✓ workspace.dir
 ```
 
@@ -101,11 +105,11 @@ openclaw hooks check
 
 Show summary of hook eligibility status (how many are ready vs. not ready).
 
-**Variantlar:**
+**Options:**
 
-- `--json`: Natijani JSON formatida chiqarish
+- `--json`: Output as JSON
 
-**Namuna chiqishi:**
+**Example output:**
 
 ```
 Hooks Status
@@ -160,14 +164,14 @@ openclaw hooks enable session-memory
 
 5. Konfiguratsiyangizni yangilash orqali ma’lum bir hookni o‘chiring.
 
-6. **Argumentlar:**
+**Arguments:**
 
 - `<name>`: Hook name (e.g., `command-logger`)
 
-8. **Misol:**
+**Example:**
 
 ```bash
-9. openclaw hooks disable command-logger
+11. ⏸ O‘chirilgan hook: 📝 command-logger
 ```
 
 **Output:**
@@ -188,13 +192,16 @@ openclaw hooks enable session-memory
 
 16. Hooklar to‘plamini mahalliy papka/arxivdan yoki npm’dan o‘rnating.
 
-17. **Nima qiladi:**
+Npm spetsifikatsiyalari **faqat registry orqali** (paket nomi + ixtiyoriy versiya/tag). Git/URL/file
+spetsifikatsiyalari rad etiladi. Xavfsizlik uchun bog‘liqliklarni o‘rnatish `--ignore-scripts` bilan bajariladi.
+
+**What it does:**
 
 - 18. Hooklar to‘plamini `~/.openclaw/hooks/<id>` ichiga nusxalaydi
 - 19. O‘rnatilgan hooklarni `hooks.internal.entries.*` da yoqadi
 - 20. O‘rnatishni `hooks.internal.installs` ostida qayd etadi
 
-21. **Parametrlar:**
+**Options:**
 
 - 22. `-l, --link`: Nusxalash o‘rniga mahalliy katalogni bog‘laydi (uni `hooks.internal.load.extraDirs` ga qo‘shadi)
 
@@ -225,7 +232,7 @@ openclaw hooks update --all
 
 28. O‘rnatilgan hooklar to‘plamlarini yangilaydi (faqat npm orqali o‘rnatilganlar).
 
-29. **Parametrlar:**
+**Options:**
 
 - 30. `--all`: Kuzatilayotgan barcha hooklar to‘plamlarini yangilaydi
 - 31. `--dry-run`: Yozmasdan turib nimalar o‘zgarishini ko‘rsatadi
@@ -239,18 +246,30 @@ openclaw hooks update --all
 35. **Yoqish:**
 
 ```bash
-36. openclaw hooks enable session-memory
+openclaw hooks enable session-memory
 ```
 
 37. **Chiqish:** `~/.openclaw/workspace/memory/YYYY-MM-DD-slug.md`
 
 38. **Qarang:** [session-memory hujjatlari](/automation/hooks#session-memory)
 
+### bootstrap-extra-files
+
+`agent:bootstrap` jarayonida qo‘shimcha bootstrap fayllarni (masalan, monorepo-local `AGENTS.md` / `TOOLS.md`) qo‘shadi.
+
+41. **Yoqish:**
+
+```bash
+openclaw hooks enable bootstrap-extra-files
+```
+
+**Qarang:** [bootstrap-extra-files documentation](/automation/hooks#bootstrap-extra-files)
+
 ### 39. command-logger
 
 40. Barcha buyruq hodisalarini markazlashtirilgan audit fayliga yozadi.
 
-41. **Yoqish:**
+**Yoqish:**
 
 ```bash
 42. openclaw hooks enable command-logger
@@ -273,18 +292,6 @@ grep '"action":"new"' ~/.openclaw/logs/commands.log | jq .
 
 46. **Qarang:** [command-logger hujjatlari](/automation/hooks#command-logger)
 
-### 47. soul-evil
-
-48. Tozalash oynasi vaqtida yoki tasodifiy ehtimol bilan kiritilgan `SOUL.md` mazmunini `SOUL_EVIL.md` bilan almashtiradi.
-
-49. **Yoqish:**
-
-```bash
-50. openclaw hooks enable soul-evil
-```
-
-1. **Qarang:** [SOUL Evil Hook](/hooks/soul-evil)
-
 ### 2. boot-md
 
 3. Shlyuz ishga tushganda (kanallar ishga tushgandan keyin) `BOOT.md` ni ishga tushiradi.
@@ -298,5 +305,3 @@ grep '"action":"new"' ~/.openclaw/logs/commands.log | jq .
 ```
 
 7. **Qarang:** [boot-md hujjatlari](/automation/hooks#boot-md)
-
-

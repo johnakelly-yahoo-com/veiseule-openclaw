@@ -1,4 +1,7 @@
 ---
+summary: "Status obsługi bota Microsoft Teams, możliwości i konfiguracja"
+read_when:
+  - Praca nad funkcjami kanału MS Teams
 title: "Microsoft Teams"
 ---
 
@@ -154,12 +157,12 @@ Przed konfiguracją OpenClaw musisz utworzyć zasób Azure Bot.
 
    | Pole               | Wartość                                                                                   |
    | ------------------ | ----------------------------------------------------------------------------------------- |
-   | **Nazwa użytkownika bota**     | Nazwa bota, np. `openclaw-msteams` (musi być unikalna) |
-   | **Subskrypcja**   | Wybierz subskrypcję Azure                                                                 |
-   | **Grupa zasobów** | Utwórz nową lub użyj istniejącej                                                          |
-   | **Warstwa cenowa**   | **Free** dla dev/testów                                                                   |
-   | **Typ aplikacji**    | **Single Tenant** (zalecane – zob. uwaga poniżej)      |
-   | **Typ tworzenia**  | **Utwórz nowy identyfikator aplikacji Microsoft**                                                           |
+   | **Bot handle**     | Nazwa bota, np. `openclaw-msteams` (musi być unikalna) |
+   | **Subscription**   | Wybierz subskrypcję Azure                                                                 |
+   | **Resource group** | Utwórz nową lub użyj istniejącej                                                          |
+   | **Pricing tier**   | **Free** dla dev/testów                                                                   |
+   | **Type of App**    | **Single Tenant** (zalecane – zob. uwaga poniżej)      |
+   | **Creation type**  | **Create new Microsoft App ID**                                                           |
 
 > **Uwaga o wycofaniu:** Tworzenie nowych botów wielodostępnych (multi-tenant) zostało wycofane po 2025-07-31. Dla nowych botów używaj **Single Tenant**.
 
@@ -243,7 +246,7 @@ Często jest to łatwiejsze niż ręczna edycja manifestów JSON.
    - Utwórz Azure Bot (patrz wyżej) i zanotuj:
      - App ID
      - Client secret (hasło aplikacji)
-     - Identyfikator dzierżawy (jedna dzierżawa)
+     - Tenant ID (single-tenant)
 
 3. **Manifest aplikacji Teams**
    - Dodaj wpis `bot` z `botId = <App ID>`.
@@ -420,6 +423,8 @@ Jeśli potrzebujesz obrazów/plików w **kanałach** lub chcesz pobierać **hist
 2. **Udziel zgody administratora** dla dzierżawy.
 3. Zwiększ **wersję manifestu** aplikacji Teams, prześlij ponownie i **zainstaluj aplikację ponownie w Teams**.
 4. **Całkowicie zamknij i uruchom ponownie Teams**, aby wyczyścić pamięć podręczną metadanych aplikacji.
+
+**Dodatkowe uprawnienie do wzmianek użytkowników:** Wzmianki @users działają domyślnie dla użytkowników w danej rozmowie. Jeśli jednak chcesz dynamicznie wyszukiwać i oznaczać użytkowników, którzy **nie są w bieżącej rozmowie**, dodaj uprawnienie `User.Read.All` (Application) i udziel zgody administratora.
 
 ## Znane ograniczenia
 
@@ -733,7 +738,7 @@ Boty mają ograniczone wsparcie w kanałach prywatnych:
 2. Używaj DM-ów – użytkownicy zawsze mogą pisać do bota bezpośrednio
 3. Używaj Graph API do dostępu historycznego (wymaga `ChannelMessage.Read.All`)
 
-## Rozwiązywanie problemów
+## Częste problemy
 
 ### Częste problemy
 
@@ -765,5 +770,3 @@ Boty mają ograniczone wsparcie w kanałach prywatnych:
 - [Referencja uprawnień RSC](https://learn.microsoft.com/en-us/microsoftteams/platform/graph-api/rsc/resource-specific-consent)
 - [Obsługa plików botów Teams](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/bots-filesv4) (kanały/grupy wymagają Graph)
 - [Wiadomości proaktywne](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/conversations/send-proactive-messages)
-
-

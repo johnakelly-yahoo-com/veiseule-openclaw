@@ -1,4 +1,7 @@
 ---
+summary: "Gateway डैशबोर्ड (Control UI) की पहुँच और प्रमाणीकरण"
+read_when:
+  - डैशबोर्ड प्रमाणीकरण या एक्सपोज़र मोड बदलते समय
 title: "डैशबोर्ड"
 ---
 
@@ -17,10 +20,10 @@ Gateway डैशबोर्ड ब्राउज़र-आधारित Con
 - Serve/Funnel ऑटोमेशन के लिए [Tailscale](/gateway/tailscale)।
 - बाइंड मोड और सुरक्षा नोट्स के लिए [Web surfaces](/web)।
 
-प्रमाणीकरण WebSocket हैंडशेक पर `connect.params.auth` के माध्यम से लागू किया जाता है
+Authentication is enforced at the WebSocket handshake via `connect.params.auth`
 (token or password). See `gateway.auth` in [Gateway configuration](/gateway/configuration).
 
-सुरक्षा नोट: Control UI एक **एडमिन सतह** है (चैट, कॉन्फ़िग, exec अनुमोदन)।
+Security note: the Control UI is an **admin surface** (chat, config, exec approvals).
 Do not expose it publicly. The UI stores the token in `localStorage` after first load.
 Prefer localhost, Tailscale Serve, or an SSH tunnel.
 
@@ -34,12 +37,10 @@ Prefer localhost, Tailscale Serve, or an SSH tunnel.
 
 - **Localhost**: `http://127.0.0.1:18789/` खोलें।
 - **टोकन स्रोत**: `gateway.auth.token` (या `OPENCLAW_GATEWAY_TOKEN`); कनेक्ट करने के बाद UI localStorage में एक प्रति संग्रहीत करता है।
-- **localhost नहीं**: Tailscale Serve का उपयोग करें (यदि `gateway.auth.allowTailscale: true` है तो बिना टोकन), टोकन के साथ tailnet bind, या एक SSH टनल। देखें [Web surfaces](/web)।
+- **Not localhost**: use Tailscale Serve (tokenless if `gateway.auth.allowTailscale: true`), tailnet bind with a token, or an SSH tunnel. See [Web surfaces](/web).
 
 ## यदि “unauthorized” / 1008 दिखे
 
 - सुनिश्चित करें कि gateway पहुँच योग्य है (स्थानीय: `openclaw status`; दूरस्थ: SSH टनल `ssh -N -L 18789:127.0.0.1:18789 user@host` फिर `http://127.0.0.1:18789/` खोलें)।
 - Gateway होस्ट से टोकन प्राप्त करें: `openclaw config get gateway.auth.token` (या एक नया बनाएँ: `openclaw doctor --generate-gateway-token`)।
 - डैशबोर्ड सेटिंग्स में, auth फ़ील्ड में टोकन पेस्ट करें, फिर कनेक्ट करें।
-
-

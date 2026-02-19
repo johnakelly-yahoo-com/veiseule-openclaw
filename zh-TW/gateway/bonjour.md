@@ -1,4 +1,8 @@
 ---
+summary: "Bonjour/mDNS 探索＋除錯（Gateway 信標、用戶端與常見失敗模式）"
+read_when:
+  - 在 macOS／iOS 上除錯 Bonjour 探索問題
+  - 變更 mDNS 服務類型、TXT 記錄或探索 UX
 title: "Bonjour 探索"
 ---
 
@@ -7,6 +11,7 @@ title: "Bonjour 探索"
 OpenClaw 使用 Bonjour（mDNS／DNS‑SD）作為**僅限 LAN 的便利方式**，用來探索
 一個啟用中的 Gateway（WebSocket 端點）。此機制屬於盡力而為，**不會**取代 SSH 或
 以 Tailnet 為基礎的連線能力。 It is best‑effort and does **not** replace SSH or
+Tailnet-based connectivity. It is best‑effort and does **not** replace SSH or
 Tailnet-based connectivity.
 
 ## 透過 Tailscale 的廣域 Bonjour（單播 DNS‑SD）
@@ -25,6 +30,7 @@ boundary. You can keep the same discovery UX by switching to **unicast DNS‑SD*
 
 OpenClaw 支援任何探索網域；`openclaw.internal.` 僅為範例。
 iOS／Android 節點會同時瀏覽 `local.` 與你設定的廣域網域。
+iOS/Android nodes browse both `local.` and your configured wide‑area domain.
 iOS/Android nodes browse both `local.` and your configured wide‑area domain.
 
 ### Gateway 設定（建議）
@@ -68,6 +74,7 @@ dig @<TAILNET_IPV4> -p 53 _openclaw-gw._tcp.openclaw.internal PTR +short
 
 Gateway 的 WS 連接埠（預設為 `18789`）預設只綁定在 loopback。若需 LAN／tailnet
 存取，請明確綁定並保持啟用驗證。 For LAN/tailnet
+access, bind explicitly and keep auth enabled. For LAN/tailnet
 access, bind explicitly and keep auth enabled.
 
 僅限 tailnet 的設定：
@@ -75,7 +82,7 @@ access, bind explicitly and keep auth enabled.
 - 在 `~/.openclaw/openclaw.json` 中設定 `gateway.bind: "tailnet"`。
 - 重新啟動 Gateway（或重新啟動 macOS 選單列應用程式）。
 
-## 哪些會宣告
+## What advertises
 
 只有 Gateway 會廣播 `_openclaw-gw._tcp`。
 
@@ -99,6 +106,13 @@ Gateway 會廣播小型、非機密的提示，以便利 UI 流程：
 - `cliPath=<path>`（選用；可執行的 `openclaw` 進入點之絕對路徑）
 - `tailnetDns=<magicdns>`（當 Tailnet 可用時的選用提示）
 
+安全性說明：
+
+- Bonjour/mDNS TXT 記錄是**未經驗證的**。 用戶端不得將 TXT 視為具權威性的路由資訊。
+- 用戶端應使用解析後的服務端點（SRV + A/AAAA）進行路由。 `lanHost`、`tailnetDns`、`gatewayPort` 與 `gatewayTlsSha256` 僅應視為提示資訊。
+- TLS pinning 絕不可允許已公告的 `gatewayTlsSha256` 覆蓋先前儲存的 pin。
+- iOS/Android 節點應將基於探索的直接連線視為**僅限 TLS**，並在信任首次出現的指紋前要求使用者明確確認。
+
 ## 在 macOS 上除錯
 
 實用的內建工具：
@@ -121,7 +135,7 @@ mDNS 解析器問題。
 ## 在 Gateway 記錄中除錯
 
 Gateway 會寫入輪替的記錄檔（在啟動時列印為
-`gateway log file: ...`）。請留意 `bonjour:` 行，特別是： Look for `bonjour:` lines, especially:
+`gateway log file: ...`）。請留意 `bonjour:` 行，特別是： Look for `bonjour:` lines, especially: Look for `bonjour:` lines, especially:
 
 - `bonjour: advertise failed ...`
 - `bonjour: ... name conflict resolved`／`hostname conflict resolved`
@@ -144,6 +158,8 @@ The log includes browser state transitions and result‑set changes.
 - **多播被封鎖**：某些 Wi‑Fi 網路會停用 mDNS。
 - **睡眠／介面變動**：macOS 可能暫時遺失 mDNS 結果；請重試。
 - **瀏覽可行但解析失敗**：請保持機器名稱簡單（避免表情符號或
+  標點符號），然後重新啟動 Gateway。服務實例名稱源自主機名稱，
+  過於複雜的名稱可能會讓某些解析器混淆。 **瀏覽可行但解析失敗**：請保持機器名稱簡單（避免表情符號或
   標點符號），然後重新啟動 Gateway。服務實例名稱源自主機名稱，
   過於複雜的名稱可能會讓某些解析器混淆。 The service instance name derives from
   the host name, so overly complex names can confuse some resolvers.
@@ -168,5 +184,3 @@ Bonjour／DNS‑SD 常會在服務實例名稱中，以十進位 `\DDD`
 
 - 探索政策與傳輸選擇：[Discovery](/gateway/discovery)
 - 節點配對與核准：[Gateway pairing](/gateway/pairing)
-
-

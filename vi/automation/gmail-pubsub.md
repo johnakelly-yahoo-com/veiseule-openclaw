@@ -1,4 +1,8 @@
 ---
+summary: "Gmail Pub/Sub push được nối vào webhook OpenClaw qua gogcli"
+read_when:
+  - Kết nối các trigger hộp thư Gmail với OpenClaw
+  - Thiết lập Pub/Sub push để đánh thức tác tử
 title: "Gmail PubSub"
 ---
 
@@ -248,5 +252,3 @@ gog gmail watch stop --account openclaw@gmail.com
 gcloud pubsub subscriptions delete gog-gmail-watch-push
 gcloud pubsub topics delete gog-gmail-watch
 ```
-
-

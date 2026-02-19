@@ -1,9 +1,14 @@
 ---
+summary: "Agentni ishga tushirish marosimi, u ishchi muhit va identifikatsiya fayllarini dastlabki ma’lumotlar bilan to‘ldiradi"
+read_when:
+  - Understanding what happens on the first agent run
+  - Explaining where bootstrapping files live
+  - Debugging onboarding identity setup
 title: "Agentni ishga tushirish"
 sidebarTitle: "1. Bootstraplash"
 ---
 
-# 2. Agentni bootstraplash
+# Agent Bootstrapping
 
 3. Bootstraplash — bu agent ish maydonini tayyorlaydigan va shaxsni aniqlash maʼlumotlarini yigʻadigan **birinchi ishga tushirish** marosimi. 4. Bu onboardingdan keyin, agent birinchi marta ishga tushirilganda sodir boʻladi.
 
@@ -29,5 +34,3 @@ Gateway boshqa mashinada ishlayotgan bo‘lsa, ish maydoni fayllarini gateway xo
 
 - 16. macOS ilovasini onboarding qilish: [Onboarding](/start/onboarding)
 - 17. Ish maydoni tuzilishi: [Agent workspace](/concepts/agent-workspace)
-
-

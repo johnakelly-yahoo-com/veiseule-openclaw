@@ -1,4 +1,7 @@
 ---
+summary: "Gateway üzerinden OpenAI uyumlu bir /v1/chat/completions HTTP uç noktası sunun"
+read_when:
+  - OpenAI Chat Completions bekleyen araçları entegre ederken
 title: "OpenAI Chat Completions"
 ---
 
@@ -23,6 +26,7 @@ Notlar:
 
 - `gateway.auth.mode="token"` olduğunda, `gateway.auth.token` (veya `OPENCLAW_GATEWAY_TOKEN`) kullanın.
 - `gateway.auth.mode="password"` olduğunda, `gateway.auth.password` (veya `OPENCLAW_GATEWAY_PASSWORD`) kullanın.
+- `gateway.auth.rateLimit` yapılandırılmışsa ve çok fazla kimlik doğrulama hatası oluşursa, uç nokta `Retry-After` ile birlikte `429` döndürür.
 
 ## Choosing an agent
 
@@ -113,5 +117,3 @@ curl -N http://127.0.0.1:18789/v1/chat/completions \
     "messages": [{"role":"user","content":"hi"}]
   }'
 ```
-
-

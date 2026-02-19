@@ -1,4 +1,7 @@
 ---
+summary: "Mga hakbang sa health check para sa connectivity ng channel"
+read_when:
+  - Pag-diagnose ng kalusugan ng WhatsApp channel
 title: "Mga Health Check"
 ---
 
@@ -18,7 +21,7 @@ Maikling gabay para i-verify ang connectivity ng channel nang hindi nanghuhula.
 ## Mas malalim na diagnostics
 
 - Mga kredensyal sa disk: `ls -l ~/.openclaw/credentials/whatsapp/<accountId>/creds.json` (dapat kamakailan ang mtime).
-- Imbakan ng session: `ls -l ~/.openclaw/agents/<agentId>/sessions/sessions.json` (maaaring i-override ang path sa config). Ang bilang at mga kamakailang tumanggap ay ipinapakita sa pamamagitan ng `status`.
+- Session store: `ls -l ~/.openclaw/agents/<agentId>/sessions/sessions.json` (path can be overridden in config). Count and recent recipients are surfaced via `status`.
 - Relink flow: `openclaw channels logout && openclaw channels login --verbose` kapag lumitaw ang mga status code 409–515 o `loggedOut` sa mga log. (Tandaan: ang QR login flow ay awtomatikong nagre-restart nang isang beses para sa status 515 pagkatapos ng pairing.)
 
 ## Kapag may pumalya
@@ -30,5 +33,3 @@ Maikling gabay para i-verify ang connectivity ng channel nang hindi nanghuhula.
 ## Dedikadong "health" command
 
 `openclaw health --json` ay humihingi sa tumatakbong Gateway ng health snapshot nito (walang direktang channel socket mula sa CLI). Ipinapakita nito ang edad ng naka-link na creds/auth kapag available, mga per-channel probe summary, buod ng session-store, at tagal ng probe. It exits non-zero if the Gateway is unreachable or the probe fails/timeouts. Gamitin ang `--timeout <ms>` upang i-override ang default na 10s.
-
-

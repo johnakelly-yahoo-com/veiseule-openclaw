@@ -1,4 +1,9 @@
 ---
+summary: "Устранение неполадок планирования и доставки cron и heartbeat"
+read_when:
+  - Cron не запустился
+  - Cron запустился, но сообщение не было доставлено
+  - Heartbeat кажется молчащим или пропущенным
 title: "Устранение неполадок автоматизации"
 ---
 
@@ -115,5 +120,3 @@ openclaw logs --follow
 - [/gateway/heartbeat](/gateway/heartbeat)
 - [/automation/cron-vs-heartbeat](/automation/cron-vs-heartbeat)
 - [/concepts/timezone](/concepts/timezone)
-
-

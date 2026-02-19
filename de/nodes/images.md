@@ -1,4 +1,7 @@
 ---
+summary: "„Regeln zur Bild- und Medienverarbeitung für Sendungen, Gateway- und Agent-Antworten“"
+read_when:
+  - Änderung der Medien-Pipeline oder von Anhängen
 title: "„Bild- und Medienunterstützung“"
 ---
 
@@ -67,5 +70,3 @@ Der WhatsApp-Kanal läuft über **Baileys Web**. Dieses Dokument beschreibt die 
 - Sende- und Antwortflüsse für Bild-/Audio-/Dokumentfälle abdecken.
 - Erneute Komprimierung für Bilder (Größenbegrenzung) und Sprachnotiz-Flag für Audio validieren.
 - Sicherstellen, dass Antworten mit mehreren Medien als sequenzielle Sendungen aufgefächert werden.
-
-

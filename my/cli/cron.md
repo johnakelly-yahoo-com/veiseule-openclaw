@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw cron` အတွက် CLI ကိုးကားချက် (နောက်ခံအလုပ်များကို အချိန်ဇယားချ၍ လည်ပတ်စေခြင်း)"
+read_when:
+  - အချိန်ဇယားထားသော အလုပ်များနှင့် wakeup များကို လိုအပ်သည့်အခါ
+  - cron လည်ပတ်မှုနှင့် လော့ဂ်များကို စစ်ဆေးနေစဉ်
 title: "cron"
 ---
 
@@ -37,5 +41,3 @@ openclaw cron edit <job-id> --no-deliver
 ```bash
 openclaw cron edit <job-id> --announce --channel slack --to "channel:C1234567890"
 ```
-
-

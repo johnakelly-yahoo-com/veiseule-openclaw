@@ -1,21 +1,26 @@
 ---
+summary: "`~/.openclaw/openclaw.json` uchun barcha konfiguratsiya opsiyalari misollar bilan"
+read_when:
+  - Konfiguratsiya maydonlarini qo‘shish yoki o‘zgartirish
+  - Keng tarqalgan konfiguratsiya andozalarini qidiryapsizmi
+  - Muayyan konfiguratsiya bo‘limlariga o‘tish
 title: "Konfiguratsiya"
 ---
 
-# Konfiguratsiya
+# Konfiguratsiya 🔧
 
-OpenClaw ixtiyoriy <Tooltip tip="JSON5 izohlar va oxirgi vergullarni qo‘llab-quvvatlaydi">**JSON5**</Tooltip> konfiguratsiyasini `~/.openclaw/openclaw.json` faylidan o‘qiydi.
+OpenClaw `~/.openclaw/openclaw.json` faylidan ixtiyoriy **JSON5** konfiguratsiyani o‘qiydi (izohlar va oxirgi vergullar ruxsat etiladi).
 
-Agar fayl mavjud bo‘lmasa, OpenClaw xavfsiz standart sozlamalardan foydalanadi. Konfiguratsiya qo‘shishning odatiy sabablari:
+Agar fayl mavjud bo‘lmasa, OpenClaw xavfsiz sukut bo‘yicha sozlamalardan foydalanadi. Konfiguratsiya qo‘shish uchun keng tarqalgan sabablar:
 
-- Kanallarni ulash va botga kim xabar yubora olishini boshqarish
-- Modellar, vositalar, sandbox yoki avtomatlashtirishni (cron, hooks) sozlash
-- Sessiyalar, media, tarmoq yoki UI sozlamalarini moslashtirish
+- botni kim ishga tushira olishini cheklash (`channels.whatsapp.allowFrom`, `channels.telegram.allowFrom`, va hokazo)
+- guruhlar uchun ruxsat ro‘yxatlari va eslatish xatti-harakatini boshqarish (`channels.whatsapp.groups`, `channels.telegram.groups`, `channels.discord.guilds`, `agents.list[].groupChat`)
+- xabar prefikslarini moslashtirish (`messages`)
 
-Barcha mavjud maydonlar uchun [to‘liq ma’lumotnoma](/gateway/configuration-reference) ga qarang.
+Mavjud barcha maydonlar uchun [to‘liq ma’lumotnoma](/gateway/configuration-reference)ni ko‘ring.
 
 <Tip>
-**Konfiguratsiyaga yangimisiz?** Interaktiv sozlash uchun `openclaw onboard` ni ishga tushiring yoki to‘liq nusxa‑ko‘chirishga tayyor konfiguratsiyalar uchun [Configuration Examples](/gateway/configuration-examples) qo‘llanmasini ko‘ring.
+**Konfiguratsiyaga yangimisiz?** Interaktiv sozlash uchun `openclaw onboard` buyrug‘idan boshlang yoki to‘liq ko‘chirib‑qo‘yishga tayyor konfiguratsiyalar uchun [Configuration Examples](/gateway/configuration-examples) qo‘llanmasini ko‘ring.
 </Tip>
 
 ## Minimal konfiguratsiya
@@ -31,14 +36,14 @@ Barcha mavjud maydonlar uchun [to‘liq ma’lumotnoma](/gateway/configuration-r
 ## Konfiguratsiyani tahrirlash
 
 <Tabs>
-  <Tab title="Interaktiv ustoz (wizard)">
+  <Tab title="Interactive wizard">
     ```bash
-    openclaw onboard       # to‘liq sozlash ustasi
-    openclaw configure     # konfiguratsiya ustasi
+    openclaw onboard       # full setup wizard
+    openclaw configure     # config wizard
     ```
   
 </Tab>
-  <Tab title="CLI (bir qatorli buyruqlar)">
+  <Tab title="CLI (one-liners)">
     ```bash
     openclaw config get agents.defaults.workspace
     openclaw config set agents.defaults.heartbeat.every "2h"
@@ -47,35 +52,36 @@ Barcha mavjud maydonlar uchun [to‘liq ma’lumotnoma](/gateway/configuration-r
   
 </Tab>
   <Tab title="Control UI">
-    [http://127.0.0.1:18789](http://127.0.0.1:18789) manzilini oching va **Config** yorlig‘idan foydalaning.  
-    Control UI konfiguratsiya sxemasi asosida forma chizadi va zarurat bo‘lsa **Raw JSON** muharririni taqdim etadi.
+    [http://127.0.0.1:18789](http://127.0.0.1:18789) manzilini oching va **Config** yorlig‘idan foydalaning.
+    Control UI konfiguratsiya sxemasidan forma yaratadi va zarurat uchun **Raw JSON** muharririni ham taqdim etadi.
   
 </Tab>
-  <Tab title="To‘g‘ridan-to‘g‘ri tahrirlash">
-    `~/.openclaw/openclaw.json` faylini bevosita tahrirlang. Gateway faylni kuzatadi va o‘zgarishlarni avtomatik qo‘llaydi (qarang: [hot reload](#config-hot-reload)).
+  <Tab title="Direct edit">
+    `~/.openclaw/openclaw.json` faylini to‘g‘ridan-to‘g‘ri tahrirlang. Gateway faylni kuzatadi va o‘zgarishlarni avtomatik qo‘llaydi (qarang: [hot reload](#config-hot-reload)).
   
 </Tab>
 </Tabs>
 
-## Qat’iy tekshiruv (Strict validation)
+## Sxema + UI ko‘rsatmalari
 
 <Warning>
-OpenClaw faqat sxemaga to‘liq mos keladigan konfiguratsiyalarni qabul qiladi. Noma’lum kalitlar, noto‘g‘ri turlar yoki yaroqsiz qiymatlar bo‘lsa, Gateway **ishga tushmaydi**. Ildiz darajadagi yagona istisno — `$schema` (string), JSON Schema metama’lumotlari uchun.
+Har bir agent uchun identifikatsiyani o‘rnating (`agents.list[].identity`). Noma’lum kalitlar, noto‘g‘ri turdagi qiymatlar yoki yaroqsiz qiymatlar sababli Gateway **ishga tushishni rad etadi**. Ildiz darajadagi yagona istisno — `$schema` (string), shunda muharrirlar JSON Schema metama’lumotlarini biriktira oladi.
 </Warning>
 
-Tekshiruv muvaffaqiyatsiz bo‘lsa:
+Kanal plaginlari va kengaytmalari o‘z konfiguratsiyasi uchun sxema va UI ko‘rsatmalarini ro‘yxatdan o‘tkazishi mumkin, shunda kanal sozlamalari ilovalar bo‘ylab qattiq kodlangan formalarsiz sxema asosida qoladi.
 
 - Gateway ishga tushmaydi
 - Faqat diagnostika buyruqlari ishlaydi (`openclaw doctor`, `openclaw logs`, `openclaw health`, `openclaw status`)
-- Muammolarni ko‘rish uchun `openclaw doctor` ni ishga tushiring
+- Aniq muammolarni ko‘rish uchun `openclaw doctor` ni ishga tushiring
 - Tuzatishlarni qo‘llash uchun `openclaw doctor --fix` (yoki `--yes`) ni ishga tushiring
 
-## Tez-tez bajariladigan vazifalar
+## Qo‘llash + qayta ishga tushirish (RPC)
 
 <AccordionGroup>
-  <Accordion title="Kanal sozlash (WhatsApp, Telegram, Discord va boshqalar)">
-    Har bir kanal o‘z konfiguratsiya bo‘limiga ega: `channels.<provider>`. Sozlash bosqichlari uchun mos sahifani ko‘ring:
+  <Accordion title="Set up a channel (WhatsApp, Telegram, Discord, etc.)">
+    Har bir kanalning o‘z konfiguratsiya bo‘limi `channels.` ostida mavjud.<provider>`commands.bashForegroundMs` bash fon rejimiga o‘tishdan oldin qancha kutishini boshqaradi. Sozlash bosqichlari uchun tegishli kanal sahifasini ko‘ring:
 
+    ````
     - [WhatsApp](/channels/whatsapp) — `channels.whatsapp`
     - [Telegram](/channels/telegram) — `channels.telegram`
     - [Discord](/channels/discord) — `channels.discord`
@@ -85,9 +91,9 @@ Tekshiruv muvaffaqiyatsiz bo‘lsa:
     - [Google Chat](/channels/googlechat) — `channels.googlechat`
     - [Mattermost](/channels/mattermost) — `channels.mattermost`
     - [MS Teams](/channels/msteams) — `channels.msteams`
-
-    Barcha kanallar bir xil DM siyosat naqshini qo‘llaydi:
-
+    
+    Barcha kanallar bir xil DM siyosati andozasidan foydalanadi:
+    
     ```json5
     {
       channels: {
@@ -95,18 +101,20 @@ Tekshiruv muvaffaqiyatsiz bo‘lsa:
           enabled: true,
           botToken: "123:abc",
           dmPolicy: "pairing",   // pairing | allowlist | open | disabled
-          allowFrom: ["tg:123"], // only for allowlist/open
+          allowFrom: ["tg:123"], // faqat allowlist/open uchun
         },
       },
     }
     ```
+    ````
 
   
 </Accordion>
 
-  <Accordion title="Modelni tanlash va sozlash">
-    Asosiy model va ixtiyoriy zaxira variantlarni belgilang:
+  <Accordion title="Choose and configure models">
+    Asosiy modelni va ixtiyoriy zaxira variantlarini sozlang:
 
+    ````
     ```json5
     {
       agents: {
@@ -123,43 +131,208 @@ Tekshiruv muvaffaqiyatsiz bo‘lsa:
       },
     }
     ```
-
+    
     - `agents.defaults.models` model katalogini belgilaydi va `/model` uchun allowlist vazifasini bajaradi.
-    - Model havolalari `provider/model` formatida bo‘ladi (masalan, `anthropic/claude-opus-4-6`).
-    - Chatda modelni almashtirish uchun [Models CLI](/concepts/models), zaxira xatti-harakati uchun [Model Failover](/concepts/model-failover) sahifalariga qarang.
-    - Maxsus/self-hosted provayderlar uchun [Custom providers](/gateway/configuration-reference#custom-providers-and-base-urls) ga qarang.
+    - Model havolalari `provider/model` formatidan foydalanadi (masalan, `anthropic/claude-opus-4-6`).
+    - Chatda modelni almashtirish uchun [Models CLI](/concepts/models) va autentifikatsiya rotatsiyasi hamda fallback xatti-harakati uchun [Model Failover](/concepts/model-failover) sahifalarini ko‘ring.
+    - Maxsus/self-hosted provayderlar uchun ma’lumotnomadagi [Custom providers](/gateway/configuration-reference#custom-providers-and-base-urls) bo‘limiga qarang.
+    ````
 
   
 </Accordion>
 
-  <Accordion title="Botga kim xabar yubora olishini boshqarish">
-    DM kirishi kanal bo‘yicha `dmPolicy` orqali boshqariladi:
+  <Accordion title="Control who can message the bot">
+    DM kirishi har bir kanal uchun `dmPolicy` orqali boshqariladi:
 
-    - `"pairing"` (standart): noma’lum yuboruvchilarga bir martalik juftlash kodi yuboriladi
-    - `"allowlist"`: faqat `allowFrom` dagilar (yoki juftlanganlar)
-    - `"open"`: barcha kiruvchi DMlarga ruxsat (talab qiladi `allowFrom: ["*"]`)
+    ```
+    - `"pairing"` (sukut bo‘yicha): noma’lum jo‘natuvchilarga tasdiqlash uchun bir martalik pairing kodi beriladi
+    - `"allowlist"`: faqat `allowFrom` dagi (yoki pairing orqali qo‘shilgan) jo‘natuvchilar
+    - `"open"`: barcha kiruvchi DMlarga ruxsat (buning uchun `allowFrom: ["*"]` talab qilinadi)
     - `"disabled"`: barcha DMlar e’tiborsiz qoldiriladi
-
+    
     Guruhlar uchun `groupPolicy` + `groupAllowFrom` yoki kanalga xos allowlistlardan foydalaning.
+    
+    Har bir kanal bo‘yicha tafsilotlar uchun [to‘liq ma’lumotnoma](/gateway/configuration-reference#dm-and-group-access)ni ko‘ring.
+    ```
 
-    Batafsil ma’lumot uchun [to‘liq ma’lumotnoma](/gateway/configuration-reference#dm-and-group-access) ga qarang.
+  
+</Accordion>
+
+  <Accordion title="Set up group chat mention gating">
+    Guruh xabarlari sukut bo‘yicha **mention talab qiladi**. Har bir agent uchun andozalarni sozlang:
+
+    ````
+    ```json5
+    {
+      agents: {
+        list: [
+          {
+            id: "main",
+            groupChat: {
+              mentionPatterns: ["@openclaw", "openclaw"],
+            },
+          },
+        ],
+      },
+      channels: {
+        whatsapp: {
+          groups: { "*": { requireMention: true } },
+        },
+      },
+    }
+    ```
+    
+    - **Metadata mentionlar**: platformaning o‘ziga xos @-mentionlari (WhatsApp tap-to-mention, Telegram @bot va boshqalar)
+    - **Matn andozalari**: `mentionPatterns` ichidagi regex andozalar
+    - Har bir kanal bo‘yicha override’lar va self-chat rejimi uchun [to‘liq ma’lumotnoma](/gateway/configuration-reference#group-chat-mention-gating)ni ko‘ring.
+    ````
+
+  
+</Accordion>
+
+  <Accordion title="Configure sessions and resets">
+    Sessiyalar suhbat uzluksizligi va izolyatsiyasini boshqaradi:
+
+    ````
+    ```json5
+    {
+      session: {
+        dmScope: "per-channel-peer",  // ko‘p foydalanuvchi uchun tavsiya etiladi
+        reset: {
+          mode: "daily",
+          atHour: 4,
+          idleMinutes: 120,
+        },
+      },
+    }
+    ```
+    
+    - `dmScope`: `main` (umumiy) | `per-peer` | `per-channel-peer` | `per-account-channel-peer`
+    - Qamrov, identifikatsiya bog‘lanishlari va yuborish siyosati uchun [Session Management](/concepts/session)ni ko‘ring.
+    - Barcha maydonlar uchun [to‘liq ma’lumotnoma](/gateway/configuration-reference#session)ni ko‘ring.
+    ````
+
+  
+</Accordion>
+
+  <Accordion title="Enable sandboxing">
+    Agent sessiyalarini izolyatsiyalangan Docker konteynerlarida ishga tushiring:
+
+    ```
+    scripts/sandbox-setup.sh
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Set up heartbeat (periodic check-ins)">
+    ```json5
+    {
+      agents: {
+        defaults: {
+          heartbeat: {
+            every: "30m",
+            target: "last",
+          },
+        },
+      },
+    }
+    ```
+  
+
+    ```
+    {
+      agents: {
+        defaults: { workspace: "~/.openclaw/workspace" },
+        list: [
+          {
+            id: "main",
+            groupChat: { mentionPatterns: ["@openclaw", "reisponde"] },
+          },
+        ],
+      },
+      channels: {
+        whatsapp: {
+          // Allowlist is DMs only; including your own number enables self-chat mode.
+          allowFrom: ["+15555550123"],
+          groups: { "*": { requireMention: true } },
+        },
+      },
+    }
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Configure cron jobs">```json5
+{
+  cron: {
+    enabled: true,
+    maxConcurrentRuns: 2,
+    sessionRetention: "24h",
+  },
+}
+```
+
+    ```
+    See [Cron jobs](/automation/cron-jobs) for the feature overview and CLI examples.
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Set up webhooks (hooks)">Gateway’da HTTP webhook endpoint’larini yoqing:
+
+    ```
+    // ~/.openclaw/agents.json5
+    {
+      defaults: { sandbox: { mode: "all", scope: "session" } },
+      list: [{ id: "main", workspace: "~/.openclaw/workspace" }],
+    }
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Configure multi-agent routing">Alohida ish maydonlari va sessiyalarga ega bir nechta izolyatsiyalangan agentlarni ishga tushiring:
+
+    ```
+    // Sibling keys override included values
+    {
+      $include: "./base.json5", // { a: 1, b: 2 }
+      b: 99, // Result: { a: 1, b: 99 }
+    }
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Split config into multiple files ($include)">Katta konfiguratsiyalarni tartibga solish uchun `$include` dan foydalaning:
+
+    ```
+    // clients/mueller.json5
+    {
+      agents: { $include: "./mueller/agents.json5" },
+      broadcast: { $include: "./mueller/broadcast.json5" },
+    }
+    ```
 
   
 </Accordion>
 </AccordionGroup>
 
-## Config hot reload
+## Konfiguratsiyani hot reload qilish
 
-Gateway `~/.openclaw/openclaw.json` faylini kuzatadi va o‘zgarishlarni avtomatik qo‘llaydi — ko‘p sozlamalar uchun qo‘lda qayta ishga tushirish talab qilinmaydi.
+Gateway `~/.openclaw/openclaw.json` faylini kuzatadi va o‘zgarishlarni avtomatik qo‘llaydi — ko‘pchilik sozlamalar uchun qo‘lda qayta ishga tushirish talab etilmaydi.
 
-### Qayta yuklash rejimlari
+### Error handling
 
-| Rejim                  | Xatti-harakat                                                                          |
-| ---------------------- | --------------------------------------------------------------------------------------- |
-| **`hybrid`** (standart) | Xavfsiz o‘zgarishlarni darhol qo‘llaydi. Muhimlari uchun avtomatik qayta ishga tushadi. |
-| **`hot`**              | Faqat hot‑xavfsiz o‘zgarishlarni qo‘llaydi. Qayta ishga tushirish kerak bo‘lsa ogohlantiradi. |
-| **`restart`**          | Har qanday konfiguratsiya o‘zgarishida Gateway’ni qayta ishga tushiradi.               |
-| **`off`**              | Fayl kuzatuvini o‘chiradi. O‘zgarishlar keyingi qo‘lda restartda kuchga kiradi.       |
+| Rejim                                      | Xulq-atvor                                                                                                                                                                   |
+| ------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`hybrid`** (standart) | Xavfsiz o‘zgarishlarni darhol hot qo‘llaydi. Muhim o‘zgarishlar uchun avtomatik ravishda qayta ishga tushiradi.                              |
+| **`hot`**                                  | Faqat xavfsiz o‘zgarishlarni hot qo‘llaydi. Qayta ishga tushirish kerak bo‘lganda ogohlantirish yozuvini chiqaradi — uni o‘zingiz bajarasiz. |
+| **`restart`**                              | Har qanday konfiguratsiya o‘zgarishida, xavfsiz yoki yo‘qligidan qat’i nazar, Gateway’ni qayta ishga tushiradi.                                              |
+| **`off`**                                  | Fayl kuzatuvini o‘chiradi. O‘zgarishlar keyingi qo‘lda qayta ishga tushirishda kuchga kiradi.                                                |
 
 ```json5
 {
@@ -169,14 +342,94 @@ Gateway `~/.openclaw/openclaw.json` faylini kuzatadi va o‘zgarishlarni avtomat
 }
 ```
 
-## Environment variables
+### Qaysi o‘zgarishlar hot qo‘llanadi va qaysilari qayta ishga tushirishni talab qiladi
 
-OpenClaw muhit o‘zgaruvchilarini ota‑jarayondan hamda quyidagilardan o‘qiydi:
+Ko‘pchilik maydonlar uzilishsiz hot qo‘llanadi. `hybrid` rejimida qayta ishga tushirish talab qiladigan o‘zgarishlar avtomatik tarzda bajariladi.
 
-- Joriy katalogdagi `.env` (mavjud bo‘lsa)
-- `~/.openclaw/.env` (global fallback)
+| Kategoriya             | Maydonlar                                                                              | Qayta ishga tushirish kerakmi? |
+| ---------------------- | -------------------------------------------------------------------------------------- | ------------------------------ |
+| Kanallar               | `channels.*`, `web` (WhatsApp) — barcha ichki va kengaytma kanallar | Yo‘q                           |
+| Agent va modellar      | `agent`, `agents`, `models`, `routing`                                                 | Yo‘q                           |
+| Avtomatlashtirish      | `hooks`, `cron`, `agent.heartbeat`                                                     | Yo‘q                           |
+| Sessiyalar va xabarlar | `session`, `messages`                                                                  | Yo‘q                           |
+| Asboblar va media      | `tools`, `browser`, `skills`, `audio`, `talk`                                          | Yo‘q                           |
+| UI va boshqalar        | `ui`, `logging`, `identity`, `bindings`                                                | Yo‘q                           |
+| Gateway serveri        | `gateway.*` (port, bind, auth, tailscale, TLS, HTTP)                | **Ha**                         |
+| Infratuzilma           | `discovery`, `canvasHost`, `plugins`                                                   | **Ha**                         |
 
-Hech biri mavjud env o‘zgaruvchilarini ustiga yozmaydi. Konfiguratsiyada ham inline env berishingiz mumkin:
+<Note>
+`gateway.reload` va `gateway.remote` istisno hisoblanadi — ularni o‘zgartirish qayta ishga tushirishni **ishga tushirmaydi**.
+</Note>
+
+## Env vars + `.env`
+
+<AccordionGroup>
+  <Accordion title="config.apply (full replace)">
+    To‘liq konfiguratsiyani tekshiradi + yozadi va Gateway’ni bir bosqichda qayta ishga tushiradi.
+
+
+    ````
+    <Warning>
+    `config.apply` **butun konfiguratsiyani** almashtiradi. Qisman yangilash uchun `config.patch` dan yoki alohida kalitlar uchun `openclaw config set` dan foydalaning.
+    
+</Warning>
+    
+    Params:
+    
+    - `raw` (string) — butun konfiguratsiya uchun JSON5 yuklama
+    - `baseHash` (ixtiyoriy) — `config.get` dan olingan konfiguratsiya xeshi (konfiguratsiya mavjud bo‘lsa majburiy)
+    - `sessionKey` (ixtiyoriy) — qayta ishga tushirilgandan keyingi uyg‘otish pingi uchun sessiya kaliti
+    - `note` (ixtiyoriy) — qayta ishga tushirish belgisi uchun izoh
+    - `restartDelayMs` (ixtiyoriy) — qayta ishga tushirishdan oldingi kechikish (standart 2000)
+    
+    ```bash
+    openclaw gateway call config.get --params '{}'  # payload.hash ni oling
+    openclaw gateway call config.apply --params '{
+      "raw": "{ agents: { defaults: { workspace: \"~/.openclaw/workspace\" } } }",
+      "baseHash": "<hash>",
+      "sessionKey": "agent:main:whatsapp:dm:+15555550123"
+    }'
+    ```
+    ````
+
+  
+</Accordion>
+
+  <Accordion title="config.patch (partial update)">
+    Qisman yangilanishni mavjud konfiguratsiyaga birlashtiradi (JSON merge patch semantikasi):
+
+
+    ````
+    - Obyektlar rekursiv tarzda birlashtiriladi
+    - `null` kalitni o‘chiradi
+    - Massivlar to‘liq almashtiriladi
+    
+    Params:
+    
+    - `raw` (string) — faqat o‘zgartiriladigan kalitlar bilan JSON5
+    - `baseHash` (majburiy) — `config.get` dan olingan konfiguratsiya xeshi
+    - `sessionKey`, `note`, `restartDelayMs` — `config.apply` bilan bir xil
+    
+    ```bash
+    openclaw gateway call config.patch --params '{
+      "raw": "{ channels: { telegram: { groups: { \"*\": { requireMention: false } } } } }",
+      "baseHash": "<hash>"
+    }'
+    ```
+    ````
+
+  
+</Accordion>
+</AccordionGroup>
+
+## Muhit o‘zgaruvchilari
+
+OpenClaw muhit o‘zgaruvchilarini ota-jarayondan, shuningdek quyidagilardan o‘qiydi:
+
+- `.env` from the current working directory (if present)
+- `~/.openclaw/.env` (global zaxira)
+
+Hech biri mavjud muhit o‘zgaruvchilarini ustiga yozmaydi. Shuningdek, konfiguratsiyada inline muhit o‘zgaruvchilarini ham sozlashingiz mumkin:
 
 ```json5
 {
@@ -187,8 +440,9 @@ Hech biri mavjud env o‘zgaruvchilarini ustiga yozmaydi. Konfiguratsiyada ham i
 }
 ```
 
-<Accordion title="Shell env import (ixtiyoriy)">
-  Agar yoqilgan bo‘lsa va kerakli kalitlar hali o‘rnatilmagan bo‘lsa, OpenClaw login shell’ni ishga tushirib, faqat yetishmayotgan kalitlarni import qiladi:
+<Accordion title="Shell env import (optional)">
+  Agar yoqilgan bo‘lsa va kutilgan kalitlar o‘rnatilmagan bo‘lsa, OpenClaw login shell’ingizni ishga tushiradi va faqat yetishmayotgan kalitlarni import qiladi:
+
 
 ```json5
 {
@@ -198,11 +452,12 @@ Hech biri mavjud env o‘zgaruvchilarini ustiga yozmaydi. Konfiguratsiyada ham i
 }
 ```
 
-Env ekvivalenti: `OPENCLAW_LOAD_SHELL_ENV=1`
+Muhit o‘zgaruvchisi ekvivalenti: `OPENCLAW_LOAD_SHELL_ENV=1` 
 </Accordion>
 
-<Accordion title="Konfiguratsiyada env o‘zgaruvchilarni ishlatish">
-  Istalgan string qiymatda `${VAR_NAME}` sintaksisidan foydalaning:
+<Accordion title="Env var substitution in config values">
+  Istalgan konfiguratsiya satr qiymatida muhit o‘zgaruvchilariga `${VAR_NAME}` orqali murojaat qiling:
+
 
 ```json5
 {
@@ -213,19 +468,20 @@ Env ekvivalenti: `OPENCLAW_LOAD_SHELL_ENV=1`
 
 Qoidalar:
 
-- Faqat katta harfli nomlar mos keladi: `[A-Z_][A-Z0-9_]*`
-- Yo‘q yoki bo‘sh qiymatlar yuklash vaqtida xatolik beradi
-- Literal chiqarish uchun `$${VAR}` dan foydalaning
-- `$include` fayllar ichida ham ishlaydi
-- Inline birlashtirish: `"${BASE}/v1"` → `"https://api.example.com/v1"`
+- Faqat katta harflardagi nomlar mos keladi: `[A-Z_][A-Z0-9_]*`
+- Mavjud bo‘lmagan/bo‘sh o‘zgaruvchilar yuklash vaqtida xatolik chiqaradi
+- Literal chiqish uchun `$${VAR}` dan foydalaning
+- `$include` fayllari ichida ham ishlaydi
+- Inline almashtirish: `"${BASE}/v1"` → `"https://api.example.com/v1"`
 
 </Accordion>
 
+To‘liq ustuvorlik va manbalar uchun [Environment](/help/environment) ga qarang.
+
 ## To‘liq ma’lumotnoma
 
-Barcha maydonlar bo‘yicha batafsil hujjat uchun **[Configuration Reference](/gateway/configuration-reference)** sahifasiga qarang.
+To‘liq maydonma-maydon ma’lumot uchun **[Configuration Reference](/gateway/configuration-reference)** ga qarang.
 
 ---
 
-_Bog‘liq: [Configuration Examples](/gateway/configuration-examples) · [Configuration Reference](/gateway/configuration-reference) · [Doctor](/gateway/doctor)_
-
+Legacy OAuth imports:

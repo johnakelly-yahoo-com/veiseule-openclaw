@@ -1,4 +1,9 @@
 ---
+summary: "Ansible، Tailscale VPN، اور فائر وال آئسولیشن کے ساتھ خودکار، مضبوط OpenClaw انسٹالیشن"
+read_when:
+  - آپ سکیورٹی مضبوطی کے ساتھ خودکار سرور ڈپلائمنٹ چاہتے ہیں
+  - آپ کو VPN رسائی کے ساتھ فائر وال سے الگ سیٹ اپ درکار ہے
+  - آپ ریموٹ Debian/Ubuntu سرورز پر ڈپلائے کر رہے ہیں
 title: "Ansible"
 ---
 
@@ -16,7 +21,7 @@ curl -fsSL https://raw.githubusercontent.com/openclaw/openclaw-ansible/main/inst
 
 > **📦 مکمل رہنما: [github.com/openclaw/openclaw-ansible](https://github.com/openclaw/openclaw-ansible)**
 >
-> > openclaw-ansible repo اینسبل ڈپلائمنٹ کے لیے بنیادی ماخذ ہے۔ یہ صفحہ ایک مختصر جائزہ پیش کرتا ہے۔
+> The openclaw-ansible repo is the source of truth for Ansible deployment. This page is a quick overview.
 
 ## آپ کو کیا ملتا ہے
 
@@ -45,7 +50,7 @@ Ansible پلے بک درج ذیل کو انسٹال اور کنفیگر کرتی
 5. **OpenClaw** (ہوسٹ پر مبنی، کنٹینرائزڈ نہیں)
 6. **Systemd سروس** (سکیورٹی سختی کے ساتھ خودکار آغاز)
 
-نوٹ: گیٹ وے **براہِ راست ہوسٹ پر** چلتا ہے (Docker میں نہیں)، لیکن ایجنٹ سینڈ باکس علیحدگی کے لیے Docker استعمال کرتے ہیں۔ مزید تفصیلات کے لیے [Sandboxing](/gateway/sandboxing) دیکھیں۔
+Note: The gateway runs **directly on the host** (not in Docker), but agent sandboxes use Docker for isolation. See [Sandboxing](/gateway/sandboxing) for details.
 
 ## انسٹالیشن کے بعد سیٹ اپ
 
@@ -96,7 +101,7 @@ openclaw channels login
 nmap -p- YOUR_SERVER_IP
 ```
 
-صرف **پورٹ 22** (SSH) کھلی نظر آنی چاہیے۔ دیگر تمام سروسز (gateway، Docker) محفوظ اور محدود ہیں۔
+Should show **only port 22** (SSH) open. All other services (gateway, Docker) are locked down.
 
 ### Docker دستیابی
 
@@ -191,9 +196,9 @@ openclaw channels login
 
 تفصیلی سکیورٹی معماری اور خرابیوں کے ازالے کے لیے:
 
-- [سیکیورٹی آرکیٹیکچر](https://github.com/openclaw/openclaw-ansible/blob/main/docs/security.md)
-- [تکنیکی تفصیلات](https://github.com/openclaw/openclaw-ansible/blob/main/docs/architecture.md)
-- [خرابیوں کا ازالہ گائیڈ](https://github.com/openclaw/openclaw-ansible/blob/main/docs/troubleshooting.md)
+- [Security Architecture](https://github.com/openclaw/openclaw-ansible/blob/main/docs/security.md)
+- [Technical Details](https://github.com/openclaw/openclaw-ansible/blob/main/docs/architecture.md)
+- [Troubleshooting Guide](https://github.com/openclaw/openclaw-ansible/blob/main/docs/troubleshooting.md)
 
 ## متعلقہ
 
@@ -201,5 +206,3 @@ openclaw channels login
 - [Docker](/install/docker) — کنٹینرائزڈ Gateway سیٹ اپ
 - [Sandboxing](/gateway/sandboxing) — ایجنٹ sandbox کنفیگریشن
 - [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) — ہر ایجنٹ کے لیے آئسولیشن
-
-

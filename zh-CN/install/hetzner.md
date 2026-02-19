@@ -1,12 +1,11 @@
 ---
-title: Hetzner
-x-i18n:
-  generated_at: "2026-02-03T07:52:17Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 84d9f24f1a803aa15faa52a05f25fe557ec3e2c2f48a00c701d49764bd3bc21a
-  source_path: platforms/hetzner.md
-  workflow: 15
+summary: "在廉价的 Hetzner VPS（Docker）上 24/7 运行 OpenClaw Gateway 网关，带持久状态和内置二进制文件"
+read_when:
+  - 你想让 OpenClaw 在云 VPS 上 24/7 运行（而不是你的笔记本电脑）
+  - 你想在自己的 VPS 上运行生产级、永久在线的 Gateway 网关
+  - 你想完全控制持久化、二进制文件和重启行为
+  - 你在 Hetzner 或类似提供商上用 Docker 运行 OpenClaw
+title: "Hetzner"
 ---
 
 # 在 Hetzner 上运行 OpenClaw（Docker，生产 VPS 指南）
@@ -15,8 +14,9 @@ x-i18n:
 
 使用 Docker 在 Hetzner VPS 上运行持久的 OpenClaw Gateway 网关，带持久状态、内置二进制文件和安全的重启行为。
 
-如果你想要"约 $5 实现 OpenClaw 24/7"，这是最简单可靠的设置。
-Hetzner 定价会变化；选择最小的 Debian/Ubuntu VPS，如果遇到 OOM 再扩容。
+17. 如果你想要“约 $5 的 24/7 OpenClaw”，这是最简单且可靠的设置。
+    如果你想要"约 $5 实现 OpenClaw 24/7"，这是最简单可靠的设置。
+    Hetzner 定价会变化；选择最小的 Debian/Ubuntu VPS，如果遇到 OOM 再扩容。
 
 ## 我们在做什么（简单说明）？
 
@@ -31,9 +31,9 @@ Gateway 网关可以通过以下方式访问：
 - 从你的笔记本电脑进行 SSH 端口转发
 - 如果你自己管理防火墙和令牌，可以直接暴露端口
 
-本指南假设在 Hetzner 上使用 Ubuntu 或 Debian。
-如果你使用其他 Linux VPS，请相应地映射软件包。
-通用 Docker 流程请参见 [Docker](/install/docker)。
+28. 本指南假设你在 Hetzner 上使用 Ubuntu 或 Debian。
+29. 如果你使用其他 Linux VPS，请相应映射软件包。
+30. 通用 Docker 流程请参见 [Docker](/install/docker)。
 
 ---
 
@@ -65,7 +65,7 @@ Gateway 网关可以通过以下方式访问：
 
 ---
 
-## 1) 配置 VPS
+## 1. 配置 VPS
 
 在 Hetzner 中创建一个 Ubuntu 或 Debian VPS。
 
@@ -77,10 +77,11 @@ ssh root@YOUR_VPS_IP
 
 本指南假设 VPS 是有状态的。
 不要将其视为一次性基础设施。
+不要将其视为一次性基础设施。
 
 ---
 
-## 2) 安装 Docker（在 VPS 上）
+## 2. 安装 Docker（在 VPS 上）
 
 ```bash
 apt-get update
@@ -97,7 +98,7 @@ docker compose version
 
 ---
 
-## 3) 克隆 OpenClaw 仓库
+## 3. 克隆 OpenClaw 仓库
 
 ```bash
 git clone https://github.com/openclaw/openclaw.git
@@ -108,10 +109,10 @@ cd openclaw
 
 ---
 
-## 4) 创建持久化主机目录
+## 4. 创建持久化主机目录
 
-Docker 容器是临时的。
-所有长期状态必须存储在主机上。
+Docker containers are ephemeral.
+所有长期存在的状态必须保存在主机上。
 
 ```bash
 mkdir -p /root/.openclaw
@@ -124,7 +125,7 @@ chown -R 1000:1000 /root/.openclaw/workspace
 
 ---
 
-## 5) 配置环境变量
+## 5. 配置环境变量
 
 在仓库根目录创建 `.env`。
 
@@ -141,7 +142,7 @@ GOG_KEYRING_PASSWORD=change-me-now
 XDG_CONFIG_HOME=/home/node/.openclaw
 ```
 
-生成强密钥：
+Generate strong secrets:
 
 ```bash
 openssl rand -hex 32
@@ -151,7 +152,7 @@ openssl rand -hex 32
 
 ---
 
-## 6) Docker Compose 配置
+## 6. Docker Compose 配置
 
 创建或更新 `docker-compose.yml`。
 
@@ -196,12 +197,15 @@ services:
       ]
 ```
 
+`--allow-unconfigured` 仅用于引导阶段的便利，并不能替代正确的网关配置。 仍然需要设置认证（`gateway.auth.token` 或密码），并为你的部署使用安全的绑定设置。
+
 ---
 
-## 7) 将所需二进制文件烘焙到镜像中（关键）
+## 7. 将所需二进制文件烘焙到镜像中（关键）
 
 在运行中的容器内安装二进制文件是一个陷阱。
 任何在运行时安装的东西都会在重启时丢失。
+Anything installed at runtime will be lost on restart.
 
 所有 skills 所需的外部二进制文件必须在镜像构建时安装。
 
@@ -211,8 +215,8 @@ services:
 - `goplaces` 用于 Google Places
 - `wacli` 用于 WhatsApp
 
-这些是示例，不是完整列表。
-你可以使用相同的模式安装任意数量的二进制文件。
+These are examples, not a complete list.
+You may install as many binaries as needed using the same pattern.
 
 如果你以后添加依赖额外二进制文件的新 skills，你必须：
 
@@ -261,7 +265,7 @@ CMD ["node","dist/index.js"]
 
 ---
 
-## 8) 构建并启动
+## 8. 构建并启动
 
 ```bash
 docker compose build
@@ -286,7 +290,7 @@ docker compose exec openclaw-gateway which wacli
 
 ---
 
-## 9) 验证 Gateway 网关
+## 9. 验证 Gateway 网关
 
 ```bash
 docker compose logs -f openclaw-gateway
@@ -314,20 +318,42 @@ ssh -N -L 18789:127.0.0.1:18789 root@YOUR_VPS_IP
 
 ## 持久化位置（事实来源）
 
-OpenClaw 在 Docker 中运行，但 Docker 不是事实来源。
-所有长期状态必须在重启、重建和重启后保留。
+7. OpenClaw 运行在 Docker 中，但 Docker 不是事实来源。
+   所有长期存在的状态必须在重启、重建和重新启动后仍然存在。
 
-| 组件             | 位置                              | 持久化机制    | 说明                        |
-| ---------------- | --------------------------------- | ------------- | --------------------------- |
-| Gateway 网关配置 | `/home/node/.openclaw/`           | 主机卷挂载    | 包括 `openclaw.json`、令牌  |
-| 模型认证配置文件 | `/home/node/.openclaw/`           | 主机卷挂载    | OAuth 令牌、API 密钥        |
-| Skill 配置       | `/home/node/.openclaw/skills/`    | 主机卷挂载    | Skill 级别状态              |
-| 智能体工作区     | `/home/node/.openclaw/workspace/` | 主机卷挂载    | 代码和智能体产物            |
-| WhatsApp 会话    | `/home/node/.openclaw/`           | 主机卷挂载    | 保留二维码登录              |
-| Gmail 密钥环     | `/home/node/.openclaw/`           | 主机卷 + 密码 | 需要 `GOG_KEYRING_PASSWORD` |
-| 外部二进制文件   | `/usr/local/bin/`                 | Docker 镜像   | 必须在构建时烘焙            |
-| Node 运行时      | 容器文件系统                      | Docker 镜像   | 每次镜像构建时重建          |
-| 操作系统包       | 容器文件系统                      | Docker 镜像   | 不要在运行时安装            |
-| Docker 容器      | 临时的                            | 可重启        | 可以安全销毁                |
+| 组件                               | 位置                                | 持久化机制                            | 说明                                 |
+| -------------------------------- | --------------------------------- | -------------------------------- | ---------------------------------- |
+| Gateway 网关配置                     | `/home/node/.openclaw/`           | 15. 主机卷挂载 | 包括 `openclaw.json`、令牌              |
+| 模型认证配置文件                         | `/home/node/.openclaw/`           | 19. 主机卷挂载 | OAuth 令牌、API 密钥                    |
+| Skill 配置                         | `/home/node/.openclaw/skills/`    | 23. 主机卷挂载 | Skill 级别状态                         |
+| 25. 代理工作区 | `/home/node/.openclaw/workspace/` | 27. 主机卷挂载 | 28. 代码和代理产物 |
+| WhatsApp 会话                      | `/home/node/.openclaw/`           | 31. 主机卷挂载 | 32. 保留二维码登录 |
+| Gmail 密钥环                        | `/home/node/.openclaw/`           | 主机卷 + 密码                         | 需要 `GOG_KEYRING_PASSWORD`          |
+| 外部二进制文件                          | `/usr/local/bin/`                 | Docker 镜像                        | 必须在构建时烘焙                           |
+| Node 运行时                         | 容器文件系统                            | Docker 镜像                        | 每次镜像构建时重建                          |
+| 操作系统包                            | 容器文件系统                            | Docker 镜像                        | 不要在运行时安装                           |
+| Docker 容器                        | 50. 临时的    | 可重启                              | 可以安全销毁                             |
 
+---
 
+## 基础设施即代码（Terraform）
+
+对于偏好基础设施即代码工作流的团队，社区维护的 Terraform 方案提供：
+
+- 带远程状态管理的模块化 Terraform 配置
+- 通过 cloud-init 实现自动化部署
+- 部署脚本（bootstrap、deploy、backup/restore）
+- 安全加固（防火墙、UFW、仅限 SSH 访问）
+- 本指南假设在 Hetzner 上使用 Ubuntu 或 Debian。
+  如果你使用其他 Linux VPS，请相应地映射软件包。
+  通用 Docker 流程请参见 [Docker](/install/docker)。
+
+**仓库：**
+
+- 基础设施：[openclaw-terraform-hetzner](https://github.com/andreesg/openclaw-terraform-hetzner)
+- OpenClaw 在 Docker 中运行，但 Docker 不是事实来源。
+  所有长期状态必须在重启、重建和重启后保留。
+
+该方案在上述 Docker 部署方式基础上，补充了可复现部署、版本控制的基础设施以及自动化灾难恢复能力。
+
+> **注意：** 由社区维护。 如有问题或希望贡献，请参阅上述仓库链接。

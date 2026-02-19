@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw'ı kurun ve ilk sohbetinizi dakikalar içinde çalıştırın."
+read_when:
+  - Sıfırdan ilk kurulum
+  - Çalışan bir sohbete en hızlı yolu istiyorsunuz
 title: "Başlarken"
 ---
 
@@ -30,6 +34,10 @@ Emin değilseniz Node sürümünüzü `node --version` ile kontrol edin.
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash
         ```
+      <img
+  src="/assets/install-script.svg"
+  alt="Install Script Process"
+  className="rounded-lg"></img>
       
 </Tab>
       <Tab title="Windows (PowerShell)">
@@ -41,12 +49,14 @@ Emin değilseniz Node sürümünüzü `node --version` ile kontrol edin.
     
 </Tabs>
 
+    ````
     ```
     <Note>
     Diğer yükleme yöntemleri ve gereksinimler: [Install](/install).
     
 </Note>
     ```
+    ````
 
   
 </Step>
@@ -55,21 +65,25 @@ Emin değilseniz Node sürümünüzü `node --version` ile kontrol edin.
     openclaw onboard --install-daemon
     ```
 
+    ````
     ```
     Sihirbaz; kimlik doğrulama, gateway ayarları ve isteğe bağlı kanalları yapılandırır.
     Ayrıntılar için [Onboarding Wizard](/start/wizard) sayfasına bakın.
     ```
+    ````
 
   
 </Step>
   <Step title="Check the Gateway">
     Hizmeti yüklediyseniz, zaten çalışıyor olmalıdır:
 
+    `````
     ````
     ```bash
     openclaw gateway status
     ```
     ````
+    `````
 
   
 </Step>
@@ -91,22 +105,26 @@ Control UI yükleniyorsa, Gateway'iniz kullanıma hazırdır.
   <Accordion title="Run the Gateway in the foreground">
     Hızlı testler veya sorun giderme için kullanışlıdır.
 
+    `````
     ````
     ```bash
     openclaw gateway --port 18789
     ```
     ````
+    `````
 
   
 </Accordion>
   <Accordion title="Send a test message">
     Yapılandırılmış bir kanal gerektirir.
 
+    `````
     ````
     ```bash
     openclaw message send --target +15555550123 --message "Hello from OpenClaw"
     ```
     ````
+    `````
 
   
 </Accordion>
@@ -146,5 +164,3 @@ Tüm ortam değişkenleri referansı: [Environment vars](/help/environment).
 - DM güvenliği ve onaylar: [Pairing](/channels/pairing)
 - Daha fazla kanal bağlayın: [Channels](/channels)
 - Gelişmiş iş akışları ve kaynaktan kurulum: [Setup](/start/setup)
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "Status de suporte, capacidades e configuração do bot do Microsoft Teams"
+read_when:
+  - Trabalhando em recursos do canal do MS Teams
 title: "Microsoft Teams"
 ---
 
@@ -152,14 +155,14 @@ Antes de configurar o OpenClaw, você precisa criar um recurso Azure Bot.
 1. Acesse [Create Azure Bot](https://portal.azure.com/#create/Microsoft.AzureBot)
 2. Preencha a aba **Basics**:
 
-   | Campo              | Valor                                                                                                        |
-   | ------------------ | ------------------------------------------------------------------------------------------------------------ |
-   | **Identificador do bot**     | Nome do seu bot, ex.: `openclaw-msteams` (deve ser único) |
-   | **Assinatura**   | Selecione sua assinatura do Azure                                                                            |
-   | **Grupo de recursos** | Crie um novo ou use um existente                                                                             |
-   | **Nível de preço**   | **Free** para dev/testes                                                                                     |
-   | **Tipo de aplicativo**    | **Single Tenant** (recomendado — veja a nota abaixo)                                      |
-   | **Tipo de criação**  | **Criar novo Microsoft App ID**                                                                              |
+   | Campo                    | Valor                                                                                                        |
+   | ------------------------ | ------------------------------------------------------------------------------------------------------------ |
+   | **Identificador do bot** | Nome do seu bot, ex.: `openclaw-msteams` (deve ser único) |
+   | **Assinatura**           | Selecione sua assinatura do Azure                                                                            |
+   | **Grupo de recursos**    | Crie um novo ou use um existente                                                                             |
+   | **Nível de preço**       | **Free** para dev/testes                                                                                     |
+   | **Tipo de aplicativo**   | **Single Tenant** (recomendado — veja a nota abaixo)                                      |
+   | **Tipo de criação**      | **Criar novo Microsoft App ID**                                                                              |
 
 > **Aviso de descontinuação:** a criação de novos bots multi-tenant foi descontinuada após 2025-07-31. Use **Single Tenant** para novos bots.
 
@@ -420,6 +423,8 @@ Se você precisa de imagens/arquivos em **canais** ou quer buscar **histórico d
 2. **Conceda consentimento de administrador** para o tenant.
 3. Aumente a **versão do manifesto** do app do Teams, reenvie e **reinstale o app no Teams**.
 4. **Feche completamente e reabra o Teams** para limpar o cache de metadados do app.
+
+**Permissão adicional para menções de usuários:** As @menções de usuários funcionam imediatamente para usuários na conversa. No entanto, se você quiser pesquisar e mencionar dinamicamente usuários que **não estão na conversa atual**, adicione a permissão `User.Read.All` (Application) e conceda consentimento de administrador.
 
 ## Limitações conhecidas
 
@@ -733,7 +738,7 @@ Bots têm suporte limitado em canais privados:
 2. Use DMs — usuários sempre podem falar diretamente com o bot
 3. Use Graph API para acesso histórico (requer `ChannelMessage.Read.All`)
 
-## Solução de problemas
+## Problemas comuns
 
 ### Problemas comuns
 
@@ -765,5 +770,3 @@ Bots têm suporte limitado em canais privados:
 - [Referência de permissões RSC](https://learn.microsoft.com/en-us/microsoftteams/platform/graph-api/rsc/resource-specific-consent)
 - [Manipulação de arquivos por bots do Teams](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/bots-filesv4) (canal/grupo requer Graph)
 - [Mensagens proativas](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/conversations/send-proactive-messages)
-
-

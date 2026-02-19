@@ -1,4 +1,8 @@
 ---
+summary: "End-to-end na gabay para patakbuhin ang OpenClaw bilang personal assistant na may mga paalala sa kaligtasan"
+read_when:
+  - Pag-onboard ng bagong instance ng assistant
+  - Pagrerepaso ng mga implikasyon sa kaligtasan/pahintulot
 title: "Setup ng Personal Assistant"
 ---
 
@@ -225,5 +229,3 @@ Ang mga log ay nasa `/tmp/openclaw/` (default: `openclaw-YYYY-MM-DD.log`).
 - Status ng Windows: [Windows (WSL2)](/platforms/windows)
 - Status ng Linux: [Linux app](/platforms/linux)
 - Seguridad: [Security](/gateway/security)
-
-

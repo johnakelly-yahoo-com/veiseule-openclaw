@@ -1,4 +1,7 @@
 ---
+summary: "چینلز، روٹنگ، میڈیا، اور UX کے حوالے سے OpenClaw کی صلاحیتیں۔"
+read_when:
+  - آپ OpenClaw کی مکمل معاون خصوصیات کی فہرست چاہتے ہیں
 title: "خصوصیات"
 ---
 
@@ -54,5 +57,3 @@ title: "خصوصیات"
 Legacy Claude، Codex، Gemini، اور Opencode راستے ہٹا دیے گئے ہیں۔ Pi واحد
 coding agent راستہ ہے۔
 </Note>
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw’ın kimlik doğrulama profillerini nasıl döndürdüğü ve modeller arasında nasıl geri dönüş yaptığı"
+read_when:
+  - Kimlik doğrulama profili rotasyonu, bekleme süreleri veya model geri dönüşü davranışını teşhis ederken
+  - Kimlik doğrulama profilleri veya modeller için failover kurallarını güncellerken
 title: "Model Yedekleme (Failover)"
 ---
 
@@ -49,7 +53,7 @@ Açık bir sıra yapılandırılmamışsa, OpenClaw round‑robin sırası kulla
 - **İkincil anahtar:** `usageStats.lastUsed` (her tür içinde eskiden yeniye).
 - **Beklemede/devre dışı profiller** sona taşınır ve en erken bitişe göre sıralanır.
 
-### Oturum yapışkanlığı (önbellek dostu)
+### Session stickiness (cache-friendly)
 
 OpenClaw, sağlayıcı önbelleklerini sıcak tutmak için **seçilen kimlik doğrulama profilini oturum başına sabitler**.
 Her istekte rotasyon yapmaz. Sabitlenen profil şu durumlara kadar yeniden kullanılır:
@@ -73,7 +77,7 @@ Aynı sağlayıcı için hem bir OAuth profili hem de bir API anahtarı profili 
 - `auth.order[provider] = ["provider:profileId"]` ile sabitleyin veya
 - (Kullandığınız UI/sohbet yüzeyi destekliyorsa) profil geçersiz kılmasıyla `/model …` üzerinden oturum başına geçersiz kılma kullanın.
 
-## Soğuma süreleri
+## Cooldowns
 
 Bir profil, kimlik doğrulama/hız limiti hataları (ya da hız sınırlaması gibi görünen bir zaman aşımı) nedeniyle başarısız olduğunda, OpenClaw onu beklemeye alır ve bir sonraki profile geçer.
 Biçim/geçersiz‑istek hataları (örneğin Cloud Code Assist araç çağrısı kimliği doğrulama hataları) da
@@ -140,5 +144,3 @@ Aşağıdakiler için [Gateway yapılandırması](/gateway/configuration)’na b
 - `agents.defaults.imageModel` yönlendirmesi
 
 Daha geniş model seçimi ve geri dönüş genel bakışı için [Modeller](/concepts/models)’e bakın.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Referencja CLI dla `openclaw nodes` (list/status/approve/invoke, camera/canvas/screen)"
+read_when:
+  - Zarządzasz sparowanymi węzłami (kamery, ekran, płótno)
+  - Musisz zatwierdzać żądania lub wywoływać polecenia węzłów
 title: "węzły"
 ---
 
@@ -60,12 +64,10 @@ Wywołaj flagi:
 Flagi:
 
 - `--cwd <path>`: katalog roboczy.
-- `--env <key=val>`: nadpisanie zmiennych środowiskowych (powtarzalne).
+- `--env <key=val>`: nadpisanie zmiennych środowiskowych (powtarzalne). Uwaga: hosty node ignorują nadpisania `PATH` (a `tools.exec.pathPrepend` nie jest stosowane do hostów node).
 - `--command-timeout <ms>`: limit czasu polecenia.
 - `--invoke-timeout <ms>`: limit czasu wywołania węzła (domyślnie `30000`).
 - `--needs-screen-recording`: wymagaj uprawnienia do nagrywania ekranu.
 - `--raw <command>`: uruchom ciąg powłoki (`/bin/sh -lc` lub `cmd.exe /c`).
 - `--agent <id>`: zatwierdzenia/listy dozwolonych w zakresie agenta (domyślnie skonfigurowany agent).
 - `--ask <off|on-miss|always>`, `--security <deny|allowlist|full>`: nadpisania.
-
-

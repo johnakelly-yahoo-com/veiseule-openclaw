@@ -1,4 +1,7 @@
 ---
+summary: "Cách ứng dụng macOS báo cáo trạng thái sức khỏe của gateway/Baileys"
+read_when:
+  - Gỡ lỗi các chỉ báo sức khỏe của ứng dụng mac
 title: "Kiểm tra sức khỏe"
 ---
 
@@ -29,5 +32,3 @@ Cách xem liệu kênh đã liên kết có đang hoạt động tốt từ ứn
 ## Khi cần kiểm tra thêm
 
 - Bạn vẫn có thể dùng luồng CLI trong [Gateway health](/gateway/health) (`openclaw status`, `openclaw status --deep`, `openclaw health --json`) và theo dõi `/tmp/openclaw/openclaw-*.log` cho `web-heartbeat` / `web-reconnect`.
-
-

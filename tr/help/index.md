@@ -1,4 +1,8 @@
 ---
+summary: "Yardım merkezi: yaygın düzeltmeler, kurulum doğrulaması ve bir şeyler bozulduğunda bakılacak yerler"
+read_when:
+  - Yenisin ve “neye tıklamalıyım/neyi çalıştırmalıyım” rehberini istiyorsun
+  - Bir şeyler bozuldu ve en hızlı çözüm yolunu istiyorsun
 title: "Yardım"
 ---
 
@@ -15,5 +19,3 @@ Hızlı bir “takılıp kalmaktan kurtulma” akışı istiyorsanız, buradan b
 Kavramsal sorular arıyorsanız (“bir şeyler bozuldu” değilse):
 
 - [SSS (kavramlar)](/help/faq)
-
-

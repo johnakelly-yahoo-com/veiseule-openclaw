@@ -1,4 +1,8 @@
 ---
+summary: "Tài liệu tham chiếu CLI cho `openclaw plugins` (liệt kê, cài đặt, bật/tắt, doctor)"
+read_when:
+  - Bạn muốn cài đặt hoặc quản lý các plugin Gateway chạy trong tiến trình
+  - Bạn muốn gỡ lỗi các lỗi tải plugin
 title: "plugin"
 ---
 
@@ -39,13 +43,34 @@ openclaw plugins install <path-or-spec>
 
 Lưu ý bảo mật: hãy coi việc cài plugin giống như chạy mã. Ưu tiên các phiên bản được ghim.
 
-Định dạng gói hỗ trợ: `.zip`, `.tgz`, `.tar.gz`, `.tar`.
+Thông số npm chỉ **giới hạn ở registry** (tên gói + phiên bản/tag tùy chọn). Các thông số Git/URL/file
+sẽ bị từ chối. Việc cài đặt dependency chạy với `--ignore-scripts` để đảm bảo an toàn.
+
+Dùng `--link` để tránh sao chép một thư mục cục bộ (thêm vào `plugins.load.paths`):
 
 Dùng `--link` để tránh sao chép một thư mục cục bộ (thêm vào `plugins.load.paths`):
 
 ```bash
 openclaw plugins install -l ./my-plugin
 ```
+
+### Gỡ cài đặt
+
+```bash
+openclaw plugins uninstall <id>
+openclaw plugins uninstall <id> --dry-run
+openclaw plugins uninstall <id> --keep-files
+```
+
+`uninstall` sẽ xóa bản ghi plugin khỏi `plugins.entries`, `plugins.installs`,
+danh sách cho phép plugin và các mục `plugins.load.paths` được liên kết khi áp dụng.
+Đối với plugin bộ nhớ đang hoạt động, khe bộ nhớ sẽ được đặt lại về `memory-core`.
+
+Theo mặc định, uninstall cũng xóa thư mục cài đặt plugin trong
+thư mục gốc extensions của state dir đang hoạt động (`$OPENCLAW_STATE_DIR/extensions/<id>`). Sử dụng
+`--keep-files` để giữ lại các tệp trên đĩa.
+
+`--keep-config` được hỗ trợ như một bí danh đã lỗi thời cho `--keep-files`.
 
 ### Cập nhật
 
@@ -56,5 +81,3 @@ openclaw plugins update <id> --dry-run
 ```
 
 Việc cập nhật chỉ áp dụng cho các plugin được cài từ npm (được theo dõi trong `plugins.installs`).
-
-

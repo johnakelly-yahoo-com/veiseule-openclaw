@@ -1,4 +1,9 @@
 ---
+summary: "Mga Node: pag-pair, mga kakayahan, mga permiso, at mga helper ng CLI para sa canvas/camera/screen/system"
+read_when:
+  - Pagpa-pair ng iOS/Android na mga node sa isang gateway
+  - Paggamit ng node canvas/camera para sa konteksto ng agent
+  - Pagdaragdag ng mga bagong node command o CLI helper
 title: "Mga Node"
 ---
 
@@ -271,7 +276,7 @@ Mga tala:
 - Iginagalang ng `system.notify` ang estado ng notification permission sa macOS app.
 - Sinusuportahan ng `system.run` ang `--cwd`, `--env KEY=VAL`, `--command-timeout`, at `--needs-screen-recording`.
 - Sinusuportahan ng `system.notify` ang `--priority <passive|active|timeSensitive>` at `--delivery <system|overlay|auto>`.
-- Tinatanggal ng mga macOS node ang mga override ng `PATH`; ang mga headless node host ay tumatanggap lamang ng `PATH` kapag ito ay nagpe-prepend sa node host PATH.
+- Hindi pinapansin ng mga Node host ang `PATH` overrides. Kung kailangan mo ng karagdagang PATH entries, i-configure ang environment ng node host service (o mag-install ng mga tool sa mga standard na lokasyon) sa halip na ipasa ang `PATH` sa pamamagitan ng `--env`.
 - Sa macOS node mode, ang `system.run` ay nililimitahan ng mga exec approval sa macOS app (Settings → Exec approvals).
   Ang Ask/allowlist/full ay kumikilos nang pareho gaya ng headless node host; ang mga tinanggihang prompt ay nagbabalik ng `SYSTEM_RUN_DENIED`.
 - Sa headless node host, ang `system.run` ay naka-gate ng exec approvals (`~/.openclaw/exec-approvals.json`).
@@ -331,5 +336,3 @@ Mga tala:
 
 - Ang macOS menubar app ay kumokonekta sa Gateway WS server bilang isang node (kaya gumagana ang `openclaw nodes …` laban sa Mac na ito).
 - Sa remote mode, nagbubukas ang app ng SSH tunnel para sa Gateway port at kumokonekta sa `localhost`.
-
-

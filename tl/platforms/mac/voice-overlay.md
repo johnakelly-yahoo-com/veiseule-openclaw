@@ -1,4 +1,7 @@
 ---
+summary: "Lifecycle ng voice overlay kapag nagsasapawan ang wake-word at push-to-talk"
+read_when:
+  - Inaayos ang gawi ng voice overlay
 title: "Voice Overlay"
 ---
 
@@ -14,7 +17,7 @@ title: "Voice Overlay"
 ## Naipatupad (Dis 9, 2025)
 
 - 27. Ang mga overlay session ay may dalang token bawat capture (wake-word o push-to-talk). 28. Ang mga partial/final/send/dismiss/level update ay dini-drop kapag hindi tumutugma ang token, upang maiwasan ang mga stale callback.
-- Ang push-to-talk ay gumagamit ng anumang nakikitang overlay text bilang prefix (kaya kapag pinindot ang hotkey habang naka-display ang wake overlay, pinananatili ang teksto at idinadagdag ang bagong speech). Maghihintay ito nang hanggang 1.5s para sa huling transcript bago bumalik sa kasalukuyang teksto.
+- Push-to-talk adopts any visible overlay text as a prefix (so pressing the hotkey while the wake overlay is up keeps the text and appends new speech). It waits up to 1.5s for a final transcript before falling back to the current text.
 - Ang chime/overlay logging ay ine-emit sa `info` sa mga category na `voicewake.overlay`, `voicewake.ptt`, at `voicewake.chime` (session start, partial, final, send, dismiss, chime reason).
 
 ## Mga susunod na hakbang
@@ -56,5 +59,3 @@ title: "Voice Overlay"
 3. I-refactor ang `VoicePushToTalk` para i-adopt ang mga umiiral na session at tawagin ang `endCapture` sa pag-release; mag-apply ng runtime cooldown.
 4. Ikabit ang `VoiceWakeOverlayController` sa publisher; alisin ang mga direktang tawag mula sa runtime/PTT.
 5. Magdagdag ng mga integration test para sa session adoption, cooldown, at empty-text dismissal.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "مرجع CLI لأمر `openclaw approvals` (موافقات التنفيذ لمضيف Gateway أو مضيف العُقدة)"
+read_when:
+  - تريد تعديل موافقات التنفيذ من خلال CLI
+  - تحتاج إلى إدارة قوائم السماح على مضيف Gateway أو مضيفي العُقد
 title: "الموافقات"
 ---
 
@@ -44,5 +48,3 @@ openclaw approvals allowlist remove "~/Projects/**/bin/rg"
 - القيمة الافتراضية لـ `--agent` هي `"*"`، والتي تنطبق على جميع الوكلاء.
 - يجب أن يعلن مضيف العُقدة عن `system.execApprovals.get/set` (تطبيق macOS أو مضيف عُقدة بدون واجهة).
 - تُخزَّن ملفات الموافقات لكل مضيف في `~/.openclaw/exec-approvals.json`.
-
-

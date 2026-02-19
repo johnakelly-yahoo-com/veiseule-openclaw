@@ -41,16 +41,16 @@ Ce modèle de menace s’appuie sur [MITRE ATLAS](https://atlas.mitre.org/) (Adv
 
 Chaque menace reçoit un identifiant comme `T-EXEC-003`. Les catégories sont :
 
-| Code    | Catégorie                                   |
-| ------- | ------------------------------------------ |
-| RECON   | Reconnaissance - collecte d’informations   |
-| ACCESS  | Accès initial — obtention d’un accès             |
+| Code    | Catégorie                                            |
+| ------- | ---------------------------------------------------- |
+| RECON   | Reconnaissance - collecte d’informations             |
+| ACCESS  | Accès initial — obtention d’un accès                 |
 | EXEC    | Exécution — réalisation d’actions malveillantes      |
-| PERSIST | Persistance — maintien de l’accès           |
-| EVADE   | Évasion des défenses — contournement de la détection       |
-| DISC    | Discovery - learning about the environment |
-| EXFIL   | Exfiltration - stealing data               |
-| IMPACT  | Impact - damage or disruption              |
+| PERSIST | Persistance — maintien de l’accès                    |
+| EVADE   | Évasion des défenses — contournement de la détection |
+| DISC    | Discovery - learning about the environment           |
+| EXFIL   | Exfiltration - stealing data                         |
+| IMPACT  | Impact - damage or disruption                        |
 
 IDs are assigned by maintainers during review. You don't need to pick one.
 
@@ -88,5 +88,3 @@ If you're unsure about the risk level, just describe the impact and we'll assess
 ## Recognition
 
 Contributors to the threat model are recognized in the threat model acknowledgments, release notes, and the OpenClaw security hall of fame for significant contributions.
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "TypeBox-Schemas als einzige Quelle der Wahrheit für das Gateway-Protokoll"
+read_when:
+  - Aktualisieren von Protokoll-Schemas oder Codegenerierung
 title: "TypeBox"
 ---
 
@@ -35,14 +38,14 @@ Client                    Gateway
 
 Häufige Methoden + Events:
 
-| Kategorie | Beispiele                                                 | Hinweise                                  |
-| --------- | --------------------------------------------------------- | ----------------------------------------- |
-| Kern      | `connect`, `health`, `status`                             | `connect` muss zuerst kommen              |
+| Kategorie   | Beispiele                                                 | Hinweise                                  |
+| ----------- | --------------------------------------------------------- | ----------------------------------------- |
+| Kern        | `connect`, `health`, `status`                             | `connect` muss zuerst kommen              |
 | Nachrichten | `send`, `poll`, `agent`, `agent.wait`                     | Nebenwirkungen benötigen `idempotencyKey` |
-| Chat      | `chat.history`, `chat.send`, `chat.abort`, `chat.inject`  | WebChat verwendet diese                   |
-| Sessions  | `sessions.list`, `sessions.patch`, `sessions.delete`      | Sitzungsverwaltung                        |
-| Nodes     | `node.list`, `node.invoke`, `node.pair.*`                 | Gateway‑WS + Node‑Aktionen                |
-| Events    | `tick`, `presence`, `agent`, `chat`, `health`, `shutdown` | Server‑Push                               |
+| Chat        | `chat.history`, `chat.send`, `chat.abort`, `chat.inject`  | WebChat verwendet diese                   |
+| Sessions    | `sessions.list`, `sessions.patch`, `sessions.delete`      | Sitzungsverwaltung                        |
+| Nodes       | `node.list`, `node.invoke`, `node.pair.*`                 | Gateway‑WS + Node‑Aktionen                |
+| Events      | `tick`, `presence`, `agent`, `chat`, `health`, `shutdown` | Server‑Push                               |
 
 Die maßgebliche Liste befindet sich in `src/gateway/server.ts` (`METHODS`, `EVENTS`).
 
@@ -280,5 +283,3 @@ veröffentlichte Raw‑Datei ist typischerweise verfügbar unter:
 1. Aktualisieren Sie die TypeBox‑Schemas.
 2. Führen Sie `pnpm protocol:check` aus.
 3. Committen Sie das neu generierte Schema + die Swift‑Modelle.
-
-

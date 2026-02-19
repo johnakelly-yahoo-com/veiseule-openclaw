@@ -1,4 +1,7 @@
 ---
+summary: "Semantyka reakcji współdzielona między kanałami"
+read_when:
+  - Praca nad reakcjami w dowolnym kanale
 title: "Reakcje"
 ---
 
@@ -17,5 +20,3 @@ Uwagi dotyczące kanałów:
 - **Telegram**: puste `emoji` usuwa reakcje bota; `remove: true` również usuwa reakcje, ale nadal wymaga niepustego `emoji` do walidacji narzędzia.
 - **WhatsApp**: puste `emoji` usuwa reakcję bota; `remove: true` mapuje na pusty emoji (nadal wymaga `emoji`).
 - **Signal**: przychodzące powiadomienia o reakcjach emitują zdarzenia systemowe, gdy włączone jest `channels.signal.reactionNotifications`.
-
-

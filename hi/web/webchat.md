@@ -1,4 +1,7 @@
 ---
+summary: "Loopback WebChat स्थिर होस्ट और चैट UI के लिए Gateway WS उपयोग"
+read_when:
+  - WebChat एक्सेस को डीबग या कॉन्फ़िगर करते समय
 title: "WebChat"
 ---
 
@@ -44,5 +47,4 @@ title: "WebChat"
 - `gateway.auth.mode`, `gateway.auth.token`, `gateway.auth.password`: WebSocket प्रमाणीकरण।
 - `gateway.remote.url`, `gateway.remote.token`, `gateway.remote.password`: रिमोट Gateway लक्ष्य।
 - `session.*`: सत्र भंडारण और मुख्य कुंजी के डिफ़ॉल्ट।
-
-
+- `session.*`: सत्र भंडारण और मुख्य कुंजी के डिफ़ॉल्ट।

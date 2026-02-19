@@ -1,4 +1,6 @@
 ---
+summary: "Mga tala sa RPC protocol para sa onboarding wizard at config schema"
+read_when: "Kapag binabago ang mga hakbang ng onboarding wizard o ang mga endpoint ng config schema"
 title: "Onboarding at Config Protocol"
 ---
 
@@ -36,5 +38,3 @@ Mga response (hugis)
 ## Mga Tala
 
 - Ang dokumentong ito ang iisang lugar para subaybayan ang mga protocol refactor para sa onboarding/config.
-
-

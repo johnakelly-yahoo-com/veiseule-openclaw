@@ -1,4 +1,7 @@
 ---
+summary: "SSH tunnellari (Gateway WS) va tailnetlar orqali masofaviy kirish"
+read_when:
+  - Running or troubleshooting remote gateway setups
 title: "Masofaviy kirish"
 ---
 
@@ -124,5 +127,3 @@ Qisqa versiya: **Gateway’ni loopback-only holatda saqlang**, agar bind kerakli
 - Brauzer boshqaruvini operator kirishi kabi ko‘ring: faqat tailnet + ongli node juftlash.
 
 Chuqur tahlil: [Security](/gateway/security).
-
-

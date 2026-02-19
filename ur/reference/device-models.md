@@ -1,4 +1,8 @@
 ---
+summary: "macOS ایپ میں دوستانہ ناموں کے لیے OpenClaw کس طرح Apple ڈیوائس ماڈل شناخت کاروں کو فراہم کرتا ہے۔"
+read_when:
+  - ڈیوائس ماڈل شناخت کار میپنگز یا NOTICE/لائسنس فائلوں کو اپڈیٹ کرتے وقت
+  - Instances UI میں ڈیوائس ناموں کی نمائش کے طریقے میں تبدیلی کرتے وقت
 title: "ڈیوائس ماڈل ڈیٹابیس"
 ---
 
@@ -41,5 +45,3 @@ curl -fsSL "https://raw.githubusercontent.com/kyle-seongwoo-jun/apple-device-ide
 ```bash
 swift build --package-path apps/macos
 ```
-
-

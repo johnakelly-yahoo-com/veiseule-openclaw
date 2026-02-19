@@ -1,4 +1,7 @@
 ---
+summary: "„Kuratierte Links zu den am häufigsten verwendeten OpenClaw-Dokumenten.“"
+read_when:
+  - Sie schnellen Zugriff auf zentrale Dokumentationsseiten wünschen
 title: "Docs-Verzeichnis"
 ---
 
@@ -59,5 +62,3 @@ Für eine vollständige Übersicht der Dokumentation siehe [Docs hubs](/start/hu
 - [Gmail-Hooks (Pub/Sub)](/automation/gmail-pubsub)
 - [Sicherheit](/gateway/security)
 - [Fehlerbehebung](/gateway/troubleshooting)
-
-

@@ -1,4 +1,6 @@
 ---
+summary: "إعداد نفق SSH لتطبيق OpenClaw.app للاتصال بـ Gateway عن بُعد"
+read_when: "ربط تطبيق macOS بـ Gateway عن بُعد عبر SSH"
 title: "إعداد Gateway عن بُعد"
 ---
 
@@ -9,32 +11,24 @@ title: "إعداد Gateway عن بُعد"
 ## نظرة عامة
 
 ```mermaid
-%%{init: {
-  'theme': 'base',
-  'themeVariables': {
-    'primaryColor': '#ffffff',
-    'primaryTextColor': '#000000',
-    'primaryBorderColor': '#000000',
-    'lineColor': '#000000',
-    'secondaryColor': '#f9f9fb',
-    'tertiaryColor': '#ffffff',
-    'clusterBkg': '#f9f9fb',
-    'clusterBorder': '#000000',
-    'nodeBorder': '#000000',
-    'mainBkg': '#ffffff',
-    'edgeLabelBackground': '#ffffff'
-  }
-}}%%
 flowchart TB
-    A["Owner (Peter)"] -- Full trust --> B["AI (Clawd)"]
-    B -- Trust but verify --> C["Friends in allowlist"]
-    C -- Limited trust --> D["Strangers"]
-    D -- No trust --> E["Mario asking for find ~"]
-    E -- Definitely no trust 😏 --> F[" "]
+    subgraph Client["جهاز العميل"]
+        direction TB
+        A["OpenClaw.app"]
+        B["ws://127.0.0.1:18789\n(منفذ محلي)"]
+        T["نفق SSH"]
 
-     %% The transparent box is needed to show the bottom-most label correctly
-     F:::Class_transparent_box
-    classDef Class_transparent_box fill:transparent, stroke:transparent
+        A --> B
+        B --> T
+    end
+    subgraph Remote["الجهاز البعيد"]
+        direction TB
+        C["Gateway WebSocket"]
+        D["ws://127.0.0.1:18789"]
+
+        C --> D
+    end
+    T --> C
 ```
 
 ## الإعداد السريع
@@ -162,5 +156,3 @@ launchctl bootout gui/$UID/bot.molt.ssh-tunnel
 | `RunAtLoad`                          | يبدأ النفق عند تحميل العامل                                     |
 
 يتصل OpenClaw.app بـ `ws://127.0.0.1:18789` على جهاز العميل لديك. يقوم نفق SSH بتمرير هذا الاتصال إلى المنفذ 18789 على الجهاز البعيد حيث يعمل Gateway (البوابة).
-
-

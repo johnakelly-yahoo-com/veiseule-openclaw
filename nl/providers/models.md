@@ -1,4 +1,8 @@
 ---
+summary: "Modelproviders (LLM's) die door OpenClaw worden ondersteund"
+read_when:
+  - Je wilt een modelprovider kiezen
+  - Je wilt snelle installatievoorbeelden voor LLM-authenticatie + modelselectie
 title: "Snelle start voor modelproviders"
 ---
 
@@ -46,5 +50,3 @@ Zie [Venice AI](/providers/venice).
 
 Voor de volledige providercatalogus (xAI, Groq, Mistral, enz.) en geavanceerde configuratie,
 zie [Modelproviders](/concepts/model-providers).
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Talk modu: ElevenLabs TTS ile sürekli sesli konuşmalar"
+read_when:
+  - macOS/iOS/Android üzerinde Talk modunun uygulanması
+  - Ses/TTS/kesinti davranışının değiştirilmesi
 title: "Talk Modu"
 ---
 
@@ -84,5 +88,3 @@ Varsayılanlar:
 - `eleven_v3` için `stability`, `0.0`, `0.5` veya `1.0` olarak doğrulanır; diğer modeller `0..1`’ü kabul eder.
 - `latency_tier`, ayarlandığında `0..4` olarak doğrulanır.
 - Android, düşük gecikmeli AudioTrack akışı için `pcm_16000`, `pcm_22050`, `pcm_24000` ve `pcm_44100` çıktı biçimlerini destekler.
-
-

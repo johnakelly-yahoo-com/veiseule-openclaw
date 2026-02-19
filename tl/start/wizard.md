@@ -1,11 +1,15 @@
 ---
+summary: "CLI onboarding wizard: ginabayang setup para sa gateway, workspace, mga channel, at skills"
+read_when:
+  - Kapag pinapatakbo o kino-configure ang onboarding wizard
+  - Kapag nagse-setup ng bagong makina
 title: "Wizard sa Pag-setup (CLI)"
 sidebarTitle: "Pag-setup: CLI"
 ---
 
 # Wizard sa Pag-setup (CLI)
 
-Ang wizard sa pag-setup ang **inirerekomendang** paraan upang i-set up ang OpenClaw sa macOS,
+The onboarding wizard is the **recommended** way to set up OpenClaw on macOS,
 Linux, or Windows (via WSL2; strongly recommended).
 It configures a local Gateway or a remote Gateway connection, plus channels, skills,
 and workspace defaults in one guided flow.
@@ -15,7 +19,7 @@ openclaw onboard
 ```
 
 <Info>
-Pinakamabilis na unang chat: buksan ang Control UI (hindi kailangan ang pag-setup ng channel). Patakbuhin ang
+Fastest first chat: open the Control UI (no channel setup needed). Run
 `openclaw dashboard` and chat in the browser. Docs: [Dashboard](/web/dashboard).
 </Info>
 
@@ -27,7 +31,7 @@ openclaw agents add <name>
 ```
 
 <Note>
-Ang `--json` ay hindi nangangahulugang non-interactive mode. Para sa mga script, gamitin ang `--non-interactive`.
+`--json` does not imply non-interactive mode. For scripts, use `--non-interactive`.
 </Note>
 
 <Tip>
@@ -60,7 +64,8 @@ Nagsisimula ang wizard sa **QuickStart** (mga default) kumpara sa **Advanced** (
 
 **Local mode (default)** ay ginagabayan ka sa mga hakbang na ito:
 
-1. 3. **Model/Auth** — Anthropic API key (inirerekomenda), OAuth, OpenAI, o iba pang provider. 4. Pumili ng default na modelo.
+1. **Model/Auth** — Anthropic API key (inirerekomenda), OpenAI, o Custom Provider
+   (OpenAI-compatible, Anthropic-compatible, o Unknown auto-detect). 4. Pumili ng default na modelo.
 2. 5. **Workspace** — Lokasyon para sa mga agent file (default `~/.openclaw/workspace`). 14. Nagsi-seed ng mga bootstrap file.
 3. **Gateway** — Port, bind address, auth mode, Tailscale exposure.
 4. **Channels** — WhatsApp, Telegram, Discord, Google Chat, Mattermost, Signal, BlueBubbles, o iMessage.
@@ -102,6 +107,5 @@ RPC API, at kumpletong listahan ng mga field ng config na isinusulat ng wizard, 
 
 - CLI command reference: [`openclaw onboard`](/cli/onboard)
 - macOS app pag-setup: [Pag-setup](/start/onboarding)
+- macOS app onboarding: [Onboarding](/start/onboarding)
 - Agent first-run ritual: [Agent Bootstrapping](/start/bootstrapping)
-
-

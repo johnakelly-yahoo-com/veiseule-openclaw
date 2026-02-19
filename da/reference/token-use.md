@@ -1,4 +1,8 @@
 ---
+summary: "Sådan opbygger OpenClaw prompt-kontekst og rapporterer tokenforbrug + omkostninger"
+read_when:
+  - Forklaring af tokenforbrug, omkostninger eller kontekstvinduer
+  - Fejlfinding af kontekstvækst eller komprimeringsadfærd
 title: "Tokenforbrug og omkostninger"
 ---
 
@@ -14,7 +18,7 @@ OpenClaw samler sin egen system prompt på hvert løb. Den omfatter:
 - Værktøjsliste + korte beskrivelser
 - Skills‑liste (kun metadata; instruktioner indlæses efter behov med `read`)
 - Instruktioner til selvopdatering
-- Arbejdsrum + bootstrap filer (`AGENTS.md`, `SOUL.md`, `TOOLS.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md`, `BOOTSTRAP.md` når ny). Store filer afkortes af `agents.defaults.bootstrapMaxChars` (standard: 20000).
+- Workspace- og bootstrap-filer (`AGENTS.md`, `SOUL.md`, `TOOLS.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md`, `BOOTSTRAP.md` når ny, samt `MEMORY.md` og/eller `memory.md` når de findes). Store filer afkortes af `agents.defaults.bootstrapMaxChars` (standard: 20000), og den samlede bootstrap-injektion begrænses af `agents.defaults.bootstrapTotalMaxChars` (standard: 24000). `memory/*.md`-filer hentes efter behov via memory-værktøjer og injiceres ikke automatisk.
 - Tid (UTC + brugerens tidszone)
 - Svartags + heartbeat‑adfærd
 - Runtime‑metadata (vært/OS/model/tænkning)
@@ -106,5 +110,3 @@ agents:
 - Foretræk mindre modeller til ordrigt, eksplorativt arbejde.
 
 Se [Skills](/tools/skills) for den præcise formel for overhead fra Skills‑listen.
-
-

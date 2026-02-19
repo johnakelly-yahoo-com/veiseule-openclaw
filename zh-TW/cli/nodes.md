@@ -1,12 +1,16 @@
 ---
+summary: "「openclaw nodes」（list/status/approve/invoke、camera/canvas/screen）的 CLI 參考"
+read_when:
+  - 你正在管理已配對的節點（攝影機、螢幕、畫布）
+  - 你需要核准請求或呼叫節點指令
 title: "nodes"
 ---
 
 # `openclaw nodes`
 
-管理已配對的節點（裝置）並呼叫節點功能。
+Manage paired nodes (devices) and invoke node capabilities.
 
-相關：
+Related:
 
 - Nodes 概覽：[Nodes](/nodes)
 - Camera：[Camera nodes](/nodes/camera)
@@ -30,6 +34,7 @@ openclaw nodes status --last-connected 24h
 ```
 
 `nodes list` 會列印待處理／已配對的表格。已配對的列包含最近一次連線時間（Last Connect）。
+Use `--connected` to only show currently-connected nodes. Paired rows include the most recent connect age (Last Connect).
 Use `--connected` to only show currently-connected nodes. Use `--last-connected <duration>` to
 filter to nodes that connected within a duration (e.g. `24h`, `7d`).
 
@@ -60,12 +65,10 @@ Invoke 旗標：
 旗標：
 
 - `--cwd <path>`：工作目錄。
-- `--env <key=val>`：env 覆寫（可重複）。
+- `--env <key=val>`：env 覆寫（可重複）。 注意：node hosts 會忽略 `PATH` 覆寫（且不會將 `tools.exec.pathPrepend` 套用至 node hosts）。
 - `--command-timeout <ms>`：指令逾時。
 - `--invoke-timeout <ms>`：節點 invoke 逾時（預設為 `30000`）。
 - `--needs-screen-recording`：需要螢幕錄製權限。
 - `--raw <command>`：執行 shell 字串（`/bin/sh -lc` 或 `cmd.exe /c`）。
 - `--agent <id>`：代理程式範圍的核准／允許清單（預設為已設定的代理程式）。
 - `--ask <off|on-miss|always>`、`--security <deny|allowlist|full>`：覆寫。
-
-

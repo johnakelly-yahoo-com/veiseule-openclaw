@@ -1,4 +1,6 @@
 ---
+summary: "Ret Chrome/Brave/Edge/Chromium CDP-opstartsproblemer for OpenClaw browserkontrol på Linux"
+read_when: "Browserkontrol fejler på Linux, især med snap Chromium"
 title: "Browser-fejlfinding"
 ---
 
@@ -110,7 +112,7 @@ curl -s http://127.0.0.1:18791/tabs
 
 ### Konfigurationsreference
 
-| Mulighed                   | Beskrivelse                                                                               | Standard                                                                                        |
+| Mulighed                 | Beskrivelse                                                                               | Standard                                                                                        |
 | ------------------------ | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | `browser.enabled`        | Aktivér browserkontrol                                                                    | `true`                                                                                          |
 | `browser.executablePath` | Sti til en Chromium-baseret browser-binær (Chrome/Brave/Edge/Chromium) | auto-detekteret (foretrækker standardbrowseren, når den er Chromium-baseret) |
@@ -135,5 +137,3 @@ Noter:
 
 - Profilen `chrome` bruger din **systemets standard Chromium-browser**, når det er muligt.
 - Lokale `openclaw`-profiler tildeler automatisk `cdpPort`/`cdpUrl`; sæt kun disse for fjern-CDP.
-
-

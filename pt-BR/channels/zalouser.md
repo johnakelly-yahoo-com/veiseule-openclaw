@@ -1,4 +1,8 @@
 ---
+summary: "Suporte a conta pessoal do Zalo via zca-cli (login por QR), capacidades e configuração"
+read_when:
+  - Configurando o Zalo Personal para o OpenClaw
+  - Depurando login ou fluxo de mensagens do Zalo Personal
 title: "Zalo Personal"
 ---
 
@@ -134,5 +138,3 @@ As contas mapeiam para perfis do zca. Exemplo:
 
 - `openclaw channels status --probe`
 - Faça login novamente: `openclaw channels logout --channel zalouser && openclaw channels login --channel zalouser`
-
-

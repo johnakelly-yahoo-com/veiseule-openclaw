@@ -1,4 +1,5 @@
 ---
+summary: "cron.add 입력 처리를 강화하고, 스키마를 정렬하며, cron UI/에이전트 도구를 개선합니다"
 owner: "openclaw"
 status: "complete"
 last_updated: "2026-01-05"
@@ -7,7 +8,7 @@ title: "Cron Add 하드닝"
 
 # Cron Add 하드닝 & 스키마 정렬
 
-## 맥락
+## Context
 
 최근 Gateway(게이트웨이) 로그에서 잘못된 파라미터(누락된 `sessionTarget`, `wakeMode`, `payload` 및 형식이 잘못된 `schedule`)로 인해 `cron.add` 실패가 반복적으로 발생하고 있습니다. 이는 최소 한 개의 클라이언트(아마도 에이전트 도구 호출 경로)가 래핑되었거나 부분적으로 지정된 작업 페이로드를 전송하고 있음을 시사합니다. 별도로, TypeScript 의 cron 프로바이더 enum, Gateway(게이트웨이) 스키마, CLI 플래그, UI 폼 타입 간에 불일치가 있으며, `cron.status` 에 대한 UI 불일치도 존재합니다(UI 는 `jobCount` 을 기대하지만 Gateway(게이트웨이)는 `jobs` 을 반환).
 
@@ -19,7 +20,7 @@ title: "Cron Add 하드닝"
 - Control UI 의 cron 상태 작업 수 표시를 수정합니다.
 - 정규화 및 도구 동작을 포괄하는 테스트를 추가합니다.
 
-## 비목표
+## Non-goals
 
 - cron 스케줄링 의미론 또는 작업 실행 동작을 변경하지 않습니다.
 - 새로운 스케줄 종류를 추가하거나 cron 표현식 파싱을 추가하지 않습니다.
@@ -60,5 +61,3 @@ title: "Cron Add 하드닝"
 
 - `cron.add` 이 클라이언트로부터 명시적인 `state` 을 수용해야 합니까(현재 스키마에서 허용되지 않음)?
 - `webchat` 을 명시적인 전달 프로바이더로 허용해야 합니까(현재 전달 해석에서 필터링됨)?
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Kênh DM Nostr qua tin nhắn mã hóa NIP-04"
+read_when:
+  - Bạn muốn OpenClaw nhận DM qua Nostr
+  - Bạn đang thiết lập nhắn tin phi tập trung
 title: "Nostr"
 ---
 
@@ -6,7 +10,7 @@ title: "Nostr"
 
 **Trạng thái:** Plugin tùy chọn (tắt theo mặc định).
 
-Nostr là một giao thức phi tập trung cho mạng xã hội. Kênh này cho phép OpenClaw nhận và phản hồi các tin nhắn trực tiếp (DM) được mã hóa thông qua NIP-04.
+Nostr is a decentralized protocol for social networking. This channel enables OpenClaw to receive and respond to encrypted direct messages (DMs) via NIP-04.
 
 ## Cài đặt (theo yêu cầu)
 
@@ -227,5 +231,3 @@ docker run -p 7777:7777 ghcr.io/hoytech/strfry
 - Chỉ tin nhắn trực tiếp (không có chat nhóm).
 - Không hỗ trợ tệp media đính kèm.
 - Chỉ NIP-04 (NIP-17 gói quà dự kiến).
-
-

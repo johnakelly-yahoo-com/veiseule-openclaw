@@ -1,29 +1,32 @@
 ---
+summary: "SSH के माध्यम से दूरस्थ OpenClaw Gateway को नियंत्रित करने के लिए macOS ऐप प्रवाह"
+read_when:
+  - दूरस्थ mac नियंत्रण सेटअप या डिबग करते समय
 title: "दूरस्थ नियंत्रण"
 ---
 
 # Remote OpenClaw (macOS ⇄ दूरस्थ होस्ट)
 
-यह फ्लो macOS ऐप को किसी अन्य होस्ट (डेस्कटॉप/सर्वर) पर चल रहे OpenClaw gateway के लिए पूर्ण रिमोट कंट्रोल के रूप में कार्य करने देता है। यह ऐप की **Remote over SSH** (remote run) सुविधा है। सभी फीचर्स—health checks, Voice Wake forwarding, और Web Chat—_Settings → General_ से उसी रिमोट SSH कॉन्फ़िगरेशन का पुन: उपयोग करते हैं।
+This flow lets the macOS app act as a full remote control for a OpenClaw gateway running on another host (desktop/server). It’s the app’s **Remote over SSH** (remote run) feature. All features—health checks, Voice Wake forwarding, and Web Chat—reuse the same remote SSH configuration from _Settings → General_.
 
 ## मोड्स
 
-- **Local (this Mac)**: सब कुछ लैपटॉप पर चलता है। SSH शामिल नहीं है।
-- **Remote over SSH (default)**: OpenClaw कमांड्स रिमोट होस्ट पर निष्पादित किए जाते हैं। mac ऐप `-o BatchMode` के साथ आपकी चुनी हुई identity/key और एक लोकल port-forward के माध्यम से SSH कनेक्शन खोलता है।
-- **Remote direct (ws/wss)**: कोई SSH टनल नहीं। mac ऐप सीधे gateway URL से कनेक्ट होता है (उदाहरण के लिए, Tailscale Serve या पब्लिक HTTPS reverse proxy के माध्यम से)।
+- **Local (this Mac)**: Everything runs on the laptop. No SSH involved.
+- **Remote over SSH (default)**: OpenClaw commands are executed on the remote host. The mac app opens an SSH connection with `-o BatchMode` plus your chosen identity/key and a local port-forward.
+- **Remote direct (ws/wss)**: No SSH tunnel. The mac app connects to the gateway URL directly (for example, via Tailscale Serve or a public HTTPS reverse proxy).
 
 ## रिमोट ट्रांसपोर्ट्स
 
 Remote मोड दो ट्रांसपोर्ट का समर्थन करता है:
 
-- **SSH tunnel** (default): gateway पोर्ट को localhost पर फ़ॉरवर्ड करने के लिए `ssh -N -L ...` का उपयोग करता है। टनल loopback होने के कारण gateway को node का IP `127.0.0.1` के रूप में दिखाई देगा।
-- **Direct (ws/wss)**: सीधे gateway URL से कनेक्ट करता है। gateway को वास्तविक client IP दिखाई देता है।
+- **SSH tunnel** (default): Uses `ssh -N -L ...` to forward the gateway port to localhost. The gateway will see the node’s IP as `127.0.0.1` because the tunnel is loopback.
+- **Direct (ws/wss)**: Connects straight to the gateway URL. The gateway sees the real client IP.
 
 ## रिमोट होस्ट पर आवश्यक पूर्व-शर्तें
 
 1. Node + pnpm इंस्टॉल करें और OpenClaw CLI (`pnpm install && pnpm build && pnpm link --global`) को बिल्ड/इंस्टॉल करें।
 2. सुनिश्चित करें कि `openclaw` non-interactive shells के लिए PATH पर है (आवश्यक होने पर `/usr/local/bin` या `/opt/homebrew/bin` में symlink करें)।
-3. Key auth के साथ Open SSH। LAN के बाहर स्थिर कनेक्टिविटी के लिए हम **Tailscale** IPs की सिफारिश करते हैं।
+3. Open SSH with key auth. We recommend **Tailscale** IPs for stable reachability off-LAN.
 
 ## macOS app setup
 
@@ -78,5 +81,3 @@ openclaw nodes notify --node <id> --title "Ping" --body "Remote gateway ready" -
 ```
 
 अब ऐप में कोई वैश्विक “default sound” टॉगल नहीं है; कॉलर प्रत्येक अनुरोध के लिए एक ध्वनि (या कोई नहीं) चुनते हैं।
-
-

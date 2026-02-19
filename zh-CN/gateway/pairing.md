@@ -1,32 +1,35 @@
 ---
-title: Gateway 网关拥有的配对
-x-i18n:
-  generated_at: "2026-02-03T07:48:32Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 1f5154292a75ea2c1470324babc99c6c46a5e4e16afb394ed323d28f6168f459
-  source_path: gateway/pairing.md
-  workflow: 15
+summary: "Gateway 网关拥有的节点配对（选项 B），用于 iOS 和其他远程节点"
+read_when:
+  - 在没有 macOS UI 的情况下实现节点配对审批
+  - 添加用于审批远程节点的 CLI 流程
+  - 扩展 Gateway 网关协议以支持节点管理
+title: "Gateway 网关拥有的配对"
 ---
 
 # Gateway 网关拥有的配对（选项 B）
 
-在 Gateway 网关拥有的配对中，**Gateway 网关**是允许哪些节点加入的唯一信息源。UI（macOS 应用、未来的客户端）只是审批或拒绝待处理请求的前端。
+在网关所有的配对中，**网关** 是决定哪些节点
+允许加入的唯一真实来源。 UI（macOS 应用、未来的客户端）只是前端，
+用于批准或拒绝待处理的请求。
 
 **重要：**WS 节点在 `connect` 期间使用**设备配对**（角色 `node`）。`node.pair.*` 是一个独立的配对存储，**不会**限制 WS 握手。只有显式调用 `node.pair.*` 的客户端使用此流程。
+`node.pair.*` 是一个独立的配对存储，并且 **不会** 控制 WS 握手。
+只有显式调用 `node.pair.*` 的客户端才会使用该流程。
 
 ## 概念
 
 - **待处理请求**：一个节点请求加入；需要审批。
 - **已配对节点**：已批准的节点，带有已颁发的认证令牌。
-- **传输层**：Gateway 网关 WS 端点转发请求但不决定成员资格。（旧版 TCP 桥接支持已弃用/移除。）
+- **传输**：网关 WS 端点转发请求，但不决定
+  成员资格。 （旧版 TCP 桥接支持已弃用/移除。）
 
-## 配对工作原理
+## 配对的工作方式
 
 1. 节点连接到 Gateway 网关 WS 并请求配对。
 2. Gateway 网关存储一个**待处理请求**并发出 `node.pair.requested`。
 3. 你审批或拒绝该请求（CLI 或 UI）。
-4. 审批后，Gateway 网关颁发一个**新令牌**（重新配对时令牌会轮换）。
+4. 批准后，网关会签发一个 **新令牌**（重新配对时令牌会轮换）。
 5. 节点使用该令牌重新连接，现在是"已配对"状态。
 
 待处理请求在 **5 分钟**后自动过期。
@@ -92,5 +95,3 @@ openclaw nodes rename --node <id|name|ip> --name "Living Room iPad"
 - 传输层是**无状态的**；它不存储成员资格。
 - 如果 Gateway 网关离线或配对被禁用，节点无法配对。
 - 如果 Gateway 网关处于远程模式，配对仍然针对远程 Gateway 网关的存储进行。
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "Logika stanu paska menu i to, co jest prezentowane użytkownikom"
+read_when:
+  - Dostosowywanie interfejsu menu na macOS lub logiki stanu
 title: "Pasek menu"
 ---
 
@@ -76,5 +79,3 @@ title: "Pasek menu"
 - Uruchom główną, gdy inna jest aktywna: ikona przełącza się na główną natychmiast.
 - Szybkie serie narzędzi: upewnij się, że odznaka nie migocze (okres łaski TTL dla wyników narzędzi).
 - Wiersz zdrowia pojawia się ponownie, gdy wszystkie sesje są bezczynne.
-
-

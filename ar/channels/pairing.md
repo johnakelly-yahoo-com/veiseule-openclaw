@@ -1,4 +1,9 @@
 ---
+summary: "استعراض الاقتران: الموافقة على من يستطيع الاتصال بك + أي عقد يمكن الانضمام إليها"
+read_when:
+  - إعداد التحكم في الوصول إلى الرسائل المباشرة
+  - إقران عُقدة iOS/Android جديدة
+  - مراجعة الوضع الأمني لـ OpenClaw
 title: "الاقتران"
 ---
 
@@ -96,5 +101,3 @@ openclaw devices reject <requestId>
   - iMessage (قديم): [iMessage](/channels/imessage)
   - Discord: [Discord](/channels/discord)
   - Slack: [Slack](/channels/slack)
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "使用 Ansible、Tailscale VPN 與防火牆隔離的自動化且強化安全性的 OpenClaw 安裝"
+read_when:
+  - 你需要具備安全性強化的自動化伺服器部署
+  - 你需要透過 VPN 存取、並具備防火牆隔離的設定
+  - 你要部署到遠端的 Debian／Ubuntu 伺服器
 title: "Ansible"
 ---
 
@@ -45,7 +50,7 @@ Ansible playbook 會安裝並設定以下項目：
 5. **OpenClaw**（直接安裝於主機，不使用容器）
 6. **Systemd 服務**（自動啟動並套用安全性強化）
 
-注意：Gateway 會 **直接在主機上執行**（不在 Docker 中），但代理程式沙箱會使用 Docker 進行隔離。詳細說明請參考 [Sandboxing](/gateway/sandboxing)。 安裝後腳本將引導你完成：
+注意：Gateway 會 **直接在主機上執行**（不在 Docker 中），但代理程式沙箱會使用 Docker 進行隔離。詳細說明請參考 [Sandboxing](/gateway/sandboxing)。 安裝後腳本將引導你完成： 詳情請參閱 [Sandboxing](/gateway/sandboxing)。
 
 ## 安裝後設定
 
@@ -96,11 +101,11 @@ openclaw channels login
 nmap -p- YOUR_SERVER_IP
 ```
 
-所有其他服務（gateway、Docker）都已鎖定。 Docker 是為了 **agent sandboxes**（隔離的工具執行）而安裝的，並非用來執行 gateway 本身。
+應該 **只開放 22 埠**（SSH）。 Docker 是為了 **agent sandboxes**（隔離的工具執行）而安裝的，並非用來執行 gateway 本身。
 
 ### Docker 可用性
 
-gateway 只綁定在 localhost，並可透過 Tailscale VPN 存取。 標準更新流程請參閱 [Updating](/install/updating)。
+所有其他服務（gateway、Docker）都已鎖定。 Docker 是為了 **agent sandboxes**（隔離的工具執行）而安裝的，並非用來執行 gateway 本身。 標準更新流程請參閱 [Updating](/install/updating)。
 
 請參考 [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) 以了解沙箱設定。
 
@@ -128,7 +133,7 @@ ansible-galaxy collection install -r requirements.yml
 
 ## 更新 OpenClaw
 
-Ansible 安裝器會將 OpenClaw 設定為手動更新。標準更新流程請參考 [Updating](/install/updating)。 疑難排解
+Ansible 安裝器會將 OpenClaw 設定為手動更新。標準更新流程請參考 [Updating](/install/updating)。 疑難排解 疑難排解
 
 若要重新執行 Ansible playbook（例如套用設定變更）：
 
@@ -191,9 +196,9 @@ openclaw channels login
 
 如需深入了解安全性架構與疑難排解：
 
-- [安全架構](https://github.com/openclaw/openclaw-ansible/blob/main/docs/security.md)
-- [技術細節](https://github.com/openclaw/openclaw-ansible/blob/main/docs/architecture.md)
-- [疑難排解指南](https://github.com/openclaw/openclaw-ansible/blob/main/docs/troubleshooting.md)
+- [Security Architecture](https://github.com/openclaw/openclaw-ansible/blob/main/docs/security.md)
+- [Technical Details](https://github.com/openclaw/openclaw-ansible/blob/main/docs/architecture.md)
+- [Troubleshooting Guide](https://github.com/openclaw/openclaw-ansible/blob/main/docs/troubleshooting.md)
 
 ## 你遇到了 Bun 安裝／修補／生命週期腳本的問題
 
@@ -201,5 +206,3 @@ openclaw channels login
 - [Docker](/install/docker) — 容器化 Gateway 設定
 - [Sandboxing](/gateway/sandboxing) — 代理程式沙箱設定
 - [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) — 逐代理程式隔離
-
-

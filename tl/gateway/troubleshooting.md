@@ -1,4 +1,8 @@
 ---
+summary: "Malalim na troubleshooting runbook para sa gateway, mga channel, automation, mga node, at browser"
+read_when:
+  - Itinuro ka rito ng troubleshooting hub para sa mas malalim na diagnosis
+  - Kailangan mo ng matatag na mga seksyon ng runbook na batay sa sintomas na may eksaktong mga command
 title: "Pag-troubleshoot"
 ---
 
@@ -105,7 +109,7 @@ Hanapin ang:
 
 Karaniwang mga signature:
 
-- `Gateway start blocked: set gateway.mode=local` → hindi naka-enable ang local gateway mode.
+- `Gateway start blocked: set gateway.mode=local` → hindi naka-enable ang local gateway mode. Ayusin: itakda ang `gateway.mode="local"` sa iyong config (o patakbuhin ang `openclaw configure`). Kung pinapatakbo mo ang OpenClaw sa pamamagitan ng Podman gamit ang nakatalagang `openclaw` user, ang config ay matatagpuan sa `~openclaw/.openclaw/openclaw.json`.
 - `refusing to bind gateway ... without auth` → non-loopback bind na walang token/password.
 - `another gateway instance is already listening` / `EADDRINUSE` → conflict sa port.
 
@@ -312,5 +316,3 @@ Kaugnay:
 - [/gateway/pairing](/gateway/pairing)
 - [/gateway/authentication](/gateway/authentication)
 - [/gateway/background-process](/gateway/background-process)
-
-

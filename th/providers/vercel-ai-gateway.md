@@ -1,5 +1,9 @@
 ---
 title: "Vercel AI Gateway"
+summary: "การตั้งค่าVercel AI Gateway(การยืนยันตัวตน+การเลือกโมเดล)"
+read_when:
+  - คุณต้องการใช้Vercel AI GatewayกับOpenClaw
+  - คุณต้องการตัวแปรสภาพแวดล้อมคีย์APIหรือทางเลือกการยืนยันตัวตนผ่านCLI
 ---
 
 # Vercel AI Gateway
@@ -44,5 +48,3 @@ openclaw onboard --non-interactive \
 หากGatewayทำงานเป็นเดมอน(launchd/systemd) ให้ตรวจสอบว่า `AI_GATEWAY_API_KEY`
 พร้อมใช้งานสำหรับโปรเซสนั้น(เช่น ใน `~/.openclaw/.env` หรือผ่าน
 `env.shellEnv`)
-
-

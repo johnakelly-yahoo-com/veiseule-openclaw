@@ -1,19 +1,19 @@
 ---
-title: Firecrawl
-x-i18n:
-  generated_at: "2026-02-03T10:10:35Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 08a7ad45b41af41204e44d2b0be0f980b7184d80d2fa3977339e42a47beb2851
-  source_path: tools/firecrawl.md
-  workflow: 15
+summary: "用于 web_fetch 的 Firecrawl 回退（反机器人 + 缓存提取）"
+read_when:
+  - 你想要 Firecrawl 支持的网页提取
+  - 你需要 Firecrawl API 密钥
+  - 你想要 web_fetch 的反机器人提取
+title: "Firecrawl"
 ---
 
 # Firecrawl
 
 OpenClaw 可以使用 **Firecrawl** 作为 `web_fetch` 的回退提取器。它是一个托管的
 内容提取服务，支持机器人规避和缓存，有助于处理
-JS 密集型网站或阻止普通 HTTP 请求的页面。
+JS 密集型网站或阻止普通 HTTP 请求的页面。 It is a hosted
+content extraction service that supports bot circumvention and caching, which helps
+with JS-heavy sites or pages that block plain HTTP fetches.
 
 ## 获取 API 密钥
 
@@ -43,14 +43,17 @@ JS 密集型网站或阻止普通 HTTP 请求的页面。
 注意事项：
 
 - 当存在 API 密钥时，`firecrawl.enabled` 默认为 true。
-- `maxAgeMs` 控制缓存结果可以保留多久（毫秒）。默认为 2 天。
+- `maxAgeMs` 控制缓存结果可以保留多久（毫秒）。默认为 2 天。 Default is 2 days.
 
 ## 隐身 / 机器人规避
 
+Firecrawl exposes a **proxy mode** parameter for bot circumvention (`basic`, `stealth`, or `auto`).
 Firecrawl 提供了一个用于机器人规避的**代理模式**参数（`basic`、`stealth` 或 `auto`）。
 OpenClaw 对 Firecrawl 请求始终使用 `proxy: "auto"` 加 `storeInCache: true`。
 如果省略 proxy，Firecrawl 默认使用 `auto`。`auto` 在基本尝试失败时会使用隐身代理重试，这可能比
 仅使用基本抓取消耗更多积分。
+If proxy is omitted, Firecrawl defaults to `auto`. `auto` retries with stealth proxies if a basic attempt fails, which may use more credits
+than basic-only scraping.
 
 ## `web_fetch` 如何使用 Firecrawl
 
@@ -61,5 +64,3 @@ OpenClaw 对 Firecrawl 请求始终使用 `proxy: "auto"` 加 `storeInCache: tru
 3. 基本 HTML 清理（最后回退）
 
 参见 [Web 工具](/tools/web) 了解完整的 Web 工具设置。
-
-

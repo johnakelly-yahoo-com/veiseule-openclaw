@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw message` 에 대한 CLI 참조 (전송 + 채널 작업)"
+read_when:
+  - 메시지 CLI 작업을 추가하거나 수정할 때
+  - 아웃바운드 채널 동작을 변경할 때
 title: "message"
 ---
 
@@ -48,7 +52,7 @@ openclaw message <subcommand> [flags]
 
 ## 동작
 
-### 코어
+### Core
 
 - `send`
   - 채널: WhatsApp/Telegram/Discord/Google Chat/Slack/Mattermost (plugin)/Signal/iMessage/MS Teams
@@ -64,6 +68,7 @@ openclaw message <subcommand> [flags]
   - 필수: `--target`, `--poll-question`, `--poll-option` (반복)
   - 선택: `--poll-multi`
   - Discord 전용: `--poll-duration-hours`, `--message`
+  - Telegram 전용: `--poll-duration-seconds` (5-600), `--silent`, `--poll-anonymous` / `--poll-public`, `--thread-id`
 
 - `react`
   - 채널: Discord/Google Chat/Slack/Telegram/WhatsApp/Signal
@@ -196,6 +201,16 @@ openclaw message poll --channel discord \
   --poll-multi --poll-duration-hours 48
 ```
 
+Telegram 설문 만들기 (2분 후 자동 종료):
+
+```
+openclaw message poll --channel telegram \
+  --target @mychat \
+  --poll-question "Lunch?" \
+  --poll-option Pizza --poll-option Sushi \
+  --poll-duration-seconds 120 --silent
+```
+
 Teams 선제적 메시지 보내기:
 
 ```
@@ -233,5 +248,3 @@ Telegram 인라인 버튼 보내기:
 openclaw message send --channel telegram --target @mychat --message "Choose:" \
   --buttons '[ [{"text":"Yes","callback_data":"cmd:yes"}], [{"text":"No","callback_data":"cmd:no"}] ]'
 ```
-
-

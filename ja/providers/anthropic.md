@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw で API キーまたは setup-token を使用して Anthropic Claude を利用します"
+read_when:
+  - OpenClaw で Anthropic モデルを使用したい場合
+  - API キーの代わりに setup-token を使用したい場合
 title: "Anthropic"
 ---
 
@@ -7,9 +11,12 @@ title: "Anthropic"
 Anthropic は **Claude** モデルファミリーを開発しており、API を通じてアクセスを提供しています。
 OpenClaw では、API キーまたは **setup-token** を使用して認証できます。
 OpenClawでは、APIキーまたは**setup-token**で認証することができます。
+OpenClawでは、APIキーまたは**setup-token**で認証することができます。
 
 ## オプション A: Anthropic API キー
 
+**最適な用途:** 標準的な API アクセスおよび使用量ベースの課金。
+Anthropic Console で API キーを作成してください。
 **最適な用途:** 標準的な API アクセスおよび使用量ベースの課金。
 Anthropic Console で API キーを作成してください。
 Anthropic ConsoleでAPIキーを作成します。
@@ -63,7 +70,7 @@ OpenClaw は Anthropic のプロンプトキャッシュ機能をサポートし
 
 ### デフォルト
 
-Anthropic API キー認証を使用する場合、OpenClaw はすべての Anthropic モデルに対して自動的に `cacheRetention: "short"`（5 分キャッシュ）を適用します。設定で明示的に `cacheRetention` を指定することで、これを上書きできます。 設定に `cacheRetention` を明示的に設定することでこれを上書きできます。
+Anthropic API キー認証を使用する場合、OpenClaw はすべての Anthropic モデルに対して自動的に `cacheRetention: "short"`（5 分キャッシュ）を適用します。設定で明示的に `cacheRetention` を指定することで、これを上書きできます。 設定に `cacheRetention` を明示的に設定することでこれを上書きできます。 設定に `cacheRetention` を明示的に設定することでこれを上書きできます。
 
 ### レガシーパラメーター
 
@@ -82,7 +89,7 @@ OpenClaw には Anthropic API リクエスト用の `extended-cache-ttl-2025-04-
 
 ### setup-token の取得方法
 
-setup-token は Anthropic Console ではなく、**Claude Code CLI** によって作成されます。**任意のマシン** で実行できます。 **どのマシン**でも実行できます：
+setup-token は Anthropic Console ではなく、**Claude Code CLI** によって作成されます。**任意のマシン** で実行できます。 **どのマシン**でも実行できます： **どのマシン**でも実行できます：
 
 ```bash
 claude setup-token
@@ -118,7 +125,7 @@ openclaw onboard --auth-choice setup-token
 ## 注記
 
 - `claude setup-token` で setup-token を生成して貼り付けるか、ゲートウェイ ホストで `openclaw models auth setup-token` を実行してください。
-- 4. Claude のサブスクリプションで「OAuth token refresh failed …」と表示された場合は、setup-token で再認証してください。 Claude サブスクリプションで「OAuth token refresh failed …」と表示される場合は、setup-token で再認証してください。詳細は [/gateway/troubleshooting#oauth-token-refresh-failed-anthropic-claude-subscription](/gateway/troubleshooting#oauth-token-refresh-failed-anthropic-claude-subscription) を参照してください。
+- 4. Claude のサブスクリプションで「OAuth token refresh failed …」と表示された場合は、setup-token で再認証してください。 Claude のサブスクリプションで「OAuth token refresh failed …」と表示された場合は、setup-token で再認証してください。 Claude サブスクリプションで「OAuth token refresh failed …」と表示される場合は、setup-token で再認証してください。詳細は [/gateway/troubleshooting#oauth-token-refresh-failed-anthropic-claude-subscription](/gateway/troubleshooting#oauth-token-refresh-failed-anthropic-claude-subscription) を参照してください。
 - 認証の詳細および再利用ルールは [/concepts/oauth](/concepts/oauth) に記載されています。
 
 ## トラブルシューティング
@@ -132,7 +139,7 @@ openclaw onboard --auth-choice setup-token
 
 **プロバイダー "anthropic" の API キーが見つかりません**
 
-- 認証は**エージェントごと**です。 認証は **エージェントごと** です。新しいエージェントはメインエージェントのキーを継承しません。
+- 認証は**エージェントごと**です。 認証は **エージェントごと** です。新しいエージェントはメインエージェントのキーを継承しません。 認証は **エージェントごと** です。新しいエージェントはメインエージェントのキーを継承しません。
 - そのエージェントのオンボーディングを再実行するか、setup-token または API キーを
   ゲートウェイ ホストに貼り付け、`openclaw models status` で確認してください。
 
@@ -147,5 +154,3 @@ openclaw onboard --auth-choice setup-token
 - 別の Anthropic プロファイルを追加するか、クールダウンが終了するまで待ってください。
 
 詳細: [/gateway/troubleshooting](/gateway/troubleshooting) および [/help/faq](/help/faq)。
-
-

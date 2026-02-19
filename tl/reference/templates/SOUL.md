@@ -1,4 +1,9 @@
-------
+---
+title: "Template ng SOUL.md"
+summary: "Template ng workspace para sa SOUL.md"
+read_when:
+  - Manu-manong pag-bootstrapping ng isang workspace
+---
 
 # SOUL.md - Sino Ka
 
@@ -36,5 +41,3 @@ Kung babaguhin mo ang file na ito, ipaalam sa user — kaluluwa mo ito, at dapat
 ---
 
 _This file is yours to evolve. As you learn who you are, update it._
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Verwendung des Exec-Werkzeugs, stdin-Modi und TTY-Unterstützung"
+read_when:
+  - Bei der Nutzung oder Änderung des Exec-Werkzeugs
+  - Beim Debuggen von stdin- oder TTY-Verhalten
 title: "Exec-Werkzeug"
 ---
 
@@ -71,8 +75,8 @@ Beispiel:
   OpenClaw stellt `env.PATH` nach dem Sourcing der Profile über eine interne Umgebungsvariable voran (keine Shell-Interpolation);
   `tools.exec.pathPrepend` gilt hier ebenfalls.
 - `host=node`: Es werden nur nicht blockierte Env-Overrides, die Sie übergeben, an den Node gesendet. `env.PATH`-Overrides werden
-  für Host-Ausführung abgelehnt. Headless-Node-Hosts akzeptieren `PATH` nur, wenn es dem Node-Host-PATH vorangestellt wird
-  (kein Ersetzen). macOS-Nodes verwerfen `PATH`-Overrides vollständig.
+  für Host-Ausführung abgelehnt. Wenn du zusätzliche PATH-Einträge auf einem Node benötigst,
+  konfiguriere die Umgebung des Node-Host-Services (systemd/launchd) oder installiere Tools an Standardorten.
 
 Pro-Agent-Node-Bindung (verwenden Sie den Agent-Listenindex in der Konfiguration):
 
@@ -116,7 +120,8 @@ sendet das Gateway Systemereignisse (`Exec finished` / `Exec denied`). Läuft de
 Die Allowlist-Durchsetzung gleicht **nur aufgelöste Binary-Pfade** ab (keine Basename-Abgleiche). Wenn
 `security=allowlist`, sind Shell-Befehle nur dann automatisch erlaubt, wenn jedes Pipeline-Segment
 allowlisted ist oder ein sicheres Binary darstellt. Verkettungen (`;`, `&&`, `||`) und Umleitungen werden im
-Allowlist-Modus abgelehnt.
+Allowlist-Modus abgelehnt, es sei denn, jedes Top-Level-Segment erfüllt die Allowlist (einschließlich Safe Bins).
+Umleitungen werden weiterhin nicht unterstützt.
 
 ## Beispiele
 
@@ -173,5 +178,4 @@ Hinweise:
 - Nur verfügbar für OpenAI/OpenAI Codex-Modelle.
 - Tool-Richtlinien gelten weiterhin; `allow: ["exec"]` erlaubt implizit `apply_patch`.
 - Die Konfiguration befindet sich unter `tools.exec.applyPatch`.
-
-
+- `tools.exec.applyPatch.workspaceOnly` ist standardmäßig auf `true` gesetzt (auf den Workspace beschränkt). Setzen Sie es nur auf `false`, wenn Sie ausdrücklich möchten, dass `apply_patch` außerhalb des Workspace-Verzeichnisses schreibt/löscht.

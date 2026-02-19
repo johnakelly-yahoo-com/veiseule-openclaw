@@ -1,4 +1,8 @@
 ---
+summary: "Skills 設定結構與範例"
+read_when:
+  - 新增或修改 Skills 設定
+  - 調整隨附允許清單或安裝行為
 title: "Skills 設定"
 ---
 
@@ -38,6 +42,7 @@ title: "Skills 設定"
 
 - `allowBundled`：僅適用於 **隨附** Skills 的選用允許清單。設定後，只有清單中的
   隨附 Skills 會被納入（不影響受管理／工作區 Skills）。 設定後，只有
+  清單中的隨附技能符合資格（受管/工作區技能不受影響）。 設定後，只有
   清單中的隨附技能符合資格（受管/工作區技能不受影響）。
 - `load.extraDirs`：要掃描的額外 Skills 目錄（最低優先順序）。
 - `load.watch`：監看 Skills 資料夾並重新整理 Skills 快照（預設：true）。
@@ -65,6 +70,7 @@ title: "Skills 設定"
 ### 沙箱化技能 + 環境變數
 
 當工作階段為 **沙箱隔離** 時，Skill 程序會在 Docker 內執行。沙箱
+**不會** 繼承主機的 `process.env`。 當工作階段為 **沙箱隔離** 時，Skill 程序會在 Docker 內執行。沙箱
 **不會** 繼承主機的 `process.env`。 The sandbox
 does **not** inherit the host `process.env`.
 
@@ -74,5 +80,3 @@ does **not** inherit the host `process.env`.
 - 將環境變數烘焙進你的自訂沙箱映像
 
 全域的 `env` 與 `skills.entries.<skill>.env/apiKey` 僅適用於 **主機** 執行。
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "Nodes: ghép cặp, khả năng, quyền hạn và các trợ giúp CLI cho canvas/camera/màn hình/hệ thống"
+read_when:
+  - Ghép cặp các node iOS/Android với một gateway
+  - Sử dụng canvas/camera của node cho ngữ cảnh tác tử
+  - Thêm lệnh node mới hoặc trợ giúp CLI
 title: "Các nút"
 ---
 
@@ -268,7 +273,7 @@ Ghi chú:
 - `system.notify` tuân theo trạng thái quyền thông báo trên ứng dụng macOS.
 - `system.run` hỗ trợ `--cwd`, `--env KEY=VAL`, `--command-timeout`, và `--needs-screen-recording`.
 - `system.notify` hỗ trợ `--priority <passive|active|timeSensitive>` và `--delivery <system|overlay|auto>`.
-- Node macOS bỏ qua các ghi đè `PATH`; node host headless chỉ chấp nhận `PATH` khi nó thêm tiền tố PATH của node host.
+- Các node host bỏ qua các ghi đè `PATH`. Nếu bạn cần thêm các mục PATH, hãy cấu hình môi trường dịch vụ node host (hoặc cài đặt công cụ ở các vị trí tiêu chuẩn) thay vì truyền `PATH` qua `--env`.
 - Ở chế độ node macOS, `system.run` bị kiểm soát bởi phê duyệt exec trong ứng dụng macOS (Settings → Exec approvals).
   Ask/allowlist/full hoạt động giống như node host headless; các prompt bị từ chối trả về `SYSTEM_RUN_DENIED`.
 - Trên node host headless, `system.run` bị chặn bởi phê duyệt exec (`~/.openclaw/exec-approvals.json`).
@@ -326,5 +331,3 @@ Ghi chú:
 
 - Ứng dụng menubar macOS kết nối tới máy chủ WS của Gateway như một node (vì vậy `openclaw nodes …` hoạt động với máy Mac này).
 - Ở chế độ từ xa, ứng dụng mở một đường hầm SSH cho cổng Gateway và kết nối tới `localhost`.
-
-

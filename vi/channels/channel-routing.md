@@ -1,4 +1,7 @@
 ---
+summary: "Quy tắc định tuyến theo từng kênh (WhatsApp, Telegram, Discord, Slack) và ngữ cảnh dùng chung"
+read_when:
+  - Thay đổi định tuyến kênh hoặc hành vi hộp thư
 title: "Định tuyến kênh"
 ---
 
@@ -46,12 +49,18 @@ Ví dụ:
 4. **Khớp tài khoản** (`accountId` trên kênh).
 5. **Khớp kênh** (bất kỳ tài khoản nào trên kênh đó).
 6. **Tác tử mặc định** (`agents.list[].default`, nếu không thì mục đầu tiên trong danh sách, fallback sang `main`).
+7. ```
+   Discord DM mặc định ở chế độ pairing.
+   ```
+8. **Tác tử mặc định** (`agents.list[].default`, nếu không thì mục đầu tiên trong danh sách, fallback sang `main`).
+
+Tác tử được khớp sẽ quyết định không gian làm việc và kho phiên được sử dụng.
 
 Tác tử được khớp sẽ quyết định không gian làm việc và kho phiên được sử dụng.
 
 ## Nhóm phát sóng (chạy nhiều tác tử)
 
-Nhóm phát sóng cho phép bạn chạy **nhiều tác tử** cho cùng một peer **khi OpenClaw bình thường sẽ phản hồi** (ví dụ: trong nhóm WhatsApp, sau khi qua bước chặn theo mention/kích hoạt).
+Cấu hình:
 
 Cấu hình:
 
@@ -108,5 +117,3 @@ Phản hồi đến bao gồm:
 - Ngữ cảnh trích dẫn được nối vào `Body` như một khối `[Replying to ...]`.
 
 Điều này nhất quán trên các kênh.
-
-

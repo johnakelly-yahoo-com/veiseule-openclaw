@@ -1,4 +1,8 @@
 ---
+summary: "Depo betikleri: amaç, kapsam ve güvenlik notları"
+read_when:
+  - 39. Depodan betik çalıştırma
+  - ./scripts altında betik eklerken veya değiştirirken
 title: "40. Betikler"
 ---
 
@@ -20,7 +24,5 @@ Kimlik doğrulama izleme betikleri burada belgelenmiştir:
 
 ## 44. Betik eklerken
 
-- 45. Betikleri odaklı ve belgelenmiş tutun.
+- Betikleri odaklı ve belgelenmiş tutun.
 - İlgili dokümana kısa bir giriş ekleyin (yoksa oluşturun).
-
-

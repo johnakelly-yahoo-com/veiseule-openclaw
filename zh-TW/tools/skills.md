@@ -1,10 +1,14 @@
 ---
+summary: "Skills：受管與工作區的差異、閘控規則，以及設定／環境變數的連接方式"
+read_when:
+  - 新增或修改 Skills
+  - 變更 Skill 的閘控或載入規則
 title: "技能"
 ---
 
 # Skills（OpenClaw）
 
-OpenClaw 使用 **[AgentSkills](https://agentskills.io) 相容**的 Skill 資料夾來教導代理程式如何使用工具。每個 Skill 都是一個目錄，內含一個具有 YAML frontmatter 與說明指示的 `SKILL.md`。OpenClaw 會載入**內建 Skills**以及可選的本機覆寫，並在載入時依據環境、設定與二進位檔是否存在來進行篩選。 每個技能都是一個目錄，包含一個具有 YAML frontmatter 與說明的 `SKILL.md`。 OpenClaw 會載入**隨附技能**以及可選的本地覆寫，並在載入時依據環境、設定與二進位檔是否存在進行篩選。
+OpenClaw 使用 **[AgentSkills](https://agentskills.io) 相容**的 Skill 資料夾來教導代理程式如何使用工具。每個 Skill 都是一個目錄，內含一個具有 YAML frontmatter 與說明指示的 `SKILL.md`。OpenClaw 會載入**內建 Skills**以及可選的本機覆寫，並在載入時依據環境、設定與二進位檔是否存在來進行篩選。 每個技能都是一個目錄，包含一個具有 YAML frontmatter 與說明的 `SKILL.md`。 OpenClaw 會載入**隨附技能**以及可選的本地覆寫，並在載入時依據環境、設定與二進位檔是否存在進行篩選。 每個技能都是一個目錄，包含一個具有 YAML frontmatter 與說明的 `SKILL.md`。 OpenClaw 會載入**隨附技能**以及可選的本地覆寫，並在載入時依據環境、設定與二進位檔是否存在進行篩選。
 
 ## 位置與優先順序
 
@@ -37,15 +41,15 @@ Skills 會從**三個**位置載入：
 ## 外掛程式 + Skills
 
 外掛程式可以在 `openclaw.plugin.json` 中列出 `skills` 目錄（路徑相對於外掛程式根目錄），以隨附自己的 Skills。當外掛程式啟用時，這些外掛 Skills 會載入，並參與一般的 Skill 優先順序規則。你可以在外掛程式的設定項目上透過 `metadata.openclaw.requires.config` 進行閘控。請參閱 [Plugins](/tools/plugin) 了解探索／設定，以及 [Tools](/tools) 了解這些 Skills 所教導的工具介面。 外掛技能會在外掛啟用時載入，並遵循一般的技能優先順序規則。
-你可以在外掛設定項目上透過 `metadata.openclaw.requires.config` 來設門檻。 8. 請參閱 [Plugins](/tools/plugin) 了解探索/設定，以及 [Tools](/tools) 了解這些技能所教導的工具介面。
+你可以在外掛設定項目上透過 `metadata.openclaw.requires.config` 來設門檻。 請參閱 [Plugins](/tools/plugin) 了解探索/設定，以及 [Tools](/tools) 了解這些技能所教導的工具介面。
 
 ## ClawHub（安裝 + 同步）
 
 ClawHub 是 OpenClaw 的公開 Skills 登錄中心。請造訪
 [https://clawhub.com](https://clawhub.com)。你可以用它來探索、安裝、更新與備份 Skills。
-完整指南：[ClawHub](/tools/clawhub)。 9. 瀏覽於
+完整指南：[ClawHub](/tools/clawhub)。 9. 9. 瀏覽於
 [https://clawhub.com](https://clawhub.com)。 使用它來探索、安裝、更新與備份技能。
-11. 完整指南：[ClawHub](/tools/clawhub)。
+完整指南：[ClawHub](/tools/clawhub)。
 
 常見流程：
 
@@ -56,7 +60,7 @@ ClawHub 是 OpenClaw 的公開 Skills 登錄中心。請造訪
 - 同步（掃描 + 發佈更新）：
   - `clawhub sync --all`
 
-預設情況下，`clawhub` 會安裝到你目前工作目錄下的 `./skills`（或回退到已設定的 OpenClaw 工作區）。OpenClaw 會在下一個工作階段將其視為 `<workspace>/skills`。 OpenClaw 會在下一個工作階段將其識別為 `<workspace>/skills`。
+預設情況下，`clawhub` 會安裝到你目前工作目錄下的 `./skills`（或回退到已設定的 OpenClaw 工作區）。OpenClaw 會在下一個工作階段將其視為 `<workspace>/skills`。 OpenClaw 會在下一個工作階段將其識別為 `<workspace>/skills`。 OpenClaw 會在下一個工作階段將其識別為 `<workspace>/skills`。
 
 ## 安全性注意事項
 
@@ -85,8 +89,8 @@ description: Generate or edit images via Gemini 3 Pro Image
 - 可選的 frontmatter 金鑰：
   - `homepage` — 在 macOS Skills UI 中顯示為「Website」的 URL（亦支援透過 `metadata.openclaw.homepage`）。
   - `user-invocable` — `true|false`（預設：`true`）。當為 `true` 時，Skill 會以使用者斜線指令公開。 17. 當為 `true` 時，該技能會以使用者斜線指令公開。
-  - `disable-model-invocation` — `true|false`（預設：`false`）。當為 `true` 時，該 Skill 會從模型提示詞中排除（仍可由使用者呼叫）。 當為 `true` 時，該技能會從模型提示中排除（仍可透過使用者呼叫）。
-  - `command-dispatch` — `tool`（可選）。設為 `tool` 時，斜線指令會略過模型並直接派送至工具。 When set to `tool`, the slash command bypasses the model and dispatches directly to a tool.
+  - `disable-model-invocation` — `true|false`（預設：`false`）。當為 `true` 時，該 Skill 會從模型提示詞中排除（仍可由使用者呼叫）。 當為 `true` 時，該技能會從模型提示中排除（仍可透過使用者呼叫）。 當為 `true` 時，該技能會從模型提示中排除（仍可透過使用者呼叫）。
+  - `command-dispatch` — `tool`（可選）。設為 `tool` 時，斜線指令會略過模型並直接派送至工具。 `command-dispatch` — `tool`（可選）。設為 `tool` 時，斜線指令會略過模型並直接派送至工具。 When set to `tool`, the slash command bypasses the model and dispatches directly to a tool.
   - `command-tool` — 當設定 `command-dispatch: tool` 時要呼叫的工具名稱。
   - `command-arg-mode` — `raw`（預設）。用於工具派送時，會將原始參數字串轉送給工具（不做核心解析）。 2. 對於工具派發，會將原始的 args 字串轉送給工具（不進行核心解析）。
 
@@ -129,8 +133,11 @@ metadata:
 
 - `requires.bins` 會在 Skill 載入時於**主機**上檢查。
 - 如果代理程式在沙箱中執行，該二進位檔也必須存在於 **容器內部**。
-  6. 透過 `agents.defaults.sandbox.docker.setupCommand` 安裝（或使用自訂映像）。
-  25. `setupCommand` 會在容器建立後執行一次。
+  6.
+  透過 `agents.defaults.sandbox.docker.setupCommand` 安裝（或使用自訂映像）。
+  25.
+  `setupCommand` 會在容器建立後執行一次。
+  8.
   8. 套件安裝也需要網路對外連線、可寫入的根檔案系統，以及沙盒中的 root 使用者。
   Example: the `summarize` skill (`skills/summarize/SKILL.md`) needs the `summarize` CLI
   in the sandbox container to run there.
@@ -170,7 +177,8 @@ metadata:
 - Node 安裝會遵循 `skills.install.nodeManager` 於 `openclaw.json` 中的設定（預設：npm；選項：npm/pnpm/yarn/bun）。
   這只影響 **Skill 安裝**；Gateway 閘道器的執行階段仍應使用 Node
   （不建議在 WhatsApp／Telegram 使用 Bun）。
-  29. 這只影響**技能安裝**；Gateway 執行階段仍應為 Node（不建議 WhatsApp/Telegram 使用 Bun）。
+  29.
+  這只影響**技能安裝**；Gateway 執行階段仍應為 Node（不建議 WhatsApp/Telegram 使用 Bun）。
 - Go 安裝：若缺少 `go` 且有 `brew` 可用，Gateway 閘道器會先透過 Homebrew 安裝 Go，並在可行情況下將 `GOBIN` 設為 Homebrew 的 `bin`。
 - Download 安裝：`url`（必填）、`archive`（`tar.gz` | `tar.bz2` | `zip`）、`extract`（預設：偵測到封存檔時自動）、`stripComponents`、`targetDir`（預設：`~/.openclaw/tools/<skillKey>`）。
 
@@ -229,15 +237,15 @@ This is **scoped to the agent run**, not a global shell environment.
 
 ## 34. 工作階段快照（效能）
 
-35. OpenClaw 會在**工作階段開始時**快照符合資格的技能，並在同一工作階段的後續回合中重用該清單。 36. 對技能或設定的變更會在下一個新工作階段生效。
+OpenClaw 會在**工作階段開始時**快照符合資格的技能，並在同一工作階段的後續回合中重用該清單。 36. 對技能或設定的變更會在下一個新工作階段生效。
 
-37. 當啟用技能監看器或出現新的符合資格的遠端節點時，技能也可在工作階段中途重新整理（見下文）。 Think of this as a **hot reload**: the refreshed list is picked up on the next agent turn.
+37. 當啟用技能監看器或出現新的符合資格的遠端節點時，技能也可在工作階段中途重新整理（見下文）。 當啟用技能監看器或出現新的符合資格的遠端節點時，技能也可在工作階段中途重新整理（見下文）。 Think of this as a **hot reload**: the refreshed list is picked up on the next agent turn.
 
 ## 遠端 macOS 節點（Linux Gateway）
 
-若 Gateway 閘道器在 Linux 上執行，但有一個**macOS 節點**已連線，且**允許 `system.run`**（Exec 核准安全性未設為 `deny`），當該節點上存在所需的二進位檔時，OpenClaw 可以將僅限 macOS 的 Skills 視為符合資格。代理程式應透過 `nodes` 工具（通常是 `nodes.run`）來執行這些 Skills。 The agent should execute those skills via the `nodes` tool (typically `nodes.run`).
+若 Gateway 閘道器在 Linux 上執行，但有一個**macOS 節點**已連線，且**允許 `system.run`**（Exec 核准安全性未設為 `deny`），當該節點上存在所需的二進位檔時，OpenClaw 可以將僅限 macOS 的 Skills 視為符合資格。代理程式應透過 `nodes` 工具（通常是 `nodes.run`）來執行這些 Skills。 The agent should execute those skills via the `nodes` tool (typically `nodes.run`). The agent should execute those skills via the `nodes` tool (typically `nodes.run`).
 
-40. 這依賴於節點回報其命令支援，以及透過 `system.run` 進行的二進位探測。 If the macOS node goes offline later, the skills remain visible; invocations may fail until the node reconnects.
+40. 這依賴於節點回報其命令支援，以及透過 `system.run` 進行的二進位探測。 這依賴於節點回報其命令支援，以及透過 `system.run` 進行的二進位探測。 If the macOS node goes offline later, the skills remain visible; invocations may fail until the node reconnects.
 
 ## Skills watcher（自動重新整理）
 
@@ -285,5 +293,3 @@ OpenClaw 會在安裝時（npm 套件或 OpenClaw.app）隨附一組基線 Skill
 瀏覽 [https://clawhub.com](https://clawhub.com)。
 
 ---
-
-

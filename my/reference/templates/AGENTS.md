@@ -1,4 +1,9 @@
-------
+---
+title: "AGENTS.md Template"
+summary: "AGENTS.md အတွက် Workspace နမူနာ"
+read_when:
+  - Workspace ကို လက်ဖြင့် စတင်တည်ဆောက်နေစဉ်
+---
 
 # AGENTS.md - သင့် Workspace
 
@@ -215,5 +220,3 @@ The goal: Be helpful without being annoying. 22. OpenClaw က စတင်ချ
 ## သင့်ပုံစံနဲ့ လုပ်ပါ
 
 This is a starting point. 24. _မင်း အခုမှ နိုးလာတယ်။
-
-

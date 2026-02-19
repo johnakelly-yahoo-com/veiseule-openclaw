@@ -1,4 +1,8 @@
 ---
+summary: "Arka plan exec yürütümü ve süreç yönetimi"
+read_when:
+  - Arka plan exec davranışı eklerken veya değiştirirken
+  - Uzun süre çalışan exec görevlerini hata ayıklarken
 title: "Arka Plan Exec ve Process Aracı"
 ---
 
@@ -25,11 +29,11 @@ Davranış:
 - Çıktı, oturum yoklanana veya temizlenene kadar bellekte tutulur.
 - `process` aracı izinli değilse, `exec` eşzamanlı çalışır ve `yieldMs`/`background` yok sayılır.
 
-## Alt süreç köprülemesi
+## Child process bridging
 
 exec/process araçları dışında uzun süre çalışan alt süreçler oluşturulurken (örneğin CLI yeniden başlatmaları veya gateway yardımcıları), sonlandırma sinyallerinin iletilmesi ve çıkış/hata durumunda dinleyicilerin ayrılması için alt süreç köprü yardımcısını ekleyin. Bu, systemd üzerinde yetim süreçleri önler ve platformlar arasında kapatma davranışını tutarlı kılar.
 
-Ortam geçersiz kılmaları:
+Environment overrides:
 
 - `PI_BASH_YIELD_MS`: varsayılan yield (ms)
 - `PI_BASH_MAX_OUTPUT_CHARS`: bellek içi çıktı üst sınırı (karakter)
@@ -42,6 +46,7 @@ Yapılandırma (tercih edilir):
 - `tools.exec.timeoutSec` (varsayılan 1800)
 - `tools.exec.cleanupMs` (varsayılan 1800000)
 - `tools.exec.notifyOnExit` (varsayılan true): arka plana alınmış bir exec çıktığında bir sistem olayı kuyruğa al ve istek heartbeat’i talep et.
+- `tools.exec.notifyOnExitEmptySuccess` (varsayılan false): true olduğunda, çıktı üretmeyen başarılı arka plan çalıştırmaları için de tamamlanma olaylarını kuyruğa ekler.
 
 ## process aracı
 
@@ -63,6 +68,8 @@ Notlar:
 - `process` ajan başına kapsamlıdır; yalnızca o ajan tarafından başlatılan oturumları görür.
 - `process list`, hızlı taramalar için türetilmiş bir `name` (komut fiili + hedef) içerir.
 - `process log`, satır tabanlı `offset`/`limit` kullanır (son N satırı almak için `offset`’yı atlayın).
+- Hem `offset` hem de `limit` belirtilmezse, son 200 satırı döndürür ve bir sayfalama ipucu içerir.
+- `offset` belirtilip `limit` belirtilmezse, `offset` değerinden sona kadar döndürür (200 ile sınırlandırılmaz).
 
 ## Örnekler
 
@@ -87,5 +94,3 @@ stdin gönderin:
 ```json
 { "tool": "process", "action": "write", "sessionId": "<id>", "data": "y\n" }
 ```
-
-

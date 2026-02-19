@@ -1,4 +1,9 @@
 ---
+summary: "Bridge-protokoll (äldre noder): TCP JSONL, parkoppling, avgränsad RPC"
+read_when:
+  - Bygger eller felsöker nodklienter (iOS/Android/macOS nodläge)
+  - Utreder parkopplings- eller bridge‑autentiseringsfel
+  - Granskar nodytan som exponeras av gatewayn
 title: "Bridge-protokoll"
 ---
 
@@ -29,8 +34,10 @@ Legacy `bridge.*` config nycklar är inte längre en del av konfigurationsschema
 - Valfri TLS (när `bridge.tls.enabled` är true).
 - Äldre standardlyssnarport var `18790` (aktuella byggen startar inte en TCP‑bridge).
 
-När TLS är aktiverat inkluderar discovery‑TXT‑poster `bridgeTls=1` samt
-`bridgeTlsSha256` så att noder kan pina certifikatet.
+När TLS är aktiverat inkluderar discovery-TXT-poster `bridgeTls=1` samt
+`bridgeTlsSha256` som en icke-hemlig hint. Observera att Bonjour/mDNS TXT-poster är
+oautentiserade; klienter får inte behandla det annonserade fingeravtrycket som en
+autoritativ pin utan uttrycklig användaravsikt eller annan verifiering utanför bandet.
 
 ## Handshake + parkoppling
 
@@ -82,5 +89,3 @@ Payload‑fält (alla valfria om inget annat anges):
 
 Bridge är för närvarande **implicit v1** (ingen min/max förhandling). Bakåt-compat
 förväntas; lägg till en bro protokoll versionsfält innan några brytningsändringar.
-
-

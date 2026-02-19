@@ -1,10 +1,13 @@
 ---
+summary: "Katayuan ng suporta ng Zalo bot, mga kakayahan, at konpigurasyon"
+read_when:
+  - Gumagawa sa mga feature o webhook ng Zalo
 title: "Zalo"
 ---
 
 # Zalo (Bot API)
 
-Status: experimental. Mga direct message lamang; paparating pa ang groups ayon sa Zalo docs.
+Status: experimental. Direct messages only; groups coming soon per Zalo docs.
 
 ## Kailangan na plugin
 
@@ -42,7 +45,7 @@ Minimal na config:
 
 ## Ano ito
 
-Ang Zalo ay isang messaging app na nakatuon sa Vietnam; pinapahintulutan ng Bot API nito ang Gateway na magpatakbo ng bot para sa 1:1 na mga pag-uusap.
+Zalo is a Vietnam-focused messaging app; its Bot API lets the Gateway run a bot for 1:1 conversations.
 It is a good fit for support or notifications where you want deterministic routing back to Zalo.
 
 - Isang Zalo Bot API channel na pagmamay-ari ng Gateway.
@@ -79,7 +82,7 @@ Opsyon sa env: `ZALO_BOT_TOKEN=...` (gumagana lamang para sa default account).
 Suporta sa multi-account: gamitin ang `channels.zalo.accounts` na may per-account na mga token at opsyonal na `name`.
 
 3. I-restart ang Gateway. Zalo starts when a token is resolved (env or config).
-4. Ang access sa DM ay naka-default sa pairing. I-apruba ang code kapag unang nakontak ang bot.
+4. DM access defaults to pairing. Approve the code when the bot is first contacted.
 
 ## Paano ito gumagana (behavior)
 
@@ -101,7 +104,7 @@ Suporta sa multi-account: gamitin ang `channels.zalo.accounts` na may per-accoun
 - Aprubahan sa pamamagitan ng:
   - `openclaw pairing list zalo`
   - `openclaw pairing approve zalo <CODE>`
-- Ang pairing ang default na palitan ng token. Mga detalye: [Pairing](/channels/pairing)
+- Pairing is the default token exchange. Details: [Pairing](/channels/pairing)
 - Tumatanggap ang `channels.zalo.allowFrom` ng numeric user IDs (walang available na username lookup).
 
 ## Long-polling vs webhook
@@ -124,7 +127,7 @@ Suporta sa multi-account: gamitin ang `channels.zalo.accounts` na may per-accoun
 
 ## Mga kakayahan
 
-| Tampok                           | Katayuan                                            |
+| Tampok                            | Katayuan                                            |
 | --------------------------------- | --------------------------------------------------- |
 | Direct messages                   | ✅ Suportado                                         |
 | Groups                            | ❌ Paparating (ayon sa Zalo docs) |
@@ -184,5 +187,3 @@ Mga opsyon sa multi-account:
 - `channels.zalo.accounts.<id>.webhookSecret`: per-account webhook secret.
 - `channels.zalo.accounts.<id>1. `.webhookPath\`: webhook path kada account.
 - 2. `channels.zalo.accounts.<id>`3. `.proxy`: proxy URL kada account.
-
-

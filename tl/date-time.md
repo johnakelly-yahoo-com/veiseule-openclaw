@@ -1,10 +1,14 @@
 ---
+summary: "Paghawak ng petsa at oras sa mga envelope, prompt, tool, at connector"
+read_when:
+  - Binabago mo kung paano ipinapakita ang mga timestamp sa model o mga user
+  - Nagde-debug ka ng pag-format ng oras sa mga mensahe o output ng system prompt
 title: "Petsa at Oras"
 ---
 
 # Petsa at Oras
 
-Bilang default, ginagamit ng OpenClaw ang **lokal na oras ng host para sa mga timestamp ng transport** at **timezone ng user lamang sa system prompt**.
+OpenClaw defaults to **host-local time for transport timestamps** and **user timezone only in the system prompt**.
 Provider timestamps are preserved so tools keep their native semantics (current time is available via `session_status`).
 
 ## Mga message envelope (local bilang default)
@@ -94,11 +98,11 @@ System: [2026-01-12 12:19:17 PST] Model switched.
 ```
 
 - Itinatakda ng `userTimezone` ang **user-local timezone** para sa prompt context.
-- Kinokontrol ng `timeFormat` ang **12h/24h na pagpapakita** sa prompt. Sinusunod ng `auto` ang mga kagustuhan ng OS.
+- `timeFormat` controls **12h/24h display** in the prompt. `auto` follows OS prefs.
 
 ## Pag-detect ng format ng oras (auto)
 
-Kapag `timeFormat: "auto"`, sinusuri ng OpenClaw ang kagustuhan ng OS (macOS/Windows)
+When `timeFormat: "auto"`, OpenClaw inspects the OS preference (macOS/Windows)
 and falls back to locale formatting. The detected value is **cached per process**
 to avoid repeated system calls.
 
@@ -122,5 +126,3 @@ Kung kailangan mo ng local na oras, i-convert ito downstream gamit ang kilalang 
 - [System Prompt](/concepts/system-prompt)
 - [Timezones](/concepts/timezone)
 - [Messages](/concepts/messages)
-
-

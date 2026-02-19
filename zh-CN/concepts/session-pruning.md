@@ -1,18 +1,16 @@
 ---
-x-i18n:
-  generated_at: "2026-02-03T07:46:35Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 9b0aa2d1abea7050ba848a2db038ccc3e6e2d83c6eb4e3843a2ead0ab847574a
-  source_path: concepts/session-pruning.md
-  workflow: 15
+title: "16. 会话修剪"
+summary: "会话剪枝：工具结果修剪以减少上下文膨胀"
+read_when:
+  - 你想减少工具输出导致的 LLM 上下文增长
+  - 你正在调整 agents.defaults.contextPruning
 ---
 
-# 会话剪枝
+# 会话清理
 
-会话剪枝在每次 LLM 调用之前从内存上下文中修剪**旧的工具结果**。它**不会**重写磁盘上的会话历史（`*.jsonl`）。
+17. 会话修剪会在每次 LLM 调用前，直接从内存上下文中裁剪**旧的工具结果**。 会话剪枝在每次 LLM 调用之前从内存上下文中修剪**旧的工具结果**。它**不会**重写磁盘上的会话历史（`*.jsonl`）。
 
-## 运行时机
+## 19. 运行时机
 
 - 当启用 `mode: "cache-ttl"` 且该会话的最后一次 Anthropic 调用早于 `ttl` 时。
 - 仅影响该请求发送给模型的消息。
@@ -28,12 +26,12 @@ x-i18n:
 
 ## 改进内容（成本 + 缓存行为）
 
-- **为什么要剪枝：** Anthropic 提示缓存仅在 TTL 内适用。如果会话空闲超过 TTL，下一个请求会重新缓存完整提示，除非你先修剪它。
+- **为什么要剪枝：** Anthropic 提示缓存仅在 TTL 内适用。如果会话空闲超过 TTL，下一个请求会重新缓存完整提示，除非你先修剪它。 31. 如果会话空闲超过 TTL，下一次请求将重新缓存完整提示，除非你先进行裁剪。
 - **什么变得更便宜：** 剪枝减少了 TTL 过期后第一个请求的 **cacheWrite** 大小。
 - **为什么 TTL 重置很重要：** 一旦剪枝运行，缓存窗口会重置，因此后续请求可以重用新缓存的提示，而不是再次重新缓存完整历史。
 - **它不做什么：** 剪枝不会添加 token 或"双倍"成本；它只改变该 TTL 后第一个请求缓存的内容。
 
-## 可以剪枝的内容
+## 35. 可被修剪的内容
 
 - 仅 `toolResult` 消息。
 - 用户 + 助手消息**永远不会**被修改。
@@ -43,7 +41,7 @@ x-i18n:
 
 ## 上下文窗口估算
 
-剪枝使用估算的上下文窗口（字符 ≈ token × 4）。基础窗口按以下顺序解析：
+剪枝使用估算的上下文窗口（字符 ≈ token × 4）。基础窗口按以下顺序解析： 43. 基础窗口按以下顺序解析：
 
 1. `models.providers.*.models[].contextWindow` 覆盖。
 2. 模型定义 `contextWindow`（来自模型注册表）。
@@ -68,14 +66,14 @@ x-i18n:
 ## 工具选择
 
 - `tools.allow` / `tools.deny` 支持 `*` 通配符。
-- 拒绝优先。
+- Deny wins.
 - 匹配不区分大小写。
 - 允许列表为空 => 允许所有工具。
 
 ## 与其他限制的交互
 
 - 内置工具已经截断自己的输出；会话剪枝是一个额外的层，防止长时间运行的聊天在模型上下文中累积过多的工具输出。
-- 压缩是独立的：压缩进行总结并持久化，剪枝是每个请求的临时操作。参阅 [/concepts/compaction](/concepts/compaction)。
+- Compaction is separate: compaction summarizes and persists, pruning is transient per request. See [/concepts/compaction](/concepts/compaction).
 
 ## 默认值（启用时）
 
@@ -123,5 +121,3 @@ x-i18n:
 ```
 
 参阅配置参考：[Gateway 网关配置](/gateway/configuration)
-
-

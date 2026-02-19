@@ -1,10 +1,15 @@
 ---
+summary: "مربوط براؤزر کنٹرول سروس + ایکشن کمانڈز"
+read_when:
+  - ایجنٹ کے زیرِ کنٹرول براؤزر آٹومیشن شامل کرتے وقت
+  - یہ جانچتے وقت کہ openclaw آپ کے اپنے Chrome میں مداخلت کیوں کر رہا ہے
+  - macOS ایپ میں براؤزر سیٹنگز + لائف سائیکل نافذ کرتے وقت
 title: "براؤزر (OpenClaw کے زیرِ انتظام)"
 ---
 
 # براؤزر (openclaw کے زیرِ انتظام)
 
-OpenClaw ایک **مخصوص Chrome/Brave/Edge/Chromium پروفائل** چلا سکتا ہے جسے ایجنٹ کنٹرول کرتا ہے۔
+OpenClaw can run a **dedicated Chrome/Brave/Edge/Chromium profile** that the agent controls.
 It is isolated from your personal browser and is managed through a small local
 control service inside the Gateway (loopback only).
 
@@ -23,7 +28,7 @@ control service inside the Gateway (loopback only).
 - ایجنٹ ایکشنز (click/type/drag/select)، اسنیپ شاٹس، اسکرین شاٹس، PDFs۔
 - اختیاری ملٹی پروفائل سپورٹ (`openclaw`, `work`, `remote`, ...)۔
 
-یہ براؤزر آپ کا روزمرہ استعمال والا براؤزر **نہیں** ہے۔ یہ ایک محفوظ، الگ تھلگ ماحول فراہم کرتا ہے برائے
+This browser is **not** your daily driver. It is a safe, isolated surface for
 agent automation and verification.
 
 ## فوری آغاز
@@ -188,6 +193,7 @@ Notes:
 - براؤزر کنٹرول صرف loopback تک محدود ہے؛ رسائی Gateway کی auth یا node pairing کے ذریعے ہوتی ہے۔
 - Gateway اور کسی بھی node host کو نجی نیٹ ورک (Tailscale) پر رکھیں؛ عوامی ایکسپوژر سے بچیں۔
 - Remote CDP URLs/ٹوکنز کو راز سمجھیں؛ env vars یا secrets manager کو ترجیح دیں۔
+- Remote CDP URLs/ٹوکنز کو راز سمجھیں؛ env vars یا secrets manager کو ترجیح دیں۔
 
 Remote CDP tips:
 
@@ -310,6 +316,11 @@ Platforms:
 
 تمام endpoints `?profile=<name>` قبول کرتے ہیں۔
 
+اگر gateway auth کنفیگر کیا گیا ہو تو براؤزر کی HTTP روٹس کے لیے بھی auth درکار ہوگا:
+
+- `Authorization: Bearer <gateway token>`
+- `x-openclaw-password: <gateway password>` یا اسی پاس ورڈ کے ساتھ HTTP Basic auth
+
 ### Playwright requirement
 
 Some features (navigate/act/AI snapshot/role snapshot, element screenshots, PDF) require
@@ -397,9 +408,9 @@ Actions:
 - `openclaw browser scrollintoview e12`
 - `openclaw browser drag 10 11`
 - `openclaw browser select 9 OptionA OptionB`
-- `openclaw browser download e12 /tmp/report.pdf`
-- `openclaw browser waitfordownload /tmp/report.pdf`
-- `openclaw browser upload /tmp/file.pdf`
+- `openclaw browser download e12 report.pdf`
+- `openclaw browser waitfordownload report.pdf`
+- `openclaw browser upload /tmp/openclaw/uploads/file.pdf`
 - `openclaw browser fill --fields '[{"ref":"1","type":"text","value":"Ada"}]'`
 - `openclaw browser dialog --accept`
 - `openclaw browser wait --text "Done"`
@@ -431,6 +442,11 @@ State:
 Notes:
 
 - `upload` اور `dialog` **arming** کالز ہیں؛ chooser/dialog کو ٹرگر کرنے والے click/press سے پہلے انہیں چلائیں۔
+- Download اور trace آؤٹ پٹ پاتھز OpenClaw کے عارضی روٹس تک محدود ہیں:
+  - traces: `/tmp/openclaw` (fallback: `${os.tmpdir()}/openclaw`)
+  - downloads: `/tmp/openclaw/downloads` (fallback: `${os.tmpdir()}/openclaw/downloads`)
+- Upload پاتھز OpenClaw کے عارضی uploads روٹ تک محدود ہیں:
+  - uploads: `/tmp/openclaw/uploads` (fallback: `${os.tmpdir()}/openclaw/uploads`)
 - `upload` فائل ان پٹس کو براہِ راست `--input-ref` یا `--element` کے ذریعے بھی سیٹ کر سکتا ہے۔
 - `snapshot`:
   - `--format ai` (جب Playwright انسٹال ہو تو ڈیفالٹ): عددی refs (`aria-ref="<n>"`) کے ساتھ AI snapshot لوٹاتا ہے۔
@@ -448,12 +464,12 @@ Notes:
 
 OpenClaw دو “snapshot” طرزیں سپورٹ کرتا ہے:
 
-- **AI snapshot (numeric refs)**: `openclaw browser snapshot` (ڈیفالٹ؛ `--format ai`)
+- Refs **نیویگیشن کے بعد مستحکم نہیں رہتے**؛ اگر کچھ ناکام ہو جائے تو `snapshot` دوبارہ چلائیں اور نیا ref استعمال کریں۔
   - Output: ایک ٹیکسٹ snapshot جس میں عددی refs شامل ہوتے ہیں۔
   - Actions: `openclaw browser click 12`, `openclaw browser type 23 "hello"`۔
   - اندرونی طور پر، ref Playwright کے `aria-ref` کے ذریعے resolve ہوتا ہے۔
 
-- **Role snapshot (role refs جیسے `e12`)**: `openclaw browser snapshot --interactive` (یا `--compact`, `--depth`, `--selector`, `--frame`)
+- اگر role snapshot `--frame` کے ساتھ لیا گیا ہو، تو role refs اگلے role snapshot تک اسی iframe تک محدود رہتے ہیں۔
   - Output: `[ref=e12]` کے ساتھ role-based فہرست/درخت (اور اختیاری `[nth=1]`)۔
   - Actions: `openclaw browser click e12`, `openclaw browser highlight e12`۔
   - اندرونی طور پر، ref `getByRole(...)` کے ذریعے resolve ہوتا ہے (ڈپلیکیٹس کے لیے `nth()` کے ساتھ)۔
@@ -466,7 +482,7 @@ Ref behavior:
 
 ## Wait power-ups
 
-آپ صرف وقت/متن ہی نہیں بلکہ مزید چیزوں کا انتظار کر سکتے ہیں:
+انہیں یکجا بھی کیا جا سکتا ہے:
 
 - URL کا انتظار (Playwright کے globs سپورٹڈ):
   - `openclaw browser wait --url "**/dash"`
@@ -515,7 +531,7 @@ openclaw browser requests --filter api --json
 openclaw browser cookies --json
 ```
 
-JSON میں role snapshots میں `refs` کے ساتھ ایک چھوٹا `stats` بلاک (lines/chars/refs/interactive) شامل ہوتا ہے تاکہ ٹولز payload کے سائز اور کثافت پر غور کر سکیں۔
+یہ “سائٹ کو X کی طرح برتاؤ کرو” والے ورک فلو کے لیے مفید ہیں:
 
 ## State and environment knobs
 
@@ -524,8 +540,8 @@ JSON میں role snapshots میں `refs` کے ساتھ ایک چھوٹا `stats`
 - Cookies: `cookies`, `cookies set`, `cookies clear`
 - Storage: `storage local|session get|set|clear`
 - Offline: `set offline on|off`
-- Headers: `set headers --json '{"X-Debug":"1"}'` (یا `--clear`)
-- HTTP basic auth: `set credentials user pass` (یا `--clear`)
+- Gateway/node host کو نجی رکھیں (loopback یا tailnet-only)۔
+- Remote CDP endpoints طاقتور ہوتے ہیں؛ انہیں tunnel اور محفوظ رکھیں۔
 - Geolocation: `set geo <lat> <lon> --origin "https://example.com"` (یا `--clear`)
 - Media: `set media dark|light|no-preference|none`
 - Timezone / locale: `set timezone ...`, `set locale ...`
@@ -545,8 +561,7 @@ JSON میں role snapshots میں `refs` کے ساتھ ایک چھوٹا `stats`
 
 ## Troubleshooting
 
-Linux مخصوص مسائل (خصوصاً snap Chromium) کے لیے دیکھیں
-[Browser troubleshooting](/tools/browser-linux-troubleshooting)۔
+ایجنٹ کو براؤزر آٹومیشن کے لیے **ایک ٹول** ملتا ہے:
 
 ## Agent tools + how control works
 
@@ -567,5 +582,3 @@ How it maps:
   - اگر براؤزر-قابل node منسلک ہو، تو ٹول خودکار طور پر اسی کی طرف روٹ کر سکتا ہے جب تک کہ آپ `target="host"` یا `target="node"` پن نہ کریں۔
 
 یہ ایجنٹ کو قابلِ پیش گوئی رکھتا ہے اور نازک selectors سے بچاتا ہے۔
-
-

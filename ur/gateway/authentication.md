@@ -1,4 +1,8 @@
 ---
+summary: "ماڈل کی تصدیق: OAuth، API کلیدیں، اور setup-token"
+read_when:
+  - ماڈل تصدیق یا OAuth کی میعاد ختم ہونے کی خرابیوں کی جانچ کے وقت
+  - تصدیق یا اسناد کے ذخیرے کی دستاویز بندی کرتے وقت
 title: "تصدیق"
 ---
 
@@ -145,5 +149,3 @@ openclaw models status
 
 - Claude Max یا Pro سبسکرپشن ( `claude setup-token` کے لیے)
 - Claude Code CLI انسٹال ہونا (`claude` کمانڈ دستیاب ہو)
-
-

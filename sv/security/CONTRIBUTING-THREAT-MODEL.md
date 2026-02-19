@@ -1,12 +1,12 @@
 # Bidra till OpenClaws hotmodell
 
-Tack för att du hjälper till att göra OpenClaw säkrare. Denna hotmodell är ett levande dokument och vi välkomnar bidrag från alla – du behöver inte vara en säkerhetsexpert.
+Thanks for helping make OpenClaw more secure. This threat model is a living document and we welcome contributions from anyone - you don't need to be a security expert.
 
 ## Sätt att bidra
 
 ### Lägg till ett hot
 
-Upptäckt en attackvektor eller risk som vi inte har täckt? Öppna ett ärende på [openclaw/trust](https://github.com/openclaw/trust/issues) och beskriv det med dina egna ord. Du behöver inte kunna några ramverk eller fylla i varje fält – beskriv bara scenariot.
+Spotted an attack vector or risk we haven't covered? Open an issue on [openclaw/trust](https://github.com/openclaw/trust/issues) and describe it in your own words. You don't need to know any frameworks or fill in every field - just describe the scenario.
 
 **Bra att inkludera (men inte obligatoriskt):**
 
@@ -88,5 +88,3 @@ Typos, clarifications, outdated info, better examples - PRs welcome, no issue ne
 ## Recognition
 
 Contributors to the threat model are recognized in the threat model acknowledgments, release notes, and the OpenClaw security hall of fame for significant contributions.
-
-

@@ -1,5 +1,7 @@
 ---
-title: "Sandbox kumpara sa Patakaran ng Tool kumpara sa Elevated"
+title: Sandbox kumpara sa Patakaran ng Tool kumpara sa Elevated
+summary: "Bakit naka-block ang isang tool: sandbox runtime, tool allow/deny policy, at mga elevated exec gate"
+read_when: "Kapag tumama ka sa 'sandbox jail' o nakakita ng pagtanggi sa tool/elevated at gusto mo ang eksaktong config key na babaguhin."
 status: active
 ---
 
@@ -62,8 +64,8 @@ Mga panuntunang pangkalahatan:
 - `deny` ang laging nananaig.
 - Kapag ang `allow` ay hindi empty, ang lahat ng iba pa ay itinuturing na naka-block.
 - Ang tool policy ang hard stop: hindi maaaring i-override ng `/exec` ang tinanggihang `exec` na tool.
-- Ang `/exec` ay binabago lamang ang mga default ng session para sa mga awtorisadong nagpadala; hindi ito nagbibigay ng access sa tool.
-Ang mga provider tool key ay tumatanggap ng alinman sa `provider` (hal. `google-antigravity`) o `provider/model` (hal. `openai/gpt-5.2`).
+- `/exec` only changes session defaults for authorized senders; it does not grant tool access.
+  Provider tool keys accept either `provider` (e.g. `google-antigravity`) or `provider/model` (e.g. `openai/gpt-5.2`).
 
 ### Tool groups (mga shorthand)
 
@@ -124,5 +126,3 @@ Mga fix-it key (pumili ng isa):
 ### “Akala ko main ito, bakit naka-sandbox?”
 
 In `"non-main"` mode, group/channel keys are _not_ main. Use the main session key (shown by `sandbox explain`) or switch mode to `"off"`.
-
-

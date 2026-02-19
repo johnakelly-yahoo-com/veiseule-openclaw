@@ -1,4 +1,7 @@
 ---
+summary: "قدرات OpenClaw عبر القنوات، والتوجيه، والوسائط، وتجربة المستخدم."
+read_when:
+  - تريد قائمة كاملة بما يدعمه OpenClaw
 title: "الميزات"
 ---
 
@@ -53,5 +56,3 @@ title: "الميزات"
 <Note>
 تمت إزالة مسارات Legacy Claude وCodex وGemini وOpencode. Pi هو مسار وكيل البرمجة الوحيد.
 </Note>
-
-

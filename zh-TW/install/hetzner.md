@@ -1,4 +1,10 @@
 ---
+summary: "在價格實惠的 Hetzner VPS（Docker）上 24/7 執行 OpenClaw Gateway 閘道器，具備可持久狀態與內建二進位檔"
+read_when:
+  - 你想在雲端 VPS（而非你的筆電）上 24/7 執行 OpenClaw
+  - 你想在自己的 VPS 上部署生產等級、永遠在線的 Gateway 閘道器
+  - You want full control over persistence, binaries, and restart behavior
+  - 你正在 Hetzner 或類似供應商上以 Docker 執行 OpenClaw
 title: "Hetzner"
 ---
 
@@ -40,7 +46,7 @@ Gateway 閘道器可透過以下方式存取：
 5. 設定 `.env` 與 `docker-compose.yml`
 6. 將所需的二進位檔案烘焙進映像檔中
 7. `docker compose up -d`
-8. 11. 驗證持久性與 Gateway 存取
+8. 驗證持久性與 Gateway 存取
 
 ---
 
@@ -71,6 +77,7 @@ ssh root@YOUR_VPS_IP
 
 本指南假設該 VPS 是有狀態的。
 請勿將其視為可隨意丟棄的基礎設施。
+請勿將其視為一次性基礎設施。
 請勿將其視為一次性基礎設施。
 
 ---
@@ -190,7 +197,7 @@ openssl rand -hex 32
       ]
 ```
 
-12. `--allow-unconfigured` 僅用於啟動時的便利性，不能取代正確的 Gateway 設定。 13. 仍請設定驗證（`gateway.auth.token` 或密碼），並為你的部署使用安全的綁定設定。
+`--allow-unconfigured` 僅用於啟動時的便利性，不能取代正確的 Gateway 設定。 13. 仍請設定驗證（`gateway.auth.token` 或密碼），並為你的部署使用安全的綁定設定。
 
 ---
 
@@ -208,7 +215,8 @@ openssl rand -hex 32
 - 用於 WhatsApp 的 `wacli`
 
 以下僅為範例，並非完整清單。
-22. 你可以使用相同的模式安裝任意數量的二進位檔案。
+22.
+你可以使用相同的模式安裝任意數量的二進位檔案。
 
 若你之後新增依賴其他二進位檔的 Skills，必須：
 
@@ -312,7 +320,8 @@ ssh -N -L 18789:127.0.0.1:18789 root@YOUR_VPS_IP
 
 OpenClaw 在 Docker 中執行，但 Docker 不是事實來源。
 所有長期存在的狀態，都必須能在重新啟動、重建與重新開機後存活。
-27. 所有長期存在的狀態都必須能在重新啟動、重建與重新開機後存活。
+27.
+所有長期存在的狀態都必須能在重新啟動、重建與重新開機後存活。
 
 | 元件            | 位置                                | 持久化機制          | 注意事項                      |
 | ------------- | --------------------------------- | -------------- | ------------------------- |
@@ -327,4 +336,23 @@ OpenClaw 在 Docker 中執行，但 Docker 不是事實來源。
 | OS 套件         | 容器檔案系統                            | Docker 映像檔     | 請勿在執行期安裝                  |
 | Docker 容器     | 短暫                                | 可重新啟動          | 可安全銷毀                     |
 
+---
 
+## 基礎設施即程式碼（Terraform）
+
+對於偏好 infrastructure-as-code 工作流程的團隊，社群維護的 Terraform 設定提供：
+
+- 具備遠端 state 管理的模組化 Terraform 設定
+- 透過 cloud-init 進行自動化佈建
+- 部署腳本（bootstrap、deploy、backup/restore）
+- 安全強化（防火牆、UFW、僅限 SSH 存取）
+- 用於 gateway 存取的 SSH 通道設定
+
+**Repositories：**
+
+- 基礎設施：[openclaw-terraform-hetzner](https://github.com/andreesg/openclaw-terraform-hetzner)
+- Docker 設定：[openclaw-docker-config](https://github.com/andreesg/openclaw-docker-config)
+
+此方法可搭配上述 Docker 設定，提供可重現的部署、版本控制的基礎設施，以及自動化災難復原。
+
+> **注意：** 由社群維護。 如有問題或想貢獻，請參閱上述儲存庫連結。

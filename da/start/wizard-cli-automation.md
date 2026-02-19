@@ -1,4 +1,8 @@
 ---
+summary: "Scriptbaseret introduktion og agentopsætning for OpenClaw CLI"
+read_when:
+  - Du automatiserer introduktion i scripts eller CI
+  - Du har brug for ikke-interaktive eksempler for specifikke udbydere
 title: "CLI-automatisering"
 sidebarTitle: "CLI-automatisering"
 ---
@@ -109,6 +113,26 @@ Tilføj `--json` for et maskinlæsbart resumé.
     ```
   
 </Accordion>
+  <Accordion title="Custom provider example">
+    ```bash
+    openclaw onboard --non-interactive \
+      --mode local \
+      --auth-choice custom-api-key \
+      --custom-base-url "https://llm.example.com/v1" \
+      --custom-model-id "foo-large" \
+      --custom-api-key "$CUSTOM_API_KEY" \
+      --custom-provider-id "my-custom" \
+      --custom-compatibility anthropic \
+      --gateway-port 18789 \
+      --gateway-bind loopback
+    ```
+
+    ```
+    `--custom-api-key` er valgfri. Hvis den udelades, kontrollerer onboarding `CUSTOM_API_KEY`.
+    ```
+
+  
+</Accordion>
 </AccordionGroup>
 
 ## Tilføj en anden agent
@@ -125,7 +149,7 @@ openclaw agents add work \
   --json
 ```
 
-Det sætter:
+Noter:
 
 - `agents.list[].name`
 - `agents.list[].workspace`
@@ -133,14 +157,12 @@ Det sætter:
 
 Noter:
 
-- Standard-workspaces følger `~/.openclaw/workspace-<agentId>`.
-- Tilføj `bindings` for at route indgående beskeder (opsætningsguiden kan gøre dette).
-- Ikke-interaktive flag: `--model`, `--agent-dir`, `--bind`, `--non-interactive`.
+- Introduktionshub: [Onboarding Wizard (CLI)](/start/wizard)
+- Fuld reference: [CLI Onboarding Reference](/start/wizard-cli-reference)
+- Kommandoreference: [`openclaw onboard`](/cli/onboard)
 
 ## Relaterede dokumenter
 
 - Introduktionshub: [Onboarding Wizard (CLI)](/start/wizard)
 - Fuld reference: [CLI Onboarding Reference](/start/wizard-cli-reference)
 - Kommandoreference: [`openclaw onboard`](/cli/onboard)
-
-

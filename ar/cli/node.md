@@ -1,4 +1,8 @@
 ---
+summary: "مرجع CLI للأمر `openclaw node` (مضيف عُقدة بدون واجهة)"
+read_when:
+  - تشغيل مضيف العُقدة بدون واجهة
+  - إقران عُقدة غير macOS لاستخدام system.run
 title: "عقدة"
 ---
 
@@ -105,5 +109,3 @@ openclaw nodes approve <requestId>
 - `~/.openclaw/exec-approvals.json`
 - [موافقات التنفيذ](/tools/exec-approvals)
 - `openclaw approvals --node <id|name|ip>` (تحرير من الـ Gateway)
-
-

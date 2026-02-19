@@ -1,12 +1,7 @@
 ---
-title: 新手引导和配置协议
-x-i18n:
-  generated_at: "2026-02-03T07:47:10Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 55163b3ee029c02476800cb616a054e5adfe97dae5bb72f2763dce0079851e06
-  source_path: experiments/onboarding-config-protocol.md
-  workflow: 15
+summary: "新手引导向导和配置模式的 RPC 协议说明"
+read_when: "Changing onboarding wizard steps or config schema endpoints"
+title: "新手引导和配置协议"
 ---
 
 # 新手引导 + 配置协议
@@ -43,5 +38,3 @@ x-i18n:
 ## 注意
 
 - 本文档是跟踪新手引导/配置协议重构的唯一位置。
-
-

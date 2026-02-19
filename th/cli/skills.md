@@ -1,4 +1,8 @@
 ---
+summary: "เอกสารอ้างอิงCLIสำหรับ `openclaw skills` (list/info/check) และคุณสมบัติความพร้อมของสกิล"
+read_when:
+  - คุณต้องการดูว่าสกิลใดบ้างที่มีให้ใช้งานและพร้อมรัน
+  - คุณต้องการดีบักไบนารี/ตัวแปรสภาพแวดล้อม/คอนฟิกที่ขาดหายไปสำหรับสกิล
 title: "skills"
 ---
 
@@ -20,5 +24,3 @@ openclaw skills list --eligible
 openclaw skills info <name>
 openclaw skills check
 ```
-
-

@@ -1,4 +1,9 @@
-------
+---
+title: "Modèle TOOLS.md"
+summary: "Modele d'espace de travail pour TOOLS.md"
+read_when:
+  - Mise en place manuelle d'un espace de travail
+---
 
 # TOOLS.md - Notes locales
 
@@ -40,5 +45,3 @@ Les Skills sont partages. Votre configuration est la votre. Les garder separes s
 ---
 
 Ajoutez tout ce qui vous aide a faire votre travail. Ceci est votre aide-memoire.
-
-

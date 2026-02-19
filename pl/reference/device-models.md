@@ -1,4 +1,8 @@
 ---
+summary: "Jak OpenClaw dostarcza mapowania identyfikatorów modeli urządzeń Apple na przyjazne nazwy w aplikacji na macOS."
+read_when:
+  - Aktualizowanie mapowań identyfikatorów modeli urządzeń lub plików NOTICE/licencji
+  - Zmiana sposobu wyświetlania nazw urządzeń w interfejsie Instances
 title: "Baza modeli urządzeń"
 ---
 
@@ -41,5 +45,3 @@ curl -fsSL "https://raw.githubusercontent.com/kyle-seongwoo-jun/apple-device-ide
 ```bash
 swift build --package-path apps/macos
 ```
-
-

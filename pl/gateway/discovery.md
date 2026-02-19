@@ -1,4 +1,9 @@
 ---
+summary: "Wykrywanie węzłów i transporty (Bonjour, Tailscale, SSH) do odnajdywania bramy"
+read_when:
+  - Implementowanie lub zmiana wykrywania/reklamowania Bonjour
+  - Dostosowywanie trybów połączeń zdalnych (bezpośrednio vs SSH)
+  - Projektowanie wykrywania węzłów i parowania dla węzłów zdalnych
 title: "Wykrywanie i transporty"
 ---
 
@@ -63,6 +68,13 @@ Rozwiązywanie problemów i szczegóły beaconów: [Bonjour](/gateway/bonjour).
   - `cliPath=<path>` (opcjonalne; bezwzględna ścieżka do uruchamialnego punktu wejścia lub binarki `openclaw`)
   - `tailnetDns=<magicdns>` (opcjonalna wskazówka; wykrywana automatycznie, gdy dostępny jest Tailscale)
 
+Uwagi dotyczące bezpieczeństwa:
+
+- Rekordy TXT Bonjour/mDNS są **nieuwierzytelnione**. Klienci powinni traktować wartości TXT wyłącznie jako wskazówki UX.
+- Routing (host/port) powinien preferować **rozwiązany endpoint usługi** (SRV + A/AAAA) zamiast `lanHost`, `tailnetDns` lub `gatewayPort` podanych w TXT.
+- Pinowanie TLS nigdy nie może pozwalać, aby reklamowany `gatewayTlsSha256` nadpisywał wcześniej zapisany pin.
+- Węzły iOS/Android powinny traktować bezpośrednie połączenia oparte na discovery jako **wyłącznie TLS** oraz wymagać jawnego potwierdzenia „zaufaj temu fingerprintowi” przed zapisaniem pina przy pierwszym użyciu (weryfikacja poza pasmem).
+
 Wyłączanie/zastępowanie:
 
 - `OPENCLAW_DISABLE_BONJOUR=1` wyłącza reklamowanie.
@@ -109,5 +121,3 @@ Gateway jest źródłem prawdy w zakresie dopuszczania węzłów/klientów.
 - **Gateway**: reklamuje beacony wykrywania, podejmuje decyzje parowania i hostuje punkt końcowy WS.
 - **Aplikacja macOS**: pomaga wybrać Gateway, pokazuje monity parowania i używa SSH wyłącznie jako rozwiązania awaryjnego.
 - **Węzły iOS/Android**: przeglądają Bonjour jako udogodnienie i łączą się z sparowanym Gateway WS.
-
-

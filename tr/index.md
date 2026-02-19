@@ -1,6 +1,8 @@
 ---
+summary: "OpenClaw, herhangi bir işletim sisteminde çalışan AI ajanları için çok kanallı bir gateway’dir."
+read_when:
+  - OpenClaw’ı yeni başlayanlara tanıtma
 title: "OpenClaw"
-sidebarTitle: "OpenClaw"
 ---
 
 # OpenClaw 🦞
@@ -20,8 +22,7 @@ sidebarTitle: "OpenClaw"
 
 > _"EXFOLIATE! EXFOLIATE!"_ — Muhtemelen bir uzay ıstakozu
 
-<p align="center">
-  <strong>WhatsApp, Telegram, Discord, iMessage ve daha fazlası için AI ajanlarına yönelik herhangi bir işletim sisteminde çalışan gateway.</strong><br />
+<p align="center"><strong>WhatsApp, Telegram, Discord, iMessage ve daha fazlası için AI ajanlarına yönelik herhangi bir işletim sisteminde çalışan gateway.</strong><br />
   Bir mesaj gönderin, cebinizden bir ajan yanıtı alın. Eklentiler Mattermost ve daha fazlasını ekler.
 </p>
 
@@ -209,5 +210,3 @@ Yapılandırma `~/.openclaw/openclaw.json` konumunda bulunur.
   
 </Card>
 </Columns>
-
-

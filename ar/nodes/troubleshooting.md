@@ -1,4 +1,8 @@
 ---
+summary: "استكشاف أخطاء إقران العُقدة ومتطلبات المقدّمة والأذونات وتعطّل الأدوات وإصلاحها"
+read_when:
+  - تكون العُقدة متصلة لكن أدوات الكاميرا/اللوحة/الشاشة/التنفيذ تفشل
+  - تحتاج إلى إقران العقدة مقابل الموافقة على النموذج العقلي
 title: "استكشاف أخطاء العُقدة وإصلاحها"
 ---
 
@@ -106,5 +110,3 @@ openclaw logs --follow
 - [/nodes/location-command](/nodes/location-command)
 - [/tools/exec-approvals](/tools/exec-approvals)
 - [/gateway/pairing](/gateway/pairing)
-
-

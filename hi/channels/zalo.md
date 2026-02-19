@@ -1,10 +1,13 @@
 ---
+summary: "Zalo बॉट समर्थन स्थिति, क्षमताएँ और विन्यास"
+read_when:
+  - Zalo सुविधाओं या वेबहुक्स पर काम करते समय
 title: "Zalo"
 ---
 
 # Zalo (Bot API)
 
-स्थिति: प्रायोगिक। केवल डायरेक्ट मैसेज; Zalo दस्तावेज़ों के अनुसार समूह जल्द आ रहे हैं।
+Status: experimental. Direct messages only; groups coming soon per Zalo docs.
 
 ## आवश्यक प्लगइन
 
@@ -42,7 +45,7 @@ Zalo एक प्लगइन के रूप में उपलब्ध ह
 
 ## यह क्या है
 
-Zalo वियतनाम-केंद्रित मैसेजिंग ऐप है; इसका Bot API Gateway को 1:1 वार्तालाप के लिए बॉट चलाने की अनुमति देता है।
+Zalo is a Vietnam-focused messaging app; its Bot API lets the Gateway run a bot for 1:1 conversations.
 It is a good fit for support or notifications where you want deterministic routing back to Zalo.
 
 - Gateway के स्वामित्व वाला Zalo Bot API चैनल।
@@ -79,7 +82,7 @@ Env विकल्प: `ZALO_BOT_TOKEN=...` (केवल डिफ़ॉल्
 मल्टी-अकाउंट समर्थन: प्रति-अकाउंट टोकन और वैकल्पिक `name` के साथ `channels.zalo.accounts` का उपयोग करें।
 
 3. Gateway को पुनः आरंभ करें। Zalo starts when a token is resolved (env or config).
-4. DM एक्सेस डिफ़ॉल्ट रूप से पेयरिंग पर सेट होता है। जब बॉट से पहली बार संपर्क किया जाए, तो कोड को स्वीकृत करें।
+4. DM access defaults to pairing. Approve the code when the bot is first contacted.
 
 ## यह कैसे काम करता है (व्यवहार)
 
@@ -101,7 +104,7 @@ Env विकल्प: `ZALO_BOT_TOKEN=...` (केवल डिफ़ॉल्
 - स्वीकृति के तरीके:
   - `openclaw pairing list zalo`
   - `openclaw pairing approve zalo <CODE>`
-- Pairing डिफ़ॉल्ट टोकन एक्सचेंज है। विवरण: [Pairing](/channels/pairing)
+- Pairing is the default token exchange. Details: [Pairing](/channels/pairing)
 - `channels.zalo.allowFrom` संख्यात्मक यूज़र आईडी स्वीकार करता है (यूज़रनेम लुकअप उपलब्ध नहीं)।
 
 ## लॉन्ग-पोलिंग बनाम वेबहुक
@@ -165,7 +168,7 @@ Env विकल्प: `ZALO_BOT_TOKEN=...` (केवल डिफ़ॉल्
 - `channels.zalo.botToken`: Zalo Bot Platform से बॉट टोकन।
 - `channels.zalo.tokenFile`: फ़ाइल पाथ से टोकन पढ़ें।
 - `channels.zalo.dmPolicy`: `pairing | allowlist | open | disabled` (डिफ़ॉल्ट: pairing)।
-- `channels.zalo.allowFrom`: DM अलाउलिस्ट (यूज़र IDs)। `open` के लिए `"*"` आवश्यक है। विज़ार्ड न्यूमेरिक IDs के लिए पूछेगा।
+- `channels.zalo.allowFrom`: DM allowlist (user IDs). `open` requires `"*"`. The wizard will ask for numeric IDs.
 - `channels.zalo.mediaMaxMb`: इनबाउंड/आउटबाउंड मीडिया सीमा (MB, डिफ़ॉल्ट 5)।
 - `channels.zalo.webhookUrl`: वेबहुक मोड सक्षम करें (HTTPS आवश्यक)।
 - `channels.zalo.webhookSecret`: वेबहुक सीक्रेट (8–256 अक्षर)।
@@ -174,8 +177,8 @@ Env विकल्प: `ZALO_BOT_TOKEN=...` (केवल डिफ़ॉल्
 
 मल्टी-अकाउंट विकल्प:
 
-- `channels.zalo.accounts.<id>.botToken`: प्रति-खाता टोकन।
-- `channels.zalo.accounts.<id>.tokenFile`: प्रति-खाता टोकन फ़ाइल।
+- `channels.zalo.accounts.<id>.botToken`: per-account token.
+- `channels.zalo.accounts.<id>.tokenFile`: per-account token file.
 - `channels.zalo.accounts.<id>``.name`: प्रदर्शित नाम।
 - `channels.zalo.accounts.<id>``.enabled`: खाते को सक्षम/अक्षम करें।
 - `channels.zalo.accounts.<id>``.dmPolicy`: प्रति-खाता DM नीति।
@@ -184,5 +187,3 @@ Env विकल्प: `ZALO_BOT_TOKEN=...` (केवल डिफ़ॉल्
 - `channels.zalo.accounts.<id>``.webhookSecret`: प्रति-खाता वेबहुक सीक्रेट।
 - `channels.zalo.accounts.<id>``.webhookPath`: प्रति-खाता वेबहुक पथ।
 - `channels.zalo.accounts.<id>``.proxy`: प्रति-खाता प्रॉक्सी URL।
-
-

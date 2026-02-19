@@ -1,4 +1,8 @@
 ---
+summary: "Ein einzelnes Werkzeug direkt über den Gateway-HTTP-Endpunkt aufrufen"
+read_when:
+  - Aufrufen von Werkzeugen ohne Ausführen eines vollständigen Agent-Durchlaufs
+  - Erstellen von Automatisierungen, die Durchsetzung von Werkzeugrichtlinien benötigen
 title: "Tools-Invoke-API"
 ---
 
@@ -21,6 +25,7 @@ Hinweise:
 
 - Wenn `gateway.auth.mode="token"`, verwenden Sie `gateway.auth.token` (oder `OPENCLAW_GATEWAY_TOKEN`).
 - Wenn `gateway.auth.mode="password"`, verwenden Sie `gateway.auth.password` (oder `OPENCLAW_GATEWAY_PASSWORD`).
+- Wenn `gateway.auth.rateLimit` konfiguriert ist und zu viele Authentifizierungsfehler auftreten, gibt der Endpunkt `429` mit `Retry-After` zurück.
 
 ## Request-Body
 
@@ -54,6 +59,28 @@ Die Verfügbarkeit von Werkzeugen wird durch dieselbe Richtlinienkette gefiltert
 
 Wenn ein Werkzeug durch die Richtlinie nicht erlaubt ist, gibt der Endpunkt **404** zurück.
 
+Gateway HTTP wendet standardmäßig auch eine harte Sperrliste an (selbst wenn die Sitzungsrichtlinie das Tool erlaubt):
+
+- `sessions_spawn`
+- `sessions_send`
+- `gateway`
+- `whatsapp_login`
+
+Sie können diese Sperrliste über `gateway.tools` anpassen:
+
+```json5
+{
+  gateway: {
+    tools: {
+      // Additional tools to block over HTTP /tools/invoke
+      deny: ["browser"],
+      // Remove tools from the default deny list
+      allow: ["gateway"],
+    },
+  },
+}
+```
+
 Um Gruppenrichtlinien bei der Kontextauflösung zu unterstützen, können Sie optional setzen:
 
 - `x-openclaw-message-channel: <channel>` (Beispiel: `slack`, `telegram`)
@@ -64,8 +91,10 @@ Um Gruppenrichtlinien bei der Kontextauflösung zu unterstützen, können Sie op
 - `200` → `{ ok: true, result }`
 - `400` → `{ ok: false, error: { type, message } }` (ungültige Anfrage oder Werkzeugfehler)
 - `401` → nicht autorisiert
+- `429` → Authentifizierung ratenbegrenzt (`Retry-After` gesetzt)
 - `404` → Werkzeug nicht verfügbar (nicht gefunden oder nicht auf der Allowlist)
 - `405` → Methode nicht erlaubt
+- `500` → `{ ok: false, error: { type, message } }` (unerwarteter Tool-Ausführungsfehler; bereinigte Fehlermeldung)
 
 ## Beispiel
 
@@ -79,5 +108,3 @@ curl -sS http://127.0.0.1:18789/tools/invoke \
     "args": {}
   }'
 ```
-
-

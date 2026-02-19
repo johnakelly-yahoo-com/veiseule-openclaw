@@ -1,4 +1,8 @@
 ---
+summary: "Referencia de la CLI para `openclaw nodes` (list/status/approve/invoke, camera/canvas/screen)"
+read_when:
+  - Usted está gestionando nodos emparejados (cámaras, pantalla, lienzo)
+  - Necesita aprobar solicitudes o invocar comandos de nodos
 title: "nodes"
 ---
 
@@ -60,12 +64,10 @@ Indicadores de invocación:
 Indicadores:
 
 - `--cwd <path>`: directorio de trabajo.
-- `--env <key=val>`: anulación de variables de entorno (repetible).
+- `--env <key=val>`: anulación de variables de entorno (repetible). Nota: los hosts node ignoran las anulaciones de `PATH` (y `tools.exec.pathPrepend` no se aplica a los hosts node).
 - `--command-timeout <ms>`: tiempo de espera del comando.
 - `--invoke-timeout <ms>`: tiempo de espera de invocación del nodo (valor predeterminado `30000`).
 - `--needs-screen-recording`: requiere permiso de grabación de pantalla.
 - `--raw <command>`: ejecutar una cadena de shell (`/bin/sh -lc` o `cmd.exe /c`).
 - `--agent <id>`: aprobaciones/listas de permitidos con alcance de agente (predetermina al agente configurado).
 - `--ask <off|on-miss|always>`, `--security <deny|allowlist|full>`: anulaciones.
-
-

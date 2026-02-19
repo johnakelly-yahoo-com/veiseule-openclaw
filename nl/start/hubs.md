@@ -1,4 +1,7 @@
 ---
+summary: "Hubs die linken naar elke OpenClaw-documentatie"
+read_when:
+  - Je wilt een volledig overzicht van de documentatie
 title: "Docs-hubs"
 ---
 
@@ -192,5 +195,3 @@ Gebruik deze hubs om elke pagina te ontdekken, inclusief diepgaande artikelen en
 - [Testen](/reference/test)
 - [Release-checklist](/reference/RELEASING)
 - [Apparaatmodellen](/reference/device-models)
-
-

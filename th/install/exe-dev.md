@@ -1,4 +1,8 @@
 ---
+summary: "รัน OpenClaw Gateway บน exe.dev (VM + พร็อกซีHTTPS) เพื่อการเข้าถึงจากระยะไกล"
+read_when:
+  - คุณต้องการโฮสต์Linuxที่เปิดตลอดและมีค่าใช้จ่ายต่ำสำหรับ Gateway
+  - คุณต้องการเข้าถึง Control UI จากระยะไกลโดยไม่ต้องรัน VPS ของคุณเอง
 title: "exe.dev"
 ---
 
@@ -6,7 +10,7 @@ title: "exe.dev"
 
 เป้าหมาย: ให้ OpenClaw Gateway ทำงานบน VM ของ exe.dev และเข้าถึงได้จากแล็ปท็อปของคุณผ่าน: `https://<vm-name>.exe.xyz`
 
-หน้านี้ถือว่าคุณใช้ image **exeuntu** เริ่มต้นของ exe.dev หากคุณเลือกดิสโทรอื่น ให้ปรับแมปแพ็กเกจให้เหมาะสม
+หน้านี้ถือว่าคุณใช้ image **exeuntu** เริ่มต้นของ exe.dev หากคุณเลือกดิสโทรอื่น ให้ปรับแมปแพ็กเกจให้เหมาะสม If you picked a different distro, map packages accordingly.
 
 ## เส้นทางด่วนสำหรับผู้เริ่มต้น
 
@@ -24,7 +28,7 @@ title: "exe.dev"
 ## การติดตั้งอัตโนมัติด้วย Shelley
 
 Shelley ซึ่งเป็นเอเจนต์ของ [exe.dev](https://exe.dev) สามารถติดตั้ง OpenClaw ได้ทันทีด้วยพรอมป์ของเรา
-พรอมป์ที่ใช้มีดังนี้: The prompt used is as below:
+พรอมป์ที่ใช้มีดังนี้: The prompt used is as below: The prompt used is as below:
 
 ```
 Set up OpenClaw (https://docs.openclaw.ai/install) on this VM. Use the non-interactive and accept-risk flags for openclaw onboarding. Add the supplied auth or token as needed. Configure nginx to forward from the default port 18789 to the root location on the default enabled site config, making sure to enable Websocket support. Pairing is done by "openclaw devices list" and "openclaw device approve <request id>". Make sure the dashboard shows that OpenClaw's health is OK. exe.dev handles forwarding from port 8000 to port 80/443 and HTTPS for us, so the final "reachable" should be <vm-name>.exe.xyz, without port specification.
@@ -120,5 +124,3 @@ openclaw health
 ```
 
 คู่มือ: [การอัปเดต](/install/updating)
-
-

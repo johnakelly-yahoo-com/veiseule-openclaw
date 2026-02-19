@@ -1,4 +1,9 @@
 ---
+summary: "Kit de testes: suítes unit/e2e/live, runners Docker e o que cada teste cobre"
+read_when:
+  - Executar testes localmente ou em CI
+  - Adicionar regressões para bugs de modelo/provedor
+  - Depurar comportamento do gateway + agente
 title: "Testes"
 ---
 
@@ -37,7 +42,7 @@ Pense nas suítes como “realismo crescente” (e aumento de instabilidade/cust
 ### Unit / integration (padrão)
 
 - Comando: `pnpm test`
-- Configuração: `vitest.config.ts`
+- Config: `scripts/test-parallel.mjs` (executa `vitest.unit.config.ts`, `vitest.extensions.config.ts`, `vitest.gateway.config.ts`)
 - Arquivos: `src/**/*.test.ts`
 - Enquadramento:
   - Testes unitários puros
@@ -47,12 +52,23 @@ Pense nas suítes como “realismo crescente” (e aumento de instabilidade/cust
   - Roda em CI
   - Não requer chaves reais
   - Deve ser rápido e estável
+- Observação sobre o pool:
+  - O OpenClaw usa Vitest `vmForks` no Node 22/23 para shards de unidade mais rápidos.
+  - No Node 24+, o OpenClaw volta automaticamente para `forks` regulares para evitar erros de vinculação do Node VM (`ERR_VM_MODULE_LINK_FAILURE` / `module is already linked`).
+  - Substitua manualmente com `OPENCLAW_TEST_VM_FORKS=0` (forçar `forks`) ou `OPENCLAW_TEST_VM_FORKS=1` (forçar `vmForks`).
 
 ### E2E (gateway smoke)
 
 - Comando: `pnpm test:e2e`
 - Configuração: `vitest.e2e.config.ts`
 - Arquivos: `src/**/*.e2e.test.ts`
+- Padrões de execução:
+  - Usa Vitest `vmForks` para inicialização de arquivos mais rápida.
+  - Usa workers adaptativos (CI: 2-4, local: 4-8).
+  - Executa em modo silencioso por padrão para reduzir a sobrecarga de I/O no console.
+- Substituições úteis:
+  - `OPENCLAW_E2E_WORKERS=<n>` para forçar a quantidade de workers (limitado a 16).
+  - `OPENCLAW_E2E_VERBOSE=1` para reativar a saída detalhada no console.
 - Enquadramento:
   - Comportamento end-to-end do gateway com múltiplas instâncias
   - Superfícies WebSocket/HTTP, pareamento de nós e networking mais pesado
@@ -363,5 +379,3 @@ Quando você corrige um problema de provedor/modelo descoberto em live:
 - Prefira atingir a menor camada que captura o bug:
   - bug de conversão/replay de requisição do provedor → teste de modelos diretos
   - bug no pipeline de sessão/histórico/ferramentas do gateway → gateway live smoke ou teste mockado do gateway seguro para CI
-
-

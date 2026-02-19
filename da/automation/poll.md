@@ -1,4 +1,8 @@
 ---
+summary: "Afsendelse af afstemninger via gateway + CLI"
+read_when:
+  - Tilføjelse eller ændring af understøttelse af afstemninger
+  - Fejlfinding af afstemningsafsendelser fra CLI eller gateway
 title: "Afstemninger"
 ---
 
@@ -63,5 +67,3 @@ Brug værktøjet `message` med handlingen `poll` (`to`, `pollQuestion`, `pollOpt
 Bemærk: Discord har ingen “vælge præcis N” tilstand; `pollMulti` kort til multi-select.
 Teams meningsmålinger gengives som Adaptive Cards og kræver gateway til at forblive online
 for at registrere stemmer i `~/.openclaw/msteams-polls.json`.
-
-

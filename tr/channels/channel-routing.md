@@ -1,4 +1,7 @@
 ---
+summary: "Kanal bazında yönlendirme kuralları (WhatsApp, Telegram, Discord, Slack) ve paylaşılan bağlam"
+read_when:
+  - Kanal yönlendirmesi veya gelen kutusu davranışı değiştirildiğinde
 title: "Kanal Yönlendirme"
 ---
 
@@ -39,11 +42,15 @@ Konular:
 Yönlendirme, gelen her mesaj için **tek bir ajan** seçer:
 
 1. **Birebir eşleşme** (`bindings` ile `peer.kind` + `peer.id`).
-2. **Guild eşleşmesi** (Discord) `guildId` üzerinden.
-3. **Team eşleşmesi** (Slack) `teamId` üzerinden.
-4. **Hesap eşleşmesi** (kanalda `accountId`).
-5. **Kanal eşleşmesi** (o kanaldaki herhangi bir hesap).
-6. **Varsayılan ajan** (`agents.list[].default`, aksi halde listedeki ilk giriş, geri dönüş olarak `main`).
+2. **Üst eş eşleşmesi** (iş parçacığı devralma).
+3. Yönlendirme kuralları (bir ajanın nasıl seçildiği)
+4. **Guild eşleşmesi** (Discord) `guildId` üzerinden.
+5. **Team eşleşmesi** (Slack) `teamId` üzerinden.
+6. **Hesap eşleşmesi** (kanalda `accountId`).
+7. **Kanal eşleşmesi** (o kanaldaki herhangi bir hesap).
+8. **Varsayılan ajan** (`agents.list[].default`, aksi halde listedeki ilk giriş, geri dönüş olarak `main`).
+
+Bir bağlama birden fazla eşleşme alanı (`peer`, `guildId`, `teamId`, `roles`) içeriyorsa, bu bağlamanın uygulanabilmesi için **sağlanan tüm alanların eşleşmesi gerekir**.
 
 Eşleşen ajan, hangi çalışma alanının ve oturum deposunun kullanılacağını belirler.
 
@@ -105,5 +112,3 @@ Gelen yanıtlar şunları içerir:
 - Alıntılanan bağlam, `Body`’e `[Replying to ...]` bloğu olarak eklenir.
 
 Bu davranış kanallar arasında tutarlıdır.
-
-

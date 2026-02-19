@@ -1,4 +1,9 @@
 ---
+summary: "Cài đặt OpenClaw tự động, tăng cường bảo mật với Ansible, VPN Tailscale và cô lập bằng firewall"
+read_when:
+  - Bạn muốn triển khai máy chủ tự động với tăng cường bảo mật
+  - Bạn cần thiết lập cô lập bằng firewall với truy cập qua VPN
+  - Bạn đang triển khai lên máy chủ Debian/Ubuntu từ xa
 title: "Ansible"
 ---
 
@@ -16,7 +21,7 @@ curl -fsSL https://raw.githubusercontent.com/openclaw/openclaw-ansible/main/inst
 
 > **📦 Hướng dẫn đầy đủ: [github.com/openclaw/openclaw-ansible](https://github.com/openclaw/openclaw-ansible)**
 >
-> > Repo openclaw-ansible là nguồn thông tin chính thức cho việc triển khai Ansible. Trang này cung cấp tổng quan nhanh.
+> The openclaw-ansible repo is the source of truth for Ansible deployment. This page is a quick overview.
 
 ## Những gì bạn nhận được
 
@@ -100,7 +105,7 @@ Should show **only port 22** (SSH) open. Lưu ý: Gateway chạy **trực tiếp
 
 ### Khả dụng của Docker
 
-Docker được cài đặt cho **agent sandboxes** (thực thi công cụ trong môi trường cô lập), không phải để chạy gateway. Gateway chỉ bind vào localhost và có thể truy cập thông qua Tailscale VPN.
+Docker is installed for **agent sandboxes** (isolated tool execution), not for running the gateway itself. The gateway binds to localhost only and is accessible via Tailscale VPN.
 
 Xem [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) để cấu hình sandbox.
 
@@ -128,7 +133,7 @@ ansible-galaxy collection install -r requirements.yml
 
 ## Cập nhật OpenClaw
 
-Trình cài đặt Ansible thiết lập OpenClaw để cập nhật thủ công. Xem [Updating](/install/updating) để biết quy trình cập nhật tiêu chuẩn.
+The Ansible installer sets up OpenClaw for manual updates. See [Updating](/install/updating) for the standard update flow.
 
 Để chạy lại playbook Ansible (ví dụ: khi thay đổi cấu hình):
 
@@ -201,5 +206,3 @@ openclaw channels login
 - [Docker](/install/docker) — thiết lập gateway dạng container
 - [Sandboxing](/gateway/sandboxing) — cấu hình sandbox của tác tử
 - [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) — cô lập theo từng tác tử
-
-

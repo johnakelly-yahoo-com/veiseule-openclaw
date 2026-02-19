@@ -1,4 +1,8 @@
 ---
+summary: "Use modelos de Venice AI enfocados en la privacidad en OpenClaw"
+read_when:
+  - Quiere inferencia enfocada en la privacidad en OpenClaw
+  - Quiere guía de configuración de Venice AI
 title: "Venice AI"
 ---
 
@@ -43,7 +47,7 @@ Venice ofrece dos niveles de privacidad; comprenderlos es clave para elegir su m
 2. Vaya a **Settings → API Keys → Create new key**
 3. Copie su clave de API (formato: `vapi_xxxxxxxxxxxx`)
 
-### 2) Configurar OpenClaw
+### 3) Verificar la configuración
 
 **Opción A: Variable de entorno**
 
@@ -261,5 +265,3 @@ La API de Venice está en `https://api.venice.ai/api/v1`. Asegúrese de que su r
 - [Documentación de la API](https://docs.venice.ai)
 - [Precios](https://venice.ai/pricing)
 - [Estado](https://status.venice.ai)
-
-

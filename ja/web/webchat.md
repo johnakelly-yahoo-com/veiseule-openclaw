@@ -1,4 +1,7 @@
 ---
+summary: "Loopback WebChat の静的ホストおよびチャット UI 向けの Gateway WebSocket 利用"
+read_when:
+  - WebChat アクセスのデバッグまたは設定時
 title: "WebChat"
 ---
 
@@ -36,13 +39,12 @@ title: "WebChat"
 
 チャンネルオプション：
 
-- 専用の `webchat.*` ブロックはありません。WebChat は、以下のゲートウェイエンドポイントおよび認証設定を使用します。 WebChatは以下のゲートウェイエンドポイント+認証設定を使用します。
+- 専用の `webchat.*` ブロックはありません。WebChat は、以下のゲートウェイエンドポイントおよび認証設定を使用します。 WebChatは以下のゲートウェイエンドポイント+認証設定を使用します。 WebChatは以下のゲートウェイエンドポイント+認証設定を使用します。
 
 関連するグローバルオプション：
 
 - `gateway.port`、`gateway.bind`：WebSocket のホスト／ポート。
 - `gateway.auth.mode`、`gateway.auth.token`、`gateway.auth.password`：WebSocket 認証。
+- `gateway.auth.mode: "trusted-proxy"`: ブラウザクライアント向けのリバースプロキシ認証（[Trusted Proxy Auth](/gateway/trusted-proxy-auth) を参照）。
 - `gateway.remote.url`、`gateway.remote.token`、`gateway.remote.password`：リモートゲートウェイのターゲット。
 - `session.*`：セッションストレージおよびメインキーの既定値。
-
-

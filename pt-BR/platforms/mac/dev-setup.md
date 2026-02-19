@@ -1,4 +1,7 @@
 ---
+summary: "Guia de configuração para desenvolvedores que trabalham no app macOS do OpenClaw"
+read_when:
+  - Configurando o ambiente de desenvolvimento macOS
 title: "Configuração de Desenvolvimento macOS"
 ---
 
@@ -13,7 +16,7 @@ Antes de compilar o app, verifique se voce tem o seguinte instalado:
 1. **Xcode 26.2+**: Necessário para desenvolvimento em Swift.
 2. **Node.js 22+ & pnpm**: Necessários para o gateway, a CLI e os scripts de empacotamento.
 
-## 1) Instalar dependências
+## 3) Instalar a CLI
 
 Instale as dependências de todo o projeto:
 
@@ -99,5 +102,3 @@ lsof -nP -iTCP:18789 -sTCP:LISTEN
 ```
 
 Se uma execução manual estiver ocupando a porta, encerre esse processo (Ctrl+C). Como último recurso, finalize o PID encontrado acima.
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "„Websuche- und Fetch-Werkzeuge (Brave Search API, Perplexity direkt/OpenRouter)“"
+read_when:
+  - Sie möchten web_search oder web_fetch aktivieren
+  - Sie benötigen die Einrichtung eines Brave Search API-Schlüssels
+  - Sie möchten Perplexity Sonar für die Websuche verwenden
 title: "„Web-Werkzeuge“"
 ---
 
@@ -171,6 +176,8 @@ Durchsuchen Sie das Web mit Ihrem konfigurierten Anbieter.
 - `search_lang` (optional): ISO-Sprachcode für Suchergebnisse (z. B. „de“, „en“, „fr“)
 - `ui_lang` (optional): ISO-Sprachcode für UI-Elemente
 - `freshness` (optional, nur Brave): Filter nach Entdeckungszeit (`pd`, `pw`, `pm`, `py` oder `YYYY-MM-DDtoYYYY-MM-DD`)
+  - Brave: `pd`, `pw`, `pm`, `py` oder `YYYY-MM-DDtoYYYY-MM-DD`
+  - Perplexity: `pd`, `pw`, `pm`, `py`
 
 **Beispiele:**
 
@@ -254,5 +261,3 @@ Hinweise:
 - Antworten werden zwischengespeichert (Standard: 15 Minuten), um wiederholte Abrufe zu reduzieren.
 - Wenn Sie Werkzeugprofile/Allowlists verwenden, fügen Sie `web_search`/`web_fetch` oder `group:web` hinzu.
 - Wenn der Brave-Schlüssel fehlt, gibt `web_search` einen kurzen Einrichtungshinweis mit einem Dokumentationslink zurück.
-
-

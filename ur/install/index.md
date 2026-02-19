@@ -1,10 +1,15 @@
 ---
+summary: "OpenClaw انسٹال کریں — انسٹالر اسکرپٹ، npm/pnpm، سورس سے، Docker، اور مزید"
+read_when:
+  - آپ کو Getting Started کے فوری آغاز کے علاوہ کسی اور انسٹال طریقے کی ضرورت ہو
+  - آپ کلاؤڈ پلیٹ فارم پر تعیناتی کرنا چاہتے ہوں
+  - آپ کو اپڈیٹ، مائیگریٹ، یا ان انسٹال کرنا ہو
 title: "انسٹال"
 ---
 
 # انسٹال
 
-کیا آپ نے پہلے ہی [آغاز کریں](/start/getting-started) کی پیروی کر لی ہے؟ آپ بالکل تیار ہیں — یہ صفحہ متبادل انسٹال طریقوں، پلیٹ فارم کے مطابق ہدایات، اور دیکھ بھال کے لیے ہے۔
+Already followed [Getting Started](/start/getting-started)? You're all set — this page is for alternative install methods, platform-specific instructions, and maintenance.
 
 ## سسٹم ضروریات
 
@@ -19,13 +24,15 @@ Windows پر ہم سختی سے تجویز کرتے ہیں کہ OpenClaw کو [W
 ## انسٹال کے طریقے
 
 <Tip>
-**انسٹالر اسکرپٹ** OpenClaw انسٹال کرنے کا تجویز کردہ طریقہ ہے۔ یہ ایک ہی مرحلے میں Node کی جانچ، انسٹالیشن، اور ابتدائی رہنمائی سنبھالتا ہے۔
+The **installer script** is the recommended way to install OpenClaw. It handles Node detection, installation, and onboarding in one step.
 </Tip>
 
 <AccordionGroup>
   <Accordion title="Installer script" icon="rocket" defaultOpen>
     CLI ڈاؤن لوڈ کرتا ہے، npm کے ذریعے اسے عالمی طور پر انسٹال کرتا ہے، اور آن بورڈنگ وزارڈ شروع کرتا ہے۔
 
+    ````
+    ```
     <Tabs>
       <Tab title="macOS / Linux / WSL2">
         ```bash
@@ -41,11 +48,11 @@ Windows پر ہم سختی سے تجویز کرتے ہیں کہ OpenClaw کو [W
 </Tab>
     
 </Tabs>
-
+    
     بس اتنا ہی — اسکرپٹ Node کی شناخت، انسٹالیشن، اور آن بورڈنگ سب سنبھالتا ہے۔
-
+    
     آن بورڈنگ چھوڑ کر صرف بائنری انسٹال کرنے کے لیے:
-
+    
     <Tabs>
       <Tab title="macOS / Linux / WSL2">
         ```bash
@@ -61,8 +68,10 @@ Windows پر ہم سختی سے تجویز کرتے ہیں کہ OpenClaw کو [W
 </Tab>
     
 </Tabs>
-
+    
     تمام فلیگز، env vars، اور CI/automation اختیارات کے لیے [Installer internals](/install/installer) دیکھیں۔
+    ```
+    ````
 
   
 </Accordion>
@@ -70,20 +79,22 @@ Windows پر ہم سختی سے تجویز کرتے ہیں کہ OpenClaw کو [W
   <Accordion title="npm / pnpm" icon="package">
     اگر آپ کے پاس پہلے ہی Node 22+ ہے اور آپ انسٹالیشن خود منظم کرنا چاہتے ہیں:
 
+    ````
+    ```
     <Tabs>
       <Tab title="npm">
         ```bash
         npm install -g openclaw@latest
         openclaw onboard --install-daemon
         ```
-
+    
         <Accordion title="sharp بلڈ کی غلطیاں؟">
           اگر آپ کے سسٹم پر libvips عالمی طور پر انسٹال ہے (macOS پر Homebrew کے ذریعے یہ عام ہے) اور `sharp` ناکام ہو جاتا ہے، تو پہلے سے تیار شدہ بائنریز کو مجبور کریں:
-
+    
           ```bash
           SHARP_IGNORE_GLOBAL_LIBVIPS=1 npm install -g openclaw@latest
           ```
-
+    
           اگر آپ کو `sharp: Please add node-gyp to your dependencies` نظر آئے، تو یا تو بلڈ ٹولنگ انسٹال کریں (macOS: Xcode CLT + `npm install -g node-gyp`) یا اوپر دیا گیا env var استعمال کریں۔
         
 </Accordion>
@@ -95,7 +106,7 @@ Windows پر ہم سختی سے تجویز کرتے ہیں کہ OpenClaw کو [W
         pnpm approve-builds -g        # approve openclaw, node-llama-cpp, sharp, etc.
         openclaw onboard --install-daemon
         ```
-
+    
         <Note>
         pnpm اُن پیکیجز کے لیے جن میں build scripts ہوں، واضح منظوری کا تقاضا کرتا ہے۔ پہلی انسٹال کے بعد جب "Ignored build scripts" کی وارننگ دکھائی دے، تو `pnpm approve-builds -g` چلائیں اور فہرست میں موجود پیکیجز منتخب کریں۔
         
@@ -104,6 +115,8 @@ Windows پر ہم سختی سے تجویز کرتے ہیں کہ OpenClaw کو [W
 </Tab>
     
 </Tabs>
+    ```
+    ````
 
   
 </Accordion>
@@ -111,10 +124,12 @@ Windows پر ہم سختی سے تجویز کرتے ہیں کہ OpenClaw کو [W
   <Accordion title="From source" icon="github">
     شراکت داروں یا اُن کے لیے جو مقامی چیک آؤٹ سے چلانا چاہتے ہوں۔
 
+    ````
+    ```
     <Steps>
       <Step title="کلون اور بلڈ کریں">
         [OpenClaw repo](https://github.com/openclaw/openclaw) کو کلون کریں اور بلڈ کریں:
-
+    
         ```bash
         git clone https://github.com/openclaw/openclaw.git
         cd openclaw
@@ -126,11 +141,11 @@ Windows پر ہم سختی سے تجویز کرتے ہیں کہ OpenClaw کو [W
 </Step>
       <Step title="CLI کو لنک کریں">
         `openclaw` کمانڈ کو عالمی طور پر دستیاب بنائیں:
-
+    
         ```bash
         pnpm link --global
         ```
-
+    
         متبادل طور پر، لنک چھوڑ دیں اور ریپو کے اندر سے `pnpm openclaw ...` کے ذریعے کمانڈز چلائیں۔
       
 </Step>
@@ -142,8 +157,10 @@ Windows پر ہم سختی سے تجویز کرتے ہیں کہ OpenClaw کو [W
 </Step>
     
 </Steps>
-
+    
     مزید گہرے ڈیولپمنٹ ورک فلو کے لیے [Setup](/start/setup) دیکھیں۔
+    ```
+    ````
 
   
 </Accordion>
@@ -157,15 +174,15 @@ Windows پر ہم سختی سے تجویز کرتے ہیں کہ OpenClaw کو [W
   
 </Card>
   <Card title="Podman" href="/install/podman" icon="container">
-    Rootless کنٹینر: `setup-podman.sh` ایک بار چلائیں، پھر لانچ اسکرپٹ۔
-  
-</Card>
-  <Card title="Nix" href="/install/nix" icon="snowflake">
     Nix کے ذریعے ڈیکلیریٹو انسٹال۔
   
 </Card>
-  <Card title="Ansible" href="/install/ansible" icon="server">
+  <Card title="Nix" href="/install/nix" icon="snowflake">
     خودکار فلیٹ پروویژننگ۔
+  
+</Card>
+  <Card title="Ansible" href="/install/ansible" icon="server">
+    Bun رن ٹائم کے ذریعے صرف CLI استعمال۔
   
 </Card>
   <Card title="Bun" href="/install/bun" icon="zap">
@@ -184,13 +201,13 @@ openclaw status         # gateway status
 openclaw dashboard      # open the browser UI
 ```
 
-اگر آپ کو کسٹم runtime paths درکار ہوں تو استعمال کریں:
+If you need custom runtime paths, use:
 
-- `OPENCLAW_HOME` گھر کی ڈائریکٹری پر مبنی اندرونی راستوں کے لیے
-- `OPENCLAW_STATE_DIR` mutable state کی لوکیشن کے لیے
-- `OPENCLAW_CONFIG_PATH` کنفیگ فائل کی لوکیشن کے لیے
+- `OPENCLAW_HOME` for home-directory based internal paths
+- `OPENCLAW_STATE_DIR` for mutable state location
+- `OPENCLAW_CONFIG_PATH` for config file location
 
-ترجیح اور مکمل تفصیلات کے لیے [Environment vars](/help/environment) دیکھیں۔
+See [Environment vars](/help/environment) for precedence and full details.
 
 ## خرابیوں کا ازالہ: `openclaw` نہیں ملا
 
@@ -214,7 +231,7 @@ export PATH="$(npm prefix -g)/bin:$PATH"
 
 Windows پر، `npm prefix -g` کے آؤٹ پٹ کو اپنے PATH میں شامل کریں۔
 
-پھر ایک نیا ٹرمینل کھولیں (یا zsh میں `rehash` / bash میں `hash -r` چلائیں)۔
+Then open a new terminal (or `rehash` in zsh / `hash -r` in bash). 
 </Accordion>
 
 ## اپڈیٹ / ان انسٹال
@@ -233,4 +250,3 @@ Windows پر، `npm prefix -g` کے آؤٹ پٹ کو اپنے PATH میں شام
   
 </Card>
 </CardGroup>
-

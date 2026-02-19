@@ -1,4 +1,7 @@
 ---
+summary: "चैनल कनेक्टिविटी के लिए स्वास्थ्य जाँच के चरण"
+read_when:
+  - WhatsApp चैनल स्वास्थ्य का निदान करते समय
 title: "स्वास्थ्य जाँच"
 ---
 
@@ -18,8 +21,8 @@ title: "स्वास्थ्य जाँच"
 ## गहन निदान
 
 - डिस्क पर क्रेडेंशियल्स: `ls -l ~/.openclaw/credentials/whatsapp/<accountId>/creds.json` (mtime हालिया होना चाहिए)।
-- सेशन स्टोर: `ls -l ~/.openclaw/agents/<agentId>/sessions/sessions.json` (पाथ को कॉन्फ़िग में ओवरराइड किया जा सकता है)। कुल संख्या और हाल के प्राप्तकर्ता `status` के माध्यम से प्रदर्शित होते हैं।
-- रीलिंक फ्लो: `openclaw channels logout && openclaw channels login --verbose` जब लॉग में स्टेटस कोड 409–515 या `loggedOut` दिखाई दें। (नोट: पेयरिंग के बाद स्टेटस 515 आने पर QR लॉगिन फ्लो एक बार अपने आप पुनः आरंभ होता है।)
+- Session store: `ls -l ~/.openclaw/agents/<agentId>/sessions/sessions.json` (path can be overridden in config). Count and recent recipients are surfaced via `status`.
+- Relink flow: `openclaw channels logout && openclaw channels login --verbose` when status codes 409–515 or `loggedOut` appear in logs. (Note: the QR login flow auto-restarts once for status 515 after pairing.)
 
 ## जब कुछ विफल हो जाए
 
@@ -29,6 +32,4 @@ title: "स्वास्थ्य जाँच"
 
 ## समर्पित "health" कमांड
 
-`openclaw health --json` चल रहे Gateway से उसका हेल्थ स्नैपशॉट मांगता है (CLI से सीधे चैनल सॉकेट्स का उपयोग नहीं करता)। यह उपलब्ध होने पर लिंक्ड क्रेडेंशियल्स/ऑथ की आयु, प्रति-चैनल प्रोब सारांश, सेशन-स्टोर सारांश, और प्रोब अवधि की रिपोर्ट करता है। यदि Gateway तक पहुंच न हो या प्रोब विफल/टाइमआउट हो जाए तो यह नॉन-ज़ीरो कोड के साथ एग्ज़िट करता है। 10 सेकंड के डिफ़ॉल्ट को ओवरराइड करने के लिए `--timeout <ms>` का उपयोग करें।
-
-
+`openclaw health --json` asks the running Gateway for its health snapshot (no direct channel sockets from the CLI). It reports linked creds/auth age when available, per-channel probe summaries, session-store summary, and a probe duration. It exits non-zero if the Gateway is unreachable or the probe fails/timeouts. Use `--timeout <ms>` to override the 10s default.

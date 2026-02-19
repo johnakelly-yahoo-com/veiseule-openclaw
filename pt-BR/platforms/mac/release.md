@@ -1,4 +1,8 @@
 ---
+summary: "Checklist de lançamento do OpenClaw para macOS (feed do Sparkle, empacotamento, assinatura)"
+read_when:
+  - Ao cortar ou validar um lançamento do OpenClaw para macOS
+  - Ao atualizar o appcast do Sparkle ou os ativos do feed
 title: "Lançamento do macOS"
 ---
 
@@ -79,5 +83,3 @@ Faça commit do `appcast.xml` atualizado junto com os ativos de lançamento (zip
   - Em uma build pública anterior, execute “Check for Updates…” na aba About e verifique se o Sparkle instala a nova build corretamente.
 
 Definição de pronto: app assinado + appcast publicados, fluxo de atualização funciona a partir de uma versão instalada mais antiga, e os ativos de lançamento estão anexados ao release do GitHub.
-
-

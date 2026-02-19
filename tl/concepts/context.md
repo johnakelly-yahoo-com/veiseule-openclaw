@@ -1,4 +1,9 @@
 ---
+summary: "Context: kung ano ang nakikita ng model, paano ito binubuo, at paano ito siyasatin"
+read_when:
+  - Gusto mong maunawaan kung ano ang ibig sabihin ng “context” sa OpenClaw
+  - Nagde-debug ka kung bakit may “alam” ang model tungkol sa isang bagay (o nakalimutan ito)
+  - Gusto mong bawasan ang context overhead (/context, /status, /compact)
 title: "Konteksto"
 ---
 
@@ -107,7 +112,7 @@ Bilang default, nag-i-inject ang OpenClaw ng isang nakapirming set ng workspace 
 - `HEARTBEAT.md`
 - `BOOTSTRAP.md` (unang run lang)
 
-Ang malalaking file ay tina-truncate kada file gamit ang `agents.defaults.bootstrapMaxChars` (default na `20000` chars). `/context` ay nagpapakita ng **raw vs injected** na laki at kung may nangyaring truncation.
+Ang malalaking file ay tina-truncate kada file gamit ang `agents.defaults.bootstrapMaxChars` (default na `20000` chars). Nagpapatupad din ang OpenClaw ng kabuuang limitasyon ng bootstrap injection sa lahat ng file gamit ang `agents.defaults.bootstrapTotalMaxChars` (default `24000` na karakter). `/context` ay nagpapakita ng **raw vs injected** na laki at kung may nangyaring truncation.
 
 ## Skills: ano ang na-inject vs nilo-load kapag kailangan
 
@@ -154,5 +159,3 @@ Mas pinipili ng `/context` ang pinakabagong **run-built** na ulat ng system prom
 - `System prompt (estimate)` = kinukuwenta on the fly kapag walang run report (o kapag tumatakbo sa pamamagitan ng CLI backend na hindi gumagawa ng ulat).
 
 Sa alinmang paraan, nag-uulat ito ng mga laki at nangungunang contributor; **hindi** nito idinidump ang buong system prompt o ang mga schema ng tool.
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "Tareas cron + activaciones para el programador del Gateway"
+read_when:
+  - Programar tareas de fondo o despertar
+  - Conectar automatizaciones que deban ejecutarse con o junto a los latidos
+  - Decidir entre latido y cron para tareas programadas
 title: "Tareas Cron"
 ---
 
@@ -14,7 +19,7 @@ cron es el mecanismo.
 
 Solución de problemas: [/automation/troubleshooting](/automation/troubleshooting)
 
-## En resumen
+## TL;DR
 
 - Cron se ejecuta **dentro del Gateway** (no dentro del modelo).
 - Los trabajos persisten bajo `~/.openclaw/cron/` para que los reinicios no pierdan los horarios.
@@ -471,5 +476,3 @@ openclaw system event --mode now --text "Next heartbeat: check battery."
 - Para temas de foro, use `-100…:topic:<id>` para que sea explícito y sin ambigüedades.
 - Si ve prefijos `telegram:...` en los registros o en los objetivos de “última ruta” almacenados, es normal;
   la entrega de cron los acepta y aun así analiza correctamente los IDs de tema.
-
-

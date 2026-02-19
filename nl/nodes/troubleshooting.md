@@ -1,4 +1,8 @@
 ---
+summary: "Problemen oplossen bij node-koppeling, voorgrondvereisten, rechten en toolfouten"
+read_when:
+  - Node is verbonden maar camera-/canvas-/scherm-/exec-tools falen
+  - Je hebt het mentale model nodig voor node-koppeling versus goedkeuringen
 title: "Node-problemen oplossen"
 ---
 
@@ -46,7 +50,7 @@ Als je `NODE_BACKGROUND_UNAVAILABLE` ziet, breng de node-app naar de voorgrond e
 
 ## Rechtenmatrix
 
-| Mogelijkheid                   | iOS                                                                                      | Android                                                                                  | macOS node-app                                          | Typische foutcode              |
+| Mogelijkheid                 | iOS                                                                                      | Android                                                                                  | macOS node-app                                          | Typische foutcode              |
 | ---------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ------------------------------------------------------- | ------------------------------ |
 | `camera.snap`, `camera.clip` | Camera (+ microfoon voor clip-audio)                                  | Camera (+ microfoon voor clip-audio)                                  | Camera (+ microfoon voor clip-audio) | `*_PERMISSION_REQUIRED`        |
 | `screen.record`              | Schermopname (+ microfoon optioneel)                                  | Schermopnameprompt (+ microfoon optioneel)                            | Schermopname                                            | `*_PERMISSION_REQUIRED`        |
@@ -106,5 +110,3 @@ Gerelateerd:
 - [/nodes/location-command](/nodes/location-command)
 - [/tools/exec-approvals](/tools/exec-approvals)
 - [/gateway/pairing](/gateway/pairing)
-
-

@@ -1,12 +1,9 @@
 ---
-title: Talk 模式
-x-i18n:
-  generated_at: "2026-02-03T10:07:59Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: ecbc3701c9e9502970cf13227fedbc9714d13668d8f4f3988fef2a4d68116a42
-  source_path: nodes/talk.md
-  workflow: 15
+summary: "Talk 模式：使用 ElevenLabs TTS 进行连续语音对话"
+read_when:
+  - 在 macOS/iOS/Android 上实现 Talk 模式
+  - 更改语音/TTS/中断行为
+title: "Talk 模式"
 ---
 
 # Talk 模式
@@ -91,5 +88,3 @@ Talk 模式是一个连续的语音对话循环：
 - `eleven_v3` 的 `stability` 验证为 `0.0`、`0.5` 或 `1.0`；其他模型接受 `0..1`。
 - 设置时 `latency_tier` 验证为 `0..4`。
 - Android 支持 `pcm_16000`、`pcm_22050`、`pcm_24000` 和 `pcm_44100` 输出格式，用于低延迟 AudioTrack 流式传输。
-
-

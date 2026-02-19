@@ -1,4 +1,9 @@
-------
+---
+title: "Modèle AGENTS.md"
+summary: "Modele d’espace de travail pour AGENTS.md"
+read_when:
+  - Demarrage manuel d’un espace de travail
+---
 
 # AGENTS.md - Votre espace de travail
 
@@ -212,5 +217,3 @@ L’objectif : etre utile sans etre envahissant. Verifier quelques fois par jour
 ## Faites le vôtre
 
 Ceci est un point de depart. Ajoutez vos propres conventions, style et regles au fur et a mesure que vous decouvrez ce qui fonctionne.
-
-

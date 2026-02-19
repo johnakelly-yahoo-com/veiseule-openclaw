@@ -1,4 +1,7 @@
 ---
+summary: "Gedrag van groepschats over verschillende platforms (WhatsApp/Telegram/Discord/Slack/Signal/iMessage/Microsoft Teams)"
+read_when:
+  - Wijzigen van gedrag van groepschats of mention-gating
 title: "Groepen"
 ---
 
@@ -369,5 +372,3 @@ De agent-systeemprompt bevat bij de eerste beurt van een nieuwe groepssessie een
 ## WhatsApp-specifiek
 
 Zie [Groepsberichten](/channels/group-messages) voor WhatsApp-specifiek gedrag (geschiedenis-injectie, details van mention-afhandeling).
-
-

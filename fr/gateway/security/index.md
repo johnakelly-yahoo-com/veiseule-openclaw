@@ -1,4 +1,7 @@
 ---
+summary: "Considérations de sécurité et modèle de menace pour l’exécution d’une passerelle d’IA avec accès au shell"
+read_when:
+  - Ajout de fonctionnalités qui élargissent l’accès ou l’automatisation
 title: "Sécurité"
 ---
 
@@ -42,6 +45,7 @@ Commencez avec l’accès minimal qui fonctionne, puis élargissez-le à mesure 
 - **Exposition du contrôle du navigateur** (nœuds distants, ports de relais, points de terminaison CDP distants).
 - **Hygiène du disque local** (permissions, liens symboliques, inclusions de config, chemins de « dossier synchronisé »).
 - **Plugins** (extensions présentes sans allowlist explicite).
+- **Dérive/mauvaise configuration de politique** (paramètres docker sandbox configurés mais mode sandbox désactivé ; motifs `gateway.nodes.denyCommands` inefficaces ; `tools.profile="minimal"` global remplacé par des profils par agent ; outils de plugins d’extension accessibles avec une politique d’outils permissive).
 - **Hygiène des modèles** (avertit lorsque les modèles configurés semblent hérités ; pas de blocage strict).
 
 Si vous exécutez `--deep`, OpenClaw tente également une sonde de Gateway (passerelle) en direct, au mieux.
@@ -205,7 +209,7 @@ Si vous exécutez plusieurs comptes sur le même canal, utilisez plutôt `per-ac
 
 OpenClaw dispose de deux couches distinctes « qui peut me déclencher ? » :
 
-- **Allowlist DM** (`allowFrom` / `channels.discord.dm.allowFrom` / `channels.slack.dm.allowFrom`) : qui est autorisé à parler au bot en messages privés.
+- **Liste blanche DM** (`allowFrom` / `channels.discord.allowFrom` / `channels.slack.allowFrom` ; legacy : `channels.discord.dm.allowFrom`, `channels.slack.dm.allowFrom`) : qui est autorisé à parler au bot en messages directs.
   - Lorsque `dmPolicy="pairing"`, les approbations sont écrites dans `~/.openclaw/credentials/<channel>-allowFrom.json` (fusionnées avec les allowlists de configuration).
 - **Allowlist de groupe** (spécifique au canal) : quels groupes/canaux/guildes le bot acceptera tout court.
   - Modèles communs:
@@ -245,6 +249,9 @@ Lorsque les outils sont activés, le risque typique est l’exfiltration de cont
 
 - Utilisant un **agent lecteur** en lecture seule ou sans outils pour résumer le contenu non fiable, puis en transmettant le résumé à votre agent principal.
 - Gardant `web_search` / `web_fetch` / `browser` désactivés pour les agents avec outils, sauf nécessité.
+- Pour les entrées URL OpenResponses (`input_file` / `input_image`), définissez des valeurs strictes pour
+  `gateway.http.endpoints.responses.files.urlAllowlist` et
+  `gateway.http.endpoints.responses.images.urlAllowlist`, et maintenez `maxUrlParts` à une valeur basse.
 - Activant le sandboxing et des allowlists d’outils strictes pour tout agent qui traite des entrées non fiables.
 - Gardant les secrets hors des prompts ; passez‑les via env/config sur l’hôte de la passerelle.
 
@@ -320,6 +327,16 @@ La Gateway multiplexe **WebSocket + HTTP** sur un seul port :
 
 - Par défaut : `18789`
 - Config/drapeaux/env : `gateway.port`, `--port`, `OPENCLAW_GATEWAY_PORT`
+
+Cette surface HTTP inclut la Control UI et l’hôte canvas :
+
+- Control UI (ressources SPA) (chemin de base par défaut `/`)
+- Hôte canvas : `/__openclaw__/canvas/` et `/__openclaw__/a2ui/` (HTML/JS arbitraire ; à traiter comme du contenu non fiable)
+
+Si vous chargez du contenu canvas dans un navigateur classique, traitez-le comme toute autre page web non fiable :
+
+- N’exposez pas l’hôte canvas à des réseaux/utilisateurs non fiables.
+- Ne faites pas partager au contenu canvas la même origine que des surfaces web privilégiées, sauf si vous comprenez pleinement les implications.
 
 Le mode de liaison contrôle où la Gateway écoute :
 
@@ -408,6 +425,7 @@ Modes d’authentification :
 
 - `gateway.auth.mode: "token"` : jeton porteur partagé (recommandé pour la plupart des configurations).
 - `gateway.auth.mode: "password"` : authentification par mot de passe (préférez le définir via env : `OPENCLAW_GATEWAY_PASSWORD`).
+- `gateway.auth.mode: "trusted-proxy"` : faites confiance à un reverse proxy avec gestion d’identité pour authentifier les utilisateurs et transmettre l’identité via des en-têtes (voir [Trusted Proxy Auth](/gateway/trusted-proxy-auth)).
 
 Liste de rotation (jeton/mot de passe) :
 
@@ -420,7 +438,9 @@ Liste de rotation (jeton/mot de passe) :
 
 Lorsque `gateway.auth.allowTailscale` est `true` (par défaut pour Serve), OpenClaw accepte les en‑têtes d’identité Tailscale Serve (`tailscale-user-login`) comme authentification. OpenClaw vérifie l’identité en résolvant l’adresse `x-forwarded-for` via le démon Tailscale local (`tailscale whois`) et en la faisant correspondre à l’en‑tête. Cela ne se déclenche que pour les requêtes qui atteignent le loopback et incluent `x-forwarded-for`, `x-forwarded-proto` et `x-forwarded-host` tels qu’injectés par Tailscale.
 
-**Règle de sécurité :** ne transférez pas ces en‑têtes depuis votre propre proxy inverse. Si vous terminez TLS ou proxifiez devant la passerelle, désactivez `gateway.auth.allowTailscale` et utilisez plutôt l’authentification par jeton/mot de passe.
+**Règle de sécurité :** ne transférez pas ces en‑têtes depuis votre propre proxy inverse. Si
+vous terminez TLS ou placez un proxy devant le gateway, désactivez
+`gateway.auth.allowTailscale` et utilisez plutôt l’authentification par token/mot de passe (ou [Trusted Proxy Auth](/gateway/trusted-proxy-auth)).
 
 Proxys de confiance :
 
@@ -525,6 +545,11 @@ Vous pouvez déjà construire un profil en lecture seule en combinant :
 - des listes d’autorisation/refus d’outils qui bloquent `write`, `edit`, `apply_patch`, `exec`, `process`, etc.
 
 Nous pourrions ajouter plus tard un seul indicateur `readOnlyMode` pour simplifier cette configuration.
+
+Options de renforcement supplémentaires :
+
+- `tools.exec.applyPatch.workspaceOnly: true` (par défaut) : garantit que `apply_patch` ne peut pas écrire/supprimer en dehors du répertoire workspace, même lorsque le sandboxing est désactivé. Définissez sur `false` uniquement si vous souhaitez intentionnellement que `apply_patch` modifie des fichiers en dehors du workspace.
+- `tools.fs.workspaceOnly: true` (optionnel) : restreint les chemins `read`/`write`/`edit`/`apply_patch` au répertoire workspace (utile si vous autorisez actuellement des chemins absolus et souhaitez une protection unique).
 
 ### 5. Base sécurisée (copier/coller)
 
@@ -756,28 +781,12 @@ Validez le `.secrets.baseline` mis à jour une fois qu’il reflète l’état a
 ## La hiérarchie de confiance
 
 ```mermaid
-%%{init: {
-  'theme': 'base',
-  'themeVariables': {
-    'primaryColor': '#ffffff',
-    'primaryTextColor': '#000000',
-    'primaryBorderColor': '#000000',
-    'lineColor': '#000000',
-    'secondaryColor': '#f9f9fb',
-    'tertiaryColor': '#ffffff',
-    'clusterBkg': '#f9f9fb',
-    'clusterBorder': '#000000',
-    'nodeBorder': '#000000',
-    'mainBkg': '#ffffff',
-    'edgeLabelBackground': '#ffffff'
-  }
-}}%%
 flowchart TB
-    A["Owner (Peter)"] -- Full trust --> B["AI (Clawd)"]
-    B -- Trust but verify --> C["Friends in allowlist"]
-    C -- Limited trust --> D["Strangers"]
-    D -- No trust --> E["Mario asking for find ~"]
-    E -- Definitely no trust 😏 --> F[" "]
+    A["Propriétaire (Peter)"] -- Confiance totale --> B["IA (Clawd)"]
+    B -- Faire confiance mais vérifier --> C["Amis dans la liste blanche"]
+    C -- Confiance limitée --> D["Inconnus"]
+    D -- Aucune confiance --> E["Mario demandant find ~"]
+    E -- Certainement aucune confiance 😏 --> F[" "]
 
      %% The transparent box is needed to show the bottom-most label correctly
      F:::Class_transparent_box
@@ -797,5 +806,3 @@ Vous avez trouvé une vulnérabilité dans OpenClaw ? Merci de la signaler de m
 _« La sécurité est un processus, pas un produit. Et ne faites pas confiance aux homards avec un accès au shell. »_ — Quelqu’un de sage, probablement
 
 🦞🔐
-
-

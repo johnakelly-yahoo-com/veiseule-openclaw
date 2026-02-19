@@ -1,4 +1,8 @@
 ---
+summary: "web_search کے لیے Brave Search API کا سیٹ اپ"
+read_when:
+  - آپ web_search کے لیے Brave Search استعمال کرنا چاہتے ہیں
+  - آپ کو BRAVE_API_KEY یا پلان کی تفصیلات درکار ہیں
 title: "Brave Search"
 ---
 
@@ -35,5 +39,3 @@ OpenClaw، `web_search` کے لیے بطورِ طے شدہ فراہم کنندہ
 - Brave مفت درجے کے ساتھ ساتھ بامعاوضہ پلانز بھی فراہم کرتا ہے؛ موجودہ حدود کے لیے Brave API پورٹل دیکھیں۔
 
 web_search کی مکمل کنفیگریشن کے لیے [Web tools](/tools/web) دیکھیں۔
-
-

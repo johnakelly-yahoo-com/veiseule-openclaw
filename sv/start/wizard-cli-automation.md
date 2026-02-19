@@ -1,4 +1,8 @@
 ---
+summary: "Skriptad introduktion och agentkonfigurering för OpenClaw CLI"
+read_when:
+  - Du automatiserar introduktion i skript eller CI
+  - Du behöver icke-interaktiva exempel för specifika leverantörer
 title: "CLI-automatisering"
 sidebarTitle: "CLI-automatisering"
 ---
@@ -109,6 +113,26 @@ Lägg till `--json` för en maskinläsbar sammanfattning.
     ```
   
 </Accordion>
+  <Accordion title="Custom provider example">
+    ```bash
+    openclaw onboard --non-interactive \
+      --mode local \
+      --auth-choice custom-api-key \
+      --custom-base-url "https://llm.example.com/v1" \
+      --custom-model-id "foo-large" \
+      --custom-api-key "$CUSTOM_API_KEY" \
+      --custom-provider-id "my-custom" \
+      --custom-compatibility anthropic \
+      --gateway-port 18789 \
+      --gateway-bind loopback
+    ```
+
+    ```
+    `--custom-api-key` är valfri. Om den utelämnas kontrollerar onboarding `CUSTOM_API_KEY`.
+    ```
+
+  
+</Accordion>
 </AccordionGroup>
 
 ## Lägg till ytterligare en agent
@@ -125,7 +149,7 @@ openclaw agents add work \
   --json
 ```
 
-Vad den ställer in:
+Noteringar:
 
 - `agents.list[].name`
 - `agents.list[].workspace`
@@ -133,14 +157,12 @@ Vad den ställer in:
 
 Noteringar:
 
-- Standardarbetsytor följer `~/.openclaw/workspace-<agentId>`.
-- Lägg till `bindings` för att routa inkommande meddelanden (guiden kan göra detta).
-- Icke-interaktiva flaggor: `--model`, `--agent-dir`, `--bind`, `--non-interactive`.
+- Introduktionsnav: [Introduktionsguide (CLI)](/start/wizard)
+- Fullständig referens: [CLI-introduktionsreferens](/start/wizard-cli-reference)
+- Kommandoreferens: [`openclaw onboard`](/cli/onboard)
 
 ## Relaterad dokumentation
 
 - Introduktionsnav: [Introduktionsguide (CLI)](/start/wizard)
 - Fullständig referens: [CLI-introduktionsreferens](/start/wizard-cli-reference)
 - Kommandoreferens: [`openclaw onboard`](/cli/onboard)
-
-

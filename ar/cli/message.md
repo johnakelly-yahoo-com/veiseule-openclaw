@@ -1,4 +1,8 @@
 ---
+summary: "مرجع CLI للأمر `openclaw message` (الإرسال + إجراءات القنوات)"
+read_when:
+  - إضافة إجراءات CLI للرسائل أو تعديلها
+  - تغيير سلوك القنوات الصادرة
 title: "message"
 ---
 
@@ -36,7 +40,7 @@ openclaw message <subcommand> [flags]
 - لموفّري الخدمة المدعومين (Discord/Slack/etc)، تُحل أسماء القنوات مثل `Help` أو `#help` عبر ذاكرة التخزين المؤقت للدليل.
 - عند فقدان ذاكرة التخزين المؤقت، سيحاول OpenClaw إجراء بحث مباشر في الدليل عندما يدعمه الموفّر.
 
-## الخيارات الشائعة
+## Common flags
 
 - `--channel <name>`
 - `--account <id>`
@@ -64,6 +68,7 @@ openclaw message <subcommand> [flags]
   - مطلوب: `--target`، `--poll-question`، `--poll-option` (تكرار)
   - اختياري: `--poll-multi`
   - Discord فقط: `--poll-duration-hours`، `--message`
+  - Telegram فقط: `--poll-duration-seconds` (5-600)، `--silent`، `--poll-anonymous` / `--poll-public`، `--thread-id`
 
 - `react`
   - القنوات: Discord/Google Chat/Slack/Telegram/WhatsApp/Signal
@@ -196,6 +201,16 @@ openclaw message poll --channel discord \
   --poll-multi --poll-duration-hours 48
 ```
 
+إنشاء استطلاع Telegram (إغلاق تلقائي خلال دقيقتين):
+
+```
+openclaw message poll --channel telegram \
+  --target @mychat \
+  --poll-question "Lunch?" \
+  --poll-option Pizza --poll-option Sushi \
+  --poll-duration-seconds 120 --silent
+```
+
 إرسال رسالة استباقية في Teams:
 
 ```
@@ -233,5 +248,3 @@ openclaw message react --channel signal \
 openclaw message send --channel telegram --target @mychat --message "Choose:" \
   --buttons '[ [{"text":"Yes","callback_data":"cmd:yes"}], [{"text":"No","callback_data":"cmd:no"}] ]'
 ```
-
-

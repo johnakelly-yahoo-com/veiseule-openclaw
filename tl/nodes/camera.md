@@ -1,4 +1,8 @@
 ---
+summary: "Pagkuha ng camera (iOS node + macOS app) para sa paggamit ng agent: mga larawan (jpg) at maiikling video clip (mp4)"
+read_when:
+  - Pagdaragdag o pagbabago ng pagkuha ng camera sa mga iOS node o macOS
+  - Pagpapalawak ng mga MEDIA temp-file workflow na naa-access ng agent
 title: "Pagkuha ng Camera"
 ---
 
@@ -150,5 +154,3 @@ openclaw nodes screen record --node <id> --duration 10s --fps 15   # prints MEDI
 Mga tala:
 
 - Nangangailangan ng pahintulot na macOS **Screen Recording** (TCC).
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Escreva ferramentas de agente em um plugin (esquemas, ferramentas opcionais, listas de permissões)"
+read_when:
+  - Você quer adicionar uma nova ferramenta de agente em um plugin
+  - Você precisa tornar uma ferramenta opt-in via listas de permissões
 title: "Ferramentas de agente de plugin"
 ---
 
@@ -93,5 +97,3 @@ Outros ajustes de configuração que afetam a disponibilidade de ferramentas:
 - IDs de plugin usados em listas de permissões não devem entrar em conflito com nomes de ferramentas do núcleo.
 - Prefira `optional: true` para ferramentas que disparam efeitos colaterais ou exigem
   binários/credenciais extras.
-
-

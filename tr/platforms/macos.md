@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw macOS yardımcı uygulaması (menü çubuğu + gateway broker)"
+read_when:
+  - macOS uygulama özelliklerini uygularken
+  - macOS’te gateway yaşam döngüsünü veya düğüm köprülemesini değiştirirken
 title: "macOS Uygulaması"
 ---
 
@@ -127,6 +131,7 @@ Sorgu parametreleri:
 Güvenlik:
 
 - `key` olmadan, uygulama onay ister.
+- `key` olmadan uygulama, onay istemi için kısa bir mesaj sınırı uygular ve `deliver` / `to` / `channel` alanlarını yok sayar.
 - Geçerli bir `key` ile çalıştırma gözetimsizdir (kişisel otomasyonlar için tasarlanmıştır).
 
 ## Onboarding akışı (tipik)
@@ -198,5 +203,3 @@ ayrıntıları için [Gateway protocol](/gateway/protocol) bölümüne bakın.
 - [Gateway (macOS)](/platforms/mac/bundled-gateway)
 - [macOS permissions](/platforms/mac/permissions)
 - [Canvas](/platforms/mac/canvas)
-
-

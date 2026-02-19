@@ -1,5 +1,7 @@
 ---
-title: "CLI cho môi trường thử nghiệm"
+title: CLI cho môi trường thử nghiệm
+summary: "Quản lý các container sandbox và kiểm tra chính sách sandbox hiệu lực"
+read_when: "Khi bạn đang quản lý các container sandbox hoặc gỡ lỗi hành vi sandbox/chính sách công cụ."
 status: active
 ---
 
@@ -148,5 +150,3 @@ Thiết lập sandbox nằm trong `~/.openclaw/openclaw.json` dưới `agents.de
 - [Tài liệu Sandbox](/gateway/sandboxing)
 - [Cấu hình Tác tử](/concepts/agent-workspace)
 - [Lệnh Doctor](/gateway/doctor) - Kiểm tra thiết lập sandbox
-
-

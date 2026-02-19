@@ -1,4 +1,9 @@
 ---
+summary: "„Przegląd logowania: logi plikowe, wyjście konsoli, podgląd w CLI oraz interfejs Control UI”"
+read_when:
+  - Potrzebujesz przyjaznego dla początkujących przeglądu logowania
+  - Chcesz skonfigurować poziomy lub formaty logów
+  - Rozwiązujesz problemy i musisz szybko znaleźć logi
 title: "Logowanie"
 ---
 
@@ -344,5 +349,3 @@ Kolejki + sesje:
 - **Logi puste?** Sprawdź, czy Gateway działa i zapisuje do ścieżki pliku
   w `logging.file`.
 - **Potrzebujesz więcej szczegółów?** Ustaw `logging.level` na `debug` lub `trace` i spróbuj ponownie.
-
-

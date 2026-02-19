@@ -1,4 +1,10 @@
 ---
+summary: "OAuth في OpenClaw: تبادل الرموز، التخزين، وأنماط تعدد الحسابات"
+read_when:
+  - تريد فهم OAuth في OpenClaw من البداية إلى النهاية
+  - واجهت مشكلات إبطال الرموز أو تسجيل الخروج
+  - تريد تدفقات setup-token أو مصادقة OAuth
+  - تريد استخدام حسابات متعددة أو توجيه الملفات الشخصية
 title: "OAuth"
 ---
 
@@ -136,5 +142,3 @@ openclaw agents add personal
 
 - [/concepts/model-failover](/concepts/model-failover) (قواعد التناوب + فترات التهدئة)
 - [/tools/slash-commands](/tools/slash-commands) (سطح الأوامر)
-
-

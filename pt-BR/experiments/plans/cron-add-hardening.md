@@ -1,4 +1,5 @@
 ---
+summary: "Reforçar o tratamento de entrada do cron.add, alinhar esquemas e melhorar as ferramentas de UI/agente de cron"
 owner: "openclaw"
 status: "complete"
 last_updated: "2026-01-05"
@@ -60,5 +61,3 @@ Veja [Cron jobs](/automation/cron-jobs) para o formato normalizado e exemplos.
 
 - `cron.add` deve aceitar `state` explícito dos clientes (atualmente não permitido pelo esquema)?
 - Devemos permitir `webchat` como um provedor de entrega explícito (atualmente filtrado na resolução de entrega)?
-
-

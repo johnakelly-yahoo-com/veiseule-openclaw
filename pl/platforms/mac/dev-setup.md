@@ -1,4 +1,7 @@
 ---
+summary: "Przewodnik konfiguracji dla deweloperów pracujących nad aplikacją OpenClaw na macOS"
+read_when:
+  - Konfigurowanie środowiska deweloperskiego macOS
 title: "Konfiguracja deweloperska macOS"
 ---
 
@@ -13,7 +16,7 @@ Przed rozpoczęciem budowania aplikacji upewnij się, że masz zainstalowane:
 1. **Xcode 26.2+**: Wymagany do tworzenia w Swift.
 2. **Node.js 22+ i pnpm**: Wymagane dla Gateway, CLI oraz skryptów pakowania.
 
-## 1) Instalacja zależności
+## 3) Instalacja CLI
 
 Zainstaluj zależności dla całego projektu:
 
@@ -99,5 +102,3 @@ lsof -nP -iTCP:18789 -sTCP:LISTEN
 ```
 
 Jeśli ręczne uruchomienie blokuje port, zatrzymaj ten proces (Ctrl+C). W ostateczności zakończ proces PID znaleziony powyżej.
-
-

@@ -1,29 +1,34 @@
 ---
+summary: "Expose an OpenResponses-compatible /v1/responses HTTP endpoint from the Gateway"
+read_when:
+  - Integrating clients that speak the OpenResponses API
+  - You want item-based inputs, client tool calls, or SSE events
 title: "OpenResponses API"
 ---
 
 # OpenResponses API (HTTP)
 
-OpenClaw’ning Gateway’i OpenResponses-ga mos keladigan `POST /v1/responses` endpointini taqdim eta oladi.
+OpenClaw’s Gateway can serve an OpenResponses-compatible `POST /v1/responses` endpoint.
 
-Bu endpoint **sukut bo‘yicha o‘chirilgan**. Avval uni konfiguratsiyada yoqing.
+This endpoint is **disabled by default**. Enable it in config first.
 
 - `POST /v1/responses`
-- Gateway bilan bir xil port (WS + HTTP multiplex): `http://<gateway-host>:<port>/v1/responses`
+- Same port as the Gateway (WS + HTTP multiplex): `http://<gateway-host>:<port>/v1/responses`
 
-Ichki jihatdan, so‘rovlar odatiy Gateway agent ishga tushirilishi sifatida bajariladi (xuddi shu kod yo‘li orqali
+Under the hood, requests are executed as a normal Gateway agent run (same codepath as
 `openclaw agent`), so routing/permissions/config match your Gateway.
 
-## Autentifikatsiya
+## Authentication
 
-Gateway autentifikatsiya konfiguratsiyasidan foydalanadi. Bearer token yuboring:
+Uses the Gateway auth configuration. Send a bearer token:
 
 - `Authorization: Bearer <token>`
 
-Eslatmalar:
+Notes:
 
 - When `gateway.auth.mode="token"`, use `gateway.auth.token` (or `OPENCLAW_GATEWAY_TOKEN`).
 - When `gateway.auth.mode="password"`, use `gateway.auth.password` (or `OPENCLAW_GATEWAY_PASSWORD`).
+- Agar `gateway.auth.rateLimit` sozlangan bo‘lsa va juda ko‘p autentifikatsiya xatolari yuz bersa, endpoint `429` ni `Retry-After` bilan qaytaradi.
 
 ## Choosing an agent
 
@@ -186,26 +191,32 @@ Fayllar (`input_file`)
 7. PDF tahlili Node uchun mos `pdfjs-dist` legacy build yordamida amalga oshiriladi (worker yo‘q). 8. Zamonaviy
    PDF.js build brauzer workerlari/DOM global o‘zgaruvchilarini talab qiladi, shuning uchun Gateway’da ishlatilmaydi.
 
-9. URL orqali yuklash uchun standart sozlamalar:
+Standart sozlamalarni `gateway.http.endpoints.responses` ostida moslash mumkin:
 
-- 10. `files.allowUrl`: `true`
-- 11. `images.allowUrl`: `true`
+- `files.allowUrl`: `true`
+- `images.allowUrl`: `true`
+- `maxUrlParts`: `8` (har bir so‘rov uchun URL asosidagi `input_file` + `input_image` qismlarining umumiy soni)
 - 12. So‘rovlar himoyalangan (DNS aniqlash, xususiy IP’larni bloklash, yo‘naltirishlar soni cheklovi, timeoutlar).
+- Har bir kiritish turi uchun ixtiyoriy hostname allowlist qo‘llab-quvvatlanadi (`files.urlAllowlist`, `images.urlAllowlist`).
+  - Aniq xost: `"cdn.example.com"`
+  - Wildcard subdomenlar: `"*.assets.example.com"` (apex domenni qamrab olmaydi)
 
 ## 13. Fayl + tasvir cheklovlari (konfiguratsiya)
 
 Standart sozlamalarni `gateway.http.endpoints.responses` ostida moslash mumkin:
 
 ```json5
-15. {
+{
   gateway: {
     http: {
       endpoints: {
         responses: {
           enabled: true,
           maxBodyBytes: 20000000,
+          maxUrlParts: 8,
           files: {
             allowUrl: true,
+            urlAllowlist: ["cdn.example.com", "*.assets.example.com"],
             allowedMimes: [
               "text/plain",
               "text/markdown",
@@ -226,6 +237,7 @@ Standart sozlamalarni `gateway.http.endpoints.responses` ostida moslash mumkin:
           },
           images: {
             allowUrl: true,
+            urlAllowlist: ["images.example.com"],
             allowedMimes: ["image/jpeg", "image/png", "image/gif", "image/webp"],
             maxBytes: 10485760,
             maxRedirects: 3,
@@ -240,52 +252,60 @@ Standart sozlamalarni `gateway.http.endpoints.responses` ostida moslash mumkin:
 
 16. Ko‘rsatilmaganida qo‘llaniladigan standartlar:
 
-- 17. `maxBodyBytes`: 20MB
-- 18. `files.maxBytes`: 5MB
-- 19. `files.maxChars`: 200k
+- `maxBodyBytes`: 20MB
+- `maxUrlParts`: 8
+- `files.maxBytes`: 5MB
+- `files.maxChars`: 200k
 - `files.maxRedirects`: 3
-- 21. `files.timeoutMs`: 10s
-- 22. `files.pdf.maxPages`: 4
-- 23. `files.pdf.maxPixels`: 4,000,000
-- 24. `files.pdf.minTextChars`: 200
-- 25. `images.maxBytes`: 10MB
-- 26. `images.maxRedirects`: 3
-- 27. `images.timeoutMs`: 10s
+- `files.timeoutMs`: 10s
+- `files.pdf.maxPages`: 4
+- `files.pdf.maxPixels`: 4,000,000
+- `files.pdf.minTextChars`: 200
+- `images.maxBytes`: 10MB
+- `images.maxRedirects`: 3
+- `images.timeoutMs`: 10s
+
+Xavfsizlik eslatmasi:
+
+- URL allowlist’lar yuklab olishdan oldin va redirect bosqichlarida qo‘llaniladi.
+- Hostname’ni allowlist’ga qo‘shish private/ichki IP bloklanishini chetlab o‘tmaydi.
+- Internetga ochiq gateway’lar uchun ilova darajasidagi himoyalar bilan bir qatorda tarmoq chiqish (egress) nazoratini ham qo‘llang.
+  [Security](/gateway/security) ga qarang.
 
 ## 28. Oqimli uzatish (SSE)
 
 29. Server-Sent Events (SSE) olish uchun `stream: true` ni o‘rnating:
 
-- 30. `Content-Type: text/event-stream`
+- `Content-Type: text/event-stream`
 - 31. Har bir hodisa satri `event: <type>` va `data: <json>` ko‘rinishida bo‘ladi
 - 32. Oqim `data: [DONE]` bilan yakunlanadi
 
 33. Hozirda chiqariladigan hodisa turlari:
 
-- 34. `response.created`
-- 35. `response.in_progress`
-- 36. `response.output_item.added`
-- 37. `response.content_part.added`
-- 38. `response.output_text.delta`
-- 39. `response.output_text.done`
-- 40. `response.content_part.done`
-- 41. `response.output_item.done`
-- 42. `response.completed`
+- `response.created`
+- `response.in_progress`
+- `response.output_item.added`
+- `response.content_part.added`
+- `response.output_text.delta`
+- `response.output_text.done`
+- `response.content_part.done`
+- `response.output_item.done`
+- `response.completed`
 - 43. `response.failed` (xato yuz berganda)
 
 ## 44. Foydalanish
 
 45. `usage` asosiy provayder tokenlar sonini bildirganda to‘ldiriladi.
 
-## 46. Xatolar
+## Misollar
 
-47. Xatolar quyidagiga o‘xshash JSON obyektidan foydalanadi:
+Oqimsiz:
 
 ```json
 48. { "error": { "message": "...", "type": "invalid_request_error" } }
 ```
 
-49. Keng tarqalgan holatlar:
+Oqimli:
 
 - 50. `401` — autentifikatsiya yo‘q yoki noto‘g‘ri
 - `400` noto‘g‘ri so‘rov tanasi
@@ -319,5 +339,3 @@ curl -N http://127.0.0.1:18789/v1/responses \
     "input": "hi"
   }'
 ```
-
-

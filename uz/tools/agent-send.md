@@ -1,4 +1,7 @@
 ---
+summary: "To‘g‘ridan-to‘g‘ri `openclaw agent` CLI ishga tushirishlari (ixtiyoriy yetkazib berish bilan)"
+read_when:
+  - Adding or modifying the agent CLI entrypoint
 title: "Agent yuborish"
 ---
 
@@ -48,5 +51,3 @@ openclaw agent --agent ops --message "Generate report" --deliver --reply-channel
 - `--verbose <on|full|off>`: batafsillik darajasini saqlash
 - `--timeout <seconds>`: agent vaqt cheklovini override qilish
 - `--json`: tuzilgan JSON chiqishi
-
-

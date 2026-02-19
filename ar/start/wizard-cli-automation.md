@@ -1,4 +1,8 @@
 ---
+summary: "التهيئة الأولية المُبرمجة وإعداد الوكيل لـ OpenClaw CLI"
+read_when:
+  - أنت تُؤتمت التهيئة الأولية في السكربتات أو CI
+  - تحتاج إلى أمثلة غير تفاعلية لموفّرين محددين
 title: "أتمتة CLI"
 sidebarTitle: "أتمتة CLI"
 ---
@@ -109,6 +113,25 @@ openclaw onboard --non-interactive \
     ```
   
 </Accordion>
+  <Accordion title="Custom provider example">    ```bash
+    openclaw onboard --non-interactive \
+      --mode local \
+      --auth-choice custom-api-key \
+      --custom-base-url "https://llm.example.com/v1" \
+      --custom-model-id "foo-large" \
+      --custom-api-key "$CUSTOM_API_KEY" \
+      --custom-provider-id "my-custom" \
+      --custom-compatibility anthropic \
+      --gateway-port 18789 \
+      --gateway-bind loopback
+    ```
+
+    ```
+    `--custom-api-key` اختياري. إذا لم يتم تحديده، تتحقق عملية الإعداد من `CUSTOM_API_KEY`.
+    ```
+
+  
+</Accordion>
 </AccordionGroup>
 
 ## إضافة وكيل آخر
@@ -142,5 +165,3 @@ openclaw agents add work \
 - مركز التهيئة الأولية: [Onboarding Wizard (CLI)](/start/wizard)
 - المرجع الكامل: [CLI Onboarding Reference](/start/wizard-cli-reference)
 - مرجع الأوامر: [`openclaw onboard`](/cli/onboard)
-
-

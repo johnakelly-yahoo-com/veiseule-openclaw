@@ -1,4 +1,9 @@
-------
+---
+title: "AGENTS.md ٹیمپلیٹ"
+summary: "AGENTS.md کے لیے ورک اسپیس ٹیمپلیٹ"
+read_when:
+  - ورک اسپیس کو دستی طور پر بوٹسٹرَیپ کرتے وقت
+---
 
 # AGENTS.md - آپ کی ورک اسپیس
 
@@ -212,5 +217,3 @@ The goal: Be helpful without being annoying. Check in a few times a day, do usef
 ## اسے اپنا بنائیں
 
 This is a starting point. Add your own conventions, style, and rules as you figure out what works.
-
-

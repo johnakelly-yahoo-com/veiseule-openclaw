@@ -1,13 +1,17 @@
 ---
+summary: "Mga model provider (LLM) na sinusuportahan ng OpenClaw"
+read_when:
+  - Gusto mong pumili ng model provider
+  - Kailangan mo ng mabilis na pangkalahatang-ideya ng mga sinusuportahang LLM backend
 title: "Mga Model Provider"
 ---
 
 # Mga Model Provider
 
-Maaaring gumamit ang OpenClaw ng maraming LLM provider. Pumili ng provider, mag-authenticate, pagkatapos ay itakda ang
+OpenClaw can use many LLM providers. Pick a provider, authenticate, then set the
 default model as `provider/model`.
 
-Naghahanap ng mga dokumento para sa chat channel (WhatsApp/Telegram/Discord/Slack/Mattermost (plugin)/atbp.)? Tingnan ang [Channels](/channels).
+Looking for chat channel docs (WhatsApp/Telegram/Discord/Slack/Mattermost (plugin)/etc.)? See [Channels](/channels).
 
 ## Tampok: Venice (Venice AI)
 
@@ -35,7 +39,9 @@ Tingnan ang [Venice AI](/providers/venice).
 - [Anthropic (API + Claude Code CLI)](/providers/anthropic)
 - [Qwen (OAuth)](/providers/qwen)
 - [OpenRouter](/providers/openrouter)
+- [LiteLLM (unified gateway)](/providers/litellm)
 - [Vercel AI Gateway](/providers/vercel-ai-gateway)
+- [Together AI](/providers/together)
 - [Cloudflare AI Gateway](/providers/cloudflare-ai-gateway)
 - [Moonshot AI (Kimi + Kimi Coding)](/providers/moonshot)
 - [OpenCode Zen](/providers/opencode)
@@ -45,8 +51,11 @@ Tingnan ang [Venice AI](/providers/venice).
 - [GLM models](/providers/glm)
 - [MiniMax](/providers/minimax)
 - [Venice (Venice AI, nakatuon sa privacy)](/providers/venice)
+- [Hugging Face (Inference)](/providers/huggingface)
 - [Ollama (mga lokal na model)](/providers/ollama)
+- [vLLM (local models)](/providers/vllm)
 - [Qianfan](/providers/qianfan)
+- [NVIDIA](/providers/nvidia)
 
 ## Mga transcription provider
 
@@ -58,5 +67,3 @@ Tingnan ang [Venice AI](/providers/venice).
 
 For the full provider catalog (xAI, Groq, Mistral, etc.) and advanced configuration,
 see [Model providers](/concepts/model-providers).
-
-

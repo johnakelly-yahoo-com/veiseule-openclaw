@@ -1,4 +1,7 @@
 ---
+summary: "直接 `openclaw agent` CLI 実行（任意の配信）"
+read_when:
+  - エージェント CLI エントリーポイントの追加または変更時
 title: "エージェント送信"
 ---
 
@@ -48,5 +51,3 @@ openclaw agent --agent ops --message "Generate report" --deliver --reply-channel
 - `--verbose <on|full|off>`: verbose レベルを永続化
 - `--timeout <seconds>`: エージェントのタイムアウトを上書き
 - `--json`: 構造化 JSON を出力
-
-

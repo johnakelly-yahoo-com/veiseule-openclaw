@@ -8,7 +8,7 @@ title: "สถาปัตยกรรมการผสานรวม Pi"
 
 ## ภาพรวม
 
-50. OpenClaw ใช้ pi SDK เพื่อฝังเอเจนต์เขียนโค้ด AI เข้าไปในสถาปัตยกรรมเกตเวย์รับส่งข้อความของตน OpenClaw ใช้ pi SDK เพื่อฝังเอเจนต์เขียนโค้ดด้วย AI เข้าไปในสถาปัตยกรรม Gateway สำหรับระบบส่งข้อความ แทนที่จะเรียก pi เป็น subprocess หรือใช้โหมด RPC นั้น OpenClaw จะนำเข้าและสร้างอินสแตนซ์ `AgentSession` ของ pi โดยตรงผ่าน `createAgentSession()` แนวทางแบบฝังนี้ให้ประโยชน์ดังนี้: แนวทางแบบฝังนี้มีให้:
+OpenClaw ใช้ pi SDK เพื่อฝังเอเจนต์เขียนโค้ด AI เข้าไปในสถาปัตยกรรมเกตเวย์รับส่งข้อความของตน OpenClaw ใช้ pi SDK เพื่อฝังเอเจนต์เขียนโค้ดด้วย AI เข้าไปในสถาปัตยกรรม Gateway สำหรับระบบส่งข้อความ แทนที่จะเรียก pi เป็น subprocess หรือใช้โหมด RPC นั้น OpenClaw จะนำเข้าและสร้างอินสแตนซ์ `AgentSession` ของ pi โดยตรงผ่าน `createAgentSession()` แนวทางแบบฝังนี้ให้ประโยชน์ดังนี้: แนวทางแบบฝังนี้มีให้: OpenClaw ใช้ pi SDK เพื่อฝังเอเจนต์เขียนโค้ดด้วย AI เข้าไปในสถาปัตยกรรม Gateway สำหรับระบบส่งข้อความ แทนที่จะเรียก pi เป็น subprocess หรือใช้โหมด RPC นั้น OpenClaw จะนำเข้าและสร้างอินสแตนซ์ `AgentSession` ของ pi โดยตรงผ่าน `createAgentSession()` แนวทางแบบฝังนี้ให้ประโยชน์ดังนี้: แนวทางแบบฝังนี้มีให้:
 
 - ควบคุมวงจรชีวิตของเซสชันและการจัดการอีเวนต์ได้อย่างเต็มที่
 - การฉีดเครื่องมือแบบกำหนดเอง (การส่งข้อความ, sandbox, การกระทำเฉพาะช่องทาง)
@@ -242,7 +242,7 @@ SDK จะจัดการลูปเอเจนต์ทั้งหมด:
 
 ### อะแดปเตอร์การกำหนดเครื่องมือ
 
-`AgentTool` ของ pi-agent-core มี signature ของ `execute` ที่แตกต่างจาก `ToolDefinition` ของ pi-coding-agent อะแดปเตอร์ใน `pi-tool-definition-adapter.ts` ทำหน้าที่เชื่อมช่องว่างนี้: อะแดปเตอร์ใน `pi-tool-definition-adapter.ts` ทำหน้าที่เชื่อมสิ่งนี้:
+`AgentTool` ของ pi-agent-core มี signature ของ `execute` ที่แตกต่างจาก `ToolDefinition` ของ pi-coding-agent อะแดปเตอร์ใน `pi-tool-definition-adapter.ts` ทำหน้าที่เชื่อมช่องว่างนี้: อะแดปเตอร์ใน `pi-tool-definition-adapter.ts` ทำหน้าที่เชื่อมสิ่งนี้: อะแดปเตอร์ใน `pi-tool-definition-adapter.ts` ทำหน้าที่เชื่อมสิ่งนี้:
 
 ```typescript
 export function toToolDefinitions(tools: AnyAgentTool[]): ToolDefinition[] {
@@ -276,7 +276,7 @@ export function splitSdkTools(options: { tools: AnyAgentTool[]; sandboxEnabled: 
 
 ## การสร้าง System Prompt
 
-system prompt ถูกสร้างใน `buildAgentSystemPrompt()` (`system-prompt.ts`) โดยประกอบเป็นพรอมต์ฉบับเต็มที่มีส่วนต่างๆ ได้แก่ Tooling, Tool Call Style, Safety guardrails, เอกสารอ้างอิง OpenClaw CLI, Skills, Docs, Workspace, Sandbox, Messaging, Reply Tags, Voice, Silent Replies, Heartbeats, เมทาดาทาขณะรัน รวมถึง Memory และ Reactions เมื่อเปิดใช้งาน และไฟล์บริบทเพิ่มเติมกับเนื้อหา system prompt เสริมตามต้องการ ส่วนต่างๆ จะถูกตัดทอนเมื่อใช้โหมดพรอมต์ขั้นต่ำสำหรับซับเอเจนต์ มันประกอบพรอมต์แบบเต็มพร้อมส่วนต่าง ๆ รวมถึง Tooling, Tool Call Style, Safety guardrails, เอกสารอ้างอิง OpenClaw CLI, Skills, Docs, Workspace, Sandbox, Messaging, Reply Tags, Voice, Silent Replies, Heartbeats, Runtime metadata รวมถึง Memory และ Reactions เมื่อเปิดใช้งาน และไฟล์บริบทเพิ่มเติมกับเนื้อหา system prompt เสริมที่เป็นตัวเลือก ส่วนต่าง ๆ จะถูกตัดทอนสำหรับโหมดพรอมต์ขั้นต่ำที่ใช้โดยซับเอเจนต์
+system prompt ถูกสร้างใน `buildAgentSystemPrompt()` (`system-prompt.ts`) โดยประกอบเป็นพรอมต์ฉบับเต็มที่มีส่วนต่างๆ ได้แก่ Tooling, Tool Call Style, Safety guardrails, เอกสารอ้างอิง OpenClaw CLI, Skills, Docs, Workspace, Sandbox, Messaging, Reply Tags, Voice, Silent Replies, Heartbeats, เมทาดาทาขณะรัน รวมถึง Memory และ Reactions เมื่อเปิดใช้งาน และไฟล์บริบทเพิ่มเติมกับเนื้อหา system prompt เสริมตามต้องการ ส่วนต่างๆ จะถูกตัดทอนเมื่อใช้โหมดพรอมต์ขั้นต่ำสำหรับซับเอเจนต์ มันประกอบพรอมต์แบบเต็มพร้อมส่วนต่าง ๆ รวมถึง Tooling, Tool Call Style, Safety guardrails, เอกสารอ้างอิง OpenClaw CLI, Skills, Docs, Workspace, Sandbox, Messaging, Reply Tags, Voice, Silent Replies, Heartbeats, Runtime metadata รวมถึง Memory และ Reactions เมื่อเปิดใช้งาน และไฟล์บริบทเพิ่มเติมกับเนื้อหา system prompt เสริมที่เป็นตัวเลือก ส่วนต่าง ๆ จะถูกตัดทอนสำหรับโหมดพรอมต์ขั้นต่ำที่ใช้โดยซับเอเจนต์ มันประกอบพรอมต์แบบเต็มพร้อมส่วนต่าง ๆ รวมถึง Tooling, Tool Call Style, Safety guardrails, เอกสารอ้างอิง OpenClaw CLI, Skills, Docs, Workspace, Sandbox, Messaging, Reply Tags, Voice, Silent Replies, Heartbeats, Runtime metadata รวมถึง Memory และ Reactions เมื่อเปิดใช้งาน และไฟล์บริบทเพิ่มเติมกับเนื้อหา system prompt เสริมที่เป็นตัวเลือก ส่วนต่าง ๆ จะถูกตัดทอนสำหรับโหมดพรอมต์ขั้นต่ำที่ใช้โดยซับเอเจนต์
 
 พรอมต์จะถูกนำไปใช้หลังการสร้างเซสชันผ่าน `applySystemPromptOverrideToSession()`:
 
@@ -289,7 +289,7 @@ applySystemPromptOverrideToSession(session, systemPromptOverride);
 
 ### ไฟล์เซสชัน
 
-เซสชันเป็นไฟล์ JSONL ที่มีโครงสร้างแบบต้นไม้ (เชื่อมด้วย id/parentId) โดย `SessionManager` ของ pi จัดการการคงอยู่ของข้อมูล: `SessionManager` ของ Pi จัดการเรื่องการคงอยู่ของข้อมูล:
+เซสชันเป็นไฟล์ JSONL ที่มีโครงสร้างแบบต้นไม้ (เชื่อมด้วย id/parentId) โดย `SessionManager` ของ pi จัดการการคงอยู่ของข้อมูล: `SessionManager` ของ Pi จัดการเรื่องการคงอยู่ของข้อมูล: `SessionManager` ของ Pi จัดการเรื่องการคงอยู่ของข้อมูล:
 
 ```typescript
 const sessionManager = SessionManager.open(params.sessionFile);
@@ -355,7 +355,7 @@ const { model, error, authStorage, modelRegistry } = resolveModel(
 authStorage.setRuntimeApiKey(model.provider, apiKeyInfo.apiKey);
 ```
 
-### การสลับระบบสำรอง
+### Failover
 
 `FailoverError` จะกระตุ้นการสลับโมเดลสำรองเมื่อมีการกำหนดค่าไว้:
 
@@ -511,12 +511,12 @@ import { ... } from "@mariozechner/pi-tui";
 
 ## ความแตกต่างหลักจาก Pi CLI
 
-| ด้าน           | Pi CLI                             | OpenClaw แบบฝัง                                                                                                     |
+| ด้าน             | Pi CLI                             | OpenClaw แบบฝัง                                                                                                     |
 | ---------------- | ---------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
 | การเรียกใช้งาน   | คำสั่ง `pi` / RPC                  | SDK ผ่าน `createAgentSession()`                                                                                     |
 | เครื่องมือ       | เครื่องมือเขียนโค้ดเริ่มต้น        | ชุดเครื่องมือ OpenClaw แบบกำหนดเอง                                                                                  |
 | System prompt    | AGENTS.md + พรอมต์ | แบบไดนามิกตามช่องทาง/บริบท                                                                                          |
-| การจัดเก็บเซสชัน | `~/.pi/agent/sessions/`            | `~/.openclaw/agents/<agentId>/sessions/` (หรือ `$OPENCLAW_STATE_DIR/agents/<agentId>/sessions/`) |
+| การจัดเก็บเซสชัน | `~/.pi/agent/sessions/`            | `~/.openclaw/agents/&lt;agentId&gt;/sessions/` (หรือ `$OPENCLAW_STATE_DIR/agents/&lt;agentId&gt;/sessions/`) |
 | การยืนยันตัวตน   | ข้อมูลรับรองเดียว                  | หลายโปรไฟล์พร้อมการหมุน                                                                                             |
 | ส่วนขยาย         | โหลดจากดิสก์                       | แบบโปรแกรม + พาธบนดิสก์                                                                                             |
 | การจัดการอีเวนต์ | การเรนเดอร์ TUI                    | แบบ callback (onBlockReply เป็นต้น)                                                              |
@@ -610,5 +610,3 @@ import { ... } from "@mariozechner/pi-tui";
 - `src/agents/pi-tools.policy.test.ts`
 - `src/agents/pi-tools.safe-bins.test.ts`
 - `src/agents/pi-tools.workspace-paths.test.ts`
-
-

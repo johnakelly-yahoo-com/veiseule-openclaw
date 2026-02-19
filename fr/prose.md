@@ -1,4 +1,9 @@
 ---
+summary: "OpenProse : workflows .prose, commandes slash et etat dans OpenClaw"
+read_when:
+  - Vous souhaitez executer ou ecrire des workflows .prose
+  - Vous souhaitez activer le plugin OpenProse
+  - Vous devez comprendre le stockage de l'etat
 title: "OpenProse"
 ---
 
@@ -127,5 +132,3 @@ Si votre liste d’autorisation d’outils bloque ces outils, les programmes Ope
 Traitez les fichiers `.prose` comme du code. Revoyez-les avant execution. Utilisez les listes d’autorisation d’outils et les portes d’approbation d’OpenClaw pour controler les effets de bord.
 
 Pour des workflows deterministes avec approbation, comparez avec [Lobster](/tools/lobster).
-
-

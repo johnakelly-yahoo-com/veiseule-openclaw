@@ -1,4 +1,9 @@
 ---
+summary: "Chrome-Erweiterung: Lassen Sie OpenClaw Ihren bestehenden Chrome-Tab steuern"
+read_when:
+  - Sie möchten, dass der Agent einen bestehenden Chrome-Tab steuert (Toolbar-Schaltfläche)
+  - Sie benötigen ein Remote-Gateway + lokale Browser-Automatisierung über Tailscale
+  - Sie möchten die Sicherheitsimplikationen einer Browser-Übernahme verstehen
 title: "Chrome-Erweiterung"
 ---
 
@@ -171,5 +176,3 @@ Verwandt:
 - Browser-Werkzeug-Überblick: [Browser](/tools/browser)
 - Sicherheitsaudit: [Security](/gateway/security)
 - Tailscale-Setup: [Tailscale](/gateway/tailscale)
-
-

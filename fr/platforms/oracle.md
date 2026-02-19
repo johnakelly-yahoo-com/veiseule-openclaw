@@ -1,54 +1,59 @@
 ---
+summary: "OpenClaw sur Oracle Cloud (ARM Always Free)"
+read_when:
+  - Configuration d’OpenClaw sur Oracle Cloud
+  - Recherche d’un hébergement VPS à faible coût pour OpenClaw
+  - Besoin d’OpenClaw 24/7 sur un petit serveur
 title: "Oracle Cloud"
 ---
 
-# OpenClaw on Oracle Cloud (OCI)
+# OpenClaw sur Oracle Cloud (OCI)
 
-## Goal
+## Objectif
 
-Run a persistent OpenClaw Gateway on Oracle Cloud's **Always Free** ARM tier.
+Exécuter un Gateway (passerelle) OpenClaw persistant sur l’offre ARM **Always Free** d’Oracle Cloud.
 
-Oracle’s free tier can be a great fit for OpenClaw (especially if you already have an OCI account), but it comes with tradeoffs:
+L’offre gratuite d’Oracle peut être très adaptée à OpenClaw (en particulier si vous disposez déjà d’un compte OCI), mais elle comporte des compromis :
 
-- ARM architecture (most things work, but some binaries may be x86-only)
-- Capacity and signup can be finicky
+- Architecture ARM (la plupart des éléments fonctionnent, mais certains binaires peuvent être uniquement x86)
+- Capacité et inscription parfois capricieuses
 
-## Cost Comparison (2026)
+## Comparaison des coûts (2026)
 
-| Provider     | Plan            | Specs                  | Price/mo | Notes                 |
-| ------------ | --------------- | ---------------------- | -------- | --------------------- |
-| Oracle Cloud | Always Free ARM | up to 4 OCPU, 24GB RAM | $0       | ARM, limited capacity |
-| Hetzner      | CX22            | 2 vCPU, 4GB RAM        | ~ $4     | Cheapest paid option  |
-| DigitalOcean | Basic           | 1 vCPU, 1GB RAM        | $6       | Easy UI, good docs    |
-| Vultr        | Cloud Compute   | 1 vCPU, 1GB RAM        | $6       | Many locations        |
-| Linode       | Nanode          | 1 vCPU, 1GB RAM        | $5       | Now part of Akamai    |
+| Fournisseur  | Forfait         | Specifications            | Prix/mo              | Notes                                 |
+| ------------ | --------------- | ------------------------- | -------------------- | ------------------------------------- |
+| Oracle Cloud | Always Free ARM | jusqu’à 4 OCPU, 24 Go RAM | $0                   | ARM, capacité limitée                 |
+| Hetzner      | CX22            | 2 vCPU, 4 Go RAM          | ~ $4 | Option payante la moins chère         |
+| DigitalOcean | Basic           | 1 vCPU, 1 Go RAM          | $6                   | Interface simple, bonne documentation |
+| Vultr        | Cloud Compute   | 1 vCPU, 1 Go RAM          | $6                   | Nombreux emplacements                 |
+| Linode       | Nanode          | 1 vCPU, 1 Go RAM          | $5                   | Désormais partie d’Akamai             |
 
 ---
 
-## Prerequisites
+## Prérequis
 
-- Oracle Cloud account ([signup](https://www.oracle.com/cloud/free/)) — see [community signup guide](https://gist.github.com/rssnyder/51e3cfedd730e7dd5f4a816143b25dbd) if you hit issues
-- Tailscale account (free at [tailscale.com](https://tailscale.com))
+- Compte Oracle Cloud ([inscription](https://www.oracle.com/cloud/free/)) — voir le [guide communautaire d’inscription](https://gist.github.com/rssnyder/51e3cfedd730e7dd5f4a816143b25dbd) en cas de problème
+- Compte Tailscale (gratuit sur [tailscale.com](https://tailscale.com))
 - ~30 minutes
 
-## 1) Create an OCI Instance
+## 1. Créer une instance OCI
 
-1. Log into [Oracle Cloud Console](https://cloud.oracle.com/)
-2. Navigate to **Compute → Instances → Create Instance**
-3. Configure:
-   - **Name:** `openclaw`
-   - **Image:** Ubuntu 24.04 (aarch64)
-   - **Shape:** `VM.Standard.A1.Flex` (Ampere ARM)
-   - **OCPUs:** 2 (or up to 4)
-   - **Memory:** 12 GB (or up to 24 GB)
-   - **Boot volume:** 50 GB (up to 200 GB free)
-   - **SSH key:** Add your public key
-4. Click **Create**
-5. Note the public IP address
+1. Connectez-vous à la [console Oracle Cloud](https://cloud.oracle.com/)
+2. Accédez à **Compute → Instances → Create Instance**
+3. Configurez :
+   - **Name :** `openclaw`
+   - **Image :** Ubuntu 24.04 (aarch64)
+   - **Shape :** `VM.Standard.A1.Flex` (Ampere ARM)
+   - **OCPUs :** 2 (ou jusqu’à 4)
+   - **Memory :** 12 Go (ou jusqu’à 24 Go)
+   - **Boot volume :** 50 Go (jusqu’à 200 Go gratuits)
+   - **SSH key :** Ajoutez votre clé publique
+4. Cliquez sur **Create**
+5. Notez l’adresse IP publique
 
-**Tip:** If instance creation fails with "Out of capacity", try a different availability domain or retry later. Free tier capacity is limited.
+**Astuce :** si la création de l’instance échoue avec « Out of capacity », essayez un autre domaine de disponibilité ou réessayez plus tard. La capacité du free tier est limitée.
 
-## 2) Connect and Update
+## 2. Se connecter et mettre à jour
 
 ```bash
 # Connect via public IP
@@ -59,9 +64,9 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install -y build-essential
 ```
 
-**Note:** `build-essential` is required for ARM compilation of some dependencies.
+**Note :** `build-essential` est requis pour la compilation ARM de certaines dépendances.
 
-## 3) Configure User and Hostname
+## 3. Configurer l’utilisateur et le nom d’hôte
 
 ```bash
 # Set hostname
@@ -74,37 +79,37 @@ sudo passwd ubuntu
 sudo loginctl enable-linger ubuntu
 ```
 
-## 4) Install Tailscale
+## 4. Installer Tailscale
 
 ```bash
 curl -fsSL https://tailscale.com/install.sh | sh
 sudo tailscale up --ssh --hostname=openclaw
 ```
 
-This enables Tailscale SSH, so you can connect via `ssh openclaw` from any device on your tailnet — no public IP needed.
+Cela active Tailscale SSH, afin que vous puissiez vous connecter via `ssh openclaw` depuis n’importe quel appareil de votre tailnet — sans IP publique nécessaire.
 
-Verify:
+Vérifiez :
 
 ```bash
 tailscale status
 ```
 
-**From now on, connect via Tailscale:** `ssh ubuntu@openclaw` (or use the Tailscale IP).
+**À partir de maintenant, connectez-vous via Tailscale :** `ssh ubuntu@openclaw` (ou utilisez l’IP Tailscale).
 
-## 5) Install OpenClaw
+## 5. Installer OpenClaw
 
 ```bash
 curl -fsSL https://openclaw.ai/install.sh | bash
 source ~/.bashrc
 ```
 
-When prompted "How do you want to hatch your bot?", select **"Do this later"**.
+Lorsque la question « How do you want to hatch your bot? » s’affiche, sélectionnez **« Do this later »**.
 
-> Note: If you hit ARM-native build issues, start with system packages (e.g. `sudo apt install -y build-essential`) before reaching for Homebrew.
+> Note : en cas de problèmes de build natif ARM, commencez par les paquets système (par exemple `sudo apt install -y build-essential`) avant d’envisager Homebrew.
 
-## 6) Configure Gateway (loopback + token auth) and enable Tailscale Serve
+## 6. Configurer le Gateway (passerelle) (loopback + authentification par token) et activer Tailscale Serve
 
-Use token auth as the default. It’s predictable and avoids needing any “insecure auth” Control UI flags.
+Utilisez l’authentification par token comme valeur par défaut. Elle est prévisible et évite d’avoir besoin d’indicateurs « insecure auth » dans l’interface Control.
 
 ```bash
 # Keep the Gateway private on the VM
@@ -121,7 +126,7 @@ openclaw config set gateway.trustedProxies '["127.0.0.1"]'
 systemctl --user restart openclaw-gateway
 ```
 
-## 7) Verify
+## 7. Vérifier
 
 ```bash
 # Check version
@@ -137,63 +142,63 @@ tailscale serve status
 curl http://localhost:18789
 ```
 
-## 8) Lock Down VCN Security
+## 8. Verrouiller la sécurité du VCN
 
-Now that everything is working, lock down the VCN to block all traffic except Tailscale. OCI's Virtual Cloud Network acts as a firewall at the network edge — traffic is blocked before it reaches your instance.
+Maintenant que tout fonctionne, verrouillez le VCN afin de bloquer tout le trafic sauf Tailscale. Le Virtual Cloud Network d’OCI agit comme un pare-feu en périphérie du réseau — le trafic est bloqué avant d’atteindre votre instance.
 
-1. Go to **Networking → Virtual Cloud Networks** in the OCI Console
-2. Click your VCN → **Security Lists** → Default Security List
-3. **Remove** all ingress rules except:
+1. Allez dans **Networking → Virtual Cloud Networks** dans la console OCI
+2. Cliquez sur votre VCN → **Security Lists** → Default Security List
+3. **Supprimez** toutes les règles d’entrée sauf :
    - `0.0.0.0/0 UDP 41641` (Tailscale)
-4. Keep default egress rules (allow all outbound)
+4. Conservez les règles de sortie par défaut (autoriser tout le trafic sortant)
 
-This blocks SSH on port 22, HTTP, HTTPS, and everything else at the network edge. From now on, you can only connect via Tailscale.
+Cela bloque SSH sur le port 22, HTTP, HTTPS et tout le reste en périphérie du réseau. Désormais, vous ne pouvez vous connecter que via Tailscale.
 
 ---
 
-## Access the Control UI
+## Accéder à l’interface Control
 
-From any device on your Tailscale network:
+Depuis n’importe quel appareil de votre réseau Tailscale :
 
 ```
 https://openclaw.<tailnet-name>.ts.net/
 ```
 
-Replace `<tailnet-name>` with your tailnet name (visible in `tailscale status`).
+Remplacez `<tailnet-name>` par le nom de votre tailnet (visible dans `tailscale status`).
 
-No SSH tunnel needed. Tailscale provides:
+Aucun tunnel SSH requis. Tailscale fournit :
 
-- HTTPS encryption (automatic certs)
-- Authentication via Tailscale identity
-- Access from any device on your tailnet (laptop, phone, etc.)
+- Chiffrement HTTPS (certificats automatiques)
+- Authentification via l’identité Tailscale
+- Accès depuis n’importe quel appareil de votre tailnet (ordinateur portable, téléphone, etc.)
 
 ---
 
-## Security: VCN + Tailscale (recommended baseline)
+## Sécurité : VCN + Tailscale (référence recommandée)
 
-With the VCN locked down (only UDP 41641 open) and the Gateway bound to loopback, you get strong defense-in-depth: public traffic is blocked at the network edge, and admin access happens over your tailnet.
+Avec le VCN verrouillé (seul l’UDP 41641 est ouvert) et le Gateway (passerelle) lié au loopback, vous bénéficiez d’une défense en profondeur solide : le trafic public est bloqué à la périphérie du réseau et l’accès administrateur se fait via votre tailnet.
 
-This setup often removes the _need_ for extra host-based firewall rules purely to stop Internet-wide SSH brute force — but you should still keep the OS updated, run `openclaw security audit`, and verify you aren’t accidentally listening on public interfaces.
+Cette configuration supprime souvent le _besoin_ de règles de pare-feu locales supplémentaires uniquement pour bloquer les attaques SSH par force brute à l’échelle d’Internet — mais vous devez tout de même maintenir l’OS à jour, exécuter `openclaw security audit`, et vérifier que vous n’écoutez pas par erreur sur des interfaces publiques.
 
-### What's Already Protected
+### Ce qui est déjà protégé
 
-| Traditional Step   | Needed?     | Why                                                                          |
-| ------------------ | ----------- | ---------------------------------------------------------------------------- |
-| UFW firewall       | No          | VCN blocks before traffic reaches instance                                   |
-| fail2ban           | No          | No brute force if port 22 blocked at VCN                                     |
-| sshd hardening     | No          | Tailscale SSH doesn't use sshd                                               |
-| Disable root login | No          | Tailscale uses Tailscale identity, not system users                          |
-| SSH key-only auth  | No          | Tailscale authenticates via your tailnet                                     |
-| IPv6 hardening     | Usually not | Depends on your VCN/subnet settings; verify what’s actually assigned/exposed |
+| Étape traditionnelle   | Nécessaire ?     | Pourquoi                                                                                        |
+| ---------------------- | ---------------- | ----------------------------------------------------------------------------------------------- |
+| Pare-feu UFW           | Non              | Le VCN bloque avant que le trafic n’atteigne l’instance                                         |
+| fail2ban               | Non              | Pas de force brute si le port 22 est bloqué au niveau du VCN                                    |
+| Renforcement de sshd   | Non              | Tailscale SSH n’utilise pas sshd                                                                |
+| Désactiver root login  | Non              | Tailscale utilise l’identité Tailscale, pas les utilisateurs système                            |
+| Auth SSH par clé seule | Non              | Tailscale authentifie via votre tailnet                                                         |
+| Renforcement IPv6      | Généralement non | Dépend des paramètres de votre VCN/sous-réseau ; vérifiez ce qui est réellement attribué/exposé |
 
-### Still Recommended
+### Toujours recommandé
 
-- **Credential permissions:** `chmod 700 ~/.openclaw`
-- **Security audit:** `openclaw security audit`
-- **System updates:** `sudo apt update && sudo apt upgrade` regularly
-- **Monitor Tailscale:** Review devices in [Tailscale admin console](https://login.tailscale.com/admin)
+- **Permissions des identifiants :** `chmod 700 ~/.openclaw`
+- **Audit de sécurité :** `openclaw security audit`
+- **Mises à jour système :** exécutez `sudo apt update && sudo apt upgrade` régulièrement
+- **Surveiller Tailscale :** examinez les appareils dans la [console d’administration Tailscale](https://login.tailscale.com/admin)
 
-### Verify Security Posture
+### Vérifier la posture de sécurité
 
 ```bash
 # Confirm no public ports listening
@@ -208,30 +213,30 @@ sudo systemctl disable --now ssh
 
 ---
 
-## Fallback: SSH Tunnel
+## Solution de repli : tunnel SSH
 
-If Tailscale Serve isn't working, use an SSH tunnel:
+Si Tailscale Serve ne fonctionne pas, utilisez un tunnel SSH :
 
 ```bash
 # From your local machine (via Tailscale)
 ssh -L 18789:127.0.0.1:18789 ubuntu@openclaw
 ```
 
-Then open `http://localhost:18789`.
+Puis ouvrez `http://localhost:18789`.
 
 ---
 
-## Troubleshooting
+## Problemes courants
 
-### Instance creation fails ("Out of capacity")
+### La création de l’instance échoue (« Out of capacity »)
 
-Free tier ARM instances are popular. Try:
+Les instances ARM du free tier sont populaires. Essayez :
 
-- Different availability domain
-- Retry during off-peak hours (early morning)
-- Use the "Always Free" filter when selecting shape
+- Un autre domaine de disponibilité
+- Une nouvelle tentative en heures creuses (tôt le matin)
+- Le filtre « Always Free » lors de la sélection de la forme
 
-### Tailscale won't connect
+### Tailscale ne se connecte pas
 
 ```bash
 # Check status
@@ -241,7 +246,7 @@ sudo tailscale status
 sudo tailscale up --ssh --hostname=openclaw --reset
 ```
 
-### Gateway won't start
+### Le Gateway (passerelle) ne démarre pas
 
 ```bash
 openclaw gateway status
@@ -249,7 +254,7 @@ openclaw doctor --non-interactive
 journalctl --user -u openclaw-gateway -n 50
 ```
 
-### Can't reach Control UI
+### Impossible d’atteindre l’interface Control
 
 ```bash
 # Verify Tailscale Serve is running
@@ -262,26 +267,26 @@ curl http://localhost:18789
 systemctl --user restart openclaw-gateway
 ```
 
-### ARM binary issues
+### Problèmes de binaires ARM
 
-Some tools may not have ARM builds. Check:
+Certains outils peuvent ne pas disposer de builds ARM. Vérifiez :
 
 ```bash
 uname -m  # Should show aarch64
 ```
 
-Most npm packages work fine. For binaries, look for `linux-arm64` or `aarch64` releases.
+La plupart des packages npm fonctionnent correctement. Pour les binaires, recherchez des versions `linux-arm64` ou `aarch64`.
 
 ---
 
-## Persistence
+## Persistance
 
-All state lives in:
+Tout l’état se trouve dans :
 
-- `~/.openclaw/` — config, credentials, session data
-- `~/.openclaw/workspace/` — workspace (SOUL.md, memory, artifacts)
+- `~/.openclaw/` — configuration, identifiants, données de session
+- `~/.openclaw/workspace/` — espace de travail (SOUL.md, mémoire, artefacts)
 
-Back up periodically:
+Sauvegardez périodiquement :
 
 ```bash
 tar -czvf openclaw-backup.tar.gz ~/.openclaw ~/.openclaw/workspace
@@ -289,12 +294,10 @@ tar -czvf openclaw-backup.tar.gz ~/.openclaw ~/.openclaw/workspace
 
 ---
 
-## See Also
+## Voir aussi
 
-- [Gateway remote access](/gateway/remote) — other remote access patterns
-- [Tailscale integration](/gateway/tailscale) — full Tailscale docs
-- [Gateway configuration](/gateway/configuration) — all config options
-- [DigitalOcean guide](/platforms/digitalocean) — if you want paid + easier signup
-- [Hetzner guide](/install/hetzner) — Docker-based alternative
-
-
+- [Accès distant au Gateway (passerelle)](/gateway/remote) — autres modèles d’accès distant
+- [Intégration Tailscale](/gateway/tailscale) — documentation Tailscale complète
+- [Configuration du Gateway (passerelle)](/gateway/configuration) — toutes les options de configuration
+- [Guide DigitalOcean](/platforms/digitalocean) — si vous souhaitez une option payante avec inscription plus simple
+- [Guide Hetzner](/install/hetzner) — alternative basée sur Docker

@@ -1,10 +1,14 @@
 ---
+summary: "Manifest plugin + yêu cầu JSON Schema (xác thực cấu hình nghiêm ngặt)"
+read_when:
+  - Bạn đang xây dựng một plugin OpenClaw
+  - Bạn cần phát hành schema cấu hình plugin hoặc gỡ lỗi các lỗi xác thực plugin
 title: "Manifest Plugin"
 ---
 
 # Manifest plugin (openclaw.plugin.json)
 
-Mỗi plugin **phải** đi kèm một tệp `openclaw.plugin.json` trong **thư mục gốc của plugin**.
+Every plugin **must** ship a `openclaw.plugin.json` file in the **plugin root**.
 OpenClaw uses this manifest to validate configuration **without executing plugin
 code**. Missing or invalid manifests are treated as plugin errors and block
 config validation.
@@ -51,7 +55,7 @@ Các khóa tùy chọn:
 - Các khóa `channels.*` không xác định là **lỗi**, trừ khi id kênh được khai báo bởi
   một manifest plugin.
 - `plugins.entries.<id>`, `plugins.allow`, `plugins.deny`, and `plugins.slots.*`
-Phải tham chiếu đến các **discoverable** plugin id. Các id không xác định là **lỗi**.
+  must reference **discoverable** plugin ids. Unknown ids are **errors**.
 - Nếu một plugin đã được cài đặt nhưng manifest hoặc schema bị hỏng hoặc thiếu,
   việc xác thực sẽ thất bại và Doctor báo lỗi plugin.
 - Nếu cấu hình plugin tồn tại nhưng plugin bị **vô hiệu hóa**, cấu hình vẫn được giữ lại và
@@ -65,5 +69,3 @@ Phải tham chiếu đến các **discoverable** plugin id. Các id không xác 
 - Nếu plugin của bạn phụ thuộc vào module native, hãy ghi rõ các bước build và mọi
   yêu cầu allowlist của trình quản lý gói (ví dụ: pnpm `allow-build-scripts`
   - `pnpm rebuild <package>`).
-
-

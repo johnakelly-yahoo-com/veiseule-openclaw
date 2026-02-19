@@ -1,4 +1,9 @@
 ---
+summary: "macOS ပေါ်ရှိ Gateway runtime (အပြင်ဘက် launchd ဝန်ဆောင်မှု)"
+read_when:
+  - OpenClaw.app ကို ထုပ်ပိုးနေစဉ်
+  - macOS gateway launchd ဝန်ဆောင်မှုကို အမှားရှာဖွေပြင်ဆင်နေစဉ်
+  - macOS အတွက် gateway CLI ကို ထည့်သွင်းနေစဉ်
 title: "macOS ပေါ်ရှိ Gateway"
 ---
 
@@ -61,5 +66,3 @@ openclaw gateway --port 18999 --bind loopback
 ```bash
 openclaw gateway call health --url ws://127.0.0.1:18999 --timeout 3000
 ```
-
-

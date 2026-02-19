@@ -1,4 +1,9 @@
 ---
+summary: "یہ آڈٹ کریں کہ کیا چیز پیسہ خرچ کر سکتی ہے، کون سی کلیدیں استعمال ہو رہی ہیں، اور استعمال کو کیسے دیکھا جائے"
+read_when:
+  - آپ یہ سمجھنا چاہتے ہیں کہ کون سی خصوصیات ادائیگی شدہ APIs کو کال کر سکتی ہیں
+  - آپ کو کلیدوں، اخراجات، اور استعمال کی مرئیت کا آڈٹ درکار ہے
+  - آپ /status یا /usage کی لاگت رپورٹنگ کی وضاحت کر رہے ہیں
 title: "API استعمال اور اخراجات"
 ---
 
@@ -40,14 +45,14 @@ OpenClaw اسناد یہاں سے حاصل کر سکتا ہے:
 
 ### 1. بنیادی ماڈل کے جوابات (چیٹ + اوزار)
 
-ہر جواب یا ٹول کال **current model provider** (OpenAI, Anthropic، وغیرہ) استعمال کرتی ہے۔ یہ وہ ہے
+Every reply or tool call uses the **current model provider** (OpenAI, Anthropic, etc). This is the
 primary source of usage and cost.
 
 قیمتوں کی کنفیگ کے لیے [Models](/providers/models) اور ڈسپلے کے لیے [Token use & costs](/reference/token-use) دیکھیں۔
 
 ### 2. میڈیا کی سمجھ (آڈیو/تصویر/ویڈیو)
 
-آنے والے میڈیا کو جواب چلنے سے پہلے خلاصہ یا ٹرانسکرائب کیا جا سکتا ہے۔ یہ ماڈل/پرووائیڈر APIs استعمال کرتا ہے۔
+Inbound media can be summarized/transcribed before the reply runs. This uses model/provider APIs.
 
 - آڈیو: OpenAI / Groq / Deepgram (اب **کلیدیں موجود ہوں تو خودکار طور پر فعال**)۔
 - تصویر: OpenAI / Anthropic / Google۔
@@ -95,7 +100,7 @@ primary source of usage and cost.
 
 ### 6. فراہم کنندہ استعمال اسنیپ شاٹس (اسٹیٹس/ہیلتھ)
 
-کچھ اسٹیٹس کمانڈز کوٹا ونڈوز یا تصدیقی صحت دکھانے کے لیے **provider usage endpoints** کو کال کرتی ہیں۔
+Some status commands call **provider usage endpoints** to display quota windows or auth health.
 These are typically low-volume calls but still hit provider APIs:
 
 - `openclaw status --usage`
@@ -127,9 +132,7 @@ Talk موڈ کنفیگر ہونے پر **ElevenLabs** کو کال کر سکتا 
 
 ### 10. Skills (تیسرے فریق APIs)
 
-Skills `apiKey` کو `skills.entries.<name>.apiKey` میں محفوظ کر سکتی ہیں۔ اگر کوئی اسکل اس کلید کو بیرونی
+Skills can store `apiKey` in `skills.entries.<name>.apiKey`. If a skill uses that key for external
 APIs, it can incur costs according to the skill’s provider.
 
 دیکھیں [Skills](/tools/skills)۔
-
-

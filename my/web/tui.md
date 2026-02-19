@@ -1,4 +1,8 @@
 ---
+summary: "Terminal UI (TUI): မည်သည့်စက်မှမဆို Gateway သို့ ချိတ်ဆက်ရန်"
+read_when:
+  - TUI ကို စတင်အသုံးပြုရန် လမ်းညွှန်ကို လိုအပ်သောအခါ
+  - TUI ၏ အင်္ဂါရပ်များ၊ အမိန့်များနှင့် အတိုကောက်ခလုတ်များကို အပြည့်အစုံ သိလိုသောအခါ
 title: "TUI"
 ---
 
@@ -156,5 +160,3 @@ Session lifecycle:
 - `disconnected`: Gateway လည်ပတ်နေကြောင်းနှင့် သင်၏ `--url/--token/--password` မှန်ကန်ကြောင်း သေချာစေပါ။
 - Picker တွင် agent မရှိပါက: `openclaw agents list` နှင့် routing config ကို စစ်ဆေးပါ။
 - Session picker ဗလာဖြစ်နေပါက: global scope တွင် ရှိနေနိုင်သည် သို့မဟုတ် session မရှိသေးနိုင်ပါ။
-
-

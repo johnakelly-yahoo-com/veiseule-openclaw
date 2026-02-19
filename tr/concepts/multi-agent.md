@@ -1,13 +1,15 @@
 ---
-title: "Çoklu Ajan Yönlendirme"
+summary: "Çoklu ajan yönlendirmesi: yalıtılmış ajanlar, kanal hesapları ve bağlamalar"
+title: Multi-Agent Routing
+read_when: "Tek bir gateway sürecinde birden fazla yalıtılmış ajan (çalışma alanları + kimlik doğrulama) istiyorsunuz."
 status: active
 ---
 
-# Çoklu Ajan Yönlendirme
+# Multi-Agent Routing
 
 Amaç: tek bir çalışan Gateway içinde birden fazla _yalıtılmış_ ajan (ayrı çalışma alanı + `agentDir` + oturumlar) ve birden fazla kanal hesabı (örn. iki WhatsApp). Gelen mesajlar, bağlamalar aracılığıyla bir ajana yönlendirilir.
 
-## “Tek ajan” nedir?
+## What is “one agent”?
 
 Bir **ajan**, aşağıdakilerin her birine sahip, kapsamı tamamen ayrılmış bir beyindir:
 
@@ -42,7 +44,7 @@ sandboxing etkin değilse ana makinedeki diğer konumlara erişebilir. [Sandboxi
 - Ajan dizini: `~/.openclaw/agents/<agentId>/agent` (veya `agents.list[].agentDir`)
 - Oturumlar: `~/.openclaw/agents/<agentId>/sessions`
 
-### Tek ajan modu (varsayılan)
+### Single-agent mode (default)
 
 Hiçbir şey yapmazsanız, OpenClaw tek bir ajan çalıştırır:
 
@@ -122,11 +124,15 @@ Notlar:
 Bağlamalar **deterministiktir** ve **en spesifik olan kazanır**:
 
 1. `peer` eşleşmesi (tam DM/grup/kanal kimliği)
-2. `guildId` (Discord)
-3. `teamId` (Slack)
-4. Bir kanal için `accountId` eşleşmesi
-5. Kanal düzeyi eşleşme (`accountId: "*"`)
-6. Varsayılan ajana geri dönüş (`agents.list[].default`, aksi halde ilk liste girdisi; varsayılan: `main`)
+2. `parentPeer` eşleşmesi (iş parçacığı kalıtımı)
+3. `guildId + roles` (Discord rol yönlendirmesi)
+4. `guildId` (Discord)
+5. `teamId` (Slack)
+6. Bir kanal için `accountId` eşleşmesi
+7. Kanal düzeyi eşleşme (`accountId: "*"`)
+8. Varsayılan ajana geri dönüş (`agents.list[].default`, aksi halde ilk liste girdisi; varsayılan: `main`)
+
+Bir bağlama birden fazla eşleşme alanı ayarlarsa (örneğin `peer` + `guildId`), belirtilen tüm alanlar zorunludur (`AND` semantiği).
 
 ## Birden fazla hesap / telefon numarası
 
@@ -379,5 +385,3 @@ Ajan başına sınırlar gerekiyorsa, `agents.list[].tools` kullanarak `exec`’
 Grup hedefleme için, @bahsetmelerin doğru ajana temiz biçimde eşlenmesi amacıyla `agents.list[].groupChat.mentionPatterns` kullanın.
 
 Ayrıntılı örnekler için [Çoklu Ajan Sandbox & Araçlar](/tools/multi-agent-sandbox-tools) bölümüne bakın.
-
-

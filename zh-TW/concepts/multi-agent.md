@@ -1,5 +1,7 @@
 ---
+summary: "多代理路由：隔離的代理、頻道帳號與綁定"
 title: 多代理路由
+read_when: "21. 你想在同一個閘道程序中有多個彼此隔離的代理（工作區 + 驗證）。"
 status: active
 ---
 
@@ -15,15 +17,15 @@ status: active
 - **狀態目錄**（`agentDir`），用於驗證設定檔、模型登錄表與每代理設定。
 - **工作階段儲存**（聊天記錄 + 路由狀態），位於 `~/.openclaw/agents/<agentId>/sessions`。
 
-23. 驗證設定檔是**每個代理**獨立的。 24. 每個代理都會從自己的以下位置讀取：
+驗證設定檔是**每個代理**獨立的。 24. 每個代理都會從自己的以下位置讀取：
 
 ```
 ~/.openclaw/agents/<agentId>/agent/auth-profiles.json
 ```
 
-25. 主要代理的憑證**不會**自動共用。 26. 切勿在代理之間重複使用 `agentDir`（會造成驗證/工作階段衝突）。 主代理的憑證**不會**自動共享。切勿在代理之間重用 `agentDir`，
-    否則會造成驗證／工作階段衝突。若需要共用憑證，
-    請將 `auth-profiles.json` 複製到另一個代理的 `agentDir`。
+主要代理的憑證**不會**自動共用。 26. 26. 切勿在代理之間重複使用 `agentDir`（會造成驗證/工作階段衝突）。 切勿在代理之間重複使用 `agentDir`（會造成驗證/工作階段衝突）。 主代理的憑證**不會**自動共享。切勿在代理之間重用 `agentDir`，
+否則會造成驗證／工作階段衝突。若需要共用憑證，
+請將 `auth-profiles.json` 複製到另一個代理的 `agentDir`。
 
 Skills 是每代理獨立的，位於各工作區的 `skills/` 資料夾；
 共用 Skills 則位於 `~/.openclaw/skills`。請參閱
@@ -31,7 +33,7 @@ Skills 是每代理獨立的，位於各工作區的 `skills/` 資料夾；
 
 Gateway 可同時承載**一個代理**（預設）或**多個代理**並排運行。
 
-28. **工作區注意事項：** 每個代理的工作區是**預設的 cwd**，而非硬性沙箱。 29. 相對路徑會在工作區內解析，但除非啟用沙箱，否則絕對路徑可以存取其他主機位置。 30. 請參閱 [Sandboxing](/gateway/sandboxing)。
+**工作區注意事項：** 每個代理的工作區是**預設的 cwd**，而非硬性沙箱。 29. 相對路徑會在工作區內解析，但除非啟用沙箱，否則絕對路徑可以存取其他主機位置。 30. 請參閱 [Sandboxing](/gateway/sandboxing)。
 
 ## 路徑（快速對照）
 
@@ -60,7 +62,7 @@ openclaw agents add work
 
 31. 接著新增 `bindings`（或讓精靈處理）以路由入站訊息。
 
-32. 使用以下方式驗證：
+使用以下方式驗證：
 
 ```bash
 openclaw agents list --bindings
@@ -80,7 +82,7 @@ openclaw agents list --bindings
 
 你可以在**同一個 WhatsApp 帳號**下，將**不同的 WhatsApp 私訊**路由到不同代理。
 透過 `peer.kind: "dm"` 依寄件者的 E.164（例如 `+15551234567`）進行比對。
-回覆仍會從相同的 WhatsApp 號碼送出（不支援每代理的寄件者身分）。 Match on sender E.164 (like `+15551234567`) with `peer.kind: "direct"`. 35. 回覆仍會來自同一個 WhatsApp 號碼（沒有每個代理獨立的寄件者身分）。
+回覆仍會從相同的 WhatsApp 號碼送出（不支援每代理的寄件者身分）。 Match on sender E.164 (like `+15551234567`) with `peer.kind: "direct"`. 回覆仍會來自同一個 WhatsApp 號碼（沒有每個代理獨立的寄件者身分）。
 
 重要細節：直接聊天會合併到代理的**主要工作階段鍵**，
 因此若要真正隔離，必須**每人一個代理**。
@@ -116,7 +118,7 @@ openclaw agents list --bindings
 
 注意事項：
 
-- 36. DM 存取控制是**以每個 WhatsApp 帳戶為全域**（配對/允許清單），而非每個代理。
+- DM 存取控制是**以每個 WhatsApp 帳戶為全域**（配對/允許清單），而非每個代理。
 - 對於共用群組，請將群組綁定到單一代理，或使用
   [廣播群組](/channels/broadcast-groups)。
 
@@ -125,11 +127,15 @@ openclaw agents list --bindings
 綁定是**可預期的**，且遵循**最具體者優先**：
 
 1. `peer` 比對（精確的私訊／群組／頻道 ID）
-2. `guildId`（Discord）
-3. `teamId`（Slack）
-4. 某頻道的 `accountId` 比對
-5. 頻道層級比對（`accountId: "*"`）
-6. 回退到預設代理（`agents.list[].default`，否則使用清單中的第一個，預設：`main`）
+2. `parentPeer` 比對（執行緒繼承）
+3. 接著新增 `bindings`（或讓精靈處理）以路由入站訊息。
+4. `guildId`（Discord）
+5. `teamId`（Slack）
+6. 某頻道的 `accountId` 比對
+7. 頻道層級比對（`accountId: "*"`）
+8. 回退到預設代理（`agents.list[].default`，否則使用清單中的第一個，預設：`main`）
+
+如果某個綁定設定了多個比對欄位（例如 `peer` + `guildId`），則所有指定欄位都必須符合（`AND` 語意）。
 
 ## 多帳號／多電話號碼
 
@@ -371,6 +377,7 @@ openclaw agents list --bindings
 ```
 
 40. 注意：`setupCommand` 位於 `sandbox.docker` 之下，並且只在容器建立時執行一次。
+    注意：`setupCommand` 位於 `sandbox.docker` 之下，並且只在容器建立時執行一次。
     注意：`setupCommand` 位於 `sandbox.docker` 之下，且只在容器建立時執行一次。
     當解析後的作用域為 `"shared"` 時，會忽略每代理的 `sandbox.docker.*` 覆寫。
 
@@ -385,5 +392,3 @@ openclaw agents list --bindings
 若要進行群組目標設定，請使用 `agents.list[].groupChat.mentionPatterns`，讓 @mentions 能正確對應到目標 agent。
 
 請參閱 [多代理沙箱與工具](/tools/multi-agent-sandbox-tools) 以取得詳細範例。
-
-

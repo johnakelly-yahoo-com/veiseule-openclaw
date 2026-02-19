@@ -1,4 +1,8 @@
 ---
+summary: "Invoquer un seul outil directement via le point de terminaison HTTP de la Gateway (passerelle)"
+read_when:
+  - Appeler des outils sans exécuter un tour complet d’agent
+  - Construire des automatisations nécessitant l’application des politiques d’outils
 title: "API d’invocation des outils"
 ---
 
@@ -21,6 +25,7 @@ Notes :
 
 - Lorsque `gateway.auth.mode="token"`, utilisez `gateway.auth.token` (ou `OPENCLAW_GATEWAY_TOKEN`).
 - Lorsque `gateway.auth.mode="password"`, utilisez `gateway.auth.password` (ou `OPENCLAW_GATEWAY_PASSWORD`).
+- Si `gateway.auth.rateLimit` est configuré et qu’un trop grand nombre d’échecs d’authentification se produit, le point de terminaison renvoie `429` avec `Retry-After`.
 
 ## Corps de la requête
 
@@ -54,6 +59,28 @@ La disponibilité des outils est filtrée via la même chaîne de politiques que
 
 Si un outil n’est pas autorisé par la politique, le point de terminaison renvoie **404**.
 
+Gateway HTTP applique également par défaut une liste de refus stricte (même si la politique de session autorise l’outil) :
+
+- `sessions_spawn`
+- `sessions_send`
+- `gateway`
+- `whatsapp_login`
+
+Vous pouvez personnaliser cette liste de refus via `gateway.tools` :
+
+```json5
+{
+  gateway: {
+    tools: {
+      // Additional tools to block over HTTP /tools/invoke
+      deny: ["browser"],
+      // Remove tools from the default deny list
+      allow: ["gateway"],
+    },
+  },
+}
+```
+
 Pour aider les politiques de groupe à résoudre le contexte, vous pouvez éventuellement définir :
 
 - `x-openclaw-message-channel: <channel>` (exemple : `slack`, `telegram`)
@@ -64,8 +91,10 @@ Pour aider les politiques de groupe à résoudre le contexte, vous pouvez évent
 - `200` → `{ ok: true, result }`
 - `400` → `{ ok: false, error: { type, message } }` (requête invalide ou erreur d’outil)
 - `401` → non autorisé
+- `429` → authentification limitée par le taux (`Retry-After` défini)
 - `404` → outil non disponible (introuvable ou non autorisé)
 - `405` → méthode non autorisée
+- `500` → `{ ok: false, error: { type, message } }` (erreur inattendue lors de l’exécution de l’outil ; message assaini)
 
 ## Exemple
 
@@ -79,5 +108,3 @@ curl -sS http://127.0.0.1:18789/tools/invoke \
     "args": {}
   }'
 ```
-
-

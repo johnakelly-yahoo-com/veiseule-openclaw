@@ -1,4 +1,7 @@
 ---
+summary: "Thiết kế hàng đợi lệnh để tuần tự hóa các lần chạy auto-reply đến"
+read_when:
+  - Thay đổi cách thực thi hoặc mức song song của auto-reply
 title: "Hàng đợi lệnh"
 ---
 
@@ -84,5 +87,3 @@ Các tùy chọn áp dụng cho `followup`, `collect` và `steer-backlog` (và c
 
 - Nếu lệnh có vẻ bị kẹt, hãy bật log chi tiết và tìm các dòng “queued for …ms” để xác nhận hàng đợi đang được xả.
 - Nếu bạn cần độ sâu hàng đợi, hãy bật log chi tiết và theo dõi các dòng thời gian của hàng đợi.
-
-

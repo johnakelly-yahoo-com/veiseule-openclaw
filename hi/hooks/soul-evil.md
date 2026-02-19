@@ -1,4 +1,8 @@
 ---
+summary: "SOUL Evil हुक (SOUL.md को SOUL_EVIL.md से स्वैप करता है)"
+read_when:
+  - आप SOUL Evil हुक को सक्षम या ट्यून करना चाहते हैं
+  - आप पर्ज विंडो या रैंडम-चांस पर्सोना स्वैप चाहते हैं
 title: "SOUL Evil हुक"
 ---
 
@@ -60,5 +64,3 @@ openclaw hooks enable soul-evil
 ## यह भी देखें
 
 - [Hooks](/automation/hooks)
-
-

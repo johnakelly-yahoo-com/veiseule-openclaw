@@ -1,4 +1,7 @@
 ---
+summary: "各頻道（WhatsApp、Telegram、Discord、Slack）的路由規則與共用脈絡"
+read_when:
+  - 變更頻道路由或收件匣行為時
 title: "頻道路由"
 ---
 
@@ -41,11 +44,17 @@ Threads:
 Routing picks **one agent** for each inbound message:
 
 1. **精確對等匹配**（`bindings` 搭配 `peer.kind` + `peer.id`）。
-2. **公會匹配**（Discord），透過 `guildId`。
-3. **團隊匹配**（Slack），透過 `teamId`。
-4. **帳戶匹配**（頻道上的 `accountId`）。
-5. **頻道匹配**（該頻道上的任何帳戶）。
-6. **預設代理程式**（`agents.list[].default`；否則取清單第一個，最後回退到 `main`）。
+2. **父層對等項目比對**（執行緒繼承）。
+3. OpenClaw 會將回覆**送回訊息來源的原頻道**。 The
+   model does not choose a channel; routing is deterministic and controlled by the
+   host configuration.
+4. **公會匹配**（Discord），透過 `guildId`。
+5. **團隊匹配**（Slack），透過 `teamId`。
+6. **帳戶匹配**（頻道上的 `accountId`）。
+7. **頻道匹配**（該頻道上的任何帳戶）。
+8. **預設代理程式**（`agents.list[].default`；否則取清單第一個，最後回退到 `main`）。
+
+當一個綁定包含多個比對欄位（`peer`、`guildId`、`teamId`、`roles`）時，**所有已提供的欄位都必須符合**，該綁定才會生效。
 
 The matched agent determines which workspace and session store are used.
 
@@ -109,5 +118,3 @@ agent in one place.
 - 被引用的脈絡會以 `[Replying to ...]` 區塊的形式附加到 `Body`。
 
 此行為在各頻道間保持一致。
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "web_search uchun Perplexity Sonar sozlamasi"
+read_when:
+  - Siz web qidiruv uchun Perplexity Sonar’dan foydalanmoqchisiz
+  - Sizga PERPLEXITY_API_KEY yoki OpenRouter sozlamasi kerak
 title: "Perplexity Sonar"
 ---
 
@@ -71,5 +75,3 @@ Agar asosiy URL o‘rnatilmagan bo‘lsa, OpenClaw API kaliti manbasiga qarab su
 - `perplexity/sonar-reasoning-pro` — chuqur tadqiqot
 
 To‘liq web_search konfiguratsiyasi uchun [Web tools](/tools/web) ga qarang.
-
-

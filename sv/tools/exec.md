@@ -1,4 +1,8 @@
 ---
+summary: "Användning av Exec-verktyget, stdin-lägen och TTY-stöd"
+read_when:
+  - Använder eller ändrar exec-verktyget
+  - Felsöker stdin- eller TTY-beteende
 title: "Exec-verktyg"
 ---
 
@@ -70,9 +74,9 @@ Exempel:
 - `host=sandbox`: kör `sh -lc` (login shell) inuti behållaren, så `/etc/profile` kan återställa `PATH`.
   OpenClaw låtsas som `env.PATH` efter profilinköp via en intern env var (ingen skalinterpolation);
   `tools.exec.pathPrepend` gäller även här.
-- `host=node`: endast icke-blockerade env överskrider du skickar till noden. `env.PATH` overrides are
-  rejected for host execution. Huvudlösa nodvärdar accepterar `PATH` endast när det föregår noden värd
-  PATH (ingen ersättning). macOS noder släpper 'PATH' åsidosätter helt.
+- `host=node`: endast icke-blockerade env överskrider du skickar till noden. Åsidosättningar av `env.PATH`
+  avvisas för värdkörning och ignoreras av node-värdar. Om du behöver ytterligare PATH-poster på en node,
+  konfigurera node-värdens tjänstemiljö (systemd/launchd) eller installera verktyg på standardplatser.
 
 Per-agent-nodbindning (använd agentlistans index i konfig):
 
@@ -115,8 +119,9 @@ efter `tools.exec.approvalRunningNoticeMs`, avges ett enda `Exec running`-meddel
 
 Tillåtna verkställighet matchar **lösta binära sökvägar endast** (inget basnamn matchar). När
 `security=allowlist`, skalkommandon tillåts endast automatiskt om varje rörledningssegment är
-tillåten eller en säker behållare. Kedjning (`;`, `&&`, `<unk> `) och omdirigering avvisas i
-tillåten lista.
+tillåten eller en säker behållare. Kedjning (`;`, `&&`, `||`) och omdirigeringar avvisas i
+tillåtelseläge om inte varje toppnivåsegment uppfyller allowlistan (inklusive safe bins).
+Omdirigeringar stöds fortfarande inte.
 
 ## Exempel
 
@@ -173,5 +178,4 @@ Noteringar:
 - Endast tillgängligt för OpenAI/OpenAI Codex-modeller.
 - Verktygspolicy gäller fortfarande; `allow: ["exec"]` tillåter implicit `apply_patch`.
 - Konfig finns under `tools.exec.applyPatch`.
-
-
+- `tools.exec.applyPatch.workspaceOnly` är som standard `true` (begränsad till arbetsytan). Sätt den till `false` endast om du avsiktligt vill att `apply_patch` ska skriva/radera utanför arbetsytekatalogen.

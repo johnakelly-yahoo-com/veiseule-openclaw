@@ -1,4 +1,8 @@
 ---
+summary: "Doctor-kommando: hälsokontroller, konfigmigreringar och reparationssteg"
+read_when:
+  - Lägger till eller ändrar doctor-migreringar
+  - Introducerar brytande konfigändringar
 title: "Doktor"
 ---
 
@@ -274,5 +278,3 @@ om arbetsytan inte redan ligger under git.
 
 Se [/concepts/agent-workspace](/concepts/agent-workspace) för en fullständig guide till
 arbetsytestruktur och git-backup (rekommenderat privat GitHub eller GitLab).
-
-

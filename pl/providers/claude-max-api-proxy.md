@@ -1,4 +1,9 @@
 ---
+summary: "Używaj subskrypcji Claude Max/Pro jako punktu końcowego API zgodnego z OpenAI"
+read_when:
+  - Chcesz używać subskrypcji Claude Max z narzędziami zgodnymi z OpenAI
+  - Chcesz lokalny serwer API, który opakowuje CLI Claude Code
+  - Chcesz zaoszczędzić pieniądze, korzystając z subskrypcji zamiast kluczy API
 title: "Proxy API Claude Max"
 ---
 
@@ -141,5 +146,3 @@ launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.claude-max-api.plist
 
 - [Dostawca Anthropic](/providers/anthropic) – Natywna integracja OpenClaw z Claude przy użyciu setup-token lub kluczy API
 - [Dostawca OpenAI](/providers/openai) – Dla subskrypcji OpenAI/Codex
-
-

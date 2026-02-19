@@ -1,4 +1,7 @@
 ---
+summary: "تهيئة وإعداد روبوت دردشة Twitch"
+read_when:
+  - إعداد تكامل دردشة Twitch لـ OpenClaw
 title: "Twitch"
 ---
 
@@ -374,5 +377,3 @@ Access token refreshed for user 123456 (expires in 14400s)
 - **500 حرف** لكل رسالة (تجزئة تلقائية عند حدود الكلمات)
 - تتم إزالة Markdown قبل التجزئة
 - لا يوجد تحديد لمعدل الإرسال (يستخدم حدود Twitch المدمجة)
-
-

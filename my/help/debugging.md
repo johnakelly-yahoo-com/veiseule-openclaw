@@ -1,4 +1,9 @@
 ---
+summary: "Debugging ကိရိယာများ — watch mode၊ raw model stream များနှင့် reasoning leakage ကို ခြေရာခံခြင်း"
+read_when:
+  - reasoning leakage ကို စစ်ဆေးရန် raw model output ကို ကြည့်ရှုလိုအပ်သောအခါ
+  - အပြောင်းအလဲလုပ်နေစဉ် Gateway（ဂိတ်ဝေး）ကို watch mode ဖြင့် လည်ပတ်စေလိုသောအခါ
+  - ပြန်လည်လုပ်ဆောင်နိုင်သော debugging workflow တစ်ခု လိုအပ်သောအခါ
 title: "ဒီဘာဂင်"
 ---
 
@@ -151,5 +156,3 @@ Default ဖိုင်—
 - Raw stream logs များတွင် prompt အပြည့်အစုံ၊ tool output နှင့် user ဒေတာများ ပါဝင်နိုင်သည်။
 - Log များကို local တွင်သာ ထားရှိပြီး debugging ပြီးပါက ဖျက်ပါ။
 - Log များကို မျှဝေပါက secrets နှင့် PII များကို အရင် scrub လုပ်ပါ။
-
-

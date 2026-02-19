@@ -1,4 +1,8 @@
 ---
+summary: "เอกสารอ้างอิงCLIสำหรับ `openclaw nodes` (list/status/approve/invoke, camera/canvas/screen)"
+read_when:
+  - คุณกำลังจัดการโหนดที่จับคู่แล้ว(กล้อง, หน้าจอ, แคนวาส)
+  - คุณต้องอนุมัติคำขอหรือเรียกใช้คำสั่งของโหนด
 title: "nodes"
 ---
 
@@ -61,12 +65,10 @@ openclaw nodes run --agent main --node <id|name|ip> --raw "git status"
 แฟล็ก:
 
 - `--cwd <path>`: ไดเรกทอรีทำงาน
-- `--env <key=val>`: การแทนที่env(ระบุซ้ำได้)
+- `--env <key=val>`: การแทนที่env(ระบุซ้ำได้) หมายเหตุ: โฮสต์ node จะไม่สนใจการตั้งค่าแทนที่ `PATH` (และจะไม่ใช้ `tools.exec.pathPrepend` กับโฮสต์ node)
 - `--command-timeout <ms>`: ระยะหมดเวลาคำสั่ง
 - `--invoke-timeout <ms>`: ระยะหมดเวลาการเรียกใช้โหนด(ค่าเริ่มต้น `30000`)
 - `--needs-screen-recording`: ต้องการสิทธิ์การบันทึกหน้าจอ
 - `--raw <command>`: รันสตริงเชลล์(`/bin/sh -lc` หรือ `cmd.exe /c`)
 - `--agent <id>`: การอนุมัติ/รายการอนุญาตระดับเอเจนต์(ค่าเริ่มต้นตามเอเจนต์ที่กำหนดค่าไว้)
 - `--ask <off|on-miss|always>`, `--security <deny|allowlist|full>`: การแทนที่
-
-

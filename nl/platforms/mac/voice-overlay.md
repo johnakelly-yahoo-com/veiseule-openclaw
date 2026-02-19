@@ -1,4 +1,7 @@
 ---
+summary: "Levenscyclus van de spraakoverlay wanneer wake-woord en push-to-talk overlappen"
+read_when:
+  - Afstemmen van het gedrag van de spraakoverlay
 title: "Spraakoverlay"
 ---
 
@@ -33,7 +36,7 @@ Doelgroep: macOS-appbijdragers. Doel: de spraakoverlay voorspelbaar houden wanne
    - Bij `endCapture`: als getrimde tekst leeg is → sluiten; anders `performSend(session:)` (speelt het verzendgeluid één keer af, stuurt door, sluit).
    - Push-to-talk: geen vertraging; wake-woord: optionele vertraging voor automatisch verzenden.
    - Pas een korte cooldown toe op de wake-runtime nadat push-to-talk is beëindigd, zodat het wake-woord niet direct opnieuw triggert.
-5. **Logregistratie**
+5. **Logging**
    - De coordinator emitteert `.info`-logs in subsysteem `bot.molt`, categorieën `voicewake.overlay` en `voicewake.chime`.
    - Sleutelgebeurtenissen: `session_started`, `adopted_by_push_to_talk`, `partial`, `finalized`, `send`, `dismiss`, `cancel`, `cooldown`.
 
@@ -56,5 +59,3 @@ Doelgroep: macOS-appbijdragers. Doel: de spraakoverlay voorspelbaar houden wanne
 3. Refactor `VoicePushToTalk` om bestaande sessies te adopteren en bij loslaten `endCapture` aan te roepen; pas runtime-cooldown toe.
 4. Verbind `VoiceWakeOverlayController` met de publisher; verwijder directe aanroepen vanuit runtime/PTT.
 5. Voeg integratietests toe voor sessie-adoptie, cooldown en sluiten bij lege tekst.
-
-

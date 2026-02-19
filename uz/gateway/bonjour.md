@@ -1,4 +1,8 @@
 ---
+summary: "31. Bonjour/mDNS aniqlash + nosozliklarni tuzatish (Gateway mayaklari, mijozlar va keng tarqalgan nosozlik holatlari)"
+read_when:
+  - 32. macOS/iOS da Bonjour aniqlash muammolarini tuzatish
+  - 33. mDNS xizmat turlarini, TXT yozuvlarini yoki aniqlash UX’ini o‘zgartirish
 title: "34. Bonjour aniqlash"
 ---
 
@@ -23,10 +27,7 @@ title: "34. Bonjour aniqlash"
 ### 47. Gateway konfiguratsiyasi (tavsiya etiladi)
 
 ```json5
-48. {
-  gateway: { bind: "tailnet" }, // faqat tailnet (tavsiya etiladi)
-  discovery: { wideArea: { enabled: true } }, // keng hududli DNS‑SD e’lon qilishni yoqadi
-}
+50. openclaw dns setup --apply
 ```
 
 ### 49. Bir martalik DNS server sozlamasi (gateway xosti)
@@ -79,17 +80,24 @@ dig @<TAILNET_IPV4> -p 53 _openclaw-gw._tcp.openclaw.internal PTR +short
 
 22. Gateway UI jarayonlarini qulay qilish uchun kichik, maxfiy bo‘lmagan ishoralarni e’lon qiladi:
 
-- 23. `role=gateway`
-- 24. `displayName=<friendly name>`
-- 25. `lanHost=<hostname>.local`
-- 26. `gatewayPort=<port>` (Gateway WS + HTTP)
+- `role=gateway`
+- `displayName=<friendly name>`
+- `lanHost=<hostname>.local`
+- `gatewayPort=<port>` (Gateway WS + HTTP)
 - 27. `gatewayTls=1` (faqat TLS yoqilganida)
 - 28. `gatewayTlsSha256=<sha256>` (faqat TLS yoqilgan va fingerprint mavjud bo‘lganda)
-- 29. `canvasPort=<port>` (faqat canvas xosti yoqilganda; standart `18793`)
+- `canvasPort=<port>` (faqat canvas host yoqilganda; hozirda `gatewayPort` bilan bir xil)
 - 30. `sshPort=<port>` (o‘zgartirilmagan bo‘lsa, sukut bo‘yicha 22)
-- 31. `transport=gateway`
+- `transport=gateway`
 - 32. `cliPath=<path>` (ixtiyoriy; ishga tushiriladigan `openclaw` kirish nuqtasiga mutlaq yo‘l)
 - 33. `tailnetDns=<magicdns>` (Tailnet mavjud bo‘lganda ixtiyoriy ishora)
+
+Xavfsizlik bo‘yicha eslatmalar:
+
+- Bonjour/mDNS TXT yozuvlari **autentifikatsiyalanmagan**. Mijozlar TXT ni ishonchli marshrutlash manbasi sifatida qabul qilmasliklari kerak.
+- Mijozlar marshrutlashni aniqlangan xizmat endpointi (SRV + A/AAAA) orqali amalga oshirishlari kerak. `lanHost`, `tailnetDns`, `gatewayPort` va `gatewayTlsSha256` ni faqat maslahat sifatida qabul qiling.
+- TLS pinlash hech qachon e’lon qilingan `gatewayTlsSha256` ga oldin saqlangan pinni bekor qilishga ruxsat bermasligi kerak.
+- iOS/Android tugunlari discovery asosidagi to‘g‘ridan-to‘g‘ri ulanishlarni **faqat TLS** sifatida qabul qilishi va birinchi marta ko‘rilgan fingerprintga ishonishdan oldin foydalanuvchining aniq tasdig‘ini talab qilishi kerak.
 
 ## 34. macOS’da nosozliklarni tuzatish
 
@@ -115,32 +123,32 @@ dig @<TAILNET_IPV4> -p 53 _openclaw-gw._tcp.openclaw.internal PTR +short
 42. Gateway aylanuvchi log faylini yozadi (ishga tushishda quyidagicha chop etiladi:
     `gateway log file: ...`). 43. Ayniqsa `bonjour:` qatorlariga e’tibor bering:
 
-- 44. `bonjour: advertise failed ...`
+- `bonjour: advertise failed ...`
 - 45. \`bonjour: ...
   46. name conflict resolved`/`hostname conflict resolved`47.`bonjour: watchdog detected non-announced service ...\`
 - 48. iOS tugunida nosozliklarni tuzatish
 
-## 49. iOS tuguni `_openclaw-gw._tcp` ni aniqlash uchun `NWBrowser` dan foydalanadi.
+## Keng tarqalgan nosozlik holatlari
 
 50. Loglarni olish uchun:
 
-Jurnallarni yozib olish uchun:
+To capture logs:
 
-- Sozlamalar → Gateway → Kengaytirilgan → **Discovery Debug Logs**
-- Sozlamalar → Gateway → Kengaytirilgan → **Discovery Logs** → qayta takrorlang → **Copy**
+- Settings → Gateway → Advanced → **Discovery Debug Logs**
+- Settings → Gateway → Advanced → **Discovery Logs** → reproduce → **Copy**
 
-Jurnal brauzer holati o‘zgarishlari va natijalar to‘plamidagi o‘zgarishlarni o‘z ichiga oladi.
+The log includes browser state transitions and result‑set changes.
 
-## Keng tarqalgan nosozlik holatlari
+## Common failure modes
 
-- **Bonjour tarmoqlar o‘rtasida ishlamaydi**: Tailnet yoki SSH’dan foydalaning.
+- **Bonjour doesn’t cross networks**: use Tailnet or SSH.
 - `workdir`, `env`
-- **Uyqu rejimi / interfeys almashinuvi**: macOS vaqtincha mDNS natijalarini yo‘qotishi mumkin; qayta urinib ko‘ring.
-- **Browse ishlaydi, lekin resolve muvaffaqiyatsiz**: qurilma nomlarini sodda saqlang (emojilar yoki
-tinish belgilaridan saqlaning), so‘ng Gateway’ni qayta ishga tushiring. Xizmat nusxasi nomi quyidagidan kelib chiqadi
+- **Sleep / interface churn**: macOS may temporarily drop mDNS results; retry.
+- **Browse works but resolve fails**: keep machine names simple (avoid emojis or
+  punctuation), then restart the Gateway. The service instance name derives from
   the host name, so overly complex names can confuse some resolvers.
 
-## Escaped nusxa nomlari (`\032`)
+## Escaped instance names (`\032`)
 
 Bonjour/DNS‑SD often escapes bytes in service instance names as decimal `\DDD`
 sequences (e.g. spaces become `\032`).
@@ -160,5 +168,3 @@ sequences (e.g. spaces become `\032`).
 
 - Discovery policy and transport selection: [Discovery](/gateway/discovery)
 - Node pairing + approvals: [Gateway pairing](/gateway/pairing)
-
-

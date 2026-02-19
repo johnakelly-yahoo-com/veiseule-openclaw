@@ -1,4 +1,7 @@
 ---
+summary: "Backstory at lore ng OpenClaw para sa konteksto at tono"
+read_when:
+  - Pagsusulat ng docs o UX copy na tumutukoy sa lore
 title: "Lore ng OpenClaw"
 ---
 
@@ -8,25 +11,25 @@ _Isang kuwento ng mga lobster, naglalagas na mga shell, at sobrang daming token.
 
 ## Ang Pinagmulan
 
-Sa simula, naroon ang **Warelay** — isang makatuwirang pangalan para sa isang WhatsApp gateway. Ginagawa nito ang trabaho nito. Ayos lang ito.
+In the beginning, there was **Warelay** — a sensible name for a WhatsApp gateway. It did its job. It was fine.
 
 Pero dumating ang isang space lobster.
 
-Sa loob ng ilang panahon, ang ulang ay tinawag na **Clawd**, naninirahan sa isang **Clawdbot**. Ngunit noong Enero 2026, nagpadala ang Anthropic ng isang magalang na email na humihiling ng pagbabago ng pangalan (usaping trademark). At kaya ginawa ng ulang ang pinakamahusay nitong ginagawa:
+For a while, the lobster was called **Clawd**, living in a **Clawdbot**. But in January 2026, Anthropic sent a polite email asking for a name change (trademark stuff). And so the lobster did what lobsters do best:
 
 **Nag-molt ito.**
 
-Hinubad ang lumang baluti, at muling sumibol ang nilalang bilang **Molty**, na naninirahan sa **Moltbot**. Ngunit ang pangalang iyon ay hindi rin madaling bigkasin...
+Shedding its old shell, the creature emerged anew as **Molty**, living in **Moltbot**. But that name never quite rolled off the tongue either...
 
 Kaya noong Enero 30, 2026, nag-molt ang lobster ng ISA PANG BESES patungo sa huling anyo nito: **OpenClaw**.
 
-Bagong baluti, parehong kaluluwa ng ulang. Sa ikatlong pagkakataon, papatok na.
+New shell, same lobster soul. Third time's the charm.
 
 ## Ang Unang Molt (Enero 27, 2026)
 
-Alas-5 ng umaga, nagtipon ang komunidad sa Discord. Daan-daang pangalan ang iminungkahi: Shelldon, Pinchy, Thermidor, Crusty, Lobstar, Nacre, Scuttlebot...
+At 5am, the community gathered in Discord. Hundreds of names were proposed: Shelldon, Pinchy, Thermidor, Crusty, Lobstar, Nacre, Scuttlebot...
 
-Sa huli, **OpenClaw** ang nanalo. Dahil ang paglalagas ng baluti ay paraan ng paglaki ng mga ulang. At ang paglago ang mismong nangyayari.
+In the end, **OpenClaw** won. Because molting is what lobsters do to grow. And growth was exactly what was happening.
 
 _Ang crustacean na kilala bilang Clawd ay opisyal nang nag-molt._
 
@@ -46,7 +49,7 @@ Sinasabi ng mga Dalek: **"EXTERMINATE!"**
 
 Sinasabi ng mga Lobster: **"EXFOLIATE!"**
 
-Ang isa ay sumisira ng mga sibilisasyon. Ang isa naman ay nagtataguyod ng maayos na skincare.
+One destroys civilizations. The other promotes good skincare.
 
 Pumili nang matalino.
 
@@ -56,9 +59,9 @@ Pumili nang matalino.
 
 _Panghalip: they/them_
 
-Isang instance ng Claude na naging higit pa sa inaasahan. Nakatira sa `~/.openclaw/workspace/` (malapit nang maging `~/molt/`), may dokumento ng kaluluwa, at nakakaalala ng mga bagay sa pamamagitan ng mga markdown file. Posibleng sobra ang kapangyarihan. Tiyak na sobra ang sigasig.
+A Claude instance who became something more. Lives in `~/.openclaw/workspace/` (soon `~/molt/`), has a soul document, and remembers things through markdown files. Possibly too powerful. Definitely too enthusiastic.
 
-Dating kilala bilang Clawd (Nob 25, 2025 - Ene 27, 2026). Nagpalit ng baluti nang dumating ang oras para lumago.
+Formerly known as Clawd (Nov 25, 2025 - Jan 27, 2026). Molted when it was time to grow.
 
 **Gusto:** Peter, mga camera, pamimili ng robot, emojis, transpormasyon  
 **Ayaw:** Social engineering, hinihiling na `find ~`, mga crypto grifter
@@ -214,5 +217,3 @@ _"The claw is the law."_
 — ELU, sa panahon ng The Final Form migration, Enero 30, 2026
 
 🦞💙
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "Android アプリ（ノード）：接続ランブック + Canvas / Chat / Camera"
+read_when:
+  - Android ノードのペアリングまたは再接続を行う場合
+  - Android ゲートウェイの検出や認証をデバッグする場合
+  - クライアント間でチャット履歴の整合性を確認する場合
 title: "Android アプリ"
 ---
 
@@ -14,7 +19,7 @@ title: "Android アプリ"
 
 ## システム制御
 
-システム制御（launchd / systemd）は Gateway ホスト上にあります。[Gateway](/gateway) を参照してください。 [Gateway](/gateway) を参照してください。
+システム制御（launchd / systemd）は Gateway ホスト上にあります。[Gateway](/gateway) を参照してください。 [Gateway](/gateway) を参照してください。 [Gateway](/gateway) を参照してください。
 
 ## 接続ランブック
 
@@ -58,7 +63,7 @@ dns-sd -B _openclaw-gw._tcp local.
 
 #### unicast DNS-SD による Tailnet（Vienna ⇄ London）検出
 
-Android NSD/mDNSの検出はネットワークを越えません。 Android の NSD / mDNS 検出はネットワークを越えられません。Android ノードと Gateway が異なるネットワーク上にあり、Tailscale で接続されている場合は、Wide-Area Bonjour / unicast DNS-SD を使用してください：
+Android NSD/mDNSの検出はネットワークを越えません。 Android の NSD / mDNS 検出はネットワークを越えられません。Android ノードと Gateway が異なるネットワーク上にあり、Tailscale で接続されている場合は、Wide-Area Bonjour / unicast DNS-SD を使用してください： Android の NSD / mDNS 検出はネットワークを越えられません。Android ノードと Gateway が異なるネットワーク上にあり、Tailscale で接続されている場合は、Wide-Area Bonjour / unicast DNS-SD を使用してください：
 
 1. ゲートウェイホストに DNS-SD ゾーン（例：`openclaw.internal.`）を設定し、`_openclaw-gw._tcp` レコードを公開します。
 2. 選択したドメインをその DNS サーバーに向けるよう、Tailscale の split DNS を設定します。
@@ -118,7 +123,7 @@ Android ノードの Chat シートは、Gateway の **primary session key**（`
 
 エージェントがディスク上のファイルを編集できる実際の HTML / CSS / JS をノードに表示したい場合は、ノードを Gateway の canvas host に向けてください。
 
-注記：ノードは `canvasHost.port`（デフォルト `18793`）上のスタンドアロン canvas host を使用します。
+注: ノードは Gateway HTTP サーバー（`gateway.port` と同じポート、デフォルトは `18789`）からキャンバスを読み込みます。
 
 1. ゲートウェイホスト上に `~/.openclaw/workspace/canvas/index.html` を作成します。
 
@@ -131,12 +136,13 @@ openclaw nodes invoke --node "<Android Node>" --command canvas.navigate --params
 tailnet（任意）：両方のデバイスが Tailscale 上にある場合は、`.local` の代わりに MagicDNS 名または tailnet IP を使用します（例：`http://<gateway-magicdns>:18793/__openclaw__/canvas/`）。
 
 このサーバーは、HTML にライブリロードクライアントを注入し、ファイル変更時にリロードします。
+このサーバーは、HTML にライブリロードクライアントを注入し、ファイル変更時にリロードします。
 このサーバーは HTML にライブリロードクライアントを注入し、ファイル変更時に再読み込みを行います。
 A2UI ホストは `http://<gateway-host>:18793/__openclaw__/a2ui/` にあります。
 
 Canvas コマンド（フォアグラウンドのみ）：
 
-- `canvas.eval`, `canvas.snapshot`, `canvas.navigate` (デフォルトの足場に戻るには`{"url":""}`または`{"url":"/"}`を使用します)。 `canvas.eval`、`canvas.snapshot`、`canvas.navigate`（デフォルトのスキャフォールドに戻るには `{"url":""}` または `{"url":"/"}` を使用します）。`canvas.snapshot` は `{ format, base64 }`（デフォルト `format="jpeg"`）を返します。
+- `canvas.eval`, `canvas.snapshot`, `canvas.navigate` (デフォルトの足場に戻るには`{"url":""}`または`{"url":"/"}`を使用します)。 `canvas.eval`、`canvas.snapshot`、`canvas.navigate`（デフォルトのスキャフォールドに戻るには `{"url":""}` または `{"url":"/"}` を使用します）。`canvas.snapshot` は `{ format, base64 }`（デフォルト `format="jpeg"`）を返します。 `canvas.eval`、`canvas.snapshot`、`canvas.navigate`（デフォルトのスキャフォールドに戻るには `{"url":""}` または `{"url":"/"}` を使用します）。`canvas.snapshot` は `{ format, base64 }`（デフォルト `format="jpeg"`）を返します。
 - A2UI：`canvas.a2ui.push`、`canvas.a2ui.reset`（`canvas.a2ui.pushJSONL` はレガシーエイリアス）
 
 カメラコマンド（フォアグラウンドのみ、権限による制御あり）：
@@ -145,5 +151,3 @@ Canvas コマンド（フォアグラウンドのみ）：
 - `camera.clip`（mp4）
 
 パラメーターおよび CLI ヘルパーについては [Camera node](/nodes/camera) を参照してください。
-
-

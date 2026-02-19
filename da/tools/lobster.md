@@ -1,6 +1,11 @@
 ---
 title: Lobster
-description: Typet workflow-runtime til OpenClaw — sammensættelige pipelines med godkendelsesporte.---
+summary: "Typet workflow-runtime til OpenClaw med genoptagelige godkendelsesporte."
+description: Typet workflow-runtime til OpenClaw — sammensættelige pipelines med godkendelsesporte.
+read_when:
+  - Du ønsker deterministiske flertrins-workflows med eksplicitte godkendelser
+  - Du har brug for at genoptage et workflow uden at genkøre tidligere trin
+---
 
 # Lobster
 
@@ -10,7 +15,7 @@ Lobster er en workflow-shell, der lader OpenClaw køre flertrins værktøjssekve
 
 Din assistent kan bygge de værktøjer, der styrer sig selv. Bed om en arbejdsgang, og 30 minutter senere har du en CLI plus rørledninger, der kører som et opkald. Hummer er det manglende stykke: deterministiske rørledninger, eksplicitte godkendelser og genoptagelsestilstand.
 
-## Hvorfor
+## Why
 
 I dag kræver komplekse arbejdsgange mange back-og-tilbage værktøjskald. Hvert opkald omkostninger tokens, og LLM har til at orkestrere hvert trin. Hummer flytter at orkestration ind i en indtastet driftstid:
 
@@ -18,7 +23,7 @@ I dag kræver komplekse arbejdsgange mange back-og-tilbage værktøjskald. Hvert
 - **Godkendelser indbygget**: Sideeffekter (send e-mail, post kommentar) stopper workflowet, indtil det eksplicit godkendes.
 - **Genoptagelig**: Stoppede workflows returnerer et token; godkend og genoptag uden at genkøre det hele.
 
-## Hvorfor en DSL i stedet for almindelige programmer?
+## Why a DSL instead of plain programs?
 
 Hummer er forsætligt lille. Målet er ikke "et nyt sprog", det er en forudsigelig, AI-venlig rørledning spec med førsteklasses godkendelser og genoptage tokens.
 
@@ -28,12 +33,12 @@ Hummer er forsætligt lille. Målet er ikke "et nyt sprog", det er en forudsigel
 - **Sikkerhedspolitik indbygget**: Timeouts, outputlofter, sandbox-tjek og tilladelseslister håndhæves af runtimen, ikke af hvert script.
 - \*\* Stadig programmerbar \*\*: Hvert trin kan kalde enhver CLI eller script. Hvis du vil have JS/TS, generer `.lobster` filer fra kode.
 
-## Sådan fungerer det
+## How it works
 
 OpenClaw lancerer den lokale `lobster` CLI i \*\* værktøjstilstand\*\* og analyserer en JSON konvolut fra stdout.
 Hvis rørledningen holder pause for godkendelse, returnerer værktøjet et et 'resumeToken', så du kan fortsætte senere.
 
-## Mønster: lille CLI + JSON-pipes + godkendelser
+## Pattern: small CLI + JSON pipes + approvals
 
 Byg små kommandoer, der taler JSON, derefter kæde dem ind i en enkelt Hummer opkald. (Eksempel kommandonavne nedenfor — byt i din egen.)
 
@@ -70,7 +75,7 @@ gog.gmail.search --query 'newer_than:1d' \
   | openclaw.invoke --tool message --action send --each --item-key message --args-json '{"provider":"telegram","to":"..."}'
 ```
 
-## Kun JSON LLM-trin (llm-task)
+## JSON-only LLM steps (llm-task)
 
 For arbejdsgange, der har brug for et **struktureret LLM trin**, skal du aktivere det valgfrie
 `llm-task` plugin-værktøj og kalde det fra Lobster. Dette holder arbejdsgangen
@@ -146,12 +151,12 @@ Noter:
 - `stdin: $step.stdout` og `stdin: $step.json` videresender output fra et tidligere trin.
 - `condition` (eller `when`) kan gate trin baseret på `$step.approved`.
 
-## Installér Lobster
+## Install Lobster
 
 Installer Hummer CLI på den **samme vært**, der kører OpenClaw Gateway (se [Hummer repo](https://github.com/openclaw/lobster)), og sørg for, at `hummer` er på `PATH`.
 Hvis du ønsker at bruge en brugerdefineret binær placering, passere en **absolute** `lobsterPath` i værktøjskaldet.
 
-## Aktivér værktøjet
+## Enable the tool
 
 Lobster er et **valgfrit** plugin-værktøj (ikke aktiveret som standard).
 
@@ -335,5 +340,3 @@ Et offentligt eksempel: en “anden hjerne” CLI + Hummer rørledninger, der st
 
 - Tråd: [https://x.com/plattenschieber/status/2014508656335770033](https://x.com/plattenschieber/status/2014508656335770033)
 - Repo: [https://github.com/bloomedai/brain-cli](https://github.com/bloomedai/brain-cli)
-
-

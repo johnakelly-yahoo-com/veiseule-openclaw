@@ -1,6 +1,6 @@
 ---
 title: Refactorisation du mirroring de session sortante (Issue #1520) #1520)
-description: "Suivre les notes, décisions, tests et points ouverts liés à la refactorisation de la mise en miroir des sessions sortantes."
+description: Suivre les notes, décisions, tests et points ouverts liés à la refactorisation de la mise en miroir des sessions sortantes.
 ---
 
 # Refactorisation du mirroring de session sortante (Issue #1520)
@@ -83,5 +83,3 @@ Les envois sortants étaient dupliqués dans la session agent _courante_ (clé d
   - `src/infra/outbound/outbound-session.test.ts`
   - `src/agents/tools/message-tool.test.ts`
   - `src/gateway/server-methods/send.test.ts`
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "프로바이더 + CLI 폴백을 통한 인바운드 이미지/오디오/비디오 이해 (선택 사항)"
+read_when:
+  - 미디어 이해 설계 또는 리팩터링 시
+  - 인바운드 오디오/비디오/이미지 전처리 튜닝 시
 title: "미디어 이해"
 ---
 
@@ -368,5 +372,3 @@ CLI 항목의 경우, 예상치 못한 매칭을 피하기 위해 **`capabilitie
 
 - [Configuration](/gateway/configuration)
 - [Image & Media Support](/nodes/images)
-
-

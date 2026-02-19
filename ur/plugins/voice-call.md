@@ -1,10 +1,14 @@
 ---
+summary: "وائس کال پلگ اِن: Twilio/Telnyx/Plivo کے ذریعے آؤٹ باؤنڈ + اِن باؤنڈ کالز (پلگ اِن انسٹال + کنفیگ + CLI)"
+read_when:
+  - آپ OpenClaw سے آؤٹ باؤنڈ وائس کال کرنا چاہتے ہیں
+  - آپ voice-call پلگ اِن کو کنفیگر یا ڈیولپ کر رہے ہیں
 title: "وائس کال پلگ اِن"
 ---
 
 # وائس کال (پلگ اِن)
 
-OpenClaw کے لیے پلگ اِن کے ذریعے وائس کالز۔ آؤٹ باؤنڈ نوٹیفیکیشنز کی حمایت کرتا ہے اور
+Voice calls for OpenClaw via a plugin. Supports outbound notifications and
 multi-turn conversations with inbound policies.
 
 موجودہ فراہم کنندگان:
@@ -109,6 +113,7 @@ cd ./extensions/voice-call && pnpm install
 - Plivo کے لیے **عوامی طور پر قابلِ رسائی** ویب ہوک URL درکار ہے۔
 - `mock` ایک لوکل ڈیولپمنٹ فراہم کنندہ ہے (کوئی نیٹ ورک کالز نہیں)۔
 - `skipSignatureVerification` صرف لوکل ٹیسٹنگ کے لیے ہے۔
+- اگر آپ ngrok فری ٹیر استعمال کرتے ہیں تو `publicUrl` کو عین ngrok URL پر سیٹ کریں؛ دستخط کی توثیق ہمیشہ نافذ رہتی ہے۔
 - اگر آپ ngrok فری ٹیر استعمال کرتے ہیں تو `publicUrl` کو عین ngrok URL پر سیٹ کریں؛ دستخط کی توثیق ہمیشہ نافذ رہتی ہے۔
 - `tunnel.allowNgrokFreeTierLoopbackBypass: true` allows Twilio webhooks with invalid signatures **only** when `tunnel.provider="ngrok"` and `serve.bind` is loopback (ngrok local agent). Use for local dev only.
 - Ngrok free tier URLs can change or add interstitial behavior; if `publicUrl` drifts, Twilio signatures will fail. For production, prefer a stable domain or Tailscale funnel.
@@ -277,5 +282,3 @@ openclaw voicecall expose --mode funnel
 - `voicecall.speak` (`callId`, `message`)
 - `voicecall.end` (`callId`)
 - `voicecall.status` (`callId`)
-
-

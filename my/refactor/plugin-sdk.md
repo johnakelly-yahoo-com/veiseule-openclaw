@@ -1,4 +1,8 @@
 ---
+summary: "အစီအစဉ် — မက်ဆေ့ချ်ချန်နယ်ချိတ်ဆက်မှုအားလုံးအတွက် သန့်ရှင်းသော plugin SDK + runtime တစ်ခုတည်း"
+read_when:
+  - Plugin ဗိသုကာကို သတ်မှတ်ခြင်း သို့မဟုတ် ပြန်လည်ဖွဲ့စည်းခြင်း ပြုလုပ်နေချိန်
+  - ချန်နယ်ချိတ်ဆက်မှုများကို plugin SDK/runtime သို့ ပြောင်းရွှေ့နေချိန်
 title: "Plugin SDK ပြန်လည်ဖွဲ့စည်းခြင်း"
 ---
 
@@ -208,5 +212,3 @@ title: "Plugin SDK ပြန်လည်ဖွဲ့စည်းခြင်း"
 - အပြင်ဘက် plugin များကို core source access မရှိဘဲ ဖန်တီး၊ အပ်ဒိတ် ပြုလုပ်နိုင်ရမည်။
 
 ဆက်စပ်စာရွက်စာတမ်းများ: [Plugins](/tools/plugin), [Channels](/channels/index), [Configuration](/gateway/configuration)
-
-

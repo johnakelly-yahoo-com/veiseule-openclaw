@@ -1,4 +1,8 @@
 ---
+summary: "Rozumienie przychodzących obrazów/dźwięku/wideo (opcjonalne) z użyciem dostawcy oraz mechanizmów awaryjnych CLI"
+read_when:
+  - Projektowanie lub refaktoryzacja rozumienia mediów
+  - Strojenie przetwarzania wstępnego przychodzących nagrań audio/wideo/obrazów
 title: "Rozumienie mediów"
 ---
 
@@ -174,7 +178,7 @@ Jeśli pominiesz `capabilities`, wpis kwalifikuje się do listy, w której się 
 | Możliwość | Integracja dostawcy                              | Uwagi                                                                               |
 | --------- | ------------------------------------------------ | ----------------------------------------------------------------------------------- |
 | Obraz     | OpenAI / Anthropic / Google / inne przez `pi-ai` | Każdy model obsługujący obrazy w rejestrze działa.                  |
-| Dźwięk     | OpenAI, Groq, Deepgram, Google                   | Transkrypcja dostawcy (Whisper/Deepgram/Gemini). |
+| Dźwięk    | OpenAI, Groq, Deepgram, Google                   | Transkrypcja dostawcy (Whisper/Deepgram/Gemini). |
 | Wideo     | Google (Gemini API)           | Rozumienie wideo przez dostawcę.                                    |
 
 ## Zalecani dostawcy
@@ -373,5 +377,3 @@ Pokazuje to wyniki per‑możliwość oraz wybranego dostawcę/model, gdy ma to 
 
 - [Konfiguracja](/gateway/configuration)
 - [Obsługa obrazów i mediów](/nodes/images)
-
-

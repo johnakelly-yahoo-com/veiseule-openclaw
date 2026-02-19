@@ -1,4 +1,9 @@
 ---
+summary: "แอปAndroid(โหนด):คู่มือการเชื่อมต่อ+Canvas/แชต/กล้อง"
+read_when:
+  - การจับคู่หรือเชื่อมต่อโหนดAndroidใหม่
+  - การดีบักการค้นหาGatewayหรือการยืนยันตัวตนบนAndroid
+  - การตรวจสอบความสอดคล้องของประวัติแชตข้ามไคลเอนต์
 title: "แอปAndroid"
 ---
 
@@ -14,7 +19,7 @@ title: "แอปAndroid"
 
 ## การควบคุมระบบ
 
-การควบคุมระบบ(launchd/systemd)อยู่บนโฮสต์Gateway ดูที่[Gateway](/gateway) ดูที่ [Gateway](/gateway)
+การควบคุมระบบ(launchd/systemd)อยู่บนโฮสต์Gateway ดูที่[Gateway](/gateway) ดูที่ [Gateway](/gateway) ดูที่ [Gateway](/gateway)
 
 ## คู่มือการเชื่อมต่อ
 
@@ -58,7 +63,7 @@ dns-sd -B _openclaw-gw._tcp local.
 
 #### การค้นหาแบบTailnet(Vienna⇄London)ผ่านunicast DNS-SD
 
-การค้นหา Android NSD/mDNS จะไม่ข้ามเครือข่าย การค้นหาAndroid NSD/mDNSไม่ข้ามเครือข่าย หากโหนดAndroidและGatewayอยู่คนละเครือข่ายแต่เชื่อมต่อผ่านTailscale ให้ใช้Wide-Area Bonjour/unicast DNS-SDแทน:
+การค้นหา Android NSD/mDNS จะไม่ข้ามเครือข่าย การค้นหา Android NSD/mDNS จะไม่ข้ามเครือข่าย การค้นหาAndroid NSD/mDNSไม่ข้ามเครือข่าย หากโหนดAndroidและGatewayอยู่คนละเครือข่ายแต่เชื่อมต่อผ่านTailscale ให้ใช้Wide-Area Bonjour/unicast DNS-SDแทน:
 
 1. ตั้งค่าDNS-SD zone(ตัวอย่าง`openclaw.internal.`)บนโฮสต์Gatewayและเผยแพร่เรคอร์ด`_openclaw-gw._tcp`
 2. กำหนดค่าTailscale split DNSสำหรับโดเมนที่เลือกให้ชี้ไปยังDNSเซิร์ฟเวอร์นั้น
@@ -133,10 +138,11 @@ Tailnet(ไม่บังคับ): หากอุปกรณ์ทั้ง
 เซิร์ฟเวอร์นี้จะแทรกไคลเอนต์live-reloadลงในHTMLและรีโหลดเมื่อไฟล์เปลี่ยนแปลง
 A2UI hostอยู่ที่`http://<gateway-host>:18793/__openclaw__/a2ui/`
 โฮสต์ A2UI อยู่ที่ `http://<gateway-host>:18793/__openclaw__/a2ui/`
+โฮสต์ A2UI อยู่ที่ `http://<gateway-host>:18789/__openclaw__/a2ui/`
 
 คำสั่งCanvas(เฉพาะforeground):
 
-- `canvas.eval`, `canvas.snapshot`, `canvas.navigate`(ใช้`{"url":""}`หรือ`{"url":"/"}`เพื่อกลับสู่scaffoldเริ่มต้น)`canvas.snapshot`คืนค่า`{ format, base64 }`(ค่าเริ่มต้น`format="jpeg"`) `canvas.snapshot` จะคืนค่า `{ format, base64 }` (ค่าเริ่มต้น `format="jpeg"`)
+- `canvas.eval`, `canvas.snapshot`, `canvas.navigate`(ใช้`{"url":""}`หรือ`{"url":"/"}`เพื่อกลับสู่scaffoldเริ่มต้น)`canvas.snapshot`คืนค่า`{ format, base64 }`(ค่าเริ่มต้น`format="jpeg"`) `canvas.eval`, `canvas.snapshot`, `canvas.navigate`(ใช้`{"url":""}`หรือ`{"url":"/"}`เพื่อกลับสู่scaffoldเริ่มต้น)`canvas.snapshot`คืนค่า`{ format, base64 }`(ค่าเริ่มต้น`format="jpeg"`) `canvas.snapshot` จะคืนค่า `{ format, base64 }` (ค่าเริ่มต้น `format="jpeg"`)
 - A2UI: `canvas.a2ui.push`, `canvas.a2ui.reset`(`canvas.a2ui.pushJSONL`เป็นชื่อแทนแบบlegacy)
 
 คำสั่งกล้อง(เฉพาะforeground;ต้องมีสิทธิ์):
@@ -145,5 +151,3 @@ A2UI hostอยู่ที่`http://<gateway-host>:18793/__openclaw__/a2ui/`
 - `camera.clip`(mp4)
 
 ดู[Camera node](/nodes/camera)สำหรับพารามิเตอร์และตัวช่วยCLI
-
-

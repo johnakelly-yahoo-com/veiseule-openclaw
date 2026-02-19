@@ -1,4 +1,8 @@
 ---
+summary: "Flags de diagnóstico para logs de depuração direcionados"
+read_when:
+  - Você precisa de logs de depuração direcionados sem aumentar os níveis globais de logging
+  - Você precisa capturar logs específicos de subsistemas para suporte
 title: "Flags de Diagnóstico"
 ---
 
@@ -85,5 +89,3 @@ Para gateways remotos, você também pode usar `openclaw logs --follow` (veja [/
 - Se `logging.level` estiver definido mais alto que `warn`, esses logs podem ser suprimidos. O padrão `info` é adequado.
 - É seguro deixar as flags habilitadas; elas afetam apenas o volume de logs do subsistema específico.
 - Use [/logging](/logging) para alterar destinos de log, níveis e redação.
-
-

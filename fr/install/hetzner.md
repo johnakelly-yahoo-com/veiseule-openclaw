@@ -1,4 +1,10 @@
 ---
+summary: "Exécuter OpenClaw Gateway 24/7 sur un VPS Hetzner économique (Docker) avec un état durable et des binaires intégrés"
+read_when:
+  - Vous voulez OpenClaw en fonctionnement 24/7 sur un VPS cloud (pas votre ordinateur portable)
+  - Vous voulez une Gateway (passerelle) de niveau production, toujours active, sur votre propre VPS
+  - Vous voulez un contrôle total sur la persistance, les binaires et le comportement au redémarrage
+  - Vous exécutez OpenClaw dans Docker sur Hetzner ou un fournisseur similaire
 title: "Hetzner"
 ---
 
@@ -324,4 +330,23 @@ Tout l’état de longue durée doit survivre aux redémarrages, reconstructions
 | Paquets OS                           | Système de fichiers du conteneur  | Image Docker               | Ne pas installer à l’exécution                      |
 | Conteneur Docker                     | Éphémère                          | Redémarrage                | Sûr à détruire                                      |
 
+---
 
+## Infrastructure as Code (Terraform)
+
+Pour les équipes privilégiant les workflows infrastructure-as-code, une configuration Terraform maintenue par la communauté fournit :
+
+- Configuration Terraform modulaire avec gestion d’état distant
+- Provisioning automatisé via cloud-init
+- Scripts de déploiement (bootstrap, deploy, backup/restore)
+- Renforcement de la sécurité (pare-feu, UFW, accès SSH uniquement)
+- Configuration de tunnel SSH pour l’accès au gateway
+
+**Dépôts :**
+
+- Infrastructure : [openclaw-terraform-hetzner](https://github.com/andreesg/openclaw-terraform-hetzner)
+- Configuration Docker : [openclaw-docker-config](https://github.com/andreesg/openclaw-docker-config)
+
+Cette approche complète la configuration Docker ci-dessus avec des déploiements reproductibles, une infrastructure versionnée et une reprise après sinistre automatisée.
+
+> **Remarque :** Maintenu par la communauté. Pour les problèmes ou les contributions, consultez les liens vers le dépôt ci-dessus.

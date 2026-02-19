@@ -1,4 +1,7 @@
 ---
+summary: "Tài liệu tham khảo CLI cho `openclaw config` (lấy/đặt/bỏ đặt giá trị cấu hình)"
+read_when:
+  - Bạn muốn đọc hoặc chỉnh sửa cấu hình theo cách không tương tác
 title: "config"
 ---
 
@@ -44,5 +47,3 @@ openclaw config set channels.whatsapp.groups '["*"]' --json
 ```
 
 Khởi động lại gateway (cổng kết nối) sau khi chỉnh sửa.
-
-

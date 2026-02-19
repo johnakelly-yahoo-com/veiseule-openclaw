@@ -1,4 +1,8 @@
 ---
+summary: "Установите OpenClaw и запустите первый чат за считанные минуты."
+read_when:
+  - Первоначальная настройка с нуля
+  - Нужен самый быстрый путь к работающему чату
 title: "Начало работы"
 ---
 
@@ -30,6 +34,10 @@ title: "Начало работы"
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash
         ```
+      <img
+  src="/assets/install-script.svg"
+  alt="Install Script Process"
+  className="rounded-lg"></img>
       
 </Tab>
       <Tab title="Windows (PowerShell)">
@@ -41,12 +49,14 @@ title: "Начало работы"
     
 </Tabs>
 
+    ````
     ```
     <Note>
     Другие способы установки и требования: [Установка](/install).
     
 </Note>
     ```
+    ````
 
   
 </Step>
@@ -55,21 +65,25 @@ title: "Начало работы"
     openclaw onboard --install-daemon
     ```
 
+    ````
     ```
     Мастер настраивает аутентификацию, параметры шлюза Gateway и необязательные каналы.
     Подробности см. в разделе [Мастер первичной настройки](/start/wizard).
     ```
+    ````
 
   
 </Step>
   <Step title="Check the Gateway">
     Если вы установили сервис, он уже должен быть запущен:
 
+    `````
     ````
     ```bash
     openclaw gateway status
     ```
     ````
+    `````
 
   
 </Step>
@@ -91,22 +105,26 @@ title: "Начало работы"
   <Accordion title="Run the Gateway in the foreground">
     Полезно для быстрых тестов или устранения неполадок.
 
+    `````
     ````
     ```bash
     openclaw gateway --port 18789
     ```
     ````
+    `````
 
   
 </Accordion>
   <Accordion title="Send a test message">
     Требуется настроенный канал.
 
+    `````
     ````
     ```bash
     openclaw message send --target +15555550123 --message "Hello from OpenClaw"
     ```
     ````
+    `````
 
   
 </Accordion>
@@ -146,5 +164,3 @@ title: "Начало работы"
 - Безопасность личных сообщений и подтверждения: [Сопряжение](/channels/pairing)
 - Подключение дополнительных каналов: [Каналы](/channels)
 - Продвинутые сценарии и сборка из исходников: [Настройка](/start/setup)
-
-

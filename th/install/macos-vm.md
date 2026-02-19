@@ -1,4 +1,10 @@
 ---
+summary: "รันOpenClawในmacOS VMแบบsandbox(ภายในเครื่องหรือโฮสต์)เมื่อคุณต้องการการแยกสภาพแวดล้อมหรือiMessage"
+read_when:
+  - คุณต้องการแยกOpenClawออกจากสภาพแวดล้อมmacOSหลักของคุณ
+  - คุณต้องการการเชื่อมต่อiMessage(BlueBubbles)ภายในsandbox
+  - คุณต้องการสภาพแวดล้อมmacOSที่รีเซ็ตได้และสามารถโคลนได้
+  - คุณต้องการเปรียบเทียบตัวเลือกmacOS VMแบบภายในเครื่องกับแบบโฮสต์
 title: "macOS VMs"
 ---
 
@@ -6,9 +12,9 @@ title: "macOS VMs"
 
 ## ค่าเริ่มต้นที่แนะนำ(ผู้ใช้ส่วนใหญ่)
 
-- **Linux VPSขนาดเล็ก** สำหรับGatewayที่ทำงานตลอดเวลาและต้นทุนต่ำ ดูที่ [VPS hosting](/vps) ดู [VPS hosting](/vps)
-- **ฮาร์ดแวร์เฉพาะ** (Mac miniหรือกล่องLinux) หากคุณต้องการการควบคุมเต็มรูปแบบและ **IPที่อยู่อาศัย** สำหรับการทำงานอัตโนมัติผ่านเบราว์เซอร์ หลายเว็บไซต์บล็อกIPของดาต้าเซ็นเตอร์ ดังนั้นการท่องเว็บจากเครื่องในพื้นที่มักได้ผลดีกว่า หลายเว็บไซต์บล็อก IP ของดาต้าเซ็นเตอร์ ดังนั้นการท่องเว็บจากเครื่องโลคัลมักจะได้ผลดีกว่า
-- **ไฮบริด:** เก็บGatewayไว้บนVPSราคาถูก และเชื่อมต่อMacของคุณเป็น **โหนด** เมื่อคุณต้องการการทำงานอัตโนมัติของเบราว์เซอร์/UI ดู [Nodes](/nodes) และ [Gateway remote](/gateway/remote) ดู [Nodes](/nodes) และ [Gateway remote](/gateway/remote)
+- **Linux VPSขนาดเล็ก** สำหรับGatewayที่ทำงานตลอดเวลาและต้นทุนต่ำ ดูที่ [VPS hosting](/vps) ดู [VPS hosting](/vps) ดู [VPS hosting](/vps)
+- **ฮาร์ดแวร์เฉพาะ** (Mac miniหรือกล่องLinux) หากคุณต้องการการควบคุมเต็มรูปแบบและ **IPที่อยู่อาศัย** สำหรับการทำงานอัตโนมัติผ่านเบราว์เซอร์ หลายเว็บไซต์บล็อกIPของดาต้าเซ็นเตอร์ ดังนั้นการท่องเว็บจากเครื่องในพื้นที่มักได้ผลดีกว่า หลายเว็บไซต์บล็อก IP ของดาต้าเซ็นเตอร์ ดังนั้นการท่องเว็บจากเครื่องโลคัลมักจะได้ผลดีกว่า หลายเว็บไซต์บล็อก IP ของดาต้าเซ็นเตอร์ ดังนั้นการท่องเว็บจากเครื่องโลคัลมักจะได้ผลดีกว่า
+- **ไฮบริด:** เก็บGatewayไว้บนVPSราคาถูก และเชื่อมต่อMacของคุณเป็น **โหนด** เมื่อคุณต้องการการทำงานอัตโนมัติของเบราว์เซอร์/UI ดู [Nodes](/nodes) และ [Gateway remote](/gateway/remote) ดู [Nodes](/nodes) และ [Gateway remote](/gateway/remote) ดู [Nodes](/nodes) และ [Gateway remote](/gateway/remote)
 
 ใช้macOS VMเมื่อคุณต้องการความสามารถเฉพาะของmacOS(iMessage/BlueBubbles)หรืออยากได้การแยกสภาพแวดล้อมอย่างเข้มงวดจากMacที่ใช้ประจำวันของคุณ
 
@@ -84,7 +90,7 @@ lume --version
 lume create openclaw --os macos --ipsw latest
 ```
 
-ขั้นตอนนี้จะดาวน์โหลดmacOSและสร้างVM หน้าต่างVNCจะเปิดขึ้นโดยอัตโนมัติ หน้าต่าง VNC จะเปิดขึ้นโดยอัตโนมัติ
+ขั้นตอนนี้จะดาวน์โหลดmacOSและสร้างVM หน้าต่างVNCจะเปิดขึ้นโดยอัตโนมัติ ขั้นตอนนี้จะดาวน์โหลดmacOSและสร้างVM หน้าต่างVNCจะเปิดขึ้นโดยอัตโนมัติ หน้าต่าง VNC จะเปิดขึ้นโดยอัตโนมัติ
 
 หมายเหตุ: การดาวน์โหลดอาจใช้เวลาสักครู่ขึ้นอยู่กับการเชื่อมต่อของคุณ
 
@@ -192,7 +198,7 @@ ssh youruser@192.168.64.X "openclaw status"
 
 ## โบนัส: การเชื่อมต่อiMessage
 
-นี่คือฟีเจอร์เด็ดของการรันบน macOS นี่คือฟีเจอร์เด่นของการรันบนmacOS ใช้ [BlueBubbles](https://bluebubbles.app) เพื่อเพิ่มiMessageให้กับOpenClaw
+นี่คือฟีเจอร์เด็ดของการรันบน macOS นี่คือฟีเจอร์เด็ดของการรันบน macOS นี่คือฟีเจอร์เด่นของการรันบนmacOS ใช้ [BlueBubbles](https://bluebubbles.app) เพื่อเพิ่มiMessageให้กับOpenClaw
 
 ภายในVM:
 
@@ -215,7 +221,7 @@ ssh youruser@192.168.64.X "openclaw status"
 }
 ```
 
-รีสตาร์ทGateway（เกตเวย์） รีสตาร์ทGateway ตอนนี้เอเจนต์ของคุณสามารถส่งและรับiMessagesได้แล้ว
+รีสตาร์ทGateway（เกตเวย์） รีสตาร์ทGateway（เกตเวย์） รีสตาร์ทGateway ตอนนี้เอเจนต์ของคุณสามารถส่งและรับiMessagesได้แล้ว
 
 รายละเอียดการตั้งค่าแบบเต็ม: [BlueBubbles channel](/channels/bluebubbles)
 
@@ -248,7 +254,7 @@ lume run openclaw --no-display
 - ปิดโหมดสลีปในSystem Settings → Energy Saver
 - ใช้ `caffeinate` หากจำเป็น
 
-สำหรับการทำงานตลอดเวลาจริงๆ พิจารณาใช้Mac miniเฉพาะหรือVPSขนาดเล็ก ดู [VPS hosting](/vps) ดู [VPS hosting](/vps)
+สำหรับการทำงานตลอดเวลาจริงๆ พิจารณาใช้Mac miniเฉพาะหรือVPSขนาดเล็ก ดู [VPS hosting](/vps) ดู [VPS hosting](/vps) ดู [VPS hosting](/vps)
 
 ---
 
@@ -273,5 +279,3 @@ lume run openclaw --no-display
 - [Lume CLI Reference](https://cua.ai/docs/lume/reference/cli-reference)
 - [Unattended VM Setup](https://cua.ai/docs/lume/guide/fundamentals/unattended-setup) (ขั้นสูง)
 - [Docker Sandboxing](/install/docker) (แนวทางการแยกสภาพแวดล้อมทางเลือก)
-
-

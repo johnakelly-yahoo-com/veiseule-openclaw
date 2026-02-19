@@ -1,4 +1,9 @@
 ---
+summary: "Strikt konfigvalidering + migreringar endast via doctor"
+read_when:
+  - Utformning eller implementering av beteende för konfigvalidering
+  - Arbete med konfigmigreringar eller doctor-arbetsflöden
+  - Hantering av plugin-konfigscheman eller spärrar för plugininläsning
 title: "Strikt konfigvalidering"
 ---
 
@@ -86,5 +91,3 @@ Allt annat måste vara svårt att misslyckas med: ”Konfigurera ogiltigt. Kör 
 - Plugin saknar schema → plugininläsning blockeras med tydligt fel.
 - Ogiltig konfig → gateway-start blockeras förutom diagnostiska kommandon.
 - Doctor dry-run automatiskt; `doctor --fix` skriver korrigerad konfig.
-
-

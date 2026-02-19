@@ -1,4 +1,8 @@
 ---
+summary: "Referência da CLI para `openclaw directory` (self, peers, groups)"
+read_when:
+  - Você quer procurar ids de contatos/grupos/self para um canal
+  - Você está desenvolvendo um adaptador de diretório de canais
 title: "diretório"
 ---
 
@@ -57,5 +61,3 @@ openclaw directory groups list --channel zalouser
 openclaw directory groups list --channel zalouser --query "work"
 openclaw directory groups members --channel zalouser --group-id <id>
 ```
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Pagpapatakbo ng background exec at pamamahala ng proseso"
+read_when:
+  - Pagdaragdag o pagbabago ng behavior ng background exec
+  - Pag-debug ng mga long-running na exec task
 title: "Background Exec at Process Tool"
 ---
 
@@ -42,6 +46,7 @@ Config (inirerekomenda):
 - `tools.exec.timeoutSec` (default 1800)
 - `tools.exec.cleanupMs` (default 1800000)
 - `tools.exec.notifyOnExit` (default true): i-enqueue ang isang system event + mag-request ng heartbeat kapag lumabas ang isang backgrounded exec.
+- `tools.exec.notifyOnExitEmptySuccess` (default false): kapag true, mag-e-enqueue din ng mga completion event para sa matagumpay na backgrounded runs na walang output.
 
 ## process tool
 
@@ -63,6 +68,8 @@ Mga tala:
 - Ang `process` ay scoped bawat agent; nakikita lamang nito ang mga session na sinimulan ng agent na iyon.
 - Ang `process list` ay may kasamang derived na `name` (command verb + target) para sa mabilisang pag-scan.
 - Ang `process log` ay gumagamit ng line-based na `offset`/`limit` (alisin ang `offset` para kunin ang huling N linya).
+- Kapag parehong hindi tinukoy ang `offset` at `limit`, ibinabalik nito ang huling 200 linya at may kasamang paging hint.
+- Kapag tinukoy ang `offset` at hindi tinukoy ang `limit`, ibinabalik nito mula `offset` hanggang dulo (hindi nililimitahan sa 200).
 
 ## Mga halimbawa
 
@@ -87,5 +94,3 @@ Magpadala ng stdin:
 ```json
 { "tool": "process", "action": "write", "sessionId": "<id>", "data": "y\n" }
 ```
-
-

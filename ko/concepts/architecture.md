@@ -1,4 +1,7 @@
 ---
+summary: "WebSocket 게이트웨이 아키텍처, 구성 요소 및 클라이언트 흐름"
+read_when:
+  - 게이트웨이 프로토콜, 클라이언트 또는 전송을 작업할 때
 title: "게이트웨이 아키텍처"
 ---
 
@@ -12,7 +15,10 @@ title: "게이트웨이 아키텍처"
 - 제어 플레인 클라이언트 (macOS 앱, CLI, 웹 UI, 자동화)는 구성된 바인드 호스트 (기본값 `127.0.0.1:18789`) 에서 **WebSocket** 을 통해 Gateway(게이트웨이) 에 연결합니다.
 - **노드** (macOS / iOS / Android / headless) 또한 **WebSocket** 을 통해 연결하지만, 명시적인 캡스/명령과 함께 `role: node` 을 선언합니다.
 - 호스트당 하나의 Gateway(게이트웨이); WhatsApp 세션을 여는 유일한 위치입니다.
-- **캔버스 호스트** (기본값 `18793`) 는 에이전트가 편집 가능한 HTML 과 A2UI 를 제공합니다.
+- **canvas host**는 다음 경로에서 Gateway HTTP 서버에 의해 제공됩니다:
+  - `/__openclaw__/canvas/` (에이전트가 편집 가능한 HTML/CSS/JS)
+  - `/__openclaw__/a2ui/` (A2UI 호스트)
+    Gateway와 동일한 포트(기본값 `18789`)를 사용합니다.
 
 ## 구성 요소 및 흐름
 
@@ -48,29 +54,13 @@ title: "게이트웨이 아키텍처"
 ## 연결 수명 주기 (단일 클라이언트)
 
 ```mermaid
-%%{init: {
-  'theme': 'base',
-  'themeVariables': {
-    'primaryColor': '#ffffff',
-    'primaryTextColor': '#000000',
-    'primaryBorderColor': '#000000',
-    'lineColor': '#000000',
-    'secondaryColor': '#f9f9fb',
-    'tertiaryColor': '#ffffff',
-    'clusterBkg': '#f9f9fb',
-    'clusterBorder': '#000000',
-    'nodeBorder': '#000000',
-    'mainBkg': '#ffffff',
-    'edgeLabelBackground': '#ffffff'
-  }
-}}%%
 sequenceDiagram
     participant Client
     participant Gateway
 
     Client->>Gateway: req:connect
     Gateway-->>Client: res (ok)
-    Note right of Gateway: or res error + close
+    Note right of Gateway: 또는 res error + close
     Note left of Client: payload=hello-ok<br>snapshot: presence + health
 
     Gateway-->>Client: event:presence
@@ -78,7 +68,7 @@ sequenceDiagram
 
     Client->>Gateway: req:agent
     Gateway-->>Client: res:agent<br>ack {runId, status:"accepted"}
-    Gateway-->>Client: event:agent<br>(streaming)
+    Gateway-->>Client: event:agent<br>(스트리밍)
     Gateway-->>Client: res:agent<br>final {runId, status, summary}
 ```
 
@@ -139,5 +129,3 @@ sequenceDiagram
 - 정확히 하나의 Gateway(게이트웨이) 가 호스트당 단일 Baileys 세션을 제어합니다.
 - 핸드셰이크는 필수이며; JSON 이 아니거나 connect 가 아닌 첫 프레임은 즉시 종료됩니다.
 - 이벤트는 재생되지 않으며; 클라이언트는 공백 발생 시 새로 고침해야 합니다.
-
-

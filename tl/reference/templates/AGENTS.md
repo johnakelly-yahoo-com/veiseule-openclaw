@@ -1,4 +1,9 @@
-------
+---
+title: "Template ng AGENTS.md"
+summary: "Template ng workspace para sa AGENTS.md"
+read_when:
+  - Manu-manong pag-bootstrap ng isang workspace
+---
 
 # AGENTS.md - Ang Iyong Workspace
 
@@ -212,5 +217,3 @@ Ang layunin: Maging kapaki-pakinabang nang hindi nakakainis. Mag-check in ng ila
 ## Gawin Mo Itong Iyo
 
 Ito ay isang panimulang punto. Magdagdag ng sarili mong mga kombensyon, estilo, at mga patakaran habang nalalaman mo kung ano ang gumagana.
-
-

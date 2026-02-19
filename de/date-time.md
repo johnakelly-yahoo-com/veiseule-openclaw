@@ -1,4 +1,8 @@
 ---
+summary: "Datums- und Zeitverarbeitung über Umschläge, Prompts, Werkzeuge und Connectoren hinweg"
+read_when:
+  - Sie ändern, wie Zeitstempel dem Modell oder den Benutzern angezeigt werden
+  - Sie debuggen die Zeitformatierung in Nachrichten oder der Ausgabe des System-Prompts
 title: "Datum und Uhrzeit"
 ---
 
@@ -122,5 +126,3 @@ Wenn Sie lokale Zeit benötigen, konvertieren Sie diese nachgelagert unter Verwe
 - [System-Prompt](/concepts/system-prompt)
 - [Zeitzonen](/concepts/timezone)
 - [Nachrichten](/concepts/messages)
-
-

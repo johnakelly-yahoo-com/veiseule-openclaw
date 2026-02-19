@@ -1,4 +1,9 @@
 ---
+summary: "Debugging-Werkzeuge: Watch-Modus, rohe Modell-Streams und Nachverfolgung von Reasoning-Leakage"
+read_when:
+  - Sie müssen rohe Modellausgaben auf Reasoning-Leakage prüfen
+  - Sie möchten den Gateway im Watch-Modus während der Iteration ausführen
+  - Sie benötigen einen wiederholbaren Debugging-Workflow
 title: "Fehlerbehebung"
 ---
 
@@ -155,5 +160,3 @@ Standarddatei:
 - Rohe Stream-Logs können vollständige Prompts, Werkzeugausgaben und Benutzerdaten enthalten.
 - Bewahren Sie Logs lokal auf und löschen Sie sie nach dem Debugging.
 - Wenn Sie Logs teilen, entfernen Sie zuvor Geheimnisse und personenbezogene Daten (PII).
-
-

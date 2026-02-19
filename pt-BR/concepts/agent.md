@@ -1,4 +1,7 @@
 ---
+summary: "Runtime do agente (pi-mono incorporado), contrato do workspace e bootstrap de sessão"
+read_when:
+  - Ao alterar o runtime do agente, o bootstrap do workspace ou o comportamento da sessão
 title: "Runtime do Agente"
 ---
 
@@ -50,13 +53,13 @@ sujeitas à política de ferramentas. `apply_patch` é opcional e condicionado p
 `tools.exec.applyPatch`. `TOOLS.md` **não** controla quais ferramentas existem; é
 orientação sobre como _você_ deseja que elas sejam usadas.
 
-## Habilidades
+## Skills
 
 O OpenClaw carrega skills de três locais (o workspace vence em conflitos de nome):
 
 - Empacotadas (enviadas com a instalação)
 - Gerenciadas/locais: `~/.openclaw/skills`
-- Espaço de trabalho: `<workspace>/skills`
+- Workspace: `<workspace>/skills`
 
 As skills podem ser condicionadas por configuração/variáveis de ambiente (veja `skills` em [Configuração do Gateway](/gateway/configuration)).
 
@@ -116,5 +119,3 @@ No mínimo, defina:
 ---
 
 _Próximo: [Conversas em Grupo](/channels/group-messages)_ 🦞
-
-

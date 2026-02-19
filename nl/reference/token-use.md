@@ -1,4 +1,8 @@
 ---
+summary: "Hoe OpenClaw promptcontext opbouwt en tokengebruik + kosten rapporteert"
+read_when:
+  - Uitleggen van tokengebruik, kosten of contextvensters
+  - Debuggen van contextgroei of compactiegedrag
 title: "Tokengebruik en kosten"
 ---
 
@@ -14,7 +18,7 @@ OpenClaw stelt bij elke run zijn eigen system prompt samen. Deze bevat:
 - Toollijst + korte beschrijvingen
 - Skills-lijst (alleen metadata; instructies worden on demand geladen met `read`)
 - Zelfupdate-instructies
-- Werkruimte + bootstrapbestanden (`AGENTS.md`, `SOUL.md`, `TOOLS.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md`, `BOOTSTRAP.md` wanneer nieuw). Grote bestanden worden afgekapt door `agents.defaults.bootstrapMaxChars` (standaard: 20000).
+- Werkruimte + bootstrapbestanden (`AGENTS.md`, `SOUL.md`, `TOOLS.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md`, `BOOTSTRAP.md` wanneer nieuw). Grote bestanden worden afgekapt door `agents.defaults.bootstrapMaxChars` (standaard: 20000). `memory/*.md`-bestanden zijn op aanvraag beschikbaar via memory tools en worden niet automatisch geïnjecteerd.
 - Tijd (UTC + tijdzone van de gebruiker)
 - Antwoordtags + heartbeat-gedrag
 - Runtime-metadata (host/OS/model/thinking)
@@ -108,5 +112,3 @@ agents:
 - Geef de voorkeur aan kleinere modellen voor uitgebreide, verkennende werkzaamheden.
 
 Zie [Skills](/tools/skills) voor de exacte formule van de skilllijst-overhead.
-
-

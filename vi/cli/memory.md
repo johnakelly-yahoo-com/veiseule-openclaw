@@ -1,4 +1,8 @@
 ---
+summary: "Tham chiếu CLI cho `openclaw memory` (status/index/search)"
+read_when:
+  - Bạn muốn lập chỉ mục hoặc tìm kiếm bộ nhớ ngữ nghĩa
+  - Bạn đang gỡ lỗi khả năng sẵn sàng hoặc việc lập chỉ mục bộ nhớ
 title: "bộ nhớ"
 ---
 
@@ -39,5 +43,3 @@ Ghi chú:
 - `memory status --deep --index` chạy lập chỉ mục lại nếu kho lưu trữ ở trạng thái bẩn.
 - `memory index --verbose` in chi tiết theo từng pha (nhà cung cấp, mô hình, nguồn, hoạt động theo lô).
 - `memory status` bao gồm mọi đường dẫn bổ sung được cấu hình thông qua `memorySearch.extraPaths`.
-
-

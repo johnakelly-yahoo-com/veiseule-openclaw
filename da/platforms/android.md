@@ -1,4 +1,9 @@
 ---
+summary: "Android-app (node): forbindelses-runbook + Canvas/Chat/Kamera"
+read_when:
+  - Parring eller genforbindelse af Android-noden
+  - Fejlfinding af Android gateway-discovery eller autentificering
+  - Verificering af chat-historikparitet på tværs af klienter
 title: "Android-app"
 ---
 
@@ -128,10 +133,10 @@ Bemærk: noder bruger den standalone canvas host på `canvasHost.port` (standard
 openclaw nodes invoke --node "<Android Node>" --command canvas.navigate --params '{"url":"http://<gateway-hostname>.local:18793/__openclaw__/canvas/"}'
 ```
 
-Tailnet (valgfri): Hvis begge enheder er på Tailscale, skal du bruge et MagicDNS-navn eller tailnet IP i stedet for `.local`, f.eks. `http://<gateway-magicdns>:18793/__openclaw__/canvas/`.
+Tailnet (valgfrit): Hvis begge enheder er på Tailscale, brug et MagicDNS-navn eller tailnet-IP i stedet for `.local`, f.eks. `http://<gateway-magicdns>:18789/__openclaw__/canvas/`.
 
 Denne server tilfører en live-reload klient til HTML og genindlæses på filændringer.
-A2UI-værten bor på `http://<gateway-host>:18793/__openclaw__/a2ui/`.
+A2UI-værten findes på `http://<gateway-host>:18789/__openclaw__/a2ui/`.
 
 Canvas-kommandoer (kun foreground):
 
@@ -144,5 +149,3 @@ Kamera-kommandoer (kun foreground; tilladelsesstyret):
 - `camera.clip` (mp4)
 
 Se [Camera node](/nodes/camera) for parametre og CLI-hjælpere.
-
-

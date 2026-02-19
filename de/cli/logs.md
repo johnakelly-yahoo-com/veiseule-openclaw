@@ -1,4 +1,8 @@
 ---
+summary: "CLI-Referenz für `openclaw logs` (Gateway-Logs per RPC verfolgen)"
+read_when:
+  - Sie müssen Gateway-Logs remote verfolgen (ohne SSH)
+  - Sie möchten JSON-Logzeilen für Tools
 title: "Logs"
 ---
 
@@ -19,4 +23,4 @@ openclaw logs --json
 openclaw logs --limit 500
 ```
 
-
+Verwenden Sie `--local-time`, um Zeitstempel in Ihrer lokalen Zeitzone darzustellen.

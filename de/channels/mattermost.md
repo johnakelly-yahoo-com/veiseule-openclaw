@@ -1,4 +1,8 @@
 ---
+summary: "„Mattermost-Bot-Einrichtung und OpenClaw-Konfiguration“"
+read_when:
+  - Mattermost einrichten
+  - Mattermost-Routing debuggen
 title: "Wichtigste"
 ---
 
@@ -132,5 +136,3 @@ Mattermost unterstützt mehrere Konten unter `channels.mattermost.accounts`:
 - Keine Antworten in Kanälen: Stellen Sie sicher, dass der Bot im Kanal ist und erwähnt wird (oncall), verwenden Sie ein Trigger-Präfix (onchar) oder setzen Sie `chatmode: "onmessage"`.
 - Authentifizierungsfehler: Prüfen Sie den Bot-Token, die Basis-URL und ob das Konto aktiviert ist.
 - Probleme mit mehreren Konten: Umgebungsvariablen gelten nur für das `default`-Konto.
-
-

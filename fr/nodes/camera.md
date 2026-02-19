@@ -1,4 +1,8 @@
 ---
+summary: "Capture de caméra (nœud iOS + app macOS) pour l’utilisation par un agent : photos (jpg) et courtes séquences vidéo (mp4)"
+read_when:
+  - Ajout ou modification de la capture de caméra sur des nœuds iOS ou macOS
+  - Extension des workflows MEDIA en fichiers temporaires accessibles aux agents
 title: "Capture de caméra"
 ---
 
@@ -149,5 +153,3 @@ openclaw nodes screen record --node <id> --duration 10s --fps 15   # prints MEDI
 Remarques :
 
 - Nécessite l’autorisation macOS **Enregistrement de l’écran** (TCC).
-
-

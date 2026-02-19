@@ -1,12 +1,9 @@
 ---
-title: channels
-x-i18n:
-  generated_at: "2026-02-03T07:44:51Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 16ab1642f247bfa96e8e08dfeb1eedfccb148f40d91099f5423f971df2b54e20
-  source_path: cli/channels.md
-  workflow: 15
+summary: "`openclaw channels` 的 CLI 参考（账户、状态、登录/登出、日志）"
+read_when:
+  - 你想添加/删除渠道账户（WhatsApp/Telegram/Discord/Google Chat/Slack/Mattermost（插件）/Signal/iMessage）
+  - 你想检查渠道状态或跟踪渠道日志
+title: "channels"
 ---
 
 # `openclaw channels`
@@ -49,7 +46,7 @@ openclaw channels logout --channel whatsapp
 
 - 运行 `openclaw status --deep` 进行全面探测。
 - 使用 `openclaw doctor` 获取引导式修复。
-- `openclaw channels list` 输出 `Claude: HTTP 403 ... user:profile` → 用量快照需要 `user:profile` 权限范围。使用 `--no-usage`，或提供 claude.ai 会话密钥（`CLAUDE_WEB_SESSION_KEY` / `CLAUDE_WEB_COOKIE`），或通过 Claude Code CLI 重新授权。
+- `openclaw channels list` 输出 `Claude: HTTP 403 ... user:profile` → 使用情况快照需要 `user:profile` 作用域。 user:profile`→ 用量快照需要`user:profile`权限范围。使用`--no-usage`，或提供 claude.ai 会话密钥（`CLAUDE_WEB_SESSION_KEY`/`CLAUDE_WEB_COOKIE\`），或通过 Claude Code CLI 重新授权。
 
 ## 能力探测
 
@@ -64,7 +61,7 @@ openclaw channels capabilities --channel discord --target channel:123
 
 - `--channel` 是可选的；省略它可列出所有渠道（包括扩展）。
 - `--target` 接受 `channel:<id>` 或原始数字频道 id，仅适用于 Discord。
-- 探测是特定于提供商的：Discord intents + 可选的频道权限；Slack bot + user scopes；Telegram bot 标志 + webhook；Signal daemon 版本；MS Teams app token + Graph roles/scopes（在已知处标注）。没有探测功能的渠道报告 `Probe: unavailable`。
+- 探测是特定于提供商的：Discord intents + 可选的频道权限；Slack bot + user scopes；Telegram bot 标志 + webhook；Signal daemon 版本；MS Teams app token + Graph roles/scopes（在已知处标注）。没有探测功能的渠道报告 `Probe: unavailable`。 没有探测的频道会报告 `Probe: unavailable`。
 
 ## 解析名称为 ID
 
@@ -80,5 +77,3 @@ openclaw channels resolve --channel matrix "Project Room"
 
 - 使用 `--kind user|group|auto` 强制指定目标类型。
 - 当多个条目共享相同名称时，解析优先选择活跃的匹配项。
-
-

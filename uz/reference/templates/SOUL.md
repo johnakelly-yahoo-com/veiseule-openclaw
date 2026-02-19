@@ -1,4 +1,9 @@
-------
+---
+title: "SOUL.md shabloni"
+summary: "SOUL.md uchun ish maydoni shabloni"
+read_when:
+  - Ish maydonini qo‘lda ishga tushirish
+---
 
 # SOUL.md - Siz kimsiz
 
@@ -36,5 +41,3 @@ If you change this file, tell the user — it's your soul, and they should know.
 ---
 
 _This file is yours to evolve. As you learn who you are, update it._
-
-

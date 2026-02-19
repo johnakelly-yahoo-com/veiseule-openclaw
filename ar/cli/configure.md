@@ -1,4 +1,7 @@
 ---
+summary: "مرجع CLI لأمر `openclaw configure` (مطالبات تهيئة تفاعلية)"
+read_when:
+  - عندما ترغب في ضبط بيانات الاعتماد أو الأجهزة أو القيم الافتراضية للوكيل بشكل تفاعلي
 title: "التهيئة"
 ---
 
@@ -28,5 +31,3 @@ title: "التهيئة"
 openclaw configure
 openclaw configure --section models --section channels
 ```
-
-

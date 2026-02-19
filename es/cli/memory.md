@@ -1,4 +1,8 @@
 ---
+summary: "Referencia de la CLI para `openclaw memory` (status/index/search)"
+read_when:
+  - Quiere indexar o buscar memoria semántica
+  - Está depurando la disponibilidad de la memoria o la indexación
 title: "memoria"
 ---
 
@@ -39,5 +43,3 @@ Notas:
 - `memory status --deep --index` ejecuta una reindexación si el almacén está sucio.
 - `memory index --verbose` imprime detalles por fase (proveedor, modelo, fuentes, actividad por lotes).
 - `memory status` incluye cualquier ruta adicional configurada mediante `memorySearch.extraPaths`.
-
-

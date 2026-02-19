@@ -1,4 +1,8 @@
 ---
+summary: "33. Chiquvchi provayder chaqiruvlari uchun qayta urinish siyosati"
+read_when:
+  - 34. Provayderning qayta urinish xatti-harakatini yoki standartlarini yangilash
+  - 35. Provayder yuborish xatolari yoki tezlik cheklovlarini nosozlikdan chiqarish
 title: "36. Qayta urinish siyosati"
 ---
 
@@ -63,5 +67,3 @@ Har bir provayder uchun qayta urinish siyosatini `~/.openclaw/openclaw.json` fay
 
 - Qayta urinishlar har bir so‘rov uchun qo‘llanadi (xabar yuborish, media yuklash, reaksiya, so‘rovnoma, stiker).
 - Composite flows do not retry completed steps.
-
-

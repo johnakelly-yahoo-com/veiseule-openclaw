@@ -1,4 +1,9 @@
 ---
+summary: "क्रॉन और हार्टबीट शेड्यूलिंग तथा डिलीवरी से जुड़ी समस्याओं का समाधान"
+read_when:
+  - क्रॉन नहीं चला
+  - क्रॉन चला लेकिन कोई संदेश वितरित नहीं हुआ
+  - हार्टबीट शांत या छोड़ा हुआ प्रतीत होता है
 title: "ऑटोमेशन समस्या-निवारण"
 ---
 
@@ -115,5 +120,3 @@ openclaw logs --follow
 - [/gateway/heartbeat](/gateway/heartbeat)
 - [/automation/cron-vs-heartbeat](/automation/cron-vs-heartbeat)
 - [/concepts/timezone](/concepts/timezone)
-
-

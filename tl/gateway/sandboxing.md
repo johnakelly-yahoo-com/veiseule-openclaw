@@ -1,11 +1,13 @@
 ---
-title: "Pagba-sandbox"
+summary: "Paano gumagana ang sandboxing ng OpenClaw: mga mode, saklaw, access sa workspace, at mga image"
+title: Sandboxing
+read_when: "Gusto mo ng dedikadong paliwanag ng sandboxing o kailangan mong i-tune ang agents.defaults.sandbox."
 status: active
 ---
 
-# Pagba-sandbox
+# Sandboxing
 
-Maaaring magpatakbo ang OpenClaw ng **mga tool sa loob ng Docker containers** upang mabawasan ang saklaw ng posibleng pinsala.
+OpenClaw can run **tools inside Docker containers** to reduce blast radius.
 This is **optional** and controlled by configuration (`agents.defaults.sandbox` or
 `agents.list[].sandbox`). If sandboxing is off, tools run on the host.
 The Gateway stays on the host; tool execution runs in an isolated sandbox
@@ -18,8 +20,8 @@ at mga process kapag may ginawang hindi tama ang model.
 
 - Pagpapatakbo ng tool (`exec`, `read`, `write`, `edit`, `apply_patch`, `process`, atbp.).
 - Opsyonal na sandboxed browser (`agents.defaults.sandbox.browser`).
-  - Bilang default, awtomatikong nagsisimula ang sandbox browser (tinitiyak na maaabot ang CDP) kapag kailangan ito ng browser tool.
-I-configure sa pamamagitan ng `agents.defaults.sandbox.browser.autoStart` at `agents.defaults.sandbox.browser.autoStartTimeoutMs`.
+  - By default, the sandbox browser auto-starts (ensures CDP is reachable) when the browser tool needs it.
+    Configure via `agents.defaults.sandbox.browser.autoStart` and `agents.defaults.sandbox.browser.autoStartTimeoutMs`.
   - Pinapahintulutan ng `agents.defaults.sandbox.browser.allowHostControl` ang mga sandboxed session na tahasang i-target ang host browser.
   - Mga opsyonal na allowlist ang nagga-gate sa `target: "custom"`: `allowedControlUrls`, `allowedControlHosts`, `allowedControlPorts`.
 
@@ -36,8 +38,8 @@ Kinokontrol ng `agents.defaults.sandbox.mode` **kung kailan** ginagamit ang sand
 
 - `"off"`: walang sandboxing.
 - `"non-main"`: sandbox lang ang mga **non-main** session (default kung gusto mo ng normal na chats sa host).
-- `"all"`: bawat session ay tumatakbo sa isang sandbox.
-Tandaan: Ang `"non-main"` ay nakabatay sa `session.mainKey` (default na `"main"`), hindi sa agent id.
+- `"all"`: every session runs in a sandbox.
+  Note: `"non-main"` is based on `session.mainKey` (default `"main"`), not agent id.
   Group/channel sessions use their own keys, so they count as non-main and will be sandboxed.
 
 ## Saklaw
@@ -56,7 +58,7 @@ Kinokontrol ng `agents.defaults.sandbox.workspaceAccess` **kung ano ang nakikita
 - `"ro"`: mina-mount ang agent workspace bilang read-only sa `/agent` (dinidisable ang `write`/`edit`/`apply_patch`).
 - `"rw"`: mina-mount ang agent workspace bilang read/write sa `/workspace`.
 
-Ang papasok na media ay kinokopya sa aktibong workspace ng sandbox (`media/inbound/*`).
+Inbound media is copied into the active sandbox workspace (`media/inbound/*`).
 Skills note: the `read` tool is sandbox-rooted. With `workspaceAccess: "none"`,
 OpenClaw mirrors eligible skills into the sandbox workspace (`.../skills`) so
 they can be read. With `"rw"`, workspace skills are readable from
@@ -64,12 +66,17 @@ they can be read. With `"rw"`, workspace skills are readable from
 
 ## Mga custom bind mount
 
-Ang `agents.defaults.sandbox.docker.binds` ay nagma-mount ng mga karagdagang host directory papasok sa container.
+`agents.defaults.sandbox.docker.binds` mounts additional host directories into the container.
 Format: `host:container:mode` (e.g., `"/home/user/source:/source:rw"`).
 
-Ang global at per-agent na binds ay **pinagsasama** (hindi pinapalitan). Sa ilalim ng `scope: "shared"`, hindi isinasaalang-alang ang per-agent na binds.
+Global and per-agent binds are **merged** (not replaced). Under `scope: "shared"`, per-agent binds are ignored.
 
 Halimbawa (read-only source + docker socket):
+
+- Kapag naka-set (kabilang ang `[]`), pinapalitan nito ang `agents.defaults.sandbox.docker.binds` para sa browser container.
+- Kapag hindi isinama, babalik ang browser container sa `agents.defaults.sandbox.docker.binds` (backwards compatible).
+
+Mga tala sa seguridad:
 
 ```json5
 {
@@ -134,7 +141,7 @@ Narito ang mga Docker install at ang containerized gateway:
 `setupCommand` runs **once** after the sandbox container is created (not on every run).
 It executes inside the container via `sh -lc`.
 
-Mga path:
+Karaniwang pitfalls:
 
 - Global: `agents.defaults.sandbox.docker.setupCommand`
 - Per-agent: `agents.list[].sandbox.docker.setupCommand`
@@ -162,13 +169,13 @@ Debugging:
 - See [Sandbox vs Tool Policy vs Elevated](/gateway/sandbox-vs-tool-policy-vs-elevated) for the “why is this blocked?” mental model.
   Keep it locked down.
 
-## Mga override sa multi-agent
+## Minimal na halimbawa ng pag-enable
 
 Each agent can override sandbox + tools:
 `agents.list[].sandbox` and `agents.list[].tools` (plus `agents.list[].tools.sandbox.tools` for sandbox tool policy).
 See [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) for precedence.
 
-## Minimal na halimbawa ng pag-enable
+## Kaugnay na docs
 
 ```json5
 {
@@ -189,5 +196,3 @@ See [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) for preceden
 - [Sandbox Configuration](/gateway/configuration#agentsdefaults-sandbox)
 - [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools)
 - [Security](/gateway/security)
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "ติดตั้ง OpenClaw — สคริปต์ติดตั้ง, npm/pnpm, จากซอร์ส, Docker และอื่นๆ"
+read_when:
+  - คุณต้องการวิธีติดตั้งที่แตกต่างจาก Getting Started แบบเริ่มต้นอย่างรวดเร็ว
+  - คุณต้องการดีพลอยไปยังแพลตฟอร์มคลาวด์
+  - คุณต้องการอัปเดต ย้ายระบบ หรือถอนการติดตั้ง
 title: "ติดตั้ง"
 ---
 
@@ -20,12 +25,15 @@ title: "ติดตั้ง"
 
 <Tip>
 **สคริปต์ติดตั้ง** เป็นวิธีที่แนะนำในการติดตั้ง OpenClaw โดยจะจัดการการตรวจพบ Node การติดตั้ง และการเริ่มต้นใช้งานในขั้นตอนเดียว
+ It handles Node detection, installation, and onboarding in one step. It handles Node detection, installation, and onboarding in one step.
 </Tip>
 
 <AccordionGroup>
   <Accordion title="Installer script" icon="rocket" defaultOpen>
     ดาวน์โหลด CLI ติดตั้งแบบ global ผ่าน npm และเปิดตัวช่วยเริ่มต้นใช้งาน
 
+    ````
+    ```
     <Tabs>
       <Tab title="macOS / Linux / WSL2">
         ```bash
@@ -41,11 +49,11 @@ title: "ติดตั้ง"
 </Tab>
     
 </Tabs>
-
+    
     เท่านี้ก็เรียบร้อย — สคริปต์จะจัดการการตรวจพบ Node การติดตั้ง และการเริ่มต้นใช้งานให้ทั้งหมด
-
+    
     หากต้องการข้ามการเริ่มต้นใช้งานและติดตั้งเฉพาะไบนารี:
-
+    
     <Tabs>
       <Tab title="macOS / Linux / WSL2">
         ```bash
@@ -61,8 +69,10 @@ title: "ติดตั้ง"
 </Tab>
     
 </Tabs>
-
+    
     สำหรับแฟล็ก ตัวแปรสภาพแวดล้อม และตัวเลือก CI/อัตโนมัติทั้งหมด ดูที่ [Installer internals](/install/installer)
+    ```
+    ````
 
   
 </Accordion>
@@ -70,20 +80,22 @@ title: "ติดตั้ง"
   <Accordion title="npm / pnpm" icon="package">
     หากคุณมี Node 22+ อยู่แล้วและต้องการจัดการการติดตั้งเอง:
 
+    ````
+    ```
     <Tabs>
       <Tab title="npm">
         ```bash
         npm install -g openclaw@latest
         openclaw onboard --install-daemon
         ```
-
+    
         <Accordion title="เกิดข้อผิดพลาดการ build ของ sharp?">
           หากคุณติดตั้ง libvips แบบ global (พบบ่อยบน macOS ผ่าน Homebrew) และ `sharp` ล้มเหลว ให้บังคับใช้ไบนารีแบบ prebuilt:
-
+    
           ```bash
           SHARP_IGNORE_GLOBAL_LIBVIPS=1 npm install -g openclaw@latest
           ```
-
+    
           หากคุณเห็น `sharp: Please add node-gyp to your dependencies` ให้ติดตั้งเครื่องมือสำหรับ build (macOS: Xcode CLT + `npm install -g node-gyp`) หรือใช้ตัวแปรสภาพแวดล้อมด้านบน
         
 </Accordion>
@@ -95,7 +107,7 @@ title: "ติดตั้ง"
         pnpm approve-builds -g        # approve openclaw, node-llama-cpp, sharp, etc.
         openclaw onboard --install-daemon
         ```
-
+    
         <Note>
         pnpm ต้องการการอนุมัติอย่างชัดเจนสำหรับแพ็กเกจที่มีสคริปต์ build หลังจากการติดตั้งครั้งแรกแสดงคำเตือน "Ignored build scripts" ให้รัน `pnpm approve-builds -g` และเลือกแพ็กเกจที่แสดงรายการ
         
@@ -104,6 +116,8 @@ title: "ติดตั้ง"
 </Tab>
     
 </Tabs>
+    ```
+    ````
 
   
 </Accordion>
@@ -111,10 +125,12 @@ title: "ติดตั้ง"
   <Accordion title="From source" icon="github">
     สำหรับผู้มีส่วนร่วม หรือผู้ที่ต้องการรันจากเช็กเอาต์ในเครื่อง
 
+    ````
+    ```
     <Steps>
       <Step title="โคลนและ build">
         โคลน [รีโป OpenClaw](https://github.com/openclaw/openclaw) และ build:
-
+    
         ```bash
         git clone https://github.com/openclaw/openclaw.git
         cd openclaw
@@ -126,11 +142,11 @@ title: "ติดตั้ง"
 </Step>
       <Step title="ลิงก์ CLI">
         ทำให้คำสั่ง `openclaw` ใช้งานได้แบบ global:
-
+    
         ```bash
         pnpm link --global
         ```
-
+    
         หรือจะข้ามการลิงก์และรันคำสั่งผ่าน `pnpm openclaw ...` จากภายในรีโปก็ได้
       
 </Step>
@@ -142,8 +158,10 @@ title: "ติดตั้ง"
 </Step>
     
 </Steps>
-
+    
     สำหรับเวิร์กโฟลว์การพัฒนาที่ลึกขึ้น ดูที่ [การตั้งค่า](/start/setup)
+    ```
+    ````
 
   
 </Accordion>
@@ -157,7 +175,7 @@ title: "ติดตั้ง"
   
 </Card>
   <Card title="Podman" href="/install/podman" icon="container">
-    คอนเทนเนอร์แบบ rootless: รัน `setup-podman.sh` หนึ่งครั้ง จากนั้นใช้สคริปต์เปิดใช้งาน
+    คอนเทนเนอร์แบบ rootless: รัน `setup-podman.sh` หนึ่งครั้ง จากนั้นจึงรันสคริปต์เริ่มต้น
   
 </Card>
   <Card title="Nix" href="/install/nix" icon="snowflake">
@@ -184,13 +202,13 @@ openclaw status         # gateway status
 openclaw dashboard      # open the browser UI
 ```
 
-หากคุณต้องการกำหนดพาธรันไทม์แบบกำหนดเอง ให้ใช้:
+If you need custom runtime paths, use:
 
-- `OPENCLAW_HOME` สำหรับพาธภายในที่อิงตามโฮมไดเรกทอรี
-- `OPENCLAW_STATE_DIR` สำหรับตำแหน่งสถานะที่เปลี่ยนแปลงได้
-- `OPENCLAW_CONFIG_PATH` สำหรับตำแหน่งไฟล์คอนฟิก
+- `OPENCLAW_HOME` for home-directory based internal paths
+- `OPENCLAW_STATE_DIR` for mutable state location
+- `OPENCLAW_CONFIG_PATH` for config file location
 
-ดู [Environment vars](/help/environment) สำหรับลำดับความสำคัญและรายละเอียดทั้งหมด
+See [Environment vars](/help/environment) for precedence and full details.
 
 ## การแก้ไขปัญหา: ไม่พบ `openclaw`
 
@@ -214,7 +232,9 @@ export PATH="$(npm prefix -g)/bin:$PATH"
 
 บน Windows ให้เพิ่มเอาต์พุตของ `npm prefix -g` ลงใน PATH ของคุณ
 
-จากนั้นเปิดเทอร์มินัลใหม่ (หรือ `rehash` ใน zsh / `hash -r` ใน bash)
+จากนั้นเปิดเทอร์มินัลใหม่ (หรือ `rehash` ใน zsh / `hash -r` ใน bash) 
+</Accordion> 
+</Accordion> 
 </Accordion>
 
 ## อัปเดต / ถอนการติดตั้ง
@@ -233,4 +253,3 @@ export PATH="$(npm prefix -g)/bin:$PATH"
   
 </Card>
 </CardGroup>
-

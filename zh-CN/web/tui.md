@@ -1,12 +1,9 @@
 ---
-title: TUI
-x-i18n:
-  generated_at: "2026-02-03T10:13:10Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 4bf5b0037bbb3a166289f2f0a9399489637d4cf26335ae3577af9ea83eee747e
-  source_path: web/tui.md
-  workflow: 15
+summary: "终端 UI（TUI）：从任何机器连接到 Gateway 网关"
+read_when:
+  - 你想要 TUI 的新手友好演练
+  - 你需要 TUI 功能、命令和快捷键的完整列表
+title: "TUI"
 ---
 
 # TUI（终端 UI）
@@ -45,8 +42,8 @@ openclaw tui --url ws://<host>:<port> --token <gateway-token>
 
 ## 心智模型：智能体 + 会话
 
-- 智能体是唯一的标识符（例如 `main`、`research`）。Gateway 网关公开列表。
-- 会话属于当前智能体。
+- 代理是唯一的 slug（例如 `main`、`research`）。 Gateway 会公开该列表。
+- 会话属于当前代理。
 - 会话键存储为 `agent:<agentId>:<sessionKey>`。
   - 如果你输入 `/session main`，TUI 会将其扩展为 `agent:<currentAgent>:main`。
   - 如果你输入 `/session agent:other:main`，你会显式切换到该智能体会话。
@@ -66,8 +63,8 @@ openclaw tui --url ws://<host>:<port> --token <gateway-token>
 ## 选择器 + 覆盖层
 
 - 模型选择器：列出可用模型并设置会话覆盖。
-- 智能体选择器：选择不同的智能体。
-- 会话选择器：仅显示当前智能体的会话。
+- 5. 代理选择器：选择不同的代理。
+- 6. 会话选择器：仅显示当前代理的会话。
 - 设置：切换投递、工具输出展开和思考可见性。
 
 ## 键盘快捷键
@@ -109,7 +106,7 @@ openclaw tui --url ws://<host>:<port> --token <gateway-token>
 - `/settings`
 - `/exit`
 
-其他 Gateway 网关斜杠命令（例如 `/context`）会转发到 Gateway 网关并显示为系统输出。参见[斜杠命令](/tools/slash-commands)。
+其他 Gateway 网关斜杠命令（例如 `/context`）会转发到 Gateway 网关并显示为系统输出。参见[斜杠命令](/tools/slash-commands)。 39. 参见 [斜杠命令](/tools/slash-commands)。
 
 ## 本地 shell 命令
 
@@ -145,6 +142,9 @@ openclaw tui --url ws://<host>:<port> --token <gateway-token>
 - `--thinking <level>`：覆盖发送的思考级别
 - `--timeout-ms <ms>`：智能体超时（毫秒）（默认为 `agents.defaults.timeoutSeconds`）
 
+注意：当你设置 `--url` 时，TUI 不会回退到配置或环境凭据。
+请显式传递 `--token` 或 `--password`。 Missing explicit credentials is an error.
+
 ## 故障排除
 
 发送消息后没有输出：
@@ -155,10 +155,8 @@ openclaw tui --url ws://<host>:<port> --token <gateway-token>
 - 如果你期望消息出现在聊天渠道中，请启用投递（`/deliver on` 或 `--deliver`）。
 - `--history-limit <n>`：要加载的历史条目数（默认 200）
 
-## 故障排除
+## 连接故障排查
 
 - `disconnected`：确保 Gateway 网关正在运行且你的 `--url/--token/--password` 正确。
 - 选择器中没有智能体：检查 `openclaw agents list` 和你的路由配置。
 - 会话选择器为空：你可能处于全局范围或还没有会话。
-
-

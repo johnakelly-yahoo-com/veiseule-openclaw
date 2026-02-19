@@ -1,5 +1,8 @@
 ---
-title: "Ajan Döngüsü"
+summary: "Ajan döngüsü yaşam döngüsü, akışlar ve bekleme semantiği"
+read_when:
+  - You need an exact walkthrough of the agent loop or lifecycle events
+title: "Agent Loop"
 ---
 
 # Ajan Döngüsü (OpenClaw)
@@ -104,8 +107,8 @@ Kanca API’si ve kayıt ayrıntıları için [Plugins](/tools/plugin#plugin-hoo
 
 ## Yanıt şekillendirme + bastırma
 
-- Nihai yükler şunlardan oluşturulur:
-  - asistan metni (ve isteğe bağlı akıl yürütme)
+- Final payloads are assembled from:
+  - assistant text (and optional reasoning)
   - satır içi araç özetleri (ayrıntı açık + izinliyse)
   - model hata verdiğinde asistan hata metni
 - `NO_REPLY`, sessiz bir belirteç olarak kabul edilir ve giden yüklerden filtrelenir.
@@ -141,5 +144,3 @@ Kanca API’si ve kayıt ayrıntıları için [Plugins](/tools/plugin#plugin-hoo
 - AbortSignal (iptal)
 - Gateway bağlantı kesilmesi veya RPC zaman aşımı
 - `agent.wait` zaman aşımı (yalnızca bekleme, ajanı durdurmaz)
-
-

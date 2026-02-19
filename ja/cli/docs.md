@@ -1,4 +1,7 @@
 ---
+summary: "「openclaw docs」の CLI リファレンス（ライブの OpenClaw ドキュメントインデックスを検索）"
+read_when:
+  - ターミナルからライブの OpenClaw ドキュメントを検索したい場合
 title: "docs"
 ---
 
@@ -10,5 +13,3 @@ title: "docs"
 openclaw docs browser extension
 openclaw docs sandbox allowHostControl
 ```
-
-

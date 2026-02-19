@@ -1,4 +1,8 @@
 ---
+summary: "Продвинутая настройка и рабочие процессы разработки для OpenClaw"
+read_when:
+  - Настройка новой машины
+  - Вам нужен «самый новый и лучший» вариант без поломки личной настройки
 title: "Настройка"
 ---
 
@@ -11,7 +15,7 @@ title: "Настройка"
 
 Последнее обновление: 2026-01-01
 
-## Кратко
+## TL;DR
 
 - **Кастомизация живёт вне репозитория:** `~/.openclaw/workspace` (workspace) + `~/.openclaw/openclaw.json` (config).
 - **Стабильный рабочий процесс:** установите приложение для macOS; пусть оно запускает Gateway (шлюз) из комплекта.
@@ -155,5 +159,3 @@ sudo loginctl enable-linger $USER
 - [Discord](/channels/discord) и [Telegram](/channels/telegram) (теги ответов + настройки replyToMode)
 - [Настройка ассистента OpenClaw](/start/openclaw)
 - [Приложение для macOS](/platforms/macos) (жизненный цикл gateway)
-
-

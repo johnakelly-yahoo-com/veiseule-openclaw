@@ -1,4 +1,10 @@
 ---
+summary: "43. OpenClaw’da OAuth: token almashinuvi, saqlash va ko‘p-hisobli andozalar"
+read_when:
+  - 44. Siz OpenClaw OAuth’ni boshidan oxirigacha tushunmoqchisiz
+  - 45. Siz token bekor qilinishi / logout muammolariga duch keldingiz
+  - 46. Siz setup-token yoki OAuth autentifikatsiya oqimlarini xohlaysiz
+  - 47. Sizga bir nechta hisoblar yoki profil marshrutlash kerak
 title: "48. OAuth"
 ---
 
@@ -136,5 +142,3 @@ Bog‘liq hujjatlar:
 
 - [/concepts/model-failover](/concepts/model-failover) (rotatsiya + cooldown qoidalari)
 - [/tools/slash-commands](/tools/slash-commands) (buyruqlar yuzasi)
-
-

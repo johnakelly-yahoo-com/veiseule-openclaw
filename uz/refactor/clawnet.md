@@ -1,4 +1,8 @@
 ---
+summary: "Clawnet refaktori: tarmoq protokoli, rollar, autentifikatsiya, tasdiqlashlar va identifikatsiyani birlashtirish"
+read_when:
+  - Tugunlar va operator mijozlari uchun yagona tarmoq protokolini rejalashtirishda
+  - Qurilmalar o‘rtasida tasdiqlash, juftlash, TLS va mavjudlikni qayta ishlashda
 title: "Clawnet Refaktori"
 ---
 
@@ -40,10 +44,10 @@ Quyidagilar uchun yagona, puxta hujjat:
 
 ## Ikki protokol
 
-### 1) Gateway WebSocket (boshqaruv tekisligi)
+### 1. Gateway WebSocket (boshqaruv tekisligi)
 
 - To‘liq API: config, channels, models, sessions, agent run’lar, loglar, tugunlar va boshqalar.
-- Standart bind: loopback. Masofaviy kirish SSH/Tailscale orqali.
+- Default bind: loopback. Remote access via SSH/Tailscale.
 - Auth: `connect` orqali token/parol.
 - TLS pinning yo‘q (loopback/tunnel’ga tayanadi).
 - Kod:
@@ -51,7 +55,7 @@ Quyidagilar uchun yagona, puxta hujjat:
   - `src/gateway/client.ts`
   - `docs/gateway/protocol.md`
 
-### 2) Bridge (tugun transporti)
+### 2. Bridge (tugun transporti)
 
 - Cheklangan allowlist yuzasi, tugun identifikatsiyasi + juftlash.
 - TCP ustida JSONL; ixtiyoriy TLS + sertifikat fingerprint pinning.
@@ -134,7 +138,7 @@ Role + scope bilan yagona WS protokoli.
 
 ### Asosiy qoida
 
-Rol har bir ulanish uchun belgilanadi, qurilma bo‘yicha emas. Bitta qurilma alohida ulanishlar orqali ikkala rolni ham ochishi mumkin.
+26. Rol qurilma bo‘yicha emas, ulanish bo‘yicha belgilanadi. 27. Bitta qurilma alohida-alohida holda ikkala rolni ham ochishi mumkin.
 
 ---
 
@@ -176,7 +180,7 @@ Muqobillar:
 
 ## Sokin tasdiqlash (SSH evristikasi)
 
-Zaif bo‘g‘in bo‘lmasligi uchun aniq belgilang. Quyidagilardan biri afzal:
+Define it precisely to avoid a weak link. Prefer one:
 
 - **Faqat lokal**: mijoz loopback/Unix socket orqali ulanganida auto‑pair.
 - **SSH orqali challenge**: gateway nonce beradi; mijoz SSH orqali uni olib isbotlaydi.
@@ -213,7 +217,7 @@ Joriy TLS runtime + fingerprint pinning’dan foydalanish:
 
 ## Hozir
 
-Tasdiqlash tugun xostida amalga oshadi (mac ilova tugun runtime). So‘rov tugun ishlayotgan joyda chiqadi.
+Approval happens on node host (mac app node runtime). Prompt appears where node runs.
 
 ## Taklif
 
@@ -272,8 +276,8 @@ Tasdiqlash **gateway’da joylashgan**, UI operator mijozlariga yetkaziladi.
 
 ## Barqaror ID
 
-Auth uchun talab qilinadi; hech qachon o‘zgarmaydi.  
-Afzal:
+13. Autentifikatsiya uchun talab qilinadi; hech qachon o‘zgarmaydi.
+14. Afzal:
 
 - Keypair fingerprint’i (public key hash).
 
@@ -411,5 +415,3 @@ Drift bo‘lmasligi uchun implementatsiyadan oldin birini tanlang.
 - Muammo: tasdiqlashlar + dublikatlar + ikki stek.
 - Taklif: aniq role + scope’li yagona WS protokoli, yagona juftlash + TLS pinning, gateway’da joylashgan tasdiqlashlar, barqaror device ID + yoqimli sluglar.
 - Natija: soddaroq UX, kuchliroq xavfsizlik, kamroq takrorlanish, mobil uchun yaxshiroq marshrutlash.
-
-

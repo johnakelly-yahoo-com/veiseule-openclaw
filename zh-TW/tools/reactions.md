@@ -1,4 +1,7 @@
 ---
+summary: "跨頻道共用的反應語意"
+read_when:
+  - 在任何頻道中處理反應功能時
 title: "反應"
 ---
 
@@ -17,5 +20,3 @@ title: "反應"
 - **Telegram**：空的 `emoji` 會移除機器人的反應；`remove: true` 也會移除反應，但工具驗證仍需要非空的 `emoji`。
 - **WhatsApp**：空的 `emoji` 會移除機器人的反應；`remove: true` 會對應為空的表情符號（仍需要 `emoji`）。
 - **Signal**：當啟用 `channels.signal.reactionNotifications` 時，傳入的反應通知會發出系統事件。
-
-

@@ -1,10 +1,14 @@
 ---
+summary: "入站影像／音訊／影片理解（可選），支援提供者 + CLI 後備方案"
+read_when:
+  - 設計或重構媒體理解
+  - 調校入站音訊／影片／影像的前處理
 title: "媒體理解"
 ---
 
 # 媒體理解（入站）— 2026-01-17
 
-OpenClaw 可以在回覆流程執行前**彙整傳入媒體**（圖片/音訊/影片）。 It auto‑detects when local tools or provider keys are available, and can be disabled or customized. If understanding is off, models still receive the original files/URLs as usual.
+OpenClaw 可以在回覆流程執行前**彙整傳入媒體**（圖片/音訊/影片）。 OpenClaw 可以在回覆流程執行前**彙整傳入媒體**（圖片/音訊/影片）。 It auto‑detects when local tools or provider keys are available, and can be disabled or customized. If understanding is off, models still receive the original files/URLs as usual.
 
 ## 目標
 
@@ -370,5 +374,3 @@ CLI 範本也可以使用：
 
 - [設定](/gateway/configuration)
 - [影像與媒體支援](/nodes/images)
-
-

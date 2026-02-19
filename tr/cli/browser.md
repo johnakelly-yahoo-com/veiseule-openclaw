@@ -1,4 +1,9 @@
 ---
+summary: "`openclaw browser` için CLI referansı (profiller, sekmeler, eylemler, uzantı aktarımı)"
+read_when:
+  - "`openclaw browser` kullanıyor ve yaygın görevler için örnekler istiyorsunuz"
+  - Başka bir makinede çalışan bir tarayıcıyı bir node ana makinesi üzerinden kontrol etmek istiyorsunuz
+  - Chrome uzantı aktarımını kullanmak istiyorsunuz (araç çubuğu düğmesiyle ekle/çıkar)
 title: "tarayıcı"
 ---
 
@@ -47,7 +52,7 @@ Belirli bir profil kullanın:
 openclaw browser --browser-profile work tabs
 ```
 
-## Sekmeler
+## Tabs
 
 ```bash
 openclaw browser tabs
@@ -100,5 +105,3 @@ Gateway tarayıcıdan farklı bir makinede çalışıyorsa, Chrome/Brave/Edge/Ch
 Otomatik yönlendirmeyi kontrol etmek için `gateway.nodes.browser.mode`’yi ve birden fazla node bağlıysa belirli bir node’u sabitlemek için `gateway.nodes.browser.node`’i kullanın.
 
 Güvenlik + uzaktan kurulum: [Browser tool](/tools/browser), [Remote access](/gateway/remote), [Tailscale](/gateway/tailscale), [Security](/gateway/security)
-
-

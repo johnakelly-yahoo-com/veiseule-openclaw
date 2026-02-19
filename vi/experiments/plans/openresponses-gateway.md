@@ -1,4 +1,5 @@
 ---
+summary: "Kế hoạch: Thêm endpoint OpenResponses /v1/responses và ngừng Chat Completions một cách gọn gàng"
 owner: "openclaw"
 status: "draft"
 last_updated: "2026-01-19"
@@ -117,5 +118,3 @@ Các điểm chính rút ra:
 
 - Thêm một trang tài liệu mới cho cách dùng và ví dụ của `/v1/responses`.
 - Cập nhật `/gateway/openai-http-api` với ghi chú legacy và liên kết tới `/v1/responses`.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Djupgående felsökningsrunbook för gateway, kanaler, automation, noder och webbläsare"
+read_when:
+  - Felsökningshubben pekade dig hit för djupare diagnos
+  - Du behöver stabila, symtombaserade runbook-avsnitt med exakta kommandon
 title: "Felsökning"
 ---
 
@@ -105,7 +109,7 @@ Leta efter:
 
 Vanliga signaturer:
 
-- `Gateway start blocked: set gateway.mode=local` → lokalt gateway-läge är inte aktiverat.
+- `Gateway start blocked: set gateway.mode=local` → lokalt gateway-läge är inte aktiverat. Åtgärd: sätt `gateway.mode="local"` i din konfiguration (eller kör `openclaw configure`). Om du kör OpenClaw via Podman med den dedikerade användaren `openclaw` finns konfigurationen i `~openclaw/.openclaw/openclaw.json`.
 - `vägrar att binda gateway ... utan auth` → non-loopback binda utan token/lösenord.
 - `another gateway instance is already listening` / `EADDRINUSE` → portkonflikt.
 
@@ -312,5 +316,3 @@ Relaterat:
 - [/gateway/pairing](/gateway/pairing)
 - [/gateway/authentication](/gateway/authentication)
 - [/gateway/background-process](/gateway/background-process)
-
-

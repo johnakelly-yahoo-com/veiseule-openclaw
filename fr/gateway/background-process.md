@@ -1,4 +1,8 @@
 ---
+summary: "Exécution en arrière-plan et gestion des processus"
+read_when:
+  - Ajout ou modification du comportement d’exécution en arrière-plan
+  - Débogage de tâches d’exécution de longue durée
 title: "Outil d’exécution en arrière-plan et de processus"
 ---
 
@@ -42,6 +46,7 @@ Configuration (préférée) :
 - `tools.exec.timeoutSec` (par défaut 1800)
 - `tools.exec.cleanupMs` (par défaut 1800000)
 - `tools.exec.notifyOnExit` (par défaut true) : mettre en file un événement système + demander un heartbeat lorsque l’exécution en arrière-plan se termine.
+- `tools.exec.notifyOnExitEmptySuccess` (false par défaut) : lorsque défini sur true, ajoute également des événements de fin pour les exécutions en arrière-plan réussies n’ayant produit aucune sortie.
 
 ## outil process
 
@@ -63,6 +68,8 @@ Notes :
 - `process` est limité à l’agent ; il ne voit que les sessions démarrées par cet agent.
 - `process list` inclut un `name` dérivé (verbe de commande + cible) pour des analyses rapides.
 - `process log` utilise des `offset`/`limit` basés sur les lignes (omettre `offset` pour récupérer les N dernières lignes).
+- Lorsque `offset` et `limit` sont tous deux omis, renvoie les 200 dernières lignes et inclut une indication de pagination.
+- Lorsque `offset` est fourni et que `limit` est omis, renvoie de `offset` jusqu’à la fin (non limité à 200).
 
 ## Exemples
 
@@ -87,5 +94,3 @@ Envoyer stdin :
 ```json
 { "tool": "process", "action": "write", "sessionId": "<id>", "data": "y\n" }
 ```
-
-

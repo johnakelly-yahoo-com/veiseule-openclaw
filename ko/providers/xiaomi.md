@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw 에서 Xiaomi MiMo (mimo-v2-flash) 사용"
+read_when:
+  - OpenClaw 에서 Xiaomi MiMo 모델이 필요할 때
+  - XIAOMI_API_KEY 설정이 필요할 때
 title: "Xiaomi MiMo"
 ---
 
@@ -55,5 +59,3 @@ openclaw onboard --auth-choice xiaomi-api-key --xiaomi-api-key "$XIAOMI_API_KEY"
 - 모델 참조: `xiaomi/mimo-v2-flash`.
 - `XIAOMI_API_KEY` 이 설정되어 있거나(또는 인증 프로필이 존재하는 경우) 프로바이더는 자동으로 주입됩니다.
 - 프로바이더 규칙에 대한 자세한 내용은 [/concepts/model-providers](/concepts/model-providers) 를 참고하십시오.
-
-

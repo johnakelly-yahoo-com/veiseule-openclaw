@@ -1,17 +1,14 @@
 ---
-title: 多 Gateway 网关
-x-i18n:
-  generated_at: "2026-02-03T07:48:13Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 09b5035d4e5fb97c8d4596f7e23dea67224dad3b6d9e2c37ecb99840f28bd77d
-  source_path: gateway/multiple-gateways.md
-  workflow: 15
+summary: "在同一主机上运行多个 OpenClaw Gateway 网关（隔离、端口和配置文件）"
+read_when:
+  - 在同一台机器上运行多个 Gateway 网关
+  - 你需要每个 Gateway 网关有隔离的配置/状态/端口
+title: "多 Gateway 网关"
 ---
 
 # 多 Gateway 网关（同一主机）
 
-大多数设置应该使用单个 Gateway 网关，因为一个 Gateway 网关可以处理多个消息连接和智能体。如果你需要更强的隔离或冗余（例如，救援机器人），请使用隔离的配置文件/端口运行多个 Gateway 网关。
+大多数设置应该使用单个 Gateway 网关，因为一个 Gateway 网关可以处理多个消息连接和智能体。如果你需要更强的隔离或冗余（例如，救援机器人），请使用隔离的配置文件/端口运行多个 Gateway 网关。 If you need stronger isolation or redundancy (e.g., a rescue bot), run separate Gateways with isolated profiles/ports.
 
 ## 隔离检查清单（必需）
 
@@ -53,7 +50,7 @@ openclaw --profile rescue gateway install
 - 工作区
 - 基础端口（加上派生端口）
 
-这使救援机器人与主机器人隔离，以便在主机器人宕机时可以调试或应用配置更改。
+这样可以将救援机器人与主机器人隔离，当主机器人宕机时可进行调试或应用配置更改。
 
 端口间距：在基础端口之间至少留出 20 个端口，这样派生的浏览器/画布/CDP 端口永远不会冲突。
 
@@ -82,10 +79,10 @@ openclaw --profile rescue gateway install
 基础端口 = `gateway.port`（或 `OPENCLAW_GATEWAY_PORT` / `--port`）。
 
 - 浏览器控制服务端口 = 基础 + 2（仅 loopback）
-- `canvasHost.port = 基础 + 4`
+- canvas host 由 Gateway HTTP 服务器提供（与 `gateway.port` 使用相同端口）
 - 浏览器配置文件 CDP 端口从 `browser.controlPort + 9 .. + 108` 自动分配
 
-如果你在配置或环境变量中覆盖了这些，必须确保每个实例都唯一。
+If you override any of these in config or env, you must keep them unique per instance.
 
 ## 浏览器/CDP 注意事项（常见陷阱）
 
@@ -94,7 +91,7 @@ openclaw --profile rescue gateway install
 - 如果你需要显式的 CDP 端口，请为每个实例设置 `browser.profiles.<name>.cdpPort`。
 - 远程 Chrome：使用 `browser.profiles.<name>.cdpUrl`（每个配置文件，每个实例）。
 
-## 手动环境变量示例
+## Manual env example
 
 ```bash
 OPENCLAW_CONFIG_PATH=~/.openclaw/main.json \
@@ -113,5 +110,3 @@ openclaw --profile main status
 openclaw --profile rescue status
 openclaw --profile rescue browser status
 ```
-
-

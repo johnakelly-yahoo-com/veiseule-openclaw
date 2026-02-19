@@ -1,4 +1,8 @@
 ---
+summary: "Centro de ayuda: soluciones comunes, verificación de instalación y dónde buscar cuando algo se rompe"
+read_when:
+  - Usted es nuevo y quiere la guía de “qué debo hacer/ejecutar”
+  - Algo se rompió y quiere la ruta más rápida hacia una solución
 title: "Ayuda"
 ---
 
@@ -15,5 +19,3 @@ Si quiere un flujo rápido para “desbloquearse”, empiece aquí:
 Si busca preguntas conceptuales (no “algo se rompió”):
 
 - [Preguntas frecuentes (conceptos)](/help/faq)
-
-

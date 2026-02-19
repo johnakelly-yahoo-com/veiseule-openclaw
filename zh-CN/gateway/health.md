@@ -1,12 +1,8 @@
 ---
-title: 健康检查
-x-i18n:
-  generated_at: "2026-02-03T07:47:59Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 74f242e98244c135e1322682ed6b67d70f3b404aca783b1bb5de96a27c2c1b01
-  source_path: gateway/health.md
-  workflow: 15
+summary: "渠道连接的健康检查步骤"
+read_when:
+  - 诊断 WhatsApp 渠道健康状况
+title: "健康检查"
 ---
 
 # 健康检查（CLI）
@@ -25,8 +21,8 @@ x-i18n:
 ## 深度诊断
 
 - 磁盘上的凭证：`ls -l ~/.openclaw/credentials/whatsapp/<accountId>/creds.json`（mtime 应该是最近的）。
-- 会话存储：`ls -l ~/.openclaw/agents/<agentId>/sessions/sessions.json`（路径可在配置中覆盖）。计数和最近收件人通过 `status` 显示。
-- 重新链接流程：当日志中出现状态码 409–515 或 `loggedOut` 时，执行 `openclaw channels logout && openclaw channels login --verbose`。（注意：配对后状态 515 时 QR 登录流程会自动重启一次。）
+- 会话存储：`ls -l ~/.openclaw/agents/<agentId>/sessions/sessions.json`（路径可在配置中覆盖）。计数和最近收件人通过 `status` 显示。 36. 数量和最近的收件人会通过 `status` 展示。
+- 重新链接流程：当日志中出现状态码 409–515 或 `loggedOut` 时，执行 `openclaw channels logout && openclaw channels login --verbose`。（注意：配对后状态 515 时 QR 登录流程会自动重启一次。） 38. （注意：在配对后，针对状态 515，二维码登录流程会自动重启一次。）
 
 ## 当出现故障时
 
@@ -36,6 +32,4 @@ x-i18n:
 
 ## 专用"health"命令
 
-`openclaw health --json` 向运行中的 Gateway 网关请求其健康快照（CLI 不直接访问渠道套接字）。它报告已链接凭证/认证时长（如可用）、每渠道探测摘要、会话存储摘要和探测持续时间。如果 Gateway 网关不可达或探测失败/超时，它以非零退出。使用 `--timeout <ms>` 覆盖默认的 10 秒。
-
-
+`openclaw health --json` 向运行中的 Gateway 网关请求其健康快照（CLI 不直接访问渠道套接字）。它报告已链接凭证/认证时长（如可用）、每渠道探测摘要、会话存储摘要和探测持续时间。如果 Gateway 网关不可达或探测失败/超时，它以非零退出。使用 `--timeout <ms>` 覆盖默认的 10 秒。 45. 在可用时，它会报告已关联凭据/认证时长、按渠道的探测摘要、会话存储摘要以及探测耗时。 46. 如果网关不可达或探测失败/超时，它会以非零状态码退出。 47. 使用 `--timeout <ms>` 覆盖默认的 10 秒。

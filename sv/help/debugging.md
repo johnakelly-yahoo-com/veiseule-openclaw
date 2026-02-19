@@ -1,4 +1,9 @@
 ---
+summary: "Felsökningsverktyg: bevakningsläge, råa modellströmmar och spårning av resonemangsläckage"
+read_when:
+  - Du behöver inspektera rå modellutdata för resonemangsläckage
+  - Du vill köra Gateway i bevakningsläge medan du itererar
+  - Du behöver ett repeterbart felsökningsflöde
 title: "Felsökning"
 ---
 
@@ -155,5 +160,3 @@ Standardfil:
 - Råa strömloggar kan innehålla fullständiga prompter, verktygsutdata och användardata.
 - Behåll loggar lokalt och radera dem efter felsökning.
 - Om du delar loggar, rensa hemligheter och personuppgifter (PII) först.
-
-

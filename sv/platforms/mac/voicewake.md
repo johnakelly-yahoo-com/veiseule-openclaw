@@ -1,4 +1,7 @@
 ---
+summary: "Röstväckning och push‑to‑talk‑lägen samt routningsdetaljer i mac‑appen"
+read_when:
+  - Arbetar med röstväckning eller PTT‑flöden
 title: "Röstväckning"
 ---
 
@@ -62,5 +65,3 @@ Härdning:
 
 - Slå på push‑to‑talk, håll Cmd+Fn, tala, släpp: överlägget ska visa partialer och sedan skicka.
 - Medan du håller ska menyradens ”öron” vara förstorade (använder `triggerVoiceEars(ttl:nil)`); de faller tillbaka efter släpp.
-
-

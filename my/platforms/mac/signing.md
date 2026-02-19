@@ -1,4 +1,7 @@
 ---
+summary: "packaging scripts ဖြင့် ထုတ်လုပ်သော macOS debug builds များအတွက် signing အဆင့်များ"
+read_when:
+  - mac debug builds များကို တည်ဆောက်ခြင်း သို့မဟုတ် signing ပြုလုပ်သောအခါ
 title: "macOS လက်မှတ်ရေးထိုးခြင်း"
 ---
 
@@ -42,5 +45,3 @@ About tab သည် version, build date, git commit နှင့် debug build 
 ## အဘယ်ကြောင့်
 
 TCC permission များသည် bundle identifier **နှင့်** code signature နှစ်ခုစလုံးနှင့် ချိတ်ဆက်ထားပါသည်။ UUID မပြောင်းလဲဘဲ မထိုးထားသော debug build များကြောင့် macOS သည် rebuild တစ်ကြိမ်စီတိုင်း permissions (grants) များကို မေ့လျော့နေခဲ့သည်။ Binary များကို sign လုပ်ခြင်း (ပုံမှန်အားဖြင့် ad‑hoc) နှင့် bundle id/path (`dist/OpenClaw.app`) ကို တည်ငြိမ်စွာ ထားရှိခြင်းက build များအကြား grants များကို ထိန်းသိမ်းပေးပြီး VibeTunnel နည်းလမ်းနှင့် ကိုက်ညီစေသည်။
-
-

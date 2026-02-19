@@ -1,4 +1,9 @@
 ---
+summary: "Referentie: provider-specifieke transcript-sanitatie- en herstelregels"
+read_when:
+  - Je debugt provider-afwijzingen van requests die samenhangen met de vorm van het transcript
+  - Je wijzigt transcript-sanitatie of logica voor het herstellen van tool-calls
+  - Je onderzoekt mismatches van tool-call-id’s tussen providers
 title: "Transcript-hygiëne"
 ---
 
@@ -19,6 +24,7 @@ De scope omvat:
 - Turn-validatie / -ordening
 - Opschonen van de gedachtehandtekening
 - Sanitatie van afbeeldingspayloads
+- Tagging van herkomst van gebruikersinvoer (voor inter-sessie doorgestuurde prompts)
 
 Als je details over transcriptopslag nodig hebt, zie:
 
@@ -64,6 +70,23 @@ Implementatie:
 
 - `sanitizeToolCallInputs` in `src/agents/session-transcript-repair.ts`
 - Toegepast in `sanitizeSessionHistory` in `src/agents/pi-embedded-runner/google.ts`
+
+---
+
+## Algemene regel: herkomst van inter-sessie-invoer
+
+Wanneer een agent een prompt naar een andere sessie stuurt via `sessions_send` (inclusief
+agent-naar-agent reply/announce-stappen), slaat OpenClaw de aangemaakte user turn op met:
+
+- `message.provenance.kind = "inter_session"`
+
+Deze metadata wordt weggeschreven bij het toevoegen aan het transcript en verandert de rol niet
+(`role: "user"` blijft behouden voor providercompatibiliteit). Transcriptlezers kunnen dit gebruiken
+om te voorkomen dat doorgestuurde interne prompts worden behandeld als instructies van de eindgebruiker.
+
+Tijdens het opnieuw opbouwen van de context voegt OpenClaw ook een korte `[Inter-session message]`-markering toe
+voorafgaand aan die user turns in het geheugen, zodat het model ze kan onderscheiden van
+externe instructies van eindgebruikers.
 
 ---
 
@@ -122,5 +145,3 @@ Vóór de release 2026.1.22 paste OpenClaw meerdere lagen transcript-hygiëne to
 Deze complexiteit veroorzaakte regressies tussen providers (met name `openai-responses`
 `call_id|fc_id`-koppeling). De opschoning in 2026.1.22 verwijderde de extensie, centraliseerde
 de logica in de runner en maakte OpenAI **no-touch** buiten afbeeldingssanitatie.
-
-

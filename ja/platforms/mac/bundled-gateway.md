@@ -1,10 +1,15 @@
 ---
+summary: "macOS 上で動作する Gateway ランタイム（外部の launchd サービス）"
+read_when:
+  - OpenClaw.app のパッケージング
+  - macOS の gateway launchd サービスのデバッグ
+  - macOS 向け gateway CLI のインストール
 title: "macOS 上の Gateway"
 ---
 
 # macOS 上の Gateway（外部 launchd）
 
-OpenClaw.app がNode/Bun や Gateway のランタイムをバンドルしなくなりました。 OpenClaw.app には、Node/Bun や Gateway ランタイムはもはや同梱されていません。macOS アプリは **外部** の `openclaw` CLI インストールを前提としており、Gateway を子プロセスとして起動しません。代わりに、Gateway を実行し続けるためのユーザー単位の launchd サービスを管理します（すでにローカルで Gateway が起動している場合は、それに接続します）。
+OpenClaw.app がNode/Bun や Gateway のランタイムをバンドルしなくなりました。 OpenClaw.app には、Node/Bun や Gateway ランタイムはもはや同梱されていません。macOS アプリは **外部** の `openclaw` CLI インストールを前提としており、Gateway を子プロセスとして起動しません。代わりに、Gateway を実行し続けるためのユーザー単位の launchd サービスを管理します（すでにローカルで Gateway が起動している場合は、それに接続します）。 OpenClaw.app には、Node/Bun や Gateway ランタイムはもはや同梱されていません。macOS アプリは **外部** の `openclaw` CLI インストールを前提としており、Gateway を子プロセスとして起動しません。代わりに、Gateway を実行し続けるためのユーザー単位の launchd サービスを管理します（すでにローカルで Gateway が起動している場合は、それに接続します）。
 
 ## CLI のインストール（ローカルモードに必須）
 
@@ -44,7 +49,7 @@ Plist の場所（ユーザー単位）:
 
 ## バージョン互換性
 
-macOS アプリは、gateway のバージョンを自身のバージョンと照合します。互換性がない場合は、アプリのバージョンに合わせてグローバル CLI を更新してください。
+macOS アプリは、gateway のバージョンを自身のバージョンと照合します。互換性がない場合は、アプリのバージョンに合わせてグローバル CLI を更新してください。 macOS アプリは、gateway のバージョンを自身のバージョンと照合します。互換性がない場合は、アプリのバージョンに合わせてグローバル CLI を更新してください。
 互換性がない場合は、グローバルCLIをアプリのバージョンに合わせて更新してください。
 
 ## スモークチェック
@@ -62,5 +67,3 @@ openclaw gateway --port 18999 --bind loopback
 ```bash
 openclaw gateway call health --url ws://127.0.0.1:18999 --timeout 3000
 ```
-
-

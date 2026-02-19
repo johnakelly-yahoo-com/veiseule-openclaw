@@ -1,4 +1,8 @@
 ---
+summary: "Nostr DM channel sa pamamagitan ng NIP-04 na naka-encrypt na mga mensahe"
+read_when:
+  - Gusto mong tumanggap ang OpenClaw ng mga DM sa pamamagitan ng Nostr
+  - Nagsi-setup ka ng desentralisadong pagmemensahe
 title: "Nostr"
 ---
 
@@ -67,7 +71,7 @@ export NOSTR_PRIVATE_KEY="nsec1..."
 
 ## Sanggunian sa konpigurasyon
 
-| Susi          | Uri                                                         | Paunang Halaga                                     | Paglalarawan                                    |
+| Susi         | Uri                                                          | Paunang Halaga                              | Paglalarawan                                    |
 | ------------ | ------------------------------------------------------------ | ------------------------------------------- | ----------------------------------------------- |
 | `privateKey` | string                                                       | required                                    | Private key sa `nsec` o hex format              |
 | `relays`     | string[] | `['wss://relay.damus.io', 'wss://nos.lol']` | Mga URL ng relay (WebSocket) |
@@ -227,5 +231,3 @@ docker run -p 7777:7777 ghcr.io/hoytech/strfry
 - Direct message lang (walang group chat).
 - Walang media attachment.
 - NIP-04 lamang (naka-planong NIP-17 gift-wrap).
-
-

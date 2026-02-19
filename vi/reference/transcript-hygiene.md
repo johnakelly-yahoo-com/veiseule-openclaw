@@ -1,4 +1,9 @@
 ---
+summary: "Tham chiếu: các quy tắc làm sạch và sửa chữa bản ghi theo từng nhà cung cấp"
+read_when:
+  - Bạn đang gỡ lỗi các trường hợp nhà cung cấp từ chối request liên quan đến hình dạng bản ghi
+  - Bạn đang thay đổi logic làm sạch bản ghi hoặc sửa chữa tool-call
+  - Bạn đang điều tra sự không khớp id tool-call giữa các nhà cung cấp
 title: "Vệ sinh bản ghi"
 ---
 
@@ -15,6 +20,7 @@ Phạm vi bao gồm:
 - Xác thực / sắp xếp lượt
 - Dọn dẹp chữ ký suy nghĩ
 - Làm sạch payload hình ảnh
+- Gắn thẻ nguồn gốc đầu vào người dùng (cho các prompt được định tuyến giữa các phiên)
 
 Nếu bạn cần chi tiết về lưu trữ bản ghi, xem:
 
@@ -63,9 +69,26 @@ Triển khai:
 
 ## Ma trận theo nhà cung cấp (hành vi hiện tại)
 
-**OpenAI / OpenAI Codex**
+Khi một agent gửi prompt sang một phiên khác qua `sessions_send` (bao gồm
+các bước reply/announce giữa agent với agent), OpenClaw sẽ lưu lượt người dùng được tạo với:
 
 - Chỉ làm sạch hình ảnh.
+
+Metadata này được ghi khi thêm vào transcript và không thay đổi vai trò
+(`role: "user"` vẫn được giữ để tương thích với provider). Trình đọc transcript có thể sử dụng
+thông tin này để tránh coi các prompt nội bộ được định tuyến là chỉ dẫn do người dùng cuối tạo ra.
+
+Trong quá trình xây dựng lại ngữ cảnh, OpenClaw cũng thêm trước một dấu
+`[Inter-session message]` ngắn vào các lượt người dùng đó trong bộ nhớ để mô hình có thể phân biệt chúng với
+các chỉ dẫn từ người dùng cuối bên ngoài.
+
+---
+
+## Ma trận theo nhà cung cấp (hành vi hiện tại)
+
+**OpenAI / OpenAI Codex**
+
+- Làm sạch id tool-call: strict9 (chữ và số, độ dài 9).
 - Khi chuyển mô hình sang OpenAI Responses/Codex, loại bỏ các chữ ký suy luận mồ côi (các mục suy luận độc lập không có khối nội dung theo sau).
 - Không làm sạch id tool-call.
 - Không sửa chữa ghép cặp kết quả tool.
@@ -75,15 +98,15 @@ Triển khai:
 
 **Google (Generative AI / Gemini CLI / Antigravity)**
 
-- Làm sạch id tool-call: chỉ cho phép chữ và số nghiêm ngặt.
+- Dọn dẹp chữ ký suy nghĩ: loại bỏ các giá trị `thought_signature` không phải base64 (giữ lại base64).
 - Sửa chữa ghép cặp kết quả tool và tạo kết quả tool tổng hợp.
 - Xác thực lượt (luân phiên lượt theo kiểu Gemini).
 - Sửa thứ tự lượt của Google (chèn một bootstrap user rất nhỏ nếu lịch sử bắt đầu bằng assistant).
 - Antigravity Claude: chuẩn hóa chữ ký suy nghĩ; loại bỏ các khối suy nghĩ không có chữ ký.
 
-**Anthropic / Minimax (tương thích Anthropic)**
+**Các trường hợp còn lại**
 
-- Sửa chữa ghép cặp kết quả tool và tạo kết quả tool tổng hợp.
+- Chỉ làm sạch hình ảnh.
 - Xác thực lượt (gộp các lượt user liên tiếp để đáp ứng luân phiên nghiêm ngặt).
 
 **Mistral (bao gồm phát hiện dựa trên model-id)**
@@ -92,7 +115,7 @@ Triển khai:
 
 **OpenRouter Gemini**
 
-- Dọn dẹp chữ ký suy nghĩ: loại bỏ các giá trị `thought_signature` không phải base64 (giữ lại base64).
+- Một **transcript-sanitize extension** chạy ở mỗi lần xây dựng ngữ cảnh và có thể:
 
 **Các trường hợp còn lại**
 
@@ -115,5 +138,3 @@ Trước bản phát hành 2026.1.22, OpenClaw áp dụng nhiều lớp vệ sin
 
 This complexity caused cross-provider regressions (notably `openai-responses`
 `call_id|fc_id` pairing). Đợt dọn dẹp ngày 2026.1.22 đã loại bỏ extension, tập trung logic vào runner và khiến OpenAI **không cần can thiệp** ngoài việc làm sạch hình ảnh.
-
-

@@ -1,8 +1,11 @@
 ---
-title: "Ajan Çalışma Zamanı"
+summary: "Ajan çalışma zamanı (gömülü pi-mono), çalışma alanı sözleşmesi ve oturum önyüklemesi"
+read_when:
+  - Changing agent runtime, workspace bootstrap, or session behavior
+title: "Agent Runtime"
 ---
 
-# Ajan Çalışma Zamanı 🤖
+# Agent Runtime 🤖
 
 OpenClaw, **pi-mono**’dan türetilmiş tek bir gömülü ajan çalışma zamanı çalıştırır.
 
@@ -47,7 +50,7 @@ Bir dosya eksikse, OpenClaw tek bir “eksik dosya” işaret satırı enjekte e
 
 Çekirdek araçlar (okuma/çalıştırma/düzenleme/yazma ve ilgili sistem araçları) araç politikasına tabi olarak her zaman kullanılabilir. `apply_patch` isteğe bağlıdır ve `tools.exec.applyPatch` tarafından kapatılır/açılır. `TOOLS.md` hangi araçların var olduğunu **kontrol etmez**; onları nasıl kullanmak istediğinize dair bir yönlendirmedir.
 
-## Yetenekler
+## Skills
 
 OpenClaw, Skills’leri üç konumdan yükler (ad çakışmasında çalışma alanı kazanır):
 
@@ -64,7 +67,7 @@ OpenClaw, pi-mono kod tabanının bazı parçalarını (modeller/araçlar) yenid
 - pi-coding ajan çalışma zamanı yoktur.
 - `~/.pi/agent` veya `<workspace>/.pi` ayarları dikkate alınmaz.
 
-## Oturumlar
+## Sessions
 
 Oturum dökümleri JSONL olarak şurada saklanır:
 
@@ -108,5 +111,3 @@ En azından şunları ayarlayın:
 ---
 
 _Sonraki: [Grup Sohbetleri](/channels/group-messages)_ 🦞
-
-

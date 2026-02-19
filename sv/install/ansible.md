@@ -1,4 +1,9 @@
 ---
+summary: "Automatiserad, härdad OpenClaw-installation med Ansible, Tailscale VPN och brandväggsisolering"
+read_when:
+  - Du vill ha automatiserad serverdriftsättning med säkerhetshärdning
+  - Du behöver en brandväggsisolerad installation med VPN-åtkomst
+  - Du distribuerar till fjärrservrar med Debian/Ubuntu
 title: "Ansible"
 ---
 
@@ -201,5 +206,3 @@ För detaljerad säkerhetsarkitektur och felsökning:
 - [Docker](/install/docker) — containeriserad gateway-konfiguration
 - [Sandboxing](/gateway/sandboxing) — konfiguration av agent-sandbox
 - [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) — isolering per agent
-
-

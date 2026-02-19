@@ -1,4 +1,9 @@
 ---
+summary: "Claude Max/Pro سبسکرپشن کو OpenAI-مطابقت رکھنے والے API اینڈپوائنٹ کے طور پر استعمال کریں"
+read_when:
+  - آپ OpenAI-مطابقت رکھنے والے اوزاروں کے ساتھ Claude Max سبسکرپشن استعمال کرنا چاہتے ہیں
+  - آپ ایک مقامی API سرور چاہتے ہیں جو Claude Code CLI کو ریپ کرے
+  - آپ API کیز کے بجائے سبسکرپشن استعمال کر کے پیسے بچانا چاہتے ہیں
 title: "Claude Max API پراکسی"
 ---
 
@@ -141,5 +146,3 @@ launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.claude-max-api.plist
 
 - [Anthropic provider](/providers/anthropic) - setup-token یا API کیز کے ساتھ Claude کی نیٹو OpenClaw انٹیگریشن
 - [OpenAI provider](/providers/openai) - OpenAI/Codex سبسکرپشنز کے لیے
-
-

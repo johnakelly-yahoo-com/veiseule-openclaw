@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw を完全にアンインストールします（CLI、サービス、状態、ワークスペース）"
+read_when:
+  - マシンから OpenClaw を削除したい場合
+  - アンインストール後も ゲートウェイ サービスが実行され続けている場合
 title: "アンインストール"
 ---
 
@@ -84,7 +88,7 @@ launchctl bootout gui/$UID/bot.molt.gateway
 rm -f ~/Library/LaunchAgents/bot.molt.gateway.plist
 ```
 
-プロファイルを使用していた場合は、ラベルと plist 名を `bot.molt.<profile>`. `に置き換えてください。存在する場合は、レガシーの`com.openclaw.\*\` plist を削除してください。
+プロファイルを使用していた場合は、ラベルと plist 名を `bot.molt.<profile>`. `に置き換えてください。存在する場合は、レガシーの`com.openclaw.\*\\` plist を削除してください。
 
 ### Linux（systemd ユーザー ユニット）
 
@@ -101,6 +105,7 @@ systemctl --user daemon-reload
 既定のタスク名は `OpenClaw Gateway`（または `OpenClaw Gateway (<profile>)`）です。  
 タスク スクリプトは状態ディレクトリ配下にあります。
 タスクスクリプトは状態dirの下に保存されます。
+タスクスクリプトは状態dirの下に保存されます。
 
 ```powershell
 schtasks /Delete /F /TN "OpenClaw Gateway"
@@ -116,6 +121,7 @@ Remove-Item -Force "$env:USERPROFILE\.openclaw\gateway.cmd"
 `https://openclaw.ai/install.sh` または `install.ps1` を使用した場合、CLI は `npm install -g openclaw@latest` でインストールされています。  
 `npm rm -g openclaw` で削除してください（その方法でインストールした場合は `pnpm remove -g` / `bun remove -g` を使用します）。
 `npm rm -g openclaw` で削除します。または、`pnpm remove -g` / `bun remove -g` をインストールします。
+`npm rm -g openclaw` で削除します。または、`pnpm remove -g` / `bun remove -g` をインストールします。
 
 ### ソース チェックアウト（git clone）
 
@@ -124,5 +130,3 @@ Remove-Item -Force "$env:USERPROFILE\.openclaw\gateway.cmd"
 1. リポジトリを削除する **前に** ゲートウェイ サービスをアンインストールします（上記の簡単な方法、または手動でのサービス削除を使用してください）。
 2. リポジトリ ディレクトリを削除します。
 3. 上記の手順に従って、状態 + ワークスペースを削除します。
-
-

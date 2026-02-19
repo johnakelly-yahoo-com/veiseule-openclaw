@@ -1,12 +1,10 @@
 ---
-title: 工作区记忆研究
-x-i18n:
-  generated_at: "2026-02-03T10:06:14Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 1753c8ee6284999fab4a94ff5fae7421c85233699c9d3088453d0c2133ac0feb
-  source_path: experiments/research/memory.md
-  workflow: 15
+summary: "研究笔记：Clawd 工作区的离线记忆系统（Markdown 作为数据源 + 派生索引）"
+read_when:
+  - 设计超越每日 Markdown 日志的工作区记忆（~/.openclaw/workspace）
+  - Deciding: standalone CLI vs deep OpenClaw integration
+  - 添加离线回忆 + 反思（retain/recall/reflect）
+title: "工作区记忆研究"
 ---
 
 # 工作区记忆 v2（离线）：研究笔记
@@ -29,7 +27,7 @@ x-i18n:
 - 高召回率检索（"我们对 X 做了什么决定？"、"上次我们尝试 Y 时？"）
 - 以实体为中心的答案（"告诉我关于 Alice / The Castle / warelay 的信息"）而无需重读多个文件
 - 观点/偏好稳定性（以及变化时的证据）
-- 时间约束（"2025 年 11 月期间什么是真实的？"）和冲突解决
+- 时间约束（"2025 年 11 月期间什么是真实的？"）和冲突解决 and conflict resolution
 
 ## 设计目标
 
@@ -37,7 +35,7 @@ x-i18n:
 - **可解释**：检索的项目应该可归因（文件 + 位置）并与推理分离。
 - **低仪式感**：每日日志保持 Markdown，无需繁重的 schema 工作。
 - **增量式**：v1 仅使用 FTS 就很有用；语义/向量和图是可选升级。
-- **对智能体友好**：使"在 token 预算内回忆"变得简单（返回小型事实包）。
+- 2. **对代理友好**：让“在 token 预算内进行回忆”变得容易（返回小型事实包）。
 
 ## 北极星模型（Hindsight × Letta）
 
@@ -82,7 +80,7 @@ x-i18n:
 
 注意：
 
-- **每日日志保持为每日日志**。无需将其转换为 JSON。
+- **每日日志保持为每日日志**。无需将其转换为 JSON。 21. 无需把它变成 JSON。
 - `bank/` 文件是**经过整理的**，由反思任务生成，仍可手动编辑。
 - `memory.md` 保持"小型 + 类似核心"：你希望 Clawd 每次会话都能看到的内容。
 
@@ -94,7 +92,7 @@ x-i18n:
 ~/.openclaw/workspace/.memory/index.sqlite
 ```
 
-后端支持：
+27. 其后端包括：
 
 - 用于事实 + 实体链接 + 观点元数据的 SQLite schema
 - SQLite **FTS5** 用于词法回忆（快速、小巧、离线）
@@ -139,7 +137,7 @@ Recall 应支持：
 - **词法**："查找精确的术语/名称/命令"（FTS5）
 - **实体**："告诉我关于 X 的信息"（实体页面 + 实体链接的事实）
 - **时间**："11 月 27 日前后发生了什么"/"自上周以来"
-- **观点**："Peter 偏好什么？"（带置信度 + 证据）
+- **观点**："Peter 偏好什么？"（带置信度 + 证据） 3.（包含置信度 + 证据）
 
 返回格式应对智能体友好并引用来源：
 
@@ -178,7 +176,7 @@ Recall 应支持：
   - 工作区路径（`agents.defaults.workspace`）
   - 会话模型 + 心跳
   - 日志记录 + 故障排除模式
-- 你希望智能体自己调用工具：
+- 31. 你希望由 agent 自身来调用工具：
   - `openclaw memory recall "…" --k 25 --since 30d`
   - `openclaw memory reflect --since 7d`
 
@@ -206,7 +204,7 @@ Recall 应支持：
 离线友好的替代方案（按复杂性递增）：
 
 - SQLite FTS5 + 元数据过滤（零 ML）
-- 嵌入 + 暴力搜索（如果块数量低，效果出奇地好）
+- 49. 向量嵌入 + 暴力搜索（在 chunk 数量较低时效果出奇地好）
 - HNSW 索引（常见、稳健；需要库绑定）
 - SuCo（研究级；如果有可嵌入的可靠实现则很有吸引力）
 
@@ -215,7 +213,7 @@ Recall 应支持：
 - 对于你的机器（笔记本 + 台式机）上的"个人助理记忆"，**最佳**的离线嵌入模型是什么？
   - 如果你已经有 Ollama：使用本地模型嵌入；否则在工具链中附带一个小型嵌入模型。
 
-## 最小可用试点
+## 5. 最小但有用的试点
 
 如果你想要一个最小但仍有用的版本：
 
@@ -228,5 +226,3 @@ Recall 应支持：
 - Letta / MemGPT 概念："核心记忆块" + "档案记忆" + 工具驱动的自编辑记忆。
 - Hindsight 技术报告："retain / recall / reflect"，四网络记忆，叙事性事实提取，观点置信度演变。
 - SuCo：arXiv 2411.14754（2024）："Subspace Collision"近似最近邻检索。
-
-

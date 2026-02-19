@@ -1,4 +1,9 @@
 ---
+summary: "Reference: udbyderspecifik sanitering og reparationsregler for transskripter"
+read_when:
+  - Du fejlretter udbyderafvisninger af forespørgsler, der er knyttet til transskriptets form
+  - Du ændrer sanitering af transskripter eller logik for reparation af tool-calls
+  - Du undersøger mismatches af tool-call-id’er på tværs af udbydere
 title: "Transskript-hygiejne"
 ---
 
@@ -19,6 +24,7 @@ Omfanget omfatter:
 - Turvalidering / rækkefølge
 - Oprydning af tanke-signaturer
 - Sanitering af billedpayloads
+- Proveniensmærkning af brugerinput (for prompts dirigeret mellem sessioner)
 
 Hvis du har brug for detaljer om lagring af transskripter, se:
 
@@ -69,9 +75,26 @@ Implementering:
 
 ## Udbydermatrix (aktuel adfærd)
 
-**OpenAI / OpenAI Codex**
+Når en agent sender en prompt ind i en anden session via `sessions_send` (inklusive
+agent-til-agent svar-/annonceringstrin), gemmer OpenClaw den oprettede bruger-tur med:
 
 - Kun billedsanitering.
+
+Disse metadata skrives ved tilføjelse til transskriptet og ændrer ikke rolle
+(`role: "user"` forbliver af hensyn til udbyderkompatibilitet). Læsere af transskripter kan bruge
+dette til at undgå at behandle dirigerede interne prompts som instruktioner skrevet af slutbrugeren.
+
+Under genopbygning af kontekst indsætter OpenClaw også en kort `[Inter-session message]`-
+markør foran disse bruger-ture i hukommelsen, så modellen kan skelne dem fra
+eksterne slutbrugerinstruktioner.
+
+---
+
+## Udbydermatrix (aktuel adfærd)
+
+**OpenAI / OpenAI Codex**
+
+- Sanitering af tool-call-id’er: strict9 (alfanumerisk længde 9).
 - Ved modelswitch til OpenAI Responses/Codex droppes forældreløse ræsonnement-signaturer (stående ræsonnement-elementer uden efterfølgende indholdsblok).
 - Ingen sanitering af tool-call-id’er.
 - Ingen reparation af parring af tool-resultater.
@@ -81,15 +104,15 @@ Implementering:
 
 **Google (Generative AI / Gemini CLI / Antigravity)**
 
-- Sanitering af tool-call-id’er: strengt alfanumerisk.
+- Oprydning af tanke-signaturer: strip ikke-base64 `thought_signature`-værdier (behold base64).
 - Reparation af parring af tool-resultater og syntetiske tool-resultater.
 - Turvalidering (Gemini-stil tur-alternation).
 - Google-rækkefølgefix for ture (foranstil en minimal user-bootstrap, hvis historikken starter med assistant).
 - Antigravity Claude: normaliser tanke-signaturer; drop usignerede tanke-blokke.
 
-**Anthropic / Minimax (Anthropic-kompatibel)**
+**Alt andet**
 
-- Reparation af parring af tool-resultater og syntetiske tool-resultater.
+- Kun billedsanitering.
 - Turvalidering (flet på hinanden følgende user-ture for at opfylde streng alternation).
 
 **Mistral (inklusive model-id-baseret detektion)**
@@ -98,7 +121,7 @@ Implementering:
 
 **OpenRouter Gemini**
 
-- Oprydning af tanke-signaturer: strip ikke-base64 `thought_signature`-værdier (behold base64).
+- En **transcript-sanitize extension** kørte ved hver kontekstopbygning og kunne:
 
 **Alt andet**
 
@@ -122,5 +145,3 @@ Før udgivelsen 2026.1.22 anvendte OpenClaw flere lag af transskript-hygiejne:
 Denne kompleksitet forårsagede regressioner på tværs af udbydere (især `openai-responses`
 `call_idřfc_id` parring). Oprydningen af 2026.1.22 fjernede udvidelsen, centraliseret
 logik i løberen, og gjorde OpenAI **no-touch** ud over billeddesinficering.
-
-

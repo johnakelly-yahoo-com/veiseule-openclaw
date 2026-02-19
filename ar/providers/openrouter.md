@@ -1,4 +1,8 @@
 ---
+summary: "استخدم واجهة برمجة التطبيقات الموحّدة من OpenRouter للوصول إلى العديد من النماذج في OpenClaw"
+read_when:
+  - تريد مفتاح API واحدًا للعديد من نماذج LLM
+  - تريد تشغيل النماذج عبر OpenRouter داخل OpenClaw
 title: "OpenRouter"
 ---
 
@@ -30,5 +34,3 @@ openclaw onboard --auth-choice apiKey --token-provider openrouter --token "$OPEN
 - مراجع النماذج هي `openrouter/<provider>/<model>`.
 - لمزيد من خيارات النماذج/الموفّرين، راجع [/concepts/model-providers](/concepts/model-providers).
 - يستخدم OpenRouter رمز Bearer مع مفتاح API الخاص بك خلف الكواليس.
-
-

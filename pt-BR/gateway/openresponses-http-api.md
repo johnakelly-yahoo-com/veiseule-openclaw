@@ -1,4 +1,8 @@
 ---
+summary: "Exponha um endpoint HTTP /v1/responses compatível com OpenResponses a partir do Gateway"
+read_when:
+  - Integrar clientes que falam a API OpenResponses
+  - Você quer entradas baseadas em itens, chamadas de ferramentas do cliente ou eventos SSE
 title: "API OpenResponses"
 ---
 
@@ -24,6 +28,7 @@ Notas:
 
 - Quando `gateway.auth.mode="token"`, use `gateway.auth.token` (ou `OPENCLAW_GATEWAY_TOKEN`).
 - Quando `gateway.auth.mode="password"`, use `gateway.auth.password` (ou `OPENCLAW_GATEWAY_PASSWORD`).
+- Se `gateway.auth.rateLimit` estiver configurado e ocorrerem muitas falhas de autenticação, o endpoint retorna `429` com `Retry-After`.
 
 ## Escolhendo um agente
 
@@ -182,7 +187,11 @@ Padrões de busca por URL:
 
 - `files.allowUrl`: `true`
 - `images.allowUrl`: `true`
+- `maxUrlParts`: `8` (total de partes baseadas em URL `input_file` + `input_image` por requisição)
 - As requisições são protegidas (resolução DNS, bloqueio de IP privado, limites de redirecionamento, timeouts).
+- Listas de permissões (allowlists) opcionais de hostname são suportadas por tipo de entrada (`files.urlAllowlist`, `images.urlAllowlist`).
+  - Host exato: `"cdn.example.com"`
+  - Subdomínios curinga: `"*.assets.example.com"` (não corresponde ao domínio raiz)
 
 ## Limites de arquivos + imagens (configuração)
 
@@ -233,6 +242,7 @@ Os padrões podem ser ajustados em `gateway.http.endpoints.responses`:
 Padrões quando omitidos:
 
 - `maxBodyBytes`: 20MB
+- `maxUrlParts`: 8
 - `files.maxBytes`: 5MB
 - `files.maxChars`: 200k
 - `files.maxRedirects`: 3
@@ -243,6 +253,13 @@ Padrões quando omitidos:
 - `images.maxBytes`: 10MB
 - `images.maxRedirects`: 3
 - `images.timeoutMs`: 10s
+
+Observação de segurança:
+
+- As allowlists de URL são aplicadas antes do fetch e em redirecionamentos.
+- Adicionar um hostname à allowlist não ignora o bloqueio de IPs privados/internos.
+- Para gateways expostos à internet, aplique controles de saída de rede além das proteções no nível da aplicação.
+  Veja [Security](/gateway/security).
 
 ## Streaming (SSE)
 
@@ -285,7 +302,7 @@ Casos comuns:
 
 ## Exemplos
 
-Sem streaming:
+Com streaming:
 
 ```bash
 curl -sS http://127.0.0.1:18789/v1/responses \
@@ -298,7 +315,7 @@ curl -sS http://127.0.0.1:18789/v1/responses \
   }'
 ```
 
-Com streaming:
+Sem streaming:
 
 ```bash
 curl -N http://127.0.0.1:18789/v1/responses \
@@ -311,5 +328,3 @@ curl -N http://127.0.0.1:18789/v1/responses \
     "input": "hi"
   }'
 ```
-
-

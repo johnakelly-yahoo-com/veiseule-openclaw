@@ -1,10 +1,15 @@
 ---
+summary: "Kör OpenClaw på lokala LLM:er (LM Studio, vLLM, LiteLLM, anpassade OpenAI-endpoints)"
+read_when:
+  - Du vill servera modeller från din egen GPU‑maskin
+  - Du kopplar LM Studio eller en OpenAI‑kompatibel proxy
+  - Du behöver den säkraste vägledningen för lokala modeller
 title: "Lokala modeller"
 ---
 
 # Lokala modeller
 
-Lokal är genomförbar, men OpenClaw förväntar sig stort sammanhang + starka försvar mot snabb injektion. Små kort trunkerar sammanhang och läcker säkerhet. Sikta hög: **&lt;unk&gt; 2 maxed-out Mac Studios eller motsvarande GPU rigg (~$30k+)**. En enda **24 GB** GPU fungerar endast för lättare uppmaningar med högre latens. Använd **den största / fullstora modellvarianten du kan köra**; aggressivt kvantifierade eller "små" kontrollpunkter öka risken för snabb injektion (se [Security](/gateway/security)).
+Lokal är genomförbar, men OpenClaw förväntar sig stort sammanhang + starka försvar mot snabb injektion. Små kort trunkerar sammanhang och läcker säkerhet. Sikta hög: **<unk> 2 maxed-out Mac Studios eller motsvarande GPU rigg (~$30k+)**. En enda **24 GB** GPU fungerar endast för lättare uppmaningar med högre latens. Använd **den största / fullstora modellvarianten du kan köra**; aggressivt kvantifierade eller "små" kontrollpunkter öka risken för snabb injektion (se [Security](/gateway/security)).
 
 ## Rekommenderat: LM Studio + MiniMax M2.1 (Responses API, fullstor)
 
@@ -143,5 +148,3 @@ Behåll `models.mode: "merge"` så att hostade modeller finns kvar som fallback.
 - LM Studio-modell olastad? Ladda om; kallstart är en vanlig “hängande” orsak.
 - Kontextfel? Lägre `contextWindow` eller höja din servergräns.
 - Säkerhet: lokala modeller hoppar över leverantörsfilter; håll agenter smala och komprimering påslagen för att begränsa sprängradien för prompt‑injektion.
-
-

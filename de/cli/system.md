@@ -1,4 +1,9 @@
 ---
+summary: "CLI-Referenz für `openclaw system` (Systemereignisse, Heartbeat, Präsenz)"
+read_when:
+  - Sie möchten ein Systemereignis einreihen, ohne einen Cron-Job zu erstellen
+  - Sie müssen Heartbeats aktivieren oder deaktivieren
+  - Sie möchten System-Präsenzeinträge einsehen
 title: "system"
 ---
 
@@ -22,7 +27,7 @@ Reihen Sie ein Systemereignis in der **main**-Sitzung ein. Der nächste Heartbea
 als eine `System:`-Zeile in den Prompt ein. Verwenden Sie `--mode now`, um den Heartbeat
 sofort auszulösen; `next-heartbeat` wartet auf den nächsten geplanten Tick.
 
-Optionen:
+Flags:
 
 - `--text <text>`: erforderlicher Text des Systemereignisses.
 - `--mode <mode>`: `now` oder `next-heartbeat` (Standard).
@@ -36,7 +41,7 @@ Heartbeat-Steuerung:
 - `enable`: schaltet Heartbeats wieder ein (verwenden Sie dies, wenn sie deaktiviert waren).
 - `disable`: pausiert Heartbeats.
 
-Optionen:
+Flags:
 
 - `--json`: maschinenlesbare Ausgabe.
 
@@ -45,7 +50,7 @@ Optionen:
 Listet die aktuellen System-Präsenzeinträge auf, die dem Gateway bekannt sind (Nodes,
 Instanzen und ähnliche Statuszeilen).
 
-Optionen:
+Flags:
 
 - `--json`: maschinenlesbare Ausgabe.
 
@@ -53,5 +58,3 @@ Optionen:
 
 - Erfordert ein laufendes Gateway, das über Ihre aktuelle Konfiguration erreichbar ist (lokal oder remote).
 - Systemereignisse sind ephemer und werden über Neustarts hinweg nicht persistiert.
-
-

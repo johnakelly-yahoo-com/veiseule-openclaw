@@ -1,4 +1,7 @@
 ---
+summary: "Toegang op afstand via SSH-tunnels (Gateway WS) en tailnets"
+read_when:
+  - Bij het uitvoeren of oplossen van problemen met externe Gateway-opstellingen
 title: "Toegang op afstand"
 ---
 
@@ -98,7 +101,7 @@ Je kunt een remote target opslaan zodat CLI-opdrachten dit standaard gebruiken:
 
 Wanneer de gateway alleen op loopback draait, houd de URL op `ws://127.0.0.1:18789` en open eerst de SSH-tunnel.
 
-## Chatinterface via SSH
+## Chat UI over SSH
 
 WebChat gebruikt geen aparte HTTP-poort meer. De SwiftUI-chat-UI verbindt direct met de Gateway WebSocket.
 
@@ -124,5 +127,3 @@ Korte versie: **houd de Gateway alleen op loopback** tenzij je zeker weet dat je
 - Behandel browserbediening als operator-toegang: alleen tailnet + bewuste node-koppeling.
 
 Verdieping: [Beveiliging](/gateway/security).
-
-

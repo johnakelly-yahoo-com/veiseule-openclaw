@@ -1,4 +1,7 @@
 ---
+summary: "Hur Gateway, noder och canvas-värd ansluter."
+read_when:
+  - Du vill ha en kortfattad överblick över Gateways nätverksmodell
 title: "Nätverksmodell"
 ---
 
@@ -10,7 +13,8 @@ process som äger kanalanslutningar och WebSocket-kontrollplanet.
 - En Gateway per värd rekommenderas. Det är den enda processen som tillåts att äga WhatsApp Web session. För räddningsbots eller strikt isolering, kör flera gateways med isolerade profiler och hamnar. Se [Flera gateways](/gateway/multiple-gateways).
 - Loopback först: Gateway WS standard är `ws://127.0.0.1:18789`. Guiden genererar en gateway-token som standard, även för loopback. För tailnet access, kör `openclaw gateway --bind tailnet --token ...` eftersom tokens krävs för icke-loopback bindningar.
 - Noder ansluter till Gateway WS över LAN, tailnet eller SSH efter behov. Den äldre TCP-bron är föråldrad.
-- Canvas värd är en HTTP-filserver på `canvasHost.port` (standard `18793`) som betjänar `/__openclaw__/canvas/` för node WebViews. Se [Gateway konfiguration](/gateway/configuration) (`canvasHost`).
+- Canvas-värden serveras av Gateway HTTP-servern på **samma port** som Gateway (standard `18789`):
+  - `/__openclaw__/canvas/`
+  - `/__openclaw__/a2ui/`
+    När `gateway.auth` är konfigurerad och Gateway är bunden utanför loopback skyddas dessa rutter av Gateway-autentisering (loopback-förfrågningar är undantagna). Se [Gateway configuration](/gateway/configuration) (`canvasHost`, `gateway`).
 - Fjärranvändning är typisk SSH-tunnel eller tailnet VPN. Se [Fjärråtkomst](/gateway/remote) och [Discovery](/gateway/discovery).
-
-

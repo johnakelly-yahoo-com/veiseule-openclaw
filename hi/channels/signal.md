@@ -1,4 +1,8 @@
 ---
+summary: "signal-cli (JSON-RPC + SSE) के माध्यम से Signal समर्थन, सेटअप, और नंबर मॉडल"
+read_when:
+  - Signal समर्थन सेट करते समय
+  - Signal भेजने/प्राप्त करने का डिबग
 title: "Signal"
 ---
 
@@ -8,11 +12,20 @@ title: "Signal"
 
 ## त्वरित सेटअप (शुरुआती)
 
+- बॉट के लिए **एक अलग Signal नंबर** उपयोग करें (अनुशंसित)।
+- `signal-cli` इंस्टॉल करें (Java आवश्यक)।
+- बॉट डिवाइस लिंक करें और डेमन शुरू करें:
+- OpenClaw को विन्यस्त करें और Gateway शुरू करें।
+
+## त्वरित सेटअप (शुरुआती)
+
 1. बॉट के लिए **एक अलग Signal नंबर** उपयोग करें (अनुशंसित)।
-2. `signal-cli` इंस्टॉल करें (Java आवश्यक)।
-3. बॉट डिवाइस लिंक करें और डेमन शुरू करें:
-   - `signal-cli link -n "OpenClaw"`
-4. OpenClaw को विन्यस्त करें और Gateway शुरू करें।
+2. `signal-cli` इंस्टॉल करें (यदि आप JVM build का उपयोग करते हैं तो Java आवश्यक है)।
+3. एक setup path चुनें:
+   - **Path A (QR link):** `signal-cli link -n "OpenClaw"` और Signal से scan करें।
+   - **Path B (SMS register):** captcha + SMS verification के साथ एक समर्पित नंबर register करें।
+4. OpenClaw configure करें और gateway को restart करें।
+5. पहला DM भेजें और pairing approve करें (`openclaw pairing approve signal <CODE>`)।
 
 न्यूनतम विन्यास:
 
@@ -29,6 +42,15 @@ title: "Signal"
   },
 }
 ```
+
+Field संदर्भ:
+
+| Field       | विवरण                                                                                |
+| ----------- | ------------------------------------------------------------------------------------ |
+| `account`   | E.164 फ़ॉर्मेट में बॉट फ़ोन नंबर (`+15551234567`) |
+| `cliPath`   | `signal-cli` का पथ (`PATH` में हो तो `signal-cli`)                |
+| `dmPolicy`  | DM एक्सेस नीति (`pairing` अनुशंसित)                               |
+| `allowFrom` | वे फ़ोन नंबर या `uuid:&lt;id&gt;` मान जिन्हें DM भेजने की अनुमति है                        |
 
 ## यह क्या है
 
@@ -54,14 +76,14 @@ title: "Signal"
 - यदि आप बॉट को **अपने व्यक्तिगत Signal खाते** पर चलाते हैं, तो यह आपके अपने संदेशों को अनदेखा करेगा (लूप सुरक्षा)।
 - “मैं बॉट को टेक्स्ट करता हूँ और वह जवाब देता है” के लिए **अलग बॉट नंबर** का उपयोग करें।
 
-## सेटअप (त्वरित मार्ग)
+## सेटअप पथ A: मौजूदा Signal खाते को लिंक करें (QR)
 
-1. `signal-cli` इंस्टॉल करें (Java आवश्यक)।
+1. `signal-cli` इंस्टॉल करें (JVM या native build)।
 2. एक बॉट खाता लिंक करें:
    - `signal-cli link -n "OpenClaw"` फिर Signal में QR स्कैन करें।
 3. Signal को विन्यस्त करें और Gateway शुरू करें।
 
-उदाहरण:
+यदि आप `signal-cli` को स्वयं प्रबंधित करना चाहते हैं (धीमे JVM कोल्ड स्टार्ट, कंटेनर इनिट, या साझा CPU), तो डेमन को अलग से चलाएँ और OpenClaw को उसकी ओर इंगित करें:
 
 ```json5
 {
@@ -78,6 +100,67 @@ title: "Signal"
 ```
 
 मल्टी-अकाउंट सपोर्ट: प्रति-अकाउंट कॉन्फ़िग और वैकल्पिक `name` के साथ `channels.signal.accounts` का उपयोग करें। साझा पैटर्न के लिए [`gateway/configuration`](/gateway/configuration#telegramaccounts--discordaccounts--slackaccounts--signalaccounts--imessageaccounts) देखें।
+
+## प्रवेश नियंत्रण (DMs + समूह)
+
+इसे तब उपयोग करें जब आप मौजूदा Signal ऐप खाते को लिंक करने के बजाय एक समर्पित बॉट नंबर चाहते हों।
+
+1. डिफ़ॉल्ट: `channels.signal.dmPolicy = "pairing"`।
+   - खाता/सेशन टकराव से बचने के लिए एक समर्पित बॉट नंबर का उपयोग करें।
+2. अज्ञात प्रेषकों को एक पेयरिंग कोड मिलता है; स्वीकृति तक संदेश अनदेखे रहते हैं (कोड 1 घंटे बाद समाप्त हो जाते हैं)।
+
+```bash
+VERSION=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/AsamK/signal-cli/releases/latest | sed -e 's/^.*\/v//')
+curl -L -O "https://github.com/AsamK/signal-cli/releases/download/v${VERSION}/signal-cli-${VERSION}-Linux-native.tar.gz"
+sudo tar xf "signal-cli-${VERSION}-Linux-native.tar.gz" -C /opt
+sudo ln -sf /opt/signal-cli /usr/local/bin/
+signal-cli --version
+```
+
+यदि आप JVM build (`signal-cli-${VERSION}.tar.gz`) का उपयोग करते हैं, तो पहले JRE 25+ इंस्टॉल करें।
+`signal-cli` को अपडेटेड रखें; upstream के अनुसार Signal server APIs में बदलाव होने पर पुराने रिलीज़ काम करना बंद कर सकते हैं।
+
+3. नंबर को रजिस्टर और सत्यापित करें:
+
+```bash
+signal-cli -a +<BOT_PHONE_NUMBER> register
+```
+
+यदि captcha आवश्यक हो:
+
+1. आउटबाउंड टेक्स्ट को `channels.signal.textChunkLimit` तक चंक्स में विभाजित किया जाता है (डिफ़ॉल्ट 4000)।
+2. वैकल्पिक न्यूलाइन चंकिंग: लंबाई चंकिंग से पहले खाली पंक्तियों (अनुच्छेद सीमाएँ) पर विभाजित करने के लिए `channels.signal.chunkMode="newline"` सेट करें।
+3. अटैचमेंट समर्थित (base64 `signal-cli` से फ़ेच किया जाता है)।
+4. डिफ़ॉल्ट मीडिया सीमा: `channels.signal.mediaMaxMb` (डिफ़ॉल्ट 8)।
+
+```bash
+signal-cli -a +<BOT_PHONE_NUMBER> register --captcha '<SIGNALCAPTCHA_URL>'
+signal-cli -a +<BOT_PHONE_NUMBER> verify <VERIFICATION_CODE>
+```
+
+4. **टाइपिंग संकेतक**: OpenClaw `signal-cli sendTyping` के माध्यम से टाइपिंग संकेत भेजता है और उत्तर चलते समय उन्हें रिफ़्रेश करता है।
+
+```bash
+# यदि आप gateway को user systemd सेवा के रूप में चला रहे हैं:
+systemctl --user restart openclaw-gateway
+
+# फिर सत्यापित करें:
+openclaw doctor
+openclaw channels status --probe
+```
+
+5. `message action=react` का उपयोग `channel=signal` के साथ करें।
+   - बॉट नंबर पर कोई भी संदेश भेजें।
+   - सर्वर पर कोड अनुमोदित करें: `openclaw pairing approve signal <PAIRING_CODE>`।
+   - "Unknown contact" से बचने के लिए बॉट नंबर को अपने फ़ोन में संपर्क के रूप में सहेजें।
+
+महत्वपूर्ण: `signal-cli` के साथ किसी फ़ोन नंबर खाते को रजिस्टर करने से उस नंबर के मुख्य Signal ऐप सत्र का प्रमाणीकरण समाप्त हो सकता है। एक समर्पित बॉट नंबर को प्राथमिकता दें, या यदि आपको अपना मौजूदा फ़ोन ऐप सेटअप बनाए रखना है तो QR लिंक मोड का उपयोग करें।
+
+Upstream संदर्भ:
+
+- `signal-cli` README: `https://github.com/AsamK/signal-cli`
+- Captcha प्रवाह: `https://github.com/AsamK/signal-cli/wiki/Registration-with-captcha`
+- लिंकिंग प्रवाह: `https://github.com/AsamK/signal-cli/wiki/Linking-other-devices-(Provisioning)`
 
 ## बाहरी डेमन मोड (httpUrl)
 
@@ -119,7 +202,7 @@ DMs:
 - इनबाउंड संदेशों को साझा चैनल एनवेलप में सामान्यीकृत किया जाता है।
 - उत्तर हमेशा उसी नंबर या समूह पर रूट होते हैं।
 
-## मीडिया + सीमाएँ
+## विन्यास संदर्भ (Signal)
 
 - आउटबाउंड टेक्स्ट को `channels.signal.textChunkLimit` तक चंक्स में विभाजित किया जाता है (डिफ़ॉल्ट 4000)।
 - वैकल्पिक न्यूलाइन चंकिंग: लंबाई चंकिंग से पहले खाली पंक्तियों (अनुच्छेद सीमाएँ) पर विभाजित करने के लिए `channels.signal.chunkMode="newline"` सेट करें।
@@ -130,15 +213,15 @@ DMs:
 
 ## टाइपिंग + रीड रसीदें
 
-- **टाइपिंग संकेतक**: OpenClaw `signal-cli sendTyping` के माध्यम से टाइपिंग संकेत भेजता है और उत्तर चलते समय उन्हें रिफ़्रेश करता है।
-- **रीड रसीदें**: जब `channels.signal.sendReadReceipts` true हो, OpenClaw अनुमत DMs के लिए रीड रसीदें फ़ॉरवर्ड करता है।
-- Signal-cli समूहों के लिए रीड रसीदें उपलब्ध नहीं कराता।
+- `channels.signal.enabled`: चैनल स्टार्टअप सक्षम/अक्षम करें।
+- `channels.signal.account`: बॉट खाते के लिए E.164।
+- `channels.signal.cliPath`: `signal-cli` का पाथ।
 
 ## रिएक्शन्स (message tool)
 
-- `message action=react` का उपयोग `channel=signal` के साथ करें।
-- लक्ष्य: प्रेषक E.164 या UUID (पेयरिंग आउटपुट से `uuid:<id>` उपयोग करें; साधारण UUID भी काम करता है)।
-- `messageId` उस संदेश का Signal टाइमस्टैम्प है जिस पर आप प्रतिक्रिया दे रहे हैं।
+- `agents.list[].groupChat.mentionPatterns` (Signal मूल मेंशन का समर्थन नहीं करता)।
+- `messages.groupChat.mentionPatterns` (वैश्विक फ़ॉलबैक)।
+- `messages.responsePrefix`।
 - समूह रिएक्शन्स के लिए `targetAuthor` या `targetAuthorUuid` आवश्यक है।
 
 उदाहरण:
@@ -155,7 +238,7 @@ message action=react channel=signal target=signal:group:<groupId> targetAuthor=u
 - `channels.signal.reactionLevel`: `off | ack | minimal | extensive`।
   - `off`/`ack` एजेंट रिएक्शन्स को अक्षम करता है (message tool `react` त्रुटि देगा)।
   - `minimal`/`extensive` एजेंट रिएक्शन्स सक्षम करता है और मार्गदर्शन स्तर सेट करता है।
-- प्रति-अकाउंट ओवरराइड्स: `channels.signal.accounts.<id>`1. .actions.reactions`, `channels.signal.accounts.&lt;id&gt;2. .reactionLevel\`.
+- प्रति-अकाउंट ओवरराइड्स: `channels.signal.accounts.<id>`1. .actions.reactions`, `channels.signal.accounts.<id>2. .reactionLevel\`.
 
 ## डिलीवरी लक्ष्य (CLI/cron)
 
@@ -187,8 +270,25 @@ openclaw pairing list signal
 - डेमन पहुँचे योग्य है लेकिन उत्तर नहीं: खाता/डेमन सेटिंग्स (`httpUrl`, `account`) और receive मोड सत्यापित करें।
 - DMs अनदेखे: प्रेषक पेयरिंग स्वीकृति की प्रतीक्षा में है।
 - समूह संदेश अनदेखे: समूह प्रेषक/मेंशन गेटिंग डिलीवरी को रोक रही है।
+- संपादन के बाद कॉन्फ़िग वैलिडेशन त्रुटियाँ: `openclaw doctor --fix` चलाएँ।
+- डायग्नोस्टिक्स में Signal नहीं दिख रहा: पुष्टि करें `channels.signal.enabled: true`।
+
+अतिरिक्त जाँचें:
+
+```bash
+openclaw pairing list signal
+pgrep -af signal-cli
+grep -i "signal" "/tmp/openclaw/openclaw-$(date +%Y-%m-%d).log" | tail -20
+```
 
 ट्रायेज फ़्लो के लिए: [/channels/troubleshooting](/channels/troubleshooting)।
+
+## सुरक्षा नोट्स
+
+- `signal-cli` खाते की कुंजियाँ स्थानीय रूप से संग्रहीत करता है (आमतौर पर `~/.local/share/signal-cli/data/`)।
+- सर्वर माइग्रेशन या रीबिल्ड से पहले Signal खाते की स्थिति का बैकअप लें।
+- जब तक आप व्यापक DM एक्सेस स्पष्ट रूप से नहीं चाहते, `channels.signal.dmPolicy: "pairing"` बनाए रखें।
+- SMS सत्यापन केवल रजिस्ट्रेशन या रिकवरी प्रवाह के लिए आवश्यक है, लेकिन नंबर/खाते पर नियंत्रण खोने से पुनः-पंजीकरण जटिल हो सकता है।
 
 ## विन्यास संदर्भ (Signal)
 
@@ -222,5 +322,3 @@ openclaw pairing list signal
 - `agents.list[].groupChat.mentionPatterns` (Signal मूल मेंशन का समर्थन नहीं करता)।
 - `messages.groupChat.mentionPatterns` (वैश्विक फ़ॉलबैक)।
 - `messages.responsePrefix`।
-
-

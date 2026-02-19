@@ -1,4 +1,7 @@
 ---
+summary: "Mga mode ng voice wake at push-to-talk pati mga detalye ng routing sa mac app"
+read_when:
+  - Nagtatrabaho sa mga pathway ng voice wake o PTT
 title: "Pag-activate gamit ang Boses"
 ---
 
@@ -62,5 +65,3 @@ Pagpapatibay:
 
 - I-toggle ang push-to-talk, hawakan ang Cmd+Fn, magsalita, bitawan: dapat magpakita ang overlay ng mga partial at pagkatapos ay mag-send.
 - Habang hawak, dapat manatiling pinalaki ang menu-bar ears (gumagamit ng `triggerVoiceEars(ttl:nil)`); babalik ang mga ito pagkatapos bitawan.
-
-

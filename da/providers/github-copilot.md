@@ -1,4 +1,8 @@
 ---
+summary: "Log ind på GitHub Copilot fra OpenClaw ved hjælp af device flow"
+read_when:
+  - Du vil bruge GitHub Copilot som modeludbyder
+  - Du har brug for flowet `openclaw models auth login-github-copilot`
 title: "GitHub Copilot"
 ---
 
@@ -66,5 +70,3 @@ openclaw models set github-copilot/gpt-4o
   bliver afvist, så prøv et andet ID (for eksempel `github-copilot/gpt-4.1`).
 - Login gemmer et GitHub-token i auth-profillageret og udskifter det med et
   Copilot API-token, når OpenClaw kører.
-
-

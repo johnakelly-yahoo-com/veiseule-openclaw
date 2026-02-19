@@ -1,10 +1,14 @@
 ---
+summary: "रिपॉज़िटरी स्क्रिप्ट्स: उद्देश्य, दायरा, और सुरक्षा संबंधी टिप्पणियाँ"
+read_when:
+  - रिपॉज़िटरी से स्क्रिप्ट्स चलाते समय
+  - ./scripts के अंतर्गत स्क्रिप्ट्स जोड़ते या बदलते समय
 title: "स्क्रिप्ट्स"
 ---
 
 # स्क्रिप्ट्स
 
-`scripts/` डायरेक्टरी में लोकल वर्कफ़्लो और ऑप्स कार्यों के लिए सहायक स्क्रिप्ट्स शामिल हैं।
+The `scripts/` directory contains helper scripts for local workflows and ops tasks.
 Use these when a task is clearly tied to a script; otherwise prefer the CLI.
 
 ## परंपराएँ
@@ -22,5 +26,3 @@ Use these when a task is clearly tied to a script; otherwise prefer the CLI.
 
 - स्क्रिप्ट्स को केंद्रित रखें और उनका दस्तावेज़ीकरण करें।
 - संबंधित दस्तावेज़ में एक संक्षिप्त प्रविष्टि जोड़ें (या यदि अनुपस्थित हो तो नया बनाएँ)।
-
-

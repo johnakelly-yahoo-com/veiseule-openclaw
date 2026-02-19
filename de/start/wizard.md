@@ -1,4 +1,8 @@
 ---
+summary: "CLI-Onboarding-Assistent: geführte Einrichtung für Gateway, Workspace, Kanäle und Skills"
+read_when:
+  - Beim Ausführen oder Konfigurieren des Onboarding-Assistenten
+  - Beim Einrichten einer neuen Maschine
 title: "Onboarding-Assistent (CLI)"
 sidebarTitle: "Einführung: CLI"
 ---
@@ -105,6 +109,5 @@ RPC-API und eine vollständige Liste der Konfigurationsfelder, die der Assistent
 
 - CLI-Befehlsreferenz: [`openclaw onboard`](/cli/onboard)
 - macOS-App-Onboarding: [Onboarding](/start/onboarding)
+- macOS-App-Onboarding: [Onboarding](/start/onboarding)
 - Agent-Erststart‑Ritual: [Agent Bootstrapping](/start/bootstrapping)
-
-

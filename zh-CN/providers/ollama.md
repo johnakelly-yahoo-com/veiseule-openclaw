@@ -1,17 +1,14 @@
 ---
-title: Ollama
-x-i18n:
-  generated_at: "2026-02-01T21:35:22Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 157080ad90f449f622260a5f5bd293f79c15800527d36b15596e8ca232e3c957
-  source_path: providers/ollama.md
-  workflow: 15
+summary: "通过 Ollama（本地 LLM 运行时）运行 OpenClaw"
+read_when:
+  - 你想通过 Ollama 使用本地模型运行 OpenClaw
+  - 你需要 Ollama 的安装和配置指导
+title: "Ollama"
 ---
 
 # Ollama
 
-Ollama 是一个本地 LLM 运行时，可以轻松在你的机器上运行开源模型。OpenClaw 通过 Ollama 的 OpenAI 兼容 API 进行集成，并且当你通过 `OLLAMA_API_KEY`（或认证配置）启用且未定义显式的 `models.providers.ollama` 条目时，可以**自动发现支持工具调用的模型**。
+Ollama 是一个本地 LLM 运行时，可以轻松在你的机器上运行开源模型。OpenClaw 通过 Ollama 的 OpenAI 兼容 API 进行集成，并且当你通过 `OLLAMA_API_KEY`（或认证配置）启用且未定义显式的 `models.providers.ollama` 条目时，可以**自动发现支持工具调用的模型**。 当你选择使用 `OLLAMA_API_KEY`（或认证配置文件）并且未显式定义 `models.providers.ollama` 条目时，OpenClaw 会集成 Ollama 的原生 API（`/api/chat`），支持流式传输和工具调用，并且可以**自动发现支持工具调用的模型**。
 
 ## 快速开始
 
@@ -173,9 +170,34 @@ ollama pull deepseek-r1:32b
 
 Ollama 免费且在本地运行，因此所有模型费用均设置为 $0。
 
+### 流式配置
+
+OpenClaw 的 Ollama 集成默认使用**原生 Ollama API**（`/api/chat`），可同时完整支持流式传输和工具调用。 无需任何特殊配置。
+
+#### 旧版 OpenAI 兼容模式
+
+如果你需要改用 OpenAI 兼容端点（例如，在仅支持 OpenAI 格式的代理后面），请显式设置 `api: "openai-completions"`：
+
+```json5
+{
+  models: {
+    providers: {
+      ollama: {
+        baseUrl: "http://ollama-host:11434/v1",
+        api: "openai-completions",
+        apiKey: "ollama-local",
+        models: [...]
+      }
+    }
+  }
+}
+```
+
+注意：OpenAI 兼容端点可能无法同时支持流式传输和工具调用。 你可能需要在模型配置中使用 `params: { streaming: false }` 来禁用流式传输。
+
 ### 上下文窗口
 
-对于自动发现的模型，OpenClaw 会使用 Ollama 报告的上下文窗口（如果可用），否则默认为 `8192`。你可以在显式提供商配置中覆盖 `contextWindow` 和 `maxTokens`。
+对于自动发现的模型，OpenClaw 会使用 Ollama 报告的上下文窗口（如果可用），否则默认为 `8192`。你可以在显式提供商配置中覆盖 `contextWindow` 和 `maxTokens`。 You can override `contextWindow` and `maxTokens` in explicit provider config.
 
 ## 故障排除
 
@@ -195,7 +217,7 @@ curl http://localhost:11434/api/tags
 
 ### 没有可用模型
 
-OpenClaw 仅自动发现报告了工具支持的模型。如果你的模型未列出，可以：
+OpenClaw 仅自动发现报告了工具支持的模型。如果你的模型未列出，可以： If your model isn't listed, either:
 
 - 拉取一个支持工具调用的模型，或
 - 在 `models.providers.ollama` 中显式定义该模型。
@@ -224,5 +246,3 @@ ollama serve
 - [模型提供商](/concepts/model-providers) - 所有提供商概览
 - [模型选择](/concepts/models) - 如何选择模型
 - [配置](/gateway/configuration) - 完整配置参考
-
-

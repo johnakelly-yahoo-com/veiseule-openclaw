@@ -1,24 +1,29 @@
 ---
-title: "Configuration"
+summary: "All configuration options for ~/.openclaw/openclaw.json with examples"
+read_when:
+  - Adding or modifying config fields
+  - Letar du efter vanliga konfigurationsmönster
+  - Navigerar till specifika konfigurationsavsnitt
+title: "Konfiguration"
 ---
 
-# Configuration
+# Configuration 🔧
 
-OpenClaw reads an optional <Tooltip tip="JSON5 supports comments and trailing commas">**JSON5**</Tooltip> config from `~/.openclaw/openclaw.json`.
+OpenClaw reads an optional **JSON5** config from `~/.openclaw/openclaw.json` (comments + trailing commas allowed).
 
-If the file is missing, OpenClaw uses safe defaults. Common reasons to add a config:
+Om filen saknas använder OpenClaw säkra standardvärden. Vanliga skäl att lägga till en konfiguration:
 
-- Connect channels and control who can message the bot
-- Set models, tools, sandboxing, or automation (cron, hooks)
-- Tune sessions, media, networking, or UI
+- restrict who can trigger the bot (`channels.whatsapp.allowFrom`, `channels.telegram.allowFrom`, etc.)
+- control group allowlists + mention behavior (`channels.whatsapp.groups`, `channels.telegram.groups`, `channels.discord.guilds`, `agents.list[].groupChat`)
+- customize message prefixes (`messages`)
 
-See the [full reference](/gateway/configuration-reference) for every available field.
+Se [fullständig referens](/gateway/configuration-reference) för alla tillgängliga fält.
 
 <Tip>
-**New to configuration?** Start with `openclaw onboard` for interactive setup, or check out the [Configuration Examples](/gateway/configuration-examples) guide for complete copy-paste configs.
+**Ny inom konfiguration?** Börja med `openclaw onboard` för en interaktiv installation, eller kolla in guiden [Configuration Examples](/gateway/configuration-examples) för kompletta konfigurationer att kopiera och klistra in.
 </Tip>
 
-## Minimal config
+## Minimal konfiguration
 
 ```json5
 // ~/.openclaw/openclaw.json
@@ -28,13 +33,13 @@ See the [full reference](/gateway/configuration-reference) for every available f
 }
 ```
 
-## Editing config
+## Redigera konfiguration
 
 <Tabs>
   <Tab title="Interactive wizard">
     ```bash
-    openclaw onboard       # full setup wizard
-    openclaw configure     # config wizard
+    openclaw onboard       # fullständig installationsguide
+    openclaw configure     # konfigurationsguide
     ```
   
 </Tab>
@@ -47,35 +52,36 @@ See the [full reference](/gateway/configuration-reference) for every available f
   
 </Tab>
   <Tab title="Control UI">
-    Open [http://127.0.0.1:18789](http://127.0.0.1:18789) and use the **Config** tab.
-    The Control UI renders a form from the config schema, with a **Raw JSON** editor as an escape hatch.
+    Öppna [http://127.0.0.1:18789](http://127.0.0.1:18789) och använd fliken **Config**.
+    Control UI renderar ett formulär från konfigurationsschemat, med en **Raw JSON**-redigerare som reservutväg.
   
 </Tab>
   <Tab title="Direct edit">
-    Edit `~/.openclaw/openclaw.json` directly. The Gateway watches the file and applies changes automatically (see [hot reload](#config-hot-reload)).
+    Redigera `~/.openclaw/openclaw.json` direkt. Gateway övervakar filen och tillämpar ändringar automatiskt (se [hot reload](#config-hot-reload)).
   
 </Tab>
 </Tabs>
 
-## Strict validation
+## Schema + UI hints
 
 <Warning>
-OpenClaw only accepts configurations that fully match the schema. Unknown keys, malformed types, or invalid values cause the Gateway to **refuse to start**. The only root-level exception is `$schema` (string), so editors can attach JSON Schema metadata.
+OpenClaw accepterar endast konfigurationer som helt matchar schemat. Okända nycklar, felaktiga typer eller ogiltiga värden gör att Gateway **vägrar starta**. Det enda undantaget på rotnivå är `$schema` (sträng), så att redigerare kan koppla JSON Schema-metadata.
 </Warning>
 
 When validation fails:
 
-- The Gateway does not boot
-- Only diagnostic commands work (`openclaw doctor`, `openclaw logs`, `openclaw health`, `openclaw status`)
-- Run `openclaw doctor` to see exact issues
-- Run `openclaw doctor --fix` (or `--yes`) to apply repairs
+- Gateway startar inte
+- Endast diagnostikkommandon fungerar (`openclaw doctor`, `openclaw logs`, `openclaw health`, `openclaw status`)
+- Kör `openclaw doctor` för att se exakta problem
+- Kör `openclaw doctor --fix` (eller `--yes`) för att tillämpa reparationer
 
-## Common tasks
+## Apply + restart (RPC)
 
 <AccordionGroup>
   <Accordion title="Set up a channel (WhatsApp, Telegram, Discord, etc.)">
-    Each channel has its own config section under `channels.<provider>`. See the dedicated channel page for setup steps:
+    Varje kanal har sitt eget konfigurationsavsnitt under `channels.<provider>`. Se den dedikerade kanalsidan för installationssteg:
 
+    ````
     - [WhatsApp](/channels/whatsapp) — `channels.whatsapp`
     - [Telegram](/channels/telegram) — `channels.telegram`
     - [Discord](/channels/discord) — `channels.discord`
@@ -85,9 +91,9 @@ When validation fails:
     - [Google Chat](/channels/googlechat) — `channels.googlechat`
     - [Mattermost](/channels/mattermost) — `channels.mattermost`
     - [MS Teams](/channels/msteams) — `channels.msteams`
-
-    All channels share the same DM policy pattern:
-
+    
+    Alla kanaler delar samma DM-policy-mönster:
+    
     ```json5
     {
       channels: {
@@ -100,13 +106,15 @@ When validation fails:
       },
     }
     ```
+    ````
 
   
 </Accordion>
 
   <Accordion title="Choose and configure models">
-    Set the primary model and optional fallbacks:
+    Ange primär modell och valfria reservmodeller:
 
+    ````
     ```json5
     {
       agents: {
@@ -123,33 +131,37 @@ When validation fails:
       },
     }
     ```
-
-    - `agents.defaults.models` defines the model catalog and acts as the allowlist for `/model`.
-    - Model refs use `provider/model` format (e.g. `anthropic/claude-opus-4-6`).
-    - See [Models CLI](/concepts/models) for switching models in chat and [Model Failover](/concepts/model-failover) for auth rotation and fallback behavior.
-    - For custom/self-hosted providers, see [Custom providers](/gateway/configuration-reference#custom-providers-and-base-urls) in the reference.
+    
+    - `agents.defaults.models` definierar modellkatalogen och fungerar som allowlist för `/model`.
+    - Modellreferenser använder formatet `provider/model` (t.ex. `anthropic/claude-opus-4-6`).
+    - Se [Models CLI](/concepts/models) för att byta modeller i chatten och [Model Failover](/concepts/model-failover) för autentiseringsrotation och fallback-beteende.
+    - För anpassade/självhostade leverantörer, se [Custom providers](/gateway/configuration-reference#custom-providers-and-base-urls) i referensen.
+    ````
 
   
 </Accordion>
 
   <Accordion title="Control who can message the bot">
-    DM access is controlled per channel via `dmPolicy`:
+    DM-åtkomst styrs per kanal via `dmPolicy`:
 
-    - `"pairing"` (default): unknown senders get a one-time pairing code to approve
-    - `"allowlist"`: only senders in `allowFrom` (or the paired allow store)
-    - `"open"`: allow all inbound DMs (requires `allowFrom: ["*"]`)
-    - `"disabled"`: ignore all DMs
-
-    For groups, use `groupPolicy` + `groupAllowFrom` or channel-specific allowlists.
-
-    See the [full reference](/gateway/configuration-reference#dm-and-group-access) for per-channel details.
+    ```
+    - `"pairing"` (standard): okända avsändare får en engångskod för parkoppling att godkänna
+    - `"allowlist"`: endast avsändare i `allowFrom` (eller den parkopplade allowlistan)
+    - `"open"`: tillåt alla inkommande DM (kräver `allowFrom: ["*"]`)
+    - `"disabled"`: ignorera alla DM
+    
+    För grupper, använd `groupPolicy` + `groupAllowFrom` eller kanalspecifika allowlistor.
+    
+    Se [fullständig referens](/gateway/configuration-reference#dm-and-group-access) för detaljer per kanal.
+    ```
 
   
 </Accordion>
 
   <Accordion title="Set up group chat mention gating">
-    Group messages default to **require mention**. Configure patterns per agent:
+    Gruppmeddelanden kräver som standard **omnämnande**. Konfigurera mönster per agent:
 
+    ````
     ```json5
     {
       agents: {
@@ -169,21 +181,23 @@ When validation fails:
       },
     }
     ```
-
-    - **Metadata mentions**: native @-mentions (WhatsApp tap-to-mention, Telegram @bot, etc.)
-    - **Text patterns**: regex patterns in `mentionPatterns`
-    - See [full reference](/gateway/configuration-reference#group-chat-mention-gating) for per-channel overrides and self-chat mode.
+    
+    - **Metadata mentions**: inbyggda @-omnämnanden (WhatsApp tryck-för-att-omnämna, Telegram @bot, etc.)
+    - **Textmönster**: regex-mönster i `mentionPatterns`
+    - Se [fullständig referens](/gateway/configuration-reference#group-chat-mention-gating) för kanalvisa åsidosättningar och self-chat-läge.
+    ````
 
   
 </Accordion>
 
   <Accordion title="Configure sessions and resets">
-    Sessions control conversation continuity and isolation:
+    Sessioner styr samtalskontinuitet och isolering:
 
+    ````
     ```json5
     {
       session: {
-        dmScope: "per-channel-peer",  // recommended for multi-user
+        dmScope: "per-channel-peer",  // rekommenderas för flera användare
         reset: {
           mode: "daily",
           atHour: 4,
@@ -192,33 +206,21 @@ When validation fails:
       },
     }
     ```
-
-    - `dmScope`: `main` (shared) | `per-peer` | `per-channel-peer` | `per-account-channel-peer`
-    - See [Session Management](/concepts/session) for scoping, identity links, and send policy.
-    - See [full reference](/gateway/configuration-reference#session) for all fields.
+    
+    - `dmScope`: `main` (delad) | `per-peer` | `per-channel-peer` | `per-account-channel-peer`
+    - Se [Session Management](/concepts/session) för omfattning, identitetslänkar och sändpolicy.
+    - Se [fullständig referens](/gateway/configuration-reference#session) för alla fält.
+    ````
 
   
 </Accordion>
 
   <Accordion title="Enable sandboxing">
-    Run agent sessions in isolated Docker containers:
+    Kör agentsessioner i isolerade Docker-containrar:
 
-    ```json5
-    {
-      agents: {
-        defaults: {
-          sandbox: {
-            mode: "non-main",  // off | non-main | all
-            scope: "agent",    // session | agent | shared
-          },
-        },
-      },
-    }
     ```
-
-    Build the image first: `scripts/sandbox-setup.sh`
-
-    See [Sandboxing](/gateway/sandboxing) for the full guide and [full reference](/gateway/configuration-reference#sandbox) for all options.
+    scripts/sandbox-setup.sh
+    ```
 
   
 </Accordion>
@@ -237,9 +239,26 @@ When validation fails:
     }
     ```
 
-    - `every`: duration string (`30m`, `2h`). Set `0m` to disable.
-    - `target`: `last` | `whatsapp` | `telegram` | `discord` | `none`
-    - See [Heartbeat](/gateway/heartbeat) for the full guide.
+    ```
+    {
+      agents: {
+        defaults: { workspace: "~/.openclaw/workspace" },
+        list: [
+          {
+            id: "main",
+            groupChat: { mentionPatterns: ["@openclaw", "reisponde"] },
+          },
+        ],
+      },
+      channels: {
+        whatsapp: {
+          // Allowlist is DMs only; including your own number enables self-chat mode.
+          allowFrom: ["+15555550123"],
+          groups: { "*": { requireMention: true } },
+        },
+      },
+    }
+    ```
 
   
 </Accordion>
@@ -255,100 +274,65 @@ When validation fails:
     }
     ```
 
-    See [Cron jobs](/automation/cron-jobs) for the feature overview and CLI examples.
+    ```
+    Se [Cron jobs](/automation/cron-jobs) för funktionen översikt och CLI exempel.
+    ```
 
   
 </Accordion>
 
-  <Accordion title="Set up webhooks (hooks)">
-    Enable HTTP webhook endpoints on the Gateway:
+  <Accordion title="Set up webhooks (hooks)">Aktivera HTTP webhook-endpoints på Gateway:
 
-    ```json5
+    ```
+    // ~/.openclaw/agents.json5
     {
-      hooks: {
-        enabled: true,
-        token: "shared-secret",
-        path: "/hooks",
-        defaultSessionKey: "hook:ingress",
-        allowRequestSessionKey: false,
-        allowedSessionKeyPrefixes: ["hook:"],
-        mappings: [
-          {
-            match: { path: "gmail" },
-            action: "agent",
-            agentId: "main",
-            deliver: true,
-          },
-        ],
-      },
+      defaults: { sandbox: { mode: "all", scope: "session" } },
+      list: [{ id: "main", workspace: "~/.openclaw/workspace" }],
     }
     ```
-
-    See [full reference](/gateway/configuration-reference#hooks) for all mapping options and Gmail integration.
 
   
 </Accordion>
 
-  <Accordion title="Configure multi-agent routing">
-    Run multiple isolated agents with separate workspaces and sessions:
+  <Accordion title="Configure multi-agent routing">Kör flera isolerade agenter med separata arbetsytor och sessioner:
 
-    ```json5
+    ```
+    // Sibling keys override included values
     {
-      agents: {
-        list: [
-          { id: "home", default: true, workspace: "~/.openclaw/workspace-home" },
-          { id: "work", workspace: "~/.openclaw/workspace-work" },
-        ],
-      },
-      bindings: [
-        { agentId: "home", match: { channel: "whatsapp", accountId: "personal" } },
-        { agentId: "work", match: { channel: "whatsapp", accountId: "biz" } },
-      ],
+      $include: "./base.json5", // { a: 1, b: 2 }
+      b: 99, // Result: { a: 1, b: 99 }
     }
     ```
-
-    See [Multi-Agent](/concepts/multi-agent) and [full reference](/gateway/configuration-reference#multi-agent-routing) for binding rules and per-agent access profiles.
 
   
 </Accordion>
 
-  <Accordion title="Split config into multiple files ($include)">
-    Use `$include` to organize large configs:
+  <Accordion title="Split config into multiple files ($include)">Använd `$include` för att organisera stora konfigurationer:
 
-    ```json5
-    // ~/.openclaw/openclaw.json
+    ```
+    // clients/mueller.json5
     {
-      gateway: { port: 18789 },
-      agents: { $include: "./agents.json5" },
-      broadcast: {
-        $include: ["./clients/a.json5", "./clients/b.json5"],
-      },
+      agents: { $include: "./mueller/agents.json5" },
+      broadcast: { $include: "./mueller/broadcast.json5" },
     }
     ```
-
-    - **Single file**: replaces the containing object
-    - **Array of files**: deep-merged in order (later wins)
-    - **Sibling keys**: merged after includes (override included values)
-    - **Nested includes**: supported up to 10 levels deep
-    - **Relative paths**: resolved relative to the including file
-    - **Error handling**: clear errors for missing files, parse errors, and circular includes
 
   
 </Accordion>
 </AccordionGroup>
 
-## Config hot reload
+## Hot reload av konfiguration
 
-The Gateway watches `~/.openclaw/openclaw.json` and applies changes automatically — no manual restart needed for most settings.
+Gateway övervakar `~/.openclaw/openclaw.json` och tillämpar ändringar automatiskt — ingen manuell omstart behövs för de flesta inställningar.
 
-### Reload modes
+### Error handling
 
-| Mode                   | Behavior                                                                                |
-| ---------------------- | --------------------------------------------------------------------------------------- |
-| **`hybrid`** (default) | Hot-applies safe changes instantly. Automatically restarts for critical ones.           |
-| **`hot`**              | Hot-applies safe changes only. Logs a warning when a restart is needed — you handle it. |
-| **`restart`**          | Restarts the Gateway on any config change, safe or not.                                 |
-| **`off`**              | Disables file watching. Changes take effect on the next manual restart.                 |
+| Läge                                       | Beteende                                                                                                                                |
+| ------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------- |
+| **`hybrid`** (standard) | Tillämpa säkra ändringar direkt utan omstart. Startar automatiskt om för kritiska ändringar.            |
+| **`hot`**                                  | Tillämpa endast säkra ändringar utan omstart. Loggar en varning när en omstart krävs — du hanterar den. |
+| **`restart`**                              | Startar om Gateway vid alla konfigurationsändringar, säkra eller inte.                                                  |
+| **`off`**                                  | Inaktiverar filövervakning. Ändringar träder i kraft vid nästa manuella omstart.                        |
 
 ```json5
 {
@@ -358,44 +342,46 @@ The Gateway watches `~/.openclaw/openclaw.json` and applies changes automaticall
 }
 ```
 
-### What hot-applies vs what needs a restart
+### Vad som tillämpas direkt och vad som kräver omstart
 
-Most fields hot-apply without downtime. In `hybrid` mode, restart-required changes are handled automatically.
+De flesta fält tillämpas direkt utan driftstopp. I `hybrid`-läge hanteras ändringar som kräver omstart automatiskt.
 
-| Category            | Fields                                                               | Restart needed? |
-| ------------------- | -------------------------------------------------------------------- | --------------- |
-| Channels            | `channels.*`, `web` (WhatsApp) — all built-in and extension channels | No              |
-| Agent & models      | `agent`, `agents`, `models`, `routing`                               | No              |
-| Automation          | `hooks`, `cron`, `agent.heartbeat`                                   | No              |
-| Sessions & messages | `session`, `messages`                                                | No              |
-| Tools & media       | `tools`, `browser`, `skills`, `audio`, `talk`                        | No              |
-| UI & misc           | `ui`, `logging`, `identity`, `bindings`                              | No              |
-| Gateway server      | `gateway.*` (port, bind, auth, tailscale, TLS, HTTP)                 | **Yes**         |
-| Infrastructure      | `discovery`, `canvasHost`, `plugins`                                 | **Yes**         |
+| Kategori                            | Fält                                                                                          | Kräver omstart? |
+| ----------------------------------- | --------------------------------------------------------------------------------------------- | --------------- |
+| Kanaler                             | `channels.*`, `web` (WhatsApp) — alla inbyggda kanaler och tilläggskanaler | Nej             |
+| Agent och modeller                  | `agent`, `agents`, `models`, `routing`                                                        | Nej             |
+| Automatisering                      | `hooks`, `cron`, `agent.heartbeat`                                                            | Nej             |
+| Sessioner och meddelanden           | `session`, `messages`                                                                         | Nej             |
+| Verktyg & media | `tools`, `browser`, `skills`, `audio`, `talk`                                                 | Nej             |
+| UI & övrigt     | `ui`, `logging`, `identity`, `bindings`                                                       | Nej             |
+| Gateway-server                      | `gateway.*` (port, bind, auth, tailscale, TLS, HTTP)                       | **Ja**          |
+| Infrastruktur                       | `discovery`, `canvasHost`, `plugins`                                                          | **Ja**          |
 
 <Note>
-`gateway.reload` and `gateway.remote` are exceptions — changing them does **not** trigger a restart.
+`gateway.reload` och `gateway.remote` är undantag — att ändra dem triggar **inte** en omstart.
 </Note>
 
-## Config RPC (programmatic updates)
+## Env vars + `.env`
 
 <AccordionGroup>
   <Accordion title="config.apply (full replace)">
-    Validates + writes the full config and restarts the Gateway in one step.
+    Validerar + skriver hela konfigurationen och startar om Gateway i ett steg.
 
+
+    ````
     <Warning>
-    `config.apply` replaces the **entire config**. Use `config.patch` for partial updates, or `openclaw config set` for single keys.
+    `config.apply` ersätter **hela konfigurationen**. Använd `config.patch` för partiella uppdateringar, eller `openclaw config set` för enskilda nycklar.
     
 </Warning>
-
+    
     Params:
-
-    - `raw` (string) — JSON5 payload for the entire config
-    - `baseHash` (optional) — config hash from `config.get` (required when config exists)
-    - `sessionKey` (optional) — session key for the post-restart wake-up ping
-    - `note` (optional) — note for the restart sentinel
-    - `restartDelayMs` (optional) — delay before restart (default 2000)
-
+    
+    - `raw` (string) — JSON5‑payload för hela konfigurationen
+    - `baseHash` (valfri) — konfigurationshash från `config.get` (krävs när konfiguration finns)
+    - `sessionKey` (valfri) — sessionsnyckel för wake‑up‑ping efter omstart
+    - `note` (valfri) — anteckning för omstartsmarkören
+    - `restartDelayMs` (valfri) — fördröjning före omstart (standard 2000)
+    
     ```bash
     openclaw gateway call config.get --params '{}'  # capture payload.hash
     openclaw gateway call config.apply --params '{
@@ -404,42 +390,46 @@ Most fields hot-apply without downtime. In `hybrid` mode, restart-required chang
       "sessionKey": "agent:main:whatsapp:dm:+15555550123"
     }'
     ```
+    ````
 
   
 </Accordion>
 
   <Accordion title="config.patch (partial update)">
-    Merges a partial update into the existing config (JSON merge patch semantics):
+    Slår samman en partiell uppdatering med den befintliga konfigurationen (JSON merge patch‑semantik):
 
-    - Objects merge recursively
-    - `null` deletes a key
-    - Arrays replace
 
+    ````
+    - Objekt slås samman rekursivt
+    - `null` tar bort en nyckel
+    - Arrayer ersätts
+    
     Params:
-
-    - `raw` (string) — JSON5 with just the keys to change
-    - `baseHash` (required) — config hash from `config.get`
-    - `sessionKey`, `note`, `restartDelayMs` — same as `config.apply`
-
+    
+    - `raw` (string) — JSON5 med endast de nycklar som ska ändras
+    - `baseHash` (krävs) — konfigurationshash från `config.get`
+    - `sessionKey`, `note`, `restartDelayMs` — samma som `config.apply`
+    
     ```bash
     openclaw gateway call config.patch --params '{
       "raw": "{ channels: { telegram: { groups: { \"*\": { requireMention: false } } } } }",
       "baseHash": "<hash>"
     }'
     ```
+    ````
 
   
 </Accordion>
 </AccordionGroup>
 
-## Environment variables
+## Miljövariabler
 
-OpenClaw reads env vars from the parent process plus:
+OpenClaw läser miljövariabler från föräldraprocessen samt:
 
 - `.env` from the current working directory (if present)
-- `~/.openclaw/.env` (global fallback)
+- `~/.openclaw/.env` (global reserv)
 
-Neither file overrides existing env vars. You can also set inline env vars in config:
+Ingen av filerna åsidosätter befintliga miljövariabler. Du kan också ange inbäddade miljövariabler i konfigurationen:
 
 ```json5
 {
@@ -451,7 +441,8 @@ Neither file overrides existing env vars. You can also set inline env vars in co
 ```
 
 <Accordion title="Shell env import (optional)">
-  If enabled and expected keys aren't set, OpenClaw runs your login shell and imports only the missing keys:
+  Om aktiverat och förväntade nycklar inte är satta kör OpenClaw ditt inloggningsskal och importerar endast de saknade nycklarna:
+
 
 ```json5
 {
@@ -461,11 +452,11 @@ Neither file overrides existing env vars. You can also set inline env vars in co
 }
 ```
 
-Env var equivalent: `OPENCLAW_LOAD_SHELL_ENV=1`
+Motsvarande miljövariabel: `OPENCLAW_LOAD_SHELL_ENV=1` 
 </Accordion>
 
 <Accordion title="Env var substitution in config values">
-  Reference env vars in any config string value with `${VAR_NAME}`:
+  Referera till miljövariabler i valfri sträng i konfigurationen med `${VAR_NAME}`:
 
 ```json5
 {
@@ -474,24 +465,22 @@ Env var equivalent: `OPENCLAW_LOAD_SHELL_ENV=1`
 }
 ```
 
-Rules:
+Regler:
 
-- Only uppercase names matched: `[A-Z_][A-Z0-9_]*`
-- Missing/empty vars throw an error at load time
-- Escape with `$${VAR}` for literal output
-- Works inside `$include` files
-- Inline substitution: `"${BASE}/v1"` → `"https://api.example.com/v1"`
+- Endast versala namn matchas: `[A-Z_][A-Z0-9_]*`
+- Saknade/tomma variabler ger ett fel vid inläsning
+- Escapa med `$${VAR}` för bokstavlig utskrift
+- Fungerar i `$include`‑filer
+- Inbäddad ersättning: `"${BASE}/v1"` → `"https://api.example.com/v1"`
 
 </Accordion>
 
-See [Environment](/help/environment) for full precedence and sources.
+Se [Environment](/help/environment) för fullständig prioriteringsordning och källor.
 
-## Full reference
+## Fullständig referens
 
-For the complete field-by-field reference, see **[Configuration Reference](/gateway/configuration-reference)**.
+För en komplett fält‑för‑fält‑referens, se **[Configuration Reference](/gateway/configuration-reference)**.
 
 ---
 
-_Related: [Configuration Examples](/gateway/configuration-examples) · [Configuration Reference](/gateway/configuration-reference) · [Doctor](/gateway/doctor)_
-
-
+Legacy OAuth imports:

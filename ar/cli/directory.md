@@ -1,4 +1,8 @@
 ---
+summary: "مرجع CLI لأمر `openclaw directory` (الذات، الأقران، المجموعات)"
+read_when:
+  - تريد البحث عن معرّفات جهات الاتصال/المجموعات/الذات لقناة ما
+  - تقوم بتطوير مُحوّل دليل قناة
 title: "directory"
 ---
 
@@ -57,5 +61,3 @@ openclaw directory groups list --channel zalouser
 openclaw directory groups list --channel zalouser --query "work"
 openclaw directory groups members --channel zalouser --group-id <id>
 ```
-
-

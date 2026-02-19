@@ -1,4 +1,6 @@
 ---
+summary: "Onboarding ustasi va konfiguratsiya sxemasi uchun RPC protokoli eslatmalari"
+read_when: "Onboarding ustasi qadamlarini yoki konfiguratsiya sxemasi endpointlarini o‘zgartirish"
 title: "Onboarding va Konfiguratsiya Protokoli"
 ---
 
@@ -36,5 +38,3 @@ Javoblar (tuzilishi)
 ## Eslatmalar
 
 - Bu hujjat onboarding/konfiguratsiya uchun protokol refaktorlarini kuzatishdagi yagona joydir.
-
-

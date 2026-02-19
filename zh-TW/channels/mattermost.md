@@ -1,4 +1,8 @@
 ---
+summary: "Mattermost 機器人設定與 OpenClaw 設定"
+read_when:
+  - 設定 Mattermost
+  - 偵錯 Mattermost 路由
 title: "Mattermost"
 ---
 
@@ -58,7 +62,7 @@ OpenClaw 會自動提供本機安裝路徑。
 - `MATTERMOST_BOT_TOKEN=...`
 - `MATTERMOST_URL=https://chat.example.com`
 
-23. 環境變數僅適用於 **預設** 帳戶（`default`）。 24. 其他帳戶必須使用設定值。
+環境變數僅適用於 **預設** 帳戶（`default`）。 24. 其他帳戶必須使用設定值。
 
 ## 聊天模式
 
@@ -132,5 +136,3 @@ Mattermost 在 `channels.mattermost.accounts` 底下支援多個帳號：
 - 頻道沒有回覆：請確認機器人在頻道中並進行提及（oncall）、使用觸發前綴（onchar），或設定 `chatmode: "onmessage"`。
 - 30. 驗證錯誤：請檢查機器人權杖、基底 URL，以及帳戶是否已啟用。
 - 31. 多帳戶問題：環境變數僅適用於 `default` 帳戶。
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Reference complete pour le flux de prise en main CLI, la configuration auth/modele, les sorties et les details internes"
+read_when:
+  - Vous avez besoin du comportement detaille pour openclaw onboard
+  - Vous depannez les resultats de la prise en main ou integrez des clients de prise en main
 title: "Reference de la prise en main CLI"
 sidebarTitle: "Reference CLI"
 ---
@@ -17,30 +21,29 @@ Le mode local (par defaut) vous guide a travers :
 - Les parametres de la Gateway (passerelle) (port, bind, auth, Tailscale)
 - Les canaux et fournisseurs (Telegram, WhatsApp, Discord, Google Chat, plugin Mattermost, Signal)
 - L’installation du daemon (LaunchAgent ou unite utilisateur systemd)
-- Bilan de sante
+- Bilan de santé
 - La configuration des Skills
 
-Le mode distant configure cette machine pour se connecter a une Gateway situee ailleurs.
+Le mode distant configure cette machine pour se connecter a une Gateway (passerelle) situee ailleurs.
 Il n’installe ni ne modifie quoi que ce soit sur l’hote distant.
 
 ## Details du flux local
 
 <Steps>
-  <Step title="Detection de configuration existante">
+  <Step title="Existing config detection">
     - Si `~/.openclaw/openclaw.json` existe, choisissez Conserver, Modifier ou Reinitialiser.
     - Relancer l’assistant n’efface rien sauf si vous choisissez explicitement Reinitialiser (ou passez `--reset`).
     - Si la configuration est invalide ou contient des cles heritees, l’assistant s’arrete et vous demande d’executer `openclaw doctor` avant de continuer.
     - La reinitialisation utilise `trash` et propose des portees :
       - Configuration uniquement
       - Configuration + informations d’identification + sessions
-      - Reinitialisation complete (supprime aussi l’espace de travail)
-  
+      - Reinitialisation complete (supprime aussi l’espace de travail)  
 </Step>
-  <Step title="Modele et authentification">
+  <Step title="Model and auth">
     - La matrice complete des options est disponible dans [Options d’authentification et de modele](#auth-and-model-options).
   
 </Step>
-  <Step title="Espace de travail">
+  <Step title="Workspace">
     - Par defaut `~/.openclaw/workspace` (configurable).
     - Initialise les fichiers d’espace de travail necessaires au rituel de bootstrap du premier lancement.
     - Structure de l’espace de travail : [Espace de travail de l’agent](/concepts/agent-workspace).
@@ -53,7 +56,7 @@ Il n’installe ni ne modifie quoi que ce soit sur l’hote distant.
     - Les binds non loopback exigent toujours l’authentification.
   
 </Step>
-  <Step title="Canaux">
+  <Step title="Channels">
     - [WhatsApp](/channels/whatsapp) : connexion QR optionnelle
     - [Telegram](/channels/telegram) : jeton de bot
     - [Discord](/channels/discord) : jeton de bot
@@ -62,8 +65,10 @@ Il n’installe ni ne modifie quoi que ce soit sur l’hote distant.
     - [Signal](/channels/signal) : installation optionnelle de `signal-cli` + configuration du compte
     - [BlueBubbles](/channels/bluebubbles) : recommande pour iMessage ; URL du serveur + mot de passe + webhook
     - [iMessage](/channels/imessage) : chemin CLI herite `imsg` + acces a la base de donnees
-    - Securite des messages prives : par defaut, appairage. Le premier message prive envoie un code ; approuvez via
-      `openclaw pairing approve <channel> <code>` ou utilisez des listes d’autorisation.
+    - Securite des Messages prives : par defaut, appairage. Le premier Message prive envoie un code ; approuvez via
+      `openclaw pairing approve <channel><code>` ou utilisez des listes d’autorisation.
+  
+</Step><code>` ou utilisez des listes d’autorisation.
   
 </Step>
   <Step title="Installation du daemon">
@@ -128,7 +133,11 @@ Ce que vous configurez :
     - macOS : verifie l’element du Trousseau « Claude Code-credentials »
     - Linux et Windows : reutilise `~/.claude/.credentials.json` si present
 
+    ````
+    ```
     Sur macOS, choisissez « Toujours autoriser » afin que les demarrages via launchd ne soient pas bloques.
+    ```
+    ````
 
   
 </Accordion>
@@ -144,7 +153,11 @@ Ce que vous configurez :
   <Accordion title="OpenAI Code subscription (OAuth)">
     Flux via navigateur ; collez `code#state`.
 
+    ````
+    ```
     Definit `agents.defaults.model` sur `openai-codex/gpt-5.3-codex` lorsque le modele n’est pas defini ou vaut `openai/*`.
+    ```
+    ````
 
   
 </Accordion>
@@ -152,12 +165,16 @@ Ce que vous configurez :
     Utilise `OPENAI_API_KEY` si present ou demande une cle, puis l’enregistre dans
     `~/.openclaw/.env` afin que launchd puisse la lire.
 
+    ````
+    ```
     Definit `agents.defaults.model` sur `openai/gpt-5.1-codex` lorsque le modele n’est pas defini, vaut `openai/*` ou `openai-codex/*`.
+    ```
+    ````
 
   
 </Accordion>
   <Accordion title="xAI (Grok) API key">
-    Invite pour `XAI_API_KEY` et configure xAI en tant que fournisseur de modeles.
+    Invite pour `XAI_API_KEY` et configure xAI en tant que fournisseur de modèles.
   
 </Accordion>
   <Accordion title="OpenCode Zen">
@@ -165,9 +182,7 @@ Ce que vous configurez :
     URL de configuration : [opencode.ai/auth](https://opencode.ai/auth).
   
 </Accordion>
-  <Accordion title="API key (generic)">
-    Stocke la cle pour vous.
-  
+  <Accordion title="API key (generic)">Stocke la clé pour vous.
 </Accordion>
   <Accordion title="Vercel AI Gateway">
     Invite a fournir `AI_GATEWAY_API_KEY`.
@@ -194,16 +209,17 @@ Ce que vous configurez :
     Plus de details : [Moonshot AI (Kimi + Kimi Coding)](/providers/moonshot).
   
 </Accordion>
-  <Accordion title="Custom provider">
-    Fonctionne avec des endpoints compatibles OpenAI et Anthropic.
+  <Accordion title="Custom provider">Fonctionne avec des endpoints compatibles OpenAI et Anthropic.
 
-    Flags non interactifs :
+    ```
+    Indicateurs non interactifs :
     - `--auth-choice custom-api-key`
     - `--custom-base-url`
     - `--custom-model-id`
-    - `--custom-api-key` (optionnel ; utilise `CUSTOM_API_KEY` par defaut)
-    - `--custom-provider-id` (optionnel)
-    - `--custom-compatibility <openai|anthropic>` (optionnel ; `openai` par defaut)
+    - `--custom-api-key` (facultatif ; utilise `CUSTOM_API_KEY` par défaut)
+    - `--custom-provider-id` (facultatif)
+    - `--custom-compatibility <openai|anthropic>` (facultatif ; `openai` par défaut)
+    ```
 
   
 </Accordion>
@@ -255,7 +271,7 @@ Certains canaux sont fournis sous forme de plugins. Lorsqu’ils sont selectionn
 demande d’installer le plugin (npm ou chemin local) avant la configuration du canal.
 </Note>
 
-Gateway wizard RPC :
+RPC de l’assistant Gateway :
 
 - `wizard.start`
 - `wizard.next`
@@ -278,4 +294,3 @@ Comportement de configuration Signal :
 - Hub de prise en main : [Assistant de prise en main (CLI)](/start/wizard)
 - Automatisation et scripts : [Automatisation CLI](/start/wizard-cli-automation)
 - Reference des commandes : [`openclaw onboard`](/cli/onboard)
-

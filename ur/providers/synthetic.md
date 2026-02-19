@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw میں Synthetic کے Anthropic-مطابقت پذیر API کا استعمال کریں"
+read_when:
+  - آپ Synthetic کو ماڈل فراہم کنندہ کے طور پر استعمال کرنا چاہتے ہیں
+  - آپ کو Synthetic API کلید یا بیس URL سیٹ اپ درکار ہے
 title: "Synthetic"
 ---
 
@@ -90,5 +94,3 @@ synthetic/hf:MiniMaxAI/MiniMax-M2.1
 - اگر آپ ماڈل اجازت فہرست (`agents.defaults.models`) فعال کرتے ہیں تو ہر وہ ماڈل شامل کریں
   جسے آپ استعمال کرنے کا ارادہ رکھتے ہیں۔
 - فراہم کنندہ کے قواعد کے لیے [Model providers](/concepts/model-providers) دیکھیں۔
-
-

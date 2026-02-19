@@ -1,19 +1,18 @@
 ---
-title: Tlon
-x-i18n:
-  generated_at: "2026-02-03T07:44:17Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 19d7ffe23e82239fd2a2e35913e0d52c809b2c2b939dd39184e6c27a539ed97d
-  source_path: channels/tlon.md
-  workflow: 15
+summary: "Tlon/Urbit 支持状态、功能和配置"
+read_when:
+  - 开发 Tlon/Urbit 渠道功能
+title: "Tlon"
 ---
 
 # Tlon（插件）
 
-Tlon 是一个基于 Urbit 构建的去中心化即时通讯工具。OpenClaw 连接到你的 Urbit ship，可以响应私信和群聊消息。群组回复默认需要 @ 提及，并可通过允许列表进一步限制。
+Tlon 是一个基于 Urbit 构建的去中心化即时通讯工具。OpenClaw 连接到你的 Urbit ship，可以响应私信和群聊消息。群组回复默认需要 @ 提及，并可通过允许列表进一步限制。 OpenClaw connects to your Urbit ship and can
+respond to DMs and group chat messages. Group replies require an @ mention by default and can
+be further restricted via allowlists.
 
-状态：通过插件支持。支持私信、群组提及、话题回复和纯文本媒体回退（URL 附加到说明文字）。不支持表情回应、投票和原生媒体上传。
+Status: supported via plugin. DMs, group mentions, thread replies, and text-only media fallback
+(URL appended to caption). Reactions, polls, and native media uploads are not supported.
 
 ## 需要插件
 
@@ -56,9 +55,25 @@ openclaw plugins install ./extensions/tlon
 }
 ```
 
+私有/LAN ship URL（高级）：
+
+默认情况下，OpenClaw 会阻止此插件访问私有/内部主机名和 IP 范围（SSRF 加固）。
+如果你的 ship URL 位于私有网络中（例如 `http://192.168.1.50:8080` 或 `http://localhost:8080`），
+则必须显式启用：
+
+```json5
+{
+  channels: {
+    tlon: {
+      allowPrivateNetwork: true,
+    },
+  },
+}
+```
+
 ## 群组频道
 
-默认启用自动发现。你也可以手动固定频道：
+Auto-discovery is enabled by default. You can also pin channels manually:
 
 ```json5
 {
@@ -131,5 +146,3 @@ openclaw plugins install ./extensions/tlon
 - 群组回复需要提及（例如 `~your-bot-ship`）才能响应。
 - 话题回复：如果入站消息在话题中，OpenClaw 会在话题内回复。
 - 媒体：`sendMedia` 回退为文本 + URL（无原生上传）。
-
-

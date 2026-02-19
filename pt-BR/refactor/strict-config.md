@@ -1,4 +1,9 @@
 ---
+summary: "Validação estrita de configuração + migrações apenas via Doctor"
+read_when:
+  - Ao projetar ou implementar comportamento de validação de configuração
+  - Ao trabalhar em migrações de configuração ou fluxos do Doctor
+  - Ao lidar com esquemas de configuração de plugins ou bloqueio de carregamento de plugins
 title: "Validação estrita de configuração"
 ---
 
@@ -86,5 +91,3 @@ Todo o restante deve falhar de forma rígida com: “Configuração inválida. E
 - Plugin sem esquema → carregamento do plugin bloqueado com erro claro.
 - Configuração inválida → inicialização do gateway bloqueada, exceto comandos de diagnóstico.
 - Doctor em dry-run automático; `doctor --fix` grava a configuração corrigida.
-
-

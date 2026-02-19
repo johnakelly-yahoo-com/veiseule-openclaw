@@ -1,4 +1,9 @@
 ---
+summary: "Application de nœud iOS : connexion à la Gateway, appairage, canvas et dépannage"
+read_when:
+  - Appairage ou reconnexion du nœud iOS
+  - Exécution de l’application iOS depuis les sources
+  - Débogage de la découverte de la Gateway ou des commandes canvas
 title: "Application iOS"
 ---
 
@@ -70,6 +75,7 @@ openclaw nodes invoke --node "iOS Node" --command canvas.navigate --params '{"ur
 Remarques :
 
 - L’hôte canvas de la Gateway sert `/__openclaw__/canvas/` et `/__openclaw__/a2ui/`.
+- Il est servi depuis le serveur HTTP Gateway (même port que `gateway.port`, par défaut `18789`).
 - Le nœud iOS navigue automatiquement vers A2UI à la connexion lorsqu’une URL d’hôte canvas est annoncée.
 - Revenez à l’échafaudage intégré avec `canvas.navigate` et `{"url":""}`.
 
@@ -100,5 +106,3 @@ openclaw nodes invoke --node "iOS Node" --command canvas.snapshot --params '{"ma
 - [Appairage](/gateway/pairing)
 - [Découverte](/gateway/discovery)
 - [Bonjour](/gateway/bonjour)
-
-

@@ -1,5 +1,7 @@
 ---
+summary: "Sandbox por agente + restricciones de herramientas, precedencia y ejemplos"
 title: Sandbox y Herramientas Multi-Agente
+read_when: "Quiere sandboxing por agente o políticas de permitir/denegar herramientas por agente en un Gateway multi-agente."
 status: active
 ---
 
@@ -391,5 +393,3 @@ Después de configurar sandbox y herramientas multi-agente:
 - [Enrutamiento Multi-Agente](/concepts/multi-agent)
 - [Configuración de Sandbox](/gateway/configuration#agentsdefaults-sandbox)
 - [Gestión de sesiones](/concepts/session)
-
-

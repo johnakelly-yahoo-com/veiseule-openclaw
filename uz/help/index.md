@@ -1,4 +1,8 @@
 ---
+summary: "Yordam markazi: keng tarqalgan tuzatishlar, o‘rnatishni tekshirish va nimadir buzilganda qayerga qarash"
+read_when:
+  - Siz yangisiz va “nimani bosish/ishga tushirish” qo‘llanmasini xohlaysiz
+  - Nimadir buzildi va eng tez tuzatish yo‘lini xohlaysiz
 title: "Yordam"
 ---
 
@@ -15,5 +19,3 @@ Agar tezkor “tiqilib qolishdan chiqish” oqimini xohlasangiz, shu yerdan bosh
 Agar konseptual savollarni izlayotgan bo‘lsangiz (“nimadir buzildi” emas):
 
 - [FAQ (tushunchalar)](/help/faq)
-
-

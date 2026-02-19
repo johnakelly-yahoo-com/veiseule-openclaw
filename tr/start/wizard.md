@@ -1,4 +1,8 @@
 ---
+summary: "CLI katılım sihirbazı: gateway, çalışma alanı, kanallar ve skills için yönlendirmeli kurulum"
+read_when:
+  - Katılım sihirbazını çalıştırırken veya yapılandırırken
+  - Yeni bir makine kurarken
 title: "Katılım Sihirbazı (CLI)"
 sidebarTitle: "Katılım: CLI"
 ---
@@ -76,7 +80,7 @@ Yapılandırma geçersizse veya eski anahtarlar içeriyorsa, sihirbaz önce `ope
 **Uzak mod** yalnızca yerel istemciyi başka bir yerdeki bir Gateway’e bağlanacak şekilde yapılandırır.
 Uzak ana makinede hiçbir şeyi **kurmaz** veya **değiştirmez**.
 
-## 9. Başka bir ajan ekle
+## Başka bir ajan ekle
 
 Kendi çalışma alanı, oturumları ve kimlik doğrulama profilleri olan ayrı bir ajan oluşturmak için
 `openclaw agents add <name>` kullanın. `--workspace` olmadan çalıştırmak sihirbazı başlatır.
@@ -93,7 +97,7 @@ Notlar:
 - Gelen mesajları yönlendirmek için `bindings` ekleyin (sihirbaz bunu yapabilir).
 - Etkileşimsiz bayraklar: `--model`, `--agent-dir`, `--bind`, `--non-interactive`.
 
-## 11. Tam referans
+## Tam referans
 
 Ayrıntılı adım adım dökümler, etkileşimsiz betikleme, Signal kurulumu,
 RPC API ve sihirbazın yazdığı yapılandırma alanlarının tam listesi için
@@ -102,7 +106,6 @@ RPC API ve sihirbazın yazdığı yapılandırma alanlarının tam listesi için
 ## İlgili belgeler
 
 - CLI komut başvurusu: [`openclaw onboard`](/cli/onboard)
+- Onboarding genel bakış: [Onboarding Overview](/start/onboarding-overview)
 - macOS uygulaması katılımı: [Onboarding](/start/onboarding)
 - Ajan ilk çalıştırma ritüeli: [Agent Bootstrapping](/start/bootstrapping)
-
-

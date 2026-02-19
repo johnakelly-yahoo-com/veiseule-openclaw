@@ -1,4 +1,7 @@
 ---
+summary: "Sintaxe de diretiva para /think + /verbose e como elas afetam o raciocínio do modelo"
+read_when:
+  - Ajustar a análise de diretivas de thinking ou verbose ou os padrões
 title: "Níveis de Thinking"
 ---
 
@@ -59,7 +62,7 @@ title: "Níveis de Thinking"
 
 - A documentação do modo Elevated está em [Modo Elevated](/tools/elevated).
 
-## Sinais de vida
+## Heartbeats
 
 - O corpo da sonda de heartbeat é o prompt de heartbeat configurado (padrão: `Read HEARTBEAT.md if it exists (workspace context). Follow it strictly. Do not infer or repeat old tasks from prior chats. If nothing needs attention, reply HEARTBEAT_OK.`). Diretivas inline em uma mensagem de heartbeat se aplicam normalmente (mas evite alterar padrões de sessão a partir de heartbeats).
 - A entrega de heartbeat usa por padrão apenas a carga final. Para também enviar a mensagem separada `Reasoning:` (quando disponível), defina `agents.defaults.heartbeat.includeReasoning: true` ou por agente `agents.list[].heartbeat.includeReasoning: true`.
@@ -69,5 +72,3 @@ title: "Níveis de Thinking"
 - O seletor de thinking do chat web espelha o nível armazenado da sessão a partir do armazenamento/configuração da sessão de entrada quando a página carrega.
 - Escolher outro nível aplica-se apenas à próxima mensagem (`thinkingOnce`); após o envio, o seletor retorna ao nível da sessão armazenado.
 - Para alterar o padrão da sessão, envie uma diretiva `/think:<level>` (como antes); o seletor refletirá isso após o próximo recarregamento.
-
-

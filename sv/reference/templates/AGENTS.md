@@ -1,4 +1,9 @@
-------
+---
+title: "AGENTS.md-mall"
+summary: "Arbetsytmall för AGENTS.md"
+read_when:
+  - Manuell bootstrap av en arbetsyta
+---
 
 # AGENTS.md – Din arbetsyta
 
@@ -212,5 +217,3 @@ Målet: Var till hjälp utan att vara irriterande. Checka in några gånger om d
 ## Gör det till ditt
 
 Detta är en utgångspunkt. Lägg till dina egna konventioner, stil och regler som du räkna ut vad som fungerar.
-
-

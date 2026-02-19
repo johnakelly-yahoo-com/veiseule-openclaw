@@ -1,4 +1,8 @@
 ---
+summary: "Analyse des emplacements entrants des canaux (Telegram + WhatsApp) et champs de contexte"
+read_when:
+  - Ajout ou modification de l’analyse des emplacements de canal
+  - Utilisation des champs de contexte d’emplacement dans les invites ou outils d’agent
 title: "Analyse des emplacements de canal"
 ---
 
@@ -50,5 +54,3 @@ Lorsqu’un emplacement est présent, ces champs sont ajoutés à `ctx` :
 - **Telegram** : les lieux correspondent à `LocationName/LocationAddress` ; les emplacements en direct utilisent `live_period`.
 - **WhatsApp** : `locationMessage.comment` et `liveLocationMessage.caption` sont ajoutés comme ligne de légende.
 - **Matrix** : `geo_uri` est analysé comme une épingle d’emplacement ; l’altitude est ignorée et `LocationIsLive` est toujours faux.
-
-

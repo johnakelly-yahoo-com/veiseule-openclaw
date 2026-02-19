@@ -1,4 +1,9 @@
 ---
+summary: "Fördjupning: sessionslagring + transkript, livscykel och internals för (auto)kompaktering"
+read_when:
+  - Du behöver felsöka sessions-id:n, transcript JSONL eller fält i sessions.json
+  - Du ändrar beteendet för automatisk kompaktering eller lägger till ”pre-kompaktering”-städning
+  - Du vill implementera minnesflushar eller tysta systemvändor
 title: "Fördjupning i sessionshantering"
 ---
 
@@ -278,5 +283,3 @@ flushlogik ligger i dag på Gateway-sidan.
   - kompakteringsinställningar (`reserveTokens` för högt i förhållande till modellfönstret kan orsaka tidigare kompaktering)
   - uppblåst tool-result: aktivera/justera session pruning
 - Tysta svängar läckande? Bekräfta svaret börjar med `NO_REPLY` (exakt token) och du är på en byggnad som inkluderar strömmande dämpning fix.
-
-

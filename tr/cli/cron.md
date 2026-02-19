@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw cron` için CLI başvurusu (zamanlanmış ve arka plan işleri çalıştırma)"
+read_when:
+  - Zamanlanmış işler ve uyanmalar istediğinizde
+  - Cron yürütmesini ve günlüklerini ayıklarken
 title: "cron"
 ---
 
@@ -38,5 +42,3 @@ Belirli bir kanala duyurun:
 ```bash
 openclaw cron edit <job-id> --announce --channel slack --to "channel:C1234567890"
 ```
-
-

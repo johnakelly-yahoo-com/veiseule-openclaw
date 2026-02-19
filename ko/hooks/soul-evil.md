@@ -1,4 +1,8 @@
 ---
+summary: "SOUL Evil 훅 (SOUL.md 를 SOUL_EVIL.md 로 교체)"
+read_when:
+  - SOUL Evil 훅을 활성화하거나 조정하려는 경우
+  - 퍼지 윈도우 또는 무작위 확률 기반 페르소나 전환이 필요한 경우
 title: "SOUL Evil 훅"
 ---
 
@@ -59,8 +63,6 @@ openclaw hooks enable soul-evil
 - 디스크에 어떤 파일도 작성되거나 수정되지 않습니다.
 - 부트스트랩 목록에 `SOUL.md` 이 없으면, 이 훅은 아무 동작도 하지 않습니다.
 
-## 참고 자료
+## See Also
 
 - [훅](/automation/hooks)
-
-

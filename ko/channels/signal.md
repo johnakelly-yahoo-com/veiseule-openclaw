@@ -1,4 +1,8 @@
 ---
+summary: "signal-cli (JSON-RPC + SSE)를 통한 Signal 지원, 설정 및 번호 모델"
+read_when:
+  - Signal 지원 설정
+  - Signal 송수신 디버깅
 title: "Signal"
 ---
 
@@ -6,13 +10,22 @@ title: "Signal"
 
 상태: 외부 CLI 통합. Gateway(게이트웨이)는 HTTP JSON-RPC + SSE를 통해 `signal-cli` 와 통신합니다.
 
+## 사전 요구 사항
+
+- 서버에 OpenClaw가 설치되어 있어야 합니다(아래 Linux 흐름은 Ubuntu 24에서 테스트됨).
+- gateway가 실행되는 호스트에서 `signal-cli`를 사용할 수 있어야 합니다.
+- 한 번의 인증 SMS를 수신할 수 있는 전화번호(SMS 등록 경로용).
+- 등록 중 Signal captcha(`signalcaptchas.org`)를 위한 브라우저 접근 권한.
+
 ## 빠른 설정 (초보자)
 
 1. 봇을 위해 **별도의 Signal 번호**를 사용합니다 (권장).
 2. `signal-cli` 를 설치합니다 (Java 필요).
-3. 봇 디바이스를 연결하고 데몬을 시작합니다:
+3. 설정 경로 중 하나를 선택하세요:
    - `signal-cli link -n "OpenClaw"`
+   - **경로 B (SMS 등록):** captcha + SMS 인증으로 전용 번호를 등록합니다.
 4. OpenClaw 를 구성하고 게이트웨이를 시작합니다.
+5. 첫 번째 DM을 보내고 페어링을 승인하세요(`openclaw pairing approve signal <CODE>`).
 
 최소 설정:
 
@@ -29,6 +42,15 @@ title: "Signal"
   },
 }
 ```
+
+필드 참조:
+
+| 필드                            | 설명                                                                   |
+| ----------------------------- | -------------------------------------------------------------------- |
+| `account`                     | E.164 형식의 봇 전화번호 (`+15551234567`) |
+| 설정 (빠른 경로) | `signal-cli` 경로 (`PATH`에 있으면 `signal-cli`)        |
+| `dmPolicy`                    | DM 접근 정책 (`pairing` 권장)                           |
+| `allowFrom`                   | DM을 허용할 전화번호 또는 `uuid:&lt;id&gt;` 값                                        |
 
 ## 무엇인가요
 
@@ -54,7 +76,7 @@ title: "Signal"
 - **개인 Signal 계정**으로 봇을 실행하면, 자신의 메시지는 무시됩니다 (루프 보호).
 - "봇에게 문자를 보내면 답장하는" 경우에는 **별도의 봇 번호**를 사용하세요.
 
-## 설정 (빠른 경로)
+## 설정 경로 A: 기존 Signal 계정 연결 (QR)
 
 1. `signal-cli` 를 설치합니다 (Java 필요).
 2. 봇 계정을 연결합니다:
@@ -78,6 +100,67 @@ title: "Signal"
 ```
 
 다중 계정 지원: 계정별 구성과 선택적 `name` 와 함께 `channels.signal.accounts` 를 사용합니다. 공통 패턴은 [`gateway/configuration`](/gateway/configuration#telegramaccounts--discordaccounts--slackaccounts--signalaccounts--imessageaccounts) 를 참고하십시오.
+
+## 설정 경로 B: 전용 봇 번호 등록 (SMS, Linux)
+
+기존 Signal 앱 계정을 연결하는 대신 전용 봇 번호를 사용하려는 경우 이 방법을 사용하세요.
+
+1. SMS(또는 유선 전화의 경우 음성 인증)를 수신할 수 있는 번호를 준비하세요.
+   - 계정/세션 충돌을 방지하려면 전용 봇 번호를 사용하세요.
+2. gateway 호스트에 `signal-cli` 설치:
+
+```bash
+VERSION=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/AsamK/signal-cli/releases/latest | sed -e 's/^.*\/v//')
+curl -L -O "https://github.com/AsamK/signal-cli/releases/download/v${VERSION}/signal-cli-${VERSION}-Linux-native.tar.gz"
+sudo tar xf "signal-cli-${VERSION}-Linux-native.tar.gz" -C /opt
+sudo ln -sf /opt/signal-cli /usr/local/bin/
+signal-cli --version
+```
+
+JVM 빌드(`signal-cli-${VERSION}.tar.gz`)를 사용하는 경우 먼저 JRE 25+를 설치하세요.
+Signal 서버 API 변경으로 인해 이전 릴리스가 동작하지 않을 수 있으므로 `signal-cli`를 최신 상태로 유지하세요.
+
+3. 번호 등록 및 인증:
+
+```bash
+signal-cli -a +<BOT_PHONE_NUMBER> register
+```
+
+captcha가 필요한 경우:
+
+1. `https://signalcaptchas.org/registration/generate.html`을 여세요.
+2. captcha를 완료한 후 "Open Signal"에서 `signalcaptcha://...` 링크 대상을 복사하세요.
+3. 가능하면 브라우저 세션과 동일한 외부 IP에서 실행하세요.
+4. 등록을 즉시 다시 실행하세요 (captcha 토큰은 빠르게 만료됩니다):
+
+```bash
+signal-cli -a +<BOT_PHONE_NUMBER> register --captcha '<SIGNALCAPTCHA_URL>'
+signal-cli -a +<BOT_PHONE_NUMBER> verify <VERIFICATION_CODE>
+```
+
+4. OpenClaw를 구성하고 gateway를 재시작한 후 채널을 확인하세요:
+
+```bash
+# gateway를 사용자 systemd 서비스로 실행하는 경우:
+systemctl --user restart openclaw-gateway
+
+# 그런 다음 확인:
+openclaw doctor
+openclaw channels status --probe
+```
+
+5. 봇 디바이스를 연결하고 데몬을 시작합니다:
+   - 봇 번호로 아무 메시지나 보내세요.
+   - 서버에서 코드 승인: `openclaw pairing approve signal <PAIRING_CODE>`.
+   - "알 수 없는 연락처"로 표시되지 않도록 휴대폰에 봇 번호를 연락처로 저장하세요.
+
+중요: `signal-cli`로 전화번호 계정을 등록하면 해당 번호의 기본 Signal 앱 세션이 인증 해제될 수 있습니다. 기존 휴대폰 앱 설정을 유지해야 한다면 전용 봇 번호를 사용하거나 QR 링크 모드를 사용하세요.
+
+Upstream 참고 자료:
+
+- `signal-cli` README: `https://github.com/AsamK/signal-cli`
+- Captcha 흐름: `https://github.com/AsamK/signal-cli/wiki/Registration-with-captcha`
+- 연결 흐름: `https://github.com/AsamK/signal-cli/wiki/Linking-other-devices-(Provisioning)`
 
 ## 외부 데몬 모드 (httpUrl)
 
@@ -187,8 +270,25 @@ openclaw pairing list signal
 - 데몬에는 연결되지만 응답이 없음: 계정/데몬 설정 (`httpUrl`, `account`) 과 수신 모드를 확인합니다.
 - DM 이 무시됨: 발신자가 페어링 승인 대기 중입니다.
 - 그룹 메시지가 무시됨: 그룹 발신자/멘션 게이팅이 전달을 차단합니다.
+- 편집 후 구성 검증 오류가 발생하면 `openclaw doctor --fix`를 실행하세요.
+- 진단에 Signal이 표시되지 않으면 `channels.signal.enabled: true`를 확인하세요.
+
+추가 확인 사항:
+
+```bash
+openclaw pairing list signal
+pgrep -af signal-cli
+grep -i "signal" "/tmp/openclaw/openclaw-$(date +%Y-%m-%d).log" | tail -20
+```
 
 트리아지 흐름은 [/channels/troubleshooting](/channels/troubleshooting) 을 참고하십시오.
+
+## 보안 참고 사항
+
+- `signal-cli`는 계정 키를 로컬에 저장합니다 (일반적으로 `~/.local/share/signal-cli/data/`).
+- 서버 마이그레이션 또는 재구축 전에 Signal 계정 상태를 백업하세요.
+- 명시적으로 더 넓은 DM 접근을 원하지 않는 한 `channels.signal.dmPolicy: "pairing"`을 유지하세요.
+- SMS 인증은 등록 또는 복구 흐름에서만 필요하지만, 해당 번호/계정에 대한 통제권을 잃으면 재등록이 복잡해질 수 있습니다.
 
 ## 구성 참조 (Signal)
 
@@ -222,5 +322,3 @@ openclaw pairing list signal
 - `agents.list[].groupChat.mentionPatterns` (Signal 은 네이티브 멘션을 지원하지 않습니다).
 - `messages.groupChat.mentionPatterns` (전역 폴백).
 - `messages.responsePrefix`.
-
-

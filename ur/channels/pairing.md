@@ -1,10 +1,15 @@
 ---
+summary: "جوڑی بنانے کا جائزہ: کس کو آپ کو DM کرنے کی اجازت ہے + کون سے نوڈز شامل ہو سکتے ہیں"
+read_when:
+  - DM رسائی کنٹرول سیٹ اپ کرنا
+  - نئے iOS/Android نوڈ کو جوڑنا
+  - OpenClaw کی سکیورٹی پوزیشن کا جائزہ لینا
 title: "جوڑی بنانا"
 ---
 
 # جوڑی بنانا
 
-“Pairing” OpenClaw کا واضح **مالک کی منظوری** کا مرحلہ ہے۔
+“Pairing” is OpenClaw’s explicit **owner approval** step.
 It is used in two places:
 
 1. **DM جوڑی بنانا** (کون بوٹ سے بات کر سکتا ہے)
@@ -21,7 +26,7 @@ It is used in two places:
 جوڑی بنانے کے کوڈز:
 
 - 8 حروف، بڑے حروف میں، بغیر مبہم حروف (`0O1I`)۔
-- **1 گھنٹے بعد میعاد ختم ہو جاتی ہے**۔ بوٹ صرف اسی وقت پیئرنگ پیغام بھیجتا ہے جب نئی درخواست بنائی جاتی ہے (تقریباً ہر بھیجنے والے کے لیے فی گھنٹہ ایک بار).
+- **Expire after 1 hour**. The bot only sends the pairing message when a new request is created (roughly once per hour per sender).
 - زیرِ التوا DM جوڑی بنانے کی درخواستیں بطورِ طے شدہ **ہر چینل پر 3** تک محدود ہیں؛ اضافی درخواستیں اس وقت تک نظرانداز کی جاتی ہیں جب تک کوئی ایک میعاد ختم نہ ہو یا منظور نہ ہو جائے۔
 
 ### کسی ارسال کنندہ کی منظوری
@@ -44,7 +49,7 @@ openclaw pairing approve telegram <CODE>
 
 ## 2. نوڈ ڈیوائس جوڑی بنانا (iOS/Android/macOS/ہیڈلیس نوڈز)
 
-Nodes، Gateway سے **devices** کے طور پر `role: node` کے ساتھ جڑتے ہیں۔ Gateway
+Nodes connect to the Gateway as **devices** with `role: node`. The Gateway
 creates a device pairing request that must be approved.
 
 ### Telegram کے ذریعے Pair کریں (iOS کے لیے تجویز کردہ)
@@ -96,5 +101,3 @@ openclaw devices reject <requestId>
   - iMessage (لیگیسی): [iMessage](/channels/imessage)
   - Discord: [Discord](/channels/discord)
   - Slack: [Slack](/channels/slack)
-
-

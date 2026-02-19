@@ -1,4 +1,8 @@
 ---
+summary: "Inicio rápido se ha movido a Primeros pasos."
+read_when:
+  - Busca los pasos de configuración más rápidos
+  - Fue dirigido aquí desde un enlace anterior
 title: "Inicio rápido"
 ---
 
@@ -18,5 +22,3 @@ Inicio rápido ahora forma parte de [Primeros pasos](/start/getting-started).
   
 </Card>
 </Columns>
-
-

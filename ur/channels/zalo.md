@@ -1,4 +1,7 @@
 ---
+summary: "Zalo بوٹ کی معاونت کی حالت، صلاحیتیں، اور کنفیگریشن"
+read_when:
+  - Zalo فیچرز یا ویب ہُکس پر کام کرتے وقت
 title: "Zalo"
 ---
 
@@ -184,5 +187,3 @@ Env آپشن: `ZALO_BOT_TOKEN=...` (صرف ڈیفالٹ اکاؤنٹ کے لیے
 - `channels.zalo.accounts.<id>.webhookSecret`: فی اکاؤنٹ ویب ہُک خفیہ کلید۔
 - `channels.zalo.accounts.<id>.webhookPath`: فی اکاؤنٹ ویب ہُک راستہ۔
 - `channels.zalo.accounts.<id>.proxy`: فی اکاؤنٹ پراکسی URL۔
-
-

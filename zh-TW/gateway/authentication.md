@@ -1,4 +1,8 @@
 ---
+summary: "模型身分驗證：OAuth、API 金鑰與 setup-token"
+read_when:
+  - 偵錯模型身分驗證或 OAuth 到期問題
+  - 撰寫身分驗證或憑證儲存文件
 title: "驗證"
 ---
 
@@ -7,6 +11,7 @@ title: "驗證"
 OpenClaw 支援模型提供者的 OAuth 與 API 金鑰。對於 Anthropic
 帳戶，我們建議使用 **API 金鑰**。若要存取 Claude 訂閱，
 請使用由 `claude setup-token` 建立的長效權杖。 For Anthropic
+accounts, we recommend using an **API key**. For Anthropic
 accounts, we recommend using an **API key**. For Claude subscription access,
 use the long‑lived token created by `claude setup-token`.
 
@@ -47,7 +52,7 @@ API keys for daemon use: `openclaw onboard`.
 
 ## Anthropic：setup-token（訂閱身分驗證）
 
-對於 Anthropic，建議使用 **API key**。如果您正在使用 Claude
+For Anthropic, the recommended path is an **API key**. 對於 Anthropic，建議使用 **API key**。如果您正在使用 Claude
 subscription, the setup-token flow is also supported. Run it on the **gateway host**:
 
 ```bash
@@ -119,7 +124,7 @@ openclaw models auth order clear --provider anthropic
 
 使用 `--agent <id>` 指定特定代理程式；省略則使用已設定的預設代理程式。
 
-## 疑難排解
+## Troubleshooting
 
 ### 「找不到任何憑證」
 
@@ -130,14 +135,12 @@ openclaw models auth order clear --provider anthropic
 openclaw models status
 ```
 
-### 權杖即將過期／已過期
+### Token expiring/expired
 
-執行 `openclaw models status` 以確認哪個設定檔即將過期。如果該設定檔
+Run `openclaw models status` to confirm which profile is expiring. If the profile
 is missing, rerun `claude setup-token` and paste the token again.
 
 ## 需求
 
 - Claude Max 或 Pro 訂閱（用於 `claude setup-token`）
 - 已安裝 Claude Code CLI（可使用 `claude` 指令）
-
-

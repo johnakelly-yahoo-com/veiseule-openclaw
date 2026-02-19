@@ -1,4 +1,9 @@
 ---
+summary: "Ferramentas de busca na web + fetch (Brave Search API, Perplexity direto/OpenRouter)"
+read_when:
+  - Você quer habilitar web_search ou web_fetch
+  - Você precisa configurar a chave da Brave Search API
+  - Você quer usar o Perplexity Sonar para busca na web
 title: "Ferramentas Web"
 ---
 
@@ -24,7 +29,7 @@ Estas **não** são automação de navegador. Para sites pesados em JS ou logins
 
 ## Escolhendo um provedor de busca
 
-| Provedor                              | Vantagens                                                | Contras                                   | Chave de API                                 |
+| Provedor                              | Vantagens                                           | Contras                                   | Chave de API                                 |
 | ------------------------------------- | --------------------------------------------------- | ----------------------------------------- | -------------------------------------------- |
 | **Brave** (padrão) | Rápido, resultados estruturados, plano grátis       | Resultados de busca tradicionais          | `BRAVE_API_KEY`                              |
 | **Perplexity**                        | Respostas sintetizadas por IA, citações, tempo real | Requer acesso ao Perplexity ou OpenRouter | `OPENROUTER_API_KEY` ou `PERPLEXITY_API_KEY` |
@@ -168,6 +173,8 @@ Pesquise na web usando o provedor configurado.
 - `search_lang` (opcional): código de idioma ISO para resultados de busca (ex.: "de", "en", "fr")
 - `ui_lang` (opcional): código de idioma ISO para elementos da interface
 - `freshness` (opcional, apenas Brave): filtrar por tempo de descoberta (`pd`, `pw`, `pm`, `py` ou `YYYY-MM-DDtoYYYY-MM-DD`)
+  - Brave: `pd`, `pw`, `pm`, `py` ou `YYYY-MM-DDtoYYYY-MM-DD`
+  - Perplexity: `pd`, `pw`, `pm`, `py`
 
 **Exemplos:**
 
@@ -251,5 +258,3 @@ Notas:
 - As respostas são armazenadas em cache (padrão de 15 minutos) para reduzir fetches repetidos.
 - Se você usar perfis de ferramenta/listas de permissões, adicione `web_search`/`web_fetch` ou `group:web`.
 - Se a chave da Brave estiver ausente, `web_search` retorna uma dica curta de configuração com um link para a documentação.
-
-

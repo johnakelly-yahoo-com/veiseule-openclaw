@@ -1,10 +1,14 @@
 ---
+summary: "Slash buyruqlar: matnli va mahalliy, sozlamalar va qo‘llab-quvvatlanadigan buyruqlar"
+read_when:
+  - Using or configuring chat commands
+  - Debugging command routing or permissions
 title: "Slash buyruqlar"
 ---
 
 # Slash buyruqlar
 
-Buyruqlar Gateway tomonidan boshqariladi. Ko‘pchilik buyruqlar `/` bilan boshlanadigan **standalone** xabar sifatida yuborilishi kerak.
+Commands are handled by the Gateway. Most commands must be sent as a **standalone** message that starts with `/`.
 The host-only bash chat command uses `! <cmd>` (with `/bash <cmd>` as an alias).
 
 Ikkita o‘zaro bog‘liq tizim mavjud:
@@ -14,7 +18,8 @@ Ikkita o‘zaro bog‘liq tizim mavjud:
   - Direktivalar model ularni ko‘rishidan oldin xabardan olib tashlanadi.
   - Oddiy chat xabarlarida (faqat direktivadan iborat bo‘lmagan), ular “inline hint” sifatida qabul qilinadi va sessiya sozlamalarini **saqlab qolmaydi**.
   - Faqat direktivalardan iborat xabarlarda (xabar faqat direktivalarni o‘z ichiga olganda), ular sessiyada saqlanadi va tasdiqlovchi javob qaytariladi.
-  - Directives are only applied for **authorized senders** (channel allowlists/pairing plus `commands.useAccessGroups`).
+  - Direktivlar faqat **ruxsat berilgan jo‘natuvchilar** uchun qo‘llanadi. Agar `commands.allowFrom` o‘rnatilgan bo‘lsa, u yagona
+    ishlatiladigan allowlist bo‘ladi; aks holda avtorizatsiya channel allowlistlari/pairing va `commands.useAccessGroups` orqali amalga oshiriladi.
     Unauthorized senders see directives treated as plain text.
 
 There are also a few **inline shortcuts** (allowlisted/authorized senders only): `/help`, `/commands`, `/status`, `/whoami` (`/id`).
@@ -51,7 +56,10 @@ They run immediately, are stripped before the model sees the message, and the re
 - `commands.bashForegroundMs` (default `2000`) controls how long bash waits before switching to background mode (`0` backgrounds immediately).
 - `commands.config` (default `false`) enables `/config` (reads/writes `openclaw.json`).
 - `commands.debug` (default `false`) enables `/debug` (runtime-only overrides).
-- `commands.useAccessGroups` (default `true`) enforces allowlists/policies for commands.
+- `commands.allowFrom` (ixtiyoriy) buyruqlarni avtorizatsiya qilish uchun provider bo‘yicha allowlist o‘rnatadi. Sozlanganda, u
+  buyruqlar va direktivalar uchun yagona avtorizatsiya manbai bo‘ladi (channel allowlistlari/pairing va `commands.useAccessGroups`
+  e’tiborga olinmaydi). Global standart uchun `"*"` dan foydalaning; provider’ga xos kalitlar uni ustuvor ravishda bekor qiladi.
+- `commands.useAccessGroups` (default `true`) `commands.allowFrom` sozlanmagan bo‘lsa, buyruqlar uchun ruxsat ro‘yxatlari/siyosatlarni majburiy qo‘llaydi.
 
 ## Command list
 
@@ -70,12 +78,12 @@ Text + native (when enabled):
 - `/debug show|set|unset|reset` (ish vaqtida ustuvor sozlamalar, faqat egasi; `commands.debug: true` talab qilinadi)
 - `/usage off|tokens|full|cost` (har bir javob uchun foydalanish pastki qismi yoki mahalliy xarajatlar xulosasi)
 - `/tts off|always|inbound|tagged|status|provider|limit|summary|audio` (TTS boshqaruvi; qarang [/tts](/tts))
+- `/debug show|set|unset|reset` (ish vaqtida ustuvor sozlamalar, faqat egasi; `commands.debug: true` talab qilinadi)
+- `/usage off|tokens|full|cost` (har bir javob uchun foydalanish pastki qismi yoki mahalliy xarajatlar xulosasi)
+- `/dock-telegram` (taxallus: `/dock_telegram`) (javoblarni Telegram’ga o‘tkazish)
   - Discord: mahalliy buyruq `/voice` (`/tts` Discord tomonidan band qilingan); matnli `/tts` hanuz ishlaydi.
 - `/stop`
 - `/restart`
-- `/dock-telegram` (taxallus: `/dock_telegram`) (javoblarni Telegram’ga o‘tkazish)
-- `/dock-discord` (taxallus: `/dock_discord`) (javoblarni Discord’ga o‘tkazish)
-- `/dock-slack` (taxallus: `/dock_slack`) (javoblarni Slack’ga o‘tkazish)
 - `/activation mention|always` (faqat guruhlar uchun)
 - `/send on|off|inherit` (faqat egasi)
 - `/reset` yoki `/new [model]` (ixtiyoriy model ishorasi; qolgan matn uzatiladi)
@@ -83,6 +91,9 @@ Text + native (when enabled):
 - `/verbose on|full|off` (taxallus: `/v`)
 - `/reasoning on|off|stream` (taxallus: `/reason`; yoqilganda, `Reasoning:` prefiksi bilan alohida xabar yuboradi; `stream` = faqat Telegram qoralamasi)
 - `/elevated on|off|ask|full` (taxallus: `/elev`; `full` bajarish tasdiqlarini o‘tkazib yuboradi)
+- `/exec host=<sandbox|gateway|node> security=<deny|allowlist|full> ask=<off|on-miss|always> node=<id>` (joriy holatni ko‘rish uchun `/exec` yuboring)
+- `/model <name>` (taxallus: `/models`; yoki `/<alias>` `agents.defaults.models.*.alias` dan)
+- `/queue <mode>` (qo‘shimcha variantlar bilan, masalan `debounce:2s cap:25 drop:summarize`; joriy sozlamalarni ko‘rish uchun `/queue` yuboring)
 - `/exec host=<sandbox|gateway|node> security=<deny|allowlist|full> ask=<off|on-miss|always> node=<id>` (joriy holatni ko‘rish uchun `/exec` yuboring)
 - `/model <name>` (taxallus: `/models`; yoki `/<alias>` `agents.defaults.models.*.alias` dan)
 - `/queue <mode>` (qo‘shimcha variantlar bilan, masalan `debounce:2s cap:25 drop:summarize`; joriy sozlamalarni ko‘rish uchun `/queue` yuboring)
@@ -192,5 +203,3 @@ Eslatmalar:
   - Telegram: `telegram:slash:<userId>` (chat sessiyasini `CommandTargetSessionKey` orqali nishonga oladi)
 - **`/stop`** joriy ishni bekor qilish uchun faol chat sessiyasini nishonga oladi.
 - **Slack:** `channels.slack.slashCommand` hali ham bitta `/openclaw`-uslubidagi buyruq uchun qo‘llab-quvvatlanadi. Agar `commands.native` ni yoqsangiz, har bir ichki buyruq uchun Slack’da bitta slash buyruq yaratishingiz kerak (nomlari `/help` dagi bilan bir xil). Slack uchun buyruq argument menyulari ephemeral Block Kit tugmalari sifatida yetkaziladi.
-
-

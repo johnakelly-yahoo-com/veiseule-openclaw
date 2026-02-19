@@ -1,10 +1,14 @@
 ---
+summary: "CLI کے لیے حوالہ برائے `openclaw voicecall` (voice-call پلگ اِن کی کمانڈ سطح)"
+read_when:
+  - آپ voice-call پلگ اِن استعمال کرتے ہیں اور CLI کے اندراجی پوائنٹس چاہتے ہیں
+  - آپ `voicecall call|continue|status|tail|expose` کے لیے فوری مثالیں چاہتے ہیں
 title: "voicecall"
 ---
 
 # `openclaw voicecall`
 
-`voicecall` ایک plugin کی طرف سے فراہم کردہ کمانڈ ہے۔ یہ صرف اسی صورت میں ظاہر ہوتی ہے جب voice-call plugin انسٹال اور فعال ہو۔
+`voicecall` is a plugin-provided command. It only appears if the voice-call plugin is installed and enabled.
 
 بنیادی دستاویز:
 
@@ -27,6 +31,4 @@ openclaw voicecall expose --mode funnel
 openclaw voicecall unexpose
 ```
 
-سیکیورٹی نوٹ: webhook endpoint کو صرف اُن نیٹ ورکس تک محدود رکھیں جن پر آپ کو اعتماد ہو۔ جہاں ممکن ہو، Funnel کے بجائے Tailscale Serve کو ترجیح دیں۔
-
-
+Security note: only expose the webhook endpoint to networks you trust. Prefer Tailscale Serve over Funnel when possible.

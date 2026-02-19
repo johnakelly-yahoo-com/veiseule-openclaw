@@ -1,4 +1,6 @@
 ---
+summary: "„Beheben von Chrome/Brave/Edge/Chromium-CDP-Startproblemen für die OpenClaw-Browsersteuerung unter Linux“"
+read_when: "„Die Browsersteuerung schlägt unter Linux fehl, insbesondere mit Snap-Chromium“"
 title: "„Browser-Fehlerbehebung“"
 ---
 
@@ -133,5 +135,3 @@ Hinweise:
 
 - Das Profil `chrome` verwendet nach Möglichkeit Ihren **systemweiten Standard-Chromium-Browser**.
 - Lokale Profile `openclaw` weisen `cdpPort`/`cdpUrl` automatisch zu; setzen Sie diese nur für Remote-CDP.
-
-

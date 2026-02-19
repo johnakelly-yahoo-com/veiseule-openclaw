@@ -1,13 +1,14 @@
 ---
+summary: "Qanday qilib yuqori signalga ega PR yuborish kerak"
 title: "PR yuborish"
 ---
 
-Yaxshi PRlarni ko‘rib chiqish oson bo‘ladi: ko‘rib chiquvchilar tezda maqsadni tushunishi, xatti-harakatni tekshirishi va o‘zgarishlarni xavfsiz tarzda qabul qilishi kerak. Ushbu qo‘llanma insonlar va LLM tomonidan ko‘rib chiqish uchun qisqa va mazmunli (yuqori signalga ega) yuborishlarni qamrab oladi.
+Good PRs are easy to review: reviewers should quickly know the intent, verify behavior, and land changes safely. This guide covers concise, high-signal submissions for human and LLM review.
 
 ## Yaxshi PR nimasi bilan ajralib turadi
 
 - [ ] Muammoni, uning nega muhimligini va kiritilgan o‘zgarishni tushuntiring.
-- [ ] O‘zgarishlarni aniq va yo‘naltirilgan holda saqlang. Keng qamrovli refaktorlardan qoching.
+- [ ] Keep changes focused. Avoid broad refactors.
 - [ ] Foydalanuvchiga ko‘rinadigan/konfiguratsiya/standart sozlamalardagi o‘zgarishlarni qisqacha bayon qiling.
 - [ ] Test qamrovini, o‘tkazib yuborilganlarini va sabablarini sanab chiqing.
 - [ ] Dalillar qo‘shing: loglar, skrinshotlar yoki yozuvlar (UI/UX).
@@ -395,5 +396,3 @@ pnpm format
 - Submitter effort:
 - Agent notes:
 ```
-
-

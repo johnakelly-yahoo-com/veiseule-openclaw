@@ -1,4 +1,8 @@
-------
+---
+summary: "Rekord profilu użytkownika"
+read_when:
+  - Ręczne uruchamianie obszaru roboczego
+---
 
 # USER.md – O Twoim człowieku
 
@@ -17,5 +21,3 @@ _(Na czym im zależy? Nad jakimi projektami pracują? Co ich irytuje? Co ich baw
 ---
 
 Im więcej wiesz, tym lepiej możesz pomóc. Pamiętaj jednak — uczysz się o osobie, a nie tworzysz dossier. Uszanuj tę różnicę.
-
-

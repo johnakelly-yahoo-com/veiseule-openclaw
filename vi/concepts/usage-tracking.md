@@ -1,4 +1,8 @@
 ---
+summary: "Các bề mặt theo dõi mức sử dụng và yêu cầu về thông tin xác thực"
+read_when:
+  - Bạn đang kết nối các bề mặt mức sử dụng/hạn ngạch của nhà cung cấp
+  - Bạn cần giải thích hành vi theo dõi mức sử dụng hoặc yêu cầu xác thực
 title: "Theo dõi mức sử dụng"
 ---
 
@@ -29,5 +33,3 @@ title: "Theo dõi mức sử dụng"
 - **z.ai**: khóa API qua biến môi trường/cấu hình/kho xác thực.
 
 Mức sử dụng sẽ bị ẩn nếu không có thông tin xác thực OAuth/API tương ứng.
-
-

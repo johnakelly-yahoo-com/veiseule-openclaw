@@ -1,101 +1,114 @@
 ---
-title: "Configuration"
+summary: "Visão geral da configuração: tarefas comuns, configuração rápida e links para a referência completa"
+read_when:
+  - Configurando o OpenClaw pela primeira vez
+  - Procurando padrões comuns de configuração
+  - Navegando para seções específicas da configuração
+title: "Configuração"
 ---
 
-# Configuration
+# Configuration 🔧
 
-OpenClaw reads an optional <Tooltip tip="JSON5 supports comments and trailing commas">**JSON5**</Tooltip> config from `~/.openclaw/openclaw.json`.
+OpenClaw reads an optional **JSON5** config from `~/.openclaw/openclaw.json` (comments + trailing commas allowed).
 
-If the file is missing, OpenClaw uses safe defaults. Common reasons to add a config:
+If the file is missing, OpenClaw uses safe-ish defaults (embedded Pi agent + per-sender sessions + workspace `~/.openclaw/workspace`). You usually only need a config to:
 
-- Connect channels and control who can message the bot
-- Set models, tools, sandboxing, or automation (cron, hooks)
-- Tune sessions, media, networking, or UI
+- Conecte canais e controle quem pode enviar mensagens ao bot
+- Defina modelos, ferramentas, sandboxing ou automações (cron, hooks)
+- Ajuste sessões, mídia, rede ou UI
 
-See the [full reference](/gateway/configuration-reference) for every available field.
+Veja a [referência completa](/gateway/configuration-reference) para todos os campos disponíveis.
 
 <Tip>
-**New to configuration?** Start with `openclaw onboard` for interactive setup, or check out the [Configuration Examples](/gateway/configuration-examples) guide for complete copy-paste configs.
+**New to configuration?** Check out the [Configuration Examples](/gateway/configuration-examples) guide for complete examples with detailed explanations!
 </Tip>
 
-## Minimal config
+## Minimal config (recommended starting point)
 
 ```json5
-// ~/.openclaw/openclaw.json
 {
   agents: { defaults: { workspace: "~/.openclaw/workspace" } },
   channels: { whatsapp: { allowFrom: ["+15555550123"] } },
 }
 ```
 
-## Editing config
+## Configuration 🔧
 
 <Tabs>
-  <Tab title="Interactive wizard">
-    ```bash
-    openclaw onboard       # full setup wizard
-    openclaw configure     # config wizard
-    ```
-  
+  <Tab title="Interactive wizard">```bash
+openclaw onboard       # full setup wizard
+openclaw configure     # config wizard
+```
 </Tab>
-  <Tab title="CLI (one-liners)">
-    ```bash
-    openclaw config get agents.defaults.workspace
-    openclaw config set agents.defaults.heartbeat.every "2h"
-    openclaw config unset tools.web.search.apiKey
-    ```
-  
+  <Tab title="CLI (one-liners)">```bash
+openclaw config get agents.defaults.workspace
+openclaw config set agents.defaults.heartbeat.every "2h"
+openclaw config unset tools.web.search.apiKey
+```
 </Tab>
   <Tab title="Control UI">
-    Open [http://127.0.0.1:18789](http://127.0.0.1:18789) and use the **Config** tab.
-    The Control UI renders a form from the config schema, with a **Raw JSON** editor as an escape hatch.
+    The Gateway exposes a JSON Schema representation of the config via `config.schema` for UI editors.
+    The Control UI renders a form from this schema, with a **Raw JSON** editor as an escape hatch.
   
 </Tab>
   <Tab title="Direct edit">
-    Edit `~/.openclaw/openclaw.json` directly. The Gateway watches the file and applies changes automatically (see [hot reload](#config-hot-reload)).
+    `~/.openclaw/openclaw.json` (or `OPENCLAW_CONFIG_PATH`) O Gateway monitora o arquivo e aplica as alterações automaticamente (veja [hot reload](#config-hot-reload)).
   
 </Tab>
 </Tabs>
 
-## Strict validation
+## Strict config validation
 
 <Warning>
-OpenClaw only accepts configurations that fully match the schema. Unknown keys, malformed types, or invalid values cause the Gateway to **refuse to start**. The only root-level exception is `$schema` (string), so editors can attach JSON Schema metadata.
+OpenClaw only accepts configurations that fully match the schema. Unknown keys, malformed types, or invalid values cause the Gateway to **refuse to start** for safety. A única exceção no nível raiz é `$schema` (string), para que editores possam associar metadados de JSON Schema.
 </Warning>
 
 When validation fails:
 
-- The Gateway does not boot
-- Only diagnostic commands work (`openclaw doctor`, `openclaw logs`, `openclaw health`, `openclaw status`)
-- Run `openclaw doctor` to see exact issues
-- Run `openclaw doctor --fix` (or `--yes`) to apply repairs
+- The Gateway does not boot.
+- Only diagnostic commands are allowed (for example: `openclaw doctor`, `openclaw logs`, `openclaw health`, `openclaw status`, `openclaw service`, `openclaw help`).
+- Run `openclaw doctor` to see the exact issues.
+- Run `openclaw doctor --fix` (or `--yes`) to apply migrations/repairs.
 
-## Common tasks
+## Tarefas comuns
 
 <AccordionGroup>
-  <Accordion title="Set up a channel (WhatsApp, Telegram, Discord, etc.)">
-    Each channel has its own config section under `channels.<provider>`. See the dedicated channel page for setup steps:
+  <Accordion title="Set up a channel (WhatsApp, Telegram, Discord, etc.)">    Cada canal tem sua própria seção de configuração em `channels.<provider>`. Veja a página dedicada do canal para as etapas de configuração:
 
-    - [WhatsApp](/channels/whatsapp) — `channels.whatsapp`
-    - [Telegram](/channels/telegram) — `channels.telegram`
-    - [Discord](/channels/discord) — `channels.discord`
-    - [Slack](/channels/slack) — `channels.slack`
-    - [Signal](/channels/signal) — `channels.signal`
-    - [iMessage](/channels/imessage) — `channels.imessage`
-    - [Google Chat](/channels/googlechat) — `channels.googlechat`
-    - [Mattermost](/channels/mattermost) — `channels.mattermost`
-    - [MS Teams](/channels/msteams) — `channels.msteams`
-
-    All channels share the same DM policy pattern:
-
-    ```json5
+    ```
     {
       channels: {
+        whatsapp: {
+          groupPolicy: "allowlist",
+          groupAllowFrom: ["+15551234567"],
+        },
         telegram: {
-          enabled: true,
-          botToken: "123:abc",
-          dmPolicy: "pairing",   // pairing | allowlist | open | disabled
-          allowFrom: ["tg:123"], // only for allowlist/open
+          groupPolicy: "allowlist",
+          groupAllowFrom: ["tg:123456789", "@alice"],
+        },
+        signal: {
+          groupPolicy: "allowlist",
+          groupAllowFrom: ["+15551234567"],
+        },
+        imessage: {
+          groupPolicy: "allowlist",
+          groupAllowFrom: ["chat_id:123"],
+        },
+        msteams: {
+          groupPolicy: "allowlist",
+          groupAllowFrom: ["user@org.com"],
+        },
+        discord: {
+          groupPolicy: "allowlist",
+          guilds: {
+            GUILD_ID: {
+              channels: { help: { allow: true } },
+            },
+          },
+        },
+        slack: {
+          groupPolicy: "allowlist",
+          channels: { "#general": { allow: true } },
         },
       },
     }
@@ -104,82 +117,76 @@ When validation fails:
   
 </Accordion>
 
-  <Accordion title="Choose and configure models">
-    Set the primary model and optional fallbacks:
+  <Accordion title="Choose and configure models">Defina o modelo principal e fallbacks opcionais:
 
-    ```json5
+    ```
     {
       agents: {
         defaults: {
-          model: {
-            primary: "anthropic/claude-sonnet-4-5",
-            fallbacks: ["openai/gpt-5.2"],
-          },
-          models: {
-            "anthropic/claude-sonnet-4-5": { alias: "Sonnet" },
-            "openai/gpt-5.2": { alias: "GPT" },
+          cliBackends: {
+            "claude-cli": {
+              command: "/opt/homebrew/bin/claude",
+            },
+            "my-cli": {
+              command: "my-cli",
+              args: ["--json"],
+              output: "json",
+              modelArg: "--model",
+              sessionArg: "--session",
+              sessionMode: "existing",
+              systemPromptArg: "--system",
+              systemPromptWhen: "first",
+              imageArg: "--image",
+              imageMode: "repeat",
+            },
           },
         },
       },
     }
     ```
 
-    - `agents.defaults.models` defines the model catalog and acts as the allowlist for `/model`.
-    - Model refs use `provider/model` format (e.g. `anthropic/claude-opus-4-6`).
-    - See [Models CLI](/concepts/models) for switching models in chat and [Model Failover](/concepts/model-failover) for auth rotation and fallback behavior.
-    - For custom/self-hosted providers, see [Custom providers](/gateway/configuration-reference#custom-providers-and-base-urls) in the reference.
-
   
 </Accordion>
 
-  <Accordion title="Control who can message the bot">
-    DM access is controlled per channel via `dmPolicy`:
+  <Accordion title="Control who can message the bot">Per-DM override: `channels.<provider>
 
-    - `"pairing"` (default): unknown senders get a one-time pairing code to approve
-    - `"allowlist"`: only senders in `allowFrom` (or the paired allow store)
-    - `"open"`: allow all inbound DMs (requires `allowFrom: ["*"]`)
-    - `"disabled"`: ignore all DMs
-
-    For groups, use `groupPolicy` + `groupAllowFrom` or channel-specific allowlists.
-
-    See the [full reference](/gateway/configuration-reference#dm-and-group-access) for per-channel details.
+    ```
+    Groups: `channels.mattermost.groupPolicy="allowlist"` by default (mention-gated). Use `channels.mattermost.groupAllowFrom` to restrict senders.
+    ```
 
   
 </Accordion>
 
   <Accordion title="Set up group chat mention gating">
-    Group messages default to **require mention**. Configure patterns per agent:
+    Group messages default to **require mention** (either metadata mention or regex patterns). `agents.defaults.subagents` configures sub-agent defaults:
 
-    ```json5
+    ```
     {
       agents: {
+        defaults: { workspace: "~/.openclaw/workspace" },
         list: [
           {
             id: "main",
-            groupChat: {
-              mentionPatterns: ["@openclaw", "openclaw"],
-            },
+            groupChat: { mentionPatterns: ["@openclaw", "reisponde"] },
           },
         ],
       },
       channels: {
         whatsapp: {
+          // Allowlist is DMs only; including your own number enables self-chat mode.
+          allowFrom: ["+15555550123"],
           groups: { "*": { requireMention: true } },
         },
       },
     }
     ```
 
-    - **Metadata mentions**: native @-mentions (WhatsApp tap-to-mention, Telegram @bot, etc.)
-    - **Text patterns**: regex patterns in `mentionPatterns`
-    - See [full reference](/gateway/configuration-reference#group-chat-mention-gating) for per-channel overrides and self-chat mode.
-
   
 </Accordion>
 
-  <Accordion title="Configure sessions and resets">
-    Sessions control conversation continuity and isolation:
+  <Accordion title="Configure sessions and resets">Thread session isolation:
 
+    ````
     ```json5
     {
       session: {
@@ -192,107 +199,97 @@ When validation fails:
       },
     }
     ```
-
+    
     - `dmScope`: `main` (shared) | `per-peer` | `per-channel-peer` | `per-account-channel-peer`
     - See [Session Management](/concepts/session) for scoping, identity links, and send policy.
     - See [full reference](/gateway/configuration-reference#session) for all fields.
+    ````
 
   
 </Accordion>
 
-  <Accordion title="Enable sandboxing">
-    Run agent sessions in isolated Docker containers:
+  <Accordion title="Enable sandboxing">    Execute sessões de agente em contêineres Docker isolados:
 
-    ```json5
+    ```
+    // ~/.openclaw/agents.json5
     {
-      agents: {
-        defaults: {
-          sandbox: {
-            mode: "non-main",  // off | non-main | all
-            scope: "agent",    // session | agent | shared
-          },
-        },
-      },
+      defaults: { sandbox: { mode: "all", scope: "session" } },
+      list: [{ id: "main", workspace: "~/.openclaw/workspace" }],
     }
     ```
-
-    Build the image first: `scripts/sandbox-setup.sh`
-
-    See [Sandboxing](/gateway/sandboxing) for the full guide and [full reference](/gateway/configuration-reference#sandbox) for all options.
 
   
 </Accordion>
 
-  <Accordion title="Set up heartbeat (periodic check-ins)">
-    ```json5
-    {
-      agents: {
-        defaults: {
-          heartbeat: {
-            every: "30m",
-            target: "last",
-          },
-        },
+  <Accordion title="Set up heartbeat (periodic check-ins)">```json5
+{
+  agents: {
+    defaults: {
+      heartbeat: {
+        every: "30m",
+        target: "last",
       },
-    }
-    ```
+    },
+  },
+}
+```
 
-    - `every`: duration string (`30m`, `2h`). Set `0m` to disable.
+    ```
+    - `every`: string de duração (`30m`, `2h`). Defina `0m` para desativar.
     - `target`: `last` | `whatsapp` | `telegram` | `discord` | `none`
-    - See [Heartbeat](/gateway/heartbeat) for the full guide.
-
-  
-</Accordion>
-
-  <Accordion title="Configure cron jobs">
-    ```json5
-    {
-      cron: {
-        enabled: true,
-        maxConcurrentRuns: 2,
-        sessionRetention: "24h",
-      },
-    }
+    - Veja [Heartbeat](/gateway/heartbeat) para o guia completo.
     ```
 
+  
+</Accordion>
+
+  <Accordion title="Configure cron jobs">{
+  cron: {
+    enabled: true,
+    maxConcurrentRuns: 2,
+  },
+}
+
+    ```
     See [Cron jobs](/automation/cron-jobs) for the feature overview and CLI examples.
+    ```
 
   
 </Accordion>
 
-  <Accordion title="Set up webhooks (hooks)">
-    Enable HTTP webhook endpoints on the Gateway:
+  <Accordion title="Set up webhooks (hooks)">Enable a simple HTTP webhook endpoint on the Gateway HTTP server.
 
-    ```json5
+    ```
     {
       hooks: {
         enabled: true,
         token: "shared-secret",
         path: "/hooks",
-        defaultSessionKey: "hook:ingress",
-        allowRequestSessionKey: false,
-        allowedSessionKeyPrefixes: ["hook:"],
+        presets: ["gmail"],
+        transformsDir: "~/.openclaw/hooks",
         mappings: [
           {
             match: { path: "gmail" },
             action: "agent",
-            agentId: "main",
+            wakeMode: "now",
+            name: "Gmail",
+            sessionKey: "hook:gmail:{{messages[0].id}}",
+            messageTemplate: "From: {{messages[0].from}}\nSubject: {{messages[0].subject}}\n{{messages[0].snippet}}",
             deliver: true,
+            channel: "last",
+            model: "openai/gpt-5.2-mini",
           },
         ],
       },
     }
     ```
 
-    See [full reference](/gateway/configuration-reference#hooks) for all mapping options and Gmail integration.
-
   
 </Accordion>
 
-  <Accordion title="Configure multi-agent routing">
-    Run multiple isolated agents with separate workspaces and sessions:
+  <Accordion title="Configure multi-agent routing">Run multiple isolated agents (separate workspace, `agentDir`, sessions) inside one Gateway.
 
-    ```json5
+    ```
     {
       agents: {
         list: [
@@ -304,194 +301,199 @@ When validation fails:
         { agentId: "home", match: { channel: "whatsapp", accountId: "personal" } },
         { agentId: "work", match: { channel: "whatsapp", accountId: "biz" } },
       ],
-    }
-    ```
-
-    See [Multi-Agent](/concepts/multi-agent) and [full reference](/gateway/configuration-reference#multi-agent-routing) for binding rules and per-agent access profiles.
-
-  
-</Accordion>
-
-  <Accordion title="Split config into multiple files ($include)">
-    Use `$include` to organize large configs:
-
-    ```json5
-    // ~/.openclaw/openclaw.json
-    {
-      gateway: { port: 18789 },
-      agents: { $include: "./agents.json5" },
-      broadcast: {
-        $include: ["./clients/a.json5", "./clients/b.json5"],
+      channels: {
+        whatsapp: {
+          accounts: {
+            personal: {},
+            biz: {},
+          },
+        },
       },
     }
     ```
 
-    - **Single file**: replaces the containing object
-    - **Array of files**: deep-merged in order (later wins)
-    - **Sibling keys**: merged after includes (override included values)
-    - **Nested includes**: supported up to 10 levels deep
-    - **Relative paths**: resolved relative to the including file
-    - **Error handling**: clear errors for missing files, parse errors, and circular includes
+  
+</Accordion>
+
+  <Accordion title="Split config into multiple files ($include)">Split your config into multiple files using the `$include` directive. This is useful for:
+
+    ```
+    // ~/.openclaw/openclaw.json
+    {
+      gateway: { port: 18789 },
+    
+      // Include a single file (replaces the key's value)
+      agents: { $include: "./agents.json5" },
+    
+      // Include multiple files (deep-merged in order)
+      broadcast: {
+        $include: ["./clients/mueller.json5", "./clients/schmidt.json5"],
+      },
+    }
+    ```
 
   
 </Accordion>
 </AccordionGroup>
 
-## Config hot reload
+## `gateway.reload` (Config hot reload)
 
-The Gateway watches `~/.openclaw/openclaw.json` and applies changes automatically — no manual restart needed for most settings.
+The Gateway watches `~/.openclaw/openclaw.json` (or `OPENCLAW_CONFIG_PATH`) and applies changes automatically.
 
-### Reload modes
+### Modos de recarregamento
 
-| Mode                   | Behavior                                                                                |
-| ---------------------- | --------------------------------------------------------------------------------------- |
-| **`hybrid`** (default) | Hot-applies safe changes instantly. Automatically restarts for critical ones.           |
-| **`hot`**              | Hot-applies safe changes only. Logs a warning when a restart is needed — you handle it. |
-| **`restart`**          | Restarts the Gateway on any config change, safe or not.                                 |
-| **`off`**              | Disables file watching. Changes take effect on the next manual restart.                 |
+| Modes:                   | Merge behavior                                                                                                                                                                          |
+| ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`hybrid`** (padrão) | Aplica alterações seguras instantaneamente. Reinicia automaticamente para alterações críticas.                                                          |
+| **`hot`**                                | `hot`: only apply hot-safe changes; log when a restart is required. Registra um aviso quando é necessário reiniciar — você cuida disso. |
+| **`restart`**                            | `restart`: restart the Gateway on any config change.                                                                                                    |
+| **Inline substitution:** | Desativa o monitoramento de arquivos. As alterações entram em vigor no próximo reinício manual.                                                         |
 
 ```json5
 {
   gateway: {
-    reload: { mode: "hybrid", debounceMs: 300 },
+    reload: {
+      mode: "hybrid",
+      debounceMs: 300,
+    },
   },
 }
 ```
 
-### What hot-applies vs what needs a restart
+### O que é aplicado a quente vs. o que precisa de reinício
 
-Most fields hot-apply without downtime. In `hybrid` mode, restart-required changes are handled automatically.
+A maioria dos campos é aplicada a quente sem indisponibilidade. No modo `hybrid`, alterações que exigem reinício são tratadas automaticamente.
 
-| Category            | Fields                                                               | Restart needed? |
-| ------------------- | -------------------------------------------------------------------- | --------------- |
-| Channels            | `channels.*`, `web` (WhatsApp) — all built-in and extension channels | No              |
-| Agent & models      | `agent`, `agents`, `models`, `routing`                               | No              |
-| Automation          | `hooks`, `cron`, `agent.heartbeat`                                   | No              |
-| Sessions & messages | `session`, `messages`                                                | No              |
-| Tools & media       | `tools`, `browser`, `skills`, `audio`, `talk`                        | No              |
-| UI & misc           | `ui`, `logging`, `identity`, `bindings`                              | No              |
-| Gateway server      | `gateway.*` (port, bind, auth, tailscale, TLS, HTTP)                 | **Yes**         |
-| Infrastructure      | `discovery`, `canvasHost`, `plugins`                                 | **Yes**         |
+| Categoria                            | Fields:                                                                                             | Precisa reiniciar?                 |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------- | ---------------------------------- |
+| \`channels.<channel> | `channels.*`, `web` (WhatsApp) — todos os canais integrados e de extensão                        | Não                                |
+| Agente e modelos                     | `model`: per-agent default model, overrides `agents.defaults.model` for that agent. | Não                                |
+| Automação                            | `hooks`, `cron`, `agent.heartbeat`                                                                                  | Não                                |
+| messages                             | `messages`                                                                                                          | Não                                |
+| Ferramentas e mídia                  | `tools`, `browser`, `skills`, `audio`, `talk`                                                                       | Não                                |
+| UI e diversos                        | `ui`, `logging`, `identity`, `bindings`                                                                             | Não                                |
+| Servidor Gateway                     | `gateway` (port/bind/auth/control UI/tailscale)                                                  | **Rules:**         |
+| Infraestrutura                       | `discovery`, `canvasHost`, `plugins`                                                                                | **Mention types:** |
 
 <Note>
-`gateway.reload` and `gateway.remote` are exceptions — changing them does **not** trigger a restart.
+`gateway.reload` e `gateway.remote` são exceções — alterá-los **não** aciona um reinício.
 </Note>
 
-## Config RPC (programmatic updates)
+## Partial updates (RPC)
 
 <AccordionGroup>
-  <Accordion title="config.apply (full replace)">
-    Validates + writes the full config and restarts the Gateway in one step.
+  <Accordion title="config.apply (full replace)">Use `config.apply` to validate + write the full config and restart the Gateway in one step.
 
-    <Warning>
-    `config.apply` replaces the **entire config**. Use `config.patch` for partial updates, or `openclaw config set` for single keys.
-    
-</Warning>
-
-    Params:
-
-    - `raw` (string) — JSON5 payload for the entire config
-    - `baseHash` (optional) — config hash from `config.get` (required when config exists)
-    - `sessionKey` (optional) — session key for the post-restart wake-up ping
-    - `note` (optional) — note for the restart sentinel
-    - `restartDelayMs` (optional) — delay before restart (default 2000)
-
-    ```bash
-    openclaw gateway call config.get --params '{}'  # capture payload.hash
+    ```
+    openclaw gateway call config.get --params '{}' # capture payload.hash
     openclaw gateway call config.apply --params '{
-      "raw": "{ agents: { defaults: { workspace: \"~/.openclaw/workspace\" } } }",
-      "baseHash": "<hash>",
-      "sessionKey": "agent:main:whatsapp:dm:+15555550123"
+      "raw": "{\\n  agents: { defaults: { workspace: \\"~/.openclaw/workspace\\" } }\\n}\\n",
+      "baseHash": "<hash-from-config.get>",
+      "sessionKey": "agent:main:whatsapp:dm:+15555550123",
+      "restartDelayMs": 1000
     }'
     ```
 
   
 </Accordion>
 
-  <Accordion title="config.patch (partial update)">
-    Merges a partial update into the existing config (JSON merge patch semantics):
+  <Accordion title="config.patch (partial update)">Use `config.patch` to merge a partial update into the existing config without clobbering
+unrelated keys. It applies JSON merge patch semantics:
 
-    - Objects merge recursively
-    - `null` deletes a key
-    - Arrays replace
-
+    ````
+    - Objetos são mesclados recursivamente
+    - `null` remove uma chave
+    - Arrays substituem
+    
     Params:
-
-    - `raw` (string) — JSON5 with just the keys to change
-    - `baseHash` (required) — config hash from `config.get`
-    - `sessionKey`, `note`, `restartDelayMs` — same as `config.apply`
-
+    
+    - `raw` (string) — JSON5 apenas com as chaves a serem alteradas
+    - `baseHash` (obrigatório) — hash da configuração de `config.get`
+    - `sessionKey`, `note`, `restartDelayMs` — iguais a `config.apply`
+    
     ```bash
     openclaw gateway call config.patch --params '{
       "raw": "{ channels: { telegram: { groups: { \"*\": { requireMention: false } } } } }",
       "baseHash": "<hash>"
     }'
     ```
+    ````
 
   
 </Accordion>
 </AccordionGroup>
 
-## Environment variables
+## Variable
 
-OpenClaw reads env vars from the parent process plus:
+OpenClaw reads env vars from the parent process (shell, launchd/systemd, CI, etc.).
 
 - `.env` from the current working directory (if present)
-- `~/.openclaw/.env` (global fallback)
+- a global fallback `.env` from `~/.openclaw/.env` (aka `$OPENCLAW_STATE_DIR/.env`)
 
-Neither file overrides existing env vars. You can also set inline env vars in config:
+Neither `.env` file overrides existing env vars. You can also provide inline env vars in config.
 
 ```json5
 {
   env: {
     OPENROUTER_API_KEY: "sk-or-...",
-    vars: { GROQ_API_KEY: "gsk-..." },
+    vars: {
+      GROQ_API_KEY: "gsk-...",
+    },
   },
 }
 ```
 
-<Accordion title="Shell env import (optional)">
-  If enabled and expected keys aren't set, OpenClaw runs your login shell and imports only the missing keys:
+<Accordion title="Shell env import (optional)">Opt-in convenience: if enabled and none of the expected keys are set yet, OpenClaw runs your login shell and imports only the missing expected keys (never overrides).
 
 ```json5
 {
   env: {
-    shellEnv: { enabled: true, timeoutMs: 15000 },
+    shellEnv: {
+      enabled: true,
+      timeoutMs: 15000,
+    },
   },
 }
 ```
 
-Env var equivalent: `OPENCLAW_LOAD_SHELL_ENV=1`
-</Accordion>
+`OPENCLAW_LOAD_SHELL_ENV=1`
 
-<Accordion title="Env var substitution in config values">
-  Reference env vars in any config string value with `${VAR_NAME}`:
+<Accordion title="Env var substitution in config values">You can reference environment variables directly in any config string value using
+`${VAR_NAME}` syntax.
 
 ```json5
 {
-  gateway: { auth: { token: "${OPENCLAW_GATEWAY_TOKEN}" } },
-  models: { providers: { custom: { apiKey: "${CUSTOM_API_KEY}" } } },
+  models: {
+    providers: {
+      "vercel-gateway": {
+        apiKey: "${VERCEL_GATEWAY_API_KEY}",
+      },
+    },
+  },
+  gateway: {
+    auth: {
+      token: "${OPENCLAW_GATEWAY_TOKEN}",
+    },
+  },
 }
 ```
 
-Rules:
+Defaults:
 
-- Only uppercase names matched: `[A-Z_][A-Z0-9_]*`
-- Missing/empty vars throw an error at load time
-- Escape with `$${VAR}` for literal output
-- Works inside `$include` files
-- Inline substitution: `"${BASE}/v1"` → `"https://api.example.com/v1"`
+- Only uppercase env var names are matched: `[A-Z_][A-Z0-9_]*`
+- Missing or empty env vars throw an error at config load
+- Escape with `$${VAR}` to output a literal `${VAR}`
+- Works with `$include` (included files also get substitution)
+- Substituição inline: `"${BASE}/v1"` → `"https://api.example.com/v1"`
 
 </Accordion>
 
-See [Environment](/help/environment) for full precedence and sources.
+See [/environment](/help/environment) for full precedence and sources.
 
-## Full reference
+## Referência completa
 
-For the complete field-by-field reference, see **[Configuration Reference](/gateway/configuration-reference)**.
+Config Includes (`$include`)
 
 ---
 
-_Related: [Configuration Examples](/gateway/configuration-examples) · [Configuration Reference](/gateway/configuration-reference) · [Doctor](/gateway/doctor)_
-
-
+Example (provider/model-specific allowlist):

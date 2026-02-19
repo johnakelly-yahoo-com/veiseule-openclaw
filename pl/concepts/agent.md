@@ -1,8 +1,11 @@
 ---
-title: "Środowisko uruchomieniowe agenta"
+summary: "Środowisko uruchomieniowe agenta (osadzony pi-mono), kontrakt obszaru roboczego i bootstrap sesji"
+read_when:
+  - Zmiana środowiska uruchomieniowego agenta, bootstrapu obszaru roboczego lub zachowania sesji
+title: "Agent Runtime"
 ---
 
-# Środowisko uruchomieniowe agenta 🤖
+# Agent Runtime 🤖
 
 OpenClaw uruchamia pojedyncze, osadzone środowisko uruchomieniowe agenta wywiedzione z **pi-mono**.
 
@@ -67,7 +70,7 @@ OpenClaw ponownie wykorzystuje fragmenty bazy kodu pi-mono (modele/narzędzia), 
 - Brak środowiska uruchomieniowego agenta pi-coding.
 - Nie są konsultowane ustawienia `~/.pi/agent` ani `<workspace>/.pi`.
 
-## Sesje
+## Sessions
 
 Transkrypty sesji są przechowywane jako JSONL w:
 
@@ -118,5 +121,3 @@ Co najmniej ustaw:
 ---
 
 _Następnie: [Czaty grupowe](/channels/group-messages)_ 🦞
-
-

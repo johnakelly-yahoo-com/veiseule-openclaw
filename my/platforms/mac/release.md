@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw macOS ထုတ်ဝေမှု စစ်ဆေးစာရင်း (Sparkle feed, ပက်ကေ့ဂျ်လုပ်ခြင်း၊ လက်မှတ်ရေးထိုးခြင်း)"
+read_when:
+  - OpenClaw macOS ထုတ်ဝေမှုကို ဖြတ်တောက်ခြင်း သို့မဟုတ် အတည်ပြုခြင်း ပြုလုပ်နေစဉ်
+  - Sparkle appcast သို့မဟုတ် feed အရင်းအမြစ်များကို အပ်ဒိတ်လုပ်နေစဉ်
 title: "macOS ထုတ်ဝေမှု"
 ---
 
@@ -71,7 +75,7 @@ Publish လုပ်ရာတွင် update လုပ်ထားသော `ap
 
 ## ထုတ်ဝေခြင်း & အတည်ပြုခြင်း
 
-- 23. `OpenClaw-2026.2.9.zip` (နှင့် `OpenClaw-2026.2.9.dSYM.zip`) ကို tag `v2026.2.9` အတွက် GitHub release သို့ တင်ပါ။
+- `OpenClaw-2026.2.15.zip` (နှင့် `OpenClaw-2026.2.15.dSYM.zip`) ကို tag `v2026.2.15` အတွက် GitHub release သို့ upload လုပ်ပါ။
 - raw appcast URL သည် baked feed နှင့် ကိုက်ညီကြောင်း သေချာပါစေ—`https://raw.githubusercontent.com/openclaw/openclaw/main/appcast.xml`။
 - Sanity checks—
   - `curl -I https://raw.githubusercontent.com/openclaw/openclaw/main/appcast.xml` သည် 200 ပြန်ရပါသည်။
@@ -79,5 +83,3 @@ Publish လုပ်ရာတွင် update လုပ်ထားသော `ap
   - အရင် public build တစ်ခုတွင် About tab မှ “Check for Updates…” ကို chạyပြီး Sparkle က build အသစ်ကို သန့်ရှင်းစွာ install လုပ်နိုင်ကြောင်း စစ်ဆေးပါ။
 
 ပြီးစီးသတ်မှတ်ချက် (Definition of done): လက်မှတ်ရေးထိုးထားသော app နှင့် appcast ကို ထုတ်ဝေပြီးဖြစ်သည်၊ ယခင် ထည့်သွင်းထားသော ဗားရှင်းမှ အပ်ဒိတ် လုပ်ငန်းစဉ် အလုပ်လုပ်ပါသည်၊ ထုတ်ဝေမှု အရင်းအမြစ်များကို GitHub release တွင် ချိတ်ဆက်ထားပြီးဖြစ်သည်။
-
-

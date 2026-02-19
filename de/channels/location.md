@@ -1,4 +1,8 @@
 ---
+summary: "„Parsing eingehender Kanalstandorte (Telegram + WhatsApp) und Kontextfelder“"
+read_when:
+  - Beim Hinzufügen oder Ändern des Kanal-Standort-Parsing
+  - Beim Verwenden von Standort-Kontextfeldern in Agent-Prompts oder Werkzeugen
 title: "channels/location.md"
 ---
 
@@ -50,5 +54,3 @@ Wenn ein Standort vorhanden ist, werden diese Felder zu `ctx` hinzugefügt:
 - **Telegram**: Orte werden auf `LocationName/LocationAddress` abgebildet; Live-Standorte verwenden `live_period`.
 - **WhatsApp**: `locationMessage.comment` und `liveLocationMessage.caption` werden als Beschriftungszeile angehängt.
 - **Matrix**: `geo_uri` wird als Pin-Standort geparst; die Höhe wird ignoriert und `LocationIsLive` ist immer false.
-
-

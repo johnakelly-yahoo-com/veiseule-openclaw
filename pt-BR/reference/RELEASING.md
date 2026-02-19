@@ -1,4 +1,11 @@
-------
+---
+title: "Checklist de Lançamento"
+summary: "Checklist de lançamento passo a passo para npm + app macOS"
+read_when:
+  - Cortar um novo lançamento npm
+  - Cortar um novo lançamento do app macOS
+  - Verificar metadados antes de publicar
+---
 
 # Checklist de Lançamento (npm + macOS)
 
@@ -112,5 +119,3 @@ Lista atual de plugins npm (atualize conforme necessário):
 
 As notas de lançamento também devem destacar **novos plugins empacotados opcionais** que **não
 ficam ativados por padrão** (exemplo: `tlon`).
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "Cron va heartbeat rejalashtirish hamda yetkazib berishni nosozliklardan chiqarish"
+read_when:
+  - Cron ishga tushmadi
+  - Cron ishga tushdi, ammo hech qanday xabar yetkazilmadi
+  - Heartbeat jim yoki o‘tkazib yuborilgandek
 title: "Avtomatlashtirishni nosozliklardan chiqarish"
 ---
 
@@ -111,9 +116,7 @@ openclaw logs --follow
 
 16. Bog‘liq:
 
-- 17. [/automation/cron-jobs](/automation/cron-jobs)
-- 18. [/gateway/heartbeat](/gateway/heartbeat)
-- 19. [/automation/cron-vs-heartbeat](/automation/cron-vs-heartbeat)
-- 20. [/concepts/timezone](/concepts/timezone)
-
-
+- [/automation/cron-jobs](/automation/cron-jobs)
+- [/gateway/heartbeat](/gateway/heartbeat)
+- [/automation/cron-vs-heartbeat](/automation/cron-vs-heartbeat)
+- [/concepts/timezone](/concepts/timezone)

@@ -1,17 +1,13 @@
 ---
-title: config
-x-i18n:
-  generated_at: "2026-02-03T10:04:13Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: d60a35f5330f22bc99a0df090590586109d329ddd2ca294aeed191a22560c1c2
-  source_path: cli/config.md
-  workflow: 15
+summary: "`openclaw config` 的 CLI 参考（获取/设置/取消设置配置值）"
+read_when:
+  - 你想以非交互方式读取或编辑配置
+title: "config"
 ---
 
 # `openclaw config`
 
-配置辅助命令：通过路径获取/设置/取消设置值。不带子命令运行将打开
+Config helpers: get/set/unset values by path. 配置辅助命令：通过路径获取/设置/取消设置值。不带子命令运行将打开
 配置向导（与 `openclaw configure` 相同）。
 
 ## 示例
@@ -33,7 +29,7 @@ openclaw config get agents.defaults.workspace
 openclaw config get agents.list[0].id
 ```
 
-使用智能体列表索引来定位特定智能体：
+Use the agent list index to target a specific agent:
 
 ```bash
 openclaw config get agents.list
@@ -44,6 +40,7 @@ openclaw config set agents.list[1].tools.exec.node "node-id-or-name"
 
 值会尽可能解析为 JSON5；否则将被视为字符串。
 使用 `--json` 强制要求 JSON5 解析。
+Use `--json` to require JSON5 parsing.
 
 ```bash
 openclaw config set agents.defaults.heartbeat.every "0m"
@@ -52,5 +49,3 @@ openclaw config set channels.whatsapp.groups '["*"]' --json
 ```
 
 编辑后请重启 Gateway 网关。
-
-

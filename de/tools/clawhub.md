@@ -1,4 +1,9 @@
 ---
+summary: "„ClawHub-Leitfaden: öffentliches Skills-Register + CLI-Workflows“"
+read_when:
+  - Einführung von ClawHub für neue Benutzer
+  - Installieren, Suchen oder Veröffentlichen von Skills
+  - Erläuterung von ClawHub-CLI-Flags und Synchronisationsverhalten
 title: "ClawHub"
 ---
 
@@ -250,5 +255,3 @@ export CLAWHUB_DISABLE_TELEMETRY=1
 - `CLAWHUB_CONFIG_PATH`: Überschreibt, wo die CLI Token/Konfiguration speichert.
 - `CLAWHUB_WORKDIR`: Überschreibt das Standard-Arbeitsverzeichnis.
 - `CLAWHUB_DISABLE_TELEMETRY=1`: Deaktiviert Telemetrie bei `sync`.
-
-

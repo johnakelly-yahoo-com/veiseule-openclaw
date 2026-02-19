@@ -1,4 +1,8 @@
 ---
+summary: "Tài liệu tham chiếu CLI cho `openclaw logs` (theo dõi log Gateway qua RPC)"
+read_when:
+  - Bạn cần theo dõi log Gateway từ xa (không cần SSH)
+  - Bạn muốn các dòng log JSON cho công cụ
 title: "nhật ký"
 ---
 
@@ -19,4 +23,4 @@ openclaw logs --json
 openclaw logs --limit 500
 ```
 
-
+Sử dụng `--local-time` để hiển thị dấu thời gian theo múi giờ địa phương của bạn.

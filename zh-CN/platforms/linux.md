@@ -1,20 +1,17 @@
 ---
-title: Linux 应用
-x-i18n:
-  generated_at: "2026-02-03T07:52:18Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: a9bbbcecf2fd522a2f5ac8f3b9068febbc43658465bfb9276bff6c3e946789d2
-  source_path: platforms/linux.md
-  workflow: 15
+summary: "Linux 支持 + 配套应用状态"
+read_when:
+  - 查找 Linux 配套应用状态时
+  - 规划平台覆盖或贡献时
+title: "Linux 应用"
 ---
 
 # Linux 应用
 
-Gateway 网关在 Linux 上完全支持。**Node 是推荐的运行时**。
-不推荐 Bun 用于 Gateway 网关（WhatsApp/Telegram 存在 bug）。
+Gateway 在 Linux 上得到完全支持。 **Node 是推荐的运行时**。
+不建议在 Gateway 上使用 Bun（存在 WhatsApp/Telegram 的问题）。
 
-原生 Linux 配套应用已在计划中。如果你想帮助构建，欢迎贡献。
+原生 Linux 伴侣应用已在计划中。 如果你想帮助构建一个，欢迎贡献。
 
 ## 新手快速路径（VPS）
 
@@ -69,7 +66,9 @@ openclaw doctor
 
 OpenClaw 默认安装 systemd **用户**服务。对于共享或常驻服务器使用**系统**
 服务。完整的单元示例和指南
-在 [Gateway 网关运行手册](/gateway) 中。
+在 [Gateway 网关运行手册](/gateway) 中。 对于共享或始终在线的服务器，使用 **system**
+服务。 完整的单元示例和指导
+位于 [Gateway 运行手册](/gateway) 中。
 
 最小设置：
 
@@ -95,5 +94,3 @@ WantedBy=default.target
 ```
 systemctl --user enable --now openclaw-gateway[-<profile>].service
 ```
-
-

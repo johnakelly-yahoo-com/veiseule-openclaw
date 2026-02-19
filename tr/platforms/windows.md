@@ -1,4 +1,8 @@
 ---
+summary: "Windows (WSL2) desteği + yardımcı uygulama durumu"
+read_when:
+  - Windows üzerinde OpenClaw kurarken
+  - Windows yardımcı uygulamasının durumunu arıyor
 title: "Windows (WSL2)"
 ---
 
@@ -149,5 +153,3 @@ Tam kılavuz: [Başlarken](/start/getting-started)
 
 Henüz bir Windows yardımcı uygulamamız yok. Bunu hayata geçirmek için katkıda bulunmak
 isterseniz katkılar memnuniyetle karşılanır.
-
-

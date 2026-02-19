@@ -1,5 +1,7 @@
 ---
+summary: "Định tuyến đa tác tử: tác tử cô lập, tài khoản kênh và các ràng buộc"
 title: Định tuyến đa tác tử
+read_when: "Bạn muốn nhiều tác tử cô lập (workspace + xác thực) trong một tiến trình gateway."
 status: active
 ---
 
@@ -119,11 +121,15 @@ Ghi chú:
 Các ràng buộc là **xác định** và **cụ thể nhất sẽ thắng**:
 
 1. Khớp `peer` (DM/nhóm/id kênh chính xác)
-2. `guildId` (Discord)
-3. `teamId` (Slack)
-4. Khớp `accountId` cho một kênh
-5. Khớp cấp kênh (`accountId: "*"`)
+2. Khớp `parentPeer` (kế thừa theo luồng hội thoại)
+3. `guildId + roles` (định tuyến vai trò Discord)
+4. `guildId` (Discord)
+5. `teamId` (Slack)
 6. Rơi về tác tử mặc định (`agents.list[].default`, nếu không thì mục đầu tiên trong danh sách, mặc định: `main`)
+7. Khớp cấp kênh (`accountId: "*"`)
+8. Rơi về tác tử mặc định (`agents.list[].default`, nếu không thì mục đầu tiên trong danh sách, mặc định: `main`)
+
+Nếu một binding đặt nhiều trường khớp (ví dụ `peer` + `guildId`), tất cả các trường được chỉ định đều bắt buộc (`AND` semantics).
 
 ## Nhiều tài khoản / số điện thoại
 
@@ -375,5 +381,3 @@ Lưu ý: `tools.elevated` là **toàn cục** và dựa trên người gửi; kh
 Đối với nhắm mục tiêu theo nhóm, hãy dùng `agents.list[].groupChat.mentionPatterns` để các @mention ánh xạ chính xác tới agent mong muốn.
 
 Xem [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) để có ví dụ chi tiết.
-
-

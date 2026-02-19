@@ -1,4 +1,7 @@
 ---
+summary: "Konfiguration och konfigurering av Twitch-chattbot"
+read_when:
+  - Konfigurering av Twitch-chattintegration för OpenClaw
 title: "Twitch"
 ---
 
@@ -374,5 +377,3 @@ Exempel:
 - **500 tecken** per meddelande (auto-uppdelat vid ordgränser)
 - Markdown tas bort före uppdelning
 - Ingen hastighetsbegränsning (använder Twitchs inbyggda rate limits)
-
-

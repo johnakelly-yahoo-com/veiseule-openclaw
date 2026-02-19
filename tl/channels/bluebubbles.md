@@ -1,15 +1,20 @@
 ---
+summary: "iMessage sa pamamagitan ng BlueBubbles macOS server (REST send/receive, typing, reactions, pairing, advanced actions)."
+read_when:
+  - Pagse-setup ng BlueBubbles channel
+  - Pag-troubleshoot ng webhook pairing
+  - Pag-configure ng iMessage sa macOS
 title: "BlueBubbles"
 ---
 
 # BlueBubbles (macOS REST)
 
-Status: naka-bundle na plugin na kumokonekta sa BlueBubbles macOS server sa pamamagitan ng HTTP. **Inirerekomenda para sa iMessage integration** dahil sa mas kumpleto nitong API at mas madaling setup kumpara sa legacy na imsg channel.
+Status: bundled plugin that talks to the BlueBubbles macOS server over HTTP. **Recommended for iMessage integration** due to its richer API and easier setup compared to the legacy imsg channel.
 
 ## Pangkalahatang-ideya
 
 - Tumatakbo sa macOS gamit ang BlueBubbles helper app ([bluebubbles.app](https://bluebubbles.app)).
-- Inirerekomenda/sinubukan: macOS Sequoia (15). Gumagana ang macOS Tahoe (26); kasalukuyang hindi gumagana ang pag-edit sa Tahoe, at maaaring mag-ulat ng tagumpay ang pag-update ng group icon ngunit hindi ito nagsi-sync.
+- Recommended/tested: macOS Sequoia (15). macOS Tahoe (26) works; edit is currently broken on Tahoe, and group icon updates may report success but not sync.
 - Nakikipag-usap ang OpenClaw dito sa pamamagitan ng REST API nito (`GET /api/v1/ping`, `POST /message/text`, `POST /chat/:id/*`).
 - Dumarating ang mga papasok na mensahe sa pamamagitan ng webhooks; ang mga papalabas na reply, typing indicators, read receipts, at tapbacks ay mga REST call.
 - Ang mga attachment at sticker ay kinukuha bilang inbound media (at ipinapakita sa agent kapag posible).
@@ -42,13 +47,17 @@ Status: naka-bundle na plugin na kumokonekta sa BlueBubbles macOS server sa pama
 
 5. Simulan ang Gateway; ire-register nito ang webhook handler at sisimulan ang pairing.
 
+Tala sa seguridad:
+
+- Palaging magtakda ng webhook password. Kung ie-expose mo ang gateway sa pamamagitan ng reverse proxy (Tailscale Serve/Funnel, nginx, Cloudflare Tunnel, ngrok), maaaring kumonekta ang proxy sa gateway sa pamamagitan ng loopback. Itinuturing ng BlueBubbles webhook handler ang mga request na may forwarding headers bilang proxied at hindi tatanggap ng mga webhook na walang password.
+
 ## Pagpapanatiling buhay ng Messages.app (VM / headless setups)
 
 Some macOS VM / always-on setups can end up with Messages.app going “idle” (incoming events stop until the app is opened/foregrounded). A simple workaround is to **poke Messages every 5 minutes** using an AppleScript + LaunchAgent.
 
 ### 1. I-save ang AppleScript
 
-I-save ito bilang:
+Halimbawang script (non-interactive; hindi inaagaw ang focus):
 
 - `~/Scripts/poke-messages.scpt`
 
@@ -104,7 +113,7 @@ I-save ito bilang:
 </plist>
 ```
 
-Mga tala:
+I-load ito:
 
 - Tumatakbo ito **bawat 300 segundo** at **sa pag-login**.
 - The first run may trigger macOS **Automation** prompts (`osascript` → Messages). Approve them in the same user session that runs the LaunchAgent.
@@ -118,13 +127,13 @@ launchctl load ~/Library/LaunchAgents/com.user.poke-messages.plist
 
 ## Onboarding
 
-Available ang BlueBubbles sa interactive setup wizard:
+Hinihingi ng wizard ang:
 
 ```
 openclaw onboard
 ```
 
-Hinihingi ng wizard ang:
+Maaari mo ring idagdag ang BlueBubbles sa pamamagitan ng CLI:
 
 - **Server URL** (kinakailangan): Address ng BlueBubbles server (hal., `http://192.168.1.100:1234`)
 - **Password** (kinakailangan): API password mula sa BlueBubbles Server settings
@@ -143,7 +152,7 @@ openclaw channels add bluebubbles --http-url http://192.168.1.100:1234 --passwor
 DMs:
 
 - Default: `channels.bluebubbles.dmPolicy = "pairing"`.
-- Ang mga hindi kilalang sender ay tumatanggap ng pairing code; binabalewala ang mga mensahe hanggang maaprubahan (nag-e-expire ang mga code pagkalipas ng 1 oras).
+- Kinokontrol ng `channels.bluebubbles.groupAllowFrom` kung sino ang maaaring mag-trigger sa mga grupo kapag nakatakda ang `allowlist`.
 - Aprubahan sa pamamagitan ng:
   - `openclaw pairing list bluebubbles`
   - `openclaw pairing approve bluebubbles <CODE>`
@@ -156,7 +165,7 @@ Mga grupo:
 
 ### Mention gating (mga grupo)
 
-Sinusuportahan ng BlueBubbles ang mention gating para sa mga group chat, na tumutugma sa gawi ng iMessage/WhatsApp:
+Per-group na konpigurasyon:
 
 - Gumagamit ng `agents.list[].groupChat.mentionPatterns` (o `messages.groupChat.mentionPatterns`) para matukoy ang mga mention.
 - Kapag naka-enable ang `requireMention` para sa isang grupo, tutugon lang ang agent kapag binanggit.
@@ -181,9 +190,9 @@ Per-group na konpigurasyon:
 
 ### Command gating
 
-- Ang mga control command (hal., `/config`, `/model`) ay nangangailangan ng awtorisasyon.
-- Gumagamit ng `allowFrom` at `groupAllowFrom` para tukuyin ang awtorisasyon ng command.
-- Maaaring magpatakbo ng control command ang mga awtorisadong sender kahit walang pagbanggit sa mga grupo.
+- **Typing indicators**: Awtomatikong ipinapadala bago at habang bumubuo ng tugon.
+- **Read receipts**: Kinokontrol ng `channels.bluebubbles.sendReadReceipts` (default: `true`).
+- **Typing indicators**: Nagpapadala ang OpenClaw ng typing start events; awtomatikong nililinis ng BlueBubbles ang typing sa pag-send o sa timeout (hindi maaasahan ang manual stop sa pamamagitan ng DELETE).
 
 ## Typing + read receipts
 
@@ -203,7 +212,7 @@ Per-group na konpigurasyon:
 
 ## Mga advanced na action
 
-Sinusuportahan ng BlueBubbles ang mga advanced na message action kapag naka-enable sa config:
+Mga available na action:
 
 ```json5
 {
@@ -244,19 +253,19 @@ Mga available na action:
 
 ### Mga Message ID (maikli vs buo)
 
-Maaaring ipakita ng OpenClaw ang _maikling_ message ID (hal., `1`, `2`) para makatipid ng token.
-
-- Ang `MessageSid` / `ReplyToId` ay maaaring mga maikling ID.
-- Ang `MessageSidFull` / `ReplyToIdFull` ay naglalaman ng buong provider ID.
-- Ang mga maikling ID ay nasa memory; maaari silang mag-expire sa restart o cache eviction.
-- Tumatanggap ang mga action ng maikli o buong `messageId`, ngunit mag-e-error ang mga maikling ID kapag hindi na available.
-
 Gumamit ng buong ID para sa matitibay na automation at storage:
 
 - Mga template: `{{MessageSidFull}}`, `{{ReplyToIdFull}}`
 - Context: `MessageSidFull` / `ReplyToIdFull` sa mga inbound payload
+- Ang mga maikling ID ay nasa memory; maaari silang mag-expire sa restart o cache eviction.
+- Tumatanggap ang mga action ng maikli o buong `messageId`, ngunit mag-e-error ang mga maikling ID kapag hindi na available.
 
 Tingnan ang [Configuration](/gateway/configuration) para sa mga template variable.
+
+- Mga template: `{{MessageSidFull}}`, `{{ReplyToIdFull}}`
+- Context: `MessageSidFull` / `ReplyToIdFull` sa mga inbound payload
+
+Kontrolin kung ang mga tugon ay ipinapadala bilang isang mensahe o ini-stream sa mga bloke:
 
 ## Block streaming
 
@@ -272,7 +281,7 @@ Kontrolin kung ang mga tugon ay ipinapadala bilang isang mensahe o ini-stream sa
 }
 ```
 
-## Media + mga limitasyon
+## Sanggunian sa konpigurasyon
 
 - Ang mga inbound attachment ay dina-download at iniimbak sa media cache.
 - Media cap sa pamamagitan ng `channels.bluebubbles.mediaMaxMb` (default: 8 MB).
@@ -282,9 +291,9 @@ Kontrolin kung ang mga tugon ay ipinapadala bilang isang mensahe o ini-stream sa
 
 Buong konpigurasyon: [Configuration](/gateway/configuration)
 
-Mga opsyon ng provider:
+Mga kaugnay na global option:
 
-- `channels.bluebubbles.enabled`: I-enable/i-disable ang channel.
+- `agents.list[].groupChat.mentionPatterns` (o `messages.groupChat.mentionPatterns`).
 - `channels.bluebubbles.serverUrl`: Base URL ng BlueBubbles REST API.
 - `channels.bluebubbles.password`: API password.
 - `channels.bluebubbles.webhookPath`: Webhook endpoint path (default: `/bluebubbles-webhook`).
@@ -298,6 +307,9 @@ Mga opsyon ng provider:
 - `channels.bluebubbles.textChunkLimit`: Laki ng outbound chunk sa chars (default: 4000).
 - `channels.bluebubbles.chunkMode`: `length` (default) naghahati lang kapag lumampas sa `textChunkLimit`; ang `newline` ay naghahati sa mga blank line (mga hangganan ng talata) bago ang length chunking.
 - `channels.bluebubbles.mediaMaxMb`: Inbound media cap sa MB (default: 8).
+- `channels.bluebubbles.mediaLocalRoots`: Tahasang allowlist ng mga absolute local directory na pinapayagan para sa outbound local media paths. Ang pagpapadala gamit ang local path ay tinatanggihan bilang default maliban kung ito ay naka-configure. Per-account override: `channels.bluebubbles.accounts.<accountId>
+  .mediaLocalRoots`.
+  Ang Discord DMs ay naka-default sa pairing mode.
 - `channels.bluebubbles.historyLimit`: Max na group messages para sa context (0 para i-disable).
 - `channels.bluebubbles.dmHistoryLimit`: Limit ng DM history.
 - `channels.bluebubbles.actions`: I-enable/i-disable ang mga partikular na action.
@@ -315,13 +327,13 @@ Mas piliin ang `chat_guid` para sa matatag na routing:
 - `chat_guid:iMessage;-;+15555550123` (mas mainam para sa mga grupo)
 - `chat_id:123`
 - `chat_identifier:...`
-- Mga direktang handle: `+15555550123`, `user@example.com`
+- I-enable ang HTTPS + mga patakaran ng firewall sa BlueBubbles server kung ilalantad ito sa labas ng iyong LAN.
   - If a direct handle does not have an existing DM chat, OpenClaw will create one via `POST /api/v1/chat/new`. This requires the BlueBubbles Private API to be enabled.
 
-## Seguridad
+## Pag-troubleshoot
 
 - Webhook requests are authenticated by comparing `guid`/`password` query params or headers against `channels.bluebubbles.password`. Requests from `localhost` are also accepted.
-- Panatilihing lihim ang API password at webhook endpoint (itrato bilang mga kredensyal).
+- Nag-e-expire ang mga pairing code pagkalipas ng isang oras; gamitin ang `openclaw pairing list bluebubbles` at `openclaw pairing approve bluebubbles <code>`.
 - Localhost trust means a same-host reverse proxy can unintentionally bypass the password. If you proxy the gateway, require auth at the proxy and configure `gateway.trustedProxies`. See [Gateway security](/gateway/security#reverse-proxy-configuration).
 - I-enable ang HTTPS + mga patakaran ng firewall sa BlueBubbles server kung ilalantad ito sa labas ng iyong LAN.
 
@@ -336,5 +348,3 @@ Mas piliin ang `chat_guid` para sa matatag na routing:
 - Para sa status/health info: `openclaw status --all` o `openclaw status --deep`.
 
 Para sa pangkalahatang sanggunian sa workflow ng channel, tingnan ang [Channels](/channels) at ang gabay na [Plugins](/tools/plugin).
-
-

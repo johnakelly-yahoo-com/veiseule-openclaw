@@ -1,4 +1,7 @@
 ---
+summary: "CLI-Referenz für `openclaw pairing` (Genehmigen/Auflisten von Pairing-Anfragen)"
+read_when:
+  - Sie verwenden Pairing-Modus-Direktnachrichten und müssen Absender genehmigen
 title: "pairing"
 ---
 
@@ -16,5 +19,3 @@ Verwandt:
 openclaw pairing list whatsapp
 openclaw pairing approve whatsapp <code> --notify
 ```
-
-

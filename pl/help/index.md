@@ -1,4 +1,8 @@
 ---
+summary: "Centrum pomocy: typowe poprawki, weryfikacja instalacji i gdzie szukać, gdy coś się zepsuje"
+read_when:
+  - Jesteś nowy i chcesz przewodnik „w co kliknąć/co uruchomić”
+  - Coś się zepsuło i chcesz najszybszą ścieżkę do naprawy
 title: "Pomoc"
 ---
 
@@ -15,5 +19,3 @@ Jeśli chcesz szybki przepływ „jak się odblokować”, zacznij tutaj:
 Jeśli szukasz pytań koncepcyjnych (a nie „coś się zepsuło”):
 
 - [FAQ (koncepcje)](/help/faq)
-
-

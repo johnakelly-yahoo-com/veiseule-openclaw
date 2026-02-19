@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw approvals` uchun CLI ma’lumotnomasi (gateway yoki node xostlari uchun exec tasdiqlari)"
+read_when:
+  - CLI orqali exec tasdiqlarini tahrirlashni xohlaysiz
+  - Gateway yoki node xostlarida ruxsat etilgan ro‘yxatlarni boshqarishingiz kerak
 title: "approvals"
 ---
 
@@ -44,5 +48,3 @@ openclaw approvals allowlist remove "~/Projects/**/bin/rg"
 - `--agent` standart bo‘yicha `"*"` bo‘lib, barcha agentlarga qo‘llanadi.
 - Tugun xosti `system.execApprovals.get/set` ni e’lon qilishi kerak (macOS ilovasi yoki headless tugun xosti).
 - Tasdiqlar fayllari har bir xost uchun `~/.openclaw/exec-approvals.json` da saqlanadi.
-
-

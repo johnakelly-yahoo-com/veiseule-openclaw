@@ -1,4 +1,7 @@
 ---
+summary: "macOS အက်ပ်က gateway/Baileys အခြေအနေများကို ဘယ်လို အစီရင်ခံတင်ပြသလဲ"
+read_when:
+  - mac အက်ပ် အခြေအနေ အညွှန်းများကို Debugging လုပ်နေချိန်
 title: "အခြေအနေ စစ်ဆေးချက်များ"
 ---
 
@@ -29,5 +32,3 @@ title: "အခြေအနေ စစ်ဆေးချက်များ"
 ## မသေချာသေးလျှင်
 
 - [Gateway health](/gateway/health) တွင် ဖော်ပြထားသည့် CLI flow ကို ဆက်လက် အသုံးပြုနိုင်ပါသည် (`openclaw status`, `openclaw status --deep`, `openclaw health --json`) နှင့် `web-heartbeat` / `web-reconnect` အတွက် `/tmp/openclaw/openclaw-*.log` ကို tail လုပ်ကြည့်နိုင်ပါသည်။
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "Chrome-tillägg: låt OpenClaw styra din befintliga Chrome-flik"
+read_when:
+  - Du vill att agenten ska styra en befintlig Chrome-flik (verktygsfältsknapp)
+  - Du behöver fjärr-Gateway + lokal webbläsarautomatisering via Tailscale
+  - Du vill förstå säkerhetsimplikationerna av webbläsarövertagande
 title: "Chrome-tillägg"
 ---
 
@@ -171,5 +176,3 @@ Relaterat:
 - Översikt över webbläsarverktyg: [Browser](/tools/browser)
 - Säkerhetsgranskning: [Security](/gateway/security)
 - Tailscale-konfigurering: [Tailscale](/gateway/tailscale)
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "Pag-uugali ng streaming + chunking (block replies, draft streaming, mga limitasyon)"
+read_when:
+  - Ipinapaliwanag kung paano gumagana ang streaming o chunking sa mga channel
+  - Binabago ang block streaming o channel chunking behavior
+  - Pag-debug ng duplicate/maagang block replies o draft streaming
 title: "Streaming at Chunking"
 ---
 
@@ -9,7 +14,7 @@ May dalawang magkahiwalay na “streaming” layer ang OpenClaw:
 - **Block streaming (mga channel):** maglabas ng mga natapos na **block** habang sumusulat ang assistant. These are normal channel messages (not token deltas).
 - **Token-ish streaming (Telegram lamang):** ina-update ang isang **draft bubble** gamit ang bahagyang teksto habang nagge-generate; ang final na mensahe ay ipinapadala sa dulo.
 
-There is **no real token streaming** to external channel messages today. Telegram draft streaming is the only partial-stream surface.
+Wala pang **tunay na token-delta streaming** sa mga mensahe ng channel sa kasalukuyan. Ang Telegram preview streaming ang tanging partial-stream surface.
 
 ## Block streaming (mga mensahe ng channel)
 
@@ -71,13 +76,13 @@ progressive output.
 - Pinipigilan ng `minChars` ang pagpapadala ng maliliit na fragment hangga’t hindi sapat ang naipong teksto
   (ang final flush ay laging nagpapadala ng natitirang teksto).
 - Ang joiner ay hinango mula sa `blockStreamingChunk.breakPreference`
-(`paragraph` → `\n\n`, `newline` → `\n`, `sentence` → espasyo).
+  (`paragraph` → `\n\n`, `newline` → `\n`, `sentence` → espasyo).
 - May mga channel override sa pamamagitan ng `*.blockStreamingCoalesce` (kasama ang mga per-account config).
 - Ang default na coalesce `minChars` ay itinataas sa 1500 para sa Signal/Slack/Discord maliban kung overridden.
 
 ## Human-like na pacing sa pagitan ng mga block
 
-Kapag naka-enable ang block streaming, maaari kang magdagdag ng **randomized pause** sa pagitan ng
+When block streaming is enabled, you can add a **randomized pause** between
 block replies (after the first block). This makes multi-bubble responses feel
 more natural.
 
@@ -94,8 +99,8 @@ Ito ay tumutugma sa:
 - **Walang block streaming:** `blockStreamingDefault: "off"` (final reply lamang).
 
 **Channel note:** For non-Telegram channels, block streaming is **off unless**
-`*.blockStreaming` is explicitly set to `true`. Telegram can stream drafts
-(`channels.telegram.streamMode`) without block replies.
+`*.blockStreaming` is explicitly set to `true`. Maaaring mag-stream ang Telegram ng live preview
+(`channels.telegram.streamMode`) nang walang block replies.
 
 Paalala sa lokasyon ng config: ang mga default ng `blockStreaming*` ay nasa ilalim ng
 `agents.defaults`, hindi sa root config.
@@ -113,20 +118,19 @@ Ang Telegram lang ang channel na may draft streaming:
 - Hiwalay ang draft streaming sa block streaming; naka-off ang mga block reply bilang default at pinapagana lamang ng `*.blockStreaming: true` sa mga non-Telegram channel.
 - Ang final reply ay isang normal na mensahe pa rin.
 - Isinusulat ng `/reasoning stream` ang reasoning sa loob ng draft bubble (Telegram lamang).
-
-Kapag aktibo ang draft streaming, dini-disable ng OpenClaw ang block streaming para sa reply na iyon upang maiwasan ang double-streaming.
+- Ang mga non-text/complex na final ay babalik sa normal na paghahatid ng final message.
+- Isinusulat ng `/reasoning stream` ang reasoning sa live preview (Telegram lamang).
 
 ```
-Telegram (private + topics)
-  └─ sendMessageDraft (draft bubble)
-       ├─ streamMode=partial → update latest text
-       └─ streamMode=block   → chunker updates draft
-  └─ final reply → normal message
+Telegram
+  └─ sendMessage (pansamantalang preview message)
+       ├─ streamMode=partial → i-edit ang pinakabagong teksto
+       └─ streamMode=block   → chunker + mga update sa pag-edit
+  └─ final text-only reply → final edit sa parehong mensahe
+  └─ fallback: linisin ang preview + normal na final delivery (media/complex)
 ```
 
 Legend:
 
-- `sendMessageDraft`: Telegram draft bubble (hindi isang tunay na mensahe).
-- `final reply`: normal na pagpapadala ng mensahe sa Telegram.
-
-
+- `preview message`: pansamantalang mensahe sa Telegram na ina-update habang nagge-generate.
+- `final edit`: in-place na pag-edit sa parehong preview message (text-only).

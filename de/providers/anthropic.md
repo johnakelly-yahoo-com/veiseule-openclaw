@@ -1,4 +1,8 @@
 ---
+summary: "„Anthropic Claude über API-Schlüssel oder Setup-Token in OpenClaw verwenden“"
+read_when:
+  - Sie möchten Anthropic-Modelle in OpenClaw verwenden
+  - Sie möchten ein Setup-Token anstelle von API-Schlüsseln verwenden
 title: "„Anthropic“"
 ---
 
@@ -145,5 +149,3 @@ openclaw onboard --auth-choice setup-token
 - Fügen Sie ein weiteres Anthropic-Profil hinzu oder warten Sie den Cooldown ab.
 
 Mehr: [/gateway/troubleshooting](/gateway/troubleshooting) und [/help/faq](/help/faq).
-
-

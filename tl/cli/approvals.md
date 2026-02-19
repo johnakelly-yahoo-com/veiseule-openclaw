@@ -1,4 +1,8 @@
 ---
+summary: "Sanggunian ng CLI para sa `openclaw approvals` (mga exec approval para sa gateway o mga node host)"
+read_when:
+  - Gusto mong mag-edit ng mga exec approval mula sa CLI
+  - Kailangan mong pamahalaan ang mga allowlist sa gateway o mga node host
 title: "mga pag-apruba"
 ---
 
@@ -44,5 +48,3 @@ openclaw approvals allowlist remove "~/Projects/**/bin/rg"
 - Ang `--agent` ay naka-default sa `"*"`, na nalalapat sa lahat ng agent.
 - Dapat i-advertise ng node host ang `system.execApprovals.get/set` (macOS app o headless node host).
 - Ang mga approvals file ay naka-store kada host sa `~/.openclaw/exec-approvals.json`.
-
-

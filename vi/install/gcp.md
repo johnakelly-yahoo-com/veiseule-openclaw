@@ -1,4 +1,9 @@
 ---
+summary: "Chạy OpenClaw Gateway 24/7 trên VM GCP Compute Engine (Docker) với trạng thái bền vững"
+read_when:
+  - Bạn muốn OpenClaw chạy 24/7 trên GCP
+  - Bạn muốn một Gateway luôn bật, đạt chuẩn production trên VM riêng
+  - Bạn muốn toàn quyền kiểm soát lưu trữ, nhị phân và hành vi khởi động lại
 title: "GCP"
 ---
 
@@ -8,7 +13,7 @@ title: "GCP"
 
 Chạy một OpenClaw Gateway bền vững trên VM GCP Compute Engine bằng Docker, với trạng thái lưu trữ lâu dài, nhị phân được bake sẵn và hành vi khởi động lại an toàn.
 
-Nếu bạn muốn "OpenClaw 24/7 với ~5-12 USD/tháng", đây là một cấu hình đáng tin cậy trên Google Cloud.
+If you want "OpenClaw 24/7 for ~$5-12/mo", this is a reliable setup on Google Cloud.
 Pricing varies by machine type and region; pick the smallest VM that fits your workload and scale up if you hit OOMs.
 
 ## Chúng ta đang làm gì (giải thích đơn giản)?
@@ -109,7 +114,7 @@ gcloud services enable compute.googleapis.com
 
 **Các loại máy:**
 
-| Loại     | Thông số                                        | Cost                       | Notes                  |
+| Loại     | Thông số                                     | Cost                       | Notes                  |
 | -------- | -------------------------------------------- | -------------------------- | ---------------------- |
 | e2-small | 2 vCPU, 2GB RAM                              | ~$12/tháng | Khuyến nghị            |
 | e2-micro | 2 vCPU (chia sẻ), 1GB RAM | Đủ điều kiện free tier     | Có thể OOM khi tải cao |
@@ -497,5 +502,3 @@ Xem [https://cloud.google.com/iam/docs/understanding-roles](https://cloud.google
 - Thiết lập các kênh nhắn tin: [Channels](/channels)
 - Ghép nối thiết bị cục bộ làm node: [Nodes](/nodes)
 - Cấu hình Gateway: [Gateway configuration](/gateway/configuration)
-
-

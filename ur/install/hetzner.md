@@ -1,4 +1,10 @@
 ---
+summary: "سستے Hetzner VPS (Docker) پر پائیدار اسٹیٹ اور پہلے سے شامل بائنریز کے ساتھ OpenClaw Gateway کو 24/7 چلائیں"
+read_when:
+  - آپ OpenClaw کو کلاؤڈ VPS پر 24/7 چلانا چاہتے ہیں (اپنے لیپ ٹاپ پر نہیں)
+  - آپ اپنے VPS پر پروڈکشن گریڈ، ہمیشہ فعال Gateway چاہتے ہیں
+  - آپ پائیداری، بائنریز اور ری اسٹارٹ رویّے پر مکمل کنٹرول چاہتے ہیں
+  - آپ Hetzner یا ملتے جلتے فراہم کنندہ پر Docker میں OpenClaw چلا رہے ہیں
 title: "Hetzner"
 ---
 
@@ -68,7 +74,7 @@ Hetzner میں Ubuntu یا Debian VPS بنائیں۔
 ssh root@YOUR_VPS_IP
 ```
 
-یہ رہنما یہ فرض کرتا ہے کہ VPS اسٹیٹ فل ہے۔
+This guide assumes the VPS is stateful.
 Do not treat it as disposable infrastructure.
 
 ---
@@ -324,4 +330,23 @@ All long-lived state must survive restarts, rebuilds, and reboots.
 | OS پیکجز             | کنٹینر فائل سسٹم                  | Docker امیج           | رن ٹائم پر انسٹال نہ کریں    |
 | Docker کنٹینر        | عارضی                             | قابلِ ری اسٹارٹ       | ختم کرنا محفوظ ہے            |
 
+---
 
+## Infrastructure as Code (Terraform)
+
+جو ٹیمیں infrastructure-as-code ورک فلو کو ترجیح دیتی ہیں، ان کے لیے کمیونٹی کے زیرِ نگرانی Terraform سیٹ اپ فراہم کرتا ہے:
+
+- ریموٹ اسٹیٹ مینجمنٹ کے ساتھ ماڈیولر Terraform کنفیگریشن
+- cloud-init کے ذریعے خودکار پروویژننگ
+- ڈپلائمنٹ اسکرپٹس (bootstrap, deploy, backup/restore)
+- سیکیورٹی ہارڈننگ (فائر وال، UFW، صرف SSH ایکسیس)
+- gateway ایکسیس کے لیے SSH ٹنل کنفیگریشن
+
+**ریپوزٹریز:**
+
+- Infrastructure: [openclaw-terraform-hetzner](https://github.com/andreesg/openclaw-terraform-hetzner)
+- Docker کنفیگ: [openclaw-docker-config](https://github.com/andreesg/openclaw-docker-config)
+
+یہ طریقہ اوپر دی گئی Docker سیٹ اپ کی تکمیل کرتا ہے، جس سے قابلِ تکرار ڈپلائمنٹس، ورژن کنٹرولڈ انفراسٹرکچر، اور خودکار ڈیزاسٹر ریکوری ممکن ہوتی ہے۔
+
+> **نوٹ:** کمیونٹی کے زیرِ نگرانی۔ مسائل یا تعاون کے لیے، اوپر دیے گئے ریپوزٹری لنکس دیکھیں۔

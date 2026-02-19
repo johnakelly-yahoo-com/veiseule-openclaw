@@ -1,4 +1,8 @@
 ---
+summary: "Manifiesto del plugin + requisitos del esquema JSON (validación estricta de configuración)"
+read_when:
+  - Está construyendo un plugin de OpenClaw
+  - Necesita distribuir un esquema de configuración del plugin o depurar errores de validación del plugin
 title: "Manifiesto del plugin"
 ---
 
@@ -64,5 +68,3 @@ Claves opcionales:
   descubrimiento + validación.
 - Si su plugin depende de módulos nativos, documente los pasos de compilación y cualquier requisito de lista de permitidos del gestor de paquetes (por ejemplo, pnpm `allow-build-scripts`
   - `pnpm rebuild <package>`).
-
-

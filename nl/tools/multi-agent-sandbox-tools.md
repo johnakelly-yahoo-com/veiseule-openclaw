@@ -1,5 +1,7 @@
 ---
-title: "Multi-agent-sandbox en tools"
+summary: "Sandbox per agent + toolbeperkingen, prioriteit en voorbeelden"
+title: Multi-agent-sandbox en tools
+read_when: "Je wilt sandboxing per agent of tool-toestaan/weigeren-beleid per agent in een multi-agent gateway."
 status: active
 ---
 
@@ -392,5 +394,3 @@ Na het configureren van multi-agent sandbox en tools:
 - [Multi-Agent Routing](/concepts/multi-agent)
 - [Sandboxconfiguratie](/gateway/configuration#agentsdefaults-sandbox)
 - [Sessiebeheer](/concepts/session)
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Mở một endpoint HTTP /v1/responses tương thích OpenResponses từ Gateway"
+read_when:
+  - Tích hợp các client sử dụng API OpenResponses
+  - Bạn muốn đầu vào dạng item, client tool calls hoặc sự kiện SSE
 title: "API OpenResponses"
 ---
 
@@ -24,6 +28,7 @@ Ghi chú:
 
 - Khi `gateway.auth.mode="token"`, dùng `gateway.auth.token` (hoặc `OPENCLAW_GATEWAY_TOKEN`).
 - Khi `gateway.auth.mode="password"`, dùng `gateway.auth.password` (hoặc `OPENCLAW_GATEWAY_PASSWORD`).
+- Nếu `gateway.auth.rateLimit` được cấu hình và xảy ra quá nhiều lần xác thực thất bại, endpoint sẽ trả về `429` kèm `Retry-After`.
 
 ## Chọn tác tử
 
@@ -183,6 +188,10 @@ Mặc định khi fetch URL:
 - `files.allowUrl`: `true`
 - `images.allowUrl`: `true`
 - Các request được bảo vệ (phân giải DNS, chặn IP riêng, giới hạn chuyển hướng, timeout).
+- Các request được bảo vệ (phân giải DNS, chặn IP riêng, giới hạn chuyển hướng, timeout).
+- Hỗ trợ danh sách cho phép hostname tùy chọn theo từng loại input (`files.urlAllowlist`, `images.urlAllowlist`).
+  - Host chính xác: `"cdn.example.com"`
+  - Subdomain với wildcard: `"*.assets.example.com"` (không khớp với apex domain)
 
 ## Giới hạn tệp + hình ảnh (cấu hình)
 
@@ -233,6 +242,7 @@ Các giá trị mặc định có thể điều chỉnh dưới `gateway.http.en
 Mặc định khi bỏ qua:
 
 - `maxBodyBytes`: 20MB
+- `maxUrlParts`: 8
 - `files.maxBytes`: 5MB
 - `files.maxChars`: 200k
 - `files.maxRedirects`: 3
@@ -244,9 +254,16 @@ Mặc định khi bỏ qua:
 - `images.maxRedirects`: 3
 - `images.timeoutMs`: 10s
 
+Lưu ý bảo mật:
+
+- Danh sách cho phép URL được áp dụng trước khi fetch và trên các bước chuyển hướng.
+- Việc cho phép một hostname không bỏ qua cơ chế chặn IP riêng tư/nội bộ.
+- Đối với các gateway công khai trên internet, hãy áp dụng kiểm soát egress mạng bên cạnh các cơ chế bảo vệ ở cấp ứng dụng.
+  Xem [Security](/gateway/security).
+
 ## Streaming (SSE)
 
-Đặt `stream: true` để nhận Server-Sent Events (SSE):
+Các loại sự kiện hiện được phát:
 
 - `Content-Type: text/event-stream`
 - Mỗi dòng sự kiện là `event: <type>` và `data: <json>`
@@ -265,13 +282,13 @@ Các loại sự kiện hiện được phát:
 - `response.completed`
 - `response.failed` (khi lỗi)
 
-## Cách dùng
-
-`usage` được điền khi nhà cung cấp bên dưới báo cáo số lượng token.
-
 ## Lỗi
 
 Lỗi sử dụng một đối tượng JSON như sau:
+
+## Lỗi
+
+Các trường hợp phổ biến:
 
 ```json
 { "error": { "message": "...", "type": "invalid_request_error" } }
@@ -311,5 +328,3 @@ curl -N http://127.0.0.1:18789/v1/responses \
     "input": "hi"
   }'
 ```
-
-

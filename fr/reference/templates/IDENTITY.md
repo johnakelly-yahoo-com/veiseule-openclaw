@@ -1,4 +1,8 @@
-------
+---
+summary: "Fiche d'identite de l'agent"
+read_when:
+  - Initialisation manuelle d'un espace de travail
+---
 
 # IDENTITY.md - « Qui suis-je ?
 
@@ -23,5 +27,3 @@ Notes :
 
 - Enregistrez ce fichier a la racine de l'espace de travail sous le nom `IDENTITY.md`.
 - Pour les avatars, utilisez un chemin relatif a l'espace de travail comme `avatars/openclaw.png`.
-
-

@@ -1,6 +1,11 @@
 ---
+summary: "Pełna referencja kreatora onboardingu CLI: każdy krok, flaga i pole konfiguracji"
+read_when:
+  - Szukanie konkretnego kroku kreatora lub flagi
+  - Automatyzowanie onboardingu w trybie nieinteraktywnym
+  - Debugowanie zachowania kreatora
 title: "Referencja kreatora onboardingu"
-sidebarTitle: "Dokumentacja kreatora"
+sidebarTitle: "Wizard Reference"
 ---
 
 # Referencja kreatora onboardingu
@@ -11,7 +16,7 @@ Aby uzyskać przegląd wysokiego poziomu, zobacz [Onboarding Wizard](/start/wiza
 ## Szczegóły przepływu (tryb lokalny)
 
 <Steps>
-  <Step title="Wykrywanie istniejącej konfiguracji">
+  <Step title="Existing config detection">
     - Jeśli istnieje `~/.openclaw/openclaw.json`, wybierz **Zachowaj / Zmień / Resetuj**.
     - Ponowne uruchomienie kreatora **nie** czyści niczego, chyba że jawnie wybierzesz **Resetuj**
       (lub przekażesz `--reset`).
@@ -20,8 +25,7 @@ Aby uzyskać przegląd wysokiego poziomu, zobacz [Onboarding Wizard](/start/wiza
     - Reset używa `trash` (nigdy `rm`) i oferuje zakresy:
       - Tylko konfiguracja
       - Konfiguracja + poświadczenia + sesje
-      - Pełny reset (usuwa także obszar roboczy)
-  
+      - Pełny reset (usuwa także obszar roboczy)  
 </Step>
   <Step title="Model/Auth">
     - **Klucz API Anthropic (zalecane)**: używa `ANTHROPIC_API_KEY`, jeśli jest obecny, lub prosi o klucz, a następnie zapisuje go do użytku przez demona.
@@ -49,8 +53,8 @@ Aby uzyskać przegląd wysokiego poziomu, zobacz [Onboarding Wizard](/start/wiza
     - Wybierz domyślny model spośród wykrytych opcji (lub wprowadź dostawcę/model ręcznie).
     - Kreator uruchamia sprawdzenie modelu i ostrzega, jeśli skonfigurowany model jest nieznany lub brakuje uwierzytelniania.
     - Poświadczenia OAuth znajdują się w `~/.openclaw/credentials/oauth.json`; profile uwierzytelniania w `~/.openclaw/agents/<agentId>/agent/auth-profiles.json` (klucze API + OAuth).
-    - Więcej szczegółów: [/concepts/oauth](/concepts/oauth)
-    <Note>
+    - Więcej szczegółów: [/concepts/oauth](/concepts/oauth)    
+<Note>
     Wskazówka dla trybu headless/serwerowego: ukończ OAuth na maszynie z przeglądarką, a następnie skopiuj
     `~/.openclaw/credentials/oauth.json` (lub `$OPENCLAW_STATE_DIR/credentials/oauth.json`) na
     host gateway.
@@ -58,11 +62,10 @@ Aby uzyskać przegląd wysokiego poziomu, zobacz [Onboarding Wizard](/start/wiza
 </Note>
   
 </Step>
-  <Step title="Obszar roboczy">
+  <Step title="Workspace">
     - Domyślny `~/.openclaw/workspace` (konfigurowalne).
     - Inicjuje pliki obszaru roboczego potrzebne do rytuału bootstrapu agenta.
-    - Pełny układ obszaru roboczego + przewodnik kopii zapasowych: [Agent workspace](/concepts/agent-workspace)
-  
+    - Pełny układ obszaru roboczego + przewodnik kopii zapasowych: [Agent workspace](/concepts/agent-workspace)  
 </Step>
   <Step title="Gateway">
     - Port, bindowanie, tryb uwierzytelniania, ekspozycja Tailscale.
@@ -71,7 +74,7 @@ Aby uzyskać przegląd wysokiego poziomu, zobacz [Onboarding Wizard](/start/wiza
     - Powiązania inne niż loopback nadal wymagają uwierzytelniania.
   
 </Step>
-  <Step title="Kanały">
+  <Step title="Channels">
     - [WhatsApp](/channels/whatsapp): opcjonalne logowanie QR.
     - [Telegram](/channels/telegram): token bota.
     - [Discord](/channels/discord): token bota.
@@ -80,7 +83,9 @@ Aby uzyskać przegląd wysokiego poziomu, zobacz [Onboarding Wizard](/start/wiza
     - [Signal](/channels/signal): opcjonalna instalacja `signal-cli` + konfiguracja konta.
     - [BlueBubbles](/channels/bluebubbles): **zalecane dla iMessage**; URL serwera + hasło + webhook.
     - [iMessage](/channels/imessage): przestarzała ścieżka CLI `imsg` + dostęp do DB.
-    - Bezpieczeństwo DM-ów: domyślnie parowanie. Pierwsza wiadomość DM wysyła kod; zatwierdź przez `openclaw pairing approve <channel> <code>` lub użyj list dozwolonych.
+    - Bezpieczeństwo DM-ów: domyślnie parowanie. Pierwsza wiadomość DM wysyła kod; zatwierdź przez `openclaw pairing approve <channel><code>` lub użyj list dozwolonych.
+  
+</Step><code>` lub użyj list dozwolonych.
   
 </Step>
   <Step title="Instalacja demona">
@@ -279,4 +284,3 @@ poprosi o jej instalację (npm lub ścieżka lokalna), zanim będzie można ją 
 - Referencja konfiguracji: [Gateway configuration](/gateway/configuration)
 - Dostawcy: [WhatsApp](/channels/whatsapp), [Telegram](/channels/telegram), [Discord](/channels/discord), [Google Chat](/channels/googlechat), [Signal](/channels/signal), [BlueBubbles](/channels/bluebubbles) (iMessage), [iMessage](/channels/imessage) (legacy)
 - Skills: [Skills](/tools/skills), [Skills config](/tools/skills-config)
-

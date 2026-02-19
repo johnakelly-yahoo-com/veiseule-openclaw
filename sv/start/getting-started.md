@@ -1,4 +1,8 @@
 ---
+summary: "Installera OpenClaw och kör din första chatt på några minuter."
+read_when:
+  - Förstagångskonfigurering från noll
+  - Du vill ha den snabbaste vägen till en fungerande chatt
 title: "Kom igång"
 ---
 
@@ -30,6 +34,10 @@ Kontrollera din Node-version med `node --version` om du är osäker.
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash
         ```
+      <img
+  src="/assets/install-script.svg"
+  alt="Install Script Process"
+  className="rounded-lg"></img>
       
 </Tab>
       <Tab title="Windows (PowerShell)">
@@ -41,12 +49,14 @@ Kontrollera din Node-version med `node --version` om du är osäker.
     
 </Tabs>
 
+    ````
     ```
     <Note>
     Andra installationsmetoder och krav: [Installera](/install).
     
 </Note>
     ```
+    ````
 
   
 </Step>
@@ -55,21 +65,25 @@ Kontrollera din Node-version med `node --version` om du är osäker.
     openclaw onboard --install-daemon
     ```
 
+    ````
     ```
     Guiden konfigurerar autentisering, gateway-inställningar och valfria kanaler.
     Se [Introduktionsguide](/start/wizard) för detaljer.
     ```
+    ````
 
   
 </Step>
   <Step title="Check the Gateway">
     Om du installerade tjänsten ska den redan vara igång:
 
+    `````
     ````
     ```bash
     openclaw gateway status
     ```
     ````
+    `````
 
   
 </Step>
@@ -91,22 +105,26 @@ Om Kontroll-UI laddas är din Gateway redo att användas.
   <Accordion title="Run the Gateway in the foreground">
     Användbart för snabba tester eller felsökning.
 
+    `````
     ````
     ```bash
     openclaw gateway --port 18789
     ```
     ````
+    `````
 
   
 </Accordion>
   <Accordion title="Send a test message">
     Kräver en konfigurerad kanal.
 
+    `````
     ````
     ```bash
     openclaw message send --target +15555550123 --message "Hello from OpenClaw"
     ```
     ````
+    `````
 
   
 </Accordion>
@@ -146,5 +164,3 @@ Fullständig referens för miljövariabler: [Environment vars](/help/environment
 - DM-säkerhet och godkännanden: [Parning](/channels/pairing)
 - Anslut fler kanaler: [Kanaler](/channels)
 - Avancerade arbetsflöden och från källkod: [Konfigurering](/start/setup)
-
-

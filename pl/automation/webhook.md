@@ -1,4 +1,8 @@
 ---
+summary: "Webhooki przychodzące do wybudzania i izolowanych uruchomień agenta"
+read_when:
+  - Dodawanie lub zmiana punktów końcowych webhooków
+  - Łączenie systemów zewnętrznych z OpenClaw
 title: "Webhooki"
 ---
 
@@ -29,7 +33,7 @@ Każde żądanie musi zawierać token hooka. Preferowane są nagłówki:
 
 - `Authorization: Bearer <token>` (zalecane)
 - `x-openclaw-token: <token>`
-- `?token=<token>` (przestarzałe; zapisuje ostrzeżenie w logach i zostanie usunięte w przyszłym głównym wydaniu)
+- Tokeny w query-string są odrzucane (`?token=...` zwraca `400`).
 
 ## Punkty końcowe
 
@@ -70,7 +74,8 @@ Efekt:
 
 - `message` **wymagane** (string): Prompt lub wiadomość do przetworzenia przez agenta.
 - `name` opcjonalne (string): Czytelna dla człowieka nazwa hooka (np. „GitHub”), używana jako prefiks w podsumowaniach sesji.
-- `sessionKey` opcjonalne (string): Klucz używany do identyfikacji sesji agenta. Domyślnie losowy `hook:<uuid>`. Użycie spójnego klucza umożliwia wieloturową rozmowę w kontekście hooka.
+- `agentId` opcjonalne (string): Kieruje ten hook do konkretnego agenta. Nieznane identyfikatory powodują powrót do domyślnego agenta. Po ustawieniu hook uruchamia się z użyciem workspace i konfiguracji rozwiązanego agenta.
+- `sessionKey` opcjonalne (string): Klucz używany do identyfikacji sesji agenta. Domyślnie to pole jest odrzucane, chyba że ustawiono `hooks.allowRequestSessionKey=true`.
 - `wakeMode` opcjonalne (`now` | `next-heartbeat`): Czy wyzwolić natychmiastowy heartbeat (domyślnie `now`) czy poczekać na kolejne okresowe sprawdzenie.
 - `deliver` opcjonalne (boolean): Jeśli `true`, odpowiedź agenta zostanie wysłana do kanału komunikacyjnego. Domyślnie `true`. Odpowiedzi będące wyłącznie potwierdzeniami heartbeat są automatycznie pomijane.
 - `channel` opcjonalne (string): Kanał komunikacyjny do dostarczenia. Jeden z: `last`, `whatsapp`, `telegram`, `discord`, `slack`, `mattermost` (plugin), `signal`, `imessage`, `msteams`. Domyślnie `last`.
@@ -85,6 +90,40 @@ Efekt:
 - Zawsze publikuje podsumowanie w sesji **głównej**
 - Jeśli `wakeMode=now`, wyzwala natychmiastowy heartbeat
 
+## Polityka klucza sesji (breaking change)
+
+Nadpisania `sessionKey` w ładunku `/hooks/agent` są domyślnie wyłączone.
+
+- Zalecane: ustaw stały `hooks.defaultSessionKey` i wyłącz nadpisania w żądaniach.
+- Opcjonalne: zezwalaj na nadpisania w żądaniach tylko w razie potrzeby i ogranicz prefiksy.
+
+Zalecana konfiguracja:
+
+```json5
+{
+  hooks: {
+    enabled: true,
+    token: "${OPENCLAW_HOOKS_TOKEN}",
+    defaultSessionKey: "hook:ingress",
+    allowRequestSessionKey: false,
+    allowedSessionKeyPrefixes: ["hook:"],
+  },
+}
+```
+
+Konfiguracja zgodności (zachowanie legacy):
+
+```json5
+{
+  hooks: {
+    enabled: true,
+    token: "${OPENCLAW_HOOKS_TOKEN}",
+    allowRequestSessionKey: true,
+    allowedSessionKeyPrefixes: ["hook:"], // zdecydowanie zalecane
+  },
+}
+```
+
 ### `POST /hooks/<name>` (mapowane)
 
 Niestandardowe nazwy hooków są rozwiązywane przez `hooks.mappings` (zob. konfigurację). Mapowanie może
@@ -96,10 +135,17 @@ Opcje mapowania (podsumowanie):
 - `hooks.presets: ["gmail"]` włącza wbudowane mapowanie Gmail.
 - `hooks.mappings` pozwala zdefiniować `match`, `action` oraz szablony w konfiguracji.
 - `hooks.transformsDir` + `transform.module` ładuje moduł JS/TS dla logiki niestandardowej.
+  - `hooks.transformsDir` (jeśli ustawione) musi pozostawać w katalogu głównym transforms w Twoim katalogu konfiguracyjnym OpenClaw (zwykle `~/.openclaw/hooks/transforms`).
+  - `transform.module` musi być rozwiązywany w efektywnym katalogu transforms (ścieżki traversal/escape są odrzucane).
 - Użyj `match.source`, aby zachować generyczny punkt ingestu (routing sterowany ładunkiem).
 - Transformacje TS wymagają loadera TS (np. `bun` lub `tsx`) albo wstępnie skompilowanego `.js` w czasie wykonania.
 - Ustaw `deliver: true` + `channel`/`to` w mapowaniach, aby kierować odpowiedzi na powierzchnię czatu
   (`channel` domyślnie ma wartość `last` i w razie potrzeby przełącza się na WhatsApp).
+- `agentId` kieruje hook do określonego agenta; nieznane identyfikatory powodują powrót do domyślnego agenta.
+- `hooks.allowedAgentIds` ogranicza jawne kierowanie przez `agentId`. Pomiń tę opcję (lub uwzględnij `*`), aby zezwolić na dowolnego agenta. Ustaw `[]`, aby zablokować jawne kierowanie przez `agentId`.
+- `hooks.defaultSessionKey` ustawia domyślną sesję dla uruchomień agenta hook, gdy nie podano jawnego klucza.
+- `hooks.allowRequestSessionKey` określa, czy ładunki `/hooks/agent` mogą ustawiać `sessionKey` (domyślnie: `false`).
+- `hooks.allowedSessionKeyPrefixes` opcjonalnie ogranicza jawne wartości `sessionKey` z ładunków żądań i mapowań.
 - `allowUnsafeExternalContent: true` wyłącza zewnętrzną otoczkę bezpieczeństwa treści dla tego hooka
   (niebezpieczne; tylko dla zaufanych źródeł wewnętrznych).
 - `openclaw webhooks gmail setup` zapisuje konfigurację `hooks.gmail` dla `openclaw webhooks gmail run`.
@@ -110,6 +156,7 @@ Opcje mapowania (podsumowanie):
 - `200` dla `/hooks/wake`
 - `202` dla `/hooks/agent` (uruchomienie asynchroniczne rozpoczęte)
 - `401` w przypadku niepowodzenia uwierzytelniania
+- `429` po powtarzających się nieudanych próbach uwierzytelnienia z tego samego klienta (sprawdź `Retry-After`)
 - `400` w przypadku nieprawidłowego ładunku
 - `413` w przypadku zbyt dużych ładunków
 
@@ -153,9 +200,11 @@ curl -X POST http://127.0.0.1:18789/hooks/gmail \
 
 - Trzymaj punkty końcowe hooków za loopback, w tailnecie lub za zaufanym reverse proxy.
 - Używaj dedykowanego tokenu hooka; nie używaj ponownie tokenów uwierzytelniania gateway.
+- Powtarzające się nieudane próby uwierzytelnienia są ograniczane (rate limit) per adres klienta, aby spowolnić próby brute-force.
+- Jeśli używasz routingu wieloagentowego, ustaw `hooks.allowedAgentIds`, aby ograniczyć jawny wybór `agentId`.
+- Utrzymuj `hooks.allowRequestSessionKey=false`, chyba że wymagane są sesje wybierane przez wywołującego.
+- Jeśli włączysz żądania z `sessionKey`, ogranicz `hooks.allowedSessionKeyPrefixes` (na przykład `[“hook:”]`).
 - Unikaj umieszczania w logach webhooków wrażliwych surowych ładunków.
 - Ładunki hooków są domyślnie traktowane jako niezaufane i opakowywane granicami bezpieczeństwa.
   Jeśli musisz wyłączyć to dla konkretnego hooka, ustaw `allowUnsafeExternalContent: true`
   w mapowaniu tego hooka (niebezpieczne).
-
-

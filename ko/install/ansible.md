@@ -1,4 +1,9 @@
 ---
+summary: "Ansible, Tailscale VPN 및 방화벽 격리를 통한 자동화되고 강화된 OpenClaw 설치"
+read_when:
+  - 보안 강화가 적용된 자동화 서버 배포가 필요할 때
+  - VPN 액세스가 포함된 방화벽 격리 설정이 필요할 때
+  - 원격 Debian/Ubuntu 서버에 배포할 때
 title: "Ansible"
 ---
 
@@ -18,7 +23,7 @@ curl -fsSL https://raw.githubusercontent.com/openclaw/openclaw-ansible/main/inst
 >
 > openclaw-ansible 저장소는 Ansible 배포에 대한 단일 기준 소스입니다. 이 페이지는 간략한 개요를 제공합니다.
 
-## 제공되는 내용
+## What You Get
 
 - 🔒 **방화벽 우선 보안**: UFW + Docker 격리 (SSH + Tailscale 만 접근 가능)
 - 🔐 **Tailscale VPN**: 서비스를 공개하지 않고도 안전한 원격 액세스
@@ -201,5 +206,3 @@ openclaw channels login
 - [Docker](/install/docker) — 컨테이너 기반 Gateway 설정
 - [Sandboxing](/gateway/sandboxing) — 에이전트 샌드박스 구성
 - [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) — 에이전트별 격리
-
-

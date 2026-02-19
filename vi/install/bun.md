@@ -1,4 +1,8 @@
 ---
+summary: "Quy trình Bun (thử nghiệm): cài đặt và các điểm cần lưu ý so với pnpm"
+read_when:
+  - Bạn muốn vòng lặp phát triển cục bộ nhanh nhất (bun + watch)
+  - Bạn gặp sự cố Bun về cài đặt/patch/script vòng đời
 title: "Bun (Thử nghiệm)"
 ---
 
@@ -23,7 +27,7 @@ Mặc định:
 bun install
 ```
 
-Lưu ý: `bun.lock`/`bun.lockb` đã được đưa vào .gitignore, nên sẽ không làm thay đổi repo theo bất kỳ cách nào. Nếu bạn muốn _không ghi lockfile_:
+Note: `bun.lock`/`bun.lockb` are gitignored, so there’s no repo churn either way. If you want _no lockfile writes_:
 
 ```sh
 bun install --no-save
@@ -53,5 +57,3 @@ bun pm trust @whiskeysockets/baileys protobufjs
 ## Lưu ý
 
 - Một số script vẫn hardcode pnpm (ví dụ: `docs:build`, `ui:*`, `protocol:check`). Run those via pnpm for now.
-
-

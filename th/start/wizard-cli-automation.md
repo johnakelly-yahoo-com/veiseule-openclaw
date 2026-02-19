@@ -1,4 +1,8 @@
 ---
+summary: "การเริ่มต้นใช้งานแบบสคริปต์และการตั้งค่าเอเจนต์สำหรับ OpenClaw CLI"
+read_when:
+  - คุณกำลังทำการเริ่มต้นใช้งานแบบอัตโนมัติในสคริปต์หรือ CI
+  - คุณต้องการตัวอย่างแบบไม่โต้ตอบสำหรับผู้ให้บริการเฉพาะ
 title: "การทำงานอัตโนมัติของ CLI"
 sidebarTitle: "การทำงานอัตโนมัติของ CLI"
 ---
@@ -10,7 +14,9 @@ sidebarTitle: "การทำงานอัตโนมัติของ CLI"
 <Note>
 
 `--json` ไม่ได้หมายความว่าเป็นโหมดไม่โต้ตอบ ใช้ `--non-interactive` (และ `--workspace`) สำหรับสคริปต์
+ `--json` ไม่ได้หมายความว่าเป็นโหมดไม่โต้ตอบ ใช้ `--non-interactive` (และ `--workspace`) สำหรับสคริปต์
  ใช้ `--non-interactive` (และ `--workspace`) สำหรับสคริปต์
+</Note>
 </Note>
 
 ## ตัวอย่างพื้นฐานแบบไม่โต้ตอบ
@@ -111,11 +117,30 @@ openclaw onboard --non-interactive \
     ```
   
 </Accordion>
+  <Accordion title="Custom provider example">```bash
+openclaw onboard --non-interactive \
+  --mode local \
+  --auth-choice custom-api-key \
+  --custom-base-url "https://llm.example.com/v1" \
+  --custom-model-id "foo-large" \
+  --custom-api-key "$CUSTOM_API_KEY" \
+  --custom-provider-id "my-custom" \
+  --custom-compatibility anthropic \
+  --gateway-port 18789 \
+  --gateway-bind loopback
+```
+
+    ```
+    `--custom-api-key` เป็นตัวเลือกเสริม หากไม่ระบุ การเริ่มต้นใช้งานจะตรวจสอบ `CUSTOM_API_KEY`
+    ```
+
+  
+</Accordion>
 </AccordionGroup>
 
 ## เพิ่มเอเจนต์อีกหนึ่งตัว
 
-ใช้ `openclaw agents add <name>` เพื่อสร้างเอเจนต์แยกต่างหากที่มีเวิร์กสเปซ เซสชัน และโปรไฟล์การยืนยันตัวตนของตนเอง การรันโดยไม่ใช้ `--workspace` จะเปิดวิซาร์ด การรันโดยไม่ใช้ `--workspace` จะเปิดวิซาร์ด
+ใช้ `openclaw agents add <name>` เพื่อสร้างเอเจนต์แยกต่างหากที่มีเวิร์กสเปซ เซสชัน และโปรไฟล์การยืนยันตัวตนของตนเอง การรันโดยไม่ใช้ `--workspace` จะเปิดวิซาร์ด การรันโดยไม่ใช้ `--workspace` จะเปิดวิซาร์ด การรันโดยไม่ใช้ `--workspace` จะเปิดวิซาร์ด
 
 ```bash
 openclaw agents add work \
@@ -143,5 +168,3 @@ openclaw agents add work \
 - ศูนย์รวมการเริ่มต้นใช้งาน: [Onboarding Wizard (CLI)](/start/wizard)
 - เอกสารอ้างอิงฉบับเต็ม: [CLI Onboarding Reference](/start/wizard-cli-reference)
 - เอกสารอ้างอิงคำสั่ง: [`openclaw onboard`](/cli/onboard)
-
-

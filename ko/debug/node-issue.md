@@ -1,4 +1,8 @@
 ---
+summary: Node + tsx "__name is not a function" 충돌 메모 및 해결 방법
+read_when:
+  - Node 전용 개발 스크립트 또는 watch 모드 실패를 디버깅할 때
+  - OpenClaw 에서 tsx/esbuild 로더 충돌을 조사할 때
 title: "Node + tsx 충돌"
 ---
 
@@ -82,5 +86,3 @@ node --import tsx scripts/repro/tsx-name-repro.ts
 - Node 22/24 에서 재현하여 Node 25 회귀 여부를 확인합니다.
 - 알려진 회귀가 있는지 `tsx` 나이틀리를 테스트하거나 이전 버전으로 고정합니다.
 - Node LTS 에서도 재현된다면 `__name` 스택 트레이스와 함께 최소 재현을 업스트림에 보고합니다.
-
-

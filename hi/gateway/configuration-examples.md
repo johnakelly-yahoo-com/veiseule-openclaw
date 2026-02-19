@@ -1,4 +1,9 @@
 ---
+summary: "सामान्य OpenClaw सेटअप के लिए स्कीमा-सटीक विन्यास उदाहरण"
+read_when:
+  - OpenClaw को विन्यस्त करना सीखते समय
+  - विन्यास उदाहरण खोजते समय
+  - पहली बार OpenClaw सेटअप करते समय
 title: "विन्यास उदाहरण"
 ---
 
@@ -599,5 +604,3 @@ title: "विन्यास उदाहरण"
 - 6. प्रदाता IDs अलग-अलग होते हैं (फ़ोन नंबर, यूज़र IDs, चैनल IDs)। 7. फ़ॉर्मैट की पुष्टि के लिए प्रदाता के डॉक्यूमेंट्स देखें।
 - बाद में जोड़ने के लिए वैकल्पिक अनुभाग: `web`, `browser`, `ui`, `discovery`, `canvasHost`, `talk`, `signal`, `imessage`।
 - गहन सेटअप नोट्स के लिए [Providers](/channels/whatsapp) और [Troubleshooting](/gateway/troubleshooting) देखें।
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Hub de alojamiento VPS para OpenClaw (Oracle/Fly/Hetzner/GCP/exe.dev)"
+read_when:
+  - Quiere ejecutar el Gateway en la nube
+  - Necesita un mapa rápido de guías de VPS/alojamiento
 title: "Alojamiento VPS"
 ---
 
@@ -37,5 +41,3 @@ Puede mantener el Gateway en la nube y emparejar **nodos** en sus dispositivos l
 capacidades de `system.run` mientras el Gateway permanece en la nube.
 
 Documentación: [Nodes](/nodes), [Nodes CLI](/cli/nodes)
-
-

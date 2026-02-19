@@ -1,4 +1,5 @@
 ---
+summary: "Indsendelse af issues og fejlrapporter med højt signal"
 title: "Indsendelse af en issue"
 ---
 
@@ -149,5 +150,3 @@ _Undgå hemmeligheder/udnytte detaljer i offentligheden. For følsomme spørgsm�
 ### Indsendelse af en rettelses-PR
 
 Issue before PR is optional. (Automatic Copy) Inkludér detaljer i PR hvis du springer over. Hold PR fokuseret, note issue nummer, tilføje tests eller forklare fravær, dokument adfærd ændringer/risici omfatte redigerede logfiler / screenshots som bevis, og køre korrekt validering før indsendelse.
-
-

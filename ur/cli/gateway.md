@@ -1,4 +1,9 @@
 ---
+summary: "OpenClaw Gateway CLI (`openclaw gateway`) — گیٹ ویز کو چلانا، کوئری کرنا، اور دریافت کرنا"
+read_when:
+  - CLI سے Gateway چلانا (ڈیولپمنٹ یا سرورز)
+  - Gateway کی تصدیق، بائنڈ موڈز، اور کنیکٹیوٹی کی ڈیبگنگ
+  - Bonjour کے ذریعے گیٹ ویز کی دریافت (LAN + tailnet)
 title: "gateway"
 ---
 
@@ -30,10 +35,10 @@ openclaw gateway run
 
 نوٹس:
 
-- بطورِ ڈیفالٹ، Gateway اس وقت تک شروع ہونے سے انکار کرتا ہے جب تک `~/.openclaw/openclaw.json` میں `gateway.mode=local` سیٹ نہ کیا جائے۔ عارضی/ڈیولپمنٹ رنز کے لیے `--allow-unconfigured` استعمال کریں۔
+- By default, the Gateway refuses to start unless `gateway.mode=local` is set in `~/.openclaw/openclaw.json`. Use `--allow-unconfigured` for ad-hoc/dev runs.
 - تصدیق کے بغیر loopback سے آگے بائنڈ کرنا بلاک ہے (حفاظتی گارڈ ریل)۔
 - `SIGUSR1` مجاز ہونے پر اِن-پروسیس ری اسٹارٹ کو متحرک کرتا ہے ( `commands.restart` فعال کریں یا gateway tool/config apply/update استعمال کریں)۔
-- `SIGINT`/`SIGTERM` ہینڈلرز gateway پراسیس کو بند کر دیتے ہیں، لیکن وہ کسی بھی کسٹم ٹرمینل اسٹیٹ کو بحال نہیں کرتے۔ اگر آپ CLI کو TUI یا raw-mode ان پٹ کے ساتھ ریپ کرتے ہیں، تو باہر نکلنے سے پہلے ٹرمینل کو بحال کریں۔
+- `SIGINT`/`SIGTERM` handlers stop the gateway process, but they don’t restore any custom terminal state. If you wrap the CLI with a TUI or raw-mode input, restore the terminal before exit.
 
 ### اختیارات
 
@@ -73,7 +78,7 @@ openclaw gateway run
 - `--timeout <ms>`: ٹائم آؤٹ/بجٹ (ہر کمانڈ کے مطابق مختلف)۔
 - `--expect-final`: “final” جواب کا انتظار کریں (ایجنٹ کالز)۔
 
-نوٹ: جب آپ `--url` سیٹ کرتے ہیں، تو CLI کنفیگ یا انوائرمنٹ کریڈینشلز کی طرف واپس نہیں جاتا۔
+Note: when you set `--url`, the CLI does not fall back to config or environment credentials.
 Pass `--token` or `--password` explicitly. Missing explicit credentials is an error.
 
 ### `gateway health`
@@ -102,12 +107,12 @@ openclaw gateway status --json
 
 ### `gateway probe`
 
-`gateway probe` "ہر چیز کو ڈیبگ کریں" کمانڈ ہے۔ یہ ہمیشہ درج ذیل کی جانچ کرتا ہے:
+`gateway probe` is the “debug everything” command. It always probes:
 
 - آپ کے کنفیگر کردہ ریموٹ gateway کو (اگر سیٹ ہو)، اور
 - localhost (loopback) کو **حتیٰ کہ جب ریموٹ کنفیگر ہو**۔
 
-اگر متعدد gateways قابلِ رسائی ہوں، تو یہ ان سب کو پرنٹ کرتا ہے۔ جب آپ الگ تھلگ پروفائلز/پورٹس استعمال کرتے ہیں (مثلاً، ایک ریسکیو بوٹ)، تو متعدد gateways کی سپورٹ موجود ہوتی ہے، لیکن زیادہ تر انسٹالیشنز اب بھی ایک ہی gateway چلاتی ہیں۔
+If multiple gateways are reachable, it prints all of them. Multiple gateways are supported when you use isolated profiles/ports (e.g., a rescue bot), but most installs still run a single gateway.
 
 ```bash
 openclaw gateway probe
@@ -195,5 +200,3 @@ openclaw gateway discover
 openclaw gateway discover --timeout 4000
 openclaw gateway discover --json | jq '.beacons[].wsUrl'
 ```
-
-

@@ -1,6 +1,8 @@
 ---
+summary: "OpenClaw — это многоканальный шлюз для ИИ-агентов, работающий на любой ОС."
+read_when:
+  - Представление OpenClaw новичкам
 title: "OpenClaw"
-sidebarTitle: "OpenClaw"
 ---
 
 # OpenClaw 🦞
@@ -20,8 +22,7 @@ sidebarTitle: "OpenClaw"
 
 > _«EXFOLIATE! EXFOLIATE!»_ — космический лобстер, вероятно
 
-<p align="center">
-  <strong>Шлюз для ИИ-агентов под любую ОС в WhatsApp, Telegram, Discord, iMessage и не только.</strong><br />
+<p align="center"><strong>Шлюз для ИИ-агентов под любую ОС в WhatsApp, Telegram, Discord, iMessage и не только.</strong><br />
   Отправьте сообщение — получите ответ агента прямо из кармана. Плагины добавляют Mattermost и многое другое.
 </p>
 
@@ -209,5 +210,3 @@ Gateway (шлюз) — это единый источник истины для 
   
 </Card>
 </Columns>
-
-

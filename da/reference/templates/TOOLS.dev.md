@@ -1,4 +1,9 @@
-------
+---
+summary: "Noter om udvikleragentens værktøjer (C-3PO)"
+read_when:
+  - Brug af udvikler-Gateway-skabelonerne
+  - Opdatering af standardidentiteten for udvikleragenten
+---
 
 # TOOLS.md - Brugernoter om værktøjer (kan redigeres)
 
@@ -17,5 +22,3 @@ Det definerer ikke, hvilke værktøjer der findes; OpenClaw giver indbyggede væ
 - Tekst-til-tale: angiv stemme, mål-højttaler/-rum og om der skal streames.
 
 Tilføj hvad som helst andet, du vil have assistenten til at vide om din lokale værktøjskæde.
-
-

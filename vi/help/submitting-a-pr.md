@@ -1,4 +1,5 @@
 ---
+summary: "Cách gửi một PR có tín hiệu cao"
 title: "Gửi PR"
 ---
 
@@ -395,5 +396,3 @@ pnpm format
 - Submitter effort:
 - Agent notes:
 ```
-
-

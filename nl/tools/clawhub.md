@@ -1,4 +1,9 @@
 ---
+summary: "ClawHub-handleiding: openbare skills-registratie + CLI-workflows"
+read_when:
+  - ClawHub introduceren aan nieuwe gebruikers
+  - Skills installeren, zoeken of publiceren
+  - CLI-vlaggen en sync-gedrag van ClawHub uitleggen
 title: "ClawHub"
 ---
 
@@ -250,5 +255,3 @@ export CLAWHUB_DISABLE_TELEMETRY=1
 - `CLAWHUB_CONFIG_PATH`: Overschrijven waar de CLI het token/config opslaat.
 - `CLAWHUB_WORKDIR`: De standaard werkmap overschrijven.
 - `CLAWHUB_DISABLE_TELEMETRY=1`: Telemetrie uitschakelen bij `sync`.
-
-

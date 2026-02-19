@@ -1,4 +1,8 @@
 ---
+summary: "Sağlayıcı + CLI geri dönüşleriyle gelen görüntü/ses/video anlama (isteğe bağlı)"
+read_when:
+  - Medya anlama tasarlarken veya yeniden düzenlerken
+  - Gelen ses/video/görüntü ön işleme ayarlaması yaparken
 title: "Medya Anlama"
 ---
 
@@ -353,7 +357,7 @@ Yetenek başına `attachments`, hangi eklerin işlendiğini denetler:
 }
 ```
 
-## Durum çıktısı
+## Status output
 
 Medya anlama çalıştığında, `/status` kısa bir özet satırı içerir:
 
@@ -373,5 +377,3 @@ Bu, yetenek başına sonuçları ve uygulanabilirse seçilen sağlayıcı/modeli
 
 - [Yapılandırma](/gateway/configuration)
 - [Görüntü ve Medya Desteği](/nodes/images)
-
-

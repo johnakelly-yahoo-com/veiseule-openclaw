@@ -1,4 +1,8 @@
 ---
+summary: "Model sağlayıcıları için OAuth süresinin dolmasını izleyin"
+read_when:
+  - Kimlik doğrulama süresi dolma izleme veya uyarıları ayarlarken
+  - Claude Code / Codex OAuth yenileme denetimlerini otomatikleştirirken
 title: "Kimlik Doğrulama İzleme"
 ---
 
@@ -38,5 +42,3 @@ systemd + Termux için ayarlanmıştır.
 - `scripts/termux-sync-widget.sh`: Claude Code kimlik bilgilerini → OpenClaw ile senkronize eder.
 
 Telefon otomasyonu veya systemd zamanlayıcılarına ihtiyacınız yoksa bu betikleri atlayın.
-
-

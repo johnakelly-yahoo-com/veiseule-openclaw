@@ -1,4 +1,9 @@
 ---
+summary: "مرجع كامل لمعالج الإعداد عبر CLI: كل خطوة، وكل راية، وكل حقل تهيئة"
+read_when:
+  - البحث عن خطوة أو راية محددة في المعالج
+  - أتمتة أونبواردينج مع الوضع غير التفاعلي
+  - تصحيح سلوك المعالج
 title: "مرجع معالج التهيئة الأولية"
 sidebarTitle: "مرجع المعالج"
 ---
@@ -13,17 +18,18 @@ sidebarTitle: "مرجع المعالج"
 <Steps>
   <Step title="Existing config detection">
     - إذا كان `~/.openclaw/openclaw.json` موجودًا، فاختر **الاحتفاظ / التعديل / إعادة الضبط**.
-    - إعادة تشغيل المعالج لا تمسح أي شيء ما لم تختر **إعادة الضبط** صراحةً (أو تمرّر `--reset`).
-    - إذا كانت التهيئة غير صالحة أو تحتوي على مفاتيح قديمة، يتوقف المعالج ويطلب منك تشغيل `openclaw doctor` قبل المتابعة.
+    - إعادة تشغيل المعالج **لا** تمسح أي شيء ما لم تختر **إعادة الضبط** صراحةً
+      (أو تمرّر `--reset`).
+    - إذا كانت التهيئة غير صالحة أو تحتوي على مفاتيح قديمة، يتوقف المعالج ويطلب
+      منك تشغيل `openclaw doctor` قبل المتابعة.
     - تستخدم إعادة الضبط `trash` (ولا تستخدم أبدًا `rm`) وتعرض نطاقات:
       - التهيئة فقط
       - التهيئة + بيانات الاعتماد + الجلسات
-      - إعادة ضبط كاملة (تزيل أيضًا مساحة العمل)
-  
+      - إعادة ضبط كاملة (تزيل أيضًا مساحة العمل)  
 </Step>
   <Step title="Model/Auth">
     - **مفتاح Anthropic API (موصى به)**: يستخدم `ANTHROPIC_API_KEY` إن وُجد أو يطلب مفتاحًا، ثم يحفظه لاستخدامه من قِبل الـ daemon.
-    - **Anthropic OAuth (Claude Code CLI)**: على macOS يتحقق المعالج من عنصر Keychain "Claude Code-credentials" (اختر "Always Allow" كي لا تمنع عمليات بدء launchd)؛ على Linux/Windows يعيد استخدام `~/.claude/.credentials.json` إن وُجد.
+    - **Anthropic OAuth (Claude Code CLI)**: على macOS يتحقق المعالج من عنصر Keychain «Claude Code-credentials» (اختر «Always Allow» كي لا تمنع عمليات بدء launchd)؛ على Linux/Windows يعيد استخدام `~/.claude/.credentials.json` إن وُجد.
     - **رمز Anthropic (لصق setup-token)**: شغّل `claude setup-token` على أي جهاز، ثم الصق الرمز (يمكنك تسميته؛ الفراغ = الافتراضي).
     - **اشتراك OpenAI Code (Codex) (Codex CLI)**: إذا كان `~/.codex/auth.json` موجودًا، يمكن للمعالج إعادة استخدامه.
     - **اشتراك OpenAI Code (Codex) (OAuth)**: تدفّق عبر المتصفح؛ الصق `code#state`.
@@ -47,10 +53,11 @@ sidebarTitle: "مرجع المعالج"
     - اختر نموذجًا افتراضيًا من الخيارات المكتشفة (أو أدخل الموفّر/النموذج يدويًا).
     - يُجري المعالج فحصًا للنموذج ويُحذّر إذا كان النموذج المُهيّأ غير معروف أو تنقصه المصادقة.
     - تعيش بيانات اعتماد OAuth في `~/.openclaw/credentials/oauth.json`؛ وتعيش ملفات تعريف المصادقة في `~/.openclaw/agents/<agentId>/agent/auth-profiles.json` (مفاتيح API + OAuth).
-    - مزيد من التفاصيل: [/concepts/oauth](/concepts/oauth)
-    <Note>
+    - مزيد من التفاصيل: [/concepts/oauth](/concepts/oauth)    
+<Note>
     نصيحة للرؤوس/الخوادم: أكمل OAuth على جهاز يحتوي على متصفح، ثم انسخ
-    `~/.openclaw/credentials/oauth.json` (أو `$OPENCLAW_STATE_DIR/credentials/oauth.json`) إلى مضيف Gateway.
+    `~/.openclaw/credentials/oauth.json` (أو `$OPENCLAW_STATE_DIR/credentials/oauth.json`) إلى
+    مضيف Gateway.
     
 </Note>
   
@@ -58,8 +65,7 @@ sidebarTitle: "مرجع المعالج"
   <Step title="Workspace">
     - الافتراضي `~/.openclaw/workspace` (قابل للتهيئة).
     - يزرع ملفات مساحة العمل اللازمة لطقس تمهيد الوكيل.
-    - مخطط مساحة العمل الكامل + دليل النسخ الاحتياطي: [Agent workspace](/concepts/agent-workspace)
-  
+    - مخطط مساحة العمل الكامل + دليل النسخ الاحتياطي: [Agent workspace](/concepts/agent-workspace)  
 </Step>
   <Step title="Gateway">
     - المنفذ، والربط، ووضع المصادقة، والتعرّض عبر Tailscale.
@@ -77,19 +83,21 @@ sidebarTitle: "مرجع المعالج"
     - [Signal](/channels/signal): تثبيت `signal-cli` اختياري + تهيئة الحساب.
     - [BlueBubbles](/channels/bluebubbles): **موصى به لـ iMessage**؛ عنوان خادم + كلمة مرور + webhook.
     - [iMessage](/channels/imessage): مسار CLI قديم `imsg` + وصول إلى قاعدة البيانات.
-    - أمان الرسائل الخاصة (DM): الافتراضي هو الإقران. ترسل أول رسالة خاصة رمزًا؛ وافق عبر `openclaw pairing approve <channel> <code>` أو استخدم قوائم السماح.
+    - أمان الرسائل الخاصة (DM): الافتراضي هو الإقران. ترسل أول رسالة خاصة رمزًا؛ وافق عبر `openclaw pairing approve <channel><code>` أو استخدم قوائم السماح.
+  
+</Step><code>` أو استخدم قوائم السماح.
   
 </Step>
-  <Step title="Daemon install">
-    - macOS: LaunchAgent
+  <Step title="تثبيت الـ daemon">
+    - macOS: وكيل التشغيل
       - يتطلب جلسة مستخدم مسجّل الدخول؛ وللبيئات عديمة الواجهة، استخدم LaunchDaemon مخصصًا (غير مُضمّن).
     - Linux (وWindows عبر WSL2): وحدة systemd للمستخدم
       - يحاول المعالج تمكين الاستمرار عبر `loginctl enable-linger <user>` ليظل Gateway يعمل بعد تسجيل الخروج.
       - قد يطلب sudo (يكتب `/var/lib/systemd/linger`)؛ يحاول بدون sudo أولًا.
-    - **Runtime selection:** Node (موصى به؛ مطلوب لـ WhatsApp/Telegram). Bun **غير موصى به**.
+    - **اختيار وقت التشغيل:** Node (موصى به؛ مطلوب لـ WhatsApp/Telegram). Bun **غير موصى به**.
   
 </Step>
-  <Step title="Health check">
+  <Step title="فحص الصحة">
     - يبدأ Gateway (إن لزم) ويشغّل `openclaw health`.
     - نصيحة: يضيف `openclaw status --deep` مجسّات صحة Gateway إلى مخرجات الحالة (يتطلب Gateway قابلًا للوصول).
   
@@ -100,7 +108,7 @@ sidebarTitle: "مرجع المعالج"
     - يثبّت تبعيات اختيارية (بعضها يستخدم Homebrew على macOS).
   
 </Step>
-  <Step title="Finish">
+  <Step title="الإنهاء">
     - ملخص + الخطوات التالية، بما في ذلك تطبيقات iOS/Android/macOS لميزات إضافية.
   
 </Step>
@@ -130,7 +138,7 @@ openclaw onboard --non-interactive \
 أضف `--json` للحصول على ملخص قابل للقراءة آليًا.
 
 <Note>
-`--json` لا يعني الوضع غير التفاعلي. استخدم `--non-interactive` (و`--workspace`) للسكربتات.
+`--json` **لا** يعني الوضع غير التفاعلي. استخدم `--non-interactive` (و`--workspace`) للسكربتات.
 </Note>
 
 <AccordionGroup>
@@ -266,7 +274,8 @@ openclaw agents add work \
 تذهب بيانات اعتماد WhatsApp تحت `~/.openclaw/credentials/whatsapp/<accountId>/`.
 تُخزَّن الجلسات تحت `~/.openclaw/agents/<agentId>/sessions/`.
 
-تُسلَّم بعض القنوات كملحقات. عند اختيار واحد أثناء التهيئة الأولية، سيطلب المعالج تثبيته (npm أو مسار محلي) قبل أن يمكن تهيئته.
+تُسلَّم بعض القنوات كملحقات. عند اختيار واحد أثناء التهيئة الأولية، سيطلب المعالج
+تثبيته (npm أو مسار محلي) قبل أن يمكن تهيئته.
 
 ## مستندات ذات صلة
 
@@ -275,4 +284,3 @@ openclaw agents add work \
 - مرجع التهيئة: [Gateway configuration](/gateway/configuration)
 - الموفّرون: [WhatsApp](/channels/whatsapp)، [Telegram](/channels/telegram)، [Discord](/channels/discord)، [Google Chat](/channels/googlechat)، [Signal](/channels/signal)، [BlueBubbles](/channels/bluebubbles) (iMessage)، [iMessage](/channels/imessage) (قديم)
 - Skills: [Skills](/tools/skills)، [Skills config](/tools/skills-config)
-

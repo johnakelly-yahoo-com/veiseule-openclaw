@@ -1,4 +1,8 @@
 ---
+summary: "CLI-reference for `openclaw channels` (konti, status, login/logout, logs)"
+read_when:
+  - Du vil tilføje/fjerne kanalkonti (WhatsApp/Telegram/Discord/Google Chat/Slack/Mattermost (plugin)/Signal/iMessage)
+  - Du vil tjekke kanalstatus eller følge kanallogs
 title: "kanaler"
 ---
 
@@ -73,5 +77,3 @@ Noter:
 
 - Brug `--kind user|group|auto` for at tvinge måltypen.
 - Opløsning foretrækker aktive match, når flere poster deler samme navn.
-
-

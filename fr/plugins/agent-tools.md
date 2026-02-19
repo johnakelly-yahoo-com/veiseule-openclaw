@@ -1,4 +1,8 @@
 ---
+summary: "Ecrire des outils d’agent dans un plugin (schemas, outils optionnels, listes d’autorisation)"
+read_when:
+  - Vous souhaitez ajouter un nouvel outil d’agent dans un plugin
+  - Vous devez rendre un outil optionnel via des listes d’autorisation
 title: "Outils d’agent de plugin"
 ---
 
@@ -92,5 +96,3 @@ Autres parametres de configuration qui affectent la disponibilite des outils :
 - Les noms d’outils ne doivent **pas** entrer en conflit avec les noms d’outils du noyau ; les outils conflictuels sont ignores.
 - Les identifiants de plugin utilises dans les listes d’autorisation ne doivent pas entrer en conflit avec les noms d’outils du noyau.
 - Preferez `optional: true` pour les outils qui declenchent des effets de bord ou necessitent des binaires/identifiants supplementaires.
-
-

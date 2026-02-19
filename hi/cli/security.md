@@ -1,4 +1,8 @@
 ---
+summary: "CLI संदर्भ `openclaw security` के लिए (सामान्य सुरक्षा जोखिमों का ऑडिट और सुधार)"
+read_when:
+  - आप कॉन्फ़िग/स्थिति पर त्वरित सुरक्षा ऑडिट चलाना चाहते हैं
+  - आप सुरक्षित “fix” सुझाव लागू करना चाहते हैं (chmod, डिफ़ॉल्ट्स को कड़ा करना)
 title: "सुरक्षा"
 ---
 
@@ -20,5 +24,5 @@ openclaw security audit --fix
 
 12. ऑडिट चेतावनी देता है जब कई DM भेजने वाले मुख्य सेशन साझा करते हैं और साझा इनबॉक्स के लिए **secure DM mode** की सिफ़ारिश करता है: `session.dmScope="per-channel-peer"` (या मल्टी-अकाउंट चैनलों के लिए `per-account-channel-peer`)।
 13. यह तब भी चेतावनी देता है जब छोटे मॉडल (`<=300B`) बिना सैंडबॉक्सिंग और वेब/ब्राउज़र टूल्स सक्षम होने पर उपयोग किए जाते हैं।
-
-
+    webhook ingress के लिए, यह चेतावनी देता है जब `hooks.defaultSessionKey` सेट नहीं है, जब request `sessionKey` overrides सक्षम हैं, और जब `hooks.allowedSessionKeyPrefixes` के बिना overrides सक्षम हैं।
+    यह तब भी चेतावनी देता है जब sandbox mode बंद होने पर sandbox Docker settings कॉन्फ़िगर की गई हों, जब `gateway.nodes.denyCommands` अप्रभावी pattern-जैसी/अज्ञात entries का उपयोग करता हो, जब global `tools.profile="minimal"` को agent tool profiles द्वारा override किया गया हो, और जब permissive tool policy के अंतर्गत installed extension plugin tools सुलभ हो सकते हों।

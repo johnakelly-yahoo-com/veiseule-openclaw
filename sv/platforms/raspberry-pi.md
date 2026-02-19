@@ -1,4 +1,9 @@
 ---
+summary: "OpenClaw på Raspberry Pi (budgetvänlig självhostad setup)"
+read_when:
+  - Konfigurera OpenClaw på en Raspberry Pi
+  - Köra OpenClaw på ARM-enheter
+  - Bygga en billig, alltid-på personlig AI
 title: "Raspberry Pi"
 ---
 
@@ -351,5 +356,3 @@ echo 'wireless-power off' | sudo tee -a /etc/network/interfaces
 - [Hetzner-guide](/install/hetzner) — Docker-setup
 - [Tailscale](/gateway/tailscale) — fjärråtkomst
 - [Nodes](/nodes) — para ihop din laptop/telefon med Pi-gatewayen
-
-

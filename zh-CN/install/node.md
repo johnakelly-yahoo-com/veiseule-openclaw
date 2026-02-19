@@ -1,78 +1,80 @@
 ---
-title: Node.js
+title: "Node.js"
+summary: "Node.js 安装与配置（OpenClaw 版本要求、安装方式与 PATH 排错）"
+read_when:
+  - "在安装 OpenClaw 之前，你需要先安装 Node.js"
+  - "你已安装 OpenClaw，但提示 `openclaw` 命令未找到"
+  - "npm install -g 因权限或 PATH 问题而失败"
 ---
 
 # Node.js
 
-OpenClaw requires **Node 22 or newer**. The [installer script](/install#install-methods) will detect and install Node automatically — this page is for when you want to set up Node yourself and make sure everything is wired up correctly (versions, PATH, global installs).
+OpenClaw 需要 **Node 22 或更新版本**。 [安装脚本](/install#install-methods) 会自动检测并安装 Node —— 本页面适用于你希望自行设置 Node 并确保一切正确连接（版本、PATH、全局安装）的情况。
 
-## Check your version
+## 检查你的版本
 
 ```bash
 node -v
 ```
 
-If this prints `v22.x.x` or higher, you're good. If Node isn't installed or the version is too old, pick an install method below.
+如果输出 `v22.x.x` 或更高版本，则表示可以使用。 如果未安装 Node 或版本过旧，请在下方选择一种安装方式。
 
-## Install Node
+## 安装 Node
 
 <Tabs>
-  <Tab title="macOS">
-    **Homebrew** (recommended):
+  <Tab title="macOS">**Homebrew**（推荐）：
 
+    `````
+    ````
     ```bash
     brew install node
     ```
-
-    Or download the macOS installer from [nodejs.org](https://nodejs.org/).
+    ````
+    `````
 
   
 </Tab>
-  <Tab title="Linux">
-    **Ubuntu / Debian:**
+  <Tab title="Linux">```
+**Ubuntu / Debian：**
+```
 
-    ```bash
-    curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
-    sudo apt-get install -y nodejs
     ```
-
-    **Fedora / RHEL:**
-
-    ```bash
     sudo dnf install nodejs
     ```
 
-    Or use a version manager (see below).
-
   
 </Tab>
-  <Tab title="Windows">
-    **winget** (recommended):
+  <Tab title="Windows">**Fedora / RHEL：**
 
-    ```powershell
-    winget install OpenJS.NodeJS.LTS
+```bash
+sudo dnf install nodejs
+```
+
+或者使用版本管理器（见下文）。
+
     ```
-
-    **Chocolatey:**
-
-    ```powershell
-    choco install nodejs-lts
+    或从 [nodejs.org](https://nodejs.org/) 下载 Windows 安装程序。
     ```
-
-    Or download the Windows installer from [nodejs.org](https://nodejs.org/).
 
   
 </Tab>
 </Tabs>
 
 <Accordion title="Using a version manager (nvm, fnm, mise, asdf)">
-  Version managers let you switch between Node versions easily. Popular options:
+  版本管理器可以让你轻松在不同的 Node 版本之间切换。 **Chocolatey：**
 
-- [**fnm**](https://github.com/Schniz/fnm) — fast, cross-platform
-- [**nvm**](https://github.com/nvm-sh/nvm) — widely used on macOS/Linux
-- [**mise**](https://mise.jdx.dev/) — polyglot (Node, Python, Ruby, etc.)
+```powershell
+choco install nodejs-lts
+```
 
-Example with fnm:
+或从 [nodejs.org](https://nodejs.org/) 下载 Windows 安装程序。
+
+- 
+</Tab>
+- [**nvm**](https://github.com/nvm-sh/nvm) — 在 macOS/Linux 上广泛使用
+- 常见选择：
+
+使用 fnm 的示例：
 
 ```bash
 fnm install 22
@@ -80,65 +82,67 @@ fnm use 22
 ```
 
   <Warning>
-  Make sure your version manager is initialized in your shell startup file (`~/.zshrc` or `~/.bashrc`). If it isn't, `openclaw` may not be found in new terminal sessions because the PATH won't include Node's bin directory.
+  
+  确保你的版本管理器已在 shell 启动文件（`~/.zshrc` 或 `~/.bashrc`）中初始化。 以 fnm 为例：
+   否则，在新的终端会话中可能找不到 `openclaw`，因为 PATH 中不会包含 Node 的 bin 目录。
   
 </Warning>
 </Accordion>
 
-## Troubleshooting
+## 故障排查
 
 ### `openclaw: command not found`
 
-This almost always means npm's global bin directory isn't on your PATH.
+```
+这几乎总是意味着 npm 的全局 bin 目录没有加入 PATH。
+```
 
 <Steps>
-  <Step title="Find your global npm prefix">
-    ```bash
-    npm prefix -g
-    ```
-  
+  <Step title="Find your global npm prefix">故障排查
 </Step>
   <Step title="Check if it's on your PATH">
     ```bash
     echo "$PATH"
     ```
 
-    Look for `<npm-prefix>/bin` (macOS/Linux) or `<npm-prefix>` (Windows) in the output.
+    ```
+        ```
+        在输出中查找 `<npm-prefix>/bin`（macOS/Linux）或 `<npm-prefix>`（Windows）。
+        ```
+    ```
 
   
 </Step>
   <Step title="Add it to your shell startup file">
     <Tabs>
-      <Tab title="macOS / Linux">
-        Add to `~/.zshrc` or `~/.bashrc`:
+      <Tab title="macOS / Linux">添加到 `~/.zshrc` 或 `~/.bashrc`：
 
-        ```bash
-        export PATH="$(npm prefix -g)/bin:$PATH"
         ```
-
-        Then open a new terminal (or run `rehash` in zsh / `hash -r` in bash).
-      
+        然后打开一个新的终端（或在 zsh 中运行 `rehash` / 在 bash 中运行 `hash -r`）。
+        
 </Tab>
-      <Tab title="Windows">
-        Add the output of `npm prefix -g` to your system PATH via Settings → System → Environment Variables.
-      
+        <Tab title="Windows">
+          通过“设置 → 系统 → 环境变量”将 `npm prefix -g` 的输出添加到系统 PATH。
+        
 </Tab>
-    
+        
 </Tabs>
+        ```
 
   
 </Step>
 </Steps>
 
-### Permission errors on `npm install -g` (Linux)
-
-If you see `EACCES` errors, switch npm's global prefix to a user-writable directory:
+### 添加到 `~/.zshrc` 或 `~/.bashrc`：
 
 ```bash
-mkdir -p "$HOME/.npm-global"
-npm config set prefix "$HOME/.npm-global"
-export PATH="$HOME/.npm-global/bin:$PATH"
+export PATH="$(npm prefix -g)/bin:$PATH"
 ```
 
-Add the `export PATH=...` line to your `~/.bashrc` or `~/.zshrc` to make it permanent.
+```bash
+export PATH="$(npm prefix -g)/bin:$PATH"
+```
 
+```bash
+echo "$PATH"
+```

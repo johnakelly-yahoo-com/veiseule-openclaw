@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw 에서 API 키 또는 Codex 구독을 통해 OpenAI 를 사용하는 방법"
+read_when:
+  - OpenClaw 에서 OpenAI 모델을 사용하려는 경우
+  - API 키 대신 Codex 구독 인증을 사용하려는 경우
 title: "OpenAI"
 ---
 
@@ -55,5 +59,3 @@ openclaw models auth login --provider openai-codex
 
 - 모델 참조는 항상 `provider/model` 를 사용합니다 (자세한 내용은 [/concepts/models](/concepts/models) 를 참고하십시오).
 - 인증 세부 정보와 재사용 규칙은 [/concepts/oauth](/concepts/oauth) 에 있습니다.
-
-

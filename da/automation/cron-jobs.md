@@ -1,4 +1,9 @@
 ---
+summary: "Cron-jobs + wakeups for Gateway-planlæggeren"
+read_when:
+  - Planlægning af baggrundsjob eller wakeups
+  - Sammenkobling af automatisering, der skal køre med eller sideløbende med heartbeats
+  - Valg mellem heartbeat og cron til planlagte opgaver
 title: "Cron-jobs"
 ---
 
@@ -471,5 +476,3 @@ openclaw system event --mode now --text "Next heartbeat: check battery."
 - For forumemner, brug `-100…:topic:<id>`, så det er eksplicit og entydigt.
 - Hvis du ser `telegram:...`-præfikser i logs eller gemte “sidste rute”-mål, er det normalt;
   cron-levering accepterer dem og parser stadig emne-id’er korrekt.
-
-

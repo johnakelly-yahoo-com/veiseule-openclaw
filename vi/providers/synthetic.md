@@ -1,10 +1,14 @@
 ---
+summary: "Sử dụng API tương thích Anthropic của Synthetic trong OpenClaw"
+read_when:
+  - Bạn muốn sử dụng Synthetic làm nhà cung cấp mô hình
+  - Bạn cần thiết lập khóa API hoặc base URL của Synthetic
 title: "Synthetic"
 ---
 
 # Synthetic
 
-Synthetic cung cấp các endpoint tương thích với Anthropic. OpenClaw đăng ký nó là
+Synthetic exposes Anthropic-compatible endpoints. OpenClaw registers it as the
 `synthetic` provider and uses the Anthropic Messages API.
 
 ## Thiết lập nhanh
@@ -92,5 +96,3 @@ Tất cả các mô hình dưới đây đều dùng chi phí `0` (input/output/
 - Nếu bạn bật danh sách cho phép mô hình (`agents.defaults.models`), hãy thêm mọi mô hình bạn
   dự định sử dụng.
 - Xem [Model providers](/concepts/model-providers) để biết các quy tắc của nhà cung cấp.
-
-

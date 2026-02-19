@@ -1,4 +1,7 @@
 ---
+summary: "Tlon/Urbit-supportstatus, funktioner og konfiguration"
+read_when:
+  - Arbejder på Tlon/Urbit-kanalfunktioner
 title: "Tlon"
 ---
 
@@ -52,6 +55,22 @@ Minimal konfiguration (enkelt konto):
 }
 ```
 
+Private/LAN-ship-URL'er (avanceret):
+
+Som standard blokerer OpenClaw private/interne værtsnavne og IP-områder for dette plugin (SSRF-hærdning).
+Hvis din ship-URL er på et privat netværk (for eksempel `http://192.168.1.50:8080` eller `http://localhost:8080`),
+skal du eksplicit aktivere det:
+
+```json5
+{
+  channels: {
+    tlon: {
+      allowPrivateNetwork: true,
+    },
+  },
+}
+```
+
 ## Gruppekanaler
 
 Auto-opdagelse er aktiveret som standard. Du kan også fastgøre kanaler manuelt:
@@ -66,7 +85,7 @@ Auto-opdagelse er aktiveret som standard. Du kan også fastgøre kanaler manuelt
 }
 ```
 
-Deaktivér auto‑discovery:
+DM‑tilladelsesliste (tom = tillad alle):
 
 ```json5
 {
@@ -92,7 +111,7 @@ DM‑tilladelsesliste (tom = tillad alle):
 }
 ```
 
-Gruppeautorisation (begrænset som standard):
+Brug disse med `openclaw message send` eller cron‑levering:
 
 ```json5
 {
@@ -115,7 +134,7 @@ Gruppeautorisation (begrænset som standard):
 }
 ```
 
-## Leveringsmål (CLI/cron)
+## Noter
 
 Brug disse med `openclaw message send` eller cron‑levering:
 
@@ -127,5 +146,3 @@ Brug disse med `openclaw message send` eller cron‑levering:
 - Gruppens svar kræver en omtale (f.eks. `~your-bot-ship`) for at svare.
 - Trådsvar: hvis den indgående besked er i en tråd, svarer OpenClaw i tråden.
 - Medier: `sendMedia` falder tilbage til tekst + URL (ingen native upload).
-
-

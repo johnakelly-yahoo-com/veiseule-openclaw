@@ -1,4 +1,8 @@
 ---
+summary: "دعم حساب Zalo الشخصي عبر zca-cli (تسجيل دخول QR)، الإمكانات، والتهيئة"
+read_when:
+  - إعداد Zalo Personal لـ OpenClaw
+  - تصحيح أخطاء تسجيل دخول Zalo Personal أو تدفّق الرسائل
 title: "Zalo Personal"
 ---
 
@@ -134,5 +138,3 @@ openclaw directory groups list --channel zalouser --query "work"
 
 - `openclaw channels status --probe`
 - أعد تسجيل الدخول: `openclaw channels logout --channel zalouser && openclaw channels login --channel zalouser`
-
-

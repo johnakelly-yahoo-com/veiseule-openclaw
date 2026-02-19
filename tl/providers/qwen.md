@@ -1,4 +1,8 @@
 ---
+summary: "Gamitin ang Qwen OAuth (free tier) sa OpenClaw"
+read_when:
+  - Gusto mong gumamit ng Qwen sa OpenClaw
+  - Gusto mo ng free-tier OAuth access sa Qwen Coder
 title: "Qwen"
 ---
 
@@ -37,7 +41,7 @@ openclaw models set qwen-portal/coder-model
 
 ## Muling gamitin ang Qwen Code CLI login
 
-Kung naka-log in ka na gamit ang Qwen Code CLI, isi-sync ng OpenClaw ang mga kredensyal
+If you already logged in with the Qwen Code CLI, OpenClaw will sync credentials
 from `~/.qwen/oauth_creds.json` when it loads the auth store. You still need a
 `models.providers.qwen-portal` entry (use the login command above to create one).
 
@@ -47,5 +51,3 @@ from `~/.qwen/oauth_creds.json` when it loads the auth store. You still need a
 - Default na base URL: `https://portal.qwen.ai/v1` (i-override gamit ang
   `models.providers.qwen-portal.baseUrl` kung may ibang endpoint na ibinigay ang Qwen).
 - Tingnan ang [Model providers](/concepts/model-providers) para sa mga patakarang saklaw ng provider.
-
-

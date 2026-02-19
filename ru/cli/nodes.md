@@ -1,4 +1,8 @@
 ---
+summary: "Справка CLI для `openclaw nodes` (list/status/approve/invoke, camera/canvas/screen)"
+read_when:
+  - Вы управляете сопряжёнными узлами (камерами, экраном, холстом)
+  - Вам нужно одобрять запросы или вызывать команды узлов
 title: "узлы"
 ---
 
@@ -60,12 +64,10 @@ openclaw nodes run --agent main --node <id|name|ip> --raw "git status"
 Флаги:
 
 - `--cwd <path>`: рабочий каталог.
-- `--env <key=val>`: переопределение env (можно указывать повторно).
+- `--env <key=val>`: переопределение env (можно указывать повторно). Примечание: node-хосты игнорируют переопределения `PATH` (и `tools.exec.pathPrepend` не применяется к node-хостам).
 - `--command-timeout <ms>`: таймаут команды.
 - `--invoke-timeout <ms>`: таймаут вызова узла (по умолчанию `30000`).
 - `--needs-screen-recording`: требовать разрешение на запись экрана.
 - `--raw <command>`: выполнить строку оболочки (`/bin/sh -lc` или `cmd.exe /c`).
 - `--agent <id>`: подтверждения/списки разрешённых на уровне агента (по умолчанию используется настроенный агент).
 - `--ask <off|on-miss|always>`, `--security <deny|allowlist|full>`: переопределения.
-
-

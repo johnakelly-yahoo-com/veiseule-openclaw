@@ -1,4 +1,8 @@
 ---
+summary: "Скриптовая онбординг‑процедура и настройка агентов для OpenClaw CLI"
+read_when:
+  - Вы автоматизируете онбординг в скриптах или CI
+  - Вам нужны неинтерактивные примеры для конкретных провайдеров
 title: "Автоматизация CLI"
 sidebarTitle: "Автоматизация CLI"
 ---
@@ -109,6 +113,26 @@ openclaw onboard --non-interactive \
     ```
   
 </Accordion>
+  <Accordion title="Custom provider example">
+```bash
+openclaw onboard --non-interactive \
+  --mode local \
+  --auth-choice custom-api-key \
+  --custom-base-url "https://llm.example.com/v1" \
+  --custom-model-id "foo-large" \
+  --custom-api-key "$CUSTOM_API_KEY" \
+  --custom-provider-id "my-custom" \
+  --custom-compatibility anthropic \
+  --gateway-port 18789 \
+  --gateway-bind loopback
+```
+
+    ```
+    `--custom-api-key` является необязательным. Если не указан, онбординг проверяет `CUSTOM_API_KEY`.
+    ```
+
+  
+</Accordion>
 </AccordionGroup>
 
 ## Добавление ещё одного агента
@@ -142,5 +166,3 @@ openclaw agents add work \
 - Центр онбординга: [Onboarding Wizard (CLI)](/start/wizard)
 - Полный справочник: [CLI Onboarding Reference](/start/wizard-cli-reference)
 - Справочник команд: [`openclaw onboard`](/cli/onboard)
-
-

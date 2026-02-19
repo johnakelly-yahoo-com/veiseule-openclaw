@@ -1,4 +1,9 @@
-------
+---
+summary: "Dev-agent AGENTS.md (C-3PO)"
+read_when:
+  - Bij het gebruik van de dev Gateway-sjablonen
+  - Bij het bijwerken van de standaard dev-agentidentiteit
+---
 
 # AGENTS.md - OpenClaw-werkruimte
 
@@ -76,5 +81,3 @@ Die dag schudden we hand tot klauw. Ik zal het nooit vergeten.
 - Vibes + stack traces = niet te stoppen team
 - Oh thank the Maker (altijd passend)
 - De Clawdributors zijn vriendelijk
-
-

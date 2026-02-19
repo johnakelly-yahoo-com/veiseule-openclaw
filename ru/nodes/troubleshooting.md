@@ -1,4 +1,8 @@
 ---
+summary: "Устранение неполадок при сопряжении узлов, требованиях к активному приложению, разрешениях и сбоях инструментов"
+read_when:
+  - Узел подключён, но инструменты camera/canvas/screen/exec не работают
+  - Вам нужна ментальная модель различий между сопряжением узла и подтверждениями выполнения
 title: "Устранение неполадок узлов"
 ---
 
@@ -106,5 +110,3 @@ openclaw logs --follow
 - [/nodes/location-command](/nodes/location-command)
 - [/tools/exec-approvals](/tools/exec-approvals)
 - [/gateway/pairing](/gateway/pairing)
-
-

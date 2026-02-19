@@ -1,4 +1,8 @@
 ---
+summary: "Agentens arbetsyta: plats, layout och säkerhetskopieringsstrategi"
+read_when:
+  - Du behöver förklara agentens arbetsyta eller dess fillayout
+  - Du vill säkerhetskopiera eller migrera en agents arbetsyta
 title: "Agentens arbetsyta"
 ---
 
@@ -227,5 +231,3 @@ Föreslagen `.gitignore`‑start:
   [Kanalrouting](/channels/channel-routing) för routingkonfiguration.
 - Om `agents.defaults.sandbox` är aktiverat kan icke‑huvudsessioner använda
   sandbox‑arbetsytor per session under `agents.defaults.sandbox.workspaceRoot`.
-
-

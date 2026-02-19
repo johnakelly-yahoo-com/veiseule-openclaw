@@ -1,6 +1,10 @@
 ---
 title: Lobster
-description: "OpenClaw کے لیے ٹائپڈ ورک فلو رن ٹائم — منظوری کے مراحل کے ساتھ قابلِ ترکیب پائپ لائنز۔"
+summary: "OpenClaw کے لیے ٹائپڈ ورک فلو رَن ٹائم، قابلِ بحالی منظوری گیٹس کے ساتھ۔"
+description: OpenClaw کے لیے ٹائپڈ ورک فلو رن ٹائم — منظوری کے مراحل کے ساتھ قابلِ ترکیب پائپ لائنز۔
+read_when:
+  - آپ کو واضح منظوریوں کے ساتھ تعیّنی کثیر-مرحلہ ورک فلو درکار ہوں
+  - آپ کو پہلے مراحل دوبارہ چلائے بغیر ورک فلو بحال کرنے کی ضرورت ہو
 ---
 
 # Lobster
@@ -333,5 +337,3 @@ OpenProse، Lobster کے ساتھ اچھی طرح کام کرتا ہے: ملٹی
 
 - Thread: [https://x.com/plattenschieber/status/2014508656335770033](https://x.com/plattenschieber/status/2014508656335770033)
 - Repo: [https://github.com/bloomedai/brain-cli](https://github.com/bloomedai/brain-cli)
-
-

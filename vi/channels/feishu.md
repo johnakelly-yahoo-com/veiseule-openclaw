@@ -1,4 +1,8 @@
 ---
+summary: "Tổng quan bot Feishu, tính năng và cấu hình"
+read_when:
+  - Bạn muốn kết nối một bot Feishu/Lark
+  - Bạn đang cấu hình kênh Feishu
 title: Feishu
 ---
 
@@ -274,7 +278,7 @@ Sau khi phê duyệt, bạn có thể trò chuyện bình thường.
 - `"allowlist"` = chỉ cho phép `groupAllowFrom`
 - `"disabled"` = tắt tin nhắn nhóm
 
-**2. Yêu cầu đề cập** (`channels.feishu.groups.<chat_id>.requireMention`):
+**2. Mention requirement** (`channels.feishu.groups.<chat_id>.requireMention`):
 
 - `true` = yêu cầu @mention (mặc định)
 - `false` = phản hồi không cần mention
@@ -528,9 +532,9 @@ Các tùy chọn chính:
 | ------------------------------------------------- | ------------------------------------------------------------------------ | --------- |
 | `channels.feishu.enabled`                         | Bật/tắt kênh                                                             | `true`    |
 | `channels.feishu.domain`                          | Miền API (`feishu` hoặc `lark`)                       | `feishu`  |
-| `channels.feishu.accounts.<id>.appId`             | App ID                                                                   | -         |
-| `channels.feishu.accounts.<id>.appSecret`         | App Secret                                                               | -         |
-| `channels.feishu.accounts.<id>.domain`            | Ghi đè miền API theo tài khoản                                           | `feishu`  |
+| `channels.feishu.accounts.&lt;id&gt;.appId`             | App ID                                                                   | -         |
+| `channels.feishu.accounts.&lt;id&gt;.appSecret`         | App Secret                                                               | -         |
+| `channels.feishu.accounts.&lt;id&gt;.domain`            | Ghi đè miền API theo tài khoản                                           | `feishu`  |
 | `channels.feishu.dmPolicy`                        | Chính sách DM                                                            | `pairing` |
 | `channels.feishu.allowFrom`                       | Allowlist DM (danh sách open_id) | -         |
 | `channels.feishu.groupPolicy`                     | Chính sách nhóm                                                          | `open`    |
@@ -574,5 +578,3 @@ Các tùy chọn chính:
 - ✅ Tệp
 - ✅ Âm thanh
 - ⚠️ Văn bản giàu định dạng (hỗ trợ một phần)
-
-

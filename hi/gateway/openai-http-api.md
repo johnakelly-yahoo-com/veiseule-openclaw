@@ -1,4 +1,7 @@
 ---
+summary: "Gateway से OpenAI‑संगत /v1/chat/completions HTTP एंडपॉइंट को उजागर करें"
+read_when:
+  - OpenAI Chat Completions की अपेक्षा करने वाले टूल्स का एकीकरण करते समय
 title: "OpenAI Chat Completions"
 ---
 
@@ -23,6 +26,7 @@ Gateway auth configuration का उपयोग करता है। एक 
 
 - जब `gateway.auth.mode="token"`, तब `gateway.auth.token` (या `OPENCLAW_GATEWAY_TOKEN`) का उपयोग करें।
 - जब `gateway.auth.mode="password"`, तब `gateway.auth.password` (या `OPENCLAW_GATEWAY_PASSWORD`) का उपयोग करें।
+- यदि `gateway.auth.rateLimit` कॉन्फ़िगर है और बहुत अधिक auth विफलताएँ होती हैं, तो endpoint `Retry-After` के साथ `429` लौटाता है।
 
 ## एजेंट का चयन
 
@@ -113,5 +117,3 @@ curl -N http://127.0.0.1:18789/v1/chat/completions \
     "messages": [{"role":"user","content":"hi"}]
   }'
 ```
-
-

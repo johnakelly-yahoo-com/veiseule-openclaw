@@ -1,4 +1,7 @@
 ---
+summary: "Składnia dyrektyw dla /think + /verbose oraz ich wpływ na rozumowanie modelu"
+read_when:
+  - Dostosowywanie parsowania dyrektyw think lub verbose albo ustawień domyślnych
 title: "Poziomy myślenia"
 ---
 
@@ -59,7 +62,7 @@ title: "Poziomy myślenia"
 
 - Dokumentacja trybu podwyższonego znajduje się w [Elevated mode](/tools/elevated).
 
-## Sygnały pulsu
+## Heartbeats
 
 - Treść sondy heartbeat to skonfigurowany prompt heartbeat (domyślnie: `Read HEARTBEAT.md if it exists (workspace context). Follow it strictly. Do not infer or repeat old tasks from prior chats. If nothing needs attention, reply HEARTBEAT_OK.`). Dyrektywy inline w wiadomości heartbeat działają jak zwykle (należy jednak unikać zmiany domyślnych ustawień sesji z heartbeatów).
 - Dostarczanie heartbeatów domyślnie obejmuje tylko ładunek końcowy. Aby wysyłać także osobną wiadomość `Reasoning:` (jeśli dostępna), ustaw `agents.defaults.heartbeat.includeReasoning: true` lub per-agent `agents.list[].heartbeat.includeReasoning: true`.
@@ -69,5 +72,3 @@ title: "Poziomy myślenia"
 - Selektor poziomu myślenia w czacie webowym odzwierciedla poziom zapisany w magazynie sesji/konfiguracji przy ładowaniu strony.
 - Wybranie innego poziomu dotyczy tylko następnej wiadomości (`thinkingOnce`); po wysłaniu selektor wraca do zapisanego poziomu sesji.
 - Aby zmienić domyślny poziom sesji, wyślij dyrektywę `/think:<level>` (jak wcześniej); selektor odzwierciedli ją po kolejnym przeładowaniu.
-
-

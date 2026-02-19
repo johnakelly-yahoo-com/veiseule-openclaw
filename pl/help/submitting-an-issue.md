@@ -1,4 +1,5 @@
 ---
+summary: "Zgłaszanie problemów i raportów błędów o wysokiej wartości informacyjnej"
 title: "Zgłaszanie problemu"
 ---
 
@@ -149,5 +150,3 @@ _Unikaj sekretów/szczegółów exploitów w publicznych zgłoszeniach. W przypa
 ### Zgłaszanie PR z poprawką
 
 Zgłoszenie problemu przed PR jest opcjonalne. Jeśli pomijasz, dołącz szczegóły w PR. Utrzymuj wąski zakres PR, wskaż numer zgłoszenia, dodaj testy lub wyjaśnij ich brak, udokumentuj zmiany zachowania/ryzyka, dołącz zanonimizowane logi/zrzuty ekranu jako dowód oraz uruchom właściwą walidację przed wysłaniem.
-
-

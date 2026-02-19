@@ -1,4 +1,8 @@
 ---
+summary: "Scripts do repositório: propósito, escopo e notas de segurança"
+read_when:
+  - Ao executar scripts do repositório
+  - Ao adicionar ou alterar scripts em ./scripts
 title: "Scripts"
 ---
 
@@ -22,5 +26,3 @@ Os scripts de monitoramento de autenticação estão documentados aqui:
 
 - Mantenha os scripts focados e documentados.
 - Adicione uma breve entrada no documento relevante (ou crie um se estiver faltando).
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Kör ACP-bryggan för IDE-integrationer"
+read_when:
+  - Konfigurera ACP-baserade IDE-integrationer
+  - Felsökning av ACP-sessionsroutning till Gateway
 title: "acp"
 ---
 
@@ -164,5 +168,3 @@ Läs mer om sessionsnycklar på [/concepts/session](/concepts/session).
 - `--server-args <args...>`: extra argument som skickas till ACP-servern.
 - `--server-verbose`: aktivera utförlig loggning på ACP-servern.
 - `--verbose, -v`: utförlig klientloggning.
-
-

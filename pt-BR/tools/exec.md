@@ -1,4 +1,8 @@
 ---
+summary: "Uso da ferramenta Exec, modos de stdin e suporte a TTY"
+read_when:
+  - Ao usar ou modificar a ferramenta exec
+  - Ao depurar comportamento de stdin ou TTY
 title: "Ferramenta Exec"
 ---
 
@@ -71,8 +75,8 @@ Exemplo:
   O OpenClaw adiciona `env.PATH` antes após o carregamento de perfil via uma variável de ambiente interna (sem interpolação de shell);
   `tools.exec.pathPrepend` também se aplica aqui.
 - `host=node`: somente substituições de env não bloqueadas que você passar são enviadas ao nó. Substituições de `env.PATH` são
-  rejeitadas para execução no host. Hosts de nó headless aceitam `PATH` apenas quando ele adiciona antes o PATH do host do nó
-  (sem substituição). Nós macOS descartam totalmente substituições de `PATH`.
+  rejeitadas para execução no host. Se você precisar de entradas adicionais no PATH em um nó,
+  configure o ambiente do serviço do host do nó (systemd/launchd) ou instale ferramentas em locais padrão.
 
 Vinculação de nó por agente (use o índice da lista de agentes na configuração):
 
@@ -115,8 +119,9 @@ em execução após `tools.exec.approvalRunningNoticeMs`, um único aviso `Exec 
 
 A aplicação da allowlist corresponde **apenas a caminhos de binários resolvidos** (sem correspondência por basename). Quando
 `security=allowlist`, comandos de shell são auto-permitidos somente se cada segmento do pipeline estiver
-na allowlist ou for um bin seguro. Encadeamento (`;`, `&&`, `||`) e redirecionamentos são rejeitados no
-modo de allowlist.
+na allowlist ou for um bin seguro. Encadeamentos (`;`, `&&`, `||`) e redirecionamentos são rejeitados no
+modo allowlist, a menos que cada segmento de nível superior satisfaça a allowlist (incluindo safe bins).
+Redirecionamentos continuam não suportados.
 
 ## Exemplos
 
@@ -173,5 +178,4 @@ Notas:
 - Disponível apenas para modelos OpenAI/OpenAI Codex.
 - A política de ferramentas ainda se aplica; `allow: ["exec"]` permite implicitamente `apply_patch`.
 - A configuração fica em `tools.exec.applyPatch`.
-
-
+- `tools.exec.applyPatch.workspaceOnly` é definido como `true` por padrão (contido no workspace). Defina como `false` apenas se você intencionalmente quiser que `apply_patch` grave/exclua fora do diretório do workspace.

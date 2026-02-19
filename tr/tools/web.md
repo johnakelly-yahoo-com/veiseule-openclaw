@@ -1,4 +1,9 @@
 ---
+summary: "Web arama + getirme araçları (Brave Search API, Perplexity direct/OpenRouter)"
+read_when:
+  - web_search veya web_fetch’i etkinleştirmek istiyorsunuz
+  - Brave Search API anahtarı kurulumuna ihtiyacınız var
+  - Web araması için Perplexity Sonar kullanmak istiyorsunuz
 title: "Web Araçları"
 ---
 
@@ -24,7 +29,7 @@ Bunlar tarayıcı otomasyonu **değildir**. JS ağırlıklı siteler veya giriş
 
 ## Bir arama sağlayıcısı seçme
 
-| Sağlayıcı                                 | Avantajlar                                             | Dezavantajlar                                       | API Anahtarı                                   |
+| Sağlayıcı                                 | Avantajlar                                       | Cons                                       | API Anahtarı                                   |
 | ----------------------------------------- | ------------------------------------------------ | ------------------------------------------ | ---------------------------------------------- |
 | **Brave** (varsayılan) | Hızlı, yapılandırılmış sonuçlar, ücretsiz katman | Geleneksel arama sonuçları                 | `BRAVE_API_KEY`                                |
 | **Perplexity**                            | AI-sentezli yanıtlar, alıntılar, gerçek zamanlı  | Perplexity veya OpenRouter erişimi gerekir | `OPENROUTER_API_KEY` veya `PERPLEXITY_API_KEY` |
@@ -168,6 +173,8 @@ Yapılandırılmış sağlayıcınızı kullanarak web araması yapar.
 - `search_lang` (isteğe bağlı): arama sonuçları için ISO dil kodu (örn. "de", "en", "fr")
 - `ui_lang` (isteğe bağlı): UI öğeleri için ISO dil kodu
 - `freshness` (isteğe bağlı, yalnızca Brave): keşif zamanına göre filtreleme (`pd`, `pw`, `pm`, `py` veya `YYYY-MM-DDtoYYYY-MM-DD`)
+  - Brave: `pd`, `pw`, `pm`, `py` veya `YYYY-MM-DDtoYYYY-MM-DD`
+  - Perplexity: `pd`, `pw`, `pm`, `py`
 
 **Örnekler:**
 
@@ -251,5 +258,3 @@ Notlar:
 - Yanıtlar, tekrar eden getirmeleri azaltmak için önbelleğe alınır (varsayılan 15 dakika).
 - Araç profilleri/izin listeleri kullanıyorsanız, `web_search`/`web_fetch` veya `group:web` ekleyin.
 - Brave anahtarı eksikse, `web_search` belgeler bağlantısı içeren kısa bir kurulum ipucu döndürür.
-
-

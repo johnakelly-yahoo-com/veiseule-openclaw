@@ -1,10 +1,14 @@
 ---
+summary: "ماڈل فراہم کنندگان کا جائزہ، مثال کنفیگز اور CLI فلو"
+read_when:
+  - آپ کو فراہم کنندہ بہ فراہم کنندہ ماڈل سیٹ اپ کا حوالہ درکار ہو
+  - آپ ماڈل فراہم کنندگان کے لیے مثال کنفیگز یا CLI آن بورڈنگ کمانڈز چاہتے ہوں
 title: "ماڈل فراہم کنندگان"
 ---
 
 # ماڈل فراہم کنندگان
 
-یہ صفحہ **LLM/model providers** کا احاطہ کرتا ہے (چیٹ چینلز جیسے WhatsApp/Telegram نہیں)۔
+This page covers **LLM/model providers** (not chat channels like WhatsApp/Telegram).
 For model selection rules, see [/concepts/models](/concepts/models).
 
 ## فوری قواعد
@@ -15,7 +19,7 @@ For model selection rules, see [/concepts/models](/concepts/models).
 
 ## بلٹ اِن فراہم کنندگان (pi-ai کیٹلاگ)
 
-OpenClaw کے ساتھ pi‑ai کیٹلاگ شامل ہوتا ہے۔ ان فراہم کنندگان کو **نہیں** درکار ہوتا
+OpenClaw ships with the pi‑ai catalog. These providers require **no**
 `models.providers` config; just set auth + pick a model.
 
 ### OpenAI
@@ -87,7 +91,7 @@ OpenClaw کے ساتھ pi‑ai کیٹلاگ شامل ہوتا ہے۔ ان فرا
 - Gemini CLI OAuth بطور بنڈلڈ پلگ اِن فراہم کیا جاتا ہے (`google-gemini-cli-auth`، بطورِ طے شدہ غیرفعال)۔
   - فعال کریں: `openclaw plugins enable google-gemini-cli-auth`
   - لاگ اِن: `openclaw models auth login --provider google-gemini-cli --set-default`
-  - نوٹ: آپ `openclaw.json` میں **نہیں** کوئی کلائنٹ آئی ڈی یا سیکرٹ پیسٹ کرتے۔ CLI لاگ اِن فلو محفوظ کرتا ہے
+  - Note: you do **not** paste a client id or secret into `openclaw.json`. The CLI login flow stores
     tokens in auth profiles on the gateway host.
 
 ### Z.AI (GLM)
@@ -116,6 +120,7 @@ OpenClaw کے ساتھ pi‑ai کیٹلاگ شامل ہوتا ہے۔ ان فرا
   - OpenAI‑مطابقت رکھنے والا بیس URL: `https://api.cerebras.ai/v1`۔
 - Mistral: `mistral` (`MISTRAL_API_KEY`)
 - GitHub Copilot: `github-copilot` (`COPILOT_GITHUB_TOKEN` / `GH_TOKEN` / `GITHUB_TOKEN`)
+- Hugging Face Inference: `huggingface` (`HUGGINGFACE_HUB_TOKEN` یا `HF_TOKEN`) — OpenAI-compatible router؛ مثال ماڈل: `huggingface/deepseek-ai/DeepSeek-R1`؛ CLI: `openclaw onboard --auth-choice huggingface-api-key`. دیکھیں [Hugging Face (Inference)](/providers/huggingface).
 
 ## `models.providers` کے ذریعے فراہم کنندگان (custom/base URL)
 
@@ -259,6 +264,32 @@ Ollama is automatically detected when running locally at `http://127.0.0.1:11434
 
 مثال (OpenAI‑مطابقت رکھنے والا):
 
+- Provider: `vllm`
+- Auth: اختیاری (آپ کے server پر منحصر ہے)
+- ڈیفالٹ base URL: `http://127.0.0.1:8000/v1`
+
+نوٹس:
+
+```bash
+export VLLM_API_KEY="vllm-local"
+```
+
+پھر ایک model سیٹ کریں (اسے `/v1/models` سے واپس آنے والے IDs میں سے کسی ایک سے تبدیل کریں):
+
+```json5
+{
+  agents: {
+    defaults: { model: { primary: "vllm/your-model-id" } },
+  },
+}
+```
+
+مزید دیکھیں: مکمل کنفیگریشن مثالوں کے لیے [/gateway/configuration](/gateway/configuration)۔
+
+### مقامی پراکسیز (LM Studio، vLLM، LiteLLM، وغیرہ)
+
+مثال (OpenAI‑مطابقت رکھنے والا):
+
 ```json5
 {
   agents: {
@@ -310,5 +341,3 @@ openclaw models list
 ```
 
 مزید دیکھیں: مکمل کنفیگریشن مثالوں کے لیے [/gateway/configuration](/gateway/configuration)۔
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "„Agenten-Werkzeugoberfläche für OpenClaw (Browser, Canvas, Nodes, Nachrichten, Cron), die veraltete `openclaw-*` Skills ersetzt“"
+read_when:
+  - Beim Hinzufügen oder Ändern von Agenten-Werkzeugen
+  - Beim Außerbetriebnehmen oder Ändern von `openclaw-*` Skills
 title: "„Werkzeuge“"
 ---
 
@@ -177,6 +181,7 @@ Optionale Plugin-Werkzeuge:
 
 Wenden Sie strukturierte Patches auf eine oder mehrere Dateien an. Für Multi-Hunk-Edits verwenden.
 Experimentell: aktivieren über `tools.exec.applyPatch.enabled` (nur OpenAI-Modelle).
+`tools.exec.applyPatch.workspaceOnly` ist standardmäßig auf `true` gesetzt (auf den Workspace beschränkt). Setzen Sie es nur auf `false`, wenn Sie ausdrücklich möchten, dass `apply_patch` außerhalb des Workspace-Verzeichnisses schreibt/löscht.
 
 ### `exec`
 
@@ -506,5 +511,3 @@ Werkzeuge werden in zwei parallelen Kanälen bereitgestellt:
 
 Das bedeutet, der Agent sieht sowohl „welche Werkzeuge existieren“ als auch „wie man sie aufruft“. Wenn ein Werkzeug
 weder im System-Prompt noch im Schema erscheint, kann das Modell es nicht aufrufen.
-
-

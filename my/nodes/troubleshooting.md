@@ -1,4 +1,8 @@
 ---
+summary: "နိုဒ် ချိတ်ဆက်ခြင်း၊ foreground လိုအပ်ချက်များ၊ ခွင့်ပြုချက်များနှင့် ကိရိယာ မအောင်မြင်မှုများကို ပြဿနာဖြေရှင်းခြင်း"
+read_when:
+  - နိုဒ်သည် ချိတ်ဆက်ထားသော်လည်း camera/canvas/screen/exec ကိရိယာများ မအလုပ်လုပ်ပါက
+  - နိုဒ် pairing နှင့် approvals အကြား စိတ်ကူးမော်ဒယ်ကို နားလည်ရန် လိုအပ်ပါက
 title: "နိုဒ် ပြဿနာဖြေရှင်းခြင်း"
 ---
 
@@ -46,12 +50,12 @@ openclaw logs --follow
 
 ## ခွင့်ပြုချက် မက်ထရစ်ဇယား
 
-| လုပ်ဆောင်နိုင်စွမ်း                   | iOS                                                               | Android                                                   | macOS node အက်ပ်                                  | ပုံမှန် မအောင်မြင်မှု ကုဒ်     |
-| ---------------------------- | ----------------------------------------------------------------- | --------------------------------------------------------- | ----------------------------------------------- | ------------------------------ |
-| `camera.snap`၊ `camera.clip` | Camera (+ clip အသံအတွက် mic)                   | Camera (+ clip အသံအတွက် mic)           | Camera (+ clip အသံအတွက် mic) | `*_PERMISSION_REQUIRED`        |
-| `screen.record`              | မျက်နှာပြင် မှတ်တမ်းတင်ခြင်း (+ မိုက်ခရိုဖုန်း ရွေးချယ်နိုင်)              | မျက်နှာပြင် ဖမ်းယူရန် အချက်ပေး (+ မိုက်ခရိုဖုန်း ရွေးချယ်နိုင်) | မျက်နှာပြင် မှတ်တမ်းတင်ခြင်း                                | `*_PERMISSION_REQUIRED`        |
-| `location.get`               | While Using သို့မဟုတ် Always (mode အပေါ်မူတည်) | Mode အပေါ်မူတည်၍ Foreground/Background location           | တည်နေရာ ခွင့်ပြုချက်                             | `LOCATION_PERMISSION_REQUIRED` |
-| `system.run`                 | n/a (node host path)                           | n/a (node host path)                   | Exec approvals လိုအပ်သည်                        | `SYSTEM_RUN_DENIED`            |
+| လုပ်ဆောင်နိုင်စွမ်း          | iOS                                                                              | Android                                                                            | macOS node အက်ပ်                                | ပုံမှန် မအောင်မြင်မှု ကုဒ်     |
+| ---------------------------- | -------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ----------------------------------------------- | ------------------------------ |
+| `camera.snap`၊ `camera.clip` | Camera (+ clip အသံအတွက် mic)                                  | Camera (+ clip အသံအတွက် mic)                                    | Camera (+ clip အသံအတွက် mic) | `*_PERMISSION_REQUIRED`        |
+| `screen.record`              | မျက်နှာပြင် မှတ်တမ်းတင်ခြင်း (+ မိုက်ခရိုဖုန်း ရွေးချယ်နိုင်) | မျက်နှာပြင် ဖမ်းယူရန် အချက်ပေး (+ မိုက်ခရိုဖုန်း ရွေးချယ်နိုင်) | မျက်နှာပြင် မှတ်တမ်းတင်ခြင်း                    | `*_PERMISSION_REQUIRED`        |
+| `location.get`               | While Using သို့မဟုတ် Always (mode အပေါ်မူတည်)                | Mode အပေါ်မူတည်၍ Foreground/Background location                                    | တည်နေရာ ခွင့်ပြုချက်                            | `LOCATION_PERMISSION_REQUIRED` |
+| `system.run`                 | n/a (node host path)                                          | n/a (node host path)                                            | Exec approvals လိုအပ်သည်                        | `SYSTEM_RUN_DENIED`            |
 
 ## Pairing နှင့် approvals အကြား ကွာခြားချက်
 
@@ -106,5 +110,3 @@ openclaw logs --follow
 - [/nodes/location-command](/nodes/location-command)
 - [/tools/exec-approvals](/tools/exec-approvals)
 - [/gateway/pairing](/gateway/pairing)
-
-

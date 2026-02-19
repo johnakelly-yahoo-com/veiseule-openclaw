@@ -1,4 +1,9 @@
 ---
+summary: "ClawHub လမ်းညွှန် — အများပြည်သူ အသုံးပြုနိုင်သော skills စာရင်းသွင်းမှု + CLI လုပ်ငန်းစဉ်များ"
+read_when:
+  - ClawHub ကို အသုံးပြုသူအသစ်များထံ မိတ်ဆက်ပေးသည့်အခါ
+  - Skills များကို ထည့်သွင်းခြင်း၊ ရှာဖွေခြင်း သို့မဟုတ် ထုတ်ဝေခြင်း
+  - ClawHub CLI flags များနှင့် sync လုပ်ဆောင်ပုံကို ရှင်းပြရာတွင်
 title: "ClawHub"
 ---
 
@@ -244,5 +249,3 @@ export CLAWHUB_DISABLE_TELEMETRY=1
 - `CLAWHUB_CONFIG_PATH`: CLI မှ token/config ကို သိမ်းဆည်းရာနေရာကို override လုပ်ရန်။
 - `CLAWHUB_WORKDIR`: မူလ workdir ကို override လုပ်ရန်။
 - `CLAWHUB_DISABLE_TELEMETRY=1`: `sync` တွင် telemetry ကို ပိတ်ရန်။
-
-

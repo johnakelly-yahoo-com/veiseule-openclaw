@@ -1,4 +1,5 @@
 ---
+summary: "cron.add girdi işlemesini sertleştirme, şemaları hizalama ve cron UI/ajan araçlarını iyileştirme"
 owner: "openclaw"
 status: "complete"
 last_updated: "2026-01-05"
@@ -7,7 +8,7 @@ title: "Cron Add Sertleştirme"
 
 # Cron Add Sertleştirme ve Şema Hizalaması
 
-## Bağlam
+## Context
 
 Son gateway günlükleri, geçersiz parametrelerle (eksik `sessionTarget`, `wakeMode`, `payload` ve hatalı `schedule`) tekrarlanan `cron.add` hatalarını gösteriyor. Bu durum, en az bir istemcinin (muhtemelen ajan araç çağrısı yolu) sarmalanmış veya kısmen belirtilmiş iş yükleri gönderdiğini gösterir. Ayrıca TypeScript’teki cron sağlayıcı enum’ları, gateway şeması, CLI bayrakları ve UI form türleri arasında sapma bulunuyor; ayrıca `cron.status` için bir UI uyumsuzluğu var (UI `jobCount` beklerken gateway `jobs` döndürüyor).
 
@@ -56,9 +57,7 @@ Normalize edilmiş şekil ve örnekler için [Cron jobs](/automation/cron-jobs) 
 
 - Manuel Control UI duman testi: her sağlayıcı için bir cron işi ekleyin + durum iş sayısını doğrulayın.
 
-## Açık Sorular
+## Open Questions
 
 - `cron.add`, istemcilerden açık `state` kabul etmeli mi (şu anda şema tarafından yasak)?
 - `webchat`’a açık bir teslim sağlayıcısı olarak izin vermeli miyiz (şu anda teslim çözümlemesinde filtreleniyor)?
-
-

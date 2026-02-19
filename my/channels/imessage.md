@@ -1,24 +1,52 @@
 ---
-title: iMessage
+summary: "Legacy iMessage support via imsg (JSON-RPC over stdio). New setups should use BlueBubbles."
+read_when:
+  - iMessage ထောက်ပံ့မှု တပ်ဆင်ခြင်း
+  - iMessage ပို့ခြင်း/လက်ခံခြင်း ကို Debug လုပ်ခြင်း
+title: "iMessage"
 ---
 
 # iMessage (အဟောင်း: imsg)
 
-> **အကြံပြုချက်:** iMessage အသစ်တပ်ဆင်မှုများအတွက် [BlueBubbles](/channels/bluebubbles) ကို အသုံးပြုပါ။
->
-> `imsg` ချန်နယ်သည် အဟောင်း external-CLI ပေါင်းစည်းမှု ဖြစ်ပြီး အနာဂတ် release တစ်ခုတွင် ဖယ်ရှားခံရနိုင်သည်။
+<Warning>
+အသစ်သော iMessage deployment များအတွက် <a href="/channels/bluebubbles">BlueBubbles</a> ကို အသုံးပြုပါ။
 
-Status: legacy external CLI integration. Gateway spawns `imsg rpc` (JSON-RPC over stdio).
+`imsg` integration သည် legacy ဖြစ်ပြီး နောင်လာမည့် release တစ်ခုတွင် ဖယ်ရှားခံရနိုင်သည်။ 
+</Warning>
 
-## Quick setup (beginner)
+Status: legacy external CLI integration. Gateway သည် `imsg rpc` ကို spawn လုပ်ပြီး stdio ပေါ်တွင် JSON-RPC ဖြင့် ဆက်သွယ်သည် (သီးခြား daemon/port မလိုအပ်ပါ).
 
-1. ဤ Mac တွင် Messages ကို sign in လုပ်ထားကြောင်း သေချာပါစေ။
-2. `imsg` ကို ထည့်သွင်းပါ:
-   - `brew install steipete/tap/imsg`
-3. OpenClaw ကို `channels.imessage.cliPath` နှင့် `channels.imessage.dbPath` ဖြင့် ဖွဲ့စည်းပြင်ဆင်ပါ။
-4. gateway ကို စတင်ပြီး macOS prompt များ (Automation + Full Disk Access) ကို အတည်ပြုပါ။
+<CardGroup cols={3}>
+  <Card title="BlueBubbles (recommended)" icon="message-circle" href="/channels/bluebubbles">
+    အသစ်သော setup များအတွက် အကြံပြုထားသော iMessage လမ်းကြောင်း။
+  
+</Card>
+  <Card title="Pairing" icon="link" href="/channels/pairing">
+    iMessage DMs များသည် ပုံမှန်အားဖြင့် pairing mode ဖြင့် လုပ်ဆောင်သည်။
+  
+</Card>
+  <Card title="Configuration reference" icon="settings" href="/gateway/configuration-reference#imessage">
+    iMessage field အပြည့်အစုံ ရည်ညွှန်းချက်။
+  
+</Card>
+</CardGroup>
 
-အနည်းဆုံး config:
+## အမြန် စတင်သတ်မှတ်ခြင်း
+
+<Tabs>
+  <Tab title="Local Mac (fast path)">
+    <Steps>
+      <Step title="Install and verify imsg">
+
+```bash
+brew install steipete/tap/imsg
+imsg rpc --help
+```
+
+        
+</Step>
+      
+        <Step title="Configure OpenClaw">
 
 ```json5
 {
@@ -32,45 +60,76 @@ Status: legacy external CLI integration. Gateway spawns `imsg rpc` (JSON-RPC ove
 }
 ```
 
-## What it is
+        
+</Step>
+      
+        <Step title="Start gateway">
 
-- macOS ပေါ်ရှိ `imsg` ကို အခြေခံထားသော iMessage ချန်နယ်။
-- Deterministic routing: ပြန်လည်ဖြေကြားချက်များသည် အမြဲ iMessage သို့ ပြန်သွားသည်။
-- DM မက်ဆေ့ချ်များသည် agent ၏ အဓိက ဆက်ရှင်ကို မျှဝေသုံးစွဲသည်; အုပ်စုများကို သီးခြားထားသည် (`agent:<agentId>:imessage:group:<chat_id>`)။
-- `is_group=false` ပါဝင်သော အများပါဝင် thread တစ်ခု ဝင်လာပါက `channels.imessage.groups` ကို အသုံးပြု၍ `chat_id` ဖြင့် သီးခြားထားနိုင်သည် (“Group-ish threads” ကို အောက်တွင် ကြည့်ပါ)။
+```bash
+openclaw gateway
+```
 
-## Config writes
+      {
+        channels: { imessage: { configWrites: false } },
+      }
 
-မူလအားဖြင့် iMessage သည် `/config set|unset` ကြောင့် ဖြစ်ပေါ်လာသော config update များကို ရေးသားခွင့်ပြုထားသည် (`commands.config: true` လိုအပ်သည်)။
+```bash
+openclaw pairing list imessage
+openclaw pairing approve imessage <CODE>
+```
 
-ပိတ်ရန်:
+        ```
+            Pairing request များသည် ၁ နာရီအတွင်း သက်တမ်းကုန်ဆုံးမည်။
+          
+</Step>
+        
+</Steps>
+        ```
+
+  
+</Tab>
+
+  <Tab title="Remote Mac over SSH">
+    OpenClaw သည် stdio-compatible `cliPath` တစ်ခုသာ လိုအပ်သောကြောင့် `cliPath` ကို remote Mac တစ်ခုသို့ SSH ချိတ်ဆက်ပြီး `imsg` ကို run လုပ်ပေးသော wrapper script တစ်ခုသို့ ညွှန်ပြနိုင်သည်။
+
+```bash
+#!/usr/bin/env bash
+exec ssh -T gateway-host imsg "$@"
+```
+
+    ```
+    attachment များကို ဖွင့်ထားပါက အကြံပြုထားသော config:
+    ```
 
 ```json5
 {
-  channels: { imessage: { configWrites: false } },
+  channels: {
+    imessage: {
+      enabled: true,
+      cliPath: "~/.openclaw/scripts/imsg-ssh",
+      remoteHost: "user@gateway-host", // used for SCP attachment fetches
+      includeAttachments: true,
+    },
+  },
 }
 ```
 
-## Requirements
+    ```
+    `remoteHost` ကို သတ်မှတ်မထားပါက OpenClaw သည် SSH wrapper script ကို parse လုပ်၍ အလိုအလျောက် စစ်ဆေးဖော်ထုတ်ရန် ကြိုးစားသည်။
+    ```
 
-- Messages ကို sign in လုပ်ထားသော macOS။
-- OpenClaw + `imsg` အတွက် Full Disk Access (Messages DB ကို ဝင်ရောက်ရန်)။
-- ပို့ရာတွင် Automation ခွင့်ပြုချက်။
-- `channels.imessage.cliPath` သည် stdin/stdout ကို proxy လုပ်သော မည်သည့် command မဆို ကိုညွှန်ပြနိုင်သည် (ဥပမာ၊ အခြား Mac သို့ SSH ချိတ်ပြီး `imsg rpc` ကို chạy လုပ်သည့် wrapper script)။
+  
+</Tab>
+</Tabs>
 
-## Troubleshooting macOS Privacy and Security TCC
+## လိုအပ်ချက်များနှင့် ခွင့်ပြုချက်များ (macOS)
 
-ပို့ခြင်း/လက်ခံခြင်း မအောင်မြင်ပါက (ဥပမာ `imsg rpc` သည် non-zero ဖြင့် ထွက်ခြင်း၊ timeout ဖြစ်ခြင်း၊ သို့မဟုတ် gateway က ရပ်နေသလို မြင်ရခြင်း) အကြောင်းရင်းအဖြစ် macOS ခွင့်ပြုချက် prompt တစ်ခုကို မအတည်ပြုခဲ့ခြင်း ဖြစ်နိုင်သည်။
+- `imsg` ကို လုပ်ဆောင်နေသော Mac တွင် Messages အကောင့်ဝင်ထားရပါမည်။
+- OpenClaw/`imsg` ကို လုပ်ဆောင်နေသော process context အတွက် Full Disk Access လိုအပ်ပါသည် (Messages DB ကို အသုံးပြုရန်)။
+- Messages.app မှတဆင့် မက်ဆေ့ချ်များ ပို့ရန် Automation ခွင့်ပြုချက် လိုအပ်ပါသည်။
 
-macOS grants TCC permissions per app/process context. Approve prompts in the same context that runs `imsg` (for example, Terminal/iTerm, a LaunchAgent session, or an SSH-launched process).
-
-Checklist:
-
-- **Full Disk Access**: allow access for the process running OpenClaw (and any shell/SSH wrapper that executes `imsg`). This is required to read the Messages database (`chat.db`).
-- **Automation → Messages**: OpenClaw ကို chạy လုပ်နေသော process (သို့မဟုတ် သင့် terminal) ကို outbound ပို့ခြင်းအတွက် **Messages.app** ကို ထိန်းချုပ်ခွင့် ပေးပါ။
-- **`imsg` CLI health**: `imsg` ကို ထည့်သွင်းထားပြီး RPC (`imsg rpc --help`) ကို ပံ့ပိုးကြောင်း စစ်ဆေးပါ။
-
-Tip: If OpenClaw is running headless (LaunchAgent/systemd/SSH) the macOS prompt can be easy to miss. Run a one-time interactive command in a GUI terminal to force the prompt, then retry:
+<Tip>
+ခွင့်ပြုချက်များကို process context တစ်ခုချင်းအလိုက် ခွင့်ပြုရပါသည်။ gateway ကို headless (LaunchAgent/SSH) ဖြင့် လုပ်ဆောင်ပါက prompt များ ပေါ်လာစေရန် တူညီသော context တွင် တစ်ကြိမ်သာ interactive command ကို လုပ်ဆောင်ပါ။:
 
 ```bash
 imsg chats --limit 1
@@ -78,128 +137,101 @@ imsg chats --limit 1
 imsg send <handle> "test"
 ```
 
-ဆက်စပ် macOS ဖိုလ်ဒါ ခွင့်ပြုချက်များ (Desktop/Documents/Downloads): [/platforms/mac/permissions](/platforms/mac/permissions)။
+</Tip>
 
-## Setup (fast path)
+## ဝင်ရောက်ခွင့် ထိန်းချုပ်မှုနှင့် လမ်းကြောင်းသတ်မှတ်ခြင်း
 
-1. ဤ Mac တွင် Messages ကို sign in လုပ်ထားကြောင်း သေချာပါစေ။
-2. iMessage ကို ဖွဲ့စည်းပြင်ဆင်ပြီး gateway ကို စတင်ပါ။
+<Tabs>
+  <Tab title="DM policy">
+    `channels.imessage.dmPolicy` သည် direct messages များကို ထိန်းချုပ်သည်:
 
-### Dedicated bot macOS user (identity ကို သီးခြားထားရန်)
+    ```
+    - `pairing` (မူလသတ်မှတ်ချက်)
+    - `allowlist`
+    - `open` (`allowFrom` တွင် `"*"` ထည့်သွင်းထားရန် လိုအပ်သည်)
+    - `disabled`
+    
+    Allowlist field: `channels.imessage.allowFrom`.
+    
+    Allowlist entries များသည် handle များ သို့မဟုတ် chat target များ (`chat_id:*`, `chat_guid:*`, `chat_identifier:*`) ဖြစ်နိုင်သည်။
+    ```
 
-bot ကို **သီးခြား iMessage identity** ဖြင့် ပို့စေလိုပါက (သင့်ကိုယ်ပိုင် Messages ကို သန့်ရှင်းထားရန်) သီးခြား Apple ID + သီးခြား macOS user ကို အသုံးပြုပါ။
+  
+</Tab>
 
-1. သီးခြား Apple ID တစ်ခု ဖန်တီးပါ (ဥပမာ `my-cool-bot@icloud.com`)။
-   - Apple သည် စိစစ်မှု / 2FA အတွက် ဖုန်းနံပါတ် လိုအပ်နိုင်သည်။
-2. macOS user တစ်ခု ဖန်တီးပါ (ဥပမာ `openclawhome`) နှင့် ထို user ဖြင့် sign in လုပ်ပါ။
-3. ထို macOS user တွင် Messages ကို ဖွင့်ပြီး bot Apple ID ဖြင့် iMessage ကို sign in လုပ်ပါ။
-4. Remote Login ကို ဖွင့်ပါ (System Settings → General → Sharing → Remote Login)။
-5. `imsg` ကို ထည့်သွင်းပါ:
-   - `brew install steipete/tap/imsg`
-6. `ssh <bot-macos-user>@localhost true` ကို password မလိုဘဲ အလုပ်လုပ်စေရန် SSH ကို သတ်မှတ်ပါ။
-7. `channels.imessage.accounts.bot.cliPath` ကို bot user အဖြစ် `imsg` ကို chạy လုပ်သော SSH wrapper သို့ ညွှန်ပြပါ။
+  <Tab title="Group policy + mentions">
+    `channels.imessage.groupPolicy` သည် group ကို ကိုင်တွယ်ပုံကို ထိန်းချုပ်သည်:
 
-First-run note: sending/receiving may require GUI approvals (Automation + Full Disk Access) in the _bot macOS user_. If `imsg rpc` looks stuck or exits, log into that user (Screen Sharing helps), run a one-time `imsg chats --limit 1` / `imsg send ...`, approve prompts, then retry. See [Troubleshooting macOS Privacy and Security TCC](#troubleshooting-macos-privacy-and-security-tcc).
-
-Example wrapper (`chmod +x`). Replace `<bot-macos-user>` with your actual macOS username:
-
-```bash
-#!/usr/bin/env bash
-set -euo pipefail
-
-# Run an interactive SSH once first to accept host keys:
-#   ssh <bot-macos-user>@localhost true
-exec /usr/bin/ssh -o BatchMode=yes -o ConnectTimeout=5 -T <bot-macos-user>@localhost \
-  "/usr/local/bin/imsg" "$@"
-```
-
-Config ဥပမာ:
-
-```json5
-{
-  channels: {
-    imessage: {
-      enabled: true,
-      accounts: {
-        bot: {
-          name: "Bot",
+    ```
+    {
+      channels: {
+        imessage: {
           enabled: true,
-          cliPath: "/path/to/imsg-bot",
-          dbPath: "/Users/<bot-macos-user>/Library/Messages/chat.db",
+          accounts: {
+            bot: {
+              name: "Bot",
+              enabled: true,
+              cliPath: "/path/to/imsg-bot",
+              dbPath: "/Users/<bot-macos-user>/Library/Messages/chat.db",
+            },
+          },
         },
       },
-    },
-  },
-}
-```
+    }
+    ```
 
-single-account setup များအတွက် `accounts` map အစား flat options (`channels.imessage.cliPath`, `channels.imessage.dbPath`) ကို အသုံးပြုပါ။
+  
+</Tab>
 
-### Remote/SSH variant (optional)
+  <Tab title="Sessions and deterministic replies">
+    - DMs များသည် direct routing ကို အသုံးပြုသည်၊ group များသည် group routing ကို အသုံးပြုသည်။
+    - မူလသတ်မှတ်ချက် `session.dmScope=main` ဖြစ်ပါက iMessage DMs များကို agent ၏ main session ထဲတွင် ပေါင်းစည်းထားသည်။
+    - Group session များသည် သီးခြားထားရှိသည် (`agent:<agentId> :imessage:group:<chat_id>`)။
+    - ပြန်စာများကို မူလ channel/target metadata အပေါ် အခြေခံ၍ iMessage သို့ ပြန်လည် လမ်းကြောင်းသတ်မှတ်ပို့သည်။
 
-If you want iMessage on another Mac, set `channels.imessage.cliPath` to a wrapper that runs `imsg` on the remote macOS host over SSH. OpenClaw only needs stdio.
+    ```
+    Group အလားအလာရှိသော thread အပြုအမူ:
+    
+    အချို့သော ပါဝင်သူများစွာပါဝင်သည့် iMessage thread များသည် `is_group=false` ဖြင့် ရောက်ရှိနိုင်သည်။
+    ထို `chat_id` ကို `channels.imessage.groups` အောက်တွင် အတိအလင်း သတ်မှတ်ထားပါက OpenClaw သည် ၎င်းကို group traffic အဖြစ် သတ်မှတ်ကိုင်တွယ်သည် (group gating + group session isolation)။
+    ```
 
-Wrapper ဥပမာ:
+  
+</Tab>
+</Tabs>
 
-```bash
-#!/usr/bin/env bash
-exec ssh -T gateway-host imsg "$@"
-```
+## Deployment ပုံစံများ
 
-**Remote attachments:** When `cliPath` points to a remote host via SSH, attachment paths in the Messages database reference files on the remote machine. OpenClaw can automatically fetch these over SCP by setting `channels.imessage.remoteHost`:
+<AccordionGroup>
+  <Accordion title="Dedicated bot macOS user (separate iMessage identity)">
+    Bot traffic ကို သင်၏ ကိုယ်ပိုင် Messages profile မှ ခွဲထုတ်ထားရန် သီးသန့် Apple ID နှင့် macOS user ကို အသုံးပြုပါ။
 
-```json5
-{
-  channels: {
-    imessage: {
-      cliPath: "~/imsg-ssh", // SSH wrapper to remote Mac
-      remoteHost: "user@gateway-host", // for SCP file transfer
-      includeAttachments: true,
-    },
-  },
-}
-```
+    ```
+    {
+      channels: {
+        imessage: {
+          cliPath: "~/imsg-ssh", // SSH wrapper to remote Mac
+          remoteHost: "user@gateway-host", // for SCP file transfer
+          includeAttachments: true,
+        },
+      },
+    }
+    ```
 
-If `remoteHost` is not set, OpenClaw attempts to auto-detect it by parsing the SSH command in your wrapper script. Explicit configuration is recommended for reliability.
+  
+</Accordion>
 
-#### Remote Mac via Tailscale (example)
+  <Accordion title="Remote Mac over Tailscale (example)">
+    ပုံမှန် topology:
 
-If the Gateway runs on a Linux host/VM but iMessage must run on a Mac, Tailscale is the simplest bridge: the Gateway talks to the Mac over the tailnet, runs `imsg` via SSH, and SCPs attachments back.
-
-Architecture:
-
-```mermaid
-%%{init: {
-  'theme': 'base',
-  'themeVariables': {
-    'primaryColor': '#ffffff',
-    'primaryTextColor': '#000000',
-    'primaryBorderColor': '#000000',
-    'lineColor': '#000000',
-    'secondaryColor': '#f9f9fb',
-    'tertiaryColor': '#ffffff',
-    'clusterBkg': '#f9f9fb',
-    'clusterBorder': '#000000',
-    'nodeBorder': '#000000',
-    'mainBkg': '#ffffff',
-    'edgeLabelBackground': '#ffffff'
-  }
-}}%%
-flowchart TB
- subgraph T[" "]
- subgraph Tailscale[" "]
-    direction LR
-      Gateway["<b>Gateway host (Linux/VM)<br></b><br>openclaw gateway<br>channels.imessage.cliPath"]
-      Mac["<b>Mac with Messages + imsg<br></b><br>Messages signed in<br>Remote Login enabled"]
-  end
-    Gateway -- SSH (imsg rpc) --> Mac
-    Mac -- SCP (attachments) --> Gateway
-    direction BT
-    User["user@gateway-host"] -- "Tailscale tailnet (hostname or 100.x.y.z)" --> Gateway
-end
-```
-
-Concrete config example (Tailscale hostname):
+    ```
+    - gateway ကို Linux/VM ပေါ်တွင် လုပ်ဆောင်သည်
+    - iMessage + `imsg` ကို သင့်၏ tailnet အတွင်းရှိ Mac ပေါ်တွင် လုပ်ဆောင်သည်
+    - `cliPath` wrapper သည် SSH ကို အသုံးပြု၍ `imsg` ကို လုပ်ဆောင်သည်
+    - `remoteHost` သည် SCP ဖြင့် attachment များကို ရယူနိုင်စေသည်
+    
+    Example:
+    ```
 
 ```json5
 {
@@ -215,124 +247,170 @@ Concrete config example (Tailscale hostname):
 }
 ```
 
-Example wrapper (`~/.openclaw/scripts/imsg-ssh`):
-
 ```bash
 #!/usr/bin/env bash
 exec ssh -T bot@mac-mini.tailnet-1234.ts.net imsg "$@"
 ```
 
-မှတ်ချက်များ —
+    ```
+    SSH နှင့် SCP နှစ်ခုစလုံးကို non-interactive ဖြစ်စေရန် SSH keys များကို အသုံးပြုပါ။
+    ```
 
-- Ensure the Mac is signed in to Messages, and Remote Login is enabled.
-- Use SSH keys so `ssh bot@mac-mini.tailnet-1234.ts.net` works without prompts.
-- `remoteHost` should match the SSH target so SCP can fetch attachments.
+  
+</Accordion>
 
-Multi-account support: use `channels.imessage.accounts` with per-account config and optional `name`. See [`gateway/configuration`](/gateway/configuration#telegramaccounts--discordaccounts--slackaccounts--signalaccounts--imessageaccounts) for the shared pattern. Don't commit `~/.openclaw/openclaw.json` (it often contains tokens).
+  <Accordion title="Multi-account pattern">
+    iMessage သည် `channels.imessage.accounts` အောက်တွင် account တစ်ခုချင်းအလိုက် config ကို ထောက်ပံ့သည်။
 
-## Access control (DMs + groups)
+    ```
+    Account တစ်ခုချင်းစီသည် `cliPath`, `dbPath`, `allowFrom`, `groupPolicy`, `mediaMaxMb` နှင့် history settings စသည့် fields များကို override လုပ်နိုင်သည်။
+    ```
 
-DM များ:
+  
+</Accordion>
+</AccordionGroup>
 
-- မူလ: `channels.imessage.dmPolicy = "pairing"`။
-- မသိသော ပို့သူများသည် pairing code ကို လက်ခံရရှိပြီး အတည်ပြုမပြုလုပ်မချင်း မက်ဆေ့ချ်များကို လျစ်လျူရှုမည် (code များသည် ၁ နာရီအတွင်း သက်တမ်းကုန်ဆုံးသည်)။
-- အတည်ပြုရန်-
-  - `openclaw pairing list imessage`
-  - `openclaw pairing approve imessage <CODE>`
-- Pairing is the default token exchange for iMessage DMs. Details: [Pairing](/channels/pairing)
+## မီဒီယာ၊ အပိုင်းခွဲခြင်း (chunking) နှင့် ပို့ဆောင်ရေး target များ
 
-အုပ်စုများ:
+<AccordionGroup>
+  <Accordion title="Attachments and media">
+    - ဝင်လာသော attachment များကို လက်ခံခြင်းသည် optional ဖြစ်သည်: `channels.imessage.includeAttachments`
+    - `remoteHost` သတ်မှတ်ထားပါက remote attachment path များကို SCP ဖြင့် ရယူနိုင်သည်
+    - ထွက်ပေါ်မည့် မီဒီယာ အရွယ်အစားကို `channels.imessage.mediaMaxMb` (မူလ 16 MB) ဖြင့် သတ်မှတ်သည်
+  
+</Accordion>
 
-- `channels.imessage.groupPolicy = open | allowlist | disabled`။
-- `allowlist` ကို သတ်မှတ်ထားသည့်အခါ အုပ်စုတွင် မည်သူက trigger လုပ်နိုင်သည်ကို `channels.imessage.groupAllowFrom` က ထိန်းချုပ်သည်။
-- Mention gating uses `agents.list[].groupChat.mentionPatterns` (or `messages.groupChat.mentionPatterns`) because iMessage has no native mention metadata.
-- Multi-agent override: per-agent patterns ကို `agents.list[].groupChat.mentionPatterns` တွင် သတ်မှတ်ပါ။
+  <Accordion title="Outbound chunking">
+    - စာသား chunk ကန့်သတ်ချက်: `channels.imessage.textChunkLimit` (မူလ 4000)
+    - chunk mode: `channels.imessage.chunkMode`
+      - `length` (မူလ)
+      - `newline` (paragraph ကို ဦးစားပေး၍ ခွဲခြားခြင်း)
+  
+</Accordion>
 
-## How it works (behavior)
+  <Accordion title="Addressing formats">
+    ဦးစားပေး အသုံးပြုသင့်သော explicit target များ:
 
-- `imsg` streams message events; the gateway normalizes them into the shared channel envelope.
-- Replies always route back to the same chat id or handle.
+    ```
+    - `chat_id:123` (တည်ငြိမ်သော routing အတွက် အကြံပြုသည်)
+    - `chat_guid:...`
+    - `chat_identifier:...`
+    
+    Handle target များကိုလည်း ထောက်ပံ့သည်:
+    
+    - `imessage:+1555...`
+    - `sms:+1555...`
+    - `user@example.com`
+    ```
 
-## Group-ish threads (`is_group=false`)
+```bash
+imsg chats --limit 20
+```
 
-`channels.imessage.groups` အောက်တွင် `chat_id` ကို ထင်ရှားစွာ သတ်မှတ်ပါက OpenClaw သည် ထို thread ကို အောက်ပါအတွက် “group” အဖြစ် သဘောထားမည်-
+  
+</Accordion>
+</AccordionGroup>
 
-If you explicitly configure a `chat_id` under `channels.imessage.groups`, OpenClaw treats that thread as a “group” for:
+## Config writes
 
-- session isolation (separate `agent:<agentId>:imessage:group:<chat_id>` session key)
-- group allowlisting / mention gating behavior
+iMessage သည် မူလအားဖြင့် channel မှ စတင်သော config write များကို ခွင့်ပြုထားသည် (`commands.config: true` ဖြစ်သောအခါ `/config set|unset` အတွက်)။
 
-ဥပမာ:
+ပိတ်ရန်:
 
 ```json5
 {
   channels: {
     imessage: {
-      groupPolicy: "allowlist",
-      groupAllowFrom: ["+15555550123"],
-      groups: {
-        "42": { requireMention: false },
-      },
+      configWrites: false,
     },
   },
 }
 ```
 
-This is useful when you want an isolated personality/model for a specific thread (see [Multi-agent routing](/concepts/multi-agent)). For filesystem isolation, see [Sandboxing](/gateway/sandboxing).
+## ပြဿနာဖြေရှင်းခြင်း
 
-## Media + limits
+<AccordionGroup>
+  <Accordion title="imsg not found or RPC unsupported">
+    Binary နှင့် RPC ထောက်ပံ့မှုကို စစ်ဆေးပါ:
 
-- Optional attachment ingestion via `channels.imessage.includeAttachments`.
-- Media cap via `channels.imessage.mediaMaxMb`.
-
-## Limits
-
-- Outbound text ကို `channels.imessage.textChunkLimit` အထိ ခွဲခြားပို့သည် (ပုံမှန် 4000)။
-- Optional newline chunking: `channels.imessage.chunkMode="newline"` ကို သတ်မှတ်ပါက အရှည်အလိုက် ခွဲခြားမီ blank lines (paragraph boundaries) အလိုက် ခွဲမည်။
-- Media upload များကို `channels.imessage.mediaMaxMb` ဖြင့် ကန့်သတ်ထားပါသည် (ပုံမှန် 16)။
-
-## Addressing / delivery targets
-
-Prefer `chat_id` for stable routing:
-
-- `chat_id:123` (preferred)
-- `chat_guid:...`
-- `chat_identifier:...`
-- direct handles: `imessage:+1555` / `sms:+1555` / `user@example.com`
-
-List chats:
-
-```
-imsg chats --limit 20
+```bash
+imsg rpc --help
+openclaw channels status --probe
 ```
 
-## Configuration reference (iMessage)
+    ```
+    {
+      channels: {
+        imessage: {
+          groupPolicy: "allowlist",
+          groupAllowFrom: ["+15555550123"],
+          groups: {
+            "42": { requireMention: false },
+          },
+        },
+      },
+    }
+    ```
 
-ဖွဲ့စည်းပြင်ဆင်မှု အပြည့်အစုံ: [Configuration](/gateway/configuration)
+  
+</Accordion>
 
-Provider options:
+  <Accordion title="DMs are ignored">
+    စစ်ဆေးရန်:
 
-- `channels.imessage.enabled`: channel startup ကို ဖွင့်/ပိတ်။
-- `channels.imessage.cliPath`: path to `imsg`.
-- `channels.imessage.dbPath`: Messages DB path.
-- `channels.imessage.remoteHost`: SSH host for SCP attachment transfer when `cliPath` points to a remote Mac (e.g., `user@gateway-host`). Auto-detected from SSH wrapper if not set.
-- `channels.imessage.service`: `imessage | sms | auto`.
-- `channels.imessage.region`: SMS region.
-- `channels.imessage.dmPolicy`: `pairing | allowlist | open | disabled` (မူလ: pairing).
-- `channels.imessage.allowFrom`: DM allowlist (handles, emails, E.164 numbers, or `chat_id:*`). `open` requires `"*"`. iMessage has no usernames; use handles or chat targets.
-- `channels.imessage.groupPolicy`: `open | allowlist | disabled` (default: allowlist)။
-- `channels.imessage.groupAllowFrom`: အုပ်စု ပို့သူ allowlist။
-- `channels.imessage.historyLimit` / `channels.imessage.accounts.*.historyLimit`: max group messages to include as context (0 disables).
-- `channels.imessage.dmHistoryLimit`: DM history limit in user turns. Per-user overrides: `channels.imessage.dms["<handle>"].historyLimit`.
-- `channels.imessage.groups`: per-group defaults + allowlist (global defaults အတွက် `"*"` ကို အသုံးပြုပါ)။
-- `channels.imessage.includeAttachments`: ingest attachments into context.
-- `channels.imessage.mediaMaxMb`: inbound/outbound media cap (MB)။
-- `channels.imessage.textChunkLimit`: outbound chunk size (chars)။
-- `channels.imessage.chunkMode`: `length` (မူလ) သို့မဟုတ် `newline` ကို အသုံးပြု၍ အလျားအလိုက် ခွဲမပြုမီ blank line များဖြင့် ခွဲပါ။
+    ```
+    - `channels.imessage.dmPolicy`
+    - `channels.imessage.allowFrom`
+    - pairing အတည်ပြုချက်များ (`openclaw pairing list imessage`)
+    ```
 
-ဆက်စပ်သော အထွေထွေ ရွေးချယ်စရာများ:
+  
+</Accordion>
+
+  <Accordion title="Group messages are ignored">
+    စစ်ဆေးပါ:
+
+    ```
+    - `channels.imessage.groupPolicy`
+    - `channels.imessage.groupAllowFrom`
+    - `channels.imessage.groups` allowlist လုပ်ဆောင်ပုံ
+    - mention pattern configuration (`agents.list[].groupChat.mentionPatterns`) ကို ဖော်ပြပါ
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Remote attachments fail">
+    စစ်ဆေးပါ:
+
+    ```
+    - `channels.imessage.remoteHost`
+    - gateway host မှ SSH/SCP key auth
+    - Messages လည်ပတ်နေသော Mac ပေါ်ရှိ remote path ကို ဖတ်ရှုနိုင်မှု
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="macOS permission prompts were missed">
+    တူညီသော user/session context အတွင်း interactive GUI terminal ဖြင့် ပြန်လည်လုပ်ဆောင်ပြီး prompt များကို အတည်ပြုပါ:
+
+```bash
+imsg chats --limit 1
+imsg send <handle> "test"
+```
+
+    ```
+    OpenClaw/`imsg` ကို လည်ပတ်စေသော process context အတွက် Full Disk Access + Automation ခွင့်ပြုချက်များ ပေးထားကြောင်း အတည်ပြုပါ။
+    ```
+
+  
+</Accordion>
+</AccordionGroup>
+
+## Configuration reference အညွှန်းများ
 
 - `agents.list[].groupChat.mentionPatterns` (သို့မဟုတ် `messages.groupChat.mentionPatterns`)။
 - `messages.responsePrefix`။
-
-
+- [Pairing](/channels/pairing)
+- [BlueBubbles](/channels/bluebubbles)

@@ -1,16 +1,20 @@
 ---
+summary: "OpenClaw کے لیے اختیاری Docker پر مبنی سیٹ اپ اور آن بورڈنگ"
+read_when:
+  - آپ مقامی انسٹالیشن کے بجائے کنٹینرائزڈ گیٹ وے چاہتے ہیں
+  - آپ Docker فلو کی توثیق کر رہے ہیں
 title: "Docker"
 ---
 
 # Docker (اختیاری)
 
-Docker **اختیاری** ہے۔ اسے صرف اسی صورت میں استعمال کریں جب آپ کنٹینرائزڈ گیٹ وے چاہتے ہوں یا Docker کے عمل کی توثیق کرنا چاہتے ہوں۔
+Docker is **optional**. Use it only if you want a containerized gateway or to validate the Docker flow.
 
 ## کیا Docker میرے لیے درست ہے؟
 
 - **ہاں**: آپ ایک علیحدہ، وقتی گیٹ وے ماحول چاہتے ہیں یا ایسے ہوسٹ پر OpenClaw چلانا چاہتے ہیں جہاں مقامی انسٹالیشن ممکن نہ ہو۔
 - 40. **نہیں**: آپ اپنی مشین پر چلا رہے ہیں اور صرف تیز ترین dev loop چاہتے ہیں۔ Use the normal install flow instead.
-- **سینڈ باکسنگ نوٹ**: ایجنٹ سینڈ باکسنگ بھی Docker استعمال کرتی ہے، لیکن اس کے لیے مکمل گیٹ وے کو Docker میں چلانا **ضروری نہیں** ہے۔ مزید معلومات کے لیے دیکھیں [Sandboxing](/gateway/sandboxing).
+- **Sandboxing note**: agent sandboxing uses Docker too, but it does **not** require the full gateway to run in Docker. See [Sandboxing](/gateway/sandboxing).
 
 یہ رہنما شامل کرتا ہے:
 
@@ -59,7 +63,25 @@ Sandboxing کی تفصیلات: [Sandboxing](/gateway/sandboxing)
 - `~/.openclaw/`
 - `~/.openclaw/workspace`
 
-کیا آپ VPS پر چلا رہے ہیں؟ دیکھیں [Hetzner (Docker VPS)](/install/hetzner).
+Running on a VPS? See [Hetzner (Docker VPS)](/install/hetzner).
+
+### دستی فلو (compose)
+
+روزمرہ Docker مینجمنٹ کو آسان بنانے کے لیے، `ClawDock` انسٹال کریں:
+
+```bash
+mkdir -p ~/.clawdock && curl -sL https://raw.githubusercontent.com/openclaw/openclaw/main/scripts/shell-helpers/clawdock-helpers.sh -o ~/.clawdock/clawdock-helpers.sh
+```
+
+**اپنی shell کنفیگ (zsh) میں شامل کریں:**
+
+```bash
+echo 'source ~/.clawdock/clawdock-helpers.sh' >> ~/.zshrc && source ~/.zshrc
+```
+
+پھر `clawdock-start`, `clawdock-stop`, `clawdock-dashboard` وغیرہ استعمال کریں۔ تمام کمانڈز کے لیے `clawdock-help` چلائیں۔
+
+تفصیلات کے لیے [`ClawDock` Helper README](https://github.com/openclaw/openclaw/blob/main/scripts/shell-helpers/README.md) دیکھیں۔
 
 ### دستی فلو (compose)
 
@@ -79,8 +101,7 @@ docker compose -f docker-compose.yml -f docker-compose.extra.yml <command>
 
 ### کنٹرول UI ٹوکن + pairing (Docker)
 
-اگر آپ کو “unauthorized” یا “disconnected (1008): pairing required” نظر آئے، تو
-نیا ڈیش بورڈ لنک حاصل کریں اور براؤزر ڈیوائس کی منظوری دیں:
+نوٹس:
 
 ```bash
 docker compose run --rm openclaw-cli dashboard --no-open
@@ -137,7 +158,7 @@ export OPENCLAW_EXTRA_MOUNTS="$HOME/.codex:/home/node/.codex:ro,$HOME/github:/ho
 43. اگر آپ کو امیج کے اندر سسٹم پیکجز درکار ہوں (مثلاً build tools یا میڈیا لائبریریز)، تو `docker-setup.sh` چلانے سے پہلے `OPENCLAW_DOCKER_APT_PACKAGES` سیٹ کریں۔
     یہ امیج build کے دوران پیکجز انسٹال کرتا ہے، اس لیے کنٹینر حذف ہونے پر بھی یہ برقرار رہتے ہیں۔
 
-مثال:
+اگر آپ زیادہ مکمل خصوصیات والا کنٹینر چاہتے ہیں، تو یہ آپشنل کنٹرولز استعمال کریں:
 
 ```bash
 export OPENCLAW_DOCKER_APT_PACKAGES="ffmpeg build-essential"
@@ -146,7 +167,7 @@ export OPENCLAW_DOCKER_APT_PACKAGES="ffmpeg build-essential"
 
 نوٹس:
 
-- یہ apt پیکج ناموں کی اسپیس سے جدا فہرست قبول کرتا ہے۔
+- **سسٹم ڈیپس امیج میں شامل کریں** (قابلِ تکرار + مستقل):
 - اگر آپ `OPENCLAW_DOCKER_APT_PACKAGES` تبدیل کریں، تو امیج دوبارہ بنانے کے لیے `docker-setup.sh` چلائیں۔
 
 ### پاور یوزر / مکمل خصوصیات والا کنٹینر (آپشنل)
@@ -157,9 +178,10 @@ export OPENCLAW_DOCKER_APT_PACKAGES="ffmpeg build-essential"
 - بطورِ طے شدہ Homebrew نہیں
 - بنڈل شدہ Chromium/Playwright براؤزرز نہیں
 
-اگر آپ زیادہ مکمل خصوصیات والا کنٹینر چاہتے ہیں، تو یہ آپشنل کنٹرولز استعمال کریں:
+اگر Playwright کو سسٹم ڈیپس انسٹال کرنے کی ضرورت ہو، تو رَن ٹائم پر `--with-deps` استعمال کرنے کے بجائے
+`OPENCLAW_DOCKER_APT_PACKAGES` کے ساتھ امیج دوبارہ بنائیں۔
 
-1. **`/home/node` کو برقرار رکھیں** تاکہ براؤزر ڈاؤن لوڈز اور ٹول کیشز محفوظ رہیں:
+1. **Playwright براؤزر ڈاؤن لوڈز کو برقرار رکھیں**:
 
 ```bash
 export OPENCLAW_HOME_VOLUME="openclaw_home"
@@ -180,20 +202,18 @@ docker compose run --rm openclaw-cli \
   node /app/node_modules/playwright-core/cli.js install chromium
 ```
 
-اگر Playwright کو سسٹم ڈیپس انسٹال کرنے کی ضرورت ہو، تو رَن ٹائم پر `--with-deps` استعمال کرنے کے بجائے
-`OPENCLAW_DOCKER_APT_PACKAGES` کے ساتھ امیج دوبارہ بنائیں۔
+اگر آپ سہولت کے لیے روٹ کے طور پر چلانے کا انتخاب کرتے ہیں، تو آپ سکیورٹی کے سمجھوتے کو قبول کرتے ہیں۔
 
 4. **Playwright براؤزر ڈاؤن لوڈز کو برقرار رکھیں**:
 
-- `docker-compose.yml` میں `PLAYWRIGHT_BROWSERS_PATH=/home/node/.cache/ms-playwright` سیٹ کریں۔
-- یقینی بنائیں کہ `/home/node`، `OPENCLAW_HOME_VOLUME` کے ذریعے برقرار رہے، یا
-  `/home/node/.cache/ms-playwright` کو `OPENCLAW_EXTRA_MOUNTS` کے ذریعے ماؤنٹ کریں۔
+- rebuilds کو تیز کرنے کے لیے اپنے Dockerfile کو اس طرح ترتیب دیں کہ dependency layers کیش ہو سکیں۔
+- اس سے `pnpm install` دوبارہ نہیں چلتا جب تک lockfiles تبدیل نہ ہوں:
 
 ### اجازتیں + EACCES
 
 امیج `node` (uid 1000) کے طور پر چلتی ہے۔ اگر آپ کو `/home/node/.openclaw` پر permission errors نظر آئیں، تو یقینی بنائیں کہ آپ کے host bind mounts uid 1000 کے مالک ہوں۔
 
-مثال (Linux ہوسٹ):
+چینلز کنفیگر کرنے کے لیے CLI کنٹینر استعمال کریں، پھر ضرورت ہو تو گیٹ وے ری اسٹارٹ کریں۔
 
 ```bash
 sudo chown -R 1000:1000 /path/to/openclaw-config /path/to/openclaw-workspace
@@ -236,7 +256,7 @@ CMD ["node","dist/index.js"]
 
 ### چینل سیٹ اپ (اختیاری)
 
-چینلز کنفیگر کرنے کے لیے CLI کنٹینر استعمال کریں، پھر ضرورت ہو تو گیٹ وے ری اسٹارٹ کریں۔
+دستاویزات: [WhatsApp](/channels/whatsapp)، [Telegram](/channels/telegram)، [Discord](/channels/discord)
 
 WhatsApp (QR):
 
@@ -294,12 +314,12 @@ pnpm test:docker:qr
 
 جب `agents.defaults.sandbox` فعال ہو، تو **non-main sessions** ٹولز کو Docker کنٹینر کے اندر چلاتی ہیں۔ gateway آپ کے host پر رہتا ہے، لیکن ٹول کی execution isolate ہوتی ہے:
 
-- دائرہ: بطورِ طے شدہ `"agent"` (ہر ایجنٹ کے لیے ایک کنٹینر + ورک اسپیس)
-- دائرہ: فی سیشن علیحدگی کے لیے `"session"`
-- فی دائرہ ورک اسپیس فولڈر `/workspace` پر ماؤنٹ ہوتا ہے
-- اختیاری ایجنٹ ورک اسپیس رسائی (`agents.defaults.sandbox.workspaceAccess`)
-- allow/deny ٹول پالیسی (deny کو فوقیت)
-- آنے والا میڈیا فعال sandbox ورک اسپیس (`media/inbound/*`) میں کاپی ہوتا ہے تاکہ ٹولز اسے پڑھ سکیں ( `workspaceAccess: "rw"` کے ساتھ یہ ایجنٹ ورک اسپیس میں جاتا ہے)
+- امیج: `openclaw-sandbox:bookworm-slim`
+- فی ایجنٹ ایک کنٹینر
+- ایجنٹ ورک اسپیس رسائی: `workspaceAccess: "none"` (ڈیفالٹ) `~/.openclaw/sandboxes` استعمال کرتا ہے
+- آٹو پرُون: غیر فعال > 24 گھنٹے یا عمر > 7 دن
+- نیٹ ورک: بطورِ طے شدہ `none` (اگر ایگریس درکار ہو تو واضح طور پر آپٹ اِن کریں)
+- ڈیفالٹ allow: `exec`, `process`, `read`, `write`, `edit`, `sessions_list`, `sessions_history`, `sessions_send`, `sessions_spawn`, `session_status`
 
 انتباہ: `scope: "shared"` cross-session isolation کو غیر فعال کر دیتا ہے۔ تمام sessions ایک کنٹینر اور ایک workspace شیئر کرتے ہیں۔
 
@@ -311,8 +331,9 @@ pnpm test:docker:qr
 - صرف پڑھنے والے ٹولز + صرف پڑھنے والی ورک اسپیس (خاندانی/کام ایجنٹ)
 - فائل سسٹم/شیل ٹولز نہیں (عوامی ایجنٹ)
 
-مثالیں، ترجیحی ترتیب اور خرابیوں کے ازالے کے لیے دیکھیں
-[Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools)۔
+ہارڈننگ کنٹرولز `agents.defaults.sandbox.docker` کے تحت ہیں:
+`network`, `user`, `pidsLimit`, `memory`, `memorySwap`, `cpus`, `ulimits`,
+`seccompProfile`, `apparmorProfile`, `dns`, `extraHosts`۔
 
 ### ڈیفالٹ رویہ
 
@@ -328,7 +349,7 @@ pnpm test:docker:qr
 
 ### sandboxing فعال کریں
 
-اگر آپ `setupCommand` میں پیکجز انسٹال کرنے کا ارادہ رکھتے ہیں، تو نوٹ کریں:
+یہ `Dockerfile.sandbox` استعمال کرتے ہوئے `openclaw-sandbox:bookworm-slim` بناتا ہے۔
 
 - ڈیفالٹ `docker.network`، `"none"` ہے (کوئی ایگریس نہیں)۔
 - `readOnlyRoot: true` پیکج انسٹالیشنز کو روکتا ہے۔
@@ -400,8 +421,7 @@ pnpm test:docker:qr
 `network`, `user`, `pidsLimit`, `memory`, `memorySwap`, `cpus`, `ulimits`,
 `seccompProfile`, `apparmorProfile`, `dns`, `extraHosts`۔
 
-ملٹی ایجنٹ: فی ایجنٹ `agents.defaults.sandbox.{docker,browser,prune}.*` کو `agents.list[].sandbox.{docker,browser,prune}.*` کے ذریعے اوور رائیڈ کریں
-(جب `agents.defaults.sandbox.scope` / `agents.list[].sandbox.scope`، `"shared"` ہو تو نظر انداز)۔
+یہ `openclaw-sandbox-common:bookworm-slim` بناتا ہے۔ اسے استعمال کرنے کے لیے:
 
 ### ڈیفالٹ sandbox امیج بنائیں
 
@@ -409,11 +429,11 @@ pnpm test:docker:qr
 scripts/sandbox-setup.sh
 ```
 
-یہ `Dockerfile.sandbox` استعمال کرتے ہوئے `openclaw-sandbox:bookworm-slim` بناتا ہے۔
+sandbox کے اندر براؤزر ٹول چلانے کے لیے، براؤزر امیج بنائیں:
 
 ### Sandbox عام امیج (اختیاری)
 
-اگر آپ عام بلڈ ٹولنگ (Node، Go، Rust، وغیرہ) کے ساتھ sandbox امیج چاہتے ہیں، تو عام امیج بنائیں:
+یہ `Dockerfile.sandbox-browser` استعمال کرتے ہوئے `openclaw-sandbox-browser:bookworm-slim` بناتا ہے۔ کنٹینر Chromium کو CDP enabled کے ساتھ اور ایک اختیاری noVNC observer (Xvfb کے ذریعے headful) کے ساتھ چلاتا ہے۔
 
 ```bash
 scripts/sandbox-common-setup.sh
@@ -433,7 +453,7 @@ scripts/sandbox-common-setup.sh
 
 ### Sandbox براؤزر امیج
 
-sandbox کے اندر براؤزر ٹول چلانے کے لیے، براؤزر امیج بنائیں:
+حسبِ ضرورت براؤزر امیج:
 
 ```bash
 scripts/sandbox-browser-setup.sh
@@ -475,8 +495,8 @@ scripts/sandbox-browser-setup.sh
 
 فعال ہونے پر، ایجنٹ کو ملتا ہے:
 
-- sandbox براؤزر کنٹرول URL ( `browser` ٹول کے لیے)
-- noVNC URL (اگر فعال ہو اور headless=false)
+- `deny` کو `allow` پر فوقیت حاصل ہے۔
+- اگر `allow` خالی ہو: تمام ٹولز (deny کے سوا) دستیاب ہیں۔
 
 یاد رکھیں: اگر آپ tools کے لیے allowlist استعمال کرتے ہیں، تو `browser` شامل کریں (اور اسے deny سے ہٹا دیں) ورنہ ٹول بلاک رہے گا۔
 Prune rules (`agents.defaults.sandbox.prune`) browser کنٹینرز پر بھی لاگو ہوتے ہیں۔
@@ -499,13 +519,13 @@ docker build -t my-openclaw-sbx -f Dockerfile.sandbox .
 }
 ```
 
-### ٹول پالیسی (allow/deny)
+### سکیورٹی نوٹس
 
-- `deny` کو `allow` پر فوقیت حاصل ہے۔
-- اگر `allow` خالی ہو: تمام ٹولز (deny کے سوا) دستیاب ہیں۔
-- اگر `allow` خالی نہ ہو: صرف `allow` میں موجود ٹولز دستیاب ہیں (deny منہا)۔
+- ہارڈ وال صرف **ٹولز** پر لاگو ہوتی ہے (exec/read/write/edit/apply_patch)۔
+- ہوسٹ-اونلی ٹولز جیسے browser/camera/canvas بطورِ طے شدہ بلاک ہیں۔
+- sandbox میں `browser` کی اجازت دینا **علیحدگی توڑ دیتا ہے** (براؤزر ہوسٹ پر چلتا ہے)۔
 
-### پرُوننگ حکمتِ عملی
+### خرابیوں کا ازالہ
 
 دو کنٹرولز:
 
@@ -532,5 +552,3 @@ docker build -t my-openclaw-sbx -f Dockerfile.sandbox .
 - sandbox میں اجازت کی غلطیاں: `docker.user` کو ایسے UID:GID پر سیٹ کریں جو آپ کی
   ماؤنٹ شدہ ورک اسپیس کی ملکیت سے میل کھاتا ہو (یا ورک اسپیس فولڈر chown کریں)۔
 - Custom tools نہیں مل رہے: OpenClaw کمانڈز کو `sh -lc` (login shell) کے ساتھ چلاتا ہے، جو `/etc/profile` کو source کرتا ہے اور PATH کو ری سیٹ کر سکتا ہے۔ `docker.env.PATH` سیٹ کریں تاکہ آپ کے custom tool paths پہلے شامل ہوں (مثلاً `/custom/bin:/usr/local/share/npm-global/bin`)، یا اپنے Dockerfile میں `/etc/profile.d/` کے تحت ایک اسکرپٹ شامل کریں۔
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw 에서 여러 모델에 접근하기 위해 OpenRouter 의 통합 API 를 사용합니다"
+read_when:
+  - 여러 LLM 에 대해 단일 API 키를 원할 때
+  - OpenClaw 에서 OpenRouter 를 통해 모델을 실행하려는 경우
 title: "OpenRouter"
 ---
 
@@ -30,5 +34,3 @@ openclaw onboard --auth-choice apiKey --token-provider openrouter --token "$OPEN
 - 모델 참조는 `openrouter/<provider>/<model>` 입니다.
 - 더 많은 모델 및 프로바이더 옵션은 [/concepts/model-providers](/concepts/model-providers) 를 참고하십시오.
 - OpenRouter 는 내부적으로 API 키를 Bearer 토큰으로 사용합니다.
-
-

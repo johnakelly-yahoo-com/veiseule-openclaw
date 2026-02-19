@@ -1,4 +1,8 @@
 ---
+summary: "Retry-politik for udgående udbyderkald"
+read_when:
+  - Opdatering af udbyderes retry-adfærd eller standarder
+  - Fejlfinding af fejl ved afsendelse hos udbydere eller rate limits
 title: "Retry-politik"
 ---
 
@@ -63,5 +67,3 @@ Indstil retry-politik pr. udbyder i `~/.openclaw/openclaw.json`:
 
 - Retry gælder pr. forespørgsel (afsendelse af besked, medieupload, reaktion, afstemning, sticker).
 - Sammensatte flows retryer ikke gennemførte trin.
-
-

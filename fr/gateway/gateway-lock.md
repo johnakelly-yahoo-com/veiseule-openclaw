@@ -1,4 +1,8 @@
 ---
+summary: "Garde de singleton de la Gateway utilisant la liaison de l’écouteur WebSocket"
+read_when:
+  - Exécution ou débogage du processus de la Gateway
+  - Investigation de l’application d’une instance unique
 title: "Verrou de la Gateway"
 ---
 
@@ -28,5 +32,3 @@ Dernière mise à jour : 2025-12-11
 
 - Si le port est occupé par _un autre_ processus, l’erreur est identique ; libérez le port ou choisissez-en un autre avec `openclaw gateway --port <port>`.
 - L’application macOS maintient toujours sa propre garde PID légère avant de lancer la Gateway (passerelle) ; le verrouillage à l’exécution est appliqué par la liaison WebSocket.
-
-

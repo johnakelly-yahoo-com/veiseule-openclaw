@@ -1,4 +1,10 @@
 ---
+summary: "Yalıtım veya iMessage gerektiğinde OpenClaw’ı sandbox içinde bir macOS VM’de (yerel veya barındırılan) çalıştırın"
+read_when:
+  - OpenClaw’ın ana macOS ortamınızdan yalıtılmış olmasını istiyorsanız
+  - Sandbox içinde iMessage entegrasyonu (BlueBubbles) istiyorsanız
+  - Klonlayabileceğiniz, sıfırlanabilir bir macOS ortamı istiyorsanız
+  - Yerel ve barındırılan macOS VM seçeneklerini karşılaştırmak istiyorsanız
 title: "macOS VM’leri"
 ---
 
@@ -43,7 +49,7 @@ Bir macOS VM’ye SSH erişiminiz olduğunda, aşağıdaki 6. adımdan devam edi
 3. Kurulum Asistanını tamamlayın, Remote Login’i (SSH) etkinleştirin
 4. `lume run openclaw --no-display`
 5. SSH ile bağlanın, OpenClaw’ı kurun, kanalları yapılandırın
-6. Tamamlandı
+6. Done
 
 ---
 
@@ -273,5 +279,3 @@ Gerçek anlamda her zaman açık kullanım için özel bir Mac mini veya küçü
 - [Lume CLI Reference](https://cua.ai/docs/lume/reference/cli-reference)
 - [Unattended VM Setup](https://cua.ai/docs/lume/guide/fundamentals/unattended-setup) (ileri düzey)
 - [Docker Sandboxing](/install/docker) (alternatif yalıtım yaklaşımı)
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "Mga TypeBox schema bilang iisang pinanggagalingan ng katotohanan para sa Gateway protocol"
+read_when:
+  - Pag-a-update ng mga protocol schema o codegen
 title: "TypeBox"
 ---
 
@@ -6,7 +9,7 @@ title: "TypeBox"
 
 Huling na-update: 2026-01-10
 
-Ang TypeBox ay isang TypeScript-first na schema library. Ginagamit namin ito upang tukuyin ang **Gateway
+TypeBox is a TypeScript-first schema library. We use it to define the **Gateway
 WebSocket protocol** (handshake, request/response, server events). Those schemas
 drive **runtime validation**, **JSON Schema export**, and **Swift codegen** for
 the macOS app. One source of truth; everything else is generated.
@@ -22,7 +25,7 @@ Bawat Gateway WS message ay isa sa tatlong frame:
 - **Response**: `{ type: "res", id, ok, payload | error }`
 - **Event**: `{ type: "event", event, payload, seq?, stateVersion? }`
 
-Ang unang frame ay **dapat** isang `connect` request. Pagkatapos nito, maaaring tumawag ang mga client
+The first frame **must** be a `connect` request. After that, clients can call
 methods (e.g. `health`, `send`, `chat.send`) and subscribe to events (e.g.
 `presence`, `tick`, `agent`).
 
@@ -39,14 +42,14 @@ Client                    Gateway
 
 Mga karaniwang method + event:
 
-| Kategorya  | Mga halimbawa                                             | Mga tala                                           |
-| --------- | --------------------------------------------------------- | -------------------------------------------------- |
-| Core      | `connect`, `health`, `status`                             | `connect` ang dapat mauna                          |
+| Kategorya    | Mga halimbawa                                             | Mga tala                                           |
+| ------------ | --------------------------------------------------------- | -------------------------------------------------- |
+| Core         | `connect`, `health`, `status`                             | `connect` ang dapat mauna                          |
 | Pagmemensahe | `send`, `poll`, `agent`, `agent.wait`                     | kailangan ng `idempotencyKey` para sa side-effects |
-| Chat      | `chat.history`, `chat.send`, `chat.abort`, `chat.inject`  | Ginagamit ito ng WebChat                           |
-| Sessions  | `sessions.list`, `sessions.patch`, `sessions.delete`      | session admin                                      |
-| Nodes     | `node.list`, `node.invoke`, `node.pair.*`                 | Gateway WS + mga aksyon ng node                    |
-| Events    | `tick`, `presence`, `agent`, `chat`, `health`, `shutdown` | server push                                        |
+| Chat         | `chat.history`, `chat.send`, `chat.abort`, `chat.inject`  | Ginagamit ito ng WebChat                           |
+| Sessions     | `sessions.list`, `sessions.patch`, `sessions.delete`      | session admin                                      |
+| Nodes        | `node.list`, `node.invoke`, `node.pair.*`                 | Gateway WS + mga aksyon ng node                    |
+| Events       | `tick`, `presence`, `agent`, `chat`, `health`, `shutdown` | server push                                        |
 
 Ang awtoritatibong listahan ay nasa `src/gateway/server.ts` (`METHODS`, `EVENTS`).
 
@@ -282,5 +285,3 @@ published raw file is typically available at:
 1. I-update ang mga TypeBox schema.
 2. Patakbuhin ang `pnpm protocol:check`.
 3. I-commit ang na-regenerate na schema + Swift models.
-
-

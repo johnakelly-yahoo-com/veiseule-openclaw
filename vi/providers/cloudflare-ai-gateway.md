@@ -1,5 +1,9 @@
 ---
 title: "Cloudflare AI Gateway"
+summary: "Thiết lập Cloudflare AI Gateway (xác thực + chọn mô hình)"
+read_when:
+  - Bạn muốn dùng Cloudflare AI Gateway với OpenClaw
+  - Bạn cần account ID, gateway ID, hoặc biến môi trường API key
 ---
 
 # Cloudflare AI Gateway
@@ -65,5 +69,3 @@ Nếu bạn đã bật xác thực Gateway trong Cloudflare, hãy thêm header `
 ## Lưu ý về môi trường
 
 Nếu Gateway chạy như một daemon (launchd/systemd), hãy đảm bảo `CLOUDFLARE_AI_GATEWAY_API_KEY` khả dụng cho tiến trình đó (ví dụ, trong `~/.openclaw/.env` hoặc qua `env.shellEnv`).
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw models` အတွက် CLI ကိုးကားလမ်းညွှန် (status/list/set/scan, aliases, fallbacks, auth)"
+read_when:
+  - မူလ သတ်မှတ်ထားသော မော်ဒယ်များကို ပြောင်းလဲလိုပါက သို့မဟုတ် provider auth အခြေအနေကို ကြည့်လိုပါက
+  - ရရှိနိုင်သော မော်ဒယ်များ/ပံ့ပိုးသူများကို စကန်လုပ်၍ auth ပရိုဖိုင်များကို အမှားရှာဖွေလိုပါက
 title: "မော်ဒယ်များ"
 ---
 
@@ -69,5 +73,3 @@ openclaw models auth paste-token
 
 - `setup-token` သည် setup-token တန်ဖိုးကို မေးမြန်းသည် (မည်သည့် စက်တွင်မဆို `claude setup-token` ဖြင့် ထုတ်လုပ်နိုင်သည်)။
 - `paste-token` သည် အခြားနေရာမှ ထုတ်လုပ်ထားသော သို့မဟုတ် automation မှ ရလာသော token စာကြောင်းကို လက်ခံသည်။
-
-

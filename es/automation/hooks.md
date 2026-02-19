@@ -1,4 +1,8 @@
 ---
+summary: "Hooks: automatización basada en eventos para comandos y eventos del ciclo de vida"
+read_when:
+  - Desea automatización basada en eventos para /new, /reset, /stop y eventos del ciclo de vida del agente
+  - Desea crear, instalar o depurar hooks
 title: "Hooks"
 ---
 
@@ -40,9 +44,9 @@ El sistema de hooks le permite:
 OpenClaw incluye cuatro hooks integrados que se descubren automáticamente:
 
 - **💾 session-memory**: Guarda el contexto de la sesión en el espacio de trabajo de su agente (predeterminado `~/.openclaw/workspace/memory/`) cuando emite `/new`
+- **😈 soul-evil**: Intercambia contenido inyectado de `SOUL.md` con `SOUL_EVIL.md` durante una ventana de purga o por probabilidad aleatoria
 - **📝 command-logger**: Registra todos los eventos de comandos en `~/.openclaw/logs/commands.log`
 - **🚀 boot-md**: Ejecuta `BOOT.md` cuando se inicia el Gateway (requiere hooks internos habilitados)
-- **😈 soul-evil**: Intercambia contenido inyectado de `SOUL.md` con `SOUL_EVIL.md` durante una ventana de purga o por probabilidad aleatoria
 
 Listar hooks disponibles:
 
@@ -99,6 +103,8 @@ Los paquetes de hooks son paquetes npm estándar que exportan uno o más hooks m
 openclaw hooks install <path-or-spec>
 ```
 
+Las especificaciones de Npm son solo del registro (nombre del paquete + versión/etiqueta opcional). Las especificaciones Git/URL/file son rechazadas.
+
 Ejemplo de `package.json`:
 
 ```json
@@ -113,6 +119,10 @@ Ejemplo de `package.json`:
 
 Cada entrada apunta a un directorio de hook que contiene `HOOK.md` y `handler.ts` (o `index.ts`).
 Los paquetes de hooks pueden incluir dependencias; se instalarán en `~/.openclaw/hooks/<id>`.
+
+Nota de seguridad: `openclaw hooks install` instala dependencias con `npm install --ignore-scripts`
+(sin scripts de ciclo de vida). Mantén los árboles de dependencias del paquete de hooks "pure JS/TS" y evita paquetes que dependan
+de compilaciones `postinstall`.
 
 ## Estructura de un hook
 
@@ -390,6 +400,8 @@ El formato de configuración antiguo sigue funcionando por compatibilidad hacia 
 }
 ```
 
+Nota: `module` debe ser una ruta relativa al workspace. Las rutas absolutas y la navegación fuera del workspace son rechazadas.
+
 **Migración**: Use el nuevo sistema basado en descubrimiento para hooks nuevos. Los handlers heredados se cargan después de los hooks basados en directorios.
 
 ## Comandos de la CLI
@@ -420,7 +432,7 @@ openclaw hooks info session-memory
 openclaw hooks info session-memory --json
 ```
 
-### Comprobar elegibilidad
+### Verificar elegibilidad
 
 ```bash
 # Show eligibility summary
@@ -448,7 +460,7 @@ Guarda el contexto de la sesión en memoria cuando emite `/new`.
 
 **Eventos**: `command:new`
 
-**Requisitos**: `workspace.dir` debe estar configurado
+**Salida**: No se escriben archivos; los intercambios ocurren solo en memoria.
 
 **Salida**: `<workspace>/memory/YYYY-MM-DD-slug.md` (predeterminado `~/.openclaw/workspace`)
 
@@ -479,6 +491,49 @@ Guarda el contexto de la sesión en memoria cuando emite `/new`.
 
 ```bash
 openclaw hooks enable session-memory
+```
+
+### bootstrap-extra-files
+
+Intercambia contenido inyectado de `SOUL.md` con `SOUL_EVIL.md` durante una ventana de purga o por probabilidad aleatoria.
+
+**Eventos**: `agent:bootstrap`
+
+**Requisitos**: `workspace.dir` debe estar configurado
+
+**Salida**: No se escriben archivos; el contexto de bootstrap se modifica solo en memoria.
+
+**Configuración**:
+
+```json
+{
+  "hooks": {
+    "internal": {
+      "enabled": true,
+      "entries": {
+        "soul-evil": {
+          "enabled": true,
+          "file": "SOUL_EVIL.md",
+          "chance": 0.1,
+          "purge": { "at": "21:00", "duration": "15m" }
+        }
+      }
+    }
+  }
+}
+```
+
+**Docs**: [SOUL Evil Hook](/hooks/soul-evil)
+
+- Las rutas se resuelven en relación con el workspace.
+- Los archivos deben permanecer dentro del workspace (verificados con realpath).
+- Solo se cargan los basenames de bootstrap reconocidos.
+- Se mantiene la lista blanca de subagentes (`AGENTS.md` y `TOOLS.md` únicamente).
+
+**Habilitar**:
+
+```bash
+openclaw hooks enable bootstrap-extra-files
 ```
 
 ### command-logger
@@ -521,42 +576,6 @@ grep '"action":"new"' ~/.openclaw/logs/commands.log | jq .
 
 ```bash
 openclaw hooks enable command-logger
-```
-
-### soul-evil
-
-Intercambia contenido inyectado de `SOUL.md` con `SOUL_EVIL.md` durante una ventana de purga o por probabilidad aleatoria.
-
-**Eventos**: `agent:bootstrap`
-
-**Docs**: [SOUL Evil Hook](/hooks/soul-evil)
-
-**Salida**: No se escriben archivos; los intercambios ocurren solo en memoria.
-
-**Habilitar**:
-
-```bash
-openclaw hooks enable soul-evil
-```
-
-**Configuración**:
-
-```json
-{
-  "hooks": {
-    "internal": {
-      "enabled": true,
-      "entries": {
-        "soul-evil": {
-          "enabled": true,
-          "file": "SOUL_EVIL.md",
-          "chance": 0.1,
-          "purge": { "at": "21:00", "duration": "15m" }
-        }
-      }
-    }
-  }
-}
 ```
 
 ### boot-md
@@ -674,7 +693,7 @@ const handler: HookHandler = async (event) => {
 };
 ```
 
-### Verificar elegibilidad
+### Comprobación de elegibilidad
 
 Compruebe por qué un hook no es elegible:
 
@@ -788,7 +807,7 @@ Session reset
    openclaw hooks list
    ```
 
-### Hook no elegible
+### Hook no se ejecuta
 
 Compruebe los requisitos:
 
@@ -803,7 +822,7 @@ Busque faltantes:
 - Valores de configuración
 - Compatibilidad del SO
 
-### Hook no se ejecuta
+### Hook no elegible
 
 1. Verifique que el hook esté habilitado:
 
@@ -900,7 +919,7 @@ node -e "import('./path/to/handler.ts').then(console.log)"
 
 - Descubrimiento automático
 - Gestión mediante CLI
-- Comprobación de elegibilidad
+- Comprobar elegibilidad
 - Mejor documentación
 - Estructura consistente
 
@@ -910,5 +929,3 @@ node -e "import('./path/to/handler.ts').then(console.log)"
 - [README de hooks incluidos](https://github.com/openclaw/openclaw/tree/main/src/hooks/bundled)
 - [Webhook Hooks](/automation/webhook)
 - [Configuración](/gateway/configuration#hooks)
-
-

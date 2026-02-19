@@ -1,4 +1,7 @@
 ---
+summary: "Como áudios/notas de voz de entrada são baixados, transcritos e injetados nas respostas"
+read_when:
+  - Ao alterar a transcrição de áudio ou o tratamento de mídia
 title: "Áudio e Notas de Voz"
 ---
 
@@ -104,10 +107,27 @@ Nota: A detecção de binários é best-effort em macOS/Linux/Windows; garanta q
 - A transcrição fica disponível para templates como `{{Transcript}}`.
 - A saída stdout da CLI é limitada (5MB); mantenha a saída da CLI concisa.
 
+## Detecção de menções em grupos
+
+Quando `requireMention: true` está definido para um chat em grupo, o OpenClaw agora transcreve o áudio **antes** de verificar menções. Isso permite que mensagens de voz sejam processadas mesmo quando contêm menções.
+
+**Como funciona:**
+
+1. Se uma mensagem de voz não tiver texto e o grupo exigir menções, o OpenClaw realiza uma transcrição "preflight".
+2. A transcrição é verificada em busca de padrões de menção (por exemplo, `@BotName`, gatilhos por emoji).
+3. Se uma menção for encontrada, a mensagem segue pelo pipeline completo de resposta.
+4. A transcrição é usada para detecção de menções para que mensagens de voz possam passar pela exigência de menção.
+
+**Comportamento de fallback:**
+
+- Se a transcrição falhar durante o preflight (timeout, erro de API, etc.), a mensagem será processada com base apenas na detecção de menção por texto.
+- Isso garante que mensagens mistas (texto + áudio) nunca sejam descartadas incorretamente.
+
+**Exemplo:** Um usuário envia uma mensagem de voz dizendo "Hey @Claude, what's the weather?" em um grupo do Telegram com `requireMention: true`. A mensagem de voz é transcrita, a menção é detectada e o agente responde.
+
 ## Pegadas
 
 - As regras de escopo usam “primeira correspondência vence”. `chatType` é normalizado para `direct`, `group` ou `room`.
 - Garanta que sua CLI finalize com código 0 e imprima texto simples; JSON precisa ser ajustado via `jq -r .text`.
 - Mantenha timeouts razoáveis (`timeoutSeconds`, padrão 60s) para evitar bloquear a fila de respostas.
-
-
+- A transcrição de preflight processa apenas o **primeiro** anexo de áudio para detecção de menção. Áudios adicionais são processados durante a fase principal de compreensão de mídia.

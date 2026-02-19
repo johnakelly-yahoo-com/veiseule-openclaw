@@ -1,4 +1,8 @@
 ---
+summary: "Solución rápida de problemas a nivel de canal con firmas de fallas por canal y correcciones"
+read_when:
+  - El transporte del canal indica conectado pero las respuestas fallan
+  - Necesita verificaciones específicas del canal antes de profundizar en la documentación del proveedor
 title: "Solución de problemas de canales"
 ---
 
@@ -40,11 +44,12 @@ Solución de problemas completa: [/channels/whatsapp#troubleshooting-quick](/cha
 
 ### Firmas de fallas de Telegram
 
-| Síntoma                                          | Verificación más rápida                                               | Solución                                                                                        |
-| ------------------------------------------------ | --------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `/start` pero sin flujo de respuestas utilizable | `openclaw pairing list telegram`                                      | Aprobar emparejamiento o cambiar la política de mensajes directos.              |
-| Bot en línea pero el grupo permanece en silencio | Verifique el requisito de mención y el modo de privacidad del bot     | Desactive el modo de privacidad para visibilidad en el grupo o mencione al bot. |
-| Fallas de envío con errores de red               | Inspeccione los registros por fallas en llamadas a la API de Telegram | Corrija el enrutamiento DNS/IPv6/proxy hacia `api.telegram.org`.                |
+| Síntoma                                          | Verificación más rápida                                               | Solución                                                                                                |
+| ------------------------------------------------ | --------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `/start` pero sin flujo de respuestas utilizable | `openclaw pairing list telegram`                                      | Aprobar emparejamiento o cambiar la política de mensajes directos.                      |
+| Bot en línea pero el grupo permanece en silencio | Verifique el requisito de mención y el modo de privacidad del bot     | Desactive el modo de privacidad para visibilidad en el grupo o mencione al bot.         |
+| Fallas de envío con errores de red               | Inspeccione los registros por fallas en llamadas a la API de Telegram | Corrija el enrutamiento DNS/IPv6/proxy hacia `api.telegram.org`.                        |
+| Actualizaste y la allowlist te bloquea           | `openclaw security audit` y allowlists de configuración               | Ejecuta `openclaw doctor --fix` o reemplaza `@username` por IDs numéricos de remitente. |
 
 Solución de problemas completa: [/channels/telegram#troubleshooting](/channels/telegram#troubleshooting)
 
@@ -110,5 +115,3 @@ Solución de problemas completa: [/channels/signal#troubleshooting](/channels/si
 | Fallas en salas cifradas                  | Verifique el módulo de criptografía y la configuración de cifrado | Habilite el soporte de cifrado y vuelva a unirse/sincronizar la sala. |
 
 Solución de problemas completa: [/channels/matrix#troubleshooting](/channels/matrix#troubleshooting)
-
-

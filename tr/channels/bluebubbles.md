@@ -1,4 +1,9 @@
 ---
+summary: "BlueBubbles macOS sunucusu üzerinden iMessage (REST gönderme/alma, yazıyor göstergeleri, tepkiler, eşleştirme, gelişmiş eylemler)."
+read_when:
+  - BlueBubbles kanalını kurma
+  - Webhook eşleştirme sorunlarını giderme
+  - macOS üzerinde iMessage yapılandırma
 title: "BlueBubbles"
 ---
 
@@ -41,6 +46,10 @@ Durum: BlueBubbles macOS sunucusuyla HTTP üzerinden konuşan paketlenmiş eklen
 4. BlueBubbles webhook’larını gateway’inize yönlendirin (örnek: `https://your-gateway-host:3000/bluebubbles-webhook?password=<password>`).
 
 5. Gateway’i başlatın; webhook işleyicisini kaydeder ve eşleştirmeyi başlatır.
+
+Komut geçitleme
+
+- Her zaman bir webhook parolası ayarlayın. Gateway’i bir ters proxy (Tailscale Serve/Funnel, nginx, Cloudflare Tunnel, ngrok) üzerinden yayınlarsanız, proxy gateway’e loopback üzerinden bağlanabilir. BlueBubbles webhook işleyicisi, yönlendirme başlıkları içeren istekleri proxy üzerinden gelmiş olarak değerlendirir ve parolasız webhook’ları kabul etmez.
 
 ## Messages.app’i canlı tutma (VM / başsız kurulumlar)
 
@@ -247,14 +256,14 @@ Mevcut eylemler:
 OpenClaw, belirteç tasarrufu için _kısa_ mesaj kimliklerini (örn. `1`, `2`) sunabilir.
 
 - `MessageSid` / `ReplyToId` kısa kimlikler olabilir.
-- `MessageSidFull` / `ReplyToIdFull` sağlayıcıya ait tam kimlikleri içerir.
+- Bağlam: Gelen yüklerde `MessageSidFull` / `ReplyToIdFull`
 - Kısa kimlikler bellektedir; yeniden başlatma veya önbellek tahliyesiyle sona erebilir.
 - Eylemler kısa veya tam `messageId` kabul eder; ancak kısa kimlikler artık mevcut değilse hata verir.
 
 Kalıcı otomasyonlar ve depolama için tam kimlikleri kullanın:
 
 - Şablonlar: `{{MessageSidFull}}`, `{{ReplyToIdFull}}`
-- Bağlam: Gelen yüklerde `MessageSidFull` / `ReplyToIdFull`
+- `MessageSidFull` / `ReplyToIdFull` sağlayıcıya ait tam kimlikleri içerir.
 
 Şablon değişkenleri için [Configuration](/gateway/configuration) sayfasına bakın.
 
@@ -298,6 +307,7 @@ Sağlayıcı seçenekleri:
 - `channels.bluebubbles.textChunkLimit`: Karakter cinsinden giden parça boyutu (varsayılan: 4000).
 - `channels.bluebubbles.chunkMode`: `length` (varsayılan) yalnızca `textChunkLimit` aşıldığında böler; `newline` ise uzunluk bölmeden önce boş satırlarda (paragraf sınırlarında) böler.
 - `channels.bluebubbles.mediaMaxMb`: MB cinsinden gelen medya üst sınırı (varsayılan: 8).
+- `channels.bluebubbles.mediaLocalRoots`: Giden yerel medya yolları için izin verilen mutlak yerel dizinlerin açık izin listesi. Bu yapılandırma yapılmadıkça yerel yol gönderimleri varsayılan olarak reddedilir. Hesap başına geçersiz kılma: `channels.bluebubbles.accounts.<accountId> .mediaLocalRoots`.
 - `channels.bluebubbles.historyLimit`: Bağlam için maksimum grup mesajı (0 devre dışı bırakır).
 - `channels.bluebubbles.dmHistoryLimit`: DM geçmişi sınırı.
 - `channels.bluebubbles.actions`: Belirli eylemleri etkinleştir/devre dışı bırak.
@@ -336,5 +346,3 @@ Kararlı yönlendirme için `chat_guid` tercih edin:
 - Durum/sağlık bilgileri için: `openclaw status --all` veya `openclaw status --deep`.
 
 Genel kanal iş akışı başvurusu için [Channels](/channels) ve [Plugins](/tools/plugin) kılavuzlarına bakın.
-
-

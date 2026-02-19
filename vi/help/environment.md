@@ -1,4 +1,9 @@
 ---
+summary: "Nơi OpenClaw tải các biến môi trường và thứ tự ưu tiên"
+read_when:
+  - Bạn cần biết những biến môi trường nào được tải và theo thứ tự nào
+  - Bạn đang gỡ lỗi các khóa API bị thiếu trong Gateway
+  - Bạn đang lập tài liệu xác thực nhà cung cấp hoặc môi trường triển khai
 title: "Biến môi trường"
 ---
 
@@ -71,15 +76,15 @@ Xem [Cấu hình: Thay thế biến môi trường](/gateway/configuration#env-v
 
 ## Các biến môi trường liên quan đến đường dẫn
 
-| Biến               | Mục đích                                                                                                                                                                                                                            |
+| Biến                   | Mục đích                                                                                                                                                                                                                            |
 | ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `OPENCLAW_HOME`        | Ghi đè thư mục home được sử dụng cho mọi quá trình phân giải đường dẫn nội bộ (`~/.openclaw/`, thư mục agent, phiên làm việc, thông tin xác thực). Useful when running OpenClaw as a dedicated service user. |
-| `OPENCLAW_STATE_DIR`   | Ghi đè thư mục trạng thái (mặc định `~/.openclaw`).                                                                                                                                            |
-| `OPENCLAW_CONFIG_PATH` | Ghi đè đường dẫn tệp cấu hình (mặc định `~/.openclaw/openclaw.json`).                                                                                                                             |
+| `OPENCLAW_HOME`        | Override the home directory used for all internal path resolution (`~/.openclaw/`, agent dirs, sessions, credentials). Useful when running OpenClaw as a dedicated service user. |
+| `OPENCLAW_STATE_DIR`   | Ghi đè thư mục trạng thái (mặc định `~/.openclaw`).                                                                                                                                              |
+| `OPENCLAW_CONFIG_PATH` | Ghi đè đường dẫn tệp cấu hình (mặc định `~/.openclaw/openclaw.json`).                                                                                                                            |
 
 ### `OPENCLAW_HOME`
 
-Khi được thiết lập, `OPENCLAW_HOME` sẽ thay thế thư mục home của hệ thống (`$HOME` / `os.homedir()`) cho mọi quá trình phân giải đường dẫn nội bộ. Điều này cho phép cô lập hoàn toàn hệ thống tệp cho các tài khoản dịch vụ chạy nền (headless).
+When set, `OPENCLAW_HOME` replaces the system home directory (`$HOME` / `os.homedir()`) for all internal path resolution. This enables full filesystem isolation for headless service accounts.
 
 **Thứ tự ưu tiên:** `OPENCLAW_HOME` > `$HOME` > `USERPROFILE` > `os.homedir()`
 
@@ -100,5 +105,3 @@ Khi được thiết lập, `OPENCLAW_HOME` sẽ thay thế thư mục home củ
 - [Cấu hình Gateway](/gateway/configuration)
 - [FAQ: biến môi trường và tải .env](/help/faq#env-vars-and-env-loading)
 - [Tổng quan mô hình](/concepts/models)
-
-

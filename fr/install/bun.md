@@ -1,4 +1,8 @@
 ---
+summary: "Flux de travail Bun (expérimental) : installation et pièges par rapport à pnpm"
+read_when:
+  - Vous voulez la boucle de développement locale la plus rapide (bun + watch)
+  - Vous rencontrez des problèmes d’installation/de patch/de scripts de cycle de vie avec Bun
 title: "Bun (Expérimental)"
 ---
 
@@ -53,5 +57,3 @@ bun pm trust @whiskeysockets/baileys protobufjs
 ## Avertissements
 
 - Certains scripts codent toujours pnpm en dur (p. ex. `docs:build`, `ui:*`, `protocol:check`). Exécutez-les via pnpm pour le moment.
-
-

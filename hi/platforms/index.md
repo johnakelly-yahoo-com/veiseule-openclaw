@@ -1,10 +1,14 @@
 ---
+summary: "प्लेटफ़ॉर्म समर्थन का अवलोकन (Gateway + सहचर ऐप्स)"
+read_when:
+  - OS समर्थन या इंस्टॉल पथ खोज रहे हों
+  - यह तय कर रहे हों कि Gateway कहाँ चलाना है
 title: "प्लेटफ़ॉर्म"
 ---
 
 # प्लेटफ़ॉर्म
 
-OpenClaw core TypeScript में लिखा गया है। **Node अनुशंसित रनटाइम है**।
+OpenClaw core is written in TypeScript. **Node is the recommended runtime**.
 Bun is not recommended for the Gateway (WhatsApp/Telegram bugs).
 
 macOS (menu bar app) और mobile nodes (iOS/Android) के लिए companion apps मौजूद हैं। Windows and
@@ -45,7 +49,5 @@ Native companion apps for Windows are also planned; the Gateway is recommended v
 
 सेवा लक्ष्य OS पर निर्भर करता है:
 
-- macOS: लॉन्चएजेंट (`bot.molt.gateway` or `bot.molt.<profile>`; पुराना `com.openclaw.*`)
+- macOS: LaunchAgent (`bot.molt.gateway` or `bot.molt.<profile>`; legacy `com.openclaw.*`)
 - Linux/WSL2: systemd यूज़र सेवा (`openclaw-gateway[-<profile>].service`)
-
-

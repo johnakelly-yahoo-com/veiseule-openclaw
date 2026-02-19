@@ -83,10 +83,8 @@ Se você não tiver certeza sobre o nível de risco, apenas descreva o impacto e
 
 - **Vulnerabilidades de segurança:** Consulte nossa [página de Trust](https://trust.openclaw.ai) para instruções de reporte
 - **Perguntas sobre o modelo de ameaças:** Abra uma issue em [openclaw/trust](https://github.com/openclaw/trust/issues)
-- 1. **Chat geral:** Canal #security do Discord
+- **Chat geral:** Canal #security do Discord
 
-## 2. Reconhecimento
+## Reconhecimento
 
-3. Os colaboradores do modelo de ameaças são reconhecidos nos agradecimentos do modelo de ameaças, nas notas de versão e no hall da fama de segurança do OpenClaw por contribuições significativas.
-
-
+Os colaboradores do modelo de ameaças são reconhecidos nos agradecimentos do modelo de ameaças, nas notas de versão e no hall da fama de segurança do OpenClaw por contribuições significativas.

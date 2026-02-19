@@ -1,4 +1,8 @@
 ---
+summary: "4. apply_patch vositasi bilan ko‘p faylli patchlarni qo‘llash"
+read_when:
+  - Sizga bir nechta fayl bo‘ylab tuzilgan tahrirlar kerak
+  - 5. Patch-ga asoslangan tahrirlarni hujjatlashtirmoqchi yoki nosozliklarni tuzatmoqchisiz
 title: "6. apply_patch Vositasi"
 ---
 
@@ -29,7 +33,8 @@ Vosita bitta `input` satrini qabul qiladi, u bir yoki bir nechta fayl amallarini
 ## Eslatmalar
 
 - Yo‘llar workspace ildiziga nisbatan aniqlanadi.
-- `*** Update File:` hunk ichida fayllarni qayta nomlash uchun `*** Move to:` dan foydalaning.
+- `tools.exec.applyPatch.workspaceOnly` standart bo‘yicha `true` (faqat workspace ichida). Uni `false` ga faqat `apply_patch` workspace katalogidan tashqariga yozishi/o‘chirishi kerak bo‘lsa, ataylab o‘rnating.
+- Kerak bo‘lganda faqat EOF qo‘shishni belgilash uchun `*** End of File` ishlatiladi.
 - Kerak bo‘lganda faqat EOF qo‘shishni belgilash uchun `*** End of File` ishlatiladi.
 - Eksperimental va sukut bo‘yicha o‘chirilgan. `tools.exec.applyPatch.enabled` bilan yoqing.
 - Faqat OpenAI uchun (OpenAI Codex’ni ham o‘z ichiga oladi). Ixtiyoriy ravishda model bo‘yicha cheklash:
@@ -44,5 +49,3 @@ Vosita bitta `input` satrini qabul qiladi, u bir yoki bir nechta fayl amallarini
   "input": "*** Begin Patch\n*** Update File: src/index.ts\n@@\n-const foo = 1\n+const foo = 2\n*** End Patch"
 }
 ```
-
-

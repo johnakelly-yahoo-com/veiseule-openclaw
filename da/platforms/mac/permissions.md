@@ -1,4 +1,9 @@
 ---
+summary: "macOS-tilladelsers persistens (TCC) og krav til signering"
+read_when:
+  - Fejlfinding af manglende eller fastlåste macOS-tilladelsesprompter
+  - Pakning eller signering af macOS-appen
+  - Ændring af bundle-id'er eller app-installationsstier
 title: "macOS-tilladelser"
 ---
 
@@ -43,5 +48,3 @@ Workaround: flyt filer ind i OpenClaw-arbejdsområdet (`~/.openclaw/workspace`),
 
 Hvis du tester tilladelser, skal du altid underskrive med et rigtigt certifikat. Ad-hoc
 builds er kun acceptable for hurtige lokale kørsler, hvor tilladelser ikke betyder noget.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Hỗ trợ Linux + trạng thái ứng dụng đồng hành"
+read_when:
+  - Tìm trạng thái ứng dụng đồng hành trên Linux
+  - Lập kế hoạch phạm vi nền tảng hoặc đóng góp
 title: "Ứng dụng Linux"
 ---
 
@@ -7,7 +11,7 @@ title: "Ứng dụng Linux"
 The Gateway is fully supported on Linux. **Node là runtime được khuyến nghị**.
 Bun is not recommended for the Gateway (WhatsApp/Telegram bugs).
 
-Các ứng dụng đồng hành gốc cho Linux đang được lên kế hoạch. Chúng tôi hoan nghênh sự đóng góp nếu bạn muốn giúp xây dựng một ứng dụng.
+Native Linux companion apps are planned. Contributions are welcome if you want to help build one.
 
 ## Lộ trình nhanh cho người mới (VPS)
 
@@ -60,7 +64,7 @@ openclaw doctor
 
 ## Điều khiển hệ thống (systemd user unit)
 
-OpenClaw cài đặt một dịch vụ systemd ở chế độ **user** theo mặc định. Sử dụng **system**
+OpenClaw installs a systemd **user** service by default. Use a **system**
 service for shared or always-on servers. The full unit example and guidance
 live in the [Gateway runbook](/gateway).
 
@@ -88,5 +92,3 @@ Kích hoạt:
 ```
 systemctl --user enable --now openclaw-gateway[-<profile>].service
 ```
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "„Doctor-Befehl: Zustandsprüfungen, Konfigurationsmigrationen und Reparaturschritte“"
+read_when:
+  - Hinzufügen oder Ändern von Doctor-Migrationen
+  - Einführung inkompatibler Konfigurationsänderungen
 title: "Doctor"
 ---
 
@@ -287,5 +291,3 @@ Backup-Tipp aus, wenn der Workspace noch nicht unter Git steht.
 Siehe [/concepts/agent-workspace](/concepts/agent-workspace) für eine vollständige
 Anleitung zur Workspace-Struktur und zum Git-Backup (empfohlen: privates GitHub
 oder GitLab).
-
-

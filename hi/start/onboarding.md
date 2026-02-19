@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw (macOS ऐप) के लिए पहली‑बार ऑनबोर्डिंग प्रवाह"
+read_when:
+  - macOS ऑनबोर्डिंग सहायक का डिज़ाइन करते समय
+  - प्रमाणीकरण या पहचान सेटअप लागू करते समय
 title: "ऑनबोर्डिंग (macOS ऐप)"
 sidebarTitle: "ऑनबोर्डिंग: macOS ऐप"
 ---
@@ -7,6 +11,7 @@ sidebarTitle: "ऑनबोर्डिंग: macOS ऐप"
 
 45. यह डॉक **वर्तमान** पहली‑बार रन होने वाले ऑनबोर्डिंग फ़्लो का वर्णन करता है। 46. लक्ष्य एक
     स्मूद “day 0” अनुभव है: जहाँ Gateway चलता है वह चुनें, auth कनेक्ट करें, विज़ार्ड चलाएँ, और एजेंट को खुद को बूटस्ट्रैप करने दें।
+    onboarding के विभिन्न तरीकों का सामान्य अवलोकन देखने के लिए, [Onboarding Overview](/start/onboarding-overview) देखें।
 
 <Steps>
 <Step title="Approve macOS warning">
@@ -74,5 +79,3 @@ sidebarTitle: "ऑनबोर्डिंग: macOS ऐप"
   what happens on the gateway host during the first agent run.
 </Step>
 </Steps>
-
-

@@ -1,10 +1,13 @@
 ---
+summary: "Mga patakaran sa routing bawat channel (WhatsApp, Telegram, Discord, Slack) at shared na context"
+read_when:
+  - Pagbabago ng channel routing o behavior ng inbox
 title: "Pag-route ng Channel"
 ---
 
 # Mga channel at routing
 
-Iri-route ng OpenClaw ang mga tugon **pabalik sa channel kung saan nanggaling ang isang mensahe**. Ang
+OpenClaw routes replies **back to the channel where a message came from**. The
 model does not choose a channel; routing is deterministic and controlled by the
 host configuration.
 
@@ -46,6 +49,12 @@ Pinipili ng routing ang **isang agent** para sa bawat inbound na mensahe:
 4. **Account match** (`accountId` sa channel).
 5. **Channel match** (anumang account sa channel na iyon).
 6. **Default agent** (`agents.list[].default`, kung hindi ay unang entry sa listahan, fallback sa `main`).
+7. ```
+   Native na asal ng command at katalogo ng mga command.
+   ```
+8. **Default agent** (`agents.list[].default`, kung hindi ay unang entry sa listahan, fallback sa `main`).
+
+Tinutukoy ng matched agent kung aling workspace at session store ang gagamitin.
 
 Tinutukoy ng matched agent kung aling workspace at session store ang gagamitin.
 
@@ -109,5 +118,3 @@ Kasama sa mga inbound reply ang:
 - Ang quoted context ay idinadagdag sa `Body` bilang isang `[Replying to ...]` block.
 
 Pare-pareho ito sa lahat ng channel.
-
-

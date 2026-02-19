@@ -1,4 +1,8 @@
 ---
+summary: "「openclaw directory」（self、peers、groups）の CLI リファレンス"
+read_when:
+  - チャンネルの連絡先／グループ／self の ID を調べたいとき
+  - チャンネルディレクトリアダプターを開発しているとき
 title: "directory"
 ---
 
@@ -57,5 +61,3 @@ openclaw directory groups list --channel zalouser
 openclaw directory groups list --channel zalouser --query "work"
 openclaw directory groups members --channel zalouser --group-id <id>
 ```
-
-

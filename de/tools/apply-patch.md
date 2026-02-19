@@ -1,4 +1,8 @@
 ---
+summary: "„Mehrdatei-Patches mit dem Werkzeug apply_patch anwenden“"
+read_when:
+  - Sie benötigen strukturierte Dateibearbeitungen über mehrere Dateien hinweg
+  - Sie möchten patchbasierte Bearbeitungen dokumentieren oder debuggen
 title: "„apply_patch-Werkzeug“"
 ---
 
@@ -28,7 +32,8 @@ Das Werkzeug akzeptiert eine einzelne `input`-Zeichenkette, die eine oder mehrer
 
 ## Hinweise
 
-- Pfade werden relativ zum Workspace-Stamm aufgelöst.
+- Patch-Pfade unterstützen relative Pfade (ausgehend vom Workspace-Verzeichnis) und absolute Pfade.
+- `tools.exec.applyPatch.workspaceOnly` ist standardmäßig auf `true` gesetzt (auf den Workspace beschränkt). Setze es nur auf `false`, wenn du ausdrücklich möchtest, dass `apply_patch` außerhalb des Workspace-Verzeichnisses schreibt/löscht.
 - Verwenden Sie `*** Move to:` innerhalb eines `*** Update File:`-Hunks, um Dateien umzubenennen.
 - `*** End of File` kennzeichnet bei Bedarf ein reines EOF-Insertion.
 - Experimentell und standardmäßig deaktiviert. Aktivieren Sie es mit `tools.exec.applyPatch.enabled`.
@@ -44,5 +49,3 @@ Das Werkzeug akzeptiert eine einzelne `input`-Zeichenkette, die eine oder mehrer
   "input": "*** Begin Patch\n*** Update File: src/index.ts\n@@\n-const foo = 1\n+const foo = 2\n*** End Patch"
 }
 ```
-
-

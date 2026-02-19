@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw` အမိန့်များ၊ အမိန့်ခွဲများနှင့် ရွေးချယ်မှုများအတွက် OpenClaw CLI ကိုးကားချက်"
+read_when:
+  - CLI အမိန့်များ သို့မဟုတ် ရွေးချယ်မှုများကို ထည့်သွင်းခြင်း သို့မဟုတ် ပြင်ဆင်ခြင်းအချိန်
+  - အမိန့် မျက်နှာပြင်အသစ်များကို စာရွက်စာတမ်းရေးသားရာတွင်
 title: "CLI ကိုးကားချက်"
 ---
 
@@ -314,6 +318,11 @@ Options—
 - `--zai-api-key <key>`
 - `--minimax-api-key <key>`
 - `--opencode-zen-api-key <key>`
+- `--custom-base-url <url>` (non-interactive; `--auth-choice custom-api-key` နှင့်တွဲဖက်အသုံးပြုသည်)
+- `--custom-model-id <id>` (non-interactive; `--auth-choice custom-api-key` နှင့်တွဲဖက်အသုံးပြုသည်)
+- `--custom-api-key <key>` (non-interactive; optional; `--auth-choice custom-api-key` နှင့်တွဲဖက်အသုံးပြုသည်; မထည့်ထားပါက `CUSTOM_API_KEY` ကို အသုံးပြုမည်)
+- `--custom-provider-id <id>` (non-interactive; optional custom provider id)
+- `--custom-compatibility <openai|anthropic>` (non-interactive; optional; မူလတန်ဖိုး `openai`)
 - `--gateway-port <port>`
 - `--gateway-bind <loopback|lan|tailnet|auto|custom>`
 - `--gateway-auth <token|password>`
@@ -1023,5 +1032,3 @@ Options—
 - `--message <text>`
 - `--timeout-ms <ms>` (မူလ `agents.defaults.timeoutSeconds`)
 - `--history-limit <n>`
-
-

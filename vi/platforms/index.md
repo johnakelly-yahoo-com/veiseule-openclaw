@@ -1,4 +1,8 @@
 ---
+summary: "Tổng quan hỗ trợ nền tảng (Gateway + ứng dụng đồng hành)"
+read_when:
+  - Tìm hỗ trợ hệ điều hành hoặc đường dẫn cài đặt
+  - Quyết định nơi chạy Gateway
 title: "Nền tảng"
 ---
 
@@ -45,7 +49,5 @@ Sử dụng một trong các cách sau (đều được hỗ trợ):
 
 Đích dịch vụ phụ thuộc vào hệ điều hành:
 
-- macOS: LaunchAgent (`bot.molt.gateway` hoặc `bot.molt.<profile>`; phiên bản cũ `com.openclaw.*`)
-- Linux/WSL2: dịch vụ systemd người dùng (`openclaw-gateway[-<profile>].service`)
-
-
+- macOS: LaunchAgent (`bot.molt.gateway` or `bot.molt.<profile>`; legacy `com.openclaw.*`)
+- Linux/WSL2: systemd user service (`openclaw-gateway[-<profile>].service`)

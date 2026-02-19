@@ -1,4 +1,7 @@
 ---
+summary: "Spraakactivering en push-to-talk-modi plus routeringsdetails in de mac-app"
+read_when:
+  - Werken aan spraakactivering- of PTT-paden
 title: "Voice Wake"
 ---
 
@@ -62,5 +65,3 @@ Versteviging:
 
 - Schakel push-to-talk in, houd Cmd+Fn vast, spreek, laat los: de overlay moet partials tonen en vervolgens verzenden.
 - Tijdens vasthouden moeten de menubalk-oren vergroot blijven (gebruikt `triggerVoiceEars(ttl:nil)`); na loslaten krimpen ze.
-
-

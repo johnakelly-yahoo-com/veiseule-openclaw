@@ -1,4 +1,8 @@
 ---
+summary: "مصادقة النماذج: OAuth، مفاتيح API، وsetup-token"
+read_when:
+  - استكشاف أخطاء مصادقة النماذج أو انتهاء صلاحية OAuth
+  - توثيق المصادقة أو تخزين بيانات الاعتماد
 title: "المصادقة"
 ---
 
@@ -141,5 +145,3 @@ openclaw models status
 
 - اشتراك Claude Max أو Pro (لـ `claude setup-token`)
 - تثبيت Claude Code CLI (توفر أمر `claude`)
-
-

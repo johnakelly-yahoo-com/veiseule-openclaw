@@ -1,4 +1,9 @@
 ---
+summary: "OpenProse: .prose-workflows, slash-commando's en status in OpenClaw"
+read_when:
+  - Je wilt .prose-workflows uitvoeren of schrijven
+  - Je wilt de OpenProse-plugin inschakelen
+  - Je moet opslag van status begrijpen
 title: "OpenProse"
 ---
 
@@ -127,5 +132,3 @@ Als je tool-toegestane lijst deze tools blokkeert, zullen OpenProse-programma's 
 Behandel `.prose`-bestanden als code. Beoordeel ze vóór uitvoering. Gebruik OpenClaw tool-toegestane lijsten en goedkeuringspoorten om neveneffecten te beheersen.
 
 Voor deterministische, door goedkeuring afgeschermde workflows, vergelijk met [Lobster](/tools/lobster).
-
-

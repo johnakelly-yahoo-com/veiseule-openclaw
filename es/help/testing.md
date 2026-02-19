@@ -1,4 +1,9 @@
 ---
+summary: "Kit de pruebas: suites unitarias/e2e/live, runners de Docker y qué cubre cada prueba"
+read_when:
+  - Ejecutar pruebas localmente o en CI
+  - Agregar regresiones para errores de modelos/proveedores
+  - Depurar el comportamiento del Gateway + agente
 title: "Pruebas"
 ---
 
@@ -37,7 +42,7 @@ Piense en las suites como “realismo creciente” (y mayor intermitencia/costo)
 ### Unitarias / integración (predeterminada)
 
 - Comando: `pnpm test`
-- Configuración: `vitest.config.ts`
+- Config: `scripts/test-parallel.mjs` (ejecuta `vitest.unit.config.ts`, `vitest.extensions.config.ts`, `vitest.gateway.config.ts`)
 - Archivos: `src/**/*.test.ts`
 - Alcance:
   - Pruebas puramente unitarias
@@ -47,12 +52,23 @@ Piense en las suites como “realismo creciente” (y mayor intermitencia/costo)
   - Se ejecuta en CI
   - No requiere claves reales
   - Debe ser rápida y estable
+- Nota sobre el pool:
+  - OpenClaw utiliza `vmForks` de Vitest en Node 22/23 para fragmentos unitarios más rápidos.
+  - En Node 24+, OpenClaw cambia automáticamente a `forks` normales para evitar errores de enlace del VM de Node (`ERR_VM_MODULE_LINK_FAILURE` / `module is already linked`).
+  - Anula manualmente con `OPENCLAW_TEST_VM_FORKS=0` (forzar `forks`) o `OPENCLAW_TEST_VM_FORKS=1` (forzar `vmForks`).
 
 ### E2E (humo del gateway)
 
 - Comando: `pnpm test:e2e`
 - Configuración: `vitest.e2e.config.ts`
 - Archivos: `src/**/*.e2e.test.ts`
+- Valores predeterminados en tiempo de ejecución:
+  - Utiliza `vmForks` de Vitest para un inicio de archivos más rápido.
+  - Utiliza workers adaptativos (CI: 2-4, local: 4-8).
+  - Se ejecuta en modo silencioso por defecto para reducir la sobrecarga de E/S de consola.
+- Anulaciones útiles:
+  - `OPENCLAW_E2E_WORKERS=<n>` para forzar el número de workers (limitado a 16).
+  - `OPENCLAW_E2E_VERBOSE=1` para volver a habilitar la salida detallada en consola.
 - Alcance:
   - Comportamiento end-to-end del gateway con múltiples instancias
   - Superficies WebSocket/HTTP, emparejamiento de nodos y redes más pesadas
@@ -363,5 +379,3 @@ Cuando corrige un problema de proveedor/modelo descubierto en live:
 - Prefiera apuntar a la capa más pequeña que capture el error:
   - error de conversión/reproducción de solicitud del proveedor → prueba de modelos directos
   - error del pipeline de sesión/historial/herramientas del gateway → humo live del gateway o prueba simulada del gateway segura para CI
-
-

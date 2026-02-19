@@ -1,4 +1,9 @@
 ---
+summary: "Raspberry Pi’da OpenClaw (byudjetli self-hosted sozlama)"
+read_when:
+  - Raspberry Pi’da OpenClaw’ni sozlash
+  - ARM qurilmalarida OpenClaw’ni ishga tushirish
+  - Arzon, doimiy ishlaydigan shaxsiy AI yaratish
 title: "Raspberry Pi"
 ---
 
@@ -16,11 +21,11 @@ Mos keladi:
 
 ## Uskuna talablari
 
-| Pi modeli       | RAM     | Ishlaydimi?  | Eslatmalar                                          |
+| Pi modeli       | RAM     | Ishlaydimi?  | Notes                                               |
 | --------------- | ------- | ------------ | --------------------------------------------------- |
 | **Pi 5**        | 4GB/8GB | ✅ Eng yaxshi | Eng tezkor, tavsiya etiladi                         |
 | **Pi 4**        | 4GB     | ✅ Yaxshi     | Ko‘pchilik foydalanuvchilar uchun eng maqbul tanlov |
-| **Pi 4**        | 2GB     | ✅ Yaxshi         | Ishlaydi, swap qo‘shing                                     |
+| **Pi 4**        | 2GB     | ✅ OK         | Works, add swap                                     |
 | **Pi 4**        | 1GB     | ⚠️ Tight     | Possible with swap, minimal config                  |
 | **Pi 3B+**      | 1GB     | ⚠️ Slow      | Works but sluggish                                  |
 | **Pi Zero 2 W** | 512MB   | ❌            | Not recommended                                     |
@@ -218,7 +223,7 @@ htop
 
 26. OpenClaw’ning aksariyat funksiyalari ARM64’da ishlaydi, ammo ba’zi tashqi binarlar ARM build’larini talab qilishi mumkin:
 
-| 27. Asbob                                 | 28. ARM64 holati | 29. Izohlar                             |
+| 27. Asbob                                 | 28. ARM64 holati | Notes                                                          |
 | ---------------------------------------------------------------- | --------------------------------------- | -------------------------------------------------------------- |
 | 30. Node.js               | 31. ✅            | 32. Juda yaxshi ishlaydi                |
 | 33. WhatsApp (Baileys) | 34. ✅            | 35. To‘liq JS, muammo yo‘q              |
@@ -351,5 +356,3 @@ echo 'wireless-power off' | sudo tee -a /etc/network/interfaces
 - [Hetzner guide](/install/hetzner) — Docker setup
 - [Tailscale](/gateway/tailscale) — remote access
 - [Nodes](/nodes) — pair your laptop/phone with the Pi gateway
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Patakbuhin ang ACP bridge para sa mga IDE integration"
+read_when:
+  - Pagse-setup ng mga ACP-based na IDE integration
+  - Pag-debug ng ACP session routing papunta sa Gateway
 title: "acp"
 ---
 
@@ -164,5 +168,3 @@ Alamin pa ang tungkol sa mga session key sa [/concepts/session](/concepts/sessio
 - `--server-args <args...>`: mga karagdagang argument na ipinapasa sa ACP server.
 - `--server-verbose`: i-enable ang verbose logging sa ACP server.
 - `--verbose, -v`: verbose na client logging.
-
-

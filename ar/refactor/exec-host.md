@@ -1,4 +1,9 @@
 ---
+summary: "خطة إعادة هيكلة: توجيه مضيف التنفيذ، موافقات العُقد، والمُشغِّل عديم الواجهة"
+read_when:
+  - عند تصميم توجيه مضيف التنفيذ أو موافقات التنفيذ
+  - عند تنفيذ مُشغِّل العُقدة + IPC لواجهة المستخدم
+  - إضافة الأوضاع الأمنية للمضيف الخارجي وأوامر Slash
 title: "إعادة هيكلة مضيف التنفيذ"
 ---
 
@@ -91,7 +96,7 @@ title: "إعادة هيكلة مضيف التنفيذ"
 - `agents.list[].tools.exec.ask`
 - `agents.list[].tools.exec.node`
 
-### الاسم المستعار
+### Alias
 
 - `/elevated on` = تعيين `tools.exec.host=gateway` و`tools.exec.security=full` لجلسة الوكيل.
 - `/elevated off` = استعادة إعدادات التنفيذ السابقة لجلسة الوكيل.
@@ -309,5 +314,3 @@ Agent -> Gateway -> Bridge -> Node Service (TS)
 - [موافقات Exec](/tools/exec-approvals)
 - [العُقد](/nodes)
 - [الوضع المُرفَع](/tools/elevated)
-
-

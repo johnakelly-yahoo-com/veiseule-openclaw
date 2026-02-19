@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw devices`에 대한 CLI 참조 (디바이스 페어링 + 토큰 로테이션/폐기)"
+read_when:
+  - 디바이스 페어링 요청을 승인할 때
+  - 디바이스 토큰을 로테이션하거나 폐기해야 할 때
 title: "디바이스"
 ---
 
@@ -64,5 +68,3 @@ openclaw devices revoke --device <deviceId> --role node
 
 - 토큰 로테이션은 새 토큰(민감 정보)을 반환합니다. 비밀로 취급하십시오.
 - 이러한 명령에는 `operator.pairing` (또는 `operator.admin`) 스코프가 필요합니다.
-
-

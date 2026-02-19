@@ -1,4 +1,7 @@
 ---
+summary: "Możliwości OpenClaw w kanałach, routingu, mediach i UX."
+read_when:
+  - Chcesz uzyskać pełną listę obsługiwanych funkcji OpenClaw
 title: "Funkcje"
 ---
 
@@ -54,5 +57,3 @@ title: "Funkcje"
 Starsze ścieżki Claude, Codex, Gemini oraz Opencode zostały usunięte. Pi jest jedyną
 ścieżką agenta kodującego.
 </Note>
-
-

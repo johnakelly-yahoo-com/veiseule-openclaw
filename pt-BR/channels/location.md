@@ -1,4 +1,8 @@
 ---
+summary: "Análise de localização de canais de entrada (Telegram + WhatsApp) e campos de contexto"
+read_when:
+  - Ao adicionar ou modificar a análise de localização de canais
+  - Ao usar campos de contexto de localização em prompts ou ferramentas do agente
 title: "Análise de localização de canais"
 ---
 
@@ -50,5 +54,3 @@ Quando uma localização está presente, estes campos são adicionados a `ctx`:
 - **Telegram**: locais nomeados mapeiam para `LocationName/LocationAddress`; localizações ao vivo usam `live_period`.
 - **WhatsApp**: `locationMessage.comment` e `liveLocationMessage.caption` são anexados como a linha de legenda.
 - **Matrix**: `geo_uri` é analisado como um pin de localização; a altitude é ignorada e `LocationIsLive` é sempre false.
-
-

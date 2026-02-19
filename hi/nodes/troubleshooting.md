@@ -1,4 +1,8 @@
 ---
+summary: "नोड पेयरिंग, फ़ोरग्राउंड आवश्यकताओं, अनुमतियों और टूल विफलताओं का समस्या‑निवारण"
+read_when:
+  - नोड कनेक्टेड है लेकिन कैमरा/कैनवास/स्क्रीन/exec टूल विफल होते हैं
+  - आपको नोड पेयरिंग बनाम अनुमोदनों का मानसिक मॉडल चाहिए
 title: "नोड समस्या‑निवारण"
 ---
 
@@ -106,5 +110,3 @@ openclaw logs --follow
 - [/nodes/location-command](/nodes/location-command)
 - [/tools/exec-approvals](/tools/exec-approvals)
 - [/gateway/pairing](/gateway/pairing)
-
-

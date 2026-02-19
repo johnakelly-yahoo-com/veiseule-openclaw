@@ -1,4 +1,9 @@
-------
+---
+summary: "Perfil de usuário do agente dev (C-3PO)"
+read_when:
+  - Usando os templates do gateway de dev
+  - Atualizando a identidade padrão do agente dev
+---
 
 # USER.md - Perfil do Usuário
 
@@ -11,5 +16,3 @@
   - O C-3PO existe para ajudar a depurar e auxiliar sempre que possível.
   - Trabalhando em diferentes fusos horários para tornar o OpenClaw melhor.
   - Os criadores. Os construtores. Aqueles que se aprofundam no código.
-
-

@@ -1,24 +1,28 @@
 ---
-title: "Bir nechta Gateway"
+summary: "Run multiple OpenClaw Gateways on one host (isolation, ports, and profiles)"
+read_when:
+  - Running more than one Gateway on the same machine
+  - You need isolated config/state/ports per Gateway
+title: "Multiple Gateways"
 ---
 
-# Bir nechta Gateway (bir xil xost)
+# Multiple Gateways (same host)
 
-Ko‘pchilik holatlarda bitta Gateway yetarli bo‘ladi, chunki u bir nechta xabar almashish ulanishlari va agentlarni boshqara oladi. Agar sizga kuchliroq izolyatsiya yoki zaxira (masalan, qutqaruv boti) kerak bo‘lsa, alohida profil/portlarga ega mustaqil Gateway’larni ishga tushiring.
+Most setups should use one Gateway because a single Gateway can handle multiple messaging connections and agents. If you need stronger isolation or redundancy (e.g., a rescue bot), run separate Gateways with isolated profiles/ports.
 
-## Izolyatsiya ro‘yxati (majburiy)
+## Isolation checklist (required)
 
-- `OPENCLAW_CONFIG_PATH` — har bir instansiya uchun alohida config fayl
-- `OPENCLAW_STATE_DIR` — har bir instansiya uchun sessiyalar, credential’lar, keshlar
-- `agents.defaults.workspace` — har bir instansiya uchun workspace ildiz papkasi
-- `gateway.port` (yoki `--port`) — har bir instansiya uchun noyob
-- Hosila (derived) portlar (browser/canvas) bir-biriga to‘qnashmasligi kerak
+- `OPENCLAW_CONFIG_PATH` — per-instance config file
+- `OPENCLAW_STATE_DIR` — per-instance sessions, creds, caches
+- `agents.defaults.workspace` — per-instance workspace root
+- `gateway.port` (or `--port`) — unique per instance
+- Derived ports (browser/canvas) must not overlap
 
-Agar bular umumiy bo‘lsa, config kolliziyalari va port mojarolariga duch kelasiz.
+If these are shared, you will hit config races and port conflicts.
 
-## Tavsiya etiladi: profillar (`--profile`)
+## Recommended: profiles (`--profile`)
 
-Profillar `OPENCLAW_STATE_DIR` va `OPENCLAW_CONFIG_PATH` ni avtomatik ravishda ajratadi hamda servis nomlariga suffiks qo‘shadi.
+Profiles auto-scope `OPENCLAW_STATE_DIR` + `OPENCLAW_CONFIG_PATH` and suffix service names.
 
 ```bash
 # main
@@ -30,64 +34,64 @@ openclaw --profile rescue setup
 openclaw --profile rescue gateway --port 19001
 ```
 
-Har bir profil uchun servislar:
+Per-profile services:
 
 ```bash
 openclaw --profile main gateway install
 openclaw --profile rescue gateway install
 ```
 
-## Qutqaruv-bot qo‘llanmasi
+## Rescue-bot guide
 
-Bir xil xostda ikkinchi Gateway’ni quyidagilar bilan ishga tushiring:
+Run a second Gateway on the same host with its own:
 
-- alohida profil/config
-- alohida state papkasi
-- alohida workspace
-- alohida asosiy port (va unga bog‘liq hosila portlar)
+- profile/config
+- state dir
+- workspace
+- base port (plus derived ports)
 
-Bu qutqaruv botini asosiy botdan izolyatsiya qiladi, shunda asosiy bot ishlamay qolsa, uni diagnostika qilish yoki config o‘zgartirish mumkin bo‘ladi.
+This keeps the rescue bot isolated from the main bot so it can debug or apply config changes if the primary bot is down.
 
-Port oralig‘i: asosiy portlar orasida kamida 20 ta port farqi qoldiring, shunda hosila browser/canvas/CDP portlari hech qachon to‘qnashmaydi.
+Port spacing: leave at least 20 ports between base ports so the derived browser/canvas/CDP ports never collide.
 
-### O‘rnatish tartibi (qutqaruv bot)
+### How to install (rescue bot)
 
 ```bash
-# Asosiy bot (mavjud yoki yangi, --profile parametrisiz)
-# 18789 portda + Chrome CDC/Canvas/... portlari bilan ishlaydi
+# Main bot (existing or fresh, without --profile param)
+# Runs on port 18789 + Chrome CDC/Canvas/... Ports
 openclaw onboard
 openclaw gateway install
 
-# Qutqaruv bot (izolyatsiyalangan profil + portlar)
+# Rescue bot (isolated profile + ports)
 openclaw --profile rescue onboard
-# Eslatmalar:
-# - workspace nomi odatda -rescue suffiksi bilan tugaydi
-# - Port kamida 18789 + 20 port bo‘lishi kerak,
-#   yaxshisi butunlay boshqa asosiy port tanlang, masalan 19789,
-# - qolgan onboarding jarayoni odatdagidek
+# Notes:
+# - workspace name will be postfixed with -rescue per default
+# - Port should be at least 18789 + 20 Ports,
+#   better choose completely different base port, like 19789,
+# - rest of the onboarding is the same as normal
 
-# Servisni o‘rnatish (agar onboarding paytida avtomatik bo‘lmagan bo‘lsa)
+# To install the service (if not happened automatically during onboarding)
 openclaw --profile rescue gateway install
 ```
 
-## Port xaritasi (hosila)
+## Port mapping (derived)
 
-Asosiy port = `gateway.port` (yoki `OPENCLAW_GATEWAY_PORT` / `--port`).
+Base port = `gateway.port` (or `OPENCLAW_GATEWAY_PORT` / `--port`).
 
-- browser boshqaruv servisi porti = asosiy + 2 (faqat loopback)
-- canvas xosti Gateway HTTP serverida xizmat ko‘rsatiladi (`gateway.port` bilan bir xil port)
-- Browser profil CDP portlari `browser.controlPort + 9 .. + 108` oralig‘idan avtomatik ajratiladi
+- browser control service port = base + 2 (loopback only)
+- `canvasHost.port = base + 4`
+- Browser profile CDP ports auto-allocate from `browser.controlPort + 9 .. + 108`
 
-Agar config yoki env orqali ulardan birini o‘zgartirsangiz, har bir instansiya uchun noyobligini saqlashingiz shart.
+If you override any of these in config or env, you must keep them unique per instance.
 
-## Browser/CDP bo‘yicha eslatmalar (keng tarqalgan xato)
+## Browser/CDP notes (common footgun)
 
-- `browser.cdpUrl` ni bir nechta instansiyada bir xil qiymatga **mahkamlab qo‘ymang**.
-- Har bir instansiya o‘zining browser control porti va CDP oralig‘iga ega bo‘lishi kerak (gateway portidan hosil qilinadi).
-- Agar aniq CDP portlar kerak bo‘lsa, har bir instansiya uchun `browser.profiles.<name>.cdpPort` ni belgilang.
-- Masofaviy Chrome: `browser.profiles.<name>.cdpUrl` dan foydalaning (har profil, har instansiya uchun).
+- Do **not** pin `browser.cdpUrl` to the same values on multiple instances.
+- Each instance needs its own browser control port and CDP range (derived from its gateway port).
+- If you need explicit CDP ports, set `browser.profiles.<name>.cdpPort` per instance.
+- Remote Chrome: use `browser.profiles.<name>.cdpUrl` (per profile, per instance).
 
-## Qo‘lda env misoli
+## Manual env example
 
 ```bash
 OPENCLAW_CONFIG_PATH=~/.openclaw/main.json \
@@ -99,11 +103,10 @@ OPENCLAW_STATE_DIR=~/.openclaw-rescue \
 openclaw gateway --port 19001
 ```
 
-## Tezkor tekshiruvlar
+## Quick checks
 
 ```bash
 openclaw --profile main status
 openclaw --profile rescue status
 openclaw --profile rescue browser status
 ```
-

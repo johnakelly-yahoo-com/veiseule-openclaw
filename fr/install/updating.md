@@ -1,4 +1,8 @@
 ---
+summary: "Mise à jour d’OpenClaw en toute sécurité (installation globale ou depuis la source), avec stratégie de retour arrière"
+read_when:
+  - Mise à jour d’OpenClaw
+  - Quelque chose se casse après une mise à jour
 title: "Mise à jour"
 ---
 
@@ -226,5 +230,3 @@ git pull
 - Exécutez à nouveau `openclaw doctor` et lisez attentivement la sortie (elle indique souvent la correction).
 - Consultez : [Depannage](/gateway/troubleshooting)
 - Demandez sur Discord : https://discord.gg/clawd
-
-

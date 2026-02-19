@@ -1,4 +1,8 @@
 ---
+summary: "Heartbeat polling မက်ဆေ့ချ်များနှင့် အသိပေးချက် စည်းမျဉ်းများ"
+read_when:
+  - Heartbeat cadence သို့မဟုတ် မက်ဆေ့ချ်ပို့ပုံကို ချိန်ညှိရာတွင်
+  - အချိန်ဇယားထားသော တာဝန်များအတွက် heartbeat နှင့် cron တို့ထဲမှ ရွေးချယ်ရာတွင်
 title: "နှလုံးခုန်"
 ---
 
@@ -331,5 +335,3 @@ off in group chats.
 Heartbeats run full agent turns. Shorter intervals burn more tokens. Keep
 `HEARTBEAT.md` small and consider a cheaper `model` or `target: "none"` if you
 only want internal state updates.
-
-

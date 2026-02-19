@@ -1,54 +1,59 @@
 ---
+summary: "在 Oracle Cloud（永遠免費 ARM）上執行 OpenClaw"
+read_when:
+  - 在 Oracle Cloud 上設定 OpenClaw
+  - 尋找低成本的 OpenClaw VPS 主機
+  - 想要在小型伺服器上 24/7 執行 OpenClaw
 title: "Oracle Cloud"
 ---
 
-# OpenClaw on Oracle Cloud (OCI)
+# Oracle Cloud（OCI）上的 OpenClaw
 
-## Goal
+## 目標
 
-Run a persistent OpenClaw Gateway on Oracle Cloud's **Always Free** ARM tier.
+在 Oracle Cloud 的 **Always Free** ARM 層上執行一個持久運作的 OpenClaw Gateway 閘道器。
 
-Oracle’s free tier can be a great fit for OpenClaw (especially if you already have an OCI account), but it comes with tradeoffs:
+Oracle 的免費層非常適合 OpenClaw（尤其是你已經有 OCI 帳戶時），但也有一些取捨：
 
-- ARM architecture (most things work, but some binaries may be x86-only)
+- ARM 架構（大多數工具可用，但部分二進位檔可能僅支援 x86）
 - Capacity and signup can be finicky
 
-## Cost Comparison (2026)
+## 成本比較（2026）
 
-| Provider     | Plan            | Specs                  | Price/mo | Notes                 |
-| ------------ | --------------- | ---------------------- | -------- | --------------------- |
-| Oracle Cloud | Always Free ARM | up to 4 OCPU, 24GB RAM | $0       | ARM, limited capacity |
-| Hetzner      | CX22            | 2 vCPU, 4GB RAM        | ~ $4     | Cheapest paid option  |
-| DigitalOcean | Basic           | 1 vCPU, 1GB RAM        | $6       | Easy UI, good docs    |
-| Vultr        | Cloud Compute   | 1 vCPU, 1GB RAM        | $6       | Many locations        |
-| Linode       | Nanode          | 1 vCPU, 1GB RAM        | $5       | Now part of Akamai    |
+| 供應商          | 方案              | 規格                 | 每月價格                 | 注意事項           |
+| ------------ | --------------- | ------------------ | -------------------- | -------------- |
+| Oracle Cloud | Always Free ARM | 最多 4 OCPU、24GB RAM | $0                   | ARM，容量有限       |
+| Hetzner      | CX22            | 2 vCPU、4GB RAM     | ~ $4 | 最便宜的付費選項       |
+| DigitalOcean | Basic           | 1 vCPU、1GB RAM     | $6                   | UI 簡單、文件完善     |
+| Vultr        | Cloud Compute   | 1 vCPU、1GB RAM     | $6                   | Many locations |
+| Linode       | Nanode          | 1 vCPU、1GB RAM     | $5                   | 現為 Akamai 旗下   |
 
 ---
 
-## Prerequisites
+## 先決條件
 
-- Oracle Cloud account ([signup](https://www.oracle.com/cloud/free/)) — see [community signup guide](https://gist.github.com/rssnyder/51e3cfedd730e7dd5f4a816143b25dbd) if you hit issues
-- Tailscale account (free at [tailscale.com](https://tailscale.com))
-- ~30 minutes
+- Oracle Cloud 帳戶（[註冊](https://www.oracle.com/cloud/free/)）— 若遇到問題，請參考[社群註冊指南](https://gist.github.com/rssnyder/51e3cfedd730e7dd5f4a816143b25dbd)
+- Tailscale 帳戶（免費，見 [tailscale.com](https://tailscale.com)）
+- 約 30 分鐘
 
-## 1) Create an OCI Instance
+## 1. 建立 OCI 執行個體
 
-1. Log into [Oracle Cloud Console](https://cloud.oracle.com/)
-2. Navigate to **Compute → Instances → Create Instance**
-3. Configure:
+1. 登入 [Oracle Cloud Console](https://cloud.oracle.com/)
+2. 前往 **Compute → Instances → Create Instance**
+3. 設定：
    - **Name:** `openclaw`
-   - **Image:** Ubuntu 24.04 (aarch64)
-   - **Shape:** `VM.Standard.A1.Flex` (Ampere ARM)
-   - **OCPUs:** 2 (or up to 4)
-   - **Memory:** 12 GB (or up to 24 GB)
-   - **Boot volume:** 50 GB (up to 200 GB free)
-   - **SSH key:** Add your public key
-4. Click **Create**
-5. Note the public IP address
+   - **Image:** Ubuntu 24.04（aarch64）
+   - **Shape:** `VM.Standard.A1.Flex`（Ampere ARM）
+   - **OCPUs:** 2（或最多 4）
+   - **Memory:** 12 GB（或最多 24 GB）
+   - **Boot volume:** 50 GB（最多 200 GB 免費）
+   - **SSH key:** 新增你的公開金鑰
+4. 點擊 **Create**
+5. 記下公用 IP 位址
 
 **Tip:** If instance creation fails with "Out of capacity", try a different availability domain or retry later. Free tier capacity is limited.
 
-## 2) Connect and Update
+## 2. 連線並更新
 
 ```bash
 # Connect via public IP
@@ -59,9 +64,9 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install -y build-essential
 ```
 
-**Note:** `build-essential` is required for ARM compilation of some dependencies.
+**注意：** 為了在 ARM 上編譯部分相依套件，需要 `build-essential`。
 
-## 3) Configure User and Hostname
+## 3. 設定使用者與主機名稱
 
 ```bash
 # Set hostname
@@ -74,37 +79,37 @@ sudo passwd ubuntu
 sudo loginctl enable-linger ubuntu
 ```
 
-## 4) Install Tailscale
+## 4. 安裝 Tailscale
 
 ```bash
 curl -fsSL https://tailscale.com/install.sh | sh
 sudo tailscale up --ssh --hostname=openclaw
 ```
 
-This enables Tailscale SSH, so you can connect via `ssh openclaw` from any device on your tailnet — no public IP needed.
+這會啟用 Tailscale SSH，因此你可以從 tailnet 中的任何裝置，透過 `ssh openclaw` 連線 — 不需要公用 IP。
 
-Verify:
+驗證：
 
 ```bash
 tailscale status
 ```
 
-**From now on, connect via Tailscale:** `ssh ubuntu@openclaw` (or use the Tailscale IP).
+**之後請一律透過 Tailscale 連線：** `ssh ubuntu@openclaw`（或使用 Tailscale IP）。
 
-## 5) Install OpenClaw
+## 5. 安裝 OpenClaw
 
 ```bash
 curl -fsSL https://openclaw.ai/install.sh | bash
 source ~/.bashrc
 ```
 
-When prompted "How do you want to hatch your bot?", select **"Do this later"**.
+當出現「How do you want to hatch your bot?」提示時，請選擇 **「Do this later」**。
 
-> Note: If you hit ARM-native build issues, start with system packages (e.g. `sudo apt install -y build-essential`) before reaching for Homebrew.
+> 注意：若遇到 ARM 原生建置問題，請先使用系統套件（例如 `sudo apt install -y build-essential`），再考慮使用 Homebrew。
 
-## 6) Configure Gateway (loopback + token auth) and enable Tailscale Serve
+## 6. 設定 Gateway 閘道器（loopback + 權杖驗證）並啟用 Tailscale Serve
 
-Use token auth as the default. It’s predictable and avoids needing any “insecure auth” Control UI flags.
+Use token auth as the default. 預設使用權杖驗證。這種方式可預期，且不需要任何「不安全驗證」的 Control UI 旗標。
 
 ```bash
 # Keep the Gateway private on the VM
@@ -121,7 +126,7 @@ openclaw config set gateway.trustedProxies '["127.0.0.1"]'
 systemctl --user restart openclaw-gateway
 ```
 
-## 7) Verify
+## 7. 驗證
 
 ```bash
 # Check version
@@ -137,63 +142,63 @@ tailscale serve status
 curl http://localhost:18789
 ```
 
-## 8) Lock Down VCN Security
+## 8. 鎖定 VCN 安全性
 
-Now that everything is working, lock down the VCN to block all traffic except Tailscale. OCI's Virtual Cloud Network acts as a firewall at the network edge — traffic is blocked before it reaches your instance.
+Now that everything is working, lock down the VCN to block all traffic except Tailscale. 在一切運作正常後，請鎖定 VCN，只允許 Tailscale 流量。OCI 的 Virtual Cloud Network 會在網路邊緣充當防火牆 — 流量在到達執行個體前就會被阻擋。
 
-1. Go to **Networking → Virtual Cloud Networks** in the OCI Console
-2. Click your VCN → **Security Lists** → Default Security List
-3. **Remove** all ingress rules except:
-   - `0.0.0.0/0 UDP 41641` (Tailscale)
-4. Keep default egress rules (allow all outbound)
+1. 在 OCI Console 中前往 **Networking → Virtual Cloud Networks**
+2. 點擊你的 VCN → **Security Lists** → Default Security List
+3. **移除** 所有 ingress 規則，只保留：
+   - `0.0.0.0/0 UDP 41641`（Tailscale）
+4. 保留預設的 egress 規則（允許所有對外連線）
 
 This blocks SSH on port 22, HTTP, HTTPS, and everything else at the network edge. From now on, you can only connect via Tailscale.
 
 ---
 
-## Access the Control UI
+## 存取 Control UI
 
-From any device on your Tailscale network:
+從 Tailscale 網路中的任何裝置：
 
 ```
 https://openclaw.<tailnet-name>.ts.net/
 ```
 
-Replace `<tailnet-name>` with your tailnet name (visible in `tailscale status`).
+請將 `<tailnet-name>` 替換為你的 tailnet 名稱（可在 `tailscale status` 中查看）。
 
-No SSH tunnel needed. Tailscale provides:
+不需要 SSH 通道。Tailscale 會提供： Tailscale provides: Tailscale provides:
 
-- HTTPS encryption (automatic certs)
-- Authentication via Tailscale identity
+- HTTPS 加密（自動憑證）
+- 透過 Tailscale 身分進行身分驗證
 - Access from any device on your tailnet (laptop, phone, etc.)
 
 ---
 
-## Security: VCN + Tailscale (recommended baseline)
+## 安全性：VCN + Tailscale（建議的基準）
 
-With the VCN locked down (only UDP 41641 open) and the Gateway bound to loopback, you get strong defense-in-depth: public traffic is blocked at the network edge, and admin access happens over your tailnet.
+當 VCN 被鎖定（僅開放 UDP 41641），且 Gateway 閘道器 綁定至 loopback 時，你將獲得強健的縱深防禦：公網流量在網路邊緣被阻擋，管理存取則透過你的 tailnet 進行。
 
-This setup often removes the _need_ for extra host-based firewall rules purely to stop Internet-wide SSH brute force — but you should still keep the OS updated, run `openclaw security audit`, and verify you aren’t accidentally listening on public interfaces.
+此設定通常可消除為了防止全網 SSH 暴力攻擊而額外設定主機型防火牆的「需求」— 但你仍應保持作業系統更新、執行 `openclaw security audit`，並確認沒有意外地在公用介面上監聽。
 
-### What's Already Protected
+### 已經受到保護的項目
 
-| Traditional Step   | Needed?     | Why                                                                          |
-| ------------------ | ----------- | ---------------------------------------------------------------------------- |
-| UFW firewall       | No          | VCN blocks before traffic reaches instance                                   |
-| fail2ban           | No          | No brute force if port 22 blocked at VCN                                     |
-| sshd hardening     | No          | Tailscale SSH doesn't use sshd                                               |
-| Disable root login | No          | Tailscale uses Tailscale identity, not system users                          |
-| SSH key-only auth  | No          | Tailscale authenticates via your tailnet                                     |
-| IPv6 hardening     | Usually not | Depends on your VCN/subnet settings; verify what’s actually assigned/exposed |
+| 傳統步驟         | 需要嗎？        | 原因                                |
+| ------------ | ----------- | --------------------------------- |
+| UFW 防火牆      | 否           | VCN 在流量到達執行個體前即會阻擋                |
+| fail2ban     | 否           | 若在 VCN 層封鎖 22 埠，就不存在暴力破解          |
+| sshd 強化      | 否           | Tailscale SSH 不使用 sshd            |
+| 停用 root 登入   | 否           | Tailscale 使用 Tailscale 身分，而非系統使用者 |
+| 僅允許 SSH 金鑰驗證 | 否           | Tailscale 透過你的 tailnet 進行驗證       |
+| IPv6 強化      | Usually not | 取決於你的 VCN／子網設定；請確認實際指派與暴露的內容      |
 
-### Still Recommended
+### 仍建議的事項
 
-- **Credential permissions:** `chmod 700 ~/.openclaw`
-- **Security audit:** `openclaw security audit`
-- **System updates:** `sudo apt update && sudo apt upgrade` regularly
-- **Monitor Tailscale:** Review devices in [Tailscale admin console](https://login.tailscale.com/admin)
+- **憑證權限：** `chmod 700 ~/.openclaw`
+- **安全稽核：** `openclaw security audit`
+- **系統更新：** 定期執行 `sudo apt update && sudo apt upgrade`
+- **監控 Tailscale：** 在 [Tailscale 管理主控台](https://login.tailscale.com/admin) 檢視裝置
 
-### Verify Security Posture
+### 驗證安全狀態
 
 ```bash
 # Confirm no public ports listening
@@ -208,30 +213,30 @@ sudo systemctl disable --now ssh
 
 ---
 
-## Fallback: SSH Tunnel
+## 備用方案：SSH 通道
 
-If Tailscale Serve isn't working, use an SSH tunnel:
+如果 Tailscale Serve 無法運作，請使用 SSH 通道：
 
 ```bash
 # From your local machine (via Tailscale)
 ssh -L 18789:127.0.0.1:18789 ubuntu@openclaw
 ```
 
-Then open `http://localhost:18789`.
+然後開啟 `http://localhost:18789`。
 
 ---
 
 ## Troubleshooting
 
-### Instance creation fails ("Out of capacity")
+### 建立執行個體失敗（「Out of capacity」）
 
 Free tier ARM instances are popular. Try:
 
-- Different availability domain
-- Retry during off-peak hours (early morning)
-- Use the "Always Free" filter when selecting shape
+- 不同的可用性網域
+- 在離峰時段重試（清晨）
+- 在選擇 shape 時使用「Always Free」篩選條件
 
-### Tailscale won't connect
+### Tailscale 無法連線
 
 ```bash
 # Check status
@@ -241,7 +246,7 @@ sudo tailscale status
 sudo tailscale up --ssh --hostname=openclaw --reset
 ```
 
-### Gateway won't start
+### Gateway 閘道器 無法啟動
 
 ```bash
 openclaw gateway status
@@ -249,7 +254,7 @@ openclaw doctor --non-interactive
 journalctl --user -u openclaw-gateway -n 50
 ```
 
-### Can't reach Control UI
+### 無法存取 Control UI
 
 ```bash
 # Verify Tailscale Serve is running
@@ -262,26 +267,26 @@ curl http://localhost:18789
 systemctl --user restart openclaw-gateway
 ```
 
-### ARM binary issues
+### ARM 二進位檔問題
 
-Some tools may not have ARM builds. Check:
+部分工具可能沒有 ARM 版本。請檢查： Check: Check:
 
 ```bash
 uname -m  # Should show aarch64
 ```
 
-Most npm packages work fine. For binaries, look for `linux-arm64` or `aarch64` releases.
+大多數 npm 套件都能正常運作。對於二進位檔，請尋找 `linux-arm64` 或 `aarch64` 發行版本。 For binaries, look for `linux-arm64` or `aarch64` releases.
 
 ---
 
-## Persistence
+## 持久性
 
 All state lives in:
 
-- `~/.openclaw/` — config, credentials, session data
-- `~/.openclaw/workspace/` — workspace (SOUL.md, memory, artifacts)
+- `~/.openclaw/` — 設定、憑證、工作階段資料
+- `~/.openclaw/workspace/` — 工作區（SOUL.md、記憶、成品）
 
-Back up periodically:
+請定期備份：
 
 ```bash
 tar -czvf openclaw-backup.tar.gz ~/.openclaw ~/.openclaw/workspace
@@ -291,10 +296,8 @@ tar -czvf openclaw-backup.tar.gz ~/.openclaw ~/.openclaw/workspace
 
 ## See Also
 
-- [Gateway remote access](/gateway/remote) — other remote access patterns
-- [Tailscale integration](/gateway/tailscale) — full Tailscale docs
-- [Gateway configuration](/gateway/configuration) — all config options
-- [DigitalOcean guide](/platforms/digitalocean) — if you want paid + easier signup
-- [Hetzner guide](/install/hetzner) — Docker-based alternative
-
-
+- [Gateway 遠端存取](/gateway/remote) — 其他遠端存取模式
+- [Tailscale 整合](/gateway/tailscale) — 完整的 Tailscale 文件
+- [Gateway 設定](/gateway/configuration) — 所有設定選項
+- [DigitalOcean 指南](/platforms/digitalocean) — 若想要付費且註冊更簡單
+- [Hetzner 指南](/install/hetzner) — 以 Docker 為基礎的替代方案

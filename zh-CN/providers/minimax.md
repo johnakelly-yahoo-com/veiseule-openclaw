@@ -1,17 +1,14 @@
 ---
-title: MiniMax
-x-i18n:
-  generated_at: "2026-02-03T10:08:52Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 861e1ddc3c24be88f716bfb72d6015d62875a9087f8e89ea4ba3a35f548c7fae
-  source_path: providers/minimax.md
-  workflow: 15
+summary: "在 OpenClaw 中使用 MiniMax M2.1"
+read_when:
+  - 你想在 OpenClaw 中使用 MiniMax 模型
+  - 你需要 MiniMax 设置指南
+title: "MiniMax"
 ---
 
 # MiniMax
 
-MiniMax 是一家构建 **M2/M2.1** 模型系列的 AI 公司。当前面向编程的版本是 **MiniMax M2.1**（2025 年 12 月 23 日），专为现实世界的复杂任务而构建。
+MiniMax 是一家构建 **M2/M2.1** 模型系列的 AI 公司。当前面向编程的版本是 **MiniMax M2.1**（2025 年 12 月 23 日），专为现实世界的复杂任务而构建。 39. 当前以编程为重点的版本是 **MiniMax M2.1**（2025 年 12 月 23 日），专为真实世界的复杂任务打造。
 
 来源：[MiniMax M2.1 发布说明](https://www.minimax.io/news/minimax-m21)
 
@@ -30,7 +27,8 @@ MiniMax 强调 M2.1 的以下改进：
 
 - **速度：** Lightning 是 MiniMax 定价文档中的"快速"变体。
 - **成本：** 定价显示相同的输入成本，但 Lightning 的输出成本更高。
-- **编程计划路由：** Lightning 后端在 MiniMax 编程计划中不能直接使用。MiniMax 自动将大多数请求路由到 Lightning，但在流量高峰期会回退到常规 M2.1 后端。
+- **编程计划路由：** Lightning 后端在 MiniMax 编程计划中不能直接使用。MiniMax 自动将大多数请求路由到 Lightning，但在流量高峰期会回退到常规 M2.1 后端。 MiniMax auto-routes most requests to Lightning, but falls back to the
+  regular M2.1 back-end during traffic spikes.
 
 ## 选择设置方式
 
@@ -115,6 +113,7 @@ openclaw onboard --auth-choice minimax-portal
 
 ### 可选：通过 LM Studio 本地运行（手动）
 
+**Best for:** local inference with LM Studio.
 **适用于：** 使用 LM Studio 进行本地推理。
 我们在强大硬件（例如台式机/服务器）上使用 LM Studio 的本地服务器运行 MiniMax M2.1 时看到了出色的效果。
 
@@ -183,7 +182,8 @@ openclaw onboard --auth-choice minimax-portal
 
 ### "Unknown model: minimax/MiniMax-M2.1"
 
-这通常意味着 **MiniMax 提供商未配置**（没有提供商条目，也没有找到 MiniMax 认证配置文件/环境变量密钥）。此检测的修复在 **2026.1.12** 中（撰写本文时尚未发布）。修复方法：
+这通常意味着 **MiniMax 提供商未配置**（没有提供商条目，也没有找到 MiniMax 认证配置文件/环境变量密钥）。此检测的修复在 **2026.1.12** 中（撰写本文时尚未发布）。修复方法： A fix for this detection is in
+**2026.1.12** (unreleased at the time of writing). Fix by:
 
 - 升级到 **2026.1.12**（或从源码 `main` 分支运行），然后重启 Gateway 网关。
 - 运行 `openclaw configure` 并选择 **MiniMax M2.1**，或
@@ -200,5 +200,3 @@ openclaw onboard --auth-choice minimax-portal
 ```bash
 openclaw models list
 ```
-
-

@@ -1,4 +1,10 @@
-------
+---
+title: "ڈیفالٹ AGENTS.md"
+summary: "ذاتی معاون سیٹ اپ کے لیے ڈیفالٹ OpenClaw ایجنٹ ہدایات اور Skills کی فہرست"
+read_when:
+  - نئے OpenClaw ایجنٹ سیشن کا آغاز کرتے وقت
+  - ڈیفالٹ Skills کو فعال یا آڈٹ کرتے وقت
+---
 
 # AGENTS.md — OpenClaw ذاتی معاون (ڈیفالٹ)
 
@@ -116,5 +122,3 @@ git commit -m "Add Clawd workspace"
 - براؤزر پر مبنی تصدیق کے لیے `openclaw browser` (ٹیبز/اسٹیٹس/اسکرین شاٹ) کو OpenClaw-منیجڈ Chrome پروفائل کے ساتھ استعمال کریں۔
 - DOM معائنہ کے لیے `openclaw browser eval|query|dom|snapshot` استعمال کریں (اور جب مشینی آؤٹ پٹ درکار ہو تو `--json`/`--out`)۔
 - تعاملات کے لیے `openclaw browser click|type|hover|drag|select|upload|press|wait|navigate|back|evaluate|run` استعمال کریں (کلک/ٹائپ کے لیے اسنیپ شاٹ ریفرنسز درکار ہوتے ہیں؛ CSS سیلیکٹرز کے لیے `evaluate` استعمال کریں)۔
-
-

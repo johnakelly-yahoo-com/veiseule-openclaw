@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw इंस्टॉल करें और कुछ ही मिनटों में अपनी पहली चैट चलाएँ।"
+read_when:
+  - शून्य से पहली बार सेटअप
+  - आप काम करने वाली चैट तक सबसे तेज़ रास्ता चाहते हैं
 title: "आरंभ करें"
 ---
 
@@ -31,6 +35,10 @@ title: "आरंभ करें"
         ```bash
         curl -fsSL https://openclaw.ai/install.sh | bash
         ```
+      <img
+  src="/assets/install-script.svg"
+  alt="Install Script Process"
+  className="rounded-lg"></img>
       
 </Tab>
       <Tab title="Windows (PowerShell)">
@@ -42,12 +50,14 @@ title: "आरंभ करें"
     
 </Tabs>
 
+    ````
     ```
     <Note>
     अन्य इंस्टॉल विधियाँ और आवश्यकताएँ: [Install](/install)।
     
 </Note>
     ```
+    ````
 
   
 </Step>
@@ -56,21 +66,25 @@ title: "आरंभ करें"
     openclaw onboard --install-daemon
     ```
 
+    ````
     ```
     विज़ार्ड प्रमाणीकरण, Gateway सेटिंग्स और वैकल्पिक चैनलों को कॉन्फ़िगर करता है।
     विवरण के लिए [Onboarding Wizard](/start/wizard) देखें।
     ```
+    ````
 
   
 </Step>
   <Step title="Check the Gateway">
     यदि आपने सेवा इंस्टॉल की है, तो यह पहले से चल रही होनी चाहिए:
 
+    `````
     ````
     ```bash
     openclaw gateway status
     ```
     ````
+    `````
 
   
 </Step>
@@ -92,22 +106,26 @@ title: "आरंभ करें"
   <Accordion title="Run the Gateway in the foreground">
     त्वरित परीक्षणों या समस्या-निवारण के लिए उपयोगी।
 
+    `````
     ````
     ```bash
     openclaw gateway --port 18789
     ```
     ````
+    `````
 
   
 </Accordion>
   <Accordion title="Send a test message">
     कॉन्फ़िगर किए गए चैनल की आवश्यकता होती है।
 
+    `````
     ````
     ```bash
     openclaw message send --target +15555550123 --message "Hello from OpenClaw"
     ```
     ````
+    `````
 
   
 </Accordion>
@@ -147,5 +165,3 @@ title: "आरंभ करें"
 - DM सुरक्षा और अनुमोदन: [Pairing](/channels/pairing)
 - अधिक चैनल कनेक्ट करें: [Channels](/channels)
 - उन्नत वर्कफ़्लो और स्रोत से: [Setup](/start/setup)
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "Ciclo de vida de la superposición de voz cuando se superponen la palabra de activación y pulsar para hablar"
+read_when:
+  - Ajustar el comportamiento de la superposición de voz
 title: "Superposición de voz"
 ---
 
@@ -56,5 +59,3 @@ Audiencia: colaboradores de la app para macOS. Objetivo: mantener la superposici
 3. Refactorice `VoicePushToTalk` para adoptar sesiones existentes y llamar a `endCapture` al soltar; aplique enfriamiento en el runtime.
 4. Conecte `VoiceWakeOverlayController` al publicador; elimine las llamadas directas desde el runtime/PTT.
 5. Agregue pruebas de integración para adopción de sesiones, enfriamiento y descarte con texto vacío.
-
-

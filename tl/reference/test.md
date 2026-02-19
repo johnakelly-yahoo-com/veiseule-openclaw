@@ -1,4 +1,7 @@
 ---
+summary: "Paano patakbuhin ang mga test nang lokal (vitest) at kung kailan gagamit ng force/coverage modes"
+read_when:
+  - Kapag nagpapatakbo o nag-aayos ng mga test
 title: "Mga Test"
 ---
 
@@ -6,11 +9,13 @@ title: "Mga Test"
 
 - Buong testing kit (suites, live, Docker): [Testing](/help/testing)
 
-- `pnpm test:force`: Pinapatay ang anumang natitirang proseso ng Gateway na humahawak sa default control port, pagkatapos ay pinapatakbo ang buong Vitest suite gamit ang hiwalay na gateway port upang hindi magbanggaan ang mga server test sa isang tumatakbong instance. Gamitin ito kapag ang naunang pagtakbo ng gateway ay nag-iwan sa port 18789 na okupado.
+- `pnpm test:force`: Kills any lingering gateway process holding the default control port, then runs the full Vitest suite with an isolated gateway port so server tests don’t collide with a running instance. Use this when a prior gateway run left port 18789 occupied.
 
-- `pnpm test:coverage`: Runs Vitest with V8 coverage. Global thresholds are 70% lines/branches/functions/statements. Coverage excludes integration-heavy entrypoints (CLI wiring, gateway/telegram bridges, webchat static server) to keep the target focused on unit-testable logic.
+- `pnpm test:coverage`: Pinapatakbo ang unit suite na may V8 coverage (sa pamamagitan ng `vitest.unit.config.ts`). Global thresholds are 70% lines/branches/functions/statements. Coverage excludes integration-heavy entrypoints (CLI wiring, gateway/telegram bridges, webchat static server) to keep the target focused on unit-testable logic.
 
-- `pnpm test:e2e`: Pinapatakbo ang gateway end-to-end smoke tests (multi-instance WS/HTTP/node pairing).
+- `pnpm test` sa Node 24+: Awtomatikong dini-disable ng OpenClaw ang Vitest `vmForks` at gumagamit ng `forks` upang maiwasan ang `ERR_VM_MODULE_LINK_FAILURE` / `module is already linked`. Maaari mong pilitin ang behavior gamit ang `OPENCLAW_TEST_VM_FORKS=0|1`.
+
+- `pnpm test:e2e`: Pinapatakbo ang gateway end-to-end smoke tests (multi-instance WS/HTTP/node pairing). Default ang `vmForks` + adaptive workers sa `vitest.e2e.config.ts`; i-tune gamit ang `OPENCLAW_E2E_WORKERS=<n>` at itakda ang `OPENCLAW_E2E_VERBOSE=1` para sa mas detalyadong logs.
 
 - `pnpm test:live`: Runs provider live tests (minimax/zai). Requires API keys and `LIVE=1` (or provider-specific `*_LIVE_TEST=1`) to unskip.
 
@@ -48,5 +53,3 @@ Tinitiyak na naglo-load ang `qrcode-terminal` sa ilalim ng Node 22+ sa Docker:
 ```bash
 pnpm test:docker:qr
 ```
-
-

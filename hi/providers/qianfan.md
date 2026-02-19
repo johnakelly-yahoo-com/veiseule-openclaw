@@ -1,10 +1,14 @@
 ---
+summary: "OpenClaw में अनेक मॉडलों तक पहुँचने के लिए Qianfan के एकीकृत API का उपयोग करें"
+read_when:
+  - आप कई LLMs के लिए एक ही API कुंजी चाहते हैं
+  - आपको Baidu Qianfan सेटअप मार्गदर्शन की आवश्यकता है
 title: "Qianfan"
 ---
 
 # Qianfan प्रदाता मार्गदर्शिका
 
-Qianfan, Baidu का MaaS प्लेटफ़ॉर्म है, जो एक **एकीकृत API** प्रदान करता है जो अनुरोधों को एक ही के पीछे कई मॉडलों तक रूट करता है
+Qianfan is Baidu's MaaS platform, provides a **unified API** that routes requests to many models behind a single
 endpoint and API key. It is OpenAI-compatible, so most OpenAI SDKs work by switching the base URL.
 
 ## पूर्वापेक्षाएँ
@@ -32,5 +36,3 @@ openclaw onboard --auth-choice qianfan-api-key
 - [मॉडल प्रदाता](/concepts/model-providers)
 - [एजेंट सेटअप](/concepts/agent)
 - [Qianfan API दस्तावेज़](/https://cloud.baidu.com/doc/qianfan-api/s/3m7of64lb)
-
-

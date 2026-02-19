@@ -1,4 +1,8 @@
 ---
+summary: "CLI-reference for `openclaw memory` (status/index/search)"
+read_when:
+  - Du vil indeksere eller søge i semantisk hukommelse
+  - Du fejlretter hukommelsestilgængelighed eller indeksering
 title: "hukommelse"
 ---
 
@@ -39,5 +43,3 @@ Noter:
 - `memory status --deep --index` kører en genindeksering, hvis lageret er beskidt.
 - `memory index --verbose` udskriver detaljer pr. fase (udbyder, model, kilder, batchaktivitet).
 - `memory status` inkluderer eventuelle ekstra stier konfigureret via `memorySearch.extraPaths`.
-
-

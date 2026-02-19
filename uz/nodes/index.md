@@ -1,5 +1,10 @@
 ---
-title: "4. Tugunlar"
+summary: "Tugunlar: juftlash, imkoniyatlar, ruxsatlar va canvas/camera/screen/system uchun CLI yordamchilari"
+read_when:
+  - 1. iOS/Android tugunlarini shlyuzga ulash
+  - 2. Agent konteksti uchun tugun canvas/kameradan foydalanish
+  - 3. Yangi tugun buyruqlari yoki CLI yordamchilarini qo‘shish
+title: "Nodes"
 ---
 
 # Tugunlar
@@ -10,7 +15,7 @@ Eski transport: [Bridge protocol](/gateway/bridge-protocol) (TCP JSONL; joriy tu
 
 macOS shuningdek **tugun rejimi**da ham ishlashi mumkin: menubar ilovasi Gateway’ning WS serveriga ulanadi va o‘zining mahalliy canvas/camera buyruqlarini tugun sifatida taqdim etadi (shunda `openclaw nodes …` ushbu Mac’ga nisbatan ishlaydi).
 
-Eslatmalar:
+Notes:
 
 - 11. Tugunlar — **periferiyalar**, shlyuzlar emas. 12. Ular gateway xizmatini ishga tushirmaydi.
 - 13. Telegram/WhatsApp va boshqalar xabarlari tugunlarga emas, **gateway**’ga keladi.
@@ -31,7 +36,7 @@ openclaw nodes status
 openclaw nodes describe --node <idOrNameOrIp>
 ```
 
-20. Eslatmalar:
+Notes:
 
 - 21. `nodes status` tugunni **juftlangan** deb belgilaydi, agar uning qurilma juftlash roli `node`ni o‘z ichiga olsa.
 - 22. `node.pair.*` (CLI: `openclaw nodes pending/approve/reject`) — gatewayga tegishli alohida tugun juftlash ombori; u WS `connect` qo‘l siqish jarayonini **to‘sib qo‘ymaydi**.
@@ -69,7 +74,7 @@ export OPENCLAW_GATEWAY_TOKEN="<gateway-token>"
 openclaw node run --host 127.0.0.1 --port 18790 --display-name "Build Node"
 ```
 
-38. Eslatmalar:
+Notes:
 
 - 39. Token — gateway konfiguratsiyasidagi `gateway.auth.token` (`~/.openclaw/openclaw.json` gateway xostida).
 - 40. `openclaw node run` autentifikatsiya uchun `OPENCLAW_GATEWAY_TOKEN`ni o‘qiydi.
@@ -127,9 +132,9 @@ openclaw config set tools.exec.node "<id-or-name>"
 
 10. Bog‘liq:
 
-- 11. [Node host CLI](/cli/node)
-- 12. [Exec tool](/tools/exec)
-- 13. [Exec approvals](/tools/exec-approvals)
+- [Node host CLI](/cli/node)
+- [Exec tool](/tools/exec)
+- [Exec approvals](/tools/exec-approvals)
 
 ## 14. Buyruqlarni chaqirish
 
@@ -161,9 +166,9 @@ openclaw nodes canvas navigate https://example.com --node <idOrNameOrIp>
 openclaw nodes canvas eval --node <idOrNameOrIp> --js "document.title"
 ```
 
-24. Eslatmalar:
+Notes:
 
-- 25. `canvas present` URL’larni yoki lokal fayl yo‘llarini (`--target`) qabul qiladi, shuningdek joylashuv uchun ixtiyoriy `--x/--y/--width/--height` parametrlarini qo‘llab-quvvatlaydi.
+- Eslatmalar:
 - 26. `canvas eval` inline JS (`--js`) yoki pozitsion argumentni qabul qiladi.
 
 ### 27. A2UI (Canvas)
@@ -174,7 +179,7 @@ openclaw nodes canvas a2ui push --node <idOrNameOrIp> --jsonl ./payload.jsonl
 openclaw nodes canvas a2ui reset --node <idOrNameOrIp>
 ```
 
-29. Eslatmalar:
+Notes:
 
 - 30. Faqat A2UI v0.8 JSONL qo‘llab-quvvatlanadi (v0.9/createSurface rad etiladi).
 
@@ -195,7 +200,7 @@ openclaw nodes camera snap --node <idOrNameOrIp> --facing front
 openclaw nodes camera clip --node <idOrNameOrIp> --duration 3000 --no-audio
 ```
 
-36. Eslatmalar:
+Notes:
 
 - 37. `canvas.*` va `camera.*` uchun tugun **oldingi rejimda (foregrounded)** bo‘lishi kerak (fon chaqiruvlari `NODE_BACKGROUND_UNAVAILABLE` ni qaytaradi).
 - 38. Klip davomiyligi haddan oshmasligi uchun cheklanadi (hozirda `<= 60s`) — katta base64 payloadlarning oldini olish uchun.
@@ -210,7 +215,7 @@ openclaw nodes camera clip --node <idOrNameOrIp> --duration 3000 --no-audio
 openclaw nodes screen record --node <idOrNameOrIp> --duration 10s --fps 10 --no-audio
 ```
 
-44. Eslatmalar:
+Notes:
 
 - 45. `screen.record` uchun tugun ilovasi oldingi rejimda bo‘lishi kerak.
 - 46. Android yozishni boshlashdan oldin tizimning ekran yozib olish oynasini ko‘rsatadi.
@@ -245,7 +250,7 @@ Notes:
 11. openclaw nodes invoke --node <idOrNameOrIp> --command sms.send --params '{"to":"+15555550123","message":"Hello from OpenClaw"}'
 ```
 
-12. Eslatmalar:
+Notes:
 
 - 13. Imkoniyat e’lon qilinishidan oldin Android qurilmada ruxsat so‘rovi qabul qilinishi kerak.
 - 14. Telefoniyasiz, faqat Wi‑Fi qurilmalar `sms.send` ni e’lon qilmaydi.
@@ -258,17 +263,16 @@ The macOS node exposes `system.run`, `system.notify`, and `system.execApprovals.
 18. Misollar:
 
 ```bash
-19. openclaw nodes run --node <idOrNameOrIp> -- echo "Hello from mac node"
-openclaw nodes notify --node <idOrNameOrIp> --title "Ping" --body "Gateway ready"
+33. openclaw config set tools.exec.node "node-id-or-name"
 ```
 
-Eslatmalar:
+Notes:
 
 - 21. `system.run` yuklamada stdout/stderr/chiqish kodini qaytaradi.
 - 22. `system.notify` macOS ilovasidagi bildirishnoma ruxsati holatiga amal qiladi.
-- `system.run` `--cwd`, `--env KEY=VAL`, `--command-timeout` va `--needs-screen-recording` parametrlarini qo‘llab-quvvatlaydi.
-- `system.notify` `--priority <passive|active|timeSensitive>` va `--delivery <system|overlay|auto>` parametrlarini qo‘llab-quvvatlaydi.
-- 25. macOS tugunlari `PATH` override’larini tashlab yuboradi; headless tugun xostlari `PATH` ni faqat tugun xosti PATH’iga prefiks sifatida qo‘shilganda qabul qiladi.
+- `system.run` supports `--cwd`, `--env KEY=VAL`, `--command-timeout`, and `--needs-screen-recording`.
+- `system.notify` supports `--priority <passive|active|timeSensitive>` and `--delivery <system|overlay|auto>`.
+- Node hostlar `PATH` override larini e’tiborsiz qoldiradi. Agar qo‘shimcha PATH yozuvlari kerak bo‘lsa, `--env` orqali `PATH` uzatish o‘rniga node host xizmati muhitini sozlang (yoki vositalarni standart joylarga o‘rnating).
 - 26. macOS tugun rejimida `system.run` macOS ilovasidagi exec approvals orqali cheklanadi (Settings → Exec approvals).
   27. Ask/allowlist/full headless tugun xosti bilan bir xil ishlaydi; rad etilgan so‘rovlar `SYSTEM_RUN_DENIED` ni qaytaradi.
 - 28. Headless tugun xostida `system.run` exec approvals orqali cheklanadi (`~/.openclaw/exec-approvals.json`).
@@ -313,7 +317,7 @@ openclaw config unset agents.list[0].tools.exec.node
 44. openclaw node run --host <gateway-host> --port 18789
 ```
 
-45. Eslatmalar:
+Notes:
 
 - 46. Juftlash hali ham talab qilinadi (Gateway tugunni tasdiqlash oynasini ko‘rsatadi).
 - 47. Tugun xosti o‘z tugun identifikatori, tokeni, ko‘rinadigan nomi va gateway ulanish ma’lumotlarini `~/.openclaw/node.json` da saqlaydi.
@@ -328,5 +332,3 @@ openclaw config unset agents.list[0].tools.exec.node
 
 - 3. macOS menyu paneli ilovasi Gateway WS serveriga node sifatida ulanadi (shunda `openclaw nodes …` ushbu Mac’ga nisbatan ishlaydi).
 - 4. Masofaviy rejimda ilova Gateway porti uchun SSH tunnel ochadi va `localhost` ga ulanadi.
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "Considerações de segurança e modelo de ameaças para executar um gateway de IA com acesso ao shell"
+read_when:
+  - Adicionando recursos que ampliam acesso ou automação
 title: "Segurança"
 ---
 
@@ -42,6 +45,32 @@ Comece com o menor acesso que ainda funcione e amplie à medida que ganhar confi
 - **Exposição de controle do navegador** (nós remotos, portas de relay, endpoints CDP remotos).
 - **Higiene do disco local** (permissões, symlinks, includes de configuração, caminhos de “pasta sincronizada”).
 - **Plugins** (extensões existentes sem allowlist explícita).
+- %%{init: {
+  'theme': 'base',
+  'themeVariables': {
+  'primaryColor': '#ffffff',
+  'primaryTextColor': '#000000',
+  'primaryBorderColor': '#000000',
+  'lineColor': '#000000',
+  'secondaryColor': '#f9f9fb',
+  'tertiaryColor': '#ffffff',
+  'clusterBkg': '#f9f9fb',
+  'clusterBorder': '#000000',
+  'nodeBorder': '#000000',
+  'mainBkg': '#ffffff',
+  'edgeLabelBackground': '#ffffff'
+  }
+  }}%%
+  flowchart TB
+  A["Owner (Peter)"] -- Full trust --> B["AI (Clawd)"]
+  B -- Trust but verify --> C["Friends in allowlist"]
+  C -- Limited trust --> D["Strangers"]
+  D -- No trust --> E["Mario asking for find ~"]
+  E -- Definitely no trust 😏 --> F[" "]```
+   %% The transparent box is needed to show the bottom-most label correctly
+   F:::Class_transparent_box
+  classDef Class_transparent_box fill:transparent, stroke:transparent
+  ```
 - **Higiene do modelo** (avisa quando modelos configurados parecem legados; não é bloqueio rígido).
 
 Se você executar `--deep`, o OpenClaw também tenta uma sondagem ao vivo do Gateway em melhor esforço.
@@ -245,6 +274,9 @@ Quando ferramentas estão habilitadas, o risco típico é exfiltrar contexto ou 
 
 - Usar um **agente leitor** somente leitura ou sem ferramentas para resumir conteúdo não confiável, e então passar o resumo ao seu agente principal.
 - Manter `web_search` / `web_fetch` / `browser` desligados para agentes com ferramentas, a menos que necessário.
+- Para entradas de URL do OpenResponses (`input_file` / `input_image`), defina restrições rígidas em
+  `gateway.http.endpoints.responses.files.urlAllowlist` e
+  `gateway.http.endpoints.responses.images.urlAllowlist`, e mantenha `maxUrlParts` baixo.
 - Habilitar sandboxing e allowlists estritas de ferramentas para qualquer agente que toque entrada não confiável.
 - Manter segredos fora de prompts; passe-os via env/config no host do gateway.
 
@@ -320,6 +352,16 @@ O Gateway multiplexa **WebSocket + HTTP** em uma única porta:
 
 - Padrão: `18789`
 - Config/flags/env: `gateway.port`, `--port`, `OPENCLAW_GATEWAY_PORT`
+
+Esta superfície HTTP inclui a Control UI e o host do canvas:
+
+- Control UI (assets SPA) (caminho base padrão `/`)
+- Host do canvas: `/__openclaw__/canvas/` e `/__openclaw__/a2ui/` (HTML/JS arbitrário; trate como conteúdo não confiável)
+
+Se você carregar conteúdo do canvas em um navegador comum, trate-o como qualquer outra página web não confiável:
+
+- Não exponha o host do canvas a redes/usuários não confiáveis.
+- Não faça o conteúdo do canvas compartilhar a mesma origem que superfícies web privilegiadas, a menos que você compreenda totalmente as implicações.
 
 O modo de bind controla onde o Gateway escuta:
 
@@ -408,6 +450,7 @@ Modos de auth:
 
 - `gateway.auth.mode: "token"`: token bearer compartilhado (recomendado para a maioria das configurações).
 - `gateway.auth.mode: "password"`: autenticação por senha (prefira definir via env: `OPENCLAW_GATEWAY_PASSWORD`).
+- `gateway.auth.mode: "trusted-proxy"`: confie em um proxy reverso com reconhecimento de identidade para autenticar usuários e passar a identidade via headers (veja [Trusted Proxy Auth](/gateway/trusted-proxy-auth)).
 
 Checklist de rotação (token/senha):
 
@@ -525,6 +568,11 @@ Você já pode criar um perfil somente leitura combinando:
 - allow/deny lists de ferramentas que bloqueiam `write`, `edit`, `apply_patch`, `exec`, `process`, etc.
 
 Podemos adicionar uma única flag `readOnlyMode` depois para simplificar essa configuração.
+
+Opções adicionais de reforço de segurança:
+
+- `tools.exec.applyPatch.workspaceOnly: true` (padrão): garante que `apply_patch` não possa escrever/excluir fora do diretório de workspace, mesmo quando o sandbox estiver desativado. Defina como `false` apenas se você intencionalmente quiser que `apply_patch` modifique arquivos fora do workspace.
+- `tools.fs.workspaceOnly: true` (opcional): restringe os caminhos de `read`/`write`/`edit`/`apply_patch` ao diretório de workspace (útil se você atualmente permite caminhos absolutos e deseja uma única proteção).
 
 ### 5. Linha de base segura (copiar/colar)
 
@@ -708,7 +756,7 @@ Se sua IA fizer algo ruim:
 2. **Feche a exposição:** defina `gateway.bind: "loopback"` (ou desative Tailscale Funnel/Serve) até entender o que aconteceu.
 3. **Congele o acesso:** mude DMs/grupos arriscados para `dmPolicy: "disabled"` / exija menções e remova entradas `"*"` de permitir todos se você as tinha.
 
-### Girar (assuma comprometimento se segredos vazaram)
+### Varredura de Segredos (detect-secrets)
 
 1. Gire a auth do Gateway (`gateway.auth.token` / `OPENCLAW_GATEWAY_PASSWORD`) e reinicie.
 2. Gire segredos de clientes remotos (`gateway.remote.token` / `.password`) em qualquer máquina que possa chamar o Gateway.
@@ -761,28 +809,12 @@ Faça commit do `.secrets.baseline` atualizado quando refletir o estado pretendi
 ## A Hierarquia de Confiança
 
 ```mermaid
-%%{init: {
-  'theme': 'base',
-  'themeVariables': {
-    'primaryColor': '#ffffff',
-    'primaryTextColor': '#000000',
-    'primaryBorderColor': '#000000',
-    'lineColor': '#000000',
-    'secondaryColor': '#f9f9fb',
-    'tertiaryColor': '#ffffff',
-    'clusterBkg': '#f9f9fb',
-    'clusterBorder': '#000000',
-    'nodeBorder': '#000000',
-    'mainBkg': '#ffffff',
-    'edgeLabelBackground': '#ffffff'
-  }
-}}%%
 flowchart TB
-    A["Owner (Peter)"] -- Full trust --> B["AI (Clawd)"]
-    B -- Trust but verify --> C["Friends in allowlist"]
-    C -- Limited trust --> D["Strangers"]
-    D -- No trust --> E["Mario asking for find ~"]
-    E -- Definitely no trust 😏 --> F[" "]
+    A["Proprietário (Peter)"] -- Confiança total --> B["IA (Clawd)"]
+    B -- Confia, mas verifica --> C["Amigos na allowlist"]
+    C -- Confiança limitada --> D["Estranhos"]
+    D -- Sem confiança --> E["Mario pedindo find ~"]
+    E -- Definitivamente nenhuma confiança 😏 --> F[" "]
 
      %% The transparent box is needed to show the bottom-most label correctly
      F:::Class_transparent_box
@@ -802,5 +834,3 @@ Encontrou uma vulnerabilidade no OpenClaw? Por favor, reporte de forma responsá
 _"Segurança é um processo, não um produto. Além disso, não confie em lagostas com acesso ao shell."_ — Alguém sábio, provavelmente
 
 🦞🔐
-
-

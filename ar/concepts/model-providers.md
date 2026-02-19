@@ -1,4 +1,8 @@
 ---
+summary: "نظرة عامة على موفّري النماذج مع أمثلة تهيئة وتدفّقات CLI"
+read_when:
+  - تحتاج إلى مرجع لإعداد النماذج حسب كل موفّر
+  - تريد أمثلة تهيئة أو أوامر تهيئة أولية عبر CLI لموفّري النماذج
 title: "موفّرو النماذج"
 ---
 
@@ -116,6 +120,7 @@ title: "موفّرو النماذج"
   - عنوان URL أساسي متوافق مع OpenAI: `https://api.cerebras.ai/v1`.
 - Mistral: `mistral` (`MISTRAL_API_KEY`)
 - GitHub Copilot: `github-copilot` (`COPILOT_GITHUB_TOKEN` / `GH_TOKEN` / `GITHUB_TOKEN`)
+- استدلال Hugging Face: `huggingface` (`HUGGINGFACE_HUB_TOKEN` أو `HF_TOKEN`) — موجّه متوافق مع OpenAI؛ مثال على نموذج: `huggingface/deepseek-ai/DeepSeek-R1`؛ CLI: `openclaw onboard --auth-choice huggingface-api-key`. راجع [Hugging Face (Inference)](/providers/huggingface).
 
 ## موفّرون عبر `models.providers` (عنوان URL مخصّص/أساسي)
 
@@ -255,6 +260,32 @@ ollama pull llama3.3
 
 يتم اكتشاف Ollama تلقائيًا عند التشغيل محليًا على `http://127.0.0.1:11434/v1`. راجع [/providers/ollama](/providers/ollama) لتوصيات النماذج والتهيئة المخصّصة.
 
+### vLLM
+
+vLLM هو خادم محلي (أو مستضاف ذاتيًا) متوافق مع OpenAI:
+
+- المزوّد: `vllm`
+- المصادقة: اختيارية (حسب إعدادات الخادم لديك)
+- عنوان URL الأساسي الافتراضي: `http://127.0.0.1:8000/v1`
+
+للاشتراك في الاكتشاف التلقائي محليًا (أي قيمة تعمل إذا كان خادمك لا يفرض المصادقة):
+
+```bash
+export VLLM_API_KEY="vllm-local"
+```
+
+ثم حدّد نموذجًا (استبدله بأحد المعرّفات المُعادة من `/v1/models`):
+
+```json5
+{
+  agents: {
+    defaults: { model: { primary: "vllm/your-model-id" } },
+  },
+}
+```
+
+راجع [/providers/vllm](/providers/vllm) لمزيد من التفاصيل.
+
 ### الوسطاء المحليون (LM Studio، vLLM، LiteLLM، إلخ)
 
 مثال (متوافق مع OpenAI):
@@ -310,5 +341,3 @@ openclaw models list
 ```
 
 انظر أيضًا: [/gateway/configuration](/gateway/configuration) لأمثلة تهيئة كاملة.
-
-

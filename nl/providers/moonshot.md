@@ -1,4 +1,9 @@
 ---
+summary: "Configureer Moonshot K2 versus Kimi Coding (gescheiden providers + sleutels)"
+read_when:
+  - Je wilt Moonshot K2 (Moonshot Open Platform) versus Kimi Coding instellen
+  - Je moet gescheiden endpoints, sleutels en modelreferenties begrijpen
+  - Je wilt kopiëren/plakken-configuratie voor een van beide providers
 title: "Moonshot AI"
 ---
 
@@ -135,5 +140,3 @@ Let op: Moonshot en Kimi Coding zijn gescheiden providers. Sleutels zijn niet ui
 - Als Moonshot andere contextlimieten voor een model publiceert, pas
   `contextWindow` dienovereenkomstig aan.
 - Gebruik `https://api.moonshot.ai/v1` voor het internationale endpoint en `https://api.moonshot.cn/v1` voor het China-endpoint.
-
-

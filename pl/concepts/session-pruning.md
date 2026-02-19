@@ -1,4 +1,10 @@
-------
+---
+title: "Przycinanie sesji"
+summary: "„Przycinanie sesji: przycinanie wyników narzędzi w celu ograniczenia rozrostu kontekstu”"
+read_when:
+  - Chcesz ograniczyć wzrost kontekstu LLM wynikający z wyjść narzędzi
+  - Dostrajanie agents.defaults.contextPruning
+---
 
 # Przycinanie sesji
 
@@ -115,5 +121,3 @@ Ogranicz przycinanie do określonych narzędzi:
 ```
 
 Zobacz referencję konfiguracji: [Gateway Configuration](/gateway/configuration)
-
-

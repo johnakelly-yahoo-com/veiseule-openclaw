@@ -1,4 +1,7 @@
 ---
+summary: "Mga konsiderasyong pangseguridad at threat model para sa pagpapatakbo ng AI gateway na may shell access"
+read_when:
+  - Pagdaragdag ng mga tampok na nagpapalawak ng access o automation
 title: "Seguridad"
 ---
 
@@ -24,9 +27,9 @@ Naglalapat ang `--fix` ng ligtas na guardrails:
 - Ibalik ang `logging.redactSensitive="off"` sa `"tools"`.
 - Higpitan ang mga local perm (`~/.openclaw` → `700`, config file → `600`, kasama ang mga karaniwang state file tulad ng `credentials/*.json`, `agents/*/agent/auth-profiles.json`, at `agents/*/sessions/sessions.json`).
 
-Ang pagpapatakbo ng AI agent na may shell access sa iyong makina ay... _mapanganib_. Narito kung paano hindi ma-kompromiso ang iyong system.
+Running an AI agent with shell access on your machine is... _spicy_. Here’s how to not get pwned.
 
-Ang OpenClaw ay parehong produkto at eksperimento: ikinakabit mo ang frontier-model behavior sa tunay na messaging surfaces at tunay na mga tool. **Walang “ganap na ligtas” na setup.** Ang layunin ay maging maingat at sinasadya tungkol sa:
+OpenClaw is both a product and an experiment: you’re wiring frontier-model behavior into real messaging surfaces and real tools. **There is no “perfectly secure” setup.** The goal is to be deliberate about:
 
 - kung sino ang puwedeng makipag-usap sa iyong bot
 - kung saan pinapayagang kumilos ang bot
@@ -42,6 +45,7 @@ Magsimula sa pinakamaliit na access na gumagana, saka palawakin habang tumataas 
 - **Pagkakalantad ng browser control** (mga remote node, relay port, remote CDP endpoint).
 - **Local disk hygiene** (permissions, symlinks, config includes, mga path ng “synced folder”).
 - **Plugins** (may mga extension na umiiral nang walang explicit allowlist).
+- **Model hygiene** (nagbababala kapag mukhang legacy ang mga naka-configure na model; hindi hard block).
 - **Model hygiene** (nagbababala kapag mukhang legacy ang mga naka-configure na model; hindi hard block).
 
 Kung patatakbuhin mo ang `--deep`, susubukan din ng OpenClaw ang isang best‑effort live Gateway probe.
@@ -216,7 +220,7 @@ Ituring ang snippet sa itaas bilang **secure DM mode**:
 
 May dalawang magkahiwalay na layer ang OpenClaw na “sino ang puwedeng mag-trigger sa akin?”:
 
-- **DM allowlist** (`allowFrom` / `channels.discord.dm.allowFrom` / `channels.slack.dm.allowFrom`): sino ang pinapayagang makipag-usap sa bot sa direct messages.
+- **DM allowlist** (`allowFrom` / `channels.discord.allowFrom` / `channels.slack.allowFrom`; legacy: `channels.discord.dm.allowFrom`, `channels.slack.dm.allowFrom`): kung sino ang pinapayagang makipag-usap sa bot sa direct messages.
   - Kapag `dmPolicy="pairing"`, ang mga approval ay isinusulat sa `~/.openclaw/credentials/<channel>-allowFrom.json` (pinag-merge sa mga config allowlist).
 - **Group allowlist** (channel‑specific): kung aling mga grupo/channel/guild ang tatanggapin ng bot ang mga mensahe.
   - Mga karaniwang pattern:
@@ -257,6 +261,9 @@ Kahit na **ikaw lang** ang maaaring mag-message sa bot, maaari pa ring mangyari 
 - Paggamit ng read‑only o tool‑disabled na **reader agent** para ibuod ang untrusted na content,
   saka ipasa ang buod sa iyong main agent.
 - Pananatiling naka-off ang `web_search` / `web_fetch` / `browser` para sa tool‑enabled agents maliban kung kailangan.
+- Para sa OpenResponses URL inputs (`input_file` / `input_image`), magtakda ng mahigpit na
+  `gateway.http.endpoints.responses.files.urlAllowlist` at
+  `gateway.http.endpoints.responses.images.urlAllowlist`, at panatilihing mababa ang `maxUrlParts`.
 - Pag-enable ng sandboxing at mahigpit na tool allowlists para sa anumang agent na humahawak ng untrusted input.
 - Paglalayo ng mga secret sa prompts; ipasa ang mga ito sa pamamagitan ng env/config sa gateway host sa halip.
 
@@ -301,7 +308,7 @@ Ipagpalagay na ang “compromised” ay nangangahulugang: may nakapasok sa room 
 4. **Muling patakbuhin ang audit**
    - `openclaw security audit --deep` at tiyaking malinis ang ulat.
 
-## Mga Aral (Sa Mahirap na Paraan)
+## Ang `find ~` Incident 🦞
 
 ### Ang `find ~` Incident 🦞
 
@@ -337,9 +344,19 @@ Minu-multiplex ng Gateway ang **WebSocket + HTTP** sa iisang port:
 - Default: `18789`
 - Config/flags/env: `gateway.port`, `--port`, `OPENCLAW_GATEWAY_PORT`
 
+Kasama sa HTTP surface na ito ang Control UI at ang canvas host:
+
+- UI ng Control (SPA assets) (default na base path `/`)
+- Canvas host: `/__openclaw__/canvas/` at `/__openclaw__/a2ui/` (arbitrary na HTML/JS; ituring bilang hindi pinagkakatiwalaang content)
+
+Kung ilo-load mo ang canvas content sa isang normal na browser, ituring ito tulad ng anumang hindi pinagkakatiwalaang web page:
+
+- Huwag ilantad ang canvas host sa mga hindi pinagkakatiwalaang network/user.
+- Huwag gawing kapareho ng origin ang canvas content ng mga may-pribilehiyong web surface maliban kung lubos mong nauunawaan ang mga implikasyon.
+
 Kinokontrol ng bind mode kung saan nakikinig ang Gateway:
 
-- `gateway.bind: "loopback"` (default): mga local client lang ang puwedeng kumonek.
+- `cliPath`: buong filesystem path papunta sa CLI binary (ibinubunyag ang username at lokasyon ng install)
 - 50. Ibinobroadcast ng Gateway ang presensya nito sa pamamagitan ng mDNS (`_openclaw-gw._tcp` sa port 5353) para sa local device discovery. Only use them with a shared token/password and a real firewall.
 
 Mga patakaran ng hinlalaki:
@@ -358,7 +375,8 @@ The Gateway broadcasts its presence via mDNS (`_openclaw-gw._tcp` on port 5353) 
 
 2. **Pagsasaalang-alang sa operational security:** Ang pagbo-broadcast ng mga detalye ng imprastruktura ay nagpapadali ng reconnaissance para sa sinuman sa lokal na network. 3. Kahit ang mga "walang masamang" impormasyong tulad ng mga path ng filesystem at availability ng SSH ay tumutulong sa mga attacker na i-map ang iyong kapaligiran.
 
-**Mga rekomendasyon:**
+Ang onboarding wizard ay awtomatikong gumagawa ng token (kahit para sa loopback) kaya
+kailangang mag-authenticate ang mga local client.
 
 1. **Minimal mode** (default, inirerekomenda para sa exposed gateways): alisin ang mga sensitibong field mula sa mDNS broadcasts:
 
@@ -427,6 +445,7 @@ Mga auth mode:
 
 - `gateway.auth.mode: "token"`: shared bearer token (inirerekomenda para sa karamihan ng setup).
 - `gateway.auth.mode: "password"`: password auth (mas mainam na itakda sa pamamagitan ng env: `OPENCLAW_GATEWAY_PASSWORD`).
+- `gateway.auth.mode: "trusted-proxy"`: magtiwala sa isang identity-aware reverse proxy para i-authenticate ang mga user at ipasa ang identidad sa pamamagitan ng headers (tingnan ang [Trusted Proxy Auth](/gateway/trusted-proxy-auth)).
 
 Checklist ng rotation (token/password):
 
@@ -445,9 +464,9 @@ Checklist ng rotation (token/password):
     at may kasamang `x-forwarded-for`, `x-forwarded-proto`, at `x-forwarded-host` na
     ini-inject ng Tailscale.
 
-13. **Panuntunan sa seguridad:** huwag i-forward ang mga header na ito mula sa sarili mong reverse proxy. 14. Kung
-    nagtatapos ka ng TLS o nagpo-proxy sa harap ng gateway, i-disable ang
-    `gateway.auth.allowTailscale` at gumamit ng token/password auth sa halip.
+13. **Panuntunan sa seguridad:** huwag i-forward ang mga header na ito mula sa sarili mong reverse proxy. Kung
+    winiwakas mo ang TLS o nagpo-proxy sa harap ng gateway, i-disable ang
+    `gateway.auth.allowTailscale` at gumamit ng token/password auth (o [Trusted Proxy Auth](/gateway/trusted-proxy-auth)) sa halip.
 
 Mga pinagkakatiwalaang proxy:
 
@@ -457,7 +476,7 @@ Mga pinagkakatiwalaang proxy:
 
 Tingnan ang [Tailscale](/gateway/tailscale) at [Web overview](/web).
 
-### 0.6.1) Browser control sa pamamagitan ng node host (inirerekomenda)
+### 0.7) Mga secret sa disk (ano ang sensitibo)
 
 15. Kung ang iyong Gateway ay remote ngunit ang browser ay tumatakbo sa ibang makina, magpatakbo ng **node host**
     sa makina ng browser at hayaan ang Gateway na i-proxy ang mga aksyon ng browser (tingnan ang [Browser tool](/tools/browser)).
@@ -547,16 +566,21 @@ Isaalang-alang ang pagpapatakbo ng iyong AI sa hiwalay na phone number mula sa p
 
 ### 19. 4. 20. Read-Only Mode (Sa ngayon, sa pamamagitan ng sandbox + tools)
 
-Makakabuo ka na ng read‑only profile sa pamamagitan ng pagsasama ng:
+Kung gusto mo rin ng “mas ligtas bilang default” na tool execution, magdagdag ng sandbox + tanggihan ang mga delikadong tool para sa anumang non‑owner agent (halimbawa sa ibaba sa “Per‑agent access profiles”).
 
 - `agents.defaults.sandbox.workspaceAccess: "ro"` (o `"none"` para sa walang workspace access)
 - mga tool allow/deny list na humaharang sa `write`, `edit`, `apply_patch`, `exec`, `process`, atbp.
 
-Maaaring magdagdag kami ng iisang `readOnlyMode` flag sa hinaharap para pasimplehin ang config na ito.
+Dedikadong doc: [Sandboxing](/gateway/sandboxing)
+
+Dalawang magkatuwang na approach:
+
+- `tools.exec.applyPatch.workspaceOnly: true` (default): tinitiyak na ang `apply_patch` ay hindi makapagsulat/makabura sa labas ng workspace directory kahit naka-off ang sandboxing. Itakda sa `false` lamang kung sinasadya mong pahintulutan ang `apply_patch` na baguhin ang mga file sa labas ng workspace.
+- **Tool sandbox** (`agents.defaults.sandbox`, host gateway + Docker‑isolated tools): [Sandboxing](/gateway/sandboxing)
 
 ### 5. Secure baseline (copy/paste)
 
-Isang “safe default” config na pinananatiling pribado ang Gateway, nangangailangan ng DM pairing, at umiiwas sa always‑on group bots:
+Isaalang-alang din ang access ng agent workspace sa loob ng sandbox:
 
 ```json5
 {
@@ -577,7 +601,7 @@ Isang “safe default” config na pinananatiling pribado ang Gateway, nangangai
 
 Kung gusto mo rin ng “mas ligtas bilang default” na tool execution, magdagdag ng sandbox + tanggihan ang mga delikadong tool para sa anumang non‑owner agent (halimbawa sa ibaba sa “Per‑agent access profiles”).
 
-## Sandboxing (inirerekomenda)
+## Mga panganib ng browser control
 
 Dedikadong doc: [Sandboxing](/gateway/sandboxing)
 
@@ -590,11 +614,11 @@ Dalawang magkatuwang na approach:
     o `"session"` para sa mas mahigpit na isolation kada session. 22. Ang `scope: "shared"` ay gumagamit ng
     iisang container/workspace.
 
-Isaalang-alang din ang access ng agent workspace sa loob ng sandbox:
+Mga karaniwang use case:
 
-- `agents.defaults.sandbox.workspaceAccess: "none"` (default) ay pinananatiling off‑limits ang agent workspace; tumatakbo ang tools laban sa sandbox workspace sa ilalim ng `~/.openclaw/sandboxes`
-- `agents.defaults.sandbox.workspaceAccess: "ro"` ay mina-mount ang agent workspace na read‑only sa `/agent` (dinidi-disable ang `write`/`edit`/`apply_patch`)
-- `agents.defaults.sandbox.workspaceAccess: "rw"` ay mina-mount ang agent workspace na read/write sa `/workspace`
+- Personal agent: full access, walang sandbox
+- Family/work agent: sandboxed + read‑only tools
+- Public agent: sandboxed + walang filesystem/shell tools
 
 23. Mahalaga: ang `tools.elevated` ang global baseline escape hatch na nagpapatakbo ng exec sa host. 24. Panatilihing mahigpit ang `tools.elevated.allowFrom` at huwag itong i-enable para sa mga estranghero. 25. Maaari mo pang higpitan ang elevated kada agent sa pamamagitan ng `agents.list[].tools.elevated`. Tingnan ang [Elevated Mode](/tools/elevated).
 
@@ -615,7 +639,7 @@ Isaalang-alang din ang access ng agent workspace sa loob ng sandbox:
 - I-disable ang browser proxy routing kapag hindi mo ito kailangan (`gateway.nodes.browser.mode="off"`).
 - 29. Ang Chrome extension relay mode ay **hindi** “mas ligtas”; maaari nitong sakupin ang iyong mga kasalukuyang Chrome tab. 30. Ipagpalagay na maaari itong kumilos bilang ikaw sa anumang naaabot ng tab/profile na iyon.
 
-## Per‑agent access profiles (multi‑agent)
+## Halimbawa: walang filesystem/shell access (pinapayagan ang provider messaging)
 
 31. Sa multi-agent routing, bawat agent ay maaaring magkaroon ng sariling sandbox + tool policy:
     gamitin ito upang magbigay ng **buong access**, **read-only**, o **walang access** kada agent.
@@ -734,15 +758,15 @@ Kung may ginawang masama ang iyong AI:
 
 ### I-contain
 
-1. **Itigil ito:** ihinto ang macOS app (kung ito ang nag-susupervise sa Gateway) o wakasan ang iyong `openclaw gateway` process.
-2. **Isara ang exposure:** itakda ang `gateway.bind: "loopback"` (o i-disable ang Tailscale Funnel/Serve) hanggang maunawaan mo ang nangyari.
+1. Pinapatakbo ng CI ang `detect-secrets scan --baseline .secrets.baseline` sa `secrets` job.
+2. Kung mabigo ito, may mga bagong kandidato na hindi pa nasa baseline.
 3. **I-freeze ang access:** ilipat ang mga mapanganib na DM/group sa `dmPolicy: "disabled"` / hingin ang mentions, at alisin ang `"*"` allow‑all entries kung mayroon ka.
 
-### I-rotate (ipagpalagay na compromised kung tumagas ang mga secret)
+### Kapag pumalya ang CI
 
-1. I-rotate ang Gateway auth (`gateway.auth.token` / `OPENCLAW_GATEWAY_PASSWORD`) at i-restart.
-2. I-rotate ang mga secret ng remote client (`gateway.remote.token` / `.password`) sa anumang makinang puwedeng tumawag sa Gateway.
-3. I-rotate ang provider/API credentials (WhatsApp creds, Slack/Discord tokens, model/API keys sa `auth-profiles.json`).
+1. I-reproduce nang lokal:
+2. Unawain ang mga tool:
+3. Para sa mga tunay na secret: i-rotate/alisin ang mga ito, saka muling patakbuhin ang scan para i-update ang baseline.
 
 ### I-audit
 
@@ -792,30 +816,14 @@ I-commit ang na-update na `.secrets.baseline` kapag sinasalamin na nito ang nila
 ## Ang Trust Hierarchy
 
 ```mermaid
-%%{init: {
-  'theme': 'base',
-  'themeVariables': {
-    'primaryColor': '#ffffff',
-    'primaryTextColor': '#000000',
-    'primaryBorderColor': '#000000',
-    'lineColor': '#000000',
-    'secondaryColor': '#f9f9fb',
-    'tertiaryColor': '#ffffff',
-    'clusterBkg': '#f9f9fb',
-    'clusterBorder': '#000000',
-    'nodeBorder': '#000000',
-    'mainBkg': '#ffffff',
-    'edgeLabelBackground': '#ffffff'
-  }
-}}%%
 flowchart TB
-    A["Owner (Peter)"] -- Full trust --> B["AI (Clawd)"]
-    B -- Trust but verify --> C["Friends in allowlist"]
-    C -- Limited trust --> D["Strangers"]
-    D -- No trust --> E["Mario asking for find ~"]
-    E -- Definitely no trust 😏 --> F[" "]
+    A["May-ari (Peter)"] -- Buong tiwala --> B["AI (Clawd)"]
+    B -- Magtiwala ngunit mag-verify --> C["Mga Kaibigan sa allowlist"]
+    C -- Limitadong tiwala --> D["Mga Hindi Kakilala"]
+    D -- Walang tiwala --> E["Mario na humihiling ng find ~"]
+    E -- Talagang walang tiwala 😏 --> F[" "]
 
-     %% The transparent box is needed to show the bottom-most label correctly
+     %% Kailangan ang transparent na kahon upang maipakita nang tama ang pinakailalim na label
      F:::Class_transparent_box
     classDef Class_transparent_box fill:transparent, stroke:transparent
 ```
@@ -833,5 +841,3 @@ flowchart TB
 37. _"Ang seguridad ay isang proseso, hindi isang produkto. 38. Dagdag pa, huwag magtiwala sa mga lobster na may shell access."_ — Isang taong marunong, marahil
 
 🦞🔐
-
-

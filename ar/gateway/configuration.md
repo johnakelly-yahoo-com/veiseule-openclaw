@@ -1,44 +1,48 @@
 ---
+summary: "نظرة عامة على الإعداد: المهام الشائعة، الإعداد السريع، وروابط إلى المرجع الكامل"
+read_when:
+  - إعداد OpenClaw لأول مرة
+  - تبحث عن أنماط إعداد شائعة
+  - الانتقال إلى أقسام الإعدادات المحددة
 title: "التهيئة"
 ---
 
-# التهيئة
+# التهيئة 🔧
 
-يقرأ OpenClaw ملف تهيئة اختياري بصيغة <Tooltip tip="JSON5 يدعم التعليقات والفواصل اللاحقة">**JSON5**</Tooltip> من `~/.openclaw/openclaw.json`.
+يقرأ OpenClaw ملف تهيئة **JSON5** اختياريًا من `~/.openclaw/openclaw.json` (تُسمح التعليقات والفواصل اللاحقة).
 
-إذا كان الملف مفقودًا، يستخدم OpenClaw إعدادات افتراضية آمنة. من الأسباب الشائعة لإضافة ملف تهيئة:
+إذا كان الملف مفقودًا، يستخدم OpenClaw إعدادات افتراضية «آمنة إلى حدٍّ ما» (وكيل Pi مُضمَّن + جلسات لكل مُرسِل + مساحة عمل `~/.openclaw/workspace`). عادةً لا تحتاج إلى ملف تهيئة إلا من أجل:
 
-- ربط القنوات والتحكّم في من يمكنه مراسلة البوت
-- تعيين النماذج، الأدوات، العزل (sandboxing)، أو الأتمتة (cron، hooks)
-- ضبط الجلسات، الوسائط، الشبكات، أو واجهة المستخدم
+- ربط القنوات والتحكم في من يمكنه مراسلة البوت
+- تعيين النماذج والأدوات ووضع الحماية (sandboxing) أو الأتمتة (cron، hooks)
+- ضبط الجلسات والوسائط والشبكات أو واجهة المستخدم
 
-اطّلع على [المرجع الكامل](/gateway/configuration-reference) لجميع الحقول المتاحة.
+اطّلع على [المرجع الكامل](/gateway/configuration-reference) لكل حقل متاح.
 
 <Tip>
-**جديد على التهيئة؟** ابدأ بالأمر `openclaw onboard` للإعداد التفاعلي، أو راجع دليل [أمثلة التهيئة](/gateway/configuration-examples) للحصول على إعدادات كاملة جاهزة للنسخ.
+**جديد على التهيئة؟** اطّلع على دليل [أمثلة التهيئة](/gateway/configuration-examples) للحصول على أمثلة كاملة مع شروح مفصّلة!
 </Tip>
 
-## أقل تهيئة ممكنة
+## إعدادات بسيطة
 
 ```json5
-// ~/.openclaw/openclaw.json
 {
   agents: { defaults: { workspace: "~/.openclaw/workspace" } },
   channels: { whatsapp: { allowFrom: ["+15555550123"] } },
 }
 ```
 
-## تعديل التهيئة
+## تحرير الإعدادات
 
 <Tabs>
-  <Tab title="المعالج التفاعلي">
+  <Tab title="Interactive wizard">
     ```bash
     openclaw onboard       # معالج الإعداد الكامل
-    openclaw configure     # معالج التهيئة
+    openclaw configure     # معالج الإعدادات
     ```
   
 </Tab>
-  <Tab title="CLI (أوامر سريعة)">
+  <Tab title="CLI (one-liners)">
     ```bash
     openclaw config get agents.defaults.workspace
     openclaw config set agents.defaults.heartbeat.every "2h"
@@ -46,56 +50,70 @@ title: "التهيئة"
     ```
   
 </Tab>
-  <Tab title="واجهة التحكم">
-    افتح [http://127.0.0.1:18789](http://127.0.0.1:18789) واستخدم تبويب **Config**.
-    تقوم واجهة التحكم بإنشاء نموذج من مخطط التهيئة، مع محرّر **Raw JSON** كخيار متقدم.
+  <Tab title="Control UI">
+    افتح [http://127.0.0.1:18789](http://127.0.0.1:18789) واستخدم علامة التبويب **Config**.
+    تعرض واجهة التحكم نموذجًا مبنيًا على هذا المخطط، مع محرّر **Raw JSON** كخيار طوارئ.
   
 </Tab>
-  <Tab title="تعديل مباشر">
-    عدّل الملف `~/.openclaw/openclaw.json` مباشرةً. تقوم البوابة بمراقبة الملف وتطبيق التغييرات تلقائيًا (انظر [إعادة التحميل الساخن](#config-hot-reload)).
+  <Tab title="Direct edit">
+    `~/.openclaw/openclaw.json` (أو `OPENCLAW_CONFIG_PATH`) يراقب Gateway الملف ويطبّق التغييرات تلقائيًا (راجع [hot reload](#config-hot-reload)).
   
 </Tab>
 </Tabs>
 
-## التحقق الصارم
+## تحقق صارم
 
 <Warning>
-يقبل OpenClaw فقط التهيئات التي تطابق المخطط بالكامل. المفاتيح غير المعروفة، أو الأنواع غير الصحيحة، أو القيم غير الصالحة تجعل البوابة **ترفض البدء**. الاستثناء الوحيد على مستوى الجذر هو `$schema` (من نوع string) لتمكين المحررات من إرفاق بيانات JSON Schema.
+لا يقبل OpenClaw إلا التهيئات التي تطابق المخطط بالكامل. المفاتيح غير المعروفة، أو الأنواع غير الصحيحة، أو القيم غير الصالحة تجعل Gateway **يرفض البدء** حفاظًا على الأمان. الاستثناء الوحيد على مستوى الجذر هو `$schema` (string)، بحيث يمكن للمحررات إرفاق بيانات JSON Schema الوصفية.
 </Warning>
 
-عند فشل التحقق:
+عند فشل التحقّق:
 
-- لا تبدأ البوابة
-- تعمل فقط أوامر التشخيص (`openclaw doctor`, `openclaw logs`, `openclaw health`, `openclaw status`)
-- شغّل `openclaw doctor` لرؤية الأخطاء بالتفصيل
-- شغّل `openclaw doctor --fix` (أو `--yes`) لتطبيق الإصلاحات
+- لا يبدأ Gateway.
+- يُسمح فقط بأوامر التشخيص (على سبيل المثال: `openclaw doctor`، `openclaw logs`، `openclaw health`، `openclaw status`، `openclaw service`، `openclaw help`).
+- شغّل `openclaw doctor` لعرض المشكلات بدقّة.
+- شغّل `openclaw doctor --fix` (أو `--yes`) لتطبيق عمليات الترحيل/الإصلاح.
 
-## مهام شائعة
+## المهام الشائعة
 
 <AccordionGroup>
-  <Accordion title="إعداد قناة (WhatsApp، Telegram، Discord، إلخ)">
-    لكل قناة قسم خاص بها تحت `channels.<provider>`. راجع صفحة القناة المخصّصة لخطوات الإعداد:
+  <Accordion title="Set up a channel (WhatsApp, Telegram, Discord, etc.)">
+    لكل قناة قسم إعدادات خاص بها ضمن `channels.<provider>`.\`. راجع صفحة القناة المخصصة لمعرفة خطوات الإعداد:
 
-    - [WhatsApp](/channels/whatsapp) — `channels.whatsapp`
-    - [Telegram](/channels/telegram) — `channels.telegram`
-    - [Discord](/channels/discord) — `channels.discord`
-    - [Slack](/channels/slack) — `channels.slack`
-    - [Signal](/channels/signal) — `channels.signal`
-    - [iMessage](/channels/imessage) — `channels.imessage`
-    - [Google Chat](/channels/googlechat) — `channels.googlechat`
-    - [Mattermost](/channels/mattermost) — `channels.mattermost`
-    - [MS Teams](/channels/msteams) — `channels.msteams`
-
-    تشترك جميع القنوات في نفس نمط سياسة الرسائل الخاصة (DM):
-
-    ```json5
-    {
+    ```
+    2. {
       channels: {
+        whatsapp: {
+          groupPolicy: "allowlist",
+          groupAllowFrom: ["+15551234567"],
+        },
         telegram: {
-          enabled: true,
-          botToken: "123:abc",
-          dmPolicy: "pairing",   // pairing | allowlist | open | disabled
-          allowFrom: ["tg:123"], // only for allowlist/open
+          groupPolicy: "allowlist",
+          groupAllowFrom: ["tg:123456789", "@alice"],
+        },
+        signal: {
+          groupPolicy: "allowlist",
+          groupAllowFrom: ["+15551234567"],
+        },
+        imessage: {
+          groupPolicy: "allowlist",
+          groupAllowFrom: ["chat_id:123"],
+        },
+        msteams: {
+          groupPolicy: "allowlist",
+          groupAllowFrom: ["user@org.com"],
+        },
+        discord: {
+          groupPolicy: "allowlist",
+          guilds: {
+            GUILD_ID: {
+              channels: { help: { allow: true } },
+            },
+          },
+        },
+        slack: {
+          groupPolicy: "allowlist",
+          channels: { "#general": { allow: true } },
         },
       },
     }
@@ -104,9 +122,10 @@ title: "التهيئة"
   
 </Accordion>
 
-  <Accordion title="اختيار وتكوين النماذج">
-    عيّن النموذج الأساسي مع بدائل احتياطية:
+  <Accordion title="Choose and configure models">
+    عيّن النموذج الأساسي وبدائل اختيارية:
 
+    ````
     ```json5
     {
       agents: {
@@ -123,67 +142,66 @@ title: "التهيئة"
       },
     }
     ```
-
-    - يعرّف `agents.defaults.models` كتالوج النماذج ويعمل كقائمة سماح لأمر `/model`.
-    - تستخدم مراجع النماذج صيغة `provider/model` (مثال: `anthropic/claude-opus-4-6`).
-    - راجع [Models CLI](/concepts/models) لتبديل النماذج داخل الدردشة و[Model Failover](/concepts/model-failover) لسلوك التبديل الاحتياطي.
-    - لمزوّدين مخصّصين/مستضافين ذاتيًا، راجع [Custom providers](/gateway/configuration-reference#custom-providers-and-base-urls).
+    
+    - يحدد `agents.defaults.models` كتالوج النماذج ويعمل كقائمة سماح لأمر `/model`.
+    - تستخدم مراجع النماذج تنسيق `provider/model` (مثل `anthropic/claude-opus-4-6`).
+    - راجع [Models CLI](/concepts/models) لتبديل النماذج داخل الدردشة و[Model Failover](/concepts/model-failover) لتناوب المصادقة وسلوك التبديل الاحتياطي.
+    - لمزوّدي الخدمة المخصصين/ذوي الاستضافة الذاتية، راجع [Custom providers](/gateway/configuration-reference#custom-providers-and-base-urls) في المرجع.
+    ````
 
   
 </Accordion>
 
-  <Accordion title="التحكم في من يمكنه مراسلة البوت">
-    يتم التحكم في الوصول إلى الرسائل الخاصة لكل قناة عبر `dmPolicy`:
+  <Accordion title="Control who can message the bot">تجاوز لكل DM: `channels.<provider>
 
-    - `"pairing"` (افتراضي): يحصل المرسلون غير المعروفين على رمز اقتران لمرة واحدة
-    - `"allowlist"`: فقط المرسلون ضمن `allowFrom` (أو مخزن الاقتران)
+    ```
+    - `"pairing"` (الافتراضي): يحصل المرسلون غير المعروفين على رمز اقتران لمرة واحدة للموافقة
+    - `"allowlist"`: فقط المرسلون المدرجون في `allowFrom` (أو مخزن السماح المقترن)
     - `"open"`: السماح بجميع الرسائل الخاصة الواردة (يتطلب `allowFrom: ["*"]`)
     - `"disabled"`: تجاهل جميع الرسائل الخاصة
-
-    للمجموعات، استخدم `groupPolicy` مع `groupAllowFrom` أو قوائم سماح خاصة بالقناة.
-
-    راجع [المرجع الكامل](/gateway/configuration-reference#dm-and-group-access) للتفاصيل.
+    
+    بالنسبة للمجموعات، استخدم `groupPolicy` + `groupAllowFrom` أو قوائم السماح الخاصة بالقناة.
+    
+    راجع [المرجع الكامل](/gateway/configuration-reference#dm-and-group-access) للتفاصيل الخاصة بكل قناة.
+    ```
 
   
 </Accordion>
 
-  <Accordion title="بوابة الإشارات في دردشات المجموعات">
-    رسائل المجموعات تتطلب الإشارة افتراضيًا. قم بالتهيئة لكل وكيل:
+  <Accordion title="Set up group chat mention gating">
+    تفترض رسائل المجموعات افتراضيًا **اشتراط الإشارة** (إشارة وصفية أو أنماط regex). إعدادات `agents.defaults.subagents` الافتراضية:
 
-    ```json5
+    ```
     {
       agents: {
+        defaults: { workspace: "~/.openclaw/workspace" },
         list: [
           {
             id: "main",
-            groupChat: {
-              mentionPatterns: ["@openclaw", "openclaw"],
-            },
+            groupChat: { mentionPatterns: ["@openclaw", "reisponde"] },
           },
         ],
       },
       channels: {
         whatsapp: {
+          // Allowlist is DMs only; including your own number enables self-chat mode.
+          allowFrom: ["+15555550123"],
           groups: { "*": { requireMention: true } },
         },
       },
     }
     ```
 
-    - **إشارات وصفية**: إشارات @ الأصلية في المنصة
-    - **أنماط نصية**: تعابير regex في `mentionPatterns`
-    - راجع [المرجع الكامل](/gateway/configuration-reference#group-chat-mention-gating).
-
   
 </Accordion>
 
-  <Accordion title="تهيئة الجلسات وإعادة الضبط">
-    تتحكم الجلسات في استمرارية المحادثة:
+  <Accordion title="Configure sessions and resets">جلسة مناقشة منعزلة:
 
+    ````
     ```json5
     {
       session: {
-        dmScope: "per-channel-peer",
+        dmScope: "per-channel-peer",  // موصى به لعدة مستخدمين
         reset: {
           mode: "daily",
           atHour: 4,
@@ -192,37 +210,31 @@ title: "التهيئة"
       },
     }
     ```
-
-    - `dmScope`: `main` | `per-peer` | `per-channel-peer` | `per-account-channel-peer`
-    - راجع [Session Management](/concepts/session) و[المرجع الكامل](/gateway/configuration-reference#session).
+    
+    - `dmScope`: ‏`main` (مشتركة) | `per-peer` | `per-channel-peer` | `per-account-channel-peer`
+    - راجع [Session Management](/concepts/session) لمعرفة النطاق وروابط الهوية وسياسة الإرسال.
+    - راجع [المرجع الكامل](/gateway/configuration-reference#session) لجميع الحقول.
+    ````
 
   
 </Accordion>
 
-  <Accordion title="تفعيل العزل (Sandboxing)">
+  <Accordion title="Enable sandboxing">
     تشغيل جلسات الوكيل داخل حاويات Docker معزولة:
 
-    ```json5
+
+    ```
+    // ~/.openclaw/agents.json5
     {
-      agents: {
-        defaults: {
-          sandbox: {
-            mode: "non-main",  // off | non-main | all
-            scope: "agent",    // session | agent | shared
-          },
-        },
-      },
+      defaults: { sandbox: { mode: "all", scope: "session" } },
+      list: [{ id: "main", workspace: "~/.openclaw/workspace" }],
     }
     ```
 
-    أنشئ الصورة أولًا: `scripts/sandbox-setup.sh`
-
-    راجع [Sandboxing](/gateway/sandboxing) و[المرجع الكامل](/gateway/configuration-reference#sandbox).
-
   
 </Accordion>
 
-  <Accordion title="إعداد heartbeat (فحوصات دورية)">
+  <Accordion title="Set up heartbeat (periodic check-ins)">
     ```json5
     {
       agents: {
@@ -236,63 +248,66 @@ title: "التهيئة"
     }
     ```
 
-    - `every`: مدة مثل `30m` أو `2h` (استخدم `0m` للتعطيل)
-    - `target`: `last` | `whatsapp` | `telegram` | `discord` | `none`
-    - راجع [Heartbeat](/gateway/heartbeat).
 
-  
-</Accordion>
-
-  <Accordion title="إعداد مهام Cron">
-    ```json5
-    {
-      cron: {
-        enabled: true,
-        maxConcurrentRuns: 2,
-        sessionRetention: "24h",
-      },
-    }
+    ```
+    - `every`: سلسلة مدة (`30m`، `2h`). عيّن `0m` للتعطيل.
+    - `target`: ‏`last` | `whatsapp` | `telegram` | `discord` | `none`
+    - راجع [Heartbeat](/gateway/heartbeat) للدليل الكامل.
     ```
 
-    راجع [Cron jobs](/automation/cron-jobs).
+  
+</Accordion>
+
+  <Accordion title="Configure cron jobs">{
+  cron: {
+    enabled: true,
+    maxConcurrentRuns: 2,
+  },
+}
+
+    ```
+    انظر [Cron jobs](/automation/cron-jobs) للحصول على لمحة عامة عن الميزة وأمثلة CLI.
+    ```
 
   
 </Accordion>
 
-  <Accordion title="إعداد Webhooks (Hooks)">
-    تفعيل نقاط HTTP في البوابة:
+  <Accordion title="Set up webhooks (hooks)">تمكين نقطة نهاية HTTP بسيطة على خادم HTTP.
 
-    ```json5
-    {
+    ```
+    34. {
       hooks: {
         enabled: true,
         token: "shared-secret",
         path: "/hooks",
-        defaultSessionKey: "hook:ingress",
-        allowRequestSessionKey: false,
-        allowedSessionKeyPrefixes: ["hook:"],
+        presets: ["gmail"],
+        transformsDir: "~/.openclaw/hooks",
         mappings: [
           {
             match: { path: "gmail" },
             action: "agent",
-            agentId: "main",
+            wakeMode: "now",
+            name: "Gmail",
+            sessionKey: "hook:gmail:{{messages[0].id}}",
+            messageTemplate: "From: {{messages[0].from}}\nSubject: {{messages[0].subject}}\n{{messages[0].snippet}}",
             deliver: true,
+            channel: "last",
+            model: "openai/gpt-5.2-mini",
           },
         ],
       },
     }
     ```
 
-    راجع [المرجع الكامل](/gateway/configuration-reference#hooks).
-
   
 </Accordion>
 
-  <Accordion title="توجيه متعدد الوكلاء">
-    تشغيل عدة وكلاء معزولين:
+  <Accordion title="Configure multi-agent routing">
+    تشغيل عدة وكلاء معزولين بمساحات عمل وجلسات منفصلة:
 
-    ```json5
-    {
+
+    ```
+    5. {
       agents: {
         list: [
           { id: "home", default: true, workspace: "~/.openclaw/workspace-home" },
@@ -303,123 +318,204 @@ title: "التهيئة"
         { agentId: "home", match: { channel: "whatsapp", accountId: "personal" } },
         { agentId: "work", match: { channel: "whatsapp", accountId: "biz" } },
       ],
-    }
-    ```
-
-    راجع [Multi-Agent](/concepts/multi-agent) و[المرجع الكامل](/gateway/configuration-reference#multi-agent-routing).
-
-  
-</Accordion>
-
-  <Accordion title="تقسيم التهيئة إلى عدة ملفات (`$include`)">
-    استخدم `$include` لتنظيم التهيئات الكبيرة:
-
-    ```json5
-    // ~/.openclaw/openclaw.json
-    {
-      gateway: { port: 18789 },
-      agents: { $include: "./agents.json5" },
-      broadcast: {
-        $include: ["./clients/a.json5", "./clients/b.json5"],
+      channels: {
+        whatsapp: {
+          accounts: {
+            personal: {},
+            biz: {},
+          },
+        },
       },
     }
     ```
 
-    - **ملف واحد**: يستبدل الكائن الحاوي
-    - **مصفوفة ملفات**: دمج عميق حسب الترتيب
-    - **مفاتيح شقيقة**: تُدمج بعد التضمين
-    - **تضمينات متداخلة**: حتى 10 مستويات
-    - **مسارات نسبية**: نسبةً إلى الملف المُضمِّن
-    - **معالجة الأخطاء**: رسائل واضحة للملفات المفقودة أو الدائرية
+  
+</Accordion>
+
+  <Accordion title="Split config into multiple files ($include)">
+    استخدم `$include` لتنظيم ملفات الإعدادات الكبيرة:
+
+
+    ```
+    // ~/.openclaw/openclaw.json
+    {
+      gateway: { port: 18789 },
+    
+      // Include a single file (replaces the key's value)
+      agents: { $include: "./agents.json5" },
+    
+      // Include multiple files (deep-merged in order)
+      broadcast: {
+        $include: ["./clients/mueller.json5", "./clients/schmidt.json5"],
+      },
+    }
+    ```
 
   
 </Accordion>
 </AccordionGroup>
 
-## إعادة التحميل الساخن للتهيئة
+## إعادة تحميل الإعدادات تلقائيًا
 
-تراقب البوابة الملف `~/.openclaw/openclaw.json` وتطبّق التغييرات تلقائيًا — دون الحاجة لإعادة تشغيل يدوي في معظم الحالات.
+يراقب Gateway الملف `~/.openclaw/openclaw.json` ويطبّق التغييرات تلقائيًا — لا حاجة لإعادة التشغيل يدويًا لمعظم الإعدادات.
 
 ### أوضاع إعادة التحميل
 
-| الوضع                  | السلوك                                                                 |
-| ---------------------- | ---------------------------------------------------------------------- |
-| **`hybrid`** (افتراضي) | يطبّق التغييرات الآمنة فورًا ويعيد التشغيل تلقائيًا عند الحاجة      |
-| **`hot`**              | يطبّق التغييرات الآمنة فقط ويسجّل تحذيرًا عند الحاجة لإعادة التشغيل |
-| **`restart`**          | يعيد تشغيل البوابة عند أي تغيير                                       |
-| **`off`**              | يعطّل المراقبة؛ تسري التغييرات بعد إعادة تشغيل يدوي                 |
+| Bind modes:                 | سلوك الدمج                                                                                                                                                                                          |
+| ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`hybrid`** (الافتراضي) | يطبّق التغييرات الآمنة فورًا. يعيد التشغيل تلقائيًا للتغييرات الحرجة.                                                                                               |
+| **`hot`**                                   | "ساخن": فقط تطبيق التغييرات الآمنة الساخنة؛ سجل عندما يتطلب الأمر إعادة التشغيل. يسجّل تحذيرًا عند الحاجة إلى إعادة التشغيل — وتتولى أنت تنفيذ ذلك. |
+| **`restart`**                               | `إعادة التشغيل`: إعادة تشغيل البوابة على أي تغيير في الإعداد.                                                                                                       |
+| `{provider}`                                | يعطّل مراقبة الملف. تدخل التغييرات حيز التنفيذ عند إعادة التشغيل اليدوية التالية.                                                                                   |
 
 ```json5
 {
-  gateway: {
-    reload: { mode: "hybrid", debounceMs: 300 },
+  بوابة: {
+    إعادة التحميل: {
+      mode: "هجين",
+      debounceMs: 300,
+    },
   },
 }
 ```
 
+### ما الذي يُطبَّق فورًا وما الذي يتطلب إعادة تشغيل
+
+تُطبَّق معظم الحقول فورًا دون توقف. في وضع `hybrid`، تتم معالجة التغييرات التي تتطلب إعادة تشغيل تلقائيًا.
+
+| الفئة                                               | الحقول:                                                                  | هل يلزم إعادة التشغيل؟                |
+| --------------------------------------------------- | ---------------------------------------------------------------------------------------- | ------------------------------------- |
+| القنوات                                             | `channels.*`, `web` (WhatsApp) — جميع القنوات المدمجة وقنوات الإضافات | لا                                    |
+| الوكيل والنماذج                                     | `agent`, `agents`, `models`, `routing`                                                   | لا                                    |
+| الأتمتة                                             | `hooks`, `cron`, `agent.heartbeat`                                                       | لا                                    |
+| messages                                            | `messages.inbound`                                                                       | لا                                    |
+| الأدوات والوسائط                                    | `tools`, `browser`, `skills`, `audio`, `talk`                                            | لا                                    |
+| واجهة المستخدم وأخرى                                | `ui`, `logging`, `identity`, `bindings`                                                  | لا                                    |
+| `بوابة` (وضع خادم Gateway + ربط) | `gateway` (port/bind/auth/control UI/tailscale)                       | **الاستبدال الضمني:** |
+| البنية التحتية                                      | `discovery`, `canvasHost`, `plugins`                                                     | **أنواع الإشارات:**   |
+
 <Note>
-`gateway.reload` و `gateway.remote` لا يتطلبان إعادة تشغيل.
+`gateway.reload` و `gateway.remote` حالتان استثنائيتان — تغييرهما **لا** يؤدي إلى إعادة التشغيل.
+
+- يتم دمج الكائنات بشكل تكراري
+- `null` يحذف مفتاحًا
+- يتم استبدال المصفوفات
+
+المعاملات:
+
+- `raw` (string) — ‏JSON5 يحتوي فقط على المفاتيح المطلوب تغييرها
+- `baseHash` (مطلوب) — تجزئة الإعدادات من `config.get`
+- `sessionKey`, `note`, `restartDelayMs` — نفس القيم في `config.apply`
+
+```bash
+openclaw gateway call config.patch --params '{
+  "raw": "{ channels: { telegram: { groups: { \"*\": { requireMention: false } } } } }",
+  "baseHash": "<hash>"
+}'
+```
 </Note>
 
-## متغيرات البيئة
+## التحديثات الجزئية (RPC)
 
-يقرأ OpenClaw متغيرات البيئة من العملية الأب، بالإضافة إلى:
+<AccordionGroup>
+  <Accordion title="config.apply (full replace)">استخدم `config.apply` للتحقّق وكتابة التهيئة كاملةً وإعادة تشغيل Gateway في خطوة واحدة.
 
-- `.env` في دليل العمل الحالي (إن وُجد)
-- `~/.openclaw/.env` (احتياطي عام)
+    ```
+    openclaw gateway call config.get --params '{}' # capture payload.hash
+    openclaw gateway call config.apply --params '{
+      "raw": "{\\n  agents: { defaults: { workspace: \\"~/.openclaw/workspace\\" } }\\n}\\n",
+      "baseHash": "<hash-from-config.get>",
+      "sessionKey": "agent:main:whatsapp:dm:+15555550123",
+      "restartDelayMs": 1000
+    }'
+    ```
 
-لا يتجاوز أي منهما القيم الموجودة مسبقًا. يمكن أيضًا تحديد متغيرات ضمن التهيئة:
+  
+</Accordion>
+
+  <Accordion title="config.patch (partial update)">استخدم `config.patch` لدمج تحديث جزئي في التهيئة الحالية دون الكتابة فوق
+المفاتيح غير ذات الصلة. يطبّق دلالات JSON merge patch:
+
+    ```
+      
+</Accordion>
+    ```
+
+  
+</Accordion>
+</AccordionGroup>
+
+## المتغير
+
+`~/.openclaw/.env` (قيمة احتياطية عامة)
+
+- `.env` من دليل العمل الحالي (إن وُجد)
+- يمكنك أيضًا تعيين متغيرات بيئة مضمنة داخل الإعدادات:
+
+لا يتجاوز ملف `env` ملف env الموجود حالياً.
+الإشارة إلى متغيرات البيئة في أي قيمة نصية ضمن الإعدادات باستخدام `${VAR_NAME}`:
 
 ```json5
 {
   env: {
     OPENROUTER_API_KEY: "sk-or-...",
-    vars: { GROQ_API_KEY: "gsk-..." },
+    vars: {
+      GROQ_API_KEY: "gsk-...",
+    },
   },
 }
 ```
 
-<Accordion title="استيراد متغيرات من الصدفة (اختياري)">
-  عند التفعيل، وإذا لم تكن المفاتيح المطلوبة مضبوطة، يشغّل OpenClaw صدفة تسجيل الدخول ويستورد المفاتيح المفقودة فقط:
+<Accordion title="Shell env import (optional)">خيار ملائم بالاشتراك: إذا كان مفعّلًا ولم تُضبط أي من المفاتيح المتوقعة بعد، يشغّل OpenClaw صدفة تسجيل الدخول لديك ويستورد فقط المفاتيح المتوقعة المفقودة (ولا يتجاوز القيم). هذا يعادل فعليًا استيراد ملف تعريف الصدفة لديك.
 
 ```json5
 {
   env: {
-    shellEnv: { enabled: true, timeoutMs: 15000 },
+    shellEnv: {
+      enabled: true,
+      timeoutMs: 15000,
+    },
   },
 }
 ```
 
-المكافئ عبر البيئة: `OPENCLAW_LOAD_SHELL_ENV=1`
-</Accordion>
+`OPENCLAW_LOAD_SHELL_ENV=1`
 
-<Accordion title="استبدال متغيرات البيئة داخل التهيئة">
-  يمكنك الإشارة إلى متغيرات البيئة داخل أي قيمة نصية باستخدام `${VAR_NAME}`:
+<Accordion title="Env var substitution in config values">المتغيرات المفقودة/الفارغة تؤدي إلى ظهور خطأ عند وقت التحميل
 
 ```json5
 {
-  gateway: { auth: { token: "${OPENCLAW_GATEWAY_TOKEN}" } },
-  models: { providers: { custom: { apiKey: "${CUSTOM_API_KEY}" } } },
+  models: {
+    providers: {
+      "vercel-gateway": {
+        apiKey: "${VERCEL_GATEWAY_API_KEY}",
+      },
+    },
+  },
+  gateway: {
+    auth: {
+      token: "${OPENCLAW_GATEWAY_TOKEN}",
+    },
+  },
 }
 ```
 
-القواعد:
+**القواعد:**
 
-- يُطابق فقط الأسماء الكبيرة: `[A-Z_][A-Z0-9_]*`
-- المتغيرات المفقودة أو الفارغة تسبب خطأ عند التحميل
-- استخدم `$${VAR}` لإخراج حرفي
-- يعمل داخل ملفات `$include`
-- مثال: `"${BASE}/v1"` → `"https://api.example.com/v1"`
+- لا تُطابِق إلا أسماء متغيرات البيئة بالحروف الكبيرة: `[A-Z_][A-Z0-9_]*`
+- الاستبدال المضمن: `"${BASE}/v1"` → `"https://api.example.com/v1"`
+- الهروب باستخدام `$${VAR}` لإخراج `${VAR}` حرفيًا
+- تعمل مع `$include` (تُطبّق الاستبدالات أيضًا على الملفات المُضمَّنة)
+- المرجع الكامل
 
 </Accordion>
 
-راجع [Environment](/help/environment) للتفاصيل الكاملة.
+انظر [/environment](/help/environment) للاطّلاع على الأسبقية الكاملة والمصادر.
 
-## المرجع الكامل
+## للاطلاع على المرجع الكامل لكل حقل، راجع **[Configuration Reference](/gateway/configuration-reference)**.
 
-للاطلاع على شرح تفصيلي لكل حقل، راجع **[Configuration Reference](/gateway/configuration-reference)**.
+ملاحظات الأمان:
 
 ---
 
-_روابط ذات صلة: [أمثلة التهيئة](/gateway/configuration-examples) · [Configuration Reference](/gateway/configuration-reference) · [Doctor](/gateway/doctor)_
-
+مثال (قائمة السماح لموفر/نموذج محدد):

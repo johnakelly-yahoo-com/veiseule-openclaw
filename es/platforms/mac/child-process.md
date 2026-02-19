@@ -1,4 +1,7 @@
 ---
+summary: "Ciclo de vida del Gateway en macOS (launchd)"
+read_when:
+  - Integración de la app de mac con el ciclo de vida del Gateway
 title: "Ciclo de vida del Gateway"
 ---
 
@@ -64,5 +67,3 @@ host remoto y se conecta a través de ese túnel.
 
 Si alguna vez se vuelve a necesitar un modo de proceso hijo real, debería documentarse como
 un modo separado y explícito solo para desarrollo.
-
-

@@ -1,26 +1,29 @@
 ---
-title: "Guruh xabarlari"
+summary: "Behavior and config for WhatsApp group message handling (mentionPatterns are shared across surfaces)"
+read_when:
+  - Changing group message rules or mentions
+title: "Group Messages"
 ---
 
-# Guruh xabarlari (WhatsApp web kanali)
+# Group messages (WhatsApp web channel)
 
-Maqsad: Clawd’ni WhatsApp guruhlariga qo‘shish, faqat chaqirilganda uyg‘otish va ushbu mavzuni shaxsiy DM sessiyasidan alohida saqlash.
+Goal: let Clawd sit in WhatsApp groups, wake up only when pinged, and keep that thread separate from the personal DM session.
 
-Eslatma: `agents.list[].groupChat.mentionPatterns` endi Telegram/Discord/Slack/iMessage uchun ham qo‘llaniladi; ushbu hujjat WhatsApp’ga xos xatti-harakatlarga qaratilgan. Ko‘p agentli sozlamalarda har bir agent uchun `agents.list[].groupChat.mentionPatterns` ni belgilang (yoki global zaxira sifatida `messages.groupChat.mentionPatterns` dan foydalaning).
+Note: `agents.list[].groupChat.mentionPatterns` is now used by Telegram/Discord/Slack/iMessage as well; this doc focuses on WhatsApp-specific behavior. For multi-agent setups, set `agents.list[].groupChat.mentionPatterns` per agent (or use `messages.groupChat.mentionPatterns` as a global fallback).
 
-## Nimalar joriy etilgan (2025-12-03)
+## What’s implemented (2025-12-03)
 
-- Faollashtirish rejimlari: `mention` (standart) yoki `always`. `mention` ping talab qiladi (haqiqiy WhatsApp @-eslatmalari `mentionedJids` orqali, regex andozalari yoki botning E.164 raqami matnning istalgan joyida). `always` har bir xabarda agentni uyg‘otadi, biroq u faqat mazmunli foyda qo‘sha olganda javob berishi kerak; aks holda `NO_REPLY` jimlik tokenini qaytaradi. Standart qiymatlar konfiguratsiyada (`channels.whatsapp.groups`) o‘rnatiladi va har bir guruh uchun `/activation` orqali bekor qilinishi mumkin. `channels.whatsapp.groups` o‘rnatilganda, u guruh allowlist sifatida ham ishlaydi (`"*"` qo‘shilsa barcha guruhlarga ruxsat beriladi).
-- Guruh siyosati: `channels.whatsapp.groupPolicy` guruh xabarlari qabul qilinishini boshqaradi (`open|disabled|allowlist`). `allowlist` uchun `channels.whatsapp.groupAllowFrom` ishlatiladi (zaxira: aniq ko‘rsatilgan `channels.whatsapp.allowFrom`). Standart — `allowlist` (jo‘natuvchilarni qo‘shmaguningizcha bloklanadi).
-- Har bir guruh uchun alohida sessiyalar: sessiya kalitlari `agent:<agentId>:whatsapp:group:<jid>` ko‘rinishida bo‘ladi, shuning uchun `/verbose on` yoki `/think high` kabi buyruqlar (alohida xabar sifatida yuborilganda) faqat shu guruhga taalluqli bo‘ladi; shaxsiy DM holati o‘zgarmaydi. Heartbeat’lar guruh mavzulari uchun o‘tkazib yuboriladi.
-- Kontekstni kiritish: ishga tushirishni _qo‘zg‘atmagan_ **faqat kutilayotgan** guruh xabarlari (standart 50 ta) `[Chat messages since your last reply - for context]` ostida prefiks qilinadi, qo‘zg‘atuvchi qator esa `[Current message - respond to this]` ostida beriladi. Sessiyada allaqachon mavjud xabarlar qayta kiritilmaydi.
-- Jo‘natuvchini ko‘rsatish: har bir guruh batch’i endi `[from: Sender Name (+E164)]` bilan yakunlanadi, shunda Pi kim gapirayotganini biladi.
-- Ephemeral/view-once: matn/mentionlarni ajratib olishdan oldin ular ochiladi, shuning uchun ichidagi pinglar ham ishga tushiradi.
-- Guruh system prompt’i: guruh sessiyasining birinchi bosqichida (va har safar `/activation` rejimi o‘zgarganda) system prompt’ga qisqa izoh qo‘shiladi, masalan: `You are replying inside the WhatsApp group "<subject>". Group members: Alice (+44...), Bob (+43...), … Activation: trigger-only … Address the specific sender noted in the message context.` Agar metadata mavjud bo‘lmasa ham, agentga bu guruh chat ekanini bildiramiz.
+- Activation modes: `mention` (default) or `always`. `mention` requires a ping (real WhatsApp @-mentions via `mentionedJids`, regex patterns, or the bot’s E.164 anywhere in the text). `always` wakes the agent on every message but it should reply only when it can add meaningful value; otherwise it returns the silent token `NO_REPLY`. Defaults can be set in config (`channels.whatsapp.groups`) and overridden per group via `/activation`. When `channels.whatsapp.groups` is set, it also acts as a group allowlist (include `"*"` to allow all).
+- Group policy: `channels.whatsapp.groupPolicy` controls whether group messages are accepted (`open|disabled|allowlist`). `allowlist` uses `channels.whatsapp.groupAllowFrom` (fallback: explicit `channels.whatsapp.allowFrom`). Default is `allowlist` (blocked until you add senders).
+- Per-group sessions: session keys look like `agent:<agentId>:whatsapp:group:<jid>` so commands such as `/verbose on` or `/think high` (sent as standalone messages) are scoped to that group; personal DM state is untouched. Heartbeats are skipped for group threads.
+- Context injection: **pending-only** group messages (default 50) that _did not_ trigger a run are prefixed under `[Chat messages since your last reply - for context]`, with the triggering line under `[Current message - respond to this]`. Messages already in the session are not re-injected.
+- Sender surfacing: every group batch now ends with `[from: Sender Name (+E164)]` so Pi knows who is speaking.
+- Ephemeral/view-once: we unwrap those before extracting text/mentions, so pings inside them still trigger.
+- Group system prompt: on the first turn of a group session (and whenever `/activation` changes the mode) we inject a short blurb into the system prompt like `You are replying inside the WhatsApp group "<subject>". Group members: Alice (+44...), Bob (+43...), … Activation: trigger-only … Address the specific sender noted in the message context.` If metadata isn’t available we still tell the agent it’s a group chat.
 
-## Konfiguratsiya namunasi (WhatsApp)
+## Config example (WhatsApp)
 
-WhatsApp matn tanasida vizual `@` belgisi olib tashlangan holatda ham ko‘rinadigan ism orqali ping ishlashi uchun `~/.openclaw/openclaw.json` fayliga `groupChat` blokini qo‘shing:
+Add a `groupChat` block to `~/.openclaw/openclaw.json` so display-name pings work even when WhatsApp strips the visual `@` in the text body:
 
 ```json5
 {
@@ -45,38 +48,37 @@ WhatsApp matn tanasida vizual `@` belgisi olib tashlangan holatda ham ko‘rinad
 }
 ```
 
-Eslatmalar:
+Notes:
 
-- Regex’lar katta-kichik harflarga sezgir emas; ular `@openclaw` kabi ko‘rinadigan ism orqali pingni va `+`/bo‘sh joy bilan yoki ularsiz xom raqamni qamrab oladi.
-- Kimdir kontaktni bosganda WhatsApp baribir `mentionedJids` orqali kanonik mention yuboradi, shuning uchun raqam bo‘yicha zaxira kamdan-kam kerak bo‘ladi, ammo foydali xavfsizlik chorasi hisoblanadi.
+- The regexes are case-insensitive; they cover a display-name ping like `@openclaw` and the raw number with or without `+`/spaces.
+- WhatsApp still sends canonical mentions via `mentionedJids` when someone taps the contact, so the number fallback is rarely needed but is a useful safety net.
 
-### Faollashtirish buyrug‘i (faqat egasi)
+### Activation command (owner-only)
 
-Guruh chat buyrug‘idan foydalaning:
+Use the group chat command:
 
 - `/activation mention`
 - `/activation always`
 
-Buni faqat egasining raqami (`channels.whatsapp.allowFrom`, yoki o‘rnatilmagan bo‘lsa botning o‘z E.164 raqami) o‘zgartira oladi. Joriy faollashtirish rejimini ko‘rish uchun guruhga `/status` ni alohida xabar sifatida yuboring.
+Only the owner number (from `channels.whatsapp.allowFrom`, or the bot’s own E.164 when unset) can change this. Send `/status` as a standalone message in the group to see the current activation mode.
 
-## Qanday foydalaniladi
+## How to use
 
-1. OpenClaw ishlayotgan WhatsApp akkauntini guruhga qo‘shing.
-2. `@openclaw …` deb yozing (yoki raqamni kiriting). `groupPolicy: "open"` o‘rnatilmagan bo‘lsa, faqat allowlist’dagi jo‘natuvchilar ishga tushira oladi.
-3. Agent prompt’i yaqindagi guruh konteksti va oxiridagi `[from: …]` belgisini o‘z ichiga oladi, shuning uchun to‘g‘ri shaxsga murojaat qila oladi.
-4. Sessiya darajasidagi direktivalar (`/verbose on`, `/think high`, `/new` yoki `/reset`, `/compact`) faqat shu guruh sessiyasiga taalluqli; ro‘yxatdan o‘tishi uchun ularni alohida xabar sifatida yuboring. Shaxsiy DM sessiyangiz mustaqil qoladi.
+1. Add your WhatsApp account (the one running OpenClaw) to the group.
+2. Say `@openclaw …` (or include the number). Only allowlisted senders can trigger it unless you set `groupPolicy: "open"`.
+3. The agent prompt will include recent group context plus the trailing `[from: …]` marker so it can address the right person.
+4. Session-level directives (`/verbose on`, `/think high`, `/new` or `/reset`, `/compact`) apply only to that group’s session; send them as standalone messages so they register. Your personal DM session remains independent.
 
-## Sinov / tekshirish
+## Testing / verification
 
-- Qo‘lda tezkor sinov:
-  - Guruhda `@openclaw` ping yuboring va jo‘natuvchi nomini tilga olgan javobni tasdiqlang.
-  - Ikkinchi ping yuboring va history bloki kiritilganini, keyingi bosqichda esa tozalanganini tekshiring.
-- Gateway loglarini tekshiring (`--verbose` bilan ishga tushiring) — `inbound web message` yozuvlarida `from: <groupJid>` va `[from: …]` suffiksi ko‘rinadi.
+- Manual smoke:
+  - Send an `@openclaw` ping in the group and confirm a reply that references the sender name.
+  - Send a second ping and verify the history block is included then cleared on the next turn.
+- Check gateway logs (run with `--verbose`) to see `inbound web message` entries showing `from: <groupJid>` and the `[from: …]` suffix.
 
-## Ma’lum jihatlar
+## Known considerations
 
-- Shovqinli e’lonlarning oldini olish uchun heartbeat’lar guruhlar uchun ataylab o‘chirib qo‘yilgan.
-- Echo suppression birlashtirilgan batch satridan foydalanadi; agar mentionlarsiz bir xil matnni ikki marta yuborsangiz, faqat birinchisiga javob beriladi.
-- Sessiya saqlash yozuvlari sessiya omborida (`~/.openclaw/agents/<agentId>/sessions/sessions.json` standart bo‘yicha) `agent:<agentId>:whatsapp:group:<jid>` ko‘rinishida paydo bo‘ladi; yozuv yo‘qligi guruh hali ishga tushirmaganini anglatadi.
-- Guruhlardagi typing indikatorlari `agents.defaults.typingMode` ga amal qiladi (standart: mention qilinmaganda `message`).
-
+- Heartbeats are intentionally skipped for groups to avoid noisy broadcasts.
+- Echo suppression uses the combined batch string; if you send identical text twice without mentions, only the first will get a response.
+- Session store entries will appear as `agent:<agentId>:whatsapp:group:<jid>` in the session store (`~/.openclaw/agents/<agentId>/sessions/sessions.json` by default); a missing entry just means the group hasn’t triggered a run yet.
+- Typing indicators in groups follow `agents.defaults.typingMode` (default: `message` when unmentioned).

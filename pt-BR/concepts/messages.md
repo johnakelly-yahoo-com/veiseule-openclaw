@@ -1,4 +1,9 @@
 ---
+summary: "Fluxo de mensagens, sessões, enfileiramento e visibilidade do raciocínio"
+read_when:
+  - Explicar como mensagens de entrada se tornam respostas
+  - Esclarecer sessões, modos de enfileiramento ou comportamento de streaming
+  - Documentar visibilidade do raciocínio e implicações de uso
 title: "Mensagens"
 ---
 
@@ -146,5 +151,3 @@ A formatação de mensagens de saída é centralizada em `messages`:
 - Encadeamento de respostas via `replyToMode` e padrões por canal
 
 Detalhes: [Configuração](/gateway/configuration#messages) e documentação dos canais.
-
-

@@ -1,12 +1,8 @@
 ---
-title: agents
-x-i18n:
-  generated_at: "2026-02-01T19:58:38Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 30556d81636a9ad8972573cc6b498e620fd266e1dfb16eef3f61096ea62f9896
-  source_path: cli/agents.md
-  workflow: 14
+summary: "`openclaw agents` 的 CLI 参考（列出/添加/删除/设置身份）"
+read_when:
+  - 你需要多个隔离的智能体（工作区 + 路由 + 认证）
+title: "agents"
 ---
 
 # `openclaw agents`
@@ -77,5 +73,3 @@ openclaw agents set-identity --agent main --name "OpenClaw" --emoji "🦞" --ava
   },
 }
 ```
-
-

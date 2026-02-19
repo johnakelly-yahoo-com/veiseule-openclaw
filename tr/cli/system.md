@@ -1,4 +1,9 @@
 ---
+summary: "`openclaw system` için CLI referansı (sistem olayları, heartbeat, presence)"
+read_when:
+  - Bir cron işi oluşturmadan bir sistem olayı kuyruğa almak istediğinizde
+  - Heartbeat'leri etkinleştirmeniz veya devre dışı bırakmanız gerektiğinde
+  - Sistem presence girdilerini incelemek istediğinizde
 title: "system"
 ---
 
@@ -54,5 +59,3 @@ Bayraklar:
 
 - Geçerli yapılandırmanız (yerel veya uzak) tarafından erişilebilir, çalışan bir Gateway gerektirir.
 - Sistem olayları geçicidir ve yeniden başlatmalar arasında kalıcı değildir.
-
-

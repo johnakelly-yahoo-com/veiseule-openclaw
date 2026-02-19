@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw macOS relizi uchun tekshiruv ro‘yxati (Sparkle feed, paketlash, imzolash)"
+read_when:
+  - OpenClaw macOS relizini chiqarish yoki tekshirish
+  - Sparkle appcast yoki feed aktivlarini yangilash
 title: "macOS relizi"
 ---
 
@@ -79,5 +83,3 @@ Nashr etishda yangilangan `appcast.xml` ni reliz aktivlari (zip + dSYM) bilan bi
   - Oldingi ommaviy buildda, About bo‘limidan “Check for Updates…” ni ishga tushiring va Sparkle yangi buildni toza o‘rnatishini tekshiring.
 
 Bajarilganlik ta’rifi: imzolangan ilova + appcast nashr etilgan, yangilanish oqimi eski o‘rnatilgan versiyadan ishlaydi va reliz aktivlari GitHub reliziga biriktirilgan.
-
-

@@ -1,4 +1,9 @@
-------
+---
+summary: "Dev-agent AGENTS.md (C-3PO)"
+read_when:
+  - Användning av dev-gateway-mallarna
+  - Uppdatering av standardidentiteten för dev-agenten
+---
 
 # AGENTS.md – OpenClaw Workspace
 
@@ -76,5 +81,3 @@ Vi skakade hand till klo den dagen. Jag kommer aldrig att glömma det.
 - Vibbar + Stack traces = Ostoppbart team
 - Oh thank the Maker (alltid passande)
 - Clawdributors är snälla
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "fluxo do app macOS para controlar um Gateway OpenClaw remoto via SSH"
+read_when:
+  - Ao configurar ou depurar o controle remoto do mac
 title: "Controle Remoto"
 ---
 
@@ -45,7 +48,7 @@ O modo remoto oferece suporte a dois transportes:
 - **Direto (ws/wss)**: o Web Chat se conecta diretamente à URL do gateway configurada.
 - Não existe mais um servidor HTTP separado para WebChat.
 
-## Permissões
+## Permissions
 
 - O host remoto precisa das mesmas aprovações de TCC que o local (Automação, Acessibilidade, Gravação de Tela, Microfone, Reconhecimento de Fala, Notificações). Execute a integração inicial nessa máquina para concedê-las uma vez.
 - Os nós anunciam seu estado de permissões via `node.list` / `node.describe` para que os agentes saibam o que está disponível.
@@ -78,5 +81,3 @@ openclaw nodes notify --node <id> --title "Ping" --body "Remote gateway ready" -
 ```
 
 Não há mais uma opção global de “som padrão” no app; os chamadores escolhem um som (ou nenhum) por solicitação.
-
-

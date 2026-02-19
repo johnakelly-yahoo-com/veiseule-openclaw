@@ -1,4 +1,6 @@
 ---
+summary: "Notas do protocolo RPC para o assistente de integração inicial e o esquema de configuração"
+read_when: "Ao alterar as etapas do assistente de integração inicial ou os endpoints do esquema de configuração"
 title: "Protocolo de Integração Inicial e Configuração"
 ---
 
@@ -36,5 +38,3 @@ Respostas (formato)
 ## Notas
 
 - Este documento é o único lugar para acompanhar refatorações de protocolo para integração inicial/configuração.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Suporta sa Signal sa pamamagitan ng signal-cli (JSON-RPC + SSE), setup, at modelo ng numero"
+read_when:
+  - Pagse-set up ng suporta sa Signal
+  - Pag-debug ng pagpapadala/pagtanggap sa Signal
 title: "Signal"
 ---
 
@@ -8,11 +12,20 @@ title: "Signal"
 
 ## Mabilis na setup (baguhan)
 
+- Gumamit ng **hiwalay na Signal number** para sa bot (inirerekomenda).
+- I-install ang `signal-cli` (kailangan ang Java).
+- I-link ang bot device at simulan ang daemon:
+- I-configure ang OpenClaw at simulan ang gateway.
+
+## Mabilis na setup (baguhan)
+
 1. Gumamit ng **hiwalay na Signal number** para sa bot (inirerekomenda).
-2. I-install ang `signal-cli` (kailangan ang Java).
-3. I-link ang bot device at simulan ang daemon:
-   - `signal-cli link -n "OpenClaw"`
-4. I-configure ang OpenClaw at simulan ang gateway.
+2. I-install ang `signal-cli` (kinakailangan ang Java kung gagamitin mo ang JVM build).
+3. Pumili ng isang setup path:
+   - **Path A (QR link):** `signal-cli link -n "OpenClaw"` at i-scan gamit ang Signal.
+   - **Path B (SMS register):** magrehistro ng dedikadong numero gamit ang captcha + SMS verification.
+4. I-configure ang OpenClaw at i-restart ang gateway.
+5. Magpadala ng unang DM at aprubahan ang pairing (`openclaw pairing approve signal <CODE>`).
 
 Minimal na config:
 
@@ -30,13 +43,22 @@ Minimal na config:
 }
 ```
 
+Sanggunian ng field:
+
+| Field       | Paglalarawan                                                                                  |
+| ----------- | --------------------------------------------------------------------------------------------- |
+| `account`   | Numero ng telepono ng bot sa E.164 format (`+15551234567`) |
+| `cliPath`   | Path papunta sa `signal-cli` (`signal-cli` kung nasa `PATH`)               |
+| `dmPolicy`  | Patakaran sa access ng DM (`pairing` ang inirerekomenda)                   |
+| `allowFrom` | Mga numero ng telepono o mga halagang `uuid:&lt;id&gt;` na pinapayagang mag-DM                      |
+
 ## Ano ito
 
 - Signal channel sa pamamagitan ng `signal-cli` (hindi embedded libsignal).
 - Deterministic routing: ang mga reply ay laging bumabalik sa Signal.
 - Ang mga DM ay nagbabahagi ng pangunahing session ng agent; ang mga group ay hiwalay (`agent:<agentId>:signal:group:<groupId>`).
 
-## Mga pagsusulat sa config
+## Ang modelo ng numero (mahalaga)
 
 Bilang default, pinapayagan ang Signal na magsulat ng mga update sa config na na-trigger ng `/config set|unset` (kailangan ang `commands.config: true`).
 
@@ -54,14 +76,14 @@ I-disable gamit ang:
 - Kung patatakbuhin mo ang bot sa **iyong personal na Signal account**, i-ignore nito ang sarili mong mga mensahe (proteksyon laban sa loop).
 - Para sa “nag-text ako sa bot at nagre-reply ito,” gumamit ng **hiwalay na bot number**.
 
-## Setup (mabilis na ruta)
+## Setup path A: i-link ang umiiral na Signal account (QR)
 
-1. I-install ang `signal-cli` (kailangan ang Java).
+1. I-install ang `signal-cli` (JVM o native build).
 2. I-link ang isang bot account:
    - `signal-cli link -n "OpenClaw"` pagkatapos ay i-scan ang QR sa Signal.
 3. I-configure ang Signal at simulan ang gateway.
 
-Halimbawa:
+Kung gusto mong ikaw ang mag-manage ng `signal-cli` (mabagal na JVM cold starts, container init, o shared CPUs), patakbuhin ang daemon nang hiwalay at ituro ang OpenClaw dito:
 
 ```json5
 {
@@ -78,6 +100,67 @@ Halimbawa:
 ```
 
 31. Suporta sa maraming account: gamitin ang `channels.signal.accounts` na may per-account config at opsyonal na `name`. 32. Tingnan ang [`gateway/configuration`](/gateway/configuration#telegramaccounts--discordaccounts--slackaccounts--signalaccounts--imessageaccounts) para sa shared na pattern.
+
+## Kontrol sa access (DMs + groups)
+
+Gamitin ito kung gusto mo ng hiwalay na numero para sa bot sa halip na i-link ang umiiral na Signal app account.
+
+1. Kumuha ng numerong kayang tumanggap ng SMS (o voice verification para sa landline).
+   - Gumamit ng hiwalay na numero para sa bot upang maiwasan ang mga conflict sa account/session.
+2. Ang mga hindi kilalang sender ay tumatanggap ng pairing code; ini-ignore ang mga mensahe hanggang maaprubahan (mag-e-expire ang mga code pagkalipas ng 1 oras).
+
+```bash
+VERSION=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/AsamK/signal-cli/releases/latest | sed -e 's/^.*\/v//')
+curl -L -O "https://github.com/AsamK/signal-cli/releases/download/v${VERSION}/signal-cli-${VERSION}-Linux-native.tar.gz"
+sudo tar xf "signal-cli-${VERSION}-Linux-native.tar.gz" -C /opt
+sudo ln -sf /opt/signal-cli /usr/local/bin/
+signal-cli --version
+```
+
+Kung gagamit ka ng JVM build (`signal-cli-${VERSION}.tar.gz`), i-install muna ang JRE 25+.
+Panatilihing updated ang `signal-cli`; ayon sa upstream, maaaring hindi na gumana ang mga lumang release kapag nagbago ang Signal server APIs.
+
+3. Irehistro at i-verify ang numero:
+
+```bash
+signal-cli -a +<BOT_PHONE_NUMBER> register
+```
+
+Kung kailangan ang captcha:
+
+1. Ang outbound text ay hina-hati hanggang `channels.signal.textChunkLimit` (default 4000).
+2. Opsyonal na newline chunking: itakda ang `channels.signal.chunkMode="newline"` para hatiin sa mga blank line (mga hangganan ng talata) bago ang length chunking.
+3. Suportado ang mga attachment (base64 na kinukuha mula sa `signal-cli`).
+4. Default na media cap: `channels.signal.mediaMaxMb` (default 8).
+
+```bash
+signal-cli -a +<BOT_PHONE_NUMBER> register --captcha '<SIGNALCAPTCHA_URL>'
+signal-cli -a +<BOT_PHONE_NUMBER> verify <VERIFICATION_CODE>
+```
+
+4. **Typing indicators**: Nagpapadala ang OpenClaw ng typing signals sa pamamagitan ng `signal-cli sendTyping` at nire-refresh ang mga ito habang tumatakbo ang reply.
+
+```bash
+# Kung pinapatakbo mo ang gateway bilang user systemd service:
+systemctl --user restart openclaw-gateway
+
+# Pagkatapos ay i-verify:
+openclaw doctor
+openclaw channels status --probe
+```
+
+5. Gamitin ang `message action=react` kasama ang `channel=signal`.
+   - Magpadala ng anumang mensahe sa numero ng bot.
+   - Aprubahan ang code sa server: `openclaw pairing approve signal <PAIRING_CODE>`.
+   - I-save ang numero ng bot bilang contact sa iyong telepono upang maiwasan ang "Unknown contact".
+
+Mahalaga: ang pagrerehistro ng phone number account gamit ang `signal-cli` ay maaaring mag-de-authenticate ng pangunahing Signal app session para sa numerong iyon. Mas mainam ang hiwalay na numero para sa bot, o gamitin ang QR link mode kung kailangan mong panatilihin ang kasalukuyang setup ng phone app.
+
+Mga sanggunian mula sa upstream:
+
+- `signal-cli` README: `https://github.com/AsamK/signal-cli`
+- Captcha flow: `https://github.com/AsamK/signal-cli/wiki/Registration-with-captcha`
+- Linking flow: `https://github.com/AsamK/signal-cli/wiki/Linking-other-devices-(Provisioning)`
 
 ## External daemon mode (httpUrl)
 
@@ -119,7 +202,7 @@ Groups:
 - Ang mga papasok na mensahe ay ni-no-normalize sa shared channel envelope.
 - Ang mga reply ay laging niruruta pabalik sa parehong numero o group.
 
-## Media + mga limitasyon
+## Reference ng configuration (Signal)
 
 - Ang outbound text ay hina-hati hanggang `channels.signal.textChunkLimit` (default 4000).
 - Opsyonal na newline chunking: itakda ang `channels.signal.chunkMode="newline"` para hatiin sa mga blank line (mga hangganan ng talata) bago ang length chunking.
@@ -130,13 +213,13 @@ Groups:
 
 ## Typing + read receipts
 
-- **Typing indicators**: Nagpapadala ang OpenClaw ng typing signals sa pamamagitan ng `signal-cli sendTyping` at nire-refresh ang mga ito habang tumatakbo ang reply.
-- **Read receipts**: kapag true ang `channels.signal.sendReadReceipts`, ipinapasa ng OpenClaw ang read receipts para sa mga pinapayagang DM.
-- Hindi inilalantad ng signal-cli ang read receipts para sa groups.
+- `channels.signal.enabled`: i-enable/i-disable ang channel startup.
+- `channels.signal.account`: E.164 para sa bot account.
+- `channels.signal.cliPath`: path papunta sa `signal-cli`.
 
 ## Reactions (message tool)
 
-- Gamitin ang `message action=react` kasama ang `channel=signal`.
+- `agents.list[].groupChat.mentionPatterns` (hindi sinusuportahan ng Signal ang native mentions).
 - Mga target: sender E.164 o UUID (gamitin ang `uuid:<id>` mula sa pairing output; puwede rin ang bare UUID).
 - Ang `messageId` ay ang Signal timestamp para sa mensaheng nirereact-an.
 - Nangangailangan ang group reactions ng `targetAuthor` o `targetAuthorUuid`.
@@ -187,8 +270,25 @@ Mga karaniwang failure:
 - Maaabot ang daemon pero walang reply: i-verify ang mga setting ng account/daemon (`httpUrl`, `account`) at receive mode.
 - Ini-ignore ang mga DM: pending ang pairing approval ng sender.
 - Ini-ignore ang mga group message: hinaharangan ng group sender/mention gating ang delivery.
+- Mga error sa pag-validate ng config matapos ang pag-edit: patakbuhin ang `openclaw doctor --fix`.
+- Walang Signal sa diagnostics: tiyaking `channels.signal.enabled: true`.
+
+Mga dagdag na pagsusuri:
+
+```bash
+openclaw pairing list signal
+pgrep -af signal-cli
+grep -i "signal" "/tmp/openclaw/openclaw-$(date +%Y-%m-%d).log" | tail -20
+```
 
 Para sa triage flow: [/channels/troubleshooting](/channels/troubleshooting).
+
+## Mga tala sa seguridad
+
+- `signal-cli` ay nag-iimbak ng mga account key nang lokal (karaniwan sa `~/.local/share/signal-cli/data/`).
+- Mag-back up ng estado ng Signal account bago ang paglipat o muling pagbuo ng server.
+- Panatilihin ang `channels.signal.dmPolicy: "pairing"` maliban kung tahasan mong nais ang mas malawak na DM access.
+- Kailangan lamang ang SMS verification para sa mga daloy ng pagpaparehistro o pagbawi, ngunit ang pagkawala ng kontrol sa numero/account ay maaaring magpahirap sa muling pagpaparehistro.
 
 ## Reference ng configuration (Signal)
 
@@ -222,5 +322,3 @@ Mga kaugnay na global option:
 - `agents.list[].groupChat.mentionPatterns` (hindi sinusuportahan ng Signal ang native mentions).
 - `messages.groupChat.mentionPatterns` (global fallback).
 - `messages.responsePrefix`.
-
-

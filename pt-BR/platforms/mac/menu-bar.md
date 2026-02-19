@@ -1,4 +1,7 @@
 ---
+summary: "Lógica de status da barra de menu e o que é exibido aos usuários"
+read_when:
+  - Ajustando a UI do menu do mac ou a lógica de status
 title: "Barra de Menu"
 ---
 
@@ -76,5 +79,3 @@ title: "Barra de Menu"
 - Iniciar a principal enquanto outra está ativa: ícone muda para a principal instantaneamente.
 - Rajadas rápidas de ferramentas: garantir que o badge não pisque (TTL de tolerância nos resultados de ferramentas).
 - A linha de saúde reaparece quando todas as sessões ficam ociosas.
-
-

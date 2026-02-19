@@ -1,4 +1,9 @@
 ---
+summary: "Protokół WebSocket Gateway: handshake, ramki, wersjonowanie"
+read_when:
+  - Implementacja lub aktualizacja klientów WS Gateway
+  - Debugowanie niezgodności protokołu lub problemów z połączeniem
+  - Regenerowanie schematów/modeli protokołu
 title: "Protokół Gateway"
 ---
 
@@ -212,5 +217,3 @@ Gateway traktuje je jako **roszczenia** i egzekwuje listy dozwolonych po stronie
 Ten protokół udostępnia **pełne API gateway** (status, kanały, modele, czat,
 agent, sesje, węzły, zatwierdzenia itd.). Dokładny zakres jest zdefiniowany przez
 schematy TypeBox w `src/gateway/protocol/schema.ts`.
-
-

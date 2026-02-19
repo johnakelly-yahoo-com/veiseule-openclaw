@@ -1,17 +1,14 @@
 ---
-title: 认证
-x-i18n:
-  generated_at: "2026-02-03T07:47:32Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 66fa2c64ff374c9cfcdb4e7a951b0d164d512295e65513eb682f12191b75e557
-  source_path: gateway/authentication.md
-  workflow: 15
+summary: "模型认证：OAuth、API 密钥和 setup-token"
+read_when:
+  - 调试模型认证或 OAuth 过期
+  - 记录认证或凭证存储
+title: "认证"
 ---
 
 # 认证
 
-OpenClaw 支持模型提供商的 OAuth 和 API 密钥。对于 Anthropic 账户，我们推荐使用 **API 密钥**。对于 Claude 订阅访问，使用 `claude setup-token` 创建的长期令牌。
+OpenClaw 支持模型提供商的 OAuth 和 API 密钥。对于 Anthropic 账户，我们推荐使用 **API 密钥**。对于 Claude 订阅访问，使用 `claude setup-token` 创建的长期令牌。 20. 对于 Anthropic 账户，我们建议使用 **API 密钥**。 21. 对于 Claude 订阅访问，使用通过 `claude setup-token` 创建的长期有效令牌。
 
 参阅 [/concepts/oauth](/concepts/oauth) 了解完整的 OAuth 流程和存储布局。
 
@@ -48,7 +45,7 @@ openclaw doctor
 
 ## Anthropic：setup-token（订阅认证）
 
-对于 Anthropic，推荐的路径是 **API 密钥**。如果你使用 Claude 订阅，也支持 setup-token 流程。在 **Gateway 网关主机**上运行：
+35. 对于 Anthropic，推荐的路径是 **API 密钥**。 36. 如果你使用的是 Claude 订阅，也支持 setup-token 流程。 37. 在 **网关主机** 上运行：
 
 ```bash
 claude setup-token
@@ -106,7 +103,7 @@ openclaw doctor
 
 使用 `/model`（或 `/model list`）获取紧凑的选择器；使用 `/model status` 获取完整视图（候选项 + 下一个认证配置文件，以及配置时的提供商端点详情）。
 
-### 每智能体（CLI 覆盖）
+### Per-agent (CLI override)
 
 为智能体设置显式的认证配置文件顺序覆盖（存储在该智能体的 `auth-profiles.json` 中）：
 
@@ -130,11 +127,10 @@ openclaw models status
 
 ### 令牌即将过期/已过期
 
-运行 `openclaw models status` 确认哪个配置文件即将过期。如果配置文件缺失，重新运行 `claude setup-token` 并再次粘贴令牌。
+运行 `openclaw models status` 确认哪个配置文件即将过期。如果配置文件缺失，重新运行 `claude setup-token` 并再次粘贴令牌。 If the profile
+is missing, rerun `claude setup-token` and paste the token again.
 
 ## 要求
 
 - Claude Max 或 Pro 订阅（用于 `claude setup-token`）
 - 已安装 Claude Code CLI（`claude` 命令可用）
-
-

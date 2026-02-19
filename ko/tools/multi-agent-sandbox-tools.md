@@ -1,5 +1,7 @@
 ---
+summary: "에이전트별 샌드박스 + 도구 제한, 우선순위 및 예시"
 title: 멀티 에이전트 샌드박스 & 도구
+read_when: "멀티 에이전트 Gateway(게이트웨이)에서 에이전트별 샌드박스화 또는 에이전트별 도구 허용/차단 정책이 필요할 때."
 status: active
 ---
 
@@ -389,5 +391,3 @@ agents.list[].sandbox.prune.* > agents.defaults.sandbox.prune.*
 - [Multi-Agent Routing](/concepts/multi-agent)
 - [Sandbox Configuration](/gateway/configuration#agentsdefaults-sandbox)
 - [Session Management](/concepts/session)
-
-

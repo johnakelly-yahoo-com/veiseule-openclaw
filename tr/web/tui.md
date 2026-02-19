@@ -1,4 +1,8 @@
 ---
+summary: "Terminal UI (TUI): herhangi bir makineden Gateway’e bağlanın"
+read_when:
+  - TUI için başlangıç dostu bir rehbere ihtiyacınız var
+  - TUI özellikleri, komutları ve kısayollarının tam listesine ihtiyacınız var
 title: "TUI"
 ---
 
@@ -39,7 +43,7 @@ Gateway’iniz parola doğrulaması kullanıyorsa `--password` kullanın.
 ## Zihinsel model: ajanlar + oturumlar
 
 - Ajanlar benzersiz slug’lardır (ör. `main`, `research`). Gateway listeyi sunar.
-- Oturumlar mevcut aracıya aittir.
+- Sessions belong to the current agent.
 - Oturum anahtarları `agent:<agentId>:<sessionKey>` olarak saklanır.
   - `/session main` yazarsanız, TUI bunu `agent:<currentAgent>:main` olarak genişletir.
   - `/session agent:other:main` yazarsanız, o ajan oturumuna açıkça geçersiniz.
@@ -51,7 +55,7 @@ Gateway’iniz parola doğrulaması kullanıyorsa `--password` kullanın.
 ## Gönderme + teslim
 
 - Mesajlar Gateway’e gönderilir; sağlayıcılara teslim varsayılan olarak kapalıdır.
-- Teslimi etkinleştirin:
+- Turn delivery on:
   - `/deliver on`
   - veya Ayarlar panelinden
   - ya da `openclaw tui --deliver` ile başlatın
@@ -156,5 +160,3 @@ Mesaj gönderdikten sonra çıktı yoksa:
 - `disconnected`: Gateway’in çalıştığından ve `--url/--token/--password`’lerinizin doğru olduğundan emin olun.
 - Seçicide ajan yok: `openclaw agents list` ve yönlendirme yapılandırmanızı kontrol edin.
 - Boş oturum seçici: global kapsamda olabilirsiniz veya henüz oturumunuz yoktur.
-
-

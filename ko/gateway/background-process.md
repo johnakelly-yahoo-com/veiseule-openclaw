@@ -1,4 +1,8 @@
 ---
+summary: "백그라운드 exec 실행 및 프로세스 관리"
+read_when:
+  - 백그라운드 exec 동작을 추가하거나 수정할 때
+  - 장시간 실행되는 exec 작업을 디버깅할 때
 title: "백그라운드 Exec 및 프로세스 도구"
 ---
 
@@ -42,6 +46,7 @@ exec/프로세스 도구 외부에서 장시간 실행되는 자식 프로세스
 - `tools.exec.timeoutSec` (기본값 1800)
 - `tools.exec.cleanupMs` (기본값 1800000)
 - `tools.exec.notifyOnExit` (기본값 true): 백그라운드 exec 가 종료되면 시스템 이벤트를 큐에 추가하고 요청 하트비트를 전송합니다.
+- `tools.exec.notifyOnExitEmptySuccess` (기본값 false): true인 경우, 출력이 없는 성공적인 백그라운드 실행에 대해서도 완료 이벤트를 큐에 추가합니다.
 
 ## process 도구
 
@@ -63,6 +68,8 @@ exec/프로세스 도구 외부에서 장시간 실행되는 자식 프로세스
 - `process` 는 에이전트별 범위로 적용되며, 해당 에이전트가 시작한 세션만 볼 수 있습니다.
 - `process list` 에는 빠른 확인을 위한 파생 `name` (명령 동사 + 대상)가 포함됩니다.
 - `process log` 는 라인 기반 `offset`/`limit` 를 사용합니다(`offset` 을 생략하면 마지막 N 줄을 가져옵니다).
+- `offset`과 `limit`이 모두 생략되면, 마지막 200줄을 반환하고 페이징 힌트를 포함합니다.
+- `offset`이 제공되고 `limit`이 생략되면, `offset`부터 끝까지 반환합니다(200으로 제한되지 않음).
 
 ## 예제
 
@@ -87,5 +94,3 @@ stdin 전송:
 ```json
 { "tool": "process", "action": "write", "sessionId": "<id>", "data": "y\n" }
 ```
-
-

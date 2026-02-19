@@ -1,4 +1,8 @@
 ---
+summary: "Push Gmail Pub/Sub, подключённый к вебхукам OpenClaw через gogcli"
+read_when:
+  - Подключение триггеров входящих писем Gmail к OpenClaw
+  - Настройка Pub/Sub push для пробуждения агента
 title: "Gmail PubSub"
 ---
 
@@ -250,5 +254,3 @@ gog gmail watch stop --account openclaw@gmail.com
 gcloud pubsub subscriptions delete gog-gmail-watch-push
 gcloud pubsub topics delete gog-gmail-watch
 ```
-
-

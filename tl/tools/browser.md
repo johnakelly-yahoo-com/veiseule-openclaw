@@ -1,4 +1,9 @@
 ---
+summary: "Pinagsamang serbisyo ng kontrol sa browser + mga command ng aksyon"
+read_when:
+  - Pagdaragdag ng agent-controlled na browser automation
+  - Pag-debug kung bakit nakikialam ang openclaw sa sarili mong Chrome
+  - Pagpapatupad ng mga setting at lifecycle ng browser sa macOS app
 title: "Browser (pinamamahalaan ng OpenClaw)"
 ---
 
@@ -183,6 +188,7 @@ Mga pangunahing ideya:
 - Loopback-only ang kontrol sa browser; dumadaan ang access sa auth ng Gateway o sa node pairing.
 - Panatilihing nasa pribadong network (Tailscale) ang Gateway at anumang node host; iwasan ang public exposure.
 - Ituring na mga lihim ang mga remote CDP URL/token; mas mainam ang env vars o isang secrets manager.
+- Ituring na mga lihim ang mga remote CDP URL/token; mas mainam ang env vars o isang secrets manager.
 
 Mga tip para sa remote CDP:
 
@@ -304,6 +310,11 @@ Para sa mga lokal na integration lamang, inilalantad ng Gateway ang isang maliit
 
 Tinatanggap ng lahat ng endpoint ang `?profile=<name>`.
 
+Kung naka-configure ang gateway auth, mangangailangan din ng auth ang mga browser HTTP route:
+
+- `Authorization: Bearer <gateway token>`
+- `x-openclaw-password: <gateway password>` o HTTP Basic auth gamit ang password na iyon
+
 ### Kinakailangan ang Playwright
 
 Ang ilang feature (navigate/act/AI snapshot/role snapshot, element screenshots, PDF) ay nangangailangan ng
@@ -315,7 +326,7 @@ Kung makita mo ang `Playwright is not available in this gateway build`, i-instal
 Playwright package (hindi `playwright-core`) at i-restart ang gateway, o muling i-install ang
 OpenClaw na may browser support.
 
-#### Pag-install ng Playwright sa Docker
+#### Docker Playwright install
 
 Kung ang iyong Gateway ay tumatakbo sa Docker, iwasan ang `npx playwright` (mga conflict sa npm override).
 25. Gamitin na lang ang bundled CLI:
@@ -330,7 +341,8 @@ Upang mapanatili ang browser downloads, itakda ang `PLAYWRIGHT_BROWSERS_PATH` (h
 
 ## Paano ito gumagana (internal)
 
-High-level na daloy:
+Pinananatili ng disenyong ito ang agent sa isang stable at deterministikong interface habang hinahayaan kang
+magpalit ng lokal/remote na mga browser at profile.
 
 - Isang maliit na **control server** ang tumatanggap ng mga HTTP request.
 - Kumokonekta ito sa mga Chromium-based na browser (Chrome/Brave/Edge/Chromium) sa pamamagitan ng **CDP**.
@@ -345,7 +357,7 @@ magpalit ng lokal/remote na mga browser at profile.
 27. Lahat ng command ay tumatanggap ng `--browser-profile <name>` upang tukuyin ang isang partikular na profile.
     Lahat ng command ay tumatanggap din ng `--json` para sa machine-readable na output (stable payloads).
 
-Mga basic:
+Pag-inspeksyon:
 
 - `openclaw browser status`
 - `openclaw browser start`
@@ -359,7 +371,7 @@ Mga basic:
 - `openclaw browser focus abcd1234`
 - `openclaw browser close abcd1234`
 
-Pag-inspeksyon:
+Mga aksyon:
 
 - `openclaw browser screenshot`
 - `openclaw browser screenshot --full-page`
@@ -390,9 +402,9 @@ Mga aksyon:
 - `openclaw browser scrollintoview e12`
 - `openclaw browser drag 10 11`
 - `openclaw browser select 9 OptionA OptionB`
-- `openclaw browser download e12 /tmp/report.pdf`
-- `openclaw browser waitfordownload /tmp/report.pdf`
-- `openclaw browser upload /tmp/file.pdf`
+- `openclaw browser download e12 report.pdf`
+- `openclaw browser waitfordownload report.pdf`
+- `openclaw browser upload /tmp/openclaw/uploads/file.pdf`
 - `openclaw browser fill --fields '[{"ref":"1","type":"text","value":"Ada"}]'`
 - `openclaw browser dialog --accept`
 - `openclaw browser wait --text "Done"`
@@ -425,6 +437,11 @@ Mga tala:
 
 - Ang `upload` at `dialog` ay mga **arming** call; patakbuhin ang mga ito bago ang click/press
   na magti-trigger ng chooser/dialog.
+- Ang mga path ng download at trace output ay limitado sa OpenClaw temp roots:
+  - traces: `/tmp/openclaw` (fallback: `${os.tmpdir()}/openclaw`)
+  - downloads: `/tmp/openclaw/downloads` (fallback: `${os.tmpdir()}/openclaw/downloads`)
+- Ang mga upload path ay limitado sa isang OpenClaw temp uploads root:
+  - uploads: `/tmp/openclaw/uploads` (fallback: `${os.tmpdir()}/openclaw/uploads`)
 - Maaari ring itakda ng `upload` ang mga file input direkta sa pamamagitan ng `--input-ref` o `--element`.
 - `snapshot`:
   - `--format ai` (default kapag naka-install ang Playwright): nagbabalik ng AI snapshot na may numeric refs (`aria-ref="<n>"`).
@@ -440,14 +457,14 @@ Mga tala:
 
 ## Mga snapshot at ref
 
-Sinusuportahan ng OpenClaw ang dalawang “snapshot” na estilo:
+Pag-uugali ng ref:
 
 - **AI snapshot (numeric refs)**: `openclaw browser snapshot` (default; `--format ai`)
   - Output: isang text snapshot na may kasamang numeric refs.
   - Mga aksyon: `openclaw browser click 12`, `openclaw browser type 23 "hello"`.
   - Sa loob, nireresolba ang ref sa pamamagitan ng `aria-ref` ng Playwright.
 
-- **Role snapshot (role refs tulad ng `e12`)**: `openclaw browser snapshot --interactive` (o `--compact`, `--depth`, `--selector`, `--frame`)
+- Kung ang role snapshot ay kinuha gamit ang `--frame`, naka-scope ang mga role ref sa iframe na iyon hanggang sa susunod na role snapshot.
   - Output: isang role-based na list/tree na may `[ref=e12]` (at opsyonal na `[nth=1]`).
   - Mga aksyon: `openclaw browser click e12`, `openclaw browser highlight e12`.
   - Sa loob, nireresolba ang ref sa pamamagitan ng `getByRole(...)` (kasama ang `nth()` para sa mga duplicate).
@@ -460,7 +477,7 @@ Pag-uugali ng ref:
 
 ## Mga wait power-up
 
-Maaari kang maghintay ng higit pa sa oras/text lang:
+Maaaring pagsamahin ang mga ito:
 
 - Maghintay sa URL (sinusuportahan ng Playwright ang globs):
   - `openclaw browser wait --url "**/dash"`
@@ -500,7 +517,7 @@ Kapag pumalya ang isang aksyon (hal., “not visible”, “strict mode violatio
 
 Ang `--json` ay para sa scripting at structured tooling.
 
-Mga halimbawa:
+Ang mga role snapshot sa JSON ay may kasamang `refs` pati isang maliit na `stats` block (lines/chars/refs/interactive) para makapag-reason ang mga tool tungkol sa laki at density ng payload.
 
 ```bash
 openclaw browser status --json
@@ -509,7 +526,7 @@ openclaw browser requests --filter api --json
 openclaw browser cookies --json
 ```
 
-Ang mga role snapshot sa JSON ay may kasamang `refs` pati isang maliit na `stats` block (lines/chars/refs/interactive) para makapag-reason ang mga tool tungkol sa laki at density ng payload.
+Kapaki-pakinabang ang mga ito para sa mga workflow na “gawing umasal ang site na parang X”:
 
 ## State at environment knobs
 
@@ -518,8 +535,8 @@ Kapaki-pakinabang ang mga ito para sa mga workflow na “gawing umasal ang site 
 - Cookies: `cookies`, `cookies set`, `cookies clear`
 - Storage: `storage local|session get|set|clear`
 - Offline: `set offline on|off`
-- Headers: `set headers --json '{"X-Debug":"1"}'` (o `--clear`)
-- HTTP basic auth: `set credentials user pass` (o `--clear`)
+- Panatilihing pribado ang Gateway/node host (loopback o tailnet-only).
+- Makapangyarihan ang mga remote CDP endpoint; i-tunnel at protektahan ang mga ito.
 - Geolocation: `set geo <lat> <lon> --origin "https://example.com"` (o `--clear`)
 - Media: `set media dark|light|no-preference|none`
 - Timezone / locale: `set timezone ...`, `set locale ...`
@@ -527,7 +544,7 @@ Kapaki-pakinabang ang mga ito para sa mga workflow na “gawing umasal ang site 
   - `set device "iPhone 14"` (Playwright device presets)
   - `set viewport 1280 720`
 
-## Seguridad at privacy
+## Pag-troubleshoot
 
 - Ang openclaw browser profile ay maaaring maglaman ng mga naka-login na session; ituring itong sensitibo.
 - Ang `browser act kind=evaluate` / `openclaw browser evaluate` at `wait --fn`
@@ -537,18 +554,17 @@ Kapaki-pakinabang ang mga ito para sa mga workflow na “gawing umasal ang site 
 - Panatilihing pribado ang Gateway/node host (loopback o tailnet-only).
 - Makapangyarihan ang mga remote CDP endpoint; i-tunnel at protektahan ang mga ito.
 
-## Pag-troubleshoot
-
-Para sa mga isyung partikular sa Linux (lalo na sa snap Chromium), tingnan ang
-[Browser troubleshooting](/tools/browser-linux-troubleshooting).
-
 ## Mga agent tool + kung paano gumagana ang kontrol
 
 Nakakakuha ang agent ng **isang tool** para sa browser automation:
 
-- `browser` — status/start/stop/tabs/open/focus/close/snapshot/screenshot/navigate/act
+## Mga agent tool + kung paano gumagana ang kontrol
 
 Paano ito nagma-map:
+
+- `browser` — status/start/stop/tabs/open/focus/close/snapshot/screenshot/navigate/act
+
+Pinananatili nitong deterministiko ang agent at iniiwasan ang marurupok na selector.
 
 - Ang `browser snapshot` ay nagbabalik ng stable na UI tree (AI o ARIA).
 - Ang `browser act` ay gumagamit ng mga snapshot `ref` ID para mag-click/mag-type/mag-drag/mag-select.
@@ -561,5 +577,3 @@ Paano ito nagma-map:
   - Kung may nakakonektang browser-capable na node, maaaring auto-route ang tool papunta rito maliban kung i-pin mo ang `target="host"` o `target="node"`.
 
 Pinananatili nitong deterministiko ang agent at iniiwasan ang marurupok na selector.
-
-

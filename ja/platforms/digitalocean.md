@@ -1,4 +1,8 @@
 ---
+summary: "DigitalOcean 上の OpenClaw（シンプルな有料 VPS オプション）"
+read_when:
+  - DigitalOcean で OpenClaw をセットアップする場合
+  - OpenClaw 用の安価な VPS ホスティングを探している場合
 title: "DigitalOcean"
 ---
 
@@ -97,7 +101,7 @@ journalctl --user -u openclaw-gateway.service -f
 
 ## 6. ダッシュボードにアクセスする
 
-ゲートウェイはデフォルトでループバックにバインドされます。 Control UI にアクセスするには:
+ゲートウェイはデフォルトでループバックにバインドされます。 Control UI にアクセスするには: Control UI にアクセスするには:
 
 **オプション A：SSH トンネル（推奨）**
 
@@ -158,7 +162,7 @@ openclaw channels login whatsapp
 
 ## 1GB RAM 向けの最適化
 
-$6 の Droplet は 1GB RAM しかありません。安定して動作させるために： スムーズに動作させるには:
+$6 の Droplet は 1GB RAM しかありません。安定して動作させるために： スムーズに動作させるには: スムーズに動作させるには:
 
 ### swap を追加する（推奨）
 
@@ -193,7 +197,7 @@ htop
 - `~/.openclaw/` — 設定、認証情報、セッションデータ
 - `~/.openclaw/workspace/` — ワークスペース（SOUL.md、メモリなど）
 
-これらの生き残るリブート。 これらは再起動後も保持されます。定期的にバックアップしてください：
+これらの生き残るリブート。 これらは再起動後も保持されます。定期的にバックアップしてください： これらは再起動後も保持されます。定期的にバックアップしてください：
 
 ```bash
 tar -czvf openclaw-backup.tar.gz ~/.openclaw ~/.openclaw/workspace
@@ -256,5 +260,3 @@ free -h
 - [Docker インストール](/install/docker) — コンテナ化されたセットアップ
 - [Tailscale](/gateway/tailscale) — 安全なリモートアクセス
 - [設定](/gateway/configuration) — 完全な設定リファレンス
-
-

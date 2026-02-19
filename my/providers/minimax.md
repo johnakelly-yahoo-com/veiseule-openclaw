@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw တွင် MiniMax M2.1 ကို အသုံးပြုရန်"
+read_when:
+  - OpenClaw တွင် MiniMax မော်ဒယ်များကို အသုံးပြုလိုပါက
+  - MiniMax တပ်ဆင်မှု လမ်းညွှန်ချက်များ လိုအပ်ပါက
 title: "MiniMax"
 ---
 
@@ -195,5 +199,3 @@ model id သည် **case‑sensitive** ဖြစ်ကြောင်း သေ
 ```bash
 openclaw models list
 ```
-
-

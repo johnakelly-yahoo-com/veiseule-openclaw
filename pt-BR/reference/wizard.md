@@ -1,4 +1,9 @@
 ---
+summary: "Referência completa do assistente de onboarding da CLI: cada etapa, flag e campo de configuração"
+read_when:
+  - Consultar uma etapa ou flag específica do assistente
+  - Automatizar o onboarding com o modo não interativo
+  - Depurar o comportamento do assistente
 title: "Referência do Assistente de Onboarding"
 sidebarTitle: "Referência do Assistente"
 ---
@@ -20,8 +25,7 @@ Para uma visão geral de alto nível, veja [Onboarding Wizard](/start/wizard).
     - A redefinição usa `trash` (nunca `rm`) e oferece escopos:
       - Apenas configuração
       - Configuração + credenciais + sessões
-      - Redefinição completa (também remove o workspace)
-  
+      - Redefinição completa (também remove o workspace)  
 </Step>
   <Step title="Model/Auth">
     - **Chave de API da Anthropic (recomendado)**: usa `ANTHROPIC_API_KEY` se existir ou solicita uma chave e, em seguida, salva para uso do daemon.
@@ -48,9 +52,12 @@ Para uma visão geral de alto nível, veja [Onboarding Wizard](/start/wizard).
     - **Pular**: nenhuma autenticação configurada ainda.
     - Escolha um modelo padrão entre as opções detectadas (ou informe provedor/modelo manualmente).
     - O assistente executa uma verificação do modelo e avisa se o modelo configurado é desconhecido ou não tem autenticação.
-    - As credenciais OAuth ficam em `~/.openclaw/credentials/oauth.json`; os perfis de autenticação ficam em `~/.openclaw/agents/<agentId>/agent/auth-profiles.json` (chaves de API + OAuth).
-    - Mais detalhes: [/concepts/oauth](/concepts/oauth)
-    <Note>
+    - As credenciais OAuth ficam em `~/.openclaw/credentials/oauth.json`; os perfis de autenticação ficam em `~/.openclaw/agents/
+    - O assistente executa uma verificação do modelo e avisa se o modelo configurado é desconhecido ou não tem autenticação.
+    - As credenciais OAuth ficam em `~/.openclaw/credentials/oauth.json`; os perfis de autenticação ficam em `~/.openclaw/agents/
+    - Credenciais do OAuth vivem em '~/.openclaw/credenciais/oauth.json'; perfis de autenticação vivem em '~/.openclaw/agents/<agentId>/agent/auth-profiles.json` (chaves de API + OAuth).
+    - Mais detalhes: [/concepts/oauth](/concepts/oauth)    
+<Note>
     Dica para headless/servidor: conclua o OAuth em uma máquina com navegador e depois copie
     `~/.openclaw/credentials/oauth.json` (ou `$OPENCLAW_STATE_DIR/credentials/oauth.json`) para o
     host do Gateway.
@@ -61,8 +68,7 @@ Para uma visão geral de alto nível, veja [Onboarding Wizard](/start/wizard).
   <Step title="Workspace">
     - Padrão `~/.openclaw/workspace` (configurável).
     - Inicializa os arquivos de workspace necessários para o ritual de bootstrap do agente.
-    - Layout completo do workspace + guia de backup: [Agent workspace](/concepts/agent-workspace)
-  
+    - Layout completo do workspace + guia de backup: [Agent workspace](/concepts/agent-workspace)  
 </Step>
   <Step title="Gateway">
     - Porta, bind, modo de autenticação, exposição via Tailscale.
@@ -80,10 +86,12 @@ Para uma visão geral de alto nível, veja [Onboarding Wizard](/start/wizard).
     - [Signal](/channels/signal): instalação opcional de `signal-cli` + configuração da conta.
     - [BlueBubbles](/channels/bluebubbles): **recomendado para iMessage**; URL do servidor + senha + webhook.
     - [iMessage](/channels/imessage): caminho legado da CLI `imsg` + acesso ao DB.
-    - Segurança de DM: o padrão é pareamento. A primeira DM envia um código; aprove via `openclaw pairing approve <channel> <code>` ou use listas de permissões.
+    - Segurança de DM: o padrão é pareamento. A primeira DM envia um código; aprove via `openclaw pairing approve <channel><code>` ou use listas de permissões.
+  
+</Step><code>` ou use listas de permissões.
   
 </Step>
-  <Step title="Daemon install">
+  <Step title="Instalação do daemon">
     - macOS: LaunchAgent
       - Requer uma sessão de usuário logada; para headless, use um LaunchDaemon personalizado (não fornecido).
     - Linux (e Windows via WSL2): unidade de usuário do systemd
@@ -92,18 +100,18 @@ Para uma visão geral de alto nível, veja [Onboarding Wizard](/start/wizard).
     - **Seleção de runtime:** Node (recomendado; necessário para WhatsApp/Telegram). Bun **não é recomendado**.
   
 </Step>
-  <Step title="Health check">
+  <Step title="Verificação de saúde">
     - Inicia o Gateway (se necessário) e executa `openclaw health`.
     - Dica: `openclaw status --deep` adiciona sondas de saúde do gateway à saída de status (requer um gateway acessível).
   
 </Step>
-  <Step title="Skills (recommended)">
+  <Step title="Skills (recomendado)">
     - Lê as skills disponíveis e verifica requisitos.
     - Permite escolher um gerenciador de pacotes Node: **npm / pnpm** (bun não recomendado).
     - Instala dependências opcionais (algumas usam Homebrew no macOS).
   
 </Step>
-  <Step title="Finish">
+  <Step title="Finalizar">
     - Resumo + próximos passos, incluindo apps para iOS/Android/macOS para recursos extras.
   
 </Step>
@@ -254,7 +262,7 @@ Campos típicos em `~/.openclaw/openclaw.json`:
 
 - `agents.defaults.workspace`
 - `agents.defaults.model` / `models.providers` (se Minimax for escolhido)
-- `gateway.*` (modo, bind, auth, tailscale)
+- `gateway.*` (modo, bind, auth, Tailscale)
 - `channels.telegram.botToken`, `channels.discord.token`, `channels.signal.*`, `channels.imessage.*`
 - Listas de permissões de canais (Slack/Discord/Matrix/Microsoft Teams) quando você opta durante os prompts (nomes resolvem para IDs quando possível).
 - `skills.install.nodeManager`
@@ -279,4 +287,3 @@ vai solicitar a instalação (npm ou um caminho local) antes que ele possa ser c
 - Referência de configuração: [Gateway configuration](/gateway/configuration)
 - Provedores: [WhatsApp](/channels/whatsapp), [Telegram](/channels/telegram), [Discord](/channels/discord), [Google Chat](/channels/googlechat), [Signal](/channels/signal), [BlueBubbles](/channels/bluebubbles) (iMessage), [iMessage](/channels/imessage) (legado)
 - Skills: [Skills](/tools/skills), [Configuração de Skills](/tools/skills-config)
-

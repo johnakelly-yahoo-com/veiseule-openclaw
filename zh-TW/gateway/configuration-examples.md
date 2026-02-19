@@ -1,10 +1,15 @@
 ---
+summary: "符合結構描述的常見 OpenClaw 設定範例"
+read_when:
+  - 學習如何設定 OpenClaw
+  - 尋找設定範例
+  - 第一次設定 OpenClaw
 title: "設定範例"
 ---
 
 # 設定範例
 
-以下範例與目前的設定結構相符。完整參考與各欄位說明，請參閱 [Configuration](/gateway/configuration)。
+Examples below are aligned with the current config schema. For the exhaustive reference and per-field notes, see [Configuration](/gateway/configuration).
 
 ## 快速開始
 
@@ -19,7 +24,7 @@ title: "設定範例"
 
 儲存為 `~/.openclaw/openclaw.json`，即可從該號碼私訊機器人。
 
-### 建議入門設定
+### Recommended starter
 
 ```json5
 {
@@ -43,7 +48,7 @@ title: "設定範例"
 
 ## 擴展示例（主要選項）
 
-> JSON5 允許使用註解與尾隨逗號；一般 JSON 也可使用。 Regular JSON works too.
+> JSON5 允許使用註解與尾隨逗號；一般 JSON 也可使用。 JSON5 允許使用註解與尾隨逗號；一般 JSON 也可使用。 Regular JSON works too.
 
 ```json5
 {
@@ -536,7 +541,7 @@ title: "設定範例"
 }
 ```
 
-### 工作機器人（受限存取）
+### Work bot (restricted access)
 
 ```json5
 {
@@ -599,5 +604,3 @@ title: "設定範例"
 - 提供者 ID 的格式各異（電話號碼、使用者 ID、頻道 ID）。請參閱各提供者文件以確認格式。 Use the provider docs to confirm the format.
 - 可於之後新增的選用區段：`web`、`browser`、`ui`、`discovery`、`canvasHost`、`talk`、`signal`、`imessage`。
 - 更深入的設定說明，請參閱 [Providers](/channels/whatsapp) 與 [Troubleshooting](/gateway/troubleshooting)。
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Kontekst oynasi + kompaksiyalash: OpenClaw sessiyalarni model limitlari ostida qanday saqlaydi"
+read_when:
+  - Siz avtomatik kompaksiyalash va /compact ni tushunmoqchisiz
+  - Kontekst limitlariga urilib qolayotgan uzoq sessiyalarni nosozlikdan o‘tkazyapsiz
 title: "Kompaksiyalash"
 ---
 
@@ -54,5 +58,3 @@ Pruning tafsilotlari uchun [/concepts/session-pruning](/concepts/session-pruning
 - Sessiyalar eskirib qolgan yoki kontekst shishib ketgandek tuyulganda `/compact` dan foydalaning.
 - Katta asbob chiqishlari allaqachon qisqartiriladi; pruning asbob natijalari to‘planishini yanada kamaytirishi mumkin.
 - Agar sizga butunlay yangi boshlash kerak bo‘lsa, `/new` yoki `/reset` yangi sessiya identifikatorini boshlaydi.
-
-

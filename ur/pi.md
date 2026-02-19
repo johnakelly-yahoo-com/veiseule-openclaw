@@ -8,7 +8,7 @@ title: "Pi انضمامی معماری"
 
 ## جائزہ
 
-OpenClaw اپنی پیغام رسانی Gateway آرکیٹیکچر میں ایک AI کوڈنگ ایجنٹ کو ضم کرنے کے لیے pi SDK استعمال کرتا ہے۔ pi کو بطور subprocess چلانے یا RPC موڈ استعمال کرنے کے بجائے، OpenClaw براہِ راست pi کے `AgentSession` کو امپورٹ اور instantiate کرتا ہے بذریعہ `createAgentSession()`۔ یہ ایمبیڈڈ طریقہ فراہم کرتا ہے:
+OpenClaw uses the pi SDK to embed an AI coding agent into its messaging gateway architecture. Instead of spawning pi as a subprocess or using RPC mode, OpenClaw directly imports and instantiates pi's `AgentSession` via `createAgentSession()`. This embedded approach provides:
 
 - سیشن لائف سائیکل اور ایونٹ ہینڈلنگ پر مکمل کنٹرول
 - حسبِ ضرورت ٹول انجیکشن (میسجنگ، sandbox، چینل کے مطابق اعمال)
@@ -28,7 +28,7 @@ OpenClaw اپنی پیغام رسانی Gateway آرکیٹیکچر میں ایک
 }
 ```
 
-| پیکیج           | مقصد                                                                                                              |
+| پیکیج             | مقصد                                                                                                                 |
 | ----------------- | -------------------------------------------------------------------------------------------------------------------- |
 | `pi-ai`           | بنیادی LLM تجریدات: `Model`, `streamSimple`, پیغام کی اقسام، فراہم کنندہ APIs                        |
 | `pi-agent-core`   | ایجنٹ لوپ، ٹول ایکزیکیوشن، `AgentMessage` اقسام                                                                      |
@@ -130,7 +130,7 @@ src/agents/
 
 ## بنیادی انضمامی بہاؤ
 
-### 1. ایمبیڈڈ ایجنٹ چلانا
+### 1. Running an Embedded Agent
 
 اہم انٹری پوائنٹ `runEmbeddedPiAgent()` ہے جو `pi-embedded-runner/run.ts` میں واقع ہے:
 
@@ -154,7 +154,7 @@ const result = await runEmbeddedPiAgent({
 });
 ```
 
-### 2. سیشن کی تخلیق
+### 2. Session Creation
 
 `runEmbeddedAttempt()` کے اندر (جسے `runEmbeddedPiAgent()` کال کرتا ہے)، pi SDK استعمال کیا جاتا ہے:
 
@@ -191,7 +191,7 @@ const { session } = await createAgentSession({
 applySystemPromptOverrideToSession(session, systemPromptOverride);
 ```
 
-### 3. ایونٹ سبسکرپشن
+### 3. Event Subscription
 
 `subscribeEmbeddedPiSession()`، pi کے `AgentSession` ایونٹس کو سبسکرائب کرتا ہے:
 
@@ -516,7 +516,7 @@ import { ... } from "@mariozechner/pi-tui";
 | Invocation      | `pi` کمانڈ / RPC                    | SDK بذریعہ `createAgentSession()`                                                                                 |
 | Tools           | ڈیفالٹ کوڈنگ ٹولز                   | حسبِ ضرورت OpenClaw ٹول سوٹ                                                                                       |
 | System prompt   | AGENTS.md + پرامپٹس | فی چینل/سیاق متحرک                                                                                                |
-| Session storage | `~/.pi/agent/sessions/`             | `~/.openclaw/agents/<agentId>/sessions/` (یا `$OPENCLAW_STATE_DIR/agents/<agentId>/sessions/`) |
+| Session storage | `~/.pi/agent/sessions/`             | `~/.openclaw/agents/&lt;agentId&gt;/sessions/` (یا `$OPENCLAW_STATE_DIR/agents/&lt;agentId&gt;/sessions/`) |
 | Auth            | واحد اسناد                          | روٹیشن کے ساتھ ملٹی پروفائل                                                                                       |
 | Extensions      | ڈسک سے لوڈ کیے جاتے ہیں             | پروگراماتی + ڈسک راستے                                                                                            |
 | Event handling  | TUI رینڈرنگ                         | کال بیک پر مبنی (onBlockReply وغیرہ)                                                           |
@@ -610,5 +610,3 @@ import { ... } from "@mariozechner/pi-tui";
 - `src/agents/pi-tools.policy.test.ts`
 - `src/agents/pi-tools.safe-bins.test.ts`
 - `src/agents/pi-tools.workspace-paths.test.ts`
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw içinde API anahtarları veya setup-token kullanarak Anthropic Claude’u kullanın"
+read_when:
+  - OpenClaw içinde Anthropic modellerini kullanmak istiyorsanız
+  - API anahtarları yerine setup-token kullanmak istiyorsanız
 title: "Anthropic"
 ---
 
@@ -146,5 +150,3 @@ openclaw onboard --auth-choice setup-token
 - Başka bir Anthropic profili ekleyin veya cooldown süresinin dolmasını bekleyin.
 
 Daha fazlası: [/gateway/troubleshooting](/gateway/troubleshooting) ve [/help/faq](/help/faq).
-
-

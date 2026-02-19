@@ -1,4 +1,7 @@
 ---
+summary: "Hướng dẫn thiết lập cho lập trình viên làm việc trên ứng dụng OpenClaw macOS"
+read_when:
+  - Thiết lập môi trường phát triển macOS
 title: "Thiết lập Dev macOS"
 ---
 
@@ -21,7 +24,7 @@ Cài đặt các dependency dùng chung cho toàn bộ dự án:
 pnpm install
 ```
 
-## 2. Xây dựng và Đóng gói Ứng dụng
+## 2. Build and Package the App
 
 Để build ứng dụng macOS và đóng gói thành `dist/OpenClaw.app`, chạy:
 
@@ -99,5 +102,3 @@ lsof -nP -iTCP:18789 -sTCP:LISTEN
 ```
 
 If a manual run is holding the port, stop that process (Ctrl+C). Như một biện pháp cuối cùng, hãy kill PID bạn đã tìm ở trên.
-
-

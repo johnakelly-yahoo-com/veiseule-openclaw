@@ -1,4 +1,8 @@
 ---
+summary: "ہارٹ بیٹ پولنگ پیغامات اور نوٹیفکیشن قواعد"
+read_when:
+  - ہارٹ بیٹ کی رفتار یا پیغام رسانی میں ایڈجسٹمنٹ کرتے وقت
+  - شیڈیول شدہ کاموں کے لیے ہارٹ بیٹ اور کرون کے درمیان فیصلہ کرتے وقت
 title: "Heartbeat"
 ---
 
@@ -346,5 +350,3 @@ off in group chats.
 ہارٹ بیٹس مکمل ایجنٹ ٹرنز چلاتے ہیں۔ Shorter intervals burn more tokens. Keep
 `HEARTBEAT.md` small and consider a cheaper `model` or `target: "none"` if you
 only want internal state updates.
-
-

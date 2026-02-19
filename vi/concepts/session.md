@@ -1,4 +1,7 @@
 ---
+summary: "Quy tắc quản lý phiên, khóa và tính bền vững cho các cuộc trò chuyện"
+read_when:
+  - Sửa đổi cách xử lý hoặc lưu trữ phiên
 title: "Quản lý phiên"
 ---
 
@@ -12,11 +15,11 @@ Dùng `session.dmScope` để kiểm soát cách **tin nhắn trực tiếp (DM)
 - `per-peer`: tách theo id người gửi trên các kênh.
 - `per-channel-peer`: tách theo kênh + người gửi (khuyến nghị cho hộp thư nhiều người dùng).
 - 50. `per-account-channel-peer`: cô lập theo tài khoản + kênh + người gửi (khuyến nghị cho hộp thư đến đa tài khoản).
-Sử dụng `session.identityLinks` để ánh xạ các peer id có tiền tố nhà cung cấp sang một định danh chuẩn, ताकि cùng một người dùng chia sẻ một phiên DM trên nhiều kênh khi sử dụng `per-peer`, `per-channel-peer` hoặc `per-account-channel-peer`.
+      Use `session.identityLinks` to map provider-prefixed peer ids to a canonical identity so the same person shares a DM session across channels when using `per-peer`, `per-channel-peer`, or `per-account-channel-peer`.
 
 ## Chế độ DM an toàn (khuyến nghị cho thiết lập nhiều người dùng)
 
-> **Cảnh báo Bảo mật:** Nếu agent của bạn có thể nhận DM từ **nhiều người**, bạn nên nghiêm túc cân nhắc bật chế độ DM bảo mật. Nếu không bật, tất cả người dùng sẽ dùng chung một ngữ cảnh hội thoại, điều này có thể làm rò rỉ thông tin riêng tư giữa các người dùng.
+> **Security Warning:** If your agent can receive DMs from **multiple people**, you should strongly consider enabling secure DM mode. Without it, all users share the same conversation context, which can leak private information between users.
 
 **Ví dụ về vấn đề với thiết lập mặc định:**
 
@@ -52,10 +55,10 @@ Ghi chú:
 
 ## Gateway là nguồn sự thật
 
-Toàn bộ trạng thái phiên được **quản lý bởi gateway** (OpenClaw “master”). Các ứng dụng UI (ứng dụng macOS, WebChat, v.v.) phải truy vấn gateway để lấy danh sách phiên và số lượng token thay vì đọc các tệp cục bộ.
+All session state is **owned by the gateway** (the “master” OpenClaw). UI clients (macOS app, WebChat, etc.) must query the gateway for session lists and token counts instead of reading local files.
 
 - Ở **chế độ từ xa**, kho phiên mà bạn quan tâm nằm trên máy chủ gateway từ xa, không phải trên máy Mac của bạn.
-- Số lượng token hiển thị trong UI được lấy từ các trường lưu trữ của gateway (`inputTokens`, `outputTokens`, `totalTokens`, `contextTokens`). Client không phân tích các bản ghi JSONL để “điều chỉnh” lại tổng số.
+- Token counts shown in UIs come from the gateway’s store fields (`inputTokens`, `outputTokens`, `totalTokens`, `contextTokens`). Clients do not parse JSONL transcripts to “fix up” totals.
 
 ## Trạng thái được lưu ở đâu
 
@@ -74,7 +77,7 @@ This does **not** rewrite JSONL history. Xem [/concepts/session-pruning](/concep
 
 ## Xả bộ nhớ trước khi nén
 
-Khi một phiên sắp đạt đến ngưỡng tự động nén, OpenClaw có thể thực hiện **xả bộ nhớ im lặng**
+When a session nears auto-compaction, OpenClaw can run a **silent memory flush**
 turn that reminds the model to write durable notes to disk. This only runs when
 the workspace is writable. See [Memory](/concepts/memory) and
 [Compaction](/concepts/compaction).
@@ -100,7 +103,7 @@ the workspace is writable. See [Memory](/concepts/memory) and
 ## Vòng đời
 
 - Chính sách đặt lại: phiên được tái sử dụng cho đến khi hết hạn, và việc hết hạn được đánh giá ở tin nhắn vào tiếp theo.
-- Đặt lại hằng ngày: mặc định là **4:00 sáng theo giờ địa phương trên máy chủ gateway**. Một phiên được xem là cũ khi lần cập nhật cuối cùng của nó sớm hơn thời điểm đặt lại hằng ngày gần nhất.
+- Daily reset: defaults to **4:00 AM local time on the gateway host**. A session is stale once its last update is earlier than the most recent daily reset time.
 - Đặt lại khi nhàn rỗi (tùy chọn): `idleMinutes` thêm một cửa sổ nhàn rỗi trượt. Khi cả đặt lại theo ngày và theo nhàn rỗi đều được cấu hình, **cái nào hết hạn trước** sẽ buộc tạo phiên mới.
 - Chỉ nhàn rỗi (cũ): nếu bạn đặt `session.idleMinutes` mà không có bất kỳ cấu hình `session.reset`/`resetByType` nào, OpenClaw sẽ ở chế độ chỉ nhàn rỗi để tương thích ngược.
 - Ghi đè theo từng loại (tùy chọn): `resetByType` cho phép bạn ghi đè chính sách cho các phiên `direct`, `group` và `thread` (thread = chuỗi thảo luận Slack/Discord, chủ đề Telegram, chuỗi Matrix khi được cung cấp bởi connector).
@@ -199,5 +202,3 @@ Mỗi mục phiên ghi lại nơi nó đến từ đâu (theo mức tốt nhất
   `GroupSubject`, `GroupChannel`, `GroupSpace` và `SenderName` trong ngữ cảnh
   inbound và gọi `recordSessionMetaFromInbound` (hoặc truyền cùng ngữ cảnh đó
   cho `updateLastRoute`).
-
-

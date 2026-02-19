@@ -1,4 +1,8 @@
 ---
+summary: "Sanggunian ng CLI para sa `openclaw node` (headless na host ng node)"
+read_when:
+  - Pinapatakbo ang headless na host ng node
+  - Pag-pair ng non-macOS na node para sa system.run
 title: "node"
 ---
 
@@ -105,5 +109,3 @@ Ang `system.run` ay naka-gate ng mga lokal na exec approvals:
 - `~/.openclaw/exec-approvals.json`
 - [Exec approvals](/tools/exec-approvals)
 - `openclaw approvals --node <id|name|ip>` (i-edit mula sa Gateway)
-
-

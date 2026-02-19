@@ -1,4 +1,8 @@
 ---
+summary: "Deepgram-transskription for indgående talebeskeder"
+read_when:
+  - Du vil bruge Deepgram tale-til-tekst til lydvedhæftninger
+  - Du har brug for et hurtigt Deepgram-konfigurationseksempel
 title: "Deepgram"
 ---
 
@@ -87,5 +91,3 @@ Eksempel med Deepgram-indstillinger:
 - Autentificering følger den standardiserede rækkefølge for udbydere; `DEEPGRAM_API_KEY` er den nemmeste løsning.
 - Tilsidesæt endpoints eller headers med `tools.media.audio.baseUrl` og `tools.media.audio.headers`, når du bruger en proxy.
 - Output følger de samme lydregler som andre udbydere (størrelsesgrænser, timeouts, indsættelse af transskription).
-
-

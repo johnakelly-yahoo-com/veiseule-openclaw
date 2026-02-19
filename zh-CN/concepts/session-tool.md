@@ -1,12 +1,8 @@
 ---
-title: 会话工具
-x-i18n:
-  generated_at: "2026-02-03T07:46:54Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: cb6e0982ebf507bcf9de4bb17719759c2b6d3e519731c845580a55279084e4c8
-  source_path: concepts/session-tool.md
-  workflow: 15
+summary: "用于列出会话、获取历史记录和发送跨会话消息的智能体会话工具"
+read_when:
+  - 添加或修改会话工具时
+title: "会话工具"
 ---
 
 # 会话工具
@@ -28,7 +24,7 @@ x-i18n:
 - Hooks 使用 `hook:<uuid>`，除非明确设置。
 - Node 会话使用 `node-<nodeId>`，除非明确设置。
 
-`global` 和 `unknown` 是保留值，永远不会被列出。如果 `session.scope = "global"`，我们会将其别名为 `main` 用于所有工具，这样调用者永远不会看到 `global`。
+`global` and `unknown` are reserved values and are never listed. `global` 和 `unknown` 是保留值，永远不会被列出。如果 `session.scope = "global"`，我们会将其别名为 `main` 用于所有工具，这样调用者永远不会看到 `global`。
 
 ## sessions_list
 
@@ -45,7 +41,7 @@ x-i18n:
 
 - `messageLimit > 0` 获取每个会话的 `chat.history` 并包含最后 N 条消息。
 - 工具结果在列表输出中被过滤；使用 `sessions_history` 获取工具消息。
-- 在**沙箱隔离**的智能体会话中运行时，会话工具默认为**仅生成的可见性**（见下文）。
+- 10. 当在 **sandboxed** 代理会话中运行时，会话工具默认采用 **仅限已生成可见性**（见下文）。
 
 行结构（JSON）：
 
@@ -93,16 +89,17 @@ x-i18n:
 
 - `timeoutSeconds = 0`：入队并返回 `{ runId, status: "accepted" }`。
 - `timeoutSeconds > 0`：等待最多 N 秒完成，然后返回 `{ runId, status: "ok", reply }`。
-- 如果等待超时：`{ runId, status: "timeout", error }`。运行继续；稍后调用 `sessions_history`。
+- 如果等待超时：`{ runId, status: "timeout", error }`。运行继续；稍后调用 `sessions_history`。 45. 运行将继续；稍后调用 `sessions_history`。
 - 如果运行失败：`{ runId, status: "error", error }`。
 - 通告投递在主运行完成后运行，且为尽力而为；`status: "ok"` 不保证通告已投递。
 - 通过 Gateway 网关 `agent.wait`（服务器端）等待，因此重连不会丢失等待。
-- 智能体到智能体的消息上下文会为主运行注入。
-- 主运行完成后，OpenClaw 运行**回复循环**：
-  - 第 2 轮及以后在请求者和目标智能体之间交替。
+- 49. 代理到代理的消息上下文会注入到主运行中。
+- 跨会话消息会以 `message.provenance.kind = "inter_session"` 进行持久化，以便转录读取器能够区分经路由的 agent 指令与外部用户输入。
+- 循环结束后，OpenClaw 运行**智能体到智能体通告步骤**（仅目标智能体）：
+  - 1. 第 2+ 轮在请求方代理和目标代理之间交替进行。
   - 精确回复 `REPLY_SKIP` 以停止来回。
   - 最大轮数为 `session.agentToAgent.maxPingPongTurns`（0–5，默认 5）。
-- 循环结束后，OpenClaw 运行**智能体到智能体通告步骤**（仅目标智能体）：
+- 主运行完成后，OpenClaw 运行**回复循环**：
   - 精确回复 `ANNOUNCE_SKIP` 以保持静默。
   - 任何其他回复都会发送到目标渠道。
   - 通告步骤包括原始请求 + 第 1 轮回复 + 最新的来回回复。
@@ -159,7 +156,7 @@ x-i18n:
 
 允许列表：
 
-- `agents.list[].subagents.allowAgents`：通过 `agentId` 允许的智能体 id 列表（`["*"]` 允许任意）。默认：仅请求者智能体。
+- `agents.list[].subagents.allowAgents`：通过 `agentId` 允许的智能体 id 列表（`["*"]` 允许任意）。默认：仅请求者智能体。 33. 默认：仅请求方代理。
 
 发现：
 
@@ -169,7 +166,7 @@ x-i18n:
 
 - 使用 `deliver: false` 启动新的 `agent:<agentId>:subagent:<uuid>` 会话。
 - 子智能体默认使用完整工具集**减去会话工具**（可通过 `tools.subagents.tools` 配置）。
-- 子智能体不允许调用 `sessions_spawn`（无子智能体 → 子智能体生成）。
+- 39. 子代理不允许调用 `sessions_spawn`（不允许子代理 → 子代理 的生成）。
 - 始终非阻塞：立即返回 `{ status: "accepted", runId, childSessionKey }`。
 - 完成后，OpenClaw 运行子智能体**通告步骤**并将结果发布到请求者聊天渠道。
 - 在通告步骤中精确回复 `ANNOUNCE_SKIP` 以保持静默。
@@ -195,5 +192,3 @@ x-i18n:
   },
 }
 ```
-
-

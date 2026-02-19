@@ -1,4 +1,7 @@
 ---
+summary: "Status for Nextcloud Talk-support, funktioner og konfiguration"
+read_when:
+  - Arbejder med Nextcloud Talk-kanalfunktioner
 title: "Nextcloud Talk"
 ---
 
@@ -136,5 +139,3 @@ Udbyderindstillinger:
 - `channels.nextcloud-talk.blockStreaming`: deaktivér blokstreaming for denne kanal.
 - `channels.nextcloud-talk.blockStreamingCoalesce`: justering af sammensmeltning for blokstreaming.
 - `channels.nextcloud-talk.mediaMaxMb`: grænse for indgående medier (MB).
-
-

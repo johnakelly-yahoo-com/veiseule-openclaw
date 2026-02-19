@@ -1,4 +1,9 @@
 ---
+summary: "iOS-Node-App: Verbindung zum Gateway, Pairing, Canvas und Fehlerbehebung"
+read_when:
+  - Pairing oder erneutes Verbinden des iOS-Nodes
+  - Ausführen der iOS-App aus dem Quellcode
+  - Debugging der Gateway-Discovery oder von Canvas-Befehlen
 title: "iOS-App"
 ---
 
@@ -70,6 +75,7 @@ openclaw nodes invoke --node "iOS Node" --command canvas.navigate --params '{"ur
 Hinweise:
 
 - Der Gateway-Canvas-Host stellt `/__openclaw__/canvas/` und `/__openclaw__/a2ui/` bereit.
+- Es wird vom Gateway-HTTP-Server bereitgestellt (derselbe Port wie `gateway.port`, Standard `18789`).
 - Der iOS-Node navigiert bei Verbindung automatisch zu A2UI, wenn eine Canvas-Host-URL angekündigt wird.
 - Kehren Sie mit `canvas.navigate` und `{"url":""}` zur integrierten Scaffold-Ansicht zurück.
 
@@ -100,5 +106,3 @@ openclaw nodes invoke --node "iOS Node" --command canvas.snapshot --params '{"ma
 - [Pairing](/gateway/pairing)
 - [Discovery](/gateway/discovery)
 - [Bonjour](/gateway/bonjour)
-
-

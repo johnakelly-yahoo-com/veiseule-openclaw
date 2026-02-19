@@ -1,4 +1,9 @@
 ---
+summary: "Phê duyệt exec, danh sách cho phép và lời nhắc thoát sandbox"
+read_when:
+  - Cấu hình phê duyệt exec hoặc danh sách cho phép
+  - Triển khai UX phê duyệt exec trong ứng dụng macOS
+  - Xem xét các lời nhắc thoát sandbox và hệ quả
 title: "Phê duyệt Exec"
 ---
 
@@ -115,6 +120,9 @@ Mỗi mục trong danh sách cho phép theo dõi:
 
 36. `tools.exec.safeBins` định nghĩa một danh sách nhỏ các binary **chỉ dùng stdin** (ví dụ `jq`) có thể chạy ở chế độ allowlist **mà không cần** các mục allowlist rõ ràng. Các bin an toàn từ chối
     các đối số tệp theo vị trí và các token dạng đường dẫn, vì vậy chúng chỉ có thể thao tác trên luồng đầu vào.
+    Safe bins cũng buộc các token argv được xử lý như **văn bản thuần túy** tại thời điểm thực thi (không globbing
+    và không mở rộng `$VARS`) đối với các segment chỉ dùng stdin, vì vậy các mẫu như `*` hoặc `$HOME/...` không thể
+    được sử dụng để lén đọc tệp.
     Ghép chuỗi shell và chuyển hướng không được tự động cho phép trong chế độ allowlist.
 
 39. Ghép lệnh shell (`&&`, `||`, `;`) được cho phép khi mọi phân đoạn cấp cao nhất đều thỏa mãn allowlist (bao gồm safe bins hoặc auto-allow từ skill). 40. Chuyển hướng vẫn không được hỗ trợ trong chế độ allowlist.
@@ -226,8 +234,6 @@ Các exec được kiểm soát bằng phê duyệt tái sử dụng id phê duy
 
 Liên quan:
 
-- [Công cụ Exec](/tools/exec)
-- [Chế độ nâng cao](/tools/elevated)
-- [Kỹ năng](/tools/skills)
-
-
+- [Exec tool](/tools/exec)
+- [Elevated mode](/tools/elevated)
+- [Skills](/tools/skills)

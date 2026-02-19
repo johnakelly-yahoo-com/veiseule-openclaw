@@ -1,18 +1,15 @@
 ---
-x-i18n:
-  generated_at: "2026-02-01T21:38:05Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 3ed08cd537620749c40ab363f5db40a058d8ddab4d0192a1f071edbfcf37a739
-  source_path: reference/templates/TOOLS.md
-  workflow: 15
+title: "TOOLS.md 模板"
+summary: "TOOLS.md 的工作区模板"
+read_when:
+  - 手动引导工作区
 ---
 
 # TOOLS.md - 本地备注
 
-Skills 定义了工具的*工作方式*。此文件用于记录*你的*具体信息——那些你的环境中独有的内容。
+技能定义了工具“如何”工作。 此文件用于记录“你的”具体情况——那些只属于你设置的内容。
 
-## 应该放什么
+## 这里放什么
 
 例如：
 
@@ -43,10 +40,8 @@ Skills 定义了工具的*工作方式*。此文件用于记录*你的*具体信
 
 ## 为什么要分开？
 
-Skills 是共享的。你的配置是你自己的。将它们分开意味着你可以更新 Skills 而不丢失你的备注，也可以分享 Skills 而不泄露你的基础设施信息。
+技能是共享的。 你的设置只属于你。 Skills 是共享的。你的配置是你自己的。将它们分开意味着你可以更新 Skills 而不丢失你的备注，也可以分享 Skills 而不泄露你的基础设施信息。
 
 ---
 
-添加任何对你有帮助的内容。这是你的速查表。
-
-
+添加任何能帮助你完成工作的内容。 这是你的速查表。

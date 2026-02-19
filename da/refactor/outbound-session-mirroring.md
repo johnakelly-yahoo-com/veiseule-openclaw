@@ -1,6 +1,6 @@
 ---
 title: "Refaktorering af udgående sessionsspejling (Issue #1520)" #1520)
-description: "Spor refaktoreringsnoter, beslutninger, tests og åbne punkter for spejling af udgående sessioner."
+description: Spor refaktoreringsnoter, beslutninger, tests og åbne punkter for spejling af udgående sessioner.
 ---
 
 # Refaktorering af udgående sessionsspejling (Issue #1520)
@@ -83,5 +83,3 @@ Udgående udsendelser blev spejlet ind i _current_ agent sessionen (værktøjs s
   - `src/infra/outbound/outbound-session.test.ts`
   - `src/agents/tools/message-tool.test.ts`
   - `src/gateway/server-methods/send.test.ts`
-
-

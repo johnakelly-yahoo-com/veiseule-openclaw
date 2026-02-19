@@ -1,20 +1,22 @@
 ---
-title: "Reaksiyalar"
+summary: "Reaction semantics shared across channels"
+read_when:
+  - Working on reactions in any channel
+title: "Reactions"
 ---
 
-# Reaksiya vositalari
+# Reaction tooling
 
-Kanallar o‘rtasida umumiy reaksiya semantikasi:
+Shared reaction semantics across channels:
 
-- Reaksiya qo‘shishda `emoji` majburiy.
-- `emoji=""` qo‘llab-quvvatlanganda botning reaksiya(lar)ini olib tashlaydi.
-- `remove: true` qo‘llab-quvvatlanganda ko‘rsatilgan emojini olib tashlaydi (`emoji` talab qilinadi).
+- `emoji` is required when adding a reaction.
+- `emoji=""` removes the bot's reaction(s) when supported.
+- `remove: true` removes the specified emoji when supported (requires `emoji`).
 
-Kanal bo‘yicha izohlar:
+Channel notes:
 
-- **Discord/Slack**: bo‘sh `emoji` xabardagi botning barcha reaksiyalarini olib tashlaydi; `remove: true` faqat shu emojini olib tashlaydi.
-- **Google Chat**: bo‘sh `emoji` xabardagi ilovaning reaksiyalarini olib tashlaydi; `remove: true` faqat shu emojini olib tashlaydi.
-- **Telegram**: bo‘sh `emoji` botning reaksiyalarini olib tashlaydi; `remove: true` ham reaksiyalarni olib tashlaydi, biroq vosita tekshiruvi uchun baribir bo‘sh bo‘lmagan `emoji` talab qilinadi.
-- **WhatsApp**: bo‘sh `emoji` bot reaksiyasini olib tashlaydi; `remove: true` bo‘sh emoji sifatida qabul qilinadi (baribir `emoji` talab qilinadi).
-- **Signal**: kiruvchi reaksiya bildirishnomalari `channels.signal.reactionNotifications` yoqilganda tizim hodisalarini chiqaradi.
-
+- **Discord/Slack**: empty `emoji` removes all of the bot's reactions on the message; `remove: true` removes just that emoji.
+- **Google Chat**: empty `emoji` removes the app's reactions on the message; `remove: true` removes just that emoji.
+- **Telegram**: empty `emoji` removes the bot's reactions; `remove: true` also removes reactions but still requires a non-empty `emoji` for tool validation.
+- **WhatsApp**: empty `emoji` removes the bot reaction; `remove: true` maps to empty emoji (still requires `emoji`).
+- **Signal**: inbound reaction notifications emit system events when `channels.signal.reactionNotifications` is enabled.

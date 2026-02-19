@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw macOS 컴패니언 앱 (메뉴 바 + 게이트웨이 브로커)"
+read_when:
+  - macOS 앱 기능을 구현할 때
+  - macOS 에서 게이트웨이 라이프사이클 또는 노드 브리징을 변경할 때
 title: "macOS 앱"
 ---
 
@@ -8,7 +12,7 @@ macOS 앱은 OpenClaw 를 위한 **메뉴 바 컴패니언**입니다. 권한을
 로컬에서 Gateway(게이트웨이) 를 관리/연결하며 (launchd 또는 수동),
 macOS 기능을 노드로서 에이전트에 노출합니다.
 
-## 기능 소개
+## What it does
 
 - 메뉴 바에 네이티브 알림과 상태를 표시합니다.
 - TCC 프롬프트(알림, 접근성, 화면 녹화, 마이크,
@@ -125,6 +129,7 @@ open 'openclaw://agent?message=Hello%20from%20deep%20link'
 안전성:
 
 - `key` 가 없으면 앱이 확인을 요청합니다.
+- `key`가 없으면 앱은 확인 프롬프트에 대해 짧은 메시지 제한을 적용하고 `deliver` / `to` / `channel`을 무시합니다.
 - 유효한 `key` 가 있으면 실행은 무인으로 처리됩니다(개인 자동화를 의도).
 
 ## 온보딩 흐름(일반)
@@ -183,7 +188,7 @@ localhost 에 있는 것처럼 통신할 수 있도록 SSH 터널을 엽니다.
   ExitOnForwardFailure + keepalive 옵션을 사용하는 `ssh -N -L <local>:127.0.0.1:<remote>`.
 - **IP 보고:** SSH 터널은 loopback 을 사용하므로, 게이트웨이는 노드 IP 를 `127.0.0.1` 로 인식합니다. 실제 클라이언트 IP 가 표시되도록 하려면 **Direct (ws/wss)** 전송을 사용하십시오([macOS 원격 액세스](/platforms/mac/remote) 참조).
 
-설정 단계는 [macOS 원격 액세스](/platforms/mac/remote) 를, 프로토콜 세부 사항은 [Gateway 프로토콜](/gateway/protocol) 을 참고하십시오. 39. 프로토콜 세부 정보는 [Gateway protocol](/gateway/protocol)을 참조하세요.
+설정 단계는 [macOS 원격 액세스](/platforms/mac/remote) 를, 프로토콜 세부 사항은 [Gateway 프로토콜](/gateway/protocol) 을 참고하십시오. 프로토콜 세부 정보는 [Gateway protocol](/gateway/protocol)을 참조하세요.
 
 ## 관련 문서
 
@@ -191,5 +196,3 @@ localhost 에 있는 것처럼 통신할 수 있도록 SSH 터널을 엽니다.
 - [Gateway(macOS)](/platforms/mac/bundled-gateway)
 - [macOS 권한](/platforms/mac/permissions)
 - [Canvas](/platforms/mac/canvas)
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "CLI-reference for `openclaw browser` (profiler, faner, handlinger, udvidelses-relay)"
+read_when:
+  - Du bruger `openclaw browser` og vil have eksempler på almindelige opgaver
+  - Du vil styre en browser, der kører på en anden maskine via en node-vært
+  - Du vil bruge Chrome-udvidelses-relayet (tilknyt/frakobl via værktøjslinjeknap)
 title: "browser"
 ---
 
@@ -100,5 +105,3 @@ Hvis Gateway kører på en anden maskine end browseren, skal du køre en **nodev
 Brug `gateway.nodes.browser.mode` til at styre automatisk routing og `gateway.nodes.browser.node` til at fastgøre en specifik node, hvis flere er tilsluttet.
 
 Sikkerhed + fjernopsætning: [Browser tool](/tools/browser), [Remote access](/gateway/remote), [Tailscale](/gateway/tailscale), [Security](/gateway/security)
-
-

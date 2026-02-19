@@ -1,4 +1,8 @@
 ---
+summary: "CLI-reference for `openclaw doctor` (sundhedstjek + guidede rettelser)"
+read_when:
+  - Du har forbindelses-/autentificeringsproblemer og vil have guidede løsninger
+  - Du har opdateret og vil lave et fornuftstjek
 title: "doctor"
 ---
 
@@ -35,5 +39,3 @@ launchctl getenv OPENCLAW_GATEWAY_PASSWORD
 launchctl unsetenv OPENCLAW_GATEWAY_TOKEN
 launchctl unsetenv OPENCLAW_GATEWAY_PASSWORD
 ```
-
-

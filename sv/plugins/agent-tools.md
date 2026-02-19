@@ -1,4 +1,8 @@
 ---
+summary: "Skriv agentverktyg i ett plugin (scheman, valfria verktyg, tillåtelselistor)"
+read_when:
+  - Du vill lägga till ett nytt agentverktyg i ett plugin
+  - Du behöver göra ett verktyg valfritt via tillåtelselistor
 title: "Plugin-agentverktyg"
 ---
 
@@ -93,5 +97,3 @@ Andra konfigurationsreglage som påverkar verktygstillgänglighet:
 - Plugin‑ID:n som används i tillåtelselistor får inte krocka med kärnverktygsnamn.
 - Föredra `optional: true` för verktyg som utlöser bieffekter eller kräver extra
   binärer/autentiseringsuppgifter.
-
-

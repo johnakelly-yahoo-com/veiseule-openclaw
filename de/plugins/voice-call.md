@@ -1,4 +1,8 @@
 ---
+summary: "„Voice-Call-Plugin: ausgehende + eingehende Anrufe über Twilio/Telnyx/Plivo (Plugin-Installation + Konfiguration + CLI)“"
+read_when:
+  - Sie möchten einen ausgehenden Sprachanruf aus OpenClaw tätigen
+  - Sie konfigurieren oder entwickeln das Voice-Call-Plugin
 title: "„Voice-Call-Plugin“"
 ---
 
@@ -108,6 +112,7 @@ Hinweise:
 - Twilio/Telnyx erfordern eine **öffentlich erreichbare** Webhook-URL.
 - Plivo erfordert eine **öffentlich erreichbare** Webhook-URL.
 - `mock` ist ein lokaler Entwicklungsanbieter (keine Netzwerkanfragen).
+- Telnyx erfordert `telnyx.publicKey` (oder `TELNYX_PUBLIC_KEY`), sofern `skipSignatureVerification` nicht auf true gesetzt ist.
 - `skipSignatureVerification` ist nur für lokale Tests.
 - Wenn Sie die kostenlose ngrok-Stufe verwenden, setzen Sie `publicUrl` auf die exakte ngrok-URL; die Signaturprüfung wird immer erzwungen.
 - `tunnel.allowNgrokFreeTierLoopbackBypass: true` erlaubt Twilio-Webhooks mit ungültigen Signaturen **nur**, wenn `tunnel.provider="ngrok"` und `serve.bind` Loopback ist (lokaler ngrok-Agent). Nur für lokale Entwicklung verwenden.
@@ -278,5 +283,3 @@ Dieses Repository liefert eine passende Skill-Dokumentation unter `skills/voice-
 - `voicecall.speak` (`callId`, `message`)
 - `voicecall.end` (`callId`)
 - `voicecall.status` (`callId`)
-
-

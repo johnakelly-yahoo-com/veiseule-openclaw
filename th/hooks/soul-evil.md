@@ -1,15 +1,21 @@
 ---
+summary: "SOUL Evil hook (สลับ SOUL.md กับ SOUL_EVIL.md)"
+read_when:
+  - คุณต้องการเปิดใช้งานหรือปรับแต่ง SOUL Evil hook
+  - คุณต้องการช่วงเวลา purge หรือการสลับ persona แบบสุ่ม
 title: "SOUL Evil Hook"
 ---
 
 # SOUL Evil Hook
 
 SOUL Evil hook จะสลับเนื้อหา `SOUL.md` ที่ถูก **inject** กับ `SOUL_EVIL.md` ระหว่าง
-ช่วงเวลา purge หรือด้วยโอกาสแบบสุ่ม โดยจะ **ไม่** แก้ไขไฟล์บนดิสก์ มัน **ไม่** แก้ไขไฟล์บนดิสก์
+ช่วงเวลา purge หรือด้วยโอกาสแบบสุ่ม โดยจะ **ไม่** แก้ไขไฟล์บนดิสก์ มัน **ไม่** แก้ไขไฟล์บนดิสก์ มัน **ไม่** แก้ไขไฟล์บนดิสก์
 
 ## ทำงานอย่างไร
 
 เมื่อ `agent:bootstrap` ทำงาน hook สามารถแทนที่เนื้อหา `SOUL.md` ในหน่วยความจำ
+ก่อนที่จะประกอบ system prompt หาก `SOUL_EVIL.md` หายไปหรือว่างเปล่า
+OpenClaw จะบันทึกคำเตือนและคงใช้ `SOUL.md` ตามปกติ เมื่อ `agent:bootstrap` ทำงาน hook สามารถแทนที่เนื้อหา `SOUL.md` ในหน่วยความจำ
 ก่อนที่จะประกอบ system prompt หาก `SOUL_EVIL.md` หายไปหรือว่างเปล่า
 OpenClaw จะบันทึกคำเตือนและคงใช้ `SOUL.md` ตามปกติ หาก `SOUL_EVIL.md` หายไปหรือว่างเปล่า
 OpenClaw จะบันทึกคำเตือนและคงใช้ `SOUL.md` ตามปกติ
@@ -64,5 +70,3 @@ openclaw hooks enable soul-evil
 ## ดูเพิ่มเติม
 
 - [Hooks](/automation/hooks)
-
-

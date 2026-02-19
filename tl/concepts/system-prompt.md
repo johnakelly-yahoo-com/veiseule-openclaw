@@ -1,10 +1,14 @@
 ---
+summary: "Kung ano ang nilalaman ng OpenClaw system prompt at kung paano ito binubuo"
+read_when:
+  - Pag-eedit ng text ng system prompt, listahan ng tools, o mga seksyon ng oras/heartbeat
+  - Pagbabago ng workspace bootstrap o behavior ng skills injection
 title: "Prompt ng Sistema"
 ---
 
 # Prompt ng Sistema
 
-Bumubuo ang OpenClaw ng isang custom system prompt para sa bawat agent run. Ang prompt ay **pagmamay-ari ng OpenClaw** at hindi gumagamit ng default prompt ng p-coding-agent.
+Bumubuo ang OpenClaw ng isang custom system prompt para sa bawat agent run. Ang prompt ay **pag-aari ng OpenClaw** at hindi gumagamit ng default prompt ng pi-coding-agent.
 
 Ang prompt ay binubuo ng OpenClaw at ini-inject sa bawat agent run.
 
@@ -26,15 +30,15 @@ Ang prompt ay sinadyang compact at gumagamit ng mga fixed na seksyon:
 - **Runtime**: host, OS, node, model, repo root (kapag na-detect), thinking level (isang linya).
 - **Reasoning**: kasalukuyang antas ng visibility + hint para sa /reasoning toggle.
 
-Ang mga safety guardrail sa system prompt ay gabay lamang. Ginagabayan nila ang asal ng modelo ngunit hindi sila nagpapatupad ng patakaran. Gumamit ng tool policy, exec approvals, sandboxing, at mga allowlist ng channel para sa mahigpit na pagpapatupad; maaaring i-disable ang mga ito ng mga operator ayon sa disenyo.
+Safety guardrails in the system prompt are advisory. They guide model behavior but do not enforce policy. Use tool policy, exec approvals, sandboxing, and channel allowlists for hard enforcement; operators can disable these by design.
 
 ## Mga mode ng Prompt
 
-Maaaring mag-render ang OpenClaw ng mas maliliit na system prompt para sa mga sub-agent. Itinatakda ng runtime ang isang
+OpenClaw can render smaller system prompts for sub-agents. The runtime sets a
 `promptMode` for each run (not a user-facing config):
 
 - `full` (default): kasama ang lahat ng seksyon sa itaas.
-- `minimal`: ginagamit para sa mga sub-agent; inaalis ang **Skills**, **Memory Recall**, **OpenClaw
+- `minimal`: used for sub-agents; omits **Skills**, **Memory Recall**, **OpenClaw
   Self-Update**, **Model Aliases**, **User Identity**, **Reply Tags**,
   **Messaging**, **Silent Replies**, and **Heartbeats**. Tooling, **Safety**,
   Workspace, Sandbox, Current Date & Time (when known), Runtime, and injected
@@ -55,10 +59,19 @@ Ang mga bootstrap file ay tine-trim at idinadagdag sa ilalim ng **Project Contex
 - `USER.md`
 - `HEARTBEAT.md`
 - `BOOTSTRAP.md` (para lamang sa mga bagong-bagong workspace)
+- `MEMORY.md` at/o `memory.md` (kapag naroroon sa workspace; alinman o pareho ay maaaring i-inject)
+
+Lahat ng mga file na ito ay **ini-inject sa context window** sa bawat turn, na
+nangangahulugang kumokonsumo sila ng mga token. Panatilihing maikli ang mga ito — lalo na ang `MEMORY.md`, na maaaring
+lumaki sa paglipas ng panahon at magdulot ng hindi inaasahang mataas na paggamit ng context at mas madalas na
+compaction.
+
+> **Tandaan:** Ang mga `memory/*.md` na pang-araw-araw na file ay **hindi** awtomatikong ini-inject. Ina-access ang mga ito kapag kailangan sa pamamagitan ng mga tool na `memory_search` at `memory_get`, kaya hindi sila nababawas sa context window maliban kung tahasang babasahin sila ng model.
 
 Large files are truncated with a marker. The max per-file size is controlled by
-`agents.defaults.bootstrapMaxChars` (default: 20000). Missing files inject a
-short missing-file marker.
+`agents.defaults.bootstrapMaxChars` (default: 20000). Ang kabuuang na-inject na bootstrap content sa lahat ng file ay may limitasyon na itinakda ng `agents.defaults.bootstrapTotalMaxChars` (default: 24000). Ang mga nawawalang file ay nag-iinject ng maikling marker na nagsasaad na nawawala ang file.
+
+Ang mga sub-agent session ay nag-iinject lamang ng `AGENTS.md` at `TOOLS.md` (ang ibang bootstrap file ay sini-filter upang mapanatiling maliit ang context ng sub-agent).
 
 Maaaring saluhin ng mga internal hook ang hakbang na ito sa pamamagitan ng `agent:bootstrap` para baguhin o palitan
 ang mga injected na bootstrap file (halimbawa, pagpapalit ng `SOUL.md` ng alternatibong persona).
@@ -71,8 +84,7 @@ The system prompt includes a dedicated **Current Date & Time** section when the
 user timezone is known. To keep the prompt cache-stable, it now only includes
 the **time zone** (no dynamic clock or time format).
 
-Gamitin ang `session_status` kapag kailangan ng agent ang kasalukuyang oras; kasama sa status card
-ang isang timestamp line.
+Tingnan ang [Date & Time](/date-time) para sa kumpletong detalye ng behavior.
 
 I-configure gamit ang:
 
@@ -109,5 +121,3 @@ package docs) and also notes the public mirror, source repo, community Discord, 
 ClawHub ([https://clawhub.com](https://clawhub.com)) for skills discovery. The prompt instructs the model to consult local docs first
 for OpenClaw behavior, commands, configuration, or architecture, and to run
 `openclaw status` itself when possible (asking the user only when it lacks access).
-
-

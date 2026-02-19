@@ -1,4 +1,7 @@
 ---
+summary: "„Routing-Regeln pro Kanal (WhatsApp, Telegram, Discord, Slack) und geteilter Kontext“"
+read_when:
+  - Beim Ändern des Kanal-Routings oder des Inbox-Verhaltens
 title: "channels/channel-routing.md"
 ---
 
@@ -41,11 +44,15 @@ Beispiele:
 Das Routing wählt **einen Agenten** für jede eingehende Nachricht:
 
 1. **Exakte Peer-Übereinstimmung** (`bindings` mit `peer.kind` + `peer.id`).
-2. **Guild-Übereinstimmung** (Discord) über `guildId`.
-3. **Team-Übereinstimmung** (Slack) über `teamId`.
-4. **Account-Übereinstimmung** (`accountId` auf dem Kanal).
-5. **Kanal-Übereinstimmung** (beliebiger Account auf diesem Kanal).
-6. **Standard-Agent** (`agents.list[].default`, andernfalls erster Listeneintrag, Fallback auf `main`).
+2. **Übergeordnetes Peer-Match** (Thread-Vererbung).
+3. **Guild- + Rollen-Match** (Discord) über `guildId` + `roles`.
+4. **Guild-Übereinstimmung** (Discord) über `guildId`.
+5. **Team-Übereinstimmung** (Slack) über `teamId`.
+6. **Account-Übereinstimmung** (`accountId` auf dem Kanal).
+7. **Kanal-Übereinstimmung** (beliebiger Account auf diesem Kanal).
+8. **Standard-Agent** (`agents.list[].default`, andernfalls erster Listeneintrag, Fallback auf `main`).
+
+Wenn eine Bindung mehrere Match-Felder enthält (`peer`, `guildId`, `teamId`, `roles`), müssen **alle angegebenen Felder übereinstimmen**, damit die Bindung angewendet wird.
 
 Der gefundene Agent bestimmt, welcher Workspace und welcher Sitzungsspeicher verwendet werden.
 
@@ -110,5 +117,3 @@ Eingehende Antworten enthalten:
 - Zitierter Kontext wird als `[Replying to ...]`-Block an `Body` angehängt.
 
 Dies ist über alle Kanäle hinweg konsistent.
-
-

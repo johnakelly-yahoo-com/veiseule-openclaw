@@ -1,17 +1,22 @@
 ---
+summary: "Claude Max/Pro obunasidan OpenAI‑mos API endpoint sifatida foydalaning"
+read_when:
+  - Siz Claude Max obunasini OpenAI‑mos vositalar bilan ishlatmoqchisiz
+  - Siz Claude Code CLI ni o‘rab oluvchi lokal API serverni xohlaysiz
+  - API kalitlari o‘rniga obunadan foydalanib pul tejamoqchisiz
 title: "Claude Max API Proksi"
 ---
 
 # Claude Max API Proksi
 
-**claude-max-api-proxy** — bu hamjamiyat tomonidan yaratilgan vosita bo‘lib, u sizning Claude Max/Pro obunangizni OpenAI’ga mos API endpoint sifatida taqdim etadi. Bu sizga obunangizdan OpenAI API formatini qo‘llab-quvvatlaydigan istalgan vosita bilan foydalanish imkonini beradi.
+**claude-max-api-proxy** is a community tool that exposes your Claude Max/Pro subscription as an OpenAI-compatible API endpoint. This allows you to use your subscription with any tool that supports the OpenAI API format.
 
 ## Nima uchun buni ishlatish kerak?
 
-| Yondashuv                | Narxi                                                                                   | Qaysi holatlar uchun mos                                   |
-| ----------------------- | -------------------------------------------------------------------------------------- | ------------------------------------------ |
-| Anthropic API           | Har token uchun to‘lov (~$15/M kirish, $75/M chiqish Opus uchun) | Ishlab chiqarish ilovalari, katta hajm               |
-| Claude Max obunasi | Oyiga $200 qat’iy to‘lov                                                                        | Personal use, development, unlimited usage |
+| Yondashuv          | Narxi                                                                                               | Qaysi holatlar uchun mos                   |
+| ------------------ | --------------------------------------------------------------------------------------------------- | ------------------------------------------ |
+| Anthropic API      | Har token uchun to‘lov (~$15/M kirish, $75/M chiqish Opus uchun) | Ishlab chiqarish ilovalari, katta hajm     |
+| Claude Max obunasi | Oyiga $200 qat’iy to‘lov                                                                            | Personal use, development, unlimited usage |
 
 If you have a Claude Max subscription and want to use it with OpenAI-compatible tools, this proxy can save you significant money.
 
@@ -141,5 +146,3 @@ launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.claude-max-api.plist
 
 - [OpenAI provider](/providers/openai) - OpenAI/Codex obunalari uchun
 - Cloudflare AI Gateway
-
-

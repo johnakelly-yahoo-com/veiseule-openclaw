@@ -1,4 +1,8 @@
 ---
+summary: "Doctor-kommando: helbredstjek, konfigurationsmigreringer og reparations­trin"
+read_when:
+  - Tilføjelse eller ændring af doctor-migreringer
+  - Introduktion af brydende konfigurationsændringer
 title: "Læge"
 ---
 
@@ -278,5 +282,3 @@ backup-tip, hvis workspacet ikke allerede er under git.
 
 Se [/concepts/agent-workspace](/concepts/agent-workspace) for en fuld guide til
 workspace-struktur og git-backup (anbefalet privat GitHub eller GitLab).
-
-

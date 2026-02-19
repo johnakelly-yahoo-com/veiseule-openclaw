@@ -1,4 +1,7 @@
 ---
+summary: "كيف يدمج تطبيق mac واجهة WebChat الخاصة بـ Gateway وكيفية تصحيح أخطائها"
+read_when:
+  - تصحيح عرض WebChat على mac أو منفذ local loopback
 title: "WebChat"
 ---
 
@@ -36,5 +39,3 @@ title: "WebChat"
 ## القيود المعروفة
 
 - تم تحسين واجهة المستخدم لجلسات الدردشة (وليست sandbox كاملة للمتصفح).
-
-

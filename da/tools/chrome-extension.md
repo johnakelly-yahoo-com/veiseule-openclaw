@@ -1,4 +1,9 @@
 ---
+summary: "Chrome-udvidelse: lad OpenClaw styre din eksisterende Chrome-fane"
+read_when:
+  - Du vil have agenten til at styre en eksisterende Chrome-fane (værktøjslinjeknap)
+  - Du har brug for fjern-Gateway + lokal browserautomatisering via Tailscale
+  - Du vil forstå sikkerhedsmæssige konsekvenser ved overtagelse af browseren
 title: "Chrome-udvidelse"
 ---
 
@@ -171,5 +176,3 @@ Relateret:
 - Overblik over browser-værktøjet: [Browser](/tools/browser)
 - Sikkerhedsrevision: [Security](/gateway/security)
 - Tailscale-opsætning: [Tailscale](/gateway/tailscale)
-
-

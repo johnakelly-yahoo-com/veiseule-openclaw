@@ -1,4 +1,8 @@
 ---
+summary: "Inkomende beeld-/audio-/videoverwerking (optioneel) met provider- en CLI-terugvalopties"
+read_when:
+  - Ontwerpen of refactoren van mediaverwerking
+  - Afstemmen van inkomende audio-/video-/beeldvoorverwerking
 title: "Media begrijpen"
 ---
 
@@ -169,7 +173,7 @@ Als je `capabilities` weglaat, komt de vermelding in aanmerking voor de lijst wa
 
 ## Provider-ondersteuningsmatrix (OpenClaw-integraties)
 
-| Mogelijkheid | Providerintegratie                                | Notities                                                                           |
+| Capability | Providerintegratie                                | Notities                                                                           |
 | ---------- | ------------------------------------------------- | ---------------------------------------------------------------------------------- |
 | Beeld      | OpenAI / Anthropic / Google / anderen via `pi-ai` | Elk beeldgeschikt model in het register werkt.                     |
 | Audio      | OpenAI, Groq, Deepgram, Google                    | Providertranscriptie (Whisper/Deepgram/Gemini). |
@@ -371,5 +375,3 @@ Dit toont per-capability resultaten en, waar van toepassing, de gekozen provider
 
 - [Configuratie](/gateway/configuration)
 - [Beeld- & media-ondersteuning](/nodes/images)
-
-

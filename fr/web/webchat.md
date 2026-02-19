@@ -1,4 +1,7 @@
 ---
+summary: "Hébergement statique WebChat en local loopback et utilisation du WS du Gateway pour l’UI de chat"
+read_when:
+  - Débogage ou configuration de l’accès WebChat
 title: "WebChat"
 ---
 
@@ -42,7 +45,6 @@ Options globales associées :
 
 - `gateway.port`, `gateway.bind` : hôte/port WebSocket.
 - `gateway.auth.mode`, `gateway.auth.token`, `gateway.auth.password` : authentification WebSocket.
+- `gateway.auth.mode: "trusted-proxy"` : authentification par reverse-proxy pour les clients navigateur (voir [Trusted Proxy Auth](/gateway/trusted-proxy-auth)).
 - `gateway.remote.url`, `gateway.remote.token`, `gateway.remote.password` : cible du gateway distant.
 - `session.*` : stockage de session et valeurs par défaut de la clé principale.
-
-

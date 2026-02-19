@@ -1,4 +1,7 @@
 ---
+summary: "Narzędzia sesji agenta do listowania sesji, pobierania historii oraz wysyłania wiadomości między sesjami"
+read_when:
+  - Dodawanie lub modyfikowanie narzędzi sesji
 title: "Narzędzia sesji"
 ---
 
@@ -91,7 +94,8 @@ Zachowanie:
 - Uruchomienia ogłoszeń po dostarczeniu są anonsowane po zakończeniu uruchomienia głównego i mają charakter best‑effort; `status: "ok"` nie gwarantuje, że anons został dostarczony.
 - Oczekiwanie odbywa się przez gateway `agent.wait` (po stronie serwera), więc ponowne połączenia nie przerywają oczekiwania.
 - Kontekst wiadomości agent‑do‑agenta jest wstrzykiwany dla uruchomienia głównego.
-- Po zakończeniu uruchomienia głównego OpenClaw uruchamia **pętlę odpowiedzi zwrotnej**:
+- Wiadomości między sesjami są zapisywane z `message.provenance.kind = "inter_session"`, aby czytniki transkryptów mogły odróżnić przekierowane instrukcje agenta od zewnętrznego wejścia użytkownika.
+- Po zakończeniu pętli OpenClaw uruchamia **krok ogłoszenia agent‑do‑agenta** (tylko agent docelowy):
   - Runda 2+ naprzemiennie przełącza się między agentem żądającym a docelowym.
   - Odpowiedz dokładnie `REPLY_SKIP`, aby zatrzymać ping‑pong.
   - Maksymalna liczba tur to `session.agentToAgent.maxPingPongTurns` (0–5, domyślnie 5).
@@ -188,5 +192,3 @@ Konfiguracja:
   },
 }
 ```
-
-

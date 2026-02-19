@@ -1,9 +1,12 @@
 ---
+summary: "အသုံးအများဆုံး OpenClaw စာရွက်စာတမ်းများသို့ ရွေးချယ်ထားသော လင့်ခ်များ"
+read_when:
+  - အရေးကြီးသော စာရွက်စာတမ်း စာမျက်နှာများကို အမြန်ဝင်ရောက်လိုပါက
 title: "စာရွက်စာတမ်း လမ်းညွှန်"
 ---
 
 <Note>
-ဤစာမျက်နှာသည် ရွေးချယ်စုစည်းထားသော အညွှန်းစာမျက်နှာ ဖြစ်သည်။ သင်အသစ်ဖြစ်ပါက [စတင်အသုံးပြုခြင်း](/start/getting-started) မှ စတင်ပါ။
+This page is a curated index. If you are new, start with [Getting Started](/start/getting-started).
 For a complete map of the docs, see [Docs hubs](/start/hubs).
 </Note>
 
@@ -59,5 +62,3 @@ For a complete map of the docs, see [Docs hubs](/start/hubs).
 - [Gmail hooks (Pub/Sub)](/automation/gmail-pubsub)
 - [လုံခြုံရေး](/gateway/security)
 - [ပြဿနာဖြေရှင်းခြင်း](/gateway/troubleshooting)
-
-

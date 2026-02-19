@@ -1,4 +1,8 @@
 ---
+summary: "استخدم نماذج Venice AI المُركّزة على الخصوصية في OpenClaw"
+read_when:
+  - تريد استدلالًا مُركّزًا على الخصوصية في OpenClaw
+  - تريد إرشادات إعداد Venice AI
 title: "Venice AI"
 ---
 
@@ -43,7 +47,7 @@ title: "Venice AI"
 2. انتقل إلى **Settings → API Keys → Create new key**
 3. انسخ مفتاح API الخاص بك (الصيغة: `vapi_xxxxxxxxxxxx`)
 
-### 2) تهيئة OpenClaw
+### 3) التحقق من الإعداد
 
 **الخيار A: متغير بيئة**
 
@@ -261,5 +265,3 @@ openclaw models list | grep venice
 - [توثيق واجهة API](https://docs.venice.ai)
 - [التسعير](https://venice.ai/pricing)
 - [الحالة](https://status.venice.ai)
-
-

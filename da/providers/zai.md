@@ -1,4 +1,8 @@
 ---
+summary: "Brug Z.AI (GLM-modeller) med OpenClaw"
+read_when:
+  - Du vil have Z.AI / GLM-modeller i OpenClaw
+  - Du har brug for en enkel ZAI_API_KEY-opsætning
 title: "Z.AI"
 ---
 
@@ -30,5 +34,3 @@ openclaw onboard --zai-api-key "$ZAI_API_KEY"
 - GLM-modeller er tilgængelige som `zai/<model>` (eksempel: `zai/glm-4.7`).
 - Se [/providers/glm](/providers/glm) for overblik over modelfamilien.
 - Z.AI bruger Bearer-autentificering med din API-nøgle.
-
-

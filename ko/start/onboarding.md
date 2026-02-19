@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw (macOS 앱)의 최초 실행 온보딩 흐름"
+read_when:
+  - macOS 온보딩 어시스턴트 설계 시
+  - 인증 또는 아이덴티티 설정 구현 시
 title: "온보딩 (macOS 앱)"
 sidebarTitle: "온보딩: macOS 앱"
 ---
@@ -6,6 +10,7 @@ sidebarTitle: "온보딩: macOS 앱"
 # 온보딩 (macOS 앱)
 
 이 문서는 **현재**의 최초 실행 온보딩 흐름을 설명합니다. 목표는 매끄러운 'day 0' 경험입니다. 즉, Gateway(게이트웨이)가 실행될 위치를 선택하고, 인증을 연결하며, 마법사를 실행하고, 에이전트가 스스로 부트스트랩하도록 하는 것입니다.
+온보딩 경로에 대한 전반적인 개요는 [Onboarding Overview](/start/onboarding-overview)를 참조하세요.
 
 <Steps>
 <Step title="Approve macOS warning">
@@ -68,5 +73,3 @@ sidebarTitle: "온보딩: macOS 앱"
   설정이 완료되면 앱은 전용 온보딩 채팅 세션을 열어 에이전트가 자신을 소개하고 다음 단계를 안내하도록 합니다. 이는 최초 실행 가이드를 일반 대화와 분리합니다. 첫 번째 에이전트 실행 동안 게이트웨이 호스트에서 발생하는 작업에 대해서는 [Bootstrapping](/start/bootstrapping)을 참고하십시오.
 </Step>
 </Steps>
-
-

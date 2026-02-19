@@ -1,10 +1,15 @@
 ---
 title: "Node.js"
+summary: "Installér og konfigurer Node.js til OpenClaw — versionskrav, installationsmuligheder og fejlfinding af PATH"
+read_when:
+  - "Du skal installere Node.js før installation af OpenClaw"
+  - "Du har installeret OpenClaw, men `openclaw` er en kommando, der ikke blev fundet"
+  - "npm install -g mislykkes med tilladelses- eller PATH-problemer"
 ---
 
 # Node.js
 
-OpenClaw kræver **Node 22 eller nyere**. The [installer script](/install#install-methods) will detect and install Node automatically — denne side er til, når du selv vil sætte Node op og sikre, at alt er korrekt konfigureret (versioner, PATH, globale installationer).
+OpenClaw kræver **Node 22 eller nyere**. The [installer script](/install#install-methods) will detect and install Node automatically — this page is for when you want to set up Node yourself and make sure everything is wired up correct (versionsions, PATH, globale installationer).
 
 ## Tjek din version
 
@@ -12,7 +17,7 @@ OpenClaw kræver **Node 22 eller nyere**. The [installer script](/install#instal
 node -v
 ```
 
-Hvis dette udskriver `v22.x.x` eller højere, er du klar. Hvis Node ikke er installeret, eller versionen er for gammel, skal du vælge en installationsmetode nedenfor.
+Hvis dette udskriver `v22.x.x` eller højere, er du god. Hvis Node ikke er installeret eller versionen er for gammel, så vælg en installationsmetode nedenfor.
 
 ## Installér Node
 
@@ -20,46 +25,58 @@ Hvis dette udskriver `v22.x.x` eller højere, er du klar. Hvis Node ikke er inst
   <Tab title="macOS">
     **Homebrew** (anbefalet):
 
+    `````
+    ````
     ```bash
     brew install node
     ```
-
+    
     Eller download macOS-installationsprogrammet fra [nodejs.org](https://nodejs.org/).
+    ````
+    `````
 
   
 </Tab>
   <Tab title="Linux">
     **Ubuntu / Debian:**
 
+    `````
+    ````
     ```bash
     curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
     sudo apt-get install -y nodejs
     ```
-
+    
     **Fedora / RHEL:**
-
+    
     ```bash
     sudo dnf install nodejs
     ```
-
+    
     Eller brug en versionsmanager (se nedenfor).
+    ````
+    `````
 
   
 </Tab>
   <Tab title="Windows">
     **winget** (anbefalet):
 
+    `````
+    ````
     ```powershell
     winget install OpenJS.NodeJS.LTS
     ```
-
+    
     **Chocolatey:**
-
+    
     ```powershell
     choco install nodejs-lts
     ```
-
+    
     Eller download Windows-installationsprogrammet fra [nodejs.org](https://nodejs.org/).
+    ````
+    `````
 
   
 </Tab>
@@ -80,7 +97,7 @@ fnm use 22
 ```
 
   <Warning>
-  Sørg for, at din version manager er initialiseret i din shell-opstartsfil (`~/.zshrc` eller `~/.bashrc`). Hvis den ikke er det, kan `openclaw` muligvis ikke findes i nye terminalsessioner, fordi PATH ikke inkluderer Node’s bin-mappe.
+  Sørg for, at din version manager er initialiseret i din shell opstart fil (`~/.zshrc` eller `~/.bashrc`). Hvis det ikke er 't, 'openclaw' kan ikke findes i nye terminalsessioner, fordi PATH ikke inkluderer node's bin mappe.
   
 </Warning>
 </Accordion>
@@ -103,7 +120,11 @@ Det betyder næsten altid, at npm’s globale bin-mappe ikke er på din PATH.
     echo "$PATH"
     ```
 
+    ````
+    ```
     Kig efter `<npm-prefix>/bin` (macOS/Linux) eller `<npm-prefix>` (Windows) i outputtet.
+    ```
+    ````
 
   
 </Step>
@@ -112,19 +133,23 @@ Det betyder næsten altid, at npm’s globale bin-mappe ikke er på din PATH.
       <Tab title="macOS / Linux">
         Tilføj til `~/.zshrc` eller `~/.bashrc`:
 
-        ```bash
-        export PATH="$(npm prefix -g)/bin:$PATH"
         ```
-
-        Åbn derefter en ny terminal (eller kør `rehash` i zsh / `hash -r` i bash).
-      
+            ```
+                ```bash
+                export PATH="$(npm prefix -g)/bin:$PATH"
+                ```
+            
+                Åbn derefter en ny terminal (eller kør `rehash` i zsh / `hash -r` i bash).
+              
 </Tab>
-      <Tab title="Windows">
-        Tilføj outputtet af `npm prefix -g` til din system-PATH via Indstillinger → System → Miljøvariabler.
-      
+              <Tab title="Windows">
+                Tilføj outputtet af `npm prefix -g` til din system-PATH via Indstillinger → System → Miljøvariabler.
+              
 </Tab>
-    
+            
 </Tabs>
+            ```
+        ```
 
   
 </Step>
@@ -141,4 +166,3 @@ export PATH="$HOME/.npm-global/bin:$PATH"
 ```
 
 Tilføj linjen `export PATH=...` til din `~/.bashrc` eller `~/.zshrc` for at gøre det permanent.
-

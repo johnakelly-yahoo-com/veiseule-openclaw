@@ -1,4 +1,9 @@
 ---
+summary: "Moonshot K2 နှင့် Kimi Coding ကို ချိန်ညှိတပ်ဆင်ခြင်း (ပံ့ပိုးသူများနှင့် ကီးများကို ခွဲခြားအသုံးပြုခြင်း)"
+read_when:
+  - Moonshot K2 (Moonshot Open Platform) နှင့် Kimi Coding ကို တပ်ဆင်ချိန်ညှိလိုသောအခါ
+  - ခွဲခြားထားသော endpoint များ၊ ကီးများနှင့် မော်ဒယ် ရည်ညွှန်းချက်များကို နားလည်လိုသောအခါ
+  - ပံ့ပိုးသူ တစ်ခုချင်းစီအတွက် ကော်ပီ/ပိတ်စ် ချိန်ညှိဖိုင်ကို လိုအပ်သောအခါ
 title: "Moonshot AI"
 ---
 
@@ -128,10 +133,8 @@ openclaw onboard --auth-choice kimi-code-api-key
 
 ## မှတ်ချက်များ
 
-- Moonshot model refs တွင် `moonshot/<modelId>` ကို အသုံးပြုသည်။ Kimi Coding model refs တွင် `kimi-coding/<modelId>` ကို အသုံးပြုသည်။
+- Moonshot model refs use `moonshot/<modelId>`. Kimi Coding model refs use `kimi-coding/<modelId>`.
 - လိုအပ်ပါက စျေးနှုန်းနှင့် context မီတာဒေတာကို `models.providers` တွင် အစားထိုး သတ်မှတ်နိုင်သည်။
 - မော်ဒယ်တစ်ခုအတွက် Moonshot က context ကန့်သတ်ချက် မတူညီစွာ ထုတ်ပြန်ပါက
   `contextWindow` ကို လိုက်လျောညီထွေ ချိန်ညှိပါ။
 - နိုင်ငံတကာ endpoint အတွက် `https://api.moonshot.ai/v1` ကို အသုံးပြုပါ၊ တရုတ် endpoint အတွက် `https://api.moonshot.cn/v1` ကို အသုံးပြုပါ။
-
-

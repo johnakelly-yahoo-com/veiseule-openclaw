@@ -1,4 +1,10 @@
 ---
+summary: "隔離や iMessage が必要な場合に、サンドボックス化された macOS VM（ローカルまたはホスト型）で OpenClaw を実行します"
+read_when:
+  - メインの macOS 環境から OpenClaw を隔離したい
+  - サンドボックス内で iMessage 連携（BlueBubbles）を使いたい
+  - クローン可能でリセットできる macOS 環境が欲しい
+  - ローカルとホスト型の macOS VM オプションを比較したい
 title: "macOS VM"
 ---
 
@@ -6,9 +12,9 @@ title: "macOS VM"
 
 ## 推奨デフォルト（大多数のユーザー向け）
 
-- **小規模な Linux VPS**：常時稼働の Gateway（ゲートウェイ）と低コストを実現します。[VPS hosting](/vps) を参照してください。 [VPSホスティング](/vps)を参照してください。
-- **専用ハードウェア**（Mac mini または Linux マシン）：完全な制御と、ブラウザ自動化向けの **住宅用 IP** が必要な場合に適しています。多くのサイトはデータセンター IP をブロックするため、ローカルでのブラウジングの方がうまくいくことが多いです。 多くのサイトでデータセンターの IP をブロックするため、ローカルブラウジングはしばしばより良い動作します。
-- **ハイブリッド**：安価な VPS に Gateway（ゲートウェイ）を置き、ブラウザ／UI 自動化が必要なときだけ Mac を **node** として接続します。[Nodes](/nodes) と [Gateway remote](/gateway/remote) を参照してください。 [Nodes](/nodes) と [Gateway remote](/gateway/remote) を参照してください。
+- **小規模な Linux VPS**：常時稼働の Gateway（ゲートウェイ）と低コストを実現します。[VPS hosting](/vps) を参照してください。 [VPSホスティング](/vps)を参照してください。 [VPSホスティング](/vps)を参照してください。
+- **専用ハードウェア**（Mac mini または Linux マシン）：完全な制御と、ブラウザ自動化向けの **住宅用 IP** が必要な場合に適しています。多くのサイトはデータセンター IP をブロックするため、ローカルでのブラウジングの方がうまくいくことが多いです。 多くのサイトでデータセンターの IP をブロックするため、ローカルブラウジングはしばしばより良い動作します。 多くのサイトでデータセンターの IP をブロックするため、ローカルブラウジングはしばしばより良い動作します。
+- **ハイブリッド**：安価な VPS に Gateway（ゲートウェイ）を置き、ブラウザ／UI 自動化が必要なときだけ Mac を **node** として接続します。[Nodes](/nodes) と [Gateway remote](/gateway/remote) を参照してください。 [Nodes](/nodes) と [Gateway remote](/gateway/remote) を参照してください。 [Nodes](/nodes) と [Gateway remote](/gateway/remote) を参照してください。
 
 macOS 専用の機能（iMessage / BlueBubbles）が必要な場合や、日常利用の Mac から厳密に隔離したい場合に、macOS VM を使用してください。
 
@@ -84,7 +90,7 @@ lume --version
 lume create openclaw --os macos --ipsw latest
 ```
 
-これにより macOS がダウンロードされ、VM が作成されます。VNC ウィンドウが自動的に開きます。 VNC ウィンドウが自動的に開きます。
+これにより macOS がダウンロードされ、VM が作成されます。VNC ウィンドウが自動的に開きます。 これにより macOS がダウンロードされ、VM が作成されます。VNC ウィンドウが自動的に開きます。 VNC ウィンドウが自動的に開きます。
 
 注記：ダウンロード時間は接続状況によっては長くなる場合があります。
 
@@ -180,7 +186,7 @@ lume stop openclaw
 lume run openclaw --no-display
 ```
 
-VMはバックグラウンドで実行されます。 VM はバックグラウンドで実行されます。OpenClaw のデーモンが Gateway（ゲートウェイ）を稼働させ続けます。
+VMはバックグラウンドで実行されます。 VM はバックグラウンドで実行されます。OpenClaw のデーモンが Gateway（ゲートウェイ）を稼働させ続けます。 VM はバックグラウンドで実行されます。OpenClaw のデーモンが Gateway（ゲートウェイ）を稼働させ続けます。
 
 ステータスを確認するには：
 
@@ -192,7 +198,7 @@ ssh youruser@192.168.64.X "openclaw status"
 
 ## 追加：iMessage 連携
 
-これはmacOS上で実行するというキラーな機能です。 これは macOS で実行する際のキラーフィーチャーです。[BlueBubbles](https://bluebubbles.app) を使用して OpenClaw に iMessage を追加します。
+これはmacOS上で実行するというキラーな機能です。 これはmacOS上で実行するというキラーな機能です。 これは macOS で実行する際のキラーフィーチャーです。[BlueBubbles](https://bluebubbles.app) を使用して OpenClaw に iMessage を追加します。
 
 VM 内で：
 
@@ -215,7 +221,7 @@ OpenClaw の設定に追加します：
 }
 ```
 
-ゲートウェイを再起動します。 Gateway（ゲートウェイ）を再起動します。これでエージェントが iMessage を送受信できるようになります。
+ゲートウェイを再起動します。 ゲートウェイを再起動します。 Gateway（ゲートウェイ）を再起動します。これでエージェントが iMessage を送受信できるようになります。
 
 詳細な設定手順：[BlueBubbles channel](/channels/bluebubbles)
 
@@ -248,7 +254,7 @@ VM を継続稼働させるには：
 - システム設定 → エネルギーでスリープを無効化
 - 必要に応じて `caffeinate` を使用
 
-真の常時稼働が必要な場合は、専用の Mac mini または小規模な VPS を検討してください。[VPS hosting](/vps) を参照してください。 [VPSホスティング](/vps)を参照してください。
+真の常時稼働が必要な場合は、専用の Mac mini または小規模な VPS を検討してください。[VPS hosting](/vps) を参照してください。 [VPSホスティング](/vps)を参照してください。 [VPSホスティング](/vps)を参照してください。
 
 ---
 
@@ -273,5 +279,3 @@ VM を継続稼働させるには：
 - [Lume CLI Reference](https://cua.ai/docs/lume/reference/cli-reference)
 - [Unattended VM Setup](https://cua.ai/docs/lume/guide/fundamentals/unattended-setup)（高度）
 - [Docker Sandboxing](/install/docker)（代替の隔離アプローチ）
-
-

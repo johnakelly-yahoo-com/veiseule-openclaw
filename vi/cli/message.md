@@ -1,4 +1,8 @@
 ---
+summary: "Tài liệu tham chiếu CLI cho `openclaw message` (gửi + hành động kênh)"
+read_when:
+  - Thêm hoặc chỉnh sửa các hành động CLI của message
+  - Thay đổi hành vi kênh gửi đi
 title: "message"
 ---
 
@@ -64,6 +68,7 @@ Tra cứu theo tên:
   - Bắt buộc: `--target`, `--poll-question`, `--poll-option` (lặp lại)
   - Tùy chọn: `--poll-multi`
   - Chỉ Discord: `--poll-duration-hours`, `--message`
+  - Chỉ Telegram: `--poll-duration-seconds` (5-600), `--silent`, `--poll-anonymous` / `--poll-public`, `--thread-id`
 
 - `react`
   - Kênh: Discord/Google Chat/Slack/Telegram/WhatsApp/Signal
@@ -199,11 +204,21 @@ openclaw message poll --channel discord \
 Gửi tin nhắn chủ động trên Teams:
 
 ```
+openclaw message poll --channel telegram \
+  --target @mychat \
+  --poll-question "Lunch?" \
+  --poll-option Pizza --poll-option Sushi \
+  --poll-duration-seconds 120 --silent
+```
+
+Tạo một cuộc thăm dò Teams:
+
+```
 openclaw message send --channel msteams \
   --target conversation:19:abc@thread.tacv2 --message "hi"
 ```
 
-Tạo một cuộc thăm dò Teams:
+Thả phản ứng trong Slack:
 
 ```
 openclaw message poll --channel msteams \
@@ -212,14 +227,14 @@ openclaw message poll --channel msteams \
   --poll-option Pizza --poll-option Sushi
 ```
 
-Thả phản ứng trong Slack:
+Thả phản ứng trong một nhóm Signal:
 
 ```
 openclaw message react --channel slack \
   --target C123 --message-id 456 --emoji "✅"
 ```
 
-Thả phản ứng trong một nhóm Signal:
+Gửi các nút nội tuyến Telegram:
 
 ```
 openclaw message react --channel signal \
@@ -233,5 +248,3 @@ Gửi các nút nội tuyến Telegram:
 openclaw message send --channel telegram --target @mychat --message "Choose:" \
   --buttons '[ [{"text":"Yes","callback_data":"cmd:yes"}], [{"text":"No","callback_data":"cmd:no"}] ]'
 ```
-
-

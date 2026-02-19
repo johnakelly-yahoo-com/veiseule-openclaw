@@ -1,4 +1,8 @@
 ---
+summary: "openclaw コマンド、サブコマンド、およびオプションのための OpenClaw CLI リファレンス"
+read_when:
+  - CLI コマンドやオプションを追加または変更する場合
+  - 新しいコマンド サーフェスを文書化する場合
 title: "CLI リファレンス"
 ---
 
@@ -251,7 +255,7 @@ openclaw [--dev] [--profile <name>] <command>
 - `openclaw plugins enable <id>` / `disable <id>` — `plugins.entries.<id>.enabled` を切り替えます。
 - `openclaw plugins doctor` — プラグインのロード エラーを報告します。
 
-ほとんどのプラグイン変更には、ゲートウェイの再起動が必要です。[/plugin](/tools/plugin) を参照してください。 [/plugin](/tools/plugin) を参照してください。
+ほとんどのプラグイン変更には、ゲートウェイの再起動が必要です。[/plugin](/tools/plugin) を参照してください。 [/plugin](/tools/plugin) を参照してください。 [/plugin](/tools/plugin) を参照してください。
 
 ## メモリ
 
@@ -263,7 +267,7 @@ openclaw [--dev] [--profile <name>] <command>
 
 ## チャット スラッシュ コマンド
 
-チャット メッセージは、テキストおよびネイティブの `/...` コマンドをサポートします。[/tools/slash-commands](/tools/slash-commands) を参照してください。 [/tools/slash-commands](/tools/slash-commands) を参照してください。
+チャット メッセージは、テキストおよびネイティブの `/...` コマンドをサポートします。[/tools/slash-commands](/tools/slash-commands) を参照してください。 [/tools/slash-commands](/tools/slash-commands) を参照してください。 [/tools/slash-commands](/tools/slash-commands) を参照してください。
 
 ハイライト:
 
@@ -314,6 +318,11 @@ openclaw [--dev] [--profile <name>] <command>
 - `--zai-api-key <key>`
 - `--minimax-api-key <key>`
 - `--opencode-zen-api-key <key>`
+- `--custom-base-url <url>`（非対話モード; `--auth-choice custom-api-key` と併用）
+- `--custom-model-id <id>`（非対話モード; `--auth-choice custom-api-key` と併用）
+- `--custom-api-key <key>`（非対話モード; 任意; `--auth-choice custom-api-key` と併用; 省略時は `CUSTOM_API_KEY` にフォールバック）
+- `--custom-provider-id <id>`（非対話モード; 任意のカスタムプロバイダーID）
+- `--custom-compatibility <openai|anthropic>`（非対話モード; 任意; 既定値は `openai`）
 - `--gateway-port <port>`
 - `--gateway-bind <loopback|lan|tailnet|auto|custom>`
 - `--gateway-auth <token|password>`
@@ -339,7 +348,7 @@ openclaw [--dev] [--profile <name>] <command>
 
 ### `config`
 
-非対話的な設定ヘルパー (get/set/unset)。 非対話型の設定ヘルパー（get/set/unset）。サブコマンドなしで `openclaw config` を実行すると、ウィザードが起動します。
+非対話的な設定ヘルパー (get/set/unset)。 非対話的な設定ヘルパー (get/set/unset)。 非対話型の設定ヘルパー（get/set/unset）。サブコマンドなしで `openclaw config` を実行すると、ウィザードが起動します。
 
 サブコマンド:
 
@@ -444,7 +453,7 @@ openclaw status --deep
 
 ### `webhooks gmail`
 
-Gmail Pub/Sub フックのセットアップとランナーです。[/automation/gmail-pubsub](/automation/gmail-pubsub) を参照してください。 [/automation/gmail-pubsub](/automation/gmail-pubsub) を参照してください。
+Gmail Pub/Sub フックのセットアップとランナーです。[/automation/gmail-pubsub](/automation/gmail-pubsub) を参照してください。 Gmail Pub/Sub フックのセットアップとランナーです。[/automation/gmail-pubsub](/automation/gmail-pubsub) を参照してください。 [/automation/gmail-pubsub](/automation/gmail-pubsub) を参照してください。
 
 サブコマンド:
 
@@ -453,7 +462,7 @@ Gmail Pub/Sub フックのセットアップとランナーです。[/automation
 
 ### `dns setup`
 
-広域探索用 DNS ヘルパー（CoreDNS + Tailscale）。[/gateway/discovery](/gateway/discovery) を参照してください。 [/gateway/discovery](/gateway/discovery) を参照してください。
+広域探索用 DNS ヘルパー（CoreDNS + Tailscale）。[/gateway/discovery](/gateway/discovery) を参照してください。 [/gateway/discovery](/gateway/discovery) を参照してください。 [/gateway/discovery](/gateway/discovery) を参照してください。
 
 オプション:
 
@@ -519,7 +528,7 @@ Gateway（または埋め込みの `--local`）経由で、エージェントの
 
 #### `agents add [name]`
 
-新しいエージェントを追加します。 新しい分離エージェントを追加します。フラグ（または `--non-interactive`）が指定されていない場合は、ガイド付きウィザードを実行します。非対話型モードでは `--workspace` が必須です。
+新しいエージェントを追加します。 新しいエージェントを追加します。 新しい分離エージェントを追加します。フラグ（または `--non-interactive`）が指定されていない場合は、ガイド付きウィザードを実行します。非対話型モードでは `--workspace` が必須です。
 
 オプション:
 
@@ -714,6 +723,8 @@ Gateway CLI ヘルパー（RPC サブコマンドには `--url`, `--token`, `--p
 `--token` または `--password` を明示的に含めてください。明示的な資格情報がない場合はエラーとなります。
 `--url` を渡すと、CLI は設定や環境の資格情報を自動的に適用しません。
 明示的に `--token` または `--password` を含めます。 明示的な資格情報が見つかりませんでした。
+`--url` を渡すと、CLI は設定や環境の資格情報を自動的に適用しません。
+明示的に `--token` または `--password` を含めます。 明示的な資格情報が見つかりませんでした。
 
 サブコマンド:
 
@@ -885,7 +896,7 @@ openclaw models status
 
 ## Cron
 
-スケジュール ジョブを管理します（Gateway RPC）。[/automation/cron-jobs](/automation/cron-jobs) を参照してください。 [/automation/cron-jobs](/automation/cron-jobs) を参照してください。
+スケジュール ジョブを管理します（Gateway RPC）。[/automation/cron-jobs](/automation/cron-jobs) を参照してください。 [/automation/cron-jobs](/automation/cron-jobs) を参照してください。 [/automation/cron-jobs](/automation/cron-jobs) を参照してください。
 
 サブコマンド:
 
@@ -905,6 +916,7 @@ openclaw models status
 
 `node` は **ヘッドレス ノード ホスト** を実行するか、バックグラウンド サービスとして管理します。
 [`openclaw node`](/cli/node) を参照してください。
+[`openclawノード`](/cli/node)を参照してください。
 [`openclawノード`](/cli/node)を参照してください。
 
 サブコマンド:
@@ -960,7 +972,7 @@ openclaw models status
 
 ## ブラウザ
 
-ブラウザ制御 CLI（専用の Chrome/Brave/Edge/Chromium）。[`openclaw browser`](/cli/browser) および [Browser ツール](/tools/browser) を参照してください。 [`openclaw browser`](/cli/browser) と [Browser tool](/tools/browser) を参照してください。
+ブラウザ制御 CLI（専用の Chrome/Brave/Edge/Chromium）。[`openclaw browser`](/cli/browser) および [Browser ツール](/tools/browser) を参照してください。 ブラウザ制御 CLI（専用の Chrome/Brave/Edge/Chromium）。[`openclaw browser`](/cli/browser) および [Browser ツール](/tools/browser) を参照してください。 [`openclaw browser`](/cli/browser) と [Browser tool](/tools/browser) を参照してください。
 
 共通オプション:
 
@@ -1027,5 +1039,3 @@ Gateway に接続されたターミナル UI を開きます。
 - `--message <text>`
 - `--timeout-ms <ms>`（デフォルト: `agents.defaults.timeoutSeconds`）
 - `--history-limit <n>`
-
-

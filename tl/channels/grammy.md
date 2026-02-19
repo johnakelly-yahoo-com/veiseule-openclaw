@@ -1,4 +1,7 @@
 ---
+summary: "Integrasyon ng Telegram Bot API sa pamamagitan ng grammY na may mga tala sa setup"
+read_when:
+  - Kapag nagtatrabaho sa mga pathway ng Telegram o grammY
 title: grammY
 ---
 
@@ -18,7 +21,7 @@ title: grammY
 - **Gateway:** Ang `monitorTelegramProvider` ay bumubuo ng isang grammY `Bot`, ikinakabit ang mention/allowlist gating, pag-download ng media sa pamamagitan ng `getFile`/`download`, at naghahatid ng mga sagot gamit ang `sendMessage/sendPhoto/sendVideo/sendAudio/sendDocument`. Gateway enables webhook mode when `channels.telegram.webhookUrl` + `channels.telegram.webhookSecret` are set (otherwise it long-polls).
 - **Mga session:** ang mga direct chat ay pinagsasama sa pangunahing session ng agent (`agent:<agentId>:<mainKey>`); ang mga group ay gumagamit ng `agent:<agentId>:telegram:group:<chatId>`; ang mga reply ay niruruta pabalik sa parehong channel.
 - **Mga config knob:** `channels.telegram.botToken`, `channels.telegram.dmPolicy`, `channels.telegram.groups` (mga default ng allowlist + mention), `channels.telegram.allowFrom`, `channels.telegram.groupAllowFrom`, `channels.telegram.groupPolicy`, `channels.telegram.mediaMaxMb`, `channels.telegram.linkPreview`, `channels.telegram.proxy`, `channels.telegram.webhookSecret`, `channels.telegram.webhookUrl`.
-- **Suporta sa webhook:** Ang `webhook-set.ts` ay nagbabalot ng `setWebhook/deleteWebhook`; ang `webhook.ts` ay nagho-host ng callback na may health + maayos na shutdown. Pinapagana ng gateway ang webhook mode kapag naka-set ang `channels.telegram.webhookUrl` + `channels.telegram.webhookSecret` (kung hindi, long-poll ang gamit).
+- **Live stream preview:** ang opsyonal na `channels.telegram.streamMode` ay nagpapadala ng pansamantalang mensahe at ina-update ito gamit ang `editMessageText`. Pinapagana ng gateway ang webhook mode kapag naka-set ang `channels.telegram.webhookUrl` + `channels.telegram.webhookSecret` (kung hindi, long-poll ang gamit).
 - **Mga test:** sinasaklaw ng grammY mocks ang DM + group mention gating at outbound send; mas marami pang media/webhook fixtures ang malugod na tinatanggap.
 
 Mga bukas na tanong
@@ -26,5 +29,3 @@ Mga bukas na tanong
 - Mga opsyonal na grammY plugin (throttler) kung makaranas tayo ng Bot API 429s.
 - Magdagdag ng mas structured na media tests (stickers, voice notes).
 - Gawing configurable ang webhook listen port (kasalukuyang naka-fix sa 8787 maliban kung i-wire sa pamamagitan ng Gateway).
-
-

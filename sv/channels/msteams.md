@@ -1,4 +1,7 @@
 ---
+summary: "Stödstatus, funktioner och konfiguration för Microsoft Teams-bot"
+read_when:
+  - Arbetar med MS Teams-kanalfunktioner
 title: "Microsoft Teams"
 ---
 
@@ -152,14 +155,14 @@ Innan du konfigurerar OpenClaw behöver du skapa en Azure Bot-resurs.
 1. Gå till [Skapa Azure Bot](https://portal.azure.com/#create/Microsoft.AzureBot)
 2. Fyll i fliken **Basics**:
 
-   | Fält               | Värde                                                                                                         |
-   | ------------------ | ------------------------------------------------------------------------------------------------------------- |
-   | **Botnamn**     | Ditt bot namn, t.ex., `openclaw-msteams` (måste vara unik) |
-   | **Prenumeration**   | Välj din Azure-prenumeration                                                                                  |
-   | **Resursgrupp** | Skapa ny eller använd befintlig                                                                               |
-   | **Prisnivå**   | **Free** för utveckling/test                                                                                  |
+   | Fält              | Värde                                                                                                         |
+   | ----------------- | ------------------------------------------------------------------------------------------------------------- |
+   | **Botnamn**       | Ditt bot namn, t.ex., `openclaw-msteams` (måste vara unik) |
+   | **Prenumeration** | Välj din Azure-prenumeration                                                                                  |
+   | **Resursgrupp**   | Skapa ny eller använd befintlig                                                                               |
+   | **Prisnivå**      | **Free** för utveckling/test                                                                                  |
    | **Typ av app**    | **Single Tenant** (rekommenderas – se noten nedan)                                         |
-   | **Skapandetyp**  | **Skapa nytt Microsoft App-ID**                                                                               |
+   | **Skapandetyp**   | **Skapa nytt Microsoft App-ID**                                                                               |
 
 > **Avskrivningsanmälan:** Skapandet av nya flerhyresgäster försågs efter 2025-07-31. Använd **Enstaka hyresgäst** för nya botar.
 
@@ -421,7 +424,9 @@ Om du behöver bilder/filer i **kanaler** eller vill hämta **meddelandehistorik
 3. Öka Teams-appens **manifestversion**, ladda upp igen och **installera om appen i Teams**.
 4. **Avsluta Teams helt och starta om** för att rensa cachead appmetadata.
 
-## Kända begränsningar
+**Ytterligare behörighet för användaromnämnanden:** Användar-@mentions fungerar direkt för användare i konversationen. Men om du vill dynamiskt söka efter och omnämna användare som **inte finns i den aktuella konversationen**, lägg till behörigheten `User.Read.All` (Application) och ge administratörssamtycke.
+
+## Webhook-timeouts
 
 ### Webhook-timeouts
 
@@ -457,10 +462,10 @@ Nyckelinställningar (se `/gateway/configuration` för delade kanal-mönster):
 - `channels.msteams.mediaAuthAllowHosts`: tillåtelselista för att bifoga Authorization-headers vid medieomförsök (standard Graph + Bot Framework-värdar).
 - `channels.msteams.requireMention`: kräver @omnämnande i kanaler/grupper (standard true).
 - `channels.msteams.replyStyle`: `thread | top-level` (se [Svarsformat](#svarsformat-trådar-vs-inlägg)).
-- `channels.msteams.team.<teamId>.replyStyle`: åsidosätter per lag.
-- `channels.msteams.team.<teamId>.requireMention`: åsidosättning per lag.
-- `channels.msteams.team.<teamId>.tools`: standard policy för per-team overrides (`allow`/`deny`/`alsoAllow`) som används när en kanaloverride saknas.
-- `channels.msteams.team.<teamId>.toolsBySender`: standard per-team per-sender tool policy overrides (`"*"` wildcard stöds).
+- `channels.msteams.teams.<teamId>.replyStyle`: åsidosätter per lag.
+- `channels.msteams.teams.<teamId>.requireMention`: åsidosättning per lag.
+- `channels.msteams.teams.<teamId>.tools`: standard policy för per-team overrides (`allow`/`deny`/`alsoAllow`) som används när en kanaloverride saknas.
+- `channels.msteams.teams.<teamId>.toolsBySender`: standard per-team per-sender tool policy overrides (`"*"` wildcard stöds).
 - `channels.msteams.team.<teamId>.kanaler.<conversationId>.replyStyle`: åsidosätter per kanal.
 - `channels.msteams.team.<teamId>.kanaler.<conversationId>.requireMention`: åsidosättning per kanal.
 - `channels.msteams.team.<teamId>.kanaler.<conversationId>.tools`: policy för verktyg per kanal åsidosätter (`allow`/`deny`/`alsoAllow`).
@@ -733,7 +738,7 @@ Botar har begränsat stöd i privata kanaler:
 2. Använd DM:er – användare kan alltid skriva direkt till boten
 3. Använd Graph API för historisk åtkomst (kräver `ChannelMessage.Read.All`)
 
-## Felsökning
+## Vanliga problem
 
 ### Vanliga problem
 
@@ -765,5 +770,3 @@ Botar har begränsat stöd i privata kanaler:
 - [RSC-behörighetsreferens](https://learn.microsoft.com/en-us/microsoftteams/platform/graph-api/rsc/resource-specific-consent)
 - [Teams bot-filhantering](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/bots-filesv4) (kanal/grupp kräver Graph)
 - [Proaktiva meddelanden](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/conversations/send-proactive-messages)
-
-

@@ -1,8 +1,12 @@
 ---
-title: "Protokollierung"
+summary: "Logging-Oberflächen, Dateilogs, WS-Log-Stile und Konsolenformatierung"
+read_when:
+  - Ändern der Logging-Ausgabe oder -Formate
+  - Debugging der CLI- oder Gateway-Ausgabe
+title: "Logging"
 ---
 
-# Protokollierung
+# Logging
 
 Für einen benutzerorientierten Überblick (CLI + Control UI + Konfiguration) siehe [/logging](/logging).
 
@@ -107,5 +111,3 @@ Verhalten:
 - **WhatsApp-Nachrichteninhalte** werden auf `debug` geloggt (verwenden Sie `--verbose`, um sie zu sehen)
 
 Dies hält bestehende Dateilogs stabil und macht interaktive Ausgaben gut scannbar.
-
-

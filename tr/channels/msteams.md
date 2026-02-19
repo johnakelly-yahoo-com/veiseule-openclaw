@@ -1,10 +1,13 @@
 ---
+summary: "Microsoft Teams bot destek durumu, yetenekler ve yapılandırma"
+read_when:
+  - MS Teams kanal özellikleri üzerinde çalışırken
 title: "Microsoft Teams"
 ---
 
 # Microsoft Teams (eklenti)
 
-> "Buraya giren, bütün umudunu geride bıraksın."
+> "Abandon all hope, ye who enter here."
 
 Güncellendi: 2026-01-21
 
@@ -152,14 +155,14 @@ OpenClaw’ı yapılandırmadan önce bir Azure Bot kaynağı oluşturmanız ger
 1. [Azure Bot Oluştur](https://portal.azure.com/#create/Microsoft.AzureBot) sayfasına gidin
 2. **Basics** sekmesini doldurun:
 
-   | Alan              | Değer                                                                                     |
-   | ------------------ | ----------------------------------------------------------------------------------------- |
+   | Field                     | Değer                                                                                     |
+   | ------------------------- | ----------------------------------------------------------------------------------------- |
    | **Bot kullanıcı adı**     | Bot adınız, örn. `openclaw-msteams` (benzersiz olmalı) |
-   | **Abonelik**   | Azure aboneliğinizi seçin                                                                 |
-   | **Kaynak grubu** | Yeni oluşturun veya mevcut olanı kullanın                                                 |
-   | **Fiyatlandırma katmanı**   | Geliştirme/test için **Free**                                                             |
-   | **Uygulama türü**    | **Single Tenant** (önerilir - aşağıdaki nota bakın)                    |
-   | **Oluşturma türü**  | **Yeni Microsoft Uygulama Kimliği oluşturun**                                                           |
+   | **Abonelik**              | Azure aboneliğinizi seçin                                                                 |
+   | **Kaynak grubu**          | Yeni oluşturun veya mevcut olanı kullanın                                                 |
+   | **Fiyatlandırma katmanı** | Geliştirme/test için **Free**                                                             |
+   | **Uygulama türü**         | **Single Tenant** (önerilir - aşağıdaki nota bakın)                    |
+   | **Oluşturma türü**        | **Yeni Microsoft Uygulama Kimliği oluşturun**                                             |
 
 > **Kullanımdan kaldırma bildirimi:** Yeni çok kiracılı botların oluşturulması 2025-07-31’den sonra kullanımdan kaldırıldı. Yeni botlar için **Single Tenant** kullanın.
 
@@ -420,6 +423,8 @@ Ekler:
 2. **Grant admin consent** for the tenant.
 3. Teams uygulaması **manifest sürümünü** artırın, yeniden yükleyin ve **Teams’te uygulamayı yeniden kurun**.
 4. Önbelleğe alınmış uygulama meta verilerini temizlemek için **Teams’i tamamen kapatıp yeniden başlatın**.
+
+**Kullanıcı mention’ları için ek izin:** Kullanıcı @mention’ları, konuşmadaki kullanıcılar için varsayılan olarak çalışır. Ancak, **mevcut konuşmada olmayan** kullanıcıları dinamik olarak aramak ve mention’lamak istiyorsanız, `User.Read.All` (Application) iznini ekleyin ve yönetici onayı verin.
 
 ## Bilinen Sınırlamalar
 
@@ -733,7 +738,7 @@ Botların özel kanallarda desteği sınırlıdır:
 2. DM’leri kullanın — kullanıcılar her zaman botla doğrudan mesajlaşabilir
 3. Geçmiş erişimi için Graph API kullanın (`ChannelMessage.Read.All` gerektirir)
 
-## Sorun Giderme
+## Yaygın sorunlar
 
 ### Yaygın sorunlar
 
@@ -765,5 +770,3 @@ Botların özel kanallarda desteği sınırlıdır:
 - [RSC izinleri referansı](https://learn.microsoft.com/en-us/microsoftteams/platform/graph-api/rsc/resource-specific-consent)
 - [Teams bot dosya işleme](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/bots-filesv4) (kanal/grup için Graph gerekir)
 - [Proaktif mesajlaşma](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/conversations/send-proactive-messages)
-
-

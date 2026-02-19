@@ -1,4 +1,9 @@
 ---
+summary: "Qat’iy konfiguratsiya tekshiruvi + faqat doctor orqali migratsiyalar"
+read_when:
+  - Designing or implementing config validation behavior
+  - Working on config migrations or doctor workflows
+  - Handling plugin config schemas or plugin load gating
 title: "Qat’iy konfiguratsiya tekshiruvi"
 ---
 
@@ -44,7 +49,7 @@ title: "Qat’iy konfiguratsiya tekshiruvi"
 - 16. Agar konfiguratsiya noto‘g‘ri bo‘lsa:
   - 17. Qisqa xulosa va bajariladigan xatolarni chop etish.
   - 18. Ko‘rsatma berish: `openclaw doctor --fix`.
-- 19. `openclaw doctor --fix`:
+- `openclaw doctor --fix`:
   - 20. Migratsiyalarni qo‘llaydi.
   - 21. Noma’lum kalitlarni olib tashlaydi.
   - 22. Yangilangan konfiguratsiyani yozadi.
@@ -53,12 +58,12 @@ title: "Qat’iy konfiguratsiya tekshiruvi"
 
 24. Ruxsat etilgan (faqat diagnostika):
 
-- 25. `openclaw doctor`
-- 26. `openclaw logs`
-- 27. `openclaw health`
-- 28. `openclaw help`
-- 29. `openclaw status`
-- 30. `openclaw gateway status`
+- `openclaw doctor`
+- `openclaw logs`
+- `openclaw health`
+- `openclaw help`
+- `openclaw status`
+- `openclaw gateway status`
 
 31. Qolgan barcha buyruqlar quyidagi xabar bilan qat’iy rad etiladi: “Config invalid. 32. `openclaw doctor --fix` ni ishga tushiring.”
 
@@ -86,5 +91,3 @@ title: "Qat’iy konfiguratsiya tekshiruvi"
 - 49. Plaginda sxema yo‘q → plagin yuklanishi aniq xato bilan bloklanadi.
 - 50. Noto‘g‘ri konfiguratsiya → diagnostika buyruqlaridan tashqari gateway ishga tushishi bloklanadi.
 - Doctor dry-run avtomatik; `doctor --fix` tuzatilgan konfiguratsiyani yozadi.
-
-

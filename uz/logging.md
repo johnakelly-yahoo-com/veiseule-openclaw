@@ -1,4 +1,9 @@
 ---
+summary: "Loglash sharhi: fayl loglari, konsol chiqishi, CLI orqali kuzatish va Control UI"
+read_when:
+  - Sizga loglash bo‘yicha boshlovchilar uchun qulay sharh kerak
+  - 1. Siz jurnal (log) darajalari yoki formatlarini sozlamoqchisiz
+  - 2. Siz muammoni bartaraf etyapsiz va loglarni tezda topishingiz kerak
 title: "3. Loglash"
 ---
 
@@ -15,7 +20,7 @@ title: "3. Loglash"
 
 10. Sukut bo‘yicha, Gateway aylanuvchi log faylini quyidagi manzil ostida yozadi:
 
-11. `/tmp/openclaw/openclaw-YYYY-MM-DD.log`
+`/tmp/openclaw/openclaw-YYYY-MM-DD.log`
 
 12. Sana gateway xostining mahalliy vaqt mintaqasidan foydalanadi.
 
@@ -41,7 +46,7 @@ title: "3. Loglash"
 
 19. Chiqish rejimlari:
 
-- 20. **TTY sessiyalari**: chiroyli, rangli, tuzilgan log qatorlari.
+- Agar Gateway bilan aloqa qilib bo‘lmasa, CLI quyidagini ishga tushirish bo‘yicha qisqa maslahatni chiqaradi:
 - 21. **TTY bo‘lmagan sessiyalar**: oddiy matn.
 - 22. `--json`: qatorlarga bo‘lingan JSON (har bir qatorda bitta log hodisasi).
 - 23. `--plain`: TTY sessiyalarida oddiy matnni majburlash.
@@ -83,7 +88,7 @@ title: "3. Loglash"
 
 43. Konsol loglari **TTY’ga mos** va o‘qish qulayligi uchun formatlangan:
 
-- 44. Quyi tizim prefikslari (masalan, `gateway/channels/whatsapp`)
+- Barcha loglash sozlamalari `~/.openclaw/openclaw.json` dagi `logging` ostida joylashgan.
 - 45. Daraja bo‘yicha ranglash (info/warn/error)
 - 46. Ixtiyoriy ixcham yoki JSON rejimi
 
@@ -258,10 +263,9 @@ Flags are case-insensitive and support wildcards (e.g. `telegram.*` or `*`).
 
 ### 20. Eksport qilingan metrikalar (nomlari + turlari)
 
-21. Modeldan foydalanish:
+Model usage:
 
-- 22. `openclaw.tokens` (counter, atributlar: `openclaw.token`, `openclaw.channel`,
-      `openclaw.provider`, `openclaw.model`)
+- Navbatlar + sessiyalar:
 - 23. `openclaw.cost.usd` (counter, atributlar: `openclaw.channel`, `openclaw.provider`,
       `openclaw.model`)
 - 24. `openclaw.run.duration_ms` (histogram, atributlar: `openclaw.channel`,
@@ -269,7 +273,7 @@ Flags are case-insensitive and support wildcards (e.g. `telegram.*` or `*`).
 - 25. `openclaw.context.tokens` (histogram, atributlar: `openclaw.context`,
       `openclaw.channel`, `openclaw.provider`, `openclaw.model`)
 
-26. Xabarlar oqimi:
+Message flow:
 
 - 27. `openclaw.webhook.received` (counter, atributlar: `openclaw.channel`,
       `openclaw.webhook`)
@@ -298,15 +302,15 @@ Flags are case-insensitive and support wildcards (e.g. `telegram.*` or `*`).
 
 ### 42. Eksport qilingan spanlar (nomlari + asosiy atributlar)
 
-- 43. `openclaw.model.usage`
-  - 44. `openclaw.channel`, `openclaw.provider`, `openclaw.model`
-  - 45. `openclaw.sessionKey`, `openclaw.sessionId`
-  - 46. `openclaw.tokens.*` (input/output/cache_read/cache_write/total)
-- 47. `openclaw.webhook.processed`
-  - 48. `openclaw.channel`, `openclaw.webhook`, `openclaw.chatId`
-- 49. `openclaw.webhook.error`
-  - 50. `openclaw.channel`, `openclaw.webhook`, `openclaw.chatId`,
-        `openclaw.error`
+- `openclaw.model.usage`
+  - `openclaw.channel`, `openclaw.provider`, `openclaw.model`
+  - `openclaw.sessionKey`, `openclaw.sessionId`
+  - `openclaw.tokens.*` (input/output/cache_read/cache_write/total)
+- `openclaw.webhook.processed`
+  - `openclaw.channel`, `openclaw.webhook`, `openclaw.chatId`
+- `openclaw.webhook.error`
+  - `openclaw.channel`, `openclaw.webhook`, `openclaw.chatId`,
+    `openclaw.error`
 - `openclaw.message.processed`
   - `openclaw.channel`, `openclaw.outcome`, `openclaw.chatId`,
     `openclaw.messageId`, `openclaw.sessionKey`, `openclaw.sessionId`,
@@ -339,5 +343,3 @@ Flags are case-insensitive and support wildcards (e.g. `telegram.*` or `*`).
 - **Gateway ga ulanib bo‘lmayaptimi?** Avval `openclaw doctor` ni ishga tushiring.
 - **Loglar bo‘shmi?** Gateway ishlayotganini va `logging.file` da ko‘rsatilgan fayl yo‘liga yozayotganini tekshiring.
 - **Ko‘proq tafsilot kerakmi?** `logging.level` ni `debug` yoki `trace` ga o‘rnating va qayta urinib ko‘ring.
-
-

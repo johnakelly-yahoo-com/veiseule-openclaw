@@ -1,4 +1,7 @@
 ---
+summary: "Sprachaktivierung und Push-to-Talk-Modi sowie Routing-Details in der mac-App"
+read_when:
+  - Arbeit an Sprachaktivierungs- oder PTT-Pfaden
 title: "Sprachaktivierung"
 ---
 
@@ -62,5 +65,3 @@ Härtung:
 
 - Push-to-Talk aktivieren, Cmd+Fn gedrückt halten, sprechen, loslassen: Das Overlay sollte Teiltranskripte anzeigen und dann senden.
 - Während des Haltens sollten die Menüleisten-Ohren vergrößert bleiben (verwendet `triggerVoiceEars(ttl:nil)`); nach dem Loslassen werden sie wieder kleiner.
-
-

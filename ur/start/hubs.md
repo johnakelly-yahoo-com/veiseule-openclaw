@@ -1,4 +1,7 @@
 ---
+summary: "ایسے ہبز جو ہر OpenClaw دستاویز سے لنک کرتے ہیں"
+read_when:
+  - آپ کو دستاویزات کا مکمل نقشہ درکار ہو
 title: "دستاویزات کے ہبز"
 ---
 
@@ -192,5 +195,3 @@ title: "دستاویزات کے ہبز"
 - [جانچ](/reference/test)
 - [ریلیز چیک لسٹ](/reference/RELEASING)
 - [ڈیوائس ماڈلز](/reference/device-models)
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "8. `openclaw` buyruqlari, quyi buyruqlari va parametrlar uchun OpenClaw CLI ma’lumotnomasi"
+read_when:
+  - 9. CLI buyruqlari yoki parametrlarini qo‘shish yoki o‘zgartirish
+  - 10. Yangi buyruq interfeyslarini hujjatlashtirish
 title: "11. CLI ma’lumotnomasi"
 ---
 
@@ -8,40 +12,40 @@ title: "11. CLI ma’lumotnomasi"
 
 ## 15. Buyruq sahifalari
 
-- 16. [`setup`](/cli/setup)
-- 17. [`onboard`](/cli/onboard)
-- 18. [`configure`](/cli/configure)
-- 19. [`config`](/cli/config)
-- 20. [`doctor`](/cli/doctor)
-- 21. [`dashboard`](/cli/dashboard)
-- 22. [`reset`](/cli/reset)
-- 23. [`uninstall`](/cli/uninstall)
-- 24. [`update`](/cli/update)
-- 25. [`message`](/cli/message)
-- 26. [`agent`](/cli/agent)
-- 27. [`agents`](/cli/agents)
-- 28. [`acp`](/cli/acp)
-- 29. [`status`](/cli/status)
-- 30. [`health`](/cli/health)
-- 31. [`sessions`](/cli/sessions)
-- 32. [`gateway`](/cli/gateway)
-- 33. [`logs`](/cli/logs)
-- 34. [`system`](/cli/system)
-- 35. [`models`](/cli/models)
-- 36. [`memory`](/cli/memory)
-- 37. [`nodes`](/cli/nodes)
-- 38. [`devices`](/cli/devices)
-- 39. [`node`](/cli/node)
-- 40. [`approvals`](/cli/approvals)
-- 41. [`sandbox`](/cli/sandbox)
+- [`setup`](/cli/setup)
+- [`onboard`](/cli/onboard)
+- [`configure`](/cli/configure)
+- [`config`](/cli/config)
+- [`doctor`](/cli/doctor)
+- [`dashboard`](/cli/dashboard)
+- [`reset`](/cli/reset)
+- [`uninstall`](/cli/uninstall)
+- [`update`](/cli/update)
+- [`message`](/cli/message)
+- [`agent`](/cli/agent)
+- [`agents`](/cli/agents)
+- [`acp`](/cli/acp)
+- [`status`](/cli/status)
+- [`health`](/cli/health)
+- [`sessions`](/cli/sessions)
+- [`gateway`](/cli/gateway)
+- [`logs`](/cli/logs)
+- [`system`](/cli/system)
+- [`models`](/cli/models)
+- [`memory`](/cli/memory)
+- [`nodes`](/cli/nodes)
+- [`devices`](/cli/devices)
+- [`node`](/cli/node)
+- [`approvals`](/cli/approvals)
+- [`sandbox`](/cli/sandbox)
 - [`tui`](/cli/tui)
-- 43. [`browser`](/cli/browser)
-- 44. [`cron`](/cli/cron)
-- 45. [`dns`](/cli/dns)
-- 46. [`docs`](/cli/docs)
-- 47. [`hooks`](/cli/hooks)
-- 48. [`webhooks`](/cli/webhooks)
-- 49. [`pairing`](/cli/pairing)
+- [`browser`](/cli/browser)
+- [`cron`](/cli/cron)
+- [`dns`](/cli/dns)
+- [`docs`](/cli/docs)
+- [`hooks`](/cli/hooks)
+- [`webhooks`](/cli/webhooks)
+- [`pairing`](/cli/pairing)
 - 50. [`plugins`](/cli/plugins) (plagin buyruqlari)
 - [`channels`](/cli/channels)
 - [`security`](/cli/security)
@@ -277,7 +281,7 @@ Highlights:
 
 Konfiguratsiya va ish maydonini ishga tushirish.
 
-Variantlar:
+Options:
 
 - `--workspace <dir>`: agent ish maydoni yo‘li (standart `~/.openclaw/workspace`).
 - `--wizard`: onboarding ustasini ishga tushirish.
@@ -292,7 +296,7 @@ Wizard auto-runs when any wizard flags are present (`--non-interactive`, `--mode
 
 Gateway, ish maydoni va ko‘nikmalarni sozlash uchun interaktiv usta.
 
-Variantlar:
+Options:
 
 - `--workspace <dir>`
 - `--reset` (ustadan oldin konfiguratsiya + hisob ma’lumotlari + sessiyalar + ish maydonini tiklash)
@@ -314,6 +318,11 @@ Variantlar:
 - `--zai-api-key <key>`
 - `--minimax-api-key <key>`
 - `--opencode-zen-api-key <key>`
+- `--custom-base-url <url>` (interaktiv bo‘lmagan; `--auth-choice custom-api-key` bilan ishlatiladi)
+- `--custom-model-id <id>` (interaktiv bo‘lmagan; `--auth-choice custom-api-key` bilan ishlatiladi)
+- `--custom-api-key <key>` (interaktiv bo‘lmagan; ixtiyoriy; `--auth-choice custom-api-key` bilan ishlatiladi; kiritilmasa `CUSTOM_API_KEY` ga qaytadi)
+- `--custom-provider-id <id>` (interaktiv bo‘lmagan; ixtiyoriy custom provider id)
+- `--custom-compatibility <openai|anthropic>` (interaktiv bo‘lmagan; ixtiyoriy; standart qiymat `openai`)
 - `--gateway-port <port>`
 - `--gateway-bind <loopback|lan|tailnet|auto|custom>`
 - `--gateway-auth <token|password>`
@@ -341,7 +350,7 @@ Interaktiv konfiguratsiya ustasi (modellar, kanallar, ko‘nikmalar, gateway).
 
 No-interaktiv konfiguratsiya yordamchilari (get/set/unset). Hech qanday quyi buyruqsiz `openclaw config` ishga tushirilsa, ustani ochadi.
 
-Quyi buyruqlar:
+Subcommands:
 
 - `config get <path>`: konfiguratsiya qiymatini chop etish (nuqta/qavs yo‘li).
 - `config set <path> <value>`: qiymatni o‘rnatish (JSON5 yoki xom satr).
@@ -351,7 +360,7 @@ Quyi buyruqlar:
 
 Sog‘liq tekshiruvlari + tezkor tuzatishlar (config + gateway + eski xizmatlar).
 
-Variantlar:
+Options:
 
 - `--no-workspace-suggestions`: workspace xotira bo‘yicha maslahatlarni o‘chirish.
 - `--yes`: so‘rovsiz sukut bo‘yicha qiymatlarni qabul qilish (headless).
@@ -364,7 +373,7 @@ Variantlar:
 
 Chat kanallari hisoblarini boshqarish (WhatsApp/Telegram/Discord/Google Chat/Slack/Mattermost (plugin)/Signal/iMessage/MS Teams).
 
-Quyi buyruqlar:
+Subcommands:
 
 - `channels list`: sozlangan kanallar va autentifikatsiya profillarini ko‘rsatish.
 - `channels status`: gatewayga ulanishni va kanal sog‘lig‘ini tekshirish (`--probe` qo‘shimcha tekshiruvlarni bajaradi; gateway sog‘ligi uchun `openclaw health` yoki `openclaw status --deep` dan foydalaning).
@@ -375,7 +384,7 @@ Quyi buyruqlar:
 - `channels login`: interaktiv kanalga kirish (faqat WhatsApp Web).
 - `channels logout`: kanal sessiyasidan chiqish (qo‘llab-quvvatlansa).
 
-Umumiy variantlar:
+Common options:
 
 - `--channel <name>`: `whatsapp|telegram|discord|googlechat|slack|mattermost|signal|imessage|msteams`
 - `--account <id>`: kanal hisob identifikatori (sukut bo‘yicha `default`)
@@ -419,13 +428,13 @@ openclaw status --deep
 
 Mavjud skill’larni va ularning tayyorlik holatini ko‘rish va tekshirish.
 
-Pastki buyruqlar:
+Subcommands:
 
 - `skills list`: skill’lar ro‘yxati (pastki buyruq ko‘rsatilmasa, standart).
 - `skills info <name>`: show details for one skill.
 - `skills check`: tayyor va yetishmayotgan talablar bo‘yicha umumiy xulosa.
 
-Variantlar:
+Options:
 
 - `--eligible`: faqat tayyor skill’larni ko‘rsatish.
 - `--json`: JSON chiqishi (bezaksiz).
@@ -437,7 +446,7 @@ Maslahat: skill’larni qidirish, o‘rnatish va sinxronlash uchun `npx clawhub`
 
 Kanallar bo‘ylab DM pairing so‘rovlarini tasdiqlash.
 
-Pastki buyruqlar:
+Subcommands:
 
 - `pairing list <channel> [--json]`
 - `pairing approve <channel> <code> [--notify]`
@@ -446,7 +455,7 @@ Pastki buyruqlar:
 
 Gmail Pub/Sub hook sozlamasi va runner. Qarang: [/automation/gmail-pubsub](/automation/gmail-pubsub).
 
-Pastki buyruqlar:
+Subcommands:
 
 - `webhooks gmail setup` (`--account <email>` talab qilinadi; `--project`, `--topic`, `--subscription`, `--label`, `--hook-url`, `--hook-token`, `--push-token`, `--bind`, `--port`, `--path`, `--include-body`, `--max-bytes`, `--renew-minutes`, `--tailscale`, `--tailscale-path`, `--tailscale-target`, `--push-endpoint`, `--json` ni qo‘llab-quvvatlaydi)
 - `webhooks gmail run` (xuddi shu flag’lar uchun runtime override’lar)
@@ -455,7 +464,7 @@ Pastki buyruqlar:
 
 Keng hududli kashfiyot uchun DNS yordamchisi (CoreDNS + Tailscale). Qarang: [/gateway/discovery](/gateway/discovery).
 
-Variantlar:
+Options:
 
 - `--apply`: CoreDNS konfiguratsiyasini o‘rnatish/yangilash (sudo talab qilinadi; faqat macOS).
 
@@ -467,7 +476,7 @@ Yagona chiqish xabarlari va kanal amallari.
 
 Qarang: [/cli/message](/cli/message)
 
-Pastki buyruqlar:
+Subcommands:
 
 - `message send|poll|react|reactions|read|edit|delete|pin|unpin|pins|permissions|search|timeout|kick|ban`
 - `message thread <create|list|reply>`
@@ -635,7 +644,7 @@ Options:
 - `--non-interactive`
 - `--dry-run`
 
-Eslatmalar:
+Notes:
 
 - `--non-interactive` `--yes` va aniq ko‘rsatilgan scope’larni (yoki `--all`) talab qiladi.
 
@@ -645,7 +654,7 @@ Eslatmalar:
 
 WebSocket Gateway’ni ishga tushiring.
 
-Parametrlar:
+Options:
 
 - `--port <port>`
 - `--bind <loopback|tailnet|lan|auto|custom>`
@@ -669,7 +678,7 @@ Parametrlar:
 
 Gateway xizmatini boshqarish (launchd/systemd/schtasks).
 
-Pastki buyruqlar:
+Subcommands:
 
 - `gateway status` (standart bo‘yicha Gateway RPC’ni tekshiradi)
 - `gateway install` (xizmatni o‘rnatish)
@@ -678,7 +687,7 @@ Pastki buyruqlar:
 - `gateway stop`
 - `gateway restart`
 
-Eslatmalar:
+Notes:
 
 - `gateway status` standart bo‘yicha xizmatning aniqlangan port/konfiguratsiyasidan foydalanib Gateway RPC’ni tekshiradi (`--url/--token/--password` bilan almashtirish mumkin).
 - `gateway status` skriptlash uchun `--no-probe`, `--deep` va `--json` ni qo‘llab-quvvatlaydi.
@@ -692,7 +701,7 @@ Eslatmalar:
 
 RPC orqali Gateway fayl loglarini kuzatish.
 
-Eslatmalar:
+Notes:
 
 - TTY sessiyalar rangli, tuzilgan ko‘rinishni beradi; TTY bo‘lmaganda oddiy matnga o‘tiladi.
 - `--json` qatorma-qator JSON chiqaradi (har bir log hodisasi — alohida qatorda).
@@ -792,60 +801,60 @@ Set `agents.defaults.imageModel.primary`.
 
 Options:
 
-- 2. `list`: `--json`, `--plain`
-- 3. `add <alias> <model>`
-- 4. `remove <alias>`
+- `list`: `--json`, `--plain`
+- `add <alias> <model>`
+- `remove <alias>`
 
 ### 5. `models fallbacks list|add|remove|clear`
 
-6. Variantlar:
+Options:
 
-- 7. `list`: `--json`, `--plain`
-- 8. `add <model>`
-- 9. `remove <model>`
-- 10. `clear`
+- `list`: `--json`, `--plain`
+- `add <model>`
+- `remove <model>`
+- `clear`
 
 ### 11. `models image-fallbacks list|add|remove|clear`
 
-12. Variantlar:
+Options:
 
-- 13. `list`: `--json`, `--plain`
-- 14. `add <model>`
-- 15. `remove <model>`
-- 16. `clear`
+- `list`: `--json`, `--plain`
+- `add <model>`
+- `remove <model>`
+- `clear`
 
 ### 17. `models scan`
 
-18. Variantlar:
+Options:
 
-- 19. `--min-params <b>`
+- `--min-params <b>`
 - `--max-age-days <days>`
-- 21. `--provider <name>`
-- 22. `--max-candidates <n>`
-- 23. `--timeout <ms>`
-- 24. `--concurrency <n>`
-- 25. `--no-probe`
-- 26. `--yes`
-- 27. `--no-input`
-- 28. `--set-default`
-- 29. `--set-image`
-- 30. `--json`
+- `--provider <name>`
+- `--max-candidates <n>`
+- `--timeout <ms>`
+- `--concurrency <n>`
+- `--no-probe`
+- `--yes`
+- `--no-input`
+- `--set-default`
+- `--set-image`
+- `--json`
 
 ### 31. `models auth add|setup-token|paste-token`
 
-32. Variantlar:
+Options:
 
 - 33. `add`: interaktiv autentifikatsiya yordamchisi
 - 34. `setup-token`: `--provider <name>` (standart `anthropic`), `--yes`
-- 35. `paste-token`: `--provider <name>`, `--profile-id <id>`, `--expires-in <duration>`
+- `paste-token`: `--provider <name>`, `--profile-id <id>`, `--expires-in <duration>`
 
 ### 36. `models auth order get|set|clear`
 
-37. Variantlar:
+Options:
 
-- 38. `get`: `--provider <name>`, `--agent <id>`, `--json`
-- 39. `set`: `--provider <name>`, `--agent <id>`, `<profileIds...>`
-- 40. `clear`: `--provider <name>`, `--agent <id>`
+- `get`: `--provider <name>`, `--agent <id>`, `--json`
+- `set`: `--provider <name>`, `--agent <id>`, `<profileIds...>`
+- `clear`: `--provider <name>`, `--agent <id>`
 
 ## 41. Tizim
 
@@ -853,15 +862,15 @@ Options:
 
 43. Tizim hodisasini navbatga qo‘shadi va ixtiyoriy ravishda yurak urishini ishga tushiradi (Gateway RPC).
 
-44. Majburiy:
+Required:
 
-- 45. `--text <text>`
+- `--text <text>`
 
-46. Variantlar:
+Options:
 
-- 47. `--mode <now|next-heartbeat>`
-- 48. `--json`
-- 49. `--url`, `--token`, `--timeout`, `--expect-final`
+- `--mode <now|next-heartbeat>`
+- `--json`
+- `--url`, `--token`, `--timeout`, `--expect-final`
 
 ### 50. `system heartbeat last|enable|disable`
 
@@ -1024,5 +1033,3 @@ Options:
 - `--message <text>`
 - `--timeout-ms <ms>` (defaults to `agents.defaults.timeoutSeconds`)
 - `--history-limit <n>`
-
-

@@ -1,208 +1,211 @@
 ---
+summary: "Субагенты: запуск изолированных агентных прогонов, которые объявляют результаты обратно в чат инициатора"
+read_when:
+  - Вам нужна фоновая/параллельная работа через агента
+  - Вы изменяете sessions_spawn или политику инструментов субагентов
 title: "Субагенты"
 ---
 
 # Субагенты
 
-Субагенты — это фоновые запуски агента, создаваемые из уже существующего запуска. Они работают в собственной сессии (`agent:<agentId>:subagent:<uuid>`) и по завершении **объявляют** свой результат обратно в чат запрашивающей стороны.
+Sub-agents — это фоновые запуски агента, инициированные из существующего запуска агента. Они выполняются в собственной сессии (`agent:<agentId>:subagent:<uuid>`) и по завершении **объявляют** свой результат обратно в чат-канал запрашивающей стороны.
 
-## Слеш-команда
+## Slash command
 
-Используйте `/subagents`, чтобы просматривать и управлять запусками субагентов в **текущей сессии**:
+Используйте слеш-команду `/subagents` для просмотра и управления запусками субагентов в текущей сессии:
 
 - `/subagents list`
-- `/subagents kill <id|#|all>`
-- `/subagents log <id|#> [limit] [tools]`
-- `/subagents info <id|#>`
-- `/subagents send <id|#> <message>`
+- \`/subagents stop <id\\
+- \`/subagents log <id\\
+- \`/subagents info <id\\
+- \`/subagents send <id\\
 
 `/subagents info` показывает метаданные запуска (статус, временные метки, id сессии, путь к транскрипту, очистка).
 
 Основные цели:
 
-- Параллелить «исследование / длительные задачи / медленные инструменты», не блокируя основной запуск.
-- Держать субагентов изолированными по умолчанию (разделение сессий + опциональная песочница).
-- Минимизировать риск неправильного использования инструментов: субагенты **не** получают session-инструменты по умолчанию.
-- Поддерживать настраиваемую глубину вложенности для оркестраторных паттернов.
+- Распараллеливание задач типа «исследование / длительная задача / медленный инструмент» без блокировки основного запуска.
+- Сохранять изоляцию sub-agents по умолчанию (разделение сессий + опциональная песочница).
+- Сделать поверхность инструментов устойчивой к неправильному использованию: sub-agents по умолчанию **не** получают инструменты сессии.
+- Поддержка настраиваемой глубины вложенности для оркестрационных сценариев.
 
-Примечание о стоимости: каждый субагент имеет **собственный** контекст и расход токенов. Для тяжёлых или повторяющихся задач задавайте более дешёвую модель для субагентов, а основной агент оставляйте на более качественной модели. Это настраивается через `agents.defaults.subagents.model` или переопределения на уровне агента.
+Примечание о стоимости: каждый sub-agent имеет **собственный** контекст и потребление токенов. Для ресурсоёмких или повторяющихся
+задач установите более дешёвую модель для sub-agents, а для основного агента оставьте модель более высокого качества.
+In a multi-agent setup, you can set sub-agent defaults per agent:
 
-## Инструмент
+## #> [limit] [tools]\`
 
-Используйте `sessions_spawn`:
+Explicit `model` parameter in the `sessions_spawn` call
 
-- Запускает субагента (`deliver: false`, глобальная очередь: `subagent`)
-- Затем выполняет шаг announce и публикует announce-ответ в чат запрашивающей стороны
-- Модель по умолчанию: наследуется от вызывающего агента, если не задано `agents.defaults.subagents.model` (или `agents.list[].subagents.model`); явный `sessions_spawn.model` имеет приоритет.
-- Thinking по умолчанию: наследуется от вызывающего агента, если не задано `agents.defaults.subagents.thinking` (или `agents.list[].subagents.thinking`); явный `sessions_spawn.thinking` имеет приоритет.
+- Global default: `agents.defaults.subagents.thinking`
+- Затем выполняется шаг announce, и ответ announce публикуется в чат-канал запрашивающей стороны
+- Модель по умолчанию: наследуется от вызывающего агента, если не задано `agents.defaults.subagents.model` (или `agents.list[].subagents.model` для конкретного агента); явное значение `sessions_spawn.model` всё равно имеет приоритет.
+- Per-agent config: `agents.list[].subagents.thinking`
 
 Параметры инструмента:
 
-- `task` (обязательно)
-- `label?` (необязательно)
-- `agentId?` (необязательно; запустить под другим agent id, если разрешено)
-- `model?` (необязательно; переопределяет модель субагента; недопустимые значения игнорируются, и субагент запускается на модели по умолчанию с предупреждением в результате инструмента)
-- `thinking?` (необязательно; переопределяет уровень thinking для запуска субагента)
-- `runTimeoutSeconds?` (по умолчанию `0`; если задано, запуск субагента будет прерван через N секунд)
-- `cleanup?` (`delete|keep`, по умолчанию `keep`)
+- `task`
+- _(optional)_
+- Spawn under a different agent id (must be allowed)
+- Invalid model values are silently skipped — the sub-agent runs on the next valid default with a warning in the tool result.
+- `thinking?` (необязательно; переопределяет уровень thinking для запуска sub-agent)
+- Abort the sub-agent after N seconds
+- `"delete"` \\
 
-Список разрешённых агентов:
+Allowlist:
 
-- `agents.list[].subagents.allowAgents`: список agent id, которые можно указывать через `agentId` (`["*"]` — разрешить любые). По умолчанию: только агент-инициатор.
+- Per-agent config: `agents.list[].subagents.model` По умолчанию: только запрашивающий агент.
 
 Обнаружение:
 
-- Используйте `agents_list`, чтобы увидеть, какие agent id сейчас разрешены для `sessions_spawn`.
+- Use the `agents_list` tool to discover which agent ids are currently allowed for `sessions_spawn`.
 
-Автоархивация:
+Auto-Archive
 
-- Сессии субагентов автоматически архивируются через `agents.defaults.subagents.archiveAfterMinutes` (по умолчанию: 60).
-- Архивация использует `sessions.delete` и переименовывает транскрипт в `*.deleted.<timestamp>` (в той же папке).
-- `cleanup: "delete"` архивирует сразу после announce (транскрипт сохраняется через переименование).
-- Автоархивация выполняется по принципу best-effort; ожидающие таймеры теряются при перезапуске gateway.
-- `runTimeoutSeconds` **не** архивирует автоматически; он только останавливает запуск. Сессия остаётся до автоархивации.
+- Sub-agent sessions are automatically archived after a configurable period:
+- Archive renames the transcript to `*.deleted.` (та же папка).
+- `"delete"` archives immediately after announce
+- Auto-archive timers are best-effort; pending timers are lost if the gateway restarts.
+- `runTimeoutSeconds` does **not** auto-archive the session. The session remains until the normal archive timer fires.
 - Автоархивация одинаково применяется к сессиям глубины 1 и глубины 2.
 
-## Вложенные субагенты
+## Stopping Sub-Agents
 
-По умолчанию субагенты не могут создавать собственных субагентов (`maxSpawnDepth: 1`). Вы можете разрешить один уровень вложенности, установив `maxSpawnDepth: 2`, что позволяет использовать **паттерн оркестратора**: основной → субагент-оркестратор → суб-субагенты-воркеры.
+By default, sub-agents can only spawn under their own agent id. To allow an agent to spawn sub-agents under other agent ids:
 
 ### Как включить
 
 ```json5
 {
   agents: {
-    defaults: {
-      subagents: {
-        maxSpawnDepth: 2, // разрешить субагентам создавать дочерние (по умолчанию: 1)
-        maxChildrenPerAgent: 5, // макс. активных дочерних на сессию агента (по умолчанию: 5)
-        maxConcurrent: 8, // глобальный лимит конкурентности очереди (по умолчанию: 8)
-      },
-    },
+  defaults: {
+  subagents: {
+  model: "minimax/MiniMax-M2.1",
   },
-}
+  },
+  },
+  }
 ```
 
 ### Уровни глубины
 
-| Depth | Session key shape                            | Role                                          | Can spawn?                   |
-| ----- | -------------------------------------------- | --------------------------------------------- | ---------------------------- |
-| 0     | `agent:<id>:main`                            | Основной агент                               | Всегда                      |
-| 1     | `agent:<id>:subagent:<uuid>`                 | Субагент (оркестратор при depth 2)           | Только если `maxSpawnDepth >= 2` |
-| 2     | `agent:<id>:subagent:<uuid>:subagent:<uuid>` | Суб-субагент (воркер)                        | Никогда                     |
+| Глубина | Формат ключа сессии                                                                                                                                                                                                                                                                                                                                                                                                          | Роль                                                                 | Может создавать?                 |
+| ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------- |
+| 0       | `agentId`                                                                                                                                                                                                                                                                                                                                                                                                                    | Per-Agent Overrides                                                  | Всегда                           |
+| 1       | {&#xA;agents: {&#xA;defaults: {&#xA;subagents: {&#xA;thinking: "low",&#xA;},&#xA;},&#xA;},&#xA;}                                                                                                                                                                                                                                                             | Суб-агент (оркестратор, если разрешена глубина 2) | Только если `maxSpawnDepth >= 2` |
+| 2       | {&#xA;agents: {&#xA;list: [&#xA;{&#xA;id: "orchestrator",&#xA;subagents: {&#xA;allowAgents: ["researcher", "coder"], // or ["\*"] to allow any&#xA;},&#xA;},&#xA;],&#xA;},&#xA;} | Managing Sub-Agents (`/subagents`)                | Никогда                          |
 
 ### Цепочка announce
 
-Результаты поднимаются вверх по цепочке:
+Результаты передаются обратно вверх по цепочке:
 
-1. Воркер глубины 2 завершает работу → объявляет родителю (оркестратору глубины 1)
-2. Оркестратор глубины 1 получает announce, синтезирует результаты, завершает работу → объявляет основному агенту
-3. Основной агент получает announce и доставляет результат пользователю
+1. Исполнитель глубины 2 завершает работу → отправляет announce своему родителю (оркестратору глубины 1)
+2. Оркестратор глубины 1 получает announce, обобщает результаты, завершает работу → отправляет announce в main
+3. Основной агент получает announce и передаёт результат пользователю
 
-Каждый уровень видит announce только от своих прямых дочерних сессий.
+Каждый уровень видит только announce от своих непосредственных потомков.
 
-### Политика инструментов по глубине
+### Tool Policy
 
-- **Depth 1 (оркестратор, когда `maxSpawnDepth >= 2`)**: получает `sessions_spawn`, `subagents`, `sessions_list`, `sessions_history`, чтобы управлять дочерними. Остальные session/system-инструменты остаются запрещены.
-- **Depth 1 (лист, когда `maxSpawnDepth == 1`)**: без session-инструментов (текущее поведение по умолчанию).
-- **Depth 2 (воркер)**: без session-инструментов — `sessions_spawn` всегда запрещён на глубине 2. Не может создавать дальнейших дочерних.
+- **Глубина 1 (оркестратор, когда `maxSpawnDepth >= 2`)**: Получает `sessions_spawn`, `subagents`, `sessions_list`, `sessions_history`, чтобы управлять своими дочерними агентами. Остальные инструменты сессии/системы остаются недоступными.
+- **Глубина 1 (лист, когда `maxSpawnDepth == 1`)**: Нет инструментов сессии (поведение по умолчанию).
+- **Глубина 2 (исполнитель)**: Нет инструментов сессии — `sessions_spawn` всегда запрещён на глубине 2. Не может создавать дальнейших дочерних агентов.
 
-### Лимит дочерних на агента
+### Cross-Agent Spawning
 
-Каждая сессия агента (на любой глубине) может иметь не более `maxChildrenPerAgent` (по умолчанию: 5) активных дочерних одновременно. Это предотвращает неконтролируемый fan-out от одного оркестратора.
+Каждая сессия агента (на любой глубине) может иметь не более `maxChildrenPerAgent` (по умолчанию: 5) активных дочерних агентов одновременно. Это предотвращает неконтролируемое разрастание от одного оркестратора.
 
 ### Каскадная остановка
 
-Остановка оркестратора глубины 1 автоматически останавливает всех его дочерних глубины 2:
+Остановка оркестратора глубины 1 автоматически останавливает всех его дочерних агентов глубины 2:
 
-- `/stop` в основном чате останавливает всех агентов глубины 1 и каскадно их дочерних глубины 2.
-- `/subagents kill <id>` останавливает конкретного субагента и каскадно его дочерних.
-- `/subagents kill all` останавливает всех субагентов инициатора и каскадирует остановку.
+- `/stop` в основном чате останавливает всех агентов глубины 1 и каскадно их дочерних агентов глубины 2.
+- Aborts the main session **and** all active sub-agent runs spawned from it
+- `/subagents kill all` останавливает всех суб-агентов для инициатора запроса и выполняет каскадную остановку.
 
 ## Аутентификация
 
-Аутентификация субагента определяется по **id агента**, а не по типу сессии:
+Аутентификация субагента определяется **id агента**, а не типом сессии:
 
-- Ключ сессии субагента — `agent:<agentId>:subagent:<uuid>`.
-- Хранилище auth загружается из `agentDir` соответствующего агента.
-- Профили auth основного агента добавляются как **fallback**; профили агента имеют приоритет при конфликте.
+- Ключ сессии суб-агента: `agent:<agentId>:subagent:<uuid>`.
+- The auth store is loaded from the target agent's `agentDir`
+- The main agent's auth profiles are merged in as a **fallback** (agent profiles win on conflicts)
 
-Примечание: объединение аддитивное, поэтому профили основного агента всегда доступны как fallback. Полная изоляция auth на уровне агента пока не поддерживается.
+The merge is additive — main profiles are always available as fallbacks
+Fully isolated auth per sub-agent is not currently supported.
 
-## Announce
+## Announce Status
 
-Субагенты отчитываются через шаг announce:
+Суб-агенты отчитываются обратно через шаг announce:
 
-- Шаг announce выполняется внутри сессии субагента (не в сессии инициатора).
-- Если субагент отвечает ровно `ANNOUNCE_SKIP`, ничего не публикуется.
-- В противном случае announce-ответ публикуется в чат инициатора через follow-up вызов `agent` (`deliver=true`).
-- Announce-ответы сохраняют маршрутизацию тредов/тем, где это поддерживается (Slack threads, Telegram topics, Matrix threads).
-- Announce-сообщения нормализуются к стабильному шаблону:
+- Шаг announce выполняется внутри сессии суб-агента (а не в сессии инициатора запроса).
+- If no user-facing announcement is needed, the main-agent summarize step can return `NO_REPLY` and nothing is posted. This is different from `ANNOUNCE_SKIP`, which is used in agent-to-agent announce flow (`sessions_send`).
+- В противном случае ответ announce публикуется в чат инициатора запроса через последующий вызов `agent` (`deliver=true`).
+- Ответы объявления сохраняют маршрутизацию тредов/тем, где это доступно (треды Slack, темы Telegram, треды Matrix).
+- Сообщения announce приводятся к стабильному шаблону:
   - `Status:` определяется по результату выполнения (`success`, `error`, `timeout` или `unknown`).
-  - `Result:` краткое содержание из шага announce (или `(not available)`, если отсутствует).
-  - `Notes:` детали ошибок и полезный контекст.
-- `Status` не выводится из ответа модели; он определяется сигналами выполнения.
+  - `Result:` краткое содержимое из шага announce (или `(not available)`, если отсутствует).
+  - `Примечания:` детали ошибки и другой полезный контекст.
+- The announce message includes a status derived from the runtime outcome (not from model output):
 
-Announce-пейлоады включают строку статистики в конце (даже если сообщение обёрнуто):
+Each announce includes a stats line with:
 
 - Время выполнения (например, `runtime 5m12s`)
-- Расход токенов (input/output/total)
-- Оценочная стоимость, если настроены цены моделей (`models.providers.*.models[].cost`)
-- `sessionKey`, `sessionId` и путь к транскрипту (чтобы основной агент мог получить историю через `sessions_history` или открыть файл на диске)
+- Расход токенов (вход/выход/всего)
+- Estimated cost (when model pricing is configured via `models.providers.*.models[].cost`)
+- `sessionKey`, `sessionId` и путь к транскрипту (чтобы основной агент мог получить историю через `sessions_history` или просмотреть файл на диске)
 
-## Политика инструментов (инструменты субагента)
+## Customizing Sub-Agent Tools
 
-По умолчанию субагенты получают **все инструменты, кроме session-инструментов** и системных инструментов:
+By default, sub-agents get **all tools except** a set of denied tools that are unsafe or unnecessary for background tasks:
 
-- `sessions_list`
-- `sessions_history`
+- Explicit `thinking` parameter in the `sessions_spawn` call
+- `runTimeoutSeconds`
 - `sessions_send`
-- `sessions_spawn`
+- The `sessions_spawn` Tool
 
-Когда `maxSpawnDepth >= 2`, субагенты-оркестраторы глубины 1 дополнительно получают `sessions_spawn`, `subagents`, `sessions_list` и `sessions_history`, чтобы управлять своими дочерними.
+Когда `maxSpawnDepth >= 2`, суб-агенты оркестратора уровня глубины 1 дополнительно получают `sessions_spawn`, `subagents`, `sessions_list` и `sessions_history`, чтобы управлять своими дочерними агентами.
 
 Переопределение через конфигурацию:
 
 ```json5
 {
-  agents: {
-    defaults: {
-      subagents: {
-        maxConcurrent: 1,
-      },
-    },
-  },
   tools: {
     subagents: {
       tools: {
-        // deny wins
-        deny: ["gateway", "cron"],
-        // if allow is set, it becomes allow-only (deny still wins)
-        // allow: ["read", "exec", "process"]
+        allow: ["read", "exec", "process", "write", "edit", "apply_patch"],
+        // deny still wins if set
       },
     },
   },
 }
 ```
 
-## Конкурентность
+## Конвертация
 
-Субагенты используют выделенную очередь внутри процесса:
+Суб-агенты используют выделенную очередь внутри процесса:
 
 - Имя очереди: `subagent`
-- Конкурентность: `agents.defaults.subagents.maxConcurrent` (по умолчанию `8`)
+- {
+  agents: {
+  defaults: {
+  subagents: {
+  maxConcurrent: 4, // default: 8
+  },
+  },
+  },
+  }
 
 ## Остановка
 
-- Отправка `/stop` в чат инициатора прерывает его сессию и останавливает все активные запуски субагентов, созданные из неё, включая вложенных дочерних.
-- `/subagents kill <id>` останавливает конкретного субагента и каскадно его дочерних.
+- Отправка `/stop` в чате инициатора прерывает сессию инициатора и останавливает все активные запуски суб-агентов, созданные из неё, с каскадной остановкой вложенных дочерних агентов.
+- `/subagents stop <id>`
 
 ## Ограничения
 
-- Announce субагента выполняется по принципу **best-effort**. При перезапуске gateway ожидающие announce-задачи теряются.
-- Субагенты используют те же ресурсы процесса gateway; рассматривайте `maxConcurrent` как предохранитель.
-- `sessions_spawn` всегда неблокирующий: он немедленно возвращает `{ status: "accepted", runId, childSessionKey }`.
-- Контекст субагента включает только `AGENTS.md` + `TOOLS.md` (без `SOUL.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md` или `BOOTSTRAP.md`).
-- Максимальная глубина вложенности — 5 (`maxSpawnDepth` диапазон: 1–5). Для большинства случаев рекомендуется глубина 2.
-- `maxChildrenPerAgent` ограничивает число активных дочерних на сессию (по умолчанию: 5, диапазон: 1–20).
-
+- Объявление суб-агента выполняется в режиме **best-effort**. - **Best-effort announce:** If the gateway restarts, pending announce work is lost.
+- - **Shared resources:** Sub-agents share the gateway process; use `maxConcurrent` as a safety valve.
+- Вызов **неблокирующий** — основной агент немедленно получает `{ status: "accepted", runId, childSessionKey }`.
+- Контекст суб-агента включает только `AGENTS.md` + `TOOLS.md` (без `SOUL.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md` или `BOOTSTRAP.md`).
+- Максимальная глубина вложенности — 5 (диапазон `maxSpawnDepth`: 1–5). Для большинства случаев рекомендуется глубина 2.
+- `maxChildrenPerAgent` ограничивает количество активных дочерних агентов на сессию (по умолчанию: 5, диапазон: 1–20).

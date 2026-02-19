@@ -1,4 +1,9 @@
 ---
+summary: "CLI Gateway OpenClaw (`openclaw gateway`) — chạy, truy vấn và khám phá gateway"
+read_when:
+  - Chạy Gateway từ CLI (dev hoặc server)
+  - Gỡ lỗi xác thực Gateway, chế độ bind và kết nối
+  - Khám phá gateway qua Bonjour (LAN + tailnet)
 title: "gateway"
 ---
 
@@ -195,5 +200,3 @@ Ví dụ:
 openclaw gateway discover --timeout 4000
 openclaw gateway discover --json | jq '.beacons[].wsUrl'
 ```
-
-

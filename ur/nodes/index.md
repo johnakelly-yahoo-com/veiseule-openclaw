@@ -1,10 +1,15 @@
 ---
+summary: "نوڈز: جوڑی بنانا، صلاحیتیں، اجازتیں، اور کینوس/کیمرہ/اسکرین/سسٹم کے لیے CLI مددگار"
+read_when:
+  - گیٹ وے کے ساتھ iOS/Android نوڈز کو جوڑی بنانا
+  - ایجنٹ سیاق کے لیے نوڈ کینوس/کیمرہ کا استعمال
+  - نئے نوڈ کمانڈز یا CLI مددگار شامل کرنا
 title: "نوڈز"
 ---
 
 # نوڈز
 
-A **node** ایک معاون ڈیوائس (macOS/iOS/Android/headless) ہے جو Gateway کے **WebSocket** (آپریٹرز کے اسی پورٹ پر) سے `role: "node"` کے ساتھ منسلک ہوتی ہے اور `node.invoke` کے ذریعے ایک کمانڈ سرفیس (مثلاً `canvas.*`, `camera.*`, `system.*`) فراہم کرتی ہے۔ پروٹوکول کی تفصیلات: [Gateway پروٹوکول](/gateway/protocol).
+A **node** is a companion device (macOS/iOS/Android/headless) that connects to the Gateway **WebSocket** (same port as operators) with `role: "node"` and exposes a command surface (e.g. `canvas.*`, `camera.*`, `system.*`) via `node.invoke`. Protocol details: [Gateway protocol](/gateway/protocol).
 
 لیگیسی ٹرانسپورٹ: [Bridge protocol](/gateway/bridge-protocol) (TCP JSONL؛ متروک/موجودہ نوڈز کے لیے ہٹا دیا گیا)۔
 
@@ -12,13 +17,13 @@ macOS **node mode** میں بھی چل سکتا ہے: مینو بار ایپ Gat
 
 نوٹس:
 
-- Nodes **peripherals** ہیں، gateways نہیں۔ وہ gateway سروس نہیں چلاتے۔
+- Nodes are **peripherals**, not gateways. They don’t run the gateway service.
 - Telegram/WhatsApp وغیرہ کے پیغامات **gateway** پر آتے ہیں، نوڈز پر نہیں۔
 - خرابیوں کے ازالے کی رہنمائی: [/nodes/troubleshooting](/nodes/troubleshooting)
 
 ## پیئرنگ + حیثیت
 
-**WS nodes device pairing استعمال کرتے ہیں۔** Nodes `connect` کے دوران ایک ڈیوائس شناخت پیش کرتے ہیں؛ Gateway
+**WS nodes use device pairing.** Nodes present a device identity during `connect`; the Gateway
 creates a device pairing request for `role: node`. Approve via the devices CLI (or UI).
 
 فوری CLI:
@@ -272,7 +277,7 @@ openclaw nodes notify --node <idOrNameOrIp> --title "Ping" --body "Gateway ready
 - `system.notify` macOS ایپ میں نوٹیفکیشن اجازت کی حالت کا احترام کرتا ہے۔
 - `system.run` `--cwd`، `--env KEY=VAL`، `--command-timeout`، اور `--needs-screen-recording` کو سپورٹ کرتا ہے۔
 - `system.notify` `--priority <passive|active|timeSensitive>` اور `--delivery <system|overlay|auto>` کو سپورٹ کرتا ہے۔
-- macOS نوڈز `PATH` اووررائیڈز چھوڑ دیتے ہیں؛ headless node hosts صرف `PATH` قبول کرتے ہیں جب وہ node host PATH کو prepend کرے۔
+- Node hosts `PATH` اووررائیڈز کو نظر انداز کرتے ہیں۔ اگر آپ کو اضافی PATH اندراجات درکار ہوں، تو `--env` کے ذریعے `PATH` پاس کرنے کے بجائے node host سروس کے ماحول کو کنفیگر کریں (یا ٹولز کو معیاری لوکیشنز میں انسٹال کریں)۔
 - On macOS node mode, `system.run` is gated by exec approvals in the macOS app (Settings → Exec approvals).
   Ask/allowlist/full behave the same as the headless node host; denied prompts return `SYSTEM_RUN_DENIED`.
 - headless node host پر، `system.run` exec approvals (`~/.openclaw/exec-approvals.json`) کے تحت gated ہے۔
@@ -333,5 +338,3 @@ openclaw node run --host <gateway-host> --port 18789
 
 - macOS مینو بار ایپ Gateway WS سرور سے بطور نوڈ جڑتی ہے (لہٰذا `openclaw nodes …` اس میک کے خلاف کام کرتا ہے)۔
 - ریموٹ موڈ میں، ایپ Gateway پورٹ کے لیے SSH ٹنل کھولتی ہے اور `localhost` سے جڑتی ہے۔
-
-

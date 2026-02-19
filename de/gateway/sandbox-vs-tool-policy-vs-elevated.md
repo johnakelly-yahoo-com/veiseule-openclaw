@@ -1,5 +1,7 @@
 ---
 title: Sandbox vs. Tool-Policy vs. Erhöht
+summary: "„Warum ein Werkzeug blockiert ist: Sandbox-Laufzeit, Tool-Allow/Deny-Policy und erhöhte Exec-Gates“"
+read_when: "„Wenn Sie auf ‚Sandbox-Gefängnis‘ stoßen oder eine Tool-/Elevated-Verweigerung sehen und den exakten Konfigurationsschlüssel ändern möchten.“"
 status: active
 ---
 
@@ -124,5 +126,3 @@ Fix‑it‑Schlüssel (wählen Sie einen):
 ### „Ich dachte, das sei ‚main‘ – warum ist es sandboxed?“
 
 Im Modus `"non-main"` sind Gruppen-/Kanal‑Schlüssel _nicht_ „main“. Verwenden Sie den Hauptsitzungs‑Schlüssel (angezeigt durch `sandbox explain`) oder wechseln Sie den Modus zu `"off"`.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Beskedplatforme som OpenClaw kan forbinde til"
+read_when:
+  - Du vil vælge en chatkanal til OpenClaw
+  - Du har brug for et hurtigt overblik over understøttede beskedplatforme
 title: "Chatkanaler"
 ---
 
@@ -29,6 +33,7 @@ Tekst understøttes overalt; medier og reaktioner varierer fra kanal.
 - [Zalo](/channels/zalo) — Zalo Bot API; Vietnams populære messenger (plugin, installeres separat).
 - [Zalo Personal](/channels/zalouser) — Zalo personlig konto via QR-login (plugin, installeres separat).
 - [WebChat](/web/webchat) — Gateway WebChat-UI over WebSocket.
+- [WebChat](/web/webchat) — Gateway WebChat-UI over WebSocket.
 
 ## Noter
 
@@ -40,5 +45,3 @@ Tekst understøttes overalt; medier og reaktioner varierer fra kanal.
 - Telegram-internals: [grammY-noter](/channels/grammy).
 - Fejlfinding: [Kanal-fejlfinding](/channels/troubleshooting).
 - Modeludbydere dokumenteres separat; se [Modeludbydere](/providers/models).
-
-

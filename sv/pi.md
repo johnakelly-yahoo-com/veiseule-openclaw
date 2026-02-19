@@ -516,7 +516,7 @@ Detta ger en interaktiv terminalupplevelse liknande pi:s inbyggda läge.
 | Anrop             | `pi`-kommando / RPC                  | SDK via `createAgentSession()`                                                                                       |
 | Verktyg           | Standardverktyg för kodning          | Anpassad OpenClaw-verktygssvit                                                                                       |
 | Systemprompt      | AGENTS.md + prompter | Dynamisk per kanal/kontext                                                                                           |
-| Sessionslagring   | `~/.pi/agent/sessions/`              | `~/.openclaw/agents/<agentId>/sessions/` (eller `$OPENCLAW_STATE_DIR/agents/<agentId>/sessions/`) |
+| Sessionslagring   | `~/.pi/agent/sessions/`              | `~/.openclaw/agents/&lt;agentId&gt;/sessions/` (eller `$OPENCLAW_STATE_DIR/agents/&lt;agentId&gt;/sessions/`) |
 | Autentisering     | Enskild inloggning                   | Flera profiler med rotation                                                                                          |
 | Tillägg           | Laddas från disk                     | Programmatisk + disksökvägar                                                                                         |
 | Händelsehantering | TUI-rendering                        | Callback-baserad (onBlockReply, m.fl.)                            |
@@ -610,5 +610,3 @@ Alla befintliga tester som täcker pi-integrationen och dess tillägg:
 - `src/agents/pi-tools.policy.test.ts`
 - `src/agents/pi-tools.safe-bins.test.ts`
 - `src/agents/pi-tools.workspace-paths.test.ts`
-
-

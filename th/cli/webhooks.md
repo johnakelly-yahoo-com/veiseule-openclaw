@@ -1,4 +1,8 @@
 ---
+summary: "เอกสารอ้างอิงCLIสำหรับ `openclaw webhooks` (เครื่องมือช่วยเว็บฮุค + Gmail Pub/Sub)"
+read_when:
+  - คุณต้องการเชื่อมต่ออีเวนต์ Gmail Pub/Sub เข้ากับ OpenClaw
+  - คุณต้องการคำสั่งเครื่องมือช่วยเว็บฮุค
 title: "เว็บฮุค"
 ---
 
@@ -19,5 +23,3 @@ openclaw webhooks gmail run
 ```
 
 ดูเอกสาร [Gmail Pub/Sub](/automation/gmail-pubsub) สำหรับรายละเอียด
-
-

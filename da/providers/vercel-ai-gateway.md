@@ -1,5 +1,9 @@
 ---
 title: "Vercel AI Gateway"
+summary: "Opsætning af Vercel AI Gateway (autentificering + modelvalg)"
+read_when:
+  - Du vil bruge Vercel AI Gateway med OpenClaw
+  - Du har brug for API-nøglens miljøvariabel eller CLI-valg for autentificering
 ---
 
 # Vercel AI Gateway
@@ -44,5 +48,3 @@ openclaw onboard --non-interactive \
 Hvis Gateway kører som en daemon (launchd/systemd), skal du sikre, at `AI_GATEWAY_API_KEY`
 er tilgængelig for den proces (for eksempel i `~/.openclaw/.env` eller via
 `env.shellEnv`).
-
-

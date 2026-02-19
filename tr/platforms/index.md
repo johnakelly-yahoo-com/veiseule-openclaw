@@ -1,4 +1,8 @@
 ---
+summary: "Platform desteğine genel bakış (Gateway + yardımcı uygulamalar)"
+read_when:
+  - İşletim sistemi desteği veya kurulum yolları arıyorsanız
+  - Gateway’i nerede çalıştıracağınıza karar veriyorsanız
 title: "Platformlar"
 ---
 
@@ -47,5 +51,3 @@ Hizmet hedefi işletim sistemine bağlıdır:
 
 - macOS: LaunchAgent (`bot.molt.gateway` veya `bot.molt.<profile>`; eski `com.openclaw.*`)
 - Linux/WSL2: systemd kullanıcı hizmeti (`openclaw-gateway[-<profile>].service`)
-
-

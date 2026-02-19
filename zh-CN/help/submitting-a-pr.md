@@ -1,20 +1,21 @@
 ---
+summary: "如何提交高质量的 PR"
 title: "提交 PR"
 ---
 
-优秀的 PR 应该易于审查：审阅者应能快速理解意图、验证行为，并安全地合并更改。本指南介绍如何为人工和 LLM 审查提交简洁、高信号的 PR。
+Good PRs are easy to review: reviewers should quickly know the intent, verify behavior, and land changes safely. This guide covers concise, high-signal submissions for human and LLM review.
 
 ## 什么是优秀的 PR
 
 - [ ] 说明问题是什么、为什么重要，以及所做的更改。
-- [ ] 保持更改聚焦。避免大范围重构。
+- [ ] 保持更改聚焦。避免大范围重构。 Avoid broad refactors.
 - [ ] 总结对用户可见的更改，以及配置/默认值的变更。
 - [ ] 列出测试覆盖情况、跳过的测试及其原因。
-- [ ] 6. 添加证据：日志、截图或录屏（UI/UX）。
+- [ ] 添加证据：日志、截图或录屏（UI/UX）。
 - [ ] 代码暗号：如果你阅读了本指南，请在 PR 描述中写入“lobster-biscuit”。
 - [ ] 在创建 PR 之前运行/修复相关的 `pnpm` 命令。
 - [ ] Search codebase and GitHub for related functionality/issues/fixes.
-- [ ] 7. 基于证据或观察提出结论。
+- [ ] 基于证据或观察提出结论。
 - [ ] Good title: verb + scope + outcome (e.g., `Docs: add PR and issue templates`).
 
 Be concise; concise review > grammar. Omit any non-applicable sections.
@@ -51,7 +52,7 @@ Be concise; concise review > grammar. Omit any non-applicable sections.
 
 - [ ] Clear problem/intent
 - [ ] Focused scope
-- [ ] 8. 列出行为变更
+- [ ] 列出行为变更
 - [ ] List and result of tests
 - [ ] Manual test steps (when applicable)
 - [ ] No secrets/private data
@@ -395,5 +396,3 @@ pnpm format
 - Submitter effort:
 - Agent notes:
 ```
-
-

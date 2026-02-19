@@ -1,4 +1,7 @@
 ---
+summary: "Предоставить OpenAI-совместимую HTTP‑конечную точку /v1/chat/completions из Gateway (шлюза)"
+read_when:
+  - Интеграция инструментов, которые ожидают OpenAI Chat Completions
 title: "OpenAI Chat Completions"
 ---
 
@@ -23,6 +26,7 @@ Gateway (шлюз) OpenClaw может предоставлять небольш
 
 - Когда `gateway.auth.mode="token"`, используйте `gateway.auth.token` (или `OPENCLAW_GATEWAY_TOKEN`).
 - Когда `gateway.auth.mode="password"`, используйте `gateway.auth.password` (или `OPENCLAW_GATEWAY_PASSWORD`).
+- Если настроен `gateway.auth.rateLimit` и происходит слишком много неудачных попыток аутентификации, эндпоинт возвращает `429` с `Retry-After`.
 
 ## Выбор агента
 
@@ -113,5 +117,3 @@ curl -N http://127.0.0.1:18789/v1/chat/completions \
     "messages": [{"role":"user","content":"hi"}]
   }'
 ```
-
-

@@ -1,6 +1,11 @@
 ---
+summary: "Ritual de arranque del agente que inicializa el espacio de trabajo y los archivos de identidad"
+read_when:
+  - Comprender qué sucede en la primera ejecución del agente
+  - Explicar dónde viven los archivos de arranque
+  - Depurar la configuración de identidad durante la incorporación
 title: "Arranque del agente"
-sidebarTitle: "Arranque inicial"
+sidebarTitle: "Bootstrapping"
 ---
 
 # Arranque del agente
@@ -34,5 +39,3 @@ Cuando el Gateway se ejecuta en otra máquina, edite los archivos del espacio de
 
 - Incorporación de la app de macOS: [Onboarding](/start/onboarding)
 - Diseño del espacio de trabajo: [Agent workspace](/concepts/agent-workspace)
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Reference ng CLI para sa `openclaw memory` (status/index/search)"
+read_when:
+  - Gusto mong mag-index o maghanap sa semantic memory
+  - Nagde-debug ka ng availability o pag-index ng memory
 title: "memory"
 ---
 
@@ -39,5 +43,3 @@ Mga tala:
 - `memory status --deep --index` nagpapatakbo ng reindex kung marumi ang store.
 - `memory index --verbose` nagpi-print ng mga detalye kada phase (provider, model, sources, batch activity).
 - `memory status` isinasama ang anumang dagdag na path na naka-configure sa pamamagitan ng `memorySearch.extraPaths`.
-
-

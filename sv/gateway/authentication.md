@@ -1,4 +1,8 @@
 ---
+summary: "Modellautentisering: OAuth, API-nycklar och setup-token"
+read_when:
+  - Felsökning av modellautentisering eller OAuth-utgång
+  - Dokumentation av autentisering eller lagring av autentiseringsuppgifter
 title: "Autentisering"
 ---
 
@@ -137,5 +141,3 @@ saknas, reerun `claude setup-token` och klistra in token igen.
 
 - Claude Max‑ eller Pro‑prenumeration (för `claude setup-token`)
 - Claude Code CLI installerad (kommandot `claude` tillgängligt)
-
-

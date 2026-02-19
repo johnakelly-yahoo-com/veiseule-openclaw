@@ -1,4 +1,5 @@
 ---
+summary: "كيفية تقديم PR عالي الإشارة"
 title: "تقديم PR"
 ---
 
@@ -395,5 +396,3 @@ pnpm format
 - Submitter effort:
 - Agent notes:
 ```
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "Var OpenClaw laddar miljövariabler och i vilken prioritetsordning"
+read_when:
+  - Du behöver veta vilka miljövariabler som laddas och i vilken ordning
+  - Du felsöker saknade API-nycklar i Gateway (nätverksgateway)
+  - Du dokumenterar leverantörsautentisering eller driftsmiljöer
 title: "Miljövariabler"
 ---
 
@@ -73,13 +78,13 @@ Se [Konfiguration: Ersättning av miljövariabler](/gateway/configuration#env-va
 
 | Variabel               | Syfte                                                                                                                                                                                                                               |
 | ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `OPENCLAW_HOME`        | Åsidosätt hemkatalogen som används för all intern sökvägsupplösning (`~/.openclaw/`, agentkataloger, sessioner, autentiseringsuppgifter). Useful when running OpenClaw as a dedicated service user. |
-| `OPENCLAW_STATE_DIR`   | Åsidosätt tillståndskatalogen (standard `~/.openclaw`).                                                                                                                                            |
-| `OPENCLAW_CONFIG_PATH` | Åsidosätt sökvägen till konfigurationsfilen (standard `~/.openclaw/openclaw.json`).                                                                                                                             |
+| `OPENCLAW_HOME`        | Override the home directory used for all internal path resolution (`~/.openclaw/`, agent dirs, sessions, credentials). Useful when running OpenClaw as a dedicated service user. |
+| `OPENCLAW_STATE_DIR`   | Åsidosätt tillståndskatalogen (standard `~/.openclaw`).                                                                                                                                          |
+| `OPENCLAW_CONFIG_PATH` | Åsidosätt sökvägen till konfigurationsfilen (standard `~/.openclaw/openclaw.json`).                                                                                                              |
 
 ### `OPENCLAW_HOME`
 
-När den är satt ersätter `OPENCLAW_HOME` systemets hemkatalog (`$HOME` / `os.homedir()`) för all intern sökvägsupplösning. Detta möjliggör fullständig filsystemisolering för huvudlösa tjänstkonton.
+When set, `OPENCLAW_HOME` replaces the system home directory (`$HOME` / `os.homedir()`) for all internal path resolution. This enables full filesystem isolation for headless service accounts.
 
 **Prioritet:** `OPENCLAW_HOME` > `$HOME` > `USERPROFILE` > `os.homedir()`
 
@@ -93,12 +98,10 @@ När den är satt ersätter `OPENCLAW_HOME` systemets hemkatalog (`$HOME` / `os.
 </dict>
 ```
 
-`OPENCLAW_HOME` kan också sättas till en tilde-sökväg (t.ex. `~/svc`), som expanderas med hjälp av `$HOME` innan den används.
+`OPENCLAW_HOME` can also be set to a tilde path (e.g. `~/svc`), which gets expanded using `$HOME` before use.
 
 ## Relaterat
 
 - [Gateway-konfiguration](/gateway/configuration)
 - [Vanliga frågor: miljövariabler och .env-laddning](/help/faq#env-vars-and-env-loading)
 - [Översikt över modeller](/concepts/models)
-
-

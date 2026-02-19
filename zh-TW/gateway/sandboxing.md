@@ -1,11 +1,15 @@
 ---
+summary: "OpenClaw 沙箱隔離的運作方式：模式、範圍、工作區存取與映像"
 title: 沙箱隔離
+read_when: "當你需要關於沙箱隔離的專門說明，或需要調整 agents.defaults.sandbox。"
 status: active
 ---
 
 # 沙箱隔離
 
 OpenClaw 可以在 **Docker 容器內執行工具** 以降低影響範圍。
+This is **optional** and controlled by configuration (`agents.defaults.sandbox` or
+`agents.list[].sandbox`).
 This is **optional** and controlled by configuration (`agents.defaults.sandbox` or
 `agents.list[].sandbox`). If sandboxing is off, tools run on the host.
 The Gateway stays on the host; tool execution runs in an isolated sandbox
@@ -17,7 +21,7 @@ when enabled.
 
 - 工具執行（`exec`, `read`, `write`, `edit`, `apply_patch`, `process`，等）。
 - 選用的沙箱隔離瀏覽器（`agents.defaults.sandbox.browser`）。
-  - 預設情況下，當瀏覽器工具需要時，沙箱瀏覽器會自動啟動（確保可連線至 CDP）。
+  - By default, the sandbox browser auto-starts (ensures CDP is reachable) when the browser tool needs it.
     依預設，當瀏覽器工具需要時，沙箱瀏覽器會自動啟動（確保 CDP 可連線）。
     透過 `agents.defaults.sandbox.browser.autoStart` 與 `agents.defaults.sandbox.browser.autoStartTimeoutMs` 設定。
   - `agents.defaults.sandbox.browser.allowHostControl` 允許沙箱工作階段明確指向主機瀏覽器。
@@ -28,16 +32,17 @@ when enabled.
 - Gateway 閘道器 行程本身。
 - 任何明確允許在主機上執行的工具（例如 `tools.elevated`）。
   - **提升權限的 exec 會在主機上執行並繞過沙箱隔離。**
-  - 45. 若關閉沙箱，`tools.elevated` 不會改變執行方式（已在主機上）。 請參閱 [Elevated Mode](/tools/elevated)。
+  - 若關閉沙箱，`tools.elevated` 不會改變執行方式（已在主機上）。 請參閱 [Elevated Mode](/tools/elevated)。 請參閱 [Elevated Mode](/tools/elevated)。
 
 ## 模式
 
 `agents.defaults.sandbox.mode` 控制 **何時** 使用沙箱隔離：
 
 - `"off"`：不使用沙箱隔離。
-- 46. `"non-main"`：只對 **non-main** sessions 進行沙箱化（若你想讓一般聊天在主機上，這是預設）。
+- `"non-main"`：只對 **non-main** sessions 進行沙箱化（若你想讓一般聊天在主機上，這是預設）。
 - 5. `"all"`：每個工作階段都在沙盒中執行。
-注意：`"non-main"` 是根據 `session.mainKey`（預設為 `"main"`）而定，而不是依據 agent id。
+     `"all"`：每個工作階段都在沙盒中執行。
+     Note: `"non-main"` is based on `session.mainKey` (default `"main"`), not agent id.
      Group/channel sessions use their own keys, so they count as non-main and will be sandboxed.
 
 ## 8. 範圍
@@ -48,7 +53,7 @@ when enabled.
 - `"agent"`：每個代理程式一個容器。
 - `"shared"`：所有沙箱工作階段共用一個容器。
 
-## 工作區存取權限
+## Workspace access
 
 `agents.defaults.sandbox.workspaceAccess` 控制 **沙箱能看到什麼**：
 
@@ -56,20 +61,28 @@ when enabled.
 - `"ro"`：以唯讀方式將代理程式工作區掛載到 `/agent`（會停用 `write`/`edit`/`apply_patch`）。
 - `"rw"`：以可讀寫方式將代理程式工作區掛載到 `/workspace`。
 
-10. 傳入的媒體會被複製到作用中的沙盒工作區（`media/inbound/*`）。
-    Skills note: the `read` tool is sandbox-rooted. 傳入的媒體會被複製到目前作用中的沙箱工作區（`media/inbound/*`）。
-    Skills 注意事項：`read` 工具以沙箱根目錄為基準。搭配 `workspaceAccess: "none"`，
-    OpenClaw 會將符合條件的 skills 鏡像到沙箱工作區（`.../skills`）以供讀取。
-    使用 `"rw"` 時，工作區 skills 可從 `/workspace/skills` 讀取。 With `"rw"`, workspace skills are readable from
-    `/workspace/skills`.
+傳入的媒體會被複製到作用中的沙盒工作區（`media/inbound/*`）。
+Skills note: the `read` tool is sandbox-rooted.
+Skills note: the `read` tool is sandbox-rooted. 傳入的媒體會被複製到目前作用中的沙箱工作區（`media/inbound/*`）。
+Skills 注意事項：`read` 工具以沙箱根目錄為基準。搭配 `workspaceAccess: "none"`，
+OpenClaw 會將符合條件的 skills 鏡像到沙箱工作區（`.../skills`）以供讀取。
+使用 `"rw"` 時，工作區 skills 可從 `/workspace/skills` 讀取。 With `"rw"`, workspace skills are readable from
+`/workspace/skills`. With `"rw"`, workspace skills are readable from
+`/workspace/skills`.
 
 ## Custom bind mounts
 
 `agents.defaults.sandbox.docker.binds` 會將額外的主機目錄掛載到容器中。
 格式：`host:container:mode`（例如 `"/home/user/source:/source:rw"`）。
 Format: `host:container:mode` (e.g., `"/home/user/source:/source:rw"`).
+Format: `host:container:mode` (e.g., `"/home/user/source:/source:rw"`).
 
 Global and per-agent binds are **merged** (not replaced). Under `scope: "shared"`, per-agent binds are ignored.
+
+`agents.defaults.sandbox.browser.binds` 僅會將額外的主機目錄掛載到 **sandbox browser** 容器中。
+
+- 設定後（包含 `[]`），它會取代瀏覽器容器的 `agents.defaults.sandbox.docker.binds`。
+- 若未設定，瀏覽器容器會回退使用 `agents.defaults.sandbox.docker.binds`（向後相容）。
 
 範例（唯讀來源 + docker socket）：
 
@@ -136,6 +149,8 @@ Docker 安裝與容器化的 Gateway 閘道器 位於此處：
 
 `setupCommand` 只會在建立沙箱容器後 **執行一次**（不會在每次執行時）。
 它會透過 `sh -lc` 在容器內執行。
+`setupCommand` 只會在建立沙箱容器後 **執行一次**（不會在每次執行時）。
+它會透過 `sh -lc` 在容器內執行。
 It executes inside the container via `sh -lc`.
 
 路徑：
@@ -161,11 +176,12 @@ globally or per-agent, sandboxing doesn’t bring it back.
 `/exec` 指令僅對已授權的寄件者生效，並且會在每個工作階段中持續；若要硬性停用
 `exec`，請使用工具政策的拒絕（請參閱 [Sandbox vs Tool Policy vs Elevated](/gateway/sandbox-vs-tool-policy-vs-elevated)）。
 
-24. 偵錯：
+偵錯：
 
 - 使用 `openclaw sandbox explain` 檢視實際生效的沙箱模式、工具政策，以及修正設定金鑰。
 - 關於「為什麼會被阻擋？」的思維模型，請參閱 [Sandbox vs Tool Policy vs Elevated](/gateway/sandbox-vs-tool-policy-vs-elevated)。
   請務必保持嚴格限制。
+  Keep it locked down.
   Keep it locked down.
 
 ## 多代理程式覆寫
@@ -173,6 +189,7 @@ globally or per-agent, sandboxing doesn’t bring it back.
 每個代理程式都可以覆寫沙箱與工具：
 `agents.list[].sandbox` 與 `agents.list[].tools`（以及 `agents.list[].tools.sandbox.tools` 用於沙箱工具政策）。
 優先順序請參閱 [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools)。
+See [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) for precedence.
 See [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) for precedence.
 
 ## 最小啟用範例
@@ -196,5 +213,3 @@ See [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) for preceden
 - [Sandbox Configuration](/gateway/configuration#agentsdefaults-sandbox)
 - [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools)
 - [Security](/gateway/security)
-
-

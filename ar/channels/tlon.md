@@ -1,4 +1,7 @@
 ---
+summary: "حالة دعم Tlon/Urbit وقدراته وتهيئته"
+read_when:
+  - العمل على ميزات قناة Tlon/Urbit
 title: "Tlon"
 ---
 
@@ -47,6 +50,22 @@ openclaw plugins install ./extensions/tlon
       ship: "~sampel-palnet",
       url: "https://your-ship-host",
       code: "lidlut-tabwed-pillex-ridrup",
+    },
+  },
+}
+```
+
+عناوين URL الخاصة/داخل الشبكة (متقدم):
+
+افتراضيًا، يقوم OpenClaw بحظر أسماء المضيفين ونطاقات عناوين IP الخاصة/الداخلية لهذا الملحق (تعزيز أمان SSRF).
+إذا كان عنوان URL الخاص بالسفينة على شبكة خاصة (على سبيل المثال `http://192.168.1.50:8080` أو `http://localhost:8080`)،
+فيجب عليك تمكين ذلك صراحةً:
+
+```json5
+{
+  channels: {
+    tlon: {
+      allowPrivateNetwork: true,
     },
   },
 }
@@ -127,5 +146,3 @@ openclaw plugins install ./extensions/tlon
 - تتطلب الردود في المجموعات ذكرًا (مثل `~your-bot-ship`) للاستجابة.
 - الردود ضمن السلاسل: إذا كانت الرسالة الواردة ضمن سلسلة، يرد OpenClaw داخل السلسلة.
 - الوسائط: `sendMedia` يرتد إلى نص + عنوان URL (لا يوجد رفع أصلي).
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Endast JSON-baserade LLM-uppgifter för arbetsflöden (valfritt pluginverktyg)"
+read_when:
+  - Du vill ha ett LLM-steg som endast returnerar JSON i arbetsflöden
+  - Du behöver schemavaliderad LLM-utdata för automatisering
 title: "LLM-uppgift"
 ---
 
@@ -109,5 +113,3 @@ openclaw.invoke --tool llm-task --action json --args-json '{
 - Inga verktyg exponeras för modellen under denna körning.
 - Behandla utdata som opålitlig om du inte validerar med `schema`.
 - Lägg godkännanden före alla steg som har bieffekter (skicka, posta, exekvera).
-
-

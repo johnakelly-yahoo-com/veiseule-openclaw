@@ -1,10 +1,14 @@
 ---
+summary: "OpenClaw တွင် မော်ဒယ်များစွာကို ဝင်ရောက်အသုံးပြုရန် Qianfan ၏ ပေါင်းစည်းထားသော API ကို အသုံးပြုပါ"
+read_when:
+  - LLM များစွာအတွက် API key တစ်ခုတည်းကို အသုံးပြုလိုသောအခါ
+  - Baidu Qianfan ကို တပ်ဆင်သတ်မှတ်ရန် လမ်းညွှန်ချက်များ လိုအပ်သောအခါ
 title: "Qianfan"
 ---
 
 # Qianfan ပံ့ပိုးသူ လမ်းညွှန်
 
-Qianfan သည် Baidu ၏ MaaS ပလက်ဖောင်းဖြစ်ပြီး၊ **unified API** တစ်ခုကို ပံ့ပိုးပေးကာ မော်ဒယ်အများအပြားသို့ တောင်းဆိုချက်များကို တစ်ခုတည်းသော အင်တာဖေ့စ်၏ နောက်ကွယ်မှ လမ်းကြောင်းပြောင်းပေးပါသည်။
+Qianfan is Baidu's MaaS platform, provides a **unified API** that routes requests to many models behind a single
 endpoint and API key. It is OpenAI-compatible, so most OpenAI SDKs work by switching the base URL.
 
 ## ကြိုတင်လိုအပ်ချက်များ
@@ -32,5 +36,3 @@ openclaw onboard --auth-choice qianfan-api-key
 - [မော်ဒယ် ပံ့ပိုးသူများ](/concepts/model-providers)
 - [အေးဂျင့် တပ်ဆင်ခြင်း](/concepts/agent)
 - [Qianfan API စာရွက်စာတမ်းများ](https://cloud.baidu.com/doc/qianfan-api/s/3m7of64lb)
-
-

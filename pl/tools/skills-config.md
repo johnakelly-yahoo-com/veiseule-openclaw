@@ -1,4 +1,8 @@
 ---
+summary: "Schemat konfiguracji Skills oraz przykłady"
+read_when:
+  - Dodawanie lub modyfikowanie konfiguracji Skills
+  - Dostosowywanie dołączonej listy dozwolonych lub zachowania instalacji
 title: "Konfiguracja Skills"
 ---
 
@@ -70,5 +74,3 @@ Użyj jednego z poniższych:
 - wbuduj zmienne środowiskowe w niestandardowy obraz sandbox
 
 Globalne `env` oraz `skills.entries.<skill>.env/apiKey` mają zastosowanie wyłącznie do uruchomień na **hoście**.
-
-

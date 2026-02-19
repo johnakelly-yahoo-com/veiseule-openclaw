@@ -1,31 +1,36 @@
 ---
-title: "配對"
+summary: "Pairing overview: approve who can DM you + which nodes can join"
+read_when:
+  - Setting up DM access control
+  - 配對新的 iOS / Android 節點
+  - 檢視 OpenClaw 的安全性狀態
+title: "Pairing"
 ---
 
-# 配對
+# Pairing
 
 「配對」是 OpenClaw 明確的 **擁有者核准** 步驟。
 它用於兩個地方：
 It is used in two places:
 
-1. **私訊配對**（誰被允許與機器人對話）
+1. **DM pairing** (who is allowed to talk to the bot)
 2. **節點配對**（哪些裝置／節點被允許加入 gateway 網路）
 
 安全性背景： [Security](/gateway/security)
 
 ## 1. 私訊配對（入站聊天存取）
 
-當頻道的私訊政策設定為 `pairing` 時，未知的傳送者會收到一組簡短代碼，且其訊息在你核准之前**不會被處理**。
+When a channel is configured with DM policy `pairing`, unknown senders get a short code and their message is **not processed** until you approve.
 
 預設的私訊政策記載於：[安全性](/gateway/security)
 
 配對碼：
 
 - 8 個字元，全大寫，無易混淆字元（`0O1I`）。
-- **1 小時後過期**。機器人僅在建立新的配對請求時才會傳送配對訊息（大約每位傳送者每小時一次）。
-- 待處理的私訊配對請求預設每個頻道最多 **3 筆**；在其中一筆過期或獲得核准之前，其他請求將會被忽略。
+- **Expire after 1 hour**. The bot only sends the pairing message when a new request is created (roughly once per hour per sender).
+- Pending DM pairing requests are capped at **3 per channel** by default; additional requests are ignored until one expires or is approved.
 
-### 核准傳送者
+### Approve a sender
 
 ```bash
 openclaw pairing list telegram
@@ -47,6 +52,7 @@ Treat these as sensitive (they gate access to your assistant).
 
 節點會以 **裝置** 的形式連線到 Gateway 閘道器，並使用 `role: node`。Gateway 閘道器
 會建立一個裝置配對請求，必須先被核准。 The Gateway
+creates a device pairing request that must be approved. The Gateway
 creates a device pairing request that must be approved.
 
 ### Pair via Telegram (recommended for iOS)
@@ -98,5 +104,3 @@ openclaw devices reject <requestId>
   - iMessage（舊版）： [iMessage](/channels/imessage)
   - Discord： [Discord](/channels/discord)
   - Slack： [Slack](/channels/slack)
-
-

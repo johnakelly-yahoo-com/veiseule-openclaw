@@ -1,4 +1,8 @@
 ---
+summary: "Use o Xiaomi MiMo (mimo-v2-flash) com o OpenClaw"
+read_when:
+  - Voce quer modelos Xiaomi MiMo no OpenClaw
+  - Voce precisa configurar a XIAOMI_API_KEY
 title: "Xiaomi MiMo"
 ---
 
@@ -55,5 +59,3 @@ openclaw onboard --auth-choice xiaomi-api-key --xiaomi-api-key "$XIAOMI_API_KEY"
 - Referência do modelo: `xiaomi/mimo-v2-flash`.
 - O provedor é injetado automaticamente quando `XIAOMI_API_KEY` é definido (ou quando existe um perfil de autenticação).
 - Veja [/concepts/model-providers](/concepts/model-providers) para regras de provedores.
-
-

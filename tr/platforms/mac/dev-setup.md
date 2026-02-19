@@ -1,4 +1,7 @@
 ---
+summary: "OpenClaw macOS uygulaması üzerinde çalışan geliştiriciler için kurulum kılavuzu"
+read_when:
+  - macOS geliştirme ortamının kurulumu
 title: "macOS Geliştirici Kurulumu"
 ---
 
@@ -13,7 +16,7 @@ Uygulamayı derlemeden önce aşağıdakilerin yüklü olduğundan emin olun:
 1. **Xcode 26.2+**: Swift geliştirme için gereklidir.
 2. **Node.js 22+ & pnpm**: gateway, CLI ve paketleme betikleri için gereklidir.
 
-## 1) Bağımlılıkları Yükleyin
+## 2) Uygulamayı Derleyin ve Paketleyin
 
 Proje genelindeki bağımlılıkları yükleyin:
 
@@ -99,5 +102,3 @@ lsof -nP -iTCP:18789 -sTCP:LISTEN
 ```
 
 Manuel bir çalıştırma portu tutuyorsa, bu süreci durdurun (Ctrl+C). Son çare olarak, yukarıda bulduğunuz PID’yi sonlandırın.
-
-

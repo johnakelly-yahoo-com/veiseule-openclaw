@@ -1,4 +1,8 @@
 ---
+summary: "Indicateurs de diagnostic pour des journaux de debogage cibles"
+read_when:
+  - Vous avez besoin de journaux de debogage cibles sans augmenter les niveaux de journalisation globaux
+  - Vous devez capturer des journaux specifiques a un sous-systeme pour le support
 title: "Indicateurs de diagnostic"
 ---
 
@@ -85,5 +89,3 @@ Pour les Gateway (passerelle) distants, vous pouvez egalement utiliser `openclaw
 - Si `logging.level` est defini a un niveau superieur a `warn`, ces journaux peuvent etre supprimes. La valeur par defaut `info` convient.
 - Les indicateurs peuvent rester actives sans risque ; ils n’affectent que le volume de journaux pour le sous-systeme specifique.
 - Utilisez [/logging](/logging) pour modifier les destinations de journaux, les niveaux et la redaction.
-
-

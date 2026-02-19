@@ -1,4 +1,9 @@
 ---
+summary: "Network ဟပ်: Gateway မျက်နှာပြင်များ၊ pairing၊ discovery နှင့် လုံခြုံရေး"
+read_when:
+  - Network ဖွဲ့စည်းပုံနှင့် လုံခြုံရေး အနှစ်ချုပ်ကို လိုအပ်သောအခါ
+  - local နှင့် tailnet ဝင်ရောက်မှု သို့မဟုတ် pairing ကို ပြဿနာရှာဖွေနေသောအခါ
+  - Network ဆိုင်ရာ စာတမ်းများ၏ စံပြစာရင်းကို လိုချင်သောအခါ
 title: "ကွန်ယက်"
 ---
 
@@ -45,5 +50,3 @@ Local ယုံကြည်မှု:
 - [Gateway config reference](/gateway/configuration)
 - [Troubleshooting](/gateway/troubleshooting)
 - [Doctor](/gateway/doctor)
-
-

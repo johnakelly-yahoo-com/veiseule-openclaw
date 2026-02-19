@@ -1,4 +1,7 @@
 ---
+summary: "Reglas de enrutamiento por canal (WhatsApp, Telegram, Discord, Slack) y contexto compartido"
+read_when:
+  - Al cambiar el enrutamiento de canales o el comportamiento de la bandeja de entrada
 title: "Enrutamiento de canales"
 ---
 
@@ -41,11 +44,15 @@ Ejemplos:
 El enrutamiento selecciona **un agente** para cada mensaje entrante:
 
 1. **Coincidencia exacta del par** (`bindings` con `peer.kind` + `peer.id`).
-2. **Coincidencia de gremio** (Discord) mediante `guildId`.
-3. **Coincidencia de equipo** (Slack) mediante `teamId`.
-4. **Coincidencia de cuenta** (`accountId` en el canal).
-5. **Coincidencia de canal** (cualquier cuenta en ese canal).
-6. **Agente predeterminado** (`agents.list[].default`; de lo contrario, la primera entrada de la lista; con respaldo a `main`).
+2. **Coincidencia de par principal** (herencia de hilo).
+3. Hilos:
+4. **Coincidencia de gremio** (Discord) mediante `guildId`.
+5. **Coincidencia de equipo** (Slack) mediante `teamId`.
+6. **Coincidencia de cuenta** (`accountId` en el canal).
+7. **Coincidencia de canal** (cualquier cuenta en ese canal).
+8. **Agente predeterminado** (`agents.list[].default`; de lo contrario, la primera entrada de la lista; con respaldo a `main`).
+
+Cuando una vinculación incluye múltiples campos de coincidencia (`peer`, `guildId`, `teamId`, `roles`), **todos los campos proporcionados deben coincidir** para que esa vinculación se aplique.
 
 El agente coincidente determina qué espacio de trabajo y almacén de sesiones se utilizan.
 
@@ -109,5 +116,3 @@ Las respuestas entrantes incluyen:
 - El contexto citado se agrega a `Body` como un bloque `[Replying to ...]`.
 
 Esto es consistente en todos los canales.
-
-

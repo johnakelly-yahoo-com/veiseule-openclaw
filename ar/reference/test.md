@@ -1,4 +1,7 @@
 ---
+summary: "كيفية تشغيل الاختبارات محليًا (Vitest) ومتى يُستحسن استخدام أوضاع الفرض/التغطية"
+read_when:
+  - تشغيل الاختبارات أو إصلاحها
 title: "الاختبارات"
 ---
 
@@ -10,7 +13,9 @@ title: "الاختبارات"
 
 - `pnpm test:coverage`: يشغّل Vitest مع تغطية V8. العتبات العامة هي 70% للأسطر/الفروع/الدوال/العبارات. تستبعد التغطية نقاط الدخول الثقيلة بالتكامل (توصيل CLI، جسور gateway/telegram، خادم الويب الثابت للدردشة) للحفاظ على تركيز الهدف على منطق قابل لاختبارات الوحدات.
 
-- `pnpm test:e2e`: يشغّل اختبارات دخان شاملة من الطرف إلى الطرف للـ Gateway (اقتران متعدد النسخ عبر WS/HTTP/العُقد).
+- `pnpm test` على Node 24+: يقوم OpenClaw بتعطيل Vitest `vmForks` تلقائيًا ويستخدم `forks` لتجنب `ERR_VM_MODULE_LINK_FAILURE` / `module is already linked`. يمكنك فرض السلوك باستخدام `OPENCLAW_TEST_VM_FORKS=0|1`.
+
+- `pnpm test:e2e`: يشغّل اختبارات دخان شاملة من الطرف إلى الطرف للـ Gateway (اقتران متعدد النسخ عبر WS/HTTP/العُقد). القيمة الافتراضية هي `vmForks` + عمّال تكيفيون في `vitest.e2e.config.ts`؛ يمكنك ضبطها باستخدام `OPENCLAW_E2E_WORKERS=<n>` وتعيين `OPENCLAW_E2E_VERBOSE=1` للحصول على سجلات تفصيلية.
 
 - `pnpm test:live`: يشغّل اختبارات مباشرة للموفّرين (minimax/zai). يتطلّب مفاتيح API و `LIVE=1` (أو `*_LIVE_TEST=1` الخاص بالموفّر) لإلغاء التخطي.
 
@@ -48,5 +53,3 @@ scripts/e2e/onboard-docker.sh
 ```bash
 pnpm test:docker:qr
 ```
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "„Schnelle kanalbezogene Fehlerbehebung mit kanalspezifischen Fehlersignaturen und Korrekturen“"
+read_when:
+  - Der Kanal-Transport meldet verbunden, aber Antworten schlagen fehl
+  - Sie benötigen kanalspezifische Prüfungen vor dem Einstieg in tiefe Anbieter-Dokumentation
 title: "„Kanal-Fehlerbehebung“"
 ---
 
@@ -28,7 +32,7 @@ Gesunde Basislinie:
 
 ### WhatsApp-Fehlersignaturen
 
-| Symptom                               | Schnellste Prüfung                                                  | Lösung                                                                                              |
+| Symptom                               | Schnellste Prüfung                                                  | Fix                                                                                              |
 | ------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
 | Verbunden, aber keine DM-Antworten    | `openclaw pairing list whatsapp`                                    | Absender genehmigen oder DM-Richtlinie/Allowlist wechseln.                       |
 | Gruppenmeldungen werden ignoriert     | Prüfen Sie `requireMention` + Erwähnungsmuster in der Konfiguration | Erwähnen Sie den Bot oder lockern Sie die Erwähnungsrichtlinie für diese Gruppe. |
@@ -40,11 +44,12 @@ Vollständige Fehlerbehebung: [/channels/whatsapp#troubleshooting-quick](/channe
 
 ### Telegram-Fehlersignaturen
 
-| Symptom                                   | Schnellste Prüfung                                     | Lösung                                                                                      |
-| ----------------------------------------- | ------------------------------------------------------ | ---------------------------------------------------------------------------------------- |
-| `/start` aber kein nutzbarer Antwortfluss | `openclaw pairing list telegram`                       | Kopplung genehmigen oder DM-Richtlinie ändern.                           |
-| Bot online, aber Gruppe bleibt still      | Erwähnungspflicht und Datenschutzmodus des Bots prüfen | Datenschutzmodus für Gruppensichtbarkeit deaktivieren oder Bot erwähnen. |
-| Sende-Fehler mit Netzwerkfehlern          | Logs auf Telegram-API-Aufruf-Fehler prüfen             | DNS/IPv6/Proxy-Routing zu `api.telegram.org` korrigieren.                |
+| Symptom                                          | Schnellste Prüfung                                     | Fix                                                                                                               |
+| ------------------------------------------------ | ------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
+| `/start` aber kein nutzbarer Antwortfluss        | `openclaw pairing list telegram`                       | Kopplung genehmigen oder DM-Richtlinie ändern.                                                    |
+| Bot online, aber Gruppe bleibt still             | Erwähnungspflicht und Datenschutzmodus des Bots prüfen | Datenschutzmodus für Gruppensichtbarkeit deaktivieren oder Bot erwähnen.                          |
+| Sende-Fehler mit Netzwerkfehlern                 | Logs auf Telegram-API-Aufruf-Fehler prüfen             | DNS/IPv6/Proxy-Routing zu `api.telegram.org` korrigieren.                                         |
+| Upgrade durchgeführt und Allowlist blockiert Sie | `openclaw security audit` und Config-Allowlisten       | Führen Sie `openclaw doctor --fix` aus oder ersetzen Sie `@username` durch numerische Sender-IDs. |
 
 Vollständige Fehlerbehebung: [/channels/telegram#troubleshooting](/channels/telegram#troubleshooting)
 
@@ -110,5 +115,3 @@ Vollständige Fehlerbehebung: [/channels/signal#troubleshooting](/channels/signa
 | Verschlüsselte Räume schlagen fehl          | Kryptomodul und Verschlüsselungseinstellungen prüfen | Verschlüsselungsunterstützung aktivieren und Raum erneut beitreten/synchronisieren. |
 
 Vollständige Fehlerbehebung: [/channels/matrix#troubleshooting](/channels/matrix#troubleshooting)
-
-

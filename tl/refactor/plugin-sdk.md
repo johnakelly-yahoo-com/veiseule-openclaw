@@ -1,4 +1,8 @@
 ---
+summary: "Plano: isang malinis na plugin SDK + runtime para sa lahat ng messaging connector"
+read_when:
+  - Pagtukoy o pagre-refactor ng plugin architecture
+  - Pag-migrate ng mga channel connector papunta sa plugin SDK/runtime
 title: "Refactor ng Plugin SDK"
 ---
 
@@ -208,5 +212,3 @@ Mga tala:
 - Maaaring idevelop at i-update ang mga external plugin nang walang access sa core source.
 
 Kaugnay na docs: [Plugins](/tools/plugin), [Channels](/channels/index), [Configuration](/gateway/configuration).
-
-

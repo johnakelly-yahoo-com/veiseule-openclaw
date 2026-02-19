@@ -1,10 +1,14 @@
 ---
+summary: "Áp dụng các bản vá nhiều tệp bằng công cụ apply_patch"
+read_when:
+  - Bạn cần chỉnh sửa tệp có cấu trúc trên nhiều tệp
+  - Bạn muốn ghi lại tài liệu hoặc gỡ lỗi các chỉnh sửa dựa trên bản vá
 title: "Công cụ apply_patch"
 ---
 
 # công cụ apply_patch
 
-Áp dụng các thay đổi tệp bằng định dạng bản vá có cấu trúc. Điều này lý tưởng cho nhiều tệp
+Apply file changes using a structured patch format. This is ideal for multi-file
 or multi-hunk edits where a single `edit` call would be brittle.
 
 Công cụ chấp nhận một chuỗi `input` duy nhất, bao bọc một hoặc nhiều thao tác trên tệp:
@@ -29,7 +33,8 @@ Công cụ chấp nhận một chuỗi `input` duy nhất, bao bọc một hoặ
 ## Ghi chú
 
 - Đường dẫn được phân giải tương đối so với thư mục gốc của workspace.
-- Dùng `*** Move to:` trong một hunk `*** Update File:` để đổi tên tệp.
+- `tools.exec.applyPatch.workspaceOnly` mặc định là `true` (giới hạn trong workspace). Chỉ đặt thành `false` nếu bạn cố ý muốn `apply_patch` ghi/xóa bên ngoài thư mục workspace.
+- `*** End of File` đánh dấu chèn chỉ-EOF khi cần.
 - `*** End of File` đánh dấu chèn chỉ-EOF khi cần.
 - Experimental and disabled by default. Enable with `tools.exec.applyPatch.enabled`.
 - OpenAI-only (including OpenAI Codex). Optionally gate by model via
@@ -44,5 +49,3 @@ Công cụ chấp nhận một chuỗi `input` duy nhất, bao bọc một hoặ
   "input": "*** Begin Patch\n*** Update File: src/index.ts\n@@\n-const foo = 1\n+const foo = 2\n*** End Patch"
 }
 ```
-
-

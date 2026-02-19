@@ -1,4 +1,9 @@
 ---
+summary: "Ansible, Tailscale VPN ve güvenlik duvarı yalıtımı ile otomatikleştirilmiş, güçlendirilmiş OpenClaw kurulumu"
+read_when:
+  - Güvenlik güçlendirmesiyle otomatik sunucu dağıtımı istiyorsanız
+  - VPN erişimi olan, güvenlik duvarıyla yalıtılmış bir kurulum gerekiyorsa
+  - Uzak Debian/Ubuntu sunucularına dağıtım yapıyorsanız
 title: "Ansible"
 ---
 
@@ -55,7 +60,7 @@ Kurulum tamamlandıktan sonra openclaw kullanıcısına geçin:
 sudo -i -u openclaw
 ```
 
-Bun yaşam döngüsü betikleri (varsayılan olarak engellenmiştir)
+Kurulum sonrası betik sizi şu konularda yönlendirecek:
 
 1. **Onboarding sihirbazı**: OpenClaw ayarlarını yapılandırma
 2. **Sağlayıcı girişi**: WhatsApp/Telegram/Discord/Signal bağlama
@@ -191,9 +196,9 @@ openclaw channels login
 
 Ayrıntılı güvenlik mimarisi ve sorun giderme için:
 
-- [Güvenlik Mimarisi](https://github.com/openclaw/openclaw-ansible/blob/main/docs/security.md)
-- [Teknik Ayrıntılar](https://github.com/openclaw/openclaw-ansible/blob/main/docs/architecture.md)
-- [Sorun Giderme Kılavuzu](https://github.com/openclaw/openclaw-ansible/blob/main/docs/troubleshooting.md)
+- [Security Architecture](https://github.com/openclaw/openclaw-ansible/blob/main/docs/security.md)
+- [Technical Details](https://github.com/openclaw/openclaw-ansible/blob/main/docs/architecture.md)
+- [Troubleshooting Guide](https://github.com/openclaw/openclaw-ansible/blob/main/docs/troubleshooting.md)
 
 ## İlgili
 
@@ -201,5 +206,3 @@ Ayrıntılı güvenlik mimarisi ve sorun giderme için:
 - [Docker](/install/docker) — konteynerleştirilmiş gateway kurulumu
 - [Sandboxing](/gateway/sandboxing) — ajan sandbox yapılandırması
 - [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) — ajan başına yalıtım
-
-

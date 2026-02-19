@@ -1,4 +1,8 @@
 ---
+summary: "मॉडल प्रमाणीकरण: OAuth, API कुंजियाँ, और सेटअप-टोकन"
+read_when:
+  - मॉडल प्रमाणीकरण या OAuth की समाप्ति का डीबगिंग
+  - प्रमाणीकरण या क्रेडेंशियल संग्रहण का दस्तावेज़ीकरण
 title: "प्रमाणीकरण"
 ---
 
@@ -140,5 +144,3 @@ openclaw models status
 
 - Claude Max या Pro सदस्यता (`claude setup-token` के लिए)
 - Claude Code CLI स्थापित (`claude` कमांड उपलब्ध)
-
-

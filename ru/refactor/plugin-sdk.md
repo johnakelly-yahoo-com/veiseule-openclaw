@@ -1,4 +1,8 @@
 ---
+summary: "План: единый чистый SDK плагинов + runtime для всех коннекторов сообщений"
+read_when:
+  - Определение или рефакторинг архитектуры плагинов
+  - Миграция коннекторов каналов на SDK/runtime плагинов
 title: "Рефакторинг SDK плагинов"
 ---
 
@@ -208,5 +212,3 @@ export type PluginRuntime = {
 - Внешние плагины можно разрабатывать и обновлять без доступа к исходному коду core.
 
 Связанная документация: [Plugins](/tools/plugin), [Channels](/channels/index), [Configuration](/gateway/configuration).
-
-

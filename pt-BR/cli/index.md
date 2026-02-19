@@ -1,4 +1,8 @@
 ---
+summary: "Referência da CLI do OpenClaw para comandos, subcomandos e opções do `openclaw`"
+read_when:
+  - Ao adicionar ou modificar comandos ou opções da CLI
+  - Ao documentar novas superfícies de comando
 title: "Referência da CLI"
 ---
 
@@ -314,6 +318,11 @@ Opções:
 - `--zai-api-key <key>`
 - `--minimax-api-key <key>`
 - `--opencode-zen-api-key <key>`
+- `--custom-base-url <url>` (não interativo; usado com `--auth-choice custom-api-key`)
+- `--custom-model-id <id>` (não interativo; usado com `--auth-choice custom-api-key`)
+- `--custom-api-key <key>` (não interativo; opcional; usado com `--auth-choice custom-api-key`; usa `CUSTOM_API_KEY` como fallback quando omitido)
+- `--custom-provider-id <id>` (não interativo; opcional; id personalizado do provedor)
+- `--custom-compatibility <openai|anthropic>` (não interativo; opcional; padrão `openai`)
 - `--gateway-port <port>`
 - `--gateway-bind <loopback|lan|tailnet|auto|custom>`
 - `--gateway-auth <token|password>`
@@ -1026,5 +1035,3 @@ Opções:
 - `--message <text>`
 - `--timeout-ms <ms>` (padrão `agents.defaults.timeoutSeconds`)
 - `--history-limit <n>`
-
-

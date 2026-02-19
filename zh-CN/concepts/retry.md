@@ -1,12 +1,9 @@
 ---
-title: 重试策略
-x-i18n:
-  generated_at: "2026-02-01T20:23:37Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 55bb261ff567f46ce447be9c0ee0c5b5e6d2776287d7662762656c14108dd607
-  source_path: concepts/retry.md
-  workflow: 14
+summary: "出站提供商调用的重试策略"
+read_when:
+  - 更新提供商重试行为或默认值
+  - 调试提供商发送错误或速率限制
+title: "重试策略"
 ---
 
 # 重试策略
@@ -68,7 +65,5 @@ x-i18n:
 
 ## 注意事项
 
-- 重试按请求应用（消息发送、媒体上传、表情回应、投票、贴纸）。
+- 11. 重试按请求生效（消息发送、媒体上传、反应、投票、贴纸）。
 - 组合流程不会重试已完成的步骤。
-
-

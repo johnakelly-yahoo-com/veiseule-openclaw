@@ -1,12 +1,10 @@
 ---
-title: Exec 主机重构
-x-i18n:
-  generated_at: "2026-02-03T07:54:43Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 53a9059cbeb1f3f1dbb48c2b5345f88ca92372654fef26f8481e651609e45e3a
-  source_path: refactor/exec-host.md
-  workflow: 15
+summary: "重构计划：exec 主机路由、节点批准和无头运行器"
+read_when:
+  - 设计 exec 主机路由或 exec 批准
+  - 实现节点运行器 + UI IPC
+  - 添加 exec 主机安全模式和斜杠命令
+title: "Exec 主机重构"
 ---
 
 # Exec 主机重构计划
@@ -17,7 +15,7 @@ x-i18n:
 - 保持默认**安全**：除非明确启用，否则不进行跨主机执行。
 - 将执行拆分为**无头运行器服务**，通过本地 IPC 连接可选的 UI（macOS 应用）。
 - 提供**每智能体**策略、允许列表、询问模式和节点绑定。
-- 支持*与*或*不与*允许列表一起使用的**询问模式**。
+- 支持_与_或_不与_允许列表一起使用的**询问模式**。
 - 跨平台：Unix socket + token 认证（macOS/Linux/Windows 一致性）。
 
 ## 非目标
@@ -41,7 +39,7 @@ x-i18n:
 
 ## 关键概念
 
-### 主机
+### Host
 
 - `sandbox`：Docker exec（当前行为）。
 - `gateway`：在 Gateway 网关主机上执行。
@@ -63,7 +61,7 @@ x-i18n:
 
 ### 策略解析（每次执行）
 
-1. 解析 `exec.host`（工具参数 → 智能体覆盖 → 全局默认）。
+1. Resolve `exec.host` (tool param → agent override → global default).
 2. 解析 `exec.security` 和 `exec.ask`（相同优先级）。
 3. 如果主机是 `sandbox`，继续本地沙箱执行。
 4. 如果主机是 `gateway` 或 `node`，在该主机上应用安全 + 询问策略。
@@ -98,10 +96,10 @@ x-i18n:
 - `agents.list[].tools.exec.ask`
 - `agents.list[].tools.exec.node`
 
-### 别名
+### 18. 别名
 
 - `/elevated on` = 为智能体会话设置 `tools.exec.host=gateway`、`tools.exec.security=full`。
-- `/elevated off` = 为智能体会话恢复之前的 exec 设置。
+- 20. `/elevated off` = 为 agent 会话恢复之前的 exec 设置。
 
 ## 批准存储（JSON）
 
@@ -200,7 +198,7 @@ Agent -> Gateway -> Bridge -> Node Service (TS)
 - 使用 Bridge 配对中的现有 `nodeId`。
 - 绑定模型：
   - `tools.exec.node` 将智能体限制为特定节点。
-  - 如果未设置，智能体可以选择任何节点（策略仍强制执行默认值）。
+  - 13. 若未设置，agent 可选择任意 node（策略仍会强制默认值）。
 - 节点选择解析：
   - `nodeId` 精确匹配
   - `displayName`（规范化）
@@ -211,7 +209,7 @@ Agent -> Gateway -> Bridge -> Node Service (TS)
 
 ### 谁看到事件
 
-- 系统事件是**每会话**的，在下一个提示时显示给智能体。
+- 21. 系统事件是**按会话**的，并在下一次提示时展示给 agent。
 - 存储在 Gateway 网关内存队列中（`enqueueSystemEvent`）。
 
 ### 事件文本
@@ -243,7 +241,7 @@ Agent -> Gateway -> Bridge -> Node Service (TS)
 - Gateway 网关进程在其自己的机器上执行。
 - 强制执行本地 `exec-approvals.json`（安全/询问/允许列表）。
 
-### 节点主机
+### 40. Node 主机
 
 - Gateway 网关调用 `node.invoke` 配合 `system.run`。
 - 运行器强制执行本地批准。
@@ -258,7 +256,7 @@ Agent -> Gateway -> Bridge -> Node Service (TS)
 ## 斜杠命令
 
 - `/exec host=<sandbox|gateway|node> security=<deny|allowlist|full> ask=<off|on-miss|always> node=<id>`
-- 每智能体、每会话覆盖；除非通过配置保存，否则非持久。
+- Per-agent, per-session overrides; non-persistent unless saved via config.
 - `/elevated on|off|ask|full` 仍然是 `host=gateway security=full` 的快捷方式（`full` 跳过批准）。
 
 ## 跨平台方案
@@ -300,7 +298,7 @@ Agent -> Gateway -> Bridge -> Node Service (TS)
 ## 测试计划
 
 - 单元测试：允许列表匹配（glob + 不区分大小写）。
-- 单元测试：策略解析优先级（工具参数 → 智能体覆盖 → 全局）。
+- Unit tests: policy resolution precedence (tool param → agent override → global).
 - 集成测试：节点运行器拒绝/允许/询问流程。
 - Bridge 事件测试：节点事件 → 系统事件路由。
 
@@ -316,5 +314,3 @@ Agent -> Gateway -> Bridge -> Node Service (TS)
 - [执行批准](/tools/exec-approvals)
 - [节点](/nodes)
 - [提升模式](/tools/elevated)
-
-

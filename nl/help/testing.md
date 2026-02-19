@@ -1,4 +1,9 @@
 ---
+summary: "Testkit: unit/e2e/live-suites, Docker-runners en wat elke test dekt"
+read_when:
+  - Tests lokaal of in CI uitvoeren
+  - Regressies toevoegen voor model/provider-bugs
+  - Gateway- en agentgedrag debuggen
 title: "Testen"
 ---
 
@@ -37,9 +42,9 @@ Zie de suites als “toenemende realiteit” (en toenemende instabiliteit/kosten
 ### Unit / integratie (standaard)
 
 - Opdracht: `pnpm test`
-- Config: `vitest.config.ts`
+- Config: `scripts/test-parallel.mjs` (voert `vitest.unit.config.ts`, `vitest.extensions.config.ts`, `vitest.gateway.config.ts` uit)
 - Bestanden: `src/**/*.test.ts`
-- Reikwijdte:
+- Scope:
   - Pure unit-tests
   - In-process integratietests (Gateway-authenticatie, routering, tooling, parsing, config)
   - Deterministische regressies voor bekende bugs
@@ -47,12 +52,23 @@ Zie de suites als “toenemende realiteit” (en toenemende instabiliteit/kosten
   - Draait in CI
   - Geen echte sleutels vereist
   - Snel en stabiel
+- Pool-opmerking:
+  - OpenClaw gebruikt Vitest `vmForks` op Node 22/23 voor snellere unit-shards.
+  - Op Node 24+ schakelt OpenClaw automatisch terug naar reguliere `forks` om Node VM-linkfouten te vermijden (`ERR_VM_MODULE_LINK_FAILURE` / `module is already linked`).
+  - Handmatig overschrijven met `OPENCLAW_TEST_VM_FORKS=0` (forceer `forks`) of `OPENCLAW_TEST_VM_FORKS=1` (forceer `vmForks`).
 
 ### E2E (Gateway-smoke)
 
 - Opdracht: `pnpm test:e2e`
 - Config: `vitest.e2e.config.ts`
 - Bestanden: `src/**/*.e2e.test.ts`
+- Standaardinstellingen voor runtime:
+  - Gebruikt Vitest `vmForks` voor snellere bestandsopstart.
+  - Gebruikt adaptieve workers (CI: 2-4, lokaal: 4-8).
+  - Draait standaard in stille modus om console-I/O-overhead te verminderen.
+- Handige overschrijvingen:
+  - `OPENCLAW_E2E_WORKERS=<n>` om het aantal workers te forceren (maximaal 16).
+  - `OPENCLAW_E2E_VERBOSE=1` om uitgebreide console-uitvoer opnieuw in te schakelen.
 - Scope:
   - End-to-end gedrag van Gateway met meerdere instanties
   - WebSocket/HTTP-oppervlakken, node-pairing en zwaardere netwerken
@@ -363,5 +379,3 @@ Wanneer je een provider/model-issue oplost dat in live is ontdekt:
 - Richt je bij voorkeur op de kleinste laag die de bug vangt:
   - provider request-conversie/replay-bug → direct models-test
   - Gateway sessie/geschiedenis/tool-pijplijn-bug → Gateway live-smoke of CI-veilige Gateway mock-test
-
-

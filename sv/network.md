@@ -1,4 +1,9 @@
 ---
+summary: "Nätverkshubb: gateway-ytor, parning, discovery och säkerhet"
+read_when:
+  - Du behöver en översikt över nätverksarkitektur och säkerhet
+  - Du felsöker lokal vs tailnet-åtkomst eller parning
+  - Du vill ha den kanoniska listan över nätverksdokumentation
 title: "Nätverk"
 ---
 
@@ -47,5 +52,3 @@ Lokalt förtroende:
 - [Referens för Gateway-konfig](/gateway/configuration)
 - [Felsökning](/gateway/troubleshooting)
 - [Doctor](/gateway/doctor)
-
-

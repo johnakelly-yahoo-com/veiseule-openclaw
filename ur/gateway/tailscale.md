@@ -1,17 +1,21 @@
 ---
+summary: "Gateway ڈیش بورڈ کے لیے مربوط Tailscale Serve/Funnel"
+read_when:
+  - لوکل ہوسٹ سے باہر Gateway کنٹرول UI کو ظاہر کرنا
+  - tailnet یا عوامی ڈیش بورڈ رسائی کو خودکار بنانا
 title: "Tailscale"
 ---
 
 # Tailscale (Gateway ڈیش بورڈ)
 
-OpenClaw خودکار طور پر Tailscale **Serve** (ٹیل نیٹ) یا **Funnel** (عوامی) کو کے لیے ترتیب دے سکتا ہے
+OpenClaw can auto-configure Tailscale **Serve** (tailnet) or **Funnel** (public) for the
 Gateway dashboard and WebSocket port. This keeps the Gateway bound to loopback while
 Tailscale provides HTTPS, routing, and (for Serve) identity headers.
 
 ## موڈز
 
-- `serve`: صرف ٹیل نیٹ Serve بذریعہ `tailscale serve`۔ گیٹ وے `127.0.0.1` پر رہتا ہے۔
-- `funnel`: عوامی HTTPS بذریعہ `tailscale funnel`۔ OpenClaw کے لیے ایک مشترکہ پاس ورڈ درکار ہے۔
+- `serve`: Tailnet-only Serve via `tailscale serve`. The gateway stays on `127.0.0.1`.
+- `funnel`: Public HTTPS via `tailscale funnel`. OpenClaw requires a shared password.
 - `off`: ڈیفالٹ (کوئی Tailscale خودکاری نہیں)۔
 
 ## توثیق
@@ -21,7 +25,7 @@ Tailscale provides HTTPS, routing, and (for Serve) identity headers.
 - `token` (جب `OPENCLAW_GATEWAY_TOKEN` سیٹ ہو تو بطورِ طے شدہ)
 - `password` (مشترکہ خفیہ `OPENCLAW_GATEWAY_PASSWORD` یا کنفیگ کے ذریعے)
 
-جب `tailscale.mode = "serve"` اور `gateway.auth.allowTailscale` `true` ہو,
+When `tailscale.mode = "serve"` and `gateway.auth.allowTailscale` is `true`,
 valid Serve proxy requests can authenticate via Tailscale identity headers
 (`tailscale-user-login`) without supplying a token/password. OpenClaw verifies
 the identity by resolving the `x-forwarded-for` address via the local Tailscale
@@ -121,5 +125,3 @@ The Gateway will proxy browser actions to the node; no separate control server o
 - `tailscale serve` کمانڈ: [https://tailscale.com/kb/1242/tailscale-serve](https://tailscale.com/kb/1242/tailscale-serve)
 - Tailscale Funnel جائزہ: [https://tailscale.com/kb/1223/tailscale-funnel](https://tailscale.com/kb/1223/tailscale-funnel)
 - `tailscale funnel` کمانڈ: [https://tailscale.com/kb/1311/tailscale-funnel](https://tailscale.com/kb/1311/tailscale-funnel)
-
-

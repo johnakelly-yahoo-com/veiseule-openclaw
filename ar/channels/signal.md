@@ -1,4 +1,8 @@
 ---
+summary: "دعم Signal عبر signal-cli ‏(JSON-RPC + SSE)، الإعداد، ونموذج الأرقام"
+read_when:
+  - إعداد دعم Signal
+  - استكشاف أخطاء الإرسال/الاستقبال في Signal
 title: "Signal"
 ---
 
@@ -6,13 +10,22 @@ title: "Signal"
 
 الحالة: تكامل خارجي عبر CLI. يتواصل Gateway مع `signal-cli` عبر HTTP JSON-RPC + SSE.
 
+## المتطلبات المسبقة
+
+- تثبيت OpenClaw على الخادم الخاص بك (تم اختبار مسار Linux أدناه على Ubuntu 24).
+- توفّر `signal-cli` على المضيف الذي يعمل عليه Gateway.
+- رقم هاتف يمكنه استقبال رسالة تحقق SMS واحدة (لمسار التسجيل عبر SMS).
+- إمكانية الوصول إلى المتصفح لحل captcha الخاصة بـ Signal (`signalcaptchas.org`) أثناء التسجيل.
+
 ## الإعداد السريع (للمبتدئين)
 
 1. استخدم **رقم Signal منفصل** للبوت (موصى به).
 2. ثبّت `signal-cli` (يتطلب Java).
-3. اربط جهاز البوت وابدأ الخدمة:
+3. اختر أحد مساري الإعداد:
    - `signal-cli link -n "OpenClaw"`
+   - **المسار B (التسجيل عبر SMS):** تسجيل رقم مخصص باستخدام captcha + تحقق عبر SMS.
 4. هيّئ OpenClaw وابدأ Gateway.
+5. أرسل أول رسالة خاصة ووافق على الاقتران (`openclaw pairing approve signal <CODE>`).
 
 التهيئة الدنيا:
 
@@ -29,6 +42,15 @@ title: "Signal"
   },
 }
 ```
+
+مرجع الحقول:
+
+| الحقل                                      | الوصف                                                                          |
+| ------------------------------------------ | ------------------------------------------------------------------------------ |
+| `account`                                  | رقم هاتف البوت بصيغة E.164 (`+15551234567`) |
+| الإعداد (المسار السريع) | ثبّت `signal-cli` (يتطلب Java).             |
+| `dmPolicy`                                 | سياسة الوصول إلى الرسائل الخاصة (`pairing` موصى بها)        |
+| `allowFrom`                                | أرقام هواتف أو قيم `uuid:&lt;id&gt;` المسموح لها بإرسال رسائل خاصة                   |
 
 ## ما هو
 
@@ -54,9 +76,9 @@ title: "Signal"
 - إذا شغّلت البوت على **حساب Signal الشخصي**، فسيتجاهل رسائلك أنت (حماية من الحلقة).
 - من أجل "أنا أقوم بنص البوت و يجيب عليه"، استخدم **رقم بوت منفصل**.
 
-## الإعداد (المسار السريع)
+## مسار الإعداد A: ربط حساب Signal موجود (QR)
 
-1. ثبّت `signal-cli` (يتطلب Java).
+1. ثبّت `signal-cli` (إصدار JVM أو الإصدار الأصلي).
 2. اربط حساب البوت:
    - `signal-cli link -n "OpenClaw"` ثم امسح رمز QR في Signal.
 3. هيّئ Signal وابدأ Gateway.
@@ -78,6 +100,67 @@ title: "Signal"
 ```
 
 دعم تعدد الحسابات: استخدم `channels.signal.accounts` مع تهيئة لكل حساب و`name` اختياري. راجع [`gateway/configuration`](/gateway/configuration#telegramaccounts--discordaccounts--slackaccounts--signalaccounts--imessageaccounts) للنمط المشترك.
+
+## مسار الإعداد B: تسجيل رقم بوت مخصص (SMS، Linux)
+
+استخدم هذا الخيار عندما ترغب في رقم بوت مخصص بدلاً من ربط حساب تطبيق Signal موجود.
+
+1. احصل على رقم يمكنه استقبال رسائل SMS (أو التحقق الصوتي للخطوط الأرضية).
+   - استخدم رقم بوت مخصص لتجنب تعارضات الحساب/الجلسة.
+2. ثبّت `signal-cli` على جهاز الاستضافة الخاص بالبوابة:
+
+```bash
+VERSION=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/AsamK/signal-cli/releases/latest | sed -e 's/^.*\/v//')
+curl -L -O "https://github.com/AsamK/signal-cli/releases/download/v${VERSION}/signal-cli-${VERSION}-Linux-native.tar.gz"
+sudo tar xf "signal-cli-${VERSION}-Linux-native.tar.gz" -C /opt
+sudo ln -sf /opt/signal-cli /usr/local/bin/
+signal-cli --version
+```
+
+إذا كنت تستخدم إصدار JVM (`signal-cli-${VERSION}.tar.gz`)، فثبّت JRE 25+ أولاً.
+احرص على تحديث `signal-cli` باستمرار؛ إذ تشير ملاحظات المصدر إلى أن الإصدارات القديمة قد تتعطل مع تغيّر واجهات API الخاصة بخادم Signal.
+
+3. سجّل الرقم وأكّد التحقق منه:
+
+```bash
+signal-cli -a +<BOT_PHONE_NUMBER> register
+```
+
+إذا كان captcha مطلوبًا:
+
+1. Open `https://signalcaptchas.org/registration/generate.html`.
+2. أكمل captcha، ثم انسخ رابط `signalcaptcha://...` من خيار "Open Signal".
+3. شغّل الأمر من نفس عنوان IP الخارجي لجلسة المتصفح إن أمكن.
+4. أعِد تشغيل التسجيل فورًا (تنتهي صلاحية رموز captcha بسرعة):
+
+```bash
+signal-cli -a +<BOT_PHONE_NUMBER> register --captcha '<SIGNALCAPTCHA_URL>'
+signal-cli -a +<BOT_PHONE_NUMBER> verify <VERIFICATION_CODE>
+```
+
+4. قم بتهيئة OpenClaw، ثم أعد تشغيل البوابة وتحقق من القناة:
+
+```bash
+# If you run the gateway as a user systemd service:
+systemctl --user restart openclaw-gateway
+
+# Then verify:
+openclaw doctor
+openclaw channels status --probe
+```
+
+5. قم بإقران مُرسل الرسائل الخاصة (DM):
+   - أرسل أي رسالة إلى رقم البوت.
+   - وافق على الرمز في الخادم: `openclaw pairing approve signal <PAIRING_CODE>`.
+   - احفظ رقم البوت كجهة اتصال على هاتفك لتجنب ظهور "Unknown contact".
+
+مهم: تسجيل حساب رقم هاتف باستخدام `signal-cli` قد يؤدي إلى إلغاء توثيق جلسة تطبيق Signal الرئيسية لذلك الرقم. يفضَّل استخدام رقم بوت مخصص، أو استخدام وضع الربط عبر QR إذا كنت بحاجة إلى الاحتفاظ بإعداد تطبيق الهاتف الحالي.
+
+مراجع المصدر:
+
+- `signal-cli` README: `https://github.com/AsamK/signal-cli`
+- Captcha flow: `https://github.com/AsamK/signal-cli/wiki/Registration-with-captcha`
+- Linking flow: `https://github.com/AsamK/signal-cli/wiki/Linking-other-devices-(Provisioning)`
 
 ## وضع الخدمة الخارجية (httpUrl)
 
@@ -187,8 +270,25 @@ openclaw pairing list signal
 - الخدمة قابلة للوصول لكن لا توجد ردود: تحقّق من إعدادات الحساب/الخدمة (`httpUrl`، `account`) ووضع الاستقبال.
 - تجاهل الرسائل الخاصة: المُرسِل بانتظار الموافقة على الإقران.
 - تجاهل رسائل المجموعات: قيود مُرسِل/ذكر المجموعة تمنع التسليم.
+- أخطاء التحقق من الإعدادات بعد التعديل: شغّل `openclaw doctor --fix`.
+- إذا لم يظهر Signal في أدوات التشخيص: تأكد من أن `channels.signal.enabled: true`.
+
+فحوصات إضافية:
+
+```bash
+openclaw pairing list signal
+pgrep -af signal-cli
+grep -i "signal" "/tmp/openclaw/openclaw-$(date +%Y-%m-%d).log" | tail -20
+```
 
 لمسار الفرز: [/channels/troubleshooting](/channels/troubleshooting).
+
+## ملاحظات أمنية
+
+- يقوم `signal-cli` بتخزين مفاتيح الحساب محليًا (عادةً في `~/.local/share/signal-cli/data/`).
+- احرص على أخذ نسخة احتياطية من حالة حساب Signal قبل ترحيل الخادم أو إعادة بنائه.
+- اربط جهاز البوت وابدأ الخدمة:
+- التحقق عبر SMS مطلوب فقط لعمليات التسجيل أو الاستعادة، لكن فقدان التحكم بالرقم/الحساب قد يعقّد إعادة التسجيل.
 
 ## مرجع التهيئة (Signal)
 
@@ -222,5 +322,3 @@ openclaw pairing list signal
 - `agents.list[].groupChat.mentionPatterns` (لا يدعم Signal الإشارات الأصلية).
 - `messages.groupChat.mentionPatterns` (الاحتياطي العام).
 - `messages.responsePrefix`.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Overblik over modeludbydere med eksempelkonfigurationer + CLI-flows"
+read_when:
+  - Du har brug for en udbyder-for-udbyder reference til modelopsætning
+  - Du vil have eksempelkonfigurationer eller CLI-introduktionskommandoer for modeludbydere
 title: "Modeludbydere"
 ---
 
@@ -116,6 +120,7 @@ OpenClaw skibe med pi-ai katalog. Disse udbydere kræver **nej**
   - OpenAI-kompatibel base-URL: `https://api.cerebras.ai/v1`.
 - Mistral: `mistral` (`MISTRAL_API_KEY`)
 - GitHub Copilot: `github-copilot` (`COPILOT_GITHUB_TOKEN` / `GH_TOKEN` / `GITHUB_TOKEN`)
+- Hugging Face Inference: `huggingface` (`HUGGINGFACE_HUB_TOKEN` eller `HF_TOKEN`) — OpenAI-kompatibel router; eksempelmodel: `huggingface/deepseek-ai/DeepSeek-R1`; CLI: `openclaw onboard --auth-choice huggingface-api-key`. Se [Hugging Face (Inference)](/providers/huggingface).
 
 ## Udbydere via `models.providers` (brugerdefineret/base-URL)
 
@@ -259,6 +264,32 @@ Ollama registreres automatisk, når du kører lokalt på `http://127.0.0.1:11434
 
 Eksempel (OpenAI‑kompatibel):
 
+- Udbyder: `vllm`
+- Auth: Valgfrit (afhænger af din server)
+- Standard base-URL: `http://127.0.0.1:8000/v1`
+
+Noter:
+
+```bash
+export VLLM_API_KEY="vllm-local"
+```
+
+Sæt derefter en model (erstat med et af de ID’er, der returneres af `/v1/models`):
+
+```json5
+{
+  agents: {
+    defaults: { model: { primary: "vllm/your-model-id" } },
+  },
+}
+```
+
+Se også: [/gateway/configuration](/gateway/configuration) for fulde konfigurationseksempler.
+
+### Lokale proxier (LM Studio, vLLM, LiteLLM osv.)
+
+Eksempel (OpenAI‑kompatibel):
+
 ```json5
 {
   agents: {
@@ -310,5 +341,3 @@ openclaw models list
 ```
 
 Se også: [/gateway/configuration](/gateway/configuration) for fulde konfigurationseksempler.
-
-

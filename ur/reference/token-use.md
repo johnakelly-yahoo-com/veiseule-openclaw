@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw کس طرح پرامپٹ کانٹیکسٹ بناتا ہے اور ٹوکن کے استعمال اور لاگت کی رپورٹ دیتا ہے"
+read_when:
+  - ٹوکن کے استعمال، لاگت، یا کانٹیکسٹ ونڈوز کی وضاحت کرتے وقت
+  - کانٹیکسٹ کے بڑھنے یا کمپیکشن کے رویّے کی خرابیوں کا ازالہ کرتے وقت
 title: "ٹوکن کا استعمال اور لاگت"
 ---
 
@@ -14,7 +18,7 @@ OpenClaw assembles its own system prompt on every run. 24. اس میں شامل 
 - ٹولز کی فہرست + مختصر وضاحتیں
 - Skills کی فہرست (صرف میٹاڈیٹا؛ ہدایات ضرورت کے مطابق `read` کے ساتھ لوڈ ہوتی ہیں)
 - خودکار اپڈیٹ کی ہدایات
-- Workspace + bootstrap files (`AGENTS.md`, `SOUL.md`, `TOOLS.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md`, `BOOTSTRAP.md` when new). 26. بڑی فائلز کو `agents.defaults.bootstrapMaxChars` (ڈیفالٹ: 20000) کے ذریعے ٹرنکیٹ کیا جاتا ہے۔
+- ورک اسپیس + بوٹسٹریپ فائلیں (`AGENTS.md`, `SOUL.md`, `TOOLS.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md`, نئی صورت میں `BOOTSTRAP.md`، نیز موجود ہونے پر `MEMORY.md` اور/یا `memory.md`). بڑی فائلیں `agents.defaults.bootstrapMaxChars` (ڈیفالٹ: 20000) کے مطابق مختصر کر دی جاتی ہیں، اور مجموعی بوٹسٹریپ انجیکشن کو `agents.defaults.bootstrapTotalMaxChars` (ڈیفالٹ: 24000) تک محدود کیا جاتا ہے۔ `memory/*.md` فائلیں memory tools کے ذریعے ضرورت کے وقت دستیاب ہوتی ہیں اور خودکار طور پر شامل نہیں کی جاتیں۔
 - وقت (UTC + صارف کا ٹائم زون)
 - جواب کے ٹیگز + ہارٹ بیٹ کا رویّہ
 - رَن ٹائم میٹاڈیٹا (ہوسٹ/OS/ماڈل/سوچ)
@@ -101,5 +105,3 @@ agents:
 - طویل اور تحقیقی کام کے لیے چھوٹے ماڈلز کو ترجیح دیں۔
 
 اسکل فہرست کے درست اوورہیڈ فارمولے کے لیے [Skills](/tools/skills) دیکھیں۔
-
-

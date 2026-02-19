@@ -1,4 +1,7 @@
 ---
+summary: "SSH سرنگوں (Gateway WS) اور ٹیل نیٹس کے ذریعے ریموٹ رسائی"
+read_when:
+  - ریموٹ گیٹ وے سیٹ اپس چلانے یا ان کی خرابیوں کا ازالہ کرتے وقت
 title: "ریموٹ رسائی"
 ---
 
@@ -16,7 +19,7 @@ title: "ریموٹ رسائی"
 
 ## عام VPN/ٹیل نیٹ سیٹ اپس (جہاں ایجنٹ رہتا ہے)
 
-**Gateway host** کو یوں سمجھیں کہ یہ وہ جگہ ہے جہاں "ایجنٹ رہتا ہے۔" یہ سیشنز، توثیقی پروفائلز، چینلز، اور اسٹیٹ کی ملکیت رکھتا ہے۔
+Think of the **Gateway host** as “where the agent lives.” It owns sessions, auth profiles, channels, and state.
 Your laptop/desktop (and nodes) connect to that host.
 
 ### 1. آپ کے ٹیل نیٹ میں ہمیشہ آن Gateway (VPS یا گھریلو سرور)
@@ -124,5 +127,3 @@ macOS مینو بار ایپ یہی سیٹ اپ مکمل طور پر اینڈ ٹ
 - براؤزر کنٹرول کو آپریٹر رسائی کی طرح سمجھیں: صرف ٹیل نیٹ + دانستہ نوڈ جوڑی بنانا۔
 
 تفصیلی جائزہ: [Security](/gateway/security)۔
-
-

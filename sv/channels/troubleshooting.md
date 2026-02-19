@@ -1,4 +1,8 @@
 ---
+summary: "Snabb felsökning på kanalnivå med per-kanal-felsignaturer och åtgärder"
+read_when:
+  - Kanaltransporten säger ansluten men svar misslyckas
+  - Du behöver kanalspecifika kontroller innan djupare leverantörsdokumentation
 title: "Kanalfelsökning"
 ---
 
@@ -40,11 +44,12 @@ Fullständig felsökning: [/channels/whatsapp#troubleshooting-quick](/channels/w
 
 ### Telegram-felsignaturer
 
-| Symptom                                  | Snabbaste kontrollen                              | Åtgärd                                                                        |
-| ---------------------------------------- | ------------------------------------------------- | ----------------------------------------------------------------------------- |
-| `/start` men inget användbart svarsflöde | `openclaw pairing list telegram`                  | Godkänn parkoppling eller ändra DM-policy.                    |
-| Bot online men gruppen förblir tyst      | Verifiera omnämnandekrav och botens sekretessläge | Inaktivera sekretessläge för gruppsynlighet eller nämn boten. |
-| Sändningsfel med nätverksfel             | Inspektera loggar för Telegram API-anropsfel      | Åtgärda DNS/IPv6/proxy-routing till `api.telegram.org`.       |
+| Symptom                                  | Snabbaste kontrollen                                     | Åtgärd                                                                                                            |
+| ---------------------------------------- | -------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `/start` men inget användbart svarsflöde | `openclaw pairing list telegram`                         | Godkänn parkoppling eller ändra DM-policy.                                                        |
+| Bot online men gruppen förblir tyst      | Verifiera omnämnandekrav och botens sekretessläge        | Inaktivera sekretessläge för gruppsynlighet eller nämn boten.                                     |
+| Sändningsfel med nätverksfel             | Inspektera loggar för Telegram API-anropsfel             | Åtgärda DNS/IPv6/proxy-routing till `api.telegram.org`.                                           |
+| Uppgraderad och blockeras av allowlist   | `openclaw security audit` och konfigurations‑allowlistor | Kör `openclaw doctor --fix` eller ersätt `@username` med numeriska avsändar‑ID:n. |
 
 Fullständig felsökning: [/channels/telegram#troubleshooting](/channels/telegram#troubleshooting)
 
@@ -110,5 +115,3 @@ Fullständig felsökning: [/channels/signal#troubleshooting](/channels/signal#tr
 | Krypterade rum misslyckas              | Verifiera kryptomodul och krypteringsinställningar | Aktivera krypteringsstöd och gå med/synka rummet igen. |
 
 Fullständig felsökning: [/channels/matrix#troubleshooting](/channels/matrix#troubleshooting)
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "Discord bot qo‘llab-quvvatlash holati, imkoniyatlari va sozlamalari"
+read_when:
+  - Working on Discord channel features
 title: "Discord"
 ---
 
@@ -6,19 +9,37 @@ title: "Discord"
 
 Status: ready for DM and guild text channels via the official Discord bot gateway.
 
-## Quick setup (beginner)
+<CardGroup cols={3}>
+  <Card title="Pairing" icon="link" href="/channels/pairing">
+    Discord DM’lari standart bo‘yicha pairing rejimiga o‘rnatilgan.
+  
+</Card>
+  <Card title="Slash commands" icon="terminal" href="/tools/slash-commands">
+    Native buyruq xatti-harakati va buyruqlar katalogi.
+  
+</Card>
+  <Card title="Channel troubleshooting" icon="wrench" href="/channels/troubleshooting">
+    Kanallararo diagnostika va tuzatish jarayoni.
+  
+</Card>
+</CardGroup>
 
-1. Create a Discord bot and copy the bot token.
-2. 30. Discord ilova sozlamalarida **Message Content Intent** ni yoqing (va agar ruxsat ro‘yxatlaridan yoki nom bo‘yicha qidirishdan foydalanmoqchi bo‘lsangiz **Server Members Intent** ni ham).
-3. Set the token for OpenClaw:
-   - Env: `DISCORD_BOT_TOKEN=...`
-   - Or config: `channels.discord.token: "..."`.
-   - If both are set, config takes precedence (env fallback is default-account only).
-4. Invite the bot to your server with message permissions (create a private server if you just want DMs).
-5. Start the gateway.
-6. DM access is pairing by default; approve the pairing code on first contact.
+## Tezkor sozlash
 
-Minimal config:
+<Steps>
+  <Step title="Create a Discord bot and enable intents">
+    Discord Developer Portal’da ilova yarating, bot qo‘shing, so‘ng quyidagilarni yoqing:
+
+
+    ```
+    - **Message Content Intent**
+    - **Server Members Intent** (rol allowlistlari va rolga asoslangan yo‘naltirish uchun talab qilinadi; nomdan ID’ga allowlist moslashtirish uchun tavsiya etiladi)
+    ```
+
+  
+</Step>
+
+  <Step title="Configure token">
 
 ```json5
 {
@@ -31,276 +52,379 @@ Minimal config:
 }
 ```
 
-## Goals
+    ```
+    Standart akkaunt uchun muhit (env) fallback:
+    ```
 
-- 31. OpenClaw bilan Discord DMlari yoki guild kanallari orqali muloqot qiling.
-- Direct chats collapse into the agent's main session (default `agent:main:main`); guild channels stay isolated as `agent:<agentId>:discord:channel:<channelId>` (display names use `discord:<guildSlug>#<channelSlug>`).
-- Group DMs are ignored by default; enable via `channels.discord.dm.groupEnabled` and optionally restrict by `channels.discord.dm.groupChannels`.
-- Keep routing deterministic: replies always go back to the channel they arrived on.
-
-## 32. Qanday ishlaydi
-
-1. Create a Discord application → Bot, enable the intents you need (DMs + guild messages + message content), and grab the bot token.
-2. 33. Botni serveringizga taklif qiling va undan foydalanmoqchi bo‘lgan joylarda xabarlarni o‘qish/jo‘natish uchun zarur ruxsatlarni bering.
-3. Configure OpenClaw with `channels.discord.token` (or `DISCORD_BOT_TOKEN` as a fallback).
-4. Run the gateway; it auto-starts the Discord channel when a token is available (config first, env fallback) and `channels.discord.enabled` is not `false`.
-   - If you prefer env vars, set `DISCORD_BOT_TOKEN` (a config block is optional).
-5. Direct chats: use `user:<id>` (or a `<@id>` mention) when delivering; all turns land in the shared `main` session. Bare numeric IDs are ambiguous and rejected.
-6. Guild channels: use `channel:<channelId>` for delivery. Mentions are required by default and can be set per guild or per channel.
-7. Direct chats: secure by default via `channels.discord.dm.policy` (default: `"pairing"`). Unknown senders get a pairing code (expires after 1 hour); approve via `openclaw pairing approve discord <code>`.
-   - To keep old “open to anyone” behavior: set `channels.discord.dm.policy="open"` and `channels.discord.dm.allowFrom=["*"]`.
-   - To hard-allowlist: set `channels.discord.dm.policy="allowlist"` and list senders in `channels.discord.dm.allowFrom`.
-   - To ignore all DMs: set `channels.discord.dm.enabled=false` or `channels.discord.dm.policy="disabled"`.
-8. Group DMs are ignored by default; enable via `channels.discord.dm.groupEnabled` and optionally restrict by `channels.discord.dm.groupChannels`.
-9. Optional guild rules: set `channels.discord.guilds` keyed by guild id (preferred) or slug, with per-channel rules.
-10. Optional native commands: `commands.native` defaults to `"auto"` (on for Discord/Telegram, off for Slack). Override with `channels.discord.commands.native: true|false|"auto"`; `false` clears previously registered commands. Text commands are controlled by `commands.text` and must be sent as standalone `/...` messages. Use `commands.useAccessGroups: false` to bypass access-group checks for commands.
-    - To‘liq buyruqlar ro‘yxati + konfiguratsiya: [Slash commands](/tools/slash-commands)
-11. Ixtiyoriy guild kontekst tarixi: eslatmaga javob berishda oxirgi N ta guild xabarlarini kontekst sifatida qo‘shish uchun `channels.discord.historyLimit` (standart 20, `messages.groupChat.historyLimit` ga qaytadi) ni sozlang. O‘chirish uchun `0` ga o‘rnating.
-12. Reaksiyalar: agent `discord` vositasi orqali reaksiyalarni ishga tushirishi mumkin (`channels.discord.actions.*` bilan cheklangan).
-    - Reaksiyani olib tashlash semantikasi: [/tools/reactions](/tools/reactions) ga qarang.
-    - `discord` vositasi faqat joriy kanal Discord bo‘lganda ochiladi.
-13. Mahalliy buyruqlar umumiy `main` sessiyasi o‘rniga izolyatsiyalangan sessiya kalitlaridan (`agent:<agentId>:discord:slash:<userId>`) foydalanadi.
-
-Eslatma: Ism → id aniqlash guild a’zolarini qidirishdan foydalanadi va Server Members Intent ni talab qiladi; agar bot a’zolarni qidira olmasa, idlardan yoki `<@id>` eslatmalaridan foydalaning.
-Eslatma: Sluglar kichik harflarda bo‘ladi va bo‘shliqlar `-` bilan almashtiriladi. Kanal nomlari boshidagi `#`siz sluglanadi.
-Eslatma: Guild kontekstidagи `[from:]` satrlari pingga tayyor javoblarni osonlashtirish uchun `author.tag` + `id` ni o‘z ichiga oladi.
-
-## Konfiguratsiyani yozish
-
-Standart bo‘yicha Discord `/config set|unset` orqali ishga tushirilgan konfiguratsiya yangilanishlarini yozishga ruxsat beradi (`commands.config: true` talab qilinadi).
-
-Quyidagicha o‘chiring:
-
-```json5
-{
-  channels: { discord: { configWrites: false } },
-}
+```bash
+DISCORD_BOT_TOKEN=...
 ```
 
-## O‘zingizning botingizni qanday yaratish
+  
+</Step>
 
-Bu OpenClaw’ni `#help` kabi server (guild) kanalida ishga tushirish uchun “Discord Developer Portal” sozlamalaridir.
+  <Step title="Invite the bot and start gateway">
+    Botni serveringizga xabar yuborish ruxsatlari bilan taklif qiling.
 
-### 1. Discord ilovasi + bot foydalanuvchisini yarating
-
-1. Discord Developer Portal → **Applications** → **New Application**
-2. Ilovangizda:
-   - **Bot** → **Add Bot**
-   - **Bot Token** ni nusxalab oling (buni `DISCORD_BOT_TOKEN` ga qo‘yasiz)
-
-### 2) OpenClaw ga kerak bo‘lgan gateway intentlarni yoqing
-
-Discord “privileged intents”ni faqat siz ularni aniq yoqsangizgina ruxsat beradi.
-
-**Bot** → **Privileged Gateway Intents** bo‘limida quyidagilarni yoqing:
-
-- **Message Content Intent** (ko‘pgina guildlarda xabar matnini o‘qish uchun talab qilinadi; bo‘lmasa “Used disallowed intents”ni ko‘rasiz yoki bot ulanadi-yu, lekin xabarlarga javob bermaydi)
-- **Server Members Intent** (tavsiya etiladi; ayrim a’zo/foydalanuvchi qidiruvlari va guildlarda allowlist moslash uchun talab qilinadi)
-
-Odatda **Presence Intent** kerak **emas**. Botning o‘z presence’ini sozlash (`setPresence` amali) gateway OP3 dan foydalanadi va bu intentni talab qilmaydi; u faqat boshqa guild a’zolarining presence yangilanishlarini olishni istasangiz kerak bo‘ladi.
-
-### 3. Taklif URL’ini yarating (OAuth2 URL Generator)
-
-Ilovangizda: **OAuth2** → **URL Generator**
-
-**Scopes**
-
-- ✅ `bot`
-- ✅ `applications.commands` (mahalliy buyruqlar uchun talab qilinadi)
-
-**Bot Permissions** (minimal asos)
-
-- ✅ Kanallarni ko‘rish
-- ✅ Xabar yuborish
-- ✅ Xabarlar tarixini o‘qish
-- ✅ Havolalarni joylash (Embed Links)
-- ✅ Fayllarni biriktirish
-- ✅ Reaksiya qo‘shish (ixtiyoriy, ammo tavsiya etiladi)
-- ✅ Tashqi emoji / stikerlardan foydalanish (ixtiyoriy; faqat xohlasangiz)
-
-Nosozliklarni tuzatishdan tashqari va botga to‘liq ishonmasangiz **Administrator** dan qoching.
-
-Yaratilgan URL’ni nusxalab oling, uni oching, serveringizni tanlang va botni o‘rnating.
-
-### 4. Idlarni oling (guild/foydalanuvchi/kanal)
-
-Discord hamma joyda raqamli idlardan foydalanadi; OpenClaw konfiguratsiyasi idlarni afzal ko‘radi.
-
-1. Discord (desktop/web) → **User Settings** → **Advanced** → **Developer Mode** ni yoqing
-2. O‘ng tugma bilan bosing:
-   - Server nomi → **Copy Server ID** (guild id)
-   - Kanal (masalan, `#help`) → **Copy Channel ID**
-   - Sizning foydalanuvchingiz → **Foydalanuvchi ID nusxalash**
-
-### 5) OpenClaw’ni sozlash
-
-#### Token
-
-Bot tokenini env o‘zgaruvchisi orqali o‘rnating (serverlarda tavsiya etiladi):
-
-- `DISCORD_BOT_TOKEN=...`
-
-Yoki config orqali:
-
-```json5
-34. {
-  channels: {
-    discord: {
-      enabled: true,
-      token: "YOUR_BOT_TOKEN",
-    },
-  },
-}
+```bash
+openclaw gateway
 ```
 
-Ko‘p akkauntli qo‘llab-quvvatlash: har bir akkaunt uchun tokenlar va ixtiyoriy `name` bilan `channels.discord.accounts` dan foydalaning. Umumiy andoza uchun [`gateway/configuration`](/gateway/configuration#telegramaccounts--discordaccounts--slackaccounts--signalaccounts--imessageaccounts) sahifasiga qarang.
+  
+</Step>
 
-#### Allowlist + kanal marshrutlash
+  <Step title="Approve first DM pairing">
 
-Misol “bitta server, faqat menga ruxsat, faqat #help ga ruxsat”:
+```bash
+openclaw pairing list discord
+openclaw pairing approve discord <CODE>
+```
+
+    ```
+    Juftlash (pairing) kodlari 1 soatdan keyin muddati tugaydi.
+    ```
+
+  
+</Step>
+</Steps>
+
+<Note>
+Tokenni aniqlash hisobga (account) bog‘liq tarzda amalga oshiriladi. Config ichidagi token qiymatlari env fallback’dan ustun turadi. `DISCORD_BOT_TOKEN` faqat standart (default) hisob uchun ishlatiladi.
+</Note>
+
+## Runtime modeli
+
+- Gateway Discord ulanishiga egalik qiladi.
+- Javoblarni marshrutlash deterministik: Discord’dan kirgan javoblar yana Discord’ga qaytadi.
+- Standart holatda (`session.dmScope=main`), to‘g‘ridan-to‘g‘ri chatlar agentning asosiy sessiyasi (`agent:main:main`) bilan bo‘lishiladi.
+- Guild kanallari alohida sessiya kalitlariga ega (`agent:<agentId>:discord:channel:<channelId>`).
+- Group DM’lar standart holatda e’tiborsiz qoldiriladi (`channels.discord.dm.groupEnabled=false`).
+- Native slash buyruqlari alohida buyruq sessiyalarida ishlaydi (`agent:<agentId>:discord:slash:<userId>`), shu bilan birga marshrutlangan suhbat sessiyasiga `CommandTargetSessionKey` uzatiladi.
+
+## Kirishni boshqarish va marshrutlash
+
+<Tabs>
+  <Tab title="DM policy">
+    `channels.discord.dmPolicy` DM kirishini boshqaradi (legacy: `channels.discord.dm.policy`):
+
+    ```
+    - `pairing` (standart)
+    - `allowlist`
+    - `open` (`channels.discord.allowFrom` ichida `"*"` bo‘lishi kerak; legacy: `channels.discord.dm.allowFrom`)
+    - `disabled`
+    
+    Agar DM policy `open` bo‘lmasa, noma’lum foydalanuvchilar bloklanadi (yoki `pairing` rejimida juftlash so‘raladi).
+    
+    Yetkazib berish uchun DM target formati:
+    
+    - `user:<id>`
+    - `<@id>` mention
+    
+    Faqat raqamli ID’lar noaniq hisoblanadi va aniq user/channel target turi ko‘rsatilmasa rad etiladi.
+    ```
+
+  
+</Tab>
+
+  <Tab title="Guild policy">
+    Guild boshqaruvi `channels.discord.groupPolicy` orqali nazorat qilinadi:
+
+    ```
+    - `open`
+    - `allowlist`
+    - `disabled`
+    
+    Agar `channels.discord` mavjud bo‘lsa, xavfsiz standart sozlama `allowlist` hisoblanadi.
+    
+    `allowlist` xatti-harakati:
+    
+    - guild `channels.discord.guilds` ga mos kelishi kerak (`id` afzal, slug ham qabul qilinadi)
+    - ixtiyoriy yuboruvchi allowlist’lari: `users` (ID yoki nomlar) va `roles` (faqat role ID’lari); agar ulardan biri sozlangan bo‘lsa, yuboruvchi `users` YOKI `roles` ga mos kelsa ruxsat beriladi
+    - agar guild’da `channels` sozlangan bo‘lsa, ro‘yxatda bo‘lmagan kanallar rad etiladi
+    - agar guild’da `channels` bloki bo‘lmasa, allowlist qilingan guild’dagi barcha kanallarga ruxsat beriladi
+    
+    Misol:
+    ```
 
 ```json5
 {
   channels: {
     discord: {
-      enabled: true,
-      dm: { enabled: false },
+      groupPolicy: "allowlist",
       guilds: {
-        YOUR_GUILD_ID: {
-          users: ["YOUR_USER_ID"],
+        "123456789012345678": {
           requireMention: true,
+          users: ["987654321098765432"],
+          roles: ["123456789012345678"],
           channels: {
+            general: { allow: true },
             help: { allow: true, requireMention: true },
           },
         },
       },
-      retry: {
-        attempts: 3,
-        minDelayMs: 500,
-        maxDelayMs: 30000,
-        jitter: 0.1,
-      },
     },
   },
 }
 ```
 
-Eslatmalar:
+    ```
+    Agar siz faqat `DISCORD_BOT_TOKEN` ni sozlab, `channels.discord` blokini yaratmasangiz, runtime fallback `groupPolicy="open"` bo‘ladi (loglarda ogohlantirish bilan).
+    ```
 
-- `requireMention: true` — bot faqat tilga olinganda javob beradi (umumiy kanallar uchun tavsiya etiladi).
-- `agents.list[].groupChat.mentionPatterns` (yoki `messages.groupChat.mentionPatterns`) ham guild xabarlari uchun tilga olish sifatida hisoblanadi.
-- Ko‘p agentli override: `agents.list[].groupChat.mentionPatterns` da har bir agent uchun alohida andozalarni o‘rnating.
-- Agar `channels` mavjud bo‘lsa, ro‘yxatda ko‘rsatilmagan har qanday kanal sukut bo‘yicha rad etiladi.
-- Barcha kanallar bo‘ylab standartlarni qo‘llash uchun `"*"` kanal yozuvidan foydalaning; aniq kanal yozuvlari wildcard’ni bekor qiladi.
-- Threadlar ota-ona kanal sozlamalarini meros oladi (allowlist, `requireMention`, ko‘nikmalar, promptlar va hokazo). Agar thread kanal ID sini aniq qo‘shmasangiz.
-- Ega (owner) ishorasi: per-guild yoki per-channel `users` allowlist jo‘natuvchiga mos kelsa, OpenClaw tizim promptida uni ega sifatida ko‘radi. Kanallar bo‘ylab global ega uchun `commands.ownerAllowFrom` ni o‘rnating.
-- Bot tomonidan yozilgan xabarlar sukut bo‘yicha e’tiborsiz qoldiriladi; ularga ruxsat berish uchun `channels.discord.allowBots=true` ni o‘rnating (o‘z xabarlaringiz baribir filtrlanadi).
-- Ogohlantirish: Agar boshqa botlarga javob berishga ruxsat bersangiz (`channels.discord.allowBots=true`), botdan-botga javob aylanasini `requireMention`, `channels.discord.guilds.*.channels.<id>.users` allowlistlari va/yoki `AGENTS.md` hamda `SOUL.md` dagi aniq guardrail’lar bilan oldini oling.6) Ishlashini tekshirish
+  
+</Tab>
 
-### Gateway’ni ishga tushiring.
+  <Tab title="Mentions and group DMs">
+    Guild xabarlari standart holatda mention orqali cheklanadi.
 
-1. Server kanalingizda yuboring: `@Krill hello` (yoki bot nomingiz qanday bo‘lsa).
-2. Agar hech narsa bo‘lmasa: quyidagi **Troubleshooting** ni tekshiring.
-3. Nosozliklarni bartaraf etish
+    ```
+    Mention aniqlash quyidagilarni o‘z ichiga oladi:
+    
+    - bot’ni to‘g‘ridan-to‘g‘ri mention qilish
+    - sozlangan mention pattern’lar (`agents.list[].groupChat.mentionPatterns`, fallback `messages.groupChat.mentionPatterns`)
+    - qo‘llab-quvvatlanadigan holatlarda botga javob berish (implicit reply-to-bot)
+    
+    `requireMention` har bir guild/channel uchun alohida sozlanadi (`channels.discord.guilds...`).
+    
+    Group DM’lar:
+    
+    - standart: e’tiborsiz qoldiriladi (`dm.groupEnabled=false`)
+    - ixtiyoriy allowlist `dm.groupChannels` orqali (kanal ID yoki slug’lar)
+    ```
 
-### Birinchi qadam: `openclaw doctor` va `openclaw channels status --probe` ni ishga tushiring (amaliy ogohlantirishlar + tezkor auditlar).
+  
+</Tab>
+</Tabs>
 
-- **“Used disallowed intents”**: Developer Portal’da **Message Content Intent** (va ehtimol **Server Members Intent**) ni yoqing, so‘ng gateway’ni qayta ishga tushiring.
-- **Bot ulanadi, lekin guild kanalida hech qachon javob bermaydi**:
-- **Message Content Intent** yo‘q, yoki
-  - Botda kanal ruxsatlari yo‘q (View/Send/Read History), yoki
-  - Config tilga olishni talab qiladi va siz uni tilga olmadingiz, yoki
-  - Guild/kanal allowlist’ingiz kanal/foydalanuvchini rad etadi.
-  - **`requireMention: false`, lekin baribir javob yo‘q**:
-- `channels.discord.groupPolicy` sukut bo‘yicha **allowlist**; uni `"open"` ga o‘rnating yoki `channels.discord.guilds` ostida guild yozuvi qo‘shing (ixtiyoriy ravishda `channels.discord.guilds.<id>.channels` ostida kanallarni cheklash uchun ro‘yxatlang).
-- Agar siz faqat `DISCORD_BOT_TOKEN` ni o‘rnatib, hech qachon `channels.discord` bo‘limini yaratmagan bo‘lsangiz, runtime `groupPolicy` ni `open` ga sukut bo‘yicha o‘rnatadi.Uni qulflash uchun `channels.discord.groupPolicy`, `channels.defaults.groupPolicy` yoki guild/kanal allowlist qo‘shing.
-  - `requireMention` `channels.discord.guilds` ostida (yoki aniq kanal ostida) joylashishi kerak. Yuqori darajadagi `channels.discord.requireMention` e’tiborsiz qoldiriladi.
-- **Ruxsat auditlari** (`channels status --probe`) faqat raqamli kanal ID’larini tekshiradi. Agar `channels.discord.guilds.*.channels` kalitlari sifatida slug/nomlardan foydalansangiz, audit ruxsatlarni tekshira olmaydi.
-- **DM’lar ishlamaydi**: `channels.discord.dm.enabled=false`, `channels.discord.dm.policy="disabled"`, yoki hali tasdiqlanmagansiz (`channels.discord.dm.policy="pairing"`). **Discord’da exec tasdiqlari**: Discord DM’larda exec tasdiqlari uchun **tugma UI** ni qo‘llab-quvvatlaydi (Bir marta ruxsat / Har doim ruxsat / Rad etish).
-- `/approve <id> ...` faqat yo‘naltirilgan tasdiqlar uchun va Discord’ning tugma promptlarini hal qilmaydi.
-- Agar `❌ Failed to submit approval: Error: unknown approval id` ni ko‘rsangiz yoki UI umuman chiqmasa, tekshiring: `/approve <id> ...` is only for forwarded approvals and won’t resolve Discord’s button prompts. If you see `❌ Failed to submit approval: Error: unknown approval id` or the UI never shows up, check:
-  - 35. Konfiguratsiyangizda `channels.discord.execApprovals.enabled: true`.
-  - Your Discord user ID is listed in `channels.discord.execApprovals.approvers` (the UI is only sent to approvers).
-  - Use the buttons in the DM prompt (**Allow once**, **Always allow**, **Deny**).
-  - See [Exec approvals](/tools/exec-approvals) and [Slash commands](/tools/slash-commands) for the broader approvals and command flow.
+### Rolga asoslangan agent marshrutlash
 
-## Capabilities & limits
+Discord guild a’zolarini role ID orqali turli agentlarga marshrutlash uchun `bindings[].match.roles` dan foydalaning. Rolga asoslangan binding’lar faqat role ID’larini qabul qiladi va peer yoki parent-peer binding’lardan keyin, ammo faqat guild binding’laridan oldin baholanadi. Agar binding boshqa match maydonlarini ham belgilasa (masalan `peer` + `guildId` + `roles`), barcha ko‘rsatilgan maydonlar mos kelishi kerak.
 
-- DMs and guild text channels (threads are treated as separate channels; voice not supported).
-- Typing indicators sent best-effort; message chunking uses `channels.discord.textChunkLimit` (default 2000) and splits tall replies by line count (`channels.discord.maxLinesPerMessage`, default 17).
-- Optional newline chunking: set `channels.discord.chunkMode="newline"` to split on blank lines (paragraph boundaries) before length chunking.
-- File uploads supported up to the configured `channels.discord.mediaMaxMb` (default 8 MB).
-- Mention-gated guild replies by default to avoid noisy bots.
-- Reply context is injected when a message references another message (quoted content + ids).
-- Native reply threading is **off by default**; enable with `channels.discord.replyToMode` and reply tags.
+```json5
+{
+  bindings: [
+    {
+      agentId: "opus",
+      match: {
+        channel: "discord",
+        guildId: "123456789012345678",
+        roles: ["111111111111111111"],
+      },
+    },
+    {
+      agentId: "sonnet",
+      match: {
+        channel: "discord",
+        guildId: "123456789012345678",
+      },
+    },
+  ],
+}
+```
 
-## 36. Qayta urinish siyosati
+## Developer Portal sozlamalari
 
-37. Chiquvchi Discord API chaqiruvlari tezlik cheklovlari (429) bo‘lganda, mavjud bo‘lsa Discord `retry_after` dan foydalanib, eksponentsial backoff va jitter bilan qayta urinadi. 38. `channels.discord.retry` orqali sozlang. See [Retry policy](/concepts/retry).
+<AccordionGroup>
+  <Accordion title="Create app and bot">
 
-## Config
+    ```
+    1. Discord Developer Portal -> **Applications** -> **New Application**
+    2. **Bot** -> **Add Bot**
+    3. Bot tokenini nusxalang
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Privileged intents">
+    **Bot -> Privileged Gateway Intents** bo‘limida quyidagilarni yoqing:
+
+    ```
+    - Message Content Intent
+    - Server Members Intent (tavsiya etiladi)
+    
+    Presence intent ixtiyoriy va faqat presence yangilanishlarini olishni istasangiz kerak bo‘ladi. Bot presence’ini (`setPresence`) sozlash uchun a’zolar presence yangilanishlarini yoqish talab etilmaydi.
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="OAuth scopes and baseline permissions">
+    OAuth URL generator:
+
+    ```
+    - scopes: `bot`, `applications.commands`
+    
+    Odatdagi asosiy ruxsatlar:
+    
+    - View Channels
+    - Send Messages
+    - Read Message History
+    - Embed Links
+    - Attach Files
+    - Add Reactions (ixtiyoriy)
+    
+    Alohida zarurat bo‘lmasa `Administrator` dan foydalanmang.
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Copy IDs">
+    Discord Developer Mode’ni yoqing, so‘ng quyidagilarni nusxalang:
+
+    ```
+    - server ID
+    - channel ID
+    - user ID
+    
+    OpenClaw konfiguratsiyasida ishonchli audit va tekshiruvlar uchun raqamli ID’lardan foydalanish tavsiya etiladi.
+    ```
+
+  
+</Accordion>
+</AccordionGroup>
+
+## Mahalliy buyruqlar va buyruq autentifikatsiyasi
+
+- `commands.native` sukut bo‘yicha `"auto"` va Discord uchun yoqilgan.
+- Har bir kanal uchun bekor qilish: `channels.discord.commands.native`.
+- `commands.native=false` avval ro‘yxatdan o‘tkazilgan Discord mahalliy buyruqlarini aniq o‘chiradi.
+- Mahalliy buyruq autentifikatsiyasi odatiy xabarlarni qayta ishlash bilan bir xil Discord allowlist/policy qoidalaridan foydalanadi.
+- Buyruqlar Discord UI’da ruxsatsiz foydalanuvchilarga ko‘rinishi mumkin; bajarish jarayoni baribir OpenClaw autentifikatsiyasini qo‘llaydi va "not authorized" qaytaradi.
+
+Buyruqlar katalogi va xatti-harakatlari uchun [Slash commands](/tools/slash-commands) ga qarang.
+
+## Funksiya tafsilotlari
+
+<AccordionGroup>
+  <Accordion title="Reply tags and native replies">
+    Discord agent chiqishida javob teglarini qo‘llab-quvvatlaydi:
+
+    ```
+    - `[[reply_to_current]]`
+    - `[[reply_to:<id>]]`
+    
+    `channels.discord.replyToMode` orqali boshqariladi:
+    
+    - `off` (sukut bo‘yicha)
+    - `first`
+    - `all`
+    
+    Eslatma: `off` yashirin javob tarmog‘ini o‘chiradi. Aniq `[[reply_to_*]]` teglari baribir inobatga olinadi.
+    
+    Xabar ID’lari agentlar aniq xabarlarni nishonga olishi uchun kontekst/tarixda ko‘rsatiladi.
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="History, context, and thread behavior">
+    Guild tarix konteksti:
+
+    ```
+    - `channels.discord.historyLimit` sukut bo‘yicha `20`
+    - zaxira: `messages.groupChat.historyLimit`
+    - `0` o‘chiradi
+    
+    DM tarix boshqaruvi:
+    
+    - `channels.discord.dmHistoryLimit`
+    - `channels.discord.dms["<user_id>"].historyLimit`
+    
+    Thread xatti-harakati:
+    
+    - Discord thread’lari kanal sessiyalari sifatida yo‘naltiriladi
+    - ota thread metama’lumotlari ota-sessiya bog‘lanishi uchun ishlatilishi mumkin
+    - agar thread uchun alohida sozlama bo‘lmasa, thread konfiguratsiyasi ota kanal konfiguratsiyasini meros qiladi
+    
+    Kanal mavzulari **ishonchsiz** kontekst sifatida kiritiladi (system prompt sifatida emas).
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Reaction notifications">
+    Har bir guild uchun reaksiya bildirishnoma rejimi:
+
+    ```
+    - `off`
+    - `own` (sukut bo‘yicha)
+    - `all`
+    - `allowlist` (`guilds.<id>.users` dan foydalanadi)
+    
+    Reaksiya hodisalari system hodisalariga aylantiriladi va yo‘naltirilgan Discord sessiyasiga biriktiriladi.
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Ack reactions">
+    `ackReaction` OpenClaw kiruvchi xabarni qayta ishlayotgan paytda tasdiqlovchi emoji yuboradi.
+
+    ```
+    Ustuvorlik tartibi:
+    
+    - `channels.discord.accounts.<accountId>.ackReaction`
+    - `channels.discord.ackReaction`
+    - `messages.ackReaction`
+    - agent identifikatsiya emoji zaxirasi (`agents.list[].identity.emoji`, aks holda "👀")
+    
+    Eslatmalar:
+    
+    - Discord unicode emoji yoki maxsus emoji nomlarini qabul qiladi.
+    - Kanal yoki akkaunt uchun reaksiyani o‘chirish uchun `""` dan foydalaning.
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Config writes">
+    Kanal tomonidan boshlangan konfiguratsiya yozuvlari sukut bo‘yicha yoqilgan.
+
+    ```
+    Bu `/config set|unset` oqimlariga ta’sir qiladi (buyruq funksiyalari yoqilgan bo‘lsa).
+    
+    O‘chirish:
+    ```
 
 ```json5
 {
   channels: {
     discord: {
-      enabled: true,
-      token: "abc.123",
-      groupPolicy: "allowlist",
-      guilds: {
-        "*": {
-          channels: {
-            general: { allow: true },
-          },
-        },
-      },
-      mediaMaxMb: 8,
-      actions: {
-        reactions: true,
-        stickers: true,
-        emojiUploads: true,
-        stickerUploads: true,
-        polls: true,
-        permissions: true,
-        messages: true,
-        threads: true,
-        pins: true,
-        search: true,
-        memberInfo: true,
-        roleInfo: true,
-        roles: false,
-        channelInfo: true,
-        channels: true,
-        voiceStatus: true,
-        events: true,
-        moderation: false,
-        presence: false,
-      },
-      replyToMode: "off",
-      dm: {
-        enabled: true,
-        policy: "pairing", // pairing | allowlist | open | disabled
-        allowFrom: ["123456789012345678", "steipete"],
-        groupEnabled: false,
-        groupChannels: ["openclaw-dm"],
-      },
-      guilds: {
-        "*": { requireMention: true },
-        "123456789012345678": {
-          slug: "friends-of-openclaw",
-          requireMention: false,
-          reactionNotifications: "own",
-          users: ["987654321098765432", "steipete"],
-          channels: {
-            general: { allow: true },
-            help: {
-              allow: true,
-              requireMention: true,
-              users: ["987654321098765432"],
-              skills: ["search", "docs"],
-              systemPrompt: "Keep answers short.",
-            },
-          },
+      configWrites: false,
+    },
+  },
+}
+```
+
+  
+</Accordion>
+
+  <Accordion title="Gateway proxy">
+    Discord gateway WebSocket trafigini `channels.discord.proxy` orqali HTTP(S) proksi orqali yo‘naltiring.
+
+```json5
+{
+  channels: {
+    discord: {
+      proxy: "http://proxy.example:8080",
+    },
+  },
+}
+```
+
+    ```
+    Har bir akkaunt uchun bekor qilish:
+    ```
+
+```json5
+{
+  channels: {
+    discord: {
+      accounts: {
+        primary: {
+          proxy: "http://proxy.example:8080",
         },
       },
     },
@@ -308,62 +432,11 @@ Eslatmalar:
 }
 ```
 
-Ack reactions are controlled globally via `messages.ackReaction` +
-`messages.ackReactionScope`. Use `messages.removeAckAfterReply` to clear the
-ack reaction after the bot replies.
+  
+</Accordion>
 
-- `dm.enabled`: set `false` to ignore all DMs (default `true`).
-- `dm.policy`: DM access control (`pairing` recommended). `"open"` requires `dm.allowFrom=["*"]`.
-- `dm.allowFrom`: DM allowlist (user ids or names). Used by `dm.policy="allowlist"` and for `dm.policy="open"` validation. The wizard accepts usernames and resolves them to ids when the bot can search members.
-- `dm.groupEnabled`: enable group DMs (default `false`).
-- `dm.groupChannels`: optional allowlist for group DM channel ids or slugs.
-- `groupPolicy`: controls guild channel handling (`open|disabled|allowlist`); `allowlist` requires channel allowlists.
-- `guilds`: per-guild rules keyed by guild id (preferred) or slug.
-- `guilds."*"`: default per-guild settings applied when no explicit entry exists.
-- `guilds.<id>.slug`: optional friendly slug used for display names.
-- `guilds.<id>.users`: optional per-guild user allowlist (ids or names).
-- `guilds.<id>.tools`: optional per-guild tool policy overrides (`allow`/`deny`/`alsoAllow`) used when the channel override is missing.
-- `guilds.<id>.toolsBySender`: optional per-sender tool policy overrides at the guild level (applies when the channel override is missing; `"*"` wildcard supported).
-- `guilds.<id>.channels.<channel>.allow`: allow/deny the channel when `groupPolicy="allowlist"`.
-- `guilds.<id>.channels.<channel>.requireMention`: mention gating for the channel.
-- `guilds.<id>.channels.<channel>.tools`: optional per-channel tool policy overrides (`allow`/`deny`/`alsoAllow`).
-- `guilds.<id>.channels.<channel>.toolsBySender`: optional per-sender tool policy overrides within the channel (`"*"` wildcard supported).
-- `guilds.<id>.channels.<channel>.users`: optional per-channel user allowlist.
-- `guilds.<id>.channels.<channel>39. `.skills\`: ko‘nikmalar filtri (qoldirilsa = barcha ko‘nikmalar, bo‘sh = hech biri).
-- `guilds.<id>40. `.channels.&lt;channel&gt;`.systemPrompt`: extra system prompt for the channel. Discord channel topics are injected as **untrusted** context (not system prompt).
-- 41. `guilds.<id>`.channels.&lt;channel&gt;.enabled`: set `false\` to disable the channel.
-- `guilds.<id>.channels`: channel rules (keys are channel slugs or ids).
-- `guilds.<id>.requireMention`: per-guild mention requirement (overridable per channel).
-- `guilds.<id>42. `.reactionNotifications`: reaksiya tizimi hodisa rejimi (`off`, `own`, `all`, `allowlist\`).
-- `textChunkLimit`: outbound text chunk size (chars). Default: 2000.
-- `chunkMode`: `length` (default) splits only when exceeding `textChunkLimit`; `newline` splits on blank lines (paragraph boundaries) before length chunking.
-- `maxLinesPerMessage`: soft max line count per message. Default: 17.
-- `mediaMaxMb`: clamp inbound media saved to disk.
-- `historyLimit`: number of recent guild messages to include as context when replying to a mention (default 20; falls back to `messages.groupChat.historyLimit`; `0` disables).
-- `dmHistoryLimit`: DM history limit in user turns. Per-user overrides: `dms["<user_id>"].historyLimit`.
-- `retry`: retry policy for outbound Discord API calls (attempts, minDelayMs, maxDelayMs, jitter).
-- `pluralkit`: resolve PluralKit proxied messages so system members appear as distinct senders.
-- `actions`: per-action tool gates; omit to allow all (set `false` to disable).
-  - `reactions` (covers react + read reactions)
-  - `stickers`, `emojiUploads`, `stickerUploads`, `polls`, `permissions`, `messages`, `threads`, `pins`, `search`
-  - `memberInfo`, `roleInfo`, `channelInfo`, `voiceStatus`, `events`
-  - `channels` (create/edit/delete channels + categories + permissions)
-  - 43. `roles` (rol qo‘shish/olib tashlash, sukut bo‘yicha `false`)
-  - `moderation` (timeout/kick/ban, default `false`)
-  - `presence` (bot status/activity, default `false`)
-- `execApprovals`: Discord-only exec approval DMs (button UI). Supports `enabled`, `approvers`, `agentFilter`, `sessionFilter`.
-
-Reaction notifications use `guilds.<id>.reactionNotifications`:
-
-- `off`: no reaction events.
-- `own`: reactions on the bot's own messages (default).
-- `all`: all reactions on all messages.
-- `allowlist`: reactions from `guilds.<id>.users` on all messages (empty list disables).
-
-### PluralKit (PK) support
-
-Enable PK lookups so proxied messages resolve to the underlying system + member.
-Yoqilganda, OpenClaw ruxsat roʻyxatlari uchun aʼzo identifikatoridan foydalanadi va tasodifiy Discord pinglarini oldini olish uchun joʻnatuvchini `Member (PK:System)` deb belgilaydi.
+  <Accordion title="PluralKit support">
+    Proksilangan xabarlarni tizim a’zosi identifikatsiyasiga moslashtirish uchun PluralKit resolution’ni yoqing:
 
 ```json5
 {
@@ -371,99 +444,277 @@ Yoqilganda, OpenClaw ruxsat roʻyxatlari uchun aʼzo identifikatoridan foydalana
     discord: {
       pluralkit: {
         enabled: true,
-        token: "pk_live_...", // optional; required for private systems
+        token: "pk_live_...", // ixtiyoriy; yopiq tizimlar uchun kerak
       },
     },
   },
 }
 ```
 
-Ruxsat roʻyxati izohlari (PK yoqilgan):
+    ```
+    Eslatmalar:
+    
+    - allowlist’larda `pk:<memberId>` dan foydalanish mumkin
+    - a’zo ko‘rsatish nomlari name/slug bo‘yicha moslashtiriladi
+    - qidiruvlar asl xabar ID’sidan foydalanadi va vaqt oynasi bilan cheklangan
+    - agar qidiruv muvaffaqiyatsiz bo‘lsa, proksilangan xabarlar bot xabarlari sifatida ko‘riladi va `allowBots=true` bo‘lmasa, bekor qilinadi
+    ```
 
-- `dm.allowFrom`, `guilds.<id>`.users`yoki kanal bo‘yicha`users`ichida`pk:&lt;memberId&gt;\` dan foydalaning.
-- Aʼzo ko‘rsatish nomlari ham nom/slug bo‘yicha moslashtiriladi.
-- Qidiruvlar **asl** Discord xabar ID’sidan (proksi oldidagi xabar) foydalanadi, shuning uchun PK API uni faqat 30 daqiqalik oynasi ichida aniqlay oladi.
-- Agar PK qidiruvlari muvaffaqiyatsiz bo‘lsa (masalan, tokenisiz maxfiy tizim), proksi qilingan xabarlar bot xabarlari sifatida ko‘riladi va `channels.discord.allowBots=true` bo‘lmasa, bekor qilinadi.
+  
+</Accordion>
 
-### Asbob amalining standart sozlamalari
+  <Accordion title="Presence configuration">
+    Presence yangilanishlari faqat status yoki activity maydoni o‘rnatilganda qo‘llaniladi.
 
-| Amallar guruhi                         | Standart                               | Izohlar                                                                          |
-| -------------------------------------- | -------------------------------------- | -------------------------------------------------------------------------------- |
-| reaksiyalar                            | yoqilgan                               | Reaksiya qilish + reaksiya roʻyxati + emojiList                                  |
-| stikerlar                              | yoqilgan                               | Stikerlarni yuborish                                                             |
-| emoji yuklamalari                      | yoqilgan                               | Emojilarni yuklash                                                               |
-| stiker yuklamalari                     | yoqilgan                               | Stikerlarni yuklash                                                              |
-| soʻrovnomalar                          | yoqilgan                               | Soʻrovnomalar yaratish                                                           |
-| ruxsatlar                              | yoqilgan                               | Kanal ruxsatlari oniy nusxasi                                                    |
-| xabarlar                               | yoqilgan                               | O‘qish/yuborish/tahrirlash/o‘chirish                                             |
-| mavzular                               | yoqilgan                               | Yaratish/ro‘yxatlash/javob berish                                                |
-| pinlar                                 | yoqilgan                               | Qadash/olib tashlash/ro‘yxatlash                                                 |
-| qidiruv                                | yoqilgan                               | Xabarlarni qidirish (oldindan ko‘rish funksiyasi)             |
-| aʼzo maʼlumoti                         | yoqilgan                               | Aʼzo maʼlumoti                                                                   |
-| rol maʼlumoti                          | yoqilgan                               | Rollar roʻyxati                                                                  |
-| kanal maʼlumoti                        | yoqilgan                               | 1. Kanal maʼlumoti + roʻyxat                              |
-| 44. kanallar    | 3. yoqilgan     | 4. Kanal/toifa boshqaruvi                                 |
-| 5. voiceStatus  | 6. yoqilgan     | 7. Ovoz holatini aniqlash                                 |
-| 8. hodisalar    | 9. yoqilgan     | 10. Rejalashtirilgan hodisalarni roʻyxatlash/yaratish     |
-| 45. rollar      | 12. oʻchirilgan | 13. Rol qoʻshish/oʻchirish                                |
-| 46. moderatsiya | 15. oʻchirilgan | 16. Timeout/kick/ban                                      |
-| 17. presence    | 18. oʻchirilgan | 19. Bot holati/faoliyati (setPresence) |
+    ```
+    Faqat status misoli:
+    ```
 
-- 20. `replyToMode`: `off` (standart), `first` yoki `all`. 21. Faqat model javob tegi mavjud bo‘lganda qo‘llaniladi.
+```json5
+{
+  channels: {
+    discord: {
+      status: "idle",
+    },
+  },
+}
+```
 
-## 22. Javob teglari
+    ```
+    Activity misoli (custom status sukut bo‘yicha activity turi):
+    ```
 
-23. Tarmoqlangan javobni so‘rash uchun model o‘z chiqishida bitta tegni kiritishi mumkin:
+```json5
+{
+  channels: {
+    discord: {
+      activity: "Focus time",
+      activityType: 4,
+    },
+  },
+}
+```
 
-- 24. `[[reply_to_current]]` — qo‘zg‘atuvchi Discord xabariga javob berish.
-- 25. `[[reply_to:<id>]]` — kontekst/tarixdan aniq xabar identifikatoriga javob berish.
-  26. Joriy xabar identifikatorlari so‘rovlarga `[message_id: …]` ko‘rinishida qo‘shiladi; tarix yozuvlari allaqachon identifikatorlarni o‘z ichiga oladi.
+    ```
+    Streaming misoli:
+    ```
 
-27. Xatti-harakat `channels.discord.replyToMode` orqali boshqariladi:
+```json5
+{
+  channels: {
+    discord: {
+      activity: "Live coding",
+      activityType: 1,
+      activityUrl: "https://twitch.tv/openclaw",
+    },
+  },
+}
+```
 
-- 28. `off`: teglarni e’tiborsiz qoldirish.
-- 29. `first`: faqat birinchi chiqish qismi/ilova javob bo‘ladi.
-- 30. `all`: har bir chiqish qismi/ilova javob bo‘ladi.
+    ```
+    Activity turi xaritasi:
+    
+    - 0: Playing
+    - 1: Streaming (`activityUrl` talab qilinadi)
+    - 2: Listening
+    - 3: Watching
+    - 4: Custom (activity matnini status holati sifatida ishlatadi; emoji ixtiyoriy)
+    - 5: Competing
+    ```
 
-31. Allowlist moslashtirish bo‘yicha eslatmalar:
+  
+</Accordion>
 
-- 32. `allowFrom`/`users`/`groupChannels` identifikatorlar, nomlar, teglar yoki `<@id>` kabi eslatmalarni qabul qiladi.
-- 33. `discord:`/`user:` (foydalanuvchilar) va `channel:` (guruh DMlari) kabi prefikslar qo‘llab-quvvatlanadi.
-- 34. Istalgan yuboruvchi/kanalga ruxsat berish uchun `*` dan foydalaning.
-- 47. `guilds.<id>` bo‘lganda36. `.channels` mavjud bo‘lsa, ro‘yxatda ko‘rsatilmagan kanallar standart bo‘yicha rad etiladi.
-- 37. `guilds.<id>`38. `.channels` o‘tkazib yuborilsa, allowlistga kiritilgan guilddagi barcha kanallarga ruxsat beriladi.
-- 39. **Hech qanday kanalga ruxsat bermaslik** uchun `channels.discord.groupPolicy: "disabled"` qilib sozlang (yoki bo‘sh allowlistni qoldiring).
-- 40. Sozlash ustasi `Guild/Channel` nomlarini (ommaviy + xususiy) qabul qiladi va imkon bo‘lsa ularni IDlarga moslashtiradi.
-- 41. Ishga tushishda OpenClaw allowlistlardagi kanal/foydalanuvchi nomlarini IDlarga moslashtiradi (bot a’zolarni qidirishi mumkin bo‘lsa) va moslikni jurnalga yozadi; aniqlanmagan yozuvlar kiritilgandek saqlanadi.
+  <Accordion title="Exec approvals in Discord">
+    Discord DM’larda tugma asosidagi exec tasdiqlarini qo‘llab-quvvatlaydi va ixtiyoriy ravishda tasdiq so‘rovlarini yuborilgan kanalga joylashi mumkin.
 
-42. Native buyruqlar bo‘yicha eslatmalar:
+    ```
+    Konfiguratsiya yo‘li:
+    
+    - `channels.discord.execApprovals.enabled`
+    - `channels.discord.execApprovals.approvers`
+    - `channels.discord.execApprovals.target` (`dm` | `channel` | `both`, sukut bo‘yicha: `dm`)
+    - `agentFilter`, `sessionFilter`, `cleanupAfterResolve`
+    
+    `target` `channel` yoki `both` bo‘lsa, tasdiq so‘rovi kanalda ko‘rinadi. Faqat sozlangan tasdiqlovchilar tugmalardan foydalana oladi; boshqa foydalanuvchilar vaqtinchalik rad javobini oladi. Tasdiq so‘rovlari buyruq matnini o‘z ichiga oladi, shuning uchun kanalga yetkazishni faqat ishonchli kanallarda yoqing. Agar kanal ID’sini sessiya kalitidan aniqlab bo‘lmasa, OpenClaw DM orqali yuborishga qaytadi.
+    
+    Agar tasdiqlar noma’lum tasdiq ID’lari bilan muvaffaqiyatsiz tugasa, tasdiqlovchilar ro‘yxati va funksiya yoqilganini tekshiring.
+    
+    Tegishli hujjatlar: [Exec approvals](/tools/exec-approvals)
+    ```
 
-- 43. Ro‘yxatdan o‘tgan buyruqlar OpenClaw’ning chat buyruqlarini aks ettiradi.
-- 44. Native buyruqlar DMlar/guild xabarlari bilan bir xil allowlistlarga amal qiladi (`channels.discord.dm.allowFrom`, `channels.discord.guilds`, kanal bo‘yicha qoidalar).
-- 45. Slash buyruqlar Discord UI’da allowlistga kiritilmagan foydalanuvchilarga ham ko‘rinishi mumkin; OpenClaw bajarishda allowlistlarni majburan qo‘llaydi va “ruxsat berilmagan” deb javob beradi.
+  
+</Accordion>
+</AccordionGroup>
 
-## 46. Asbob amallari
+## Vositalar va amal cheklovlari
 
-47. Agent `discord`ni quyidagi amallar bilan chaqirishi mumkin:
+Discord xabar amallari xabar yuborish, kanal administratsiyasi, moderatsiya, presence va metadata amallarini o‘z ichiga oladi.
 
-- 48. `react` / `reactions` (reaksiyalarni qo‘shish yoki ro‘yxatlash)
-- 49. `sticker`, `poll`, `permissions`
-- 50. `readMessages`, `sendMessage`, `editMessage`, `deleteMessage`
-- Read/search/pin tool payloads include normalized `timestampMs` (UTC epoch ms) and `timestampUtc` alongside raw Discord `timestamp`.
-- `threadCreate`, `threadList`, `threadReply`
-- `pinMessage`, `unpinMessage`, `listPins`
-- `searchMessages`, `memberInfo`, `roleInfo`, `roleAdd`, `roleRemove`, `emojiList`
-- `channelInfo`, `channelList`, `voiceStatus`, `eventList`, `eventCreate`
-- `timeout`, `kick`, `ban`
-- `setPresence` (bot activity and online status)
+Asosiy misollar:
 
-Discord message ids are surfaced in the injected context (`[discord message id: …]` and history lines) so the agent can target them.
-48. Emoji unicode bo‘lishi mumkin (masalan, `✅`) yoki `<:party_blob:1234567890>` kabi maxsus emoji sintaksisi.
+- messaging: `sendMessage`, `readMessages`, `editMessage`, `deleteMessage`, `threadReply`
+- reaksiyalar: `react`, `reactions`, `emojiList`
+- moderatsiya: `timeout`, `kick`, `ban`
+- holat: `setPresence`
 
-## Safety & ops
+Action gate’lar `channels.discord.actions.*` ostida joylashgan.
 
-- 49. Bot tokenini parol kabi saqlang; nazorat ostidagi xostlarda `DISCORD_BOT_TOKEN` muhit o‘zgaruvchisini afzal ko‘ring yoki konfiguratsiya fayli ruxsatlarini qat’iy cheklang.
-- Only grant the bot permissions it needs (typically Read/Send Messages).
-- 50. Agar bot tiqilib qolgan bo‘lsa yoki tezlik chekloviga uchragan bo‘lsa, Discord sessiyasiga boshqa jarayonlar egalik qilmayotganini tasdiqlagach, shlyuzni qayta ishga tushiring (`openclaw gateway --force`).
+Standart gate xatti-harakati:
 
+| Amallar guruhi                                                                                                                                                           | Standart                               |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------- |
+| reactions, messages, threads, pins, polls, search, memberInfo, roleInfo, channelInfo, channels, voiceStatus, events, stickers, emojiUploads, stickerUploads, permissions | yoqilgan                               |
+| 45. rollar                                                                                                                                        | 12. oʻchirilgan |
+| 46. moderatsiya                                                                                                                                   | 15. oʻchirilgan |
+| 17. presence                                                                                                                                      | 18. oʻchirilgan |
 
+## Components v2 UI
+
+OpenClaw exec tasdiqlari va kontekstlararo belgilar uchun Discord components v2’dan foydalanadi. Discord xabar amallari maxsus UI uchun `components`ni ham qabul qilishi mumkin (kengaytirilgan; Carbon component instansiyalarini talab qiladi), legacy `embeds` esa mavjud, biroq tavsiya etilmaydi.
+
+- `channels.discord.ui.components.accentColor` Discord komponent konteynerlarida ishlatiladigan aksent rangni (hex) belgilaydi.
+- Har bir akkaunt uchun `channels.discord.accounts.<id>.ui.components.accentColor` orqali sozlanadi.
+- Agar components v2 mavjud bo‘lsa, `embeds` e’tiborga olinmaydi.
+
+Misol:
+
+```json5
+{
+  channels: {
+    discord: {
+      ui: {
+        components: {
+          accentColor: "#5865F2",
+        },
+      },
+    },
+  },
+}
+```
+
+## Ovozli xabarlar
+
+Discord ovozli xabarlari to‘lqin shakli (waveform) ko‘rinishini ko‘rsatadi va OGG/Opus audio hamda metama’lumotlarni talab qiladi. OpenClaw to‘lqin shaklini avtomatik yaratadi, biroq audio fayllarni tekshirish va konvertatsiya qilish uchun gateway xostida `ffmpeg` va `ffprobe` mavjud bo‘lishi kerak.
+
+Talablar va cheklovlar:
+
+- **Lokal fayl yo‘li**ni taqdim eting (URL’lar rad etiladi).
+- Matn kontentini kiritmang (Discord bir xil payload’da matn + ovozli xabarga ruxsat bermaydi).
+- Istalgan audio formati qabul qilinadi; kerak bo‘lsa OpenClaw OGG/Opus’ga konvertatsiya qiladi.
+
+Misol:
+
+```bash
+message(action="send", channel="discord", target="channel:123", path="/path/to/audio.mp3", asVoice=true)
+```
+
+## Birinchi qadam: `openclaw doctor` va `openclaw channels status --probe` ni ishga tushiring (amaliy ogohlantirishlar + tezkor auditlar).
+
+<AccordionGroup>
+  <Accordion title="Used disallowed intents or bot sees no guild messages">
+
+    ```
+    - Message Content Intent’ni yoqing
+    - foydalanuvchi/a’zo aniqlashga bog‘liq bo‘lsangiz, Server Members Intent’ni yoqing
+    - intent’larni o‘zgartirgandan so‘ng gateway’ni qayta ishga tushiring
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Guild messages blocked unexpectedly">
+
+    ```
+    - `groupPolicy`ni tekshiring
+    - `channels.discord.guilds` ostidagi guild allowlist’ni tekshiring
+    - agar guild `channels` xaritasi mavjud bo‘lsa, faqat ro‘yxatdagi kanallarga ruxsat beriladi
+    - `requireMention` xatti-harakati va mention andozalarini tekshiring
+    
+    Foydali tekshiruvlar:
+    ```
+
+```bash
+openclaw doctor
+openclaw channels status --probe
+openclaw logs --follow
+```
+
+  
+</Accordion>
+
+  <Accordion title="Require mention false but still blocked">
+    Keng tarqalgan sabablar:
+
+    ```
+    - mos guild/channel allowlist bo‘lmagan holda `groupPolicy="allowlist"`
+    - `requireMention` noto‘g‘ri joyda sozlangan (`channels.discord.guilds` yoki kanal yozuvi ostida bo‘lishi kerak)
+    - yuboruvchi guild/channel `users` allowlist’i tomonidan bloklangan
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Permissions audit mismatches">
+    `channels status --probe` ruxsat tekshiruvlari faqat raqamli kanal ID’lari uchun ishlaydi.
+
+    ```
+    Agar slug kalitlaridan foydalansangiz, runtime moslash ishlashi mumkin, biroq probe ruxsatlarni to‘liq tekshira olmaydi.
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="DM and pairing issues">
+
+    ```
+    - DM o‘chirilgan: `channels.discord.dm.enabled=false`
+    - DM siyosati o‘chirilgan: `channels.discord.dmPolicy="disabled"` (legacy: `channels.discord.dm.policy`)
+    - `pairing` rejimida juftlash tasdig‘i kutilmoqda
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Bot to bot loops">
+    Standart holatda bot tomonidan yozilgan xabarlar e’tiborga olinmaydi.
+
+    ```
+    Agar `channels.discord.allowBots=true` ni yoqsangiz, sikl (loop) xatti-harakatining oldini olish uchun qat’iy mention va allowlist qoidalaridan foydalaning.
+    ```
+
+  
+</Accordion>
+</AccordionGroup>
+
+## Konfiguratsiya bo‘yicha havola ko‘rsatkichlari
+
+Asosiy ma’lumotnoma:
+
+- [Configuration reference - Discord](/gateway/configuration-reference#discord)
+
+Muhim Discord maydonlari:
+
+- ishga tushirish/autentifikatsiya: `enabled`, `token`, `accounts.*`, `allowBots`
+- siyosat: `groupPolicy`, `dm.*`, `guilds.*`, `guilds.*.channels.*`
+- buyruq: `commands.native`, `commands.useAccessGroups`, `configWrites`
+- javob/tarix: `replyToMode`, `historyLimit`, `dmHistoryLimit`, `dms.*.historyLimit`
+- yetkazish: `textChunkLimit`, `chunkMode`, `maxLinesPerMessage`
+- media/qayta urinish: `mediaMaxMb`, `retry`
+- harakatlar: `actions.*`
+- holat: `activity`, `status`, `activityType`, `activityUrl`
+- UI: `ui.components.accentColor`
+- xususiyatlar: `pluralkit`, `execApprovals`, `intents`, `agentComponents`, `heartbeat`, `responsePrefix`
+
+## Xavfsizlik va operatsiyalar
+
+- Bot tokenlarini maxfiy ma’lumot sifatida saqlang (`DISCORD_BOT_TOKEN` nazorat qilinadigan muhitlarda tavsiya etiladi).
+- Eng kam zarur Discord ruxsatlarini bering.
+- Agar buyruq deploy/state eskirgan bo‘lsa, gateway’ni qayta ishga tushiring va `openclaw channels status --probe` bilan yana tekshiring.
+
+## Bog‘liq
+
+- [Pairing](/channels/pairing)
+- [Channel routing](/channels/channel-routing)
+- [Troubleshooting](/channels/troubleshooting)
+- [Slash commands](/tools/slash-commands)

@@ -1,4 +1,8 @@
 ---
+summary: "Interfaz de configuración de Skills en macOS y estado respaldado por el Gateway"
+read_when:
+  - Actualizar la interfaz de configuración de Skills en macOS
+  - Cambiar el control de acceso o el comportamiento de instalación de Skills
 title: "Habilidades"
 ---
 
@@ -27,5 +31,3 @@ La app de macOS expone las Skills de OpenClaw a través del Gateway; no analiza 
 ## Modo remoto
 
 - La instalación y las actualizaciones de configuración ocurren en el host del Gateway (no en el Mac local).
-
-

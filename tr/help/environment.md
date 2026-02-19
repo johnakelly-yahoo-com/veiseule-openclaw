@@ -1,4 +1,9 @@
 ---
+summary: "OpenClaw'ın ortam değişkenlerini nereden yüklediği ve öncelik sırası"
+read_when:
+  - Hangi ortam değişkenlerinin yüklendiğini ve hangi sırayla yüklendiğini bilmeniz gerekir
+  - Gateway'de eksik API anahtarlarını hata ayıklarken
+  - Sağlayıcı kimlik doğrulaması veya dağıtım ortamlarını belgelendirirken
 title: "Ortam Değişkenleri"
 ---
 
@@ -75,7 +80,7 @@ Ayrıntılar için [Configuration: Env var substitution](/gateway/configuration#
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `OPENCLAW_HOME`        | Tüm dahili yol çözümlemesi için kullanılan ana dizini geçersiz kılar (`~/.openclaw/`, agent dizinleri, oturumlar, kimlik bilgileri). OpenClaw’ı özel bir servis kullanıcısı olarak çalıştırırken kullanışlıdır. |
 | `OPENCLAW_STATE_DIR`   | Durum dizinini geçersiz kılar (varsayılan `~/.openclaw`).                                                                                                                                                                       |
-| `OPENCLAW_CONFIG_PATH` | Yapılandırma dosyası yolunu geçersiz kılın (varsayılan `~/.openclaw/openclaw.json`).                                                                                                                                                            |
+| `OPENCLAW_CONFIG_PATH` | Yapılandırma dosyası yolunu geçersiz kılın (varsayılan `~/.openclaw/openclaw.json`).                                                                                                                                            |
 
 ### `OPENCLAW_HOME`
 
@@ -100,5 +105,3 @@ Ayarlandığında, `OPENCLAW_HOME` tüm dahili yol çözümlemeleri için sistem
 - [Gateway yapılandırması](/gateway/configuration)
 - [SSS: env vars ve .env yükleme](/help/faq#env-vars-and-env-loading)
 - [Modeller genel bakış](/concepts/models)
-
-

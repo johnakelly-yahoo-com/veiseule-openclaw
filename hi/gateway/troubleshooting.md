@@ -1,10 +1,14 @@
 ---
+summary: "Gateway, चैनलों, स्वचालन, नोड्स और ब्राउज़र के लिए गहन समस्या-निवारण रनबुक"
+read_when:
+  - समस्या-निवारण हब ने आपको गहन निदान के लिए यहाँ भेजा है
+  - आपको सटीक कमांड्स के साथ स्थिर, लक्षण-आधारित रनबुक अनुभागों की आवश्यकता है
 title: "समस्या-निवारण"
 ---
 
 # Gateway समस्या-निवारण
 
-यह पृष्ठ विस्तृत रनबुक है।
+This page is the deep runbook.
 Start at [/help/troubleshooting](/help/troubleshooting) if you want the fast triage flow first.
 
 ## कमांड सीढ़ी
@@ -105,8 +109,8 @@ openclaw gateway status --deep
 
 सामान्य संकेत:
 
-- `Gateway start blocked: set gateway.mode=local` → स्थानीय Gateway मोड सक्षम नहीं है।
-- `refusing to bind gateway ... without auth` → टोकन/पासवर्ड के बिना non-loopback bind।
+- `Gateway start blocked: set gateway.mode=local` → local gateway मोड सक्षम नहीं है। समाधान: अपने config में `gateway.mode="local"` सेट करें (या `openclaw configure` चलाएँ)। यदि आप समर्पित `openclaw` उपयोगकर्ता के साथ Podman के माध्यम से OpenClaw चला रहे हैं, तो config `~openclaw/.openclaw/openclaw.json` पर स्थित होती है।
+- `refusing to bind gateway ... without auth` → non-loopback bind without token/password.
 - `another gateway instance is already listening` / `EADDRINUSE` → पोर्ट टकराव।
 
 संबंधित:
@@ -312,5 +316,3 @@ openclaw gateway restart
 - [/gateway/pairing](/gateway/pairing)
 - [/gateway/authentication](/gateway/authentication)
 - [/gateway/background-process](/gateway/background-process)
-
-

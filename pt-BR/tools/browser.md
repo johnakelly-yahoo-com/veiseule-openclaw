@@ -1,4 +1,9 @@
 ---
+summary: "Serviço integrado de controle do navegador + comandos de ação"
+read_when:
+  - Adicionar automação de navegador controlada por agente
+  - Depurar por que o openclaw está interferindo no seu próprio Chrome
+  - Implementar configurações e ciclo de vida do navegador no app macOS
 title: "Browser (gerenciado pelo OpenClaw)"
 ---
 
@@ -188,6 +193,7 @@ Notas:
 Ideias-chave:
 
 - O controle do navegador é apenas em loopback; o acesso flui pela autenticação do Gateway ou pelo pareamento de nós.
+- Se o controle do navegador estiver habilitado e nenhuma autenticação estiver configurada, o OpenClaw gera automaticamente `gateway.auth.token` na inicialização e o persiste na configuração.
 - Mantenha o Gateway e quaisquer hosts de nó em uma rede privada (Tailscale); evite exposição pública.
 - Trate URLs/tokens de CDP remoto como segredos; prefira variáveis de ambiente ou um gerenciador de segredos.
 
@@ -310,6 +316,11 @@ Apenas para integrações locais, o Gateway expõe uma pequena API HTTP em loopb
 - Configurações: `POST /set/offline`, `POST /set/headers`, `POST /set/credentials`, `POST /set/geolocation`, `POST /set/media`, `POST /set/timezone`, `POST /set/locale`, `POST /set/device`
 
 Todos os endpoints aceitam `?profile=<name>`.
+
+Se a autenticação do gateway estiver configurada, as rotas HTTP do navegador também exigirão autenticação:
+
+- `Authorization: Bearer <gateway token>`
+- `x-openclaw-password: <gateway password>` ou HTTP Basic auth com essa senha
 
 ### Requisito do Playwright
 
@@ -434,6 +445,11 @@ Notas:
 
 - `upload` e `dialog` são chamadas de **armar**; execute-as antes do clique/pressionamento
   que dispara o seletor/diálogo.
+- Os caminhos de download e saída de trace são restritos às raízes temporárias do OpenClaw:
+  - traces: `/tmp/openclaw` (fallback: `${os.tmpdir()}/openclaw`)
+  - downloads: `/tmp/openclaw/downloads` (fallback: `${os.tmpdir()}/openclaw/downloads`)
+- Os caminhos de upload são restritos a uma raiz temporária de uploads do OpenClaw:
+  - uploads: `/tmp/openclaw/uploads` (fallback: `${os.tmpdir()}/openclaw/uploads`)
 - `upload` também pode definir inputs de arquivo diretamente via `--input-ref` ou `--element`.
 - `snapshot`:
   - `--format ai` (padrão quando o Playwright está instalado): retorna um snapshot de IA com referências numéricas (`aria-ref="<n>"`).
@@ -570,5 +586,3 @@ Como mapeia:
   - Se um nó com capacidade de navegador estiver conectado, a ferramenta pode rotear automaticamente para ele, a menos que você fixe `target="host"` ou `target="node"`.
 
 Isso mantém o agente determinístico e evita seletores frágeis.
-
-

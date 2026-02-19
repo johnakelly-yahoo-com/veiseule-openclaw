@@ -1,4 +1,8 @@
 ---
+summary: "Suporte ao Signal via signal-cli (JSON-RPC + SSE), configuração e modelo de números"
+read_when:
+  - Configurando suporte ao Signal
+  - Depurando envio/recebimento no Signal
 title: "Signal"
 ---
 
@@ -6,13 +10,22 @@ title: "Signal"
 
 Status: integração externa via CLI. O Gateway se comunica com `signal-cli` por HTTP JSON-RPC + SSE.
 
-## Início rápido (iniciante)
+## Pré-requisitos
+
+- OpenClaw instalado no seu servidor (fluxo para Linux abaixo testado no Ubuntu 24).
+- `signal-cli` disponível no host onde o gateway é executado.
+- Um número de telefone que possa receber um SMS de verificação (para o fluxo de registro por SMS).
+- Acesso a um navegador para o captcha do Signal (`signalcaptchas.org`) durante o registro.
+
+## Configuração (caminho rápido)
 
 1. Use um **número de Signal separado** para o bot (recomendado).
 2. Instale `signal-cli` (Java necessário).
-3. Vincule o dispositivo do bot e inicie o daemon:
+3. Escolha um dos caminhos de configuração:
    - `signal-cli link -n "OpenClaw"`
+   - **Caminho B (registro por SMS):** registre um número dedicado com captcha + verificação por SMS.
 4. Configure o OpenClaw e inicie o gateway.
+5. Envie a primeira DM e aprove o pareamento (`openclaw pairing approve signal <CODE>`).
 
 Configuração mínima:
 
@@ -29,6 +42,15 @@ Configuração mínima:
   },
 }
 ```
+
+Referência de campos:
+
+| Campo                                        | Descrição                                                                                      |
+| -------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `account`                                    | Número de telefone do bot no formato E.164 (`+15551234567`) |
+| Início rápido (iniciante) | Caminho para `signal-cli` (`signal-cli` se estiver no `PATH`)               |
+| `dmPolicy`                                   | Política de acesso por DM (`pairing` recomendado)                           |
+| `allowFrom`                                  | Números de telefone ou valores `uuid:&lt;id&gt;` autorizados a enviar DM                             |
 
 ## O que é
 
@@ -54,7 +76,7 @@ Desative com:
 - Se você executar o bot na **sua conta pessoal do Signal**, ele ignorará suas próprias mensagens (proteção contra loop).
 - Para “eu envio mensagem ao bot e ele responde”, use um **número de bot separado**.
 
-## Configuração (caminho rápido)
+## Caminho de configuração A: vincular conta existente do Signal (QR)
 
 1. Instale `signal-cli` (Java necessário).
 2. Vincule uma conta de bot:
@@ -78,6 +100,67 @@ Exemplo:
 ```
 
 Suporte a múltiplas contas: use `channels.signal.accounts` com configuração por conta e `name` opcional. Veja [`gateway/configuration`](/gateway/configuration#telegramaccounts--discordaccounts--slackaccounts--signalaccounts--imessageaccounts) para o padrão compartilhado.
+
+## Caminho de configuração B: registrar número dedicado para bot (SMS, Linux)
+
+Use isto quando quiser um número dedicado para o bot em vez de vincular uma conta existente do app Signal.
+
+1. Obtenha um número que possa receber SMS (ou verificação por voz para telefones fixos).
+   - Use um número dedicado para o bot para evitar conflitos de conta/sessão.
+2. Instale o `signal-cli` no host do gateway:
+
+```bash
+VERSION=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/AsamK/signal-cli/releases/latest | sed -e 's/^.*\/v//')
+curl -L -O "https://github.com/AsamK/signal-cli/releases/download/v${VERSION}/signal-cli-${VERSION}-Linux-native.tar.gz"
+sudo tar xf "signal-cli-${VERSION}-Linux-native.tar.gz" -C /opt
+sudo ln -sf /opt/signal-cli /usr/local/bin/
+signal-cli --version
+```
+
+Se você usar a build JVM (`signal-cli-${VERSION}.tar.gz`), instale primeiro o JRE 25+.
+Mantenha o `signal-cli` atualizado; o upstream observa que versões antigas podem deixar de funcionar conforme as APIs do servidor Signal mudam.
+
+3. Registre e verifique o número:
+
+```bash
+signal-cli -a +<BOT_PHONE_NUMBER> register
+```
+
+Se for necessário captcha:
+
+1. Abra `https://signalcaptchas.org/registration/generate.html`.
+2. Conclua o captcha e copie o link `signalcaptcha://...` do alvo "Open Signal".
+3. Execute a partir do mesmo IP externo da sessão do navegador, quando possível.
+4. Execute o registro novamente imediatamente (os tokens de captcha expiram rapidamente):
+
+```bash
+signal-cli -a +<BOT_PHONE_NUMBER> register --captcha '<SIGNALCAPTCHA_URL>'
+signal-cli -a +<BOT_PHONE_NUMBER> verify <VERIFICATION_CODE>
+```
+
+4. Vincule o dispositivo do bot e inicie o daemon:
+
+```bash
+# Se você executar o gateway como um serviço systemd de usuário:
+systemctl --user restart openclaw-gateway
+
+# Depois verifique:
+openclaw doctor
+openclaw channels status --probe
+```
+
+5. Emparelhe seu remetente de DM:
+   - Envie qualquer mensagem para o número do bot.
+   - Aprove o código no servidor: `openclaw pairing approve signal <PAIRING_CODE>`.
+   - Salve o número do bot como contato no seu telefone para evitar "Unknown contact".
+
+Importante: registrar uma conta de número de telefone com `signal-cli` pode desautenticar a sessão principal do app Signal para esse número. Prefira um número dedicado para o bot ou use o modo de vinculação por QR se precisar manter a configuração atual do app no seu telefone.
+
+Referências upstream:
+
+- `signal-cli` README: `https://github.com/AsamK/signal-cli`
+- Fluxo de captcha: `https://github.com/AsamK/signal-cli/wiki/Registration-with-captcha`
+- Fluxo de vinculação: `https://github.com/AsamK/signal-cli/wiki/Linking-other-devices-(Provisioning)`
 
 ## Modo de daemon externo (httpUrl)
 
@@ -187,8 +270,25 @@ Falhas comuns:
 - Daemon acessível, mas sem respostas: verifique as configurações da conta/daemon (`httpUrl`, `account`) e o modo de recebimento.
 - DMs ignoradas: o remetente está pendente de aprovação de pareamento.
 - Mensagens de grupo ignoradas: o bloqueio por remetente/menção do grupo impede a entrega.
+- Erros de validação de configuração após edições: execute `openclaw doctor --fix`.
+- Signal ausente nos diagnósticos: confirme `channels.signal.enabled: true`.
+
+Verificações extras:
+
+```bash
+openclaw pairing list signal
+pgrep -af signal-cli
+grep -i "signal" "/tmp/openclaw/openclaw-$(date +%Y-%m-%d).log" | tail -20
+```
 
 Para o fluxo de triagem: [/channels/troubleshooting](/channels/troubleshooting).
+
+## Notas de segurança
+
+- `signal-cli` armazena as chaves da conta localmente (normalmente em `~/.local/share/signal-cli/data/`).
+- Faça backup do estado da conta Signal antes de migrar ou reconstruir o servidor.
+- Mantenha `channels.signal.dmPolicy: "pairing"` a menos que você queira explicitamente um acesso por DM mais amplo.
+- A verificação por SMS é necessária apenas para fluxos de registro ou recuperação, mas perder o controle do número/conta pode complicar um novo registro.
 
 ## Referência de configuração (Signal)
 
@@ -222,5 +322,3 @@ Opções globais relacionadas:
 - `agents.list[].groupChat.mentionPatterns` (o Signal não oferece suporte a menções nativas).
 - `messages.groupChat.mentionPatterns` (fallback global).
 - `messages.responsePrefix`.
-
-

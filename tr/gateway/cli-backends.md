@@ -1,4 +1,9 @@
 ---
+summary: "CLI arka uçları: yerel AI CLI'leri üzerinden yalnızca metin yedek yolu"
+read_when:
+  - API sağlayıcıları başarısız olduğunda güvenilir bir yedek istediğinizde
+  - Claude Code CLI veya diğer yerel AI CLI'lerini çalıştırıyor ve bunları yeniden kullanmak istediğinizde
+  - Oturumları ve görüntüleri desteklemeye devam eden, yalnızca metinli ve araçsız bir yol gerektiğinde
 title: "CLI Arka Uçları"
 ---
 
@@ -135,7 +140,7 @@ Sağlayıcı kimliği, model referansınızın sol tarafı olur:
 4. **Çıktıyı ayrıştırır** (JSON veya düz metin) ve nihai metni döndürür.
 5. **Oturum kimliklerini kalıcılaştırır**, böylece takip eden istekler aynı CLI oturumunu yeniden kullanır.
 
-## Oturumlar
+## Sessions
 
 - CLI oturumları destekliyorsa, `sessionArg` (örn. `--session-id`) veya
   kimliğin birden fazla bayrağa eklenmesi gerektiğinde `sessionArgs` (yer tutucu `{sessionId}`) ayarlayın.
@@ -217,5 +222,3 @@ Yalnızca gerektiğinde geçersiz kılın (yaygın: mutlak `command` yolu).
 - **Oturum sürekliliği yok**: `sessionArg`’in ayarlı olduğundan ve `sessionMode`’un
   `none` olmadığından emin olun (Codex CLI şu anda JSON çıktısıyla devam edemez).
 - **Görüntüler yok sayılıyor**: `imageArg`’i ayarlayın (ve CLI’nin dosya yollarını desteklediğini doğrulayın).
-
-

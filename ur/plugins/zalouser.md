@@ -1,4 +1,8 @@
 ---
+summary: "Zalo پرسنل پلگ اِن: zca-cli کے ذریعے QR لاگ اِن + میسجنگ (پلگ اِن انسٹال + چینل کنفیگ + CLI + ٹول)"
+read_when:
+  - آپ OpenClaw میں Zalo پرسنل (غیر سرکاری) سپورٹ چاہتے ہیں
+  - آپ zalouser پلگ اِن کو کنفیگر یا ڈیولپ کر رہے ہیں
 title: "Zalo پرسنل پلگ اِن"
 ---
 
@@ -6,7 +10,7 @@ title: "Zalo پرسنل پلگ اِن"
 
 OpenClaw کے لیے Zalo پرسنل سپورٹ بطور پلگ اِن، جو `zca-cli` استعمال کرتے ہوئے ایک عام Zalo یوزر اکاؤنٹ کو خودکار بناتا ہے۔
 
-> **انتباہ:** غیر سرکاری آٹومیشن آپ کے اکاؤنٹ کی معطلی/پابندی کا سبب بن سکتی ہے۔ اسے اپنی ذمہ داری پر استعمال کریں۔
+> **Warning:** Unofficial automation may lead to account suspension/ban. Use at your own risk.
 
 ## نام گذاری
 
@@ -75,5 +79,3 @@ openclaw directory peers list --channel zalouser --query "name"
 ٹول کا نام: `zalouser`
 
 ایکشنز: `send`, `image`, `link`, `friends`, `groups`, `me`, `status`
-
-

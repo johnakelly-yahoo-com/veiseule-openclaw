@@ -1,4 +1,9 @@
 ---
+summary: "네트워크 허브: Gateway(게이트웨이) 표면, 페어링, 디바이스 검색, 보안"
+read_when:
+  - 네트워크 아키텍처 및 보안 개요가 필요할 때
+  - 로컬과 tailnet 접근 또는 페어링 문제를 디버깅할 때
+  - 네트워킹 문서의 표준 목록을 확인하고자 할 때
 title: "네트워크"
 ---
 
@@ -46,5 +51,3 @@ title: "네트워크"
 - [Gateway 설정 참조](/gateway/configuration)
 - [문제 해결](/gateway/troubleshooting)
 - [Doctor](/gateway/doctor)
-
-

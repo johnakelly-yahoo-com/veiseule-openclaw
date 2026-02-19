@@ -1,4 +1,8 @@
 ---
+summary: "Tarefas de LLM apenas em JSON para workflows (ferramenta de plugin opcional)"
+read_when:
+  - Você quer uma etapa de LLM apenas em JSON dentro de workflows
+  - Você precisa de saída de LLM validada por esquema para automação
 title: "Tarefa de LLM"
 ---
 
@@ -109,5 +113,3 @@ openclaw.invoke --tool llm-task --action json --args-json '{
 - Nenhuma ferramenta é exposta ao modelo nesta execução.
 - Trate a saída como não confiável, a menos que você valide com `schema`.
 - Coloque aprovações antes de qualquer etapa com efeitos colaterais (enviar, postar, executar).
-
-

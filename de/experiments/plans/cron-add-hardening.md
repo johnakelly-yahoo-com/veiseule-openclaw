@@ -1,4 +1,5 @@
 ---
+summary: "Eingabehärtung für cron.add, Schemaabgleich und Verbesserung der Cron-UI/Agent-Tooling"
 owner: "openclaw"
 status: "complete"
 last_updated: "2026-01-05"
@@ -60,5 +61,3 @@ Siehe [Cron jobs](/automation/cron-jobs) für die normalisierte Struktur und Bei
 
 - Sollte `cron.add` explizite `state` von Clients akzeptieren (derzeit durch das Schema untersagt)?
 - Sollten wir `webchat` als expliziten Zustellanbieter zulassen (derzeit in der Zustellauflösung gefiltert)?
-
-

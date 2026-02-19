@@ -1,4 +1,8 @@
 ---
+summary: "入站頻道位置解析（Telegram + WhatsApp）與情境欄位"
+read_when:
+  - 新增或修改頻道位置解析時
+  - 在代理程式提示或工具中使用位置情境欄位時
 title: "頻道位置解析"
 ---
 
@@ -6,8 +10,8 @@ title: "頻道位置解析"
 
 OpenClaw 會將來自聊天頻道分享的位置正規化為：
 
-- 附加到傳入主體的可讀文字，並且
-- 自動回覆情境酬載中的結構化欄位。
+- human-readable text appended to the inbound body, and
+- structured fields in the auto-reply context payload.
 
 目前支援：
 
@@ -45,10 +49,8 @@ Meet here
 - `LocationSource`（`pin | place | live`）
 - `LocationIsLive`（boolean）
 
-## 頻道備註
+## Channel notes
 
 - **Telegram**：地點會對應到 `LocationName/LocationAddress`；即時位置使用 `live_period`。
 - **WhatsApp**：`locationMessage.comment` 與 `liveLocationMessage.caption` 會作為說明文字行附加。
 - **Matrix**：`geo_uri` 會解析為釘選位置；高度會被忽略，且 `LocationIsLive` 一律為 false。
-
-

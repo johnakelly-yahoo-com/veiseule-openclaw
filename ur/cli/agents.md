@@ -1,4 +1,7 @@
 ---
+summary: "`openclaw agents` کے لیے CLI حوالہ (فہرست/شامل/حذف/شناخت سیٹ کریں)"
+read_when:
+  - آپ کو متعدد علیحدہ ایجنٹس (ورک اسپیسز + روٹنگ + تصدیق) درکار ہوں
 title: "ایجنٹس"
 ---
 
@@ -70,5 +73,3 @@ openclaw agents set-identity --agent main --name "OpenClaw" --emoji "🦞" --ava
   },
 }
 ```
-
-

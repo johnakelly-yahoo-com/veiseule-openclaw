@@ -1,11 +1,15 @@
 ---
+summary: "模型提供者總覽，包含範例設定與 CLI 流程"
+read_when:
+  - 你需要逐一提供者的模型設定參考
+  - 你想要模型提供者的範例設定或 CLI 入門指令
 title: "模型提供者"
 ---
 
 # 模型提供者
 
-27. 本頁涵蓋 **LLM/模型供應商**（不包含 WhatsApp/Telegram 等聊天通道）。
-28. 有關模型選擇規則，請參閱 [/concepts/models](/concepts/models)。
+本頁涵蓋 **LLM/模型供應商**（不包含 WhatsApp/Telegram 等聊天通道）。
+有關模型選擇規則，請參閱 [/concepts/models](/concepts/models)。
 
 ## 快速規則
 
@@ -15,8 +19,8 @@ title: "模型提供者"
 
 ## 內建提供者（pi‑ai catalog）
 
-29. OpenClaw 隨附 pi‑ai 目錄。 30. 這些供應商**不需要**
-    `models.providers` 設定；只要設定驗證並選擇模型即可。
+OpenClaw 隨附 pi‑ai 目錄。 30. 這些供應商**不需要**
+`models.providers` 設定；只要設定驗證並選擇模型即可。
 
 ### OpenAI
 
@@ -117,6 +121,7 @@ title: "模型提供者"
   - OpenAI 相容的 base URL：`https://api.cerebras.ai/v1`。
 - Mistral：`mistral`（`MISTRAL_API_KEY`）
 - GitHub Copilot：`github-copilot`（`COPILOT_GITHUB_TOKEN` / `GH_TOKEN` / `GITHUB_TOKEN`）
+- Hugging Face Inference：`huggingface`（`HUGGINGFACE_HUB_TOKEN` 或 `HF_TOKEN`）— 相容於 OpenAI 的路由器；範例模型：`huggingface/deepseek-ai/DeepSeek-R1`；CLI：`openclaw onboard --auth-choice huggingface-api-key`。 請參閱 [Hugging Face (Inference)](/providers/huggingface)。
 
 ## 透過 `models.providers` 的提供者（自訂 / base URL）
 
@@ -182,7 +187,8 @@ Kimi Coding 使用 Moonshot AI 的 Anthropic 相容端點：
 
 Qwen 透過裝置碼流程提供 Qwen Coder + Vision 的 OAuth 存取。
 啟用隨附外掛，然後登入：
-32. 啟用隨附的外掛，然後登入：
+32.
+啟用隨附的外掛，然後登入：
 
 ```bash
 openclaw plugins enable qwen-portal-auth
@@ -240,7 +246,7 @@ Ollama 是提供 OpenAI 相容 API 的本地 LLM 執行環境：
 - 提供者：`ollama`
 - 驗證：不需要（本地伺服器）
 - 範例模型：`ollama/llama3.3`
-- 安裝：&lt;https://ollama.ai&gt;
+- 安裝：<https://ollama.ai>
 
 ```bash
 # Install Ollama, then pull a model:
@@ -255,7 +261,33 @@ ollama pull llama3.3
 }
 ```
 
-33. 在本機以 `http://127.0.0.1:11434/v1` 執行時，會自動偵測到 Ollama。 34. 請參閱 [/providers/ollama](/providers/ollama) 以取得模型建議與自訂設定。
+在本機以 `http://127.0.0.1:11434/v1` 執行時，會自動偵測到 Ollama。 34. 請參閱 [/providers/ollama](/providers/ollama) 以取得模型建議與自訂設定。
+
+### vLLM
+
+vLLM 是一個本機（或自行託管）的 OpenAI 相容伺服器：
+
+- Provider：`vllm`
+- Auth：可選（取決於您的伺服器設定）
+- 預設 base URL：`http://127.0.0.1:8000/v1`
+
+若要在本機啟用自動探索（若您的伺服器未強制驗證，任何值皆可）：
+
+```bash
+export VLLM_API_KEY="vllm-local"
+```
+
+接著設定模型（請替換為 `/v1/models` 回傳的其中一個 ID）：
+
+```json5
+{
+  agents: {
+    defaults: { model: { primary: "vllm/your-model-id" } },
+  },
+}
+```
+
+詳情請參閱 [/providers/vllm](/providers/vllm)。
 
 ### 本地代理（LM Studio、vLLM、LiteLLM 等）
 
@@ -296,7 +328,8 @@ ollama pull llama3.3
 
 - 對於自訂提供者，`reasoning`、`input`、`cost`、`contextWindow` 與 `maxTokens` 為選填。
   若省略，OpenClaw 會預設為：
-  35. 若省略，OpenClaw 預設為：
+  35.
+  若省略，OpenClaw 預設為：
   - `reasoning: false`
   - `input: ["text"]`
   - `cost: { input: 0, output: 0, cacheRead: 0, cacheWrite: 0 }`
@@ -313,5 +346,3 @@ openclaw models list
 ```
 
 另請參閱：[/gateway/configuration](/gateway/configuration) 以取得完整的設定範例。
-
-

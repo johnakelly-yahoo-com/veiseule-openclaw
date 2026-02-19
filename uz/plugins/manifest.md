@@ -1,15 +1,21 @@
 ---
-title: "Plugin manifesti"
+summary: "Plugin manifest + JSON schema requirements (strict config validation)"
+read_when:
+  - You are building a OpenClaw plugin
+  - You need to ship a plugin config schema or debug plugin validation errors
+title: "Plugin Manifest"
 ---
 
-# Plugin manifesti (openclaw.plugin.json)
+# Plugin manifest (openclaw.plugin.json)
 
-Har bir plagin **plugin root** papkasida `openclaw.plugin.json` faylini taqdim etishi **shart**.
-OpenClaw ushbu manifestdan plagin kodini **ishga tushirmasdan** konfiguratsiyani tekshirish uchun foydalanadi. Yetishmayotgan yoki noto‘g‘ri manifest plagin xatosi sifatida qabul qilinadi va konfiguratsiya tekshiruvini bloklaydi.
+Every plugin **must** ship a `openclaw.plugin.json` file in the **plugin root**.
+OpenClaw uses this manifest to validate configuration **without executing plugin
+code**. Missing or invalid manifests are treated as plugin errors and block
+config validation.
 
-To‘liq plagin tizimi qo‘llanmasini ko‘ring: [Plugins](/tools/plugin).
+See the full plugin system guide: [Plugins](/tools/plugin).
 
-## Majburiy maydonlar
+## Required fields
 
 ```json
 {
@@ -22,45 +28,44 @@ To‘liq plagin tizimi qo‘llanmasini ko‘ring: [Plugins](/tools/plugin).
 }
 ```
 
-Majburiy kalitlar:
+Required keys:
 
-- `id` (string): plaginining kanonik identifikatori.
-- `configSchema` (object): plagin konfiguratsiyasi uchun JSON Schema (inline).
+- `id` (string): canonical plugin id.
+- `configSchema` (object): JSON Schema for plugin config (inline).
 
-Ixtiyoriy kalitlar:
+Optional keys:
 
-- `kind` (string): plagin turi (masalan: `"memory"`).
-- `channels` (array): ushbu plagin ro‘yxatdan o‘tkazadigan channel identifikatorlari (masalan: `["matrix"]`).
-- `providers` (array): ushbu plagin ro‘yxatdan o‘tkazadigan provider identifikatorlari.
-- `skills` (array): yuklanadigan skill kataloglari (plugin root ga nisbatan).
-- `name` (string): plagin uchun ko‘rsatiladigan nom.
-- `description` (string): plagin haqida qisqa tavsif.
-- `uiHints` (object): UI’da ko‘rsatish uchun konfiguratsiya maydonlari yorliqlari/placeholderlari/maxfiy belgilari.
-- `version` (string): plagin versiyasi (ma’lumot uchun).
+- `kind` (string): plugin kind (example: `"memory"`).
+- `channels` (array): channel ids registered by this plugin (example: `["matrix"]`).
+- `providers` (array): provider ids registered by this plugin.
+- `skills` (array): skill directories to load (relative to the plugin root).
+- `name` (string): display name for the plugin.
+- `description` (string): short plugin summary.
+- `uiHints` (object): config field labels/placeholders/sensitive flags for UI rendering.
+- `version` (string): plugin version (informational).
 
-## JSON Schema talablari
+## JSON Schema requirements
 
-- **Har bir plagin JSON Schema taqdim etishi shart**, hatto konfiguratsiya qabul qilmasa ham.
-- Bo‘sh schema qabul qilinadi (masalan, `{ "type": "object", "additionalProperties": false }`).
-- Sxemalar konfiguratsiyani o‘qish/yozish vaqtida tekshiriladi, runtime jarayonida emas.
+- **Every plugin must ship a JSON Schema**, even if it accepts no config.
+- An empty schema is acceptable (for example, `{ "type": "object", "additionalProperties": false }`).
+- Schemas are validated at config read/write time, not at runtime.
 
-## Tekshiruv xatti-harakati
+## Validation behavior
 
-- Noma’lum `channels.*` kalitlari **xato** hisoblanadi, agar channel identifikatori
-  plagin manifestida e’lon qilinmagan bo‘lsa.
-- `plugins.entries.<id>`, `plugins.allow`, `plugins.deny`, va `plugins.slots.*`
-  **topilishi mumkin bo‘lgan** plagin identifikatorlariga murojaat qilishi kerak. Noma’lum identifikatorlar **xato** hisoblanadi.
-- Agar plagin o‘rnatilgan bo‘lsa, lekin manifesti yoki sxemasi buzilgan yoki mavjud bo‘lmasa,
-  tekshiruv muvaffaqiyatsiz yakunlanadi va Doctor plagin xatosini ko‘rsatadi.
-- Agar plagin konfiguratsiyasi mavjud bo‘lsa, lekin plagin **o‘chirilgan** bo‘lsa,
-  konfiguratsiya saqlanadi va Doctor + loglarda **ogohlantirish** ko‘rsatiladi.
+- Unknown `channels.*` keys are **errors**, unless the channel id is declared by
+  a plugin manifest.
+- `plugins.entries.<id>`, `plugins.allow`, `plugins.deny`, and `plugins.slots.*`
+  must reference **discoverable** plugin ids. Unknown ids are **errors**.
+- If a plugin is installed but has a broken or missing manifest or schema,
+  validation fails and Doctor reports the plugin error.
+- If plugin config exists but the plugin is **disabled**, the config is kept and
+  a **warning** is surfaced in Doctor + logs.
 
-## Eslatmalar
+## Notes
 
-- Manifest **barcha plaginlar uchun majburiy**, jumladan lokal fayl tizimidan yuklanadiganlar uchun ham.
-- Runtime baribir plagin modulini alohida yuklaydi; manifest faqat
-  aniqlash + tekshirish uchun xizmat qiladi.
-- Agar plaginingiz native modullarga bog‘liq bo‘lsa, build bosqichlarini va
-  paket menejeri allowlist talablari (masalan, pnpm `allow-build-scripts`
-  - `pnpm rebuild <package>`) haqida hujjatlashtiring.
-
+- The manifest is **required for all plugins**, including local filesystem loads.
+- Runtime still loads the plugin module separately; the manifest is only for
+  discovery + validation.
+- If your plugin depends on native modules, document the build steps and any
+  package-manager allowlist requirements (for example, pnpm `allow-build-scripts`
+  - `pnpm rebuild <package>`).

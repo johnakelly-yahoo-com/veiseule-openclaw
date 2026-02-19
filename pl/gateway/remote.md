@@ -1,4 +1,7 @@
 ---
+summary: "Zdalny dostęp z użyciem tuneli SSH (Gateway WS) i sieci tailnet"
+read_when:
+  - Uruchamianie lub rozwiązywanie problemów z konfiguracjami zdalnego gateway
 title: "Zdalny dostęp"
 ---
 
@@ -124,5 +127,3 @@ W skrócie: **utrzymuj Gateway tylko na loopback**, chyba że masz pewność, ż
 - Traktuj kontrolę w przeglądarce jak dostęp operatora: tylko w obrębie tailnet + świadome parowanie węzłów.
 
 Dogłębnie: [Bezpieczeństwo](/gateway/security).
-
-

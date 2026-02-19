@@ -1,4 +1,8 @@
 ---
+summary: "„Talk-Modus: kontinuierliche Sprachgespräche mit ElevenLabs TTS“"
+read_when:
+  - Implementierung des Talk-Modus auf macOS/iOS/Android
+  - Ändern von Sprach-/TTS-/Unterbrechungsverhalten
 title: "„Talk-Modus“"
 ---
 
@@ -84,5 +88,3 @@ Standardwerte:
 - `stability` für `eleven_v3` wird auf `0.0`, `0.5` oder `1.0` validiert; andere Modelle akzeptieren `0..1`.
 - `latency_tier` wird bei Setzung auf `0..4` validiert.
 - Android unterstützt die Ausgabeformate `pcm_16000`, `pcm_22050`, `pcm_24000` und `pcm_44100` für AudioTrack-Streaming mit niedriger Latenz.
-
-

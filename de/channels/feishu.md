@@ -1,4 +1,8 @@
 ---
+summary: "„Überblick, Funktionen und Konfiguration des Feishu-Bots“"
+read_when:
+  - Sie möchten einen Feishu-/Lark-Bot verbinden
+  - Sie konfigurieren den Feishu-Kanal
 title: Feishu
 ---
 
@@ -528,9 +532,9 @@ Schlüsseloptionen:
 | ------------------------------------------------- | -------------------------------------------------------------------- | --------- |
 | `channels.feishu.enabled`                         | Kanal aktivieren/deaktivieren                                        | `true`    |
 | `channels.feishu.domain`                          | API-Domain (`feishu` oder `lark`)                 | `feishu`  |
-| `channels.feishu.accounts.<id>.appId`             | App ID                                                               | -         |
-| `channels.feishu.accounts.<id>.appSecret`         | App Secret                                                           | -         |
-| `channels.feishu.accounts.<id>.domain`            | API-Domain-Override pro Konto                                        | `feishu`  |
+| `channels.feishu.accounts.&lt;id&gt;.appId`             | App ID                                                               | -         |
+| `channels.feishu.accounts.&lt;id&gt;.appSecret`         | App Secret                                                           | -         |
+| `channels.feishu.accounts.&lt;id&gt;.domain`            | API-Domain-Override pro Konto                                        | `feishu`  |
 | `channels.feishu.dmPolicy`                        | DM-Richtlinie                                                        | `pairing` |
 | `channels.feishu.allowFrom`                       | DM-Allowlist (open_id-Liste) | -         |
 | `channels.feishu.groupPolicy`                     | Gruppenrichtlinie                                                    | `open`    |
@@ -574,5 +578,3 @@ Schlüsseloptionen:
 - ✅ Dateien
 - ✅ Audio
 - ⚠️ Rich Text (teilweise Unterstützung)
-
-

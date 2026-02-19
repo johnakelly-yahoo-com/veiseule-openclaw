@@ -1,4 +1,9 @@
 ---
+summary: "OpenProse: OpenClaw’da .prose iş akışları, slash komutları ve durum"
+read_when:
+  - .prose iş akışlarını çalıştırmak veya yazmak istiyorsunuz
+  - OpenProse eklentisini etkinleştirmek istiyorsunuz
+  - Durum depolamayı anlamanız gerekir
 title: "OpenProse"
 ---
 
@@ -127,5 +132,3 @@ Araç izin listeniz bu araçları engelliyorsa, OpenProse programları başarıs
 `.prose` dosyalarını kod gibi ele alın. Çalıştırmadan önce gözden geçirin. Yan etkileri denetlemek için OpenClaw araç izin listelerini ve onay kapılarını kullanın.
 
 Deterministik, onay kapılı iş akışları için [Lobster](/tools/lobster) ile karşılaştırın.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Assistente de integração inicial da CLI: configuração guiada para gateway, workspace, canais e skills"
+read_when:
+  - Ao executar ou configurar o assistente de integração inicial
+  - Ao configurar uma nova máquina
 title: "Assistente de Integração Inicial (CLI)"
 sidebarTitle: "Integração inicial: CLI"
 ---
@@ -102,7 +106,6 @@ API RPC e uma lista completa dos campos de configuração que o assistente grava
 ## Documentos relacionados
 
 - Referência de comandos da CLI: [`openclaw onboard`](/cli/onboard)
+- Visão geral do onboarding: [Onboarding Overview](/start/onboarding-overview)
 - Integração inicial do app macOS: [Onboarding](/start/onboarding)
 - Ritual de primeira execução do agente: [Agent Bootstrapping](/start/bootstrapping)
-
-

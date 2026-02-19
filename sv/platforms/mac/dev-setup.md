@@ -1,4 +1,7 @@
 ---
+summary: "Konfigureringsguide för utvecklare som arbetar med OpenClaw macOS-appen"
+read_when:
+  - Konfigurera macOS-utvecklingsmiljön
 title: "macOS-utvecklarsetup"
 ---
 
@@ -99,5 +102,3 @@ lsof -nP -iTCP:18789 -sTCP:LISTEN
 ```
 
 Om en manuell körning håller i hamnen, stoppa den processen (Ctrl+C). Som en sista utväg, döda PID du hittat ovan.
-
-

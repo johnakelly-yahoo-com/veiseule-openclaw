@@ -1,4 +1,6 @@
 ---
+summary: "RPC-Protokollhinweise für Onboarding-Assistent und Konfigurationsschema"
+read_when: "Ändern der Schritte des Onboarding-Assistenten oder der Endpunkte des Konfigurationsschemas"
 title: "Onboarding- und Konfigurationsprotokoll"
 ---
 
@@ -36,5 +38,3 @@ Antworten (Struktur)
 ## Hinweise
 
 - Dieses Dokument ist der zentrale Ort zur Nachverfolgung von Protokoll-Refactorings für Onboarding/Konfiguration.
-
-

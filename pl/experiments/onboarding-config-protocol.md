@@ -1,4 +1,6 @@
 ---
+summary: "Uwagi dotyczące protokołu RPC dla kreatora onboardingu i schematu konfiguracji"
+read_when: "Zmiana kroków kreatora onboardingu lub punktów końcowych schematu konfiguracji"
 title: "Onboarding i protokół konfiguracji"
 ---
 
@@ -36,5 +38,3 @@ Odpowiedzi (kształt)
 ## Uwagi
 
 - Ten dokument jest jedynym miejscem do śledzenia refaktoryzacji protokołu dla onboardingu/konfiguracji.
-
-

@@ -1,11 +1,15 @@
 ---
+summary: "CLI ऑनबोर्डिंग विज़ार्ड: गेटवे, वर्कस्पेस, चैनल और Skills के लिए निर्देशित सेटअप"
+read_when:
+  - ऑनबोर्डिंग विज़ार्ड चलाते या विन्यस्त करते समय
+  - नई मशीन सेट अप करते समय
 title: "ऑनबोर्डिंग विज़ार्ड (CLI)"
 sidebarTitle: "ऑनबोर्डिंग: CLI"
 ---
 
 # ऑनबोर्डिंग विज़ार्ड (CLI)
 
-ऑनबोर्डिंग विज़ार्ड macOS पर OpenClaw सेट अप करने का **अनुशंसित** तरीका है,
+The onboarding wizard is the **recommended** way to set up OpenClaw on macOS,
 Linux, or Windows (via WSL2; strongly recommended).
 It configures a local Gateway or a remote Gateway connection, plus channels, skills,
 and workspace defaults in one guided flow.
@@ -60,7 +64,8 @@ Recommended: set up a Brave Search API key so the agent can use `web_search`
 
 **Local mode (default)** आपको इन चरणों से होकर ले जाता है:
 
-1. **Model/Auth** — Anthropic API key (recommended), OAuth, OpenAI, or other providers. Pick a default model.
+1. **Model/Auth** — Anthropic API key (अनुशंसित), OpenAI, या Custom Provider
+   (OpenAI-compatible, Anthropic-compatible, या Unknown auto-detect)। Pick a default model.
 2. **Workspace** — Location for agent files (default `~/.openclaw/workspace`). Seeds bootstrap files.
 3. **Gateway** — पोर्ट, बाइंड पता, प्रमाणीकरण मोड, Tailscale एक्सपोज़र।
 4. **Channels** — WhatsApp, Telegram, Discord, Google Chat, Mattermost, Signal, BlueBubbles, या iMessage।
@@ -104,5 +109,4 @@ RPC API, और उन सभी विन्यास फ़ील्ड्स 
 - CLI कमांड संदर्भ: [`openclaw onboard`](/cli/onboard)
 - macOS ऐप ऑनबोर्डिंग: [Onboarding](/start/onboarding)
 - एजेंट प्रथम‑रन अनुष्ठान: [Agent Bootstrapping](/start/bootstrapping)
-
-
+- एजेंट प्रथम‑रन अनुष्ठान: [Agent Bootstrapping](/start/bootstrapping)

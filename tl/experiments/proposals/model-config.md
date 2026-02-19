@@ -1,4 +1,7 @@
 ---
+summary: "Eksplorasyon: model config, mga auth profile, at fallback na pag-uugali"
+read_when:
+  - Pag-eeksplora ng mga ideya sa pagpili ng modelo sa hinaharap + mga auth profile
 title: "Eksplorasyon ng Model Config"
 ---
 
@@ -31,5 +34,3 @@ Gusto ng mga operator ang:
 - Dapat bang ang profile rotation ay per-provider o per-model?
 - Paano dapat ipakita ng UI ang pagpili ng profile para sa isang session?
 - Ano ang pinakaligtas na migration path mula sa mga legacy na config key?
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw bilan Amazon Bedrock (Converse API) modellaridan foydalaning"
+read_when:
+  - Siz OpenClaw bilan Amazon Bedrock modellaridan foydalanmoqchisiz
+  - Model chaqiruvlari uchun AWS credential/region sozlamalari talab etiladi
 title: "Amazon Bedrock"
 ---
 
@@ -158,5 +162,3 @@ openclaw models list
 - OpenClaw credential manbasini quyidagi tartibda aniqlaydi: `AWS_BEARER_TOKEN_BEDROCK`, so‘ng `AWS_ACCESS_KEY_ID` + `AWS_SECRET_ACCESS_KEY`, so‘ng `AWS_PROFILE`, so‘ng standart AWS SDK chain.
 - Reasoning qo‘llab‑quvvatlashi modelga bog‘liq; joriy imkoniyatlar uchun Bedrock model kartasini tekshiring.
 - Agar boshqariladigan kalit oqimini afzal ko‘rsangiz, Bedrock oldiga OpenAI‑mos proksini qo‘yib, uni OpenAI provayderi sifatida sozlashingiz ham mumkin.
-
-

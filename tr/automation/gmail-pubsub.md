@@ -1,4 +1,8 @@
 ---
+summary: "gogcli aracılığıyla OpenClaw webhooks’larına bağlanan Gmail Pub/Sub push"
+read_when:
+  - Gmail gelen kutusu tetikleyicilerini OpenClaw’a bağlama
+  - Ajan uyandırma için Pub/Sub push kurulumu
 title: "Gmail Pub/Sub"
 ---
 
@@ -249,5 +253,3 @@ gog gmail watch stop --account openclaw@gmail.com
 gcloud pubsub subscriptions delete gog-gmail-watch-push
 gcloud pubsub topics delete gog-gmail-watch
 ```
-
-

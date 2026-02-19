@@ -1,4 +1,8 @@
 ---
+summary: "Gebruik van de Exec-tool, stdin-modi en TTY-ondersteuning"
+read_when:
+  - Bij het gebruiken of aanpassen van de exec-tool
+  - Bij het debuggen van stdin- of TTY-gedrag
 title: "Exec-tool"
 ---
 
@@ -70,9 +74,9 @@ Voorbeeld:
 - `host=sandbox`: voert `sh -lc` (login-shell) uit binnen de container, waardoor `/etc/profile` `PATH` kan resetten.
   OpenClaw voegt `env.PATH` toe na het sourcen van profielen via een interne env-var (geen shell-interpolatie);
   `tools.exec.pathPrepend` is hier ook van toepassing.
-- `host=node`: alleen niet-geblokkeerde env-overschrijvingen die je doorgeeft, worden naar de node verzonden. Overschrijvingen van `env.PATH` worden
-  geweigerd bij hostuitvoering. Headless node-hosts accepteren `PATH` alleen wanneer het voorafgaat aan het node-host
-  PATH (geen vervanging). macOS-nodes laten `PATH`-overschrijvingen volledig vallen.
+- `host=node`: alleen niet-geblokkeerde env-overschrijvingen die je doorgeeft, worden naar de node verzonden. `env.PATH`-overschrijvingen worden
+  geweigerd voor hostuitvoering en genegeerd door node-hosts. Als je extra PATH-vermeldingen nodig hebt op een node,
+  configureer dan de serviceomgeving van de node-host (systemd/launchd) of installeer tools op standaardlocaties.
 
 Per-agent nodebinding (gebruik de agentlijst-index in de config):
 
@@ -115,8 +119,9 @@ draait na `tools.exec.approvalRunningNoticeMs`, wordt één enkele `Exec running
 
 Allowlist-handhaving matcht **alleen opgeloste binaire paden** (geen basenaam-matches). Wanneer
 `security=allowlist`, worden shellopdrachten automatisch toegestaan alleen als elk pijplijnsegment
-op de allowlist staat of een veilige bin is. Chaining (`;`, `&&`, `||`) en omleidingen worden geweigerd in
-allowlist-modus.
+op de allowlist staat of een veilige bin is. Chaining (`;`, `&&`, `||`) en redirects worden geweigerd in
+allowlist-modus tenzij elk topniveau-segment voldoet aan de allowlist (inclusief safe bins).
+Redirects blijven niet ondersteund.
 
 ## Voorbeelden
 
@@ -173,5 +178,4 @@ Notities:
 - Alleen beschikbaar voor OpenAI/OpenAI Codex-modellen.
 - Toolbeleid blijft van toepassing; `allow: ["exec"]` staat impliciet `apply_patch` toe.
 - Configuratie bevindt zich onder `tools.exec.applyPatch`.
-
-
+- `tools.exec.applyPatch.workspaceOnly` staat standaard op `true` (beperkt tot de workspace). Zet dit alleen op `false` als je er bewust voor kiest dat `apply_patch` buiten de workspace-directory mag schrijven/verwijderen.

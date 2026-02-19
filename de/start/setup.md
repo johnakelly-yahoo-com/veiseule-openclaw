@@ -1,4 +1,8 @@
 ---
+summary: "„Erweiterte Einrichtung und Entwicklungs-Workflows für OpenClaw“"
+read_when:
+  - Einrichten eines neuen Rechners
+  - Sie möchten „neueste + beste Version“, ohne Ihre persönliche Einrichtung zu gefährden
 title: "Einrichtung"
 ---
 
@@ -11,7 +15,7 @@ Details zum Assistenten finden Sie unter [Onboarding Wizard](/start/wizard).
 
 Zuletzt aktualisiert: 2026-01-01
 
-## Kurzfassung
+## TL;DR
 
 - **Anpassungen liegen außerhalb des Repos:** `~/.openclaw/workspace` (Workspace) + `~/.openclaw/openclaw.json` (Konfiguration).
 - **Stabiler Workflow:** Installieren Sie die macOS‑App; lassen Sie sie den gebündelten Gateway ausführen.
@@ -153,5 +157,3 @@ Für Always‑On‑ oder Multi‑User‑Server erwägen Sie einen **System**‑S
 - [Discord](/channels/discord) und [Telegram](/channels/telegram) (Antwort‑Tags + replyToMode‑Einstellungen)
 - [OpenClaw-Assistent einrichten](/start/openclaw)
 - [macOS app](/platforms/macos) (Gateway‑Lebenszyklus)
-
-

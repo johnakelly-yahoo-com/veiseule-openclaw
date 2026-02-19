@@ -1,8 +1,13 @@
 ---
-title: "Knooppunten"
+summary: "Nodes: koppelen, mogelijkheden, rechten en CLI-hulpprogramma’s voor canvas/camera/scherm/systeem"
+read_when:
+  - iOS/Android-nodes koppelen aan een gateway
+  - Node-canvas/camera gebruiken voor agentcontext
+  - Nieuwe node-opdrachten of CLI-hulpprogramma’s toevoegen
+title: "Nodes"
 ---
 
-# Knooppunten
+# Nodes
 
 Een **node** is een begeleidend apparaat (macOS/iOS/Android/headless) dat verbinding maakt met de Gateway **WebSocket** (dezelfde poort als operators) met `role: "node"` en een opdrachtoppervlak blootstelt (bijv. `canvas.*`, `camera.*`, `system.*`) via `node.invoke`. Protocoldetails: [Gateway-protocol](/gateway/protocol).
 
@@ -274,7 +279,7 @@ Notities:
 - `system.notify` respecteert de status van meldingsrechten in de macOS-app.
 - `system.run` ondersteunt `--cwd`, `--env KEY=VAL`, `--command-timeout` en `--needs-screen-recording`.
 - `system.notify` ondersteunt `--priority <passive|active|timeSensitive>` en `--delivery <system|overlay|auto>`.
-- macOS-nodes laten `PATH`-overrides vallen; headless node-hosts accepteren `PATH` alleen wanneer deze het node-host-PATH voorafgaat.
+- Node-hosts negeren `PATH`-overschrijvingen. Als je extra PATH-vermeldingen nodig hebt, configureer dan de service-omgeving van de node-host (of installeer tools op standaardlocaties) in plaats van `PATH` door te geven via `--env`.
 - In macOS node-modus wordt `system.run` afgedwongen door exec-goedkeuringen in de macOS-app (Instellingen → Exec-goedkeuringen).
   Vragen/toegestane lijst/volledig gedragen zich hetzelfde als bij de headless node-host; geweigerde prompts retourneren `SYSTEM_RUN_DENIED`.
 - Op de headless node-host wordt `system.run` afgedwongen door exec-goedkeuringen (`~/.openclaw/exec-approvals.json`).
@@ -335,5 +340,3 @@ Notities:
 
 - De macOS-menubalk-app maakt verbinding met de Gateway-WS-server als een node (zodat `openclaw nodes …` tegen deze Mac werkt).
 - In externe modus opent de app een SSH-tunnel voor de Gateway-poort en verbindt met `localhost`.
-
-

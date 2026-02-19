@@ -1,4 +1,9 @@
 ---
+summary: "Deep Dive: Session-Store + Transkripte, Lebenszyklus und (Auto-)Kompaktions-Interna"
+read_when:
+  - Sie müssen Session-IDs, Transcript-JSONL oder Felder in sessions.json debuggen
+  - Sie ändern das Auto-Kompaktionsverhalten oder fügen „Pre-Compaction“-Housekeeping hinzu
+  - Sie möchten Memory-Flushes oder stille System-Turns implementieren
 title: "Session-Management – Deep Dive"
 ---
 
@@ -276,5 +281,3 @@ Flush-Logik befindet sich heute auf der Gateway-Seite.
   - Kompaktierungseinstellungen (`reserveTokens` zu hoch für das Modellfenster kann frühere Kompaktierung verursachen)
   - Tool-Result-Aufblähung: Session-Pruning aktivieren/feinjustieren
 - Stille Turns lecken? Bestätigen Sie, dass die Antwort mit `NO_REPLY` (exaktes Token) beginnt und Sie eine Build-Version mit dem Streaming-Unterdrückungs-Fix verwenden.
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "Comment les notes audio/vocales entrantes sont telechargees, transcrites et injectees dans les reponses"
+read_when:
+  - Modification de la transcription audio ou de la gestion des medias
 title: "Audio et notes vocales"
 ---
 
@@ -104,10 +107,27 @@ Remarque : La detection des binaires est au mieux de ses capacites sur macOS/Lin
 - La transcription est disponible pour les modeles de templates sous `{{Transcript}}`.
 - La sortie stdout de la CLI est plafonnee (5 Mo) ; gardez la sortie de la CLI concise.
 
+## Détection de mention dans les groupes
+
+Lorsque `requireMention: true` est défini pour un chat de groupe, OpenClaw transcrit désormais l’audio **avant** de vérifier les mentions. Cela permet de traiter les messages vocaux même lorsqu’ils contiennent des mentions.
+
+**Comment cela fonctionne :**
+
+1. Si un message vocal n’a pas de corps de texte et que le groupe exige des mentions, OpenClaw effectue une transcription « preflight ».
+2. La transcription est analysée pour détecter des motifs de mention (par ex., `@BotName`, déclencheurs emoji).
+3. Si une mention est trouvée, le message passe par le pipeline complet de réponse.
+4. La transcription est utilisée pour la détection des mentions afin que les messages vocaux puissent franchir le filtre de mention.
+
+**Comportement de secours :**
+
+- Si la transcription échoue pendant le preflight (délai dépassé, erreur API, etc.), le message est traité sur la base de la détection de mention textuelle uniquement.
+- Cela garantit que les messages mixtes (texte + audio) ne sont jamais ignorés par erreur.
+
+**Exemple :** Un utilisateur envoie un message vocal disant « Hey @Claude, what’s the weather? » dans un groupe Telegram avec `requireMention: true`. Le message vocal est transcrit, la mention est détectée et l’agent répond.
+
 ## Gotchas
 
 - Les regles de portee utilisent le principe du premier correspondant gagnant. `chatType` est normalise en `direct`, `group` ou `room`.
 - Assurez‑vous que votre CLI se termine avec le code 0 et affiche du texte brut ; le JSON doit etre adapte via `jq -r .text`.
 - Gardez des delais d’attente raisonnables (`timeoutSeconds`, par defaut 60 s) afin d’eviter de bloquer la file de reponses.
-
-
+- La transcription preflight ne traite que la **première** pièce jointe audio pour la détection des mentions. Les audios supplémentaires sont traités lors de la phase principale de compréhension des médias.

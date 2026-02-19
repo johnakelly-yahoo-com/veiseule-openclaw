@@ -1,4 +1,8 @@
 ---
+summary: "Slashkommandon: text vs. native, konfig och stödda kommandon"
+read_when:
+  - När du använder eller konfigurerar chattkommandon
+  - Vid felsökning av kommandoroutning eller behörigheter
 title: "Slashkommandon"
 ---
 
@@ -14,7 +18,8 @@ Det finns två relaterade system:
   - Direktiv tas bort från meddelandet innan modellen ser det.
   - I vanliga chattmeddelanden (inte enbart direktiv) behandlas de som ”inline‑tips” och **består inte** sessionsinställningar.
   - I meddelanden som endast innehåller direktiv (meddelandet innehåller bara direktiv) består de till sessionen och svarar med en bekräftelse.
-  - Direktiven tillämpas endast för **auktoriserade avsändare** (kanaltillåtna listor/parkoppling plus `commands.useAccessGroups`).
+  - Direktiv tillämpas endast för **auktoriserade avsändare**. Om `commands.allowFrom` är satt är det den enda
+    allowlist som används; annars kommer auktorisering från kanalens allowlists/parkoppling samt `commands.useAccessGroups`.
     Obehöriga avsändare se direktiv behandlas som ren text.
 
 Det finns också några **inline-genvägar** (tillåtna/auktoriserade avsändare endast): `/help`, `/commands`, `/status`, `/whoami` (`/id`).
@@ -51,7 +56,10 @@ De körs omedelbart, strippas innan modellen ser meddelandet, och den återståe
 - `commands.bashForegroundMs` (standard `2000`) styr hur länge bash väntar innan det växlar till bakgrundsläge (`0` bakgrundar omedelbart).
 - `commands.config` (standard `false`) aktiverar `/config` (läser/skriv­er `openclaw.json`).
 - `commands.debug` (standard `false`) aktiverar `/debug` (endast körningstids‑åsidosättningar).
-- `commands.useAccessGroups` (standard `true`) upprätthåller tillåtelselistor/policys för kommandon.
+- `commands.allowFrom` (valfri) anger en providerspecifik allowlist för kommandoauktorisering. När den är konfigurerad är den
+  den enda auktoriseringskällan för kommandon och direktiv (kanalens allowlists/parkoppling och `commands.useAccessGroups`
+  ignoreras). Använd `"*"` för ett globalt standardvärde; providerspecifika nycklar åsidosätter det.
+- `commands.useAccessGroups` (standard `true`) tillämpar allowlists/policyer för kommandon när `commands.allowFrom` inte är satt.
 
 ## Kommandolista
 
@@ -70,19 +78,22 @@ Text + native (när aktiverat):
 - `/debug show|set|unset|reset` (körningstidsåsidosättningar, endast ägare; kräver `commands.debug: true`)
 - `/usage off|tokens|full|cost` (användningsfot per svar eller lokal kostnadssammanfattning)
 - `/tts off|always|inbound|tagged|status|provider|limit|summary|audio` (styr TTS; se [/tts](/tts))
+- `/debug show|set|unset|reset` (körningstidsåsidosättningar, endast ägare; kräver `commands.debug: true`)
+- `/usage off|tokens|full|cost` (användningsfot per svar eller lokal kostnadssammanfattning)
+- `/dock-telegram` (alias: `/dock_telegram`) (växla svar till Telegram)
   - Discord: native‑kommandot är `/voice` (Discord reserverar `/tts`); text `/tts` fungerar fortfarande.
 - `/stop`
 - `/restart`
-- `/dock-telegram` (alias: `/dock_telegram`) (växla svar till Telegram)
-- `/dock-discord` (alias: `/dock_discord`) (växla svar till Discord)
-- `/dock-slack` (alias: `/dock_slack`) (växla svar till Slack)
 - `/activation mention|always` (endast grupper)
 - `/send on|off|inherit` (endast ägare)
 - `/reset` eller `/new [model]` (valfri modellhint; resten skickas vidare)
 - `/think <off|minimal|low|medium|high|xhigh>` (dynamiska val per modell/leverantör; alias: `/thinking`, `/t`)
-- `/verbose on|full|off` (alias: `/v`)
+- `/send on|off|inherit` (endast ägare)
 - `/reasoning on|off|stream` (alias: `/reason`; när på, skickar ett separat meddelande med prefix `Reasoning:`; `stream` = endast Telegram‑utkast)
 - `/elevated on|off|ask|full` (alias: `/elev`; `full` hoppar över exec‑godkännanden)
+- `/verbose on|full|off` (alias: `/v`)
+- `/model <name>` (alias: `/models`; eller `/<alias>` från `agents.defaults.models.*.alias`)
+- `/queue <mode>` (plus alternativ som `debounce:2s cap:25 drop:summarize`; skicka `/queue` för att se aktuella inställningar)
 - `/exec host=<sandbox|gateway|node> security=<deny|allowlist|full> ask=<off|on-miss|always> node=<id>` (skicka `/exec` för att visa aktuellt)
 - `/model <name>` (alias: `/models`; eller `/<alias>` från `agents.defaults.models.*.alias`)
 - `/queue <mode>` (plus alternativ som `debounce:2s cap:25 drop:summarize`; skicka `/queue` för att se aktuella inställningar)
@@ -192,5 +203,3 @@ Noteringar:
   - Telegram: `telegram:slash:<userId>` (riktar in sig på chattsessionen via `CommandTargetSessionKey`)
 - **`/stop`** riktar in sig på den aktiva chattsessionen så att den kan avbryta den aktuella körningen.
 - **Slack:** `channels.slack.slashCommand` stöds fortfarande för ett kommando med `/openclaw`-stil. Om du aktiverar `commands.native`, måste du skapa ett Slack slash kommando per inbyggt kommando (samma namn som `/help`). Kommandoargumentmenyer för Slack levereras som kortlivade Block Kit knappar.
-
-

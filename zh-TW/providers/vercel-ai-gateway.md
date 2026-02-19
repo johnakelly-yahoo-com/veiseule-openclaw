@@ -1,5 +1,9 @@
 ---
 title: "Vercel AI Gateway"
+summary: "Vercel AI Gateway 設定（身分驗證 + 模型選擇）"
+read_when:
+  - 你想要將 Vercel AI Gateway 與 OpenClaw 一起使用
+  - 你需要 API 金鑰的 環境變數 或 CLI 身分驗證選項
 ---
 
 # Vercel AI Gateway
@@ -44,5 +48,3 @@ openclaw onboard --non-interactive \
 如果 Gateway 閘道器 以常駐服務（launchd/systemd）執行，請確保 `AI_GATEWAY_API_KEY`
 可供該程序使用（例如在 `~/.openclaw/.env` 中，或透過
 `env.shellEnv`）。
-
-

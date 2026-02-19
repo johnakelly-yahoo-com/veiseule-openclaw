@@ -1,4 +1,8 @@
 ---
+summary: "Opsætning af Mattermost-bot og OpenClaw-konfiguration"
+read_when:
+  - Opsætning af Mattermost
+  - Fejlfinding af Mattermost-routing
 title: "Mattermost"
 ---
 
@@ -132,5 +136,3 @@ Mattermost understøtter flere konti under `channels.mattermost.accounts`:
 - Ingen svar i kanaler: sørg for, at botten er i kanalen og @omtales (oncall), brug et trigger-præfiks (onchar), eller sæt `chatmode: "onmessage"`.
 - Autentificeringsfejl: tjek bot-token, base-URL og om kontoen er aktiveret.
 - Problemer med flere konti: miljøvariabler gælder kun for `default`-kontoen.
-
-

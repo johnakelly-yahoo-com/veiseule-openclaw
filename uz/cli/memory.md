@@ -1,18 +1,22 @@
 ---
+summary: "CLI reference for `openclaw memory` (status/index/search)"
+read_when:
+  - You want to index or search semantic memory
+  - You’re debugging memory availability or indexing
 title: "memory"
 ---
 
 # `openclaw memory`
 
-Semantik xotirani indekslash va qidirishni boshqaradi.  
-Faol xotira plagini tomonidan taqdim etiladi (standart: `memory-core`; o‘chirish uchun `plugins.slots.memory = "none"` ni o‘rnating).
+Manage semantic memory indexing and search.
+Provided by the active memory plugin (default: `memory-core`; set `plugins.slots.memory = "none"` to disable).
 
-Bog‘liq:
+Related:
 
-- Xotira tushunchasi: [Xotira](/concepts/memory)
-- Plaginlar: [Plaginlar](/tools/plugin)
+- Memory concept: [Memory](/concepts/memory)
+- Plugins: [Plugins](/tools/plugin)
 
-## Misollar
+## Examples
 
 ```bash
 openclaw memory status
@@ -26,17 +30,16 @@ openclaw memory status --agent main
 openclaw memory index --agent main --verbose
 ```
 
-## Parametrlar
+## Options
 
-Umumiy:
+Common:
 
-- `--agent <id>`: bitta agent doirasida ishlaydi (standart: barcha sozlangan agentlar).
-- `--verbose`: tekshiruv va indekslash jarayonida batafsil loglarni chiqaradi.
+- `--agent <id>`: scope to a single agent (default: all configured agents).
+- `--verbose`: emit detailed logs during probes and indexing.
 
-Eslatmalar:
+Notes:
 
-- `memory status --deep` vektor va embedding mavjudligini tekshiradi.
-- `memory status --deep --index` agar saqlash joyi yangilanishni talab qilsa, qayta indekslashni ishga tushiradi.
-- `memory index --verbose` har bir bosqich bo‘yicha tafsilotlarni (provider, model, manbalar, batch faoliyati) chiqaradi.
-- `memory status` `memorySearch.extraPaths` orqali sozlangan qo‘shimcha yo‘llarni ham o‘z ichiga oladi.
-
+- `memory status --deep` probes vector + embedding availability.
+- `memory status --deep --index` runs a reindex if the store is dirty.
+- `memory index --verbose` prints per-phase details (provider, model, sources, batch activity).
+- `memory status` includes any extra paths configured via `memorySearch.extraPaths`.

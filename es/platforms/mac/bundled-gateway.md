@@ -1,4 +1,9 @@
 ---
+summary: "Tiempo de ejecución del Gateway en macOS (servicio launchd externo)"
+read_when:
+  - Empaquetar OpenClaw.app
+  - Depurar el servicio launchd del Gateway en macOS
+  - Instalar la CLI del Gateway para macOS
 title: "Gateway en macOS"
 ---
 
@@ -66,5 +71,3 @@ Luego:
 ```bash
 openclaw gateway call health --url ws://127.0.0.1:18999 --timeout 3000
 ```
-
-

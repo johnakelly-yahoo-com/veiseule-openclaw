@@ -1,4 +1,9 @@
 ---
+summary: "Persistenz von macOS-Berechtigungen (TCC) und Signierungsanforderungen"
+read_when:
+  - Debugging fehlender oder hängen gebliebener macOS-Berechtigungsabfragen
+  - Paketierung oder Signierung der macOS-App
+  - Ändern von Bundle-IDs oder App-Installationspfaden
 title: "macOS-Berechtigungen"
 ---
 
@@ -43,5 +48,3 @@ Workaround: Verschieben Sie Dateien in den OpenClaw-Arbeitsbereich (`~/.openclaw
 
 Wenn Sie Berechtigungen testen, signieren Sie stets mit einem echten Zertifikat. Ad-hoc-
 Builds sind nur für schnelle lokale Läufe akzeptabel, bei denen Berechtigungen keine Rolle spielen.
-
-

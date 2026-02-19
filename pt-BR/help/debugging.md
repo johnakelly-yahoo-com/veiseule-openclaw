@@ -1,4 +1,9 @@
 ---
+summary: "Ferramentas de depuração: modo de observação, streams brutos do modelo e rastreamento de vazamento de raciocínio"
+read_when:
+  - Voce precisa inspecionar a saída bruta do modelo para vazamento de raciocínio
+  - Voce quer executar o Gateway em modo de observação enquanto itera
+  - Voce precisa de um fluxo de trabalho de depuração reproduzível
 title: "Depuração"
 ---
 
@@ -155,5 +160,3 @@ Arquivo padrão:
 - Logs de stream bruto podem incluir prompts completos, saída de ferramentas e dados do usuário.
 - Mantenha os logs locais e exclua-os após a depuração.
 - Se compartilhar logs, remova segredos e PII primeiro.
-
-

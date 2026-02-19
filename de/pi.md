@@ -516,7 +516,7 @@ Dies bietet eine interaktive Terminal-Erfahrung ähnlich dem nativen Modus von p
 | Aufruf             | `pi`-Befehl / RPC                   | SDK über `createAgentSession()`                                                                                     |
 | Tools              | Standard-Coding-Tools               | Benutzerdefinierte OpenClaw-Tool-Suite                                                                              |
 | System-Prompt      | AGENTS.md + Prompts | Dynamisch pro Kanal/Kontext                                                                                         |
-| Sitzungsspeicher   | `~/.pi/agent/sessions/`             | `~/.openclaw/agents/<agentId>/sessions/` (oder `$OPENCLAW_STATE_DIR/agents/<agentId>/sessions/`) |
+| Sitzungsspeicher   | `~/.pi/agent/sessions/`             | `~/.openclaw/agents/&lt;agentId&gt;/sessions/` (oder `$OPENCLAW_STATE_DIR/agents/&lt;agentId&gt;/sessions/`) |
 | Auth               | Einzelne Anmeldeinformation         | Multi-Profil mit Rotation                                                                                           |
 | Erweiterungen      | Von der Festplatte geladen          | Programmgesteuert + Festplattenpfade                                                                                |
 | Ereignisbehandlung | TUI-Rendering                       | Callback-basiert (onBlockReply usw.)                                             |
@@ -610,5 +610,3 @@ Alle bestehenden Tests, die die pi-Integration und ihre Erweiterungen abdecken:
 - `src/agents/pi-tools.policy.test.ts`
 - `src/agents/pi-tools.safe-bins.test.ts`
 - `src/agents/pi-tools.workspace-paths.test.ts`
-
-

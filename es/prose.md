@@ -1,4 +1,9 @@
 ---
+summary: "OpenProse: flujos de trabajo .prose, comandos de barra y estado en OpenClaw"
+read_when:
+  - Quiere ejecutar o escribir flujos de trabajo .prose
+  - Quiere habilitar el plugin OpenProse
+  - Necesita comprender el almacenamiento de estado
 title: "OpenProse"
 ---
 
@@ -127,5 +132,3 @@ Si su lista de permitidos de herramientas bloquea estas herramientas, los progra
 Trate los archivos `.prose` como código. Revise antes de ejecutar. Use listas de permitidos de herramientas de OpenClaw y compuertas de aprobación para controlar efectos secundarios.
 
 Para flujos de trabajo deterministas y con aprobación, compare con [Lobster](/tools/lobster).
-
-

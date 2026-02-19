@@ -1,4 +1,8 @@
 ---
+summary: "Gestion des fuseaux horaires pour les agents, les enveloppes et les invites"
+read_when:
+  - Vous devez comprendre comment les horodatages sont normalisés pour le modèle
+  - Configuration du fuseau horaire de l'utilisateur pour les invites systeme
 title: "Fuseaux horaires"
 ---
 
@@ -85,5 +89,3 @@ L'invite systeme inclut :
 Vous pouvez controler le format de l'invite avec `agents.defaults.timeFormat` (`auto` | `12` | `24`).
 
 Voir [Date & Time](/date-time) pour le comportement complet et des exemples.
-
-

@@ -1,10 +1,14 @@
 ---
 title: "Cloudflare AI Gateway"
+summary: "Cloudflare AI Gateway सेटअप (प्रमाणीकरण + मॉडल चयन)"
+read_when:
+  - आप OpenClaw के साथ Cloudflare AI Gateway का उपयोग करना चाहते हैं
+  - आपको खाता ID, Gateway ID, या API key पर्यावरण चर की आवश्यकता है
 ---
 
 # Cloudflare AI Gateway
 
-Cloudflare AI Gateway provider APIs के सामने स्थित होता है और आपको विश्लेषिकी, कैशिंग और नियंत्रण जोड़ने की सुविधा देता है। Anthropic के लिए, OpenClaw आपके Gateway एंडपॉइंट के माध्यम से Anthropic Messages API का उपयोग करता है।
+Cloudflare AI Gateway sits in front of provider APIs and lets you add analytics, caching, and controls. For Anthropic, OpenClaw uses the Anthropic Messages API through your Gateway endpoint.
 
 - प्रदाता: `cloudflare-ai-gateway`
 - बेस URL: `https://gateway.ai.cloudflare.com/v1/<account_id>/<gateway_id>/anthropic`
@@ -65,5 +69,3 @@ openclaw onboard --non-interactive \
 ## पर्यावरण संबंधी टिप्पणी
 
 यदि Gateway एक डेमन (launchd/systemd) के रूप में चलता है, तो सुनिश्चित करें कि `CLOUDFLARE_AI_GATEWAY_API_KEY` उस प्रक्रिया के लिए उपलब्ध है (उदाहरण के लिए, `~/.openclaw/.env` में या `env.shellEnv` के माध्यम से)।
-
-

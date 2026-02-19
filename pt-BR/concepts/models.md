@@ -1,4 +1,9 @@
 ---
+summary: "CLI de modelos: listar, definir, aliases, fallbacks, varredura, status"
+read_when:
+  - Adicionar ou modificar a CLI de modelos (models list/set/scan/aliases/fallbacks)
+  - Alterar o comportamento de fallback de modelos ou a UX de seleção
+  - Atualizar sondas de varredura de modelos (ferramentas/imagens)
 title: "CLI de modelos"
 ---
 
@@ -201,5 +206,3 @@ passe `--yes` para aceitar os padrões.
 Provedores personalizados em `models.providers` são gravados em `models.json` sob o
 diretório do agente (padrão `~/.openclaw/agents/<agentId>/models.json`). Este arquivo
 é mesclado por padrão, a menos que `models.mode` esteja definido como `replace`.
-
-

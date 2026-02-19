@@ -1,4 +1,7 @@
 ---
+summary: "Huby prowadzące do każdej dokumentacji OpenClaw"
+read_when:
+  - Chcesz uzyskać kompletną mapę dokumentacji
 title: "Huby dokumentacji"
 ---
 
@@ -192,5 +195,3 @@ Skorzystaj z tych hubów, aby odkryć każdą stronę, w tym szczegółowe omów
 - [Testowanie](/reference/test)
 - [Lista kontrolna wydania](/reference/RELEASING)
 - [Modele urządzeń](/reference/device-models)
-
-

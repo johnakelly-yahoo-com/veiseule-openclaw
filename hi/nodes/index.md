@@ -1,4 +1,9 @@
 ---
+summary: "नोड्स: पेयरिंग, क्षमताएँ, अनुमतियाँ, और canvas/camera/screen/system के लिए CLI हेल्पर्स"
+read_when:
+  - iOS/Android नोड्स को Gateway से पेयर करना
+  - एजेंट संदर्भ के लिए नोड canvas/camera का उपयोग
+  - नए नोड कमांड या CLI हेल्पर्स जोड़ना
 title: "नोड्स"
 ---
 
@@ -269,7 +274,7 @@ openclaw nodes notify --node <idOrNameOrIp> --title "Ping" --body "Gateway ready
 - `system.notify` macOS ऐप में notification permission स्थिति का सम्मान करता है।
 - `system.run` `--cwd`, `--env KEY=VAL`, `--command-timeout`, और `--needs-screen-recording` का समर्थन करता है।
 - `system.notify` `--priority <passive|active|timeSensitive>` और `--delivery <system|overlay|auto>` का समर्थन करता है।
-- macOS नोड्स `PATH` overrides को छोड़ देते हैं; headless node hosts केवल `PATH` स्वीकार करते हैं जब वह node host PATH को prepend करता है।
+- Node होस्ट `PATH` ओवरराइड को अनदेखा करते हैं। यदि आपको अतिरिक्त PATH एंट्री की आवश्यकता है, तो `--env` के माध्यम से `PATH` पास करने के बजाय node host सेवा के environment को कॉन्फ़िगर करें (या टूल्स को मानक स्थानों पर इंस्टॉल करें)।
 - Ask/allowlist/full का व्यवहार headless node host जैसा ही है; अस्वीकृत प्रॉम्प्ट्स `SYSTEM_RUN_DENIED` लौटाते हैं।
   जब कई nodes उपलब्ध हों, आप exec को किसी विशिष्ट node से बाँध सकते हैं।
 - headless node host पर, `system.run` exec approvals (`~/.openclaw/exec-approvals.json`) द्वारा gated होता है।
@@ -326,5 +331,3 @@ openclaw node run --host <gateway-host> --port 18789
 
 - macOS मेन्यूबार ऐप Gateway WS सर्वर से एक नोड के रूप में कनेक्ट होता है (ताकि `openclaw nodes …` इस Mac के विरुद्ध काम करे)।
 - रिमोट मोड में, ऐप Gateway पोर्ट के लिए एक SSH टनल खोलता है और `localhost` से कनेक्ट होता है।
-
-

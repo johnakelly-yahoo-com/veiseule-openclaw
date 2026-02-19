@@ -1,4 +1,7 @@
 ---
+summary: "CLI ma’lumotnomasi `openclaw sessions` uchun (saqlangan sessiyalar ro‘yxati va foydalanish)"
+read_when:
+  - You want to list stored sessions and see recent activity
 title: "sessions"
 ---
 
@@ -11,5 +14,3 @@ openclaw sessions
 openclaw sessions --active 120
 openclaw sessions --json
 ```
-
-

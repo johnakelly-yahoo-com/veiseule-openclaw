@@ -1,5 +1,7 @@
 ---
 title: Sandbox CLI
+summary: "Sandbox kapsayıcılarını yönetin ve etkin sandbox politikasını inceleyin"
+read_when: "Sandbox kapsayıcılarını yönetiyor veya sandbox/araç-politikası davranışını hata ayıklıyorsanız."
 status: active
 ---
 
@@ -147,5 +149,3 @@ Sandbox ayarları `~/.openclaw/openclaw.json` içinde `agents.defaults.sandbox` 
 - [Sandbox Dokümantasyonu](/gateway/sandboxing)
 - [Ajan Yapılandırması](/concepts/agent-workspace)
 - [Doctor Command](/gateway/doctor) - Sandbox kurulumunu kontrol edin
-
-

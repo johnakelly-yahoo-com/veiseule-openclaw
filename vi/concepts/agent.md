@@ -1,4 +1,7 @@
 ---
+summary: "Runtime tác tử (pi-mono nhúng), hợp đồng workspace và khởi tạo phiên"
+read_when:
+  - Khi thay đổi runtime tác tử, khởi tạo workspace hoặc hành vi phiên
 title: "Runtime tác tử"
 ---
 
@@ -45,7 +48,7 @@ ID phiên là ổn định và do OpenClaw chọn. If you delete it after comple
 
 ## Công cụ tích hợp sẵn
 
-Các công cụ cốt lõi (read/exec/edit/write và các công cụ hệ thống liên quan) luôn sẵn sàng,
+Core tools (read/exec/edit/write and related system tools) are always available,
 subject to tool policy. `apply_patch` is optional and gated by
 `tools.exec.applyPatch`. `TOOLS.md` does **not** control which tools exist; it’s
 guidance for how _you_ want them used.
@@ -117,5 +120,3 @@ Các tham chiếu mô hình trong config (ví dụ `agents.defaults.model` và `
 ---
 
 _Tiếp theo: [Group Chats](/channels/group-messages)_ 🦞
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "SSH tünelleri (Gateway WS) ve tailnet'ler kullanarak uzaktan erişim"
+read_when:
+  - Uzak gateway kurulumlarını çalıştırırken veya sorun giderirken
 title: "Uzaktan Erişim"
 ---
 
@@ -124,5 +127,3 @@ Kısa sürüm: **Gateway’i yalnızca loopback’te tutun**, bağlama gerektiğ
 - Tarayıcı kontrolünü operatör erişimi gibi ele alın: yalnızca tailnet + bilinçli düğüm eşleştirme.
 
 Derinlemesine inceleme: [Güvenlik](/gateway/security).
-
-

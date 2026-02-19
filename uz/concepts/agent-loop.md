@@ -1,4 +1,7 @@
 ---
+summary: "Agent loop hayotiy sikli, streamlar va kutish semantikasi"
+read_when:
+  - Siz agent loopi yoki hayotiy sikl hodisalari bo‘yicha aniq bosqichma-bosqich tushuntirishni xohlaysiz
 title: "Agent Loop"
 ---
 
@@ -137,5 +140,3 @@ See [Plugins](/tools/plugin#plugin-hooks) for the hook API and registration deta
 - AbortSignal (cancel)
 - Gateway disconnect or RPC timeout
 - `agent.wait` timeout (wait-only, does not stop agent)
-
-

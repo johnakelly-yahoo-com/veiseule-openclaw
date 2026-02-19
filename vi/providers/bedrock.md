@@ -1,4 +1,8 @@
 ---
+summary: "Sử dụng các mô hình Amazon Bedrock (Converse API) với OpenClaw"
+read_when:
+  - Bạn muốn sử dụng các mô hình Amazon Bedrock với OpenClaw
+  - Bạn cần thiết lập thông tin xác thực/khu vực AWS cho các lệnh gọi mô hình
 title: "Amazon Bedrock"
 ---
 
@@ -168,5 +172,3 @@ openclaw models list
 - Nếu bạn предпоч thích một luồng khóa được quản lý, bạn cũng có thể đặt một proxy
   tương thích OpenAI phía trước Bedrock và cấu hình nó như một nhà cung cấp OpenAI
   thay thế.
-
-

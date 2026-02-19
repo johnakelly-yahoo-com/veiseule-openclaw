@@ -1,4 +1,8 @@
 ---
+summary: "Skills: zarządzane vs obszar roboczy, reguły bramkowania oraz powiązania konfiguracji/środowiska"
+read_when:
+  - Dodawanie lub modyfikowanie skills
+  - Zmiana bramkowania skills lub reguł ładowania
 title: "Umiejętności"
 ---
 
@@ -305,5 +309,3 @@ Zobacz [Skills config](/tools/skills-config), aby zapoznać się z pełnym schem
 Przeglądaj [https://clawhub.com](https://clawhub.com).
 
 ---
-
-

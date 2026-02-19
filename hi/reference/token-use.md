@@ -1,20 +1,24 @@
 ---
+summary: "OpenClaw प्रॉम्प्ट संदर्भ कैसे बनाता है और टोकन उपयोग + लागत की रिपोर्ट कैसे करता है"
+read_when:
+  - टोकन उपयोग, लागत, या संदर्भ विंडो समझाते समय
+  - संदर्भ वृद्धि या संपीड़न व्यवहार का डिबग करते समय
 title: "टोकन उपयोग और लागत"
 ---
 
 # टोकन उपयोग और लागत
 
-OpenClaw **tokens** को ट्रैक करता है, अक्षरों को नहीं। Tokens मॉडल-विशिष्ट होते हैं, लेकिन अधिकांश
+OpenClaw tracks **tokens**, not characters. Tokens are model-specific, but most
 OpenAI-style models average ~4 characters per token for English text.
 
 ## सिस्टम प्रॉम्प्ट कैसे बनाया जाता है
 
-OpenClaw हर रन पर अपना स्वयं का system prompt तैयार करता है। इसमें शामिल हैं:
+OpenClaw assembles its own system prompt on every run. It includes:
 
 - टूल सूची + संक्षिप्त विवरण
 - Skills सूची (केवल मेटाडेटा; निर्देश आवश्यकता पड़ने पर `read` के साथ लोड होते हैं)
 - स्वयं-अपडेट निर्देश
-- Workspace + bootstrap files (`AGENTS.md`, `SOUL.md`, `TOOLS.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md`, `BOOTSTRAP.md` when new). Large files are truncated by `agents.defaults.bootstrapMaxChars` (default: 20000).
+- Workspace + bootstrap फ़ाइलें (`AGENTS.md`, `SOUL.md`, `TOOLS.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md`, नई होने पर `BOOTSTRAP.md`, साथ ही मौजूद होने पर `MEMORY.md` और/या `memory.md`)। बड़ी फ़ाइलें `agents.defaults.bootstrapMaxChars` (डिफ़ॉल्ट: 20000) द्वारा ट्रंकेट की जाती हैं, और कुल bootstrap injection को `agents.defaults.bootstrapTotalMaxChars` (डिफ़ॉल्ट: 24000) द्वारा सीमित किया जाता है। `memory/*.md` फ़ाइलें memory tools के माध्यम से ऑन-डिमांड उपलब्ध होती हैं और स्वतः inject नहीं की जातीं।
 - समय (UTC + उपयोगकर्ता समय-क्षेत्र)
 - उत्तर टैग + हार्टबीट व्यवहार
 - रनटाइम मेटाडेटा (होस्ट/OS/मॉडल/थिंकिंग)
@@ -32,7 +36,7 @@ OpenClaw हर रन पर अपना स्वयं का system prompt 
 - संपीड़न सारांश और प्रूनिंग आर्टिफ़ैक्ट्स
 - प्रदाता रैपर या सुरक्षा हेडर (दिखाई नहीं देते, लेकिन फिर भी गिने जाते हैं)
 
-व्यावहारिक विवरण (प्रत्येक injected फ़ाइल, tools, skills, और system prompt के आकार के अनुसार) के लिए `/context list` या `/context detail` का उपयोग करें। देखें [Context](/concepts/context)।
+For a practical breakdown (per injected file, tools, skills, and system prompt size), use `/context list` or `/context detail`. See [Context](/concepts/context).
 
 ## वर्तमान टोकन उपयोग कैसे देखें
 
@@ -59,13 +63,13 @@ OpenClaw हर रन पर अपना स्वयं का system prompt 
 models.providers.<provider>.models[].cost
 ```
 
-ये `input`, `output`, `cacheRead`, और के लिए **USD per 1M tokens** हैं
+These are **USD per 1M tokens** for `input`, `output`, `cacheRead`, and
 `cacheWrite`. If pricing is missing, OpenClaw shows tokens only. OAuth tokens
 never show dollar cost.
 
 ## कैश TTL और प्रूनिंग का प्रभाव
 
-Provider prompt caching केवल cache TTL विंडो के भीतर लागू होती है। OpenClaw कर सकता है
+Provider prompt caching only applies within the cache TTL window. OpenClaw can
 optionally run **cache-ttl pruning**: it prunes the session once the cache TTL
 has expired, then resets the cache window so subsequent requests can re-use the
 freshly cached context instead of re-caching the full history. This keeps cache
@@ -74,11 +78,11 @@ write costs lower when a session goes idle past the TTL.
 इसे [Gateway configuration](/gateway/configuration) में विन्यस्त करें और
 व्यवहार विवरण [Session pruning](/concepts/session-pruning) में देखें।
 
-Heartbeat निष्क्रिय अंतराल के दौरान cache को **warm** रख सकता है। यदि आपके मॉडल का cache TTL
+Heartbeat can keep the cache **warm** across idle gaps. If your model cache TTL
 is `1h`, setting the heartbeat interval just under that (e.g., `55m`) can avoid
 re-caching the full prompt, reducing cache write costs.
 
-Anthropic API की कीमतों के लिए, cache reads, input की तुलना में काफी सस्ते होते हैं
+For Anthropic API pricing, cache reads are significantly cheaper than input
 tokens, while cache writes are billed at a higher multiplier. See Anthropic’s
 prompt caching pricing for the latest rates and TTL multipliers:
 [https://docs.anthropic.com/docs/build-with-claude/prompt-caching](https://docs.anthropic.com/docs/build-with-claude/prompt-caching)
@@ -106,5 +110,3 @@ agents:
 - विस्तृत, अन्वेषणात्मक कार्य के लिए छोटे मॉडलों को प्राथमिकता दें।
 
 सटीक Skill सूची ओवरहेड सूत्र के लिए [Skills](/tools/skills) देखें।
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "LINE Messaging API eklenti kurulumu, yapılandırması ve kullanımı"
+read_when:
+  - OpenClaw’ı LINE’a bağlamak istiyorsunuz
+  - LINE webhook + kimlik bilgisi kurulumuna ihtiyacınız var
+  - LINE’a özgü mesaj seçeneklerini istiyorsunuz
 title: LINE
 ---
 
@@ -59,7 +64,7 @@ Asgari yapılandırma:
 }
 ```
 
-Ortam değişkenleri (yalnızca varsayılan hesap için):
+Env vars (default account only):
 
 - `LINE_CHANNEL_ACCESS_TOKEN`
 - `LINE_CHANNEL_SECRET`
@@ -177,5 +182,3 @@ LINE eklentisi ayrıca Flex mesaj ön ayarları için bir `/card` komutu da içe
 - **Gelen olay yok:** webhook yolunun `channels.line.webhookPath` ile eşleştiğini
   ve gateway’in LINE tarafından erişilebilir olduğunu doğrulayın.
 - **Medya indirme hataları:** medya varsayılan sınırı aşıyorsa `channels.line.mediaMaxMb` değerini artırın.
-
-

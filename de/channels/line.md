@@ -1,4 +1,9 @@
 ---
+summary: "„Einrichtung, Konfiguration und Nutzung des LINE Messaging API Plugins“"
+read_when:
+  - Sie möchten OpenClaw mit LINE verbinden
+  - Sie benötigen die Einrichtung von LINE-Webhooks und Zugangsdaten
+  - Sie möchten LINE-spezifische Nachrichtenoptionen nutzen
 title: LINE
 ---
 
@@ -182,5 +187,3 @@ Presets:
   `channels.line.webhookPath` übereinstimmt und dass das Gateway von LINE erreichbar ist.
 - **Fehler beim Medien-Download:** Erhöhen Sie `channels.line.mediaMaxMb`, wenn Medien die
   Standardbegrenzung überschreiten.
-
-

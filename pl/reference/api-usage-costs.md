@@ -1,4 +1,9 @@
 ---
+summary: "Audyt tego, co może generować koszty, jakie klucze są używane oraz jak przeglądać użycie"
+read_when:
+  - Chcesz zrozumieć, które funkcje mogą wywoływać płatne API
+  - Musisz przeprowadzić audyt kluczy, kosztów i widoczności użycia
+  - Wyjaśniasz raportowanie kosztów w /status lub /usage
 title: "Użycie API i koszty"
 ---
 
@@ -131,5 +136,3 @@ Skills mogą przechowywać `apiKey` w `skills.entries.<name>.apiKey`. Jeśli ski
 API, może generować koszty zgodnie z zasadami dostawcy danego skill.
 
 Zobacz [Skills](/tools/skills).
-
-

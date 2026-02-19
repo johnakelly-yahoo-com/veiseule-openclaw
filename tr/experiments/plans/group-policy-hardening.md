@@ -1,4 +1,7 @@
 ---
+summary: "Telegram izin listesi güçlendirmesi: önek + boşluk normalizasyonu"
+read_when:
+  - Geçmiş Telegram izin listesi değişikliklerini gözden geçirirken
 title: "Telegram İzin Listesi Güçlendirmesi"
 ---
 
@@ -35,5 +38,3 @@ DM'lerde veya gruplarda yanıt verilip verilmeyeceğine karar verirken yanlış 
 
 - [Group Chats](/channels/groups)
 - [Telegram Provider](/channels/telegram)
-
-

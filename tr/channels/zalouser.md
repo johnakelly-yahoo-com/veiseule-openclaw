@@ -1,4 +1,8 @@
 ---
+summary: "zca-cli (QR oturum açma) üzerinden Zalo kişisel hesap desteği, yetenekler ve yapılandırma"
+read_when:
+  - OpenClaw için Zalo Personal kurulumu
+  - Zalo Personal oturum açma veya mesaj akışı sorunlarını giderme
 title: "Zalo Personal"
 ---
 
@@ -51,7 +55,7 @@ Gateway ana makinesinde `zca` ikili dosyasının `PATH` içinde mevcut olması g
 - Yanıt göndermek için `zca msg ...` kullanır (metin/medya/bağlantı).
 - Zalo Bot API’nin mevcut olmadığı “kişisel hesap” kullanım senaryoları için tasarlanmıştır.
 
-## Adlandırma
+## Naming
 
 Kanal kimliği `zalouser`’tür; bunun **kişisel bir Zalo kullanıcı hesabını** (resmi olmayan) otomatikleştirdiğini açıkça belirtir. Olası gelecekteki resmi Zalo API entegrasyonu için `zalo` ayrılmıştır.
 
@@ -130,9 +134,7 @@ Hesaplar zca profilleriyle eşleştirilir. Örnek:
 
 - zca-cli’yi yükleyin ve Gateway süreci için `PATH` üzerinde olduğundan emin olun.
 
-**Oturum açık kalmıyor:**
+**Login doesn’t stick:**
 
 - `openclaw channels status --probe`
 - Yeniden oturum açın: `openclaw channels logout --channel zalouser && openclaw channels login --channel zalouser`
-
-

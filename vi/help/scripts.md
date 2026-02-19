@@ -1,4 +1,8 @@
 ---
+summary: "Các script trong kho lưu trữ: mục đích, phạm vi và lưu ý an toàn"
+read_when:
+  - Chạy các script từ kho lưu trữ
+  - Thêm hoặc thay đổi script trong ./scripts
 title: "Tập lệnh"
 ---
 
@@ -22,5 +26,3 @@ Các script giám sát xác thực được tài liệu hóa tại đây:
 
 - Giữ script tập trung và có tài liệu.
 - Thêm một mục ngắn trong tài liệu liên quan (hoặc tạo mới nếu chưa có).
-
-

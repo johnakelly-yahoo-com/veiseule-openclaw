@@ -1,4 +1,9 @@
 ---
+summary: "„Konfiguracja, ustawienia i użycie wtyczki LINE Messaging API”"
+read_when:
+  - Chcesz połączyć OpenClaw z LINE
+  - Potrzebujesz konfiguracji webhooka i poświadczeń LINE
+  - Chcesz używać opcji wiadomości specyficznych dla LINE
 title: LINE
 ---
 
@@ -179,5 +184,3 @@ Wtyczka LINE zawiera także polecenie `/card` dla presetów wiadomości Flex:
   `channels.line.webhookPath` oraz że gateway jest osiągalny z LINE.
 - **Błędy pobierania multimediów:** zwiększ `channels.line.mediaMaxMb`, jeśli multimedia
   przekraczają domyślny limit.
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "Установка OpenClaw — скрипт-установщик, npm/pnpm, из исходников, Docker и другое"
+read_when:
+  - Вам нужен способ установки, отличный от быстрого старта «Начало работы»
+  - Вы хотите развернуть систему на облачной платформе
+  - Вам нужно обновить, мигрировать или удалить установку
 title: "Установка"
 ---
 
@@ -26,6 +31,8 @@ title: "Установка"
   <Accordion title="Installer script" icon="rocket" defaultOpen>
     Загружает CLI, устанавливает его глобально через npm и запускает мастер первичной настройки.
 
+    ````
+    ```
     <Tabs>
       <Tab title="macOS / Linux / WSL2">
         ```bash
@@ -41,11 +48,11 @@ title: "Установка"
 </Tab>
     
 </Tabs>
-
+    
     Готово — скрипт выполняет обнаружение Node, установку и первичную настройку.
-
+    
     Чтобы пропустить первичную настройку и просто установить бинарный файл:
-
+    
     <Tabs>
       <Tab title="macOS / Linux / WSL2">
         ```bash
@@ -61,8 +68,10 @@ title: "Установка"
 </Tab>
     
 </Tabs>
-
+    
     Все флаги, переменные окружения и варианты для CI/автоматизации см. в разделе [Внутреннее устройство установщика](/install/installer).
+    ```
+    ````
 
   
 </Accordion>
@@ -70,20 +79,22 @@ title: "Установка"
   <Accordion title="npm / pnpm" icon="package">
     Если у вас уже есть Node 22+ и вы предпочитаете управлять установкой самостоятельно:
 
+    ````
+    ```
     <Tabs>
       <Tab title="npm">
         ```bash
         npm install -g openclaw@latest
         openclaw onboard --install-daemon
         ```
-
+    
         <Accordion title="Ошибки сборки sharp?">
           Если у вас глобально установлен libvips (часто на macOS через Homebrew) и `sharp` завершается с ошибкой, принудительно используйте предварительно собранные бинарные файлы:
-
+    
           ```bash
           SHARP_IGNORE_GLOBAL_LIBVIPS=1 npm install -g openclaw@latest
           ```
-
+    
           Если вы видите `sharp: Please add node-gyp to your dependencies`, установите инструменты сборки (macOS: Xcode CLT + `npm install -g node-gyp`) или используйте указанную выше переменную окружения.
         
 </Accordion>
@@ -95,7 +106,7 @@ title: "Установка"
         pnpm approve-builds -g        # approve openclaw, node-llama-cpp, sharp, etc.
         openclaw onboard --install-daemon
         ```
-
+    
         <Note>
         pnpm требует явного подтверждения для пакетов со скриптами сборки. После того как первая установка покажет предупреждение «Ignored build scripts», выполните `pnpm approve-builds -g` и выберите перечисленные пакеты.
         
@@ -104,6 +115,8 @@ title: "Установка"
 </Tab>
     
 </Tabs>
+    ```
+    ````
 
   
 </Accordion>
@@ -111,10 +124,12 @@ title: "Установка"
   <Accordion title="From source" icon="github">
     Для контрибьюторов или тех, кто хочет запускать из локального репозитория.
 
+    ````
+    ```
     <Steps>
       <Step title="Клонировать и собрать">
         Клонируйте [репозиторий OpenClaw](https://github.com/openclaw/openclaw) и выполните сборку:
-
+    
         ```bash
         git clone https://github.com/openclaw/openclaw.git
         cd openclaw
@@ -126,11 +141,11 @@ title: "Установка"
 </Step>
       <Step title="Подключить CLI">
         Сделайте команду `openclaw` доступной глобально:
-
+    
         ```bash
         pnpm link --global
         ```
-
+    
         Либо пропустите связывание и запускайте команды через `pnpm openclaw ...` изнутри репозитория.
       
 </Step>
@@ -142,8 +157,10 @@ title: "Установка"
 </Step>
     
 </Steps>
-
+    
     Для более глубоких рабочих процессов разработки см. раздел [Настройка](/start/setup).
+    ```
+    ````
 
   
 </Accordion>
@@ -157,7 +174,7 @@ title: "Установка"
   
 </Card>
   <Card title="Podman" href="/install/podman" icon="container">
-    Беспривилегированный контейнер: запустите `setup-podman.sh` один раз, затем скрипт запуска.
+    Rootless-контейнер: выполните `setup-podman.sh` один раз, затем запустите скрипт запуска.
   
 </Card>
   <Card title="Nix" href="/install/nix" icon="snowflake">
@@ -184,13 +201,13 @@ openclaw status         # gateway status
 openclaw dashboard      # open the browser UI
 ```
 
-Если вам нужны пользовательские пути выполнения, используйте:
+If you need custom runtime paths, use:
 
-- `OPENCLAW_HOME` для внутренних путей, основанных на домашней директории
-- `OPENCLAW_STATE_DIR` для расположения изменяемого состояния
-- `OPENCLAW_CONFIG_PATH` для пути к файлу конфигурации
+- `OPENCLAW_HOME` for home-directory based internal paths
+- `OPENCLAW_STATE_DIR` for mutable state location
+- `OPENCLAW_CONFIG_PATH` for config file location
 
-См. [Environment vars](/help/environment) для порядка приоритета и полной информации.
+See [Environment vars](/help/environment) for precedence and full details.
 
 ## Устранение неполадок: `openclaw` не найден
 
@@ -214,7 +231,7 @@ export PATH="$(npm prefix -g)/bin:$PATH"
 
 В Windows добавьте вывод команды `npm prefix -g` в PATH.
 
-Затем откройте новый терминал (или выполните `rehash` в zsh / `hash -r` в bash).
+Затем откройте новый терминал (или выполните `rehash` в zsh / `hash -r` в bash). 
 </Accordion>
 
 ## Обновление / удаление
@@ -233,4 +250,3 @@ export PATH="$(npm prefix -g)/bin:$PATH"
   
 </Card>
 </CardGroup>
-

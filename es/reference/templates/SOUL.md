@@ -1,4 +1,9 @@
-------
+---
+title: "Plantilla de SOUL.md"
+summary: "Plantilla de espacio de trabajo para SOUL.md"
+read_when:
+  - Arranque de un espacio de trabajo manualmente
+---
 
 # SOUL.md - Quién es usted
 
@@ -36,5 +41,3 @@ Si cambia este archivo, avísele al usuario — es su alma, y debería saberlo.
 ---
 
 _Este archivo es suyo para evolucionar. A medida que aprenda quién es, actualícelo._
-
-

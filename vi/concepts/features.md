@@ -1,4 +1,7 @@
 ---
+summary: "Các khả năng của OpenClaw trên các kênh, định tuyến, media và trải nghiệm người dùng."
+read_when:
+  - Bạn muốn danh sách đầy đủ những gì OpenClaw hỗ trợ
 title: "Tính năng"
 ---
 
@@ -53,5 +56,3 @@ title: "Tính năng"
 <Note>
 Legacy Claude, Codex, Gemini, and Opencode paths have been removed. 9. Pi là đường dẫn tác nhân lập trình duy nhất.
 </Note>
-
-

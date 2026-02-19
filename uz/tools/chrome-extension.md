@@ -1,4 +1,9 @@
 ---
+summary: "12. Chrome kengaytmasi: OpenClaw’ga mavjud Chrome tabingizni boshqarishga ruxsat bering"
+read_when:
+  - 13. Siz agent mavjud Chrome tabini (asboblar paneli tugmasi) boshqarishini xohlaysiz
+  - 14. Sizga masofaviy Gateway + Tailscale orqali mahalliy brauzer avtomatlashtirish kerak
+  - 15. Siz brauzerni egallab olishning xavfsizlik oqibatlarini tushunmoqchisiz
 title: "16. Chrome kengaytmasi"
 ---
 
@@ -12,7 +17,7 @@ title: "16. Chrome kengaytmasi"
 
 21. Uchta qism mavjud:
 
-- 22. **Brauzerni boshqarish xizmati** (Gateway yoki node): agent/asbob chaqiradigan API (Gateway orqali)
+- So‘ng OpenClaw biriktirilgan tabni odatiy `browser` asbob interfeysi orqali (to‘g‘ri profilni tanlab) boshqaradi.
 - 23. **Mahalliy relay serveri** (loopback CDP): boshqaruv serveri va kengaytma o‘rtasida ko‘prik bo‘ladi (sukut bo‘yicha `http://127.0.0.1:18792`)
 - 24. **Chrome MV3 kengaytmasi**: `chrome.debugger` yordamida faol tabga ulanadi va CDP xabarlarini relay’ga uzatadi
 
@@ -32,7 +37,7 @@ title: "16. Chrome kengaytmasi"
 30. openclaw browser extension path
 ```
 
-3. 31. Chrome → `chrome://extensions`
+3. Chrome → `chrome://extensions`
 
 - 32) “Developer mode” ni yoqing
 - 33. “Load unpacked” → yuqorida chiqarilgan katalogni tanlang
@@ -45,8 +50,8 @@ title: "16. Chrome kengaytmasi"
 
 38. OpenClaw yangilangandan so‘ng:
 
-- 39. OpenClaw holat katalogi ostidagi o‘rnatilgan fayllarni yangilash uchun `openclaw browser extension install` ni qayta ishga tushiring.
-- 40. Chrome → `chrome://extensions` → kengaytmada “Reload” ni bosing.
+- OpenClaw sukut bo‘yicha `chrome` nomli ichki brauzer profili bilan keladi, u standart portdagi kengaytma relay’iga yo‘naltirilgan.
+- Undan foydalaning:
 
 ## 41. Foydalanish (qo‘shimcha sozlamalarsiz)
 
@@ -54,7 +59,7 @@ title: "16. Chrome kengaytmasi"
 
 43. Undan foydalaning:
 
-- 44. CLI: `openclaw browser --browser-profile chrome tabs`
+- CLI: `openclaw browser --browser-profile chrome tabs`
 - 45. Agent asbobi: `browser` va `profile="chrome"`
 
 46. Agar boshqa nom yoki boshqa relay porti kerak bo‘lsa, o‘zingiz profilingizni yarating:
@@ -91,13 +96,13 @@ Agar `!` ni ko‘rsangiz:
 - Gateway lokal ishlayotganiga ishonch hosil qiling (standart sozlama), yoki Gateway boshqa joyda ishlasa, bu mashinada node host ishga tushiring.
 - Kengaytma Options sahifasini oching; u relayga ulanish mumkinligini ko‘rsatadi.
 
-## Masofaviy Gateway (node hostdan foydalaning)
+## Masofaviy Gateway (Gateway boshqa joyda ishlaydi) — **node hostni ishga tushiring**
 
 ### Lokal Gateway (Chrome bilan bir xil mashina) — odatda **qo‘shimcha qadamlar yo‘q**
 
 Agar Gateway Chrome bilan bir xil mashinada ishlasa, u loopback’da brauzer boshqaruv xizmatini ishga tushiradi va relay serverini avtomatik boshlaydi. Kengaytma lokal relay bilan gaplashadi; CLI/asbob chaqiriqlari Gateway’ga boradi.
 
-### Masofaviy Gateway (Gateway boshqa joyda ishlaydi) — **node hostni ishga tushiring**
+### Sandboxing (asbob konteynerlari)
 
 Agar Gateway boshqa mashinada ishlasa, Chrome ishlayotgan mashinada node hostni ishga tushiring.
 Gateway brauzer harakatlarini o‘sha node’ga proksi qiladi; kengaytma + relay brauzer mashinasida lokal qoladi.
@@ -111,7 +116,7 @@ Agar agent sessiyangiz sandbox qilingan bo‘lsa (`agents.defaults.sandbox.mode 
 - Standart holatda, sandbox qilingan sessiyalar ko‘pincha **sandbox brauzer**ni (`target="sandbox"`) nishonga oladi, xost Chrome’ni emas.
 - Chrome kengaytmasi orqali relay takeover **xost** brauzer boshqaruv serverini nazorat qilishni talab qiladi.
 
-Variantlar:
+So‘ng asbob siyosat bilan rad etilmaganiga ishonch hosil qiling va (kerak bo‘lsa) `browser` ni `target="host"` bilan chaqiring.
 
 - Eng osoni: kengaytmadan **sandbox qilinmagan** sessiya/agentdan foydalanish.
 - Yoki sandbox qilingan sessiyalar uchun xost brauzer boshqaruviga ruxsat bering:
@@ -170,5 +175,3 @@ Tegishli:
 - Brauzer vositasi sharhi: [Browser](/tools/browser)
 - Xavfsizlik auditi: [Security](/gateway/security)
 - Tailscale sozlamalari: [Tailscale](/gateway/tailscale)
-
-

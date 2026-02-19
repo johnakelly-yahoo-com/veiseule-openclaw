@@ -1,4 +1,7 @@
 ---
+summary: "Modo de ejecución elevado y directivas /elevated"
+read_when:
+  - Ajustar los valores predeterminados del modo elevado, las listas de permitidos o el comportamiento de los comandos con barra
 title: "Modo Elevado"
 ---
 
@@ -52,5 +55,3 @@ title: "Modo Elevado"
 
 - Las llamadas de exec en modo elevado se registran a nivel info.
 - El estado de la sesión incluye el modo elevado (p. ej., `elevated=ask`, `elevated=full`).
-
-

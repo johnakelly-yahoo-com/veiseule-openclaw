@@ -1,4 +1,7 @@
 ---
+summary: "`openclaw pairing` için CLI başvurusu (eşleştirme isteklerini onaylama/listeleme)"
+read_when:
+  - Eşleştirme modlu DM'leri kullanıyor ve gönderenleri onaylamanız gerekiyor
 title: "eşleştirme"
 ---
 
@@ -16,5 +19,3 @@ title: "eşleştirme"
 openclaw pairing list whatsapp
 openclaw pairing approve whatsapp <code> --notify
 ```
-
-

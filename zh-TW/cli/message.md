@@ -1,4 +1,8 @@
 ---
+summary: "用於 `openclaw message` 的 CLI 參考（傳送與頻道動作）"
+read_when:
+  - 新增或修改訊息 CLI 動作時
+  - Changing outbound channel behavior
 title: "message"
 ---
 
@@ -16,7 +20,7 @@ openclaw message <subcommand> [flags]
 頻道選擇：
 
 - 若設定了多個頻道，則必須指定 `--channel`。
-- 如果只設定了一個通道，該通道將成為預設通道。
+- If exactly one channel is configured, it becomes the default.
 - 可用值：`whatsapp|telegram|discord|googlechat|slack|mattermost|signal|imessage|msteams`（Mattermost 需要外掛）
 
 目標格式（`--target`）：
@@ -34,7 +38,7 @@ openclaw message <subcommand> [flags]
 名稱查找：
 
 - 對於支援的提供者（Discord/Slack 等），像是 `Help` 或 `#help` 的頻道名稱會透過目錄快取解析。
-- 在快取未命中時，若提供者支援，OpenClaw 會嘗試進行即時目錄查詢。
+- On cache miss, OpenClaw will attempt a live directory lookup when the provider supports it.
 
 ## 常用旗標
 
@@ -64,6 +68,7 @@ openclaw message <subcommand> [flags]
   - 必要：`--target`、`--poll-question`、`--poll-option`（重複）
   - 選用：`--poll-multi`
   - 僅 Discord：`--poll-duration-hours`、`--message`
+  - 僅限 Telegram：`--poll-duration-seconds`（5-600）、`--silent`、`--poll-anonymous` / `--poll-public`、`--thread-id`
 
 - `react`
   - 頻道：Discord/Google Chat/Slack/Telegram/WhatsApp/Signal
@@ -196,6 +201,16 @@ openclaw message poll --channel discord \
   --poll-multi --poll-duration-hours 48
 ```
 
+建立 Telegram 投票（2 分鐘後自動關閉）：
+
+```
+openclaw message poll --channel telegram \
+  --target @mychat \
+  --poll-question "Lunch?" \
+  --poll-option Pizza --poll-option Sushi \
+  --poll-duration-seconds 120 --silent
+```
+
 傳送 Teams 主動式訊息：
 
 ```
@@ -233,5 +248,3 @@ openclaw message react --channel signal \
 openclaw message send --channel telegram --target @mychat --message "Choose:" \
   --buttons '[ [{"text":"Yes","callback_data":"cmd:yes"}], [{"text":"No","callback_data":"cmd:no"}] ]'
 ```
-
-

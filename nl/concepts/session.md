@@ -1,4 +1,7 @@
 ---
+summary: "Regels, sleutels en persistentie voor chat-sessiebeheer"
+read_when:
+  - Het aanpassen van sessie-afhandeling of opslag
 title: "Sessiebeheer"
 ---
 
@@ -199,5 +202,3 @@ Elke sessievermelding registreert waar deze vandaan komt (best-effort) in `origi
   `GroupSubject`, `GroupChannel`, `GroupSpace` en `SenderName` in de inkomende
   context te sturen en `recordSessionMetaFromInbound` aan te roepen (of dezelfde context door te geven
   aan `updateLastRoute`).
-
-

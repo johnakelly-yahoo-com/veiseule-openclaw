@@ -1,4 +1,8 @@
 ---
+summary: "Wtyczka Voice Call: połączenia wychodzące i przychodzące przez Twilio/Telnyx/Plivo (instalacja wtyczki + konfiguracja + CLI)"
+read_when:
+  - Chcesz wykonać wychodzące połączenie głosowe z OpenClaw
+  - Konfigurujesz lub rozwijasz wtyczkę voice-call
 title: "Wtyczka Voice Call"
 ---
 
@@ -108,6 +112,7 @@ Uwagi:
 - Twilio/Telnyx wymagają **publicznie dostępnego** adresu URL webhooka.
 - Plivo wymaga **publicznie dostępnego** adresu URL webhooka.
 - `mock` to lokalny dostawca deweloperski (bez wywołań sieciowych).
+- Telnyx wymaga `telnyx.publicKey` (lub `TELNYX_PUBLIC_KEY`), chyba że ustawiono `skipSignatureVerification` na true.
 - `skipSignatureVerification` jest przeznaczony wyłącznie do testów lokalnych.
 - Jeśli używasz darmowego planu ngrok, ustaw `publicUrl` na dokładny adres URL ngrok; weryfikacja podpisów jest zawsze wymuszana.
 - `tunnel.allowNgrokFreeTierLoopbackBypass: true` zezwala na webhooki Twilio z nieprawidłowymi podpisami **wyłącznie**, gdy `tunnel.provider="ngrok"` oraz `serve.bind` to loopback (lokalny agent ngrok). Używać tylko do lokalnego dev.
@@ -278,5 +283,3 @@ To repozytorium zawiera pasujący dokument umiejętności pod adresem `skills/vo
 - `voicecall.speak` (`callId`, `message`)
 - `voicecall.end` (`callId`)
 - `voicecall.status` (`callId`)
-
-

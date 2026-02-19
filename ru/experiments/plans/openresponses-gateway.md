@@ -1,4 +1,5 @@
 ---
+summary: "План: добавить эндпоинт OpenResponses /v1/responses и корректно вывести из эксплуатации chat completions"
 owner: "openclaw"
 status: "draft"
 last_updated: "2026-01-19"
@@ -120,5 +121,3 @@ Open Responses — это открытый стандарт инференса, 
 
 - Добавить новую страницу документации по использованию и примерам `/v1/responses`.
 - Обновить `/gateway/openai-http-api`, добавив пометку legacy и ссылку на `/v1/responses`.
-
-

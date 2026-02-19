@@ -1,4 +1,7 @@
 ---
+summary: "Katayuan ng suporta, mga kakayahan, at konpigurasyon ng Microsoft Teams bot"
+read_when:
+  - Gumagawa sa mga feature ng MS Teams channel
 title: "Microsoft Teams"
 ---
 
@@ -8,13 +11,13 @@ title: "Microsoft Teams"
 
 Na-update: 2026-01-21
 
-Status: sinusuportahan ang text + DM attachments; ang pagpapadala ng file sa channel/group ay nangangailangan ng `sharePointSiteId` + Graph permissions (tingnan ang [Sending files in group chats](#sending-files-in-group-chats)). Ang mga poll ay ipinapadala sa pamamagitan ng Adaptive Cards.
+Status: text + DM attachments are supported; channel/group file sending requires `sharePointSiteId` + Graph permissions (see [Sending files in group chats](#sending-files-in-group-chats)). Polls are sent via Adaptive Cards.
 
 ## Kinakailangang plugin
 
 Ang Microsoft Teams ay dumarating bilang plugin at hindi kasama sa core install.
 
-**Breaking change (2026.1.15):** Inalis ang MS Teams mula sa core. Kung ginagamit mo ito, kailangan mong i-install ang plugin.
+**Breaking change (2026.1.15):** MS Teams moved out of core. If you use it, you must install the plugin.
 
 Maipapaliwanag: pinananatiling magaan ang mga core install at hinahayaang mag-update nang hiwalay ang mga dependency ng MS Teams.
 
@@ -59,7 +62,7 @@ Minimal na config:
 }
 ```
 
-Tandaan: ang mga group chat ay naka-block bilang default (`channels.msteams.groupPolicy: "allowlist"`). Upang payagan ang mga reply sa group, itakda ang `channels.msteams.groupAllowFrom` (o gamitin ang `groupPolicy: "open"` upang payagan ang sinumang miyembro, mention-gated).
+Note: group chats are blocked by default (`channels.msteams.groupPolicy: "allowlist"`). To allow group replies, set `channels.msteams.groupAllowFrom` (or use `groupPolicy: "open"` to allow any member, mention-gated).
 
 ## Mga layunin
 
@@ -83,12 +86,12 @@ I-disable gamit ang:
 
 **Access sa DM**
 
-- Default: `channels.msteams.dmPolicy = "pairing"`. Ang mga hindi kilalang sender ay hindi papansinin hangga’t hindi naaprubahan.
-- Tumatanggap ang `channels.msteams.allowFrom` ng mga AAD object ID, UPN, o display name. Nireresolba ng wizard ang mga pangalan tungo sa mga ID sa pamamagitan ng Microsoft Graph kapag pinapayagan ng mga kredensyal.
+- Default: `channels.msteams.dmPolicy = "pairing"`. Unknown senders are ignored until approved.
+- `channels.msteams.allowFrom` accepts AAD object IDs, UPNs, or display names. The wizard resolves names to IDs via Microsoft Graph when credentials allow.
 
 **Access sa Group**
 
-- Default: `channels.msteams.groupPolicy = "allowlist"` (naka-block maliban kung magdadagdag ka ng `groupAllowFrom`). Gamitin ang `channels.defaults.groupPolicy` upang i-override ang default kapag hindi ito nakatakda.
+- Default: `channels.msteams.groupPolicy = "allowlist"` (blocked unless you add `groupAllowFrom`). Use `channels.defaults.groupPolicy` to override the default when unset.
 - Kinokontrol ng `channels.msteams.groupAllowFrom` kung aling mga sender ang maaaring mag-trigger sa group chats/channels (bumabagsak sa `channels.msteams.allowFrom`).
 - Itakda ang `groupPolicy: "open"` para payagan ang sinumang miyembro (may mention‑gating pa rin bilang default).
 - Para payagan ang **walang channels**, itakda ang `channels.msteams.groupPolicy: "disabled"`.
@@ -421,7 +424,9 @@ Kung kailangan mo ng mga larawan/file sa **channels** o gusto mong kunin ang **m
 3. Itaas ang Teams app **manifest version**, i-re-upload, at **i-reinstall ang app sa Teams**.
 4. **Ganap na isara at muling buksan ang Teams** para linisin ang cached app metadata.
 
-## Mga Kilalang Limitasyon
+**Karagdagang pahintulot para sa user mentions:** Ang user @mentions ay gumagana kaagad para sa mga user na nasa pag-uusap. Gayunpaman, kung nais mong maghanap at mag-mention ng mga user na **wala sa kasalukuyang pag-uusap**, idagdag ang `User.Read.All` (Application) permission at magbigay ng admin consent.
+
+## Mga timeout ng webhook
 
 ### Mga timeout ng webhook
 
@@ -568,7 +573,7 @@ Bots don't have a personal OneDrive drive (the `/me/drive` Graph API endpoint do
    }
    ```
 
-### Pag-uugali ng sharing
+### Gawi sa pagbabahagi
 
 | Pahintulot                              | Pag-uugali ng sharing                                                                    |
 | --------------------------------------- | ---------------------------------------------------------------------------------------- |
@@ -733,7 +738,7 @@ May limitadong suporta ang mga bot sa private channels:
 2. Gumamit ng DMs - palaging maaaring i-message ng mga user ang bot nang direkta
 3. Gumamit ng Graph API para sa historical access (nangangailangan ng `ChannelMessage.Read.All`)
 
-## Pag-troubleshoot
+## Mga karaniwang isyu
 
 ### Mga karaniwang isyu
 
@@ -765,5 +770,3 @@ May limitadong suporta ang mga bot sa private channels:
 - [RSC permissions reference](https://learn.microsoft.com/en-us/microsoftteams/platform/graph-api/rsc/resource-specific-consent)
 - [Teams bot file handling](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/bots-filesv4) (nangangailangan ng Graph para sa channel/group)
 - [Proactive messaging](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/conversations/send-proactive-messages)
-
-

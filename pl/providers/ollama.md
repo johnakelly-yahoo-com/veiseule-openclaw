@@ -1,4 +1,8 @@
 ---
+summary: "Uruchom OpenClaw z Ollama (lokalne środowisko uruchomieniowe LLM)"
+read_when:
+  - Chcesz uruchomić OpenClaw z lokalnymi modelami przez Ollama
+  - Potrzebujesz wskazówek dotyczących konfiguracji i ustawień Ollama
 title: "Ollama"
 ---
 
@@ -170,45 +174,28 @@ Ollama jest darmowa i działa lokalnie, więc wszystkie koszty modeli są ustawi
 
 ### Konfiguracja strumieniowania
 
-Z powodu [znanego problemu](https://github.com/badlogic/pi-mono/issues/1205) w bazowym SDK z formatem odpowiedzi Ollama, **strumieniowanie jest domyślnie wyłączone** dla modeli Ollama. Zapobiega to uszkodzonym odpowiedziom podczas używania modeli obsługujących narzędzia.
+Integracja OpenClaw z Ollama domyślnie używa **natywnego API Ollama** (`/api/chat`), które w pełni obsługuje jednoczesne strumieniowanie i wywoływanie narzędzi. Nie jest wymagana żadna specjalna konfiguracja.
 
-Gdy strumieniowanie jest wyłączone, odpowiedzi są dostarczane jednorazowo (tryb niestreamingowy), co unika problemu, w którym przeplatane delty treści/rozumowania powodują zniekształcone wyjście.
+#### Starszy tryb zgodny z OpenAI
 
-#### Ponowne włączenie strumieniowania (zaawansowane)
-
-Jeśli chcesz ponownie włączyć strumieniowanie dla Ollama (może powodować problemy z modelami obsługującymi narzędzia):
+Jeśli zamiast tego musisz użyć endpointu zgodnego z OpenAI (np. za proxy obsługującym wyłącznie format OpenAI), ustaw jawnie `api: "openai-completions"`:
 
 ```json5
 {
-  agents: {
-    defaults: {
-      models: {
-        "ollama/gpt-oss:20b": {
-          streaming: true,
-        },
-      },
-    },
-  },
+  models: {
+    providers: {
+      ollama: {
+        baseUrl: "http://ollama-host:11434/v1",
+        api: "openai-completions",
+        apiKey: "ollama-local",
+        models: [...]
+      }
+    }
+  }
 }
 ```
 
-#### Wyłączanie strumieniowania dla innych dostawców
-
-Możesz także wyłączyć strumieniowanie dla dowolnego dostawcy, jeśli to konieczne:
-
-```json5
-{
-  agents: {
-    defaults: {
-      models: {
-        "openai/gpt-4": {
-          streaming: false,
-        },
-      },
-    },
-  },
-}
-```
+Uwaga: Endpoint zgodny z OpenAI może nie obsługiwać jednocześnie strumieniowania i wywoływania narzędzi. Jawnie ustaw `streaming: false` dla modeli Ollama (zobacz [Konfiguracja strumieniowania](#konfiguracja-strumieniowania))
 
 ### Okna kontekstu
 
@@ -257,19 +244,8 @@ ps aux | grep ollama
 ollama serve
 ```
 
-### Uszkodzone odpowiedzi lub nazwy narzędzi w wyjściu
-
-Jeśli widzisz zniekształcone odpowiedzi zawierające nazwy narzędzi (takie jak `sessions_send`, `memory_get`) lub pofragmentowany tekst podczas korzystania z modeli Ollama, jest to spowodowane problemem w nadrzędnym SDK ze strumieniowanymi odpowiedziami. **Jest to domyślnie naprawione** w najnowszej wersji OpenClaw poprzez wyłączenie strumieniowania dla modeli Ollama.
-
-Jeśli ręcznie włączyłeś strumieniowanie i doświadczasz tego problemu:
-
-1. Usuń konfigurację `streaming: true` z wpisów modeli Ollama albo
-2. Jawnie ustaw `streaming: false` dla modeli Ollama (zobacz [Konfiguracja strumieniowania](#konfiguracja-strumieniowania))
-
 ## Zobacz także
 
 - [Model Providers](/concepts/model-providers) – Przegląd wszystkich dostawców
 - [Model Selection](/concepts/models) – Jak wybierać modele
 - [Configuration](/gateway/configuration) – Pełne odniesienie konfiguracji
-
-

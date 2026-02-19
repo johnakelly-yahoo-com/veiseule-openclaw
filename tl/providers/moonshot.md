@@ -1,10 +1,15 @@
 ---
+summary: "I-configure ang Moonshot K2 vs Kimi Coding (hiwalay na mga provider at key)"
+read_when:
+  - Gusto mo ng setup para sa Moonshot K2 (Moonshot Open Platform) vs Kimi Coding
+  - Kailangan mong maunawaan ang magkakahiwalay na endpoint, key, at model ref
+  - Gusto mo ng copy/paste na config para sa alinmang provider
 title: "Moonshot AI"
 ---
 
 # Moonshot AI (Kimi)
 
-Ang Moonshot ay nagbibigay ng Kimi API na may OpenAI-compatible na mga endpoint. I-configure ang
+Moonshot provides the Kimi API with OpenAI-compatible endpoints. Configure the
 provider and set the default model to `moonshot/kimi-k2.5`, or use
 Kimi Coding with `kimi-coding/k2p5`.
 
@@ -29,7 +34,7 @@ Kimi Coding:
 openclaw onboard --auth-choice kimi-code-api-key
 ```
 
-Tandaan: Ang Moonshot at Kimi Coding ay magkahiwalay na provider. Hindi maaaring pagpalitin ang mga key, magkaiba ang mga endpoint, at magkaiba ang mga model ref (gumagamit ang Moonshot ng `moonshot/...`, habang ang Kimi Coding ay gumagamit ng `kimi-coding/...`).
+Note: Moonshot and Kimi Coding are separate providers. Keys are not interchangeable, endpoints differ, and model refs differ (Moonshot uses `moonshot/...`, Kimi Coding uses `kimi-coding/...`).
 
 ## Snippet ng config (Moonshot API)
 
@@ -130,10 +135,8 @@ Tandaan: Ang Moonshot at Kimi Coding ay magkahiwalay na provider. Hindi maaaring
 
 ## Mga tala
 
-- Ang mga model ref ng Moonshot ay gumagamit ng `moonshot/<modelId>`. Ang mga model ref ng Kimi Coding ay gumagamit ng `kimi-coding/<modelId>`.
+- Moonshot model refs use `moonshot/<modelId>`. Kimi Coding model refs use `kimi-coding/<modelId>`.
 - I-override ang pricing at context metadata sa `models.providers` kung kinakailangan.
 - Kung maglathala ang Moonshot ng ibang context limit para sa isang model, i-adjust ang
   `contextWindow` nang naaayon.
 - Gamitin ang `https://api.moonshot.ai/v1` para sa international endpoint, at ang `https://api.moonshot.cn/v1` para sa China endpoint.
-
-

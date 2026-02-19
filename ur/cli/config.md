@@ -1,4 +1,7 @@
 ---
+summary: "CLI حوالہ برائے `openclaw config` (کنفیگ ویلیوز حاصل کریں/سیٹ کریں/ان سیٹ کریں)"
+read_when:
+  - آپ کنفیگ کو غیر تعاملی طور پر پڑھنا یا ترمیم کرنا چاہتے ہیں
 title: "config"
 ---
 
@@ -45,5 +48,3 @@ openclaw config set channels.whatsapp.groups '["*"]' --json
 ```
 
 ترمیمات کے بعد gateway (گیٹ وے) کو دوبارہ شروع کریں۔
-
-

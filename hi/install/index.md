@@ -1,4 +1,9 @@
 ---
+summary: "OpenClaw स्थापित करें — इंस्टॉलर स्क्रिप्ट, npm/pnpm, स्रोत से, Docker, और अन्य"
+read_when:
+  - आपको Getting Started त्वरित प्रारंभ के अलावा किसी अन्य इंस्टॉल विधि की आवश्यकता है
+  - आप किसी क्लाउड प्लेटफ़ॉर्म पर डिप्लॉय करना चाहते हैं
+  - आपको अपडेट, माइग्रेट, या अनइंस्टॉल करना है
 title: "स्थापना"
 ---
 
@@ -26,6 +31,8 @@ Windows पर, हम दृढ़ता से अनुशंसा करत
   <Accordion title="Installer script" icon="rocket" defaultOpen>
     CLI डाउनलोड करता है, npm के माध्यम से इसे वैश्विक रूप से स्थापित करता है, और ऑनबोर्डिंग विज़ार्ड प्रारंभ करता है।
 
+    ````
+    ```
     <Tabs>
       <Tab title="macOS / Linux / WSL2">
         ```bash
@@ -41,11 +48,11 @@ Windows पर, हम दृढ़ता से अनुशंसा करत
 </Tab>
     
 </Tabs>
-
+    
     बस इतना ही — यह स्क्रिप्ट Node की पहचान, स्थापना, और ऑनबोर्डिंग संभालती है।
-
+    
     ऑनबोर्डिंग छोड़कर केवल बाइनरी स्थापित करने के लिए:
-
+    
     <Tabs>
       <Tab title="macOS / Linux / WSL2">
         ```bash
@@ -61,8 +68,10 @@ Windows पर, हम दृढ़ता से अनुशंसा करत
 </Tab>
     
 </Tabs>
-
+    
     सभी फ़्लैग, env vars, और CI/ऑटोमेशन विकल्पों के लिए, [Installer internals](/install/installer) देखें।
+    ```
+    ````
 
   
 </Accordion>
@@ -70,20 +79,22 @@ Windows पर, हम दृढ़ता से अनुशंसा करत
   <Accordion title="npm / pnpm" icon="package">
     यदि आपके पास पहले से Node 22+ है और आप इंस्टॉल को स्वयं प्रबंधित करना चाहते हैं:
 
+    ````
+    ```
     <Tabs>
       <Tab title="npm">
         ```bash
         npm install -g openclaw@latest
         openclaw onboard --install-daemon
         ```
-
+    
         <Accordion title="sharp बिल्ड त्रुटियाँ?">
           यदि आपके पास libvips वैश्विक रूप से स्थापित है (macOS पर Homebrew के माध्यम से सामान्य) और `sharp` विफल हो जाता है, तो प्रीबिल्ट बाइनरी को बाध्य करें:
-
+    
           ```bash
           SHARP_IGNORE_GLOBAL_LIBVIPS=1 npm install -g openclaw@latest
           ```
-
+    
           यदि आपको `sharp: Please add node-gyp to your dependencies` दिखाई देता है, तो या तो बिल्ड टूलिंग स्थापित करें (macOS: Xcode CLT + `npm install -g node-gyp`) या ऊपर दिए गए env var का उपयोग करें।
         
 </Accordion>
@@ -95,7 +106,7 @@ Windows पर, हम दृढ़ता से अनुशंसा करत
         pnpm approve-builds -g        # approve openclaw, node-llama-cpp, sharp, etc.
         openclaw onboard --install-daemon
         ```
-
+    
         <Note>
         pnpm को बिल्ड स्क्रिप्ट वाले पैकेजों के लिए स्पष्ट अनुमोदन की आवश्यकता होती है। पहली इंस्टॉल के बाद यदि "Ignored build scripts" चेतावनी दिखाई दे, तो `pnpm approve-builds -g` चलाएँ और सूचीबद्ध पैकेजों का चयन करें।
         
@@ -104,6 +115,8 @@ Windows पर, हम दृढ़ता से अनुशंसा करत
 </Tab>
     
 </Tabs>
+    ```
+    ````
 
   
 </Accordion>
@@ -111,10 +124,12 @@ Windows पर, हम दृढ़ता से अनुशंसा करत
   <Accordion title="From source" icon="github">
     योगदानकर्ताओं या उन सभी के लिए जो स्थानीय चेकआउट से चलाना चाहते हैं।
 
+    ````
+    ```
     <Steps>
       <Step title="Clone और build करें">
         [OpenClaw repo](https://github.com/openclaw/openclaw) को clone करें और build करें:
-
+    
         ```bash
         git clone https://github.com/openclaw/openclaw.git
         cd openclaw
@@ -126,11 +141,11 @@ Windows पर, हम दृढ़ता से अनुशंसा करत
 </Step>
       <Step title="CLI को link करें">
         `openclaw` कमांड को वैश्विक रूप से उपलब्ध करें:
-
+    
         ```bash
         pnpm link --global
         ```
-
+    
         वैकल्पिक रूप से, link को छोड़ दें और repo के अंदर से `pnpm openclaw ...` के माध्यम से कमांड चलाएँ।
       
 </Step>
@@ -142,8 +157,10 @@ Windows पर, हम दृढ़ता से अनुशंसा करत
 </Step>
     
 </Steps>
-
+    
     गहन विकास वर्कफ़्लो के लिए, [Setup](/start/setup) देखें।
+    ```
+    ````
 
   
 </Accordion>
@@ -157,15 +174,15 @@ Windows पर, हम दृढ़ता से अनुशंसा करत
   
 </Card>
   <Card title="Podman" href="/install/podman" icon="container">
-    Rootless container: run `setup-podman.sh` once, then the launch script.
-  
-</Card>
-  <Card title="Nix" href="/install/nix" icon="snowflake">
     Nix के माध्यम से घोषणात्मक इंस्टॉल।
   
 </Card>
-  <Card title="Ansible" href="/install/ansible" icon="server">
+  <Card title="Nix" href="/install/nix" icon="snowflake">
     स्वचालित फ़्लीट प्रोविज़निंग।
+  
+</Card>
+  <Card title="Ansible" href="/install/ansible" icon="server">
+    Bun runtime के माध्यम से केवल CLI उपयोग।
   
 </Card>
   <Card title="Bun" href="/install/bun" icon="zap">
@@ -184,13 +201,13 @@ openclaw status         # gateway status
 openclaw dashboard      # open the browser UI
 ```
 
-यदि आपको कस्टम runtime paths की आवश्यकता है, तो उपयोग करें:
+If you need custom runtime paths, use:
 
-- `OPENCLAW_HOME` होम-डायरेक्टरी आधारित आंतरिक पथों के लिए
-- `OPENCLAW_STATE_DIR` mutable state लोकेशन के लिए
-- `OPENCLAW_CONFIG_PATH` config फ़ाइल लोकेशन के लिए
+- `OPENCLAW_HOME` for home-directory based internal paths
+- `OPENCLAW_STATE_DIR` for mutable state location
+- `OPENCLAW_CONFIG_PATH` for config file location
 
-प्राथमिकता और पूर्ण विवरण के लिए [Environment vars](/help/environment) देखें।
+See [Environment vars](/help/environment) for precedence and full details.
 
 ## समस्या-निवारण: `openclaw` नहीं मिला
 
@@ -214,7 +231,7 @@ export PATH="$(npm prefix -g)/bin:$PATH"
 
 Windows पर, `npm prefix -g` के आउटपुट को अपने PATH में जोड़ें।
 
-फिर एक नया टर्मिनल खोलें (या zsh में `rehash` / bash में `hash -r`)।
+फिर एक नया टर्मिनल खोलें (या zsh में `rehash` / bash में `hash -r`)। 
 </Accordion>
 
 ## अपडेट / अनइंस्टॉल
@@ -233,4 +250,3 @@ Windows पर, `npm prefix -g` के आउटपुट को अपने PA
   
 </Card>
 </CardGroup>
-

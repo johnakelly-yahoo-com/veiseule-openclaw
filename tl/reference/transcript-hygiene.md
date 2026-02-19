@@ -1,4 +1,9 @@
 ---
+summary: "Sanggunian: mga provider-specific na panuntunan para sa sanitization at pag-ayos ng transcript"
+read_when:
+  - Ikaw ay nagde-debug ng mga rejection ng provider request na may kaugnayan sa hugis ng transcript
+  - Ikaw ay nagbabago ng transcript sanitization o lohika ng pag-ayos ng tool-call
+  - Ikaw ay nag-iimbestiga ng mga mismatch ng tool-call id sa iba’t ibang provider
 title: "Kalinisan ng Transkripsyon"
 ---
 
@@ -19,6 +24,7 @@ Kasama sa saklaw ang:
 - Pagpapatunay / pag-aayos ng pagkakasunod-sunod ng turn
 - Paglilinis ng thought signature
 - Sanitization ng image payload
+- Paglalagay ng provenance tag sa user-input (para sa mga prompt na niruruta sa pagitan ng mga session)
 
 Kung kailangan mo ng mga detalye tungkol sa pag-iimbak ng transcript, tingnan ang:
 
@@ -69,9 +75,26 @@ Implementasyon:
 
 ## Provider matrix (kasalukuyang gawi)
 
-**OpenAI / OpenAI Codex**
+Kapag ang isang agent ay nagpapadala ng prompt sa ibang session sa pamamagitan ng `sessions_send` (kabilang ang
+mga hakbang na agent-to-agent reply/announce), sine-save ng OpenClaw ang nalikhang user turn na may:
 
 - Image sanitization lamang.
+
+Isinusulat ang metadata na ito sa oras ng pag-append sa transcript at hindi binabago ang role
+(`role: "user"` ay nananatili para sa compatibility ng provider). Maaaring gamitin ito ng mga transcript reader
+upang maiwasang ituring ang mga nirutang internal prompt bilang mga tagubilin na isinulat ng end-user.
+
+Sa panahon ng muling pagbuo ng context, nagdaragdag din ang OpenClaw ng maikling `[Inter-session message]`
+marker sa mga user turn na iyon sa memorya upang matukoy ng model ang kaibahan nila sa
+panlabas na mga tagubilin ng end-user.
+
+---
+
+## Provider matrix (kasalukuyang gawi)
+
+**OpenAI / OpenAI Codex**
+
+- Sanitization ng tool call id: strict9 (alphanumeric na haba na 9).
 - Kapag nag-switch ng model papunta sa OpenAI Responses/Codex, i-drop ang mga orphaned reasoning signature (mga standalone reasoning item na walang kasunod na content block).
 - Walang sanitization ng tool call id.
 - Walang pag-ayos ng pagpapares ng tool result.
@@ -81,7 +104,7 @@ Implementasyon:
 
 **Google (Generative AI / Gemini CLI / Antigravity)**
 
-- Sanitization ng tool call id: mahigpit na alphanumeric.
+- Paglilinis ng thought signature: i-strip ang mga non-base64 na halaga ng `thought_signature` (panatilihin ang base64).
 - Pag-ayos ng pagpapares ng tool result at mga synthetic tool results.
 - Pagpapatunay ng turn (Gemini-style na alternation ng turn).
 - Google turn ordering fixup (mag-prepend ng maliit na user bootstrap kung nagsisimula ang history sa assistant).
@@ -89,7 +112,7 @@ Implementasyon:
 
 **Anthropic / Minimax (Anthropic-compatible)**
 
-- Pag-ayos ng pagpapares ng tool result at mga synthetic tool results.
+- Image sanitization lamang.
 - Pagpapatunay ng turn (pagsamahin ang magkakasunod na user turn para matugunan ang mahigpit na alternation).
 
 **Mistral (kasama ang model-id based detection)**
@@ -98,7 +121,7 @@ Implementasyon:
 
 **OpenRouter Gemini**
 
-- Paglilinis ng thought signature: i-strip ang mga non-base64 na halaga ng `thought_signature` (panatilihin ang base64).
+- Isang **transcript-sanitize extension** ang tumatakbo sa bawat pagbuo ng context at maaaring:
 
 **Lahat ng iba pa**
 
@@ -122,5 +145,3 @@ Bago ang release na 2026.1.22, nag-apply ang OpenClaw ng maraming layer ng trans
 Ang komplikasyong ito ay nagdulot ng cross-provider regressions (lalo na ang `openai-responses`
 `call_id|fc_id` pairing). Inalis ng 2026.1.22 cleanup ang extension, isinentro ang
 logic sa runner, at ginawang **no-touch** ang OpenAI lampas sa image sanitization.
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "Forhøjet exec-tilstand og /elevated-direktiver"
+read_when:
+  - Justering af standarder for forhøjet tilstand, tilladelseslister eller slash-kommandoers adfærd
 title: "Forhøjet tilstand"
 ---
 
@@ -45,12 +48,10 @@ title: "Forhøjet tilstand"
 - Afsenderen tillader: `tools.elevated.allowFrom` med per-provider tilladelseslister (f.eks. `discord`, `whatsapp`).
 - Per-agent-gate: `agents.list[].tools.elevated.enabled` (valgfri; kan kun yderligere begrænse).
 - Per-agent-tilladelsesliste: `agents.list[].tools.elevated.allowFrom` (valgfri; når den er sat, skal afsenderen matche **både** globale + per-agent-tilladelseslister).
-- Discord fallback: if `tools.elevated.allowFrom.discord` is omitted, the `channels.discord.dm.allowFrom` list is used as a fallback. Sæt `tools.elevated.allowFrom.discord` (selv `[]`) til at tilsidesætte. Per-agent allowlists gør **ikke** brug faldet.
+- Discord fallback: hvis `tools.elevated.allowFrom.discord` udelades, bruges listen `channels.discord.allowFrom` som fallback (legacy: `channels.discord.dm.allowFrom`). Sæt `tools.elevated.allowFrom.discord` (selv `[]`) til at tilsidesætte. Per-agent allowlists gør **ikke** brug faldet.
 - Alle gates skal passere; ellers behandles forhøjet som utilgængeligt.
 
 ## Logning + status
 
 - Forhøjede exec-kald logges på info-niveau.
 - Sessionsstatus omfatter forhøjet tilstand (f.eks. `elevated=ask`, `elevated=full`).
-
-

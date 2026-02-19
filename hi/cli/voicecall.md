@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw voicecall` के लिए CLI संदर्भ (voice-call प्लगइन कमांड सतह)"
+read_when:
+  - आप voice-call प्लगइन का उपयोग करते हैं और CLI एंट्री पॉइंट्स चाहते हैं
+  - आप `voicecall call|continue|status|tail|expose` के लिए त्वरित उदाहरण चाहते हैं
 title: "voicecall"
 ---
 
@@ -28,5 +32,3 @@ openclaw voicecall unexpose
 ```
 
 21. सुरक्षा नोट: webhook endpoint को केवल उन नेटवर्क्स तक ही एक्सपोज़ करें जिन पर आप भरोसा करते हैं। 22. जहाँ संभव हो Funnel की बजाय Tailscale Serve को प्राथमिकता दें।
-
-

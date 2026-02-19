@@ -1,4 +1,9 @@
 ---
+summary: "Hướng dẫn lựa chọn giữa heartbeat và cron jobs cho tự động hóa"
+read_when:
+  - Quyết định cách lập lịch cho các tác vụ lặp lại
+  - Thiết lập giám sát nền hoặc thông báo
+  - Tối ưu hóa việc sử dụng token cho các kiểm tra định kỳ
 title: "Cron so với Heartbeat"
 ---
 
@@ -275,5 +280,3 @@ openclaw cron add \
 - [Heartbeat](/gateway/heartbeat) - cấu hình heartbeat đầy đủ
 - [Cron jobs](/automation/cron-jobs) - tham chiếu CLI và API cron đầy đủ
 - [System](/cli/system) - sự kiện hệ thống + điều khiển heartbeat
-
-

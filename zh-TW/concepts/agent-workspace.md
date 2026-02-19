@@ -1,19 +1,24 @@
 ---
+summary: "代理程式工作區：位置、版面配置與備份策略"
+read_when:
+  - 你需要說明代理程式工作區或其檔案配置
+  - 你想要備份或遷移代理程式工作區
 title: "代理程式工作區"
 ---
 
 # 代理程式工作區
 
-工作區是代理程式的家。它是唯一用於操作的工作目錄。
+The workspace is the agent's home. 工作區是代理程式的家。它是唯一用於操作的工作目錄。
 file tools and for workspace context. Keep it private and treat it as memory.
 
 這與 `~/.openclaw/` 是分開的，後者用於儲存設定、憑證，以及
 sessions.
 
-**Important:** the workspace is the **default cwd**, not a hard sandbox. 1. 工具
+**Important:** the workspace is the **default cwd**, not a hard sandbox. 工具
 會相對於工作區解析相對路徑，但除非啟用沙箱，否則絕對路徑仍可存取主機上的其他位置。 2. 若需要隔離，請使用
 [`agents.defaults.sandbox`](/gateway/sandboxing)（以及/或每個代理的沙箱設定）。
-3. 啟用沙箱且 `workspaceAccess` 不是 `"rw"` 時，工具會在 `~/.openclaw/sandboxes` 下的沙箱工作區中運作，而不是你的主機工作區。
+3.
+啟用沙箱且 `workspaceAccess` 不是 `"rw"` 時，工具會在 `~/.openclaw/sandboxes` 下的沙箱工作區中運作，而不是你的主機工作區。
 
 ## 預設位置
 
@@ -40,10 +45,11 @@ sessions.
 
 ## 額外的工作區資料夾
 
-5. 較舊的安裝可能建立了 `~/openclaw`。 6. 同時保留多個工作區目錄可能造成驗證或狀態漂移的混淆，因為一次只會有一個工作區處於啟用狀態。
+較舊的安裝可能建立了 `~/openclaw`。 6. 同時保留多個工作區目錄可能造成驗證或狀態漂移的混淆，因為一次只會有一個工作區處於啟用狀態。
 
-7. **建議：** 保持單一啟用中的工作區。 8. 若不再使用多餘的資料夾，請將其封存或移到垃圾桶（例如 `trash ~/openclaw`）。
-   **建議：** 保留單一作用中的工作區。若不再使用額外資料夾，請將其封存或移至垃圾桶（例如 `trash ~/openclaw`）。若你刻意保留多個工作區，請確保 `agents.defaults.workspace` 指向目前作用中的那一個。
+**建議：** 保持單一啟用中的工作區。 8. 8. 若不再使用多餘的資料夾，請將其封存或移到垃圾桶（例如 `trash ~/openclaw`）。
+若不再使用多餘的資料夾，請將其封存或移到垃圾桶（例如 `trash ~/openclaw`）。
+**建議：** 保留單一作用中的工作區。若不再使用額外資料夾，請將其封存或移至垃圾桶（例如 `trash ~/openclaw`）。若你刻意保留多個工作區，請確保 `agents.defaults.workspace` 指向目前作用中的那一個。
 
 `openclaw doctor` 會在偵測到額外工作區目錄時發出警告。
 
@@ -87,7 +93,7 @@ sessions.
 
 - `memory/YYYY-MM-DD.md`
   - 每日記憶紀錄（每天一個檔案）。
-  - 19. 建議在工作階段開始時閱讀今天 + 昨天的內容。
+  - 建議在工作階段開始時閱讀今天 + 昨天的內容。
 
 - `MEMORY.md`（可選）
   - 精選的長期記憶。
@@ -102,8 +108,8 @@ sessions.
 - `canvas/`（可選）
   - 用於節點顯示的 Canvas UI 檔案（例如 `canvas/index.html`）。
 
-22. 若任何啟動檔案缺失，OpenClaw 會將「缺少檔案」標記注入到工作階段中並繼續。 23. 大型啟動檔在注入時會被裁切；可透過 `agents.defaults.bootstrapMaxChars` 調整上限（預設：20000）。
-23. `openclaw setup` 可在不覆寫現有檔案的情況下重建缺失的預設值。
+22. 若任何啟動檔案缺失，OpenClaw 會將「缺少檔案」標記注入到工作階段中並繼續。 大型啟動檔在注入時會被裁切；可透過 `agents.defaults.bootstrapMaxChars` 調整上限（預設：20000）。
+    `openclaw setup` 可在不覆寫現有檔案的情況下重建缺失的預設值。
 
 ## 25. 工作區中**不**包含的內容
 
@@ -114,13 +120,13 @@ sessions.
 - `~/.openclaw/agents/<agentId>/sessions/`（工作階段逐字稿與中繼資料）
 - `~/.openclaw/skills/`（受管 Skills）
 
-27. 若需要遷移工作階段或設定，請分別複製它們並將其排除在版本控制之外。
+若需要遷移工作階段或設定，請分別複製它們並將其排除在版本控制之外。
 
 ## Git 備份（建議，私有）
 
-28. 將工作區視為私人記憶。 29. 將其放在**私人** git 儲存庫中，以便備份與復原。
+將工作區視為私人記憶。 29. 將其放在**私人** git 儲存庫中，以便備份與復原。
 
-30. 請在執行 Gateway 的機器上執行以下步驟（工作區位於該處）。
+請在執行 Gateway 的機器上執行以下步驟（工作區位於該處）。
 
 ### 1）初始化儲存庫
 
@@ -206,8 +212,6 @@ git push
 
 ## 35) 進階說明
 
-- 36. 多代理路由可為每個代理使用不同的工作區。 37. 路由設定請參見
-      [Channel routing](/channels/channel-routing)。
+- 多代理路由可為每個代理使用不同的工作區。 37. 路由設定請參見
+  [Channel routing](/channels/channel-routing)。
 - 若啟用 `agents.defaults.sandbox`，非主要工作階段可在 `agents.defaults.sandbox.workspaceRoot` 之下使用每個工作階段的沙箱工作區。
-
-

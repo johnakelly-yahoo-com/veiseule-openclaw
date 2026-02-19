@@ -1,5 +1,7 @@
 ---
-title: "Sandbox နှင့် Tool Policy နှင့် Elevated တို့၏ ကွာခြားချက်"
+title: Sandbox နှင့် Tool Policy နှင့် Elevated တို့၏ ကွာခြားချက်
+summary: "Tool တစ်ခု ဘာကြောင့် ပိတ်ထားရသလဲဆိုတာ—sandbox runtime၊ tool allow/deny policy နဲ့ elevated exec gate တွေ"
+read_when: "'sandbox jail' ကို ရောက်သွားတာမျိုး သို့မဟုတ် tool/elevated ပယ်ချခြင်းကို တွေ့ပြီး ဘယ် config key ကို ပြောင်းရမလဲ အတိအကျ သိချင်တဲ့အခါ"
 status: active
 ---
 
@@ -62,8 +64,8 @@ Sandboxing ကို `agents.defaults.sandbox.mode` နဲ့ ထိန်းခ
 - `deny` က အမြဲတမ်း အနိုင်ရပါတယ်။
 - `allow` က မလွတ်မလပ် မဟုတ်ရင် အခြားအရာအားလုံးကို ပိတ်ထားသလို ဆက်ဆံပါတယ်။
 - Tool policy က အဆုံးသတ် အတားအဆီးပါ—`/exec` က ပိတ်ထားတဲ့ `exec` tool ကို override မလုပ်နိုင်ပါ။
-- `/exec` သည် အတည်ပြုထားသော ပေးပို့သူများအတွက် session မူလသတ်မှတ်ချက်များကိုသာ ပြောင်းလဲပေးပြီး tool အသုံးပြုခွင့်ကို မပေးပါ။
-Provider tool keys များသည် `provider` (ဥပမာ `google-antigravity`) သို့မဟုတ် `provider/model` (ဥပမာ `openai/gpt-5.2`) တို့ကို လက်ခံနိုင်သည်။
+- `/exec` only changes session defaults for authorized senders; it does not grant tool access.
+  Provider tool keys accept either `provider` (e.g. `google-antigravity`) or `provider/model` (e.g. `openai/gpt-5.2`).
 
 ### Tool groups (shorthand များ)
 
@@ -124,5 +126,3 @@ Gate များ—
 ### “ဒါ main လို့ ထင်ထားတာ၊ ဘာလို့ sandboxed ဖြစ်နေလဲ?”
 
 In `"non-main"` mode, group/channel keys are _not_ main. Use the main session key (shown by `sandbox explain`) or switch mode to `"off"`.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Перенос (миграция) установки OpenClaw с одной машины на другую"
+read_when:
+  - Вы переносите OpenClaw на новый ноутбук/сервер
+  - Вы хотите сохранить сеансы, аутентификацию и входы в каналы (WhatsApp и т. д.)
 title: "Руководство по миграции"
 ---
 
@@ -186,5 +190,3 @@ openclaw doctor
 - [Doctor](/gateway/doctor)
 - [Gateway troubleshooting](/gateway/troubleshooting)
 - [Where does OpenClaw store its data?](/help/faq#where-does-openclaw-store-its-data)
-
-

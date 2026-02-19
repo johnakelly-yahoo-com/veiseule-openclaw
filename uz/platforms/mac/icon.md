@@ -1,4 +1,7 @@
 ---
+summary: "10. macOS’da OpenClaw uchun menyu paneli ikonka holatlari va animatsiyalari"
+read_when:
+  - 11. Meniu paneli ikonka xatti-harakatini o‘zgartirish
 title: "12. Meniu paneli ikonka"
 ---
 
@@ -26,5 +29,3 @@ title: "12. Meniu paneli ikonka"
 
 - 31. Quloqlar/working uchun tashqi CLI/broker toggle yo‘q; tasodifiy tebranishlarni oldini olish uchun buni ilovaning o‘z signallari ichida saqlang.
 - 32. Agar vazifa osilib qolsa, ikonka tezda bazaviy holatga qaytishi uchun TTL’larni qisqa (&lt;10s) tuting.
-
-

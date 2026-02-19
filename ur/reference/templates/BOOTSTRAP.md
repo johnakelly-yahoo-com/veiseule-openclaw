@@ -1,4 +1,9 @@
-------
+---
+title: "BOOTSTRAP.md ٹیمپلیٹ"
+summary: "نئے ایجنٹس کے لیے پہلی بار چلانے کی رسم"
+read_when:
+  - ورک اسپیس کو دستی طور پر بوٹ اسٹرَیپ کرنا
+---
 
 # BOOTSTRAP.md - ہیلو، ورلڈ
 
@@ -55,5 +60,3 @@ Delete this file. You don't need a bootstrap script anymore — you're you now.
 ---
 
 _Good luck out there. Make it count._
-
-

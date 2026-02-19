@@ -1,10 +1,14 @@
 ---
+summary: "openclaw کمانڈز، ذیلی کمانڈز، اور اختیارات کے لیے OpenClaw CLI حوالہ"
+read_when:
+  - CLI کمانڈز یا اختیارات شامل یا تبدیل کرتے وقت
+  - نئی کمانڈ سرفیسز کی دستاویز بندی کرتے وقت
 title: "CLI حوالہ"
 ---
 
 # CLI حوالہ
 
-یہ صفحہ موجودہ CLI کے رویّے کی وضاحت کرتا ہے۔ اگر کمانڈز میں تبدیلی ہو تو اس دستاویز کو اپ ڈیٹ کریں۔
+This page describes the current CLI behavior. If commands change, update this doc.
 
 ## کمانڈ صفحات
 
@@ -314,6 +318,11 @@ Chat messages support `/...` commands (text and native). See [/tools/slash-comma
 - `--zai-api-key <key>`
 - `--minimax-api-key <key>`
 - `--opencode-zen-api-key <key>`
+- `--custom-base-url <url>` (غیر تعاملی؛ `--auth-choice custom-api-key` کے ساتھ استعمال ہوتا ہے)
+- `--custom-model-id <id>` (غیر تعاملی؛ `--auth-choice custom-api-key` کے ساتھ استعمال ہوتا ہے)
+- `--custom-api-key <key>` (غیر تعاملی؛ اختیاری؛ `--auth-choice custom-api-key` کے ساتھ استعمال ہوتا ہے؛ اگر فراہم نہ کیا جائے تو `CUSTOM_API_KEY` استعمال ہوگا)
+- `--custom-provider-id <id>` (غیر تعاملی؛ اختیاری کسٹم پرووائیڈر آئی ڈی)
+- `--custom-compatibility <openai|anthropic>` (غیر تعاملی؛ اختیاری؛ طے شدہ `openai`)
 - `--gateway-port <port>`
 - `--gateway-bind <loopback|lan|tailnet|auto|custom>`
 - `--gateway-auth <token|password>`
@@ -1025,5 +1034,3 @@ Gateway سے منسلک ٹرمینل UI کھولیں۔
 - `--message <text>`
 - `--timeout-ms <ms>` (طے شدہ `agents.defaults.timeoutSeconds`)
 - `--history-limit <n>`
-
-

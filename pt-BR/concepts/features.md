@@ -1,4 +1,7 @@
 ---
+summary: "Capacidades do OpenClaw em canais, roteamento, mídia e UX."
+read_when:
+  - Voce quer uma lista completa do que o OpenClaw oferece
 title: "Funcionalidades"
 ---
 
@@ -54,5 +57,3 @@ title: "Funcionalidades"
 Caminhos legados de Claude, Codex, Gemini e Opencode foram removidos. Pi é o único
 caminho de agente de codificação.
 </Note>
-
-

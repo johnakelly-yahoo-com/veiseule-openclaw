@@ -1,4 +1,8 @@
 ---
+summary: "Von OpenClaw unterstützte Modellanbieter (LLMs)"
+read_when:
+  - Sie möchten einen Modellanbieter auswählen
+  - Sie benötigen einen schnellen Überblick über unterstützte LLM-Backends
 title: "Modellanbieter"
 ---
 
@@ -34,7 +38,9 @@ Siehe [Venice AI](/providers/venice).
 - [Anthropic (API + Claude Code CLI)](/providers/anthropic)
 - [Qwen (OAuth)](/providers/qwen)
 - [OpenRouter](/providers/openrouter)
+- [LiteLLM (unified gateway)](/providers/litellm)
 - [Vercel AI Gateway](/providers/vercel-ai-gateway)
+- [Together AI](/providers/together)
 - [Cloudflare AI Gateway](/providers/cloudflare-ai-gateway)
 - [Moonshot AI (Kimi + Kimi Coding)](/providers/moonshot)
 - [OpenCode Zen](/providers/opencode)
@@ -44,8 +50,11 @@ Siehe [Venice AI](/providers/venice).
 - [GLM-Modelle](/providers/glm)
 - [MiniMax](/providers/minimax)
 - [Venice (Venice AI, datenschutzorientiert)](/providers/venice)
+- [Hugging Face (Inference)](/providers/huggingface)
 - [Ollama (lokale Modelle)](/providers/ollama)
+- [vLLM (local models)](/providers/vllm)
 - [Qianfan](/providers/qianfan)
+- [NVIDIA](/providers/nvidia)
 
 ## Transkriptionsanbieter
 
@@ -56,5 +65,3 @@ Siehe [Venice AI](/providers/venice).
 - [Claude Max API Proxy](/providers/claude-max-api-proxy) – Verwenden Sie ein Claude-Max/Pro-Abonnement als OpenAI-kompatiblen API-Endpunkt
 
 Für den vollständigen Anbieterkatalog (xAI, Groq, Mistral usw.) und erweiterte Konfigurationen siehe [Modellanbieter](/concepts/model-providers).
-
-

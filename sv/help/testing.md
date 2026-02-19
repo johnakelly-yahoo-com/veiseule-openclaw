@@ -1,4 +1,9 @@
 ---
+summary: "Testkit: unit-/e2e-/live-sviter, Docker-runners och vad varje test täcker"
+read_when:
+  - När du kör tester lokalt eller i CI
+  - När du lägger till regressioner för modell-/leverantörsbuggar
+  - Vid felsökning av gateway- och agentbeteende
 title: "Testning"
 ---
 
@@ -47,12 +52,23 @@ Se sviterna som ”ökande realism” (och ökande flakighet/kostnad):
   - Körs i CI
   - Inga riktiga nycklar krävs
   - Ska vara snabba och stabila
+- Pool-anteckning:
+  - OpenClaw använder Vitest `vmForks` på Node 22/23 för snabbare uppdelade enhetstester.
+  - På Node 24+ växlar OpenClaw automatiskt tillbaka till vanliga `forks` för att undvika Node VM-länkningsfel (`ERR_VM_MODULE_LINK_FAILURE` / `module is already linked`).
+  - Åsidosätt manuellt med `OPENCLAW_TEST_VM_FORKS=0` (tvinga `forks`) eller `OPENCLAW_TEST_VM_FORKS=1` (tvinga `vmForks`).
 
 ### E2E (gateway‑smoke)
 
 - Kommando: `pnpm test:e2e`
 - Konfig: `vitest.e2e.config.ts`
 - Filer: `src/**/*.e2e.test.ts`
+- Omfattning:
+  - End‑to‑end‑beteende för gateway med flera instanser
+  - WebSocket/HTTP‑ytor, nodparning och tyngre nätverk
+  - Körs i tyst läge som standard för att minska overhead från konsol-I/O.
+- Förväntningar:
+  - Körs i CI (när aktiverat i pipelinen)
+  - Inga riktiga nycklar krävs
 - Omfattning:
   - End‑to‑end‑beteende för gateway med flera instanser
   - WebSocket/HTTP‑ytor, nodparning och tyngre nätverk
@@ -363,5 +379,3 @@ När du fixar ett leverantörs-/modellproblem som upptäckts i live:
 - Föredra att rikta in dig på det minsta lagret som fångar buggen:
   - bug i leverantörsrequest‑konvertering/återspelning → direkt‑modell‑test
   - bug i gateway‑session/historik/verktygs‑pipeline → gateway‑live‑smoke eller CI‑säker gateway‑mocktest
-
-

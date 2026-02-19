@@ -1,4 +1,8 @@
 ---
+summary: "एजेंट उपयोग के लिए कैमरा कैप्चर (iOS नोड + macOS ऐप): फ़ोटो (jpg) और छोटे वीडियो क्लिप (mp4)"
+read_when:
+  - iOS नोड्स या macOS पर कैमरा कैप्चर जोड़ते या संशोधित करते समय
+  - एजेंट-सुलभ MEDIA अस्थायी-फ़ाइल वर्कफ़्लो का विस्तार करते समय
 title: "कैमरा कैप्चर"
 ---
 
@@ -106,7 +110,7 @@ openclaw nodes camera clip --node <id> --no-audio
 
 macOS सहचर ऐप एक चेकबॉक्स प्रदान करता है:
 
-- **सेटिंग्स → सामान्य → कैमरा की अनुमति दें** (`openclaw.cameraEnabled`)
+- **Settings → General → Allow Camera** (`openclaw.cameraEnabled`)
   - डिफ़ॉल्ट: **बंद**
   - बंद होने पर: कैमरा अनुरोध “Camera disabled by user” लौटाते हैं।
 
@@ -150,5 +154,3 @@ openclaw nodes screen record --node <id> --duration 10s --fps 15   # prints MEDI
 नोट्स:
 
 - macOS **Screen Recording** अनुमति (TCC) आवश्यक है।
-
-

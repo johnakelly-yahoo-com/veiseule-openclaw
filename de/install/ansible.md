@@ -1,4 +1,9 @@
 ---
+summary: "Automatisierte, gehärtete OpenClaw-Installation mit Ansible, Tailscale-VPN und Firewall-Isolation"
+read_when:
+  - Sie möchten eine automatisierte Serverbereitstellung mit Sicherheits-Härtung
+  - Sie benötigen ein firewall-isoliertes Setup mit VPN-Zugriff
+  - Sie stellen auf entfernten Debian-/Ubuntu-Servern bereit
 title: "Ansible"
 ---
 
@@ -201,5 +206,3 @@ Für detaillierte Sicherheitsarchitektur und Fehlerbehebung:
 - [Docker](/install/docker) — containerisierte Gateway-Einrichtung
 - [Sandboxing](/gateway/sandboxing) — Agent-Sandbox-Konfiguration
 - [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) — Isolation pro Agent
-
-

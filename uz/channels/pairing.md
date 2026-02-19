@@ -1,4 +1,9 @@
 ---
+summary: "30. Pairing sharhi: kim sizga DM yubora olishini + qaysi tugunlar qo‘shila olishini tasdiqlash"
+read_when:
+  - 31. DM kirish nazoratini sozlash
+  - 32. Yangi iOS/Android tugunini pairing qilish
+  - 33. OpenClaw xavfsizlik holatini ko‘rib chiqish
 title: "34. Pairing"
 ---
 
@@ -7,7 +12,7 @@ title: "34. Pairing"
 36. “Pairing” — bu OpenClaw’ning aniq **egasi tasdig‘i** bosqichi.
 37. U ikki joyda qo‘llaniladi:
 
-1. 38. **DM pairing** (bot bilan kim gaplasha olishi)
+1. Xavfsizlik konteksti: [Security](/gateway/security)
 2. 39. **Node pairing** (qaysi qurilmalar/tugunlar gateway tarmog‘iga qo‘shila olishi)
 
 40) Xavfsizlik konteksti: [Security](/gateway/security)
@@ -31,7 +36,7 @@ title: "34. Pairing"
 openclaw pairing approve telegram <CODE>
 ```
 
-Supported channels: `telegram`, `whatsapp`, `signal`, `imessage`, `discord`, `slack`.
+Qo‘llab-quvvatlanadigan kanallar: `telegram`, `whatsapp`, `signal`, `imessage`, `discord`, `slack`, `feishu`.
 
 ### Where the state lives
 
@@ -96,5 +101,3 @@ Stored under `~/.openclaw/devices/`:
   - iMessage (legacy): [iMessage](/channels/imessage)
   - Discord: [Discord](/channels/discord)
   - Slack: [Slack](/channels/slack)
-
-

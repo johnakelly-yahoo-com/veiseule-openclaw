@@ -1,4 +1,5 @@
 ---
+summary: "اعلیٰ سگنل PR کیسے جمع کریں"
 title: "PR جمع کرنا"
 ---
 
@@ -395,5 +396,3 @@ pnpm format
 - Submitter effort:
 - Agent notes:
 ```
-
-

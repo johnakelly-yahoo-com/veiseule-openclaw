@@ -1,9 +1,14 @@
 ---
-title: "疑難排解"
+summary: "針對 Gateway 閘道器、頻道、自動化、節點與瀏覽器的深入疑難排解操作手冊"
+read_when:
+  - 疑難排解中樞將你指向此處以進行更深入的診斷
+  - 你需要依症狀分類、且包含精確指令的穩定操作手冊章節
+title: "Troubleshooting"
 ---
 
 # Gateway 閘道器 疑難排解
 
+This page is the deep runbook.
 本頁為深入的操作手冊。
 Start at [/help/troubleshooting](/help/troubleshooting) if you want the fast triage flow first.
 
@@ -37,19 +42,19 @@ openclaw config get channels
 openclaw logs --follow
 ```
 
-請檢查：
+Look for:
 
 - DM 發送者的配對仍在等待中。
 - 群組提及限制（`requireMention`、`mentionPatterns`）。
 - 頻道／群組允許清單不相符。
 
-常見特徵：
+Common signatures:
 
 - `drop guild message (mention required` → 群組訊息在被提及之前會被忽略。
 - `pairing request` → 寄件者需要核准。
 - `blocked` / `allowlist` → 寄件者／頻道被政策過濾。
 
-相關：
+Related:
 
 - [/channels/troubleshooting](/channels/troubleshooting)
 - [/channels/pairing](/channels/pairing)
@@ -73,13 +78,13 @@ openclaw gateway status --json
 - 用戶端與 gateway 之間的驗證模式／權杖不一致。
 - 在需要裝置身分識別時使用了 HTTP。
 
-常見特徵：
+Common signatures:
 
 - `device identity required` → 非安全內容或缺少裝置驗證。
 - `unauthorized` ／ 重連循環 → 權杖／密碼不一致。
 - `gateway connect failed:` → 主機／連接埠／URL 目標錯誤。
 
-相關：
+Related:
 
 - [/web/control-ui](/web/control-ui)
 - [/gateway/authentication](/gateway/authentication)
@@ -97,15 +102,15 @@ openclaw doctor
 openclaw gateway status --deep
 ```
 
-請檢查：
+Look for:
 
 - `Runtime: stopped` 及其結束提示。
 - 服務設定不一致（`Config (cli)` 與 `Config (service)`）。
 - Port/listener conflicts.
 
-常見特徵：
+Common signatures:
 
-- `Gateway start blocked: set gateway.mode=local` → 未啟用本機 Gateway 模式。
+- `Gateway start blocked: set gateway.mode=local` → 未啟用本機 Gateway 模式。 修正方式：在您的設定中將 `gateway.mode="local"`（或執行 `openclaw configure`）。 如果您使用專用的 `openclaw` 使用者透過 Podman 執行 OpenClaw，設定檔位於 `~openclaw/.openclaw/openclaw.json`。
 - `refusing to bind gateway ... without auth` → 非 local loopback 綁定且未設定權杖／密碼。
 - `another gateway instance is already listening` ／ `EADDRINUSE` → 連接埠衝突。
 
@@ -127,13 +132,13 @@ openclaw logs --follow
 openclaw config get channels
 ```
 
-請檢查：
+Look for:
 
 - 私訊政策（`pairing`、`allowlist`、`open`、`disabled`）。
 - 群組允許清單與提及需求。
 - 缺少頻道 API 權限／範圍。
 
-常見特徵：
+Common signatures:
 
 - `mention required` → 訊息被群組提及政策忽略。
 - `pairing` ／ 等待核准的痕跡 → 寄件者尚未核准。
@@ -158,13 +163,13 @@ openclaw system heartbeat last
 openclaw logs --follow
 ```
 
-請檢查：
+Look for:
 
 - 已啟用 cron 且存在下一次喚醒時間。
 - 工作執行歷史狀態（`ok`、`skipped`、`error`）。
 - 心跳跳過原因（`quiet-hours`、`requests-in-flight`、`alerts-disabled`）。
 
-常見特徵：
+Common signatures:
 
 - `cron: scheduler disabled; jobs will not run automatically` → cron 已停用。
 - `cron: timer tick failed` → 排程器 tick 失敗；請檢查檔案／日誌／執行階段錯誤。
@@ -195,7 +200,7 @@ openclaw status
 - 作業系統對相機／麥克風／位置／螢幕的權限授與。
 - Exec approvals and allowlist state.
 
-常見特徵：
+Common signatures:
 
 - `NODE_BACKGROUND_UNAVAILABLE` → 節點應用程式必須在前景。
 - `*_PERMISSION_REQUIRED` ／ `LOCATION_PERMISSION_REQUIRED` → 缺少作業系統權限。
@@ -220,13 +225,13 @@ openclaw logs --follow
 openclaw doctor
 ```
 
-請檢查：
+Look for:
 
 - Valid browser executable path.
 - CDP 設定檔可達性。
 - 針對 `profile="chrome"` 的擴充功能轉接分頁附掛。
 
-常見特徵：
+Common signatures:
 
 - `Failed to start Chrome CDP on port` → 瀏覽器程序啟動失敗。
 - `browser.executablePath not found` → 設定的路徑無效。
@@ -257,7 +262,7 @@ openclaw config get gateway.auth.mode
 - 若 `gateway.mode=remote`，CLI 呼叫可能指向遠端，而你的本機服務其實正常。
 - 明確的 `--url` 呼叫不會回退到已儲存的認證。
 
-常見特徵：
+Common signatures:
 
 - `gateway connect failed:` → URL 目標錯誤。
 - `unauthorized` → 端點可達但驗證錯誤。
@@ -276,7 +281,7 @@ openclaw logs --follow
 - 非 local loopback 綁定（`lan`、`tailnet`、`custom`）需要設定驗證。
 - 舊金鑰如 `gateway.token` 不會取代 `gateway.auth.token`。
 
-常見特徵：
+Common signatures:
 
 - `refusing to bind gateway ... without auth` → 綁定與驗證不相符。
 - 在執行階段仍在運作時出現 `RPC probe: failed` → Gateway 存活，但以目前的驗證／URL 無法存取。
@@ -295,7 +300,7 @@ openclaw doctor
 - Pending device approvals for dashboard/nodes.
 - 在政策或身分變更後，DM 配對核准待處理。
 
-常見特徵：
+Common signatures:
 
 - `device identity required` → 裝置驗證未滿足。
 - `pairing required` → 寄件者／裝置必須被核准。
@@ -312,5 +317,3 @@ Related:
 - [/gateway/pairing](/gateway/pairing)
 - [/gateway/authentication](/gateway/authentication)
 - [/gateway/background-process](/gateway/background-process)
-
-

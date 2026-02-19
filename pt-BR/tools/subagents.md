@@ -1,71 +1,76 @@
 ---
+summary: "Subagentes: criação de execuções de agentes isoladas que anunciam resultados de volta ao chat solicitante"
+read_when:
+  - Você quer trabalho em segundo plano/paralelo via o agente
+  - Você está alterando sessions_spawn ou a política de ferramentas de subagentes
 title: "Subagentes"
 ---
 
 # Subagentes
 
-Subagentes são execuções de agente em segundo plano iniciadas a partir de uma execução existente. Eles rodam em sua própria sessão (`agent:<agentId>:subagent:<uuid>`) e, quando finalizam, **anunciam** seu resultado de volta ao canal de chat solicitante.
+Sub-agents let you run background tasks without blocking the main conversation. When you spawn a sub-agent, it runs in its own isolated session, does its work, and announces the result back to the chat when finished.
 
-## Comando de barra
+## Comando
 
-Use `/subagents` para inspecionar ou controlar execuções de subagentes para a **sessão atual**:
+Use o comando de barra `/subagents` para inspecionar e controlar execuções de subagentes para a sessão atual:
 
 - `/subagents list`
-- `/subagents kill <id|#|all>`
-- `/subagents log <id|#> [limit] [tools]`
-- `/subagents info <id|#>`
-- `/subagents send <id|#> <message>`
+- \`/subagents stop <id\\
+- \`/subagents log <id\\
+- \`/subagents info <id\\
+- \`/subagents send <id\\
 
-`/subagents info` mostra metadados da execução (status, timestamps, session id, caminho da transcrição, limpeza).
+`/subagents info` mostra metadados da execução (status, timestamps, id da sessão, caminho da transcrição, limpeza).
 
 Objetivos principais:
 
-- Paralelizar trabalhos de “pesquisa / tarefa longa / ferramenta lenta” sem bloquear a execução principal.
+- Paralelizar trabalhos de "pesquisa / tarefa longa / ferramenta lenta" sem bloquear a execução principal.
 - Manter subagentes isolados por padrão (separação de sessão + sandbox opcional).
 - Manter a superfície de ferramentas difícil de usar incorretamente: subagentes **não** recebem ferramentas de sessão por padrão.
-- Suportar profundidade de aninhamento configurável para padrões de orquestração.
+- Oferecer suporte a profundidade de aninhamento configurável para padrões de orquestrador.
 
-Observação de custo: cada subagente tem seu **próprio** contexto e uso de tokens. Para tarefas pesadas ou repetitivas, defina um modelo mais barato para subagentes e mantenha seu agente principal em um modelo de maior qualidade. Você pode configurar isso via `agents.defaults.subagents.model` ou substituições por agente.
+Each sub-agent has its **own** context and token usage. Para tarefas pesadas ou repetitivas, defina um modelo mais econômico para subagentes e mantenha seu agente principal em um modelo de maior qualidade.
+In a multi-agent setup, you can set sub-agent defaults per agent:
 
-## Ferramenta
+## #> [limit] [tools]\`
 
-Use `sessions_spawn`:
+Parâmetro `model` explícito na chamada `sessions_spawn`
 
-- Inicia uma execução de subagente (`deliver: false`, lane global: `subagent`)
-- Em seguida executa uma etapa de anúncio e publica a resposta de anúncio no canal de chat solicitante
-- Modelo padrão: herda do chamador, a menos que você defina `agents.defaults.subagents.model` (ou `agents.list[].subagents.model`); um `sessions_spawn.model` explícito ainda prevalece.
-- Thinking padrão: herda do chamador, a menos que você defina `agents.defaults.subagents.thinking` (ou `agents.list[].subagents.thinking`); um `sessions_spawn.thinking` explícito ainda prevalece.
+- Inicia a execução de um subagente (`deliver: false`, canal global: `subagent`)
+- Em seguida, executa uma etapa de anúncio e publica a resposta do anúncio no canal de chat do solicitante
+- Model: target agent’s normal model selection (unless `subagents.model` is set)
+- Configuração por agente: `agents.list[].subagents.thinking`
 
 Parâmetros da ferramenta:
 
-- `task` (obrigatório)
+- `task`
 - `label?` (opcional)
-- `agentId?` (opcional; criar sob outro id de agente se permitido)
-- `model?` (opcional; substitui o modelo do subagente; valores inválidos são ignorados e o subagente roda no modelo padrão com um aviso no resultado da ferramenta)
-- `thinking?` (opcional; substitui o nível de raciocínio para a execução do subagente)
-- `runTimeoutSeconds?` (padrão `0`; quando definido, a execução do subagente é abortada após N segundos)
-- `cleanup?` (`delete|keep`, padrão `keep`)
+- Criar sob um ID de agente diferente (deve ser permitido)
+- Valores de modelo inválidos são ignorados silenciosamente — o subagente é executado com o próximo padrão válido, com um aviso no resultado da ferramenta.
+- Thinking: no sub-agent override (unless `subagents.thinking` is set)
+- Automatically aborts the sub-agent run after the specified time
+- `"delete"` \\
 
-Allowlist:
+Lista de permissões:
 
-- `agents.list[].subagents.allowAgents`: lista de ids de agente que podem ser alvo via `agentId` (`["*"]` para permitir qualquer um). Padrão: apenas o agente solicitante.
+- `agents.list[].subagents.allowAgents`: lista de ids de agentes que podem ser direcionados via `agentId` (`["*"]` para permitir qualquer um). Padrão: apenas o agente solicitante.
 
 Descoberta:
 
-- Use `agents_list` para ver quais ids de agente estão atualmente permitidos para `sessions_spawn`.
+- Use a ferramenta `agents_list` para descobrir quais IDs de agente estão atualmente permitidos para `sessions_spawn`.
 
-Arquivamento automático:
+Auto-Archive
 
-- Sessões de subagentes são arquivadas automaticamente após `agents.defaults.subagents.archiveAfterMinutes` (padrão: 60).
-- O arquivamento usa `sessions.delete` e renomeia a transcrição para `*.deleted.<timestamp>` (mesma pasta).
-- `cleanup: "delete"` arquiva imediatamente após o anúncio (ainda mantém a transcrição via rename).
-- O arquivamento automático é melhor esforço; temporizadores pendentes são perdidos se o gateway reiniciar.
-- `runTimeoutSeconds` **não** arquiva automaticamente; apenas interrompe a execução. A sessão permanece até o arquivamento automático.
-- O arquivamento automático se aplica igualmente a sessões de profundidade 1 e 2.
+- Sub-agent sessions are automatically archived after a configurable period:
+- Archive renames the transcript to `*.deleted.` (mesma pasta).
+- `"delete"` arquiva imediatamente após o anúncio
+- Auto-archive timers are best-effort; pending timers are lost if the gateway restarts.
+- `runTimeoutSeconds` does **not** auto-archive the session. The session remains until the normal archive timer fires.
+- O arquivamento automático se aplica igualmente a sessões de profundidade 1 e profundidade 2.
 
-## Subagentes Aninhados
+## Stopping Sub-Agents
 
-Por padrão, subagentes não podem criar seus próprios subagentes (`maxSpawnDepth: 1`). Você pode habilitar um nível de aninhamento definindo `maxSpawnDepth: 2`, o que permite o **padrão de orquestrador**: principal → subagente orquestrador → sub-subagentes trabalhadores.
+- **No nested spawning:** Sub-agents cannot spawn their own sub-agents. Você pode habilitar um nível de aninhamento definindo `maxSpawnDepth: 2`, o que permite o **padrão de orquestrador**: principal → subagente orquestrador → sub-subagentes trabalhadores.
 
 ### Como habilitar
 
@@ -74,9 +79,7 @@ Por padrão, subagentes não podem criar seus próprios subagentes (`maxSpawnDep
   agents: {
     defaults: {
       subagents: {
-        maxSpawnDepth: 2, // permitir que subagentes criem filhos (padrão: 1)
-        maxChildrenPerAgent: 5, // máximo de filhos ativos por sessão de agente (padrão: 5)
-        maxConcurrent: 8, // limite global de concorrência da lane (padrão: 8)
+        model: "minimax/MiniMax-M2.1",
       },
     },
   },
@@ -85,124 +88,123 @@ Por padrão, subagentes não podem criar seus próprios subagentes (`maxSpawnDep
 
 ### Níveis de profundidade
 
-| Depth | Session key shape                            | Role                                          | Can spawn?                   |
-| ----- | -------------------------------------------- | --------------------------------------------- | ---------------------------- |
-| 0     | `agent:<id>:main`                            | Agente principal                              | Sempre                       |
-| 1     | `agent:<id>:subagent:<uuid>`                 | Subagente (orquestrador quando depth 2 permitido) | Apenas se `maxSpawnDepth >= 2` |
-| 2     | `agent:<id>:subagent:<uuid>:subagent:<uuid>` | Sub-subagente (worker final)                  | Nunca                        |
+| Profundidade | Formato da chave da sessão                                                                                                                                                                                                                                                                                                                                                                                                                | Função                                                                        | Pode gerar subagentes?          |
+| ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- | ------------------------------- |
+| 0            | `agentId`                                                                                                                                                                                                                                                                                                                                                                                                                                 | _(agente do chamador)_                                     | Sempre                          |
+| 1            | {&#xA;agents: {&#xA;defaults: {&#xA;subagents: {&#xA;thinking: "low",&#xA;},&#xA;},&#xA;},&#xA;}                                                                                                                                                                                                                                                                          | Subagente (orquestrador quando profundidade 2 é permitida) | Somente se `maxSpawnDepth >= 2` |
+| 2            | {&#xA;agents: {&#xA;list: [&#xA;{&#xA;id: "orchestrator",&#xA;subagents: {&#xA;allowAgents: ["researcher", "coder"], // ou ["\*"] para permitir qualquer um&#xA;},&#xA;},&#xA;],&#xA;},&#xA;} | Gerenciando Subagentes (`/subagents`)                      | Nunca                           |
 
 ### Cadeia de anúncio
 
 Os resultados fluem de volta pela cadeia:
 
-1. Worker de profundidade 2 finaliza → anuncia ao seu pai (orquestrador de profundidade 1)
-2. Orquestrador de profundidade 1 recebe o anúncio, sintetiza os resultados, finaliza → anuncia ao principal
-3. O agente principal recebe o anúncio e entrega ao usuário
+1. Trabalhador de profundidade 2 finaliza → anuncia ao seu pai (orquestrador de profundidade 1)
+2. O orquestrador de profundidade 1 recebe o announce, sintetiza os resultados, finaliza → anuncia para o principal
+3. O agente principal recebe o announce e entrega ao usuário
 
-Cada nível vê apenas anúncios de seus filhos diretos.
+Cada nível vê apenas announces de seus filhos diretos.
 
-### Política de ferramentas por profundidade
+### Tool Policy
 
-- **Depth 1 (orquestrador, quando `maxSpawnDepth >= 2`)**: Recebe `sessions_spawn`, `subagents`, `sessions_list`, `sessions_history` para poder gerenciar seus filhos. Outras ferramentas de sessão/sistema permanecem negadas.
-- **Depth 1 (leaf, quando `maxSpawnDepth == 1`)**: Sem ferramentas de sessão (comportamento padrão atual).
-- **Depth 2 (worker final)**: Sem ferramentas de sessão — `sessions_spawn` é sempre negada na profundidade 2. Não pode criar mais filhos.
+- **Profundidade 1 (orquestrador, quando `maxSpawnDepth >= 2`)**: Recebe `sessions_spawn`, `subagents`, `sessions_list`, `sessions_history` para poder gerenciar seus filhos. Outras ferramentas de sessão/sistema permanecem negadas.
+- **Profundidade 1 (folha, quando `maxSpawnDepth == 1`)**: Sem ferramentas de sessão (comportamento padrão atual).
+- **Profundidade 2 (worker folha)**: Sem ferramentas de sessão — `sessions_spawn` é sempre negado na profundidade 2. Não pode gerar novos filhos.
 
-### Limite de criação por agente
+### Per-Agent Overrides
 
-Cada sessão de agente (em qualquer profundidade) pode ter no máximo `maxChildrenPerAgent` (padrão: 5) filhos ativos ao mesmo tempo. Isso evita fan-out descontrolado a partir de um único orquestrador.
+Cada sessão de agente (em qualquer profundidade) pode ter no máximo `maxChildrenPerAgent` (padrão: 5) filhos ativos ao mesmo tempo. Isso evita uma expansão descontrolada a partir de um único orquestrador.
 
 ### Parada em cascata
 
-Parar um orquestrador de profundidade 1 automaticamente para todos os seus filhos de profundidade 2:
+Parar um orquestrador de profundidade 1 interrompe automaticamente todos os seus filhos de profundidade 2:
 
-- `/stop` no chat principal para todos os agentes de profundidade 1 e propaga para seus filhos de profundidade 2.
-- `/subagents kill <id>` para um subagente específico e propaga para seus filhos.
-- `/subagents kill all` para todos os subagentes do solicitante e propaga.
+- `/stop` no chat principal interrompe todos os agentes de profundidade 1 e propaga para seus filhos de profundidade 2.
+- `) on the dedicated `subagent\` queue lane.
+- `/subagents kill all` interrompe todos os subagentes do solicitante e propaga em cascata.
 
 ## Autenticação
 
-A autenticação do subagente é resolvida por **id do agente**, não pelo tipo de sessão:
+A autenticação de subagentes é resolvida por **id do agente**, não pelo tipo de sessão:
 
 - A chave de sessão do subagente é `agent:<agentId>:subagent:<uuid>`.
-- O auth store é carregado do `agentDir` desse agente.
-- Os perfis de autenticação do agente principal são mesclados como **fallback**; perfis do agente sobrescrevem os do principal em caso de conflito.
+- The auth store is loaded from the target agent's `agentDir`
+- The main agent's auth profiles are merged in as a **fallback** (agent profiles win on conflicts)
 
-Observação: a mesclagem é aditiva, então os perfis do principal estão sempre disponíveis como fallback. Autenticação totalmente isolada por agente ainda não é suportada.
+The merge is additive — main profiles are always available as fallbacks
+Fully isolated auth per sub-agent is not currently supported.
 
-## Anúncio
+## Announce Status
 
-Subagentes reportam de volta por meio de uma etapa de anúncio:
+Os subagentes reportam de volta por meio de uma etapa de announce:
 
-- A etapa de anúncio roda dentro da sessão do subagente (não na sessão do solicitante).
-- Se o subagente responder exatamente `ANNOUNCE_SKIP`, nada é publicado.
-- Caso contrário, a resposta de anúncio é publicada no canal de chat solicitante via uma chamada `agent` subsequente (`deliver=true`).
-- Respostas de anúncio preservam o roteamento de thread/tópico quando disponível (threads do Slack, tópicos do Telegram, threads do Matrix).
-- Mensagens de anúncio são normalizadas em um template estável:
+- A etapa de announce é executada dentro da sessão do subagente (não na sessão do solicitante).
+- If no user-facing announcement is needed, the main-agent summarize step can return `NO_REPLY` and nothing is posted. This is different from `ANNOUNCE_SKIP`, which is used in agent-to-agent announce flow (`sessions_send`).
+- When the sub-agent finishes, it announces its findings back to the requester chat.
+- As respostas de anúncio preservam o roteamento de thread/tópico quando disponível (threads do Slack, tópicos do Telegram, threads do Matrix).
+- As mensagens de announce são normalizadas para um modelo estável:
   - `Status:` derivado do resultado da execução (`success`, `error`, `timeout` ou `unknown`).
-  - `Result:` o conteúdo resumido da etapa de anúncio (ou `(not available)` se ausente).
+  - `Result:` o conteúdo resumido da etapa de announce (ou `(not available)` se estiver ausente).
   - `Notes:` detalhes de erro e outros contextos úteis.
-- `Status` não é inferido da saída do modelo; vem dos sinais de resultado em runtime.
+- The announce message includes a status derived from the runtime outcome (not from model output):
 
-Payloads de anúncio incluem uma linha de estatísticas ao final (mesmo quando encapsulados):
+Each announce includes a stats line with:
 
-- Runtime (ex.: `runtime 5m12s`)
-- Uso de tokens (input/output/total)
-- Custo estimado quando o pricing do modelo está configurado (`models.providers.*.models[].cost`)
-- `sessionKey`, `sessionId` e caminho da transcrição (para que o agente principal possa buscar histórico via `sessions_history` ou inspecionar o arquivo em disco)
+- Tempo de execução (por exemplo, `runtime 5m12s`)
+- Uso de tokens (entrada/saída/total)
+- Estimated cost (when model pricing is configured via `models.providers.*.models[].cost`)
+- `sessionKey`, `sessionId` e caminho do transcript (para que o agente principal possa buscar o histórico via `sessions_history` ou inspecionar o arquivo no disco)
 
-## Política de Ferramentas (ferramentas de subagente)
+## Customizing Sub-Agent Tools
 
-Por padrão, subagentes recebem **todas as ferramentas exceto ferramentas de sessão** e ferramentas de sistema:
+By default, sub-agents get **all tools except** a set of denied tools that are unsafe or unnecessary for background tasks:
 
-- `sessions_list`
-- `sessions_history`
+- Parâmetro `thinking` explícito na chamada `sessions_spawn`
+- `runTimeoutSeconds`
 - `sessions_send`
-- `sessions_spawn`
+- The `sessions_spawn` Tool
 
-Quando `maxSpawnDepth >= 2`, subagentes orquestradores de depth 1 recebem adicionalmente `sessions_spawn`, `subagents`, `sessions_list` e `sessions_history` para gerenciar seus filhos.
+Quando `maxSpawnDepth >= 2`, subagentes orquestradores de profundidade 1 recebem adicionalmente `sessions_spawn`, `subagents`, `sessions_list` e `sessions_history` para poder gerenciar seus filhos.
 
-Substitua via configuração:
+Substituição via configuração:
 
 ```json5
 {
-  agents: {
-    defaults: {
-      subagents: {
-        maxConcurrent: 1,
-      },
-    },
-  },
   tools: {
     subagents: {
       tools: {
-        // deny wins
-        deny: ["gateway", "cron"],
-        // if allow is set, it becomes allow-only (deny still wins)
-        // allow: ["read", "exec", "process"]
+        allow: ["read", "exec", "process", "write", "edit", "apply_patch"],
+        // deny still wins if set
       },
     },
   },
 }
 ```
 
-## Concorrência
+## Parâmetros
 
-Subagentes usam uma lane de fila dedicada no processo:
+Subagentes usam uma fila dedicada em processo:
 
-- Nome da lane: `subagent`
-- Concorrência: `agents.defaults.subagents.maxConcurrent` (padrão `8`)
+- :subagent:
+- {
+  agents: {
+  defaults: {
+  subagents: {
+  maxConcurrent: 4, // default: 8
+  },
+  },
+  },
+  }
 
-## Interrupção
+## Interrompendo
 
-- Enviar `/stop` no chat solicitante aborta a sessão solicitante e interrompe quaisquer execuções de subagentes ativas iniciadas a partir dela, propagando para filhos aninhados.
-- `/subagents kill <id>` interrompe um subagente específico e propaga para seus filhos.
+- The agent will call the `sessions_spawn` tool behind the scenes. When the sub-agent finishes, it announces its findings back into your chat.
+- `/subagents stop <id>`
 
 ## Limitações
 
-- O anúncio de subagente é **best-effort**. Se o gateway reiniciar, trabalhos pendentes de “announce back” são perdidos.
-- Subagentes ainda compartilham os mesmos recursos do processo do gateway; trate `maxConcurrent` como uma válvula de segurança.
-- `sessions_spawn` é sempre não bloqueante: retorna `{ status: "accepted", runId, childSessionKey }` imediatamente.
+- O announce do subagente é **best-effort**. - **Best-effort announce:** If the gateway restarts, pending announce work is lost.
+- - **Recursos compartilhados:** Subagentes compartilham o processo do gateway; use `maxConcurrent` como válvula de segurança.
+- The main agent calls `sessions_spawn` with a task description. The call is **non-blocking** — the main agent gets back `{ status: "accepted", runId, childSessionKey }` immediately.
 - O contexto do subagente injeta apenas `AGENTS.md` + `TOOLS.md` (sem `SOUL.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md` ou `BOOTSTRAP.md`).
 - A profundidade máxima de aninhamento é 5 (intervalo de `maxSpawnDepth`: 1–5). Profundidade 2 é recomendada para a maioria dos casos de uso.
 - `maxChildrenPerAgent` limita filhos ativos por sessão (padrão: 5, intervalo: 1–20).
-

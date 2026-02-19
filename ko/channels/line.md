@@ -1,4 +1,9 @@
 ---
+summary: "LINE Messaging API 플러그인 설정, 구성 및 사용법"
+read_when:
+  - OpenClaw 를 LINE 에 연결하려는 경우
+  - LINE 웹훅 및 자격 증명 설정이 필요한 경우
+  - LINE 전용 메시지 옵션을 사용하려는 경우
 title: LINE
 ---
 
@@ -171,5 +176,3 @@ LINE 플러그인에는 Flex 메시지 프리셋을 위한 `/card` 명령도 포
   그리고 Gateway(게이트웨이) 가 LINE 에서 접근 가능한지 확인하십시오.
 - **미디어 다운로드 오류:** 미디어가 기본 제한을 초과하는 경우
   `channels.line.mediaMaxMb` 값을 증가시키십시오.
-
-

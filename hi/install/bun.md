@@ -1,4 +1,8 @@
 ---
+summary: "Bun वर्कफ़्लो (प्रयोगात्मक): pnpm की तुलना में इंस्टॉल और सामान्य समस्याएँ"
+read_when:
+  - आप सबसे तेज़ स्थानीय डेवलपमेंट लूप चाहते हैं (bun + watch)
+  - आप Bun के install/patch/lifecycle script से जुड़ी समस्याओं से टकराते हैं
 title: "Bun (प्रयोगात्मक)"
 ---
 
@@ -8,13 +12,13 @@ title: "Bun (प्रयोगात्मक)"
 
 प्रोडक्शन के लिए Node का उपयोग करें। Note: `bun.lock`/`bun.lockb` gitignored हैं, इसलिए किसी भी तरह repo churn नहीं होता।
 
-## स्थिति
+## Status
 
 - Bun, TypeScript को सीधे चलाने के लिए एक वैकल्पिक स्थानीय रनटाइम है (`bun run …`, `bun --watch …`)।
 - `pnpm` बिल्ड के लिए डिफ़ॉल्ट है और पूर्ण रूप से समर्थित रहता है (और कुछ डॉक्स टूलिंग द्वारा उपयोग किया जाता है)।
 - Bun, `pnpm-lock.yaml` का उपयोग नहीं कर सकता और इसे अनदेखा करेगा।
 
-## स्थापना
+## Install
 
 डिफ़ॉल्ट:
 
@@ -28,7 +32,7 @@ bun install
 bun install --no-save
 ```
 
-## निर्माण / परीक्षण (Bun)
+## Build / Test (Bun)
 
 ```sh
 bun run build
@@ -49,8 +53,6 @@ bun run vitest run
 bun pm trust @whiskeysockets/baileys protobufjs
 ```
 
-## सीमाएँ और सावधानियाँ
+## Caveats
 
 - अभी के लिए उन्हें pnpm के ज़रिए चलाएँ। **dev**: `main` का moving head (git)।
-
-

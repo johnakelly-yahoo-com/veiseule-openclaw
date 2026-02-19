@@ -1,12 +1,10 @@
 ---
-title: 网络
-x-i18n:
-  generated_at: "2026-02-03T10:07:45Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 0fe4e7dbc8ddea312c8f3093af9b6bc71d9ae4007df76ae24b85889871933bc8
-  source_path: network.md
-  workflow: 15
+summary: "网络中心：Gateway 网关接口、配对、设备发现和安全"
+read_when:
+  - 你需要了解网络架构和安全概述
+  - 你正在调试本地访问、tailnet 访问或配对问题
+  - 你想要获取网络文档的权威列表
+title: "网络"
 ---
 
 # 网络中心
@@ -39,7 +37,7 @@ x-i18n:
 - [远程访问（SSH）](/gateway/remote)
 - [Tailscale](/gateway/tailscale)
 
-## 节点 + 传输协议
+## Nodes + transports
 
 - [节点概述](/nodes)
 - [桥接协议（旧版节点）](/gateway/bridge-protocol)
@@ -52,5 +50,3 @@ x-i18n:
 - [Gateway 网关配置参考](/gateway/configuration)
 - [故障排除](/gateway/troubleshooting)
 - [Doctor](/gateway/doctor)
-
-

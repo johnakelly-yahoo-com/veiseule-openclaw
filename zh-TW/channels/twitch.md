@@ -1,4 +1,7 @@
 ---
+summary: "Twitch 聊天機器人設定與安裝"
+read_when:
+  - 為 OpenClaw 設定 Twitch 聊天整合
 title: "Twitch"
 ---
 
@@ -114,11 +117,11 @@ OPENCLAW_TWITCH_ACCESS_TOKEN=oauth:abc123...
 }
 ```
 
-對於嚴格的允許清單，建議使用 `allowFrom`。如果需要基於角色的存取控制，請改用 `allowedRoles`。
+Prefer `allowFrom` for a hard allowlist. Use `allowedRoles` instead if you want role-based access.
 
 **可用角色：** `"moderator"`、`"owner"`、`"vip"`、`"subscriber"`、`"all"`。
 
-**為何使用使用者 ID？** 使用者名稱可能變更，導致冒充風險。使用者 ID 是永久的。 User IDs are permanent.
+**為何使用使用者 ID？** 使用者名稱可能變更，導致冒充風險。使用者 ID 是永久的。 User IDs are permanent. User IDs are permanent.
 
 查找你的 Twitch 使用者 ID：[https://www.streamweasels.com/tools/convert-twitch-username-%20to-user-id/](https://www.streamweasels.com/tools/convert-twitch-username-%20to-user-id/)（將你的 Twitch 使用者名稱轉換為 ID）
 
@@ -139,11 +142,11 @@ OPENCLAW_TWITCH_ACCESS_TOKEN=oauth:abc123...
 }
 ```
 
-機器人會在權杖到期前自動重新整理，並記錄重新整理事件。
+The bot automatically refreshes tokens before expiration and logs refresh events.
 
 ## 多帳號支援
 
-使用 `channels.twitch.accounts` 搭配各帳號的權杖。共用模式請參閱 [`gateway/configuration`](/gateway/configuration)。 See [`gateway/configuration`](/gateway/configuration) for the shared pattern.
+使用 `channels.twitch.accounts` 搭配各帳號的權杖。共用模式請參閱 [`gateway/configuration`](/gateway/configuration)。 使用 `channels.twitch.accounts` 搭配各帳號的權杖。共用模式請參閱 [`gateway/configuration`](/gateway/configuration)。 See [`gateway/configuration`](/gateway/configuration) for the shared pattern.
 
 範例（一個機器人帳號加入兩個頻道）：
 
@@ -170,7 +173,7 @@ OPENCLAW_TWITCH_ACCESS_TOKEN=oauth:abc123...
 }
 ```
 
-**注意：** 每個帳號都需要各自的權杖（每個頻道一個權杖）。
+**Note:** Each account needs its own token (one token per channel).
 
 ## 存取控制
 
@@ -208,6 +211,7 @@ OPENCLAW_TWITCH_ACCESS_TOKEN=oauth:abc123...
 
 ### 以角色為基礎的存取（替代方案）
 
+`allowFrom` is a hard allowlist. When set, only those user IDs are allowed.
 `allowFrom` 是一個嚴格的允許清單。設定後，僅允許這些使用者 ID。
 If you want role-based access, leave `allowFrom` unset and configure `allowedRoles` instead:
 
@@ -227,7 +231,7 @@ If you want role-based access, leave `allowFrom` unset and configure `allowedRol
 
 ### 停用 @mention 要求
 
-預設情況下，`requireMention` 為 `true`。若要停用並回應所有訊息：
+By default, `requireMention` is `true`. To disable and respond to all messages:
 
 ```json5
 {
@@ -243,7 +247,7 @@ If you want role-based access, leave `allowFrom` unset and configure `allowedRol
 }
 ```
 
-## 疑難排解
+## Troubleshooting
 
 首先，執行診斷指令：
 
@@ -252,7 +256,7 @@ openclaw doctor
 openclaw channels status --probe
 ```
 
-### 機器人未回應訊息
+### Bot doesn't respond to messages
 
 **檢查存取控制：** 確認你的使用者 ID 在 `allowFrom` 中，或暫時移除
 `allowFrom` 並設定 `allowedRoles: ["all"]` 以進行測試。
@@ -374,5 +378,3 @@ Access token refreshed for user 123456 (expires in 14400s)
 - 每則訊息 **500 個字元**（在字詞邊界自動分段）
 - 分段前會移除 Markdown
 - 無額外速率限制（使用 Twitch 內建的速率限制）
-
-

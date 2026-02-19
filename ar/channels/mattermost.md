@@ -1,4 +1,8 @@
 ---
+summary: "إعداد بوت Mattermost وتهيئة OpenClaw"
+read_when:
+  - إعداد Mattermost
+  - تصحيح مسارات Mattermost
 title: "Mattermost"
 ---
 
@@ -132,5 +136,3 @@ openclaw plugins install ./extensions/mattermost
 - عدم وجود ردود في القنوات: تأكّد من أن البوت موجود في القناة وقم بالإشارة إليه (oncall)، أو استخدم بادئة مُشغِّل (onchar)، أو اضبط `chatmode: "onmessage"`.
 - أخطاء المصادقة: تحقّق من رمز البوت، وعنوان URL الأساسي، وما إذا كان الحساب مفعّلًا.
 - مشكلات تعدد الحسابات: تنطبق متغيرات البيئة فقط على حساب `default`.
-
-

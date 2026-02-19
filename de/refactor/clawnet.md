@@ -1,4 +1,8 @@
 ---
+summary: "„Clawnet-Refactor: Vereinheitlichung von Netzwerkprotokoll, Rollen, Authentifizierung, Genehmigungen und Identität“"
+read_when:
+  - Planung eines einheitlichen Netzwerkprotokolls für Nodes und Operator-Clients
+  - Überarbeitung von Genehmigungen, Pairing, TLS und Presence über Geräte hinweg
 title: "„Clawnet-Refactor“"
 ---
 
@@ -411,5 +415,3 @@ Vor der Implementierung eine Option wählen, um Drift zu vermeiden.
 - Schmerzpunkte: Genehmigungen + Duplikation + zwei Stacks.
 - Vorschlag: ein WS-Protokoll mit expliziten Rollen + Scopes, vereinheitlichtes Pairing + TLS-Pinning, Gateway-gehostete Genehmigungen, stabile Geräte-IDs + hübsche Slugs.
 - Ergebnis: einfachere UX, stärkere Sicherheit, weniger Duplikation, besseres Mobile-Routing.
-
-

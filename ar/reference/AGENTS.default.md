@@ -1,4 +1,10 @@
-------
+---
+title: "AGENTS.md الافتراضي"
+summary: "تعليمات وكيل OpenClaw الافتراضية وقائمة Skills لإعداد المساعد الشخصي"
+read_when:
+  - بدء جلسة وكيل OpenClaw جديدة
+  - تمكين Skills الافتراضية أو تدقيقها
+---
 
 # AGENTS.md — المساعد الشخصي OpenClaw (افتراضي)
 
@@ -116,5 +122,3 @@ git commit -m "Add Clawd workspace"
 - للتحقق المعتمد على المتصفح، استخدم `openclaw browser` (علامات التبويب/الحالة/لقطة شاشة) مع ملف Chrome المُدار من OpenClaw.
 - لفحص DOM، استخدم `openclaw browser eval|query|dom|snapshot` (و`--json`/`--out` عندما تحتاج إلى مخرجات آلية).
 - للتفاعلات، استخدم `openclaw browser click|type|hover|drag|select|upload|press|wait|navigate|back|evaluate|run` (يتطلّب النقر/الكتابة مراجع لقطات؛ استخدم `evaluate` لمحدّدات CSS).
-
-

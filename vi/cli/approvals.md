@@ -1,10 +1,14 @@
 ---
+summary: "Tài liệu tham chiếu CLI cho `openclaw approvals` (phê duyệt exec cho gateway hoặc máy chủ node)"
+read_when:
+  - Bạn muốn chỉnh sửa phê duyệt exec từ CLI
+  - Bạn cần quản lý danh sách cho phép trên gateway hoặc máy chủ node
 title: "approvals"
 ---
 
 # `openclaw approvals`
 
-Quản lý phê duyệt thực thi cho **máy chủ cục bộ**, **máy chủ gateway** hoặc **máy chủ nút**.
+Manage exec approvals for the **local host**, **gateway host**, or a **node host**.
 By default, commands target the local approvals file on disk. Use `--gateway` to target the gateway, or `--node` to target a specific node.
 
 Liên quan:
@@ -44,5 +48,3 @@ openclaw approvals allowlist remove "~/Projects/**/bin/rg"
 - `--agent` mặc định là `"*"`, áp dụng cho tất cả các tác tử.
 - Máy chủ node phải quảng bá `system.execApprovals.get/set` (ứng dụng macOS hoặc máy chủ node headless).
 - Tệp phê duyệt được lưu theo từng máy chủ tại `~/.openclaw/exec-approvals.json`.
-
-

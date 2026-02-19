@@ -1,4 +1,10 @@
 ---
+summary: "Patakbuhin ang OpenClaw sa isang sandboxed macOS VM (lokal o hosted) kapag kailangan mo ng isolation o iMessage"
+read_when:
+  - Gusto mo ang OpenClaw na hiwalay sa iyong pangunahing macOS environment
+  - Gusto mo ng iMessage integration (BlueBubbles) sa isang sandbox
+  - Gusto mo ng resettable na macOS environment na puwede mong i-clone
+  - Gusto mong ikumpara ang lokal vs hosted na mga opsyon ng macOS VM
 title: "mga macOS VM"
 ---
 
@@ -273,5 +279,3 @@ Para sa tunay na laging-on, isaalang-alang ang isang dedicated Mac mini o isang 
 - [Lume CLI Reference](https://cua.ai/docs/lume/reference/cli-reference)
 - [Unattended VM Setup](https://cua.ai/docs/lume/guide/fundamentals/unattended-setup) (advanced)
 - [Docker Sandboxing](/install/docker) (alternatibong approach sa isolation)
-
-

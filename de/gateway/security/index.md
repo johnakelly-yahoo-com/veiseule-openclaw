@@ -1,4 +1,7 @@
 ---
+summary: "„Sicherheitsüberlegungen und Bedrohungsmodell für den Betrieb eines KI-Gateways mit Shell-Zugriff“"
+read_when:
+  - Beim Hinzufügen von Funktionen, die Zugriff oder Automatisierung erweitern
 title: "Sicherheit"
 ---
 
@@ -42,6 +45,32 @@ Beginnen Sie mit dem kleinsten Zugriff, der noch funktioniert, und erweitern Sie
 - **Browser-Steuerungs-Exponierung** (Remote-Nodes, Relay-Ports, entfernte CDP-Endpunkte).
 - **Lokale Datenträgerhygiene** (Berechtigungen, Symlinks, Konfig-Includes, „synchronisierte Ordner“-Pfade).
 - **Plugins** (Erweiterungen existieren ohne explizite Allowlist).
+- %%{init: {
+  'theme': 'base',
+  'themeVariables': {
+  'primaryColor': '#ffffff',
+  'primaryTextColor': '#000000',
+  'primaryBorderColor': '#000000',
+  'lineColor': '#000000',
+  'secondaryColor': '#f9f9fb',
+  'tertiaryColor': '#ffffff',
+  'clusterBkg': '#f9f9fb',
+  'clusterBorder': '#000000',
+  'nodeBorder': '#000000',
+  'mainBkg': '#ffffff',
+  'edgeLabelBackground': '#ffffff'
+  }
+  }}%%
+  flowchart TB
+  A["Owner (Peter)"] -- Full trust --> B["AI (Clawd)"]
+  B -- Trust but verify --> C["Friends in allowlist"]
+  C -- Limited trust --> D["Strangers"]
+  D -- No trust --> E["Mario asking for find ~"]
+  E -- Definitely no trust 😏 --> F[" "]```
+   %% The transparent box is needed to show the bottom-most label correctly
+   F:::Class_transparent_box
+  classDef Class_transparent_box fill:transparent, stroke:transparent
+  ```
 - **Modellhygiene** (Warnung, wenn konfigurierte Modelle veraltet wirken; kein harter Block).
 
 Wenn Sie `--deep` ausführen, versucht OpenClaw außerdem eine Best‑Effort‑Live‑Gateway‑Probe.
@@ -245,6 +274,9 @@ Wenn Werkzeuge aktiviert sind, besteht das typische Risiko in der Exfiltration v
 
 - Einen schreibgeschützten oder werkzeug‑deaktivierten **Reader‑Agenten**, der nicht vertrauenswürdige Inhalte zusammenfasst, und übergeben Sie dann die Zusammenfassung an Ihren Hauptagenten.
 - `web_search` / `web_fetch` / `browser` für werkzeug‑aktivierte Agenten ausgeschaltet lassen, sofern nicht benötigt.
+- Für OpenResponses-URL-Eingaben (`input_file` / `input_image`) setzen Sie restriktive
+  `gateway.http.endpoints.responses.files.urlAllowlist` und
+  `gateway.http.endpoints.responses.images.urlAllowlist` und halten Sie `maxUrlParts` niedrig.
 - sandboxing und strikte Werkzeug‑Allowlists für jeden Agenten aktivieren, der nicht vertrauenswürdige Eingaben berührt.
 - Geheimnisse aus Prompts heraushalten; stattdessen über env/config auf dem Gateway‑Host übergeben.
 
@@ -320,6 +352,16 @@ Das Gateway multiplexiert **WebSocket + HTTP** auf einem einzigen Port:
 
 - Standard: `18789`
 - Config/Flags/Env: `gateway.port`, `--port`, `OPENCLAW_GATEWAY_PORT`
+
+Diese HTTP-Oberfläche umfasst die Control UI und den Canvas-Host:
+
+- Control UI (SPA-Assets) (Standard-Basispfad `/`)
+- Canvas-Host: `/__openclaw__/canvas/` und `/__openclaw__/a2ui/` (beliebiges HTML/JS; als nicht vertrauenswürdigen Inhalt behandeln)
+
+Wenn Sie Canvas-Inhalte in einem normalen Browser laden, behandeln Sie sie wie jede andere nicht vertrauenswürdige Webseite:
+
+- Setzen Sie den Canvas-Host keinen nicht vertrauenswürdigen Netzwerken/Benutzern aus.
+- Lassen Sie Canvas-Inhalte nicht denselben Origin wie privilegierte Web-Oberflächen teilen, es sei denn, Sie verstehen die Auswirkungen vollständig.
 
 Der Bind‑Modus steuert, wo das Gateway lauscht:
 
@@ -408,6 +450,7 @@ Auth‑Modi:
 
 - `gateway.auth.mode: "token"`: Gemeinsamer Bearer‑Token (für die meisten Setups empfohlen).
 - `gateway.auth.mode: "password"`: Passwort‑Auth (bevorzugt via Env setzen: `OPENCLAW_GATEWAY_PASSWORD`).
+- `gateway.auth.mode: "trusted-proxy"`: Vertrauen Sie einem identitätsbewussten Reverse-Proxy, der Benutzer authentifiziert und die Identität über Header weitergibt (siehe [Trusted Proxy Auth](/gateway/trusted-proxy-auth)).
 
 Rotations‑Checkliste (Token/Passwort):
 
@@ -525,6 +568,11 @@ Sie können bereits ein Read‑Only‑Profil aufbauen durch Kombination von:
 - Werkzeug‑Allow/Deny‑Listen, die `write`, `edit`, `apply_patch`, `exec`, `process` usw. blockieren
 
 Möglicherweise fügen wir später ein einzelnes `readOnlyMode`‑Flag hinzu, um diese Konfiguration zu vereinfachen.
+
+Zusätzliche Härtungsoptionen:
+
+- `tools.exec.applyPatch.workspaceOnly: true` (Standard): stellt sicher, dass `apply_patch` außerhalb des Workspace-Verzeichnisses weder schreiben noch löschen kann, selbst wenn Sandboxing deaktiviert ist. Nur auf `false` setzen, wenn `apply_patch` absichtlich Dateien außerhalb des Workspace berühren soll.
+- `tools.fs.workspaceOnly: true` (optional): beschränkt `read`/`write`/`edit`/`apply_patch`-Pfade auf das Workspace-Verzeichnis (nützlich, wenn Sie derzeit absolute Pfade erlauben und eine zentrale Schutzmaßnahme wünschen).
 
 ### 5. Sicheres Baseline‑Profil (Copy/Paste)
 
@@ -756,30 +804,14 @@ Committen Sie die aktualisierte `.secrets.baseline`, sobald sie den beabsichtigt
 ## Die Vertrauenshierarchie
 
 ```mermaid
-%%{init: {
-  'theme': 'base',
-  'themeVariables': {
-    'primaryColor': '#ffffff',
-    'primaryTextColor': '#000000',
-    'primaryBorderColor': '#000000',
-    'lineColor': '#000000',
-    'secondaryColor': '#f9f9fb',
-    'tertiaryColor': '#ffffff',
-    'clusterBkg': '#f9f9fb',
-    'clusterBorder': '#000000',
-    'nodeBorder': '#000000',
-    'mainBkg': '#ffffff',
-    'edgeLabelBackground': '#ffffff'
-  }
-}}%%
 flowchart TB
-    A["Owner (Peter)"] -- Full trust --> B["AI (Clawd)"]
-    B -- Trust but verify --> C["Friends in allowlist"]
-    C -- Limited trust --> D["Strangers"]
-    D -- No trust --> E["Mario asking for find ~"]
-    E -- Definitely no trust 😏 --> F[" "]
+    A["Eigentümer (Peter)"] -- Volles Vertrauen --> B["KI (Clawd)"]
+    B -- Vertrauen, aber überprüfen --> C["Freunde in der Allowlist"]
+    C -- Begrenztes Vertrauen --> D["Fremde"]
+    D -- Kein Vertrauen --> E["Mario fragt nach find ~"]
+    E -- Definitiv kein Vertrauen 😏 --> F[" "]
 
-     %% The transparent box is needed to show the bottom-most label correctly
+     %% Die transparente Box wird benötigt, um das unterste Label korrekt anzuzeigen
      F:::Class_transparent_box
     classDef Class_transparent_box fill:transparent, stroke:transparent
 ```
@@ -797,5 +829,3 @@ Eine Schwachstelle in OpenClaw gefunden? Bitte verantwortungsvoll melden:
 _„Sicherheit ist ein Prozess, kein Produkt. Und vertrauen Sie keine Hummern mit Shell‑Zugriff.“_ — Jemand Weises, vermutlich
 
 🦞🔐
-
-

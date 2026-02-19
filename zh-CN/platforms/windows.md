@@ -1,17 +1,18 @@
 ---
-title: Windows (WSL2)
-x-i18n:
-  generated_at: "2026-02-03T07:53:19Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: c93d2263b4e5b60cb6fbe9adcb1a0ca95b70cd6feb6e63cfc4459cb18b229da0
-  source_path: platforms/windows.md
-  workflow: 15
+summary: "Windows（WSL2）支持 + 配套应用状态"
+read_when:
+  - 在 Windows 上安装 OpenClaw
+  - 查找 Windows 配套应用状态
+title: "Windows (WSL2)"
 ---
 
 # Windows (WSL2)
 
-Windows 上的 OpenClaw 推荐**通过 WSL2**（推荐 Ubuntu）。CLI + Gateway 网关在 Linux 内运行，这保持了运行时的一致性并使工具兼容性大大提高（Node/Bun/pnpm、Linux 二进制文件、Skills）。原生 Windows 可能更棘手。WSL2 给你完整的 Linux 体验——一条命令安装：`wsl --install`。
+Windows 上的 OpenClaw 推荐**通过 WSL2**（推荐 Ubuntu）。CLI + Gateway 网关在 Linux 内运行，这保持了运行时的一致性并使工具兼容性大大提高（Node/Bun/pnpm、Linux 二进制文件、Skills）。原生 Windows 可能更棘手。WSL2 给你完整的 Linux 体验——一条命令安装：`wsl --install`。 The
+CLI + Gateway run inside Linux, which keeps the runtime consistent and makes
+tooling far more compatible (Node/Bun/pnpm, Linux binaries, skills). Native
+Windows might be trickier. WSL2 gives you the full Linux experience — one command
+to install: `wsl --install`.
 
 原生 Windows 配套应用已在计划中。
 
@@ -56,7 +57,8 @@ openclaw doctor
 
 ## 高级：通过 LAN 暴露 WSL 服务（portproxy）
 
-WSL 有自己的虚拟网络。如果另一台机器需要访问**在 WSL 内**运行的服务（SSH、本地 TTS 服务器或 Gateway 网关），你必须将 Windows 端口转发到当前的 WSL IP。WSL IP 在重启后会改变，因此你可能需要刷新转发规则。
+WSL has its own virtual network. WSL 有自己的虚拟网络。如果另一台机器需要访问**在 WSL 内**运行的服务（SSH、本地 TTS 服务器或 Gateway 网关），你必须将 Windows 端口转发到当前的 WSL IP。WSL IP 在重启后会改变，因此你可能需要刷新转发规则。 The WSL IP changes after restarts,
+so you may need to refresh the forwarding rule.
 
 示例（以**管理员身份**运行 PowerShell）：
 
@@ -149,6 +151,5 @@ openclaw onboard
 
 ## Windows 配套应用
 
-我们还没有 Windows 配套应用。如果你想让它实现，欢迎贡献。
-
-
+我们还没有 Windows 配套应用。如果你想让它实现，欢迎贡献。 Contributions are welcome if you want
+contributions to make it happen.

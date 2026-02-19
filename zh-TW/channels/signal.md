@@ -1,18 +1,31 @@
 ---
+summary: "透過 signal-cli（JSON-RPC + SSE）的 Signal 支援、設定與號碼模型"
+read_when:
+  - 設定 Signal 支援
+  - 偵錯 Signal 傳送／接收
 title: "Signal"
 ---
 
 # Signal（signal-cli）
 
-3. 狀態：外部 CLI 整合。 狀態：外部 CLI 整合。Gateway 透過 HTTP JSON-RPC + SSE 與 `signal-cli` 溝通。
+3. 狀態：外部 CLI 整合。 狀態：外部 CLI 整合。 狀態：外部 CLI 整合。Gateway 透過 HTTP JSON-RPC + SSE 與 `signal-cli` 溝通。
+
+## 先決條件
+
+- 在你的伺服器上安裝 OpenClaw（以下 Linux 流程已於 Ubuntu 24 測試）。
+- 在執行 gateway 的主機上可使用 `signal-cli`。
+- 一個可接收一次驗證簡訊的電話號碼（用於 SMS 註冊流程）。
+- 註冊期間可透過瀏覽器存取 Signal 驗證碼頁面（`signalcaptchas.org`）。
 
 ## 快速設定（初學者）
 
 1. 4. 為機器人使用**獨立的 Signal 號碼**（建議）。
 2. 安裝 `signal-cli`（需要 Java）。
-3. 5. 連結機器人裝置並啟動守護程式：
+3. 選擇其中一種設定方式：
    - `signal-cli link -n "OpenClaw"`
+   - **方式 B（SMS 註冊）：** 透過驗證碼 + SMS 驗證註冊專用號碼。
 4. 設定 OpenClaw 並啟動 Gateway 閘道器。
+5. 傳送第一則 DM 並核准配對（`openclaw pairing approve signal <CODE>`）。
 
 最小設定：
 
@@ -29,6 +42,15 @@ title: "Signal"
   },
 }
 ```
+
+欄位說明：
+
+| 欄位          | 說明                                                  |
+| ----------- | --------------------------------------------------- |
+| `account`   | 機器人電話號碼（E.164 格式，例如 `+15551234567`） |
+| 設定（快速路徑）    | `channels.signal.ignoreStories`：忽略來自守護程式的限時動態。      |
+| `dmPolicy`  | DM 存取政策（建議使用 `pairing`）                             |
+| `allowFrom` | 允許傳送 DM 的電話號碼或 `uuid:&lt;id&gt;` 值                        |
 
 ## 這是什麼
 
@@ -54,7 +76,7 @@ title: "Signal"
 - 若你在 **個人 Signal 帳戶** 上執行機器人，會忽略你自己的訊息（迴圈保護）。
 - 6. 若是「我傳訊給機器人，它就回覆」，請使用**獨立的機器人號碼**。
 
-## 設定（快速路徑）
+## 設定方式 A：連結既有的 Signal 帳號（QR）
 
 1. 安裝 `signal-cli`（需要 Java）。
 2. 7. 連結機器人帳號：
@@ -79,6 +101,67 @@ title: "Signal"
 
 多帳戶支援：使用 `channels.signal.accounts`，搭配每帳戶設定與可選的 `name`。共享模式請見 [`gateway/configuration`](/gateway/configuration#telegramaccounts--discordaccounts--slackaccounts--signalaccounts--imessageaccounts)。 8. 共享模式請參閱 [`gateway/configuration`](/gateway/configuration#telegramaccounts--discordaccounts--slackaccounts--signalaccounts--imessageaccounts)。
 
+## 設定方式 B：註冊專用機器人號碼（SMS，Linux）
+
+當你想使用專用機器人號碼，而不是連結現有的 Signal 應用程式帳號時，請使用此方式。
+
+1. 取得一個可接收簡訊的號碼（或市話可使用語音驗證）。
+   - 使用專用機器人號碼以避免帳號／工作階段衝突。
+2. 在 gateway 主機上安裝 `signal-cli`：
+
+```bash
+VERSION=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/AsamK/signal-cli/releases/latest | sed -e 's/^.*\/v//')
+curl -L -O "https://github.com/AsamK/signal-cli/releases/download/v${VERSION}/signal-cli-${VERSION}-Linux-native.tar.gz"
+sudo tar xf "signal-cli-${VERSION}-Linux-native.tar.gz" -C /opt
+sudo ln -sf /opt/signal-cli /usr/local/bin/
+signal-cli --version
+```
+
+如果你使用 JVM 版本（`signal-cli-${VERSION}.tar.gz`），請先安裝 JRE 25+。
+請保持 `signal-cli` 為最新版本；上游指出當 Signal 伺服器 API 變更時，舊版本可能會失效。
+
+3. 註冊並驗證號碼：
+
+```bash
+signal-cli -a +<BOT_PHONE_NUMBER> register
+```
+
+如果需要 captcha：
+
+1. 開啟 `https://signalcaptchas.org/registration/generate.html`。
+2. 完成 captcha，從「Open Signal」中複製 `signalcaptcha://...` 連結目標。
+3. 盡可能在與瀏覽器工作階段相同的外部 IP 下執行。
+4. 立即再次執行註冊（captcha 權杖很快就會過期）：
+
+```bash
+signal-cli -a +<BOT_PHONE_NUMBER> register --captcha '<SIGNALCAPTCHA_URL>'
+signal-cli -a +<BOT_PHONE_NUMBER> verify <VERIFICATION_CODE>
+```
+
+4. 設定 OpenClaw，重新啟動 gateway，並驗證頻道：
+
+```bash
+# If you run the gateway as a user systemd service:
+systemctl --user restart openclaw-gateway
+
+# Then verify:
+openclaw doctor
+openclaw channels status --probe
+```
+
+5. 透過以下方式核准：
+   - 向機器人號碼傳送任意訊息。
+   - 在伺服器上核准代碼：`openclaw pairing approve signal <PAIRING_CODE>`。
+   - 將機器人號碼儲存為手機聯絡人，以避免顯示為「未知聯絡人」。
+
+重要：使用 `signal-cli` 註冊電話號碼帳號可能會使該號碼的主要 Signal 應用程式工作階段失去授權。 建議使用專用的機器人號碼，或在需要保留現有手機應用程式設定時使用 QR 連結模式。
+
+上游參考資料：
+
+- `signal-cli` README：`https://github.com/AsamK/signal-cli`
+- 驗證碼流程：`https://github.com/AsamK/signal-cli/wiki/Registration-with-captcha`
+- 連結流程：`https://github.com/AsamK/signal-cli/wiki/Linking-other-devices-(Provisioning)`
+
 ## 外部常駐模式（httpUrl）
 
 若你希望自行管理 `signal-cli`（JVM 冷啟動較慢、容器初始化，或共用 CPU），可將常駐程式獨立執行，並讓 OpenClaw 指向它：
@@ -94,7 +177,7 @@ title: "Signal"
 }
 ```
 
-9. 這會略過自動產生（auto-spawn）以及 OpenClaw 內的啟動等待。 這會略過 OpenClaw 內的自動啟動與啟動等待。若自動啟動時很慢，請設定 `channels.signal.startupTimeoutMs`。
+這會略過自動產生（auto-spawn）以及 OpenClaw 內的啟動等待。 這會略過 OpenClaw 內的自動啟動與啟動等待。若自動啟動時很慢，請設定 `channels.signal.startupTimeoutMs`。 這會略過 OpenClaw 內的自動啟動與啟動等待。若自動啟動時很慢，請設定 `channels.signal.startupTimeoutMs`。
 
 ## 存取控制（私訊 + 群組）
 
@@ -105,7 +188,7 @@ title: "Signal"
 - 10. 透過以下方式核准：
   - `openclaw pairing list signal`
   - `openclaw pairing approve signal <CODE>`
-- 11. 配對是 Signal 私訊的預設權杖交換方式。 12. 詳細說明：[Pairing](/channels/pairing)
+- 配對是 Signal 私訊的預設權杖交換方式。 12. 詳細說明：[Pairing](/channels/pairing)
 - 僅 UUID 的寄件者（來自 `sourceUuid`）會以 `uuid:<id>` 儲存在 `channels.signal.allowFrom` 中。
 
 群組：
@@ -116,7 +199,7 @@ title: "Signal"
 ## 運作方式（行為）
 
 - `signal-cli` 以常駐程式執行；Gateway 透過 SSE 讀取事件。
-- 13. 傳入訊息會被正規化為共用的頻道封裝格式。
+- 傳入訊息會被正規化為共用的頻道封裝格式。
 - 回覆一律回到相同的號碼或群組。
 
 ## 媒體 + 限制
@@ -154,7 +237,7 @@ message action=react channel=signal target=signal:group:<groupId> targetAuthor=u
 - `channels.signal.actions.reactions`：啟用／停用反應動作（預設 true）。
 - `channels.signal.reactionLevel`：`off | ack | minimal | extensive`。
   - `off`/`ack` 會停用代理程式反應（訊息工具 `react` 會回傳錯誤）。
-  - 16. `minimal`/`extensive` 會啟用代理反應並設定指引層級。
+  - `minimal`/`extensive` 會啟用代理反應並設定指引層級。
 - 每帳戶覆寫：`channels.signal.accounts.<id>.actions.reactions`、`channels.signal.accounts.<id>.reactionLevel`。
 
 ## 投遞目標（CLI／cron）
@@ -187,8 +270,25 @@ openclaw pairing list signal
 - 19. 守護程式可連線但沒有回覆：請驗證帳號/守護程式設定（`httpUrl`、`account`）以及接收模式。
 - 20. 私訊被忽略：寄件者仍在等待配對核准。
 - 群組訊息被忽略：群組寄件者／提及的閘控阻擋了投遞。
+- 編輯後出現設定驗證錯誤：請執行 `openclaw doctor --fix`。
+- 診斷中未顯示 Signal：請確認 `channels.signal.enabled: true`。
+
+其他檢查：
+
+```bash
+openclaw pairing list signal
+pgrep -af signal-cli
+grep -i "signal" "/tmp/openclaw/openclaw-$(date +%Y-%m-%d).log" | tail -20
+```
 
 分流流程請見：[/channels/troubleshooting](/channels/troubleshooting)。
+
+## 安全注意事項
+
+- `signal-cli` 會將帳號金鑰儲存在本機（通常位於 `~/.local/share/signal-cli/data/`）。
+- 在進行伺服器遷移或重建前，請先備份 Signal 帳號狀態。
+- `channels.signal.dmHistoryLimit`：以使用者回合計算的私訊歷史上限。 `channels.signal.dmHistoryLimit`：私訊歷史上限（以使用者回合計）。每使用者覆寫：`channels.signal.dms["<phone_or_uuid>"].historyLimit`。
+- SMS 驗證僅在註冊或復原流程中需要，但若失去對該號碼／帳號的控制，可能會使重新註冊變得複雜。
 
 ## 設定參考（Signal）
 
@@ -222,5 +322,3 @@ openclaw pairing list signal
 - `agents.list[].groupChat.mentionPatterns`（Signal 不支援原生提及）。
 - `messages.groupChat.mentionPatterns`（全域回退）。
 - `messages.responsePrefix`。
-
-

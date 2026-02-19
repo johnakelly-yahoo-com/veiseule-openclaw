@@ -1,4 +1,8 @@
 ---
+summary: "قائمة التحقق لإصدار OpenClaw على macOS (خلاصة Sparkle، التغليف، التوقيع)"
+read_when:
+  - عند قطع أو التحقق من إصدار OpenClaw على macOS
+  - عند تحديث خلاصة أو أصول تطبيق Sparkle
 title: "إصدار macOS"
 ---
 
@@ -71,7 +75,7 @@ ditto -c -k --keepParent apps/macos/.build/release/OpenClaw.app.dSYM dist/OpenCl
 
 ## النشر والتحقق
 
-- 23. ارفع `OpenClaw-2026.2.9.zip` (و `OpenClaw-2026.2.9.dSYM.zip`) إلى إصدار GitHub للوسم `v2026.2.9`.
+- ارفع `OpenClaw-2026.2.9.zip` (و `OpenClaw-2026.2.9.dSYM.zip`) إلى إصدار GitHub للوسم `v2026.2.9`.
 - تأكّد من أن رابط appcast الخام يطابق الخلاصة المضمّنة: `https://raw.githubusercontent.com/openclaw/openclaw/main/appcast.xml`.
 - التحقق من المتعة:
   - `curl -I https://raw.githubusercontent.com/openclaw/openclaw/main/appcast.xml` يُرجع 200.
@@ -79,5 +83,3 @@ ditto -c -k --keepParent apps/macos/.build/release/OpenClaw.app.dSYM dist/OpenCl
   - على بنية عامة سابقة، شغّل «التحقق من وجود تحديثات…» من تبويب «حول» وتحقق من أن Sparkle يثبت البنية الجديدة بسلاسة.
 
 تعريف الاكتمال: تم نشر التطبيق الموقّع وappcast، ويعمل تدفق التحديث من إصدار أقدم مُثبّت، وتم إرفاق أصول الإصدار بإصدار GitHub.
-
-

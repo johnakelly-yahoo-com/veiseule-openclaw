@@ -1,4 +1,6 @@
 ---
+summary: "用於 OpenClaw.app 連線至遠端 Gateway 閘道器的 SSH 通道設定"
+read_when: "透過 SSH 將 macOS 應用程式連線至遠端 Gateway 閘道器"
 title: "遠端 Gateway 閘道器設定"
 ---
 
@@ -9,22 +11,6 @@ OpenClaw.app 會在你的用戶端機器上連線至 `ws://127.0.0.1:18789`。SS
 ## 概覽
 
 ```mermaid
-%%{init: {
-  'theme': 'base',
-  'themeVariables': {
-    'primaryColor': '#ffffff',
-    'primaryTextColor': '#000000',
-    'primaryBorderColor': '#000000',
-    'lineColor': '#000000',
-    'secondaryColor': '#f9f9fb',
-    'tertiaryColor': '#ffffff',
-    'clusterBkg': '#f9f9fb',
-    'clusterBorder': '#000000',
-    'nodeBorder': '#000000',
-    'mainBkg': '#ffffff',
-    'edgeLabelBackground': '#ffffff'
-  }
-}}%%
 flowchart TB
     subgraph Client["Client Machine"]
         direction TB
@@ -130,7 +116,7 @@ launchctl bootstrap gui/$UID ~/Library/LaunchAgents/bot.molt.ssh-tunnel.plist
 通道現在將會：
 
 - 在你登入時自動啟動
-- 43. 當它當機時重新啟動
+- 當它當機時重新啟動
 - 在背景持續執行
 
 舊版注意事項：若存在，請移除任何殘留的 `com.openclaw.ssh-tunnel` LaunchAgent。
@@ -162,13 +148,11 @@ launchctl bootout gui/$UID/bot.molt.ssh-tunnel
 
 ## 7. 運作方式
 
-| 元件                                   | 46. 功能說明             |
-| ------------------------------------ | ------------------------------------------- |
-| `LocalForward 18789 127.0.0.1:18789` | 將本機連接埠 18789 轉送至遠端連接埠 18789                 |
-| `ssh -N`                             | SSH 不執行遠端指令（僅進行連接埠轉送）                       |
-| `KeepAlive`                          | 若隧道發生崩潰，會自動重新啟動 |
-| `RunAtLoad`                          | 10. 代理載入時啟動隧道        |
+| 元件                                   | 46. 功能說明 |
+| ------------------------------------ | ------------------------------- |
+| `LocalForward 18789 127.0.0.1:18789` | 將本機連接埠 18789 轉送至遠端連接埠 18789     |
+| `ssh -N`                             | SSH 不執行遠端指令（僅進行連接埠轉送）           |
+| `KeepAlive`                          | 若隧道發生崩潰，會自動重新啟動                 |
+| `RunAtLoad`                          | 代理載入時啟動隧道                       |
 
-49. OpenClaw.app 會在你的用戶端機器上連線至 `ws://127.0.0.1:18789`。 50. SSH 通道會將該連線轉送到執行 Gateway 的遠端機器之 18789 連接埠。
-
-
+OpenClaw.app 會在你的用戶端機器上連線至 `ws://127.0.0.1:18789`。 50. SSH 通道會將該連線轉送到執行 Gateway 的遠端機器之 18789 連接埠。

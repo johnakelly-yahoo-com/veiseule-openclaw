@@ -1,4 +1,9 @@
 ---
+summary: "web_fetch için Firecrawl yedek seçeneği (anti-bot + önbellekli çıkarım)"
+read_when:
+  - Firecrawl destekli web çıkarımı istiyorsunuz
+  - Bir Firecrawl API anahtarına ihtiyacınız var
+  - web_fetch için anti-bot çıkarımı istiyorsunuz
 title: "Firecrawl"
 ---
 
@@ -51,5 +56,3 @@ Proxy belirtilmezse, Firecrawl varsayılan olarak `auto`’a geçer. `auto`, tem
 3. Temel HTML temizleme (son yedek)
 
 Web araçlarının tam kurulumu için [Web tools](/tools/web) bölümüne bakın.
-
-

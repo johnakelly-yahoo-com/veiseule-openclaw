@@ -1,4 +1,8 @@
 ---
+summary: "CLI-Referenz für `openclaw approvals` (Exec-Freigaben für Gateway- oder Node-Hosts)"
+read_when:
+  - Sie möchten Exec-Freigaben über die CLI bearbeiten
+  - Sie müssen Allowlists auf Gateway- oder Node-Hosts verwalten
 title: "approvals"
 ---
 
@@ -44,5 +48,3 @@ openclaw approvals allowlist remove "~/Projects/**/bin/rg"
 - `--agent` ist standardmäßig auf `"*"` gesetzt, was für alle Agents gilt.
 - Der Node-Host muss `system.execApprovals.get/set` ankündigen (macOS-App oder Headless-Node-Host).
 - Freigabedateien werden pro Host unter `~/.openclaw/exec-approvals.json` gespeichert.
-
-

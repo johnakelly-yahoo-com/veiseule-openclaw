@@ -1,4 +1,9 @@
 ---
+summary: "一般的な OpenClaw セットアップ向けのスキーマに準拠した設定例"
+read_when:
+  - OpenClaw の設定方法を学ぶとき
+  - 設定例を探しているとき
+  - OpenClaw を初めてセットアップするとき
 title: "設定例"
 ---
 
@@ -43,7 +48,7 @@ title: "設定例"
 
 ## 拡張例（主要オプション）
 
-> JSON5 ではコメントや末尾のカンマを使用できます。通常の JSON でも動作します。 通常の JSON も動作します。
+> JSON5 ではコメントや末尾のカンマを使用できます。通常の JSON でも動作します。 通常の JSON も動作します。 通常の JSON も動作します。
 
 ```json5
 {
@@ -599,5 +604,3 @@ title: "設定例"
 - プロバイダーIDが異なります (電話番号、ユーザーID、チャンネルID)。 プロバイダドキュメントを使用してフォーマットを確認します。
 - 後から追加できるオプションのセクション: `web`, `browser`, `ui`, `discovery`, `canvasHost`, `talk`, `signal`, `imessage`。
 - 詳細なセットアップの注記については、[Providers](/channels/whatsapp) および [Troubleshooting](/gateway/troubleshooting) を参照してください。
-
-

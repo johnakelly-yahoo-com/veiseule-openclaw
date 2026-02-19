@@ -1,4 +1,8 @@
 ---
+summary: "Plugin Zalo Personal: login por QR + mensagens via zca-cli (instalação do plugin + configuração de canal + CLI + ferramenta)"
+read_when:
+  - Você quer suporte ao Zalo Personal (não oficial) no OpenClaw
+  - Você está configurando ou desenvolvendo o plugin zalouser
 title: "Plugin Zalo Personal"
 ---
 
@@ -75,5 +79,3 @@ openclaw directory peers list --channel zalouser --query "name"
 Nome da ferramenta: `zalouser`
 
 Ações: `send`, `image`, `link`, `friends`, `groups`, `me`, `status`
-
-

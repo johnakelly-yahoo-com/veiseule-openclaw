@@ -1,4 +1,8 @@
 ---
+summary: "إدخال Webhook للإيقاظ وتشغيل الوكلاء المعزولين"
+read_when:
+  - إضافة أو تغيير نقاط نهاية Webhook
+  - ربط الأنظمة الخارجية بـ OpenClaw
 title: "Webhooks"
 ---
 
@@ -29,7 +33,7 @@ title: "Webhooks"
 
 - `Authorization: Bearer <token>` (موصى به)
 - `x-openclaw-token: <token>`
-- `?token=<token>` (مهمَل؛ يسجّل تحذيرًا وسيُزال في إصدار رئيسي مستقبلي)
+- يتم رفض رموز query-string (`?token=...` تُرجع `400`).
 
 ## نقاط النهاية
 
@@ -70,7 +74,8 @@ title: "Webhooks"
 
 - `message` **مطلوب** (string): الموجّه أو الرسالة التي سيعالجها الوكيل.
 - `name` اختياري (string): اسم مقروء للبشر للـ hook (مثل «GitHub»)، يُستخدم كبادئة في ملخصات الجلسة.
-- `sessionKey` اختياري (string): المفتاح المستخدم لتعريف جلسة الوكيل. افتراضيًا قيمة `hook:<uuid>` عشوائية. يتيح استخدام مفتاح ثابت إجراء محادثة متعددة الأدوار ضمن سياق الـ hook.
+- `agentId` اختياري (string): يوجّه هذا hook إلى وكيل محدد. المعرّفات غير المعروفة تعود إلى الوكيل الافتراضي. عند التعيين، يعمل hook باستخدام مساحة العمل والإعدادات الخاصة بالوكيل الذي تم تحديده.
+- `sessionKey` اختياري (string): المفتاح المستخدم لتعريف جلسة الوكيل. افتراضيًا يتم رفض هذا الحقل ما لم يتم تعيين `hooks.allowRequestSessionKey=true`.
 - `wakeMode` اختياري (`now` | `next-heartbeat`): ما إذا كان سيتم تشغيل نبضة فورية (الافتراضي `now`) أو الانتظار حتى الفحص الدوري التالي.
 - `deliver` اختياري (boolean): إذا كان `true`، فسيتم إرسال استجابة الوكيل إلى قناة المراسلة. الافتراضي `true`. يتم تخطي الاستجابات التي تكون مجرد إقرارات نبضة تلقائيًا.
 - `channel` اختياري (string): قناة المراسلة للتسليم. واحدة من: `last`، `whatsapp`، `telegram`، `discord`، `slack`، `mattermost` (plugin)، `signal`، `imessage`، `msteams`. الافتراضي `last`.
@@ -85,6 +90,40 @@ title: "Webhooks"
 - نشر ملخص دائمًا في جلسة **main**
 - إذا كان `wakeMode=now`، يتم تشغيل نبضة فورية
 
+## سياسة مفتاح الجلسة (تغيير غير متوافق)
+
+يتم تعطيل تجاوزات `sessionKey` في حمولة `/hooks/agent` افتراضيًا.
+
+- موصى به: تعيين `hooks.defaultSessionKey` ثابت والإبقاء على تعطيل تجاوزات الطلب.
+- اختياري: السماح بتجاوزات الطلب فقط عند الحاجة، مع تقييد البادئات.
+
+الإعداد الموصى به:
+
+```json5
+{
+  hooks: {
+    enabled: true,
+    token: "${OPENCLAW_HOOKS_TOKEN}",
+    defaultSessionKey: "hook:ingress",
+    allowRequestSessionKey: false,
+    allowedSessionKeyPrefixes: ["hook:"],
+  },
+}
+```
+
+إعداد التوافق (السلوك القديم):
+
+```json5
+{
+  hooks: {
+    enabled: true,
+    token: "${OPENCLAW_HOOKS_TOKEN}",
+    allowRequestSessionKey: true,
+    allowedSessionKeyPrefixes: ["hook:"], // يُوصى به بشدة
+  },
+}
+```
+
 ### `POST /hooks/<name>` (مُعيَّن)
 
 تُحل أسماء الـ hook المخصصة عبر `hooks.mappings` (انظر التهيئة). يمكن للتعيين
@@ -96,10 +135,17 @@ title: "Webhooks"
 - `hooks.presets: ["gmail"]` يفعّل تعيين Gmail المضمّن.
 - `hooks.mappings` يتيح لك تعريف `match` و`action` والقوالب في التهيئة.
 - `hooks.transformsDir` + `transform.module` لتحميل وحدة JS/TS لمنطق مخصص.
+  - `hooks.transformsDir` (إذا تم تعيينه) يجب أن يبقى ضمن جذر transforms داخل دليل إعداد OpenClaw (عادةً `~/.openclaw/hooks/transforms`).
+  - `transform.module` يجب أن يُحل ضمن دليل transforms الفعلي (سيتم رفض مسارات الاجتياز/الهروب).
 - استخدم `match.source` للإبقاء على نقطة إدخال عامة (توجيه قائم على الحمولة).
 - تتطلب تحويلات TS مُحمِّل TS (مثل `bun` أو `tsx`) أو `.js` مُسبقة التجميع وقت التشغيل.
 - عيّن `deliver: true` + `channel`/`to` على التعيينات لتوجيه الردود إلى واجهة دردشة
   (`channel` افتراضيًا إلى `last` ويعود إلى WhatsApp).
+- `agentId` يوجّه الـ hook إلى وكيل محدد؛ المعرفات غير المعروفة تعود إلى الوكيل الافتراضي.
+- `hooks.allowedAgentIds` يقيّد التوجيه الصريح عبر `agentId`. احذفه (أو أضف `*`) للسماح بأي وكيل. عيّن `[]` لمنع التوجيه الصريح عبر `agentId`.
+- `hooks.defaultSessionKey` يحدد الجلسة الافتراضية لتشغيل وكيل hook عند عدم توفير مفتاح صريح.
+- `hooks.allowRequestSessionKey` يتحكم فيما إذا كانت حمولات `/hooks/agent` يمكنها تعيين `sessionKey` (الافتراضي: `false`).
+- `hooks.allowedSessionKeyPrefixes` يقيّد اختياريًا قيم `sessionKey` الصريحة القادمة من حمولات الطلبات وعمليات الربط.
 - `allowUnsafeExternalContent: true` يعطّل غلاف سلامة المحتوى الخارجي لذلك الـ hook
   (خطر؛ للاستخدام فقط مع مصادر داخلية موثوقة).
 - `openclaw webhooks gmail setup` يكتب تهيئة `hooks.gmail` لـ `openclaw webhooks gmail run`.
@@ -110,6 +156,7 @@ title: "Webhooks"
 - `200` لـ `/hooks/wake`
 - `202` لـ `/hooks/agent` (بدء تشغيل غير متزامن)
 - `401` عند فشل المصادقة
+- `429` بعد تكرار فشل المصادقة من نفس العميل (تحقق من `Retry-After`)
 - `400` عند حمولة غير صالحة
 - `413` عند الحمولات كبيرة الحجم
 
@@ -153,9 +200,11 @@ curl -X POST http://127.0.0.1:18789/hooks/gmail \
 
 - أبقِ نقاط نهاية الـ hook خلف loopback أو tailnet أو وكيل عكسي موثوق.
 - استخدم رمز hook مخصصًا؛ لا تعِد استخدام رموز مصادقة Gateway.
+- يتم تطبيق تحديد المعدل على حالات فشل المصادقة المتكررة لكل عنوان عميل لإبطاء محاولات التخمين القسري.
+- إذا كنت تستخدم توجيه متعدد الوكلاء، فقم بتعيين `hooks.allowedAgentIds` لتقييد اختيار `agentId` الصريح.
+- أبقِ `hooks.allowRequestSessionKey=false` ما لم تكن بحاجة إلى جلسات يحددها المستدعي.
+- إذا قمت بتمكين `sessionKey` في الطلب، فقيّد `hooks.allowedSessionKeyPrefixes` (على سبيل المثال، `["hook:"]`).
 - تجنّب تضمين حمولات خام حساسة في سجلات الـ webhook.
 - تُعامَل حمولات الـ hook على أنها غير موثوقة وتُغلَّف بحدود أمان افتراضيًا.
   إذا اضطررت لتعطيل ذلك لـ hook معيّن، فاضبط `allowUnsafeExternalContent: true`
   في تعيين ذلك الـ hook (خطر).
-
-

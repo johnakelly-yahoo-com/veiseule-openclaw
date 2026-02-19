@@ -1,4 +1,9 @@
 ---
+summary: "Rozwiązywanie problemów z harmonogramem cron i harmonogramem oraz dostarczaniem heartbeat"
+read_when:
+  - Cron nie uruchomił się
+  - Cron uruchomił się, ale nie dostarczono wiadomości
+  - Heartbeat wydaje się milczeć lub być pomijany
 title: "Rozwiązywanie problemów z automatyzacją"
 ---
 
@@ -115,5 +120,3 @@ Powiązane:
 - [/gateway/heartbeat](/gateway/heartbeat)
 - [/automation/cron-vs-heartbeat](/automation/cron-vs-heartbeat)
 - [/concepts/timezone](/concepts/timezone)
-
-

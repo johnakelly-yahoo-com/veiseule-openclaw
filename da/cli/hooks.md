@@ -1,4 +1,8 @@
 ---
+summary: "CLI-reference for `openclaw hooks` (agent-hooks)"
+read_when:
+  - Du vil administrere agent-hooks
+  - Du vil installere eller opdatere hooks
 title: "hooks"
 ---
 
@@ -188,6 +192,9 @@ openclaw hooks install <path-or-spec>
 
 Installér en hook-pakke fra en lokal mappe/arkiv eller npm.
 
+Npm-specifikationer er **kun registry-baserede** (pakkenavn + valgfri version/tag). Git/URL/file
+specifikationer afvises. Installation af afhængigheder køres med `--ignore-scripts` af sikkerhedshensyn.
+
 **Hvad den gør:**
 
 - Kopierer hook-pakken til `~/.openclaw/hooks/<id>`
@@ -198,7 +205,7 @@ Installér en hook-pakke fra en lokal mappe/arkiv eller npm.
 
 - `-l, --link`: Knyt en lokal mappe i stedet for at kopiere (tilføjer den til `hooks.internal.load.extraDirs`)
 
-**Understøttede arkiver:** `.zip`, `.tgz`, `.tar.gz`, `.tar`
+**Eksempler:**
 
 **Eksempler:**
 
@@ -223,7 +230,7 @@ openclaw hooks update <id>
 openclaw hooks update --all
 ```
 
-Opdatér installerede hook-pakker (kun npm-installationer).
+**Indstillinger:**
 
 **Indstillinger:**
 
@@ -234,7 +241,7 @@ Opdatér installerede hook-pakker (kun npm-installationer).
 
 ### session-memory
 
-Gemmer sessionskontekst i hukommelsen, når du udsteder `/new`.
+**Aktivér:**
 
 **Aktivér:**
 
@@ -246,9 +253,21 @@ openclaw hooks enable session-memory
 
 **Se:** [session-memory dokumentation](/automation/hooks#session-memory)
 
+### bootstrap-extra-files
+
+**Aktivér:**
+
+**Aktivér:**
+
+```bash
+openclaw hooks enable bootstrap-extra-files
+```
+
+**Se logs:**
+
 ### command-logger
 
-Logger alle kommandohændelser til en centraliseret revisionsfil.
+**Se:** [command-logger dokumentation](/automation/hooks#command-logger)
 
 **Aktivér:**
 
@@ -273,23 +292,11 @@ grep '"action":"new"' ~/.openclaw/logs/commands.log | jq .
 
 **Se:** [command-logger dokumentation](/automation/hooks#command-logger)
 
-### soul-evil
-
-Udskifter indsprøjtet `SOUL.md`-indhold med `SOUL_EVIL.md` under et purge-vindue eller ved tilfældig chance.
-
-**Aktivér:**
-
-```bash
-openclaw hooks enable soul-evil
-```
-
-**Se:** [SOUL Evil Hook](/hooks/soul-evil)
-
 ### boot-md
 
-Kører `BOOT.md`, når gateway’en starter (efter kanaler starter).
-
 **Hændelser**: `gateway:startup`
+
+**Aktivér**:
 
 **Aktivér**:
 
@@ -298,5 +305,3 @@ openclaw hooks enable boot-md
 ```
 
 **Se:** [boot-md dokumentation](/automation/hooks#boot-md)
-
-

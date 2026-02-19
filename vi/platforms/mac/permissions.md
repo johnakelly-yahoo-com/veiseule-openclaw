@@ -1,4 +1,9 @@
 ---
+summary: "Tính bền vững của quyền trên macOS (TCC) và yêu cầu ký"
+read_when:
+  - Gỡ lỗi khi lời nhắc quyền macOS bị thiếu hoặc bị treo
+  - Đóng gói hoặc ký ứng dụng macOS
+  - Thay đổi bundle ID hoặc đường dẫn cài đặt ứng dụng
 title: "Quyền trên macOS"
 ---
 
@@ -40,5 +45,3 @@ Cách khắc phục: chuyển tệp vào workspace của OpenClaw (`~/.openclaw/
 
 Nếu bạn đang kiểm thử quyền, luôn ký bằng một chứng chỉ thật. Ad-hoc
 builds are only acceptable for quick local runs where permissions do not matter.
-
-

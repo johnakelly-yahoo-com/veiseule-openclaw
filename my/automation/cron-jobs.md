@@ -1,4 +1,9 @@
 ---
+summary: "Gateway scheduler အတွက် Cron jobs နှင့် wakeups"
+read_when:
+  - နောက်ခံအလုပ်များ သို့မဟုတ် wakeups များကို အချိန်ဇယားချထားခြင်း
+  - heartbeat များနှင့်အတူ သို့မဟုတ် အတူတကွ လည်ပတ်ရမည့် automation ကို ချိတ်ဆက်ခြင်း
+  - အချိန်ဇယားချထားသော အလုပ်များအတွက် heartbeat နှင့် cron ကြား ရွေးချယ်ဆုံးဖြတ်ခြင်း
 title: "Cron အလုပ်များ"
 ---
 
@@ -455,5 +460,3 @@ openclaw system event --mode now --text "Next heartbeat: check battery."
 - Forum topics အတွက် `-100…:topic:<id>` ကို အသုံးပြုပါ၊ ထင်ရှားပြီး မရှုပ်ထွေးစေရန်။
 - Logs သို့မဟုတ် သိမ်းဆည်းထားသော “last route” targets များတွင် `telegram:...` prefixes ကို မြင်တွေ့ပါက ပုံမှန်ဖြစ်ပါသည်;
   cron delivery သည် ၎င်းတို့ကို လက်ခံပြီး topic IDs များကို မှန်ကန်စွာ parse လုပ်နိုင်ပါသည်။
-
-

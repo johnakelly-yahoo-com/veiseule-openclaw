@@ -1,4 +1,9 @@
 ---
+summary: "„iMessage über den BlueBubbles‑macOS‑Server (REST Senden/Empfangen, Tippen, Reaktionen, Pairing, erweiterte Aktionen).“"
+read_when:
+  - Einrichten des BlueBubbles‑Kanals
+  - Fehlerbehebung beim Webhook‑Pairing
+  - Konfigurieren von iMessage auf macOS
 title: "„BlueBubbles“"
 ---
 
@@ -41,6 +46,10 @@ Status: Gebündeltes Plugin, das über HTTP mit dem BlueBubbles‑macOS‑Server
 4. Richten Sie die BlueBubbles‑Webhooks auf Ihr Gateway (Beispiel: `https://your-gateway-host:3000/bluebubbles-webhook?password=<password>`).
 
 5. Starten Sie das Gateway; es registriert den Webhook‑Handler und beginnt mit dem Pairing.
+
+Sicherheitshinweis:
+
+- Lege immer ein Webhook-Passwort fest. Wenn du das Gateway über einen Reverse Proxy (Tailscale Serve/Funnel, nginx, Cloudflare Tunnel, ngrok) bereitstellst, kann sich der Proxy über Loopback mit dem Gateway verbinden. Der BlueBubbles-Webhook-Handler behandelt Anfragen mit Forwarding-Headern als proxied und akzeptiert keine passwortlosen Webhooks.
 
 ## Messages.app aktiv halten (VM‑/Headless‑Setups)
 
@@ -247,14 +256,14 @@ Verfügbare Aktionen:
 OpenClaw kann _kurze_ Nachrichten‑IDs (z. B. `1`, `2`) anzeigen, um Tokens zu sparen.
 
 - `MessageSid` / `ReplyToId` können kurze IDs sein.
-- `MessageSidFull` / `ReplyToIdFull` enthalten die vollständigen Anbieter‑IDs.
+- Kontext: `MessageSidFull` / `ReplyToIdFull` in eingehenden Payloads
 - Kurze IDs sind im Speicher; sie können bei Neustart oder Cache‑Bereinigung verfallen.
 - Aktionen akzeptieren kurze oder vollständige `messageId`, kurze IDs führen jedoch zu Fehlern, wenn sie nicht mehr verfügbar sind.
 
 Verwenden Sie vollständige IDs für dauerhafte Automatisierungen und Speicherung:
 
 - Templates: `{{MessageSidFull}}`, `{{ReplyToIdFull}}`
-- Kontext: `MessageSidFull` / `ReplyToIdFull` in eingehenden Payloads
+- `MessageSidFull` / `ReplyToIdFull` enthalten die vollständigen Anbieter‑IDs.
 
 Siehe [Konfiguration](/gateway/configuration) für Template‑Variablen.
 
@@ -298,6 +307,7 @@ Anbieteroptionen:
 - `channels.bluebubbles.textChunkLimit`: Größe ausgehender Chunks in Zeichen (Standard: 4000).
 - `channels.bluebubbles.chunkMode`: `length` (Standard) teilt nur bei Überschreitung von `textChunkLimit`; `newline` teilt an Leerzeilen (Absatzgrenzen) vor der Längen‑Chunking.
 - `channels.bluebubbles.mediaMaxMb`: Eingehendes Medien‑Limit in MB (Standard: 8).
+- `channels.bluebubbles.mediaLocalRoots`: Explizite Allowlist absoluter lokaler Verzeichnisse, die für ausgehende lokale Medienpfade zulässig sind. Das Senden lokaler Pfade ist standardmäßig verweigert, sofern dies nicht konfiguriert ist. Pro-Account-Override: `channels.bluebubbles.accounts.<accountId> .mediaLocalRoots`.
 - `channels.bluebubbles.historyLimit`: Maximale Anzahl an Gruppen‑Nachrichten für den Kontext (0 deaktiviert).
 - `channels.bluebubbles.dmHistoryLimit`: DM‑Historienlimit.
 - `channels.bluebubbles.actions`: Bestimmte Aktionen aktivieren/deaktivieren.
@@ -336,5 +346,3 @@ Bevorzugen Sie `chat_guid` für stabiles Routing:
 - Für Status‑/Health‑Informationen: `openclaw status --all` oder `openclaw status --deep`.
 
 Für allgemeine Referenzen zum Kanal‑Workflow siehe [Channels](/channels) und den Leitfaden [Plugins](/tools/plugin).
-
-

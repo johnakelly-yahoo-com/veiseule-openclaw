@@ -1,4 +1,9 @@
 ---
+summary: "Yaygın OpenClaw kurulumları için şema ile birebir uyumlu yapılandırma örnekleri"
+read_when:
+  - OpenClaw’ın nasıl yapılandırılacağını öğrenirken
+  - Yapılandırma örnekleri ararken
+  - OpenClaw’ı ilk kez kurarken
 title: "Yapılandırma Örnekleri"
 ---
 
@@ -599,5 +604,3 @@ Birden fazla kişi botunuza DM gönderebiliyorsa (`allowFrom` içinde birden faz
 - Sağlayıcı kimlikleri farklılık gösterir (telefon numaraları, kullanıcı kimlikleri, kanal kimlikleri). Biçimi doğrulamak için sağlayıcı belgelerini kullanın.
 - Daha sonra eklenebilecek isteğe bağlı bölümler: `web`, `browser`, `ui`, `discovery`, `canvasHost`, `talk`, `signal`, `imessage`.
 - Daha ayrıntılı kurulum notları için [Sağlayıcılar](/channels/whatsapp) ve [Sorun Giderme](/gateway/troubleshooting) bölümlerine bakın.
-
-

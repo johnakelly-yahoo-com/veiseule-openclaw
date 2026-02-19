@@ -1,6 +1,11 @@
 ---
 title: Lobster
-description: Typed na workflow runtime para sa OpenClaw — composable na mga pipeline na may approval gates.---
+summary: "Typed na workflow runtime para sa OpenClaw na may resumable approval gates."
+description: Typed na workflow runtime para sa OpenClaw — composable na mga pipeline na may approval gates.
+read_when:
+  - Gusto mo ng deterministic na multi-step workflows na may malinaw na mga approval
+  - Kailangan mong i-resume ang isang workflow nang hindi muling pinapatakbo ang mga naunang hakbang
+---
 
 # Lobster
 
@@ -20,7 +25,7 @@ Ang Lobster ay isang workflow shell na nagbibigay-daan sa OpenClaw na magpatakbo
 
 ## Bakit DSL imbes na plain programs?
 
-Sadyang maliit ang Lobster. Ang layunin ay hindi "isang bagong wika," kundi isang predictable at AI-friendly na pipeline spec na may first-class approvals at resume tokens.
+Lobster is intentionally small. The goal is not "a new language," it's a predictable, AI-friendly pipeline spec with first-class approvals and resume tokens.
 
 - **Built-in ang approve/resume**: Kayang mag-prompt ng tao ang isang normal na program, pero hindi ito makaka-_pause at resume_ gamit ang isang durable token nang hindi ka gumagawa ng sarili mong runtime.
 - **Determinism + auditability**: Data ang mga pipeline, kaya madaling i-log, i-diff, i-replay, at i-review.
@@ -30,7 +35,7 @@ Sadyang maliit ang Lobster. Ang layunin ay hindi "isang bagong wika," kundi isan
 
 ## Paano ito gumagana
 
-Inilulunsad ng OpenClaw ang lokal na `lobster` CLI sa **tool mode** at sini-parse ang isang JSON envelope mula sa stdout.
+OpenClaw launches the local `lobster` CLI in **tool mode** and parses a JSON envelope from stdout.
 If the pipeline pauses for approval, the tool returns a `resumeToken` so you can continue later.
 
 ## Pattern: maliit na CLI + JSON pipes + approvals
@@ -333,5 +338,3 @@ Kung naroroon ang `requiresApproval`, suriin ang prompt at magpasya:
 
 - Thread: [https://x.com/plattenschieber/status/2014508656335770033](https://x.com/plattenschieber/status/2014508656335770033)
 - Repo: [https://github.com/bloomedai/brain-cli](https://github.com/bloomedai/brain-cli)
-
-

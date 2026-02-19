@@ -1,4 +1,7 @@
 ---
+summary: "Ondersteuningsstatus, mogelijkheden en configuratie van Microsoft Teams-bots"
+read_when:
+  - Werken aan MS Teams-kanaalfuncties
 title: "Microsoft Teams"
 ---
 
@@ -154,12 +157,12 @@ Voordat je OpenClaw configureert, moet je een Azure Bot-resource aanmaken.
 
    | Waarde             | Waarde                                                                                    |
    | ------------------ | ----------------------------------------------------------------------------------------- |
-   | **Bot-naam**     | Je botnaam, bijv. `openclaw-msteams` (moet uniek zijn) |
-   | **Abonnement**   | Selecteer je Azure-abonnement                                                             |
-   | **Resourcegroep** | Nieuw aanmaken of bestaand gebruiken                                                      |
-   | **Prijscategorie**   | **Free** voor dev/test                                                                    |
-   | **Type app**    | **Single Tenant** (aanbevolen – zie opmerking hieronder)               |
-   | **Type aanmaak**  | **Nieuwe Microsoft App-ID maken**                                                           |
+   | **Bot-naam**       | Je botnaam, bijv. `openclaw-msteams` (moet uniek zijn) |
+   | **Abonnement**     | Selecteer je Azure-abonnement                                                             |
+   | **Resourcegroep**  | Nieuw aanmaken of bestaand gebruiken                                                      |
+   | **Prijscategorie** | **Free** voor dev/test                                                                    |
+   | **Type app**       | **Single Tenant** (aanbevolen – zie opmerking hieronder)               |
+   | **Type aanmaak**   | **Nieuwe Microsoft App-ID maken**                                                         |
 
 > **Deprecatiebericht:** Het aanmaken van nieuwe multi-tenant bots is na 2025-07-31 afgeschaft. Gebruik **Single Tenant** voor nieuwe bots.
 
@@ -420,6 +423,8 @@ Als je afbeeldingen/bestanden in **kanalen** nodig hebt of **berichtgeschiedenis
 2. **Verleen admin‑toestemming** voor de tenant.
 3. Verhoog de Teams-app **manifestversie**, upload opnieuw en **herinstalleer de app in Teams**.
 4. **Teams volledig afsluiten en opnieuw starten** om gecachte app‑metadata te wissen.
+
+**Aanvullende permissie voor gebruikersvermeldingen:** Gebruikers-@mentions werken standaard voor gebruikers in het gesprek. Als je echter dynamisch wilt zoeken en gebruikers wilt vermelden die **niet in het huidige gesprek** zitten, voeg dan de permissie `User.Read.All` (Application) toe en geef admin consent.
 
 ## Bekende beperkingen
 
@@ -733,9 +738,9 @@ Bots hebben beperkte ondersteuning in privékanalen:
 2. Gebruik DM’s – gebruikers kunnen de bot altijd direct berichten
 3. Gebruik Graph API voor historische toegang (vereist `ChannelMessage.Read.All`)
 
-## Problemen oplossen
+## Veelvoorkomende problemen
 
-### Veelvoorkomende problemen
+### Problemen oplossen
 
 - **Afbeeldingen verschijnen niet in kanalen:** Graph‑rechten of admin‑toestemming ontbreken. Herinstalleer de Teams‑app en sluit/open Teams volledig.
 - **Geen antwoorden in kanaal:** mentions zijn standaard vereist; stel `channels.msteams.requireMention=false` in of configureer per team/kanaal.
@@ -765,5 +770,3 @@ Bots hebben beperkte ondersteuning in privékanalen:
 - [RSC permissions reference](https://learn.microsoft.com/en-us/microsoftteams/platform/graph-api/rsc/resource-specific-consent)
 - [Teams bot file handling](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/bots-filesv4) (kanaal/groep vereist Graph)
 - [Proactive messaging](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/conversations/send-proactive-messages)
-
-

@@ -1,15 +1,19 @@
 ---
+summary: "SOUL Evil ہُک (SOUL.md کو SOUL_EVIL.md کے ساتھ تبدیل کرنا)"
+read_when:
+  - آپ SOUL Evil ہُک کو فعال یا اس کی ٹیوننگ کرنا چاہتے ہیں
+  - آپ purge ونڈو یا رینڈم-چانس persona سوئچ چاہتے ہیں
 title: "SOUL Evil ہُک"
 ---
 
 # SOUL Evil ہُک
 
-SOUL Evil hook دوران **injected** `SOUL.md` مواد کو `SOUL_EVIL.md` سے تبدیل کر دیتا ہے
+The SOUL Evil hook swaps the **injected** `SOUL.md` content with `SOUL_EVIL.md` during
 a purge window or by random chance. It does **not** modify files on disk.
 
 ## یہ کیسے کام کرتا ہے
 
-جب `agent:bootstrap` چلتا ہے، تو hook میموری میں `SOUL.md` کے مواد کو تبدیل کر سکتا ہے
+When `agent:bootstrap` runs, the hook can replace the `SOUL.md` content in memory
 before the system prompt is assembled. If `SOUL_EVIL.md` is missing or empty,
 OpenClaw logs a warning and keeps the normal `SOUL.md`.
 
@@ -62,5 +66,3 @@ openclaw hooks enable soul-evil
 ## یہ بھی دیکھیں
 
 - [ہکس](/automation/hooks)
-
-

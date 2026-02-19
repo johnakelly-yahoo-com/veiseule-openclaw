@@ -1,4 +1,9 @@
-------
+---
+title: "TOOLS.md shabloni"
+summary: "TOOLS.md uchun ish maydoni shabloni"
+read_when:
+  - Ish maydonini qo‘lda ishga tushirish
+---
 
 # TOOLS.md — Mahalliy qaydlar
 
@@ -40,5 +45,3 @@ Ko‘nikmalar umumiy. Sizning sozlamangiz — faqat sizniki. Ularni alohida saql
 ---
 
 Ishingizga yordam beradigan hamma narsani qo‘shing. Bu sizning shpargalkangiz.
-
-

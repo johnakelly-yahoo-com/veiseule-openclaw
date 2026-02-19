@@ -1,4 +1,7 @@
 ---
+summary: "Cách các ghi chú âm thanh/giọng nói đầu vào được tải xuống, phiên âm và chèn vào phản hồi"
+read_when:
+  - Thay đổi phiên âm âm thanh hoặc xử lý media
 title: "Âm thanh và Ghi chú giọng nói"
 ---
 
@@ -97,8 +100,8 @@ Lưu ý: Việc phát hiện nhị phân là best‑effort trên macOS/Linux/Win
 - Deepgram sử dụng `DEEPGRAM_API_KEY` khi dùng `provider: "deepgram"`.
 - Chi tiết thiết lập Deepgram: [Deepgram (phiên âm âm thanh)](/providers/deepgram).
 - Các nhà cung cấp âm thanh có thể ghi đè `baseUrl`, `headers` và `providerOptions` thông qua `tools.media.audio`.
-- Giới hạn kích thước mặc định là 20MB (`tools.media.audio.maxBytes`). Âm thanh vượt quá giới hạn sẽ bị bỏ qua cho mô hình đó và mục tiếp theo sẽ được thử.
-- `maxChars` mặc định cho audio là **chưa đặt** (toàn bộ bản ghi). Đặt `tools.media.audio.maxChars` hoặc `maxChars` cho từng mục để rút gọn đầu ra.
+- Default size cap is 20MB (`tools.media.audio.maxBytes`). Oversize audio is skipped for that model and the next entry is tried.
+- Default `maxChars` for audio is **unset** (full transcript). Set `tools.media.audio.maxChars` or per-entry `maxChars` to trim output.
 - Mặc định tự động của OpenAI là `gpt-4o-mini-transcribe`; đặt `model: "gpt-4o-transcribe"` để có độ chính xác cao hơn.
 - Dùng `tools.media.audio.attachments` để xử lý nhiều ghi chú giọng nói (`mode: "all"` + `maxAttachments`).
 - Bản phiên âm có sẵn cho các template dưới dạng `{{Transcript}}`.
@@ -106,8 +109,25 @@ Lưu ý: Việc phát hiện nhị phân là best‑effort trên macOS/Linux/Win
 
 ## Các điểm dễ sai
 
+Khi `requireMention: true` được thiết lập cho một cuộc trò chuyện nhóm, OpenClaw hiện sẽ phiên âm âm thanh **trước** khi kiểm tra đề cập. Điều này cho phép xử lý tin nhắn thoại ngay cả khi chúng chứa đề cập.
+
+**Cách hoạt động:**
+
+1. Nếu một tin nhắn thoại không có nội dung văn bản và nhóm yêu cầu đề cập (mention), OpenClaw sẽ thực hiện phiên âm "preflight".
+2. Bản phiên âm được kiểm tra các mẫu đề cập (ví dụ: `@BotName`, emoji kích hoạt).
+3. Nếu phát hiện đề cập, tin nhắn sẽ tiếp tục đi qua toàn bộ quy trình phản hồi.
+4. Bản phiên âm được dùng để phát hiện đề cập để các ghi chú thoại có thể vượt qua bước kiểm soát đề cập.
+
+**Hành vi dự phòng:**
+
+- Nếu quá trình phiên âm thất bại trong giai đoạn preflight (timeout, lỗi API, v.v.), tin nhắn sẽ được xử lý dựa trên phát hiện đề cập chỉ từ văn bản.
+- Điều này đảm bảo rằng các tin nhắn kết hợp (văn bản + âm thanh) không bao giờ bị loại bỏ nhầm.
+
+**Ví dụ:** Một người dùng gửi ghi chú thoại nói "Hey @Claude, what's the weather?" trong một nhóm Telegram với `requireMention: true`. Ghi chú thoại được phiên âm, đề cập được phát hiện và tác nhân sẽ phản hồi.
+
+## Các điểm dễ sai
+
 - Scope rules use first-match wins. `chatType` is normalized to `direct`, `group`, or `room`.
 - Đảm bảo CLI của bạn thoát với mã 0 và in văn bản thuần; JSON cần được xử lý lại qua `jq -r .text`.
 - Giữ thời gian chờ ở mức hợp lý (`timeoutSeconds`, mặc định 60s) để tránh chặn hàng đợi phản hồi.
-
-
+- Phiên âm preflight chỉ xử lý **tệp âm thanh đầu tiên** để phát hiện đề cập. Các tệp âm thanh bổ sung sẽ được xử lý trong giai đoạn hiểu phương tiện chính.

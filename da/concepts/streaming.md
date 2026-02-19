@@ -1,4 +1,9 @@
 ---
+summary: "Streaming- og chunking-adfærd (blokbesvarelser, udkast-streaming, grænser)"
+read_when:
+  - Forklaring af, hvordan streaming eller chunking fungerer på kanaler
+  - Ændring af blokstreaming eller kanal-chunking-adfærd
+  - Fejlfinding af duplikerede/tidlige blokbesvarelser eller udkast-streaming
 title: "Streaming og Chunking"
 ---
 
@@ -9,7 +14,7 @@ OpenClaw har to separate “streaming”-lag:
 - **Blokér streaming (kanal):** Udleder **blokke** som assistenten skriver. Disse er normale kanalmeddelelser (ikke token deltas).
 - **Token-agtig streaming (kun Telegram):** opdaterer en **udkast-boble** med delvis tekst under generering; den endelige besked sendes til sidst.
 
-Der er **ingen ægte token streaming** til eksterne kanalbeskeder i dag. Telegram udkast streaming er den eneste del-stream overflade.
+Der er **ingen ægte token-delta-streaming** til kanalbeskeder i dag. Telegram preview-streaming er den eneste delvise streaming-flade.
 
 ## Blokstreaming (kanalbeskeder)
 
@@ -94,8 +99,8 @@ Dette svarer til:
 - **Ingen blokstreaming:** `blockStreamingDefault: "off"` (kun endeligt svar).
 
 **Kanal note:** For ikke-Telegram kanaler, blok streaming er **off unless**
-`*.blockStreaming` er udtrykkeligt indstillet til `true`. Telegram kan streame kladder
-(`channels.telegram.streamMode`) uden blok svar.
+`*.blockStreaming` er udtrykkeligt indstillet til `true`. Telegram kan streame en live preview
+(`channels.telegram.streamMode`) uden blok-svar.
 
 Påmindelse om konfigurationsplacering: `blockStreaming*`-standarder ligger under
 `agents.defaults`, ikke i rod-konfigurationen.
@@ -113,20 +118,19 @@ Telegram er den eneste kanal med udkast-streaming:
 - Udkast-streaming er adskilt fra blokstreaming; blokbesvarelser er som standard slået fra og aktiveres kun via `*.blockStreaming: true` på ikke-Telegram-kanaler.
 - Det endelige svar er stadig en normal besked.
 - `/reasoning stream` skriver ræsonnement ind i udkast-boblen (kun Telegram).
-
-Når udkast-streaming er aktiv, deaktiverer OpenClaw blokstreaming for det svar for at undgå dobbelt-streaming.
+- Ikke-tekst/komplekse finals falder tilbage til normal levering af slutbesked.
+- `/reasoning stream` skriver ræsonnering ind i live preview (kun Telegram).
 
 ```
-Telegram (private + topics)
-  └─ sendMessageDraft (draft bubble)
-       ├─ streamMode=partial → update latest text
-       └─ streamMode=block   → chunker updates draft
-  └─ final reply → normal message
+Telegram
+  └─ sendMessage (midlertidig preview-besked)
+       ├─ streamMode=partial → rediger seneste tekst
+       └─ streamMode=block   → chunker + redigeringsopdateringer
+  └─ endeligt tekst-svar → endelig redigering af samme besked
+  └─ fallback: ryd preview + normal endelig levering (medie/kompleks)
 ```
 
 Forklaring:
 
-- `sendMessageDraft`: Telegram-udkast-boble (ikke en rigtig besked).
-- `final reply`: normal afsendelse af Telegram-besked.
-
-
+- `preview message`: midlertidig Telegram-besked, der opdateres under generering.
+- `final edit`: redigering på stedet af den samme preview-besked (kun tekst).

@@ -1,4 +1,8 @@
 ---
+summary: "Onboarding bằng script và thiết lập tác tử cho OpenClaw CLI"
+read_when:
+  - Bạn đang tự động hóa onboarding trong script hoặc CI
+  - Bạn cần các ví dụ không tương tác cho từng nhà cung cấp cụ thể
 title: "Tự động hóa CLI"
 sidebarTitle: "Tự động hóa CLI"
 ---
@@ -109,6 +113,25 @@ Thêm `--json` để có bản tóm tắt ở dạng máy có thể đọc.
     ```
   
 </Accordion>
+  <Accordion title="Custom provider example">```bash
+openclaw onboard --non-interactive \
+  --mode local \
+  --auth-choice custom-api-key \
+  --custom-base-url "https://llm.example.com/v1" \
+  --custom-model-id "foo-large" \
+  --custom-api-key "$CUSTOM_API_KEY" \
+  --custom-provider-id "my-custom" \
+  --custom-compatibility anthropic \
+  --gateway-port 18789 \
+  --gateway-bind loopback
+```
+
+    ```
+    `--custom-api-key` là tùy chọn. Nếu bỏ qua, quá trình khởi tạo sẽ kiểm tra `CUSTOM_API_KEY`.
+    ```
+
+  
+</Accordion>
 </AccordionGroup>
 
 ## Thêm một tác tử khác
@@ -124,7 +147,7 @@ openclaw agents add work \
   --json
 ```
 
-Những gì nó thiết lập:
+Ghi chú:
 
 - `agents.list[].name`
 - `agents.list[].workspace`
@@ -132,14 +155,12 @@ Những gì nó thiết lập:
 
 Ghi chú:
 
-- Workspace mặc định tuân theo `~/.openclaw/workspace-<agentId>`.
-- Thêm `bindings` để định tuyến tin nhắn đến (trình hướng dẫn có thể làm việc này).
-- Các cờ không tương tác: `--model`, `--agent-dir`, `--bind`, `--non-interactive`.
+- Trung tâm onboarding: [Onboarding Wizard (CLI)](/start/wizard)
+- Tham chiếu đầy đủ: [CLI Onboarding Reference](/start/wizard-cli-reference)
+- Tham chiếu lệnh: [`openclaw onboard`](/cli/onboard)
 
 ## Tài liệu liên quan
 
 - Trung tâm onboarding: [Onboarding Wizard (CLI)](/start/wizard)
 - Tham chiếu đầy đủ: [CLI Onboarding Reference](/start/wizard-cli-reference)
 - Tham chiếu lệnh: [`openclaw onboard`](/cli/onboard)
-
-

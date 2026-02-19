@@ -1,4 +1,7 @@
 ---
+summary: "इनबाउंड ऑटो-रिप्लाई रन को क्रमबद्ध करने वाला कमांड क्यू डिज़ाइन"
+read_when:
+  - ऑटो-रिप्लाई निष्पादन या समांतरता बदलते समय
 title: "कमांड क्यू"
 ---
 
@@ -23,14 +26,14 @@ title: "कमांड क्यू"
 
 इनबाउंड संदेश वर्तमान रन को स्टियर कर सकते हैं, फॉलोअप टर्न की प्रतीक्षा कर सकते हैं, या दोनों कर सकते हैं:
 
-- `steer`: वर्तमान रन में तुरंत इंजेक्ट करता है (अगली टूल सीमा के बाद लंबित टूल कॉल्स रद्द कर देता है)। यदि स्ट्रीमिंग नहीं है, तो followup पर वापस जाता है।
+- `steer`: inject immediately into the current run (cancels pending tool calls after the next tool boundary). If not streaming, falls back to followup.
 - `followup`: वर्तमान रन समाप्त होने के बाद अगले एजेंट टर्न के लिए एन्क्यू करें।
-- `collect`: कतारबद्ध सभी संदेशों को एक **एकल** followup टर्न में समेकित करता है (डिफ़ॉल्ट)। यदि संदेश अलग-अलग चैनलों/थ्रेड्स को लक्षित करते हैं, तो रूटिंग बनाए रखने के लिए वे अलग-अलग निकाले जाते हैं।
+- `collect`: coalesce all queued messages into a **single** followup turn (default). If messages target different channels/threads, they drain individually to preserve routing.
 - `steer-backlog` (उर्फ `steer+backlog`): अभी स्टियर करें **और** फॉलोअप टर्न के लिए संदेश सुरक्षित रखें।
 - `interrupt` (लीगेसी): उस सत्र के सक्रिय रन को निरस्त करें, फिर नवीनतम संदेश चलाएँ।
 - `queue` (लीगेसी उपनाम): `steer` के समान।
 
-Steer-backlog का अर्थ है कि steered रन के बाद आपको एक followup प्रतिक्रिया मिल सकती है, इसलिए
+Steer-backlog means you can get a followup response after the steered run, so
 streaming surfaces can look like duplicates. Prefer `collect`/`steer` if you want
 one response per inbound message.
 Send `/queue collect` as a standalone command (per-session) or set `messages.queue.byChannel.discord: "collect"`.
@@ -63,7 +66,7 @@ Send `/queue collect` as a standalone command (per-session) or set `messages.que
 - `cap`: प्रति सत्र अधिकतम क्यू किए गए संदेश।
 - `drop`: ओवरफ़्लो नीति (`old`, `new`, `summarize`)।
 
-Summarize हटाए गए संदेशों की एक छोटी बुलेट सूची रखता है और उसे एक सिंथेटिक followup प्रॉम्प्ट के रूप में इंजेक्ट करता है।
+Summarize keeps a short bullet list of dropped messages and injects it as a synthetic followup prompt.
 Defaults: `debounceMs: 1000`, `cap: 20`, `drop: summarize`.
 
 ## प्रति-सत्र ओवरराइड
@@ -84,5 +87,3 @@ Defaults: `debounceMs: 1000`, `cap: 20`, `drop: summarize`.
 
 - यदि कमांड अटके हुए लगें, तो verbose लॉग सक्षम करें और क्यू के ड्रेन होने की पुष्टि के लिए “queued for …ms” पंक्तियाँ देखें।
 - यदि आपको क्यू गहराई की आवश्यकता हो, तो verbose लॉग सक्षम करें और क्यू टाइमिंग पंक्तियों पर नज़र रखें।
-
-

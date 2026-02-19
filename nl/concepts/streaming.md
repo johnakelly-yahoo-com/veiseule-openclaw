@@ -1,4 +1,9 @@
 ---
+summary: "Streaming- en chunkinggedrag (blokantwoorden, conceptstreaming, limieten)"
+read_when:
+  - Uitleggen hoe streaming of chunking werkt op kanalen
+  - Blokstreaming of kanaal-chunkinggedrag wijzigen
+  - Dubbele/vroege blokantwoorden of conceptstreaming debuggen
 title: "Streaming en Chunking"
 ---
 
@@ -104,17 +109,17 @@ Herinnering aan configlocatie: de standaardwaarden voor `blockStreaming*` staan 
 
 Telegram is het enige kanaal met conceptstreaming:
 
-- Gebruikt Bot API `sendMessageDraft` in **privéchats met topics**.
+- Gebruikt Bot API `sendMessage` (eerste update) + `editMessageText` (volgende updates).
 - `channels.telegram.streamMode: "partial" | "block" | "off"`.
   - `partial`: conceptupdates met de nieuwste streamtekst.
   - `block`: conceptupdates in gechunkte blokken (dezelfde chunkerregels).
   - `off`: geen conceptstreaming.
 - Concept-chunkconfig (alleen voor `streamMode: "block"`): `channels.telegram.draftChunk` (standaardwaarden: `minChars: 200`, `maxChars: 800`).
-- Conceptstreaming staat los van blokstreaming; blokantwoorden staan standaard uit en worden alleen ingeschakeld door `*.blockStreaming: true` op niet-Telegram-kanalen.
-- Het definitieve antwoord is nog steeds een normaal bericht.
+- Preview-streaming staat los van block-streaming.
+- Wanneer conceptstreaming actief is, schakelt OpenClaw blokstreaming voor dat antwoord uit om dubbele streaming te voorkomen.
+- Tekst-only finals worden toegepast door het previewbericht ter plekke te bewerken.
+- Niet-tekstuele/complexe finals vallen terug op normale levering van het definitieve bericht.
 - `/reasoning stream` schrijft redenering in de conceptbubbel (alleen Telegram).
-
-Wanneer conceptstreaming actief is, schakelt OpenClaw blokstreaming voor dat antwoord uit om dubbele streaming te voorkomen.
 
 ```
 Telegram (private + topics)
@@ -126,7 +131,5 @@ Telegram (private + topics)
 
 Legenda:
 
-- `sendMessageDraft`: Telegram-conceptbubbel (geen echt bericht).
-- `final reply`: normaal Telegram-bericht verzenden.
-
-
+- `preview message`: tijdelijk Telegram-bericht dat tijdens het genereren wordt bijgewerkt.
+- `final edit`: bewerking ter plekke van hetzelfde previewbericht (alleen tekst).

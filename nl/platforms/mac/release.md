@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw macOS-releasechecklist (Sparkle-feed, packaging, ondertekening)"
+read_when:
+  - Een OpenClaw macOS-release maken of valideren
+  - De Sparkle-appcast of feed-assets bijwerken
 title: "macOS-release"
 ---
 
@@ -6,7 +10,7 @@ title: "macOS-release"
 
 Deze app levert nu Sparkle automatische updates. Release-builds moeten met een Developer ID worden ondertekend, gecomprimeerd (zip) en gepubliceerd met een ondertekende appcast-vermelding.
 
-## Vereisten
+## Prereqs
 
 - Developer ID Application-certificaat geïnstalleerd (voorbeeld: `Developer ID Application: <Developer Name> (<TEAMID>)`).
 - Sparkle-privésleutelpad ingesteld in de omgeving als `SPARKLE_PRIVATE_KEY_FILE` (pad naar je Sparkle ed25519-privésleutel; publieke sleutel ingebakken in Info.plist). Als dit ontbreekt, controleer `~/.profile`.
@@ -79,5 +83,3 @@ Commit de bijgewerkte `appcast.xml` samen met de release-artefacten (zip + dSYM)
   - Voer op een eerdere publieke build “Check for Updates…” uit via het tabblad About en verifieer dat Sparkle de nieuwe build probleemloos installeert.
 
 Definition of done: ondertekende app + appcast zijn gepubliceerd, de updateflow werkt vanuit een oudere geïnstalleerde versie en release-artefacten zijn gekoppeld aan de GitHub-release.
-
-

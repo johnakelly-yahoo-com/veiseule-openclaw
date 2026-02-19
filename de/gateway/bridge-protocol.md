@@ -1,4 +1,9 @@
 ---
+summary: "Bridge-Protokoll (Legacy-Nodes): TCP JSONL, Pairing, Scoped RPC"
+read_when:
+  - Erstellen oder Debuggen von Node-Clients (iOS/Android/macOS Node-Modus)
+  - Untersuchung von Pairing- oder Bridge-Authentifizierungsfehlern
+  - Audit der vom Gateway exponierten Node-Oberfläche
 title: "Bridge-Protokoll"
 ---
 
@@ -31,7 +36,9 @@ Legacy-`bridge.*`-Konfigurationsschlüssel sind nicht mehr Teil des Konfiguratio
 - Der Legacy-Standard-Listener-Port war `18790` (aktuelle Builds starten keine TCP-Bridge).
 
 Wenn TLS aktiviert ist, enthalten Discovery-TXT-Records `bridgeTls=1` plus
-`bridgeTlsSha256`, damit Nodes das Zertifikat pinnen können.
+`bridgeTlsSha256`, damit Nodes das Zertifikat pinnen können. Beachten Sie, dass Bonjour/mDNS-TXT-Records
+nicht authentifiziert sind; Clients dürfen den beworbenen Fingerabdruck nicht als
+autoritativen Pin ohne ausdrückliche Benutzerabsicht oder andere Out-of-Band-Verifizierung behandeln.
 
 ## Handshake + Pairing
 
@@ -83,5 +90,3 @@ Payload-Felder (alle optional, sofern nicht anders angegeben):
 
 Die Bridge ist derzeit **implizit v1** (keine Min-/Max-Aushandlung). Abwärtskompatibilität
 wird erwartet; fügen Sie vor jeglichen Breaking Changes ein Bridge-Protokoll-Versionsfeld hinzu.
-
-

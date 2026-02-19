@@ -1,4 +1,7 @@
 ---
+summary: "Как запускать тесты локально (vitest) и когда использовать режимы force/coverage"
+read_when:
+  - Запуск или исправление тестов
 title: "Тесты"
 ---
 
@@ -10,7 +13,9 @@ title: "Тесты"
 
 - `pnpm test:coverage`: Запускает Vitest с покрытием V8. Глобальные пороги — 70% для строк/ветвей/функций/операторов. Из покрытия исключены точки входа с высокой долей интеграции (проводка CLI, мосты gateway/telegram, статический сервер webchat), чтобы цель оставалась сфокусированной на логике, тестируемой модульными тестами.
 
-- `pnpm test:e2e`: Запускает сквозные дымовые тесты Gateway (шлюз) (сопряжение нескольких экземпляров WS/HTTP/node).
+- `pnpm test` на Node 24+: OpenClaw автоматически отключает Vitest `vmForks` и использует `forks`, чтобы избежать `ERR_VM_MODULE_LINK_FAILURE` / `module is already linked`. Вы можете принудительно задать поведение с помощью `OPENCLAW_TEST_VM_FORKS=0|1`.
+
+- `pnpm test:e2e`: Запускает сквозные дымовые тесты Gateway (шлюз) (сопряжение нескольких экземпляров WS/HTTP/node). По умолчанию используется `vmForks` + адаптивные воркеры в `vitest.e2e.config.ts`; настройка через `OPENCLAW_E2E_WORKERS=<n>` и установка `OPENCLAW_E2E_VERBOSE=1` для подробных логов.
 
 - `pnpm test:live`: Запускает live‑тесты провайдеров (minimax/zai). Требуются ключи API и `LIVE=1` (или специфичный для провайдера `*_LIVE_TEST=1`) для снятия пропуска.
 
@@ -48,5 +53,3 @@ scripts/e2e/onboard-docker.sh
 ```bash
 pnpm test:docker:qr
 ```
-
-

@@ -1,4 +1,8 @@
-------
+---
+summary: "Foydalanuvchi profili yozuvi"
+read_when:
+  - Ish maydonini qo‘lda ishga tushirish
+---
 
 # USER.md — Insoningiz haqida
 
@@ -16,6 +20,4 @@ _(Ular nimaga ahamiyat beradi? What projects are they working on? What annoys th
 
 ---
 
-Qanchalik ko‘p bilsangiz, shunchalik yaxshiroq yordam bera olasiz. Ammo unutmang — siz inson haqida o‘rganayapsiz, dosye tuzmayapsiz. Farqni hurmat qiling.
-
-
+The more you know, the better you can help. But remember — you're learning about a person, not building a dossier. Respect the difference.

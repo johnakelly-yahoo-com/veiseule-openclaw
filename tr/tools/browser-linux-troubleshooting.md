@@ -1,4 +1,6 @@
 ---
+summary: "Linux’te OpenClaw tarayıcı denetimi için Chrome/Brave/Edge/Chromium CDP başlatma sorunlarını giderin"
+read_when: "Linux’te tarayıcı denetimi başarısız olduğunda, özellikle snap Chromium ile"
 title: "Tarayıcı Sorun Giderme"
 ---
 
@@ -135,5 +137,3 @@ Notlar:
 
 - `chrome` profili, mümkün olduğunda **sistem varsayılan Chromium tarayıcınızı** kullanır.
 - Yerel `openclaw` profilleri `cdpPort`/`cdpUrl`’i otomatik atar; bunları yalnızca uzak CDP için ayarlayın.
-
-

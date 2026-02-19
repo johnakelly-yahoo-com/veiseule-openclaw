@@ -1,4 +1,9 @@
 ---
+summary: "Extensión de Chrome: permita que OpenClaw controle su pestaña de Chrome existente"
+read_when:
+  - Desea que el agente controle una pestaña de Chrome existente (botón de la barra de herramientas)
+  - Necesita un Gateway remoto + automatización del navegador local vía Tailscale
+  - Desea comprender las implicaciones de seguridad de la toma de control del navegador
 title: "Extensión de Chrome"
 ---
 
@@ -171,5 +176,3 @@ Relacionado:
 - Descripción general de la herramienta de navegador: [Browser](/tools/browser)
 - Auditoría de seguridad: [Security](/gateway/security)
 - Configuración de Tailscale: [Tailscale](/gateway/tailscale)
-
-

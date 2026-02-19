@@ -1,73 +1,72 @@
 ---
-title: "Image and Media Support"
+summary: "Yuborish, gateway va agent javoblari uchun tasvir va media bilan ishlash qoidalari"
+read_when:
+  - Media pipeline yoki biriktirmalarni o‘zgartirish
+title: "Tasvir va Media qo‘llab-quvvatlashi"
 ---
 
-# Image & Media Support — 2025-12-05
+# Tasvir va Media qo‘llab-quvvatlashi — 2025-12-05
 
-The WhatsApp channel runs via **Baileys Web**. This document captures the current media handling rules for send, gateway, and agent replies.
+WhatsApp kanali **Baileys Web** orqali ishlaydi. Ushbu hujjat yuborish, shlyuz va agent javoblari uchun joriy media bilan ishlash qoidalarini qamrab oladi.
 
-## Goals
+## Maqsadlar
 
-- Send media with optional captions via `openclaw message send --media`.
-- Allow auto-replies from the web inbox to include media alongside text.
-- Keep per-type limits sane and predictable.
+- `openclaw message send --media` orqali ixtiyoriy sarlavhali media yuborish.
+- Veb inboxdan avtomatik javoblarga matn bilan birga media qo‘shilishiga ruxsat berish.
+- Har bir tur bo‘yicha limitlarni oqilona va bashorat qilinadigan saqlash.
 
-## CLI Surface
+## CLI interfeysi
 
 - `openclaw message send --media <path-or-url> [--message <caption>]`
-  - `--media` optional; caption can be empty for media-only sends.
-  - `--dry-run` prints the resolved payload; `--json` emits `{ channel, to, messageId, mediaUrl, caption }`.
+  - `--media` ixtiyoriy; media-only yuborish uchun sarlavha bo‘sh bo‘lishi mumkin.
+  - `--dry-run` yechilgan payloadni chiqaradi; `--json` `{ channel, to, messageId, mediaUrl, caption }` ni chiqaradi.
 
-## WhatsApp Web channel behavior
+## WhatsApp Web kanali xatti-harakati
 
-- Input: local file path **or** HTTP(S) URL.
-- Flow: load into a Buffer, detect media kind, and build the correct payload:
-  - **Images:** resize & recompress to JPEG (max side 2048px) targeting `agents.defaults.mediaMaxMb` (default 5 MB), capped at 6 MB.
-  - **Audio/Voice/Video:** pass-through up to 16 MB; audio is sent as a voice note (`ptt: true`).
-  - **Documents:** anything else, up to 100 MB, with filename preserved when available.
-- WhatsApp GIF-style playback: send an MP4 with `gifPlayback: true` (CLI: `--gif-playback`) so mobile clients loop inline.
-- MIME detection prefers magic bytes, then headers, then file extension.
-- Caption comes from `--message` or `reply.text`; empty caption is allowed.
-- Logging: non-verbose shows `↩️`/`✅`; verbose includes size and source path/URL.
+- Kirish: lokal fayl yo‘li **yoki** HTTP(S) URL.
+- Oqim: Bufferga yuklash, media turini aniqlash va to‘g‘ri payloadni qurish:
+  - **Rasmlar:** JPEG ga qayta o‘lchash va qayta siqish (eng katta tomoni 2048px) `agents.defaults.mediaMaxMb` (standart 5 MB) ni nishonga olib, 6 MB bilan cheklanadi.
+  - **Audio/Ovoz/Video:** 16 MB gacha pass-through; audio ovozli xabar sifatida yuboriladi (`ptt: true`).
+  - **Hujjatlar:** boshqa hammasi, 100 MB gacha, imkon bo‘lsa fayl nomi saqlanadi.
+- WhatsApp GIF-uslubidagi ijro: MP4 ni `gifPlayback: true` bilan yuboring (CLI: `--gif-playback`), shunda mobil mijozlar ichida aylana ijro etadi.
+- MIME aniqlash avval sehrli baytlarga, keyin sarlavhalarga, so‘ng fayl kengaytmasiga tayanadi.
+- Sarlavha `--message` yoki `reply.text` dan olinadi; bo‘sh sarlavhaga ruxsat beriladi.
+- Loglash: verbose bo‘lmagan rejimda `↩️`/`✅`; verbose rejimda hajm va manba yo‘li/URL ko‘rsatiladi.
 
-## Auto-Reply Pipeline
+## Avtomatik javob quvuri
 
-- `getReplyFromConfig` returns `{ text?, mediaUrl?, mediaUrls? }`.
-- When media is present, the web sender resolves local paths or URLs using the same pipeline as `openclaw message send`.
-- Multiple media entries are sent sequentially if provided.
+- `getReplyFromConfig` `{ text?, mediaUrl?, mediaUrls? }` ni qaytaradi. Media mavjud bo‘lsa, veb yuboruvchi lokal yo‘llar yoki URLlarni `openclaw message send` bilan bir xil quvur orqali yechadi.
+- Agar bir nechta media berilgan bo‘lsa, ular ketma-ket yuboriladi.
+- Buyruqlarga kiruvchi media (Pi)
 
-## Inbound Media to Commands (Pi)
+## Kirish veb xabarlari media ni o‘z ichiga olganda, OpenClaw vaqtinchalik faylga yuklab oladi va shablonlash o‘zgaruvchilarini taqdim etadi:
 
-- When inbound web messages include media, OpenClaw downloads to a temp file and exposes templating variables:
-  - `{{MediaUrl}}` pseudo-URL for the inbound media.
-  - `{{MediaPath}}` local temp path written before running the command.
-- When a per-session Docker sandbox is enabled, inbound media is copied into the sandbox workspace and `MediaPath`/`MediaUrl` are rewritten to a relative path like `media/inbound/<filename>`.
-- Media understanding (if configured via `tools.media.*` or shared `tools.media.models`) runs before templating and can insert `[Image]`, `[Audio]`, and `[Video]` blocks into `Body`.
-  - Audio sets `{{Transcript}}` and uses the transcript for command parsing so slash commands still work.
-  - Video and image descriptions preserve any caption text for command parsing.
-- By default only the first matching image/audio/video attachment is processed; set `tools.media.<cap>.attachments` to process multiple attachments.
+- Kirish media uchun `{{MediaUrl}}` psevdo-URL.
+  - Buyruqni ishga tushirishdan oldin yozilgan lokal vaqtinchalik yo‘l `{{MediaPath}}`.
+  - Agar sessiya bo‘yicha Docker sandbox yoqilgan bo‘lsa, kiruvchi media sandbox ish maydoniga ko‘chiriladi va `MediaPath`/`MediaUrl` `media/inbound/<filename>` kabi nisbiy yo‘lga qayta yoziladi.
+- Har bir sessiya uchun Docker sandbox yoqilganda, kiruvchi media sandbox ishchi maydoniga ko‘chiriladi va `MediaPath`/`MediaUrl` `media/inbound/<filename>` kabi nisbiy yo‘lga qayta yoziladi.
+- Audio `{{Transcript}}` ni o‘rnatadi va buyruqlarni tahlil qilish uchun transkriptni ishlatadi, shunda slash-buyruqlar ishlashda davom etadi.
+  - Audio `{{Transcript}}` ni o‘rnatadi va buyruqlarni tahlil qilish uchun transkriptdan foydalanadi, shuning uchun slash-buyruqlar ishlashda davom etadi.
+  - Video va rasm tavsiflari buyruqlarni tahlil qilish uchun har qanday sarlavha (caption) matnini saqlab qoladi.
+- By default only the first matching image/audio/video attachment is processed; set \`tools.media.<cap>**Chiqish yuborish limitlari (WhatsApp web send)**
 
-## Limits & Errors
+## Rasmlar: qayta siqilgandan keyin ~6 MB limit.
 
-**Outbound send caps (WhatsApp web send)**
+Audio/ovoz/video: 16 MB limit; hujjatlar: 100 MB limit.
 
-- Images: ~6 MB cap after recompression.
-- Audio/voice/video: 16 MB cap; documents: 100 MB cap.
-- Oversize or unreadable media → clear error in logs and the reply is skipped.
+- Haddan tashqari katta yoki o‘qib bo‘lmaydigan media → loglarda aniq xato va javob o‘tkazib yuboriladi.
+- **Media tushunish limitlari (transkripsiya/tavsif)**
+- Rasm standarti: 10 MB (`tools.media.image.maxBytes`).
 
-**Media understanding caps (transcription/description)**
+Audio standarti: 20 MB (`tools.media.audio.maxBytes`).
 
-- Image default: 10 MB (`tools.media.image.maxBytes`).
-- Audio default: 20 MB (`tools.media.audio.maxBytes`).
-- Video default: 50 MB (`tools.media.video.maxBytes`).
-- Oversize media skips understanding, but replies still go through with the original body.
+- Video standarti: 50 MB (`tools.media.video.maxBytes`).
+- Haddan tashqari katta media tushunish bosqichini o‘tkazib yuboradi, ammo javoblar asl body bilan davom etadi.
+- Testlar uchun eslatmalar
+- Rasm/audio/hujjat holatlari uchun yuborish + javob oqimlarini qamrab oling.
 
-## Notes for Tests
+## Rasmlar uchun qayta siqishni (hajm chegarasi) va audio uchun ovozli xabar bayrog‘ini tekshiring.
 
-- Cover send + reply flows for image/audio/document cases.
-- Validate recompression for images (size bound) and voice-note flag for audio.
-- Ensure multi-media replies fan out as sequential sends.
-
-
-
-{/* v2 */}
+- Ko‘p media javoblari ketma-ket yuborilishini ta’minlang.
+- Tugunlar: pairing, imkoniyatlar, ruxsatlar va canvas/camera/screen/system uchun CLI yordamchilari
+- Ko‘p media javoblar ketma-ket yuborishlar sifatida tarqatilishini ta’minlang.

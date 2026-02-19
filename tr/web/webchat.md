@@ -1,4 +1,7 @@
 ---
+summary: "Loopback WebChat statik barındırma ve sohbet UI için Gateway WS kullanımı"
+read_when:
+  - WebChat erişimini hata ayıklarken veya yapılandırırken
 title: "WebChat"
 ---
 
@@ -42,7 +45,6 @@ Kanal seçenekleri:
 
 - `gateway.port`, `gateway.bind`: WebSocket ana makinesi/portu.
 - `gateway.auth.mode`, `gateway.auth.token`, `gateway.auth.password`: WebSocket kimlik doğrulaması.
+- `gateway.auth.mode: "trusted-proxy"`: tarayıcı istemcileri için reverse-proxy kimlik doğrulaması (bkz. [Trusted Proxy Auth](/gateway/trusted-proxy-auth)).
 - `gateway.remote.url`, `gateway.remote.token`, `gateway.remote.password`: uzak gateway hedefi.
 - `session.*`: oturum depolama ve ana anahtar varsayılanları.
-
-

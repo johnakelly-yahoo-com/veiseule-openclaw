@@ -1,10 +1,14 @@
 ---
+summary: "เช็กลิสต์การรีลีส OpenClaw บน macOS (ฟีด Sparkle, การแพ็กเกจ, การเซ็นชื่อ)"
+read_when:
+  - ระหว่างตัดหรือยืนยันการรีลีส OpenClaw บน macOS
+  - ระหว่างอัปเดต appcast หรือแอสเซ็ตของฟีด Sparkle
 title: "การรีลีส macOS"
 ---
 
 # การรีลีส OpenClaw บน macOS (Sparkle)
 
-33. แอปนี้มาพร้อม Sparkle auto-updates แล้ว 34. บิลด์รีลีสต้องเซ็นด้วย Developer ID บีบอัดเป็น zip และเผยแพร่พร้อมรายการ appcast ที่เซ็นชื่อแล้ว
+แอปนี้มาพร้อม Sparkle auto-updates แล้ว 34. บิลด์รีลีสต้องเซ็นด้วย Developer ID บีบอัดเป็น zip และเผยแพร่พร้อมรายการ appcast ที่เซ็นชื่อแล้ว
 
 ## 35. ข้อกำหนดเบื้องต้น
 
@@ -68,7 +72,8 @@ SPARKLE_PRIVATE_KEY_FILE=/path/to/ed25519-private-key scripts/make_appcast.sh di
 
 สร้างบันทึกการรีลีสแบบ HTML จาก `CHANGELOG.md` (ผ่าน [`scripts/changelog-to-html.sh`](https://github.com/openclaw/openclaw/blob/main/scripts/changelog-to-html.sh)) และฝังลงในรายการ appcast
 คอมมิตไฟล์ `appcast.xml` ที่อัปเดตแล้วไปพร้อมกับแอสเซ็ตของรีลีส (zip + dSYM) ระหว่างการเผยแพร่
-36. คอมมิต `appcast.xml` ที่อัปเดตแล้วควบคู่กับแอสเซ็ตรีลีส (zip + dSYM) เมื่อเผยแพร่
+36.
+คอมมิต `appcast.xml` ที่อัปเดตแล้วควบคู่กับแอสเซ็ตรีลีส (zip + dSYM) เมื่อเผยแพร่
 
 ## เผยแพร่และตรวจสอบ
 
@@ -80,5 +85,3 @@ SPARKLE_PRIVATE_KEY_FILE=/path/to/ed25519-private-key scripts/make_appcast.sh di
   - บนบิลด์สาธารณะก่อนหน้า ให้รัน “Check for Updates…” จากแท็บ About และยืนยันว่า Sparkle ติดตั้งบิลด์ใหม่ได้อย่างราบรื่น
 
 นิยามของความเสร็จสิ้น: แอปที่เซ็นชื่อและ appcast ถูกเผยแพร่แล้ว กระบวนการอัปเดตทำงานได้จากเวอร์ชันที่ติดตั้งไว้ก่อนหน้า และแอสเซ็ตของรีลีสถูกแนบใน GitHub release แล้ว
-
-

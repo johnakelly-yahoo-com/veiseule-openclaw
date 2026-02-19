@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw 플러그인/확장: 디바이스 검색, 구성 및 안전"
+read_when:
+  - 플러그인/확장을 추가하거나 수정할 때
+  - 플러그인 설치 또는 로드 규칙을 문서화할 때
 title: "플러그인"
 ---
 
@@ -23,6 +27,8 @@ openclaw plugins list
 ```bash
 openclaw plugins install @openclaw/voice-call
 ```
+
+Npm 사양은 **레지스트리 전용**입니다(패키지 이름 + 선택적 버전/태그). Git/URL/file 사양은 거부됩니다.
 
 3. Gateway 를 재시작한 다음 `plugins.entries.<id>.config` 아래에서 구성합니다.
 
@@ -126,6 +132,8 @@ OpenClaw 는 다음 순서로 스캔합니다:
 
 플러그인이 npm 의존성을 가져오는 경우, 해당 디렉토리에 설치하여
 `node_modules` 가 사용 가능하도록 하십시오 (`npm install` / `pnpm install`).
+
+Security note: `openclaw plugins install`은 플러그인 의존성을 `npm install --ignore-scripts`(라이프사이클 스크립트 없음)로 설치합니다. 플러그인 의존성 트리는 "pure JS/TS"로 유지하고 `postinstall` 빌드가 필요한 패키지는 피하세요.
 
 ### 채널 카탈로그 메타데이터
 
@@ -425,13 +433,13 @@ export default function (api) {
 - `meta.preferOver` 는 플러그인이 다른 채널을 대체하도록 합니다(자동 활성화 시 이를 선호).
 - `meta.detailLabel` 및 `meta.systemImage` 는 UI 에서 상세 텍스트/아이콘에 사용됩니다.
 
-3. 필수 어댑터 구현
+3. 필요에 따라 선택적 어댑터 추가
 
 - `config.listAccountIds` + `config.resolveAccount`
 - `capabilities` (채팅 유형, 미디어, 스레드 등)
 - `outbound.deliveryMode` + `outbound.sendText` (기본 전송용)
 
-4. 필요에 따라 선택적 어댑터 추가
+4. 필수 어댑터 구현
 
 - `setup` (마법사), `security` (다이렉트 메시지 정책), `status` (상태/진단)
 - `gateway` (시작/중지/로그인), `mentions`, `threading`, `streaming`
@@ -538,7 +546,7 @@ export default function (api) {
 }
 ```
 
-명령 핸들러 컨텍스트:
+명령 옵션:
 
 - `senderId`: 발신자 ID (가능한 경우)
 - `channel`: 명령이 전송된 채널
@@ -577,7 +585,7 @@ api.registerCommand({
 - 명령은 전역으로 등록되며 모든 채널에서 동작합니다
 - 명령 이름은 대소문자를 구분하지 않습니다(`/MyStatus` 는 `/mystatus` 과 일치)
 - 명령 이름은 문자로 시작해야 하며 문자, 숫자, 하이픈, 언더스코어만 포함할 수 있습니다
-- 예약된 명령 이름(`help`, `status`, `reset` 등)은 플러그인이 재정의할 수 없습니다 플러그인으로는 재정의할 수 없습니다
+- 예약된 명령 이름(`help`, `status`, `reset` 등)은 플러그인이 재정의할 수 없습니다 플러그인으로는 재정의할 수 없습니다 플러그인으로는 재정의할 수 없습니다
 - 플러그인 간 중복 명령 등록은 진단 오류로 실패합니다
 
 ### 백그라운드 서비스 등록
@@ -646,5 +654,3 @@ export default function (api) {
 
 - 리포지토리 내 플러그인은 `src/**` 아래에 Vitest 테스트를 둘 수 있습니다(예: `src/plugins/voice-call.plugin.test.ts`).
 - 별도로 게시된 플러그인은 자체 CI(lint/build/test)를 실행하고 `openclaw.extensions` 가 빌드된 엔트리포인트(`dist/index.js`)를 가리키는지 검증해야 합니다.
-
-

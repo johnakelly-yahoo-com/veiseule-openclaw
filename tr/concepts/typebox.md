@@ -1,4 +1,7 @@
 ---
+summary: "Gateway protokolü için tek doğruluk kaynağı olarak TypeBox şemaları"
+read_when:
+  - Protokol şemaları veya codegen güncellenirken
 title: "TypeBox"
 ---
 
@@ -37,14 +40,14 @@ Client                    Gateway
 
 Yaygın metotlar + olaylar:
 
-| Kategori  | Örnekler                                                  | Notlar                                     |
-| --------- | --------------------------------------------------------- | ----------------------------------------- |
-| Çekirdek      | `connect`, `health`, `status`                             | `connect` ilk olmalıdır                   |
+| Kategori   | Örnekler                                                  | Notlar                                    |
+| ---------- | --------------------------------------------------------- | ----------------------------------------- |
+| Çekirdek   | `connect`, `health`, `status`                             | `connect` ilk olmalıdır                   |
 | Mesajlaşma | `send`, `poll`, `agent`, `agent.wait`                     | yan etkiler için `idempotencyKey` gerekir |
-| Chat      | `chat.history`, `chat.send`, `chat.abort`, `chat.inject`  | WebChat bunları kullanır                  |
-| Sessions  | `sessions.list`, `sessions.patch`, `sessions.delete`      | oturum yönetimi                           |
-| Nodes     | `node.list`, `node.invoke`, `node.pair.*`                 | Gateway WS + düğüm eylemleri              |
-| Events    | `tick`, `presence`, `agent`, `chat`, `health`, `shutdown` | sunucu itmesi                             |
+| Chat       | `chat.history`, `chat.send`, `chat.abort`, `chat.inject`  | WebChat bunları kullanır                  |
+| Sessions   | `sessions.list`, `sessions.patch`, `sessions.delete`      | oturum yönetimi                           |
+| Nodes      | `node.list`, `node.invoke`, `node.pair.*`                 | Gateway WS + düğüm eylemleri              |
+| Events     | `tick`, `presence`, `agent`, `chat`, `health`, `shutdown` | sunucu itmesi                             |
 
 Yetkili liste `src/gateway/server.ts`’te bulunur (`METHODS`, `EVENTS`).
 
@@ -280,5 +283,3 @@ Bilinmeyen çerçeve türleri, ileriye dönük uyumluluk için ham payload’lar
 1. TypeBox şemalarını güncelleyin.
 2. `pnpm protocol:check` çalıştırın.
 3. Yeniden üretilmiş şemayı + Swift modellerini commit edin.
-
-

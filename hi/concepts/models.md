@@ -1,4 +1,9 @@
 ---
+summary: "मॉडल्स CLI: सूची, सेट, उपनाम, फॉलबैक, स्कैन, स्थिति"
+read_when:
+  - मॉडल्स CLI (models list/set/scan/aliases/fallbacks) जोड़ते या संशोधित करते समय
+  - मॉडल फॉलबैक व्यवहार या चयन UX बदलते समय
+  - मॉडल स्कैन प्रोब्स (tools/images) अपडेट करते समय
 title: "मॉडल्स CLI"
 ---
 
@@ -186,5 +191,3 @@ openclaw models status
 ## मॉडल्स रजिस्ट्री (`models.json`)
 
 43. `models.providers` में कस्टम प्रोवाइडर्स को एजेंट डायरेक्टरी के तहत `models.json` में लिखा जाता है (डिफ़ॉल्ट `~/.openclaw/agents/<agentId>/models.json`)। 44. यह फ़ाइल डिफ़ॉल्ट रूप से मर्ज होती है, जब तक `models.mode` को `replace` पर सेट न किया गया हो।
-
-

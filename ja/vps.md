@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw 向けの VPS ホスティングハブ（Oracle/Fly/Hetzner/GCP/exe.dev）"
+read_when:
+  - クラウドで Gateway（ゲートウェイ）を実行したい場合
+  - VPS/ホスティングのガイドを手早く把握したい場合
 title: "VPS ホスティング"
 ---
 
@@ -17,6 +21,7 @@ title: "VPS ホスティング"
 - **GCP（Compute Engine）**: [GCP](/install/gcp)
 - **exe.dev**（VM + HTTPS プロキシ）: [exe.dev](/install/exe-dev)
 - **AWS (EC2/Lightsail/free tier)**: うまく動作します。 ビデオガイド:
+  [https://x.com/techfrenAJ/status/2014934471095812547](https://x.com/techfrenAJ/status/2014934471095812547) ビデオガイド:
   [https://x.com/techfrenAJ/status/2014934471095812547](https://x.com/techfrenAJ/status/2014934471095812547)
 
 ## クラウド構成の仕組み
@@ -27,6 +32,7 @@ title: "VPS ホスティング"
 - セキュアな既定値: Gateway を loopback のままにし、SSH トンネルまたは Tailscale Serve 経由でアクセスします。
   `lan`/`tailnet` にバインドする場合は、`gateway.auth.token` または `gateway.auth.password` を必須にしてください。
   `lan`/`tailnet` にバインドする場合は、 `gateway.auth.token` または `gateway.auth.password` が必要です。
+  `lan`/`tailnet` にバインドする場合は、 `gateway.auth.token` または `gateway.auth.password` が必要です。
 
 リモートアクセス: [Gateway remote](/gateway/remote)  
 プラットフォーム ハブ: [Platforms](/platforms)
@@ -36,8 +42,7 @@ title: "VPS ホスティング"
 Gateway をクラウドに置いたまま、ローカル デバイス
 （Mac/iOS/Android/ヘッドレス）上の **ノード** とペアリングできます。ノードはローカルの画面/カメラ/キャンバスおよび `system.run`
 の機能を提供し、Gateway はクラウドに留まります。 ノードは、ゲートウェイがクラウドにとどまる間、ローカルのスクリーン/カメラ/キャンバスと `system.run`
+機能を提供します。 ノードは、ゲートウェイがクラウドにとどまる間、ローカルのスクリーン/カメラ/キャンバスと `system.run`
 機能を提供します。
 
 ドキュメント: [Nodes](/nodes), [Nodes CLI](/cli/nodes)
-
-

@@ -1,10 +1,15 @@
 ---
+summary: "ClawHub گائیڈ: عوامی Skills رجسٹری + CLI ورک فلو"
+read_when:
+  - نئے صارفین کو ClawHub متعارف کراتے وقت
+  - Skills انسٹال کرنے، تلاش کرنے، یا شائع کرنے کے لیے
+  - ClawHub CLI فلیگز اور سنک رویّے کی وضاحت کے لیے
 title: "ClawHub"
 ---
 
 # ClawHub
 
-ClawHub **OpenClaw کے لیے عوامی اسکل رجسٹری** ہے۔ یہ ایک مفت سروس ہے: تمام اسکلز عوامی، اوپن، اور سب کے لیے شیئرنگ اور دوبارہ استعمال کے لیے دستیاب ہیں۔ ایک اسکل دراصل ایک فولڈر ہوتا ہے جس میں `SKILL.md` فائل (اور معاون ٹیکسٹ فائلیں) شامل ہوتی ہیں۔ آپ ویب ایپ میں اسکلز براؤز کر سکتے ہیں یا CLI استعمال کرکے اسکلز کو تلاش، انسٹال، اپڈیٹ اور شائع کر سکتے ہیں۔
+ClawHub is the **public skill registry for OpenClaw**. It is a free service: all skills are public, open, and visible to everyone for sharing and reuse. A skill is just a folder with a `SKILL.md` file (plus supporting text files). You can browse skills in the web app or use the CLI to search, install, update, and publish skills.
 
 سائٹ: [clawhub.ai](https://clawhub.ai)
 
@@ -31,7 +36,7 @@ ClawHub **OpenClaw کے لیے عوامی اسکل رجسٹری** ہے۔ یہ ا
 
 ## یہ کس کے لیے ہے (مبتدی دوست)
 
-اگر آپ اپنے OpenClaw ایجنٹ میں نئی صلاحیتیں شامل کرنا چاہتے ہیں تو ClawHub اسکلز تلاش اور انسٹال کرنے کا سب سے آسان طریقہ ہے۔ آپ کو بیک اینڈ کے کام کرنے کے طریقے جاننے کی ضرورت نہیں۔ آپ یہ کر سکتے ہیں:
+If you want to add new capabilities to your OpenClaw agent, ClawHub is the easiest way to find and install skills. You do not need to know how the backend works. You can:
 
 - سادہ زبان میں Skills تلاش کرنا۔
 - ایک Skill کو اپنے ورک اسپیس میں انسٹال کرنا۔
@@ -61,14 +66,14 @@ pnpm add -g clawhub
 
 ## OpenClaw میں اس کی جگہ
 
-بطور ڈیفالٹ، CLI اسکلز کو آپ کی موجودہ ورکنگ ڈائریکٹری کے اندر `./skills` میں انسٹال کرتا ہے۔ اگر OpenClaw ورک اسپیس کنفیگر ہو تو `clawhub` اسی ورک اسپیس کو استعمال کرتا ہے جب تک کہ آپ `--workdir` (یا `CLAWHUB_WORKDIR`) کے ذریعے اسے اووررائیڈ نہ کریں۔ OpenClaw ورک اسپیس اسکلز کو `<workspace>/skills` سے لوڈ کرتا ہے اور انہیں **اگلے** سیشن میں شامل کر لیتا ہے۔ اگر آپ پہلے ہی `~/.openclaw/skills` یا بنڈل شدہ اسکلز استعمال کر رہے ہیں تو ورک اسپیس اسکلز کو ترجیح حاصل ہوگی۔
+By default, the CLI installs skills into `./skills` under your current working directory. If a OpenClaw workspace is configured, `clawhub` falls back to that workspace unless you override `--workdir` (or `CLAWHUB_WORKDIR`). OpenClaw loads workspace skills from `<workspace>/skills` and will pick them up in the **next** session. If you already use `~/.openclaw/skills` or bundled skills, workspace skills take precedence.
 
 Skills کے لوڈ ہونے، شیئر ہونے، اور گیٹنگ کی مزید تفصیل کے لیے دیکھیں:
 [Skills](/tools/skills)
 
 ## Skill سسٹم کا جائزہ
 
-ایک اسکل فائلوں کا ایک ورژن شدہ مجموعہ ہوتا ہے جو OpenClaw کو یہ سکھاتا ہے کہ کسی مخصوص کام کو کیسے انجام دیا جائے۔
+A skill is a versioned bundle of files that teaches OpenClaw how to perform a
 specific task. Each publish creates a new version, and the registry keeps a
 history of versions so users can audit changes.
 
@@ -78,7 +83,7 @@ history of versions so users can audit changes.
 - اختیاری کنفیگز، اسکرپٹس، یا معاون فائلیں جو Skill استعمال کرتی ہے۔
 - ٹیگز، خلاصہ، اور انسٹال کی ضروریات جیسا میٹا ڈیٹا۔
 
-ClawHub دریافت کو مؤثر بنانے اور اسکل کی صلاحیتوں کو محفوظ طریقے سے ظاہر کرنے کے لیے میٹا ڈیٹا استعمال کرتا ہے۔
+ClawHub uses metadata to power discovery and safely expose skill capabilities.
 The registry also tracks usage signals (such as stars and downloads) to improve
 ranking and visibility.
 
@@ -94,7 +99,7 @@ ranking and visibility.
 
 ## سکیورٹی اور موڈریشن
 
-ClawHub بطور ڈیفالٹ اوپن ہے۔ کوئی بھی اسکلز اپلوڈ کر سکتا ہے، لیکن GitHub اکاؤنٹ لازمی ہونا چاہیے۔
+ClawHub is open by default. Anyone can upload skills, but a GitHub account must
 be at least one week old to publish. This helps slow down abuse without blocking
 legitimate contributors.
 
@@ -107,7 +112,7 @@ legitimate contributors.
 - موڈریٹرز چھپی ہوئی Skills دیکھ سکتے ہیں، انہیں ظاہر کر سکتے ہیں، حذف کر سکتے ہیں، یا صارفین پر پابندی لگا سکتے ہیں۔
 - رپورٹ فیچر کا غلط استعمال اکاؤنٹ پابندیوں کا باعث بن سکتا ہے۔
 
-کیا آپ موڈریٹر بننے میں دلچسپی رکھتے ہیں؟ OpenClaw Discord میں پوچھیں اور کسی سے رابطہ کریں۔
+Interested in becoming a moderator? Ask in the OpenClaw Discord and contact a
 moderator or maintainer.
 
 ## CLI کمانڈز اور پیرامیٹرز
@@ -224,7 +229,7 @@ clawhub sync --all
 
 ### مقامی تبدیلیاں بمقابلہ رجسٹری ورژنز
 
-اپڈیٹس مقامی اسکل کے مواد کا رجسٹری کے ورژنز سے موازنہ ایک کنٹینٹ ہیش کے ذریعے کرتی ہیں۔ اگر مقامی فائلیں کسی بھی شائع شدہ ورژن سے مطابقت نہ رکھیں تو CLI اووررائٹ کرنے سے پہلے تصدیق طلب کرتا ہے (یا غیر انٹرایکٹو رنز میں `--force` درکار ہوتا ہے)۔
+Updates compare the local skill contents to registry versions using a content hash. If local files do not match any published version, the CLI asks before overwriting (or requires `--force` in non-interactive runs).
 
 ### سنک اسکیننگ اور فال بیک روٹس
 
@@ -250,5 +255,3 @@ export CLAWHUB_DISABLE_TELEMETRY=1
 - `CLAWHUB_CONFIG_PATH`: CLI ٹوکن/کنفیگ کہاں محفوظ کرے اسے اوور رائڈ کریں۔
 - `CLAWHUB_WORKDIR`: ڈیفالٹ workdir اوور رائڈ کریں۔
 - `CLAWHUB_DISABLE_TELEMETRY=1`: `sync` پر ٹیلی میٹری غیر فعال کریں۔
-
-

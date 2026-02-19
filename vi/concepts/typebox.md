@@ -1,4 +1,7 @@
 ---
+summary: "Schema TypeBox làm nguồn sự thật duy nhất cho giao thức Gateway"
+read_when:
+  - Cập nhật schema giao thức hoặc codegen
 title: "TypeBox"
 ---
 
@@ -282,5 +285,3 @@ Tệp thô đã phát hành thường có sẵn tại: Chỉ báo đang gõ đư
 1. Cập nhật các schema TypeBox.
 2. Chạy `pnpm protocol:check`.
 3. Commit schema và các model Swift đã được sinh lại.
-
-

@@ -1,12 +1,17 @@
 ---
+summary: "Models CLI: ro‘yxat, sozlash, aliaslar, fallbacklar, skanerlash, holat"
+read_when:
+  - Models CLI (models list/set/scan/aliases/fallbacks) qo‘shilayotganda yoki o‘zgartirilayotganda
+  - Model fallback xatti‑harakati yoki tanlash UX o‘zgartirilayotganda
+  - Model skanerlash probelari (tools/images) yangilanayotganda
 title: "Modellar CLI"
 ---
 
 # Modellar CLI
 
-Auth profillar rotatsiyasi, cooldown’lar va ularning fallback’lar bilan o‘zaro
-ta’siri haqida [/concepts/model-failover](/concepts/model-failover) sahifasiga qarang.
-Provayderlar bo‘yicha qisqa sharh + misollar: [/concepts/model-providers](/concepts/model-providers).
+See [/concepts/model-failover](/concepts/model-failover) for auth profile
+rotation, cooldowns, and how that interacts with fallbacks.
+Quick provider overview + examples: [/concepts/model-providers](/concepts/model-providers).
 
 ## Model tanlash qanday ishlaydi
 
@@ -46,24 +51,24 @@ setup-token` ham qo‘llab‑quvvatlanadi).
 - `agents.defaults.models` (allowlist + aliaslar + provayder parametrlari)
 - `models.providers` (`models.json` ga yoziladigan maxsus provayderlar)
 
-Model referenslari kichik harflarga normallashtiriladi. `z.ai/*` kabi provayder aliaslari
-`zai/*` ko‘rinishiga normallashtiriladi.
+Model refs are normalized to lowercase. Provider aliases like `z.ai/*` normalize
+to `zai/*`.
 
 Provayder konfiguratsiyasi misollari (OpenCode Zen bilan birga) quyida:
 [/gateway/configuration](/gateway/configuration#opencode-zen-multi-model-proxy).
 
 ## “Model is not allowed” (va nega javob to‘xtab qoladi)
 
-Agar `agents.defaults.models` o‘rnatilgan bo‘lsa, u `/model` va
-sessiya override’lari uchun **allowlist** ga aylanadi. Foydalanuvchi ushbu allowlist’da yo‘q
-modelni tanlasa, OpenClaw quyidagini qaytaradi:
+If `agents.defaults.models` is set, it becomes the **allowlist** for `/model` and for
+session overrides. When a user selects a model that isn’t in that allowlist,
+OpenClaw returns:
 
 ```
 Model "provider/model" is not allowed. Use /model to list available models.
 ```
 
-Bu xabar odatiy javob yaratilishidan **oldin** paydo bo‘ladi, shuning uchun go‘yoki
-“javob bermadi” degan taassurot qoldirishi mumkin. Yechim:
+This happens **before** a normal reply is generated, so the message can feel
+like it “didn’t respond.” The fix is to either:
 
 - Modelni `agents.defaults.models` ga qo‘shing, yoki
 - Allowlist’ni tozalang (`agents.defaults.models` ni olib tashlang), yoki
@@ -100,7 +105,7 @@ Eslatmalar:
 - `/model` (va `/model list`) — ixcham, raqamlangan tanlash ro‘yxati (model oilasi + mavjud provayderlar).
 - `/model <#>` — shu ro‘yxatdan tanlaydi.
 - `/model status` — batafsil ko‘rinish (auth nomzodlari va, sozlangan bo‘lsa, provayder endpoint `baseUrl` + `api` rejimi).
-- Model referenslari **birinchi** `/` bo‘yicha ajratiladi. `/model <ref>` kiritishda `provider/model` dan foydalaning.
+- Model refs are parsed by splitting on the **first** `/`. Use `provider/model` when typing `/model <ref>`.
 - Agar model ID’ning o‘zida `/` bo‘lsa (OpenRouter uslubida), provayder prefiksini kiritish shart (masalan: `/model openrouter/moonshotai/kimi-k2`).
 - Agar provayder ko‘rsatilmasa, OpenClaw kiritmani alias yoki **default provayder** uchun model sifatida talqin qiladi (faqat model ID’da `/` bo‘lmasa ishlaydi).
 
@@ -133,7 +138,7 @@ openclaw models image-fallbacks clear
 
 ### `models list`
 
-Odatiy holatda sozlangan modelllarni ko‘rsatadi. Foydali flag’lar:
+Shows configured models by default. Useful flags:
 
 - `--all`: to‘liq katalog
 - `--local`: faqat lokal provayderlar
@@ -143,15 +148,14 @@ Odatiy holatda sozlangan modelllarni ko‘rsatadi. Foydali flag’lar:
 
 ### `models status`
 
-Yakuniy aniqlangan asosiy model, fallback’lar, image model va sozlangan
-provayderlar bo‘yicha auth umumiy ko‘rinishini ko‘rsatadi. Shuningdek, auth store’da topilgan
-profil­lar uchun OAuth amal qilish muddati holatini ham ko‘rsatadi (odatda 24 soat ichida ogohlantiradi). `--plain` faqat
-yakuniy asosiy modelni chiqaradi.
-OAuth holati har doim ko‘rsatiladi (va `--json` chiqishiga ham kiritiladi). Agar sozlangan
-provayderda credential bo‘lmasa, `models status` **Missing auth** bo‘limini chiqaradi.
-JSON chiqishida `auth.oauth` (ogohlantirish oynasi + profillar) va `auth.providers`
-(har bir provayder uchun amaldagi auth) mavjud bo‘ladi.
-Avtomatlashtirish uchun `--check` dan foydalaning (mavjud emas/yaroqsiz bo‘lsa chiqish kodi `1`, muddati yaqinlashayotgan bo‘lsa `2`).
+Sozlangan provayderlar uchun aniqlangan asosiy model, zaxira modellar, rasm modeli va autentifikatsiya sharhini ko‘rsatadi. Shuningdek, autentifikatsiya omborida topilgan profillar uchun OAuth amal qilish muddati holatini ko‘rsatadi
+(standart bo‘yicha 24 soat ichida ogohlantiradi). `--plain` faqat aniqlangan
+asosiy modelni chiqaradi.
+OAuth holati har doim ko‘rsatiladi (va `--json` chiqishiga kiritiladi). Agar sozlangan
+provayderda hisob ma’lumotlari bo‘lmasa, `models status` **Missing auth** bo‘limini chiqaradi.
+JSON tarkibiga `auth.oauth` (ogohlantirish oynasi + profillar) va `auth.providers`
+(har bir provayder bo‘yicha samarali autentifikatsiya) kiradi.
+Avtomatlashtirish uchun `--check` dan foydalaning (yo‘qolgan/muddati o‘tgan bo‘lsa `1`, muddati yaqinlashayotgan bo‘lsa `2` bilan chiqadi).
 
 Anthropic uchun afzal auth — Claude Code CLI setup-token (istalgan joyda ishga tushiring; kerak bo‘lsa gateway host’da joylashtiring):
 
@@ -175,8 +179,8 @@ Asosiy flag’lar:
 - `--set-default`: `agents.defaults.model.primary` ni birinchi tanlovga o‘rnatadi
 - `--set-image`: `agents.defaults.imageModel.primary` ni birinchi image tanlovga o‘rnatadi
 
-Probelash uchun OpenRouter API key kerak (auth profillardan yoki
-`OPENROUTER_API_KEY`). Kalitsiz faqat nomzodlarni ko‘rish uchun `--no-probe` dan foydalaning.
+Tekshiruv uchun OpenRouter API kaliti talab qilinadi (auth profillaridan yoki
+`OPENROUTER_API_KEY`). Kalitsiz, faqat nomzodlarni ro‘yxatlash uchun `--no-probe` dan foydalaning.
 
 Skan natijalari quyidagilar bo‘yicha reytinglanadi:
 
@@ -192,13 +196,11 @@ Input
 - Ixtiyoriy filtrlar: `--max-age-days`, `--min-params`, `--provider`, `--max-candidates`
 - Probe boshqaruvi: `--timeout`, `--concurrency`
 
-TTY’da ishga tushirilganda fallback’larni interaktiv tanlashingiz mumkin. Non‑interactive
-rejimda standart qiymatlarni qabul qilish uchun `--yes` ni bering.
+TTY da ishga tushirilganda, zaxiralarni interaktiv tarzda tanlashingiz mumkin. Interaktiv bo‘lmagan
+rejimda, standartlarni qabul qilish uchun `--yes` ni bering.
 
 ## Models registry (`models.json`)
 
-`models.providers` dagi maxsus provayderlar agent katalogidagi `models.json` fayliga
-yoziladi (standart: `~/.openclaw/agents/<agentId>/models.json`). Agar `models.mode`
-`replace` ga o‘rnatilmagan bo‘lsa, bu fayl odatiy holatda merge qilinadi.
-
-
+`models.providers` dagi maxsus provayderlar agent katalogi ostidagi `models.json` ga yoziladi
+(standart `~/.openclaw/agents/<agentId>/models.json`). Bu fayl
+`models.mode` `replace` ga o‘rnatilmaguncha standart bo‘yicha birlashtiriladi.

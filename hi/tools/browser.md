@@ -1,8 +1,13 @@
 ---
+summary: "एकीकृत ब्राउज़र नियंत्रण सेवा + एक्शन कमांड"
+read_when:
+  - एजेंट-नियंत्रित ब्राउज़र ऑटोमेशन जोड़ते समय
+  - यह डिबग करते समय कि OpenClaw आपके अपने Chrome में हस्तक्षेप क्यों कर रहा है
+  - macOS ऐप में ब्राउज़र सेटिंग्स + लाइफसाइकल लागू करते समय
 title: "Browser (OpenClaw-प्रबंधित)"
 ---
 
-# ब्राउज़र (openclaw-managed)
+# Browser (openclaw-managed)
 
 OpenClaw एक **डेडिकेटेड Chrome/Brave/Edge/Chromium प्रोफ़ाइल** चला सकता है जिसे एजेंट नियंत्रित करता है।
 It is isolated from your personal browser and is managed through a small local
@@ -23,7 +28,7 @@ control service inside the Gateway (loopback only).
 - एजेंट क्रियाएँ (क्लिक/टाइप/ड्रैग/चयन), स्नैपशॉट, स्क्रीनशॉट, PDF।
 - वैकल्पिक मल्टी-प्रोफ़ाइल समर्थन (`openclaw`, `work`, `remote`, ...)।
 
-यह ब्राउज़र आपका **दैनिक उपयोग वाला** ब्राउज़र नहीं है। यह एक सुरक्षित, अलग-थलग वातावरण है जिसके लिए
+This browser is **not** your daily driver. It is a safe, isolated surface for
 agent automation and verification.
 
 ## त्वरित प्रारंभ
@@ -74,8 +79,8 @@ Gateway को पुनः प्रारंभ करें।
 
 नोट्स:
 
-- ब्राउज़र कंट्रोल सेवा `gateway.port` से व्युत्पन्न एक पोर्ट पर loopback से बाइंड होती है
-(डिफ़ॉल्ट: `18791`, जो gateway + 2 है)। रिले अगला पोर्ट (`18792`) उपयोग करता है।
+- The browser control service binds to loopback on a port derived from `gateway.port`
+  (default: `18791`, which is gateway + 2). The relay uses the next port (`18792`).
 - यदि आप Gateway पोर्ट (`gateway.port` या `OPENCLAW_GATEWAY_PORT`) ओवरराइड करते हैं,
   तो व्युत्पन्न ब्राउज़र पोर्ट उसी “परिवार” में रहने के लिए शिफ्ट हो जाते हैं।
 - `cdpUrl` अनसेट होने पर रिले पोर्ट पर डिफ़ॉल्ट होता है।
@@ -83,13 +88,13 @@ Gateway को पुनः प्रारंभ करें।
 - `remoteCdpHandshakeTimeoutMs` रिमोट CDP WebSocket पहुँच-योग्यता जाँच पर लागू होता है।
 - `attachOnly: true` का अर्थ है “कभी भी लोकल ब्राउज़र लॉन्च न करें; केवल तभी अटैच करें जब वह पहले से चल रहा हो।”
 - `color` + प्रति-प्रोफ़ाइल `color` ब्राउज़र UI को टिंट करते हैं ताकि आप देख सकें कि कौन-सी प्रोफ़ाइल सक्रिय है।
-- डिफ़ॉल्ट प्रोफ़ाइल `chrome` (extension relay) है। मैनेज्ड ब्राउज़र के लिए `defaultProfile: "openclaw"` का उपयोग करें।
+- Default profile is `chrome` (extension relay). Use `defaultProfile: "openclaw"` for the managed browser.
 - ऑटो-डिटेक्ट क्रम: यदि Chromium-आधारित हो तो सिस्टम डिफ़ॉल्ट ब्राउज़र; अन्यथा Chrome → Brave → Edge → Chromium → Chrome Canary।
 - लोकल `openclaw` प्रोफ़ाइल्स स्वतः `cdpPort`/`cdpUrl` असाइन करती हैं — इन्हें केवल रिमोट CDP के लिए सेट करें।
 
 ## Brave (या अन्य Chromium-आधारित ब्राउज़र) का उपयोग करें
 
-यदि आपका **सिस्टम डिफ़ॉल्ट** ब्राउज़र Chromium-आधारित (Chrome/Brave/Edge/आदि) है,
+If your **system default** browser is Chromium-based (Chrome/Brave/Edge/etc),
 OpenClaw uses it automatically. Set `browser.executablePath` to override
 auto-detection:
 
@@ -126,21 +131,21 @@ openclaw config set browser.executablePath "/usr/bin/google-chrome"
 
 - **लोकल नियंत्रण (डिफ़ॉल्ट):** Gateway loopback नियंत्रण सेवा शुरू करता है और लोकल ब्राउज़र लॉन्च कर सकता है।
 - **रिमोट नियंत्रण (node होस्ट):** उस मशीन पर node होस्ट चलाएँ जहाँ ब्राउज़र है; Gateway ब्राउज़र क्रियाओं को वहाँ प्रॉक्सी करता है।
-- **Remote CDP:** `browser.profiles.<name>.cdpUrl` (या `browser.cdpUrl`) को सेट करें ताकि
-किसी रिमोट Chromium-आधारित ब्राउज़र से कनेक्ट हो सकें। इस स्थिति में, OpenClaw लोकल ब्राउज़र लॉन्च नहीं करेगा।
+- **Remote CDP:** set `browser.profiles.<name>.cdpUrl` (or `browser.cdpUrl`) to
+  attach to a remote Chromium-based browser. In this case, OpenClaw will not launch a local browser.
 
 रिमोट CDP URL में auth शामिल हो सकता है:
 
 - क्वेरी टोकन (उदा., `https://provider.example?token=<token>`)
 - HTTP Basic auth (उदा., `https://user:pass@provider.example`)
 
-OpenClaw `/json/*` endpoints को कॉल करते समय और कनेक्ट करते समय प्रमाणीकरण को सुरक्षित रखता है
+OpenClaw preserves the auth when calling `/json/*` endpoints and when connecting
 to the CDP WebSocket. Prefer environment variables or secrets managers for
 tokens instead of committing them to config files.
 
 ## Node browser proxy (ज़ीरो-कॉन्फ़िग डिफ़ॉल्ट)
 
-यदि आप उस मशीन पर **node host** चलाते हैं जिसमें आपका ब्राउज़र है, तो OpenClaw कर सकता है
+If you run a **node host** on the machine that has your browser, OpenClaw can
 auto-route browser tool calls to that node without any extra browser config.
 This is the default path for remote gateways.
 
@@ -188,6 +193,7 @@ Browserless region endpoint and authenticate with your API key.
 
 - ब्राउज़र नियंत्रण केवल loopback है; पहुँच Gateway के auth या node pairing के माध्यम से प्रवाहित होती है।
 - Gateway और किसी भी node होस्ट को निजी नेटवर्क (Tailscale) पर रखें; सार्वजनिक एक्सपोज़र से बचें।
+- रिमोट CDP URL/टोकन को सीक्रेट्स की तरह संभालें; env vars या सीक्रेट्स मैनेजर को प्राथमिकता दें।
 - रिमोट CDP URL/टोकन को सीक्रेट्स की तरह संभालें; env vars या सीक्रेट्स मैनेजर को प्राथमिकता दें।
 
 रिमोट CDP सुझाव:
@@ -311,6 +317,11 @@ openclaw browser create-profile \
 
 सभी एंडपॉइंट्स `?profile=<name>` स्वीकार करते हैं।
 
+यदि gateway auth कॉन्फ़िगर किया गया है, तो browser HTTP routes के लिए भी auth आवश्यक होगा:
+
+- `Authorization: Bearer <gateway token>`
+- Chrome extension relay driver के लिए, ARIA snapshots और screenshots के लिए Playwright आवश्यक है।
+
 ### Playwright आवश्यकता
 
 2. कुछ फीचर्स (navigate/act/AI snapshot/role snapshot, element screenshots, PDF) के लिए
@@ -337,7 +348,8 @@ docker compose run --rm openclaw-cli \
 
 ## यह कैसे काम करता है (आंतरिक)
 
-उच्च-स्तरीय फ़्लो:
+यह डिज़ाइन एजेंट को एक स्थिर, नियतात्मक इंटरफ़ेस पर रखता है, जबकि आपको
+लोकल/रिमोट ब्राउज़र और प्रोफ़ाइल्स बदलने देता है।
 
 - एक छोटा **control server** HTTP अनुरोध स्वीकार करता है।
 - यह **CDP** के माध्यम से Chromium-आधारित ब्राउज़रों (Chrome/Brave/Edge/Chromium) से कनेक्ट होता है।
@@ -352,7 +364,7 @@ docker compose run --rm openclaw-cli \
 10. सभी commands किसी विशिष्ट profile को target करने के लिए `--browser-profile <name>` स्वीकार करते हैं।
 11. सभी commands machine-readable output (stable payloads) के लिए `--json` भी स्वीकार करते हैं।
 
-बेसिक्स:
+निरीक्षण:
 
 - `openclaw browser status`
 - `openclaw browser start`
@@ -366,7 +378,7 @@ docker compose run --rm openclaw-cli \
 - `openclaw browser focus abcd1234`
 - `openclaw browser close abcd1234`
 
-निरीक्षण:
+क्रियाएँ:
 
 - `openclaw browser screenshot`
 - `openclaw browser screenshot --full-page`
@@ -385,7 +397,7 @@ docker compose run --rm openclaw-cli \
 - `openclaw browser pdf`
 - `openclaw browser responsebody "**/api" --max-chars 5000`
 
-क्रियाएँ:
+स्टेट:
 
 - `openclaw browser navigate https://example.com`
 - `openclaw browser resize 1280 720`
@@ -397,9 +409,9 @@ docker compose run --rm openclaw-cli \
 - `openclaw browser scrollintoview e12`
 - `openclaw browser drag 10 11`
 - `openclaw browser select 9 OptionA OptionB`
-- `openclaw browser download e12 /tmp/report.pdf`
-- `openclaw browser waitfordownload /tmp/report.pdf`
-- `openclaw browser upload /tmp/file.pdf`
+- `openclaw browser download e12 report.pdf`
+- `openclaw browser waitfordownload report.pdf`
+- `openclaw browser upload /tmp/openclaw/uploads/file.pdf`
 - `openclaw browser fill --fields '[{"ref":"1","type":"text","value":"Ada"}]'`
 - `openclaw browser dialog --accept`
 - `openclaw browser wait --text "Done"`
@@ -409,7 +421,7 @@ docker compose run --rm openclaw-cli \
 - `openclaw browser trace start`
 - `openclaw browser trace stop`
 
-स्टेट:
+नोट्स:
 
 - `openclaw browser cookies`
 - `openclaw browser cookies set session abc123 --url "https://example.com"`
@@ -431,6 +443,11 @@ docker compose run --rm openclaw-cli \
 नोट्स:
 
 - `upload` और `dialog` **arming** कॉल्स हैं; chooser/dialog को ट्रिगर करने वाले क्लिक/प्रेस से पहले इन्हें चलाएँ।
+- Download और trace output paths OpenClaw के temp roots तक सीमित हैं:
+  - traces: `/tmp/openclaw` (fallback: `${os.tmpdir()}/openclaw`)
+  - downloads: `/tmp/openclaw/downloads` (fallback: `${os.tmpdir()}/openclaw/downloads`)
+- Upload paths OpenClaw के temp uploads root तक सीमित हैं:
+  - uploads: `/tmp/openclaw/uploads` (fallback: `${os.tmpdir()}/openclaw/uploads`)
 - `upload` फ़ाइल इनपुट्स को सीधे `--input-ref` या `--element` के माध्यम से भी सेट कर सकता है।
 - `snapshot`:
   - `--format ai` (Playwright इंस्टॉल होने पर डिफ़ॉल्ट): संख्यात्मक refs (`aria-ref="<n>"`) के साथ AI स्नैपशॉट लौटाता है।
@@ -446,14 +463,14 @@ docker compose run --rm openclaw-cli \
 
 ## स्नैपशॉट्स और refs
 
-OpenClaw दो “स्नैपशॉट” शैलियों का समर्थन करता है:
+Ref व्यवहार:
 
-- **AI स्नैपशॉट (संख्यात्मक refs)**: `openclaw browser snapshot` (डिफ़ॉल्ट; `--format ai`)
+- Refs **नेविगेशन के बीच स्थिर नहीं** होते; यदि कुछ विफल हो, तो `snapshot` फिर से चलाएँ और नया ref उपयोग करें।
   - आउटपुट: संख्यात्मक refs सहित एक टेक्स्ट स्नैपशॉट।
   - क्रियाएँ: `openclaw browser click 12`, `openclaw browser type 23 "hello"`।
   - आंतरिक रूप से, ref को Playwright के `aria-ref` के माध्यम से resolve किया जाता है।
 
-- **Role स्नैपशॉट ( `e12` जैसे role refs)**: `openclaw browser snapshot --interactive` (या `--compact`, `--depth`, `--selector`, `--frame`)
+- यदि role स्नैपशॉट `--frame` के साथ लिया गया था, तो role refs अगले role स्नैपशॉट तक उसी iframe तक सीमित रहते हैं।
   - आउटपुट: `[ref=e12]` (और वैकल्पिक `[nth=1]`) के साथ role-आधारित सूची/ट्री।
   - क्रियाएँ: `openclaw browser click e12`, `openclaw browser highlight e12`।
   - आंतरिक रूप से, ref को `getByRole(...)` (डुप्लिकेट्स के लिए `nth()`) के माध्यम से resolve किया जाता है।
@@ -466,7 +483,7 @@ Ref व्यवहार:
 
 ## Wait पावर-अप्स
 
-आप केवल समय/टेक्स्ट से अधिक पर प्रतीक्षा कर सकते हैं:
+इन्हें संयोजित किया जा सकता है:
 
 - URL के लिए प्रतीक्षा करें (Playwright द्वारा समर्थित globs):
   - `openclaw browser wait --url "**/dash"`
@@ -487,9 +504,9 @@ openclaw browser wait "#main" \
   --timeout-ms 15000
 ```
 
-## डिबग वर्कफ़्लो
+## JSON आउटपुट
 
-14. जब कोई action fail होता है (जैसे “not visible”, “strict mode violation”, “covered”):
+`--json` स्क्रिप्टिंग और संरचित टूलिंग के लिए है।
 
 1. `openclaw browser snapshot --interactive`
 2. `click <ref>` / `type <ref>` का उपयोग करें (interactive मोड में role refs को प्राथमिकता दें)
@@ -504,7 +521,7 @@ openclaw browser wait "#main" \
 
 ## JSON आउटपुट
 
-`--json` स्क्रिप्टिंग और संरचित टूलिंग के लिए है।
+JSON में role स्नैपशॉट्स में `refs` के साथ एक छोटा `stats` ब्लॉक (lines/chars/refs/interactive) शामिल होता है ताकि टूल्स payload आकार और घनत्व पर तर्क कर सकें।
 
 उदाहरण:
 
@@ -517,7 +534,7 @@ openclaw browser cookies --json
 
 JSON में role स्नैपशॉट्स में `refs` के साथ एक छोटा `stats` ब्लॉक (lines/chars/refs/interactive) शामिल होता है ताकि टूल्स payload आकार और घनत्व पर तर्क कर सकें।
 
-## स्टेट और environment knobs
+## सुरक्षा और गोपनीयता
 
 ये “साइट को X जैसा व्यवहार कराने” वाले वर्कफ़्लो के लिए उपयोगी हैं:
 
@@ -567,5 +584,3 @@ Linux-विशिष्ट समस्याओं (विशेषकर snap
   - यदि ब्राउज़र-क्षमता वाला node जुड़ा है, तो टूल स्वतः उसी पर रूट कर सकता है जब तक आप `target="host"` या `target="node"` पिन न करें।
 
 यह एजेंट को नियतात्मक रखता है और नाज़ुक selectors से बचाता है।
-
-

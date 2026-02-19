@@ -1,5 +1,9 @@
 ---
 title: "Vercel AI Gateway"
+summary: "Vercel AI Gateway 설정 (인증 + 모델 선택)"
+read_when:
+  - OpenClaw 와 함께 Vercel AI Gateway 를 사용하려는 경우
+  - API 키 환경 변수 또는 CLI 인증 선택이 필요한 경우
 ---
 
 # Vercel AI Gateway
@@ -44,5 +48,3 @@ openclaw onboard --non-interactive \
 Gateway 가 데몬 (launchd/systemd) 으로 실행되는 경우, `AI_GATEWAY_API_KEY` 가
 해당 프로세스에서 사용 가능해야 합니다 (예: `~/.openclaw/.env` 에서 또는
 `env.shellEnv` 를 통해).
-
-

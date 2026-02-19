@@ -1,4 +1,9 @@
 ---
+summary: "Hur OpenClaw-närvaroposter skapas, slås samman och visas"
+read_when:
+  - Felsökning av fliken Instances
+  - Undersökning av duplicerade eller inaktuella instansrader
+  - Ändring av gatewayns WS-anslutning eller systemhändelse-beacons
 title: "Närvaro"
 ---
 
@@ -95,5 +100,3 @@ statusindikator (Active/Idle/Stale) baserat på åldern på den senaste uppdater
   - bekräfta att klienter skickar en stabil `client.instanceId` i handskakningen
   - bekräfta att periodiska beacons använder samma `instanceId`
   - kontrollera om den anslutningshärledda posten saknar `instanceId` (dubbletter är förväntade)
-
-

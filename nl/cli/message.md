@@ -1,4 +1,8 @@
 ---
+summary: "CLI-referentie voor `openclaw message` (verzenden + kanaalacties)"
+read_when:
+  - Toevoegen of wijzigen van message-CLI-acties
+  - Wijzigen van uitgaand kanaalgedrag
 title: "message"
 ---
 
@@ -64,6 +68,7 @@ Naamopzoeking:
   - Vereist: `--target`, `--poll-question`, `--poll-option` (herhalen)
   - Optioneel: `--poll-multi`
   - Alleen Discord: `--poll-duration-hours`, `--message`
+  - Alleen Telegram: `--poll-duration-seconds` (5-600), `--silent`, `--poll-anonymous` / `--poll-public`, `--thread-id`
 
 - `react`
   - Kanalen: Discord/Google Chat/Slack/Telegram/WhatsApp/Signal
@@ -196,6 +201,16 @@ openclaw message poll --channel discord \
   --poll-multi --poll-duration-hours 48
 ```
 
+Maak een Telegram-peiling (sluit automatisch na 2 minuten):
+
+```
+openclaw message poll --channel telegram \
+  --target @mychat \
+  --poll-question "Lunch?" \
+  --poll-option Pizza --poll-option Sushi \
+  --poll-duration-seconds 120 --silent
+```
+
 Een Teams proactief bericht verzenden:
 
 ```
@@ -233,5 +248,3 @@ Telegram inline-knoppen verzenden:
 openclaw message send --channel telegram --target @mychat --message "Choose:" \
   --buttons '[ [{"text":"Yes","callback_data":"cmd:yes"}], [{"text":"No","callback_data":"cmd:no"}] ]'
 ```
-
-

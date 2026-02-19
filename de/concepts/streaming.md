@@ -1,4 +1,9 @@
 ---
+summary: "Streaming- und Chunking-Verhalten (Blockantworten, Entwurfs-Streaming, Limits)"
+read_when:
+  - Erklärung, wie Streaming oder Chunking auf Kanälen funktioniert
+  - Ändern des Block-Streamings oder des Kanal-Chunking-Verhaltens
+  - Debugging von doppelten/frühen Blockantworten oder Entwurfs-Streaming
 title: "Streaming und Chunking"
 ---
 
@@ -100,17 +105,17 @@ Hinweis zum Konfigurationsort: Die Standardwerte von `blockStreaming*` befinden 
 
 Telegram ist der einzige Kanal mit Entwurfs-Streaming:
 
-- Verwendet die Bot-API `sendMessageDraft` in **Privatchats mit Topics**.
+- Verwendet die Bot API `sendMessage` (erstes Update) + `editMessageText` (nachfolgende Updates).
 - `channels.telegram.streamMode: "partial" | "block" | "off"`.
   - `partial`: Entwurfs-Updates mit dem neuesten Stream-Text.
   - `block`: Entwurfs-Updates in gechunkten Blöcken (gleiche Chunker-Regeln).
   - `off`: kein Entwurfs-Streaming.
 - Entwurfs-Chunk-Konfiguration (nur für `streamMode: "block"`): `channels.telegram.draftChunk` (Standardwerte: `minChars: 200`, `maxChars: 800`).
-- Entwurfs-Streaming ist vom Block-Streaming getrennt; Blockantworten sind standardmäßig aus und werden auf Nicht-Telegram-Kanälen nur durch `*.blockStreaming: true` aktiviert.
-- Die finale Antwort ist weiterhin eine normale Nachricht.
+- Preview-Streaming ist vom Block-Streaming getrennt.
+- Wenn Entwurfs-Streaming aktiv ist, deaktiviert OpenClaw das Block-Streaming für diese Antwort, um doppeltes Streaming zu vermeiden.
+- Reine Text-Finalisierungen werden angewendet, indem die Preview-Nachricht direkt bearbeitet wird.
+- Nicht-textuelle/komplexe Finalisierungen greifen auf die normale Zustellung der finalen Nachricht zurück.
 - `/reasoning stream` schreibt die Begründung in die Entwurfsblase (nur Telegram).
-
-Wenn Entwurfs-Streaming aktiv ist, deaktiviert OpenClaw das Block-Streaming für diese Antwort, um doppeltes Streaming zu vermeiden.
 
 ```
 Telegram (private + topics)
@@ -122,7 +127,5 @@ Telegram (private + topics)
 
 Legende:
 
-- `sendMessageDraft`: Telegram-Entwurfsblase (keine echte Nachricht).
-- `final reply`: normales Senden einer Telegram-Nachricht.
-
-
+- `preview message`: temporäre Telegram-Nachricht, die während der Generierung aktualisiert wird.
+- `final edit`: direkte Bearbeitung derselben Preview-Nachricht (nur Text).

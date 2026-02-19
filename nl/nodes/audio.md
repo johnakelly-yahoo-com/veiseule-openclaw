@@ -1,4 +1,7 @@
 ---
+summary: "Hoe inkomende audio/spraaknotities worden gedownload, getranscribeerd en in antwoorden worden ingevoegd"
+read_when:
+  - Bij het wijzigen van audiotranscriptie of media-afhandeling
 title: "Audio en spraaknotities"
 ---
 
@@ -104,10 +107,27 @@ Let op: Detectie van binaries is best-effort op macOS/Linux/Windows; zorg dat de
 - Het transcript is beschikbaar voor templates als `{{Transcript}}`.
 - CLI-stdout is begrensd (5MB); houd CLI-uitvoer beknopt.
 
+## Mention-detectie in groepen
+
+Wanneer `requireMention: true` is ingesteld voor een groepschat, transcribeert OpenClaw nu audio **voordat** op mentions wordt gecontroleerd. Hierdoor kunnen spraakberichten worden verwerkt, zelfs wanneer ze mentions bevatten.
+
+**Hoe het werkt:**
+
+1. Als een spraakbericht geen tekstinhoud heeft en de groep mentions vereist, voert OpenClaw een "preflight"-transcriptie uit.
+2. Het transcript wordt gecontroleerd op mention-patronen (bijv. `@BotName`, emoji-triggers).
+3. Als een mention wordt gevonden, gaat het bericht door de volledige antwoordpipeline.
+4. Het transcript wordt gebruikt voor mention-detectie zodat spraakberichten door de mention-gate kunnen gaan.
+
+**Fallback-gedrag:**
+
+- Als transcriptie tijdens de preflight mislukt (timeout, API-fout, enz.), wordt het bericht verwerkt op basis van alleen tekstuele mention-detectie.
+- Dit zorgt ervoor dat gemengde berichten (tekst + audio) nooit onterecht worden genegeerd.
+
+**Voorbeeld:** Een gebruiker stuurt een spraakbericht met "Hey @Claude, wat is het weer?" in een Telegram-groep met `requireMention: true`. Het spraakbericht wordt getranscribeerd, de mention wordt gedetecteerd en de agent antwoordt.
+
 ## Gotcha's
 
 - Scoperegels gebruiken first-match-wins. `chatType` wordt genormaliseerd naar `direct`, `group` of `room`.
 - Zorg dat je CLI met exitcode 0 afsluit en platte tekst print; JSON moet worden aangepast via `jq -r .text`.
 - Houd time-outs redelijk (`timeoutSeconds`, standaard 60s) om blokkeren van de antwoordwachtrij te voorkomen.
-
-
+- Preflight-transcriptie verwerkt alleen de **eerste** audio-bijlage voor mention-detectie. Aanvullende audio wordt verwerkt tijdens de hoofdmedia-analysefase.

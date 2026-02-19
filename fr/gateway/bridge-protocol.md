@@ -1,4 +1,9 @@
 ---
+summary: "Protocole de pont (nœuds hérités) : TCP JSONL, appairage, RPC à portée limitée"
+read_when:
+  - Création ou débogage de clients nœuds (mode nœud iOS/Android/macOS)
+  - Investigation des échecs d’appairage ou d’authentification du pont
+  - Audit de la surface nœud exposée par la passerelle
 title: "Protocole de pont"
 ---
 
@@ -30,7 +35,9 @@ Les clés de configuration héritées `bridge.*` ne font plus partie du schéma 
 - Le port d’écoute hérité par défaut était `18790` (les versions actuelles ne démarrent pas de pont TCP).
 
 Lorsque TLS est activé, les enregistrements TXT de découverte incluent `bridgeTls=1` plus
-`bridgeTlsSha256` afin que les nœuds puissent épingler le certificat.
+`bridgeTlsSha256` afin que les nœuds puissent épingler le certificat. Notez que les enregistrements TXT Bonjour/mDNS sont
+non authentifiés ; les clients ne doivent pas considérer l’empreinte annoncée comme un
+pin faisant autorité sans intention explicite de l’utilisateur ou autre vérification hors bande.
 
 ## Handshake + appairage
 
@@ -41,7 +48,7 @@ Lorsque TLS est activé, les enregistrements TXT de découverte incluent `bridge
 
 `hello-ok` renvoie `serverName` et peut inclure `canvasHostUrl`.
 
-## Trames
+## Frames
 
 Client → Gateway :
 
@@ -78,9 +85,7 @@ Champs de charge utile (tous optionnels sauf indication contraire) :
 - Bonjour **ne** traverse pas les réseaux ; utilisez un hôte/port manuel ou un DNS‑SD étendu
   si nécessaire.
 
-## Gestion des versions
+## Versioning
 
 Le pont est actuellement en **v1 implicite** (pas de négociation min/max). La rétro‑compatibilité
 est attendue ; ajoutez un champ de version du protocole de pont avant toute modification incompatible.
-
-

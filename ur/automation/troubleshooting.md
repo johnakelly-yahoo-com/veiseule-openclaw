@@ -1,4 +1,9 @@
 ---
+summary: "کرون اور ہارٹ بیٹ کی شیڈولنگ اور ترسیل کے مسائل کا ازالہ کریں"
+read_when:
+  - کرون نہیں چلا
+  - کرون چلا لیکن کوئی پیغام ترسیل نہیں ہوا
+  - ہارٹ بیٹ خاموش یا اسکیپ ہوا محسوس ہو رہا ہے
 title: "Automation کی خرابیوں کا ازالہ"
 ---
 
@@ -115,5 +120,3 @@ openclaw logs --follow
 - [/gateway/heartbeat](/gateway/heartbeat)
 - [/automation/cron-vs-heartbeat](/automation/cron-vs-heartbeat)
 - [/concepts/timezone](/concepts/timezone)
-
-

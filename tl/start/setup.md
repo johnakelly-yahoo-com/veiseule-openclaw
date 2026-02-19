@@ -1,4 +1,8 @@
 ---
+summary: "Advanced na setup at mga workflow para sa development ng OpenClaw"
+read_when:
+  - Nagse-setup ng bagong machine
+  - Gusto mo ng “latest + greatest” nang hindi nasisira ang personal mong setup
 title: "Pag-setup"
 ---
 
@@ -153,5 +157,3 @@ Para sa always‑on o multi‑user server, isaalang‑alang ang **system** servi
 - [Discord](/channels/discord) at [Telegram](/channels/telegram) (reply tags + replyToMode settings)
 - [OpenClaw assistant setup](/start/openclaw)
 - [macOS app](/platforms/macos) (gateway lifecycle)
-
-

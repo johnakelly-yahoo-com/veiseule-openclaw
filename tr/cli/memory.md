@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw memory` için CLI başvurusu (durum/indeks/arama)"
+read_when:
+  - Anlamsal belleği indekslemek veya aramak istiyorsunuz
+  - Bellek kullanılabilirliğini veya indekslemeyi hata ayıklıyorsunuz
 title: "bellek"
 ---
 
@@ -39,5 +43,3 @@ Notlar:
 - `memory status --deep --index` depo kirliyse yeniden indeksleme çalıştırır.
 - `memory index --verbose` aşama başına ayrıntıları yazdırır (sağlayıcı, model, kaynaklar, toplu etkinlik).
 - `memory status` `memorySearch.extraPaths` üzerinden yapılandırılmış tüm ek yolları içerir.
-
-

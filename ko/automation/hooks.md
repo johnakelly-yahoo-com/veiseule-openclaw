@@ -1,4 +1,8 @@
 ---
+summary: "Hooks: 명령과 라이프사이클 이벤트를 위한 이벤트 기반 자동화"
+read_when:
+  - /new, /reset, /stop 및 에이전트 라이프사이클 이벤트를 위한 이벤트 기반 자동화가 필요할 때
+  - hooks 를 빌드, 설치 또는 디버그하고자 할 때
 title: "Hooks"
 ---
 
@@ -6,7 +10,7 @@ title: "Hooks"
 
 Hooks 는 에이전트 명령과 이벤트에 대응하여 작업을 자동화하기 위한 확장 가능한 이벤트 기반 시스템을 제공합니다. Hooks 는 디렉토리에서 자동으로 발견되며, OpenClaw 에서 skills 가 동작하는 방식과 유사하게 CLI 명령으로 관리할 수 있습니다.
 
-## 시작하기
+## Getting Oriented
 
 Hooks 는 어떤 일이 발생할 때 실행되는 작은 스크립트입니다. 두 가지 종류가 있습니다:
 
@@ -40,9 +44,9 @@ hooks 시스템을 통해 다음을 수행할 수 있습니다:
 OpenClaw 에는 자동으로 발견되는 네 가지 번들 hooks 가 포함되어 있습니다:
 
 - **💾 session-memory**: `/new` 을 실행하면 세션 컨텍스트를 에이전트 워크스페이스(기본값 `~/.openclaw/workspace/memory/`)에 저장합니다.
+- **😈 soul-evil**: 퍼지 윈도우 동안 또는 무작위 확률로 주입된 `SOUL.md` 콘텐츠를 `SOUL_EVIL.md` 로 교체합니다.
 - **📝 command-logger**: 모든 명령 이벤트를 `~/.openclaw/logs/commands.log` 에 로깅합니다.
 - **🚀 boot-md**: 게이트웨이가 시작될 때 `BOOT.md` 을 실행합니다(내부 hooks 활성화 필요).
-- **😈 soul-evil**: 퍼지 윈도우 동안 또는 무작위 확률로 주입된 `SOUL.md` 콘텐츠를 `SOUL_EVIL.md` 로 교체합니다.
 
 사용 가능한 hooks 목록 보기:
 
@@ -68,7 +72,7 @@ openclaw hooks check
 openclaw hooks info session-memory
 ```
 
-### 온보딩
+### Onboarding
 
 온보딩(`openclaw onboard`) 중에는 권장 hooks 를 활성화하라는 안내를 받게 됩니다. 마법사는 적합한 hooks 를 자동으로 발견하여 선택할 수 있도록 제시합니다.
 
@@ -98,6 +102,8 @@ Hook 팩은 표준 npm 패키지로, `package.json` 에서 `openclaw.hooks` 을 
 openclaw hooks install <path-or-spec>
 ```
 
+Npm 사양은 레지스트리 전용입니다 (패키지 이름 + 선택적 버전/태그). Git/URL/file 사양은 허용되지 않습니다.
+
 `package.json` 예시:
 
 ```json
@@ -112,6 +118,10 @@ openclaw hooks install <path-or-spec>
 
 각 항목은 `HOOK.md` 와 `handler.ts` (또는 `index.ts`)를 포함하는 hook 디렉토리를 가리킵니다.
 Hook 팩은 의존성을 포함할 수 있으며, 이들은 `~/.openclaw/hooks/<id>` 아래에 설치됩니다.
+
+보안 참고: `openclaw hooks install`은 `npm install --ignore-scripts`로 의존성을 설치합니다
+(라이프사이클 스크립트 실행 없음). hook pack 의존성 트리는 "순수 JS/TS"로 유지하고
+`postinstall` 빌드에 의존하는 패키지는 피하세요.
 
 ## Hook 구조
 
@@ -389,6 +399,8 @@ Hooks 는 사용자 정의 설정을 가질 수 있습니다:
 }
 ```
 
+참고: `module`은 워크스페이스 기준 상대 경로여야 합니다. 절대 경로 및 워크스페이스 외부로의 경로 이동은 허용되지 않습니다.
+
 **마이그레이션**: 새 hooks 에는 발견 기반 시스템을 사용하십시오. 레거시 핸들러는 디렉토리 기반 hooks 이후에 로드됩니다.
 
 ## CLI 명령
@@ -480,6 +492,49 @@ openclaw hooks disable command-logger
 openclaw hooks enable session-memory
 ```
 
+### bootstrap-extra-files
+
+`agent:bootstrap` 실행 중 추가 부트스트랩 파일(예: 모노레포 로컬 `AGENTS.md` / `TOOLS.md`)을 주입합니다.
+
+**이벤트**: `agent:bootstrap`
+
+**문서**: [SOUL Evil Hook](/hooks/soul-evil)
+
+**출력**: 파일은 기록되지 않으며, 교체는 메모리 내에서만 발생합니다.
+
+**설정**:
+
+```json
+{
+  "hooks": {
+    "internal": {
+      "enabled": true,
+      "entries": {
+        "soul-evil": {
+          "enabled": true,
+          "file": "SOUL_EVIL.md",
+          "chance": 0.1,
+          "purge": { "at": "21:00", "duration": "15m" }
+        }
+      }
+    }
+  }
+}
+```
+
+**이전**:
+
+- 경로는 워크스페이스 기준으로 해석됩니다.
+- 파일은 반드시 워크스페이스 내부에 있어야 합니다 (realpath 검사).
+- 인식된 부트스트랩 기본 이름만 로드됩니다.
+- 하위 에이전트 허용 목록은 유지됩니다 (`AGENTS.md` 및 `TOOLS.md`만).
+
+**활성화**:
+
+```bash
+openclaw hooks enable bootstrap-extra-files
+```
+
 ### command-logger
 
 모든 명령 이벤트를 중앙 집중식 감사 파일에 로깅합니다.
@@ -520,42 +575,6 @@ grep '"action":"new"' ~/.openclaw/logs/commands.log | jq .
 
 ```bash
 openclaw hooks enable command-logger
-```
-
-### soul-evil
-
-퍼지 윈도우 동안 또는 무작위 확률로 주입된 `SOUL.md` 콘텐츠를 `SOUL_EVIL.md` 로 교체합니다.
-
-**이벤트**: `agent:bootstrap`
-
-**문서**: [SOUL Evil Hook](/hooks/soul-evil)
-
-**출력**: 파일은 기록되지 않으며, 교체는 메모리 내에서만 발생합니다.
-
-**활성화**:
-
-```bash
-openclaw hooks enable soul-evil
-```
-
-**설정**:
-
-```json
-{
-  "hooks": {
-    "internal": {
-      "enabled": true,
-      "entries": {
-        "soul-evil": {
-          "enabled": true,
-          "file": "SOUL_EVIL.md",
-          "chance": 0.1,
-          "purge": { "at": "21:00", "duration": "15m" }
-        }
-      }
-    }
-  }
-}
 ```
 
 ### boot-md
@@ -787,7 +806,7 @@ Session reset
    openclaw hooks list
    ```
 
-### Hook 이 적합하지 않음
+### Hook 이 실행되지 않음
 
 요구 사항을 확인하십시오:
 
@@ -802,7 +821,7 @@ Look for missing:
 - 설정 값
 - OS 호환성
 
-### Hook 이 실행되지 않음
+### Hook 이 적합하지 않음
 
 1. hook 이 활성화되어 있는지 확인:
 
@@ -832,7 +851,7 @@ node -e "import('./path/to/handler.ts').then(console.log)"
 
 ### 레거시 설정에서 발견 방식으로
 
-**이전**:
+시작하기
 
 ```json
 {
@@ -909,5 +928,3 @@ node -e "import('./path/to/handler.ts').then(console.log)"
 - [Bundled Hooks README](https://github.com/openclaw/openclaw/tree/main/src/hooks/bundled)
 - [Webhook Hooks](/automation/webhook)
 - [Configuration](/gateway/configuration#hooks)
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Dokumentacja CLI dla `openclaw skills` (list/info/check) oraz kwalifikowalności Skills"
+read_when:
+  - Chcesz zobaczyć, które Skills są dostępne i gotowe do uruchomienia
+  - Chcesz debugować brakujące binaria/zmienne środowiskowe/konfigurację dla Skills
 title: "skills"
 ---
 
@@ -20,5 +24,3 @@ openclaw skills list --eligible
 openclaw skills info <name>
 openclaw skills check
 ```
-
-

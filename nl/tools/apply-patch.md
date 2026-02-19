@@ -1,4 +1,8 @@
 ---
+summary: "Pas patches voor meerdere bestanden toe met de apply_patch-tool"
+read_when:
+  - Je hebt gestructureerde bestandsbewerkingen over meerdere bestanden nodig
+  - Je wilt patch-gebaseerde bewerkingen documenteren of debuggen
 title: "apply_patch-tool"
 ---
 
@@ -28,7 +32,8 @@ De tool accepteert één enkele `input`-string die één of meer bestandsoperati
 
 ## Notities
 
-- Paden worden relatief ten opzichte van de workspace-root opgelost.
+- Patch-paden ondersteunen relatieve paden (vanaf de workspace-directory) en absolute paden.
+- `tools.exec.applyPatch.workspaceOnly` staat standaard op `true` (beperkt tot de workspace). Zet dit alleen op `false` als je er bewust voor kiest dat `apply_patch` buiten de workspace-directory mag schrijven/verwijderen.
 - Gebruik `*** Move to:` binnen een `*** Update File:`-hunk om bestanden te hernoemen.
 - `*** End of File` markeert indien nodig een invoeging alleen bij EOF.
 - Experimenteel en standaard uitgeschakeld. Schakel in met `tools.exec.applyPatch.enabled`.
@@ -44,5 +49,3 @@ De tool accepteert één enkele `input`-string die één of meer bestandsoperati
   "input": "*** Begin Patch\n*** Update File: src/index.ts\n@@\n-const foo = 1\n+const foo = 2\n*** End Patch"
 }
 ```
-
-

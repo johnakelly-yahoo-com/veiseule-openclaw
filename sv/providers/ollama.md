@@ -1,10 +1,14 @@
 ---
+summary: "Kör OpenClaw med Ollama (lokal LLM‑runtime)"
+read_when:
+  - Du vill köra OpenClaw med lokala modeller via Ollama
+  - Du behöver vägledning för installation och konfiguration av Ollama
 title: "Ollama"
 ---
 
 # Ollama
 
-Ollama är en lokal LLM runtime som gör det enkelt att köra open-source modeller på din maskin. OpenClaw integrerar med Ollamas OpenAI-kompatibla API och kan **automatiskt upptäcka verktygskompatibla modeller** när du väljer in med `OLLAMA_API_KEY` (eller en auth profil) och definierar inte en explicit `modell. roviders.ollama`-post.
+Ollama är en lokal LLM runtime som gör det enkelt att köra open-source modeller på din maskin. OpenClaw integreras med Ollamas inbyggda API (`/api/chat`), med stöd för streaming och tool calling, och kan **automatiskt upptäcka modeller med stöd för verktyg** när du aktiverar det med `OLLAMA_API_KEY` (eller en auth-profil) och inte definierar en explicit `models.providers.ollama`-post.
 
 ## Snabbstart
 
@@ -170,53 +174,36 @@ Ollama är gratis och körs lokalt, så alla modellkostnader sätts till $0.
 
 ### Strömningskonfiguration
 
-På grund av ett [känt problem](https://github.com/badlogic/pi-mono/issues/1205) i det underliggande SDK med Ollamas svarsformat, inaktiveras **strömning som standard** för Ollama-modeller. Detta förhindrar skadade svar vid användning av verktygsburna modeller.
+OpenClaws Ollama-integration använder som standard **Ollamas inbyggda API** (`/api/chat`), som fullt ut stöder streaming och tool calling samtidigt. Ingen särskild konfiguration behövs.
 
-När strömning är inaktiverad levereras svaren i ett stycke (icke‑strömmande läge), vilket undviker problemet där sammanflätade innehålls‑/resonemangsdelar orsakar förvrängt utdata.
+#### Äldre OpenAI-kompatibelt läge
 
-#### Återaktivera strömning (avancerat)
-
-Om du vill återaktivera strömning för Ollama (kan orsaka problem med verktygskapabla modeller):
+Om du i stället behöver använda den OpenAI-kompatibla endpointen (t.ex. bakom en proxy som endast stöder OpenAI-formatet), ange `api: "openai-completions"` explicit:
 
 ```json5
 {
-  agents: {
-    defaults: {
-      models: {
-        "ollama/gpt-oss:20b": {
-          streaming: true,
-        },
-      },
-    },
-  },
+  models: {
+    providers: {
+      ollama: {
+        baseUrl: "http://ollama-host:11434/v1",
+        api: "openai-completions",
+        apiKey: "ollama-local",
+        models: [...]
+      }
+    }
+  }
 }
 ```
 
-#### Inaktivera strömning för andra leverantörer
+Obs: Den OpenAI-kompatibla endpointen kanske inte stöder streaming och tool calling samtidigt. Du kan behöva inaktivera streaming med `params: { streaming: false }` i modellkonfigurationen.
 
-Du kan också inaktivera strömning för valfri leverantör vid behov:
-
-```json5
-{
-  agents: {
-    defaults: {
-      models: {
-        "openai/gpt-4": {
-          streaming: false,
-        },
-      },
-    },
-  },
-}
-```
-
-### Kontextfönster
+### Inaktivera strömning för andra leverantörer
 
 För auto-upptäckta modeller använder OpenClaw kontextfönstret som rapporterats av Ollama när det är tillgängligt, annars är standardinställningen `8192`. Du kan åsidosätta `contextWindow` och `maxTokens` i explicit provider config.
 
 ## Felsökning
 
-### Ollama upptäcks inte
+### Kontextfönster
 
 Se till att Ollama körs och att du har satt `OLLAMA_API_KEY` (eller en autentiseringsprofil), och att du **inte** har definierat en explicit `models.providers.ollama`‑post:
 
@@ -247,7 +234,7 @@ ollama pull llama3.3     # Or another model
 
 ### Anslutning nekad
 
-Kontrollera att Ollama körs på rätt port:
+För att lägga till modeller:
 
 ```bash
 # Check if Ollama is running
@@ -257,19 +244,8 @@ ps aux | grep ollama
 ollama serve
 ```
 
-### Korrupta svar eller verktygsnamn i utdata
-
-Om du ser förvanskade svar med verktygsnamn (som `sessions_send`, `memory_get`) eller fragmenterad text vid användning av Ollama-modeller, detta beror på ett uppströms SDK-problem med strömningssvar. **Detta rättas som standard** i den senaste OpenClaw-versionen genom att inaktivera strömning för Ollama-modeller.
-
-Om du manuellt har aktiverat strömning och upplever detta problem:
-
-1. Ta bort konfigurationen `streaming: true` från dina Ollama‑modellposter, eller
-2. Sätt `streaming: false` explicit för Ollama‑modeller (se [Strömningskonfiguration](#strömningskonfiguration))
-
-## Se även
+## Anslutning nekad
 
 - [Model Providers](/concepts/model-providers) – Översikt över alla leverantörer
 - [Model Selection](/concepts/models) – Hur du väljer modeller
 - [Configuration](/gateway/configuration) – Fullständig konfigreferens
-
-

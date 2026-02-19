@@ -1,4 +1,7 @@
 ---
+summary: "Ondertekeningsstappen voor macOS-debugbuilds die door verpakkingsscripts worden gegenereerd"
+read_when:
+  - Bouwen of ondertekenen van macOS-debugbuilds
 title: "macOS-ondertekening"
 ---
 
@@ -42,5 +45,3 @@ Het tabblad Over leest deze sleutels om versie, builddatum, git-commit en of het
 ## Waarom
 
 TCC-rechten zijn gekoppeld aan de bundle identifier _en_ de code-ondertekening. Niet-ondertekende debugbuilds met veranderende UUID's zorgden ervoor dat macOS de toekenningen na elke herbouw vergat. Het ondertekenen van de binaire bestanden (standaard ad-hoc) en het behouden van een vaste bundle-id/-pad (`dist/OpenClaw.app`) bewaart de toekenningen tussen builds, in lijn met de VibeTunnel-aanpak.
-
-

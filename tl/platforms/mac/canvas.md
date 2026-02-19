@@ -1,4 +1,9 @@
 ---
+summary: "Panel ng Canvas na kontrolado ng agent na naka-embed sa pamamagitan ng WKWebView + custom URL scheme"
+read_when:
+  - Pagpapatupad ng macOS Canvas panel
+  - Pagdaragdag ng mga kontrol ng agent para sa visual workspace
+  - Pag-debug ng mga load ng WKWebView canvas
 title: "Canvas"
 ---
 
@@ -114,5 +119,3 @@ Humihingi ang app ng kumpirmasyon maliban kung may ibinigay na valid key.
 - Hinaharangan ng Canvas scheme ang directory traversal; ang mga file ay dapat nasa ilalim ng session root.
 - Ang lokal na Canvas content ay gumagamit ng custom scheme (hindi kailangan ng loopback server).
 - Ang mga external na `http(s)` URL ay pinapayagan lamang kapag tahasang ini-navigate.
-
-

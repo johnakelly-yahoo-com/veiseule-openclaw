@@ -1,14 +1,19 @@
 ---
+summary: "LINE میسجنگ API پلگ اِن کی سیٹ اپ، کنفیگ اور استعمال"
+read_when:
+  - آپ OpenClaw کو LINE سے جوڑنا چاہتے ہیں
+  - آپ کو LINE ویب ہُک اور اسناد کی سیٹ اپ درکار ہے
+  - آپ LINE کے مخصوص پیغام اختیارات چاہتے ہیں
 title: LINE
 ---
 
 # LINE (plugin)
 
-LINE، LINE Messaging API کے ذریعے OpenClaw سے منسلک ہوتا ہے۔ یہ پلگ اِن ایک ویب ہُک کے طور پر چلتا ہے۔
+LINE connects to OpenClaw via the LINE Messaging API. The plugin runs as a webhook
 receiver on the gateway and uses your channel access token + channel secret for
 authentication.
 
-حالت: پلگ اِن کے ذریعے معاونت دستیاب ہے۔ ڈائریکٹ میسجز، گروپ چیٹس، میڈیا، لوکیشنز، Flex
+Status: supported via plugin. Direct messages, group chats, media, locations, Flex
 messages, template messages, and quick replies are supported. Reactions and threads
 are not supported.
 
@@ -39,7 +44,7 @@ openclaw plugins install ./extensions/line
 https://gateway-host/line/webhook
 ```
 
-گیٹ وے، LINE کی ویب ہُک تصدیق (GET) اور آنے والے ایونٹس (POST) کا جواب دیتا ہے۔
+The gateway responds to LINE’s webhook verification (GET) and inbound events (POST).
 If you need a custom path, set `channels.line.webhookPath` or
 `channels.line.accounts.<id>.webhookPath` and update the URL accordingly.
 
@@ -178,5 +183,3 @@ LINE پلگ اِن Flex پیغام پری سیٹس کے لیے ایک `/card` ک
   مطابقت رکھتا ہے اور گیٹ وے LINE سے قابلِ رسائی ہے۔
 - **میڈیا ڈاؤن لوڈ کی غلطیاں:** اگر میڈیا ڈیفالٹ حد سے بڑا ہو تو
   `channels.line.mediaMaxMb` بڑھائیں۔
-
-

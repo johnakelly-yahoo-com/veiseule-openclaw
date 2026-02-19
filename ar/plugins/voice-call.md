@@ -1,4 +1,8 @@
 ---
+summary: "ملحق المكالمات الصوتية: مكالمات صادرة وواردة عبر Twilio/Telnyx/Plivo (تثبيت الملحق + التهيئة + CLI)"
+read_when:
+  - تريد إجراء مكالمة صوتية صادرة من OpenClaw
+  - تقوم بتهيئة أو تطوير ملحق المكالمات الصوتية
 title: "ملحق المكالمات الصوتية"
 ---
 
@@ -107,6 +111,7 @@ cd ./extensions/voice-call && pnpm install
 - يتطلب Twilio/Telnyx عنوان URL لخطاف ويب **قابل للوصول علنًا**.
 - يتطلب Plivo عنوان URL لخطاف ويب **قابل للوصول علنًا**.
 - `mock` هو موفّر تطوير محلي (بدون مكالمات شبكة).
+- يتطلب Telnyx قيمة `telnyx.publicKey` (أو `TELNYX_PUBLIC_KEY`) ما لم تكن `skipSignatureVerification` مفعّلة.
 - `skipSignatureVerification` مخصّص للاختبار المحلي فقط.
 - إذا استخدمت فئة ngrok المجانية، فاضبط `publicUrl` على عنوان ngrok الدقيق؛ يتم دائمًا فرض التحقق من التوقيع.
 - يسمح `tunnel.allowNgrokFreeTierLoopbackBypass: true` بخطافات ويب Twilio ذات التواقيع غير الصالحة **فقط** عندما يكون `tunnel.provider="ngrok"` و `serve.bind` حلقة رجوع (وكيل ngrok المحلي). استخدمه للتطوير المحلي فقط.
@@ -277,5 +282,3 @@ openclaw voicecall expose --mode funnel
 - `voicecall.speak` (`callId`, `message`)
 - `voicecall.end` (`callId`)
 - `voicecall.status` (`callId`)
-
-

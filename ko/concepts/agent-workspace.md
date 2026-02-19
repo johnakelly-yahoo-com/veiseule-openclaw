@@ -1,4 +1,8 @@
 ---
+summary: "에이전트 워크스페이스: 위치, 레이아웃 및 백업 전략"
+read_when:
+  - 에이전트 워크스페이스 또는 파일 레이아웃을 설명해야 할 때
+  - 에이전트 워크스페이스를 백업하거나 마이그레이션하려는 경우
 title: "에이전트 워크스페이스"
 ---
 
@@ -204,5 +208,3 @@ git push
 
 - 멀티 에이전트 라우팅은 에이전트별로 서로 다른 워크스페이스를 사용할 수 있습니다. 라우팅 구성은 [Channel routing](/channels/channel-routing)을 참고하십시오.
 - `agents.defaults.sandbox` 가 활성화된 경우, 메인 세션이 아닌 세션은 `agents.defaults.sandbox.workspaceRoot` 아래의 세션별 샌드박스 워크스페이스를 사용할 수 있습니다.
-
-

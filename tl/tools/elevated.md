@@ -1,4 +1,7 @@
 ---
+summary: "Elevated exec mode at mga direktibang /elevated"
+read_when:
+  - Ina-adjust ang mga default ng elevated mode, mga allowlist, o pag-uugali ng slash command
 title: "Pinataas na Mode"
 ---
 
@@ -16,7 +19,7 @@ title: "Pinataas na Mode"
 
 ## Ano ang kinokontrol nito (at ano ang hindi)
 
-- **Mga panuntunan sa availability**: `tools.elevated` ang pandaigdigang baseline. Maaaring higit pang higpitan ng `agents.list[].tools.elevated` ang elevated bawat agent (parehong dapat pumayag).
+- **Availability gates**: `tools.elevated` is the global baseline. `agents.list[].tools.elevated` can further restrict elevated per agent (both must allow).
 - **Per-session state**: Itinatakda ng `/elevated on|off|ask|full` ang antas ng elevated para sa kasalukuyang session key.
 - **Inline directive**: Ang `/elevated on|ask|full` sa loob ng isang mensahe ay nalalapat lamang sa mensaheng iyon.
 - 46. **Mga Grupo**: Sa mga group chat, ang mga elevated directive ay sinusunod lamang kapag nabanggit ang agent. Command-only messages that bypass mention requirements are treated as mentioned.
@@ -45,12 +48,10 @@ title: "Pinataas na Mode"
 - Sender allowlist: `tools.elevated.allowFrom` na may per-provider na mga allowlist (hal. `discord`, `whatsapp`).
 - Per-agent gate: `agents.list[].tools.elevated.enabled` (opsyonal; maaari lamang pang higpitan).
 - Per-agent allowlist: `agents.list[].tools.elevated.allowFrom` (opsyonal; kapag itinakda, dapat tumugma ang sender sa **parehong** global + per-agent allowlists).
-- Discord fallback: if `tools.elevated.allowFrom.discord` is omitted, the `channels.discord.dm.allowFrom` list is used as a fallback. Set `tools.elevated.allowFrom.discord` (even `[]`) to override. Per-agent allowlists do **not** use the fallback.
+- Discord fallback: kung ang `tools.elevated.allowFrom.discord` ay hindi nakalagay, ang listahang `channels.discord.allowFrom` ang gagamitin bilang fallback (legacy: `channels.discord.dm.allowFrom`). Set `tools.elevated.allowFrom.discord` (even `[]`) to override. Per-agent allowlists do **not** use the fallback.
 - Lahat ng gate ay dapat pumasa; kung hindi, ituturing na hindi available ang elevated.
 
 ## Pagla-log + katayuan
 
 - Ang mga elevated exec call ay nilolog sa antas na info.
 - Kasama sa session status ang elevated mode (hal. `elevated=ask`, `elevated=full`).
-
-

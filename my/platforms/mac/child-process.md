@@ -1,4 +1,7 @@
 ---
+summary: "macOS တွင် Gateway ၏ လည်ပတ်မှုအဆင့်များ (launchd)"
+read_when:
+  - mac app ကို Gateway lifecycle နှင့် ပေါင်းစည်းနေစဉ်
 title: "Gateway လည်ပတ်မှု သက်တမ်းစက်ဝန်း"
 ---
 
@@ -53,5 +56,3 @@ rm ~/.openclaw/disable-launchagent
 - ခန့်မှန်းနိုင်သော လော့ဂ်များနှင့် ကြီးကြပ်စောင့်ကြည့်မှု။
 
 အကယ်၍ တကယ့် child‑process mode ကို နောက်တစ်ကြိမ် လိုအပ်လာပါက သီးခြား၊ ထင်ရှားသော dev‑only mode အဖြစ် မှတ်တမ်းတင်ဖော်ပြသင့်ပါသည်။
-
-

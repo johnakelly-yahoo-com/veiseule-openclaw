@@ -1,4 +1,7 @@
 ---
+summary: "WebSocket-gatewayarkitektur, komponenter och klientflöden"
+read_when:
+  - Arbetar med gateway-protokoll, klienter eller transporter
 title: "Gateway-arkitektur"
 ---
 
@@ -17,6 +20,9 @@ Senast uppdaterad: 2026-01-22
   deklarerar `role: node` med explicita capabiliteter/kommandon.
 - En Gateway per värd; det är den enda platsen som öppnar en WhatsApp-session.
 - En **canvas-värd** (standard `18793`) serverar agent-redigerbar HTML och A2UI.
+  - `/__openclaw__/canvas/` (agentredigerbar HTML/CSS/JS)
+  - `/__openclaw__/a2ui/` (A2UI-värd)
+    Den använder samma port som Gateway (standard `18789`).
 
 ## Komponenter och flöden
 
@@ -146,5 +152,3 @@ Detaljer: [Gateway-protokoll](/gateway/protocol), [Parning](/channels/pairing),
 - Exakt en Gateway kontrollerar en enskild Baileys-session per värd.
 - Handskakning är obligatorisk; alla icke‑JSON- eller icke‑connect‑första ramar stänger hårt.
 - Händelser spelas inte upp igen; klienter måste uppdatera vid glapp.
-
-

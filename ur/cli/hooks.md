@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw hooks` کے لیے CLI حوالہ (ایجنٹ ہکس)"
+read_when:
+  - آپ ایجنٹ ہکس کا نظم کرنا چاہتے ہیں
+  - آپ ہکس انسٹال یا اپڈیٹ کرنا چاہتے ہیں
 title: "hooks"
 ---
 
@@ -123,7 +127,7 @@ openclaw hooks enable <name>
 
 اپنی کنفیگ (`~/.openclaw/config.json`) میں شامل کر کے کسی مخصوص ہک کو فعال کریں۔
 
-**نوٹ:** پلگ اِنز کے ذریعے منظم کیے گئے ہُکس `plugin:<id>` کو `openclaw hooks list` میں ظاہر کرتے ہیں اور
+**Note:** Hooks managed by plugins show `plugin:<id>` in `openclaw hooks list` and
 can’t be enabled/disabled here. Enable/disable the plugin instead.
 
 **دلائل:**
@@ -145,7 +149,7 @@ openclaw hooks enable session-memory
 **یہ کیا کرتا ہے:**
 
 - چیک کرتا ہے کہ ہک موجود ہے اور اہل ہے
-- آپ کی کنفیگ میں `hooks.internal.entries.<name>.enabled = true` کو اپ ڈیٹ کرتا ہے
+- Updates `hooks.internal.entries.<name>.enabled = true` in your config
 - کنفیگ کو ڈسک پر محفوظ کرتا ہے
 
 **فعال کرنے کے بعد:**
@@ -188,6 +192,9 @@ openclaw hooks install <path-or-spec>
 
 لوکل فولڈر/آرکائیو یا npm سے ہک پیک انسٹال کریں۔
 
+Npm specs صرف **registry-only** ہوتے ہیں (پیکیج کا نام + اختیاری ورژن/ٹیگ). Git/URL/file
+specs مسترد کر دی جاتی ہیں۔ Dependency installs حفاظتی مقصد کے لیے `--ignore-scripts` کے ساتھ چلائے جاتے ہیں۔
+
 **یہ کیا کرتا ہے:**
 
 - ہک پیک کو `~/.openclaw/hooks/<id>` میں کاپی کرتا ہے
@@ -198,7 +205,7 @@ openclaw hooks install <path-or-spec>
 
 - `-l, --link`: کاپی کرنے کے بجائے لوکل ڈائریکٹری کو لنک کریں (اسے `hooks.internal.load.extraDirs` میں شامل کرتا ہے)
 
-**معاون آرکائیوز:** `.zip`, `.tgz`, `.tar.gz`, `.tar`
+**مثالیں:**
 
 **مثالیں:**
 
@@ -223,7 +230,7 @@ openclaw hooks update <id>
 openclaw hooks update --all
 ```
 
-انسٹال شدہ ہک پیکس کو اپڈیٹ کریں (صرف npm انسٹالز)۔
+**اختیارات:**
 
 **اختیارات:**
 
@@ -234,7 +241,7 @@ openclaw hooks update --all
 
 ### session-memory
 
-جب آپ `/new` جاری کرتے ہیں تو سیشن سیاق کو میموری میں محفوظ کرتا ہے۔
+**فعال کریں:**
 
 **فعال کریں:**
 
@@ -242,13 +249,25 @@ openclaw hooks update --all
 openclaw hooks enable session-memory
 ```
 
-**آؤٹ پٹ:** `~/.openclaw/workspace/memory/YYYY-MM-DD-slug.md`
+**دیکھیں:** [session-memory دستاویزات](/automation/hooks#session-memory)
 
 **دیکھیں:** [session-memory دستاویزات](/automation/hooks#session-memory)
 
+### bootstrap-extra-files
+
+**فعال کریں:**
+
+**فعال کریں:**
+
+```bash
+openclaw hooks bootstrap-extra-files کو فعال کرتے ہیں
+```
+
+**لاگز دیکھیں:**
+
 ### command-logger
 
-تمام کمانڈ ایونٹس کو ایک مرکزی آڈٹ فائل میں لاگ کرتا ہے۔
+**دیکھیں:** [command-logger دستاویزات](/automation/hooks#command-logger)
 
 **فعال کریں:**
 
@@ -256,7 +275,7 @@ openclaw hooks enable session-memory
 openclaw hooks enable command-logger
 ```
 
-**آؤٹ پٹ:** `~/.openclaw/logs/commands.log`
+**فعال کریں:**
 
 **لاگز دیکھیں:**
 
@@ -273,23 +292,11 @@ grep '"action":"new"' ~/.openclaw/logs/commands.log | jq .
 
 **دیکھیں:** [command-logger دستاویزات](/automation/hooks#command-logger)
 
-### soul-evil
-
-purge ونڈو کے دوران یا اتفاقی امکان کے تحت injected `SOUL.md` مواد کو `SOUL_EVIL.md` سے تبدیل کرتا ہے۔
-
-**فعال کریں:**
-
-```bash
-openclaw hooks enable soul-evil
-```
-
-**دیکھیں:** [SOUL Evil Hook](/hooks/soul-evil)
-
 ### boot-md
 
-gateway کے شروع ہونے پر (چینلز کے شروع ہونے کے بعد) `BOOT.md` چلاتا ہے۔
-
 **ایونٹس**: `gateway:startup`
+
+**فعال کریں**:
 
 **فعال کریں**:
 
@@ -298,5 +305,3 @@ openclaw hooks enable boot-md
 ```
 
 **دیکھیں:** [boot-md دستاویزات](/automation/hooks#boot-md)
-
-

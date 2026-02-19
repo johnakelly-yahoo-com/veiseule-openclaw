@@ -1,4 +1,8 @@
 ---
+summary: "مرجع CLI لأمر `openclaw channels` (الحسابات، الحالة، تسجيل الدخول/الخروج، السجلات)"
+read_when:
+  - تريد إضافة/إزالة حسابات القنوات (WhatsApp/Telegram/Discord/Google Chat/Slack/Mattermost (ملحق)/Signal/iMessage)
+  - تريد التحقق من حالة القناة أو تتبّع سجلات القناة
 title: "القنوات"
 ---
 
@@ -73,5 +77,3 @@ openclaw channels resolve --channel matrix "Project Room"
 
 - استخدم `--kind user|group|auto` لفرض نوع الهدف.
 - يفضّل التحويل التطابقات النشطة عندما تشترك عدة إدخالات في الاسم نفسه.
-
-

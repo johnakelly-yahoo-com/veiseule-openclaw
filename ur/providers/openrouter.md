@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw میں متعدد ماڈلز تک رسائی کے لیے OpenRouter کی متحدہ API استعمال کریں"
+read_when:
+  - آپ متعدد LLMs کے لیے ایک ہی API کلید چاہتے ہیں
+  - آپ OpenClaw میں OpenRouter کے ذریعے ماڈلز چلانا چاہتے ہیں
 title: "OpenRouter"
 ---
 
@@ -30,5 +34,3 @@ openclaw onboard --auth-choice apiKey --token-provider openrouter --token "$OPEN
 - ماڈل حوالہ جات `openrouter/<provider>/<model>` ہیں۔
 - مزید ماڈل/فراہم کنندہ کے اختیارات کے لیے [/concepts/model-providers](/concepts/model-providers) دیکھیں۔
 - OpenRouter اندرونی طور پر آپ کی API کلید کے ساتھ Bearer ٹوکن استعمال کرتا ہے۔
-
-

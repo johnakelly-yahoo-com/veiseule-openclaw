@@ -1,4 +1,8 @@
 ---
+summary: "인바운드 음성 메모를 위한 Deepgram 전사"
+read_when:
+  - 오디오 첨부 파일에 대해 Deepgram 음성-텍스트 변환이 필요합니다
+  - 빠른 Deepgram 구성 예제가 필요합니다
 title: "Deepgram"
 ---
 
@@ -84,5 +88,3 @@ Deepgram 옵션을 사용한 예시:
 - 인증은 표준 프로바이더 인증 순서를 따르며, `DEEPGRAM_API_KEY` 이 가장 간단한 경로입니다.
 - 프록시를 사용하는 경우 `tools.media.audio.baseUrl` 및 `tools.media.audio.headers` 로 엔드포인트 또는 헤더를 재정의할 수 있습니다.
 - 출력은 다른 프로바이더와 동일한 오디오 규칙(크기 제한, 타임아웃, 전사 주입)을 따릅니다.
-
-

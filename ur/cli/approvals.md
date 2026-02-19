@@ -1,4 +1,8 @@
 ---
+summary: "CLI کے لیے حوالہ برائے `openclaw approvals` (گیٹ وے یا نوڈ ہوسٹس کے لیے exec منظوریات)"
+read_when:
+  - آپ CLI سے exec منظوریات میں ترمیم کرنا چاہتے ہیں
+  - آپ کو گیٹ وے یا نوڈ ہوسٹس پر اجازت فہرستیں منظم کرنے کی ضرورت ہے
 title: "approvals"
 ---
 
@@ -44,5 +48,3 @@ openclaw approvals allowlist remove "~/Projects/**/bin/rg"
 - `--agent` بطورِ طے شدہ `"*"` پر ہوتا ہے، جو تمام ایجنٹس پر لاگو ہوتا ہے۔
 - نوڈ ہوسٹ کو `system.execApprovals.get/set` کا اشتہار دینا لازمی ہے (macOS ایپ یا headless نوڈ ہوسٹ)۔
 - منظوریات کی فائلیں ہر ہوسٹ کے لیے `~/.openclaw/exec-approvals.json` پر محفوظ کی جاتی ہیں۔
-
-

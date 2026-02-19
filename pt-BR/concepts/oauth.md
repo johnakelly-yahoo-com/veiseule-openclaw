@@ -1,4 +1,10 @@
 ---
+summary: "OAuth no OpenClaw: troca de tokens, armazenamento e padrões de múltiplas contas"
+read_when:
+  - Você quer entender o OAuth no OpenClaw de ponta a ponta
+  - Você encontrou problemas de invalidação de token / logout
+  - Você quer fluxos de setup-token ou autenticação OAuth
+  - Você quer múltiplas contas ou roteamento por perfil
 title: "OAuth"
 ---
 
@@ -136,5 +142,3 @@ Documentos relacionados:
 
 - [/concepts/model-failover](/concepts/model-failover) (regras de rotação + cooldown)
 - [/tools/slash-commands](/tools/slash-commands) (superfície de comandos)
-
-

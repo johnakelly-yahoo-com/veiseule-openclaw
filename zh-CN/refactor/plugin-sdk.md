@@ -1,18 +1,16 @@
 ---
-title: 插件 SDK 重构
-x-i18n:
-  generated_at: "2026-02-01T21:36:45Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: d1964e2e47a19ee1d42ddaaa9cf1293c80bb0be463b049dc8468962f35bb6cb0
-  source_path: refactor/plugin-sdk.md
-  workflow: 15
+summary: "计划：为所有消息连接器提供一套统一的插件 SDK + 运行时"
+read_when:
+  - 定义或重构插件架构
+  - 将渠道连接器迁移到插件 SDK/运行时
+title: "插件 SDK 重构"
 ---
 
 # 插件 SDK + 运行时重构计划
 
 目标：每个消息连接器都是一个插件（内置或外部），使用统一稳定的 API。
 插件不直接从 `src/**` 导入任何内容。所有依赖项均通过 SDK 或运行时获取。
+11. 插件不得直接从 `src/**` 导入。 12. 所有依赖都通过 SDK 或运行时。
 
 ## 为什么现在做
 
@@ -23,7 +21,7 @@ x-i18n:
 
 ### 1）插件 SDK（编译时，稳定，可发布）
 
-范围：类型、辅助函数和配置工具。无运行时状态，无副作用。
+范围：类型、辅助函数和配置工具。无运行时状态，无副作用。 19. 无运行时状态，无副作用。
 
 内容（示例）：
 
@@ -38,12 +36,13 @@ x-i18n:
 交付方式：
 
 - 以 `openclaw/plugin-sdk` 发布（或从核心以 `openclaw/plugin-sdk` 导出）。
-- 使用语义化版本控制，提供明确的稳定性保证。
+- 29. 采用 Semver，并提供明确的稳定性保证。
 
 ### 2）插件运行时（执行层，注入式）
 
-范围：所有涉及核心运行时行为的内容。
-通过 `OpenClawPluginApi.runtime` 访问，确保插件永远不会导入 `src/**`。
+31. 范围：所有涉及核心运行时行为的内容。
+    范围：所有涉及核心运行时行为的内容。
+    通过 `OpenClawPluginApi.runtime` 访问，确保插件永远不会导入 `src/**`。
 
 建议的接口（最小但完整）：
 
@@ -191,7 +190,7 @@ export type PluginRuntime = {
 ## 兼容性与版本控制
 
 - SDK：语义化版本控制，已发布，变更有文档记录。
-- 运行时：按核心版本进行版本控制。添加 `api.runtime.version`。
+- 12. Runtime：按 core 发布版本进行版本化。 运行时：按核心版本进行版本控制。添加 `api.runtime.version`。
 - 插件声明所需的运行时版本范围（例如 `openclawRuntime: ">=2026.2.0"`）。
 
 ## 测试策略
@@ -200,7 +199,7 @@ export type PluginRuntime = {
 - 每个插件的黄金测试：确保行为无偏差（路由、配对、允许列表、提及过滤）。
 - CI 中使用单个端到端插件示例（安装 + 运行 + 冒烟测试）。
 
-## 待解决问题
+## Open questions
 
 - SDK 类型托管在哪里：独立包还是核心导出？
 - 运行时类型分发：在 SDK 中（仅类型）还是在核心中？
@@ -215,5 +214,3 @@ export type PluginRuntime = {
 - 外部插件可以在无需访问核心源码的情况下进行开发和更新。
 
 相关文档：[插件](/tools/plugin)、[渠道](/channels/index)、[配置](/gateway/configuration)。
-
-

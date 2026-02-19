@@ -1,6 +1,8 @@
 ---
+summary: "Ang OpenClaw ay isang multi-channel gateway para sa mga AI agent na tumatakbo sa anumang OS."
+read_when:
+  - Pagpapakilala ng OpenClaw sa mga baguhan
 title: "OpenClaw"
-sidebarTitle: "OpenClaw"
 ---
 
 # OpenClaw 🦞
@@ -41,7 +43,7 @@ sidebarTitle: "OpenClaw"
 
 ## Ano ang OpenClaw?
 
-Ang OpenClaw ay isang **self-hosted gateway** na nag-uugnay sa iyong mga paboritong chat app — WhatsApp, Telegram, Discord, iMessage, at iba pa — sa mga AI coding agent tulad ng Pi. Nagpapatakbo ka ng iisang Gateway process sa sarili mong makina (o server), at ito ang nagsisilbing tulay sa pagitan ng iyong mga messaging app at isang laging available na AI assistant.
+OpenClaw is a **self-hosted gateway** that connects your favorite chat apps — WhatsApp, Telegram, Discord, iMessage, and more — to AI coding agents like Pi. You run a single Gateway process on your own machine (or a server), and it becomes the bridge between your messaging apps and an always-available AI assistant.
 
 **Para kanino ito?** Mga developer at power user na gustong magkaroon ng personal na AI assistant na maaari nilang i-message mula kahit saan — nang hindi isinusuko ang kontrol sa kanilang data o umaasa sa isang hosted service.
 
@@ -208,5 +210,3 @@ Halimbawa:
   
 </Card>
 </Columns>
-
-

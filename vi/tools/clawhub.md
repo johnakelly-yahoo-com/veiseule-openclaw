@@ -1,4 +1,9 @@
 ---
+summary: "Hướng dẫn ClawHub: registry Skills công khai + quy trình làm việc với CLI"
+read_when:
+  - Giới thiệu ClawHub cho người dùng mới
+  - Cài đặt, tìm kiếm hoặc phát hành Skills
+  - Giải thích các cờ CLI của ClawHub và hành vi đồng bộ
 title: "ClawHub"
 ---
 
@@ -68,7 +73,7 @@ pnpm add -g clawhub
 
 ## Tổng quan hệ thống Skills
 
-Một kỹ năng là một gói tệp có phiên bản, giúp OpenClaw học cách thực hiện một
+A skill is a versioned bundle of files that teaches OpenClaw how to perform a
 specific task. Each publish creates a new version, and the registry keeps a
 history of versions so users can audit changes.
 
@@ -250,5 +255,3 @@ export CLAWHUB_DISABLE_TELEMETRY=1
 - `CLAWHUB_CONFIG_PATH`: Ghi đè nơi CLI lưu token/cấu hình.
 - `CLAWHUB_WORKDIR`: Ghi đè workdir mặc định.
 - `CLAWHUB_DISABLE_TELEMETRY=1`: Tắt telemetry trên `sync`.
-
-

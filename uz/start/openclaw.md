@@ -1,10 +1,14 @@
 ---
+summary: "OpenClaw’ni shaxsiy yordamchi sifatida ishga tushirish bo‘yicha boshidan oxirigacha qo‘llanma va xavfsizlik ogohlantirishlari"
+read_when:
+  - Yangi yordamchi instansiyasini sozlashda
+  - Xavfsizlik/ruxsat oqibatlarini ko‘rib chiqishda
 title: "Shaxsiy yordamchini sozlash"
 ---
 
 # OpenClaw yordamida shaxsiy yordamchi yaratish
 
-OpenClaw — bu **Pi** agentlari uchun WhatsApp + Telegram + Discord + iMessage gateway. Pluginlar Mattermost qo‘shadi. Ushbu qo‘llanma “shaxsiy yordamchi” sozlamasi haqida: doimo faol bo‘ladigan agent sifatida ishlaydigan bitta alohida WhatsApp raqami.
+OpenClaw is a WhatsApp + Telegram + Discord + iMessage gateway for **Pi** agents. Plugins add Mattermost. This guide is the "personal assistant" setup: one dedicated WhatsApp number that behaves like your always-on agent.
 
 ## ⚠️ Avvalo xavfsizlik
 
@@ -18,7 +22,7 @@ Ehtiyotkorlik bilan boshlang:
 
 - Har doim `channels.whatsapp.allowFrom` ni sozlang (shaxsiy Mac’ingizda hech qachon hammaga ochiq rejimda ishlatmang).
 - Yordamchi uchun alohida WhatsApp raqamidan foydalaning.
-- Heartbeat sukut bo‘yicha har 30 daqiqada ishlaydi. Sozlamaga ishonch hosil qilmaguningizcha uni `agents.defaults.heartbeat.every: "0m"` qilib o‘chirib qo‘ying.
+- Heartbeats now default to every 30 minutes. Disable until you trust the setup by setting `agents.defaults.heartbeat.every: "0m"`.
 
 ## Talablar
 
@@ -35,7 +39,7 @@ flowchart TB
     B -- linked via QR --> C["<b>Sizning Mac (openclaw)<br></b><br>Pi agent"]
 ```
 
-Agar shaxsiy WhatsApp’ingizni OpenClaw’ga ulasangiz, sizga kelgan har bir xabar “agent input” ga aylanadi. Odatda bu siz istagan narsa emas.
+If you link your personal WhatsApp to OpenClaw, every message to you becomes “agent input”. That’s rarely what you want.
 
 ## 5 daqiqalik tezkor boshlash
 
@@ -61,15 +65,15 @@ openclaw gateway --port 18789
 
 Endi ruxsat berilgan telefoningizdan yordamchi raqamiga xabar yuboring.
 
-Onboarding tugagach, dashboard avtomatik ochiladi va toza (tokensiz) havola ko‘rsatiladi. Agar autentifikatsiya so‘rasa, `gateway.auth.token` dagi tokenni Control UI sozlamalariga joylashtiring. Keyinroq qayta ochish uchun: `openclaw dashboard`.
+When onboarding finishes, we auto-open the dashboard and print a clean (non-tokenized) link. If it prompts for auth, paste the token from `gateway.auth.token` into Control UI settings. To reopen later: `openclaw dashboard`.
 
 ## Agent uchun ish maydoni (AGENTS)
 
 OpenClaw ish ko‘rsatmalari va “xotira”ni workspace katalogidan o‘qiydi.
 
-Sukut bo‘yicha OpenClaw agent workspace sifatida `~/.openclaw/workspace` dan foydalanadi va uni (hamda boshlang‘ich `AGENTS.md`, `SOUL.md`, `TOOLS.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md` fayllarini) sozlash/agent birinchi marta ishga tushganda avtomatik yaratadi. `BOOTSTRAP.md` faqat workspace mutlaqo yangi bo‘lganda yaratiladi (o‘chirib tashlaganingizdan keyin qayta paydo bo‘lmasligi kerak). `MEMORY.md` ixtiyoriy (avtomatik yaratilmaydi); mavjud bo‘lsa, oddiy sessiyalarda yuklanadi. Subagent sessiyalari faqat `AGENTS.md` va `TOOLS.md` ni qo‘shadi.
+By default, OpenClaw uses `~/.openclaw/workspace` as the agent workspace, and will create it (plus starter `AGENTS.md`, `SOUL.md`, `TOOLS.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md`) automatically on setup/first agent run. `BOOTSTRAP.md` is only created when the workspace is brand new (it should not come back after you delete it). `MEMORY.md` is optional (not auto-created); when present, it is loaded for normal sessions. Subagent sessions only inject `AGENTS.md` and `TOOLS.md`.
 
-Maslahat: bu papkani OpenClaw’ning “xotirasi” deb biling va `AGENTS.md` hamda xotira fayllaringiz zaxiralangan bo‘lishi uchun uni git reposiga (imkon qadar private) aylantiring. Agar git o‘rnatilgan bo‘lsa, yangi workspace avtomatik initsializatsiya qilinadi.
+Tip: treat this folder like OpenClaw’s “memory” and make it a git repo (ideally private) so your `AGENTS.md` + memory files are backed up. If git is installed, brand-new workspaces are auto-initialized.
 
 ```bash
 openclaw setup
@@ -148,14 +152,14 @@ Misol:
 
 - Sessiya fayllari: `~/.openclaw/agents/<agentId>/sessions/{{SessionId}}.jsonl`
 - Sessiya metama’lumotlari (token sarfi, oxirgi route va boshqalar): `~/.openclaw/agents/<agentId>/sessions/sessions.json` (legacy: `~/.openclaw/sessions/sessions.json`)
-- `/new` yoki `/reset` ushbu chat uchun yangi sessiyani boshlaydi (`resetTriggers` orqali sozlanadi). Agar yolg‘iz yuborilsa, agent reset tasdiqlash uchun qisqa salom bilan javob beradi.
+- `/new` or `/reset` starts a fresh session for that chat (configurable via `resetTriggers`). If sent alone, the agent replies with a short hello to confirm the reset.
 - `/compact [instructions]` sessiya kontekstini qisqartiradi va qolgan kontekst budjetini ko‘rsatadi.
 
 ## Heartbeat (proaktiv rejim)
 
-Sukut bo‘yicha OpenClaw har 30 daqiqada quyidagi prompt bilan heartbeat ishga tushiradi:  
-`Read HEARTBEAT.md if it exists (workspace context). Follow it strictly. Do not infer or repeat old tasks from prior chats. If nothing needs attention, reply HEARTBEAT_OK.`  
-O‘chirish uchun `agents.defaults.heartbeat.every: "0m"` ni sozlang.
+By default, OpenClaw runs a heartbeat every 30 minutes with the prompt:
+`Read HEARTBEAT.md if it exists (workspace context). Follow it strictly. Do not infer or repeat old tasks from prior chats. If nothing needs attention, reply HEARTBEAT_OK.`
+Set `agents.defaults.heartbeat.every: "0m"` to disable.
 
 - Agar `HEARTBEAT.md` mavjud bo‘lsa, lekin amalda bo‘sh (faqat bo‘sh qatorlar va `# Heading` kabi markdown sarlavhalardan iborat) bo‘lsa, OpenClaw API chaqiruvlarini tejash uchun heartbeat’ni o‘tkazib yuboradi.
 - Agar fayl mavjud bo‘lmasa, heartbeat baribir ishlaydi va model nima qilishni o‘zi hal qiladi.
@@ -178,7 +182,7 @@ Kirishdagi biriktirmalar (rasmlar/audio/hujjatlar) buyruqingizga template’lar 
 - `{{MediaUrl}}` (pseudo-URL)
 - `{{Transcript}}` (agar audio transkripsiya yoqilgan bo‘lsa)
 
-Agentdan chiqishdagi biriktirmalar: alohida qatorda `MEDIA:<path-or-url>` ni kiriting (bo‘sh joysiz). Misol:
+Outbound attachments from the agent: include `MEDIA:<path-or-url>` on its own line (no spaces). Example:
 
 ```
 Mana skrinshot.
@@ -209,5 +213,3 @@ Loglar `/tmp/openclaw/` ostida joylashadi (sukut bo‘yicha: `openclaw-YYYY-MM-D
 - Windows holati: [Windows (WSL2)](/platforms/windows)
 - Linux holati: [Linux app](/platforms/linux)
 - Xavfsizlik: [Security](/gateway/security)
-
-

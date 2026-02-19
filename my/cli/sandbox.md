@@ -1,5 +1,7 @@
 ---
-title: "Sandbox CLI"
+title: Sandbox CLI
+summary: "sandbox ကွန်တိန်နာများကို စီမံခန့်ခွဲခြင်းနှင့် အကျိုးသက်ရောက်နေသော sandbox မူဝါဒကို စစ်ဆေးခြင်း"
+read_when: "သင်သည် sandbox ကွန်တိန်နာများကို စီမံခန့်ခွဲနေစဉ် သို့မဟုတ် sandbox/tool-policy အပြုအမူကို အမှားရှာဖွေနေစဉ်"
 status: active
 ---
 
@@ -147,5 +149,3 @@ Sandbox ဆက်တင်များကို `agents.defaults.sandbox` အေ
 - [Sandbox စာရွက်စာတမ်းများ](/gateway/sandboxing)
 - [Agent Configuration](/concepts/agent-workspace)
 - [Doctor Command](/gateway/doctor) - sandbox setup ကို စစ်ဆေးရန်
-
-

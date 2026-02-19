@@ -1,4 +1,8 @@
 ---
+summary: "مرجع CLI لأمر `openclaw doctor` (فحوصات السلامة + إصلاحات مُوجَّهة)"
+read_when:
+  - لديك مشكلات في الاتصال/المصادقة وتريد إصلاحات مُوجَّهة
+  - قمت بالتحديث وتريد إجراء فحص سلامة
 title: "doctor"
 ---
 
@@ -35,5 +39,3 @@ launchctl getenv OPENCLAW_GATEWAY_PASSWORD
 launchctl unsetenv OPENCLAW_GATEWAY_TOKEN
 launchctl unsetenv OPENCLAW_GATEWAY_PASSWORD
 ```
-
-

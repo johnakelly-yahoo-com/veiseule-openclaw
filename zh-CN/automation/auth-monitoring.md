@@ -1,17 +1,15 @@
 ---
-title: 认证监控
-x-i18n:
-  generated_at: "2026-02-03T10:03:53Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: eef179af9545ed7ab881f3ccbef998869437fb50cdb4088de8da7223b614fa2b
-  source_path: automation/auth-monitoring.md
-  workflow: 15
+summary: "监控模型提供商的 OAuth 过期状态"
+read_when:
+  - 设置认证过期监控或告警
+  - 自动化 Claude Code / Codex OAuth 刷新检查
+title: "认证监控"
 ---
 
 # 认证监控
 
-OpenClaw 通过 `openclaw models status` 提供 OAuth 过期健康状态。请使用该命令进行自动化和告警；脚本是为手机工作流程提供的可选附加功能。
+OpenClaw 通过 `openclaw models status` 提供 OAuth 过期健康状态。请使用该命令进行自动化和告警；脚本是为手机工作流程提供的可选附加功能。 将其用于
+自动化和告警；脚本是面向手机工作流的可选附加项。
 
 ## 推荐方式：CLI 检查（可移植）
 
@@ -29,7 +27,7 @@ openclaw models status --check
 
 ## 可选脚本（运维 / 手机工作流程）
 
-这些脚本位于 `scripts/` 目录下，属于**可选**内容。它们假定你可以通过 SSH 访问 Gateway 网关主机，并针对 systemd + Termux 进行了调优。
+这些位于 `scripts/` 下，且是**可选的**。 这些脚本位于 `scripts/` 目录下，属于**可选**内容。它们假定你可以通过 SSH 访问 Gateway 网关主机，并针对 systemd + Termux 进行了调优。
 
 - `scripts/claude-auth-status.sh` 现在使用 `openclaw models status --json` 作为数据来源（如果 CLI 不可用则回退到直接读取文件），因此请确保 `openclaw` 在定时器的 `PATH` 中。
 - `scripts/auth-monitor.sh`：cron/systemd 定时器目标；发送告警（ntfy 或手机）。
@@ -41,5 +39,3 @@ openclaw models status --check
 - `scripts/termux-sync-widget.sh`：同步 Claude Code 凭证 → OpenClaw。
 
 如果你不需要手机自动化或 systemd 定时器，可以跳过这些脚本。
-
-

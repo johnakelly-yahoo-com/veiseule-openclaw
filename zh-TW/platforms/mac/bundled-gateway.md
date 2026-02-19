@@ -1,10 +1,18 @@
 ---
+summary: "macOS 上的 Gateway 執行環境（外部 launchd 服務）"
+read_when:
+  - 封裝 OpenClaw.app
+  - 偵錯 macOS 的 Gateway launchd 服務
+  - 為 macOS 安裝 Gateway CLI
 title: "macOS 上的 Gateway"
 ---
 
 # macOS 上的 Gateway（外部 launchd）
 
 OpenClaw.app 不再內建 Node/Bun 或閘道執行環境。 OpenClaw.app 不再內建 Node/Bun 或 Gateway 執行環境。macOS 應用程式
+預期安裝**外部**的 `openclaw` CLI，不會將 Gateway 作為子行程啟動，
+而是管理每位使用者的 launchd 服務以保持 Gateway 持續執行
+（或在本機已有 Gateway 正在執行時附加至該 Gateway）。 OpenClaw.app 不再內建 Node/Bun 或 Gateway 執行環境。macOS 應用程式
 預期安裝**外部**的 `openclaw` CLI，不會將 Gateway 作為子行程啟動，
 而是管理每位使用者的 launchd 服務以保持 Gateway 持續執行
 （或在本機已有 Gateway 正在執行時附加至該 Gateway）。
@@ -65,5 +73,3 @@ openclaw gateway --port 18999 --bind loopback
 ```bash
 openclaw gateway call health --url ws://127.0.0.1:18999 --timeout 3000
 ```
-
-

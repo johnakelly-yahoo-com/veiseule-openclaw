@@ -1,12 +1,8 @@
 ---
-title: Gateway 网关生命周期
-x-i18n:
-  generated_at: "2026-02-03T07:52:31Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 9b910f574b723bc194ac663a5168e48d95f55cb468ce34c595d8ca60d3463c6a
-  source_path: platforms/mac/child-process.md
-  workflow: 15
+summary: "macOS 上的 Gateway 网关生命周期（launchd）"
+read_when:
+  - 将 mac 应用与 Gateway 网关生命周期集成时
+title: "Gateway 网关生命周期"
 ---
 
 # macOS 上的 Gateway 网关生命周期
@@ -14,10 +10,13 @@ x-i18n:
 macOS 应用**默认通过 launchd 管理 Gateway 网关**，不会将
 Gateway 网关作为子进程生成。它首先尝试连接到配置端口上已运行的
 Gateway 网关；如果无法访问，它会通过外部 `openclaw` CLI（无嵌入式运行时）启用 launchd
-服务。这为你提供了可靠的登录时自动启动和崩溃后重启。
+服务。这为你提供了可靠的登录时自动启动和崩溃后重启。 It first tries to attach to an already‑running
+Gateway on the configured port; if none is reachable, it enables the launchd
+service via the external `openclaw` CLI (no embedded runtime). This gives you
+reliable auto‑start at login and restart on crashes.
 
-子进程模式（由应用直接生成 Gateway 网关）**目前未使用**。
-如果你需要与 UI 更紧密的耦合，请在终端中手动运行 Gateway 网关。
+Child‑process mode (Gateway spawned directly by the app) is **not in use** today.
+If you need tighter coupling to the UI, run the Gateway manually in a terminal.
 
 ## 默认行为（launchd）
 
@@ -34,15 +33,15 @@ launchctl kickstart -k gui/$UID/bot.molt.gateway
 launchctl bootout gui/$UID/bot.molt.gateway
 ```
 
-运行命名配置文件时，将标签替换为 `bot.molt.<profile>`。
+运行命名配置文件时，将标签替换为 `bot.molt.<profile> `。\` when running a named profile.
 
 ## 未签名的开发构建
 
-`scripts/restart-mac.sh --no-sign` 用于在没有签名密钥时的快速本地构建。为了防止 launchd 指向未签名的中继二进制文件，它：
+`scripts/restart-mac.sh --no-sign` 用于在没有签名密钥时的快速本地构建。为了防止 launchd 指向未签名的中继二进制文件，它： To prevent launchd from pointing at an unsigned relay binary, it:
 
 - 写入 `~/.openclaw/disable-launchagent`。
 
-已签名运行的 `scripts/restart-mac.sh` 会在标记存在时清除此覆盖。要手动重置：
+已签名运行的 `scripts/restart-mac.sh` 会在标记存在时清除此覆盖。要手动重置： 手动重置：
 
 ```bash
 rm ~/.openclaw/disable-launchagent
@@ -53,12 +52,15 @@ rm ~/.openclaw/disable-launchagent
 要强制 macOS 应用**永不安装或管理 launchd**，请使用
 `--attach-only`（或 `--no-launchd`）启动它。这会设置 `~/.openclaw/disable-launchagent`，
 因此应用只会连接到已运行的 Gateway 网关。你可以在调试设置中切换相同的
-行为。
+行为。 This sets `~/.openclaw/disable-launchagent`,
+so the app only attaches to an already running Gateway. You can toggle the same
+behavior in Debug Settings.
 
 ## 远程模式
 
 远程模式永远不会启动本地 Gateway 网关。应用使用到
-远程主机的 SSH 隧道并通过该隧道连接。
+远程主机的 SSH 隧道并通过该隧道连接。 The app uses an SSH tunnel to the
+remote host and connects over that tunnel.
 
 ## 为什么我们更喜欢 launchd
 
@@ -68,5 +70,3 @@ rm ~/.openclaw/disable-launchagent
 
 如果将来再次需要真正的子进程模式，它应该被记录为
 单独的、明确的仅开发模式。
-
-

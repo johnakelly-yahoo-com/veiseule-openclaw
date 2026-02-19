@@ -1,6 +1,11 @@
 ---
+summary: "Rituel d’amorçage de l’agent qui initialise l’espace de travail et les fichiers d’identité"
+read_when:
+  - Comprendre ce qui se passe lors de la première exécution de l’agent
+  - Expliquer où se trouvent les fichiers d’amorçage
+  - Déboguer la configuration d’identité lors de la prise en main
 title: "Amorçage de l’agent"
-sidebarTitle: "Amorçage"
+sidebarTitle: "Bootstrapping"
 ---
 
 # Amorçage de l’agent
@@ -34,5 +39,3 @@ l’espace de travail sur l’hôte de la Gateway (par exemple, `user@gateway-ho
 
 - Prise en main de l’application macOS : [Onboarding](/start/onboarding)
 - Organisation de l’espace de travail : [Agent workspace](/concepts/agent-workspace)
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "30. Maqsadli debug loglar uchun diagnostika flaglari"
+read_when:
+  - 31. Global loglash darajalarini oshirmasdan maqsadli debug loglar kerak
+  - 32. Qo‘llab-quvvatlash uchun subsystemga xos loglarni yig‘ish kerak
 title: "33. Diagnostika flaglari"
 ---
 
@@ -85,5 +89,3 @@ Masofaviy shlyuzlar uchun `openclaw logs --follow` dan ham foydalanishingiz mumk
 - Agar `logging.level` `warn` dan yuqoriroq qilib o‘rnatilgan bo‘lsa, bu loglar bostirilishi mumkin. Standart `info` yetarli.
 - Bayroqlarni yoqilgan holda qoldirish xavfsiz; ular faqat aniq quyi tizim uchun log hajmiga ta’sir qiladi.
 - Log manzillari, darajalari va redaksiyalashni o‘zgartirish uchun [/logging](/logging) dan foydalaning.
-
-

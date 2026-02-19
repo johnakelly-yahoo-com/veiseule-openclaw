@@ -1,15 +1,20 @@
 ---
+summary: "BlueBubbles macOS serveri orqali iMessage (REST yuborish/qabul qilish, yozish indikatori, reaksiyalar, juftlash, kengaytirilgan amallar)."
+read_when:
+  - Setting up BlueBubbles channel
+  - Troubleshooting webhook pairing
+  - Configuring iMessage on macOS
 title: "BlueBubbles"
 ---
 
 # BlueBubbles (macOS REST)
 
-Holat: HTTP orqali BlueBubbles macOS serveri bilan muloqot qiladigan o‘rnatilgan plagin. **iMessage integratsiyasi uchun tavsiya etiladi**, chunki u eski imsg kanaliga nisbatan yanada boyroq API va osonroq sozlash imkonini beradi.
+Status: bundled plugin that talks to the BlueBubbles macOS server over HTTP. **Recommended for iMessage integration** due to its richer API and easier setup compared to the legacy imsg channel.
 
 ## Umumiy ko‘rinish
 
 - macOS’da BlueBubbles yordamchi ilovasi orqali ishlaydi ([bluebubbles.app](https://bluebubbles.app)).
-- Tavsiya etiladi/sinovdan o‘tgan: macOS Sequoia (15). macOS Tahoe (26) ishlaydi; hozircha Tahoe’da tahrirlash ishlamaydi, va guruh ikonkasini yangilash muvaffaqiyatli deb ko‘rsatilishi mumkin, ammo sinxronlanmaydi.
+- Recommended/tested: macOS Sequoia (15). macOS Tahoe (26) works; edit is currently broken on Tahoe, and group icon updates may report success but not sync.
 - OpenClaw u bilan REST API orqali muloqot qiladi (`GET /api/v1/ping`, `POST /message/text`, `POST /chat/:id/*`).
 - Kiruvchi xabarlar webhooklar orqali keladi; chiquvchi javoblar, yozish indikatorlari, o‘qilganlik kvitansiyalari va tapback’lar REST chaqiruvlari orqali yuboriladi.
 - Ilovalar va stikerlar kiruvchi media sifatida qabul qilinadi (va imkon qadar agentga ko‘rsatiladi).
@@ -41,6 +46,10 @@ Holat: HTTP orqali BlueBubbles macOS serveri bilan muloqot qiladigan o‘rnatilg
 4. Point BlueBubbles webhooks to your gateway (example: `https://your-gateway-host:3000/bluebubbles-webhook?password=<password>`).
 
 5. Start the gateway; it will register the webhook handler and start pairing.
+
+Xavfsizlik eslatmasi:
+
+- Har doim webhook parolini o‘rnating. Agar gateway’ni reverse proxy (Tailscale Serve/Funnel, nginx, Cloudflare Tunnel, ngrok) orqali ochsangiz, proxy gateway’ga loopback orqali ulanishi mumkin. BlueBubbles webhook ishlovchisi forwarding sarlavhalari bilan kelgan so‘rovlarni proxy orqali deb hisoblaydi va parolsiz webhook’larni qabul qilmaydi.
 
 ## Keeping Messages.app alive (VM / headless setups)
 
@@ -298,6 +307,7 @@ Provider options:
 - `channels.bluebubbles.textChunkLimit`: Chiquvchi bo‘lak hajmi (belgilar soni bo‘yicha) (standart: 4000).
 - `channels.bluebubbles.chunkMode`: `length` (standart) faqat `textChunkLimit` oshirilganda bo‘ladi; `newline` esa uzunlik bo‘yicha bo‘lishdan oldin bo‘sh qatorlar (paragraf chegaralari) bo‘yicha bo‘ladi.
 - `channels.bluebubbles.mediaMaxMb`: Kiruvchi media uchun MB dagi maksimal limit (standart: 8).
+- `channels.bluebubbles.mediaLocalRoots`: Chiquvchi lokal media yo‘llari uchun ruxsat etilgan mutlaq lokal kataloglarning aniq allowlist’i. Agar bu sozlanmagan bo‘lsa, lokal yo‘l orqali yuborishlar standart bo‘yicha rad etiladi. Har bir akkaunt uchun override: `channels.bluebubbles.accounts.<accountId>`.mediaLocalRoots\`.
 - `channels.bluebubbles.historyLimit`: Kontekst uchun maksimal guruh xabarlari (0 — o‘chiriladi).
 - `channels.bluebubbles.dmHistoryLimit`: DM tarix limiti.
 - `channels.bluebubbles.actions`: Muayyan amallarni yoqish/o‘chirish.
@@ -315,13 +325,13 @@ Barqaror marshrutlash uchun `chat_guid` ni afzal ko‘ring:
 - `chat_guid:iMessage;-;+15555550123` (guruhlar uchun afzal).
 - `chat_id:123`
 - `chat_identifier:...`
-- To‘g‘ridan-to‘g‘ri identifikatorlar: `+15555550123`, `user@example.com`
+- Agar BlueBubbles serverini LAN tashqarisiga ochsangiz, HTTPS va firewall qoidalarini yoqing.
   - Agar to‘g‘ridan-to‘g‘ri identifikator uchun mavjud DM chat bo‘lmasa, OpenClaw uni `POST /api/v1/chat/new` orqali yaratadi. Buning uchun BlueBubbles Private API yoqilgan bo‘lishi kerak.
 
-## Xavfsizlik
+## Nosozliklarni bartaraf etish
 
 - Webhook so‘rovlari `guid`/`password` query parametrlari yoki sarlavhalarini `channels.bluebubbles.password` bilan solishtirish orqali autentifikatsiya qilinadi. `localhost` dan kelgan so‘rovlar ham qabul qilinadi.
-- API paroli va webhook endpointini maxfiy saqlang (ularni hisob ma’lumotlari kabi ko‘ring).
+- Juftlash kodlari bir soatdan keyin muddati tugaydi; `openclaw pairing list bluebubbles` va `openclaw pairing approve bluebubbles <code>` dan foydalaning.
 - Localhost ishonchi bir xil xostdagi reverse proxy parolni bilmasdan aylanib o‘tishiga olib kelishi mumkin. Agar gateway’ni proksi qilsangiz, proksida autentifikatsiyani talab qiling va `gateway.trustedProxies` ni sozlang. [Gateway security](/gateway/security#reverse-proxy-configuration) ga qarang.
 - Agar BlueBubbles serverini LAN tashqarisiga ochsangiz, HTTPS va firewall qoidalarini yoqing.
 
@@ -336,5 +346,3 @@ Barqaror marshrutlash uchun `chat_guid` ni afzal ko‘ring:
 - Holat/sog‘liq ma’lumotlari uchun: `openclaw status --all` yoki `openclaw status --deep`.
 
 Kanal ish jarayoni bo‘yicha umumiy ma’lumot uchun [Channels](/channels) va [Plugins](/tools/plugin) qo‘llanmasiga qarang.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Bun ورک فلو (تجرباتی): pnpm کے مقابلے میں انسٹالیشن اور ممکنہ مسائل"
+read_when:
+  - آپ سب سے تیز لوکل ڈیولپمنٹ لوپ چاہتے ہیں (bun + watch)
+  - آپ کو Bun کی install/patch/lifecycle اسکرپٹس سے متعلق مسائل پیش آئے ہیں
 title: "Bun (تجرباتی)"
 ---
 
@@ -23,7 +27,7 @@ title: "Bun (تجرباتی)"
 bun install
 ```
 
-نوٹ: `bun.lock`/`bun.lockb` کو gitignore کیا گیا ہے، اس لیے کسی بھی صورت میں ریپوزٹری میں غیر ضروری تبدیلیاں نہیں ہوں گی۔ اگر آپ _کوئی لاک فائل تحریر نہ ہو_ چاہتے ہیں:
+Note: `bun.lock`/`bun.lockb` are gitignored, so there’s no repo churn either way. If you want _no lockfile writes_:
 
 ```sh
 bun install --no-save
@@ -38,7 +42,7 @@ bun run vitest run
 
 ## Bun lifecycle اسکرپٹس (بطورِ طے شدہ مسدود)
 
-Bun انحصارات کے لائف سائیکل اسکرپٹس کو بلاک کر سکتا ہے جب تک کہ انہیں واضح طور پر قابلِ اعتماد قرار نہ دیا جائے (`bun pm untrusted` / `bun pm trust`)۔
+Bun may block dependency lifecycle scripts unless explicitly trusted (`bun pm untrusted` / `bun pm trust`).
 For this repo, the commonly blocked scripts are not required:
 
 - `@whiskeysockets/baileys` `preinstall`: Node کے major ورژن >= 20 کی جانچ (ہم Node 22+ چلاتے ہیں)۔
@@ -53,5 +57,3 @@ bun pm trust @whiskeysockets/baileys protobufjs
 ## اہم نکات
 
 - Some scripts still hardcode pnpm (e.g. `docs:build`, `ui:*`, `protocol:check`). 39. فی الحال انہیں pnpm کے ذریعے چلائیں۔
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "Outils de débogage : mode watch, flux bruts du modèle et traçage des fuites de raisonnement"
+read_when:
+  - Vous devez inspecter la sortie brute du modèle pour détecter des fuites de raisonnement
+  - Vous souhaitez exécuter la Gateway (passerelle) en mode watch pendant vos itérations
+  - Vous avez besoin d’un workflow de débogage reproductible
 title: "Débogage"
 ---
 
@@ -156,5 +161,3 @@ Fichier par défaut :
 - Les journaux de flux bruts peuvent inclure des invites complètes, la sortie des outils et des données utilisateur.
 - Conservez les journaux en local et supprimez-les après le débogage.
 - Si vous partagez des journaux, expurgez d’abord les secrets et les PII.
-
-

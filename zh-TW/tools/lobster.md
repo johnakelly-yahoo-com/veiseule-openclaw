@@ -1,42 +1,48 @@
 ---
 title: Lobster
-description: 適用於 OpenClaw 的型別化工作流程執行階段 — 具備核准關卡的可組合管線。---
+summary: "Typed workflow runtime for OpenClaw with resumable approval gates."
+description: 適用於 OpenClaw 的型別化工作流程執行階段 — 具備核准關卡的可組合管線。
+read_when:
+  - You want deterministic multi-step workflows with explicit approvals
+  - 你需要在不重新執行先前步驟的情況下恢復工作流程
+---
 
 # Lobster
 
 Lobster 是一個工作流程殼層，讓 OpenClaw 能將多步驟工具序列作為單一、可預測的操作來執行，並包含明確的審批檢查點。
 
-## 核心亮點
+## Hook
 
-你的助理可以打造管理自身的工具。只要提出一個工作流程需求，30 分鐘後你就能擁有一個 CLI 和多條管線，並以一次呼叫完成執行。Lobster 正是缺失的關鍵：可預測的管線、明確的審批機制，以及可恢復的狀態。
+Your assistant can build the tools that manage itself. Ask for a workflow, and 30 minutes later you have a CLI plus pipelines that run as one call. Lobster is the missing piece: deterministic pipelines, explicit approvals, and resumable state.
 
 ## 為什麼
 
-如今，複雜的工作流程需要大量來回的工具呼叫。每一次呼叫都會消耗 tokens，而且 LLM 必須協調每一個步驟。Lobster 將這種協調移入一個具型別的執行環境中：
+Today, complex workflows require many back-and-forth tool calls. Each call costs tokens, and the LLM has to orchestrate every step. Lobster moves that orchestration into a typed runtime:
 
 - **一次呼叫取代多次**：OpenClaw 只需執行一次 Lobster 工具呼叫，即可取得結構化結果。
 - **內建核准**：具副作用的操作（寄送電子郵件、張貼留言）會暫停工作流程，直到明確核准。
-- **可恢復**：中斷的工作流程會返回一個權杖；經核准後即可在不重新執行全部流程的情況下繼續。
+- **Resumable**: Halted workflows return a token; approve and resume without re-running everything.
 
 ## 為什麼使用 DSL 而不是一般程式？
 
-Lobster 刻意保持精簡。目標並不是「一門新語言」，而是一種可預測、對 AI 友善的管線規格，具備一級支援的審批機制與恢復權杖。
+Lobster is intentionally small. The goal is not "a new language," it's a predictable, AI-friendly pipeline spec with first-class approvals and resume tokens.
 
 - **Approve/resume is built in**: A normal program can prompt a human, but it can’t _pause and resume_ with a durable token without you inventing that runtime yourself.
 - **可預測性 + 可稽核性**：管線是資料，因此容易記錄、比對、重播與審查。
 - **為 AI 限縮介面**：極小的語法 + JSON 管道可減少「創意式」程式路徑，讓驗證成為可行。
 - **Safety policy baked in**: Timeouts, output caps, sandbox checks, and allowlists are enforced by the runtime, not each script.
-- **Still programmable**: Each step can call any CLI or script. 39. 如果你需要 JS/TS，請從程式碼產生 `.lobster` 檔案。
+- **Still programmable**: Each step can call any CLI or script. 如果你需要 JS/TS，請從程式碼產生 `.lobster` 檔案。
 
 ## How it works
 
 OpenClaw 以**工具模式**啟動本機的 `lobster` CLI，並從 stdout 解析一個 JSON 封裝。
 若管線因等待核准而暫停，工具會回傳一個 `resumeToken`，讓你稍後繼續。
 If the pipeline pauses for approval, the tool returns a `resumeToken` so you can continue later.
+If the pipeline pauses for approval, the tool returns a `resumeToken` so you can continue later.
 
 ## 模式：小型 CLI + JSON 管道 + 核准
 
-建立會說 JSON 的小型指令，然後將它們串接成一次 Lobster 呼叫。（以下為指令名稱範例 — 請替換為你自己的。） (Example command names below — swap in your own.)
+建立會說 JSON 的小型指令，然後將它們串接成一次 Lobster 呼叫。（以下為指令名稱範例 — 請替換為你自己的。） (Example command names below — swap in your own.) (Example command names below — swap in your own.)
 
 ```bash
 inbox list --json
@@ -151,6 +157,7 @@ steps:
 
 請在執行 OpenClaw Gateway 閘道器 的**同一台主機**上安裝 Lobster CLI（參見 [Lobster repo](https://github.com/openclaw/lobster)），並確保 `lobster` 位於 `PATH`。
 若你想使用自訂的二進位位置，請在工具呼叫中傳入**絕對路徑**的 `lobsterPath`。
+If you want to use a custom binary location, pass an **absolute** `lobsterPath` in the tool call.
 If you want to use a custom binary location, pass an **absolute** `lobsterPath` in the tool call.
 
 ## 啟用工具
@@ -285,7 +292,7 @@ Continue a halted workflow after approval.
 
 - `lobsterPath`：Lobster 二進位檔的絕對路徑（省略則使用 `PATH`）。
 - `cwd`：管線的工作目錄（預設為目前行程的工作目錄）。
-- 42. `timeoutMs`：若子程序超過此時間則終止（預設：20000）。
+- `timeoutMs`：若子程序超過此時間則終止（預設：20000）。
 - `maxStdoutBytes`：若 stdout 超過此大小則終止（預設：512000）。
 - `argsJson`：傳遞給 `lobster run --args-json` 的 JSON 字串（僅工作流程檔案）。
 
@@ -337,5 +344,3 @@ One public example: a “second brain” CLI + Lobster pipelines that manage thr
 
 - 討論串：[https://x.com/plattenschieber/status/2014508656335770033](https://x.com/plattenschieber/status/2014508656335770033)
 - Repo：[https://github.com/bloomedai/brain-cli](https://github.com/bloomedai/brain-cli)
-
-

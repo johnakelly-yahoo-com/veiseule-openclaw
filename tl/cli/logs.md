@@ -1,4 +1,8 @@
 ---
+summary: "Sanggunian ng CLI para sa `openclaw logs` (pag-tail ng mga log ng Gateway sa pamamagitan ng RPC)"
+read_when:
+  - Kailangan mong i-tail ang mga log ng Gateway nang remote (nang walang SSH)
+  - Gusto mo ng mga linya ng log na JSON para sa tooling
 title: "mga log"
 ---
 
@@ -19,4 +23,4 @@ openclaw logs --json
 openclaw logs --limit 500
 ```
 
-
+Gamitin ang `--local-time` upang ipakita ang mga timestamp ayon sa iyong lokal na timezone.

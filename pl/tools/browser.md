@@ -1,4 +1,9 @@
 ---
+summary: "„Zintegrowana usługa sterowania przeglądarką + polecenia akcji”"
+read_when:
+  - Dodawanie automatyzacji przeglądarki sterowanej przez agenta
+  - Diagnozowanie, dlaczego OpenClaw ingeruje w Twoją własną przeglądarkę Chrome
+  - Implementacja ustawień przeglądarki i cyklu życia w aplikacji na macOS
 title: "„Przeglądarka (zarządzana przez OpenClaw)”"
 ---
 
@@ -187,6 +192,7 @@ Uwagi:
 Kluczowe idee:
 
 - Sterowanie przeglądarką jest wyłącznie przez loopback; dostęp przechodzi przez uwierzytelnianie Gateway lub parowanie węzła.
+- Jeśli sterowanie przeglądarką jest włączone i nie skonfigurowano uwierzytelniania, OpenClaw automatycznie generuje `gateway.auth.token` przy uruchomieniu i zapisuje go w konfiguracji.
 - Utrzymuj Gateway i wszelkie hosty węzłów w prywatnej sieci (Tailscale); unikaj publicznej ekspozycji.
 - Traktuj adresy URL/tokeny zdalnego CDP jako sekrety; preferuj zmienne środowiskowe lub menedżer sekretów.
 
@@ -311,6 +317,11 @@ Wyłącznie dla lokalnych integracji Gateway udostępnia niewielkie HTTP API na 
 
 Wszystkie endpointy akceptują `?profile=<name>`.
 
+Jeśli uwierzytelnianie gateway jest skonfigurowane, trasy HTTP przeglądarki również wymagają uwierzytelniania:
+
+- `Authorization: Bearer <gateway token>`
+- Podstawa:
+
 ### Wymaganie Playwright
 
 Niektóre funkcje (nawigacja/akcje/migawki AI/migawki ról, zrzuty elementów, PDF)
@@ -433,6 +444,11 @@ Uwagi:
 
 - `upload` i `dialog` to wywołania **uzbrajające**; uruchom je przed kliknięciem/naciśnięciem,
   które wyzwala selektor/okno dialogowe.
+- Ścieżki pobierania i zapisu śledzeń są ograniczone do katalogów tymczasowych OpenClaw:
+  - traces: `/tmp/openclaw` (fallback: `${os.tmpdir()}/openclaw`)
+  - downloads: `/tmp/openclaw/downloads` (fallback: `${os.tmpdir()}/openclaw/downloads`)
+- Ścieżki przesyłania są ograniczone do katalogu tymczasowych uploadów OpenClaw:
+  - Zrzuty stanu i referencje
 - `upload` może także ustawiać pola plików bezpośrednio przez `--input-ref` lub `--element`.
 - `snapshot`:
   - `--format ai` (domyślne, gdy Playwright jest zainstalowany): zwraca migawkę AI z numerycznymi referencjami (`aria-ref="<n>"`).
@@ -569,5 +585,3 @@ Mapowanie:
   - Jeśli podłączony jest węzeł z obsługą przeglądarki, narzędzie może automatycznie kierować do niego, chyba że przypniesz `target="host"` lub `target="node"`.
 
 Zapewnia to deterministykę agenta i unika kruchych selektorów.
-
-

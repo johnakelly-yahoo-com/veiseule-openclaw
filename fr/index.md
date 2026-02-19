@@ -1,6 +1,8 @@
 ---
+summary: "OpenClaw est une passerelle multicanal pour agents IA qui fonctionne sur n’importe quel OS."
+read_when:
+  - Présenter OpenClaw aux nouveaux venus
 title: "OpenClaw"
-sidebarTitle: "OpenClaw"
 ---
 
 # OpenClaw 🦞
@@ -20,8 +22,7 @@ sidebarTitle: "OpenClaw"
 
 > _« EXFOLIATE ! EXFOLIATE ! »_ — Un homard de l’espace, probablement
 
-<p align="center">
-  <strong>Passerelle pour agents IA sur n’importe quel OS, à travers WhatsApp, Telegram, Discord, iMessage, et plus encore.</strong><br />
+<p align="center"><strong>Passerelle pour agents IA sur n’importe quel OS, à travers WhatsApp, Telegram, Discord, iMessage, et plus encore.</strong><br />
   Envoyez un message, obtenez une réponse d’agent depuis votre poche. Des plugins ajoutent Mattermost et plus encore.
 </p>
 
@@ -209,5 +210,3 @@ Exemple :
   
 </Card>
 </Columns>
-
-

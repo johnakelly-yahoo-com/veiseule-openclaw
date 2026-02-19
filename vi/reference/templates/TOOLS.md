@@ -1,4 +1,9 @@
-------
+---
+title: "Mẫu TOOLS.md"
+summary: "Mẫu workspace cho TOOLS.md"
+read_when:
+  - Khởi tạo workspace thủ công
+---
 
 # TOOLS.md - Ghi chú cục bộ
 
@@ -40,5 +45,3 @@ Skills are shared. Your setup is yours. Keeping them apart means you can update 
 ---
 
 Add whatever helps you do your job. This is your cheat sheet.
-
-

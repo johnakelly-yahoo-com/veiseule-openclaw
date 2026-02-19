@@ -1,4 +1,6 @@
 ---
+summary: "Linux ပေါ်တွင် OpenClaw browser control အတွက် Chrome/Brave/Edge/Chromium CDP စတင်မှု ပြဿနာများကို ဖြေရှင်းခြင်း"
+read_when: "Linux ပေါ်တွင် browser control မအောင်မြင်သောအခါ၊ အထူးသဖြင့် snap Chromium အသုံးပြုနေသည့်အခါ"
 title: "Browser ပြဿနာဖြေရှင်းခြင်း"
 ---
 
@@ -110,14 +112,14 @@ curl -s http://127.0.0.1:18791/tabs
 
 ### Config ကိုးကားချက်
 
-| ရွေးချယ်မှု                   | ဖော်ပြချက်                                                                                   | မူလတန်ဖိုး                                                                                 |
+| ရွေးချယ်မှု              | ဖော်ပြချက်                                                                                   | မူလတန်ဖိုး                                                                              |
 | ------------------------ | -------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
 | `browser.enabled`        | Browser control ကို ဖွင့်ရန်                                                                 | `true`                                                                                  |
 | `browser.executablePath` | Chromium အခြေခံ browser binary (Chrome/Brave/Edge/Chromium) ၏ လမ်းကြောင်း | auto-detected (Chromium အခြေခံ ဖြစ်ပါက ပုံမှန် browser ကို ဦးစားပေး) |
 | `browser.headless`       | GUI မပါဘဲ လည်ပတ်ရန်                                                                          | `false`                                                                                 |
 | `browser.noSandbox`      | `--no-sandbox` flag ကို ထည့်ရန် (Linux setup အချို့တွင် လိုအပ်)           | `false`                                                                                 |
 | `browser.attachOnly`     | Browser ကို မစတင်ဘဲ ရှိပြီးသားကိုသာ attach လုပ်ရန်                                           | `false`                                                                                 |
-| `browser.cdpPort`        | Chrome DevTools Protocol ပို့တ်                                                                | `18800`                                                                                 |
+| `browser.cdpPort`        | Chrome DevTools Protocol ပို့တ်                                                              | `18800`                                                                                 |
 
 ### ပြဿနာ: "Chrome extension relay is running, but no tab is connected"
 
@@ -134,5 +136,3 @@ curl -s http://127.0.0.1:18791/tabs
 
 - `chrome` profile သည် ဖြစ်နိုင်ပါက သင်၏ **system default Chromium browser** ကို အသုံးပြုပါသည်။
 - Local `openclaw` profiles များသည် `cdpPort`/`cdpUrl` ကို အလိုအလျောက် သတ်မှတ်ပေးပါသည်။ remote CDP အတွက်သာ ၎င်းတို့ကို ကိုယ်တိုင် သတ်မှတ်ပါ။
-
-

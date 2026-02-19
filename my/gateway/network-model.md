@@ -1,4 +1,7 @@
 ---
+summary: "Gateway၊ နိုဒ်များနှင့် canvas host တို့ မည်သို့ ချိတ်ဆက်အလုပ်လုပ်ကြသည်ကို ဖော်ပြထားသည်။"
+read_when:
+  - Gateway ကွန်ယက်မော်ဒယ်ကို အကျဉ်းချုပ်အနေနှင့် သိလိုပါက
 title: "ကွန်ယက် မော်ဒယ်"
 ---
 
@@ -10,6 +13,7 @@ title: "ကွန်ယက် မော်ဒယ်"
 - Loopback ကို ဦးစားပေးပါ: Gateway WS ၏ မူလသတ်မှတ်ချက်မှာ `ws://127.0.0.1:18789` ဖြစ်သည်။ Wizard သည် loopback အတွက်တောင် gateway token ကို မူလအနေဖြင့် ဖန်တီးပေးသည်။ Tailnet access အတွက် token များသည် non-loopback bind များတွင် မဖြစ်မနေ လိုအပ်သောကြောင့် `openclaw gateway --bind tailnet --token ...` ကို လည်ပတ်ပါ။
 - Node များသည် လိုအပ်သလို LAN၊ tailnet သို့မဟုတ် SSH မှတစ်ဆင့် Gateway WS သို့ ချိတ်ဆက်သည်။ Legacy TCP bridge ကို မထောက်ပံ့တော့ပါ (deprecated)။
 - Canvas host သည် `canvasHost.port` (ပုံမှန် `18793`) တွင် `/__openclaw__/canvas/` ကို node WebViews အတွက် ပေးဆောင်သော HTTP file server ဖြစ်သည်။ [Gateway configuration](/gateway/configuration) (`canvasHost`) ကို ကြည့်ပါ။
+  - `/__openclaw__/canvas/`
+  - `/__openclaw__/a2ui/`
+    `gateway.auth` ကို configure ပြုလုပ်ထားပြီး Gateway သည် loopback အပြင်ဘက်တွင် bind လုပ်ထားပါက ဤ route များကို Gateway auth ဖြင့် ကာကွယ်ထားပါသည် (loopback request များသည် ချန်လှပ်ထားသည်)။ [Gateway configuration](/gateway/configuration) (`canvasHost`, `gateway`) ကို ကြည့်ပါ။
 - Remote အသုံးပြုမှုအတွက် ပုံမှန်အားဖြင့် SSH tunnel သို့မဟုတ် tailnet VPN ကို အသုံးပြုသည်။ [Remote access](/gateway/remote) နှင့် [Discovery](/gateway/discovery) ကို ကြည့်ပါ။
-
-

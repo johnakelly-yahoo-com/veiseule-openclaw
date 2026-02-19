@@ -1,35 +1,31 @@
 ---
-title: 语音浮层
-x-i18n:
-  generated_at: "2026-02-01T21:33:26Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 3be1a60aa7940b2368ff62cd49f04b2b8422876030e8ea206b467f66a5a6bd4d
-  source_path: platforms/mac/voice-overlay.md
-  workflow: 15
+summary: "唤醒词与按键说话重叠时的语音浮层生命周期"
+read_when:
+  - 调整语音浮层行为
+title: "语音浮层"
 ---
 
 # 语音浮层生命周期（macOS）
 
-受众：macOS 应用贡献者。目标：在唤醒词与按键说话重叠时保持语音浮层行为可预测。
+Audience: macOS app contributors. Goal: keep the voice overlay predictable when wake-word and push-to-talk overlap.
 
-### 当前意图
+## 当前意图
 
-- 如果浮层已因唤醒词显示，此时用户按下热键，热键会话会*接管*现有文本而非重置。浮层在热键按住期间保持显示。用户松开时：如果有去除空白后的文本则发送，否则关闭。
+- If the overlay is already visible from wake-word and the user presses the hotkey, the hotkey session _adopts_ the existing text instead of resetting it. The overlay stays up while the hotkey is held. When the user releases: send if there is trimmed text, otherwise dismiss.
 - 单独使用唤醒词时仍在静音后自动发送；按键说话在松开时立即发送。
 
-### 已实现（2025 年 12 月 9 日）
+## Implemented (Dec 9, 2025)
 
-- 浮层会话现在为每次捕获（唤醒词或按键说话）携带一个令牌。当令牌不匹配时，部分/最终/发送/关闭/音量更新会被丢弃，避免过时回调。
-- 按键说话会接管任何可见的浮层文本作为前缀（因此在唤醒浮层显示时按下热键会保留文本并追加新语音）。它最多等待 1.5 秒获取最终转录结果，然后回退到当前文本。
+- Overlay sessions now carry a token per capture (wake-word or push-to-talk). Partial/final/send/dismiss/level updates are dropped when the token doesn’t match, avoiding stale callbacks.
+- 按键说话会接管任何可见的浮层文本作为前缀（因此在唤醒浮层显示时按下热键会保留文本并追加新语音）。它最多等待 1.5 秒获取最终转录结果，然后回退到当前文本。 It waits up to 1.5s for a final transcript before falling back to the current text.
 - 提示音/浮层日志以 `info` 级别输出，分类为 `voicewake.overlay`、`voicewake.ptt` 和 `voicewake.chime`（会话开始、部分、最终、发送、关闭、提示音原因）。
 
-### 后续步骤
+## 后续步骤
 
 1. **VoiceSessionCoordinator（actor）**
    - 同一时间只拥有一个 `VoiceSession`。
    - API（基于令牌）：`beginWakeCapture`、`beginPushToTalk`、`updatePartial`、`endCapture`、`cancel`、`applyCooldown`。
-   - 丢弃携带过时令牌的回调（防止旧识别器重新打开浮层）。
+   - Drops callbacks that carry stale tokens (prevents old recognizers from reopening the overlay).
 2. **VoiceSession（模型）**
    - 字段：`token`、`source`（wakeWord|pushToTalk）、已提交/临时文本、提示音标志、计时器（自动发送、空闲）、`overlayMode`（display|editing|sending）、冷却截止时间。
 3. **浮层绑定**
@@ -44,7 +40,7 @@ x-i18n:
    - Coordinator 在子系统 `bot.molt`、分类 `voicewake.overlay` 和 `voicewake.chime` 下输出 `.info` 级别日志。
    - 关键事件：`session_started`、`adopted_by_push_to_talk`、`partial`、`finalized`、`send`、`dismiss`、`cancel`、`cooldown`。
 
-### 调试清单
+## 调试清单
 
 - 复现浮层粘滞问题时流式查看日志：
 
@@ -53,14 +49,13 @@ x-i18n:
   ```
 
 - 验证只有一个活跃会话令牌；过时回调应被 coordinator 丢弃。
+
 - 确保按键说话松开时始终使用活跃令牌调用 `endCapture`；如果文本为空，预期 `dismiss` 且不播放提示音或发送。
 
-### 迁移步骤（建议）
+## 迁移步骤（建议）
 
 1. 添加 `VoiceSessionCoordinator`、`VoiceSession` 和 `VoiceSessionPublisher`。
 2. 重构 `VoiceWakeRuntime`，使其创建/更新/结束会话，而非直接操作 `VoiceWakeOverlayController`。
 3. 重构 `VoicePushToTalk`，使其接管现有会话并在松开时调用 `endCapture`；施加运行时冷却。
 4. 将 `VoiceWakeOverlayController` 连接到 publisher；移除来自 runtime/PTT 的直接调用。
 5. 添加会话接管、冷却和空文本关闭的集成测试。
-
-

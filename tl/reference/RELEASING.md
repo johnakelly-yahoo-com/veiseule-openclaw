@@ -1,4 +1,11 @@
-------
+---
+title: "Checklist ng Release"
+summary: "Hakbang-hakbang na checklist ng release para sa npm + macOS app"
+read_when:
+  - Nagka-cut ng bagong npm release
+  - Nagka-cut ng bagong macOS app release
+  - Nive-verify ang metadata bago mag-publish
+---
 
 # Checklist ng Release (npm + macOS)
 
@@ -111,5 +118,3 @@ Kasalukuyang listahan ng npm plugin (i-update kung kailangan):
 - @openclaw/zalouser
 
 Dapat ding banggitin ng release notes ang **mga bagong opsyonal na bundled plugin** na **hindi naka-on bilang default** (halimbawa: `tlon`).
-
-

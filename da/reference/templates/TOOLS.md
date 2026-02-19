@@ -1,4 +1,9 @@
-------
+---
+title: "TOOLS.md-skabelon"
+summary: "Workspace-skabelon til TOOLS.md"
+read_when:
+  - Manuel bootstrap af et workspace
+---
 
 # TOOLS.md - Lokale noter
 
@@ -40,5 +45,3 @@ Færdighederne er delt. Din opsætning er din. Holde dem fra hinanden betyder, a
 ---
 
 Tilføj hvad der hjælper dig med at udføre dit job. Dette er din snyde ark.
-
-

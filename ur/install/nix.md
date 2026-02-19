@@ -1,4 +1,9 @@
 ---
+summary: "Nix کے ساتھ OpenClaw کو اعلامی انداز میں انسٹال کریں"
+read_when:
+  - آپ قابلِ اعادہ اور رول بیک کے قابل انسٹالز چاہتے ہیں
+  - آپ پہلے ہی Nix/NixOS/Home Manager استعمال کر رہے ہیں
+  - آپ چاہتے ہیں کہ ہر چیز پن شدہ ہو اور اعلامی طور پر منظم ہو
 title: "Nix"
 ---
 
@@ -91,5 +96,3 @@ apps/macos/Sources/OpenClaw/Resources/Info.plist
 - [nix-openclaw](https://github.com/openclaw/nix-openclaw) — مکمل سیٹ اپ رہنمائی
 - [Wizard](/start/wizard) — نان-Nix CLI سیٹ اپ
 - [Docker](/install/docker) — کنٹینرائزڈ سیٹ اپ
-
-

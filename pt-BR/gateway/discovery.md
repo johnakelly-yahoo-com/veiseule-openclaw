@@ -1,4 +1,9 @@
 ---
+summary: "Descoberta de nós e transportes (Bonjour, Tailscale, SSH) para localizar o gateway"
+read_when:
+  - Implementar ou alterar descoberta/publicidade via Bonjour
+  - Ajustar modos de conexão remota (direto vs SSH)
+  - Projetar descoberta de nós + pareamento para nós remotos
 title: "Descoberta e Transportes"
 ---
 
@@ -63,6 +68,13 @@ Solução de problemas e detalhes do beacon: [Bonjour](/gateway/bonjour).
   - `cliPath=<path>` (opcional; caminho absoluto para um entrypoint ou binário executável `openclaw`)
   - `tailnetDns=<magicdns>` (dica opcional; detectada automaticamente quando o Tailscale está disponível)
 
+Notas de segurança:
+
+- Registros TXT do Bonjour/mDNS são **não autenticados**. Os clientes devem tratar os valores TXT apenas como sugestões de UX.
+- O roteamento (host/porta) deve priorizar o **endpoint de serviço resolvido** (SRV + A/AAAA) em vez de `lanHost`, `tailnetDns` ou `gatewayPort` fornecidos via TXT.
+- O TLS pinning nunca deve permitir que um `gatewayTlsSha256` anunciado substitua um pin armazenado anteriormente.
+- Os nós iOS/Android devem tratar conexões diretas baseadas em descoberta como **somente TLS** e exigir uma confirmação explícita de “confiar nesta impressão digital” antes de armazenar um pin pela primeira vez (verificação fora de banda).
+
 Desativar/substituir:
 
 - `OPENCLAW_DISABLE_BONJOUR=1` desativa a publicidade.
@@ -109,5 +121,3 @@ O gateway é a fonte de verdade para admissão de nós/clientes.
 - **Gateway**: anuncia beacons de descoberta, é dono das decisões de pareamento e hospeda o endpoint WS.
 - **App macOS**: ajuda você a escolher um gateway, mostra prompts de pareamento e usa SSH apenas como fallback.
 - **Nós iOS/Android**: navegam pelo Bonjour como conveniência e se conectam ao Gateway WS pareado.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Slash komutları: metin ve yerel, yapılandırma ve desteklenen komutlar"
+read_when:
+  - Sohbet komutlarını kullanırken veya yapılandırırken
+  - Komut yönlendirmesi ya da izinleri hata ayıklarken
 title: "Slash Komutları"
 ---
 
@@ -14,7 +18,7 @@ Yalnızca ana makineye özel bash sohbet komutu `! <cmd>` kullanır (`/bash <cmd
   - Yönergeler, model mesajı görmeden önce mesajdan çıkarılır.
   - Normal sohbet mesajlarında (yalnızca yönerge olmayan), “satır içi ipuçları” olarak ele alınır ve oturum ayarlarını **kalıcı** kılmaz.
   - Yalnızca yönerge içeren mesajlarda (mesaj yalnızca yönergelerden oluşur), oturuma kalıcı olur ve bir onay yanıtı verir.
-  - Yönergeler yalnızca **yetkili gönderenler** için uygulanır (kanal izin listeleri/eşleştirme artı `commands.useAccessGroups`).
+  - Yönergeler yalnızca **yetkili gönderenler** için uygulanır (kanal izin listeleri/eşleştirme artı `commands.useAccessGroups`). `commands.allowFrom` ayarlanmışsa, kullanılan tek allowlist budur; aksi halde yetkilendirme kanal allowlist’leri/eşleştirme ve `commands.useAccessGroups` üzerinden sağlanır.
     Yetkisiz gönderenler yönergeleri düz metin olarak görür.
 
 Ayrıca birkaç **satır içi kısayol** vardır (yalnızca izin listesinde/yetkili gönderenler): `/help`, `/commands`, `/status`, `/whoami` (`/id`).
@@ -51,6 +55,9 @@ Anında çalışırlar, model mesajı görmeden önce çıkarılırlar ve kalan 
 - `commands.bashForegroundMs` (varsayılan `2000`) bash’in arka plan moduna geçmeden önce ne kadar bekleyeceğini kontrol eder (`0` anında arka plana alır).
 - `commands.config` (varsayılan `false`) `/config`’i etkinleştirir (`openclaw.json` okur/yazar).
 - `commands.debug` (varsayılan `false`) `/debug`’yi etkinleştirir (yalnızca çalışma zamanı geçersiz kılmaları).
+- `commands.allowFrom` (isteğe bağlı), komut yetkilendirmesi için sağlayıcı başına bir allowlist belirler. Yapılandırıldığında,
+  komutlar ve yönergeler için tek yetkilendirme kaynağıdır (kanal allowlist’leri/eşleştirme ve `commands.useAccessGroups`
+  yok sayılır). Genel varsayılan için `"*"` kullanın; sağlayıcıya özgü anahtarlar bunu geçersiz kılar.
 - `commands.useAccessGroups` (varsayılan `true`) komutlar için izin listeleri/politikaları zorunlu kılar.
 
 ## Komut listesi
@@ -66,6 +73,9 @@ Metin + yerel (etkinleştirildiğinde):
 - `/context [list|detail|json]` (“context”i açıklar; `detail` dosya başına + araç başına + skill başına + sistem istemi boyutunu gösterir)
 - `/whoami` (gönderen kimliğinizi gösterir; takma ad: `/id`)
 - `/subagents list|stop|log|info|send` (mevcut oturum için alt ajan çalıştırmalarını incele, durdur, günlüğünü al veya mesaj gönder)
+- `/kill <id|#|all>` (bu oturum için çalışan bir veya tüm alt ajanları hemen durdurur; onay mesajı yoktur)
+- `/steer <id|#> <message>` (çalışan bir alt ajanı hemen yönlendirir: mümkünse çalışırken, aksi halde mevcut işi durdurur ve yönlendirme mesajıyla yeniden başlatır)
+- `/tell <id|#> <message>` (`/steer` için takma ad)
 - `/config show|get|set|unset` (yapılandırmayı diske kalıcı yazar, yalnızca sahip; `commands.config: true` gerektirir)
 - `/debug show|set|unset|reset` (çalışma zamanı geçersiz kılmaları, yalnızca sahip; `commands.debug: true` gerektirir)
 - `/usage off|tokens|full|cost` (yanıt başına kullanım altbilgisi veya yerel maliyet özeti)
@@ -192,5 +202,3 @@ Notlar:
   - Telegram: `telegram:slash:<userId>` (`CommandTargetSessionKey` aracılığıyla sohbet oturumunu hedefler)
 - **`/stop`** etkin sohbet oturumunu hedefler, böylece mevcut çalıştırmayı iptal edebilir.
 - **Slack:** `channels.slack.slashCommand` tek bir `/openclaw` tarzı komut için hâlâ desteklenir. `commands.native`’ı etkinleştirirseniz, yerleşik her komut için bir Slack slash komutu oluşturmanız gerekir (`/help` ile aynı adlar). Slack için komut argüman menüleri, geçici Block Kit düğmeleri olarak sunulur.
-
-

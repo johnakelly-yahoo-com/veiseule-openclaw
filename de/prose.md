@@ -1,4 +1,9 @@
 ---
+summary: "OpenProse: .prose-Workflows, Slash-Befehle und Zustände in OpenClaw"
+read_when:
+  - Sie möchten .prose-Workflows ausführen oder schreiben
+  - Sie möchten das OpenProse-Plugin aktivieren
+  - Sie müssen die Zustandspeicherung verstehen
 title: "OpenProse"
 ---
 
@@ -127,5 +132,3 @@ Wenn Ihre Tool-Allowlist diese Werkzeuge blockiert, schlagen OpenProse-Programme
 Behandeln Sie `.prose`-Dateien wie Code. Prüfen Sie sie vor der Ausführung. Verwenden Sie OpenClaw-Tool-Allowlists und Freigabeschranken, um Nebenwirkungen zu kontrollieren.
 
 Für deterministische, freigabegesteuerte Workflows vergleichen Sie mit [Lobster](/tools/lobster).
-
-

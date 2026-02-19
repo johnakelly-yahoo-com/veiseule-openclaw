@@ -1,4 +1,9 @@
 ---
+summary: "خدمة تحكّم متكاملة في المتصفح + أوامر إجراءات"
+read_when:
+  - إضافة أتمتة متصفح يتحكّم بها الوكيل
+  - تصحيح سبب تداخل openclaw مع Chrome الخاص بك
+  - تنفيذ إعدادات المتصفح ودورة حياته في تطبيق macOS
 title: "المتصفح (مُدار بواسطة OpenClaw)"
 ---
 
@@ -187,6 +192,7 @@ openclaw config set browser.executablePath "/usr/bin/google-chrome"
 أفكار أساسية:
 
 - تحكّم المتصفح مقتصر على الحلقة المحلية؛ يمر الوصول عبر مصادقة Gateway أو اقتران العُقدة.
+- إذا تم تمكين التحكم في المتصفح ولم يتم تكوين المصادقة، يقوم OpenClaw بإنشاء `gateway.auth.token` تلقائيًا عند بدء التشغيل وحفظه في الإعدادات.
 - أبقِ Gateway وأي مضيفي عُقدة على شبكة خاصة (Tailscale)؛ وتجنب التعريض العام.
 - تعامل مع عناوين URL/رموز CDP البعيدة كأسرار؛ وفضّل متغيرات البيئة أو مدير أسرار.
 
@@ -309,6 +315,11 @@ openclaw browser create-profile \
 - الإعدادات: `POST /set/offline`، `POST /set/headers`، `POST /set/credentials`، `POST /set/geolocation`، `POST /set/media`، `POST /set/timezone`، `POST /set/locale`، `POST /set/device`
 
 تقبل جميع نقاط النهاية `?profile=<name>`.
+
+إذا تمت تهيئة مصادقة gateway، فإن مسارات HTTP الخاصة بالمتصفح تتطلب المصادقة أيضًا:
+
+- `Authorization: Bearer <gateway token>`
+- `x-openclaw-password: <gateway password>` أو مصادقة HTTP Basic باستخدام كلمة المرور تلك
 
 ### متطلب Playwright
 
@@ -433,6 +444,11 @@ docker compose run --rm openclaw-cli \
 
 - `upload` و `dialog` هما استدعاءات **تسليح**؛ شغّلهما قبل النقر/الضغط
   الذي يطلق أداة الاختيار/الحوار.
+- تقتصر مسارات التنزيل ومخرجات التتبع على مجلدات OpenClaw المؤقتة:
+  - تصحيح مسار العمل
+  - التنزيلات: `/tmp/openclaw/downloads` (بديل: `${os.tmpdir()}/openclaw/downloads`)
+- تقتصر مسارات الرفع على مجلد الرفع المؤقت الخاص بـ OpenClaw:
+  - الملفات المرفوعة: `/tmp/openclaw/uploads` (بديل: `${os.tmpdir()}/openclaw/uploads`)
 - يمكن لـ `upload` أيضًا تعيين مدخلات الملفات مباشرة عبر `--input-ref` أو `--element`.
 - `snapshot`:
   - `--format ai` (الافتراضي عند تثبيت Playwright): يعيد لقطة AI مع مراجع رقمية (`aria-ref="<n>"`).
@@ -569,5 +585,3 @@ openclaw browser cookies --json
   - إذا كان متصلًا مضيف عُقدة قادر على المتصفح، فقد تُوجَّه الأداة تلقائيًا إليه ما لم تثبّت `target="host"` أو `target="node"`.
 
 يحافظ هذا على حتمية الوكيل ويتجنب محددات هشة.
-
-

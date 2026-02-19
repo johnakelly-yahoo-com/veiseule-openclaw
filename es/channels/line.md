@@ -1,4 +1,9 @@
 ---
+summary: "Configuración, ajustes y uso del plugin de la API de mensajería de LINE"
+read_when:
+  - Quiere conectar OpenClaw con LINE
+  - Necesita configurar el webhook y las credenciales de LINE
+  - Quiere opciones de mensajes específicas de LINE
 title: LINE
 ---
 
@@ -175,5 +180,3 @@ El plugin de LINE también incluye un comando `/card` para preajustes de mensaje
   y que el Gateway sea accesible desde LINE.
 - **Errores de descarga de medios:** aumente `channels.line.mediaMaxMb` si los medios superan el
   límite predeterminado.
-
-

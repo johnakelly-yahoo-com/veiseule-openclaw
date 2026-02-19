@@ -1,4 +1,10 @@
 ---
+summary: "Patakbuhin ang OpenClaw Gateway 24/7 sa murang Hetzner VPS (Docker) na may matibay na state at baked-in na mga binary"
+read_when:
+  - Gusto mo ng OpenClaw na tumatakbo 24/7 sa isang cloud VPS (hindi sa iyong laptop)
+  - Gusto mo ng production-grade, laging naka-on na Gateway sa sarili mong VPS
+  - Gusto mo ng ganap na kontrol sa persistence, mga binary, at behavior ng restart
+  - Pinapatakbo mo ang OpenClaw sa Docker sa Hetzner o katulad na provider
 title: "Hetzner"
 ---
 
@@ -313,15 +319,34 @@ Tumatakbo ang OpenClaw sa Docker, ngunit ang Docker ay hindi ang source of truth
 
 | Component           | Lokasyon                          | Mekanismo ng persistence | Mga tala                                  |
 | ------------------- | --------------------------------- | ------------------------ | ----------------------------------------- |
-| Gateway config      | `/home/node/.openclaw/`           | Pag-mount ng volume ng host        | Kasama ang `openclaw.json`, mga token     |
-| Model auth profiles | `/home/node/.openclaw/`           | Pag-mount ng volume ng host        | OAuth tokens, API keys                    |
-| Skill configs       | `/home/node/.openclaw/skills/`    | Pag-mount ng volume ng host        | State sa antas ng Skill                   |
-| Agent workspace     | `/home/node/.openclaw/workspace/` | Pag-mount ng volume ng host        | Code at mga artifact ng agent             |
+| Gateway config      | `/home/node/.openclaw/`           | Host volume mount        | Kasama ang `openclaw.json`, mga token     |
+| Model auth profiles | `/home/node/.openclaw/`           | Host volume mount        | OAuth tokens, API keys                    |
+| Skill configs       | `/home/node/.openclaw/skills/`    | Host volume mount        | State sa antas ng Skill                   |
+| Agent workspace     | `/home/node/.openclaw/workspace/` | Host volume mount        | Code at mga artifact ng agent             |
 | WhatsApp session    | `/home/node/.openclaw/`           | Host volume mount        | Pinapanatili ang QR login                 |
 | Gmail keyring       | `/home/node/.openclaw/`           | Host volume + password   | Nangangailangan ng `GOG_KEYRING_PASSWORD` |
-| External binaries   | `/usr/local/bin/`                 | Imahe ng Docker             | Dapat i-bake sa build time                |
-| Node runtime        | Sistemang file ng container              | Imahe ng Docker             | Nire-rebuild sa bawat image build         |
+| External binaries   | `/usr/local/bin/`                 | Docker image             | Dapat i-bake sa build time                |
+| Node runtime        | Container filesystem              | Docker image             | Nire-rebuild sa bawat image build         |
 | OS packages         | Container filesystem              | Docker image             | Huwag mag-install sa runtime              |
 | Docker container    | Ephemeral                         | Restartable              | Ligtas na sirain                          |
 
+---
 
+## Infrastructure as Code (Terraform)
+
+Para sa mga team na mas gusto ang mga workflow na infrastructure-as-code, may community-maintained na Terraform setup na nagbibigay ng:
+
+- Modular na Terraform configuration na may remote state management
+- Awtomatikong provisioning sa pamamagitan ng cloud-init
+- Mga deployment script (bootstrap, deploy, backup/restore)
+- Pagpapatibay ng seguridad (firewall, UFW, SSH-only na access)
+- Pag-configure ng SSH tunnel para sa gateway access
+
+**Mga Repository:**
+
+- Infrastructure: [openclaw-terraform-hetzner](https://github.com/andreesg/openclaw-terraform-hetzner)
+- Docker config: [openclaw-docker-config](https://github.com/andreesg/openclaw-docker-config)
+
+Ang paraang ito ay umaakma sa Docker setup sa itaas gamit ang reproducible na mga deployment, version-controlled na infrastructure, at awtomatikong disaster recovery.
+
+> **Tandaan:** Pinapanatili ng komunidad. Para sa mga isyu o kontribusyon, tingnan ang mga link ng repository sa itaas.

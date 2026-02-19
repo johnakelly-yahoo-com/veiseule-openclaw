@@ -1,4 +1,8 @@
 ---
+summary: "Bun-workflow (experimenteel): installatie en aandachtspunten vs pnpm"
+read_when:
+  - Je wilt de snelste lokale ontwikkelcyclus (bun + watch)
+  - Je loopt tegen Bun install/patch/lifecycle-scriptproblemen aan
 title: "Bun (Experimenteel)"
 ---
 
@@ -53,5 +57,3 @@ bun pm trust @whiskeysockets/baileys protobufjs
 ## Opmerkingen
 
 - Sommige scripts zijn nog steeds hardcoded op pnpm (bijv. `docs:build`, `ui:*`, `protocol:check`). Voer die voorlopig via pnpm uit.
-
-

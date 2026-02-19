@@ -1,4 +1,7 @@
 ---
+summary: "Sohbetler için oturum yönetimi kuralları, anahtarlar ve kalıcılık"
+read_when:
+  - Oturum işleme veya depolamayı değiştirirken
 title: "Oturum Yönetimi"
 ---
 
@@ -67,7 +70,7 @@ Tüm oturum durumu **gateway’e aittir** (“ana” OpenClaw). UI istemcileri (
 - Oturum girdileri, UI’ların bir oturumun nereden geldiğini açıklayabilmesi için `origin` meta verilerini (etiket + yönlendirme ipuçları) içerir.
 - OpenClaw, eski Pi/Tau oturum klasörlerini **okumaz**.
 
-## Oturum budama
+## Session pruning
 
 OpenClaw, varsayılan olarak LLM çağrılarından hemen önce bellek içi bağlamdan **eski araç sonuçlarını** kırpar.
 Bu işlem JSONL geçmişini **yeniden yazmaz**. [/concepts/session-pruning](/concepts/session-pruning).
@@ -127,7 +130,7 @@ Tek tek kimlikleri listelemeden belirli oturum türleri için teslimatı engelle
 }
 ```
 
-Çalışma zamanı geçersiz kılma (yalnızca sahip):
+Runtime override (owner only):
 
 - `/send on` → bu oturum için izin ver
 - `/send off` → bu oturum için reddet
@@ -199,5 +202,3 @@ Her oturum girdisi, en iyi çaba ile nereden geldiğini `origin` içinde kaydede
   `GroupSubject`, `GroupChannel`, `GroupSpace` ve `SenderName` göndererek ve
   `recordSessionMetaFromInbound`’yı çağırarak (veya aynı bağlamı `updateLastRoute`’ye geçirerek)
   yapabilir.
-
-

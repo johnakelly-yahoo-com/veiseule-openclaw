@@ -1,20 +1,22 @@
 ---
-title: Moonshot AI
-x-i18n:
-  generated_at: "2026-02-01T21:35:13Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 2de81b1a37a0e6e61e0e142fcd36760ecd00834e107dc9b5e38bbf971b27e18e
-  source_path: providers/moonshot.md
-  workflow: 15
+summary: "配置 Moonshot K2 与 Kimi Coding（独立提供商和密钥）"
+read_when:
+  - 你想了解 Moonshot K2（Moonshot 开放平台）与 Kimi Coding 的配置
+  - 你需要了解独立的端点、密钥和模型引用
+  - 你想获取任一提供商的可复制粘贴配置
+title: "Moonshot AI"
 ---
 
 # Moonshot AI (Kimi)
 
-Moonshot 提供兼容 OpenAI 端点的 Kimi API。配置提供商并将默认模型设置为 `moonshot/kimi-k2.5`，或使用 Kimi Coding 的 `kimi-coding/k2p5`。
+Moonshot 提供兼容 OpenAI 端点的 Kimi API。配置提供商并将默认模型设置为 `moonshot/kimi-k2.5`，或使用 Kimi Coding 的 `kimi-coding/k2p5`。 Configure the
+provider and set the default model to `moonshot/kimi-k2.5`, or use
+Kimi Coding with `kimi-coding/k2p5`.
 
 当前 Kimi K2 模型 ID：
 {/_ moonshot-kimi-k2-ids:start _/}
+
+Moonshot 模型引用使用 `moonshot/<modelId>`。Kimi Coding 模型引用使用 `kimi-coding/<modelId>`。
 
 - `kimi-k2.5`
 - `kimi-k2-0905-preview`
@@ -33,7 +35,7 @@ Kimi Coding：
 openclaw onboard --auth-choice kimi-code-api-key
 ```
 
-注意：Moonshot 和 Kimi Coding 是独立的提供商。密钥不可互换，端点不同，模型引用也不同（Moonshot 使用 `moonshot/...`，Kimi Coding 使用 `kimi-coding/...`）。
+Note: Moonshot and Kimi Coding are separate providers. 注意：Moonshot 和 Kimi Coding 是独立的提供商。密钥不可互换，端点不同，模型引用也不同（Moonshot 使用 `moonshot/...`，Kimi Coding 使用 `kimi-coding/...`）。
 
 ## 配置片段（Moonshot API）
 
@@ -134,9 +136,7 @@ openclaw onboard --auth-choice kimi-code-api-key
 
 ## 注意事项
 
-- Moonshot 模型引用使用 `moonshot/<modelId>`。Kimi Coding 模型引用使用 `kimi-coding/<modelId>`。
+- Moonshot model refs use `moonshot/<modelId>`. Kimi Coding model refs use `kimi-coding/<modelId>`.
 - 如有需要，可在 `models.providers` 中覆盖定价和上下文元数据。
 - 如果 Moonshot 发布了某个模型的不同上下文限制，请相应调整 `contextWindow`。
 - 如需使用中国端点，请使用 `https://api.moonshot.cn/v1`。
-
-

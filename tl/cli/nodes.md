@@ -1,4 +1,8 @@
 ---
+summary: "Sanggunian ng CLI para sa `openclaw nodes` (list/status/approve/invoke, camera/canvas/screen)"
+read_when:
+  - Pinamamahalaan mo ang mga ipinares na node (mga camera, screen, canvas)
+  - Kailangan mong aprubahan ang mga kahilingan o mag-invoke ng mga command ng node
 title: "nodes"
 ---
 
@@ -60,12 +64,10 @@ Mga flag ng invoke:
 Mga flag:
 
 - `--cwd <path>`: direktoryo ng trabaho.
-- `--env <key=val>`: env override (maaaring ulitin).
+- `--env <key=val>`: override ng env (maaaring ulitin). Tandaan: ang mga node host ay hindi pinapansin ang `PATH` overrides (at ang `tools.exec.pathPrepend` ay hindi inilalapat sa mga node host).
 - `--command-timeout <ms>`: timeout ng command.
 - `--invoke-timeout <ms>`: timeout ng node invoke (default `30000`).
 - `--needs-screen-recording`: kailangan ng pahintulot sa screen recording.
 - `--raw <command>`: magpatakbo ng shell string (`/bin/sh -lc` o `cmd.exe /c`).
 - `--agent <id>`: mga approval/allowlist na saklaw ng agent (default sa naka-configure na agent).
 - `--ask <off|on-miss|always>`, `--security <deny|allowlist|full>`: mga override.
-
-

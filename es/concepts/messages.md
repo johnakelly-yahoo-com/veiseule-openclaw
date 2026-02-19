@@ -1,4 +1,9 @@
 ---
+summary: "Flujo de mensajes, sesiones, colas y visibilidad del razonamiento"
+read_when:
+  - Explicar cómo los mensajes entrantes se convierten en respuestas
+  - Aclarar sesiones, modos de cola o comportamiento de streaming
+  - Documentar la visibilidad del razonamiento y las implicaciones de uso
 title: "Mensajes"
 ---
 
@@ -142,5 +147,3 @@ El formato de los mensajes salientes se centraliza en `messages`:
 - Encadenamiento de respuestas mediante `replyToMode` y valores predeterminados por canal
 
 Detalles: [Configuration](/gateway/configuration#messages) y la documentación de los canales.
-
-

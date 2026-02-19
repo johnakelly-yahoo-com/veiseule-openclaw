@@ -1,4 +1,7 @@
 ---
+summary: "Status, mogelijkheden en configuratie van Matrix-ondersteuning"
+read_when:
+  - Werken aan Matrix-kanaalfunctionaliteit
 title: "Matrix"
 ---
 
@@ -138,6 +141,47 @@ Wanneer E2EE is ingeschakeld, vraagt de bot bij het opstarten verificatie aan bi
 Open Element (of een andere client) en keur het verificatieverzoek goed om vertrouwen tot stand te brengen.
 Na verificatie kan de bot berichten in versleutelde kamers ontsleutelen.
 
+## Multi-account
+
+Multi-accountondersteuning: gebruik `channels.matrix.accounts` met account-specifieke inloggegevens en een optionele `name`. Zie [`gateway/configuration`](/gateway/configuration#telegramaccounts--discordaccounts--slackaccounts--signalaccounts--imessageaccounts) voor het gedeelde patroon.
+
+Elk account draait als een afzonderlijke Matrix-gebruiker op elke homeserver. Configuratie per account
+erft de instellingen op topniveau van `channels.matrix` en kan elke optie overschrijven
+(DM-beleid, groepen, encryptie, enz.).
+
+```json5
+{
+  channels: {
+    matrix: {
+      enabled: true,
+      dm: { policy: "pairing" },
+      accounts: {
+        assistant: {
+          name: "Main assistant",
+          homeserver: "https://matrix.example.org",
+          accessToken: "syt_assistant_***",
+          encryption: true,
+        },
+        alerts: {
+          name: "Alerts bot",
+          homeserver: "https://matrix.example.org",
+          accessToken: "syt_alerts_***",
+          dm: { policy: "allowlist", allowFrom: ["@admin:example.org"] },
+        },
+      },
+    },
+  },
+}
+```
+
+Opmerkingen:
+
+- Het opstarten van accounts gebeurt geserialiseerd om racecondities bij gelijktijdige module-imports te voorkomen.
+- Omgevingsvariabelen (`MATRIX_HOMESERVER`, `MATRIX_ACCESS_TOKEN`, enz.) zijn alleen van toepassing op het **standaard** account.
+- Basis kanaalinstellingen (DM-beleid, groepsbeleid, mention-gating, enz.) zijn van toepassing op alle accounts, tenzij per account overschreven.
+- Gebruik `bindings[].match.accountId` om elk account naar een andere agent te routeren.
+- De cryptostatus wordt per account + access token opgeslagen (afzonderlijke key stores per account).
+
 ## Routeringsmodel
 
 - Antwoorden gaan altijd terug naar Matrix.
@@ -151,6 +195,7 @@ Na verificatie kan de bot berichten in versleutelde kamers ontsleutelen.
   - `openclaw pairing approve matrix <CODE>`
 - Openbare DM’s: `channels.matrix.dm.policy="open"` plus `channels.matrix.dm.allowFrom=["*"]`.
 - `channels.matrix.dm.allowFrom` accepteert volledige Matrix-gebruikers-ID’s (voorbeeld: `@user:server`). De wizard zet weergavenamen om naar gebruikers-ID’s wanneer de directoryzoekactie één exacte match vindt.
+- Gebruik geen display names of losse localparts (voorbeeld: `"Alice"` of `"alice"`). Deze zijn dubbelzinnig en worden genegeerd bij allowlist-matching. Gebruik volledige `@user:server`-ID’s.
 
 ## Kamers (groepen)
 
@@ -258,6 +303,5 @@ Provider-opties:
 - `channels.matrix.mediaMaxMb`: inbound/outbound media-limiet (MB).
 - `channels.matrix.autoJoin`: uitnodigingsafhandeling (`always | allowlist | off`, standaard: always).
 - `channels.matrix.autoJoinAllowlist`: toegestane kamer-ID’s/aliassen voor auto-join.
+- `channels.matrix.accounts`: multi-accountconfiguratie gesleuteld op account-ID (elk account erft instellingen op topniveau).
 - `channels.matrix.actions`: per-actie tool-gating (reactions/messages/pins/memberInfo/channelInfo).
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Các nhà cung cấp mô hình (LLM) được OpenClaw hỗ trợ"
+read_when:
+  - Bạn muốn chọn một nhà cung cấp mô hình
+  - Bạn cần tổng quan nhanh về các backend LLM được hỗ trợ
 title: "Nhà cung cấp mô hình"
 ---
 
@@ -35,7 +39,9 @@ Xem [Venice AI](/providers/venice).
 - [Anthropic (API + Claude Code CLI)](/providers/anthropic)
 - [Qwen (OAuth)](/providers/qwen)
 - [OpenRouter](/providers/openrouter)
+- [LiteLLM (unified gateway)](/providers/litellm)
 - [Vercel AI Gateway](/providers/vercel-ai-gateway)
+- [Together AI](/providers/together)
 - [Cloudflare AI Gateway](/providers/cloudflare-ai-gateway)
 - [Moonshot AI (Kimi + Kimi Coding)](/providers/moonshot)
 - [OpenCode Zen](/providers/opencode)
@@ -45,8 +51,11 @@ Xem [Venice AI](/providers/venice).
 - [GLM models](/providers/glm)
 - [MiniMax](/providers/minimax)
 - [Venice (Venice AI, tập trung vào quyền riêng tư)](/providers/venice)
+- [Hugging Face (Inference)](/providers/huggingface)
 - [Ollama (mô hình cục bộ)](/providers/ollama)
+- [vLLM (local models)](/providers/vllm)
 - [Qianfan](/providers/qianfan)
+- [NVIDIA](/providers/nvidia)
 
 ## Nhà cung cấp phiên âm
 
@@ -58,5 +67,3 @@ Xem [Venice AI](/providers/venice).
 
 For the full provider catalog (xAI, Groq, Mistral, etc.) and advanced configuration,
 see [Model providers](/concepts/model-providers).
-
-

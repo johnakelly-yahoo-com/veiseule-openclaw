@@ -1,4 +1,8 @@
 ---
+summary: "Bir WhatsApp mesajını birden fazla ajana yayınlayın"
+read_when:
+  - Yayın gruplarını yapılandırma
+  - WhatsApp’ta çoklu ajan yanıtlarını hata ayıklama
 status: experimental
 title: "Yayın Grupları"
 ---
@@ -436,5 +440,3 @@ Planlanan özellikler:
 - [Çoklu Ajan Yapılandırması](/tools/multi-agent-sandbox-tools)
 - [Yönlendirme Yapılandırması](/channels/channel-routing)
 - [Oturum Yönetimi](/concepts/sessions)
-
-

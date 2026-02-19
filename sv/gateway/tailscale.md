@@ -1,4 +1,8 @@
 ---
+summary: "Integrerad Tailscale Serve/Funnel för Gateway-instrumentpanelen"
+read_when:
+  - Exponera Gateway-kontrollgränssnittet utanför localhost
+  - Automatisera åtkomst till tailnet eller offentlig instrumentpanel
 title: "Tailscale"
 ---
 
@@ -121,5 +125,3 @@ Undvik Funnel för webbläsarkontroll; behandla nodparning som operatörsåtkoms
 - Kommandot `tailscale serve`: [https://tailscale.com/kb/1242/tailscale-serve](https://tailscale.com/kb/1242/tailscale-serve)
 - Översikt över Tailscale Funnel: [https://tailscale.com/kb/1223/tailscale-funnel](https://tailscale.com/kb/1223/tailscale-funnel)
 - Kommandot `tailscale funnel`: [https://tailscale.com/kb/1311/tailscale-funnel](https://tailscale.com/kb/1311/tailscale-funnel)
-
-

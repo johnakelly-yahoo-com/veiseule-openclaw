@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw eklentileri/uzantıları: keşif, yapılandırma ve güvenli kullanım"
+read_when:
+  - Eklenti/uzantı eklerken veya değiştirirken
+  - Eklenti kurulum veya yükleme kurallarını belgelendirirken
 title: "Eklentiler"
 ---
 
@@ -15,7 +19,7 @@ tutmak istediğinizde) eklentileri kullanırsınız.
 
 Hızlı yol:
 
-1. 39. Zaten yüklü olanları görün:
+1. Zaten yüklü olanları görün:
 
 ```bash
 openclaw plugins list
@@ -26,6 +30,9 @@ openclaw plugins list
 ```bash
 openclaw plugins install @openclaw/voice-call
 ```
+
+Npm özellikleri yalnızca **registry-only**’dir (paket adı + isteğe bağlı sürüm/etiket). Git/URL/file
+özellikleri reddedilir.
 
 3. Gateway’i yeniden başlatın, ardından `plugins.entries.<id>.config` altında yapılandırın.
 
@@ -126,6 +133,10 @@ Bir eklenti dizini, `openclaw.extensions` içeren bir `package.json` barındıra
 Her giriş bir eklentiye dönüşür. Paket birden fazla uzantı listeliyorsa, eklenti id’si `name/<fileBase>` olur.
 
 Eklentiniz npm bağımlılıkları içe aktarıyorsa, bunları o dizine kurun; böylece `node_modules` kullanılabilir (`npm install` / `pnpm install`).
+
+Güvenlik notu: `openclaw plugins install`, eklenti bağımlılıklarını
+`npm install --ignore-scripts` (lifecycle script’leri olmadan) ile kurar. Eklenti bağımlılık
+ağaçlarını "pure JS/TS" tutun ve `postinstall` derlemeleri gerektiren paketlerden kaçının.
 
 ### Kanal katalog meta verileri
 
@@ -425,7 +436,7 @@ Model sağlayıcı belgeleri `/providers/*` altında yer alır.
 - `gateway` (başlat/durdur/giriş), `mentions`, `threading`, `streaming`
 - `actions` (mesaj eylemleri), `commands` (yerel komut davranışı)
 
-5. 44. Eklentinizde kanalı kaydedin
+5. Eklentinizde kanalı kaydedin
 
 - `api.registerChannel({ plugin })`
 
@@ -443,7 +454,7 @@ Asgari yapılandırma örneği:
 }
 ```
 
-45. Minimal kanal eklentisi (yalnızca giden):
+Minimal kanal eklentisi (yalnızca giden):
 
 ```ts
 const plugin = {
@@ -634,5 +645,3 @@ Eklentiler testlerle birlikte gönderilebilir (ve gönderilmelidir):
 
 - Depo içi eklentiler, Vitest testlerini `src/**` altında tutabilir (örnek: `src/plugins/voice-call.plugin.test.ts`).
 - Ayrı yayımlanan eklentiler kendi CI’larını (lint/build/test) çalıştırmalı ve `openclaw.extensions`’nın derlenmiş giriş noktasını işaret ettiğini doğrulamalıdır (`dist/index.js`).
-
-

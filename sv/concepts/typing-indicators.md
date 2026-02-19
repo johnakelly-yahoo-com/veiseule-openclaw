@@ -1,4 +1,7 @@
 ---
+summary: "När OpenClaw visar skrivindikatorer och hur du finjusterar dem"
+read_when:
+  - Ändrar beteende eller standardvärden för skrivindikatorer
 title: "Skrivindikatorer"
 ---
 
@@ -63,5 +66,3 @@ Du kan åsidosätta läge eller kadens per session:
 - Heartbeats visar aldrig skrivning, oavsett läge.
 - `typingIntervalSeconds` kontrollerar **uppdatera kadens**, inte starttiden.
   Standard är 6 sekunder.
-
-

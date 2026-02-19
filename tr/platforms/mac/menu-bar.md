@@ -1,4 +1,7 @@
 ---
+summary: "Menü çubuğu durum mantığı ve kullanıcılara neyin sunulduğu"
+read_when:
+  - Mac menü kullanıcı arayüzü veya durum mantığı üzerinde ayarlamalar yaparken
 title: "Menü Çubuğu"
 ---
 
@@ -19,7 +22,7 @@ title: "Menü Çubuğu"
   - `job`: üst düzey komut yürütme (`state: started|streaming|done|error`).
   - `tool`: `phase: start|result` ve `toolName` ile `meta/args`.
 
-## IconState enum'u (Swift)
+## IconState enum (Swift)
 
 - `idle`
 - `workingMain(ActivityKind)`
@@ -37,7 +40,7 @@ title: "Menü Çubuğu"
 
 ### Görsel eşleme
 
-- `idle`: normal yaratık.
+- `idle`: normal critter.
 - `workingMain`: glifli rozet, tam renk tonu, “çalışıyor” bacak animasyonu.
 - `workingOther`: glifli rozet, kısık renk tonu, koşuşturma yok.
 - `overridden`: etkinlikten bağımsız olarak seçilen glif/renk tonu kullanılır.
@@ -76,5 +79,3 @@ title: "Menü Çubuğu"
 - Diğeri aktifken anayı başlatın: simge anında ana’ya döner.
 - Hızlı araç patlamaları: rozetin titremediğinden emin olun (araç sonuçlarında TTL toleransı).
 - Tüm oturumlar boşta olduğunda sağlık satırı yeniden görünür.
-
-

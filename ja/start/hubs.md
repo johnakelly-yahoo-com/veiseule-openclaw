@@ -1,4 +1,7 @@
 ---
+summary: "すべての OpenClaw ドキュメントにリンクするハブ"
+read_when:
+  - ドキュメント全体の完全なマップが必要な場合
 title: "ドキュメントハブ"
 ---
 
@@ -192,5 +195,3 @@ OpenClaw を初めて利用する場合は、[はじめに](/start/getting-start
 - [テスト](/reference/test)
 - [リリースチェックリスト](/reference/RELEASING)
 - [デバイスモデル](/reference/device-models)
-
-

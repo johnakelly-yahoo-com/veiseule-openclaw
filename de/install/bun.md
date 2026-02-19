@@ -1,4 +1,8 @@
 ---
+summary: "„Bun-Workflow (experimentell): Installation und Fallstricke im Vergleich zu pnpm“"
+read_when:
+  - Sie möchten den schnellsten lokalen Entwicklungszyklus (bun + watch)
+  - Sie stoßen auf Probleme bei Bun-Installation/Patching/Lifecycle-Skripten
 title: "„Bun (Experimentell)“"
 ---
 
@@ -53,5 +57,3 @@ bun pm trust @whiskeysockets/baileys protobufjs
 ## Vorsichtsmaßnahmen
 
 - Einige Skripte sind weiterhin fest auf pnpm verdrahtet (z. B. `docs:build`, `ui:*`, `protocol:check`). Führen Sie diese vorerst über pnpm aus.
-
-

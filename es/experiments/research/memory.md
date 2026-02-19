@@ -1,4 +1,9 @@
 ---
+summary: "Notas de investigación: sistema de memoria offline para espacios de trabajo de Clawd (Markdown como fuente de verdad + índice derivado)"
+read_when:
+  - Diseñar la memoria del espacio de trabajo (~/.openclaw/workspace) más allá de los registros diarios en Markdown
+  - Deciding: "Decidir: CLI independiente vs integración profunda con OpenClaw"
+  - Agregar recuerdo offline + reflexión (retener/recordar/reflexionar)
 title: "Investigación sobre la memoria del espacio de trabajo"
 ---
 
@@ -221,5 +226,3 @@ Si quiere una versión mínima, pero aún útil:
 - Conceptos de Letta / MemGPT: “bloques de memoria núcleo” + “memoria de archivo” + memoria autoeditable impulsada por herramientas.
 - Informe técnico de Hindsight: “retener / recordar / reflexionar”, memoria de cuatro redes, extracción de hechos narrativos, evolución de la confianza en opiniones.
 - SuCo: arXiv 2411.14754 (2024): “Subspace Collision”, recuperación de vecinos más cercanos aproximada.
-
-

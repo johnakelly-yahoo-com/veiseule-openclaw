@@ -1,4 +1,9 @@
 ---
+summary: "Kit de test : suites unit/e2e/live, runners Docker et ce que couvre chaque test"
+read_when:
+  - Exécuter les tests en local ou en CI
+  - Ajouter des régressions pour des bugs de modèle/fournisseur
+  - Déboguer le comportement de la gateway (passerelle) et de l’agent
 title: "Tests"
 ---
 
@@ -37,7 +42,7 @@ Considérez les suites comme une « augmentation du réalisme » (et de la f
 ### Unitaire / intégration (par défaut)
 
 - Commande : `pnpm test`
-- Config : `vitest.config.ts`
+- Config : `scripts/test-parallel.mjs` (exécute `vitest.unit.config.ts`, `vitest.extensions.config.ts`, `vitest.gateway.config.ts`)
 - Fichiers : `src/**/*.test.ts`
 - Portée :
   - Tests unitaires purs
@@ -47,12 +52,23 @@ Considérez les suites comme une « augmentation du réalisme » (et de la f
   - S’exécute en CI
   - Aucune clé réelle requise
   - Doit être rapide et stable
+- Note sur le pool :
+  - OpenClaw utilise Vitest `vmForks` sur Node 22/23 pour des shards unitaires plus rapides.
+  - Sur Node 24+, OpenClaw revient automatiquement à des `forks` classiques pour éviter les erreurs de liaison VM de Node (`ERR_VM_MODULE_LINK_FAILURE` / `module is already linked`).
+  - Remplacez manuellement avec `OPENCLAW_TEST_VM_FORKS=0` (forcer `forks`) ou `OPENCLAW_TEST_VM_FORKS=1` (forcer `vmForks`).
 
 ### E2E (smoke de la gateway)
 
 - Commande : `pnpm test:e2e`
 - Config : `vitest.e2e.config.ts`
 - Fichiers : `src/**/*.e2e.test.ts`
+- Paramètres d’exécution par défaut :
+  - Utilise Vitest `vmForks` pour un démarrage plus rapide des fichiers.
+  - Utilise des workers adaptatifs (CI : 2-4, local : 4-8).
+  - S’exécute en mode silencieux par défaut afin de réduire la surcharge d’E/S console.
+- Surcharges utiles :
+  - `OPENCLAW_E2E_WORKERS=<n>` pour forcer le nombre de workers (plafonné à 16).
+  - `OPENCLAW_E2E_VERBOSE=1` pour réactiver la sortie console détaillée.
 - Portée :
   - Comportement end-to-end de la gateway multi‑instances
   - Surfaces WebSocket/HTTP, appairage de nœuds et réseau plus lourd
@@ -363,5 +379,3 @@ Lorsque vous corrigez un problème de fournisseur/modèle découvert en live :
 - Ciblez de préférence la couche la plus petite qui attrape le bug :
   - bug de conversion/relecture de requête fournisseur → test des modèles directs
   - bug du pipeline de session/historique/outils de la gateway → smoke live de la gateway ou test mock de la gateway compatible CI
-
-

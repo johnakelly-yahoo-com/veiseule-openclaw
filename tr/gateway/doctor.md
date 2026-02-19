@@ -1,4 +1,8 @@
 ---
+summary: "Doctor komutu: sağlık kontrolleri, yapılandırma geçişleri ve onarım adımları"
+read_when:
+  - Doctor geçişleri eklerken veya değiştirirken
+  - Kırıcı yapılandırma değişiklikleri sunarken
 title: "Doktor"
 ---
 
@@ -271,5 +275,3 @@ zaten git altında değilse bir yedekleme ipucu yazdırır.
 
 Çalışma alanı yapısı ve git yedekleme (önerilen özel GitHub veya GitLab) için
 tam kılavuz olarak [/concepts/agent-workspace](/concepts/agent-workspace)’e bakın.
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "Trạng thái hỗ trợ Matrix, khả năng và cấu hình"
+read_when:
+  - Làm việc với các tính năng kênh Matrix
 title: "Matrix"
 ---
 
@@ -14,7 +17,7 @@ title: "Matrix"
 
 ## Yêu cầu plugin
 
-Matrix được phát hành dưới dạng plugin và không được gộp sẵn trong bản cài đặt lõi.
+Cài đặt qua CLI (npm registry):
 
 Cài đặt qua CLI (npm registry):
 
@@ -28,8 +31,7 @@ Cài đặt từ bản checkout cục bộ (khi chạy từ repo git):
 openclaw plugins install ./extensions/matrix
 ```
 
-Nếu bạn chọn Matrix trong quá trình configure/onboarding và phát hiện bản checkout git,
-OpenClaw sẽ tự động đề xuất đường dẫn cài đặt cục bộ.
+Chi tiết: [Plugins](/tools/plugin)
 
 Chi tiết: [Plugins](/tools/plugin)
 
@@ -112,13 +114,15 @@ Cấu hình E2EE (bật mã hóa đầu-cuối):
 
 ## Mã hóa (E2EE)
 
-Mã hóa đầu-cuối **được hỗ trợ** thông qua Rust crypto SDK.
+Bật bằng `channels.matrix.encryption: true`:
 
 Bật bằng `channels.matrix.encryption: true`:
 
 - Nếu mô-đun crypto tải thành công, các phòng được mã hóa sẽ tự động được giải mã.
-- Media gửi đi sẽ được mã hóa khi gửi tới các phòng được mã hóa.
-- Ở lần kết nối đầu tiên, OpenClaw yêu cầu xác minh thiết bị từ các phiên khác của bạn.
+- Nếu access token (thiết bị) thay đổi, một kho mới sẽ được tạo và bot phải được
+  xác minh lại cho các phòng được mã hóa.
+- **Xác minh thiết bị:**
+  Khi E2EE được bật, bot sẽ yêu cầu xác minh từ các phiên khác của bạn khi khởi động.
 - Xác minh thiết bị trong một client Matrix khác (Element, v.v.). 41. để bật chia sẻ khóa.
 - Nếu mô-đun crypto không thể tải, E2EE sẽ bị tắt và các phòng được mã hóa sẽ không được giải mã;
   OpenClaw ghi log cảnh báo.
@@ -138,12 +142,53 @@ Bật bằng `channels.matrix.encryption: true`:
 46. Mở Element (hoặc client khác) và chấp thuận yêu cầu xác minh để thiết lập độ tin cậy.
     Sau khi được xác minh, bot có thể giải mã tin nhắn trong các phòng được mã hóa.
 
-## Mô hình định tuyến
-
-- Phản hồi luôn quay lại Matrix.
-- DM dùng chung phiên chính của tác tử; phòng ánh xạ thành các phiên nhóm.
-
 ## Kiểm soát truy cập (DM)
+
+Hỗ trợ nhiều tài khoản: sử dụng `channels.matrix.accounts` với thông tin xác thực riêng cho từng tài khoản và tùy chọn `name`. Xem [`gateway/configuration`](/gateway/configuration#telegramaccounts--discordaccounts--slackaccounts--signalaccounts--imessageaccounts) để biết mẫu dùng chung.
+
+Mỗi tài khoản chạy như một người dùng Matrix riêng biệt trên bất kỳ homeserver nào. Cấu hình theo từng tài khoản
+kế thừa từ các thiết lập `channels.matrix` cấp cao nhất và có thể ghi đè bất kỳ tùy chọn nào
+(chính sách DM, nhóm, mã hóa, v.v.).
+
+```json5
+{
+  channels: {
+    matrix: {
+      enabled: true,
+      dm: { policy: "pairing" },
+      accounts: {
+        assistant: {
+          name: "Main assistant",
+          homeserver: "https://matrix.example.org",
+          accessToken: "syt_assistant_***",
+          encryption: true,
+        },
+        alerts: {
+          name: "Alerts bot",
+          homeserver: "https://matrix.example.org",
+          accessToken: "syt_alerts_***",
+          dm: { policy: "allowlist", allowFrom: ["@admin:example.org"] },
+        },
+      },
+    },
+  },
+}
+```
+
+Lưu ý:
+
+- `requireMention: false` bật tự động trả lời trong phòng đó.
+- Biến môi trường (`MATRIX_HOMESERVER`, `MATRIX_ACCESS_TOKEN`, v.v.) chỉ áp dụng cho tài khoản **mặc định**.
+- Thiết lập kênh cơ bản (chính sách DM, chính sách nhóm, lọc mention, v.v.) áp dụng cho tất cả tài khoản trừ khi được ghi đè theo từng tài khoản.
+- Danh sách cho phép theo từng phòng `users` có thể hạn chế thêm người gửi trong một phòng cụ thể (dùng Matrix user ID đầy đủ).
+- Trình cấu hình sẽ hỏi danh sách phòng cho phép (room ID, alias hoặc tên) và chỉ phân giải tên khi có khớp chính xác, duy nhất.
+
+## Luồng
+
+- Hỗ trợ trả lời theo luồng.
+- `channels.matrix.threadReplies` điều khiển việc phản hồi có ở trong luồng hay không:
+
+## Khả năng
 
 - Mặc định: `channels.matrix.dm.policy = "pairing"`. 48. Người gửi không xác định sẽ nhận được mã ghép cặp.
 - Phê duyệt qua:
@@ -151,8 +196,9 @@ Bật bằng `channels.matrix.encryption: true`:
   - `openclaw pairing approve matrix <CODE>`
 - DM công khai: `channels.matrix.dm.policy="open"` cùng với `channels.matrix.dm.allowFrom=["*"]`.
 - `channels.matrix.dm.allowFrom` chấp nhận ID người dùng Matrix đầy đủ (ví dụ: `@user:server`). Trình hướng dẫn sẽ phân giải tên hiển thị thành ID người dùng khi tìm kiếm thư mục tìm thấy một khớp chính xác duy nhất.
+- Không sử dụng display name hoặc localpart trần (ví dụ: `"Alice"` hoặc `"alice"`). Chúng gây mơ hồ và sẽ bị bỏ qua khi khớp allowlist. Sử dụng ID đầy đủ dạng `@user:server`.
 
-## Phòng (nhóm)
+## Xử lý sự cố
 
 - Mặc định: `channels.matrix.groupPolicy = "allowlist"` (yêu cầu mention). Use `channels.defaults.groupPolicy` to override the default when unset.
 - Cho phép phòng theo danh sách cho phép bằng `channels.matrix.groups` (room ID hoặc alias; tên sẽ được phân giải sang ID khi tìm kiếm thư mục cho ra một kết quả khớp chính xác duy nhất):
@@ -204,9 +250,9 @@ Bật bằng `channels.matrix.encryption: true`:
 | Vị trí             | ✅ Hỗ trợ (URI địa lý; bỏ qua độ cao)                                                    |
 | Lệnh gốc           | ✅ Hỗ trợ                                                                                                   |
 
-## Xử lý sự cố
+## Tham chiếu cấu hình (Matrix)
 
-Hãy chạy thang kiểm tra này trước:
+Cấu hình đầy đủ: [Cấu hình](/gateway/configuration)
 
 ```bash
 openclaw status
@@ -258,6 +304,5 @@ Tùy chọn nhà cung cấp:
 - `channels.matrix.mediaMaxMb`: giới hạn media vào/ra (MB).
 - `channels.matrix.autoJoin`: xử lý lời mời (`always | allowlist | off`, mặc định: luôn).
 - `channels.matrix.autoJoinAllowlist`: room ID/alias được phép để tự động tham gia.
+- `channels.matrix.accounts`: cấu hình đa tài khoản được định danh theo account ID (mỗi tài khoản kế thừa các thiết lập cấp cao nhất).
 - `channels.matrix.actions`: kiểm soát công cụ theo từng hành động (reactions/messages/pins/memberInfo/channelInfo).
-
-

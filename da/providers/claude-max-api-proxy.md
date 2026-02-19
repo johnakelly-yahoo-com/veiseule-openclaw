@@ -1,4 +1,9 @@
 ---
+summary: "Brug Claude Max/Pro-abonnement som et OpenAI-kompatibelt API-endpoint"
+read_when:
+  - Du vil bruge Claude Max-abonnement med OpenAI-kompatible værktøjer
+  - Du vil have en lokal API-server, der wrapper Claude Code CLI
+  - Du vil spare penge ved at bruge abonnement i stedet for API-nøgler
 title: "Claude Max API-proxy"
 ---
 
@@ -141,5 +146,3 @@ launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.claude-max-api.plist
 
 - [Anthropic-udbyder](/providers/anthropic) - Native OpenClaw-integration med Claude setup-token eller API-nøgler
 - [OpenAI-udbyder](/providers/openai) - Til OpenAI/Codex-abonnementer
-
-

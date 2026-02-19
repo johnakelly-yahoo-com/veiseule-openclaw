@@ -1,4 +1,8 @@
 ---
+summary: "„Eine WhatsApp-Nachricht an mehrere Agenten senden“"
+read_when:
+  - Konfigurieren von Broadcast-Gruppen
+  - Debuggen von Multi-Agent-Antworten in WhatsApp
 status: experimental
 title: "„Broadcast-Gruppen“"
 ---
@@ -436,5 +440,3 @@ Geplante Funktionen:
 - [Multi-Agent-Konfiguration](/tools/multi-agent-sandbox-tools)
 - [Routing-Konfiguration](/channels/channel-routing)
 - [Sitzungsverwaltung](/concepts/sessions)
-
-

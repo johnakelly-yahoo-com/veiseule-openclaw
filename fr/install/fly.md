@@ -1,6 +1,6 @@
 ---
 title: Fly.io
-description: "Déployer OpenClaw sur Fly.io"
+description: Déployer OpenClaw sur Fly.io
 ---
 
 # Déploiement Fly.io
@@ -461,11 +461,11 @@ Le tunnel ngrok s’exécute dans le conteneur et fournit une URL de webhook pub
 
 ### Avantages de sécurité
 
-| Aspect                   | Public      | Privé      |
-| ------------------------ | ----------- | ---------- |
-| Scanners Internet        | Découvrable | Caché     |
-| Attaques directes        | Possibles   | Bloquées   |
-| Accès à l’UI de contrôle | Navigateur  | Proxy/VPN  |
+| Aspect                   | Public      | Privé         |
+| ------------------------ | ----------- | ------------- |
+| Scanners Internet        | Découvrable | Hidden        |
+| Attaques directes        | Possibles   | Bloquées      |
+| Accès à l’UI de contrôle | Navigateur  | Proxy/VPN     |
 | Livraison des webhooks   | Directe     | Via un tunnel |
 
 ## Remarques
@@ -484,5 +484,3 @@ Avec la configuration recommandée (`shared-cpu-2x`, 2 Go de RAM) :
 - Le niveau gratuit inclut une certaine allocation
 
 Voir [les tarifs Fly.io](https://fly.io/docs/about/pricing/) pour plus de détails.
-
-

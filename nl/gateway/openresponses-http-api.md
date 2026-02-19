@@ -1,4 +1,8 @@
 ---
+summary: "Stel een OpenResponses-compatibel /v1/responses HTTP-endpoint beschikbaar vanuit de Gateway"
+read_when:
+  - Clients integreren die de OpenResponses API spreken
+  - Je wilt item-gebaseerde invoer, client tool calls of SSE-events
 title: "OpenResponses API"
 ---
 
@@ -24,6 +28,7 @@ Notities:
 
 - Wanneer `gateway.auth.mode="token"`, gebruik `gateway.auth.token` (of `OPENCLAW_GATEWAY_TOKEN`).
 - Wanneer `gateway.auth.mode="password"`, gebruik `gateway.auth.password` (of `OPENCLAW_GATEWAY_PASSWORD`).
+- Als `gateway.auth.rateLimit` is geconfigureerd en er te veel authenticatiefouten optreden, retourneert het endpoint `429` met `Retry-After`.
 
 ## Een agent kiezen
 
@@ -182,7 +187,11 @@ Standaardwaarden voor URL-fetch:
 
 - `files.allowUrl`: `true`
 - `images.allowUrl`: `true`
+- `maxUrlParts`: `8` (totaal aantal URL-gebaseerde `input_file` + `input_image`-onderdelen per verzoek)
 - Verzoeken zijn afgeschermd (DNS-resolutie, blokkering van private IP’s, redirect-limieten, time-outs).
+- Optionele hostname-allowlists worden per invoertype ondersteund (`files.urlAllowlist`, `images.urlAllowlist`).
+  - Exacte host: `"cdn.example.com"`
+  - Wildcard-subdomeinen: `"*.assets.example.com"` (komt niet overeen met apex)
 
 ## Bestands- en afbeeldingslimieten (config)
 
@@ -233,6 +242,7 @@ Standaarden kunnen worden aangepast onder `gateway.http.endpoints.responses`:
 Standaarden wanneer weggelaten:
 
 - `maxBodyBytes`: 20MB
+- `maxUrlParts`: 8
 - `files.maxBytes`: 5MB
 - `files.maxChars`: 200k
 - `files.maxRedirects`: 3
@@ -243,6 +253,13 @@ Standaarden wanneer weggelaten:
 - `images.maxBytes`: 10MB
 - `images.maxRedirects`: 3
 - `images.timeoutMs`: 10s
+
+Beveiligingsopmerking:
+
+- URL-allowlists worden afgedwongen vóór het ophalen en bij redirect-stappen.
+- Het toestaan van een hostname omzeilt geen blokkering van private/interne IP-adressen.
+- Voor gateways die aan het internet zijn blootgesteld, pas naast applicatiebeveiliging ook netwerk-egresscontroles toe.
+  Zie [Security](/gateway/security).
 
 ## Streaming (SSE)
 
@@ -311,5 +328,3 @@ curl -N http://127.0.0.1:18789/v1/responses \
     "input": "hi"
   }'
 ```
-
-

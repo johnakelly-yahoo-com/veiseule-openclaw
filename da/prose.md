@@ -1,4 +1,9 @@
 ---
+summary: "OpenProse: .prose-workflows, slash-kommandoer og tilstand i OpenClaw"
+read_when:
+  - Du vil køre eller skrive .prose-workflows
+  - Du vil aktivere OpenProse-pluginet
+  - Du har brug for at forstå tilstandslagring
 title: "OpenProse"
 ---
 
@@ -127,5 +132,3 @@ Hvis dit værktøj tillader blokering af disse værktøjer, vil OpenProse progra
 Behandl `.prose` filer som kode. Gennemgå før kørsel. Brug OpenClaw værktøj tillader lister og godkendelsesporte til at kontrollere bivirkninger.
 
 For deterministiske workflows med godkendelsesporte kan du sammenligne med [Lobster](/tools/lobster).
-
-

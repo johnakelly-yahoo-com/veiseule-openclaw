@@ -1,8 +1,13 @@
 ---
-title: "Mga Pag-apruba ng Ehekutibo"
+summary: "Mga exec approval, allowlist, at mga prompt para sa paglabas ng sandbox"
+read_when:
+  - Pagko-configure ng exec approvals o mga allowlist
+  - Pagpapatupad ng exec approval UX sa macOS app
+  - Pagsusuri ng mga sandbox escape prompt at mga implikasyon
+title: "Exec Approvals"
 ---
 
-# Mga pag-apruba ng ehekutibo
+# Exec approvals
 
 Exec approvals are the **companion app / node host guardrail** for letting a sandboxed agent run
 commands on a real host (`gateway` or `node`). Think of it like a safety interlock:
@@ -117,6 +122,9 @@ Bawat allowlist entry ay nagta-track ng:
 
 5. Tinutukoy ng `tools.exec.safeBins` ang isang maliit na listahan ng mga **stdin-only** na binary (halimbawa `jq`) na maaaring tumakbo sa allowlist mode **nang walang** tahasang allowlist entry. Safe bins reject
    positional file args and path-like tokens, so they can only operate on the incoming stream.
+   Pinipilit din ng safe bins na ituring ang mga argv token bilang **literal text** sa oras ng execution (walang globbing
+   at walang `$VARS` expansion) para sa mga stdin-only na segment, kaya ang mga pattern tulad ng `*` o `$HOME/...` ay hindi maaaring gamitin
+   upang palihim na makapagbasa ng mga file.
 6. Ang shell chaining at mga redirection ay hindi awtomatikong pinapahintulutan sa allowlist mode.
 
 7. Pinapayagan ang shell chaining (`&&`, `||`, `;`) kapag ang bawat top-level na segment ay tumutupad sa allowlist (kabilang ang safe bins o skill auto-allow). Redirections remain unsupported in allowlist mode.
@@ -235,5 +243,3 @@ Kaugnay:
 - [Exec tool](/tools/exec)
 - [Elevated mode](/tools/elevated)
 - [Skills](/tools/skills)
-
-

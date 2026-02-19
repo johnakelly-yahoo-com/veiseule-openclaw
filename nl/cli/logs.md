@@ -1,4 +1,8 @@
 ---
+summary: "CLI-referentie voor `openclaw logs` (Gateway-logs tailen via RPC)"
+read_when:
+  - Je Gateway-logs op afstand wilt tailen (zonder SSH)
+  - Je JSON-logregels wilt voor tooling
 title: "logs"
 ---
 
@@ -19,4 +23,4 @@ openclaw logs --json
 openclaw logs --limit 500
 ```
 
-
+Gebruik `--local-time` om tijdstempels in je lokale tijdzone weer te geven.

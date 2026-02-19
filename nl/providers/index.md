@@ -1,4 +1,8 @@
 ---
+summary: "Modelproviders (LLM's) die door OpenClaw worden ondersteund"
+read_when:
+  - Je wilt een modelprovider kiezen
+  - Je hebt een snel overzicht nodig van ondersteunde LLM-backends
 title: "Modelproviders"
 ---
 
@@ -35,7 +39,9 @@ Zie [Venice AI](/providers/venice).
 - [Anthropic (API + Claude Code CLI)](/providers/anthropic)
 - [Qwen (OAuth)](/providers/qwen)
 - [OpenRouter](/providers/openrouter)
+- [LiteLLM (unified gateway)](/providers/litellm)
 - [Vercel AI Gateway](/providers/vercel-ai-gateway)
+- [Together AI](/providers/together)
 - [Cloudflare AI Gateway](/providers/cloudflare-ai-gateway)
 - [Moonshot AI (Kimi + Kimi Coding)](/providers/moonshot)
 - [OpenCode Zen](/providers/opencode)
@@ -45,8 +51,11 @@ Zie [Venice AI](/providers/venice).
 - [GLM-modellen](/providers/glm)
 - [MiniMax](/providers/minimax)
 - [Venice (Venice AI, privacygericht)](/providers/venice)
+- [Hugging Face (Inference)](/providers/huggingface)
 - [Ollama (lokale modellen)](/providers/ollama)
+- [vLLM (local models)](/providers/vllm)
 - [Qianfan](/providers/qianfan)
+- [NVIDIA](/providers/nvidia)
 
 ## Transcriptieproviders
 
@@ -58,5 +67,3 @@ Zie [Venice AI](/providers/venice).
 
 Voor de volledige providercatalogus (xAI, Groq, Mistral, enz.) en geavanceerde configuratie,
 zie [Modelproviders](/concepts/model-providers).
-
-

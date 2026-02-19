@@ -1,4 +1,8 @@
 ---
+summary: "Bonjour/mDNS-upptäckt + felsökning (Gateway-beacons, klienter och vanliga feltyper)"
+read_when:
+  - Felsökning av Bonjour-upptäcktsproblem på macOS/iOS
+  - Ändra mDNS-tjänsttyper, TXT-poster eller upptäckts-UX
 title: "Bonjour-upptäckt"
 ---
 
@@ -96,9 +100,17 @@ Gatewayn annonserar små icke‑hemliga ledtrådar för att göra UI‑flöden s
 - `cliPath=<path>` (valfritt; absolut sökväg till en körbar `openclaw`‑entrypoint)
 - `tailnetDns=<magicdns>` (valfri ledtråd när Tailnet är tillgängligt)
 
+Säkerhetsanmärkningar:
+
+- Bonjour/mDNS TXT-poster är **oautentiserade**. Klienter får inte behandla TXT som auktoritativ routning.
+- Klienter ska routa med den resolverade tjänsteendpointen (SRV + A/AAAA). Behandla `lanHost`, `tailnetDns`, `gatewayPort` och `gatewayTlsSha256` endast som hintar.
+- TLS-pinning får aldrig tillåta att en annonserad `gatewayTlsSha256` åsidosätter en tidigare lagrad pin.
+- iOS-/Android-noder ska behandla direktanslutningar baserade på discovery som **endast TLS** och kräva uttrycklig användarbekräftelse innan ett fingeravtryck som ses för första gången betros.
+
 ## Felsökning på macOS
 
-Användbara inbyggda verktyg:
+Om bläddring fungerar men upplösning misslyckas träffar du oftast på en LAN‑policy
+eller ett mDNS‑resolverproblem.
 
 - Bläddra bland instanser:
 
@@ -128,14 +140,14 @@ Gateway skriver en rullande loggfil (tryckt vid start som
 
 iOS‑noden använder `NWBrowser` för att upptäcka `_openclaw-gw._tcp`.
 
-För att fånga loggar:
+Loggen inkluderar tillståndsövergångar i webbläsaren och ändringar i resultatmängden.
 
 - Inställningar → Gateway → Avancerat → **Discovery Debug Logs**
 - Inställningar → Gateway → Avancerat → **Discovery Logs** → återskapa → **Kopiera**
 
 Loggen inkluderar tillståndsövergångar i webbläsaren och ändringar i resultatmängden.
 
-## Vanliga feltyper
+## Escapade instansnamn (`\032`)
 
 - **Bonjour passerar inte nätverk**: använd Tailnet eller SSH.
 - **Multicast blockeras**: vissa Wi‑Fi‑nätverk inaktiverar mDNS.
@@ -149,13 +161,13 @@ Loggen inkluderar tillståndsövergångar i webbläsaren och ändringar i result
 Bonjour/DNS‑SD escaper ofta byte i tjänstinstansnamn som decimala `\DDD`‑
 sekvenser (t.ex. blir mellanslag `\032`).
 
-- Detta är normalt på protokollnivå.
-- UI:n bör avkoda för visning (iOS använder `BonjourEscapes.decode`).
-
-## Inaktivering / konfiguration
-
 - `OPENCLAW_DISABLE_BONJOUR=1` inaktiverar annonsering (legacy: `OPENCLAW_DISABLE_BONJOUR`).
 - `gateway.bind` i `~/.openclaw/openclaw.json` styr Gatewayns bind‑läge.
+
+## Relaterad dokumentation
+
+- Upptäcktspolicy och transportval: [Discovery](/gateway/discovery)
+- Nodparkoppling + godkännanden: [Gateway pairing](/gateway/pairing)
 - `OPENCLAW_SSH_PORT` åsidosätter SSH‑porten som annonseras i TXT (legacy: `OPENCLAW_SSH_PORT`).
 - `OPENCLAW_TAILNET_DNS` publicerar en MagicDNS‑ledtråd i TXT (legacy: `OPENCLAW_TAILNET_DNS`).
 - `OPENCLAW_CLI_PATH` åsidosätter den annonserade CLI‑sökvägen (legacy: `OPENCLAW_CLI_PATH`).
@@ -164,5 +176,3 @@ sekvenser (t.ex. blir mellanslag `\032`).
 
 - Upptäcktspolicy och transportval: [Discovery](/gateway/discovery)
 - Nodparkoppling + godkännanden: [Gateway pairing](/gateway/pairing)
-
-

@@ -1,14 +1,17 @@
 ---
+summary: "Tlon/Urbit qo‘llab-quvvatlash holati, imkoniyatlari va sozlash"
+read_when:
+  - Working on Tlon/Urbit channel features
 title: "Tlon"
 ---
 
 # Tlon (plagin)
 
-Tlon — Urbit asosida yaratilgan markazlashmagan messenjer. OpenClaw sizning Urbit kemangizga ulanadi va quyidagilarni amalga oshirishi mumkin
+Tlon is a decentralized messenger built on Urbit. OpenClaw connects to your Urbit ship and can
 respond to DMs and group chat messages. Group replies require an @ mention by default and can
 be further restricted via allowlists.
 
-Holat: plagin orqali qo‘llab-quvvatlanadi. Shaxsiy xabarlar (DM), guruh eslatmalari, mavzudagi javoblar va faqat matnli media zaxira rejimi
+Status: supported via plugin. DMs, group mentions, thread replies, and text-only media fallback
 (URL appended to caption). Reactions, polls, and native media uploads are not supported.
 
 ## Talab qilinadigan plagin
@@ -47,6 +50,22 @@ Minimal config (single account):
       ship: "~sampel-palnet",
       url: "https://your-ship-host",
       code: "lidlut-tabwed-pillex-ridrup",
+    },
+  },
+}
+```
+
+Private/LAN ship URL’lari (ilg‘or):
+
+Standart holatda, OpenClaw ushbu plagin uchun private/ichki hostname va IP diapazonlarini bloklaydi (SSRF himoyasi).
+Agar ship URL’ingiz private tarmoqda bo‘lsa (masalan `http://192.168.1.50:8080` yoki `http://localhost:8080`),
+uni aniq ravishda yoqishingiz kerak:
+
+```json5
+{
+  channels: {
+    tlon: {
+      allowPrivateNetwork: true,
     },
   },
 }
@@ -127,5 +146,3 @@ Use these with `openclaw message send` or cron delivery:
 - Group replies require a mention (e.g. `~your-bot-ship`) to respond.
 - Thread replies: if the inbound message is in a thread, OpenClaw replies in-thread.
 - Media: `sendMedia` falls back to text + URL (no native upload).
-
-

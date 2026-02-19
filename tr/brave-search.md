@@ -1,4 +1,8 @@
 ---
+summary: "web_search için Brave Search API kurulumu"
+read_when:
+  - web_search için Brave Search kullanmak istiyorsunuz
+  - Bir BRAVE_API_KEY veya plan ayrıntılarına ihtiyacınız var
 title: "Brave Search"
 ---
 
@@ -35,5 +39,3 @@ OpenClaw, `web_search` için varsayılan sağlayıcı olarak Brave Search kullan
 - Brave, ücretsiz bir katman ve ücretli planlar sunar; güncel limitler için Brave API portalını kontrol edin.
 
 web_search yapılandırmasının tamamı için [Web tools](/tools/web) sayfasına bakın.
-
-

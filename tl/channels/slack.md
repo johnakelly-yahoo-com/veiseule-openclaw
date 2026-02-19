@@ -1,24 +1,55 @@
 ---
+summary: "Setup ng Slack para sa socket o HTTP webhook mode"
+read_when:
+  - Pagse-set up ng Slack o pag-debug ng Slack socket/HTTP mode
 title: "Slack"
 ---
 
 # Slack
 
-## Socket mode (default)
+Status: handa na para sa production para sa DMs + channels sa pamamagitan ng Slack app integrations. Ang default na mode ay Socket Mode; sinusuportahan din ang HTTP Events API mode.
 
-### Mabilis na setup (baguhan)
+<CardGroup cols={3}>
+  <Card title="Pairing" icon="link" href="/channels/pairing">
+    Ang Slack DMs ay naka-default sa pairing mode.
+  
+</Card>
+  <Card title="Slash commands" icon="terminal" href="/tools/slash-commands">
+    Native na pag-uugali ng command at katalogo ng mga command.
+  
+</Card>
+  <Card title="Channel troubleshooting" icon="wrench" href="/channels/troubleshooting">
+    Mga diagnostic at repair playbook na cross-channel.
+  
+</Card>
+</CardGroup>
 
-1. Gumawa ng Slack app at i-enable ang **Socket Mode**.
-2. Gumawa ng **App Token** (`xapp-...`) at **Bot Token** (`xoxb-...`).
-3. Itakda ang mga token para sa OpenClaw at simulan ang gateway.
+## Mabilis na setup
 
-Minimal na config:
+<Tabs>
+  <Tab title="Socket Mode (default)">
+    <Steps>
+      <Step title="Create Slack app and tokens">
+        Sa mga setting ng Slack app:
+
+        ```
+        {
+          channels: {
+            slack: {
+              enabled: true,
+              appToken: "xapp-...",
+              botToken: "xoxb-...",
+            },
+          },
+        }
+        ```
 
 ```json5
 {
   channels: {
     slack: {
       enabled: true,
+      mode: "socket",
       appToken: "xapp-...",
       botToken: "xoxb-...",
     },
@@ -26,121 +57,62 @@ Minimal na config:
 }
 ```
 
-### Setup
+        ```
+            Env fallback (default account lamang):
+        ```
 
-1. Gumawa ng Slack app (From scratch) sa [https://api.slack.com/apps](https://api.slack.com/apps).
-2. 47. **Socket Mode** → i-toggle sa on. Pagkatapos ay pumunta sa **Basic Information** → **App-Level Tokens** → **Generate Token and Scopes** na may scope na `connections:write`. Kopyahin ang **App Token** (`xapp-...`).
-3. **OAuth & Permissions** → idagdag ang mga bot token scope (gamitin ang manifest sa ibaba). Click **Install to Workspace**. Copy the **Bot User OAuth Token** (`xoxb-...`).
-4. Optional: **OAuth & Permissions** → add **User Token Scopes** (see the read-only list below). Reinstall the app and copy the **User OAuth Token** (`xoxp-...`).
-5. **Event Subscriptions** → i-enable ang events at mag-subscribe sa:
-   - `message.*` (kasama ang edits/deletes/thread broadcasts)
-   - `app_mention`
-   - `reaction_added`, `reaction_removed`
-   - `member_joined_channel`, `member_left_channel`
-   - `channel_rename`
-   - `pin_added`, `pin_removed`
-6. I-invite ang bot sa mga channel na gusto mong mabasa nito.
-7. Slash Commands → gumawa ng `/openclaw` kung ginagamit mo ang `channels.slack.slashCommand`. If you enable native commands, add one slash command per built-in command (same names as `/help`). Ang Native ay naka-off bilang default para sa Slack maliban kung itakda mo ang `channels.slack.commands.native: true` (ang global na `commands.native` ay `"auto"` na iniiwang naka-off ang Slack).
-8. App Home → i-enable ang **Messages Tab** para makapag-DM ang mga user sa bot.
+```bash
+SLACK_APP_TOKEN=xapp-...
+SLACK_BOT_TOKEN=xoxb-...
 
-Gamitin ang manifest sa ibaba para manatiling naka-sync ang scopes at events.
-
-Suporta sa multi-account: gamitin ang `channels.slack.accounts` na may per-account na mga token at opsyonal na `name`. See [`gateway/configuration`](/gateway/configuration#telegramaccounts--discordaccounts--slackaccounts--signalaccounts--imessageaccounts) for the shared pattern.
-
-### OpenClaw config (Socket mode)
-
-Itakda ang mga token via env vars (inirerekomenda):
-
-- `SLACK_APP_TOKEN=xapp-...`
-- `SLACK_BOT_TOKEN=xoxb-...`
-
-O via config:
-
-```json5
-{
-  channels: {
-    slack: {
-      enabled: true,
-      appToken: "xapp-...",
-      botToken: "xoxb-...",
-    },
-  },
-}
 ```
 
-### User token (opsyonal)
+        
+</Step>
+      
+        <Step title="Mag-subscribe sa mga app event">
+          Mag-subscribe sa mga bot event para sa:
+      
+          - `app_mention`
+          - `message.channels`, `message.groups`, `message.im`, `message.mpim`
+          - `reaction_added`, `reaction_removed`
+          - `member_joined_channel`, `member_left_channel`
+          - `channel_rename`
+          - `pin_added`, `pin_removed`
+      
+          I-enable rin ang App Home **Messages Tab** para sa DMs.
+        
+</Step>
+      
+        <Step title="Simulan ang gateway">
 
-OpenClaw can use a Slack user token (`xoxp-...`) for read operations (history,
-pins, reactions, emoji, member info). Bilang default, nananatili itong read-only: nagbabasa
-mas pinipili ang user token kapag mayroon, at ang pagsusulat ay gumagamit pa rin ng bot token maliban kung
-hayagan kang mag-opt in. Even with `userTokenReadOnly: false`, the bot token stays
-preferred for writes when it is available.
-
-Ang mga user token ay kino-configure sa config file (walang suporta sa env var). For
-multi-account, set `channels.slack.accounts.<id>.userToken`.
-
-Halimbawa na may bot + app + user tokens:
-
-```json5
-{
-  channels: {
-    slack: {
-      enabled: true,
-      appToken: "xapp-...",
-      botToken: "xoxb-...",
-      userToken: "xoxp-...",
-    },
-  },
-}
+```bash
+openclaw gateway
 ```
 
-Halimbawa na may tahasang itinakda ang userTokenReadOnly (pinapayagan ang user token writes):
+        
+</Step>
+      
+</Steps>
 
-```json5
-{
-  channels: {
-    slack: {
-      enabled: true,
-      appToken: "xapp-...",
-      botToken: "xoxb-...",
-      userToken: "xoxp-...",
-      userTokenReadOnly: false,
-    },
-  },
-}
-```
+  
+</Tab>
 
-#### Paggamit ng token
+  <Tab title="HTTP Events API mode">
+    <Steps>
+      <Step title="Configure Slack app for HTTP">
 
-- Mga read operation (history, reactions list, pins list, emoji list, member info,
-  search) ay mas pinipili ang user token kapag naka-configure, kung hindi ay ang bot token.
-- Write operations (send/edit/delete messages, add/remove reactions, pin/unpin,
-  file uploads) use the bot token by default. Kung `userTokenReadOnly: false` at
-  walang available na bot token, babalik ang OpenClaw sa user token.
-
-### History context
-
-- Kinokontrol ng `channels.slack.historyLimit` (o `channels.slack.accounts.*.historyLimit`) kung ilang pinakahuling mensahe ng channel/group ang isinasama sa prompt.
-- Falls back to `messages.groupChat.historyLimit`. Itakda sa `0` para i-disable (default 50).
-
-## HTTP mode (Events API)
-
-Gamitin ang HTTP webhook mode kapag ang iyong Gateway ay naaabot ng Slack sa pamamagitan ng HTTPS (karaniwan para sa mga server deployment).
-Ginagamit ng HTTP mode ang Events API + Interactivity + Slash Commands na may iisang shared request URL.
-
-### Setup (HTTP mode)
-
-1. Gumawa ng Slack app at **i-disable ang Socket Mode** (opsyonal kung HTTP lang ang gagamitin).
-2. **Basic Information** → kopyahin ang **Signing Secret**.
-3. **OAuth & Permissions** → i-install ang app at kopyahin ang **Bot User OAuth Token** (`xoxb-...`).
-4. **Event Subscriptions** → i-enable ang events at itakda ang **Request URL** sa webhook path ng iyong gateway (default `/slack/events`).
-5. **Interactivity & Shortcuts** → i-enable at itakda ang parehong **Request URL**.
-6. **Slash Commands** → itakda ang parehong **Request URL** para sa iyong mga command.
-
-Halimbawang request URL:
-`https://gateway-host/slack/events`
-
-### OpenClaw config (minimal)
+        ```
+        {
+          channels: {
+            slack: {
+              enabled: true,
+              appToken: "xapp-...",
+              botToken: "xoxb-...",
+            },
+          },
+        }
+        ```
 
 ```json5
 {
@@ -156,13 +128,227 @@ Halimbawang request URL:
 }
 ```
 
-Multi-account HTTP mode: set `channels.slack.accounts.<id>.mode = "http"` and provide a unique
-`webhookPath` per account so each Slack app can point to its own URL.
+        
+</Step>
+      
+        <Step title="Gumamit ng natatanging webhook path para sa multi-account HTTP">
+          Sinusuportahan ang per-account HTTP mode.
+      
+          Bigyan ang bawat account ng natatanging `webhookPath` upang hindi magbanggaan ang mga rehistrasyon.
+        
+</Step>
+      
+</Steps>
 
-### Manifest (opsyonal)
+  
+</Tab>
+</Tabs>
 
-Use this Slack app manifest to create the app quickly (adjust the name/command if you want). Include the
-user scopes if you plan to configure a user token.
+## Modelo ng token
+
+- Kinakailangan ang `botToken` + `appToken` para sa Socket Mode.
+- Ang HTTP mode ay nangangailangan ng `botToken` + `signingSecret`.
+- Ang mga config token ay may mas mataas na priyoridad kaysa sa env fallback.
+- Ang `SLACK_BOT_TOKEN` / `SLACK_APP_TOKEN` env fallback ay nalalapat lamang sa default na account.
+- Ang `userToken` (`xoxp-...`) ay config-only (walang env fallback) at naka-default sa read-only na pag-uugali (`userTokenReadOnly: true`).
+- Opsyonal: idagdag ang `chat:write.customize` kung nais mong gamitin ng mga papalabas na mensahe ang aktibong agent identity (custom na `username` at icon). Ang `icon_emoji` ay gumagamit ng `:emoji_name:` na syntax.
+
+<Tip>
+Para sa mga aksyon/pagbasa ng directory, maaaring mas piliin ang user token kapag naka-configure. Para sa mga write, nananatiling mas pinipili ang bot token; pinapayagan lamang ang user-token writes kapag `userTokenReadOnly: false` at hindi available ang bot token.
+</Tip>
+
+## Access control at routing
+
+<Tabs>
+  <Tab title="DM policy">
+    Kinokontrol ng `channels.slack.dmPolicy` ang DM access (legacy: `channels.slack.dm.policy`):
+- `pairing` (default)
+- `allowlist`
+- `open` (nangangailangan na ang `channels.slack.allowFrom` ay may kasamang `"*"`; legacy: `channels.slack.dm.allowFrom`)
+- `disabled`
+
+Mga DM flag:
+
+- `dm.enabled` (default true)
+- `channels.slack.allowFrom` (mas pinipili)
+- `dm.allowFrom` (legacy)
+- `dm.groupEnabled` (ang group DMs ay default na false)
+- `dm.groupChannels` (opsyonal na MPIM allowlist)
+
+Ang pairing sa DMs ay gumagamit ng `openclaw pairing approve slack <code>`.
+
+    ```
+    
+        Kinokontrol ng `channels.slack.groupPolicy` ang paghawak ng channel:
+    - `open`
+    - `allowlist`
+    - `disabled`
+    
+    Ang allowlist ng channel ay nasa ilalim ng `channels.slack.channels`.
+    
+    Tala sa runtime: kung ang `channels.slack` ay ganap na nawawala (env-only setup) at ang `channels.defaults.groupPolicy` ay hindi nakatakda, ang runtime ay babalik sa `groupPolicy="open"` at magla-log ng babala.
+    
+    Name/ID resolution:
+    
+    - ang mga entry sa channel allowlist at DM allowlist ay nire-resolve sa startup kapag pinapayagan ng token access
+    - ang mga hindi ma-resolve na entry ay pinananatili ayon sa pagka-configure
+    ```
+
+  
+</Tab>
+
+  <Tab title="Channel policy">    Ang mga mensahe sa channel ay naka-mention-gated bilang default.
+
+    ```
+    Mga pinagmumulan ng mention:
+    
+    - tahasang pagbanggit sa app (`<@botId>`)
+    - mga pattern ng mention regex (`agents.list[].groupChat.mentionPatterns`, fallback `messages.groupChat.mentionPatterns`)
+    - implicit na pag-reply sa thread ng bot
+    
+    Mga kontrol bawat channel (`channels.slack.channels.<id|name>`):
+    
+    - `requireMention`
+    - `users` (allowlist)
+    - `allowBots`
+    - `skills`
+    - `systemPrompt`
+    - `tools`, `toolsBySender`
+    ```
+
+  
+</Tab>
+
+  <Tab title="Mentions and channel users">  
+</Tab>
+
+    ```
+    Ang native command auto-mode ay **naka-off** para sa Slack (`commands.native: "auto"` ay hindi nagpapagana ng Slack native commands).
+    ```
+
+  
+</Tab>
+</Tabs>
+
+## OpenClaw config (minimal)
+
+- Native command auto-mode is **off** for Slack (`commands.native: "auto"` does not enable Slack native commands).
+- Enable native Slack command handlers with `channels.slack.commands.native: true` (or global `commands.native: true`).
+- Kapag naka-enable ang mga native command, magrehistro ng mga katugmang slash command sa Slack (`/<command>` names).
+- Kung hindi naka-enable ang mga native command, maaari kang magpatakbo ng isang naka-configure na slash command sa pamamagitan ng `channels.slack.slashCommand`.
+
+Default na mga setting ng slash command:
+
+- `enabled: false`
+- `name: "openclaw"`
+- `sessionPrefix: "slack:slash"`
+- `ephemeral: true`
+
+Gumagamit ang mga slash session ng hiwa-hiwalay na mga key:
+
+- `agent:<agentId>:slack:slash:<userId>`
+
+at niruruta pa rin ang pagpapatupad ng command laban sa target na conversation session (`CommandTargetSessionKey`).
+
+## Scopes (kasalukuyan vs opsyonal)
+
+- Ang mga DM ay niruruta bilang `direct`; ang mga channel bilang `channel`; ang mga MPIM bilang `group`.
+- Kapag default ang `session.dmScope=main`, ang mga Slack DM ay pinagsasama sa main session ng agent.
+- Mga channel session: `agent:<agentId>:slack:channel:<channelId>`.
+- Ang mga reply sa thread ay maaaring lumikha ng mga thread session suffix (`:thread:<threadTs>`) kung naaangkop.
+- Ang default ng `channels.slack.thread.historyScope` ay `thread`; ang default ng `thread.inheritParent` ay `false`.
+- Kinokontrol ng `channels.slack.thread.initialHistoryLimit` kung ilang umiiral na mensahe sa thread ang kukunin kapag nagsimula ang bagong thread session (default `20`; itakda sa `0` para i-disable).
+
+Mga kontrol sa reply threading:
+
+- `chat:write` (magpadala/mag-update/mag-delete ng mga mensahe via `chat.postMessage`)
+  [https://docs.slack.dev/reference/methods/chat.postMessage](https://docs.slack.dev/reference/methods/chat.postMessage)
+- `im:write` (magbukas ng DMs via `conversations.open` para sa user DMs)
+  [https://docs.slack.dev/reference/methods/conversations.open](https://docs.slack.dev/reference/methods/conversations.open)
+- `channels:history`, `groups:history`, `im:history`, `mpim:history`
+  [https://docs.slack.dev/reference/methods/conversations.history](https://docs.slack.dev/reference/methods/conversations.history)
+
+Sinusuportahan ang mga manual reply tag:
+
+- `[[reply_to_current]]`
+- `[[reply_to:<id>]]`
+
+Tandaan: ang `replyToMode="off"` ay nagdi-disable ng implicit reply threading. Ang mga tahasang `[[reply_to_*]]` na tag ay iginagalang pa rin.
+
+## Hindi kailangan sa ngayon (ngunit posibleng sa hinaharap)
+
+<AccordionGroup>
+  <Accordion title="Inbound attachments">    Ang mga Slack file attachment ay dina-download mula sa mga pribadong URL na naka-host sa Slack (token-authenticated request flow) at isinusulat sa media store kapag matagumpay ang pagkuha at pinapayagan ng mga limitasyon sa laki.
+
+    ```
+    Ang default na inbound size cap sa runtime ay `20MB` maliban kung ma-override ng `channels.slack.mediaMaxMb`.
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Outbound text and files">    - ang mga text chunk ay gumagamit ng `channels.slack.textChunkLimit` (default 4000)
+    - ang `channels.slack.chunkMode="newline"` ay nag-e-enable ng paragraph-first splitting
+    - ang pagpapadala ng file ay gumagamit ng Slack upload APIs at maaaring magsama ng mga thread reply (`thread_ts`)
+    - ang outbound media cap ay sumusunod sa `channels.slack.mediaMaxMb` kapag naka-configure; kung hindi, ang pagpapadala sa channel ay gumagamit ng mga default na MIME-kind mula sa media pipeline
+  
+</Accordion>
+
+  <Accordion title="Delivery targets">    Mga mas pinipiling tahasang target:
+
+    ```
+    - `user:<id>` para sa mga DM
+    - `channel:<id>` para sa mga channel
+    
+    Ang mga Slack DM ay binubuksan sa pamamagitan ng Slack conversation APIs kapag nagpapadala sa mga user target.
+    ```
+
+  
+</Accordion>
+</AccordionGroup>
+
+## Limits
+
+Ang mga Slack action ay kinokontrol ng `channels.slack.actions.*`.
+
+Mga available na action group sa kasalukuyang Slack tooling:
+
+| Grupo      | Default |
+| ---------- | ------- |
+| messages   | enabled |
+| reactions  | enabled |
+| pins       | enabled |
+| memberInfo | enabled |
+| emojiList  | enabled |
+
+## Mga event at operasyonal na pag-uugali
+
+- Ang mga pag-edit/pagbura ng mensahe at thread broadcast ay mina-map bilang mga system event.
+- Ang mga reaction add/remove event ay mina-map bilang mga system event.
+- Ang mga event ng pagpasok/pag-alis ng miyembro, paggawa/pagpapalit ng pangalan ng channel, at pagdaragdag/pag-alis ng pin ay mina-map bilang mga system event.
+- Maaaring ilipat ng `channel_id_changed` ang mga key ng config ng channel kapag naka-enable ang `configWrites`.
+- Ang metadata ng channel topic/purpose ay itinuturing na hindi pinagkakatiwalaang context at maaaring i-inject sa routing context.
+
+## Per-chat-type threading
+
+Maaari kang mag-configure ng magkakaibang threading behavior kada uri ng chat sa pamamagitan ng pagtatakda ng `channels.slack.replyToModeByChatType`:
+
+Pagkakasunod-sunod ng resolusyon:
+
+- `channels.slack.accounts.<accountId> .ackReaction`
+- `channels.slack.ackReaction`
+- `messages.ackReaction`
+- fallback na emoji ng pagkakakilanlan ng agent (`agents.list[].identity.emoji`, kung hindi ay "👀")
+
+Mga Tala:
+
+- Inaasa ng Slack ang mga shortcode (halimbawa, `"eyes"`).
+- Gamitin ang `""` upang i-disable ang reaction para sa isang channel o account.
+
+## Checklist ng Manifest at scope
+
+<AccordionGroup>
+  <Accordion title="Slack app manifest example">
 
 ```json
 {
@@ -194,14 +380,8 @@ user scopes if you plan to configure a user token.
         "channels:history",
         "channels:read",
         "groups:history",
-        "groups:read",
-        "groups:write",
         "im:history",
-        "im:read",
-        "im:write",
         "mpim:history",
-        "mpim:read",
-        "mpim:write",
         "users:read",
         "app_mentions:read",
         "reactions:read",
@@ -212,21 +392,6 @@ user scopes if you plan to configure a user token.
         "commands",
         "files:read",
         "files:write"
-      ],
-      "user": [
-        "channels:history",
-        "channels:read",
-        "groups:history",
-        "groups:read",
-        "im:history",
-        "im:read",
-        "mpim:history",
-        "mpim:read",
-        "users:read",
-        "reactions:read",
-        "pins:read",
-        "emoji:read",
-        "search:read"
       ]
     }
   },
@@ -252,323 +417,120 @@ user scopes if you plan to configure a user token.
 }
 ```
 
-If you enable native commands, add one `slash_commands` entry per command you want to expose (matching the `/help` list). Override with `channels.slack.commands.native`.
+  
+</Accordion>
 
-## Scopes (kasalukuyan vs opsyonal)
+  <Accordion title="Optional user-token scopes (read operations)">
+    Kung iko-configure mo ang `channels.slack.userToken`, ang karaniwang read scopes ay:
 
-Slack's Conversations API is type-scoped: you only need the scopes for the
-conversation types you actually touch (channels, groups, im, mpim). See
-[https://docs.slack.dev/apis/web-api/using-the-conversations-api/](https://docs.slack.dev/apis/web-api/using-the-conversations-api/) for the overview.
+    ```
+    - `channels:history`, `groups:history`, `im:history`, `mpim:history`
+    - `channels:read`, `groups:read`, `im:read`, `mpim:read`
+    - `users:read`
+    - `reactions:read`
+    - `pins:read`
+    - `emoji:read`
+    - `search:read` (kung umaasa ka sa Slack search reads)
+    ```
 
-### Bot token scopes (kinakailangan)
-
-- `chat:write` (magpadala/mag-update/mag-delete ng mga mensahe via `chat.postMessage`)
-  [https://docs.slack.dev/reference/methods/chat.postMessage](https://docs.slack.dev/reference/methods/chat.postMessage)
-- `im:write` (magbukas ng DMs via `conversations.open` para sa user DMs)
-  [https://docs.slack.dev/reference/methods/conversations.open](https://docs.slack.dev/reference/methods/conversations.open)
-- `channels:history`, `groups:history`, `im:history`, `mpim:history`
-  [https://docs.slack.dev/reference/methods/conversations.history](https://docs.slack.dev/reference/methods/conversations.history)
-- `channels:read`, `groups:read`, `im:read`, `mpim:read`
-  [https://docs.slack.dev/reference/methods/conversations.info](https://docs.slack.dev/reference/methods/conversations.info)
-- `users:read` (lookup ng user)
-  [https://docs.slack.dev/reference/methods/users.info](https://docs.slack.dev/reference/methods/users.info)
-- `reactions:read`, `reactions:write` (`reactions.get` / `reactions.add`)
-  [https://docs.slack.dev/reference/methods/reactions.get](https://docs.slack.dev/reference/methods/reactions.get)
-  [https://docs.slack.dev/reference/methods/reactions.add](https://docs.slack.dev/reference/methods/reactions.add)
-- `pins:read`, `pins:write` (`pins.list` / `pins.add` / `pins.remove`)
-  [https://docs.slack.dev/reference/scopes/pins.read](https://docs.slack.dev/reference/scopes/pins.read)
-  [https://docs.slack.dev/reference/scopes/pins.write](https://docs.slack.dev/reference/scopes/pins.write)
-- `emoji:read` (`emoji.list`)
-  [https://docs.slack.dev/reference/scopes/emoji.read](https://docs.slack.dev/reference/scopes/emoji.read)
-- `files:write` (uploads via `files.uploadV2`)
-  [https://docs.slack.dev/messaging/working-with-files/#upload](https://docs.slack.dev/messaging/working-with-files/#upload)
-
-### User token scopes (opsyonal, read-only bilang default)
-
-Idagdag ang mga ito sa **User Token Scopes** kung iko-configure mo ang `channels.slack.userToken`.
-
-- `channels:history`, `groups:history`, `im:history`, `mpim:history`
-- `channels:read`, `groups:read`, `im:read`, `mpim:read`
-- `users:read`
-- `reactions:read`
-- `pins:read`
-- `emoji:read`
-- `search:read`
-
-### Hindi kailangan sa ngayon (ngunit posibleng sa hinaharap)
-
-- `mpim:write` (kung magdadagdag lang tayo ng group-DM open/DM start via `conversations.open`)
-- `groups:write` (kung magdadagdag lang tayo ng private-channel management: create/rename/invite/archive)
-- `chat:write.public` (kung gusto nating mag-post sa mga channel na wala ang bot)
-  [https://docs.slack.dev/reference/scopes/chat.write.public](https://docs.slack.dev/reference/scopes/chat.write.public)
-- `users:read.email` (kung kailangan natin ang email fields mula sa `users.info`)
-  [https://docs.slack.dev/changelog/2017-04-narrowing-email-access](https://docs.slack.dev/changelog/2017-04-narrowing-email-access)
-- `files:read` (kung magsisimula tayong maglista/magbasa ng file metadata)
-
-## Config
-
-Slack uses Socket Mode only (no HTTP webhook server). Provide both tokens:
-
-```json
-{
-  "slack": {
-    "enabled": true,
-    "botToken": "xoxb-...",
-    "appToken": "xapp-...",
-    "groupPolicy": "allowlist",
-    "dm": {
-      "enabled": true,
-      "policy": "pairing",
-      "allowFrom": ["U123", "U456", "*"],
-      "groupEnabled": false,
-      "groupChannels": ["G123"],
-      "replyToMode": "all"
-    },
-    "channels": {
-      "C123": { "allow": true, "requireMention": true },
-      "#general": {
-        "allow": true,
-        "requireMention": true,
-        "users": ["U123"],
-        "skills": ["search", "docs"],
-        "systemPrompt": "Keep answers short."
-      }
-    },
-    "reactionNotifications": "own",
-    "reactionAllowlist": ["U123"],
-    "replyToMode": "off",
-    "actions": {
-      "reactions": true,
-      "messages": true,
-      "pins": true,
-      "memberInfo": true,
-      "emojiList": true
-    },
-    "slashCommand": {
-      "enabled": true,
-      "name": "openclaw",
-      "sessionPrefix": "slack:slash",
-      "ephemeral": true
-    },
-    "textChunkLimit": 4000,
-    "mediaMaxMb": 20
-  }
-}
-```
-
-Maaari ring ibigay ang mga token via env vars:
-
-- `SLACK_BOT_TOKEN`
-- `SLACK_APP_TOKEN`
-
-Ang mga ack reaction ay kinokontrol sa buong sistema sa pamamagitan ng `messages.ackReaction` +
-`messages.ackReactionScope`. Use `messages.removeAckAfterReply` to clear the
-ack reaction after the bot replies.
-
-## Limits
-
-- Ang outbound text ay hina-hati sa `channels.slack.textChunkLimit` (default 4000).
-- Opsyonal na newline chunking: itakda ang `channels.slack.chunkMode="newline"` para hatiin sa mga blank line (mga hangganan ng talata) bago ang length chunking.
-- Ang media uploads ay may limit na `channels.slack.mediaMaxMb` (default 20).
-
-## Reply threading
-
-Bilang default, sumasagot ang OpenClaw sa pangunahing channel. Gamitin ang `channels.slack.replyToMode` upang kontrolin ang awtomatikong threading:
-
-| Mode    | Behavior                                                                                                                                                                                                                                                                                        |
-| ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `off`   | **Default.** Reply in main channel. Mag-thread lamang kung ang nag-trigger na mensahe ay nasa isang thread na.                                                                                                                                  |
-| `first` | Ang unang sagot ay papunta sa thread (sa ilalim ng nag-trigger na mensahe), ang mga kasunod na sagot ay papunta sa pangunahing channel. Kapaki-pakinabang para mapanatiling nakikita ang konteksto habang iniiwasan ang kalat ng mga thread. |
-| `all`   | Lahat ng sagot ay papunta sa thread. Keeps conversations contained but may reduce visibility.                                                                                                                                                                   |
-
-Nalalapat ang mode sa parehong auto-replies at agent tool calls (`slack sendMessage`).
-
-### Per-chat-type threading
-
-Maaari kang mag-configure ng magkakaibang threading behavior kada uri ng chat sa pamamagitan ng pagtatakda ng `channels.slack.replyToModeByChatType`:
-
-```json5
-{
-  channels: {
-    slack: {
-      replyToMode: "off", // default for channels
-      replyToModeByChatType: {
-        direct: "all", // DMs always thread
-        group: "first", // group DMs/MPIM thread first reply
-      },
-    },
-  },
-}
-```
-
-Mga sinusuportahang chat type:
-
-- `direct`: 1:1 DMs (Slack `im`)
-- `group`: group DMs / MPIMs (Slack `mpim`)
-- `channel`: standard channels (public/private)
-
-Precedence:
-
-1. `replyToModeByChatType.<chatType>`
-2. `replyToMode`
-3. Provider default (`off`)
-
-Ang legacy na `channels.slack.dm.replyToMode` ay tinatanggap pa rin bilang fallback para sa `direct` kapag walang chat-type override na nakatakda.
-
-Mga halimbawa:
-
-I-thread ang DMs lang:
-
-```json5
-{
-  channels: {
-    slack: {
-      replyToMode: "off",
-      replyToModeByChatType: { direct: "all" },
-    },
-  },
-}
-```
-
-I-thread ang group DMs pero panatilihin ang channels sa root:
-
-```json5
-{
-  channels: {
-    slack: {
-      replyToMode: "off",
-      replyToModeByChatType: { group: "first" },
-    },
-  },
-}
-```
-
-Gawing thread ang channels, panatilihin ang DMs sa root:
-
-```json5
-{
-  channels: {
-    slack: {
-      replyToMode: "first",
-      replyToModeByChatType: { direct: "off", group: "off" },
-    },
-  },
-}
-```
-
-### Manual threading tags
-
-Para sa mas detalyadong kontrol, gamitin ang mga tag na ito sa mga response ng agent:
-
-- `[[reply_to_current]]` — mag-reply sa nag-trigger na mensahe (simulan/ipagpatuloy ang thread).
-- `[[reply_to:<id>]]` — mag-reply sa isang partikular na message id.
-
-## Sessions + routing
-
-- Ang DMs ay nagbabahagi ng `main` session (tulad ng WhatsApp/Telegram).
-- Ang mga channel ay tumutugma sa `agent:<agentId>:slack:channel:<channelId>` sessions.
-- Ang Slash commands ay gumagamit ng `agent:<agentId>:slack:slash:<userId>` sessions (maaaring i-configure ang prefix via `channels.slack.slashCommand.sessionPrefix`).
-- Kung hindi ibinigay ng Slack ang `channel_type`, ini-infer ito ng OpenClaw mula sa channel ID prefix (`D`, `C`, `G`) at nagde-default sa `channel` para panatilihing stable ang mga session key.
-- Ang native command registration ay gumagamit ng `commands.native` (global default `"auto"` → naka-off ang Slack) at maaaring i-override kada workspace gamit ang `channels.slack.commands.native`. Text commands require standalone `/...` messages and can be disabled with `commands.text: false`. Ang mga Slack slash command ay pinamamahalaan sa Slack app at hindi awtomatikong inaalis. Gamitin ang `commands.useAccessGroups: false` upang lampasan ang mga access-group check para sa mga command.
-- Buong listahan ng command + config: [Slash commands](/tools/slash-commands)
-
-## DM security (pairing)
-
-- Default: `channels.slack.dm.policy="pairing"` — ang mga hindi kilalang DM sender ay nakakakuha ng pairing code (nag-e-expire pagkalipas ng 1 oras).
-- I-approve via: `openclaw pairing approve slack <code>`.
-- Para payagan ang kahit sino: itakda ang `channels.slack.dm.policy="open"` at `channels.slack.dm.allowFrom=["*"]`.
-- `channels.slack.dm.allowFrom` accepts user IDs, @handles, or emails (resolved at startup when tokens allow). The wizard accepts usernames and resolves them to ids during setup when tokens allow.
-
-## Group policy
-
-- Kinokontrol ng `channels.slack.groupPolicy` ang paghawak sa channel (`open|disabled|allowlist`).
-- Ang `allowlist` ay nangangailangan na mailista ang mga channel sa `channels.slack.channels`.
-- If you only set `SLACK_BOT_TOKEN`/`SLACK_APP_TOKEN` and never create a `channels.slack` section,
-  the runtime defaults `groupPolicy` to `open`. Add `channels.slack.groupPolicy`,
-  `channels.defaults.groupPolicy`, or a channel allowlist to lock it down.
-- Tumatanggap ang configure wizard ng mga pangalan ng `#channel` at nire-resolve ang mga ito sa mga ID kapag posible
-  (public + private); kung may maraming tugma, mas pinipili ang aktibong channel.
-- Sa startup, nire-resolve ng OpenClaw ang mga pangalan ng channel/user sa mga allowlist papunta sa mga ID (kapag pinapayagan ng mga token)
-  at nilo-log ang mapping; ang mga hindi na-resolve na entry ay pinananatili ayon sa pagkakatype.
-- Para payagan ang **walang channel**, itakda ang `channels.slack.groupPolicy: "disabled"` (o panatilihing walang laman ang allowlist).
-
-Channel options (`channels.slack.channels.<id>` or `channels.slack.channels.<name>`):
-
-- `allow`: payagan/itanggi ang channel kapag `groupPolicy="allowlist"`.
-- `requireMention`: mention gating para sa channel.
-- `tools`: opsyonal na per-channel tool policy overrides (`allow`/`deny`/`alsoAllow`).
-- `toolsBySender`: opsyonal na per-sender tool policy overrides sa loob ng channel (ang mga key ay sender ids/@handle/email; suportado ang `"*"` wildcard).
-- `allowBots`: payagan ang mga mensaheng authored ng bot sa channel na ito (default: false).
-- `users`: opsyonal na per-channel user allowlist.
-- `skills`: skill filter (omit = lahat ng skills, empty = wala).
-- `systemPrompt`: karagdagang system prompt para sa channel (pinagsasama sa topic/purpose).
-- `enabled`: itakda ang `false` para i-disable ang channel.
-
-## Delivery targets
-
-Gamitin ang mga ito sa cron/CLI sends:
-
-- `user:<id>` para sa DMs
-- `channel:<id>` para sa mga channel
-
-## Tool actions
-
-Maaaring i-gate ang mga Slack tool actions gamit ang `channels.slack.actions.*`:
-
-| Action group | Default | Mga tala                 |
-| ------------ | ------- | ------------------------ |
-| reactions    | enabled | React + list reactions   |
-| messages     | enabled | Basa/padala/edit/delete  |
-| pins         | enabled | Pin/unpin/list           |
-| memberInfo   | enabled | Impormasyon ng miyembro  |
-| emojiList    | enabled | Listahan ng custom emoji |
-
-## Mga tala sa seguridad
-
-- Ang writes ay nagde-default sa bot token para manatiling naka-scope ang mga aksyong nagbabago ng state sa
-  mga permiso at identidad ng bot ng app.
-- Ang pagtatakda ng `userTokenReadOnly: false` ay nagpapahintulot na magamit ang user token para sa mga write
-  operation kapag walang bot token, na nangangahulugang ang mga aksyon ay tumatakbo gamit ang access ng
-  installing user. Ituring ang user token bilang lubhang pribilehiyado at panatilihing mahigpit ang
-  mga action gate at allowlist.
-- Kung i-enable mo ang user-token writes, siguraduhing kasama sa user token ang mga write
-  scopes na inaasahan mo (`chat:write`, `reactions:write`, `pins:write`,
-  `files:write`) kung hindi ay mabibigo ang mga operasyong iyon.
+  
+</Accordion>
+</AccordionGroup>
 
 ## Pag-troubleshoot
 
-Patakbuhin muna ang ladder na ito:
+<AccordionGroup>
+  <Accordion title="No replies in channels">
+    Suriin, ayon sa pagkakasunod-sunod:
+
+    ```
+    - `groupPolicy`
+    - allowlist ng channel (`channels.slack.channels`)
+    - `requireMention`
+    - per-channel na `users` allowlist
+    
+    Mga kapaki-pakinabang na command:
+    ```
 
 ```bash
-openclaw status
-openclaw gateway status
+openclaw channels status --probe
 openclaw logs --follow
 openclaw doctor
-openclaw channels status --probe
 ```
 
-Pagkatapos ay kumpirmahin ang DM pairing state kung kinakailangan:
+  
+</Accordion>
+
+  <Accordion title="DM messages ignored">
+    Suriin:
+
+    ```
+    - `channels.slack.dm.enabled`
+    - `channels.slack.dmPolicy` (o legacy `channels.slack.dm.policy`)
+    - mga pag-apruba sa pairing / mga entry sa allowlist
+    ```
 
 ```bash
 openclaw pairing list slack
 ```
 
-Mga karaniwang pagkabigo:
+  
+</Accordion>
 
-- Nakakonekta ngunit walang reply sa channel: naka-block ang channel ng `groupPolicy` o wala sa `channels.slack.channels` allowlist.
-- Hindi pinapansin ang DMs: hindi aprubado ang sender kapag `channels.slack.dm.policy="pairing"`.
-- Mga API error (`missing_scope`, `not_in_channel`, mga auth failure): kulang o mali ang bot/app tokens o Slack scopes.
+  <Accordion title="Socket mode not connecting">
+    I-validate ang bot + app tokens at ang pag-enable ng Socket Mode sa Slack app settings.
+  
+</Accordion>
 
-Para sa triage flow: [/channels/troubleshooting](/channels/troubleshooting).
+  <Accordion title="HTTP mode not receiving events">
+    I-validate:
 
-## Mga tala
+    ```
+    - signing secret
+    - webhook path
+    - Slack Request URLs (Events + Interactivity + Slash Commands)
+    - natatanging `webhookPath` para sa bawat HTTP account
+    ```
 
-- Ang mention gating ay kinokontrol via `channels.slack.channels` (itakda ang `requireMention` sa `true`); ang `agents.list[].groupChat.mentionPatterns` (o `messages.groupChat.mentionPatterns`) ay binibilang din bilang mentions.
-- Multi-agent override: magtakda ng per-agent patterns sa `agents.list[].groupChat.mentionPatterns`.
-- Ang reaction notifications ay sumusunod sa `channels.slack.reactionNotifications` (gamitin ang `reactionAllowlist` na may mode na `allowlist`).
-- Bot-authored messages are ignored by default; enable via `channels.slack.allowBots` or `channels.slack.channels.<id>.allowBots`.
-- Warning: If you allow replies to other bots (`channels.slack.allowBots=true` or `channels.slack.channels.<id>.allowBots=true`), prevent bot-to-bot reply loops with `requireMention`, `channels.slack.channels.<id>.users` allowlist, at/o malinaw na mga guardrail sa `AGENTS.md` at `SOUL.md`.
-- Para sa Slack tool, ang semantics ng reaction removal ay nasa [/tools/reactions](/tools/reactions).
-- Ang mga attachment ay dina-download sa media store kapag pinahihintulutan at nasa ilalim ng size limit.
+  
+</Accordion>
 
+  <Accordion title="Native/slash commands not firing">
+    Tiyakin kung alin ang iyong nilalayon:
 
+    ```
+    - native command mode (`channels.slack.commands.native: true`) na may tumutugmang slash commands na naka-register sa Slack
+    - o single slash command mode (`channels.slack.slashCommand.enabled: true`)
+    
+    Suriin din ang `commands.useAccessGroups` at mga allowlist ng channel/user.
+    ```
+
+  
+</Accordion>
+</AccordionGroup>
+
+## Tool actions
+
+Maaaring i-gate ang mga Slack tool actions gamit ang `channels.slack.actions.*`:
+
+- [Configuration reference - Slack](/gateway/configuration-reference#slack)
+
+  Mahahalagang Slack fields:
+
+  - mode/auth: `mode`, `botToken`, `appToken`, `signingSecret`, `webhookPath`, `accounts.*`
+  - DM access: `dm.enabled`, `dmPolicy`, `allowFrom` (legacy: `dm.policy`, `dm.allowFrom`), `dm.groupEnabled`, `dm.groupChannels`
+  - channel access: `groupPolicy`, `channels.*`, `channels.*.users`, `channels.*.requireMention`
+  - threading/history: `replyToMode`, `replyToModeByChatType`, `thread.*`, `historyLimit`, `dmHistoryLimit`, `dms.*.historyLimit`
+  - delivery: `textChunkLimit`, `chunkMode`, `mediaMaxMb`
+  - ops/features: `configWrites`, `commands.native`, `slashCommand.*`, `actions.*`, `userToken`, `userTokenReadOnly`
+
+## Mga tala sa seguridad
+
+- Ang writes ay nagde-default sa bot token para manatiling naka-scope ang mga aksyong nagbabago ng state sa
+  mga permiso at identidad ng bot ng app.
+- [Channel routing](/channels/channel-routing)
+- Kung i-enable mo ang user-token writes, siguraduhing kasama sa user token ang mga write
+  scopes na inaasahan mo (`chat:write`, `reactions:write`, `pins:write`,
+  `files:write`) kung hindi ay mabibigo ang mga operasyong iyon.
+- [Configuration](/gateway/configuration)
+- [Slash commands](/tools/slash-commands)

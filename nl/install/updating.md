@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw veilig updaten (globale installatie of vanuit bron), plus rollbackstrategie"
+read_when:
+  - OpenClaw updaten
+  - Iets breekt na een update
 title: "Updaten"
 ---
 
@@ -226,5 +230,3 @@ git pull
 - Draai `openclaw doctor` opnieuw en lees de uitvoer zorgvuldig (vaak staat de oplossing erin).
 - Bekijk: [Problemen oplossen](/gateway/troubleshooting)
 - Vraag het in Discord: [https://discord.gg/clawd](https://discord.gg/clawd)
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "„End-to-End-Leitfaden zum Ausführen von OpenClaw als persönlicher Assistent mit Sicherheitshinweisen“"
+read_when:
+  - Onboarding einer neuen Assistenteninstanz
+  - Überprüfung von Sicherheits- und Berechtigungsimplikationen
 title: "„Einrichtung eines persönlichen Assistenten“"
 ---
 
@@ -30,25 +34,9 @@ Beginnen Sie konservativ:
 Das möchten Sie:
 
 ```mermaid
-%%{init: {
-  'theme': 'base',
-  'themeVariables': {
-    'primaryColor': '#ffffff',
-    'primaryTextColor': '#000000',
-    'primaryBorderColor': '#000000',
-    'lineColor': '#000000',
-    'secondaryColor': '#f9f9fb',
-    'tertiaryColor': '#ffffff',
-    'clusterBkg': '#f9f9fb',
-    'clusterBorder': '#000000',
-    'nodeBorder': '#000000',
-    'mainBkg': '#ffffff',
-    'edgeLabelBackground': '#ffffff'
-  }
-}}%%
 flowchart TB
-    A["<b>Your Phone (personal)<br></b><br>Your WhatsApp<br>+1-555-YOU"] -- message --> B["<b>Second Phone (assistant)<br></b><br>Assistant WA<br>+1-555-ASSIST"]
-    B -- linked via QR --> C["<b>Your Mac (openclaw)<br></b><br>Pi agent"]
+    A["<b>Dein Telefon (privat)<br></b><br>Dein WhatsApp<br>+1-555-YOU"] -- message --> B["<b>Zweites Telefon (Assistent)<br></b><br>Assistent WA<br>+1-555-ASSIST"]
+    B -- linked via QR --> C["<b>Dein Mac (openclaw)<br></b><br>Pi-Agent"]
 ```
 
 Wenn Sie Ihr persönliches WhatsApp mit OpenClaw verknüpfen, wird jede Nachricht an Sie zu „Agent‑Input“. Das ist selten gewünscht.
@@ -225,5 +213,3 @@ Logs befinden sich unter `/tmp/openclaw/` (Standard: `openclaw-YYYY-MM-DD.log`).
 - Windows‑Status: [Windows (WSL2)](/platforms/windows)
 - Linux‑Status: [Linux app](/platforms/linux)
 - Sicherheit: [Security](/gateway/security)
-
-

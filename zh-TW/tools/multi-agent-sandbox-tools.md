@@ -1,5 +1,7 @@
 ---
+summary: "每個代理程式的沙箱與工具限制、優先順序與範例"
 title: 多代理程式沙箱與工具
+read_when: "You want per-agent sandboxing or per-agent tool allow/deny policies in a multi-agent gateway."
 status: active
 ---
 
@@ -138,7 +140,7 @@ For how sandboxing behaves at runtime, see [Sandboxing](/gateway/sandboxing).
 
 **結果：**
 
-- 預設代理會取得程式開發工具
+- default agents get coding tools
 - `support` 代理程式僅限訊息（加上 Slack 工具）
 
 ---
@@ -238,7 +240,7 @@ Provider 工具鍵可接受 `provider`（例如 `google-antigravity`）或 `prov
 
 ### Elevated 模式
 
-`tools.elevated` 是全域基準（基於發送者的允許清單）。`agents.list[].tools.elevated` 可針對特定代理進一步限制 elevated（兩者都必須允許）。
+`tools.elevated` is the global baseline (sender-based allowlist). `tools.elevated` 是全域基準（基於發送者的允許清單）。`agents.list[].tools.elevated` 可針對特定代理進一步限制 elevated（兩者都必須允許）。
 
 緩解模式：
 
@@ -297,7 +299,7 @@ Provider 工具鍵可接受 `provider`（例如 `google-antigravity`）或 `prov
 
 ## 工具限制範例
 
-### 唯讀代理
+### Read-only Agent
 
 ```json
 {
@@ -337,6 +339,7 @@ Provider 工具鍵可接受 `provider`（例如 `google-antigravity`）或 `prov
 `agents.defaults.sandbox.mode: "non-main"` 是基於 `session.mainKey`（預設為 `"main"`），
 而不是代理程式 id。群組／頻道工作階段一律會取得自己的金鑰，
 因此會被視為 non-main 並套用沙箱。若你希望某個代理程式永遠不使用沙箱，請設定 `agents.list[].sandbox.mode: "off"`。 Group/channel sessions always get their own keys, so they
+are treated as non-main and will be sandboxed. Group/channel sessions always get their own keys, so they
 are treated as non-main and will be sandboxed. If you want an agent to never
 sandbox, set `agents.list[].sandbox.mode: "off"`.
 
@@ -395,5 +398,3 @@ sandbox, set `agents.list[].sandbox.mode: "off"`.
 - [Multi-Agent Routing](/concepts/multi-agent)
 - [Sandbox Configuration](/gateway/configuration#agentsdefaults-sandbox)
 - [Session Management](/concepts/session)
-
-

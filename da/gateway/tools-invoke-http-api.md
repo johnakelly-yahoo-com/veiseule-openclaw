@@ -1,4 +1,8 @@
 ---
+summary: "Kald et enkelt værktøj direkte via Gateway HTTP-endpointet"
+read_when:
+  - Kald af værktøjer uden at køre en fuld agenttur
+  - Opbygning af automatiseringer, der kræver håndhævelse af værktøjspolitikker
 title: "API til at kalde værktøjer"
 ---
 
@@ -21,6 +25,7 @@ Noter:
 
 - Når `gateway.auth.mode="token"`, brug `gateway.auth.token` (eller `OPENCLAW_GATEWAY_TOKEN`).
 - Når `gateway.auth.mode="password"`, brug `gateway.auth.password` (eller `OPENCLAW_GATEWAY_PASSWORD`).
+- Hvis `gateway.auth.rateLimit` er konfigureret, og der opstår for mange godkendelsesfejl, returnerer endpointet `429` med `Retry-After`.
 
 ## Request body
 
@@ -58,14 +63,38 @@ For at hjælpe gruppepolitikker med at løse kontekst kan du valgfrit angive:
 
 - `x-openclaw-message-channel: <channel>` (eksempel: `slack`, `telegram`)
 - `x-openclaw-account-id: <accountId>` (når der findes flere konti)
+- `gateway`
+- `whatsapp_login`
+
+Du kan tilpasse denne blokeringsliste via `gateway.tools`:
+
+```json5
+{
+  gateway: {
+    tools: {
+      // Yderligere værktøjer der skal blokeres over HTTP /tools/invoke
+      deny: ["browser"],
+      // Fjern værktøjer fra standard-blokeringslisten
+      allow: ["gateway"],
+    },
+  },
+}
+```
+
+For at hjælpe gruppepolitikker med at løse kontekst kan du valgfrit angive:
+
+- `x-openclaw-message-channel: <channel>` (eksempel: `slack`, `telegram`)
+- `x-openclaw-account-id: <accountId>` (når der findes flere konti)
 
 ## Svar
 
 - `200` → `{ ok: true, result }`
-- `400` → `{ ok: false, error: { type, message } }` (ugyldig forespørgsel eller værktøjsfejl)
+- `400` → `{ ok: false, error: { type, message } }` (ugyldig anmodning eller fejl i værktøjsinput)
 - `401` → ikke autoriseret
+- `429` → auth rate-begrænset (`Retry-After` sat)
 - `404` → værktøj ikke tilgængeligt (ikke fundet eller ikke på tilladelseslisten)
 - `405` → metode ikke tilladt
+- `500` → `{ ok: false, error: { type, message } }` (uventet fejl under kørsel af værktøj; renset meddelelse)
 
 ## Eksempel
 
@@ -79,5 +108,3 @@ curl -sS http://127.0.0.1:18789/tools/invoke \
     "args": {}
   }'
 ```
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "„Integration der Telegram Bot API über grammY mit Hinweisen zur Einrichtung“"
+read_when:
+  - Arbeiten an Telegram- oder grammY-Pfaden
 title: grammY
 ---
 
@@ -18,7 +21,7 @@ title: grammY
 - **Webhook-Unterstützung:** `webhook-set.ts` kapselt `setWebhook/deleteWebhook`; `webhook.ts` hostet den Callback mit Health-Check + Graceful Shutdown. Das Gateway aktiviert den Webhook-Modus, wenn `channels.telegram.webhookUrl` + `channels.telegram.webhookSecret` gesetzt sind (ansonsten wird Long-Polling verwendet).
 - **Sitzungen:** Direktchats werden in die Hauptsitzung des Agenten zusammengeführt (`agent:<agentId>:<mainKey>`); Gruppen verwenden `agent:<agentId>:telegram:group:<chatId>`; Antworten werden in denselben Kanal zurückgeleitet.
 - **Konfigurationsoptionen:** `channels.telegram.botToken`, `channels.telegram.dmPolicy`, `channels.telegram.groups` (Allowlist- + Mention-Defaults), `channels.telegram.allowFrom`, `channels.telegram.groupAllowFrom`, `channels.telegram.groupPolicy`, `channels.telegram.mediaMaxMb`, `channels.telegram.linkPreview`, `channels.telegram.proxy`, `channels.telegram.webhookSecret`, `channels.telegram.webhookUrl`.
-- **Draft-Streaming:** Optionales `channels.telegram.streamMode` nutzt `sendMessageDraft` in privaten Topic-Chats (Bot API 9.3+). Dies ist getrennt vom Channel-Block-Streaming.
+- **Live-Stream-Vorschau:** Optionales `channels.telegram.streamMode` sendet eine temporäre Nachricht und aktualisiert sie mit `editMessageText`. Dies ist getrennt vom Channel-Block-Streaming.
 - **Tests:** grammY-Mocks decken Direktnachrichten + Gruppen-Mention-Gating sowie ausgehendes Senden ab; weitere Media-/Webhook-Fixtures sind weiterhin willkommen.
 
 Offene Fragen
@@ -26,5 +29,3 @@ Offene Fragen
 - Optionale grammY-Plugins (Throttler), falls wir Bot-API-429s erreichen.
 - Weitere strukturierte Media-Tests hinzufügen (Sticker, Sprachnotizen).
 - Webhook-Listen-Port konfigurierbar machen (derzeit fest auf 8787, sofern nicht über das Gateway verdrahtet).
-
-

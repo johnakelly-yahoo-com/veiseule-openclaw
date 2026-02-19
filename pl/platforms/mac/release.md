@@ -1,4 +1,8 @@
 ---
+summary: "Lista kontrolna wydania OpenClaw na macOS (kanał Sparkle, pakowanie, podpisywanie)"
+read_when:
+  - Przy tworzeniu lub weryfikacji wydania OpenClaw na macOS
+  - Przy aktualizacji appcastu Sparkle lub zasobów kanału
 title: "Wydanie macOS"
 ---
 
@@ -6,7 +10,7 @@ title: "Wydanie macOS"
 
 Ta aplikacja korzysta teraz z automatycznych aktualizacji Sparkle. Wydania muszą być podpisane certyfikatem Developer ID, spakowane do ZIP i opublikowane z podpisanym wpisem appcastu.
 
-## Wymagania wstępne
+## Prereqs
 
 - Zainstalowany certyfikat Developer ID Application (przykład: `Developer ID Application: <Developer Name> (<TEAMID>)`).
 - Ustawiona w środowisku ścieżka do klucza prywatnego Sparkle jako `SPARKLE_PRIVATE_KEY_FILE` (ścieżka do prywatnego klucza ed25519 Sparkle; klucz publiczny wbudowany w Info.plist). Jeśli jej brakuje, sprawdź `~/.profile`.
@@ -79,5 +83,3 @@ Zacommituj zaktualizowany `appcast.xml` razem z artefaktami wydania (ZIP + dSYM)
   - Na poprzednim publicznym buildzie uruchom „Check for Updates…” z karty About i zweryfikuj, że Sparkle instaluje nowe wydanie bez problemów.
 
 Definicja ukończenia: podpisana aplikacja i appcast są opublikowane, proces aktualizacji działa z wcześniejszej zainstalowanej wersji, a artefakty wydania są dołączone do wydania GitHub.
-
-

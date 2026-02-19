@@ -1,4 +1,8 @@
 ---
+summary: "CLI 參考文件：`openclaw setup`（初始化設定與工作區）"
+read_when:
+  - 在未使用完整入門引導精靈的情況下進行首次執行設定
+  - 想要設定預設的工作區路徑
 title: "設定"
 ---
 
@@ -23,5 +27,3 @@ openclaw setup --workspace ~/.openclaw/workspace
 ```bash
 openclaw setup --wizard
 ```
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "Référence CLI pour `openclaw pairing` (approuver/lister les demandes d’appariement)"
+read_when:
+  - Vous utilisez des Messages prives en mode appariement et devez approuver des expéditeurs
 title: "appairage"
 ---
 
@@ -16,5 +19,3 @@ Liens connexes :
 openclaw pairing list whatsapp
 openclaw pairing approve whatsapp <code> --notify
 ```
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw میں Venice AI کے رازداری پر مبنی ماڈلز استعمال کریں"
+read_when:
+  - آپ OpenClaw میں رازداری پر مبنی انفیرینس چاہتے ہیں
+  - آپ Venice AI کے سیٹ اپ کی رہنمائی چاہتے ہیں
 title: "Venice AI"
 ---
 
@@ -261,5 +265,3 @@ Venice API یہاں ہے: `https://api.venice.ai/api/v1`۔ یقینی بنائی
 - [API دستاویزات](https://docs.venice.ai)
 - [قیمتیں](https://venice.ai/pricing)
 - [اسٹیٹس](https://status.venice.ai)
-
-

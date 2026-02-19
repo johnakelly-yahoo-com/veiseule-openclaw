@@ -1,10 +1,15 @@
 ---
+summary: "WKWebView + कस्टम URL स्कीम के माध्यम से एम्बेड किया गया एजेंट‑नियंत्रित Canvas पैनल"
+read_when:
+  - macOS Canvas पैनल को लागू करते समय
+  - विज़ुअल वर्कस्पेस के लिए एजेंट नियंत्रण जोड़ते समय
+  - WKWebView Canvas लोड्स का डिबग करते समय
 title: "कैनवस"
 ---
 
 # Canvas (macOS ऐप)
 
-macOS ऐप `WKWebView` का उपयोग करके एजेंट-नियंत्रित **Canvas पैनल** को एम्बेड करता है। यह
+The macOS app embeds an agent‑controlled **Canvas panel** using `WKWebView`. It
 is a lightweight visual workspace for HTML/CSS/JS, A2UI, and small interactive
 UI surfaces.
 
@@ -33,7 +38,7 @@ Canvas पैनल उन फ़ाइलों को एक **कस्टम
 - स्थानीय Canvas फ़ाइलों में बदलाव होने पर स्वतः रीलोड होता है।
 - एक समय में केवल एक Canvas पैनल दिखाई देता है (आवश्यकतानुसार सत्र स्विच किया जाता है)।
 
-Canvas को Settings → **Allow Canvas** से अक्षम किया जा सकता है। जब अक्षम किया जाता है, तो canvas
+Canvas can be disabled from Settings → **Allow Canvas**. When disabled, canvas
 node commands return `CANVAS_DISABLED`.
 
 ## एजेंट API सतह
@@ -61,7 +66,7 @@ openclaw nodes canvas snapshot --node <id>
 
 ## Canvas में A2UI
 
-A2UI को Gateway canvas host द्वारा होस्ट किया जाता है और Canvas पैनल के भीतर रेंडर किया जाता है।
+A2UI is hosted by the Gateway canvas host and rendered inside the Canvas panel.
 When the Gateway advertises a Canvas host, the macOS app auto‑navigates to the
 A2UI host page on first open.
 
@@ -118,5 +123,3 @@ window.location.href = "openclaw://agent?message=Review%20this%20design";
 - Canvas स्कीम डायरेक्टरी ट्रैवर्सल को ब्लॉक करती है; फ़ाइलें सत्र रूट के अंतर्गत ही होनी चाहिए।
 - स्थानीय Canvas सामग्री एक कस्टम स्कीम का उपयोग करती है (किसी loopback सर्वर की आवश्यकता नहीं)।
 - बाहरी `http(s)` URLs केवल तब अनुमति प्राप्त करते हैं जब स्पष्ट रूप से नेविगेट किया जाए।
-
-

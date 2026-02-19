@@ -1,4 +1,7 @@
 ---
+summary: "macOS uygulamasının gateway WebChat’i nasıl gömdüğü ve bunun nasıl hata ayıklanacağı"
+read_when:
+  - macOS WebChat görünümü veya loopback portu hata ayıklanırken
 title: "WebChat"
 ---
 
@@ -35,5 +38,3 @@ macOS menü çubuğu uygulaması, WebChat kullanıcı arayüzünü yerel bir Swi
 ## Bilinen sınırlamalar
 
 - Kullanıcı arayüzü sohbet oturumları için optimize edilmiştir (tam bir tarayıcı sandbox’ı değildir).
-
-

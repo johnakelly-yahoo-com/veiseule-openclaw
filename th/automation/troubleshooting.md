@@ -1,4 +1,9 @@
 ---
+summary: "แก้ไขปัญหาการตั้งเวลาและการส่งมอบของ cron และ heartbeat"
+read_when:
+  - Cron ไม่ทำงาน
+  - Cron ทำงานแล้วแต่ไม่มีการส่งข้อความ
+  - Heartbeat ดูเหมือนเงียบหรือถูกข้าม
 title: "การแก้ไขปัญหาอัตโนมัติ"
 ---
 
@@ -115,5 +120,3 @@ openclaw logs --follow
 - [/gateway/heartbeat](/gateway/heartbeat)
 - [/automation/cron-vs-heartbeat](/automation/cron-vs-heartbeat)
 - [/concepts/timezone](/concepts/timezone)
-
-

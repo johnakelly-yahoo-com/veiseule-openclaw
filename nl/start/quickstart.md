@@ -1,4 +1,8 @@
 ---
+summary: "Snelle start is verplaatst naar Aan de slag."
+read_when:
+  - Je zoekt de snelste installatiestappen
+  - Je bent hierheen gestuurd via een oudere link
 title: "Snelle start"
 ---
 
@@ -18,5 +22,3 @@ Snelle start maakt nu deel uit van [Aan de slag](/start/getting-started).
   
 </Card>
 </Columns>
-
-

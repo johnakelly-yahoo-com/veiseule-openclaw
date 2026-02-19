@@ -1,4 +1,8 @@
 ---
+summary: "NIP-04 خفیہ پیغامات کے ذریعے Nostr DM چینل"
+read_when:
+  - آپ چاہتے ہیں کہ OpenClaw کو Nostr کے ذریعے DMs موصول ہوں
+  - آپ غیر مرکزی پیغام رسانی سیٹ اپ کر رہے ہیں
 title: "Nostr"
 ---
 
@@ -6,9 +10,9 @@ title: "Nostr"
 
 **اسٹیٹس:** اختیاری پلگ اِن (بطورِ طے شدہ غیرفعال)۔
 
-Nostr سوشل نیٹ ورکنگ کے لیے ایک غیر مرکزی پروٹوکول ہے۔ یہ چینل OpenClaw کو NIP-04 کے ذریعے خفیہ براہِ راست پیغامات (DMs) وصول کرنے اور ان کا جواب دینے کے قابل بناتا ہے۔
+Nostr is a decentralized protocol for social networking. This channel enables OpenClaw to receive and respond to encrypted direct messages (DMs) via NIP-04.
 
-## انسٹال کریں (ضرورت کے مطابق)
+## Install (on demand)
 
 ### Onboarding (سفارش کردہ)
 
@@ -22,7 +26,7 @@ Nostr سوشل نیٹ ورکنگ کے لیے ایک غیر مرکزی پروٹو
 
 آپ پرامپٹ میں ہمیشہ اس انتخاب کو اووررائیڈ کر سکتے ہیں۔
 
-### دستی انسٹالیشن
+### Manual install
 
 ```bash
 openclaw plugins install @openclaw/nostr
@@ -36,7 +40,7 @@ openclaw plugins install --link <path-to-openclaw>/extensions/nostr
 
 پلگ اِنز انسٹال یا فعال کرنے کے بعد Gateway کو ری اسٹارٹ کریں۔
 
-## فوری سیٹ اپ
+## Quick setup
 
 1. Nostr کی پیئر (keypair) بنائیں (اگر درکار ہو):
 
@@ -65,9 +69,9 @@ export NOSTR_PRIVATE_KEY="nsec1..."
 
 4. Gateway کو ری اسٹارٹ کریں۔
 
-## کنفیگریشن حوالہ
+## Configuration reference
 
-| کلید          | قسم                                                         | ڈیفالٹ                                     | Description                              |
+| Key          | Type                                                         | Default                                     | Description                              |
 | ------------ | ------------------------------------------------------------ | ------------------------------------------- | ---------------------------------------- |
 | `privateKey` | string                                                       | required                                    | نجی کلید `nsec` یا hex فارمیٹ میں        |
 | `relays`     | string[] | `['wss://relay.damus.io', 'wss://nos.lol']` | ریلے URLs (WebSocket) |
@@ -227,5 +231,3 @@ docker run -p 7777:7777 ghcr.io/hoytech/strfry
 - صرف براہِ راست پیغامات (گروپ چیٹس نہیں)۔
 - میڈیا اٹیچمنٹس نہیں۔
 - صرف NIP-04 (NIP-17 گفٹ-ریپ منصوبہ بند ہے)۔
-
-

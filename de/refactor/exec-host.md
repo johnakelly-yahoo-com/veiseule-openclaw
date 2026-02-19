@@ -1,4 +1,9 @@
 ---
+summary: "Refactor-Plan: Exec-Host-Routing, Node-Genehmigungen und Headless Runner"
+read_when:
+  - Entwurf des Exec-Host-Routings oder der Exec-Genehmigungen
+  - Implementierung von Node-Runner + UI-IPC
+  - Hinzufügen von Exec-Host-Sicherheitsmodi und Slash-Befehlen
 title: "Exec-Host-Refactor"
 ---
 
@@ -309,5 +314,3 @@ Option B:
 - [Exec-Genehmigungen](/tools/exec-approvals)
 - [Knoten](/nodes)
 - [Elevated mode](/tools/elevated)
-
-

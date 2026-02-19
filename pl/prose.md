@@ -1,4 +1,9 @@
 ---
+summary: "OpenProse: przepływy pracy .prose, polecenia ukośne i stan w OpenClaw"
+read_when:
+  - Chcesz uruchamiać lub pisać przepływy pracy .prose
+  - Chcesz włączyć wtyczkę OpenProse
+  - Musisz zrozumieć przechowywanie stanu
 title: "OpenProse"
 ---
 
@@ -127,5 +132,3 @@ Jeśli lista dozwolonych narzędzi blokuje te narzędzia, programy OpenProse zak
 Traktuj pliki `.prose` jak kod. Przeglądaj je przed uruchomieniem. Używaj list dozwolonych narzędzi OpenClaw oraz bramek zatwierdzeń, aby kontrolować skutki uboczne.
 
 Dla deterministycznych przepływów pracy z bramkami zatwierdzeń porównaj z [Lobster](/tools/lobster).
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "Bộ công cụ kiểm thử: các bộ unit/e2e/live, runner Docker và phạm vi của từng loại test"
+read_when:
+  - Chạy test cục bộ hoặc trong CI
+  - Thêm hồi quy cho lỗi mô hình/nhà cung cấp
+  - Gỡ lỗi hành vi gateway + tác tử
 title: "Kiểm thử"
 ---
 
@@ -47,12 +52,23 @@ Hãy coi các bộ kiểm thử như “mức độ hiện thực tăng dần”
   - Chạy trong CI
   - Không cần khóa thật
   - Nhanh và ổn định
+- Lưu ý về pool:
+  - OpenClaw sử dụng Vitest `vmForks` trên Node 22/23 để tăng tốc các unit shard.
+  - Trên Node 24+, OpenClaw tự động chuyển về `forks` thông thường để tránh lỗi liên kết VM của Node (`ERR_VM_MODULE_LINK_FAILURE` / `module is already linked`).
+  - Ghi đè thủ công bằng `OPENCLAW_TEST_VM_FORKS=0` (buộc dùng `forks`) hoặc `OPENCLAW_TEST_VM_FORKS=1` (buộc dùng `vmForks`).
 
 ### E2E (gateway smoke)
 
 - Lệnh: `pnpm test:e2e`
 - Cấu hình: `vitest.e2e.config.ts`
 - Tệp: `src/**/*.e2e.test.ts`
+- Phạm vi:
+  - Hành vi end-to-end của gateway đa phiên bản
+  - Bề mặt WebSocket/HTTP, ghép cặp node và mạng nặng hơn
+  - Mặc định chạy ở chế độ im lặng để giảm overhead I/O của console.
+- Kỳ vọng:
+  - Chạy trong CI (khi được bật trong pipeline)
+  - Không cần khóa thật
 - Phạm vi:
   - Hành vi end-to-end của gateway đa phiên bản
   - Bề mặt WebSocket/HTTP, ghép cặp node và mạng nặng hơn
@@ -363,5 +379,3 @@ Khi bạn sửa một vấn đề nhà cung cấp/mô hình được phát hiệ
 - Ưu tiên nhắm vào lớp nhỏ nhất bắt được bug:
   - lỗi chuyển đổi/replay request của nhà cung cấp → test mô hình trực tiếp
   - lỗi pipeline phiên/lịch sử/công cụ của gateway → gateway live smoke hoặc test mock gateway an toàn cho CI
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Commande de localisation pour les nœuds (location.get), modes d’autorisation et comportement en arrière-plan"
+read_when:
+  - Ajout de la prise en charge du nœud de localisation ou de l’interface des autorisations
+  - Conception des flux de localisation en arrière-plan + push
 title: "Commande de localisation"
 ---
 
@@ -107,5 +111,3 @@ Notes :
 - Lors de l’utilisation : « Uniquement lorsque OpenClaw est ouvert. »
 - Toujours : « Autoriser la localisation en arrière-plan. Nécessite une autorisation système.
 - Précise : « Utiliser la localisation GPS précise. Désactivez pour partager une localisation approximative.
-
-

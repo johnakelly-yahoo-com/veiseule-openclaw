@@ -1,4 +1,9 @@
 ---
+summary: "Tekst-naar-spraak (TTS) voor uitgaande antwoorden"
+read_when:
+  - Tekst-naar-spraak inschakelen voor antwoorden
+  - TTS-providers of limieten configureren
+  - /tts-opdrachten gebruiken
 title: "Tekst-naar-spraak"
 ---
 
@@ -393,5 +398,3 @@ Gateway-methoden:
 - `tts.convert`
 - `tts.setProvider`
 - `tts.providers`
-
-

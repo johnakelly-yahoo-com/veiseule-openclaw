@@ -1,4 +1,9 @@
 ---
+summary: "Katı yapılandırma doğrulaması + yalnızca doctor tarafından yapılan geçişler"
+read_when:
+  - Yapılandırma doğrulama davranışını tasarlarken veya uygularken
+  - Yapılandırma geçişleri ya da doctor iş akışları üzerinde çalışırken
+  - Handling plugin config schemas or plugin load gating
 title: "Katı Yapılandırma Doğrulaması"
 ---
 
@@ -7,7 +12,7 @@ title: "Katı Yapılandırma Doğrulaması"
 ## Hedefler
 
 - **Bilinmeyen yapılandırma anahtarlarını her yerde reddetmek** (kök + iç içe).
-- **Şeması olmayan eklenti yapılandırmasını reddedin**; o eklentiyi yüklemeyin.
+- **Reject plugin config without a schema**; don’t load that plugin.
 - **Yükleme sırasında eski otomatik geçişleri kaldırmak**; geçişler yalnızca doctor üzerinden çalışır.
 - **Başlangıçta doctor’ı (dry-run) otomatik çalıştırmak**; geçersizse tanılama dışı komutları engellemek.
 
@@ -19,13 +24,13 @@ title: "Katı Yapılandırma Doğrulaması"
 ## Katı doğrulama kuralları
 
 - Yapılandırma, her seviyede şemayla birebir eşleşmelidir.
-- Bilinmeyen anahtarlar doğrulama hatasıdır (kök veya iç içe geçiş yoktur).
+- Bilinmeyen anahtarlar doğrulama hatasına neden olur (kök veya iç içe alanlarda aktarım yoktur), yalnızca kök `$schema` bir string olduğunda istisnadır.
 - `plugins.entries.<id>.config` eklentinin şeması tarafından doğrulanmalıdır.
   - Bir eklentide şema yoksa, **eklenti yüklemesini reddedin** ve açık bir hata gösterin.
 - Bilinmeyen `channels.<id>` anahtarları, bir eklenti manifestosu kanal kimliğini beyan etmedikçe hatadır.
 - Eklenti manifestoları (`openclaw.plugin.json`) tüm eklentiler için zorunludur.
 
-## Eklenti şema zorunluluğu
+## Plugin schema enforcement
 
 - Her eklenti, yapılandırması için katı bir JSON Şeması sağlar (manifesto içinde satır içi).
 - Eklenti yükleme akışı:
@@ -45,11 +50,11 @@ title: "Katı Yapılandırma Doğrulaması"
   - Bir özet + eyleme geçirilebilir hatalar yazdırır.
   - Talimat verir: `openclaw doctor --fix`.
 - `openclaw doctor --fix`:
-  - Migrasyonları uygular.
+  - Applies migrations.
   - Bilinmeyen anahtarları kaldırır.
   - Güncellenmiş yapılandırmayı yazar.
 
-## Komut kısıtlaması (yapılandırma geçersiz olduğunda)
+## Command gating (when config is invalid)
 
 İzin verilenler (yalnızca tanılama):
 
@@ -86,5 +91,3 @@ Diğer her şey şu hata ile kesin olarak başarısız olmalıdır: “Yapıland
 - Eklenti şeması eksik → eklenti yüklemesi açık bir hatayla engellenir.
 - Geçersiz yapılandırma → gateway (ağ geçidi) başlangıcı tanılama komutları dışında engellenir.
 - Doctor dry-run otomatik; `doctor --fix` düzeltilmiş yapılandırmayı yazar.
-
-

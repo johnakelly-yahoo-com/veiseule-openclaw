@@ -1,4 +1,7 @@
 ---
+summary: "Tlon/Urbit 지원 상태, 기능 및 구성"
+read_when:
+  - Tlon/Urbit 채널 기능을 작업할 때
 title: "Tlon"
 ---
 
@@ -44,6 +47,22 @@ openclaw plugins install ./extensions/tlon
       ship: "~sampel-palnet",
       url: "https://your-ship-host",
       code: "lidlut-tabwed-pillex-ridrup",
+    },
+  },
+}
+```
+
+Private/LAN ship URL (고급):
+
+기본적으로 OpenClaw는 이 플러그인에 대해 프라이빗/내부 호스트명 및 IP 범위를 차단합니다 (SSRF 강화).
+ship URL이 프라이빗 네트워크에 있는 경우 (예: `http://192.168.1.50:8080` 또는 `http://localhost:8080`),
+명시적으로 허용해야 합니다:
+
+```json5
+{
+  channels: {
+    tlon: {
+      allowPrivateNetwork: true,
     },
   },
 }
@@ -124,5 +143,3 @@ openclaw plugins install ./extensions/tlon
 - 그룹 응답에는 응답을 위해 멘션(예: `~your-bot-ship`) 이 필요합니다.
 - 스레드 답글: 수신 메시지가 스레드에 있는 경우 OpenClaw 는 스레드 내로 답장합니다.
 - 미디어: `sendMedia` 는 텍스트 + URL 로 폴백됩니다(네이티브 업로드 없음).
-
-

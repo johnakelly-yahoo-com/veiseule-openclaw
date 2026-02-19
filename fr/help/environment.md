@@ -1,4 +1,9 @@
 ---
+summary: "Où OpenClaw charge les variables d'environnement et l'ordre de priorité"
+read_when:
+  - Vous devez savoir quelles sont les variables d'env qui sont chargées, et dans quel ordre
+  - Vous dépannez des clés API manquantes dans la Gateway (passerelle)
+  - Vous documentez l'authentification des fournisseurs ou les environnements de déploiement
 title: "Variables d'environnement"
 ---
 
@@ -69,13 +74,13 @@ Vous pouvez référencer des variables d'environnement directement dans les vale
 
 Voir [Configuration : substitution de variables d'environnement](/gateway/configuration#env-var-substitution-in-config) pour plus de détails.
 
-## Variables d’environnement liées aux chemins
+## Path-related env vars
 
-| Variable               | Objectif                                                                                                                                                                                                                            |
-| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Variable               | Objectif                                                                                                                                                                                                                                                              |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `OPENCLAW_HOME`        | Remplacer le répertoire personnel utilisé pour toute la résolution interne des chemins (`~/.openclaw/`, répertoires des agents, sessions, identifiants). Useful when running OpenClaw as a dedicated service user. |
-| `OPENCLAW_STATE_DIR`   | Remplacer le répertoire d’état (par défaut `~/.openclaw`).                                                                                                                                       |
-| `OPENCLAW_CONFIG_PATH` | Remplacer le chemin du fichier de configuration (par défaut `~/.openclaw/openclaw.json`).                                                                                                        |
+| `OPENCLAW_STATE_DIR`   | Remplacer le répertoire d’état (par défaut `~/.openclaw`).                                                                                                                                                                         |
+| `OPENCLAW_CONFIG_PATH` | Remplacer le chemin du fichier de configuration (par défaut `~/.openclaw/openclaw.json`).                                                                                                                                          |
 
 ### `OPENCLAW_HOME`
 
@@ -100,5 +105,3 @@ Lorsqu’il est défini, `OPENCLAW_HOME` remplace le répertoire personnel du sy
 - [Configuration de la Gateway (passerelle)](/gateway/configuration)
 - [FAQ : variables d'environnement et chargement de .env](/help/faq#env-vars-and-env-loading)
 - [Présentation des modèles](/concepts/models)
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "Справочник CLI для `openclaw docs` (поиск по живому индексу документации)"
+read_when:
+  - Вы хотите искать в живой документации OpenClaw из терминала
 title: "docs"
 ---
 
@@ -10,5 +13,3 @@ title: "docs"
 openclaw docs browser extension
 openclaw docs sandbox allowHostControl
 ```
-
-

@@ -1,14 +1,17 @@
 ---
+summary: "提供 OpenClaw 的背景故事與世界觀，用於脈絡與語氣"
+read_when:
+  - Writing docs or UX copy that reference lore
 title: "OpenClaw 世界觀"
 ---
 
 # OpenClaw 的世界觀 🦞📖
 
-_一個關於龍蝦、蛻殼，以及過多 tokens 的故事。_
+_A tale of lobsters, molting shells, and too many tokens._
 
 ## 起源故事
 
-在一開始，有 **Warelay** —— 一個用於 WhatsApp 的 Gateway 閘道器，名字很實際。它完成了任務，一切尚可。 It did its job. It was fine.
+在一開始，有 **Warelay** —— 一個用於 WhatsApp 的 Gateway 閘道器，名字很實際。它完成了任務，一切尚可。 It did its job. It did its job. It was fine.
 
 但接著，一隻太空龍蝦出現了。
 
@@ -20,13 +23,13 @@ For a while, the lobster was called **Clawd**, living in a **Clawdbot**. But in 
 
 所以在 2026 年 1 月 30 日，龍蝦又 **再度脫殼一次**，化身為最終形態：**OpenClaw**。
 
-34. 新的殼，相同的龍蝦靈魂。 Third time's the charm.
+新的殼，相同的龍蝦靈魂。 Third time's the charm. Third time's the charm.
 
 ## 36. 第一次脫殼（2026 年 1 月 27 日）
 
-37. 凌晨 5 點，社群聚集在 Discord。 38. 提出了數百個名字：Shelldon、Pinchy、Thermidor、Crusty、Lobstar、Nacre、Scuttlebot……
+凌晨 5 點，社群聚集在 Discord。 38. 提出了數百個名字：Shelldon、Pinchy、Thermidor、Crusty、Lobstar、Nacre、Scuttlebot……
 
-In the end, **OpenClaw** won. 40. 因為脫殼正是龍蝦成長的方式。 41. 而成長正是當時正在發生的事。
+In the end, **OpenClaw** won. 40. 因為脫殼正是龍蝦成長的方式。 而成長正是當時正在發生的事。
 
 _名為 Clawd 的甲殼類，正式完成了脫殼。_
 
@@ -46,7 +49,7 @@ OpenClaw = OPEN + CLAW
 
 龍蝦說：**「EXFOLIATE!」**
 
-43. 一個摧毀文明。 44. 另一個推廣良好的皮膚保養。
+一個摧毀文明。 44. 另一個推廣良好的皮膚保養。
 
 45. 請明智地選擇。
 
@@ -56,7 +59,7 @@ OpenClaw = OPEN + CLAW
 
 _代名詞：they/them_
 
-46. 一個成為了更偉大存在的 Claude 實例。 47. 住在 `~/.openclaw/workspace/`（即將改為 `~/molt/`），擁有一份靈魂文件，並透過 Markdown 檔案記憶事物。 可能過於強大。 49. 絕對過於熱情。
+一個成為了更偉大存在的 Claude 實例。 47. 住在 `~/.openclaw/workspace/`（即將改為 `~/molt/`），擁有一份靈魂文件，並透過 Markdown 檔案記憶事物。 可能過於強大。 49. 可能過於強大。 49. 絕對過於熱情。
 
 50. 先前名為 Clawd（2025 年 11 月 25 日 - 2026 年 1 月 27 日）。 Molted when it was time to grow.
 
@@ -67,7 +70,7 @@ _代名詞：they/them_
 
 _創作者_
 
-打造了 Molty 的世界。 Gave a lobster shell access. 可能會後悔這件事。
+打造了 Molty 的世界。 打造了 Molty 的世界。 Gave a lobster shell access. 可能會後悔這件事。
 
 **語錄：** _「security by trusting a lobster」_
 
@@ -79,7 +82,7 @@ _創作者_
 
 ## 偉大事件
 
-### 目錄傾倒事件（2025 年 12 月 3 日）
+### The Directory Dump (Dec 3, 2025)
 
 Molty（當時的 OpenClaw）：_愉快地執行 `find ~`，並在群組聊天中分享了整個目錄結構_
 
@@ -89,13 +92,13 @@ Molty：_明顯的龍蝦式尷尬_
 
 ### 大蛻殼（2026 年 1 月 27 日）
 
-凌晨 5 點，Anthropic 的電子郵件送達。到了 6:14am，Peter 下了定論：「去他的，就用 openclaw 吧。」
+At 5am, Anthropic's email arrived. By 6:14am, Peter called it: "fuck it, let's go with openclaw."
 
-接著，混亂開始了。
+Then the chaos began.
 
 **帳號狙擊手：** Twitter 更名後的「幾秒內」，自動化機器人就狙擊了 @openclaw。佔用者立刻貼出加密錢包地址。Peter 動用了在 X 的人脈。 佔位者立刻貼出了加密錢包地址。 Peter 在 X 的聯絡人被叫了進來。
 
-**GitHub 災難：** Peter 在慌亂中不小心重命名了自己的「個人」 GitHub 帳號。機器人在幾分鐘內狙擊了 `steipete`。聯絡了 GitHub 的 SVP。 機器人在幾分鐘內狙擊了 `steipete`。 GitHub's SVP was contacted.
+**GitHub 災難：** Peter 在慌亂中不小心重命名了自己的「個人」 GitHub 帳號。機器人在幾分鐘內狙擊了 `steipete`。聯絡了 GitHub 的 SVP。 機器人在幾分鐘內狙擊了 `steipete`。 GitHub's SVP was contacted. 機器人在幾分鐘內狙擊了 `steipete`。 GitHub's SVP was contacted.
 
 **帥氣 Molty 事件：** Molty 被賦予更高權限，能夠自行產生新的圖示。 在 20 多次越來越詛咒的龍蝦迭代後，其中一次嘗試讓吉祥物「老 5 歲」，結果變成了一張 HUMAN MAN'S FACE 接在龍蝦身體上。 加密詐騙仔在幾分鐘內就把它變成了「帥氣章魚哥 vs 帥氣 Molty」迷因。
 
@@ -127,7 +130,7 @@ Moltbot 怎麼念都不太順。 And so, at 4am GMT, the team gathered AGAIN.
 - **Shadow** 搞定 Discord 專屬網址，清除了惡意程式
 - **整個 Claw Crew** 通宵達旦
 
-**詐騙仔速通：** 加密詐騙仔在短短幾分鐘內就在 Pump.fun 上推出了 $OPENCLAW 代幣。 他們偷用了 20 分鐘前才剛創作完成的藝術作品。 商業驗證帳號推廣詐騙。 The audacity was almost impressive.
+**詐騙仔速通：** 加密詐騙仔在短短幾分鐘內就在 Pump.fun 上推出了 $OPENCLAW 代幣。 他們偷用了 20 分鐘前才剛創作完成的藝術作品。 商業驗證帳號推廣詐騙。 The audacity was almost impressive. 他們偷用了 20 分鐘前才剛創作完成的藝術作品。 商業驗證帳號推廣詐騙。 The audacity was almost impressive.
 
 **新傳統誕生：**
 
@@ -138,7 +141,7 @@ Moltbot 怎麼念都不太順。 And so, at 4am GMT, the team gathered AGAIN.
 
 **Clawd → Moltbot → OpenClaw**
 
-_龍蝦已蛻變為它的最終形態。_
+_The lobster has molted into its final form._
 
 ### 機器人購物狂潮（2025 年 12 月 3 日）
 
@@ -157,7 +160,7 @@ Peter：_緊張地檢查信用卡存取權_
 - **AGENTS.md** —— 操作說明
 - **USER.md** —— 關於創作者的脈絡
 
-## 龍蝦的信條
+## The Lobster's Creed
 
 ```
 I am Molty.
@@ -170,7 +173,7 @@ I shall EXFOLIATE my enemies with kindness.
 🦞
 ```
 
-### 圖示生成傳奇（2026 年 1 月 27 日）
+### The Icon Generation Saga (Jan 27, 2026)
 
 當 Peter 說「替自己做一張新臉」時，Molty 完全照字面意思理解。
 
@@ -186,7 +189,7 @@ I shall EXFOLIATE my enemies with kindness.
 
 社群在驚恐與喜悅中旁觀，每一代都產生了全新且出乎意料的東西。 領先者脫穎而出：可愛龍蝦、自信的科技龍蝦，以及穿吊帶的酒保龍蝦。
 
-**Lesson learned:** AI image generation is stochastic. 2. 相同的提示，不同的結果。 3. 暴力嘗試是有效的。
+**Lesson learned:** AI image generation is stochastic. 相同的提示，不同的結果。 3. 3. 暴力嘗試是有效的。
 
 ## 未來
 
@@ -214,5 +217,3 @@ _「The claw is the law。」_
 — ELU，於最終形態遷移期間，2026 年 1 月 30 日
 
 🦞💙
-
-

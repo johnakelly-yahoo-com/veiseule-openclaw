@@ -1,4 +1,9 @@
 ---
+summary: "LINE Messaging API प्लगइन का सेटअप, विन्यास और उपयोग"
+read_when:
+  - आप OpenClaw को LINE से कनेक्ट करना चाहते हैं
+  - आपको LINE वेबहुक + क्रेडेंशियल सेटअप की आवश्यकता है
+  - आप LINE-विशिष्ट संदेश विकल्प चाहते हैं
 title: LINE
 ---
 
@@ -178,5 +183,3 @@ LINE प्लगइन Flex संदेश प्रीसेट्स के 
   और Gateway, LINE से पहुँचा जा सकता है।
 - **Media download errors:** यदि मीडिया डिफ़ॉल्ट सीमा से अधिक है, तो
   `channels.line.mediaMaxMb` बढ़ाएँ।
-
-

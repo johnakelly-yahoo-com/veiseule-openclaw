@@ -1,9 +1,12 @@
 ---
+summary: "Các liên kết được tuyển chọn đến những tài liệu OpenClaw được dùng nhiều nhất."
+read_when:
+  - Bạn muốn truy cập nhanh các trang tài liệu chính
 title: "Danh mục tài liệu"
 ---
 
 <Note>
-Trang này là một chỉ mục được chọn lọc. Nếu bạn là người mới, hãy bắt đầu với [Bắt đầu](/start/getting-started).
+This page is a curated index. If you are new, start with [Getting Started](/start/getting-started).
 For a complete map of the docs, see [Docs hubs](/start/hubs).
 </Note>
 
@@ -59,5 +62,3 @@ For a complete map of the docs, see [Docs hubs](/start/hubs).
 - [Gmail hooks (Pub/Sub)](/automation/gmail-pubsub)
 - [Bảo mật](/gateway/security)
 - [Xử lý sự cố](/gateway/troubleshooting)
-
-

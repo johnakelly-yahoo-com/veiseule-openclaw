@@ -1,4 +1,7 @@
 ---
+summary: "Status, funktioner och konfiguration för Google Chat-appen"
+read_when:
+  - Arbetar med funktioner för Google Chat-kanalen
 title: "Google Chat"
 ---
 
@@ -151,6 +154,7 @@ Konfigurera tunnelns ingress-regler för att endast routa webhook-sökvägen:
 Använd dessa identifierare för leverans och tillåtelselistor:
 
 - Direktmeddelanden: `users/<userId>` eller `users/<email>` (e-postadresser accepteras).
+- Utfasad: `users/<email>` behandlas som ett användar-id, inte en e-postbaserad tillåtelselista.
 - Spaces: `spaces/<spaceId>`.
 
 ## Konfig-höjdpunkter
@@ -247,5 +251,3 @@ Relaterad dokumentation:
 - [Gateway-konfiguration](/gateway/configuration)
 - [Säkerhet](/gateway/security)
 - [Reaktioner](/tools/reactions)
-
-

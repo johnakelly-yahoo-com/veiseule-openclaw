@@ -1,4 +1,7 @@
 ---
+summary: "Härdning av Telegrams tillåtelselista: prefix + normalisering av blanksteg"
+read_when:
+  - Vid granskning av historiska ändringar i Telegrams tillåtelselista
 title: "Härdning av Telegrams tillåtelselista"
 ---
 
@@ -35,5 +38,3 @@ falska negativ när man beslutar om man ska svara i DMs eller grupper.
 
 - [Gruppchattar](/channels/groups)
 - [Telegram‑leverantör](/channels/telegram)
-
-

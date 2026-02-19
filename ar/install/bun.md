@@ -1,4 +1,8 @@
 ---
+summary: "سير عمل Bun (تجريبي): التثبيت والمطبات مقارنةً بـ pnpm"
+read_when:
+  - تريد أسرع دورة تطوير محلية (bun + watch)
+  - واجهت مشكلات في التثبيت/التصحيح/نصوص دورة الحياة في Bun
 title: "Bun (تجريبي)"
 ---
 
@@ -53,5 +57,3 @@ bun pm trust @whiskeysockets/baileys protobufjs
 ## التنبيهات
 
 - لا تزال بعض النصوص تُضمّن pnpm بشكل ثابت (مثل `docs:build`، `ui:*`، `protocol:check`). شغّل هذه عبر pnpm في الوقت الحالي.
-
-

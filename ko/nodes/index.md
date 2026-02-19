@@ -1,4 +1,9 @@
 ---
+summary: "노드: 캔버스/카메라/화면/시스템을 위한 페어링, 기능, 권한 및 CLI 헬퍼"
+read_when:
+  - iOS/Android 노드를 Gateway에 페어링할 때
+  - 에이전트 컨텍스트를 위해 노드 캔버스/카메라를 사용할 때
+  - 새로운 노드 명령 또는 CLI 헬퍼를 추가할 때
 title: "노드"
 ---
 
@@ -267,7 +272,7 @@ openclaw nodes notify --node <idOrNameOrIp> --title "Ping" --body "Gateway ready
 - `system.notify` 는 macOS 앱의 알림 권한 상태를 준수합니다.
 - `system.run` 는 `--cwd`, `--env KEY=VAL`, `--command-timeout`, `--needs-screen-recording` 를 지원합니다.
 - `system.notify` 는 `--priority <passive|active|timeSensitive>` 및 `--delivery <system|overlay|auto>` 를 지원합니다.
-- macOS 노드는 `PATH` 오버라이드를 무시합니다. 헤드리스 노드 호스트는 노드 호스트 PATH 를 앞에 붙일 때에만 `PATH` 를 허용합니다.
+- Node 호스트는 `PATH` 재정의를 무시합니다. 추가 PATH 항목이 필요한 경우, `--env`를 통해 `PATH`를 전달하는 대신 노드 호스트 서비스 환경을 구성하거나(또는 도구를 표준 위치에 설치) 설정하세요.
 - macOS 노드 모드에서 `system.run` 는 macOS 앱의 exec 승인(Settings → Exec approvals)에 의해 제어됩니다.
   Ask/allowlist/full 은 헤드리스 노드 호스트와 동일하게 동작하며, 거부된 프롬프트는 `SYSTEM_RUN_DENIED` 를 반환합니다.
 - 헤드리스 노드 호스트에서 `system.run` 는 exec 승인(`~/.openclaw/exec-approvals.json`)에 의해 제어됩니다.
@@ -326,5 +331,3 @@ openclaw node run --host <gateway-host> --port 18789
 
 - macOS 메뉴바 앱은 Gateway WS 서버에 노드로 연결됩니다(따라서 `openclaw nodes …` 가 이 Mac에 대해 동작).
 - 원격 모드에서 앱은 Gateway 포트를 위한 SSH 터널을 열고 `localhost` 에 연결합니다.
-
-

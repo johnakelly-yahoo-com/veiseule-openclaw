@@ -1,17 +1,13 @@
 ---
-title: Twitch
-x-i18n:
-  generated_at: "2026-02-03T07:44:41Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 0dd1c05bef570470d8b82c1f6dee5337e8b76b57269c5cad6aee2e711483f8ba
-  source_path: channels/twitch.md
-  workflow: 15
+summary: "Twitch 聊天机器人配置和设置"
+read_when:
+  - 为 OpenClaw 设置 Twitch 聊天集成
+title: "Twitch"
 ---
 
 # Twitch（插件）
 
-通过 IRC 连接支持 Twitch 聊天。OpenClaw 以 Twitch 用户（机器人账户）身份连接，在频道中接收和发送消息。
+通过 IRC 连接支持 Twitch 聊天。OpenClaw 以 Twitch 用户（机器人账户）身份连接，在频道中接收和发送消息。 OpenClaw connects as a Twitch user (bot account) to receive and send messages in channels.
 
 ## 需要插件
 
@@ -45,7 +41,7 @@ openclaw plugins install ./extensions/twitch
    - 如果两者都设置，配置优先（环境变量回退仅适用于默认账户）。
 5. 启动 Gateway 网关。
 
-**⚠️ 重要：** 添加访问控制（`allowFrom` 或 `allowedRoles`）以防止未授权用户触发机器人。`requireMention` 默认为 `true`。
+**⚠️ 重要：** 添加访问控制（`allowFrom` 或 `allowedRoles`）以防止未授权用户触发机器人。`requireMention` 默认为 `true`。 `requireMention` defaults to `true`.
 
 最小配置：
 
@@ -81,9 +77,9 @@ openclaw plugins install ./extensions/twitch
 - 确认已选择 `chat:read` 和 `chat:write` 权限范围
 - 复制 **Client ID** 和 **Access Token**
 
-无需手动注册应用。令牌在几小时后过期。
+无需手动注册应用。令牌在几小时后过期。 Tokens expire after several hours.
 
-### 配置机器人
+### Configure the bot
 
 **环境变量（仅限默认账户）：**
 
@@ -107,7 +103,7 @@ OPENCLAW_TWITCH_ACCESS_TOKEN=oauth:abc123...
 }
 ```
 
-如果环境变量和配置都设置了，配置优先。
+If both env and config are set, config takes precedence.
 
 ### 访问控制（推荐）
 
@@ -121,11 +117,11 @@ OPENCLAW_TWITCH_ACCESS_TOKEN=oauth:abc123...
 }
 ```
 
-优先使用 `allowFrom` 作为硬性允许列表。如果你想要基于角色的访问控制，请改用 `allowedRoles`。
+Prefer `allowFrom` for a hard allowlist. 优先使用 `allowFrom` 作为硬性允许列表。如果你想要基于角色的访问控制，请改用 `allowedRoles`。
 
 **可用角色：** `"moderator"`、`"owner"`、`"vip"`、`"subscriber"`、`"all"`。
 
-**为什么用用户 ID？** 用户名可以更改，允许冒充。用户 ID 是永久的。
+**为什么用用户 ID？** 用户名可以更改，允许冒充。用户 ID 是永久的。 User IDs are permanent.
 
 查找你的 Twitch 用户 ID：https://www.streamweasels.com/tools/convert-twitch-username-%20to-user-id/（将你的 Twitch 用户名转换为 ID）
 
@@ -150,7 +146,7 @@ OPENCLAW_TWITCH_ACCESS_TOKEN=oauth:abc123...
 
 ## 多账户支持
 
-使用 `channels.twitch.accounts` 配置每个账户的令牌。参阅 [`gateway/configuration`](/gateway/configuration) 了解共享模式。
+Use `channels.twitch.accounts` with per-account tokens. See [`gateway/configuration`](/gateway/configuration) for the shared pattern.
 
 示例（一个机器人账户在两个频道中）：
 
@@ -215,8 +211,8 @@ OPENCLAW_TWITCH_ACCESS_TOKEN=oauth:abc123...
 
 ### 基于角色的访问（替代方案）
 
-`allowFrom` 是硬性允许列表。设置后，只允许这些用户 ID。
-如果你想要基于角色的访问，请不设置 `allowFrom`，改为配置 `allowedRoles`：
+21. `allowFrom` 是一个严格的允许列表。 When set, only those user IDs are allowed.
+    If you want role-based access, leave `allowFrom` unset and configure `allowedRoles` instead:
 
 ```json5
 {
@@ -234,7 +230,7 @@ OPENCLAW_TWITCH_ACCESS_TOKEN=oauth:abc123...
 
 ### 禁用 @提及要求
 
-默认情况下，`requireMention` 为 `true`。要禁用并响应所有消息：
+默认情况下，`requireMention` 为 `true`。要禁用并响应所有消息： To disable and respond to all messages:
 
 ```json5
 {
@@ -265,7 +261,7 @@ openclaw channels status --probe
 
 **检查机器人是否在频道中：** 机器人必须加入 `channel` 中指定的频道。
 
-### 令牌问题
+### Token issues
 
 **"Failed to connect"或身份验证错误：**
 
@@ -273,7 +269,7 @@ openclaw channels status --probe
 - 检查令牌具有 `chat:read` 和 `chat:write` 权限范围
 - 如果使用令牌刷新，验证 `clientSecret` 和 `refreshToken` 已设置
 
-### 令牌刷新不工作
+### Token refresh not working
 
 **检查日志中的刷新事件：**
 
@@ -350,7 +346,7 @@ Access token refreshed for user 123456 (expires in 14400s)
 
 ## 工具操作
 
-智能体可以调用 `twitch` 执行以下操作：
+代理可以使用以下动作调用 `twitch`：
 
 - `send` - 向频道发送消息
 
@@ -380,5 +376,3 @@ Access token refreshed for user 123456 (expires in 14400s)
 - 每条消息 **500 个字符**（在单词边界自动分块）
 - 分块前会去除 Markdown
 - 无速率限制（使用 Twitch 内置的速率限制）
-
-

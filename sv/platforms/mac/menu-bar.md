@@ -1,4 +1,7 @@
 ---
+summary: "Statuslogik för menyraden och vad som visas för användare"
+read_when:
+  - Justering av mac-menyns UI eller statuslogik
 title: "Menyrad"
 ---
 
@@ -76,5 +79,3 @@ title: "Menyrad"
 - Starta huvudsessionen medan annan är aktiv: ikonen växlar till huvudsessionen direkt.
 - Snabba verktygsburstar: säkerställ att märket inte flimrar (TTL‑marginal på verktygsresultat).
 - Hälsoraden visas igen när alla sessioner är inaktiva.
-
-

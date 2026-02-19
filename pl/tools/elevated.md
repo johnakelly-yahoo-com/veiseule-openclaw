@@ -1,4 +1,7 @@
 ---
+summary: "Tryb podwyższonego wykonania i dyrektywy /elevated"
+read_when:
+  - Dostosowywanie domyślnych ustawień trybu podwyższonego, list dozwolonych lub zachowania poleceń ukośnych
 title: "Tryb podwyższony"
 ---
 
@@ -45,12 +48,10 @@ title: "Tryb podwyższony"
 - Lista dozwolonych nadawców: `tools.elevated.allowFrom` z listami per dostawca (np. `discord`, `whatsapp`).
 - Bramka per agent: `agents.list[].tools.elevated.enabled` (opcjonalna; może tylko dodatkowo ograniczać).
 - Lista dozwolonych per agent: `agents.list[].tools.elevated.allowFrom` (opcjonalna; gdy ustawiona, nadawca musi pasować do **obu** list: globalnej i per agent).
-- Fallback dla Discorda: jeśli `tools.elevated.allowFrom.discord` jest pominięte, jako fallback używana jest lista `channels.discord.dm.allowFrom`. Ustaw `tools.elevated.allowFrom.discord` (nawet `[]`), aby nadpisać. Listy per agent **nie** używają fallbacku.
+- Fallback dla Discorda: jeśli `tools.elevated.allowFrom.discord` jest pominięte, jako fallback używana jest lista `channels.discord.dm.allowFrom`. Ustaw `tools.elevated.allowFrom.discord` (nawet `[]`), aby nadpisać. Ustaw `tools.elevated.allowFrom.discord` (nawet `[]`), aby nadpisać. Listy per agent **nie** używają fallbacku.
 - Wszystkie bramki muszą przejść; w przeciwnym razie tryb podwyższony jest traktowany jako niedostępny.
 
 ## Logowanie + status
 
 - Wywołania exec w trybie podwyższonym są logowane na poziomie info.
 - Status sesji zawiera tryb podwyższony (np. `elevated=ask`, `elevated=full`).
-
-

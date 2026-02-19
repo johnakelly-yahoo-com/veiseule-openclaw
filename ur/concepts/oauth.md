@@ -1,4 +1,10 @@
 ---
+summary: "OpenClaw میں OAuth: ٹوکن کا تبادلہ، ذخیرہ کاری، اور متعدد اکاؤنٹس کے پیٹرنز"
+read_when:
+  - آپ OpenClaw میں OAuth کو ابتدا سے انتہا تک سمجھنا چاہتے ہیں
+  - آپ کو ٹوکن کے باطل ہونے / لاگ آؤٹ کے مسائل درپیش ہوں
+  - آپ setup-token یا OAuth کی تصدیقی فلو چاہتے ہوں
+  - آپ متعدد اکاؤنٹس یا پروفائل روٹنگ چاہتے ہوں
 title: "OAuth"
 ---
 
@@ -136,5 +142,3 @@ openclaw agents add personal
 
 - [/concepts/model-failover](/concepts/model-failover) (روٹیشن + کول ڈاؤن قواعد)
 - [/tools/slash-commands](/tools/slash-commands) (کمانڈ سطح)
-
-

@@ -1,6 +1,10 @@
 ---
 title: Lobster
-description: "Silnik uruchomieniowy workflowów typowanych dla OpenClaw — kompozycyjne potoki z bramkami zatwierdzania."
+summary: "„Typowany runtime przepływów pracy dla OpenClaw z wznawialnymi bramkami zatwierdzeń.”"
+description: Silnik uruchomieniowy workflowów typowanych dla OpenClaw — kompozycyjne potoki z bramkami zatwierdzania.
+read_when:
+  - Chcesz deterministycznych, wieloetapowych przepływów pracy z jawnymi zatwierdzeniami
+  - Musisz wznowić przepływ pracy bez ponownego uruchamiania wcześniejszych kroków
 ---
 
 # Lobster
@@ -336,5 +340,3 @@ Jeden publiczny przykład: CLI „drugiego mózgu” + potoki Lobster, które za
 
 - Wątek: [https://x.com/plattenschieber/status/2014508656335770033](https://x.com/plattenschieber/status/2014508656335770033)
 - Repo: [https://github.com/bloomedai/brain-cli](https://github.com/bloomedai/brain-cli)
-
-

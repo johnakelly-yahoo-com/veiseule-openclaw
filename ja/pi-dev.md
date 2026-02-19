@@ -51,7 +51,7 @@ scripts/pi/run-tests.sh --live
 
 ## スレートをリセットする
 
-状態はOpenClawの状態ディレクトリの下にあります。 デフォルトは `~/.openclaw` です。 `OPENCLAW_STATE_DIR` が設定されている場合は、代わりにそのディレクトリを使用してください。
+状態はOpenClawの状態ディレクトリの下にあります。 デフォルトは `~/.openclaw` です。 状態はOpenClawの状態ディレクトリの下にあります。 デフォルトは `~/.openclaw` です。 `OPENCLAW_STATE_DIR` が設定されている場合は、代わりにそのディレクトリを使用してください。
 
 すべてをリセットするには、次を実行します。
 
@@ -62,11 +62,9 @@ scripts/pi/run-tests.sh --live
 - レガシーパスが存在する場合: `sessions/`
 - 空のワークスペースにしたい場合: `workspace/`
 
-セッションのみをリセットしたい場合は、そのエージェントに対して `agents/<agentId>/sessions/` と `agents/<agentId>/sessions.json` を削除します。再認証を行いたくない場合は、`credentials/` を保持してください。 再認証したくない場合は、`credentials/` を保持してください。
+セッションのみをリセットしたい場合は、そのエージェントに対して `agents/<agentId>/sessions/` と `agents/<agentId>/sessions.json` を削除します。再認証を行いたくない場合は、`credentials/` を保持してください。 再認証したくない場合は、`credentials/` を保持してください。 再認証したくない場合は、`credentials/` を保持してください。
 
 ## 参照
 
 - [https://docs.openclaw.ai/testing](https://docs.openclaw.ai/testing)
 - [https://docs.openclaw.ai/start/getting-started](https://docs.openclaw.ai/start/getting-started)
-
-

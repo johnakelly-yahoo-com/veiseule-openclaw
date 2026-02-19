@@ -1,4 +1,8 @@
 ---
+summary: "Use la API compatible con Anthropic de Synthetic en OpenClaw"
+read_when:
+  - Quiere usar Synthetic como proveedor de modelos
+  - Necesita una clave de API de Synthetic o configurar la URL base
 title: "Synthetic"
 ---
 
@@ -93,5 +97,3 @@ Todos los modelos a continuación usan el costo `0` (entrada/salida/caché).
 - Si habilita una lista de permitidos de modelos (`agents.defaults.models`), agregue todos los modelos que
   planea usar.
 - Consulte [Proveedores de modelos](/concepts/model-providers) para conocer las reglas de los proveedores.
-
-

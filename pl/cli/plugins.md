@@ -1,4 +1,8 @@
 ---
+summary: "Referencja CLI dla `openclaw plugins` (lista, instalacja, włączanie/wyłączanie, diagnostyka)"
+read_when:
+  - Chcesz zainstalować lub zarządzać wtyczkami Gateway działającymi w procesie
+  - Chcesz debugować niepowodzenia ładowania wtyczek
 title: "wtyczki"
 ---
 
@@ -39,6 +43,9 @@ openclaw plugins install <path-or-spec>
 
 Uwaga dotycząca bezpieczeństwa: traktuj instalacje wtyczek jak uruchamianie kodu. Preferuj przypięte wersje.
 
+Specyfikacje npm są **wyłącznie z rejestru** (nazwa pakietu + opcjonalna wersja/tag). Specyfikacje Git/URL/plik
+są odrzucane. Instalacje zależności są uruchamiane z `--ignore-scripts` dla bezpieczeństwa.
+
 Obsługiwane archiwa: `.zip`, `.tgz`, `.tar.gz`, `.tar`.
 
 Użyj `--link`, aby uniknąć kopiowania lokalnego katalogu (dodaje do `plugins.load.paths`):
@@ -46,6 +53,24 @@ Użyj `--link`, aby uniknąć kopiowania lokalnego katalogu (dodaje do `plugins.
 ```bash
 openclaw plugins install -l ./my-plugin
 ```
+
+### Odinstaluj
+
+```bash
+openclaw plugins uninstall <id>
+openclaw plugins uninstall <id> --dry-run
+openclaw plugins uninstall <id> --keep-files
+```
+
+`uninstall` usuwa wpisy wtyczki z `plugins.entries`, `plugins.installs`,
+listy dozwolonych wtyczek oraz powiązane wpisy `plugins.load.paths`, jeśli dotyczy.
+W przypadku aktywnych wtyczek pamięci slot pamięci zostaje zresetowany do `memory-core`.
+
+Domyślnie odinstalowanie usuwa również katalog instalacyjny wtyczki w aktywnym
+katalogu stanu w katalogu głównym rozszerzeń (`$OPENCLAW_STATE_DIR/extensions/<id>`). Użyj
+`--keep-files`, aby zachować pliki na dysku.
+
+`--keep-config` jest obsługiwane jako przestarzały alias dla `--keep-files`.
 
 ### Aktualizacja
 
@@ -56,5 +81,3 @@ openclaw plugins update <id> --dry-run
 ```
 
 Aktualizacje dotyczą wyłącznie wtyczek zainstalowanych z npm (śledzonych w `plugins.installs`).
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "Markdown-formateringspipeline för utgående kanaler"
+read_when:
+  - Du ändrar Markdown-formatering eller chunking för utgående kanaler
+  - Du lägger till en ny kanalformatterare eller stilmappning
+  - Du felsöker formateringsregressioner mellan kanaler
 title: "Markdown-formatering"
 ---
 
@@ -110,5 +115,3 @@ SPOILER stilintervall. Andra kanaler behandlar dem som ren text.
 - Telegram HTML kräver escapning av text utanför taggar för att undvika trasig markup.
 - Signal-stilintervall beror på UTF-16-offsetar; använd inte kodpunkts-offsetar.
 - Bevara avslutande nyrader för inhägnade kodblock så att stängningsmarkörer hamnar på sin egen rad.
-
-

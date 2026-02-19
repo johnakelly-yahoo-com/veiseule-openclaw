@@ -1,4 +1,8 @@
 ---
+summary: "एक WhatsApp संदेश को कई एजेंट्स तक प्रसारित करें"
+read_when:
+  - ब्रॉडकास्ट समूहों का विन्यास
+  - WhatsApp में मल्टी-एजेंट उत्तरों का डिबग करना
 status: experimental
 title: "ब्रॉडकास्ट समूह"
 ---
@@ -436,5 +440,3 @@ interface OpenClawConfig {
 - [मल्टी-एजेंट विन्यास](/tools/multi-agent-sandbox-tools)
 - [रूटिंग विन्यास](/channels/channel-routing)
 - [सत्र प्रबंधन](/concepts/sessions)
-
-

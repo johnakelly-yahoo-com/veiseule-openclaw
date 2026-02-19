@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw میں OpenAI کو API کلیدوں یا Codex سبسکرپشن کے ذریعے استعمال کریں"
+read_when:
+  - آپ OpenClaw میں OpenAI ماڈلز استعمال کرنا چاہتے ہیں
+  - آپ API کلیدوں کے بجائے Codex سبسکرپشن کی تصدیق چاہتے ہیں
 title: "OpenAI"
 ---
 
@@ -55,5 +59,3 @@ openclaw models auth login --provider openai-codex
 
 - ماڈل حوالہ جات ہمیشہ `provider/model` استعمال کرتے ہیں (دیکھیے [/concepts/models](/concepts/models))۔
 - تصدیق کی تفصیلات اور دوبارہ استعمال کے قواعد [/concepts/oauth](/concepts/oauth) میں موجود ہیں۔
-
-

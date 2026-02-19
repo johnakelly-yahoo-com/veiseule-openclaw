@@ -1,4 +1,7 @@
 ---
+summary: "Hur du kör tester lokalt (vitest) och när du ska använda force-/coverage-lägen"
+read_when:
+  - När du kör eller åtgärdar tester
 title: "Tester"
 ---
 
@@ -8,9 +11,11 @@ title: "Tester"
 
 - `pnpm test:force`: Dödar varje kvardröjande gateway-process som håller den förvalda kontrollporten, kör sedan hela Vitest-sviten med en isolerad gateway-port så att servertester inte kolliderar med en körande instans. Använd detta när en tidigare gateway kör vänster port 18789 ockuperad.
 
-- \`pnpm test: täckning: Kör Vitest med V8 täckning. Globala tröskelvärden är 70% linjer/grenar/funktioner/uttalanden. Täckning utesluter integration-tunga ingångspunkter (CLI-ledningar, gateway/telegram broar, webchat statisk server) för att hålla målet fokuserat på enhetstestbar logik.
+- `pnpm test:coverage`: Kör enhetstestsviten med V8-täckning (via `vitest.unit.config.ts`). Globala tröskelvärden är 70% linjer/grenar/funktioner/uttalanden. Täckning utesluter integration-tunga ingångspunkter (CLI-ledningar, gateway/telegram broar, webchat statisk server) för att hålla målet fokuserat på enhetstestbar logik.
 
-- `pnpm test:e2e`: Kör gateway end-to-end-röktester (parning av flera instanser via WS/HTTP/node).
+- `pnpm test` på Node 24+: OpenClaw inaktiverar automatiskt Vitest `vmForks` och använder `forks` för att undvika `ERR_VM_MODULE_LINK_FAILURE` / `module is already linked`. Du kan framtvinga beteendet med `OPENCLAW_TEST_VM_FORKS=0|1`.
+
+- `pnpm test:e2e`: Kör gateway end-to-end-röktester (parning av flera instanser via WS/HTTP/node). Använder som standard `vmForks` + adaptiva workers i `vitest.e2e.config.ts`; justera med `OPENCLAW_E2E_WORKERS=<n>` och sätt `OPENCLAW_E2E_VERBOSE=1` för utförliga loggar.
 
 - `pnpm test: live`: Kör leverantör live-tester (minimax/zai). Kräver API-nycklar och `LIVE=1` (eller leverantörsspecifik `*_LIVE_TEST=1`) för att avhoppa.
 
@@ -48,5 +53,3 @@ Säkerställer att `qrcode-terminal` laddas under Node 22+ i Docker:
 ```bash
 pnpm test:docker:qr
 ```
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Gateway ဝဘ် မျက်နှာပြင်များ — Control UI၊ bind modes နှင့် လုံခြုံရေး"
+read_when:
+  - သင် Tailscale မှတဆင့် Gateway ကို ဝင်ရောက်လိုပါက
+  - ဘရောက်ဇာ Control UI နှင့် config တည်းဖြတ်ခြင်းကို လိုအပ်ပါက
 title: "ဝဘ်"
 ---
 
@@ -106,5 +110,3 @@ openclaw gateway
 ```bash
 pnpm ui:build # auto-installs UI deps on first run
 ```
-
-

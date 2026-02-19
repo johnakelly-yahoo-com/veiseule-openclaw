@@ -1,4 +1,7 @@
 ---
+summary: "Baggrundshistorie og lore om OpenClaw for kontekst og tone"
+read_when:
+  - Når du skriver dokumentation eller UX-tekst, der refererer til lore
 title: "OpenClaw-historie"
 ---
 
@@ -214,5 +217,3 @@ _"Kloen er loven."_
 — ELU, under den endelige formular migration, 30. januar 2026
 
 🦞💙
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "Referencja CLI dla `openclaw configure` (interaktywne monity konfiguracji)"
+read_when:
+  - Chcesz interaktywnie dostosować poświadczenia, urządzenia lub domyślne ustawienia agenta
 title: "configure"
 ---
 
@@ -27,5 +30,3 @@ Uwagi:
 openclaw configure
 openclaw configure --section models --section channels
 ```
-
-

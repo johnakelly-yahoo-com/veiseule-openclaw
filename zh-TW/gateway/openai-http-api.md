@@ -1,4 +1,7 @@
 ---
+summary: "從 Gateway 公開一個與 OpenAI 相容的 /v1/chat/completions HTTP 端點"
+read_when:
+  - 整合需要 OpenAI Chat Completions 的工具
 title: "OpenAI Chat Completions"
 ---
 
@@ -6,7 +9,7 @@ title: "OpenAI Chat Completions"
 
 OpenClaw 的 Gateway 可以提供一個小型、與 OpenAI 相容的 Chat Completions 端點。
 
-此端點**預設為停用**。請先在設定中啟用。 請先在設定中啟用。
+此端點**預設為停用**。請先在設定中啟用。 請先在設定中啟用。 請先在設定中啟用。
 
 - `POST /v1/chat/completions`
 - 與 Gateway 使用相同的連接埠（WS + HTTP 多工）：`http://<gateway-host>:<port>/v1/chat/completions`
@@ -23,6 +26,7 @@ Uses the Gateway auth configuration. 傳送 Bearer 權杖：
 
 - 當 `gateway.auth.mode="token"` 時，請使用 `gateway.auth.token`（或 `OPENCLAW_GATEWAY_TOKEN`）。
 - 當 `gateway.auth.mode="password"` 時，請使用 `gateway.auth.password`（或 `OPENCLAW_GATEWAY_PASSWORD`）。
+- 如果設定了 `gateway.auth.rateLimit` 且驗證失敗次數過多，端點會回傳 `429` 並附帶 `Retry-After`。
 
 ## 選擇代理程式
 
@@ -113,5 +117,3 @@ curl -N http://127.0.0.1:18789/v1/chat/completions \
     "messages": [{"role":"user","content":"hi"}]
   }'
 ```
-
-

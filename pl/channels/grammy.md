@@ -1,4 +1,7 @@
 ---
+summary: "Integracja z Telegram Bot API za pośrednictwem grammY wraz z uwagami dotyczącymi konfiguracji"
+read_when:
+  - Praca nad ścieżkami Telegram lub grammY
 title: grammY
 ---
 
@@ -18,7 +21,7 @@ title: grammY
 - **Obsługa webhooków:** `webhook-set.ts` opakowuje `setWebhook/deleteWebhook`; `webhook.ts` hostuje callback z kontrolą zdrowia i łagodnym zamykaniem. Gateway włącza tryb webhook, gdy ustawione są `channels.telegram.webhookUrl` + `channels.telegram.webhookSecret` (w przeciwnym razie używa long-pollingu).
 - **Sesje:** czaty bezpośrednie są scalane do głównej sesji agenta (`agent:<agentId>:<mainKey>`); grupy używają `agent:<agentId>:telegram:group:<chatId>`; odpowiedzi wracają do tego samego kanału.
 - **Pokrętła konfiguracyjne:** `channels.telegram.botToken`, `channels.telegram.dmPolicy`, `channels.telegram.groups` (domyślne ustawienia listy dozwolonych + wzmianek), `channels.telegram.allowFrom`, `channels.telegram.groupAllowFrom`, `channels.telegram.groupPolicy`, `channels.telegram.mediaMaxMb`, `channels.telegram.linkPreview`, `channels.telegram.proxy`, `channels.telegram.webhookSecret`, `channels.telegram.webhookUrl`.
-- **Strumieniowanie wersji roboczej:** opcjonalny `channels.telegram.streamMode` używa `sendMessageDraft` w prywatnych czatach z tematami (Bot API 9.3+). Jest to niezależne od strumieniowania blokowego kanału.
+- **Podgląd transmisji na żywo:** opcjonalne `channels.telegram.streamMode` wysyła tymczasową wiadomość i aktualizuje ją za pomocą `editMessageText`. Jest to niezależne od strumieniowania blokowego kanału.
 - **Testy:** mocki grammY obejmują bramkowanie DM-ów + wzmianek w grupach oraz wysyłanie wychodzące; mile widziane są kolejne fixtury dla mediów/webhooków.
 
 Otwarte pytania
@@ -26,5 +29,3 @@ Otwarte pytania
 - Opcjonalne wtyczki grammY (ogranicznik) w przypadku napotkania 429 z Bot API.
 - Dodanie bardziej ustrukturyzowanych testów mediów (naklejki, notatki głosowe).
 - Umożliwienie konfiguracji portu nasłuchu webhooka (obecnie na sztywno 8787, o ile nie jest poprowadzony przez gateway).
-
-

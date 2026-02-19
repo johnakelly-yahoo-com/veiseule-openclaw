@@ -1,4 +1,8 @@
 ---
+summary: "Hoe OpenClaw auth-profielen roteert en terugvalt over modellen"
+read_when:
+  - Het diagnosticeren van rotatie van auth-profielen, cooldowns of gedrag van model-fallback
+  - Het bijwerken van failoverregels voor auth-profielen of modellen
 title: "Model-failover"
 ---
 
@@ -73,7 +77,7 @@ Als je zowel een OAuth-profiel als een API-sleutelprofiel voor dezelfde provider
 - Pin met `auth.order[provider] = ["provider:profileId"]`, of
 - Gebruik een per-sessie override via `/model …` met een profieloverride (wanneer ondersteund door je UI/chatoppervlak).
 
-## Afkoelperiodes
+## Cooldowns
 
 Wanneer een profiel faalt door auth-/rate‑limitfouten (of een time-out die lijkt
 op rate limiting), markeert OpenClaw het als in cooldown en gaat door naar het volgende profiel.
@@ -143,5 +147,3 @@ Zie [Gateway-configuratie](/gateway/configuration) voor:
 - `agents.defaults.imageModel` routering
 
 Zie [Modellen](/concepts/models) voor het bredere overzicht van modelselectie en -fallback.
-
-

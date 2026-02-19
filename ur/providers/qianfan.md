@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw میں متعدد ماڈلز تک رسائی کے لیے Qianfan کی متحدہ API استعمال کریں"
+read_when:
+  - آپ متعدد LLMs کے لیے ایک واحد API کلید چاہتے ہیں
+  - آپ کو Baidu Qianfan کے سیٹ اپ کی رہنمائی درکار ہے
 title: "Qianfan"
 ---
 
@@ -31,5 +35,3 @@ openclaw onboard --auth-choice qianfan-api-key
 - [ماڈل فراہم کنندگان](/concepts/model-providers)
 - [ایجنٹ سیٹ اپ](/concepts/agent)
 - [Qianfan API دستاویزات](https://cloud.baidu.com/doc/qianfan-api/s/3m7of64lb)
-
-

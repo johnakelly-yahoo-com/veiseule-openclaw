@@ -1,4 +1,8 @@
 ---
+summary: "Полный справочник по потоку онбординга CLI, настройке аутентификации и моделей, выходным данным и внутренним механизмам"
+read_when:
+  - Вам нужно детальное описание поведения онбординга openclaw
+  - Вы отлаживаете результаты онбординга или интегрируете клиенты онбординга
 title: "Справочник по онбордингу CLI"
 sidebarTitle: "Справочник по CLI"
 ---
@@ -14,13 +18,13 @@ sidebarTitle: "Справочник по CLI"
 
 - Настройку моделей и аутентификации (OAuth подписки OpenAI Code, ключ API Anthropic или setup-token, а также варианты MiniMax, GLM, Moonshot и AI Gateway)
 - Расположение рабочего пространства и bootstrap-файлы
-- Параметры Gateway (порт, привязка, аутентификация, Tailscale)
+- Параметры Gateway (шлюз) (порт, привязка, аутентификация, Tailscale)
 - Каналы и провайдеры (Telegram, WhatsApp, Discord, Google Chat, плагин Mattermost, Signal)
 - Установку демона (LaunchAgent или пользовательский unit systemd)
-- Проверку работоспособности
+- Проверка здоровья
 - Настройку Skills
 
-Удалённый режим настраивает эту машину для подключения к Gateway, расположенному в другом месте.
+Удалённый режим настраивает эту машину для подключения к Gateway (шлюз), расположенному в другом месте.
 Он не устанавливает и не изменяет ничего на удалённом хосте.
 
 ## Детали локального потока
@@ -33,8 +37,7 @@ sidebarTitle: "Справочник по CLI"
     - Сброс использует `trash` и предлагает области:
       - Только конфигурация
       - Конфигурация + учётные данные + сеансы
-      - Полный сброс (также удаляет рабочее пространство)
-  
+      - Полный сброс (также удаляет рабочее пространство)  
 </Step>
   <Step title="Model and auth">
     - Полная матрица вариантов приведена в разделе [Параметры аутентификации и моделей](#auth-and-model-options).
@@ -63,10 +66,12 @@ sidebarTitle: "Справочник по CLI"
     - [BlueBubbles](/channels/bluebubbles): рекомендуется для iMessage; URL сервера + пароль + webhook
     - [iMessage](/channels/imessage): устаревший путь CLI `imsg` + доступ к БД
     - Безопасность личных сообщений: по умолчанию — сопряжение. Первое личное сообщение отправляет код; подтвердите через
-      `openclaw pairing approve <channel> <code>` или используйте списки разрешённых.
+      `openclaw pairing approve <channel><code>` или используйте списки разрешённых.
+  
+</Step><code>` или используйте списки разрешённых.
   
 </Step>
-  <Step title="Daemon install">
+  <Step title="Установка демона">
     - macOS: LaunchAgent
       - Требуется активная пользовательская сессия; для headless используйте кастомный LaunchDaemon (не поставляется).
     - Linux и Windows через WSL2: пользовательский unit systemd
@@ -75,7 +80,7 @@ sidebarTitle: "Справочник по CLI"
     - Выбор рантайма: Node (рекомендуется; обязателен для WhatsApp и Telegram). Bun не рекомендуется.
   
 </Step>
-  <Step title="Health check">
+  <Step title="Проверка работоспособности">
     - Запускает шлюз (если требуется) и выполняет `openclaw health`.
     - `openclaw status --deep` добавляет пробы здоровья шлюза в вывод статуса.
   
@@ -86,7 +91,7 @@ sidebarTitle: "Справочник по CLI"
     - Устанавливает необязательные зависимости (некоторые используют Homebrew на macOS).
   
 </Step>
-  <Step title="Finish">
+  <Step title="Завершение">
     - Сводка и дальнейшие шаги, включая варианты приложений для iOS, Android и macOS.
   
 </Step>
@@ -99,7 +104,7 @@ sidebarTitle: "Справочник по CLI"
 
 ## Детали удалённого режима
 
-Удалённый режим настраивает эту машину для подключения к Gateway, расположенному в другом месте.
+Удалённый режим настраивает эту машину для подключения к шлюзу, расположенному в другом месте.
 
 <Info>
 Удалённый режим не устанавливает и не изменяет ничего на удалённом хосте.
@@ -107,7 +112,7 @@ sidebarTitle: "Справочник по CLI"
 
 Что вы настраиваете:
 
-- URL удалённого Gateway (`ws://...`)
+- URL удалённого Gateway (шлюз) (`ws://...`)
 - Токен, если на удалённом шлюзе требуется аутентификация (рекомендуется)
 
 <Note>
@@ -128,7 +133,12 @@ sidebarTitle: "Справочник по CLI"
     - macOS: проверяет элемент Keychain «Claude Code-credentials»
     - Linux и Windows: повторно использует `~/.claude/.credentials.json`, если он присутствует
 
+    ````
+    ```
     На macOS выберите «Always Allow», чтобы запуски через launchd не блокировались.
+    ```
+    ````
+
   
 </Accordion>
   <Accordion title="Anthropic token (setup-token paste)">
@@ -143,14 +153,24 @@ sidebarTitle: "Справочник по CLI"
   <Accordion title="OpenAI Code subscription (OAuth)">
     Поток через браузер; вставьте `code#state`.
 
+    ````
+    ```
     Устанавливает `agents.defaults.model` в `openai-codex/gpt-5.3-codex`, когда модель не задана или `openai/*`.
+    ```
+    ````
+
   
 </Accordion>
   <Accordion title="OpenAI API key">
     Использует `OPENAI_API_KEY`, если он присутствует, или запрашивает ключ, затем сохраняет его в
     `~/.openclaw/.env`, чтобы launchd мог его читать.
 
+    ````
+    ```
     Устанавливает `agents.defaults.model` в `openai/gpt-5.1-codex`, когда модель не задана, `openai/*` или `openai-codex/*`.
+    ```
+    ````
+
   
 </Accordion>
   <Accordion title="xAI (Grok) API key">
@@ -192,15 +212,18 @@ sidebarTitle: "Справочник по CLI"
   
 </Accordion>
   <Accordion title="Custom provider">
-    Работает с OpenAI-совместимыми и Anthropic-совместимыми эндпоинтами.
+Works with OpenAI-compatible and Anthropic-compatible endpoints.
 
-    Non-interactive flags:
+    ```
+    Нефункциональные флаги:
     - `--auth-choice custom-api-key`
     - `--custom-base-url`
     - `--custom-model-id`
-    - `--custom-api-key` (optional; falls back to `CUSTOM_API_KEY`)
-    - `--custom-provider-id` (optional)
-    - `--custom-compatibility <openai|anthropic>` (optional; default `openai`)
+    - `--custom-api-key` (необязательно; используется `CUSTOM_API_KEY`, если не указано)
+    - `--custom-provider-id` (необязательно)
+    - `--custom-compatibility <openai|anthropic>` (необязательно; по умолчанию `openai`)
+    ```
+
   
 </Accordion>
   <Accordion title="Skip">
@@ -222,7 +245,7 @@ sidebarTitle: "Справочник по CLI"
 <Note>
 Совет для headless и серверов: завершите OAuth на машине с браузером, затем скопируйте
 `~/.openclaw/credentials/oauth.json` (или `$OPENCLAW_STATE_DIR/credentials/oauth.json`)
-на хост шлюза.
+на хост шлюза Gateway.
 </Note>
 
 ## Выходные данные и внутренние механизмы
@@ -274,4 +297,3 @@ RPC мастера шлюза Gateway:
 - Хаб онбординга: [Onboarding Wizard (CLI)](/start/wizard)
 - Автоматизация и скрипты: [CLI Automation](/start/wizard-cli-automation)
 - Справочник команд: [`openclaw onboard`](/cli/onboard)
-

@@ -1,4 +1,9 @@
 ---
+summary: "Справка CLI для `openclaw browser` (профили, вкладки, действия, реле расширения)"
+read_when:
+  - Вы используете `openclaw browser` и хотите примеры для типовых задач
+  - Вы хотите управлять браузером, запущенным на другой машине, через хост узла
+  - Вы хотите использовать реле расширения Chrome (подключение/отключение через кнопку на панели инструментов)
 title: "браузер"
 ---
 
@@ -28,7 +33,7 @@ openclaw browser --browser-profile openclaw open https://example.com
 openclaw browser --browser-profile openclaw snapshot
 ```
 
-## Профили
+## Profiles
 
 Профили — это именованные конфигурации маршрутизации браузера. На практике:
 
@@ -100,5 +105,3 @@ openclaw browser extension path
 Используйте `gateway.nodes.browser.mode` для управления автоматической маршрутизацией и `gateway.nodes.browser.node` для закрепления конкретного узла, если подключено несколько.
 
 Безопасность и удалённая настройка: [Browser tool](/tools/browser), [Remote access](/gateway/remote), [Tailscale](/gateway/tailscale), [Security](/gateway/security)
-
-

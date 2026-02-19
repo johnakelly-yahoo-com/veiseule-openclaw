@@ -1,4 +1,7 @@
 ---
+summary: "Configuración y puesta en marcha del bot de chat de Twitch"
+read_when:
+  - Configurar la integración de chat de Twitch para OpenClaw
 title: "Twitch"
 ---
 
@@ -374,5 +377,3 @@ Ejemplo:
 - **500 caracteres** por mensaje (segmentado automáticamente en límites de palabras)
 - El Markdown se elimina antes de la segmentación
 - Sin limitación de velocidad (usa los límites integrados de Twitch)
-
-

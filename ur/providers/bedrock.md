@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw کے ساتھ Amazon Bedrock (Converse API) ماڈلز استعمال کریں"
+read_when:
+  - آپ OpenClaw کے ساتھ Amazon Bedrock ماڈلز استعمال کرنا چاہتے ہیں
+  - آپ کو ماڈل کالز کے لیے AWS اسناد/ریجن سیٹ اپ درکار ہے
 title: "Amazon Bedrock"
 ---
 
@@ -164,5 +168,3 @@ openclaw models list
 - reasoning کی سپورٹ ماڈل پر منحصر ہے؛ موجودہ صلاحیتوں کے لیے Bedrock ماڈل کارڈ چیک کریں۔
 - اگر آپ managed key فلو کو ترجیح دیتے ہیں تو آپ Bedrock کے سامنے ایک OpenAI‑compatible
   پراکسی بھی رکھ سکتے ہیں اور اسے OpenAI فراہم کنندہ کے طور پر کنفیگر کر سکتے ہیں۔
-
-

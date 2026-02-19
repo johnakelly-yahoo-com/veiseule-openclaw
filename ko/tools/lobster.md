@@ -1,17 +1,21 @@
 ---
 title: Lobster
-description: "OpenClaw를 위한 타입드 워크플로 런타임 — 승인 게이트를 갖춘 조합형 파이프라인."
+summary: "재개 가능한 승인 게이트를 갖춘 OpenClaw용 타입드 워크플로 런타임."
+description: OpenClaw를 위한 타입드 워크플로 런타임 — 승인 게이트를 갖춘 조합형 파이프라인.
+read_when:
+  - 명시적 승인을 포함한 결정적 다단계 워크플로가 필요할 때
+  - 이전 단계를 다시 실행하지 않고 워크플로를 재개해야 할 때
 ---
 
 # Lobster
 
 Lobster는 OpenClaw가 다단계 도구 시퀀스를 명시적 승인 체크포인트가 포함된 단일의 결정적 작업으로 실행할 수 있게 해주는 워크플로 셸입니다.
 
-## 개요
+## Hook
 
 어시스턴트는 스스로를 관리하는 도구를 만들 수 있습니다. 워크플로를 요청하면, 30분 뒤에는 하나의 호출로 실행되는 CLI와 파이프라인을 갖게 됩니다. Lobster는 빠진 퍼즐 조각입니다: 결정적 파이프라인, 명시적 승인, 재개 가능한 상태.
 
-## 필요성
+## Why
 
 오늘날 복잡한 워크플로는 많은 왕복 도구 호출을 요구합니다. 각 호출은 토큰을 소모하고, LLM이 모든 단계를 오케스트레이션해야 합니다. Lobster는 그 오케스트레이션을 타입드 런타임으로 옮깁니다:
 
@@ -335,5 +339,3 @@ OpenProse는 Lobster와 잘 어울립니다: `/prose`을 사용해 다중 에이
 
 - Thread: [https://x.com/plattenschieber/status/2014508656335770033](https://x.com/plattenschieber/status/2014508656335770033)
 - Repo: [https://github.com/bloomedai/brain-cli](https://github.com/bloomedai/brain-cli)
-
-

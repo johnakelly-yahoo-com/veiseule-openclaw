@@ -1,15 +1,19 @@
 ---
-title: "Rivojlantirish kanallari"
+summary: "Stable, beta, and dev channels: semantics, switching, and tagging"
+read_when:
+  - You want to switch between stable/beta/dev
+  - You are tagging or publishing prereleases
+title: "Development Channels"
 ---
 
-# Rivojlantirish kanallari
+# Development channels
 
-Oxirgi yangilanish: 2026-01-21
+Last updated: 2026-01-21
 
-OpenClaw uchta yangilanish kanalini taqdim etadi:
+OpenClaw ships three update channels:
 
 - **stable**: npm dist-tag `latest`.
-- **beta**: npm dist-tag `beta` (sinovdan o‘tayotgan buildlar).
+- **beta**: npm dist-tag `beta` (builds under test).
 - **dev**: `main` (git) tarmog‘ining harakatlanuvchi boshi. npm dist-tag: `dev` (nashr qilinganda).
 
 Biz buildlarni **beta** ga jo‘natamiz, ularni sinovdan o‘tkazamiz, so‘ng **tekshirilgan buildni `latest` ga ko‘taramiz** — versiya raqamini o‘zgartirmasdan. npm o‘rnatishlari uchun haqiqat manbai dist-taglardir.
@@ -66,5 +70,3 @@ Beta va dev buildlarida macOS ilovasi relizi **bo‘lmasligi** mumkin. Bu muammo
 
 - Git tegi va npm dist-tagi baribir nashr qilinishi mumkin.
 - Reliz eslatmalari yoki changelog’da “bu beta uchun macOS build yo‘q” deb ko‘rsating.
-
-

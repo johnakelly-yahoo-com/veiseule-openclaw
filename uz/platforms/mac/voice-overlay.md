@@ -1,5 +1,8 @@
 ---
-title: "Ovozli overlay xatti-harakatini sozlash"
+summary: "O‘rnatish va konfiguratsiya yangilanishlari lokal Mac’da emas, gateway hostda amalga oshiriladi."
+read_when:
+  - Wake-word va push-to-talk ustma-ust kelganda ovozli overlay hayotiy sikli
+title: "Voice Overlay"
 ---
 
 # Voice Overlay
@@ -33,7 +36,7 @@ Voice Overlay Lifecycle (macOS) 1. Maqsad: uyg‘otuvchi so‘z va push-to-talk 
    - 25. `endCapture`da: agar kesilgan matn bo‘sh bo‘lsa → dismiss; aks holda `performSend(session:)` (send chime’ni bir marta chaladi, yo‘naltiradi, yopadi).
    - 26. Push-to-talk: kechikishsiz; uyg‘otuvchi so‘z: auto-send uchun ixtiyoriy kechikish.
    - 27. Push-to-talk tugagach, uyg‘otuvchi so‘z darhol qayta ishga tushmasligi uchun wake runtime’ga qisqa cooldown qo‘llanadi.
-5. 28. **Logging**
+5. **Logging**
    - 29. Coordinator `bot.molt` subsistemasida `voicewake.overlay` va `voicewake.chime` kategoriyalarida `.info` loglarini chiqaradi.
    - 30. Asosiy hodisalar: `session_started`, `adopted_by_push_to_talk`, `partial`, `finalized`, `send`, `dismiss`, `cancel`, `cooldown`.
 
@@ -56,5 +59,3 @@ Voice Overlay Lifecycle (macOS) 1. Maqsad: uyg‘otuvchi so‘z va push-to-talk 
 3. 39. `VoicePushToTalk`ni mavjud sessiyalarni o‘zlashtirishga va qo‘yib yuborilganda `endCapture`ni chaqirishga refaktor qiling; runtime cooldown’ni qo‘llang.
 4. 40. `VoiceWakeOverlayController`ni publisher’ga ulang; runtime/PTT’dan to‘g‘ridan-to‘g‘ri chaqiriqlarni olib tashlang.
 5. 41. Sessiyani o‘zlashtirish, cooldown va bo‘sh-matn dismiss uchun integratsion testlar qo‘shing.
-
-

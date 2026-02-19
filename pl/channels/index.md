@@ -1,4 +1,8 @@
 ---
+summary: "Platformy komunikacyjne, z którymi OpenClaw może się łączyć"
+read_when:
+  - Chcesz wybrać kanał czatu dla OpenClaw
+  - Potrzebujesz szybkiego przeglądu obsługiwanych platform komunikacyjnych
 title: "Kanały czatu"
 ---
 
@@ -12,6 +16,7 @@ Tekst jest obsługiwany wszędzie; obsługa multimediów i reakcji różni się 
 - [WhatsApp](/channels/whatsapp) — Najpopularniejszy; używa Baileys i wymaga parowania QR.
 - [Telegram](/channels/telegram) — Bot API przez grammY; obsługuje grupy.
 - [Discord](/channels/discord) — Discord Bot API + Gateway; obsługuje serwery, kanały i DM-y.
+- [IRC](/channels/irc) — Klasyczne serwery IRC; kanały + DM z kontrolą parowania/listy dozwolonych.
 - [Slack](/channels/slack) — SDK Bolt; aplikacje obszaru roboczego.
 - [Feishu](/channels/feishu) — Bot Feishu/Lark przez WebSocket (wtyczka, instalowana osobno).
 - [Google Chat](/channels/googlechat) — Aplikacja Google Chat API przez webhook HTTP.
@@ -24,9 +29,9 @@ Tekst jest obsługiwany wszędzie; obsługa multimediów i reakcji różni się 
 - [Nextcloud Talk](/channels/nextcloud-talk) — Samohostowany czat przez Nextcloud Talk (wtyczka, instalowana osobno).
 - [Matrix](/channels/matrix) — Protokół Matrix (wtyczka, instalowana osobno).
 - [Nostr](/channels/nostr) — Zdecentralizowane DM-y przez NIP-04 (wtyczka, instalowana osobno).
-- [Tlon](/channels/tlon) — Komunikator oparty na Urbit (wtyczka, instalowana osobno).
 - [Twitch](/channels/twitch) — Czat Twitch przez połączenie IRC (wtyczka, instalowana osobno).
 - [Zalo](/channels/zalo) — Bot Zalo Bot API; popularny komunikator w Wietnamie (wtyczka, instalowana osobno).
+- [Tlon](/channels/tlon) — Komunikator oparty na Urbit (wtyczka, instalowana osobno).
 - [Zalo Personal](/channels/zalouser) — Konto osobiste Zalo przez logowanie QR (wtyczka, instalowana osobno).
 - [WebChat](/web/webchat) — Interfejs WebChat Gateway przez WebSocket.
 
@@ -40,5 +45,3 @@ Tekst jest obsługiwany wszędzie; obsługa multimediów i reakcji różni się 
 - Wewnętrzne szczegóły Telegrama: [uwagi grammY](/channels/grammy).
 - Rozwiązywanie problemów: [Rozwiązywanie problemów z kanałami](/channels/troubleshooting).
 - Dostawcy modeli są udokumentowani osobno; zobacz [Dostawcy modeli](/providers/models).
-
-

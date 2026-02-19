@@ -1,4 +1,8 @@
 ---
+summary: "Mag-broadcast ng mensahe sa WhatsApp sa maraming agent"
+read_when:
+  - Pagko-configure ng broadcast groups
+  - Pag-debug ng mga sagot ng maraming agent sa WhatsApp
 status: experimental
 title: "Mga Broadcast Group"
 ---
@@ -10,15 +14,15 @@ title: "Mga Broadcast Group"
 
 ## Pangkalahatang-ideya
 
-Pinapahintulutan ng mga Broadcast Group ang maraming agent na magproseso at tumugon sa parehong mensahe nang sabay-sabay. Nagbibigay-daan ito sa iyo na bumuo ng mga espesyalistang koponan ng agent na nagtutulungan sa iisang WhatsApp group o DM — gamit lamang ang isang numero ng telepono.
+Broadcast Groups enable multiple agents to process and respond to the same message simultaneously. This allows you to create specialized agent teams that work together in a single WhatsApp group or DM — all using one phone number.
 
 Kasalukuyang saklaw: **WhatsApp lamang** (web channel).
 
-Ang mga broadcast group ay sinusuri pagkatapos ng mga allowlist ng channel at mga panuntunan sa pag-activate ng grupo. Sa mga WhatsApp group, nangangahulugan ito na nangyayari ang mga broadcast kapag karaniwang sasagot ang OpenClaw (halimbawa: kapag na-mention, depende sa mga setting ng iyong grupo).
+Broadcast groups are evaluated after channel allowlists and group activation rules. In WhatsApp groups, this means broadcasts happen when OpenClaw would normally reply (for example: on mention, depending on your group settings).
 
 ## Mga Gamit na Sitwasyon
 
-### 1. Mga Espesyalistang Koponan ng Agent
+### 1. Specialized Agent Teams
 
 Mag-deploy ng maraming agent na may atomic at nakatutok na mga responsibilidad:
 
@@ -33,7 +37,7 @@ Agents:
 
 Pinoproseso ng bawat agent ang parehong mensahe at nagbibigay ng kani-kanilang specialized na perspektibo.
 
-### 2. Suporta sa Maraming Wika
+### 2. Multi-Language Support
 
 ```
 Group: "International Support"
@@ -43,7 +47,7 @@ Agents:
   - Agent_ES (responds in Spanish)
 ```
 
-### 3. Mga Workflow para sa Quality Assurance
+### 3. Quality Assurance Workflows
 
 ```
 Group: "Customer Support"
@@ -52,7 +56,7 @@ Agents:
   - QAAgent (reviews quality, only responds if issues found)
 ```
 
-### 4. Awtomasyon ng mga Gawain
+### 4. Task Automation
 
 ```
 Group: "Project Management"
@@ -436,5 +440,3 @@ Mga planong feature:
 - [Multi-Agent Configuration](/tools/multi-agent-sandbox-tools)
 - [Routing Configuration](/channels/channel-routing)
 - [Session Management](/concepts/sessions)
-
-

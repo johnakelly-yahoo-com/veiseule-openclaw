@@ -1,4 +1,9 @@
-------
+---
+title: "AGENTS.md-Vorlage"
+summary: "„Arbeitsbereich-Vorlage für AGENTS.md“"
+read_when:
+  - Manuelles Bootstrapping eines Arbeitsbereichs
+---
 
 # AGENTS.md – Ihr Arbeitsbereich
 
@@ -212,5 +217,3 @@ Das Ziel: hilfreich sein, ohne zu nerven. Melden Sie sich ein paar Mal am Tag, e
 ## Machen Sie es zu Ihrem
 
 Dies ist ein Ausgangspunkt. Ergänzen Sie eigene Konventionen, Stil und Regeln, während Sie herausfinden, was funktioniert.
-
-

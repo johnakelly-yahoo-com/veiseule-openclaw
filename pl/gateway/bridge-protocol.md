@@ -1,4 +1,9 @@
 ---
+summary: "Protokół Bridge (węzły legacy): TCP JSONL, parowanie, RPC o ograniczonym zakresie"
+read_when:
+  - Budowanie lub debugowanie klientów węzłów (tryb węzła iOS/Android/macOS)
+  - Badanie problemów z parowaniem lub uwierzytelnianiem mostu
+  - Audytowanie powierzchni węzła udostępnionej przez gateway
 title: "Protokół Bridge"
 ---
 
@@ -30,7 +35,9 @@ Legacy klucze konfiguracyjne `bridge.*` nie są już częścią schematu konfigu
 - Legacy domyślny port nasłuchu wynosił `18790` (bieżące kompilacje nie uruchamiają mostu TCP).
 
 Gdy TLS jest włączony, rekordy TXT wykrywania zawierają `bridgeTls=1` oraz
-`bridgeTlsSha256`, aby węzły mogły przypiąć certyfikat.
+`bridgeTlsSha256`, aby węzły mogły przypiąć certyfikat. Należy pamiętać, że rekordy TXT Bonjour/mDNS są
+nieuwierzytelnione; klienci nie mogą traktować reklamowanego odcisku palca jako
+autorytatywnego pinu bez wyraźnej intencji użytkownika lub innej weryfikacji poza kanałem.
 
 ## Uścisk dłoni + parowanie
 
@@ -80,5 +87,3 @@ Pola ładunku (wszystkie opcjonalne, o ile nie zaznaczono inaczej):
 ## Wersjonowanie
 
 Bridge jest obecnie **implicit v1** (brak negocjacji min/max). Oczekiwana jest zgodność wsteczna; przed jakimikolwiek zmianami niezgodnymi wstecz należy dodać pole wersji protokołu Bridge.
-
-

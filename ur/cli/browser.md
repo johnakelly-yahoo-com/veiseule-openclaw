@@ -1,4 +1,9 @@
 ---
+summary: "`openclaw browser` کے لیے CLI حوالہ (پروفائلز، ٹیبز، ایکشنز، ایکسٹینشن ریلے)"
+read_when:
+  - آپ `openclaw browser` استعمال کرتے ہیں اور عام کاموں کے لیے مثالیں چاہتے ہیں
+  - آپ کسی دوسرے مشین پر چلنے والے براؤزر کو node host کے ذریعے کنٹرول کرنا چاہتے ہیں
+  - آپ Chrome ایکسٹینشن ریلے استعمال کرنا چاہتے ہیں (ٹول بار بٹن کے ذریعے attach/detach)
 title: "browser"
 ---
 
@@ -100,5 +105,3 @@ openclaw browser extension path
 آٹو روٹنگ کو کنٹرول کرنے کے لیے `gateway.nodes.browser.mode` استعمال کریں اور اگر متعدد nodes منسلک ہوں تو کسی مخصوص node کو پن کرنے کے لیے `gateway.nodes.browser.node` استعمال کریں۔
 
 سکیورٹی + ریموٹ سیٹ اپ: [Browser tool](/tools/browser)، [Remote access](/gateway/remote)، [Tailscale](/gateway/tailscale)، [Security](/gateway/security)
-
-

@@ -1,4 +1,6 @@
 ---
+summary: "दूरस्थ Gateway से कनेक्ट करने के लिए OpenClaw.app हेतु SSH टनल सेटअप"
+read_when: "SSH के माध्यम से macOS ऐप को दूरस्थ Gateway से कनेक्ट करते समय"
 title: "Remote Gateway सेटअप"
 ---
 
@@ -170,5 +172,3 @@ launchctl bootout gui/$UID/bot.molt.ssh-tunnel
 | `RunAtLoad`                          | एजेंट लोड होने पर टनल प्रारंभ करता है                                           |
 
 OpenClaw.app आपके क्लाइंट मशीन पर `ws://127.0.0.1:18789` से कनेक्ट होता है। SSH टनल उस कनेक्शन को रिमोट मशीन के पोर्ट 18789 पर फ़ॉरवर्ड करती है जहाँ गेटवे चल रहा है।
-
-

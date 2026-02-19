@@ -1,4 +1,7 @@
 ---
+summary: "تدفّق تطبيق macOS للتحكّم في Gateway لـ OpenClaw عن بُعد عبر SSH"
+read_when:
+  - إعداد أو تصحيح أخطاء التحكّم عن بُعد في mac
 title: "التحكم عن بعد"
 ---
 
@@ -78,5 +81,3 @@ openclaw nodes notify --node <id> --title "Ping" --body "Remote gateway ready" -
 ```
 
 لم يعد هناك مفتاح «صوت افتراضي» عام في التطبيق؛ يختار المستدعون صوتًا (أو بدون صوت) لكل طلب.
-
-

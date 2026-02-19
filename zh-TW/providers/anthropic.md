@@ -1,4 +1,8 @@
 ---
+summary: "在 OpenClaw 中透過 API 金鑰或 setup-token 使用 Anthropic Claude"
+read_when:
+  - 你想在 OpenClaw 中使用 Anthropic 模型
+  - 你想使用 setup-token 而非 API 金鑰
 title: "Anthropic"
 ---
 
@@ -6,6 +10,7 @@ title: "Anthropic"
 
 Anthropic 建構 **Claude** 模型家族，並透過 API 提供存取。
 在 OpenClaw 中，你可以使用 API 金鑰或 **setup-token** 進行身分驗證。
+In OpenClaw you can authenticate with an API key or a **setup-token**.
 In OpenClaw you can authenticate with an API key or a **setup-token**.
 
 ## 選項 A：Anthropic API 金鑰
@@ -35,15 +40,15 @@ openclaw onboard --anthropic-api-key "$ANTHROPIC_API_KEY"
 
 ## 提示詞快取（Anthropic API）
 
-OpenClaw 支援 Anthropic 的提示快取功能。此功能**僅限 API 使用**；訂閱驗證不會套用快取設定。
+OpenClaw supports Anthropic's prompt caching feature. This is **API-only**; subscription auth does not honor cache settings.
 
 ### 設定
 
 在你的模型設定中使用 `cacheRetention` 參數：
 
-| 值       | 快取時間 | 說明            |
+| 值       | Cache Duration | Description            |
 | ------- | -------------- | ---------------------- |
-| `none`  | 不使用快取     | 停用提示快取 |
+| `none`  | No caching     | Disable prompt caching |
 | `short` | 5 分鐘           | API 金鑰驗證的預設值           |
 | `long`  | 1 小時           | 延長快取（需要 beta 旗標）       |
 
@@ -61,11 +66,11 @@ OpenClaw 支援 Anthropic 的提示快取功能。此功能**僅限 API 使用**
 }
 ```
 
-### 預設值
+### Defaults
 
-使用 Anthropic API 金鑰驗證時，OpenClaw 會自動為所有 Anthropic 模型套用 `cacheRetention: "short"`（5 分鐘快取）。你可以在設定中明確設定 `cacheRetention` 以覆寫此行為。 You can override this by explicitly setting `cacheRetention` in your config.
+使用 Anthropic API 金鑰驗證時，OpenClaw 會自動為所有 Anthropic 模型套用 `cacheRetention: "short"`（5 分鐘快取）。你可以在設定中明確設定 `cacheRetention` 以覆寫此行為。 You can override this by explicitly setting `cacheRetention` in your config. You can override this by explicitly setting `cacheRetention` in your config.
 
-### 舊版參數
+### Legacy parameter
 
 較舊的 `cacheControlTtl` 參數仍支援以維持向後相容性：
 
@@ -82,7 +87,7 @@ OpenClaw 在 Anthropic API 請求中包含 `extended-cache-ttl-2025-04-11` beta 
 
 ### 取得 setup-token 的位置
 
-Setup-token 由 **Claude Code CLI** 建立，而非 Anthropic Console。你可以在 **任何機器** 上執行： You can run this on **any machine**:
+Setup-token 由 **Claude Code CLI** 建立，而非 Anthropic Console。你可以在 **任何機器** 上執行： You can run this on **any machine**: You can run this on **any machine**:
 
 ```bash
 claude setup-token
@@ -121,11 +126,11 @@ openclaw onboard --auth-choice setup-token
 - If you see “OAuth token refresh failed …” on a Claude subscription, re-auth with a setup-token. 若在 Claude 訂閱中看到「OAuth token refresh failed …」，請使用 setup-token 重新驗證。請參閱 [/gateway/troubleshooting#oauth-token-refresh-failed-anthropic-claude-subscription](/gateway/troubleshooting#oauth-token-refresh-failed-anthropic-claude-subscription)。
 - 驗證細節與重用規則請見 [/concepts/oauth](/concepts/oauth)。
 
-## 疑難排解
+## Troubleshooting
 
 **401 錯誤／權杖突然失效**
 
-- Claude 訂閱驗證可能會過期或被撤銷。請重新執行 `claude setup-token`
+- Claude subscription auth can expire or be revoked. Claude 訂閱驗證可能會過期或被撤銷。請重新執行 `claude setup-token`
   and paste it into the **gateway host**.
 - 若 Claude CLI 登入存在於不同的機器上，請在閘道器主機上使用
   `openclaw models auth paste-token --provider anthropic`。
@@ -146,5 +151,3 @@ openclaw onboard --auth-choice setup-token
 - 新增另一個 Anthropic 設定檔，或等待冷卻結束。
 
 更多內容：[/gateway/troubleshooting](/gateway/troubleshooting) 與 [/help/faq](/help/faq)。
-
-

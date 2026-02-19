@@ -1,4 +1,7 @@
 ---
+summary: "WebSocket Gateway 閘道器架構、元件與客戶端流程"
+read_when:
+  - 在處理 Gateway 閘道器協定、客戶端或傳輸時
 title: "Gateway 閘道器架構"
 ---
 
@@ -16,7 +19,10 @@ title: "Gateway 閘道器架構"
 - **Nodes**（macOS/iOS/Android/無介面）也透過 **WebSocket** 連線，但
   會宣告 `role: node` 並附上明確的能力／命令。
 - 每台主機僅有一個 Gateway 閘道器；它是唯一會開啟 WhatsApp 工作階段的地方。
-- **畫布主機**（預設 `18793`）提供可由代理程式編輯的 HTML 與 A2UI。
+- **canvas host** 由 Gateway HTTP 伺服器提供，路徑為：
+  - `/__openclaw__/canvas/`（agent 可編輯的 HTML/CSS/JS）
+  - `/__openclaw__/a2ui/`（A2UI host）
+    使用與 Gateway 相同的連接埠（預設 `18789`）。
 
 ## 元件與流程
 
@@ -52,22 +58,6 @@ title: "Gateway 閘道器架構"
 ## 連線生命週期（單一客戶端）
 
 ```mermaid
-%%{init: {
-  'theme': 'base',
-  'themeVariables': {
-    'primaryColor': '#ffffff',
-    'primaryTextColor': '#000000',
-    'primaryBorderColor': '#000000',
-    'lineColor': '#000000',
-    'secondaryColor': '#f9f9fb',
-    'tertiaryColor': '#ffffff',
-    'clusterBkg': '#f9f9fb',
-    'clusterBorder': '#000000',
-    'nodeBorder': '#000000',
-    'mainBkg': '#ffffff',
-    'edgeLabelBackground': '#ffffff'
-  }
-}}%%
 sequenceDiagram
     participant Client
     participant Gateway
@@ -131,7 +121,7 @@ sequenceDiagram
 
 - 在遠端設定中可啟用 WS 的 TLS＋選用釘選。
 
-## 22. 操作快照
+## 操作快照
 
 - 啟動：`openclaw gateway`（前景執行，日誌輸出至 stdout）。
 - 健康狀態：透過 WS 的 `health`（亦包含於 `hello-ok`）。
@@ -142,5 +132,3 @@ sequenceDiagram
 - 每台主機僅有一個 Gateway 閘道器控制單一 Baileys 工作階段。
 - 交握為必要；任何非 JSON 或非 connect 的第一個訊框都會被強制關閉。
 - 事件不會重播；客戶端在發生間隙時必須重新整理。
-
-

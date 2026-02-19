@@ -1,4 +1,9 @@
 ---
+summary: "Vägledning för att välja mellan heartbeat och cron-jobb för automatisering"
+read_when:
+  - När du avgör hur återkommande uppgifter ska schemaläggas
+  - När du sätter upp bakgrundsövervakning eller aviseringar
+  - När du optimerar tokenanvändning för periodiska kontroller
 title: "Cron vs Heartbeat"
 ---
 
@@ -275,5 +280,3 @@ openclaw cron add \
 - [Heartbeat](/gateway/heartbeat) – fullständig heartbeat-konfiguration
 - [Cron jobs](/automation/cron-jobs) – fullständig CLI- och API-referens för cron
 - [System](/cli/system) – systemhändelser + heartbeat-kontroller
-
-

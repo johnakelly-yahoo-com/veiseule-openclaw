@@ -1,4 +1,7 @@
 ---
+summary: "6. Agent runtime (ichki pi-mono), ish maydoni shartnomasi va sessiyani ishga tushirish"
+read_when:
+  - 7. Agent runtime’ini, ish maydonini ishga tushirishni yoki sessiya xatti-harakatini o‘zgartirish
 title: "8. Agent Runtime"
 ---
 
@@ -58,7 +61,11 @@ Workspace (majburiy)
 
 ## 42. pi-mono integratsiyasi
 
-43. OpenClaw pi-mono kod bazasining ayrim qismlaridan (modelllar/asboblar) qayta foydalanadi, ammo **sessiyalarni boshqarish, aniqlash va asboblarni ulash OpenClaw’ga tegishli**.
+Ulanish hayotiy sikli (bitta mijoz)
+The queue is checked **after each tool call**; if a queued message is present,
+remaining tool calls from the current assistant message are skipped (error tool
+results with "Skipped due to queued user message."), then the queued user
+message is injected before the next assistant response.
 
 - 44. pi-coding agent runtime yo‘q.
 - 45. `~/.pi/agent` yoki `<workspace>/.pi` sozlamalari hisobga olinmaydi.
@@ -67,7 +74,7 @@ Workspace (majburiy)
 
 47. Sessiya transkriptlari JSONL formatida quyida saqlanadi:
 
-- 48. `~/.openclaw/agents/<agentId>/sessions/<SessionId>.jsonl`
+- `~/.openclaw/agents/<agentId>/sessions/<SessionId>.jsonl`
 
 49. Sessiya ID barqaror bo‘lib, OpenClaw tomonidan tanlanadi.
 50. Meros bo‘lib qolgan Pi/Tau sessiya papkalari **o‘qilmaydi**.
@@ -113,6 +120,4 @@ At minimum, set:
 
 ---
 
-_Keyingi: [Guruh chatlari](/channels/group-messages)_ 🦞
-
-
+_Next: [Group Chats](/channels/group-messages)_ 🦞

@@ -1,4 +1,8 @@
 ---
+summary: "Exec 도구 사용법, stdin 모드 및 TTY 지원"
+read_when:
+  - Exec 도구를 사용하거나 수정할 때
+  - stdin 또는 TTY 동작을 디버깅할 때
 title: "Exec 도구"
 ---
 
@@ -71,8 +75,8 @@ title: "Exec 도구"
 - `host=sandbox`: 컨테이너 내부에서 `sh -lc` (로그인 셸) 을 실행하므로 `/etc/profile` 가 `PATH` 를 재설정할 수 있습니다.
   OpenClaw 는 내부 환경 변수를 통해 프로파일 소싱 이후 `env.PATH` 를 앞에 추가합니다 (셸 보간 없음). `tools.exec.pathPrepend` 도 여기 적용됩니다.
 - `host=node`: 차단되지 않은 환경 변수 오버라이드만 노드로 전송됩니다. `env.PATH` 오버라이드는
-  호스트 실행에서 거부됩니다. 헤드리스 노드 호스트는 노드 호스트 PATH 를 앞에 추가하는 경우에만 `PATH` 를 허용합니다
-  (대체 없음). macOS 노드는 `PATH` 오버라이드를 완전히 제거합니다.
+  호스트 실행에서 거부됩니다. 노드에서 추가 PATH 항목이 필요한 경우,
+  노드 호스트 서비스 환경(systemd/launchd)을 구성하거나 표준 위치에 도구를 설치하세요.
 
 에이전트별 노드 바인딩 (config 에서 에이전트 목록 인덱스 사용):
 
@@ -113,10 +117,10 @@ Gateway(게이트웨이) 는 시스템 이벤트 (`Exec finished` / `Exec denied
 ## 허용 목록 + 안전 바이너리
 
 허용 목록 강제는 **해결된 바이너리 경로만** 일치시킵니다 (basename 일치 없음). `security=allowlist` 인 경우 셸 명령은 모든 파이프라인 세그먼트가
-허용 목록에 있거나 안전 바이너리일 때만 자동 허용됩니다. 체이닝 (`;`, `&&`, `||`) 과 리다이렉션은
-허용 목록 모드에서 거부됩니다.
+허용 목록에 있거나 안전 바이너리일 때만 자동 허용됩니다. 체이닝(`;`, `&&`, `||`) 및 리디렉션은 allowlist 모드에서 허용되지 않으며, 모든 최상위 세그먼트가 allowlist( safe bins 포함)를 충족하는 경우에만 허용됩니다.
+리디렉션은 계속해서 지원되지 않습니다.
 
-## 예시
+## Examples
 
 포그라운드:
 
@@ -171,5 +175,4 @@ Gateway(게이트웨이) 는 시스템 이벤트 (`Exec finished` / `Exec denied
 - OpenAI/OpenAI Codex 모델에서만 사용 가능합니다.
 - 도구 정책은 계속 적용되며, `allow: ["exec"]` 는 암묵적으로 `apply_patch` 를 허용합니다.
 - Config 는 `tools.exec.applyPatch` 아래에 위치합니다.
-
-
+- `tools.exec.applyPatch.workspaceOnly`의 기본값은 `true`(워크스페이스 내부로 제한)입니다. `apply_patch`가 워크스페이스 디렉터리 외부에 쓰기/삭제를 수행하도록 의도한 경우에만 `false`로 설정하세요.

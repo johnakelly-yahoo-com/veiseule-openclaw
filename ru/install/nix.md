@@ -1,4 +1,9 @@
 ---
+summary: "Декларативная установка OpenClaw с помощью Nix"
+read_when:
+  - Вам нужны воспроизводимые установки с возможностью отката
+  - Вы уже используете Nix/NixOS/Home Manager
+  - Вы хотите, чтобы всё было закреплено версиями и управлялось декларативно
 title: "Nix"
 ---
 
@@ -91,5 +96,3 @@ apps/macos/Sources/OpenClaw/Resources/Info.plist
 - [nix-openclaw](https://github.com/openclaw/nix-openclaw) — полное руководство по настройке
 - [Мастер](/start/wizard) — настройка CLI без Nix
 - [Docker](/install/docker) — контейнерная настройка
-
-

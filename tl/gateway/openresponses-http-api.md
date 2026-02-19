@@ -1,4 +1,8 @@
 ---
+summary: "I-expose ang OpenResponses-compatible na /v1/responses HTTP endpoint mula sa Gateway"
+read_when:
+  - Pag-integrate ng mga client na nagsasalita ng OpenResponses API
+  - Gusto mo ng item-based inputs, client tool calls, o SSE events
 title: "OpenResponses API"
 ---
 
@@ -6,7 +10,7 @@ title: "OpenResponses API"
 
 Maaaring mag-serve ang Gateway ng OpenClaw ng isang OpenResponses-compatible `POST /v1/responses` endpoint.
 
-Ang endpoint na ito ay **hindi naka-enable bilang default**. I-enable muna ito sa config.
+This endpoint is **disabled by default**. Enable it in config first.
 
 - `POST /v1/responses`
 - Parehong port ng Gateway (WS + HTTP multiplex): `http://<gateway-host>:<port>/v1/responses`
@@ -24,6 +28,7 @@ Mga tala:
 
 - Kapag `gateway.auth.mode="token"`, gamitin ang `gateway.auth.token` (o `OPENCLAW_GATEWAY_TOKEN`).
 - Kapag `gateway.auth.mode="password"`, gamitin ang `gateway.auth.password` (o `OPENCLAW_GATEWAY_PASSWORD`).
+- Kapag naka-configure ang `gateway.auth.rateLimit` at masyadong maraming auth failures ang naganap, ang endpoint ay magbabalik ng `429` na may `Retry-After`.
 
 ## Pagpili ng agent
 
@@ -183,6 +188,10 @@ Mga default sa pag-fetch ng URL:
 - `files.allowUrl`: `true`
 - `images.allowUrl`: `true`
 - Ang mga request ay may bantay (DNS resolution, pag-block ng private IP, mga limitasyon sa redirect, mga timeout).
+- Ang mga request ay may bantay (DNS resolution, pag-block ng private IP, mga limitasyon sa redirect, mga timeout).
+- Sinusuportahan ang mga opsyonal na hostname allowlist para sa bawat uri ng input (`files.urlAllowlist`, `images.urlAllowlist`).
+  - Eksaktong host: `"cdn.example.com"`
+  - Wildcard subdomains: `"*.assets.example.com"` (hindi kasama ang apex)
 
 ## Mga limitasyon ng file + image (config)
 
@@ -233,6 +242,7 @@ Maaaring i-tune ang mga default sa ilalim ng `gateway.http.endpoints.responses`:
 Mga default kapag wala:
 
 - `maxBodyBytes`: 20MB
+- `maxUrlParts`: 8
 - `files.maxBytes`: 5MB
 - `files.maxChars`: 200k
 - `files.maxRedirects`: 3
@@ -244,9 +254,16 @@ Mga default kapag wala:
 - `images.maxRedirects`: 3
 - `images.timeoutMs`: 10s
 
+Tala sa seguridad:
+
+- Ang mga URL allowlist ay ipinapatupad bago ang fetch at sa mga redirect hop.
+- Ang pag-allowlist ng isang hostname ay hindi nagbi-bypass ng pag-block sa private/internal IP.
+- Para sa mga gateway na exposed sa internet, magpatupad ng network egress controls bukod pa sa mga app-level guard.
+  Tingnan ang [Security](/gateway/security).
+
 ## Streaming (SSE)
 
-Itakda ang `stream: true` upang makatanggap ng Server-Sent Events (SSE):
+Mga uri ng event na kasalukuyang inilalabas:
 
 - `Content-Type: text/event-stream`
 - Ang bawat event line ay `event: <type>` at `data: <json>`
@@ -265,13 +282,13 @@ Mga uri ng event na kasalukuyang inilalabas:
 - `response.completed`
 - `response.failed` (kapag may error)
 
-## Paggamit
-
-Ang `usage` ay napupunan kapag ang underlying provider ay nag-uulat ng mga bilang ng token.
-
 ## Mga Error
 
 Gumagamit ang mga error ng isang JSON object na tulad ng:
+
+## Mga Error
+
+Mga karaniwang kaso:
 
 ```json
 { "error": { "message": "...", "type": "invalid_request_error" } }
@@ -311,5 +328,3 @@ curl -N http://127.0.0.1:18789/v1/responses \
     "input": "hi"
   }'
 ```
-
-

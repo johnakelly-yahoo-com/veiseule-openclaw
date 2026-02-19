@@ -1,5 +1,7 @@
 ---
+summary: "„Routing wieloagentowy: izolowane agenty, konta kanałów i powiązania”"
 title: Routing wieloagentowy
+read_when: "„Gdy chcesz mieć wiele izolowanych agentów (obszary robocze + uwierzytelnianie) w jednym procesie Gateway.”"
 status: active
 ---
 
@@ -123,11 +125,15 @@ Uwagi:
 Powiązania są **deterministyczne** i obowiązuje zasada **najbardziej szczegółowe wygrywa**:
 
 1. Dopasowanie `peer` (dokładny identyfikator DM/grupy/kanału)
-2. `guildId` (Discord)
-3. `teamId` (Slack)
-4. Dopasowanie `accountId` dla kanału
-5. Dopasowanie na poziomie kanału (`accountId: "*"`)
-6. Powrót do agenta domyślnego (`agents.list[].default`, w przeciwnym razie pierwszy wpis listy, domyślnie: `main`)
+2. Dopasowanie `parentPeer` (dziedziczenie wątku)
+3. `guildId + roles` (routing ról Discord)
+4. `guildId` (Discord)
+5. `teamId` (Slack)
+6. Dopasowanie `accountId` dla kanału
+7. Dopasowanie na poziomie kanału (`accountId: "*"`)
+8. Powrót do agenta domyślnego (`agents.list[].default`, w przeciwnym razie pierwszy wpis listy, domyślnie: `main`)
+
+Jeśli powiązanie ustawia wiele pól dopasowania (na przykład `peer` + `guildId`), wszystkie określone pola są wymagane (semantyka `AND`).
 
 ## Wiele kont / numerów telefonów
 
@@ -381,5 +387,3 @@ Jeśli potrzebujesz granic per agent, użyj `agents.list[].tools`, aby zabronić
 Do targetowania grup użyj `agents.list[].groupChat.mentionPatterns`, aby wzmianki @ mapowały się jednoznacznie do zamierzonego agenta.
 
 Zobacz [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools), aby zapoznać się ze szczegółowymi przykładami.
-
-

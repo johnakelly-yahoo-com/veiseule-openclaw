@@ -1,4 +1,7 @@
 ---
+summary: "Projektets ursprung, bidragsgivare och licens."
+read_when:
+  - Du vill ha projektets bakgrundshistoria eller bidragsgivarcredits
 title: "Erkännanden"
 ---
 
@@ -22,5 +25,3 @@ OpenClaw = CLAW + TARDIS, eftersom varje rymdhummer behöver en tids- och rymdma
 MIT – Fri som en hummer i havet.
 
 > "Vi är alla bara att leka med våra egna uppmaningar." (Ett AI, förmodligen högt på tokens)
-
-

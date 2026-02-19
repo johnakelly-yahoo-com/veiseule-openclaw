@@ -1,24 +1,56 @@
 ---
+summary: "Socket या HTTP webhook मोड के लिए Slack सेटअप"
+read_when:
+  - Slack सेटअप करना या Slack socket/HTTP मोड का डिबग करना
 title: "Slack"
 ---
 
 # Slack
 
-## Socket मोड (डिफ़ॉल्ट)
+स्थिति: Slack ऐप इंटीग्रेशन के माध्यम से DMs + चैनलों के लिए प्रोडक्शन-रेडी। डिफ़ॉल्ट मोड Socket Mode है; HTTP Events API मोड भी समर्थित है।
 
-### त्वरित सेटअप (शुरुआती)
+<CardGroup cols={3}>
+  <Card title="Pairing" icon="link" href="/channels/pairing">
+    Slack DMs डिफ़ॉल्ट रूप से pairing मोड में रहते हैं।
+  
+</Card>
+  <Card title="Slash commands" icon="terminal" href="/tools/slash-commands">
+    नेटिव कमांड व्यवहार और कमांड कैटलॉग।
+  
+</Card>
+  <Card title="Channel troubleshooting" icon="wrench" href="/channels/troubleshooting">
+    क्रॉस-चैनल डायग्नोस्टिक्स और रिपेयर प्लेबुक्स।
+  
+</Card>
+</CardGroup>
 
-1. एक Slack ऐप बनाएँ और **Socket Mode** सक्षम करें।
-2. एक **App Token** (`xapp-...`) और **Bot Token** (`xoxb-...`) बनाएँ।
-3. OpenClaw के लिए टोकन सेट करें और Gateway प्रारंभ करें।
+## त्वरित सेटअप
 
-न्यूनतम विन्यास:
+<Tabs>
+  <Tab title="Socket Mode (default)">
+    <Steps>
+      <Step title="Create Slack app and tokens">
+        Slack ऐप सेटिंग्स में:
+
+
+        ```
+        {
+          channels: {
+            slack: {
+              enabled: true,
+              appToken: "xapp-...",
+              botToken: "xoxb-...",
+            },
+          },
+        }
+        ```
 
 ```json5
 {
   channels: {
     slack: {
       enabled: true,
+      mode: "socket",
       appToken: "xapp-...",
       botToken: "xoxb-...",
     },
@@ -26,115 +58,61 @@ title: "Slack"
 }
 ```
 
-### सेटअप
+        ```
+            Env फॉलबैक (केवल डिफ़ॉल्ट अकाउंट):
+        ```
 
-1. [https://api.slack.com/apps](https://api.slack.com/apps) पर एक Slack ऐप बनाएँ (From scratch)।
-2. 8. **Socket Mode** → चालू करें। 9. फिर **Basic Information** → **App-Level Tokens** → **Generate Token and Scopes** पर जाएँ और `connections:write` स्कोप चुनें। 10. **App Token** (`xapp-...`) कॉपी करें।
-3. 11. **OAuth & Permissions** → बॉट टोकन स्कोप्स जोड़ें (नीचे दिए गए मैनिफेस्ट का उपयोग करें)। 12. **Install to Workspace** पर क्लिक करें। 13. **Bot User OAuth Token** (`xoxb-...`) कॉपी करें।
-4. 14. वैकल्पिक: **OAuth & Permissions** → **User Token Scopes** जोड़ें (नीचे दी गई केवल-पढ़ने योग्य सूची देखें)। 15. ऐप को पुनः इंस्टॉल करें और **User OAuth Token** (`xoxp-...`) कॉपी करें।
-5. **Event Subscriptions** → events सक्षम करें और निम्न पर सब्सक्राइब करें:
-   - `message.*` (संपादन/हटाने/थ्रेड ब्रॉडकास्ट शामिल)
-   - `app_mention`
-   - `reaction_added`, `reaction_removed`
-   - `member_joined_channel`, `member_left_channel`
-   - `channel_rename`
-   - `pin_added`, `pin_removed`
-6. जिन चैनलों को आप पढ़वाना चाहते हैं, उनमें बॉट को आमंत्रित करें।
-7. 16. Slash Commands → यदि आप `channels.slack.slashCommand` का उपयोग करते हैं तो `/openclaw` बनाएँ। 17. यदि आप नेटिव कमांड सक्षम करते हैं, तो प्रत्येक बिल्ट-इन कमांड के लिए एक स्लैश कमांड जोड़ें ( `/help` जैसे ही नाम)। 18. Slack के लिए नेटिव डिफ़ॉल्ट रूप से बंद रहता है जब तक आप `channels.slack.commands.native: true` सेट न करें (ग्लोबल `commands.native` `"auto"` है, जो Slack को बंद ही रहने देता है)।
-8. App Home → **Messages Tab** सक्षम करें ताकि उपयोगकर्ता बॉट को DM कर सकें।
-
-स्कोप और events को सिंक में रखने के लिए नीचे दिया गया manifest उपयोग करें।
-
-मल्टी-अकाउंट समर्थन: प्रति-अकाउंट टोकन और वैकल्पिक `name` के साथ `channels.slack.accounts` का उपयोग करें। 19. साझा पैटर्न के लिए [`gateway/configuration`](/gateway/configuration#telegramaccounts--discordaccounts--slackaccounts--signalaccounts--imessageaccounts) देखें।
-
-### OpenClaw विन्यास (Socket मोड)
-
-env vars के माध्यम से टोकन सेट करें (अनुशंसित):
-
-- `SLACK_APP_TOKEN=xapp-...`
-- `SLACK_BOT_TOKEN=xoxb-...`
-
-या विन्यास के माध्यम से:
-
-```json5
-{
-  channels: {
-    slack: {
-      enabled: true,
-      appToken: "xapp-...",
-      botToken: "xoxb-...",
-    },
-  },
-}
+```bash
+SLACK_APP_TOKEN=xapp-...
+SLACK_BOT_TOKEN=xoxb-...
 ```
 
-### User token (वैकल्पिक)
+        
+</Step>
+      
+        <Step title="ऐप इवेंट्स सब्सक्राइब करें">
+          निम्न के लिए bot इवेंट्स सब्सक्राइब करें:
+      
+          - `app_mention`
+          - `message.channels`, `message.groups`, `message.im`, `message.mpim`
+          - `reaction_added`, `reaction_removed`
+          - `member_joined_channel`, `member_left_channel`
+          - `channel_rename`
+          - `pin_added`, `pin_removed`
+      
+          DMs के लिए App Home में **Messages Tab** भी सक्षम करें।
+        
+</Step>
+      
+        <Step title="gateway शुरू करें">
 
-20. OpenClaw पढ़ने के कार्यों (इतिहास, पिन्स, रिएक्शन्स, इमोजी, सदस्य जानकारी) के लिए Slack यूज़र टोकन (`xoxp-...`) का उपयोग कर सकता है। 21. डिफ़ॉल्ट रूप से यह केवल-पढ़ने योग्य रहता है: पढ़ने के लिए, उपलब्ध होने पर यूज़र टोकन को प्राथमिकता दी जाती है, और लिखने के लिए तब तक बॉट टोकन का उपयोग होता है जब तक आप स्पष्ट रूप से ऑप्ट-इन न करें। 22. `userTokenReadOnly: false` होने पर भी, लिखने के लिए उपलब्ध होने पर बॉट टोकन को ही प्राथमिकता दी जाती है।
-
-23. यूज़र टोकन कॉन्फ़िग फ़ाइल में कॉन्फ़िगर किए जाते हैं (env var सपोर्ट नहीं)। For
-    multi-account, set `channels.slack.accounts.<id>25. .userToken` सेट करें।
-
-bot + app + user tokens के साथ उदाहरण:
-
-```json5
-{
-  channels: {
-    slack: {
-      enabled: true,
-      appToken: "xapp-...",
-      botToken: "xoxb-...",
-      userToken: "xoxp-...",
-    },
-  },
-}
+```bash
+openclaw gateway
 ```
 
-userTokenReadOnly को स्पष्ट रूप से सेट करने का उदाहरण (user token writes की अनुमति):
+        
+</Step>
+      
+</Steps>
 
-```json5
-{
-  channels: {
-    slack: {
-      enabled: true,
-      appToken: "xapp-...",
-      botToken: "xoxb-...",
-      userToken: "xoxp-...",
-      userTokenReadOnly: false,
-    },
-  },
-}
-```
+  
+</Tab>
 
-#### टोकन उपयोग
+  <Tab title="HTTP Events API mode">
+    <Steps>
+      <Step title="Configure Slack app for HTTP">
 
-- पढ़ने के कार्य (history, reactions list, pins list, emoji list, member info,
-  search) कॉन्फ़िगर होने पर user token को प्राथमिकता देते हैं, अन्यथा bot token।
-- 26. लिखने के कार्य (मैसेज भेजना/संपादित/हटाना, रिएक्शन जोड़ना/हटाना, पिन/अनपिन, फ़ाइल अपलोड) डिफ़ॉल्ट रूप से बॉट टोकन का उपयोग करते हैं। 27. यदि `userTokenReadOnly: false` है और कोई बॉट टोकन उपलब्ध नहीं है, तो OpenClaw यूज़र टोकन पर फ़ॉलबैक करता है।
-
-### History संदर्भ
-
-- `channels.slack.historyLimit` (या `channels.slack.accounts.*.historyLimit`) यह नियंत्रित करता है कि कितने हालिया चैनल/ग्रुप संदेश prompt में जोड़े जाएँ।
-- 28. `messages.groupChat.historyLimit` पर फ़ॉलबैक करता है। 29. अक्षम करने के लिए `0` सेट करें (डिफ़ॉल्ट 50)।
-
-## HTTP मोड (Events API)
-
-30. जब आपका Gateway HTTPS के माध्यम से Slack द्वारा पहुँचा जा सकता हो (आमतौर पर सर्वर डिप्लॉयमेंट्स के लिए) तब HTTP webhook मोड का उपयोग करें।
-31. HTTP मोड साझा रिक्वेस्ट URL के साथ Events API + Interactivity + Slash Commands का उपयोग करता है।
-
-### सेटअप (HTTP मोड)
-
-1. एक Slack ऐप बनाएँ और **Socket Mode** अक्षम करें (यदि आप केवल HTTP का उपयोग करते हैं तो वैकल्पिक)।
-2. **Basic Information** → **Signing Secret** कॉपी करें।
-3. **OAuth & Permissions** → ऐप इंस्टॉल करें और **Bot User OAuth Token** (`xoxb-...`) कॉपी करें।
-4. **Event Subscriptions** → events सक्षम करें और **Request URL** को अपने gateway webhook पाथ पर सेट करें (डिफ़ॉल्ट `/slack/events`)।
-5. **Interactivity & Shortcuts** → सक्षम करें और वही **Request URL** सेट करें।
-6. **Slash Commands** → अपने कमांड(स) के लिए वही **Request URL** सेट करें।
-
-उदाहरण request URL:
-`https://gateway-host/slack/events`
-
-### OpenClaw विन्यास (न्यूनतम)
+        ```
+        {
+          channels: {
+            slack: {
+              enabled: true,
+              appToken: "xapp-...",
+              botToken: "xoxb-...",
+            },
+          },
+        }
+        ```
 
 ```json5
 {
@@ -150,17 +128,231 @@ userTokenReadOnly को स्पष्ट रूप से सेट करन
 }
 ```
 
-32. मल्टी-अकाउंट HTTP मोड: `channels.slack.accounts.<id>33. .mode = "http"` सेट करें और प्रत्येक अकाउंट के लिए एक यूनिक `webhookPath` प्रदान करें ताकि हर Slack ऐप अपनी अलग URL पर पॉइंट कर सके।
+        
+</Step>
+      
+        <Step title="मल्टी-अकाउंट HTTP के लिए यूनिक webhook पाथ्स का उपयोग करें">
+          प्रति-अकाउंट HTTP मोड समर्थित है।
+      
+          प्रत्येक अकाउंट को अलग `webhookPath` दें ताकि रजिस्ट्रेशन टकराएँ नहीं।
+        
+</Step>
+      
+</Steps>
 
-### Manifest (वैकल्पिक)
+  
+</Tab>
+</Tabs>
 
-34. ऐप को जल्दी बनाने के लिए इस Slack ऐप मैनिफेस्ट का उपयोग करें (यदि चाहें तो नाम/कमांड समायोजित करें)। 35. यदि आप यूज़र टोकन कॉन्फ़िगर करने की योजना बना रहे हैं तो यूज़र स्कोप्स शामिल करें।
+## टोकन मॉडल
+
+- Socket Mode के लिए `botToken` + `appToken` आवश्यक हैं।
+- HTTP मोड के लिए `botToken` + `signingSecret` आवश्यक हैं।
+- कॉन्फ़िग टोकन, env फॉलबैक को ओवरराइड करते हैं।
+- `SLACK_BOT_TOKEN` / `SLACK_APP_TOKEN` env फॉलबैक केवल डिफ़ॉल्ट अकाउंट पर लागू होता है।
+- `userToken` (`xoxp-...`) केवल कॉन्फ़िग में उपलब्ध है (कोई env फॉलबैक नहीं) और डिफ़ॉल्ट रूप से केवल-पढ़ने योग्य व्यवहार (`userTokenReadOnly: true`) पर सेट रहता है।
+- वैकल्पिक: यदि आप चाहते हैं कि आउटगोइंग संदेश सक्रिय एजेंट पहचान (कस्टम `username` और आइकन) का उपयोग करें, तो `chat:write.customize` जोड़ें। `icon_emoji` में `:emoji_name:` सिंटैक्स का उपयोग होता है।
+
+<Tip>
+actions/directory रीड्स के लिए, कॉन्फ़िग होने पर user token को प्राथमिकता दी जा सकती है। लिखने के लिए bot token प्राथमिक रहता है; user-token से लिखना केवल तब अनुमति है जब `userTokenReadOnly: false` हो और bot token उपलब्ध न हो।
+</Tip>
+
+## टोकन उपयोग
+
+<Tabs>
+  <Tab title="DM policy">
+    `channels.slack.dmPolicy` DM एक्सेस को नियंत्रित करता है (लेगेसी: `channels.slack.dm.policy`):
+
+    ```
+    - `pairing` (डिफ़ॉल्ट)
+    - `allowlist`
+    - `open` (इसके लिए `channels.slack.allowFrom` में `"*"` शामिल होना चाहिए; लेगेसी: `channels.slack.dm.allowFrom`)
+    - `disabled`
+    
+    DM फ्लैग्स:
+    
+    - `dm.enabled` (डिफ़ॉल्ट true)
+    - `channels.slack.allowFrom` (प्राथमिक)
+    - `dm.allowFrom` (लेगेसी)
+    - `dm.groupEnabled` (ग्रुप DMs डिफ़ॉल्ट false)
+    - `dm.groupChannels` (वैकल्पिक MPIM allowlist)
+    
+    DMs में pairing के लिए `openclaw pairing approve slack <code>` का उपयोग करें।
+    ```
+
+  
+</Tab>
+
+  <Tab title="Channel policy">
+    `channels.slack.groupPolicy` चैनल हैंडलिंग को नियंत्रित करता है:
+
+    ```
+    - `open`
+    - `allowlist`
+    - `disabled`
+    
+    चैनल allowlist `channels.slack.channels` के अंतर्गत स्थित है।
+    
+    रनटाइम नोट: यदि `channels.slack` पूरी तरह अनुपस्थित है (केवल env सेटअप) और `channels.defaults.groupPolicy` सेट नहीं है, तो रनटाइम `groupPolicy="open"` पर फॉलबैक करता है और एक चेतावनी लॉग करता है।
+    
+    नाम/ID रेज़ोल्यूशन:
+    
+    - चैनल allowlist एंट्रीज़ और DM allowlist एंट्रीज़ स्टार्टअप पर रेज़ॉल्व की जाती हैं जब टोकन एक्सेस अनुमति देता है
+    - अनरिज़ॉल्व्ड एंट्रीज़ को कॉन्फ़िग के अनुसार ही रखा जाता है
+    ```
+
+  
+</Tab>
+
+  <Tab title="Mentions and channel users">
+    चैनल संदेश डिफ़ॉल्ट रूप से mention-गेटेड होते हैं।
+
+    ```
+    Mention स्रोत:
+    
+    - स्पष्ट ऐप mention (`<@botId>`)
+    - mention regex पैटर्न्स (`agents.list[].groupChat.mentionPatterns`, फॉलबैक `messages.groupChat.mentionPatterns`)
+    - बॉट-थ्रेड के लिए implicit reply व्यवहार
+    
+    प्रति-चैनल नियंत्रण (`channels.slack.channels.<id|name>`):
+    
+    - `requireMention`
+    - `users` (allowlist)
+    - `allowBots`
+    - `skills`
+    - `systemPrompt`
+    - `tools`, `toolsBySender`
+    ```
+
+  
+</Tab>
+</Tabs>
+
+## कमांड्स और slash व्यवहार
+
+- Slack के लिए नेटिव कमांड auto-mode **बंद** है (`commands.native: "auto"` Slack नेटिव कमांड्स को सक्षम नहीं करता)।
+- नेटिव Slack कमांड हैंडलर्स को `channels.slack.commands.native: true` (या ग्लोबल `commands.native: true`) से सक्षम करें।
+- जब नेटिव कमांड्स सक्षम हों, तो Slack में संबंधित slash कमांड्स (`/<command>` नाम) रजिस्टर करें।
+- यदि नेटिव कमांड्स सक्षम नहीं हैं, तो आप `channels.slack.slashCommand` के माध्यम से एकल कॉन्फ़िगर किया गया slash कमांड चला सकते हैं।
+
+डिफ़ॉल्ट slash कमांड सेटिंग्स:
+
+- `enabled: false`
+- `name: "openclaw"`
+- `sessionPrefix: "slack:slash"`
+- `ephemeral: true`
+
+Slash सत्र अलग-अलग कुंजियों का उपयोग करते हैं:
+
+- `agent:<agentId>:slack:slash:<userId>`
+
+और फिर भी कमांड निष्पादन को लक्ष्य वार्तालाप सत्र (`CommandTargetSessionKey`) के विरुद्ध रूट करते हैं।
+
+## थ्रेडिंग, सत्र और उत्तर टैग
+
+- DMs को `direct` के रूप में रूट किया जाता है; चैनल्स को `channel`; MPIMs को `group`।
+- डिफ़ॉल्ट `session.dmScope=main` के साथ, Slack DMs एजेंट के मुख्य सत्र में समाहित हो जाते हैं।
+- चैनल सत्र: `agent:<agentId>:slack:channel:<channelId>`।
+- थ्रेड उत्तर लागू होने पर थ्रेड सत्र प्रत्यय (`:thread:<threadTs>`) बना सकते हैं।
+- `channels.slack.thread.historyScope` का डिफ़ॉल्ट `thread` है; `thread.inheritParent` का डिफ़ॉल्ट `false` है।
+- `channels.slack.thread.initialHistoryLimit` यह नियंत्रित करता है कि नया थ्रेड सत्र शुरू होने पर मौजूदा थ्रेड संदेशों में से कितने प्राप्त किए जाएँ (डिफ़ॉल्ट `20`; अक्षम करने के लिए `0` सेट करें)।
+
+उत्तर थ्रेडिंग नियंत्रण:
+
+- `channels.slack.replyToMode`: `off|first|all` (डिफ़ॉल्ट `off`)
+- `channels.slack.replyToModeByChatType`: प्रत्येक `direct|group|channel` के लिए
+- डायरेक्ट चैट्स के लिए पुराना फॉलबैक: `channels.slack.dm.replyToMode`
+
+यदि आप `channels.slack.userToken` कॉन्फ़िगर करते हैं, तो इन्हें **User Token Scopes** के अंतर्गत जोड़ें।
+
+- `channels:history`, `groups:history`, `im:history`, `mpim:history`
+- `channels:read`, `groups:read`, `im:read`, `mpim:read`
+
+नोट: `replyToMode="off"` अप्रत्यक्ष उत्तर थ्रेडिंग को अक्षम करता है। स्पष्ट `[[reply_to_*]]` टैग अभी भी मान्य रहेंगे।
+
+## मीडिया, चंकिंग और डिलीवरी
+
+<AccordionGroup>
+  <Accordion title="Inbound attachments">
+    Slack फ़ाइल अटैचमेंट्स को Slack-होस्टेड निजी URLs (टोकन-प्रमाणित अनुरोध प्रवाह) से डाउनलोड किया जाता है और यदि प्राप्ति सफल हो तथा आकार सीमाएँ अनुमति दें तो मीडिया स्टोर में लिखा जाता है।
+
+    ```
+    रनटाइम इनबाउंड आकार सीमा डिफ़ॉल्ट रूप से `20MB` है, जब तक कि `channels.slack.mediaMaxMb` द्वारा ओवरराइड न किया जाए।
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Outbound text and files">
+    - टेक्स्ट चंक्स `channels.slack.textChunkLimit` (डिफ़ॉल्ट 4000) का उपयोग करते हैं
+    - `channels.slack.chunkMode="newline"` पैराग्राफ-प्रथम विभाजन सक्षम करता है
+    - फ़ाइल भेजने में Slack upload APIs का उपयोग होता है और इसमें थ्रेड उत्तर (`thread_ts`) शामिल हो सकते हैं
+    - आउटबाउंड मीडिया सीमा कॉन्फ़िगर होने पर `channels.slack.mediaMaxMb` का पालन करती है; अन्यथा चैनल भेजने में मीडिया पाइपलाइन से MIME-काइंड डिफ़ॉल्ट्स उपयोग होते हैं
+  
+</Accordion>
+
+  <Accordion title="Delivery targets">
+    वांछित स्पष्ट लक्ष्य:
+
+    ```
+    - DMs के लिए `user:<id>`
+    - चैनल्स के लिए `channel:<id>`
+    
+    Slack DMs, user targets पर भेजते समय Slack conversation APIs के माध्यम से खोले जाते हैं।
+    ```
+
+  
+</Accordion>
+</AccordionGroup>
+
+## क्रियाएँ और गेट्स
+
+Slack क्रियाएँ `channels.slack.actions.*` द्वारा नियंत्रित होती हैं।
+
+वर्तमान Slack टूलिंग में उपलब्ध क्रिया समूह:
+
+| Mode       | Default |
+| ---------- | ------- |
+| messages   | enabled |
+| reactions  | enabled |
+| pins       | enabled |
+| memberInfo | enabled |
+| emojiList  | enabled |
+
+## इवेंट्स और परिचालन व्यवहार
+
+- संदेश संपादन/हटाना/थ्रेड प्रसारण को सिस्टम इवेंट्स में मैप किया जाता है।
+- रिएक्शन जोड़ने/हटाने की घटनाओं को सिस्टम इवेंट्स में मैप किया जाता है।
+- सदस्य जुड़ना/छोड़ना, चैनल बनना/नाम बदलना, और पिन जोड़ना/हटाना जैसी घटनाओं को सिस्टम इवेंट्स में मैप किया जाता है।
+- `channel_id_changed`, जब `configWrites` सक्षम हो, तो चैनल कॉन्फ़िग कुंजियों को माइग्रेट कर सकता है।
+- चैनल का विषय/उद्देश्य मेटाडेटा अविश्वसनीय संदर्भ के रूप में माना जाता है और इसे रूटिंग संदर्भ में इंजेक्ट किया जा सकता है।
+
+## Ack रिएक्शन
+
+`ackReaction` इनबाउंड संदेश को प्रोसेस करते समय OpenClaw द्वारा एक स्वीकृति इमोजी भेजता है।
+
+समर्थित चैट प्रकार:
+
+- `channels.slack.accounts.<accountId>`.ackReaction\`
+- `group`: group DMs / MPIMs (Slack `mpim`)
+- `channel`: मानक चैनल (public/private)
+- एजेंट पहचान इमोजी फॉलबैक (`agents.list[].identity.emoji`, अन्यथा "👀")
+
+प्राथमिकता क्रम:
+
+- Slack शॉर्टकोड्स की अपेक्षा करता है (उदाहरण के लिए `"eyes"`)।
+- `replyToMode`
+
+## मैनिफेस्ट और स्कोप चेकलिस्ट
+
+<AccordionGroup>
+  <Accordion title="Slack app manifest example">
 
 ```json
 {
   "display_information": {
     "name": "OpenClaw",
-    "description": "Slack connector for OpenClaw"
+    "description": "OpenClaw के लिए Slack कनेक्टर"
   },
   "features": {
     "bot_user": {
@@ -174,7 +366,7 @@ userTokenReadOnly को स्पष्ट रूप से सेट करन
     "slash_commands": [
       {
         "command": "/openclaw",
-        "description": "Send a message to OpenClaw",
+        "description": "OpenClaw को एक संदेश भेजें",
         "should_escape": false
       }
     ]
@@ -186,14 +378,8 @@ userTokenReadOnly को स्पष्ट रूप से सेट करन
         "channels:history",
         "channels:read",
         "groups:history",
-        "groups:read",
-        "groups:write",
         "im:history",
-        "im:read",
-        "im:write",
         "mpim:history",
-        "mpim:read",
-        "mpim:write",
         "users:read",
         "app_mentions:read",
         "reactions:read",
@@ -204,21 +390,6 @@ userTokenReadOnly को स्पष्ट रूप से सेट करन
         "commands",
         "files:read",
         "files:write"
-      ],
-      "user": [
-        "channels:history",
-        "channels:read",
-        "groups:history",
-        "groups:read",
-        "im:history",
-        "im:read",
-        "mpim:history",
-        "mpim:read",
-        "users:read",
-        "reactions:read",
-        "pins:read",
-        "emoji:read",
-        "search:read"
       ]
     }
   },
@@ -244,314 +415,118 @@ userTokenReadOnly को स्पष्ट रूप से सेट करन
 }
 ```
 
-36. यदि आप नेटिव कमांड सक्षम करते हैं, तो जिन कमांड्स को एक्सपोज़ करना चाहते हैं उनके लिए एक-एक `slash_commands` एंट्री जोड़ें ( `/help` सूची से मेल खाते हुए)। 37. `channels.slack.commands.native` के साथ ओवरराइड करें।
+  
+</Accordion>
 
-## Scopes (वर्तमान बनाम वैकल्पिक)
+  <Accordion title="Optional user-token scopes (read operations)">
+    यदि आप `channels.slack.userToken` कॉन्फ़िगर करते हैं, तो सामान्य read स्कोप होते हैं:
 
-38. Slack का Conversations API टाइप-स्कोप्ड है: आपको केवल उन्हीं कन्वर्सेशन टाइप्स के लिए स्कोप्स चाहिए जिन्हें आप वास्तव में उपयोग करते हैं (channels, groups, im, mpim)। 39. अवलोकन के लिए [https://docs.slack.dev/apis/web-api/using-the-conversations-api/](https://docs.slack.dev/apis/web-api/using-the-conversations-api/) देखें।
-
-### Bot token scopes (आवश्यक)
-
-- `chat:write` (`chat.postMessage` के माध्यम से संदेश भेजना/अपडेट/हटाना)
-  [https://docs.slack.dev/reference/methods/chat.postMessage](https://docs.slack.dev/reference/methods/chat.postMessage)
-- `im:write` (user DMs के लिए `conversations.open` के माध्यम से DMs खोलना)
-  [https://docs.slack.dev/reference/methods/conversations.open](https://docs.slack.dev/reference/methods/conversations.open)
-- `channels:history`, `groups:history`, `im:history`, `mpim:history`
-  [https://docs.slack.dev/reference/methods/conversations.history](https://docs.slack.dev/reference/methods/conversations.history)
-- `channels:read`, `groups:read`, `im:read`, `mpim:read`
-  [https://docs.slack.dev/reference/methods/conversations.info](https://docs.slack.dev/reference/methods/conversations.info)
-- `users:read` (user lookup)
-  [https://docs.slack.dev/reference/methods/users.info](https://docs.slack.dev/reference/methods/users.info)
-- `reactions:read`, `reactions:write` (`reactions.get` / `reactions.add`)
-  [https://docs.slack.dev/reference/methods/reactions.get](https://docs.slack.dev/reference/methods/reactions.get)
-  [https://docs.slack.dev/reference/methods/reactions.add](https://docs.slack.dev/reference/methods/reactions.add)
-- `pins:read`, `pins:write` (`pins.list` / `pins.add` / `pins.remove`)
-  [https://docs.slack.dev/reference/scopes/pins.read](https://docs.slack.dev/reference/scopes/pins.read)
-  [https://docs.slack.dev/reference/scopes/pins.write](https://docs.slack.dev/reference/scopes/pins.write)
-- `emoji:read` (`emoji.list`)
-  [https://docs.slack.dev/reference/scopes/emoji.read](https://docs.slack.dev/reference/scopes/emoji.read)
-- `files:write` (`files.uploadV2` के माध्यम से अपलोड)
-  [https://docs.slack.dev/messaging/working-with-files/#upload](https://docs.slack.dev/messaging/working-with-files/#upload)
-
-### User token scopes (वैकल्पिक, डिफ़ॉल्ट रूप से read-only)
-
-यदि आप `channels.slack.userToken` कॉन्फ़िगर करते हैं, तो इन्हें **User Token Scopes** के अंतर्गत जोड़ें।
-
-- `channels:history`, `groups:history`, `im:history`, `mpim:history`
-- `channels:read`, `groups:read`, `im:read`, `mpim:read`
-- `users:read`
-- `reactions:read`
-- `pins:read`
-- `emoji:read`
-- `search:read`
-
-### आज आवश्यक नहीं (लेकिन भविष्य में संभव)
-
-- `mpim:write` (केवल यदि हम `conversations.open` के माध्यम से group-DM open/DM start जोड़ते हैं)
-- `groups:write` (केवल यदि हम private-channel प्रबंधन जोड़ते हैं: create/rename/invite/archive)
-- `chat:write.public` (केवल यदि हम उन चैनलों में पोस्ट करना चाहते हैं जिनमें बॉट नहीं है)
-  [https://docs.slack.dev/reference/scopes/chat.write.public](https://docs.slack.dev/reference/scopes/chat.write.public)
-- `users:read.email` (केवल यदि हमें `users.info` से email फ़ील्ड चाहिए)
-  [https://docs.slack.dev/changelog/2017-04-narrowing-email-access](https://docs.slack.dev/changelog/2017-04-narrowing-email-access)
-- `files:read` (केवल यदि हम फ़ाइल मेटाडेटा सूचीबद्ध/पढ़ना शुरू करते हैं)
-
-## Config
-
-40. Slack केवल Socket Mode का उपयोग करता है (कोई HTTP webhook सर्वर नहीं)। 41. दोनों टोकन प्रदान करें:
-
-```json
-{
-  "slack": {
-    "enabled": true,
-    "botToken": "xoxb-...",
-    "appToken": "xapp-...",
-    "groupPolicy": "allowlist",
-    "dm": {
-      "enabled": true,
-      "policy": "pairing",
-      "allowFrom": ["U123", "U456", "*"],
-      "groupEnabled": false,
-      "groupChannels": ["G123"],
-      "replyToMode": "all"
-    },
-    "channels": {
-      "C123": { "allow": true, "requireMention": true },
-      "#general": {
-        "allow": true,
-        "requireMention": true,
-        "users": ["U123"],
-        "skills": ["search", "docs"],
-        "systemPrompt": "Keep answers short."
-      }
-    },
-    "reactionNotifications": "own",
-    "reactionAllowlist": ["U123"],
-    "replyToMode": "off",
-    "actions": {
-      "reactions": true,
-      "messages": true,
-      "pins": true,
-      "memberInfo": true,
-      "emojiList": true
-    },
-    "slashCommand": {
-      "enabled": true,
-      "name": "openclaw",
-      "sessionPrefix": "slack:slash",
-      "ephemeral": true
-    },
-    "textChunkLimit": 4000,
-    "mediaMaxMb": 20
-  }
-}
-```
-
-टोकन env vars के माध्यम से भी दिए जा सकते हैं:
-
-- `SLACK_BOT_TOKEN`
-- `SLACK_APP_TOKEN`
-
-42. Ack रिएक्शन्स को वैश्विक रूप से `messages.ackReaction` + `messages.ackReactionScope` के माध्यम से नियंत्रित किया जाता है। 43. बॉट के उत्तर देने के बाद ack रिएक्शन हटाने के लिए `messages.removeAckAfterReply` का उपयोग करें।
-
-## Limits
-
-- आउटबाउंड टेक्स्ट को `channels.slack.textChunkLimit` तक chunk किया जाता है (डिफ़ॉल्ट 4000)।
-- वैकल्पिक newline chunking: लंबाई के अनुसार chunking से पहले खाली पंक्तियों (paragraph boundaries) पर विभाजित करने के लिए `channels.slack.chunkMode="newline"` सेट करें।
-- मीडिया अपलोड `channels.slack.mediaMaxMb` द्वारा सीमित हैं (डिफ़ॉल्ट 20)।
-
-## Reply threading
-
-44. डिफ़ॉल्ट रूप से, OpenClaw मुख्य चैनल में उत्तर देता है। 45. स्वचालित थ्रेडिंग को नियंत्रित करने के लिए `channels.slack.replyToMode` का उपयोग करें:
-
-| Mode    | Behavior                                                                                                                                                                                                                      |
-| ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `off`   | 46. **डिफ़ॉल्ट।** मुख्य चैनल में उत्तर दें। 47. केवल तब थ्रेड करें जब ट्रिगर करने वाला संदेश पहले से थ्रेड में हो।                                                                     |
-| `first` | 48. पहला उत्तर थ्रेड में जाता है (ट्रिगर संदेश के नीचे), बाद के उत्तर मुख्य चैनल में जाते हैं। 49. थ्रेड की भीड़ से बचते हुए संदर्भ को दृश्यमान रखने के लिए उपयोगी। |
-| `all`   | 50. सभी उत्तर थ्रेड में जाते हैं। बातचीत को सीमित रखता है, लेकिन दृश्यता कम कर सकता है।                                                                                                                |
-
-यह मोड auto-replies और agent tool calls (`slack sendMessage`) दोनों पर लागू होता है।
-
-### प्रति-चैट-प्रकार threading
-
-आप `channels.slack.replyToModeByChatType` सेट करके प्रति चैट प्रकार अलग-अलग threading व्यवहार कॉन्फ़िगर कर सकते हैं:
-
-```json5
-{
-  channels: {
-    slack: {
-      replyToMode: "off", // default for channels
-      replyToModeByChatType: {
-        direct: "all", // DMs always thread
-        group: "first", // group DMs/MPIM thread first reply
+    ```
+    {
+      channels: {
+        slack: {
+          replyToMode: "off",
+          replyToModeByChatType: { group: "first" },
+        },
       },
-    },
-  },
-}
-```
+    }
+    ```
 
-समर्थित चैट प्रकार:
-
-- `direct`: 1:1 DMs (Slack `im`)
-- `group`: group DMs / MPIMs (Slack `mpim`)
-- `channel`: मानक चैनल (public/private)
-
-प्राथमिकता क्रम:
-
-1. `replyToModeByChatType.<chatType>`
-2. `replyToMode`
-3. प्रदाता डिफ़ॉल्ट (`off`)
-
-Legacy `channels.slack.dm.replyToMode` अब भी `direct` के लिए फ़ॉलबैक के रूप में स्वीकार किया जाता है जब कोई chat-type override सेट न हो।
-
-उदाहरण:
-
-केवल DMs को thread करें:
-
-```json5
-{
-  channels: {
-    slack: {
-      replyToMode: "off",
-      replyToModeByChatType: { direct: "all" },
-    },
-  },
-}
-```
-
-Group DMs को thread करें लेकिन चैनलों को root में रखें:
-
-```json5
-{
-  channels: {
-    slack: {
-      replyToMode: "off",
-      replyToModeByChatType: { group: "first" },
-    },
-  },
-}
-```
-
-चैनलों को thread करें, DMs को root में रखें:
-
-```json5
-{
-  channels: {
-    slack: {
-      replyToMode: "first",
-      replyToModeByChatType: { direct: "off", group: "off" },
-    },
-  },
-}
-```
-
-### Manual threading tags
-
-सूक्ष्म नियंत्रण के लिए, agent responses में इन टैग्स का उपयोग करें:
-
-- `[[reply_to_current]]` — ट्रिगर करने वाले संदेश का उत्तर दें (thread शुरू/जारी रखें)।
-- `[[reply_to:<id>]]` — किसी विशिष्ट message id का उत्तर दें।
-
-## Sessions + routing
-
-- DMs `main` सत्र साझा करते हैं (WhatsApp/Telegram की तरह)।
-- चैनल `agent:<agentId>:slack:channel:<channelId>` सत्रों से मैप होते हैं।
-- Slash commands `agent:<agentId>:slack:slash:<userId>` सत्रों का उपयोग करते हैं (prefix `channels.slack.slashCommand.sessionPrefix` के माध्यम से कॉन्फ़िगर करने योग्य)।
-- यदि Slack `channel_type` प्रदान नहीं करता, तो OpenClaw इसे channel ID prefix (`D`, `C`, `G`) से अनुमानित करता है और सत्र कुंजियों को स्थिर रखने के लिए डिफ़ॉल्ट रूप से `channel` का उपयोग करता है।
-- नेटिव कमांड रजिस्ट्रेशन `commands.native` (ग्लोबल डिफ़ॉल्ट `"auto"` → Slack बंद) का उपयोग करता है और इसे प्रति-वर्कस्पेस `channels.slack.commands.native` के साथ ओवरराइड किया जा सकता है। टेक्स्ट कमांड के लिए अलग `/...` संदेशों की आवश्यकता होती है और इन्हें `commands.text: false` के साथ अक्षम किया जा सकता है। Slack स्लैश कमांड Slack ऐप में प्रबंधित होते हैं और अपने आप नहीं हटाए जाते। कमांड के लिए एक्सेस-ग्रुप जाँच को बायपास करने हेतु `commands.useAccessGroups: false` का उपयोग करें।
-- पूर्ण कमांड सूची + विन्यास: [Slash commands](/tools/slash-commands)
-
-## DM सुरक्षा (pairing)
-
-- डिफ़ॉल्ट: `channels.slack.dm.policy="pairing"` — अज्ञात DM प्रेषकों को एक pairing कोड मिलता है (1 घंटे बाद समाप्त)।
-- स्वीकृति: `openclaw pairing approve slack <code>` के माध्यम से।
-- सभी को अनुमति देने के लिए: `channels.slack.dm.policy="open"` और `channels.slack.dm.allowFrom=["*"]` सेट करें।
-- `channels.slack.dm.allowFrom` यूज़र IDs, @handles, या ईमेल स्वीकार करता है (जब टोकन अनुमति दें तो स्टार्टअप पर रेज़ॉल्व किए जाते हैं)। विज़ार्ड यूज़रनेम स्वीकार करता है और सेटअप के दौरान उन्हें ids में रेज़ॉल्व करता है, जब टोकन अनुमति दें।
-
-## Group नीति
-
-- `channels.slack.groupPolicy` चैनल हैंडलिंग को नियंत्रित करता है (`open|disabled|allowlist`)।
-- `allowlist` के लिए चैनलों का `channels.slack.channels` में सूचीबद्ध होना आवश्यक है।
-- यदि आप केवल `SLACK_BOT_TOKEN`/`SLACK_APP_TOKEN` सेट करते हैं और कभी `channels.slack` सेक्शन नहीं बनाते, तो रनटाइम डिफ़ॉल्ट रूप से `groupPolicy` को `open` पर सेट करता है। इसे लॉक डाउन करने के लिए `channels.slack.groupPolicy`, `channels.defaults.groupPolicy`, या एक चैनल allowlist जोड़ें।
-- कॉन्फ़िगर विज़ार्ड `#channel` नाम स्वीकार करता है और जहाँ संभव हो IDs में resolve करता है
-  (public + private); यदि कई मैच हों, तो सक्रिय चैनल को प्राथमिकता देता है।
-- startup पर, OpenClaw allowlists में channel/user नामों को IDs में resolve करता है (जब टोकन अनुमति दें)
-  और मैपिंग लॉग करता है; अनरिज़ॉल्व्ड एंट्रीज़ को यथावत रखा जाता है।
-- **कोई चैनल अनुमति न देने** के लिए, `channels.slack.groupPolicy: "disabled"` सेट करें (या खाली allowlist रखें)।
-
-चैनल विकल्प (`channels.slack.channels.<id>` या `channels.slack.channels.<name>`):
-
-- `allow`: जब `groupPolicy="allowlist"` हो, चैनल को allow/deny करें।
-- `requireMention`: चैनल के लिए mention gating।
-- `tools`: वैकल्पिक प्रति-चैनल tool नीति overrides (`allow`/`deny`/`alsoAllow`)।
-- `toolsBySender`: चैनल के भीतर वैकल्पिक प्रति-प्रेषक tool नीति overrides (keys sender ids/@handles/emails; `"*"` wildcard समर्थित)।
-- `allowBots`: इस चैनल में बॉट-लिखित संदेशों की अनुमति दें (डिफ़ॉल्ट: false)।
-- `users`: वैकल्पिक प्रति-चैनल user allowlist।
-- `skills`: skill फ़िल्टर (omit = सभी skills, empty = कोई नहीं)।
-- `systemPrompt`: चैनल के लिए अतिरिक्त system prompt (topic/purpose के साथ संयोजित)।
-- `enabled`: चैनल अक्षम करने के लिए `false` सेट करें।
-
-## Delivery targets
-
-cron/CLI sends के साथ इनका उपयोग करें:
-
-- DMs के लिए `user:<id>`
-- चैनलों के लिए `channel:<id>`
-
-## Tool actions
-
-Slack tool actions को `channels.slack.actions.*` के साथ gated किया जा सकता है:
-
-| Action group | Default | Notes                     |
-| ------------ | ------- | ------------------------- |
-| reactions    | enabled | React + reactions सूची    |
-| messages     | enabled | पढ़ना/भेजना/संपादित/हटाना |
-| pins         | enabled | Pin/unpin/सूची            |
-| memberInfo   | enabled | सदस्य जानकारी             |
-| emojiList    | enabled | कस्टम emoji सूची          |
-
-## सुरक्षा नोट्स
-
-- लिखने के कार्य डिफ़ॉल्ट रूप से bot token का उपयोग करते हैं ताकि state-changing क्रियाएँ
-  ऐप के बॉट अनुमतियों और पहचान तक सीमित रहें।
-- `userTokenReadOnly: false` सेट करने से, जब बॉट टोकन उपलब्ध न हो, तो यूज़र टोकन को लिखने (write) के ऑपरेशनों के लिए उपयोग किया जा सकता है, जिसका मतलब है कि कार्रवाइयाँ इंस्टॉल करने वाले यूज़र की एक्सेस के साथ चलती हैं। यूज़र टोकन को अत्यधिक विशेषाधिकार प्राप्त मानें और एक्शन गेट्स व allowlists को कड़ा रखें।
-- यदि आप user-token writes सक्षम करते हैं, तो सुनिश्चित करें कि user token में अपेक्षित
-  write scopes शामिल हों (`chat:write`, `reactions:write`, `pins:write`,
-  `files:write`), अन्यथा वे ऑपरेशन विफल हो जाएँगे।
+  
+</Accordion>
+</AccordionGroup>
 
 ## समस्या-निवारण
 
-पहले यह ladder चलाएँ:
+<AccordionGroup>
+  <Accordion title="No replies in channels">
+    क्रम में जाँचें:
+
+    ```
+    - `groupPolicy`
+    - चैनल allowlist (`channels.slack.channels`)
+    - `requireMention`
+    - प्रति-चैनल `users` allowlist
+    
+    उपयोगी कमांड:
+    ```
 
 ```bash
-openclaw status
-openclaw gateway status
+openclaw channels status --probe
 openclaw logs --follow
 openclaw doctor
-openclaw channels status --probe
 ```
 
-फिर आवश्यकता होने पर DM pairing स्थिति की पुष्टि करें:
+  
+</Accordion>
+
+  <Accordion title="DM messages ignored">
+    जाँचें:
+
+    ```
+    - `channels.slack.dm.enabled`
+    - `channels.slack.dmPolicy` (या पुराना `channels.slack.dm.policy`)
+    - pairing अनुमोदन / allowlist प्रविष्टियाँ
+    ```
 
 ```bash
 openclaw pairing list slack
 ```
 
-सामान्य विफलताएँ:
+  
+</Accordion>
 
-- Connected है लेकिन चैनल में उत्तर नहीं: चैनल `groupPolicy` द्वारा ब्लॉक है या `channels.slack.channels` allowlist में नहीं है।
-- DMs अनदेखी: जब `channels.slack.dm.policy="pairing"` हो, प्रेषक अनुमोदित नहीं है।
-- API त्रुटियाँ (`missing_scope`, `not_in_channel`, auth विफलताएँ): bot/app tokens या Slack scopes अपूर्ण हैं।
+  <Accordion title="Socket mode not connecting">
+    Slack ऐप सेटिंग्स में bot + app टोकन और Socket Mode सक्षम है या नहीं, इसकी पुष्टि करें.
+  
+</Accordion>
 
-triage flow के लिए: [/channels/troubleshooting](/channels/troubleshooting)।
+  <Accordion title="HTTP mode not receiving events">
+    सत्यापित करें:
 
-## Notes
+    ```
+    - signing secret
+    - webhook path
+    - Slack Request URLs (Events + Interactivity + Slash Commands)
+    - प्रत्येक HTTP अकाउंट के लिए अद्वितीय `webhookPath`
+    ```
 
-- Mention gating `channels.slack.channels` के माध्यम से नियंत्रित होती है (`requireMention` को `true` पर सेट करें); `agents.list[].groupChat.mentionPatterns` (या `messages.groupChat.mentionPatterns`) भी mentions माने जाते हैं।
-- Multi-agent override: प्रति-एजेंट पैटर्न `agents.list[].groupChat.mentionPatterns` पर सेट करें।
-- Reaction notifications `channels.slack.reactionNotifications` का पालन करती हैं (`reactionAllowlist` को मोड `allowlist` के साथ उपयोग करें)।
-- बॉट द्वारा लिखे गए संदेश डिफ़ॉल्ट रूप से अनदेखा किए जाते हैं; `channels.slack.allowBots` या `channels.slack.channels.<id>.allowBots` के माध्यम से सक्षम करें।
-- चेतावनी: यदि आप अन्य बॉट्स को जवाब देने की अनुमति देते हैं (`channels.slack.allowBots=true` या `channels.slack.channels.<id>.allowBots=true`), तो `requireMention`, `channels.slack.channels.<id>.users` allowlists, और/या `AGENTS.md` और `SOUL.md` में स्पष्ट गार्डरेल्स के साथ बॉट-टू-बॉट रिप्लाई लूप्स को रोकें।
-- Slack टूल के लिए, reaction removal semantics [/tools/reactions](/tools/reactions) में हैं।
-- संलग्नक (attachments) अनुमति होने पर और आकार सीमा के भीतर होने पर media store में डाउनलोड किए जाते हैं।
+  
+</Accordion>
 
+  <Accordion title="Native/slash commands not firing">
+    सत्यापित करें कि आपका आशय था:
 
+    ```
+    - native command mode (`channels.slack.commands.native: true`) और Slack में पंजीकृत मिलते-जुलते slash commands
+    - या single slash command mode (`channels.slack.slashCommand.enabled: true`)
+    
+    साथ ही `commands.useAccessGroups` और channel/user allowlists की जाँच करें.
+    ```
+
+  
+</Accordion>
+</AccordionGroup>
+
+## कॉन्फ़िगरेशन संदर्भ संकेत
+
+मुख्य संदर्भ:
+
+- [Configuration reference - Slack](/gateway/configuration-reference#slack)
+
+  उच्च-प्रभाव वाले Slack फ़ील्ड:
+
+  - mode/auth: `mode`, `botToken`, `appToken`, `signingSecret`, `webhookPath`, `accounts.*`
+  - DM एक्सेस: `dm.enabled`, `dmPolicy`, `allowFrom` (पुराना: `dm.policy`, `dm.allowFrom`), `dm.groupEnabled`, `dm.groupChannels`
+  - चैनल एक्सेस: `groupPolicy`, `channels.*`, `channels.*.users`, `channels.*.requireMention`
+  - थ्रेडिंग/इतिहास: `replyToMode`, `replyToModeByChatType`, `thread.*`, `historyLimit`, `dmHistoryLimit`, `dms.*.historyLimit`
+  - डिलीवरी: `textChunkLimit`, `chunkMode`, `mediaMaxMb`
+  - ऑप्स/फ़ीचर्स: `configWrites`, `commands.native`, `slashCommand.*`, `actions.*`, `userToken`, `userTokenReadOnly`
+
+## संबंधित
+
+- [Pairing](/channels/pairing)
+- [Channel routing](/channels/channel-routing)
+- [Troubleshooting](/channels/troubleshooting)
+- [Configuration](/gateway/configuration)
+- [Slash commands](/tools/slash-commands)

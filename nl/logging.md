@@ -1,4 +1,9 @@
 ---
+summary: "Overzicht van logging: bestandslogs, console-uitvoer, CLI-tailing en de Control UI"
+read_when:
+  - Je hebt een beginnersvriendelijk overzicht van logging nodig
+  - Je wilt logniveaus of -formaten configureren
+  - Je bent problemen aan het oplossen en wilt logs snel vinden
 title: "Logboekregistratie"
 ---
 
@@ -343,5 +348,3 @@ Wachtrijen + sessies:
 - **Logs leeg?** Controleer of de Gateway draait en schrijft naar het bestandspad
   in `logging.file`.
 - **Meer detail nodig?** Stel `logging.level` in op `debug` of `trace` en probeer opnieuw.
-
-

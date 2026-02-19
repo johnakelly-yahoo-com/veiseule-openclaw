@@ -1,4 +1,8 @@
 ---
+summary: "Skills: pinamamahalaan vs workspace, mga panuntunan sa gating, at config/env wiring"
+read_when:
+  - Pagdaragdag o pagbabago ng skills
+  - Pagbabago ng skill gating o mga panuntunan sa pag-load
 title: "Mga Kasanayan"
 ---
 
@@ -283,5 +287,3 @@ Tingnan ang [Skills config](/tools/skills-config) para sa kumpletong schema ng c
 Mag-browse sa [https://clawhub.com](https://clawhub.com).
 
 ---
-
-

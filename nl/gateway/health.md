@@ -1,4 +1,7 @@
 ---
+summary: "Stappen voor gezondheidscontroles voor kanaalconnectiviteit"
+read_when:
+  - Diagnose van de gezondheid van het WhatsApp-kanaal
 title: "Gezondheidscontroles"
 ---
 
@@ -30,5 +33,3 @@ Korte handleiding om kanaalconnectiviteit te verifiëren zonder te hoeven gokken
 ## Speciale "health"-opdracht
 
 `openclaw health --json` vraagt de draaiende Gateway om zijn gezondheidsmomentopname (geen directe kanaalsockets vanuit de CLI). Het rapporteert gekoppelde referenties/auth-leeftijd wanneer beschikbaar, per-kanaal probe-samenvattingen, een samenvatting van de sessiestore en een probe-duur. Het eindigt met een niet-nul exitcode als de Gateway onbereikbaar is of als de probe faalt/time-outs heeft. Gebruik `--timeout <ms>` om de standaardwaarde van 10s te overschrijven.
-
-

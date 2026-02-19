@@ -1,4 +1,9 @@
 ---
+summary: "CLI-referens för `openclaw system` (systemhändelser, heartbeat, presence)"
+read_when:
+  - Du vill köa en systemhändelse utan att skapa ett cron-jobb
+  - Du behöver aktivera eller inaktivera heartbeats
+  - Du vill granska systemets presence-poster
 title: "system"
 ---
 
@@ -53,5 +58,3 @@ Flaggor:
 
 - Kräver en körande Gateway (nätverksgateway) som är nåbar via din nuvarande konfig (lokal eller fjärr).
 - Systemhändelser är flyktiga och sparas inte över omstarter.
-
-

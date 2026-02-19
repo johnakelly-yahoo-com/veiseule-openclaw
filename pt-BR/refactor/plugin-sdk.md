@@ -1,4 +1,8 @@
 ---
+summary: "Plano: um SDK de plugin + runtime limpos para todos os conectores de mensagens"
+read_when:
+  - Definindo ou refatorando a arquitetura de plugins
+  - Migrando conectores de canal para o SDK/runtime de plugins
 title: "Refatoração do SDK de Plugin"
 ---
 
@@ -208,5 +212,3 @@ Notas:
 - Plugins externos podem ser desenvolvidos e atualizados sem acesso ao código-fonte do core.
 
 Documentos relacionados: [Plugins](/tools/plugin), [Channels](/channels/index), [Configuration](/gateway/configuration).
-
-

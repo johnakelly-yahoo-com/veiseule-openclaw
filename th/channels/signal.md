@@ -1,18 +1,31 @@
 ---
+summary: "รองรับ Signal ผ่าน signal-cli (JSON-RPC + SSE), การตั้งค่า และโมเดลหมายเลข"
+read_when:
+  - การตั้งค่าการรองรับ Signal
+  - การดีบักการส่ง/รับของ Signal
 title: "Signal"
 ---
 
 # Signal (signal-cli)
 
-สถานะ: การผสานรวม CLI ภายนอก สถานะ: การผสานรวม CLI ภายนอก Gateway สื่อสารกับ `signal-cli` ผ่าน HTTP JSON-RPC + SSE
+สถานะ: การผสานรวม CLI ภายนอก สถานะ: การผสานรวม CLI ภายนอก Gateway สื่อสารกับ `signal-cli` ผ่าน HTTP JSON-RPC + SSE สถานะ: การผสานรวม CLI ภายนอก Gateway สื่อสารกับ `signal-cli` ผ่าน HTTP JSON-RPC + SSE
+
+## ข้อกำหนดเบื้องต้น
+
+- ติดตั้ง OpenClaw บนเซิร์ฟเวอร์ของคุณแล้ว (ขั้นตอนสำหรับ Linux ด้านล่างทดสอบบน Ubuntu 24)
+- มี `signal-cli` พร้อมใช้งานบนโฮสต์ที่รัน gateway
+- หมายเลขโทรศัพท์ที่สามารถรับ SMS ยืนยันได้หนึ่งครั้ง (สำหรับเส้นทางลงทะเบียนผ่าน SMS)
+- สามารถเข้าถึงเบราว์เซอร์สำหรับทำ Signal captcha (`signalcaptchas.org`) ระหว่างการลงทะเบียน
 
 ## Quick setup (beginner)
 
 1. ใช้ **หมายเลข Signal แยกต่างหาก** สำหรับบอต (แนะนำ)
 2. ติดตั้ง `signal-cli` (ต้องใช้ Java)
-3. เชื่อมโยงอุปกรณ์บอตและเริ่มเดมอน:
+3. เลือกหนึ่งเส้นทางการตั้งค่า:
    - `signal-cli link -n "OpenClaw"`
+   - **เส้นทาง B (ลงทะเบียนด้วย SMS):** ลงทะเบียนหมายเลขเฉพาะด้วย captcha + การยืนยันผ่าน SMS
 4. กำหนดค่า OpenClaw และเริ่ม Gateway
+5. ส่ง DM แรกและอนุมัติการจับคู่ (`openclaw pairing approve signal <CODE>`)
 
 คอนฟิกขั้นต่ำ:
 
@@ -29,6 +42,15 @@ title: "Signal"
   },
 }
 ```
+
+คำอธิบายฟิลด์:
+
+| ฟิลด์       | คำอธิบาย                                                                                                                                                                                                                                                                                                                                                        |
+| ----------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `account`   | หมายเลขโทรศัพท์บอทในรูปแบบ E.164 (`+15551234567`)                                                                                                                                                                                                                                                                            |
+| `cliPath`   | Setup (fast path)                                                                                                                                                                                                                                                                                                                            |
+| `dmPolicy`  | นโยบายการเข้าถึง DM (แนะนำให้ใช้ `pairing`)                                                                                                                                                                                                                                                                                                  |
+| `allowFrom` | `channels.signal.dmHistoryLimit`: ขีดจำกัดประวัติ DM เป็นจำนวนเทิร์นของผู้ใช้ การแทนที่ต่อผู้ใช้: `channels.imessage.dms["&lt;handle&gt;"].historyLimit` `channels.signal.dmHistoryLimit`: ขีดจำกัดประวัติ DM ในรอบผู้ใช้ การเขียนทับต่อผู้ใช้: `channels.signal.dms["<phone_or_uuid>"].historyLimit` |
 
 ## What it is
 
@@ -54,7 +76,7 @@ title: "Signal"
 - หากรันบอตบน **บัญชี Signal ส่วนตัวของคุณ** ระบบจะเพิกเฉยต่อข้อความของคุณเอง (การป้องกันลูป)
 - สำหรับรูปแบบ “ฉันส่งข้อความหาบอตแล้วบอตตอบกลับ” ให้ใช้ **หมายเลขบอตแยกต่างหาก**
 
-## Setup (fast path)
+## เส้นทางการตั้งค่า A: ลิงก์บัญชี Signal ที่มีอยู่ (QR)
 
 1. ติดตั้ง `signal-cli` (ต้องใช้ Java)
 2. เชื่อมโยงบัญชีบอต:
@@ -78,6 +100,67 @@ title: "Signal"
 ```
 
 การรองรับหลายบัญชี: ใช้ `channels.signal.accounts` พร้อมคอนฟิกต่อบัญชีและ `name` แบบไม่บังคับ ดู [`gateway/configuration`](/gateway/configuration#telegramaccounts--discordaccounts--slackaccounts--signalaccounts--imessageaccounts) สำหรับรูปแบบร่วมกัน อย่าคอมมิต `~/.openclaw/openclaw.json` (มักมีโทเคน) รองรับหลายบัญชี: ใช้ `channels.signal.accounts` พร้อมคอนฟิกต่อบัญชีและ `name` แบบไม่บังคับ ดู [`gateway/configuration`](/gateway/configuration#telegramaccounts--discordaccounts--slackaccounts--signalaccounts--imessageaccounts) สำหรับรูปแบบที่ใช้ร่วมกัน
+
+## เส้นทางการตั้งค่า B: ลงทะเบียนหมายเลขบอทเฉพาะ (SMS, Linux)
+
+ใช้วิธีนี้เมื่อคุณต้องการหมายเลขบอทเฉพาะ แทนการลิงก์กับบัญชีแอป Signal ที่มีอยู่
+
+1. รับหมายเลขที่สามารถรับ SMS ได้ (หรือยืนยันตัวตนด้วยเสียงสำหรับโทรศัพท์บ้าน)
+   - ใช้หมายเลขบอทเฉพาะเพื่อหลีกเลี่ยงความขัดแย้งของบัญชี/เซสชัน
+2. ติดตั้ง `signal-cli` บนโฮสต์ gateway:
+
+```bash
+VERSION=$(curl -Ls -o /dev/null -w %{url_effective} https://github.com/AsamK/signal-cli/releases/latest | sed -e 's/^.*\/v//')
+curl -L -O "https://github.com/AsamK/signal-cli/releases/download/v${VERSION}/signal-cli-${VERSION}-Linux-native.tar.gz"
+sudo tar xf "signal-cli-${VERSION}-Linux-native.tar.gz" -C /opt
+sudo ln -sf /opt/signal-cli /usr/local/bin/
+signal-cli --version
+```
+
+หากคุณใช้เวอร์ชัน JVM (`signal-cli-${VERSION}.tar.gz`) ให้ติดตั้ง JRE 25+ ก่อน
+ควรอัปเดต `signal-cli` ให้เป็นเวอร์ชันล่าสุดเสมอ; เอกสารต้นทางระบุว่าเวอร์ชันเก่าอาจใช้งานไม่ได้เมื่อ Signal server APIs มีการเปลี่ยนแปลง
+
+3. ลงทะเบียนและยืนยันหมายเลข:
+
+```bash
+signal-cli -a +<BOT_PHONE_NUMBER> register
+```
+
+หากต้องใช้ captcha:
+
+1. เปิด `https://signalcaptchas.org/registration/generate.html`.
+2. ทำ captcha ให้เสร็จ แล้วคัดลอกลิงก์ `signalcaptcha://...` จากปุ่ม "Open Signal"
+3. พยายามรันจาก external IP เดียวกับเซสชันเบราว์เซอร์เมื่อเป็นไปได้
+4. รันคำสั่งลงทะเบียนอีกครั้งทันที (โทเค็น captcha หมดอายุเร็ว):
+
+```bash
+signal-cli -a +<BOT_PHONE_NUMBER> register --captcha '<SIGNALCAPTCHA_URL>'
+signal-cli -a +<BOT_PHONE_NUMBER> verify <VERIFICATION_CODE>
+```
+
+4. การตั้งค่านี้จะข้ามการสร้างอัตโนมัติและการรอเริ่มต้นภายใน OpenClaw วิธีนี้จะข้ามการสปอว์นอัตโนมัติและการรอเริ่มต้นภายใน OpenClaw สำหรับการเริ่มช้าเมื่อสปอว์นอัตโนมัติ ให้ตั้งค่า `channels.signal.startupTimeoutMs`
+
+```bash
+# หากคุณรัน gateway เป็นบริการ systemd ของผู้ใช้:
+systemctl --user restart openclaw-gateway
+
+# จากนั้นตรวจสอบ:
+openclaw doctor
+openclaw channels status --probe
+```
+
+5. จับคู่ผู้ส่ง DM ของคุณ:
+   - ส่งข้อความใดก็ได้ไปยังหมายเลขบอท
+   - อนุมัติรหัสบนเซิร์ฟเวอร์: `openclaw pairing approve signal <PAIRING_CODE>`.
+   - บันทึกหมายเลขบอทเป็นรายชื่อติดต่อในโทรศัพท์ของคุณเพื่อหลีกเลี่ยง "Unknown contact".
+
+สำคัญ: การลงทะเบียนบัญชีหมายเลขโทรศัพท์ด้วย `signal-cli` อาจทำให้เซสชันแอป Signal หลักของหมายเลขนั้นถูกยกเลิกการยืนยันตัวตน แนะนำให้ใช้หมายเลขบอทเฉพาะ หรือใช้โหมดลิงก์ด้วย QR หากคุณต้องการคงการตั้งค่าแอปในโทรศัพท์เดิมไว้
+
+เอกสารอ้างอิงจากต้นทาง:
+
+- `signal-cli` README: `https://github.com/AsamK/signal-cli`
+- ขั้นตอน Captcha: `https://github.com/AsamK/signal-cli/wiki/Registration-with-captcha`
+- ขั้นตอนการลิงก์: `https://github.com/AsamK/signal-cli/wiki/Linking-other-devices-(Provisioning)`
 
 ## External daemon mode (httpUrl)
 
@@ -126,7 +209,7 @@ Groups:
 - รองรับไฟล์แนบ (base64 ดึงจาก `signal-cli`)
 - ขีดจำกัดสื่อเริ่มต้น: `channels.signal.mediaMaxMb` (ค่าเริ่มต้น 8)
 - ใช้ `channels.signal.ignoreAttachments` เพื่อข้ามการดาวน์โหลดสื่อ
-- บริบทประวัติกลุ่มใช้ `channels.signal.historyLimit` (หรือ `channels.signal.accounts.*.historyLimit`) และจะถอยกลับไปใช้ `messages.groupChat.historyLimit` ตั้งค่า `0` เพื่อปิด (ค่าเริ่มต้น 50) ตั้งค่า `0` เพื่อปิด (ค่าเริ่มต้น 50)
+- บริบทประวัติกลุ่มใช้ `channels.signal.historyLimit` (หรือ `channels.signal.accounts.*.historyLimit`) และจะถอยกลับไปใช้ `messages.groupChat.historyLimit` ตั้งค่า `0` เพื่อปิด (ค่าเริ่มต้น 50) ตั้งค่า `0` เพื่อปิด (ค่าเริ่มต้น 50) ตั้งค่า `0` เพื่อปิด (ค่าเริ่มต้น 50)
 
 ## Typing + read receipts
 
@@ -187,8 +270,25 @@ openclaw pairing list signal
 - เดมอนเข้าถึงได้แต่ไม่มีการตอบกลับ: ตรวจสอบการตั้งค่าบัญชี/เดมอน (`httpUrl`, `account`) และโหมดรับ
 - DMs ถูกเพิกเฉย: ผู้ส่งกำลังรอการอนุมัติการจับคู่
 - ข้อความกลุ่มถูกเพิกเฉย: การควบคุมผู้ส่ง/การกล่าวถึงของกลุ่มบล็อกการส่งมอบ
+- หากมีข้อผิดพลาดในการตรวจสอบคอนฟิกหลังแก้ไข: ให้รัน `openclaw doctor --fix`.
+- ไม่พบ Signal ในผลวินิจฉัย: ตรวจสอบว่า `channels.signal.enabled: true`.
+
+การตรวจสอบเพิ่มเติม:
+
+```bash
+openclaw pairing list signal
+pgrep -af signal-cli
+grep -i "signal" "/tmp/openclaw/openclaw-$(date +%Y-%m-%d).log" | tail -20
+```
 
 สำหรับโฟลว์การคัดแยก: [/channels/troubleshooting](/channels/troubleshooting)
+
+## หมายเหตุด้านความปลอดภัย
+
+- `signal-cli` จะจัดเก็บคีย์บัญชีไว้ในเครื่อง (โดยทั่วไปอยู่ที่ `~/.local/share/signal-cli/data/`).
+- สำรองข้อมูลสถานะบัญชี Signal ก่อนการย้ายเซิร์ฟเวอร์หรือสร้างระบบใหม่
+- การจับคู่เป็นการแลกเปลี่ยนโทเคนเริ่มต้นสำหรับ Signal DMs รายละเอียด: [Pairing](/channels/pairing) การจับคู่เป็นการแลกเปลี่ยนโทเคนเริ่มต้น รายละเอียด: [Pairing](/channels/pairing)
+- การยืนยันตัวตนผ่าน SMS จำเป็นเฉพาะในขั้นตอนการลงทะเบียนหรือการกู้คืนบัญชีเท่านั้น แต่การสูญเสียการควบคุมหมายเลขโทรศัพท์/บัญชีอาจทำให้การลงทะเบียนใหม่มีความซับซ้อน
 
 ## Configuration reference (Signal)
 
@@ -208,7 +308,7 @@ openclaw pairing list signal
 - `channels.signal.ignoreStories`: เพิกเฉยสตอรี่จากเดมอน
 - `channels.signal.sendReadReceipts`: ส่งต่อใบรับการอ่าน
 - `channels.signal.dmPolicy`: `pairing | allowlist | open | disabled` (ค่าเริ่มต้น: pairing)
-- `channels.signal.allowFrom`: DM allowlist (E.164 หรือ `uuid:<id>`) `open` ต้องใช้ `"*"` Signal ไม่มีชื่อผู้ใช้; ใช้รหัสโทรศัพท์/UUID `open` ต้องใช้ `"*"`. Signal ไม่มีชื่อผู้ใช้; ใช้รหัสโทรศัพท์/UUID
+- `channels.signal.allowFrom`: DM allowlist (E.164 หรือ `uuid:<id>`) `open` ต้องใช้ `"*"` Signal ไม่มีชื่อผู้ใช้; ใช้รหัสโทรศัพท์/UUID `open` ต้องใช้ `"*"`. `open` ต้องใช้ `"*"`. Signal ไม่มีชื่อผู้ใช้; ใช้รหัสโทรศัพท์/UUID
 - `channels.signal.groupPolicy`: `open | allowlist | disabled` (ค่าเริ่มต้น: allowlist)
 - `channels.signal.groupAllowFrom`: allowlist ผู้ส่งในกลุ่ม
 - `channels.signal.historyLimit`: จำนวนข้อความกลุ่มสูงสุดที่จะรวมเป็นบริบท (ตั้ง 0 เพื่อปิด)
@@ -222,5 +322,3 @@ openclaw pairing list signal
 - `agents.list[].groupChat.mentionPatterns` (Signal ไม่รองรับการกล่าวถึงแบบเนทีฟ)
 - `messages.groupChat.mentionPatterns` (ตัวสำรองส่วนกลาง)
 - `messages.responsePrefix`
-
-

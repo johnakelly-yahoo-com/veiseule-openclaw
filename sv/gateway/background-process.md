@@ -1,4 +1,8 @@
 ---
+summary: "Bakgrundskörning av exec och processhantering"
+read_when:
+  - Lägga till eller ändra beteende för bakgrundsexekvering
+  - Felsökning av långvariga exec-uppgifter
 title: "Bakgrunds-Exec och Processverktyg"
 ---
 
@@ -42,6 +46,7 @@ Konfig (föredras):
 - `tools.exec.timeoutSec` (standard 1800)
 - `tools.exec.cleanupMs` (standard 1800000)
 - `tools.exec.notifyOnExit` (standard true): köa en systemhändelse + begär hjärtslag när en bakgrundsexekvering avslutas.
+- `tools.exec.notifyOnExitEmptySuccess` (standard false): när true köas även slutförandehändelser för lyckade bakgrundskörningar som inte producerade någon output.
 
 ## process-verktyg
 
@@ -63,6 +68,8 @@ Noteringar:
 - `process` är avgränsad per agent; den ser endast sessioner som startats av den agenten.
 - `process list` inkluderar en härledd `name` (kommandoverb + mål) för snabba överblickar.
 - `process log` använder radbaserad `offset`/`limit` (utelämna `offset` för att hämta de senaste N raderna).
+- När både `offset` och `limit` utelämnas returneras de senaste 200 raderna och en pagineringshint inkluderas.
+- När `offset` anges och `limit` utelämnas returneras allt från `offset` till slutet (begränsas inte till 200).
 
 ## Exempel
 
@@ -87,5 +94,3 @@ Skicka stdin:
 ```json
 { "tool": "process", "action": "write", "sessionId": "<id>", "data": "y\n" }
 ```
-
-

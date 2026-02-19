@@ -1,4 +1,8 @@
 ---
+summary: "Descubrimiento Bonjour/mDNS + depuración (balizas del Gateway, clientes y modos de falla comunes)"
+read_when:
+  - Depuración de problemas de descubrimiento Bonjour en macOS/iOS
+  - Cambio de tipos de servicio mDNS, registros TXT o UX de descubrimiento
 title: "Descubrimiento Bonjour"
 ---
 
@@ -96,6 +100,13 @@ El Gateway anuncia pequeñas pistas no secretas para facilitar los flujos de la 
 - `cliPath=<path>` (opcional; ruta absoluta a un punto de entrada `openclaw` ejecutable)
 - `tailnetDns=<magicdns>` (pista opcional cuando Tailnet está disponible)
 
+Notas de seguridad:
+
+- Los registros TXT de Bonjour/mDNS son **no autenticados**. Los clientes no deben tratar TXT como enrutamiento autorizado.
+- Los clientes deben enrutar utilizando el endpoint de servicio resuelto (SRV + A/AAAA). Trata `lanHost`, `tailnetDns`, `gatewayPort` y `gatewayTlsSha256` solo como indicaciones.
+- El TLS pinning nunca debe permitir que un `gatewayTlsSha256` anunciado sobrescriba un pin almacenado previamente.
+- Los nodos iOS/Android deben tratar las conexiones directas basadas en descubrimiento como **solo TLS** y requerir confirmación explícita del usuario antes de confiar en una huella digital vista por primera vez.
+
 ## Depuración en macOS
 
 Herramientas integradas útiles:
@@ -164,5 +175,3 @@ decimales `\DDD` (p. ej., los espacios se convierten en `\032`).
 
 - Política de descubrimiento y selección de transporte: [Discovery](/gateway/discovery)
 - Emparejamiento de nodos + aprobaciones: [Gateway pairing](/gateway/pairing)
-
-

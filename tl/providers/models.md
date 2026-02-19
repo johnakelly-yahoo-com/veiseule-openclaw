@@ -1,10 +1,14 @@
 ---
+summary: "Mga provider ng model (LLMs) na sinusuportahan ng OpenClaw"
+read_when:
+  - Gusto mong pumili ng provider ng model
+  - Gusto mo ng mga halimbawa ng mabilis na setup para sa LLM auth + pagpili ng model
 title: "Mabilis na Pagsisimula ng Model Provider"
 ---
 
 # Mga Provider ng Model
 
-Maaaring gumamit ang OpenClaw ng maraming LLM provider. Pumili ng isa, mag-authenticate, pagkatapos ay itakda bilang default
+OpenClaw can use many LLM providers. Pick one, authenticate, then set the default
 model as `provider/model`.
 
 ## Tampok: Venice (Venice AI)
@@ -46,5 +50,3 @@ Tingnan ang [Venice AI](/providers/venice).
 
 For the full provider catalog (xAI, Groq, Mistral, etc.) and advanced configuration,
 see [Model providers](/concepts/model-providers).
-
-

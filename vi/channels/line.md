@@ -1,4 +1,9 @@
 ---
+summary: "Thiết lập, cấu hình và cách dùng plugin LINE Messaging API"
+read_when:
+  - Bạn muốn kết nối OpenClaw với LINE
+  - Bạn cần thiết lập webhook + thông tin xác thực cho LINE
+  - Bạn muốn các tùy chọn tin nhắn dành riêng cho LINE
 title: LINE
 ---
 
@@ -179,5 +184,3 @@ Plugin LINE cũng đi kèm lệnh `/card` cho các preset Flex message:
   và gateway có thể truy cập từ LINE.
 - **Lỗi tải media:** tăng `channels.line.mediaMaxMb` nếu media vượt quá
   giới hạn mặc định.
-
-

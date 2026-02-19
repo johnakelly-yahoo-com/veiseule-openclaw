@@ -1,4 +1,9 @@
 ---
+summary: "Network hub: mga surface ng gateway, pairing, discovery, at seguridad"
+read_when:
+  - Kailangan mo ang overview ng network architecture + seguridad
+  - Nagde-debug ka ng local vs tailnet access o pairing
+  - Gusto mo ang kanonikal na listahan ng mga networking docs
 title: "Network"
 ---
 
@@ -45,5 +50,3 @@ Local trust:
 - [Gateway config reference](/gateway/configuration)
 - [Troubleshooting](/gateway/troubleshooting)
 - [Doctor](/gateway/doctor)
-
-

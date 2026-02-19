@@ -1,54 +1,59 @@
 ---
+summary: "OpenClaw op Oracle Cloud (Always Free ARM)"
+read_when:
+  - OpenClaw instellen op Oracle Cloud
+  - Op zoek naar goedkope VPS-hosting voor OpenClaw
+  - Wil 24/7 OpenClaw op een kleine server
 title: "Oracle Cloud"
 ---
 
-# OpenClaw on Oracle Cloud (OCI)
+# OpenClaw op Oracle Cloud (OCI)
 
-## Goal
+## Doel
 
-Run a persistent OpenClaw Gateway on Oracle Cloud's **Always Free** ARM tier.
+Een persistente OpenClaw Gateway draaien op de **Always Free** ARM-laag van Oracle Cloud.
 
-Oracle’s free tier can be a great fit for OpenClaw (especially if you already have an OCI account), but it comes with tradeoffs:
+De gratis laag van Oracle kan een goede keuze zijn voor OpenClaw (vooral als je al een OCI-account hebt), maar er zijn wel afwegingen:
 
-- ARM architecture (most things work, but some binaries may be x86-only)
-- Capacity and signup can be finicky
+- ARM-architectuur (de meeste dingen werken, maar sommige binaries zijn mogelijk alleen x86)
+- Capaciteit en aanmelding kunnen grillig zijn
 
-## Cost Comparison (2026)
+## Kostenvergelijking (2026)
 
-| Provider     | Plan            | Specs                  | Price/mo | Notes                 |
-| ------------ | --------------- | ---------------------- | -------- | --------------------- |
-| Oracle Cloud | Always Free ARM | up to 4 OCPU, 24GB RAM | $0       | ARM, limited capacity |
-| Hetzner      | CX22            | 2 vCPU, 4GB RAM        | ~ $4     | Cheapest paid option  |
-| DigitalOcean | Basic           | 1 vCPU, 1GB RAM        | $6       | Easy UI, good docs    |
-| Vultr        | Cloud Compute   | 1 vCPU, 1GB RAM        | $6       | Many locations        |
-| Linode       | Nanode          | 1 vCPU, 1GB RAM        | $5       | Now part of Akamai    |
+| Aanbieder    | Plan            | Specificaties        | Prijs/maand          | Notities                   |
+| ------------ | --------------- | -------------------- | -------------------- | -------------------------- |
+| Oracle Cloud | Always Free ARM | tot 4 OCPU, 24GB RAM | $0                   | ARM, beperkte capaciteit   |
+| Hetzner      | CX22            | 2 vCPU, 4GB RAM      | ~ $4 | Goedkoopste betaalde optie |
+| DigitalOcean | Basic           | 1 vCPU, 1GB RAM      | $6                   | Eenvoudige UI, goede docs  |
+| Vultr        | Cloud Compute   | 1 vCPU, 1GB RAM      | $6                   | Veel locaties              |
+| Linode       | Nanode          | 1 vCPU, 1GB RAM      | $5                   | Nu onderdeel van Akamai    |
 
 ---
 
-## Prerequisites
+## Vereisten
 
-- Oracle Cloud account ([signup](https://www.oracle.com/cloud/free/)) — see [community signup guide](https://gist.github.com/rssnyder/51e3cfedd730e7dd5f4a816143b25dbd) if you hit issues
-- Tailscale account (free at [tailscale.com](https://tailscale.com))
-- ~30 minutes
+- Oracle Cloud-account ([aanmelden](https://www.oracle.com/cloud/free/)) — zie de [community-aanmeldgids](https://gist.github.com/rssnyder/51e3cfedd730e7dd5f4a816143b25dbd) als je tegen problemen aanloopt
+- Tailscale-account (gratis op [tailscale.com](https://tailscale.com))
+- ~30 minuten
 
-## 1) Create an OCI Instance
+## 1. Een OCI-instantie maken
 
-1. Log into [Oracle Cloud Console](https://cloud.oracle.com/)
-2. Navigate to **Compute → Instances → Create Instance**
-3. Configure:
+1. Log in op de [Oracle Cloud Console](https://cloud.oracle.com/)
+2. Ga naar **Compute → Instances → Create Instance**
+3. Configureer:
    - **Name:** `openclaw`
    - **Image:** Ubuntu 24.04 (aarch64)
    - **Shape:** `VM.Standard.A1.Flex` (Ampere ARM)
-   - **OCPUs:** 2 (or up to 4)
-   - **Memory:** 12 GB (or up to 24 GB)
-   - **Boot volume:** 50 GB (up to 200 GB free)
-   - **SSH key:** Add your public key
-4. Click **Create**
-5. Note the public IP address
+   - **OCPUs:** 2 (of tot 4)
+   - **Memory:** 12 GB (of tot 24 GB)
+   - **Boot volume:** 50 GB (tot 200 GB gratis)
+   - **SSH key:** Voeg je publieke sleutel toe
+4. Klik op **Create**
+5. Noteer het publieke IP-adres
 
-**Tip:** If instance creation fails with "Out of capacity", try a different availability domain or retry later. Free tier capacity is limited.
+**Tip:** Als het aanmaken van de instantie faalt met "Out of capacity", probeer een andere availability domain of probeer het later opnieuw. De capaciteit van de free tier is beperkt.
 
-## 2) Connect and Update
+## 2. Verbinden en bijwerken
 
 ```bash
 # Connect via public IP
@@ -59,9 +64,9 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install -y build-essential
 ```
 
-**Note:** `build-essential` is required for ARM compilation of some dependencies.
+**Let op:** `build-essential` is vereist voor ARM-compilatie van sommige afhankelijkheden.
 
-## 3) Configure User and Hostname
+## 3. Gebruiker en hostnaam configureren
 
 ```bash
 # Set hostname
@@ -74,37 +79,37 @@ sudo passwd ubuntu
 sudo loginctl enable-linger ubuntu
 ```
 
-## 4) Install Tailscale
+## 4. Tailscale installeren
 
 ```bash
 curl -fsSL https://tailscale.com/install.sh | sh
 sudo tailscale up --ssh --hostname=openclaw
 ```
 
-This enables Tailscale SSH, so you can connect via `ssh openclaw` from any device on your tailnet — no public IP needed.
+Dit schakelt Tailscale SSH in, zodat je vanaf elk apparaat op je tailnet kunt verbinden via `ssh openclaw` — geen publiek IP nodig.
 
-Verify:
+Verifiëren:
 
 ```bash
 tailscale status
 ```
 
-**From now on, connect via Tailscale:** `ssh ubuntu@openclaw` (or use the Tailscale IP).
+**Vanaf nu verbinden via Tailscale:** `ssh ubuntu@openclaw` (of gebruik het Tailscale-IP).
 
-## 5) Install OpenClaw
+## 5. OpenClaw installeren
 
 ```bash
 curl -fsSL https://openclaw.ai/install.sh | bash
 source ~/.bashrc
 ```
 
-When prompted "How do you want to hatch your bot?", select **"Do this later"**.
+Wanneer je wordt gevraagd "How do you want to hatch your bot?", kies **"Do this later"**.
 
-> Note: If you hit ARM-native build issues, start with system packages (e.g. `sudo apt install -y build-essential`) before reaching for Homebrew.
+> Let op: Als je tegen ARM-native buildproblemen aanloopt, begin met systeempakketten (bijv. `sudo apt install -y build-essential`) voordat je naar Homebrew grijpt.
 
-## 6) Configure Gateway (loopback + token auth) and enable Tailscale Serve
+## 6. Gateway configureren (loopback + tokenauthenticatie) en Tailscale Serve inschakelen
 
-Use token auth as the default. It’s predictable and avoids needing any “insecure auth” Control UI flags.
+Gebruik tokenauthenticatie als standaard. Dit is voorspelbaar en voorkomt dat je “insecure auth”-flags in de Control UI nodig hebt.
 
 ```bash
 # Keep the Gateway private on the VM
@@ -121,7 +126,7 @@ openclaw config set gateway.trustedProxies '["127.0.0.1"]'
 systemctl --user restart openclaw-gateway
 ```
 
-## 7) Verify
+## 7. Verifiëren
 
 ```bash
 # Check version
@@ -137,63 +142,63 @@ tailscale serve status
 curl http://localhost:18789
 ```
 
-## 8) Lock Down VCN Security
+## 8. VCN-beveiliging vergrendelen
 
-Now that everything is working, lock down the VCN to block all traffic except Tailscale. OCI's Virtual Cloud Network acts as a firewall at the network edge — traffic is blocked before it reaches your instance.
+Nu alles werkt, vergrendel je de VCN om al het verkeer behalve Tailscale te blokkeren. Het Virtual Cloud Network van OCI fungeert als firewall aan de netwerkgrens — verkeer wordt geblokkeerd voordat het je instantie bereikt.
 
-1. Go to **Networking → Virtual Cloud Networks** in the OCI Console
-2. Click your VCN → **Security Lists** → Default Security List
-3. **Remove** all ingress rules except:
+1. Ga in de OCI Console naar **Networking → Virtual Cloud Networks**
+2. Klik op je VCN → **Security Lists** → Default Security List
+3. **Verwijder** alle ingress-regels behalve:
    - `0.0.0.0/0 UDP 41641` (Tailscale)
-4. Keep default egress rules (allow all outbound)
+4. Behoud de standaard egress-regels (alles uitgaand toestaan)
 
-This blocks SSH on port 22, HTTP, HTTPS, and everything else at the network edge. From now on, you can only connect via Tailscale.
+Dit blokkeert SSH op poort 22, HTTP, HTTPS en alles daarbuiten aan de netwerkgrens. Vanaf nu kun je alleen nog verbinden via Tailscale.
 
 ---
 
-## Access the Control UI
+## Toegang tot de Control UI
 
-From any device on your Tailscale network:
+Vanaf elk apparaat op je Tailscale-netwerk:
 
 ```
 https://openclaw.<tailnet-name>.ts.net/
 ```
 
-Replace `<tailnet-name>` with your tailnet name (visible in `tailscale status`).
+Vervang `<tailnet-name>` door je tailnet-naam (zichtbaar in `tailscale status`).
 
-No SSH tunnel needed. Tailscale provides:
+Geen SSH-tunnel nodig. Tailscale biedt:
 
-- HTTPS encryption (automatic certs)
-- Authentication via Tailscale identity
-- Access from any device on your tailnet (laptop, phone, etc.)
+- HTTPS-versleuteling (automatische certificaten)
+- Authenticatie via Tailscale-identiteit
+- Toegang vanaf elk apparaat op je tailnet (laptop, telefoon, enz.)
 
 ---
 
-## Security: VCN + Tailscale (recommended baseline)
+## Beveiliging: VCN + Tailscale (aanbevolen basis)
 
-With the VCN locked down (only UDP 41641 open) and the Gateway bound to loopback, you get strong defense-in-depth: public traffic is blocked at the network edge, and admin access happens over your tailnet.
+Met de VCN vergrendeld (alleen UDP 41641 open) en de Gateway gebonden aan local loopback, krijg je sterke defense-in-depth: publiek verkeer wordt aan de netwerkgrens geblokkeerd en beheerstoegang loopt via je tailnet.
 
-This setup often removes the _need_ for extra host-based firewall rules purely to stop Internet-wide SSH brute force — but you should still keep the OS updated, run `openclaw security audit`, and verify you aren’t accidentally listening on public interfaces.
+Deze setup neemt vaak de _noodzaak_ weg voor extra host-gebaseerde firewallregels puur om internetbrede SSH-bruteforce te stoppen — maar je moet het OS wel up-to-date houden, `openclaw security audit` uitvoeren en verifiëren dat je niet per ongeluk luistert op publieke interfaces.
 
-### What's Already Protected
+### Wat al is beschermd
 
-| Traditional Step   | Needed?     | Why                                                                          |
-| ------------------ | ----------- | ---------------------------------------------------------------------------- |
-| UFW firewall       | No          | VCN blocks before traffic reaches instance                                   |
-| fail2ban           | No          | No brute force if port 22 blocked at VCN                                     |
-| sshd hardening     | No          | Tailscale SSH doesn't use sshd                                               |
-| Disable root login | No          | Tailscale uses Tailscale identity, not system users                          |
-| SSH key-only auth  | No          | Tailscale authenticates via your tailnet                                     |
-| IPv6 hardening     | Usually not | Depends on your VCN/subnet settings; verify what’s actually assigned/exposed |
+| Traditionele stap       | Benodigd?    | Waarom                                                                                          |
+| ----------------------- | ------------ | ----------------------------------------------------------------------------------------------- |
+| UFW firewall            | Nee          | VCN blokkeert verkeer voordat het de instantie bereikt                                          |
+| fail2ban                | Nee          | Geen bruteforce als poort 22 op VCN is geblokkeerd                                              |
+| sshd hardening          | Nee          | Tailscale SSH gebruikt geen sshd                                                                |
+| Root-login uitschakelen | Nee          | Tailscale gebruikt Tailscale-identiteit, geen systeemgebruikers                                 |
+| Alleen SSH-sleutels     | Nee          | Tailscale authenticeert via je tailnet                                                          |
+| IPv6 hardening          | Meestal niet | Hangt af van je VCN/subnet-instellingen; verifieer wat daadwerkelijk is toegewezen/blootgesteld |
 
-### Still Recommended
+### Nog steeds aanbevolen
 
-- **Credential permissions:** `chmod 700 ~/.openclaw`
-- **Security audit:** `openclaw security audit`
-- **System updates:** `sudo apt update && sudo apt upgrade` regularly
-- **Monitor Tailscale:** Review devices in [Tailscale admin console](https://login.tailscale.com/admin)
+- **Referentierechten:** `chmod 700 ~/.openclaw`
+- **Beveiligingsaudit:** `openclaw security audit`
+- **Systeemupdates:** voer `sudo apt update && sudo apt upgrade` regelmatig uit
+- **Tailscale monitoren:** controleer apparaten in de [Tailscale admin console](https://login.tailscale.com/admin)
 
-### Verify Security Posture
+### Beveiligingsstatus verifiëren
 
 ```bash
 # Confirm no public ports listening
@@ -208,30 +213,30 @@ sudo systemctl disable --now ssh
 
 ---
 
-## Fallback: SSH Tunnel
+## Terugvaloptie: SSH-tunnel
 
-If Tailscale Serve isn't working, use an SSH tunnel:
+Als Tailscale Serve niet werkt, gebruik een SSH-tunnel:
 
 ```bash
 # From your local machine (via Tailscale)
 ssh -L 18789:127.0.0.1:18789 ubuntu@openclaw
 ```
 
-Then open `http://localhost:18789`.
+Open daarna `http://localhost:18789`.
 
 ---
 
-## Troubleshooting
+## Problemen oplossen
 
-### Instance creation fails ("Out of capacity")
+### Aanmaken van instantie faalt ("Out of capacity")
 
-Free tier ARM instances are popular. Try:
+Free tier ARM-instanties zijn populair. Probeer:
 
-- Different availability domain
-- Retry during off-peak hours (early morning)
-- Use the "Always Free" filter when selecting shape
+- Een andere availability domain
+- Opnieuw proberen buiten piekuren (vroeg in de ochtend)
+- De filter "Always Free" gebruiken bij het selecteren van de shape
 
-### Tailscale won't connect
+### Tailscale maakt geen verbinding
 
 ```bash
 # Check status
@@ -241,7 +246,7 @@ sudo tailscale status
 sudo tailscale up --ssh --hostname=openclaw --reset
 ```
 
-### Gateway won't start
+### Gateway start niet
 
 ```bash
 openclaw gateway status
@@ -249,7 +254,7 @@ openclaw doctor --non-interactive
 journalctl --user -u openclaw-gateway -n 50
 ```
 
-### Can't reach Control UI
+### Control UI niet bereikbaar
 
 ```bash
 # Verify Tailscale Serve is running
@@ -262,26 +267,26 @@ curl http://localhost:18789
 systemctl --user restart openclaw-gateway
 ```
 
-### ARM binary issues
+### ARM-binaryproblemen
 
-Some tools may not have ARM builds. Check:
+Sommige tools hebben mogelijk geen ARM-builds. Controleer:
 
 ```bash
 uname -m  # Should show aarch64
 ```
 
-Most npm packages work fine. For binaries, look for `linux-arm64` or `aarch64` releases.
+De meeste npm-pakketten werken prima. Voor binaries, zoek naar `linux-arm64` of `aarch64` releases.
 
 ---
 
-## Persistence
+## Persistentie
 
-All state lives in:
+Alle status staat in:
 
-- `~/.openclaw/` — config, credentials, session data
-- `~/.openclaw/workspace/` — workspace (SOUL.md, memory, artifacts)
+- `~/.openclaw/` — config, referenties, sessiegegevens
+- `~/.openclaw/workspace/` — werkruimte (SOUL.md, geheugen, artefacten)
 
-Back up periodically:
+Maak periodiek back-ups:
 
 ```bash
 tar -czvf openclaw-backup.tar.gz ~/.openclaw ~/.openclaw/workspace
@@ -289,12 +294,10 @@ tar -czvf openclaw-backup.tar.gz ~/.openclaw ~/.openclaw/workspace
 
 ---
 
-## See Also
+## Zie ook
 
-- [Gateway remote access](/gateway/remote) — other remote access patterns
-- [Tailscale integration](/gateway/tailscale) — full Tailscale docs
-- [Gateway configuration](/gateway/configuration) — all config options
-- [DigitalOcean guide](/platforms/digitalocean) — if you want paid + easier signup
-- [Hetzner guide](/install/hetzner) — Docker-based alternative
-
-
+- [Gateway remote access](/gateway/remote) — andere patronen voor externe toegang
+- [Tailscale integration](/gateway/tailscale) — volledige Tailscale-documentatie
+- [Gateway configuration](/gateway/configuration) — alle configuratieopties
+- [DigitalOcean guide](/platforms/digitalocean) — als je betaald + eenvoudiger aanmelden wilt
+- [Hetzner guide](/install/hetzner) — Docker-gebaseerd alternatief

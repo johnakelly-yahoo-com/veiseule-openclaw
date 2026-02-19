@@ -1,4 +1,8 @@
 ---
+summary: "透過 gogcli 將 Gmail Pub/Sub 推送接線至 OpenClaw Webhooks"
+read_when:
+  - 將 Gmail 收件匣觸發器接線至 OpenClaw
+  - 設定用於代理程式喚醒的 Pub/Sub 推送
 title: "Gmail PubSub"
 ---
 
@@ -6,12 +10,14 @@ title: "Gmail PubSub"
 
 目標：Gmail watch -> Pub/Sub push -> `gog gmail watch serve` -> OpenClaw webhook。
 
-## 先決條件
+## Prereqs
 
 - 已安裝並登入 `gcloud`（[安裝指南](https://docs.cloud.google.com/sdk/docs/install-sdk)）。
 - 已安裝並授權 Gmail 帳戶使用的 `gog`（gogcli）（[gogcli.sh](https://gogcli.sh/)）。
 - 已啟用 OpenClaw hooks（請參閱 [Webhooks](/automation/webhook)）。
 - `tailscale` 已登入（[tailscale.com](https://tailscale.com/)）。 支援的設定使用 Tailscale Funnel 作為公開的 HTTPS 端點。
+  其他通道服務也可行，但屬於 DIY／未支援，且需要手動設定。
+  目前我們支援的是 Tailscale。 支援的設定使用 Tailscale Funnel 作為公開的 HTTPS 端點。
   其他通道服務也可行，但屬於 DIY／未支援，且需要手動設定。
   目前我們支援的是 Tailscale。
 
@@ -55,10 +61,11 @@ title: "Gmail PubSub"
 }
 ```
 
-如果你想要固定的頻道，請設定 `channel` + `to`。 若要固定頻道，請設定 `channel` + `to`。否則 `channel: "last"`
+如果你想要固定的頻道，請設定 `channel` + `to`。 如果你想要固定的頻道，請設定 `channel` + `to`。 若要固定頻道，請設定 `channel` + `to`。否則 `channel: "last"`
 會使用最後一次的傳送路由（回退至 WhatsApp）。
 
 若要在 Gmail 執行時強制使用較便宜的模型，請在對應中設定 `model`
+（`provider/model` 或別名）。如果你強制 `agents.defaults.models`，也請在此加入。 若要在 Gmail 執行時強制使用較便宜的模型，請在對應中設定 `model`
 （`provider/model` 或別名）。如果你強制 `agents.defaults.models`，也請在此加入。 如果你強制使用 `agents.defaults.models`，請在那裡包含它。
 
 若要專門為 Gmail hooks 設定預設模型與思考層級，請在設定中加入
@@ -111,8 +118,11 @@ openclaw webhooks gmail setup \
 如果你需要後端接收帶前綴的路徑，請將
 `hooks.gmail.tailscale.target`（或 `--tailscale-target`）設定為完整的 URL，例如
 `http://127.0.0.1:8788/gmail-pubsub`，並與 `hooks.gmail.serve.path` 相符。
+如果你需要後端接收帶前綴的路徑，請將
+`hooks.gmail.tailscale.target`（或 `--tailscale-target`）設定為完整的 URL，例如
+`http://127.0.0.1:8788/gmail-pubsub`，並與 `hooks.gmail.serve.path` 相符。
 
-想要自訂端點嗎？ 想要自訂端點？請使用 `--push-endpoint <url>` 或 `--tailscale off`。
+想要自訂端點嗎？ 想要自訂端點嗎？ 想要自訂端點？請使用 `--push-endpoint <url>` 或 `--tailscale off`。
 
 平台說明：在 macOS 上，精靈會透過 Homebrew 安裝 `gcloud`、`gogcli` 與 `tailscale`；
 在 Linux 上請先手動安裝。
@@ -253,5 +263,3 @@ gog gmail watch stop --account openclaw@gmail.com
 gcloud pubsub subscriptions delete gog-gmail-watch-push
 gcloud pubsub topics delete gog-gmail-watch
 ```
-
-

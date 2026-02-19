@@ -1,4 +1,7 @@
 ---
+summary: "macOS uygulamasının gateway/Baileys sağlık durumlarını nasıl raporladığı"
+read_when:
+  - Mac uygulaması sağlık göstergelerinde hata ayıklama
 title: "Sağlık Kontrolleri"
 ---
 
@@ -29,5 +32,3 @@ Menü çubuğu uygulamasından bağlı kanalın sağlıklı olup olmadığını 
 ## Şüphede kalındığında
 
 - [Gateway health](/gateway/health) içindeki CLI akışını (`openclaw status`, `openclaw status --deep`, `openclaw health --json`) hâlâ kullanabilir ve `web-heartbeat` / `web-reconnect` için `/tmp/openclaw/openclaw-*.log`’i takip edebilirsiniz.
-
-

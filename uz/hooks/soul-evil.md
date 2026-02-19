@@ -1,5 +1,5 @@
 ---
-title: "28.\ 
+summary: "25.\ 
 
   \    ```bash
 
@@ -7,22 +7,37 @@ title: "28.\
 
   \    openclaw gateway status
 
-  \    openclaw browser status
+  \    openclaw nodes status
 
-  \    openclaw logs --follow
+  \    openclaw nodes describe --node "
+read_when:
+  - |-
+    26. 
+        openclaw logs --follow
+        ```
+  - |-
+    27. Yaxshi chiqish quyidagicha ko‘rinadi:
 
-  \    openclaw doctor
+    - Tugun ulangan va `node` roli uchun pairing qilingan.
+    - Chaqqirayotgan buyruq uchun imkoniyat mavjud.
+    - Asbob uchun ruxsat holati berilgan.
 
-  \    ```"
+    Keng tarqalgan log imzolari:
+
+    - `NODE_BACKGROUND_UNAVAILABLE` → tugun ilovasini foreground’ga olib chiqing.
+    - `*_PERMISSION_REQUIRED` → OS ruxsati rad etilgan/yo‘q.
+    - `SYSTEM_RUN_DENIED: approval required` → exec tasdiqlanishi kutilmoqda.
+    - `SYSTEM_RUN_DENIED: allowlist miss` → buyruq exec allowlist’da yo‘q.
+
+    Chuqur sahifalar:
+
+    - [/gateway/troubleshooting#node-paired-tool-fails](/gateway/troubleshooting#node-paired-tool-fails)
+    - [/nodes/troubleshooting](/nodes/troubleshooting)
+    - [/tools/exec-approvals](/tools/exec-approvals)
+title: "SOUL Evil Hook"
 ---
 
-# 29. Yaxshi chiqish quyidagicha ko‘rinadi:- Browser holati `running: true` va tanlangan brauzer/profilni ko‘rsatadi.
-- `openclaw` profili ishga tushadi yoki `chrome` relay ulangan tab’ga ega.Keng tarqalgan log imzolari:- `Failed to start Chrome CDP on port` → lokal brauzerni ishga tushirish muvaffaqiyatsiz.
-- `browser.executablePath not found` → sozlangan binar yo‘l noto‘g‘ri.
-- `Chrome extension relay is running, but no tab is connected` → kengaytma ulanmagan.
-- `Browser attachOnly is enabled ... not reachable` → attach-only profilda tirik CDP nishoni yo‘q.Chuqur sahifalar:- [/gateway/troubleshooting#browser-tool-fails](/gateway/troubleshooting#browser-tool-fails)
-- [/tools/browser-linux-troubleshooting](/tools/browser-linux-troubleshooting)
-- [/tools/chrome-extension](/tools/chrome-extension)
+# SOUL Evil Hook
 
 30. 
 </Accordion> 31. SOUL Evil hook (SOUL.md o‘rniga SOUL_EVIL.md ni almashtirish)
@@ -36,7 +51,7 @@ title: "28.\
 ## 36. SOUL Evil hook **injected** `SOUL.md` tarkibini purge oynasi davomida yoki tasodifiy ehtimol bilan `SOUL_EVIL.md` ga almashtiradi.
 
 ```bash
-37. U diskdagi fayllarni **o‘zgartirmaydi**.
+openclaw hooks enable soul-evil
 ```
 
 38. Qanday ishlaydi
@@ -66,5 +81,3 @@ title: "28.\
 ## Shuningdek qarang
 
 - [Hooklar](/automation/hooks)
-
-

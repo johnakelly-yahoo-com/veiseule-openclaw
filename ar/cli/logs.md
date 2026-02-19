@@ -1,4 +1,8 @@
 ---
+summary: "مرجع CLI لأمر `openclaw logs` (تتبّع سجلات Gateway عبر RPC)"
+read_when:
+  - تحتاج إلى تتبّع سجلات Gateway عن بُعد (من دون SSH)
+  - تريد أسطر سجلات بصيغة JSON لأدوات الأتمتة
 title: "السجلات"
 ---
 
@@ -19,4 +23,4 @@ openclaw logs --json
 openclaw logs --limit 500
 ```
 
-
+استخدم `--local-time` لعرض الطوابع الزمنية وفق منطقتك الزمنية المحلية.

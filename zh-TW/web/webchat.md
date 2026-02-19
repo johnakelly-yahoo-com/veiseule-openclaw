@@ -1,4 +1,7 @@
 ---
+summary: "用於聊天 UI 的 Loopback WebChat 靜態主機與 Gateway WebSocket 使用方式"
+read_when:
+  - 偵錯或設定 WebChat 存取時
 title: "WebChat"
 ---
 
@@ -16,13 +19,13 @@ title: "WebChat"
 
 1. 啟動 Gateway 閘道器.
 2. 開啟 WebChat UI（macOS/iOS 應用程式）或 Control UI 的聊天分頁。
-3. 47. 確保已設定 gateway 驗證（預設為必須，即使在 loopback 上）。
+3. 確保已設定 gateway 驗證（預設為必須，即使在 loopback 上）。
 
 ## 運作方式（行為）
 
 - UI 會連線至 Gateway WebSocket，並使用 `chat.history`、`chat.send` 與 `chat.inject`。
 - `chat.inject` 會直接將助理備註附加到對話紀錄，並廣播至 UI（不會執行代理程式）。
-- 48. 歷史紀錄一律從 gateway 取得（不會監看本地檔案）。
+- 歷史紀錄一律從 gateway 取得（不會監看本地檔案）。
 - 如果 gateway 無法連線，WebChat 為唯讀模式。
 
 ## 遠端使用
@@ -36,13 +39,12 @@ title: "WebChat"
 
 頻道選項：
 
-- 50. 沒有專用的 `webchat.*` 區塊。 WebChat uses the gateway endpoint + auth settings below.
+- 50. 沒有專用的 `webchat.*` 區塊。 沒有專用的 `webchat.*` 區塊。 WebChat uses the gateway endpoint + auth settings below.
 
-相關的全域選項：
+Related global options:
 
 - `gateway.port`、`gateway.bind`：WebSocket 主機／連接埠。
 - `gateway.auth.mode`、`gateway.auth.token`、`gateway.auth.password`：WebSocket 身分驗證。
+- `gateway.auth.mode: "trusted-proxy"`：供瀏覽器客戶端使用的反向代理驗證（請參閱 [Trusted Proxy Auth](/gateway/trusted-proxy-auth)）。
 - `gateway.remote.url`、`gateway.remote.token`、`gateway.remote.password`：遠端 Gateway 閘道器目標。
 - `session.*`：工作階段儲存與主要金鑰預設值。
-
-

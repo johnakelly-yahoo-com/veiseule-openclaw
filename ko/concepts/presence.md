@@ -1,8 +1,13 @@
 ---
-title: "프레즌스"
+summary: "OpenClaw presence 항목이 어떻게 생성, 병합, 표시되는지에 대한 설명"
+read_when:
+  - Instances 탭을 디버깅할 때
+  - 중복되거나 오래된 인스턴스 행을 조사할 때
+  - Gateway WS 연결 또는 시스템 이벤트 비콘을 변경할 때
+title: "Presence"
 ---
 
-# 프레즌스
+# Presence
 
 OpenClaw 'presence'는 다음에 대한 가볍고 최선의 노력(best‑effort) 기반 뷰입니다.
 
@@ -101,5 +106,3 @@ macOS 앱은 `system-presence`의 출력을 렌더링하고,
   - 주기적 비콘이 동일한 `instanceId`를 사용하는지 확인하십시오.
   - 연결에서 파생된 항목에 `instanceId`가 누락되어 있는지 확인하십시오
     (이 경우 중복은 예상된 동작입니다).
-
-

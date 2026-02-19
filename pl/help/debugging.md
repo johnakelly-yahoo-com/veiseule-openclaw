@@ -1,4 +1,9 @@
 ---
+summary: "Narzędzia debugowania: tryb watch, surowe strumienie modelu i śledzenie wycieków rozumowania"
+read_when:
+  - Musisz sprawdzić surowe wyjście modelu pod kątem wycieków rozumowania
+  - Chcesz uruchomić Gateway w trybie watch podczas iteracji
+  - Potrzebujesz powtarzalnego procesu debugowania
 title: "Debugowanie"
 ---
 
@@ -155,5 +160,3 @@ Plik domyślny:
 - Surowe logi strumieni mogą zawierać pełne prompty, wyjście narzędzi oraz dane użytkowników.
 - Przechowuj logi lokalnie i usuwaj je po zakończeniu debugowania.
 - Jeśli udostępniasz logi, najpierw usuń sekrety i dane osobowe (PII).
-
-

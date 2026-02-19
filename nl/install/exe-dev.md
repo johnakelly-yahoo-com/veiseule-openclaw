@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw Gateway uitvoeren op exe.dev (VM + HTTPS-proxy) voor externe toegang"
+read_when:
+  - Je wilt een goedkope, altijd ingeschakelde Linux-host voor de Gateway
+  - Je wilt externe toegang tot de Control UI zonder je eigen VPS te draaien
 title: "exe.dev"
 ---
 
@@ -120,5 +124,3 @@ openclaw health
 ```
 
 Handleiding: [Updating](/install/updating)
-
-

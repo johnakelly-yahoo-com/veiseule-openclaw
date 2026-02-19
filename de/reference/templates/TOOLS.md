@@ -1,4 +1,9 @@
-------
+---
+title: "TOOLS.md-Vorlage"
+summary: "„Workspace-Vorlage für TOOLS.md“"
+read_when:
+  - Manuelles Bootstrapping eines Workspace
+---
 
 # TOOLS.md – Lokale Notizen
 
@@ -40,5 +45,3 @@ Skills werden geteilt. Ihr Setup gehört Ihnen. Die Trennung stellt sicher, dass
 ---
 
 Fügen Sie alles hinzu, was Ihnen bei der Arbeit hilft. Dies ist Ihr Spickzettel.
-
-

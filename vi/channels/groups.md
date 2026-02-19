@@ -1,4 +1,7 @@
 ---
+summary: "Hành vi chat nhóm trên các nền tảng (WhatsApp/Telegram/Discord/Slack/Signal/iMessage/Microsoft Teams)"
+read_when:
+  - Thay đổi hành vi chat nhóm hoặc kiểm soát kích hoạt bằng đề cập
 title: "Nhóm"
 ---
 
@@ -8,7 +11,7 @@ OpenClaw xử lý chat nhóm một cách nhất quán trên các nền tảng: W
 
 ## Giới thiệu cho người mới (2 phút)
 
-OpenClaw “hoạt động” trên chính các tài khoản nhắn tin của bạn. Không có người dùng bot WhatsApp riêng biệt.
+OpenClaw “lives” on your own messaging accounts. There is no separate WhatsApp bot user.
 If **you** are in a group, OpenClaw can see that group and respond there.
 
 Hành vi mặc định:
@@ -55,14 +58,14 @@ Nếu bạn muốn...
 
 Có — cách này hoạt động rất tốt nếu lưu lượng “cá nhân” của bạn là **DM** và lưu lượng “công khai” là **nhóm**.
 
-Vì sao: trong chế độ single-agent, tin nhắn riêng (DM) thường được đưa vào session key **main** (`agent:main:main`), trong khi các nhóm luôn sử dụng session key **không phải main** (`agent:main:<channel>:group:<id>`). Nếu bạn bật sandbox với `mode: "non-main"`, các session nhóm đó sẽ chạy trong Docker trong khi session DM chính của bạn vẫn chạy trên host.
+Why: in single-agent mode, DMs typically land in the **main** session key (`agent:main:main`), while groups always use **non-main** session keys (`agent:main:<channel>:group:<id>`). If you enable sandboxing with `mode: "non-main"`, those group sessions run in Docker while your main DM session stays on-host.
 
 Điều này cho bạn một “bộ não” tác tử (không gian làm việc + bộ nhớ dùng chung), nhưng hai tư thế thực thi:
 
 - **DM**: đầy đủ công cụ (host)
 - **Nhóm**: sandbox + công cụ bị hạn chế (Docker)
 
-> Nếu bạn cần các workspace/persona thực sự tách biệt (“cá nhân” và “công khai” tuyệt đối không được trộn lẫn), hãy sử dụng agent thứ hai + bindings. Xem [Multi-Agent Routing](/concepts/multi-agent).
+> If you need truly separate workspaces/personas (“personal” and “public” must never mix), use a second agent + bindings. See [Multi-Agent Routing](/concepts/multi-agent).
 
 Ví dụ (DM chạy trên host, nhóm chạy sandbox + chỉ công cụ nhắn tin):
 
@@ -89,7 +92,7 @@ Ví dụ (DM chạy trên host, nhóm chạy sandbox + chỉ công cụ nhắn t
 }
 ```
 
-Muốn “nhóm chỉ có thể thấy thư mục X” thay vì “không có quyền truy cập host”? Giữ `workspaceAccess: "none"` và chỉ mount các đường dẫn nằm trong allowlist vào sandbox:
+Want “groups can only see folder X” instead of “no host access”? Keep `workspaceAccess: "none"` and mount only allowlisted paths into the sandbox:
 
 ```json5
 {
@@ -183,7 +186,7 @@ Ghi chú:
 - WhatsApp/Telegram/Signal/iMessage/Microsoft Teams: dùng `groupAllowFrom` (dự phòng: `allowFrom` tường minh).
 - Các giá trị mặc định nằm theo từng subsystem dưới `*.groups."*"`..channels\`.
 - Slack: danh sách cho phép dùng `channels.slack.channels`.
-- Matrix: allowlist sử dụng `channels.matrix.groups` (room ID, alias hoặc tên). Sử dụng `channels.matrix.groupAllowFrom` để giới hạn người gửi; allowlist `users` theo từng phòng cũng được hỗ trợ.
+- Matrix: allowlist uses `channels.matrix.groups` (room IDs, aliases, or names). Use `channels.matrix.groupAllowFrom` to restrict senders; per-room `users` allowlists are also supported.
 - DM nhóm được kiểm soát riêng (`channels.discord.dm.*`, `channels.slack.dm.*`).
 - Danh sách cho phép Telegram có thể khớp ID người dùng (`"123456789"`, `"telegram:123456789"`, `"tg:123456789"`) hoặc username (`"@alice"` hoặc `"alice"`); tiền tố không phân biệt hoa thường.
 - Mặc định là `groupPolicy: "allowlist"`; nếu danh sách cho phép nhóm trống, tin nhắn nhóm sẽ bị chặn.
@@ -198,7 +201,7 @@ Mô hình tư duy nhanh (thứ tự đánh giá cho tin nhắn nhóm):
 
 Group messages require a mention unless overridden per group. Điều này áp dụng cho Telegram, WhatsApp, Slack, Discord và Microsoft Teams.
 
-Trả lời một tin nhắn của bot được tính là một lần nhắc ngầm (khi kênh hỗ trợ metadata trả lời). .historyLimit`(hoặc`channels.&lt;channel&gt;\`
+Trả lời một tin nhắn của bot được tính là một lần nhắc ngầm (khi kênh hỗ trợ metadata trả lời). .historyLimit`(hoặc`channels.<channel>\`
 
 ```json5
 {
@@ -346,7 +349,7 @@ Chủ nhóm có thể bật/tắt kích hoạt theo từng nhóm:
 - `/activation mention`
 - `/activation always`
 
-Owner được xác định bởi `channels.whatsapp.allowFrom` (hoặc E.164 của chính bot nếu không được thiết lập). Gửi lệnh dưới dạng một tin nhắn độc lập. Các bề mặt khác hiện tại bỏ qua `/activation`.
+Owner is determined by `channels.whatsapp.allowFrom` (or the bot’s self E.164 when unset). Send the command as a standalone message. Other surfaces currently ignore `/activation`.
 
 ## Trường ngữ cảnh
 
@@ -369,5 +372,3 @@ The agent system prompt includes a group intro on the first turn of a new group 
 ## Chi tiết riêng cho WhatsApp
 
 Xem [Group messages](/channels/group-messages) để biết hành vi chỉ dành cho WhatsApp (chèn lịch sử, chi tiết xử lý đề cập).
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "CLI-Referenz für `openclaw sessions` (gespeicherte Sitzungen auflisten + Verwendung)"
+read_when:
+  - Sie möchten gespeicherte Sitzungen auflisten und aktuelle Aktivitäten sehen
 title: "Sitzungen"
 ---
 
@@ -11,5 +14,3 @@ openclaw sessions
 openclaw sessions --active 120
 openclaw sessions --json
 ```
-
-

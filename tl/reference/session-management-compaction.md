@@ -1,4 +1,9 @@
 ---
+summary: "Masusing pagtalakay: session store + mga transcript, lifecycle, at mga internal ng (auto)compaction"
+read_when:
+  - Kailangan mong mag-debug ng mga session id, transcript JSONL, o mga field ng sessions.json
+  - Binabago mo ang gawi ng auto-compaction o nagdaragdag ng “pre-compaction” housekeeping
+  - Gusto mong magpatupad ng mga memory flush o silent system turn
 title: "Masusing Pag-aaral sa Pamamahala ng Session"
 ---
 
@@ -277,5 +282,3 @@ Naglalantad din ang Pi ng isang `session_before_compact` hook sa extension API, 
   - mga setting ng compaction (`reserveTokens` na masyadong mataas para sa window ng model ay maaaring magdulot ng mas maagang compaction)
   - tool-result bloat: i-enable/i-tune ang session pruning
 - Silent turns leaking? Confirm the reply starts with `NO_REPLY` (exact token) and you’re on a build that includes the streaming suppression fix.
-
-

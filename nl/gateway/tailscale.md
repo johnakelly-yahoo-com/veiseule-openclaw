@@ -1,4 +1,8 @@
 ---
+summary: "Geïntegreerde Tailscale Serve/Funnel voor het Gateway-dashboard"
+read_when:
+  - Het Gateway Control UI buiten localhost beschikbaar maken
+  - Toegang tot het tailnet of een openbaar dashboard automatiseren
 title: "Tailscale"
 ---
 
@@ -121,5 +125,3 @@ Vermijd Funnel voor browserbediening; behandel node-koppeling als operator-toega
 - `tailscale serve`-opdracht: [https://tailscale.com/kb/1242/tailscale-serve](https://tailscale.com/kb/1242/tailscale-serve)
 - Overzicht Tailscale Funnel: [https://tailscale.com/kb/1223/tailscale-funnel](https://tailscale.com/kb/1223/tailscale-funnel)
 - `tailscale funnel`-opdracht: [https://tailscale.com/kb/1311/tailscale-funnel](https://tailscale.com/kb/1311/tailscale-funnel)
-
-

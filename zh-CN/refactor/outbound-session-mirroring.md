@@ -1,13 +1,6 @@
 ---
+title: 出站会话镜像重构（Issue #1520)
 description: Track outbound session mirroring refactor notes, decisions, tests, and open items.
-title: 出站会话镜像重构（Issue
-x-i18n:
-  generated_at: "2026-02-03T07:53:51Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: b88a72f36f7b6d8a71fde9d014c0a87e9a8b8b0d449b67119cf3b6f414fa2b81
-  source_path: refactor/outbound-session-mirroring.md
-  workflow: 15
 ---
 
 # 出站会话镜像重构（Issue #1520）
@@ -18,9 +11,9 @@ x-i18n:
 - 核心 + 插件渠道路由已更新以支持出站镜像。
 - Gateway 网关发送现在在省略 sessionKey 时派生目标会话。
 
-## 背景
+## Context
 
-出站发送被镜像到*当前*智能体会话（工具会话键）而不是目标渠道会话。入站路由使用渠道/对等方会话键，因此出站响应落在错误的会话中，首次联系的目标通常缺少会话条目。
+Outbound sends were mirrored into the _current_ agent session (tool session key) rather than the target channel session. Inbound routing uses channel/peer session keys, so outbound responses landed in the wrong session and first-contact targets often lacked session entries.
 
 ## 目标
 
@@ -50,7 +43,7 @@ x-i18n:
 
 - Matrix、MS Teams、Mattermost、BlueBubbles、Nextcloud Talk、Zalo、Zalo Personal、Nostr、Tlon。
 - 注意：
-  - Mattermost 目标现在为私信会话键路由去除 `@`。
+  - Mattermost targets now strip `@` for DM session key routing.
   - Zalo Personal 对 1:1 目标使用私信对等方类型（仅当存在 `group:` 时才使用群组）。
   - BlueBubbles 群组目标去除 `chat_*` 前缀以匹配入站会话键。
   - Slack 自动线程镜像不区分大小写地匹配频道 id。
@@ -58,7 +51,7 @@ x-i18n:
 
 ## 决策
 
-- **Gateway 网关发送会话派生**：如果提供了 `sessionKey`，则使用它。如果省略，从目标 + 默认智能体派生 sessionKey 并镜像到那里。
+- **Gateway 网关发送会话派生**：如果提供了 `sessionKey`，则使用它。如果省略，从目标 + 默认智能体派生 sessionKey 并镜像到那里。 If omitted, derive a sessionKey from target + default agent and mirror there.
 - **会话条目创建**：始终使用 `recordSessionMetaFromInbound`，`Provider/From/To/ChatType/AccountId/Originating*` 与入站格式对齐。
 - **目标规范化**：出站路由在可用时使用解析后的目标（`resolveChannelTarget` 之后）。
 - **会话键大小写**：在写入和迁移期间将会话键规范化为小写。
@@ -74,9 +67,9 @@ x-i18n:
 - `src/gateway/server-methods/send.test.ts`
   - 在省略时派生会话键并创建会话条目。
 
-## 待处理项目 / 后续跟进
+## Open Items / Follow-ups
 
-- 语音通话插件使用自定义的 `voice:<phone>` 会话键。出站映射在这里没有标准化；如果 message-tool 应该支持语音通话发送，请添加显式映射。
+- 语音通话插件使用自定义的 `voice:<phone>` 会话键。 语音通话插件使用自定义的 `voice:<phone>` 会话键。出站映射在这里没有标准化；如果 message-tool 应该支持语音通话发送，请添加显式映射。
 - 确认是否有任何外部插件使用内置集之外的非标准 `From/To` 格式。
 
 ## 涉及的文件
@@ -90,5 +83,3 @@ x-i18n:
   - `src/infra/outbound/outbound-session.test.ts`
   - `src/agents/tools/message-tool.test.ts`
   - `src/gateway/server-methods/send.test.ts`
-
-

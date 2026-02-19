@@ -1,4 +1,8 @@
 ---
+summary: "Kanały stable, beta i dev: semantyka, przełączanie i tagowanie"
+read_when:
+  - Chcesz przełączać się między stable/beta/dev
+  - Tagujesz lub publikujesz wydania prerelease
 title: "Kanały rozwojowe"
 ---
 
@@ -17,7 +21,7 @@ bez zmiany numeru wersji — dist-tagi są źródłem prawdy dla instalacji npm.
 
 ## Przełączanie kanałów
 
-Pobranie z Git:
+Git checkout:
 
 ```bash
 openclaw update --channel stable
@@ -69,5 +73,3 @@ Buildy beta i dev **mogą nie** zawierać wydania aplikacji na macOS. To w porz�
 
 - Tag git i npm dist-tag nadal mogą zostać opublikowane.
 - W notatkach do wydania lub changelogu zaznacz „brak buildu macOS dla tej bety”.
-
-

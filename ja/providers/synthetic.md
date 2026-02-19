@@ -1,10 +1,14 @@
 ---
+summary: "OpenClaw で Synthetic の Anthropic 互換 API を使用します"
+read_when:
+  - Synthetic をモデルプロバイダーとして使用したい場合
+  - Synthetic の API キーまたはベース URL の設定が必要な場合
 title: "Synthetic"
 ---
 
 # Synthetic
 
-合成は、Anthropic互換のエンドポイントを公開します。 Synthetic は Anthropic 互換のエンドポイントを提供します。OpenClaw はこれを
+合成は、Anthropic互換のエンドポイントを公開します。 合成は、Anthropic互換のエンドポイントを公開します。 Synthetic は Anthropic 互換のエンドポイントを提供します。OpenClaw はこれを
 `synthetic` プロバイダーとして登録し、Anthropic Messages API を使用します。
 
 ## クイックスタート
@@ -60,6 +64,7 @@ synthetic/hf:MiniMaxAI/MiniMax-M2.1
 注記: OpenClaw の Anthropic クライアントは、ベース URL に `/v1` を付加します。そのため、
 `https://api.synthetic.new/anthropic` を使用してください（`/anthropic/v1` は使用しないでください）。Synthetic が
 ベース URL を変更した場合は、`models.providers.synthetic.baseUrl` を上書きしてください。 Synthetic が
+のベース URL を変更した場合、`models.providers.synthetic.baseUrl` を上書きします。 Synthetic が
 のベース URL を変更した場合、`models.providers.synthetic.baseUrl` を上書きします。
 
 ## モデルカタログ
@@ -93,5 +98,3 @@ synthetic/hf:MiniMaxAI/MiniMax-M2.1
 - モデル参照には `synthetic/<modelId>` を使用します。
 - モデルの許可リスト（`agents.defaults.models`）を有効にしている場合は、使用予定のすべてのモデルを追加してください。
 - プロバイダーのルールについては、「[Model providers](/concepts/model-providers)」を参照してください。
-
-

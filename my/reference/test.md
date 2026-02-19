@@ -1,4 +1,7 @@
 ---
+summary: "စမ်းသပ်မှုများကို ဒေသတွင်း (vitest) တွင် မည်သို့လုပ်ဆောင်ရမည်နှင့် force/coverage မုဒ်များကို မည်သည့်အချိန်တွင် အသုံးပြုရမည်"
+read_when:
+  - စမ်းသပ်မှုများကို လုပ်ဆောင်နေစဉ် သို့မဟုတ် ပြင်ဆင်နေစဉ်
 title: "စမ်းသပ်မှုများ"
 ---
 
@@ -8,9 +11,11 @@ title: "စမ်းသပ်မှုများ"
 
 - 30. `pnpm test:force`: ပုံမှန် control port ကို ကိုင်ထားတဲ့ gateway process များကို အဆုံးသတ်ပြီး၊ သီးသန့် gateway port နဲ့ Vitest suite အပြည့်အစုံကို chạy လုပ်ပါတယ်၊ ဒါကြောင့် server tests တွေက လက်ရှိ chạy နေတဲ့ instance နဲ့ မထိခိုက်ပါဘူး။ 31. ယခင် gateway run တစ်ခုက port 18789 ကို သိမ်းထားခဲ့တဲ့အခါ ဒီဟာကို သုံးပါ။
 
-- 32. `pnpm test:coverage`: V8 coverage နဲ့ Vitest ကို chạy လုပ်ပါတယ်။ 33. Global thresholds တွေက lines/branches/functions/statements အတွက် 70% ပါ။ Coverage excludes integration-heavy entrypoints (CLI wiring, gateway/telegram bridges, webchat static server) to keep the target focused on unit-testable logic.
+- `pnpm test:coverage`: V8 coverage ဖြင့် unit suite ကို လည်ပတ်ပါသည် (`vitest.unit.config.ts` မှတဆင့်)။ 33. Global thresholds တွေက lines/branches/functions/statements အတွက် 70% ပါ။ Coverage excludes integration-heavy entrypoints (CLI wiring, gateway/telegram bridges, webchat static server) to keep the target focused on unit-testable logic.
 
-- `pnpm test:e2e`: Gateway end-to-end smoke tests (multi-instance WS/HTTP/node pairing) ကို လုပ်ဆောင်သည်။
+- Node 24+ တွင် `pnpm test`: OpenClaw သည် Vitest `vmForks` ကို အလိုအလျောက် ပိတ်ပြီး `forks` ကို အသုံးပြုကာ `ERR_VM_MODULE_LINK_FAILURE` / `module is already linked` ကို ရှောင်ရှားပါသည်။ `OPENCLAW_TEST_VM_FORKS=0|1` ဖြင့် လုပ်ဆောင်ပုံကို အတင်းအကြပ် သတ်မှတ်နိုင်သည်။
+
+- `pnpm test:e2e`: Gateway end-to-end smoke tests (multi-instance WS/HTTP/node pairing) ကို လုပ်ဆောင်သည်။ `vitest.e2e.config.ts` တွင် မူလအားဖြင့် `vmForks` + adaptive workers ကို အသုံးပြုသည်; `OPENCLAW_E2E_WORKERS=<n>` ဖြင့် ချိန်ညှိနိုင်ပြီး အသေးစိတ် logs များအတွက် `OPENCLAW_E2E_VERBOSE=1` ကို သတ်မှတ်ပါ။
 
 - 35. `pnpm test:live`: provider live tests (minimax/zai) ကို chạy လုပ်ပါတယ်။ 36. API keys နဲ့ `LIVE=1` (သို့မဟုတ် provider-specific `*_LIVE_TEST=1`) လိုအပ်ပြီး unskip လုပ်ရန် အသုံးပြုရပါတယ်။
 
@@ -48,5 +53,3 @@ Docker အတွင်း Node 22+ ဖြင့် `qrcode-terminal` ကို l
 ```bash
 pnpm test:docker:qr
 ```
-
-

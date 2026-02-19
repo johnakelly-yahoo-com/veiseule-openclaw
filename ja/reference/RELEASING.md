@@ -1,4 +1,11 @@
-------
+---
+title: "リリースチェックリスト"
+summary: "npm + macOS アプリ向けのステップバイステップなリリースチェックリスト"
+read_when:
+  - 新しい npm リリースを作成する際
+  - 新しい macOS アプリリリースを作成する際
+  - 公開前にメタデータを検証する際
+---
 
 # リリースチェックリスト（npm + macOS）
 
@@ -66,7 +73,7 @@
 
 ### トラブルシューティング（2.0.0-beta2 リリース時のメモ）
 
-- **npm pack / publish がハングする、または巨大な tarball を生成する**: `dist/OpenClaw.app` 内の macOS アプリバンドル（およびリリース zip）がパッケージに取り込まれています。`package.json` `files` によって公開内容をホワイトリスト化して修正します（dist サブディレクトリ、docs、skills を含め、アプリバンドルを除外）。`npm pack --dry-run` で `dist/OpenClaw.app` が一覧に含まれていないことを確認してください。 `package.json` `files` で公開内容をホワイトリストに追加して修正しました（ディストのサブディレクトリ、ドキュメント、スキル、アプリのバンドルを除く）。 `dist/OpenClaw.app`がリストされていない`npm pack --dry-run`で確認します。
+- **npm pack / publish がハングする、または巨大な tarball を生成する**: `dist/OpenClaw.app` 内の macOS アプリバンドル（およびリリース zip）がパッケージに取り込まれています。`package.json` `files` によって公開内容をホワイトリスト化して修正します（dist サブディレクトリ、docs、skills を含め、アプリバンドルを除外）。`npm pack --dry-run` で `dist/OpenClaw.app` が一覧に含まれていないことを確認してください。 `package.json` `files` で公開内容をホワイトリストに追加して修正しました（ディストのサブディレクトリ、ドキュメント、スキル、アプリのバンドルを除く）。 `dist/OpenClaw.app`がリストされていない`npm pack --dry-run`で確認します。 `package.json` `files` で公開内容をホワイトリストに追加して修正しました（ディストのサブディレクトリ、ドキュメント、スキル、アプリのバンドルを除く）。 `dist/OpenClaw.app`がリストされていない`npm pack --dry-run`で確認します。
 - **dist-tags の npm auth web ループ**: OTP プロンプトを表示するため、レガシー認証を使用します:
   - `NPM_CONFIG_AUTH_TYPE=legacy npm dist-tag add openclaw@X.Y.Z latest`
 - **`npx` の検証が `ECOMPROMISED: Lock compromised` で失敗する**: 新しいキャッシュで再試行します:
@@ -85,7 +92,7 @@
 
 ## プラグインの公開スコープ（npm）
 
-**既存の npm プラグイン** を `@openclaw/*` スコープにのみ公開します。 公開するのは `@openclaw/*` スコープ配下の **既存の npm プラグイン** のみです。npm に存在しない同梱プラグインは **ディスクツリーのみ** に留めます（引き続き `extensions/**` に同梱されます）。
+**既存の npm プラグイン** を `@openclaw/*` スコープにのみ公開します。 公開するのは `@openclaw/*` スコープ配下の **既存の npm プラグイン** のみです。npm に存在しない同梱プラグインは **ディスクツリーのみ** に留めます（引き続き `extensions/**` に同梱されます）。 公開するのは `@openclaw/*` スコープ配下の **既存の npm プラグイン** のみです。npm に存在しない同梱プラグインは **ディスクツリーのみ** に留めます（引き続き `extensions/**` に同梱されます）。
 
 リストを導出する手順:
 
@@ -109,5 +116,3 @@
 - @openclaw/zalouser
 
 リリースノートでは、**デフォルトでは有効でない** **新しい任意の同梱プラグイン**（例: `tlon`）についても必ず言及してください。
-
-

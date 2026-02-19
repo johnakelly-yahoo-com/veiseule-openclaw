@@ -1,11 +1,16 @@
 ---
+summary: "Models CLI：列出、設定、別名、備援、掃描、狀態"
+read_when:
+  - 新增或修改 Models CLI（models list/set/scan/aliases/fallbacks）
+  - 變更模型備援行為或選擇 UX
+  - 更新模型掃描探測（工具／圖片）
 title: "Models CLI"
 ---
 
 # Models CLI
 
 36. 有關驗證設定檔輪替、冷卻時間，以及其如何與回退互動，請參閱 [/concepts/model-failover](/concepts/model-failover)。
-37. 供應商快速總覽與範例：[/concepts/model-providers](/concepts/model-providers)。
+    供應商快速總覽與範例：[/concepts/model-providers](/concepts/model-providers)。
 
 ## 模型選擇如何運作
 
@@ -37,14 +42,14 @@ openclaw onboard
 
 它可為常見提供者設定模型與身分驗證，包含 **OpenAI Code（Codex）訂閱**（OAuth）與 **Anthropic**（建議使用 API 金鑰；亦支援 `claude setup-token`）。
 
-## 40. 設定鍵（總覽）
+## 設定鍵（總覽）
 
 - `agents.defaults.model.primary` 與 `agents.defaults.model.fallbacks`
 - `agents.defaults.imageModel.primary` 與 `agents.defaults.imageModel.fallbacks`
 - `agents.defaults.models`（允許清單 + 別名 + 提供者參數）
 - `models.providers`（自訂提供者會寫入 `models.json`）
 
-1. 模型參考會正規化為小寫。 2. 像 `z.ai/*` 這樣的提供者別名會正規化為 `zai/*`。
+模型參考會正規化為小寫。 2. 像 `z.ai/*` 這樣的提供者別名會正規化為 `zai/*`。
 
 提供者設定範例（包含 OpenCode Zen）位於
 [/gateway/configuration](/gateway/configuration#opencode-zen-multi-model-proxy)。
@@ -127,7 +132,7 @@ openclaw models image-fallbacks clear
 
 ### `models list`
 
-6. 預設會顯示已設定的模型。 7. 實用的旗標：
+預設會顯示已設定的模型。 7. 實用的旗標：
 
 - `--all`：完整目錄
 - `--local`：僅本地提供者
@@ -137,10 +142,10 @@ openclaw models image-fallbacks clear
 
 ### `models status`
 
-8. 顯示已解析的主要模型、備援模型、影像模型，以及已設定提供者的驗證總覽。 9. 也會顯示在驗證儲存區中找到的設定檔的 OAuth 到期狀態（預設在 24 小時內到期會警告）。 10. `--plain` 只會輸出已解析的主要模型。
-9. OAuth 狀態一定會顯示（並包含在 `--json` 輸出中）。 12. 如果已設定的提供者沒有憑證，`models status` 會列印 **Missing auth** 區段。
-10. JSON 會包含 `auth.oauth`（警告視窗 + 設定檔）以及 `auth.providers`（各提供者的實際驗證）。
-11. 在自動化中使用 `--check`（缺少/已過期時結束碼為 `1`，即將到期時為 `2`）。
+8. 顯示已解析的主要模型、備援模型、影像模型，以及已設定提供者的驗證總覽。 9. 也會顯示在驗證儲存區中找到的設定檔的 OAuth 到期狀態（預設在 24 小時內到期會警告）。 `--plain` 只會輸出已解析的主要模型。
+   OAuth 狀態一定會顯示（並包含在 `--json` 輸出中）。 12. 如果已設定的提供者沒有憑證，`models status` 會列印 **Missing auth** 區段。
+   JSON 會包含 `auth.oauth`（警告視窗 + 設定檔）以及 `auth.providers`（各提供者的實際驗證）。
+9. 在自動化中使用 `--check`（缺少/已過期時結束碼為 `1`，即將到期時為 `2`）。
 
 Anthropic 建議的身分驗證方式為 Claude Code CLI 的 setup-token（可在任何地方執行；必要時貼到閘道器主機）：
 
@@ -170,7 +175,7 @@ openclaw models status
 
 1. 圖片支援
 2. 工具延遲
-3. 16. 上下文大小
+3. 上下文大小
 4. 17. 參數數量
 
 Input
@@ -180,10 +185,8 @@ Input
 - 選用篩選條件：`--max-age-days`、`--min-params`、`--provider`、`--max-candidates`
 - 探測控制：`--timeout`、`--concurrency`
 
-18. 在 TTY 中執行時，可以互動式地選擇備援模型。 19. 在非互動模式下，傳入 `--yes` 以接受預設值。
+在 TTY 中執行時，可以互動式地選擇備援模型。 19. 在非互動模式下，傳入 `--yes` 以接受預設值。
 
 ## 模型登錄表（`models.json`）
 
 `models.providers` 中的自訂提供者會寫入代理程式目錄下的 `models.json`（預設為 `~/.openclaw/agents/<agentId>/models.json`）。此檔案預設會被合併，除非將 `models.mode` 設為 `replace`。 20. 除非將 `models.mode` 設為 `replace`，否則此檔案預設會被合併。
-
-

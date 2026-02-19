@@ -1,4 +1,8 @@
 ---
+summary: "الخطة: مجموعة تطوير إضافات واحدة نظيفة + بيئة تشغيل لجميع موصلات المراسلة"
+read_when:
+  - عند تعريف أو إعادة هيكلة بنية الإضافات
+  - ترحيل موصلات القنوات إلى برنامج SDK/وقت التشغيل الإضافي
 title: "refactor/plugin-sdk.md"
 ---
 
@@ -208,5 +212,3 @@ title: "refactor/plugin-sdk.md"
 - يمكن تطوير الإضافات الخارجية وتحديثها دون الوصول إلى مصدر النواة.
 
 مستندات ذات صلة: [Plugins](/tools/plugin)، [Channels](/channels/index)، [Configuration](/gateway/configuration).
-
-

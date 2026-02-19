@@ -1,6 +1,8 @@
 ---
+summary: "OpenClaw é um gateway multicanal para agentes de IA que roda em qualquer sistema operacional."
+read_when:
+  - Apresentando o OpenClaw a novos usuários
 title: "OpenClaw"
-sidebarTitle: "OpenClaw"
 ---
 
 # OpenClaw 🦞
@@ -20,8 +22,7 @@ sidebarTitle: "OpenClaw"
 
 > _"EXFOLIATE! EXFOLIATE!"_ — Uma lagosta espacial, provavelmente
 
-<p align="center">
-  <strong>Gateway para agentes de IA em qualquer sistema operacional no WhatsApp, Telegram, Discord, iMessage e mais.</strong><br />
+<p align="center"><strong>Gateway para agentes de IA em qualquer sistema operacional no WhatsApp, Telegram, Discord, iMessage e mais.</strong><br />
   Envie uma mensagem e receba a resposta de um agente no seu bolso. Plugins adicionam Mattermost e mais.
 </p>
 
@@ -209,5 +210,3 @@ Exemplo:
   
 </Card>
 </Columns>
-
-

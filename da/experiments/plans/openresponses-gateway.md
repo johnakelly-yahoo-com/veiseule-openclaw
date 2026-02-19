@@ -1,4 +1,5 @@
 ---
+summary: "Plan: Tilføj OpenResponses /v1/responses-endpoint og udfas chat completions på en ren måde"
 owner: "openclaw"
 status: "draft"
 last_updated: "2026-01-19"
@@ -120,5 +121,3 @@ Uddragne hovedpunkter:
 
 - Tilføj en ny docs-side for `/v1/responses`-brug og eksempler.
 - Opdatér `/gateway/openai-http-api` med en legacy-note og henvisning til `/v1/responses`.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "RPC-adaptrar för externa CLI:er (signal-cli, legacy imsg) och gateway-mönster"
+read_when:
+  - Lägga till eller ändra externa CLI-integrationer
+  - Felsöka RPC-adaptrar (signal-cli, imsg)
 title: "RPC-adaptrar"
 ---
 
@@ -37,5 +41,3 @@ Se [iMessage](/channels/imessage) för legacy-konfigurering och adressering (`ch
 - Gateway äger processen (start/stopp knutet till leverantörens livscykel).
 - Håll RPC-klienter robusta: tidsgränser, starta om vid avslut.
 - Föredrar stabila ID (t.ex., `chat_id`) över visningssträngar.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "Lệnh Doctor: kiểm tra sức khỏe, di chuyển cấu hình và các bước sửa chữa"
+read_when:
+  - Thêm hoặc chỉnh sửa các migration của doctor
+  - Giới thiệu các thay đổi cấu hình gây phá vỡ tương thích
 title: "Bác sĩ"
 ---
 
@@ -255,5 +259,3 @@ nếu workspace chưa nằm trong git.
 
 Xem [/concepts/agent-workspace](/concepts/agent-workspace) để có hướng dẫn đầy đủ về
 cấu trúc workspace và sao lưu git (khuyến nghị GitHub hoặc GitLab riêng tư).
-
-

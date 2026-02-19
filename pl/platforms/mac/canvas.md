@@ -1,4 +1,9 @@
 ---
+summary: "„Panel Canvas sterowany przez agenta, osadzony przez WKWebView + niestandardowy schemat URL”"
+read_when:
+  - Implementacja panelu Canvas w macOS
+  - Dodawanie sterowania agenta dla wizualnego obszaru roboczego
+  - Debugowanie ładowań Canvas w WKWebView
 title: "„Canvas”"
 ---
 
@@ -114,5 +119,3 @@ Aplikacja prosi o potwierdzenie, chyba że zostanie podany prawidłowy klucz.
 - Schemat Canvas blokuje przechodzenie po katalogach; pliki muszą znajdować się pod katalogiem głównym sesji.
 - Lokalna zawartość Canvas używa niestandardowego schematu (serwer loopback nie jest wymagany).
 - Zewnętrzne adresy URL `http(s)` są dozwolone tylko przy jawnej nawigacji.
-
-

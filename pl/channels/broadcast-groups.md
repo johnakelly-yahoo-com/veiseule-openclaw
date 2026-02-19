@@ -1,4 +1,8 @@
 ---
+summary: "Wysyłanie wiadomości WhatsApp do wielu agentów"
+read_when:
+  - Konfigurowanie grup rozgłoszeniowych
+  - Debugowanie odpowiedzi wielu agentów w WhatsApp
 status: experimental
 title: "Grupy rozgłoszeniowe"
 ---
@@ -436,5 +440,3 @@ Planowane funkcje:
 - [Konfiguracja wielu agentów](/tools/multi-agent-sandbox-tools)
 - [Konfiguracja trasowania](/channels/channel-routing)
 - [Zarządzanie sesjami](/concepts/sessions)
-
-

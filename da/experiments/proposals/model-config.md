@@ -1,4 +1,7 @@
 ---
+summary: "Udforskning: modelkonfiguration, godkendelsesprofiler og fallback-adfærd"
+read_when:
+  - Udforsker fremtidige idéer til modelvalg + godkendelsesprofiler
 title: "Udforskning af modelkonfiguration"
 ---
 
@@ -31,5 +34,3 @@ Operatører ønsker:
 - Skal profilerotation være pr. udbyder eller pr. model?
 - Hvordan bør UI’en vise profilvalg for en session?
 - Hvad er den sikreste migrationssti fra ældre konfigurationsnøgler?
-
-

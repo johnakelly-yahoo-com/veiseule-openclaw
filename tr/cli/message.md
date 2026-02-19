@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw message` için CLI başvurusu (gönderme + kanal eylemleri)"
+read_when:
+  - Mesaj CLI eylemleri eklerken veya değiştirirken
+  - Giden kanal davranışını değiştirirken
 title: "message"
 ---
 
@@ -64,6 +68,7 @@ Ad araması:
   - Gerekli: `--target`, `--poll-question`, `--poll-option` (tekrar)
   - İsteğe bağlı: `--poll-multi`
   - Yalnızca Discord: `--poll-duration-hours`, `--message`
+  - Yalnızca Telegram: `--poll-duration-seconds` (5-600), `--silent`, `--poll-anonymous` / `--poll-public`, `--thread-id`
 
 - `react`
   - Kanallar: Discord/Google Chat/Slack/Telegram/WhatsApp/Signal
@@ -196,6 +201,16 @@ openclaw message poll --channel discord \
   --poll-multi --poll-duration-hours 48
 ```
 
+Bir Telegram anketi oluşturun (2 dakika içinde otomatik kapanır):
+
+```
+openclaw message poll --channel telegram \
+  --target @mychat \
+  --poll-question "Lunch?" \
+  --poll-option Pizza --poll-option Sushi \
+  --poll-duration-seconds 120 --silent
+```
+
 Bir Teams proaktif mesajı gönderme:
 
 ```
@@ -233,5 +248,3 @@ Telegram satır içi düğmeleri gönderme:
 openclaw message send --channel telegram --target @mychat --message "Choose:" \
   --buttons '[ [{"text":"Yes","callback_data":"cmd:yes"}], [{"text":"No","callback_data":"cmd:no"}] ]'
 ```
-
-

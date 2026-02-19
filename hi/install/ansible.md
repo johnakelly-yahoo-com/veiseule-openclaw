@@ -1,4 +1,9 @@
 ---
+summary: "Ansible, Tailscale VPN और फ़ायरवॉल आइसोलेशन के साथ स्वचालित, सुदृढ़ OpenClaw स्थापना"
+read_when:
+  - आप सुरक्षा सुदृढ़ीकरण के साथ स्वचालित सर्वर परिनियोजन चाहते हैं
+  - आपको VPN एक्सेस के साथ फ़ायरवॉल-आइसोलेटेड सेटअप चाहिए
+  - आप दूरस्थ Debian/Ubuntu सर्वरों पर परिनियोजन कर रहे हैं
 title: "Ansible"
 ---
 
@@ -201,5 +206,3 @@ openclaw channels login
 - [Docker](/install/docker) — कंटेनराइज़्ड Gateway सेटअप
 - [Sandboxing](/gateway/sandboxing) — एजेंट sandbox विन्यास
 - [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) — प्रति-एजेंट आइसोलेशन
-
-

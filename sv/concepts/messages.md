@@ -1,4 +1,9 @@
 ---
+summary: "Meddelandeflöde, sessioner, köhantering och synlighet för resonemang"
+read_when:
+  - Förklara hur inkommande meddelanden blir svar
+  - Förtydliga sessioner, kölägen eller strömningsbeteende
+  - Dokumentera synlighet för resonemang och konsekvenser för användning
 title: "Meddelanden"
 ---
 
@@ -147,5 +152,3 @@ Formatering av utgående meddelanden är centraliserad i `messages`:
 - Svarstrådning via `replyToMode` och per-kanalstandarder
 
 Detaljer: [Konfiguration](/gateway/configuration#messages) och kanaldokumentation.
-
-

@@ -1,4 +1,7 @@
 ---
+summary: "Starannie dobrane linki do najczęściej używanych dokumentów OpenClaw."
+read_when:
+  - Chcesz mieć szybki dostęp do kluczowych stron dokumentacji
 title: "Katalog dokumentacji"
 ---
 
@@ -59,5 +62,3 @@ Pełną mapę dokumentacji znajdziesz w [Hubach dokumentacji](/start/hubs).
 - [Hooki Gmail (Pub/Sub)](/automation/gmail-pubsub)
 - [Bezpieczeństwo](/gateway/security)
 - [Rozwiązywanie problemów](/gateway/troubleshooting)
-
-

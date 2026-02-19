@@ -1,4 +1,9 @@
 ---
+summary: "Fejlfinding af planlægning og levering for cron og heartbeat"
+read_when:
+  - Cron blev ikke kørt
+  - Cron kørte, men ingen besked blev leveret
+  - Heartbeat virker tavs eller sprunget over
 title: "Fejlfinding af automatisering"
 ---
 
@@ -115,5 +120,3 @@ Relateret:
 - [/gateway/heartbeat](/gateway/heartbeat)
 - [/automation/cron-vs-heartbeat](/automation/cron-vs-heartbeat)
 - [/concepts/timezone](/concepts/timezone)
-
-

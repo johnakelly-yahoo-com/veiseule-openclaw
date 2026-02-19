@@ -1,13 +1,18 @@
 ---
+summary: "OpenClaw がサポートするモデルプロバイダー（LLM）"
+read_when:
+  - モデルプロバイダーを選択したい場合
+  - サポートされている LLM バックエンドの概要を素早く把握したい場合
 title: "モデルプロバイダー"
 ---
 
 # モデルプロバイダー
 
 OpenClaw は多くの LLM プロバイダーを使用できます。プロバイダーを選択して認証し、既定のモデルを `provider/model` として設定してください。 プロバイダを選択し、認証し、
+デフォルトモデルを`provider/model`に設定します。 プロバイダを選択し、認証し、
 デフォルトモデルを`provider/model`に設定します。
 
-チャットチャンネルのドキュメント（WhatsApp/Telegram/Discord/Slack/Mattermost（プラグイン）/など）をお探しですか？ [Channels](/channels) を参照してください。 [Channels](/channels) を参照してください。
+チャットチャンネルのドキュメント（WhatsApp/Telegram/Discord/Slack/Mattermost（プラグイン）/など）をお探しですか？ [Channels](/channels) を参照してください。 [Channels](/channels) を参照してください。 [Channels](/channels) を参照してください。
 
 ## ハイライト：Venice（Venice AI）
 
@@ -35,7 +40,9 @@ Venice は、プライバシー重視の推論向けに推奨している Venice
 - [Anthropic（API + Claude Code CLI）](/providers/anthropic)
 - [Qwen（OAuth）](/providers/qwen)
 - [OpenRouter](/providers/openrouter)
+- [LiteLLM (unified gateway)](/providers/litellm)
 - [Vercel AI Gateway](/providers/vercel-ai-gateway)
+- [Together AI](/providers/together)
 - [Cloudflare AI Gateway](/providers/cloudflare-ai-gateway)
 - [Moonshot AI（Kimi + Kimi Coding）](/providers/moonshot)
 - [OpenCode Zen](/providers/opencode)
@@ -45,8 +52,12 @@ Venice は、プライバシー重視の推論向けに推奨している Venice
 - [GLM models](/providers/glm)
 - [MiniMax](/providers/minimax)
 - [Venice（Venice AI、プライバシー重視）](/providers/venice)
+- [Hugging Face (Inference)](/providers/huggingface)
 - [Ollama（ローカルモデル）](/providers/ollama)
+- 完全なプロバイダカタログ（xAI、Groq、Mistralなど） そして、高度な構成、
+  [Model providers](/concepts/model-providers)を参照してください。
 - [Qianfan](/providers/qianfan)
+- [NVIDIA](/providers/nvidia)
 
 ## 文字起こしプロバイダー
 
@@ -58,5 +69,3 @@ Venice は、プライバシー重視の推論向けに推奨している Venice
 
 完全なプロバイダカタログ（xAI、Groq、Mistralなど） そして、高度な構成、
 [Model providers](/concepts/model-providers)を参照してください。
-
-

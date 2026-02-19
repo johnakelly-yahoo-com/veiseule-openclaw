@@ -1,4 +1,8 @@
 ---
+summary: "Веб‑поверхности Gateway: UI управления, режимы привязки и безопасность"
+read_when:
+  - Вам нужен доступ к Gateway через Tailscale
+  - Вам нужен браузерный UI управления и редактирование конфига
 title: "Веб"
 ---
 
@@ -109,5 +113,3 @@ Gateway обслуживает статические файлы из `dist/cont
 ```bash
 pnpm ui:build # auto-installs UI deps on first run
 ```
-
-

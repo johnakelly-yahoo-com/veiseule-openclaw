@@ -1,4 +1,9 @@
 ---
+summary: "Node-Erkennung und Transporte (Bonjour, Tailscale, SSH) zum Auffinden des Gateways"
+read_when:
+  - Implementierung oder Änderung der Bonjour-Erkennung/-Ankündigung
+  - Anpassung von Remote-Verbindungsmodi (direkt vs. SSH)
+  - Entwurf Knotenerkennung + Paarung für entfernte Knoten
 title: "Discovery und Transporte"
 ---
 
@@ -63,6 +68,13 @@ Fehlerbehebung und Beacon-Details: [Bonjour](/gateway/bonjour).
   - `cliPath=<path>` (optional; absoluter Pfad zu einem ausführbaren `openclaw`-Entrypoint oder Binary)
   - `tailnetDns=<magicdns>` (optional; Hinweis, automatisch erkannt, wenn Tailscale verfügbar ist)
 
+Sicherheitshinweise:
+
+- Bonjour/mDNS-TXT-Records sind **nicht authentifiziert**. Clients dürfen TXT-Werte nur als UX-Hinweise behandeln.
+- Beim Routing (Host/Port) sollte der **aufgelöste Service-Endpunkt** (SRV + A/AAAA) gegenüber in TXT angegebenen `lanHost`, `tailnetDns` oder `gatewayPort` bevorzugt werden.
+- TLS-Pinning darf niemals zulassen, dass ein angekündigtes `gatewayTlsSha256` einen zuvor gespeicherten Pin überschreibt.
+- iOS/Android-Knoten sollten direkt über Discovery hergestellte Verbindungen ausschließlich als **TLS-only** behandeln und vor dem Speichern eines erstmaligen Pins eine explizite „Diesem Fingerabdruck vertrauen“-Bestätigung (Out-of-Band-Verifizierung) verlangen.
+
 Deaktivieren/Überschreiben:
 
 - `OPENCLAW_DISABLE_BONJOUR=1` deaktiviert die Ankündigung.
@@ -109,5 +121,3 @@ Das Gateway ist die maßgebliche Quelle für die Zulassung von Nodes/Clients.
 - **Gateway**: kündigt Discovery-Beacons an, trifft Pairing-Entscheidungen und hostet den WS-Endpunkt.
 - **macOS-App**: hilft Ihnen bei der Auswahl eines Gateways, zeigt Pairing-Aufforderungen an und verwendet SSH nur als Fallback.
 - **iOS/Android-Nodes**: durchsuchen Bonjour als Komfortfunktion und verbinden sich mit dem gekoppelten Gateway WS.
-
-

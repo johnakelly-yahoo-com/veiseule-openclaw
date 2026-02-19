@@ -88,5 +88,3 @@ Wenn du dir bei der Risikostufe unsicher bist, beschreibe einfach die Auswirkung
 ## Anerkennung
 
 Mitwirkende am Bedrohungsmodell werden in den Danksagungen zum Bedrohungsmodell, in den Release Notes und in der OpenClaw Security Hall of Fame für bedeutende Beiträge gewürdigt.
-
-

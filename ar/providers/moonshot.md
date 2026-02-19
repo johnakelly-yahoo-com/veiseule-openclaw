@@ -1,4 +1,9 @@
 ---
+summary: "تهيئة Moonshot K2 مقابل Kimi Coding (موفّران ومفاتيح منفصلة)"
+read_when:
+  - تريد إعداد Moonshot K2 (منصة Moonshot المفتوحة) مقابل Kimi Coding
+  - تحتاج إلى فهم نقاط النهاية والمفاتيح ومراجع النماذج المنفصلة
+  - تريد تهيئة جاهزة للنسخ/اللصق لأيٍّ من الموفّرَين
 title: "Moonshot AI"
 ---
 
@@ -135,5 +140,3 @@ openclaw onboard --auth-choice kimi-code-api-key
 - إذا نشرت Moonshot حدود سياق مختلفة لأحد النماذج، فاضبط
   `contextWindow` وفقًا لذلك.
 - استخدم `https://api.moonshot.ai/v1` لنقطة النهاية الدولية، و`https://api.moonshot.cn/v1` لنقطة نهاية الصين.
-
-

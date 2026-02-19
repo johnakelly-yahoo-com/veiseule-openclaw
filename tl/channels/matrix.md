@@ -1,4 +1,7 @@
 ---
+summary: "Katayuan ng suporta sa Matrix, mga kakayahan, at konpigurasyon"
+read_when:
+  - Nagtatrabaho sa mga feature ng Matrix channel
 title: "Matrix"
 ---
 
@@ -9,7 +12,7 @@ on any homeserver, so you need a Matrix account for the bot. Kapag ito ay naka-l
 direkta o imbitahan sa mga room (Matrix "groups"). Beeper is a valid client option too,
 but it requires E2EE to be enabled.
 
-Status: suportado sa pamamagitan ng plugin (@vector-im/matrix-bot-sdk). Mga direktang mensahe, mga room, mga thread, media, mga reaksyon,
+Status: supported via plugin (@vector-im/matrix-bot-sdk). Direct messages, rooms, threads, media, reactions,
 polls (send + poll-start as text), location, and E2EE (with crypto support).
 
 ## Kinakailangang plugin
@@ -75,7 +78,7 @@ Mga detalye: [Plugins](/tools/plugin)
 
 5. I-restart ang Gateway (o tapusin ang onboarding).
 
-6. Magsimula ng DM sa bot o imbitahan ito sa isang room mula sa anumang Matrix client
+6. Start a DM with the bot or invite it to a room from any Matrix client
    (Element, Beeper, etc.; see [https://matrix.org/ecosystem/clients/](https://matrix.org/ecosystem/clients/)). Nangangailangan ang Beeper ng E2EE,
    kaya itakda ang `channels.matrix.encryption: true` at i-verify ang device.
 
@@ -129,7 +132,7 @@ I-enable gamit ang `channels.matrix.encryption: true`:
 
 Ang crypto state ay iniimbak per account + access token sa
 `~/.openclaw/matrix/accounts/<account>/<homeserver>__<user>/<token-hash>/crypto/`
-(SQLite database). Ang sync state ay nakaimbak kasabay nito sa `bot-storage.json`.
+(SQLite database). Sync state lives alongside it in `bot-storage.json`.
 If the access token (device) changes, a new store is created and the bot must be
 re-verified for encrypted rooms.
 
@@ -138,21 +141,63 @@ Kapag naka-enable ang E2EE, hihiling ang bot ng verification mula sa iyong iba p
 Buksan ang Element (o ibang client) at aprubahan ang verification request upang magtatag ng tiwala.
 Kapag na-verify na, kayang i-decrypt ng bot ang mga mensahe sa mga encrypted room.
 
+## Multi-account
+
+Suporta sa multi-account: gamitin ang `channels.matrix.accounts` na may per-account credentials at opsyonal na `name`. Tingnan ang [`gateway/configuration`](/gateway/configuration#telegramaccounts--discordaccounts--slackaccounts--signalaccounts--imessageaccounts) para sa shared pattern.
+
+Bawat account ay tumatakbo bilang hiwalay na Matrix user sa anumang homeserver. Per-account config
+minamana ang mga setting sa top-level na `channels.matrix` at maaaring i-override ang anumang opsyon
+(DM policy, groups, encryption, atbp.).
+
+```json5
+{
+  channels: {
+    matrix: {
+      enabled: true,
+      dm: { policy: "pairing" },
+      accounts: {
+        assistant: {
+          name: "Main assistant",
+          homeserver: "https://matrix.example.org",
+          accessToken: "syt_assistant_***",
+          encryption: true,
+        },
+        alerts: {
+          name: "Alerts bot",
+          homeserver: "https://matrix.example.org",
+          accessToken: "syt_alerts_***",
+          dm: { policy: "allowlist", allowFrom: ["@admin:example.org"] },
+        },
+      },
+    },
+  },
+}
+```
+
+Mga Tala:
+
+- Ang pagsisimula ng account ay serialized upang maiwasan ang race conditions sa sabayang pag-import ng mga module.
+- Mga env variable (`MATRIX_HOMESERVER`, `MATRIX_ACCESS_TOKEN`, atbp.) nalalapat lamang sa **default** na account.
+- Mga base channel setting (DM policy, group policy, mention gating, atbp.) ay nalalapat sa lahat ng account maliban kung na-override sa bawat account.
+- Gamitin ang `bindings[].match.accountId` upang i-route ang bawat account sa ibang agent.
+- Ang crypto state ay iniimbak kada account + access token (hiwalay na key stores kada account).
+
 ## Routing model
 
-- Ang mga reply ay palaging bumabalik sa Matrix.
-- Ang mga DM ay nagbabahagi ng pangunahing session ng agent; ang mga room ay tumutugma sa mga group session.
+- Pinapagana ng `requireMention: false` ang auto-reply sa room na iyon.
+- Maaaring magtakda ang `groups."*"` ng mga default para sa mention gating sa lahat ng room.
 
 ## Kontrol sa access (DMs)
 
 - Default: `channels.matrix.dm.policy = "pairing"`. Unknown senders get a pairing code.
-- Aprubahan sa pamamagitan ng:
+- Kinokontrol ng `channels.matrix.threadReplies` kung mananatili sa thread ang mga reply:
   - `openclaw pairing list matrix`
   - `openclaw pairing approve matrix <CODE>`
-- Mga public DM: `channels.matrix.dm.policy="open"` kasama ang `channels.matrix.dm.allowFrom=["*"]`.
+- Kinokontrol ng `channels.matrix.replyToMode` ang reply-to metadata kapag hindi nagre-reply sa thread:
 - `channels.matrix.dm.allowFrom` ay tumatanggap ng buong Matrix user ID (halimbawa: `@user:server`). Nire-resolve ng wizard ang mga display name tungo sa mga user ID kapag ang directory search ay nakahanap ng iisang eksaktong tugma.
+- Huwag gumamit ng display names o bare localparts (halimbawa: `"Alice"` o `"alice"`). Hindi malinaw ang mga ito at hindi isinasama sa allowlist matching. Gamitin ang buong `@user:server` IDs.
 
-## Mga room (groups)
+## Mga kakayahan
 
 - Default: `channels.matrix.groupPolicy = "allowlist"` (mention-gated). Use `channels.defaults.groupPolicy` to override the default when unset.
 - I-allowlist ang mga room gamit ang `channels.matrix.groups` (mga room ID o alias; nireresolba ang mga pangalan patungo sa ID kapag ang directory search ay nakahanap ng iisang eksaktong tugma):
@@ -202,11 +247,11 @@ Kapag na-verify na, kayang i-decrypt ng bot ang mga mensahe sa mga encrypted roo
 | Reactions       | ✅ Supported (send/read sa pamamagitan ng tools)                                                           |
 | Polls           | ✅ Suportado ang send; ang mga inbound poll start ay kino-convert sa text (binale-wala ang responses/ends) |
 | Location        | ✅ Supported (geo URI; binale-wala ang altitude)                                                           |
-| Native commands | ✅ Sinusuportahan                                                                                                                  |
+| Native commands | ✅ Supported                                                                                                                  |
 
 ## Pag-troubleshoot
 
-Patakbuhin muna ang ladder na ito:
+Para sa triage flow: [/channels/troubleshooting](/channels/troubleshooting).
 
 ```bash
 openclaw status
@@ -216,7 +261,7 @@ openclaw doctor
 openclaw channels status --probe
 ```
 
-Pagkatapos, kumpirmahin ang DM pairing state kung kinakailangan:
+Buong konpigurasyon: [Configuration](/gateway/configuration)
 
 ```bash
 openclaw pairing list matrix
@@ -258,6 +303,5 @@ Mga opsyon ng provider:
 - `channels.matrix.mediaMaxMb`: inbound/outbound media cap (MB).
 - `channels.matrix.autoJoin`: paghawak ng imbitasyon (`always | allowlist | off`, default: always).
 - `channels.matrix.autoJoinAllowlist`: mga pinapayagang room ID/alias para sa auto-join.
+- `channels.matrix.accounts`: multi-account configuration na naka-key ayon sa account ID (bawat account ay nagmamana ng top-level settings).
 - `channels.matrix.actions`: per-action tool gating (reactions/messages/pins/memberInfo/channelInfo).
-
-

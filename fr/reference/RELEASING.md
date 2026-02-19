@@ -1,4 +1,11 @@
-------
+---
+title: "Checklist de publication"
+summary: "Liste de controle pas a pas pour la publication npm + application macOS"
+read_when:
+  - Publication d'une nouvelle version npm
+  - Publication d'une nouvelle version de l'application macOS
+  - Verification des metadonnees avant publication
+---
 
 # Liste de controle de publication (npm + macOS)
 
@@ -111,5 +118,3 @@ Liste actuelle des plugins npm (mettre a jour si necessaire) :
 - @openclaw/zalouser
 
 Les notes de release doivent egalement mentionner les **nouveaux plugins bundles optionnels** qui **ne sont pas actives par defaut** (exemple : `tlon`).
-
-

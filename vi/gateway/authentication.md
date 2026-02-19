@@ -1,4 +1,8 @@
 ---
+summary: "Xác thực mô hình: OAuth, khóa API và setup-token"
+read_when:
+  - Gỡ lỗi xác thực mô hình hoặc hết hạn OAuth
+  - Tài liệu hóa xác thực hoặc lưu trữ thông tin xác thực
 title: "Xác thực"
 ---
 
@@ -146,5 +150,3 @@ bị thiếu, hãy chạy lại `claude setup-token` và dán token lần nữa.
 
 - Gói thuê bao Claude Max hoặc Pro (cho `claude setup-token`)
 - Đã cài Claude Code CLI (có sẵn lệnh `claude`)
-
-

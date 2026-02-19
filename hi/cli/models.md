@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw models` के लिए CLI संदर्भ (status/list/set/scan, उपनाम, फॉलबैक, प्रमाणीकरण)"
+read_when:
+  - आप डिफ़ॉल्ट मॉडल बदलना चाहते हैं या प्रदाता प्रमाणीकरण स्थिति देखना चाहते हैं
+  - आप उपलब्ध मॉडल/प्रदाताओं को स्कैन करना और प्रमाणीकरण प्रोफ़ाइलों का डिबग करना चाहते हैं
 title: "मॉडल्स"
 ---
 
@@ -20,7 +24,7 @@ openclaw models set <model-or-alias>
 openclaw models scan
 ```
 
-`openclaw models status` रेज़ॉल्व किए गए डिफ़ॉल्ट/फॉलबैक और प्रमाणीकरण का एक अवलोकन दिखाता है।
+`openclaw models status` shows the resolved default/fallbacks plus an auth overview.
 When provider usage snapshots are available, the OAuth/token status section includes
 provider usage headers.
 Add `--probe` to run live auth probes against each configured provider profile.
@@ -32,7 +36,7 @@ configured default agent.
 नोट्स:
 
 - `models set <model-or-alias>` `provider/model` या किसी उपनाम को स्वीकार करता है।
-- Model refs को **पहले** `/` पर विभाजित करके पार्स किया जाता है। यदि model ID में `/` शामिल है (OpenRouter-style), तो प्रोवाइडर प्रीफ़िक्स शामिल करें (उदाहरण: `openrouter/moonshotai/kimi-k2`).
+- Model refs are parsed by splitting on the **first** `/`. If the model ID includes `/` (OpenRouter-style), include the provider prefix (example: `openrouter/moonshotai/kimi-k2`).
 - यदि आप प्रदाता छोड़ देते हैं, तो OpenClaw इनपुट को डिफ़ॉल्ट प्रदाता के लिए एक उपनाम या मॉडल के रूप में मानता है (यह केवल तब काम करता है जब मॉडल ID में `/` न हो)।
 
 ### `models status`
@@ -66,12 +70,10 @@ openclaw models auth setup-token
 openclaw models auth paste-token
 ```
 
-`models auth login` किसी provider plugin का auth flow (OAuth/API key) चलाता है। उपयोग करें
+`models auth login` runs a provider plugin’s auth flow (OAuth/API key). Use
 `openclaw plugins list` to see which providers are installed.
 
 नोट्स:
 
 - `setup-token` सेटअप-टोकन मान के लिए संकेत देता है (इसे किसी भी मशीन पर `claude setup-token` के साथ जनरेट करें)।
 - `paste-token` किसी अन्य स्थान पर या स्वचालन से जनरेट की गई टोकन स्ट्रिंग स्वीकार करता है।
-
-

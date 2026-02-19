@@ -1,9 +1,13 @@
 ---
-title: "ตัวช่วยตั้งค่าเริ่มต้น (CLI)"
+summary: "วิซาร์ดเริ่มต้นใช้งานCLI: การตั้งค่าแบบมีคำแนะนำสำหรับเกตเวย์ เวิร์กสเปซ ช่องทาง และSkills"
+read_when:
+  - Onboarding Wizard (CLI)
+  - เมื่อตั้งค่าเครื่องใหม่
+title: "Onboarding Wizard (CLI)"
 sidebarTitle: "การตั้งค่าเริ่มต้น: CLI"
 ---
 
-# วิซาร์ดนี้ตั้งค่าเกตเวย์ภายในเครื่องหรือการเชื่อมต่อเกตเวย์ระยะไกล รวมถึงแชนเนล สกิล และค่าเริ่มต้นของ workspace ในขั้นตอนนำทางครั้งเดียว
+# Onboarding Wizard (CLI)
 
 วิซาร์ดเริ่มต้นใช้งานเป็นวิธีที่**แนะนำ**ในการตั้งค่า OpenClaw บน macOS,
 Linux หรือ Windows (ผ่าน WSL2; แนะนำอย่างยิ่ง)
@@ -11,16 +15,15 @@ Linux หรือ Windows (ผ่าน WSL2; แนะนำอย่างย
 และค่าเริ่มต้นของเวิร์กสเปซในโฟลว์แบบมีคำแนะนำเดียว
 รัน
 `openclaw dashboard` และแชตผ่านเบราว์เซอร์
+วิซาร์ดนี้ตั้งค่าเกตเวย์ภายในเครื่องหรือการเชื่อมต่อเกตเวย์ระยะไกล รวมถึงแชนเนล สกิล และค่าเริ่มต้นของ workspace ในขั้นตอนนำทางครั้งเดียว
 
 ```bash
 openclaw onboard
 ```
 
 <Info>
-
 แชตแรกได้เร็วที่สุด: เปิด Control UI (ไม่ต้องตั้งค่าช่องทาง) รัน
-`openclaw dashboard` แล้วแชตในเบราว์เซอร์ เอกสาร: [Dashboard](/web/dashboard).
- เอกสาร: [Dashboard](/web/dashboard) สำหรับสคริปต์ ให้ใช้ `--non-interactive`
+`openclaw dashboard` แล้วแชตในเบราว์เซอร์ เอกสาร: [Dashboard](/web/dashboard). เอกสาร: [Dashboard](/web/dashboard) สำหรับสคริปต์ ให้ใช้ `--non-interactive`
 </Info>
 
 หากต้องการกำหนดค่าใหม่ภายหลัง:
@@ -31,18 +34,17 @@ openclaw agents add <name>
 ```
 
 <Note>
-
-`--json` ไม่ได้หมายความว่าเป็นโหมดไม่โต้ตอบ สำหรับสคริปต์ ให้ใช้ `--non-interactive`.
- เส้นทางที่ง่ายที่สุด: `openclaw configure --section web`
-ซึ่งจะจัดเก็บค่า `tools.web.search.apiKey`
+`--json` ไม่ได้หมายความว่าเป็นโหมดไม่โต้ตอบ สำหรับสคริปต์ ให้ใช้ `--non-interactive`. เอกสาร: [Dashboard](/web/dashboard) สำหรับสคริปต์ ให้ใช้ `--non-interactive`
+</Info>
 </Note>
 
 <Tip>
-
 แนะนำ: ตั้งค่า Brave Search API key เพื่อให้เอเจนต์สามารถใช้ `web_search`
 (`web_fetch` ใช้งานได้โดยไม่ต้องมีคีย์) วิธีที่ง่ายที่สุด: `openclaw configure --section web`
-ซึ่งจะจัดเก็บ `tools.web.search.apiKey` เอกสาร: [Web tools](/tools/web).
- เอกสาร: [Web tools](/tools/web) เลือกโมเดลเริ่มต้น
+ซึ่งจะจัดเก็บ `tools.web.search.apiKey` เอกสาร: [Web tools](/tools/web). เส้นทางที่ง่ายที่สุด: `openclaw configure --section web`
+ซึ่งจะจัดเก็บค่า `tools.web.search.apiKey`
+</Note> เอกสาร: [Web tools](/tools/web) เลือกโมเดลเริ่มต้น
+</Tip>
 </Tip>
 
 ## เริ่มต้นอย่างรวดเร็ว เทียบกับ ขั้นสูง
@@ -69,8 +71,8 @@ openclaw agents add <name>
 
 **โหมดภายในเครื่อง (ค่าเริ่มต้น)** จะพาคุณผ่านขั้นตอนเหล่านี้:
 
-1. **โมเดล/การยืนยันตัวตน** — Anthropic API key (แนะนำ), OAuth, OpenAI หรือผู้ให้บริการอื่น เลือกโมเดลเริ่มต้น Pick a default model.
-2. **เวิร์กสเปซ** — ตำแหน่งสำหรับไฟล์เอเจนต์ (ค่าเริ่มต้น `~/.openclaw/workspace`) พร้อมสร้างไฟล์เริ่มต้น สร้างไฟล์บูตสแตรปจาก seeds
+1. **โมเดล/การยืนยันตัวตน** — Anthropic API key (แนะนำ), OAuth, OpenAI หรือผู้ให้บริการอื่น เลือกโมเดลเริ่มต้น Pick a default model. Pick a default model.
+2. **เวิร์กสเปซ** — ตำแหน่งสำหรับไฟล์เอเจนต์ (ค่าเริ่มต้น `~/.openclaw/workspace`) พร้อมสร้างไฟล์เริ่มต้น สร้างไฟล์บูตสแตรปจาก seeds สร้างไฟล์บูตสแตรปจาก seeds
 3. **Gateway** — พอร์ต ที่อยู่ bind โหมดการยืนยันตัวตน การเปิดเผยผ่าน Tailscale
 4. **ช่องทาง** — WhatsApp, Telegram, Discord, Google Chat, Mattermost, Signal, BlueBubbles หรือ iMessage
 5. **เดมอน** — ติดตั้ง LaunchAgent (macOS) หรือ systemd user unit (Linux/WSL2)
@@ -85,11 +87,12 @@ openclaw agents add <name>
 **โหมดระยะไกล** จะกำหนดค่าเฉพาะไคลเอนต์ภายในเครื่องเพื่อเชื่อมต่อไปยัง Gateway ที่อื่น
 และจะ**ไม่**ติดตั้งหรือเปลี่ยนแปลงสิ่งใดบนโฮสต์ระยะไกล
 มัน **ไม่** ติดตั้งหรือเปลี่ยนแปลงสิ่งใด ๆ บนโฮสต์ระยะไกล
+มัน **ไม่** ติดตั้งหรือเปลี่ยนแปลงสิ่งใด ๆ บนโฮสต์ระยะไกล
 
 ## เพิ่มเอเจนต์อีกตัว
 
 ใช้ `openclaw agents add <name>` เพื่อสร้างเอเจนต์แยกต่างหากที่มีเวิร์กสเปซ
-เซสชัน และโปรไฟล์การยืนยันตัวตนของตนเอง การรันโดยไม่ใช้ `--workspace` จะเปิดวิซาร์ด การรันโดยไม่ใช้ `--workspace` จะเปิดวิซาร์ด
+เซสชัน และโปรไฟล์การยืนยันตัวตนของตนเอง การรันโดยไม่ใช้ `--workspace` จะเปิดวิซาร์ด การรันโดยไม่ใช้ `--workspace` จะเปิดวิซาร์ด การรันโดยไม่ใช้ `--workspace` จะเปิดวิซาร์ด
 
 สิ่งที่ตั้งค่าให้:
 
@@ -112,7 +115,6 @@ RPC API และรายการฟิลด์คอนฟิกทั้ง
 ## เอกสารที่เกี่ยวข้อง
 
 - อ้างอิงคำสั่งCLI: [`openclaw onboard`](/cli/onboard)
+- ภาพรวมการเริ่มต้นใช้งาน: [Onboarding Overview](/start/onboarding-overview)
 - การเริ่มต้นใช้งานแอปmacOS: [Onboarding](/start/onboarding)
 - พิธีการรันครั้งแรกของเอเจนต์: [Agent Bootstrapping](/start/bootstrapping)
-
-

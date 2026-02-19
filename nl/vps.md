@@ -1,4 +1,8 @@
 ---
+summary: "VPS-hostinghub voor OpenClaw (Oracle/Fly/Hetzner/GCP/exe.dev)"
+read_when:
+  - Je wilt de Gateway in de cloud draaien
+  - Je hebt een snelle kaart van VPS-/hostinggidsen nodig
 title: "VPS-hosting"
 ---
 
@@ -37,5 +41,3 @@ Je kunt de Gateway in de cloud houden en **nodes** koppelen op je lokale apparat
 mogelijkheden terwijl de Gateway in de cloud blijft.
 
 Documentatie: [Nodes](/nodes), [Nodes CLI](/cli/nodes)
-
-

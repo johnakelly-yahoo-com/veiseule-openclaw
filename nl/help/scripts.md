@@ -1,4 +1,8 @@
 ---
+summary: "Repositoryscripts: doel, reikwijdte en veiligheidsopmerkingen"
+read_when:
+  - Scripts uit de repo uitvoeren
+  - Scripts toevoegen of wijzigen onder ./scripts
 title: "Scripts"
 ---
 
@@ -22,5 +26,3 @@ Auth-monitoringscripts worden hier gedocumenteerd:
 
 - Houd scripts gericht en gedocumenteerd.
 - Voeg een korte vermelding toe in de relevante documentatie (of maak er een aan als die ontbreekt).
-
-

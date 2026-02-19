@@ -1,11 +1,16 @@
 ---
+summary: "Nimalar mablag‘ sarflashi mumkinligi, qaysi kalitlar ishlatilishi va foydalanishni qanday ko‘rish mumkinligini audit qilish"
+read_when:
+  - Qaysi funksiyalar pullik API’larni chaqirishi mumkinligini tushunmoqchisiz
+  - Kalitlar, xarajatlar va foydalanish ko‘rinishini audit qilishingiz kerak
+  - /status yoki /usage xarajat hisobotini tushuntiryapsiz
 title: "API’dan foydalanish va xarajatlar"
 ---
 
 # API’dan foydalanish va xarajatlar
 
-Ushbu hujjat **API kalitlarini ishga tushirishi mumkin bo‘lgan funksiyalarni** va ularning xarajatlari qayerda ko‘rinishini sanab o‘tadi. U
-provayderdan foydalanish yoki pullik API chaqiruvlarini keltirib chiqarishi mumkin bo‘lgan OpenClaw funksiyalariga qaratilgan.
+This doc lists **features that can invoke API keys** and where their costs show up. It focuses on
+OpenClaw features that can generate provider usage or paid API calls.
 
 ## Xarajatlar qayerda ko‘rinadi (chat + CLI)
 
@@ -34,20 +39,20 @@ OpenClaw hisob ma’lumotlarini quyidagilardan olishi mumkin:
 - **Muhit o‘zgaruvchilari** (masalan, `OPENAI_API_KEY`, `BRAVE_API_KEY`, `FIRECRAWL_API_KEY`).
 - **Konfiguratsiya** (`models.providers.*.apiKey`, `tools.web.search.*`, `tools.web.fetch.firecrawl.*`,
   `memorySearch.*`, `talk.apiKey`).
-- **Skills** (`skills.entries.<name>.apiKey`) — kalitlarni skill jarayoni muhitiga eksport qilishi mumkin.
+- **Skills** (`skills.entries.<name>.apiKey`) which may export keys to the skill process env.
 
 ## Kalitlardan mablag‘ sarflashi mumkin bo‘lgan funksiyalar
 
-### 1) Asosiy model javoblari (chat + vositalar)
+### 1. Asosiy model javoblari (chat + vositalar)
 
-Har bir javob yoki vosita chaqiruvi **joriy model provayderidan** (OpenAI, Anthropic va boshqalar) foydalanadi. Bu
-foydalanish va xarajatning asosiy manbai hisoblanadi.
+Every reply or tool call uses the **current model provider** (OpenAI, Anthropic, etc). This is the
+primary source of usage and cost.
 
 Narx sozlamalari uchun [Models](/providers/models) va ko‘rsatish tafsilotlari uchun [Token use & costs](/reference/token-use) ga qarang.
 
-### 2) Media tushunish (audio/rasm/video)
+### 2. Media tushunish (audio/rasm/video)
 
-Kirish mediasi javobdan oldin qisqacha bayon qilinishi yoki transkripsiya qilinishi mumkin. Bu model/provayder API’laridan foydalanadi.
+Inbound media can be summarized/transcribed before the reply runs. This uses model/provider APIs.
 
 - Audio: OpenAI / Groq / Deepgram (endi **kalit mavjud bo‘lsa avtomatik yoqiladi**).
 - Rasm: OpenAI / Anthropic / Google.
@@ -55,7 +60,7 @@ Kirish mediasi javobdan oldin qisqacha bayon qilinishi yoki transkripsiya qilini
 
 Qarang: [Media understanding](/nodes/media-understanding).
 
-### 3) Xotira embeddinglari + semantik qidiruv
+### 3. Xotira embeddinglari + semantik qidiruv
 
 Semantik xotira qidiruvi masofaviy provayderlar sozlangan bo‘lsa **embedding API’lari** dan foydalanadi:
 
@@ -68,7 +73,7 @@ Semantik xotira qidiruvi masofaviy provayderlar sozlangan bo‘lsa **embedding A
 
 Qarang: [Memory](/concepts/memory).
 
-### 4) Web qidiruv vositasi (Brave / Perplexity via OpenRouter)
+### 4. Web qidiruv vositasi (Brave / Perplexity via OpenRouter)
 
 `web_search` API kalitlaridan foydalanadi va foydalanish uchun to‘lov olinishi mumkin:
 
@@ -83,7 +88,7 @@ Qarang: [Memory](/concepts/memory).
 
 Qarang: [Web tools](/tools/web).
 
-### 5) Web fetch vositasi (Firecrawl)
+### 5. Web fetch vositasi (Firecrawl)
 
 `web_fetch` API kalit mavjud bo‘lsa **Firecrawl** ni chaqirishi mumkin:
 
@@ -93,31 +98,31 @@ Agar Firecrawl sozlanmagan bo‘lsa, vosita to‘g‘ridan-to‘g‘ri fetch + r
 
 Qarang: [Web tools](/tools/web).
 
-### 6) Provayder foydalanish ko‘rinishlari (status/health)
+### 6. Provayder foydalanish ko‘rinishlari (status/health)
 
-Ba’zi status buyruqlari **provayder foydalanish endpointlari** ni chaqirib, kvota oynalari yoki autentifikatsiya holatini ko‘rsatadi.
-Bu odatda kam hajmli chaqiruvlar, ammo baribir provayder API’lariga murojaat qiladi:
+26. Ba’zi holat buyruqlari kvota oynalari yoki autentifikatsiya sog‘lig‘ini ko‘rsatish uchun **provayderdan foydalanish endpoint** larini chaqiradi.
+27. Bular odatda kam hajmli chaqiruvlar, ammo baribir provayder API lariga murojaat qiladi:
 
 - `openclaw status --usage`
 - `openclaw models status --json`
 
 Qarang: [Models CLI](/cli/models).
 
-### 7) Kompaktlash himoyasi orqali qisqacha bayon
+### 7. Kompaktlash himoyasi orqali qisqacha bayon
 
 Kompaktlash himoyasi sessiya tarixini **joriy model** yordamida qisqacha bayon qilishi mumkin,
 bu ishga tushganda provayder API’larini chaqiradi.
 
 Qarang: [Session management + compaction](/reference/session-management-compaction).
 
-### 8) Model skanerlash / sinov
+### 8. Model skanerlash / sinov
 
 `openclaw models scan` OpenRouter modellarini sinovdan o‘tkazishi mumkin va
 sinov yoqilgan bo‘lsa `OPENROUTER_API_KEY` dan foydalanadi.
 
 Qarang: [Models CLI](/cli/models).
 
-### 9) Talk (nutq)
+### 9. Talk (nutq)
 
 Talk rejimi sozlangan bo‘lsa **ElevenLabs** ni chaqirishi mumkin:
 
@@ -125,11 +130,8 @@ Talk rejimi sozlangan bo‘lsa **ElevenLabs** ni chaqirishi mumkin:
 
 Qarang: [Talk mode](/nodes/talk).
 
-### 10) Skills (uchinchi tomon API’lari)
+### 10. Skills (uchinchi tomon API’lari)
 
-Skills `skills.entries.<name>.apiKey` da `apiKey` saqlashi mumkin. Agar skill ushbu kalitdan tashqi
-API’lar uchun foydalansa, skill provayderi shartlariga ko‘ra xarajatlar yuzaga kelishi mumkin.
+42. Ko‘nikmalar `apiKey` ni `skills.entries.<name>43. .apiKey` da saqlashi mumkin. 44. Agar ko‘nikma ushbu kalitdan tashqi API lar uchun foydalansa, ko‘nikma provayderiga muvofiq xarajatlarni keltirib chiqarishi mumkin.
 
 Qarang: [Skills](/tools/skills).
-
-

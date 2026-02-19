@@ -1,8 +1,11 @@
 ---
+summary: "Gelen otomatik yanıt çalıştırmalarını seri hale getiren komut kuyruğu tasarımı"
+read_when:
+  - Otomatik yanıt yürütmesini veya eşzamanlılığını değiştirirken
 title: "Komut Kuyruğu"
 ---
 
-# Komut Kuyruğu (2026-01-16)
+# Command Queue (2026-01-16)
 
 Gelen otomatik yanıt çalıştırmalarını (tüm kanallar) küçük, süreç içi bir kuyruk üzerinden seri hale getiririz; böylece birden fazla ajan çalıştırmasının çakışmasını önlerken, oturumlar arasında güvenli paralelliğe izin veririz.
 
@@ -66,7 +69,7 @@ Seçenekler `followup`, `collect` ve `steer-backlog` için geçerlidir (ve takip
 Summarize, düşürülen mesajların kısa bir madde işaretli listesini tutar ve bunu sentetik bir takip istemi olarak enjekte eder.
 Varsayılanlar: `debounceMs: 1000`, `cap: 20`, `drop: summarize`.
 
-## Oturum bazlı geçersiz kılmalar
+## Per-session overrides
 
 - Mevcut oturum için modu saklamak üzere `/queue <mode>`’yi bağımsız bir komut olarak gönderin.
 - Seçenekler birleştirilebilir: `/queue collect debounce:2s cap:25 drop:summarize`
@@ -84,5 +87,3 @@ Varsayılanlar: `debounceMs: 1000`, `cap: 20`, `drop: summarize`.
 
 - Komutlar takılı gibi görünüyorsa, ayrıntılı günlükleri etkinleştirin ve kuyruğun boşaldığını doğrulamak için “queued for …ms” satırlarını arayın.
 - Kuyruk derinliğine ihtiyaç duyuyorsanız, ayrıntılı günlükleri etkinleştirin ve kuyruk zamanlama satırlarını izleyin.
-
-

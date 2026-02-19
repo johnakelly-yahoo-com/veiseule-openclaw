@@ -1,16 +1,15 @@
 ---
-title: 文档目录
-x-i18n:
-  generated_at: "2026-02-04T17:53:20Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 489085dae583ba0690b1b972f037610313973df95813283069c95a06bdc949fa
-  source_path: start/docs-directory.md
-  workflow: 15
+summary: "精选的常用 OpenClaw 文档链接。"
+read_when:
+  - 你想快速访问关键文档页面
+title: "文档目录"
 ---
 
 <Note>
+21. 本页面是一个精选索引。 22. 如果你是新用户，请从 [Getting Started](/start/getting-started) 开始。
+
 如需查看完整的文档地图，请参阅[文档中心](/start/hubs)。
+
 </Note>
 
 ## 从这里开始
@@ -35,7 +34,7 @@ x-i18n:
 - [设备发现与传输协议](/gateway/discovery)
 - [远程访问](/gateway/remote)
 
-## 提供商与用户体验
+## 44. 提供方与用户体验
 
 - [WebChat](/web/webchat)
 - [控制面板 UI（浏览器）](/web/control-ui)
@@ -65,5 +64,3 @@ x-i18n:
 - [Gmail 钩子（Pub/Sub）](/automation/gmail-pubsub)
 - [安全](/gateway/security)
 - [故障排除](/gateway/troubleshooting)
-
-

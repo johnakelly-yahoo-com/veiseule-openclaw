@@ -1,28 +1,33 @@
 ---
+summary: "OpenProse：OpenClaw 中的 .prose 工作流程、斜線指令與狀態"
+read_when:
+  - 你想要執行或撰寫 .prose 工作流程
+  - 你想要啟用 OpenProse 外掛
+  - 你需要了解狀態儲存
 title: "OpenProse"
 ---
 
 # OpenProse
 
-OpenProse is a portable, markdown-first workflow format for orchestrating AI sessions. 在 OpenClaw 中，它以外掛形式提供，會安裝一個 OpenProse 技能套件以及一個 `/prose` 斜線指令。 程式存在於 `.prose` 檔案中，並可透過明確的控制流程產生多個子代理。
+OpenProse is a portable, markdown-first workflow format for orchestrating AI sessions. 在 OpenClaw 中，它以外掛形式提供，會安裝一個 OpenProse 技能套件以及一個 `/prose` 斜線指令。 程式存在於 `.prose` 檔案中，並可透過明確的控制流程產生多個子代理。 程式存在於 `.prose` 檔案中，並可透過明確的控制流程產生多個子代理。
 
 官方網站：[https://www.prose.md](https://www.prose.md)
 
 ## 它能做什麼
 
 - 具備明確平行化的多代理研究與綜合。
-- 可重複、符合核准流程的工作流程（程式碼審查、事件分級處理、內容流程）。
+- Repeatable approval-safe workflows (code review, incident triage, content pipelines).
 - 可重用的 `.prose` 程式，可在支援的代理執行環境間執行。
 
 ## 安裝與啟用
 
-內建外掛預設為停用。啟用 OpenProse：
+Bundled plugins are disabled by default. Enable OpenProse:
 
 ```bash
 openclaw plugins enable open-prose
 ```
 
-啟用外掛後，請重新啟動 Gateway。
+Restart the Gateway after enabling the plugin.
 
 開發／本機檢出：`openclaw plugins install ./extensions/open-prose`
 
@@ -109,6 +114,7 @@ OpenProse 支援多種狀態後端：
 
 `/prose run <handle/slug>` 會解析為 `https://p.prose.md/<handle>/<slug>`。
 直接 URL 會原樣擷取。這會使用 `web_fetch` 工具（或對於 POST 使用 `exec`）。
+Direct URLs are fetched as-is.
 Direct URLs are fetched as-is. This uses the `web_fetch` tool (or `exec` for POST).
 
 ## OpenClaw 執行環境對應
@@ -121,12 +127,10 @@ OpenProse 程式會對應到 OpenClaw 的基元：
 | 檔案讀取／寫入        | `read` / `write` |
 | Web 擷取         | `web_fetch`      |
 
-若你的工具允許清單封鎖了這些工具，OpenProse 程式將會失敗。請參閱 [Skills 設定](/tools/skills-config)。 See [Skills config](/tools/skills-config).
+若你的工具允許清單封鎖了這些工具，OpenProse 程式將會失敗。請參閱 [Skills 設定](/tools/skills-config)。 See [Skills config](/tools/skills-config). See [Skills config](/tools/skills-config).
 
 ## 安全性與核准
 
-將 `.prose` 檔案視同程式碼處理。執行前請先審查。使用 OpenClaw 工具允許清單與核准閘門來控制副作用。
+Treat `.prose` files like code. Review before running. Use OpenClaw tool allowlists and approval gates to control side effects.
 
 若需具備決定性、以核准為閘的工作流程，請與 [Lobster](/tools/lobster) 比較。
-
-

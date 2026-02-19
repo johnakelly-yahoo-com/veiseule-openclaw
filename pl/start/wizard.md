@@ -1,4 +1,8 @@
 ---
+summary: "Kreator wdrażania CLI: prowadzona konfiguracja gateway, obszaru roboczego, kanałów i Skills"
+read_when:
+  - Uruchamianie lub konfigurowanie kreatora wdrażania
+  - Konfiguracja nowej maszyny
 title: "Kreator wdrażania (CLI)"
 sidebarTitle: "Wdrożenie: CLI"
 ---
@@ -102,7 +106,6 @@ API RPC oraz pełną listę pól konfiguracji zapisywanych przez kreator, zobacz
 ## Powiązana dokumentacja
 
 - Referencja poleceń CLI: [`openclaw onboard`](/cli/onboard)
+- Przegląd wdrożenia: [Onboarding Overview](/start/onboarding-overview)
 - Wdrażanie aplikacji na macOS: [Onboarding](/start/onboarding)
 - Rytuał pierwszego uruchomienia agenta: [Agent Bootstrapping](/start/bootstrapping)
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "OpenClaw op Raspberry Pi (budget zelfgehoste setup)"
+read_when:
+  - OpenClaw instellen op een Raspberry Pi
+  - OpenClaw draaien op ARM-apparaten
+  - Een goedkope, altijd actieve persoonlijke AI bouwen
 title: "Raspberry Pi"
 ---
 
@@ -18,7 +23,7 @@ Perfect voor:
 
 | Pi-model        | RAM     | Werkt?      | Notities                               |
 | --------------- | ------- | ----------- | -------------------------------------- |
-| **Pi 5**        | 4GB/8GB | ✅ Beste      | Snelst, aanbevolen                     |
+| **Pi 5**        | 4GB/8GB | ✅ Beste     | Snelst, aanbevolen                     |
 | **Pi 4**        | 4GB     | ✅ Goed      | Beste balans voor de meeste gebruikers |
 | **Pi 4**        | 2GB     | ✅ Oké       | Werkt, voeg swap toe                   |
 | **Pi 4**        | 1GB     | ⚠️ Krap     | Mogelijk met swap, minimale config     |
@@ -351,5 +356,3 @@ echo 'wireless-power off' | sudo tee -a /etc/network/interfaces
 - [Hetzner-gids](/install/hetzner) — Docker-installatie
 - [Tailscale](/gateway/tailscale) — toegang op afstand
 - [Nodes](/nodes) — koppel je laptop/telefoon aan de Pi Gateway
-
-

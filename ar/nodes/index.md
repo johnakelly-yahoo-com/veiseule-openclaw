@@ -1,8 +1,13 @@
 ---
-title: "العقد"
+summary: "العُقد: الاقتران، الإمكانات، الأذونات، ومساعدات CLI للوحة/الكاميرا/الشاشة/النظام"
+read_when:
+  - اقتران عُقد iOS/Android مع Gateway
+  - استخدام لوحة/كاميرا العُقد لسياق الوكيل
+  - إضافة أوامر عُقد جديدة أو مساعدات CLI
+title: "Nodes"
 ---
 
-# العقد
+# Nodes
 
 **العُقدة** هي جهاز مُرافِق (macOS/iOS/Android/بدون واجهة) يتصل بـ **WebSocket** الخاص بـ Gateway (نفس المنفذ الخاص بالمشغّلين) مع `role: "node"` ويكشف سطح أوامر (مثل `canvas.*`، `camera.*`، `system.*`) عبر `node.invoke`. تفاصيل البروتوكول: [بروتوكول Gateway](/gateway/protocol).
 
@@ -267,7 +272,7 @@ openclaw nodes notify --node <idOrNameOrIp> --title "Ping" --body "Gateway ready
 - يحترم `system.notify` حالة أذونات الإشعارات في تطبيق macOS.
 - يدعم `system.run` كلاً من `--cwd`، `--env KEY=VAL`، `--command-timeout`، و `--needs-screen-recording`.
 - يدعم `system.notify` كلاً من `--priority <passive|active|timeSensitive>` و `--delivery <system|overlay|auto>`.
-- تسقط عُقد macOS تجاوزات `PATH`؛ ولا تقبل مضيفات العُقدة بدون واجهة إلا `PATH` عندما يسبق PATH الخاص بمضيف العُقدة.
+- تتجاهل مضيفات Node أي تجاوزات لقيمة `PATH`. إذا كنت بحاجة إلى إدخالات PATH إضافية، فقم بتهيئة بيئة خدمة مضيف العقدة (أو تثبيت الأدوات في المواقع القياسية) بدلاً من تمرير `PATH` عبر `--env`.
 - في وضع عُقدة macOS، يتم تقييد `system.run` بموافقات التنفيذ في تطبيق macOS (الإعدادات → Exec approvals).
   تعمل ask/allowlist/full بنفس سلوك مضيف العُقدة بدون واجهة؛ وتُرجِع المطالبات المرفوضة `SYSTEM_RUN_DENIED`.
 - على مضيف العُقدة بدون واجهة، يتم تقييد `system.run` بموافقات التنفيذ (`~/.openclaw/exec-approvals.json`).
@@ -327,5 +332,3 @@ openclaw node run --host <gateway-host> --port 18789
 
 - يتصل تطبيق شريط القوائم في macOS بخادم WS الخاص بـ Gateway كعُقدة (بحيث يعمل `openclaw nodes …` على هذا الـ Mac).
 - في الوضع البعيد، يفتح التطبيق نفق SSH لمنفذ Gateway ويتصل بـ `localhost`.
-
-

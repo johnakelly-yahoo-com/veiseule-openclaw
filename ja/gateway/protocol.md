@@ -1,4 +1,9 @@
 ---
+summary: "Gateway WebSocket プロトコル：ハンドシェイク、フレーム、バージョニング"
+read_when:
+  - Gateway WS クライアントを実装または更新する場合
+  - プロトコルの不一致や接続失敗をデバッグする場合
+  - プロトコルのスキーマ／モデルを再生成する場合
 title: "Gateway プロトコル"
 ---
 
@@ -153,7 +158,7 @@ Gateway → クライアント：
 
 Gateway はこれらを **クレーム** として扱い、サーバー側の許可リストを適用します。
 
-## プレゼンス
+## Presence
 
 - `system-presence` は、デバイス アイデンティティをキーとするエントリを返します。
 - プレゼンス エントリには `deviceId`、`roles`、`scopes` が含まれるため、**operator** と **node** の両方として接続している場合でも、UI はデバイスごとに 1 行で表示できます。
@@ -181,6 +186,7 @@ Gateway はこれらを **クレーム** として扱い、サーバー側の許
 - `OPENCLAW_GATEWAY_TOKEN`（または `--token`）が設定されている場合、`connect.params.auth.token` が一致しなければソケットはクローズされます。
 - ペアリング後、ゲートウェイは接続
   ロール + スコープにスコープ付きの **デバイストークン** を発行します。 これは`hello-ok.auth.deviceToken` に返され、今後の接続のためにクライアントによって継続される
+  である必要があります。 これは`hello-ok.auth.deviceToken` に返され、今後の接続のためにクライアントによって継続される
   である必要があります。
 - デバイス トークンは `device.token.rotate` および `device.token.revoke` からローテーション／失効できます（`operator.pairing` スコープが必要）。
 
@@ -191,6 +197,9 @@ Gateway はこれらを **クレーム** として扱い、サーバー側の許
 - 新しいデバイス ID には、ローカル自動承認が有効でない限り、ペアリング承認が必要です。
 - **ローカル** 接続には、ループバックおよび Gateway ホスト自身の tailnet アドレスが含まれます（同一ホストの tailnet バインドでも自動承認できるようにするため）。
 - すべてのWSクライアントは、`connect` (演算子+ノード)中に`device` identityを含める必要があります。
+  すべての WS クライアントは、`connect`（operator + node）中に `device` のアイデンティティを含める必要があります。
+  コントロール UI は、`gateway.controlUi.allowInsecureAuth` が有効な場合に **のみ** 省略できます
+  （またはブレークグラス用途として `gateway.controlUi.dangerouslyDisableDeviceAuth`）。
   すべての WS クライアントは、`connect`（operator + node）中に `device` のアイデンティティを含める必要があります。
   コントロール UI は、`gateway.controlUi.allowInsecureAuth` が有効な場合に **のみ** 省略できます
   （またはブレークグラス用途として `gateway.controlUi.dangerouslyDisableDeviceAuth`）。
@@ -205,5 +214,3 @@ Gateway はこれらを **クレーム** として扱い、サーバー側の許
 
 このプロトコルは **完全な Gateway API**（ステータス、チャンネル、モデル、チャット、エージェント、セッション、ノード、承認など）を公開します。正確な API サーフェスは、`src/gateway/protocol/schema.ts` にある TypeBox スキーマによって定義されています。 正確なサーフェスは `src/gateway/protocol/schema.ts` の
 TypeBox スキーマによって定義されます。
-
-

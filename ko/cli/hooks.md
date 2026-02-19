@@ -1,4 +1,8 @@
 ---
+summary: "`openclaw hooks` (에이전트 훅)용 CLI 참조"
+read_when:
+  - 에이전트 훅을 관리하려는 경우
+  - 훅을 설치하거나 업데이트하려는 경우
 title: "hooks"
 ---
 
@@ -8,7 +12,7 @@ title: "hooks"
 
 관련 항목:
 
-- 후크: [후크](/automation/hooks)
+- Hooks: [Hooks](/automation/hooks)
 - 플러그인 훅: [Plugins](/tools/plugin#plugin-hooks)
 
 ## 모든 훅 나열
@@ -188,6 +192,9 @@ openclaw hooks install <path-or-spec>
 
 로컬 폴더/아카이브 또는 npm 에서 훅 팩을 설치합니다.
 
+Npm 사양은 **registry-only** (패키지 이름 + 선택적 버전/태그)만 허용됩니다. Git/URL/file
+사양은 허용되지 않습니다. 의존성 설치는 보안을 위해 `--ignore-scripts` 옵션으로 실행됩니다.
+
 **동작 내용:**
 
 - 훅 팩을 `~/.openclaw/hooks/<id>` 에 복사
@@ -246,6 +253,18 @@ openclaw hooks enable session-memory
 
 **참고:** [session-memory 문서](/automation/hooks#session-memory)
 
+### bootstrap-extra-files
+
+`agent:bootstrap` 동안 추가 부트스트랩 파일(예: 모노레포 로컬 `AGENTS.md` / `TOOLS.md`)을 주입합니다.
+
+**활성화:**
+
+```bash
+openclaw hooks enable bootstrap-extra-files
+```
+
+**참고:** [SOUL Evil Hook](/hooks/soul-evil)
+
 ### command-logger
 
 모든 명령 이벤트를 중앙 감사 파일에 기록합니다.
@@ -273,30 +292,16 @@ grep '"action":"new"' ~/.openclaw/logs/commands.log | jq .
 
 **참고:** [command-logger 문서](/automation/hooks#command-logger)
 
-### soul-evil
-
-정화 창 동안 또는 무작위 확률로 주입된 `SOUL.md` 콘텐츠를 `SOUL_EVIL.md` 로 교체합니다.
-
-**활성화:**
-
-```bash
-openclaw hooks enable soul-evil
-```
-
-**참고:** [SOUL Evil Hook](/hooks/soul-evil)
-
 ### boot-md
 
 Gateway(게이트웨이) 시작 시(채널 시작 이후) `BOOT.md` 를 실행합니다.
 
-**이벤트**: `gateway:startup`
-
 **활성화**:
+
+**이벤트**: `gateway:startup`
 
 ```bash
 openclaw hooks enable boot-md
 ```
 
 **참고:** [boot-md 문서](/automation/hooks#boot-md)
-
-

@@ -1,57 +1,52 @@
 ---
+summary: "Katayuan ng suporta ng Telegram bot, mga kakayahan, at konpigurasyon"
+read_when:
+  - Nagtatrabaho sa mga feature o webhook ng Telegram
 title: "Telegram"
 ---
 
 # Telegram (Bot API)
 
-Status: handa para sa produksyon para sa mga bot DM + group sa pamamagitan ng grammY. Long-polling by default; webhook optional.
+Status: handa para sa produksyon para sa mga bot DM + group sa pamamagitan ng grammY. Long polling ang default na mode; opsyonal ang webhook mode.
 
-## Mabilis na setup (baguhan)
+<CardGroup cols={3}>
+  <Card title="Pairing" icon="link" href="/channels/pairing">
+    Ang default na DM policy para sa Telegram ay pairing.
+  
+</Card>
+  <Card title="Channel troubleshooting" icon="wrench" href="/channels/troubleshooting">
+    Cross-channel na diagnostics at mga playbook para sa pag-aayos.
+  
+</Card>
+  <Card title="Gateway configuration" icon="settings" href="/gateway/configuration">
+    Buong mga pattern at halimbawa ng channel config.
+  
+</Card>
+</CardGroup>
 
-1. Create a bot with **@BotFather** ([direct link](https://t.me/BotFather)). Confirm the handle is exactly `@BotFather`, then copy the token.
-2. Itakda ang token:
-   - Env: `TELEGRAM_BOT_TOKEN=...`
-   - O config: `channels.telegram.botToken: "..."`.
-   - Kapag parehong naka-set, uunahin ang config (ang env fallback ay para lang sa default-account).
-3. Simulan ang Gateway.
-4. Ang access sa DM ay pairing bilang default; aprubahan ang pairing code sa unang pakikipag-ugnayan.
+## Mabilisang setup
 
-Minimal na config:
+<Steps>
+  <Step title="Create the bot token in BotFather">
+    Buksan ang Telegram at makipag-chat kay **@BotFather** (tiyaking eksaktong `@BotFather` ang handle).
+  
 
-```json5
-{
-  channels: {
-    telegram: {
-      enabled: true,
-      botToken: "123:abc",
-      dmPolicy: "pairing",
-    },
-  },
-}
-```
+    ```
+    {
+      channels: {
+        telegram: {
+          enabled: true,
+          botToken: "123:abc",
+          dmPolicy: "pairing",
+        },
+      },
+    }
+    ```
 
-## Ano ito
+  
+</Step>
 
-- Isang Telegram Bot API channel na pagmamay-ari ng Gateway.
-- Deterministic routing: ang mga reply ay bumabalik sa Telegram; hindi pumipili ng channel ang model.
-- Ang mga DM ay nagbabahagi ng pangunahing session ng agent; ang mga grupo ay nananatiling hiwalay (`agent:<agentId>:telegram:group:<chatId>`).
-
-## Setup (mabilis na ruta)
-
-### 1. Gumawa ng bot token (BotFather)
-
-1. Buksan ang Telegram at makipag-chat kay **@BotFather** ([direktang link](https://t.me/BotFather)). Tiyaking eksaktong `@BotFather` ang handle.
-2. Patakbuhin ang `/newbot`, pagkatapos sundin ang mga prompt (pangalan + username na nagtatapos sa `bot`).
-3. Kopyahin ang token at itago ito nang ligtas.
-
-Opsyonal na mga setting ng BotFather:
-
-- `/setjoingroups` — pahintulutan/tanggihan ang pagdaragdag ng bot sa mga grupo.
-- `/setprivacy` — kontrolin kung nakikita ng bot ang lahat ng mensahe sa grupo.
-
-### 2. I-configure ang token (env o config)
-
-Halimbawa:
+  <Step title="Configure token and DM policy">
 
 ```json5
 {
@@ -66,70 +61,282 @@ Halimbawa:
 }
 ```
 
-Env option: `TELEGRAM_BOT_TOKEN=...` (gumagana para sa default na account).
-Kung parehong naka-set ang env at config, uunahin ang config.
+    ```
+    Env fallback: `TELEGRAM_BOT_TOKEN=...` (default account lamang).
+    ```
 
-Suporta sa multi-account: gamitin ang `channels.telegram.accounts` na may per-account na mga token at opsyonal na `name`. See [`gateway/configuration`](/gateway/configuration#telegramaccounts--discordaccounts--slackaccounts--signalaccounts--imessageaccounts) for the shared pattern.
+  
+</Step>
 
-3. Simulan ang Gateway. Nagsisimula ang Telegram kapag naresolba ang isang token (config muna, env bilang fallback).
-4. DM access defaults to pairing. Aprubahan ang code kapag unang nakontak ang bot.
-5. Para sa mga grupo: idagdag ang bot, magpasya sa privacy/admin na asal (sa ibaba), pagkatapos itakda ang `channels.telegram.groups` para kontrolin ang mention gating + mga allowlist.
+  <Step title="Start gateway and approve first DM">
 
-## Token + privacy + mga pahintulot (panig ng Telegram)
+```bash
+openclaw gateway
+openclaw pairing list telegram
+openclaw pairing approve telegram <CODE>
+```
 
-### Paglikha ng token (BotFather)
+    ```
+    Ang mga pairing code ay nag-e-expire pagkatapos ng 1 oras.
+    ```
 
-- Ang `/newbot` ay lumilikha ng bot at ibinabalik ang token (panatilihing lihim).
-- Kung tumagas ang token, bawiin/bumuo muli ito sa @BotFather at i-update ang iyong config.
+  
+</Step>
 
-### Visibility ng mensahe sa grupo (Privacy Mode)
+  <Step title="Add the bot to a group">
+    Idagdag ang bot sa iyong grupo, pagkatapos ay itakda ang `channels.telegram.groups` at `groupPolicy` upang tumugma sa iyong access model.
+  
+</Step>
+</Steps>
 
-Ang mga Telegram bot ay naka-default sa **Privacy Mode**, na naglilimita kung aling mga mensahe sa grupo ang kanilang natatanggap.
-Kung kailangang makita ng iyong bot ang _lahat_ ng mga mensahe sa grupo, may dalawang opsyon ka:
+<Note>
+Ang pagkakasunod-sunod ng pagresolba ng token ay account-aware. Sa praktika, mas nangingibabaw ang mga config value kaysa sa env fallback, at ang `TELEGRAM_BOT_TOKEN` ay nalalapat lamang sa default account.
+</Note>
 
-- I-disable ang privacy mode gamit ang `/setprivacy` **o**
-- Idagdag ang bot bilang **admin** ng grupo (ang mga admin bot ay tumatanggap ng lahat ng mensahe).
+## Mga setting sa panig ng Telegram
 
-**Tandaan:** Kapag binago mo ang privacy mode, hinihiling ng Telegram na alisin at muling idagdag ang bot
-sa bawat grupo para magkabisa ang pagbabago.
+<AccordionGroup>
+  <Accordion title="Privacy mode and group visibility">
+    Ang mga Telegram bot ay naka-default sa **Privacy Mode**, na naglilimita sa mga group message na kanilang natatanggap.
 
-### Mga pahintulot sa grupo (admin rights)
 
-Ang admin status ay itinatakda sa loob ng grupo (Telegram UI). Ang mga admin bot ay palaging tumatanggap ng lahat ng
-mga mensahe sa grupo, kaya gumamit ng admin kung kailangan mo ng ganap na visibility.
+    ```
+    Kung kailangang makita ng bot ang lahat ng group message, alinman sa:
+    
+    - i-disable ang privacy mode sa pamamagitan ng `/setprivacy`, o
+    - gawing group admin ang bot.
+    
+    Kapag binabago ang privacy mode, alisin at muling idagdag ang bot sa bawat grupo upang maipatupad ng Telegram ang pagbabago.
+    
+    ```
 
-## Paano ito gumagana (asal)
+  
+</Accordion>
 
-- Ang mga papasok na mensahe ay kino-normalize sa ibinahaging channel envelope na may reply context at mga placeholder ng media.
-- Ang mga reply sa grupo ay nangangailangan ng mention bilang default (native @mention o `agents.list[].groupChat.mentionPatterns` / `messages.groupChat.mentionPatterns`).
-- Multi-agent override: magtakda ng per-agent na mga pattern sa `agents.list[].groupChat.mentionPatterns`.
-- Ang mga reply ay palaging niruruta pabalik sa parehong Telegram chat.
-- Ang long-polling ay gumagamit ng grammY runner na may per-chat sequencing; ang pangkalahatang concurrency ay nililimitahan ng `agents.defaults.maxConcurrent`.
-- Hindi sinusuportahan ng Telegram Bot API ang read receipts; walang opsyong `sendReadReceipts`.
+  <Accordion title="Group permissions">
+    Ang admin status ay kinokontrol sa mga setting ng Telegram group.
 
-## Draft streaming
 
-Maaaring mag-stream ang OpenClaw ng mga bahagyang reply sa Telegram DMs gamit ang `sendMessageDraft`.
+    ```
+    Ang mga admin bot ay tumatanggap ng lahat ng group message, na kapaki-pakinabang para sa palaging aktibong pag-uugali sa grupo.
+    ```
 
-Mga kinakailangan:
+  
+</Accordion>
 
-- Naka-enable ang Threaded Mode para sa bot sa @BotFather (forum topic mode).
-- Mga private chat thread lamang (isinasama ng Telegram ang `message_thread_id` sa mga papasok na mensahe).
-- Ang `channels.telegram.streamMode` ay hindi nakatakda sa `"off"` (default: `"partial"`, pinapagana ng `"block"` ang chunked draft updates).
+  <Accordion title="Helpful BotFather toggles">
 
-Ang draft streaming ay para sa DM lamang; hindi ito sinusuportahan ng Telegram sa mga grupo o channel.
+    ```
+    - `/setjoingroups` upang payagan/tanggihan ang pagdagdag sa grupo
+    - `/setprivacy` para sa behavior ng visibility sa grupo
+    ```
 
-## Formatting (Telegram HTML)
+  
+</Accordion>
+</AccordionGroup>
 
-- Ang palabas na text ng Telegram ay gumagamit ng `parse_mode: "HTML"` (sinusuportahang subset ng mga tag ng Telegram).
-- Ang Markdown-ish na input ay nirender sa **Telegram-safe HTML** (bold/italic/strike/code/links); ang mga block element ay pini-flatten sa text na may mga newline/bullet.
-- Ang raw HTML mula sa mga model ay ini-escape upang maiwasan ang mga parse error ng Telegram.
-- Kapag tinanggihan ng Telegram ang HTML payload, inuulit ng OpenClaw ang parehong mensahe bilang plain text.
+## Kontrol sa access at pag-activate
 
-## Mga command (native + custom)
+<Tabs>
+  <Tab title="DM policy">
+    Kinokontrol ng `channels.telegram.dmPolicy` ang access sa direct message:
 
-Nagre-register ang OpenClaw ng mga native command (tulad ng `/status`, `/reset`, `/model`) sa bot menu ng Telegram sa startup.
-Maaari kang magdagdag ng mga custom command sa menu sa pamamagitan ng config:
+
+    ```
+    - `pairing` (default)
+    - `allowlist`
+    - `open` (nangangailangan na isama ng `allowFrom` ang `"*"`)
+    - `disabled`
+    
+    Ang `channels.telegram.allowFrom` ay tumatanggap ng numeric Telegram user IDs. Ang mga prefix na `telegram:` / `tg:` ay tinatanggap at ino-normalize.
+    Ang onboarding wizard ay tumatanggap ng `@username` na input at nireresolba ito sa numeric IDs.
+    Kung nag-upgrade ka at ang iyong config ay naglalaman ng `@username` allowlist entries, patakbuhin ang `openclaw doctor --fix` upang maresolba ang mga ito (best-effort; nangangailangan ng Telegram bot token).
+    
+    ### Paghahanap ng iyong Telegram user ID
+    
+    Mas ligtas (walang third-party bot):
+    
+    1. Mag-DM sa iyong bot.
+    2. Patakbuhin ang `openclaw logs --follow`.
+    3. Basahin ang `from.id`.
+    
+    Opisyal na paraan gamit ang Bot API:
+    ```
+
+```bash
+curl "https://api.telegram.org/bot<bot_token>/getUpdates"
+```
+
+    ```
+    Paraan gamit ang third-party (mas hindi pribado): `@userinfobot` o `@getidsbot`.
+    ```
+
+  
+</Tab>
+
+  <Tab title="Group policy and allowlists">
+    May dalawang magkahiwalay na kontrol:
+
+
+    ```
+    1. **Aling mga grupo ang pinapayagan** (`channels.telegram.groups`)
+       - walang `groups` config: lahat ng grupo ay pinapayagan
+       - may `groups` config: nagsisilbing allowlist (tahasan na mga ID o `"*"`)
+    
+    2. **Aling mga sender ang pinapayagan sa mga grupo** (`channels.telegram.groupPolicy`)
+       - `open`
+       - `allowlist` (default)
+       - `disabled`
+    
+    Ang `groupAllowFrom` ay ginagamit para sa pag-filter ng group sender. Kung hindi nakatakda, babalik ang Telegram sa `allowFrom`.
+    Ang mga entry ng `groupAllowFrom` ay dapat numeric Telegram user IDs.
+    
+    Halimbawa: payagan ang sinumang miyembro sa isang partikular na grupo:
+    ```
+
+```json5
+{
+  channels: {
+    telegram: {
+      groups: {
+        "-1001234567890": {
+          groupPolicy: "open",
+          requireMention: false,
+        },
+      },
+    },
+  },
+}
+```
+
+  
+</Tab>
+
+  <Tab title="Mention behavior">
+    Ang mga group reply ay nangangailangan ng mention bilang default.
+
+
+    ```
+    Maaaring manggaling ang mention mula sa:
+    
+    - native `@botusername` mention, o
+    - mga mention pattern sa:
+      - `agents.list[].groupChat.mentionPatterns`
+      - `messages.groupChat.mentionPatterns`
+    
+    Mga command toggle sa antas ng session:
+    
+    - `/activation always`
+    - `/activation mention`
+    
+    Ina-update lamang nito ang session state. Gamitin ang config para sa persistence.
+    
+    Halimbawa ng persistent config:
+    ```
+
+```json5
+{
+  channels: {
+    telegram: {
+      groups: {
+        "*": { requireMention: false },
+      },
+    },
+  },
+}
+```
+
+    ```
+    Pagkuha ng group chat ID:
+    
+    - i-forward ang group message sa `@userinfobot` / `@getidsbot`
+    - o basahin ang `chat.id` mula sa `openclaw logs --follow`
+    - o siyasatin ang Bot API `getUpdates`
+    ```
+
+  
+</Tab>
+</Tabs>
+
+## Pag-uugali sa runtime
+
+- Ang Telegram ay pagmamay-ari ng gateway process.
+- Deterministic ang routing: ang mga papasok na mensahe sa Telegram ay sasagutin din sa Telegram (hindi pumipili ng channel ang model).
+- Ang mga papasok na mensahe ay ino-normalize sa shared channel envelope na may reply metadata at mga media placeholder.
+- Ang mga group session ay nakahiwalay batay sa group ID. Ang mga forum topic ay nagdadagdag ng `:topic:<threadId>` upang mapanatiling hiwalay ang mga topic.
+- Ang mga DM message ay maaaring maglaman ng `message_thread_id`; niruruta ng OpenClaw ang mga ito gamit ang thread-aware session keys at pinananatili ang thread ID para sa mga reply.
+- Gumagamit ang long polling ng grammY runner na may sequencing bawat chat/bawat thread. Ang kabuuang runner sink concurrency ay gumagamit ng `agents.defaults.maxConcurrent`.
+- Walang suporta ang Telegram Bot API para sa read-receipt (`sendReadReceipts` ay hindi nalalapat).
+
+## Sanggunian ng mga feature
+
+<AccordionGroup>
+  <Accordion title="Live stream preview (message edits)">
+    Maaaring mag-stream ang OpenClaw ng mga partial na sagot sa pamamagitan ng pagpapadala ng pansamantalang Telegram message at pag-edit nito habang dumarating ang teksto.
+
+
+    ```
+    Kinakailangan:
+    
+    - ang `channels.telegram.streamMode` ay hindi `"off"` (default: `"partial"`)
+    
+    Mga mode:
+    
+    - `off`: walang live preview
+    - `partial`: madalas na preview update mula sa partial text
+    - `block`: naka-chunk na preview update gamit ang `channels.telegram.draftChunk`
+    
+    Mga default ng `draftChunk` para sa `streamMode: "block"`:
+    
+    - `minChars: 200`
+    - `maxChars: 800`
+    - `breakPreference: "paragraph"`
+    
+    Ang `maxChars` ay nililimitahan ng `channels.telegram.textChunkLimit`.
+    
+    Gumagana ito sa direct chat at mga group/topic.
+    
+    Para sa text-only na sagot, pinananatili ng OpenClaw ang parehong preview message at nagsasagawa ng huling pag-edit sa parehong mensahe (walang pangalawang mensahe).
+    
+    Para sa mas kumplikadong sagot (halimbawa, may media payload), babalik ang OpenClaw sa normal na final delivery at pagkatapos ay lilinisin ang preview message.
+    
+    Ang `streamMode` ay hiwalay sa block streaming. Kapag tahasang pinagana ang block streaming para sa Telegram, nilalaktawan ng OpenClaw ang preview stream upang maiwasan ang dobleng streaming.
+    
+    Telegram-only reasoning stream:
+    
+    - `/reasoning stream` ay nagpapadala ng reasoning sa live preview habang nagge-generate
+    - ang final na sagot ay ipinapadala nang walang reasoning text
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Formatting and HTML fallback">
+    Ang outbound text ay gumagamit ng Telegram `parse_mode: "HTML"`.
+
+
+    ```
+    - Ang tekstong parang Markdown ay nire-render sa Telegram-safe HTML.
+    - Ang raw model HTML ay ini-escape upang mabawasan ang Telegram parse failures.
+    - Kung tanggihan ng Telegram ang parsed HTML, muling susubukan ng OpenClaw bilang plain text.
+    
+    Ang link preview ay naka-enable bilang default at maaaring i-disable gamit ang `channels.telegram.linkPreview: false`.
+    ```
+
+  
+</Accordion>
+
+  <Accordion title="Native commands and custom commands">
+    Ang pagpaparehistro ng Telegram command menu ay pinangangasiwaan sa startup gamit ang `setMyCommands`.
+
+
+    ```
+    Mga default na native command:
+    
+    - `commands.native: "auto"` ay nag-e-enable ng native commands para sa Telegram
+    
+    Magdagdag ng custom na command menu entries:
+    ```
 
 ```json5
 {
@@ -144,139 +351,23 @@ Maaari kang magdagdag ng mga custom command sa menu sa pamamagitan ng config:
 }
 ```
 
-## Pag-troubleshoot ng setup (mga command)
-
-- Ang `setMyCommands failed` sa logs ay karaniwang nangangahulugang naka-block ang outbound HTTPS/DNS papunta sa `api.telegram.org`.
-- Kung makakita ka ng mga failure na `sendMessage` o `sendChatAction`, suriin ang IPv6 routing at DNS.
-
-Karagdagang tulong: [Pag-troubleshoot ng channel](/channels/troubleshooting).
-
-Mga tala:
-
-- Ang mga custom na command ay **menu entries lamang**; hindi sila ipinapatupad ng OpenClaw maliban kung hahawakan mo sila sa ibang lugar.
-- May ilang command na maaaring asikasuhin ng mga plugin/skill nang hindi nairehistro sa command menu ng Telegram. Gumagana pa rin ang mga ito kapag tinype (hindi lang sila lalabas sa `/commands` / menu).
-- Ang mga pangalan ng command ay kino-normalize (inaalis ang leading `/`, ginagawang lowercase) at dapat tumugma sa `a-z`, `0-9`, `_` (1–32 na karakter).
-- Ang mga custom command ay **hindi maaaring mag-override ng mga native command**. Ang mga conflict ay binabalewala at nilolog.
-- Kung naka-disable ang `commands.native`, ang mga custom na command lamang ang nirerehistro (o nililinis kung wala).
-
-### Mga command para sa device pairing (`device-pair` plugin)
-
-Kung naka-install ang `device-pair` plugin, nagdaragdag ito ng Telegram-first na daloy para sa pag-pair ng bagong telepono:
-
-1. `/pair` ay bumubuo ng setup code (ipinapadala bilang hiwalay na mensahe para madaling kopyahin/i-paste).
-2. I-paste ang setup code sa iOS app para kumonekta.
-3. `/pair approve` ay inaaprubahan ang pinakabagong nakabinbing kahilingan ng device.
-
-Karagdagang detalye: [Pairing](/channels/pairing#pair-via-telegram-recommended-for-ios).
-
-## Mga limitasyon
-
-- Ang palabas na text ay hinihiwa-hiwa sa `channels.telegram.textChunkLimit` (default 4000).
-- Opsyonal na paghiwa batay sa newline: itakda ang `channels.telegram.chunkMode="newline"` upang maghiwa sa mga blangkong linya (mga hangganan ng talata) bago ang paghiwa batay sa haba.
-- Ang pag-download/pag-upload ng media ay nililimitahan ng `channels.telegram.mediaMaxMb` (default 5).
-- Ang mga request sa Telegram Bot API ay nagti-time out pagkatapos ng `channels.telegram.timeoutSeconds` (default 500 sa pamamagitan ng grammY). Set lower to avoid long hangs.
-- Ang group history context ay gumagamit ng `channels.telegram.historyLimit` (o `channels.telegram.accounts.*.historyLimit`), at bumabalik sa `messages.groupChat.historyLimit`. Set `0` to disable (default 50).
-- DM history can be limited with `channels.telegram.dmHistoryLimit` (user turns). Per-user overrides: `channels.telegram.dms["<user_id>"].historyLimit`.
-
-## Mga mode ng pag-activate ng grupo
-
-By default, the bot only responds to mentions in groups (`@botname` or patterns in `agents.list[].groupChat.mentionPatterns`). Upang baguhin ang behavior na ito:
-
-### Sa pamamagitan ng config (inirerekomenda)
-
-```json5
-{
-  channels: {
-    telegram: {
-      groups: {
-        "-1001234567890": { requireMention: false }, // always respond in this group
+    ```
+    {
+      channels: {
+        telegram: {
+          groups: {
+            "-1001234567890": { requireMention: false }, // always respond in this group
+          },
+        },
       },
-    },
-  },
-}
-```
+    }
+    ```
 
-**Important:** Setting `channels.telegram.groups` creates an **allowlist** - only listed groups (or `"*"`) will be accepted.
-Forum topics inherit their parent group config (allowFrom, requireMention, skills, prompts) unless you add per-topic overrides under `channels.telegram.groups.<groupId>.topics.<topicId>`.
+  
+</Accordion>
 
-Upang pahintulutan ang lahat ng grupo na may palaging tumutugon:
-
-```json5
-{
-  channels: {
-    telegram: {
-      groups: {
-        "*": { requireMention: false }, // all groups, always respond
-      },
-    },
-  },
-}
-```
-
-Upang panatilihin ang mention-only para sa lahat ng grupo (default na asal):
-
-```json5
-{
-  channels: {
-    telegram: {
-      groups: {
-        "*": { requireMention: true }, // or omit groups entirely
-      },
-    },
-  },
-}
-```
-
-### Sa pamamagitan ng command (antas ng session)
-
-Ipadala sa grupo:
-
-- `/activation always` - tumugon sa lahat ng mensahe
-- `/activation mention` - mangailangan ng mga mention (default)
-
-**Note:** Commands update session state only. Para sa persistent na behavior sa mga restart, gumamit ng config.
-
-### Pagkuha ng group chat ID
-
-I-forward ang anumang mensahe mula sa grupo papunta sa `@userinfobot` o `@getidsbot` sa Telegram upang makita ang chat ID (negatibong numero tulad ng `-1001234567890`).
-
-**Tip:** Para sa sarili mong user ID, mag-DM sa bot at magre-reply ito ng iyong user ID (mensaheng pairing), o gamitin ang `/whoami` kapag naka-enable na ang mga command.
-
-**Privacy note:** Ang `@userinfobot` ay isang third-party bot. If you prefer, add the bot to the group, send a message, and use `openclaw logs --follow` to read `chat.id`, or use the Bot API `getUpdates`.
-
-## Mga pagsusulat sa config
-
-Bilang default, pinapayagan ang Telegram na magsulat ng mga update sa config na na-trigger ng mga event ng channel o `/config set|unset`.
-
-Nangyayari ito kapag:
-
-- Ang isang grupo ay ina-upgrade sa isang supergroup at naglalabas ang Telegram ng `migrate_to_chat_id` (nagbabago ang chat ID). Maaaring i-migrate ng OpenClaw ang `channels.telegram.groups` nang awtomatiko.
-- Pinatakbo mo ang `/config set` o `/config unset` sa isang Telegram chat (nangangailangan ng `commands.config: true`).
-
-I-disable gamit ang:
-
-```json5
-{
-  channels: { telegram: { configWrites: false } },
-}
-```
-
-## Mga topic (forum supergroups)
-
-Telegram forum topics include a `message_thread_id` per message. OpenClaw:
-
-- Idinadagdag ang `:topic:<threadId>` sa session key ng Telegram group upang ang bawat topic ay hiwalay.
-- Nagpapadala ng mga typing indicator at mga reply na may `message_thread_id` upang manatili ang mga tugon sa topic.
-- Ang pangkalahatang topic (thread id `1`) ay espesyal: ang mga pagpapadala ng mensahe ay inaalis ang `message_thread_id` (tinatanggihan ito ng Telegram), ngunit isinasama pa rin ito sa mga typing indicator.
-- Inilalantad ang `MessageThreadId` + `IsForum` sa template context para sa routing/templating.
-- Topic-specific configuration is available under `channels.telegram.groups.<chatId>.topics.<threadId>` (skills, allowlists, auto-reply, system prompts, disable).
-- Ang mga topic config ay nagmamana ng mga setting ng grupo (requireMention, mga allowlist, skills, prompts, enabled) maliban kung na-override kada topic.
-
-Private chats can include `message_thread_id` in some edge cases. Pinananatiling hindi nagbabago ng OpenClaw ang DM session key, ngunit ginagamit pa rin ang thread id para sa mga reply/draft streaming kapag ito ay naroroon.
-
-## Mga Inline Button
-
-Sinusuportahan ng Telegram ang mga inline keyboard na may mga callback button.
+  <Accordion title="Inline buttons">
+    I-configure ang inline keyboard scope:
 
 ```json5
 {
@@ -290,7 +381,9 @@ Sinusuportahan ng Telegram ang mga inline keyboard na may mga callback button.
 }
 ```
 
-Para sa per-account na konpigurasyon:
+    ```
+    Override kada account:
+    ```
 
 ```json5
 {
@@ -308,20 +401,19 @@ Para sa per-account na konpigurasyon:
 }
 ```
 
-Mga saklaw:
-
-- `off` — naka-disable ang mga inline button
-- `dm` — DMs lamang (naka-block ang mga target sa grupo)
-- `group` — mga grupo lamang (naka-block ang mga target sa DM)
-- `all` — DMs + mga grupo
-- `allowlist` — DMs + mga grupo, ngunit tanging mga sender na pinapayagan ng `allowFrom`/`groupAllowFrom` (parehong mga patakaran tulad ng control commands)
-
-Default: `allowlist`.
-Legacy: `capabilities: ["inlineButtons"]` = `inlineButtons: "all"`.
-
-### Pagpapadala ng mga button
-
-Gamitin ang message tool na may parameter na `buttons`:
+    ```
+    Mga Scope:
+    
+    - `off`
+    - `dm`
+    - `group`
+    - `all`
+    - `allowlist` (default)
+    
+    Ang legacy na `capabilities: ["inlineButtons"]` ay tumutugma sa `inlineButtons: "all"`.
+    
+    Halimbawa ng message action:
+    ```
 
 ```json5
 {
@@ -339,116 +431,98 @@ Gamitin ang message tool na may parameter na `buttons`:
 }
 ```
 
-Kapag nag-click ang user ng button, ang callback data ay ipinapadala pabalik sa agent bilang isang mensahe na may format:
-`callback_data: value`
+    ```
+    Ang mga callback click ay ipinapasa sa agent bilang text:
+    `callback_data: <value>`
+    ```
 
-### Mga opsyon sa konpigurasyon
+  
+</Accordion>
 
-Maaaring i-configure ang mga kakayahan ng Telegram sa dalawang antas (ipinakitang object form sa itaas; sinusuportahan pa rin ang legacy na string arrays):
+  <Accordion title="Telegram message actions for agents and automation">
+    Kasama sa mga Telegram tool action ang:
 
-- `channels.telegram.capabilities`: Global na default na config ng kakayahan na inilalapat sa lahat ng Telegram account maliban kung na-override.
-- `channels.telegram.accounts.<account>.capabilities`: Mga per-account capability na nag-o-override sa mga global default para sa partikular na account na iyon.
+    ```
+    - `sendMessage` (`to`, `content`, opsyonal `mediaUrl`, `replyToMessageId`, `messageThreadId`)
+    - `react` (`chatId`, `messageId`, `emoji`)
+    - `deleteMessage` (`chatId`, `messageId`)
+    - `editMessage` (`chatId`, `messageId`, `content`)
+    
+    Ang mga channel message action ay may ergonomic na mga alias (`send`, `react`, `delete`, `edit`, `sticker`, `sticker-search`).
+    
+    Mga gating control:
+    
+    - `channels.telegram.actions.sendMessage`
+    - `channels.telegram.actions.editMessage`
+    - `channels.telegram.actions.deleteMessage`
+    - `channels.telegram.actions.reactions`
+    - `channels.telegram.actions.sticker` (default: disabled)
+    
+    Semantika ng pagtanggal ng reaction: [/tools/reactions](/tools/reactions)
+    ```
 
-Gamitin ang global setting kapag ang lahat ng Telegram bot/account ay dapat umasal nang pareho. Use per-account configuration when different bots need different behaviors (for example, one account only handles DMs while another is allowed in groups).
+  
+</Accordion>
 
-## Kontrol sa access (DMs + mga grupo)
+  <Accordion title="Reply threading tags">
+    Sinusuportahan ng Telegram ang tahasang reply threading tags sa generated output:
 
-### Access sa DM
+    ```
+    - `[[reply_to_current]]` ay nagre-reply sa nag-trigger na mensahe
+    - `[[reply_to:<id>]]` ay nagre-reply sa partikular na Telegram message ID
+    
+    Kinokontrol ng `channels.telegram.replyToMode` ang paghawak:
+    
+    - `off` (default)
+    - `first`
+    - `all`
+    
+    Tandaan: Ang `off` ay nagdi-disable ng implicit reply threading. Ang tahasang `[[reply_to_*]]` tags ay patuloy na sinusunod.
+    ```
 
-- Default: `channels.telegram.dmPolicy = "pairing"`. Ang mga hindi kilalang sender ay tumatanggap ng pairing code; ini-ignore ang mga mensahe hanggang maaprubahan (mag-e-expire ang mga code pagkalipas ng 1 oras).
-- Aprubahan sa pamamagitan ng:
-  - `openclaw pairing list telegram`
-  - `openclaw pairing approve telegram <CODE>`
-- Ang Pairing ang default na token exchange na ginagamit para sa Telegram DM. Mga detalye: [Pairing](/channels/pairing)
-- Tumatanggap ang `channels.telegram.allowFrom` ng mga numeric user ID (inirerekomenda) o mga entry na `@username`. Ito ay **hindi** ang bot username; gamitin ang ID ng taong nagpadala. The wizard accepts `@username` and resolves it to the numeric ID when possible.
+  
+</Accordion>
 
-#### Paghahanap ng iyong Telegram user ID
+  <Accordion title="Forum topics and thread behavior">
+    Mga forum supergroup:
 
-Mas ligtas (walang third-party bot):
+    ```
+    - ang topic session keys ay dinaragdagan ng `:topic:<threadId>`
+    - ang mga reply at typing ay nakatuon sa topic thread
+    - path ng topic config:
+      `channels.telegram.groups.<chatId>.topics.<threadId>`
+    
+    Espesyal na kaso para sa general topic (`threadId=1`):
+    
+    - ang pagpapadala ng mensahe ay hindi isinasama ang `message_thread_id` (tinatanggihan ng Telegram ang `sendMessage(...thread_id=1)`)
+    - ang typing actions ay patuloy na may kasamang `message_thread_id`
+    
+    Topic inheritance: ang mga topic entry ay nagmamana ng group settings maliban kung may override (`requireMention`, `allowFrom`, `skills`, `systemPrompt`, `enabled`, `groupPolicy`).
+    
+    Kasama sa template context ang:
+    
+    - `MessageThreadId`
+    - `IsForum`
+    
+    Behavior ng DM thread:
+    
+    - ang mga private chat na may `message_thread_id` ay nananatili sa DM routing ngunit gumagamit ng thread-aware na session keys/reply targets.
+    ```
 
-1. Simulan ang Gateway at mag-DM sa iyong bot.
-2. Patakbuhin ang `openclaw logs --follow` at hanapin ang `from.id`.
+  
+</Accordion>
 
-Alternatibo (opisyal na Bot API):
+  <Accordion title="Audio, video, and stickers">
+    ### Mga audio message
 
-1. Mag-DM sa iyong bot.
-2. Kunin ang mga update gamit ang token ng iyong bot at basahin ang `message.from.id`:
-
-   ```bash
-   curl "https://api.telegram.org/bot<bot_token>/getUpdates"
-   ```
-
-Third-party (mas hindi pribado):
-
-- Mag-DM sa `@userinfobot` o `@getidsbot` at gamitin ang ibinalik na user id.
-
-### Access sa grupo
-
-Dalawang magkahiwalay na kontrol:
-
-**1. Aling mga grupo ang pinapayagan** (group allowlist sa pamamagitan ng `channels.telegram.groups`):
-
-- Walang `groups` config = pinapayagan ang lahat ng grupo
-- May `groups` config = tanging ang mga nakalistang grupo o `"*"` ang pinapayagan
-- Halimbawa: pinapayagan ng `"groups": { "-1001234567890": {}, "*": {} }` ang lahat ng grupo
-
-**2. Aling mga sender ang pinapayagan** (sender filtering sa pamamagitan ng `channels.telegram.groupPolicy`):
-
-- `"open"` = lahat ng sender sa mga pinapayagang grupo ay maaaring mag-message
-- `"allowlist"` = tanging ang mga sender sa `channels.telegram.groupAllowFrom` ang maaaring mag-message
-- `"disabled"` = walang tinatanggap na mensahe sa grupo
-  Default ay `groupPolicy: "allowlist"` (naka-block maliban kung magdagdag ka ng `groupAllowFrom`).
-
-Karamihan ng user ay gusto: `groupPolicy: "allowlist"` + `groupAllowFrom` + mga partikular na grupong nakalista sa `channels.telegram.groups`
-
-Upang pahintulutan ang **sinumang miyembro ng grupo** na makipag-usap sa isang partikular na grupo (habang pinananatiling limitado ang control commands sa mga awtorisadong sender), magtakda ng per-group na override:
-
-```json5
-{
-  channels: {
-    telegram: {
-      groups: {
-        "-1001234567890": {
-          groupPolicy: "open",
-          requireMention: false,
-        },
-      },
-    },
-  },
-}
-```
-
-## Long-polling vs webhook
-
-- Default: long-polling (hindi kailangan ng pampublikong URL).
-- Webhook mode: itakda ang `channels.telegram.webhookUrl` at `channels.telegram.webhookSecret` (opsyonal ang `channels.telegram.webhookPath`).
-  - Ang lokal na listener ay nagba-bind sa `0.0.0.0:8787` at nagseserbisyo ng `POST /telegram-webhook` bilang default.
-  - Kung iba ang iyong pampublikong URL, gumamit ng reverse proxy at ituro ang `channels.telegram.webhookUrl` sa pampublikong endpoint.
-
-## Reply threading
-
-Sinusuportahan ng Telegram ang opsyonal na threaded replies sa pamamagitan ng mga tag:
-
-- `[[reply_to_current]]` -- mag-reply sa triggering message.
-- `[[reply_to:<id>]]` -- mag-reply sa isang partikular na message id.
-
-Kinokontrol ng `channels.telegram.replyToMode`:
-
-- `first` (default), `all`, `off`.
-
-## Mga audio message (voice vs file)
-
-Ipinagkaiba ng Telegram ang **voice notes** (bilog na bubble) at **audio files** (metadata card).
-Ang OpenClaw ay naka-default sa mga audio file para sa backward compatibility.
-
-Upang pilitin ang voice note bubble sa mga reply ng agent, isama ang tag na ito kahit saan sa reply:
-
-- `[[audio_as_voice]]` — ipadala ang audio bilang voice note sa halip na file.
-
-The tag is stripped from the delivered text. Other channels ignore this tag.
-
-Para sa mga send ng message tool, itakda ang `asVoice: true` na may voice-compatible na audio `media` URL
-(opsyonal ang `message` kapag may media):
+    ```
+    Ipinagkaiba ng Telegram ang voice notes at audio files.
+    
+    - default: behavior ng audio file
+    - tag na `[[audio_as_voice]]` sa reply ng agent upang pilitin ang pagpapadala bilang voice note
+    
+    Halimbawa ng message action:
+    ```
 
 ```json5
 {
@@ -460,12 +534,13 @@ Para sa mga send ng message tool, itakda ang `asVoice: true` na may voice-compat
 }
 ```
 
-## Mga video message (video vs video note)
-
-Ipinagkaiba ng Telegram ang **video notes** (bilog na bubble) at **video files** (parihaba).
-Default ng OpenClaw ang video files.
-
-Para sa message tool sends, itakda ang `asVideoNote: true` kasama ang isang video `media` URL:
+    ```
+    ### Mga video message
+    
+    Ipinagkaiba ng Telegram ang video files at video notes.
+    
+    Halimbawa ng message action:
+    ```
 
 ```json5
 {
@@ -477,65 +552,33 @@ Para sa message tool sends, itakda ang `asVideoNote: true` kasama ang isang vide
 }
 ```
 
-(Tandaan: Hindi suportado ng video notes ang captions. Kung magbibigay ka ng text ng mensahe, ipapadala ito bilang hiwalay na mensahe.)
-
-## Mga Sticker
-
-Sinusuportahan ng OpenClaw ang pagtanggap at pagpapadala ng mga Telegram sticker na may intelligent caching.
-
-### Pagtanggap ng mga sticker
-
-Kapag nagpadala ang user ng sticker, hinahawakan ito ng OpenClaw batay sa uri ng sticker:
-
-- **Static stickers (WEBP):** Downloaded and processed through vision. Ang sticker ay lumalabas bilang isang `<media:sticker>` placeholder sa nilalaman ng mensahe.
-- **Animated stickers (TGS):** Nilalaktawan (hindi sinusuportahan ang Lottie format para sa pagproseso).
-- **Video stickers (WEBM):** Nilalaktawan (hindi sinusuportahan ang video format para sa pagproseso).
-
-Available na field ng template context kapag tumatanggap ng mga sticker:
-
-- `Sticker` — object na may:
-  - `emoji` — emoji na kaugnay ng sticker
-  - `setName` — pangalan ng sticker set
-  - `fileId` — Telegram file ID (ipadala muli ang parehong sticker)
-  - `fileUniqueId` — stable ID para sa cache lookup
-  - `cachedDescription` — naka-cache na vision description kapag available
-
-### Sticker cache
-
-Stickers are processed through the AI's vision capabilities to generate descriptions. Dahil ang parehong mga sticker ay madalas na ipinapadala nang paulit-ulit, kino-cache ng OpenClaw ang mga paglalarawang ito upang maiwasan ang paulit-ulit na API call.
-
-**Paano ito gumagana:**
-
-1. **Unang encounter:** Ang larawan ng sticker ay ipinapadala sa AI para sa vision analysis. The AI generates a description (e.g., "A cartoon cat waving enthusiastically").
-2. **Pag-iimbak sa cache:** Sine-save ang deskripsyon kasama ng file ID ng sticker, emoji, at pangalan ng set.
-3. **Mga susunod na encounter:** Kapag ang parehong sticker ay muling nakita, ang naka-cache na paglalarawan ay direktang ginagamit. Ang larawan ay hindi ipinapadala sa AI.
-
-**Lokasyon ng cache:** `~/.openclaw/telegram/sticker-cache.json`
-
-**Format ng entry sa cache:**
-
-```json
-{
-  "fileId": "CAACAgIAAxkBAAI...",
-  "fileUniqueId": "AgADBAADb6cxG2Y",
-  "emoji": "👋",
-  "setName": "CoolCats",
-  "description": "A cartoon cat waving enthusiastically",
-  "cachedAt": "2026-01-15T10:30:00.000Z"
-}
-```
-
-**Mga benepisyo:**
-
-- Binabawasan ang gastos sa API sa pamamagitan ng pag-iwas sa paulit-ulit na vision call para sa parehong sticker
-- Mas mabilis na oras ng pagtugon para sa mga naka-cache na sticker (walang delay sa vision processing)
-- Pinapagana ang functionality ng paghahanap ng sticker batay sa mga naka-cache na deskripsyon
-
-Ang cache ay awtomatikong napupuno habang tumatanggap ng mga sticker. Walang kinakailangang manual na pamamahala ng cache.
-
-### Pagpapadala ng mga sticker
-
-Maaaring magpadala at maghanap ng mga sticker ang agent gamit ang mga action na `sticker` at `sticker-search`. Ang mga ito ay naka-disable bilang default at kailangang i-enable sa config:
+    ```
+    Hindi sinusuportahan ng video notes ang captions; ang ibinigay na text ng mensahe ay ipinapadala nang hiwalay.
+    
+    ### Mga Sticker
+    
+    Paghawak sa inbound sticker:
+    
+    - static WEBP: dina-download at pinoproseso (placeholder `<media:sticker>`)
+    - animated TGS: nilalaktawan
+    - video WEBM: nilalaktawan
+    
+    Mga field ng sticker context:
+    
+    - `Sticker.emoji`
+    - `Sticker.setName`
+    - `Sticker.fileId`
+    - `Sticker.fileUniqueId`
+    - `Sticker.cachedDescription`
+    
+    Sticker cache file:
+    
+    - `~/.openclaw/telegram/sticker-cache.json`
+    
+    Ang mga sticker ay inilalarawan nang isang beses (kung maaari) at ini-cache upang mabawasan ang paulit-ulit na vision calls.
+    
+    I-enable ang mga sticker action:
+    ```
 
 ```json5
 {
@@ -549,7 +592,9 @@ Maaaring magpadala at maghanap ng mga sticker ang agent gamit ang mga action na 
 }
 ```
 
-**Magpadala ng sticker:**
+    ```
+    Action para magpadala ng sticker:
+    ```
 
 ```json5
 {
@@ -560,15 +605,9 @@ Maaaring magpadala at maghanap ng mga sticker ang agent gamit ang mga action na 
 }
 ```
 
-Mga parameter:
-
-- `fileId` (required) — ang Telegram file ID ng sticker. Kunin ito mula sa `Sticker.fileId` kapag tumatanggap ng sticker, o mula sa isang resulta ng `sticker-search`.
-- `replyTo` (opsyonal) — message ID na rereplyan.
-- `threadId` (opsyonal) — message thread ID para sa mga forum topic.
-
-**Maghanap ng mga sticker:**
-
-Maaaring maghanap ang agent ng mga naka-cache na sticker batay sa deskripsyon, emoji, o pangalan ng set:
+    ```
+    Maghanap ng mga naka-cache na sticker:
+    ```
 
 ```json5
 {
@@ -579,185 +618,200 @@ Maaaring maghanap ang agent ng mga naka-cache na sticker batay sa deskripsyon, e
 }
 ```
 
-Nagbabalik ng mga tumutugmang sticker mula sa cache:
+  
+</Accordion>
 
-```json5
-{
-  ok: true,
-  count: 2,
-  stickers: [
-    {
-      fileId: "CAACAgIAAxkBAAI...",
-      emoji: "👋",
-      description: "A cartoon cat waving enthusiastically",
-      setName: "CoolCats",
-    },
-  ],
-}
-```
+  <Accordion title="Reaction notifications">
+    Ang mga Telegram reaction ay dumarating bilang `message_reaction` updates (hiwalay sa mga message payload).
 
-Gumagamit ang paghahanap ng fuzzy matching sa teksto ng deskripsyon, mga karakter ng emoji, at mga pangalan ng set.
+    ```
+    Kapag naka-enable, nag-e-enqueue ang OpenClaw ng mga system event tulad ng:
+    
+    - `Telegram reaction added: 👍 by Alice (@alice) on msg 42`
+    
+    Config:
+    
+    - `channels.telegram.reactionNotifications`: `off | own | all` (default: `own`)
+    - `channels.telegram.reactionLevel`: `off | ack | minimal | extensive` (default: `minimal`)
+    
+    Mga Tala:
+    
+    - Ang `own` ay nangangahulugang mga reaction ng user sa mga mensaheng ipinadala ng bot lamang (best-effort gamit ang sent-message cache).
+    - Hindi nagbibigay ang Telegram ng thread IDs sa reaction updates.
+      - ang mga non-forum group ay niruruta sa group chat session
+      - ang mga forum group ay niruruta sa group general-topic session (`:topic:1`), hindi sa eksaktong pinagmulan na topic
+    
+    Ang `allowed_updates` para sa polling/webhook ay awtomatikong kasama ang `message_reaction`.
+    ```
 
-**Halimbawa na may threading:**
+  
+</Accordion>
 
-```json5
-{
-  action: "sticker",
-  channel: "telegram",
-  to: "-1001234567890",
-  fileId: "CAACAgIAAxkBAAI...",
-  replyTo: 42,
-  threadId: 123,
-}
-```
+  <Accordion title="Ack reactions">
+    Ang `ackReaction` ay nagpapadala ng acknowledgement emoji habang pinoproseso ng OpenClaw ang isang inbound message.
 
-## Streaming (mga draft)
+    ```
+    Order ng resolution:
+    
+    - `channels.telegram.accounts.<accountId>.ackReaction`
+    - `channels.telegram.ackReaction`
+    - `messages.ackReaction`
+    - fallback na emoji ng agent identity (`agents.list[].identity.emoji`, kung wala ay "👀")
+    
+    Mga Tala:
+    
+    - Inaasahan ng Telegram ang unicode emoji (halimbawa "👀").
+    - Gamitin ang `""` upang i-disable ang reaction para sa isang channel o account.
+    ```
 
-Telegram can stream **draft bubbles** while the agent is generating a response.
-Gumagamit ang OpenClaw ng Bot API `sendMessageDraft` (hindi totoong mga mensahe) at pagkatapos ay ipinapadala ang
-panghuling reply bilang isang normal na mensahe.
+  
+</Accordion>
 
-Mga kinakailangan (Telegram Bot API 9.3+):
+  <Accordion title="Config writes from Telegram events and commands">
+    Ang pagsusulat ng channel config ay naka-enable bilang default (`configWrites !== false`).
 
-- **Mga private chat na may naka-enable na topics** (forum topic mode para sa bot).
-- Dapat isama ng mga papasok na mensahe ang `message_thread_id` (private topic thread).
-- Binabalewala ang streaming para sa mga grupo/supergroup/channel.
-
-Config:
-
-- `channels.telegram.streamMode: "off" | "partial" | "block"` (default: `partial`)
-  - `partial`: i-update ang draft bubble gamit ang pinakabagong streaming text.
-  - `block`: i-update ang draft bubble sa mas malalaking bloke (chunked).
-  - `off`: i-disable ang draft streaming.
-- Opsyonal (para lamang sa `streamMode: "block"`):
-  - `channels.telegram.draftChunk: { minChars?, maxChars?, breakPreference? }`
-    - mga default: `minChars: 200`, `maxChars: 800`, `breakPreference: "paragraph"` (nililimitahan sa `channels.telegram.textChunkLimit`).
-
-Note: draft streaming is separate from **block streaming** (channel messages).
-Block streaming is off by default and requires `channels.telegram.blockStreaming: true`
-if you want early Telegram messages instead of draft updates.
-
-Reasoning stream (Telegram lamang):
-
-- Ang `/reasoning stream` ay nag-stream ng reasoning sa draft bubble habang
-  binubuo ang reply, pagkatapos ay ipinapadala ang panghuling sagot nang walang reasoning.
-- Kung ang `channels.telegram.streamMode` ay `off`, ang reasoning stream ay naka-disable.
-  Higit pang konteksto: [Streaming + chunking](/concepts/streaming).
-
-## Retry policy
-
-Outbound Telegram API calls retry on transient network/429 errors with exponential backoff and jitter. I-configure sa pamamagitan ng `channels.telegram.retry`. See [Retry policy](/concepts/retry).
-
-## Agent tool (mga mensahe + reaksyon)
-
-- Tool: `telegram` na may aksyong `sendMessage` (`to`, `content`, opsyonal na `mediaUrl`, `replyToMessageId`, `messageThreadId`).
-- Tool: `telegram` na may aksyong `react` (`chatId`, `messageId`, `emoji`).
-- Tool: `telegram` na may aksyong `deleteMessage` (`chatId`, `messageId`).
-- Semantics ng pagtanggal ng reaksyon: tingnan ang [/tools/reactions](/tools/reactions).
-- Tool gating: `channels.telegram.actions.reactions`, `channels.telegram.actions.sendMessage`, `channels.telegram.actions.deleteMessage` (default: naka-enable), at `channels.telegram.actions.sticker` (default: naka-disable).
-
-## Mga notification ng reaksyon
-
-**How reactions work:**
-Telegram reactions arrive as **separate `message_reaction` events**, not as properties in message payloads. When a user adds a reaction, OpenClaw:
-
-1. Tumatanggap ng update na `message_reaction` mula sa Telegram API
-2. Kino-convert ito sa isang **system event** na may format: `"Telegram reaction added: {emoji} by {user} on msg {id}"`
-3. Ini-enqueue ang system event gamit ang **parehong session key** tulad ng mga regular na mensahe
-4. Kapag dumating ang susunod na mensahe sa usapan na iyon, dini-drain at ipinapauna ang mga system event sa context ng agent
-
-Nakikita ng agent ang mga reaksyon bilang **mga system notification** sa history ng usapan, hindi bilang metadata ng mensahe.
-
-**Konpigurasyon:**
-
-- `channels.telegram.reactionNotifications`: Kinokontrol kung aling mga reaksyon ang nagti-trigger ng mga notification
-  - `"off"` — balewalain ang lahat ng reaksyon
-  - `"own"` — mag-notify kapag nagre-react ang mga user sa mga mensahe ng bot (best-effort; in-memory) (default)
-  - `"all"` — mag-notify para sa lahat ng reaksyon
-
-- `channels.telegram.reactionLevel`: Kinokontrol ang kakayahan ng agent sa reaksyon
-  - `"off"` — hindi maaaring mag-react ang agent sa mga mensahe
-  - `"ack"` — nagpapadala ang bot ng mga acknowledgment reaction (👀 habang nagpoproseso) (default)
-  - `"minimal"` — maaaring mag-react ang agent nang bihira (gabay: 1 kada 5–10 palitan)
-  - `"extensive"` — maaaring mag-react ang agent nang mas malaya kapag naaangkop
-
-**Forum groups:** Reactions in forum groups include `message_thread_id` and use session keys like `agent:main:telegram:group:{chatId}:topic:{threadId}`. Tinitiyak nito na ang mga reaksyon at mensahe sa iisang paksa ay nananatiling magkakasama.
-
-**Halimbawang config:**
+    ```
+    Kasama sa mga write na na-trigger ng Telegram ang:
+    
+    - mga group migration event (`migrate_to_chat_id`) upang i-update ang `channels.telegram.groups`
+    - `/config set` at `/config unset` (nangangailangan ng command enablement)
+    
+    I-disable:
+    ```
 
 ```json5
 {
   channels: {
     telegram: {
-      reactionNotifications: "all", // See all reactions
-      reactionLevel: "minimal", // Agent can react sparingly
+      configWrites: false,
     },
   },
 }
 ```
 
-**Mga kinakailangan:**
+  
+</Accordion>
 
-- Dapat tahasang hilingin ng mga Telegram bot ang `message_reaction` sa `allowed_updates` (awtomatikong kino-configure ng OpenClaw)
-- Para sa webhook mode, isinasama ang mga reaksyon sa webhook `allowed_updates`
-- Para sa polling mode, isinasama ang mga reaksyon sa `getUpdates` `allowed_updates`
+  <Accordion title="Long polling vs webhook">
+    Default: long polling.
 
-## Mga target ng delivery (CLI/cron)
+    ```
+    Webhook mode:
+    
+    - itakda ang `channels.telegram.webhookUrl`
+    - itakda ang `channels.telegram.webhookSecret` (kinakailangan kapag nakatakda ang webhook URL)
+    - opsyonal `channels.telegram.webhookPath` (default `/telegram-webhook`)
+    - opsyonal `channels.telegram.webhookHost` (default `127.0.0.1`)
+    
+    Ang default na local listener para sa webhook mode ay naka-bind sa `127.0.0.1:8787`.
+    
+    Kung iba ang iyong public endpoint, maglagay ng reverse proxy sa harap at ituro ang `webhookUrl` sa public URL.
+    Itakda ang `webhookHost` (halimbawa `0.0.0.0`) kapag sadyang kailangan mo ng external ingress.
+    ```
 
-- Gumamit ng chat id (`123456789`) o username (`@name`) bilang target.
-- Halimbawa: `openclaw message send --channel telegram --target 123456789 --message "hi"`.
+  
+</Accordion>
+
+  <Accordion title="Limits, retry, and CLI targets">
+    - ang `channels.telegram.textChunkLimit` ay may default na 4000.
+    - ang `channels.telegram.chunkMode="newline"` ay inuuna ang paragraph boundaries (mga blank line) bago hatiin ayon sa haba.
+    - ang `channels.telegram.mediaMaxMb` (default 5) ay naglilimita sa laki ng inbound Telegram media na dina-download/pinoproseso.
+    - ang `channels.telegram.timeoutSeconds` ay nag-o-override sa timeout ng Telegram API client (kung hindi nakatakda, ginagamit ang grammY default).
+    - ang group context history ay gumagamit ng `channels.telegram.historyLimit` o `messages.groupChat.historyLimit` (default 50); ang `0` ay nagdi-disable.
+    - Mga kontrol sa DM history:
+      - `channels.telegram.dmHistoryLimit`
+      - `channels.telegram.dms["<user_id>"].historyLimit`
+    - ang outbound Telegram API retries ay maaaring i-configure sa pamamagitan ng `channels.telegram.retry`.
+
+    ```
+    Ang CLI send target ay maaaring numeric chat ID o username:
+    ```
+
+```bash
+openclaw message send --channel telegram --target 123456789 --message "hi"
+openclaw message send --channel telegram --target @name --message "hi"
+```
+
+  
+</Accordion>
+</AccordionGroup>
 
 ## Pag-troubleshoot
 
-**Hindi tumutugon ang bot sa mga non-mention na mensahe sa grupo:**
+<AccordionGroup>
+  <Accordion title="Bot does not respond to non mention group messages">
 
-- Kung itinakda mo ang `channels.telegram.groups.*.requireMention=false`, dapat i-disable ang **privacy mode** ng Bot API ng Telegram.
-  - BotFather: `/setprivacy` → **Disable** (pagkatapos ay alisin at muling idagdag ang bot sa grupo)
-- Nagpapakita ang `openclaw channels status` ng babala kapag inaasahan ng config ang mga unmentioned na mensahe sa grupo.
-- Maaaring dagdagang suriin ng `openclaw channels status --probe` ang membership para sa mga tahasang numeric group ID (hindi nito ma-audit ang wildcard na mga patakaran ng `"*"`).
-- Mabilis na test: `/activation always` (pang-session lamang; gumamit ng config para sa persistence)
+    ```
+    - Kung `requireMention=false`, dapat payagan ng Telegram privacy mode ang buong visibility.
+      - BotFather: `/setprivacy` -> Disable
+      - pagkatapos ay alisin + idagdag muli ang bot sa group
+    - Nagbibigay-babala ang `openclaw channels status` kapag inaasahan ng config ang mga group message na walang mention.
+    - Maaaring suriin ng `openclaw channels status --probe` ang tahasang numeric group IDs; ang wildcard `"*"` ay hindi maaaring ma-probe para sa membership.
+    - mabilisang session test: `/activation always`.
+    ```
 
-**Hindi talaga nakikita ng bot ang mga mensahe sa grupo:**
+  
+</Accordion>
 
-- Kung nakatakda ang `channels.telegram.groups`, dapat nakalista ang grupo o gumamit ng `"*"`
-- Suriin ang Privacy Settings sa @BotFather → "Group Privacy" ay dapat **OFF**
-- Tiyaking tunay na miyembro ang bot (hindi lamang admin na walang read access)
-- Suriin ang mga log ng Gateway: `openclaw logs --follow` (hanapin ang "skipping group message")
+  <Accordion title="Bot not seeing group messages at all">
 
-**Tumutugon ang bot sa mga mention ngunit hindi sa `/activation always`:**
+    ```
+    - kapag umiiral ang `channels.telegram.groups`, dapat nakalista ang group (o may kasamang `"*"`)
+    - tiyaking miyembro ang bot sa group
+    - suriin ang logs: `openclaw logs --follow` para sa mga dahilan ng pag-skip
+    ```
 
-- Ina-update ng command na `/activation` ang state ng session ngunit hindi ito nagpe-persist sa config
-- Para sa persistent na asal, idagdag ang grupo sa `channels.telegram.groups` na may `requireMention: false`
+  
+</Accordion>
 
-**Hindi gumagana ang mga command tulad ng `/status`:**
+  <Accordion title="Commands work partially or not at all">
 
-- Tiyaking awtorisado ang iyong Telegram user ID (sa pamamagitan ng pairing o `channels.telegram.allowFrom`)
-- Nangangailangan ng awtorisasyon ang mga command kahit sa mga grupo na may `groupPolicy: "open"`
+    ```
+    - i-authorize ang iyong sender identity (pairing at/o numeric `allowFrom`)
+    - nananatiling umiiral ang command authorization kahit ang group policy ay `open`
+    - ang `setMyCommands failed` ay karaniwang nagpapahiwatig ng mga isyu sa DNS/HTTPS reachability papuntang `api.telegram.org`
+    ```
 
-**Agad na humihinto ang long-polling sa Node 22+ (madalas na may proxies/custom fetch):**
+  
+</Accordion>
 
-- Mas mahigpit ang Node 22+ sa mga instance ng `AbortSignal`; maaaring agad na i-abort ng mga dayuhang signal ang mga call ng `fetch`.
-- Mag-upgrade sa isang OpenClaw build na nagno-normalize ng mga abort signal, o patakbuhin ang Gateway sa Node 20 hanggang makapag-upgrade ka.
+  <Accordion title="Polling or network instability">
 
-**Nagsisimula ang bot, pagkatapos ay tahimik na humihinto sa pagsagot (o nagla-log ng `HttpError: Network request ... failed`):**
+    ```
+    - Ang Node 22+ + custom fetch/proxy ay maaaring mag-trigger ng agarang abort behavior kung hindi tugma ang mga uri ng AbortSignal.
+    - May ilang host na nireresolba muna ang `api.telegram.org` sa IPv6; ang sirang IPv6 egress ay maaaring magdulot ng pasulput-sulpot na Telegram API failures.
+    - I-validate ang mga DNS answer:
+    ```
 
-- May ilang host na nireresolba muna ang `api.telegram.org` sa IPv6. Kung ang iyong server ay walang gumaganang IPv6 egress, maaaring ma-stuck ang grammY sa mga IPv6-only na request.
-- Ayusin sa pamamagitan ng pag-enable ng IPv6 egress **o** pagpilit ng IPv4 resolution para sa `api.telegram.org` (hal., magdagdag ng entry na `/etc/hosts` gamit ang IPv4 A record, o unahin ang IPv4 sa DNS stack ng iyong OS), pagkatapos ay i-restart ang Gateway.
-- Mabilis na check: `dig +short api.telegram.org A` at `dig +short api.telegram.org AAAA` upang kumpirmahin kung ano ang ibinabalik ng DNS.
+```bash
+dig +short api.telegram.org A
+dig +short api.telegram.org AAAA
+```
 
-## Sanggunian ng konpigurasyon (Telegram)
+  
+</Accordion>
+</AccordionGroup>
 
-Buong konpigurasyon: [Konpigurasyon](/gateway/configuration)
+Sinusuportahan ng Telegram ang opsyonal na threaded replies sa pamamagitan ng mga tag:
 
-Mga opsyon ng provider:
+## Mga reference pointer ng config ng Telegram
 
-- `channels.telegram.enabled`: i-enable/i-disable ang startup ng channel.
-- `channels.telegram.botToken`: token ng bot (BotFather).
+Kinokontrol ng `channels.telegram.replyToMode`:
+
+- `first` (default), `all`, `off`.
+
+- `channels.telegram.botToken`: bot token (BotFather).
+
 - `channels.telegram.tokenFile`: basahin ang token mula sa file path.
+
 - `channels.telegram.dmPolicy`: `pairing | allowlist | open | disabled` (default: pairing).
-- `channels.telegram.allowFrom`: DM allowlist (ids/usernames). `open` ay nangangailangan ng `"*"`.
+
+- `channels.telegram.allowFrom`: allowlist ng DM (numeric Telegram user IDs). `open` ay nangangailangan ng `"*"`. Maaaring i-resolve ng `openclaw doctor --fix` ang mga legacy `@username` entry papunta sa mga ID.
+
 - `channels.telegram.groupPolicy`: `open | allowlist | disabled` (default: allowlist).
-- `channels.telegram.groupAllowFrom`: group sender allowlist (ids/usernames).
+
+- `channels.telegram.groupAllowFrom`: allowlist ng sender sa group (numeric Telegram user IDs). Maaaring i-resolve ng `openclaw doctor --fix` ang mga legacy `@username` entry papunta sa mga ID.
+
 - `channels.telegram.groups`: per-group na mga default + allowlist (gamitin ang `"*"` para sa global na mga default).
   - `channels.telegram.groups.<id>`.groupPolicy`: per-group override para sa groupPolicy (`open | allowlist | disabled\`).
   - `channels.telegram.groups.<id>`.requireMention\`: default na mention gating.
@@ -765,35 +819,70 @@ Mga opsyon ng provider:
   - `channels.telegram.groups.<id>`.allowFrom\`: per-group override ng sender allowlist.
   - `channels.telegram.groups.<id>`.systemPrompt\`: karagdagang system prompt para sa grupo.
   - `channels.telegram.groups.<id>`.enabled`: i-disable ang grupo kapag `false\`.
-  - `channels.telegram.groups.<id>`.topics.&lt;threadId&gt;`.*`: per-topic overrides (kaparehong mga field gaya ng group).
-  - `channels.telegram.groups.<id>`.topics.&lt;threadId&gt;`.groupPolicy`: per-topic override para sa groupPolicy (`open | allowlist | disabled`).
-  - `channels.telegram.groups.<id>`.topics.&lt;threadId&gt;`.requireMention`: per-topic override ng mention gating.
+  - `channels.telegram.groups.<id>`.topics.<threadId>.\*\`: per-topic overrides (kaparehong mga field gaya ng group).
+  - `channels.telegram.groups.<id>`.topics.<threadId>`.groupPolicy`: per-topic override para sa groupPolicy (`open | allowlist | disabled`).
+  - `channels.telegram.groups.<id>`.topics.<threadId>`.requireMention`: per-topic override ng mention gating.
+
 - `channels.telegram.capabilities.inlineButtons`: `off | dm | group | all | allowlist` (default: allowlist).
-- `channels.telegram.accounts.<account>`.capabilities.inlineButtons\`: per-account override.
-- `channels.telegram.replyToMode`: `off | first | all` (default: `first`).
-- `channels.telegram.textChunkLimit`: laki ng chunk ng palabas na mensahe (mga character).
+
+- `channels.telegram.accounts.<account>.capabilities.inlineButtons`: per-account override.
+
+- `channels.telegram.replyToMode`: `off | first | all` (default: `off`).
+
+- `channels.telegram.textChunkLimit`: outbound chunk size (chars).
+
 - `channels.telegram.chunkMode`: `length` (default) o `newline` upang maghiwa sa mga blangkong linya (mga hangganan ng talata) bago ang paghiwa batay sa haba.
+
 - `channels.telegram.linkPreview`: i-toggle ang link previews para sa mga palabas na mensahe (default: true).
-- `channels.telegram.streamMode`: `off | partial | block` (draft streaming).
+
+- `channels.telegram.streamMode`: `off | partial | block` (live stream preview).
+
 - `channels.telegram.mediaMaxMb`: inbound/outbound na limitasyon ng media (MB).
+
 - `channels.telegram.retry`: retry policy para sa mga palabas na Telegram API call (attempts, minDelayMs, maxDelayMs, jitter).
+
 - `channels.telegram.network.autoSelectFamily`: override ng Node autoSelectFamily (true=enable, false=disable). Naka-disable bilang default sa Node 22 upang maiwasan ang Happy Eyeballs timeouts.
+
 - `channels.telegram.proxy`: proxy URL para sa mga Bot API call (SOCKS/HTTP).
+
 - `channels.telegram.webhookUrl`: i-enable ang webhook mode (nangangailangan ng `channels.telegram.webhookSecret`).
+
 - `channels.telegram.webhookSecret`: webhook secret (kinakailangan kapag naka-set ang webhookUrl).
+
 - `channels.telegram.webhookPath`: lokal na webhook path (default `/telegram-webhook`).
+
+- `channels.telegram.webhookHost`: local webhook bind host (default `127.0.0.1`).
+
 - `channels.telegram.actions.reactions`: i-gate ang mga reaksyon ng Telegram tool.
+
 - `channels.telegram.actions.sendMessage`: i-gate ang pagpapadala ng mensahe ng Telegram tool.
+
 - `channels.telegram.actions.deleteMessage`: i-gate ang pagtanggal ng mensahe ng Telegram tool.
+
 - `channels.telegram.actions.sticker`: i-gate ang mga aksyon ng Telegram sticker — send at search (default: false).
+
 - `channels.telegram.reactionNotifications`: `off | own | all` — kontrolin kung aling mga reaksyon ang nagti-trigger ng mga system event (default: `own` kapag hindi naka-set).
+
 - `channels.telegram.reactionLevel`: `off | ack | minimal | extensive` — kontrolin ang kakayahan ng agent sa reaksyon (default: `minimal` kapag hindi naka-set).
 
-Mga kaugnay na global na opsyon:
+- [Configuration reference - Telegram](/gateway/configuration-reference#telegram)
 
-- `agents.list[].groupChat.mentionPatterns` (mga pattern ng mention gating).
-- `messages.groupChat.mentionPatterns` (global fallback).
-- `commands.native` (default ay `"auto"` → naka-on para sa Telegram/Discord, naka-off para sa Slack), `commands.text`, `commands.useAccessGroups` (ugali ng mga command). I-override gamit ang `channels.telegram.commands.native`.
-- `messages.responsePrefix`, `messages.ackReaction`, `messages.ackReactionScope`, `messages.removeAckAfterReply`.
+Mga high-signal na field na partikular sa Telegram:
 
+- startup/auth: `enabled`, `botToken`, `tokenFile`, `accounts.*`
+- access control: `dmPolicy`, `allowFrom`, `groupPolicy`, `groupAllowFrom`, `groups`, `groups.*.topics.*`
+- command/menu: `commands.native`, `customCommands`
+- threading/replies: `replyToMode`
+- streaming: `streamMode` (preview), `draftChunk`, `blockStreaming`
+- formatting/delivery: `textChunkLimit`, `chunkMode`, `linkPreview`, `responsePrefix`
+- media/network: `mediaMaxMb`, `timeoutSeconds`, `retry`, `network.autoSelectFamily`, `proxy`
+- webhook: `webhookUrl`, `webhookSecret`, `webhookPath`, `webhookHost`
+- actions/capabilities: `capabilities.inlineButtons`, `actions.sendMessage|editMessage|deleteMessage|reactions|sticker`
+- reactions: `reactionNotifications`, `reactionLevel`
+- writes/history: `configWrites`, `historyLimit`, `dmHistoryLimit`, `dms.*.historyLimit`
 
+## Kaugnay
+
+- `[[audio_as_voice]]` — ipadala ang audio bilang voice note sa halip na file.
+- [Channel routing](/channels/channel-routing)
+- [Troubleshooting](/channels/troubleshooting)

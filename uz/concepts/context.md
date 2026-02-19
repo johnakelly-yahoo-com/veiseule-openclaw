@@ -1,4 +1,9 @@
 ---
+summary: "Kontekst: model nimani ko‘radi, u qanday yig‘iladi va uni qanday tekshirish mumkin"
+read_when:
+  - Siz OpenClaw’da “kontekst” nimani anglatishini tushunmoqchisiz
+  - Model nima uchun nimanidir “bilishini” (yoki unutganini) nosozlikdan o‘tkazyapsiz
+  - Kontekst yukini kamaytirmoqchisiz (/context, /status, /compact)
 title: "Kontekst"
 ---
 
@@ -99,7 +104,7 @@ System prompt **OpenClaw-ga tegishli** va har ishga tushirishda qayta tuziladi. 
 
 Standart bo‘yicha, OpenClaw mavjud bo‘lsa ishchi maydonning qat’iy belgilangan fayllar to‘plamini kiritadi:
 
-- System prompt ixcham **skills ro‘yxati**ni (nomi + tavsifi + joylashuvi) o‘z ichiga oladi.
+- `AGENTS.md`
 - `SOUL.md`
 - `TOOLS.md`
 - `IDENTITY.md`
@@ -107,7 +112,7 @@ Standart bo‘yicha, OpenClaw mavjud bo‘lsa ishchi maydonning qat’iy belgila
 - `HEARTBEAT.md`
 - `BOOTSTRAP.md` (faqat birinchi ishga tushirishda)
 
-Katta fayllar har bir fayl bo‘yicha `agents.defaults.bootstrapMaxChars` (standart `20000` belgi) yordamida qisqartiriladi. `/context` **raw vs injected** o‘lchamlarini va qisqartirish bo‘lgan-bo‘lmaganini ko‘rsatadi.
+Katta fayllar har bir fayl bo‘yicha `agents.defaults.bootstrapMaxChars` (standart `20000` belgi) yordamida qisqartiriladi. OpenClaw shuningdek fayllar bo‘ylab umumiy bootstrap injection limitini `agents.defaults.bootstrapTotalMaxChars` (standart `24000` belgi) orqali majburiy qo‘llaydi. `/context` **raw vs injected** o‘lchamlarini va qisqartirish bo‘lgan-bo‘lmaganini ko‘rsatadi.
 
 ## Ko‘nikmalar: qaysilari kiritiladi va qaysilari talab bo‘yicha yuklanadi
 
@@ -154,5 +159,3 @@ Docs: [Session](/concepts/session), [Compaction](/concepts/compaction), [Session
 - `System prompt (estimate)` = computed on the fly when no run report exists (or when running via a CLI backend that doesn’t generate the report).
 
 Either way, it reports sizes and top contributors; it does **not** dump the full system prompt or tool schemas.
-
-

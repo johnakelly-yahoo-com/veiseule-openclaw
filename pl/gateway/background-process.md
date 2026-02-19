@@ -1,4 +1,8 @@
 ---
+summary: "Wykonywanie exec w tle i zarządzanie procesami"
+read_when:
+  - Dodawanie lub modyfikowanie zachowania exec w tle
+  - Debugowanie długotrwałych zadań exec
 title: "Exec w tle i narzędzie procesów"
 ---
 
@@ -42,6 +46,7 @@ Konfiguracja (zalecane):
 - `tools.exec.timeoutSec` (domyślnie 1800)
 - `tools.exec.cleanupMs` (domyślnie 1800000)
 - `tools.exec.notifyOnExit` (domyślnie true): dodaj zdarzenie systemowe do kolejki + zażądaj heartbeat, gdy exec uruchomiony w tle zakończy się.
+- `tools.exec.notifyOnExitEmptySuccess` (domyślnie false): gdy ustawione na true, dodaje również zdarzenia zakończenia dla pomyślnych uruchomień w tle, które nie wygenerowały wyjścia.
 
 ## narzędzie process
 
@@ -63,6 +68,8 @@ Uwagi:
 - `process` jest ograniczone do agenta; widzi wyłącznie sesje uruchomione przez tego agenta.
 - `process list` zawiera pochodny `name` (czasownik polecenia + cel) do szybkich przeglądów.
 - `process log` używa opartego na liniach `offset`/`limit` (pomiń `offset`, aby pobrać ostatnie N linii).
+- Gdy pominięto zarówno `offset`, jak i `limit`, zwraca ostatnie 200 linii i zawiera wskazówkę dotyczącą stronicowania.
+- Gdy podano `offset`, a `limit` pominięto, zwraca dane od `offset` do końca (bez ograniczenia do 200).
 
 ## Przykłady
 
@@ -87,5 +94,3 @@ Wyślij stdin:
 ```json
 { "tool": "process", "action": "write", "sessionId": "<id>", "data": "y\n" }
 ```
-
-

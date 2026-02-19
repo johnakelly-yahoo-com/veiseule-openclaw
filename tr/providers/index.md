@@ -1,4 +1,8 @@
 ---
+summary: "OpenClaw tarafından desteklenen model sağlayıcıları (LLM'ler)"
+read_when:
+  - Bir model sağlayıcı seçmek istiyorsunuz
+  - Desteklenen LLM arka uçlarına hızlı bir genel bakışa ihtiyacınız var
 title: "Model Sağlayıcıları"
 ---
 
@@ -35,7 +39,9 @@ Bkz. [Venice AI](/providers/venice).
 - [Anthropic (API + Claude Code CLI)](/providers/anthropic)
 - [Qwen (OAuth)](/providers/qwen)
 - [OpenRouter](/providers/openrouter)
+- [LiteLLM (unified gateway)](/providers/litellm)
 - [Vercel AI Gateway](/providers/vercel-ai-gateway)
+- [Together AI](/providers/together)
 - [Cloudflare AI Gateway](/providers/cloudflare-ai-gateway)
 - [Moonshot AI (Kimi + Kimi Coding)](/providers/moonshot)
 - [OpenCode Zen](/providers/opencode)
@@ -45,8 +51,11 @@ Bkz. [Venice AI](/providers/venice).
 - [GLM modelleri](/providers/glm)
 - [MiniMax](/providers/minimax)
 - [Venice (Venice AI, gizlilik odaklı)](/providers/venice)
+- [Hugging Face (Inference)](/providers/huggingface)
 - [Ollama (yerel modeller)](/providers/ollama)
+- [vLLM (local models)](/providers/vllm)
 - [Qianfan](/providers/qianfan)
+- [NVIDIA](/providers/nvidia)
 
 ## Transkripsiyon sağlayıcıları
 
@@ -58,5 +67,3 @@ Bkz. [Venice AI](/providers/venice).
 
 Tüm sağlayıcı kataloğu (xAI, Groq, Mistral, vb.) ve gelişmiş yapılandırma için
 [Model sağlayıcıları](/concepts/model-providers) bölümüne bakın.
-
-

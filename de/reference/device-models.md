@@ -1,4 +1,8 @@
 ---
+summary: "Wie OpenClaw Apple-Gerätemodellkennungen für benutzerfreundliche Namen in der macOS-App bereitstellt."
+read_when:
+  - Aktualisieren der Zuordnungen von Gerätemodellkennungen oder der NOTICE-/Lizenzdateien
+  - Ändern der Darstellung von Gerätenamen in der Instances-UI
 title: "Gerätemodell-Datenbank"
 ---
 
@@ -41,5 +45,3 @@ curl -fsSL "https://raw.githubusercontent.com/kyle-seongwoo-jun/apple-device-ide
 ```bash
 swift build --package-path apps/macos
 ```
-
-

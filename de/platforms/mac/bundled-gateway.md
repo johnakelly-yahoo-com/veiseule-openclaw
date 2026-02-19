@@ -1,4 +1,9 @@
 ---
+summary: "„Gateway-Laufzeitumgebung unter macOS (externer launchd‑Dienst)“"
+read_when:
+  - „OpenClaw.app paketieren“
+  - „Den macOS‑Gateway‑launchd‑Dienst debuggen“
+  - „Die Gateway‑CLI für macOS installieren“
 title: "„Gateway unter macOS“"
 ---
 
@@ -21,7 +26,7 @@ Die **Install CLI**‑Schaltfläche der macOS‑App führt denselben Ablauf übe
 
 ## Launchd (Gateway als LaunchAgent)
 
-Bezeichnung:
+Label:
 
 - `bot.molt.gateway` (oder `bot.molt.<profile>`; das veraltete `com.openclaw.*` kann bestehen bleiben)
 
@@ -66,5 +71,3 @@ Dann:
 ```bash
 openclaw gateway call health --url ws://127.0.0.1:18999 --timeout 3000
 ```
-
-

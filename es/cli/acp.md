@@ -1,4 +1,8 @@
 ---
+summary: "Ejecute el puente ACP para integraciones con IDE"
+read_when:
+  - Configuración de integraciones de IDE basadas en ACP
+  - Depuración del enrutamiento de sesiones ACP hacia el Gateway
 title: "acp"
 ---
 
@@ -164,5 +168,3 @@ Obtenga más información sobre las claves de sesión en [/concepts/session](/co
 - `--server-args <args...>`: argumentos adicionales pasados al servidor ACP.
 - `--server-verbose`: habilitar registro detallado en el servidor ACP.
 - `--verbose, -v`: registro detallado del cliente.
-
-

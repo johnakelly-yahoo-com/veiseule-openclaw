@@ -1,4 +1,8 @@
 ---
+summary: "Gateway + CLI üzerinden anket gönderimi"
+read_when:
+  - Anket desteği eklerken veya değiştirirken
+  - CLI veya gateway üzerinden anket gönderimlerini hata ayıklarken
 title: "Anketler"
 ---
 
@@ -62,5 +66,3 @@ Parametreler:
 
 Not: Discord’da “tam olarak N seç” modu yoktur; `pollMulti` çoklu seçime eşlenir.
 Teams anketleri Adaptive Cards olarak oluşturulur ve oyların `~/.openclaw/msteams-polls.json` içinde kaydedilmesi için gateway’in çevrimiçi kalması gerekir.
-
-

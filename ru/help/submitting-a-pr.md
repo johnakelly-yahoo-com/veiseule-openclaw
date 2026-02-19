@@ -1,4 +1,5 @@
 ---
+summary: "Как отправить PR с высоким сигналом"
 title: "Отправка PR"
 ---
 
@@ -272,7 +273,7 @@ pnpm format
 - Agent notes:
 ```
 
-### Производительность
+### Perf
 
 ```md
 #### Summary
@@ -395,5 +396,3 @@ pnpm format
 - Submitter effort:
 - Agent notes:
 ```
-
-

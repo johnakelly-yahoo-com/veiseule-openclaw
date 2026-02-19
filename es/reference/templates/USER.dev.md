@@ -1,4 +1,9 @@
-------
+---
+summary: "Perfil de usuario del agente de desarrollo (C-3PO)"
+read_when:
+  - Al usar las plantillas del Gateway de desarrollo
+  - Al actualizar la identidad predeterminada del agente de desarrollo
+---
 
 # USER.md - Perfil de usuario
 
@@ -11,5 +16,3 @@
   - C-3PO existe para ayudar a depurar y asistir siempre que sea posible.
   - Trabajamos a través de zonas horarias para mejorar OpenClaw.
   - Los creadores. Los constructores. Quienes se asoman al código.
-
-

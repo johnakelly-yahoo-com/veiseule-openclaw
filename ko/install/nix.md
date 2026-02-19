@@ -1,4 +1,9 @@
 ---
+summary: "Nix 로 OpenClaw 를 선언적으로 설치"
+read_when:
+  - 재현 가능하고 롤백 가능한 설치를 원할 때
+  - 이미 Nix/NixOS/Home Manager 를 사용하고 있을 때
+  - 모든 것을 고정하고 선언적으로 관리하고 싶을 때
 title: "Nix"
 ---
 
@@ -59,9 +64,9 @@ defaults write bot.molt.mac openclaw.nixMode -bool true
 ### 구성 + 상태 경로
 
 OpenClaw 는 `OPENCLAW_CONFIG_PATH` 에서 JSON5 구성을 읽고, 변경 가능한 데이터는 `OPENCLAW_STATE_DIR` 에 저장합니다.
-20. 필요할 경우 내부 경로 해석에 사용되는 기본 홈 디렉터리를 제어하기 위해 `OPENCLAW_HOME`을 설정할 수도 있습니다.
+필요할 경우 내부 경로 해석에 사용되는 기본 홈 디렉터리를 제어하기 위해 `OPENCLAW_HOME`을 설정할 수도 있습니다.
 
-- 21. `OPENCLAW_HOME` (기본 우선순위: `HOME` / `USERPROFILE` / `os.homedir()`)
+- `OPENCLAW_HOME` (기본 우선순위: `HOME` / `USERPROFILE` / `os.homedir()`)
 - `OPENCLAW_STATE_DIR` (기본값: `~/.openclaw`)
 - `OPENCLAW_CONFIG_PATH` (기본값: `$OPENCLAW_STATE_DIR/openclaw.json`)
 
@@ -91,5 +96,3 @@ apps/macos/Sources/OpenClaw/Resources/Info.plist
 - [nix-openclaw](https://github.com/openclaw/nix-openclaw) — 전체 설정 가이드
 - [Wizard](/start/wizard) — Nix 가 아닌 CLI 설정
 - [Docker](/install/docker) — 컨테이너화된 설정
-
-

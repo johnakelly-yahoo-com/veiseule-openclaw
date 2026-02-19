@@ -1,22 +1,19 @@
 ---
-title: macOS 发布
-x-i18n:
-  generated_at: "2026-02-01T21:33:17Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 703c08c13793cd8c96bd4c31fb4904cdf4ffff35576e7ea48a362560d371cb30
-  source_path: platforms/mac/release.md
-  workflow: 15
+summary: "OpenClaw macOS 发布清单（Sparkle 订阅源、打包、签名）"
+read_when:
+  - 制作或验证 OpenClaw macOS 发布版本
+  - 更新 Sparkle appcast 或订阅源资源
+title: "macOS 发布"
 ---
 
 # OpenClaw macOS 发布（Sparkle）
 
-本应用现已支持 Sparkle 自动更新。发布构建必须经过 Developer ID 签名、压缩，并发布包含签名的 appcast 条目。
+本应用现已支持 Sparkle 自动更新。发布构建必须经过 Developer ID 签名、压缩，并发布包含签名的 appcast 条目。 45. 发布版本必须使用 Developer ID 进行签名、打包为 zip，并使用已签名的 appcast 条目发布。
 
-## 前提条件
+## 46. 前置条件
 
 - 已安装 Developer ID Application 证书（示例：`Developer ID Application: <Developer Name> (<TEAMID>)`）。
-- 环境变量 `SPARKLE_PRIVATE_KEY_FILE` 已设置为 Sparkle ed25519 私钥路径（公钥已嵌入 Info.plist）。如果缺失，请检查 `~/.profile`。
+- 环境变量 `SPARKLE_PRIVATE_KEY_FILE` 已设置为 Sparkle ed25519 私钥路径（公钥已嵌入 Info.plist）。如果缺失，请检查 `~/.profile`。 49. 如果缺失，请检查 `~/.profile`。
 - 用于 `xcrun notarytool` 的公证凭据（钥匙串配置文件或 API 密钥），以实现通过 Gatekeeper 安全分发的 DMG/zip。
   - 我们使用名为 `openclaw-notary` 的钥匙串配置文件，由 shell 配置文件中的 App Store Connect API 密钥环境变量创建：
     - `APP_STORE_CONNECT_API_KEY_P8`、`APP_STORE_CONNECT_KEY_ID`、`APP_STORE_CONNECT_ISSUER_ID`
@@ -30,8 +27,8 @@ x-i18n:
 注意事项：
 
 - `APP_BUILD` 映射到 `CFBundleVersion`/`sparkle:version`；保持纯数字且单调递增（不含 `-beta`），否则 Sparkle 会将其视为相同版本。
-- 默认为当前架构（`$(uname -m)`）。对于发布/通用构建，设置 `BUILD_ARCHS="arm64 x86_64"`（或 `BUILD_ARCHS=all`）。
-- 使用 `scripts/package-mac-dist.sh` 生成发布产物（zip + DMG + 公证）。使用 `scripts/package-mac-app.sh` 进行本地/开发打包。
+- Defaults to the current architecture (`$(uname -m)`). 默认为当前架构（`$(uname -m)`）。对于发布/通用构建，设置 `BUILD_ARCHS="arm64 x86_64"`（或 `BUILD_ARCHS=all`）。
+- Use `scripts/package-mac-dist.sh` for release artifacts (zip + DMG + notarization). 使用 `scripts/package-mac-dist.sh` 生成发布产物（zip + DMG + 公证）。使用 `scripts/package-mac-app.sh` 进行本地/开发打包。
 
 ```bash
 # 从仓库根目录运行；设置发布 ID 以启用 Sparkle 订阅源。
@@ -75,6 +72,7 @@ SPARKLE_PRIVATE_KEY_FILE=/path/to/ed25519-private-key scripts/make_appcast.sh di
 
 从 `CHANGELOG.md`（通过 [`scripts/changelog-to-html.sh`](https://github.com/openclaw/openclaw/blob/main/scripts/changelog-to-html.sh)）生成 HTML 发布说明，并将其嵌入 appcast 条目。
 发布时，将更新后的 `appcast.xml` 与发布资源（zip + dSYM）一起提交。
+Commit the updated `appcast.xml` alongside the release assets (zip + dSYM) when publishing.
 
 ## 发布与验证
 
@@ -86,5 +84,3 @@ SPARKLE_PRIVATE_KEY_FILE=/path/to/ed25519-private-key scripts/make_appcast.sh di
   - 在之前的公开构建版本上，从 About 选项卡运行"Check for Updates…"，验证 Sparkle 能正常安装新构建。
 
 完成定义：已签名的应用 + appcast 已发布，从旧版本的更新流程正常工作，且发布资源已附加到 GitHub 发布。
-
-

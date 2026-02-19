@@ -1,4 +1,9 @@
 ---
+summary: "Models CLI: list, set, aliaser, fallbacks, scan, status"
+read_when:
+  - Tilføjelse eller ændring af models CLI (models list/set/scan/aliases/fallbacks)
+  - Ændring af model-fallback-adfærd eller valg-UX
+  - Opdatering af model-scan-prober (værktøjer/billeder)
 title: "Models CLI"
 ---
 
@@ -201,5 +206,3 @@ tilstand, pass `--yes` til at acceptere misligholdelser.
 Brugerdefinerede udbydere i `models.providers` er skrevet ind i `models.json` under
 agent bibliotek (standard `~/.openclaw/agents/<agentId>/models.json`). Denne fil
 er som standard flettet med mindre `models.mode` er sat til `erstatt`.
-
-

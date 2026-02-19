@@ -1,4 +1,7 @@
 ---
+summary: "Gateway-livscyklus på macOS (launchd)"
+read_when:
+  - Integrering af mac-appen med gatewayens livscyklus
 title: "Gateway-livscyklus"
 ---
 
@@ -28,7 +31,7 @@ launchctl kickstart -k gui/$UID/bot.molt.gateway
 launchctl bootout gui/$UID/bot.molt.gateway
 ```
 
-Erstat etiketten med bot.molt.&lt;profile&gt;\` når du kører en navngiven profil.
+Erstat etiketten med bot.molt.<profile>\` når du kører en navngiven profil.
 
 ## Usignerede dev-builds
 
@@ -64,5 +67,3 @@ Fjerntilstand starter aldrig en lokal Gateway. Appen bruger en SSH-tunnel til
 
 Hvis en ægte child-process-tilstand nogensinde bliver nødvendig igen, bør den
 dokumenteres som en separat, eksplicit dev-only-tilstand.
-
-

@@ -1,4 +1,8 @@
 ---
+summary: "„Kontextfenster + Kompaktierung: wie OpenClaw Sitzungen innerhalb der Modellgrenzen hält“"
+read_when:
+  - Sie möchten Auto-Kompaktierung und /compact verstehen
+  - Sie debuggen lange Sitzungen, die an Kontextgrenzen stoßen
 title: "Verdichtung"
 ---
 
@@ -17,7 +21,7 @@ Kompaktierung **persistiert** im JSONL-Verlauf der Sitzung.
 
 ## Konfiguration
 
-Siehe [Compaction config & modes](/concepts/compaction) für die Einstellungen `agents.defaults.compaction`.
+Verwenden Sie die Einstellung `agents.defaults.compaction` in Ihrer `openclaw.json`, um das Kompaktierungsverhalten (Modus, Ziel-Token usw.) zu konfigurieren.
 
 ## Auto-Kompaktierung (standardmäßig aktiviert)
 
@@ -55,5 +59,3 @@ Siehe [/concepts/session-pruning](/concepts/session-pruning) für Details zum Pr
 - Verwenden Sie `/compact`, wenn sich Sitzungen abgestanden anfühlen oder der Kontext aufgebläht ist.
 - Große Werkzeugausgaben werden bereits gekürzt; Pruning kann den Aufbau von Werkzeugergebnissen weiter reduzieren.
 - Wenn Sie einen Neustart benötigen, startet `/new` oder `/reset` eine neue Sitzungs-ID.
-
-

@@ -1,12 +1,9 @@
 ---
-title: 帮助
-x-i18n:
-  generated_at: "2026-02-03T07:49:05Z"
-  model: claude-opus-4-5
-  provider: pi
-  source_hash: 9356d1929df3e81a25c23ec55a51213090f7f761761b1cb055649c8d23df79a4
-  source_path: help/index.md
-  workflow: 15
+summary: "帮助中心：常见修复、安装完整性检查，以及出问题时去哪里查看"
+read_when:
+  - 你是新手，想要“该点击/运行什么”的指南
+  - 出问题了，想要最快的修复路径
+title: "帮助"
 ---
 
 # 帮助
@@ -22,5 +19,3 @@ x-i18n:
 如果你在寻找概念性问题（不是“出问题了”）：
 
 - [常见问题（概念）](/help/faq)
-
-

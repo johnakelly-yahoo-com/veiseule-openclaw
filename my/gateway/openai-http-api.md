@@ -1,4 +1,7 @@
 ---
+summary: "Gateway မှ OpenAI နှင့် ကိုက်ညီသော /v1/chat/completions HTTP endpoint ကို ထုတ်ဖော်ပေးသည်"
+read_when:
+  - OpenAI Chat Completions ကို မျှော်မှန်းထားသော ကိရိယာများနှင့် ပေါင်းစည်းသည့်အခါ
 title: "OpenAI Chat Completions"
 ---
 
@@ -23,6 +26,7 @@ Gateway auth configuration ကို အသုံးပြုပါတယ်။ 
 
 - `gateway.auth.mode="token"` ဖြစ်သောအခါ `gateway.auth.token` (သို့မဟုတ် `OPENCLAW_GATEWAY_TOKEN`) ကို အသုံးပြုပါ။
 - `gateway.auth.mode="password"` ဖြစ်သောအခါ `gateway.auth.password` (သို့မဟုတ် `OPENCLAW_GATEWAY_PASSWORD`) ကို အသုံးပြုပါ။
+- `gateway.auth.rateLimit` ကို configure ပြုလုပ်ထားပြီး auth မအောင်မြင်မှုများ များလွန်းပါက endpoint သည် `429` နှင့် `Retry-After` ကို ပြန်ပို့ပါသည်။
 
 ## Agent ကို ရွေးချယ်ခြင်း
 
@@ -113,5 +117,3 @@ curl -N http://127.0.0.1:18789/v1/chat/completions \
     "messages": [{"role":"user","content":"hi"}]
   }'
 ```
-
-

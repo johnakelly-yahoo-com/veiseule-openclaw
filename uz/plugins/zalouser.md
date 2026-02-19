@@ -1,4 +1,8 @@
 ---
+summary: "26. Zalo Personal plagini: QR orqali login + zca-cli orqali xabar almashish (plagin o‘rnatish + kanal sozlamasi + CLI + vosita)"
+read_when:
+  - 27. Siz OpenClaw’da Zalo Personal (rasmiy bo‘lmagan) qo‘llab-quvvatlashni xohlaysiz
+  - Siz zalouser plaginini sozlayapsiz yoki ishlab chiqyapsiz
 title: "29. Zalo Personal Plagini"
 ---
 
@@ -47,7 +51,7 @@ cd ./extensions/zalouser && pnpm install
 
 ## 50. Sozlama
 
-Kanal sozlamalari `channels.zalouser` ostida joylashgan (`plugins.entries.*` emas):
+Channel config lives under `channels.zalouser` (not `plugins.entries.*`):
 
 ```json5
 {
@@ -70,10 +74,8 @@ openclaw message send --channel zalouser --target <threadId> --message "Hello fr
 openclaw directory peers list --channel zalouser --query "name"
 ```
 
-## Agent vositasi
-
-Vosita nomi: `zalouser`
+## Agent tool
 
 Amallar: `send`, `image`, `link`, `friends`, `groups`, `me`, `status`
 
-
+Actions: `send`, `image`, `link`, `friends`, `groups`, `me`, `status`

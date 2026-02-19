@@ -1,4 +1,6 @@
 ---
+summary: "Ayusin ang mga isyu sa pagsisimula ng Chrome/Brave/Edge/Chromium CDP para sa kontrol ng browser ng OpenClaw sa Linux"
+read_when: "Nabibigo ang kontrol ng browser sa Linux, lalo na kapag snap Chromium ang gamit"
 title: "Pag-troubleshoot ng Browser"
 ---
 
@@ -110,7 +112,7 @@ curl -s http://127.0.0.1:18791/tabs
 
 ### Sanggunian ng Config
 
-| Opsyon                   | Paglalarawan                                                                                            | Nakatakda                                                                                     |
+| Opsyon                   | Paglalarawan                                                                                           | Nakatakda                                                                                   |
 | ------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------- |
 | `browser.enabled`        | I-enable ang kontrol ng browser                                                                        | `true`                                                                                      |
 | `browser.executablePath` | Path papunta sa isang Chromium-based na browser binary (Chrome/Brave/Edge/Chromium) | auto-detected (mas pinipili ang default na browser kapag Chromium-based) |
@@ -134,5 +136,3 @@ Mga tala:
 
 - Ginagamit ng `chrome` na profile ang **system default na Chromium browser** kapag posible.
 - Ang mga lokal na `openclaw` na profile ay auto-assign ng `cdpPort`/`cdpUrl`; itakda lang ang mga iyon para sa remote CDP.
-
-

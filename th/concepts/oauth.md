@@ -1,4 +1,10 @@
 ---
+summary: "OAuth ใน OpenClaw: การแลกเปลี่ยนโทเคน การจัดเก็บ และรูปแบบหลายบัญชี"
+read_when:
+  - คุณต้องการเข้าใจ OAuth ของ OpenClaw แบบครบถ้วนตั้งแต่ต้นจนจบ
+  - 12. คุณพบปัญหาโทเค็นถูกทำให้ใช้ไม่ได้ / ถูกล็อกเอาต์
+  - คุณต้องการโฟลว์การยืนยันตัวตนแบบ setup-token หรือ OAuth
+  - คุณต้องการหลายบัญชีหรือการกำหนดเส้นทางตามโปรไฟล์
 title: "OAuth"
 ---
 
@@ -18,7 +24,7 @@ openclaw models auth login --provider <id>
 
 ## Token sink (ทำไมจึงมี)
 
-16. ผู้ให้บริการ OAuth มักจะออก **refresh token ใหม่** ระหว่างโฟลว์การล็อกอิน/รีเฟรช ผู้ให้บริการ OAuth มักจะออก **refresh token ใหม่** ระหว่างโฟลว์การล็อกอิน/รีเฟรช ผู้ให้บริการบางราย (หรือไคลเอนต์ OAuth) อาจทำให้ refresh token เก่าถูกยกเลิกเมื่อมีการออกตัวใหม่สำหรับผู้ใช้/แอปเดียวกัน
+16. ผู้ให้บริการ OAuth มักจะออก **refresh token ใหม่** ระหว่างโฟลว์การล็อกอิน/รีเฟรช ผู้ให้บริการ OAuth มักจะออก **refresh token ใหม่** ระหว่างโฟลว์การล็อกอิน/รีเฟรช ผู้ให้บริการ OAuth มักจะออก **refresh token ใหม่** ระหว่างโฟลว์การล็อกอิน/รีเฟรช ผู้ให้บริการบางราย (หรือไคลเอนต์ OAuth) อาจทำให้ refresh token เก่าถูกยกเลิกเมื่อมีการออกตัวใหม่สำหรับผู้ใช้/แอปเดียวกัน
 
 อาการที่พบได้จริง:
 
@@ -40,7 +46,7 @@ openclaw models auth login --provider <id>
 
 - `~/.openclaw/credentials/oauth.json` (นำเข้าไปยัง `auth-profiles.json` เมื่อใช้งานครั้งแรก)
 
-17. ทั้งหมดข้างต้นยังเคารพ `$OPENCLAW_STATE_DIR` ด้วย (การแทนที่ไดเรกทอรีสถานะ) ทั้งหมดข้างต้นยังรองรับ `$OPENCLAW_STATE_DIR` (การ override ไดเรกทอรีสถานะ) อ้างอิงฉบับเต็ม: [/gateway/configuration](/gateway/configuration#auth-storage-oauth--api-keys)
+ทั้งหมดข้างต้นยังเคารพ `$OPENCLAW_STATE_DIR` ด้วย (การแทนที่ไดเรกทอรีสถานะ) ทั้งหมดข้างต้นยังรองรับ `$OPENCLAW_STATE_DIR` (การ override ไดเรกทอรีสถานะ) อ้างอิงฉบับเต็ม: [/gateway/configuration](/gateway/configuration#auth-storage-oauth--api-keys) ทั้งหมดข้างต้นยังรองรับ `$OPENCLAW_STATE_DIR` (การ override ไดเรกทอรีสถานะ) อ้างอิงฉบับเต็ม: [/gateway/configuration](/gateway/configuration#auth-storage-oauth--api-keys)
 
 ## Anthropic setup-token (subscription auth)
 
@@ -136,5 +142,3 @@ openclaw agents add personal
 
 - [/concepts/model-failover](/concepts/model-failover) (กฎการหมุนเวียน + cooldown)
 - [/tools/slash-commands](/tools/slash-commands) (พื้นผิวคำสั่ง)
-
-

@@ -1,4 +1,9 @@
 ---
+summary: "CLI des modeles : lister, definir, alias, replis, scan, statut"
+read_when:
+  - Ajout ou modification de la CLI des modeles (models list/set/scan/aliases/fallbacks)
+  - Changement du comportement de repli des modeles ou de l’UX de selection
+  - Mise a jour des sondes de scan des modeles (outils/images)
 title: "CLI des modeles"
 ---
 
@@ -201,5 +206,3 @@ passez `--yes` pour accepter les valeurs par defaut.
 Les fournisseurs personnalises dans `models.providers` sont ecrits dans `models.json` sous le
 repertoire de l’agent (par defaut `~/.openclaw/agents/<agentId>/models.json`). Ce fichier
 est fusionne par defaut sauf si `models.mode` est defini sur `replace`.
-
-
