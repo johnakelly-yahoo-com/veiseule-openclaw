@@ -203,3 +203,4 @@ Notes:
   - Telegram: `telegram:slash:<userId>` (`CommandTargetSessionKey` ဖြင့် chat session ကို target လုပ်ပါသည်)
 - **`/stop`** သည် လက်ရှိ chạy လုပ်နေသော run ကို abort လုပ်နိုင်ရန် active chat session ကို target လုပ်ပါသည်။
 - **Slack:** `channels.slack.slashCommand` သည် `/openclaw` ပုံစံ command တစ်ခုအတွက် ဆက်လက် ထောက်ပံ့ထားပါသည်။ `commands.native` ကို ဖွင့်ပါက built-in command တစ်ခုချင်းစီအတွက် Slack slash command တစ်ခုစီကို ဖန်တီးရပါမည် (`/help` နှင့် အမည်တူ)။ Slack အတွက် command argument menus များကို ephemeral Block Kit buttons အဖြစ် ပို့ပေးပါသည်။
+

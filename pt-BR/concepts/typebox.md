@@ -284,3 +284,4 @@ arquivo bruto publicado normalmente está disponível em:
 1. Atualize os esquemas TypeBox.
 2. Execute `pnpm protocol:check`.
 3. Faça commit do esquema regenerado + modelos Swift.
+

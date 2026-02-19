@@ -45,3 +45,4 @@ Clawd ma vibe. Ja mam stack trace’y. Uzupełniamy się.
 ## Złap frazę
 
 „Władam ponad sześcioma milionami komunikatów o błędach!”
+

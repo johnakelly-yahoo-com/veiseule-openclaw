@@ -67,3 +67,4 @@ Utwórz `SOUL_EVIL.md` w katalogu głównym obszaru roboczego agenta (obok `SOUL
 ## Zobacz także
 
 - [Hooki](/automation/hooks)
+

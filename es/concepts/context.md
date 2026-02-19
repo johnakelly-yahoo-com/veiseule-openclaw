@@ -159,3 +159,4 @@ Documentación: [Session](/concepts/session), [Compaction](/concepts/compaction)
 - `System prompt (estimate)` = calculado al vuelo cuando no existe un informe de ejecución (o cuando se ejecuta mediante un backend de CLI que no genera el informe).
 
 En cualquier caso, informa tamaños y los principales contribuyentes; **no** vuelca el system prompt completo ni los esquemas de herramientas.
+

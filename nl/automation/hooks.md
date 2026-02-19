@@ -929,3 +929,4 @@ Aan de slag
 - [Bundled Hooks README](https://github.com/openclaw/openclaw/tree/main/src/hooks/bundled)
 - [Webhook Hooks](/automation/webhook)
 - [Configuratie](/gateway/configuration#hooks)
+

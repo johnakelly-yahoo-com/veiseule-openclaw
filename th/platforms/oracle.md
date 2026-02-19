@@ -301,3 +301,4 @@ tar -czvf openclaw-backup.tar.gz ~/.openclaw ~/.openclaw/workspace
 - [Gateway configuration](/gateway/configuration) — ตัวเลือกการกำหนดค่าทั้งหมด
 - [คู่มือ DigitalOcean](/platforms/digitalocean) — หากต้องการแบบเสียเงินและสมัครง่ายกว่า
 - [คู่มือ Hetzner](/install/hetzner) — ทางเลือกแบบ Docker
+

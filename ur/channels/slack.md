@@ -527,3 +527,4 @@ Slack ٹول ایکشنز کو `channels.slack.actions.*` کے ذریعے گیٹ
   `files:write`) ورنہ وہ کارروائیاں ناکام ہوں گی۔
 - [Configuration](/gateway/configuration)
 - [Slash commands](/tools/slash-commands)
+

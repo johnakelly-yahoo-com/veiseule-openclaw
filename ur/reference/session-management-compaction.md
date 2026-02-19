@@ -283,3 +283,4 @@ Pi ایکسٹینشن API میں `session_before_compact` ہُک بھی فراہ
   - کمپیکشن سیٹنگز (ماڈل ونڈو کے لیے `reserveTokens` بہت زیادہ ہو تو جلد کمپیکشن ہو سکتی ہے)
   - ٹول-رزلٹ پھولاؤ: سیشن پروننگ کو فعال/ٹیون کریں
 - Silent turns leaking? Confirm the reply starts with `NO_REPLY` (exact token) and you’re on a build that includes the streaming suppression fix.
+

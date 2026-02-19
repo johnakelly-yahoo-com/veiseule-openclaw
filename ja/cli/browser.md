@@ -105,3 +105,4 @@ Gateway がブラウザーとは別のマシンで実行されている場合、
 自動ルーティングの制御には `gateway.nodes.browser.mode` を使用し、複数のノードが接続されている場合に特定のノードへ固定するには `gateway.nodes.browser.node` を使用します。
 
 セキュリティ + リモート セットアップ: [Browser tool](/tools/browser), [Remote access](/gateway/remote), [Tailscale](/gateway/tailscale), [Security](/gateway/security)
+

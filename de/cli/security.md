@@ -26,3 +26,4 @@ Das Audit warnt, wenn mehrere Absender von Direktnachrichten die Hauptsitzung te
 Es warnt außerdem, wenn kleine Modelle (`<=300B`) ohne sandboxing und mit aktivierten Web-/Browser-Werkzeugen verwendet werden.
 Für Webhook-Ingress wird gewarnt, wenn `hooks.defaultSessionKey` nicht gesetzt ist, wenn Request-`sessionKey`-Overrides aktiviert sind und wenn Overrides ohne `hooks.allowedSessionKeyPrefixes` aktiviert sind.
 Es wird außerdem gewarnt, wenn Sandbox-Docker-Einstellungen konfiguriert sind, während der Sandbox-Modus deaktiviert ist, wenn `gateway.nodes.denyCommands` ineffektive musterähnliche oder unbekannte Einträge verwendet, wenn das globale `tools.profile="minimal"` durch Agent-Tool-Profile überschrieben wird und wenn installierte Extension-Plugin-Tools unter einer permissiven Tool-Policy erreichbar sein könnten.
+

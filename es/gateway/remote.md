@@ -127,3 +127,4 @@ Versión corta: **mantenga el Gateway solo en loopback** a menos que esté segur
 - Trate el control del navegador como acceso de operador: solo tailnet + emparejamiento deliberado de nodos.
 
 Análisis en profundidad: [Seguridad](/gateway/security).
+

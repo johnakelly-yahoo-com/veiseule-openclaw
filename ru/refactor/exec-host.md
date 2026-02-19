@@ -314,3 +314,4 @@ Agent -> Gateway -> Bridge -> Node Service (TS)
 - [Подтверждения Exec](/tools/exec-approvals)
 - [Узлы](/nodes)
 - [Режим повышенных привилегий](/tools/elevated)
+

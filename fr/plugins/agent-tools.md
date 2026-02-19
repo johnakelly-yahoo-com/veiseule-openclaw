@@ -96,3 +96,4 @@ Autres parametres de configuration qui affectent la disponibilite des outils :
 - Les noms d’outils ne doivent **pas** entrer en conflit avec les noms d’outils du noyau ; les outils conflictuels sont ignores.
 - Les identifiants de plugin utilises dans les listes d’autorisation ne doivent pas entrer en conflit avec les noms d’outils du noyau.
 - Preferez `optional: true` pour les outils qui declenchent des effets de bord ou necessitent des binaires/identifiants supplementaires.
+

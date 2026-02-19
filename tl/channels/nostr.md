@@ -231,3 +231,4 @@ docker run -p 7777:7777 ghcr.io/hoytech/strfry
 - Direct message lang (walang group chat).
 - Walang media attachment.
 - NIP-04 lamang (naka-planong NIP-17 gift-wrap).
+

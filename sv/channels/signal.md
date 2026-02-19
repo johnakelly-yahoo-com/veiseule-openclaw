@@ -322,3 +322,4 @@ Relaterade globala alternativ:
 - `agents.list[].groupChat.mentionPatterns` (Signal stöder inte inbyggda omnämnanden).
 - `messages.groupChat.mentionPatterns` (global fallback).
 - `messages.responsePrefix`.
+

@@ -48,3 +48,4 @@ openclaw approvals allowlist remove "~/Projects/**/bin/rg"
 - `--agent` tem como padrão `"*"`, que se aplica a todos os agentes.
 - O host de nó deve anunciar `system.execApprovals.get/set` (aplicativo macOS ou host de nó headless).
 - Os arquivos de aprovações são armazenados por host em `~/.openclaw/exec-approvals.json`.
+

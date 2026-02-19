@@ -114,3 +114,4 @@ The Gateway serves static files from `dist/control-ui`. Build them with:
 ```bash
 pnpm ui:build # birinchi ishga tushirishda UI dependency’larini avtomatik o‘rnatadi
 ```
+

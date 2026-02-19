@@ -42,3 +42,4 @@ agent (with a session switcher for other sessions).
 ## Hạn chế đã biết
 
 - Giao diện được tối ưu cho các phiên trò chuyện (không phải sandbox trình duyệt đầy đủ).
+

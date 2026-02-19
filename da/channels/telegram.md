@@ -876,3 +876,4 @@ Telegram-specifikke high-signal-felter:
 - `[[audio_as_voice]]` — send lyd som en talebesked i stedet for en fil.
 - [Kanalsrouting](/channels/channel-routing)
 - [Fejlfinding](/channels/troubleshooting)
+

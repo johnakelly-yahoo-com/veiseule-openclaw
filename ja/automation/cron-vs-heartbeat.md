@@ -284,3 +284,4 @@ openclaw cron add \
 - [Heartbeat](/gateway/heartbeat) - Heartbeat の完全な設定
 - [Cron jobs](/automation/cron-jobs) - cron CLI と API の完全なリファレンス
 - [System](/cli/system) - システムイベントと Heartbeat 制御
+

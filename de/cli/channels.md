@@ -77,3 +77,4 @@ Hinweise:
 
 - Verwenden Sie `--kind user|group|auto`, um den Zieltyp zu erzwingen.
 - Die Auflösung bevorzugt aktive Treffer, wenn mehrere Einträge denselben Namen teilen.
+

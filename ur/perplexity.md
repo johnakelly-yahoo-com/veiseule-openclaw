@@ -76,3 +76,4 @@ through Perplexity’s direct API or via OpenRouter.
 - `perplexity/sonar-reasoning-pro` — گہری تحقیق
 
 مکمل web_search کنفیگریشن کے لیے [Web tools](/tools/web) دیکھیں۔
+

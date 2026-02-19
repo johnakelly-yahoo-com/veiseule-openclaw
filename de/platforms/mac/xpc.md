@@ -59,3 +59,4 @@ Agent -> Gateway -> Node Service (WS)
 - Sämtliche Kommunikation bleibt ausschließlich lokal; es werden keine Netzwerk-Sockets exponiert.
 - TCC-Abfragen stammen ausschließlich aus dem GUI-App-Bundle; halten Sie die signierte Bundle-ID über Neubuilds hinweg stabil.
 - IPC-Härtung: Socket-Modus `0600`, Token, Peer-UID-Prüfungen, HMAC-Challenge/Response, kurze TTL.
+

@@ -207,3 +207,4 @@ title: "スラッシュコマンド"
   - Telegram：`telegram:slash:<userId>`（`CommandTargetSessionKey` によりチャットセッションを対象）
 - **`/stop`** はアクティブなチャットセッションを対象とし、現在の実行を中断できます。
 - **Slack：** `channels.slack.slashCommand` は、単一の `/openclaw` スタイルのコマンドについて引き続きサポートされます。`commands.native` を有効にした場合、組み込みコマンドごとに 1 つの Slack スラッシュコマンドを作成する必要があります（名前は `/help` と同一）。Slack 向けのコマンド引数メニューは、エフェメラルな Block Kit ボタンとして提供されます。 `commands.native` を有効にする場合、組み込みコマンドごとにスラッシュコマンドを1つ作成する必要があります (`/help` と同じ名前)。 Slackのコマンド引数メニューは、一時的なBlock Kitボタンとして提供されます。 `commands.native` を有効にする場合、組み込みコマンドごとにスラッシュコマンドを1つ作成する必要があります (`/help` と同じ名前)。 Slackのコマンド引数メニューは、一時的なBlock Kitボタンとして提供されます。
+

@@ -64,3 +64,4 @@ Om du behöver längre retention, återfånga från klienten.
   i **debug**‑läge endast.
 - Om inga värdar hittas, öppna en av värdapparna (Peekaboo.app eller OpenClaw.app)
   och bekräfta att behörigheter är beviljade.
+

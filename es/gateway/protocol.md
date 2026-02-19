@@ -218,3 +218,4 @@ El Gateway trata esto como **reclamaciones** y aplica listas de permitidos del l
 Este protocolo expone la **API completa del gateway** (estado, canales, modelos, chat,
 agente, sesiones, nodos, aprobaciones, etc.). La superficie exacta está definida por los
 esquemas TypeBox en `src/gateway/protocol/schema.ts`.
+

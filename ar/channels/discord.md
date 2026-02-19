@@ -701,3 +701,4 @@ openclaw logs --follow
 - [توجيه القنوات](/channels/channel-routing)
 - [استكشاف الأخطاء وإصلاحها](/channels/troubleshooting)
 - قائمة الأوامر الكاملة + التهيئة: [Slash commands](/tools/slash-commands)
+

@@ -578,3 +578,4 @@ Viktiga alternativ:
 - ✅ Filer
 - ✅ Ljud
 - ⚠️ Rik text (begränsat stöd)
+

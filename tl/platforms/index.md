@@ -51,3 +51,4 @@ Nakadepende sa OS ang service target:
 
 - macOS: LaunchAgent (`bot.molt.gateway` o `bot.molt.<profile>``; legacy `com.openclaw.\*\`)
 - Linux/WSL2: systemd user service (`openclaw-gateway[-<profile>].service`)
+

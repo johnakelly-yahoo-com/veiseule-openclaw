@@ -38,3 +38,4 @@ title: "45. WebChat"
 ## Ma’lum cheklovlar
 
 - UI chat sessiyalari uchun optimallashtirilgan (to‘liq brauzer sandbox emas).
+

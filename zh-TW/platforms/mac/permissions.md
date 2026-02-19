@@ -48,3 +48,4 @@ macOS may also gate Desktop, Documents, and Downloads for terminal/background pr
 
 If you are testing permissions, always sign with a real certificate. 如果您正在測試權限，請務必使用真實憑證進行簽章。Ad-hoc
 builds are only acceptable for quick local runs where permissions do not matter.
+

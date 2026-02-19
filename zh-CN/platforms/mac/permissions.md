@@ -43,3 +43,4 @@ sudo tccutil reset AppleEvents
 36. 解决方法：如果想避免逐个文件夹授权，可将文件移动到 OpenClaw 工作区（`~/.openclaw/workspace`）。
 
 如果你正在测试权限，请始终使用真实证书签名。临时签名的构建仅适用于不需要权限的快速本地运行。 38. Ad-hoc 构建仅适用于权限无关的快速本地运行。
+

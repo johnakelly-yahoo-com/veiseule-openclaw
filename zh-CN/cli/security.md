@@ -26,3 +26,4 @@ openclaw security audit --fix
 12. 当在未启用沙箱的情况下使用小模型（`<=300B`）且启用了 Web/浏览器工具时，也会发出警告。
     对于 webhook ingress，当未设置 `hooks.defaultSessionKey`、启用了请求 `sessionKey` 覆盖、以及在未配置 `hooks.allowedSessionKeyPrefixes` 的情况下启用覆盖时，会发出警告。
     当 sandbox 模式关闭但配置了 sandbox Docker 设置时、当 `gateway.nodes.denyCommands` 使用无效的类模式或未知条目时、当全局 `tools.profile="minimal"` 被 agent 工具配置覆盖时，以及当在宽松工具策略下已安装的扩展插件工具可能可被访问时，也会发出警告。
+

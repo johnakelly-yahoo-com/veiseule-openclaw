@@ -110,3 +110,4 @@ agents:
 - Föredra mindre modeller för utforskande arbete med mycket text.
 
 Se [Skills](/tools/skills) för den exakta formeln för overhead från skill‑listan.
+

@@ -376,3 +376,4 @@ Esto muestra los resultados por capacidad y el proveedor/modelo elegido cuando c
 
 - [Configuración](/gateway/configuration)
 - [Compatibilidad de imágenes y medios](/nodes/images)
+

@@ -69,3 +69,4 @@ Các khóa tùy chọn:
 - Nếu plugin của bạn phụ thuộc vào module native, hãy ghi rõ các bước build và mọi
   yêu cầu allowlist của trình quản lý gói (ví dụ: pnpm `allow-build-scripts`
   - `pnpm rebuild <package>`).
+

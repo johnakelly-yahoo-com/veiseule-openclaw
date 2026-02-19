@@ -112,3 +112,4 @@ channels/troubleshooting.md
 | Échec du chiffrement des salles               | Vérifier les paramètres de cryptage et de cryptage                                                                                                                                                                                                            | Activer la prise en charge du chiffrement et la salle de rejointure/synchronisation. |
 
 Dépannage complet : [/channels/matrix#troubleshooting](/channels/matrix#troubleshooting)
+

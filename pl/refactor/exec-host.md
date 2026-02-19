@@ -314,3 +314,4 @@ Opcja B:
 - [Zgody Exec](/tools/exec-approvals)
 - [Węzły](/nodes)
 - [Tryb podwyższonych uprawnień](/tools/elevated)
+

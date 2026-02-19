@@ -21,3 +21,4 @@ _(What do they care about? What projects are they working on? What annoys them? 
 ---
 
 The more you know, the better you can help. 但請記住——你是在了解一個人，而不是建立一份檔案。 Respect the difference. Respect the difference.
+

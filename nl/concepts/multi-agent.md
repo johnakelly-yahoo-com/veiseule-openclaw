@@ -387,3 +387,4 @@ Als je per-agent grenzen nodig hebt, gebruik `agents.list[].tools` om `exec` te 
 Voor groepsdoelgroepering gebruik je `agents.list[].groupChat.mentionPatterns` zodat @mentions netjes naar de bedoelde agent mappen.
 
 Zie [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) voor gedetailleerde voorbeelden.
+

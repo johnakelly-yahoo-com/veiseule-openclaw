@@ -23,3 +23,4 @@ This file is for _your_ notes about external tools and conventions.
 - 文字轉語音：指定語音、目標說話者／房間，以及是否要串流。
 
 Add whatever else you want the assistant to know about your local toolchain.
+

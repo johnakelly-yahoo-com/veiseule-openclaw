@@ -139,3 +139,4 @@ Before the 2026.1.22 release, OpenClaw applied multiple layers of transcript hyg
 
 This complexity caused cross-provider regressions (notably `openai-responses`
 `call_id|fc_id` pairing). 2026.1.22 cleanup တွင် extension ကို ဖယ်ရှားပြီး logic ကို runner တွင် စုစည်းကာ OpenAI ကို image sanitization အပြင် **no-touch** ဖြစ်စေခဲ့သည်။
+

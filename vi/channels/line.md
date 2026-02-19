@@ -184,3 +184,4 @@ Plugin LINE cũng đi kèm lệnh `/card` cho các preset Flex message:
   và gateway có thể truy cập từ LINE.
 - **Lỗi tải media:** tăng `channels.line.mediaMaxMb` nếu media vượt quá
   giới hạn mặc định.
+

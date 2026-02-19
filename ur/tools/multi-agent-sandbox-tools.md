@@ -393,3 +393,4 @@ sandbox, set `agents.list[].sandbox.mode: "off"`.
 - [ملٹی ایجنٹ روٹنگ](/concepts/multi-agent)
 - [Sandbox کنفیگریشن](/gateway/configuration#agentsdefaults-sandbox)
 - [سیشن مینجمنٹ](/concepts/session)
+

@@ -51,3 +51,4 @@ openclaw agent --agent ops --message "Generate report" --deliver --reply-channel
 - `--verbose <on|full|off>`: persistir nível verboso
 - `--timeout <seconds>`: substituir o timeout do agente
 - `--json`: saída em JSON estruturado
+

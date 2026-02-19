@@ -110,3 +110,4 @@ L’hôte de nœud stocke son identifiant de nœud, son jeton, son nom d’affic
 - `~/.openclaw/exec-approvals.json`
 - [Approbations d’exécution](/tools/exec-approvals)
 - `openclaw approvals --node <id|name|ip>` (modifier depuis la Gateway)
+

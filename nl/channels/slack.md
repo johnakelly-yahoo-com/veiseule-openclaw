@@ -491,3 +491,4 @@ Primaire referentie:
 - Voor triageflow: [/channels/troubleshooting](/channels/troubleshooting).
 - [Configuration](/gateway/configuration)
 - Volledige commandolijst + config: [Slash commands](/tools/slash-commands)
+

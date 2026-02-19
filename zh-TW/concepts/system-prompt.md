@@ -123,3 +123,4 @@ OpenClaw 文件的本機目錄（repo 工作區中的 `docs/`，或隨附的 npm
 ClawHub（[https://clawhub.com](https://clawhub.com)）以供技能探索。提示會指示模型在需要了解
 OpenClaw 行為、指令、設定或架構時，優先查閱本機文件，並在可能的情況下自行執行
 `openclaw status`（僅在無法存取時才詢問使用者）。 26. 該提示指示模型優先查閱本地文件以了解 OpenClaw 的行為、指令、設定或架構，並在可能時自行執行 `openclaw status`（僅在缺乏存取權時才詢問使用者）。
+

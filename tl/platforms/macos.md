@@ -199,3 +199,4 @@ Para sa mga hakbang sa setup, tingnan ang [macOS remote access](/platforms/mac/r
 - [Gateway (macOS)](/platforms/mac/bundled-gateway)
 - [macOS permissions](/platforms/mac/permissions)
 - [Canvas](/platforms/mac/canvas)
+

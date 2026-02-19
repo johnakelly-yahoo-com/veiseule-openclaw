@@ -79,3 +79,4 @@ openclaw directory peers list --channel zalouser --query "name"
 ツール名: `zalouser`
 
 アクション: `send`, `image`, `link`, `friends`, `groups`, `me`, `status`
+

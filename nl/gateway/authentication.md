@@ -151,3 +151,4 @@ ontbreekt, voer `claude setup-token` opnieuw uit en plak het token opnieuw.
 
 - Claude Max- of Pro-abonnement (voor `claude setup-token`)
 - Claude Code CLI geïnstalleerd (`claude`-opdracht beschikbaar)
+

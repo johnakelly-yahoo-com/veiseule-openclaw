@@ -253,3 +253,4 @@ Relacionado:
 - [Health](/gateway/health)
 - [Doctor](/gateway/doctor)
 - [Authentication](/gateway/authentication)
+

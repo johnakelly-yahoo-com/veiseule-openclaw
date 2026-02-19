@@ -346,3 +346,4 @@ Kararlı yönlendirme için `chat_guid` tercih edin:
 - Durum/sağlık bilgileri için: `openclaw status --all` veya `openclaw status --deep`.
 
 Genel kanal iş akışı başvurusu için [Channels](/channels) ve [Plugins](/tools/plugin) kılavuzlarına bakın.
+

@@ -26,3 +26,4 @@ Granskningen varnar när flera DM-avsändare delar huvudsessionen och rekommende
 Den varnar också när små modeller (`<=300B`) används utan sandlåda och med webb-/webbläsarverktyg aktiverade.
 För webhook-ingress varnas det när `hooks.defaultSessionKey` inte är satt, när åsidosättningar av request-`sessionKey` är aktiverade och när åsidosättningar är aktiverade utan `hooks.allowedSessionKeyPrefixes`.
 Det varnas också när sandbox-Docker-inställningar är konfigurerade medan sandbox-läget är avstängt, när `gateway.nodes.denyCommands` använder ineffektiva mönsterliknande/okända poster, när global `tools.profile="minimal"` åsidosätts av agenters verktygsprofiler och när installerade extension-pluginverktyg kan vara åtkomliga under en tillåtande verktygspolicy.
+

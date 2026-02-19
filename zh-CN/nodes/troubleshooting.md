@@ -102,3 +102,4 @@ openclaw logs --follow
 - 28. [/nodes/location-command](/nodes/location-command)
 - 29. [/tools/exec-approvals](/tools/exec-approvals)
 - 30. [/gateway/pairing](/gateway/pairing)
+

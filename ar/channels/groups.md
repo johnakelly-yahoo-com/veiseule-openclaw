@@ -372,3 +372,4 @@ otherwise -> reply
 ## خصوصيات WhatsApp
 
 راجع [رسائل المجموعات](/channels/group-messages) لسلوك خاص بـ WhatsApp فقط (حقن السجل، تفاصيل معالجة الإشارات).
+

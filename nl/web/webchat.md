@@ -48,3 +48,4 @@ Gerelateerde globale opties:
 - `gateway.auth.mode: "trusted-proxy"`: reverse-proxy-authenticatie voor browserclients (zie [Trusted Proxy Auth](/gateway/trusted-proxy-auth)).
 - `gateway.remote.url`, `gateway.remote.token`, `gateway.remote.password`: doel van de Gateway op afstand.
 - `session.*`: sessieopslag en standaardwaarden voor de hoofdsleutel.
+

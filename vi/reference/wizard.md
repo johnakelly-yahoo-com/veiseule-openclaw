@@ -282,3 +282,4 @@ will prompt to install it (npm or a local path) before it can be configured.
 - Tài liệu tham chiếu cấu hình: [Gateway configuration](/gateway/configuration)
 - Nhà cung cấp: [WhatsApp](/channels/whatsapp), [Telegram](/channels/telegram), [Discord](/channels/discord), [Google Chat](/channels/googlechat), [Signal](/channels/signal), [BlueBubbles](/channels/bluebubbles) (iMessage), [iMessage](/channels/imessage) (cũ)
 - Skills: [Skills](/tools/skills), [Skills config](/tools/skills-config)
+

@@ -61,3 +61,4 @@ Se você precisar de retenção mais longa, recapture a partir do cliente.
   apenas no modo **debug**.
 - Se nenhum host for encontrado, abra um dos apps host (Peekaboo.app ou OpenClaw.app)
   e confirme que as permissões foram concedidas.
+

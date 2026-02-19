@@ -38,3 +38,4 @@ Respuestas (forma)
 ## Notas
 
 - Este documento es el único lugar para dar seguimiento a refactorizaciones del protocolo de onboarding/configuración.
+

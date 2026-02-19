@@ -29,3 +29,4 @@ Adfærdsmæssige noter
 
 - Ingen ekstern CLI/broker-toggle for ører/arbejde; hold det internt til appens egne signaler for at undgå utilsigtet flagren.
 - Hold TTL’er korte (&lt;10 s), så ikonet hurtigt vender tilbage til baseline, hvis et job hænger.
+

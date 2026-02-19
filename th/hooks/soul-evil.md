@@ -70,3 +70,4 @@ openclaw hooks enable soul-evil
 ## ดูเพิ่มเติม
 
 - [Hooks](/automation/hooks)
+

@@ -27,3 +27,4 @@ setup 을 통해 마법사를 실행하려면:
 ```bash
 openclaw setup --wizard
 ```
+

@@ -83,3 +83,4 @@ SPARKLE_PRIVATE_KEY_FILE=/path/to/ed25519-private-key scripts/make_appcast.sh di
   - کسی پچھلی پبلک بلڈ پر، About ٹیب سے “Check for Updates…” چلائیں اور تصدیق کریں کہ Sparkle نئی بلڈ کو صاف طریقے سے انسٹال کرتا ہے۔
 
 تعریفِ تکمیل: سائن شدہ ایپ اور appcast شائع ہوں، پرانی انسٹال شدہ ورژن سے اپ ڈیٹ فلو درست کام کرے، اور ریلیز اثاثے GitHub ریلیز کے ساتھ منسلک ہوں۔
+

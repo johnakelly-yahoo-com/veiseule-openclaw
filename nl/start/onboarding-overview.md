@@ -47,3 +47,4 @@ Als je een endpoint nodig hebt dat niet in de lijst staat, inclusief gehoste pro
 - Kies een Endpoint ID zodat meerdere aangepaste endpoints naast elkaar kunnen bestaan.
 
 Volg voor gedetailleerde stappen de bovenstaande CLI-onboardingdocumentatie.
+

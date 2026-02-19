@@ -219,3 +219,4 @@ Gatewayen behandler disse som **claims** og håndhæver server-side tilladelsesl
 Denne protokol udsætter **fuld gateway API** (status, kanaler, modeller, chat,
 agent, sessioner, knudepunkter, godkendelser osv.). Den nøjagtige overflade defineres ved
 TypeBox skemaerne i 'src/gateway/protocol/schema.ts'.
+

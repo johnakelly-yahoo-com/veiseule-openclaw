@@ -204,3 +204,4 @@ rejimda, standartlarni qabul qilish uchun `--yes` ni bering.
 `models.providers` dagi maxsus provayderlar agent katalogi ostidagi `models.json` ga yoziladi
 (standart `~/.openclaw/agents/<agentId>/models.json`). Bu fayl
 `models.mode` `replace` ga o‘rnatilmaguncha standart bo‘yicha birlashtiriladi.
+

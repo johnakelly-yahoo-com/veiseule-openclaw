@@ -246,3 +246,4 @@ Gateway -> Node Service (WS)
 - [أداة التنفيذ](/tools/exec)
 - [الوضع المرتفع الصلاحيات](/tools/elevated)
 - [المهارات](/tools/skills)
+

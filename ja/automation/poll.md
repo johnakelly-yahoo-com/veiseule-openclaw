@@ -70,3 +70,4 @@ Teams の投票は Adaptive Card としてレンダリングされ、`~/.opencla
 Teams の投票は Adaptive Card としてレンダリングされ、`~/.openclaw/msteams-polls.json` で投票を記録するために ゲートウェイ がオンラインのままである必要があります。
 チームの投票はAdaptive Cardsとしてレンダリングされ、`~/.openclaw/msteams-polls.json` で投票を記録するためには、オンラインの
 のままにする必要があります。
+

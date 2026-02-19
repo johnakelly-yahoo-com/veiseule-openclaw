@@ -29,3 +29,4 @@ Notas de comportamiento
 
 - No hay alternador externo de CLI/broker para orejas/trabajo; manténgalo interno a las señales propias de la app para evitar aleteos accidentales.
 - Mantenga TTLs cortos (&lt;10 s) para que el icono vuelva rápidamente a la línea base si una tarea se queda colgada.
+

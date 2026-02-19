@@ -214,3 +214,4 @@ Accessed via `OpenClawPluginApi.runtime` so plugins never import `src/**`.
 - 處理外掛設定結構或外掛載入門檻
 
 相關文件：[Plugins](/tools/plugin)、[Channels](/channels/index)、[Configuration](/gateway/configuration)。
+

@@ -179,3 +179,4 @@ Ghi chú:
 - Chính sách công cụ vẫn áp dụng; `allow: ["exec"]` ngầm cho phép `apply_patch`.
 - Cấu hình nằm dưới `tools.exec.applyPatch`.
 - `tools.exec.applyPatch.workspaceOnly` mặc định là `true` (giới hạn trong workspace). Chỉ đặt thành `false` nếu bạn thực sự muốn `apply_patch` ghi/xóa bên ngoài thư mục workspace.
+

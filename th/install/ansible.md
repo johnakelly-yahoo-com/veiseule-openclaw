@@ -206,3 +206,4 @@ openclaw channels login
 - [Docker](/install/docker) — การตั้งค่า Gateway แบบคอนเทนเนอร์
 - [Sandboxing](/gateway/sandboxing) — การกำหนดค่า sandbox ของเอเจนต์
 - [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) — การแยกอิสระต่อเอเจนต์
+

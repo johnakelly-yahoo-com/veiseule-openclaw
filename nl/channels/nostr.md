@@ -231,3 +231,4 @@ docker run -p 7777:7777 ghcr.io/hoytech/strfry
 - Alleen directe berichten (geen groepschats).
 - Geen media-bijlagen.
 - Alleen NIP-04 (NIP-17 gift-wrap gepland).
+

@@ -75,3 +75,4 @@ Agar asosiy URL o‘rnatilmagan bo‘lsa, OpenClaw API kaliti manbasiga qarab su
 - `perplexity/sonar-reasoning-pro` — chuqur tadqiqot
 
 To‘liq web_search konfiguratsiyasi uchun [Web tools](/tools/web) ga qarang.
+

@@ -109,3 +109,4 @@ API RPC oraz pełną listę pól konfiguracji zapisywanych przez kreator, zobacz
 - Przegląd wdrożenia: [Onboarding Overview](/start/onboarding-overview)
 - Wdrażanie aplikacji na macOS: [Onboarding](/start/onboarding)
 - Rytuał pierwszego uruchomienia agenta: [Agent Bootstrapping](/start/bootstrapping)
+

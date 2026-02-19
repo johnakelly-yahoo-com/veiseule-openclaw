@@ -108,3 +108,4 @@ Quadlet’ni dastlab undan foydalanilmagan setup’dan **keyin** qo‘shish uchu
 ## Ixtiyoriy: o‘z foydalanuvchingiz sifatida ishga tushirish
 
 Gateway’ni oddiy foydalanuvchingiz sifatida ishga tushirish uchun (alohida openclaw foydalanuvchisiz): image’ni build qiling, `~/.openclaw/.env` ichida `OPENCLAW_GATEWAY_TOKEN` yarating va konteynerni `--userns=keep-id` hamda `~/.openclaw` ga mount bilan ishga tushiring. Launch skripti openclaw foydalanuvchi oqimi uchun mo‘ljallangan; bitta foydalanuvchi uchun sozlamada skriptdagi `podman run` buyrug‘ini qo‘lda ishga tushirib, config va workspace’ni o‘z home papkangizga yo‘naltirishingiz mumkin. Ko‘pchilik foydalanuvchilar uchun tavsiya etiladi: `setup-podman.sh` dan foydalaning va config hamda jarayon izolyatsiya qilinishi uchun openclaw foydalanuvchisi sifatida ishga tushiring.
+

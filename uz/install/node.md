@@ -134,3 +134,4 @@ export PATH="$(npm prefix -g)/bin:$PATH"
 ```
 
 `npm install -g` da ruxsat xatolari (Linux)
+

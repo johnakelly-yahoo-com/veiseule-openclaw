@@ -61,3 +61,4 @@ Zobacz [Zadania cron](/automation/cron-jobs), aby poznać znormalizowany kształ
 
 - Czy `cron.add` powinno akceptować jawne `state` od klientów (obecnie zabronione przez schemat)?
 - Czy powinniśmy dopuścić `webchat` jako jawnego dostawcę dostarczania (obecnie filtrowany w rozstrzyganiu dostarczania)?
+

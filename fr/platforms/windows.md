@@ -157,3 +157,4 @@ Guide complet : [Premiers pas](/start/getting-started)
 
 Nous n’avons pas encore d’application compagnon Windows. Les contributions sont bienvenues si vous
 souhaitez contribuer à la concrétiser.
+

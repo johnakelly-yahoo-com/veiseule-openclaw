@@ -474,3 +474,4 @@ openclaw system event --mode now --text "Next heartbeat: check battery."
 - Verwenden Sie für Forenthemen `-100…:topic:<id>`, damit es explizit und eindeutig ist.
 - Wenn Sie in Logs oder gespeicherten „last route“-Zielen Präfixe wie `telegram:...` sehen, ist das normal;
   die Cron-Zustellung akzeptiert sie und parst Themen-IDs weiterhin korrekt.
+

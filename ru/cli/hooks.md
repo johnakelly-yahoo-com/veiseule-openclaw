@@ -305,3 +305,4 @@ openclaw hooks enable boot-md
 ```
 
 **См.:** [документация boot-md](/automation/hooks#boot-md)
+

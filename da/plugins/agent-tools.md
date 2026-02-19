@@ -97,3 +97,4 @@ Andre konfigurationsindstillinger, der påvirker værktøjers tilgængelighed:
 - Plugin‑id’er, der bruges i tilladelseslister, må ikke kollidere med navne på kerneværktøjer.
 - Foretræk `optional: true` for værktøjer, der udløser sideeffekter eller kræver ekstra
   binære filer/legitimationsoplysninger.
+

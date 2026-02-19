@@ -132,3 +132,4 @@ Kung hinaharangan ng iyong tool allowlist ang mga tool na ito, mabibigo ang mga 
 Tratuhin ang mga `.prose` file na parang code. Suriin bago patakbuhin. Use OpenClaw tool allowlists and approval gates to control side effects.
 
 Para sa deterministiko at approval-gated na mga workflow, ihambing sa [Lobster](/tools/lobster).
+

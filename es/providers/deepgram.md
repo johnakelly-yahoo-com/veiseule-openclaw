@@ -88,3 +88,4 @@ Ejemplo con opciones de Deepgram:
 - La autenticación sigue el orden estándar de autenticación de proveedores; `DEEPGRAM_API_KEY` es la vía más sencilla.
 - Sobrescriba endpoints o encabezados con `tools.media.audio.baseUrl` y `tools.media.audio.headers` cuando use un proxy.
 - La salida sigue las mismas reglas de audio que otros proveedores (límites de tamaño, tiempos de espera, inyección de transcripciones).
+

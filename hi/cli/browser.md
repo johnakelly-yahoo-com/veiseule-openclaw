@@ -105,3 +105,4 @@ openclaw browser extension path
 स्वचालित रूटिंग को नियंत्रित करने के लिए `gateway.nodes.browser.mode` का उपयोग करें और यदि कई नोड जुड़े हों तो किसी विशिष्ट नोड को पिन करने के लिए `gateway.nodes.browser.node` का उपयोग करें।
 
 सुरक्षा + रिमोट सेटअप: [Browser tool](/tools/browser), [Remote access](/gateway/remote), [Tailscale](/gateway/tailscale), [Security](/gateway/security)
+

@@ -216,3 +216,4 @@ config によるオーバーライド:
 - サブエージェントのコンテキストには `AGENTS.md` と `TOOLS.md` のみが注入されます（`SOUL.md`、`IDENTITY.md`、`USER.md`、`HEARTBEAT.md`、`BOOTSTRAP.md` は含まれません）。
 - 最大ネスト深度は 5 です（`maxSpawnDepth` の範囲: 1–5）。 ほとんどのユースケースでは深さ2が推奨されます。
 - `maxChildrenPerAgent` はセッションごとのアクティブな子の数を制限します（デフォルト: 5、範囲: 1–20）。
+

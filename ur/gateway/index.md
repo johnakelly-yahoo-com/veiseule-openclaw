@@ -260,3 +260,4 @@ Events are not replayed. sequence میں خلاء کی صورت میں جاری 
 - گِریس فل شٹ ڈاؤن: بند کرنے سے پہلے `shutdown` ایونٹ ایمٹ کریں؛ کلائنٹس کو کلوز + ری کنیکٹ ہینڈل کرنا چاہیے۔
 - [Doctor](/gateway/doctor)
 - [Authentication](/gateway/authentication)
+

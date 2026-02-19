@@ -474,3 +474,4 @@ openclaw system event --mode now --text "Next heartbeat: check battery."
 - Forum konuları için açık ve belirsizliği önlemek adına `-100…:topic:<id>` kullanın.
 - Günlüklerde veya saklanan “son rota” hedeflerinde `telegram:...` önekleri görürseniz bu normaldir;
   cron iletimi bunları kabul eder ve konu kimliklerini yine doğru şekilde ayrıştırır.
+

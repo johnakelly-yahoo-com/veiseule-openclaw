@@ -57,3 +57,4 @@ bun pm trust @whiskeysockets/baileys protobufjs
 ## Cheklovlar
 
 - Some scripts still hardcode pnpm (e.g. `docs:build`, `ui:*`, `protocol:check`). Run those via pnpm for now.
+

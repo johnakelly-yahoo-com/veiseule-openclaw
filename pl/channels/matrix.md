@@ -305,3 +305,4 @@ Opcje dostawcy:
 - `channels.matrix.autoJoinAllowlist`: dozwolone ID/aliasy pokoi dla automatycznego dołączania.
 - `channels.matrix.accounts`: konfiguracja wielu kont kluczowana identyfikatorem konta (każde konto dziedziczy ustawienia z najwyższego poziomu).
 - `channels.matrix.actions`: bramkowanie narzędzi per akcja (reakcje/wiadomości/piny/memberInfo/channelInfo).
+

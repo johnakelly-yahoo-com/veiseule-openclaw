@@ -52,3 +52,4 @@ Ask your agent to "refresh skills" or restart the gateway. OpenClaw will discove
 ## 4. Umumiy ko‘nikmalar
 
 5. Shuningdek, siz [ClawHub](https://clawhub.com) orqali ko‘nikmalarni ko‘rib chiqishingiz va ularga hissa qo‘shishingiz mumkin.
+

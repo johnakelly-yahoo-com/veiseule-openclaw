@@ -301,3 +301,4 @@ Provider options:
 - `channels.matrix.autoJoinAllowlist`: خودکار جوائن کے لیے مجاز کمرہ IDs/aliases۔
 - `channels.matrix.accounts`: multi-account کنفیگریشن جو account ID کے مطابق key کی گئی ہو (ہر اکاؤنٹ اوپر کی سطح کی سیٹنگز inherit کرتا ہے)۔
 - `channels.matrix.actions`: فی ایکشن ٹول gating (reactions/messages/pins/memberInfo/channelInfo)۔
+

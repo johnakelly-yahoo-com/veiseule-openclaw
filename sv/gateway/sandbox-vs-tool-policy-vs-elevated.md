@@ -126,3 +126,4 @@ Se [Elevated Mode](/tools/elevated).
 ### ”Jag trodde detta var main, varför är det sandboxat?”
 
 I `"non-main"` läge, grupp/kanal nycklar är _inte_ huvud. Använd huvudsessionsnyckeln (visas av `sandbox förklaring`) eller växla läge till `"off"`.
+

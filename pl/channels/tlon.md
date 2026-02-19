@@ -146,3 +146,4 @@ Używaj ich z `openclaw message send` lub z dostarczaniem przez cron:
 - Odpowiedzi w grupach wymagają wzmianki (np. `~your-bot-ship`), aby odpowiedzieć.
 - Odpowiedzi w wątkach: jeśli wiadomość przychodząca jest w wątku, OpenClaw odpowiada w tym samym wątku.
 - Media: `sendMedia` przełącza się na tekst + URL (bez natywnego przesyłania).
+

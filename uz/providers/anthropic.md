@@ -148,3 +148,4 @@ openclaw onboard --auth-choice setup-token
 - Yana bir Anthropic profilini qo‘shing yoki cooldown tugashini kuting.
 
 Batafsil: [/gateway/troubleshooting](/gateway/troubleshooting) va [/help/faq](/help/faq).
+

@@ -68,3 +68,4 @@ zdalnego hosta i łączy się przez ten tunel.
 
 Jeśli kiedykolwiek ponownie potrzebny będzie prawdziwy tryb procesu potomnego,
 powinien on zostać udokumentowany jako osobny, wyraźny tryb tylko dla deweloperów.
+

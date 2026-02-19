@@ -67,3 +67,4 @@ Sử dụng công cụ `message` với hành động `poll` (`to`, `pollQuestion
 Lưu ý: Discord không có chế độ “chọn chính xác N”; `pollMulti` ánh xạ sang chọn nhiều.
 Các poll trên Teams được hiển thị dưới dạng Adaptive Cards và yêu cầu gateway phải luôn trực tuyến
 để ghi nhận phiếu bầu vào `~/.openclaw/msteams-polls.json`.
+

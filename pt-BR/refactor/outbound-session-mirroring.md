@@ -83,3 +83,4 @@ Envios de saída eram espelhados na sessão _atual_ do agente (chave de sessão 
   - `src/infra/outbound/outbound-session.test.ts`
   - `src/agents/tools/message-tool.test.ts`
   - `src/gateway/server-methods/send.test.ts`
+

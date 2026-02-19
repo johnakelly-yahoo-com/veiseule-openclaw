@@ -77,3 +77,4 @@ Noteringar:
 
 - Använd `--kind user|group|auto` för att tvinga måltyp.
 - Upplösning föredrar aktiva träffar när flera poster delar samma namn.
+

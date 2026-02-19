@@ -260,3 +260,4 @@ free -h
 - [Docker install](/install/docker) — containerized na setup
 - [Tailscale](/gateway/tailscale) — secure na remote access
 - [Configuration](/gateway/configuration) — kumpletong reference ng config
+

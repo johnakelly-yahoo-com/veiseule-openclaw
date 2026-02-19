@@ -53,3 +53,4 @@ Nếu bạn vẫn truyền `--token`, hãy nhớ rằng nó sẽ xuất hiện t
 
 - Endpoint `/v1` tương thích OpenAI; sử dụng API key từ NVIDIA NGC.
 - Provider sẽ tự động bật khi `NVIDIA_API_KEY` được thiết lập; sử dụng cấu hình mặc định tĩnh (cửa sổ ngữ cảnh 131.072 token, tối đa 4.096 token).
+

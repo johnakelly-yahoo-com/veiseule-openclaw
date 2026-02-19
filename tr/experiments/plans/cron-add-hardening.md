@@ -61,3 +61,4 @@ Normalize edilmiş şekil ve örnekler için [Cron jobs](/automation/cron-jobs) 
 
 - `cron.add`, istemcilerden açık `state` kabul etmeli mi (şu anda şema tarafından yasak)?
 - `webchat`’a açık bir teslim sağlayıcısı olarak izin vermeli miyiz (şu anda teslim çözümlemesinde filtreleniyor)?
+

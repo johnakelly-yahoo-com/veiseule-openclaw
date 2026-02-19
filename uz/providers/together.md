@@ -63,3 +63,4 @@ Together AI ko‘plab mashhur open-source modellarga kirishni ta’minlaydi:
 - **Kimi K2 Instruct** - 262K kontekst oynasiga ega yuqori samarali model
 
 Barcha modellar standart chat completions’ni qo‘llab-quvvatlaydi va OpenAI API bilan mos keladi.
+

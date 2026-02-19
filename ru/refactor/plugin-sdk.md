@@ -212,3 +212,4 @@ export type PluginRuntime = {
 - Внешние плагины можно разрабатывать и обновлять без доступа к исходному коду core.
 
 Связанная документация: [Plugins](/tools/plugin), [Channels](/channels/index), [Configuration](/gateway/configuration).
+

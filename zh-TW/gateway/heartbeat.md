@@ -339,3 +339,4 @@ openclaw system event --text "Check for urgent follow-ups" --mode now
 ## 成本考量
 
 心跳會執行完整的代理回合。 39. 較短的間隔會消耗更多權杖。 40. 保持 `HEARTBEAT.md` 精簡，並在只需要內部狀態更新時，考慮使用較便宜的 `model` 或 `target: "none"`。
+

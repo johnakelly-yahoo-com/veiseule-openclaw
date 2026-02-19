@@ -394,3 +394,4 @@ agents.list[].sandbox.prune.* > agents.defaults.sandbox.prune.*
 - [توجيه متعدد الوكلاء](/concepts/multi-agent)
 - [تهيئة Sandbox](/gateway/configuration#agentsdefaults-sandbox)
 - [إدارة الجلسات](/concepts/session)
+

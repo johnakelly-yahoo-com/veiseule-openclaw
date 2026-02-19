@@ -156,3 +156,4 @@ Default ဖိုင်—
 - Raw stream logs များတွင် prompt အပြည့်အစုံ၊ tool output နှင့် user ဒေတာများ ပါဝင်နိုင်သည်။
 - Log များကို local တွင်သာ ထားရှိပြီး debugging ပြီးပါက ဖျက်ပါ။
 - Log များကို မျှဝေပါက secrets နှင့် PII များကို အရင် scrub လုပ်ပါ။
+

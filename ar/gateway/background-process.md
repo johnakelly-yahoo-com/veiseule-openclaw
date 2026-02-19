@@ -94,3 +94,4 @@ title: "أداة التنفيذ في الخلفية وأداة العمليات"
 ```json
 { "tool": "process", "action": "write", "sessionId": "<id>", "data": "y\n" }
 ```
+

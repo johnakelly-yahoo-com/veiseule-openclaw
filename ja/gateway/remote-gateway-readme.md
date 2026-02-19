@@ -156,3 +156,4 @@ launchctl bootout gui/$UID/bot.molt.ssh-tunnel
 | `RunAtLoad`                          | エージェントの読み込み時にトンネルを起動             |
 
 OpenClaw.app はクライアントマシンで `ws://127.0.0.1:18789` に接続します。 SSHトンネルは、ゲートウェイが稼働しているリモートマシンの18789ポートへの接続を転送します。
+

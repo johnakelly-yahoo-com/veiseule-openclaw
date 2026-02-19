@@ -19,3 +19,4 @@ Si quiere un flujo rápido para “desbloquearse”, empiece aquí:
 Si busca preguntas conceptuales (no “algo se rompió”):
 
 - [Preguntas frecuentes (conceptos)](/help/faq)
+

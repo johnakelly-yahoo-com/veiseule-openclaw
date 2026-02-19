@@ -41,3 +41,4 @@ Du kan behålla Gateway i molnet och parkoppla **noder** på dina lokala enheter
 funktioner medan Gateway stannar i molnet.
 
 Dokumentation: [Nodes](/nodes), [Nodes CLI](/cli/nodes)
+

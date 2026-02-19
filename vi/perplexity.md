@@ -78,3 +78,4 @@ Nếu không đặt base URL, OpenClaw sẽ chọn mặc định dựa trên ngu
 - `perplexity/sonar-reasoning-pro` — nghiên cứu chuyên sâu
 
 Xem [Web tools](/tools/web) để biết cấu hình web_search đầy đủ.
+

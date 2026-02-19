@@ -147,3 +147,4 @@ Zie [Gateway-configuratie](/gateway/configuration) voor:
 - `agents.defaults.imageModel` routering
 
 Zie [Modellen](/concepts/models) voor het bredere overzicht van modelselectie en -fallback.
+

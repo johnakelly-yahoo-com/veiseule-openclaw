@@ -109,3 +109,4 @@ API RPC e uma lista completa dos campos de configuração que o assistente grava
 - Visão geral do onboarding: [Onboarding Overview](/start/onboarding-overview)
 - Integração inicial do app macOS: [Onboarding](/start/onboarding)
 - Ritual de primeira execução do agente: [Agent Bootstrapping](/start/bootstrapping)
+

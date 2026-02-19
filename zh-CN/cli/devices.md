@@ -68,3 +68,4 @@ Pass `--token` or `--password` explicitly. Missing explicit credentials is an er
 
 - Token 轮换会返回新 token（敏感信息）。请像对待密钥一样对待它。 Treat it like a secret.
 - 这些命令需要 `operator.pairing`（或 `operator.admin`）scope。
+

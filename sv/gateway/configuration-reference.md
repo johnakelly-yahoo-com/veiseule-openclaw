@@ -2362,3 +2362,4 @@ Dela upp konfigurationen i flera filer:
 ---
 
 _Relaterat: [Configuration](/gateway/configuration) · [Configuration Examples](/gateway/configuration-examples) · [Doctor](/gateway/doctor)_
+

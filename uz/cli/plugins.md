@@ -78,3 +78,4 @@ openclaw plugins update <id> --dry-run
 ```
 
 Yangilanishlar faqat npm’dan o‘rnatilgan ( `plugins.installs` da kuzatiladigan) plaginlarga qo‘llanadi.
+

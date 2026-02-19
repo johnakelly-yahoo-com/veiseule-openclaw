@@ -160,3 +160,4 @@ Default file:
 - 原始串流記錄可能包含完整提示、工具輸出與使用者資料。
 - Keep logs local and delete them after debugging.
 - 若你分享日誌，請先清除祕密資訊與 PII。
+

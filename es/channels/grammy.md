@@ -29,3 +29,4 @@ Preguntas abiertas
 - Plugins opcionales de grammY (limitador) si encontramos errores 429 de la API de Bots.
 - Agregar más pruebas estructuradas de medios (stickers, notas de voz).
 - Hacer configurable el puerto de escucha del webhook (actualmente fijo en 8787 a menos que se conecte a través del Gateway).
+

@@ -105,3 +105,4 @@ If the Gateway runs on a different machine than the browser, run a **node host**
 Avtomatik yo‘naltirishni boshqarish uchun `gateway.nodes.browser.mode`dan va bir nechta node ulangan bo‘lsa, aniq node’ni belgilash uchun `gateway.nodes.browser.node`dan foydalaning.
 
 Xavfsizlik + masofaviy sozlash: [Browser tool](/tools/browser), [Remote access](/gateway/remote), [Tailscale](/gateway/tailscale), [Security](/gateway/security)
+

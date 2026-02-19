@@ -126,3 +126,4 @@ Gate များ—
 ### “ဒါ main လို့ ထင်ထားတာ၊ ဘာလို့ sandboxed ဖြစ်နေလဲ?”
 
 In `"non-main"` mode, group/channel keys are _not_ main. Use the main session key (shown by `sandbox explain`) or switch mode to `"off"`.
+

@@ -532,3 +532,4 @@ Slack asbob harakatlari `channels.slack.actions.*` orqali cheklanishi mumkin:
   `files:write`) mavjudligiga ishonch hosil qiling, aks holda bu amallar bajarilmaydi.
 - [Konfiguratsiya](/gateway/configuration)
 - [Slash buyruqlar](/tools/slash-commands)
+

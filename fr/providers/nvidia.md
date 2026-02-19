@@ -53,3 +53,4 @@ Si vous passez encore `--token`, rappelez-vous qu’il sera enregistré dans l�
 
 - Endpoint `/v1` compatible OpenAI ; utilisez une clé API provenant de NVIDIA NGC.
 - Le fournisseur s’active automatiquement lorsque `NVIDIA_API_KEY` est défini ; utilise des valeurs par défaut statiques (fenêtre de contexte de 131 072 tokens, maximum de 4 096 tokens).
+

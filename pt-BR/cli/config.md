@@ -48,3 +48,4 @@ openclaw config set channels.whatsapp.groups '["*"]' --json
 ```
 
 Reinicie o gateway após as edições.
+

@@ -120,3 +120,4 @@ pakketdocumentatie) en vermeldt ook de publieke mirror, bronrepo, community-Disc
 ClawHub ([https://clawhub.com](https://clawhub.com)) voor Skill-discovery. De prompt instrueert het model om eerst de lokale documentatie te raadplegen
 voor OpenClaw-gedrag, opdrachten, configuratie of architectuur, en om indien mogelijk zelf
 `openclaw status` uit te voeren (alleen de gebruiker te vragen wanneer het geen toegang heeft).
+

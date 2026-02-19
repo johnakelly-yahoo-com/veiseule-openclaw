@@ -32,3 +32,4 @@ openclaw voicecall unexpose
 ```
 
 21. सुरक्षा नोट: webhook endpoint को केवल उन नेटवर्क्स तक ही एक्सपोज़ करें जिन पर आप भरोसा करते हैं। 22. जहाँ संभव हो Funnel की बजाय Tailscale Serve को प्राथमिकता दें।
+

@@ -348,3 +348,4 @@ works with any OpenTelemetry collector/backend that accepts OTLP/HTTP.
 - **لاگز خالی ہیں؟** چیک کریں کہ Gateway چل رہا ہے اور
   `logging.file` میں دیے گئے فائل راستے پر لکھ رہا ہے۔
 - **مزید تفصیل درکار ہے؟** `logging.level` کو `debug` یا `trace` پر سیٹ کریں اور دوبارہ کوشش کریں۔
+

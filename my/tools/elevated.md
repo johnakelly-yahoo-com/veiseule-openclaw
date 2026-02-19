@@ -55,3 +55,4 @@ title: "မြှင့်တင်ထားသော မုဒ်"
 
 - Elevated exec ခေါ်ယူမှုများကို info level ဖြင့် မှတ်တမ်းတင်ထားသည်။
 - ဆက်ရှင် status တွင် elevated မုဒ် ပါဝင်သည် (ဥပမာ `elevated=ask`, `elevated=full`)။
+

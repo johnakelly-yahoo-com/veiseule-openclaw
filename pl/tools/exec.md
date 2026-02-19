@@ -180,3 +180,4 @@ Uwagi:
 - Polityka narzędzi nadal obowiązuje; `allow: ["exec"]` domyślnie zezwala na `apply_patch`.
 - Konfiguracja znajduje się pod `tools.exec.applyPatch`.
 - `tools.exec.applyPatch.workspaceOnly` domyślnie ma wartość `true` (ograniczone do workspace). Ustaw na `false` tylko jeśli celowo chcesz, aby `apply_patch` zapisywał/usuwał poza katalogiem workspace.
+

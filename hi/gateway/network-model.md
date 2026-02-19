@@ -18,3 +18,4 @@ title: "नेटवर्क मॉडल"
   - `/__openclaw__/a2ui/`
     जब `gateway.auth` कॉन्फ़िगर किया गया हो और Gateway loopback से आगे बाइंड हो, तो ये रूट्स Gateway auth द्वारा सुरक्षित होते हैं (loopback अनुरोध अपवाद हैं)। [Gateway configuration](/gateway/configuration) (`canvasHost`, `gateway`) देखें।
 - रिमोट उपयोग सामान्यतः SSH टनल या tailnet VPN होता है। [Remote access](/gateway/remote) और [Discovery](/gateway/discovery) देखें।
+

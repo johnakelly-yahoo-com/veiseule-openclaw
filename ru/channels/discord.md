@@ -692,3 +692,4 @@ openclaw logs --follow
 - Управление каналами/категориями
 - [Troubleshooting](/channels/troubleshooting)
 - Полный список команд и конфиг: [Slash commands](/tools/slash-commands)
+

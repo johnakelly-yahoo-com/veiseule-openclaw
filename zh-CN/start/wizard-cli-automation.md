@@ -167,3 +167,4 @@ Notes:
 - Onboarding hub: [Onboarding Wizard (CLI)](/start/wizard)
 - Full reference: [CLI Onboarding Reference](/start/wizard-cli-reference)
 - Command reference: [`openclaw onboard`](/cli/onboard)
+

@@ -219,3 +219,4 @@ Gateway behandlar dessa som **anspråk** och upprätthåller tillåtelselistor p
 Detta protokoll exponerar **hela gateway API** (status, kanaler, modeller, chatt,
 agent, sessioner, noder, godkännanden, etc.). Den exakta ytan definieras av scheman
 TypeBox i `src/gateway/protocol/schema.ts`.
+

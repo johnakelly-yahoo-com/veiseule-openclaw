@@ -63,3 +63,4 @@ Together AI သည် လူကြိုက်များသော open-source 
 - **Kimi K2 Instruct** - 262K context window ပါဝင်သော စွမ်းဆောင်ရည်မြင့် မော်ဒယ်
 
 မော်ဒယ်အားလုံးသည် စံချိန်မီ chat completions ကို ထောက်ပံ့ပေးပြီး OpenAI API နှင့် ကိုက်ညီပါသည်။
+

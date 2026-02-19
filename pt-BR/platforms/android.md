@@ -149,3 +149,4 @@ Comandos da câmera (somente em primeiro plano; com permissão):
 - `camera.clip` (mp4)
 
 Veja [Nó de câmera](/nodes/camera) para parametros e helpers da CLI.
+

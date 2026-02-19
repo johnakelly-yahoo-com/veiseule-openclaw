@@ -27,3 +27,4 @@ Kurulumu kullanarak sihirbazı çalıştırmak için:
 ```bash
 openclaw setup --wizard
 ```
+

@@ -513,3 +513,4 @@ gcloud compute instances start openclaw-gateway --zone=us-central1-a
 - ตั้งค่าช่องทางการส่งข้อความ: [Channels](/channels)
 - จับคู่อุปกรณ์ภายในเครื่องเป็นโหนด: [Nodes](/nodes)
 - กำหนดค่าGateway: [Gateway configuration](/gateway/configuration)
+

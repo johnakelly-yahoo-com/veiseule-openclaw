@@ -68,3 +68,4 @@ Passera `--token` eller` --lösenord` explicit. Saknar explicita referenser är 
 
 - Token rotation returnerar en ny token (känslig). Behandla det som en hemlighet.
 - Dessa kommandon kräver `operator.pairing`-scope (eller `operator.admin`).
+

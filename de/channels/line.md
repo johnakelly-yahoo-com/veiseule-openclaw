@@ -187,3 +187,4 @@ Presets:
   `channels.line.webhookPath` übereinstimmt und dass das Gateway von LINE erreichbar ist.
 - **Fehler beim Medien-Download:** Erhöhen Sie `channels.line.mediaMaxMb`, wenn Medien die
   Standardbegrenzung überschreiten.
+

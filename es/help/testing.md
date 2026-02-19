@@ -379,3 +379,4 @@ Cuando corrige un problema de proveedor/modelo descubierto en live:
 - Prefiera apuntar a la capa más pequeña que capture el error:
   - error de conversión/reproducción de solicitud del proveedor → prueba de modelos directos
   - error del pipeline de sesión/historial/herramientas del gateway → humo live del gateway o prueba simulada del gateway segura para CI
+

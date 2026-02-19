@@ -134,3 +134,4 @@ Forklaring:
 
 - `preview message`: midlertidig Telegram-besked, der opdateres under generering.
 - `final edit`: redigering på stedet af den samme preview-besked (kun tekst).
+

@@ -280,3 +280,4 @@ openclaw cron add \
 - [Heartbeat](/gateway/heartbeat) - configuration complète de heartbeat
 - [Cron jobs](/automation/cron-jobs) - référence complète CLI et API des tâches cron
 - [System](/cli/system) - événements système + contrôles de heartbeat
+

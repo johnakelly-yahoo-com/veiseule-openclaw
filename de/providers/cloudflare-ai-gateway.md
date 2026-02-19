@@ -69,3 +69,4 @@ Wenn Sie die Gateway-Authentifizierung in Cloudflare aktiviert haben, fügen Sie
 ## Umgebungshinweis
 
 Wenn das Gateway als Daemon läuft (launchd/systemd), stellen Sie sicher, dass `CLOUDFLARE_AI_GATEWAY_API_KEY` für diesen Prozess verfügbar ist (zum Beispiel in `~/.openclaw/.env` oder über `env.shellEnv`).
+

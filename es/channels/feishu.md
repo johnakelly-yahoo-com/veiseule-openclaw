@@ -578,3 +578,4 @@ Opciones clave:
 - ✅ Archivos
 - ✅ Audio
 - ⚠️ Texto enriquecido (soporte parcial)
+

@@ -265,3 +265,4 @@ Kung lilipat ka mula sa token auth patungong trusted-proxy:
 - [Configuration](/gateway/configuration) — sanggunian ng config
 - [Remote Access](/gateway/remote) — iba pang mga pattern ng remote access
 - [Tailscale](/gateway/tailscale) — mas simpleng alternatibo para sa tailnet-only access
+

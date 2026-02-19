@@ -265,3 +265,4 @@ Hvis du skifter fra token-godkendelse til trusted-proxy:
 - [Configuration](/gateway/configuration) — konfigurationsreference
 - [Remote Access](/gateway/remote) — andre mønstre for fjernadgang
 - [Tailscale](/gateway/tailscale) — enklere alternativ til kun tailnet-adgang
+

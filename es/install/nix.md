@@ -96,3 +96,4 @@ empaquetado con SwiftPM y las compilaciones con Nix (que no dependen de un toolc
 - [nix-openclaw](https://github.com/openclaw/nix-openclaw) — guía completa de configuración
 - [Wizard](/start/wizard) — configuración de la CLI sin Nix
 - [Docker](/install/docker) — configuración en contenedores
+

@@ -296,3 +296,4 @@ For triage flow: [/channels/troubleshooting](/channels/troubleshooting).
 - `channels.matrix.autoJoinAllowlist`：自动加入的允许房间 ID/别名。
 - `channels.matrix.accounts`：按账户 ID 进行键控的多账户配置（每个账户继承顶层设置）。
 - `channels.matrix.actions`：每个操作的工具限制（reactions/messages/pins/memberInfo/channelInfo）。
+

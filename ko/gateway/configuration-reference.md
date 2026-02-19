@@ -2362,3 +2362,4 @@ Config를 여러 파일로 분할:
 ---
 
 _관련: [Configuration](/gateway/configuration) · [Configuration Examples](/gateway/configuration-examples) · [Doctor](/gateway/doctor)_
+

@@ -115,3 +115,4 @@ openclaw channels status --probe
 | 暗号化ルームで失敗する           | 暗号化モジュールと暗号化設定を確認                  | 暗号化サポートを有効化し、ルームに再参加／再同期します。   |
 
 完全なトラブルシューティング: [/channels/matrix#troubleshooting](/channels/matrix#troubleshooting)
+

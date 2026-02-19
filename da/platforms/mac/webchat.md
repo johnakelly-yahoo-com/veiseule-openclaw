@@ -42,3 +42,4 @@ agent (med en session switcher for andre sessioner).
 ## Kendte begrænsninger
 
 - UI’et er optimeret til chatsessioner (ikke en fuld browser-sandbox).
+

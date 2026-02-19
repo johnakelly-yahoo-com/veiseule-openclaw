@@ -48,3 +48,4 @@ title: "WebChat"
 - `gateway.auth.mode: "trusted-proxy"`：用于浏览器客户端的反向代理认证（参见 [Trusted Proxy Auth](/gateway/trusted-proxy-auth)）。
 - `gateway.remote.url`、`gateway.remote.token`、`gateway.remote.password`：远程 Gateway 网关目标。
 - `session.*`：会话存储和主键默认值。
+

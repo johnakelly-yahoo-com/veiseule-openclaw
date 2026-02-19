@@ -372,3 +372,4 @@ L’invite système de l’agent inclut une introduction de groupe au premier to
 ## Spécificités WhatsApp
 
 Voir [Messages de groupe](/channels/group-messages) pour le comportement propre à WhatsApp (injection d’historique, détails de gestion des mentions).
+

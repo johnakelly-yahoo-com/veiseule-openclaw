@@ -283,3 +283,4 @@ Este repositorio incluye un documento de skill correspondiente en `skills/voice-
 - `voicecall.speak` (`callId`, `message`)
 - `voicecall.end` (`callId`)
 - `voicecall.status` (`callId`)
+

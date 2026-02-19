@@ -82,3 +82,4 @@ Kun ejeren nummer (fra `channels.whatsapp.allowFrom`, eller bot’s egen E.164 n
 - Ekko-undertrykkelse bruger den samlede batch-streng; hvis du sender identisk tekst to gange uden omtaler, får kun den første et svar.
 - Session store-poster vil fremstå som `agent:<agentId>:whatsapp:group:<jid>` i session store (`~/.openclaw/agents/<agentId>/sessions/sessions.json` som standard); en manglende post betyder blot, at gruppen endnu ikke har udløst et run.
 - Skriveindikatorer i grupper følger `agents.defaults.typingMode` (standard: `message` når der ikke er omtalt).
+

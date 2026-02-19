@@ -488,3 +488,4 @@ Priorite :
 - [Dépannage](/channels/troubleshooting)
 - [Configuration](/gateway/configuration)
 - Liste complete des commandes + configuration : [Slash commands](/tools/slash-commands)
+

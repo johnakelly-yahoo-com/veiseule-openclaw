@@ -265,3 +265,4 @@ Als je overstapt van token-auth naar trusted-proxy:
 - [Configuration](/gateway/configuration) — configuratiereferentie
 - [Remote Access](/gateway/remote) — andere patronen voor externe toegang
 - [Tailscale](/gateway/tailscale) — eenvoudiger alternatief voor alleen tailnet-toegang
+

@@ -253,3 +253,4 @@ export CLAWHUB_DISABLE_TELEMETRY=1
 - `CLAWHUB_CONFIG_PATH`：覆寫 CLI 儲存權杖／設定的位置。
 - `CLAWHUB_WORKDIR`：覆寫預設 workdir。
 - `CLAWHUB_DISABLE_TELEMETRY=1`：在 `sync` 上停用遙測。
+

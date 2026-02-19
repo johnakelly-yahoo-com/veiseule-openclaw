@@ -81,3 +81,4 @@ openclaw nodes notify --node <id> --title "Ping" --body "Remote gateway ready" -
 ```
 
 앱에는 더 이상 전역 '기본 사운드' 토글이 없습니다. 호출자는 요청별로 사운드(또는 무음)를 선택합니다.
+

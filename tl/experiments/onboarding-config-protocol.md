@@ -38,3 +38,4 @@ Mga response (hugis)
 ## Mga Tala
 
 - Ang dokumentong ito ang iisang lugar para subaybayan ang mga protocol refactor para sa onboarding/config.
+

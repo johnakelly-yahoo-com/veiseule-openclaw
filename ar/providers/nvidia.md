@@ -53,3 +53,4 @@ openclaw models set nvidia/nvidia/llama-3.1-nemotron-70b-instruct
 
 - نقطة نهاية `/v1` متوافقة مع OpenAI؛ استخدم مفتاح API من NVIDIA NGC.
 - يتم تفعيل المزود تلقائيًا عند تعيين `NVIDIA_API_KEY`؛ ويستخدم إعدادات افتراضية ثابتة (نافذة سياق 131,072 توكن، وحد أقصى 4,096 توكن).
+

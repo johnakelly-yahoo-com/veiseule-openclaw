@@ -49,3 +49,4 @@ kreatorze CLI. Zostaniesz poproszony o:
 - Wybranie identyfikatora Endpoint, aby wiele niestandardowych endpointów mogło współistnieć.
 
 Aby uzyskać szczegółowe instrukcje, skorzystaj z dokumentacji wdrożenia CLI powyżej.
+

@@ -105,3 +105,4 @@ Quando definido, `OPENCLAW_HOME` substitui o diretório home do sistema (`$HOME`
 - [Configuração do Gateway](/gateway/configuration)
 - [Perguntas frequentes: variáveis de ambiente e carregamento de .env](/help/faq#env-vars-and-env-loading)
 - [Visão geral de modelos](/concepts/models)
+

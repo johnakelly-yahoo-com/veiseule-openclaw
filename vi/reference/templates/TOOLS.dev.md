@@ -22,3 +22,4 @@ It does not define which tools exist; OpenClaw provides built-in tools internall
 - Chuyển văn bản thành giọng nói: chỉ định giọng, người nói/phòng mục tiêu, và có phát trực tuyến hay không.
 
 Thêm bất cứ điều gì khác mà bạn muốn trợ lý biết về bộ công cụ cục bộ của mình.
+

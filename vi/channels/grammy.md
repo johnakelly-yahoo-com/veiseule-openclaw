@@ -29,3 +29,4 @@ Câu hỏi còn mở
 - Plugin grammY tùy chọn (throttler) nếu gặp lỗi 429 từ Bot API.
 - Bổ sung kiểm thử media có cấu trúc hơn (sticker, ghi chú thoại).
 - Cho phép cấu hình cổng lắng nghe webhook (hiện cố định 8787 trừ khi nối qua gateway).
+

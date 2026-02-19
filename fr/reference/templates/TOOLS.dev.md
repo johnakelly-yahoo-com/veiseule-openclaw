@@ -22,3 +22,4 @@ Il ne définit pas quels outils existent ; OpenClaw fournit des outils intégré
 - Text-to-speech: spécifie la voix, le haut-parleur/la salle cible et le flux de flux.
 
 Ajoutez tout autre élément que vous souhaitez que l’assistant connaisse à propos de votre chaîne d’outils locale.
+

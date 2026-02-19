@@ -90,3 +90,4 @@ curl http://127.0.0.1:8000/v1/models
 ```
 
 - Agar so‘rovlar autentifikatsiya xatolari bilan muvaffaqiyatsiz tugasa, server konfiguratsiyangizga mos haqiqiy `VLLM_API_KEY` ni o‘rnating yoki providerni `models.providers.vllm` ostida aniq sozlang.
+

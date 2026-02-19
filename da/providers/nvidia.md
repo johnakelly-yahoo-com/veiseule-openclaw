@@ -53,3 +53,4 @@ Hvis du stadig angiver `--token`, så husk at den gemmes i shell-historikken og 
 
 - OpenAI-kompatibelt `/v1`-endpoint; brug en API-nøgle fra NVIDIA NGC.
 - Provideren aktiveres automatisk, når `NVIDIA_API_KEY` er sat; bruger statiske standardværdier (131.072-token kontekstvindue, 4.096 maks. tokens).
+

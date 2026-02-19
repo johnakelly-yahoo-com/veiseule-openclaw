@@ -231,3 +231,4 @@ docker run -p 7777:7777 ghcr.io/hoytech/strfry
 - Messages privés uniquement (pas de discussions de groupe).
 - Pas de pièces jointes multimédia.
 - NIP-04 uniquement (NIP-17 « gift-wrap » planifié).
+

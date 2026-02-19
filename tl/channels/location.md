@@ -54,3 +54,4 @@ Kapag may lokasyon, idinaragdag ang mga field na ito sa `ctx`:
 - **Telegram**: ang mga venue ay minamapa sa `LocationName/LocationAddress`; ang mga live location ay gumagamit ng `live_period`.
 - **WhatsApp**: ang `locationMessage.comment` at `liveLocationMessage.caption` ay idinadagdag bilang caption line.
 - **Matrix**: ang `geo_uri` ay bina-parse bilang pin location; binabalewala ang altitude at ang `LocationIsLive` ay palaging false.
+

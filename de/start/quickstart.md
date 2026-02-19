@@ -22,3 +22,4 @@ Der Schnellstart ist jetzt Teil von [Erste Schritte](/start/getting-started).
   
 </Card>
 </Columns>
+

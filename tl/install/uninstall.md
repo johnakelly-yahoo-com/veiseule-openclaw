@@ -126,3 +126,4 @@ Kung tumatakbo ka mula sa repo checkout (`git clone` + `openclaw ...` / `bun run
 1. I-uninstall ang gateway service **bago** burahin ang repo (gamitin ang madaling ruta sa itaas o manwal na pag-alis ng service).
 2. Burahin ang repo directory.
 3. Alisin ang state + workspace gaya ng ipinakita sa itaas.
+

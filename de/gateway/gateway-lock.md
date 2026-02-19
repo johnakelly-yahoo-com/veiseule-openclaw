@@ -32,3 +32,4 @@ Zuletzt aktualisiert: 2025-12-11
 
 - Ist der Port von einem _anderen_ Prozess belegt, ist der Fehler derselbe; geben Sie den Port frei oder wählen Sie einen anderen mit `openclaw gateway --port <port>`.
 - Die macOS-App unterhält weiterhin einen eigenen, leichtgewichtigen PID-Schutz, bevor sie das Gateway startet; die Laufzeitsperre wird durch das Binden des WebSocket-Listeners durchgesetzt.
+

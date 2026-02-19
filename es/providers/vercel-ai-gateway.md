@@ -48,3 +48,4 @@ openclaw onboard --non-interactive \
 Si el Gateway se ejecuta como un demonio (launchd/systemd), asegúrese de que `AI_GATEWAY_API_KEY`
 esté disponible para ese proceso (por ejemplo, en `~/.openclaw/.env` o mediante
 `env.shellEnv`).
+

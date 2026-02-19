@@ -213,3 +213,4 @@ I-override lamang kung kinakailangan (karaniwan: absolute na `command` path).
 - **Walang continuity ng session**: tiyaking nakatakda ang `sessionArg` at ang `sessionMode` ay hindi
   `none` (sa kasalukuyan, hindi kayang mag-resume ng Codex CLI gamit ang JSON output).
 - **Hindi pinapansin ang images**: itakda ang `imageArg` (at tiyaking sinusuportahan ng CLI ang mga file path).
+

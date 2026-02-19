@@ -135,3 +135,4 @@ Hinweise:
 
 - Das Profil `chrome` verwendet nach Möglichkeit Ihren **systemweiten Standard-Chromium-Browser**.
 - Lokale Profile `openclaw` weisen `cdpPort`/`cdpUrl` automatisch zu; setzen Sie diese nur für Remote-CDP.
+

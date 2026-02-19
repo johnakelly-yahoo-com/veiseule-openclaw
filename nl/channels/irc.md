@@ -232,3 +232,4 @@ Standaardaccount ondersteunt:
 - Als de bot verbinding maakt maar nooit antwoordt in kanalen, controleer dan `channels.irc.groups` **en** of mention-gating berichten blokkeert (`missing-mention`). Als je wilt dat hij zonder pings antwoordt, stel dan `requireMention:false` in voor het kanaal.
 - Als inloggen mislukt, controleer dan de beschikbaarheid van de nick en het serverwachtwoord.
 - Als TLS mislukt op een aangepast netwerk, controleer dan host/poort en de certificaatconfiguratie.
+

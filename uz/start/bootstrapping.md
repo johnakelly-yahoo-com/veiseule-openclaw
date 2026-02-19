@@ -34,3 +34,4 @@ Gateway boshqa mashinada ishlayotgan bo‘lsa, ish maydoni fayllarini gateway xo
 
 - 16. macOS ilovasini onboarding qilish: [Onboarding](/start/onboarding)
 - 17. Ish maydoni tuzilishi: [Agent workspace](/concepts/agent-workspace)
+

@@ -484,3 +484,4 @@ fly ssh console -a my-openclaw
 - تتضمن الطبقة المجانية بعض المخصصات
 
 راجع [تسعير Fly.io](https://fly.io/docs/about/pricing/) للتفاصيل.
+

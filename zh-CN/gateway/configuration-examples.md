@@ -604,3 +604,4 @@ title: "配置示例"
 - 提供商 ID 各不相同（电话号码、用户 ID、频道 ID）。使用提供商文档确认格式。 Use the provider docs to confirm the format.
 - 稍后添加的可选部分：`web`、`browser`、`ui`、`discovery`、`canvasHost`、`talk`、`signal`、`imessage`。
 - 参阅[提供商](/channels/whatsapp)和[故障排除](/gateway/troubleshooting)了解更深入的设置说明。
+

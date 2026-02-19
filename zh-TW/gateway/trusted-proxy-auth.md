@@ -265,3 +265,4 @@ location / {
 - [Configuration](/gateway/configuration) — 設定參考
 - [Remote Access](/gateway/remote) — 其他遠端存取模式
 - [Tailscale](/gateway/tailscale) — 僅限 tailnet 存取的更簡單替代方案
+

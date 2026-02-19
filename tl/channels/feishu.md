@@ -578,3 +578,4 @@ Mga pangunahing opsyon:
 - ✅ Files
 - ✅ Audio
 - ⚠️ Rich text (bahagyang suporta)
+

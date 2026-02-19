@@ -377,3 +377,4 @@ Ví dụ:
 - **500 ký tự** mỗi tin nhắn (tự động chia đoạn theo ranh giới từ)
 - Markdown sẽ bị loại bỏ trước khi chia đoạn
 - Không giới hạn tốc độ (sử dụng giới hạn tốc độ tích hợp của Twitch)
+

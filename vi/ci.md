@@ -49,3 +49,4 @@ pnpm test           # vitest tests
 pnpm check:docs     # định dạng + lint tài liệu + liên kết hỏng
 pnpm release:check  # xác thực npm pack
 ```
+

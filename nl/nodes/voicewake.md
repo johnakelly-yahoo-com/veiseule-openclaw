@@ -63,3 +63,4 @@ Wie ontvangt het:
 
 - Biedt een Wake Words-editor in Instellingen.
 - Roept `voicewake.set` aan via de Gateway WS zodat bewerkingen overal synchroniseren.
+

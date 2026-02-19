@@ -111,3 +111,4 @@ Eslatmalar:
 - Foydalanayotganda: “Faqat OpenClaw ochiq bo‘lganda.”
 - Doimiy: “Fon joylashuviga ruxsat bering. Tizim ruxsati talab qilinadi.”
 - Aniq: “Aniq GPS joylashuvdan foydalaning. Taxminiy joylashuvni ulash uchun o‘chiring.”
+

@@ -279,3 +279,4 @@ Pour un fonctionnement réellement continu, envisagez un Mac mini dédié ou un 
 - [Lume CLI Reference](https://cua.ai/docs/lume/reference/cli-reference)
 - [Unattended VM Setup](https://cua.ai/docs/lume/guide/fundamentals/unattended-setup) (avancé)
 - [Docker Sandboxing](/install/docker) (approche alternative d’isolation)
+

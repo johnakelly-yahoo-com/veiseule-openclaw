@@ -753,3 +753,4 @@ Telegram-spezifische High-Signal-Felder:
 - Details: [Pairing](/channels/pairing)
 - More details: [Pairing](/channels/pairing#pair-via-telegram-recommended-for-ios).
 - Setup-Fehlerbehebung (Befehle)
+

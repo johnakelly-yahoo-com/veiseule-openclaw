@@ -265,3 +265,4 @@ Token auth’tan trusted-proxy’ye geçiyorsanız:
 - [Configuration](/gateway/configuration) — yapılandırma referansı
 - [Remote Access](/gateway/remote) — diğer uzaktan erişim modelleri
 - [Tailscale](/gateway/tailscale) — yalnızca tailnet erişimi için daha basit alternatif
+

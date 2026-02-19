@@ -157,3 +157,4 @@ Para servidores sempre ativos ou multiusuário, considere um serviço de **siste
 - [Discord](/channels/discord) e [Telegram](/channels/telegram) (tags de resposta + configurações de replyToMode)
 - [Configuração do assistente OpenClaw](/start/openclaw)
 - [App do macOS](/platforms/macos) (ciclo de vida do gateway)
+

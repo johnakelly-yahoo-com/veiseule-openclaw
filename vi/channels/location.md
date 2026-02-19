@@ -54,3 +54,4 @@ Khi có vị trí, các trường sau được thêm vào `ctx`:
 - **Telegram**: địa điểm được ánh xạ tới `LocationName/LocationAddress`; vị trí trực tiếp dùng `live_period`.
 - **WhatsApp**: `locationMessage.comment` và `liveLocationMessage.caption` được nối như dòng chú thích.
 - **Matrix**: `geo_uri` được phân tích như vị trí ghim; độ cao bị bỏ qua và `LocationIsLive` luôn là false.
+

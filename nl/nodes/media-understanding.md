@@ -375,3 +375,4 @@ Dit toont per-capability resultaten en, waar van toepassing, de gekozen provider
 
 - [Configuratie](/gateway/configuration)
 - [Beeld- & media-ondersteuning](/nodes/images)
+

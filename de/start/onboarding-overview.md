@@ -47,3 +47,4 @@ Wenn du einen Endpunkt benötigst, der nicht aufgeführt ist – einschließlich
 - Eine Endpoint-ID auszuwählen, damit mehrere benutzerdefinierte Endpunkte koexistieren können.
 
 Für detaillierte Schritte folge der oben verlinkten CLI-Onboarding-Dokumentation.
+

@@ -43,3 +43,4 @@ Hinweise:
 - `memory status --deep --index` führt eine Neuindizierung aus, wenn der Store „dirty“ ist.
 - `memory index --verbose` gibt Details pro Phase aus (Anbieter, Modell, Quellen, Batch-Aktivität).
 - `memory status` schließt alle zusätzlichen Pfade ein, die über `memorySearch.extraPaths` konfiguriert sind.
+

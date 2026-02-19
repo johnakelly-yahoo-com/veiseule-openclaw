@@ -2362,3 +2362,4 @@ Auth: `Authorization: Bearer <token>` หรือ `x-openclaw-token: <token>`
 ---
 
 _ที่เกี่ยวข้อง: [Configuration](/gateway/configuration) · [Configuration Examples](/gateway/configuration-examples) · [Doctor](/gateway/doctor)_
+

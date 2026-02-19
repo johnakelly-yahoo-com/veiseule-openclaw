@@ -604,3 +604,4 @@ If more than one person can DM your bot (multiple entries in `allowFrom`, pairin
 - Provayder IDlari farq qiladi (telefon raqamlari, foydalanuvchi IDlari, kanal IDlari). Formatni tasdiqlash uchun provayder hujjatlaridan foydalaning.
 - Keyinroq qo‘shish mumkin bo‘lgan ixtiyoriy bo‘limlar: `web`, `browser`, `ui`, `discovery`, `canvasHost`, `talk`, `signal`, `imessage`.
 - Batafsil sozlash eslatmalari uchun [Providers](/channels/whatsapp) va [Troubleshooting](/gateway/troubleshooting) bo‘limlariga qarang.
+

@@ -231,3 +231,4 @@ docker run -p 7777:7777 ghcr.io/hoytech/strfry
 - Endast direktmeddelanden (inga gruppchattar).
 - Inga media-bilagor.
 - Endast NIP-04 (NIP-17 presentinslagning planeras).
+

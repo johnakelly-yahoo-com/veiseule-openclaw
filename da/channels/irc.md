@@ -232,3 +232,4 @@ Standardkonto understøtter:
 - Hvis botten forbinder, men aldrig svarer i kanaler, skal du kontrollere `channels.irc.groups` **og** om mention-gating filtrerer beskeder fra (`missing-mention`). Hvis du vil have den til at svare uden pings, skal du sætte `requireMention:false` for kanalen.
 - Hvis login mislykkes, skal du kontrollere nickets tilgængelighed og serveradgangskoden.
 - Hvis TLS mislykkes på et brugerdefineret netværk, skal du kontrollere host/port og certifikatopsætningen.
+

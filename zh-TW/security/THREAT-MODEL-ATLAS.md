@@ -601,3 +601,4 @@ T-EXEC-002 → T-EXFIL-001 → External exfiltration
 ---
 
 _此威脅模型是一份持續更新的文件。_ 32. 將安全問題回報至 security@openclaw.ai_
+

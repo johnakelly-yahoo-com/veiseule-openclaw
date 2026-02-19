@@ -26,3 +26,4 @@ openclaw security audit --fix
 13. यह तब भी चेतावनी देता है जब छोटे मॉडल (`<=300B`) बिना सैंडबॉक्सिंग और वेब/ब्राउज़र टूल्स सक्षम होने पर उपयोग किए जाते हैं।
     webhook ingress के लिए, यह चेतावनी देता है जब `hooks.defaultSessionKey` सेट नहीं है, जब request `sessionKey` overrides सक्षम हैं, और जब `hooks.allowedSessionKeyPrefixes` के बिना overrides सक्षम हैं।
     यह तब भी चेतावनी देता है जब sandbox mode बंद होने पर sandbox Docker settings कॉन्फ़िगर की गई हों, जब `gateway.nodes.denyCommands` अप्रभावी pattern-जैसी/अज्ञात entries का उपयोग करता हो, जब global `tools.profile="minimal"` को agent tool profiles द्वारा override किया गया हो, और जब permissive tool policy के अंतर्गत installed extension plugin tools सुलभ हो सकते हों।
+

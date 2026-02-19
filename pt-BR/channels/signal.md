@@ -322,3 +322,4 @@ Opções globais relacionadas:
 - `agents.list[].groupChat.mentionPatterns` (o Signal não oferece suporte a menções nativas).
 - `messages.groupChat.mentionPatterns` (fallback global).
 - `messages.responsePrefix`.
+

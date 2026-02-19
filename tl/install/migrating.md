@@ -190,3 +190,4 @@ Sa bagong makina, tiyakin na:
 - [Doctor](/gateway/doctor)
 - [Pag-troubleshoot ng Gateway](/gateway/troubleshooting)
 - [Saan iniimbak ng OpenClaw ang data nito?](/help/faq#where-does-openclaw-store-its-data)
+

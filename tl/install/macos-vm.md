@@ -279,3 +279,4 @@ Para sa tunay na laging-on, isaalang-alang ang isang dedicated Mac mini o isang 
 - [Lume CLI Reference](https://cua.ai/docs/lume/reference/cli-reference)
 - [Unattended VM Setup](https://cua.ai/docs/lume/guide/fundamentals/unattended-setup) (advanced)
 - [Docker Sandboxing](/install/docker) (alternatibong approach sa isolation)
+

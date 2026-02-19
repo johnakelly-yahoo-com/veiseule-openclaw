@@ -212,3 +212,4 @@ Noteringar:
 - Externa plugins kan utvecklas och uppdateras utan åtkomst till core‑källkod.
 
 Relaterad dokumentation: [Plugins](/tools/plugin), [Channels](/channels/index), [Configuration](/gateway/configuration).
+

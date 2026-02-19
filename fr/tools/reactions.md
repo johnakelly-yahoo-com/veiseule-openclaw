@@ -20,3 +20,4 @@ Notes par canal :
 - **Telegram** : un `emoji` vide supprime les reactions du bot ; `remove: true` supprime egalement les reactions mais requiert toujours un `emoji` non vide pour la validation de l'outil.
 - **WhatsApp** : un `emoji` vide supprime la reaction du bot ; `remove: true` correspond a un emoji vide (necessite toujours `emoji`).
 - **Signal** : les notifications de reaction entrantes emettent des evenements systeme lorsque `channels.signal.reactionNotifications` est active.
+

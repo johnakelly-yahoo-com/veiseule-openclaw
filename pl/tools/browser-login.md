@@ -65,3 +65,4 @@ openclaw browser open https://x.com --browser-profile openclaw --target host
 ```
 
 Alternatywnie wyłącz sandboxing dla agenta, który publikuje aktualizacje.
+

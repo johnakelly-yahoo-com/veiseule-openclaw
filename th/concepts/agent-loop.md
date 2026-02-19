@@ -149,3 +149,4 @@ OpenClaw มีระบบ hook สองแบบ:
 - AbortSignal (ยกเลิก)
 - การตัดการเชื่อมต่อของ Gateway หรือ RPC timeout
 - `agent.wait` timeout (เฉพาะการรอ ไม่ได้หยุดเอเจนต์)
+

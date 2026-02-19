@@ -32,3 +32,4 @@ title: "Bloqueo del Gateway"
 
 - Si el puerto está ocupado por _otro_ proceso, el error es el mismo; libere el puerto o elija otro con `openclaw gateway --port <port>`.
 - La aplicación de macOS aún mantiene su propia protección ligera de PID antes de iniciar el gateway; el bloqueo en tiempo de ejecución se aplica mediante el enlace WebSocket.
+

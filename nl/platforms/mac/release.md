@@ -83,3 +83,4 @@ Commit de bijgewerkte `appcast.xml` samen met de release-artefacten (zip + dSYM)
   - Voer op een eerdere publieke build “Check for Updates…” uit via het tabblad About en verifieer dat Sparkle de nieuwe build probleemloos installeert.
 
 Definition of done: ondertekende app + appcast zijn gepubliceerd, de updateflow werkt vanuit een oudere geïnstalleerde versie en release-artefacten zijn gekoppeld aan de GitHub-release.
+

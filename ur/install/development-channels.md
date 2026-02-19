@@ -73,3 +73,4 @@ Beta and dev builds may **not** include a macOS app release. That’s OK:
 
 - git ٹیگ اور npm dist-tag پھر بھی شائع کیے جا سکتے ہیں۔
 - ریلیز نوٹس یا چینج لاگ میں “اس بیٹا کے لیے macOS بلڈ نہیں” کی وضاحت کریں۔
+

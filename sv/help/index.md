@@ -19,3 +19,4 @@ Om du vill ha ett snabbt flöde för att ”komma loss”, börja här:
 Om du söker konceptuella frågor (inte ”något gick sönder”):
 
 - [Vanliga frågor (koncept)](/help/faq)
+

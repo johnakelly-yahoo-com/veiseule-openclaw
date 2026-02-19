@@ -45,3 +45,4 @@ Listede yer almayan bir uç noktaya ihtiyacınız varsa, standart OpenAI veya An
 - Bir Endpoint ID seçin; böylece birden fazla özel endpoint birlikte var olabilir.
 
 Ayrıntılı adımlar için yukarıdaki CLI onboarding belgelerini izleyin.
+

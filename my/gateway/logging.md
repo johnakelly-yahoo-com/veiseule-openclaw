@@ -110,3 +110,4 @@ Subsystem logger များသည် output ကို အုပ်စုလိ
 - **WhatsApp message bodies** ကို `debug` တွင် log လုပ်ထားသည် (`--verbose` ကို အသုံးပြု၍ ကြည့်ရှုနိုင်သည်)
 
 ဤနည်းဖြင့် ရှိပြီးသား file logs များကို တည်ငြိမ်စေထားစဉ် interactive output ကိုလည်း စစ်ဆေးဖတ်ရှုရ လွယ်ကူစေသည်။
+

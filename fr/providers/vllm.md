@@ -90,3 +90,4 @@ curl http://127.0.0.1:8000/v1/models
 ```
 
 - Si les requêtes échouent avec des erreurs d’authentification, définissez une véritable `VLLM_API_KEY` correspondant à la configuration de votre serveur, ou configurez explicitement le fournisseur sous `models.providers.vllm`.
+

@@ -70,3 +70,4 @@ O canal WhatsApp funciona via **Baileys Web**. Este documento registra as regras
 - Cobrir fluxos de envio + resposta para casos de imagem/áudio/documento.
 - Validar recompressão para imagens (limite de tamanho) e a flag de nota de voz para áudio.
 - Garantir que respostas com múltiplas mídias sejam distribuídas como envios sequenciais.
+

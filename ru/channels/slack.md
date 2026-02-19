@@ -497,3 +497,4 @@ openclaw pairing list slack
 - схему триажа: [/channels/troubleshooting](/channels/troubleshooting).
 - [Конфигурация](/gateway/configuration)
 - Полный список команд и конфигурация: [Slash commands](/tools/slash-commands)
+

@@ -412,3 +412,4 @@ imsg send <handle> "test"
 - `messages.responsePrefix`.
 - [Pairing](/channels/pairing)
 - [BlueBubbles](/channels/bluebubbles)
+

@@ -131,3 +131,4 @@ Bir grup sohbeti için `requireMention: true` ayarlandığında, OpenClaw artık
 - CLI'nizin 0 koduyla çıkmasını ve düz metin yazdırmasını sağlayın; JSON çıktısı `jq -r .text` ile uyarlanmalıdır.
 - Yanıt kuyruğunu engellememek için zaman aşımlarını makul tutun (`timeoutSeconds`, varsayılan 60 sn).
 - Ön kontrol transkripsiyonu, mention tespiti için yalnızca **ilk** ses ekini işler. Ek sesler ana medya anlama aşamasında işlenir.
+

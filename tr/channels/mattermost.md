@@ -137,3 +137,4 @@ Mattermost, `channels.mattermost.accounts` altında birden fazla hesabı destekl
 - Kanallarda yanıt yok: botun kanalda olduğundan emin olun ve onu etiketleyin (oncall), bir tetikleyici önek kullanın (onchar) veya `chatmode: "onmessage"` ayarlayın.
 - Kimlik doğrulama hataları: bot belirtecini, temel URL'yi ve hesabın etkin olup olmadığını kontrol edin.
 - Çoklu hesap sorunları: ortam değişkenleri yalnızca `default` hesabına uygulanır.
+

@@ -55,3 +55,4 @@ title: "提升模式"
 
 - 提升的 exec 呼叫會以 info 等級記錄。
 - 1. 工作階段狀態包含提升模式（例如 `elevated=ask`、`elevated=full`）。
+

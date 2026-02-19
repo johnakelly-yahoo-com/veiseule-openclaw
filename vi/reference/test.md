@@ -53,3 +53,4 @@ Script này điều khiển trình hướng dẫn tương tác qua pseudo-tty, x
 ```bash
 pnpm test:docker:qr
 ```
+

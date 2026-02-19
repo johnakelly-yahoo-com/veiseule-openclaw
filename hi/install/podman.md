@@ -108,3 +108,4 @@ quadlet फ़ाइल `~openclaw/.config/containers/systemd/openclaw.container
 ## वैकल्पिक: अपने स्वयं के उपयोगकर्ता के रूप में चलाएँ
 
 gateway को अपने सामान्य उपयोगकर्ता के रूप में चलाने के लिए (अलग openclaw उपयोगकर्ता के बिना): इमेज बनाएं, `~/.openclaw/.env` में `OPENCLAW_GATEWAY_TOKEN` बनाएं, और कंटेनर को `--userns=keep-id` तथा अपने `~/.openclaw` पर mounts के साथ चलाएँ। लॉन्च स्क्रिप्ट openclaw-user फ्लो के लिए डिज़ाइन की गई है; एकल-उपयोगकर्ता सेटअप के लिए आप स्क्रिप्ट से `podman run` कमांड को मैन्युअली चला सकते हैं, और config तथा workspace को अपने home पर पॉइंट कर सकते हैं। अधिकांश उपयोगकर्ताओं के लिए अनुशंसित: `setup-podman.sh` का उपयोग करें और openclaw उपयोगकर्ता के रूप में चलाएँ ताकि config और प्रक्रिया अलग-थलग रहें।
+

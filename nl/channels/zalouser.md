@@ -138,3 +138,4 @@ Accounts worden gekoppeld aan zca-profielen. Voorbeeld:
 
 - `openclaw channels status --probe`
 - Opnieuw inloggen: `openclaw channels logout --channel zalouser && openclaw channels login --channel zalouser`
+

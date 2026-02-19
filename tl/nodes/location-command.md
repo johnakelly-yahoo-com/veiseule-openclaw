@@ -111,3 +111,4 @@ Mga tala:
 - While Using: “Kapag bukas lang ang OpenClaw.”
 - Palagi: “Payagan ang background location.” Nangangailangan ng system permission.”
 - Eksakto: “Gumamit ng eksaktong lokasyon ng GPS. I-off upang magbahagi ng tinatayang lokasyon.”
+

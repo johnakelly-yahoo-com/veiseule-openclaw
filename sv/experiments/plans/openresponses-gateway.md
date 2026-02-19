@@ -121,3 +121,4 @@ Viktiga punkter:
 
 - Lägg till en ny dokumentsida för användning och exempel för `/v1/responses`.
 - Uppdatera `/gateway/openai-http-api` med en notering om äldre status och en hänvisning till `/v1/responses`.
+

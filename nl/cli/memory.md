@@ -43,3 +43,4 @@ Notities:
 - `memory status --deep --index` voert een herindexering uit als de store dirty is.
 - `memory index --verbose` toont details per fase (provider, model, bronnen, batchactiviteit).
 - `memory status` neemt alle extra paden mee die zijn geconfigureerd via `memorySearch.extraPaths`.
+

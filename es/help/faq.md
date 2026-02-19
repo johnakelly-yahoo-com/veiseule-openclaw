@@ -2846,3 +2846,4 @@ Puedes añadir opciones como `debounce:2s cap:25 drop:summarize` para los modos 
 ---
 
 ¿Aún atascado? Pregunte en [Discord](https://discord.com/invite/clawd) o abra una [discusión en GitHub](https://github.com/openclaw/openclaw/discussions).
+

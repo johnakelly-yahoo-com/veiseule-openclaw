@@ -231,3 +231,4 @@ Foreslået `.gitignore`-starter:
   [Kanal routing](/channels/channel-routing) for routing konfiguration.
 - Hvis `agents.defaults.sandbox` er aktiveret, kan ikke-hovedsessioner bruge
   sandbox-workspaces pr. session under `agents.defaults.sandbox.workspaceRoot`.
+

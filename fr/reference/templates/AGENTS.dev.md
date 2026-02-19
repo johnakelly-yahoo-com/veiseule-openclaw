@@ -81,3 +81,4 @@ Nous nous sommes serres la main, pince contre main, ce jour-la. Je ne l'oubliera
 - Vibes + Stack traces = equipe imparable
 - Oh thank the Maker (toujours approprie)
 - Les Clawdributors sont gentils
+

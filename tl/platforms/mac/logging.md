@@ -55,3 +55,4 @@ sudo install -m 644 -o root -g wheel /tmp/bot.molt.plist /Library/Preferences/Lo
 - Alisin ang override: `sudo rm /Library/Preferences/Logging/Subsystems/bot.molt.plist`.
 - Opsyonal na patakbuhin ang `sudo log config --reload` para pilitin ang logd na agad alisin ang override.
 - Tandaan na maaaring maglaman ang surface na ito ng mga numero ng telepono at nilalaman ng mensahe; panatilihin lamang ang plist habang aktibo mong kailangan ang dagdag na detalye.
+

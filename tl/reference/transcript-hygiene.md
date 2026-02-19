@@ -145,3 +145,4 @@ Bago ang release na 2026.1.22, nag-apply ang OpenClaw ng maraming layer ng trans
 Ang komplikasyong ito ay nagdulot ng cross-provider regressions (lalo na ang `openai-responses`
 `call_id|fc_id` pairing). Inalis ng 2026.1.22 cleanup ang extension, isinentro ang
 logic sa runner, at ginawang **no-touch** ang OpenAI lampas sa image sanitization.
+

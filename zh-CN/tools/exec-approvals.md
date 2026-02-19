@@ -232,3 +232,4 @@ Approval-gated execs reuse the approval id as the `runId` in these messages for 
 - [Exec 工具](/tools/exec)
 - [提权模式](/tools/elevated)
 - [技能](/tools/skills)
+

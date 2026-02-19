@@ -611,3 +611,4 @@ How it maps:
   - 若連線了具備瀏覽器能力的節點，工具可能會自動路由到該節點，除非你固定 `target="host"` 或 `target="node"`。
 
 This keeps the agent deterministic and avoids brittle selectors.
+

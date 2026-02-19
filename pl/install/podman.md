@@ -108,3 +108,4 @@ Aby dodać quadlet **po** początkowej konfiguracji, która go nie używała, ur
 ## Opcjonalnie: uruchom jako własny użytkownik
 
 Aby uruchomić gateway jako zwykły użytkownik (bez dedykowanego użytkownika openclaw): zbuduj obraz, utwórz `~/.openclaw/.env` z `OPENCLAW_GATEWAY_TOKEN`, a następnie uruchom kontener z `--userns=keep-id` i montowaniami do `~/.openclaw`. Skrypt uruchamiający jest przeznaczony dla przepływu z użytkownikiem openclaw; w konfiguracji jednoosobowej możesz zamiast tego ręcznie wykonać polecenie `podman run` ze skryptu, wskazując katalogi config i workspace w swoim katalogu domowym. Rekomendowane dla większości użytkowników: użyj `setup-podman.sh` i uruchamiaj jako użytkownik openclaw, aby odizolować konfigurację i proces.
+

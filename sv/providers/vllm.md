@@ -90,3 +90,4 @@ curl http://127.0.0.1:8000/v1/models
 ```
 
 - Om förfrågningar misslyckas med autentiseringsfel, ange en giltig `VLLM_API_KEY` som matchar din serverkonfiguration, eller konfigurera leverantören uttryckligen under `models.providers.vllm`.
+

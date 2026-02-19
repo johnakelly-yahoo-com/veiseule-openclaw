@@ -232,3 +232,4 @@ Standardkontot stöder:
 - Om boten ansluter men aldrig svarar i kanaler, kontrollera `channels.irc.groups` **och** om omnämnandekrav filtrerar bort meddelanden (`missing-mention`). Om du vill att den ska svara utan pingar, sätt `requireMention:false` för kanalen.
 - Om inloggningen misslyckas, kontrollera att nicket är tillgängligt och serverlösenordet.
 - Om TLS misslyckas i ett anpassat nätverk, kontrollera värd/port och certifikatkonfigurationen.
+

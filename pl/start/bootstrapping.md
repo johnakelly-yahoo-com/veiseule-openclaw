@@ -38,3 +38,4 @@ Gdy Gateway działa na innej maszynie, edytuj pliki obszaru roboczego na hoście
 
 - Onboarding aplikacji na macOS: [Onboarding](/start/onboarding)
 - Układ obszaru roboczego: [Agent workspace](/concepts/agent-workspace)
+

@@ -19,3 +19,4 @@ Se você quer um fluxo rápido para “destravar”, comece aqui:
 Se você está procurando questões conceituais (não “algo que quebrou”):
 
 - [FAQ (conceitos)](/help/faq)
+

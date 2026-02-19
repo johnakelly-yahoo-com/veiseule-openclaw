@@ -58,3 +58,4 @@ Flags:
 
 - Requiere un Gateway en ejecución accesible mediante su configuración actual (local o remota).
 - Los eventos del sistema son efímeros y no se conservan entre reinicios.
+

@@ -48,3 +48,4 @@ Kanal seçenekleri:
 - `gateway.auth.mode: "trusted-proxy"`: tarayıcı istemcileri için reverse-proxy kimlik doğrulaması (bkz. [Trusted Proxy Auth](/gateway/trusted-proxy-auth)).
 - `gateway.remote.url`, `gateway.remote.token`, `gateway.remote.password`: uzak gateway hedefi.
 - `session.*`: oturum depolama ve ana anahtar varsayılanları.
+

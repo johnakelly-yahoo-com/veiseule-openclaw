@@ -115,3 +115,4 @@ Xử lý sự cố đầy đủ: [/channels/signal#troubleshooting](/channels/si
 | Phòng mã hóa thất bại                    | Xác minh mô-đun crypto và cài đặt mã hóa | Bật hỗ trợ mã hóa và tham gia lại/đồng bộ phòng.   |
 
 Xử lý sự cố đầy đủ: [/channels/matrix#troubleshooting](/channels/matrix#troubleshooting)
+

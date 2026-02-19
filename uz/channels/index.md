@@ -45,3 +45,4 @@ Text is supported everywhere; media and reactions vary by channel.
 - 16. Telegram ichki mexanizmlari: [grammY notes](/channels/grammy).
 - 17. Nosozliklarni bartaraf etish: [Channel troubleshooting](/channels/troubleshooting).
 - 18. Model provayderlari alohida hujjatlashtirilgan; [Model Providers](/providers/models) bo‘limiga qarang.
+

@@ -82,3 +82,4 @@ Only the owner number (from `channels.whatsapp.allowFrom`, or the bot’s own E.
 - Echo suppression သည် ပေါင်းစည်းထားသော batch string ကို အသုံးပြုပါသည်; mention မပါဘဲ တူညီသော စာသားကို နှစ်ကြိမ်ပို့ပါက ပထမတစ်ကြိမ်သာ ပြန်ကြားချက် ရရှိပါမည်။
 - Session store entries များသည် session store (`~/.openclaw/agents/<agentId>/sessions/sessions.json` default) အတွင်း `agent:<agentId>:whatsapp:group:<jid>` အဖြစ် ပေါ်လာပါမည်; entry မရှိခြင်းသည် အုပ်စုမှ run ကို မ trigger လုပ်ရသေးကြောင်းသာ ဆိုလိုပါသည်။
 - အုပ်စုများအတွင်း typing indicators များသည် `agents.defaults.typingMode` ကို လိုက်နာပြီး (default: mention မခံရပါက `message`) ဖြစ်ပါသည်။
+

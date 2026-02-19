@@ -48,3 +48,4 @@ openclaw onboard --non-interactive \
 Nếu Gateway chạy như một daemon (launchd/systemd), hãy đảm bảo `AI_GATEWAY_API_KEY`
 có sẵn cho tiến trình đó (ví dụ, trong `~/.openclaw/.env` hoặc thông qua
 `env.shellEnv`).
+

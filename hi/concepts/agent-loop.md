@@ -140,3 +140,4 @@ OpenClaw में दो हुक सिस्टम हैं:
 - AbortSignal (cancel)
 - Gateway डिस्कनेक्ट या RPC टाइमआउट
 - `agent.wait` टाइमआउट (केवल प्रतीक्षा, एजेंट को नहीं रोकता)
+

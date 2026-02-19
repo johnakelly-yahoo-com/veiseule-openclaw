@@ -32,3 +32,4 @@ Cómo ver si el canal vinculado está en buen estado desde la app de la barra de
 ## Cuando tenga dudas
 
 - Aún puede usar el flujo de la CLI en [Gateway health](/gateway/health) (`openclaw status`, `openclaw status --deep`, `openclaw health --json`) y seguir `/tmp/openclaw/openclaw-*.log` para `web-heartbeat` / `web-reconnect`.
+

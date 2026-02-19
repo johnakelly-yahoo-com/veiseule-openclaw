@@ -206,3 +206,4 @@ Modus übergeben Sie `--yes`, um Standardwerte zu akzeptieren.
 Benutzerdefinierte Anbieter in `models.providers` werden unter dem Agent‑Verzeichnis
 (standardmäßig `~/.openclaw/agents/<agentId>/models.json`) in `models.json` geschrieben. Diese Datei
 wird standardmäßig zusammengeführt, sofern `models.mode` nicht auf `replace` gesetzt ist.
+

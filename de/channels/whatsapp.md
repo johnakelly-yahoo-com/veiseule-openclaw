@@ -408,3 +408,4 @@ WhatsApp-Felder mit hoher Relevanz:
 - [Pairing](/channels/pairing)
 - [Channel routing](/channels/channel-routing)
 - Leitfaden zur Fehlerbehebung: [Gateway troubleshooting](/gateway/troubleshooting).
+

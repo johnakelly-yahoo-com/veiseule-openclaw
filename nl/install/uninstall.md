@@ -126,3 +126,4 @@ Als je vanuit een repo-checkout draait (`git clone` + `openclaw ...` / `bun run 
 1. Verwijder de Gateway-service **voordat** je de repo verwijdert (gebruik de eenvoudige route hierboven of handmatige serviceverwijdering).
 2. Verwijder de repo-map.
 3. Verwijder status + werkruimte zoals hierboven getoond.
+

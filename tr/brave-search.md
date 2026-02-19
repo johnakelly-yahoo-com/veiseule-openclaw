@@ -39,3 +39,4 @@ OpenClaw, `web_search` için varsayılan sağlayıcı olarak Brave Search kullan
 - Brave, ücretsiz bir katman ve ücretli planlar sunar; güncel limitler için Brave API portalını kontrol edin.
 
 web_search yapılandırmasının tamamı için [Web tools](/tools/web) sayfasına bakın.
+

@@ -18,3 +18,4 @@ process na may-ari ng mga channel connection at ng WebSocket control plane.
   - `/__openclaw__/a2ui/`
     Kapag naka-configure ang `gateway.auth` at ang Gateway ay naka-bind lampas sa loopback, ang mga rutang ito ay protektado ng Gateway auth (hindi kasama ang mga loopback request). Tingnan ang [Gateway configuration](/gateway/configuration) (`canvasHost`, `gateway`).
 - Ang remote na paggamit ay karaniwang SSH tunnel o tailnet VPN. Tingnan ang [Remote access](/gateway/remote) at [Discovery](/gateway/discovery).
+

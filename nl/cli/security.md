@@ -26,3 +26,4 @@ De audit waarschuwt wanneer meerdere DM-afzenders de hoofdsessie delen en raadt 
 Daarnaast waarschuwt hij wanneer kleine modellen (`<=300B`) worden gebruikt zonder sandboxing en met web-/browsertools ingeschakeld.
 Voor webhook-ingress waarschuwt het wanneer `hooks.defaultSessionKey` niet is ingesteld, wanneer request-`sessionKey`-overschrijvingen zijn ingeschakeld en wanneer overschrijvingen zijn ingeschakeld zonder `hooks.allowedSessionKeyPrefixes`.
 Het waarschuwt ook wanneer sandbox-Dockerinstellingen zijn geconfigureerd terwijl de sandboxmodus uit staat, wanneer `gateway.nodes.denyCommands` ineffectieve patroonachtige/onbekende items gebruikt, wanneer het globale `tools.profile="minimal"` wordt overschreven door agent-toolprofielen, en wanneer tools van geïnstalleerde extension-plugins mogelijk bereikbaar zijn onder een permissief toolbeleid.
+

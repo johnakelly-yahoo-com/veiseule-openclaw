@@ -51,3 +51,4 @@ from `~/.qwen/oauth_creds.json` when it loads the auth store. You still need a
 - URL cơ sở mặc định: `https://portal.qwen.ai/v1` (ghi đè bằng
   `models.providers.qwen-portal.baseUrl` nếu Qwen cung cấp endpoint khác).
 - Xem [Model providers](/concepts/model-providers) để biết các quy tắc áp dụng cho toàn bộ nhà cung cấp.
+

@@ -79,3 +79,4 @@ openclaw directory peers list --channel zalouser --query "name"
 ٹول کا نام: `zalouser`
 
 ایکشنز: `send`, `image`, `link`, `friends`, `groups`, `me`, `status`
+

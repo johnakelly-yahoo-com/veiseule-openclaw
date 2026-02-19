@@ -377,3 +377,4 @@ Exemplo:
 - **500 caracteres** por mensagem (divididos automaticamente em limites de palavras)
 - Markdown é removido antes da divisão
 - Sem limitação de taxa (usa os limites nativos do Twitch)
+

@@ -604,3 +604,4 @@ Se mais de uma pessoa puder enviar DM ao seu bot (várias entradas em `allowFrom
 - Os IDs de provedor diferem (números de telefone, IDs de usuário, IDs de canal). Use a documentação do provedor para confirmar o formato.
 - Seções opcionais para adicionar depois: `web`, `browser`, `ui`, `discovery`, `canvasHost`, `talk`, `signal`, `imessage`.
 - Veja [Provedores](/channels/whatsapp) e [Solução de problemas](/gateway/troubleshooting) para notas de configuração mais detalhadas.
+

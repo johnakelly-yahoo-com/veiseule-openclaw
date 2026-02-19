@@ -150,3 +150,4 @@ openclaw onboard --auth-choice setup-token
 - Thêm một hồ sơ Anthropic khác hoặc chờ hết cooldown.
 
 Xem thêm: [/gateway/troubleshooting](/gateway/troubleshooting) và [/help/faq](/help/faq).
+

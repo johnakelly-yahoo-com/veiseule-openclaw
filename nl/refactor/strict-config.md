@@ -91,3 +91,4 @@ Alles andere moet hard falen met: “Config ongeldig. Voer `openclaw doctor --fi
 - Plugin zonder schema → plugin-load geblokkeerd met duidelijke fout.
 - Ongeldige config → gateway-opstart geblokkeerd behalve diagnostische opdrachten.
 - Doctor dry-run automatisch; `doctor --fix` schrijft gecorrigeerde config.
+

@@ -24,3 +24,4 @@ openclaw logs --limit 500
 ```
 
 Utilisez `--local-time` pour afficher les horodatages dans votre fuseau horaire local.
+

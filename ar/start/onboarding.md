@@ -79,3 +79,4 @@ sidebarTitle: "بدء الاستخدام: تطبيق macOS"
   على مضيف Gateway أثناء تشغيل الوكيل لأول مرة.
 </Step>
 </Steps>
+

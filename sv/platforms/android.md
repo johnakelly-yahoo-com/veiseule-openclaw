@@ -149,3 +149,4 @@ Kamerakommandon (endast foreground; behörighetsstyrda):
 - `camera.clip` (mp4)
 
 Se [Camera node](/nodes/camera) för parametrar och CLI-hjälpmedel.
+

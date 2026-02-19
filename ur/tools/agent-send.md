@@ -51,3 +51,4 @@ openclaw agent --agent ops --message "Generate report" --deliver --reply-channel
 - `--verbose <on|full|off>`: وربوز لیول برقرار رکھیں
 - `--timeout <seconds>`: ایجنٹ ٹائم آؤٹ اووررائیڈ
 - `--json`: اسٹرکچرڈ JSON آؤٹ پٹ
+

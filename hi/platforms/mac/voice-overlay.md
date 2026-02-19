@@ -59,3 +59,4 @@ Audience: macOS app contributors. Goal: keep the voice overlay predictable when 
 3. `VoicePushToTalk` को रिफ़ैक्टर करें ताकि मौजूदा सत्रों को अपनाया जा सके और रिलीज़ पर `endCapture` को कॉल किया जा सके; रनटाइम कूलडाउन लागू करें।
 4. `VoiceWakeOverlayController` को पब्लिशर से वायर करें; रनटाइम/PTT से सीधे कॉल हटाएँ।
 5. सत्र अपनाने, कूलडाउन, और खाली‑पाठ डिसमिसल के लिए एकीकरण परीक्षण जोड़ें।
+

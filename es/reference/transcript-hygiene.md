@@ -144,3 +144,4 @@ Antes de la versión 2026.1.22, OpenClaw aplicaba múltiples capas de higiene de
 Esta complejidad causó regresiones entre proveedores (en particular el emparejamiento `openai-responses`
 `call_id|fc_id`). La limpieza de 2026.1.22 eliminó la extensión, centralizó la
 lógica en el runner e hizo que OpenAI fuera **sin intervención** más allá del saneamiento de imágenes.
+

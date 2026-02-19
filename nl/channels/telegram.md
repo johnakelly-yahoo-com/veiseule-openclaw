@@ -792,3 +792,4 @@ Telegram-specifieke high-signal-velden:
 - Details: [Pairing](/channels/pairing)
 - [Channelroutering](/channels/channel-routing)
 - Installatieproblemen oplossen (opdrachten)
+

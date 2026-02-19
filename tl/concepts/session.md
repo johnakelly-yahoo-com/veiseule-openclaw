@@ -202,3 +202,4 @@ Ang bawat session entry ay nagtatala kung saan ito nagmula (best‑effort) sa `o
   `GroupSubject`, `GroupChannel`, `GroupSpace`, and `SenderName` in the inbound
   context and calling `recordSessionMetaFromInbound` (or passing the same context
   to `updateLastRoute`).
+

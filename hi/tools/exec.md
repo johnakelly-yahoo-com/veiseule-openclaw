@@ -166,3 +166,4 @@ Notes:
 - टूल policy अभी भी लागू होती है; `allow: ["exec"]` अंतर्निहित रूप से `apply_patch` की अनुमति देता है।
 - Config `tools.exec.applyPatch` के अंतर्गत रहता है।
 - `tools.exec.applyPatch.workspaceOnly` डिफ़ॉल्ट रूप से `true` (workspace-contained) होता है। इसे `false` केवल तभी सेट करें जब आप जानबूझकर चाहते हों कि `apply_patch` workspace directory के बाहर लिखे/हटाए।
+

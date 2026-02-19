@@ -97,3 +97,4 @@ synthetic/hf:MiniMaxAI/MiniMax-M2.1
 - إذا قمت بتمكين قائمة السماح للنماذج (`agents.defaults.models`)، فأضِف كل نموذج
   تخطط لاستخدامه.
 - راجع [مزوّدو النماذج](/concepts/model-providers) لمعرفة قواعد المزوّد.
+

@@ -284,3 +284,4 @@ openclaw agents add work \
 - مرجع التهيئة: [Gateway configuration](/gateway/configuration)
 - الموفّرون: [WhatsApp](/channels/whatsapp)، [Telegram](/channels/telegram)، [Discord](/channels/discord)، [Google Chat](/channels/googlechat)، [Signal](/channels/signal)، [BlueBubbles](/channels/bluebubbles) (iMessage)، [iMessage](/channels/imessage) (قديم)
 - Skills: [Skills](/tools/skills)، [Skills config](/tools/skills-config)
+

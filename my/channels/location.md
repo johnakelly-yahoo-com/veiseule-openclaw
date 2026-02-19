@@ -54,3 +54,4 @@ Meet here
 - **Telegram**: venue များကို `LocationName/LocationAddress` သို့ mapping လုပ်ထားပြီး; live location များသည် `live_period` ကို အသုံးပြုပါသည်။
 - **WhatsApp**: `locationMessage.comment` နှင့် `liveLocationMessage.caption` ကို caption လိုင်းအဖြစ် ဆက်လက် ထည့်သွင်းပါသည်။
 - **Matrix**: `geo_uri` ကို pin တည်နေရာအဖြစ် ခွဲခြမ်းစိတ်ဖြာပါသည်; altitude ကို လျစ်လျူရှုထားပြီး `LocationIsLive` သည် အမြဲတမ်း false ဖြစ်ပါသည်။
+

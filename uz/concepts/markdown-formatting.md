@@ -126,3 +126,4 @@ SPOILER style ranges. Other channels treat them as plain text.
 - 2. Telegram HTML’da belgilardan tashqaridagi matnni escape qilish talab etiladi, aks holda markup buziladi.
 - 3. Signal uslubidagi diapazonlar UTF-16 ofsetlariga bog‘liq; kod nuqtalari ofsetlaridan foydalanmang.
 - 4. Fenced code bloklari uchun oxiridagi yangi qatorlarni saqlang, shunda yopuvchi markerlar o‘z satrida bo‘ladi.
+

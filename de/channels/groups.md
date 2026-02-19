@@ -372,3 +372,4 @@ Der System-Prompt des Agenten enthält beim ersten Zug einer neuen Gruppensitzun
 ## WhatsApp-Besonderheiten
 
 Siehe [Gruppennachrichten](/channels/group-messages) für WhatsApp-spezifisches Verhalten (History-Injection, Details zur Erwähnungshandhabung).
+

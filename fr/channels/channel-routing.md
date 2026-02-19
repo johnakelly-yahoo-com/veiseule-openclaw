@@ -116,3 +116,4 @@ Les réponses entrantes incluent :
 - Le contexte cité est ajouté à `Body` sous forme de bloc `[Replying to ...]`.
 
 Ceci est cohérent sur l’ensemble des canaux.
+

@@ -58,3 +58,4 @@ Compaction **summarizes older conversation** into a compact summary entry and ke
 - 当会话感觉过时或上下文臃肿时，使用 `/compact`。
 - 大型工具输出已被截断；修剪可以进一步减少工具结果的堆积。
 - 如果你需要全新开始，`/new` 或 `/reset` 会启动一个新的会话 ID。
+

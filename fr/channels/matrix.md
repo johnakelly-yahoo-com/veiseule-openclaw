@@ -302,3 +302,4 @@ Options du fournisseur :
 - `channels.matrix.autoJoinAllowlist` : ID/alias de salons autorises pour l’adhesion automatique.
 - `channels.matrix.accounts` : configuration multi-compte indexée par ID de compte (chaque compte hérite des paramètres de niveau supérieur).
 - `channels.matrix.actions` : controle d’outils par action (reactions/messages/epingles/memberInfo/channelInfo).
+

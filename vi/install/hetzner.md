@@ -350,3 +350,4 @@ All long-lived state must survive restarts, rebuilds, and reboots.
 Cách tiếp cận này bổ sung cho thiết lập Docker ở trên bằng các triển khai có thể tái tạo, hạ tầng được quản lý bằng version control và khôi phục sau thảm họa tự động.
 
 > **Lưu ý:** Do cộng đồng duy trì. Đối với sự cố hoặc đóng góp, xem các liên kết repository ở trên.
+

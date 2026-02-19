@@ -255,3 +255,4 @@ export CLAWHUB_DISABLE_TELEMETRY=1
 - `CLAWHUB_CONFIG_PATH`: CLI がトークン / 設定を保存する場所を上書きします。
 - `CLAWHUB_WORKDIR`: デフォルトの workdir を上書きします。
 - `CLAWHUB_DISABLE_TELEMETRY=1`: `sync` におけるテレメトリを無効化します。
+

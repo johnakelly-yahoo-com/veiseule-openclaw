@@ -105,3 +105,4 @@ openclaw agents add <name>
 - Onboarding 概览： [Onboarding Overview](/start/onboarding-overview)
 - macOS 应用新手引导：[新手引导](/start/onboarding)
 - 23. 代理首次运行仪式： [Agent Bootstrapping](/start/bootstrapping)
+

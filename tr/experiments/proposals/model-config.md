@@ -33,3 +33,4 @@ Operatörler şunları ister:
 - Profil rotasyonu sağlayıcı başına mı yoksa model başına mı olmalı?
 - UI, bir oturum için profil seçimini nasıl sunmalı?
 - Eski yapılandırma anahtarlarından en güvenli geçiş yolu nedir?
+

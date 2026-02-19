@@ -83,3 +83,4 @@ Zacommituj zaktualizowany `appcast.xml` razem z artefaktami wydania (ZIP + dSYM)
   - Na poprzednim publicznym buildzie uruchom „Check for Updates…” z karty About i zweryfikuj, że Sparkle instaluje nowe wydanie bez problemów.
 
 Definicja ukończenia: podpisana aplikacja i appcast są opublikowane, proces aktualizacji działa z wcześniejszej zainstalowanej wersji, a artefakty wydania są dołączone do wydania GitHub.
+

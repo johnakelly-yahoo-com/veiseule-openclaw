@@ -253,3 +253,4 @@ Events are not replayed. Clients detect seq gaps and should refresh (`health` + 
 - [Health](/gateway/health)
 - [Doctor](/gateway/doctor)
 - [Authentication](/gateway/authentication)
+

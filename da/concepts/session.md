@@ -202,3 +202,4 @@ Hver sessionspost registrerer, hvor den stammer fra (best-effort), i `origin`:
   `GroupSubject `, `GroupChannel`, `GroupSpace`, and `SenderName` in the inbound
   -context and calling `recordSessionMetaFromInbound` (eller pass the same context
   to `updateLastRoute`).
+

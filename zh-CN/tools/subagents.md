@@ -200,3 +200,4 @@ Sub-agents 通过 announce 步骤进行回报：
 - 子智能体上下文仅注入 `AGENTS.md` + `TOOLS.md`（无 `SOUL.md`、`IDENTITY.md`、`USER.md`、`HEARTBEAT.md` 或 `BOOTSTRAP.md`）。
 - 最大嵌套深度为 5（`maxSpawnDepth` 范围：1–5）。 大多数使用场景推荐使用 Depth 2。
 - `maxChildrenPerAgent` 限制每个 session 的活跃子级数量（默认：5，范围：1–20）。
+

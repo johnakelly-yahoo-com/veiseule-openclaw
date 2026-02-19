@@ -42,3 +42,4 @@ yerel ekran/kamera/tuval ve `system.run`
 yeteneklerini sağlar.
 
 Dokümanlar: [Nodes](/nodes), [Nodes CLI](/cli/nodes)
+

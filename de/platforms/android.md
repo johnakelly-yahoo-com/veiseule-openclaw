@@ -149,3 +149,4 @@ Kamerabefehle (nur Foreground; berechtigungsabhängig):
 - `camera.clip` (mp4)
 
 Siehe [Camera node](/nodes/camera) für Parameter und CLI-Hilfen.
+

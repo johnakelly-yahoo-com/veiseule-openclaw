@@ -112,3 +112,4 @@ Odpowiedzi przychodzące zawierają:
 - Cytowany kontekst jest dołączany do `Body` jako blok `[Replying to ...]`.
 
 Jest to spójne we wszystkich kanałach.
+

@@ -89,3 +89,4 @@ Payload-felter (alle valgfri, medmindre andet er angivet):
 
 Broen er i øjeblikket **implicit v1** (ingen min/max forhandling). Bagud-compat
 forventes; tilføj en bro protokol versionsfelt før eventuelle brydende ændringer.
+

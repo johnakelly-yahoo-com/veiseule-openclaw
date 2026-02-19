@@ -121,3 +121,4 @@ Ajratib olingan asosiy nuqtalar:
 
 - `/v1/responses` dan foydalanish va misollar uchun yangi hujjatlar sahifasini qo‘shish.
 - `/gateway/openai-http-api` ni meros (legacy) eslatmasi va `/v1/responses` ga yo‘naltirish bilan yangilash.
+

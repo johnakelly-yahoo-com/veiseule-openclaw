@@ -394,3 +394,4 @@ ele alınır ve sandbox içine alınır. Bir ajanın asla sandbox’a girmemesin
 - [Çok Ajanlı Yönlendirme](/concepts/multi-agent)
 - [Sandbox Yapılandırması](/gateway/configuration#agentsdefaults-sandbox)
 - [Oturum Yönetimi](/concepts/session)
+

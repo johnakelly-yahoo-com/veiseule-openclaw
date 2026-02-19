@@ -297,3 +297,4 @@ RPC мастера шлюза Gateway:
 - Хаб онбординга: [Onboarding Wizard (CLI)](/start/wizard)
 - Автоматизация и скрипты: [CLI Automation](/start/wizard-cli-automation)
 - Справочник команд: [`openclaw onboard`](/cli/onboard)
+

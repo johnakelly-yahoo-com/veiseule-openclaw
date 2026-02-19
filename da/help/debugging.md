@@ -160,3 +160,4 @@ Standardfil:
 - Rå stream-logs kan indeholde fulde prompts, værktøjsoutput og brugerdata.
 - Bevar logs lokalt, og slet dem efter fejlsøgning.
 - Hvis du deler logs, så fjern først hemmeligheder og PII.
+

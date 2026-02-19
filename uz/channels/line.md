@@ -176,3 +176,4 @@ openclaw pairing approve line <CODE>
 - 32. **Webhook tekshiruvi muvaffaqiyatsiz:** webhook URL HTTPS ekanligiga va `channelSecret` LINE konsolidagi qiymatga mos kelishiga ishonch hosil qiling.
 - 33. **Kirish hodisalari yo‘q:** webhook yo‘li `channels.line.webhookPath` ga mos kelishini va shlyuz LINE’dan yetib borilishi mumkinligini tasdiqlang.
 - 34. **Media yuklab olish xatolari:** media sukut bo‘yicha limitdan oshsa, `channels.line.mediaMaxMb` ni oshiring.
+

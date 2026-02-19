@@ -79,3 +79,4 @@ title: "Menyrad"
 - Starta huvudsessionen medan annan är aktiv: ikonen växlar till huvudsessionen direkt.
 - Snabba verktygsburstar: säkerställ att märket inte flimrar (TTL‑marginal på verktygsresultat).
 - Hälsoraden visas igen när alla sessioner är inaktiva.
+

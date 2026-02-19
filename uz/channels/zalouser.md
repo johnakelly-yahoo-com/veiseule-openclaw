@@ -138,3 +138,4 @@ openclaw directory groups list --channel zalouser --query "work"
 
 - `openclaw channels status --probe`
 - 48. Qayta kirish: `openclaw channels logout --channel zalouser && openclaw channels login --channel zalouser`
+

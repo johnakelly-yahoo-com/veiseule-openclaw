@@ -208,3 +208,4 @@ Możesz dodać `:fastest`, `:cheapest` lub `:provider` (np. `:together`, `:samba
   },
 }
 ```
+

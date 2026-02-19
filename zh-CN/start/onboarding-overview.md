@@ -46,3 +46,4 @@ openclaw onboard
 - 选择一个 Endpoint ID，以便多个自定义端点可以共存。
 
 详细步骤请参阅上方的 CLI onboarding 文档。
+

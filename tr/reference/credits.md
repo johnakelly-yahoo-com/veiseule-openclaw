@@ -25,3 +25,4 @@ OpenClaw = CLAW + TARDIS; çünkü her uzay ıstakozunun bir zaman ve uzay makin
 MIT - Okyanustaki bir ıstakoz kadar özgür.
 
 > "Hepimiz sadece kendi istemlerimizle oynuyoruz." (Muhtemelen token'lara fazla yüklenmiş bir yapay zekâ)
+

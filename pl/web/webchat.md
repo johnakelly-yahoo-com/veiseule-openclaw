@@ -48,3 +48,4 @@ Powiązane opcje globalne:
 - `gateway.auth.mode: "trusted-proxy"`: uwierzytelnianie reverse-proxy dla klientów przeglądarkowych (zobacz [Trusted Proxy Auth](/gateway/trusted-proxy-auth)).
 - `gateway.remote.url`, `gateway.remote.token`, `gateway.remote.password`: docelowy gateway zdalny.
 - `session.*`: magazyn sesji oraz domyślne klucze główne.
+

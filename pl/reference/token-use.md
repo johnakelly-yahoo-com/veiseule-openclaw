@@ -111,3 +111,4 @@ agents:
 - Preferuj mniejsze modele do rozbudowanej, eksploracyjnej pracy.
 
 Zobacz [Skills](/tools/skills), aby poznać dokładną formułę narzutu listy skills.
+

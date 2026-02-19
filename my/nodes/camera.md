@@ -154,3 +154,4 @@ openclaw nodes screen record --node <id> --duration 10s --fps 15   # prints MEDI
 မှတ်ချက်များ:
 
 - macOS **Screen Recording** ခွင့်ပြုချက် (TCC) လိုအပ်သည်။
+

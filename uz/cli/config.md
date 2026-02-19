@@ -48,3 +48,4 @@ openclaw config set channels.whatsapp.groups '["*"]' --json
 ```
 
 Tahrirlardan so‘ng gateway’ni qayta ishga tushiring.
+

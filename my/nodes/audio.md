@@ -131,3 +131,4 @@ auto-detection ကို ပိတ်ရန် `tools.media.audio.enabled: false
 - သင့် CLI သည် exit code 0 ဖြင့် အဆုံးသတ်ပြီး plain text ကို ထုတ်ပေးကြောင်း သေချာပါစေ; JSON ကို `jq -r .text` ဖြင့် ပြုပြင်ညှိနှိုင်းရပါမည်။
 - အချိန်ကန့်သတ်ချက်များကို သင့်တင့်စွာ ထားပါ (`timeoutSeconds`, မူလ 60s) သို့မဟုတ် ပြန်ကြားချက် queue ကို ပိတ်ဆို့နိုင်ပါသည်။
 - Preflight transcription သည် mention စစ်ဆေးရန်အတွက် **ပထမဆုံး** audio attachment တစ်ခုတည်းကိုသာ ဆောင်ရွက်ပါသည်။ နောက်ထပ် audio များကို အဓိက media understanding အဆင့်အတွင်း ဆက်လက်လုပ်ဆောင်ပါသည်။
+

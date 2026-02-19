@@ -415,3 +415,4 @@ Välj ett före implementation för att undvika avdrift.
 - Smärta: godkännanden + duplicering + två stackar.
 - Förslag: ett WS‑protokoll med explicita roller + omfång, enhetlig parkoppling + TLS‑pinning, gateway‑värdbaserade godkännanden, stabila enhets‑ID:n + gulliga slugs.
 - Resultat: enklare UX, starkare säkerhet, mindre duplicering, bättre mobilroutning.
+

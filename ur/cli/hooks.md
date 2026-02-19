@@ -305,3 +305,4 @@ openclaw hooks enable boot-md
 ```
 
 **دیکھیں:** [boot-md دستاویزات](/automation/hooks#boot-md)
+

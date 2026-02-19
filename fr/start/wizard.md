@@ -109,3 +109,4 @@ l’API RPC et la liste complete des champs de configuration que l’assistant e
 - Aperçu de la configuration : [Onboarding Overview](/start/onboarding-overview)
 - Prise en main de l’app macOS : [Onboarding](/start/onboarding)
 - Rituel du premier demarrage de l’agent : [Agent Bootstrapping](/start/bootstrapping)
+

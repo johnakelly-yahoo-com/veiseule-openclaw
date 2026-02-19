@@ -70,3 +70,4 @@ WhatsApp 頻道透過 **Baileys Web** 運作。本文件說明目前用於傳送
 - Cover send + reply flows for image/audio/document cases.
 - 驗證圖片重新壓縮（大小限制）與音訊的語音備忘錄旗標。
 - 確保多媒體回覆會以序列方式分批傳送。
+

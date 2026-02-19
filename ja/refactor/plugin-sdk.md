@@ -215,3 +215,4 @@ export type PluginRuntime = {
 - 外部プラグインが、コア ソースへのアクセスなしに開発・更新できること。
 
 関連ドキュメント: [Plugins](/tools/plugin)、[Channels](/channels/index)、[Configuration](/gateway/configuration)。
+

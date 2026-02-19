@@ -63,3 +63,4 @@ Together AI, birçok popüler açık kaynak modele erişim sağlar:
 - **Kimi K2 Instruct** - 262K bağlam penceresine sahip yüksek performanslı model
 
 Tüm modeller standart sohbet tamamlama işlemlerini destekler ve OpenAI API ile uyumludur.
+

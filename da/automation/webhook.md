@@ -208,3 +208,4 @@ curl -X POST http://127.0.0.1:18789/hooks/gmail \
 - Hook nyttelast behandles som ubetroet og indpakket med sikkerhedsgrænser som standard.
   Hvis du skal deaktivere dette for en bestemt krog, sæt `allowUnsafeExternalContent: true`
   i at krogens kortlægning (farligt).
+

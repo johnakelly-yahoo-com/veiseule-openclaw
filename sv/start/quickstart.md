@@ -22,3 +22,4 @@ Snabbstart är nu en del av [Kom igång](/start/getting-started).
   
 </Card>
 </Columns>
+

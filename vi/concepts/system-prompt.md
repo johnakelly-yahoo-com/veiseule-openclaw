@@ -121,3 +121,4 @@ Cách này giữ prompt nền nhỏ gọn trong khi vẫn cho phép sử dụng 
 Khi khả dụng, system prompt bao gồm một mục **Documentation** trỏ tới thư mục tài liệu OpenClaw cục bộ (hoặc `docs/` trong workspace repo hoặc tài liệu được đóng gói trong npm package) và cũng ghi chú mirror công khai, repo nguồn, Discord cộng đồng và ClawHub ([https://clawhub.com](https://clawhub.com)) để khám phá kỹ năng. Prompt hướng dẫn mô hình tham khảo tài liệu cục bộ trước
 cho hành vi, lệnh, cấu hình hoặc kiến trúc của OpenClaw, và tự chạy
 `openclaw status` khi có thể (chỉ hỏi người dùng khi nó không có quyền truy cập).
+

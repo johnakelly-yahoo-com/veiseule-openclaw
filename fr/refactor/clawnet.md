@@ -415,3 +415,4 @@ Choisir avant l’implémentation pour éviter les dérives.
 - Douleurs : validations + duplication + deux piles.
 - Proposition : un protocole WS avec rôles + portées explicites, appairage unifié + pinning TLS, validations hébergées par la Gateway, IDs d’appareils stables + slugs mignons.
 - Résultat : UX plus simple, sécurité renforcée, moins de duplication, meilleur routage mobile.
+

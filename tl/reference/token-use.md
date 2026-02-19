@@ -106,3 +106,4 @@ agents:
 - Mas piliin ang mas maliliit na model para sa verbose at exploratory na trabaho.
 
 Tingnan ang [Skills](/tools/skills) para sa eksaktong formula ng overhead ng skill list.
+

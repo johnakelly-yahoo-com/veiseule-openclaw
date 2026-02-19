@@ -94,3 +94,4 @@ stdin を送信する場合:
 ```json
 { "tool": "process", "action": "write", "sessionId": "<id>", "data": "y\n" }
 ```
+

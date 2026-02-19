@@ -829,3 +829,4 @@ Eine Schwachstelle in OpenClaw gefunden? Bitte verantwortungsvoll melden:
 _„Sicherheit ist ein Prozess, kein Produkt. Und vertrauen Sie keine Hummern mit Shell‑Zugriff.“_ — Jemand Weises, vermutlich
 
 🦞🔐
+

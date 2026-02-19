@@ -38,3 +38,4 @@ host (for example, `user@gateway-host:~/.openclaw/workspace`).
 
 - macOS 应用入门：[Onboarding](/start/onboarding)
 - 工作区布局：[Agent workspace](/concepts/agent-workspace)
+

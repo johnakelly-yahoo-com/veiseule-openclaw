@@ -164,3 +164,4 @@ default အနေဖြင့် ACP sessions များသည် `acp:` prefi
 - `--server-args <args...>`: ACP server သို့ ပေးပို့သော အပို arguments။
 - `--server-verbose`: ACP server တွင် အသေးစိတ် logging ကို ဖွင့်ရန်။
 - `--verbose, -v`: client ဘက် အသေးစိတ် logging။
+

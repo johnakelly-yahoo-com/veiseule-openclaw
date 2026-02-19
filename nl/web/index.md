@@ -114,3 +114,4 @@ De Gateway levert statische bestanden vanuit `dist/control-ui`. Bouw ze met:
 ```bash
 pnpm ui:build # auto-installs UI deps on first run
 ```
+

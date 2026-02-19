@@ -131,3 +131,4 @@ Cuando se establece `requireMention: true` para un chat grupal, OpenClaw ahora t
 - Asegúrese de que su CLI termine con código 0 e imprima texto plano; el JSON debe ajustarse mediante `jq -r .text`.
 - Mantenga tiempos de espera razonables (`timeoutSeconds`, predeterminado 60s) para evitar bloquear la cola de respuestas.
 - La transcripción preflight solo procesa el **primer** archivo de audio adjunto para la detección de menciones. El audio adicional se procesa durante la fase principal de comprensión de medios.
+

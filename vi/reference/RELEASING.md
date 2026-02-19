@@ -118,3 +118,4 @@ Danh sách plugin npm hiện tại (cập nhật khi cần):
 - @openclaw/zalouser
 
 Ghi chú phát hành cũng phải nêu rõ **các plugin bundle tùy chọn mới** **không bật mặc định** (ví dụ: `tlon`).
+

@@ -192,3 +192,4 @@ Docker 설치와 컨테이너화된 Gateway(게이트웨이)는 여기에서 확
 - [Sandbox Configuration](/gateway/configuration#agentsdefaults-sandbox)
 - [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools)
 - [Security](/gateway/security)
+

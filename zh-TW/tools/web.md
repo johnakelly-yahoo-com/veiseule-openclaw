@@ -261,3 +261,4 @@ await web_search({
 - 回應會被快取（預設 15 分鐘）以減少重複擷取。
 - 若你使用工具設定檔／允許清單，請加入 `web_search`/`web_fetch` 或 `group:web`。
 - 若缺少 Brave 金鑰，`web_search` 會回傳簡短的設定提示並附上文件連結。
+

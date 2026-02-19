@@ -108,3 +108,4 @@ För att lägga till quadlet **efter** en initial installation som inte använde
 ## Valfritt: kör som din egen användare
 
 För att köra gateway som din vanliga användare (ingen dedikerad openclaw-användare): bygg imagen, skapa `~/.openclaw/.env` med `OPENCLAW_GATEWAY_TOKEN` och kör containern med `--userns=keep-id` samt montera din `~/.openclaw`. Startskriptet är utformat för openclaw-user-flödet; för en enanvändarinstallation kan du istället köra kommandot `podman run` från skriptet manuellt och peka konfiguration och workspace till din hemkatalog. Rekommenderas för de flesta användare: använd `setup-podman.sh` och kör som openclaw-användaren så att konfiguration och process är isolerade.
+

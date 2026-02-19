@@ -48,3 +48,4 @@ openclaw approvals allowlist remove "~/Projects/**/bin/rg"
 - القيمة الافتراضية لـ `--agent` هي `"*"`، والتي تنطبق على جميع الوكلاء.
 - يجب أن يعلن مضيف العُقدة عن `system.execApprovals.get/set` (تطبيق macOS أو مضيف عُقدة بدون واجهة).
 - تُخزَّن ملفات الموافقات لكل مضيف في `~/.openclaw/exec-approvals.json`.
+

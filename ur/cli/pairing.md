@@ -19,3 +19,4 @@ title: "جوڑی بنانا"
 openclaw pairing list whatsapp
 openclaw pairing approve whatsapp <code> --notify
 ```
+

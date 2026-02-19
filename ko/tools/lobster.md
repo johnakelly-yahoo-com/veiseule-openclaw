@@ -339,3 +339,4 @@ OpenProse는 Lobster와 잘 어울립니다: `/prose`을 사용해 다중 에이
 
 - Thread: [https://x.com/plattenschieber/status/2014508656335770033](https://x.com/plattenschieber/status/2014508656335770033)
 - Repo: [https://github.com/bloomedai/brain-cli](https://github.com/bloomedai/brain-cli)
+

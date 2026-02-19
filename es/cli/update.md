@@ -96,3 +96,4 @@ A alto nivel:
 - [Canales de desarrollo](/install/development-channels)
 - [Actualización](/install/updating)
 - [Referencia de CLI](/cli)
+

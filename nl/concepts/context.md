@@ -159,3 +159,4 @@ Documentatie: [Sessie](/concepts/session), [Compactie](/concepts/compaction), [S
 - `System prompt (estimate)` = on-the-fly berekend wanneer er geen run-rapport bestaat (of bij uitvoering via een CLI-backend die het rapport niet genereert).
 
 In beide gevallen rapporteert het groottes en belangrijkste bijdragers; het dumpt **niet** de volledige systeemprompt of tool-schema’s.
+

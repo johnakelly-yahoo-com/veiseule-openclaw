@@ -46,3 +46,4 @@ Agar ro‘yxatda bo‘lmagan endpoint kerak bo‘lsa, jumladan standart OpenAI y
 - Bir nechta custom endpoint birga ishlashi uchun Endpoint ID tanlash.
 
 Batafsil bosqichlar uchun yuqoridagi CLI onboarding hujjatlariga murojaat qiling.
+

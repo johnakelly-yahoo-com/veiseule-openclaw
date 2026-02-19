@@ -58,3 +58,4 @@ export PEEKABOO_BRIDGE_SOCKET=/path/to/bridge.sock
 
 - Kung mag-report ang `peekaboo` ng “bridge client is not authorized”, tiyaking maayos ang pagkaka-sign ng client o patakbuhin ang host gamit ang `PEEKABOO_ALLOW_UNSIGNED_SOCKET_CLIENTS=1` sa **debug** mode lamang.
 - Kung walang makitang mga host, buksan ang isa sa mga host app (Peekaboo.app o OpenClaw.app) at kumpirmahing naibigay ang mga permission.
+

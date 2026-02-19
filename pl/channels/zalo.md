@@ -187,3 +187,4 @@ Opcje wielu kont:
 - `channels.zalo.accounts.<id>.webhookSecret`: sekret webhooka per konto.
 - `channels.zalo.accounts.<id>.webhookPath`: ścieżka webhooka per konto.
 - `channels.zalo.accounts.<id>.proxy`: URL proxy per konto.
+

@@ -41,3 +41,4 @@ Zobacz [iMessage](/channels/imessage) — konfiguracja legacy i adresowanie (pre
 - Gateway jest właścicielem procesu (start/stop powiązane z cyklem życia dostawcy).
 - Utrzymuj odporność klientów RPC: limity czasu, restart po zakończeniu procesu.
 - Preferuj stabilne identyfikatory (np. `chat_id`) zamiast nazw wyświetlanych.
+

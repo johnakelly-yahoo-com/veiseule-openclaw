@@ -68,3 +68,4 @@ Optionale Schlüssel:
 - Wenn Ihr Plugin von nativen Modulen abhängt, dokumentieren Sie die Build-Schritte
   sowie etwaige Allowlist-Anforderungen des Paketmanagers (zum Beispiel pnpm `allow-build-scripts`
   - `pnpm rebuild <package>`).
+

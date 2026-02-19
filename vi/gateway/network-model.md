@@ -18,3 +18,4 @@ sở hữu các kết nối kênh và mặt phẳng điều khiển WebSocket.
   - `/__openclaw__/a2ui/`
     Khi `gateway.auth` được cấu hình và Gateway bind ra ngoài loopback, các route này sẽ được bảo vệ bởi cơ chế xác thực của Gateway (các yêu cầu từ loopback được miễn). Xem [Gateway configuration](/gateway/configuration) (`canvasHost`, `gateway`).
 - Sử dụng từ xa thường là đường hầm SSH hoặc VPN tailnet. Xem [Remote access](/gateway/remote) và [Discovery](/gateway/discovery).
+

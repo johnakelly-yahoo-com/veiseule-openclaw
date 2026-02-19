@@ -176,3 +176,4 @@ This is powerful and risky. Treat it like giving the model “hands on your brow
 - براؤزر ٹول کا جائزہ: [Browser](/tools/browser)
 - سکیورٹی آڈٹ: [Security](/gateway/security)
 - Tailscale سیٹ اپ: [Tailscale](/gateway/tailscale)
+

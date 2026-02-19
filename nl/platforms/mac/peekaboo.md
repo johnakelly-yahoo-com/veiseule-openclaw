@@ -62,3 +62,4 @@ Als je langere retentie nodig hebt, leg ze opnieuw vast vanuit de client.
   uitsluitend in **debug**‑modus.
 - Als er geen hosts worden gevonden, open een van de host‑apps (Peekaboo.app of OpenClaw.app)
   en bevestig dat de rechten zijn verleend.
+

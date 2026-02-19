@@ -111,3 +111,4 @@ Notas:
 - Enquanto em uso: “Somente quando o OpenClaw estiver aberto.”
 - Sempre: “Permitir localização em segundo plano. Requer permissão do sistema.”
 - Precisa: “Usar localização GPS precisa. Desative para compartilhar localização aproximada.”
+

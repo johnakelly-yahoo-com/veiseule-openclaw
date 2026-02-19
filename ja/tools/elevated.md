@@ -55,3 +55,4 @@ title: "昇格モード"
 
 - 昇格 exec の呼び出しは info レベルでログに記録されます。
 - セッションステータスには昇格モードが含まれます（例: `elevated=ask`、`elevated=full`）。
+

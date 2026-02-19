@@ -350,3 +350,4 @@ Voor teams die de voorkeur geven aan infrastructure-as-code-workflows biedt een 
 Deze aanpak vormt een aanvulling op de bovenstaande Docker-setup met reproduceerbare deployments, versiegecontroleerde infrastructuur en geautomatiseerd disaster recovery.
 
 > **Opmerking:** Door de community onderhouden. Zie de bovenstaande repositorylinks voor issues of bijdragen.
+

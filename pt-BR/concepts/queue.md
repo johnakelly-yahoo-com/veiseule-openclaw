@@ -87,3 +87,4 @@ Padrões: `debounceMs: 1000`, `cap: 20`, `drop: summarize`.
 
 - Se os comandos parecerem travados, habilite logs detalhados e procure por linhas “queued for …ms” para confirmar que a fila está drenando.
 - Se você precisar da profundidade da fila, habilite logs detalhados e observe as linhas de temporização da fila.
+

@@ -212,3 +212,4 @@ Uwagi:
 - Zewnętrzne wtyczki mogą być rozwijane i aktualizowane bez dostępu do źródeł core.
 
 Powiązana dokumentacja: [Plugins](/tools/plugin), [Channels](/channels/index), [Configuration](/gateway/configuration).
+

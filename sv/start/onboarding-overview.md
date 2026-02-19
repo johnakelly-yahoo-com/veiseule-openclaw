@@ -47,3 +47,4 @@ Om du behöver en endpoint som inte finns listad, inklusive hostade leverantöre
 - Välj ett Endpoint ID så att flera anpassade endpoints kan samexistera.
 
 För detaljerade steg, följ CLI-onboardingdokumentationen ovan.
+

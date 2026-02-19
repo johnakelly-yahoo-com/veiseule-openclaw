@@ -39,3 +39,4 @@ OpenClaw 使用 Brave Search 作為 `web_search` 的預設提供者。
 - Brave 提供免費方案與付費方案；請查看 Brave API 入口網站以取得目前的限制資訊。
 
 請參閱 [Web tools](/tools/web) 以取得完整的 web_search 設定。
+

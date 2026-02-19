@@ -43,3 +43,4 @@ Noteringar:
 - `memory status --deep --index` kör en omindexering om lagret är smutsigt.
 - `memory index --verbose` skriver ut detaljer per fas (leverantör, modell, källor, batchaktivitet).
 - `memory status` inkluderar eventuella extra sökvägar som konfigurerats via `memorySearch.extraPaths`.
+

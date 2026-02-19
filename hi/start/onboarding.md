@@ -79,3 +79,4 @@ sidebarTitle: "ऑनबोर्डिंग: macOS ऐप"
   what happens on the gateway host during the first agent run.
 </Step>
 </Steps>
+

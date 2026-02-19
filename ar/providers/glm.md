@@ -30,3 +30,4 @@ openclaw onboard --auth-choice zai-api-key
 - يمكن أن تتغير إصدارات GLM وتوافرها؛ تحقّق من توثيق Z.AI للحصول على الأحدث.
 - تتضمن أمثلة معرّفات النماذج `glm-4.7` و `glm-4.6`.
 - لتفاصيل الموفّر، راجع [/providers/zai](/providers/zai).
+

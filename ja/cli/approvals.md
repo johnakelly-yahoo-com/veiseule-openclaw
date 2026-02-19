@@ -49,3 +49,4 @@ openclaw approvals allowlist remove "~/Projects/**/bin/rg"
 - `--agent` の既定値は `"*"` で、すべてのエージェントに適用されます。
 - ノード ホストは `system.execApprovals.get/set`（macOS アプリまたはヘッドレス ノード ホスト）をアドバタイズする必要があります。
 - 承認ファイルは、ホストごとに `~/.openclaw/exec-approvals.json` に保存されます。
+

@@ -52,3 +52,4 @@ localhost، LAN، اور tailnet کے ذریعے ڈیوائسز کو کیسے ک
 - [Gateway config reference](/gateway/configuration)
 - [Troubleshooting](/gateway/troubleshooting)
 - [Doctor](/gateway/doctor)
+

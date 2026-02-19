@@ -387,3 +387,4 @@ Jeśli potrzebujesz granic per agent, użyj `agents.list[].tools`, aby zabronić
 Do targetowania grup użyj `agents.list[].groupChat.mentionPatterns`, aby wzmianki @ mapowały się jednoznacznie do zamierzonego agenta.
 
 Zobacz [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools), aby zapoznać się ze szczegółowymi przykładami.
+

@@ -160,3 +160,4 @@ Gateway(게이트웨이)가 비밀번호 인증을 사용하는 경우 `--passwo
 - `disconnected`: Gateway(게이트웨이)가 실행 중인지, `--url/--token/--password` 가 올바른지 확인하십시오.
 - 선택기에 에이전트가 없는 경우: `openclaw agents list` 및 라우팅 구성을 확인하십시오.
 - 세션 선택기가 비어 있는 경우: 전역 범위에 있거나 아직 세션이 없을 수 있습니다.
+

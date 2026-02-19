@@ -265,3 +265,4 @@ trusted-proxy auth کو فعال کرنے سے پہلے، تصدیق کریں:
 - [Configuration](/gateway/configuration) — کنفیگریشن ریفرنس
 - [Remote Access](/gateway/remote) — دیگر ریموٹ ایکسیس طریقے
 - [Tailscale](/gateway/tailscale) — صرف tailnet ایکسیس کے لیے آسان متبادل
+

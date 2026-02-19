@@ -55,3 +55,4 @@ title: "Elevated موڈ"
 
 - Elevated exec کالز info لیول پر لاگ کی جاتی ہیں۔
 - سیشن اسٹیٹس میں elevated موڈ شامل ہوتا ہے (مثلاً `elevated=ask`، `elevated=full`)۔
+

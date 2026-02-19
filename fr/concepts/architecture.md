@@ -136,3 +136,4 @@ Details : [Gateway protocol](/gateway/protocol), [Pairing](/start/pairing),
 - Exactement une Gateway controle une seule session Baileys par hote.
 - L’handshake est obligatoire ; toute premiere trame non‑JSON ou non‑connect entraine une fermeture immediate.
 - Les evenements ne sont pas rejoues ; les clients doivent se rafraichir en cas de lacunes.
+

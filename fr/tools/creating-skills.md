@@ -52,3 +52,4 @@ Demandez a votre agent de « rafraichir les Skills » ou redemarrez la Gatew
 ## Skills partages
 
 Vous pouvez egalement parcourir et contribuer a des skills sur [ClawHub](https://clawhub.com).
+

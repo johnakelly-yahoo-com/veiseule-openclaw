@@ -70,3 +70,4 @@ openclaw models set github-copilot/gpt-4o
   prova ett annat ID (till exempel `github-copilot/gpt-4.1`).
 - Inloggningen lagrar en GitHub‑token i autentiseringsprofilens lagring och byter
   ut den mot en Copilot API‑token när OpenClaw körs.
+

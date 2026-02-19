@@ -137,3 +137,4 @@ browser extension to be attached to a live tab.
 
 - `chrome` 設定檔在可能的情況下會使用你的 **系統預設 Chromium 瀏覽器**。
 - 本機 `openclaw` 設定檔會自動指派 `cdpPort` / `cdpUrl`；只有在遠端 CDP 時才需要設定這些選項。
+

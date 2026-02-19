@@ -97,3 +97,4 @@ Andra konfigurationsreglage som påverkar verktygstillgänglighet:
 - Plugin‑ID:n som används i tillåtelselistor får inte krocka med kärnverktygsnamn.
 - Föredra `optional: true` för verktyg som utlöser bieffekter eller kräver extra
   binärer/autentiseringsuppgifter.
+

@@ -1034,3 +1034,4 @@ Gateway سے منسلک ٹرمینل UI کھولیں۔
 - `--message <text>`
 - `--timeout-ms <ms>` (طے شدہ `agents.defaults.timeoutSeconds`)
 - `--history-limit <n>`
+

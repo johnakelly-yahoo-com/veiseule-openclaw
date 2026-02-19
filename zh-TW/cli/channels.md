@@ -77,3 +77,4 @@ openclaw channels resolve --channel matrix "Project Room"
 
 - 使用 `--kind user|group|auto` 強制指定目標類型。
 - Resolution prefers active matches when multiple entries share the same name.
+

@@ -48,3 +48,4 @@ Relaterede globale indstillinger:
 - `gateway.remote.url`, `gateway.remote.token`, `gateway.remote.password`: fjern gateway-mål.
 - `session.*`: sessionslager og standarder for hovednøgle.
 - `session.*`: sessionslager og standarder for hovednøgle.
+

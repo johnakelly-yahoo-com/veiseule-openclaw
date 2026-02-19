@@ -2365,3 +2365,4 @@ Konfiguratsiyani bir nechta faylga ajrating:
 ---
 
 _Tegishli: [Configuration](/gateway/configuration) · [Configuration Examples](/gateway/configuration-examples) · [Doctor](/gateway/doctor)_
+

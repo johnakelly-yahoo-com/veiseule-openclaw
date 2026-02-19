@@ -200,3 +200,4 @@ du protocole, voir [protocole de la Gateway](/gateway/protocol).
 - [Gateway (macOS)](/platforms/mac/bundled-gateway)
 - [Autorisations macOS](/platforms/mac/permissions)
 - [Canvas](/platforms/mac/canvas)
+

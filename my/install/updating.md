@@ -229,3 +229,4 @@ git pull
 - `openclaw doctor` ကို ထပ်မံ chạy လုပ်ပြီး output ကို သေချာဖတ်ပါ (အများအားဖြင့် ပြုပြင်နည်းကို ပြောပြထားတတ်ပါသည်)။
 - စစ်ဆေးရန်: [Troubleshooting](/gateway/troubleshooting)
 - Discord တွင် မေးမြန်းပါ: [https://discord.gg/clawd](https://discord.gg/clawd)
+

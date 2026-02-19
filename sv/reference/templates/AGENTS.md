@@ -217,3 +217,4 @@ Målet: Var till hjälp utan att vara irriterande. Checka in några gånger om d
 ## Gör det till ditt
 
 Detta är en utgångspunkt. Lägg till dina egna konventioner, stil och regler som du räkna ut vad som fungerar.
+

@@ -511,3 +511,4 @@ Les outils sont exposés dans deux canaux parallèles :
 
 Cela signifie que l’agent voit à la fois « quels outils existent » et « comment les appeler ». Si un outil
 n’apparaît pas dans le prompt système ou dans le schéma, le modèle ne peut pas l’appeler.
+

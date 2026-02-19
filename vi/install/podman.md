@@ -108,3 +108,4 @@ File quadlet nằm tại `~openclaw/.config/containers/systemd/openclaw.containe
 ## Tùy chọn: chạy dưới người dùng của riêng bạn
 
 Để chạy gateway bằng người dùng thông thường của bạn (không dùng người dùng openclaw riêng biệt): build image, tạo `~/.openclaw/.env` với `OPENCLAW_GATEWAY_TOKEN`, và chạy container với `--userns=keep-id` cùng các mount tới `~/.openclaw` của bạn. Script khởi chạy được thiết kế cho luồng openclaw-user; với thiết lập một người dùng, bạn có thể thay vào đó chạy thủ công lệnh `podman run` trong script, trỏ cấu hình và workspace về thư mục home của bạn. Khuyến nghị cho hầu hết người dùng: sử dụng `setup-podman.sh` và chạy dưới người dùng openclaw để cấu hình và tiến trình được tách biệt.
+

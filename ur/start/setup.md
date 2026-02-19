@@ -157,3 +157,4 @@ sudo loginctl enable-linger $USER
 - [Discord](/channels/discord) اور [Telegram](/channels/telegram) (reply tags + replyToMode سیٹنگز)
 - [OpenClaw assistant setup](/start/openclaw)
 - [macOS app](/platforms/macos) (gateway لائف سائیکل)
+

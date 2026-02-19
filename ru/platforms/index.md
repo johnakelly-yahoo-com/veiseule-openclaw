@@ -51,3 +51,4 @@ Linux запланированы, однако Gateway (шлюз) полност
 
 - macOS: LaunchAgent (`bot.molt.gateway` или `bot.molt.<profile>`; устаревший `com.openclaw.*`)
 - Linux/WSL2: пользовательский сервис systemd (`openclaw-gateway[-<profile>].service`)
+

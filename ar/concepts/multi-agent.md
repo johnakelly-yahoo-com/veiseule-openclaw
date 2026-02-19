@@ -410,3 +410,4 @@ allowFrom: ["+15551230001", "+15551230002"],
 ولاستهداف المجموعات، استخدم `agents.list[].groupChat.mentionPatterns` بحيث تُطابِق @mentions الوكيل المقصود بدقة.
 
 راجع [Sandbox & Tools متعدد الوكلاء](/tools/multi-agent-sandbox-tools) لأمثلة تفصيلية.
+

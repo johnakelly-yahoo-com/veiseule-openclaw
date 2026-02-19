@@ -22,3 +22,4 @@ Hızlı Başlangıç artık [Başlarken](/start/getting-started) bölümünün b
   
 </Card>
 </Columns>
+

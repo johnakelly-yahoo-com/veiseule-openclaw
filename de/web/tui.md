@@ -160,3 +160,4 @@ Keine Ausgabe nach dem Senden einer Nachricht:
 - `disconnected`: Stellen Sie sicher, dass das Gateway läuft und Ihre `--url/--token/--password` korrekt sind.
 - Keine Agents im Picker: Prüfen Sie `openclaw agents list` und Ihre Routing-Konfiguration.
 - Leerer Sitzungs-Picker: Möglicherweise befinden Sie sich im globalen Bereich oder haben noch keine Sitzungen.
+

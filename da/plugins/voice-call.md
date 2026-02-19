@@ -284,3 +284,4 @@ Dette repo leverer en matchende Skills-dokumentation på `skills/voice-call/SKIL
 - `voicecall.speak` (`callId`, `message`)
 - `voicecall.end` (`callId`)
 - `voicecall.status` (`callId`)
+

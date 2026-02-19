@@ -55,3 +55,4 @@ sudo install -m 644 -o root -g wheel /tmp/bot.molt.plist /Library/Preferences/Lo
 - اووررائیڈ ہٹائیں: `sudo rm /Library/Preferences/Logging/Subsystems/bot.molt.plist`۔
 - اختیاری طور پر فوراً logd کو اووررائیڈ چھوڑنے پر مجبور کرنے کے لیے `sudo log config --reload` چلائیں۔
 - یاد رکھیں کہ اس سطح پر فون نمبرز اور پیغام کے متن شامل ہو سکتے ہیں؛ اضافی تفصیل کی فعال ضرورت کے دوران ہی plist کو برقرار رکھیں۔
+

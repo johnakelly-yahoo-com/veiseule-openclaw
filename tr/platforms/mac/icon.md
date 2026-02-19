@@ -29,3 +29,4 @@ Davranışsal notlar
 
 - Kulaklar/çalışma için harici bir CLI/aracı anahtar yoktur; yanlışlıkla çırpınmayı önlemek için bunu uygulamanın kendi sinyallerine içsel tutun.
 - Bir iş takılırsa simgenin hızla temel duruma dönmesi için TTL’leri kısa tutun (&lt;10 sn).
+

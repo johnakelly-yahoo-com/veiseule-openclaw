@@ -377,3 +377,4 @@ Access token refreshed for user 123456 (expires in 14400s)
 - 메시지당 **500자** (단어 경계에서 자동 분할)
 - 분할 전에 Markdown 이 제거됩니다
 - 속도 제한 없음 (Twitch 의 내장 속도 제한 사용)
+

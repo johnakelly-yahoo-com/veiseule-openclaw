@@ -202,3 +202,4 @@ For opsætningstrin, se [macOS fjernadgang](/platforms/mac/remote). For detaljer
 - [Gateway (macOS)](/platforms/mac/bundled-gateway)
 - [macOS-tilladelser](/platforms/mac/permissions)
 - [Canvas](/platforms/mac/canvas)
+

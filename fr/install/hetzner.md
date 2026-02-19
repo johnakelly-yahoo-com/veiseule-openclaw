@@ -350,3 +350,4 @@ Pour les équipes privilégiant les workflows infrastructure-as-code, une config
 Cette approche complète la configuration Docker ci-dessus avec des déploiements reproductibles, une infrastructure versionnée et une reprise après sinistre automatisée.
 
 > **Remarque :** Maintenu par la communauté. Pour les problèmes ou les contributions, consultez les liens vers le dépôt ci-dessus.
+

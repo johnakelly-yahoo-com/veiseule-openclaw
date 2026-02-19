@@ -53,3 +53,4 @@ Se você ainda passar `--token`, lembre-se de que ele ficará no histórico do s
 
 - Endpoint `/v1` compatível com OpenAI; use uma chave de API do NVIDIA NGC.
 - O provedor é ativado automaticamente quando `NVIDIA_API_KEY` está definida; usa padrões estáticos (janela de contexto de 131.072 tokens, máximo de 4.096 tokens).
+

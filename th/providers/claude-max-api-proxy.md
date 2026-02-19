@@ -146,3 +146,4 @@ launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.claude-max-api.plist
 
 - [Anthropic provider](/providers/anthropic) - การผสานรวม OpenClaw แบบเนทีฟกับการตั้งค่า Claude setup-token หรือคีย์ API
 - [OpenAI provider](/providers/openai) - สำหรับการสมัครสมาชิก OpenAI/Codex
+

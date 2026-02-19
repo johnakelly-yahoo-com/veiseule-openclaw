@@ -834,3 +834,4 @@ Encontrou uma vulnerabilidade no OpenClaw? Por favor, reporte de forma responsá
 _"Segurança é um processo, não um produto. Além disso, não confie em lagostas com acesso ao shell."_ — Alguém sábio, provavelmente
 
 🦞🔐
+

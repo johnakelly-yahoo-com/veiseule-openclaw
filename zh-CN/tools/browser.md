@@ -570,3 +570,4 @@ JSON 格式的角色快照包含 `refs` 加上一个小的 `stats` 块（lines/c
   - 如果连接了具有浏览器能力的节点，工具可能会自动路由到该节点，除非你指定 `target="host"` 或 `target="node"`。
 
 This keeps the agent deterministic and avoids brittle selectors.
+

@@ -675,3 +675,4 @@ Wichtige Discord-Felder:
 - Kanal (z. B.
 - [Troubleshooting](/channels/troubleshooting)
 - Vollständige Befehlsliste + Konfiguration: [Slash commands](/tools/slash-commands)
+

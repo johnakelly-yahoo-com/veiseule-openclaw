@@ -301,3 +301,4 @@ tar -czvf openclaw-backup.tar.gz ~/.openclaw ~/.openclaw/workspace
 - [Gateway configuration](/gateway/configuration) — config ရွေးချယ်မှုများအားလုံး
 - [DigitalOcean guide](/platforms/digitalocean) — ပိုမိုလွယ်ကူသော signup နှင့် paid option
 - [Hetzner guide](/install/hetzner) — Docker အခြေခံ အစားထိုးရွေးချယ်မှု
+

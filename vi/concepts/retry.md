@@ -67,3 +67,4 @@ Thiết lập chính sách retry theo từng nhà cung cấp trong `~/.openclaw/
 
 - Retry áp dụng theo từng yêu cầu (gửi tin nhắn, tải lên media, reaction, poll, sticker).
 - Các luồng tổng hợp sẽ không retry những bước đã hoàn thành.
+

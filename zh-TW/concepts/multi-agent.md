@@ -392,3 +392,4 @@ openclaw agents list --bindings
 若要進行群組目標設定，請使用 `agents.list[].groupChat.mentionPatterns`，讓 @mentions 能正確對應到目標 agent。
 
 請參閱 [多代理沙箱與工具](/tools/multi-agent-sandbox-tools) 以取得詳細範例。
+

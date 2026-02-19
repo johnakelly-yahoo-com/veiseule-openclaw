@@ -81,3 +81,4 @@ openclaw nodes notify --node <id> --title "Ping" --body "Remote gateway ready" -
 ```
 
 Er is geen globale schakelaar “standaardgeluid” meer in de app; aanroepers kiezen per verzoek een geluid (of geen).
+

@@ -105,3 +105,4 @@ Si la Gateway (passerelle) s’execute sur une machine differente de celle du na
 Utilisez `gateway.nodes.browser.mode` pour controler le routage automatique et `gateway.nodes.browser.node` pour epingler un nœud specifique si plusieurs sont connectes.
 
 Securite + configuration a distance : [Browser tool](/tools/browser), [Remote access](/gateway/remote), [Tailscale](/gateway/tailscale), [Security](/gateway/security)
+

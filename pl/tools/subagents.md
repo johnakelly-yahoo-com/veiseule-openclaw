@@ -214,3 +214,4 @@ Pod-agenci korzystają z dedykowanej wewnętrznej kolejki w procesie:
 - Kontekst pod-agenta wstrzykuje tylko `AGENTS.md` + `TOOLS.md` (bez `SOUL.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md` ani `BOOTSTRAP.md`).
 - Maksymalna głębokość zagnieżdżenia to 5 (zakres `maxSpawnDepth`: 1–5). Poziom 2 jest zalecany w większości zastosowań.
 - `maxChildrenPerAgent` ogranicza liczbę aktywnych dzieci na sesję (domyślnie: 5, zakres: 1–20).
+

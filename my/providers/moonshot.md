@@ -138,3 +138,4 @@ openclaw onboard --auth-choice kimi-code-api-key
 - မော်ဒယ်တစ်ခုအတွက် Moonshot က context ကန့်သတ်ချက် မတူညီစွာ ထုတ်ပြန်ပါက
   `contextWindow` ကို လိုက်လျောညီထွေ ချိန်ညှိပါ။
 - နိုင်ငံတကာ endpoint အတွက် `https://api.moonshot.ai/v1` ကို အသုံးပြုပါ၊ တရုတ် endpoint အတွက် `https://api.moonshot.cn/v1` ကို အသုံးပြုပါ။
+

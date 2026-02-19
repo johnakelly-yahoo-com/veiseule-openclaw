@@ -121,3 +121,4 @@ Limitahan ang pruning sa mga partikular na tool:
 ```
 
 Tingnan ang config reference: [Gateway Configuration](/gateway/configuration)
+

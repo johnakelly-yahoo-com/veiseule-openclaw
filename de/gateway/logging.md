@@ -111,3 +111,4 @@ Verhalten:
 - **WhatsApp-Nachrichteninhalte** werden auf `debug` geloggt (verwenden Sie `--verbose`, um sie zu sehen)
 
 Dies hält bestehende Dateilogs stabil und macht interaktive Ausgaben gut scannbar.
+

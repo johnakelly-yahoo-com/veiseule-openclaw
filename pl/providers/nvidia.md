@@ -53,3 +53,4 @@ Jeśli nadal przekazujesz `--token`, pamiętaj, że trafi on do historii powłok
 
 - Zgodny z OpenAI endpoint `/v1`; użyj klucza API z NVIDIA NGC.
 - Dostawca włącza się automatycznie po ustawieniu `NVIDIA_API_KEY`; używa statycznych domyślnych wartości (okno kontekstu 131 072 tokenów, maks. 4 096 tokenów).
+

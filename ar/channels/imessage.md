@@ -361,3 +361,4 @@ imsg send <handle> "test"
 - التهيئة الكاملة: [التهيئة](/gateway/configuration)
 - التفاصيل: [الاقتران](/channels/pairing)
 - [BlueBubbles](/channels/bluebubbles)
+

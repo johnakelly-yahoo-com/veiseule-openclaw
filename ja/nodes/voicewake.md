@@ -63,3 +63,4 @@ OpenClaw では、**ウェイクワードは Gateway が所有する単一のグ
 
 - 設定に Wake Words エディターを公開します。
 - Gateway WS 経由で `voicewake.set` を呼び出し、編集内容が全体に同期されるようにします。
+

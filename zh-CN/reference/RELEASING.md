@@ -118,3 +118,4 @@ plugins that are not on npm stay **disk-tree only** (still shipped in
 - @openclaw/zalouser
 
 发布说明还必须标注**默认未启用**的**新可选内置插件**（例如：`tlon`）。
+

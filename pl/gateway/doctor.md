@@ -282,3 +282,4 @@ dotyczącą kopii zapasowej, jeśli obszar roboczy nie jest już pod kontrolą g
 
 Zobacz [/concepts/agent-workspace](/concepts/agent-workspace), aby uzyskać pełny przewodnik po
 strukturze obszaru roboczego i kopiach zapasowych git (zalecane prywatne GitHub lub GitLab).
+

@@ -45,3 +45,4 @@ macOS ٹرمینل/بیک گراؤنڈ پروسیسز کے لیے Desktop، Docu
 
 اگر آپ اجازتوں کی جانچ کر رہے ہیں تو ہمیشہ حقیقی سرٹیفکیٹ کے ساتھ سائن کریں۔ Ad-hoc
 builds are only acceptable for quick local runs where permissions do not matter.
+

@@ -528,3 +528,4 @@ Hành động công cụ Slack có thể bị giới hạn bằng `channels.slac
   `files:write`) nếu không các thao tác đó sẽ thất bại.
 - [Configuration](/gateway/configuration)
 - [Slash commands](/tools/slash-commands)
+

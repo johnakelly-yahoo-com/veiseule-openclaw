@@ -55,3 +55,4 @@ title: "Tryb podwyższony"
 
 - Wywołania exec w trybie podwyższonym są logowane na poziomie info.
 - Status sesji zawiera tryb podwyższony (np. `elevated=ask`, `elevated=full`).
+

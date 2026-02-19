@@ -67,3 +67,4 @@ Likhain ang `SOUL_EVIL.md` sa root ng agent workspace (katabi ng `SOUL.md`).
 ## Tingnan Din
 
 - [Hooks](/automation/hooks)
+

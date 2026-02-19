@@ -265,3 +265,4 @@ A API da Venice está em `https://api.venice.ai/api/v1`. Garanta que sua rede pe
 - [Documentação da API](https://docs.venice.ai)
 - [Preços](https://venice.ai/pricing)
 - [Status](https://status.venice.ai)
+

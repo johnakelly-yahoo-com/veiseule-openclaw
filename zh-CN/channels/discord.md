@@ -677,3 +677,4 @@ message(action="send", channel="discord", target="channel:123", path="/path/to/a
 - [Channel routing](/channels/channel-routing)
 - [Troubleshooting](/channels/troubleshooting)
 - 完整命令列表 + 配置：[斜杠命令](/tools/slash-commands)
+

@@ -18,3 +18,4 @@ title: "網路模型"
   - `/__openclaw__/a2ui/`
     當設定了 `gateway.auth` 且 Gateway 綁定在非 loopback 位址時，這些路由會受到 Gateway 驗證保護（來自 loopback 的請求不受此限制）。 請參閱 [Gateway 設定](/gateway/configuration)（`canvasHost`、`gateway`）。
 - 遠端使用通常透過 SSH 通道或 tailnet VPN。請參閱 [Remote access](/gateway/remote) 與 [Discovery](/gateway/discovery)。 See [Remote access](/gateway/remote) and [Discovery](/gateway/discovery). See [Remote access](/gateway/remote) and [Discovery](/gateway/discovery).
+

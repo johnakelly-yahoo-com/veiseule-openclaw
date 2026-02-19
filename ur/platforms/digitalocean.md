@@ -260,3 +260,4 @@ free -h
 - [Docker انسٹال](/install/docker) — کنٹینرائزڈ سیٹ اپ
 - [Tailscale](/gateway/tailscale) — محفوظ ریموٹ رسائی
 - [Configuration](/gateway/configuration) — مکمل کنفیگ حوالہ
+

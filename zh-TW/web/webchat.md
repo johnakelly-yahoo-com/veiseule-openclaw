@@ -48,3 +48,4 @@ Related global options:
 - `gateway.auth.mode: "trusted-proxy"`：供瀏覽器客戶端使用的反向代理驗證（請參閱 [Trusted Proxy Auth](/gateway/trusted-proxy-auth)）。
 - `gateway.remote.url`、`gateway.remote.token`、`gateway.remote.password`：遠端 Gateway 閘道器目標。
 - `session.*`：工作階段儲存與主要金鑰預設值。
+

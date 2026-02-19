@@ -372,3 +372,4 @@ El prompt del sistema del agente incluye una introducción del grupo en el prime
 ## Especificidades de WhatsApp
 
 Vea [Mensajes de grupo](/channels/group-messages) para el comportamiento exclusivo de WhatsApp (inyección de historial, detalles del manejo de menciones).
+

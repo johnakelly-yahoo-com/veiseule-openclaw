@@ -72,3 +72,4 @@ title: "思考層級"
 - Web 聊天的 thinking 選擇器在頁面載入時，會鏡像自傳入工作階段儲存／設定中的已儲存層級。
 - 選擇其他層級僅套用於下一則訊息（`thinkingOnce`）；送出後，選擇器會回復到已儲存的工作階段層級。
 - To change the session default, send a `/think:<level>` directive (as before); the selector will reflect it after the next reload.
+

@@ -230,3 +230,4 @@ Alt aracılar, süreç içi ayrılmış bir kuyruk hattı kullanır:
 - Alt aracı bağlamı yalnızca `AGENTS.md` + `TOOLS.md` enjekte eder (`SOUL.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md` veya `BOOTSTRAP.md` yoktur).
 - Maksimum iç içe geçme derinliği 5’tir (`maxSpawnDepth` aralığı: 1–5). Çoğu kullanım durumu için derinlik 2 önerilir.
 - `maxChildrenPerAgent`, oturum başına aktif alt öğe sayısını sınırlar (varsayılan: 5, aralık: 1–20).
+

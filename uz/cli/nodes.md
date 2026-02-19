@@ -71,3 +71,4 @@ Flags:
 - `--raw <command>`: run a shell string (`/bin/sh -lc` or `cmd.exe /c`).
 - `--agent <id>`: agent-scoped approvals/allowlists (defaults to configured agent).
 - `--ask <off|on-miss|always>`, `--security <deny|allowlist|full>`: overrides.
+

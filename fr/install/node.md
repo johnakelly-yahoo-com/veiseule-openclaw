@@ -143,3 +143,4 @@ export PATH="$HOME/.npm-global/bin:$PATH"
 ```
 
 Rendez persistante la ligne `export PATH=...` dans le fichier de démarrage de votre shell.
+

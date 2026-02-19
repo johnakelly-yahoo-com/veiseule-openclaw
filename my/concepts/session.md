@@ -193,3 +193,4 @@ Runtime override (ပိုင်ရှင်သာ):
 - `accountId`: provider အကောင့် id (multi-account ဖြစ်ပါက)
 - `threadId`: ချန်နယ်က ထောက်ပံ့ပါက thread/ခေါင်းစဉ် ID
   မူလလာရာ (origin) ဖီးလ်များကို direct messages၊ channels နှင့် groups အတွက် ဖြည့်သွင်းထားသည်။ connector တစ်ခုက ပို့ဆောင်မှု လမ်းကြောင်းကိုသာ အပ်ဒိတ်လုပ်ပါက (ဥပမာ၊ DM အဓိက စက်ရှင်ကို အသစ်အဆန်းထားရန်) စက်ရှင်၏ explainer metadata ကို ထိန်းသိမ်းနိုင်ရန် inbound context ကို ပေးရပါမည်။ Extensions များသည် inbound context ထဲတွင် `ConversationLabel`, `GroupSubject`, `GroupChannel`, `GroupSpace`, နှင့် `SenderName` ကို ပို့ပြီး `recordSessionMetaFromInbound` ကို ခေါ်ခြင်း (သို့မဟုတ် တူညီသော context ကို `updateLastRoute` သို့ ပေးပို့ခြင်း) ဖြင့် ယင်းကို လုပ်ဆောင်နိုင်သည်။
+

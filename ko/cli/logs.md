@@ -24,3 +24,4 @@ openclaw logs --limit 500
 ```
 
 `--local-time`을 사용하여 타임스탬프를 로컬 시간대로 표시합니다.
+

@@ -226,3 +226,4 @@ Override only if needed (common: absolute `command` path).
 - **沒有工作階段連續性**：確認已設定 `sessionArg`，且 `sessionMode` 不是
   `none`（Codex CLI 目前無法以 JSON 輸出復原）。
 - **圖片被忽略**：設定 `imageArg`（並確認 CLI 支援檔案路徑）。
+

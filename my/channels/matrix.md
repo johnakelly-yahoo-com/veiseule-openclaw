@@ -305,3 +305,4 @@ Provider ရွေးချယ်စရာများ:
 - `channels.matrix.autoJoinAllowlist`: auto-join အတွက် ခွင့်ပြုထားသော room IDs/aliases။
 - `channels.matrix.accounts`: account ID အလိုက် သတ်မှတ်ထားသော multi-account configuration (account တစ်ခုချင်းစီသည် top-level settings ကို ဆက်ခံသည်)။
 - `channels.matrix.actions`: action တစ်ခုချင်းစီအလိုက် tool gating (reactions/messages/pins/memberInfo/channelInfo)။
+

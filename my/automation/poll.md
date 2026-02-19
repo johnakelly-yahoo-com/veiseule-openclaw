@@ -66,3 +66,4 @@ openclaw message poll --channel msteams --target conversation:19:abc@thread.tacv
 
 မှတ်ချက်: Discord တွင် “အတိအကျ N ခု ရွေးချယ်ပါ” mode မရှိပါ; `pollMulti` သည် multi-select နှင့် ကိုက်ညီပါသည်။
 Teams polls များကို Adaptive Cards အဖြစ် render လုပ်ပြီး `~/.openclaw/msteams-polls.json` တွင် မဲများကို မှတ်တမ်းတင်ရန် gateway သည် အွန်လိုင်းနေဆဲ ဖြစ်ရပါမည်။
+

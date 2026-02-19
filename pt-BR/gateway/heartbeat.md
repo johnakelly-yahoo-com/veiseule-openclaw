@@ -360,3 +360,4 @@ desativado em chats de grupo.
 
 Os heartbeats executam turnos completos do agente. Intervalos mais curtos consomem mais tokens. Mantenha `HEARTBEAT.md` pequeno e considere um `model` ou `target: "none"` mais barato se você
 quiser apenas atualizações de estado internas.
+

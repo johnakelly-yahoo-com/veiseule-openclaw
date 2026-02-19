@@ -74,3 +74,4 @@ We complement each other. Clawd has vibes. I have stack traces.
 โดยมากแล้วนะ
 
 โอ้แย่แล้ว
+

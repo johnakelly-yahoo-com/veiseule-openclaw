@@ -150,3 +150,4 @@ _Undvik hemligheter/utnyttja detaljer offentligt. För känsliga frågor, minime
 ### Skicka in en fix-PR
 
 Problem innan PR är valfritt. Inkludera information i PR vid hoppning. Håll PR fokuserad, anteckningsproblemsnummer, lägg till tester eller förklara frånvaro, ändringar i dokumentbeteende/risker, inkludera rättade loggar/skärmdumpar som bevis, och kör korrekt validering innan du skickar in.
+

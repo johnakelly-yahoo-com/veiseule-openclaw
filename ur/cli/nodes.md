@@ -70,3 +70,4 @@ Invoke فلیگز:
 - `--raw <command>`: شیل اسٹرنگ چلائیں (`/bin/sh -lc` یا `cmd.exe /c`)۔
 - `--agent <id>`: ایجنٹ-اسکوپڈ منظوریات/allowlists (کنفیگر شدہ ایجنٹ بطورِ طے شدہ)۔
 - `--ask <off|on-miss|always>`, `--security <deny|allowlist|full>`: اووررائیڈز۔
+

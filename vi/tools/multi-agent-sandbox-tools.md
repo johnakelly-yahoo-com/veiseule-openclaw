@@ -391,3 +391,4 @@ Sau khi cấu hình sandbox và công cụ đa tác tử:
 - [Định tuyến đa agent](/concepts/multi-agent)
 - [Cấu hình Sandbox](/gateway/configuration#agentsdefaults-sandbox)
 - [Quản lý phiên](/concepts/session)
+

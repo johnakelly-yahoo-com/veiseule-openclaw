@@ -160,3 +160,4 @@ kullanıcı servisi yerine **sistem** servisini düşünün (lingering gerekmez)
 - [Discord](/channels/discord) ve [Telegram](/channels/telegram) (yanıt etiketleri + replyToMode ayarları)
 - [OpenClaw asistan kurulumu](/start/openclaw)
 - [macOS uygulaması](/platforms/macos) (gateway yaşam döngüsü)
+

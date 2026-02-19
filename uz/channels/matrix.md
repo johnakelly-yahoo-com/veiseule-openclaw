@@ -298,3 +298,4 @@ Full configuration: [Configuration](/gateway/configuration)
 - `channels.matrix.autoJoinAllowlist`: allowed room IDs/aliases for auto-join.
 - `channels.matrix.accounts`: akkaunt ID bo‘yicha kalitlangan ko‘p akkauntli konfiguratsiya (har bir akkaunt yuqori darajadagi sozlamalardan meros oladi).
 - `channels.matrix.actions`: per-action tool gating (reactions/messages/pins/memberInfo/channelInfo).
+

@@ -581,3 +581,4 @@ Halimbawa:
   nagsa-source ng `/etc/profile` at maaaring i-reset ang PATH. Itakda ang `docker.env.PATH` upang i-prepend ang iyong
   mga custom na path ng tool (hal., `/custom/bin:/usr/local/share/npm-global/bin`), o magdagdag
   ng script sa ilalim ng `/etc/profile.d/` sa iyong Dockerfile.
+

@@ -77,3 +77,4 @@ openclaw plugins update <id> --dry-run
 ```
 
 अपडेट केवल npm से इंस्टॉल किए गए प्लगइन्स पर लागू होते हैं (जो `plugins.installs` में ट्रैक किए जाते हैं)।
+

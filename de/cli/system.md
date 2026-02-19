@@ -58,3 +58,4 @@ Flags:
 
 - Erfordert ein laufendes Gateway, das über Ihre aktuelle Konfiguration erreichbar ist (lokal oder remote).
 - Systemereignisse sind ephemer und werden über Neustarts hinweg nicht persistiert.
+

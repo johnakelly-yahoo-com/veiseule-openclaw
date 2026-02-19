@@ -81,3 +81,4 @@ openclaw nodes notify --node <id> --title "Ping" --body "Remote gateway ready" -
 ```
 
 アプリにはもはやグローバルな「デフォルトサウンド」切り替えはありません。呼び出し元がリクエストごとにサウンド（またはなし）を選択します。
+

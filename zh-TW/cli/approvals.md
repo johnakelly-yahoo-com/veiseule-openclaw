@@ -48,3 +48,4 @@ openclaw approvals allowlist remove "~/Projects/**/bin/rg"
 - `--agent` 預設為 `"*"`，此設定會套用至所有代理程式。
 - The node host must advertise `system.execApprovals.get/set` (macOS app or headless node host).
 - 每個主機的核准檔案會儲存在 `~/.openclaw/exec-approvals.json`。
+

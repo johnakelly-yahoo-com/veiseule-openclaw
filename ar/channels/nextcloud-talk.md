@@ -139,3 +139,4 @@ openclaw plugins install ./extensions/nextcloud-talk
 - `channels.nextcloud-talk.blockStreaming`: تعطيل بثّ الكتل لهذه القناة.
 - `channels.nextcloud-talk.blockStreamingCoalesce`: ضبط دمج بثّ الكتل.
 - `channels.nextcloud-talk.mediaMaxMb`: حد الوسائط الواردة (ميغابايت).
+

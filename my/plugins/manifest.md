@@ -66,3 +66,4 @@ OpenClaw သည် plugin code ကို **မ run ဘဲ** configuration ကိ
 - သင့်ပလဂ်အင်သည် native modules များကို မူတည်နေပါက၊ build လုပ်ငန်းစဉ်များနှင့်
   package-manager allowlist လိုအပ်ချက်များကို မှတ်တမ်းတင်ဖော်ပြပါ (ဥပမာ: pnpm `allow-build-scripts`
   - `pnpm rebuild <package>`)။
+

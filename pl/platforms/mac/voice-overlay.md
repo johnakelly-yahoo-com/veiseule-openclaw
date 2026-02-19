@@ -59,3 +59,4 @@ Odbiorcy: współtwórcy aplikacji na macOS. Cel: utrzymać przewidywalne zachow
 3. Zrefaktoryzuj `VoicePushToTalk`, aby przejmować istniejące sesje i wywoływać `endCapture` przy zwolnieniu; zastosuj cooldown środowiska.
 4. Podłącz `VoiceWakeOverlayController` do publishera; usuń bezpośrednie wywołania z runtime/PTT.
 5. Dodaj testy integracyjne dla przejmowania sesji, cooldown oraz zamykania przy pustym tekście.
+

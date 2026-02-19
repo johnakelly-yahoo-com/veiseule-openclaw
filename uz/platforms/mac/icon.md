@@ -29,3 +29,4 @@ title: "12. Meniu paneli ikonka"
 
 - 31. Quloqlar/working uchun tashqi CLI/broker toggle yo‘q; tasodifiy tebranishlarni oldini olish uchun buni ilovaning o‘z signallari ichida saqlang.
 - 32. Agar vazifa osilib qolsa, ikonka tezda bazaviy holatga qaytishi uchun TTL’larni qisqa (&lt;10s) tuting.
+

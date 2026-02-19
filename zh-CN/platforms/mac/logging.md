@@ -55,3 +55,4 @@ sudo install -m 644 -o root -g wheel /tmp/bot.molt.plist /Library/Preferences/Lo
 - 移除覆盖配置：`sudo rm /Library/Preferences/Logging/Subsystems/bot.molt.plist`。
 - 可选择运行 `sudo log config --reload` 强制 logd 立即丢弃覆盖配置。
 - 11. 菜单栏状态逻辑以及向用户展示的内容
+

@@ -224,3 +224,4 @@ Substitua apenas se necessário (comum: caminho absoluto de `command`).
 - **Sem continuidade de sessão**: garanta que `sessionArg` esteja definido e que `sessionMode` não seja
   `none` (o Codex CLI atualmente não consegue retomar com saída JSON).
 - **Imagens ignoradas**: defina `imageArg` (e verifique se a CLI suporta caminhos de arquivo).
+

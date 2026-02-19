@@ -50,3 +50,4 @@ Lokal ishonch:
 - [Gateway konfiguratsiyasi ma’lumotnomasi](/gateway/configuration)
 - [Nosozliklarni bartaraf etish](/gateway/troubleshooting)
 - [Doctor](/gateway/doctor)
+

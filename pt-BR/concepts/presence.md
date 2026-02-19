@@ -100,3 +100,4 @@ O app para macOS renderiza a saída de `system-presence` e aplica um pequeno ind
   - confirme que os clientes enviam um `client.instanceId` estável no handshake
   - confirme que os beacons periódicos usam o mesmo `instanceId`
   - verifique se a entrada derivada da conexão está sem `instanceId` (duplicatas são esperadas)
+

@@ -24,3 +24,4 @@ openclaw logs --limit 500
 ```
 
 Gebruik `--local-time` om tijdstempels in je lokale tijdzone weer te geven.
+

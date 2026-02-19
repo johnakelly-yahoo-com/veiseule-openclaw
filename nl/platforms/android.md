@@ -149,3 +149,4 @@ Camera-opdrachten (alleen foreground; permissie-afhankelijk):
 - `camera.clip` (mp4)
 
 Zie [Camera-node](/nodes/camera) voor parameters en CLI-hulpmiddelen.
+

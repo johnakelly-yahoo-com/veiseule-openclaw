@@ -114,3 +114,4 @@ spec defines `/v1/responses`, not `/v1/chat/completions`.
 
 - 为 `/v1/responses` 使用和示例添加新文档页面。
 - 更新 `/gateway/openai-http-api`，添加遗留说明和指向 `/v1/responses` 的指针。
+

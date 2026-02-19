@@ -67,3 +67,4 @@ Params:
 Note: Discord has no “pick exactly N” mode; `pollMulti` maps to multi-select.
 注意：Discord 沒有「必須選擇恰好 N 個」的模式；`pollMulti` 會對應為多選。
 Teams 的投票會以 Adaptive Cards 呈現，且需要 Gateway 閘道器 持續在線，才能在 `~/.openclaw/msteams-polls.json` 中記錄投票結果。
+

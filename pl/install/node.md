@@ -166,3 +166,4 @@ export PATH="$HOME/.npm-global/bin:$PATH"
 ```
 
 Dodaj linię `export PATH=...` do `~/.bashrc` lub `~/.zshrc`, aby zmiana była trwała.
+

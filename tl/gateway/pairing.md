@@ -97,3 +97,4 @@ Mga tala sa seguridad:
 - Ang transport ay **stateless**; hindi ito nag-i-store ng membership.
 - Kung offline ang Gateway o naka-disable ang pairing, hindi makakapag-pair ang mga node.
 - Kung nasa remote mode ang Gateway, ang pairing ay nagaganap pa rin laban sa store ng remote Gateway.
+

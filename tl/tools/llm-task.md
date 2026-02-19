@@ -113,3 +113,4 @@ openclaw.invoke --tool llm-task --action json --args-json '{
 - Walang mga tool na inilalantad sa model para sa run na ito.
 - Ituring ang output bilang hindi pinagkakatiwalaan maliban kung i-validate mo gamit ang `schema`.
 - Ilagay ang mga approval bago ang anumang step na may side effect (send, post, exec).
+

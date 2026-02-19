@@ -63,3 +63,4 @@ Hvem modtager den:
 
 - Viser en editor til Vækkeord i Indstillinger.
 - Kalder `voicewake.set` over Gateway WS, så ændringer synkroniseres overalt.
+

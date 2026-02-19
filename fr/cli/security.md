@@ -26,3 +26,4 @@ L’audit avertit lorsque plusieurs expéditeurs de Messages prives partagent la
 Il avertit egalement lorsque de petits modeles (`<=300B`) sont utilises sans sandboxing et avec des outils web/navigateur actives.
 Pour l’ingestion webhook, un avertissement est affiché lorsque `hooks.defaultSessionKey` n’est pas défini, lorsque les remplacements `sessionKey` de requête sont activés, et lorsque ces remplacements sont activés sans `hooks.allowedSessionKeyPrefixes`.
 Un avertissement est également affiché lorsque les paramètres Docker du sandbox sont configurés alors que le mode sandbox est désactivé, lorsque `gateway.nodes.denyCommands` utilise des entrées inefficaces de type motif ou inconnues, lorsque le paramètre global `tools.profile="minimal"` est remplacé par des profils d’outils d’agent, et lorsque les outils de plugins d’extension installés peuvent être accessibles sous une politique d’outils permissive.
+

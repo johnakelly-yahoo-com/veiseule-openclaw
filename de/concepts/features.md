@@ -57,3 +57,4 @@ title: "Funktionen"
 Legacy‑Pfade für Claude, Codex, Gemini und Opencode wurden entfernt. Pi ist der einzige
 Coding‑Agent‑Pfad.
 </Note>
+

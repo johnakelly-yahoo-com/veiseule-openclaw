@@ -130,3 +130,4 @@ Remove-Item -Force "$env:USERPROFILE\.openclaw\gateway.cmd"
 1. Uninstall the gateway service **before** deleting the repo (use the easy path above or manual service removal).
 2. 如上所示移除狀態資料 + 工作區。
 3. 依照上述說明移除狀態 + 工作區。
+

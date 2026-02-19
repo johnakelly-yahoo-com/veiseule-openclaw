@@ -41,3 +41,4 @@ You can keep the Gateway in the cloud and pair **nodes** on your local devices
 capabilities while the Gateway stays in the cloud.
 
 Hujjatlar: [Nodes](/nodes), [Nodes CLI](/cli/nodes)
+

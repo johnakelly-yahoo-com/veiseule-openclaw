@@ -57,3 +57,4 @@ bun pm trust @whiskeysockets/baileys protobufjs
 ## اہم نکات
 
 - Some scripts still hardcode pnpm (e.g. `docs:build`, `ui:*`, `protocol:check`). 39. فی الحال انہیں pnpm کے ذریعے چلائیں۔
+

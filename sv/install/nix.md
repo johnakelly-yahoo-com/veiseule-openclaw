@@ -96,3 +96,4 @@ förpackningar och Nix bygger (som inte förlitar sig på en fullständig Xcode 
 - [nix-openclaw](https://github.com/openclaw/nix-openclaw) — fullständig konfigureringsguide
 - [Guide](/start/wizard) — icke-Nix CLI-konfigurering
 - [Docker](/install/docker) — containeriserad konfigurering
+

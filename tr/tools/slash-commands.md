@@ -202,3 +202,4 @@ Notlar:
   - Telegram: `telegram:slash:<userId>` (`CommandTargetSessionKey` aracılığıyla sohbet oturumunu hedefler)
 - **`/stop`** etkin sohbet oturumunu hedefler, böylece mevcut çalıştırmayı iptal edebilir.
 - **Slack:** `channels.slack.slashCommand` tek bir `/openclaw` tarzı komut için hâlâ desteklenir. `commands.native`’ı etkinleştirirseniz, yerleşik her komut için bir Slack slash komutu oluşturmanız gerekir (`/help` ile aynı adlar). Slack için komut argüman menüleri, geçici Block Kit düğmeleri olarak sunulur.
+

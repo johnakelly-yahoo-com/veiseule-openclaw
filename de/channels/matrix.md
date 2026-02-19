@@ -305,3 +305,4 @@ Anbieteroptionen:
 - `channels.matrix.autoJoinAllowlist`: Zulässige Raum-IDs/Aliase für Auto-Join.
 - `channels.matrix.accounts`: Multi-Account-Konfiguration, nach Konto-ID gruppiert (jedes Konto übernimmt die Einstellungen der obersten Ebene).
 - `channels.matrix.actions`: Werkzeug-Gating pro Aktion (Reaktionen/Nachrichten/Pins/memberInfo/channelInfo).
+

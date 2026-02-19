@@ -511,3 +511,4 @@ Tools worden in twee parallelle kanalen aangeboden:
 
 Dat betekent dat de agent zowel “welke tools bestaan” als “hoe ze aan te roepen” ziet. Als een tool
 niet in de systeemprompt of het schema verschijnt, kan het model deze niet aanroepen.
+

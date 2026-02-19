@@ -305,3 +305,4 @@ openclaw pairing list matrix
 - `channels.matrix.autoJoinAllowlist`: ऑटो-जॉइन के लिए अनुमत रूम IDs/उपनाम।
 - `channels.matrix.accounts`: account ID के आधार पर multi-account configuration (प्रत्येक खाता top-level settings inherit करता है)।
 - `channels.matrix.actions`: प्रति-एक्शन टूल गेटिंग (reactions/messages/pins/memberInfo/channelInfo)।
+

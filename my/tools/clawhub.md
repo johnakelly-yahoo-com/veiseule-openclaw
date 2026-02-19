@@ -249,3 +249,4 @@ export CLAWHUB_DISABLE_TELEMETRY=1
 - `CLAWHUB_CONFIG_PATH`: CLI မှ token/config ကို သိမ်းဆည်းရာနေရာကို override လုပ်ရန်။
 - `CLAWHUB_WORKDIR`: မူလ workdir ကို override လုပ်ရန်။
 - `CLAWHUB_DISABLE_TELEMETRY=1`: `sync` တွင် telemetry ကို ပိတ်ရန်။
+

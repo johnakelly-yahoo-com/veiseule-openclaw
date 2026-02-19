@@ -213,3 +213,4 @@ Les journaux se trouvent sous `/tmp/openclaw/` (par défaut : `openclaw-YYYY-MM-
 - Statut Windows : [Windows (WSL2)](/platforms/windows)
 - Statut Linux : [Application Linux](/platforms/linux)
 - Sécurité : [Sécurité](/gateway/security)
+

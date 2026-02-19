@@ -702,3 +702,4 @@ Campos importantes do Discord:
 - [Roteamento de canal](/channels/channel-routing)
 - [Solução de problemas](/channels/troubleshooting)
 - Lista completa de comandos + config: [Slash commands](/tools/slash-commands)
+

@@ -20,3 +20,4 @@ Kanaalnotities:
 - **Telegram**: een lege `emoji` verwijdert de reacties van de bot; `remove: true` verwijdert ook reacties maar vereist nog steeds een niet-lege `emoji` voor toolvalidatie.
 - **WhatsApp**: een lege `emoji` verwijdert de botreactie; `remove: true` wordt gemapt naar een lege emoji (vereist nog steeds `emoji`).
 - **Signal**: inkomende reactiemeldingen genereren systeemevents wanneer `channels.signal.reactionNotifications` is ingeschakeld.
+

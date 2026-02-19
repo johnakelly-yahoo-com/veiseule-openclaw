@@ -24,3 +24,4 @@ openclaw logs --limit 500
 ```
 
 Użyj `--local-time`, aby wyświetlać znaczniki czasu w swojej lokalnej strefie czasowej.
+

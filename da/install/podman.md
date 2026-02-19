@@ -108,3 +108,4 @@ For at tilføje quadlet **efter** en indledende opsætning, der ikke brugte det,
 ## Valgfrit: kør som din egen bruger
 
 For at køre gatewayen som din normale bruger (ingen dedikeret openclaw-bruger): byg imaget, opret `~/.openclaw/.env` med `OPENCLAW_GATEWAY_TOKEN`, og kør containeren med `--userns=keep-id` og mounts til din `~/.openclaw`. Launch-scriptet er designet til openclaw-user-flowet; for en enkeltbrugeropsætning kan du i stedet køre `podman run`-kommandoen fra scriptet manuelt og pege konfiguration og workspace til din home-mappe. Anbefalet for de fleste brugere: brug `setup-podman.sh` og kør som openclaw-brugeren, så konfiguration og proces er isoleret.
+

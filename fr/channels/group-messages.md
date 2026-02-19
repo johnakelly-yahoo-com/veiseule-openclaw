@@ -82,3 +82,4 @@ Seul le numéro du propriétaire (depuis `channels.whatsapp.allowFrom`, ou l’E
 - La suppression d’écho utilise la chaîne de lot combinée ; si vous envoyez un texte identique deux fois sans mentions, seule la première obtiendra une réponse.
 - Les entrées du magasin de sessions apparaîtront comme `agent:<agentId>:whatsapp:group:<jid>` dans le magasin de sessions (`~/.openclaw/agents/<agentId>/sessions/sessions.json` par défaut) ; une entrée manquante signifie simplement que le groupe n’a pas encore déclenché d’exécution.
 - Les indicateurs de saisie dans les groupes suivent `agents.defaults.typingMode` (par défaut : `message` lorsqu’il n’y a pas de mention).
+

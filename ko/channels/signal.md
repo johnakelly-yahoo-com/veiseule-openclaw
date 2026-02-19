@@ -322,3 +322,4 @@ grep -i "signal" "/tmp/openclaw/openclaw-$(date +%Y-%m-%d).log" | tail -20
 - `agents.list[].groupChat.mentionPatterns` (Signal 은 네이티브 멘션을 지원하지 않습니다).
 - `messages.groupChat.mentionPatterns` (전역 폴백).
 - `messages.responsePrefix`.
+

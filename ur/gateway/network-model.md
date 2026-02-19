@@ -18,3 +18,4 @@ title: "نیٹ ورک ماڈل"
   - `/__openclaw__/a2ui/`
     جب `gateway.auth` کنفیگر کیا گیا ہو اور Gateway لوپ بیک سے آگے بائنڈ ہو، تو یہ روٹس Gateway auth کے ذریعے محفوظ ہوتے ہیں (لوپ بیک ریکویسٹس مستثنیٰ ہیں)۔ [Gateway configuration](/gateway/configuration) (`canvasHost`, `gateway`) دیکھیں۔
 - Remote use is typically SSH tunnel or tailnet VPN. See [Remote access](/gateway/remote) and [Discovery](/gateway/discovery).
+

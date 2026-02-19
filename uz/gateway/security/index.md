@@ -837,3 +837,4 @@ Iltimos, mas’uliyat bilan xabar bering: Email: [security@openclaw.ai](mailto:s
 🦞🔐 Gateway dashboard’i uchun Tailscale Serve/Funnel integratsiyasi
 
 Gateway Control UI’ni localhost’dan tashqariga ochish
+

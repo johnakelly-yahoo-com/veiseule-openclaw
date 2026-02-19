@@ -123,3 +123,4 @@ Die App fordert eine Bestätigung an, sofern kein gültiger Schlüssel bereitges
 - Das Canvas-Schema blockiert Directory Traversal; Dateien müssen unterhalb des Sitzungs-Root liegen.
 - Lokale Canvas-Inhalte verwenden ein benutzerdefiniertes Schema (kein local loopback-Server erforderlich).
 - Externe `http(s)`-URLs sind nur erlaubt, wenn explizit zu ihnen navigiert wird.
+

@@ -94,3 +94,4 @@ its base URL, override `models.providers.synthetic.baseUrl`.
 - 模型引用格式为 `synthetic/<modelId>`。
 - 如果启用了模型允许列表（`agents.defaults.models`），请添加你计划使用的所有模型。
 - 参阅[模型提供商](/concepts/model-providers)了解提供商规则。
+

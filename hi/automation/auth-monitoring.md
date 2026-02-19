@@ -40,3 +40,4 @@ openclaw models status --check
 - `scripts/termux-sync-widget.sh`: Claude Code क्रेड्स → OpenClaw समन्वय।
 
 यदि आपको फ़ोन स्वचालन या systemd टाइमर्स की आवश्यकता नहीं है, तो इन स्क्रिप्ट्स को छोड़ दें।
+

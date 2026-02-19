@@ -47,3 +47,4 @@ openclaw config set channels.whatsapp.groups '["*"]' --json
 ```
 
 Redémarrez la Gateway (passerelle) après les modifications.
+

@@ -305,3 +305,4 @@ Mga opsyon ng provider:
 - `channels.matrix.autoJoinAllowlist`: mga pinapayagang room ID/alias para sa auto-join.
 - `channels.matrix.accounts`: multi-account configuration na naka-key ayon sa account ID (bawat account ay nagmamana ng top-level settings).
 - `channels.matrix.actions`: per-action tool gating (reactions/messages/pins/memberInfo/channelInfo).
+

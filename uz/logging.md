@@ -343,3 +343,4 @@ Message flow:
 - **Gateway ga ulanib bo‘lmayaptimi?** Avval `openclaw doctor` ni ishga tushiring.
 - **Loglar bo‘shmi?** Gateway ishlayotganini va `logging.file` da ko‘rsatilgan fayl yo‘liga yozayotganini tekshiring.
 - **Ko‘proq tafsilot kerakmi?** `logging.level` ni `debug` yoki `trace` ga o‘rnating va qayta urinib ko‘ring.
+

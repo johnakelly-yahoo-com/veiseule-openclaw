@@ -50,3 +50,4 @@ openclaw agent --agent ops --message "Generate report" --deliver --reply-channel
 - `--verbose <on|full|off>`：持久化详细级别
 - `--timeout <seconds>`：覆盖智能体超时
 - `--json`：输出结构化 JSON
+

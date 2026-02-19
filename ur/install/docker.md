@@ -552,3 +552,4 @@ docker build -t my-openclaw-sbx -f Dockerfile.sandbox .
 - sandbox میں اجازت کی غلطیاں: `docker.user` کو ایسے UID:GID پر سیٹ کریں جو آپ کی
   ماؤنٹ شدہ ورک اسپیس کی ملکیت سے میل کھاتا ہو (یا ورک اسپیس فولڈر chown کریں)۔
 - Custom tools نہیں مل رہے: OpenClaw کمانڈز کو `sh -lc` (login shell) کے ساتھ چلاتا ہے، جو `/etc/profile` کو source کرتا ہے اور PATH کو ری سیٹ کر سکتا ہے۔ `docker.env.PATH` سیٹ کریں تاکہ آپ کے custom tool paths پہلے شامل ہوں (مثلاً `/custom/bin:/usr/local/share/npm-global/bin`)، یا اپنے Dockerfile میں `/etc/profile.d/` کے تحت ایک اسکرپٹ شامل کریں۔
+

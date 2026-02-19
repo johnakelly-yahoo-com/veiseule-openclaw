@@ -136,3 +136,4 @@ Mattermost hỗ trợ nhiều tài khoản dưới `channels.mattermost.accounts
 - Không có phản hồi trong kênh: đảm bảo bot đã ở trong kênh và được mention (oncall), dùng tiền tố kích hoạt (onchar), hoặc đặt `chatmode: "onmessage"`.
 - Lỗi xác thực: kiểm tra bot token, base URL và việc tài khoản có được bật hay không.
 - Vấn đề đa tài khoản: biến môi trường chỉ áp dụng cho tài khoản `default`.
+

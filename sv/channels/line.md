@@ -185,3 +185,4 @@ förinställningar av Flex‑meddelanden:
   `channels.line.webhookPath` och att gatewayen är nåbar från LINE.
 - **Fel vid nedladdning av media:** höj `channels.line.mediaMaxMb` om media överskrider
   standardgränsen.
+

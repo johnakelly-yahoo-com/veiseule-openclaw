@@ -134,3 +134,4 @@ To customize, set `tools.media.audio.models`.
 - 請確保你的 CLI 以 0 結束並輸出純文字；若為 JSON，需透過 `jq -r .text` 進行處理。
 - 請將逾時設定保持在合理範圍（`timeoutSeconds`，預設 60 秒），以避免阻塞回覆佇列。
 - Preflight 轉錄僅會處理**第一個**音訊附件以進行提及偵測。 其他音訊會在主要的媒體理解階段中處理。
+

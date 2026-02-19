@@ -160,3 +160,4 @@ Session lifecycle:
 - `disconnected`: Gateway လည်ပတ်နေကြောင်းနှင့် သင်၏ `--url/--token/--password` မှန်ကန်ကြောင်း သေချာစေပါ။
 - Picker တွင် agent မရှိပါက: `openclaw agents list` နှင့် routing config ကို စစ်ဆေးပါ။
 - Session picker ဗလာဖြစ်နေပါက: global scope တွင် ရှိနေနိုင်သည် သို့မဟုတ် session မရှိသေးနိုင်ပါ။
+

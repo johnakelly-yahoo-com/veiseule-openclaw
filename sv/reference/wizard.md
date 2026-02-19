@@ -284,3 +284,4 @@ uppmanas att installera den (npm eller en lokal sökväg) innan den kan konfigur
 - Konfigreferens: [Gateway-konfiguration](/gateway/configuration)
 - Leverantörer: [WhatsApp](/channels/whatsapp), [Telegram](/channels/telegram), [Discord](/channels/discord), [Google Chat](/channels/googlechat), [Signal](/channels/signal), [BlueBubbles](/channels/bluebubbles) (iMessage), [iMessage](/channels/imessage) (legacy)
 - Skills: [Skills](/tools/skills), [Skills-konfig](/tools/skills-config)
+

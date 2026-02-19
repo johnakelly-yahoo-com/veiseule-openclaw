@@ -75,3 +75,4 @@ openclaw models set github-copilot/gpt-4o
   其他 ID（例如 `github-copilot/gpt-4.1`）。
 - 登入流程會在身分驗證設定檔儲存庫中儲存 GitHub 權杖，並在 OpenClaw 執行時將其交換為
   Copilot API 權杖。
+

@@ -202,3 +202,4 @@ detaljer, se [Gateway protocol](/gateway/protocol).
 - [Gateway (macOS)](/platforms/mac/bundled-gateway)
 - [macOS‑behörigheter](/platforms/mac/permissions)
 - [Canvas](/platforms/mac/canvas)
+

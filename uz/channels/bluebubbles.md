@@ -346,3 +346,4 @@ Barqaror marshrutlash uchun `chat_guid` ni afzal ko‘ring:
 - Holat/sog‘liq ma’lumotlari uchun: `openclaw status --all` yoki `openclaw status --deep`.
 
 Kanal ish jarayoni bo‘yicha umumiy ma’lumot uchun [Channels](/channels) va [Plugins](/tools/plugin) qo‘llanmasiga qarang.
+

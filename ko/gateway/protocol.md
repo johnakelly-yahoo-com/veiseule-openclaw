@@ -213,3 +213,4 @@ Gateway 는 이를 **클레임**으로 취급하고 서버 측 허용 목록을 
 이 프로토콜은 **전체 Gateway API** (상태, 채널, 모델, 채팅,
 에이전트, 세션, 노드, 승인 등) 를 노출합니다. 정확한 표면은
 `src/gateway/protocol/schema.ts` 에 있는 TypeBox 스키마로 정의됩니다.
+

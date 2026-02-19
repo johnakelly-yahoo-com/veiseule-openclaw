@@ -24,3 +24,4 @@ Noteringar:
 - Översikten inkluderar installations-/körtidsstatus för Gateway + node host-tjänsten när tillgängligt.
 - Översikten inkluderar uppdateringskanal + git SHA (för källutcheckningar).
 - Uppdateringsinformation visas i översikten; om en uppdatering är tillgänglig skriver status ut en hint om att köra `openclaw update` (se [Updating](/install/updating)).
+

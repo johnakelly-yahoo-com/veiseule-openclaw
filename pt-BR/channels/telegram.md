@@ -780,3 +780,4 @@ Campos específicos do Telegram de alto sinal:
 - Detalhes: [Pareamento](/channels/pairing)
 - [Roteamento de canal](/channels/channel-routing)
 - Solução de problemas de configuração (comandos)
+

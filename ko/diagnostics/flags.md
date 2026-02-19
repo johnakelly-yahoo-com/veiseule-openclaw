@@ -89,3 +89,4 @@ tail -f /tmp/openclaw/openclaw-$(date +%F).log | rg "telegram http error"
 - `logging.level` 가 `warn` 보다 높게 설정되어 있으면 이러한 로그가 억제될 수 있습니다. 기본값 `info` 은 적절합니다.
 - 플래그는 활성화된 상태로 두어도 안전하며, 특정 서브시스템의 로그 볼륨에만 영향을 미칩니다.
 - 로그 대상, 레벨 및 마스킹을 변경하려면 [/logging](/logging) 을 사용하십시오.
+

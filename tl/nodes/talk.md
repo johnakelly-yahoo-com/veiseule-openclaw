@@ -88,3 +88,4 @@ Mga default:
 - Ang `stability` para sa `eleven_v3` ay bina-validate sa `0.0`, `0.5`, o `1.0`; tumatanggap ang ibang model ng `0..1`.
 - Ang `latency_tier` ay bina-validate sa `0..4` kapag itinakda.
 - Sinusuportahan ng Android ang mga output format na `pcm_16000`, `pcm_22050`, `pcm_24000`, at `pcm_44100` para sa low-latency AudioTrack streaming.
+

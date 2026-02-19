@@ -55,3 +55,4 @@ title: "8. Kengaytirilgan rejim"
 
 - 49. Kengaytirilgan exec chaqiruvlari info darajasida loglanadi.
 - 50. Sessiya holati kengaytirilgan rejimni o‘z ichiga oladi (masalan, `elevated=ask`, `elevated=full`).
+

@@ -279,3 +279,4 @@ Para funcionamento realmente contínuo, considere um Mac mini dedicado ou um VPS
 - [Lume CLI Reference](https://cua.ai/docs/lume/reference/cli-reference)
 - [Unattended VM Setup](https://cua.ai/docs/lume/guide/fundamentals/unattended-setup) (avançado)
 - [Docker Sandboxing](/install/docker) (abordagem alternativa de isolamento)
+

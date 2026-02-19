@@ -143,3 +143,4 @@ hook API اور رجسٹریشن کی تفصیلات کے لیے [Plugins](/tool
 - AbortSignal (cancel)
 - Gateway ڈسکنیکٹ یا RPC ٹائم آؤٹ
 - `agent.wait` ٹائم آؤٹ (صرف انتظار، ایجنٹ کو نہیں روکتا)
+

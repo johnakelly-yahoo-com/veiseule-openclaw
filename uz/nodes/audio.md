@@ -131,3 +131,4 @@ Guruh chatida `requireMention: true` o‘rnatilganda, OpenClaw endi mentionlarni
 - Ensure your CLI exits 0 and prints plain text; JSON needs to be massaged via `jq -r .text`.
 - Keep timeouts reasonable (`timeoutSeconds`, default 60s) to avoid blocking the reply queue.
 - Preflight transkripsiya mention aniqlash uchun faqat **birinchi** audio biriktirmani qayta ishlaydi. Qo‘shimcha audiolar asosiy media tushunish bosqichida qayta ishlanadi.
+

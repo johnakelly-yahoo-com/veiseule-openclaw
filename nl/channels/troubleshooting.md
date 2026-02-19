@@ -115,3 +115,4 @@ Volledige probleemoplossing: [/channels/signal#troubleshooting](/channels/signal
 | Versleutelde ruimtes mislukken       | Verifieer cryptomodule en versleutelingsinstellingen | Schakel versleutelingsondersteuning in en sluit opnieuw aan/synchroniseer de kamer. |
 
 Volledige probleemoplossing: [/channels/matrix#troubleshooting](/channels/matrix#troubleshooting)
+

@@ -59,3 +59,4 @@ dan scraping met alleen de basisoptie.
 3. Basis HTML-opschoning (laatste terugval)
 
 Zie [Web tools](/tools/web) voor de volledige configuratie van webtools.
+

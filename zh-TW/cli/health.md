@@ -19,3 +19,4 @@ openclaw health --verbose
 
 - `--verbose` 會執行即時探測，並在設定多個帳號時列印各帳號的耗時。
 - Output includes per-agent session stores when multiple agents are configured.
+

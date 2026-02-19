@@ -65,3 +65,4 @@ Pagpapatibay:
 
 - I-toggle ang push-to-talk, hawakan ang Cmd+Fn, magsalita, bitawan: dapat magpakita ang overlay ng mga partial at pagkatapos ay mag-send.
 - Habang hawak, dapat manatiling pinalaki ang menu-bar ears (gumagamit ng `triggerVoiceEars(ttl:nil)`); babalik ang mga ito pagkatapos bitawan.
+

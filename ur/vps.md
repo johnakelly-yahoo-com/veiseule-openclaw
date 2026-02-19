@@ -41,3 +41,4 @@ Platforms ہب: [Platforms](/platforms)
 صلاحیتیں فراہم کرتے ہیں جبکہ Gateway کلاؤڈ میں ہی رہتا ہے۔
 
 دستاویزات: [Nodes](/nodes)، [Nodes CLI](/cli/nodes)
+

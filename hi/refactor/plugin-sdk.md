@@ -212,3 +212,4 @@ export type PluginRuntime = {
 - बाहरी प्लगइन्स को कोर सोर्स एक्सेस के बिना विकसित और अपडेट किया जा सके।
 
 संबंधित दस्तावेज़: [Plugins](/tools/plugin), [Channels](/channels/index), [Configuration](/gateway/configuration)।
+

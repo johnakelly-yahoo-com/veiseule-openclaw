@@ -217,3 +217,4 @@ Amaç: Rahatsız edici olmadan faydalı olmak. Günde birkaç kez kontrol edin, 
 ## Ona Kendinden Bir Şey Kat
 
 Bu bir başlangıç noktasıdır. Neyin işe yaradığını keşfettikçe kendi geleneklerinizi, stilinizi ve kurallarınızı ekleyin.
+

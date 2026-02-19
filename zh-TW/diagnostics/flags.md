@@ -89,3 +89,4 @@ tail -f /tmp/openclaw/openclaw-$(date +%F).log | rg "telegram http error"
 - 若 `logging.level` 設定高於 `warn`，這些記錄可能會被抑制。預設的 `info` 即可。 9. 預設的 `info` 即可。
 - 10. 這些旗標可以安全地保持啟用；它們只會影響特定子系統的日誌量。
 - 使用 [/logging](/logging) 變更記錄目的地、等級與遮罩設定。
+

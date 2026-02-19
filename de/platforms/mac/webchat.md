@@ -42,3 +42,4 @@ für den ausgewählten Agenten (mit einem Sitzungsumschalter für weitere Sitzun
 ## Bekannte Einschränkungen
 
 - Die UI ist für Chat‑Sitzungen optimiert (keine vollständige Browser‑Sandbox).
+

@@ -212,3 +212,4 @@ Ghi chú:
 - Plugin bên ngoài có thể được phát triển và cập nhật mà không cần truy cập mã nguồn core.
 
 Tài liệu liên quan: [Plugins](/tools/plugin), [Channels](/channels/index), [Configuration](/gateway/configuration).
+

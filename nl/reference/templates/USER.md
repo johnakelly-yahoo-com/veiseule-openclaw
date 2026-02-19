@@ -21,3 +21,4 @@ _(Waar geven ze om? Aan welke projecten werken ze? Wat irriteert hen? Wat maakt 
 ---
 
 Hoe meer je weet, hoe beter je kunt helpen. Maar onthoud — je leert over een persoon, je bouwt geen dossier. Respecteer dat verschil.
+

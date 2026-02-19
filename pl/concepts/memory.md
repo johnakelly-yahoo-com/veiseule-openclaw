@@ -572,3 +572,4 @@ Uwagi:
 
 - `remote.*` ma pierwszeństwo przed `models.providers.openai.*`.
 - `remote.headers` łączą się z nagłówkami OpenAI; zdalne wygrywają przy konfliktach kluczy. Pomiń `remote.headers`, aby użyć domyślnych ustawień OpenAI.
+

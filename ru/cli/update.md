@@ -96,3 +96,4 @@ openclaw update status --timeout 10
 - [Каналы разработки](/install/development-channels)
 - [Обновление](/install/updating)
 - [Справочник CLI](/cli)
+

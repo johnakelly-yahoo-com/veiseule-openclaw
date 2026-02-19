@@ -136,3 +136,4 @@ Mattermost 在 `channels.mattermost.accounts` 底下支援多個帳號：
 - 頻道沒有回覆：請確認機器人在頻道中並進行提及（oncall）、使用觸發前綴（onchar），或設定 `chatmode: "onmessage"`。
 - 30. 驗證錯誤：請檢查機器人權杖、基底 URL，以及帳戶是否已啟用。
 - 31. 多帳戶問題：環境變數僅適用於 `default` 帳戶。
+

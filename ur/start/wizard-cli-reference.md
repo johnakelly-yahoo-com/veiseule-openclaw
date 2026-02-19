@@ -298,3 +298,4 @@ Signal سیٹ اپ کا رویّہ:
 - آن بورڈنگ ہب: [Onboarding Wizard (CLI)](/start/wizard)
 - آٹومیشن اور اسکرپٹس: [CLI Automation](/start/wizard-cli-automation)
 - کمانڈ حوالہ: [`openclaw onboard`](/cli/onboard)
+

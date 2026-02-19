@@ -67,3 +67,4 @@ Configure la política de reintentos por proveedor en `~/.openclaw/openclaw.json
 
 - Los reintentos se aplican por solicitud (envío de mensajes, carga de medios, reacción, encuesta, sticker).
 - Los flujos compuestos no reintentan los pasos completados.
+

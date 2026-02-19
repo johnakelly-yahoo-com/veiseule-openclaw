@@ -127,3 +127,4 @@ Korte versie: **houd de Gateway alleen op loopback** tenzij je zeker weet dat je
 - Behandel browserbediening als operator-toegang: alleen tailnet + bewuste node-koppeling.
 
 Verdieping: [Beveiliging](/gateway/security).
+

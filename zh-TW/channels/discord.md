@@ -684,3 +684,4 @@ message(action="send", channel="discord", target="channel:123", path="/path/to/a
 - [Channel 路由](/channels/channel-routing)
 - [疑難排解](/channels/troubleshooting)
 - 完整命令清單與設定：[Slash commands](/tools/slash-commands)
+

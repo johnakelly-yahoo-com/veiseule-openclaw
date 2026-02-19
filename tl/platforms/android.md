@@ -149,3 +149,4 @@ Mga command ng camera (foreground lamang; may permission gate):
 - `camera.clip` (mp4)
 
 Tingnan ang [Camera node](/nodes/camera) para sa mga parameter at CLI helpers.
+

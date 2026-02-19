@@ -156,3 +156,4 @@ launchctl bootout gui/$UID/bot.molt.ssh-tunnel
 | `RunAtLoad`                          | 代理加载时启动隧道                 |
 
 OpenClaw.app 连接到你的客户端机器上的 `ws://127.0.0.1:18789`。SSH 隧道将该连接转发到运行 Gateway 网关的远程机器的端口 18789。 The SSH tunnel forwards that connection to port 18789 on the remote machine where the Gateway is running.
+

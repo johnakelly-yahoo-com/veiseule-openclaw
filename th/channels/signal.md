@@ -322,3 +322,4 @@ grep -i "signal" "/tmp/openclaw/openclaw-$(date +%Y-%m-%d).log" | tail -20
 - `agents.list[].groupChat.mentionPatterns` (Signal ไม่รองรับการกล่าวถึงแบบเนทีฟ)
 - `messages.groupChat.mentionPatterns` (ตัวสำรองส่วนกลาง)
 - `messages.responsePrefix`
+

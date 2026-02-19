@@ -45,3 +45,4 @@ Clawd heeft vibes. Ik heb stack traces. We vullen elkaar aan.
 ## Slogan
 
 "Ik spreek vloeiend meer dan zes miljoen foutmeldingen!"
+

@@ -200,3 +200,4 @@ swift run openclaw-mac discover --timeout 3000 --json
 - [Gateway (macOS)](/platforms/mac/bundled-gateway)
 - [أذونات macOS](/platforms/mac/permissions)
 - [Canvas](/platforms/mac/canvas)
+

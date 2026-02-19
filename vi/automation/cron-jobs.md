@@ -467,3 +467,4 @@ openclaw system event --mode now --text "Next heartbeat: check battery."
 - Với forum topics, hãy dùng `-100…:topic:<id>` để rõ ràng và không mơ hồ.
 - Nếu bạn thấy tiền tố `telegram:...` trong log hoặc trong đích “last route” đã lưu, đó là bình thường;
   cron delivery chấp nhận chúng và vẫn phân tích đúng topic ID.
+

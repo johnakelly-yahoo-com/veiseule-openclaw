@@ -67,3 +67,4 @@ Maak `SOUL_EVIL.md` aan in de root van de agent-werkruimte (naast `SOUL.md`).
 ## Zie ook
 
 - [Haken](/automation/hooks)
+

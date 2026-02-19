@@ -111,3 +111,4 @@ Gateway-Verbindungsinformationen in
 - `~/.openclaw/exec-approvals.json`
 - [Ausführungsfreigaben](/tools/exec-approvals)
 - `openclaw approvals --node <id|name|ip>` (Bearbeitung über das Gateway)
+

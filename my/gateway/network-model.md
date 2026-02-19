@@ -17,3 +17,4 @@ title: "ကွန်ယက် မော်ဒယ်"
   - `/__openclaw__/a2ui/`
     `gateway.auth` ကို configure ပြုလုပ်ထားပြီး Gateway သည် loopback အပြင်ဘက်တွင် bind လုပ်ထားပါက ဤ route များကို Gateway auth ဖြင့် ကာကွယ်ထားပါသည် (loopback request များသည် ချန်လှပ်ထားသည်)။ [Gateway configuration](/gateway/configuration) (`canvasHost`, `gateway`) ကို ကြည့်ပါ။
 - Remote အသုံးပြုမှုအတွက် ပုံမှန်အားဖြင့် SSH tunnel သို့မဟုတ် tailnet VPN ကို အသုံးပြုသည်။ [Remote access](/gateway/remote) နှင့် [Discovery](/gateway/discovery) ကို ကြည့်ပါ။
+

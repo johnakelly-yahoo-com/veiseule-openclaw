@@ -522,3 +522,4 @@ Slack tool actions များကို `channels.slack.actions.*` ဖြင့
   `files:write`) ပါဝင်ကြောင်း သေချာစေရန်၊ မပါဝင်ပါက အဆိုပါ လုပ်ဆောင်ချက်များ မအောင်မြင်ပါ။
 - [Configuration](/gateway/configuration)
 - [Slash commands](/tools/slash-commands)
+

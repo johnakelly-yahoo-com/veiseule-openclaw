@@ -51,3 +51,4 @@ openclaw agent --agent ops --message "Generate report" --deliver --reply-channel
 - `--verbose <on|full|off>`: ayrıntılı düzeyi kalıcı yap
 - `--timeout <seconds>`: ajan zaman aşımını geçersiz kıl
 - `--json`: yapılandırılmış JSON çıktısı
+

@@ -132,3 +132,4 @@ Als je tool-toegestane lijst deze tools blokkeert, zullen OpenProse-programma's 
 Behandel `.prose`-bestanden als code. Beoordeel ze vóór uitvoering. Gebruik OpenClaw tool-toegestane lijsten en goedkeuringspoorten om neveneffecten te beheersen.
 
 Voor deterministische, door goedkeuring afgeschermde workflows, vergelijk met [Lobster](/tools/lobster).
+

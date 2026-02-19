@@ -40,3 +40,4 @@ Você pode manter o Gateway na nuvem e parear **nodes** nos seus dispositivos lo
 enquanto o Gateway permanece na nuvem.
 
 Documentação: [Nós](/nodes), [CLI do Nodes](/cli/nodes)
+

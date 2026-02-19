@@ -105,3 +105,4 @@ Hvis Gateway kører på en anden maskine end browseren, skal du køre en **nodev
 Brug `gateway.nodes.browser.mode` til at styre automatisk routing og `gateway.nodes.browser.node` til at fastgøre en specifik node, hvis flere er tilsluttet.
 
 Sikkerhed + fjernopsætning: [Browser tool](/tools/browser), [Remote access](/gateway/remote), [Tailscale](/gateway/tailscale), [Security](/gateway/security)
+

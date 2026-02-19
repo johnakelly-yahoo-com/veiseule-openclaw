@@ -348,3 +348,4 @@ OPENCLAW_DIAGNOSTICS=telegram.http,telegram.payload
 - **السجلات فارغة؟** تحقّق من أن Gateway يعمل ويكتب إلى مسار الملف
   في `logging.file`.
 - **تحتاج إلى مزيد من التفاصيل؟** اضبط `logging.level` على `debug` أو `trace` ثم أعد المحاولة.
+

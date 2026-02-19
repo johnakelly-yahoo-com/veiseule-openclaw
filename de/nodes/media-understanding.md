@@ -377,3 +377,4 @@ Diese zeigt pro Fähigkeit die Ergebnisse sowie den gewählten Anbieter/das Mode
 
 - [Konfiguration](/gateway/configuration)
 - [Bild- & Medienunterstützung](/nodes/images)
+

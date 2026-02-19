@@ -131,3 +131,4 @@ Gdy w czacie grupowym ustawiono `requireMention: true`, OpenClaw transkrybuje te
 - Upewnij się, że Twoje CLI kończy działanie kodem 0 i wypisuje zwykły tekst; JSON wymaga obróbki przez `jq -r .text`.
 - Utrzymuj rozsądne timeouty (`timeoutSeconds`, domyślnie 60 s), aby nie blokować kolejki odpowiedzi.
 - Transkrypcja preflight przetwarza tylko **pierwszy** załącznik audio w celu wykrycia wzmianek. Dodatkowe pliki audio są przetwarzane podczas głównej fazy rozumienia mediów.
+

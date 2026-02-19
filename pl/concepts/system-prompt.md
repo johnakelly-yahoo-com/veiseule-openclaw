@@ -128,3 +128,4 @@ dołączoną dokumentację pakietu npm), a także informuje o publicznym mirrorz
 społeczności Discord oraz ClawHub ([https://clawhub.com](https://clawhub.com)) do odkrywania Skills. Prompt instruuje model, aby w pierwszej kolejności konsultował lokalną dokumentację
 w kwestiach zachowania OpenClaw, poleceń, konfiguracji lub architektury, oraz aby samodzielnie uruchamiał
 `openclaw status`, gdy to możliwe (pytając użytkownika tylko wtedy, gdy nie ma dostępu).
+

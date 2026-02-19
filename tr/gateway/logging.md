@@ -108,3 +108,4 @@ Davranış:
 - **WhatsApp mesaj gövdeleri** `debug` seviyesinde günlüğe alınır (görmek için `--verbose` kullanın)
 
 Bu, mevcut dosya günlüklerini sabit tutarken etkileşimli çıktıyı taranabilir hale getirir.
+

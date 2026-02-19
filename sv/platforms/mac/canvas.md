@@ -123,3 +123,4 @@ Appen ber om bekräftelse om inte en giltig nyckel tillhandahålls.
 - Canvas-schemat blockerar katalogtraversering; filer måste ligga under sessionsroten.
 - Lokalt Canvas-innehåll använder ett anpassat schema (ingen local loopback-server krävs).
 - Externa `http(s)`-URL:er tillåts endast när de navigeras till explicit.
+

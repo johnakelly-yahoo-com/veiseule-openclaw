@@ -356,3 +356,4 @@ echo 'wireless-power off' | sudo tee -a /etc/network/interfaces
 - [คู่มือ Hetzner](/install/hetzner) — การตั้งค่า Docker
 - [Tailscale](/gateway/tailscale) — การเข้าถึงระยะไกล
 - [Nodes](/nodes) — จับคู่แล็ปท็อป/โทรศัพท์กับ Gateway บน Pi
+

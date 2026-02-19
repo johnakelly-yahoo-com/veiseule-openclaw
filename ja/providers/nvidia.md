@@ -53,3 +53,4 @@ openclaw models set nvidia/nvidia/llama-3.1-nemotron-70b-instruct
 
 - OpenAI互換の`/v1`エンドポイント。NVIDIA NGCのAPIキーを使用します。
 - `NVIDIA_API_KEY`が設定されている場合、プロバイダーは自動的に有効化されます。固定のデフォルト値（131,072トークンのコンテキストウィンドウ、最大4,096トークン）を使用します。
+

@@ -601,3 +601,4 @@ T-EXEC-002 → T-EXFIL-001 → External exfiltration
 ---
 
 _Dieses Bedrohungsmodell ist ein lebendes Dokument. Sicherheitsprobleme an security@openclaw.ai melden_
+

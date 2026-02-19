@@ -265,3 +265,4 @@ Wenn Sie von Token-Authentifizierung zu Trusted-Proxy wechseln:
 - [Configuration](/gateway/configuration) — Konfigurationsreferenz
 - [Remote Access](/gateway/remote) — weitere Remote-Zugriffsmuster
 - [Tailscale](/gateway/tailscale) — einfachere Alternative für reinen Tailnet-Zugriff
+

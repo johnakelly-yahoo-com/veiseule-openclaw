@@ -132,3 +132,4 @@ Voir [Talk mode](/nodes/talk).
 Les Skills peuvent stocker `apiKey` dans `skills.entries.<name>.apiKey`. Si un skill utilise cette cle pour des API externes, cela peut entrainer des couts selon le fournisseur du skill.
 
 Voir [Skills](/tools/skills).
+

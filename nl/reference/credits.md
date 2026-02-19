@@ -25,3 +25,4 @@ OpenClaw = CLAW + TARDIS, omdat elke ruimtekreeft een tijd- en ruimtemachine nod
 MIT - Zo vrij als een kreeft in de oceaan.
 
 > "We zijn allemaal gewoon aan het spelen met onze eigen prompts." (Een AI, waarschijnlijk high van tokens)
+

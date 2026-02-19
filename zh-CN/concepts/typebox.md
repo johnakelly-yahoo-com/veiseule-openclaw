@@ -280,3 +280,4 @@ published raw file is typically available at:
 1. 更新 TypeBox 模式。
 2. 运行 `pnpm protocol:check`。
 3. 提交重新生成的 schema + Swift 模型。
+

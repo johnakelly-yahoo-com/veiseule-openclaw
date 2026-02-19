@@ -159,3 +159,4 @@ Dokumentation: [Session](/concepts/session), [Kompaktering](/concepts/compaction
 - `System prompt (estimate)` = beräknad i realtid när ingen körningsrapport finns (eller när du kör via ett CLI-backend som inte genererar rapporten).
 
 Oavsett vilket rapporteras storlekar och största bidragsgivare; den dumpar **inte** hela systemprompten eller verktygsschemana.
+

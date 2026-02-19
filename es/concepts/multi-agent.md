@@ -387,3 +387,4 @@ Si necesita límites por agente, use `agents.list[].tools` para denegar `exec`.
 Para la segmentación por grupos, use `agents.list[].groupChat.mentionPatterns` para que las @menciones se asignen limpiamente al agente previsto.
 
 Consulte [Sandbox y herramientas multiagente](/tools/multi-agent-sandbox-tools) para ver ejemplos detallados.
+

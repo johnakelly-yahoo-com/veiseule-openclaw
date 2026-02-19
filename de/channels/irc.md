@@ -232,3 +232,4 @@ Das Standardkonto unterstützt:
 - Wenn der Bot eine Verbindung herstellt, aber in Kanälen nie antwortet, überprüfen Sie `channels.irc.groups` **und** ob Mention-Gating Nachrichten verwirft (`missing-mention`). Wenn er ohne Pings antworten soll, setzen Sie `requireMention:false` für den Kanal.
 - Wenn die Anmeldung fehlschlägt, überprüfen Sie die Verfügbarkeit des Nicks und das Serverpasswort.
 - Wenn TLS in einem benutzerdefinierten Netzwerk fehlschlägt, überprüfen Sie Host/Port und die Zertifikatskonfiguration.
+

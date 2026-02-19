@@ -229,3 +229,4 @@ Ang mga log ay nasa `/tmp/openclaw/` (default: `openclaw-YYYY-MM-DD.log`).
 - Status ng Windows: [Windows (WSL2)](/platforms/windows)
 - Status ng Linux: [Linux app](/platforms/linux)
 - Seguridad: [Security](/gateway/security)
+

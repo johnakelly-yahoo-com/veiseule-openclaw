@@ -63,3 +63,4 @@ openclaw onboard --non-interactive \
 - **Kimi K2 Instruct** - نموذج عالي الأداء مع نافذة سياق 262K
 
 تدعم جميع النماذج إكمال الدردشة القياسي وهي متوافقة مع OpenAI API.
+

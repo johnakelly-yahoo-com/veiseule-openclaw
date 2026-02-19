@@ -49,3 +49,4 @@ pnpm test           # اختبارات vitest
 pnpm check:docs     # تنسيق التوثيق + lint + الروابط المعطلة
 pnpm release:check  # التحقق من npm pack
 ```
+

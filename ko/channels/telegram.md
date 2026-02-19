@@ -798,3 +798,4 @@ Telegram 전용 고신호(high-signal) 필드:
 - 자세한 내용: [페어링](/channels/pairing)
 - [Channel routing](/channels/channel-routing)
 - 설정 문제 해결 (명령어)
+

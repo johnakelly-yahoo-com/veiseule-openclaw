@@ -601,3 +601,4 @@ T-EXEC-002 → T-EXFIL-001 → External exfiltration
 ---
 
 _Ang threat model na ito ay isang buhay na dokumento. I-report ang mga isyu sa seguridad sa security@openclaw.ai_
+

@@ -127,3 +127,4 @@ Maikling bersyon: **panatilihing loopback-only ang Gateway** maliban kung sigura
 - Ituring ang browser control na parang operator access: tailnet-only + sinadyang node pairing.
 
 Mas malalim na talakayan: [Security](/gateway/security).
+

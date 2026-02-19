@@ -201,3 +201,4 @@ title: "أوامر Slash"
   - Telegram: `telegram:slash:<userId>` (تستهدف جلسة الدردشة عبر `CommandTargetSessionKey`)
 - **`/stop`** يستهدف جلسة الدردشة النشطة حتى يتمكن من إيقاف التشغيل الحالي.
 - **Slack:** لا يزال `channels.slack.slashCommand` مدعومًا لأمر واحد بنمط `/openclaw`. إذا فعّلت `commands.native`، يجب إنشاء أمر شرطة مائلة واحد في Slack لكل أمر مدمج (بالأسماء نفسها مثل `/help`). تُقدَّم قوائم وسائط الأوامر لـ Slack كأزرار Block Kit مؤقتة.
+

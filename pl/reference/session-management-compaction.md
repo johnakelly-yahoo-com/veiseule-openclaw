@@ -282,3 +282,4 @@ Pi udostępnia także hak `session_before_compact` w API rozszerzeń, jednak log
   - ustawienia kompaktowania (`reserveTokens` zbyt wysokie względem okna modelu może powodować wcześniejsze kompaktowanie)
   - nadmiar tool-result: włącz/dostrój przycinanie sesji
 - Ciche skręty przeciekają? Potwierdź, że odpowiedź zaczyna się od `NO_REPLY` (dokładny token) i że używasz wersji zawierającej poprawkę tłumienia strumieniowania.
+

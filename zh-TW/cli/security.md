@@ -28,3 +28,4 @@ openclaw security audit --fix
 當未啟用沙箱且啟用網路／瀏覽器工具時，也會在使用小型模型（`<=300B`）時發出警告。
 對於 webhook ingress，當 `hooks.defaultSessionKey` 未設定、啟用請求 `sessionKey` 覆寫，或在未設定 `hooks.allowedSessionKeyPrefixes` 的情況下啟用覆寫時，系統會發出警告。
 當已設定 sandbox Docker 設定但 sandbox 模式未啟用、`gateway.nodes.denyCommands` 使用無效的類樣式/未知項目、全域 `tools.profile="minimal"` 被 agent 工具設定檔覆寫，以及在寬鬆工具政策下已安裝的 extension 外掛工具可能可被存取時，也會發出警告。
+

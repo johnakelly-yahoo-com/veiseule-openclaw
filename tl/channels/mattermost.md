@@ -136,3 +136,4 @@ Sinusuportahan ng Mattermost ang maraming account sa ilalim ng `channels.matterm
 - Walang mga sagot sa mga channel: tiyaking nasa channel ang bot at i-mention ito (oncall), gumamit ng trigger prefix (onchar), o itakda ang `chatmode: "onmessage"`.
 - Mga error sa auth: suriin ang bot token, base URL, at kung naka-enable ang account.
 - Mga isyu sa multi-account: nalalapat lamang ang env vars sa `default` na account.
+

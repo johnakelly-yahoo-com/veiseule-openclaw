@@ -199,3 +199,4 @@ Voor installatiestappen, zie [macOS remote access](/platforms/mac/remote). Voor 
 - [Gateway (macOS)](/platforms/mac/bundled-gateway)
 - [macOS-rechten](/platforms/mac/permissions)
 - [Canvas](/platforms/mac/canvas)
+

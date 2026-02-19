@@ -153,3 +153,4 @@ openclaw models status
 
 - Подписка Claude Max или Pro (для `claude setup-token`)
 - Установленный Claude Code CLI (доступна команда `claude`)
+

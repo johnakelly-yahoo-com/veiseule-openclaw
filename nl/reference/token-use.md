@@ -112,3 +112,4 @@ agents:
 - Geef de voorkeur aan kleinere modellen voor uitgebreide, verkennende werkzaamheden.
 
 Zie [Skills](/tools/skills) voor de exacte formule van de skilllijst-overhead.
+

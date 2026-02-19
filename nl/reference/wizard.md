@@ -284,3 +284,4 @@ vragen om deze te installeren (npm of een lokaal pad) voordat deze kan worden ge
 - Configreferentie: [Gateway configuration](/gateway/configuration)
 - Aanbieders: [WhatsApp](/channels/whatsapp), [Telegram](/channels/telegram), [Discord](/channels/discord), [Google Chat](/channels/googlechat), [Signal](/channels/signal), [BlueBubbles](/channels/bluebubbles) (iMessage), [iMessage](/channels/imessage) (verouderd)
 - Skills: [Skills](/tools/skills), [Skills-configuratie](/tools/skills-config)
+

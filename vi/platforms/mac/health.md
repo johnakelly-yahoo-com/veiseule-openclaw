@@ -32,3 +32,4 @@ Cách xem liệu kênh đã liên kết có đang hoạt động tốt từ ứn
 ## Khi cần kiểm tra thêm
 
 - Bạn vẫn có thể dùng luồng CLI trong [Gateway health](/gateway/health) (`openclaw status`, `openclaw status --deep`, `openclaw health --json`) và theo dõi `/tmp/openclaw/openclaw-*.log` cho `web-heartbeat` / `web-reconnect`.
+

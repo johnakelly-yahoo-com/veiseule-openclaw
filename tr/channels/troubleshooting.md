@@ -115,3 +115,4 @@ Ayrıntılı sorun giderme: [/channels/signal#troubleshooting](/channels/signal#
 | Şifreli odalar başarısız                       | Kripto modülünü ve şifreleme ayarlarını doğrulayın | Şifreleme desteğini etkinleştirin ve odaya yeniden katılın/senkronize edin. |
 
 Ayrıntılı sorun giderme: [/channels/matrix#troubleshooting](/channels/matrix#troubleshooting)
+

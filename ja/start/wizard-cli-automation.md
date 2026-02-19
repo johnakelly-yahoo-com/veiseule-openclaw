@@ -167,3 +167,4 @@ openclaw agents add work \
 - オンボーディング ハブ: [オンボーディング ウィザード（CLI）](/start/wizard)
 - 完全なリファレンス: [CLI オンボーディング リファレンス](/start/wizard-cli-reference)
 - コマンド リファレンス: [`openclaw onboard`](/cli/onboard)
+

@@ -190,3 +190,4 @@ Controleer op de nieuwe machine:
 - [Doctor](/gateway/doctor)
 - [Gateway-problemen oplossen](/gateway/troubleshooting)
 - [Waar slaat OpenClaw zijn data op?](/help/faq#where-does-openclaw-store-its-data)
+

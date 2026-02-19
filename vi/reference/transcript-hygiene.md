@@ -138,3 +138,4 @@ Trước bản phát hành 2026.1.22, OpenClaw áp dụng nhiều lớp vệ sin
 
 This complexity caused cross-provider regressions (notably `openai-responses`
 `call_id|fc_id` pairing). Đợt dọn dẹp ngày 2026.1.22 đã loại bỏ extension, tập trung logic vào runner và khiến OpenAI **không cần can thiệp** ngoài việc làm sạch hình ảnh.
+

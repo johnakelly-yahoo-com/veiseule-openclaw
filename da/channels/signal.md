@@ -322,3 +322,4 @@ Relaterede globale indstillinger:
 - `agents.list[].groupChat.mentionPatterns` (Signal understøtter ikke native mentions).
 - `messages.groupChat.mentionPatterns` (global fallback).
 - `messages.responsePrefix`.
+

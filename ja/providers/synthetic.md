@@ -98,3 +98,4 @@ synthetic/hf:MiniMaxAI/MiniMax-M2.1
 - モデル参照には `synthetic/<modelId>` を使用します。
 - モデルの許可リスト（`agents.defaults.models`）を有効にしている場合は、使用予定のすべてのモデルを追加してください。
 - プロバイダーのルールについては、「[Model providers](/concepts/model-providers)」を参照してください。
+

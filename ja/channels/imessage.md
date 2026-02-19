@@ -342,3 +342,4 @@ imsg send <handle> "test"
 - 完全な設定: [設定](/gateway/configuration)
 - [Pairing](/channels/pairing)
 - [BlueBubbles](/channels/bluebubbles)
+

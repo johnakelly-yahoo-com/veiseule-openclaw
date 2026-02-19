@@ -32,3 +32,4 @@ Senast uppdaterad: 2025-12-11
 
 - Om porten är upptagen av _en annan_ process är felet detsamma; frigör porten eller välj en annan med `openclaw gateway --port <port>`.
 - macOS-appen upprätthåller fortfarande sitt eget lättviktiga PID-skydd innan den startar gateway; körningslåset upprätthålls av WebSocket-bindningen.
+

@@ -325,3 +325,4 @@ Eslatmalar:
 41. Guruhni nishonga olish uchun `agents.list[].groupChat.mentionPatterns` dan foydalaning, shunda @mention’lar to‘g‘ri agentga aniq mos keladi.
 
 42. Batafsil misollar uchun [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) sahifasiga qarang.
+

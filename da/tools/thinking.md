@@ -72,3 +72,4 @@ title: "Thinking-niveauer"
 - Webchat-tænkevælgeren afspejler sessionens gemte niveau fra den indgående session store/konfiguration, når siden indlæses.
 - Valg af et andet niveau gælder kun for den næste besked (`thinkingOnce`); efter afsendelse springer vælgeren tilbage til det gemte sessionsniveau.
 - For at ændre sessionsstandarden skal du sende et `/think:<level>`-direktiv (som før); vælgeren vil afspejle det efter næste genindlæsning.
+

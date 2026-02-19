@@ -1039,3 +1039,4 @@ Gateway に接続されたターミナル UI を開きます。
 - `--message <text>`
 - `--timeout-ms <ms>`（デフォルト: `agents.defaults.timeoutSeconds`）
 - `--history-limit <n>`
+

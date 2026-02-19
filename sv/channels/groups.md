@@ -372,3 +372,4 @@ Agentsystemet prompten innehåller en grupp intro på den första vändningen av
 ## WhatsApp-specifikt
 
 Se [Gruppmeddelanden](/channels/group-messages) för WhatsApp-specifikt beteende (historikinjektion, detaljer om nämningshantering).
+

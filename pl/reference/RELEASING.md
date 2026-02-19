@@ -119,3 +119,4 @@ Aktualna lista wtyczek npm (aktualizuj w razie potrzeby):
 
 Informacje o wydaniu muszą również wskazywać **nowe opcjonalne dołączone wtyczki**, które **nie są
 włączone domyślnie** (przykład: `tlon`).
+

@@ -117,3 +117,4 @@ Eingehende Antworten enthalten:
 - Zitierter Kontext wird als `[Replying to ...]`-Block an `Body` angehängt.
 
 Dies ist über alle Kanäle hinweg konsistent.
+

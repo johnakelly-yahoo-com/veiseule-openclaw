@@ -79,3 +79,4 @@ title: "選單列"
 - Start main while other active: icon flips to main instantly.
 - 快速工具連續觸發：確保徽章不會閃爍（工具結果有 TTL 寬限）。
 - 當所有工作階段皆為閒置後，健康狀態列會再次出現。
+

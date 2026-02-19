@@ -22,3 +22,4 @@ Hangi araçların var olduğunu tanımlamaz; OpenClaw, yerleşik araçları dahi
 - Metinden konuşmaya: sesi, hedef konuşmacıyı/odayı ve akış yapılıp yapılmayacağını belirtin.
 
 Asistanın yerel araç zinciriniz hakkında bilmesini istediğiniz başka her şeyi ekleyin.
+

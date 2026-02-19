@@ -260,3 +260,4 @@ free -h
 - [Docker-installatie](/install/docker) — containerized setup
 - [Tailscale](/gateway/tailscale) — veilige externe toegang
 - [Configuratie](/gateway/configuration) — volledige config-referentie
+

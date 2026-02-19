@@ -378,3 +378,4 @@ Access token refreshed for user 123456 (expires in 14400s)
 - 1 メッセージあたり **500 文字**（単語境界で自動分割）
 - 分割前に Markdown は削除されます
 - レート制限なし（Twitch の組み込みレート制限を使用）
+

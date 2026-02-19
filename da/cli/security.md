@@ -26,3 +26,4 @@ Revisionen advarer når flere DM-afsendere deler hovedsessionen og anbefaler **s
 Det advarer også, når små modeller (`<=300B`) bruges uden sandboxing og med web/browser værktøjer aktiveret.
 For webhook-ingress advares der, når `hooks.defaultSessionKey` ikke er sat, når request-`sessionKey`-overrides er aktiveret, og når overrides er aktiveret uden `hooks.allowedSessionKeyPrefixes`.
 Der advares også, når sandbox Docker-indstillinger er konfigureret, mens sandbox-tilstand er slået fra, når `gateway.nodes.denyCommands` bruger ineffektive mønsterlignende/ukendte poster, når global `tools.profile="minimal"` tilsidesættes af agent tool-profiler, og når installerede extension-pluginværktøjer kan være tilgængelige under en tilladende tool-politik.
+

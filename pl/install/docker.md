@@ -583,3 +583,4 @@ Przykład:
   która źródłuje `/etc/profile` i może resetować PATH. Ustaw `docker.env.PATH`, aby poprzedzić
   własne ścieżki narzędzi (np. `/custom/bin:/usr/local/share/npm-global/bin`), albo dodaj
   skrypt w `/etc/profile.d/` w swoim Dockerfile.
+

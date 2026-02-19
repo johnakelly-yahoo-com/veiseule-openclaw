@@ -265,3 +265,4 @@ trusted-proxy 인증을 활성화하기 전에 다음을 확인하세요:
 - [Configuration](/gateway/configuration) — 설정 레퍼런스
 - [Remote Access](/gateway/remote) — 기타 원격 액세스 패턴
 - [Tailscale](/gateway/tailscale) — tailnet 전용 액세스를 위한 더 간단한 대안
+

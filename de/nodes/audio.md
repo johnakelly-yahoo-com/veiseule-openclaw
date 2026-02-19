@@ -131,3 +131,4 @@ Wenn `requireMention: true` für einen Gruppenchat gesetzt ist, transkribiert Op
 - Stellen Sie sicher, dass Ihre CLI mit Exit‑Code 0 beendet wird und reinen Text ausgibt; JSON muss über `jq -r .text` aufbereitet werden.
 - Halten Sie Timeouts angemessen (`timeoutSeconds`, Standard 60 s), um das Blockieren der Antwort‑Warteschlange zu vermeiden.
 - Die Preflight-Transkription verarbeitet nur den **ersten** Audio-Anhang für die Erwähnungserkennung. Zusätzliche Audiodateien werden während der Hauptphase der Medienverarbeitung verarbeitet.
+

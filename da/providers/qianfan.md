@@ -36,3 +36,4 @@ openclaw onboard --auth-choice qianfan-api-key
 - [Modeludbydere](/concepts/model-providers)
 - [Agent-opsætning](/concepts/agent)
 - [Qianfan API-dokumentation](https://cloud.baidu.com/doc/qianfan-api/s/3m7of64lb)
+

@@ -79,3 +79,4 @@ openclaw directory peers list --channel zalouser --query "name"
 Araç adı: `zalouser`
 
 Eylemler: `send`, `image`, `link`, `friends`, `groups`, `me`, `status`
+

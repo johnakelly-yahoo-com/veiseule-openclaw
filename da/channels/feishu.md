@@ -578,3 +578,4 @@ Nøgleindstillinger:
 - ✅ Filer
 - ✅ Lyd
 - ⚠️ Rich text (delvis understøttelse)
+

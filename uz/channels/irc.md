@@ -232,3 +232,4 @@ Standart akkaunt quyidagilarni qo‘llab-quvvatlaydi:
 - Agar bot ulanib, lekin kanallarda hech qachon javob bermasa, `channels.irc.groups` ni **va** mention-gating xabarlarni bloklayotganini (`missing-mention`) tekshiring. Agar u pinglarsiz javob berishini istasangiz, kanal uchun `requireMention:false` ni o‘rnating.
 - Agar kirish amalga oshmasa, nick mavjudligini va server parolini tekshiring.
 - Agar maxsus tarmoqda TLS ishlamasa, host/port va sertifikat sozlamalarini tekshiring.
+

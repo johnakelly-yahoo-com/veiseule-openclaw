@@ -206,3 +206,4 @@ Für detaillierte Sicherheitsarchitektur und Fehlerbehebung:
 - [Docker](/install/docker) — containerisierte Gateway-Einrichtung
 - [Sandboxing](/gateway/sandboxing) — Agent-Sandbox-Konfiguration
 - [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) — Isolation pro Agent
+

@@ -254,3 +254,4 @@ Notes :
 - Les réponses sont mises en cache (15 minutes par défaut) afin de réduire les récupérations répétées.
 - Si vous utilisez des profils d’outils/listes d’autorisation, ajoutez `web_search`/`web_fetch` ou `group:web`.
 - Si la clé Brave est manquante, `web_search` renvoie une courte indication de configuration avec un lien vers la documentation.
+

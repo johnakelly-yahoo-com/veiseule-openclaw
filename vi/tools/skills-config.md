@@ -74,3 +74,4 @@ Hãy dùng một trong các cách sau:
 
 3. `env` toàn cục và `skills.entries.<skill>`
 4. `.env/apiKey` chỉ áp dụng cho các lần chạy trên **host**.5. OpenClaw sử dụng các thư mục kỹ năng **tương thích [AgentSkills](https://agentskills.io)** để dạy agent cách sử dụng công cụ.
+

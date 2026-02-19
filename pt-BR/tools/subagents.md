@@ -208,3 +208,4 @@ Subagentes usam uma fila dedicada em processo:
 - O contexto do subagente injeta apenas `AGENTS.md` + `TOOLS.md` (sem `SOUL.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md` ou `BOOTSTRAP.md`).
 - A profundidade máxima de aninhamento é 5 (intervalo de `maxSpawnDepth`: 1–5). Profundidade 2 é recomendada para a maioria dos casos de uso.
 - `maxChildrenPerAgent` limita filhos ativos por sessão (padrão: 5, intervalo: 1–20).
+

@@ -136,3 +136,4 @@ Færdigheder kan gemme `apiKey` i `skills.entries.<name>.apiKey`. Hvis en færdi
 API'er, kan det pådrage sig omkostninger i henhold til færdighedens udbyder.
 
 Se [Skills](/tools/skills).
+

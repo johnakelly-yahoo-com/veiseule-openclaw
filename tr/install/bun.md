@@ -56,3 +56,4 @@ bun pm trust @whiskeysockets/baileys protobufjs
 ## İsteğe bağlı ortam değişkenleri:
 
 - Bazı betikler hâlâ pnpm’i sabit kodlar (ör. `docs:build`, `ui:*`, `protocol:check`). Şimdilik bunları pnpm ile çalıştırın.
+

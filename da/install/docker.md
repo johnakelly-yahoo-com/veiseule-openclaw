@@ -583,3 +583,4 @@ Eksempel:
   kilder `/etc/profile` og kan nulstille PATH. Sæt `docker.env.PATH` til at forberede dine
   brugerdefinerede værktøjsstier (f.eks. `/custom/bin:/usr/local/share/npm-global/bin`), eller tilføj
   et script under `/etc/profile.d/` i din Dockerfile.
+

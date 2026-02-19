@@ -32,3 +32,4 @@ Laatst bijgewerkt: 2025-12-11
 
 - Als de poort bezet is door een _ander_ proces, is de fout hetzelfde; maak de poort vrij of kies een andere met `openclaw gateway --port <port>`.
 - De macOS-app hanteert nog steeds een eigen lichtgewicht PID-beveiliging voordat de Gateway wordt gestart; de runtimevergrendeling wordt afgedwongen door de WebSocket-binding.
+

@@ -48,3 +48,4 @@ openclaw approvals allowlist remove "~/Projects/**/bin/rg"
 - `--agent` mặc định là `"*"`, áp dụng cho tất cả các tác tử.
 - Máy chủ node phải quảng bá `system.execApprovals.get/set` (ứng dụng macOS hoặc máy chủ node headless).
 - Tệp phê duyệt được lưu theo từng máy chủ tại `~/.openclaw/exec-approvals.json`.
+

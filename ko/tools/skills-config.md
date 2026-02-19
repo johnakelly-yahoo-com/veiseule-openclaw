@@ -74,3 +74,4 @@ Skill 별 필드:
 - 사용자 정의 샌드박스 이미지에 환경 변수를 베이크하세요
 
 전역 `env` 및 `skills.entries.<skill>.env/apiKey`는 **호스트** 실행에만 적용됩니다.
+

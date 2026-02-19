@@ -211,3 +211,4 @@ Sub-agents gebruiken een toegewezen in-process wachtrij:
 - Sub-agentcontext injecteert alleen `AGENTS.md` + `TOOLS.md` (geen `SOUL.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md` of `BOOTSTRAP.md`).
 - Maximale nestingdiepte is 5 (`maxSpawnDepth` bereik: 1–5). Depth 2 wordt aanbevolen voor de meeste use cases.
 - `maxChildrenPerAgent` beperkt het aantal actieve kinderen per sessie (standaard: 5, bereik: 1–20).
+

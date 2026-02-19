@@ -132,3 +132,4 @@ Telegram (private + topics)
 
 - `preview message`: رسالة Telegram مؤقتة يتم تحديثها أثناء التوليد.
 - `final edit`: تعديل في نفس رسالة المعاينة (نص فقط).
+

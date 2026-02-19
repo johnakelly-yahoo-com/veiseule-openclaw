@@ -79,3 +79,4 @@ title: "Pasek menu"
 - Uruchom główną, gdy inna jest aktywna: ikona przełącza się na główną natychmiast.
 - Szybkie serie narzędzi: upewnij się, że odznaka nie migocze (okres łaski TTL dla wyników narzędzi).
 - Wiersz zdrowia pojawia się ponownie, gdy wszystkie sesje są bezczynne.
+

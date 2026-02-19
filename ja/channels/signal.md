@@ -322,3 +322,4 @@ grep -i "signal" "/tmp/openclaw/openclaw-$(date +%Y-%m-%d).log" | tail -20
 - `agents.list[].groupChat.mentionPatterns`（Signal はネイティブのメンションをサポートしません）。
 - `messages.groupChat.mentionPatterns`（グローバルフォールバック）。
 - `messages.responsePrefix`。
+

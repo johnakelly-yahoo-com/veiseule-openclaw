@@ -29,3 +29,4 @@ Openstaande vragen
 - Optionele grammY-plugins (throttler) toevoegen als we Bot API 429’s tegenkomen.
 - Meer gestructureerde mediatests toevoegen (stickers, spraaknotities).
 - De webhook-luisterpoort configureerbaar maken (momenteel vast op 8787, tenzij via de Gateway aangesloten).
+

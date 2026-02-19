@@ -265,3 +265,4 @@ location / {
 - [Configuration](/gateway/configuration) — مرجع الإعدادات
 - [Remote Access](/gateway/remote) — أنماط وصول عن بُعد أخرى
 - [Tailscale](/gateway/tailscale) — بديل أبسط للوصول ضمن tailnet فقط
+

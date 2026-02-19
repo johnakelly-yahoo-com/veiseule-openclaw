@@ -2806,3 +2806,4 @@ Użyj `statusu bramki openclaw` i zaufaj tym liniom:
 ---
 
 Wciąż utknąłeś? Zapytaj na [Discord](https://discord.com/invite/clawd) lub otwórz [dyskusję GitHub](https://github.com/openclaw/openclaw/discussions).
+

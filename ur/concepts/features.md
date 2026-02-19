@@ -57,3 +57,4 @@ title: "خصوصیات"
 Legacy Claude، Codex، Gemini، اور Opencode راستے ہٹا دیے گئے ہیں۔ Pi واحد
 coding agent راستہ ہے۔
 </Note>
+

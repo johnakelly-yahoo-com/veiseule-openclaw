@@ -53,3 +53,4 @@ Agar hali ham `--token` uzatayotgan bo‘lsangiz, u shell history va `ps` chiqis
 
 - OpenAI-compatible `/v1` endpoint; NVIDIA NGC’dan olingan API kalitidan foydalaning.
 - `NVIDIA_API_KEY` o‘rnatilganda provider avtomatik yoqiladi; statik sukut sozlamalaridan foydalanadi (131,072 tokenli kontekst oynasi, 4,096 maksimal token).
+

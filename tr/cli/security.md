@@ -26,3 +26,4 @@ Denetim, birden fazla DM göndereninin ana oturumu paylaştığı durumlarda uya
 Ayrıca, sandboxing olmadan ve web/tarayıcı araçları etkinleştirilmiş şekilde küçük modellerin (`<=300B`) kullanılması durumunda da uyarır.
 Webhook ingress için, `hooks.defaultSessionKey` ayarlanmamışsa, istek `sessionKey` geçersiz kılmaları etkinse ve `hooks.allowedSessionKeyPrefixes` olmadan geçersiz kılmalar etkinse uyarı verir.
 Ayrıca sandbox modu kapalıyken sandbox Docker ayarları yapılandırılmışsa, `gateway.nodes.denyCommands` etkisiz desen benzeri/bilinmeyen girdiler kullanıyorsa, genel `tools.profile="minimal"` ajan araç profilleri tarafından geçersiz kılınıyorsa ve yüklü extension eklenti araçları izin verici araç politikası altında erişilebilir durumdaysa uyarı verir.
+

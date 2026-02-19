@@ -164,3 +164,4 @@ Référence complète des variables d’environnement : [Variables d’environne
 - Sécurité des DM et approbations : [Pairing](/channels/pairing)
 - Connecter d’autres canaux : [Channels](/channels)
 - Flux de travail avances et execution depuis les sources : [Setup](/start/setup)
+

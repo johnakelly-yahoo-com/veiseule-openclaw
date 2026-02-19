@@ -119,3 +119,4 @@ window.location.href = "openclaw://agent?message=Review%20this%20design";
 - Canvas scheme သည် directory traversal ကို တားဆီးထားပြီး ဖိုင်များသည် session root အောက်တွင်သာ ရှိရမည်။
 - Local Canvas content သည် custom scheme ကို အသုံးပြုထားပြီး (loopback server မလိုအပ်ပါ)။
 - External `http(s)` URLs များကို တိတိကျကျ navigate လုပ်ထားသည့်အခါတွင်သာ ခွင့်ပြုသည်။
+

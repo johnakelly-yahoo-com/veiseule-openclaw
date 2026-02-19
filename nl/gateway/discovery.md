@@ -121,3 +121,4 @@ De Gateway is de bron van waarheid voor toelating van nodes/clients.
 - **Gateway**: adverteert discovery-beacons, beheert pairing-beslissingen en host het WS-eindpunt.
 - **macOS-app**: helpt je een Gateway te kiezen, toont pairing-prompts en gebruikt SSH alleen als fallback.
 - **iOS/Android-nodes**: browsen Bonjour als gemak en verbinden met de gepairde Gateway WS.
+

@@ -67,3 +67,4 @@ openclaw hooks enable soul-evil
 ## انظر أيضًا
 
 - [الخطافات](/automation/hooks)
+

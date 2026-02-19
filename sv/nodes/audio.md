@@ -131,3 +131,4 @@ När `requireMention: true` är inställt för en gruppchatt transkriberar OpenC
 - Säkerställ att ditt CLI avslutar med 0 och skriver ren text; JSON behöver bearbetas via `jq -r .text`.
 - Håll timeouts rimliga (`timeoutSeconds`, standard 60 s) för att undvika att blockera svarskön.
 - Preflight-transkribering bearbetar endast den **första** ljudbilagan för omnämningsdetektering. Ytterligare ljud bearbetas under den huvudsakliga fasen för medieförståelse.
+

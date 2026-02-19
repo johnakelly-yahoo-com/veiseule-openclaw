@@ -53,3 +53,4 @@ openclaw models set nvidia/nvidia/llama-3.1-nemotron-70b-instruct
 
 - OpenAI-संगत `/v1` एंडपॉइंट; NVIDIA NGC से एक API key का उपयोग करें।
 - जब `NVIDIA_API_KEY` सेट किया जाता है तो प्रोवाइडर स्वतः सक्षम हो जाता है; यह स्थिर डिफ़ॉल्ट्स का उपयोग करता है (131,072-टोकन कॉन्टेक्स्ट विंडो, 4,096 अधिकतम टोकन)।
+

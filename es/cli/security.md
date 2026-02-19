@@ -26,3 +26,4 @@ La auditoría advierte cuando varios remitentes de mensajes directos comparten l
 También advierte cuando se usan modelos pequeños (`<=300B`) sin sandboxing y con herramientas web/navegador habilitadas.
 Para el ingreso de webhooks, muestra advertencias cuando `hooks.defaultSessionKey` no está configurado, cuando están habilitadas las anulaciones de `sessionKey` en la solicitud y cuando las anulaciones están habilitadas sin `hooks.allowedSessionKeyPrefixes`.
 También muestra advertencias cuando la configuración de sandbox Docker está definida mientras el modo sandbox está desactivado, cuando `gateway.nodes.denyCommands` usa entradas ineficaces o de tipo patrón/desconocidas, cuando el `tools.profile="minimal"` global es sobrescrito por perfiles de herramientas del agente y cuando las herramientas de plugins de extensión instalados pueden ser accesibles bajo una política de herramientas permisiva.
+

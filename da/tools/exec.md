@@ -179,3 +179,4 @@ Noter:
 - Værktøjspolitik gælder stadig; `allow: ["exec"]` tillader implicit `apply_patch`.
 - Konfigurationen ligger under `tools.exec.applyPatch`.
 - `tools.exec.applyPatch.workspaceOnly` er som standard sat til `true` (begrænset til workspace). Sæt den kun til `false`, hvis du bevidst ønsker, at `apply_patch` skal skrive/slette uden for workspace-mappen.
+

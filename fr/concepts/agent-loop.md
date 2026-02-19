@@ -144,3 +144,4 @@ Voir [Plugins](/tools/plugin#plugin-hooks) pour l’API des accroches et les det
 - AbortSignal (annulation)
 - Deconnexion de la Gateway ou delai d’expiration RPC
 - Delai d’expiration `agent.wait` (attente uniquement, n’arrete pas l’agent)
+

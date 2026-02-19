@@ -49,3 +49,4 @@ pnpm test           # mga vitest test
 pnpm check:docs     # format ng docs + lint + sirang mga link
 pnpm release:check  # i-validate ang npm pack
 ```
+

@@ -362,3 +362,4 @@ imsg send <handle> "test"
 - 전체 설정: [Configuration](/gateway/configuration)
 - 자세한 내용: [Pairing](/channels/pairing)
 - [BlueBubbles](/channels/bluebubbles)
+

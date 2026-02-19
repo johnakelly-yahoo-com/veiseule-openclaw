@@ -216,3 +216,4 @@ Puis ouvrez un nouveau terminal (ou `rehash` dans zsh / `hash -r` dans bash).
   <Card title="Uninstall" href="/install/uninstall" icon="trash-2">Supprimez complètement OpenClaw.
 </Card>
 </CardGroup>
+

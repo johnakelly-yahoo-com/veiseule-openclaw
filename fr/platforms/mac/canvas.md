@@ -123,3 +123,4 @@ L’application demande une confirmation sauf si une clé valide est fournie.
 - Le schéma Canvas bloque la traversée de répertoires ; les fichiers doivent se trouver sous la racine de la session.
 - Le contenu Canvas local utilise un schéma personnalisé (aucun serveur de loopback requis).
 - Les URL `http(s)` externes ne sont autorisées que lorsqu’elles sont explicitement visitées.
+

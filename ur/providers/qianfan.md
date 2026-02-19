@@ -35,3 +35,4 @@ openclaw onboard --auth-choice qianfan-api-key
 - [ماڈل فراہم کنندگان](/concepts/model-providers)
 - [ایجنٹ سیٹ اپ](/concepts/agent)
 - [Qianfan API دستاویزات](https://cloud.baidu.com/doc/qianfan-api/s/3m7of64lb)
+

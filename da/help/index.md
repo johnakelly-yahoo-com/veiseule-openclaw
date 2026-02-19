@@ -19,3 +19,4 @@ Hvis du vil have et hurtigt “kom videre”‑flow, så start her:
 Hvis du leder efter konceptuelle spørgsmål (ikke “noget gik i stykker”):
 
 - [FAQ (koncepter)](/help/faq)
+

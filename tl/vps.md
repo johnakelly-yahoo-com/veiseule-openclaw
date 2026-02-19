@@ -39,3 +39,4 @@ Maaari mong panatilihin ang Gateway sa cloud at ipares ang mga **node** sa iyong
 (Mac/iOS/Android/headless). Nagbibigay ang mga Node ng lokal na screen/camera/canvas at mga kakayahan ng `system.run` habang nananatili ang Gateway sa cloud.
 
 Docs: [Nodes](/nodes), [Nodes CLI](/cli/nodes)
+

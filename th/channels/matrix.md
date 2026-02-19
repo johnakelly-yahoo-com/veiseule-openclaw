@@ -319,3 +319,4 @@ openclaw pairing list matrix
 - `channels.matrix.autoJoinAllowlist`: room IDs/aliases ที่อนุญาตสำหรับการเข้าร่วมอัตโนมัติ
 - `channels.matrix.accounts`: การกำหนดค่าหลายบัญชีโดยอ้างอิงตาม account ID (แต่ละบัญชีสืบทอดการตั้งค่าระดับบน)
 - `channels.matrix.actions`: การควบคุมเครื่องมือตามการกระทำ (reactions/messages/pins/memberInfo/channelInfo)
+

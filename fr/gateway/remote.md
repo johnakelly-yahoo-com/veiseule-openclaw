@@ -127,3 +127,4 @@ Version courte : **conservez la Gateway en loopback uniquement** sauf si vous ê
 - Traitez le contrôle navigateur comme un accès opérateur : tailnet uniquement + appairage de nœuds délibéré.
 
 Analyse approfondie : [Sécurité](/gateway/security).
+

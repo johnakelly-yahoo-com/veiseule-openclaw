@@ -582,3 +582,4 @@ Comment elle mappe:
   - Si un nœud capable de navigateur est connecté, l’outil peut s’y acheminer automatiquement à moins que vous ne fixiez `target="host"` ou `target="node"`.
 
 Cela maintient l’agent déterministe et évite les sélecteurs fragiles.
+

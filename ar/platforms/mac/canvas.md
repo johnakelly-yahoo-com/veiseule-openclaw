@@ -122,3 +122,4 @@ window.location.href = "openclaw://agent?message=Review%20this%20design";
 - يمنع مخطط Canvas اجتياز الدلائل؛ يجب أن تعيش الملفات ضمن جذر الجلسة.
 - يستخدم محتوى Canvas المحلي مخططًا مخصّصًا (لا يتطلب خادم loopback).
 - يُسمح بعناوين URL الخارجية `http(s)` فقط عند الانتقال إليها صراحةً.
+

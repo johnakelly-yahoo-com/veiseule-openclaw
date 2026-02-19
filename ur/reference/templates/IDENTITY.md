@@ -26,3 +26,4 @@ _Fill this in during your first conversation. Make it yours._
 
 - اس فائل کو ورک اسپیس کی جڑ میں `IDENTITY.md` کے طور پر محفوظ کریں۔
 - اوتار کے لیے، ورک اسپیس سے متعلقہ راستہ استعمال کریں جیسے `avatars/openclaw.png`۔
+

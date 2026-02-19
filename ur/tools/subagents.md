@@ -216,3 +216,4 @@ Active: 1 · Done: 2
 - سب-ایجنٹ کانٹیکسٹ میں صرف `AGENTS.md` + `TOOLS.md` شامل کیے جاتے ہیں (`SOUL.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md`، یا `BOOTSTRAP.md` شامل نہیں ہوتے)۔
 - زیادہ سے زیادہ nesting گہرائی 5 ہے (`maxSpawnDepth` کی حد: 1–5)۔ زیادہ تر استعمال کے معاملات کے لیے گہرائی 2 تجویز کی جاتی ہے۔
 - `maxChildrenPerAgent` ہر سیشن کے لیے فعال بچوں کی حد مقرر کرتا ہے (ڈیفالٹ: 5، حد: 1–20)۔
+

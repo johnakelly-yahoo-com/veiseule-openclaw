@@ -42,3 +42,4 @@ openclaw models status --check
 - `scripts/termux-sync-widget.sh`: مزامنة بيانات اعتماد Claude Code → OpenClaw.
 
 إذا لم تكن بحاجة إلى أتمتة الهاتف أو مؤقّتات systemd، فتجاوز هذه السكربتات.
+

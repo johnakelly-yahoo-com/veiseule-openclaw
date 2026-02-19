@@ -122,3 +122,4 @@ git commit -m "Add Clawd workspace"
 - Do weryfikacji sterowanej przeglądarką używaj `openclaw browser` (karty/status/zrzut ekranu) z profilem Chrome zarządzanym przez OpenClaw.
 - Do inspekcji DOM używaj `openclaw browser eval|query|dom|snapshot` (oraz `--json`/`--out`, gdy potrzebujesz wyjścia maszynowego).
 - Do interakcji używaj `openclaw browser click|type|hover|drag|select|upload|press|wait|navigate|back|evaluate|run` (kliknięcie/pisanie wymaga odwołań do zrzutów; do selektorów CSS używaj `evaluate`).
+

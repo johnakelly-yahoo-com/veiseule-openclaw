@@ -48,3 +48,4 @@ openclaw approvals allowlist remove "~/Projects/**/bin/rg"
 - `--agent` utilise par défaut `"*"`, qui s’applique à tous les agents.
 - L’hôte de nœud doit annoncer `system.execApprovals.get/set` (application macOS ou hôte de nœud sans interface).
 - Les fichiers d’approbations sont stockés par hôte à l’emplacement `~/.openclaw/exec-approvals.json`.
+

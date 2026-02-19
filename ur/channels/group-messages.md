@@ -82,3 +82,4 @@ Only the owner number (from `channels.whatsapp.allowFrom`, or the bot’s own E.
 - ایکو سپریشن مشترکہ بیچ اسٹرنگ استعمال کرتی ہے؛ اگر آپ بغیر مینشن کے ایک ہی متن دو بار بھیجیں تو صرف پہلی بار جواب آئے گا۔
 - سیشن اسٹور میں اندراجات `agent:<agentId>:whatsapp:group:<jid>` کے طور پر ظاہر ہوں گی (بطورِ طے شدہ `~/.openclaw/agents/<agentId>/sessions/sessions.json`)؛ اندراج کا نہ ہونا صرف یہ معنی رکھتا ہے کہ گروپ نے ابھی تک رن ٹرگر نہیں کیا۔
 - گروپس میں ٹائپنگ اشارے `agents.defaults.typingMode` کی پیروی کرتے ہیں (ڈیفالٹ: بغیر مینشن `message`)۔
+

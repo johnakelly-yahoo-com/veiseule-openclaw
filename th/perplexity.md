@@ -78,3 +78,4 @@ title: "Perplexity Sonar"
 - `perplexity/sonar-reasoning-pro` — การวิจัยเชิงลึก
 
 ดู [Web tools](/tools/web) สำหรับการกำหนดค่า web_search แบบเต็ม
+

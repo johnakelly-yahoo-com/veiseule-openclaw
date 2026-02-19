@@ -392,3 +392,4 @@ bij voorkeur uit in groepschats.
 Heartbeats voeren volledige agent-beurten uit. Kortere intervallen verbruiken meer
 tokens. Houd `HEARTBEAT.md` klein en overweeg een goedkoper `model` of
 `target: "none"` als je alleen interne statusupdates wilt.
+

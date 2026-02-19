@@ -78,3 +78,4 @@ Opsyonal ang hakbang na ito
   Pagkatapos ng setup, awtomatikong magbubukas ang app ng isang hiwalay na onboarding chat session upang maipakilala ng agent ang sarili nito at magabayan ang mga susunod na hakbang. Pinananatili nitong hiwalay ang gabay sa unang paggamit mula sa iyong normal na usapan. Tingnan ang [Bootstrapping](/start/bootstrapping) para sa kung ano ang nangyayari sa gateway host sa unang pagtakbo ng agent.
 </Step>
 </Steps>
+

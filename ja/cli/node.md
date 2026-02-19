@@ -110,3 +110,4 @@ openclaw nodes approve <requestId>
 - `~/.openclaw/exec-approvals.json`
 - [実行承認](/tools/exec-approvals)
 - `openclaw approvals --node <id|name|ip>`（Gateway から編集）
+

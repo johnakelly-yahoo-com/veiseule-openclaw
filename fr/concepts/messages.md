@@ -151,3 +151,4 @@ Le formatage des messages sortants est centralise dans `messages` :
 - Fil de reponse via `replyToMode` et des defauts par canal
 
 Details : [Configuration](/gateway/configuration#messages) et la documentation des canaux.
+

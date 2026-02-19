@@ -360,3 +360,4 @@ Kung gusto mo ng transparency, i-enable ang:
 40. Ang mga heartbeat ay nagpapatakbo ng buong agent turns. 41. Mas maiikling interval ang kumokonsumo ng mas maraming token. 4. Panatilihing maliit ang
     `HEARTBEAT.md` at isaalang-alang ang mas murang `model` o `target: "none"` kung
     panloob na state updates lamang ang gusto mo.
+

@@ -27,3 +27,4 @@ openclaw security audit --fix
 また、小さなモデル (`<=300B`) がサンドボックス化されずに使用されている場合や、Web/ブラウザツールが有効になっている場合にも警告します。
 webhook ingress では、`hooks.defaultSessionKey` が未設定の場合、リクエストの `sessionKey` 上書きが有効になっている場合、および `hooks.allowedSessionKeyPrefixes` を設定せずに上書きが有効になっている場合に警告が表示されます。
 また、sandbox モードが無効なのに sandbox Docker 設定が構成されている場合、`gateway.nodes.denyCommands` に無効なパターン形式や不明なエントリが含まれている場合、グローバルな `tools.profile="minimal"` がエージェントのツールプロファイルによって上書きされている場合、さらにインストール済みの拡張プラグインツールが緩いツールポリシー下で到達可能である可能性がある場合にも警告が表示されます。
+

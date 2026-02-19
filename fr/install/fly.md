@@ -484,3 +484,4 @@ Avec la configuration recommandée (`shared-cpu-2x`, 2 Go de RAM) :
 - Le niveau gratuit inclut une certaine allocation
 
 Voir [les tarifs Fly.io](https://fly.io/docs/about/pricing/) pour plus de détails.
+

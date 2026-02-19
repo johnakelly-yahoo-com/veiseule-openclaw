@@ -343,3 +343,4 @@ openclaw system event --text "Check for urgent follow-ups" --mode now
 ## लागत जागरूकता
 
 हार्टबीट्स पूर्ण एजेंट टर्न्स चलाते हैं। छोटे इंटरवल अधिक टोकन खर्च करते हैं। `HEARTBEAT.md` को छोटा रखें और यदि आप केवल आंतरिक स्टेट अपडेट चाहते हैं तो सस्ता `model` या `target: "none"` पर विचार करें।
+

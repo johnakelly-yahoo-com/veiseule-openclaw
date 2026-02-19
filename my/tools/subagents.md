@@ -218,3 +218,4 @@ Sub-agents များသည် သီးသန့် in-process queue lane က
 - Sub-agent context တွင် `AGENTS.md` + `TOOLS.md` ကိုသာ inject လုပ်ပေးသည် (`SOUL.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md`, သို့မဟုတ် `BOOTSTRAP.md` မပါဝင်ပါ)။
 - အများဆုံး nesting depth သည် 5 ဖြစ်သည် (`maxSpawnDepth` အတိုင်းအတာ: 1–5)။ အသုံးပြုမှုအများစုအတွက် Depth 2 ကို အကြံပြုပါသည်။
 - `maxChildrenPerAgent` သည် session တစ်ခုလျှင် active children အရေအတွက်ကို ကန့်သတ်သည် (မူလတန်ဖိုး: 5, အတိုင်းအတာ: 1–20)။
+

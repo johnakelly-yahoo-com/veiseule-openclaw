@@ -929,3 +929,4 @@ node -e "import('./path/to/handler.ts').then(console.log)"
 - [README dołączonych hooków](https://github.com/openclaw/openclaw/tree/main/src/hooks/bundled)
 - [Webhook Hooks](/automation/webhook)
 - [Konfiguracja](/gateway/configuration#hooks)
+

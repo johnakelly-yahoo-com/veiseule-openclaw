@@ -89,3 +89,4 @@ ishonchli pin sifatida qabul qilmasliklari kerak.
 
 24. Ko‘prik hozirda **implicit v1** (min/max kelishuvsiz). 25. Orqaga moslik
     kutiladi; har qanday buzuvchi o‘zgarishdan oldin ko‘prik protokoli versiyasi maydonini qo‘shing.
+

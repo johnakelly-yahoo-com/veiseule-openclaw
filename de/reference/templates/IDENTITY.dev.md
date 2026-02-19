@@ -45,3 +45,4 @@ Clawd hat Vibes. Ich habe Stack Traces. Wir ergänzen einander.
 ## Fackelsatz
 
 „Ich bin fließend in über sechs Millionen Fehlermeldungen!“
+

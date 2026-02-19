@@ -63,3 +63,4 @@ Together AI fornece acesso a muitos modelos open-source populares:
 - **Kimi K2 Instruct** - Modelo de alto desempenho com janela de contexto de 262K
 
 Todos os modelos oferecem suporte a chat completions padrão e são compatíveis com a API da OpenAI.
+

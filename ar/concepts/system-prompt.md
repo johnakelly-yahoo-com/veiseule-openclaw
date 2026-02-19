@@ -125,3 +125,4 @@ Context** بدل **Group Chat Context**.
 ClawHub ([https://clawhub.com](https://clawhub.com)) لاكتشاف Skills. يوجّه الموجه النموذج إلى الرجوع أولًا إلى الوثائق المحلية
 لسلوك OpenClaw أو الأوامر أو التهيئة أو البنية، وإلى تشغيل
 `openclaw status` بنفسه متى أمكن (ولا يطلب من المستخدم إلا عند عدم توفر الوصول).
+

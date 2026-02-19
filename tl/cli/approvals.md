@@ -48,3 +48,4 @@ openclaw approvals allowlist remove "~/Projects/**/bin/rg"
 - Ang `--agent` ay naka-default sa `"*"`, na nalalapat sa lahat ng agent.
 - Dapat i-advertise ng node host ang `system.execApprovals.get/set` (macOS app o headless node host).
 - Ang mga approvals file ay naka-store kada host sa `~/.openclaw/exec-approvals.json`.
+

@@ -305,3 +305,4 @@ Leverantörsalternativ:
 - `channels.matrix.autoJoinAllowlist`: tillåtna rum-ID:n/alias för auto-anslutning.
 - `channels.matrix.accounts`: fler-konto-konfiguration nycklad per konto-ID (varje konto ärver överordnade inställningar).
 - `channels.matrix.actions`: per-åtgärd-verktygsspärr (reaktioner/meddelanden/pins/memberInfo/channelInfo).
+

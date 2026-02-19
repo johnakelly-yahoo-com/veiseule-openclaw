@@ -51,3 +51,4 @@ title: "پلیٹ فارمز"
 
 - 34. macOS: LaunchAgent (`bot.molt.gateway` یا `bot.molt.<profile>35. `; legacy `com.openclaw.*`)
 - Linux/WSL2: systemd یوزر سروس (`openclaw-gateway[-<profile>].service`)
+

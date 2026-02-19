@@ -570,3 +570,4 @@ Mga tala:
 
 - Mas may prioridad ang `remote.*` kaysa sa `models.providers.openai.*`.
 - Ang `remote.headers` ay nagme-merge sa mga OpenAI header; nananalo ang remote kapag may key conflicts. Tanggalin ang `remote.headers` para gamitin ang mga default ng OpenAI.
+

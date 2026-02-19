@@ -71,3 +71,4 @@ Mga flag:
 - `--raw <command>`: magpatakbo ng shell string (`/bin/sh -lc` o `cmd.exe /c`).
 - `--agent <id>`: mga approval/allowlist na saklaw ng agent (default sa naka-configure na agent).
 - `--ask <off|on-miss|always>`, `--security <deny|allowlist|full>`: mga override.
+

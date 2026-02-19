@@ -415,3 +415,4 @@ Escolha uma antes da implementação para evitar deriva.
 - Dor: aprovações + duplicação + dois stacks.
 - Proposta: um protocolo WS com papéis + escopos explícitos, pareamento unificado + pinagem de TLS, aprovações hospedadas no gateway, IDs de dispositivo estáveis + slugs simpáticos.
 - Resultado: UX mais simples, segurança mais forte, menos duplicação, melhor roteamento móvel.
+

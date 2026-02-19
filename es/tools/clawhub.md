@@ -249,3 +249,4 @@ export CLAWHUB_DISABLE_TELEMETRY=1
 - `CLAWHUB_CONFIG_PATH`: Anular dónde la CLI almacena el token/configuración.
 - `CLAWHUB_WORKDIR`: Anular el directorio de trabajo predeterminado.
 - `CLAWHUB_DISABLE_TELEMETRY=1`: Desactivar la telemetría en `sync`.
+

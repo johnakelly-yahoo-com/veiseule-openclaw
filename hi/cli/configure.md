@@ -30,3 +30,4 @@ Tip: `openclaw config` without a subcommand opens the same wizard. Use
 openclaw configure
 openclaw configure --section models --section channels
 ```
+

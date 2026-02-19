@@ -102,3 +102,4 @@ lsof -nP -iTCP:18789 -sTCP:LISTEN
 ```
 
 If a manual run is holding the port, stop that process (Ctrl+C). Như một biện pháp cuối cùng, hãy kill PID bạn đã tìm ở trên.
+

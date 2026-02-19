@@ -147,3 +147,4 @@ Voir la [Configuration du Gateway (passerelle)](/gateway/configuration) pour :
 - Routage `agents.defaults.imageModel`
 
 Voir [Modeles](/concepts/models) pour une vue d’ensemble plus large de la selection des modeles et de la bascule.
+

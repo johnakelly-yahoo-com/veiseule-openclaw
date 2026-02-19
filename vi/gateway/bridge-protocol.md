@@ -89,3 +89,4 @@ Các trường payload (tất cả đều tùy chọn trừ khi có ghi chú):
 
 Bridge is currently **implicit v1** (no min/max negotiation). Backward‑compat
 is expected; add a bridge protocol version field before any breaking changes.
+

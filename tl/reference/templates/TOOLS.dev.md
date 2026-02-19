@@ -22,3 +22,4 @@ It does not define which tools exist; OpenClaw provides built-in tools internall
 - Text-to-speech: tukuyin ang boses, target na speaker/kuwarto, at kung mag-i-stream.
 
 Idagdag ang anumang gusto mong malaman ng assistant tungkol sa iyong lokal na toolchain.
+

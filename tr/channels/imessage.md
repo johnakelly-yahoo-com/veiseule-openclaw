@@ -354,3 +354,4 @@ imsg send <handle> "test"
 - Tam yapılandırma: [Yapılandırma](/gateway/configuration)
 - Ayrıntılar: [Pairing](/channels/pairing)
 - [BlueBubbles](/channels/bluebubbles)
+

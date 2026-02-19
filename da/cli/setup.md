@@ -27,3 +27,4 @@ For at køre opsætningsguiden via setup:
 ```bash
 openclaw setup --wizard
 ```
+

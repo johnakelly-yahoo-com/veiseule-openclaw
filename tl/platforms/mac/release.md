@@ -83,3 +83,4 @@ Commit the updated `appcast.xml` alongside the release assets (zip + dSYM) when 
   - Sa isang naunang public build, patakbuhin ang “Check for Updates…” mula sa About tab at tiyaking maayos na ini-install ng Sparkle ang bagong build.
 
 Kahulugan ng tapos: nai-publish ang signed app + appcast, gumagana ang update flow mula sa mas lumang naka-install na bersyon, at naka-attach ang mga release asset sa GitHub release.
+

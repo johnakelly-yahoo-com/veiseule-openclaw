@@ -27,3 +27,4 @@ Use these when a task is clearly tied to a script; otherwise prefer the CLI.
 
 - 保持脚本专注且有文档说明。
 - 在相关文档中添加简短条目（如果缺少则创建一个）。
+

@@ -351,3 +351,4 @@ OPENCLAW_DIAGNOSTICS=telegram.http,telegram.payload
 - **Логи пустые?** Убедитесь, что Gateway (шлюз) запущен и пишет в путь файла,
   указанный в `logging.file`.
 - **Нужно больше деталей?** Установите `logging.level` в `debug` или `trace` и повторите.
+

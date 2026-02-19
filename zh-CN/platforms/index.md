@@ -51,3 +51,4 @@ Native companion apps for Windows are also planned; the Gateway is recommended v
 
 - macOS：LaunchAgent（`bot.molt.gateway` 或 `bot.molt.<profile>`；旧版 `com.openclaw.*`）
 - Linux/WSL2：systemd 用户服务（`openclaw-gateway[-<profile>].service`）
+

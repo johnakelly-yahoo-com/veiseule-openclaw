@@ -149,3 +149,4 @@ Kamera komutları (yalnızca foreground; izin kontrollü):
 - `camera.clip` (mp4)
 
 Parametreler ve CLI yardımcıları için [Kamera node’u](/nodes/camera) bölümüne bakın.
+

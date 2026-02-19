@@ -208,3 +208,4 @@ curl -X POST http://127.0.0.1:18789/hooks/gmail \
 - Los payloads de hook se tratan como no confiables y, por defecto, se envuelven con límites de seguridad.
   Si debe deshabilitar esto para un hook específico, configure `allowUnsafeExternalContent: true`
   en el mapeo de ese hook (peligroso).
+

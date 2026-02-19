@@ -149,3 +149,4 @@ Commandes caméra (premier plan uniquement ; permissions requises) :
 - `camera.clip` (mp4)
 
 Voir [Nœud caméra](/nodes/camera) pour les paramètres et les aides CLI.
+

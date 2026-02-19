@@ -142,3 +142,4 @@ Then configure auth per-agent (wizard) and route chats to the right agent.
 
 - [/concepts/model-failover](/concepts/model-failover)（轮换 + 冷却规则）
 - [/tools/slash-commands](/tools/slash-commands)（命令界面）
+

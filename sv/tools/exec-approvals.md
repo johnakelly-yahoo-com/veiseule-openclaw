@@ -247,3 +247,4 @@ Relaterat:
 - [Exec‑verktyg](/tools/exec)
 - [Förhöjt läge](/tools/elevated)
 - [Färdigheter](/tools/skills)
+

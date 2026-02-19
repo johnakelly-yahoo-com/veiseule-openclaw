@@ -67,3 +67,4 @@ openclaw hooks enable soul-evil
 ## См. также
 
 - [Хуки](/automation/hooks)
+

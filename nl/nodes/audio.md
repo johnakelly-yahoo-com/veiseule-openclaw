@@ -131,3 +131,4 @@ Wanneer `requireMention: true` is ingesteld voor een groepschat, transcribeert O
 - Zorg dat je CLI met exitcode 0 afsluit en platte tekst print; JSON moet worden aangepast via `jq -r .text`.
 - Houd time-outs redelijk (`timeoutSeconds`, standaard 60s) om blokkeren van de antwoordwachtrij te voorkomen.
 - Preflight-transcriptie verwerkt alleen de **eerste** audio-bijlage voor mention-detectie. Aanvullende audio wordt verwerkt tijdens de hoofdmedia-analysefase.
+

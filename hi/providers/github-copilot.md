@@ -70,3 +70,4 @@ openclaw models set github-copilot/gpt-4o
   किसी अन्य ID का प्रयास करें (उदाहरण के लिए `github-copilot/gpt-4.1`)।
 - लॉगिन, ऑथ प्रोफ़ाइल स्टोर में एक GitHub टोकन सहेजता है और जब OpenClaw चलता है तो उसे
   Copilot API टोकन के लिए एक्सचेंज करता है।
+

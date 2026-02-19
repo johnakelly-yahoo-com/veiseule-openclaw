@@ -216,3 +216,4 @@ Underagenter använder en dedikerad intern kö‑lane:
 - Underagentens kontext injicerar endast `AGENTS.md` + `TOOLS.md` (ingen `SOUL.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md` eller `BOOTSTRAP.md`).
 - Maximalt nästlingsdjup är 5 (`maxSpawnDepth` intervall: 1–5). Djup 2 rekommenderas för de flesta användningsfall.
 - `maxChildrenPerAgent` begränsar aktiva barn per session (standard: 5, intervall: 1–20).
+

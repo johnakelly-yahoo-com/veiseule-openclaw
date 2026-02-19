@@ -82,3 +82,4 @@ Only the owner number (from `channels.whatsapp.allowFrom`, or the bot’s own E.
 - Chống echo sử dụng chuỗi lô kết hợp; nếu bạn gửi cùng một văn bản hai lần mà không có nhắc tên, chỉ lần đầu nhận được phản hồi.
 - Các mục lưu trữ phiên sẽ xuất hiện dưới dạng `agent:<agentId>:whatsapp:group:<jid>` trong kho phiên (`~/.openclaw/agents/<agentId>/sessions/sessions.json` theo mặc định); thiếu mục chỉ có nghĩa là nhóm chưa kích hoạt chạy lần nào.
 - Chỉ báo đang nhập trong nhóm tuân theo `agents.defaults.typingMode` (mặc định: `message` khi không được nhắc tên).
+

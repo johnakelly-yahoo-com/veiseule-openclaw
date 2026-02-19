@@ -323,3 +323,4 @@ off in group chats.
 心跳会运行完整的代理轮次。 更短的间隔会消耗更多 token。 Keep
 `HEARTBEAT.md` small and consider a cheaper `model` or `target: "none"` if you
 only want internal state updates.
+

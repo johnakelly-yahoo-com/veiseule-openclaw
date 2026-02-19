@@ -26,3 +26,4 @@ Audyt ostrzega, gdy wielu nadawców DM współdzieli główną sesję, i zaleca 
 Ostrzega również, gdy małe modele (`<=300B`) są używane bez sandboxing oraz z włączonymi narzędziami web/przeglądarki.
 W przypadku webhook ingress wyświetlane jest ostrzeżenie, gdy `hooks.defaultSessionKey` nie jest ustawione, gdy włączone są nadpisania `sessionKey` w żądaniu oraz gdy nadpisania są włączone bez `hooks.allowedSessionKeyPrefixes`.
 Wyświetlane jest również ostrzeżenie, gdy ustawienia Docker sandbox są skonfigurowane przy wyłączonym trybie sandbox, gdy `gateway.nodes.denyCommands` używa nieskutecznych wzorców lub nieznanych wpisów, gdy globalne `tools.profile="minimal"` jest nadpisane przez profile narzędzi agenta oraz gdy narzędzia zainstalowanych wtyczek rozszerzeń mogą być dostępne przy liberalnej polityce narzędzi.
+

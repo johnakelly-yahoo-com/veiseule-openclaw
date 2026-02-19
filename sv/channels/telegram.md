@@ -859,3 +859,4 @@ Telegram‑specifika fält med hög signal:
 - `[[audio_as_voice]]` — skicka ljud som röstanteckning i stället för fil.
 - [Kanalroutning](/channels/channel-routing)
 - [Felsökning](/channels/troubleshooting)
+

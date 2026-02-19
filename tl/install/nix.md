@@ -96,3 +96,4 @@ packaging at mga Nix build (na hindi umaasa sa isang buong Xcode toolchain).
 - [nix-openclaw](https://github.com/openclaw/nix-openclaw) — buong gabay sa setup
 - [Wizard](/start/wizard) — setup ng CLI na hindi Nix
 - [Docker](/install/docker) — setup na naka-container
+

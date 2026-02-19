@@ -136,3 +136,4 @@ Skills podem armazenar `apiKey` em `skills.entries.<name>.apiKey`. Se uma skill 
 APIs externas, ela pode incorrer em custos de acordo com o provedor da skill.
 
 Veja [Skills](/tools/skills).
+

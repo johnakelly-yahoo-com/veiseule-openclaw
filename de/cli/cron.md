@@ -42,3 +42,4 @@ An einen bestimmten Kanal ankündigen:
 ```bash
 openclaw cron edit <job-id> --announce --channel slack --to "channel:C1234567890"
 ```
+

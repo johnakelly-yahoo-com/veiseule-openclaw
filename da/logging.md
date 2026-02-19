@@ -349,3 +349,4 @@ Køer + sessioner:
 - **Logs er tomme?** Tjek at Gateway kører og skriver til filstien
   i `logging.file`.
 - **Brug for flere detaljer?** Sæt `logging.level` til `debug` eller `trace` og prøv igen.
+

@@ -402,3 +402,4 @@ Campos de WhatsApp de alta relevancia:
 - [Pairing](/channels/pairing)
 - [Channel routing](/channels/channel-routing)
 - Guía de solución de problemas: [Solución de problemas del Gateway](/gateway/troubleshooting).
+

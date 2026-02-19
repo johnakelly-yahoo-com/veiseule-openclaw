@@ -209,3 +209,4 @@ By default, sub-agents get **all tools except** a set of denied tools that are u
 - سياق الوكيل الفرعي يحقن فقط `AGENTS.md` + `TOOLS.md` (بدون `SOUL.md` أو `IDENTITY.md` أو `USER.md` أو `HEARTBEAT.md` أو `BOOTSTRAP.md`).
 - أقصى عمق للتداخل هو 5 (`maxSpawnDepth` النطاق: 1–5). يوصى بالعمق 2 لمعظم حالات الاستخدام.
 - `maxChildrenPerAgent` يحدد الحد الأقصى لعدد العناصر التابعة النشطة لكل جلسة (الافتراضي: 5، النطاق: 1–20).
+

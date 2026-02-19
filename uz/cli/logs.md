@@ -24,3 +24,4 @@ openclaw logs --limit 500
 ```
 
 Vaqt belgilarini mahalliy vaqt mintaqangizda ko‘rsatish uchun `--local-time` dan foydalaning.
+

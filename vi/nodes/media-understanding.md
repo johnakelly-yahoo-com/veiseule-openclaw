@@ -375,3 +375,4 @@ Khi phần hiểu media chạy, `/status` bao gồm một dòng tóm tắt ngắ
 
 - [Cấu hình](/gateway/configuration)
 - [Hỗ trợ Hình ảnh & Media](/nodes/images)
+

@@ -97,3 +97,4 @@ Säkerhetsnoteringar:
 - Transporten är **tillståndslös**; den lagrar inte medlemskap.
 - Om Gateway är offline eller parning är inaktiverad kan noder inte paras.
 - Om Gateway är i fjärrläge sker parning fortfarande mot den fjärranslutna Gatewayns lagring.
+

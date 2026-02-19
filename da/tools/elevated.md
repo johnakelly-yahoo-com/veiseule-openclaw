@@ -55,3 +55,4 @@ title: "Forhøjet tilstand"
 
 - Forhøjede exec-kald logges på info-niveau.
 - Sessionsstatus omfatter forhøjet tilstand (f.eks. `elevated=ask`, `elevated=full`).
+

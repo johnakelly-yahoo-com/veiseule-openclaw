@@ -152,3 +152,4 @@ Chi tiết: [Giao thức Gateway](/gateway/protocol), [Ghép cặp](/channels/pa
 - Chính xác một Gateway kiểm soát một phiên Baileys trên mỗi host.
 - Bắt tay là bắt buộc; bất kỳ frame đầu tiên nào không phải JSON hoặc không phải connect sẽ bị đóng cứng.
 - Sự kiện không được phát lại; client phải làm mới khi có khoảng trống.
+

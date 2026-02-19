@@ -535,3 +535,4 @@ Slack-verktygsåtgärder kan spärras med `channels.slack.actions.*`:
   `files:write`) annars kommer dessa operationer att misslyckas.
 - [Configuration](/gateway/configuration)
 - [Slash commands](/tools/slash-commands)
+

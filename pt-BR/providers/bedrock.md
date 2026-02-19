@@ -174,3 +174,4 @@ openclaw models list
   para as capacidades atuais.
 - Se voce preferir um fluxo de chave gerenciado, também pode colocar um proxy
   compatível com OpenAI na frente do Bedrock e configurá-lo como um provedor OpenAI.
+

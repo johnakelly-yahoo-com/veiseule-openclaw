@@ -253,3 +253,4 @@ Gatewayが利用できない場合、Gatewayプロトコルクライアントは
 - [Doctor](/gateway/doctor)
 - [Authentication](/gateway/authentication)
 - canvasホストはGateway HTTPサーバー（`gateway.port` と同じポート）で提供されます
+

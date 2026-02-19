@@ -283,3 +283,4 @@ pnpm protocol:check
 1. Обновите схемы TypeBox.
 2. Запустите `pnpm protocol:check`.
 3. Закоммитьте перегенерированную схему и Swift‑модели.
+

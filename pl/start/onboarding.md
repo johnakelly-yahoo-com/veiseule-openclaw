@@ -77,3 +77,4 @@ Ten krok jest opcjonalny
   co dzieje się na hoście gateway podczas pierwszego uruchomienia agenta.
 </Step>
 </Steps>
+

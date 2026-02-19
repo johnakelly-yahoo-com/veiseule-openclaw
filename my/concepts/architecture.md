@@ -144,3 +144,4 @@ sequenceDiagram
 - host တစ်ခုလျှင် Baileys session တစ်ခုကို Gateway တစ်ခုတည်းသာ ထိန်းချုပ်သည်။
 - Handshake သည် မဖြစ်မနေလိုအပ်ပြီး JSON မဟုတ်သော သို့မဟုတ် connect မဟုတ်သော ပထမ frame ကို ပို့ပါက ချက်ချင်း ပိတ်မည်။
 - Event များကို ပြန်လည်ပို့မည်မဟုတ်သဖြင့် client များသည် gap ရှိပါက refresh လုပ်ရမည်။
+

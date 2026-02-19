@@ -163,3 +163,4 @@ sudo loginctl enable-linger $USER
 - [Discord](/channels/discord) 與 [Telegram](/channels/telegram)（回覆標籤 + replyToMode 設定）
 - [OpenClaw 助理設定](/start/openclaw)
 - [macOS app](/platforms/macos)（gateway 生命週期）
+

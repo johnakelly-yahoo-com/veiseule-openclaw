@@ -757,3 +757,4 @@ Botlar yopiq kanallarda cheklangan qo‘llab-quvvatlashga ega:
 - [RSC ruxsatnomalari ma’lumotnomasi](https://learn.microsoft.com/en-us/microsoftteams/platform/graph-api/rsc/resource-specific-consent)
 - [Teams bot fayllar bilan ishlashi](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/bots-filesv4) (kanal/guruh uchun Graph talab qilinadi)
 - [Proaktiv xabar yuborish](https://learn.microsoft.com/en-us/microsoftteams/platform/bots/how-to/conversations/send-proactive-messages)
+

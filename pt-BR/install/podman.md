@@ -110,3 +110,4 @@ Para adicionar o quadlet **após** uma configuração inicial que não o utilizo
 ## Para executar o gateway como seu usuário normal (sem um usuário openclaw dedicado): construa a imagem, crie `~/.openclaw/.env` com `OPENCLAW_GATEWAY_TOKEN` e execute o contêiner com `--userns=keep-id` e montagens para seu `~/.openclaw`.
 
 O script de inicialização foi projetado para o fluxo com usuário openclaw; para uma configuração de usuário único, você pode executar manualmente o comando `podman run` do script, apontando a configuração e o workspace para seu diretório home. The launch script is designed for the openclaw-user flow; for a single-user setup you can instead run the `podman run` command from the script manually, pointing config and workspace to your home. Recomendado para a maioria dos usuários: use `setup-podman.sh` e execute como o usuário openclaw para que a configuração e o processo fiquem isolados.
+

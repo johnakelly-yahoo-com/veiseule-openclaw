@@ -109,3 +109,4 @@ RPC API en een volledige lijst van configvelden die de wizard wegschrijft, zie d
 - Onboardingoverzicht: [Onboarding Overview](/start/onboarding-overview)
 - macOS-app onboarding: [Onboarding](/start/onboarding)
 - Agent first-run-ritueel: [Agent Bootstrapping](/start/bootstrapping)
+

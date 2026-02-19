@@ -111,3 +111,4 @@ Notes :
 - Lors de l’utilisation : « Uniquement lorsque OpenClaw est ouvert. »
 - Toujours : « Autoriser la localisation en arrière-plan. Nécessite une autorisation système.
 - Précise : « Utiliser la localisation GPS précise. Désactivez pour partager une localisation approximative.
+

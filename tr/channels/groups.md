@@ -372,3 +372,4 @@ Ajan sistem istemi, yeni bir grup oturumunun ilk turunda bir grup girişi içeri
 ## WhatsApp ayrıntıları
 
 WhatsApp’a özgü davranışlar (geçmiş enjeksiyonu, mention işleme ayrıntıları) için [Grup mesajları](/channels/group-messages) bölümüne bakın.
+

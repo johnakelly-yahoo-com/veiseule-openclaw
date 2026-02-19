@@ -231,3 +231,4 @@ docker run -p 7777:7777 ghcr.io/hoytech/strfry
 - တိုက်ရိုက် မက်ဆေ့ချ်များသာ (group chat မပါ)။
 - မီဒီယာ attachment မပါ။
 - NIP-04 သာ (NIP-17 gift-wrap ကို စီစဉ်ထားသည်)။
+

@@ -226,3 +226,4 @@ Minimal ama yine de kullanışlı bir sürüm istiyorsanız:
 - Letta / MemGPT kavramları: “core memory blocks” + “archival memory” + araç güdümlü kendi kendini düzenleyen bellek.
 - Hindsight Teknik Raporu: “retain / recall / reflect”, dört ağlı bellek, anlatı gerçek çıkarımı, görüş güveninin evrimi.
 - SuCo: arXiv 2411.14754 (2024): “Subspace Collision” yaklaşık en yakın komşu geri getirme.
+

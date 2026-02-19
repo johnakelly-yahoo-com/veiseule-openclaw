@@ -51,3 +51,4 @@ openclaw models set qwen-portal/coder-model
 - Базовый URL по умолчанию: `https://portal.qwen.ai/v1` (переопределите с помощью
   `models.providers.qwen-portal.baseUrl`, если Qwen предоставит другой endpoint).
 - [Model providers](/concepts/model-providers) для правил, общих для провайдеров.
+

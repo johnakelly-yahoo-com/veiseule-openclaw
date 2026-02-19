@@ -213,3 +213,4 @@ Los registros se encuentran en `/tmp/openclaw/` (predeterminado: `openclaw-YYYY-
 - Estado de Windows: [Windows (WSL2)](/platforms/windows)
 - Estado de Linux: [Linux app](/platforms/linux)
 - Seguridad: [Security](/gateway/security)
+

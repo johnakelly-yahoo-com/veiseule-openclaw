@@ -415,3 +415,4 @@ Same `deviceId` across roles → single “Instance” row:
 - 32. အခက်အခဲများ: approvals + duplication + stacks နှစ်ခု။
 - 33. အဆိုပြုချက်: roles + scopes ကို ရှင်းလင်းစွာ သတ်မှတ်ထားသော WS protocol တစ်ခု၊ unified pairing + TLS pinning, gateway‑hosted approvals, stable device IDs + cute slugs။
 - 34. ရလဒ်: UX ပိုမိုရိုးရှင်း၊ လုံခြုံရေးပိုမိုခိုင်မာ၊ duplication လျော့နည်း၊ mobile routing ပိုကောင်း။
+

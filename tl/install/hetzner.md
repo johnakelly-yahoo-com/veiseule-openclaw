@@ -350,3 +350,4 @@ Para sa mga team na mas gusto ang mga workflow na infrastructure-as-code, may co
 Ang paraang ito ay umaakma sa Docker setup sa itaas gamit ang reproducible na mga deployment, version-controlled na infrastructure, at awtomatikong disaster recovery.
 
 > **Tandaan:** Pinapanatili ng komunidad. Para sa mga isyu o kontribusyon, tingnan ang mga link ng repository sa itaas.
+

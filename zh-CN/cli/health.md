@@ -19,3 +19,4 @@ openclaw health --verbose
 
 - `--verbose` 运行实时探测，并在配置了多个账户时打印每个账户的耗时。
 - Output includes per-agent session stores when multiple agents are configured.
+

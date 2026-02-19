@@ -57,3 +57,4 @@ bun pm trust @whiskeysockets/baileys protobufjs
 ## Caveats
 
 - สคริปต์บางส่วนยังฮาร์ดโค้ด pnpm อยู่ (เช่น `docs:build`, `ui:*`, `protocol:check`). ให้รันสคริปต์เหล่านั้นผ่าน pnpm ไปก่อน
+

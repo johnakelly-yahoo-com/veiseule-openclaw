@@ -133,3 +133,4 @@ Leyenda:
 
 - `preview message`: mensaje temporal de Telegram que se actualiza durante la generación.
 - `final edit`: edición en el mismo lugar sobre el mismo mensaje de vista previa (solo texto).
+

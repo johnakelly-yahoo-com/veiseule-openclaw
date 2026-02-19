@@ -796,3 +796,4 @@ dig +short api.telegram.org AAAA
 - التفاصيل: [الإقران](/channels/pairing)
 - [توجيه القنوات](/channels/channel-routing)
 - التهيئة الكاملة: [التهيئة](/gateway/configuration)
+

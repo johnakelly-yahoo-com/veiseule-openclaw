@@ -340,3 +340,4 @@ Noteringar:
 
 - macOS-menyradsappen ansluter till Gatewayns WS-server som en nod (så att `openclaw nodes …` fungerar mot denna Mac).
 - I fjärrläge öppnar appen en SSH-tunnel för Gateway-porten och ansluter till `localhost`.
+

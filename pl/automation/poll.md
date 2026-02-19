@@ -67,3 +67,4 @@ Użyj narzędzia `message` z akcją `poll` (`to`, `pollQuestion`, `pollOption`, 
 Uwaga: Discord nie ma trybu „wybierz dokładnie N”; `pollMulti` mapuje się na wybór wielokrotny.
 Ankiety w Teams są renderowane jako Adaptive Cards i wymagają, aby gateway pozostawał online,
 aby rejestrować głosy w `~/.openclaw/msteams-polls.json`.
+

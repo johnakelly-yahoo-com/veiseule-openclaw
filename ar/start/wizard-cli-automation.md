@@ -165,3 +165,4 @@ openclaw agents add work \
 - مركز التهيئة الأولية: [Onboarding Wizard (CLI)](/start/wizard)
 - المرجع الكامل: [CLI Onboarding Reference](/start/wizard-cli-reference)
 - مرجع الأوامر: [`openclaw onboard`](/cli/onboard)
+

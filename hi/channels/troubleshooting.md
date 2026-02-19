@@ -115,3 +115,4 @@ openclaw channels status --probe
 | एन्क्रिप्टेड रूम विफल            | क्रिप्टो मॉड्यूल और एन्क्रिप्शन सेटिंग्स सत्यापित करें | एन्क्रिप्शन समर्थन सक्षम करें और रूम पुनः जॉइन/सिंक करें। |
 
 पूर्ण समस्या-निवारण: [/channels/matrix#troubleshooting](/channels/matrix#troubleshooting)
+

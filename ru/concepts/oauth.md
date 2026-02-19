@@ -142,3 +142,4 @@ openclaw agents add personal
 
 - [/concepts/model-failover](/concepts/model-failover) (ротация + правила cooldown)
 - [/tools/slash-commands](/tools/slash-commands) (поверхность команд)
+

@@ -59,3 +59,4 @@ Agent -> Gateway -> Node Service (WS)
 - Cała komunikacja pozostaje wyłącznie lokalna; żadne gniazda sieciowe nie są wystawione.
 - Monity TCC pochodzą wyłącznie z pakietu aplikacji GUI; utrzymuj stabilny podpisany bundle ID między przebudowami.
 - Utwardzanie IPC: tryb gniazda `0600`, token, sprawdzanie UID rówieśnika, wyzwanie/odpowiedź HMAC, krótki TTL.
+

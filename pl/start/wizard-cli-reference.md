@@ -297,3 +297,4 @@ Zachowanie konfiguracji Signal:
 - Centrum onboardingu: [Onboarding Wizard (CLI)](/start/wizard)
 - Automatyzacja i skrypty: [CLI Automation](/start/wizard-cli-automation)
 - Referencja poleceń: [`openclaw onboard`](/cli/onboard)
+

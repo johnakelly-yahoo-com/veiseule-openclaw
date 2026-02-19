@@ -146,3 +146,4 @@ export PATH="$(npm prefix -g)/bin:$PATH"
 ```bash
 echo "$PATH"
 ```
+

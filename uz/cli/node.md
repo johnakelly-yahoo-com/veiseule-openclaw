@@ -107,3 +107,4 @@ Exec tasdiqlari
 - `~/.openclaw/exec-approvals.json`
 - `openclaw approvals --node <id|name|ip>` (Gateway’dan tahrirlash)
 - `openclaw nodes` uchun CLI ma’lumotnomasi (ro‘yxat/holat/tasdiqlash/chaqirish, kamera/canvas/ekran)
+

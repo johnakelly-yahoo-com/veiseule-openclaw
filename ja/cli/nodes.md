@@ -71,3 +71,4 @@ Invoke フラグ：
 - `--raw <command>`：シェル文字列を実行します（`/bin/sh -lc` または `cmd.exe /c`）。
 - `--agent <id>`：エージェントスコープの承認／許可リスト（デフォルトは設定済みエージェント）。
 - `--ask <off|on-miss|always>`, `--security <deny|allowlist|full>`：上書き設定。
+

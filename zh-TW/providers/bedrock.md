@@ -171,3 +171,4 @@ openclaw models list
   AWS SDK 的預設憑證鏈。
 - 推理支援取決於模型；請查閱 Bedrock 模型卡以取得最新能力資訊。
 - 若你偏好受管金鑰流程，也可在 Bedrock 前方放置相容 OpenAI 的代理，並將其設定為 OpenAI 提供者。
+

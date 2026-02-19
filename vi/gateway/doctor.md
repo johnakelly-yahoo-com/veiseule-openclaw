@@ -259,3 +259,4 @@ nếu workspace chưa nằm trong git.
 
 Xem [/concepts/agent-workspace](/concepts/agent-workspace) để có hướng dẫn đầy đủ về
 cấu trúc workspace và sao lưu git (khuyến nghị GitHub hoặc GitLab riêng tư).
+

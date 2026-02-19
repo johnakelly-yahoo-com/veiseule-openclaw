@@ -79,3 +79,4 @@ openclaw directory peers list --channel zalouser --query "name"
 도구 이름: `zalouser`
 
 작업: `send`, `image`, `link`, `friends`, `groups`, `me`, `status`
+

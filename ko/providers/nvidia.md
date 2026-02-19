@@ -53,3 +53,4 @@ openclaw models set nvidia/nvidia/llama-3.1-nemotron-70b-instruct
 
 - OpenAI 호환 `/v1` 엔드포인트를 사용하며, NVIDIA NGC의 API 키를 사용하세요.
 - `NVIDIA_API_KEY`가 설정되면 Provider가 자동으로 활성화되며, 정적 기본값(131,072토큰 컨텍스트 윈도우, 최대 4,096토큰)을 사용합니다.
+

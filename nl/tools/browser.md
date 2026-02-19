@@ -586,3 +586,4 @@ Hoe het wordt gemapt:
   - Als een browser-capabele node is verbonden, kan de tool automatisch daarnaar routeren tenzij je `target="host"` of `target="node"` vastzet.
 
 Dit houdt de agent deterministisch en voorkomt broze selectors.
+

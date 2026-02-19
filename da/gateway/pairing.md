@@ -97,3 +97,4 @@ Sikkerhedsnoter:
 - Transporten er **tilstandsløs**; den gemmer ikke medlemskab.
 - Hvis Gateway er offline, eller parring er deaktiveret, kan noder ikke parre.
 - Hvis Gateway er i fjern-tilstand, sker parring stadig mod den fjerne Gateways lager.
+

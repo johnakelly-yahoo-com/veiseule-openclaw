@@ -55,3 +55,4 @@ title: "Modo Elevado"
 
 - Chamadas de exec em modo elevado são registradas no nível info.
 - O status da sessão inclui o modo elevado (por exemplo, `elevated=ask`, `elevated=full`).
+

@@ -111,3 +111,4 @@ Uwagi:
 - Podczas użycia: „Tylko gdy OpenClaw jest otwarty.”
 - Zawsze: „Zezwól na lokalizację w tle. Wymaga uprawnienia systemowego.”
 - Dokładna: „Użyj dokładnej lokalizacji GPS. Wyłącz, aby udostępniać lokalizację przybliżoną.”
+

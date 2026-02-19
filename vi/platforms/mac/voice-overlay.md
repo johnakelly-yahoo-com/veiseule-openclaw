@@ -59,3 +59,4 @@ Audience: macOS app contributors. Goal: keep the voice overlay predictable when 
 3. Tái cấu trúc `VoicePushToTalk` để kế thừa các phiên hiện có và gọi `endCapture` khi thả; áp dụng cooldown runtime.
 4. Kết nối `VoiceWakeOverlayController` với publisher; loại bỏ các lời gọi trực tiếp từ runtime/PTT.
 5. Thêm các bài kiểm thử tích hợp cho việc kế thừa phiên, cooldown và đóng khi văn bản rỗng.
+

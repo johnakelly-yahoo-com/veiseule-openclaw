@@ -232,3 +232,4 @@ Domyślne konto obsługuje:
 - Jeśli bot łączy się, ale nigdy nie odpowiada na kanałach, sprawdź `channels.irc.groups` **oraz** czy wymóg wzmianki nie odrzuca wiadomości (`missing-mention`). Jeśli chcesz, aby odpowiadał bez pingów, ustaw `requireMention:false` dla danego kanału.
 - Jeśli logowanie się nie powiedzie, sprawdź dostępność nicka oraz hasło serwera.
 - Jeśli TLS nie działa w niestandardowej sieci, sprawdź host/port oraz konfigurację certyfikatu.
+

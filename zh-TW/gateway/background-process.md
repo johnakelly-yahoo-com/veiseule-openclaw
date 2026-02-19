@@ -94,3 +94,4 @@ Run a long task and poll later:
 ```json
 { "tool": "process", "action": "write", "sessionId": "<id>", "data": "y\n" }
 ```
+

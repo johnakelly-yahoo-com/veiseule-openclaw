@@ -74,3 +74,4 @@ openclaw models set github-copilot/gpt-4o
 - El inicio de sesión almacena un token de GitHub en el almacén de perfiles de
   autenticación y lo intercambia por un token de la API de Copilot cuando se ejecuta
   OpenClaw.
+

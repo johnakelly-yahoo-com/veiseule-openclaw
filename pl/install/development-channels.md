@@ -73,3 +73,4 @@ Buildy beta i dev **mogą nie** zawierać wydania aplikacji na macOS. To w porz�
 
 - Tag git i npm dist-tag nadal mogą zostać opublikowane.
 - W notatkach do wydania lub changelogu zaznacz „brak buildu macOS dla tej bety”.
+

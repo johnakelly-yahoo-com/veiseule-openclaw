@@ -113,3 +113,4 @@ Gateway, statik dosyaları `dist/control-ui` konumundan sunar. Şu komutla derle
 ```bash
 pnpm ui:build # auto-installs UI deps on first run
 ```
+

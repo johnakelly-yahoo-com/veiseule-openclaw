@@ -226,3 +226,4 @@ Als je een minimale, toch nuttige versie wilt:
 - Letta / MemGPT-concepten: “core memory blocks” + “archival memory” + tool-gedreven zelfbewerkend geheugen.
 - Hindsight Technical Report: “retain / recall / reflect”, viernetwerkgeheugen, extractie van narratieve feiten, evolutie van opiniebetrouwbaarheid.
 - SuCo: arXiv 2411.14754 (2024): “Subspace Collision” approximate nearest neighbor retrieval.
+

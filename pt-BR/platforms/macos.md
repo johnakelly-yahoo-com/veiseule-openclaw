@@ -199,3 +199,4 @@ veja [protocolo do Gateway](/gateway/protocol).
 - [Gateway (macOS)](/platforms/mac/bundled-gateway)
 - [Permissões do macOS](/platforms/mac/permissions)
 - [Canvas](/platforms/mac/canvas)
+

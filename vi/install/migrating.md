@@ -190,3 +190,4 @@ Trên máy mới, xác nhận:
 - [Doctor](/gateway/doctor)
 - [Khắc phục sự cố Gateway](/gateway/troubleshooting)
 - [OpenClaw lưu dữ liệu ở đâu?](/help/faq#where-does-openclaw-store-its-data)
+

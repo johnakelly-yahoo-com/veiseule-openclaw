@@ -534,3 +534,4 @@ Maaaring i-gate ang mga Slack tool actions gamit ang `channels.slack.actions.*`:
   `files:write`) kung hindi ay mabibigo ang mga operasyong iyon.
 - [Configuration](/gateway/configuration)
 - [Slash commands](/tools/slash-commands)
+

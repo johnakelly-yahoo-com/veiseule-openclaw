@@ -108,3 +108,4 @@ Om quadlet **na** een initiële setup zonder quadlet toe te voegen, voer opnieuw
 ## Optioneel: uitvoeren als je eigen gebruiker
 
 Om de gateway als je normale gebruiker uit te voeren (geen aparte openclaw-gebruiker): bouw de image, maak `~/.openclaw/.env` aan met `OPENCLAW_GATEWAY_TOKEN`, en start de container met `--userns=keep-id` en mounts naar je `~/.openclaw`. Het opstartscript is ontworpen voor de openclaw-gebruikerflow; voor een single-user-setup kun je in plaats daarvan het `podman run`-commando uit het script handmatig uitvoeren, waarbij je configuratie en workspace naar je home verwijst. Aanbevolen voor de meeste gebruikers: gebruik `setup-podman.sh` en voer uit als de openclaw-gebruiker zodat configuratie en proces geïsoleerd zijn.
+

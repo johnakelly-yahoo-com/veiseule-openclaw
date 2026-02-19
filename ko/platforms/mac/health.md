@@ -32,3 +32,4 @@ title: "29. 상태 점검"
 ## 확신이 서지 않을 때
 
 - [Gateway health](/gateway/health) 에서 CLI 흐름(`openclaw status`, `openclaw status --deep`, `openclaw health --json`)을 계속 사용할 수 있으며, `web-heartbeat` / `web-reconnect` 을 위해 `/tmp/openclaw/openclaw-*.log` 를 tail 하십시오.
+

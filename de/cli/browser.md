@@ -105,3 +105,4 @@ Wenn der Gateway auf einer anderen Maschine als der Browser läuft, starten Sie 
 Verwenden Sie `gateway.nodes.browser.mode`, um das automatische Routing zu steuern, und `gateway.nodes.browser.node`, um einen bestimmten Node festzulegen, wenn mehrere verbunden sind.
 
 Sicherheit + Remote-Einrichtung: [Browser tool](/tools/browser), [Remote access](/gateway/remote), [Tailscale](/gateway/tailscale), [Security](/gateway/security)
+

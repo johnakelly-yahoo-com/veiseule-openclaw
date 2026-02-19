@@ -297,3 +297,4 @@ Signal 设置行为：
 - 入门中心：[Onboarding Wizard (CLI)](/start/wizard)
 - 自动化与脚本：[CLI Automation](/start/wizard-cli-automation)
 - 命令参考：[`openclaw onboard`](/cli/onboard)
+

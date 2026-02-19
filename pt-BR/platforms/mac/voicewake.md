@@ -65,3 +65,4 @@ Endurecimento:
 
 - Ative o push-to-talk, segure Cmd+Fn, fale, solte: a sobreposição deve mostrar parciais e então enviar.
 - Enquanto segura, as orelhas da barra de menus devem permanecer ampliadas (usa `triggerVoiceEars(ttl:nil)`); elas diminuem após soltar.
+

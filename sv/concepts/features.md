@@ -57,3 +57,4 @@ title: "”Funktioner”"
 Legacy Claude, Codex, Gemini och Opencode sökvägar har tagits bort. Pi är den enda sökvägen för
 kodningsagenten.
 </Note>
+

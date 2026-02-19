@@ -55,3 +55,4 @@ sudo install -m 644 -o root -g wheel /tmp/bot.molt.plist /Library/Preferences/Lo
 - オーバーライドを削除します：`sudo rm /Library/Preferences/Logging/Subsystems/bot.molt.plist`。
 - 必要に応じて、`sudo log config --reload` を実行し、logd にオーバーライドを直ちに破棄させます。
 - この表面は電話番号およびメッセージボディを含めることができることを覚えなさい; 積極的に余分な詳細を必要とする間だけ場所にplistを保ちなさい。
+

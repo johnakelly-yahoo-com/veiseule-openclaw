@@ -377,3 +377,4 @@ Przykład:
 - **500 znaków** na wiadomość (automatyczne dzielenie na granicach słów)
 - Markdown jest usuwany przed dzieleniem
 - Brak limitowania po stronie aplikacji (wykorzystywane są wbudowane limity Twitch)
+

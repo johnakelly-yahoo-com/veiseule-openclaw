@@ -116,3 +116,4 @@ Inkomende antwoorden bevatten:
 - Geciteerde context wordt toegevoegd aan `Body` als een `[Replying to ...]`-blok.
 
 Dit is consistent over alle kanalen.
+

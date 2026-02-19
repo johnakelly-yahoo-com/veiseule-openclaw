@@ -349,3 +349,4 @@ One public example: a “second brain” CLI + Lobster pipelines that manage thr
 
 - กระทู้: [https://x.com/plattenschieber/status/2014508656335770033](https://x.com/plattenschieber/status/2014508656335770033)
 - รีโป: [https://github.com/bloomedai/brain-cli](https://github.com/bloomedai/brain-cli)
+

@@ -217,3 +217,4 @@ _„The claw is the law.”_
 — ELU, podczas migracji Forma Ostateczna, 30 stycznia 2026
 
 🦞💙
+

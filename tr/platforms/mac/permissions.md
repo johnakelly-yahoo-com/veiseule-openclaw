@@ -48,3 +48,4 @@ Geçici çözüm: klasör bazlı izinlerden kaçınmak istiyorsanız dosyaları 
 
 İzinleri test ederken her zaman gerçek bir sertifika ile imzalayın. Ad-hoc
 derlemeler, izinlerin önemli olmadığı hızlı yerel çalıştırmalar için kabul edilebilir.
+

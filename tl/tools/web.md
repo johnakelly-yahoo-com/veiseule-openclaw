@@ -261,3 +261,4 @@ Mga tala:
 - Ang mga tugon ay kino-cache (default 15 minuto) para mabawasan ang paulit-ulit na fetch.
 - Kung gumagamit ka ng mga tool profile/allowlist, idagdag ang `web_search`/`web_fetch` o `group:web`.
 - Kapag nawawala ang Brave key, magbabalik ang `web_search` ng maikling setup hint na may link sa docs.
+

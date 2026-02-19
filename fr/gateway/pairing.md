@@ -92,3 +92,4 @@ Notes de sécurité :
 - Le transport est **sans état** ; il ne stocke pas l’appartenance.
 - Si la Gateway est hors ligne ou si l’appariement est désactivé, les nœuds ne peuvent pas s’apparier.
 - Si la Gateway est en mode distant, l’appariement s’effectue toujours par rapport au magasin de la Gateway distante.
+

@@ -568,3 +568,4 @@ Notas:
 
 - `remote.*` tem precedência sobre `models.providers.openai.*`.
 - `remote.headers` se mescla com os headers da OpenAI; o remoto vence em conflitos de chave. Omita `remote.headers` para usar os padrões da OpenAI.
+

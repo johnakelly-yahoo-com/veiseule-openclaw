@@ -320,3 +320,4 @@ Options globales associees :
 - `agents.list[].groupChat.mentionPatterns` (Signal ne prend pas en charge les mentions natives).
 - `messages.groupChat.mentionPatterns` (repli global).
 - `messages.responsePrefix`.
+

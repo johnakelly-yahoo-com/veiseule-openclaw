@@ -73,3 +73,4 @@ Beta- und Dev-Builds enthalten möglicherweise **keine** macOS-App-Veröffentlic
 
 - Das Git-Tag und das npm dist-tag können dennoch veröffentlicht werden.
 - Weisen Sie in den Release Notes oder im Changelog auf „kein macOS-Build für diese Beta“ hin.
+

@@ -126,3 +126,4 @@ Om du kör från en repo-utcheckning (`git clone` + `openclaw ...` / `bun run op
 1. Avinstallera gateway-tjänsten **innan** du tar bort repot (använd den enkla vägen ovan eller manuell borttagning av tjänst).
 2. Ta bort repokatalogen.
 3. Ta bort tillstånd + arbetsyta enligt ovan.
+

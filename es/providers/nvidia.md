@@ -53,3 +53,4 @@ Si aún pasas `--token`, recuerda que queda en el historial del shell y en la sa
 
 - Endpoint `/v1` compatible con OpenAI; usa una clave de API de NVIDIA NGC.
 - El proveedor se habilita automáticamente cuando `NVIDIA_API_KEY` está configurada; usa valores predeterminados estáticos (ventana de contexto de 131.072 tokens, 4.096 tokens máximos).
+

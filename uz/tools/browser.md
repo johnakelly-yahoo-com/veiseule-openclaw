@@ -579,3 +579,4 @@ openclaw browser cookies --json
   - 10. Agar brauzerga qodir node ulangan bo‘lsa, asbob avtomatik ravishda unga yo‘naltirishi mumkin, agar siz `target="host"` yoki `target="node"` ni qat’iy belgilamasangiz.
 
 11. Bu agentni deterministik qiladi va mo‘rt selektorlarning oldini oladi.
+

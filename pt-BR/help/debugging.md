@@ -160,3 +160,4 @@ Arquivo padrão:
 - Logs de stream bruto podem incluir prompts completos, saída de ferramentas e dados do usuário.
 - Mantenha os logs locais e exclua-os após a depuração.
 - Se compartilhar logs, remova segredos e PII primeiro.
+

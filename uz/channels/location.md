@@ -54,3 +54,4 @@ Bu yerda uchrashaylik
 - 17. **Telegram**: joylar `LocationName/LocationAddress` ga mos keladi; jonli joylashuvlar `live_period` dan foydalanadi.
 - 18. **WhatsApp**: `locationMessage.comment` va `liveLocationMessage.caption` sarlavha qatori sifatida qo‘shiladi.
 - 19. **Matrix**: `geo_uri` pin joylashuv sifatida tahlil qilinadi; balandlik e’tiborga olinmaydi va `LocationIsLive` har doim false bo‘ladi.
+

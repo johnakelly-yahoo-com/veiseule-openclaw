@@ -377,3 +377,4 @@ Voorbeeld:
 - **500 tekens** per bericht (automatisch opgeknipt op woordgrenzen)
 - Markdown wordt verwijderd vóór het opknippen
 - Geen rate limiting (maakt gebruik van de ingebouwde rate limits van Twitch)
+

@@ -284,3 +284,4 @@ fichier brut publié est généralement disponible à l’adresse :
 1. Mettez à jour les schémas TypeBox.
 2. Exécutez `pnpm protocol:check`.
 3. Committez le schéma régénéré et les modèles Swift.
+

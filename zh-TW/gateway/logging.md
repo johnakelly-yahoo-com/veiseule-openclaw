@@ -114,3 +114,4 @@ Subsystem loggers keep output grouped and scannable.
 - **WhatsApp 訊息本文** 會以 `debug` 記錄（使用 `--verbose` 來查看）
 
 這在維持既有檔案日誌穩定的同時，讓互動式輸出更易讀。
+

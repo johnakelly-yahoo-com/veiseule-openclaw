@@ -89,3 +89,4 @@ De systeemprompt bevat:
 Je kunt het promptformaat bepalen met `agents.defaults.timeFormat` (`auto` | `12` | `24`).
 
 Zie [Datum & Tijd](/date-time) voor het volledige gedrag en voorbeelden.
+

@@ -71,3 +71,4 @@ Flag:
 - `--raw <command>`: kør en shell-streng (`/bin/sh -lc` eller `cmd.exe /c`).
 - `--agent <id>`: agent-afgrænsede godkendelser/tilladelseslister (standard er konfigureret agent).
 - `--ask <off|on-miss|always>`, `--security <deny|allowlist|full>`: overstyringer.
+

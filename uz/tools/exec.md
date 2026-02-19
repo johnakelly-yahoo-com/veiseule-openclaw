@@ -178,3 +178,4 @@ Notes:
 - Tool policy still applies; `allow: ["exec"]` implicitly allows `apply_patch`.
 - Config lives under `tools.exec.applyPatch`.
 - `tools.exec.applyPatch.workspaceOnly` standart bo‘yicha `true` (faqat workspace ichida). Uni `false` ga faqat `apply_patch` workspace katalogidan tashqariga yozishi/o‘chirishi kerak bo‘lsa, ataylab o‘rnating.
+

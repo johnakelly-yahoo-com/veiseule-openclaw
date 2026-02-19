@@ -105,3 +105,4 @@ Si el Gateway se ejecuta en una máquina diferente a la del navegador, ejecute u
 Use `gateway.nodes.browser.mode` para controlar el enrutamiento automático y `gateway.nodes.browser.node` para fijar un nodo específico si hay varios conectados.
 
 Seguridad + configuración remota: [Browser tool](/tools/browser), [Remote access](/gateway/remote), [Tailscale](/gateway/tailscale), [Security](/gateway/security)
+

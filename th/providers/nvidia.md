@@ -53,3 +53,4 @@ openclaw models set nvidia/nvidia/llama-3.1-nemotron-70b-instruct
 
 - เอ็นด์พอยต์ `/v1` ที่เข้ากันได้กับ OpenAI; ใช้ API key จาก NVIDIA NGC
 - ผู้ให้บริการจะเปิดใช้งานอัตโนมัติเมื่อมีการตั้งค่า `NVIDIA_API_KEY`; ใช้ค่าเริ่มต้นแบบคงที่ (context window 131,072 โทเค็น, สูงสุด 4,096 โทเค็น)
+

@@ -149,3 +149,4 @@ Tailnet (ixtiyoriy): agar ikkala qurilma ham Tailscale da boâ€˜lsa, `.local` oâ€
 - `camera.clip` (mp4)
 
 27. Parametrlar va CLI yordamchilari uchun [Camera node](/nodes/camera) ga qarang.
+

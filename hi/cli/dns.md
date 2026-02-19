@@ -21,3 +21,4 @@ DNS helpers for wide-area discovery (Tailscale + CoreDNS). Currently focused on 
 openclaw dns setup
 openclaw dns setup --apply
 ```
+

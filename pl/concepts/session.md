@@ -202,3 +202,4 @@ Każdy wpis sesji rejestruje (w miarę możliwości) swoje pochodzenie w `origin
   `GroupSubject`, `GroupChannel`, `GroupSpace` i `SenderName` w kontekście
   przychodzącym oraz wywołując `recordSessionMetaFromInbound` (lub przekazując ten sam kontekst
   do `updateLastRoute`).
+

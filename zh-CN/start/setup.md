@@ -160,3 +160,4 @@ user service (no lingering needed). See [Gateway runbook](/gateway) for the syst
 - [Discord](/channels/discord) 和 [Telegram](/channels/telegram)（回复标签 + replyToMode 设置）
 - [OpenClaw 助手设置](/start/openclaw)
 - [macOS 应用](/platforms/macos)（Gateway 网关生命周期）
+

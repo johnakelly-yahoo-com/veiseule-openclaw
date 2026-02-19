@@ -51,3 +51,4 @@ title: "เครือข่าย"
 - [เอกสารอ้างอิงคอนฟิกGateway](/gateway/configuration)
 - [การแก้ไขปัญหา](/gateway/troubleshooting)
 - [Doctor](/gateway/doctor)
+

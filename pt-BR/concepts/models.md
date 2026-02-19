@@ -206,3 +206,4 @@ passe `--yes` para aceitar os padrões.
 Provedores personalizados em `models.providers` são gravados em `models.json` sob o
 diretório do agente (padrão `~/.openclaw/agents/<agentId>/models.json`). Este arquivo
 é mesclado por padrão, a menos que `models.mode` esteja definido como `replace`.
+

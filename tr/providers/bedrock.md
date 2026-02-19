@@ -172,3 +172,4 @@ openclaw models list
 - Akıl yürütme desteği modele bağlıdır; güncel yetenekler için Bedrock model kartını kontrol edin.
 - Yönetilen bir anahtar akışını tercih ederseniz, Bedrock’un önüne OpenAI‑uyumlu
   bir proxy koyabilir ve bunu bir OpenAI sağlayıcısı olarak yapılandırabilirsiniz.
+

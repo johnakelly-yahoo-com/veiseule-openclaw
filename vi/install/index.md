@@ -250,3 +250,4 @@ Then open a new terminal (or `rehash` in zsh / `hash -r` in bash).
   
 </Card>
 </CardGroup>
+

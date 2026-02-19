@@ -59,3 +59,4 @@ end grundlæggende skrabning.
 3. Grundlæggende HTML-oprydning (sidste fallback)
 
 Se [Web tools](/tools/web) for den fulde opsætning af webværktøjer.
+

@@ -56,3 +56,4 @@ Replace the label with `bot.molt.<profile>18. ` \`.
 - 36. Bashorat qilinadigan loglar va nazorat.
 
 37. Agar haqiqiy bola-jarayon rejimi yana kerak bo‘lsa, u alohida, aniq dev‑only rejim sifatida hujjatlashtirilishi kerak.
+

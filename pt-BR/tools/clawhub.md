@@ -255,3 +255,4 @@ export CLAWHUB_DISABLE_TELEMETRY=1
 - `CLAWHUB_CONFIG_PATH`: Substituir onde a CLI armazena o token/configuração.
 - `CLAWHUB_WORKDIR`: Substituir o workdir padrão.
 - `CLAWHUB_DISABLE_TELEMETRY=1`: Desativar telemetria em `sync`.
+

@@ -55,3 +55,4 @@ sudo install -m 644 -o root -g wheel /tmp/bot.molt.plist /Library/Preferences/Lo
 - Fjern overstyringen: `sudo rm /Library/Preferences/Logging/Subsystems/bot.molt.plist`.
 - Kør eventuelt `sudo log config --reload` for at tvinge logd til at fjerne overstyringen med det samme.
 - Husk, at denne flade kan indeholde telefonnumre og beskedindhold; behold kun plist-filen på plads, mens du aktivt har brug for de ekstra detaljer.
+

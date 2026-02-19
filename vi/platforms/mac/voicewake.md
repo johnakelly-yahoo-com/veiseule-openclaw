@@ -65,3 +65,4 @@ Gia cố:
 
 - Bật nhấn-để-nói, giữ Cmd+Fn, nói, thả: overlay phải hiển thị các phần tạm thời rồi gửi.
 - Trong lúc giữ, biểu tượng tai ở thanh menu phải được phóng to (dùng `triggerVoiceEars(ttl:nil)`); thả phím thì trở lại bình thường.
+

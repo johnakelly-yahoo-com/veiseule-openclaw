@@ -522,3 +522,4 @@ This effectively sources your shell profile.
 ---
 
 Example (provider/model-specific allowlist):
+

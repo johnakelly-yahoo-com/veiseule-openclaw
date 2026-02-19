@@ -779,3 +779,4 @@ Campos específicos de Telegram de alta relevancia:
 - Detalles: [Emparejamiento](/channels/pairing)
 - [Enrutamiento de canales](/channels/channel-routing)
 - Solución de problemas de configuración (comandos)
+

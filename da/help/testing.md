@@ -379,3 +379,4 @@ Når du retter et udbyder-/modelproblem opdaget i live:
 - Foretræk at målrette det mindste lag, der fanger bug’en:
   - fejl i udbyder-request-konvertering/replay → direkte model-tests
   - fejl i gateway-session/historik/tool-pipeline → gateway live-smoke eller CI-sikker gateway-mock-test
+

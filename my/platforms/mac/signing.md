@@ -45,3 +45,4 @@ About tab သည် version, build date, git commit နှင့် debug build 
 ## အဘယ်ကြောင့်
 
 TCC permission များသည် bundle identifier **နှင့်** code signature နှစ်ခုစလုံးနှင့် ချိတ်ဆက်ထားပါသည်။ UUID မပြောင်းလဲဘဲ မထိုးထားသော debug build များကြောင့် macOS သည် rebuild တစ်ကြိမ်စီတိုင်း permissions (grants) များကို မေ့လျော့နေခဲ့သည်။ Binary များကို sign လုပ်ခြင်း (ပုံမှန်အားဖြင့် ad‑hoc) နှင့် bundle id/path (`dist/OpenClaw.app`) ကို တည်ငြိမ်စွာ ထားရှိခြင်းက build များအကြား grants များကို ထိန်းသိမ်းပေးပြီး VibeTunnel နည်းလမ်းနှင့် ကိုက်ညီစေသည်။
+

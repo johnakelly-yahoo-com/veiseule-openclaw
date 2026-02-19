@@ -578,3 +578,4 @@ Opções principais:
 - ✅ Arquivos
 - ✅ Áudio
 - ⚠️ Texto rico (suporte parcial)
+

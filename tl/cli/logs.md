@@ -24,3 +24,4 @@ openclaw logs --limit 500
 ```
 
 Gamitin ang `--local-time` upang ipakita ang mga timestamp ayon sa iyong lokal na timezone.
+

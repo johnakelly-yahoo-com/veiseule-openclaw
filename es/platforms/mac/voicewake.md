@@ -65,3 +65,4 @@ Refuerzo:
 
 - Active pulsar para hablar, mantenga Cmd+Fn, hable, suelte: la superposición debería mostrar parciales y luego enviar.
 - Mientras mantiene presionado, las “orejas” de la barra de menús deben permanecer ampliadas (usa `triggerVoiceEars(ttl:nil)`); se reducen tras soltar.
+

@@ -140,3 +140,4 @@ Accounts map to zca profiles. Example:
 
 - `openclaw channels status --probe`
 - 重新登入：`openclaw channels logout --channel zalouser && openclaw channels login --channel zalouser`
+

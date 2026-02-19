@@ -52,3 +52,4 @@ Confianza local:
 - [Referencia de configuración del Gateway](/gateway/configuration)
 - [Solución de problemas](/gateway/troubleshooting)
 - [Doctor](/gateway/doctor)
+

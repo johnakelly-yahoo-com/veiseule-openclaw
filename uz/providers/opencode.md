@@ -34,3 +34,4 @@ openclaw onboard --opencode-zen-api-key "$OPENCODE_API_KEY"
 - 19. `OPENCODE_ZEN_API_KEY` ham qo‘llab-quvvatlanadi.
 - 20. Siz Zen’ga tizimga kirasiz, billing ma’lumotlarini qo‘shasiz va API kalitingizni nusxalaysiz.
 - 21. OpenCode Zen har bir so‘rov bo‘yicha hisob-kitob qiladi; tafsilotlar uchun OpenCode boshqaruv panelini tekshiring.
+

@@ -306,3 +306,4 @@ openclaw pairing list matrix
 - `channels.matrix.autoJoinAllowlist`：允許自動加入的房間 ID／別名。
 - `channels.matrix.accounts`：以帳號 ID 為鍵的多帳號設定（每個帳號繼承最上層設定）。
 - `channels.matrix.actions`：依動作的工具門檻（reactions/messages/pins/memberInfo/channelInfo）。
+

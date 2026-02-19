@@ -29,3 +29,4 @@ Offene Fragen
 - Optionale grammY-Plugins (Throttler), falls wir Bot-API-429s erreichen.
 - Weitere strukturierte Media-Tests hinzufügen (Sticker, Sprachnotizen).
 - Webhook-Listen-Port konfigurierbar machen (derzeit fest auf 8787, sofern nicht über das Gateway verdrahtet).
+

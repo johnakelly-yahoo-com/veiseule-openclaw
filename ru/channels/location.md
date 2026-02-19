@@ -54,3 +54,4 @@ Meet here
 - **Telegram**: места (venues) сопоставляются с `LocationName/LocationAddress`; живые локации используют `live_period`.
 - **WhatsApp**: `locationMessage.comment` и `liveLocationMessage.caption` добавляются как строка подписи.
 - **Matrix**: `geo_uri` разбирается как локация-пин; высота игнорируется, а `LocationIsLive` всегда false.
+

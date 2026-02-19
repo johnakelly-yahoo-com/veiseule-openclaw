@@ -485,3 +485,4 @@ openclaw pairing list slack
 - [Troubleshooting](/channels/troubleshooting)
 - [Configuration](/gateway/configuration)
 - 完整命令列表 + 配置：[斜杠命令](/tools/slash-commands)
+

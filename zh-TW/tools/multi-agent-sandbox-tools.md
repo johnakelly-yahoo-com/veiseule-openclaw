@@ -398,3 +398,4 @@ sandbox, set `agents.list[].sandbox.mode: "off"`.
 - [Multi-Agent Routing](/concepts/multi-agent)
 - [Sandbox Configuration](/gateway/configuration#agentsdefaults-sandbox)
 - [Session Management](/concepts/session)
+

@@ -47,3 +47,4 @@ Hvis du har brug for et endpoint, der ikke er angivet, herunder hostede udbydere
 - Vælge et Endpoint ID, så flere brugerdefinerede endpoints kan sameksistere.
 
 Følg CLI-onboarding-dokumentationen ovenfor for detaljerede trin.
+

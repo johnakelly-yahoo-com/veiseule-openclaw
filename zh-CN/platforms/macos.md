@@ -192,3 +192,4 @@ Discovery 选项：
 - [Gateway 网关（macOS）](/platforms/mac/bundled-gateway)
 - [macOS 权限](/platforms/mac/permissions)
 - [Canvas](/platforms/mac/canvas)
+

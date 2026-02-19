@@ -143,3 +143,4 @@ Verwenden Sie diese mit `openclaw message send` oder für die Zustellung per Cro
 - Gruppenantworten erfordern eine Erwähnung (z. B. `~your-bot-ship`), um zu antworten.
 - Thread‑Antworten: Befindet sich die eingehende Nachricht in einem Thread, antwortet OpenClaw im Thread.
 - Medien: `sendMedia` fällt auf Text + URL zurück (kein nativer Upload).
+

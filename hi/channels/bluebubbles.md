@@ -346,3 +346,4 @@ Template वेरिएबल्स के लिए [Configuration](/gateway/c
 - स्थिति/स्वास्थ्य जानकारी के लिए: `openclaw status --all` या `openclaw status --deep`।
 
 सामान्य चैनल वर्कफ़्लो संदर्भ के लिए [Channels](/channels) और [Plugins](/tools/plugin) गाइड देखें।
+

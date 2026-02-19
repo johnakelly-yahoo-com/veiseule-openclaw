@@ -610,3 +610,4 @@ Todas las pruebas existentes que cubren la integración de pi y sus extensiones:
 - `src/agents/pi-tools.policy.test.ts`
 - `src/agents/pi-tools.safe-bins.test.ts`
 - `src/agents/pi-tools.workspace-paths.test.ts`
+

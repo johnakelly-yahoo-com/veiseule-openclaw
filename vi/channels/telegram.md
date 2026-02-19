@@ -869,3 +869,4 @@ Các trường tín hiệu quan trọng dành riêng cho Telegram:
 - `[[audio_as_voice]]` — gửi âm thanh dưới dạng voice note thay vì file.
 - [Định tuyến kênh](/channels/channel-routing)
 - [Khắc phục sự cố](/channels/troubleshooting)
+

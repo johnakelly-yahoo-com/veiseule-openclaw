@@ -373,3 +373,4 @@ imsg send <handle> "test"
 - Полная конфигурация: [Конфигурация](/gateway/configuration)
 - Подробности: [Pairing](/channels/pairing)
 - [BlueBubbles](/channels/bluebubbles)
+

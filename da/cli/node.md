@@ -110,3 +110,4 @@ Node-værten gemmer sit node-id, token, visningsnavn og gateway-forbindelsesinfo
 - `~/.openclaw/exec-approvals.json`
 - [Exec-godkendelser](/tools/exec-approvals)
 - `openclaw approvals --node <id|name|ip>` (redigér fra Gatewayen)
+

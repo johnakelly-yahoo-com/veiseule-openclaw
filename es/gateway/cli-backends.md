@@ -223,3 +223,4 @@ Anule solo si es necesario (común: ruta absoluta de `command`).
 - **Sin continuidad de sesión**: asegúrese de que `sessionArg` esté establecido y que `sessionMode` no sea
   `none` (Codex CLI actualmente no puede reanudar con salida JSON).
 - **Imágenes ignoradas**: establezca `imageArg` (y verifique que la CLI admita rutas de archivos).
+

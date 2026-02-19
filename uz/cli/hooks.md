@@ -305,3 +305,4 @@ grep '"action":"new"' ~/.openclaw/logs/commands.log | jq .
 ```
 
 7. **Qarang:** [boot-md hujjatlari](/automation/hooks#boot-md)
+

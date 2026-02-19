@@ -111,3 +111,4 @@ openclaw.invoke --tool llm-task --action json --args-json '{
 - Bu çalıştırma için modele hiçbir araç sunulmaz.
 - `schema` ile doğrulamadıkça çıktıyı güvenilmez kabul edin.
 - Yan etki oluşturan herhangi bir adımdan (gönderme, paylaşma, çalıştırma) önce onayları ekleyin.
+

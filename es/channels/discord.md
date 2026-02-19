@@ -679,3 +679,4 @@ Campos de Discord más relevantes:
 - [Enrutamiento de canales](/channels/channel-routing)
 - [Resolución de problemas](/channels/troubleshooting)
 - Lista completa de comandos + configuración: [Slash commands](/tools/slash-commands)
+

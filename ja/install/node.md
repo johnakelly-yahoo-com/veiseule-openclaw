@@ -168,3 +168,4 @@ export PATH="$HOME/.npm-global/bin:$PATH"
 ```
 
 これを永続化するには、`export PATH=...` の行を `~/.bashrc` または `~/.zshrc` に追加してください。
+

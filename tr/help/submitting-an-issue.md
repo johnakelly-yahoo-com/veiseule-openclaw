@@ -150,3 +150,4 @@ _Gizli bilgileri/sömürü ayrıntılarını herkese açıkta paylaşmaktan kaç
 ### Düzeltme PR’ı gönderme
 
 PR’den önce sorun açmak isteğe bağlıdır. Atlanıyorsa ayrıntıları PR’da ekleyin. PR’ı odaklı tutun, sorun numarasını belirtin, test ekleyin veya neden olmadığını açıklayın, davranış değişikliklerini/riski belgeleyin, kanıt olarak maskelenmiş günlükler/ekran görüntüleri ekleyin ve göndermeden önce uygun doğrulamayı çalıştırın.
+

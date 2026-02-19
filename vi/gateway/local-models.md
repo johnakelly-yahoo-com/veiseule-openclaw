@@ -148,3 +148,4 @@ Giữ `models.mode: "merge"` để các mô hình hosted vẫn khả dụng làm
 - Model LM Studio đã bị unload? Reload; cold start là nguyên nhân “treo” phổ biến.
 - Lỗi ngữ cảnh? Giảm `contextWindow` hoặc tăng giới hạn máy chủ của bạn.
 - An toàn: mô hình cục bộ bỏ qua bộ lọc phía nhà cung cấp; hãy giữ tác tử hẹp và bật compaction để giới hạn bán kính ảnh hưởng của prompt injection.
+

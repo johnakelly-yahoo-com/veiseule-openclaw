@@ -232,3 +232,4 @@ A conta padrão oferece suporte a:
 - Se o bot conectar mas nunca responder nos canais, verifique `channels.irc.groups` **e** se o controle por menção está descartando mensagens (`missing-mention`). Se quiser que ele responda sem pings, defina `requireMention:false` para o canal.
 - Se o login falhar, verifique a disponibilidade do nick e a senha do servidor.
 - Se o TLS falhar em uma rede personalizada, verifique host/porta e a configuração do certificado.
+

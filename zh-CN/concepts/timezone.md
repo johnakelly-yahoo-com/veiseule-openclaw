@@ -88,3 +88,4 @@ We also attach normalized fields for consistency:
 你可以通过 `agents.defaults.timeFormat`（`auto` | `12` | `24`）控制提示词格式。
 
 详情参见[日期与时间](/date-time)的完整行为和示例。
+

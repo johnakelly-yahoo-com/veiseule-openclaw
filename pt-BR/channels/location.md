@@ -54,3 +54,4 @@ Quando uma localização está presente, estes campos são adicionados a `ctx`:
 - **Telegram**: locais nomeados mapeiam para `LocationName/LocationAddress`; localizações ao vivo usam `live_period`.
 - **WhatsApp**: `locationMessage.comment` e `liveLocationMessage.caption` são anexados como a linha de legenda.
 - **Matrix**: `geo_uri` é analisado como um pin de localização; a altitude é ignorada e `LocationIsLive` é sempre false.
+

@@ -42,3 +42,4 @@ openclaw models status --check
 - `scripts/termux-sync-widget.sh`: синхронизация учётных данных Claude Code → OpenClaw.
 
 Если вам не нужна автоматизация на телефоне или таймеры systemd, пропустите эти скрипты.
+

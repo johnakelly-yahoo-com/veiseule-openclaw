@@ -26,3 +26,4 @@ Los scripts de monitoreo de autenticación están documentados aquí:
 
 - Mantenga los scripts enfocados y documentados.
 - Agregue una entrada breve en el documento relevante (o cree uno si falta).
+

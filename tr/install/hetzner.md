@@ -350,3 +350,4 @@ Altyapı-kod iş akışlarını tercih eden ekipler için, topluluk tarafından 
 Bu yaklaşım, yukarıdaki Docker kurulumunu tekrarlanabilir dağıtımlar, sürüm kontrollü altyapı ve otomatik felaket kurtarma ile tamamlar.
 
 > **Not:** Topluluk tarafından sürdürülmektedir. Sorunlar veya katkılar için yukarıdaki depo bağlantılarına bakın.
+

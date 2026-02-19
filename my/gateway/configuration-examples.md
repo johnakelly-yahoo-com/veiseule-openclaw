@@ -604,3 +604,4 @@ Examples below are aligned with the current config schema. For the exhaustive re
 - Provider IDs differ (phone numbers, user IDs, channel IDs). Use the provider docs to confirm the format.
 - နောက်မှ ထည့်နိုင်သော ရွေးချယ်နိုင်သည့် အပိုင်းများ: `web`, `browser`, `ui`, `discovery`, `canvasHost`, `talk`, `signal`, `imessage`။
 - အသေးစိတ် တပ်ဆင်မှု မှတ်ချက်များအတွက် [Providers](/channels/whatsapp) နှင့် [Troubleshooting](/gateway/troubleshooting) ကို ကြည့်ပါ။
+

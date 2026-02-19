@@ -97,3 +97,4 @@ Các nút cấu hình khác ảnh hưởng đến khả dụng của công cụ:
 - ID plugin dùng trong danh sách cho phép không được trùng với tên công cụ lõi.
 - Ưu tiên `optional: true` cho các công cụ gây tác dụng phụ hoặc yêu cầu
   thêm nhị phân/thông tin xác thực.
+

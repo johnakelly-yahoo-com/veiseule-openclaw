@@ -18,3 +18,4 @@ title: "Сетевая модель"
   - `/__openclaw__/a2ui/`
     Когда настроен `gateway.auth` и Gateway привязан не только к loopback‑интерфейсу, эти маршруты защищены аутентификацией Gateway (запросы с loopback освобождаются от проверки). См. [Gateway configuration](/gateway/configuration) (`canvasHost`).
 - Удалённое использование обычно осуществляется через SSH‑туннель или VPN tailnet. [Remote access](/gateway/remote) и [Discovery](/gateway/discovery).
+

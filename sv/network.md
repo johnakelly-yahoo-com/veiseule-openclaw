@@ -52,3 +52,4 @@ Lokalt förtroende:
 - [Referens för Gateway-konfig](/gateway/configuration)
 - [Felsökning](/gateway/troubleshooting)
 - [Doctor](/gateway/doctor)
+

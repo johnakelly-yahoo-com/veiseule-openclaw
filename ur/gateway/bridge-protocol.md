@@ -83,3 +83,4 @@ These are mapped to system events in the gateway. (Legacy nodes may still emit `
 ## ورژننگ
 
 Bridge فی الحال **implicit v1** ہے (کوئی min/max negotiation نہیں)۔ Backward‑compat متوقع ہے؛ کسی بھی breaking change سے پہلے bridge پروٹوکول ورژن فیلڈ شامل کریں۔
+

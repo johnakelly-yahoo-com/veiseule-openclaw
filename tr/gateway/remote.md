@@ -127,3 +127,4 @@ Kısa sürüm: **Gateway’i yalnızca loopback’te tutun**, bağlama gerektiğ
 - Tarayıcı kontrolünü operatör erişimi gibi ele alın: yalnızca tailnet + bilinçli düğüm eşleştirme.
 
 Derinlemesine inceleme: [Güvenlik](/gateway/security).
+

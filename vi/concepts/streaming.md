@@ -132,3 +132,4 @@ Legend:
 
 - `preview message`: tin nhắn Telegram tạm thời được cập nhật trong quá trình tạo nội dung.
 - `final edit`: chỉnh sửa trực tiếp trên cùng một tin nhắn xem trước (chỉ văn bản).
+

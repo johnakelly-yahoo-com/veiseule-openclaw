@@ -119,3 +119,4 @@ Huidige npm-pluginlijst (bijwerken indien nodig):
 
 Releasenotes moeten ook **nieuwe optionele gebundelde plugins** vermelden die **niet
 standaard ingeschakeld** zijn (voorbeeld: `tlon`).
+

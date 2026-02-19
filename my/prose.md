@@ -132,3 +132,4 @@ OpenProse program များကို OpenClaw primitive များနှင
 `.prose` files များကို code ကဲ့သို့ ဆက်ဆံပါ။ Run မလုပ်မီ review လုပ်ပါ။ Side effects များကို ထိန်းချုပ်ရန် OpenClaw tool allowlists နှင့် approval gates များကို အသုံးပြုပါ။
 
 သတ်မှတ်ချက်တိကျပြီး အတည်ပြုချက်ဖြင့် ထိန်းချုပ်ထားသော workflow များအတွက် [Lobster](/tools/lobster) နှင့် နှိုင်းယှဉ်ကြည့်ပါ။
+

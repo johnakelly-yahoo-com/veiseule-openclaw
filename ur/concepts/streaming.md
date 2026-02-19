@@ -132,3 +132,4 @@ Legend:
 
 - `preview message`: عارضی Telegram پیغام جو generation کے دوران اپڈیٹ ہوتا ہے.
 - `final edit`: اسی preview پیغام پر in-place ترمیم (صرف متن).
+

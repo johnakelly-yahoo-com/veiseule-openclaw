@@ -135,3 +135,4 @@ Qarang: [Talk mode](/nodes/talk).
 42. Ko‘nikmalar `apiKey` ni `skills.entries.<name>43. .apiKey` da saqlashi mumkin. 44. Agar ko‘nikma ushbu kalitdan tashqi API lar uchun foydalansa, ko‘nikma provayderiga muvofiq xarajatlarni keltirib chiqarishi mumkin.
 
 Qarang: [Skills](/tools/skills).
+

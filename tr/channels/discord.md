@@ -698,3 +698,4 @@ Birincil referans:
 - [Kanal yönlendirme](/channels/channel-routing)
 - [Sorun Giderme](/channels/troubleshooting)
 - Tam komut listesi + yapılandırma: [Slash commands](/tools/slash-commands)
+

@@ -137,3 +137,4 @@ browser extension to be attached to a live tab.
 
 - `chrome` پروفائل ممکن ہو تو آپ کے **سسٹم کے ڈیفالٹ Chromium براؤزر** کو استعمال کرتا ہے۔
 - مقامی `openclaw` پروفائلز خودکار طور پر `cdpPort`/`cdpUrl` مختص کرتے ہیں؛ ریموٹ CDP کے لیے ہی انہیں سیٹ کریں۔
+

@@ -152,3 +152,4 @@ Formatering av utgående meddelanden är centraliserad i `messages`:
 - Svarstrådning via `replyToMode` och per-kanalstandarder
 
 Detaljer: [Konfiguration](/gateway/configuration#messages) och kanaldokumentation.
+

@@ -24,3 +24,4 @@ Ghi chú:
 - Tổng quan bao gồm trạng thái cài đặt/chạy của Gateway + dịch vụ máy chủ node khi khả dụng.
 - Tổng quan bao gồm kênh cập nhật + git SHA (đối với bản checkout từ mã nguồn).
 - Thông tin cập nhật xuất hiện trong phần Tổng quan; nếu có bản cập nhật, trạng thái sẽ in gợi ý chạy `openclaw update` (xem [Updating](/install/updating)).
+

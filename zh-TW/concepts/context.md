@@ -159,3 +159,4 @@ Slash commands 由 Gateway 閘道器 處理，行為略有不同： Slash comman
 - `System prompt (estimate)` = 當不存在執行報告時即時計算（或透過不產生報告的 CLI 後端執行時）。
 
 Either way, it reports sizes and top contributors; it does **not** dump the full system prompt or tool schemas.
+

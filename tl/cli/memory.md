@@ -43,3 +43,4 @@ Mga tala:
 - `memory status --deep --index` nagpapatakbo ng reindex kung marumi ang store.
 - `memory index --verbose` nagpi-print ng mga detalye kada phase (provider, model, sources, batch activity).
 - `memory status` isinasama ang anumang dagdag na path na naka-configure sa pamamagitan ng `memorySearch.extraPaths`.
+

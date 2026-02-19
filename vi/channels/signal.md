@@ -322,3 +322,4 @@ Tùy chọn toàn cục liên quan:
 - `agents.list[].groupChat.mentionPatterns` (Signal không hỗ trợ nhắc tên gốc).
 - `messages.groupChat.mentionPatterns` (dự phòng toàn cục).
 - `messages.responsePrefix`.
+

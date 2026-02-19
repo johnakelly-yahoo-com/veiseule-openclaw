@@ -292,3 +292,4 @@ openclaw pairing list matrix
 - `channels.matrix.autoJoinAllowlist`: 자동 참가를 허용하는 방 ID/별칭.
 - `channels.matrix.accounts`: 계정 ID를 키로 하는 다중 계정 구성(각 계정은 최상위 설정을 상속).
 - `channels.matrix.actions`: 작업별 도구 게이팅(반응/메시지/핀/memberInfo/channelInfo).
+

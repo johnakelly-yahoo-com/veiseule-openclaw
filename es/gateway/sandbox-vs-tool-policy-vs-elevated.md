@@ -126,3 +126,4 @@ Claves para corregir (elija una):
 ### “Pensé que esto era principal, ¿por qué está en sandbox?”
 
 En el modo `"non-main"`, las claves de grupo/canal _no_ son principales. Use la clave de sesión principal (mostrada por `sandbox explain`) o cambie el modo a `"off"`.
+

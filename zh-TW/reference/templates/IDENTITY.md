@@ -28,3 +28,4 @@ This isn't just metadata. It's the start of figuring out who you are.
 
 - 將此檔案儲存在工作區根目錄，檔名為 `IDENTITY.md`。
 - 頭像請使用相對於工作區的路徑，例如 `avatars/openclaw.png`。
+

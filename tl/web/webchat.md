@@ -48,3 +48,4 @@ Kaugnay na mga global na opsyon:
 - `gateway.remote.url`, `gateway.remote.token`, `gateway.remote.password`: remote Gateway target.
 - `session.*`: session storage at mga default ng pangunahing key.
 - `session.*`: session storage at mga default ng pangunahing key.
+

@@ -679,3 +679,4 @@ message(action="send", channel="discord", target="channel:123", path="/path/to/a
 - `channels`（チャンネル/カテゴリ/権限の作成・編集・削除）
 - [Troubleshooting](/channels/troubleshooting)
 - コマンド一覧と設定: [Slash commands](/tools/slash-commands)
+

@@ -352,3 +352,4 @@ imsg send <handle> "test"
 - คอนฟิกเต็มรูปแบบ: [Configuration](/gateway/configuration)
 - [Pairing](/channels/pairing)
 - [BlueBubbles](/channels/bluebubbles)
+

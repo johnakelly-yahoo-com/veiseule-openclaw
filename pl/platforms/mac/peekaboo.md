@@ -63,3 +63,4 @@ Jeśli potrzebna jest dłuższa retencja, wykonaj ponowne przechwycenie po stron
   wyłącznie w trybie **debug**.
 - Jeśli nie znaleziono żadnych hostów, otwórz jedną z aplikacji hosta (Peekaboo.app lub OpenClaw.app)
   i potwierdź, że uprawnienia zostały przyznane.
+

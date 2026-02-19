@@ -83,3 +83,4 @@ Ausgehende Sendungen wurden in die _aktuelle_ Agenten-Sitzung (Werkzeug-Sitzungs
   - `src/infra/outbound/outbound-session.test.ts`
   - `src/agents/tools/message-tool.test.ts`
   - `src/gateway/server-methods/send.test.ts`
+

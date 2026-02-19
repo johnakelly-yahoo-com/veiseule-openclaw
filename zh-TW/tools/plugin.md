@@ -663,3 +663,4 @@ Plugins can (and should) ship tests:
 
 - 儲存庫內的外掛可在 `src/**` 下放置 Vitest 測試（範例：`src/plugins/voice-call.plugin.test.ts`）。
 - 獨立發佈的外掛應執行自己的 CI（lint／build／test），並驗證 `openclaw.extensions` 指向已建置的進入點（`dist/index.js`）。
+

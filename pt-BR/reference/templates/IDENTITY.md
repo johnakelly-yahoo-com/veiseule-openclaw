@@ -27,3 +27,4 @@ Notas:
 
 - Salve este arquivo na raiz do workspace como `IDENTITY.md`.
 - Para avatares, use um caminho relativo ao workspace como `avatars/openclaw.png`.
+

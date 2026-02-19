@@ -372,3 +372,4 @@ O prompt de sistema do agente inclui uma introdução de grupo no primeiro turno
 ## Especificidades do WhatsApp
 
 Veja [Mensagens de grupo](/channels/group-messages) para comportamento exclusivo do WhatsApp (injeção de histórico, detalhes de tratamento de menções).
+

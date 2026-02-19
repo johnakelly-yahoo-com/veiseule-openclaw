@@ -96,3 +96,4 @@ packaging en Nix-builds (die niet afhankelijk zijn van een volledige Xcode-toolc
 - [nix-openclaw](https://github.com/openclaw/nix-openclaw) — volledige installatiegids
 - [Wizard](/start/wizard) — niet-Nix CLI-installatie
 - [Docker](/install/docker) — containerized installatie
+

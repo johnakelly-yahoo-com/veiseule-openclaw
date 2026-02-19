@@ -586,3 +586,4 @@ Nasıl eşlendiği:
   - Tarayıcı yetenekli bir node bağlıysa, `target="host"` veya `target="node"`’i sabitlemediğiniz sürece araç otomatik yönlendirme yapabilir.
 
 Bu, ajanı deterministik tutar ve kırılgan seçicilerden kaçınır.
+

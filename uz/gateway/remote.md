@@ -127,3 +127,4 @@ Qisqa versiya: **Gateway’ni loopback-only holatda saqlang**, agar bind kerakli
 - Brauzer boshqaruvini operator kirishi kabi ko‘ring: faqat tailnet + ongli node juftlash.
 
 Chuqur tahlil: [Security](/gateway/security).
+

@@ -41,3 +41,4 @@ Możesz utrzymywać Gateway w chmurze i parować **węzły** na lokalnych urząd
 podczas gdy Gateway pozostaje w chmurze.
 
 Dokumentacja: [Nodes](/nodes), [Nodes CLI](/cli/nodes)
+

@@ -127,3 +127,4 @@ Gates:
 ### "我以为这是主会话，为什么被沙箱隔离了？"
 
 In `"non-main"` mode, group/channel keys are _not_ main. Use the main session key (shown by `sandbox explain`) or switch mode to `"off"`.
+

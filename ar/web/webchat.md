@@ -48,3 +48,4 @@ title: "WebChat"
 - `gateway.auth.mode: "trusted-proxy"`: مصادقة الوكيل العكسي لعملاء المتصفح (انظر [Trusted Proxy Auth](/gateway/trusted-proxy-auth)).
 - `gateway.remote.url` و`gateway.remote.token` و`gateway.remote.password`: هدف Gateway البعيد.
 - `session.*`: تخزين الجلسات والإعدادات الافتراضية للمفتاح الرئيسي.
+

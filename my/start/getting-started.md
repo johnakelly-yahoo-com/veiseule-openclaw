@@ -164,3 +164,4 @@ Control UI ကို ဖွင့်လို့ရပါက သင့် Gatewa
 - DM လုံခြုံရေးနှင့် အတည်ပြုချက်များ — [Pairing](/channels/pairing)
 - ချန်နယ်များ ထပ်မံ ချိတ်ဆက်ရန် — [Channels](/channels)
 - အဆင့်မြင့် လုပ်ငန်းစဉ်များနှင့် source မှ တည်ဆောက်ခြင်း — [Setup](/start/setup)
+

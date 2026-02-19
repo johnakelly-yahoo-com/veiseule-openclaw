@@ -80,3 +80,4 @@ openclaw plugins update <id> --dry-run
 ```
 
 更新僅適用於從 npm 安裝的外掛（追蹤於 `plugins.installs`）。
+

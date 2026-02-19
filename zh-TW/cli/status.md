@@ -24,3 +24,4 @@ openclaw status --usage
 - 30. 概覽在可用時會包含 Gateway 與節點主機服務的安裝／執行期狀態。
 - 概覽包含更新通道 + git SHA（用於來源檢出檢查）。
 - 更新資訊會顯示於概覽；若有可用更新，狀態會提示執行 `openclaw update`（請參閱 [Updating](/install/updating)）。
+

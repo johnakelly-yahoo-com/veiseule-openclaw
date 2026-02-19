@@ -154,3 +154,4 @@ Die Formatierung ausgehender Nachrichten ist zentralisiert in `messages`:
 - Antwort-Threading über `replyToMode` und kanalweise Standards
 
 Details: [Konfiguration](/gateway/configuration#messages) und die Kanaldokumentation.
+

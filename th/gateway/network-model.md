@@ -17,3 +17,4 @@ title: "โมเดลเครือข่าย"
   - `/__openclaw__/a2ui/`
     เมื่อกำหนดค่า `gateway.auth` และ Gateway bind เกินกว่า loopback เส้นทางเหล่านี้จะถูกป้องกันด้วยการยืนยันตัวตนของ Gateway (คำขอจาก loopback จะได้รับการยกเว้น). ดู [Gateway configuration](/gateway/configuration) (`canvasHost`, `gateway`).
 - การใช้งานจากระยะไกลมักเป็นอุโมงค์SSHหรือVPNแบบtailnetดู[Remote access](/gateway/remote)และ[Discovery](/gateway/discovery) ดู [Remote access](/gateway/remote) และ [Discovery](/gateway/discovery) ดู [Remote access](/gateway/remote) และ [Discovery](/gateway/discovery)
+

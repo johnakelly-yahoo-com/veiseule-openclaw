@@ -47,3 +47,4 @@ Kung kailangan mo ng endpoint na wala sa listahan, kabilang ang mga hosted provi
 - Pumili ng Endpoint ID upang maaaring magkasabay ang maraming custom endpoint.
 
 Para sa detalyadong mga hakbang, sundan ang CLI onboarding docs sa itaas.
+

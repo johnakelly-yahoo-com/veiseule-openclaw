@@ -146,3 +146,4 @@ Gebruik deze met `openclaw message send` of cron-aflevering:
 - Groepsantwoorden vereisen een vermelding (bijv. `~your-bot-ship`) om te reageren.
 - Thread-antwoorden: als het binnenkomende bericht in een thread staat, antwoordt OpenClaw in de thread.
 - Media: `sendMedia` valt terug op tekst + URL (geen native upload).
+

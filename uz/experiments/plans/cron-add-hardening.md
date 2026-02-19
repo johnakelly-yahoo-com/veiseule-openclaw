@@ -61,3 +61,4 @@ Normallashtirilgan shakl va misollar uchun [Cron jobs](/automation/cron-jobs) ga
 
 - `cron.add` mijozlardan aniq `state` ni qabul qilishi kerakmi (hozirda sxema bo‘yicha ruxsat etilmagan)?
 - `webchat` ni aniq yetkazib berish provideri sifatida ruxsat berishimiz kerakmi (hozirda yetkazib berishni aniqlashda filtrlanadi)?
+

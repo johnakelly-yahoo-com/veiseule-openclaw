@@ -29,3 +29,4 @@ Uwagi dotyczące zachowania
 
 - Brak zewnętrznego przełącznika CLI/brokera dla uszu/pracy; pozostaw to wewnętrznym sygnałom aplikacji, aby uniknąć przypadkowego „trzepotania”.
 - Utrzymuj krótkie TTL (&lt;10 s), aby ikona szybko wracała do stanu bazowego, jeśli zadanie się zawiesi.
+

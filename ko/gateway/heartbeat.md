@@ -356,3 +356,4 @@ openclaw system event --text "Check for urgent follow-ups" --mode now
 
 Heartbeat 는 전체 에이전트 턴을 실행합니다. 짧은 간격일수록 토큰 소모가 증가합니다. `HEARTBEAT.md` 를 작게 유지하고,
 내부 상태 업데이트만 필요하다면 더 저렴한 `model` 또는 `target: "none"` 를 고려하십시오.
+

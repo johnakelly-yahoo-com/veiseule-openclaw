@@ -97,3 +97,4 @@ agents:
 - Keng qamrovli, izlanishli ishlar uchun kichikroq modellarni afzal ko‘ring.
 
 Aniq skill roʻyxati ustama formulasi uchun [Skills](/tools/skills) ni koʻring.
+

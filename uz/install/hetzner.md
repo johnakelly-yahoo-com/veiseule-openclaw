@@ -350,3 +350,4 @@ Infrastructure-as-code ish jarayonlarini afzal ko‘radigan jamoalar uchun, hamj
 Ushbu yondashuv yuqoridagi Docker sozlamasini takrorlanadigan joylashtirishlar, versiya nazoratidagi infratuzilma va avtomatlashtirilgan avariyadan tiklash bilan to‘ldiradi.
 
 > **Eslatma:** Hamjamiyat tomonidan qo‘llab-quvvatlanadi. Muammolar yoki hissa qo‘shish uchun yuqoridagi repository havolalariga qarang.
+

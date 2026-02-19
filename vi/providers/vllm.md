@@ -90,3 +90,4 @@ curl http://127.0.0.1:8000/v1/models
 ```
 
 - Nếu yêu cầu thất bại do lỗi xác thực, hãy đặt `VLLM_API_KEY` thực khớp với cấu hình máy chủ của bạn, hoặc cấu hình rõ ràng provider trong `models.providers.vllm`.
+

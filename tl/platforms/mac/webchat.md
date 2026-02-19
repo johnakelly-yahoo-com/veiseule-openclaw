@@ -40,3 +40,4 @@ ay kumokonekta sa Gateway at nagde-default sa **main session** para sa napiling 
 ## Known limitations
 
 - Ang UI ay optimized para sa mga chat session (hindi isang full browser sandbox).
+

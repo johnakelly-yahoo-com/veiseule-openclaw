@@ -115,3 +115,4 @@ Pełne rozwiązywanie problemów: [/channels/signal#troubleshooting](/channels/s
 | Zaszyfrowane pokoje nie działają             | Zweryfikuj moduł kryptograficzny i ustawienia szyfrowania | Włącz obsługę szyfrowania i ponownie dołącz/zsynchronizuj pokój. |
 
 Pełne rozwiązywanie problemów: [/channels/matrix#troubleshooting](/channels/matrix#troubleshooting)
+

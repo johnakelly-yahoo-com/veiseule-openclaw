@@ -265,3 +265,4 @@ Nếu bạn đang chuyển từ xác thực bằng token sang trusted-proxy:
 - [Configuration](/gateway/configuration) — tài liệu tham chiếu cấu hình
 - [Remote Access](/gateway/remote) — các mô hình truy cập từ xa khác
 - [Tailscale](/gateway/tailscale) — giải pháp thay thế đơn giản hơn cho truy cập chỉ trong tailnet
+

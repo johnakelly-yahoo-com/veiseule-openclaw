@@ -41,3 +41,4 @@ Tingnan ang [iMessage](/channels/imessage) para sa legacy na setup at addressing
 - Ang Gateway ang may-ari ng proseso (ang start/stop ay naka-tali sa lifecycle ng provider).
 - Panatilihing resilient ang mga RPC client: may mga timeout, mag-restart kapag nag-exit.
 - Mas piliin ang mga stable ID (hal., `chat_id`) kaysa sa mga display string.
+

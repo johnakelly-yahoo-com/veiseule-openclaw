@@ -87,3 +87,4 @@ Standaarden: `debounceMs: 1000`, `cap: 20`, `drop: summarize`.
 
 - Als opdrachten vast lijken te zitten, schakel uitgebreide logs in en zoek naar regels “queued for …ms” om te bevestigen dat de wachtrij wordt verwerkt.
 - Als je wachtrijdiepte nodig hebt, schakel uitgebreide logs in en let op wachtrijtijdregels.
+

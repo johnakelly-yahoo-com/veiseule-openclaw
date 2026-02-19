@@ -214,3 +214,4 @@ Gateway इन्हें **claims** के रूप में मानता
 
 यह प्रोटोकॉल **पूरा गेटवे API** (status, channels, models, chat,
 agent, sessions, nodes, approvals, आदि) को एक्सपोज़ करता है। सटीक सतह `src/gateway/protocol/schema.ts` में TypeBox schemas द्वारा परिभाषित है।
+

@@ -142,3 +142,4 @@ Powiązana dokumentacja:
 
 - [/concepts/model-failover](/concepts/model-failover) (rotacja + reguły cooldown)
 - [/tools/slash-commands](/tools/slash-commands) (powierzchnia poleceń)
+

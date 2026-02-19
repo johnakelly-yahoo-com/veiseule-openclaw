@@ -59,3 +59,4 @@ Thứ tự trích xuất của `web_fetch`:
 3. Dọn dẹp HTML cơ bản (dự phòng cuối cùng)
 
 Xem [Web tools](/tools/web) để biết thiết lập đầy đủ cho công cụ web.
+

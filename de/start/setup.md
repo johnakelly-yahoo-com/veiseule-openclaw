@@ -157,3 +157,4 @@ Für Always‑On‑ oder Multi‑User‑Server erwägen Sie einen **System**‑S
 - [Discord](/channels/discord) und [Telegram](/channels/telegram) (Antwort‑Tags + replyToMode‑Einstellungen)
 - [OpenClaw-Assistent einrichten](/start/openclaw)
 - [macOS app](/platforms/macos) (Gateway‑Lebenszyklus)
+

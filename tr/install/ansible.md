@@ -206,3 +206,4 @@ Ayrıntılı güvenlik mimarisi ve sorun giderme için:
 - [Docker](/install/docker) — konteynerleştirilmiş gateway kurulumu
 - [Sandboxing](/gateway/sandboxing) — ajan sandbox yapılandırması
 - [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) — ajan başına yalıtım
+

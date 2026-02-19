@@ -47,3 +47,4 @@ Se você precisa de um endpoint que não está listado, incluindo provedores hos
 - Escolher um Endpoint ID para que vários endpoints personalizados possam coexistir.
 
 Para etapas detalhadas, siga a documentação de onboarding da CLI acima.
+

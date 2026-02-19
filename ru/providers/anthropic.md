@@ -150,3 +150,4 @@ openclaw onboard --auth-choice setup-token
 - Добавьте ещё один профиль Anthropic или дождитесь окончания периода cooldown.
 
 Подробнее: [/gateway/troubleshooting](/gateway/troubleshooting) и [/help/faq](/help/faq).
+

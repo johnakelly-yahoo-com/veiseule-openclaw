@@ -139,3 +139,4 @@ Opciones del proveedor:
 - `channels.nextcloud-talk.blockStreaming`: deshabilitar block streaming para este canal.
 - `channels.nextcloud-talk.blockStreamingCoalesce`: ajuste de coalescencia de block streaming.
 - `channels.nextcloud-talk.mediaMaxMb`: límite de medios entrantes (MB).
+

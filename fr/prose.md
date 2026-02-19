@@ -132,3 +132,4 @@ Si votre liste d’autorisation d’outils bloque ces outils, les programmes Ope
 Traitez les fichiers `.prose` comme du code. Revoyez-les avant execution. Utilisez les listes d’autorisation d’outils et les portes d’approbation d’OpenClaw pour controler les effets de bord.
 
 Pour des workflows deterministes avec approbation, comparez avec [Lobster](/tools/lobster).
+

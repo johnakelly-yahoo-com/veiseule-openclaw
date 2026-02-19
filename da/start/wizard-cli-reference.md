@@ -299,3 +299,4 @@ Signal-opsætningsadfærd:
 - Onboarding-hub: [Onboarding Wizard (CLI)](/start/wizard)
 - Automatisering og scripts: [CLI Automation](/start/wizard-cli-automation)
 - Kommandoreference: [`openclaw onboard`](/cli/onboard)
+

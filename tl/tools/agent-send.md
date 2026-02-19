@@ -50,3 +50,4 @@ openclaw agent --agent ops --message "Generate report" --deliver --reply-channel
 - `--verbose <on|full|off>`: i-persist ang antas ng verbose
 - `--timeout <seconds>`: override ng agent timeout
 - `--json`: maglabas ng structured JSON
+

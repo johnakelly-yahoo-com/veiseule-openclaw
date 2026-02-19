@@ -145,3 +145,4 @@ openclaw models status
 
 - Claude Max 또는 Pro 구독(`claude setup-token` 용)
 - Claude Code CLI 설치됨(`claude` 명령 사용 가능)
+

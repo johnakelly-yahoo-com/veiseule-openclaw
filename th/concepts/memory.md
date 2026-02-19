@@ -529,3 +529,4 @@ agents: {
 
 - `remote.*`มีลำดับความสำคัญเหนือ`models.providers.openai.*`
 - `remote.headers`ผสานกับเฮดเดอร์OpenAI;ฝั่งรีโมตชนะเมื่อคีย์ชนกันละ`remote.headers`ออกเพื่อใช้ค่าเริ่มต้นของOpenAI `remote.headers`ผสานกับเฮดเดอร์OpenAI;ฝั่งรีโมตชนะเมื่อคีย์ชนกันละ`remote.headers`ออกเพื่อใช้ค่าเริ่มต้นของOpenAI Omit `remote.headers` to use the OpenAI defaults.
+

@@ -207,3 +207,4 @@ config를 통해 재정의:
 - 하위 에이전트 컨텍스트에는 `AGENTS.md` + `TOOLS.md`만 주입됩니다 (`SOUL.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md`, `BOOTSTRAP.md`는 제외).
 - 최대 중첩 깊이는 5입니다 (`maxSpawnDepth` 범위: 1–5). 대부분의 사용 사례에는 depth 2를 권장합니다.
 - `maxChildrenPerAgent`는 세션당 활성 하위 에이전트 수를 제한합니다 (기본값: 5, 범위: 1–20).
+

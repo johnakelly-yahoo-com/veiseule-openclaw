@@ -146,3 +146,4 @@ Utilisez-les avec `openclaw message send` ou une livraison via cron :
 - Les reponses de groupe necessitent une mention (par exemple `~your-bot-ship`) pour repondre.
 - Reponses de fil : si le message entrant est dans un fil, OpenClaw repond dans le fil.
 - Media : `sendMedia` bascule vers texte + URL (pas de televersement natif).
+

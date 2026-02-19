@@ -44,3 +44,4 @@ These live under `scripts/` and are **optional**. สคริปต์เหล
 - `scripts/termux-sync-widget.sh`: ซิงค์ข้อมูลยืนยันตัวตน Claude Code → OpenClaw
 
 หากไม่ต้องการการทำอัตโนมัติบนโทรศัพท์หรือ ตัวตั้งเวลา systemd สามารถข้ามสคริปต์เหล่านี้ได้
+

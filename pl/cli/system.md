@@ -58,3 +58,4 @@ Flagi:
 
 - Wymaga działającego Gateway dostępnego zgodnie z bieżącą konfiguracją (lokalnie lub zdalnie).
 - Zdarzenia systemowe są efemeryczne i nie są utrwalane pomiędzy restartami.
+

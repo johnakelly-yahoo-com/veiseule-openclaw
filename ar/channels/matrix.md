@@ -305,3 +305,4 @@ openclaw pairing list matrix
 - `channels.matrix.autoJoinAllowlist`: معرّفات/أسماء الغرف المسموح بها للانضمام التلقائي.
 - `channels.matrix.accounts`: تهيئة متعددة الحسابات مُعرَّفة بواسطة معرّف الحساب (يرث كل حساب إعدادات المستوى الأعلى).
 - `channels.matrix.actions`: تقييد الأدوات لكل إجراء (reactions/messages/pins/memberInfo/channelInfo).
+

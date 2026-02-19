@@ -26,3 +26,4 @@ A auditoria avisa quando vários remetentes de DM compartilham a sessão princip
 Ela também avisa quando modelos pequenos (`<=300B`) são usados sem sandboxing e com ferramentas web/navegador habilitadas.
 Para webhook ingress, exibe um aviso quando `hooks.defaultSessionKey` não está definido, quando substituições de `sessionKey` na requisição estão habilitadas e quando as substituições estão habilitadas sem `hooks.allowedSessionKeyPrefixes`.
 Também exibe avisos quando as configurações de sandbox Docker estão definidas enquanto o modo sandbox está desativado, quando `gateway.nodes.denyCommands` usa entradas ineficazes ou semelhantes a padrões/desconhecidas, quando `tools.profile="minimal"` global é substituído por perfis de ferramentas do agente e quando ferramentas de plugins de extensão instalados podem estar acessíveis sob uma política de ferramentas permissiva.
+

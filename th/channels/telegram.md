@@ -794,3 +794,4 @@ Primary reference:
 - [Pairing](/channels/pairing)
 - การสตรีม (ดราฟต์)
 - การแก้ไขปัญหาการตั้งค่า (คำสั่ง)
+

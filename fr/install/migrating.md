@@ -190,3 +190,4 @@ Sur la nouvelle machine, verifiez :
 - [Doctor](/gateway/doctor)
 - [Depannage de la Gateway](/gateway/troubleshooting)
 - [Ou OpenClaw stocke-t-il ses donnees ?](/help/faq#where-does-openclaw-store-its-data)
+

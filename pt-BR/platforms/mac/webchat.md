@@ -42,3 +42,4 @@ se conecta ao Gateway e, por padrão, usa a **sessão principal** do agente sele
 ## Limitações conhecidas
 
 - A UI é otimizada para sessões de chat (não é um sandbox de navegador completo).
+

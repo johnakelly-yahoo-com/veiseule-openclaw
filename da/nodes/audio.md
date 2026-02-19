@@ -131,3 +131,4 @@ Når `requireMention: true` er sat for en gruppechat, transskriberer OpenClaw nu
 - Sørg for, at din CLI afslutter med status 0 og udskriver ren tekst; JSON skal tilpasses via `jq -r .text`.
 - Hold timeouts rimelige (`timeoutSeconds`, standard 60s) for at undgå at blokere svarkøen.
 - Preflight-transskription behandler kun den **første** lydvedhæftning til omtale-detektion. Yderligere lyd behandles under den primære medieforståelsesfase.
+

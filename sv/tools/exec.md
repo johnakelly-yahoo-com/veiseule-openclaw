@@ -179,3 +179,4 @@ Noteringar:
 - Verktygspolicy gäller fortfarande; `allow: ["exec"]` tillåter implicit `apply_patch`.
 - Konfig finns under `tools.exec.applyPatch`.
 - `tools.exec.applyPatch.workspaceOnly` är som standard `true` (begränsad till arbetsytan). Sätt den till `false` endast om du avsiktligt vill att `apply_patch` ska skriva/radera utanför arbetsytekatalogen.
+

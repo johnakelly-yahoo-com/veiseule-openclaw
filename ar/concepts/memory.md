@@ -565,3 +565,4 @@ agents: {
 
 - لـ `remote.*` أولوية على `models.providers.openai.*`.
 - تندمج `remote.headers` مع ترويسات OpenAI؛ ويتغلب البعيد عند تعارض المفاتيح. احذف `remote.headers` لاستخدام افتراضيات OpenAI.
+

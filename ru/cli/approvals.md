@@ -48,3 +48,4 @@ openclaw approvals allowlist remove "~/Projects/**/bin/rg"
 - `--agent` по умолчанию использует `"*"`, который применяется ко всем агентам.
 - Хост узла должен объявлять `system.execApprovals.get/set` (приложение для macOS или headless хост узла).
 - Файлы подтверждений хранятся для каждого хоста по пути `~/.openclaw/exec-approvals.json`.
+

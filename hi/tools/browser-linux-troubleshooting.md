@@ -137,3 +137,4 @@ browser extension to be attached to a live tab.
 
 - `chrome` प्रोफ़ाइल संभव होने पर आपके **सिस्टम डिफ़ॉल्ट Chromium ब्राउज़र** का उपयोग करती है।
 - Local `openclaw` प्रोफ़ाइल्स `cdpPort`/`cdpUrl` को स्वतः असाइन करती हैं; उन्हें केवल remote CDP के लिए सेट करें।
+

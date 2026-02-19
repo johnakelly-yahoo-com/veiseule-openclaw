@@ -361,3 +361,4 @@ imsg send <handle> "test"
 - Configuración completa: [Configuración](/gateway/configuration)
 - Detalles: [Emparejamiento](/channels/pairing)
 - [BlueBubbles](/channels/bluebubbles)
+

@@ -190,3 +190,4 @@ På den nye maskine skal du bekræfte:
 - [Doctor](/gateway/doctor)
 - [Gateway-fejlfinding](/gateway/troubleshooting)
 - [Hvor gemmer OpenClaw sine data?](/help/faq#where-does-openclaw-store-its-data)
+

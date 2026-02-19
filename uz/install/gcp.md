@@ -502,3 +502,4 @@ IAM rollari tafsilotlari uchun [https://cloud.google.com/iam/docs/understanding-
 - Xabar almashish kanallarini sozlang: [Channels](/channels)
 - Mahalliy qurilmalarni tugunlar sifatida juftlang: [Nodes](/nodes)
 - Gateway-ni sozlang: [Gateway configuration](/gateway/configuration)
+

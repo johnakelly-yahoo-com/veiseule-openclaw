@@ -55,3 +55,4 @@ sudo install -m 644 -o root -g wheel /tmp/bot.molt.plist /Library/Preferences/Lo
 - ओवरराइड हटाएँ: `sudo rm /Library/Preferences/Logging/Subsystems/bot.molt.plist`।
 - वैकल्पिक रूप से, ओवरराइड को तुरंत हटाने के लिए logd को बाध्य करने हेतु `sudo log config --reload` चलाएँ।
 - याद रखें कि इस सतह में फ़ोन नंबर और संदेश बॉडी शामिल हो सकती हैं; अतिरिक्त विवरण की सक्रिय आवश्यकता होने पर ही plist को स्थान पर रखें।
+

@@ -81,3 +81,4 @@ openclaw nodes notify --node <id> --title "Ping" --body "Remote gateway ready" -
 ```
 
 Det finns inte längre någon global växling för ”standardljud” i appen; anropare väljer ett ljud (eller inget) per begäran.
+

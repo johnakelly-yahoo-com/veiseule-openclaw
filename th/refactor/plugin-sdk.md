@@ -215,3 +215,4 @@ export type PluginRuntime = {
 - ปลั๊กอินภายนอกสามารถพัฒนาและอัปเดตได้โดยไม่ต้องเข้าถึงซอร์สของแกนหลัก
 
 เอกสารที่เกี่ยวข้อง: [Plugins](/tools/plugin), [Channels](/channels/index), [Configuration](/gateway/configuration).
+

@@ -50,3 +50,4 @@ pnpm release:check  # npm pack tekshiruvi
 ```bash
 **📎 bootstrap-extra-files**: `agent:bootstrap` jarayonida sozlangan glob/path shablonlari orqali qo‘shimcha workspace bootstrap fayllarini qo‘shadi
 ```
+

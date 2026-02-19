@@ -18,3 +18,4 @@ process som äger kanalanslutningar och WebSocket-kontrollplanet.
   - `/__openclaw__/a2ui/`
     När `gateway.auth` är konfigurerad och Gateway är bunden utanför loopback skyddas dessa rutter av Gateway-autentisering (loopback-förfrågningar är undantagna). Se [Gateway configuration](/gateway/configuration) (`canvasHost`, `gateway`).
 - Fjärranvändning är typisk SSH-tunnel eller tailnet VPN. Se [Fjärråtkomst](/gateway/remote) och [Discovery](/gateway/discovery).
+

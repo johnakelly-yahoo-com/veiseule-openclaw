@@ -71,3 +71,4 @@ Indicadores:
 - `--raw <command>`: ejecutar una cadena de shell (`/bin/sh -lc` o `cmd.exe /c`).
 - `--agent <id>`: aprobaciones/listas de permitidos con alcance de agente (predetermina al agente configurado).
 - `--ask <off|on-miss|always>`, `--security <deny|allowlist|full>`: anulaciones.
+

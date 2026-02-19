@@ -180,3 +180,4 @@ Notlar:
 - Araç politikası hâlâ geçerlidir; `allow: ["exec"]`, `apply_patch`'a örtük olarak izin verir.
 - Yapılandırma `tools.exec.applyPatch` altında bulunur.
 - `tools.exec.applyPatch.workspaceOnly` varsayılan olarak `true` (workspace ile sınırlı) değerine ayarlıdır. `apply_patch` komutunun workspace dizini dışına yazmasını/silmesini bilinçli olarak istiyorsanız yalnızca o zaman `false` olarak ayarlayın.
+

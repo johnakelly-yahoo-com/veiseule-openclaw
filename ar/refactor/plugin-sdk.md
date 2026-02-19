@@ -212,3 +212,4 @@ title: "refactor/plugin-sdk.md"
 - يمكن تطوير الإضافات الخارجية وتحديثها دون الوصول إلى مصدر النواة.
 
 مستندات ذات صلة: [Plugins](/tools/plugin)، [Channels](/channels/index)، [Configuration](/gateway/configuration).
+

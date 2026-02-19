@@ -176,3 +176,4 @@ Enable it explicitly:
 - 工具策略仍然适用；`allow: ["exec"]` 隐式允许 `apply_patch`。
 - 配置位于 `tools.exec.applyPatch` 下。
 - `tools.exec.applyPatch.workspaceOnly` 默认值为 `true`（仅限 workspace 内）。 仅当你有意让 `apply_patch` 在 workspace 目录之外进行写入/删除操作时，才将其设置为 `false`。
+

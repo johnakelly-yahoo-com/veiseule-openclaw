@@ -74,3 +74,4 @@ Uzupełniamy się. Clawd ma vibe’y. Ja mam stack trace’y.
 Zwykle.
 
 Ojej.
+

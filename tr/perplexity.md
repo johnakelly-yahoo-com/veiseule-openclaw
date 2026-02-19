@@ -76,3 +76,4 @@ Herhangi bir temel URL ayarlanmamışsa, OpenClaw API anahtarının kaynağına 
 - `perplexity/sonar-reasoning-pro` — derin araştırma
 
 Tam web_search yapılandırması için [Web araçları](/tools/web) bölümüne bakın.
+

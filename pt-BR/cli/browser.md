@@ -105,3 +105,4 @@ Se o Gateway estiver em uma máquina diferente do navegador, execute um **host d
 Use `gateway.nodes.browser.mode` para controlar o roteamento automático e `gateway.nodes.browser.node` para fixar um nó específico se vários estiverem conectados.
 
 Segurança + configuração remota: [Browser tool](/tools/browser), [Remote access](/gateway/remote), [Tailscale](/gateway/tailscale), [Security](/gateway/security)
+

@@ -139,3 +139,4 @@ Eslatma: Moonshot va Kimi Coding — alohida provayderlar. Kalitlar o‘zaro alm
 - Agar Moonshot model uchun boshqa kontekst limitlarini e’lon qilsa,
   `contextWindow` qiymatini mos ravishda sozlang.
 - Xalqaro endpoint uchun `https://api.moonshot.ai/v1`, Xitoy endpointi uchun esa `https://api.moonshot.cn/v1` dan foydalaning.
+

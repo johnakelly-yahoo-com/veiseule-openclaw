@@ -379,3 +379,4 @@ När du fixar ett leverantörs-/modellproblem som upptäckts i live:
 - Föredra att rikta in dig på det minsta lagret som fångar buggen:
   - bug i leverantörsrequest‑konvertering/återspelning → direkt‑modell‑test
   - bug i gateway‑session/historik/verktygs‑pipeline → gateway‑live‑smoke eller CI‑säker gateway‑mocktest
+

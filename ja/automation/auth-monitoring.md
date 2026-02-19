@@ -39,3 +39,4 @@ openclaw models status --check
 - `scripts/termux-sync-widget.sh`: Claude Code の認証情報を OpenClaw に同期します。
 
 電話の自動化や systemd タイマーが不要な場合は、これらのスクリプトをスキップしてください。
+

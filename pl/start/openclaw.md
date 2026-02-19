@@ -213,3 +213,4 @@ Logi znajdują się w `/tmp/openclaw/` (domyślnie: `openclaw-YYYY-MM-DD.log`).
 - Status Windows: [Windows (WSL2)](/platforms/windows)
 - Status Linux: [Linux app](/platforms/linux)
 - Bezpieczeństwo: [Security](/gateway/security)
+

@@ -212,3 +212,4 @@ Notlar:
 - Harici eklentiler, çekirdek kaynak koduna erişim olmadan geliştirilebilir ve güncellenebilir.
 
 İlgili dokümanlar: [Eklentiler](/tools/plugin), [Kanallar](/channels/index), [Yapılandırma](/gateway/configuration).
+

@@ -232,3 +232,4 @@ Tài khoản mặc định hỗ trợ:
 - Nếu bot kết nối nhưng không bao giờ trả lời trong kênh, hãy kiểm tra `channels.irc.groups` **và** xem cơ chế yêu cầu mention có đang loại bỏ tin nhắn (`missing-mention`) hay không. Nếu bạn muốn bot trả lời mà không cần ping, hãy đặt `requireMention:false` cho kênh.
 - Nếu đăng nhập thất bại, hãy kiểm tra tính khả dụng của nick và mật khẩu máy chủ.
 - Nếu TLS thất bại trên một mạng tùy chỉnh, hãy kiểm tra host/port và cấu hình chứng chỉ.
+

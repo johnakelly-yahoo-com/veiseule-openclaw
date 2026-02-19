@@ -128,3 +128,4 @@ gekoppeld aan SPOILER-stijlranges. Andere kanalen behandelen ze als platte tekst
 - Signal-stijlranges zijn afhankelijk van UTF-16-offsets; gebruik geen codepunt-offsets.
 - Behoud afsluitende nieuwe regels voor fenced code blocks, zodat sluitmarkeringen
   op hun eigen regel terechtkomen.
+

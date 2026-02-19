@@ -148,3 +148,4 @@ Conservez `models.mode: "merge"` afin que les modeles heberges restent disponibl
 - Modele LM Studio decharge ? Rechargez-le ; le demarrage a froid est une cause frequente de « blocage ».
 - Erreurs de contexte ? Diminuez `contextWindow` ou augmentez la limite de votre serveur.
 - Securite : les modeles locaux contournent les filtres cote fournisseur ; gardez des agents restreints et la compaction activee pour limiter le rayon d’explosion des injections de prompt.
+

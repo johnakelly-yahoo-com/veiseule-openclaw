@@ -112,3 +112,4 @@ channels/troubleshooting.md
 | 加密房间失败     | 验证加密模块和加密设置                    | 启用加密支持并重新加入/同步房间。         |
 
 完整故障排查： [/channels/matrix#troubleshooting](/channels/matrix#troubleshooting)
+

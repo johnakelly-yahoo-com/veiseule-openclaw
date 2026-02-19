@@ -47,3 +47,4 @@ Si vous avez besoin d’un endpoint qui n’est pas listé, y compris des fourni
 - Choisir un Endpoint ID afin que plusieurs endpoints personnalisés puissent coexister.
 
 Pour les étapes détaillées, suivez la documentation CLI ci-dessus.
+

@@ -265,3 +265,4 @@ location / {
 - [Configuration](/gateway/configuration) — 配置参考
 - [Remote Access](/gateway/remote) — 其他远程访问模式
 - [Tailscale](/gateway/tailscale) — 仅限 tailnet 访问的更简单替代方案
+

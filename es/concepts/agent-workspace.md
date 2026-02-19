@@ -230,3 +230,4 @@ Inicio sugerido de `.gitignore`:
   [Channel routing](/channels/channel-routing) para la configuración de enrutamiento.
 - Si `agents.defaults.sandbox` está habilitado, las sesiones que no son principales pueden usar espacios de trabajo
   en sandbox por sesión bajo `agents.defaults.sandbox.workspaceRoot`.
+

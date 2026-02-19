@@ -90,3 +90,4 @@ Payload-Felder (alle optional, sofern nicht anders angegeben):
 
 Die Bridge ist derzeit **implizit v1** (keine Min-/Max-Aushandlung). Abwärtskompatibilität
 wird erwartet; fügen Sie vor jeglichen Breaking Changes ein Bridge-Protokoll-Versionsfeld hinzu.
+

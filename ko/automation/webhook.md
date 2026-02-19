@@ -208,3 +208,4 @@ curl -X POST http://127.0.0.1:18789/hooks/gmail \
 - 훅 페이로드는 기본적으로 신뢰되지 않은 것으로 처리되며 안전 경계로 래핑됩니다.
   특정 훅에 대해 이를 비활성화해야 하는 경우, 해당 훅의 매핑에서 `allowUnsafeExternalContent: true` 를 설정하십시오
   (위험함).
+

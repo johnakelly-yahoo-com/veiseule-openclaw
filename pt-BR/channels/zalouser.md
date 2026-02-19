@@ -138,3 +138,4 @@ As contas mapeiam para perfis do zca. Exemplo:
 
 - `openclaw channels status --probe`
 - Faça login novamente: `openclaw channels logout --channel zalouser && openclaw channels login --channel zalouser`
+

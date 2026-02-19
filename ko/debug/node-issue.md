@@ -86,3 +86,4 @@ node --import tsx scripts/repro/tsx-name-repro.ts
 - Node 22/24 에서 재현하여 Node 25 회귀 여부를 확인합니다.
 - 알려진 회귀가 있는지 `tsx` 나이틀리를 테스트하거나 이전 버전으로 고정합니다.
 - Node LTS 에서도 재현된다면 `__name` 스택 트레이스와 함께 최소 재현을 업스트림에 보고합니다.
+

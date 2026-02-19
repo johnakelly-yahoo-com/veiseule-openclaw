@@ -41,3 +41,4 @@ Each session, you wake up fresh. 這些檔案_就是_你的記憶。 Read them. 
 ---
 
 _這個檔案由你持續演化。當你更了解自己時，更新它。_ _這個檔案由你持續演化。當你更了解自己時，更新它。_ As you learn who you are, update it._
+

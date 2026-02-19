@@ -417,3 +417,4 @@ Campos de alto impacto do WhatsApp:
 - [Pareamento](/channels/pairing)
 - [Roteamento de canal](/channels/channel-routing)
 - Guia de solução de problemas: [Solução de problemas do Gateway](/gateway/troubleshooting).
+

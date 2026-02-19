@@ -141,3 +141,4 @@ Run `openclaw models status` to confirm which profile is expiring. Pinapatakbo n
 
 - Claude Max o Pro subscription (para sa `claude setup-token`)
 - Naka-install ang Claude Code CLI (available ang `claude` command)
+

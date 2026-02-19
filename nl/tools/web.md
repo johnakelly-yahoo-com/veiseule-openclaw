@@ -260,3 +260,4 @@ Notities:
 - Antwoorden worden gecachet (standaard 15 minuten) om herhaalde fetches te verminderen.
 - Als je toolprofielen/toegestane lijsten gebruikt, voeg `web_search`/`web_fetch` of `group:web` toe.
 - Als de Brave-sleutel ontbreekt, retourneert `web_search` een korte instelhint met een documentatielink.
+

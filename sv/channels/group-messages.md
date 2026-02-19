@@ -82,3 +82,4 @@ Endast ägarnumret (från `channels.whatsapp.allowFrom`, eller botens egna E.164
 - Eko‑undertryckning använder den kombinerade batchsträngen; om du skickar identisk text två gånger utan omnämnanden får bara den första ett svar.
 - Poster i sessionslagret kommer att visas som `agent:<agentId>:whatsapp:group:<jid>` i sessionslagret (`~/.openclaw/agents/<agentId>/sessions/sessions.json` som standard); en saknad post betyder bara att gruppen inte har triggat en körning ännu.
 - Skrivindikatorer i grupper följer `agents.defaults.typingMode` (standard: `message` när den inte är omnämnd).
+

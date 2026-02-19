@@ -42,3 +42,4 @@ systemd + Termux için ayarlanmıştır.
 - `scripts/termux-sync-widget.sh`: Claude Code kimlik bilgilerini → OpenClaw ile senkronize eder.
 
 Telefon otomasyonu veya systemd zamanlayıcılarına ihtiyacınız yoksa bu betikleri atlayın.
+

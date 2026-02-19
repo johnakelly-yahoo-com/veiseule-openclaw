@@ -61,3 +61,4 @@ Together AI giver adgang til mange populære open-source-modeller:
 - **Kimi K2 Instruct** - Højtydende model med 262K kontekstvindue
 
 Alle modeller understøtter standard chat completions og er kompatible med OpenAI API.
+

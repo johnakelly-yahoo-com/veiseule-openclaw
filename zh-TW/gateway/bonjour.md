@@ -184,3 +184,4 @@ Bonjour／DNS‑SD 常會在服務實例名稱中，以十進位 `\DDD`
 
 - 探索政策與傳輸選擇：[Discovery](/gateway/discovery)
 - 節點配對與核准：[Gateway pairing](/gateway/pairing)
+

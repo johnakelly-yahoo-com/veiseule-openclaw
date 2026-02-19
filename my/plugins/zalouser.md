@@ -79,3 +79,4 @@ openclaw directory peers list --channel zalouser --query "name"
 ကိရိယာအမည်: `zalouser`
 
 လုပ်ဆောင်ချက်များ: `send`, `image`, `link`, `friends`, `groups`, `me`, `status`
+

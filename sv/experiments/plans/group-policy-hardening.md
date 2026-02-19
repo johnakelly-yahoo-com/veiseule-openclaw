@@ -38,3 +38,4 @@ falska negativ när man beslutar om man ska svara i DMs eller grupper.
 
 - [Gruppchattar](/channels/groups)
 - [Telegram‑leverantör](/channels/telegram)
+

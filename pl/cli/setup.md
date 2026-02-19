@@ -27,3 +27,4 @@ Aby uruchomić kreator za pomocą setup:
 ```bash
 openclaw setup --wizard
 ```
+

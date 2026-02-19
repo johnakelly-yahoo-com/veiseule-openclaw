@@ -91,3 +91,4 @@ Deepgram seçenekleriyle örnek:
 - Kimlik doğrulama standart sağlayıcı yetkilendirme sırasını izler; `DEEPGRAM_API_KEY` en basit yoldur.
 - Bir proxy kullanırken uç noktaları veya başlıkları `tools.media.audio.baseUrl` ve `tools.media.audio.headers` ile geçersiz kılın.
 - Çıktı, diğer sağlayıcılarla aynı ses kurallarını izler (boyut sınırları, zaman aşımları, transkript enjeksiyonu).
+

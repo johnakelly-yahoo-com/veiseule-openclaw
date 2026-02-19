@@ -232,3 +232,4 @@ Varsayılan hesap şunları destekler:
 - Bot bağlanıyor ancak kanallarda hiç yanıt vermiyorsa, `channels.irc.groups` ayarını **ve** bahsetme zorunluluğunun mesajları engelleyip engellemediğini (`missing-mention`) kontrol edin. Ping olmadan yanıt vermesini istiyorsanız, kanal için `requireMention:false` ayarlayın.
 - Giriş başarısız olursa, takma adın kullanılabilirliğini ve sunucu parolasını doğrulayın.
 - Özel bir ağda TLS başarısız olursa, host/port ve sertifika yapılandırmasını doğrulayın.
+

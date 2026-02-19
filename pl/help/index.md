@@ -19,3 +19,4 @@ Jeśli chcesz szybki przepływ „jak się odblokować”, zacznij tutaj:
 Jeśli szukasz pytań koncepcyjnych (a nie „coś się zepsuło”):
 
 - [FAQ (koncepcje)](/help/faq)
+

@@ -356,3 +356,4 @@ echo 'wireless-power off' | sudo tee -a /etc/network/interfaces
 - [Przewodnik Hetzner](/install/hetzner) — konfiguracja Docker
 - [Tailscale](/gateway/tailscale) — zdalny dostęp
 - [Węzły](/nodes) — sparuj laptop/telefon z bramą Pi
+

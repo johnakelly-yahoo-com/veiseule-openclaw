@@ -53,3 +53,4 @@ openclaw models set nvidia/nvidia/llama-3.1-nemotron-70b-instruct
 
 - OpenAI-နှင့် ကိုက်ညီသော `/v1` endpoint ကို အသုံးပြုပါ; NVIDIA NGC မှ API key ကို အသုံးပြုပါ။
 - `NVIDIA_API_KEY` ကို သတ်မှတ်ထားပါက provider သည် အလိုအလျောက် ဖွင့်လှစ်မည်ဖြစ်ပြီး static defaults (131,072-token context window, 4,096 max tokens) ကို အသုံးပြုမည်ဖြစ်သည်။
+

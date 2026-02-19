@@ -70,3 +70,4 @@ Pass `--token` or `--password` explicitly. Missing explicit credentials is an er
 
 - Token rotation returns a new token (sensitive). Treat it like a secret.
 - 這些指令需要 `operator.pairing`（或 `operator.admin`）範圍。
+

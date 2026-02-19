@@ -58,3 +58,4 @@ bun pm trust @whiskeysockets/baileys protobufjs
 ## 注意事項
 
 - 部分腳本仍硬編碼為 pnpm（例如 `docs:build`、`ui:*`、`protocol:check`）。目前請透過 pnpm 執行這些腳本。 穩定版、beta 與 dev 頻道：語意、切換與標記 穩定版、beta 與 dev 頻道：語意、切換與標記
+

@@ -211,3 +211,4 @@ Les sous-agents utilisent une file dédiée en mémoire :
 - Le contexte du sous-agent injecte uniquement `AGENTS.md` + `TOOLS.md` (pas de `SOUL.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md` ni `BOOTSTRAP.md`).
 - La profondeur maximale d’imbrication est de 5 (plage `maxSpawnDepth` : 1–5). Une profondeur de 2 est recommandée pour la plupart des cas d’usage.
 - `maxChildrenPerAgent` limite le nombre d’enfants actifs par session (par défaut : 5, plage : 1–20).
+

@@ -513,3 +513,4 @@ Priorytet:
 - Schemat triage: [/channels/troubleshooting](/channels/troubleshooting).
 - [Konfiguracja](/gateway/configuration)
 - Pełna lista poleceń + konfiguracja: [Polecenia slash](/tools/slash-commands)
+

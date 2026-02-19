@@ -49,3 +49,4 @@ L’outil accepte une seule chaine `input` qui encapsule une ou plusieurs operat
   "input": "*** Begin Patch\n*** Update File: src/index.ts\n@@\n-const foo = 1\n+const foo = 2\n*** End Patch"
 }
 ```
+

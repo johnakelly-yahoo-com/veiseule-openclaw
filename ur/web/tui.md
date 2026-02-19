@@ -160,3 +160,4 @@ openclaw tui --url ws://<host>:<port> --token <gateway-token>
 - `disconnected`: یقینی بنائیں کہ Gateway چل رہا ہے اور آپ کی `--url/--token/--password` درست ہیں۔
 - پکر میں کوئی ایجنٹ نہیں: `openclaw agents list` اور اپنی راؤٹنگ کنفیگ چیک کریں۔
 - خالی سیشن پکر: ممکن ہے آپ گلوبل اسکوپ میں ہوں یا ابھی کوئی سیشن موجود نہ ہو۔
+

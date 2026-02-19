@@ -420,3 +420,4 @@ Yüksek öneme sahip WhatsApp alanları:
 - [Eşleştirme](/channels/pairing)
 - [Kanal yönlendirme](/channels/channel-routing)
 - Sorun giderme kılavuzu: [Gateway sorun giderme](/gateway/troubleshooting).
+

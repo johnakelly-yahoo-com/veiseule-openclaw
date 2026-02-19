@@ -89,3 +89,4 @@ El prompt del sistema incluye:
 Puede controlar el formato del prompt con `agents.defaults.timeFormat` (`auto` | `12` | `24`).
 
 Consulte [Fecha y hora](/date-time) para conocer el comportamiento completo y ver ejemplos.
+

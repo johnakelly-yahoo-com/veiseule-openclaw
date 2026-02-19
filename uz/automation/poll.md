@@ -66,3 +66,4 @@ Params:
 
 Eslatma: Discord’da “aniq N ta tanlash” rejimi yo‘q; `pollMulti` ko‘p tanlashga mos keladi.
 Teams so‘rovlari Adaptive Card sifatida render qilinadi va ovozlarni `~/.openclaw/msteams-polls.json` fayliga yozib olish uchun gateway doim onlayn bo‘lishi kerak.
+

@@ -265,3 +265,4 @@ token auth から trusted-proxy へ移行する場合：
 - [Configuration](/gateway/configuration) — 設定リファレンス
 - [Remote Access](/gateway/remote) — その他のリモートアクセスパターン
 - [Tailscale](/gateway/tailscale) — tailnet 限定アクセス向けのよりシンプルな代替手段
+

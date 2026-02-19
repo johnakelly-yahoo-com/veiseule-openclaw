@@ -121,3 +121,4 @@ Gateway là nguồn sự thật cho việc chấp nhận node/client.
 - **Gateway**: quảng bá beacon khám phá, quyết định ghép cặp, và lưu trữ endpoint WS.
 - **Ứng dụng macOS**: giúp bạn chọn gateway, hiển thị lời nhắc ghép cặp, và chỉ dùng SSH như phương án dự phòng.
 - **Node iOS/Android**: duyệt Bonjour như một tiện lợi và kết nối tới Gateway WS đã ghép cặp.
+

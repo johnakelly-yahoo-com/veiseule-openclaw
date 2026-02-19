@@ -127,3 +127,4 @@ Legend:
 
 - `preview message`：在生成过程中更新的临时 Telegram 消息。
 - `final edit`：在同一个预览消息上的就地编辑（仅文本）。
+

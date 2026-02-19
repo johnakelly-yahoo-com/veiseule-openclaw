@@ -151,3 +151,4 @@ Formatowanie wiadomości wychodzących jest scentralizowane w `messages`:
 - Wątkowanie odpowiedzi poprzez `replyToMode` oraz domyślne ustawienia per kanał
 
 Szczegóły: [Konfiguracja](/gateway/configuration#messages) oraz dokumentacja kanałów.
+

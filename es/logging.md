@@ -348,3 +348,4 @@ Colas + sesiones:
 - **¿Logs vacíos?** Verifique que el Gateway esté en ejecución y escribiendo en la ruta de archivo
   indicada en `logging.file`.
 - **¿Necesita más detalle?** Establezca `logging.level` en `debug` o `trace` y vuelva a intentar.
+

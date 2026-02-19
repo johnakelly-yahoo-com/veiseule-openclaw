@@ -77,3 +77,4 @@ openclaw models auth paste-token
 
 - يطلب `setup-token` قيمة رمز إعداد (يمكن توليده باستخدام `claude setup-token` على أي جهاز).
 - يقبل `paste-token` سلسلة رمز تم توليدها في مكان آخر أو عبر الأتمتة.
+

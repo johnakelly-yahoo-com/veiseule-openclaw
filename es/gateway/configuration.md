@@ -505,3 +505,4 @@ Vea [/environment](/help/environment) para la precedencia y las fuentes completa
 ---
 
 Ejemplo: Configuración legal multi‑cliente
+

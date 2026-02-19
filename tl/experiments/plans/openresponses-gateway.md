@@ -121,3 +121,4 @@ Mga pangunahing puntong nakuha:
 
 - Magdagdag ng bagong docs page para sa paggamit at mga halimbawa ng `/v1/responses`.
 - I-update ang `/gateway/openai-http-api` na may legacy note at pointer papunta sa `/v1/responses`.
+

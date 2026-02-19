@@ -231,3 +231,4 @@ docker run -p 7777:7777 ghcr.io/hoytech/strfry
 - Tylko wiadomości bezpośrednie (brak czatów grupowych).
 - Brak załączników multimedialnych.
 - Tylko NIP-04 (planowany gift-wrap NIP-17).
+

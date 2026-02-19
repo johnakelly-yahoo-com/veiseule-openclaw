@@ -45,3 +45,4 @@ Färdigheter delas. Din inställning är din. Att hålla dem isär innebär att 
 ---
 
 Lägg till allt som hjälper dig att göra ditt jobb. Detta är ditt fuskblad.
+

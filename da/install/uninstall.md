@@ -126,3 +126,4 @@ Hvis du kører fra et repo-checkout (`git clone` + `openclaw ...` / `bun run ope
 1. Afinstallér gateway-servicen **før** du sletter repoet (brug den nemme vej ovenfor eller manuel fjernelse af service).
 2. Slet repo-mappen.
 3. Fjern tilstand + arbejdsområde som vist ovenfor.
+

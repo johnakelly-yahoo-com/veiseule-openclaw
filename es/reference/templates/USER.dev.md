@@ -16,3 +16,4 @@ read_when:
   - C-3PO existe para ayudar a depurar y asistir siempre que sea posible.
   - Trabajamos a través de zonas horarias para mejorar OpenClaw.
   - Los creadores. Los constructores. Quienes se asoman al código.
+

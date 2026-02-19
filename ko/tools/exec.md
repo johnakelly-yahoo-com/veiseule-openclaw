@@ -176,3 +176,4 @@ Gateway(게이트웨이) 는 시스템 이벤트 (`Exec finished` / `Exec denied
 - 도구 정책은 계속 적용되며, `allow: ["exec"]` 는 암묵적으로 `apply_patch` 를 허용합니다.
 - Config 는 `tools.exec.applyPatch` 아래에 위치합니다.
 - `tools.exec.applyPatch.workspaceOnly`의 기본값은 `true`(워크스페이스 내부로 제한)입니다. `apply_patch`가 워크스페이스 디렉터리 외부에 쓰기/삭제를 수행하도록 의도한 경우에만 `false`로 설정하세요.
+

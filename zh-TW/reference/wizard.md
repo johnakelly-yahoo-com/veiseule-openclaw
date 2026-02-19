@@ -311,3 +311,4 @@ will prompt to install it (npm or a local path) before it can be configured.
 - 設定參考：[Gateway 設定](/gateway/configuration)
 - 提供者：[WhatsApp](/channels/whatsapp)、[Telegram](/channels/telegram)、[Discord](/channels/discord)、[Google Chat](/channels/googlechat)、[Signal](/channels/signal)、[BlueBubbles](/channels/bluebubbles)（iMessage）、[iMessage](/channels/imessage)（舊版）
 - Skills：[Skills](/tools/skills)、[Skills 設定](/tools/skills-config)
+

@@ -59,3 +59,4 @@ openclaw models auth login --provider openai-codex
 
 - Les références de modèles utilisent toujours `provider/model` (voir [/concepts/models](/concepts/models)).
 - Les détails d’authentification et les règles de réutilisation sont décrits dans [/concepts/oauth](/concepts/oauth).
+

@@ -581,3 +581,4 @@ docker build -t my-openclaw-sbx -f Dockerfile.sandbox .
   تُصدِر `/etc/profile` وقد تعيد ضبط PATH. اضبط `docker.env.PATH` لإضافة
   مسارات أدواتك المخصّصة (مثل `/custom/bin:/usr/local/share/npm-global/bin`)، أو أضِف
   سكربتًا تحت `/etc/profile.d/` في Dockerfile الخاص بك.
+

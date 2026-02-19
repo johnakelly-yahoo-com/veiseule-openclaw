@@ -97,3 +97,4 @@ Inne elementy konfiguracji wpływające na dostępność narzędzi:
 - Identyfikatory wtyczek używane w listach dozwolonych nie mogą kolidować z nazwami narzędzi rdzeniowych.
 - Preferuj `optional: true` dla narzędzi, które wywołują efekty uboczne lub wymagają dodatkowych
   binariów/poświadczeń.
+

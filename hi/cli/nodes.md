@@ -71,3 +71,4 @@ Invoke फ़्लैग्स:
 - `--raw <command>`: शेल स्ट्रिंग चलाएँ (`/bin/sh -lc` या `cmd.exe /c`)।
 - `--agent <id>`: एजेंट-स्कोप्ड अनुमोदन/allowlists (कॉन्फ़िगर किए गए एजेंट पर डिफ़ॉल्ट)।
 - `--ask <off|on-miss|always>`, `--security <deny|allowlist|full>`: ओवरराइड्स।
+

@@ -678,3 +678,4 @@ Champs Discord à fort impact :
 - [Channel routing](/channels/channel-routing)
 - [Dépannage](/channels/troubleshooting)
 - Liste complete des commandes + config : [Slash commands](/tools/slash-commands)
+

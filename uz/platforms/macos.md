@@ -200,3 +200,4 @@ components can talk to a remote Gateway as if it were on localhost.
 - [Gateway (macOS)](/platforms/mac/bundled-gateway)
 - [macOS permissions](/platforms/mac/permissions)
 - [Canvas](/platforms/mac/canvas)
+

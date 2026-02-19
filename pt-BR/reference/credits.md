@@ -25,3 +25,4 @@ OpenClaw = CLAW + TARDIS, porque toda lagosta espacial precisa de uma máquina d
 MIT - Livre como uma lagosta no oceano.
 
 > "Estamos todos apenas brincando com nossos próprios prompts." (Uma IA, provavelmente chapada de tokens)
+

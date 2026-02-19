@@ -78,3 +78,4 @@ Om ingen bas-URL är satt väljer OpenClaw ett standardvärde baserat på API-ny
 - `perplexity/sonar-reasoning-pro` — djup forskning
 
 Se [Web tools](/tools/web) för fullständig konfiguration av web_search.
+

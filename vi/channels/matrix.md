@@ -306,3 +306,4 @@ Tùy chọn nhà cung cấp:
 - `channels.matrix.autoJoinAllowlist`: room ID/alias được phép để tự động tham gia.
 - `channels.matrix.accounts`: cấu hình đa tài khoản được định danh theo account ID (mỗi tài khoản kế thừa các thiết lập cấp cao nhất).
 - `channels.matrix.actions`: kiểm soát công cụ theo từng hành động (reactions/messages/pins/memberInfo/channelInfo).
+

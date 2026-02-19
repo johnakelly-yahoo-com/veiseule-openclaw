@@ -48,3 +48,4 @@ title: "WebChat"
 - `gateway.remote.url`, `gateway.remote.token`, `gateway.remote.password`: အဝေးမှ gateway ပစ်မှတ်။
 - `session.*`: ဆက်ရှင် သိမ်းဆည်းမှုနှင့် အဓိက ကီး မူလတန်ဖိုးများ။
 - `session.*`: ဆက်ရှင် သိမ်းဆည်းမှုနှင့် အဓိက ကီး မူလတန်ဖိုးများ။
+

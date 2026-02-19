@@ -24,3 +24,4 @@ openclaw logs --limit 500
 ```
 
 Use `--local-time` para renderizar os timestamps no seu fuso horário local.
+

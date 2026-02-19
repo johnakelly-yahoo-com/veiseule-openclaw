@@ -17,3 +17,4 @@ title: "网络模型"
   - `/__openclaw__/a2ui/`
     当配置了 `gateway.auth` 且 Gateway 绑定到非 loopback 地址时，这些路由会受到 Gateway 身份验证保护（来自 loopback 的请求不受影响）。 参见 [Gateway configuration](/gateway/configuration)（`canvasHost`、`gateway`）。
 - 远程使用通常通过 SSH 隧道或 Tailscale VPN。参见[远程访问](/gateway/remote)和[设备发现](/gateway/discovery)。 See [Remote access](/gateway/remote) and [Discovery](/gateway/discovery).
+

@@ -578,3 +578,4 @@ Các tùy chọn chính:
 - ✅ Tệp
 - ✅ Âm thanh
 - ⚠️ Văn bản giàu định dạng (hỗ trợ một phần)
+

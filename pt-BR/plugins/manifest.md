@@ -68,3 +68,4 @@ Chaves opcionais:
 - Se o seu plugin depender de módulos nativos, documente as etapas de build e quaisquer
   requisitos de lista de permissões do gerenciador de pacotes (por exemplo, pnpm `allow-build-scripts`
   - `pnpm rebuild <package>`).
+

@@ -136,3 +136,4 @@ Details: [Gateway protocol](/gateway/protocol), [Pairing](/channels/pairing),
 - Precies één Gateway beheert één enkele Baileys-sessie per host.
 - Handshake is verplicht; elk niet-JSON- of niet-connect-eerste frame resulteert in een harde sluiting.
 - Events worden niet opnieuw afgespeeld; clients moeten bij hiaten verversen.
+

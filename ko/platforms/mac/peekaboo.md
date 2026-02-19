@@ -64,3 +64,4 @@ export PEEKABOO_BRIDGE_SOCKET=/path/to/bridge.sock
   `PEEKABOO_ALLOW_UNSIGNED_SOCKET_CLIENTS=1` 로 호스트를 실행하십시오.
 - 호스트를 찾을 수 없는 경우, 호스트 앱 (Peekaboo.app 또는 OpenClaw.app) 중
   하나를 열고 권한이 부여되었는지 확인하십시오.
+

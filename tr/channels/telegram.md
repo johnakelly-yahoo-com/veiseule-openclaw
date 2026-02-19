@@ -829,3 +829,4 @@ Telegram’a özgü yüksek öneme sahip alanlar:
 - Ayrıntılar: [Eşleştirme](/channels/pairing)
 - [Kanal yönlendirme](/channels/channel-routing)
 - Kurulum sorun giderme (komutlar)
+

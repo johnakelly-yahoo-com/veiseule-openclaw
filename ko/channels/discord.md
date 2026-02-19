@@ -690,3 +690,4 @@ High-signal Discord fields:
 - [Channel routing](/channels/channel-routing)
 - [Troubleshooting](/channels/troubleshooting)
 - 전체 명령 목록 및 설정: [슬래시 명령어](/tools/slash-commands)
+

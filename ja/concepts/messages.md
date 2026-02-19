@@ -164,3 +164,4 @@ OpenClaw は、モデルの推論を公開または非公開にできます。
 - `replyToMode` による返信のスレッド化と、チャンネルごとの既定値
 
 詳細： [設定](/gateway/configuration#messages) および各チャンネルのドキュメント。
+

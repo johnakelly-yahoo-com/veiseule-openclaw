@@ -105,3 +105,4 @@ title: "متغيرات البيئة"
 - [تهيئة Gateway](/gateway/configuration)
 - [الأسئلة الشائعة: متغيرات البيئة وتحميل .env](/help/faq#env-vars-and-env-loading)
 - [نظرة عامة على النماذج](/concepts/models)
+

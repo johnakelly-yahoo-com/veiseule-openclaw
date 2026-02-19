@@ -43,3 +43,4 @@ openclaw memory index --agent main --verbose
 - `memory status --deep --index` यदि स्टोर डर्टी है तो पुनः इंडेक्स चलाता है।
 - `memory index --verbose` प्रति-चरण विवरण प्रिंट करता है (प्रदाता, मॉडल, स्रोत, बैच गतिविधि)।
 - `memory status` `memorySearch.extraPaths` के माध्यम से विन्यस्त किसी भी अतिरिक्त पाथ को शामिल करता है।
+

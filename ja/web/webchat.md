@@ -48,3 +48,4 @@ title: "WebChat"
 - `gateway.auth.mode: "trusted-proxy"`: ブラウザクライアント向けのリバースプロキシ認証（[Trusted Proxy Auth](/gateway/trusted-proxy-auth) を参照）。
 - `gateway.remote.url`、`gateway.remote.token`、`gateway.remote.password`：リモートゲートウェイのターゲット。
 - `session.*`：セッションストレージおよびメインキーの既定値。
+

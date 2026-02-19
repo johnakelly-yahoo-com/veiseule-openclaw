@@ -160,3 +160,4 @@ Mesaj gönderdikten sonra çıktı yoksa:
 - `disconnected`: Gateway’in çalıştığından ve `--url/--token/--password`’lerinizin doğru olduğundan emin olun.
 - Seçicide ajan yok: `openclaw agents list` ve yönlendirme yapılandırmanızı kontrol edin.
 - Boş oturum seçici: global kapsamda olabilirsiniz veya henüz oturumunuz yoktur.
+

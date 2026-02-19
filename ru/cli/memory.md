@@ -43,3 +43,4 @@ openclaw memory index --agent main --verbose
 - `memory status --deep --index` выполняет переиндексацию, если хранилище помечено как «грязное».
 - `memory index --verbose` выводит детали по каждому этапу (провайдер, модель, источники, активность батчей).
 - `memory status` включает любые дополнительные пути, настроенные через `memorySearch.extraPaths`.
+

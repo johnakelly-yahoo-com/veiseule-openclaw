@@ -251,3 +251,4 @@ Ardından yeni bir terminal açın (veya zsh'te `rehash` / bash'te `hash -r`).
   
 </Card>
 </CardGroup>
+

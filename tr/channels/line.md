@@ -182,3 +182,4 @@ LINE eklentisi ayrıca Flex mesaj ön ayarları için bir `/card` komutu da içe
 - **Gelen olay yok:** webhook yolunun `channels.line.webhookPath` ile eşleştiğini
   ve gateway’in LINE tarafından erişilebilir olduğunu doğrulayın.
 - **Medya indirme hataları:** medya varsayılan sınırı aşıyorsa `channels.line.mediaMaxMb` değerini artırın.
+

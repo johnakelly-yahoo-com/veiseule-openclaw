@@ -55,3 +55,4 @@ sudo install -m 644 -o root -g wheel /tmp/bot.molt.plist /Library/Preferences/Lo
 - ลบการ override: `sudo rm /Library/Preferences/Logging/Subsystems/bot.molt.plist`.
 - ตัวเลือกเพิ่มเติมคือรัน `sudo log config --reload` เพื่อบังคับให้ logd ยกเลิก override ทันที
 - โปรดจำไว้ว่าพื้นผิวนี้อาจมีหมายเลขโทรศัพท์และเนื้อหาข้อความ ให้คงไฟล์ plist ไว้เฉพาะช่วงที่คุณต้องการรายละเอียดเพิ่มเติมเท่านั้น
+

@@ -413,3 +413,4 @@ access: `dmPolicy`, `allowFrom`, `groupPolicy`, `groupAllowFrom`, `groups`
 - [Appairage](/channels/pairing)
 - [Routage des canaux](/channels/channel-routing)
 - Guide de dépannage : [Gateway troubleshooting](/gateway/troubleshooting).
+

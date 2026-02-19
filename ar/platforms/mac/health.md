@@ -32,3 +32,4 @@ title: "الفحص الصحي"
 ## عند الشك
 
 - لا يزال بإمكانك استخدام تدفّق CLI في [سلامة Gateway](/gateway/health) (`openclaw status`، `openclaw status --deep`، `openclaw health --json`) ومتابعة `/tmp/openclaw/openclaw-*.log` لـ `web-heartbeat` / `web-reconnect`.
+

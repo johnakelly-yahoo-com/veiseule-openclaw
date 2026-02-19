@@ -212,3 +212,4 @@ export type PluginRuntime = {
 - بیرونی پلگ اِنز کور سورس تک رسائی کے بغیر تیار اور اپ ڈیٹ کیے جا سکیں۔
 
 متعلقہ دستاویزات: [Plugins](/tools/plugin), [Channels](/channels/index), [Configuration](/gateway/configuration)۔
+

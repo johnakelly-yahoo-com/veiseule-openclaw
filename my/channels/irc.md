@@ -232,3 +232,4 @@ Default account သည် အောက်ပါအချက်များကိ
 - Bot သည် connect လုပ်နိုင်သော်လည်း channel များတွင် reply မပြန်ပါက `channels.irc.groups` ကို စစ်ဆေးပါ **နှင့်** mention-gating ကြောင့် message များကို ပယ်ချနေခြင်းရှိမရှိ (`missing-mention`) စစ်ဆေးပါ။ Ping မလိုဘဲ reply ပြန်လိုပါက အဆိုပါ channel အတွက် `requireMention:false` ကို သတ်မှတ်ပါ။
 - Login မအောင်မြင်ပါက nick ရရှိနိုင်မှုနှင့် server password ကို စစ်ဆေးပါ။
 - Custom network တွင် TLS မအောင်မြင်ပါက host/port နှင့် certificate setup ကို စစ်ဆေးပါ။
+

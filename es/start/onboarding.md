@@ -77,3 +77,4 @@ Este paso es opcional
   saber qué sucede en el host del Gateway durante la primera ejecución del agente.
 </Step>
 </Steps>
+

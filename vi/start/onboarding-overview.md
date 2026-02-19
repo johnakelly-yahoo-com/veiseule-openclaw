@@ -49,3 +49,4 @@ trình hướng dẫn CLI. Bạn sẽ được yêu cầu:
 - Chọn một Endpoint ID để nhiều endpoint tùy chỉnh có thể cùng tồn tại.
 
 Để biết các bước chi tiết, hãy làm theo tài liệu khởi tạo CLI ở trên.
+

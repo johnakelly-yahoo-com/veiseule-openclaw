@@ -66,3 +66,4 @@ openclaw message poll --channel msteams --target conversation:19:abc@thread.tacv
 
 참고: Discord 에는 ‘정확히 N 개 선택’ 모드가 없으며 `pollMulti` 는 다중 선택으로 매핑됩니다.
 Teams 설문은 Adaptive Card 로 렌더링되며 `~/.openclaw/msteams-polls.json` 에서 투표를 기록하려면 Gateway(게이트웨이) 가 온라인 상태를 유지해야 합니다.
+

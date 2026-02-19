@@ -187,3 +187,4 @@ Env विकल्प: `ZALO_BOT_TOKEN=...` (केवल डिफ़ॉल्
 - `channels.zalo.accounts.<id>``.webhookSecret`: प्रति-खाता वेबहुक सीक्रेट।
 - `channels.zalo.accounts.<id>``.webhookPath`: प्रति-खाता वेबहुक पथ।
 - `channels.zalo.accounts.<id>``.proxy`: प्रति-खाता प्रॉक्सी URL।
+

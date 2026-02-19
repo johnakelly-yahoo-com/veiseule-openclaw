@@ -77,3 +77,4 @@ Notas:
 
 - `setup-token` solicita um valor de setup-token (gere-o com `claude setup-token` em qualquer máquina).
 - `paste-token` aceita uma string de token gerada em outro lugar ou a partir de automação.
+

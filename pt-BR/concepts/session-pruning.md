@@ -121,3 +121,4 @@ Restringir a poda a ferramentas específicas:
 ```
 
 Veja a referência de configuração: [Gateway Configuration](/gateway/configuration)
+

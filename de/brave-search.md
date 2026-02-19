@@ -39,3 +39,4 @@ OpenClaw verwendet Brave Search als Standardanbieter für `web_search`.
 - Brave bietet eine kostenlose Stufe sowie kostenpflichtige Pläne; prüfen Sie das Brave API-Portal für aktuelle Limits.
 
 Siehe [Web tools](/tools/web) für die vollständige web_search-Konfiguration.
+

@@ -132,3 +132,4 @@ Telegram (private + topics)
 
 - `preview message`: 生成中に更新される一時的な Telegram メッセージ。
 - `final edit`: 同じプレビュー メッセージに対するインプレース編集（テキストのみ）。
+

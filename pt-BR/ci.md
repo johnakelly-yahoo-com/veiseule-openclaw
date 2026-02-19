@@ -49,3 +49,4 @@ pnpm test           # testes vitest
 pnpm check:docs     # formatação + lint da documentação + links quebrados
 pnpm release:check  # validar npm pack
 ```
+

@@ -22,3 +22,4 @@ No define qué herramientas existen; OpenClaw proporciona herramientas integrada
 - Texto a voz: especifique la voz, el altavoz/sala de destino y si se debe transmitir.
 
 Agregue cualquier otra cosa que quiera que el asistente conozca sobre su cadena de herramientas local.
+

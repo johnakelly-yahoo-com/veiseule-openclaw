@@ -105,3 +105,4 @@ RPC API, 그리고 마법사가 작성하는 구성 필드의 전체 목록은
 - macOS 앱 온보딩: [Onboarding](/start/onboarding)
 - macOS 앱 온보딩: [Onboarding](/start/onboarding)
 - 에이전트 최초 실행 절차: [Agent Bootstrapping](/start/bootstrapping)
+

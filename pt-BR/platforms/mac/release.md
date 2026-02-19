@@ -83,3 +83,4 @@ Faça commit do `appcast.xml` atualizado junto com os ativos de lançamento (zip
   - Em uma build pública anterior, execute “Check for Updates…” na aba About e verifique se o Sparkle instala a nova build corretamente.
 
 Definição de pronto: app assinado + appcast publicados, fluxo de atualização funciona a partir de uma versão instalada mais antiga, e os ativos de lançamento estão anexados ao release do GitHub.
+

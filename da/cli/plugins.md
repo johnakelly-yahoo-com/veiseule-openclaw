@@ -81,3 +81,4 @@ openclaw plugins update <id> --dry-run
 ```
 
 Opdateringer gælder kun for plugins installeret fra npm (sporet i `plugins.installs`).
+

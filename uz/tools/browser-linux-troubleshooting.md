@@ -137,3 +137,4 @@ Notes:
 
 - The `chrome` profile uses your **system default Chromium browser** when possible.
 - Local `openclaw` profiles auto-assign `cdpPort`/`cdpUrl`; only set those for remote CDP.
+

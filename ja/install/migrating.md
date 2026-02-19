@@ -190,3 +190,4 @@ root でコピーした、またはユーザーを変更した場合、ゲート
 - [Doctor](/gateway/doctor)
 - [Gateway troubleshooting](/gateway/troubleshooting)
 - [OpenClaw のデータはどこに保存されますか？](/help/faq#where-does-openclaw-store-its-data)
+

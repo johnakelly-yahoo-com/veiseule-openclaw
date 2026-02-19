@@ -578,3 +578,4 @@ Schlüsseloptionen:
 - ✅ Dateien
 - ✅ Audio
 - ⚠️ Rich Text (teilweise Unterstützung)
+

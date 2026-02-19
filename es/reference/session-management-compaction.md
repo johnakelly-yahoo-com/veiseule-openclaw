@@ -283,3 +283,4 @@ vive hoy del lado del Gateway.
   - ajustes de compactación (`reserveTokens` demasiado alto para la ventana del modelo puede causar compactación más temprana)
   - inflación de resultados de herramientas: habilite/ajuste la poda de sesiones
 - ¿Se filtran turnos silenciosos? Confirme que la respuesta comience con `NO_REPLY` (token exacto) y que esté en una versión que incluya la corrección de supresión de streaming.
+

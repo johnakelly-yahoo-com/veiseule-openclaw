@@ -92,3 +92,4 @@ openclaw update status --timeout 10
 - [Development channels](/install/development-channels)
 - [Yangilash](/install/updating)
 - [CLI ma’lumotnomasi](/cli)
+

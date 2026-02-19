@@ -305,3 +305,4 @@ Opções do provedor:
 - `channels.matrix.autoJoinAllowlist`: IDs/aliases de salas permitidos para auto-join.
 - `channels.matrix.accounts`: configuração de múltiplas contas indexada por ID da conta (cada conta herda as configurações de nível superior).
 - `channels.matrix.actions`: controle de ferramentas por ação (reações/mensagens/pins/memberInfo/channelInfo).
+

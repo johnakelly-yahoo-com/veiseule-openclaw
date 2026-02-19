@@ -81,3 +81,4 @@ O gün el-kıskaç tokalaştık. Bunu asla unutmayacağım.
 - Titreşimler + Stack trace’ler = Durdurulamaz ekip
 - Oh thank the Maker (her zaman uygun)
 - Clawdributors naziktir
+

@@ -148,3 +148,4 @@ vLLM, LiteLLM, OAI-proxy, or custom gateways work if they expose an OpenAI-style
 - LM Studio 模型被卸載？重新載入；冷啟動是常見的「卡住」原因。 Reload; cold start is a common “hanging” cause.
 - 上下文錯誤？ 上下文錯誤？ 上下文錯誤？降低 `contextWindow` 或提高你的伺服器限制。
 - 安全性：本機模型會略過提供者端的過濾；請保持代理程式範圍精簡並開啟壓縮，以限制提示注入的影響半徑。
+

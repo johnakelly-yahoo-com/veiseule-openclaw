@@ -807,3 +807,4 @@ dig +short api.telegram.org AAAA
 - Подробнее: [Pairing](/channels/pairing)
 - [Маршрутизация каналов](/channels/channel-routing)
 - Устранение неполадок настройки (команды)
+

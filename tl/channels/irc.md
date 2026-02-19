@@ -232,3 +232,4 @@ Sinusuportahan ng default account ang:
 - Kung kumokonekta ang bot ngunit hindi kailanman sumasagot sa mga channel, tiyakin ang `channels.irc.groups` **at** kung ang mention-gating ay nagda-drop ng mga mensahe (`missing-mention`). Kung gusto mong sumagot ito nang walang pings, itakda ang `requireMention:false` para sa channel.
 - Kung nabigo ang pag-login, tiyakin ang availability ng nick at ang server password.
 - Kung nabigo ang TLS sa isang custom network, tiyakin ang host/port at ang setup ng certificate.
+

@@ -89,3 +89,4 @@ Para Gateways remotos, también puede usar `openclaw logs --follow` (consulte [/
 - Si `logging.level` está configurado más alto que `warn`, estos registros pueden suprimirse. El valor predeterminado `info` es adecuado.
 - Es seguro dejar los indicadores habilitados; solo afectan el volumen de registros del subsistema específico.
 - Use [/logging](/logging) para cambiar los destinos de los registros, los niveles y la redacción.
+

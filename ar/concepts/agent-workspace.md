@@ -223,3 +223,4 @@ git push
   [توجيه القنوات](/channels/channel-routing) لتهيئة التوجيه.
 - إذا كان `agents.defaults.sandbox` مُمكّنًا، فيمكن للجلسات غير الرئيسية استخدام مساحات
   عمل sandbox لكل جلسة ضمن `agents.defaults.sandbox.workspaceRoot`.
+

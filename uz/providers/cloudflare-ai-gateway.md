@@ -60,3 +60,4 @@ Muhit bo‘yicha eslatma
 ## Agar Gateway daemon sifatida (launchd/systemd) ishlayotgan bo‘lsa, `CLOUDFLARE_AI_GATEWAY_API_KEY` ushbu jarayon uchun mavjud ekanligiga ishonch hosil qiling (masalan, `~/.openclaw/.env` da yoki `env.shellEnv` orqali).
 
 Kiruvchi ovozli eslatmalar uchun Deepgram transkripsiyasi
+

@@ -160,3 +160,4 @@ Xabar yuborilgandan so‘ng chiqish yo‘q:
 - `disconnected`: Gateway ishlayotganini va `--url/--token/--password` to‘g‘ri ekanini tekshiring.
 - Tanlash oynasida agentlar yo‘q: `openclaw agents list` va routing konfiguratsiyangizni tekshiring.
 - Bo‘sh sessiya tanlash oynasi: siz global scope’da bo‘lishingiz yoki hali sessiyalar bo‘lmasligi mumkin.
+

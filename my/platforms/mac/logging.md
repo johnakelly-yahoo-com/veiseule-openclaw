@@ -55,3 +55,4 @@ sudo install -m 644 -o root -g wheel /tmp/bot.molt.plist /Library/Preferences/Lo
 - override ကို ဖယ်ရှားပါ: `sudo rm /Library/Preferences/Logging/Subsystems/bot.molt.plist`။
 - လိုအပ်ပါက logd ကို ချက်ချင်း override ကို ဖယ်ရှားစေရန် `sudo log config --reload` ကို လည်ပတ်နိုင်သည်။
 - ဤမျက်နှာပြင်တွင် ဖုန်းနံပါတ်များနှင့် မက်ဆေ့ချ် ကိုယ်ထည်များ ပါဝင်နိုင်သည်ကို သတိရပါ; ထပ်ဆောင်း အသေးစိတ်လိုအပ်သည့်အချိန်တွင်သာ plist ကို ထားရှိပါ။
+

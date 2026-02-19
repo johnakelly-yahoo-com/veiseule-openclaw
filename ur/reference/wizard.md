@@ -283,3 +283,4 @@ will prompt to install it (npm or a local path) before it can be configured.
 - کنفیگ حوالہ: [Gateway configuration](/gateway/configuration)
 - فراہم کنندگان: [WhatsApp](/channels/whatsapp)، [Telegram](/channels/telegram)، [Discord](/channels/discord)، [Google Chat](/channels/googlechat)، [Signal](/channels/signal)، [BlueBubbles](/channels/bluebubbles) (iMessage)، [iMessage](/channels/imessage) (legacy)
 - Skills: [Skills](/tools/skills)، [Skills config](/tools/skills-config)
+

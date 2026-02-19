@@ -48,3 +48,4 @@ title: "WebChat"
 - `gateway.auth.mode: "trusted-proxy"`: 브라우저 클라이언트를 위한 reverse-proxy 인증 (참고: [Trusted Proxy Auth](/gateway/trusted-proxy-auth)).
 - `gateway.remote.url`, `gateway.remote.token`, `gateway.remote.password`: 원격 gateway 대상.
 - `session.*`: 세션 스토리지 및 기본 메인 키.
+

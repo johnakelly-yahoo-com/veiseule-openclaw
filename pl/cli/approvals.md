@@ -48,3 +48,4 @@ openclaw approvals allowlist remove "~/Projects/**/bin/rg"
 - `--agent` domyślnie ma wartość `"*"`, co ma zastosowanie do wszystkich agentów.
 - Host węzła musi reklamować `system.execApprovals.get/set` (aplikacja na macOS lub bezgłowy host węzła).
 - Pliki zatwierdzeń są przechowywane per host w `~/.openclaw/exec-approvals.json`.
+

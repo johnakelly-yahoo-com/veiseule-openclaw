@@ -476,3 +476,4 @@ openclaw system event --mode now --text "Next heartbeat: check battery."
 - Gebruik voor forumtopics `-100…:topic:<id>`, zodat het expliciet en ondubbelzinnig is.
 - Als je `telegram:...`-voorvoegsels ziet in logs of opgeslagen “laatste route”-doelen, is dat normaal;
   cron-levering accepteert ze en parseert topic-id’s nog steeds correct.
+

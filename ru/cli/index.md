@@ -1033,3 +1033,4 @@ CLI управления браузером (выделенный Chrome/Brave/E
 - `--message <text>`
 - `--timeout-ms <ms>` (по умолчанию `agents.defaults.timeoutSeconds`)
 - `--history-limit <n>`
+

@@ -58,3 +58,4 @@ title: "25. 壓縮"
 - Use `/compact` when sessions feel stale or context is bloated.
 - 大型工具輸出已會被截斷；修剪可進一步降低工具結果的累積。
 - 若需要全新開始，`/new` 或 `/reset` 會啟動新的工作階段 ID。
+

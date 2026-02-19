@@ -121,3 +121,4 @@ Ogranicz przycinanie do określonych narzędzi:
 ```
 
 Zobacz referencję konfiguracji: [Gateway Configuration](/gateway/configuration)
+

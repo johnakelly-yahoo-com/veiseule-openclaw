@@ -71,3 +71,4 @@ Flags:
 - `--raw <command>`: executar uma string de shell (`/bin/sh -lc` ou `cmd.exe /c`).
 - `--agent <id>`: aprovações/listas de permissões com escopo de agente (padrão para o agente configurado).
 - `--ask <off|on-miss|always>`, `--security <deny|allowlist|full>`: substituições.
+

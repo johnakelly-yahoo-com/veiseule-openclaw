@@ -79,3 +79,4 @@ openclaw directory peers list --channel zalouser --query "name"
 Amallar: `send`, `image`, `link`, `friends`, `groups`, `me`, `status`
 
 Actions: `send`, `image`, `link`, `friends`, `groups`, `me`, `status`
+

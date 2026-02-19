@@ -217,3 +217,4 @@ The Gateway treats these as **claims** and enforces server-side allowlists.
 20. یہ پروٹوکول **مکمل گیٹ وے API** کو ایکسپوز کرتا ہے (status, channels, models, chat,
     agent, sessions, nodes, approvals، وغیرہ)۔ The exact surface is defined by the
     TypeBox schemas in `src/gateway/protocol/schema.ts`.
+

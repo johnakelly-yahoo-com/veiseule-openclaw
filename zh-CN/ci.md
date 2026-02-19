@@ -49,3 +49,4 @@ pnpm test           # vitest 测试
 pnpm check:docs     # 文档格式 + lint + 失效链接检查
 pnpm release:check  # 验证 npm pack
 ```
+

@@ -53,3 +53,4 @@ Hâlâ `--token` kullanıyorsanız, bunun shell geçmişine ve `ps` çıktısın
 
 - OpenAI uyumlu `/v1` endpoint; NVIDIA NGC’den bir API anahtarı kullanın.
 - `NVIDIA_API_KEY` ayarlandığında sağlayıcı otomatik olarak etkinleşir; statik varsayılanlar kullanır (131.072 token bağlam penceresi, 4.096 maksimum token).
+

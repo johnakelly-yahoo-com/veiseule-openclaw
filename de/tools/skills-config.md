@@ -74,3 +74,4 @@ Verwenden Sie eine der folgenden Optionen:
 - Backen Sie die Umgebungsvariablen in Ihr benutzerdefiniertes Sandbox-Image ein
 
 Globale `env` und `skills.entries.<skill>.env/apiKey` gelten nur für **Host**-Ausführungen.
+

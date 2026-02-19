@@ -350,3 +350,4 @@ Dla zespołów preferujących workflow infrastructure-as-code, społeczność ut
 To podejście uzupełnia powyższą konfigurację Docker o powtarzalne wdrożenia, infrastrukturę kontrolowaną wersjami oraz automatyczne odzyskiwanie po awarii.
 
 > **Uwaga:** Utrzymywane przez społeczność. W przypadku problemów lub chęci wniesienia wkładu zobacz linki do repozytoriów powyżej.
+

@@ -91,3 +91,4 @@ Tout le reste doit échouer immédiatement avec : « Configuration invalide. E
 - Plugin sans schéma → chargement du plugin bloqué avec une erreur claire.
 - Configuration invalide → démarrage de la Gateway (passerelle) bloqué, sauf pour les commandes de diagnostic.
 - Doctor en dry‑run automatique ; `doctor --fix` écrit la configuration corrigée.
+

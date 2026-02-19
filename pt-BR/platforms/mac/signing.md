@@ -45,3 +45,4 @@ A aba Sobre lê essas chaves para mostrar versão, data do build, commit do git 
 ## Por quê
 
 As permissões do TCC estão vinculadas ao identificador do bundle _e_ à assinatura de código. Builds de depuração sem assinatura, com UUIDs variáveis, faziam o macOS esquecer as concessões após cada rebuild. Assinar os binários (ad-hoc por padrão) e manter um bundle id/caminho fixo (`dist/OpenClaw.app`) preserva as concessões entre builds, alinhando-se à abordagem do VibeTunnel.
+

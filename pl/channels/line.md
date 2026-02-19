@@ -184,3 +184,4 @@ Wtyczka LINE zawiera także polecenie `/card` dla presetów wiadomości Flex:
   `channels.line.webhookPath` oraz że gateway jest osiągalny z LINE.
 - **Błędy pobierania multimediów:** zwiększ `channels.line.mediaMaxMb`, jeśli multimedia
   przekraczają domyślny limit.
+

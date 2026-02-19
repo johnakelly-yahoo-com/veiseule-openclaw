@@ -283,3 +283,4 @@ vive hoje no lado do Gateway.
   - configurações de compactação (`reserveTokens` muito alto para a janela do modelo pode causar compactação mais cedo)
   - inchaço de resultados de ferramentas: habilite/ajuste a poda de sessões
 - Turnos silenciosos vazando? Confirme que a resposta começa com `NO_REPLY` (token exato) e que você está em um build que inclui a correção de supressão de streaming.
+

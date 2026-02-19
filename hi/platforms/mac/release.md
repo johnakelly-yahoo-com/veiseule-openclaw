@@ -83,3 +83,4 @@ Commit the updated `appcast.xml` alongside the release assets (zip + dSYM) when 
   - On a previous public build, run “Check for Updates…” from the About tab and verify Sparkle installs the new build cleanly.
 
 पूर्णता की परिभाषा: साइन किया हुआ ऐप + ऐपकास्ट प्रकाशित हों, पुराने इंस्टॉल किए गए संस्करण से अपडेट फ़्लो काम करे, और रिलीज़ एसेट्स GitHub रिलीज़ से संलग्न हों।
+

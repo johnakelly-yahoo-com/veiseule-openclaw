@@ -159,3 +159,4 @@ Docs: [Sessão](/concepts/session), [Compactação](/concepts/compaction), [Poda
 - `System prompt (estimate)` = calculado dinamicamente quando não existe relatório de execução (ou ao executar via um backend de CLI que não gera o relatório).
 
 De qualquer forma, ele reporta tamanhos e principais contribuintes; **não** despeja o prompt do sistema completo nem os esquemas de ferramentas.
+

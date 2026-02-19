@@ -139,3 +139,4 @@ Sağlayıcı seçenekleri:
 - `channels.nextcloud-talk.blockStreaming`: bu kanal için blok halinde akışı devre dışı bırak.
 - `channels.nextcloud-talk.blockStreamingCoalesce`: blok halinde akış birleştirme ayarı.
 - `channels.nextcloud-talk.mediaMaxMb`: gelen medya üst sınırı (MB).
+

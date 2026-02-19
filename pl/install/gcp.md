@@ -502,3 +502,4 @@ Szczegóły ról IAM znajdziesz na stronie [https://cloud.google.com/iam/docs/un
 - Skonfiguruj kanały komunikacji: [Channels](/channels)
 - Sparuj lokalne urządzenia jako węzły: [Nodes](/nodes)
 - Skonfiguruj Gateway: [Gateway configuration](/gateway/configuration)
+

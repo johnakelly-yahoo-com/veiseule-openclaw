@@ -122,3 +122,4 @@ git commit -m "Add Clawd workspace"
 - สำหรับการยืนยันผ่านเบราว์เซอร์ ให้ใช้ `openclaw browser` (แท็บ/สถานะ/สกรีนช็อต)กับโปรไฟล์Chromeที่OpenClawจัดการ
 - สำหรับการตรวจสอบDOM ให้ใช้ `openclaw browser eval|query|dom|snapshot` (และ `--json`/`--out` เมื่อจำเป็นต้องได้เอาต์พุตแบบเครื่อง)
 - สำหรับการโต้ตอบ ให้ใช้ `openclaw browser click|type|hover|drag|select|upload|press|wait|navigate|back|evaluate|run` (การคลิก/พิมพ์ต้องการการอ้างอิงสแนปช็อต; ใช้ `evaluate` สำหรับตัวเลือกCSS)
+

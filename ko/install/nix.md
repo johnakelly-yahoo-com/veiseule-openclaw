@@ -96,3 +96,4 @@ apps/macos/Sources/OpenClaw/Resources/Info.plist
 - [nix-openclaw](https://github.com/openclaw/nix-openclaw) — 전체 설정 가이드
 - [Wizard](/start/wizard) — Nix 가 아닌 CLI 설정
 - [Docker](/install/docker) — 컨테이너화된 설정
+

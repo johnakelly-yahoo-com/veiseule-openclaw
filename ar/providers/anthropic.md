@@ -149,3 +149,4 @@ openclaw onboard --auth-choice setup-token
 - أضف ملف Anthropic آخر أو انتظر انتهاء فترة التهدئة.
 
 المزيد: [/gateway/troubleshooting](/gateway/troubleshooting) و [/help/faq](/help/faq).
+

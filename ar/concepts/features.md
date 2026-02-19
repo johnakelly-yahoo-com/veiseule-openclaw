@@ -56,3 +56,4 @@ title: "الميزات"
 <Note>
 تمت إزالة مسارات Legacy Claude وCodex وGemini وOpencode. Pi هو مسار وكيل البرمجة الوحيد.
 </Note>
+

@@ -121,3 +121,4 @@ TTL 인지 프루닝 활성화:
 ```
 
 구성 참조 보기: [Gateway Configuration](/gateway/configuration)
+

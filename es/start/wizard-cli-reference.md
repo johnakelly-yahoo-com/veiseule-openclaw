@@ -297,3 +297,4 @@ Comportamiento de configuración de Signal:
 - Centro de incorporación: [Asistente de incorporación (CLI)](/start/wizard)
 - Automatización y scripts: [Automatización de la CLI](/start/wizard-cli-automation)
 - Referencia de comandos: [`openclaw onboard`](/cli/onboard)
+

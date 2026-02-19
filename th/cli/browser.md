@@ -105,3 +105,4 @@ openclaw browser extension path
 ใช้ `gateway.nodes.browser.mode` เพื่อควบคุมการจัดเส้นทางอัตโนมัติ และใช้ `gateway.nodes.browser.node` เพื่อปักหมุดโหนดเฉพาะเมื่อมีหลายโหนดเชื่อมต่อ
 
 ความปลอดภัยและการตั้งค่าระยะไกล: [Browser tool](/tools/browser), [Remote access](/gateway/remote), [Tailscale](/gateway/tailscale), [Security](/gateway/security)
+

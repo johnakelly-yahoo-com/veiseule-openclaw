@@ -287,3 +287,4 @@ vai solicitar a instalação (npm ou um caminho local) antes que ele possa ser c
 - Referência de configuração: [Gateway configuration](/gateway/configuration)
 - Provedores: [WhatsApp](/channels/whatsapp), [Telegram](/channels/telegram), [Discord](/channels/discord), [Google Chat](/channels/googlechat), [Signal](/channels/signal), [BlueBubbles](/channels/bluebubbles) (iMessage), [iMessage](/channels/imessage) (legado)
 - Skills: [Skills](/tools/skills), [Configuração de Skills](/tools/skills-config)
+

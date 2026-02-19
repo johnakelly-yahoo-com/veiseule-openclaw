@@ -578,3 +578,4 @@ openclaw pairing list feishu
 - ✅ ملفات
 - ✅ صوت
 - ⚠️ نص منسّق (دعم جزئي)
+

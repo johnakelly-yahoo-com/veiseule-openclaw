@@ -222,3 +222,4 @@ git push
   [Channel routing](/channels/channel-routing)を参照してください。 ルーティング設定については、
   [Channel routing](/channels/channel-routing)を参照してください。
 - `agents.defaults.sandbox` が有効な場合、メイン以外のセッションは `agents.defaults.sandbox.workspaceRoot` 配下のセッション単位のサンドボックス ワークスペースを使用できます。
+

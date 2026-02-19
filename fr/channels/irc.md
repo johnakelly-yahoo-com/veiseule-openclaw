@@ -232,3 +232,4 @@ Le compte par défaut prend en charge :
 - Si le bot se connecte mais ne répond jamais dans les canaux, vérifiez `channels.irc.groups` **et** si le filtrage par mention bloque les messages (`missing-mention`). Si vous souhaitez qu’il réponde sans ping, définissez `requireMention:false` pour le canal.
 - Si la connexion échoue, vérifiez la disponibilité du nick et le mot de passe du serveur.
 - Si TLS échoue sur un réseau personnalisé, vérifiez l’hôte/le port et la configuration du certificat.
+

@@ -72,3 +72,4 @@ title: "Fikrlash darajalari"
 - Web chat’dagi fikrlash tanlagichi sahifa yuklanganda kiruvchi sessiya store/config’da saqlangan sessiya darajasini aks ettiradi.
 - Boshqa darajani tanlash faqat keyingi xabarga qo‘llanadi (`thinkingOnce`); yuborilgandan so‘ng tanlagich saqlangan sessiya darajasiga qaytadi.
 - Sessiya standartini o‘zgartirish uchun avvalgidek `/think:<level>` direktivasini yuboring; keyingi yuklashdan so‘ng tanlagich buni aks ettiradi.
+

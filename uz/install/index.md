@@ -230,3 +230,4 @@ So‘ng yangi terminal oching (yoki zsh’da `rehash` / bash’da `hash -r`).
   <Card title="Uninstall" href="/install/uninstall" icon="trash-2">OpenClaw’ni to‘liq olib tashlash.
 </Card>
 </CardGroup>
+

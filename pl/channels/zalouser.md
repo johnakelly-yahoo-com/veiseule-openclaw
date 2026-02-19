@@ -138,3 +138,4 @@ Konta mapują się na profile zca. Przykład:
 
 - `openclaw channels status --probe`
 - Ponowne logowanie: `openclaw channels logout --channel zalouser && openclaw channels login --channel zalouser`
+

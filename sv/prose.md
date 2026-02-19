@@ -132,3 +132,4 @@ Om ditt verktyg tillåter blockering av dessa verktyg kommer OpenProse-program a
 Behandla `.prose`-filer som kod. Granska innan du kör. Använd OpenClaw verktyg tillåten lista och portar godkännande för att kontrollera biverkningar.
 
 För deterministiska, godkännandekontrollerade arbetsflöden, jämför med [Lobster](/tools/lobster).
+

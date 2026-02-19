@@ -109,3 +109,4 @@ RPC API и полного списка полей конфига, которые
 - Обзор онбординга: [Onboarding Overview](/start/onboarding-overview)
 - Онбординг приложения для macOS: [Onboarding](/start/onboarding)
 - Ритуал первого запуска агента: [Agent Bootstrapping](/start/bootstrapping)
+

@@ -44,3 +44,4 @@ title: "لوحة التحكم"
 - تأكّد من إمكانية الوصول إلى Gateway (محليًا: `openclaw status`؛ عن بُعد: نفق SSH `ssh -N -L 18789:127.0.0.1:18789 user@host` ثم افتح `http://127.0.0.1:18789/`).
 - استرجِع الرمز من مضيف Gateway: `openclaw config get gateway.auth.token` (أو أنشئ واحدًا: `openclaw doctor --generate-gateway-token`).
 - في إعدادات لوحة التحكم، الصق الرمز في حقل المصادقة، ثم اتصل.
+

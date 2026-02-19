@@ -226,3 +226,4 @@ Shape:
 - Letta / MemGPT अवधारणाएँ: “core memory blocks” + “archival memory” + टूल‑ड्रिवन self‑editing memory।
 - Hindsight Technical Report: “retain / recall / reflect”, चार‑नेटवर्क मेमोरी, कथात्मक तथ्य निष्कर्षण, राय कॉन्फ़िडेंस का विकास।
 - SuCo: arXiv 2411.14754 (2024): “Subspace Collision” approximate nearest neighbor retrieval।
+

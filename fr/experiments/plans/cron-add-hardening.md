@@ -61,3 +61,4 @@ Voir [Cron jobs](/automation/cron-jobs) pour la forme normalisée et des exemple
 
 - `cron.add` devrait-il accepter un `state` explicite de la part des clients (actuellement interdit par le schéma) ?
 - Devrait-on autoriser `webchat` comme fournisseur de livraison explicite (actuellement filtré lors de la résolution de livraison) ?
+

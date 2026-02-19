@@ -21,3 +21,4 @@ title: "dns"
 openclaw dns setup
 openclaw dns setup --apply
 ```
+

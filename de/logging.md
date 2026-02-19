@@ -350,3 +350,4 @@ Warteschlangen + Sitzungen:
 - **Protokolle leer?** Prüfen Sie, dass das Gateway läuft und in den Dateipfad
   aus `logging.file` schreibt.
 - **Mehr Details nötig?** Setzen Sie `logging.level` auf `debug` oder `trace` und versuchen Sie es erneut.
+

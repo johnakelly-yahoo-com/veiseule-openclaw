@@ -48,3 +48,4 @@ title: "WebChat"
 - `gateway.auth.mode: "trusted-proxy"`: การยืนยันตัวตนผ่าน reverse-proxy สำหรับไคลเอนต์เบราว์เซอร์ (ดู [Trusted Proxy Auth](/gateway/trusted-proxy-auth)).
 - `gateway.remote.url`, `gateway.remote.token`, `gateway.remote.password`: เป้าหมายGatewayระยะไกล
 - `session.*`: ที่เก็บเซสชันและค่าเริ่มต้นของคีย์หลัก
+

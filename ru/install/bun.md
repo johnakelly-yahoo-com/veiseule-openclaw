@@ -57,3 +57,4 @@ bun pm trust @whiskeysockets/baileys protobufjs
 ## Пещеры
 
 - Некоторые скрипты по-прежнему жёстко завязаны на pnpm (например, `docs:build`, `ui:*`, `protocol:check`). Пока запускайте их через pnpm.
+

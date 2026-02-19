@@ -48,3 +48,4 @@ Relaterade globala alternativ:
 - `gateway.remote.url`, `gateway.remote.token`, `gateway.remote.password`: fjärr gateway-mål.
 - `session.*`: sessionslagring och standardvärden för huvudnyckel.
 - `session.*`: sessionslagring och standardvärden för huvudnyckel.
+

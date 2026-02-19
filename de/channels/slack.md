@@ -493,3 +493,4 @@ Priorität:
 - Für den Triage-Ablauf: [/channels/troubleshooting](/channels/troubleshooting).
 - [Configuration](/gateway/configuration)
 - Vollständige Command-Liste + Konfiguration: [Slash commands](/tools/slash-commands)
+

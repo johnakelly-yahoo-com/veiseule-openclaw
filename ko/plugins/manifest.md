@@ -69,3 +69,4 @@ OpenClaw 는 이 매니페스트를 사용하여 플러그인 코드를 **실행
 - 플러그인이 네이티브 모듈에 의존하는 경우, 빌드 단계와 패키지 매니저 허용 목록
   요구 사항을 문서화하십시오(예: pnpm `allow-build-scripts`
   - `pnpm rebuild <package>`).
+

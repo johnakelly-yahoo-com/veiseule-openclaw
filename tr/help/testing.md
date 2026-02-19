@@ -379,3 +379,4 @@ Canlıda keşfedilen bir sağlayıcı/model sorununu düzelttiğinizde:
 - Hatayı yakalayan en küçük katmanı hedeflemeyi tercih edin:
   - sağlayıcı istek dönüştürme/yeniden oynatma hatası → doğrudan modeller testi
   - gateway oturum/geçmiş/araç hattı hatası → gateway canlı duman testi veya CI-güvenli gateway mock testi
+

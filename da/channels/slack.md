@@ -538,3 +538,4 @@ Slack-værktøjshandlinger kan gates med `channels.slack.actions.*`:
   (`chat:write`, `reactions:write`, `pins:write`, `files:write`), ellers vil disse handlinger fejle.
 - [Configuration](/gateway/configuration)
 - [Slash commands](/tools/slash-commands)
+

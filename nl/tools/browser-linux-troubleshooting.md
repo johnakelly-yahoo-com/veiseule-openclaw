@@ -137,3 +137,4 @@ Notities:
 
 - Het profiel `chrome` gebruikt waar mogelijk je **standaard Chromium-systeembrowser**.
 - Lokale profielen `openclaw` wijzen automatisch `cdpPort`/`cdpUrl` toe; stel die alleen in voor externe CDP.
+

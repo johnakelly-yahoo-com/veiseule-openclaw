@@ -43,3 +43,4 @@ Notas:
 - `memory status --deep --index` executa uma reindexação se o armazenamento estiver sujo.
 - `memory index --verbose` imprime detalhes por fase (provedor, modelo, fontes, atividade em lote).
 - `memory status` inclui quaisquer caminhos extras configurados via `memorySearch.extraPaths`.
+

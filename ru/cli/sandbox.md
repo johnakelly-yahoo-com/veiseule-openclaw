@@ -149,3 +149,4 @@ openclaw sandbox recreate --agent alfred
 - [Документация по Sandbox](/gateway/sandboxing)
 - [Конфигурация агента](/concepts/agent-workspace)
 - [Команда Doctor](/gateway/doctor) — проверка настройки Sandbox
+

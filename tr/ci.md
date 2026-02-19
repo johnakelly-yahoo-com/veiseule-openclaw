@@ -49,3 +49,4 @@ pnpm test           # vitest testleri
 pnpm check:docs     # doküman formatı + lint + bozuk bağlantılar
 pnpm release:check  # npm pack doğrulama
 ```
+

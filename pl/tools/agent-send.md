@@ -51,3 +51,4 @@ openclaw agent --agent ops --message "Generate report" --deliver --reply-channel
 - `--verbose <on|full|off>`: utrwal poziom trybu gadatliwego
 - `--timeout <seconds>`: nadpisanie limitu czasu agenta
 - `--json`: wyjście w ustrukturyzowanym JSON
+

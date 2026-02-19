@@ -108,3 +108,4 @@ quadlet فائل یہاں موجود ہوتی ہے: `~openclaw/.config/container
 ## اختیاری: اپنے ذاتی صارف کے طور پر چلائیں
 
 gateway کو اپنے عام صارف کے طور پر چلانے کے لیے (الگ openclaw صارف کے بغیر): image بنائیں، `~/.openclaw/.env` میں `OPENCLAW_GATEWAY_TOKEN` بنائیں، اور container کو `--userns=keep-id` اور اپنے `~/.openclaw` پر mounts کے ساتھ چلائیں۔ لانچ اسکرپٹ openclaw-user فلو کے لیے ڈیزائن کیا گیا ہے؛ سنگل یوزر سیٹ اپ کے لیے آپ اسکرپٹ میں موجود `podman run` کمانڈ کو دستی طور پر چلا سکتے ہیں اور config اور workspace کو اپنے ہوم ڈائریکٹری کی طرف پوائنٹ کر سکتے ہیں۔ زیادہ تر صارفین کے لیے تجویز: `setup-podman.sh` استعمال کریں اور openclaw یوزر کے طور پر چلائیں تاکہ config اور پروسیس الگ تھلگ رہیں۔
+

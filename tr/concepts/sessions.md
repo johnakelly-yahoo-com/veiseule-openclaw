@@ -8,3 +8,4 @@ title: "Sessions"
 # Sessions
 
 Kanonik oturum yönetimi belgeleri [Oturum yönetimi](/concepts/session) sayfasında yer alır.
+

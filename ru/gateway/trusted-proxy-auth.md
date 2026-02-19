@@ -265,3 +265,4 @@ location / {
 - [Configuration](/gateway/configuration) — справочник по конфигурации
 - [Remote Access](/gateway/remote) — другие варианты удалённого доступа
 - [Tailscale](/gateway/tailscale) — более простой вариант для доступа только внутри tailnet
+

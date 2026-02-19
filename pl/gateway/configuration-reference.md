@@ -2362,3 +2362,4 @@ Podziel konfigurację na wiele plików:
 ---
 
 _Powiązane: [Konfiguracja](/gateway/configuration) · [Przykłady konfiguracji](/gateway/configuration-examples) · [Doctor](/gateway/doctor)_
+

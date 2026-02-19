@@ -141,3 +141,4 @@ saknas, reerun `claude setup-token` och klistra in token igen.
 
 - Claude Max‑ eller Pro‑prenumeration (för `claude setup-token`)
 - Claude Code CLI installerad (kommandot `claude` tillgängligt)
+

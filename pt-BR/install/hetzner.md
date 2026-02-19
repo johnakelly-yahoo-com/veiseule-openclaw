@@ -350,3 +350,4 @@ Para equipes que preferem fluxos de trabalho de infraestrutura como código, uma
 Essa abordagem complementa a configuração Docker acima com implantações reproduzíveis, infraestrutura versionada e recuperação automatizada de desastres.
 
 > **Observação:** Mantido pela comunidade. Para problemas ou contribuições, consulte os links dos repositórios acima.
+

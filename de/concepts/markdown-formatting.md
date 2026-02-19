@@ -120,3 +120,4 @@ SPOILER-Stilbereiche abgebildet werden. Andere Kanäle behandeln sie als Klartex
 - Signal-Stilbereiche hängen von UTF-16-Offets ab; verwenden Sie keine Codepoint-Offets.
 - Behalten Sie abschließende Zeilenumbrüche für eingefasste Codeblöcke bei, damit schließende Marker
   in einer eigenen Zeile landen.
+

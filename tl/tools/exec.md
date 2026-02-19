@@ -179,3 +179,4 @@ Mga tala:
 - Nalalapat pa rin ang tool policy; implicit na pinapayagan ng `allow: ["exec"]` ang `apply_patch`.
 - Ang config ay nasa ilalim ng `tools.exec.applyPatch`.
 - Ang `tools.exec.applyPatch.workspaceOnly` ay naka-default sa `true` (nasa loob lamang ng workspace). Itakda ito sa `false` lamang kung sadyang nais mong pahintulutan ang `apply_patch` na magsulat/magbura sa labas ng workspace directory.
+

@@ -366,3 +366,4 @@ pozostawienie tej opcji wyłączonej w czatach grupowych.
 
 Heartbeat uruchamia pełne tury agenta. Krótsze interwały spalają więcej tokenów. Utrzymuj `HEARTBEAT.md` na niskim poziomie i rozważ tańszy `model` lub `target: "none"`,
 jeśli chcesz wyłącznie wewnętrzne aktualizacje stanu.
+

@@ -496,3 +496,4 @@ Aracının dosya işlemleri için kullandığı **tek küresel çalışma alanı
 ---
 
 **Yapılandırmaya yeni misiniz?** Ayrıntılı açıklamalarla eksiksiz örnekler için [Configuration Examples](/gateway/configuration-examples) kılavuzuna göz atın!
+

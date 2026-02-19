@@ -98,3 +98,4 @@ Araç kullanılabilirliğini etkileyen diğer yapılandırma ayarları:
 - İzin listelerinde kullanılan eklenti kimlikleri, çekirdek araç adlarıyla çakışmamalıdır.
 - Yan etkileri tetikleyen veya ek ikili dosyalar/kimlik bilgileri gerektiren araçlar için
   `optional: true` tercih edilmelidir.
+

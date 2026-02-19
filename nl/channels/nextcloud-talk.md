@@ -139,3 +139,4 @@ Provider-opties:
 - `channels.nextcloud-talk.blockStreaming`: blokstreaming uitschakelen voor dit kanaal.
 - `channels.nextcloud-talk.blockStreamingCoalesce`: afstemming voor het samenvoegen van blokstreaming.
 - `channels.nextcloud-talk.mediaMaxMb`: limiet voor inkomende media (MB).
+

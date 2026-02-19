@@ -109,3 +109,4 @@ openclaw agents add <name>
 - نظرة عامة على الإعداد: [Onboarding Overview](/start/onboarding-overview)
 - التهيئة الأولية لتطبيق macOS: [التهيئة الأولية](/start/onboarding)
 - طقس التشغيل الأول للوكيل: [تهيئة الوكيل الأولية](/start/bootstrapping)
+

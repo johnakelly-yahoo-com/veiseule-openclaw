@@ -185,3 +185,4 @@ beskedforudindstillinger:
   og at gatewayen er tilgængelig fra LINE.
 - **Fejl ved mediedownload:** hæv `channels.line.mediaMaxMb`, hvis medier overstiger
   standardgrænsen.
+

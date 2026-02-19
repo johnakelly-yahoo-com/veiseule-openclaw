@@ -90,3 +90,4 @@ Otros ajustes de configuración que afectan la disponibilidad de herramientas:
 - Los nombres de las herramientas **no** deben entrar en conflicto con los nombres de las herramientas del núcleo; las herramientas en conflicto se omiten.
 - Los ids de plugins usados en listas de permitidos no deben entrar en conflicto con los nombres de las herramientas del núcleo.
 - Prefiera `optional: true` para herramientas que desencadenan efectos secundarios o requieren binarios/credenciales adicionales.
+

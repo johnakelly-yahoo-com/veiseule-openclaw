@@ -160,3 +160,4 @@ servicio de usuario (no requiere lingering). Consulte [Gateway runbook](/gateway
 - [Discord](/channels/discord) y [Telegram](/channels/telegram) (etiquetas de respuesta + configuraciones de replyToMode)
 - [Configuración del asistente de OpenClaw](/start/openclaw)
 - [macOS app](/platforms/macos) (ciclo de vida del gateway)
+

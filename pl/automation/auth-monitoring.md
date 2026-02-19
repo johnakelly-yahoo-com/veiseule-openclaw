@@ -42,3 +42,4 @@ hosta gateway (hosta bramy) i są dostrojone pod systemd + Termux.
 - `scripts/termux-sync-widget.sh`: synchronizacja poświadczeń Claude Code → OpenClaw.
 
 Jeśli nie potrzebujesz automatyzacji na telefonie ani timerów systemd, pomiń te skrypty.
+

@@ -127,3 +127,4 @@ Kort version: **behold Gateway loopback-only**, medmindre du er sikker på, at d
 - Behandl browserkontrol som operatøradgang: kun tailnet + bevidst node-parring.
 
 Dybdegående gennemgang: [Sikkerhed](/gateway/security).
+

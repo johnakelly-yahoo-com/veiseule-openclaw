@@ -145,3 +145,4 @@ Siehe [Gateway‑Konfiguration](/gateway/configuration) für:
 - `agents.defaults.imageModel`‑Routing
 
 Siehe [Modelle](/concepts/models) für den umfassenderen Überblick zur Modellauswahl und zu Fallbacks.
+

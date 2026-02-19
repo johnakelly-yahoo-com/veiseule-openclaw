@@ -57,3 +57,4 @@ bun pm trust @whiskeysockets/baileys protobufjs
 ## Cañadas
 
 - Algunos scripts aún codifican pnpm (p. ej., `docs:build`, `ui:*`, `protocol:check`). Ejecútelos mediante pnpm por ahora.
+

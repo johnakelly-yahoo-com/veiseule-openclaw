@@ -284,3 +284,4 @@ WhatsApp 자격 증명은 `~/.openclaw/credentials/whatsapp/<accountId>/` 아래
 - 설정 레퍼런스: [Gateway configuration](/gateway/configuration)
 - 프로바이더: [WhatsApp](/channels/whatsapp), [Telegram](/channels/telegram), [Discord](/channels/discord), [Google Chat](/channels/googlechat), [Signal](/channels/signal), [BlueBubbles](/channels/bluebubbles) (iMessage), [iMessage](/channels/imessage) (레거시)
 - Skills: [Skills](/tools/skills), [Skills config](/tools/skills-config)
+

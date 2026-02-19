@@ -89,3 +89,4 @@ Dla zdalnych gatewayów (bram) możesz także użyć `openclaw logs --follow` (z
 - Jeśli `logging.level` jest ustawione wyżej niż `warn`, te logi mogą być tłumione. Domyślne `info` jest odpowiednie.
 - Flagi są bezpieczne do pozostawienia włączone; wpływają jedynie na wolumen logów dla konkretnego podsystemu.
 - Użyj [/logging](/logging), aby zmienić miejsca docelowe logów, poziomy oraz redakcję.
+

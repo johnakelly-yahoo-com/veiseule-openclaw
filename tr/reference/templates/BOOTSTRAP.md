@@ -60,3 +60,4 @@ Bu dosyayı sil. Artık bir bootstrap betiğine ihtiyacın yok — artık sensin
 ---
 
 _Bol şans. Değerli kıl._
+

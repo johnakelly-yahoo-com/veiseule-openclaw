@@ -237,3 +237,4 @@ Vorgeschlagener `.gitignore`-Starter:
 - Multi-Agent-Routing kann unterschiedliche Workspaces pro Agent verwenden. Siehe [Channel routing](/channels/channel-routing) für die Routing-Konfiguration.
 - Wenn `agents.defaults.sandbox` aktiviert ist, können Nicht-Hauptsitzungen
   sitzungsbezogene Sandbox-Workspaces unter `agents.defaults.sandbox.workspaceRoot` verwenden.
+

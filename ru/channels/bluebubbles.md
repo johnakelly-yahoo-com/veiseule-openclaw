@@ -346,3 +346,4 @@ OpenClaw может возвращать _короткие_ идентифика
 - Для информации о статусе/здоровье: `openclaw status --all` или `openclaw status --deep`.
 
 Для общего обзора рабочего процесса каналов см. [Channels](/channels) и руководство [Plugins](/tools/plugin).
+

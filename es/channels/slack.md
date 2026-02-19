@@ -491,3 +491,4 @@ Referencia principal:
 - Para el flujo de triaje: [/channels/troubleshooting](/channels/troubleshooting).
 - Configuración (modo HTTP)
 - Lista completa de comandos + configuración: [Slash commands](/tools/slash-commands)
+

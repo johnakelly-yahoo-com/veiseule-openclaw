@@ -179,3 +179,4 @@ Hinweise:
 - Tool-Richtlinien gelten weiterhin; `allow: ["exec"]` erlaubt implizit `apply_patch`.
 - Die Konfiguration befindet sich unter `tools.exec.applyPatch`.
 - `tools.exec.applyPatch.workspaceOnly` ist standardmäßig auf `true` gesetzt (auf den Workspace beschränkt). Setzen Sie es nur auf `false`, wenn Sie ausdrücklich möchten, dass `apply_patch` außerhalb des Workspace-Verzeichnisses schreibt/löscht.
+

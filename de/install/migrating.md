@@ -190,3 +190,4 @@ Bestätigen Sie auf der neuen Maschine:
 - [Doctor](/gateway/doctor)
 - [Gateway-Fehlerbehebung](/gateway/troubleshooting)
 - [Wo speichert OpenClaw seine Daten?](/help/faq#where-does-openclaw-store-its-data)
+

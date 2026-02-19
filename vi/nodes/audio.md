@@ -131,3 +131,4 @@ Khi `requireMention: true` được thiết lập cho một cuộc trò chuyện
 - Đảm bảo CLI của bạn thoát với mã 0 và in văn bản thuần; JSON cần được xử lý lại qua `jq -r .text`.
 - Giữ thời gian chờ ở mức hợp lý (`timeoutSeconds`, mặc định 60s) để tránh chặn hàng đợi phản hồi.
 - Phiên âm preflight chỉ xử lý **tệp âm thanh đầu tiên** để phát hiện đề cập. Các tệp âm thanh bổ sung sẽ được xử lý trong giai đoạn hiểu phương tiện chính.
+

@@ -207,3 +207,4 @@ curl -X POST http://127.0.0.1:18789/hooks/gmail \
 - Tránh đưa payload thô nhạy cảm vào log webhook.
 - 20. Payload hook được xem là không đáng tin cậy và mặc định được bọc trong các ranh giới an toàn.
   21. Nếu bạn buộc phải tắt điều này cho một hook cụ thể, hãy đặt `allowUnsafeExternalContent: true` trong mapping của hook đó (nguy hiểm).
+

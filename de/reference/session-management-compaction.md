@@ -281,3 +281,4 @@ Flush-Logik befindet sich heute auf der Gateway-Seite.
   - Kompaktierungseinstellungen (`reserveTokens` zu hoch für das Modellfenster kann frühere Kompaktierung verursachen)
   - Tool-Result-Aufblähung: Session-Pruning aktivieren/feinjustieren
 - Stille Turns lecken? Bestätigen Sie, dass die Antwort mit `NO_REPLY` (exaktes Token) beginnt und Sie eine Build-Version mit dem Streaming-Unterdrückungs-Fix verwenden.
+

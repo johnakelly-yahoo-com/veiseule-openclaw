@@ -105,3 +105,4 @@ Gateway 가 브라우저와 다른 머신에서 실행되는 경우, Chrome/Brav
 자동 라우팅을 제어하려면 `gateway.nodes.browser.mode` 를 사용하고, 여러 노드가 연결된 경우 특정 노드를 고정하려면 `gateway.nodes.browser.node` 를 사용하십시오.
 
 보안 + 원격 설정: [Browser tool](/tools/browser), [Remote access](/gateway/remote), [Tailscale](/gateway/tailscale), [Security](/gateway/security)
+

@@ -136,3 +136,4 @@ Mattermost prend en charge plusieurs comptes sous `channels.mattermost.accounts`
 - Aucune reponse dans les canaux : assurez-vous que le bot est dans le canal et mentionnez-le (oncall), utilisez un prefixe de declenchement (onchar) ou definissez `chatmode: "onmessage"`.
 - Erreurs d’authentification : verifiez le jeton du bot, l’URL de base et que le compte est active.
 - Problemes multi-comptes : les variables d'environnement s’appliquent uniquement au compte `default`.
+

@@ -146,3 +146,4 @@ launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.claude-max-api.plist
 
 - [Anthropic プロバイダー](/providers/anthropic) - setup-token または API キーを用いた Claude のネイティブ OpenClaw 統合
 - [OpenAI プロバイダー](/providers/openai) - OpenAI/Codex サブスクリプション向け
+

@@ -484,3 +484,4 @@ Med den anbefalede konfiguration (`shared-cpu-2x`, 2GB RAM):
 - Free tier inkluderer noget forbrug
 
 Se [Fly.io-priser](https://fly.io/docs/about/pricing/) for detaljer.
+

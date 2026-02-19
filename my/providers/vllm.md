@@ -90,3 +90,4 @@ curl http://127.0.0.1:8000/v1/models
 ```
 
 - request များတွင် auth error ဖြစ်ပါက၊ သင့် server configuration နှင့် ကိုက်ညီသော အမှန်တကယ် `VLLM_API_KEY` ကို သတ်မှတ်ပါ၊ သို့မဟုတ် `models.providers.vllm` အောက်တွင် provider ကို တိတိကျကျ configure လုပ်ပါ။
+

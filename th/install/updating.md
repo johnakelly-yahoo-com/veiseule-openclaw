@@ -230,3 +230,4 @@ git pull
 - รัน `openclaw doctor` อีกครั้งและอ่านเอาต์พุตอย่างละเอียด(มักบอกวิธีแก้)
 - ตรวจดู: [การแก้ไขปัญหา](/gateway/troubleshooting)
 - ถามใน Discord: [https://discord.gg/clawd](https://discord.gg/clawd)
+

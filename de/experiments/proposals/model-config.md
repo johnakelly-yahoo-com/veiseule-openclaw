@@ -34,3 +34,4 @@ Betreiber wünschen sich:
 - Sollte die Profilrotation pro Anbieter oder pro Modell erfolgen?
 - Wie sollte die UI die Profilauswahl für eine Sitzung darstellen?
 - Was ist der sicherste Migrationspfad von Legacy-Konfigurationsschlüsseln?
+

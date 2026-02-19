@@ -71,3 +71,4 @@ Cờ:
 - `--raw <command>`: chạy một chuỗi shell (`/bin/sh -lc` hoặc `cmd.exe /c`).
 - `--agent <id>`: phê duyệt/danh sách cho phép theo phạm vi tác tử (mặc định là tác tử đã cấu hình).
 - `--ask <off|on-miss|always>`, `--security <deny|allowlist|full>`: ghi đè.
+

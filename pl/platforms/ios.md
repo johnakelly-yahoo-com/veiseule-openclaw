@@ -106,3 +106,4 @@ openclaw nodes invoke --node "iOS Node" --command canvas.snapshot --params '{"ma
 - [Parowanie](/gateway/pairing)
 - [Wykrywanie](/gateway/discovery)
 - [Bonjour](/gateway/bonjour)
+

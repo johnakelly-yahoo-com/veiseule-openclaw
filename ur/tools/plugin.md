@@ -666,3 +666,4 @@ it’s present in your workspace/managed skills locations.
 
 - ریپو کے اندر موجود پلگ اِنز Vitest ٹیسٹس `src/**` کے تحت رکھ سکتے ہیں (مثال: `src/plugins/voice-call.plugin.test.ts`)۔
 - علیحدہ شائع شدہ پلگ اِنز کو اپنی CI (lint/build/test) چلانی چاہیے اور یہ توثیق کرنی چاہیے کہ `openclaw.extensions` بلٹ انٹری پوائنٹ (`dist/index.js`) کی طرف اشارہ کرتا ہے۔
+

@@ -2362,3 +2362,4 @@ Diviser la configuration en plusieurs fichiers:
 ---
 
 _Voir aussi : [Configuration](/gateway/configuration) · [Exemples de configuration](/gateway/configuration-examples) · [Doctor](/gateway/doctor)_
+

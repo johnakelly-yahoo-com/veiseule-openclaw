@@ -126,3 +126,4 @@ pakkedokument) og også noterer det offentlige filspejl, source repo, community 
 ClawHub ([https://clawhub.com](https://clawhub. om)) for færdigheder opdagelse. Opfordringen instruerer modellen til at konsultere lokale docs første
 for OpenClaw adfærd, kommandoer, konfiguration, eller arkitektur, og at køre
 'openclaw status' selv, når det er muligt (spørger kun brugeren når det mangler adgang).
+

@@ -216,3 +216,4 @@ Sub-agentlar alohida in-process queue lane’dan foydalanadi:
 - Sub-agent konteksti faqat `AGENTS.md` + `TOOLS.md` ni qo‘shadi (`SOUL.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md` yoki `BOOTSTRAP.md` yo‘q).
 - Maksimal ichki joylashish chuqurligi 5 (`maxSpawnDepth` oralig‘i: 1–5). Ko‘pchilik holatlar uchun 2-daraja tavsiya etiladi.
 - `maxChildrenPerAgent` har bir sessiya uchun faol childlar sonini cheklaydi (standart: 5, diapazon: 1–20).
+

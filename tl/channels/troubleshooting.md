@@ -115,3 +115,4 @@ Buong pag-troubleshoot: [/channels/signal#troubleshooting](/channels/signal#trou
 | Pumapalya ang mga encrypted room                      | I-verify ang crypto module at mga setting ng encryption | I-enable ang suporta sa encryption at muling sumali/mag-sync sa room. |
 
 Buong pag-troubleshoot: [/channels/matrix#troubleshooting](/channels/matrix#troubleshooting)
+

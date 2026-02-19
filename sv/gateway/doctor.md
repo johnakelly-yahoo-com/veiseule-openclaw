@@ -278,3 +278,4 @@ om arbetsytan inte redan ligger under git.
 
 Se [/concepts/agent-workspace](/concepts/agent-workspace) för en fullständig guide till
 arbetsytestruktur och git-backup (rekommenderat privat GitHub eller GitLab).
+

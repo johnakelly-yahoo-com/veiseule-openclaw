@@ -138,3 +138,4 @@ falta, vuelva a ejecutar `claude setup-token` y pegue el token nuevamente.
 
 - Suscripción Claude Max o Pro (para `claude setup-token`)
 - Claude Code CLI instalada (comando `claude` disponible)
+

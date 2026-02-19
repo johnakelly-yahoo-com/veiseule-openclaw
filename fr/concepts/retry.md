@@ -67,3 +67,4 @@ Définissez la politique de réessai par fournisseur dans `~/.openclaw/openclaw.
 
 - Les réessais s’appliquent par requête (envoi de message, téléversement de média, réaction, sondage, autocollant).
 - Les flux composites ne réessaient pas les étapes déjà terminées.
+

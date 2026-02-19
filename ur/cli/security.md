@@ -26,3 +26,4 @@ openclaw security audit --fix
 11. یہ اس وقت بھی خبردار کرتا ہے جب چھوٹے ماڈلز (`<=300B`) سینڈ باکسنگ کے بغیر اور ویب/براؤزر ٹولز فعال ہونے کے ساتھ استعمال کیے جائیں۔
     webhook ingress کے لیے، یہ اس وقت وارننگ دیتا ہے جب `hooks.defaultSessionKey` سیٹ نہ ہو، جب درخواست کے `sessionKey` اووررائیڈز فعال ہوں، اور جب اووررائیڈز `hooks.allowedSessionKeyPrefixes` کے بغیر فعال ہوں۔
     یہ اس وقت بھی وارننگ دیتا ہے جب sandbox Docker سیٹنگز کنفیگر ہوں لیکن sandbox موڈ بند ہو، جب `gateway.nodes.denyCommands` غیر مؤثر pattern جیسے/نامعلوم اندراجات استعمال کرے، جب گلوبل `tools.profile="minimal"` کو agent tool پروفائلز اووررائیڈ کریں، اور جب انسٹال شدہ extension plugin tools نرم tool پالیسی کے تحت قابل رسائی ہو سکتے ہوں۔
+

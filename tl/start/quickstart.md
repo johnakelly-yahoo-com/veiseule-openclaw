@@ -22,3 +22,4 @@ Ang Mabilis na pagsisimula ay bahagi na ngayon ng [Pagsisimula](/start/getting-s
   
 </Card>
 </Columns>
+

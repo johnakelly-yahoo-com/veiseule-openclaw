@@ -144,3 +144,4 @@ Zobacz [Plugins](/tools/plugin#plugin-hooks) w celu zapoznania się z API hookó
 - AbortSignal (anulowanie)
 - Rozłączenie gateway lub timeout RPC
 - Limit czasu `agent.wait` (tylko oczekiwanie, nie zatrzymuje agenta)
+

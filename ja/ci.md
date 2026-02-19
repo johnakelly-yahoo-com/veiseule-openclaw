@@ -49,3 +49,4 @@ pnpm test           # vitest テスト
 pnpm check:docs     # ドキュメントのフォーマット + lint + リンク切れチェック
 pnpm release:check  # npm pack の検証
 ```
+

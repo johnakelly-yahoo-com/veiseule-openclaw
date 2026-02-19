@@ -134,3 +134,4 @@ Afsona:
 
 - `preview message`: generatsiya davomida yangilanadigan vaqtinchalik Telegram xabari.
 - `final edit`: o‘sha preview xabarida joyida tahrirlash (faqat matn).
+

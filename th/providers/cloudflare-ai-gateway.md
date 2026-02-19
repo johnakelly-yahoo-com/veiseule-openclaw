@@ -69,3 +69,4 @@ openclaw onboard --non-interactive \
 ## หมายเหตุด้านสภาพแวดล้อม
 
 หากGatewayทำงานเป็นdaemon(launchd/systemd)ให้ตรวจสอบว่า`CLOUDFLARE_AI_GATEWAY_API_KEY`พร้อมใช้งานสำหรับโปรเซสนั้น(ตัวอย่างเช่นใน`~/.openclaw/.env`หรือผ่าน`env.shellEnv`)
+

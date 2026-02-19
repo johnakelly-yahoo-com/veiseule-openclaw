@@ -866,3 +866,4 @@ Telegram کے لیے مخصوص ہائی سگنل فیلڈز:
 - `[[audio_as_voice]]` — آڈیو کو فائل کے بجائے وائس نوٹ کے طور پر بھیجیں۔
 - [Channel routing](/channels/channel-routing)
 - [Troubleshooting](/channels/troubleshooting)
+

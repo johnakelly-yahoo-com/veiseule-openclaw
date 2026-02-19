@@ -484,3 +484,4 @@ Các trường WhatsApp quan trọng:
 - [Pairing](/channels/pairing)
 - [Channel routing](/channels/channel-routing)
 - [Troubleshooting](/channels/troubleshooting)
+

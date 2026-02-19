@@ -32,3 +32,4 @@ title: "स्वास्थ्य जाँच"
 ## संदेह होने पर
 
 - आप अभी भी [Gateway health](/gateway/health) (`openclaw status`, `openclaw status --deep`, `openclaw health --json`) में CLI फ़्लो का उपयोग कर सकते हैं और `web-heartbeat` / `web-reconnect` के लिए `/tmp/openclaw/openclaw-*.log` को टेल कर सकते हैं।
+

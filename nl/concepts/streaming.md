@@ -133,3 +133,4 @@ Legenda:
 
 - `preview message`: tijdelijk Telegram-bericht dat tijdens het genereren wordt bijgewerkt.
 - `final edit`: bewerking ter plekke van hetzelfde previewbericht (alleen tekst).
+

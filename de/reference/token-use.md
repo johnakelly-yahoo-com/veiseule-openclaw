@@ -112,3 +112,4 @@ agents:
 - Bevorzugen Sie kleinere Modelle für ausführliche, explorative Arbeit.
 
 Siehe [Skills](/tools/skills) für die exakte Formel zum Overhead der Skill‑Liste.
+

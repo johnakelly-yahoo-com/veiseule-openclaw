@@ -188,3 +188,4 @@ It is a good fit for support or notifications where you want deterministic routi
 - `channels.zalo.accounts.<id>.webhookSecret`：每账户 webhook secret。
 - `channels.zalo.accounts.<id>.webhookPath`：每账户 webhook 路径。
 - `channels.zalo.accounts.<id>.proxy`：每账户代理 URL。
+

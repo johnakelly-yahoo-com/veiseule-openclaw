@@ -283,3 +283,4 @@ Detta repo levererar ett matchande Skills‑dokument på `skills/voice-call/SKIL
 - `voicecall.speak` (`callId`, `message`)
 - `voicecall.end` (`callId`)
 - `voicecall.status` (`callId`)
+

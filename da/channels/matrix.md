@@ -305,3 +305,4 @@ Udbyderindstillinger:
 - `channels.matrix.autoJoinAllowlist`: tilladte rum-id’er/aliaser for auto-tilslutning.
 - `channels.matrix.accounts`: multi-konto-konfiguration indekseret efter konto-ID (hver konto arver overordnede indstillinger).
 - `channels.matrix.actions`: per-handling værktøjs-gating (reaktioner/beskeder/pins/memberInfo/channelInfo).
+

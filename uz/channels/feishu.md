@@ -591,3 +591,4 @@ Asosiy sozlamalar:
 - ✅ Fayllar
 - ✅ Audio
 - ⚠️ Boy matn (qisman qo‘llab-quvvatlanadi)
+

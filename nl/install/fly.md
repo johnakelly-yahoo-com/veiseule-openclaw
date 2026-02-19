@@ -484,3 +484,4 @@ Met de aanbevolen config (`shared-cpu-2x`, 2GB RAM):
 - De gratis tier bevat enige tegoeden
 
 Zie [Fly.io-prijzen](https://fly.io/docs/about/pricing/) voor details.
+

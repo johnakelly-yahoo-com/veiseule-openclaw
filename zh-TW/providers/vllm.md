@@ -90,3 +90,4 @@ curl http://127.0.0.1:8000/v1/models
 ```
 
 - 如果請求因驗證錯誤而失敗，請設定與您的伺服器設定相符的真實 `VLLM_API_KEY`，或在 `models.providers.vllm` 下明確設定 provider。
+

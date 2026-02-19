@@ -149,3 +149,4 @@ Tailnet (اختیاری): اگر دونوں ڈیوائسز Tailscale پر ہیں
 - `camera.clip` (mp4)
 
 پیرامیٹرز اور CLI ہیلپرز کے لیے [Camera node](/nodes/camera) دیکھیں۔
+

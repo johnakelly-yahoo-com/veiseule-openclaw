@@ -38,3 +38,4 @@ Odpowiedzi (kształt)
 ## Uwagi
 
 - Ten dokument jest jedynym miejscem do śledzenia refaktoryzacji protokołu dla onboardingu/konfiguracji.
+

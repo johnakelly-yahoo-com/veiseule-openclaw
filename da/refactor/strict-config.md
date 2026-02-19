@@ -91,3 +91,4 @@ Alt andet skal fejle hårdnakket med: “Config ugyldig. Kør `openclaw læge --
 - Plugin mangler skema → plugin-indlæsning blokeres med klar fejl.
 - Ugyldig konfiguration → gateway-opstart blokeres undtagen diagnostiske kommandoer.
 - Doctor dry-run automatisk; `doctor --fix` skriver korrigeret konfiguration.
+

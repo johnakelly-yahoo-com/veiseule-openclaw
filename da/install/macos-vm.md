@@ -279,3 +279,4 @@ For sand altid-on, overveje en dedikeret Mac mini eller en lille VPS. Se [VPS ho
 - [Lume CLI Reference](https://cua.ai/docs/lume/reference/cli-reference)
 - [Unattended VM Setup](https://cua.ai/docs/lume/guide/fundamentals/unattended-setup) (avanceret)
 - [Docker Sandboxing](/install/docker) (alternativ isolationsmetode)
+

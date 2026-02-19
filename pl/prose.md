@@ -132,3 +132,4 @@ Jeśli lista dozwolonych narzędzi blokuje te narzędzia, programy OpenProse zak
 Traktuj pliki `.prose` jak kod. Przeglądaj je przed uruchomieniem. Używaj list dozwolonych narzędzi OpenClaw oraz bramek zatwierdzeń, aby kontrolować skutki uboczne.
 
 Dla deterministycznych przepływów pracy z bramkami zatwierdzeń porównaj z [Lobster](/tools/lobster).
+

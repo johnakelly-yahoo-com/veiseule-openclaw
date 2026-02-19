@@ -27,3 +27,4 @@ setup 経由でウィザードを実行するには:
 ```bash
 openclaw setup --wizard
 ```
+

@@ -102,3 +102,4 @@ lsof -nP -iTCP:18789 -sTCP:LISTEN
 ```
 
 Kung may manu-manong run na humahawak sa port, ihinto ang prosesong iyon (Ctrl+C). Bilang huling hakbang, patayin ang PID na nahanap mo sa itaas.
+

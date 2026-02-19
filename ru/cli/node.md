@@ -110,3 +110,4 @@ openclaw nodes approve <requestId>
 - `~/.openclaw/exec-approvals.json`
 - [Подтверждения выполнения команд](/tools/exec-approvals)
 - `openclaw approvals --node <id|name|ip>` (редактирование через Gateway)
+

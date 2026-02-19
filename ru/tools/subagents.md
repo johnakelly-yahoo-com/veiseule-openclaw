@@ -209,3 +209,4 @@ By default, sub-agents get **all tools except** a set of denied tools that are u
 - Контекст суб-агента включает только `AGENTS.md` + `TOOLS.md` (без `SOUL.md`, `IDENTITY.md`, `USER.md`, `HEARTBEAT.md` или `BOOTSTRAP.md`).
 - Максимальная глубина вложенности — 5 (диапазон `maxSpawnDepth`: 1–5). Для большинства случаев рекомендуется глубина 2.
 - `maxChildrenPerAgent` ограничивает количество активных дочерних агентов на сессию (по умолчанию: 5, диапазон: 1–20).
+

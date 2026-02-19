@@ -78,3 +78,4 @@ Als er geen basis-URL is ingesteld, kiest OpenClaw een standaard op basis van de
 - `perplexity/sonar-reasoning-pro` — diepgaand onderzoek
 
 Zie [Web tools](/tools/web) voor de volledige web_search-configuratie.
+

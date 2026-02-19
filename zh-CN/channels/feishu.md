@@ -588,3 +588,4 @@ Use `bindings` to route Feishu DMs or groups to different agents.
 - ✅ 文件
 - ✅ 音频
 - ⚠️ 富文本（部分支持）
+

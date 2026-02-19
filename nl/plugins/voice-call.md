@@ -283,3 +283,4 @@ Deze repo levert een bijbehorend skill-document op `skills/voice-call/SKILL.md`.
 - `voicecall.speak` (`callId`, `message`)
 - `voicecall.end` (`callId`)
 - `voicecall.status` (`callId`)
+

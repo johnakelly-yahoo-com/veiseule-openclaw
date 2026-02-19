@@ -133,3 +133,4 @@ OpenProse 程序映射到 OpenClaw 原语：
 18. 将 `.prose` 文件视为代码来对待。 Review before running. 19. 使用 OpenClaw 工具白名单和审批门控来控制副作用。
 
 对于确定性的、批准门控的工作流，可与 [Lobster](/tools/lobster) 比较。
+

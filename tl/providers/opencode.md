@@ -34,3 +34,4 @@ openclaw onboard --opencode-zen-api-key "$OPENCODE_API_KEY"
 - Sinusuportahan din ang `OPENCODE_ZEN_API_KEY`.
 - Mag-sign in ka sa Zen, magdagdag ng mga detalye sa billing, at kopyahin ang iyong API key.
 - Naniningil ang OpenCode Zen kada request; tingnan ang OpenCode dashboard para sa mga detalye.
+

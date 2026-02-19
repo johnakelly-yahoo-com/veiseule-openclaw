@@ -47,3 +47,4 @@ Si necesitas un endpoint que no esté en la lista, incluidos proveedores alojado
 - Elegir un Endpoint ID para que puedan coexistir varios endpoints personalizados.
 
 Para ver los pasos detallados, sigue la documentación de onboarding de la CLI anterior.
+

@@ -105,3 +105,4 @@ Gateway tarayıcıdan farklı bir makinede çalışıyorsa, Chrome/Brave/Edge/Ch
 Otomatik yönlendirmeyi kontrol etmek için `gateway.nodes.browser.mode`’yi ve birden fazla node bağlıysa belirli bir node’u sabitlemek için `gateway.nodes.browser.node`’i kullanın.
 
 Güvenlik + uzaktan kurulum: [Browser tool](/tools/browser), [Remote access](/gateway/remote), [Tailscale](/gateway/tailscale), [Security](/gateway/security)
+

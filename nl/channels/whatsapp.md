@@ -406,3 +406,4 @@ Belangrijke WhatsApp-velden:
 - [Pairing](/channels/pairing)
 - [Channel routing](/channels/channel-routing)
 - Probleemoplossingsgids: [Gateway troubleshooting](/gateway/troubleshooting).
+

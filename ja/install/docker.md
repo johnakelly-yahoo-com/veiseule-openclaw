@@ -616,3 +616,4 @@ docker build -t my-openclaw-sbx -f Dockerfile.sandbox .
   `/etc/profile` を読み込むため PATH がリセットされる場合があります。`docker.env.PATH` を設定して
   カスタム ツールのパス（例：`/custom/bin:/usr/local/share/npm-global/bin`）を先頭に追加するか、
   Dockerfile 内で `/etc/profile.d/` 配下にスクリプトを追加してください。
+

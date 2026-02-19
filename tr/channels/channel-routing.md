@@ -112,3 +112,4 @@ Gelen yanıtlar şunları içerir:
 - Alıntılanan bağlam, `Body`’e `[Replying to ...]` bloğu olarak eklenir.
 
 Bu davranış kanallar arasında tutarlıdır.
+

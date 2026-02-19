@@ -377,3 +377,4 @@ als Ihnen lieb ist. Bevorzugen Sie, dies in Gruppenchats deaktiviert zu lassen.
 Heartbeats führen vollständige Agent-Turns aus. Kürzere Intervalle verbrauchen mehr
 Tokens. Halten Sie `HEARTBEAT.md` klein und erwägen Sie ein günstigeres
 `model` oder `target: "none"`, wenn Sie nur interne Zustandsaktualisierungen wünschen.
+

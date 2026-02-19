@@ -480,3 +480,4 @@ WhatsApp-felter med høj signalværdi:
 - [Pairing](/channels/pairing)
 - [Channel routing](/channels/channel-routing)
 - [Fejlfinding](/channels/troubleshooting)
+

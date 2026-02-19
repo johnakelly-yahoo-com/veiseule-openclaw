@@ -124,3 +124,4 @@ Iwasan ang Funnel para sa browser control; ituring ang node pairing na parang op
 - `tailscale serve` utos: [https://tailscale.com/kb/1242/tailscale-serve](https://tailscale.com/kb/1242/tailscale-serve)
 - Pangkalahatang-ideya ng Tailscale Funnel: [https://tailscale.com/kb/1223/tailscale-funnel](https://tailscale.com/kb/1223/tailscale-funnel)
 - `tailscale funnel` utos: [https://tailscale.com/kb/1311/tailscale-funnel](https://tailscale.com/kb/1311/tailscale-funnel)
+

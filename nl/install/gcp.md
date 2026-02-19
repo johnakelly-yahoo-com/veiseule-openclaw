@@ -502,3 +502,4 @@ Zie [https://cloud.google.com/iam/docs/understanding-roles](https://cloud.google
 - Messagingkanalen instellen: [Channels](/channels)
 - Lokale apparaten koppelen als nodes: [Nodes](/nodes)
 - De Gateway configureren: [Gateway configuration](/gateway/configuration)
+

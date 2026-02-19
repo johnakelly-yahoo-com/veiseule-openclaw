@@ -841,3 +841,4 @@ flowchart TB
 37. _"Ang seguridad ay isang proseso, hindi isang produkto. 38. Dagdag pa, huwag magtiwala sa mga lobster na may shell access."_ — Isang taong marunong, marahil
 
 🦞🔐
+

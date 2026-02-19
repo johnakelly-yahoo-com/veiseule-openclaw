@@ -69,3 +69,4 @@ Om du har aktiverat Gateway-autentisering i Cloudflare, lägg till rubriken `cf-
 ## Miljönotering
 
 Om Gateway körs som en daemon (launchd/systemd), se till att `CLOUDFLARE_AI_GATEWAY_API_KEY` är tillgänglig för den processen (till exempel i `~/.openclaw/.env` eller via `env.shellEnv`).
+

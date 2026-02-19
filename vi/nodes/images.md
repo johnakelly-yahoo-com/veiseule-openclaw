@@ -70,3 +70,4 @@ The WhatsApp channel runs via **Baileys Web**. This document captures the curren
 - Bao phủ luồng gửi + phản hồi cho các trường hợp hình ảnh/âm thanh/tài liệu.
 - Xác thực việc nén lại hình ảnh (giới hạn kích thước) và cờ voice-note cho âm thanh.
 - Đảm bảo phản hồi nhiều media được tách ra thành các lần gửi tuần tự.
+

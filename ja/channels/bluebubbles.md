@@ -346,3 +346,4 @@ OpenClaw は、トークン節約のために _短縮_ メッセージ ID（例:
 - ステータス／ヘルス情報: `openclaw status --all` または `openclaw status --deep`。
 
 一般的なチャンネルのワークフローについては、[Channels](/channels) および [Plugins](/tools/plugin) ガイドを参照してください。
+

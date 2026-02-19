@@ -203,3 +203,4 @@ title: "سلैش کمانڈز"
   - Telegram: `telegram:slash:<userId>` (`CommandTargetSessionKey` کے ذریعے چیٹ سیشن کو ہدف بناتا ہے)
 - **`/stop`** فعال چیٹ سیشن کو ہدف بناتا ہے تاکہ موجودہ رن کو منسوخ کیا جا سکے۔
 - **Slack:** `channels.slack.slashCommand` اب بھی ایک واحد `/openclaw` طرز کی کمانڈ کے لیے سپورٹڈ ہے۔ اگر آپ `commands.native` فعال کرتے ہیں، تو آپ کو ہر built-in کمانڈ کے لیے ایک Slack سلیش کمانڈ بنانی ہوگی (وہی نام جیسے `/help`)۔ Slack کے لیے کمانڈ آرگومنٹ مینیو ephemeral Block Kit بٹنوں کے طور پر فراہم کیے جاتے ہیں۔
+

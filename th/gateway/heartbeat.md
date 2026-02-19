@@ -376,3 +376,4 @@ off in group chats.
 Heartbeats run full agent turns. Shorter intervals burn more tokens. Heartbeatรันagent turnsเต็มรูปแบบ ช่วงเวลาที่สั้นลงจะใช้โทเคนมากขึ้น
 ทำให้ `HEARTBEAT.md` สั้น และพิจารณา `model` หรือ `target: "none"` ที่ถูกกว่า
 หากคุณต้องการเพียงการอัปเดตสถานะภายในเท่านั้น
+

@@ -205,3 +205,4 @@ workspace สามารถเขียนได้ การคอมแพค
   `GroupSubject`, `GroupChannel`, `GroupSpace`, and `SenderName` in the inbound
   context and calling `recordSessionMetaFromInbound` (or passing the same context
   to `updateLastRoute`).
+

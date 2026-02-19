@@ -35,3 +35,4 @@ openclaw onboard --auth-choice qianfan-api-key
 - [موفّرو النماذج](/concepts/model-providers)
 - [إعداد الوكيل](/concepts/agent)
 - [توثيق واجهة Qianfan البرمجية](https://cloud.baidu.com/doc/qianfan-api/s/3m7of64lb)
+

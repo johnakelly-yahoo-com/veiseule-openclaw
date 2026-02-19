@@ -331,3 +331,4 @@ Ghi chú:
 
 - Ứng dụng menubar macOS kết nối tới máy chủ WS của Gateway như một node (vì vậy `openclaw nodes …` hoạt động với máy Mac này).
 - Ở chế độ từ xa, ứng dụng mở một đường hầm SSH cho cổng Gateway và kết nối tới `localhost`.
+

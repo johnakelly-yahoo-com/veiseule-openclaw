@@ -57,3 +57,4 @@ bun pm trust @whiskeysockets/baileys protobufjs
 ## Opmerkingen
 
 - Sommige scripts zijn nog steeds hardcoded op pnpm (bijv. `docs:build`, `ui:*`, `protocol:check`). Voer die voorlopig via pnpm uit.
+

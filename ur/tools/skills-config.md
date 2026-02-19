@@ -74,3 +74,4 @@ Skills سے متعلق تمام کنفیگریشن `skills` کے تحت `~/.open
 - env کو اپنی کسٹم sandbox امیج میں بیک کریں
 
 گلوبل `env` اور `skills.entries.<skill>``.env/apiKey` صرف **ہوسٹ** رنز پر لاگو ہوتے ہیں۔
+

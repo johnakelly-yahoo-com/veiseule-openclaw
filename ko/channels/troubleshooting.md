@@ -115,3 +115,4 @@ openclaw channels status --probe
 | 암호화된 룸 실패          | 암호화 모듈 및 암호화 설정 확인                 | 암호화 지원을 활성화하고 룸에 재참여/동기화하십시오.    |
 
 전체 문제 해결: [/channels/matrix#troubleshooting](/channels/matrix#troubleshooting)
+

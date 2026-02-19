@@ -97,3 +97,4 @@ synthetic/hf:MiniMaxAI/MiniMax-M2.1
 - Если вы включаете список разрешённых моделей (`agents.defaults.models`), добавьте каждую модель,
   которую планируете использовать.
 - См. [Model providers](/concepts/model-providers) для правил провайдеров.
+

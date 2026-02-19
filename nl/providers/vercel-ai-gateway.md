@@ -48,3 +48,4 @@ openclaw onboard --non-interactive \
 Als de Gateway als daemon draait (launchd/systemd), zorg er dan voor dat `AI_GATEWAY_API_KEY`
 beschikbaar is voor dat proces (bijvoorbeeld in `~/.openclaw/.env` of via
 `env.shellEnv`).
+

@@ -96,3 +96,4 @@ apps/macos/Sources/OpenClaw/Resources/Info.plist
 - [nix-openclaw](https://github.com/openclaw/nix-openclaw) — полное руководство по настройке
 - [Мастер](/start/wizard) — настройка CLI без Nix
 - [Docker](/install/docker) — контейнерная настройка
+

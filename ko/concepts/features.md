@@ -57,3 +57,4 @@ title: "기능"
 레거시 Claude, Codex, Gemini, Opencode 경로는 제거되었습니다. Pi 가 유일한
 코딩 에이전트 경로입니다.
 </Note>
+

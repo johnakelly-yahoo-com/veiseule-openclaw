@@ -19,3 +19,4 @@ Noter:
 
 - `--verbose` kører live-prober og udskriver tidsmålinger pr. konto, når flere konti er konfigureret.
 - Output inkluderer sessionslagre pr. agent, når flere agenter er konfigureret.
+

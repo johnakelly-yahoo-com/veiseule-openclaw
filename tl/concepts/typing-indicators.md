@@ -66,3 +66,4 @@ Maaari mong i-override ang mode o cadence kada session:
 - Ang mga heartbeat ay hindi kailanman nagpapakita ng pagta-type, anuman ang mode.
 - `typingIntervalSeconds` controls the **refresh cadence**, not the start time.
   The default is 6 seconds.
+

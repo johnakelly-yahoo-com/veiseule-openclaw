@@ -159,3 +159,4 @@ Documentation : [Session](/concepts/session), [Compaction](/concepts/compactio
 - `System prompt (estimate)` = calcule a la volee lorsqu’aucun rapport d’execution n’existe (ou lors d’une execution via un backend CLI qui ne genere pas le rapport).
 
 Dans tous les cas, il rapporte les tailles et les principaux contributeurs ; il ne **deverse pas** l’invite systeme complete ni les schemas d’outils.
+

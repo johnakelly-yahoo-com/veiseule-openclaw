@@ -79,3 +79,4 @@ title: "Menubalk"
 - Start hoofd terwijl een andere actief is: pictogram schakelt direct naar hoofd.
 - Snelle toolbursts: zorg dat de badge niet flikkert (TTL-speling op toolresultaten).
 - Gezondheidsregel verschijnt opnieuw zodra alle sessies inactief zijn.
+

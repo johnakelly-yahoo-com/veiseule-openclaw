@@ -121,3 +121,4 @@ Pruning’ni muayyan tool’lar bilan cheklash:
 ```
 
 Config ma’lumotnomasini ko‘ring: [Gateway Configuration](/gateway/configuration)
+

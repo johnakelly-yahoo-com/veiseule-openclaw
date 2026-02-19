@@ -265,3 +265,4 @@ Om du går från token-autentisering till trusted-proxy:
 - [Configuration](/gateway/configuration) — konfigurationsreferens
 - [Remote Access](/gateway/remote) — andra mönster för fjärråtkomst
 - [Tailscale](/gateway/tailscale) — enklare alternativ för åtkomst endast via tailnet
+

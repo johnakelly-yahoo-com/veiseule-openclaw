@@ -114,3 +114,4 @@ Gateway serverar statiska filer från `dist/control-ui`. Bygg dem med:
 ```bash
 pnpm ui:build # auto-installs UI deps on first run
 ```
+

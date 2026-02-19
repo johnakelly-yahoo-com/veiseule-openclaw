@@ -38,3 +38,4 @@ Phản hồi (hình dạng)
 ## Ghi chú
 
 - Tài liệu này là nơi duy nhất để theo dõi các thay đổi refactor giao thức cho onboarding/cấu hình.
+

@@ -72,3 +72,4 @@ title: "Poziomy myślenia"
 - Selektor poziomu myślenia w czacie webowym odzwierciedla poziom zapisany w magazynie sesji/konfiguracji przy ładowaniu strony.
 - Wybranie innego poziomu dotyczy tylko następnej wiadomości (`thinkingOnce`); po wysłaniu selektor wraca do zapisanego poziomu sesji.
 - Aby zmienić domyślny poziom sesji, wyślij dyrektywę `/think:<level>` (jak wcześniej); selektor odzwierciedli ją po kolejnym przeładowaniu.
+

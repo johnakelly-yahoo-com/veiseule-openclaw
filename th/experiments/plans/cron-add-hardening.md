@@ -61,3 +61,4 @@ Recent gateway logs show repeated `cron.add` failures with invalid parameters (m
 
 - ควรให้ `cron.add` ยอมรับ `state` แบบระบุชัดจากไคลเอนต์หรือไม่ (ปัจจุบันไม่อนุญาตโดยสคีมา)?
 - ควรอนุญาต `webchat` เป็นผู้ให้บริการการส่งมอบแบบระบุชัดหรือไม่ (ปัจจุบันถูกกรองในขั้นตอนการแก้ไขการส่งมอบ)?
+

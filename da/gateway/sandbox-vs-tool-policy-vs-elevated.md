@@ -126,3 +126,4 @@ Fix-it-nøgler (vælg én):
 ### “Jeg troede, dette var main, hvorfor er det sandboxed?”
 
 I `"ikke-main"` tilstand, gruppe / kanal nøgler er _not_ main. Brug hovedsessionsnøglen (vist ved `sandbox explain`) eller skift tilstand til `"off"`.
+

@@ -27,3 +27,4 @@ Noteringar:
 
 - Spara den här filen i arbetsytans rot som `IDENTITY.md`.
 - För avatarer, använd en arbetsyterelativ sökväg som `avatars/openclaw.png`.
+

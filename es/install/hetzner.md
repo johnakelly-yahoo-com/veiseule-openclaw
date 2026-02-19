@@ -350,3 +350,4 @@ Para equipos que prefieren flujos de trabajo de infraestructura como código, un
 Este enfoque complementa la configuración de Docker anterior con despliegues reproducibles, infraestructura versionada y recuperación ante desastres automatizada.
 
 > **Nota:** Mantenido por la comunidad. Para problemas o contribuciones, consulta los enlaces de los repositorios anteriores.
+

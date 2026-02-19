@@ -262,3 +262,4 @@ Kaugnay:
 - Maayos na shutdown: mag-emit ng `shutdown` event bago magsara; dapat hawakan ng mga client ang close + reconnect.
 - [Doctor](/gateway/doctor)
 - [Authentication](/gateway/authentication)
+

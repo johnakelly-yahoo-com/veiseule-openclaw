@@ -90,3 +90,4 @@ Iba pang mga config knob na nakaaapekto sa availability ng tool:
 - Ang mga pangalan ng tool ay **hindi** dapat bumangga sa mga pangalan ng core tool; ang mga nagkakasalungat na tool ay nilalaktawan.
 - Ang mga plugin id na ginagamit sa mga allowlist ay hindi dapat bumangga sa mga pangalan ng core tool.
 - Mas mainam ang `optional: true` para sa mga tool na nagti-trigger ng side effects o nangangailangan ng karagdagang binaries/credentials.
+

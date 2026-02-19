@@ -132,3 +132,4 @@ Wenn Ihre Tool-Allowlist diese Werkzeuge blockiert, schlagen OpenProse-Programme
 Behandeln Sie `.prose`-Dateien wie Code. Prüfen Sie sie vor der Ausführung. Verwenden Sie OpenClaw-Tool-Allowlists und Freigabeschranken, um Nebenwirkungen zu kontrollieren.
 
 Für deterministische, freigabegesteuerte Workflows vergleichen Sie mit [Lobster](/tools/lobster).
+

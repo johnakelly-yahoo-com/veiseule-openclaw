@@ -61,3 +61,4 @@ Si vous avez besoin d’une conservation plus longue, recapturez depuis le clien
   en mode **debug** uniquement.
 - Si aucun hôte n’est trouvé, ouvrez l’une des apps hôtes (Peekaboo.app ou OpenClaw.app)
   et confirmez que les autorisations sont accordées.
+

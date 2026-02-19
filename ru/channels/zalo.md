@@ -187,3 +187,4 @@ Zalo — ориентированное на Вьетнам приложение
 - `channels.zalo.accounts.<id>.webhookSecret`: секрет вебхука для учетной записи.
 - `channels.zalo.accounts.<id>.webhookPath`: путь вебхука для учетной записи.
 - `channels.zalo.accounts.<id>.proxy`: URL прокси для учетной записи.
+

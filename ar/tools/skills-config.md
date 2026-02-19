@@ -74,3 +74,4 @@ title: "تهيئة Skills"
 - تضمين متغيرات البيئة داخل صورة sandbox مخصّصة لديك
 
 تُطبَّق `env` و`skills.entries.<skill>.env/apiKey` العامة على عمليات **المضيف** فقط.
+

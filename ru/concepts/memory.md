@@ -569,3 +569,4 @@ agents: {
 
 - `remote.*` имеет приоритет над `models.providers.openai.*`.
 - `remote.headers` объединяются с заголовками OpenAI; при конфликте ключей побеждают удалённые. Уберите `remote.headers`, чтобы использовать значения OpenAI по умолчанию.
+

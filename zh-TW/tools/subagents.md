@@ -200,3 +200,4 @@ Each announce includes a stats line with:
 - 子代理的內容上下文僅注入 `AGENTS.md` + `TOOLS.md`（不包含 `SOUL.md`、`IDENTITY.md`、`USER.md`、`HEARTBEAT.md` 或 `BOOTSTRAP.md`）。
 - 最大巢狀深度為 5（`maxSpawnDepth` 範圍：1–5）。 多數使用情境建議使用深度 2。
 - `maxChildrenPerAgent` 限制每個 session 的作用中子代理數量（預設：5，範圍：1–20）。
+

@@ -31,3 +31,4 @@ Ipinapakita ng macOS app ang OpenClaw Skills sa pamamagitan ng Gateway; hindi ni
 ## Malayuang Mode
 
 - Ang pag-install at mga update sa config ay nangyayari sa host ng Gateway (hindi sa lokal na Mac).
+

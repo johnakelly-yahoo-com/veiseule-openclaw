@@ -159,3 +159,4 @@ Dokumentacja: [Sesja](/concepts/session), [Kompakcja](/concepts/compaction), [Pr
 - `System prompt (estimate)` = obliczany w locie, gdy nie istnieje raport z uruchomienia (albo gdy uruchamiasz przez backend CLI, który nie generuje raportu).
 
 W obu przypadkach raportuje rozmiary i główne czynniki; **nie** zrzuca pełnego promptu systemowego ani schematów narzędzi.
+

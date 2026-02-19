@@ -137,3 +137,4 @@ agent 對 agent 的 reply/announce 步驟）將提示傳送至另一個會話時
 
 這種複雜性導致跨供應商的回歸問題（尤其是 `openai-responses`
 `call_id|fc_id` 配對）。 2026.1.22 的清理移除了該擴充，將邏輯集中於 runner，並使 OpenAI 在影像清理之外 **不需觸碰**。
+

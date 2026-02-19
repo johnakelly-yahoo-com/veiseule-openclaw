@@ -18,3 +18,4 @@ proces, der ejer kanalforbindelser og WebSocket-kontrolplanet.
   - `/__openclaw__/a2ui/`
     Når `gateway.auth` er konfigureret, og Gateway binder ud over loopback, er disse ruter beskyttet af Gateway-auth (loopback-forespørgsler er undtaget). Se [Gateway configuration](/gateway/configuration) (`canvasHost`, `gateway`).
 - Fjernbrug er typisk SSH tunnel eller tailnet VPN. Se [Fjernadgang] (/gateway/remote) og [Discovery](/gateway/discovery).
+

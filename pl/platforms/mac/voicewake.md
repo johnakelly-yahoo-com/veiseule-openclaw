@@ -65,3 +65,4 @@ Wzmocnienia:
 
 - Włącz push‑to‑talk, przytrzymaj Cmd+Fn, mów, zwolnij: nakładka powinna pokazać częściowe wyniki, a następnie wysłać.
 - Podczas przytrzymania uszy na pasku menu powinny pozostać powiększone (używa `triggerVoiceEars(ttl:nil)`); po zwolnieniu opadają.
+

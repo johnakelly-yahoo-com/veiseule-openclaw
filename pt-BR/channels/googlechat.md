@@ -251,3 +251,4 @@ Documentos relacionados:
 - [Configuração do Gateway](/gateway/configuration)
 - [Segurança](/gateway/security)
 - [Reações](/tools/reactions)
+

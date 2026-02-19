@@ -45,3 +45,4 @@ Ko‘nikmalar umumiy. Sizning sozlamangiz — faqat sizniki. Ularni alohida saql
 ---
 
 Ishingizga yordam beradigan hamma narsani qo‘shing. Bu sizning shpargalkangiz.
+

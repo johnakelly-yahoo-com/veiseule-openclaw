@@ -346,3 +346,4 @@ openclaw channels status --probe
 - Configuration complète : [Configuration](/gateway/configuration)
 - [Appairage](/channels/pairing)
 - [BlueBubbles](/channels/bluebubbles)
+

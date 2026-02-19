@@ -20,3 +20,4 @@ title: "리액션"
 - **Telegram**: 비어 있는 `emoji` 는 봇의 리액션을 제거합니다; `remove: true` 또한 리액션을 제거하지만, 도구 검증을 위해 비어 있지 않은 `emoji` 이 여전히 필요합니다.
 - **WhatsApp**: 비어 있는 `emoji` 는 봇 리액션을 제거합니다; `remove: true` 는 빈 이모지로 매핑됩니다 (`emoji` 는 여전히 필요).
 - **Signal**: `channels.signal.reactionNotifications` 가 활성화되면 수신 리액션 알림이 시스템 이벤트를 발생시킵니다.
+

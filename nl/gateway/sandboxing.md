@@ -196,3 +196,4 @@ Zie [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) voor priorit
 - [Sandbox Configuration](/gateway/configuration#agentsdefaults-sandbox)
 - [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools)
 - [Security](/gateway/security)
+

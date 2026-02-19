@@ -108,3 +108,4 @@ quadlet ファイルは `~openclaw/.config/containers/systemd/openclaw.container
 ## 任意: 自分のユーザーで実行する
 
 gateway を通常のユーザーで実行する場合（専用の openclaw ユーザーなし）: イメージをビルドし、`~/.openclaw/.env` に `OPENCLAW_GATEWAY_TOKEN` を作成し、`--userns=keep-id` と `~/.openclaw` へのマウントを指定してコンテナを実行します。 起動スクリプトは openclaw ユーザーでの利用を想定して設計されています。単一ユーザー構成の場合は、スクリプト内の `podman run` コマンドを手動で実行し、設定とワークスペースを自分のホームディレクトリに指定してください。 ほとんどのユーザーへの推奨: `setup-podman.sh` を使用し、openclaw ユーザーとして実行して、設定とプロセスを分離してください。
+

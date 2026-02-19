@@ -129,3 +129,4 @@ na zakresy stylu SPOILER. Inne kanały traktują je jako zwykły tekst.
 - Zakresy stylów Signal zależą od offsetów UTF-16; nie używaj offsetów punktów kodowych.
 - Zachowuj końcowe znaki nowej linii dla bloków kodu w ogrodzeniach, aby znaczniki
   zamykające lądowały w osobnej linii.
+

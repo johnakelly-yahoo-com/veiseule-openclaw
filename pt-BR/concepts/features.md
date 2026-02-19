@@ -57,3 +57,4 @@ title: "Funcionalidades"
 Caminhos legados de Claude, Codex, Gemini e Opencode foram removidos. Pi é o único
 caminho de agente de codificação.
 </Note>
+

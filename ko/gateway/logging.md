@@ -111,3 +111,4 @@ openclaw gateway --verbose --ws-log full
 - **WhatsApp 메시지 본문**은 `debug` 레벨로 기록됩니다 (`--verbose` 을 사용하여 확인)
 
 이를 통해 기존 파일 로그는 안정적으로 유지하면서, 상호작용형 출력은 훑어보기 쉽게 만듭니다.
+

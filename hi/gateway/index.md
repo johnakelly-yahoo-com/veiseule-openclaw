@@ -260,3 +260,4 @@ Events are not replayed. सीक्वेंस गैप होने पर,
 - ग्रेसफ़ुल शटडाउन: बंद करने से पहले `shutdown` इवेंट उत्सर्जित करें; क्लाइंट्स को close + reconnect संभालना चाहिए।
 - [Doctor](/gateway/doctor)
 - [Authentication](/gateway/authentication)
+

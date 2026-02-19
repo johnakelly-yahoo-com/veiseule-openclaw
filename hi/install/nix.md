@@ -95,3 +95,4 @@ apps/macos/Sources/OpenClaw/Resources/Info.plist
 - [nix-openclaw](https://github.com/openclaw/nix-openclaw) — पूर्ण सेटअप मार्गदर्शिका
 - [Wizard](/start/wizard) — गैर‑Nix CLI सेटअप
 - [Docker](/install/docker) — कंटेनरीकृत सेटअप
+

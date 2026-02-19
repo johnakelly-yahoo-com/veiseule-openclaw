@@ -707,3 +707,4 @@ Telegram 固有の重要フィールド：
 - [Pairing](/channels/pairing)
 - 配信先（CLI／cron）
 - 詳細: [チャンネルトラブルシューティング](/channels/troubleshooting)。
+

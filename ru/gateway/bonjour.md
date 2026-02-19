@@ -174,3 +174,4 @@ Bonjour/DNS‑SD часто экранирует байты в именах эк
 
 - Политика обнаружения и выбор транспорта: [Discovery](/gateway/discovery)
 - Сопряжение узлов + подтверждения: [Gateway pairing](/gateway/pairing)
+

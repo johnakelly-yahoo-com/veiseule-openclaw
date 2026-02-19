@@ -107,3 +107,4 @@ mise à jour.
   - confirmez que les clients envoient un `client.instanceId` stable lors de la poignée de main
   - confirmez que les balises périodiques utilisent le même `instanceId`
   - vérifiez si l’entrée dérivée de la connexion est dépourvue de `instanceId` (les doublons sont attendus)
+

@@ -691,3 +691,4 @@ Najważniejsze pola Discord:
 - `channels` (tworzenie/edycja/usuwanie kanałów + kategorii + uprawnień)
 - [Troubleshooting](/channels/troubleshooting)
 - Pełna lista komend + konfiguracja: [Slash commands](/tools/slash-commands)
+

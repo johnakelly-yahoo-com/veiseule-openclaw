@@ -17,3 +17,4 @@ title: "ネットワークモデル"
     `gateway.auth` が設定され、Gatewayがループバック以外にバインドされている場合、これらのルートはGateway認証によって保護されます（ループバックからのリクエストは除外されます）。
   - `gateway.auth.rateLimit` が設定され、認証失敗が多発した場合、エンドポイントは `Retry-After` を伴う `429` を返します。 キャンバスホストは、`canvasHost.port`（既定 `18793`）上の HTTP ファイルサーバーで、ノードの WebView 向けに `/__openclaw__/canvas/` を提供します。詳細は [Gateway configuration](/gateway/configuration)（`canvasHost`）を参照してください。 [Gateway configuration](/gateway/configuration) (`canvasHost` ) を参照してください。
 - リモート利用は、通常、SSH トンネルまたは tailnet VPN を使用します。[Remote access](/gateway/remote) と [Discovery](/gateway/discovery) を参照してください。 リモート利用は、通常、SSH トンネルまたは tailnet VPN を使用します。[Remote access](/gateway/remote) と [Discovery](/gateway/discovery) を参照してください。 [リモート アクセス](/gateway/remote) と [Discovery](/gateway/discovery) を参照してください。
+

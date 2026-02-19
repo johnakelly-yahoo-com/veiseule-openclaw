@@ -108,3 +108,4 @@ Lumilikha ang `setup-podman.sh` ng nakalaang system user na `openclaw`:
 ## Opsyonal: patakbuhin gamit ang sarili mong user
 
 Upang patakbuhin ang gateway bilang iyong karaniwang user (walang nakatalagang openclaw user): buuin ang image, lumikha ng `~/.openclaw/.env` na may `OPENCLAW_GATEWAY_TOKEN`, at patakbuhin ang container gamit ang `--userns=keep-id` at mga mount papunta sa iyong `~/.openclaw`. Ang launch script ay dinisenyo para sa openclaw-user flow; para sa single-user setup maaari mong patakbuhin nang mano-mano ang `podman run` command mula sa script, ituro ang config at workspace sa iyong home. Inirerekomenda para sa karamihan ng user: gamitin ang `setup-podman.sh` at patakbuhin bilang openclaw user upang maihiwalay ang config at proseso.
+

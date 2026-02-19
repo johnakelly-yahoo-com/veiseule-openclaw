@@ -59,3 +59,4 @@ Public : contributeurs de l’application macOS. Objectif : maintenir une supe
 3. Refactoriser `VoicePushToTalk` pour adopter les sessions existantes et appeler `endCapture` au relâchement ; appliquer le cooldown d’exécution.
 4. Connecter `VoiceWakeOverlayController` à l’éditeur ; supprimer les appels directs depuis l’exécution/PTT.
 5. Ajouter des tests d’intégration pour l’adoption de session, le cooldown et la fermeture lorsque le texte est vide.
+

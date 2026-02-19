@@ -136,3 +136,4 @@ Mattermost responds to DMs automatically. 1. Kanal xatti-harakati `chatmode` orq
 - 30. Kanallarda javob yo‘q: bot kanalga qo‘shilganini va uni mention qilganingizni tekshiring (oncall), trigger prefiksidan foydalaning (onchar) yoki `chatmode: "onmessage"` ni o‘rnating.
 - 31. Avtorizatsiya xatolari: bot tokeni, asosiy URL va akkaunt yoqilganligini tekshiring.
 - Multi-account issues: env vars only apply to the `default` account.
+

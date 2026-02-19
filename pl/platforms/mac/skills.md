@@ -31,3 +31,4 @@ Aplikacja macOS udostępnia Skills OpenClaw za pośrednictwem Gateway; nie parsu
 ## Tryb zdalny
 
 - Instalacja oraz aktualizacje konfiguracji odbywają się na hoście Gateway (nie na lokalnym Macu).
+

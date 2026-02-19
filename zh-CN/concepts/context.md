@@ -159,3 +159,4 @@ Slash commands are handled by the Gateway. There are a few different behaviors:
 - `System prompt (estimate)` = 当没有运行报告存在时（或通过不生成报告的 CLI 后端运行时）即时计算。
 
 无论哪种方式，它都报告大小和主要贡献者；它**不会**转储完整的系统提示词或工具 schema。
+

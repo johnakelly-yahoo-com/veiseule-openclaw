@@ -195,3 +195,4 @@ Paste (bracketed by default):
 - 工具政策仍然適用；`allow: ["exec"]` 會隱含允許 `apply_patch`。
 - 設定位於 `tools.exec.applyPatch` 之下。
 - `tools.exec.applyPatch.workspaceOnly` 預設為 `true`（僅限於 workspace 內）。 僅在你有意讓 `apply_patch` 在 workspace 目錄之外進行寫入/刪除時，才將其設為 `false`。
+

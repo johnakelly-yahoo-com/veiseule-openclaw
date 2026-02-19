@@ -251,3 +251,4 @@ Relaterad dokumentation:
 - [Gateway-konfiguration](/gateway/configuration)
 - [Säkerhet](/gateway/security)
 - [Reaktioner](/tools/reactions)
+

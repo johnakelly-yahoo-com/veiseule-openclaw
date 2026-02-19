@@ -415,3 +415,4 @@ Pumili ng isa bago ang implementasyon upang maiwasan ang drift.
 - Sakit: approvals + pagdodoble + dalawang stack.
 - Panukala: isang WS protocol na may malinaw na roles + scopes, pinag-isang pairing + TLS pinning, gateway‑hosted approvals, stable device IDs + cute slugs.
 - Resulta: mas simpleng UX, mas matibay na seguridad, mas kaunting pagdodoble, mas maayos na mobile routing.
+

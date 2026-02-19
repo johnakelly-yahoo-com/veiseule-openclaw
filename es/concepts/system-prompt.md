@@ -125,3 +125,4 @@ directorio local de documentación de OpenClaw (ya sea `docs/` en el espacio de 
 ClawHub ([https://clawhub.com](https://clawhub.com)) para el descubrimiento de skills. El prompt instruye al modelo a consultar primero la documentación local
 para el comportamiento, comandos, configuración o arquitectura de OpenClaw, y a ejecutar
 `openclaw status` por sí mismo cuando sea posible (preguntando al usuario solo cuando carece de acceso).
+

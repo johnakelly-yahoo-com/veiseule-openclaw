@@ -282,3 +282,4 @@ Pi cũng cung cấp hook `session_before_compact` trong extension API, nhưng lo
   - thiết lập nén (`reserveTokens` quá cao so với cửa sổ mô hình có thể gây nén sớm)
   - phình to tool-result: bật/điều chỉnh cắt tỉa phiên
 - 40. "Xin chào, C-3PO! Xác nhận phản hồi bắt đầu bằng `NO_REPLY` (token chính xác) và bạn đang ở bản build bao gồm bản sửa lỗi chặn streaming.
+

@@ -33,3 +33,4 @@ title: "Health Checks"
 ## Dedicated "health" command
 
 13. `openclaw health --json` သည် လည်ပတ်နေသော Gateway ထံမှ health snapshot ကို တောင်းခံပါသည် (CLI မှ channel socket ကို တိုက်ရိုက် မချိတ်ဆက်ပါ)။ 14. ရနိုင်ပါက linked creds/auth age၊ channel တစ်ခုချင်းစီ၏ probe summary၊ session-store summary နှင့် probe duration ကို အစီရင်ခံပါသည်။ 15. Gateway ကို မရောက်ရှိနိုင်ပါက သို့မဟုတ် probe မအောင်မြင်/timeout ဖြစ်ပါက non-zero ဖြင့် exit ပြုလုပ်ပါသည်။ 16. 10s default ကို override ပြုလုပ်ရန် `--timeout <ms>` ကို အသုံးပြုပါ။
+

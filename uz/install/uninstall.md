@@ -131,3 +131,4 @@ Remove-Item -Force "$env:USERPROFILE\.openclaw\gateway.cmd"
 1. 36. Repo’ni o‘chirishdan **oldin** gateway xizmatini olib tashlang (yuqoridagi oson yo‘l yoki qo‘lda xizmatni olib tashlashdan foydalaning).
 2. 37. Repo katalogini o‘chiring.
 3. 38. Yuqorida ko‘rsatilgandek holat + ish joyini olib tashlang.
+

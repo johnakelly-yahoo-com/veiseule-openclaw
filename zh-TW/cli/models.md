@@ -80,3 +80,4 @@ openclaw models auth paste-token
 
 - `setup-token` 會提示輸入 setup-token 值（可在任何機器上使用 `claude setup-token` 產生）。
 - `paste-token` 接受在其他地方或由自動化產生的權杖字串。
+

@@ -56,3 +56,4 @@ title: "အင်္ဂါရပ်များ"
 <Note>
 21. Legacy Claude, Codex, Gemini နှင့် Opencode paths များကို ဖယ်ရှားပြီး ဖြစ်ပါသည်။ 22. Pi သည် တစ်ခုတည်းသော coding agent path ဖြစ်ပါသည်။
 </Note>
+

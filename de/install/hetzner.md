@@ -350,3 +350,4 @@ Für Teams, die Infrastructure-as-Code-Workflows bevorzugen, bietet ein von der 
 Dieser Ansatz ergänzt das oben beschriebene Docker-Setup durch reproduzierbare Deployments, versionskontrollierte Infrastruktur und automatisierte Disaster-Recovery.
 
 > **Hinweis:** Von der Community gepflegt. Bei Problemen oder Beiträgen siehe die obigen Repository-Links.
+

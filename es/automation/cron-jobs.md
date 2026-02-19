@@ -476,3 +476,4 @@ openclaw system event --mode now --text "Next heartbeat: check battery."
 - Para temas de foro, use `-100…:topic:<id>` para que sea explícito y sin ambigüedades.
 - Si ve prefijos `telegram:...` en los registros o en los objetivos de “última ruta” almacenados, es normal;
   la entrega de cron los acepta y aun así analiza correctamente los IDs de tema.
+

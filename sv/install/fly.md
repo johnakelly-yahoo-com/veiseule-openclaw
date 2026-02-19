@@ -484,3 +484,4 @@ Med den rekommenderade konfigen (`shared-cpu-2x`, 2GB RAM):
 - Gratisnivån inkluderar viss tilldelning
 
 Se [Fly.io-prissättning](https://fly.io/docs/about/pricing/) för detaljer.
+

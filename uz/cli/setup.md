@@ -27,3 +27,4 @@ To run the wizard via setup:
 ```bash
 openclaw setup --wizard
 ```
+

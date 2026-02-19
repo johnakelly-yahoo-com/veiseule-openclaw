@@ -739,3 +739,4 @@ Champs à fort signal spécifiques à Telegram :
 - [Appairage](/channels/pairing)
 - More details: [Pairing](/channels/pairing#pair-via-telegram-recommended-for-ios).
 - `channels.telegram.streamMode: "off" | "partial" | "block"` (par defaut : `partial`)
+

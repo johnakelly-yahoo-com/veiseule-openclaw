@@ -34,3 +34,4 @@ openclaw onboard --auth-choice apiKey --token-provider openrouter --token "$OPEN
 - مراجع النماذج هي `openrouter/<provider>/<model>`.
 - لمزيد من خيارات النماذج/الموفّرين، راجع [/concepts/model-providers](/concepts/model-providers).
 - يستخدم OpenRouter رمز Bearer مع مفتاح API الخاص بك خلف الكواليس.
+

@@ -53,3 +53,4 @@ openclaw models set nvidia/nvidia/llama-3.1-nemotron-70b-instruct
 
 - OpenAI 相容的 `/v1` 端點；請使用來自 NVIDIA NGC 的 API key。
 - 當設定 `NVIDIA_API_KEY` 時，Provider 會自動啟用；使用靜態預設值（131,072-token 上下文視窗、4,096 max tokens）。
+

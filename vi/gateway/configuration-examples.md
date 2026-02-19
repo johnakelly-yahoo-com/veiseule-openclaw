@@ -604,3 +604,4 @@ Nếu có hơn một người có thể DM bot của bạn (nhiều mục trong 
 - ID của nhà cung cấp khác nhau (số điện thoại, ID người dùng, ID kênh). Use the provider docs to confirm the format.
 - Các mục tùy chọn có thể thêm sau: `web`, `browser`, `ui`, `discovery`, `canvasHost`, `talk`, `signal`, `imessage`.
 - Xem [Providers](/channels/whatsapp) và [Troubleshooting](/gateway/troubleshooting) để biết thêm ghi chú thiết lập chi tiết.
+

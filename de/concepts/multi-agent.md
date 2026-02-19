@@ -387,3 +387,4 @@ Wenn Sie agentenspezifische Grenzen benötigen, verwenden Sie `agents.list[].too
 Für Gruppenzielsteuerung verwenden Sie `agents.list[].groupChat.mentionPatterns`, damit @Mentions sauber dem vorgesehenen Agenten zugeordnet werden.
 
 Siehe [Multi-Agent Sandbox & Tools](/tools/multi-agent-sandbox-tools) für detaillierte Beispiele.
+

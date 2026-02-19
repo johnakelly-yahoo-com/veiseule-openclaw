@@ -665,3 +665,4 @@ Plugins kunnen (en zouden) tests meeleveren:
 
 - In-repo plugins kunnen Vitest-tests onder `src/**` plaatsen (voorbeeld: `src/plugins/voice-call.plugin.test.ts`).
 - Afzonderlijk gepubliceerde plugins moeten hun eigen CI draaien (lint/build/test) en valideren dat `openclaw.extensions` naar het gebouwde entrypoint wijst (`dist/index.js`).
+

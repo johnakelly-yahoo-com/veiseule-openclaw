@@ -110,3 +110,4 @@ agents:
 - Prefira modelos menores para trabalhos verbosos e exploratórios.
 
 Veja [Skills](/tools/skills) para a fórmula exata de overhead da lista de Skills.
+

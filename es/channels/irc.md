@@ -232,3 +232,4 @@ La cuenta predeterminada admite:
 - Si el bot se conecta pero nunca responde en los canales, verifica `channels.irc.groups` **y** si el filtrado por menciones está descartando mensajes (`missing-mention`). Si quieres que responda sin pings, establece `requireMention:false` para el canal.
 - Si el inicio de sesión falla, verifica la disponibilidad del nick y la contraseña del servidor.
 - Si TLS falla en una red personalizada, verifica el host/puerto y la configuración del certificado.
+

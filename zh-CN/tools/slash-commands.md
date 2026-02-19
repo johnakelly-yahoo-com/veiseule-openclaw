@@ -203,3 +203,4 @@ They run immediately, are stripped before the model sees the message, and the re
   - Telegram：`telegram:slash:<userId>`（通过 `CommandTargetSessionKey` 定向到聊天会话）
 - **`/stop`** 定向到活动聊天会话，因此可以中止当前运行。
 - **Slack：** `channels.slack.slashCommand` 仍然支持单个 `/openclaw` 风格的命令。如果你启用 `commands.native`，你必须为每个内置命令创建一个 Slack 斜杠命令（与 `/help` 相同的名称）。Slack 的命令参数菜单以临时 Block Kit 按钮形式发送。 41. 如果你启用 `commands.native`，则必须为每个内置命令创建一个 Slack 斜杠命令（名称与 `/help` 中相同）。 42. Slack 的命令参数菜单以临时（ephemeral）的 Block Kit 按钮形式提供。
+

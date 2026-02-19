@@ -40,3 +40,4 @@ Chúng nằm trong `scripts/` và là **tùy chọn**. Chúng giả định có 
 - `scripts/termux-sync-widget.sh`: đồng bộ thông tin xác thực Claude Code → OpenClaw.
 
 Nếu bạn không cần tự động hóa trên điện thoại hoặc timer systemd, hãy bỏ qua các script này.
+

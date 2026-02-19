@@ -160,3 +160,4 @@ Archivo predeterminado:
 - Los registros de flujos en bruto pueden incluir prompts completos, salida de herramientas y datos de usuario.
 - Mantenga los registros locales y elimínelos después de depurar.
 - Si comparte registros, elimine secretos y PII primero.
+

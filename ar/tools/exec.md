@@ -179,3 +179,4 @@ openclaw config set agents.list[0].tools.exec.node "node-id-or-name"
 - تظل سياسة الأدوات سارية؛ إذ يسمح `allow: ["exec"]` ضمنيًا بـ `apply_patch`.
 - تقع التهيئة تحت `tools.exec.applyPatch`.
 - `tools.exec.applyPatch.workspaceOnly` القيمة الافتراضية لها هي `true` (ضمن مساحة العمل). عيّنها إلى `false` فقط إذا كنت تريد عمدًا أن يقوم `apply_patch` بالكتابة/الحذف خارج دليل مساحة العمل.
+

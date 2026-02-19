@@ -48,3 +48,4 @@ openclaw onboard --non-interactive \
 หากGatewayทำงานเป็นเดมอน(launchd/systemd) ให้ตรวจสอบว่า `AI_GATEWAY_API_KEY`
 พร้อมใช้งานสำหรับโปรเซสนั้น(เช่น ใน `~/.openclaw/.env` หรือผ่าน
 `env.shellEnv`)
+

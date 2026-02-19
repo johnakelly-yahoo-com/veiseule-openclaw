@@ -89,3 +89,4 @@ Para sa mga remote gateway, maaari mo ring gamitin ang `openclaw logs --follow` 
 - If `logging.level` is set higher than `warn`, these logs may be suppressed. Default `info` is fine.
 - Ligtas na iwanang naka-enable ang mga flag; naaapektuhan lang nila ang dami ng log para sa partikular na subsystem.
 - Gamitin ang [/logging](/logging) para baguhin ang mga destinasyon ng log, mga level, at redaction.
+

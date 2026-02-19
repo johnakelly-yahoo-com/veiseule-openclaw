@@ -131,3 +131,4 @@ Kapag ang `requireMention: true` ay naka-set para sa isang group chat, tina-tran
 - Tiyaking nag-e-exit ang iyong CLI na may 0 at nagpi-print ng plain text; ang JSON ay kailangang ayusin sa pamamagitan ng `jq -r .text`.
 - Panatilihing makatwiran ang mga timeout (`timeoutSeconds`, default 60s) para maiwasang ma-block ang reply queue.
 - Ang preflight transcription ay pinoproseso lamang ang **unang** audio attachment para sa mention detection. Ang mga karagdagang audio ay pinoproseso sa pangunahing media understanding phase.
+

@@ -265,3 +265,4 @@ Agar token autentifikatsiyasidan trusted-proxy’ga o‘tayotgan bo‘lsangiz:
 - [Configuration](/gateway/configuration) — konfiguratsiya ma’lumotnomasi
 - [Remote Access](/gateway/remote) — boshqa masofaviy kirish usullari
 - [Tailscale](/gateway/tailscale) — faqat tailnet uchun kirishdagi sodda alternativ
+

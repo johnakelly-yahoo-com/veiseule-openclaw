@@ -314,3 +314,4 @@ Opção B:
 - [Aprovações do Exec](/tools/exec-approvals)
 - [Nós](/nodes)
 - [Modo elevado](/tools/elevated)
+

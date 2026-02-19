@@ -128,3 +128,4 @@ intervalos de estilo SPOILER. Outros canais os tratam como texto simples.
 - Os intervalos de estilo do Signal dependem de offsets UTF-16; não use offsets por ponto de código.
 - Preserve novas linhas finais para blocos de código cercados para que os marcadores de fechamento
   caiam em sua própria linha.
+

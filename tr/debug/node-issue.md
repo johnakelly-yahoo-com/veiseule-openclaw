@@ -86,3 +86,4 @@ node --import tsx scripts/repro/tsx-name-repro.ts
 - Node 25 regresyonunu doğrulamak için Node 22/24’te yeniden üretin.
 - Bilinen bir regresyon varsa `tsx` nightly’i test edin veya daha eski bir sürüme sabitleyin.
 - Node LTS’te de yeniden üretilirse, `__name` yığın izini içeren minimal bir yeniden üretimi upstream’e bildirin.
+

@@ -190,3 +190,4 @@ Yeni makinede şunları doğrulayın:
 - [Doctor](/gateway/doctor)
 - [Gateway sorun giderme](/gateway/troubleshooting)
 - [OpenClaw verilerini nerede saklar?](/help/faq#where-does-openclaw-store-its-data)
+

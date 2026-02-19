@@ -83,3 +83,4 @@ Commit the updated `appcast.xml` alongside the release assets (zip + dSYM) when 
   - På en tidigare publik build, kör ”Check for Updates…” från fliken About och verifiera att Sparkle installerar den nya builden utan problem.
 
 Definition av klart: signerad app + appcast är publicerade, uppdateringsflödet fungerar från en äldre installerad version och releaseartefakter är bifogade till GitHub-releasen.
+

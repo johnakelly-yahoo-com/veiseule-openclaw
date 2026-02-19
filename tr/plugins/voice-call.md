@@ -281,3 +281,4 @@ Bu depo, `skills/voice-call/SKILL.md` adresinde eşleşen bir skill dokümanı i
 - `voicecall.speak` (`callId`, `message`)
 - `voicecall.end` (`callId`)
 - `voicecall.status` (`callId`)
+

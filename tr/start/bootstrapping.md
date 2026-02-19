@@ -37,3 +37,4 @@ makinesinde düzenleyin (örneğin, `user@gateway-host:~/.openclaw/workspace`).
 
 - macOS uygulaması katılımı: [Onboarding](/start/onboarding)
 - Çalışma alanı düzeni: [Ajan çalışma alanı](/concepts/agent-workspace)
+

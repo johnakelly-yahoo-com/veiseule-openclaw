@@ -765,3 +765,4 @@ Telegram 特有的高信号字段：
 - channels/telegram.md
 - [Channel routing](/channels/channel-routing)
 - `channels.telegram.streamMode`：`off | partial | block`（草稿流式传输）。
+

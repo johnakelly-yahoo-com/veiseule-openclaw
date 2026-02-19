@@ -203,3 +203,4 @@ Cada entrada de sessão registra de onde veio (best-effort) em `origin`:
   `GroupSubject`, `GroupChannel`, `GroupSpace` e `SenderName` no contexto de entrada
   e chamando `recordSessionMetaFromInbound` (ou passando o mesmo contexto
   para `updateLastRoute`).
+

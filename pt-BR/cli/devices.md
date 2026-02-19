@@ -68,3 +68,4 @@ Passe `--token` ou `--password` explicitamente. A ausência de credenciais expl�
 
 - A rotação de token retorna um novo token (sensível). Trate-o como um segredo.
 - Esses comandos exigem o escopo `operator.pairing` (ou `operator.admin`).
+

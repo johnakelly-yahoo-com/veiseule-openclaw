@@ -41,3 +41,4 @@ Puede mantener el Gateway en la nube y emparejar **nodos** en sus dispositivos l
 capacidades de `system.run` mientras el Gateway permanece en la nube.
 
 Documentación: [Nodes](/nodes), [Nodes CLI](/cli/nodes)
+

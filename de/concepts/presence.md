@@ -108,3 +108,4 @@ Aktualisierung an.
   - bestätigen Sie, dass periodische Beacons dieselbe `instanceId` verwenden
   - prüfen Sie, ob dem verbindungsbasierten Eintrag `instanceId` fehlt
     (Duplikate sind dann zu erwarten)
+

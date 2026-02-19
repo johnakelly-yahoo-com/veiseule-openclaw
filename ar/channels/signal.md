@@ -322,3 +322,4 @@ grep -i "signal" "/tmp/openclaw/openclaw-$(date +%Y-%m-%d).log" | tail -20
 - `agents.list[].groupChat.mentionPatterns` (لا يدعم Signal الإشارات الأصلية).
 - `messages.groupChat.mentionPatterns` (الاحتياطي العام).
 - `messages.responsePrefix`.
+

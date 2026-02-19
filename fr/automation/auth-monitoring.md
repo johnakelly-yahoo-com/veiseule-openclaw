@@ -41,3 +41,4 @@ Ils se trouvent sous `scripts/` et sont **optionnels**. Ils supposent un accès 
 - `scripts/termux-sync-widget.sh` : synchronisation des identifiants Claude Code → OpenClaw.
 
 Si vous n’avez pas besoin de l’automatisation sur téléphone ou des minuteurs systemd, ignorez ces scripts.
+

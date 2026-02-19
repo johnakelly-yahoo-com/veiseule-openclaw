@@ -396,3 +396,4 @@ Kluczowe pola WhatsApp:
 - [Pairing](/channels/pairing)
 - [Channel routing](/channels/channel-routing)
 - Przewodnik rozwiązywania problemów: [Gateway troubleshooting](/gateway/troubleshooting).
+

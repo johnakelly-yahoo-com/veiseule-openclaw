@@ -63,3 +63,4 @@ Agar uzoqroq saqlash kerak bo‘lsa, mijoz tomondan qayta snapshot oling.
   `PEEKABOO_ALLOW_UNSIGNED_SOCKET_CLIENTS=1` bilan ishga tushiring.
 - Agar hech qanday host topilmasa, host ilovalardan birini (Peekaboo.app yoki OpenClaw.app)
   oching va ruxsatlar berilganini tasdiqlang.
+

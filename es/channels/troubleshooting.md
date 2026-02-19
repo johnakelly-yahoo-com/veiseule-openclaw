@@ -115,3 +115,4 @@ Solución de problemas completa: [/channels/signal#troubleshooting](/channels/si
 | Fallas en salas cifradas                  | Verifique el módulo de criptografía y la configuración de cifrado | Habilite el soporte de cifrado y vuelva a unirse/sincronizar la sala. |
 
 Solución de problemas completa: [/channels/matrix#troubleshooting](/channels/matrix#troubleshooting)
+

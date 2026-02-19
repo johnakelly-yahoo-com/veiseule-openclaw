@@ -72,3 +72,4 @@ title: "Thinking Levels"
 - Web chat thinking selector صفحہ لوڈ ہونے پر inbound session store/config سے session میں محفوظ لیول کی عکاسی کرتا ہے۔
 - کوئی اور لیول منتخب کرنے سے صرف اگلے پیغام پر اطلاق ہوتا ہے (`thinkingOnce`)؛ بھیجنے کے بعد selector دوبارہ محفوظ شدہ session لیول پر واپس آ جاتا ہے۔
 - Session default تبدیل کرنے کے لیے حسبِ سابق `/think:<level>` ہدایت بھیجیں؛ اگلے reload کے بعد selector اس کی عکاسی کرے گا۔
+

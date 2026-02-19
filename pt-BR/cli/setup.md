@@ -27,3 +27,4 @@ Para executar o assistente via setup:
 ```bash
 openclaw setup --wizard
 ```
+

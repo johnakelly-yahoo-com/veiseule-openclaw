@@ -96,3 +96,4 @@ pakowania SwiftPM oraz buildów Nix (które nie polegają na pełnym łańcuchu 
 - [nix-openclaw](https://github.com/openclaw/nix-openclaw) — pełny przewodnik konfiguracji
 - [Wizard](/start/wizard) — konfiguracja CLI bez Nix
 - [Docker](/install/docker) — konfiguracja konteneryzowana
+

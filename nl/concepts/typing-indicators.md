@@ -66,3 +66,4 @@ Je kunt de modus of cadans per sessie overschrijven:
 - Heartbeats tonen nooit typen, ongeacht de modus.
 - `typingIntervalSeconds` bepaalt de **verversingscadans**, niet het startmoment.
   De standaard is 6 seconden.
+

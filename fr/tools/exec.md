@@ -179,3 +179,4 @@ Notes :
 - La politique d’outil s’applique toujours ; `allow: ["exec"]` autorise implicitement `apply_patch`.
 - La configuration se trouve sous `tools.exec.applyPatch`.
 - `tools.exec.applyPatch.workspaceOnly` est défini par défaut sur `true` (limité à l’espace de travail). Définissez-le sur `false` uniquement si vous souhaitez intentionnellement que `apply_patch` écrive/supprime en dehors du répertoire de l’espace de travail.
+

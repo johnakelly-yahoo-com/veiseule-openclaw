@@ -53,3 +53,4 @@ Kung gagamit ka pa rin ng `--token`, tandaan na mase-save ito sa shell history a
 
 - OpenAI-compatible na `/v1` endpoint; gumamit ng API key mula sa NVIDIA NGC.
 - Awtomatikong nag-e-enable ang provider kapag naka-set ang `NVIDIA_API_KEY`; gumagamit ng static defaults (131,072-token context window, 4,096 max tokens).
+

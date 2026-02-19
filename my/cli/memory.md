@@ -43,3 +43,4 @@ openclaw memory index --agent main --verbose
 - `memory status --deep --index` သည် store သည် dirty ဖြစ်နေပါက ပြန်လည် အညွှန်းသတ်မှတ်ခြင်းကို လုပ်ဆောင်သည်။
 - `memory index --verbose` သည် အဆင့်လိုက် အသေးစိတ်အချက်အလက်များ (provider, model, sources, batch activity) ကို ထုတ်ပြသည်။
 - `memory status` သည် `memorySearch.extraPaths` မှတဆင့် ဖွဲ့စည်းပြင်ဆင်ထားသော အပိုလမ်းကြောင်းများကိုလည်း ထည့်သွင်းပါဝင်စေသည်။
+

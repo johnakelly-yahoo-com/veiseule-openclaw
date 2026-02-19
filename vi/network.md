@@ -52,3 +52,4 @@ Tin cậy cục bộ:
 - [Tham chiếu cấu hình Gateway](/gateway/configuration)
 - [Xử lý sự cố](/gateway/troubleshooting)
 - [Doctor](/gateway/doctor)
+

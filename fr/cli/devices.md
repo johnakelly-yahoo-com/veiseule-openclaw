@@ -68,3 +68,4 @@ Passez `--token` ou `--password` explicitement. L’absence d’informations d�
 
 - La rotation des jetons renvoie un nouveau jeton (sensible). Traitez-le comme un secret.
 - Ces commandes requièrent le scope `operator.pairing` (ou `operator.admin`).
+

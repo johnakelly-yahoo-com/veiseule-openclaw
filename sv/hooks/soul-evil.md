@@ -67,3 +67,4 @@ Skapa `SOUL_EVIL.md` i agentens arbetsyterot (bredvid `SOUL.md`).
 ## Se även
 
 - [Hooks](/automation/hooks)
+

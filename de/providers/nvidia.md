@@ -53,3 +53,4 @@ Wenn Sie weiterhin `--token` übergeben, denken Sie daran, dass es im Shell-Verl
 
 - OpenAI-kompatibler `/v1`-Endpoint; verwenden Sie einen API-Schlüssel von NVIDIA NGC.
 - Der Provider wird automatisch aktiviert, wenn `NVIDIA_API_KEY` gesetzt ist; verwendet statische Standardwerte (131.072-Token-Kontextfenster, 4.096 maximale Tokens).
+

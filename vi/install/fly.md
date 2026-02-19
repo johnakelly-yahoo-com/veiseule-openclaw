@@ -484,3 +484,4 @@ Với cấu hình khuyến nghị (`shared-cpu-2x`, RAM 2GB):
 - Gói miễn phí có bao gồm một phần hạn mức
 
 Xem [bảng giá Fly.io](https://fly.io/docs/about/pricing/) để biết chi tiết.
+

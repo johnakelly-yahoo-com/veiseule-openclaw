@@ -32,3 +32,4 @@ title: "Gateway 网关锁"
 
 - 如果端口被_另一个_进程占用，错误是相同的；释放端口或使用 `openclaw gateway --port <port>` 选择另一个端口。
 - macOS 应用在启动 Gateway 网关之前仍维护自己的轻量级 PID 保护；运行时锁由 WebSocket 绑定强制执行。
+

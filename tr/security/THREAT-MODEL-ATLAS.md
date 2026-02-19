@@ -601,3 +601,4 @@ T-EXEC-002 → T-EXFIL-001 → Harici sızdırma
 ---
 
 _Bu tehdit modeli yaşayan bir belgedir._ Güvenlik sorunlarını security@openclaw.ai adresine bildirin Güvenlik sorunlarını security@openclaw.ai adresine bildirin
+

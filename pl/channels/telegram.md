@@ -795,3 +795,4 @@ Pola specyficzne dla Telegram o wysokim znaczeniu:
 - Szczegóły: [Parowanie](/channels/pairing)
 - [Routing kanałów](/channels/channel-routing)
 - Rozwiązywanie problemów konfiguracji (polecenia)
+
