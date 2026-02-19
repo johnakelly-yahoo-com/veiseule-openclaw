@@ -132,7 +132,7 @@ Gateway ishga tushgach, brauzer Control UI’ni oching.
 - Masofaviy kirish: [Web surfaces](/web) va [Tailscale](/gateway/tailscale)
 
 <p align="center">
-  <img src="whatsapp-openclaw.jpg" alt="OpenClaw" width="420"></img>
+  <img src="/whatsapp-openclaw.jpg" alt="OpenClaw" width="420"></img>
 </p>
 
 ## Configuration (optional)

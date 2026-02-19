@@ -133,7 +133,7 @@ Behöver du den fullständiga installationen och utvecklarkonfigurationen? Se [S
 - Fjärråtkomst: [Webbytor](/web) och [Tailscale](/gateway/tailscale)
 
 <p align="center">
-  <img src="whatsapp-openclaw.jpg" alt="OpenClaw" width="420"></img>
+  <img src="/whatsapp-openclaw.jpg" alt="OpenClaw" width="420"></img>
 </p>
 
 ## Konfiguration (valfritt)

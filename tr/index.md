@@ -133,7 +133,7 @@ Gateway başladıktan sonra tarayıcı Kontrol UI’ını açın.
 - Uzaktan erişim: [Web yüzeyleri](/web) ve [Tailscale](/gateway/tailscale)
 
 <p align="center">
-  <img src="whatsapp-openclaw.jpg" alt="OpenClaw" width="420"></img>
+  <img src="/whatsapp-openclaw.jpg" alt="OpenClaw" width="420"></img>
 </p>
 
 ## Yapılandırma (isteğe bağlı)

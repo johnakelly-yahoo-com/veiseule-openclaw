@@ -133,7 +133,7 @@ Benötigen Sie die vollständige Installation und das Dev-Setup? Siehe [Schnells
 - Remote-Zugriff: [Web surfaces](/web) und [Tailscale](/gateway/tailscale)
 
 <p align="center">
-  <img src="whatsapp-openclaw.jpg" alt="OpenClaw" width="420"></img>
+  <img src="/whatsapp-openclaw.jpg" alt="OpenClaw" width="420"></img>
 </p>
 
 ## Konfiguration (optional)

@@ -133,7 +133,7 @@ Otwórz webowy interfejs sterowania po uruchomieniu Gateway.
 - Dostęp zdalny: [Powierzchnie webowe](/web) i [Tailscale](/gateway/tailscale)
 
 <p align="center">
-  <img src="whatsapp-openclaw.jpg" alt="OpenClaw" width="420"></img>
+  <img src="/whatsapp-openclaw.jpg" alt="OpenClaw" width="420"></img>
 </p>
 
 ## Konfiguracja (opcjonalna)

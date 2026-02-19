@@ -133,7 +133,7 @@ Har du brug for den fulde installation og dev opsætning? Se [Hurtig start](/sta
 - Fjernadgang: [Web surfaces](/web) og [Tailscale](/gateway/tailscale)
 
 <p align="center">
-  <img src="whatsapp-openclaw.jpg" alt="OpenClaw" width="420"></img>
+  <img src="/whatsapp-openclaw.jpg" alt="OpenClaw" width="420"></img>
 </p>
 
 ## Konfiguration (valgfrit)

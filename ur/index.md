@@ -133,7 +133,7 @@ Gateway شروع ہونے کے بعد براؤزر Control UI کھولیں۔
 - ریموٹ رسائی: [Web surfaces](/web) اور [Tailscale](/gateway/tailscale)
 
 <p align="center">
-  <img src="whatsapp-openclaw.jpg" alt="OpenClaw" width="420"></img>
+  <img src="/whatsapp-openclaw.jpg" alt="OpenClaw" width="420"></img>
 </p>
 
 ## Configuration (optional)

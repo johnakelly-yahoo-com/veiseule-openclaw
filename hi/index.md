@@ -134,7 +134,7 @@ Gateway शुरू होने के बाद ब्राउज़र Cont
 - दूरस्थ एक्सेस: [Web surfaces](/web) और [Tailscale](/gateway/tailscale)
 
 <p align="center">
-  <img src="whatsapp-openclaw.jpg" alt="OpenClaw" width="420"></img>
+  <img src="/whatsapp-openclaw.jpg" alt="OpenClaw" width="420"></img>
 </p>
 
 ## विन्यास (वैकल्पिक)

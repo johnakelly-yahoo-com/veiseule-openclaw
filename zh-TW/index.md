@@ -136,7 +136,7 @@ Gateway 閘道器啟動後，開啟瀏覽器 Control UI。
 - 遠端存取：[Web surfaces](/web) 與 [Tailscale](/gateway/tailscale)
 
 <p align="center">
-  <img src="whatsapp-openclaw.jpg" alt="OpenClaw" width="420"></img>
+  <img src="/whatsapp-openclaw.jpg" alt="OpenClaw" width="420"></img>
 </p>
 
 ## Configuration (optional)

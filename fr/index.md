@@ -133,7 +133,7 @@ Ouvrez l’interface de contrôle dans le navigateur après le démarrage de la 
 - Accès à distance : [Surfaces Web](/web) et [Tailscale](/gateway/tailscale)
 
 <p align="center">
-  <img src="whatsapp-openclaw.jpg" alt="OpenClaw" width="420"></img>
+  <img src="/whatsapp-openclaw.jpg" alt="OpenClaw" width="420"></img>
 </p>
 
 ## Configuration (optionnelle)

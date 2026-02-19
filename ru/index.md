@@ -133,7 +133,7 @@ Gateway (шлюз) — это единый источник истины для 
 - Удалённый доступ: [Web surfaces](/web) и [Tailscale](/gateway/tailscale)
 
 <p align="center">
-  <img src="whatsapp-openclaw.jpg" alt="OpenClaw" width="420"></img>
+  <img src="/whatsapp-openclaw.jpg" alt="OpenClaw" width="420"></img>
 </p>
 
 ## Конфигурация (необязательно)

@@ -136,7 +136,7 @@ Need the full install and dev setup? See [Quick start](/start/quickstart).
 - การเข้าถึงระยะไกล: [Web surfaces](/web) และ [Tailscale](/gateway/tailscale)
 
 <p align="center">
-  <img src="whatsapp-openclaw.jpg" alt="OpenClaw" width="420"></img>
+  <img src="/whatsapp-openclaw.jpg" alt="OpenClaw" width="420"></img>
 </p>
 
 ## Configuration (optional)

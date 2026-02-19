@@ -133,7 +133,7 @@ Abra a UI de Controle no navegador após o Gateway iniciar.
 - Acesso remoto: [Superfícies web](/web) e [Tailscale](/gateway/tailscale)
 
 <p align="center">
-  <img src="whatsapp-openclaw.jpg" alt="OpenClaw" width="420"></img>
+  <img src="/whatsapp-openclaw.jpg" alt="OpenClaw" width="420"></img>
 </p>
 
 ## Configuração (opcional)
