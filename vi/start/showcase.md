@@ -1,20 +1,20 @@
 ---
-title: "Showcase"
-description: "Real-world OpenClaw projects from the community"
+title: "Trưng bày"
+description: "Các dự án OpenClaw thực tế từ cộng đồng"
 ---
 
 {/* v2 */}
-# Showcase
+# Trưng bày
 
-Real projects from the community. See what people are building with OpenClaw.
+Các dự án thực tế từ cộng đồng. Xem mọi người đang xây dựng gì với OpenClaw.
 
 <Info>
-**Want to be featured?** Share your project in [#showcase on Discord](https://discord.gg/clawd) or [tag @openclaw on X](https://x.com/openclaw).
+**Muốn được giới thiệu?** Chia sẻ dự án của bạn trong [#showcase trên Discord](https://discord.gg/clawd) hoặc [gắn thẻ @openclaw trên X](https://x.com/openclaw).
 </Info>
 
-## 🎥 OpenClaw in Action
+## 🎥 OpenClaw trong thực tế
 
-Full setup walkthrough (28m) by VelvetShark.
+Video hướng dẫn thiết lập đầy đủ (28 phút) bởi VelvetShark.
 
 <div
   style={{
@@ -27,7 +27,7 @@ Full setup walkthrough (28m) by VelvetShark.
 >
   <iframe
     src="https://www.youtube-nocookie.com/embed/SaWSPZoPX34"
-    title="OpenClaw: The self-hosted AI that Siri should have been (Full setup)"
+    title="OpenClaw: AI tự lưu trữ mà Siri lẽ ra nên có (Thiết lập đầy đủ)"
     style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
     frameBorder="0"
     loading="lazy"
@@ -35,7 +35,7 @@ Full setup walkthrough (28m) by VelvetShark.
     allowFullScreen></iframe>
 </div>
 
-[Watch on YouTube](https://www.youtube.com/watch?v=SaWSPZoPX34)
+[Xem trên YouTube](https://www.youtube.com/watch?v=SaWSPZoPX34)
 
 <div
   style={{
@@ -48,7 +48,7 @@ Full setup walkthrough (28m) by VelvetShark.
 >
   <iframe
     src="https://www.youtube-nocookie.com/embed/mMSKQvlmFuQ"
-    title="OpenClaw showcase video"
+    title="Video giới thiệu OpenClaw"
     style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
     frameBorder="0"
     loading="lazy"
@@ -56,7 +56,7 @@ Full setup walkthrough (28m) by VelvetShark.
     allowFullScreen></iframe>
 </div>
 
-[Watch on YouTube](https://www.youtube.com/watch?v=mMSKQvlmFuQ)
+[Xem trên YouTube](https://www.youtube.com/watch?v=mMSKQvlmFuQ)
 
 <div
   style={{
@@ -69,7 +69,7 @@ Full setup walkthrough (28m) by VelvetShark.
 >
   <iframe
     src="https://www.youtube-nocookie.com/embed/5kkIJNUGFho"
-    title="OpenClaw community showcase"
+    title="Video giới thiệu cộng đồng OpenClaw"
     style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
     frameBorder="0"
     loading="lazy"
@@ -77,342 +77,341 @@ Full setup walkthrough (28m) by VelvetShark.
     allowFullScreen></iframe>
 </div>
 
-[Watch on YouTube](https://www.youtube.com/watch?v=5kkIJNUGFho)
+[Xem trên YouTube](https://www.youtube.com/watch?v=5kkIJNUGFho)
 
-## 🆕 Fresh from Discord
+## 🆕 Mới nhất từ Discord
 
 <CardGroup cols={2}>
 
-<Card title="PR Review → Telegram Feedback" icon="code-pull-request" href="https://x.com/i/status/2010878524543131691">
+<Card title="Đánh giá PR → Phản hồi qua Telegram" icon="code-pull-request" href="https://x.com/i/status/2010878524543131691">
   **@bangnokia** • `review` `github` `telegram`
 
-OpenCode finishes the change → opens a PR → OpenClaw reviews the diff and replies in Telegram with “minor suggestions” plus a clear merge verdict (including critical fixes to apply first).
+OpenCode hoàn tất thay đổi → mở PR → OpenClaw xem xét diff và trả lời trên Telegram với “gợi ý nhỏ” cùng kết luận rõ ràng về việc merge (bao gồm các sửa lỗi quan trọng cần áp dụng trước).
 
-  <img src="/assets/showcase/pr-review-telegram.jpg" alt="OpenClaw PR review feedback delivered in Telegram"></img>
+  <img src="/assets/showcase/pr-review-telegram.jpg" alt="Phản hồi đánh giá PR của OpenClaw được gửi qua Telegram"></img>
 </Card>
 
-<Card title="Wine Cellar Skill in Minutes" icon="wine-glass" href="https://x.com/i/status/2010916352454791216">
+<Card title="Kỹ năng Hầm rượu trong vài phút" icon="wine-glass" href="https://x.com/i/status/2010916352454791216">
   **@prades_maxime** • `skills` `local` `csv`
 
-Asked “Robby” (@openclaw) for a local wine cellar skill. It requests a sample CSV export + where to store it, then builds/tests the skill fast (962 bottles in the example).
+Yêu cầu “Robby” (@openclaw) tạo một kỹ năng quản lý hầm rượu cục bộ. Nó yêu cầu file CSV mẫu + nơi lưu trữ, sau đó xây dựng/kiểm thử kỹ năng nhanh chóng (ví dụ với 962 chai).
 
-  <img src="/assets/showcase/wine-cellar-skill.jpg" alt="OpenClaw building a local wine cellar skill from CSV"></img>
+  <img src="/assets/showcase/wine-cellar-skill.jpg" alt="OpenClaw xây dựng kỹ năng quản lý hầm rượu cục bộ từ CSV"></img>
 </Card>
 
-<Card title="Tesco Shop Autopilot" icon="cart-shopping" href="https://x.com/i/status/2009724862470689131">
+<Card title="Tự động mua sắm Tesco" icon="cart-shopping" href="https://x.com/i/status/2009724862470689131">
   **@marchattonhere** • `automation` `browser` `shopping`
 
-Weekly meal plan → regulars → book delivery slot → confirm order. No APIs, just browser control.
+Kế hoạch bữa ăn hàng tuần → sản phẩm quen dùng → đặt lịch giao hàng → xác nhận đơn. Không cần API, chỉ điều khiển trình duyệt.
 
-  <img src="/assets/showcase/tesco-shop.jpg" alt="Tesco shop automation via chat"></img>
+  <img src="/assets/showcase/tesco-shop.jpg" alt="Tự động hóa mua sắm Tesco qua chat"></img>
 </Card>
 
-<Card title="SNAG Screenshot-to-Markdown" icon="scissors" href="https://github.com/am-will/snag">
+<Card title="SNAG Ảnh chụp màn hình sang Markdown" icon="scissors" href="https://github.com/am-will/snag">
   **@am-will** • `devtools` `screenshots` `markdown`
 
-Hotkey a screen region → Gemini vision → instant Markdown in your clipboard.
+Nhấn phím tắt chọn vùng màn hình → Gemini vision → Markdown tức thì trong clipboard.
 
-  <img src="/assets/showcase/snag.png" alt="SNAG screenshot-to-markdown tool"></img>
+  <img src="/assets/showcase/snag.png" alt="Công cụ SNAG chuyển ảnh chụp màn hình sang Markdown"></img>
 </Card>
 
-<Card title="Agents UI" icon="window-maximize" href="https://releaseflow.net/kitze/agents-ui">
+<Card title="Giao diện Agents" icon="window-maximize" href="https://releaseflow.net/kitze/agents-ui">
   **@kitze** • `ui` `skills` `sync`
 
-Desktop app to manage skills/commands across Agents, Claude, Codex, and OpenClaw.
+Ứng dụng desktop để quản lý skills/lệnh trên Agents, Claude, Codex và OpenClaw.
 
-  <img src="/assets/showcase/agents-ui.jpg" alt="Agents UI app"></img>
+  <img src="/assets/showcase/agents-ui.jpg" alt="Ứng dụng Agents UI"></img>
 </Card>
 
-<Card title="Telegram Voice Notes (papla.media)" icon="microphone" href="https://papla.media/docs">
+<Card title="Tin nhắn thoại Telegram (papla.media)" icon="microphone" href="https://papla.media/docs">
   **Community** • `voice` `tts` `telegram`
 
-Wraps papla.media TTS and sends results as Telegram voice notes (no annoying autoplay).
+Bao bọc TTS của papla.media và gửi kết quả dưới dạng tin nhắn thoại Telegram (không tự động phát gây khó chịu).
 
-  <img src="/assets/showcase/papla-tts.jpg" alt="Telegram voice note output from TTS"></img>
+  <img src="/assets/showcase/papla-tts.jpg" alt="Tin nhắn thoại Telegram từ TTS"></img>
 </Card>
 
 <Card title="CodexMonitor" icon="eye" href="https://clawhub.com/odrobnik/codexmonitor">
   **@odrobnik** • `devtools` `codex` `brew`
 
-Homebrew-installed helper to list/inspect/watch local OpenAI Codex sessions (CLI + VS Code).
+Công cụ cài qua Homebrew để liệt kê/kiểm tra/theo dõi các phiên OpenAI Codex cục bộ (CLI + VS Code).
 
-  <img src="/assets/showcase/codexmonitor.png" alt="CodexMonitor on ClawHub"></img>
+  <img src="/assets/showcase/codexmonitor.png" alt="CodexMonitor trên ClawHub"></img>
 </Card>
 
-<Card title="Bambu 3D Printer Control" icon="print" href="https://clawhub.com/tobiasbischoff/bambu-cli">
+<Card title="Điều khiển máy in 3D Bambu" icon="print" href="https://clawhub.com/tobiasbischoff/bambu-cli">
   **@tobiasbischoff** • `hardware` `3d-printing` `skill`
 
-Control and troubleshoot BambuLab printers: status, jobs, camera, AMS, calibration, and more.
+Điều khiển và khắc phục sự cố máy in BambuLab: trạng thái, tác vụ, camera, AMS, hiệu chuẩn và hơn thế nữa.
 
-  <img src="/assets/showcase/bambu-cli.png" alt="Bambu CLI skill on ClawHub"></img>
+  <img src="/assets/showcase/bambu-cli.png" alt="Kỹ năng Bambu CLI trên ClawHub"></img>
 </Card>
 
-<Card title="Vienna Transport (Wiener Linien)" icon="train" href="https://clawhub.com/hjanuschka/wienerlinien">
+<Card title="Giao thông Vienna (Wiener Linien)" icon="train" href="https://clawhub.com/hjanuschka/wienerlinien">
   **@hjanuschka** • `travel` `transport` `skill`
 
-Real-time departures, disruptions, elevator status, and routing for Vienna's public transport.
+Thông tin khởi hành thời gian thực, gián đoạn, trạng thái thang máy và định tuyến cho giao thông công cộng Vienna.
 
-  <img src="/assets/showcase/wienerlinien.png" alt="Wiener Linien skill on ClawHub"></img>
+  <img src="/assets/showcase/wienerlinien.png" alt="Kỹ năng Wiener Linien trên ClawHub"></img>
 </Card>
 
-<Card title="ParentPay School Meals" icon="utensils" href="#">
+<Card title="Suất ăn trường học ParentPay" icon="utensils" href="#">
   **@George5562** • `automation` `browser` `parenting`
 
-Automated UK school meal booking via ParentPay. Uses mouse coordinates for reliable table cell clicking.
+Tự động đặt suất ăn trường học tại Anh qua ParentPay. Sử dụng tọa độ chuột để nhấp ô bảng chính xác.
 </Card>
 
-<Card title="R2 Upload (Send Me My Files)" icon="cloud-arrow-up" href="https://clawhub.com/skills/r2-upload">
+<Card title="Tải lên R2 (Gửi file cho tôi)" icon="cloud-arrow-up" href="https://clawhub.com/skills/r2-upload">
   **@julianengel** • `files` `r2` `presigned-urls`
 
-Upload to Cloudflare R2/S3 and generate secure presigned download links. Perfect for remote OpenClaw instances.
+Tải lên Cloudflare R2/S3 và tạo liên kết tải xuống presigned an toàn. Hoàn hảo cho các phiên OpenClaw chạy từ xa.
 </Card>
 
-<Card title="iOS App via Telegram" icon="mobile" href="#">
+<Card title="Ứng dụng iOS qua Telegram" icon="mobile" href="#">
   **@coard** • `ios` `xcode` `testflight`
 
-Built a complete iOS app with maps and voice recording, deployed to TestFlight entirely via Telegram chat.
+Xây dựng ứng dụng iOS hoàn chỉnh với bản đồ và ghi âm giọng nói, triển khai lên TestFlight hoàn toàn qua chat Telegram.
 
-  <img src="/assets/showcase/ios-testflight.jpg" alt="iOS app on TestFlight"></img>
+  <img src="/assets/showcase/ios-testflight.jpg" alt="Ứng dụng iOS trên TestFlight"></img>
 </Card>
 
-<Card title="Oura Ring Health Assistant" icon="heart-pulse" href="#">
+<Card title="Trợ lý sức khỏe Oura Ring" icon="heart-pulse" href="#">
   **@AS** • `health` `oura` `calendar`
 
-Personal AI health assistant integrating Oura ring data with calendar, appointments, and gym schedule.
+Trợ lý sức khỏe AI cá nhân tích hợp dữ liệu Oura ring với lịch, cuộc hẹn và lịch tập gym.
 
-  <img src="/assets/showcase/oura-health.png" alt="Oura ring health assistant"></img>
+  <img src="/assets/showcase/oura-health.png" alt="Trợ lý sức khỏe Oura ring"></img>
 </Card>
+
 <Card title="Kev's Dream Team (14+ Agents)" icon="robot" href="https://github.com/adam91holt/orchestrated-ai-articles">
   **@adam91holt** • `multi-agent` `orchestration` `architecture` `manifesto`
 
-14+ agents under one gateway with Opus 4.5 orchestrator delegating to Codex workers. Comprehensive [technical write-up](https://github.com/adam91holt/orchestrated-ai-articles) covering the Dream Team roster, model selection, sandboxing, webhooks, heartbeats, and delegation flows. [Clawdspace](https://github.com/adam91holt/clawdspace) for agent sandboxing. [Blog post](https://adams-ai-journey.ghost.io/2026-the-year-of-the-orchestrator/).
+14+ agent dưới một gateway với bộ điều phối Opus 4.5 phân công cho các worker Codex. [Tài liệu kỹ thuật chi tiết](https://github.com/adam91holt/orchestrated-ai-articles) bao gồm danh sách Dream Team, lựa chọn mô hình, sandboxing, webhook, heartbeat và luồng phân công. [Clawdspace](https://github.com/adam91holt/clawdspace) cho sandbox agent. [Bài viết blog](https://adams-ai-journey.ghost.io/2026-the-year-of-the-orchestrator/).
 </Card>
 
 <Card title="Linear CLI" icon="terminal" href="https://github.com/Finesssee/linear-cli">
   **@NessZerra** • `devtools` `linear` `cli` `issues`
 
-CLI for Linear that integrates with agentic workflows (Claude Code, OpenClaw). Manage issues, projects, and workflows from the terminal. First external PR merged!
+CLI cho Linear tích hợp với các quy trình agentic (Claude Code, OpenClaw). Quản lý issue, dự án và workflow từ terminal. PR bên ngoài đầu tiên đã được merge!
 </Card>
 
 <Card title="Beeper CLI" icon="message" href="https://github.com/blqke/beepcli">
   **@jules** • `messaging` `beeper` `cli` `automation`
 
-Read, send, and archive messages via Beeper Desktop. Uses Beeper local MCP API so agents can manage all your chats (iMessage, WhatsApp, etc.) in one place.
+Đọc, gửi và lưu trữ tin nhắn qua Beeper Desktop. Sử dụng Beeper local MCP API để agent có thể quản lý tất cả cuộc trò chuyện của bạn (iMessage, WhatsApp, v.v.) tại một nơi.
 </Card>
 
 </CardGroup>
 
-## 🤖 Automation & Workflows
+## 🤖 Tự động hóa & Quy trình
 
 <CardGroup cols={2}>
 
-<Card title="Winix Air Purifier Control" icon="wind" href="https://x.com/antonplex/status/2010518442471006253">
+<Card title="Điều khiển máy lọc không khí Winix" icon="wind" href="https://x.com/antonplex/status/2010518442471006253">
   **@antonplex** • `automation` `hardware` `air-quality`
 
-Claude Code discovered and confirmed the purifier controls, then OpenClaw takes over to manage room air quality.
+Claude Code phát hiện và xác nhận các điều khiển của máy lọc, sau đó OpenClaw tiếp quản để quản lý chất lượng không khí trong phòng.
 
-  <img src="/assets/showcase/winix-air-purifier.jpg" alt="Winix air purifier control via OpenClaw"></img>
+  <img src="/assets/showcase/winix-air-purifier.jpg" alt="Điều khiển máy lọc không khí Winix qua OpenClaw"></img>
 </Card>
 
-<Card title="Pretty Sky Camera Shots" icon="camera" href="https://x.com/signalgaining/status/2010523120604746151">
+<Card title="Chụp ảnh bầu trời đẹp" icon="camera" href="https://x.com/signalgaining/status/2010523120604746151">
   **@signalgaining** • `automation` `camera` `skill` `images`
 
-Triggered by a roof camera: ask OpenClaw to snap a sky photo whenever it looks pretty — it designed a skill and took the shot.
+Kích hoạt từ camera trên mái nhà: yêu cầu OpenClaw chụp ảnh bầu trời khi trời đẹp — nó đã thiết kế một skill và chụp ảnh.
 
-  <img src="/assets/showcase/roof-camera-sky.jpg" alt="Roof camera sky snapshot captured by OpenClaw"></img>
+  <img src="/assets/showcase/roof-camera-sky.jpg" alt="Ảnh bầu trời từ camera mái nhà do OpenClaw chụp"></img>
 </Card>
 
-<Card title="Visual Morning Briefing Scene" icon="robot" href="https://x.com/buddyhadry/status/2010005331925954739">
+<Card title="Cảnh báo buổi sáng trực quan" icon="robot" href="https://x.com/buddyhadry/status/2010005331925954739">
   **@buddyhadry** • `automation` `briefing` `images` `telegram`
 
-A scheduled prompt generates a single "scene" image each morning (weather, tasks, date, favorite post/quote) via a OpenClaw persona.
+Một prompt theo lịch tạo ra một hình ảnh “cảnh” mỗi sáng (thời tiết, công việc, ngày tháng, bài đăng/trích dẫn yêu thích) thông qua persona OpenClaw.
 </Card>
 
-<Card title="Padel Court Booking" icon="calendar-check" href="https://github.com/joshp123/padel-cli">
+<Card title="Đặt sân Padel" icon="calendar-check" href="https://github.com/joshp123/padel-cli">
   **@joshp123** • `automation` `booking` `cli`
   
-  Playtomic availability checker + booking CLI. Never miss an open court again.
+  CLI kiểm tra tình trạng và đặt sân Playtomic. Không bao giờ bỏ lỡ sân trống nữa.
   
-  <img src="/assets/showcase/padel-screenshot.jpg" alt="padel-cli screenshot"></img>
+  <img src="/assets/showcase/padel-screenshot.jpg" alt="Ảnh chụp màn hình padel-cli"></img>
 </Card>
 
-<Card title="Accounting Intake" icon="file-invoice-dollar">
+<Card title="Tiếp nhận kế toán" icon="file-invoice-dollar">
   **Community** • `automation` `email` `pdf`
   
-  Collects PDFs from email, preps documents for tax consultant. Monthly accounting on autopilot.
+  Thu thập PDF từ email, chuẩn bị tài liệu cho tư vấn thuế. Kế toán hàng tháng chạy tự động.
 </Card>
 
-<Card title="Couch Potato Dev Mode" icon="couch" href="https://davekiss.com">
+<Card title="Chế độ Dev khoai tây sofa" icon="couch" href="https://davekiss.com">
   **@davekiss** • `telegram` `website` `migration` `astro`
 
-Rebuilt entire personal site via Telegram while watching Netflix — Notion → Astro, 18 posts migrated, DNS to Cloudflare. Never opened a laptop.
+Xây dựng lại toàn bộ website cá nhân qua Telegram khi đang xem Netflix — Notion → Astro, di chuyển 18 bài viết, DNS sang Cloudflare. Không cần mở laptop.
 </Card>
 
-<Card title="Job Search Agent" icon="briefcase">
+<Card title="Agent tìm việc" icon="briefcase">
   **@attol8** • `automation` `api` `skill`
 
-Searches job listings, matches against CV keywords, and returns relevant opportunities with links. Built in 30 minutes using JSearch API.
+Tìm kiếm tin tuyển dụng, so khớp với từ khóa trong CV và trả về cơ hội phù hợp kèm liên kết. Xây dựng trong 30 phút bằng JSearch API.
 </Card>
 
-<Card title="Jira Skill Builder" icon="diagram-project" href="https://x.com/jdrhyne/status/2008336434827002232">
+<Card title="Trình tạo Jira Skill" icon="diagram-project" href="https://x.com/jdrhyne/status/2008336434827002232">
   **@jdrhyne** • `automation` `jira` `skill` `devtools`
 
-OpenClaw connected to Jira, then generated a new skill on the fly (before it existed on ClawHub).
+OpenClaw kết nối với Jira, sau đó tạo một skill mới ngay lập tức (trước khi nó tồn tại trên ClawHub).
 </Card>
 
-<Card title="Todoist Skill via Telegram" icon="list-check" href="https://x.com/iamsubhrajyoti/status/2009949389884920153">
+<Card title="Todoist Skill qua Telegram" icon="list-check" href="https://x.com/iamsubhrajyoti/status/2009949389884920153">
   **@iamsubhrajyoti** • `automation` `todoist` `skill` `telegram`
 
-Automated Todoist tasks and had OpenClaw generate the skill directly in Telegram chat.
+Tự động hóa tác vụ Todoist và để OpenClaw tạo skill trực tiếp trong cuộc trò chuyện Telegram.
 </Card>
 
-<Card title="TradingView Analysis" icon="chart-line">
+<Card title="Phân tích TradingView" icon="chart-line">
   **@bheem1798** • `finance` `browser` `automation`
 
-Logs into TradingView via browser automation, screenshots charts, and performs technical analysis on demand. No API needed—just browser control.
+Đăng nhập vào TradingView bằng tự động hóa trình duyệt, chụp ảnh biểu đồ và thực hiện phân tích kỹ thuật theo yêu cầu. Không cần API—chỉ cần điều khiển trình duyệt.
 </Card>
 
 <Card title="Slack Auto-Support" icon="slack">
   **@henrymascot** • `slack` `automation` `support`
 
-Watches company Slack channel, responds helpfully, and forwards notifications to Telegram. Autonomously fixed a production bug in a deployed app without being asked.
+Theo dõi kênh Slack công ty, phản hồi hữu ích và chuyển tiếp thông báo sang Telegram. Tự động sửa một lỗi production trong ứng dụng đã triển khai mà không cần được yêu cầu.
 </Card>
 
 </CardGroup>
 
-## 🧠 Knowledge & Memory
+## 🧠 Kiến thức & Bộ nhớ
 
 <CardGroup cols={2}>
 
-<Card title="xuezh Chinese Learning" icon="language" href="https://github.com/joshp123/xuezh">
+<Card title="xuezh Học tiếng Trung" icon="language" href="https://github.com/joshp123/xuezh">
   **@joshp123** • `learning` `voice` `skill`
   
-  Chinese learning engine with pronunciation feedback and study flows via OpenClaw.
+  Công cụ học tiếng Trung với phản hồi phát âm và lộ trình học qua OpenClaw.
   
-  <img src="/assets/showcase/xuezh-pronunciation.jpeg" alt="xuezh pronunciation feedback"></img>
+  <img src="/assets/showcase/xuezh-pronunciation.jpeg" alt="Phản hồi phát âm xuezh"></img>
 </Card>
 
-<Card title="WhatsApp Memory Vault" icon="vault">
+<Card title="Kho lưu trữ bộ nhớ WhatsApp" icon="vault">
   **Community** • `memory` `transcription` `indexing`
   
-  Ingests full WhatsApp exports, transcribes 1k+ voice notes, cross-checks with git logs, outputs linked markdown reports.
+  Nhập toàn bộ xuất dữ liệu WhatsApp, phiên âm 1k+ tin nhắn thoại, đối chiếu với git logs, xuất báo cáo markdown có liên kết.
 </Card>
 
-<Card title="Karakeep Semantic Search" icon="magnifying-glass" href="https://github.com/jamesbrooksco/karakeep-semantic-search">
+<Card title="Tìm kiếm ngữ nghĩa Karakeep" icon="magnifying-glass" href="https://github.com/jamesbrooksco/karakeep-semantic-search">
   **@jamesbrooksco** • `search` `vector` `bookmarks`
   
-  Adds vector search to Karakeep bookmarks using Qdrant + OpenAI/Ollama embeddings.
+  Thêm tìm kiếm vector cho bookmark Karakeep bằng Qdrant + embedding OpenAI/Ollama.
 </Card>
 
-<Card title="Inside-Out-2 Memory" icon="brain">
+<Card title="Bộ nhớ Inside-Out-2" icon="brain">
   **Community** • `memory` `beliefs` `self-model`
   
-  Separate memory manager that turns session files into memories → beliefs → evolving self model.
+  Trình quản lý bộ nhớ riêng biệt chuyển file phiên làm việc thành ký ức → niềm tin → mô hình bản thân tiến hóa.
 </Card>
 
 </CardGroup>
 
-## 🎙️ Voice & Phone
+## 🎙️ Giọng nói & Điện thoại
 
 <CardGroup cols={2}>
 
-<Card title="Clawdia Phone Bridge" icon="phone" href="https://github.com/alejandroOPI/clawdia-bridge">
+<Card title="Cầu nối điện thoại Clawdia" icon="phone" href="https://github.com/alejandroOPI/clawdia-bridge">
   **@alejandroOPI** • `voice` `vapi` `bridge`
   
-  Vapi voice assistant ↔ OpenClaw HTTP bridge. Near real-time phone calls with your agent.
+  Trợ lý giọng nói Vapi ↔ cầu nối HTTP OpenClaw. Cuộc gọi điện thoại gần thời gian thực với agent của bạn.
 </Card>
 
-<Card title="OpenRouter Transcription" icon="microphone" href="https://clawhub.com/obviyus/openrouter-transcribe">
+<Card title="Phiên âm OpenRouter" icon="microphone" href="https://clawhub.com/obviyus/openrouter-transcribe">
   **@obviyus** • `transcription` `multilingual` `skill`
 
-Multi-lingual audio transcription via OpenRouter (Gemini, etc). Available on ClawHub.
+Phiên âm âm thanh đa ngôn ngữ qua OpenRouter (Gemini, v.v.). Có sẵn trên ClawHub.
 </Card>
 
 </CardGroup>
 
-## 🏗️ Infrastructure & Deployment
+## 🏗️ Hạ tầng & Triển khai
 
 <CardGroup cols={2}>
 
-<Card title="Home Assistant Add-on" icon="home" href="https://github.com/ngutman/openclaw-ha-addon">
+<Card title="Tiện ích bổ sung Home Assistant" icon="home" href="https://github.com/ngutman/openclaw-ha-addon">
   **@ngutman** • `homeassistant` `docker` `raspberry-pi`
   
-  OpenClaw gateway running on Home Assistant OS with SSH tunnel support and persistent state.
+  Gateway OpenClaw chạy trên Home Assistant OS với hỗ trợ SSH tunnel và trạng thái lưu trữ bền vững.
 </Card>
 
 <Card title="Home Assistant Skill" icon="toggle-on" href="https://clawhub.com/skills/homeassistant">
   **ClawHub** • `homeassistant` `skill` `automation`
   
-  Control and automate Home Assistant devices via natural language.
+  Điều khiển và tự động hóa thiết bị Home Assistant bằng ngôn ngữ tự nhiên.
 </Card>
 
-<Card title="Nix Packaging" icon="snowflake" href="https://github.com/openclaw/nix-openclaw">
+<Card title="Đóng gói Nix" icon="snowflake" href="https://github.com/openclaw/nix-openclaw">
   **@openclaw** • `nix` `packaging` `deployment`
   
-  Batteries-included nixified OpenClaw configuration for reproducible deployments.
+  Cấu hình OpenClaw nixified đầy đủ pin để triển khai có thể tái lập.
 </Card>
 
-<Card title="CalDAV Calendar" icon="calendar" href="https://clawhub.com/skills/caldav-calendar">
+<Card title="Lịch CalDAV" icon="calendar" href="https://clawhub.com/skills/caldav-calendar">
   **ClawHub** • `calendar` `caldav` `skill`
   
-  Calendar skill using khal/vdirsyncer. Self-hosted calendar integration.
+  Skill lịch sử dụng khal/vdirsyncer. Tích hợp lịch tự lưu trữ.
 </Card>
 
 </CardGroup>
 
-## 🏠 Home & Hardware
+## 🏠 Nhà & Phần cứng
 
 <CardGroup cols={2}>
 
-<Card title="GoHome Automation" icon="house-signal" href="https://github.com/joshp123/gohome">
+<Card title="Tự động hóa GoHome" icon="house-signal" href="https://github.com/joshp123/gohome">
   **@joshp123** • `home` `nix` `grafana`
   
-  Nix-native home automation with OpenClaw as the interface, plus beautiful Grafana dashboards.
+  Tự động hóa nhà thuần Nix với OpenClaw làm giao diện, kèm dashboard Grafana đẹp mắt.
   
-  <img src="/assets/showcase/gohome-grafana.png" alt="GoHome Grafana dashboard"></img>
+  <img src="/assets/showcase/gohome-grafana.png" alt="Bảng điều khiển GoHome Grafana"></img>
 </Card>
 
-<Card title="Roborock Vacuum" icon="robot" href="https://github.com/joshp123/gohome/tree/main/plugins/roborock">
+<Card title="Máy hút bụi Roborock" icon="robot" href="https://github.com/joshp123/gohome/tree/main/plugins/roborock">
   **@joshp123** • `vacuum` `iot` `plugin`
   
-  Control your Roborock robot vacuum through natural conversation.
+  Điều khiển robot hút bụi Roborock bằng hội thoại tự nhiên.
   
-  <img src="/assets/showcase/roborock-screenshot.jpg" alt="Roborock status"></img>
+  <img src="/assets/showcase/roborock-screenshot.jpg" alt="Trạng thái Roborock"></img>
 </Card>
 
 </CardGroup>
 
-## 🌟 Community Projects
+## 🌟 Dự án Cộng đồng
 
 <CardGroup cols={2}>
 
-<Card title="StarSwap Marketplace" icon="star" href="https://star-swap.com/">
+<Card title="Chợ StarSwap" icon="star" href="https://star-swap.com/">
   **Community** • `marketplace` `astronomy` `webapp`
   
-  Full astronomy gear marketplace. Built with/around the OpenClaw ecosystem.
+  Chợ thiết bị thiên văn hoàn chỉnh. Được xây dựng với/xung quanh hệ sinh thái OpenClaw.
 </Card>
 
 </CardGroup>
 
 ---
 
-## Submit Your Project
+## Gửi Dự Án Của Bạn
 
-Have something to share? We'd love to feature it!
+Có điều gì muốn chia sẻ? Chúng tôi rất muốn giới thiệu!
 
 <Steps>
-  <Step title="Share It">
-    Post in [#showcase on Discord](https://discord.gg/clawd) or [tweet @openclaw](https://x.com/openclaw)
+  <Step title="Chia sẻ">
+    Đăng trong [#showcase trên Discord](https://discord.gg/clawd) hoặc [tweet @openclaw](https://x.com/openclaw)
   
 </Step>
-  <Step title="Include Details">
-    Tell us what it does, link to the repo/demo, share a screenshot if you have one
+  <Step title="Bao gồm chi tiết">
+    Cho chúng tôi biết nó làm gì, liên kết đến repo/demo, chia sẻ ảnh chụp màn hình nếu có
   
 </Step>
-  <Step title="Get Featured">
-    We'll add standout projects to this page
+  <Step title="Được giới thiệu">
+    Chúng tôi sẽ thêm các dự án nổi bật vào trang này
   
 </Step>
 </Steps>
-
-

@@ -1,20 +1,20 @@
 ---
 title: "Showcase"
-description: "Real-world OpenClaw projects from the community"
+description: "Mga totoong proyekto ng OpenClaw mula sa komunidad"
 ---
 
 {/* v2 */}
 # Showcase
 
-Real projects from the community. See what people are building with OpenClaw.
+Mga totoong proyekto mula sa komunidad. Tingnan kung ano ang ginagawa ng mga tao gamit ang OpenClaw.
 
 <Info>
-**Want to be featured?** Share your project in [#showcase on Discord](https://discord.gg/clawd) or [tag @openclaw on X](https://x.com/openclaw).
+**Gusto mong ma-feature?** Ibahagi ang iyong proyekto sa [#showcase on Discord](https://discord.gg/clawd) o [i-tag ang @openclaw sa X](https://x.com/openclaw).
 </Info>
 
-## 🎥 OpenClaw in Action
+## 🎥 OpenClaw sa Aksyon
 
-Full setup walkthrough (28m) by VelvetShark.
+Buong walkthrough ng setup (28m) ni VelvetShark.
 
 <div
   style={{
@@ -27,7 +27,7 @@ Full setup walkthrough (28m) by VelvetShark.
 >
   <iframe
     src="https://www.youtube-nocookie.com/embed/SaWSPZoPX34"
-    title="OpenClaw: The self-hosted AI that Siri should have been (Full setup)"
+    title="OpenClaw: Ang self-hosted AI na dapat sana ay naging Siri (Buong setup)"
     style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
     frameBorder="0"
     loading="lazy"
@@ -35,7 +35,7 @@ Full setup walkthrough (28m) by VelvetShark.
     allowFullScreen></iframe>
 </div>
 
-[Watch on YouTube](https://www.youtube.com/watch?v=SaWSPZoPX34)
+[Panoorin sa YouTube](https://www.youtube.com/watch?v=SaWSPZoPX34)
 
 <div
   style={{
@@ -48,7 +48,7 @@ Full setup walkthrough (28m) by VelvetShark.
 >
   <iframe
     src="https://www.youtube-nocookie.com/embed/mMSKQvlmFuQ"
-    title="OpenClaw showcase video"
+    title="Video ng showcase ng OpenClaw"
     style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
     frameBorder="0"
     loading="lazy"
@@ -56,7 +56,7 @@ Full setup walkthrough (28m) by VelvetShark.
     allowFullScreen></iframe>
 </div>
 
-[Watch on YouTube](https://www.youtube.com/watch?v=mMSKQvlmFuQ)
+[Panoorin sa YouTube](https://www.youtube.com/watch?v=mMSKQvlmFuQ)
 
 <div
   style={{
@@ -69,7 +69,7 @@ Full setup walkthrough (28m) by VelvetShark.
 >
   <iframe
     src="https://www.youtube-nocookie.com/embed/5kkIJNUGFho"
-    title="OpenClaw community showcase"
+    title="Showcase ng komunidad ng OpenClaw"
     style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
     frameBorder="0"
     loading="lazy"
@@ -77,48 +77,48 @@ Full setup walkthrough (28m) by VelvetShark.
     allowFullScreen></iframe>
 </div>
 
-[Watch on YouTube](https://www.youtube.com/watch?v=5kkIJNUGFho)
+[Panoorin sa YouTube](https://www.youtube.com/watch?v=5kkIJNUGFho)
 
-## 🆕 Fresh from Discord
+## 🆕 Bago mula sa Discord
 
 <CardGroup cols={2}>
 
-<Card title="PR Review → Telegram Feedback" icon="code-pull-request" href="https://x.com/i/status/2010878524543131691">
+<Card title="PR Review → Feedback sa Telegram" icon="code-pull-request" href="https://x.com/i/status/2010878524543131691">
   **@bangnokia** • `review` `github` `telegram`
 
-OpenCode finishes the change → opens a PR → OpenClaw reviews the diff and replies in Telegram with “minor suggestions” plus a clear merge verdict (including critical fixes to apply first).
+Tinapos ng OpenCode ang pagbabago → nagbukas ng PR → nirepaso ng OpenClaw ang diff at sumagot sa Telegram na may “minor suggestions” kasama ang malinaw na pasya kung i-merge (kabilang ang mga kritikal na ayos na dapat unahin).
 
-  <img src="/assets/showcase/pr-review-telegram.jpg" alt="OpenClaw PR review feedback delivered in Telegram"></img>
+  <img src="/assets/showcase/pr-review-telegram.jpg" alt="Feedback ng OpenClaw sa PR na ipinadala sa Telegram"></img>
 </Card>
 
-<Card title="Wine Cellar Skill in Minutes" icon="wine-glass" href="https://x.com/i/status/2010916352454791216">
+<Card title="Wine Cellar Skill sa Ilang Minuto" icon="wine-glass" href="https://x.com/i/status/2010916352454791216">
   **@prades_maxime** • `skills` `local` `csv`
 
-Asked “Robby” (@openclaw) for a local wine cellar skill. It requests a sample CSV export + where to store it, then builds/tests the skill fast (962 bottles in the example).
+Humiling kay “Robby” (@openclaw) ng lokal na wine cellar skill. Hihingi ito ng sample CSV export + kung saan ito ise-save, pagkatapos ay mabilis na bubuuin/ite-test ang skill (962 bote sa halimbawa).
 
-  <img src="/assets/showcase/wine-cellar-skill.jpg" alt="OpenClaw building a local wine cellar skill from CSV"></img>
+  <img src="/assets/showcase/wine-cellar-skill.jpg" alt="Gumagawa ang OpenClaw ng lokal na wine cellar skill mula sa CSV"></img>
 </Card>
 
 <Card title="Tesco Shop Autopilot" icon="cart-shopping" href="https://x.com/i/status/2009724862470689131">
   **@marchattonhere** • `automation` `browser` `shopping`
 
-Weekly meal plan → regulars → book delivery slot → confirm order. No APIs, just browser control.
+Lingguhang meal plan → mga regular na item → mag-book ng delivery slot → kumpirmahin ang order. Walang APIs, kontrol lang sa browser.
 
-  <img src="/assets/showcase/tesco-shop.jpg" alt="Tesco shop automation via chat"></img>
+  <img src="/assets/showcase/tesco-shop.jpg" alt="Automation ng Tesco shop sa pamamagitan ng chat"></img>
 </Card>
 
 <Card title="SNAG Screenshot-to-Markdown" icon="scissors" href="https://github.com/am-will/snag">
   **@am-will** • `devtools` `screenshots` `markdown`
 
-Hotkey a screen region → Gemini vision → instant Markdown in your clipboard.
+Hotkey ang isang bahagi ng screen → Gemini vision → instant Markdown sa iyong clipboard.
 
-  <img src="/assets/showcase/snag.png" alt="SNAG screenshot-to-markdown tool"></img>
+  <img src="/assets/showcase/snag.png" alt="SNAG screenshot-to-markdown na tool"></img>
 </Card>
 
 <Card title="Agents UI" icon="window-maximize" href="https://releaseflow.net/kitze/agents-ui">
   **@kitze** • `ui` `skills` `sync`
 
-Desktop app to manage skills/commands across Agents, Claude, Codex, and OpenClaw.
+Desktop app para pamahalaan ang skills/commands sa Agents, Claude, Codex, at OpenClaw.
 
   <img src="/assets/showcase/agents-ui.jpg" alt="Agents UI app"></img>
 </Card>
@@ -126,248 +126,248 @@ Desktop app to manage skills/commands across Agents, Claude, Codex, and OpenClaw
 <Card title="Telegram Voice Notes (papla.media)" icon="microphone" href="https://papla.media/docs">
   **Community** • `voice` `tts` `telegram`
 
-Wraps papla.media TTS and sends results as Telegram voice notes (no annoying autoplay).
+Binabalot ang papla.media TTS at ipinapadala ang resulta bilang Telegram voice notes (walang nakakainis na autoplay).
 
-  <img src="/assets/showcase/papla-tts.jpg" alt="Telegram voice note output from TTS"></img>
+  <img src="/assets/showcase/papla-tts.jpg" alt="Telegram voice note output mula sa TTS"></img>
 </Card>
 
 <Card title="CodexMonitor" icon="eye" href="https://clawhub.com/odrobnik/codexmonitor">
   **@odrobnik** • `devtools` `codex` `brew`
 
-Homebrew-installed helper to list/inspect/watch local OpenAI Codex sessions (CLI + VS Code).
+Helper na ini-install sa pamamagitan ng Homebrew para ilista/suriin/bantayan ang lokal na OpenAI Codex sessions (CLI + VS Code).
 
-  <img src="/assets/showcase/codexmonitor.png" alt="CodexMonitor on ClawHub"></img>
+  <img src="/assets/showcase/codexmonitor.png" alt="CodexMonitor sa ClawHub"></img>
 </Card>
 
 <Card title="Bambu 3D Printer Control" icon="print" href="https://clawhub.com/tobiasbischoff/bambu-cli">
   **@tobiasbischoff** • `hardware` `3d-printing` `skill`
 
-Control and troubleshoot BambuLab printers: status, jobs, camera, AMS, calibration, and more.
+Kontrolin at i-troubleshoot ang BambuLab printers: status, jobs, camera, AMS, calibration, at iba pa.
 
-  <img src="/assets/showcase/bambu-cli.png" alt="Bambu CLI skill on ClawHub"></img>
+  <img src="/assets/showcase/bambu-cli.png" alt="Bambu CLI skill sa ClawHub"></img>
 </Card>
 
 <Card title="Vienna Transport (Wiener Linien)" icon="train" href="https://clawhub.com/hjanuschka/wienerlinien">
   **@hjanuschka** • `travel` `transport` `skill`
 
-Real-time departures, disruptions, elevator status, and routing for Vienna's public transport.
+Real-time na pag-alis, mga aberya, status ng elevator, at routing para sa pampublikong transportasyon ng Vienna.
 
-  <img src="/assets/showcase/wienerlinien.png" alt="Wiener Linien skill on ClawHub"></img>
+  <img src="/assets/showcase/wienerlinien.png" alt="Wiener Linien skill sa ClawHub"></img>
 </Card>
 
 <Card title="ParentPay School Meals" icon="utensils" href="#">
   **@George5562** • `automation` `browser` `parenting`
 
-Automated UK school meal booking via ParentPay. Uses mouse coordinates for reliable table cell clicking.
+Automated na pag-book ng school meals sa UK gamit ang ParentPay. Gumagamit ng mouse coordinates para sa maaasahang pag-click ng table cells.
 </Card>
 
 <Card title="R2 Upload (Send Me My Files)" icon="cloud-arrow-up" href="https://clawhub.com/skills/r2-upload">
   **@julianengel** • `files` `r2` `presigned-urls`
 
-Upload to Cloudflare R2/S3 and generate secure presigned download links. Perfect for remote OpenClaw instances.
+Mag-upload sa Cloudflare R2/S3 at bumuo ng secure na presigned download links. Perpekto para sa mga remote na OpenClaw instances.
 </Card>
 
 <Card title="iOS App via Telegram" icon="mobile" href="#">
   **@coard** • `ios` `xcode` `testflight`
 
-Built a complete iOS app with maps and voice recording, deployed to TestFlight entirely via Telegram chat.
+Bumuo ng kumpletong iOS app na may maps at voice recording, at dineploy sa TestFlight nang buo sa pamamagitan ng Telegram chat.
 
-  <img src="/assets/showcase/ios-testflight.jpg" alt="iOS app on TestFlight"></img>
+  <img src="/assets/showcase/ios-testflight.jpg" alt="iOS app sa TestFlight"></img>
 </Card>
 
 <Card title="Oura Ring Health Assistant" icon="heart-pulse" href="#">
   **@AS** • `health` `oura` `calendar`
 
-Personal AI health assistant integrating Oura ring data with calendar, appointments, and gym schedule.
+Personal na AI health assistant na nag-iintegrate ng Oura ring data sa calendar, appointments, at gym schedule.
 
   <img src="/assets/showcase/oura-health.png" alt="Oura ring health assistant"></img>
 </Card>
 <Card title="Kev's Dream Team (14+ Agents)" icon="robot" href="https://github.com/adam91holt/orchestrated-ai-articles">
   **@adam91holt** • `multi-agent` `orchestration` `architecture` `manifesto`
 
-14+ agents under one gateway with Opus 4.5 orchestrator delegating to Codex workers. Comprehensive [technical write-up](https://github.com/adam91holt/orchestrated-ai-articles) covering the Dream Team roster, model selection, sandboxing, webhooks, heartbeats, and delegation flows. [Clawdspace](https://github.com/adam91holt/clawdspace) for agent sandboxing. [Blog post](https://adams-ai-journey.ghost.io/2026-the-year-of-the-orchestrator/).
+14+ agents sa ilalim ng iisang gateway na may Opus 4.5 orchestrator na nagde-delegate sa Codex workers. Komprehensibong [technical write-up](https://github.com/adam91holt/orchestrated-ai-articles) na sumasaklaw sa Dream Team roster, pagpili ng modelo, sandboxing, webhooks, heartbeats, at delegation flows. [Clawdspace](https://github.com/adam91holt/clawdspace) para sa agent sandboxing. [Blog post](https://adams-ai-journey.ghost.io/2026-the-year-of-the-orchestrator/).
 </Card>
 
 <Card title="Linear CLI" icon="terminal" href="https://github.com/Finesssee/linear-cli">
   **@NessZerra** • `devtools` `linear` `cli` `issues`
 
-CLI for Linear that integrates with agentic workflows (Claude Code, OpenClaw). Manage issues, projects, and workflows from the terminal. First external PR merged!
+CLI para sa Linear na nag-iintegrate sa agentic workflows (Claude Code, OpenClaw). Pamahalaan ang issues, projects, at workflows mula sa terminal. Unang external PR na na-merge!
 </Card>
 
 <Card title="Beeper CLI" icon="message" href="https://github.com/blqke/beepcli">
   **@jules** • `messaging` `beeper` `cli` `automation`
 
-Read, send, and archive messages via Beeper Desktop. Uses Beeper local MCP API so agents can manage all your chats (iMessage, WhatsApp, etc.) in one place.
+Magbasa, magpadala, at mag-archive ng mga mensahe sa pamamagitan ng Beeper Desktop. Gumagamit ng Beeper local MCP API para mapamahalaan ng agents ang lahat ng iyong chats (iMessage, WhatsApp, atbp.) sa iisang lugar.
 </Card>
 
 </CardGroup>
 
-## 🤖 Automation & Workflows
+## 🤖 Automation at Workflows
 
 <CardGroup cols={2}>
 
 <Card title="Winix Air Purifier Control" icon="wind" href="https://x.com/antonplex/status/2010518442471006253">
   **@antonplex** • `automation` `hardware` `air-quality`
 
-Claude Code discovered and confirmed the purifier controls, then OpenClaw takes over to manage room air quality.
+Natuklasan at kinumpirma ng Claude Code ang mga control ng purifier, pagkatapos ay inako ng OpenClaw ang pamamahala ng kalidad ng hangin sa kuwarto.
 
-  <img src="/assets/showcase/winix-air-purifier.jpg" alt="Winix air purifier control via OpenClaw"></img>
+  <img src="/assets/showcase/winix-air-purifier.jpg" alt="Kontrol ng Winix air purifier sa pamamagitan ng OpenClaw"></img>
 </Card>
 
 <Card title="Pretty Sky Camera Shots" icon="camera" href="https://x.com/signalgaining/status/2010523120604746151">
   **@signalgaining** • `automation` `camera` `skill` `images`
 
-Triggered by a roof camera: ask OpenClaw to snap a sky photo whenever it looks pretty — it designed a skill and took the shot.
+Na-trigger ng roof camera: hilingin sa OpenClaw na kumuha ng litrato ng langit kapag maganda ang itsura — nagdisenyo ito ng skill at kinuha ang kuha.
 
-  <img src="/assets/showcase/roof-camera-sky.jpg" alt="Roof camera sky snapshot captured by OpenClaw"></img>
+  <img src="/assets/showcase/roof-camera-sky.jpg" alt="Snapshot ng langit mula sa roof camera na kinuha ng OpenClaw"></img>
 </Card>
 
 <Card title="Visual Morning Briefing Scene" icon="robot" href="https://x.com/buddyhadry/status/2010005331925954739">
   **@buddyhadry** • `automation` `briefing` `images` `telegram`
 
-A scheduled prompt generates a single "scene" image each morning (weather, tasks, date, favorite post/quote) via a OpenClaw persona.
+Isang naka-iskedyul na prompt ang bumubuo ng iisang “scene” na imahe tuwing umaga (panahon, mga gawain, petsa, paboritong post/quote) sa pamamagitan ng isang OpenClaw persona.
 </Card>
 
 <Card title="Padel Court Booking" icon="calendar-check" href="https://github.com/joshp123/padel-cli">
   **@joshp123** • `automation` `booking` `cli`
   
-  Playtomic availability checker + booking CLI. Never miss an open court again.
+  Playtomic availability checker + booking CLI. Huwag nang makaligtaan ang bakanteng court.
   
-  <img src="/assets/showcase/padel-screenshot.jpg" alt="padel-cli screenshot"></img>
+  <img src="/assets/showcase/padel-screenshot.jpg" alt="screenshot ng padel-cli"></img>
 </Card>
 
 <Card title="Accounting Intake" icon="file-invoice-dollar">
   **Community** • `automation` `email` `pdf`
   
-  Collects PDFs from email, preps documents for tax consultant. Monthly accounting on autopilot.
+  Nangongolekta ng PDFs mula sa email at inihahanda ang mga dokumento para sa tax consultant. Buwanang accounting na naka-autopilot.
 </Card>
 
 <Card title="Couch Potato Dev Mode" icon="couch" href="https://davekiss.com">
   **@davekiss** • `telegram` `website` `migration` `astro`
 
-Rebuilt entire personal site via Telegram while watching Netflix — Notion → Astro, 18 posts migrated, DNS to Cloudflare. Never opened a laptop.
+Muling binuo ang buong personal na site sa pamamagitan ng Telegram habang nanonood ng Netflix — Notion → Astro, 18 posts ang nailipat, DNS sa Cloudflare. Hindi kailanman nagbukas ng laptop.
 </Card>
 
 <Card title="Job Search Agent" icon="briefcase">
   **@attol8** • `automation` `api` `skill`
 
-Searches job listings, matches against CV keywords, and returns relevant opportunities with links. Built in 30 minutes using JSearch API.
+Naghahanap ng job listings, itinutugma sa mga keyword ng CV, at nagbabalik ng mga kaugnay na oportunidad na may mga link. Binuo sa loob ng 30 minuto gamit ang JSearch API.
 </Card>
 
 <Card title="Jira Skill Builder" icon="diagram-project" href="https://x.com/jdrhyne/status/2008336434827002232">
   **@jdrhyne** • `automation` `jira` `skill` `devtools`
 
-OpenClaw connected to Jira, then generated a new skill on the fly (before it existed on ClawHub).
+Kumonekta ang OpenClaw sa Jira, pagkatapos ay bumuo ng bagong skill on the fly (bago pa ito umiral sa ClawHub).
 </Card>
 
 <Card title="Todoist Skill via Telegram" icon="list-check" href="https://x.com/iamsubhrajyoti/status/2009949389884920153">
   **@iamsubhrajyoti** • `automation` `todoist` `skill` `telegram`
 
-Automated Todoist tasks and had OpenClaw generate the skill directly in Telegram chat.
+In-automate ang mga Todoist tasks at pinagawa sa OpenClaw ang skill direkta sa Telegram chat.
 </Card>
 
 <Card title="TradingView Analysis" icon="chart-line">
   **@bheem1798** • `finance` `browser` `automation`
 
-Logs into TradingView via browser automation, screenshots charts, and performs technical analysis on demand. No API needed—just browser control.
+Nagla-log in sa TradingView gamit ang browser automation, kumukuha ng screenshots ng charts, at nagsasagawa ng technical analysis kapag kailangan. Walang API—browser control lang.
 </Card>
 
 <Card title="Slack Auto-Support" icon="slack">
   **@henrymascot** • `slack` `automation` `support`
 
-Watches company Slack channel, responds helpfully, and forwards notifications to Telegram. Autonomously fixed a production bug in a deployed app without being asked.
+Binabantayan ang Slack channel ng kumpanya, tumutugon nang kapaki-pakinabang, at ipinapasa ang mga notification sa Telegram. Kusang nag-ayos ng production bug sa isang deployed app nang hindi inuutusan.
 </Card>
 
 </CardGroup>
 
-## 🧠 Knowledge & Memory
+## 🧠 Kaalaman at Memorya
 
 <CardGroup cols={2}>
 
 <Card title="xuezh Chinese Learning" icon="language" href="https://github.com/joshp123/xuezh">
   **@joshp123** • `learning` `voice` `skill`
   
-  Chinese learning engine with pronunciation feedback and study flows via OpenClaw.
+  Chinese learning engine na may feedback sa pagbigkas at mga study flow sa pamamagitan ng OpenClaw.
   
-  <img src="/assets/showcase/xuezh-pronunciation.jpeg" alt="xuezh pronunciation feedback"></img>
+  <img src="/assets/showcase/xuezh-pronunciation.jpeg" alt="feedback sa pagbigkas ng xuezh"></img>
 </Card>
 
 <Card title="WhatsApp Memory Vault" icon="vault">
   **Community** • `memory` `transcription` `indexing`
   
-  Ingests full WhatsApp exports, transcribes 1k+ voice notes, cross-checks with git logs, outputs linked markdown reports.
+  Ini-import ang buong WhatsApp exports, tina-transcribe ang 1k+ voice notes, sini-cross-check sa git logs, at naglalabas ng magkakaugnay na markdown reports.
 </Card>
 
 <Card title="Karakeep Semantic Search" icon="magnifying-glass" href="https://github.com/jamesbrooksco/karakeep-semantic-search">
   **@jamesbrooksco** • `search` `vector` `bookmarks`
   
-  Adds vector search to Karakeep bookmarks using Qdrant + OpenAI/Ollama embeddings.
+  Nagdaragdag ng vector search sa Karakeep bookmarks gamit ang Qdrant + OpenAI/Ollama embeddings.
 </Card>
 
 <Card title="Inside-Out-2 Memory" icon="brain">
   **Community** • `memory` `beliefs` `self-model`
   
-  Separate memory manager that turns session files into memories → beliefs → evolving self model.
+  Hiwalay na memory manager na ginagawang memories → beliefs → umuunlad na self model ang session files.
 </Card>
 
 </CardGroup>
 
-## 🎙️ Voice & Phone
+## 🎙️ Boses at Telepono
 
 <CardGroup cols={2}>
 
 <Card title="Clawdia Phone Bridge" icon="phone" href="https://github.com/alejandroOPI/clawdia-bridge">
   **@alejandroOPI** • `voice` `vapi` `bridge`
   
-  Vapi voice assistant ↔ OpenClaw HTTP bridge. Near real-time phone calls with your agent.
+  Vapi voice assistant ↔ OpenClaw HTTP bridge. Halos real-time na tawag sa telepono kasama ang iyong agent.
 </Card>
 
 <Card title="OpenRouter Transcription" icon="microphone" href="https://clawhub.com/obviyus/openrouter-transcribe">
   **@obviyus** • `transcription` `multilingual` `skill`
 
-Multi-lingual audio transcription via OpenRouter (Gemini, etc). Available on ClawHub.
+Multi-lingual na audio transcription sa pamamagitan ng OpenRouter (Gemini, atbp.). Available sa ClawHub.
 </Card>
 
 </CardGroup>
 
-## 🏗️ Infrastructure & Deployment
+## 🏗️ Imprastraktura at Deployment
 
 <CardGroup cols={2}>
 
 <Card title="Home Assistant Add-on" icon="home" href="https://github.com/ngutman/openclaw-ha-addon">
   **@ngutman** • `homeassistant` `docker` `raspberry-pi`
   
-  OpenClaw gateway running on Home Assistant OS with SSH tunnel support and persistent state.
+  OpenClaw gateway na tumatakbo sa Home Assistant OS na may suporta sa SSH tunnel at persistent state.
 </Card>
 
 <Card title="Home Assistant Skill" icon="toggle-on" href="https://clawhub.com/skills/homeassistant">
   **ClawHub** • `homeassistant` `skill` `automation`
   
-  Control and automate Home Assistant devices via natural language.
+  Kontrolin at i-automate ang mga Home Assistant devices gamit ang natural na wika.
 </Card>
 
 <Card title="Nix Packaging" icon="snowflake" href="https://github.com/openclaw/nix-openclaw">
   **@openclaw** • `nix` `packaging` `deployment`
   
-  Batteries-included nixified OpenClaw configuration for reproducible deployments.
+  Kumpletong nixified na configuration ng OpenClaw para sa reproducible na deployments.
 </Card>
 
 <Card title="CalDAV Calendar" icon="calendar" href="https://clawhub.com/skills/caldav-calendar">
   **ClawHub** • `calendar` `caldav` `skill`
   
-  Calendar skill using khal/vdirsyncer. Self-hosted calendar integration.
+  Calendar skill gamit ang khal/vdirsyncer. Self-hosted na integrasyon ng calendar.
 </Card>
 
 </CardGroup>
 
-## 🏠 Home & Hardware
+## 🏠 Bahay at Hardware
 
 <CardGroup cols={2}>
 
 <Card title="GoHome Automation" icon="house-signal" href="https://github.com/joshp123/gohome">
   **@joshp123** • `home` `nix` `grafana`
   
-  Nix-native home automation with OpenClaw as the interface, plus beautiful Grafana dashboards.
+  Nix-native na home automation na may OpenClaw bilang interface, kasama ang magagandang Grafana dashboards.
   
   <img src="/assets/showcase/gohome-grafana.png" alt="GoHome Grafana dashboard"></img>
 </Card>
@@ -375,44 +375,42 @@ Multi-lingual audio transcription via OpenRouter (Gemini, etc). Available on Cla
 <Card title="Roborock Vacuum" icon="robot" href="https://github.com/joshp123/gohome/tree/main/plugins/roborock">
   **@joshp123** • `vacuum` `iot` `plugin`
   
-  Control your Roborock robot vacuum through natural conversation.
+  Kontrolin ang iyong Roborock robot vacuum sa pamamagitan ng natural na pag-uusap.
   
-  <img src="/assets/showcase/roborock-screenshot.jpg" alt="Roborock status"></img>
+  <img src="/assets/showcase/roborock-screenshot.jpg" alt="Status ng Roborock"></img>
 </Card>
 
 </CardGroup>
 
-## 🌟 Community Projects
+## 🌟 Mga Proyekto ng Komunidad
 
 <CardGroup cols={2}>
 
 <Card title="StarSwap Marketplace" icon="star" href="https://star-swap.com/">
   **Community** • `marketplace` `astronomy` `webapp`
   
-  Full astronomy gear marketplace. Built with/around the OpenClaw ecosystem.
+  Kumpletong marketplace para sa astronomy gear. Binuo gamit/sa paligid ng OpenClaw ecosystem.
 </Card>
 
 </CardGroup>
 
 ---
 
-## Submit Your Project
+## I-submit ang Iyong Proyekto
 
-Have something to share? We'd love to feature it!
+May gusto ka bang ibahagi? Ikinagagalak naming i-feature ito!
 
 <Steps>
-  <Step title="Share It">
-    Post in [#showcase on Discord](https://discord.gg/clawd) or [tweet @openclaw](https://x.com/openclaw)
+  <Step title="Ibahagi Ito">
+    Mag-post sa [#showcase on Discord](https://discord.gg/clawd) o [mag-tweet sa @openclaw](https://x.com/openclaw)
   
 </Step>
-  <Step title="Include Details">
-    Tell us what it does, link to the repo/demo, share a screenshot if you have one
+  <Step title="Isama ang mga Detalye">
+    Sabihin sa amin kung ano ang ginagawa nito, maglagay ng link sa repo/demo, at magbahagi ng screenshot kung mayroon
   
 </Step>
-  <Step title="Get Featured">
-    We'll add standout projects to this page
+  <Step title="Ma-feature">
+    Idadagdag namin ang mga natatanging proyekto sa pahinang ito
   
 </Step>
 </Steps>
-
-
